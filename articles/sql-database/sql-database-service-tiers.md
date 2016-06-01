@@ -52,7 +52,7 @@ DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-d
 
 [AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 2400 ~ 28800개이지만, 해당 풀 내의 개별 데이터베이스에 대한 데이터베이스 세션 한계는 300개입니다(이전 섹션에서 지정한 단일 Basic 데이터베이스에 대한 한계).
+또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 4800 ~ 28800개이지만, 해당 풀 내의 개별 데이터베이스에 대한 데이터베이스 세션 한계는 300개입니다(이전 섹션에서 지정한 단일 Basic 데이터베이스에 대한 한계).
 
 ## DTU 이해
 
@@ -64,4 +64,4 @@ DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-d
 - [탄력적 풀을 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)하고 [단일 데이터베이스의 성능을 모니터링](sql-database-single-database-monitor.md)하는 방법에 대해 알아봅니다.
 - SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

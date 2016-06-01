@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -26,7 +26,7 @@
 
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
 
-3. Azure AD 디렉터리에 대해 **도메인 서비스**를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](./active-directory-ds-getting-started.md)에 간략히 설명된 모든 작업을 따릅니다.
+3. Azure AD 디렉터리에 대해 **Azure AD 도메인 서비스**를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](./active-directory-ds-getting-started.md)에 간략히 설명된 모든 작업을 따릅니다.
 
 4. **보안 LDAP를 사용하도록 설정하는 데 사용할 인증서**
     - **권장** - 엔터프라이즈 CA 또는 공용 인증 기관에서 인증서를 가져옵니다. 훨씬 더 안전한 구성 옵션입니다.
@@ -242,4 +242,4 @@ LDAPS 인증서를 .PFX 파일로 내보내기 위해서는 다음 단계를 수
 
 - [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

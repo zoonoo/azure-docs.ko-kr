@@ -16,7 +16,10 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# 자습서: 장치 쌍을 사용하는 방법(미리 보기)
+# 자습서: C#으로 장치 쌍을 사용하는 방법(미리 보기)
+
+[AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+## 소개
 
 Azure IoT Hub 장치 관리는 물리적 장치의 서비스 쪽 표시인 장치 쌍을 도입합니다. 다음은 장치 쌍의 여러 가지 구성 요소를 보여 주는 다이어그램입니다.
 
@@ -28,7 +31,7 @@ Azure IoT Hub 장치 관리는 물리적 장치의 서비스 쪽 표시인 장�
 
 ## 장치 속성 동기화
 
-물리적 장치는 장치 속성에 대한 신뢰할 수 있는 출처입니다. 물리적 장치에 대해 선택된 값은 LWM2M에서 설명하는 *관찰/알림* 패턴을 통해 IoT Hub의 장치 쌍에 자동으로 동기화됩니다.
+물리적 장치는 장치 속성에 대한 신뢰할 수 있는 출처입니다. 물리적 장치에 대해 선택된 값은 [LWM2M][lnk-lwm2m]에서 설명하는 *관찰/알림* 패턴을 통해 IoT Hub의 장치 쌍에 자동으로 동기화됩니다.
 
 물리적 장치가 IoT Hub에 연결할 때 선택된 장치 속성에 대한 *관찰*이 시작됩니다. 그런 다음 물리적 장치가 장치 속성 변경 내용을 IoT Hub에 *알립니다*. 이력을 구현하려면 **pmin**(알림 간의 최소 시간)을 5분으로 설정합니다. 즉, 각 속성에 대해 물리적 장치는 변경 내용이 있더라도 5분에 한 번 이상 자주 IoT Hub에 알리지 않습니다. 최신 상태를 보장하려면 **pmax**를 6시간으로 설정합니다. 즉, 각 속성에 대해 물리적 장치는 해당 기간 이내에 속성이 변경되지 않더라도 최소 6시간에 한 번 IoT Hub에 알립니다.
 
@@ -37,6 +40,7 @@ Azure IoT Hub 장치 관리는 물리적 장치의 서비스 쪽 표시인 장�
 자동으로 관찰되는 장치 속성의 전체 목록은 다음과 같습니다.
 
 ![][img-observed]
+
 
 ## 장치 쌍 샘플 실행
 
@@ -97,7 +101,7 @@ JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyReadAsync(
 작업은 지정된 속성을 업데이트하라는 메시지를 물리적 장치에 보냅니다. 장치 쌍은 작업이 완료될 때 즉시 업데이트되지 않습니다. 다음 알림 간격까지 기다려야 합니다. 동기화가 이루어진 후 단순 읽기를 사용하여 장치의 변경 내용을 확인할 수 있습니다.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue);
+JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
 ### 장치 시뮬레이터 구현 세부 정보
@@ -127,6 +131,7 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
 [img-observed]: media/iot-hub-device-management-device-twin/image2.png
 
+[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-dm-library]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -134,4 +139,4 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

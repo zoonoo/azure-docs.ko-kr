@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/12/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -30,7 +30,7 @@ Azure Active Directory를 강화하려면 Azure Active Directory Basic 및 Premi
 Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active Directory 기능을 포함합니다.
 
 
-> [AZURE.NOTE] 이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. <br>Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
+> [AZURE.NOTE] 이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
 
 
 - **Azure Active Directory Basic** - 클라우드를 주로 필요로 하는 작업자를 위해 설계된 이 버전은 클라우드 중심 응용 프로그램 액세스 및 셀프 서비스 ID 관리 솔루션을 제공합니다. Azure Active Directory Basic 버전을 사용하면 그룹 기반 액세스 관리, 클라우드 응용 프로그램에 대한 셀프 서비스 암호 재설정 및 Azure Active Directory 응용 프로그램 프록시(Azure Active Directory를 사용하여 온-프레미스 웹 응용 프로그램을 게시하는 데 필요)와 같은 생산성 강화 및 비용 절감 기능을 활용할 수 있고 이는 모두 엔터프라이즈급의 99.9% 가동 시간 SLA에서 지원됩니다.
@@ -50,7 +50,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 ##일반 기능 비교
 
-> [AZURE.NOTE] 이 데이터의 다른 보기는 [Azure Active Directory 기능](https://www.microsoft.com/server-cloud/products/azure-active-directory/Features.aspx)을 참조하세요.
+> [AZURE.NOTE] 이 데이터의 다른 보기는 [Azure Active Directory 기능](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx)을 참조하세요.
 
 | | Azure AD Free | Azure AD Basic | Azure AD Premium |
 | ---                      | :-:           | :-:            | :-:              |
@@ -60,7 +60,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 
 
-<br>
+
 
 **일반 기능**
 
@@ -117,8 +117,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 
 
-<br>
-<hr>
+
+
 ## 일반 기능
 #### 디렉터리 개체 
 
@@ -134,7 +134,6 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 | 최대 500,000개의 개체| 개체 제한 없음| 개체 제한 없음| Office 365 사용자 계정에 대한 개체 제한 없음|
 
 
-<br>
 
 #### 사용자/그룹 관리(추가/업데이트/삭제)/ 사용자 기반 프로비전, 장치 등록
 
@@ -153,8 +152,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br>
-<hr>
+
+
 #### SSO(Single Sign-On)
 
 **유형:** 일반 기능
@@ -164,7 +163,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 | Free Edition| Basic Edition| Premium Edition| Office 365 앱만 해당 |
 | :-: | :-: | :-: | :-: |
-| 사용자당 앱 10개 [1] <br>(사전 통합 SaaS 및 개발자 통합 앱)| 사용자당 앱 10개 [1] <br>(무료 계층 + 응용 프로그램 프록시 앱) | 제한 없음 [2] <br>(무료, 기본 계층 + 셀프 서비스 앱 통합 템플릿)| 사용자당 앱 10개 [1] <br>(사전 통합 SaaS 및 개발자 통합 앱)|
+| 사용자당 앱 10개 [1](사전 통합 SaaS 및 개발자 통합 앱)| 사용자당 앱 10개 [1](무료 계층 + 응용 프로그램 프록시 앱) | 제한 없음 [2](무료, 기본 계층 + 셀프 서비스 앱 통합 템플릿)| 사용자당 앱 10개 [1](사전 통합 SaaS 및 개발자 통합 앱)|
 
 [1] Azure AD Free와 Azure AD Basic을 사용하면 SaaS 앱 액세스 권한이 할당된 최종 사용자가 액세스 패널에서 최대 10개의 앱을 보고 해당 앱에 대한 SSO 액세스 권한을 가질 수 있습니다. 관리자는 Free 및 Basic에서 SSO를 구성하고 원하는 수만큼 SaaS 앱에 대한 사용자 액세스 권한을 할당할 수 있지만 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
 
@@ -174,8 +173,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [Azure Active Directory(AD)와 응용 프로그램 관리](active-directory-enable-sso-scenario.md)
 
-<br>
-<hr>
+
+
 #### 클라우드 사용자를 위한 셀프 서비스 암호 변경
 
 **유형:** 일반 기능
@@ -191,8 +190,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 - [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
 
 
-<br>
-<hr>
+
+
 #### Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진) 
 
 **유형:** 일반 기능
@@ -208,8 +207,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<br>
-<hr>
+
+
 #### 보안/사용 보고서
 
 **유형:** 일반 기능
@@ -225,8 +224,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<br>
-<hr>
+
+
 
 ## Premium 및 Basic 기능
 #### 그룹 기반 액세스 관리/프로비전
@@ -244,8 +243,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](active-directory-accessmanagement-group-saasapps.md)
 
-<br>
-<hr>
+
+
 #### 클라우드 사용자를 위한 셀프 서비스 암호 재설정
 
 **유형:** Basic 기능
@@ -261,8 +260,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [사용자와 관리자에 대한 Azure AD 암호 재설정](active-directory-passwords.md)
 
-<br>
-<hr>
+
+
 #### 회사 브랜딩(로그온 페이지/액세스 패널 사용자 지정)
 
 **유형:** Basic 기능
@@ -278,8 +277,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 
-<br>
-<hr>
+
+
 #### 응용 프로그램 프록시
 
 **유형:** Basic 기능
@@ -295,8 +294,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
 
-<br>
-<hr>
+
+
 #### SLA 99.9%
 
 **유형:** Basic 기능
@@ -312,8 +311,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)
 
-<br>
-<hr>
+
+
 
 ## Premium 기능
 #### 셀프 서비스 그룹 및 앱 관리/셀프 서비스 응용 프로그램 추가/동적 그룹
@@ -329,7 +328,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 
 
-<br>
+
          
 #### 셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제
 
@@ -344,7 +343,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 
 
-<br>
+
 
 #### Multi-Factor Authentication(클라우드 및 온-프레미스(MFA 서버))
 
@@ -361,8 +360,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 - [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br>
-<hr>
+
+
 #### MIM CAL + MIM 서버 
 
 Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft ID 관리자는 Windows Server OS에서 실행되므로 서버에서 라이선스가 부여된 유효한 Windows Server를 실행하는 한 Microsoft ID 관리자를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
@@ -378,7 +377,7 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 
 
 
-<br>
+
 
 #### 클라우드 앱 검색 
 
@@ -395,8 +394,8 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 
 - [클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기](active-directory-cloudappdiscovery-whatis.md)
 
-<br>
-<hr>
+
+
 #### Connect Health
 
 **유형:** Premium 기능
@@ -412,8 +411,8 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 
 - [온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.](active-directory-aadconnect-health.md)
 
-<br>
-<hr>
+
+
 #### 그룹 계정에 대한 자동 암호 롤오버
 
 **유형:** Premium 기능
@@ -426,8 +425,8 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 | | | ![확인][12]| |
 
 
-<br>
-<hr>
+
+
 ## Azure Active Directory 조인 – Windows 10 전용 관련 기능
 #### 장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 BitLocker 복구에 조인
 
@@ -441,7 +440,7 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 | ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
 
 
-<br>
+
 
 #### MDM 자동 등록, 셀프 서비스 BitLocker 복구, Azure AD 조인을 통해 추가된 Windows 10 장치에 대한 추가 로컬 관리자
 
@@ -454,7 +453,7 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 | :-: | :-: | :-: | :-: |
 | | | ![확인][12]| |
 
-<hr>
+
 
 
 ## Azure AD 미리 보기 기능
@@ -483,4 +482,4 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

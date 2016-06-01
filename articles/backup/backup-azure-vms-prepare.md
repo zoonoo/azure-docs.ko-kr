@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="05/04/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Azure 가상 컴퓨터를 백업하기 위한 환경 준비
+
+> [AZURE.SELECTOR]
+- [ARM VM 백업 준비](backup-azure-arm-vms-prepare.md)
+- [Azure VM 백업 준비](backup-azure-vms-prepare.md)
 
 Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 합니다.
 
@@ -26,16 +30,14 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 - Azure 공용 인터넷 주소와 Azure 저장소 끝점 간의 네트워크 연결을 설정합니다.
 - VM에 VM 에이전트를 설치합니다.
 
-사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 백업 문서](backup-azure-vms.md)를 진행합니다. 그렇지 않으면 이 문서에 따라 Azure VM을 백업하도록 환경을 준비하는 단계를 수행합니다.
+사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 그렇지 않으면 이 문서에 따라 Azure VM을 백업하도록 환경을 준비하는 단계를 수행합니다.
 
 
 ## VM 백업 및 복원 시의 제한 사항
 
 >[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 다음 목록에서는 클래식 모델에서 배포할 때의 제한 사항을 제공합니다.
 
-- AMR(Azure Resource Manager) 기반(즉, IaaS V2) 가상 컴퓨터의 백업은 현재 지원되지 않습니다.
 - 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
-- 프리미엄 저장소를 사용하는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 복원하는 동안 기존 가상 컴퓨터의 교체는 지원되지 않습니다. 먼저 기존 가상 컴퓨터와 관련 디스크를 모두 삭제한 다음 백업에서 데이터를 복원합니다.
 - 지역 간 백업 및 복원은 지원되지 않습니다.
@@ -43,11 +45,11 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
   - **Linux**: [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md)을 참조하세요. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
-	- 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
-	- 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)을 참조하세요.
-		- 부하 분산 장치 구성에서의 가상 컴퓨터(내부 및 외부)
-		- 다중의 예약된 IP 주소가 있는 가상 컴퓨터
-		- 다중 네트워크 어댑터가 있는 가상 컴퓨터
+- 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
+- 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)을 참조하세요.
+    - 부하 분산 장치 구성에서의 가상 컴퓨터(내부 및 외부)
+    - 다중의 예약된 IP 주소가 있는 가상 컴퓨터
+    - 다중 네트워크 어댑터가 있는 가상 컴퓨터
 
 ## VM에 대한 백업 자격 증명 모음 만들기
 
@@ -67,11 +69,11 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 
     ![백업 자격 증명 모음 만들기](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
 
-3. **이름**에는 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
+3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
 
 4. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 보호하려는 가상 컴퓨터와 동일한 지역에 있어야 합니다. 가상 컴퓨터가 여러 지역에 있으면 각 지역에 백업 자격 증명 모음을 만들어야 합니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. 백업 자격 증명 모음 및 Azure 백업 서비스가 자동으로 처리합니다.
 
-5. **구독**에서 백업 자격 증명 모음과 연결할 구독을 선택합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
+5. **구독**에서 백업 자격 증명 모음과 연결하려는 구독을 선택합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
 
 6. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다.
 
@@ -88,56 +90,83 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 
 ## 네트워크 연결
 
-백업 확장은 VM의 스냅샷을 관리하도록 Azure 저장소 끝점(HTTP URL)에 명령을 보내기 때문에 제대로 작동하려면 Azure 공용 IP 주소에 연결되어야 합니다. 제대로 인터넷에 연결하지 않은 경우 VM의 이러한 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다.
+VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대한 연결이 필요합니다. 올바른 인터넷 연결이 없으면, 가상 컴퓨터의 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다. 배포에 액세스 제한이 있다면(예: 네트워크 보안 그룹(NSG)을 통해), 백업 트래픽에 대해 명확한 경로를 제공하기 위해 이 옵션 중 하나를 선택합니다.
 
-### NSG의 네트워크 제한 사항
+- [Azure 데이터 센터 IP 범위 허용 목록](http://www.microsoft.com/ko-KR/download/details.aspx?id=41653) - IP 주소 허용 목록을 만드는 방법에 대한 지침은 이 문서를 참조하세요.
+- 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다.
 
-배포가 (예를 들어 네트워크 보안 그룹(NSG)을 통해) 액세스 제한을 준비한다면 백업 자격 증명에 백업 트래픽이 영향을 받지 않고 유지되도록 추가 단계를 수행해야 합니다.
-
-백업 트래픽에 대한 경로를 제공하는 두 가지 방법이 있습니다.
-
-1. [Azure 데이터 센터 IP 범위](http://www.microsoft.com/ko-KR/download/details.aspx?id=41653)를 허용 목록에 추가합니다.
-2. HTTP 프록시를 배포하여 트래픽을 라우팅합니다.
-
-관리 효율성, 세부적인 제어 및 비용 간의 절충입니다.
+사용할 옵션을 결정할 때는, 관리 효율성, 세부적인 제어, 및 비용 사이에 균형을 유지합니다.
 
 |옵션|장점|단점|
 |------|----------|-------------|
-|옵션 1: 허용 목록 IP 범위| 추가 비용 없음<br><br>NSG에서 액세스를 여는 경우 <i>Set-AzureNetworkSecurityRule</i> cmdlet를 사용합니다. | 시간이 지남에 따라 영향을 받는 IP 범위가 변경되기 때문에 관리하기 복잡합니다.<br>저장소 뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.|
-|옵션 2: HTTP 프록시| 허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어<br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음| 프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다.|
+|허용 목록 IP 범위| 추가 비용 없음<br><br>NSG에서 액세스를 여는 경우 <i>Set-AzureNetworkSecurityRule</i> cmdlet를 사용합니다. | 시간이 지남에 따라 영향을 받는 IP 범위가 변경되기 때문에 관리하기가 복잡합니다.<br><br>저장소 뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.|
+|HTTP 프록시| 허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어<br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음| 프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다.|
+
+### Azure 데이터 센터 IP 범위 허용 목록
+
+Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/ko-KR/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
 
 ### VM 백업에 HTTP 프록시 사용
-VM을 백업할 때 스냅숏 관리 명령은 HTTPS API를 사용하여 백업 확장에서 Azure 저장소에 보내집니다. 프록시가 공용 인터넷에 액세스할 수 있도록 구성되기 때문에 이 트래픽은 프록시를 통해 확장에서 라우팅되어야 합니다.
+VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저장소에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이므로, HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
 
 >[AZURE.NOTE] 사용해야 할 프록시 소프트웨어에 대한 권장 사항은 없습니다. 아래의 구성 단계와 호환되는 프록시를 선택하도록 합니다.
 
-아래 예제에서 앱 VM은 공용 인터넷에 대한 모든 HTTP 트래픽에 프록시 VM을 사용하도록 구성해야 합니다. 프록시 VM은 가상 네트워크의 VM에서 들어오는 트래픽을 허용하도록 구성해야 합니다. 마지막으로 NSG(*NSG-lockdown*이라고 명명됨)는 프록시 VM에서 아웃바운드 인터넷 트래픽을 허용하는 새 보안 규칙이 필요합니다.
+아래 예제 이미지는 HTTP 프록시를 사용하는 데 필요한 세 가지 구성 단계를 보여줍니다.
+
+- 앱 VM은 프록시 VM을 통해 공용 인터넷으로 향하는 모든 HTTP 트래픽을 라우팅합니다.
+- 프록시 VM은 가상 네트워크의 VM에서 들어오는 트래픽을 허용합니다.
+- NSF-lockdown이라는 이름의 네트워크 보안 그룹(NSG)에 프록시 VM의 아웃바운드 인터넷 트래픽을 허용하는 보안 규칙이 필요합니다.
 
 ![HTTP 프록시 배포 다이어그램을 사용하는 NSG](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-**A) 나가는 네트워크 연결 허용.**
+공용 인터넷 통신에 HTTP 프록시를 사용하려면, 다음 단계를 수행합니다.
 
-1. Windows 컴퓨터의 경우 승격된 명령 프롬프트에서 다음 명령을 실행합니다.
+#### 1단계. 나가는 네트워크 연결 구성
+###### Windows 컴퓨터의 경우
+로컬 시스템 계정에 대한 프록시 서버 구성을 설정합니다.
 
-    ```
-    netsh winhttp set proxy http://<proxy IP>:<proxy port>
-    ```
-    시스템 수준의 프록시 구성을 설정하고 나가는 HTTP/HTTPS 트래픽에 사용됩니다.
+1. [PsExec](https://technet.microsoft.com/sysinternals/bb897553)를 다운로드합니다.
+2. 관리자 권한 프롬프트에서 다음 명령을 실행합니다.
 
-2. Linux 컴퓨터의 경우 ```/etc/environment``` 파일에 다음 줄을 추가합니다.
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+    Internet Explorer 창이 열립니다.
+3. 도구 -> 인터넷 옵션 -> 연결 -> LAN 설정으로 이동합니다.
+4. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다. 
+5. Internet Explorer를 닫습니다.
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
+시스템 수준의 프록시 구성을 설정하고 나가는 HTTP/HTTPS 트래픽에 사용됩니다.
+   
+현재 사용자 계정(로컬 시스템 계정이 아닌)으로 프록시 서버를 설정한 경우에는, 다음 스크립트를 사용하여 SYSTEMACCOUNT에 적용합니다.
 
-  ```/etc/waagent.conf``` 파일에 다음 줄을 추가합니다.
+```
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+```
 
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
+>[AZURE.NOTE] 프록시 서버 로그에 "(407)프록시 인증 필요"가 있으면, 인증이 제대로 설정되었는지 확인합니다.
 
-**B) 프록시 서버에서 들어오는 연결 허용**
+######Linux 컴퓨터의 경우 
+
+다음 줄을 ```/etc/environment``` 파일에 추가합니다.
+
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
+
+```/etc/waagent.conf``` 파일에 다음 줄을 추가합니다.
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
+
+#### 2단계. 프록시 서버에서 들어오는 연결을 허용합니다.
 
 1. 프록시 서버에서 Windows 방화벽을 엽니다. 방화벽에 액세스하는 가장 쉬운 방법은 고급 보안이 포함된 Windows 방화벽을 검색하는 것입니다.
 
@@ -148,6 +177,7 @@ VM을 백업할 때 스냅숏 관리 명령은 HTTPS API를 사용하여 백업 
     ![새 규칙 만들기](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. **새 인바운드 규칙 마법사**에서 **규칙 형식**에 **사용자 지정** 옵션을 선택하고 **다음**을 클릭합니다.
+
 4. **프로그램**을 선택하려는 페이지에서 **모든 프로그램**을 선택하고 **다음**을 클릭합니다.
 
 5. **프로토콜 및 포트** 페이지에서 다음 정보를 입력하고 **다음**을 클릭합니다.
@@ -160,16 +190,16 @@ VM을 백업할 때 스냅숏 관리 명령은 HTTPS API를 사용하여 백업 
 
     마법사의 나머지 부분의 경우 끝까지 클릭하고 이 규칙에 이름을 지정합니다.
 
-**C) NSG에 예외 규칙 추가**
+#### 3단계. NSG에 예외 규칙 추가
 
 Azure PowerShell 명령 프롬프트에서 다음 명령을 입력합니다.
+
+다음 명령은 NSG에 예외를 추가합니다. 이 예외는 10.0.0.5의 모든 포트에서 오는 TCP 트래픽을 포트 80(HTTP) 또는 443(HTTPS)의 모든 인터넷 주소에 허용합니다. 공용 인터넷에 특정 포트가 필요하면, 해당 포트를 ```-DestinationPortRange```에도 추가해야 합니다.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
-
-이 명령은 NSG에 예외를 추가하여 10.0.0.5의 포트에서 포트 80(HTTP) 또는 443(HTTPS)의 인터넷 주소에 TCP 트래픽을 허용합니다. 공용 인터넷에서 특정 포트를 적중해야 할 경우에 또한 해당 포트를 ```-DestinationPortRange```에 추가해야 합니다.
 
 *배포에 적절한 세부 정보를 사용하여 예제에서 이름을 대체하도록 합니다.*
 
@@ -208,4 +238,4 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 - [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

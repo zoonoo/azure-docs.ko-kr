@@ -21,9 +21,11 @@
 
 기본적으로 Hadoop 클러스터는 성능을 위해 최적화되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법 중 몇가지를 설명합니다.
 
-[AZURE.INCLUDE [포털](../../includes/hdinsight-azure-portal.md)]
-
-* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)
+> [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
+>
+> 또한 이 문서는 Azure PowerShell을 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 ASM(Azure 서비스 관리)을 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거됩니다.
+>
+>ARM(Azure Resource Manager)을 사용하는 Azure 리소스 PowerShell 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)를 참조하세요.
 
 ##작업자 노드 확장
 
@@ -218,4 +220,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

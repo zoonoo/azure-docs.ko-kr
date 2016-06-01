@@ -1,6 +1,6 @@
 <properties
    pageTitle="HDInsight에서 R 서버 시작(미리 보기) | Azure"
-   description="R 서버를 포함하는 HDInsight의 Apache Spark(미리 보기) 클러스터를 만든 다음 클러스터에서 R 스크립트를 제출하는 방법을 알아봅니다."
+   description="R 서버(미리 보기)를 포함하는 HDInsight(Hadoop) 클러스터에서 Apache Spark를 만든 다음 클러스터에서 R 스크립트를 제출하는 방법을 알아봅니다."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -14,12 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/25/2016"
-   ms.author="jeffstok"/>
+   ms.date="05/16/2016"
+   ms.author="jeffstok"
+/>
 
-#HDInsight에서 R 서버 사용 시작(미리 보기)
+# HDInsight에서 R 서버 사용 시작(미리 보기)
 
-HDInsight용 Premium 계층 제공에는 HDInsight의 R 서버가 포함됩니다(미리 보기). 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight에서 새 R 서버를 만든 다음 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
+HDInsight용 Premium 계층 제품에는 HDInsight(미리 보기) 클러스터의 일부로 R 서버가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight에서 새 R 서버를 만든 다음 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ![이 문서에 대한 워크플로의 다이어그램](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -174,75 +175,105 @@ Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내�
         
 1. R 콘솔에서 다음을 사용하여 HDInsight의 기본 저장소에 예제 데이터를 로드합니다.
 
-        # Set the NameNode and port for the cluster
-        myNameNode <- "default"
-        myPort <- 0
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
-        # Source for the data to load
-        source <- system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
-        # Directory in bigDataDirRoot to load the data into
-        inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
+        # create a local folder for storaging data temporarily
+        source <- "/tmp/AirOnTimeCSV2012"
+        dir.create(source)
+        # Download data to the tmp folder
+        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+        download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
+        download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
+        download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
+        download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
+        download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
+        download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
+        download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
+        download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
+        download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
+        download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
+        download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
+        download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+        # Set directory in bigDataDirRoot to load the data into
+        inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012") 
         # Make the directory
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
-        rxHadoopCopyFromLocal(source, inputDir)
+        rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. 그런 다음 데이터로 작업할 수 있도록 몇 가지 요소를 만들고 데이터 원본을 정의해 보겠습니다.
+2. 그런 다음 데이터로 작업할 수 있도록 몇 가지 데이터 정보를 만들고 두 개의 데이터 원본을 정의해 보겠습니다.
 
         # Define the HDFS (WASB) file system
-        hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, 
-                                   port=myPort)
-        # Create Factors for the days of the week
-        colInfo <- list(DayOfWeek = list(type = "factor",
-             levels = c("Monday", 
-                        "Tuesday", 
-                        "Wednesday", 
-                        "Thursday", 
-                        "Friday", 
-                        "Saturday", 
-                        "Sunday")))
-        # Define the data source
-        airDS <- RxTextData(file = inputDir, 
-                            missingValueString = "M",
-                            colInfo  = colInfo, 
-                            fileSystem = hdfsFS)
+        hdfsFS <- RxHdfsFileSystem()
+        # Create info list for the airline data
+        airlineColInfo <- list(
+            DAY_OF_WEEK = list(type = "factor"),
+            ORIGIN = list(type = "factor"),
+            DEST = list(type = "factor"),
+            DEP_TIME = list(type = "integer"),
+            ARR_DEL15 = list(type = "logical"))
 
-3. 로컬 계산 컨텍스트를 사용하여 데이터에 대해 선형 회귀를 실행해 보겠습니다.
+        # get all the column names
+        varNames <- names(airlineColInfo)
+
+        # Define the text data source in hdfs
+        airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+        # Define the text data source in local system
+        airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
+
+        # formula to use
+        formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+
+3. 로컬 계산 컨텍스트를 사용하여 데이터에 대해 로지스틱 회귀를 실행해 보겠습니다.
 
         # Set a local compute context
         rxSetComputeContext("local")
-        # Run a linear regression
+        # Run a logistic regression
         system.time(
-            modelLocal <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
-                                   data = airDS)
+            modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
         )
         # Display a summary 
-        summary(modelLocal) 
+        summary(modelLocal)
 
     다음과 유사한 줄로 끝나는 출력이 나타나야 합니다.
-    
-        Residual standard error: 40.39 on 582620 degrees of freedom
-        Multiple R-squared: 0.01465
-        Adjusted R-squared: 0.01464
-        F-statistic:  1238 on 7 and 582620 DF,  p-value: < 2.2e-16
-        Condition number: 10.6542
 
-4. 이번에는 Spark 컨텍스트를 사용하여 동일한 선형 회귀를 실행해 보겠습니다. Spark 컨텍스트는 HDInsight 클러스터의 모든 작업자 노드에서 처리를 분산시킵니다.
+        Data: airOnTimeDataLocal (RxTextData Data Source)
+        File name: /tmp/AirOnTimeCSV2012
+        Dependent variable(s): ARR_DEL15
+        Total independent variables: 634 (Including number dropped: 3)
+        Number of valid observations: 6005381
+        Number of missing observations: 91381
+        -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
+
+        Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)
+        (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
+        ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
+        ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
+        ......
+        DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
+        DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
+        DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
+        DEST=BPT         Dropped    Dropped Dropped  Dropped
+        ---
+        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+        Condition number of final variance-covariance matrix: 11904202
+        Number of iterations: 7
+
+4. 이번에는 Spark 컨텍스트를 사용하여 동일한 로지스틱 회귀를 실행해 보겠습니다. Spark 컨텍스트는 HDInsight 클러스터의 모든 작업자 노드에서 처리를 분산시킵니다.
 
         # Define the Spark compute context 
-        mySparkCluster <- RxSpark(consoleOutput=TRUE) 
+        mySparkCluster <- RxSpark()
         # Set the compute context 
-        rxSetComputeContext(mySparkCluster) 
-        # Run a linear regression 
+        rxSetComputeContext(mySparkCluster)
+        # Run a logistic regression 
         system.time(  
-            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
+            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
         # Display a summary
         summary(modelSpark)
 
-    `consoleOutput=TRUE`를 설정했기 때문에 Spark 처리의 출력은 콘솔에 기록됩니다.
-    
     > [AZURE.NOTE] MapReduce를 사용하여 클러스터 노드 간에 계산을 분산시킬 수도 있습니다. 계산 컨텍스트에 대한 자세한 내용은 [HDInsight Premium의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)을 참조하세요.
 
 ##여러 노드에 R 코드 분산
@@ -271,19 +302,19 @@ R 서버를 사용하면 손쉽게 기존 R 코드를 가져와 `rxExec`를 통�
 
 ##R 패키지 설치
 
-SSH를 통해 가장자리 노드에 연결했을 때 가장자리 노드에 추가 R 패키지를 설치하려는 경우 R 콘솔 내에서 직접 `install.packages()`를 사용할 수 있습니다. 그러나 클러스터의 작업자 노드에 R 패키지를 설치해야 하는 경우에는 스크립트 동작을 사용해야 합니다.
+SSH를 통해 가장자리 노드에 연결했을 때 가장자리 노드에 추가 R 패키지를 설치하려는 경우 R 콘솔 내에서 직접 `install.packages()`를 사용할 수 있습니다. 그러나 클러스터의 작업자 노드에 R 패키지를 설치해야 하는 경우에는 스크립트 작업을 사용해야 합니다.
 
-스크립트 동작은 HDInsight 클러스터에 대한 구성을 변경하거나 추가 소프트웨어를 설치하는 데 사용되는 Bash 스크립트입니다. 여기서는 추가 R 패키지를 설치하는 데 사용됩니다. 스크립트 동작을 사용하여 추가 패키지를 설치하려면 다음 단계를 사용하세요.
+스크립트 작업은 HDInsight 클러스터에 대한 구성을 변경하거나 추가 소프트웨어를 설치하는 데 사용되는 Bash 스크립트입니다. 여기서는 추가 R 패키지를 설치하는 데 사용됩니다. 스크립트 작업을 사용하여 추가 패키지를 설치하려면 다음 단계를 사용하세요.
 
-> [AZURE.IMPORTANT] 추가 R 패키지를 설치하는 데 스크립트 동작을 사용하려는 경우 클러스터가 만들어진 후에만 사용할 수 있습니다. 클러스터를 만드는 동안에 사용해서는 안 됩니다. 스크립트는 완전히 설치되고 구성된 R 서버에 의존하기 때문입니다.
+> [AZURE.IMPORTANT] 추가 R 패키지를 설치하는 데 스크립트 작업을 사용하려는 경우 클러스터가 만들어진 후에만 사용할 수 있습니다. 클러스터를 만드는 동안에 사용해서는 안 됩니다. 스크립트는 완전히 설치되고 구성된 R 서버에 의존하기 때문입니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 R 서버를 선택합니다.
 
-2. 클러스터 블레이드에서 __모든 설정__, __스크립트 동작__을 차례로 선택합니다. __스크립트 동작__ 블레이드에서 __새로운 항목 제출__을 선택하여 새 스크립트 동작을 제출합니다.
+2. 클러스터 블레이드에서 __모든 설정__, __스크립트 작업__을 차례로 선택합니다. __스크립트 작업__ 블레이드에서 __새로운 항목 제출__을 선택하여 새 스크립트 작업을 제출합니다.
 
-    ![스크립트 동작 블레이드의 이미지](./media/hdinsight-getting-started-with-r/newscriptaction.png)
+    ![스크립트 작업 블레이드의 이미지](./media/hdinsight-getting-started-with-r/newscriptaction.png)
 
-3. __스크립트 동작 제출__ 블레이드에서 다음 정보를 입력합니다.
+3. __스크립트 작업 제출__ 블레이드에서 다음 정보를 입력합니다.
 
     * __이름__: 이 스크립트를 식별하는 데 사용할 이름
     * __Bash 스크립트 URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
@@ -295,9 +326,9 @@ SSH를 통해 가장자리 노드에 연결했을 때 가장자리 노드에 추
     
     > [AZURE.IMPORTANT] R 패키지를 설치하기 위해 시스템 라이브러리를 추가해야 하는 경우 여기에서 사용된 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치할 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
     >
-    >스크립트 동작 개발에 대한 자세한 내용은 [스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+    >스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
     
-    ![스크립트 동작 추가](./media/hdinsight-getting-started-with-r/scriptaction.png)
+    ![스크립트 작업 추가](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
 4. __만들기__를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
     
@@ -322,4 +353,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 ARM 템플릿 사용에 대한 일반적인 내용은 [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

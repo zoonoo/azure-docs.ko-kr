@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -29,6 +29,22 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 | Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)하는 다른 방법입니다. |
 | 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요. |
 | 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
+
+## 1\.1.180.0
+릴리스 날짜: 2016년 5월
+
+**새로운 기능:**
+
+- Azure AD Connect를 실행하기 전에 수행하지 않은 경우 경고를 표시하고 도메인을 확인할 수 있습니다.
+- [Microsoft 클라우드 독일](active-directory-aadconnect-instances.md#microsoft-cloud-germany)에 대한 지원을 추가되었습니다.
+- 새 URL 요구 사항을 포함한 최신 [Microsoft Azure Government 클라우드](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) 인프라에 대한 지원을 추가했습니다.
+
+**수정된 문제 및 향상된 기능:**
+
+- 쉽게 동기화 규칙을 찾을 수 있도록 동기화 규칙 편집기에 필터링을 추가했습니다.
+- 커넥터 공간을 삭제할 경우 성능이 향상되었습니다.
+- 동일한 개체가 동일한 실행에서 모두 삭제되고 추가되는 경우(삭제/추가라고 함) 발생하는 문제가 수정되었습니다.
+- 사용할 수 없는 동기화 규칙은 업그레이드 또는 디렉터리 스키마 새로 고침에 포함된 개체 및 특성을 더 이상 다시 사용하지 않습니다.
 
 ## 1\.1.130.0
 릴리스 날짜: 2016년 4월
@@ -268,4 +284,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

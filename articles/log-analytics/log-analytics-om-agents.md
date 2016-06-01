@@ -3,7 +3,7 @@
 	description="System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 OMS 작업 영역으로 Operations Manager를 통합할 수 있습니다."
 	services="log-analytics"
 	documentationCenter=""
-	authors="bandersmsft"
+	authors="MGoedtel"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+	ms.date="05/11/2016"
+	ms.author="magoedte"/>
 
 # Log Analytics에 Operations Manager 연결
 
@@ -36,6 +36,7 @@ Operations Manager 관리 그룹에 대한 에이전트 보고는 Log Analytics 
 시작하기 전에 다음 세부 정보를 검토하여 필요한 필수 구성 요소를 충족하는지 확인합니다.
 
 - OMS는 Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상만을 지원합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
+- 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않은 경우 Windows 에이전트 트래픽이 실패하고 많은 오류가 Operations Manager 이벤트 로그를 채울 수 있습니다.
 - OMS 구독입니다. 자세한 내용은 [Log Analytics 시작](log-analytics-get-started.md)을 검토합니다.
 
 ## OMS에 Operations Manager 연결
@@ -46,7 +47,9 @@ Operations Manager 관리 그룹을 구성하도록 다음과 같은 일련의 �
 3. **Operations Management Suite에 등록** 링크를 클릭합니다.
 4. **Operations Management Suite 등록 마법사: 인증** 페이지에서 전자 메일 주소 또는 전화 번호와 OMS 구독과 연결된 관리자 계정의 암호를 입력하고 **로그인**을 클릭합니다.
 5. 성공적으로 인증된 후에 **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지에 OMS 작업 영역을 선택하라는 메시지가 나타납니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음**을 클릭합니다.
+
     >[AZURE.NOTE] Operations Manager는 한 번에 하나의 OMS 작업 영역을 지원합니다. 이전 작업 영역으로 OMS에 등록된 연결 및 컴퓨터는 OMS에서 제거됩니다.
+
 6. **Operations Manager Suite 등록 마법사: 요약** 페이지에서 설정을 확인하고 올바른 경우 **만들기**를 클릭합니다.
 7. **Operations Management Suite 등록 마법사: 마침** 페이지에서 **닫기**를 클릭합니다.
 
@@ -95,24 +98,160 @@ OMS 작업 영역과 통합을 구성한 후 OMS와의 연결을 설정하고 �
 
 프로덕션 관리 그룹에서 관리 팩 릴리스 제어를 위해 기존 변경 제어 프로세스를 계속 따르려는 경우 규칙을 비활성화하고 업데이트가 허용될 때 특정 시간 동안 활성화할 수 있습니다. 사용자 환경에 개발 또는 QA 관리 그룹이 있고 인터넷에 연결되어 있는 경우 OMS 작업 영역으로 해당 관리 그룹을 구성하여 이 시나리오를 지원할 수 있습니다. 이렇게 하면 프로덕션 관리 그룹으로 릴리스하기 전에 OMS 관리 팩의 반복적인 릴리스를 검토 및 평가할 수 있습니다.
 
+## Operations Manager 그룹을 새 OMS 작업 영역으로 전환
+1. OMS 구독에 로그인하고 [Microsoft Operations Management Suite](http://oms.microsoft.com/)에 새 작업 영역을 만듭니다.
+2. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
+3. Operations Management Suite를 확장하고 **연결**을 선택합니다.
+4. 창 중간의 **Operations Management Suite 다시 구성** 링크를 선택합니다.
+5. **Operations Management Suite 등록 마법사**의 지시를 따라 전자 메일 주소 또는 전화 번호 및 새 OMS 구독과 연결된 관리자 계정의 암호를 입력합니다.
+
+    > [AZURE.NOTE] **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지는 사용 중인 기존 작업 영역을 표시합니다.
+
+
 ## OMS와 Operations Manager 통합 유효성 검사
 OMS에서 Operations Manager 통합이 성공적인지 확인할 수 있는 몇 가지 방법이 있습니다.
 
 ### OMS 포털에서 통합을 확인하려면
 
 1.	OMS 포털에서 **설정** 타일을 클릭합니다.
-2.	상단 메뉴에서 **연결된 원본**을 클릭합니다.
-3.	System Center Operations Manager 섹션 아래에서 상태 **1 MGMT 그룹 연결됨**이 표시되고 아래 테이블에 데이터를 마지막으로 받았을 때 에이전트 및 상태 수로 나열된 관리 그룹의 이름이 표시됩니다.
+2.  **연결된 원본**을 선택합니다.
+3.	System Center Operations Manager 섹션 아래의 테이블에 데이터를 마지막으로 받았을 때 에이전트 및 상태 수와 함께 나열된 관리 그룹의 이름이 표시됩니다.
+
+    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
+
+4.  설정 페이지의 왼쪽 아래에 있는 **작업 영역 ID**의 값에 주목하십시오. 아래 Operations Manager 관리 그룹을 기준으로 이 값의 유효성을 검사합니다.
 
 ### 운영 콘솔에서 통합을 확인하려면
 
 1.	Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-2.	**관리 팩** 노드를 클릭하고 **찾기:** 텍스트 상자에서 **관리자** 또는 **인텔리전스**를 입력합니다.
+2.	**관리 팩**을 선택하고 **찾기:** 텍스트 상자에 **관리자** 또는 **인텔리전스**를 입력합니다.
 3.	활성화한 솔루션에 따라 검색 결과에 나열된 해당 관리 팩을 볼 수 있습니다. 예를 들어 경고 관리 솔루션을 활성화한 경우 관리 팩 Microsoft System Center Advisor 경고 관리가 목록에 나타납니다.
+4.  **모니터링** 보기에서 **Operations Management Suite\\Health State** 보기로 이동합니다. **관리 서버 상태** 창 아래에서 관리 서버를 선택하고 **상세 보기** 창에서 **인증 서비스 URI** 속성의 값이 OMS 작업 영역 ID와 일치하는지 확인합니다.
+
+    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+
+
+## OMS와의 통합 제거
+Operations Manager 관리 그룹과 OMS 작업 영역 간의 통합이 더 이상 필요하지 않은 경우 관리 그룹에서 연결 및 구성을 올바르게 제거하는 데 필요한 여러 단계가 있습니다. 다음 절차는 관리 그룹 참조를 삭제하여 OMS 작업 영역을 업데이트하고 OMS 커넥터를 삭제한 다음 OMS를 지원하는 관리 팩을 삭제합니다.
+
+1.  OMS 포털에서 **설정** 타일을 클릭합니다.
+2.	**연결된 원본**을 선택합니다.
+3.	System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다. **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
+4.	제거를 계속할지 확인하라는 창이 나타납니다. **예**를 클릭하여 계속 진행합니다.  
+5.	Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 명령 셸을 엽니다.
+
+    >[AZURE.WARNING] 계속 진행하기 전에 이름에 Advisor 또는 IntelligencePack이 포함된 사용자 지정 관리 팩이 없는지 확인합니다. 그렇지 않으면 다음 단계에 관리 그룹에서 이들을 삭제합니다.
+
+6.	명령 셸 프롬프트에서 `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`을 입력합니다.
+
+7.	그런 다음 `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`을 입력합니다.
+
+8.	Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 작업 콘솔을 엽니다.
+9.	**관리** 아래에서 **관리 팩** 노드를 선택하고 **찾기:** 상자에 **관리자**를 입력하고 다음 관리 팩을 여전히 관리 그룹에 가져오는지 확인합니다.
+
+    - Microsoft System Center Advisor
+    - Microsoft System Center Advisor Internal
+
+두 커넥터(Microsoft.SystemCenter.Advisor.DataConnector 및 Advisor 커넥터)를 삭제하려면 PowerShell 스크립트를 컴퓨터에 저장하고 다음 예제를 사용하여 실행합니다.
+
+```
+    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementGroupName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementGroupName>
+```
+
+>[AZURE.NOTE] 이 스크립트를 실행하는 컴퓨터(관리 서버가 아니라면)에 관리 그룹의 버전에 따라 Operations Manager 2012 SP1 또는 R2 명령 셸을 설치해야 합니다.
+
+```
+    `param(
+    [String] $connectorName,
+    [String] $mgName="localhost"
+    )
+    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $mgName
+    $admin = $mg.GetConnectorFrameworkAdministration()
+    ##########################################################################################
+    # Configures a connector with the specified name.
+    ##########################################################################################
+    function New-Connector([String] $name)
+    {
+         $connectorForTest = $null;
+         foreach($connector in $admin.GetMonitoringConnectors())
+    {
+    if($connectorName.Name -eq ${name})
+    {
+         $connectorForTest = Get-SCOMConnector -id $connector.id
+    }
+    }
+    if ($connectorForTest -eq $null)
+    {
+         $testConnector = New-Object Microsoft.EnterpriseManagement.ConnectorFramework.ConnectorInfo
+         $testConnector.Name = $name
+         $testConnector.Description = "${name} Description"
+         $testConnector.DiscoveryDataIsManaged = $false
+         $connectorForTest = $admin.Setup($testConnector)
+         $connectorForTest.Initialize();
+    }
+    return $connectorForTest
+    }
+    ##########################################################################################
+    # Removes a connector with the specified name.
+    ##########################################################################################
+    function Remove-Connector([String] $name)
+    {
+        $testConnector = $null
+        foreach($connector in $admin.GetMonitoringConnectors())
+       {
+        if($connector.Name -eq ${name})
+       {
+         $testConnector = Get-SCOMConnector -id $connector.id
+       }
+      }
+     if ($testConnector -ne $null)
+     {
+        if($testConnector.Initialized)
+     {
+     foreach($alert in $testConnector.GetMonitoringAlerts())
+     {
+       $alert.ConnectorId = $null;
+       $alert.Update("Delete Connector");
+     }
+     $testConnector.Uninitialize()
+     }
+     $connectorIdForTest = $admin.Cleanup($testConnector)
+     }
+    }
+    ##########################################################################################
+    # Delete a connector's Subscription
+    ##########################################################################################
+    function Delete-Subscription([String] $name)
+    {
+      foreach($testconnector in $admin.GetMonitoringConnectors())
+      {
+      if($testconnector.Name -eq $name)
+      {
+        $connector = Get-SCOMConnector -id $testconnector.id
+      }
+    }
+    $subs = $admin.GetConnectorSubscriptions()
+    foreach($sub in $subs)
+    {
+      if($sub.MonitoringConnectorId -eq $connector.id)
+      {
+        $admin.DeleteConnectorSubscription($admin.GetConnectorSubscription($sub.Id))
+      }
+     }
+    }
+    #New-Connector $connectorName
+    write-host "Delete-Subscription"
+    Delete-Subscription $connectorName
+    write-host "Remove-Connector"
+    Remove-Connector $connectorName
+```
+
+미래에 관리 그룹을 OMS 작업 영역에 다시 연결할 계획인 경우 관리 그룹에 적용한 최근 업데이트 롤업에서 `Microsoft.SystemCenter.Advisor.Resources.<Language>\.mpb` 관리 팩 파일을 다시 가져와야 합니다. 이 파일은 `%ProgramFiles%\Microsoft System Center 2012` 또는 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` 폴더에서 찾을 수 있습니다.
 
 ## 다음 단계
 
 - [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md)하여 기능을 추가하고 데이터를 수집합니다.
 - 조직에서 프록시 서버 또는 방화벽을 사용하는 경우 에이전트가 Log Analytics 서비스와 통신할 수 있도록 [Log Analytics에서 프록시 및 방화벽 설정을 구성](log-analytics-proxy-firewall.md)합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

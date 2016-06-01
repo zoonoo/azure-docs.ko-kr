@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 
@@ -60,4 +60,4 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 * [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [자세한 정보](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

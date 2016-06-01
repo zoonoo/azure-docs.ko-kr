@@ -31,9 +31,11 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-##Azure PowerShell 1.0 이상 설치
+##Azure PowerShell 설치
 
-먼저 0.9x 버전을 제거해야 합니다.
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Azure PowerShell 버전 0.9x를 설치한 경우 최신 버전을 설치하기 전에 제거해야 합니다.
 
 설치된 PowerShell 버전을 확인하려면
 
@@ -41,22 +43,6 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 	
 이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
 
-Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다.
-
-- [PowerShell 갤러리](https://www.powershellgallery.com/). 관리자 권한 PowerShell ISE 또는 관리자 권한 Windows PowerShell 콘솔에서 다음 명령을 실행합니다.
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-
-	자세한 내용은 [PowerShell 갤러리](https://www.powershellgallery.com/)를 참조하세요.
-
-- [Microsoft WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps). Azure PowerShell 0.9.x가 설치되어 있는 경우 0.9.x를 제거하라는 메시지가 표시됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 일관성 있는 Azure PowerShell 환경이 보장되도록 설치하기 전에 설치 관리자에서 모듈을 제거해야 합니다. 자세한 내용은 [WebPI를 통해 Azure PowerShell 1.0 설치](https://azure.microsoft.com/blog/azps-1-0/)를 참조하세요.
-
-WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다. PowerShell 갤러리에서 설치가 익숙하다면 이는 Azure PowerShell에서 가장 유용한 최신의 첫 번째 채널이 될 것입니다.
 
 ##클러스터 만들기
 
@@ -81,7 +67,7 @@ WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적�
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
->[AZURE.NOTE] HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
+>[AZURE.NOTE] HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
@@ -99,7 +85,6 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 		>hbase shell
 		>balancer
 
-	HBase shell 사용에 대한 자세한 내용은 다음을 참조하세요.
 - Storm
 
 	실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 다시 토폴로지 균형을 조정해야 합니다.
@@ -249,4 +234,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

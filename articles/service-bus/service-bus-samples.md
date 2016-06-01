@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="서비스 버스 샘플 개요 | Microsoft Azure"
-   description="서비스 버스 샘플을 각각에 대한 링크로 분류하고 설명합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 샘플 개요 | Microsoft Azure"
+    description="서비스 버스 샘플을 각각에 대한 링크로 분류하고 설명합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 샘플
 
 서비스 버스 샘플에서는 [서비스 버스](https://azure.microsoft.com/services/service-bus/)(클라우드 서비스) 및 [Windows Server용 서비스 버스](https://msdn.microsoft.com/library/dn282144.aspx)의 주요 기능을 보여 줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
 >[AZURE.NOTE] 서비스 버스 샘플은 SDK로 설치되지 않습니다. 샘플을 얻으려면 [Azure SDK 샘플 페이지](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)를 방문하세요.
+>
+>또한 [여기](https://github.com/Azure-Samples/azure-servicebus-messaging-samples)(작성 일자 기준으로 이 문서에 설명되어 있지 않음)에 업데이트된 서비스 버스 메시징 샘플 집합이 있습니다. 릴레이 샘플은 [여기](https://github.com/Azure-Samples/azure-servicebus-relay-samples)에 있습니다.
 
 ## 서비스 버스 조정된 메시징
 
@@ -132,4 +134,4 @@
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

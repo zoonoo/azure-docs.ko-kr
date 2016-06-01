@@ -123,7 +123,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 5. 응용 프로그램에는 두 가지는 종속성 jar이 필요합니다.
 
-	* **EventHub 수신기 jar**. Spark가 이벤트 허브에서 메시지를 받는데 필요합니다. 이 jar은 `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`의 Spark Linux 클러스터에서 사용할 수 있습니다. pscp를 사용하여 로컬 컴퓨터에 jar을 복사할 수 있습니다.
+	* **EventHub 수신기 jar**. Spark가 이벤트 허브에서 메시지를 받는데 필요합니다. 이 jar은 `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`의 Spark Linux 클러스터에서 사용할 수 있습니다. pscp를 사용하여 로컬 컴퓨터에 jar을 복사할 수 있습니다. (참고: 일부 인스턴스는 `/usr/hdp/2.4.1.0-327/spark/lib` 아래에 파일이 있음)
 
 			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
@@ -257,6 +257,8 @@ Hive 테이블에 이벤트를 스트리밍하는 응용 프로그램을 실행�
 
 **.jar** 파일은 `/usr/hdp/current/spark-client/lib`의 HDInsight Spark 클러스터에서 사용할 수 있습니다. **hive-site.xml**은 `/usr/hdp/current/spark-client/conf`에서 사용할 수 있습니다.
 
+
+
 [WinScp](http://winscp.net/eng/download.php)를 사용하여 해당 파일을 클러스터에서 로컬 컴퓨터에 복사할 수 있습니다. 그런 다음 도구를 사용하여 클러스터와 연결된 저장소 계정에 이러한 파일을 복사할 수 있습니다. 저장소 계정에 파일을 업로드하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)를 참조하세요.
 
 Azure 저장소 계정에 파일을 복사한 후 명령 프롬프트를 열고 CURL을 설치한 디렉터리로 이동하고 다음 명령을 실행합니다(사용자 이름/암호 및 클러스터 이름 바꾸기).
@@ -374,4 +376,4 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

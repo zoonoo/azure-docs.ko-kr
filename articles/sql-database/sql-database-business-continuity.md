@@ -83,4 +83,4 @@
 
 [활성 지역 복제](sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에 대해 제공됩니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. [지역에서 복제를 구성](sql-database-geo-replication-portal.md)하고 [보조 데이터베이스로의 장애 조치](sql-database-geo-replication-failover-portal.md)하는 방법에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md)를 참조하세요. 가동 중지 시간 없이 응용 프로그램 업그레이드를 구현하는 자세한 방법은 [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-business-continuity-application-upgrade.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

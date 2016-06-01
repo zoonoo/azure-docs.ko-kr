@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요"
+   pageTitle="클라우드 데이터베이스의 분산 트랜잭션"
    description="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="sidneyh"/>
 
 <tags
@@ -16,7 +16,7 @@
    ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요
+# 클라우드 데이터베이스의 분산 트랜잭션
 
 Azure SQL 데이터베이스(SQL DB)용 탄력적 데이터베이스를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
 
@@ -149,6 +149,7 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 * SQL DB의 데이터베이스 간 트랜잭션만 지원됩니다. 다른 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 리소스 공급자 및 SQL DB 이외의 데이터베이스는 탄력적 데이터베이스 트랜잭션에 참여할 수 없습니다. 탄력적 데이터베이스 트랜잭션은 온-프레미스 SQL Server와 Azure SQL 데이터베이스 사이에서 확장될 수 없습니다. 온-프레미스 분산 트랜잭션을 위해서는 MSDTC를 계속 사용하세요. 
 * .NET 응용 프로그램의 클라이언트 조정 트랜잭션만 지원됩니다. BEGIN DISTRIBUTED TRANSACTION 같은 T-SQL에 대한 서버 쪽 지원이 계획되어 있지만 아직 제공되지 않습니다. 
 * Azure SQL DB V12의 데이터베이스만 지원됩니다.
+* WCF 서비스에서 트랜잭션은 지원되지 않습니다. 예를 들어 트랜잭션을 실행하는 WCF 서비스 메서드가 있습니다. 트랜잭션 범위 내로 호출을 묶으면 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)으로 실패합니다.
 
 ## 자세한 정보
 
@@ -157,4 +158,4 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Log Analytics 로그 검색 API | Microsoft Azure"
-	description="이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다."
+	pageTitle="Log Analytics 로그 검색 REST API | Microsoft Azure"
+	description="이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -17,21 +17,21 @@
 	ms.author="banders"/>
 
 
-# Log Analytics 로그 검색 API
+# Log Analytics 로그 검색 REST API
 
-이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다. 이 문서의 일부 예제에서는 Log Analytics 이전 버전의 이름인 Operational Insights를 참조합니다.
+이 가이드에서는 OMS(Operations Management Suite)의 Log Analytics 검색 REST API를 사용하는 방법을 설명하는 기본 자습서를 제공하며, 명령 사용 방법을 보여 주는 예제를 제공합니다. 이 문서의 일부 예제에서는 Log Analytics 이전 버전의 이름인 Operational Insights를 참조합니다.
 
-## 로그 검색 API의 개요
+## 로그 검색 REST API의 개요
 
-Log Analytics 검색 API는 RESTful이며 Azure Resource Manager API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure 리소스 관리자 API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 통해 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 통해 OMS 작업 영역을 호출하고 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
+Log Analytics 검색 REST API는 RESTful이며 Azure Resource Manager API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure 리소스 관리자 API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 통해 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 또 다른 방법은 검색에 액세스하기 위한 Cmdlet을 포함하고 있는 OperationalInsights용 Azure PowerShell 모듈을 사용하는 것입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 통해 OMS 작업 영역을 호출하고 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
 Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) 뿐만 아니라 [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx)를 통해 사용할 수 있습니다. 자세한 내용을 보려면 좋아하는 웹 페이지를 검토합니다.
 
-## 기본 Log Analytics 검색 API 자습서
+## 기본 Log Analytics 검색 REST API 자습서
 
 ### ARM 클라이언트를 사용하려면
 
-1. Windows용 열기 소스 컴퓨터 패키지 관리자인 [Chocolatey](https://chocolatey.org/)를 설치합니다. 관리자 권한으로 명령 프롬프트 창을 열고 다음 명령을 실행합니다.
+1. Windows용 오픈 소스 패키지 관리자인 [Chocolatey](https://chocolatey.org/)를 설치합니다. 관리자 권한으로 명령 프롬프트 창을 열고 다음 명령을 실행합니다.
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -51,7 +51,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
     armclient login
     ```
 
-    성공적으로 로그인하여 지정된 계정에 연결된 모든 구독을 나열합니다. 예:
+    성공적으로 로그인하여 지정된 계정에 연결된 모든 구독을 나열합니다.
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -63,13 +63,13 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 
-2. 작업 관리 도구 모음 작업 영역을 가져옵니다. 예:
+2. 작업 관리 도구 모음 작업 영역을 가져옵니다.
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    Get 호출이 성공하면 구독에 연결된 모든 작업 영역이 출력됩니다. 예:
+    Get 호출이 성공하면 구독에 연결된 모든 작업 영역이 출력됩니다.
 
     ```
     {
@@ -87,18 +87,18 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
        ]
     }
     ```
-3. 검색 변수를 만듭니다. 예:
+3. 검색 변수를 만듭니다.
 
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
-4. 새 검색 변수를 사용하여 검색 합니다. 예:
+4. 새 검색 변수를 사용하여 검색 합니다.
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## Log Analytics 검색 API 참조 예제
+## Log Analytics 검색 REST API 참조 예제
 다음 예제에서는 검색 API를 사용하는 방법을 보여줍니다.
 
 ### 검색-동작/읽기
@@ -197,7 +197,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] 검색이 '보류중' 상태와 함께 반환되면 업데이트된 결과를 폴링하는 것은 API를 통해 수행할 수 있습니다. 6분 후 캐시에서 검색 결과가 삭제되고 Http Gone이 반환됩니다. 초기 검색 요청이 '성공' 상태를 즉시 반환하는 경우 쿼리되면 이 API를 발생시키는 캐시에 추가되지 않아서 Http Gone을 반환합니다. Http 200 결과의 내용은 업데이트 된 값이 포함된 초기 검색 요청과 같은 형식입니다.
+>[AZURE.NOTE] 검색이 '보류중' 상태와 함께 반환되면 업데이트된 결과를 폴링하는 것은 API를 통해 수행할 수 있습니다. 6분 후 캐시에서 검색 결과가 삭제되고 HTTP Gone이 반환됩니다. 초기 검색 요청이 '성공' 상태를 즉시 반환하는 경우 쿼리되면 이 API를 발생시키는 캐시에 추가되지 않아서 HTTP Gone을 반환합니다. HTTP 200 결과의 내용은 업데이트 된 값이 포함된 초기 검색 요청과 같은 형식입니다.
 
 ### 저장된 검색-REST만
 
@@ -379,7 +379,7 @@ armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 저장된 검색에 대한 정의에는 컴퓨터 그룹으로 분류할 검색에 대해 값이 Computer인 Group 태그가 포함되어야 합니다.
 
-	$etag=get-date -f yyyy-MM-ddThh:mm:ss.msZ
+	$etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
 	$groupName="My Computer Group"
 	$groupQuery = "Computer=srv* | Distinct Computer"
 	$groupCategory="My Computer Groups"
@@ -402,4 +402,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 - 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -49,7 +49,7 @@ Azure AD B2B 공동 작업의 미리 보기 버전에는 Azure AD 포털을 통�
 > Excel에서 레이블을 지정하고 그 아래 열을 채워 더 많은 선택적 필드를 추가할 수 있습니다.
 
 ```
-Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications, InvitedToGroups,CcEmailAddress,Language
+Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications,InvitedToGroups,CcEmailAddress,Language
 wharp@contoso.com,Walter Harp,Hi Walter! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 jsmith@contoso.com,Jeff Smith,Hi Jeff! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
@@ -67,4 +67,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

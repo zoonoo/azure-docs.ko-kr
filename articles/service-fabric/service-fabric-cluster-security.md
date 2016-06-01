@@ -218,8 +218,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 >[AZURE.NOTE] 보안 클러스터의 경우 항상 적어도 하나의 유효한(취소되지 않거나 만료되지 않은) 주 또는 보조 인증서 배포가 필요하며 그렇지 않으면 클러스터에 액세스할 수 없습니다.
 
+
 ## 
-서비스 패브릭에서 사용하는 인증서 종류에 대해 자세히 설명합니다.
+서비스 패브릭에서 사용하는 인증서 유형
 
 ### X.509 인증서
 
@@ -250,6 +251,37 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+
+### 보안 클러스터에 연결
+
+1. "Connect-serviceFabricCluster" PowerShell 명령을 실행하는 데 사용할 컴퓨터에서 다음 명령을 실행하여 인증서를 설정합니다.
+
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+2. 다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 클러스터를 설정할 때 제공한 것과 동일합니다.
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
+    예를 들어 위의 PowerShell 명령은 다음과 비슷합니다.
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
 ## 다음 단계
 
 - [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
@@ -263,4 +295,4 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

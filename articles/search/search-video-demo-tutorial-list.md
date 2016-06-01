@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
@@ -35,9 +35,8 @@
 
 이러한 사이트는 검색 환경에 대한 Azure 검색을 사용하는 모든 기능을 갖춘 웹 응용 프로그램입니다.
 
-[**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용하여 코드를 수정할 수 있습니다.
+[**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. 코드를 수정하여 [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용할 수 있습니다.
 
-[**ASP.NET MVC 콤보 앱의 앱 서비스 + Azure 검색 체험**](search-tryappservice.md)은 ASP.NET응용 프로그램에서 데이터, 작동하는 웹 응용 프로그램, 온라인으로 수정하여 다양한 검색 기능을 시험해 볼 수 있는 소스 코드가 포함된 1시간 짜리 Azure 검색 세션입니다.
 
 [**Azure 검색 데모 사이트**](https://searchsamples.azurewebsites.net/#/)는 Azure 검색 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다.
 
@@ -58,7 +57,7 @@
 ----|------------|-----------
 [Channel9 제공 데이터: "Azure 검색의 사용자 지정 분석기, 검색 분석 및 포털 쿼리"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|2016년 1월|21분. 사용자 지정 분석기를 사용하면 토크나이저 및 토큰 파일을 구성할 수 있습니다. 검색 분석을 사용하면 사용자가 입력한 검색 용어와 검색 인덱스의 효율에 대한 통찰력을 가질 수 있습니다. 검색 탐색기는 포털 내부에서 쿼리를 시도할 수 있는 기본 제공 쿼리 도구입니다. 
 [Channel9 제공 데이터: "Azure 검색 향상"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|2015년 11월|17분. StackExchange 데이터 수집. Azure 포털에서 인덱스 작성. 인덱서가 지원되는 데이터 원본을 크롤링하여 Azure 검색 인덱스로 데이터를 끌어 넣는 방식을 알아봅니다. 언어 분석기. Lucene 쿼리 식.
-[Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|2015년 10월|1분에서 2분 정도 소요되나요? Azure 검색을 소개하는 약 1분 30초 길이의 비디오를 시청하세요.
+[Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|2015년 10월|1~2분만 시간을 내어 Azure 검색을 소개하는 약 1분 30초 길이의 비디오를 시청하세요.
 [AzureCon 2015 : Azure 검색에 대한 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|2015년 9월|웹 또는 모바일 시나리오용 앱 개발 시 확장, 성능 최적화 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 게시자: Pablo Castro 
 [빌드 2015: 최신 데이터](http://channel9.msdn.com/Events/Build/2015/2-663)|2015년 6월|세션에서 29분 동안 Azure 검색이 최근의 데이터 혁명에서 차지하는 위치에 대해 알아봅니다. Shawn Bice 및 Pablo Castro가 제공합니다.
 [빌드 2015: Azure 검색을 사용하여 모바일 및 WebApp에서 우수한 검색 경험 구축](http://channel9.msdn.com/Events/Build/2015/2-745)|2015년 6월|1시간 Microsoft 빌드 2015에서 Pablo Castro가 제공합니다.
@@ -89,4 +88,4 @@
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

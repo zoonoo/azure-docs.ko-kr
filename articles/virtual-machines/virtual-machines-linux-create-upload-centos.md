@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="05/09/2016"
 	ms.author="szarkos"/>
 
 # Azure용 CentOS 기반 가상 컴퓨터 준비
 
-
-- [Azure용 CentOS 6.x 가상 컴퓨터 준비](#centos6)
-- [Azure용 CentOS 7.0 이상 가상 컴퓨터 준비](#centos7)
+- [Azure용 CentOS 6.x 가상 컴퓨터 준비](#centos-6.x)
+- [Azure용 CentOS 7.0 이상 가상 컴퓨터 준비](#centos-7.0+)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +31,11 @@
 
 **CentOS 설치 참고 사항**
 
+- Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
+
 - VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
+- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](virtual-machines-linux-configure-lvm.md) 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - 2\.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
@@ -43,7 +44,7 @@
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
-## <a id="centos6"> </a>CentOS 6.x ##
+## CentOS 6.x ##
 
 1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -70,11 +71,10 @@
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 이동(또는 제거)합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킵니다.
+6.	이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 
 7. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
@@ -82,7 +82,7 @@
 		# sudo chkconfig network on
 
 
-8. **CentOS 6.3에만 해당**: LIS(Linux 통합 서비스) 드라이버 설치
+8. **CentOS 6.3에만 해당**: LIS(Linux 통합 서비스) 드라이버를 설치합니다.
 
 	**중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.** CentOS 6.4 이상 버전에서는 Linux 통합 서비스가 *커널에서 이미 제공됩니다*.
 
@@ -156,7 +156,7 @@
 
 		# yum clean all
 
-14. **CentOS 6.3에 한해** 다음 명령을 사용하여 커널을 업데이트합니다.
+14. **CentOS 6.3의 경우에만** 다음 명령을 사용하여 커널을 업데이트합니다.
 
 		# sudo yum --disableexcludes=all install kernel
 
@@ -205,7 +205,7 @@
 ----------
 
 
-## <a id="centos7"> </a>CentOS 7.0 이상 ##
+## CentOS 7.0 이상 ##
 
 **CentOS 7 및 유사한 파생 버전의 변경 내용**
 
@@ -237,11 +237,9 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 		PEERDNS=yes
 		IPV6INIT=no
 
-5.	이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 이동(또는 제거)합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킵니다.
+6.	이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
 
@@ -306,9 +304,9 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 10.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 "/etc/default/grub"를 열고 `GRUB_CMDLINE_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
+	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. NIC에 대한 새 CentOS 7 명명 규칙도 해제합니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -335,6 +333,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 14. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
 		# sudo yum install WALinuxAgent
+		# sudo systemctl enable waagent
 
 15.	OS 디스크에 스왑 공간을 만들지 마십시오.
 
@@ -357,4 +356,4 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 ## 다음 단계
 이제 CentOS Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

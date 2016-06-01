@@ -41,7 +41,9 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
 ##필수 조건
 
 - **HDInsight에서 Windows 기반 Hadoop 클러스터** HDInsight 클러스터 만들기에 대해서는 [HDInsight에서 Hadoop 사용 시작][getstarted]을 참조하세요.
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>WindowsPowerShell을 사용하여 추천 생성
@@ -527,4 +529,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

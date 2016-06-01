@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure SQL 데이터베이스 보안 및 보호 지원"
+   pageTitle="Azure SQL 데이터베이스의 보안 유지 및 보호"
    description="SQL 데이터베이스가 보안 및 보호를 지원하는 방법을 알아봅니다."
    keywords=""
    services="sql-database"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="05/13/2016"
    ms.author="carlrab"/>
    
-# Azure SQL 데이터베이스 보안 및 보호 지원
+# Azure SQL 데이터베이스의 보안 유지 및 보호
 
 ## 앱의 데이터를 보안 및 보호 유지
 
@@ -25,7 +25,7 @@ Azure SQL 데이터베이스는 보안, 규정 준수 및 고성능등 높은 �
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## 응급 상황 대처
+## Microsoft가 도와 드리겠습니다!
 
 보통 이전 백업에 액세스하거나 재해에서 복구할 필요가 없기를 바랍니다. 하지만 이 경우에 SQL 데이터베이스가 도움이 됩니다. 99.99%의 가용성을 지닌 자동 백업, 지정 시간 복원, 지역에서 기본 제공 복제 및 장애 조치 옵션으로 앱은 안전합니다.
 
@@ -43,6 +43,16 @@ SQL 데이터베이스는 여러 단계의 데이터 보호를 제공합니다. 
 
 [설명서 읽기](http://go.microsoft.com/fwlink/?LinkID=787593)
 
-SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 페이지로 이동합니다. [확인해 보세요](https://azure.microsoft.com/services/sql-database/).
+SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 페이지로 이동합니다. [확인해 보세요.](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## 다음 단계
+
+[무료 Azure 구독](https://azure.microsoft.com/get-started/)을 가져오고 [첫 번째 Azure SQL 데이터베이스를 만듭니다](sql-database-get-started.md).
+
+## 자세한 정보
+
+모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
+ 
+[SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
+
+<!---HONumber=AcomDC_0518_2016-->

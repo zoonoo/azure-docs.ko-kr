@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/07/2016"
+	ms.date="04/22/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
@@ -23,7 +23,7 @@
 
 이 항목에서는 Microsoft Azure 가상 컴퓨터의 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다. Azure 가상 컴퓨터에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 공용 클라우드의 관계형 데이터베이스 성능은 가상 컴퓨터의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
 
-SQL Server 이미지를 만들 때 [Azure 포털에서 VM을 프로비전](virtual-machines-windows-portal-sql-server-provision.md)하여 기본적으로 사용되는 프리미엄 저장소 등의 기능뿐만 아니라 자동화된 패치, 자동화된 백업, AlwaysOn 구성 같은 다른 옵션도 활용하는 것이 좋습니다.
+SQL Server 이미지를 만들 때 [Azure 포털에서 VM을 프로비전하는 것을 고려하세요](virtual-machines-windows-portal-sql-server-provision.md). 리소스 관리자를 사용하여 포털에서 프로비전되는 SQL Server VM은 저장소 구성을 포함하여 이러한 모든 모범 사례를 구현합니다.
 
 이 문서는 Azure VM의 SQL Server에 대해 *최상의* 성능을 얻는 데 중점을 둡니다. 작업이 적은 경우 아래 나열된 모든 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
 
@@ -36,7 +36,7 @@ SQL Server 이미지를 만들 때 [Azure 포털에서 VM을 프로비전](virtu
 |영역|최적화|
 |---|---|
 |[VM 크기](#vm-size-guidance)|SQL Enterprise Edition의 경우 [DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) 이상,<br/><br/> SQL Standard 및 Web Edition의 경우 [DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) 이상|
-|[저장소](#storage-guidance)|[프리미엄 저장소](../storage/storage-premium-storage.md)를 사용합니다.<br/><br/>[저장소 계정](../storage/storage-create-storage-account.md)과 SQL Server VM을 동일한 위치에 둡니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../storage/storage-redundancy.md)(지역에서 복제)를 사용하지 않도록 설정합니다.|
+|[저장소](#storage-guidance)|[프리미엄 저장소](../storage/storage-premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>[저장소 계정](../storage/storage-create-storage-account.md)과 SQL Server VM을 동일한 위치에 둡니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../storage/storage-redundancy.md)(지역에서 복제)를 사용하지 않도록 설정합니다.|
 |[디스크](#disks-guidance)|최소 2개의 [P30 디스크](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다.|
 |[I/O](#io-guidance)|데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 증가를 제한하거나 사용하지 않도록 설정합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다.|
 |[기능 관련](#feature-specific-guidance)|Blob 저장소에 직접 백업합니다.|
@@ -78,11 +78,11 @@ Azure VM의 디스크 유형에는 크게 세 가지가 있습니다.
 
 ### 임시 디스크
 
-**D**: 드라이브로 레이블이 지정된 임시 저장소 드라이브는 Azure Blob 저장소에 유지되지 않습니다. 데이터 또는 로그 파일을 **D**: 드라이브에 저장하지 마세요.
+**D**: 드라이브로 레이블이 지정된 임시 저장소 드라이브는 Azure Blob 저장소에 유지되지 않습니다. 사용자 데이터베이스 파일 또는 사용자 트랜잭션 로그 파일은 **D**: 드라이브에 저장하지 않도록 합니다.
 
-D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 **D** 드라이브에 TempDB 및/또는 버퍼 풀 확장을 저장합니다. 이러한 VM의 임시 드라이브는 SSD를 기반으로 합니다. 임시 개체를 많이 사용하거나 메모리에 맞지 않는 작업 집합이 있는 작업의 성능을 향상할 수 있습니다.
+D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 드라이브는 SSD를 기반으로 합니다. 작업에 TempDB가 과도하게 사용될 경우(예: 임시 개체 또는 복잡한 조인) **D** 드라이브에 TempDB를 저장하면 TempDB 처리량은 더 높아지고 TempDB 대기 시간은 줄어들 수 있습니다.
 
-프리미엄 저장소를 지원하는 VM(D 시리즈, Dv2 시리즈 및 G 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 저장소를 지원하는 디스크에 TempDB 및/또는 버퍼 풀 확장을 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 TempDB를 **D** 드라이브에 저장하면 더 높은 성능을 실현할 수 있습니다.
+프리미엄 저장소를 지원하는 VM(D 시리즈, Dv2 시리즈 및 G 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 저장소를 지원하는 디스크에 TempDB 및/또는 버퍼 풀 확장을 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 이러한 컴퓨터 크기에서 역시 SSD 기반인 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 실현할 수 있습니다.
 
 ### 데이터 디스크
 
@@ -148,4 +148,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # 필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
@@ -24,7 +24,7 @@
 
 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-RC3에서 스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
 
 -   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 조건자를 지정합니다.
 
@@ -508,4 +508,4 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -24,7 +24,7 @@
 Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데이터베이스에 연결할 수 있도록 하려면 다음을 설치해야 합니다.
 
 - 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 
-- .NET용 Oracle 데이터 공급자입니다. 이 제품은 [Windows용 ODAC(Oracle Data Access Components)](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)에 포함됩니다. 게이트웨이가 설치되어 있는 호스트 컴퓨터에 해당 버전(32/64비트)을 설치합니다. 
+- .NET용 Oracle 데이터 공급자입니다. 이 제품은 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)에 포함됩니다. 게이트웨이가 설치되어 있는 호스트 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149)은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
 
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
 
@@ -251,7 +251,7 @@ tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있
 속성 | 설명 |허용되는 값 | 필수
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 
-예: select * from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable | 아니요(**dataset**의 **tableName**이 지정된 경우)
+예: select * from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable | 아니요(**데이터 집합**의 **tableName**이 지정된 경우)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -292,7 +292,7 @@ XML | String
 
 ## 문제 해결 팁
 
-**문제:** 다음 **오류 메시지** 가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
+**문제:** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
 
 **가능한 원인**
 
@@ -316,4 +316,4 @@ XML | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

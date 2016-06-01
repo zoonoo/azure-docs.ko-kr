@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
-`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, SELECT 문의 출력을 기반으로 새 테이블을 만드는 완벽하게 병렬화된 연산입니다. `CTAS`를 사용하면 가장 빠르고 간편하게 테이블 복사본을 만들 수 있습니다. CTAS는 `SELECT..INTO`의 보강된 버전으로 간주할 수 있습니다. 이 문서에서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
+`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, SELECT 문의 출력을 기반으로 새 테이블을 만드는 완벽하게 병렬화된 연산입니다. `CTAS`를 사용하면 가장 빠르고 간편하게 테이블 복사본을 만들 수 있습니다. CTAS는 `SELECT..INTO`의 보강된 버전으로 간주할 수 있습니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
 
 ## CTAS를 사용하여 테이블 복사
 
@@ -433,4 +433,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

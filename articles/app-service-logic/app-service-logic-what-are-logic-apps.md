@@ -80,4 +80,4 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!------HONumber=AcomDC_0413_2016-->

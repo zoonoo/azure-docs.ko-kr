@@ -93,7 +93,7 @@ bm.Properties["MachineID"] = "POS_1";
 토픽에 메시지를 보내는 가장 쉬운 방법은 [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx)를 사용하여 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 인스턴스에서 직접 [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) 개체를 만드는 것입니다.
 
 ```
-MessageSender sender = factory.CreateMessageSender("DataCollectionQueue");
+MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

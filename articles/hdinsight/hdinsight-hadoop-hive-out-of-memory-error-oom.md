@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/10/2015"
+	ms.date="05/18/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Azure HDInsight의 Hadoop에서 Hive 메모리 설정으로 OOM(메모리 부족) 오류 수정
@@ -109,7 +109,7 @@ hive-site.xml 파일을 찾아본 결과 **hive.auto.convert.join.noconditionalt
 
 블로그 게시물에서 알 수 있듯이 다음 두 메모리 설정은 **hive.tez.container.size** 및 **hive.tez.java.opts** 힙에 대한 컨테이너 메모리를 정의합니다. 경험에 따르면 OOM 예외가 발생했다고 해서 컨테이너 크기가 너무 작은 것은 아닙니다. Java 힙 크기(hive.tez.java.opts)가 너무 작은 것입니다. OOM이 표시될 때마다 **hive.tez.java.opts**를 늘려볼 수 있습니다. 필요한 경우 **hive.tez.container.size**를 늘려야 할 수도 있습니다. **java.opts** 설정은 **container.size**의 80% 정도여야 합니다.
 
-> [AZURE.NOTE]**hive.tez.java.opts** 설정은 **hive.tez.container.size**보다 항상 작아야 합니다.
+> [AZURE.NOTE]  **hive.tez.java.opts** 설정은 **hive.tez.container.size**보다 항상 작아야 합니다.
 
 D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 크기를 사용하고 java.opts에 80%를 할당하기로 했습니다. 이 작업은 아래 설정을 사용하여 Hive 콘솔에서 수행했습니다.
 
@@ -122,4 +122,4 @@ D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 �
 
 OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0518_2016-->

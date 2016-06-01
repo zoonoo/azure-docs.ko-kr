@@ -86,7 +86,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 ### Apple 푸시 알림을 받도록 응용 프로그램 준비
 
-Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가이드를 따르십시오.
+[Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) 가이드를 따르십시오.
 
 ### 필요한 클라이언트 코드 추가
 
@@ -416,4 +416,4 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 	@end
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

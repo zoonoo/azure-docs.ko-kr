@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="bradsev;sunliangms;sachouks;mohabib" />
+	ms.date="05/10/2016"
+	ms.author="bradsev;sunliangms;sachouks" />
 
 # Azure Blob 저장소의 데이터 이동
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
-## 소개
 
 Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데 사용되는 기술 지침은 여기에 연결되어 있습니다.
 
@@ -39,4 +37,4 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 - Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

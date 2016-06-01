@@ -1,6 +1,6 @@
 <properties
-   pageTitle="트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기 | Microsoft Azure"
-   description="ARM(Azure 리소스 관리자)와 함께 트래픽 관리자용 powershell 사용(미리 보기)"
+   pageTitle="트래픽 관리자에 대한 Azure Resource Manager 지원 | Microsoft Azure"
+   description="ARM(Azure Resource Manager)과 함께 트래픽 관리자용 powershell 사용"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
@@ -15,7 +15,7 @@
    ms.date="03/17/2016"
    ms.author="joaoma" />
 
-# Azure 트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기
+# Azure 트래픽 관리자에 대한 Azure Resource Manager 지원
 ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다.
 
 ## 리소스 모델
@@ -42,8 +42,6 @@ ARM을 사용하여 트래픽 관리자 프로필을 구성하면 아래 나열�
 현재 Azure 트래픽 관리자에 대한 ARM 지원에 몇 가지 제한 사항이 있습니다.
 
 - 트래픽 관리자 프로필은 기존(비 ARM) Azure 서비스 관리(ASM) API를 사용하여 만들었으며 도구 및 '클래식' 포털은 ARM을 통해 사용할 수 없고 그 반대도 마찬가지입니다. ASM에서 ARM API로 프로필 마이그레이션은 프로필 삭제 및 다시 만드는 방법 외에는 현재 지원되지 않습니다.
-
-- '중첩' 트래픽 관리자 끝점은 ARM API, ARM PowerShell, ARM 모드 Azure CLI를 통해 지원됩니다. 이 끝점은 현재 Azure 포털(ARM API 사용)에서 지원되지 않습니다.
 
 - 웹앱을 참조할 때 'AzureEndpoints' 형식의 트래픽 관리자 끝점은 기본값(프로덕션) [웹앱 슬롯](../app-service-web/web-sites-staged-publishing.md)만 참조할 수 있습니다. 사용자 지정 슬롯은 아직 지원되지 않습니다. 해결 방법으로 'ExternalEndpoints' 형식을 사용하여 사용자 지정 슬롯을 구성할 수 있습니다.
 
@@ -138,8 +136,8 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 ## 트래픽 관리자 끝점 추가
 트래픽 관리자 끝점에는 세 가지 종류가 있습니다.
 
-1. Azure 끝점: Azure에서 호스팅되는 서비스를 나타냅니다.<BR>
-2. 외부 끝점: Azure 외부에서 호스팅되는 서비스를 나타냅니다.<BR>
+1. Azure 끝점: Azure에서 호스트되는 서비스를 나타냅니다.<BR>
+2. 외부 끝점: Azure 외부에서 호스트되는 서비스를 나타냅니다.<BR>
 3. 중첩된 끝점: 좀 더 복잡한 응용 프로그램에 대한 고급 트래픽 라우팅 구성을 사용하도록 트래픽 관리자 프로필의 중첩된 계층 구조를 생성하는 데 사용됩니다. 아직 ARM API를 통해 지원되지 않습니다.<BR>
 
 세 가지 경우 모두, 끝점은 두 가지 방법으로 추가될 수 있습니다.<BR>
@@ -150,7 +148,7 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 ### Azure 끝점 추가
 
-Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다. 현재 다음 3가지 유형의 Azure 끝점이 지원됩니다.<BR>
+Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다. 현재 다음 세 가지 유형의 Azure 끝점이 지원됩니다.<BR>
 1. Azure 웹앱 <BR>
 2. '클래식' 클라우드 서비스(PaaS 서비스 또는 IaaS 가상 컴퓨터를 포함할 수 있음)<BR>
 3. ARM Microsoft.Network/publicIpAddress 리소스(부하 분산 장치 또는 가상 컴퓨터 NIC에 연결할 수 있음). publicIpAddress에는 트래픽 관리자에서 사용되도록 지정된 DNS 이름이 있어야 합니다.
@@ -189,7 +187,7 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 외부 끝점을 지정하는 경우:
  - 'Target' 매개 변수를 사용하여 끝점 도메인 이름을 지정해야 합니다.<BR>
  - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다.<BR>
- - Azure 끝점에 대해 ‘가중치' 및 ‘우선 순위’는 선택 사항입니다.<BR>
+ - Azure 끝점에 대해 'Weight' 및 'Priority'는 선택 사항입니다.<BR>
  
 
 #### 예제 1: Add-AzureRmTrafficManagerEndpointConfig 및 Set-AzureRmTrafficManagerProfile을 사용하여 외부 끝점 추가
@@ -212,9 +210,9 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 중첩 트래픽 관리자를 사용하면 더 유연하고 강력한 트래픽 라우팅 및 장애 조치(failover) 체계를 만들어 더 크고 복잡한 배포에 대한 요구 사항을 지원할 수 있습니다. [이 블로그 게시물](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/)에서 몇 가지 예제를 제공합니다.
 
 중첩 끝점은 특정 끝점 유형인 'NestedEndpoints'를 사용하여 부모 프로필에서 구성됩니다. 중첩된 끝점을 지정하는 경우:
- - 'TargetResourceId' 매개 변수를 사용하여 끝점(즉, 자식 프로필)을 지정해야 합니다.<BR>
+ - 'targetResourceId' 매개 변수를 사용하여 끝점(즉, 자식 프로필)을 지정해야 합니다.<BR>
  - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](http://azure.microsoft.com/regions/)이어야 합니다.<BR>
- - Azure 끝점에 대해 ‘가중치' 및 ‘우선 순위’는 선택 사항입니다.<BR>
+ - Azure 끝점에 대해 'Weight' 및 'Priority'는 선택 사항입니다.<BR>
  - 'MinChildEndpoints' 매개 변수는 선택적이고, 기본값은 '1'입니다. 자식 프로필에서 사용할 수 있는 끝점 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 다른 부모 프로필 끝점으로 전환합니다.<BR>
 
 
@@ -311,4 +309,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD로 페더레이션에 대한 여러 도메인 지원
@@ -128,7 +128,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings - DomainName
 ##하위 도메인에 대한 지원
 하위 도메인을 추가할 때 Azure AD가 도메인을 처리하는 방식으로 인해 부모의 설정을 상속합니다. 이는 IssuerUri가 부모와 일치해야 함을 의미합니다.
 
-따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다. 즉, corp.bmcontoso.com에서 사용자에 대한 IssuerUri는 ****http://bmcontoso.com/adfs/services/trust.**이어야 합니다. 하지만 Azure AD에 대해 위에서 구현된 표준 규칙은 도메인의 필요한 값과 일치하지 않는 ****http://corp.bmcontoso.com/adfs/services/trust.**(으)로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
+따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다. 즉, corp.bmcontoso.com에서 사용자에 대한 IssuerUri는 **http://bmcontoso.com/adfs/services/trust.**이어야 합니다. 하지만 Azure AD에 대해 위에서 구현된 표준 규칙은 도메인의 필요한 값과 일치하지 않는 **http://corp.bmcontoso.com/adfs/services/trust.**(으)로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
 
 ### 하위 도메인에 대한 지원을 활성화하는 방법
 이를 해결하기 위해 Microsoft 온라인에 대한 AD FS 신뢰 당사자 트러스트를 업데이트해야 합니다. 이를 위해 사용자 지정 클레임 규칙이 사용자 지정 발급자 값을 생성할 때 사용자의 UPN 접미사에서 모든 하위 도메인을 제거하도록 구성해야 합니다.
@@ -153,4 +153,4 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings - DomainName
 ![클레임 바꾸기](./media/active-directory-multiple-domains/sub2.png)
 5.	확인을 클릭합니다. 적용을 클릭합니다. 확인을 클릭합니다. AD FS 관리를 닫습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

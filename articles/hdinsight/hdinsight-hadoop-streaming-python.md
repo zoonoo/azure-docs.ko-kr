@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/13/2016"
    ms.author="larryfr"/>
 
 #HDInsight용 Python 스트리밍 프로그램 개발
@@ -32,6 +32,8 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 * HDInsight 클러스터의 Linux 기반 Hadoop
 
 * 텍스트 편집기
+
+    > [AZURE.IMPORTANT] 텍스트 편집기에서 줄 끝으로 LF를 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 오류가 발생할 수 있습니다. 확실하지 않은 경우 [MapReduce 실행](#run-mapreduce) 섹션의 선택 단계를 사용하여 모든 CRLF를 LF로 변환합니다.
 
 * Windows 클라이언트, PuTTY 및 PSCP 이러한 유틸리티는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY 다운로드 페이지</a>에서 사용할 수 있습니다.
 
@@ -154,6 +156,11 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 	> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`).
 
+2. (선택 사항) mapper.py 및 reducer.py 파일을 만들 때 줄 끝으로 CRLF를 사용하는 텍스트 편집기를 사용하거나 편집기가 사용하는 줄 끝을 모르는 경우 다음 명령을 사용하여 mapper.py 및 reducer.py에서 CRLF를 LF로 변환합니다.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. 다음 명령을 사용하여 MapReduce 작업을 시작합니다.
 
 		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
@@ -205,4 +212,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

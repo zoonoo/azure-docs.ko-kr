@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -215,4 +215,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - 이 환경에서 [SharePoint 인트라넷 팜](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [웹 기반 LOB 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md)를 설정합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

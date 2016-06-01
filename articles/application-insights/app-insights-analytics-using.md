@@ -29,7 +29,7 @@
 
 Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
-![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics/001.png)
+![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics-using/001.png)
 
 인라인 자습서에서 수행할 수 있는 몇 가지 작업을 확인할 수 있습니다.
 
@@ -37,7 +37,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ## 쿼리 작성
 
-왼쪽에 나열된 테이블 이름으로 시작되는 쿼리를 작성합니다. [연산자](app-insights-analytics-queries.md) 파이프라인을 만들려면 `|`를 사용합니다.
+왼쪽에 나열된 테이블 이름으로 시작되는 쿼리를 작성합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`를 사용합니다.
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -60,9 +60,9 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] 웹 브라우저에서 사용할 수 있는 결과의 순서를 빠르게 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 그러므로 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 최상위 항목이나 최하위 항목을 표시하려면 [top](app-insights-analytics-queries.md#top-operator) 또는 [sort](app-insights-analytics-queries.md#sort-operator) 연산자를 사용해야 합니다.
+> [AZURE.NOTE] 웹 브라우저에서 사용할 수 있는 결과의 순서를 빠르게 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 그러므로 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 최상위 항목이나 최하위 항목을 표시하려면 [top](app-insights-analytics-reference.md#top-operator) 또는 [sort](app-insights-analytics-reference.md#sort-operator) 연산자를 사용해야 합니다.
 
-그러나 서버에서 매우 큰 테이블을 다운로드하지 않도록 [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) 또는 [summarize](app-insights-analytics-queries.md#summarize-operator) 연산자를 사용하는 것이 좋습니다. 행의 수는 쿼리당 약 1만 개로 자동 제한됩니다.
+그러나 서버에서 매우 큰 테이블을 다운로드하지 않도록 [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) 또는 [summarize](app-insights-analytics-reference.md#summarize-operator) 연산자를 사용하는 것이 좋습니다. 행의 수는 쿼리당 약 1만 개로 자동 제한됩니다.
 
 
 ## 다이어그램
@@ -75,7 +75,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ![](./media/app-insights-analytics-using/100.png)
 
-기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-queries.md#render-directive)을 사용하여 다이어그램을 선택할 수 있습니다.
+기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-reference.md#render-directive)을 사용하여 다이어그램을 선택할 수 있습니다.
 
 ## Excel로 내보내기
 
@@ -104,4 +104,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

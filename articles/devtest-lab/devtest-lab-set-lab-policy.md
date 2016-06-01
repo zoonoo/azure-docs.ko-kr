@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # 랩 정책 정의
-
-> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [사용자 지정 아티팩트를 작성하는 방법](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## 개요
 
@@ -28,7 +26,7 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 랩에 대한 정책을 보거나 변경하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -132,8 +130,9 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 랩에 대한 다양한 VM 정책 설정을 정의 및 적용한 후에는 다음 작업을 수행하세요.
 
+- [비용 관리 구성](./devtest-lab-configure-cost-management.md) - **Monthly Estimated Cost Trend**(월간 예상 비용 추세) 차트를 사용하여 이번 달의 현재 예상 비용 합계 뿐만 아니라 월말 추정 비용을 보는 방법을 보여줍니다.
 - [사용자 지정 이미지 만들기](./devtest-lab-create-template.md) - VM을 만들 때는 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기준을 지정합니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 - [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
-- [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 이 문서에서는 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
+- [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

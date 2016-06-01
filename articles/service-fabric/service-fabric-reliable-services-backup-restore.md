@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/13/2016"
    ms.author="mcoskun"/>
 
 # Reliable Services 및 Reliable Actors 백업 및 복원
@@ -193,4 +193,4 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
 
 **RestoreAsync**는 먼저 호출된 기본 복제본에서 모든 기존 상태를 삭제합니다. 그런 다음 신뢰할 수 있는 상태 관리자가 백업 폴더에 존재하는 모든 신뢰 개체를 만듭니다. 다음으로 백업 폴더의 검사점으로부터 백업하도록 신뢰 개체에게 지시합니다. 마지막으로 Reliable State Manager가 백업 폴더의 로그 레코드에서 자체 상태를 복구하고 복구를 수행합니다. 복구 프로세스의 일환으로 백업 폴더에서 로그 레코드를 커밋한 "시작점"에서 시작하는 작업이 신뢰 개체에 재현됩니다. 이 단계를 통해 일관된 복구 상태를 유지합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN의 실시간 통계
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## 개요
 
 이 문서에서는 Microsoft Azure CDN의 실시간 통계에 대해 설명합니다. 이 기능은 클라이언트에 콘텐츠를 제공할 때 CDN의 성능에 대한 실시간 데이터를 제공합니다.
-
-> [AZURE.NOTE] 실시간 통계는 프리미엄 CDN 계층의 기능입니다. 표준 및 프리미엄 CDN 기능을 비교하려면 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
 
 HTTP 기반 플랫폼에 대한 실시간 통계를 볼 때 다음과 같은 그래프가 제공됩니다.
 
@@ -99,4 +99,4 @@ HTTP 기반 플랫폼에 대한 실시간 통계를 볼 때 다음과 같은 그
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 * [에지 성능 분석](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

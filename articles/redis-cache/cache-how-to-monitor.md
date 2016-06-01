@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Redis Cache를 모니터링하는 방법" 
+	pageTitle="Azure Redis Cache를 모니터링하는 방법 | Microsoft Azure" 
 	description="Azure Redis Cache 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다." 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -82,8 +82,8 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 | 사용된 메모리 | 지정한 보고 간격 동안 캐시의 키/값 쌍에 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory` 명령에 매핑됩니다. 메타데이터 또는 조각화를 포함하지 않습니다. |
 | 사용된 메모리 RSS | 조각화 및 메타데이터를 포함하여 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory_rss` 명령에 매핑됩니다. |
 | CPU | 지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
-| 캐시 읽기 | 지정한 보고 간격 동안 캐시에서 읽은 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
-| 캐시 쓰기 | 지정한 보고 간격 동안 캐시에 쓴 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
+| 캐시 읽기 | 지정한 보고 간격 동안 캐시에서 읽은 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. **이 값은 캐시에서 사용되는 네트워크 대역폭에 해당합니다. 서버 쪽 네트워크 대역폭 제한에 대한 경고를 설정하려면, `Cache Read` 카운터를 사용하여 경고를 생성합니다. 다양한 캐시 가격 책정 계층 및 크기에 대해 관찰된 대역폭 제한은 [이 테이블](cache-faq.md#cache-performance)을 참조하세요.** |
+| 캐시 쓰기 | 지정한 보고 간격 동안 캐시에 쓰는 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. 이 값은 클라이언트에서 캐시로 전송되는 데이터의 네트워크 대역폭에 해당됩니다. |
 
 ## 모니터링 차트
 
@@ -259,4 +259,4 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

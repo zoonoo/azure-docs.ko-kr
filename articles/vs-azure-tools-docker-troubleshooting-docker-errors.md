@@ -12,92 +12,108 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/15/2016"
    ms.author="tarcher" />
 
-# Docker 오류 문제 해결
+# Visual Studio Docker 개발 문제 해결
 
-앱의 Docker 컨테이너에 대한 모든 설정을 구성한 다음 설정 및 경로가 올바른지 확인해야 합니다. Visual Studio는 이 작업을 수행할 수 있도록 게시 대화 상자에서 유효성 검사 단추를 제공합니다.
+Docker 미리 보기를 위해 Visual Studio 도구로 작업할 경우, 미리 보기 특성으로 인해 몇 가지 문제가 발생할 수도 있습니다. 다음은 몇 가지 일반적인 문제 및 해결 방법입니다.
 
-이 항목은 Docker에서 Visual Studio 앱을 호스트할 때 발생할 수 있는 가장 일반적인 문제를 진단하고 수정하거나 해결하는 데 도움이 됩니다. 더 많은 문제가 나타날 때 이 항목에 추가됩니다.
+##Docker 지원에 대한 Program.cs를 구성하지 못했습니다.
 
-## 웹 게시 대화 상자에서 Docker 호스트 연결에 대한 유효성 검사를 시도하면 오류 메시지가 나타납니다.
-
-이 문제에 대한 가능한 해결책은 다음과 같습니다.
-
-- **게시** 대화 상자의 **연결** 탭에서 **서버 URL**이 올바른지 확인하고 **서버 URL**의 후행:`:<port_number>`이 Docker 데몬에서 수신 중인 포트인지 확인합니다.
-
-- **게시** 대화 상자의 **연결** 탭에서 **Docker 고급 옵션** 섹션을 확장하고 올바른 **인증** 옵션이 지정되어 있는지 확인합니다.
-  - 서버의 Docker 데몬이 TLS 보안을 사용하도록 구성되어 있는 경우 Windows Docker 명령줄 인터페이스(docker.exe)가 `<%userprofile%>\.docker` 폴더 아래에서 기본적으로 클라이언트 키(key.pem) 및 인증서(cert.pem)를 찾습니다. 이러한 항목이 없는 경우 OpenSSL을 사용하여 생성해야 합니다. TLS의 Docker 구성에 대한 자세한 내용은 [HTTPS를 사용한 Docker 데몬 소켓 보호](https://docs.docker.com/articles/https/)를 참조하세요.
-
-	Docker가 Linux 서버에 대한 Windows 클라이언트에서 제대로 인증되었는지를 확인하는 한 가지 방법은 미리 보기 텍스트 상자의 콘텐츠를 새 명령 창에 복사하고 다음과 같이 `<command>`을 “info”로 변경하는 것입니다.
-
-    ```
-    // This example assumes the Docker daemon is configured to use the default port
-    // of 2376 to listen for connections.docker.
-
-    --tls -H tcp://contoso.cloudapp.net:2376 info
-    ```
-
-    클라이언트 인증서 및 키 파일을 .docker 폴더에 복사하는 대체 방법으로 다음 매개 변수를 추가하여 **인증** 옵션을 변경할 수 있습니다.
-
-    ```
-    --tls --tlscert=C:\mycert\cert.pem --tlskey=C:\mycert\key.pem
-    ```
-- Docker 호스트 컴퓨터의 Docker 데몬이 버전 1.6 이상인지 확인하십시오.
-
-## Docker 폴더에서 클라이언트 인증서가 없는 자체 인증서 사용 시 시간 초과 오류
-
-Visual Studio에서 Docker 호스트를 만들 때 사용자 고유 인증서를 사용하도록 선택하는 경우(즉, **Microsoft Azure 대화 상자의 가상 컴퓨터 만들기** 대화 상자에서 **Docker 인증서 자동 생성** 확인란 선택을 취소하는 경우) 클라이언트 인증서 및 키 파일(cert.pem 및 key.pem)을 Docker 폴더(`<%userprofile%>\.docker`)에 복사해야 합니다. 그렇지 않은 경우 프로젝트를 게시하면 1시간 이내에 시간 초과 오류를 받게 되며 게시 작업이 실패합니다.
-
-## Docker 컨테이너에 게시할 때 필요한 PowerShell 3.0
-
-운영 체제가 Windows 7 또는 Windows Server 2008인 경우 Docker 컨테이너에 게시하려면 PowerShell 3.0을 설치해야 합니다. PowerShell 3.0은 [Windows Management Framework 3.0](https://www.microsoft.com/ko-KR/download/details.aspx?id=34595)에 포함되어 있습니다. 설치 후 시스템을 다시 부팅해야 합니다.
-
-다른 해결 방법으로 이미 PowerShell 3.0이 있는 Windows 8.1 또는 Windows 10으로 업그레이드할 수 있습니다.
-
-## 자동으로 닫히지 않는 PowerShell 창
-
-VM을 만든 후 때로는 PowerShell 창이 자동으로 닫히지 않습니다. 이 창을 닫으면 Visual Studio도 닫힙니다. 창은 Visual Studio 또는 Docker 도구 기능에 영향을 주지 않으므로 작업을 완료할 때까지 열어두십시오.
-
-## FAQ
-
-Q: Visual Studio 도구를 사용하여 Azure에서 Linux 컴퓨터가 활성화된 새 Docker를 어떻게 만드나요?
-
-A: 이 작업을 수행하는 방법에 대한 정보는 [Docker에서 웹앱 호스팅](vs-azure-tools-docker-hosting-web-apps-in-docker.md)을 참조하세요.
-
-Q: 어떤 Visual Studio 프로젝트 템플릿이 Linux Docker 컨테이너에 게시하는 데 지원됩니까?
-
-A: Visual Studio는 현재 다음과 같은 C# 콘솔 응용 프로그램(패키지) 및 C# ASP.NET 5 미리 보기 웹 템플릿을 지원합니다.
-
-- 비어 있음
-
-- Web API
-
-- 웹 응용 프로그램
-
-Q: 명령줄에서 MSBUILD를 사용하여 어떻게 제 ASP.NET 5 웹 또는 콘솔 프로젝트를 Docker에 게시하나요?
-
-A: 다음 MSBuild 명령을 사용합니다.
-
-    `msbuild <projectname.xproj> /p:deployOnBuild=true;publishProfile=<profilename>`
-
-Q: 명령줄에서 PowerShell을 사용하여 어떻게 저의 ASP.NET 5 웹 또는 콘솔 프로젝트를 Docker에 게시하나요?
-
-A: 다음 PowerShell 명령을 사용합니다.
-
+Docker 지원을 추가할 때, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`를 WebHostBuilder()에 추가해야 합니다. Program.cs main() 함수나 새 클래스 WebHostBuilder을 찾을 수 없는 경우, 경고가 표시됩니다. docker 컨테이너 내에서 실행 시 localhost 너머에서 들어오는 트래픽을 Kestrel이 수신하도록 설정하는데 UseUrls()가 필요합니다. 완료 시 일반적인 코드는 다음과 같이 표시됩니다.
 ```
-.\contoso-Docker-publish.ps1 -packOutput $env:USERPROFILE\AppData\Local\Temp\PublishTemp -pubxmlFile .\contoso-Docker.pubxml
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var host = new WebHostBuilder()
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
+            .UseKestrel()
+            .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .Build();
+
+        host.Run();
+    }
+}
 ```
+UseUrls()은 들어오는 URL 트래픽을 WebHost가 수신하도록 구성했습니다. [Visual Studio용 Docker 도구](http://aka.ms/DockerToolsForVS)는 dockerfile.debug/release 모드에서 환경 변수를 다음과 같이 구성합니다.
+```
+# Configure the listening port to 80
+ENV ASPNETCORE_SERVER.URLS http://*:80
+```
+## 볼륨 매핑이 작동하지 않습니다.
+편집 및 새로 고침 기능을 사용하도록 설정하려면, 프로젝트의 소스 코드를 컨테이너 내의 .app 폴더와 공유하도록 볼륨 매핑을 구성합니다. 호스트 컴퓨터에서 파일들이 변경될 때, 컨테이너 /app 디렉토리는 동일한 디렉토리를 사용합니다. Docker-compose.debug.yml에서 다음 구성은 볼륨 매핑을 사용하도록 설정합니다.
+```
+    volumes:
+      - ..:/app
+```
+볼륨 매핑이 작동하는지 테스트 하려면, 다음 명령을 실행해 보세요.
 
-Q: Docker에 제 Linux 서버가 설치되어 있습니다. **웹 게시** 대화 상자에 이를 지정하려면 어떻게 해야 하나요?
+**Windows에서**
+```
+docker run -it -v /c/Users/Public:/wormhole busybox
+cd wormhole
+/ # ls
+```
+Users/Public 폴더의 디렉토리 목록이 표시됩니다. 아무 파일도 표시되지 않고, /c/Users/Public 폴더는 비어 있지 않다면, 볼륨 매핑이 제대로 구성되지 않았습니다.
+```
+bin       etc       proc      sys       usr       wormhole
+dev       home      root      tmp       var
+```
+`/c/Users/Public` 디렉토리의 내용을 보려면 웜홀 디렉토리로 변경합니다.
+```
+/ # cd wormhole/
+/wormhole # ls
+AccountPictures  Downloads        Music            Videos
+Desktop          Host             NuGet.Config     a.txt
+Documents        Libraries        Pictures         desktop.ini
+/wormhole #
+```
+**참고:** *Linux VM에서 작업할 때, 컨테이너 파일 시스템은 대/소문자를 구분합니다.*
 
-A: [Docker에서 웹앱 호스팅](vs-azure-tools-docker-hosting-web-apps-in-docker.md) 항목에서 **Docker 호스트 사용자 지정 제공** 섹션을 참조하십시오.
+내용을 볼 수 없는 경우 다음을 시도합니다.
 
-Q: Docker에 설치된 제 Linux 서버를 사용 중입니다. TLS를 사용하여 인증을 구성하기 위해 키와 인증서를 생성하려면 어떻게 해야 하나요?
+**윈도우용 Docke 베타**
+- 시스템 트레이에 모비 아이콘이 있는지 살피고, 아이콘이 흰색이고 기능 중인지 확인하여 Windows용 Docker 데스크톱 앱이 실행 중인지 확인합니다.
+- 시스템 트레이에 있는 모비 아이콘을 마우스 오른쪽 단추로 클릭하여, 설정을 선택하고 **공유 드라이브 관리...**를 클릭하여 볼륨 매핑이 구성되어 있는지 확인합니다.
 
-A: 한 가지 방법은 서버에서 OpenSSL을 사용하여 CA, 서버 및 클라이언트에 필요한 인증서 및 키를 생성하는 것입니다. 그러면 타사 소프트웨어를 사용하여 SSH/SFTP 연결을 설정할 수 있으며 그런 다음 로컬 Windows 개발 컴퓨터에 인증서를 복사할 수 있습니다. 기본적으로 Docker(CLI)는 `<userprofile>\.docker` 폴더에 있는 인증서 사용을 시도합니다.
+**VirtualBox가 있는 Docker 도구 상자**
 
-다른 옵션은 Windows용 OpenSSL을 다운로드하고 필요한 인증서 및 키를 생성한 다음 Linux 컴퓨터에 CA, 서버 인증서 및 키를 업로드하는 것입니다. Docker의 보안 연결 설정에 대한 자세한 내용은 [HTTPS를 사용한 Docker 데몬 소켓 보호](https://docs.docker.com/articles/https/)를 참조하세요.
+기본적으로 VirtualBox에서는 `C:\Users`를 `c:/Users`로 공유합니다. 가능한 경우 프로젝트를 이 디렉토리 아래로 옮깁니다. 그렇지 않은 경우, VirtualBox [공유 폴더](https://www.virtualbox.org/manual/ch04.html#sharedfolders)에 수동으로 추가할 수 있습니다.
+	
+##빌드: 이미지를 빌드하지 못했습니다. TLS 연결 확인 중 오류 발생: 호스트가 실행되고 있지 않습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+- 기본 Docker 호스트가 실행 중인지 확인합니다. [Docker 클라이언트 구성](./vs-azure-tools-docker-setup.md) 문서를 참조하세요.
+
+##Microsoft Edge를 기본 브라우저로 사용
+
+Microsoft Edge 브라우저를 사용하는 경우 Edge에서 IP 주소를 보안되지 않은 상태로 간주하므로 사이트가 열리지 않을 수 있습니다. 이를 해결하려면 다음 단계를 수행합니다.
+1. Windows 실행 상자에서 `Internet Options`를 입력합니다.
+2. 나타나면 **인터넷 옵션**을 탭합니다. 
+2. **보안**을 탭합니다.
+3. **로컬 인트라넷** 영역을 선택합니다.
+4. **사이트**를 탭합니다. 
+5. 목록에서 가상 컴퓨터의 IP(이 경우 Docker 호스트)를 추가합니다. 
+6. Edge에서 페이지를 새로 고치면 사이트가 실행 중임이 표시됩니다. 
+7. 이 문제에 대한 자세한 내용은 Scott Hanselman의 블로그 게시물인 [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx)(Microsoft Edge에서 VirtualBox 호스트된 로컬 웹 사이트를 보거나 열 수 없음)를 참조하세요. 
+
+##문제 해결 버전 0.15 이전
+
+
+###앱을 실행하면 PowerShell이 열리고 오류를 표시한 다음 닫힙니다. 브라우저 페이지가 열리지 않습니다.
+
+이는 `docker-compose-up` 중 오류일 수 있습니다. 오류를 확인하려면 다음 단계를 수행합니다.
+
+1. `Properties\launchSettings.json` 파일을 엽니다. Docker 항목을 찾습니다.
+1. 다음과 같이 시작하는 줄을 찾습니다.
+
+    "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+	
+1. `-noexit` 매개 변수를 추가하면 이제 줄이 다음과 유사합니다. 이렇게 하면 PowerShell이 계속 열려 있어서 오류를 확인할 수 있습니다.
+
+	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+
+<!---HONumber=AcomDC_0518_2016-->

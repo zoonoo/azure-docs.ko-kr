@@ -1,38 +1,38 @@
-### Create an AAAA record set with a single record
+### 단일 레코드가 포함된 AAAA 레코드 집합 만들기
 
 	$rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-### Create a CNAME record set with a single record
+### 단일 레코드가 포함된 CNAME 레코드 집합 만들기
 
 	$rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-### Create an MX record set with a single record
+### 단일 레코드가 포함된 MX 레코드 집합 만들기
 
-In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com"). This is common for MX records.
+이 예제에서는 레코드 집합 이름을 "@"로 사용하여 영역 구로에 MX 레코드를 만듭니다(예: "contoso.com"). MX 레코드에 공통됩니다.
 
 	$rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-### Create an NS record set with a single record
+### 단일 레코드가 포함된 NS 레코드 집합 만들기
 
 	$rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-### Create an SRV record set with a single record
+### 단일 레코드가 포함된 SRV 레코드 집합 만들기
 
-If you are creating an SRV record in root of zone, just specify *_service* and *_protocol* in the record name. There is no need to also include ‘.@’ in the record name.
+영역 루트에 SRV 레코드를 만드는 경우 레코드 이름에 *\_service* 및 *\_protocol*만 지정합니다. 레코드 이름에 '.@'을 포함하지 않아도 됩니다.
 
 	$rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-### Create a TXT record set with a single record
+### 단일 레코드가 포함된 TXT 레코드 집합 만들기
 
 	$rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"

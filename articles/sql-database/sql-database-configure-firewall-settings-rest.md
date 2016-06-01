@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2016"
-	ms.author="stevestein"/>
+	ms.date="05/09/2016"
+	ms.author="sstein"/>
 
 
 # 방법: REST API를 사용하여 Azure SQL 데이터베이스 방화벽 구성
@@ -73,4 +73,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

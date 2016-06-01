@@ -48,9 +48,15 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 - [Node.js용 Azure IoT 서비스 SDK][]
 - [Java용 Azure IoT 서비스 SDK][]
 
+## Azure IoT Gateway SDK
+
+이 Azure IoT Gateway SDK는 IoT 게이트웨이 솔루션을 만드는 인프라 및 모듈을 포함합니다. SDK를 확장하여 모든 종단 간 시나리오에 맞는 게이트웨이를 만들 수 있습니다.
+
+GitHub에서 [Azure IoT Gateway SDK][]를 다운로드할 수 있습니다.
+
 ## 온라인 API 참조 설명서
 
-다음은 Azure IoT 장치 및 서비스 라이브러리용 온라인 API 참조 설명서에 대한 링크 목록입니다.
+다음은 Azure IoT 장치, 서비스 및 게이트웨이 라이브러리용 온라인 API 참조 설명서에 대한 링크 목록입니다.
 
 - [IoT(사물 인터넷) .NET][]
 - [IoT Hub REST][]
@@ -59,6 +65,7 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 - [Java용 Microsoft Azure IoT 서비스 SDK][]
 - [Node.js용 Microsoft Azure IoT 장치 SDK][]
 - [Node.js용 Microsoft Azure IoT 서비스 SDK][]
+- [Microsoft Azure IoT gateway SDK][]
 
 [Microsoft Azure IoT SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [C용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
@@ -70,13 +77,15 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Python 2.7용 Microsoft Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md
 [OS Platforms and hardware compatibility]: iot-hub-tested-configurations.md
 [IoT용 Microsoft Azure Certified 프로그램]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
+[Azure IoT Gateway SDK]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/README.md
 
 [IoT(사물 인터넷) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [C용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [Java용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.3/index.html
+[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.5/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 [Java용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.3/index.html
+[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.5/index.html
+[Microsoft Azure IoT gateway SDK]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

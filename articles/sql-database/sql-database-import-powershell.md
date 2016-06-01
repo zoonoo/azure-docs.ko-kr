@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기
@@ -41,10 +41,6 @@ SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 - 가져올 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](../storage/storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
 
 
-> [AZURE.IMPORTANT] 이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
-
-
-
 ## 자격 증명 구성 및 구독 선택
 
 먼저 Azure 계정에 액세스 권한을 설정해야 하므로 PowerShell을 시작하고 다음 cmdlet을 실행합니다. 로그인 화면에서 Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 입력합니다.
@@ -67,7 +63,7 @@ SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
 예제 값을 데이터베이스 및 저장소 계정에 대한 특정 값으로 바꿔야 하는 몇 개의 변수가 있습니다.
 
-서버 이름은 이전 단계에서 선택한 구독에 현재 존재하는 서버여야 하며, 데이터베이스를 만들려는 서버입니다.
+서버 이름은 이전 단계에서 선택한 구독에 현재 존재하는 서버여야 하며, 데이터베이스를 만들려는 서버입니다. 탄력적 풀에 직접 데이터베이스 가져오기는 지원되지 않지만 먼저 단일 데이터베이스로 가져온 다음 데이터베이스를 풀로 이동할 수 있습니다.
 
 데이터베이스 이름은 새 데이터베이스에 사용할 이름입니다.
 
@@ -153,4 +149,4 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

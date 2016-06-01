@@ -47,7 +47,7 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
     ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-cloudservices/02-props.png)
 
 
-일반적으로 각 웹 및 작업자 역할의 데이터에 대해 별도의 리소스를 만드는 것이 좋습니다.
+일반적으로 [각 웹 및 작업자 역할의 데이터에 대해 별도의 리소스를 만드는 것이 좋습니다](app-insights-separate-resources.md).
 
 대안으로 모든 역할의 데이터를 한 리소스로 보낼 수는 있지만 각 역할의 결과를 필터링 또는 그룹화할 수 있도록 [기본 속성][apidefaults]을 설정해야 합니다.
 
@@ -59,7 +59,7 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 Windows 서비스용 Application Insights를 사용합니다.
+2. 웹 역할의 경우 [웹용 Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 [Windows 서비스용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 사용합니다.
 
     !["Application Insights" 검색](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -275,7 +275,7 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
 [api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
-[apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[apidynamicikey]: app-insights-separate-resources.md#dynamic-ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md
@@ -286,4 +286,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

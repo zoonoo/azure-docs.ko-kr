@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/23/2016"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 # 노드에 대한 WEB-API 시작
@@ -927,4 +927,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

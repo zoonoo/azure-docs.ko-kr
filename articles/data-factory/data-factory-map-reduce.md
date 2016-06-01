@@ -217,7 +217,6 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 
 [adfgetstarted]: data-factory-get-started.md
 [adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
-[adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -229,4 +228,4 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

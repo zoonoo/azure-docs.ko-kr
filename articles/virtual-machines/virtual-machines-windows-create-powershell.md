@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# 리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 구성
+# 리소스 관리자 배포 모델에서 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 구성
 
 > [AZURE.SELECTOR]
 - [포털 - Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,13 +28,11 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 이러한 단계에서는 Azure 가상 컴퓨터를 만들고 구성하는 Azure PowerShell 명령 집합을 생성하는 방법을 보여줍니다. 이 구성 요소 프로세스를 사용하여 빠르게 새 Windows 기반 가상 컴퓨터에 대한 명령 집합을 만들고 기존 배포를 확장할 수 있습니다. 또한 이 프로세스를 사용하여 사용자 지정 개발/테스트 또는 IT 전문가 환경을 빠르게 구축하는 여러 명령 집합을 만들 수도 있습니다.
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
+
+> [AZURE.IMPORTANT] VM이 가용성 집합에 속하려면 VM을 만들 때 집합에 추가해야 합니다. 현재는 VM을 만든 후에 가용성 집합에 VM을 추가할 수 없습니다.
 
 ## 1단계: Azure PowerShell 설치
 
@@ -52,7 +50,7 @@
 
 다음 명령으로 사용 가능한 구독을 가져옵니다.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | Sort SubscriptionName | Select SubscriptionName
 
 현재 세션에 대한 Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
@@ -115,6 +113,7 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 ### 가용성 집합
 
 
+
 필요한 경우 다음 명령을 사용하여 새 가상 컴퓨터의 새 가용성 집합을 만듭니다.
 
 	$avName="<availability set name>"
@@ -136,7 +135,7 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 	$locName="West US"
 	$frontendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix 10.0.1.0/24
 	$backendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix 10.0.2.0/24
-	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -SubnetId $frontendSubnet,$backendSubnet
+	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $frontendSubnet,$backendSubnet
 
 다음 명령을 사용하여 기존 가상 네트워크를 나열합니다.
 
@@ -220,7 +219,7 @@ NIC를 만들고 인바운드 NAT 규칙에 대한 부하 분산 장치 인스�
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 $nicName 문자열은 리소스 그룹에 대해 고유해야 합니다. "LOB07 NIC"와 같은 가상 컴퓨터 이름을 문자열에 통합하는 것이 좋습니다.
 
@@ -239,7 +238,7 @@ NIC를 만들고 부하 분산된 집합에 대한 부하 분산 장치 인스�
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 이제, 로컬 VM 개체를 만들고 필요에 따라 가용성 집합에 추가합니다. 다음 두 옵션 중 하나를 명령 집합으로 복사하고 이름, 크기 및 가용성 집합 이름을 입력합니다.
 
@@ -293,7 +292,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-필요한 가상 컴퓨터 이미지가 나열되어 있지 않으면 [여기](virtual-machines-linux-cli-ps-findimage.md#powershell)의 지침을 따라 게시자, 제안 및 SKU 이름을 확인합니다.
+필요한 가상 컴퓨터 이미지가 나열되어 있지 않으면 [여기](virtual-machines-windows-cli-ps-findimage.md#powershell)의 지침을 따라 게시자, 제안 및 SKU 이름을 확인합니다.
 
 다음 명령을 명령 집합으로 복사하고 게시자, 제안 및 SKU 이름을 입력합니다.
 
@@ -317,7 +316,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 4단계에서 작성한 Azure PowerShell 명령 집합을 텍스트 편집기나 PowerShell ISE에서 검토합니다. 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
 
-텍스트 편집기에서 명령을 작성한 경우 명령 집합을 클립보드로 복사한 다음, Azure PowerShell 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 전송되고 Azure 가상 컴퓨터가 만들어집니다. 또는 Azure PowerShell ISE에서 명령 집합을 실행합니다.
+텍스트 편집기에서 명령을 작성한 경우 명령 집합을 클립보드로 복사한 다음, Windows PowerShell 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 전송되고 Azure 가상 컴퓨터가 만들어집니다. 또는 PowerShell ISE에서 명령 집합을 실행합니다.
 
 이 정보를 다시 사용하여 VM을 추가로 만들려면 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장할 수 있습니다.
 
@@ -341,7 +340,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
 	$nicName="LOB07-NIC"
@@ -392,4 +391,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # 404 상태를 반환하는 CDN 끝점 문제 해결
@@ -37,7 +37,7 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 ## 문제 해결 단계
 
-> [AZURE.IMPORTANT] CDN 끝점을 만든 후 등록이 CDN 네트워크 전체에 전파되는 데 시간이 걸리기 때문에 끝점을 즉시 사용할 수는 없습니다. 일반적으로 90분 내에 사용이 가능해 지지만 일부 경우에는 시간이 더 길어질 수 있습니다. 이 문서의 단계를 완료한 후에도 여전히 404 응답이 반환되면 몇 시간 정보 기다렸다가 다시 확인한 후 지원 티켓을 열어 보세요.
+> [AZURE.IMPORTANT] CDN 끝점을 만든 후 등록이 CDN 네트워크 전체에 전파되는 데 시간이 걸리기 때문에 끝점을 즉시 사용할 수는 없습니다. <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다. 이 문서의 단계를 완료한 후에도 여전히 404 응답이 반환되면 몇 시간 정보 기다렸다가 다시 확인한 후 지원 티켓을 열어 보세요.
 
 ### 원본 파일 확인
 
@@ -59,13 +59,15 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 #### 원본 유형 및 호스트 이름
 
-**원본 유형**이 올바른지 확인하고 **원본 호스트 이름**을 확인합니다. 이 예의 `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서 URL의 호스트 이름 부분은 `cdndocdemo.blob.core.windows.net`입니다. 스크린샷에서 보시는 것처럼 올바른 유형입니다. Azure 저장소, 웹앱 및 클라우드 서비스 원본의 경우 **원본 호스트 이름** 필드가 드롭다운이므로 철자를 신경 쓸 필요가 없습니다. 그러나 사용자 지정 원본을 사용하는 경우 *반드시* 호스트 이름 절차를 올바르게 입력해야 합니다.
+**원본 유형**이 올바른지 확인하고 **원본 호스트 이름**을 확인합니다. 이 예의 `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서 URL의 호스트 이름 부분은 `cdndocdemo.blob.core.windows.net`입니다. 스크린샷에서 보시는 것처럼 올바른 유형입니다. Azure 저장소, 웹앱 및 클라우드 서비스 원본의 경우 **원본 호스트 이름** 필드가 드롭다운이므로 철자를 신경 쓸 필요가 없습니다. 그러나 사용자 지정 원본을 사용하는 경우 *반드시* 호스트 이름 철자를 올바르게 입력해야 합니다.
 
 #### HTTP 및 HTTPS 포트
 
 여기서 확인할 또 다른 사항은 **HTTP** 및 **HTTPS 포트**입니다. 대부분의 경우 80 및 443이 올바르며, 포트를 변경할 필요가 없습니다. 그러나 원본 서버가 다른 포트에서 수신하는 경우 해당 사실을 여기에 나타내야 합니다. 확실하지 않은 경우 원본 파일의 URL을 살펴보기만 하세요. HTTP 및 HTTPS 사양은 포트 80 및 443을 기본값으로 지정합니다. 이 예의 URL `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`에서는 포트가 지정되지 않았기 때문에 기본값이 443인 것으로 가정하며 설정이 올바릅니다.
 
 하지만 앞에서 테스트한 원본 파일의 URL이 `http://www.contoso.com:8080/file.txt`라고 가정해 봅시다. 호스트 이름 세그먼트의 끝부분에 있는 `:8080`에 주목하세요. 브라우저에 `8080` 포트를 사용하여 `www.contoso.com`의 웹 서버에 연결하라고 지시하는 것이므로 **HTTP 포트** 필드에 8080을 입력해야 합니다. 이러한 포트 설정은 끝점이 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
+
+> [AZURE.NOTE] **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai의 Azure CDN 동작 상세 정보](cdn-akamai-behavior-details.md)를 참조하세요.
   
 ### 끝점 설정 검사
 
@@ -95,4 +97,4 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 그러나 원본의 모든 경로에 CDN을 사용하지 않으려면 어떻게 해야 할까요? `publicblob` 경로만 노출하려 한다고 가정해 봅시다. **원본 경로** 필드에 */publicblob*를 입력하면 끝점이 원본에 대해 만들어지는 모든 요청 앞에 */publicblob*를 삽입하게 됩니다. 다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청이 이제 URL의 요청 부분인 `/publicblob/lorem.txt`를 가져와서 앞부분에 `/publicblob`를 추가합니다. 이것은 원본의 `/publicblob/publicblob/lorem.txt`에 대한 요청이 됩니다. 해당 경로가 실제 파일을 확인하지 못하면 원본이 404 상태를 반환합니다. 이 예에서 lorem.txt를 검색하는 올바른 URL은 `https://cdndocdemo.azureedge.net/lorem.txt`입니다. 이 예에서는 */publicblob* 경로를 전혀 포함하지 않았습니다. 왜냐하면 URL의 요청 부분이 `/lorem.txt`인데 끝점이 `/publicblob`를 추가하면 `/publicblob/lorem.txt`가 되어, 원본에 전달되는 요청이 되기 때문입니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

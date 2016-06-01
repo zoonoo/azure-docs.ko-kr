@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Log Analytics의 IIS 로그 | Microsoft Azure"
    description="IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다. 이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Log Analytics의 IIS 로그
@@ -26,6 +26,8 @@ Log Analytics는 IIS에서 생성된 로그 파일의 항목을 수집하므로 
 Log Analytics는 W3C 형식으로 저장된 IIS 로그 파일만 지원합니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
 [Log Analytics 설정의 데이터 메뉴](log-analytics-data-sources.md/configuring-data-sources)에서 Log Analytics의 IIS 로그를 구성할 수 있습니다. **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
+
+IIS 로그 수집을 사용하도록 설정하는 경우 각 서버에서 IIS 로그 롤오버 설정을 구성하는 것이 좋습니다.
 
 
 ## 데이터 수집
@@ -47,7 +49,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | csUserName | 서버에 액세스한 인증된 사용자의 이름입니다. 익명 사용자는 하이픈으로 표시됩니다. |
 | csUriStem | 웹 페이지와 같은 요청의 대상입니다. |
 | csUriQuery | 클라이언트가 수행하려고 한 쿼리입니다(있는 경우). |
-| ManagementGroupName | SCOM 에이전트의 관리 그룹 이름입니다. 다른 에이전트의 경우 AOI-<workspace ID>입니다. |
+| ManagementGroupName | SCOM 에이전트의 경우 관리 그룹의 이름. 다른 에이전트의 경우 AOI-<workspace ID>입니다. |
 | RemoteIPCountry | 클라이언트의 IP 주소 국가입니다. |
 | RemoteIPLatitude | 클라이언트 IP 주소의 위도입니다. |
 | RemoteIPLongitude | 클라이언트 IP 주소의 경도입니다. |
@@ -76,7 +78,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 ## 다음 단계
 
 - 분석을 위해 다른 [데이터 원본](log-analytics-data-sources.md)을 수집하도록 Log Analytics를 구성합니다.
-- 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
+- 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다.
 - IIS 로그에서 발견된 중요한 조건을 사전에 알리도록 Log Analytics의 경고를 구성합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

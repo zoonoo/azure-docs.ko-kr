@@ -19,7 +19,7 @@
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
  
-- [데이터 이동 작업](data-factory-data-movement-activities.md)은 [지원되는 데이터 저장소](data-factory-data-movement-activities#supported-data-stores) 간에 데이터를 이동하는 작업입니다.
+- [데이터 이동 작업](data-factory-data-movement-activities.md)은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores) 간에 데이터를 이동하는 작업입니다.
 - [데이터 변환 작업](data-factory-data-transformation-activities.md)은 Azure HDInsight, Azure 배치, Azure 기계 학습과 같은 계산을 사용하여 데이터를 변환/처리하는 작업입니다. HDInsight Hive 및 기계 학습 배치 실행을 예로 들 수 있습니다.  
 
 Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 .NET 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다.
@@ -47,20 +47,22 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 1. [Azure 포털](http://manage.windowsazure.com)을 사용하여 **Azure 배치 계정**을 만듭니다. 지침은 [Azure 배치 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다.
 
 	[New-AzureBatchAccount][new-azure-batch-account] cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [Azure PowerShell을 사용하여 Azure 배치 계정 관리][azure-batch-blog]를 참조하세요.
-2. **Azure 배치 풀**을 만듭니다. [Azure Batch 탐색기 도구][batch-explorer]의 소스 코드를 다운로드하여 컴파일하여 사용하거나 [.NET용 Azure Batch 라이브러리][batch-net-library]를 사용하여 Azure Batch 풀을 만들 수 있습니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
-
+2. **Azure 배치 풀**을 만듭니다.
+	1. [Azure 포털](https://portal.azure.com)에서 왼쪽의 **찾아보기**를 클릭하고 **배치 계정**을 선택합니다. 
+	2. Azure 배치 계정을 선택하여 **배치 계정** 블레이드를 엽니다. 
+	3. **풀** 타일을 클릭합니다.
+	4. **풀** 블레이드에서 도구 모음의 추가 단추를 클릭하여 풀을 추가합니다.
+		1. 풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다. 
+		2. 운영 체제 제품군 설정에 **Windows Server 2012 R2**를 지정합니다.
+		3. **노드 가격 책정 계층**을 선택합니다. 
+		3. **대상 전용** 설정에 대한 값으로 **2**를 입력합니다.
+		4. **노드당 최대 작업** 설정에 대한 값으로 **2**를 입력합니다.
+	5. **확인**을 클릭하여 풀을 만듭니다. 
+ 
 	[New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet을 사용하여 Azure 배치 풀을 만들 수도 있습니다.
 
-	2개 이상의 계산 노드와 함께 Azure 배치 풀을 만들어 조각이 병렬로 처리되도록 할 수 있습니다. 배치 탐색기를 사용하는 경우
-
-	- 풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다. 
-	- 운영 체제 제품군 설정에 **Windows Server 2012 R2**를 지정합니다.
-	- **계산 노드당 최대 작업** 설정에 대한 값으로 **2**를 지정합니다.
-	- **대상 전용 수** 설정에 대한 값으로 **2**를 지정합니다. 
-
-
 ### 대략적인 단계 
-1.	데이터 팩터리 파이프라인을 사용할 **사용자 지정 작업을 만듭니다**. 이 샘플의 사용자 지정 작업에는 데이터 변환/처리 논리가 포함될 것입니다. 
+1.	Data Factory 파이프라인을 사용할 **사용자 지정 작업을 만듭니다**. 이 샘플의 사용자 지정 작업에는 데이터 변환/처리 논리가 포함될 것입니다. 
 	1.	Visual Studio에서 .NET 클래스 라이브러리 프로젝트를 만들고 입력 데이터를 처리할 코드를 추가하고 프로젝트를 컴파일합니다.	
 	2.	출력 폴더에서 모든 이진 파일과 PDB(선택 사항) 파일을 압축합니다.	
 	3.	Azure Blob 저장소에 zip 파일을 업로드합니다. 자세한 단계는 사용자 지정 작업 만들기 섹션에 나와 있습니다. 
@@ -93,7 +95,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 - **activity**. 이 매개 변수는 현재 계산 엔터티(이 예에서는 Azure 배치)를 나타냅니다.
 - **logger**. 로거를 사용하면 파이프라인에 대한 "User" 로그로 노출할 디버그 주석을 기록할 수 있습니다. 
 
-이 메서드는 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 아직은 이 기능이 지원되지 않습니다.
+이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
 ### 절차 
 1.	**.NET 클래스 라이브러리** 프로젝트를 만듭니다.
@@ -234,7 +236,9 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.  
+
             return new Dictionary<string, string>();
         }
 
@@ -447,7 +451,7 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 
 #### Azure 배치 연결된 서비스 만들기
 
-2. 데이터 팩터리 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **Azure 배치**를 선택합니다.
+2. Data Factory 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **Azure 배치**를 선택합니다.
 3. JSON 스크립트에서 다음을 수행합니다.
 	1. **accountName** 속성의 Azure 배치 계정 이름을 지정합니다. **Azure 배치 계정 블레이드**의 **URL**은 http://**accountname**.region.batch.azure.com 형식입니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
 	2. **accessKey** 속성에 대한 Azure 배치 계정 키를 지정합니다. 
@@ -543,7 +547,7 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 		    }
 		}
 
- 	출력 위치는 **adftutorial/customactivityoutput/YYYYMMDDHH/**입니다. 여기서 YYYYMMDDHH는 조각이 생성되는 연도, 월, 날짜 및 시간입니다. 자세한 내용은 [개발자 참조][adf-developer-reference](영문)를 참조하세요.
+ 	출력 위치는 **adftutorial/customactivityoutput/**이고 출력 파일 이름은 yyyy-MM-dd-HH.txt입니다. 여기서 yyyy-MM-dd-HH는 조각이 생성되는 연도, 월, 날짜 및 시간입니다. 자세한 내용은 [개발자 참조][adf-developer-reference](영문)를 참조하세요.
 
 	각 입력 조각에 대해 출력 BLOB/파일이 생성됩니다. 각 조각에 대해 출력 파일의 이름을 지정하는 방법은 다음과 같습니다. **adftutorial\\customactivityoutput**이라는 하나의 출력 폴더에 모든 출력 파일이 생성됩니다.
 
@@ -653,9 +657,12 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 
 데이터 집합 및 파이프라인 모니터링에 대한 자세한 단계는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)를 참조하세요.
 
-데이터 팩터리 서비스가 Azure 배치에 **adf-<pool name>:job-xxx** 이름으로 작업을 만듭니다. 조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+Data Factory 서비스가 Azure 배치에 **adf-<pool name>:job-xxx** 이름으로 작업을 만듭니다. 조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+
 	
 ![배치 탐색기 작업](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+> [AZURE.NOTE] [Azure 배치 Explorer 도구][batch-explorer]에 대한 코드를 다운로드하고, 컴파일하여, 배치 풀을 만들고 모니터링하는 데 사용합니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
 
 ![데이터 팩터리 및 배치](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
@@ -690,7 +697,7 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 ## 데이터 복사/이동 
 복사 작업은 **원본** 데이터 저장소의 데이터를 **싱크** 데이터 저장소로 복사합니다. 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores)를 참조하세요.
 
-**복사 작업**에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동해야 하는 경우 데이터 팩터리의 **사용자 지정 작업**에서 데이터 복사/이동에 대한 사용자 고유의 논리를 사용할 수 있습니다. GitHub의 [HTTP 데이터 다운로더 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample)을 참조하세요.
+**복사 작업**에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동해야 하는 경우 Data Factory의 **사용자 지정 작업**에서 데이터 복사/이동에 대한 사용자 고유의 논리를 사용할 수 있습니다. GitHub의 [HTTP 데이터 다운로더 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample)을 참조하세요.
 
 ## Appdomain 격리 
 Azure Data Factory 시작 관리자에서 사용하는 어셈블리 버전(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x 등)의 제약을 받지 않는 Azure Data Factory에 대한 사용자 지정 .NET 작업을 만드는 방법을 보여 주는 [크로스 AppDomain 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample)을 참조하세요.
@@ -725,6 +732,14 @@ Azure Data Factory 시작 관리자에서 사용하는 어셈블리 버전(예: 
     	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 	}
 
+## Azure 배치의 자동 확장 기능
+**자동 크기 조정** 기능으로 Azure 배치 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 0 전용 VM 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다.
+ 
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](../batch/batch-automatic-scaling.md)을 참조하세요.
+
+풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, 배치 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15-30분이 소요될 수 있습니다. 풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, 배치 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 
 ## Azure HDInsight 연결된 서비스 사용
 이 연습에서는 Azure 배치 계산을 사용하여 사용자 지정 작업을 실행했습니다. 또한 사용자 고유의 HDInsight 클러스터를 사용할 수도 있고, 데이터 팩터리가 주문형 HDInsight 클러스터를 만들고 그 HDInsight 클러스터에서 사용자 지정 작업을 실행하게 할 수도 있습니다. 다음은 HDInsight 클러스터를 사용하는 고급 단계입니다.
@@ -756,7 +771,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 			        "typeProperties": {
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
-			            "osType": "linux",
+			            "osType": "Windows",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }
@@ -825,12 +840,12 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 ## 예
 
-| 샘플 | 사용자 지정 작업의 기능| 
-| ------ | ----------- | 
-| [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드합니다. |
-| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Azure ML 모델을 호출하고 감성 분석, 점수 매기기, 예측 등을 수행합니다. |
-| [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. | 
-| [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Data Factory 시작 관리자(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x)가 사용한 것과 다른 버전의 어셈블리를 사용합니다.
+샘플 | 사용자 지정 작업의 기능 
+------ | ----------- 
+[HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드합니다.
+[Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Azure ML 모델을 호출하고 감성 분석, 점수 매기기, 예측 등을 수행합니다.
+[R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. 
+[크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다.  
  
 
 ## 참고 항목
@@ -844,7 +859,6 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
@@ -872,4 +886,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Application Insights SDK에서 원격 분석 샘플링, 필터링 및 전처리
@@ -79,7 +79,8 @@ SDK가 고정 비율 또는 적응 샘플링을 수행하는 경우에는 수집
 
 [샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
 
-## 필터링
+<a name="filtering"></a>
+## 필터링: ITelemetryProcessor
 
 이 기술을 사용하면 원격 분석 스트림에서 포함되거나 제외된 요청을 보다 직접적으로 제어할 수 있습니다. 샘플링과 함께 사용할 수도 있고 또는 따로 사용할 수도 있습니다.
 
@@ -239,8 +240,8 @@ public void Process(ITelemetry item)
 
 ```
 
-
-## 속성 추가
+<a name="add-properties"></a>
+## 속성 추가: ITelemetryInitializer
 
 원격 분석 이니셜라이저를 사용하여 모든 원격 분석과 함께 전송되는 전역 속성을 정의하고 표준 원격 분석 모듈의 선택한 동작을 재정의할 수 있습니다.
 
@@ -368,6 +369,15 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 이니셜라이저를 원하는 수만큼 추가할 수 있습니다.
 
 
+## ITelemetryProcessor 및 ITelemetryInitializer
+
+원격 분석 프로세서 및 원격 분석 이니셜라이저 간의 차이는 무엇인가요?
+
+* 두 프로그램으로 수행할 수 있는 작업의 일부가 겹칩니다. 모두 원격 분석에 속성을 추가하는 데 사용될 수 있습니다.
+* TelemetryInitializers는 항상 TelemetryProcessors 전에 실행됩니다.
+* TelemetryProcessors를 사용하면 원격 분석 항목을 완전히 대체하거나 삭제할 수 있습니다.
+* TelemetryProcessors는 성능 카운터 원격 분석을 처리하지 않습니다.
+
 ## 참조 문서
 
 * [API 개요](app-insights-api-custom-events-metrics.md)
@@ -409,4 +419,4 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

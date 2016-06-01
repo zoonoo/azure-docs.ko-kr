@@ -22,6 +22,8 @@
 
 ## 개요 
 
+> [AZURE.NOTE] 이 항목은 웹, 모바일 및 API 앱을 다루는 통합된 [앱 서비스 인증/권한 부여](../app-service/app-service-authentication-overview.md) 항목으로 마이그레이션됩니다.
+
 Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현하는 기본 제공 인증 서비스를 제공합니다. 이 문서에서는 Azure 앱 서비스의 API 앱에 사용할 수 있는 서비스 및 옵션을 설명합니다.
 
 다음 다이어그램에서는 앱 서비스 인증의 몇 가지 주요 특징을 보여 줍니다.
@@ -69,7 +71,7 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-옵션 1과 2에 대해 **앱 서비스 인증**을 설정하고 **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **로그인** 또는 **작업 없음(요청 허용)**을 선택합니다. **로그인**을 선택한 경우 인증 공급자를 선택하고 해당 공급자를 구성해야 합니다.
+옵션 1과 2에 대해 **앱 서비스 인증**을 설정하고 **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **로그인** 또는 **요청 허용(작업 없음)**을 선택합니다. **로그인**을 선택한 경우 인증 공급자를 선택하고 해당 공급자를 구성해야 합니다.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -112,4 +114,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 시작 시리즈의 다음 자습서는 [앱 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

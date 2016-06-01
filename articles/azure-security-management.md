@@ -1,19 +1,19 @@
 <properties
    pageTitle="Microsoft Azure 보안 관리 | Microsoft Azure"
    description="이 문서에서는 클라우드 서비스, 가상 컴퓨터 및 사용자 지정 응용 프로그램 등 Microsoft Azure 환경을 관리하면서 원격 관리 보안을 향상하는 단계를 설명합니다."
-   services="azure-security, virtual-machines, cloud-services"
+   services="security"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="StevenPo"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Azure의 보안 관리
@@ -247,4 +247,4 @@ Azure 클라우드 서비스, 가상 컴퓨터 및 응용 프로그램을 관리
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

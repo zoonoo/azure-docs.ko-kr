@@ -52,7 +52,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 3.  **연결 정보**를 클릭합니다.
 
-![](./media/howto-service-bus-queues/sb-queues-06.png)
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  **Access 연결 정보** 창에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다.
 

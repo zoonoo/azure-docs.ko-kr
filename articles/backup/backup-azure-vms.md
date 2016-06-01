@@ -19,6 +19,11 @@
 
 
 # Azure 가상 컴퓨터 백업
+
+> [AZURE.SELECTOR]
+- [ARM VM을 Azure에 백업](backup-azure-arm-vms.md)
+- [Azure 가상 컴퓨터 백업](backup-azure-vms.md)
+
 이 문서는 Azure VM(가상 컴퓨터)을 백업하는 방법에 대한 절차를 제공합니다.
 
 우선 Azure 가상 컴퓨터를 백업하기 전에 몇 가지 주의 사항이 있습니다. 아직 수행하지 않은 경우 먼저 VM 백업용 환경을 준비하기 위한 [필수 구성 요소](backup-azure-vms-prepare.md)를 완료합니다.
@@ -36,8 +41,7 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
 1. [클래식 포털](http://manage.windowsazure.com/)에 로그인 합니다.
 
-2. Azure 서비스 목록에서 **복구 서비스**를 클릭하여 백업 및 사이트 복구 자격 증명 모음 목록을 엽니다.
-![자격 증명 모음 목록 열기](./media/backup-azure-vms/choose-vault-list.png)
+2. Azure 서비스 목록에서 **복구 서비스**를 클릭하여 백업 및 사이트 복구 자격 증명 모음 목록을 엽니다. ![자격 증명 모음 목록 열기](./media/backup-azure-vms/choose-vault-list.png)
 
 3. 백업 자격 증명 모음 목록에서 VM을 백업할 자격 증명 모음을 선택합니다.
 
@@ -167,7 +171,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 백업 상태 및 세부 정보 보기
-보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 **대시보드** 페이지에서 지난 24시간 내의 *성공* 및 *실패*한 작업 수와 아직 *진행 중* 인 작업 수를 보여 줍니다. **작업** 페이지에서 **상태**, **작업** 또는 **시작** 및 **끝** 메뉴를 사용하여 작업을 필터링합니다.
+보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 **대시보드** 페이지에서 지난 24시간 내의 *성공* 및 *실패*한 작업 수와 아직 *진행 중*인 작업 수를 보여 줍니다. **작업** 페이지에서 **상태**, **작업** 또는 **시작** 및 **끝** 메뉴를 사용하여 작업을 필터링합니다.
 
 ![대시보드 페이지에서 백업 상태](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -181,4 +185,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

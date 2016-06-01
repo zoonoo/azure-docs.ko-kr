@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -181,4 +181,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
 - 이 워크로드를 [프로덕션에서](http://technet.microsoft.com/library/dn635310.aspx) 배포합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="04/20/2016"
 	ms.author="jroth" />
 
-# Azure PowerShell에서 SQL Server 가상 컴퓨터 만들기(클래식)
+# Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 
 ## 개요
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 이 항목의 리소스 관리자 버전에 대해서는 [Azure PowerShell 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
 ## PowerShell 설치 및 구성
 
@@ -172,4 +172,4 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-windows-sql-server-iaas-overview.md)을 확인하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

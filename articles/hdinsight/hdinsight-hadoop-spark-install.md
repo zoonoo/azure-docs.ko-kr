@@ -20,16 +20,16 @@
 
 > [AZURE.IMPORTANT] 이 문서는 이제 사용되지 않습니다. 이제 HDInsight는 Windows 기반 클러스터를 위한 최고급 클러스터 형식으로 Spark를 제공하므로 스크립트 작업을 사용하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 만들 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 다른 버전의 Spark를 설치하려면 스크립트 작업을 사용할 수 있습니다. HDInsight는 샘플 스크립트 작업 스크립트를 제공합니다.
 
-스크립트 동작을 사용하여 Windows 기반 HDInsight에서 Spark를 설치하는 방법 및 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법을 알아봅니다.
+스크립트 작업을 사용하여 Windows 기반 HDInsight에서 Spark를 설치하는 방법 및 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법을 알아봅니다.
 
 
 **관련된 문서**
 
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 
-- [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): Windows OS에 Spark 형식 클러스터를 만듭니다.
+- [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-jupyter-spark-sql.md): HDInsight Spark 클러스터를 만듭니다.
 
-- [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 
 - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
@@ -233,7 +233,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 ## Azure PowerShell을 사용하여 Spark 설치
 
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -306,8 +306,8 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 ## 참고 항목
 
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만듭니다.
-- [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): HDInsight에서 Spark를 시작합니다.
-- [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다.
+- [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-jupyter-spark-sql.md): HDInsight에서 Spark를 시작합니다.
+- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다.
 - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md): 스크립트 작업 스크립트를 개발합니다.
 - [HDInsight 클러스터에 R 설치][hdinsight-install-r] - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 R을 설치하고 사용하는 방법에 대한 지침을 제공합니다. R은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. 수백 개의 기본 제공 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 고유한 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다.
 - [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
@@ -318,4 +318,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

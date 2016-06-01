@@ -3,7 +3,7 @@
 	description="탄력적 데이터베이스 작업을 사용하는 방법"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/17/2016"
 	ms.author="sidneyh; ddove" />
 
 # 탄력적 데이터베이스 작업 시작
@@ -447,4 +447,4 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

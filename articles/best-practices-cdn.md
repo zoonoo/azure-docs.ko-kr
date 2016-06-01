@@ -4,7 +4,7 @@
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # 콘텐츠 배달 네트워크(CDN) 지침
 
-![패턴 및 작업 방식 로고](./media/best-practices-cdn/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## 개요
 Microsoft Azure 콘텐츠 배달 네트워크(CDN)는 개발자에게 Azure 또는 기타 위치에서 호스트되는 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 제공합니다. CDN을 사용하여 Azure Blob 저장소, 웹 응용 프로그램, 가상 컴퓨터, 응용 프로그램 폴더 또는 기타 HTTP/HTTPS 위치에서 로드된 공개적으로 사용 가능한 개체를 캐시할 수 있습니다. 전략적 위치에 CDN 캐시를 보유하여 사용자에게 콘텐츠를 배달하기 위해 최대 대역폭을 제공할 수 있습니다. CDN은 일반적으로 이미지, 스타일 시트, 문서, 파일, 클라이언트쪽 스크립트 및 HTML 페이지와 같은 정적 콘텐츠를 제공하기 위해 사용됩니다.
@@ -55,8 +55,8 @@ CDN를 사용하면 콘텐츠에 액세스하고 콘텐츠를 전달하는 데 �
 
 || 첫 번째 바이트(원점)까지 시간(ms) | 첫 번째(CDN)까지 시간(ms) |%CDN 시간 개선|
 |-------------|------------------------|--------------------|------------------|
-|*산호세, 캘리포니아| 47.5 | 46.5 | 2% |
-|*덜레스, 버지니아| 109 | 40.5 | 169% |
+|\*산호세, 캘리포니아| 47\.5 | 46\.5 | 2% |
+|\*\*덜레스, 버지니아| 109 | 40\.5 | 169% |
 |부에노스아이레스, AR| 210 | 151 | 39%|
 |*런던, 영국| 195 | 44 | 343%|
 |상하이, 중국| 242 | 206 | 17% |
@@ -284,4 +284,4 @@ URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해
 + [Azure CDN과 클라우드 서비스 통합](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

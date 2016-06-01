@@ -3,7 +3,7 @@
    description="서비스 패브릭의 용어에 대해 간략하게 소개하고 설명서의 나머지 부분에서 사용되는 용어와 주요 용어 개념에 대해 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/05/2016"
-   ms.author="msfussell"/>
+   ms.author="ryanwi"/>
 
 # 서비스 패브릭 용어 개요
 
@@ -90,4 +90,4 @@
 - [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

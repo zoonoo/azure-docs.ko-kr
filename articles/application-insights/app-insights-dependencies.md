@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 종속성 문제 진단
@@ -57,6 +57,16 @@ Java 웹 서버 | [Java 웹앱](app-insights-java-agent.md)
 Azure 클라우드 서비스 | [시작 작업 사용](app-insights-cloudservices.md#dependencies) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소스 프로젝트를 다시 빌드할 필요가 없습니다.
+
+## 응용 프로그램 맵
+
+응용 프로그램 맵은 응용 프로그램의 구성 요소 간에 종속성을 검색하는 시각화 보조 도구의 역할을 합니다.
+
+![설정, 응용 프로그램 맵을 클릭합니다.](./media/app-insights-dependencies/08.png)
+
+상자에서 관련 종속성 및 기타 차트로 이동할 수 있습니다.
+
+작은 [x]를 클릭하여 하위 트리를 축소합니다.
 
 ## <a name="diagnosis"></a> 웹 서버에서 종속성 성능 문제 진단
 
@@ -140,4 +150,4 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

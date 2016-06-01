@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma"/>
 
 # Azure 배치의 기본 사항
 
 Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행할 수 있습니다. 가상 컴퓨터의 관리된 컬렉션에서 실행되는 계산 집약적인 작업을 예약하는 플랫폼 서비스이며 작업의 요구를 충족하도록 계산 리소스의 규모를 자동으로 조정할 수 있습니다.
 
-배치 서비스를 통해 대규모 배치 작업을 실행하는 Azure 계산 리소스를 프로그래밍 방식으로 정의합니다. 요청 시 또는 일정에 따라 이러한 작업을 실행할 수 있으며 HPC 클러스터, 개별 가상 컴퓨터, 가상 네트워크 또는 작업 스케줄러를 수동으로 관리할 필요가 없습니다.
+배치 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 요청 시 또는 예약된 작업을 실행할 수 있으며 HPC 클러스터, 개별 가상 컴퓨터, 가상 네트워크, 복잡한 작업 및 작업 스케줄러 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
 
 ## 배치에 대한 사용 사례
 
-배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅* 에 사용되는 관리된 Azure 서비스입니다. 배치 컴퓨팅은 대량의 데이터를 정기적으로 처리, 변환 및 분석하는 조직에서 가장 일반적으로 사용합니다.
+배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅*에 사용되는 관리된 Azure 서비스입니다. 배치 컴퓨팅은 대량의 데이터를 정기적으로 처리, 변환 및 분석하는 조직에서 가장 일반적으로 사용합니다.
 
 배치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 응용 프로그램 및 워크로드에서 잘 작동합니다. 본질적으로 병렬 워크로드는 여러 컴퓨터에서 동시에 작업을 수행하는 여러 태스크로 쉽게 분할됩니다.
 
@@ -58,23 +58,36 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 - **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 선택키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
 
-- **저장소 계정** - 배치는 [Azure 저장소][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 태스크에서 실행하는 프로그램, 프로그램에서 처리하는 데이터, 태스크에서 생성하는 출력 데이터의 저장소 등 거의 모든 배치 시나리오에서 파일 준비를 위해 Azure 저장소를 사용합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)를 참조하세요.
+- **저장소 계정** - 배치는 [Azure 저장소][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 태스크에서 실행하는 프로그램, 프로그램에서 처리하는 데이터, 생성하는 출력 데이터의 저장소 등 거의 모든 배치 시나리오에서 준비를 위해 Azure 저장소를 사용합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)를 참조하세요.
 
-### 배치 개발 라이브러리 및 도구
+### 배치 개발 API
 
-Azure 배치를 사용하여 솔루션을 빌드하려면 배치 .NET 클라이언트 라이브러리, PowerShell을 사용하거나 직접 REST API 호출을 실행할 수도 있습니다. 이러한 도구 중 일부 또는 전부를 사용하여 배치에서 작업을 실행하는 클라이언트 응용 프로그램 및 서비스를 개발합니다.
+응용 프로그램 및 서비스는 REST API 호출을 직접 실행할 수 있으며 다음 클라이언트 라이브러리 중 하나 이상을 사용하거나 둘 다 조합하여 계산 리소스를 관리하고 배치 서비스를 사용하여 병렬 워크로드를 규모에 따라 실행할 수 있습니다.
 
-- [배치 .NET][api_net] 클라이언트 라이브러리 - 대부분의 배치 솔루션은 [NuGet을 통해 제공][api_net_nuget]되는 배치 .NET 클라이언트 라이브러리를 사용하여 빌드됩니다.
+| API | API 참조 | 다운로드 | 코드 샘플 |
+| ----------------- | ------------- | -------- | ------------ |
+| **Batch REST** | [MSDN][batch_rest] | 해당 없음 | [MSDN][batch_rest] |
+| **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
+| **배치 Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
 
-- [배치 관리 .NET][api_net_mgmt] 클라이언트 라이브러리 - 마찬가지로 [NuGet을 통해 제공][api_net_mgmt_nuget]되며 배치 관리 .NET 클라이언트 라이브러리를 사용하여 클라이언트 응용 프로그램 또는 서비스에서 배치 계정을 프로그래밍 방식으로 관리합니다.
+### 배치 리소스 관리
 
-- [배치 REST][batch_rest] API - 배치 REST API는 배치 .NET 클라이언트 라이브러리와 동일한 모든 기능을 제공합니다. 사실 배치 .NET 라이브러리 자체는 배치 서비스와 상호 작용하기 위해 내부적으로 배치 REST API를 사용합니다.
+클라이언트 API 외에도 다음을 사용하여 배치 계정 내에서 리소스를 관리할 수 있습니다.
 
-- [배치 PowerShell cmdlet][batch_ps] - [Azure PowerShell](./../powershell-install-configure.md) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell과 함께 배치 리소스를 관리할 수 있습니다.
+- [배치 PowerShell cmdlet][batch_ps]\: [Azure PowerShell](../powershell-install-configure.md) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell과 함께 배치 리소스를 관리할 수 있습니다.
 
-- [Azure 배치 탐색기][batch_explorer] - 배치 탐색기는 [GitHub에서 제공][github_samples]되는 배치 .NET 예제 응용 프로그램 중 하나입니다. 배치 솔루션을 개발 및 디버깅하는 동안 Visual Studio 2013 또는 2015로 WPF(Windows Presentation Foundation) 응용 프로그램을 빌드하고 사용하여 배치 계정의 리소스를 검색 및 관리합니다. 작업, 풀 및 태스크 세부 정보를 보고 계산 노드에서 파일을 다운로드하거나 배치 탐색기 인터페이스에서 몇 번의 클릭으로 얻을 수 있는 RDP(원격 데스크톱) 파일을 사용하여 원격으로 노드에 연결합니다.
+- [Azure CLI](../xplat-cli-install.md): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
 
-- [Microsoft Azure 저장소 탐색기][storage_explorer] - 엄격히 말해 Azure 배치 도구는 아니지만 저장소 탐색기는 배치 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
+- [배치 관리 .NET](batch-management-dotnet.md) 클라이언트 라이브러리: [NuGet][api_net_mgmt_nuget]을 통해 제공되며 배치 관리 .NET 클라이언트 라이브러리를 사용하여 배치 계정, 할당량 및 응용 프로그램 패키지를 프로그래밍 방식으로 관리할 수 있습니다. 관리 라이브러리에 대한 참조는 [MSDN][api_net_mgmt]에 있습니다.
+
+### 배치 도구
+
+배치를 사용하여 솔루션을 구축해야 하는 것은 아니지만 배치 응용 프로그램 및 서비스를 구축 및 디버깅하는 동안에는 이러한 도구가 필수적일 수 있습니다.
+
+- [Azure 배치 탐색기][batch_explorer]\: 배치 탐색기는 [GitHub][github_samples]에서 제공되는 배치 .NET 예제 응용 프로그램 중 하나입니다. 배치 솔루션을 개발 및 디버깅하는 동안 Visual Studio 2013 또는 2015로 WPF(Windows Presentation Foundation) 응용 프로그램을 빌드하고 사용하여 배치 계정의 리소스를 검색 및 관리합니다. 작업, 풀 및 태스크 세부 정보를 보고 계산 노드에서 파일을 다운로드하거나 배치 탐색기 인터페이스에서 몇 번의 클릭으로 얻을 수 있는 RDP(원격 데스크톱) 파일을 사용하여 원격으로 노드에 연결합니다.
+
+- [Microsoft Azure 저장소 탐색기][storage_explorer]\: 엄격히 말해 Azure 배치 도구는 아니지만 저장소 탐색기는 배치 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
 
 ## 시나리오: 병렬 워크로드 규모 확장
 
@@ -121,6 +134,12 @@ Azure 배치를 사용하여 솔루션을 빌드하려면 배치 .NET 클라이�
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
+[api_nodejs]: http://azure.github.io/azure-sdk-for-node/azure-batch/latest/
+[api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
+[api_python]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html
+[api_python_pypi]: https://pypi.python.org/pypi/azure-batch
+[api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
+[api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -134,4 +153,4 @@ Azure 배치를 사용하여 솔루션을 빌드하려면 배치 .NET 클라이�
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

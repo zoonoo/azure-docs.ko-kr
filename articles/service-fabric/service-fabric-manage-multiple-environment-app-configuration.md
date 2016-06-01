@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="seanmck"/>
 
 # 여러 환경에 대한 응용 프로그램 매개 변수 관리
@@ -24,7 +24,7 @@
 
 ## 환경 특정 매개 변수 지정
 
-이 구성 문제에 대한 해법은 지정된 환경에 대한 해당 매개 변수 값을 입력하는 매개 변수가 있는 기본 서비스 및 응용 프로그램 매개 변수 파일의 집합입니다.
+이 구성 문제에 대한 해법은 지정된 환경에 대한 해당 매개 변수 값을 입력하는 매개 변수가 있는 기본 서비스 및 응용 프로그램 매개 변수 파일의 집합입니다. 기본 서비스 및 응용 프로그램 매개 변수는 응용 프로그램 및 서비스 매니페스트에서 구성됩니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대한 스키마 정의는 서비스 패브릭 SDK 및 도구와 함께 *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 ### 기본 서비스
 
@@ -33,10 +33,13 @@
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
-                ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+                ServiceTypeName="Stateful1Type"
+                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
                 <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
+                    PartitionCount="[Stateful1_PartitionCount]"
+                    LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
         </StatefulService>
@@ -116,9 +119,11 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 
 ### PowerShell에서 배포
 
-`DeployCreate-FabricApplication.ps1` PowerShell 스크립트는 매개 변수 파일을 매개 변수로 허용합니다.
+응용 프로그램 프로젝트 템플릿에 포함된 `Deploy-FabricApplication.ps1` PowerShell 스크립트는 매개 변수로 게시 프로필을 수락하고 게시 프로필은 응용 프로그램 매개 변수 파일에 대한 참조를 포함합니다.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## 다음 단계
 
@@ -129,4 +134,4 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

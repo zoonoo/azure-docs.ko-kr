@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DevTest 서비스란 무엇입니까? | Microsoft Azure"
-	description="DevTest 랩으로 Azure 가상 컴퓨터를 쉽게 만들고 관리 및 모니터링할 수 있는 방법 알아보기"
+	pageTitle="DevTest Lab이란? | Microsoft Azure"
+	description="DevTest Lab에서 Azure 가상 컴퓨터를 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab이란?
@@ -58,12 +58,14 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 **기본**은 VM을 빠르게 만들기 위해 미리 설치되고 구성된 모든 도구와 설정이 포함된 VM 이미지입니다. 기존 기본 항목을 선택하고 테스트 에이전트를 설치하기 위한 아티팩트를 추가하여 VM을 프로비전할 수 있습니다. 그런 다음 프로비전된 VM을 기본으로 설정하면 프로비전된 각각의 VM에 대한 테스트 에이전트를 다시 설치하지 않고도 기본을 사용할 수 있습니다.
 
+기본 이미지와 더불어, **수식**은 신속한 VM 프로비전을 위한 메커니즘을 제공합니다. DevTest Lab에 포함된 수식은 랩 VM을 만드는 데 사용되는 기본 속성 값의 목록입니다. 수식을 사용하면, 매번 같은 속성을 지정할 필요 없이, 동일한 속성(예: 기본 이미지, VM 크기, 가상 네트워크, 아티팩트) 집합을 포함하는 VM을 만들 수 있습니다. 수식을 통해 VM을 만들 때, 기본값을 그대로 사용하거나 수정할 수 있습니다.
+
 **캡**은 랩에서 낭비를 최소화하는 메커니즘입니다. 예를 들어 캡을 설정하여 사용자당 또는 랩에서 만들 수 있는 VM의 수를 제한할 수 있습니다.
 
 **정책**은 랩에서의 비용 제어에 도움이 됩니다. 예를 들어 정의된 일정에 따라 VM이 자동으로 종료되도록 정책을 만들 수 있습니다.
 
 ##다음 단계
 
-DevTest Lab을 시작하려면 [Azure DevTest Lab 만들기](devtest-lab-create-lab.md) 단계별 자습서를 수행합니다.
+DevTest Lab을 시작하려면 [DevTest Lab에서 랩 만들기](devtest-lab-create-lab.md) 단계별 자습서를 수행합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

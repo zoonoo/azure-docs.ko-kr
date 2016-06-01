@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN에서 고급 HTTP 보고서
@@ -22,7 +22,7 @@
 
 이 문서에서는 Microsoft Azure CDN에서 고급 HTTP 보고에 대해 설명합니다. 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다.
 
-> [AZURE.NOTE] 고급 HTTP 보고서는 프리미엄 CDN 계층의 기능입니다. 표준 및 프리미엄 CDN 기능을 비교하려면 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## 고급 HTTP 보고서 액세스
 
@@ -196,4 +196,4 @@
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 * [에지 성능 분석](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

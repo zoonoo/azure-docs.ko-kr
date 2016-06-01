@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter="na"
    authors="stevestein"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="sstein" />
 
 # Web 및 Business 버전 지원 종료 FAQ
@@ -68,4 +68,4 @@ Web 및 Business 버전에서 페더레이션 기능이 사용되지 않습니�
 
 [Azure SQL 데이터베이스 V12로 업그레이드](sql-database-upgrade-server-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

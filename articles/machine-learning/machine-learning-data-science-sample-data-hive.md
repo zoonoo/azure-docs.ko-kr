@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 # Azure HDInsight Hive 테이블에서 데이터 샘플링
-
-## 소개
 
 이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블에 저장된 데이터를 다운 샘플링하는 방법에 대해 설명합니다. 일반적으로 사용되는 세 가지 샘플링 방법인
 
@@ -109,4 +107,4 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->
