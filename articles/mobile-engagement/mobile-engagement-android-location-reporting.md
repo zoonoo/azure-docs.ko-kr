@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Android Mobile Engagement에 대한 위치 보고"
-	description="Azure Mobile Engagement용 Android에 대한 위치 보고"
+	pageTitle="Azure Mobile Engagement Android SDK에 대한 위치 보고"
+	description="Azure Mobile Engagement Android SDK에 대해 위치 보고를 구성하는 방법에 대해 설명합니다"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Android에서 Engagement의 위치 보고
+# Azure Mobile Engagement Android SDK에 대한 위치 보고
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-이 항목에서는 Android 응용 프로그램에서 Engagement 위치 보고를 수행하는 방법을 설명합니다.
+이 항목에서는 Android 응용 프로그램에서 위치 보고를 수행하는 방법을 설명합니다.
 
 ## 필수 조건
 
 [AZURE.INCLUDE [선행 조건](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## 위치 보고
 
@@ -47,7 +46,7 @@
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
 
@@ -66,7 +65,7 @@
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
 
@@ -82,7 +81,7 @@
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### 백그라운드 보고
 
@@ -98,18 +97,18 @@
 
 백그라운드 위치 보고는 사용자가 해당 장치를 재부팅하는 경우 중지됩니다. 다음을 추가하면 부팅 시 자동으로 다시 시작하도록 설정할 수 있습니다.
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Android M 권한
+## Android M 권한
 
 Android M부터는 일부 권한이 런타임 시 관리되며 사용자 승인이 필요합니다.
 
@@ -160,4 +159,4 @@ Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 �
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

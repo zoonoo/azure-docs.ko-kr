@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/28/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 시작
@@ -35,9 +35,9 @@ Azure AD Privileged Identity Management를 사용하기 전에 응용 프로그�
 6. **대시보드에 고정** 옵션을 선택하고 **만들기** 단추를 클릭합니다. Privileged Identity Management 응용 프로그램이 열립니다.
 
 
-디렉터리에서 Azure AD Privileged Identity Management를 처음 사용하는 사용자이면 [보안 마법사](active-directory-privileged-identity-management-security-wizard.md)가 초기 할당 환경을 안내합니다. 이 작업 이후 자동으로 디렉터리의 첫 번째 **보안 관리자**가 됩니다. 보안 관리자만 이 응용 프로그램에 액세스하여 다른 관리자의 액세스 권한을 관리할 수 있습니다.
+디렉터리에서 Azure AD Privileged Identity Management를 처음 사용하는 사용자이면 [보안 마법사](active-directory-privileged-identity-management-security-wizard.md)가 초기 할당 환경을 안내합니다. 이 작업 이후 자동으로 디렉터리의 첫 번째 **보안 관리자** 및 **권한 있는 역할 관리자**가 됩니다. 권한 있는 역할 관리자만 이 응용 프로그램에 액세스하여 다른 관리자의 액세스 권한을 관리할 수 있습니다.
 
-그렇지 않으면 다른 보안 관리자에 의해 하나 이상의 역할에 할당된 경우 활성화할 역할을 선택해야 합니다. 보안 관리자 역할 상태인 경우 **ID 관리**를 선택할 수도 있습니다.
+그렇지 않으면 다른 권한 있는 역할 관리자에 의해 하나 이상의 역할에 할당된 경우 활성화할 역할을 선택해야 합니다. 권한 있는 역할 관리자 역할인 경우 **ID 관리**를 선택할 수도 있습니다.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,4 +47,4 @@ Azure AD Privileged Identity Management를 사용하기 전에 응용 프로그�
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

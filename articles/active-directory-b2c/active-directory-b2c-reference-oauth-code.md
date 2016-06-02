@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Azure Active Directory B2C 미리 보기: OAuth 2.0 인증 코드 흐름
@@ -277,4 +277,4 @@ Here is the entire flow for a native app; each request is detailed in the sectio
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트**를 포함하려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

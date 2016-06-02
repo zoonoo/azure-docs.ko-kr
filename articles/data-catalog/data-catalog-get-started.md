@@ -160,7 +160,7 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 이 예에서는 이름이 제품과 동일하고 태그가 그림과 동일하거나 태그가 사진과 동일한 데이터 자산에 대해 **그룹화** 검색을 수행합니다.
 
 1. https://azure.microsoft.com/services/data-catalog로 이동하여 **시작**을 클릭하고 **Azure Data Catalog** 포털에 로그인합니다.
-2. **데이터 카탈로그 검색** 상자에 **그룹화**를: 쿼리:(tags:description OR tags:photo)로 입력합니다.
+2. **데이터 카탈로그 검색** 상자에 **그룹화** 쿼리: (**tags:description OR tags:photo**)를 입력합니다.
 3. 검색 아이콘을 클릭하거나 Enter를 누릅니다. **Azure 데이터 카탈로그**에서 이 검색 쿼리에 대한 데이터 자산을 표시합니다.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
@@ -184,7 +184,7 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
 이 연습에서는 등록된 데이터 자산에 설명이 있는 정보를 추가했으므로 카탈로그 사용자가 이해하는 용어를 사용하여 데이터 원본을 검색할 수 있습니다.
 
-> [AZURE.NOTE] 데이터 카탈로그의 표준 버전에는 카탈로그 관리자가 중앙 비즈니스 분류를 정의할 수 있는 비즈니스 용어집이 포함되어 있습니다. 그런 다음 카탈로그 사용자는 용어집 용어를 사용하여 데이터 자산에 주석을 추가할 수 있습니다. 자세한 내용은 [관리 대상 태깅을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요.
+> [AZURE.NOTE] 데이터 카탈로그의 표준 버전에는 카탈로그 관리자가 중앙 비즈니스 분류를 정의할 수 있는 비즈니스 용어집이 포함되어 있습니다. 그런 다음 카탈로그 사용자는 용어집 용어를 사용하여 데이터 자산에 주석을 추가할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요.
 
 ## 연습 5: 크라우드소싱 메타데이터
 
@@ -262,4 +262,4 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
 이 자습서에서는 엔터프라이즈 데이터 원본 등록, 주석 추가, 검색, 관리를 비롯하여 **Azure Data Catalog**의 필수 기능을 살펴보았습니다. 이제 자습서를 완료했습니다. 시작할 시간입니다. 사용자 및 팀이 필요로 하는 데이터 원본을 등록하고, 카탈로그를 사용하도록 동료를 초대하여 시작할 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

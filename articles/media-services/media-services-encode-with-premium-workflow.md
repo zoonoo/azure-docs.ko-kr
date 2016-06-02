@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
->[AZURE.NOTE]- 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
->
->- 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+>[AZURE.NOTE] 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+
+프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
 ##개요
 
@@ -268,6 +268,7 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 	}
 
 
+프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
 ##미디어 서비스 학습 경로
 
@@ -277,4 +278,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/16/2016"
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 작동 방법
@@ -34,7 +34,7 @@
 
 작동 방법에 대한 추가 정보는 다음 비디오를 참조하십시오.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ##다단계 인증에 사용할 수 있는 방법
 사용자가 로그인하면 사용자에게 추가 확인이 전송됩니다. 이 두 번째 확인에 사용할 수 있는 방법의 목록은 다음과 같습니다.
@@ -54,7 +54,7 @@
 ------------- | ------------- |
 Office 365용 Multi-Factor Authentication | 이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 다단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. 이 버전은 Office 365 구독과 함께 제공됩니다.
 Azure 관리자를 위한 Multi-Factor Authentication | 모든 Azure 관리자는 Office 365에 적용되는 것과 동일한 Multi-Factor Authentication 기능을 무료로 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이제 이 핵심 다단계 인증 기능을 사용하여 추가의 보호 기능을 얻을 수 있습니다. 따라서 VM 및 웹 사이트 만들기, 저장소나 모바일 서비스 또는 다른 Azure 서비스 관리를 위해 Azure 포털에 액세스하려는 관리자는 자신의 관리자 계정에 다단계 인증을 추가할 수 있습니다.
-Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. <br><br>Azure 관리 포털, 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용 프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 독립 실행형 라이선스로 구매할 수 있으며 Azure Active Directory Premium 및 Enterprise Mobility Suite와 함께 제공됩니다. <br><br>또한 Azure 구독에서 Azure Multi-Factor Authentication 공급자를 만들어 소비 기반으로 구매할 수 있습니다.
+Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. <br><br>Azure 관리 포털, 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 독립 실행형 라이선스로 구매할 수 있으며 Azure Active Directory Premium 및 Enterprise Mobility Suite와 함께 제공됩니다. <br><br>또한 Azure 구독에서 Azure Multi-Factor Authentication 공급자를 만들어 소비 기반으로 구매할 수 있습니다.
 ##버전 기능 비교
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다.
 
@@ -66,7 +66,18 @@ Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 
 두 번째 단계로 전화 통화|* | * | *
 두 번째 단계로 SMS|* | * | *
 MFA를 지원하지 않는 클라이언트에 대한 앱 암호|* | * | *
-인증 방법에 대한 관리자 제어| **| *| * PIN 모드| | | * 사기 행위 경고| | | * MFA 보고서| | | * 일회성 바이패스| | | * 전화 통화에 대한 사용자 지정 인사말| | | * 전화 통화에 대한 발신자 번호 사용자 지정| | | * 이벤트 확인| | | * 신뢰할 수 있는 IP| | | * 기억된 장치에 대한 MFA 일시 중단(공개 미리 보기)| | | * MFA SDK| | | * MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
+인증 방법에 대한 관리자 제어| *| *| * 
+PIN 모드| | | * 
+사기 행위 경고| | | * 
+MFA 보고서| | | * 
+일회성 바이패스| | | * 
+전화 통화에 대한 사용자 지정 인사말| | | * 
+전화 통화에 대한 발신자 번호 사용자 지정| | | * 
+이벤트 확인| | | * 
+신뢰할 수 있는 IP| | | * 
+기억된 장치에 대한 MFA 일시 중단(공개 미리 보기)| | | * 
+MFA SDK| | | * 
+MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
 
 
 ##Azure Multi-Factor Authentication 획득 방법
@@ -91,4 +102,4 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

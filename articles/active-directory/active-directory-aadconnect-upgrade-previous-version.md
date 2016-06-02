@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
@@ -34,7 +34,7 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 ## 전체 업그레이드
 전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 업그레이드하는 경우에 작동합니다. FIM과 Azure AD Connector를 사용하는 솔루션 또는 DirSync에는 작동하지 않습니다.
 
-이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 업그레이드 후 전체 가져오기 및 전체 동기화가 발생합니다. 이를 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 작업은 동기화 엔진 범위의 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 예약되는 일반 델타 동기화는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다.
+이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 업그레이드 후에 기본 동기화 규칙이 변경된 경우 전체 가져오기 및 전체 동기화가 발생합니다. 이를 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 작업은 동기화 엔진 범위의 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 예약되는 일반 델타 동기화는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다. 새 Azure AD Connect 릴리스를 포함한 기본 구성이 변경되지 않은 경우 대신 일반 델타 가져오기/동기화가 시작됩니다.
 
 ![전체 업그레이드](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
@@ -85,4 +85,4 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

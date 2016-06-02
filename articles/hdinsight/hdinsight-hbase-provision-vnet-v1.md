@@ -21,9 +21,11 @@
 
 [Azure 가상 네트워크][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법에 대해 알아봅니다.
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Azure 가상 네트워크에 HBase 클러스터 프로비전](hdinsight-hbase-provision-vnet.md)
+> [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
+>
+> 또한 이 문서는 Azure PowerShell을 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 ASM(Azure 서비스 관리)을 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거됩니다.
+>
+>ARM(Azure Resource Manager)을 사용하는 Azure 리소스 PowerShell 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [Azure 가상 네트워크에 HBase 클러스터 프로비전](hdinsight-hbase-provision-vnet.md)을 참조하세요.
 
 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다. 이점은 다음과 같습니다.
 
@@ -434,4 +436,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

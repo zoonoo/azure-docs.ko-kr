@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -85,4 +85,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-windows-lob-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

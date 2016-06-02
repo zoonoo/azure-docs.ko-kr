@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure API 관리에서 API에 작업을 추가하는 방법" 
+	pageTitle="Azure API 관리에서 API에 작업을 추가하는 방법 | Microsoft Azure" 
 	description="Azure API 관리에서 API에 작업을 추가하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/19/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API에 작업을 추가하는 방법
@@ -40,9 +40,13 @@ API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다.
 
 ![HTTP 메서드][api-management-http-method]
 
+<a name="url-template"></a>
+
 하나 이상의 URL 경로 세그먼트 및 0개 이상의 쿼리 문자열 매개 변수로 구성된 URL 조각을 입력하여 URL 템플릿을 정의합니다. API의 기준 URL에 추가되는 URL 템플릿은 단일 HTTP 작업을 식별합니다. 여기에는 둥근 괄호로 식별되는 하나 이상의 명명된 변수 부분을 포함할 수 있습니다. 이러한 변수 부분을 템플릿 매개 변수라고 하며 요청을 API 관리 플랫폼으로 처리할 때 요청의 URL에서 추출하여 동적으로 할당되는 값입니다.
 
 ![URL 템플릿][api-management-url-template]
+
+<a name="rewrite-url-template"></a>
 
 필요한 경우 **URL 템플릿 다시 쓰기**를 지정하세요. 그렇게 하면 다시 쓰기 템플릿에 따라 변환된 URL을 통해 백 엔드를 호출하면서 프런트 엔드의 들어오는 요청을 처리하는 표준 URL 템플릿을 사용할 수 있습니다. URL 템플릿의 템플릿 매개 변수는 다시 쓰기 템플릿에서 사용해야 합니다. 다음 예제에서는 위 예제에서 웹 서비스의 패스 세그먼트로 인코딩된 콘텐츠 유형을, URL 템플릿을 사용하여 API 관리 플랫폼을 통해 게시된 API에서 쿼리 매개 변수로 제공할 수 있는 방법을 보여 줍니다.
 
@@ -164,4 +168,4 @@ API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다.
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [Azure API 관리에서 작업 결과를 캐시하는 방법]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

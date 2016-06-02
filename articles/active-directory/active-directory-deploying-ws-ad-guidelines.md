@@ -53,7 +53,7 @@ AD 배포에 익숙하지 않은 사용자는 [AD DS 배포 가이드](https://t
 - [Azure 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 - [Azure 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)
-- [Azure에서 복제 Active Directory 도메인 컨트롤러 설치](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
+- [Azure에서 복제 Active Directory 도메인 컨트롤러 설치](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
@@ -338,7 +338,7 @@ LDAP 인식 응용 프로그램이 Azure 가상 컴퓨터에 배포됩니다. Wi
 
 - [네트워크 토폴로지](#BKMK_NetworkTopology): [크로스-프레미스 연결](../vpn-gateway/vpn-gateway-site-to-site-create.md)로 Azure 가상 네트워크를 만듭니다 .
 
-- [설치 방법](#BKMK_InstallMethod): 회사 Windows Server Active Directory 도메인의 복제본 DC를 배포합니다. 복제본 DC의 경우 VM에 Windows Server AD DS를 설치할 수 있으며 필요에 따라 IFM(미디어에서 설치) 기능을 사용하여 설치하는 동안 새로운 DC에 복제해야 하는 데이터의 양을 줄일 수 있습니다. 자습서는 [Azure에서 복제 Active Directory 도메인 컨트롤러 설치](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요. IFM을 사용하는 경우라도 설치하는 동안 Windows Server AD DS를 복제하는 대신 가상 DC 온-프레미스를 빌드하고 전체 VHD(가상 하드 디스크)를 클라우드로 이동하는 것이 더욱 효율적일 수 있습니다. 보안을 위해 Azure로 복사된 후 온-프레미스 네트워크에서 VHD를 삭제하는 것이 좋습니다.
+- [설치 방법](#BKMK_InstallMethod): 회사 Windows Server Active Directory 도메인의 복제본 DC를 배포합니다. 복제본 DC의 경우 VM에 Windows Server AD DS를 설치할 수 있으며 필요에 따라 IFM(미디어에서 설치) 기능을 사용하여 설치하는 동안 새로운 DC에 복제해야 하는 데이터의 양을 줄일 수 있습니다. 자습서는 [Azure에서 복제 Active Directory 도메인 컨트롤러 설치](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)를 참조하세요. IFM을 사용하는 경우라도 설치하는 동안 Windows Server AD DS를 복제하는 대신 가상 DC 온-프레미스를 빌드하고 전체 VHD(가상 하드 디스크)를 클라우드로 이동하는 것이 더욱 효율적일 수 있습니다. 보안을 위해 Azure로 복사된 후 온-프레미스 네트워크에서 VHD를 삭제하는 것이 좋습니다.
 
 - [Windows Server Active Directory 사이트 토폴로지](#BKMK_ADSiteTopology): Active Directory 사이트 및 서비스에서 새로운 Azure 사이트를 만듭니다. Azure 가상 네트워크를 나타내는 Windows Server Active Directory 서브넷 개체를 만들고 사이트에 서브넷을 추가합니다. Azure 간 Windows Server Active Directory 트래픽을 제어하고 최적화하기 위해 새 Azure 사이트와 Azure 가상 네트워크 VPN 끝점이 위치한 사이트를 포함하는 새 사이트 링크를 만듭니다.
 
@@ -558,4 +558,4 @@ VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응�
 
 > [AZURE.NOTE] Azure에서 Windows Server AD FS 끝점에 대해 부하 분산하려면 동일한 클라우드 서비스에서 Windows Server AD FS 팜의 모든 구성원을 구성하고 HTTP(기본값 80) 및 HTTPS 포트(기본값 443)에 대한 Azure의 부하 분산 기능을 사용합니다. 자세한 내용은 [Azure 부하 분산 장치 프로브](https://msdn.microsoft.com/library/azure/jj151530)를 참조하세요. Windows Server NLB(네트워크 부하 분산)는 Azure에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리
@@ -51,11 +51,11 @@ StorSimple 관리자 서비스는 단일 웹 인터페이스에서 StorSimple �
 
 다음은 볼륨과 관련된 가장 일반적인 작업입니다.
 
-- 볼륨 추가 
-- 볼륨 수정 
-- 볼륨 삭제 
-- 볼륨을 오프라인으로 전환 
-- 볼륨 모니터링 
+- 볼륨 추가
+- 볼륨 수정
+- 볼륨 삭제
+- 볼륨을 오프라인으로 전환
+- 볼륨 모니터링
 
 ## 볼륨 추가
 
@@ -79,9 +79,9 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
   5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
-   
+
 5. **추가 설정**에서 새 ACR(액세스 제어 레코드)을 추가합니다.
-  
+
   1. 드롭다운 목록에서 ACR(액세스 제어 레코드)을 선택합니다. 또는 새 ACR을 추가할 수 있습니다. ACR은 호스트 IQN을 레코드에 나열된 항목과 비교하여 볼륨에 액세스할 수 있는 호스트를 결정합니다.
   2. **이 볼륨에 대해 기본 백업 사용** 확인란을 선택하여 기본 백업을 사용하는 것이 좋습니다.
    3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 지정된 설정으로 볼륨을 만듭니다.
@@ -92,10 +92,10 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 볼륨을 확장하거나 볼륨에 액세스하는 호스트를 변경할 경우 볼륨을 수정합니다.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 >
-> - 장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다. 
-> - 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요. 
+> - 장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다.
+> - 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요.
 
 ### 볼륨을 수정하려면
 
@@ -116,7 +116,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
   - 오프라인인 볼륨이 제공된 ACR을 수정합니다. 볼륨이 온라인 상태이면 먼저 오프라인 상태로 전환해야 합니다. ACR을 수정하기 전에 [볼륨을 오프라인을 전환](#take-a-volume-offline)에서 단계를 참조하세요.
   - 볼륨을 오프라인으로 전환한 후 ACR 목록을 수정합니다.
- 
+
     > [AZURE.NOTE] 볼륨에 대해 **이 볼륨에 대해 기본 백업 사용** 옵션을 변경할 수 없습니다.
 
 6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. Azure 클래식 포털은 업데이트 볼륨 메시지를 표시합니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
@@ -198,6 +198,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
- 
-
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

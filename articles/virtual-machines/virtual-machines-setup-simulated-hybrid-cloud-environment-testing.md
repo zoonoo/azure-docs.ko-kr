@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/25/2016" 
@@ -215,4 +215,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

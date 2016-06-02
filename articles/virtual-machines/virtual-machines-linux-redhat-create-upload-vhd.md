@@ -43,11 +43,13 @@
 
 **RHEL 설치 참고 사항**
 
+- Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
+
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 **convert-vhd** PowerShell cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
 - VHD를 "고정"되게 만들어야 합니다 --동적 VHD는 지원되지 않습니다.
 
-- Linux 운영 체제를 설치하는 경우 설치 기본값인 경우가 많은 LVM(논리 볼륨 관리자)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지하는 데 도움이 됩니다. 원하는 경우 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
+- Linux 시스템 설치 시 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - OS 디스크에 스왑 파티션을 구성하지 마세요. Linux 에이전트를 구성하여 임시 리소스 디스크에서 스왑 파일을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 사용할 수 있습니다.
 
@@ -147,7 +149,7 @@
         # export HISTSIZE=0
         # logout
 
-16.	Hyper-V 관리자에서 **동작 > 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+16.	Hyper-V 관리자에서 **작업 > 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ### <a id="rhel7xhyperv"> </a>Hyper-V 관리자에서 RHEL 7.1/7.2 가상 컴퓨터 준비###
 
@@ -178,7 +180,7 @@
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`을 열고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 편집합니다. 예:
+7.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`을 열고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
@@ -225,7 +227,7 @@
         # export HISTSIZE=0
         # logout
 
-15.	Hyper-V 관리자에서 **동작 > 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+15.	Hyper-V 관리자에서 **작업 > 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
 ## KVM에서 RedHat 기반 가상 컴퓨터 준비
@@ -406,7 +408,7 @@
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`을 열고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 편집합니다. 예:
+8.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`을 열고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
@@ -869,7 +871,7 @@
 
     c. CD에서 부팅하도록 BIOS를 설정합니다.
 
-5.	VM을 시작합니다. 설치 가이드가 나타나면 **탭** 키를 눌러서 부팅 옵션을 구성합니다.
+5.	VM을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 
 6.	부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>`을 입력하고 **Enter** 키를 누릅니다.
 
@@ -914,4 +916,4 @@ Initramfs를 다시 빌드합니다.
 
 Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

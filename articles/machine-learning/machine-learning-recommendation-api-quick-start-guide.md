@@ -3,7 +3,7 @@
 	description="Azure 기계 학습 권장 사항 - 빠른 시작 가이드" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="05/09/2016" 
 	ms.author="luisca"/>
 
 # 기계 학습 권장 사항 API에 대한 빠른 시작 가이드
@@ -81,16 +81,16 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 ###모델 만들기
 "모델 만들기" 요청 만들기:
 
-| HTTP 메서드 | URI |
+| HTTP 메서드     | URI |
 |:--------|:--------|
-|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
 |	modelName	|	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 |
 |	apiVersion		| 1.0 |
 |||
-| 요청 본문 | NONE |
+| Request Body | NONE |
 
 
 **응답**:
@@ -136,11 +136,11 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
-|	modelId |	모델의 고유 식별자(대/소문자 구분) |
+|	modelId	|	모델의 고유 식별자(대/소문자 구분)  |
 | filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -185,11 +185,11 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
-|	modelId |	모델의 고유 식별자(대/소문자 구분) |
+|	modelId	|	모델의 고유 식별자(대/소문자 구분) |
 | filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -234,13 +234,13 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-|
-|요청 본문| 전송하려는 각 이벤트에 대한 이벤트 데이터 항. SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.|
+|	apiVersion		| 1\.0 |
+|||
+|요청 본문| Event data entry for each event you want to send. SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.|
 
 
 - 'Click' 이벤트의 예:
@@ -295,7 +295,8 @@ OData XML
   		</EventData>
 		</Event>
 
-- 'Purchase' 이벤트의 예: 
+- 'Purchase' 이벤트의 예:
+
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>
@@ -339,14 +340,14 @@ HTTP 상태 코드: 200
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
-| modelId |	모델의 고유 식별자(대/소문자 구분) |
+| modelId |	모델의 고유 식별자(대/소문자 구분)  |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1\.0 |
-|
+|||
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -413,15 +414,15 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET      |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
-|	modelId |	모델의 고유 식별자(대/소문자 구분) |
-|	onlyLastBuild |	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다. |
-|	apiVersion |	1\.0 |
+|	modelId			|	모델의 고유 식별자(대/소문자 구분)	|
+|	onlyLastBuild	|	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다.	|
+|	apiVersion		|	1\.0									|
 
 
 **응답**:
@@ -446,17 +447,17 @@ HTTP 상태 코드: 200
 
 유효한 빌드 상태:
 - Created – 빌드 요청 항목이 만들어짐
-- Queued – 빌드 요청이 트리거되고 쿼리됨
-- Building – 빌드 진행 중
+- Queued – 빌드 요청이 트리거되었으며 큐에 대기됨
+- Building – 빌드가 진행 중임
 - Success – 빌드가 성공적으로 종료됨
 - Error – 오류로 인해 빌드가 종료됨
 - Cancelled – 빌드가 취소됨
 - Cancelling – 빌드 취소 중
 
-유효한 빌드 형식 값: 
+유효한 빌드 형식 값:
 - Rank - 순위 빌드 (순위 빌드에 대한 자세한 내용은 "기계 학습 권장 사항 API 문서" 설명서를 참조하세요.)
 - Recommendation - 권장 사항 빌드
-- Fbt - 자주 함께 구입됨 빌드
+- Fbt - 자주 함께 구매됨 빌드
 
 OData XML
 
@@ -498,11 +499,11 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자(대/소문자 구분) |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다.<br>최대 길이: 1024 |
@@ -682,14 +683,14 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
+|PUT     |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	매개 변수 이름 |	유효한 값 |
+|	매개 변수 이름	|	유효한 값						|
 |:--------			|:--------								|
 | id | 모델의 고유 식별자(대/소문자 구분) |
 | apiVersion | 1\.0 |
-|
+|||
 | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다. |
 
 **응답**:
@@ -708,9 +709,9 @@ OData XML
 	</feed>
 
 ##법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 
-여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 
-이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다.
+여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.
+ 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

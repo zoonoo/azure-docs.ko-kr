@@ -1,7 +1,7 @@
-##Highly available solutions with Azure traffic manager
+##Azure 트래픽 관리자로 항상 사용 가능한 솔루션
 
-You need to determine whether your workload's high availability requirements can be met by using Azure traffic manager alone, or if you need to combine traffic manager with other DNS solutions, or processes. Depending on your needs, you can use:
+단독으로 Azure 트래픽 관리자를 사용하여 워크로드의 고가용성 요구 사항을 충족할 수 있는지 또는 다른 DNS 솔루션 또는 프로세스와 트래픽 관리자를 결합해야 할지 여부를 확인해야 합니다. 필요에 따라 다음을 사용할 수 있습니다.
 
-- **Traffic manager alone**. If a 99.99% up time is sufficient for your workload, you can use traffic manager by itself. In the event of failure in the traffic manager service, users will not be able to access your workload until the traffic manager service is reestablished.
+- **트래픽 관리자만**. 99.99% 가동 시간이 워크로드에 충분한 경우 자체적으로 트래픽 관리자를 사용할 수 있습니다. 트래픽 관리자 서비스에서 오류가 발생할 경우 트래픽 관리자 서비스가 다시 설정될 때까지 워크로드에 액세스할 수 없습니다.
 
-- **Use another traffic manager solution along with Azure traffic manager**. In the event of failure in the traffic manager service, you can change your CNAME record to point to the other traffic manager service. Access to your workload is still available, and distributed to all locations hosting your workload. This is the most expensive solution, but may be required for workloads that need a higher SLA.
+- **Azure 트래픽 관리자와 함께 다른 트래픽 관리자 솔루션 사용**. 트래픽 관리자 서비스에서 오류가 발생할 경우 다른 트래픽 관리자 서비스를 가리키도록 CNAME 레코드를 변경할 수 있습니다. 워크로드에 대한 액세스는 계속 사용 가능하며 워크로드를 호스트하는 모든 위치에 분산됩니다. 이는 가장 비싼 솔루션이지만 더 높은 SLA를 요구하는 워크로드에 필요할 수 있습니다.

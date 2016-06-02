@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="04/22/2016"
+    ms.date="05/17/2016"
     ms.author="liamca"
 />
 
@@ -48,8 +48,8 @@ Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 
 **fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의하도록 이 문서의 예제를 수정할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.
 
-- business\_title:senior NOT junior
-- state:"New York" AND "New Jersey"
+- business\_title:(senior NOT junior)
+- state:("New York" AND "New Jersey")
 
 이 경우에 위치 필드에서 두 개의 다른 도시를 검색하고 있으므로 두 문자열이 단일 엔터티로 평가되길 원하는 경우 여러 문자열을 인용 부호로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
 
@@ -129,4 +129,4 @@ musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

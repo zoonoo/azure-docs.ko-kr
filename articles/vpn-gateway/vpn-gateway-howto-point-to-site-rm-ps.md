@@ -123,7 +123,7 @@
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. *makecert*를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다.
+10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. *makecert*를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다. 아래 예제와 같이 공개 키를 가져오려면 Base-64로 인코딩된 X.509(.CER) 파일과 같은 .cer 파일을 내보낸 다음 메모장에서 해당 파일을 엽니다. -----BEGIN CERTIFICATE-----와 -----END CERTIFICATE----- 사이를 모두 복사합니다.
 	
 	다음은 이 구조에 대한 샘플입니다. 공용 인증서 데이터를 업로드하는 과정 중 어려운 부분은 전체 문자열을 공백없이 복사 및 붙여넣기 해야 한다는 점입니다. 그렇지 않으면 업로드가 동작하지 않습니다. 이 단계에 고유한 인증서.cer 파일을 사용해야 합니다. 아래에서 샘플을 복사 및 붙여넣기 하지 마세요.
 
@@ -240,4 +240,4 @@ Azure에서 루트 인증서를 제거할 수 있습니다. 루트 인증서를 
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

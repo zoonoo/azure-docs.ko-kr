@@ -6,14 +6,14 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # 서비스 패브릭에 게스트 실행 파일 배포
@@ -34,7 +34,7 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
 ## 응용 프로그램 및 서비스 매니페스트 파일의 간략한 개요
 
-게스트 실행 파일 배포의 세부 정보로 들어가기 전에 서비스 패브릭 패키징 및 배포 모델을 이해하는 것이 유용합니다. 서비스 패브릭 패키징 배포 모델은 주로 두 파일을 사용합니다.
+게스트 실행 파일 배포의 세부 정보로 들어가기 전에 서비스 패브릭 패키징 및 배포 모델을 이해하는 것이 유용합니다. 서비스 패브릭 패키징 배포 모델은 주로 두 XML 파일(응용 프로그램 및 서비스 매니페스트)을 사용합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 서비스 패브릭 SDK 및 도구와 함께 *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 
 * **응용 프로그램 매니페스트**
@@ -44,64 +44,12 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
   서비스 패브릭 세계에서 응용 프로그램은 "업그레이드 가능한 단위"입니다. 잠재적인 오류(및 잠재적 롤백)가 플랫폼에 의해 관리되는 하나의 단위로 응용 프로그램을 업그레이드할 수 있습니다. 플랫폼은 업그레이드 프로세스의 성공을 보장하며, 업그레이드가 실패할 경우 응용 프로그램을 알 수 없는/불안정한 상태로 남겨 두지 않습니다.
 
 
- ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
-      <ConfigOverrides />
-    </ServiceManifestImport>
-
-    <DefaultServices>
-      <Service Name="actor2">
-        <StatelessService ServiceTypeName="actor2Type">
-          <SingletonPartition />
-        </StatelessService>
-      </Service>
-    </DefaultServices>
-
-  </ApplicationManifest>
-  ```
-
 * **서비스 매니페스트**
 
   서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스 매니페스트는 서비스의 이름 및 유형(서비스 패브릭이 서비스 관리에 사용하는 정보), 서비스 코드, 구성 및 데이터 구성 요소를 포함하고 있습니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
 
   서비스 매니페스트에서 사용할 수 있는 모든 매개 변수를 자세히 다루지는 않고, 게스트 실행 파일을 서비스 패브릭에서 실행하는 데 필요한 하위 집합을 살펴보겠습니다.
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
-
-    <CodePackage Name="Code" Version="1.0.0.0">
-      <EntryPoint>
-        <ExeHost>
-          <Program>actor2.exe</Program>
-        </ExeHost>
-      </EntryPoint>
-    </CodePackage>
-
-    <ConfigPackage Name="Config" Version="1.0.0.0" />
-
-    <Resources>
-      <Endpoints>
-        <Endpoint Name="ServiceEndpoint" />
-      </Endpoints>
-    </Resources>
-  </ServiceManifest>
-  ```
 
 ## 응용 프로그램 패키지 파일 구조
 응용 프로그램을 서비스 패브릭에 배포하기 위해 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다. 다음은 해당 구조의 예입니다.
@@ -300,10 +248,10 @@ SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구�
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -324,11 +272,11 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 서비스 패브릭 탐색기에서 서비스가 실행되고 있는 노드를 식별합니다. 이 예제에서는 Node1에서 실행됩니다.
 
-![서비스가 실행 중인 노드](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![서비스가 실행 중인 노드](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 노드로 이동하여 응용 프로그램을 찾으면 디스크 상의 위치를 포함하여 필수 노드 정보가 표시됩니다.
 
-![디스크 상의 위치](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![디스크 상의 위치](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 서버 탐색기를 사용하여 디렉터리로 이동하면 아래와 같이 작업 디렉터리 및 서비스의 로그 폴더를 찾을 수 있습니다.
 
@@ -338,8 +286,8 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ## 다음 단계
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 다음 단계로 이 항목에 대한 추가 콘텐츠를 확인할 수 있습니다.
 
-- 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication)
+- 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
 - [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 - [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

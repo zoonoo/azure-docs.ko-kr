@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # SendGrid 커넥터 시작
@@ -57,9 +57,13 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 |속성| 필수|설명|
 | ---|---|---|
 |ApiKey|예|SendGrid API 키 제공|
-연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
+ 
+
+>[AZURE.INCLUDE [SendGrid에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sendgrid.md)]
 
 >[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
+
+연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 
 ## SendGrid에 대한 참조
 적용 버전: 1.0
@@ -188,4 +192,4 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

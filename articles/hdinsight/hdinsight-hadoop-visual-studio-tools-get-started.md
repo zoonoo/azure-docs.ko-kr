@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2016"
+	ms.date="05/25/2016"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
@@ -230,6 +230,8 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 - 결과가 NULL 값으로 시작되는 경우, 현재는 결과가 표시되지 않습니다. 이 문제는 해결되었습니다. 이 문제로 인해 어려움이 있으면, 전자 메일을 보내거나 지원 팀에 문의해 주시기 바랍니다.
 
+- Visual Studio에서 만든 HQL 스크립트는 사용자의 로컬 지역 설정에 따라 인코딩됩니다. 사용자가 스크립트를 클러스터에 이진으로 업로드하는 경우 올바르게 실행되지 않을 수 있습니다.
+
 제안 또는 피드백이 있거나 이 도구를 사용할 때 문제가 발생하는 경우 microsoft.com의 hdivstool로 메일을 보내 주시기 바랍니다.
 
 ## 다음 단계
@@ -275,4 +277,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

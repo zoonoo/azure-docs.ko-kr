@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
@@ -172,4 +172,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

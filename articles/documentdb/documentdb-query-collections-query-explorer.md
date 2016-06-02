@@ -19,7 +19,7 @@
 
 # 쿼리 탐색기를 사용하여 DocumentDB에 대한 SQL 쿼리 작성, 편집 및 실행 
 
-이 문서에서는 [DocumentDB 컬렉션](documentdb-create-collection)에 대해 SQL 쿼리를 작성하고 편집하고 실행할 수 있게 해주는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다.
+이 문서에서는 [DocumentDB 컬렉션](documentdb-create-collection.md)에 대해 SQL 쿼리를 작성하고 편집하고 실행할 수 있게 해주는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다.
 
 1. Azure 포털의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다. **DocumentDB 계정**이 표시되지 않는 경우 **찾아보기**를 클릭한 다음 **DocumentDB 계정**을 클릭합니다.
 
@@ -79,4 +79,4 @@ Azure 포털의 쿼리 탐색기는 DocumentDB에 대해 SQL 쿼리를 실행하
 
 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 자세히 읽어보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다. 또한 샘플 데이터 집합을 사용하여 쿼리를 온라인으로 테스트할 수 있는 [쿼리 실습](https://www.documentdb.com/sql/demo)으로 실험할 수도 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

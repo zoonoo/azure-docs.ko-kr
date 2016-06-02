@@ -22,7 +22,7 @@ ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 
 
 Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어떻게 작동하는지 이해해야 합니다.
 
->[AZURE.NOTE] 과거에는 ILPIP를 PIP라고 했으며, 공용 IP를 나타냅니다.
+>[AZURE.NOTE] 과거에는 ILPIP를 PIP라고 했으며 공용 IP를 나타냅니다.
 
 ![ILPIP 및 VIP 간의 차이](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -36,7 +36,9 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 >[AZURE.NOTE] 각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독 당 최대 5개의 ILPIP를 사용할 수 있습니다. 이때 ILPIP는 다중 NIC VM에 대해 지원되지 않습니다.
 
 ## ILPIP를 요청해야 하는 이유
-클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면, VM 또는 역할 인스턴스에 ILPIP를 요청합니다. **수동 FTP** - VM에 ILPIP를 지정하여, 모든 포트에서 트래픽을 받을 수 있으며, 트래픽을 수신할 끝점을 열지 않아도 됩니다. 이 포트를 동적으로 선택한 수동 FTP와 같은 시나리오를 통해 사용됩니다. **아웃 바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 소스로 ILPIP와 함께 보내지며 외부 엔터티에 대한 VM을 고유하게 식별합니다.
+클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
+- **수동 FTP** - VM에 ILPIP를 지정하여 모든 포트에서 트래픽을 받을 수 있으며, 트래픽을 수신할 끝점을 열지 않아도 됩니다. 이 포트를 동적으로 선택한 수동 FTP와 같은 시나리오를 통해 사용됩니다.
+- **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP와 함께 보내지며 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 ## VM 생성 중 ILPIP를 요청하는 방법
 아래의 PowerShell 스크립트는 *FTPService*라는 새 클라우드 서비스를 만든 다음, Azure에서 이미지를 검색 하고 검색된 이미지를 사용하여 *FTPInstance*라는 VM을 만들고, ILPIP를 사용하도록 VM을 설정하고 VM을 새 서비스에 추가합니다.
@@ -87,14 +89,14 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 	| Update-AzureVM
 
 ## 기존 VM에 ILPIP를 추가하는 방법
-위의 스크립트를 사용하여 만든 VM에 ILPIP를 추가하려면, 다음 명령을 실행합니다.
+위의 스크립트를 사용하여 만든 VM에 ILPIP를 추가하려면 다음 명령을 실행합니다.
 
 	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
 	| Set-AzurePublicIP -PublicIPName ftpip2 `
 	| Update-AzureVM
 
 ## 서비스 구성 파일을 사용하여 VM에 ILPIP를 연결하는 방법
-서비스 구성(CSCFG) 파일을 사용하여 VM에 ILPIP를 연결할 수도 있습니다. 아래 샘플 xml에서는 *MyReservedIP*라는 예약된 IP를 역할 인스턴스에 대한 ILPIP로 사용하도록 클라우드 서비스를 구성하는 방법을 보여줍니다.
+서비스 구성(CSCFG) 파일을 사용하여 VM에 ILPIP를 연결할 수도 있습니다. 아래 샘플 xml에서는 *MyPublicIP*라는 ILPIP를 역할 인스턴스로 사용하도록 클라우드 서비스를 구성하는 방법을 보여 줍니다.
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -113,7 +115,7 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 	          <Subnet name="Subnet2"/>
 	        </Subnets>
 	        <PublicIPs>
-	          <PublicIP name="MyReservedIP" domainNameLabel="MyReservedIP" />
+	          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
 	        </PublicIPs>
 	      </InstanceAddress>
 	    </AddressAssignments>
@@ -127,4 +129,4 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 - [예약된 IP](../virtual-networks-reserved-public-ip)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동
@@ -24,7 +24,6 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-## 소개
 
 고객은 온-프레미스 데이터를 클라우드로 이동한 후 Azure 서비스에서 데이터에 액세스하여 Azure 기술의 완전한 기능을 활용할 수 있습니다. 예를 들어 Azure 기계 학습 또는 HDInsight 클러스터에서 사용할 수 있습니다.
 
@@ -88,4 +87,4 @@ SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐�
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하려면 [Azure HDInsight Hive 작업](https://msdn.microsoft.com/library/mt146771.aspx)을 사용합니다.
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Pig 스크립트를 실행하려면 [Azure HDInsight Pig 작업](https://msdn.microsoft.com/library/mt146781.aspx)을 사용합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -138,9 +138,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 
 교차 플랫폼 도구는 단일 코드 기반(주로 JavaScript)을 공유하면서도 모바일 장치에 보다 풍부한 기본 환경을 제공합니다. 모바일 서비스를 사용하면 다음과 같은 개발 플랫폼에 대해 빠른 시작 자습서를 제공함으로써 교차 플랫폼 앱 개발 플랫폼의 백 엔드 서비스를 쉽게 만들고 관리할 수 있습니다.
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator는 JavaScript를 사용하여 모든 모바일 장치 플랫폼에서 기본 앱처럼 실행되도록 컴파일된 단일 앱을 개발할 수 있게 해 줍니다. 풍부한 UI 사용자 환경, 모든 기본 장치 리소스에 대한 액세스, 기본 앱 성능을 제공합니다. 자세한 내용은 [Appcelerator 자습서][Appcelerator]를 참조하십시오.
-
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap(Apache Cordova 프로젝트 배포)은 표준화된 웹 API, HTML 및 JavaScript를 사용하여 Android, iOS 및 Windows 장치에서 실행되는 단일 앱을 개발할 수 있도록 해주는 무료 오픈 소스 프레임워크입니다. PhoneGap은 웹 뷰 기반의 UI를 제공하지만 푸시 알림, 가속도계, 카메라, 저장소, 지리적 위치, 앱 내 브라우저 등 장치의 기본 리소스에 액세스함으로써 사용자 환경을 개선합니다. 자세한 내용은 [PhoneGap 빠른 시작 자습서][PhoneGap]를 참조하십시오.
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap(Apache Cordova 프로젝트 배포)은 표준화된 웹 API, HTML 및 JavaScript를 사용하여 Android, iOS 및 Windows 장치에서 실행되는 단일 앱을 개발할 수 있도록 해주는 무료 오픈 소스 프레임워크입니다. PhoneGap은 웹 뷰 기반의 UI를 제공하지만 푸시 알림, 가속도계, 카메라, 저장소, 지리적 위치, 앱 내 브라우저 등 장치의 기본 리소스에 액세스함으로써 사용자 환경을 개선합니다. 자세한 내용은 [PhoneGap 빠른 시작 자습서][PhoneGap]를 참조하세요.
 
 	이제 Visual Studio에서는 시험판 소프트웨어인 Visual Studio용 Multi-Device Hybrid Apps 확장을 사용하여 교차 플랫폼 Cordova 앱을 구축할 수 있습니다. 자세한 내용은 [HTML 및 JavaScript를 사용하여 Multi-Device Hybrid Apps 시작](http://msdn.microsoft.com/library/dn771545.aspx)(영문)을 참조하십시오.
 
@@ -167,7 +165,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [ApiServices.Push]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [IPushMessage]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
@@ -175,4 +173,4 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0518_2016-->

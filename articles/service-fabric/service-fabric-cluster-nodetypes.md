@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -66,7 +66,7 @@ VM 크기 조정 설정을 확대하는 경우 새 인스턴스가 생성됩니�
 
 포트는 VM 크기 조정 설정 인스턴스의 오름차순으로 할당됩니다. 따라서 프런트 엔드 노드 유형에 대한 예제에서 5개의 인스턴스 각각에 대한 포트는 다음과 같습니다. 이제 VM 크기 조정 설정 인스턴스에 동일한 매핑을 수행해야 합니다.
 
-|**VMSS 인스턴스**|**포트**|
+|**VM 크기 집합 인스턴스**|**포트**|
 |-----------------------|--------------------------|
 |FrontEnd\_0|3389|
 |FrontEnd\_1|3390|
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -48,7 +48,7 @@ Azure 미디어 서비스는 현재 Microsoft PlayReady 라이선스를 배달�
 
 XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayReady 라이선스 템플릿 XML 스키마를 따릅니다.
 
-미디어 서비스는 XML에 대해 serialize 및 deserialize하는 데 사용할 수 있는 일련의 .NET 클래스를 정의합니다. 기본 클래스에 대한 자세한 내용은 라이선스 템플릿을 구성하는 데 사용되는 [미디어 서비스 .NET 클래스](media-services-playready-license-template-overview.md#classes)를 참조하세요.
+미디어 서비스는 XML에 대해 serialize 및 deserialize하는 데 사용할 수 있는 일련의 .NET 클래스를 정의합니다. 기본 클래스에 대한 설명은 [라이선스 템플릿을 구성하는 데 사용되는 미디어 서비스 .NET 클래스](media-services-playready-license-template-overview.md#classes)를 참조하세요.
 
 .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 종단 간 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](https://msdn.microsoft.com/library/azure/dn783467.aspx)을 참조하세요.
 
@@ -311,4 +311,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -37,7 +37,9 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##시나리오 이해
 
@@ -76,11 +78,11 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    ARM 템플릿은 공용 Blob 컨테이너 **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*에 있습니다.
     
-    ARM 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다. Bacpac 패키지는 공용 blob 컨테이너에도 있습니다. https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+    ARM 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다. Bacpac 패키지는 공용 Blob 컨테이너 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에도 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -88,7 +90,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 2. 매개 변수 블레이드에서 다음을 입력합니다.
 
     - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
-    - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
+    - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 admin입니다.
     - **SSH 사용자 이름 및 암호**.
     - **SQL 데이터베이스 서버 로그인 이름 및 암호**.
 
@@ -101,13 +103,13 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     
     이러한 값을 기록해 두십시오. 이 정보는 자습서의 뒷부분에서 필요합니다.
     
-3\. **확인**을 클릭하여 매개 변수를 저장합니다.
+3\.**확인**을 클릭하여 매개 변수를 저장합니다.
 
-4\. **사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
 
-5\. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
+5\.**약관**을 클릭한 후에 **만들기**를 클릭합니다.
 
-6\. **만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
+6\.**만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
 
 기존 Azure SQL 데이터베이스 또는 Microsoft SQL Server를 사용하기로 선택하는 경우
 
@@ -624,7 +626,7 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
@@ -633,4 +635,4 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

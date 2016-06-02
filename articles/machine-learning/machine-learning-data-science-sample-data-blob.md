@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
 
-## 소개
 
-이 문서에서는 프로그래밍 방식으로 다운로드한 다음 샘플 Python 코드로 샘플링하여 Azure Blob 저장소에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다. 작업 단계는 다음과 같습니다.
+이 문서에서는 프로그래밍 방식으로 다운로드한 다음 Python으로 작성된 절차에 따라 샘플링하여 Azure Blob 저장소에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다.
 
 **데이터를 샘플링하는 이유** 분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
@@ -65,7 +64,7 @@
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	이제 추가 탐색 및 기능 생성을 위해 1% 샘플을 사용하여 위의 데이터 프레임으로 작업할 수 있습니다.
+이제 추가 탐색 및 기능 생성을 위해 1% 샘플을 사용하여 위의 데이터 프레임으로 작업할 수 있습니다.
 
 ##<a name="heading"></a>데이터 업로드 및 Azure 기계 학습으로 읽어오기
 
@@ -99,13 +98,8 @@
 
 3. 아래 그림에 표시된 대로 Azure 기계 학습 [판독기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)를 사용하여 Azure Blob에서 데이터를 읽습니다.
  
-![판독기 blob][1]
+![판독기 blob](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
-[1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
-
-
-<!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

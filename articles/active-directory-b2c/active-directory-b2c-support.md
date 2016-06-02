@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 파일 지원 요청
@@ -40,7 +40,7 @@
     - **문제점 유형**은 **기술**입니다.
 	- 적합한 **구독**을 선택합니다.
     - **서비스**는 **Active Directory**입니다.
-    - 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/ko-KR/support/plans/)에서 하나를 등록할 수 있습니다.
+    - 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/support/plans/)에서 하나를 등록할 수 있습니다.
 
     ![지원 - 기본 사항](./media/active-directory-b2c-support/support-basics.png)
 
@@ -70,4 +70,4 @@ B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

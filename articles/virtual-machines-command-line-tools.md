@@ -466,6 +466,8 @@ info:   vm shutdown command OK
 
 이 명령은 가상 컴퓨터 이미지를 만듭니다. 사용자 지정 .vhd 파일이 Blob 저장소에 업로드된 다음 이 저장소에서 가상 컴퓨터 이미지가 만들어집니다. 그러면 이 가상 컴퓨터 이미지를 사용하여 가상 컴퓨터를 만듭니다. 위치 및 OS 매개 변수는 필수 항목입니다.
 
+>[AZURE.NOTE]현재 이 명령은 고정된.vhd 파일 업로드만 지원합니다. 동적 .vhd 파일을 업로드하려면 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go)를 사용합니다.
+
 일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;number> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
@@ -2348,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

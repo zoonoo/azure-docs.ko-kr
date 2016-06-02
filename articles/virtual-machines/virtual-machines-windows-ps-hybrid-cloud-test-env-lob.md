@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -220,4 +220,4 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 - [프로덕션 환경](virtual-machines-windows-lob-overview.md)을 배포합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

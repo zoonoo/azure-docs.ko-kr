@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
 
@@ -89,8 +89,7 @@ Internet Explorer: ![작업 영역 만들기][20]
 
 Chrome: ![작업 영역 만들기][21]
 
-IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다.
-![작업 영역 만들기][18]
+IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다. ![작업 영역 만들기][18]
 
 ## <a name="upload"></a>5단계: 로컬 컴퓨터에서 IPython Notebook 서버로 기존 IPython Notebook 업로드
 
@@ -143,4 +142,4 @@ Cortana 분석 프로세스의 다음 단계는 [학습 경로](https://azure.mi
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

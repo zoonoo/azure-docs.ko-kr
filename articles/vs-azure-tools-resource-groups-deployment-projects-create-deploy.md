@@ -1,27 +1,29 @@
 <properties
-   pageTitle="Azure 리소스 그룹 Visual Studio 프로젝트 만들기 및 배포 | Microsoft Azure"
+   pageTitle="Azure 리소스 그룹 Visual Studio 프로젝트 | Microsoft Azure"
    description="Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor="" />
+   manager="timlt"
+   editor="tysonn" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz" />
 
 # Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Visual Studio 및 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. 또는 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 정의하고 가상 컴퓨터에서 실행되는 스크립트와 함께 해당 인프라를 배포할 수 있습니다. **Azure 리소스 그룹** 배포 프로젝트는 하나의 반복 작업에 필요한 모든 리소스를 배포할 수 있습니다. 리소스 배포 및 관리에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
-Azure 리소스 그룹 프로젝트는 Azure에 배포되는 리소스를 정의하는 Azure 리소스 관리자 JSON 템플릿을 포함합니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. Visual Studio는 이러한 템플릿을 편집할 수 있도록 하고 템플릿으로 작업을 간소화하는 도구를 제공합니다.
+Azure 리소스 그룹 프로젝트는 Azure에 배포되는 리소스를 정의하는 Azure Resource Manager JSON 템플릿을 포함합니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. Visual Studio는 이러한 템플릿을 편집할 수 있도록 하고 템플릿으로 작업을 간소화하는 도구를 제공합니다.
 
 이 항목에서는 웹앱 및 SQL 데이터베이스를 배포하지만 단계는 모든 종류의 리소스에 대해 거의 동일합니다. 가상 컴퓨터와 관련된 리소스를 손쉽게 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다.
+
+이 문서는 Visual Studio 2015 업데이트 2와 .NET 2.9용 Microsoft Azure SDK를 사용하여 작성되었습니다. Azure SDK 2.9와 함께 Visual Studio 2013을 사용하면 환경이 대부분 동일합니다. Azure SDK 2.6 이상의 버전을 사용할 수 있지만 환경이 이 문서에 표시된 것과 다를 수 있습니다. 이 단계를 시작하기 전에 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/)를 설치하는 것이 좋습니다.
 
 ## Azure 리소스 그룹 프로젝트 만들기
 
@@ -29,7 +31,7 @@ Azure 리소스 그룹 프로젝트는 Azure에 배포되는 리소스를 정의
 
 1. Visual Studio에서 **파일**, **새 프로젝트**를 선택하고 **C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드**, **Azure 리소스 그룹** 프로젝트를 차례로 선택합니다.
 
-    ![Cloud Deployment 프로젝트](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796668.png)
+    ![Cloud Deployment 프로젝트](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
 1. Azure 리소스 관리자에 배포하려는 템플릿을 선택합니다. 배포하려는 프로젝트의 유형에 따라 다양한 옵션이 있습니다. 이 항목의 경우 **웹앱 + SQL** 템플릿을 선택합니다.
 
@@ -52,9 +54,8 @@ Azure 리소스 그룹 프로젝트는 Azure에 배포되는 리소스를 정의
     |Deploy-AzureResourceGroup.ps1|Azure 리소스 관리자를 배포할 PowerShell 명령을 호출하는 PowerShell 스크립트입니다.<br />* * 참고 * * 이 PowerShell 스크립트는 Visual Studio에서 템플릿을 배포하는 데 사용됩니다. 이 스크립트를 변경하면 Visual Studio를 이용한 배포에도 영향이 있으므로 신중해야 합니다.|
     |WebSiteSQLDatabase.json|Azure에 배포하려는 인프라를 정의하는 리소스 관리자 템플릿 및 배포하는 동안 제공할 수 있는 매개 변수입니다. 또한 올바른 순서로 배포되므로 리소스 간의 종속성을 정의합니다.|
     |WebSiteSQLDatabase.parameters.json|템플릿에 필요한 값을 포함하는 매개 변수 파일입니다. 각 배포를 사용자 지정하도록 전달하는 값입니다.|
-    |AzCopy.exe|PowerShell 스크립트가 로컬 저장소 드롭 경로에서 저장소 계정 컨테이너로 파일을 복사할 때 사용하는 도구입니다. 이 도구는 템플릿과 함께 코드를 배포하는 배포 프로젝트를 구성하는 경우에만 사용됩니다.|
 
-    모든 리소스 그룹 배포 프로젝트는 이러한 4개의 기본 파일을 포함합니다. 다른 프로젝트는 다른 기능을 지원하는 추가 파일을 포함할 수 있습니다.
+    모든 리소스 그룹 배포 프로젝트는 이러한 기본 파일을 포함합니다. 다른 프로젝트는 다른 기능을 지원하는 추가 파일을 포함할 수 있습니다.
 
 ## 리소스 관리자 템플릿 사용자 지정
 
@@ -82,9 +83,9 @@ JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거
 
 ![개요 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-**WebSitePicturesType** 매개 변수는 허용되는 형식 및 기본 형식을 사용하여 미리 정의됩니다. 이러한 값을 유지하거나 시나리오에 대해 편집할 수 있습니다. 이 템플릿을 통해 **Premium\_LRS** 저장소 계정을 배포하도록 허용하지 않으려는 경우 아래와 같이 허용된 형식에서 제거합니다.
+**storageType** 매개 변수는 허용되는 형식 및 기본 형식을 사용하여 미리 정의됩니다. 이러한 값을 유지하거나 시나리오에 대해 편집할 수 있습니다. 이 템플릿을 통해 **Premium\_LRS** 저장소 계정을 배포하도록 허용하지 않으려는 경우 아래와 같이 허용된 형식에서 제거합니다.
 
-    "WebSitePicturesType": {
+    "storageType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -110,15 +111,15 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
 이제 프로젝트를 배포할 준비가 되었습니다. Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 배포하며, 웹앱, 데이터베이스 등과 같은 Azure에서의 논리적 리소스 그룹입니다.
 
-1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포**, **새 배포**를 선택합니다.
+1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포** > **새 배포**를 선택합니다.
 
-    ![배포, 새 배포 메뉴 항목](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796672.png)
+    ![배포, 새 배포 메뉴 항목](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
 
     **리소스 그룹에 배포** 대화 상자가 나타납니다.
 
     ![리소스 그룹에 배포 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 
-1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새 항목을 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 열고 **<Create New...>**을(를) 선택합니다.
+1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새 항목을 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 열고 **새로 만들기 ...**를 선택합니다.
 
     ![리소스 그룹에 배포 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
 
@@ -130,9 +131,9 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
     ![매개 변수 편집 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    **암호 저장** 옵션은 JSON 파일에 일반 텍스트로 저장될 암호를 의미합니다. 이 옵션은 안전하지 않습니다.
+    **암호를 매개 변수 파일에 일반 텍스트로 저장** 옵션은 안전하지 않습니다.
 
-1. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. **출력** 창에서 배포의 진행률을 볼 수 있습니다. 구성에 따라 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 메시지가 표시되면 데이터베이스 관리자 암호를 입력합니다.
+1. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. **출력** 창에서 배포의 진행률을 볼 수 있습니다. 구성에 따라 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 메시지가 표시되면 PowerShell 콘솔에서 데이터베이스 관리자 암호를 입력합니다. 배포 진행이 중단된 경우 프로세스가 사용자가 PowerShell 콘솔에 암호를 입력하도록 대기 중이기 때문일 수 있습니다.
 
     >[AZURE.NOTE] Azure PowerShell cmdlet을 설치하라는 메시지가 표시될 수 있습니다. 이 cmdlet은 Azure 리소스 그룹을 배포하는 데 필요하기 때문에 이를 설치해야 합니다.
     
@@ -202,4 +203,4 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 - 포털을 통한 리소스 관리에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

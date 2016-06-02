@@ -80,21 +80,28 @@ Azure Resource Manager 가상 컴퓨터의 경우 다음 PowerShell 예제를 �
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-PowerShell을 사용하여 구성할 때 작업 영역 ID 및 기본 키를 제공해야 합니다. OMS 포털의 **설정** 페이지에서 작업 영역 ID와 기본 키를 찾을 수 있습니다.
+PowerShell을 사용하여 구성할 때 작업 영역 ID 및 기본 키를 제공해야 합니다. OMS 포털의 **설정** 페이지에서 또는 위 예제와 같은 PowerShell을 사용하여 작업 영역 ID와 기본 키를 찾을 수 있습니다.
 
 ![작업 영역 ID 및 기본 키](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -105,7 +112,7 @@ OMS는 Azure 진단을 통해 Azure 저장소에 작성된 데이터를 분석�
 - Azure 저장소에 진단 데이터 수집 구성
 - 저장소 계정의 데이터를 분석하도록 OMS 구성
 
-아래 항목에는 Azure 저장소에 진단 데이터의 컬렉션을 사용하는 방법 및 Azure 저장소의 데이터를 분석하도록 OMS를 구성하는 방법을 설명합니다.
+아래 토픽에는 Azure 저장소에 진단 데이터의 컬렉션을 사용하는 방법 및 Azure 저장소의 데이터를 분석하도록 OMS를 구성하는 방법을 설명합니다.
 
 Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 진단 데이터를 수집하는 데 사용할 수 있는 Azure 확장입니다. 데이터는 Azure 저장소 계정에 저장되며 OMS에서 사용될 수 있습니다.
 
@@ -130,12 +137,15 @@ Syslog|Syslog 또는 Rsyslog daemon으로 전송된 이벤트
 현재 OMS에서 분석할 수 있는 로그는 다음과 같습니다.
 
 - 웹 역할 및 가상 컴퓨터에서 IIS 로그
-- Windows 운영 체제를 실행하는 웹 역할, 작업자 역할 및 Azure 가상 컴퓨터에서 Windows 이벤트 로그
+- Windows 운영 체제를 실행하는 웹 역할, 작업자 역할 및 Azure 가상 컴퓨터에서 Windows 이벤트 로그 및 ETW 로그
 - Linux 운영 체제를 실행하는 Azure 가상 컴퓨터에서 Syslog
+- 네트워크 보안 그룹, 응용 프로그램 게이트웨이 및 KeyVault 리소스에 대해 JSON 형식으로 Blob 저장소에 쓴 진단
 
 로그는 다음 위치에 있어야 합니다.
 
 - WADWindowsEventLogsTable(테이블 저장소)는 Windows 이벤트 로그의 정보를 포함합니다.
+- WADETWEventTable(테이블 저장소) – Windows ETW 로그의 정보를 포함하고 있습니다.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable(테이블 저장소) - 서비스 패브릭 작업, 행위자 및 서비스 이벤트에 관한 정보를 포함하고 있습니다.
 - wad-iis-logfiles (Blob Storage) – IIS 로그에 관한 정보를 포함합니다.
 - LinuxsyslogVer2v0(테이블 저장소)는 Linux syslog 이벤트를 포함합니다.
 
@@ -143,11 +153,11 @@ Syslog|Syslog 또는 Rsyslog daemon으로 전송된 이벤트
 
 가상 컴퓨터의 경우, 가상 컴퓨터로의 [Microsoft 모니터링 에이전트](http://go.microsoft.com/fwlink/?LinkId=517269) 설치 옵션도 있어 추가로 insights를 사용할 수 있습니다. IIS 로그 및 이벤트 로그 분석 외에도 구성 변경 내용 추적, SQL 평가를 포함한 추가 분석을 수행하고 평가를 업데이트할 수도 있습니다.
 
-[피드백 페이지](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)에서 투표에 참여하면 분석할 OMS에 대한 추가 로그의 우선순위를 지정하는 데 도움이 될 수 있습니다.
+[피드백 페이지](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy)에서 투표에 참여하면 분석할 OMS에 대한 추가 로그의 우선순위를 지정하는 데 도움이 될 수 있습니다.
 
 ## IIS 로그 및 이벤트 컬렉션에 대한 웹 역할에서 Azure 진단 사용
 
-[클라우드 서비스의 진단 기능을 사용하는 방법](https://msdn.microsoft.com/library/azure/dn482131.aspx)을 참조하십시오. 해당 항목에서 기본 정보를 사용하고 여기에 설명된 단계를 사용자 지정하여 OMS에서 사용할 수 있습니다.
+[클라우드 서비스의 진단 기능을 사용하는 방법](https://msdn.microsoft.com/library/azure/dn482131.aspx)을 참조하십시오. 해당 토픽에서 기본 정보를 사용하고 여기에 설명된 단계를 사용자 지정하여 OMS에서 사용할 수 있습니다.
 
 Azure 진단을 사용하는 경우:
 
@@ -157,7 +167,7 @@ Azure 진단을 사용하는 경우:
 
 ### 진단을 사용하도록 설정하려면
 
-Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 클라우드 서비스에서 진단을 사용하도록 설정하는 방법 항목의 [2단계: Visual Studio 솔루션에 diagnostics.wadcfg 파일 추가](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) 및 [3단계: 응용 프로그램에 대한 진단 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)에 나온 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure 진단을 구성하세요. 다음 예제 구성 파일은 응용 프로그램 및 시스템 로그에서 모든 이벤트 및 IIS 로그를 수집합니다.
+Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 클라우드 서비스에서 진단을 사용하도록 설정하는 방법 토픽의 [2단계: Visual Studio 솔루션에 diagnostics.wadcfg 파일 추가](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) 및 [3단계: 응용 프로그램에 대한 진단 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)에 나온 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure 진단을 구성하세요. 다음 예제 구성 파일은 응용 프로그램 및 시스템 로그에서 모든 이벤트 및 IIS 로그를 수집합니다.
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -181,7 +191,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </DiagnosticMonitorConfiguration>
 ```
 
-클라우드 서비스에서 진단을 사용하도록 설정하는 방법 항목의 [4단계: 진단 데이터 저장소 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4)에서 ConfigurationSettings가 다음 예제처럼 저장소 계정을 지정하는지 확인합니다.
+클라우드 서비스에서 진단을 사용하도록 설정하는 방법 토픽의 [4단계: 진단 데이터 저장소 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4)에서 ConfigurationSettings가 다음 예제처럼 저장소 계정을 지정하는지 확인합니다.
 
 ```
     <ConfigurationSettings>
@@ -263,4 +273,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 - 조직에서 프록시 서버 또는 방화벽을 사용하는 경우 에이전트가 Log Analytics 서비스와 통신할 수 있도록 [Log Analytics에서 프록시 및 방화벽 설정을 구성](log-analytics-proxy-firewall.md)합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

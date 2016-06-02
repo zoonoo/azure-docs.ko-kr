@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -41,6 +41,7 @@
 - [API 관리](#api-management-limits)
 - [앱 서비스](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [자동화](#automation-limits)
 - [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [백업](#backup-limits)
@@ -272,6 +273,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### 자동화 한도
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### SQL 데이터베이스 제한
 
 SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-database/sql-database-resource-limits.md)을 참조하세요.
@@ -284,4 +288,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

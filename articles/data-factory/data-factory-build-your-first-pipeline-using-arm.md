@@ -255,10 +255,22 @@
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 blob 저장소의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
 
-Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
+Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
 
-앱을 모니터링 및 관리하여 데이터 파이프라인을 모니터링할 수도 있습니다. 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링을 사용하여 Azure 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
+앱 모니터링 및 관리를 사용하여 데이터 파이프라인을 모니터링할 수도 있습니다. 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링을 사용하여 Azure 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
 > [AZURE.IMPORTANT] 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 adfgetstarted 컨테이너의 inputdata 폴더에 입력 파일(input.log)을 업로드합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+## 참고 항목
+| 항목 | 설명 |
+| :---- | :---- |
+| [데이터 변환 활동](data-factory-data-transformation-activities.md) | 이 문서에서는 Azure 데이터 팩터리에서 지원되는 데이터 변환 활동(예: 자습서에 사용된 HDInsight Hive 변환)의 목록을 제공합니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
+
+  
+
+<!---HONumber=AcomDC_0525_2016-->

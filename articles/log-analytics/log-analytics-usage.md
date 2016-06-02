@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -61,4 +61,4 @@ OMS의 **개요** 대시보드에서 **사용량** 타일을 사용하여 사용
 
 - 솔루션에서 수집한 자세한 정보를 보려면 [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

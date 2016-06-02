@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -149,7 +149,7 @@ Express 경로 회로를 설정하고 공용 피어링에 대한 경로를 구�
 예. 개인 피어링에 대해 최대 4000개의 경로 접두사를 허용하고, 공용 피어링과 Microsoft 피어링에 대해 각각 200개의 경로 접두사를 허용합니다. Express 경로 프리미엄 기능을 사용하도록 설정하면 개인 피어링에 대해 10,000개의 경로까지 늘릴 수 있습니다.
 
 ### BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
-공용 피어링 BGP 세션에서 개인 접두사(RFC1918)를 허용하지 않습니다.
+공용 및 Microsoft 피어링 BGP 세션에서 개인 접두사(RFC1918)를 허용하지 않습니다.
 
 ### BGP 제한을 초과하면 어떻게 되나요?
 BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설정됩니다.
@@ -245,4 +245,7 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 ### Express 경로가 내 조직에 대해 구성된 경우라도 인터넷을 통해 Office 365에 액세스할 수 있나요?
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+### Express 경로 연결을 통해 어느 Dynamics AX에 액세스할 수 있나요?
+아니요, 지원되지 않습니다.
+
+<!---HONumber=AcomDC_0518_2016-->

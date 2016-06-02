@@ -141,4 +141,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https:/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

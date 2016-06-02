@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect 동기화 서비스 기능
 
@@ -77,7 +77,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 자세한 내용은 [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID(Office 365, Azure, Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음)](https://support.microsoft.com/kb/2523192)를 참조하세요.
 
-이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스일 때 동기화 엔진이 이를 업데이트할 수 있습니다(페더레이션된 도메인을 사용하지 않는 경우에 한해).
+이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 동기화를 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다. 페더레이션을 사용하는 경우 이 기능은 작동하지 않습니다.
 
 이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 사용하도록 설정되어 있는지 확인할 수 있습니다.
 ```
@@ -100,4 +100,4 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

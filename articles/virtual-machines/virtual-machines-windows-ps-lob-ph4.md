@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 워크로드 4단계: 웹 서버 구성
@@ -151,4 +151,4 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 - [5단계](virtual-machines-windows-ps-lob-ph5.md)를 사용하여 이 워크로드의 구성을 완료합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

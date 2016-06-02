@@ -35,8 +35,8 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 ### Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 
 - Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
-- 간략한 자습서는 [Azure 데이터 팩터리 시작](data-factory-get-started.md)을 참조하세요.
-- 자세한 설명서는 [Azure 데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
+- 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-get-started.md)를 참조하세요.
+- HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요. 
   
 ### 데이터 팩터리의 지역 가용성은 얼마나 되나요?
 Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 계산 및 저장소 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
@@ -45,18 +45,17 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
  
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#data-factory-limits) 문서의 **Azure Data Factory 제한** 섹션을 참조하세요.
 
-
 ### Azure Data Factory 서비스를 사용한 제작/개발자 환경이란 무엇인가요?
 
 다음 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
-- **Azure 포털** Azure 포털의 Data Factory 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [Data Factory 시작](data-factory-get-started.md)을 참조하세요.   
+- **Azure 포털** Azure 포털의 Data Factory 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [Build your first data pipeline using Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)(Azure 포털을 사용하여 첫 번째 데이터 파이프라인 빌드)를 참조하세요.
 
-- **Azure PowerShell** PowerShell 사용자이며 포털 UI 대신 PowerShell을 사용하려는 경우 Azure PowerShell의 일부로 제공되는 Azure Data Factory cmdlet을 사용하여 데이터 팩터리를 만들고 배포할 수 있습니다. 간단한 예제는 [Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링](data-factory-monitor-manage-using-powershell.md)을 참조하고, PowerShell cmdlet을 사용하여 데이터 팩터리를 만들고 배포하는 고급 예제는 [자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial]를 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.
-  
-- **Visual Studio** 또한 Visual Studio를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들고, 모니터링하고, 관리할 수 있습니다. 자세한 내용은 [데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) 문서를 참조하세요.
-  
-- **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리][create-factory-using-dotnet-sdk]를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.
+- **Visual Studio** Visual Studio를 사용하여 Azure Data Factory를 만들 수 있습니다. 자세한 내용은 [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)(Visual Studio를 사용하여 첫 번째 데이터 파이프라인 빌드)를 참조하세요.
+
+- **Azure PowerShell** PowerShell을 사용하여 Data Factory를 만드는 자습서는 [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)(Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링)을 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.
+   
+- **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md)를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.
 
 - **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 데이터 팩터리 REST API의 포괄적인 설명서는 [데이터 팩터리 REST API 참조][msdn-rest-api-reference]를 참조하세요.
  
@@ -102,10 +101,12 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 	    "properties":
 	    {
 	        "type": "HDInsightOnDemandLinkedService",
-	        "clusterSize": 1,
-	        "timeToLive": "00:01:00",
-	        "linkedServiceName": "LinkedService-SampleData",
-	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			"typeProperties": {
+	        	"clusterSize": 1,
+		        "timeToLive": "00:01:00",
+		        "linkedServiceName": "LinkedService-SampleData",
+		        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			}
 	    }
 	} 
 
@@ -137,7 +138,6 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 
 
-[adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
@@ -152,4 +152,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

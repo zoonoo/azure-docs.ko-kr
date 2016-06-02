@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="05/17/2016"
    ms.author="alanwar"/>
 
 # 상태 저장 Reliable Services의 진단 기능
@@ -44,4 +44,4 @@ StatefulRunAsyncSlowCancellation 및 StatefulRunAsyncFailure 이벤트는 서비
 
 RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 줄 수 있습니다. 이 작업은 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

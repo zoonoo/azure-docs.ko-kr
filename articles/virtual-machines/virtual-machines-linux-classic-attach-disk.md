@@ -19,26 +19,21 @@
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. [리소스 관리자 배포 모델을 사용하여 데이터 디스크 연결](virtual-machines-linux-add-disk.md) 방법을 참조하세요.
 
-
-빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다.
+빈 디스크와 데이터가 포함된 디스크를 모두 Azure VM에 연결할 수 있습니다. 두 유형의 디스크 모두 Azure 저장소 계정에 상주하는 .vhd 파일입니다. Linux 컴퓨터에 디스크를 추가하는 것처럼 디스크를 연결한 후에는 사용할 준비를 하기 위해 디스크를 초기화하고 포맷해야 합니다. 이 문서에서는 새 디스크를 초기화하고 포맷하는 방법뿐만 아니라 빈 디스크와 이미 데이터가 있는 디스크를 모두 VM에 연결하는 방법에 대해 자세히 설명합니다.
 
 > [AZURE.NOTE] 모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 사용하여 영구 데이터를 저장하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, 데이터 디스크 이름은 Linux 커널에서 `/dev/sdc`와 같이 지정될 수 있으며 사용자가 이 리소스를 분할, 포맷 및 탑재해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
-## 방법: Linux에서 새 데이터 디스크 초기화
+## Linux에서 새 데이터 디스크 초기화
 
-아래와 같이 오른쪽 장치 식별자를 사용하여 여러 데이터 디스크를 초기화하기 위해 동일한 지침을 사용할 수 있습니다.
-
-1. 가상 컴퓨터에 연결합니다. 지침은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]을 참조하세요.
-
-
+1. VM에 SSH를 사용합니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]을 참조하세요.
 
 2. 이제 초기화할 데이터 디스크의 장치 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
 
-	a) SSH 창에서 다음 명령을 입력합니다.
+	a) 다음 명령과 같이 로그에서 SCSI 장치를 grep합니다.
 
 			$sudo grep SCSI /var/log/messages
 
@@ -46,37 +41,34 @@
 
 	표시되는 메시지에서 추가된 마지막 데이터 디스크의 식별자를 찾을 수 있습니다.
 
-	![디스크 메시지 가져오기](./media/virtual-machines-linux-classic-attach-disk/DiskMessages.png)
+	![디스크 메시지 가져오기](./media/virtual-machines-linux-classic-attach-disk/scsidisklog.png)
 
 	또는
 
 	b) `lsscsi` 명령을 사용하여 장치 ID를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. _lun_, 즉 **논리 단위 번호**를 사용하여 원하는 디스크를 찾을 수 있습니다. 예를 들어 연결한 디스크의 _lun_은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
 
-			~$ azure vm disk list ubuntuVMasm
+			~$ azure vm disk list TestVM
 			info:    Executing command vm disk list
 			+ Fetching disk images
 			+ Getting virtual machines
 			+ Getting VM disks
 			data:    Lun  Size(GB)  Blob-Name                         OS
 			data:    ---  --------  --------------------------------  -----
-			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
-			data:    1    10        test.VHD
-			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			data:         30        TestVM-2645b8030676c8f8.vhd  Linux
+			data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
 			info:    vm disk list command OK
 
 	이 내용을 동일한 샘플 가상 컴퓨터에 대한 `lsscsi` 출력과 비교합니다.
 
-			adminuser@ubuntuVMasm:~$ lsscsi
+			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
 			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
 			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
 			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
-			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
-			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
 
 	각 행의 튜플에 있는 마지막 숫자는 _lun_입니다. 자세한 내용은 `man lsscsi`를 참조하세요.
 
-3. SSH 창에서 다음 명령을 입력하여 새 장치를 만듭니다.
+3. 프롬프트에서 다음 명령을 입력하여 새 장치를 만듭니다.
 
 		$sudo fdisk /dev/sdc
 
@@ -84,46 +76,48 @@
 4. 프롬프트가 표시되면 **n**을 입력하여 새 파티션을 만듭니다.
 
 
-	![새 장치 만들기](./media/virtual-machines-linux-classic-attach-disk/DiskPartition.png)
+	![새 장치 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 눌러 실린더에 대한 기본값을 적용합니다. 일부 시스템에서 실린더 대신 첫 번째 및 마지막 섹터의 기본값이 표시될 수 있습니다. 이러한 기본값을 수락하도록 선택할 수 있습니다.
 
 
-	![파티션 만들기](./media/virtual-machines-linux-classic-attach-disk/DiskCylinder.png)
+	![파티션 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 
 
 6. **p**를 입력하여 분할되는 디스크에 대한 세부 정보를 확인합니다.
 
 
-	![디스크 정보 나열](./media/virtual-machines-linux-classic-attach-disk/DiskInfo.png)
+	![디스크 정보 나열](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
 
 
 7. **w**를 입력하여 디스크에 대한 설정을 씁니다.
 
 
-	![디스크 변경 내용 쓰기](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
+	![디스크 변경 내용 쓰기](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
 
-8. 새 파티션에 파일 시스템을 만듭니다. 파티션 번호 (1)을 장치 ID에 추가합니다. 예를 들어, /dev/sdc1에 ext4 파티션을 만들려면 다음을 수행합니다.
+8. 이제 새 파티션에 파일 시스템을 만들 수 있습니다. 장치 ID에 파티션 번호를 추가합니다(다음 예제에서는 `/dev/sdc1`). 다음 예제에서는 /dev/sdc1에 ext4 파티션을 만듭니다.
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
-	![파일 시스템 만들기](./media/virtual-machines-linux-classic-attach-disk/DiskFileSystem.png)
+	![파일 시스템 만들기](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
 
-	>[AZURE.NOTE] SUSE Linux Enterprise 11 시스템에서는 ext4 파일 시스템에 대해 읽기 전용 권한만 지원합니다. 이 시스템에서 새 파일 시스템 형식을 ext4 대신 ext3으로 지정하는 것이 좋습니다.
+	>[AZURE.NOTE] SuSE Linux Enterprise 11 시스템에서는 ext4 파일 시스템에 대해 읽기 전용 권한만 지원합니다. 이 시스템에서 새 파일 시스템 형식을 ext4 대신 ext3으로 지정하는 것이 좋습니다.
 
 
-9. 새 파일 시스템을 탑재할 디렉터리를 만듭니다. 예를 들어 다음 명령을 입력합니다.
+9. 다음과 같이 새 파일 시스템을 탑재할 디렉터리를 만듭니다.
 
 		# sudo mkdir /datadrive
 
 
-10. 다음 명령을 입력하여 드라이브를 탑재합니다.
+10. 마지막으로 다음과 같이 드라이브를 탑재할 수 있습니다.
 
 		# sudo mount /dev/sdc1 /datadrive
 
 	이제 데이터 디스크를 **/datadrive**로 사용할 준비가 되었습니다.
+	
+	![디렉터리를 만들고 디스크를 탑재](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
 
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
@@ -149,7 +143,7 @@
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
-	또는 SUSE Linux 기반 시스템에서는 약간 다른 형식을 사용해야 할 수 있습니다.
+	또는 SuSE Linux 기반 시스템에서는 약간 다른 형식을 사용해야 할 수 있습니다.
 
 		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
@@ -177,4 +171,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

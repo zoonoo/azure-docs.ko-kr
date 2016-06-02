@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Sqoop를 사용하여 Data Lake 저장소와 Azure SQL 데이터베이스 간에 데이터 복사
@@ -36,6 +36,10 @@ Apache Sqoop를 사용하여 Azure SQL 데이터베이스와 Data Lake 저장소
 - 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요. 
 - Data Lake 저장소 계정에 액세스할 수 있는 **Azure HDInsight 클러스터**입니다. [Data Lake 저장소가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 이 문서에서는 Data Lake 저장소가 있는 HDInsight Linux 클러스터 액세스 권한이 있는 것으로 가정합니다.
 - **Azure SQL 데이터베이스**. 데이터베이스를 만드는 방법에 대한 지침은 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
+
+## 비디오로 빠르게 배우시겠습니까?
+
+DistCp를 사용하여 Azure 저장소 Blob과 Data Lake 저장소 간에 데이터 복사하는 방법에 대한 [비디오를 보세요](https://mix.office.com/watch/1butcdjxmu114).
 
 ## Azure SQL 데이터베이스에서 샘플 테이블 만들기
 
@@ -152,4 +156,4 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

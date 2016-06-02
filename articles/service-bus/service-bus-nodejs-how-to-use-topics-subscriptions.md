@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -119,7 +119,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
+이 콜백에서 **returnObject**(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 **finalCallback**을 호출하여 서비스 호출을 종료해야 합니다.
 
 Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **ServiceBusService** 개체를 만듭니다.
 
@@ -317,7 +317,7 @@ for (i = 0;i < 5;i++) {
 -   GitHub에서 [Azure SDK for Node][] 리포지토리를 방문하십시오.
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure 클래식 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Node.js 웹 응용 프로그램 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -16,7 +16,7 @@
 
 4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
 
-   ![][12]
+	![][12]
 
 5. **Use default Workspace location**(기본 작업 영역 위치 사용)을 선택하고 **다음**을 클릭합니다.
 
@@ -229,5 +229,3 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-
-<!---HONumber=AcomDC_0316_2016-->

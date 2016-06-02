@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #자습서: Azure Active Directory와 Salesforce를 통합하는 방법
@@ -22,7 +22,7 @@
 
 ##필수 조건
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
 
 2. [Salesforce.com](https://www.salesforce.com/)에 유효한 테넌트가 있어야 합니다.
 
@@ -46,7 +46,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 ##1단계: 디렉터리에 Salesforce 추가
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
 
@@ -256,4 +256,4 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

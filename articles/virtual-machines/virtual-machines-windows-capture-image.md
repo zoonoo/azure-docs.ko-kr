@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="05/13/2016"
 	ms.author="dkshir"/>
 
 # 리소스 관리자 배포 모델에서 Windows 가상 컴퓨터를 캡처하는 방법
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-capture-image.md).
 
 
 이 문서에서는 Azure PowerShell을 사용하여 Windows가 실행되는 Azure VM(가상 컴퓨터)을 캡처하여 다른 가상 컴퓨터를 만들 때 사용하는 방법을 보여 줍니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. Windows VM을 만드는 데 필요한 가상 네트워크 리소스가 포함되지 않으므로 이미지를 사용하는 다른 가상 컴퓨터를 만들기 전에 설정해야 합니다. 이 이미지도 [일반화된 Windows 이미지](https://technet.microsoft.com/library/hh824938.aspx)가 되도록 준비됩니다.
@@ -62,9 +60,9 @@ Azure PowerShell 또는 새 Azure Resource Manager 탐색기 도구를 사용하
 
 ### PowerShell 사용
 
-이 문서에서는 Azure PowerShell 버전 1.0.x를 설치했다고 가정합니다. 새 리소스 관리자 기능은 이전 PowerShell 버전에 추가되지 않으므로 이 버전을 사용하는 것이 좋습니다. 버전 차이점에 대해 자세히 알아보려면 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+이 문서에서는 Azure PowerShell 버전 1.0.x를 설치했다고 가정합니다. 새 리소스 관리자 기능은 이전 PowerShell 버전에 추가되지 않으므로 이 버전을 사용하는 것이 좋습니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-1. Azure PowerShell 1.0.x를 열고 Azure 계정에 로그인합니다.
+1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.
 
 		Login-AzureRmAccount
 
@@ -100,12 +98,12 @@ Azure PowerShell 또는 새 Azure Resource Manager 탐색기 도구를 사용하
 
 	`-Path` 변수는 선택 사항입니다. 로컬로 JSON 템플릿을 저장하는 데 사용할 수 있습니다. `-DestinationContainerName` 변수는 이미지를 유지할 컨테이너의 이름입니다. 저장된 이미지의 URL은 `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다. 원래 가상 컴퓨터와 동일한 저장소 계정에 만들어집니다.
 
-	>[AZURE.NOTE] 이미지의 위치를 찾으려면 로컬 JSON 파일 템플릿을 엽니다. 이미지의 전체 경로에 대한 **리소스** > **storageProfile** > **osDisk** > **이미지** > **uri** 섹션으로 이동합니다. 현재는 저장소 계정의 *시스템* 컨테이너가 숨겨져 있으므로 포털에서 이러한 이미지를 쉽게 확인할 수 있는 방법이 없습니다. 이러한 이유로 `-Path` 변수가 선택 사항이긴 하지만 이 변수를 사용하면 확실하게 템플릿을 로컬에 저장하고 이미지 URL을 쉽게 찾을 수 있습니다. 이에 대한 대안으로 다음 섹션의 단계에서 설명하는 **Azure 저장소 탐색기**라는 도구를 사용하여 이를 찾을 수 있습니다.
+	>[AZURE.NOTE] 이미지의 위치를 찾으려면 로컬 JSON 파일 템플릿을 엽니다. 이미지의 전체 경로에 대한 **resources** > **storageProfile** > **osDisk** > **image** > **uri** 섹션으로 이동합니다. 포털에서도 URI를 확인할 수 있으며 이는 저장소 계정의 **시스템**이라는 Blob에 복사됩니다.
 
 
 ### Azure 리소스 탐색기(미리 보기) 사용
 
-[Azure 리소스 탐색기(미리 보기)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/)는 Resource Manager 배포 모델에서 만들어진 Azure 리소스를 관리하는 데 사용할 수 있는 새 도구입니다. 이 도구를 사용하면 쉽게
+[Azure 리소스 탐색기(미리 보기)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/)는 리소스 관리자 배포 모델에서 만들어진 Azure 리소스를 관리하는 데 사용할 수 있는 새 도구입니다. 이 도구를 사용하면 쉽게
 
 - Azure 리소스 관리 API를 검색하고,
 - API 설명서를 가져오고,
@@ -121,15 +119,15 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 	![리소스 탐색기 읽기/쓰기](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
 
-3. 그런 다음 Windows 가상 컴퓨터를 찾습니다. 도구의 맨 위에 있는 *검색 상자*에 이름을 입력하거나 왼쪽의 메뉴에서 **구독** > *Azure 구독* > **resourceGroups** > *리소스 그룹* > **공급자** > **Microsoft.Compute** > **virtualMachines** > *사용 중인 Windows 가상 컴퓨터*를 통해 이동할 수 있습니다. 왼쪽 탐색의 가상 컴퓨터를 클릭하면 도구의 오른쪽에 해당 템플릿이 표시됩니다.
+3. 그런 다음 Windows 가상 컴퓨터를 찾습니다. 도구의 맨 위에 있는 *검색 상자*에 이름을 입력하거나 왼쪽의 메뉴에서 **구독** > *Azure 구독* > **resourceGroups** > *리소스 그룹* > **공급자** > **Microsoft.Compute** > **virtualMachines** > *Windows 가상 컴퓨터*를 통해 이동할 수 있습니다. 왼쪽 탐색의 가상 컴퓨터를 클릭하면 도구의 오른쪽에 해당 템플릿이 표시됩니다.
 
 4. 템플릿 페이지의 맨 위 오른쪽에 이 가상 컴퓨터에 사용할 수 있는 다양한 작업에 대한 탭이 표시됩니다. **동작(POST/DELETE)**에 대한 탭을 클릭합니다.
 
 	![리소스 탐색기 작업 메뉴](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
 
-   가상 컴퓨터에서 수행할 수 있는 모든 동작 목록이 표시됩니다.
+	- 가상 컴퓨터에서 수행할 수 있는 모든 동작 목록이 표시됩니다.
 
-	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
+		![리소스 탐색기 작업 항목](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
 
 5. **할당 취소**에 대한 실행 단추를 클릭하여 가상 컴퓨터의 할당을 취소합니다. VM의 상태가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경됩니다.
 
@@ -139,7 +137,7 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 	![리소스 탐색기 캡처](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
 
-	**캡처** 실행 단추를 클릭하여 가상 컴퓨터 이미지를 캡처합니다. 그러면 JSON 템플릿 파일뿐만 아니라 이미지의 새 VHD가 만들어집니다. 이는 현재 리소스 탐색기 또는 [Azure 포털](https://portal.azure.com)을 통해 액세스할 수 없습니다.
+	**캡처** 실행 단추를 클릭하여 가상 컴퓨터 이미지를 캡처합니다. 그러면 JSON 템플릿 파일뿐만 아니라 이미지의 새 VHD가 만들어집니다.
 
 8. 템플릿뿐만 아니라 새 이미지 VHD에 액세스하려면 저장소 리소스를 관리하기 위한 Azure 도구인 [Azure 저장소 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다. 설치 관리자가 컴퓨터에 로컬로 Azure 저장소 탐색기를 설치합니다.
 
@@ -202,7 +200,7 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-**찾아보기** > **가상 컴퓨터** 아래의 [Azure 포털](https://portal.azure.com)에 새로 만든 VM이 표시되어야 합니다. 또는 다음 PowerShell 명령을 사용합니다.
+새로 만든 VM은 [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터**에 표시되며 다음의 PowerShell명령을 사용해도 표시할 수 있습니다.
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -212,4 +210,4 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

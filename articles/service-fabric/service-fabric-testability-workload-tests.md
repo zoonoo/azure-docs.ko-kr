@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="05/17/2016"
    ms.author="anmola"/>
 
 # 서비스 워크로드 중 오류를 시뮬레이션합니다.
@@ -155,4 +155,4 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

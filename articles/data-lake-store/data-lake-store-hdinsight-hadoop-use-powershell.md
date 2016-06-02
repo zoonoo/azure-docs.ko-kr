@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -28,6 +28,8 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소에 대한 �
 * **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
 
 * **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다.
+
+> [AZURE.NOTE] Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2(Windows 및 Linux의 경우)에만 사용할 수 있습니다.
 
 
 이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다.
@@ -378,4 +380,4 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

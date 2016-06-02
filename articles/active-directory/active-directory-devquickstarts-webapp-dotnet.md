@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Azure AD를 사용하는 웹앱 로그인 및 로그아웃
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현한 커뮤니티 기반 OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다. 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행할 것입니다. 즉, Azure AD를 ID 공급자를 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
+Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현한 커뮤니티 기반 OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다. OWIN을 사용하는 경우는 다음과 같습니다.
+-	ID 공급자로 Azure AD를 사용하여 사용자를 앱에 로그인합니다.
+-	사용자에 대한 일부 정보를 표시합니다.
+-	앱에서 사용자를 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -175,4 +178,4 @@ public ActionResult About()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

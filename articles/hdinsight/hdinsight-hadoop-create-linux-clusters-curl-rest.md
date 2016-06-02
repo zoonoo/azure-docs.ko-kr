@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/16/2016"
    	ms.author="larryfr"/>
 
 #cURL 및 Azure REST API를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -44,7 +44,7 @@ Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은
     > 
     > 이 별칭을 제거하려면 PowerShell 프롬프트에서 다음을 사용합니다.
     >
-    > ```Remove-item alias:curl`
+    > `Remove-item alias:curl`
     >
     > 별칭을 제거한 후에는 시스템에 설치한 cURL 버전을 사용할 수 있어야 합니다.
 
@@ -66,7 +66,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
         }
     }
 
-예를 들어, 다음은 [https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)의 템플릿과 매개 변수 파일의 병합기로, 암호를 사용하여 SSH 사용자 계정을 보호하는 Linux 기반 클러스터를 만듭니다.
+예를 들어, 다음은 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)의 템플릿과 매개 변수 파일의 병합기로, 암호를 사용하여 SSH 사용자 계정을 보호하는 Linux 기반 클러스터를 만듭니다.
 
     {
         "properties": {
@@ -262,49 +262,117 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
+[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 `azure login` 명령을 사용하여 구독에 연결합니다.
 
 ##서비스 주체 만들기
 
-> [AZURE.IMPORTANT] 아래 링크의 문서에 있는 단계를 따를 때는 다음 항목을 변경해야 합니다.
-> 
-> * 이 단계에서 __reader__의 값이 언급되면 대신 __owner__를 사용합니다. 그러면 구독에서 서비스에 대해 변경할 수 있는 서비스 주체가 만들어집니다. 이 항목은 HDInsight 클러스터를 만들 때 필요합니다.
->
-> 또한 이 프로세스에서 사용되는 다음 정보를 저장해야 합니다.
-> 
-> * 구독 ID - `azure account list` 사용 시 수신
-> * 테넌트 ID - `azure account list` 사용 시 수신
-> * 응용 프로그램 ID - 서비스 주체를 만들 때 반환
-> * 서비스 주체 암호 - 서비스 주체를 만들 때 사용
+> [AZURE.NOTE] 이러한 단계는 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli) 문서의 _암호를 사용하여 서비스 주체 인증 - Azure CLI_ 섹션에서 제공된 정보의 요약된 버전입니다. 이러한 단계는 HDInsight 클러스터와 같은 Azure 리소스를 만드는 데 사용된 REST API 요청을 인증하는 데 사용할 수 있는 새 서비스 주체를 만듭니다.
 
-[Azure 리소스 관리자를 사용하여 서비스 주체 인증](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) 문서의 _암호를 사용하여 서비스 주체 인증 - Azure CLI_ 섹션에 있는 단계를 따릅니다. 그러면 클러스터 만들기 요청을 인증하는 데 사용할 수 있는 새 서비스 주체가 만들어집니다.
+1. 명령 프롬프트, 터미널 세션 또는 셸에서 다음 명령을 사용하여 Azure 구독을 나열합니다.
+
+        azure account list
+        
+    목록에서 사용하려는 구독을 선택하고 __Id__ 열을 확인합니다. 이는 __구독 ID__이며 이 문서의 대부분의 단계에 사용됩니다.
+
+2. Azure Active Directory에서 새 응용 프로그램을 만듭니다.
+
+        azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
+        
+    `--name`, `--home-page` 및 `--identifier-uris`에 대한 값을 고유한 값으로 대체합니다. 새 Active Directory 항목에 대한 암호를 제공합니다.
+    
+    > [AZURE.NOTE] 서비스 주체를 통해 인증에 대해 이 응용 프로그램을 만들었으므로 `--home-page` 및 `--identifier-uris` 값은 인터넷에서 호스트되는 실제 웹 페이지를 참조할 필요가 없습니다. 고유한 URI여야만 합니다.
+    
+    반환되는 데이터에서 __AppId__ 값을 저장합니다.
+    
+        data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
+        data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
+        data:    DisplayName:    exampleapp
+        ...
+        info:    ad app create command OK
+    
+3. 이전에 반환된 __AppId__ 값을 사용하여 서비스 주체를 만듭니다.
+
+        azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
+        
+     반환되는 데이터에서 __개체 ID__ 값을 저장합니다.
+     
+        info:    Executing command ad sp create
+        - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+        data:    Display Name:     exampleapp
+        data:    Service Principal Names:
+        data:                      4fd39843-c338-417d-b549-a545f584a745
+        data:                      https://www.contoso.org/example
+        info:    ad sp create command OK
+        
+4. 이전에 반환된 __개체 ID__ 값을 사용하여 __소유자__ 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 __구독 ID__를 사용해야 합니다.
+    
+        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
+        
+    이 명령이 완료되면 이제 서비스 주체는 지정된 구독 ID에 대한 소유자 액세스를 가집니다.
 
 ##인증 토큰 가져오기
 
-다음을 사용하여 Azure에서 새 토큰을 가져옵니다. __TENANTID__, __APPLICATIONID__, 및 __PASSWORD__는 서비스 주체를 만들 때 저장한 정보로 대체합니다.
+1. 다음을 사용하여 구독에 대한 __테넌트 ID__를 찾습니다.
 
-    curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" \
-    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=APPLICATIONID" \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=PASSWORD" \
-    --data-urlencode "resource=https://management.azure.com/"
+        azure account show -s <subscription ID>
+        
+    반환되는 데이터에서 __테넌트 ID__를 찾습니다.
+    
+        info:    Executing command account show
+        data:    Name                        : MyAzureAccount
+        data:    ID                          : 45a1014d-0f27-25d2-b838-b8f373d6d52e
+        data:    State                       : Enabled
+        data:    Tenant ID                   : 22f988bf-56f1-41af-91ab-3d7cd011db47
+        data:    Is Default                  : true
+        data:    Environment                 : AzureCloud
+        data:    Has Certificate             : No
+        data:    Has Access Token            : Yes
+        data:    User name                   : myname@contoso.org
+        data:    
+        info:    account show command OK
 
-이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 JSON 문서가 포함되어 있습니다.
+2. Azure REST API를 사용하여 새 토큰을 생성합니다.
 
-> [AZURE.IMPORTANT] 이 요청에서 반환한 JSON 문서는 이름이 __access\_token__인 요소를 포함하며, 이 요소의 값은 이 문서의 다음 섹션에서 사용되는 요청을 인증하는 데 필요한 액세스 토큰입니다.
+        curl -X "POST" "https://login.microsoftonline.com/TenantID/oauth2/token" \
+        -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        --data-urlencode "client_id=AppID" \
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_secret=password" \
+        --data-urlencode "resource=https://management.azure.com/"
+    
+    __TenantID__, __AppID__ 및 __암호__를 이전에 받거나 사용한 값으로 대체합니다.
+
+    이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 JSON 문서가 포함되어 있습니다.
+
+    이 요청에서 반환한 JSON 문서는 이름이 __access\_token__인 요소를 포함하며, 이 요소의 값은 이 문서의 다음 섹션에서 사용되는 요청을 인증하는 데 필요한 액세스 토큰입니다.
+    
+        {
+            "token_type":"Bearer",
+            "expires_in":"3599",
+            "expires_on":"1463409994",
+            "not_before":"1463406094",
+            "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
+        }
 
 ##리소스 그룹 만들기
 
 다음을 사용하여 새 리소스 그룹을 만듭니다. HDInsight 클러스터와 같은 리소스를 만들려면 먼저 그룹을 만들어야 합니다.
 
-* __SUBSCRIPTIONID__를, 서비스 주체를 만들 때 받은 구독 ID로 바꿉니다.
-* __ACCESSTOKEN__을 이전 단계에서 받은 액세스 토큰으로 바꿉니다.
-* __DATACENTERLOCATION__을 리소스 그룹과 리소스를 만들려는 데이터 센터로 바꿉니다. 예를 들어 "미국 중남부"입니다. 
-* __GROUPNAME__을 이 그룹에 사용하려는 이름으로 바꿉니다.
+* __SubscriptionID__를 서비스 주체를 만들 때 받은 구독 ID로 바꿉니다.
+* __AccessToken__을 이전 단계에서 받은 액세스 토큰으로 바꿉니다.
+* __DataCenterLocation__을 리소스 그룹과 리소스를 만들려는 데이터 센터로 바꿉니다. 예를 들어 "미국 중남부"입니다. 
+* __ResourceGroupName__을 이 그룹에 사용하려는 이름으로 바꿉니다.
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d $'{ "location": "DATACENTERLOCATION" }’
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DataCenterLocation"
+}'
+```
 
 이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 그룹 정보가 담긴 JSON 문서가 포함되어 있습니다. `"provisioningState"` 요소는 `"Succeeded"` 값을 포함합니다.
 
@@ -312,15 +380,20 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 다음을 사용하여 리소스 그룹에 클러스터 구성(템플릿 및 매개 변수 값)을 배포합니다.
 
-* __SUBSCRIPTIONID__ 및 __ACCESSTOKEN__은 이전에 사용한 값으로 바꿉니다. 
-* __GROUPNAME__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
-* __DEPLOYMENTNAME__을 이 배포에 사용하려는 이름으로 바꿉니다.
+* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다. 
+* __ResourceGroupName__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
+* __DeploymentName__을 이 배포에 사용하려는 이름으로 바꿉니다.
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{본문 문자열을 템플릿 및 매개 변수로 설정}"
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
-> [AZURE.NOTE] 템플릿과 매개 변수가 담긴 JSON 문서를 파일로 저장한 경우 `-d "{ 템플릿 및 매개 변수}"' 대신 다음을 사용할 수 있습니다.
+> [AZURE.NOTE] 템플릿과 매개 변수가 담긴 JSON 문서를 파일로 저장한 경우 `-d "{ template and parameters}"` 대신 다음을 사용할 수 있습니다.
 >
-> ```--data-binary "@/path/to/file.json"```
+> `--data-binary "@/path/to/file.json"`
 
 이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 배포 작업 정보가 담긴 JSON 문서가 포함되어 있습니다.
 
@@ -330,10 +403,14 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 배포 상태를 확인하려면 다음을 사용합니다.
 
-* __SUBSCRIPTIONID__ 및 __ACCESSTOKEN__은 이전에 사용한 값으로 바꿉니다. 
-* __GROUPNAME__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
+* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다. 
+* __ResourceGroupName__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
 
-    curl -X "GET" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json"
+```
+curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json"
+```
 
 그러면 배포 작업 관련 정보가 담긴 JSON 문서가 반환됩니다. `"provisioningState"` 요소에는 배포 상태가 포함되어 있습니다. `"Succeeded"` 값이 포함되었으면 배포가 성공적으로 완료된 것입니다. 이 시점에서 클러스터를 사용할 수 있어야 합니다.
 
@@ -358,4 +435,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

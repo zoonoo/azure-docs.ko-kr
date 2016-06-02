@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 
@@ -61,7 +61,7 @@
 다음은 사용 중인 매개 변수에 대한 설명입니다.
 
 - **/source**: 패키지할 응용 프로그램의 디렉터리를 가리킵니다.
-- **/target**: 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 대상 디렉터리와 달라야 합니다.
+- **/target**: 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 원본 디렉터리와 달라야 합니다.
 - **/appname**: 기존 응용 프로그램의 응용 프로그램 이름을 정의합니다. 이 이름은 매니페스트에서 서비스 패브릭 응용 프로그램 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
 - **/exe**: 서비스 패브릭이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
 - **/ma**: 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다. `/ma:'bin/www'`는 `bin/ma`를 node.exe 인수로 사용하도록 패키징 도구에 지시합니다.
@@ -182,10 +182,10 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'NodeAppType'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
@@ -198,4 +198,4 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 - [게스트 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

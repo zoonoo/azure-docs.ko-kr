@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/13/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/05/13 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight(Windows) 2.1.10.875.2159884(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight(Windows) 3.0.6.875.2159884(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight(Windows) 3.1.4.922.2266903(HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight(Windows) 3.2.7.922.2266903(HDP 2.2.9.1-11)
+* HDInsight(Windows) 3.3.0.922.2266903(HDP 2.3.3.1-18)
+* HDInsight(Linux) 3.2.1000.0.7565644(HDP 2.2.9.1-11)
+* HDInsight(Linux) 3.3.1000.0.7565644(HDP 2.3.3.1-18)
+* HDInsight(Linux) 3.4.1000.0.7548380(HDP 2.4.2.0)
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Spark 버전 업데이트 및 기타 버그 수정 | 이 릴리스에서는 HDInsight 클러스터의 Spark 버전을 1.6.1로 업데이트하고 기타 버그를 수정합니다.| 부여 | Spark| 해당 없음
 
 ## HDInsight의 2016/04/11 릴리스 정보
 
@@ -31,7 +50,7 @@
 * HDInsight(Windows) 3.3.0.889.2191206(HDP 2.3.3.1-16 -변경되지 않음)
 * HDInsight(Linux) 3.2.1000.0.7339916(HDP 2.2.9.1-10)
 * HDInsight(Linux) 3.3.1000.0.7339916(HDP 2.3.3.1-16)
-* HDInsight(Linux) 3.3.1000.0.7338911(HDP 2.4.1.1-3)
+* HDInsight(Linux) 3.4.1000.0.7338911(HDP 2.4.1.1-3)
 * SDK 1.5.8
 
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
@@ -328,7 +347,7 @@
 
 <tr>
 <td>열린 추가 HTTPS 포트</td>
-<td>이제 클라우드 서비스는 클러스터에서 8001에서 8005까지의 5개의 포트를 엽니다(예: https://<clustername>.azurehdinsight.net:8001/). 이 URL에 대한 요청은 포트 443으로 동일한 기본 인증 암호 메커니즘을 사용하여 인증됩니다. 이 포트는 활성 헤드 노트에 동일한 포트를 바인딩합니다. 스크립트 동작으로 고객 서비스에서 헤드 노드의 이 포트를 수신하고 클러스터 외부로 경로 지정할 수 있습니다.</td>
+<td>이제 클라우드 서비스는 클러스터에서 8001에서 8005까지의 5개의 포트를 엽니다(예: https://<clustername>.azurehdinsight.net:8001/). 이 URL에 대한 요청은 포트 443으로 동일한 기본 인증 암호 메커니즘을 사용하여 인증됩니다. 이 포트는 활성 헤드 노트에 동일한 포트를 바인딩합니다. 스크립트 작업으로 고객 서비스에서 헤드 노드의 이 포트를 수신하고 클러스터 외부로 경로 지정할 수 있습니다.</td>
 <td>클라우드 서비스</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1175,7 +1194,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </tr>
 
 <tr>
-<td>스크립트 동작(미리 보기):</td>
+<td>스크립트 작업(미리 보기):</td>
 <td>사용자 지정 스크립트를 사용하여 임의 방식으로 Hadoop 클러스터를 수정할 수 있는 클러스터 사용자 지정 기능의 미리 보기입니다. 이 기능을 통해 사용자는 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트를 실험하고 Azure HDInsight 클러스터에 배포할 수 있습니다. 이 사용자 지정 기능은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다.</td>
 <td>새로운 기능</td>
 <td>모두</td>
@@ -1205,7 +1224,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 <br>
 
 
-**참고**: 클러스터 사용자 지정을 통해 사용할 수 있는 새로운 기능을 설명하기 위해 스크립트 동작을 사용하여 Spark 및 R 모듈을 설치하는 절차가 문서에 포함되었습니다. 자세한 내용은 다음을 참조하세요.
+**참고**: 클러스터 사용자 지정을 통해 사용할 수 있는 새로운 기능을 설명하기 위해 스크립트 작업을 사용하여 Spark 및 R 모듈을 설치하는 절차가 문서에 포함되었습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 클러스터에 Spark 1.0 설치 및 사용](hdinsight-hadoop-spark-install.md)
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용](hdinsight-hadoop-r-scripts.md)
@@ -1523,7 +1542,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
 
 
 ### 버그 수정
@@ -1565,4 +1584,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

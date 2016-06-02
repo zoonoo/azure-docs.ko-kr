@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 ### Microsoft Azure 청구서 보기 또는 다운로드
 
-[Azure 계정 포털](https://account.windowsazure.com/subscriptions)에서 현재 청구서를 보고 과거 청구서를 다운로드할 수 있습니다.
+[Azure 계정 센터](https://account.windowsazure.com/subscriptions)에서 현재 청구서를 보고 과거 청구서를 다운로드할 수 있습니다.
 
 청구서를 보거나 다운로드하려면
 
-1. Microsoft 계정 ID나 회사 또는 학교 계정 ID를 사용하여 [계정 포털](https://account.windowsazure.com/subscriptions)에 로그인합니다.
+1. Microsoft 계정 ID나 회사 또는 학교 계정 ID를 사용하여 [계정 센터](https://account.windowsazure.com/subscriptions)에 로그인합니다.
 
 2. 세부 정보 및 사용 현황을 확인할 구독을 클릭합니다.
 
@@ -48,7 +48,7 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
     ![요약 - 청구 내역 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4. **청구 내역** 섹션에는 지난 6개의 청구 기간과 현재 미청구 기간에 대한 명세서가 나열됩니다. 현재 기간에 대한 명세서는 예상 요금이 생성된 날짜의 예상 요금입니다. 이 정보는 매일 업데이트되며 지금까지 발생한 모든 사용 내역을 포함하지 않을 수 있습니다. 월별 청구서는 이 예상과 다를 수 있습니다.
+4. **청구 내역** 섹션에는 지난 청구 기간과 현재 미청구 기간에 대한 명세서가 나열됩니다. 현재 기간에 대한 명세서는 예상 요금이 생성된 날짜의 예상 요금입니다. 이 정보는 매일 업데이트되며 지금까지 발생한 모든 사용 내역을 포함하지 않을 수 있습니다. 월별 청구서는 이 예상과 다를 수 있습니다.
 
     ![요약 - 청구 내역 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
@@ -140,7 +140,7 @@ Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다.
 ![추가 정보](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### 자세한 사용 현황
-**자세한 사용 현황** 아래의 설명에 있는 링크를 클릭하면 이 구독에 대한 세부 사용 현황을 볼 수 있는 계정 포털로 이동합니다. 이제 두 버전을 다운로드할 수 있습니다: **.csv 버전 1**은 이전 명명 규칙 및 사용 현황 필드를 포함하고 **.csv 버전 2**는 Microsoft Azure에서 사용하는 서비스를 이해할 수 있도록 돕는 각 범주를 더한 추가 필드에 고객 친화적인 이름을 포함합니다. .csv 버전 1에는 Azure Resource Manager 세부 정보가 없습니다. Azure Resource Manager 정보는 .csv 버전 2에서 확인할 수 있습니다.
+**자세한 사용 현황** 아래의 설명에 있는 링크를 클릭하면 이 구독에 대한 세부 사용 현황을 볼 수 있는 계정 센터로 이동합니다. 이제 두 버전을 다운로드할 수 있습니다: **.csv 버전 1**은 이전 명명 규칙 및 사용 현황 필드를 포함하고 **.csv 버전 2**는 Microsoft Azure에서 사용하는 서비스를 이해할 수 있도록 돕는 각 범주를 더한 추가 필드에 고객 친화적인 이름을 포함합니다. .csv 버전 1에는 Azure Resource Manager 세부 정보가 없습니다. Azure Resource Manager 정보는 .csv 버전 2에서 확인할 수 있습니다.
 
 ### 추가 정보 및 유용한 리소스
 이 섹션에는 계산 인스턴스 크기 및 SQL DB 요금에 대해 간단히 질문할 수 있는 링크와 추가 질문에 대답하는 데 유용한 링크가 있습니다.
@@ -238,18 +238,19 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 - [Azure 청구 및 구독 FAQ](billing-subscription-faq.md)
 
-- [지불 방법 관리](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법](billing-how-to-change-credit-card.md)
 
-- [기존 신용 카드에 대한 결제 정보 편집](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
-- [지불 방법으로 사용한 새 신용 카드 추가](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
-- [Microsoft Azure 계정에서 신용 카드를 변경](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

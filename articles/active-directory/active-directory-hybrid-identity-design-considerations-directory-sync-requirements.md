@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # 디렉터리 동기화 요구 사항 결정
@@ -68,4 +68,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

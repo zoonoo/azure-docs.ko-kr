@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/03/2016"
+   ms.date="05/19/2016"
    ms.author="tomsh"/>
 
 # Azure 가상 컴퓨터 암호화
@@ -172,4 +172,4 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

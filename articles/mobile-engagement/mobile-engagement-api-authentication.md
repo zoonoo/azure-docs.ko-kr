@@ -95,7 +95,7 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 1. 다음 매개 변수를 사용하여 API를 호출하고 TENANT\_ID, CLIENT\_ID 및 CLIENT\_SECRET을 대체해야 합니다.
 
 	- **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*인 **요청 URL**
-	- *application/x-www-form-urlencoded*인 **HTTP 콘텐츠 형식 헤더**
+- *application/x-www-form-urlencoded*인 **HTTP 콘텐츠 형식 헤더**
 	- *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*인 **HTTP 요청 본문**
 
 	다음은 요청 예제입니다.
@@ -146,7 +146,8 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 	![Mobile Engagement API URI 매개 변수][2]
 
 >[AZURE.NOTE] <br/>
->1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/> 2. 응용 프로그램 이름 자체와 다른 응용 프로그램 리소스 이름을 사용해야 합니다. 
+>1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/>
+>2. Azure 클래식 포털을 사용하여 앱을 만든 경우 응용 프로그램 이름과 다른 응용 프로그램 리소스 이름을 사용해야 합니다. Azure 포털에서 앱을 만든 경우 앱 이름을 사용해야 합니다(새 포털에서 만든 앱의 앱 이름과 응용 프로그램 리소스 이름은 차이가 없음).  
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -154,4 +155,4 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

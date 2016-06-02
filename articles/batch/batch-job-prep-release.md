@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Azure 배치 계산 노드에서 작업 준비와 완료 작업 실행
 
-Azure 배치 작업은 실행하기 전에 설치의 형태를 필요로 하는 것과 마찬가지로 작업의 태스크가 완료된 후에 일종의 이후 작업 유지 관리를 필요로 합니다. 배치는 선택적인 *작업 준비* 및 *작업 릴리스* 작업의 형태로 이 준비 및 유지 관리에 대한 메커니즘을 제공합니다.
+Azure 배치 작업은 실행에 앞서 일정한 형태의 설치는 물론 작업 태스크가 완료된 후에는 일종의 작업 후 유지 관리를 필요로 하는 경우가 있습니다. 배치는 선택적인 작업 준비 및 작업 릴리스 태스크의 형태로 이 준비 및 유지 관리에 대한 메커니즘을 제공합니다.
 
-작업 준비 태스크는 작업 태스크가 실행되기 전에 태스크를 실행하도록 예약된 모든 계산 노드에서 실행됩니다. 작업이 완료되면 하나 이상의 태스크를 실행한 풀의 각 노드에서 작업 릴리스 태스크가 실행됩니다. 작업 준비 및 릴리스 태스크 모두의 경우 태스크가 실행될 때 호출할 명령줄을 지정할 수 있습니다. 이러한 특수한 태스크는 파일 다운로드, 관리자 권한 실행, 사용자 지정 환경 변수, 최대 실행 기간, 재시도 횟수 및 파일 보존 시간 등의 익숙한 태스크 기능을 제공합니다.
+**작업 준비 태스크**는 작업 태스크가 실행되기 전에 태스크를 실행하도록 예약된 모든 계산 노드에서 실행됩니다. 작업이 완료되면 하나 이상의 태스크를 실행한 풀의 각 노드에서 **작업 릴리스 태스크**가 실행됩니다. 일반적인 배치 태스크의 경우, 해당 태스크를 실행할 때 호출될 작업 준비 또는 릴리스 태스크의 명령줄을 지정할 수 있습니다. 이러한 특수 태스크는 파일 다운로드, 관리자 권한 실행, 사용자 지정 환경 변수, 최대 실행 기간, 재시도 횟수 및 파일 보존 시간 등의 기타 익숙한 태스크 기능을 제공합니다.
 
 다음 섹션에서 [배치 .NET][api_net] API에서 [JobPreparationTask][net_job_prep] 클래스 및 [JobReleaseTask][net_job_release] 클래스를 사용하여 이러한 두 가지 특별한 태스크 형식을 사용하는 방법을 알아봅니다.
 
@@ -58,7 +58,7 @@ Azure 배치 작업은 실행하기 전에 설치의 형태를 필요로 하는 
 
 ## 배치 .NET API의 작업 준비 및 릴리스 태스크
 
-작업 준비 태스크를 지정하려면 [JobPreparationTask][net_job_prep]를 만들고 구성하며 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
+작업 준비 태스크를 사용하려면 [JobPreparationTask][net_job_prep]를 만들고 구성하며 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
 
 이 코드 조각에서 `myBatchClient`는 완전히 [BatchClient][net_batch_client]의 초기화된 인스턴스이고 `myPool`은 배치 계정 내에 있는 기존 풀입니다.
 
@@ -185,6 +185,5 @@ Sample complete, hit ENTER to exit...
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
-[2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

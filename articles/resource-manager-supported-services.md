@@ -1,5 +1,5 @@
 <properties
-   pageTitle="리소스 관리자 지원 서비스, 지원되는 지역, 스키마 및 버전 | Microsoft Azure"
+   pageTitle="Resource Manager 지원 서비스 | Microsoft Azure"
    description="리소스 관리자, 스키마, 제공되는 API 버전 및 리소스를 호스팅할 수 있는 지역을 지원하는 리소스 공급자에 대해 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 공급자, 지역, API 버전 및 스키마
@@ -116,8 +116,6 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | ------- | ------- | -------- | ------ | ------ |
 | BizTalk 서비스 | 예 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | 서비스 버스 | 예 | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| 백업 | 아니오 | - | - |
-| 사이트 복구 | 아니오 | - | - |
 
 ## ID 및 액세스 관리 
 
@@ -139,6 +137,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 | 자동화 | 예 | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | 키 자격 증명 모음 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [키 자격 증명 모음](resource-manager-template-keyvault.md)<br />[키 자격 증명 모음 암호](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Operational Insights | 예 | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
+| 복구 서비스 | 예 | | | |
 | 스케줄러 | 예 | [스케줄러 REST](https://msdn.microsoft.com/library/azure/mt629143.aspx) | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
 | 보안(미리 보기) | 예 | | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
@@ -305,4 +304,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

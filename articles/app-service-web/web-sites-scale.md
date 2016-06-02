@@ -45,7 +45,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 	
 	작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
 	
-5. 설정에서 **확장**을 클릭하고, 드롭다운에서 *수동으로 선택하는 인스턴스 수*를 선택하고, **인스턴스** 막대를 왼쪽에서 오른쪽으로 밀어 인스턴스 수를 늘린 다음 명령 모음에서 **저장**을 클릭합니다. **공유** 모드에서는 인스턴스 크기 옵션을 사용할 수 없습니다. 인스턴스 크기에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]를 참조하세요.
+5. 설정에서 **확장**을 클릭하고, 드롭다운에서 *수동으로 선택하는 인스턴스 수*를 선택하고, **인스턴스** 막대를 왼쪽에서 오른쪽으로 밀어 인스턴스 수를 늘린 다음 명령 모음에서 **저장**을 클릭합니다. **공유** 모드에서는 인스턴스 크기 옵션을 사용할 수 없습니다. 인스턴스 크기에 대한 자세한 내용은 [앱 서비스 가격책정][vmsizes]을 참조합니다.
 	
 	![기본 모드의 인스턴스 크기][ChooseBasicInstances]
 	
@@ -180,7 +180,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 <!-- LINKS -->
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
+[vmsizes]: /pricing/details/app-service/
 [SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
@@ -202,4 +202,4 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

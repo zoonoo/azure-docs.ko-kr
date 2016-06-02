@@ -3,8 +3,8 @@
 	description="SQL Server Management Studio를 사용하여 SQL 데이터베이스 서버 및 데이터베이스를 관리하는 방법에 대해 알아봅니다." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
 # SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리 
@@ -27,7 +27,9 @@
 
 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL 데이터베이스 논리 서버 및 데이터베이스를 관리할 수 있습니다. 이 항목에서는 SSMS로 수행하는 일반적인 작업에 대해 설명합니다. 시작하기 전에 Azure SQL 데이터베이스에서 논리 서버 및 데이터 베이스가 생성되어 있어야 합니다. 간단한 SELECT 쿼리를 연결하여 실행하는 방법에 대한 자세한 내용은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 및 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
 
-Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 SSMS를 사용하는 것이 좋습니다. 최신 버전을 사용하려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 방문하세요.
+Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 SSMS를 사용하는 것이 좋습니다.
+
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 SSMS(SQL Server Management Studio)를 사용해야 합니다. SSMS의 이전 버전은 SQL 데이터베이스에서 제대로 작동하지 않습니다. 최신 버전을 가져오려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 방문하세요.
 
 ## Azure SQL 데이터베이스 만들기 및 관리
 
@@ -149,4 +151,4 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

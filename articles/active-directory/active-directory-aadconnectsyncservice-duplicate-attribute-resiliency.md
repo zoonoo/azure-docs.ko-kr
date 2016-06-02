@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="markusvi"/>
 
 
@@ -150,7 +150,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 1. 특정 특성 구성을 사용한 사용자는 격리되는 특성과 달리 내보내기 오류 수신을 계속합니다. 예:
 
-    a. 새로운 사용자가 **Joe@contoso.com** 의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
+    a. 새로운 사용자가 ****Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
 
     b. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
 
@@ -158,9 +158,9 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 2. 해결된 중복 특성 충돌을 검색하는 타이머 작업은 UPN 충돌을 다른 UPN 충돌과 비교합니다. 이 경우 다음 시나리오의 4단계에 표시된 문제가 발생합니다.
 
-    a. **UserA@contoso.com**은 해당 값을 갖는 ProxyAddress로 인해 고유하지 않은 UPN을 갖습니다.
+    a. ****UserA@contoso.com**은 해당 값을 갖는 ProxyAddress로 인해 고유하지 않은 UPN을 갖습니다.
 
-    b. UserA는 임시 **MOERA UPN**, **UserA1234@contoso.onmicrosoft.com** 을 제공 받으며 실제 UPN 값은 격리됩니다(예상대로).
+    b. UserA는 임시 **MOERA UPN**, ****UserA1234@contoso.onmicrosoft.com**을 제공 받으며 실제 UPN 값은 격리됩니다(예상대로).
 
     c. 다른 충돌 개체에는 나중에 제거된 ProxyAddress가 있습니다.
 
@@ -188,9 +188,9 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
     b. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
 
-    c. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com** 으로 변경되고 **User@contoso.com** 은 **DirSyncProvisioningErrors** 에 추가됩니다.
+    c. **사용자 B**의 UPN은 ****User1234@contoso.onmicrosoft.com**으로 변경되고 ****User@contoso.com**은 **DirSyncProvisioningErrors**에 추가됩니다.
 
-    d. **사용자 B**에 대한 오류 메시지는 **사용자 A** 가 이미 **User@contoso.com** 을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
+    d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미****User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
 
 3. 보고서는 **ProxyAddress** 오류가 아닌 사용자의 **UPN** 충돌에 대한 자세한 오류 정보만을 표시합니다(일관적인지 환경적인지 여부를 아직 조사 중임).
 
@@ -200,4 +200,4 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

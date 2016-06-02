@@ -20,7 +20,7 @@
 # Azure RBAC에서 사용자 지정 역할
 
 
-특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스(CLI)](role-based-access-control-manage-access-azure-cli.md) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다.
+특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스(CLI)](role-based-access-control-manage-access-azure-cli.md) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다. 사용자 지정 역할은 Azure AD 테넌트에 저장되며 해당 구독에 대한 Azure AD 디렉터리로 해당 테넌트를 사용하는 모든 구독 전반에서 공유할 수 있습니다.
 
 다음은 가상 컴퓨터의 모니터링 및 재시작을 위한 사용자 지정 역할에 관한 예제입니다.
 
@@ -99,4 +99,4 @@
 	- [REST API](role-based-access-control-manage-access-rest.md)
 - [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

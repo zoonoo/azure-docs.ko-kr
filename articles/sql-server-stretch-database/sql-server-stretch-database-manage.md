@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 데이터베이스 관리 및 문제 해결
@@ -56,4 +56,4 @@
 
 [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

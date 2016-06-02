@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Hue 설치 및 사용
@@ -134,4 +134,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->
