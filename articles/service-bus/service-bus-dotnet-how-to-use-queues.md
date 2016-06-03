@@ -140,7 +140,11 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-> [AZURE.NOTE]<br>[NamespaceManager][] 개체의 [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
+
+> [AZURE.NOTE]
+> <!--->
+> [NamespaceManager][] 개체의 [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
+
 
 ## 큐에 메시지 보내기
 
