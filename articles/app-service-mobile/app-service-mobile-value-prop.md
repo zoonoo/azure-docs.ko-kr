@@ -102,4 +102,4 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 [앱 서비스 환경]: ../app-service-web/app-service-app-service-environment-intro.md
 [학습 맵]: https://azure.microsoft.com/ko-KR/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

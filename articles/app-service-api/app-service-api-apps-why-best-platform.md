@@ -63,4 +63,4 @@ API 관리 및 API 앱의 일부 기능에는 유사한 함수가 있습니다. 
 
 API 앱에 대해 질문하려면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)에서 스레드를 시작하세요.
 
-<!------HONumber=AcomDC_0511_2016-->
+<!--------HONumber=AcomDC_0511_2016-->

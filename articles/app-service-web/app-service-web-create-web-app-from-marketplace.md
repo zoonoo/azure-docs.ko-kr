@@ -177,4 +177,4 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->
