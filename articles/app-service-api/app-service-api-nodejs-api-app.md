@@ -318,4 +318,4 @@ Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통�
 
 이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!-----HONumber=AcomDC_0518_2016-->
