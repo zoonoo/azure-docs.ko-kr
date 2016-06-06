@@ -237,9 +237,9 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal-1]
 
-**로그인 URL**로 API 관리 서비스의 URL을 입력하고 `/signin`을 추가합니다. 이 예에서는 ****https://contoso5.portal.azure-api.net/signin **가 사용됩니다.
+**로그인 URL**로 API 관리 서비스의 URL을 입력하고 `/signin`을 추가합니다. 이 예에서는 **https://contoso5.portal.azure-api.net/signin **가 사용됩니다.
 
-**앱 ID URL**로 API 관리 서비스의 URL을 입력하고 일부 고유 문자를 추가합니다. 원하는 문자를 사용할 수 있으며 이 예에서는 ****https://contoso5.portal.azure-api.net/dp**이 사용됩니다. 원하는 **앱 속성**이 구성되면, 확인 표시를 클릭하여 응용 프로그램을 만듭니다.
+**앱 ID URL**로 API 관리 서비스의 URL을 입력하고 일부 고유 문자를 추가합니다. 원하는 문자를 사용할 수 있으며 이 예에서는 **https://contoso5.portal.azure-api.net/dp**이 사용됩니다. 원하는 **앱 속성**이 구성되면, 확인 표시를 클릭하여 응용 프로그램을 만듭니다.
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal-2]
 

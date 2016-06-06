@@ -45,7 +45,13 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-15v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series)	|225 *|
+|[D1-14](#standard-tier-d-series)	|160 |
+|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[DS1-14](#standard-tier-ds-series)	|160 |
+|[DS1-15v2](#standard-tier-dsv2-series)	|210 - 250* |
+|[G1-5](#standard-tier-g-series)	|180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.

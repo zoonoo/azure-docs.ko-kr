@@ -65,12 +65,12 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 ```
 
 
-이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **빌드**를 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드**를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 할 수 있습니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지**를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
+이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **빌드** 를 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드** 를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 할 수 있습니다. 다음으로, ***VisualObjectsApplication*** 을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지** 를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
 
 ## 3단계: 상태 정책 결정 및 매개 변수 업그레이드
 
-[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다.
+[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다.
 
 그러나 *HealthCheckStableDuration*을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다). 또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.
 
@@ -91,7 +91,7 @@ UpgradeTimeout = 3000
 
 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램 패키지가 저장된 "Package" 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
-이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore* 는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package

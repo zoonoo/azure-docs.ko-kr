@@ -36,7 +36,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
     ![Eclipse용 Azure 도구 키트 설치][01]
 
-1. **Available Software** 대화 상자의 **Work with** 텍스트 상자에 ****http://dl.microsoft.com/eclipse**를 입력한 후 **Enter** 키를 누릅니다.
+1. **Available Software** 대화 상자의 **Work with** 텍스트 상자에 **http://dl.microsoft.com/eclipse**를 입력한 후 **Enter** 키를 누릅니다.
 
 1. **Name** 창에서 **Azure Toolkit for Eclipse**를 선택하고 **Contact all update sites during install to find required software**를 선택하지 않습니다. 화면은 다음과 유사한 모양입니다.
 

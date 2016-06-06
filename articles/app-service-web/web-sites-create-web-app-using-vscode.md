@@ -127,7 +127,7 @@ ASP.NET 5/DNX(.NET 실행 환경)는 OS X, Linux 및 Windows에서 실행되는 
 
 2. 브라우저를 열고 다음 URL로 이동합니다.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	웹앱의 기본 페이지가 다음과 같이 표시됩니다.
 

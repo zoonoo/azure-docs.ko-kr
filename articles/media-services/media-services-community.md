@@ -52,7 +52,7 @@
 
 ## 팀에 문의
 
-Azure 미디어 서비스 기본 전자 메일: ****mediaservices@microsoft.com**.
+Azure 미디어 서비스 기본 전자 메일: **mediaservices@microsoft.com**.
 
 다음 표에 기능 하위 팀의 전자 메일이 나열되어 있습니다.
 

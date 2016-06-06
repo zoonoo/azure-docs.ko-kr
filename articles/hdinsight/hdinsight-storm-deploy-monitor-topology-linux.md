@@ -145,7 +145,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### 기본 URI
 
-Linux 기반 HDInsight 클러스터에서 REST API에 대한 기본 URI는 ****https://HEADNODEFQDN:8744/api/v1/**에서 사용할 수 있지만 헤드 노드의 도메인 이름은 클러스터 생성 동안 생성되며 고정되어 있지 않습니다.
+Linux 기반 HDInsight 클러스터에서 REST API에 대한 기본 URI는 **https://HEADNODEFQDN:8744/api/v1/**에서 사용할 수 있지만 헤드 노드의 도메인 이름은 클러스터 생성 동안 생성되며 고정되어 있지 않습니다.
 
 다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
 

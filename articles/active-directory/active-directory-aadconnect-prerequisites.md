@@ -54,7 +54,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - 사용자 지정 설정 설치 경로를 사용하는 경우 [계정은 Active Directory입니다](active-directory-aadconnect-accounts-permissions.md).
 
 ### Azure AD Connect 서버 구성
-- 전역 관리자가 MFA를 사용하도록 설정한 경우 URL ****https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 URL을 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
+- 전역 관리자가 MFA를 사용하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 URL을 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
 
 ### 연결
 - Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 Azure AD 끝점뿐만 아니라 온-프레미스 Active Directory에 대해 이름을 확인할 수 있어야 합니다.

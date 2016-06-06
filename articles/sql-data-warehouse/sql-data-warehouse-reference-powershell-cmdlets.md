@@ -18,7 +18,7 @@
 
 # SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
 
-많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다. 다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다. 유용한 REST 예제는 [Manage scalability with REST][](REST를 사용하여 확장성 관리) 문서를 참조하세요.
+많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다. 다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다. 유용한 REST 예제는 [Manage scalability with REST][]\(REST를 사용하여 확장성 관리) 문서를 참조하세요.
 
 > [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
 

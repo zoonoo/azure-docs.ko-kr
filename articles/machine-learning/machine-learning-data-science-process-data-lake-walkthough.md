@@ -153,7 +153,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 
-Azure Blob에서 데이터 위치는 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
+Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
 
 	///Read in Trip data
 	@trip0 =
@@ -176,7 +176,7 @@ Azure Blob에서 데이터 위치는 ****wasb://container_name@blob_storage_acco
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
 
 	// change data types
 	@trip =
@@ -646,7 +646,7 @@ Azure 기계 학습 스튜디오를 사용하여 Azure Data Lake 저장소에서
  ![22](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_Editor_v2.PNG)
 
 
-다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
+다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(

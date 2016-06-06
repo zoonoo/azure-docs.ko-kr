@@ -82,7 +82,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ## <a name="next-steps"> </a>다음 단계
 
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][](영문)을 참조하세요.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][]\(영문)을 참조하세요.
 
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

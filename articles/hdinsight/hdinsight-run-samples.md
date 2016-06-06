@@ -51,7 +51,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 ## <a name="hdinsight-sample-wordcount"></a>단어 개수 - Java 
 
-MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 ****wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
+MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 **wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
 
 [부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
 

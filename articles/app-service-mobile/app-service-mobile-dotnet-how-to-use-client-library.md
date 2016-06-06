@@ -19,6 +19,7 @@
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 ##개요
 

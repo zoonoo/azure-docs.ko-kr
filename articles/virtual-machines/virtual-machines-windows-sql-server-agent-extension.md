@@ -25,7 +25,8 @@
 
 SQL Server IaaS 에이전트 확장(SQLIaaSExtension)은 관리 작업을 자동화하기 위해 Azure 가상 컴퓨터에서 실행됩니다. 이 항목에서는 설치, 상태 및 제거 지침뿐만 아니라 확장에서 지원하는 서비스의 개요도 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server 에이전트 확장 클래식](virtual-machines-windows-classic-sql-server-agent-extension.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server 에이전트 확장 클래식](virtual-machines-windows-classic-sql-server-agent-extension.md)을 참조하세요.
 
 ## 지원되는 서비스
 
