@@ -13,13 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/23/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 샘플
 
 ## GitHub의 샘플
 [GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory)에는 신속하게 Azure Data Factory 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 응용 프로그램에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.
+
+| 샘플 | 설명 |
+| :----- | :---------- | 
+| [ADF 연습](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | 이 샘플에서는 Azure Data Factory를 사용하여 로그 파일을 유용한 정보로 변환하는 완전한 연습을 제공합니다. <br/><br/>이 연습에서 Data Factory 파이프라인은 샘플 로그를 수집하고, 참조 데이터를 사용하여 로그의 데이터를 처리 및 보강하고, 데이터를 변환하여 최근 시작한 마케팅 캠페인의 효과를 평가합니다. |
+| [JSON 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | 이 예제에서는 일반적인 시나리오에 대한 JSON 예제를 제공합니다. | 
+| [HTTP 데이터 다운로더 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | 이 샘플에서는 사용자 지정 .NET 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드하는 과정을 보여 줍니다. |
+| [크로스 AppDomain .Net 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | 이 샘플에서는 ADF 시작 관리자에서 사용하는 어셈블리 버전(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x 등)의 제약을 받지 않는 사용자 지정 .NET 작업을 만드는 방법을 보여 줍니다. |
+| [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | 이 샘플에서는 RScript.exe를 호출하는 데 사용할 수 있는 Data Factory 사용자 지정 작업이 포함되어 있습니다. 이 샘플은 R이 이미 설치되어 있는 사용자 고유(주문형 아님) HDInsight 클러스터에만 작동합니다. |
+| [HDInsight Hadoop 클러스터에서 Spark 작업 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | 이 샘플에서는 MapReduce 작업을 사용하여 Spark 프로그램을 호출하는 방법을 보여 줍니다. Spark 프로그램은 단순히 Azure Blob 컨테이너에서 다른 컨테이너로 데이터를 복사합니다. |
+| [Azure 기계 학습 배치 평가 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | 이 샘플에서는 AzureMLBatchScoringActivity를 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure 기계 학습 모델을 호출하는 방법을 보여 줍니다. |
+| [사용자 지정 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | 이 샘플에서는 사용자 지정 .NET 작업을 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure 기계 학습 모델을 호출하는 방법을 보여 줍니다. |
+| [Azure 기계 학습에 대한 매개 변수가 있는 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | 이 샘플에서는 지역 목록을 이 샘플에 포함된 parameters.txt 파일에서 가져오는 다른 지역 매개 변수를 사용하여 각각의 점수를 매기고 제한하기 위해 N 파이프라인을 배포하는 종단 간 C# 코드를 제공합니다. | 
+| [Azure 스트림 분석 작업에 대한 참조 데이터 새로 고침](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) | 이 샘플에서는 Azure Data Factory 및 Azure 스트림 분석을 함께 활용하여 참조 데이터로 쿼리를 실행하고 일정에 따라 참조 데이터에 대한 새로 고침을 설정하는 방법을 보여 줍니다. |
+| [온-프레미스 Hortonworks Hadoop을 사용한 하이브리드 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | 이 샘플에서는 클라우드의 HDInsight 기반 Hadoop 클러스터와 같은 기타 계산 대상을 추가하는 경우처럼 Data Factory에서 작업을 실행하기 위한 계산 대상으로 온-프레미스 Hadoop 클러스터를 사용합니다. |
+| [JSON 변환 도구](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | 이 도구를 사용하면 Json을 2015-07-01-preview 이전 버전에서 2015-07-01-preview(기본값)로 변환할 수 있습니다. |  
+| [U-SQL 샘플 입력 파일](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) | U-SQL 작업에서 사용되는 샘플 파일입니다. | 
+
+
 
 ## Azure 포털의 샘플
 데이터 팩터리의 홈 페이지에 있는 **샘플 파이프라인**을 사용하여 데이터 팩터리에 샘플 파이프라인 및 관련된 엔터티(데이터 집합 및 연결된 서비스)를 배포합니다.
@@ -61,7 +79,7 @@
 
 1. 메뉴에서 **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. 
 2. **새 프로젝트** 대화 상자에서 다음을 수행합니다. 
-	1. **템플릿** 아래의 **DataFactory**를 선택합니다. 
+	1. **템플릿** 아래의 **데이터 팩터리**를 선택합니다. 
 	2. 오른쪽 창의 **데이터 팩터리 템플릿**을 선택합니다. 
 	3. 프로젝트의 **이름**을 입력합니다. 
 	4. 프로젝트의 **위치**를 선택합니다. 
@@ -99,4 +117,4 @@
 
 Visual Studio를 사용하여 Data Factory 엔터티를 작성하고 Azure에 게시하는 방법에 대한 자세한 내용은 [첫 번째 데이터 팩터리(Visual Studio) 빌드](data-factory-build-your-first-pipeline-using-vs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

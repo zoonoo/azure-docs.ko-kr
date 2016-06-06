@@ -32,7 +32,7 @@
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
 1. 서비스는 리소스 이동 기능을 지원해야 합니다. [리소스 이동을 지원하는 서비스](#services-that-support-move)에 대한 자세한 내용은 아래 목록을 참조하세요.
-2. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](../resource-manager-supported-services/#resource-providers-and-types)을 참조하세요.
+2. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](../resource-manager-supported-services.md#resource-providers-and-types)을 참조하세요.
 3. Azure PowerShell 또는 Azure CLI를 사용하는 경우 최신 버전을 사용합니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md) 및 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
 4. 앱 서비스 앱을 이동하는 경우 [앱 서비스 제한](#app-service-limitations)을 먼저 검토해야 합니다.
 5. 클래식 모델을 통해 배포된 리소스를 이동하는 경우 [클래식 배포 제한 사항](#classic-deployment-limitations)을 먼저 검토해야 합니다.
@@ -48,6 +48,7 @@
 - CDN
 - 클라우드 서비스 - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 - 데이터 팩터리
+- DNS
 - DocumentDB
 - HDInsight 클러스터
 - 키 자격 증명 모음
@@ -271,4 +272,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

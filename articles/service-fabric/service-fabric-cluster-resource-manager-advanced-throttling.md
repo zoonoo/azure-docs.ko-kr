@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 소개 | Microsoft Azure"
-   description="서비스 패브릭 클러스터 리소스 관리자를 소개합니다."
+   pageTitle="서비스 패브릭 클러스터 리소스 관리자의 제한 | Microsoft Azure"
+   description="서비스 패브릭 클러스터 리소스 관리자에서 제공하는 제한을 구성하는 방법을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -40,7 +40,7 @@
 대부분의 경우 고객이 이러한 제한을 사용하는 이유는 리소스 제한 환경(예: 네트워크 대역폭이 개별 노드로 제한)에 있기 때문입니다. 즉, 이러한 환경에서는 작업이 완료되지 않거나 느려지고, 고객이 제한 작업 동안 전반적인 안정성이 감소하게 되었다는 사실뿐만 아니라 클러스터가 안정적인 상태에 도달하는 데 걸리는 시간이 늘어날 수 있다는 것을 알게 됩니다.
 
 ## 다음 단계
-- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 참조하세요.
-- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 참조하세요.
+- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+- 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

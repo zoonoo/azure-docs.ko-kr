@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -33,7 +33,7 @@
 
 인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 데이터 웨어하우스는 현재 Azure Active Directory의 미리 보기뿐만 아니라 사용자 이름 및 암호를 사용하는 SQL Server 인증을 지원합니다.
 
-데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
+데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면, SQL Server 인증을 통해 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
 
 그러나 조직의 사용자는 다른 계정으로 인증하는 것이 좋습니다. 이렇게 하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리][] 및 [Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결][]을 참조하세요.
+SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리][]를 참조하세요. SQL 데이터 웨어하우스에 Azure AD 미리 보기를 사용하는 것에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결][]을 참조하세요.
 
 
 ## 권한 부여
@@ -115,4 +115,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/23/2016"
 	ms.author="danlep"/>
     
 # Azure CLI 설치
@@ -23,30 +23,31 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 서로 다른 운영 체제에 제공된 설치 관리자 패키지 중 하나를 사용하거나, npm 패키지에서 설치하거나, Azure CLI를 Docker 호스트의 컨테이너로 설치하는 등 몇 가지 설치 옵션이 있습니다. 추가 옵션 및 배경 정보는 [GitHub](https://github.com/azure/azure-xplat-cli)에서 프로젝트 리포지토리를 참조하세요.
+신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. npm 패키지에서 설치하거나(Node.js 및 npm 필요), 서로 다른 운영 체제에 제공된 설치 관리자 패키지 중 하나를 사용하거나, Azure CLI를 Docker 호스트의 컨테이너로 설치하는 등 몇 가지 설치 옵션이 있습니다. 추가 옵션 및 배경 정보는 [GitHub](https://github.com/azure/azure-xplat-cli)에서 프로젝트 리포지토리를 참조하세요.
 
 
 Azure CLI가 설치되었으면 [Azure 구독을 사용하여 연결](xplat-cli-connect.md)하고 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행하여 Azure 리소스 작업을 수행할 수 있습니다.
 
 
-## 설치 관리자 사용
-
-다음과 같은 설치 관리자 패키지를 사용할 수 있습니다.
-
-* [Windows 설치 관리자][windows-installer]
-
-* [OS X 설치 관리자][mac-installer]
-
-* [Linux 설치 관리자][linux-installer]
-
 
 ## npm 패키지 설치
 
-또는 최신 Node.js 및 npm이 시스템에 이미 설치된 경우 다음 명령을 실행하여 Azure CLI 패키지를 설치합니다. Linux 배포에서는 __npm__ 명령을 성공적으로 실행하기 위해 **sudo**를 사용해야 할 수도 있습니다.
+npm 패키지에서 CLI를 설치하려면 최신 Node.js 및 npm이 시스템에 설치되어 있어야 합니다. 그러면 다음 명령을 실행하여 Azure CLI 패키지를 설치합니다. Linux 배포에서는 __npm__ 명령을 정상적으로 실행하기 위해 **sudo**를 사용해야 할 수도 있습니다.
 
 	npm install azure-cli -g
 
 > [AZURE.NOTE]운영 체제의 Node.js 및 npm을 설치하거나 업데이트해야 하는 경우 [Nodejs.org](https://nodejs.org/en/download/package-manager/)의 설명서를 참조하세요. 최신 Node.js LTS 버전(4.x)을 설치하는 것이 좋습니다. 이전 버전을 사용하는 경우 설치 오류가 발생할 수 있습니다.
+
+## 설치 관리자 사용
+
+다음과 같은 설치 관리자 패키지를 다운로드할 수도 있습니다.
+
+
+* [OS X 설치 관리자][mac-installer]
+
+* [Windows 설치 관리자][windows-installer]
+
+* [Linux tar 파일][linux-installer](Node.js 및 npm 필요) - `sudo npm install -g <path to downloaded tar file>`를 실행하여 설치
 
 
 ## Docker 컨테이너 사용
@@ -88,6 +89,24 @@ Microsoft는 업데이트된 Azure CLI 버전을 자주 발표합니다. 운영 
 npm update -g azure-cli
 ```
 
+## 탭 완성 기능 사용
+
+CLI 명령의 탭 완성 기능이 Mac 및 Linux에서 지원됩니다.
+
+zsh에서 사용하도록 설정하려면 다음을 실행합니다.
+
+```
+echo '. <(azure --completion)' >> .zshrc
+```
+
+bash에서 사용하도록 설정하려면 다음을 실행합니다.
+
+```
+azure --completion >> ~/azure.completion.sh
+echo 'source ~/azure.completion.sh' >> ~/.bash_profile
+```
+
+
 ## 다음 단계 
 
 * [CLI에서 Azure 구독에 연결](xplat-cli-connect.md)하여 Azure 리소스를 만들고 관리합니다.
@@ -104,4 +123,4 @@ npm update -g azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

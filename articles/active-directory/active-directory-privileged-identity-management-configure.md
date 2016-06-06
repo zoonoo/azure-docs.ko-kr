@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="05/19/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 권한 있는 ID 관리
@@ -54,9 +54,9 @@ Azure AD Privileged Identity Management는 다음을 포함하여 기본 제공�
 5. **Azure AD Privileged Identity Management**를 선택합니다.
 6. **대시보드에 고정** 옵션을 선택하고 **만들기** 단추를 클릭합니다. 권위 있는 ID 관리 대시보드가 열립니다.
 
-디렉터리에서 Azure AD Privileged Identity Management를 처음 사용하는 사용자이면 [보안 마법사](active-directory-privileged-identity-management-security-wizard.md)가 초기 할당 환경을 안내합니다. 이 작업 이후 자동으로 디렉터리의 첫 번째 **보안 관리자**가 됩니다.
+디렉터리에서 Azure AD Privileged Identity Management를 처음 사용하는 사용자이면 [보안 마법사](active-directory-privileged-identity-management-security-wizard.md)가 초기 할당 환경을 안내합니다. 이 작업 이후 자동으로 디렉터리의 첫 번째 **보안 관리자** 및 **권한 있는 역할 관리자**가 됩니다.
 
-보안 관리자만 PIM 앱을 사용하여 다른 관리자의 액세스 권한을 관리할 수 있습니다. [PIM 관리 기능을 다른 사용자에게 제공](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)할 수 있습니다.
+권한 있는 역할 관리자만 PIM 앱을 사용하여 다른 관리자의 액세스 권한을 관리할 수 있습니다. [PIM 관리 기능을 다른 사용자에게 제공](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)할 수 있습니다.
 
 ## 권한 있는 ID 관리 대시보드
 
@@ -113,4 +113,4 @@ Azure AD Privileged Identity Management를 사용하여 권한 있는 역할 할
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

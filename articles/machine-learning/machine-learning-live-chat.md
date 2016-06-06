@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/12/2016" 
+    ms.date="05/16/2016" 
     ms.author="olgali"/>
 #기계 학습 라이브 채팅 지원에서 도움 받기
 
@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

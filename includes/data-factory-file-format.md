@@ -220,3 +220,18 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 - 동일한 수준에 중복된 이름이 있는 경우 복사 작업 중에 마지막 이름이 선택됩니다.
 - 속성 이름은 대/소문자를 구분합니다. 이름은 같지만 대/소문자가 다른 두 속성은 별도의 두 속성으로 간주됩니다. 
 
+### OrcFormat 지정
+서식이 OrcFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예:
+
+	"format":
+	{
+	    "type": "OrcFormat",
+	}
+
+다음 사항에 유의하세요.
+ 
+-	온-프레미스와 관련된 ORC 형식의 클라우드 데이터 저장소 간에 데이터를 복사하고 ORC 파일을 있는 그대로 원본에서 싱크로 복사하지 않는 경우 게이트웨이 컴퓨터에 JRE(Java Runtime Environment)를 설치해야 합니다. 
+-	복합 데이터 형식(구조체, 맵, 목록, 공용 구조체)은 지원되지 않습니다.
+-	ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(없음, ZLIB, SNAPPY)이 있습니다. Data Factory는 위의 압축된 형식의 ORC 파일에서 데이터를 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션이 없습니다. 
+
+<!---HONumber=AcomDC_0525_2016-->

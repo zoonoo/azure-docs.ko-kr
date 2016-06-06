@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/18/2016" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -82,7 +82,7 @@
 ## 자동 업데이트 기능 사용 안 함/사용
 다음을 수행하여 자동 업데이트 기능을 사용하지 않거나/사용할 수 있습니다.
 
-1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다. 
+1. 게이트웨이 컴퓨터에서 관리자로(**관리자 권한으로 실행**) Windows **PowerShell**을 시작합니다. 
 2. C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
 
@@ -93,23 +93,18 @@
 		.\GatewayAutoUpdateToggle.ps1  -on  
 
 ## 포트 및 보안 고려 사항
-다음과 같은 고려해야 할 두 방화벽이 있습니다. 조직의 중앙 라우터에서 실행되는 **회사 방화벽** 및 게이트웨이를 설치한 로컬 컴퓨터에서 데몬으로 구성 **Windows 방화벽**입니다.
+다음과 같은 고려해야 할 두 방화벽이 있습니다. 조직의 중앙 라우터에서 실행되는 **회사 방화벽** 및 게이트웨이를 설치한 로컬 컴퓨터에서 디먼으로 구성 **Windows 방화벽**입니다.
 
 ![방화벽](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
 ### 클라우드 서비스를 사용하여 게이트웨이 연결
-Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이이의 연결을 유지하려면 **TCP** 포트 **80** 및 **443**에 대한 아웃바운드 규칙이 구성되었는지 확인해야 합니다. 그리고 필요에 따라 Microsoft Azure 서비스 버스에서 Azure 데이터 팩터리와 데이터 관리 게이트웨이 간에 연결을 설정하기 위해 사용하는 포트 **9350**을 **9354**로 설정하면 둘 간의 통신 성능을 개선할 수 있습니다.
+Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이이의 연결을 유지하려면 **TCP** 포트 **80** 및 **443**에 대한 아웃바운드 규칙이 구성되었는지 확인해야 합니다. 그리고 필요에 따라 Microsoft Azure 서비스 버스에서 Azure Data Factory와 데이터 관리 게이트웨이 간에 연결을 설정하기 위해 사용하는 포트 **9350**을 **9354**로 설정하면 둘 간의 통신 성능을 개선할 수 있습니다.
 
 회사 방화벽 수준에서 다음 도메인 및 아웃바운드 포트를 구성 해야 합니다.
 
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) |
-| *.servicebus.windows.net | 9350-9354 | TCP를 통한 선택적 서비스 버스 릴레이 |
-| *.core.windows.net | 443 | HTTPS |
-| *.clouddatahub.net | 443 | HTTPS |
-| graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | | *.servicebus.windows.net | 9350-9354, 5671 | TCP를 통한 선택적 서비스 버스 릴레이 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 
@@ -150,7 +145,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 
-3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 서비스를 다시 시작하여 변경 내용을 적용합니다. 이 작업은 **시작** > **Services.msc** 또는 **데이터 관리 게이트웨이 구성 관리자** > **서비스 중지** 단추 클릭 후 **서비스 시작**을 클릭하여 수행할 수 있습니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 응용 프로그램 구성 파일에 추가되었을 가능성이 높습니다.
+3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 서비스를 다시 시작하여 변경 내용을 적용합니다. 이 작업은 **시작** > **Services.msc** 또는 **데이터 관리 게이트웨이 구성 관리자** > **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭하여 수행할 수 있습니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 응용 프로그램 구성 파일에 추가되었을 가능성이 높습니다.
 
 위에 언급된 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
@@ -165,7 +160,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 - 자세한 내용은 Windows 이벤트 로그의 게이트웨이 로그에서 확인할 수 있습니다. 문제 해결 게이트웨이 관련 문제가 이벤트 뷰어에서 오류 수준 이벤트를 찾는 동안 **응용 프로그램 및 서비스 로그**>**데이터 관리 게이트웨이**의 Windows **이벤트 뷰어**를 사용하여 찾을 수 있습니다.
 - **인증서를 변경**한 후 게이트웨이 작동이 멈출 경우 Microsoft 데이터 관리 게이트웨이 구성 관리자 도구 또는 서비스 제어판 애플릿을 사용하여 **데이터 관리 게이트웨이 서비스**를 다시 시작(중지하고 시작)합니다. 오류가 계속 표시되면 데이터 관리 게이트웨이 서비스 사용자가 인증서 관리자(certmgr.msc)의 인증서에 액세스할 수 있도록 명시적 권한을 부여해야 합니다. 서비스에 대한 기본 사용자 계정은 **NT Service\\DIAHostService**입니다. 
-- 데이터 저장소 연결 또는 드라이버 관련 오류를 참조하는 경우 게이트웨이 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **진단** 탭으로 전환하고 **이 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 연결 테스트** 그룹의 필드에 대한 적절한 값을 선택/입력하고 **연결 테스트**를 클릭하여 연결 정보 및 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.  
+- 데이터 저장소 연결 또는 드라이버 관련 오류를 참조하는 경우 게이트웨이 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **진단** 탭으로 전환하고 **이 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 연결 테스트** 그룹의 필드에 대한 적합한 값을 선택/입력하고 **연결 테스트**를 클릭하여 연결 정보 및 자격 증명을 사용하여 게이트웨이 컴퓨터에서 온-프레미스 데이터 원본에 연결할 수 있는지 확인합니다. 드라이버를 설치한 후에 계속 연결 테스트가 실패하는 경우 최신 변경 내용을 반영하도록 게이트웨이를 다시 시작합니다.  
 
 	![연결 테스트](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
@@ -217,9 +212,9 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	> [AZURE.NOTE] 
 	Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용하세요.
 	> 
-	> 크롬을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
+	> Chrome을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
 	>  
-	> Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 **세 가로 줄**)의 **열기 메뉴** 단추를 클릭하고 **추가 기능**을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
+	> Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 도구 모음(오른쪽 위의 **가로 줄 세 개**)의 **메뉴 열기** 단추, **추가 기능**을 차례로 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 
 	![게이트웨이 - 구성 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -255,7 +250,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	
 
 ### 3단계: 연결된 서비스 만들기 
-이 단계에서는 2개의 연결된 서비스 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 2개의 연결된 서비스 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### 온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
 1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다. 
@@ -276,6 +271,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
             		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
+                
+            > [AZURE.NOTE] Windows 인증(IntegratedSecurity=true)을 사용하는 경우 사용자 이름 및 암호를 지정하는 것은 선택 사항입니다. 이러한 속성을 지정하지 않으면 데이터 관리 게이트웨이는 게이트웨이 컴퓨터에 로그인한 사용자의 자격 증명을 사용하여 데이터베이스에 액세스합니다. 게이트웨이에서 다른 자격 증명을 사용하여 데이터베이스에 액세스하게 하려면 사용자 이름 및 암호를 명시적으로 지정합니다.
 
 	4. SQL 인증을 사용하는 경우
 		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.       
@@ -618,7 +615,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음을 수�
 
 Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
-자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 코드 조각을 사용하는 JSON 파일에서 **connectionString**의 **EncryptedCredential** 요소에 추가할 수 있습니다.
+자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet 또는 포털의 Data Factory 편집기에서 JSON 코드 조각을 사용하는 JSON 파일에서 **connectionString**의 **EncryptedCredential** 요소에 추가할 수 있습니다.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -682,8 +679,7 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
 데이터 파이프라인에는 복사 활동을 사용하여 온-프레미스 데이터를 클라우드로 수집하거나 결과 데이터를 클라우드에서 온-프레미스 데이터 저장소에 다시 내보내는 경우 복사 작업은 내부적으로 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 클라우드로 그리고 반대로 데이터를 전송합니다.
 
-다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.
-![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	데이터 개발자는 [Azure 포털](https://portal.azure.com) 또는 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure Data Factory에 대한 새 게이트웨이를 만듭니다. 
 2.	데이터 개발자는 게이트웨이로 "연결된 서비스" 패널을 사용하여 온-프레미스 데이터 저장소에 대한 새 연결 된 서비스를 정의합니다. 연결된 서비스 데이터 설정의 일부로서 개발자는 단계별 연습에 표시된 대로 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
@@ -692,4 +688,4 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

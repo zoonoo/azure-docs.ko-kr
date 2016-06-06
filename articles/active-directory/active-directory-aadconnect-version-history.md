@@ -24,11 +24,11 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 다음은 관련된 항목의 목록입니다.
 
-| 항목 | |
-| --------- | --------- |
-| Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)하는 다른 방법입니다. |
-| 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요. |
-| 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
+항목 |  
+--------- | --------- |
+Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)하는 다른 방법입니다.
+필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
+다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.180.0
 릴리스 날짜: 2016년 5월
@@ -284,4 +284,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

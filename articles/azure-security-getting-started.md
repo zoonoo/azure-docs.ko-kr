@@ -1,19 +1,19 @@
 <properties
    pageTitle="Microsoft Azure 보안 시작 | Microsoft Azure"
    description="이 문서에서는 Microsoft Azure 보안 기능 및 클라우드 공급자에 자산을 마이그레이션하는 조직에 대한 일반적인 고려 사항에 개요를 제공합니다."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 #Microsoft Azure 보안 시작
@@ -241,4 +241,4 @@ Azure에는 위협 해결 방법을 구현하고 고객이 해당 환경에서 �
 
 [Active Directory 블로그](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

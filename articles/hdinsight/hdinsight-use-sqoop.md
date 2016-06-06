@@ -14,32 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
-#HDInsight에서 Hadoop과 Sqoop 사용(Windows)
+#HDInsight에서 Hadoop과 Sqoop 사용
 
 [AZURE.INCLUDE [sqoop 선택기](../../includes/hdinsight-selector-use-sqoop.md)]
 
 HDInsight에서 Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 사이에서 가져오기 및 내보내는 방법을 알아봅니다.
-
-> [AZURE.NOTE] 이 문서의 단계는 Windows 기반 또는 Linux 기반 HDInsight 클러스터와 사용할 수 있지만 이 단계에서만 Windows 클라이언트에서 작동합니다.
->
-> Linux, OS X 또는 Unix 클라이언트 및 Linux 기반 HDInsight 서버를 사용하는 경우 [HDInsight에서 Hadoop과 함께 Sqoop 사용(SSH)](hdinsight-use-sqoop-mac-linux.md)을 참조하세요.
 
 비구조적 및 반구조적 데이터(예: 로그 및 파일)를 처리하기 위해 당연히 Hadoop을 선택하지만 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 경우도 있습니다.
 
 [Sqoop][sqoop-user-guide-1.4.4]은 Hadoop 클러스터와 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 RDBMS(관계형 데이터베이스 관리 시스템)에서 HDFS(Hadoop Distributed File System)로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 관계형 데이터베이스에 SQL Server 데이터베이스를 사용합니다.
 
 HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
-
-###필수 조건
-
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
-
-- **Azure PowerShell이 포함된 워크스테이션**.
-
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##시나리오 이해
 
@@ -90,7 +78,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 2. 매개 변수 블레이드에서 다음을 입력합니다.
 
     - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
-    - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 admin입니다.
+    - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
     - **SSH 사용자 이름 및 암호**.
     - **SQL 데이터베이스 서버 로그인 이름 및 암호**.
 
@@ -105,7 +93,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     
 3\.**확인**을 클릭하여 매개 변수를 저장합니다.
 
-4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
 
 5\.**약관**을 클릭한 후에 **만들기**를 클릭합니다.
 
@@ -405,9 +393,9 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 		-Type Standard_LRS
 	
 	# Create the default Blob container
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
 									-ResourceGroupName $resourceGroupName `
-									-Name $defaultStorageAccountName |  %{ $_.Key1 }
+									-Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
 										-StorageAccountName $defaultStorageAccountName `
 										-StorageAccountKey $defaultStorageAccountKey 
@@ -635,4 +623,4 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 
@@ -75,7 +75,7 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 ![저장][policies-save]
 
-정책에 대한 명령문을 구성한 후에는 **저장** 을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
+정책에 대한 명령문을 구성한 후에는 **저장**을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
 
 ##<a name="sections"> </a>정책 구성 이해
 
@@ -150,4 +150,4 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

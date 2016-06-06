@@ -87,9 +87,9 @@ SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 
 [코드 마이그레이션]: ./sql-data-warehouse-migrate-code.md
 [create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [bcp를 설치]: ./sql-data-warehouse-load-with-bcp.md
-[sqlcmd를 설치]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
+[sqlcmd를 설치]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 Outlook API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Office 365 Outlook API 개요"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 Outlook 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Office 365 Outlook 커넥터 개요"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Office365 Outlook API 시작 
+# Office 365 Outlook 커넥터 시작 
 
-Office 365 Outlook에 연결하여 전자 메일 받기, 전자 메일 회신, 일정 및 연락처 업데이트 등을 수행할 수 있습니다. Office 365 Outlook API는 다음에서 사용할 수 있습니다.
+Office 365 Outlook에 연결하여 전자 메일 받기, 전자 메일 회신, 일정 및 연락처 업데이트 등을 수행할 수 있습니다. Office 365 Outlook 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -37,26 +37,26 @@ Office 365 Outlook을 사용하면 다음을 수행할 수 있습니다.
 - Office 365 Outlook에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 새 전자 메일이 있거나 새 연락처를 만든 경우 등에 트리거를 사용합니다.
 - 전자 메일에 회신하는 동작을 사용하고 새 일정 이벤트를 만드는 등의 작업을 수행합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Salesforce에 새 개체가 있는 경우 이 개체를 가져와 Office 365 Outlook 연락처를 업데이트할 수 있습니다. 
-- PowerApps 엔터프라이즈에 Office 365 Outlook API 추가 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 Office 365 Outlook 커넥터 추가 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 
-Office 365 Outlook API에서 사용할 수 있는 트리거와 작업은 다음과 같습니다.
+Office 365 Outlook 커넥터에서 사용할 수 있는 트리거와 작업은 다음과 같습니다.
 
 | 트리거 | actions|
 | --- | --- |
 |<ul><li>곧 시작되는 이벤트</li><li>새 메일</li><li>새 항목</li><li>업데이트된 항목</li></ul>| <ul><li>연락처 만들기</li><li>이벤트 만들기</li><li>승인 메일 보내기</li><li>메일 보내기</li><li>연락처 삭제</li><li>메일 삭제</li><li>이벤트 삭제</li><li>첨부 파일 가져오기</li><li>일정 가져오기</li><li>연락처 가져오기</li><li>연락처 폴더 가져오기</li><li>연락처 가져오기</li><li>메일 가져오기</li><li>이벤트 가져오기</li><li>이벤트 가져오기</li><li>읽은 상태로 표시</li><li>이벤트 곧 시작</li><li>새 메일</li><li>새 항목</li><li>업데이트된 항목</li><li>메시지에 회신</li><li>옵션과 함께 메일 보내기</li><li>연락처 업데이트</li><li>이벤트 업데이트</li></ul> |
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 
 ## Office365에 대한 연결 만들기
 
-논리 앱에 이 API를 추가할 때 Office 365 Outlook 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 Office 365 Outlook 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
 
 1. Office 365 Outlook 계정에 로그인합니다.
 2. 논리 앱에서 Office 365 계정에 연결하고 사용할 수 있도록 허용합니다. 
@@ -533,11 +533,14 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목|string|yes|
+|제목  
+|string|yes|
 |본문|string|yes|
-|중요도|string|no|
+|중요도  
+|string|no|
 |IsHtml|부울|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### SendAttachment: 첨부 파일
 
@@ -560,11 +563,14 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목|string|yes|
+|제목  
+|string|yes|
 |본문|string|yes|
-|중요도|string|no|
+|중요도  
+|string|no|
 |IsHtml|부울|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 
 #### ReceiveAttachment: 첨부 파일 받기
@@ -582,12 +588,15 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 
 | 이름 | 데이터 형식 |필수|
 |---|---|---|
-|제목|string|yes|
+|제목  
+|string|yes|
 |본문|string|no|
-|중요도|string|no|
+|중요도  
+|string|no|
 |Digest|array|yes|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### TriggerBatchResponse[ReceiveMessage]
 
@@ -645,12 +654,15 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 
 | 이름 | 데이터 형식 |필수|
 |---|---|---|
-|제목|string|yes|
+|제목  
+|string|yes|
 |옵션|string|yes|
 |본문|string|no|
-|중요도|string|no|
+|중요도  
+|string|no|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### SubscriptionResponse: 승인 전자 메일 구독에 대한 모델
 
@@ -674,12 +686,15 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 
 | 이름 | 데이터 형식 |필수|
 |---|---|---|
-|제목|string|yes|
+|제목  
+|string|yes|
 |옵션|string|yes|
 |본문|string|no|
-|중요도|string|no|
+|중요도  
+|string|no|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### ApprovalEmailResponse: 승인 전자 메일 응답
 
@@ -768,4 +783,4 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -104,7 +104,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 4. 맬웨어 방지 솔루션에 대한 추가 정보가 표시됩니다. **만들기**를 선택합니다.
 5. **확장 추가** 블레이드에서 필요한 구성 설정을 입력하고 **확인**을 선택합니다. ![][6]
 
-이제 선택한 가상 컴퓨터에서 [Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)이 활성화됩니다.
+이제 선택한 가상 컴퓨터에서 [Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md)이 활성화됩니다.
 
 
 ## 다음 단계
@@ -124,4 +124,4 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/23/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD 동기화 연결: 함수 참조
 
-
-Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하려면 함수를 사용합니다. 함수의 구문은 다음 형식을 사용하여 표현됩니다. `<output type> FunctionName(<input type> <position name>, ..)`
+Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다. 함수의 구문은 다음 형식을 사용하여 표현됩니다. `<output type> FunctionName(<input type> <position name>, ..)`
 
 함수가 과부하되거나 여러 구문을 허용한 경우, 모든 사용한 구문의 목록이 나타납니다. 함수는 강력한 형식이며, 일치하는 문서 형식 안에 들어가는 형식을 확인합니다. 형식이 일치하지 않는 경우 오류가 나타납니다.
 
@@ -32,50 +31,44 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 - **enum**– 알려진 상수의 열거형
 - **exp**– 부울로 계산이 예상되는 식
 - **mvbin**– 다중값의 이진
-- **mvstr**– 다중 값 참조
+- **mvstr**– 다중 값 문자열
+- **mvref**– 다중 값 참조
 - **num**– 숫자
 - **ref**– 단일 값 참조
 - **str**– 단일 값 문자열
 - **var**– 거의 모든 다른 형식의 변수
 - **void**– 값을 반환하지 않습니다.
 
-
-
 ## 함수 참조
 
-----------
-**변환:**
-
-[CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [CGuid](#cguid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromBase64](#convertfrombase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromUTF8Hex](#convertfromutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [CNum](#cnum) &nbsp;&nbsp;&nbsp;&nbsp; [CRef](#cref) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromGuid](#StringFromGuid) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromSid](#stringfromsid)
-
-**날짜 / 시간:**
-
-[DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate)
-
-**디렉터리**
-
-[DNComponent](#dncomponent) &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
-
-**평가:**
-
-[IsBitSet](#isbitset) &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
-
-**수학식:**
-
-[BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [BitOr](#bitor) &nbsp;&nbsp;&nbsp;&nbsp; [RandomNum](#randomnum)
-
-**다중값**
-
-[Contains](#contains) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [ItemOrNull](#itemornull) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)
-
-**프로그램 흐름:**
-
-[Error](#error) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
-
-
-**Text**
-
-[GUID](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [InStrRev](#instrrev) &nbsp;&nbsp;&nbsp;&nbsp; [LCase](#lcase) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Len](#len) &nbsp;&nbsp;&nbsp;&nbsp; [LTrim](#ltrim) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [PadLeft](#padleft) &nbsp;&nbsp;&nbsp;&nbsp; [PadRight](#padright) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceChars](#replacechars) &nbsp;&nbsp;&nbsp;&nbsp; [Right](#right) &nbsp;&nbsp;&nbsp;&nbsp; [RTrim](rtrim) &nbsp;&nbsp;&nbsp;&nbsp; [Trim](#trim) &nbsp;&nbsp;&nbsp;&nbsp; [UCase](#ucase) &nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+함수 목록 | | | | |  
+--------- | --------- | --------- | --------- | --------- | ---------
+**변환** |  
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+**Date / Time** |  
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
+**디렉터리** |  
+[DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
+**평가** |  
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
+**Math** |  
+[BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
+**다중값** |  
+[포함](#contains) | [개수](#count) | [항목](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [분할](#split) |
+**Program Flow** |  
+[오류](#error) | [IIF](#iif) | [Switch](#switch)
+**Text** |  
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim.](#ltrim) | [Mid](#mid)
+[padLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
@@ -93,7 +86,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 즉, 두 매개 변수의 해당 비트가 1일 경우를 제외하는 모든 경우에는 0을 반환합니다.
 
-**예제:** `BitAnd(&HF, &HF7)` 16진법 “F” AND “F7”으로 이 값을 계산했기 때문에 7을 반환합니다.
+**예제:** `BitAnd(&HF, &HF7)` 16진법 "F" AND "F7"로 이 값을 계산했기 때문에 7을 반환합니다.
 
 ----------
 ### BitOr
@@ -104,7 +97,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 - value1, value2: 숫자 값은 OR과 함께 사용해야 합니다.
 
-**주의:** 이 함수는 두 개의 모든 매개 변수를 이잔 표현으로 변환하고 마스크 및 플래그 내의 해당 비트가 둘 중에 하나 혹은 둘 다 1일 경우 1로, 해당 비트 모두 0일 경우 0으로 설정합니다. 즉, 두 매개 변수의 해당 비트가 0일 경우를 제외하는 모든 경우에 1을 반환합니다.
+**주의:** 이 함수는 두 개의 모든 매개 변수를 이진 표현으로 변환하고 마스크 및 플래그 내의 해당 비트가 둘 중에 하나 혹은 둘 다 1일 경우 1로, 해당 비트 모두 0일 경우 0으로 설정합니다. 즉, 두 매개 변수의 해당 비트가 0일 경우를 제외하는 모든 경우에 1을 반환합니다.
 
 ----------
 ### CBool
@@ -158,7 +151,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 **주의:** 다중값 문자열 특성에 대한 검색 값에서 부분 문자열을 찾습니다. 참조 특성에 대해 검색된 문자열은 일치하는 것으로 간주될 값에 정확히 일치해야 합니다.
 
-**예제:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` proxyAddresses 특성이 기본 이메일 주소(대문자로 표시 “SMTP:”)를 가질 경우 proxyAddress 특성이 반환되며, 그 외에는 오류가 반환됩니다.
+**예제:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP:”)를 가질 경우 proxyAddress 특성이 반환되며, 그 외에는 오류가 반환됩니다.
 
 ----------
 ### ConvertFromBase64
@@ -399,7 +392,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 - 값: 숫자 값은 evaluated.flag: 숫자 값은 계산할 수 있는 숫자 값을 가집니다.
 
-**예제:** `IsBitSet(&HF,4)` 비트 “4”는 16진수 값 “F” 안에 설정되어 있으므로 True를 반환합니다.
+**예제:** `IsBitSet(&HF,4)` 비트 "4"는 16진수 값 "F" 안에 설정되어 있으므로 True를 반환합니다.
 
 ----------
 ### IsDate
@@ -408,7 +401,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 **구문:** `bool IsDate(var Expression)`
 
-**주의:** CDate()가 성공적으로 수행될지 결정하는 데 사용됩니다.
+**주의:** CDate()가 정상적으로 수행될지 결정하는 데 사용됩니다.
 
 ----------
 ### IsEmpty
@@ -433,7 +426,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### IsNull
 
-**설명:** IsNull 함수는 식이 Null로 계산되면 true를 반환합니다.
+**설명:** IsNull 함수는 식이 Null로 계산되면 True를 반환합니다.
 
 **구문:** `bool IsNull(var Expression)`
 
@@ -473,7 +466,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### IsPresent
 
-**설명:** IsPresent 함수는 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 true를 반환합니다.
+**설명:** IsPresent 함수는 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 True를 반환합니다.
 
 **구문:** `bool IsPresent(var expression)`
 
@@ -523,7 +516,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **주의** Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고 구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
 
-**예제:** `Join([proxyAddresses],",")` “SMTP:”를 반환할 수 있습니다.john.doe@contoso.com,smtp:jd@contoso.com
+**예제:** `Join([proxyAddresses],",")` "SMTP"를 반환할 수 있습니다.john.doe@contoso.com,smtp:jd@contoso.com
 
 ----------
 ### LCase
@@ -570,7 +563,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str LTrim(str value)`
 
-**예제:** `LTrim(" Test ")` "TEST"를 반환합니다.
+**예제:** `LTrim(" Test ")` "Test"를 반환합니다.
 
 ----------
 ### Mid
@@ -664,7 +657,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `String PCase(string)`
 
-**예제:** `PCase("TEsT")` "TEST"를 반환합니다.
+**예제:** `PCase("TEsT")` "Test"를 반환합니다.
 
 ----------
 ### RandomNum
@@ -704,7 +697,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - \\r – 캐리지 반환
 - \\t – 탭
 
-**예제:** `Replace([address],"\r\n",", ")` CRLF를 쉼표와 공백으로 바꾸고 “One Microsoft Way, Redmond, WA, USA”로 나타낼 수 있습니다.
+**예제:** `Replace([address],"\r\n",", ")` CRLF를 쉼표와 공백으로 바꾸고 "One Microsoft Way, Redmond, WA, USA"로 나타낼 수 있습니다.
 
 ----------
 ### ReplaceChars
@@ -733,7 +726,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)` Raksmorgas를 반환합니다.
 
-`ReplaceChars("O’Neil",%ReplaceString%)` “ONeil”을 반환합니다. 단일 틱이 제거 대상으로 정의됩니다.
+`ReplaceChars("O’Neil",%ReplaceString%)` "ONeil"을 반환합니다. 단일 틱이 제거 대상으로 정의됩니다.
 
 ----------
 ### Right
@@ -764,7 +757,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str RTrim(str value)`
 
-**예제:** `RTrim(" Test ")` "TEST"를 반환합니다.
+**예제:** `RTrim(" Test ")` "Test"를 반환합니다.
 
 ----------
 ### 분할
@@ -825,7 +818,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
-**예제:** `Trim(" Test ")` "TEST"를 반환합니다.
+**예제:** `Trim(" Test ")` "Test"를 반환합니다.
 
 `Trim([proxyAddresses])` proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
@@ -836,7 +829,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str UCase(str string)`
 
-**예제:** `UCase("TeSt")` "Test"를 반환합니다.
+**예제:** `UCase("TeSt")` "TEST"를 반환합니다.
 
 ----------
 ### Word
@@ -866,4 +859,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

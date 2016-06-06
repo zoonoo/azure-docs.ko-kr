@@ -1,10 +1,10 @@
 <properties
-pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Dynamic CRM Online API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 CRM Online API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Dynamic CRM Online 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 CRM Online 커넥터 개요"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor="" tags="connectors" />
 
 <tags
@@ -13,11 +13,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# CRM API 시작
-Dynamics CRM Online에 연결하여 새 레코드 만들기, 항목 업데이트 등의 작업을 수행합니다. CRM Online API를 다음에서 사용할 수 있습니다.
+# CRM 커넥터 시작
+Dynamics CRM Online에 연결하여 새 레코드 만들기, 항목 업데이트 등의 작업을 수행합니다. CRM Online 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱
 - PowerApps
@@ -32,22 +32,22 @@ CRM Online을 사용하면 다음과 같은 작업을 수행할 수 있습니다
 - 레코드 삭제, 엔터티 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 CRM에서 항목이 업데이트되면 Office 365를 사용하여 메일을 보낼 수 있습니다.
 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
-CRM API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
+CRM 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 | 트리거 | actions|
 | --- | --- |
 |없음| <ul><li>새 레코드 만들기</li><li>레코드 가져오기</li><li>레코드 삭제</li><li>레코드 가져오기</li><li>엔터티 가져오기</li><li>항목 업데이트</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## CRM Online에 대한 연결 만들기
 
-논리 앱에 이 API를 추가할 때 Dynamics CRM Online에 로그인해야 합니다. 다음 단계를 따라 CRM Online에 로그인하고 논리 앱의 **연결** 구성을 완료합니다.
+논리 앱에 이 커넥터를 추가할 때 Dynamics CRM Online에 로그인해야 합니다. 다음 단계를 따라 CRM Online에 로그인하고 논리 앱의 **연결** 구성을 완료합니다.
 
 1. 논리 앱에서 **작업 추가**를 선택합니다. ![CRM 온라인 구성][13]
 4. 검색 상자에 CRM을 입력하고 이름에 CRM이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
@@ -268,4 +268,4 @@ CRM 인스턴스에 있는 엔터티 목록을 가져오는 데 사용됩니다.
 [14]: ./media/connectors-create-api-crmonline/crmconfig2.png
 [15]: ./media/connectors-create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

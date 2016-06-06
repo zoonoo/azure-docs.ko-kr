@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2016"    
+	ms.date="05/19/2016"    
 	ms.author="juliako"/>
 
 
@@ -236,6 +236,20 @@
 		}
 
 
+##상대적 크기에 대한 지원
+
+미리 보기를 생성하는 경우 출력 너비 및 높이(픽셀)를 항상 지정하지 않아도 됩니다. [1%, …, 100%] 범위에서 백분율로 지정할 수 있습니다.
+
+###JSON 사전 설정 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###XML 사전 설정
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>미리 보기 생성
 
 이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 미리 보기를 생성하는 코드를 추가할 수 있습니다.
@@ -1072,4 +1086,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management에서 보안 검토를 시작하는 방법
 
-사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 감소시키기 위해 보안 관리자는 사용자에게 부여된 역할을 정기적으로 검토해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 보안 검토를 시작하는 단계를 설명합니다.
+사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 사용자에게 부여된 역할을 정기적으로 검토해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 보안 검토를 시작하는 단계를 설명합니다.
 
 ## 보안 검토 시작
 > [AZURE.NOTE] Azure 포털의 대시보드에 PIM 응용 프로그램을 추가하지 않았으면 [Azure Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md)의 단계를 참조하세요.
@@ -64,4 +64,4 @@ PIM 응용 프로그램 기본 페이지에서 보안 검토를 시작하는 방
 ## PIM 목차
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
+    manager="jwhit"
     editor="tysonn" />    
 <tags 
     ms.service="automation"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/23/2016"
+    ms.date="05/23/2016"
     ms.author="magoedte;sngun" />
 
 # Azure 자동화에서 원본 제어 통합
@@ -50,9 +50,9 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 3. 예를 들어 **RootFolder**라는 폴더를 포함하는 **PowerShellScripts**라는 리포지토리가 있는 경우 이는 **SubFolder**라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
 
-    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */* 입니다.
-    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder* 입니다.
-    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder* 입니다.
+    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*입니다.
+    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*입니다.
+    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
   
 
 4. 매개 변수를 구성한 후에 **원본 제어 설정 블레이드**에 표시됩니다.
@@ -161,4 +161,4 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 - [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

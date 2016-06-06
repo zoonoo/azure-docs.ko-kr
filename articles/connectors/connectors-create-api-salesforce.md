@@ -1,10 +1,10 @@
 <properties
-pageTitle="PowerApps 엔터프라이즈 및 논리 앱에 Salesforce API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Salesforce API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="PowerApps 엔터프라이즈 및 논리 앱에 Salesforce 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 Salesforce 커넥터 개요"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,11 +14,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/19/2016"
 ms.author="deonhe"/>
 
-# Salesforce API 시작
-Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다. Salesforce API를 다음에서 사용할 수 있습니다.
+# Salesforce 커넥터 시작 
+Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다. Salesforce 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -36,9 +36,9 @@ Salesforce를 사용하면 다음과 같은 작업을 수행할 수 있습니다
 - Salesforce에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 개체를 만들거나 업데이트할 때 트리거를 사용합니다.
 - 개체 만들기, 개체 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Salesforce에서 새 개체가 만들어지면 Office 365를 사용하여 메일을 보낼 수 있습니다.
-- PowerApps 엔터프라이즈에 Salesforce API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 Salesforce 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -49,14 +49,13 @@ Salesforce API에는 다음 트리거 및 작업이 포함됩니다.
 | --- | --- |
 |<ul><li>개체를 만들 때</li><li>개체를 수정할 때</li></ul> | <ul><li>개체 만들기</li><li>개체 가져오기</li><li>개체를 만들 때</li><li>개체를 수정할 때</li><li>개체 삭제</li><li>개체 가져오기</li><li>개체 유형 가져오기(SObjects)</li><li>개체 업데이트</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Salesforce에 대한 연결 만들기 
 
-논리 앱에 이 API를 추가할 때 Salesforce에 연결할 권한을 논리 앱에 부여해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 Salesforce에 연결할 권한을 논리 앱에 부여해야 합니다.
 
-1. Salesforce 계정에 로그인합니다.
-2. 논리 앱에서 Salesforce에 연결하고 사용할 수 있도록 허용합니다. 
+>[AZURE.INCLUDE [Salesforce에 대한 연결을 만드는 단계](../../includes/connectors-create-api-salesforce.md)]
 
 연결을 만든 후에 테이블 이름 등의 Salesforce 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -266,4 +265,4 @@ Salesforce에서 개체를 수정할 때 흐름을 트리거합니다. ```GET: /
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

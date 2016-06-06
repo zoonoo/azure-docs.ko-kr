@@ -671,7 +671,7 @@ Data Factory 서비스가 Azure 배치에 **adf-<pool name>:job-xxx** 이름으�
 ![Azure 배치 작업][image-data-factory-azure-batch-tasks]
 
 
-### 파이프라인 디버깅
+## 파이프라인 디버깅
 디버깅은 몇 가지 기본적인 방법으로 구성됩니다.
 
 1.	입력 조각이 **Ready**로 설정되지 않은 경우 입력 폴더 구조가 올바르고 **file.txt**가 입력 폴더에 있는지 확인합니다. 
@@ -689,6 +689,10 @@ Data Factory 서비스가 Azure 배치에 **adf-<pool name>:job-xxx** 이름으�
 4.	사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위**여야 합니다.
 5.	**assemblyName**(MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile**(customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService**(zip 파일을 포함하는 Azure Blob 저장소를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다. 
 6.	오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다. 
+7.	사용자 지정 활동은 패키지의 **app.config** 파일을 사용하지 않으므로 코드가 구성 파일에서 연결 문자열을 읽으면 런타임에 작동하지 않습니다. Azure 배치를 사용할 때의 모범 사례는 **Azure 주요 자격 증명 모음**에 모든 암호를 저장하고, 인증서 기반 서비스 사용자를 사용하여 **주요 자격 증명 모음**을 보호하고, 인증서를 Azure 배치 풀에 배포하는 것입니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이것은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
+
+	모범 사례는 아니지만 좀 더 쉬운 해결 방법이 있습니다. 연결 문자열 설정을 사용하여 새 **Azure SQL 연결된 서비스**를 만들고, 연결된 서비스를 사용하는 데이터 집합을 만들고, 데이터 집합을 더미 입력 데이터 집합으로 사용자 지정 .NET 작업에 연결할 수 있습니다. 그런 후 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 그러면 런타임에 문제 없이 작동합니다.
+
 
 
 ## 사용자 지정 작업 업데이트
@@ -886,4 +890,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

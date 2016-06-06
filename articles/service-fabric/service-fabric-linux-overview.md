@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Linux의 서비스 패브릭
 
 서비스 패브릭은 현재 Linux에서 제한된 미리 보기로 제공됩니다. Linux에서는 Windows에서와 마찬가지로 서비스 패브릭을 통해 해당 환경에서 가용성 및 확장성이 뛰어난 응용 프로그램을 빌드, 배포 및 관리할 수 있습니다. 또한 이제 뛰어난 수준의 서비스 패브릭 프레임 워크(Reliable Services 및 Reliable Actors)를 Java에서 빌드할 수 있습니다.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## 지원되는 운영 체제 및 프로그래밍 언어
 
@@ -38,4 +40,4 @@ Linux의 서비스 패브릭은 OS 관련 기능 및 프로그래밍 언어 지�
 
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 및 [Reliable Services](service-fabric-reliable-services-introduction.md) 프로그래밍 프레임워크에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

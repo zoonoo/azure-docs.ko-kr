@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Azure PowerShell을 사용하여 Azure Redis Cache 관리
@@ -112,7 +112,7 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 | 크기 | 캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB | 1GB |
 | ShardCount | 클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU | 캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 | Standard |
-| RedisConfiguration | maxmemory-delta, maxmemory-policy 및 notify-keyspace-events에 대한 Redis 구성 설정을 지정합니다. maxmemory-delta 및 notify-keyspace-events는 표준 및 프리미엄 캐시에만 사용할 수 있습니다. | |
+| RedisConfiguration | Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
 | EnableNonSslPort | 비 SSL 포트를 사용하는지 여부를 나타냅니다. | False |
 | MaxMemoryPolicy | 이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
 | StaticIP | VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. | |
@@ -120,6 +120,23 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 | VirtualNetwork | VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 VNET의 리소스 ID를 지정합니다. | |
 | KeyType | 액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값: 주, 보조 | | | |
 
+
+### RedisConfiguration 속성
+
+| 속성 | 설명 | 가격 책정 계층 |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------|---------------------|
+| rdb-backup-enabled | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 | 프리미엄 전용 |
+| rdb-storage-connection-string | [Redis 데이터 지속성](cache-how-to-premium-persistence.md)에 대한 저장소 계정 연결 문자열 | 프리미엄 전용 |
+| rdb-backup-frequency | [Redis 데이터 지속성](cache-how-to-premium-persistence.md)에 대한 백업 빈도 | 프리미엄 전용 |
+| maxmemory-reserved | 비 캐시 프로세스를 위해 [예약되는 메모리](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)를 구성합니다 | 표준 및 프리미엄 |
+| maxmemory-policy | 캐시에 대한 [제거 정책](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)을 구성합니다 | 모든 가격 책정 계층 |
+| notify-keyspace-events | [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) 구성 | 표준 및 프리미엄 |
+| hash-max-ziplist-entries | 작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 | 표준 및 프리미엄 |
+| hash-max-ziplist-value | 작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 | 표준 및 프리미엄 |
+| set-max-intset-entries | 작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 | 표준 및 프리미엄 |
+| zset-max-ziplist-entries | 작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 | 표준 및 프리미엄 |
+| zset-max-ziplist-value | 작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 | 표준 및 프리미엄 |
+| 데이터베이스 | 데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. | 표준 및 프리미엄 |
 
 ## Redis Cache를 만들려면
 
@@ -131,7 +148,7 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 
 `New-AzureRmRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
-	PS C:\> Get-Help New-AzureRmRedisCache -detailed
+	PS SQLSERVER:> Get-Help New-AzureRmRedisCache -detailed
 	
 	NAME
 	    New-AzureRmRedisCache
@@ -139,14 +156,17 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 	SYNOPSIS
 	    Creates a new redis cache.
 	
+	
 	SYNTAX
 	    New-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Location <String> [-RedisVersion <String>]
 	    [-Size <String>] [-Sku <String>] [-MaxMemoryPolicy <String>] [-RedisConfiguration <Hashtable>] [-EnableNonSslPort
 	    <Boolean>] [-ShardCount <Integer>] [-VirtualNetwork <String>] [-Subnet <String>] [-StaticIP <String>]
 	    [<CommonParameters>]
 	
+	
 	DESCRIPTION
 	    The New-AzureRmRedisCache cmdlet creates a new redis cache.
+	
 	
 	PARAMETERS
 	    -Name <String>
@@ -174,21 +194,19 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 	
 	    -RedisConfiguration <Hashtable>
 	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+	        rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+	        hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value, databases.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. If no value is provided, the default value is false and the
 	        non-SSL port will be disabled. Possible values are true and false.
-
+	
 	    -ShardCount <Integer>
 	        The number of shards to create on a Premium Cluster Cache.
 	
 	    -VirtualNetwork <String>
-	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format:
-	        /subscriptions/{subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
+	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{
+	        subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 	
 	    -Subnet <String>
 	        Required when deploying a redis cache inside an existing Azure Virtual Network.
@@ -212,9 +230,18 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-`RedisConfiuration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [Maxmemory-policy 및 maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.
+`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [Maxmemory-policy 및 maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
+
+<a name="databases"></a>
+## 캐시를 만드는 동안 데이터베이스 설정을 구성하려면
+
+`databases` 설정은 캐시를 만드는 동안에만 구성할 수 있습니다. 다음 예제에서는 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet를 사용하여 48 데이터베이스로 프리미엄 P3 (26 GB) 캐시를 만듭니다.
+
+	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
+
+`databases` 속성에 대한 자세한 내용은 [기본 Azure Redis Cache 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet를 사용하여 캐시를 만드는 방법에 대한 자세한 내용은 이전의 [Redis 캐시 만들려면](#to-create-a-redis-cache)을 참조하세요,
 
 ## Redis Cache를 업데이트하려면
 
@@ -257,11 +284,9 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 	        MaxMemoryPolicy. e.g. -RedisConfiguration @{"maxmemory-policy" = "allkeys-lru"}
 	
 	    -RedisConfiguration <Hashtable>
-	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+			All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
+			rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+			hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. The default value is null and no change will be made to the
@@ -289,9 +314,11 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 
 >[AZURE.NOTE]PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 제한 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 >
->-	**프리미엄** 캐시로 또는 캐시로부터 크기를 조정할 수 없습니다.
->-	**표준** 캐시에서 **기본** 캐시로 크기를 조정할 수 없습니다.
+>-	높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
+>    -    **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
+>    -    **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 >-	**기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
+>-	**기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
 >-	더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
 >
 >자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
@@ -609,4 +636,4 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

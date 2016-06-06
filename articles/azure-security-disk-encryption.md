@@ -1,19 +1,19 @@
 <properties
    pageTitle="Windows 및 Linux IaaS VM용 Azure 디스크 암호화 | Microsoft Azure"
    description="이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure 디스크 암호화에 대한 개요를 제공합니다."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ Azure 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원�
 - 미리 암호화된 VHD 및 암호화 키에서 만든 새 IaaS VM에서 암호화 사용
 - Azure 갤러리 이비지에서 만든 새 IaaS VM에서 암호화 사용 
 - Azure에서 이미 실행 중인 기존 IaaS VM에서 암호화 사용 
-- Windows IaaS VM에서 암호화 사용 안 함  
+- Windows IaaS VM에서 암호화 사용 안 함 
 
 솔루션은 Microsoft Azure에서 활성화된 경우 IaaS VM에 대해 다음을 지원합니다.
 
@@ -78,7 +78,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 - 고객 저장소에서 휴지 상태 부팅 볼륨을 보호하기 위해 OS 볼륨의 암호화
 
 	- Azure에서 이미 실행 중인 Linus IaaS VM에서 OS 볼륨의 암호화는 현재 지원되지 않습니다. Linux IaaS VM용 OS 볼륨의 암호화는 미리 암호화된 VHD 시나리오에 대해서만 지원됩니다.
-	
+
 - 고객 저장소에서 휴지 상태 데이터 볼륨을 보호하기 위해 데이터 볼륨의 암호화
 
 - Windows IaaS VM에서 암호화 사용 안 함
@@ -169,21 +169,21 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 	- 유효한 암호 URL의 예:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 유효한 KRK KEK의 예:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화는 주요 자격 증명 모음 암호 및 KEK URL의 일부로 지정되는 포트 번호를 지원하지 않습니다. 지원되는 주요 자격 증명 모음 URL은 아래 예제를 참조하세요.
 
  	- 허용되지 않은 주요 자격 증명 모음 URL
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 허용되는 주요 자격 증명 모음 URL:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 끝점 구성 요구 사항을 충족해야 합니다.
 
@@ -845,4 +845,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

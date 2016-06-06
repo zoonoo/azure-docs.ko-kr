@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # StorSimple 8000 시리즈 업데이트 2 릴리스 정보  
@@ -115,4 +115,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 StorSimple 장치에 [업데이트 2를 설치](storsimple-install-update-2.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

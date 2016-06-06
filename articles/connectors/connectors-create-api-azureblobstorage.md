@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 Azure Blob 저장소 API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Azure Blob 저장소 개요"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="논리 앱에 Azure Blob 저장소 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Azure Blob 저장소 커넥터 개요"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Azure Blob 저장소 API 시작
-Azure Blob에 연결하여 파일 만들기, 파일 삭제 등 Blob 컨테이너의 파일을 관리합니다. Azure Blob 저장소 API는 다음에서 사용할 수 있습니다.
+# Azure Blob 저장소 커넥터 시작
+Azure Blob에 연결하여 파일 만들기, 파일 삭제 등 Blob 컨테이너의 파일을 관리합니다. Azure Blob 저장소 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 
@@ -38,15 +38,11 @@ Azure Blob에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 | --- | --- |
 | 없음 | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더에 보관 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li></ul> |
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Azure Blob에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 다음과 같은 저장소 계정 값을 입력합니다.
 
-|속성| 필수|설명|
-| ---|---|---|
-|Azure 저장소 계정 이름 | yes | Blob 저장소 계정 이름|
-|Azure 저장소 계정 액세스 키 | yes | Blob 저장소 계정에 대한 액세스 키|
+>[AZURE.INCLUDE [Azure Blob에 대한 연결을 만드는 단계](../../includes/connectors-create-api-azureblobstorage.md)]
 
 연결을 만든 후에 폴더 경로 또는 파일 이름 등의 Blob 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -234,4 +230,4 @@ Azure Blob 저장소의 파일을 업데이트합니다. ```PUT: /datasets/defau
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/24/2016"
 	ms.author="csand"/>
 
 
@@ -42,6 +42,6 @@ API 관리는 [Azure API 관리 API용 Windows PowerShell cmdlet](https://azure.
 
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure API 관리를 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 더 자세히 알아보세요.
 
-* Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical)를 참조하세요.
+* Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

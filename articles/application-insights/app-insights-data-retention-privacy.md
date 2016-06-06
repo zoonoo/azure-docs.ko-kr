@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 수집, 보존 및 저장소 
@@ -27,7 +27,7 @@
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
 * 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 응용 프로그램이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 강력한 검토 프로세스를 적용해야 합니다.
 * 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
-* 데이터는 미국의 [Microsoft Azure](http://azure.com) 서버에 저장됩니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
+* 데이터는 미국의 [Microsoft Azure](http://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
@@ -94,9 +94,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 
 ## 데이터가 얼마 동안 보존되나요? 
 
-[계획 가격](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 다릅니다.
-
-원시 데이터 요소(즉, 진단 검색에서 검사할 수 있는 항목): 7일입니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](app-insights-export-telemetry.md)를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
+원시 데이터 요소(즉, 진단 검색에서 검사할 수 있는 항목)는 7일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](app-insights-export-telemetry.md)를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 30일 동안 1분 단위로 보존되고, 적어도 90일 동안 형식에 따라 1시간 또는 1일 단위로 보존됩니다.
 
@@ -119,6 +117,10 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 #### 유럽 등의 다른 곳에 저장할 수 있나요? 
 
 * 현재는 암호화되지 않습니다. 
+
+#### 내 앱을 미국에 호스트해야 한다는 뜻인가요?
+
+* 아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## 내 데이터는 어느 정도 안전한가요?  
 
@@ -191,7 +193,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조)
 ---|---
 [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] | ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자
-[IIS에 상태 모니터 설치][redfield]<br/>[Azure VM 또는 웹앱에 AI 확장 추가][azure]|종속성<br/>ServerContext<br/>유추<br/>성능 카운터
+[IIS에서 상태 모니터 설치][redfield]|종속성<br/>ServerContext<br/>유추<br/>성능 카운터
 [Java 웹앱에 Application Insights SDK 추가][java]|ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자
 [웹 페이지에 JavaScript SDK 추가][client]|ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax
 [Windows 스토어 앱에 SDK 추가][windows]|DeviceContext<br/>사용자<br/>충돌 데이터
@@ -254,7 +256,6 @@ SDK 진단 | 추적 메시지 또는 예외
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md
@@ -267,4 +268,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

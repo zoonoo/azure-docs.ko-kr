@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
-   ms.author="shivaniguptamsft;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용
 
@@ -96,4 +96,4 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

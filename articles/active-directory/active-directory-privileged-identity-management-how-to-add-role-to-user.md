@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/18/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법
 
 Azure AD(Active Directory)와 전역 관리자(또는 회사 관리자)는 사용자가 Azure AD에서 **영구적으로** 역할에 할당되도록 업데이트할 수 있습니다. 이 작업은 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember` 등 PowerShell cmdlet을 사용하여 완료됩니다. 또는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)에 설명된 대로 Azure 클래식 포털을 사용할 수 있습니다.
 
-Azure AD Privileged Identity Management 응용 프로그램을 통해 보안 관리자가 영구 역할 할당을 수행할 수도 있습니다. 그러나 관리자가 이러한 역할에 **임시** 할당할 후보를 추가 또는 제거할 수도 있습니다. 후보는 필요할 때 역할을 활성화하고 작업을 완료한 후 권한을 만료합니다.
+Azure AD Privileged Identity Management 응용 프로그램을 통해 권한 있는 역할 관리자가 영구 역할 할당을 수행할 수도 있습니다. 그러나 관리자가 이러한 역할에 **임시** 할당할 후보를 추가 또는 제거할 수도 있습니다. 후보는 필요할 때 역할을 활성화하고 작업을 완료한 후 권한을 만료합니다.
 
 ## Azure 포털에서 PIM으로 역할 관리
 
@@ -64,4 +64,4 @@ Azure AD PIM 대시보드에서 역할을 선택하거나 **관리자 역할의 
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

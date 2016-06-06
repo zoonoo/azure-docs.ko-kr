@@ -20,22 +20,22 @@
 
 # Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 치트 시트
 
-**Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
+**Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석 솔루션에 대해 많은 수의 기계 학습 알고리즘와 함께 제공됩니다. 이러한 알고리즘은 ***회귀***, ***분류***, ***클러스터링*** 및 ***이상 탐지***의 일반적인 기계 학습 범주에 해당하며, 각각 다른 유형의 기계 학습 문제를 해결합니다.
+[Azure 기계 학습 스튜디오](https://studio.azureml.net/)에는 ***회귀***, ***분류***, ***클러스터링***, ***이상 감지*** 등의 대규모 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
-> [AZURE.NOTE] 이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
 
-## 기계 학습 알고리즘 치트 시트 다운로드
+## 다운로드: 기계 학습 알고리즘 치트 시트
 
-기계 학습 알고리즘 치트 시트를 다운로드하고 솔루션에 대한 기계 학습 알고리즘을 선택하는 방법을 찾는 데 도움이 됩니다. 근처에서 유지하려면, tabloid 크기(11 x 17인치)로 치트 시트를 인쇄할 수 있습니다.
-
-**[Microsoft Azure 기계 학습 알고리즘 참고 자료](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)에서 참고 자료를 다운로드하세요.**
+**여기서 치트 시트 다운로드: [기계 학습 알고리즘 치트 시트(11x17인치)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![기계 학습 알고리즘 치트 시트: 기계 학습 알고리즘을 선택하는 방법에 대해 알아봅니다.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+간편하게 보관하면서 알고리즘을 선택할 수 있도록 tabloid 크기로 기계 학습 알고리즘 치트 시트를 다운로드하여 인쇄합니다.
+
+> [AZURE.NOTE] 이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
 
 ## 알고리즘에 대한 자세한 도움말
 
@@ -79,7 +79,7 @@
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

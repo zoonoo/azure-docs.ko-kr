@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016" 
+	ms.date="05/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -216,6 +216,34 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 4. 변경 내용을 저장합니다. 이제 응용 프로그램이 HDInsight 도구 플러그 인과 호환됩니다. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 팝업 메뉴에 **Submit Spark Application to HDInsight(HDInsight에 Spark 응용 프로그램 제출)** 옵션이 표시됩니다.
 
+
+## 문제 해결
+
+### 로컬 실행에서 "더 큰 힙 크기를 사용하세요." 오류 발생
+
+Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다.
+
+    Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
+    	at org.apache.spark.memory.UnifiedMemoryManager$.getMaxMemory(UnifiedMemoryManager.scala:193)
+    	at org.apache.spark.memory.UnifiedMemoryManager$.apply(UnifiedMemoryManager.scala:175)
+    	at org.apache.spark.SparkEnv$.create(SparkEnv.scala:354)
+    	at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:193)
+    	at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:288)
+    	at org.apache.spark.SparkContext.<init>(SparkContext.scala:457)
+    	at LogQuery$.main(LogQuery.scala:53)
+    	at LogQuery.main(LogQuery.scala)
+    	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    	at java.lang.reflect.Method.invoke(Method.java:606)
+    	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않아 Spark에 실행할 수 없을 때 이 문제가 발생합니다(원하는 경우 [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081)에서 추가 세부 정보를 가져올 수 있음). 한 가지 간단한 해결 방법은 64비트 Java SDK를 사용하는 것입니다. 또한 다음 옵션을 추가하여 IntelliJ의 JVM 설정을 변경할 수도 있습니다.
+
+    -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
+
+![Spark 응용 프로그램 로컬 실행 결과](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
+
 ## 피드백 및 알려진 문제
 
 현재 직접 Spark 출력 보기는 지원되지 않으며 준비 중입니다.
@@ -253,4 +281,4 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

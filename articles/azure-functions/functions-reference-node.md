@@ -163,6 +163,27 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+## 환경 변수
+
+환경 변수 또는 앱 설정 값을 가져오려면, 다음 코드 예제와 같이 `process.env`을 사용합니다.
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
+```
+
 ## TypeScript/CoffeeScript 지원
 
 아직 런타임을 통해 TypeScript/CoffeeScript 자동 컴파일에 대한 직접 지원이 없으므로 배포 시 런타임 외부에서 모든 필요한 사항이 처리됩니다.
@@ -175,4 +196,4 @@ module.exports = function(context) {
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시) | Microsoft Azure" 
-	description="온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover) 및 복구를 오케스트레이션하기 위해 Azure Site Recovery 설정에 대한 레거시 배포에 대해 설명합니다." 
+	description="클래식 포털의 레거시 배포에서 Azure Site Recovery를 사용하여 온-프레미스 VM 및 Windows/Linux 물리적 서버를 Azure에 복제하는 방법을 설명합니다." 
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/22/2016"
 	ms.author="raynew"/>
 
-# Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
+# 클래식 포털을 사용하여 Azure Site Recovery를 통해 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
 
 > [AZURE.SELECTOR]
 - [Azure 포털](site-recovery-vmware-to-azure.md)
@@ -24,43 +24,43 @@
 - [클래식 포털(레거시)](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
+Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 포털에서 Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 복제하기 위한 레거시 배포를 설명합니다.
 
 ## 개요
 
-이 문서에서는 다음과 같이 방법을 설명합니다.
+조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 유지하고 워크로드를 지속적으로 가용 상태로 유지해야 합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제**—온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제**—온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [Azure Site Recovery란?](site-recovery-overview.md)에서 자세한 내용을 확인해 보세요.
 
->[AZURE.NOTE] 이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 포털을 위한 [향상된 배포](site-recovery-vmware-to-azure-classic.md) 지침을 사용합니다. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
+
+>[AZURE.WARNING] 이 문서에는 **레거시 지침**이 포함되어 있습니다. 새 배포에는 사용하지 마십시오. 대신 [이 지침에 따라](site-recovery-vmware-to-azure.md) Azure 포털에서 사이트 복구를 배포하거나, [이 지침을 사용하여](site-recovery-vmware-to-azure-classic.md) 클래식 포털에서 향상된 배포를 구성하세요. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우에는, 클래식 포털에서 향상된 배포로 마이그레이션하는 것이 좋습니다.
 
 
 ## 향상된 배포로 마이그레이션
 
-이 섹션은 이 문서의 지침을 사용하여 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버의 복제본을 이미 배포한 경우에만 해당됩니다.
+이 섹션은 이 문서의 지침을 사용하여 사이트 복구를 이미 배포한 경우에만 적절합니다.
 
 기존 배포를 마이그레이션하려면 다음을 수행해야 합니다.
 
 1. 온-프레미스 사이트에서 새 사이트 복구 구성 요소를 배포합니다.
-2. 새 구성 서버에서 vCenter Server와 원본 컴퓨터에 대한 자격 증명을 구성합니다.
-3. 새 구성 서버로 기존 vCenter Server를 검색합니다.
+2. 새 구성 서버에서 VMware VM의 자동 검색에 대한 자격 증명을 구성합니다.
+3. 새 구성 서버로 VMware 서버를 검색합니다.
 3. 새 구성 서버로 새 보호 그룹을 만듭니다.
 
 
-시작하기 전에 다음 사항에 주의하세요.
+시작하기 전에 다음을 수행합니다.
 
-- 향상된 배포로 마이그레이션하기 위해 유지 관리 기간을 계획하는 것이 좋습니다.
+- 마이그레이션을 위해 유지 관리 기간을 계획하는 것이 좋습니다.
 - **컴퓨터 마이그레이션** 옵션은 레거시 배포 중에 만들어진 기존 보호 그룹이 있는 경우에만 사용할 수 있습니다.
 - 마이그레이션 단계를 완료한 후 15분 이상이 지나야 자격 증명이 새로 고침되며 가상 컴퓨터를 검색 및 새로 고침하여 보호 그룹에 추가할 수 있게 됩니다. 기다리지 않고 직접 새로 고침할 수도 있습니다. 
 
 마이그레이션 과정은 다음과 같습니다.
 
-1. [향상된 기능](site-recovery-vmware-to-azure-classic.md#enhanced-deployment)을 참조하여 새 [아키텍처](site-recovery-vmware-to-azure-classic.md#scenario-architecture)를 이해하고 [필수 조건](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)에서 향상된 배포를 확인하세요.
-2. 현재 보호 중인 컴퓨터에서 모바일 서비스를 제거합니다. 컴퓨터를 새 보호 그룹에 추가하면 새 버전의 모바일 서비스가 해당 컴퓨터에 설치됩니다.
-3. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key)를 가져오고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)하여 구성 서버, 프로세스 서버를 설치하고 관리 서버에 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
-4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 사이트 복구에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
-5. [vCenter Server 또는 ESXi 호스트](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 포털을 새로 고침하여 자격 증명이 표시될 때까지는 최대 15분까지 소요될 수 있습니다.
+1. [클래식 포털에서 향상된 배포](site-recovery-vmware-to-azure-classic.md#enhanced-deployment)에 대해 읽어보세요. 향상된 [아키텍처](site-recovery-vmware-to-azure-classic.md#scenario-architecture), 및 [필수 조건](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)을 검토하세요.
+2. 현재 복제하는 컴퓨터에서 모바일 서비스를 제거합니다. 컴퓨터를 새 보호 그룹에 추가하면 새 버전의 서비스가 해당 컴퓨터에 설치됩니다.
+3. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key)를 다운로드하고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)하여 구성 서버, 프로세스 서버, 및 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
+4. 사이트 복구에서 VMware VM을 자동으로 검색하기 위해 VMware 서버에 액세스 하는 데 사용할 수 있는 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)합니다. [필요한 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 알아보세요.
+5. [vCenter 서버 또는 vSphere 호스트](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 서버가 사이트 복구 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
 6. [새 보호 그룹](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group)을 만듭니다. 포털을 새로 고침하여 가상 컴퓨터가 검색 및 표시될 때까지는 최대 15분까지 소요될 수 있습니다. 기다리지 않으려면 관리 서버 이름(클릭 안 함) > **새로 고침**을 강조 표시하면 됩니다.
 7. 새 보호 그룹에서 **컴퓨터 마이그레이션**을 클릭합니다.
 
@@ -69,11 +69,12 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 8. **컴퓨터 선택**에서 마이그레이션 원본 보호 그룹과 마이그레이션할 컴퓨터를 선택합니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-9. **대상 설정 구성**에서 모든 컴퓨터에 대해 동일한 설정을 사용할지 여부를 지정하고 프로세스 서버와 Azure 저장소 계정을 선택합니다. 단일 관리 서버를 설정한 경우 프로세스 서버가 해당 관리 서버의 IP 주소가 됩니다.
+
+9. **대상 설정 구성**에서 모든 컴퓨터에 대해 동일한 설정을 사용할지 여부를 지정하고 프로세스 서버와 Azure 저장소 계정을 선택합니다. 별도의 프로세스 서버가 없는 경우에는, 구성 서버의 IP 주소가 여기에 해당됩니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-10. **계정 지정**에서 새 버전의 모바일 서비스를 보호된 컴퓨터로 자동으로 푸시하기 위해 만든 계정을 선택합니다.
+10. **계정 지정**에서 프로세스 서버가 새 버전의 모바일 서비스를 푸시하도록 컴퓨터에 액세스하기 위해 만든 계정을 선택합니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
@@ -85,7 +86,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
->[AZURE.NOTE] 마이그레이션 단계를 완료한 후 [향상된 문서](site-recovery-vmware-to-azure-classic.md)를 사용하여 계속해야 합니다. 마이그레이션 후 이 레거시 문서의 나머지 부분은 더 이상 관련이 없으며 it**에 설명된 단계를 더 이상 따를 필요가 없습니다.
+>[AZURE.NOTE] 마이그레이션을 마친 후 [향상된 문서](site-recovery-vmware-to-azure-classic.md)를 계속 진행합니다. 이 레거시 문서의 나머지 부분은 더 이상 관련이 없으며 거기**에 설명된 단계를 더 이상 따를 필요가 없습니다.
 
 
 
@@ -100,13 +101,13 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 **구성 요소** | **배포웹사이트를** | **세부 정보**
 --- | --- | ---
-**구성 서버** | <p>Azure 표준 A3 가상 컴퓨터를 동일한 구독에서 Site Recovery로 배포합니다.</p> <p>Site Recovery 포털에서 설정</p> | 이 서버는 Azure에서 보호된 컴퓨터, 프로세스 서버 및 마스터 대상 서버 간의 통신을 조정합니다. 복제를 설정하고 장애 조치(Failover) 발생 시 Azure에서 복구를 조정합니다.
-**마스터 대상 서버** | <p>Azure 가상 컴퓨터로 배포 — Windows Server 2012 R2 갤러리 이미지에 따라 Windows 서버로(Windows 컴퓨터 보호) 배포하거나 OpenLogic CentOS 6.6 갤러리 이미지에 따라 Linux 서버로 배포합니다(Linux 컴퓨터 보호).</p> <p>세 가지 크기 조정 옵션인, 표준 A4, 표준 D14, 표준 DS4를 사용할 수 있습니다.<p><p>서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.</p><p>Site Recovery 포털에서 설정합니다.</p> | <p>Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.</p> <p>특히, 프리미엄 저장소 계정을 사용하여 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.</p>
-**프로세스 서버** | <p>Windows Server 2012 R2를 실행하는 물리적 서버 또는 온-프레미스 가상 서버로 배포</p> <p>보호하려는 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 배치하는 것이 좋지만, 보호된 컴퓨터에 L3 네트워크 가시성이 있을 경우 다른 네트워크에서 실행할 수 있습니다.<p>Site Recovery 포털에서 설정하고 구성 서버로 등록합니다.</p> | <p>보호된 컴퓨터가 복제 데이터를 온-프레미스 프로세스 서버로 보냅니다. 프로세스 서버에는 수신한 복제 데이터를 캐시할 디스크 기반 캐시가 있습니다. 해당 데이터에 여러 작업을 수행합니다.</p><p>마스터 대상 서버로 데이터를 전송하기 전에 캐싱, 압축, 암호화로 데이터를 최적화합니다.</p><p>모바일 서비스의 푸시 설치를 처리합니다.</p><p>VMware 가상 컴퓨터의 자동 검색을 수행합니다.</p>
-**온-프레미스 컴퓨터** | VMware 하이퍼바이저에서 실행되는 온-프레미스 가상 컴퓨터나 Windows 또는 Linux를 실행하는 물리적 서버입니다. | 가상 컴퓨터와 서버에 적용되는 복제 설정을 지정합니다. 장애 조치(Failover)를 개별 컴퓨터에 대해 실행할 수 있지만, 보통은 함께 장애 조치(Failover)를 실행하는 복수 가상 컴퓨터가 포함된 복구 계획으로 실행합니다.
-**모바일 서비스** | <p>보호하려는 각각의 가상 컴퓨터 또는 물리적 서버에 설치</p><p>보호가 서버에 대해 사용하도록 설정된 경우 수동으로 설치하거나 프로세스 서버로 자동으로 푸시 및 설치할 수 있습니다. | 모바일 서비스는 초기 복제의 일부로 프로세스 서버로 데이터를 보냅니다(다시 동기화). 서버가 보호된 상태에 도달하면(재동기화가 완료된 후) 모바일 서비스는 디스크에 메모리 내 캡처의 쓰기를 수행하고 이를 프로세스 서버에 보냅니다. Windows 서버에 대한 응용 프로그램 일관성은 VSS 프레임워크를 사용하여 얻을 수 있습니다.
-**Azure Site Recovery 자격 증명 모음** | Site Recovery 서비스를 구독한 다음 설정합니다. | Site Recovery 자격 증명 모음에 서버를 등록합니다. 자격 증명 모음은 온-프레미스 사이트와 Azure 간의 데이터 복제본, 장애 조치(Failover) 및 복구를 조정하고 오케스트레이션합니다.
-**복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 Express 경로 연결을 설정해야 합니다.</p><p>사이트 복구 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
+**구성 서버** | 사이트 복구와 동일한 구독에 있는 Azure 표준 A3 가상 컴퓨터. | 구독 서버는 Azure에서 보호된 컴퓨터, 프로세스 서버 및 마스터 대상 서버 간의 통신을 조정합니다. 복제를 설정하고 장애 조치(Failover) 발생 시 Azure에서 복구를 조정합니다.
+**마스터 대상 서버** | Azure 가상 컴퓨터 — Windows Server 2012 R2 갤러리 이미지(Windows 컴퓨터 보호를 위한)를 기반으로 하는 Windows 서버 또는 OpenLogic CentOS 6.6 갤러리 이미지(Linux 컴퓨터 보호를 위한)를 기반으로 하는 Linux 서버.<br/><br/> 세 가지 크기 옵션 즉, 표준 A4, 표준 D14 및 표준 DS4를 사용할 수 있습니다.<br/><br/> 서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.<br/><br/> 사이트 복구 포털에서 설정 | Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.<br/><br/> 특히, 프리미엄 저장소 계정을 사용하여 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+**프로세스 서버** | Windows Server 2012 R2를 실행하는 온-프레미스 가상 또는 물리적 서버<br/><br/>보호할 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 배치하는 것이 좋지만 보호된 컴퓨터에서 L3 네트워크를 볼 수 있다면 다른 네트워크에서 실행할 수도 있습니다.<br/><br/> 사이트 복구 포털에서 설정하고 구성 서버에 등록합니다. | 보호된 컴퓨터가 복제 데이터를 온-프레미스 프로세스 서버로 보냅니다. 프로세스 서버에는 수신한 복제 데이터를 캐시할 디스크 기반 캐시가 있습니다. 해당 데이터에 대해 다양한 작업을 수행합니다.<br/><br/> 마스터 대상 서버에 보내기 전에 캐싱, 압축, 암호화를 통해 데이트를 최적화합니다.<br/><br/> 모바일 서비스의 푸시 설치를 처리합니다.<br/><br/> VMware 가상 컴퓨터의 자동 검색을 수행합니다.
+**온-프레미스 컴퓨터** | Windows 또는 Linux를 실행하는 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버. | 하나 이상의 컴퓨터에 적용되는 복제 설정을 구성합니다. 개별 컴퓨터 또는 보다 일반적으로 복구 계획에 한데 모아놓은 여러 대의 컴퓨터를 장애 조치(Failover)할 수 있습니다. 
+**모바일 서비스** | 보호할 각각의 가상 컴퓨터 또는 물리적 서버에 설치됨<br/><br/>수동으로 설치하거나 컴퓨터에 대해 복제를 활성화한 경우 프로세스 서버를 통해 자동으로 푸시하거나 설치할 수 있습니다. | 모바일 서비스는 초기 복제(다시 동기화)를 진행하는 동안 프로세스 서버에 데이터를 보냅니다. 컴퓨터가 보호된 상태가 된 후에(재동기화를 마친 후), 모바일 서비스는 메모리 내 디스크에 대한 쓰기를 캡처하여 프로세스 서버에 보냅니다. Windows 서버에 대한 응용 프로그램 일관성은 VSS를 사용하여 구현됩니다.
+**Azure Site Recovery 자격 증명 모음** | Azure 구독을 통해 사이트 복구 자격 증명 모음을 만들고 자격 증명 모음에 서버를 등록합니다. | 자격 증명 모음은 온-프레미스 사이트와 Azure 간의 데이터 복제본, 장애 조치(Failover) 및 복구를 조정하고 오케스트레이션합니다.
+**복제 메커니즘** | **인터넷을 통해**—인터넷을 통해 안전한 SSL/TLS 채널을 사용하여 보호된 온-프레미스 서버의 데이터를 Azure에 복제하고 통신합니다. 이것이 기본 옵션입니다.<br/><br/> **VPN/Express 경로**-VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 복제하고 통신합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트간 VPN 또는 Express 경로 연결을 설정해야 합니다.<br/><br/> 사이트 복제 배포 중에 복제를 수행할 방식을 선택합니다. 메커니즘을 구성한 후에는 기존 컴퓨터의 복제에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다. | 두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다. 
 
 ## 용량 계획
 
@@ -140,11 +141,12 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 #### 프로세스 서버 고려 사항
 
-일반적으로 프로세스 서버 크기 조정은 보호된 모든 워크로드에서 일일 변경률에 따라 다릅니다. 기본 고려 사항은 다음과 같습니다.
+일반적으로 프로세스 서버 크기 조정은 보호된 모든 워크로드에서 일일 변경률에 따라 다릅니다.
 
--	인라인 압축, 암호화와 같은 작업을 수행하려면 충분한 컴퓨팅이 필요합니다.
--	프로세스 서버는 디스크 기반 캐시를 사용합니다. 네트워크 병목 또는 중단 시 데이터 변경 사항을 빠르게 저장하기 위해 권장 용량의 캐시 공간과 디스크 처리량을 사용할 수 있는지 확인하세요. 
--	프로세스 서버가 데이터를 마스터 대상 서버로 업로드하여 지속적 데이터 보호를 제공하려면 충분한 대역폭이 필요합니다. 
+
+- 인라인 압축, 암호화와 같은 작업을 수행하려면 충분한 컴퓨팅이 필요합니다.
+- 프로세스 서버는 디스크 기반 캐시를 사용합니다. 네트워크 병목 또는 중단 시 데이터 변경 사항을 빠르게 저장하기 위해 권장 용량의 캐시 공간과 디스크 처리량을 사용할 수 있는지 확인하세요. 
+- 프로세스 서버가 데이터를 마스터 대상 서버로 업로드하여 지속적 데이터 보호를 제공하려면 충분한 대역폭이 필요합니다. 
 
 표 2에 프로세스 서버 지침이 요약되어 있습니다.
 
@@ -166,11 +168,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 #### 구성 서버 고려 사항
 
-각 구성 서버는 3~4개 볼륨을 이용하여 최대 100개의 원본 컴퓨터를 지원할 수 있습니다. 이러한 수치가 초과될 경우 구성 서버를 추가 배포하는 것이 좋습니다. 구성 서버의 기본 가상 컴퓨터 속성은 표 1을 참조하세요.
+각 구성 서버는 3~4개 볼륨을 이용하여 최대 100개의 원본 컴퓨터를 지원할 수 있습니다. 배포의 규모가 더 큰 경우에는 또 다른 구성 서버를 배포하는 것이 좋습니다. 구성 서버의 기본 가상 컴퓨터 속성은 표 1을 참조하세요.
 
 #### 마스터 대상 서버 및 저장소 계정 고려 사항
 
-각 마스터 대상 서버의 저장소는 OS 디스크, 보존 볼륨, 데이터 디스크로 구성되어 있습니다. 보존 드라이브는 Site Recovery 포털에 정의된 보존 기간에 대해 디스크 변경 사항의 저널을 유지합니다. 마스터 대상 서버의 가상 컴퓨터 속성에 대해서는 표 1을 참조하세요. 표 3에 A4 디스크가 사용된 방식이 나와 있습니다.
+각 마스터 대상 서버의 저장소는 OS 디스크, 보존 볼륨, 데이터 디스크를 포함합니다. 보존 드라이브는 Site Recovery 포털에 정의된 보존 기간에 대해 디스크 변경 사항의 저널을 유지합니다. 마스터 대상 서버의 가상 컴퓨터 속성에 대해서는 표 1을 참조하세요. 표 3에 A4 디스크가 사용된 방식이 나와 있습니다.
 
 **인스턴스** | **OS 디스크** | **보존** | **데이터 디스크**
 --- | --- | --- | ---
@@ -184,7 +186,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 - Azure 저장소의 성능 및 제한 사항
-	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) 및 [표준 저장소에 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)에 대해 알아봅니다.
+	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [표준 저장소에 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) 및 [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)에 대해 알아봅니다.
 -	일일 데이터 변경률 
 -	보존 볼륨 저장소.
 
@@ -204,30 +206,25 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | --- 
-**Azure 계정** | [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다. 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.</p><p>자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)</p>를 참조하세요.
+**Azure 계정** | [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
+**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.<br/><br/> 계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.<br/><br/> 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.<br/><br/> 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
-**Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
-**구성 서버** | <p>Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.</p><p>설치 경로는 영어 문자로만 이루어져야 합니다.</p>
-**마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4, D14 또는 DS4.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
-**프로세스 서버** | <p>최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.</p><p>보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.</p><p>프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 vCenter 서버 또는 가상 컴퓨터에 의해 관리되는 가상 컴퓨터를 검색하려면 프로세서 서버에 VMware vSphere CLI 구성 요소가 필요합니다.</p><p>설치 경로에 영어 문자만 포함되어야 합니다.</p><p>ReFS 파일 시스템은 지원되지 않습니다.</p>
-**VMware** | <p>VMware vSphere 하이퍼바이저를 관리하는 VMWare vCenter 서버. 최신 업데이트를 설치한 vCenter 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>보호하려는 VMware 가상 컴퓨터가 포함된 하나 이상의 vSphere 하이퍼바이저. 하이퍼바이저는 최신 업데이트를 설치한 ESX/ESXi 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>VMware 가상 컴퓨터는 VMware 도구를 설치 및 실행해야 합니다.</p>  
-**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
-**Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다.<br>파일 시스템: EXT3, ETX4, ReiserFS, XFS<br>다중 경로 소프트웨어-장치 매퍼(다중 경로)<br>볼륨 관리자:LVM2<br>HP CCISS 컨트롤러 저장소를 사용하는 물리적 서버는 지원되지 않습니다.</p>
+**Azure 가상 컴퓨터** | 보호할 가상 컴퓨터는 [Azure 필수 조건](site-recovery-best-practices.md)에 부합해야 합니다.<br/><br/> **디스크 수**—보호된 서버 하나에 최대 31개 디스크가 지원됩니다.<br/><br/>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.<br/><br/> **클러스터링**—클러스터링된 서버는 지원되지 않습니다.<br/><br/> **부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> **볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.<br/><br/> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.
+**구성 서버** | Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버에 대한 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다.
+**마스터 대상 서버** | Azure 가상 컴퓨터, 표준 A4, D14 또는 DS4.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.
+**프로세스 서버** | 최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.<br/><br/> 보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.<br/><br/> 프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다.<br/><br/> ReFS 파일 시스템은 지원되지 않습니다.
+**VMware** | VMware vSphere 하이퍼바이저를 관리하는 VMWare vCenter 서버. 최신 업데이트를 설치한 vCenter 버전 5.1 또는 5.5를 실행해야 합니다.<br/><br/> 보호할 VMware 가상 컴퓨터가 포함된 하나 이상의 vSphere 하이퍼바이저. 하이퍼바이저는 최신 업데이트를 설치한 ESX/ESXi 5.1 또는 5.5를 실행해야 합니다.<br/><br/> VMware 가상 컴퓨터에 VMware 도구가 설치되어 있고 실행 중이어야 합니다. 
+**Windows 컴퓨터** | Windows를 실행하는 보호된 물리적 서버 또는 VMware 가상 컴퓨터에는 몇 가지 요구 사항이 있습니다.<br/><br/> 지원되는 64비트 운영 체제: **Windows Server 2012 R2**, **Windows Server 2012**, 또는 **SP1 이상을 설치한 Windows Server 2008 R2**.<br/><br/> 호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)에는 영어만 사용해야 합니다.<br/><br/> 운영 체제는 C:\\ 드라이브에 설치해야 합니다.<br/><br/> 기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.<br/><br/> 보호된 컴퓨터의 방화벽 규칙에서 Azure의 구성 서버와 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.p><p>Windows 서버에 모바일 서비스 설치를 푸시하려면 관리자 계정을(Windows 컴퓨터의 로컬 관리자여야 함) 제공해야 합니다. 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).<br/><br/> 장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.
+**Linux 컴퓨터** | 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**; **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.<br/><br/> 보호된 컴퓨터의 방화벽 규칙에서 Azure의 구성 서버와 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.<br/><br/> 보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다. <br/><br/> 장애 조치(failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/> 호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/; /usr)에는 영어만 사용해야 합니다.<br/><br/> 다음 저장소가 있는 온-프레미스 컴퓨터에 대해 보호를 사용하도록 설정할 수 있습니다.-파일 시스템<br>: EXT3, ETX4, ReiserFS, XFS<br>다중 경로 소프트웨어 장치 매퍼(multipath)<br>볼륨 관리자: LVM2<br>HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다.
 **타사** | 이 시나리오의 일부 배포 구성 요소는 제대로 작동하기 위해 타사 소프트웨어를 사용합니다. 전체 목록은 [타사 소프트웨어 통지 및 정보](#third-party)를 참조하세요.
 
-## 배포
 
-배포 단계를 요약한 그래픽입니다.
-
-![배포 단계](./media/site-recovery-vmware-to-azure-classic-legacy/deployment-steps.png)
-
-## 네트워크 연결
+### 네트워크 연결
 
 온-프레미스 사이트와 인프라 구성 요소(구성 서버, 마스터 대상 서버)가 배포된 Azure 가상 네트워크 간에 네트워크 연결을 구성하는 두 가지 옵션이 있습니다. 구성 서버를 배포하기 전에 사용할 네트워크 연결 옵션을 결정해야 합니다. 배포 시 이 설정을 선택해야 합니다. 나중에 변경할 수 없습니다.
 
-**공용 인터넷:** 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 구성 및 마스터 대상 서버에서 온-프레미스에서 공용 끝점으로 보안 SSL/TLS 연결을 통해 발생합니다. (유일한 예외는 프로세스 서버와 암호화되지 않은 TCP 포트 9080의 마스터 대상 서버 간의 연결입니다. 복제 설치를 위한 복제 프로토콜에 관련된 제어 정보만 이 연결에서 교환됩니다.)
+**인터넷:** 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 구성 및 마스터 대상 서버에서 온-프레미스에서 공용 끝점으로 보안 SSL/TLS 연결을 통해 발생합니다. (유일한 예외는 프로세스 서버와 암호화되지 않은 TCP 포트 9080의 마스터 대상 서버 간의 연결입니다. 복제 설치를 위한 복제 프로토콜에 관련된 제어 정보만 이 연결에서 교환됩니다.)
 
 ![배포 다이어그램 인터넷](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
@@ -248,7 +245,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 
-5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
+5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
 
 6. **자격 증명 모음 만들기**를 클릭합니다.
 
@@ -272,21 +269,20 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 4. **새 구성 서버 세부 정보**에 다음을 지정합니다.
 
 	- 구성 서버 이름 및 연결에 필요한 자격 증명
-	- 네트워크 연결 유형 드롭다운에서 공용 인터넷 또는 VPN을 선택합니다.[AZURE.NOTE] 이 설정은 배포 시간 선택이므로 나중에 변경할 수 없습니다.  
-	- 서버를 배치할 Azure 네트워크를 선택합니다. 네트워크 연결 유형으로 VPN을 지정한 경우 이 Azure vnet은 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 사이트에 연결됩니다.
+	- 네트워크 연결 유형 드롭다운에서 **공용 인터넷** 또는 **VPN**을 선택합니다. 이 설정이 적용된 후에는 수정할 수 없습니다.
+	- 서버를 배치할 Azure 네트워크를 선택합니다. VPN을 사용하는 경우에는 Azure 네트워크가 예상대로 온-프레미스 네트워크에 연결되어 있는지 확인합니다. 
 	- 서버에 할당할 내부 IP 주소 및 서브넷을 지정합니다. 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 다른 IP 주소를 사용하세요.
 	
 	![구성 서버 배포](./media/site-recovery-vmware-to-azure-classic-legacy/cs-details.png)
 
-5. **확인**을 클릭하면 Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 네트워크 연결 유형으로 공용 인터넷을 지정한 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다. **작업** 탭에서 진행률을 모니터링할 수 있습니다.
+5. **확인**을 클릭하면 Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 인터넷을 통해 연결하기로 선택하면, 클라우드 서비스는 예약된 공용 IP주소를 사용하여 만들어집니다. **작업** 탭에서 진행률을 모니터링할 수 있습니다.
 
 	![진행률 모니터링](./media/site-recovery-vmware-to-azure-classic-legacy/monitor-cs.png)
 
-6.  **이 단계는 연결 유형이 공용 인터넷인 경우에만 적용됩니다.** 구성 서버가 배포된 후 Azure 포털의 **가상 컴퓨터** 페이지에서 할당된 공용 IP 주소를 확인하고 적어둡니다. 그런 다음 **끝점** 탭에서 개인 포트 443에 매핑된 공용 HTTPS 포트를 확인하고 적어둡니다. 이 정보는 나중에 마스터 대상 서버와 프로세스 서버를 구성 서버에 등록할 때 필요합니다. 이러한 끝점을 사용하여 구성 서버가 배포됩니다.
+6.  인터넷을 통해 연결하는 경우, 구성 서버가 배포된 후 Azure 포털의 **가상 컴퓨터** 페이지에서 할당된 공용 IP 주소를 적어둡니다. 그런 다음 **끝점** 탭에서 개인 포트 443에 매핑된 공용 HTTPS 포트를 확인하고 적어둡니다. 이 정보는 나중에 마스터 대상 서버와 프로세스 서버를 구성 서버에 등록할 때 필요합니다. 이러한 끝점을 사용하여 구성 서버가 배포됩니다.
 
 	- HTTPS: 인터넷으로 구성 요소 서버와 Azure 간의 통신을 조정하는 데 사용되는 공용 포트입니다. 개인 포트 443은 VPN으로 구성 요소 서버와 Azure 간의 통신을 조정하는 데 사용됩니다.
-	- 사용자 지정: 인터넷에서 장애 복구 도구 통신을 위해 공용 포트가
-	- 사용됩니다. 개인 포트 9443은 VPN에서 장애 복구 도구 통신에 사용됩니다.
+	- 사용자 지정: 공용 포트가 인터넷을 통한 장애 복구 도구 통신에 사용됩니다. 개인 포트 9443은 VPN에서 장애 복구 도구 통신에 사용됩니다.
 	- PowerShell: 개인 포트 5986
 	- 원격 데스크톱: 개인 포트 3389
 	
@@ -299,7 +295,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 ### 자격 증명 모음에 구성 서버 등록
 
 1. **빠른 시작** 페이지에서 **대상 리소스 준비** > **등록 키 다운로드**를 클릭합니다. 키 파일이 자동으로 생성됩니다. 이 파일은 생성된 날로부터 5일간 유효합니다. 구성 서버로 복사합니다.
-2. **가상 컴퓨터**에서 가상 컴퓨터 목록의 구성 서버를 선택합니다. **대시보드** 탭을 열고 **연결**을 클릭합니다. 다운로드한 RDP 파일을 **열고** 원격 데스크톱을 사용하여 구성 서버에 로그온합니다. 구성 서버가 VPN 네트워크에 배포된 경우 온-프레미스 네트워크에서 구성 서버의 내부 IP 주소(해당 IP 주소는 구성 서버를 배포할 때 지정한 IP 주소이며 구성 서버 가상 컴퓨터에 대한 가상 컴퓨터 대시보드 페이지에서 볼 수 있습니다)를 원격 데스크톱에 사용합니다. 처음 로그온하는 경우 Azure Site Recovery 구성 서버 설치 마법사가 자동으로 실행됩니다.
+2. **가상 컴퓨터**에서 가상 컴퓨터 목록의 구성 서버를 선택합니다. **대시보드** 탭을 열고 **연결**을 클릭합니다. 다운로드한 RDP 파일을 **열고** 원격 데스크톱을 사용하여 구성 서버에 로그온합니다. VPN을 사용하는 경우에는, 온-프레미스 사이트의 원격 데스크톱 연결에 내부 IP 주소(구성 서버를 배포할 때 지정한 주소)를 사용합니다. 처음 로그온하는 경우 Azure Site Recovery 구성 서버 설치 마법사가 자동으로 실행됩니다.
 
 	![등록](./media/site-recovery-vmware-to-azure-classic-legacy/splash.png)
 
@@ -317,12 +313,12 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -351,7 +347,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 배포 중 Site Recovery는 다음 작업에 대한 자격 증명을 요청합니다.
 
-- vCenter 서버에 의해 관리되는 가상 컴퓨터의 자동화된 검색에 대해 vCenter 서버를 추가할 경우 가상 컴퓨터의 자동화된 검색에 대한 vCenter 계정이 필요합니다.
+- 사이트 복구가 vCenter 서버나 vSphere 호스트에서 VM을 자동으로 검색할 수 있도록 하는 VMware 계정. 
 - Site Recovery에서 모바일 서비스를 설치할 수 있도록 보호용 컴퓨터를 추가할 경우
 
 구성 서버를 등록한 다음 **계정 관리** 대화 상자를 열고 이러한 작업에 사용해야 하는 계정을 추가 및 관리할 수 있습니다. 몇 가지 방법이 있습니다.
@@ -383,66 +379,65 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 ## 3단계: 마스터 대상 서버 배포
 
-1. **대상(Azure) 리소스 준비**에서 **마스터 대상 서버 배포**를 클릭합니다.
-2. 마스터 대상 서버 정보와 자격 증명을 지정합니다. 이 서버는 서버를 등록한 구성 서버와 동일한 Azure 네트워크에 배포됩니다. 클릭하여 완료하면 Windows 또는 Linux 갤러리 이미지를 사용하여 Azure 가상 컴퓨터가 만들어집니다.
+1. **대상(Azure) 리소스 준비** > **마스터 대상 서버 배포**를 클릭합니다.
+2. 마스터 대상 서버 정보와 자격 증명을 지정합니다. 이 서버는 구성 서버와 동일한 Azure 네트워크에 배포됩니다. 클릭하여 완료하면 Windows 또는 Linux 갤러리 이미지를 사용하여 Azure 가상 컴퓨터가 만들어집니다.
 
 	![대상 서버 설정](./media/site-recovery-vmware-to-azure-classic-legacy/target-details.png)
 
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
->[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+>[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 사용하여 I/O를 많이 사용하는 작업을 호스팅하기 위해 일관된 I/O 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
 
 
-3. Windows 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
+3. 이러한 끝점을 사용하여 Windows 마스터 대상 서버 VM이 만들어집니다. 공용 끝점은 인터넷을 통해 연결하는 경우에만 만들어집니다.
 
 	- 사용자 지정: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 복제 데이터를 보냅니다. 프로세스 서버가 개인 포트 9443을 사용하여 VPN을 통해 데이터를 마스터 대상 서버로 보냅니다.
-	- 사용자 지정 1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타 데이터를 보냅니다. 프로세스 서버가 개인 포트 9080을 사용하여 VPN을 통해 메타 데이터를 마스터 대상 서버로 보냅니다.
+	- 사용자 지정1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타데이터를 보냅니다. 개인 포트 9080은 프로세스 서버가 VPN을 통해 메타데이터를 마스터 대상 서버로 보내는 데 사용됩니다.
 	- PowerShell: 개인 포트 5986
 	- 원격 데스크톱: 개인 포트 3389
 
-4. Linux 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
+4. 이러한 끝점을 사용하여 Linux 마스터 대상 서버 VM이 만들어집니다. 공용 끝점은 인터넷을 통해 연결하는 경우에만 만들어집니다.
 
 	- 사용자 지정: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 복제 데이터를 보냅니다. 프로세스 서버가 개인 포트 9443을 사용하여 VPN을 통해 데이터를 마스터 대상 서버로 보냅니다.
-	- 사용자 지정 1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타 데이터를 보냅니다. 프로세스 서버가 개인 포트 9080을 사용하여 VPN을 통해 제어 데이터를 마스터 대상 서버로 보냅니다.
+	- 사용자 지정1: 공용 포트는 프로세스 서버가 인터넷을 통해 메타데이터를 보내는 데 사용됩니다. 개인 포트 9080은 프로세스 서버가 VPN을 통해 메타데이터를 마스터 대상 서버로 보내는 데 사용됩니다.
 	- SSH: 개인 포트 22
 
     >[AZURE.WARNING] 마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
 5. **가상 컴퓨터**에서 가상 컴퓨터가 시작될 때까지 기다립니다.
 
-	- Windows를 사용하여 서버를 구성한 경우 원격 데스크톱 정보를 적어둡니다.
-	- Linux로 구성했으며 VPN을 통해 연결하는 경우 가상 컴퓨터의 내부 IP 주소를 적어둡니다. 인터넷을 통해 연결하는 경우 공용 IP 주소를 적어둡니다.
+	- Windows 서버인 경우에는 원격 데스크톱 세부 정보를 적어둡니다.
+	- Linux 서버이고 VPN을 통해 연결하는 경우에는 가상 컴퓨터의 내부 IP 주소를 적어둡니다. 인터넷을 통해 연결하는 경우 공용 IP 주소를 적어둡니다.
 
 6.  서버에 로그온하여 설치를 완료하고 구성 서버에 등록합니다.
 7.  Windows를 실행하는 경우 다음을 수행합니다.
 
 	1. 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작합니다. 처음 로그온하는 경우 PowerShell 창에서 스크립트가 실행됩니다. 창을 닫지 마세요. 완료되면 호스트 에이전트 구성 도구가 자동으로 열려 서버를 등록합니다.
-	2. **호스트 에이전트 구성**에서 구성 서버의 내부 IP 주소와 포트 443을 지정합니다. 가상 컴퓨터가 구성 서버와 동일한 Azure 네트워크에 연결되어 있으므로 VPN을 통해 연결하지 않는 경우에도 내부 주소와 개인 포트 443을 사용할 수 있습니다. **HTTPS 사용**을 설정된 상태로 둡니다. 앞에서 적어둔 구성 서버의 암호를 입력합니다. **확인**을 클릭하여 서버를 등록합니다. 페이지의 NAT 옵션은 무시해도 됩니다. 해당 옵션은 사용되지 않습니다.
+	2. **호스트 에이전트 구성**에서 구성 서버의 내부 IP 주소와 포트 443을 지정합니다. 가상 컴퓨터가 구성 서버와 동일한 Azure 네트워크에 연결되어 있으므로 VPN을 통해 연결하지 않는 경우에도 내부 주소와 개인 포트 443을 사용할 수 있습니다. **HTTPS 사용**을 설정된 상태로 둡니다. 앞에서 적어둔 구성 서버의 암호를 입력합니다. **확인**을 클릭하여 서버를 등록합니다. NAT 옵션은 무시해도 됩니다. 해당 옵션은 사용되지 않습니다.
 	3. 보존 드라이브에 필요한 용량이 1TB 이상으로 예상될 경우 가상 디스크와 [저장소 공간](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx)을 사용하여 보존 볼륨(R:)을 구성할 수 있습니다.
 	
 	![Windows 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/target-register.png)
 
 8. Linux를 실행하는 경우 다음을 수행합니다.
-	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
-	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+	1. 마스터 대상 서버를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인합니다. [여기](https://www.microsoft.com/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
+	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
 
 	![대상 서버 등록](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
 
-9. 약 10-15분 동안 기다린 후 **서버** > **구성 서버** 페이지의 **서버 정보** 탭에서 마스터 대상 서버가 등록된 것으로 나열되는지 확인합니다. Linux를 실행하며 등록되지 않은 경우 /usr/local/ASR/Vx/bin/hostconfigcli에서 호스트 구성 도구를 다시 실행합니다. 루트 권한으로 chmod를 실행하여 액세스 권한을 설정해야 합니다.
+9. 약 10-15분 동안 기다린 후 페이지에서 **서버** > **구성 서버** **서버 세부 정보** 탭에 마스터 대상 서버가 등록된 것으로 나열되는지 확인합니다. Linux를 실행하며 등록되지 않은 경우 /usr/local/ASR/Vx/bin/hostconfigcli에서 호스트 구성 도구를 다시 실행합니다. 루트 권한으로 chmod를 실행하여 액세스 권한을 설정해야 합니다.
 
 	![대상 서버 확인](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
->[AZURE.NOTE] 등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE] 등록을 마친 후 마스터 대상 서버가 포털에 나열되기까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 **구성 서버** 페이지에서 **새로 고침**을 클릭합니다.
 
 ## 4단계: 온-프레미스 프로세스 서버 배포
 
->[AZURE.NOTE] 재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
+시작하기 전에 재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
 
 1. 빠른 시작 > **프로세스 서버 온-프레미스 설치** > **프로세스 서버 다운로드 및 설치**를 클릭합니다.
 
@@ -499,62 +494,67 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 2. InMage PushInstall 서비스를 다시 시작합니다.
 
 
-## 5단계: 최신 업데이트 설치
+## 5단계: 사이트 복구 구성 요소 업데이트
 
-계속하기 전에 최신 업데이트가 설치되어 있는지 확인합니다. 다음 순서로 업데이트를 설치합니다.
+사이트 복구 구성 요소는 수시로 업데이트됩니다. 새 업데이트를 사용할 수 있으면 다음과 같은 순서로 설치해야 합니다.
 
 1. 구성 서버
 2. 프로세스 서버
 3. 마스터 대상 서버
 4. 장애 복구(failback) 도구(vContinuum)
 
-사이트 복구 **대시보드**에서 업데이트를 다운로드할 수 있습니다. Linux 설치에 대해 Gzip 설치 프로그램에서 파일을 추출한 다음 “sudo ./install” 명령을 실행하여 업데이트를 설치합니다.
+### 업데이트 확보 및 설치
 
-[여기](http://go.microsoft.com/fwlink/?LinkID=533813)에서 **장애 복구(failback) 도구(vContinuum)**에 대한 최신 업데이트를 다운로드합니다.
 
-이미 모바일 서비스가 설치된 가상 컴퓨터 또는 물리적 서버를 실행할 경우 서비스에 대해 다음과 같은 업데이트를 다운로드할 수 있습니다.
+1. 구성, 프로세스, 및 대상 서버에 대한 업데이트는 사이트 복구 **대시보드**에서 구할 수 있습니다. Linux 설치의 경우 Gzip 설치 프로그램에서 파일을 추출한 다음 “sudo ./install” 명령을 실행하여 업데이트를 설치합니다.
+2. 장애 복구(failback) 도구(vContinuum)에 대한 최신 업데이트를 [다운로드](http://go.microsoft.com/fwlink/?LinkID=533813)하세요.
+3. 이미 모바일 서비스가 설치된 가상 컴퓨터 또는 물리적 서버를 실행할 경우 서비스에 대해 다음과 같은 업데이트를 다운로드할 수 있습니다.
 
-- 다음과 같이 서비스의 업데이트를 다운로드합니다.
-	- [Windows Server(64비트만 해당)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
-	- [CentOS 6.4,6.5,6.6(64비트만 해당)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
-	- [Oracle Enterprise Linux 6.4,6.5(64비트만 해당)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
-	- [SUSE Linux Enterprise Server SP3(64비트만 해당)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
-- 또는 프로세스 서버를 업데이트한 다음 프로세스 서버의 C:\\pushinstallsvc\\repository 폴더에서 모바일 서비스의 업데이트된 버전을 다운로드할 수 있습니다.
-- 모바일 서비스가 설치된 이전 버전의 보호된 컴퓨터가 있는 경우 관리 포털에서 보호된 컴퓨터에 모바일 서비스를 자동으로 업그레이드할 수도 있습니다. 이를 실행하려면 컴퓨터가 속한 보호 그룹을 선택하고 보호된 컴퓨터를 강조 표시하고 아래에 있는 모바일 서비스 업데이트 단추를 클릭합니다. 모바일 서비스 업데이트 단추는 최신 버전의 모바일 서비스를 사용할 수 있는 경우에 활성화됩니다. 모바일 서비스를 업데이트하기 전에 프로세스 서버가 최신 버전의 프로세스 서버 소프트웨어를 실행 중인지 확인 하십시오. 모바일 서비스 업데이트를 작동하려면 보호된 서버가 모든 [자동 푸시 설치 필수 구성 요소](#install-the-mobility-service-automatically)를 충족해야 합니다.
+	- **옵션 1**: 업데이트 다운로드:
+		- [Windows Server(64비트만 해당)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+		- [CentOS 6.4,6.5,6.6(64비트만 해당)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
+		- [Oracle Enterprise Linux 6.4,6.5(64비트만 해당)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
+		- [SUSE Linux Enterprise Server SP3(64비트만 해당)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
+		- 프로세스 서버를 업데이트한 후에, 프로세스 서버의 C:\\pushinstallsvc\\repository 폴더에서 모바일 서비스의 업데이트된 버전을 사용할 수 있습니다.
+	- **옵션 2**: 이전 버전의 모바일 서비스가 설치된 컴퓨터의 경우, 관리 포털에서 컴퓨터의 모바일 서비스를 자동으로 업그레이드할 수 있습니다.
 
-![vCenter 서버 선택](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)
+		1. 프로세스 서버가 업데이트되어야 합니다.
+		2. 업데이트가 예상대로 작동하려면, 보호된 컴퓨터가 모바일 서비스 자동 푸시를 위한 [필수 조건](#install-the-mobility-service-automatically)을 충족해야 합니다.
+		2. 보호 그룹을 선택하고, 보호된 컴퓨터를 강조 표시하고 **이동성 서비스 업데이트** 클릭합니다. 이 단추를 새로운 버전의 모바일 서비스가 있는 경우에만 사용할 수 있습니다. 
+
+			![vCenter 서버 선택](./media/site-recovery-vmware-to-azure-classic-legacy/update-mobility.png)
 
 계정 선택에서 보호된 서버에 모바일 서비스를 업데이트 하는데 사용할 관리자 계정을 지정합니다. 확인을 클릭하고 트리거된 작업이 완료되기를 기다립니다.
 
 
-## 6단계: vCenter 서버 또는 ESXi 호스트 추가
+## 6단계: vCenter 서버 또는 vSphere 호스트 추가
 
-1. **서버** > **구성 서버** 탭에서 구성 서버를 선택하고 **VCENTER 서버 추가**를 클릭하여 vCenter 서버 또는 ESXi 호스트를 추가합니다.
+1. **서버** > **구성 서버** > 구성 서버 > **vCenter Server 추가**를 클릭하여 vCenter 서버 또는 vSphere 호스트를 추가합니다.
 
 	![vCenter 서버 선택](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter.png)
 
-2. vCenter 서버 또는 ESXi 호스트의 세부 정보를 지정하고 서버 검색에 사용할 프로세스 서버를 선택합니다.
+2. 서버 또는 호스트의 세부 정보를 지정하고 서버 검색에 사용할 프로세스 서버를 선택합니다.
 
 	- vCenter 서버가 기본 443 포트에서 실행되고 있지 않은 경우 vCenter 서버가 실행 중인 포트 번호를 지정합니다.
-	- 프로세스 서버는 vCenter 서버/ESXi 호스트와 동일한 네트워크에 있어야 하며 VMware vSphere CLI 5.5.0이 설치되어 있어야 합니다.
+	- 프로세스 서버는 vCenter 서버/vSphere 호스트와 동일한 네트워크에 있어야 하며 VMware vSphere CLI 5.5.0이 설치되어 있어야 합니다.
 
 	![vCenter 서버 설정](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter4.png)
 
 
-3. 검색이 완료되면 vCenter 서버가 구성 서버 아래에 나열됩니다.
+3. 검색을 마치면 vCenter 서버가 구성 서버 세부 정보 아래에 나열됩니다.
 
 	![vCenter 서버 설정](./media/site-recovery-vmware-to-azure-classic-legacy/add-vcenter2.png)
 
-4. 비관리자 계정을 사용하여 vCenter 서버 또는 ESXi 호스트를 추가하는 경우 계정에 다음과 같은 권한이 있는지 확인하세요.
+4. 비관리자 계정을 사용하여 서버 또는 호스트를 추가하는 경우 계정에 다음과 같은 권한이 있는지 확인하세요.
 
 	- vCenter 계정은 데이터 센터, 데이터 저장소, 폴더, 호스트, 네트워크, 리소스, 저장소 보기, 가상 컴퓨터가 있고 vSphere Distributed Switch 권한을 사용하도록 설정해야 합니다.
-	- ESXi 호스트 계정은 데이터 센터, 데이터 저장소, 폴더, 호스트, 네트워크, 리소스, 가상 컴퓨터가 있고 vSphere Distributed Switch 권한을 사용하도록 설정해야 합니다.
+	- vSphere 호스트 계정은 데이터 센터, 데이터 저장소, 폴더, 호스트, 네트워크, 리소스, 가상 컴퓨터가 있고 vSphere Distributed Switch 권한을 사용하도록 설정해야 합니다.
 
 
 
 ## 7단계: 보호 그룹 만들기
 
-1. **보호된 항목** > **보호 그룹**을 열고 보호 그룹을 클릭하여 추가합니다.
+1. **보호된 항목** > **보호 그룹** > **보호 그룹 만들기**를 엽니다.
 
 	![보호 그룹 만들기](./media/site-recovery-vmware-to-azure-classic-legacy/create-pg1.png)
 
@@ -696,7 +696,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 다음 단계에 따라 컴퓨터를 추가합니다.
 
-1. **보호된 항목** > **보호 그룹** > **컴퓨터** 탭으로 이동합니다. **컴퓨터 추가**를 클릭합니다. 특정 응용 프로그램을 실행하는 컴퓨터를 동일한 그룹에 추가하도록 보호 그룹이 작업을 미러링하는 것이 가장 좋습니다.
+1. **보호된 항목** > **보호 그룹** > **컴퓨터** > **컴퓨터 추가**를 클릭합니다. 특정 응용 프로그램을 실행하는 컴퓨터를 동일한 그룹에 추가하도록 보호 그룹이 작업을 미러링하는 것이 가장 좋습니다.
 2. **가상 컴퓨터 선택**에서 물리적 서버를 보호하는 경우 **물리적 컴퓨터 추가** 마법사에 IP 주소와 이름을 입력합니다. 그런 다음 운영 체제 제품군을 선택합니다.
 
 	![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/physical-protect.png)
@@ -796,11 +796,16 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 ### 복제에 사용된 프로세스 서버를 수정합니다.
 
-1. **서버** 아래의 **구성 서버** 페이지로 이동합니다.
-2. 구성 서버 이름을 클릭하고 **서버 세부 정보**로 이동합니다.
-3. **프로세스 서버** 목록에서 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.![프로세스 서버 1 변경](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)
-4. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능한 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다. ![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)
-5. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다. 프로세스 서버에서 심각한 상태였던 모든 가상 컴퓨터를 제거할 경우 대시보드에 더 이상 심각한 상태 경고가 표시되지 않습니다.
+1. **서버** > **구성 서버** > 구성 서버 > **서버 세부 정보**를 엽니다.
+2. **프로세스 서버** > 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.
+
+	![프로세스 서버 1 변경](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps1.png)
+
+3. **프로세스 서버 변경** > **대상 프로세스 서버**에서 사용할 새 서버를 선택한 다음 새 서버에 복제할 가상 컴퓨터를 선택합니다. 여유 공간 및 사용된 메모리에 대한 세부 정보는 서버 이름 옆의 정보 아이콘을 클릭합니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다.
+
+	![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure-classic-legacy/change-ps2.png)
+
+4. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다. 프로세스 서버에서 심각한 상태의 가상 컴퓨터를 모두 제거하면 대시보드에 더 이상 심각한 경고가 표시되지 않습니다.
 
 
 ## 타사 소프트웨어 통지 및 정보
@@ -815,4 +820,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-   pageTitle="포털을 사용하여 배포 문제 해결 | Microsoft Azure"
-   description="Azure 포털을 사용하여 리소스 관리자 배포의 문제를 감지하고 해결하는 방법에 대해 설명합니다."
+   pageTitle="포털을 통해 배포 작업 보기 | Microsoft Azure"
+   description="Azure 포털을 사용하여 리소스 관리자 배포의 오류를 감지하는 방법에 대해 설명합니다."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Azure 포털을 사용하여 리소스 그룹 배포 문제 해결
+# Azure 포털을 통해 배포 작업 보기
 
 > [AZURE.SELECTOR]
 - [포털](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Azure로 리소스를 배포할 때 오류가 발생하면 문제를 해결해야 합니다. Azure 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
+Azure에 리소스를 배포할 때 오류가 발생하는 경우 실행된 배포 작업에 대한 더욱 자세한 정보가 필요할 수 있습니다. Azure 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -101,4 +101,4 @@ Azure로 리소스를 배포할 때 오류가 발생하면 문제를 해결해�
 - 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
 - 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

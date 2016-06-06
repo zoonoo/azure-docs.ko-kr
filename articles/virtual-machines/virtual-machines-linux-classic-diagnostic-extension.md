@@ -108,12 +108,14 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
 
-###   시나리오 4. Linux 모니터 확장을 사용하지 않도록 설정
+###   시나리오 4. 모든 로그 수집에서 확장 중지
+이 섹션에서는 모든 로그 수집에서 확장을 중지하는 방법을 설명합니다. 이러한 재구성에도 모니터링 에이전트 프로세스는 계속 실행됩니다. 따라서 모니터링 에이전트 프로세스를 완전히 중지하려면 현재 확장을 제거해야 합니다. 나중에 전체 확장 제거를 요구하지 않고 확장을 사용하지 않도록 설정(모니터링 에이전트 프로세스도 완전히 중지)하는 구성 속성을 추가할 수 있습니다.
+
 1단계. 시나리오 1에서 설명한 내용으로 PrivateConfig.json이라는 파일을 만듭니다. 다음과 같은 내용으로 PublicConfig.json이라는 다른 파일을 만듭니다.
 
 	{
      	"perfCfg":[],
-     	"enableSyslog":”False”
+     	"enableSyslog":"false"
 	}
 
 
@@ -137,4 +139,4 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 ## 알려진 문제
 - 버전 2.0의 경우 스크립팅을 통해 Rsyslog 정보 및 고객이 지정한 로그 파일에만 액세스할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

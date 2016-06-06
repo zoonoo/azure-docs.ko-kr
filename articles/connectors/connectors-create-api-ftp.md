@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 FTP API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 FTP API 개요"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="논리 앱에 FTP 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 FTP 커넥터 개요"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# FTP API 시작
-FTP 서버에 연결하여 파일 업로드, 파일 삭제 등을 포함하여 파일을 관리합니다. FTP API를 다음에서 사용할 수 있습니다.
+# FTP 커넥터 시작
+FTP 서버에 연결하여 파일 업로드, 파일 삭제 등을 포함하여 파일을 관리합니다. FTP 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱(이 항목에 설명됨)
 - PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
@@ -41,16 +41,12 @@ FTP에서 사용할 수 있는 트리거와 작업은 다음과 같습니다.
 --- | ---
 <ul><li>업데이트된 파일 가져오기</li></ul> | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>업데이트된 파일 가져오기</li><li>파일 업데이트</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## FTP에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 다음과 같은 값을 입력합니다.
 
-|속성| 필수|설명|
-| ---|---|---|
-|서버 주소| 예 | FTP 서버의 IP 주소나 FQDN(정규화된 도메인 이름)을 입력합니다.|
-|사용자 이름| 예 | FTP 서버에 연결할 사용자 이름을 입력합니다.|
-|암호 | 예 | 사용자 이름 암호를 입력합니다.|
+
+>[AZURE.INCLUDE [FTP 연결을 만드는 단계](../../includes/connectors-create-api-ftp.md)]
 
 연결을 만든 후에 소스 파일 또는 대상 폴더와 같은 FTP 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -246,6 +242,6 @@ FTP 서버에서 파일을 업데이트합니다. ```PUT: /datasets/default/file
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

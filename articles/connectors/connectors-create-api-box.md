@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 Box API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Box API 개요"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="논리 앱에 Box 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Box 커넥터 개요"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Box API 시작
-Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다. Box API는 다음에서 사용할 수 있습니다.
+# Box 커넥터 시작
+Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다. Box 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱(이 항목에 설명됨)
 - PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
@@ -40,13 +40,12 @@ Box에는 다음 트리거 및 작업이 포함됩니다.
 | --- | --- |
 |<ul><li>파일을 만들 때</li><li>파일을 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>파일을 만들 때</li><li>파일 복사</li><li>파일 삭제</li><li>폴더에 보관 추출</li><li>ID를 사용하여 파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>ID를 사용하여 파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 수정할 때</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Box에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 Box에 연결할 권한을 논리 앱에 부여해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 Box에 연결할 권한을 논리 앱에 부여해야 합니다.
 
-1. Box 계정에 로그인합니다.
-2. **권한 부여**를 선택하고 논리 앱에서 Box에 연결하고 사용할 수 있도록 허용합니다. 
+>[AZURE.INCLUDE [Box에 대한 연결을 만드는 단계](../../includes/connectors-create-api-box.md)]
 
 연결을 만든 후에 Box 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -261,6 +260,6 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

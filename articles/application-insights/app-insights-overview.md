@@ -116,12 +116,14 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * 제안:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+* 블로그:
+ * [Application Insights 블로그](https://azure.microsoft.com/blog/tag/application-insights)
 
 
 ## 비디오
@@ -155,4 +157,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

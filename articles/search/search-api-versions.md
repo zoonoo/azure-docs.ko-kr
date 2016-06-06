@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색의 API 버전
@@ -69,4 +69,4 @@ Azure 검색은 항상 REST API를 통해 실험 기능을 미리 공개한 다�
 
 일반 공급은 Azure 검색이 현재 SLA(서비스 수준 계약) 하에 있다는 의미입니다. SLA는 [Azure 검색 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에서 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

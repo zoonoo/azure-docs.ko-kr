@@ -1,9 +1,9 @@
 <properties
-   pageTitle="일반적인 Azure 배포 오류 | Microsoft Azure"
+   pageTitle="일반적인 Azure 배포 오류 해결 | Microsoft Azure"
    description="Azure Resource Manager를 사용하여 배포 중 발생한 일반적인 오류를 해결하는 방법을 설명합니다."
    services="azure-resource-manager"
    documentationCenter=""
-   tags=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"/>
@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결
 
-이 항목에서는 Azure에 리소스를 배포할 때 발생할 수 있는 일반적인 오류 중 일부를 해결할 수 있는 방법에 대해 설명합니다. 배포 문제 해결에 대한 자세한 내용은 [리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
-
-배포하기 전에 템플릿 및 매개 변수의 유효성을 검사하여 몇 가지 오류를 방지할 수 있습니다. 템플릿 유효성 검사에 대한 예제는 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](resource-group-template-deploy.md)를 참조하세요.
+이 항목에서는 Azure에 리소스를 배포할 때 발생할 수 있는 일반적인 오류 중 일부를 해결할 수 있는 방법에 대해 설명합니다. 사용자가 오류를 설명하는 메시지를 살펴보았다고 가정합니다. 배포가 실패한 이유에 대한 자세한 내용이 필요한 경우 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하세요.
 
 ## 잘못된 템플릿 또는 리소스
 
@@ -225,6 +223,10 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 
 가상 컴퓨터를 배포할 때 사용자 지정 스크립트 확장에 오류가 발생하면 [Azure Windows VM 확장 오류 문제 해결](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) 또는 [Azure Linux VM 확장 오류 문제 해결](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md)을 참조하세요.
 
+## 가상 컴퓨터 프로비저닝 및 할당 실패
+
+가상 컴퓨터를 배포하려고 할 때 OS 이미지 프로비저닝 오류 또는 할당 오류가 발생한 경우 [새 VM을 만들 때 발생하는 문제 해결](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) 및 [할당 오류 해결](./virtual-machines/virtual-machines-windows-allocation-failure.md)을 참조하세요.
+
 ## 배포 준비 시기 이해 
 
 Azure Resource Manager는 모든 공급자가 배포에서 성공적으로 반환할 때 배포에 성공한 것으로 보고합니다. 하지만 반드시 리소스 그룹이 "활성 상태이고 사용자를 위해 준비된" 것을 의미하는 것은 아닙니다. 예를 들어 배포에서는 업그레이드를 다운로드하거나, 다른 템플릿이 아닌 리소스를 대기하거나, 공급자가 추적하는 활동이 아니므로 Azure에서 알지 못하는 일부 다른 실행 가능한 활동이나 복잡한 스크립트를 설치해야 할 수 있습니다. 이러한 경우 리소스를 실제로 사용하기 위해 준비하는 데 시간이 걸릴 수 있습니다. 따라서 배포를 사용할 수 있기 이전에 배포 상태가 성공한 것으로 간주해야 합니다.
@@ -234,6 +236,8 @@ Azure Resource Manager는 모든 공급자가 배포에서 성공적으로 반�
 ## 다음 단계
 
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
-- 배포 중 오류를 확인하는 작업에 대해 알아보려면 [리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
+- 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하세요.
+- Windows 기반 가상 컴퓨터에 대한 원격 데스크톱 프로토콜 오류를 해결하려면 [원격 데스크톱 연결 문제 해결](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
+- Linux 기반 가상 컴퓨터에 대한 보안 셸 오류를 해결하려면 [보안 셸 연결 문제 해결](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

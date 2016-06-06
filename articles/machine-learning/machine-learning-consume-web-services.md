@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/21/2016"
+	ms.date="05/22/2016"
 	ms.author="garye" />
 
 
@@ -685,4 +685,4 @@ API 도움말 페이지에서 swagger 문서를 사용하고 [swagger.io](http:/
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

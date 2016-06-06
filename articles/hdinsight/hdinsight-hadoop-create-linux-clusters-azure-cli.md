@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/20/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -58,54 +58,51 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
         azure config mode arm
 
-4. HDInsight 클러스터에 대한 템플릿을 만듭니다. 다음은 기본 예제 템플릿 일부입니다.
+4. 새 리소스 그룹을 만듭니다. 여기에는 HDInsight 클러스터 및 연결된 저장소 계정이 포함되어 있습니다.
 
-    * [SSH 공개 키를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
-    * [SSH 계정에 암호를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
+        azure group create groupname location
+        
+    * __groupname__을 그룹의 고유한 이름으로 바꿉니다. 
+    * __location__을 그룹을 만들 지리적 지역으로 바꿉니다. 
+    
+        유효한 위치 목록에 대해서는 `azure locations list` 명령을 사용하고 __이름__ 열의 위치 중 하나를 사용합니다.
 
-    또한 이러한 템플릿은 모두 HDInsight에서 사용되는 기본 Azure 저장소 계정을 만듭니다.
+5. 새 저장소 계정을 만듭니다. 이 저장소는 HDInsight 클러스터에 대한 기본 저장소로 사용됩니다.
 
-    필요한 파일은 __azuredeploy.json__ 및 __azuredeploy.parameters.json__입니다. 계속하려면 이러한 파일을 로컬로 복사합니다.
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        
+     * __groupname__을 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
+     * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다. 
+     * __storagename__을 저장소 계정의 고유한 이름으로 바꿉니다.
+     
+     > [AZURE.NOTE] 이 명령에서 사용된 매개 변수에 대한 자세한 내용을 보려면 `azure storage account create -h`를 사용하여 이 명령에 대한 도움말을 표시합니다.
 
-5. 편집기에서 __azuredeploy.parameters.json__를 열고 `parameters` 섹션에서 항목에 대한 값을 제공합니다.
+5. 저장소 계정에 액세스하는 데 사용된 키를 검색합니다.
 
-    * __위치__: 리소스가 생성된 데이터 센터입니다. 허용되는 위치의 목록에 __azuredeploy.json__ 파일에서 `location` 섹션을 확인할 수 있습니다.
-    * __clusterName__: HDInsight 클러스터의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
-    * __clusterStorageAccountName__: HDInsight 클러스터에 생성되는 Azure 저장소 계정의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
-    * __clusterLoginPassword__: 클러스터 관리자 사용자의 암호입니다. 클러스터에서 웹 사이트 및 REST 서비스에 액세스하는 데 사용되기 때문에 안전한 암호여야 합니다.
-    * __sshUserName__: 클러스터에 만들 첫 번째 SSH 사용자의 이름입니다. 이 계정을 사용하여 클러스터에 원격으로 액세스하는 데 SSH를 사용합니다.
-    * __sshPublicKey__: SSH 공개 키를 필요로 하는 템플릿을 사용하는 경우 이 줄에서 공용 키를 추가해야 합니다. 공용 키로 생성하고 작업하는 자세한 내용은 다음 문서를 참조하세요.
+        azure storage account keys list -g groupname storagename
+        
+    * __groupname__을 리소스 그룹 이름으로 바꿉니다.
+    * __storagename__을 저장소 계정의 이름으로 바꿉니다.
+    
+    반환된 데이터에서 __key1__의 __키__ 값을 저장합니다.
 
-        * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+6. 새 HDInsight 클러스터를 만듭니다.
 
-    * __sshPassword__: SSH 암호를 필요로 하는 템플릿을 사용하는 경우 이 줄에 암호를 추가해야 합니다.
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    작업을 완료하면 파일을 저장하고 닫습니다.
+    * __groupname__을 리소스 그룹 이름으로 바꿉니다.
+    * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다.
+    * __storagename__을 저장소 계정 이름으로 바꿉니다.
+    * __storagekey__를 이전 단계에서 얻은 키로 바꿉니다. 
+    * `--defaultStorageContainer` 매개 변수의 경우 클러스터에 사용하는 것과 같은 이름을 사용합니다.
+    * __admin__ 및 __httppassword__를 HTTPS를 통해 클러스터에 액세스할 때 사용할 이름 및 암호로 바꿉니다.
+    * __sshuser__ 및 __sshuserpassword__를 SSH를 사용하여 클러스터에 액세스할 때 사용할 사용자 이름 및 암호로 바꿉니다.
 
-5. 다음을 사용하여 빈 리소스 그룹을 만듭니다. __RESOURCEGROUPNAME__을 이 그룹에 사용하려는 이름으로 바꿉니다. __LOCATION__을 HDInsight 클러스터를 만들려는 데이터센터로 바꿉니다.
-
-        azure group create RESOURCEGROUPNAME LOCATION
-
-    > [AZURE.NOTE] 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "미국 중남부"입니다.
-
-6. 다음 명령을 사용하여 이 리소스 그룹에 초기 배포를 만듭니다. __PATHTOTEMPLATE__를 __azuredeploy.json__ 템플릿 파일에 대한 경로로 바꿉니다. __PATHTOPARAMETERSFILE__를 __azuredeploy.parameters.json__ 파일에 대한 경로로 바꿉니다. __RESOURCEGROUPNAME__를 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
-
-        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
-
-    배포가 수락되면 `group deployment create command ok`과 유사한 메시지가 나타납니다.
-
-7. 배포를 완료하려면 약 15분 정도의 시간이 걸릴 수 있습니다. 다음 명령을 사용하여 배포에 대한 정보를 볼 수 있습니다. __RESOURCEGROUPNAME__를 이전 단계에서 사용한 리소스 그룹의 이름으로 바꿉니다.
-
-        azure group log show -l RESOURCEGROUPNAME
-
-    배포가 완료되면 __상태__ 필드에 __성공__ 값이 포함됩니다. 배포 중에 오류가 발생하는 경우 다음 명령을 사용하여 오류에 대한 자세한 정보를 얻을 수 있습니다.
-
-        azure group log show -l -v RESOURCEGROUPNAME
+    클러스터 생성 프로세스를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 일반적으로 약 15분이 걸립니다.
 
 ##다음 단계
 
-HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
+Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
 ###Hadoop 클러스터
 
@@ -124,4 +121,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

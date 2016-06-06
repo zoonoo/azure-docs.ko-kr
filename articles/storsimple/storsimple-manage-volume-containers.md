@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/01/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리
@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 - [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다. 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

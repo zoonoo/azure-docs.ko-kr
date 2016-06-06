@@ -82,10 +82,10 @@ GitHub에서 [Azure IoT Gateway SDK][]를 다운로드할 수 있습니다.
 [IoT(사물 인터넷) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [C용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [Java용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.5/index.html
+[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.6/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 [Java용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.5/index.html
+[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.8/index.html
 [Microsoft Azure IoT gateway SDK]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

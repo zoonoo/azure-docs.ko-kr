@@ -28,6 +28,6 @@ Azure 구독의 데이터 팩터리 | 50 | [지원에 문의](https://azure.micr
 
 ### 웹 서비스 호출 제한
 
-Azure 리소스 관리자에는 API 호출 제한이 있습니다. [Azure 리소스 관리자 API 제한](../azure-subscription-service-limits/#resource-group-limits) 범위 안의 속도로 API 호출을 수행할 수 있습니다.
+Azure 리소스 관리자에는 API 호출 제한이 있습니다. [Azure 리소스 관리자 API 제한](../azure-subscription-service-limits.md#resource-group-limits) 범위 안의 속도로 API 호출을 수행할 수 있습니다.
 
-
+<!---HONumber=AcomDC_0525_2016-->

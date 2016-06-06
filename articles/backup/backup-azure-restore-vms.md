@@ -65,9 +65,9 @@
   - 가상 컴퓨터 이름 지정: 가상 컴퓨터 이름은 주어진 클라우드 서비스 내에서 고유해야 합니다. 기본 VM 덮어쓰기를 지원하지 않습니다. 
   - VM에 대한 클라우드 서비스 선택: VM을 만들기 위한 필수 항목입니다. 기존 클라우드 서비스를 사용하거나 새 클라우드 서비스 만들기를 선택할 수 있습니다.
 
-        클라우드 서비스 이름이 무엇이든 간에 전체적으로 고유한 것이어야 합니다. 일반적으로 클라우드 서비스 이름은 [cloudservice].cloudapp.net과 같은 형태의 공용 URL과 관련이 있습니다. Azure는 새로운 클라우드 서비스를 만들 때 이미 사용된 이름을 허용하지 않습니다. 새로운 클라우드 서비스를 만들기로 한 경우 가상 컴퓨터와 동일한 이름이 부여됩니다. 이 경우 선택된 VM 이름은 관련된 클라우드 서비스에 적용할 수 있는 고유한 것이어야 합니다.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        선호도 그룹과 관련 없는 클라우드 서비스와 가상 네트워크만 복원 인스턴스 정보에 표시합니다. [자세한 정보](https://msdn.microsoft.com/ko-kr/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. VM에 대한 저장소 계정 선택: VM을 만들기 위한 필수 항목입니다. Azure 백업 자격 증명 모음과 동일한 지역에 있는 기존 저장소 계정 중에서 선택할 수 있습니다. 영역 중복 또는 프리미엄 저장소 형식의 저장소 계정은 지원되지 않습니다.
 
@@ -100,7 +100,7 @@
 
 ![복원 작업 완료](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](virtual-machines-set-up-endpoints)해야 할 수도 있습니다.
+가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)해야 할 수도 있습니다.
 
 ## 복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 클라우드 서비스에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 클라우드 서비스에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.
@@ -142,11 +142,11 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 
 가상 컴퓨터 사후 복원 디스크를 완전히 다시 만들려면 다음이 단계를 따르십시오.
 
-1. [Azure 백업 PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
+1. [Azure 백업 PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
-	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
+	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
 	- [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)를 사용하여 VM 만들기
 	- [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM 만들기
 
@@ -155,4 +155,4 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

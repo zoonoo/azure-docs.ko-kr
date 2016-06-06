@@ -1,10 +1,10 @@
 <properties
-pageTitle="논리 앱에서 Slack API 사용 | Microsoft Azure"
-description="Microsoft Azure 앱 서비스 논리 앱에서 Slack API(커넥터)를 사용하여 시작"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="논리 앱에서 Slack 커넥터 사용 | Microsoft Azure"
+description="Microsoft Azure 앱 서비스 논리 앱에서 Slack 커넥터를 사용을 시작"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Slack API 시작
+# Slack 커넥터 시작
 
 Slack은 팀의 모든 통신을 한데 모아, 어디서나 즉시 검색 및 사용할 수 있는 팀 통신 도구입니다.
 
@@ -42,7 +42,7 @@ Slack 커넥터를 작업으로 사용할 수 있습니다. 트리거는 없습�
 |--- | ---|
 |PostMessage|지정된 채널에 메시지를 게시합니다.|
 ## Slack에 대한 연결 만들기
-Slack API를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
+Slack 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
 
 |속성| 필수|설명|
 | ---|---|---|
@@ -481,4 +481,4 @@ MessageItem에 대한 필수 속성:
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

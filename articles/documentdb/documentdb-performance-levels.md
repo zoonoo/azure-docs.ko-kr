@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/16/2016" 
 	ms.author="johnmac"/>
 
 # DocumentDB의 성능 수준
@@ -173,7 +173,9 @@ Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 �
 
 DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
 
+DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
+
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

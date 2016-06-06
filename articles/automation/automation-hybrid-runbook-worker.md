@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="05/20/2016"
    ms.author="bwren" />
 
 # Azure 자동화 Hybrid Runbook Worker
@@ -31,7 +31,7 @@ Azure 자동화의 Runbook은 Azure 클라우드에서 실행되므로 로컬 �
 
 Hybrid Runbook Worker를 지원하기 위한 인바운드 방화벽 요구 사항은 없습니다. 로컬 컴퓨터의 에이전트는 클라우드에서 Azure 자동화와의 모든 통신을 시작합니다. Runbook이 시작되면 Azure 자동화에서 에이전트에게 전달되는 지침을 만듭니다. 그런 다음 에이전트는 Runbook을 실행하기 전에 Runbook 및 모든 매개 변수를 끌어옵니다. 또한 Azure 자동화에서 Runbook에 사용되는 모든 [자산](http://msdn.microsoft.com/library/dn939988.aspx)을 검색합니다.
 
->[AZURE.NOTE] 하이브리드 Runbook Worker는 현재 [DSC 구성](automation-dsc-overview.md)을 지원하지 않습니다.
+>[AZURE.NOTE] 현재 Hybrid Runbook Worker의 자동화 DSC에서 [DSC 구성](automation-dsc-overview.md)을 컴파일하는 것을 지원하지 않습니다.
 
 ## Hybrid Runbook Worker 그룹
 
@@ -57,6 +57,8 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 
 - Hybrid Runbook Worker를 실행 중인 온-프레미스 컴퓨터는 포트 443, 9354 및 30000-30199에서 *.cloudapp.net에 아웃바운드 액세스를 할 수 있어야 합니다.
 
+>[AZURE.NOTE] 사용자 환경의 도메인 컨트롤러에서 Hybrid Runbook Worker 기능을 설치하는 것은 권장되지 않습니다.
+
 ## Hybrid Runbook Worker 설치
 아래 절차는 Hybrid Runbook Worker를 설치하고 구성하는 방법을 설명합니다. 자동화 환경에 대해 처음 두 단계를 한 번 수행한 후 각 Worker 컴퓨터에 대해 나머지 단계를 반복합니다.
 
@@ -81,7 +83,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operations Management Suite에 연
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행하여 모듈을 가져옵니다.
 
 	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
-	Import-Module HybridRegistration.psd1
+	Import-Module .\HybridRegistration.psd1
 
 
 그런 다음 아래 구문을 사용하여 **Add-HybridRunbookWorker** cmdlet을 실행합니다.
@@ -152,7 +154,7 @@ Hybrid Worker 그룹에 실행 계정을 지정하려면 다음 절차를 사용
 1. 로컬 리소스에 대한 액세스로 [자격 증명 자산](automation-credentials.md)을 만듭니다.
 2. Azure 포털에서 자동화 계정을 엽니다.
 2. **Hybrid Worker 그룹** 타일을 선택한 다음 그룹을 선택합니다.
-3. **모든 설정** 및 **Hybrid Worker 그룹 설정** 차례로 선택합니다.
+3. **모든 설정** 및 **Hybrid Worker 그룹 설정**을 차례로 선택합니다.
 4. **다음 계정으로 실행**을 **기본**에서 **사용자 지정**으로 변경합니다.
 5. 자격 증명을 선택하고 **저장**을 클릭합니다.
 
@@ -169,11 +171,11 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 
 로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes입니다.
 
-Runbook이 성공적으로 완료되지 않고 작업 요약이 **일시 중단** 상태를 표시하는 경우 [Hybrid Runbook Worker: runbook 작업이 일시 중단 상태로 종료됨](automation-troubleshooting-hrw-runbook-terminates-suspended.md) 문제 해결 문서를 검토합니다.
+Runbook이 정상적으로 완료되지 않고 작업 요약이 **일시 중단** 상태를 표시하는 경우 [Hybrid Runbook Worker: runbook 작업이 일시 중단 상태로 종료됨](automation-troubleshooting-hrw-runbook-terminates-suspended.md) 문제 해결 문서를 검토합니다.
 
 ## Service Management Automation과의 관계
 
-[SMA(서비스 관리 자동화)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해주는 WAP(Microsoft Azure 팩)의 구성 요소입니다. Azure 자동화와 달리 SMA에는 Microsoft Azure 팩 관리 포털과 Runbook 및 SMA 구성을 유지할 데이터베이스를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
+[SMA(서비스 관리 자동화)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해주는 WAP(Windows Azure 팩)의 구성 요소입니다. Azure 자동화와 달리 SMA에는 Microsoft Azure 팩 관리 포털과 Runbook 및 SMA 구성을 유지할 데이터베이스를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
 
 기존 SMA 사용자는 [Hybrid Runbook Worker용 Runbook 만들기](#creating-runbooks-for-hybrid-runbook-worker)에 설명된 대로 리소스에 대한 자체 인증을 수행할 경우 Runbook을 Azure 자동화로 이동하여 변경 없이 Hybrid Runbook Worker에서 사용할 수 있습니다. SMA의 Runbook은 Runbook에 대한 인증을 제공할 수 있는 작업자 서버에서 서비스 계정의 컨텍스트로 실행됩니다.
 
@@ -189,8 +191,8 @@ Runbook이 성공적으로 완료되지 않고 작업 요약이 **일시 중단*
 ## 다음 단계
 
 - Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
-- 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 이해하려면 [Azure 자동화에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
+- 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 알아보려면 [Azure 자동화에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

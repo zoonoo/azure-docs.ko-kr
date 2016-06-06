@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # 질문 - ASP.NET용 Application Insights
@@ -39,7 +39,7 @@
 * Microsoft Azure에 등록하려면 사용자의 신용 카드 데이터를 제공해야 하지만 다른 유료 Azure 서비스를 사용하거나 명시적으로 유료 계층으로 업그레이드하지 않는 한 요금이 부과되지 않습니다.
 * 사용자의 앱을 무료 계층에 대해 월간 할당량보다 더 많이 보내면 기록이 중지됩니다. 이 경우 지불 시작을 선택하거나 월말에 할당량이 다시 설정될 때까지 기다릴 수 있습니다.
 * 기본 사용량 및 세션 데이터에는 할당량이 적용되지 않습니다.
-* 무료로 프리미엄 기능을 받는 무료 30일 평가판도 있습니다.
+* 무료로 유료 기능을 받을 수 있는 무료 30일 평가판도 있습니다.
 * 각 응용 프로그램 리소스에는 별도 할당량이 있으며 해당 가격 책정 계층을 다른 리소스와 독립적으로 설정합니다.
 
 #### 지불을 할 경우 받는 혜택은 무엇입니까?
@@ -126,7 +126,6 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 <tr><td>서버 사용자 지정 메트릭</td><td><a href="../app-insights-api-custom-events-metrics/">서버 코드에서 추적 호출</a></td><td>비즈니스 인텔리전스</td></tr>
 </table>
 
-웹 서비스를 Azure VM에서 실행하는 경우 이 위치에서도 [진단을 가져올][azurediagnostic] 수 있습니다.
 
 ## 자동화
 
@@ -139,7 +138,6 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell 스�
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
@@ -147,4 +145,4 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell 스�
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

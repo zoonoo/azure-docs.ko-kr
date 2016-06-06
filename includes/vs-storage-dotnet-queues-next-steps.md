@@ -8,6 +8,6 @@
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
   - Azure 저장소 테이블을 사용하려면 [.NET을 사용하여 Azure 테이블 저장소 시작](../articles/storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
   - Azure 저장소 Blob을 사용하려면 [.NET을 사용하여 Azure Blob 저장소 시작](../articles/storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
-  - 관련 데이터를 저장하려면 [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](../articles/sql-database/sql-database-dotnet-how-to-use.md)을 참조하세요.
+  - 관계형 데이터를 저장하려면 [.NET(C#)을 사용하여 SQL 데이터베이스에 연결](../articles/sql-database/sql-database-develop-dotnet-simple.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

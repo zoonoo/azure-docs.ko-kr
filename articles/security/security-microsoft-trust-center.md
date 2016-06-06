@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Microsoft 보안 센터
@@ -26,15 +26,15 @@ Azure에 응용 프로그램 및 데이터를 위탁할 때 다음과 같은 의
 
 Microsoft 보안 센터에서 확인할 수 내용을 소개합니다.
 
-- [보안](https://www.microsoft.com/TrustCenter/Security/default.aspx) – 모든 Microsoft 클라우드 서비스의 보안이 유지되는 방법을 배웁니다.
-- [개인 정보](https://www.microsoft.com/TrustCenter/Privacy/default.aspx) – Microsoft가 Microsoft 클라우드에서 데이터의 개인 정보를 보장하는 방법을 이해합니다.
-- [규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) – Microsoft가 조직이 개인의 데이터 수집 및 사용을 규정하는 국내, 하위 지역 및 산업별 요구 사항을 준수할 수 있게 도와 주는 방법을 살펴 봅니다.
-- [투명성](https://www.microsoft.com/TrustCenter/Transparency/default.aspx) – Microsoft가 클라우드에서 데이터를 제어하는 방법과 Microsoft가 해당 데이터가 처리되는 방식에 대해 사용자가 가능한 한 많이 알 수 있게 해주는 방식을 확인합니다.
-- [제품 및 서비스](https://www.microsoft.com/TrustCenter/CloudServices/default.aspx) – 모든 Microsoft 클라우드 제품 및 서비스를 한 곳에서 확인합니다.
-- [서비스 신뢰 포털](https://www.microsoft.com/TrustCenter/STP/default.aspx) – Microsoft 클라우드 서비스, 위험 평가, 보안 모범 사례 및 관련 자료에 대한 독립적 감사 보고서 사본을 얻을 수 있습니다.
-- [새로운 소식](https://www.microsoft.com/TrustCenter/Whats-New/default.aspx) – Microsoft 클라우드 트러스트의 새로운 소식에 대해 알아봅니다.
-- [리소스](https://www.microsoft.com/TrustCenter/Resources/default.aspx) – Microsoft Trusted Cloud에 대한 백서, 비디오 및 사례 연구를 조사합니다.
+- [보안](https://aka.ms/tcsecurity) – 모든 Microsoft 클라우드 서비스의 보안이 유지되는 방법을 배웁니다.
+- [개인 정보](https://aka.ms/tcprivacy) – Microsoft가 Microsoft 클라우드에서 데이터의 개인 정보를 보장하는 방법을 이해합니다.
+- [규정 준수](https://aka.ms/tccompliance) – Microsoft가 조직이 개인의 데이터 수집 및 사용을 규정하는 국내, 하위 지역 및 산업별 요구 사항을 준수할 수 있게 도와 주는 방법을 살펴 봅니다.
+- [투명성](https://aka.ms/tctransparency) – Microsoft가 클라우드에서 데이터를 제어하는 방법과 Microsoft가 해당 데이터가 처리되는 방식에 대해 사용자가 가능한 한 많이 알 수 있게 해주는 방식을 확인합니다.
+- [제품 및 서비스](https://aka.ms/tcproductsservices) – 모든 Microsoft 클라우드 제품 및 서비스를 한 곳에서 확인합니다.
+- [서비스 신뢰 포털](https://aka.ms/tcservicetrportal) – Microsoft 클라우드 서비스, 위험 평가, 보안 모범 사례 및 관련 자료에 대한 독립적 감사 보고서 사본을 얻을 수 있습니다.
+- [새로운 소식](https://aka.ms/tcwhatsnew) – Microsoft 클라우드 트러스트의 새로운 소식에 대해 알아봅니다.
+- [리소스](https://aka.ms/tcresources) – Microsoft Trusted Cloud에 대한 백서, 비디오 및 사례 연구를 조사합니다.
 
 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)에는 Microsoft 클라우드의 보안을 유지하기 위해 Microsoft에서 하고 있는 일을 이해하는 데 필요한 사항이 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

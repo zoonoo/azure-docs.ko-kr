@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/20/2016"
 	ms.author="danlep"/>
 
@@ -234,4 +234,4 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 * Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 * Azure 포털에서 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -204,7 +204,7 @@ Azure IoT Hub는 공유 액세스 정책 및 장치 ID 레지스트리 보안 �
 
 지원되는 각 프로토콜(예: AMQP, MQTT 및 HTTP)은 다양한 방식으로 토큰을 전송합니다.
 
-HTTP는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다. 또한 **권한 부여**라는 쿼리 매개 변수는 토큰을 전송할 수 있습니다.
+HTTP는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
 [AMQP][lnk-amqp]을 사용하는 경우 IoT Hub는 [SASL PLAIN][lnk-sasl-plain] 및 [AMQP 클레임 기반-보안][lnk-cbs]을 지원합니다.
 
@@ -267,7 +267,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람 | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
+| 받는 사람  
+ | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId | 일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -388,7 +389,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 또한 장치는 다음을 수행할 수 있습니다.
 
 - 메시지 *거부*. 이 경우 IoT Hub는 메시지를 **Deadlettered** 상태로 설정합니다.
-- 메시지 *중단*. 이 경우 IoT Hub는 상태를 **Enqueued**으로 설정하여 메시지를 큐에 다시 넣습니다.
+- 메시지 *중단*. 이 경우 IoT Hub는 상태를 **Enqueued**로 설정하여 메시지를 큐에 다시 넣습니다.
 
 스레드는 IoT Hub에 알리지 않고 메시지를 처리하는 데 실패할 수 있습니다. 이 경우 *표시 또는 잠금 시간 초과*의 기본값인 1분 후에 메시지는 **Invisible** 상태에서 **Enqueued** 상태로 자동 전환됩니다. 메시지는 IoT Hub의 *max delivery count* 속성에 지정된 최대 지정된 횟수만큼 **Enqueued**와 **Invisible** 상태 간에 전환될 수 있습니다. 해당 전환 횟수 후에 IoT Hub는 메시지의 상태를 **Deadlettered**로 설정합니다. 마찬가지로 해당 만료 시간 후에 IoT Hub는 메시지의 상태를 **Deadlettered**로 설정합니다. 관련 설명은 [TTL(Time to Live)](#ttl)을 참조하세요.
 
@@ -557,4 +558,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

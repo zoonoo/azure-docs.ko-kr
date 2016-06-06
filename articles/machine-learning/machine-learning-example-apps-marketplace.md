@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/24/2016" 
 	ms.author="luisca"/>
 
 # Azure 마켓플레이스의 기계 학습 앱
@@ -52,4 +52,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

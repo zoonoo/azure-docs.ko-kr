@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -57,9 +57,9 @@ Android용 모바일 서비스 SDK는 Android 버전 2.2 이상을 지원하지�
 
 2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	현재 최신 버전은 3.1입니다. 지원되는 버전은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=717034)에 나열됩니다.
+	현재 최신 버전은 3.1.0입니다. 지원되는 버전은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=717034)에 나열됩니다.
 
 ###<a name="enable-internet"></a>인터넷 권한 사용
 Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 설정해야 합니다. 아직 사용하지 않는 경우 코드의 다음 줄을 **AndroidManifest.xml** 파일에 추가합니다.
@@ -95,24 +95,24 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 
 예를 들어 정수 우선 순위 열이 있다면 getter 및 setter 메서드와 함께 이 필드를 추가할 수 있습니다.
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 모바일 앱 백 엔드에 추가 테이블을 작성하는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller)(.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations)(Node.js 백 엔드)를 참조하세요. 또한 Node.js 백 엔드의 경우 [Azure 포털]에서 **쉬운 테이블** 설정을 사용할 수 있습니다.
 
@@ -121,8 +121,8 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 **MobileServiceClient** 개체를 만듭니다. 이 코드는 *AndroidManifest.xml*에 지정된 **작업** 클래스의 `onCreate` 메서드에 **기본** 작업 및 **시작 관리자** 범주로 추가됩니다. 빠른 시작 코드에서 **ToDoActivity.java** 파일로 이동합니다.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 위의 코드에서 `MobileAppUrl`을 모바일 앱 백 엔드의 URL로 대체하며 이는 모바일 앱 백 엔드에 대한 블레이드의 [Azure 포털](https://portal.azure.com/)에서 찾을 수 있습니다. 또한 컴파일할 코드의 줄의 경우 다음 **가져오기** 문을 추가해야 합니다.
 
@@ -132,7 +132,7 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 
 백 엔드에서 데이터를 쿼리하거나 수정하는 가장 쉬운 방법은 *형식화된 프로그래밍 모델*을 사용하는 것입니다. Java는 강력한 형식의 언어이기 때문입니다(*형식화되지 않은* 모델에 대해서는 나중에 다룸). 이 모델은 백 엔드 Azure SQL에서 클라이언트 개체와 테이블 간에 데이터를 보낼 때 [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 사용하여 원활한 JSON 직렬화 및 역직렬화를 제공합니다. 개발자는 아무 작업도 수행할 필요가 없으며 프레임워크가 모든 과정을 처리해 줍니다.
 
-테이블에 액세스하려면 우선 [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html)에서 **getTable** 메서드를 호출하여 [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) 개체를 만듭니다. 이 메서드에는 두 가지 오버로드가 있습니다.
+테이블에 액세스하려면 우선 [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html)에서 **getTable** 메서드를 호출하여 [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) 개체를 만듭니다. 이 메서드에는 두 가지 오버로드가 있습니다.
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -141,14 +141,14 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 
 다음 코드에서 *mClient*는 MobileServiceClient 개체에 대한 참조입니다.
 
-[첫 번째 오버로드](http://go.microsoft.com/fwlink/p/?LinkId=296839)는 클래스 이름과 테이블 이름이 같을 때 사용하며 빠른 시작에서 사용되는 것입니다.
+[첫 번째 오버로드](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-)는 클래스 이름과 테이블 이름이 같을 때 사용하며 빠른 시작에서 사용되는 것입니다.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-[두 번째 오버로드](http://go.microsoft.com/fwlink/p/?LinkId=296840)는 테이블 이름이 형식 이름과 다를 때 사용하고 첫 번째 매개 변수는 테이블 이름입니다.
+[두 번째 오버로드](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-)는 테이블 이름이 형식 이름과 다를 때 사용하고 첫 번째 매개 변수는 테이블 이름입니다.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>방법: 사용자 인터페이스에 데이터 바인딩
 
@@ -174,7 +174,6 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-
 
 위의 코드에서 *listitem* 특성은 목록의 개별 행에 대한 레이아웃의 ID를 지정합니다. 다음은 확인란 및 관련 텍스트를 지정하는 코드입니다. 이 코드는 목록의 항목별로 한 번씩 인스턴스화됩니다. 이 레이아웃은 **ID** 필드를 표시하지 않고 더 복잡한 레이아웃은 디스플레이에서 추가 필드를 지정합니다. 이 코드는 **row\_list\_to\_do.xml** 파일에 있습니다.
 
@@ -258,9 +257,6 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 #### <a name="use-adapter"></a>방법: 어댑터 사용
 
 이제 데이터 바인딩을 사용할 준비가 되었습니다. 다음 코드는 모바일 서비스 테이블의 항목을 가져오고, 어댑터를 비운 후, 어댑터의 *추가* 메서드를 호출하여 반환된 항목으로 어댑터를 채우는 방법을 보여 줍니다.
-
-
-**TBD**:이 코드를 테스트합니다.
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -380,7 +376,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 여기서 select 함수의 매개 변수는 반환하려는 테이블 열의 문자열 이름입니다.
 
-**select** 메서드는 **where** 및 **orderBy** 등의 메서드가 있는 경우 그 뒤에 나와야 합니다. 그 뒤에 **top** 등의 메서드를 페이징하여 나올 수 있습니다.
+**선택** 메서드는 **where** 및 **orderBy** 등의 메서드가 있는 경우 그 뒤에 나와야 합니다. 그 뒤에 **top** 등의 메서드를 페이징하여 나올 수 있습니다.
 
 ### <a name="chaining"></a>방법: 쿼리 메서드 연결
 
@@ -590,7 +586,7 @@ Android 클라이언트에서 **invokeApi** 메서드를 호출하여 사용자 
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져올 수 있습니다. Futures를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
+**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져올 수 있습니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
 
 
 ### <a name="caching"></a>방법: 인증 토큰 캐시
@@ -682,7 +678,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 ## 방법: 앱에 푸시 알림 추가
 
-Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽을](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) 수 있습니다.
+Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽을](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) 수 있습니다.
 
 [이 자습서](app-service-mobile-android-get-started-push.md)에서 레코드가 삽입될 때 마다 푸시 알림이 전송됩니다.
 
@@ -840,4 +836,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [Azure 포털]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

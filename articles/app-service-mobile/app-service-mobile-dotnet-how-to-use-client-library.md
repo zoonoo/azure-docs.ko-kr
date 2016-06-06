@@ -78,6 +78,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 * [데이터 삭제](#deleting)
 * [충돌 해결 및 낙관적 동시성](#optimisticconcurrency)
 * [Windows 사용자 인터페이스에 바인딩](#binding)
+* [페이지 크기 변경](#pagesize)
 
 ###<a name="instantiating"></a>방법: 테이블 참조 만들기
 
@@ -230,7 +231,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 Newtonsoft JSON.NET에 대한 자세한 내용은 [JSON.NET](영문) 사이트를 참조하세요.
+속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 Newtonsoft JSON.NET에 대한 자세한 내용은 [JSON.NET] 사이트를 참조하세요.
 
 ### <a name="inserting"></a>방법: 모바일 앱 백 엔드에 데이터 삽입
 
@@ -298,7 +299,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 	jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-삭제 요청을 할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `MobileServiceInvalidOperationException`이(가) throw됩니다.
+삭제 요청을 할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `MobileServiceInvalidOperationException`이 발생합니다.
 
 ###<a name="optimisticconcurrency"></a>방법: 충돌 해결에 낙관적 동시성 사용
 
@@ -329,7 +330,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 	//Enable optimistic concurrency by retrieving version
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
-낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 catch해야 합니다. 업데이트된 레코드에 올바른 `version`을(를) 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync]를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
+낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 검색해야 합니다. 업데이트된 레코드에 올바른 `version`을 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync]를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -419,6 +420,17 @@ Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IM
 `ToCollectionAsync` 또는 `ToCollection`을(를) 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다. 이 컬렉션은 페이징을 인식합니다. 다시 말해서, 컨트롤은 "더 많은 항목을 로드"하도록 컬렉션에 요청할 수 있고 컬렉션은 이를 수행합니다. 이때 사용자 코드가 사용되지 않으며 컨트롤에서 흐름을 시작합니다. 하지만 컬렉션이 네트워크에서 데이터를 로드하기 때문에 로딩에 실패하는 경우도 있습니다. 이 오류를 처리하려면 컨트롤에서 수행한 `LoadMoreItemsAsync` 호출의 결과로 발생한 예외를 처리하도록 `MobileServiceIncrementalLoadingCollection`에 대한 `OnException` 메서드를 재정의할 수 있습니다.
 
 마지막으로, 테이블에 필드가 많지만 컨트롤에 일부 필드만 표시하려는 경우를 가정하겠습니다. 위에 나온 “[특정 열 선택](#selecting)” 섹션의 참고 자료에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
+
+###<a name="pagesize"></a>페이지 크기 변경
+
+Azure 모바일 앱은 기본적으로 요청당 최대 50개의 항목을 반환합니다. 서버에서 최대 페이지 크기를 늘리고 클라이언트 쪽에서 요청된 페이지 크기를 늘려 이 값을 변경할 수 있습니다. 요청된 페이지 크기를 늘리려면 `PullOptions`를 지정할 수 있는 `PullAsync`의 오버로드를 사용합니다.
+
+    PullOptions pullOptions = new PullOptions
+		{
+			MaxPageSize = 100
+		};
+
+서버 내에서 PageSize를 100보다 크거나 같게 지정했다고 가정할 경우 각 요청에서 최대 100개의 항목이 반환됩니다.
 
 ##<a name="#customapi"></a>사용자 지정 API 작업
 
@@ -607,7 +619,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 * **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
 
-* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급**에서 이를 가져올 수 있습니다.
+* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
 
 * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
@@ -803,7 +815,7 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 		}
 	}
 
-오류 조건을 처리하는 또 다른 예는 [모바일 앱 파일 샘플]에서 찾을 수 있습니다. [LoggingHandler] 예는 백 엔드에 만들어지는 요청을 로그하는 로깅 대리자 처리기(아래 참조)를 제공합니다. Fiddler에 의존하지 않고 Xamarin 응용 프로그램을 디버깅하는 편리한 방법을 제공합니다.
+오류 조건을 처리하는 또 다른 예제는 [모바일 앱 파일 샘플]에서 찾을 수 있습니다. [LoggingHandler] 예제는 백 엔드에 만들어지는 요청을 로그하는 로깅 대리자 처리기(아래 참조)를 제공합니다. Fiddler에 의존하지 않고 Xamarin 응용 프로그램을 디버깅하는 편리한 방법을 제공합니다.
 
 ###<a name="headers"></a>방법: 요청 헤더 사용자 지정
 
@@ -910,4 +922,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

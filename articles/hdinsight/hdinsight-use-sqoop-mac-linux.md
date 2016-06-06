@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="05/24/2016"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(SSH)
@@ -29,20 +29,76 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-
-- **HDInsight에 Hadoop 클러스터**. [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
+- **HDInsight의 Hadoop 클러스터** 및 __Azure SQL 데이터베이스__: 이 문서의 단계는 [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database) 문서를 사용하여 만든 클러스터 및 데이터베이스를 기준으로 합니다. HDInsight 클러스터 및 SQL 데이터베이스가 이미 있는 경우 이 문서에 사용된 값으로 대체할 수 있습니다.
 - **워크스테이션**: SSH 클라이언트가 있는 컴퓨터입니다.
-- **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하십시오.
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+##FreeTDS 설치
+
+1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 연결 시 사용할 주소는 `CLUSTERNAME-ssh.azurehdinsight.net`이며 포트는 `22`입니다.
+
+	SSH를 사용한 HDInsight 연결에 대한 자세한 내용은 다음 문서를 참조합니다.
+
+    * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+
+    * **Windows 클라이언트**: [Windows로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+
+3. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
+
+        sudo apt-get --assume-yes install freetds-dev freetds-bin
+
+    FreeTDS는 SQL 데이터베이스에 연결하기 위해 여러 단계에서 사용됩니다.
+
+##SQL 데이터베이스에 테이블 만들기
+
+> [AZURE.IMPORTANT] [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md)의 단계를 사용하여 만든 HDInsight 클러스터 및 SQL 데이터베이스를 사용하는 경우 데이터베이스 및 테이블이 해당 문서의 단계 일부로 만들어졌으므로 이 섹션의 단계를 무시하세요.
+
+1. SSH - HDInsight 연결에서 다음 명령을 사용하여 SQL 데이터베이스 서버에 연결하고 다음 단계 나머지 부분에서 사용될 테이블을 만듭니다.
+
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+
+    다음과 유사한 출력이 표시됩니다.
+
+        locale is "en_US.UTF-8"
+        locale charset is "UTF-8"
+        using default charset "UTF-8"
+        Default database being set to sqooptest
+        1>
+
+5. `1>` 프롬프트에 다음 행을 입력합니다.
+
+        CREATE TABLE [dbo].[mobiledata](
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
+        GO
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        GO
+
+    `GO` 명령문을 입력하면 이전 명령문이 평가됩니다. 먼저 **mobiledata** 테이블이 생성된 다음 클러스터형 인덱스가 추가됩니다(SQL 데이터베이스에 필수).
+
+    다음을 사용하여 테이블이 생성되었는지 확인합니다.
+
+        SELECT * FROM information_schema.tables
+        GO
+
+    다음과 비슷한 결과가 나타나야 합니다.
+
+        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+        sqooptest       dbo     mobiledata      BASE TABLE
+
+8. `1>` 프롬프트에서 `exit`를 입력하여 tsql 유틸리티를 종료합니다.
 
 ##Sqoop 내보내기
 
-2. 다음 명령을 사용하여 Sqoop lib 디렉터리에서 SQL Server JDBC 드라이버에 링크를 만듭니다. 이를 통해 Sqoop이 다음 드라이버를 사용하여 SQL 데이터베이스와 통신할 수 있습니다.
-
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
-
-3. 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
+3. SSH - HDInsight 연결에서 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
 
         sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
@@ -52,7 +108,7 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 **wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
+    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 ****wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
 
 5. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -67,7 +123,7 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 ##Sqoop 가져오기
 
-1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 **wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
+1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 ****wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -145,4 +201,4 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

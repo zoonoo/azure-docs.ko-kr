@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열을 위한 StorSimple Manager 서비스 배포
@@ -38,7 +38,7 @@ StorSimple 관리자 페이지를 통해 수행할 수 있는 일반적인 작�
 - 서비스 등록 키 가져오기
 - 서비스 등록 키 생성
 
-이 자습서에서는 이러한 각 작업을 수행하는 방법을 설명합니다.
+이 자습서에서는 이러한 각 작업을 수행하는 방법을 설명합니다. 이 문서에 포함된 정보는 StorSimple 가상 배열에만 적용됩니다. StorSimple 8000 시리즈에 대한 자세한 내용은 [StorSimple Manager 서비스 배포](storsimple-manage-service.md)를 참조하세요.
 
 ## 서비스 만들기
 
@@ -51,6 +51,8 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 또한 서비스를 만들 때 기본 저장소 계정을 생성하도록 선택할 수 있습니다.
 
 하나의 서비스로 여러 장치를 관리할 수 있습니다. 하지만 하나의 장치는 여러 서비스로 확장할 수 없습니다. 대규모 엔터프라이즈는 서로 다른 구독, 조직 또는 배포 위치와 동작하는 여러 서비스 인스턴스를 가질 수 있습니다.
+
+> [AZURE.NOTE] StorSimple 8000 시리즈 장치와 StorSimple 가상 배열을 관리하려면 별도의 StorSimple Manager 서비스 인스턴스가 필요합니다.
 
 서비스를 만들려면 다음 단계를 수행합니다.
 
@@ -105,10 +107,10 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
 ## 다음 단계
 
-- [StorSimple 가상 배열 시작](storsimple-ova-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
+- StorSimple 가상 배열 [시작](storsimple-ova-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
 	
 - [StorSimple 장치 관리](storsimple-ova-web-ui-admin.md) 방법에 대해 알아봅니다.
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

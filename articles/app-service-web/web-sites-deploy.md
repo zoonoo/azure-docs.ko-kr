@@ -126,7 +126,7 @@ Azure에 파일을 복사하는 작업에는 몇 가지 간단한 단계가 포�
 * [git/hg 리포지토리에서 웹 앱에 게시합니다.](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)  
 
 ## IDE를 사용하여 배포
-[Azure SDK](https://azure.microsoft.com/downloads/) 또는 [Xcode](https://developer.apple.com/xcode/) 및 [Eclipse](https://www.eclipse.org)와 같은 기타 IDE 제품군이 포함된 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)를 이미 사용하고 있는 경우 IDE 내에서 직접 Azure에 배포할 수 있습니다. 이 옵션은 개인 개발자에 이상적입니다.
+[Azure SDK](https://azure.microsoft.com/downloads/) 또는 [Xcode](https://developer.apple.com/xcode/) 및 [Eclipse](https://www.eclipse.org) 및 [IntelliJ IDEA](https://www.jetbrains.com/idea/)와 같은 기타 IDE 제품군이 포함된 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)를 이미 사용하고 있는 경우 IDE 내에서 직접 Azure에 배포할 수 있습니다. 이 옵션은 개인 개발자에 이상적입니다.
 
 Visual Studio가 기본 설정에 따라 모두 세 가지 배포 프로세스(FTP, Git, 웹 배포)를 지원하는 반면 FTP 또는 Git가 통합된 경우 다른 IDE를 사용하여 앱 서비스에 배포할 수 있습니다([배포 프로세스 개요](#overview) 참조).
 
@@ -154,6 +154,14 @@ IDE를 사용하여 배포할 때의 단점:
 * [멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 Asp.Net.MVC 5 앱을 웹 앱에 배포합니다.](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) Visual Studio, 웹 배포 및 Entity Framework Code First 마이그레이션을 사용하여 SQL 데이터베이스가 포함된 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 * [Visual Studio를 사용한 ASP.NET 웹 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)(영문). 12개 부분으로 구성된 자습서 시리즈로, 이 목록의 다른 자료보다 더 폭넓은 배포 작업 범위를 다룹니다. 일부 Azure 배포 기능은 이 자습서가 작성되기 전에 추가되었지만 이후에 추가된 참고 사항에 누락된 내용이 설명되어 있습니다.
 * [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)(영문). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다. Visual Studio 2013부터 Git 지원이 기본 제공되므로 플러그 인을 설치할 필요가 없습니다.
+
+###<a name="aztk"></a>Eclipse 및 IntelliJ IDEA용 Azure 도구 키트를 사용하여 배포하는 방법
+
+Microsoft는 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse.md) 및 [IntelliJ용 Azure 도구 키트](../azure-toolkit-for-intellij.md)를 통해 Eclipse 및 IntelliJ에서 Azure로 직접 웹앱을 배포할 수 있도록 지원합니다. 다음 자습서에서는 이러한 IDE 중 하나를 사용하여 Azure에 간단한 "Hello" world 웹앱을 배포하는 단계를 설명합니다.
+
+*  [Eclipse에서 Azure용 Hello World 웹앱 만들기](./app-service-web-eclipse-create-hello-world-web-app.md) 이 자습서에서는 Eclipse용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만들고 배포하는 방법을 보여 줍니다.
+*  [IntelliJ에서 Azure용 Hello World 웹앱 만들기](./app-service-web-intellij-create-hello-world-web-app.md) 이 자습서에서는 IntelliJ용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만들고 배포하는 방법을 보여 줍니다.
+
 
 ## <a name="automate"></a>명령줄 도구를 사용하여 배포 자동화
 
@@ -226,4 +234,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 앱 서비스 배포에 
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 클래식 포털을 사용하여 Azure SQL 데이터베이스 관리"
-	description="Azure 클래식 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요."
+	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 관리"
+	description="Azure 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 트랜잭
 
 - [SQL 데이터베이스](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

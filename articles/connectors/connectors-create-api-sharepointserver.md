@@ -1,10 +1,10 @@
 <properties
-pageTitle="논리 앱 또는 파워 앱에서 SharePoint Online API 사용| Microsoft Azure"
-description="논리 앱 및 PowerApps에서 Azure 앱 서비스 SharePoint Online API를 사용하여 시작합니다."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="논리 앱 또는 파워 앱에서 SharePoint Online 커넥터 사용| Microsoft Azure"
+description="논리 앱 및 PowerApps에서 Azure 앱 서비스 SharePoint Online 커넥터 사용을 시작합니다."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/26/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# SharePoint Online API 시작
+# SharePoint Online 커넥터 시작 
 
-SharePoint 연결 공급자는 SharePoint에서 목록으로 작업하기 위한 API를 제공합니다.
+SharePoint 커넥터는 SharePoint에서 목록으로 작업하기 위한 방법을 제공합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -32,9 +32,9 @@ SharePoint를 사용하면 다음과 같은 작업을 수행할 수 있습니다
 
 ## 트리거 및 작업에 대한 정보
 
-SharePoint API는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+SharePoint 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
-SharePoint API에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+SharePoint 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
 
 ### SharePoint 작업
 다음 작업을 수행할 수 있습니다.
@@ -66,20 +66,19 @@ SharePoint API에서는 다음과 같은 작업 및/또는 트리거를 사용�
 
 
 ## SharePoint에 대한 연결 만들기
-SharePoint API를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
+SharePoint 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
 
 |속성| 필수|설명|
 | ---|---|---|
 |신뢰|예|SharePoint 자격 증명 제공|
 
-**SharePoint Online**에 연결하려면 SharePoint Online에 ID(사용자 이름 및 암호, 스마트 카드 자격 증명 등)를 제공해야 합니다. 인증되면 논리 앱에서 SharePoint Online API를 계속 사용할 수 있습니다.
+**SharePoint Online**에 연결하려면 SharePoint Online에 ID(사용자 이름 및 암호, 스마트 카드 자격 증명 등)를 제공해야 합니다. 인증되면 논리 앱에서 SharePoint Online 커넥터를 계속 사용할 수 있습니다.
 
 논리 앱 디자이너에 있는 동안 다음 단계를 따라 SharePoint에 로그인하여 논리 앱에서 사용할 연결 **연결**을 만듭니다.
 
 1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.![SharePoint 구성][1]  
 2. **SharePoint Online - 파일을 만들 때**를 선택합니다.   
-3. **SharePoint Online에 로그인**을 선택합니다.
-![SharePoint 구성][2]    
+3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]    
 4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.![SharePoint 구성][3]     
 5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다.![SharePoint 구성][4]  
 6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.   
@@ -702,4 +701,4 @@ TablesList에 대한 필수 속성:
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -22,28 +22,31 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[let 절](#let-clause)|[rand](#rand)|[sum](#sum)
-|[모든](#any)|[dcount](#dcount)|[limit 연산자](#limit-operator)|[range](#range)|[summarize 연산자](#summarize-operator)
-|[argmax](#argmax)|[let 절의 동적 개체](#dynamic-objects-in-let-clauses)|[로그](#log)|[range 연산자](#range-operator)|[take 연산자](#take-operator)
-|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[reduce 연산자](#reduce-operator)|[todatetime](#todatetime)
-|[Arithmetic 연산자](#arithmetic-operators)|[extend 연산자](#extend-operator)|[makeset](#makeset)|[render 지시문](#render-directive)|[todouble](#todouble)
-|[배열 및 개체 리터럴](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[restrict 절](#restrict-clause)|[toint](#toint)
-|[avg](#avg)|[floor](#floor)|[mvexpand 연산자](#mvexpand-operator)|[스칼라 비교](#scalar-comparisons)|[tolong](#tolong)
-|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[sort 연산자](#sort-operator)|[tolower](#tolower)
-|[부울 리터럴](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[분할](#split)|[top 연산자](#top-operator)
-|[Boolean 연산자](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[hash](#hash)|[숫자 리터럴](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[iff](#iff)|[난독 처리된 문자열 리터럴](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
-|[count](#count)|[isempty](#isempty)|[parse 연산자](#parse-operator)|[stdev](#stdev)|[union 연산자](#union-operator)
-|[count 연산자](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
-|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[문자열 비교](#string-comparisons)|[where 연산자](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[문자열 리터럴](#string-literals)
-|[날짜 및 시간 식](#date-and-time-expressions)|[join 연산자](#join-operator)|[project 연산자](#project-operator)|[strlen](#strlen)
-|[날짜 및 시간 리터럴](#date-and-time-literals)|[JSON Path 식](#json-path-expressions)|[project-away 연산자](#project-away-operator)|[substring](#substring)
+|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize 연산자](#summarize-operator)
+|[ago](#ago)|[dayofyear](#dayofyear)|[join 연산자](#join-operator)|[range](#range)|[take 연산자](#take-operator)
+|[모든](#any)|[dcount](#dcount)|[JSON Path 식](#json-path-expressions)|[range 연산자](#range-operator)|[todatetime](#todatetime)
+|[argmax](#argmax)|[dcountif](#dcountif)|[let 절](#let-clause)|[reduce 연산자](#reduce-operator)|[todouble](#todouble)
+|[argmin](#argmin)|[let 절의 동적 개체](#dynamic-objects-in-let-clauses)|[limit 연산자](#limit-operator)|[render 지시문](#render-directive)|[todynamic](#todynamic)
+|[Arithmetic 연산자](#arithmetic-operators)|[endofday](#endofday)|[로그](#log)|[replace](#replace)|[toint](#toint)
+|[배열 및 개체 리터럴](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict 절](#restrict-clause)|[tolong](#tolong)
+|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[스칼라 비교](#scalar-comparisons)|[tolower](#tolower)
+|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort 연산자](#sort-operator)|[top 연산자](#top-operator)
+|[bin](#bin)|[exp](#exp)|[min](#min)|[분할](#split)|[top-nested 연산자](#top-nested-operator)
+|[부울 리터럴](#boolean-literals)|[extend 연산자](#extend-operator)|[mvexpand 연산자](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
+|[Boolean 연산자](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
+|[count](#count)|[getmonth](#getmonth)|[숫자 리터럴](#numeric-literals)|[startofyear](#startofyear)|[union 연산자](#union-operator)
+|[count 연산자](#count-operator)|[gettype](#gettype)|[난독 처리된 문자열 리터럴](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
+|[countif](#countif)|[getyear](#getyear)|[parse 연산자](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
+|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[문자열 비교](#string-comparisons)|[where 연산자](#where-operator)
+|[날짜 및 시간 식](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[문자열 리터럴](#string-literals)
+|[날짜 및 시간 리터럴](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
+|[datepart](#datepart)|[isnotempty](#isnotempty)|[project 연산자](#project-operator)|[substring](#substring)
+|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away 연산자](#project-away-operator)|[sum](#sum)
+
 
 
 ## 쿼리 및 연산자
@@ -258,7 +261,7 @@ Self-join:
 
      T | limit 5
 
-입력된 테이블에서 지정한 수까지의 행을 반환합니다. 레코드가 반환된다는 보장은 없습니다. (특정 레코드를 반환하려면 [`top`](#top-operator)을 사용합니다.)
+입력된 테이블에서 지정한 수까지의 행을 반환합니다. 레코드가 반환된다는 보장은 없습니다. 특정 레코드를 반환하려면 [`top`](#top-operator)을 사용합니다.
 
 **별칭** `take`
 
@@ -281,7 +284,7 @@ Self-join:
 
 동적 형식(JSON)의 셀에서 각 항목이 별도의 행을 가진 목록을 확장합니다. 확장된 행의 모든 다른 셀이 중복됩니다.
 
-(반대 기능을 수행하는 [`summarize makelist`](#summarize-operator)를 참조하세요.)
+반대 기능을 수행하는 [`summarize makelist`](#summarize-operator)를 참조하세요.
 
 **예제**
 
@@ -323,12 +326,12 @@ Self-join:
 
 명명된 열의 배열 또는 배열 식에 있는 각 값에 대한 여러 행.
 
-확장된 열은 언제나 동적 형식을 가집니다. 값을 계산하거나 집계하려는 경우 `todatetime()` 또는 `toint()` 과 같은 캐스트를 사용합니다.
+확장된 열은 언제나 동적 형식을 가집니다. 값을 계산하거나 집계하려는 경우 `todatetime()` 또는 `toint()`과 같은 캐스트를 사용합니다.
 
 속성 모음 확장의 두 가지 모드가 지원됩니다.
 
 * `bagexpansion=bag`: 속성 모음이 단일 항목 속성 모음으로 확장됩니다. 이는 기본 확장입니다.
-* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 distint count 집계 실행). 
+* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 고유 카운트 집계 실행). 
 
 **예**
 
@@ -436,7 +439,7 @@ StormEvents
 
     T | project cost=price*quantity, price
 
-포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. (`extend`를 참조하세요.)
+포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. `extend`을 참조하세요.
 
 
 **구문**
@@ -457,7 +460,7 @@ StormEvents
 
 **예제**
 
-다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력된 테이블 `T`에는 형식 `int`의 열 세 개, 즉 `A`, `B` 및 `C`가 있습니다.
+다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 형식 `int`의 열 세 개, 즉 `A`, `B` 및 `C`가 있습니다.
 
 ```AIQL
 T
@@ -501,7 +504,7 @@ T
 * *Stop:* 출력에서 생성되는 가장 높은 값입니다(또는 *step*으로 이 값에 대해 단계를 지정한 경우 가장 높은 값에 대한 범위).
 * *Step:* 연속된 두 값 사이의 차입니다. 
 
-인수는 숫자, 날짜 또는 시간 간격 값이어야 합니다. 아무 테이블의 열이나 참조할 수는 없습니다. (입력 테이블을 기반으로 범위를 계산하려면 [range *함수*](#range)를 사용하며, [mvexpand 연산자](#mvexpand-operator)와 함께 사용할 수 있습니다.)
+인수는 숫자, 날짜 또는 시간 간격 값이어야 합니다. 아무 테이블의 열이나 참조할 수는 없습니다. 입력 테이블을 기반으로 범위를 계산하려면 [range *함수*](#range)를 사용하며, [mvexpand 연산자](#mvexpand-operator)와 함께 사용할 수 있습니다.
 
 **반환**
 
@@ -558,7 +561,7 @@ range timestamp from ago(4h) to now() step 1m
 
 두 개의 열 `Pattern` 및 `Count`입니다. 대부분의 경우 패턴은 열의 전체 값입니다. 경우에 따라 일반적인 용어를 식별하고 변수 부분을 '*'로 바꿉니다.
 
-예를 들어 `reduce by city`의 결과는 포함할 수 있습니다.
+예를 들어 `reduce by city`의 결과는 포함할 수도 있습니다.
 
 |패턴 | 개수 |
 |---|---|
@@ -661,7 +664,7 @@ Traces
 
 ### take 연산자
 
-[제한](#limit-operator)의 별칭
+[limit](#limit-operator)의 별칭
 
 
 ### top 연산자
@@ -685,6 +688,26 @@ Traces
 **팁**
 
 `top 5 by name`은 외관상으로는 `sort by name | take 5`와 동일하지만 실행 속도가 더 빠르며 항상 정렬된 결과를 반환하는 반면 `take`에서는 이와 같은 속도와 결과 정렬이 보장되지 않습니다.
+
+### top-nested 연산자
+
+    requests 
+    | top-nested 5 of name by count()  
+    , top-nested 3 of performanceBucket by count() 
+    , top-nested 3 of client_CountryOrRegion by count()
+    | render barchart 
+
+각 수준이 이전 수준에서의 드릴다운에 해당하는 계층적 결과를 생성합니다. 이 연산자는 "상위 5개의 요청은 무엇이며, 각각에 대해 상위 3개의 성능 버킷은 무엇이며, 각각에 대해 요청이 시작된 상위 3개 국가는 어느 것입니까?"와 같은 질문에 답변하는 데 유용합니다.
+
+**구문**
+
+   T | top-nested N of COLUMN by AGGREGATION [, ...]
+
+**인수**
+
+* N:int - 반환하거나 다음 수준으로 전달할 행 개수입니다. N이 5, 3, 3인 세 개 수준의 쿼리에서 총 행 수는 45개가 됩니다.
+* COLUMN - 집계를 위한 그룹화 기준 열입니다. 
+* AGGREGATION - 각 행 그룹에 적용할 [집계 함수](#aggregations)입니다. 이러한 집계의 결과에 따라 표시할 상위 그룹이 결정됩니다.
 
 
 ### union 연산자
@@ -966,9 +989,9 @@ traces
 
     dcount( Expression [ ,  Accuracy ])
 
-그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. (고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.)
+그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.
 
-*정확도* 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
+*정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
  * `0` = 정확성은 가장 떨어지지만 가장 빠른 계산입니다.
  * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%
@@ -982,6 +1005,26 @@ traces
 
 ![](./media/app-insights-analytics-reference/dcount.png)
 
+
+### dcountif
+
+    dcountif( Expression, Predicate [ ,  Accuracy ])
+
+*Predicate*이 true인 그룹에 있는 행의 *Expr*에 대한 고유 값 수 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.
+
+*정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
+
+ * `0` = 정확성은 가장 떨어지지만 가장 빠른 계산입니다.
+ * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%
+ * `2` = 가장 정확하지만 가장 느린 계산입니다. 오류 비율: 0.4%
+
+**예제**
+
+    pageViews 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
+      by client_CountryOrRegion
+
+
 ### makelist
 
     makelist(Expr [ ,  MaxListSize ] )
@@ -994,7 +1037,7 @@ traces
 
     makeset(Expression [ , MaxSetSize ] )
 
-*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. (팁:고유 값을 세기만 하려면 [`dcount`](#dcount)를 사용합니다.)
+*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. 팁:고유 값을 세기만 하려면 [`dcount`](#dcount)를 사용합니다.
   
 *  *MaxSetSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값 *128*)입니다.
 
@@ -1096,7 +1139,7 @@ traces
 
 ## 스칼라
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 지원 되는 형식은 다음과 같습니다.
 
@@ -1126,6 +1169,11 @@ traces
     tostring(42.5)
     todynamic("{a:10, b:20}")
 
+문자열을 특정 형식으로 변환할 수 있는지 여부를 확인합니다.
+
+    iff(notnull(todouble(customDimensions.myValue)),
+       ..., ...)
+
 ### 스칼라 비교
 
 ||
@@ -1146,7 +1194,7 @@ traces
 
 **반환**
 
-단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`은 값이 인코드되는 방법을 표시합니다.
+단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`은 값이 인코딩되는 방법을 표시합니다.
 
 **예**
 
@@ -1154,7 +1202,7 @@ traces
 ---|---
 `gettype("a")` |`"string" `
 `gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
+`gettype(1==1)` |`"int8"`
 `gettype(now())` |`"datetime" `
 `gettype(1s)` |`"timespan" `
 `gettype(parsejson('1'))` |`"int" `
@@ -1164,8 +1212,7 @@ traces
 `gettype(123.45)` |`"real" `
 `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
 `gettype(parsejson(''))` |`"null"`
-
-
+`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1253,6 +1300,30 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
     T | summarize count(PossiblyNull)
 
+### toscalar
+
+쿼리 또는 식을 평가하고 결과를 단일 값으로 반환합니다. 이 함수는 단계적 계산(예: 이벤트의 총 개수를 계산한 후 기준으로 사용)에 유용합니다.
+
+**구문**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**반환**
+
+평가된 인수입니다. 인수가 테이블인 경우 첫 번째 행의 첫 번째 열을 반환합니다. 인수에 열과 행이 하나씩만 있는 경우가 모범 사례입니다.
+
+**예제**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 
 
@@ -1274,7 +1345,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## 숫자
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 숫자 리터럴
 
@@ -1288,22 +1359,25 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기
-| / | 나누기
-| % | 모듈로 |
-||
-|`<` |보다 작음
-|`<=`|작거나 같음
-|`>` |보다 큼
-|`>=`|크거나 같음
-|`<>`|같지 않음
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
+### abs
 
+**구문**
 
-### bin
+	abs(x)
+
+**인수**
+
+* x - 정수, 실수 또는 Timespan
+
+**반환**
+
+    iff(x>0, x, -x)
+
+<a name="bin"></a><a name="floor"></a>
+### bin, floor
 
 값을 지정된 bin 크기의 아래쪽 정수 배로 반올림합니다. [`summarize by`](#summarize-operator) 쿼리에 많이 사용됩니다. 분산된 값 집합이 있는 경우 특정 값의 더 작은 집합으로 그룹화됩니다.
 
@@ -1312,6 +1386,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **구문**
 
      bin(value, roundTo)
+     floor(value, roundTo)
 
 **인수**
 
@@ -1339,6 +1414,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+
 ### exp
 
     exp(v)   // e raised to the power v
@@ -1421,7 +1497,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ## 날짜 및 시간
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 ### 날짜 및 시간 리터럴
 
@@ -1492,6 +1568,39 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     T | where timestamp > ago(1h)
 ```
 
+### datepart
+
+    datepart("Day", datetime(2015-12-14)) == 14
+
+날짜의 지정된 부분을 정수로 추출합니다.
+
+**구문**
+
+    datepart(part, datetime)
+
+**인수**
+
+* `part:String` - {"년", "월", "일", "시", "분", "초", "밀리초", "마이크로초", "나노초"}
+* `datetime`
+
+**반환**
+
+지정된 부분을 나타내는 Long 값입니다.
+
+
+### dayofmonth
+
+    dayofmonth(datetime("2016-05-15")) == 15 
+
+월 중 일의 서수입니다.
+
+**구문**
+
+    dayofmonth(a_date)
+
+**인수**
+
+* `a_date`: `datetime`.
 
 
 ### dayofweek
@@ -1506,7 +1615,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* `a_date`: `datetime`입니다.
+* `a_date`: `datetime`.
 
 **반환**
 
@@ -1518,6 +1627,32 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
+
+### dayofyear
+
+    dayofyear(datetime("2016-05-31")) == 152 
+    dayofyear(datetime("2016-01-01")) == 1 
+
+년 중 일의 서수입니다.
+
+**구문**
+
+    dayofyear(a_date)
+
+**인수**
+
+* `a_date`: `datetime`.
+
+<a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
+### endofday, endofweek, endofmonth, endofyear
+
+    dt = datetime("2016-05-23 12:34")
+
+    endofday(dt) == 2016-05-23T23:59:59.999
+    endofweek(dt) == 2016-05-28T23:59:59.999 // Saturday
+    endofmonth(dt) == 2016-05-31T23:59:59.999 
+    endofyear(dt) == 2016-12-31T23:59:59.999 
+
 
 ### getmonth
 
@@ -1568,17 +1703,16 @@ datetime에서 연도를 가져옵니다.
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
-### startofmonth
+<a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
+### startofday, startofweek, startofmonth, startofyear
 
-    startofmonth(date)
+    date=datetime("2016-05-23 12:34:56")
 
-날짜를 포함하는 월의 시작입니다.
+    startofday(date) == datetime("2016-05-23")
+    startofweek(date) == datetime("2016-05-22") // Sunday
+    startofmonth(date) == datetime("2016-05-01")
+    startofyear(date) == datetime("2016-01-01")
 
-### startofyear
-
-    startofyear(date)
-
-날짜를 포함하는 연도의 시작입니다.
 
 
 ### todatetime
@@ -1587,11 +1721,17 @@ T | where ... | extend Elapsed=now() - timestamp
 
      todatetime("2016-03-28")
      todatetime("03/28/2016")
-     todatetime("2016-03-28 14:34")
+     todatetime("2016-03-28 14:34:00")
      todatetime("03/28/2016 2:34pm")
      todatetime("2016-03-28T14:34.5Z")
-     todatetime(a[0])  // cast a dynamic type
-     todatetime(b.c)   // cast a dynamic type
+     todatetime(a[0]) 
+     todatetime(b.c) 
+
+문자열이 유효한 날짜인지 여부를 확인합니다.
+
+     iff(notnull(todatetime(customDimensions.myDate)),
+         ..., ...)
+
 
 ### totimespan
 
@@ -1601,8 +1741,16 @@ T | where ... | extend Elapsed=now() - timestamp
     totimespan("21h")
     totimespan(request.duration)
 
+### weekofyear
 
-## String
+    weekofyear(datetime("2016-05-14")) == 21
+    weekofyear(datetime("2016-01-03")) == 1
+    weekofyear(datetime("2016-12-31")) == 53
+
+정수 결과는 ISO 8601 표준에 따라 주차를 나타냅니다. 주의 첫째 요일은 일요일이고, 년의 첫째 주는 해당 년의 첫 번째 목요일을 포함하는 주입니다. 따라서 년의 마지막 주중 일에 다음 년의 첫째 주에 포함된 일부 일이 포함되거나, 첫째 주중 일에 이전 년의 52번째 또는 53번째 주 일부가 포함될 수 있습니다.
+
+
+## 문자열
 
 [countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
@@ -2233,4 +2381,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

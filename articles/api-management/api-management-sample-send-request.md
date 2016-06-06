@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/19/2016"
+	ms.date="05/25/2016"
 	ms.author="v-darmi"/>
 
 
@@ -269,4 +269,4 @@ Azure API 관리 서비스는 HTTP 트래픽에 선택적으로 적용할 수 �
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

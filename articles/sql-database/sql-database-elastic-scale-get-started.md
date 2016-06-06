@@ -3,7 +3,7 @@
 	description="쉽게 실행할 수 있는 샘플 앱을 포함하여 Azure SQL 데이터베이스의 탄력적 데이터베이스 도구 기능에 대해 기본적으로 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor="sidneyh"/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/24/2016" 
+	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 도구 시작하기
 
 이 문서에서는 샘플 앱을 실행하여 개발자 환경을 소개합니다. 이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 이 샘플은 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 기능을 보여줍니다.
+
+라이브러리를 설치하려면 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 라이브러리는 아래 설명된 샘플 앱과 함께 설치됩니다.
 
 ## 필수 조건
 
@@ -83,6 +85,7 @@
 -    블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    채널 9: [탄력적인 확장 개요 비디오](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    토론 포럼: [Azure SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+-    성능 측정을 위한: [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-client-library.md)
 
 
 <!--Anchors-->
@@ -98,4 +101,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

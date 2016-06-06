@@ -58,6 +58,8 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ## 코드 다운로드
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
 이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
 
 ```
@@ -251,7 +253,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### 컨트롤러에서 액세스 토큰 가져오기
 
-`TaskService` 백 엔드에 대한 액세스 토큰을 가져와 ADAL의 토큰 캐시에 저장한 후에는 이를 사용해야 합니다. `TasksController`는 `TaskService` API와의 통신을 담당하며, 작업을 읽고, 만들고, 삭제하기 위한 HTTP 요청을 API로 보냅니다. HTTP 요청을 보내기 전에 ADAL에서 액세스 토큰을 가져옵니다.
+`TaskService` 백 엔드에 대한 액세스 토큰을 가져와 ADAL의 토큰 캐시에 저장한 후에는 이를 사용해야 합니다. `TasksController`는 `TaskService` API와의 통신을 담당하며, 태스크를 읽고, 만들고, 삭제하기 위한 HTTP 요청을 API로 보냅니다. HTTP 요청을 보내기 전에 ADAL에서 액세스 토큰을 가져옵니다.
 
 ```C#
 // Controllers\TasksController.cs
@@ -388,4 +390,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

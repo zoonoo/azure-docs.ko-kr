@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/01/2016"
+   ms.date="05/18/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -26,11 +26,13 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 * HDInsight의 Apache Storm 클러스터입니다. 다음 시작 문서 중 하나를 사용하여 클러스터를 만듭니다.
 
-    - [Linux 기반 클러스터](hdinsight-apache-storm-tutorial-get-started-linux.md): SSH를 사용하여 Linux, Unix, OS X 또는 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
+    - [HDInsight 클러스터의 Linux 기반 Storm](hdinsight-apache-storm-tutorial-get-started-linux.md): SSH를 사용하여 Linux, Unix, OS X 또는 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
 
-    - [Windows 기반 클러스터](hdinsight-apache-storm-tutorial-get-started.md): PowerShell을 사용하여 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
+    - [HDInsight 클러스터의 Windows 기반 Storm](hdinsight-apache-storm-tutorial-get-started.md): PowerShell을 사용하여 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
 
-    > [AZURE.NOTE] 두 클러스터 형식 간의 유일한 차이점은 SSH를 사용하여 클러스터 또는 웹 형식에 토폴로지를 제출하는지 여부입니다.
+    > [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 3.3 이상에서 Storm을 사용하는 경우를 기준으로 합니다. 이러한 클러스터는 Storm 0.10.0 및 Hadoop 2.7을 제공하므로 이 예제를 작동하는 데 필요한 단계 수를 줄일 수 있습니다.
+    >
+    > HDInsight 3.2에서 Storm 0.9.3을 사용하는 이 예제 버전의 경우 예제 리포지토리의 [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) 분기를 참조하세요.
 
 * [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
@@ -71,77 +73,64 @@ JSON 문서를 사용하여 이벤트 허브에 데이터를 저장하는 이유
 ####EventHubs Storm Spout 종속성
 
     <dependency>
-      <groupId>com.microsoft.eventhubs</groupId>
-      <artifactId>eventhubs-storm-spout</artifactId>
-      <version>0.9.3</version>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-eventhubs</artifactId>
+      <version>0.10.0</version>
     </dependency>
 
-eventhubs-storm-spout 패키지에 대한 종속성을 추가하며 이는 이벤트 허브에서 읽기의 경우 Spout 및 쓰기의 경우 Bolt를 모두 포함합니다.
+storm-eventhubs 패키지에 대한 종속성을 추가하며 이는 이벤트 허브에서 읽기의 경우 Spout 및 쓰기의 경우 Bolt를 모두 포함합니다.
 
-> [AZURE.NOTE] 이 패키지는 Maven에서 사용할 수 없으며 이후 단계의 로컬 Maven 리포지토리에 수동으로 설치됩니다.
+> [AZURE.NOTE] 이 패키지는 Storm 버전 0.10.0 이상에서만 사용할 수 있습니다. Storm 0.9.3을 사용하는 경우 Microsoft에서 제공하는 Spout 패키지를 수동으로 설치해야 합니다. Storm 0.9.3 사용 예제에 대해서는 예제 리포지토리의 [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) 분기를 참조하세요.
 
 ####HdfsBolt 및 WASB 구성 요소
 
 HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 저장하는 데 사용됩니다. 그러나 HDInsight 클러스터는 Azure 저장소 (WASB)의 기본 데이터 저장소로 사용하므로 HdfsBolt가 WASB 파일 시스템을 이해할 수 있는 여러 구성 요소를 로드해야 합니다.
 
       <!--HdfsBolt stuff -->
-      <dependency>
+        <dependency>
         <groupId>org.apache.storm</groupId>
         <artifactId>storm-hdfs</artifactId>
         <exclusions>
-          <exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-          </exclusion>
-          <exclusion>
+            </exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
-          </exclusion>
+            </exclusion>
         </exclusions>
-        <version>0.9.3</version>
-      </dependency>
-      <!--
-     This is a temporary workaround to make HdfsBolt work with WASB through hadoop-azure project.
-     For now, we have to build hadoop-client, hadoop-hdfs and hadoop-azure from Hadoop trunk
-     (which defaults to 3.0.0-SNAPSHOT version). And push those jars and dependencies to local
-     mvn repo (take a look at push_lib_mvn.ps1).
+        <version>0.10.0</version>
+        </dependency>
+    <!--So HdfsBolt knows how to talk to WASB -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-client</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-azure</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>2.7.1</version>
+        <exclusions>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        </exclusions>
+    </dependency>
 
-     Once Hadoop 2.7 is released, we can just switch to that version.
-     Note that hadoop-azure is added to Hadoop on Hadoop 2.7.
-     -->
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-client</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-hdfs</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-azure</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-common</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-       <exclusions>
-         <exclusion>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-log4j12</artifactId>
-         </exclusion>
-       </exclusions>
-     </dependency>
-     <dependency>
-       <groupId>com.microsoft.windowsazure.storage</groupId>
-       <artifactId>microsoft-windowsazure-storage-sdk</artifactId>
-       <version>0.6.0</version>
-     </dependency>
-
-> [AZURE.NOTE] WASB를 사용할 수 있는 패키지는 Maven 리포지토리에서 사용할 수 없고 이후 단계에서 수동으로 설치됩니다.
+> [AZURE.NOTE] 이전 버전의 Hdinsight(예: 버전 3.2)를 사용하는 경우 이러한 구성 요소를 수동으로 등록해야 합니다. 이에 대한 예제와 이전 HDInsight 클러스터에 필요한 사용자 지정 비트에 대한 자세한 내용은 예제 리포지토리의 [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) 분기를 참조하세요.
 
 ####maven-compiler-plugin
 
@@ -159,15 +148,17 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
 
 ####maven-shade-plugin
 
+      <!-- build an uber jar -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.3</version>
         <configuration>
-          <!-- Keep us from getting a can't overwrite file error -->
           <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-            </transformer>
+            <!-- Keep us from getting a can't overwrite file error -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+            <!-- Keep us from getting errors when trying to use WASB from the storm-hdfs bolt -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
           </transformers>
           <!-- Keep us from getting a bad signature error -->
           <filters>
@@ -179,7 +170,7 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
                     <exclude>META-INF/*.RSA</exclude>
                 </excludes>
             </filter>
-        </filters>
+          </filters>
         </configuration>
         <executions>
           <execution>
@@ -195,7 +186,9 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
 
 * 종속성에 대한 라이선스 파일 이름 바꾸기: 이 동작을 수행하지 않으면 Windows 기반 HDInsight 클러스터에서 런타임에 오류가 발생할 수 있습니다.
 
-* 보안/서명 제외: 이 동작응ㄹ 수행하지 않으면 HDInsight 클러스터에서 런타임에 오류가 발생할 수 있습니다.
+* 보안/서명 제외: 이 동작을 수행하지 않으면 HDInsight 클러스터에서 런타임에 오류가 발생할 수 있습니다.
+
+* 동일한 인터페이스의 여러 구현이 하나의 항목으로 병합됩니다. 이 작업이 수행되지 않으면 Storm-HDFS bolt가 WASB 파일 시스템과 통신하는 방법을 파악할 수 없다는 오류가 표시됩니다.
 
 ####exec-maven-plugin
 
@@ -295,29 +288,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 1. GitHub에서 프로젝트 다운로드: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)입니다. zip 아카이브로 패키지를 다운로드하거나 [git](https://git-scm.com/)를 사용하여 프로젝트를 로컬로 복제할 수 있습니다.
 
-2. 다음 명령을 사용하여 프로젝트에 포함된 패키지를 로컬 Maven 리포지토리에 설치합니다. 이를 사용하면 이벤트 허브 Spout 및 Bolt 뿐만 아니라 Azure 저장소(WASB)에 작성하는 HdfsBolt를 사용하는 기능을 사용할 수 있습니다.
-
-		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
-
-	> [AZURE.NOTE] Powershell을 사용하는 경우 따옴표에 `-D` 매개 변수를 두어야 합니다. 예: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`
-
-	또한 이러한 파일은 원래 https://github.com/hdinsight/hdinsight-storm-examples에서 비롯되므로 최신 버전을 찾을 수 있습니다.
-
-3. 다음을 사용하여 프로젝트를 빌드하고 패키징합니다.
+2. 다음을 사용하여 프로젝트를 빌드하고 패키징합니다.
 
         mvn package
 
@@ -415,7 +386,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
     EventHubReader 토폴로지를 시작하려면 제출을 클릭합니다.
 
-6. 토폴로지가 이벤트를 생성한 다음 Azure 저장소에 저장하도록 하려면 몇 분 정도 기다렸다가 __Storm 대시보드__ 페이지 위쪽에 있는 __쿼리 콘솔__ 탭을 선택합니다.
+6. 토폴로지가 이벤트를 생성한 다음 Azure 저장소에 저장하도록 하려면 몇 분 정도 기다렸다가 __Storm 대시보드__ 페이지 위쪽에 있는 __Hadoop 쿼리 콘솔__ 탭을 선택합니다.
 
 7. __쿼리 콘솔__에서 __하이브 편집기__를 선택하고 기본 `select * from hivesampletable`을 다음으로 바꿉니다.
 
@@ -482,4 +453,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -102,7 +102,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 
 모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal**이 적절한 값으로 자동 설정됩니다.
 
-또한 응용 프로그램이 `/.auth/me` 끝점에서 HTTP GET을 통해 추가 사용자 세부 정보를 가져올 수도 있습니다. 요청에 포함된 유효한 토큰은 사용되는 공급자에 대한 세부 정보, 기본 공급자 토큰 및 기타 사용자 정보와 함께 JSON 페이로드를 반환합니다. 모바일 앱 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure 모바일 앱 Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity) 및 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info)을 참조하세요.
+또한 응용 프로그램이 `/.auth/me` 끝점에서 HTTP GET을 통해 추가 사용자 세부 정보를 가져올 수도 있습니다. 요청에 포함된 유효한 토큰은 사용되는 공급자에 대한 세부 정보, 기본 공급자 토큰 및 기타 사용자 정보와 함께 JSON 페이로드를 반환합니다. 모바일 앱 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure 모바일 앱 Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
 
 ## 문서 및 추가 리소스
 
@@ -174,8 +174,8 @@ Azure Active Directory에 대한 클라이언트에서 제어된 흐름을 사�
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
