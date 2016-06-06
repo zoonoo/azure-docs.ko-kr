@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/22/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -133,14 +133,14 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 그림 9. 이진 분류자의 교차 유효성 검사 결과
 
 ##다중 클래스 분류 모델 평가##
-이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 집합을 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 집합을 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 집합은 [UCI 기계 학습 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [판독기][reader] 모듈을 사용하여 다운로드할 수 있습니다.
+이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 집합을 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 집합을 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 집합은 [UCI 기계 학습 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][reader] 모듈을 사용하여 다운로드할 수 있습니다.
 
 ###실험 만들기###
 다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
 
-- [판독기][reader]
+- [데이터 가져오기][reader]
 - [다중 클래스 의사 결정 포리스트][multiclass-decision-forest]
-- [분할][split]
+- [데이터 분할][split]
 - [모델 학습][train-model]
 - [모델 점수 매기기][score-model]
 - [모델 평가][evaluate-model]
@@ -149,9 +149,9 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 [모델 학습][train-model] 모듈의 레이블 열 인덱스를 5로 설정합니다. 이 데이터 집합에는 헤더 행이 없지만 클래스 레이블이 다섯 번째 열에 있다는 것을 알고 있습니다.
 
-[판독기][reader] 모듈을 클릭하고 *데이터 원본* 속성을 *Web URL via HTTP*로 설정하고 *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
+[데이터 가져오기][reader] 모듈을 클릭하고 *데이터 원본* 속성을 *HTTP를 통한 웹 URL*로 설정하고 *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
 
-[분할][split] 모듈에서 학습에 사용할 인스턴스 부분을 설정합니다(이 예의 경우 0.7).
+[데이터 분할][split] 모듈에서 학습에 사용할 인스턴스 부분을 설정합니다(이 예의 경우 0.7).
  
 ![다중 클래스 분류자 평가](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -189,4 +189,4 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -50,7 +50,7 @@
 
 **로그온 URL**의 경우 게시자 포털의 **외부 ID** 탭에 있는 **Azure Active Directory** 섹션에서 **리디렉션 URL**을 복사하고 URL 끝 부분에서 **-aad** 접미사를 제거합니다. 이 예제에서 **로그온 URL**은 `https://aad03.portal.current.int-azure-api.net/signin`입니다.
 
-**앱 ID URL**의 경우 Azure Active Directory에서 기본 도메인 또는 사용자 지정 도메인을 입력하고 고유 문자열을 추가합니다. 이 예제에서 ****https://contoso5api.onmicrosoft.com**의 기본 도메인은 지정된 **/api** 접미사와 함께 사용됩니다.
+**앱 ID URL**의 경우 Azure Active Directory에서 기본 도메인 또는 사용자 지정 도메인을 입력하고 고유 문자열을 추가합니다. 이 예제에서 **https://contoso5api.onmicrosoft.com**의 기본 도메인은 지정된 **/api** 접미사와 함께 사용됩니다.
 
 ![새 Azure Active Directory 응용 프로그램 속성][api-management-new-aad-application-2]
 
@@ -228,4 +228,4 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Windows 및 Linux IaaS VM용 Azure 디스크 암호화 | Microsoft Azure"
    description="이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure 디스크 암호화에 대한 개요를 제공합니다."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ Azure 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원�
 - 미리 암호화된 VHD 및 암호화 키에서 만든 새 IaaS VM에서 암호화 사용
 - Azure 갤러리 이비지에서 만든 새 IaaS VM에서 암호화 사용 
 - Azure에서 이미 실행 중인 기존 IaaS VM에서 암호화 사용 
-- Windows IaaS VM에서 암호화 사용 안 함  
+- Windows IaaS VM에서 암호화 사용 안 함 
 
 솔루션은 Microsoft Azure에서 활성화된 경우 IaaS VM에 대해 다음을 지원합니다.
 
@@ -78,7 +78,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 - 고객 저장소에서 휴지 상태 부팅 볼륨을 보호하기 위해 OS 볼륨의 암호화
 
 	- Azure에서 이미 실행 중인 Linus IaaS VM에서 OS 볼륨의 암호화는 현재 지원되지 않습니다. Linux IaaS VM용 OS 볼륨의 암호화는 미리 암호화된 VHD 시나리오에 대해서만 지원됩니다.
-	
+
 - 고객 저장소에서 휴지 상태 데이터 볼륨을 보호하기 위해 데이터 볼륨의 암호화
 
 - Windows IaaS VM에서 암호화 사용 안 함
@@ -91,7 +91,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 
 Windows 및 Linux 솔루션용 IaaS VM의 Azure 디스크 암호화에는 Windows용 디스크 암호화 확장, Linux용 디스크 암호화 확장, 디스크 암호화 PowerShell cmdlet, 디스크 암호화 CLI cmdlet 및 디스크 암호화 Azure 리소스 관리자 템플릿이 포함됩니다. Azure 디스크 암호화 솔루션은 Windows 또는 Linux OS를 실행하는 IaaS VM에서 지원됩니다. 지원되는 운영 체제에 대한 자세한 내용은 아래의 필수 구성 요소 섹션을 참조하세요.
 
-****참고: ** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
+**참고:** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
 
 ### 가치 제안
 
@@ -845,4 +845,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

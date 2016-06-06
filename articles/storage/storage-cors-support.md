@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
@@ -195,4 +195,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

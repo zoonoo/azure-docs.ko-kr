@@ -5,7 +5,7 @@ Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, �
 
 *   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
-*   원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서에 기반하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.2GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+*   원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 *   G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 
@@ -49,9 +49,9 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |[D1-14](#standard-tier-d-series)	|160 |
 |[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
 |[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
+|[DS1-15v2](#standard-tier-dsv2-series)	|210 - 250* |
 |[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -193,5 +193,4 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
 - HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)에 대해 자세히 알아보세요.
 
-
-
+<!---HONumber=AcomDC_0525_2016-->

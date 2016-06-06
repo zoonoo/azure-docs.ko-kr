@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/25/2016"
    ms.author="seanmck"/>
 
 # Azure 서비스 패브릭에서 재해 복구
@@ -38,7 +38,7 @@ Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역�
 
 ### 지리적 배포
 
-전 세계에 걸쳐 현재 22개의 Azure 지역이 있으며 추가로 5개 지역을 발표했습니다. 개별 지역은 다른 요소 중에서 적합한 위치의 수요 및 가용성에 따라 하나 이상의 물리적 데이터 센터를 포함할 수 있습니다. 단, 여러 물리적 데이터 센터를 포함하는 지역이라도 클러스터의 VM이 해당하는 물리적 위치에 균일하게 분산된다는 보장은 없습니다. 실제로 현재 지정된 클러스터에 대한 모든 VM은 단일 물리적 사이트 내에서 프로비전됩니다.
+[전 세계에 걸쳐 현재 25개의 Azure 지역][azure-regions]이 있으며 추가로 지역을 발표했습니다. 개별 지역은 다른 요소 중에서 적합한 위치의 수요 및 가용성에 따라 하나 이상의 물리적 데이터 센터를 포함할 수 있습니다. 단, 여러 물리적 데이터 센터를 포함하는 지역이라도 클러스터의 VM이 해당하는 물리적 위치에 균일하게 분산된다는 보장은 없습니다. 실제로 현재 지정된 클러스터에 대한 모든 VM은 단일 물리적 사이트 내에서 프로비전됩니다.
 
 ## 오류 처리
 
@@ -56,7 +56,7 @@ Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역�
 
 #### 쿼럼 손실
 
-상태 저장 서비스의 파티션에 대한 다수의 복제본이 작동을 멈추면 해당 파티션은 "쿼럼 손실"이라는 상태를 입력합니다. 이 시점에서 서비스 패브릭은 상태가 일관적이고 신뢰할 수 있게 유지되도록 해당 파티션에 쓰기를 허용하지 않습니다. 사용할 수 없는 기간을 수용하도록 선택하여 데이터가 실제로 저장되지 않았을 때 클라이언트에 해당 데이터가 저장되었다고 전하지 않아야 합니다. 해당 상태 저장 서비스에 대한 보조 복제본에서 읽기를 허용하도록 옵트인한 경우 이 상태에서 해당 읽기 작업을 계속 수행할 수 있습니다. 복제본의 충분한 수가 돌아올 때 또는 클러스터 관리자가 [Repair-ServiceFabricPartition API](repair-partition-ps)를 사용하여 시스템을 진행하도록 강제할 때까지 파티션은 쿼럼 손실에 남아 있습니다. 기본 복제본이 종료되는 경우 이 작업을 수행하면 데이터 손실이 발생합니다.
+상태 저장 서비스의 파티션에 대한 다수의 복제본이 작동을 멈추면 해당 파티션은 "쿼럼 손실"이라는 상태를 입력합니다. 이 시점에서 서비스 패브릭은 상태가 일관적이고 신뢰할 수 있게 유지되도록 해당 파티션에 쓰기를 허용하지 않습니다. 사용할 수 없는 기간을 수용하도록 선택하여 데이터가 실제로 저장되지 않았을 때 클라이언트에 해당 데이터가 저장되었다고 전하지 않아야 합니다. 해당 상태 저장 서비스에 대한 보조 복제본에서 읽기를 허용하도록 옵트인한 경우 이 상태에서 해당 읽기 작업을 계속 수행할 수 있습니다. 복제본의 충분한 수가 돌아올 때 또는 클러스터 관리자가 [Repair-ServiceFabricPartition API][repair-partition-ps]를 사용하여 시스템을 진행하도록 강제할 때까지 파티션은 쿼럼 손실에 남아 있습니다. 기본 복제본이 종료되는 경우 이 작업을 수행하면 데이터 손실이 발생합니다.
 
 또한 시스템 서비스에서 쿼럼 손실이 발생할 수 있으며 이 영향으로 서비스에 특정되는지가 불확실해 집니다. 예를 들어 장애 조치(Failover) 관리자 서비스의 쿼럼 손실이 새 서비스 만들기 및 장애 조치를 차단하는 반면 서비스 명명의 쿼럼 손실은 이름 확인에 영향을 줍니다. 고유한 서비스와 달리 시스템 서비스를 복구하는 시도는 권장되지 *않습니다*. 대신, 중지된 복제본이 돌아올 때까지 대기하는 것이 좋습니다.
 
@@ -68,7 +68,7 @@ Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역�
 
 ### 데이터 센터 중단 또는 소멸
 
-드문 경우지만 실제 데이터 센터가 전원 또는 네트워크 연결의 손실로 인해 일시적으로 사용할 수 없게 될 수 있습니다. 이러한 경우에 서비스 패브릭 클러스터와 응용 프로그램은 마찬가지로 사용할 수 없게 되지만 데이터는 유지됩니다. Azure에서 실행 중인 클러스터의 경우 [Azure 상태 페이지](azure-status-dashboard)의 가동 중단에 대한 업데이트를 확인할 수 있습니다.
+드문 경우지만 실제 데이터 센터가 전원 또는 네트워크 연결의 손실로 인해 일시적으로 사용할 수 없게 될 수 있습니다. 이러한 경우에 서비스 패브릭 클러스터와 응용 프로그램은 마찬가지로 사용할 수 없게 되지만 데이터는 유지됩니다. Azure에서 실행 중인 클러스터의 경우 [Azure 상태 페이지][azure-status-dashboard]의 가동 중단에 대한 업데이트를 확인할 수 있습니다.
 
 발생할 가능성이 거의 없는 전체 물리적 데이터 센터가 소멸되는 이벤트에서 호스팅되는 서비스 패브릭 클러스터는 상태와 함께 손실됩니다.
 
@@ -82,7 +82,6 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
->[AZURE.NOTE] 백업 및 복원은 현재 Reliable Services API에만 사용할 수 있습니다. Reliable Actors에 대한 백업 및 복원은 향후 릴리스에서 제공됩니다.
 
 ### 소프트웨어 오류 및 데이터 손실의 기타 소스
 
@@ -92,20 +91,21 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 
 - [테스트 용이성 프레임워크](service-fabric-testability-overview.md)를 사용하여 다양한 오류를 시뮬레이션하는 방법 알아보기
 - 다른 재해 복구 및 고가용성 리소스를 참고합니다. Microsoft는 이 항목에 많은 양의 지침을 게시했습니다. 이러한 문서 중 일부가 다른 제품에서 사용하는 특정 기술을 가리키지만 서비스 패브릭 컨텍스트에서 적용할 수 있는 많은 일반적인 모범 사례를 포함합니다.
- - [가용성 검사 목록](azure-availability-checklist)
- - [재해 복구 훈련 수행](disaster-recovery-drill)
- - [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](dr-ha-guide)
+ - [가용성 검사 목록](../best-practices-availability-checklist.md)
+ - [재해 복구 훈련 수행](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][dr-ha-guide]
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/ko-KR/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.microsoft.com/ko-KR/status/
-[azure-availability-checklist]: https://azure.microsoft.com/ko-KR/documentation/articles/best-practices-availability-checklist/
-[disaster-recovery-drill]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-disaster-recovery-drills/
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

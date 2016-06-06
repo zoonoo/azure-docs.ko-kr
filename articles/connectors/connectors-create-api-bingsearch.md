@@ -1,13 +1,13 @@
 <properties
-	pageTitle="PowerApps 또는 논리 앱에 Bing 검색 API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Bing 검색 API 개요"
-	services=""
+    pageTitle="PowerApps 또는 논리 앱에 Bing 검색 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Bing 검색 커넥터 개요"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Bing 검색 API 시작 
-Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색 API를 다음에서 사용할 수 있습니다.
+# Bing 검색 커넥터 시작 
+Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색 커넥터를 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -33,9 +33,9 @@ Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니�
 
 - 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
-- PowerApps 엔터프라이즈에 Bing 검색 API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 Bing 검색 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -46,7 +46,7 @@ Bing 검색에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 --- | ---
 없음 | <ul><li>웹 검색</li><li>비디오 검색</li><li>이미지 검색</li><li>뉴스 검색</li><li>관련 검색</li><li>맞춤법 검색</li><li>모두 검색</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 
 ## Swagger REST API 참조
@@ -298,4 +298,4 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

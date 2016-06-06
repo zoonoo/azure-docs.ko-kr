@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/20/2016" 
 	ms.author="awills"/>
 
 
@@ -103,16 +103,16 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
     requests 
     | top 10 by timestamp desc 
-    | project timestamp, 
-               timeOfDay = floor(timestamp % 1d, 1s), 
-               name, 
-               response = resultCode
+    | project  
+            name, 
+            response = resultCode,
+            timestamp, 
+            ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-다음 스칼라 식에서:
-
+* [열 이름](app-insights-analytics-reference.md#names)은 `['...']` 또는 `["..."]`와 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
 * `%`는 일반적인 모듈로 연산자입니다. 
 * `1d`(한 자릿수, 'd' 한 개)는 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
 * `floor`(별칭 `bin`)는 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`는 시간을 가장 가까운 초로 반올림합니다.
@@ -469,4 +469,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

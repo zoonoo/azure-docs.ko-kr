@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="05/18/2016"
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성
@@ -91,10 +91,9 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
             
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
@@ -182,10 +181,9 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
@@ -343,10 +341,9 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -377,7 +374,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    이 작업의 출력은 HDInsight 클러스터(\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
+    이 작업의 출력은 HDInsight 클러스터(__wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
 
 5. __KDDTest+.arff__ 데이터 집합을 분류하여 포리스트를 테스트합니다. 다음 명령을 사용합니다.
 
@@ -440,10 +437,9 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -472,10 +468,9 @@ HDInsight 3.1 클러스터에는 Mahout이 포함되어 있습니다. 경로 및
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     Invoke-AzureRmHDInsightHiveJob `
             -StatusFolder "wasb:///example/statusout" `
             -DefaultContainer $container `
@@ -529,4 +524,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

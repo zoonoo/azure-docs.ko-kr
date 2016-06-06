@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 SFTP API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 SFTP API 개요"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="논리 앱에 SFTP 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 SFTP 커넥터 개요"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# SFTP API 시작
-SFTP 서버에 연결하여 파일을 관리합니다. SFTP 서버에서 파일 업로드, 파일 삭제 등의 다양한 작업을 수행할 수 있습니다. SFTP API를 다음에서 사용할 수 있습니다.
+# SFTP 커넥터 시작 
+SFTP 서버에 연결하여 파일을 관리합니다. SFTP 서버에서 파일 업로드, 파일 삭제 등의 다양한 작업을 수행할 수 있습니다. SFTP 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱
 
@@ -34,17 +34,17 @@ SFTP를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 
 ## 트리거 및 작업
-SFTP API에서 사용할 수 있는 트리거와 작업은 다음과 같습니다.
+SFTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같습니다.
 
 트리거 | 동작
 --- | ---
 <ul><li>파일을 만들거나 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 만들거나 수정할 때</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 
 ## SFTP에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 다음과 같은 값을 입력합니다.
+논리 앱에 이 커넥터를 추가할 때 다음 값을 입력합니다.
 
 |속성| 필수|설명|
 | ---|---|---|
@@ -52,6 +52,10 @@ SFTP API에서 사용할 수 있는 트리거와 작업은 다음과 같습니�
 |사용자 이름| 예 | SFTP 서버에 연결할 사용자 이름을 입력합니다.|
 |암호 | 예 | 사용자 이름 암호를 입력합니다.|
 |SSH 서버 호스트 키 지문 | 예 | SSH 서버에 대한 공개 호스트 키의 지문을 입력합니다. <br/><br/>일반적으로 서버 관리자가 이 키를 제공할 수 있습니다. ```WinSCP``` 또는 ```ssh-keygen-g3 -F``` 도구를 사용하여 키 지문을 가져올 수도 있습니다. | 
+
+다음은 연결을 만드는 단계에 대한 연습입니다.
+
+>[AZURE.INCLUDE [SFTP에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sftp.md)]
 
 연결을 만든 후에 폴더 경로 또는 파일 등의 SFTP 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -250,4 +254,4 @@ SFTP에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datase
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

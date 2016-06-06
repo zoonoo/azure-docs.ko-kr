@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
@@ -202,9 +202,9 @@ ARM 템플릿에 부트스트랩을 사용할 수 있습니다.
         -Location $location `
         -Type Standard_GRS
 
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $defaultStorageContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
@@ -252,4 +252,4 @@ ARM 템플릿에 부트스트랩을 사용할 수 있습니다.
 
     #endregion
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

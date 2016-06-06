@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect 동기화 서비스 기능
@@ -33,23 +33,23 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 
 다음 설정은 `Set-MsolDirSyncFeature`에서 구성할 수 있습니다.
 
-| DirSyncFeature | 주석 |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | 내보내는 중 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | 개체가 기본 SMTP 주소뿐만 아니라 userPrincipalName에 대해 가입할 수 있습니다. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | 관리되는/허가된(페더레이션되지 않은) 사용자에 대한 userPrincipalName 특성을 동기화 엔진이 업데이트할 수 있습니다. |
+DirSyncFeature | 주석
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | 내보내는 중 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | 개체가 기본 SMTP 주소뿐만 아니라 userPrincipalName에 대해 가입할 수 있습니다.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | 관리되는/허가된(페더레이션되지 않은) 사용자에 대한 userPrincipalName 특성을 동기화 엔진이 업데이트할 수 있습니다.
 
 기능을 사용하도록 설정한 후 다시 해제할 수 없습니다.
 
 다음 설정은 Azure AD Connect에서 구성되며 `Set-MsolDirSyncFeature`으로 수정할 수 없습니다.
 
-| DirSyncFeature | 주석 |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect: 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Azure AD Connect 동기화: 디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [미리 보기: 그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | 현재 지원되지 않습니다. |
+DirSyncFeature | 주석
+--- | ---
+DeviceWriteback | [Azure AD Connect: 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Azure AD Connect 동기화: 디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [미리 보기: 그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | 현재 지원되지 않습니다.
 
 ## 중복 특성 복원력
 중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 필요한 경우 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동 수정됩니다. 이 동작은 UPN 및 proxyAddress에 대해 개별적으로 설정할 수 있습니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)을 참조하세요.
@@ -100,4 +100,4 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

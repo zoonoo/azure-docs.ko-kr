@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/23/2016"
 	ms.author="jolevy"/>
 
 
@@ -50,4 +50,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 저장
 Azure 자동화 자습서 [Azure 자동화에서 Runbook 만들기 또는 가져오기](../automation/automation-creating-importing-runbook.md)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

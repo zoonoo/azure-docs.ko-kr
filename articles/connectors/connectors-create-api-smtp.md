@@ -1,12 +1,12 @@
 <properties
-	pageTitle="논리 앱에 SMTP API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 SMTP API 개요"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="논리 앱에 SMTP 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 SMTP 커넥터 개요"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
-# SMTP API 시작
-SMTP 서버에 연결하여 전자 메일을 보냅니다. SMTP API를 다음에서 사용할 수 있습니다.
+# SMTP 커넥터 시작
+SMTP 서버에 연결하여 전자 메일을 보냅니다. SMTP 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱(이 항목에 설명됨)
 - PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
@@ -33,22 +33,17 @@ SMTP를 사용하여 다음을 수행할 수 있습니다.
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
-SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거는 없습니다.
+SMTP 커넥터를 사용하여 다음 작업을 수행할 수 있습니다. 트리거는 없습니다.
 
 |트리거 | actions|
 |--- | ---|
 |없음 | 메일 보내기|
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## SMTP에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 다음과 같은 값을 입력합니다.
 
-|속성| 필수|설명|
-| ---|---|---|
-| SMTP 서버 이름 | 예 | SMTP 서버의 IP 주소나 FQDN(정규화된 도메인 이름)을 입력합니다.|
-| 사용자 이름 |예 |SMTP 서버에 연결할 사용자 이름을 입력합니다. |
-| 암호 | 예|사용자 이름 암호를 입력합니다. |
+>[AZURE.INCLUDE [SMTP 연결을 만드는 단계](../../includes/connectors-create-api-smtp.md)]
 
 연결을 만든 후 To 또는 CC 값 등의 SMTP 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -94,7 +89,6 @@ SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거�
 
 
 ## 다음 단계
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

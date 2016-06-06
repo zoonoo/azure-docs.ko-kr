@@ -7,8 +7,6 @@
 컬렉션당 최대 [요청 단위](../articles/documentdb/documentdb-request-units.md)*/초|250,000RU/s(또는 요청에 따라 더 높음)
 문서의 최대 요청 크기 |512KB
 저장 프로시저 및 트리거의 최대 실행 시간|5초
-쿼리당 최대 AND 절 수* |200		
-쿼리당 최대 OR 절 수* |200
 최대 응답 크기|1MB
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

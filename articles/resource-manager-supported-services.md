@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
-   ms.author="tomfitz"/>
+   ms.date="05/25/2016"
+   ms.author="magoedte;tomfitz"/>
 
 # 리소스 관리자 공급자, 지역, API 버전 및 스키마
 
@@ -134,7 +134,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 | 부여 | 리소스 관리자 사용 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------- | -------- | ------ | ------ |
-| 자동화 | 예 | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| 자동화 | 예 | [자동화 REST](https://azure.microsoft.com/documentation/articles/resource-manager-supported-services/) | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | 키 자격 증명 모음 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [키 자격 증명 모음](resource-manager-template-keyvault.md)<br />[키 자격 증명 모음 암호](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Operational Insights | 예 | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
 | 복구 서비스 | 예 | | | |
@@ -304,4 +304,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

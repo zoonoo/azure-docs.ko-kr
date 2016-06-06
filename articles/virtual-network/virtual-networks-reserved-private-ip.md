@@ -92,11 +92,11 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 
 ## 다음 단계
 
-[예약된 IP](virtual-networks-reserved-public-ip)
+[예약된 IP](virtual-networks-reserved-public-ip.md)
 
-[인스턴스 수준 공용 IP(ILPIP)](virtual-networks-instance-level-public-ip)
+[인스턴스 수준 공용 IP(ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

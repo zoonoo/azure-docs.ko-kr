@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/20/2016"
 	ms.author="jeffstok" />
 
 
@@ -59,8 +59,14 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 
 들어오는 호출 메타데이터의 샘플을 생성하고 이를 이벤트 허브에 푸시하는 클라이언트 응용 프로그램을 제공했습니다. 이 응용 프로그램을 설치하려면 아래 단계를 따릅니다.
 
-1.	[TelcoGenerator.zip 파일](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드합니다.
+1.	[TelcoGenerator.zip 파일](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드합니다. 그런 다음 디렉터리에 압축을 풉니다.
+
+    **참고**: Windows는 다운로드한 zip 파일을 차단할 수 있습니다. 파일을 마우스 오른쪽 단추로 클릭하고 속성을 선택합니다. "이 파일은 다른 컴퓨터로부터 왔으며 사용자의 컴퓨터를 보호하기 위해 차단되었을 수도 있습니다."라는 메시지가 표시되면 "차단 해제" 상자를 선택하여 압축 파일에 대해 적용을 클릭합니다.
+
 2.	**telcodatagen.exe.config**에서 Microsoft.ServiceBus.ConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
+
+    **참고**: Azure 포털에서 복사한 연결 문자열을 끝에 있는 연결 이름에 넣습니다. add key= 필드에서 ";EntityPath=<value>"을 제거해야 합니다.
+
 3.	응용 프로그램을 시작합니다. 사용법은 다음과 같습니다.
 
    telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
@@ -129,7 +135,7 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 스트림 분석은 실시간 처리에 대해 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 이 언어에 대한 자세한 내용은 [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/dn834998.aspx)를 참조하세요. 이 자습서에서는 호출 데이터의 실시간 스트림에 대해 여러 쿼리를 작성하고 테스트하도록 도와줍니다.
 
 #### 선택 사항: 샘플 입력 데이터
-실제 작업 데이터에 대해 쿼리 유효성을 검사하기 위해 **샘플 데이터** 기능을 사용하여 스트림에서 이벤트를 추출하고 테스트할 이벤트의 .JSON 파일을 만들 수 있습니다. 다음 단계에서는 이 작업을 수행하는 방법을 보여주며 테스트 목적으로 샘플 [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) 파일을 제공합니다.
+실제 작업 데이터에 대해 쿼리 유효성을 검사하기 위해 **샘플 데이터** 기능을 사용하여 스트림에서 이벤트를 추출하고 테스트할 이벤트의 .JSON 파일을 만들 수 있습니다. 다음 단계에서는 이 작업을 수행하는 방법을 보여 주며 테스트 목적으로 샘플 [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) 파일을 제공합니다.
 
 1.	이벤트 허브 입력을 선택하고 페이지 아래쪽에서 **샘플 데이터**를 클릭합니다.
 2.	대화 상자가 표시되면 데이터 수집을 시작할 **시작 시간** 및 소비할 추가 데이터의 양에 대한 **기간**을 지정합니다.
@@ -259,4 +265,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

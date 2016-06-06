@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="05/19/2016" 
 	ms.author="robb"/>
 
 #Microsoft Azure의 응용 프로그램 아키텍처
@@ -85,4 +85,4 @@ Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게�
 
 ![Azure 아키텍처 인포그래픽](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

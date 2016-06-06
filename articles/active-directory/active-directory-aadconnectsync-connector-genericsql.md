@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # 일반 SQL 커넥터 기술 참조
@@ -34,12 +34,12 @@ MIM2016와 FIM2010R2의 경우 커넥터는 [Microsoft 다운로드 센터](http
 
 전체적인 관점에서 보면 커넥터의 현재 릴리스에서 다음과 같은 기능이 지원됩니다.
 
-| 기능 | 지원 |
-| --- | --- |
-| 연결된 데이터 원본 | 이 커넥터는 모든 64비트 ODBC 드라이버와 함께 지원됩니다. 다음으로 테스트되었습니다: <li>Microsoft SQL Server 및 SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 및 11g</li><li>MySQL 5.x</li>
-| 시나리오 | <li>개체 수명 주기 관리</li><li>암호 관리</li> |
-| 작업 | <li>전체 가져오기 및 델타 가져오기, 내보내기</li><li>내보내기의 경우: 추가, 업데이트, 삭제 및 바꾸기</li><li>암호 설정, 암호 변경</li>
-| 스키마 | <li>개체 및 특성의 동적 검색</li>
+기능 | 지원
+--- | ---
+연결된 데이터 원본 | 이 커넥터는 모든 64비트 ODBC 드라이버와 함께 지원됩니다. 다음으로 테스트되었습니다: <li>Microsoft SQL Server 및 SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 및 11g</li><li>MySQL 5.x</li>
+시나리오 | <li>개체 수명 주기 관리</li><li>암호 관리</li>
+작업 | <li>전체 가져오기 및 델타 가져오기, 내보내기</li><li>내보내기의 경우: 추가, 업데이트, 삭제 및 바꾸기</li><li>암호 설정, 암호 변경</li>
+스키마 | <li>개체 및 특성의 동적 검색</li>
 
 ### 필수 조건
 
@@ -297,4 +297,4 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

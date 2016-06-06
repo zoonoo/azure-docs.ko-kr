@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management에서 역할 활성화 설정을 관리하는 방법
 
-보안 관리자는 임시 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 조직에서 Azure AD PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다.
+권한 있는 역할 관리자는 임시 역할 할당을 활성화한 사용자의 환경을 변경하는 등, 해당 조직에서 Azure AD PIM(Privileged Identity Management)을 사용자 지정할 수 있습니다.
 
 ## 역할 활성화 설정 관리
 
@@ -32,7 +32,8 @@
 8. **Save**를 클릭합니다.
 
 다음을 포함하여 Azure AD 및 Office365에 대해 높은 권한이 있는 역할에 대한 MFA를 사용하지 않도록 설정할 수 없습니다.
-- 전역 관리자  
+- 전역 관리자
+- 권한 있는 역할 관리자   
 - 사용자 계정 관리자  
 - 디렉터리 기록기  
 - 파트너 계층1 지원  
@@ -53,4 +54,4 @@ PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

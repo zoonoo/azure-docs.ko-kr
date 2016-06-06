@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management의 역할
@@ -33,6 +33,7 @@ Privileged Identity Management를 사용하면 사용자를 다음과 같이 일
 
 
 - **전역 관리자**(회사 관리자라고도 함)는 모든 관리 기능에 액세스할 수 있습니다. 조직에는 전역 관리자가 두 개 이상 있을 수 있습니다. Office 365를 자동으로 구입하기 위해 등록한 사람은 전역 관리자가 됩니다.
+- **권한 있는 역할 관리자**는 Azure AD PIM을 관리하고 다른 사용자에 대한 역할 할당을 업데이트합니다.  
 - **대금 청구 관리자**는 구독을 구입하고, 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링합니다.
 - **암호 관리자**는 암호를 재설정하고, 서비스 요청을 관리하며, 서비스 상태를 모니터링합니다. 암호 관리자는 사용자의 암호 재설정으로 제한됩니다.
 - **서비스 관리자**는 서비스 요청을 관리하고 서비스 상태를 모니터링합니다.
@@ -40,9 +41,9 @@ Privileged Identity Management를 사용하면 사용자를 다음과 같이 일
   > [AZURE.NOTE] Office 365를 사용하는 경우 사용자에게 서비스 관리자 역할을 할당하기 전에 먼저 Exchange Online 등의 서비스에 사용자 관리 권한을 할당합니다.
 
 - **사용자 관리 관리자**는 암호를 다시 설정하고, 서비스 상태를 모니터링하고, 사용자 계정과 사용자 그룹 및 서비스 요청을 관리합니다. 사용자 관리 관리자는 전역 관리자를 삭제하거나 다른 관리자 역할을 만들거나 청구, 전역 및 서비스 관리를 위해 암호를 재설정할 수 없습니다.
-- **Exchange 관리자**는 Exchange 관리 센터(EAC)를 통해 Exchange Online에 대한 관리 액세스 권한을 보유하고 Exchange Online에서 거의 모든 작업을 수행할 수 있습니다.
-- **SharePoint 관리자**는 SharePoint Online 관리 센터를 통해 SharePoint Online에 대한 관리 액세스 권한을 보유하고 SharePoint Online에서 거의 모든 작업을 수행할 수 있습니다.
-- **비즈니스용 Skype 관리자**는 비즈니스용 Skype 관리 센터를 통해 비즈니스용 Skype에 대한 관리 액세스 권한을 보유하고 비즈니스용 Skype Online에서 거의 모든 작업을 수행할 수 있습니다.
+- **Exchange 관리자**는 Exchange 관리 센터(EAC)를 통해 Exchange Online에 대한 관리 액세스 권한을 보유하고 Exchange Online에서 거의 모든 태스크를 수행할 수 있습니다.
+- **SharePoint 관리자**는 SharePoint Online 관리 센터를 통해 SharePoint Online에 대한 관리 액세스 권한을 보유하고 SharePoint Online에서 거의 모든 태스크를 수행할 수 있습니다.
+- **비즈니스용 Skype 관리자**는 비즈니스용 Skype 관리 센터를 통해 비즈니스용 Skype에 대한 관리 액세스 권한을 보유하고 비즈니스용 Skype Online에서 거의 모든 태스크를 수행할 수 있습니다.
 
 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md) 및 [Office 365에서 관리자 역할 할당](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)에 대한 자세한 내용을 보려면 이 문서를 읽으세요.
 
@@ -87,4 +88,4 @@ Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

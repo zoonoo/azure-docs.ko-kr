@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/03/2016"
+	ms.date="05/23/2016"
 	ms.author="spelluru"/>
 
 # 자습서: 첫 번째 데이터 팩터리 빌드(개요)
@@ -222,4 +222,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Visual Studio
 - Azure 리소스 관리자 템플릿 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

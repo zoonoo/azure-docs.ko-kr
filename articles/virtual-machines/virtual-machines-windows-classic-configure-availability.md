@@ -1,6 +1,6 @@
 <properties
 	pageTitle="클래식 VM에 대한 가용성 집합 구성 | Microsoft Azure"
-	description="Azure 클래식 포털 및 Azure PowerShell을 사용하여 클래식 배포 모델에서 신규 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성합니다."
+	description="Azure 포털 및 Azure PowerShell을 사용하여 클래식 배포 모델에서 새 가상 컴퓨터 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성합니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

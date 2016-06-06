@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/07/2016"
+ms.date="05/20/2016"
 ms.author="larryfr"/>
 
 #HDInsight 클러스터를 삭제하는 방법
@@ -34,8 +34,6 @@ HDInsight 클러스터 청구는 클러스터를 만들면 시작하고 클러�
 
 ##Azure PowerShell
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 PowerShell 프롬프트에서 다음 명령을 사용하여 클러스터를 삭제합니다.
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
@@ -44,12 +42,10 @@ __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 ##Azure CLI
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 프롬프트에서 다음을 사용하여 클러스터를 삭제합니다.
 
     azure hdinsight cluster delete CLUSTERNAME
     
 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

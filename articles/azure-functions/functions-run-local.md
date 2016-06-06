@@ -142,6 +142,8 @@ Visual Studio 2015가 설치되지 않거나 현재 Azure SDK가 설치되지 �
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	WebHost 프로젝트를 시작할 경우 프로젝트의 기본 URL에 제공되는 콘텐츠가 없으므로 빈 브라우저 페이지가 표시됩니다. HTTP 트리거 함수에 사용할 URL에 대한 자세한 내용은 [API 키](#apikeys) 섹션을 참조하세요.
+
 ## 함수 출력 보기
 
 함수 앱에 대한 대시보드로 이동하여 함수 호출 및 출력 로그를 확인합니다.
@@ -154,7 +156,7 @@ Visual Studio 2015가 설치되지 않거나 현재 Azure SDK가 설치되지 �
 
 ![호출 세부 정보](./media/functions-run-local/invocationdetail.png)
 
-호출을 클릭하여 **호출 세부 정보** 페이지를 참조하며 여기서는 함수가 트리거되는 경우, 대략적인 실행 시간 및 성공적인 완료를 나타냅니다. **토글 출력** 단추를 클릭하여 함수 코드에 의해 작성되는 로그를 확인합니다.
+호출을 클릭하여 **호출 세부 정보** 페이지를 참조하며 여기서는 함수가 트리거되는 경우, 대략적인 실행 시간 및 정상적인 완료를 나타냅니다. **토글 출력** 단추를 클릭하여 함수 코드에 의해 작성되는 로그를 확인합니다.
 
 ![호출 세부 정보](./media/functions-run-local/invocationdetail.png)
 
@@ -162,11 +164,11 @@ Visual Studio 2015가 설치되지 않거나 현재 Azure SDK가 설치되지 �
 
 HTTP 또는 WebHook 함수를 실행하려면 *function.json* 파일에 `"authLevel": "anonymous"`을 포함하지 않는 한 API 키가 필요합니다.
 
-예를 들어 API 키가 `12345`인 경우WebJobs.Script.WebHost 프로젝트를 실행하면 다음 URL로 *HttpTrigger* 함수를 트리거할 수 있습니다.
+예를 들어 API 키가 `12345`인 경우 WebJobs.Script.WebHost 프로젝트를 실행하면 다음 URL로 *HttpTrigger* 함수를 트리거할 수 있습니다.
 
 	http://localhost:28549/api/httptrigger?code=12345
 
-(또는 `x-functions-key` HTTP 헤더에 API 키를 저장할 수 있습니다.)
+또는 `x-functions-key` HTTP 헤더에 API 키를 저장할 수 있습니다.
 
 API 키가 WebJobs.Script.WebHost 프로젝트의 [App\_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) 폴더에 있는 `.json` 파일에 저장됩니다.
 
@@ -199,11 +201,15 @@ API 키가 WebJobs.Script.WebHost 프로젝트의 [App\_Data/secrets](https://gi
 }
 ```
 
+## 함수에서 NuGet 패키지 참조 사용  
+
+NuGet 참조가 현재 처리되는 방식 때문에 호스트가 실행되는 동안 *project.json* 파일을 "터치"해야 합니다. 호스트는 파일 수정 내용을 감시하고 변경 내용을 감지하면 복원을 시작합니다. 또한 *NuGet.exe*(3.3.0 권장)가 경로에 있거나 *NuGet.exe*의 경로를 사용하여 AzureWebJobs\_NuGetPath라는 환경 변수를 설정해야 합니다.
+
 ## 문제 해결
 
 Visual Studio가 실행되는 동안 수행된 환경 변수 변경은 자동으로 선택되지 않습니다. Visual Studio를 시작한 후에 환경 변수를 추가하거나 변경하는 경우 Visual Studio를 종료하고 다시 시작하여 현재 값을 선택하도록 합니다.
 
-디버깅하는 경우 **예외 설정** 창에서 **공용 언어 런타임 예외**를 선택하여 예외에 대한 자세한 내용을 알 수 있습니다(창을 열려면 CTRL-ALT-E).
+디버깅하는 경우 **예외 설정** 창에서 **공용 언어 런타임 예외**를 선택하여 예외에 대한 자세한 내용을 알 수 있습니다(창을 열려면 Ctrl-Alt-E).
 
 디버깅하는 동안 자세한 예외 정보를 얻을 수 있는 다른 방법은 스크립트 호스트에 대한 기본 루프의 `catch` 블록에 중단점을 설정하는 것입니다. `RunAndBlock` 메서드의 *Host/ScriptHostManager.cs*에 있는 WebJobs.Script 프로젝트에서 찾을 수 있습니다.
 
@@ -216,4 +222,4 @@ Visual Studio가 실행되는 동안 수행된 환경 변수 변경은 자동으
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

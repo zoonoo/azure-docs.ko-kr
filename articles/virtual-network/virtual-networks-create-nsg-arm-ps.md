@@ -154,7 +154,7 @@
 
 5. 위에서 만든 규칙을 **NSG-BackEnd**라는 새 NSG에 추가합니다.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. 위에서 만든 NSG를 *BackEnd* 서브넷에 연결합니다.
@@ -182,4 +182,4 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

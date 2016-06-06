@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/04/2016"
+   ms.date="05/19/2016"
    ms.author="larryfr"/>
 
 
@@ -77,6 +77,12 @@ Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선�
 Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하고, Linux 기반 클러스터에는 v2(Azure 리소스 관리자) 가상 네트워크가 필요합니다. 올바른 유형의 네트워크가 없으면, 클러스터를 만들어도 사용할 수 없습니다.
 
 만들려는 클러스터에서 사용할 수 없는 가상 네트워크에 리소스가 있는 경우에는, 클러스터에서 사용할 수 있는 새로운 가상 네트워크를 만들어서 호환되지 않는 가상 네트워크에 연결할 수 있습니다. 그 후 필요한 네트워크 버전에서 클러스터를 만들면 두 네트워크가 연결되어 있기 때문에 다른 네트워크에 있는 리소스에 액세스할 수 있습니다. 클래식 가상 네트워크와 새 가상 네트워크 연결에 대한 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+
+###사용자 지정 DNS
+
+가상 네트워크를 만들 때 Azure는 네트워크에 설치된 HDInsight 같은 Azure 서비스에 대해 기본 이름 확인 기능을 제공합니다. 그러나 네트워크 간 도메인 이름 확인과 같은 상황의 경우 자체 DNS(Domain Name System)를 사용해야 할 수 있습니다. 예를 들어 연결된 두 가상 네트워크에 있는 서비스 간에 통신하는 경우가 여기에 해당합니다. HDInsight는 Azure 가상 네트워크에서 사용될 경우 사용자 지정 DNS와 기본 Azure 이름 확인을 모두 지원합니다.
+
+Azure 가상 네트워크에서 자체 DNS 서버를 사용하는 방법에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 문서의 __자체 DNS 서버를 사용한 이름 확인__ 섹션을 참조하세요.
 
 ###보안 가상 네트워크
 
@@ -167,7 +173,7 @@ __Azure PowerShell 사용__
 
 __Azure CLI 사용__
 
-1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. __RESOURCEGROUPNAME__ 및 __위치__를 그룹을 만드는 Azure 가상 네트워크 및 위치(지역)를 포함하는 리소스 그룹으로 바꿉니다.
+1. 다음 명령을 사용하여 `hdisecure`이라는 새 네트워크 보안 그룹을 만듭니다. __RESOURCEGROUPNAME__ 및 __위치__를 그룹을 만든 Azure 가상 네트워크 및 위치(지역)를 포함하는 리소스 그룹으로 바꿉니다.
 
         azure network nsg create RESOURCEGROUPNAME hdisecure LOCATION
     
@@ -303,4 +309,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

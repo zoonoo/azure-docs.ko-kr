@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="himad"/>
 
 
@@ -42,4 +42,4 @@ Azure 기계 학습을 사용하면 게시된 웹 서비스에 대한 여러 끝
  
  끝점을 추가한 경우 기본 끝점은 Studio 또는 여기에서 삭제할 수 없습니다. 그러면 오류가 발생합니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

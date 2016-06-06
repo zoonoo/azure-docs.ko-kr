@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -112,4 +112,4 @@ Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클�
 
 [서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

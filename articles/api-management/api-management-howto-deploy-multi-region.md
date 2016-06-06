@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # 여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법
@@ -75,4 +75,4 @@ API 관리 서비스에 인스턴스에 대해 Azure 클래식 포털의 **크�
 [단위]: http://azure.microsoft.com/pricing/details/api-management/
 [프리미엄]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

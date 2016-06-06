@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/20/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino 커넥터 기술 참조
@@ -32,12 +32,12 @@ Lotus Domino 커넥터를 사용하면 IBM Lotus Domino 서버를 통해 동기�
 
 전체적인 관점에서 보면 커넥터의 현재 릴리스에서 다음과 같은 기능이 지원됩니다.
 
-| 기능 | 지원 |
-| --- | --- |
-| 연결된 데이터 원본 | 서버: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Notes 9.x</li> |
-| 시나리오 | <li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li> |
-| 작업 | <li>전체 및 델타 가져오기</li><li>내보내기</li><li>HTTP 암호에서 암호 설정 및 변경</li> |
-| 스키마 | <li>개인(로밍 사용자, 연락처 (인증서 없는 사용자))</li><li>그룹</li><li>리소스(리소스, 공간, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li> |
+기능 | 지원
+--- | ---
+연결된 데이터 원본 | 서버: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Notes 9.x</li>
+시나리오 | <li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li>
+작업 | <li>전체 및 델타 가져오기</li><li>내보내기</li><li>HTTP 암호에서 암호 설정 및 변경</li>
+스키마 | <li>개인(로밍 사용자, 연락처 (인증서 없는 사용자))</li><li>그룹</li><li>리소스(리소스, 공간, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li>
 
 Lotus Domino 커넥터는 Lotus Notes 클라이언트를 활용하여 Lotus Domino 서버와 통신합니다. 따라서 지원되는 Lotus Notes 클라이언트는 동기화 서버에 설치되어야 합니다. 클라이언트와 서버 간의 통신은 Lotus Notes .NET Interop(Interop.domino.dll) 인터페이스를 통해 구현됩니다. 이 인터페이스는 Microsoft.NET 플랫폼과 Lotus Notes 클라이언트 간의 통신을 용이하게 하고 Lotus Domino 문서 및 뷰에 대한 액세스를 지원합니다. 또한 델타 가져오기의 경우(선택한 델타 가져오기 방법에 따라) c++ 네이티브 인터페이스를 사용할 수 있습니다.
 
@@ -59,10 +59,10 @@ Lotus Domino 커넥터에서 지원되는 작업을 수행하려면 다음 그�
 
 다음 테이블에서는 각 작업에 필요한 사용 권한을 나열합니다.
 
-| 작업 | 액세스 권한 |
-| --- | --- |
-| 가져오기 | <li>공용 문서 읽기</li><li> 모든 권한 관리자(모든 권한 관리자 그룹의 멤버인 경우 자동으로 ACL에 대한 유효한 액세스를 가집니다.)</li> |
-| 암호 내보내기 및 설정 | 유효한 액세스: <li>문서 만들기</li><li>문서 삭제</li><li>공용 문서 읽기</li><li>공용 문서 작성</li><li>문서 복제 또는 복사</li>위의 액세스 이외에 다음 역할은 내보내기 작업에 할당해야 합니다: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
+작업 | 액세스 권한
+--- | ---
+가져오기 | <li>공용 문서 읽기</li><li> 모든 권한 관리자(모든 권한 관리자 그룹의 멤버인 경우 자동으로 ACL에 대한 유효한 액세스를 가집니다.)</li>
+암호 내보내기 및 설정 | 유효한 액세스: <li>문서 만들기</li><li>문서 삭제</li><li>공용 문서 읽기</li><li>공용 문서 작성</li><li>문서 복제 또는 복사</li>위의 액세스 이외에 다음 역할은 내보내기 작업에 할당해야 합니다: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li>
 
 ### 직접 작업 및 AdminP
 
@@ -70,21 +70,21 @@ Lotus Domino 커넥터에서 지원되는 작업을 수행하려면 다음 그�
 
 **기본 주소록**
 
-| Object | 생성 | 업데이트 | 삭제 |
-| --- | --- | --- | --- |
-| 사람 | AdminP | 직접 | AdminP |
-| 그룹 | AdminP | 직접 | AdminP |
-| MailInDB | 직접 | 직접 | 직접 |
-| 리소스 | AdminP | 직접 | AdminP |
+Object | 생성 | 업데이트 | 삭제
+--- | --- | --- | ---
+사람 | AdminP | 직접 | AdminP
+그룹 | AdminP | 직접 | AdminP
+MailInDB | 직접 | 직접 | 직접
+리소스 | AdminP | 직접 | AdminP
 
 **보조 주소록**
 
-| Object | 생성 | 업데이트 | 삭제 |
-| --- | --- | --- | --- |
-| 사람 | 해당 없음 | 직접 | 직접 |
-| 그룹 | 직접 | 직접 | 직접 |
-| MailInDB | 직접 | 직접 | 직접 |
-| 리소스 | 해당 없음 | 해당 없음 | 해당 없음 |
+Object | 생성 | 업데이트 | 삭제
+--- | --- | --- | ---
+사람 | 해당 없음 | 직접 | 직접
+그룹 | 직접 | 직접 | 직접
+MailInDB | 직접 | 직접 | 직접
+리소스 | 해당 없음 | 해당 없음 | 해당 없음
 
 리소스를 만들 때 Notes 문서가 생성됩니다. 마찬가지로 리소스가 삭제되면 Notes 문서가 삭제됩니다.
 
@@ -327,11 +327,11 @@ Lotus Domino 커넥터를 구성할 때 이 대화 상자 페이지를 건너뛸
 
 리소스는 Lotus Domino에 있는 데이터베이스의 다른 형식입니다. 리소스는 프로젝터와 같은 다양한 유형의 장비가 있는 회의실일 수 있습니다. 리소스 형식 특성을 기준으로 정의된 Lotus Domino 커넥터에서 지원하는 리소스의 하위 폼은 다음과 같습니다.
 
-| 리소스의 형식 | 리소스 형식 특성 |
-| --- | --- |
-| 공간 | 1 |
-| 리소스(기타) | 2 |
-| 온라인 모임 | 3 |
+리소스의 형식 | 리소스 형식 특성
+--- | ---
+공간 | 1
+리소스(기타) | 2
+온라인 모임 | 3
 
 작업할 리소스 개체 형식의 경우 다음이 필요합니다.
 
@@ -409,21 +409,21 @@ Lotus Domino 디렉터리에 사용자 개체를 프로비전할 때 개체에�
 
 다음 테이블에서는 이러한 속성을 나열하고 설명을 제공합니다.
 
-| 속성 | 설명 |
-| --- | --- |
-| \_MMS\_AltFullName | 사용자의 대체 전체 이름입니다. |
-| \_MMS\_AltFullNameLanguage | 사용자의 대체 전체 이름을 지정하는 데 사용할 언어입니다. |
-| \_MMS\_CertDaysToExpire | 인증서가 만료하기 전에 현재 날짜에서 남은 일 수입니다. 지정하지 않으면 기본 날짜는 현재 날짜로부터 2년입니다. |
-| \_MMS\_Certifier | 인증자의 조직 계층 이름을 포함하는 속성입니다. 예: OU=OrganizationUnit, O=조직, C=국가. |
-| \_MMS\_IDPath | 속성이 비어 있으면 어떤 사용자 식별 파일도 동기화 서버에 로컬로 만들어지지 않습니다. 속성이 파일 이름을 포함하면 사용자 ID 파일은 madata 폴더에 만들어집니다. 또한 속성은 이 위치에서 사용자 ID 파일이 만들어진 전체 경로를 포함할 수 있습니다. |
-| \_MMS\_IDRegType | 사용자는 연락처로 분류될 수 있습니다. 미국 사용자 및 국제 사용자입니다. 다음 테이블에서는 가능한 값을 나열합니다.<li>0 - 연락처</li><li>1 - 미국 사용자</li><li>2 - 국제 사용자</li> |
-| \_MMS\_IDStoreType | 미국 및 국제 사용자에 대한 필수 속성입니다. 속성은 사용자 ID가 Notes 주소록 또는 사용자의 메일 파일에서 첨부 파일로 저장되는지 여부를 지정하는 정수 값을 포함합니다. 사용자 ID 파일이 주소록의 첨부 파일인 경우 필요에 따라 \_MMS\_IDPath를 사용하여 파일로 만들 수 있습니다.<li>빈 - ID 자격 증명 모음의 저장소 ID 파일, ID 파일 없음.(연락처에 사용됨)</li><li> 1 - Notes 주소록의 첨부 파일입니다. \_MMS\_Password 속성은 첨부 파일인 사용자 식별 파일에 대해 설정되어야 합니다</li><li>2 - 사용자의 메일 파일의 저장소 ID입니다. \_MMS\_UseAdminP는 false로 설정되어 사용자를 등록하는 동안 메일 파일을 만들 수 있도록 해야 합니다. \_MMS\_Password 속성은 사용자 식별 파일에 대해 설정되어야 합니다.</li>
-| \_MMS\_MailQuotaSizeLimit | 전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다. |
-| \_MMS\_MailQuotaWarningThreshold | 경고가 발생하기 전에 전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다. |
-| \_MMS\_MailTemplateName | 사용자의 전자 메일 파일을 만드는 데 사용되는 전자 메일 템플릿 파일입니다. 템플릿이 지정된 경우 지정된 템플릿을 사용하여 메일 파일이 만들어집니다. 템플릿이 지정되지 않은 경우 기본 템플릿 파일이 파일을 만드는 데 사용됩니다. |
-| \_MMS\_OU | 아래는 인증자 OU 이름을 나타내는 선택적 속성입니다. 이 속성은 연락처에 대해 비어 있어야 합니다. |
-| \_MMS\_Password | 사용자에 대한 필수 속성입니다. 속성은 개체의 ID 파일에 대한 암호를 포함합니다. |
-| \_MMS\_UseAdminP | 메일 파일이 Domino 서버(내보내기 프로세스에 비동기)의 AdminP 프로세스에 의해 생성되어야 하는 경우 속성은 true로 설정되어야 합니다. 속성이 false로 설정된 경우 메일 파일은 Domino 사용자를 통해 만들어집니다.(내보내기 프로세스에 동기) |
+속성 | 설명
+--- | ---
+\_MMS\_AltFullName | 사용자의 대체 전체 이름입니다.
+\_MMS\_AltFullNameLanguage | 사용자의 대체 전체 이름을 지정하는 데 사용할 언어입니다.
+\_MMS\_CertDaysToExpire | 인증서가 만료하기 전에 현재 날짜에서 남은 일 수입니다. 지정하지 않으면 기본 날짜는 현재 날짜로부터 2년입니다.
+\_MMS\_Certifier | 인증자의 조직 계층 이름을 포함하는 속성입니다. 예: OU=OrganizationUnit, O=조직, C=국가.
+\_MMS\_IDPath | 속성이 비어 있으면 어떤 사용자 식별 파일도 동기화 서버에 로컬로 만들어지지 않습니다. 속성이 파일 이름을 포함하면 사용자 ID 파일은 madata 폴더에 만들어집니다. 또한 속성은 이 위치에서 사용자 ID 파일이 만들어진 전체 경로를 포함할 수 있습니다.
+\_MMS\_IDRegType | 사용자는 연락처로 분류될 수 있습니다. 미국 사용자 및 국제 사용자입니다. 다음 테이블에서는 가능한 값을 나열합니다.<li>0 - 연락처</li><li>1 - 미국 사용자</li><li>2 - 국제 사용자</li>
+\_MMS\_IDStoreType | 미국 및 국제 사용자에 대한 필수 속성입니다. 속성은 사용자 ID가 Notes 주소록 또는 사용자의 메일 파일에서 첨부 파일로 저장되는지 여부를 지정하는 정수 값을 포함합니다. 사용자 ID 파일이 주소록의 첨부 파일인 경우 필요에 따라 \_MMS\_IDPath를 사용하여 파일로 만들 수 있습니다.<li>빈 - ID 자격 증명 모음의 저장소 ID 파일, ID 파일 없음.(연락처에 사용됨)</li><li> 1 - Notes 주소록의 첨부 파일입니다. \_MMS\_Password 속성은 첨부 파일인 사용자 식별 파일에 대해 설정되어야 합니다</li><li>2 - 사용자의 메일 파일의 저장소 ID입니다. \_MMS\_UseAdminP는 false로 설정되어 사용자를 등록하는 동안 메일 파일을 만들 수 있도록 해야 합니다. \_MMS\_Password 속성은 사용자 식별 파일에 대해 설정되어야 합니다.</li>
+\_MMS\_MailQuotaSizeLimit | 전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다.
+\_MMS\_MailQuotaWarningThreshold | 경고가 발생하기 전에 전자 메일 파일 데이터베이스에 대해 허용되는 메가바이트 수입니다.
+\_MMS\_MailTemplateName | 사용자의 전자 메일 파일을 만드는 데 사용되는 전자 메일 템플릿 파일입니다. 템플릿이 지정된 경우 지정된 템플릿을 사용하여 메일 파일이 만들어집니다. 템플릿이 지정되지 않은 경우 기본 템플릿 파일이 파일을 만드는 데 사용됩니다.
+\_MMS\_OU | 아래는 인증자 OU 이름을 나타내는 선택적 속성입니다. 이 속성은 연락처에 대해 비어 있어야 합니다.
+\_MMS\_Password | 사용자에 대한 필수 속성입니다. 속성은 개체의 ID 파일에 대한 암호를 포함합니다.
+\_MMS\_UseAdminP | 메일 파일이 Domino 서버(내보내기 프로세스에 비동기)의 AdminP 프로세스에 의해 생성되어야 하는 경우 속성은 true로 설정되어야 합니다. 속성이 false로 설정된 경우 메일 파일은 Domino 사용자를 통해 만들어집니다.(내보내기 프로세스에 동기)
 
 관련된 식별 파일을 가진 사용자의 경우 \_MMS\_Password 속성은 값을 포함해야 합니다. Lotus Notes 클라이언트를 통한 전자 메일 액세스의 경우 사용자의 MailServer 및 MailFile 속성은 값을 포함해야 합니다.
 
@@ -449,13 +449,13 @@ Lotus Domino 커넥터는 주로 동기화 서비스에서 네 가지 형식의 
 
 이 섹션에서는 Domino 서버에 개체를 내보내기 위해 지원되는 개체 형식 각각에 대해 필수인 특성을 나열합니다.
 
-| 개체 유형 | 필수 특성 |
-| --- | --- |
-| 그룹 | <li>ListName</li> |
-| Main-In 데이터베이스 | <li>전체 이름</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| 사람 | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS\_Password</li><li>\_MMS\_IDStoreType</li><li>\_MMS\_Certifier</li><li>\_MMS\_IDRegType</li><li>\_MMS\_UseAdminP</li> |
-| 연락처(인증자가 없는 사용자) | <li>\_MMS\_IDRegType</li> |
-| 리소스 | <li>전체 이름</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>사이트</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+개체 유형 | 필수 특성
+--- | ---
+그룹 | <li>ListName</li>
+Main-In 데이터베이스 | <li>전체 이름</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
+사람 | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS\_Password</li><li>\_MMS\_IDStoreType</li><li>\_MMS\_Certifier</li><li>\_MMS\_IDRegType</li><li>\_MMS\_UseAdminP</li>
+연락처(인증자가 없는 사용자) | <li>\_MMS\_IDRegType</li>
+리소스 | <li>전체 이름</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>사이트</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
 
 ## 일반적인 문제 및 질문
 
@@ -539,4 +539,4 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

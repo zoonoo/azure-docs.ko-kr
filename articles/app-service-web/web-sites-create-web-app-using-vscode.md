@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Visual Studio 코드에서 5 ASP.NET 웹앱 만들기
 
@@ -127,7 +127,7 @@ ASP.NET 5/DNX(.NET 실행 환경)는 OS X, Linux 및 Windows에서 실행되는 
 
 2. 브라우저를 열고 다음 URL로 이동합니다.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	웹앱의 기본 페이지가 다음과 같이 표시됩니다.
 
@@ -262,4 +262,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

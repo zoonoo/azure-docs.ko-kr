@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
@@ -21,16 +21,16 @@
 
 문서 내 그림에 대한 범례:
 
-| 설명 | 아이콘 |
-|-----|-----|
-| 온-프레미스 Active Directory 포리스트 | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| 필터링된 가져오기를 사용한 Active Directory | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Azure AD Connect Sync 서버 | ![동기화](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| Azure AD Connect Sync 서버 “스테이징 모드" | ![동기화](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| FIM2010 또는 MIM2016로 GALSync | ![동기화](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Azure AD Connect Sync 서버, 자세히 설명됨 |![동기화](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Azure AD Directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| 지원되지 않는 시나리오 | ![지원되지 않음](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+설명 | 아이콘
+-----|-----
+온-프레미스 Active Directory 포리스트| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+필터링된 가져오기를 사용한 Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Azure AD Connect Sync 서버| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+Azure AD Connect Sync 서버 “스테이징 모드"| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+FIM2010 또는 MIM2016로 GALSync| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Azure AD Connect Sync 서버, 자세히 설명됨| ![동기화](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Azure AD Directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+지원되지 않는 시나리오 | ![지원되지 않음](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## 단일 포리스트, 단일 Azure AD Directory
@@ -116,10 +116,10 @@ Exchange가 둘 이상의 포리스트에 있다면 온-프레미스 GALSync 솔
 ## Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 특정 제한이 있습니다. 이 중 하나를 사용하려는 경우 워크로드의 지원되는 토폴로지 항목을 참조하세요.
 
-| 워크로드 | |
-| --------- | --------- |
-| Exchange Online |	둘 이상의 Exchange 조직 온-프레미스의 경우(즉, Exchange가 둘 이상 포리스트에 배포된 경우) Exchange 2013 SP1 이상을 사용해야 합니다. 자세한 내용은 여기에서 찾을 수 있습니다. [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/ko-KR/library/jj873754.aspx) |
-| 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 지원되는 토폴로지에 대한 세부 정보는 다음에 있습니다. [Business Server 2015용 Skype에 대한 환경 요구사항](https://technet.microsoft.com/ko-KR/library/dn933910.aspx) |
+워크로드 |  
+--------- | ---------
+Exchange Online | 둘 이상의 Exchange 조직 온-프레미스의 경우(즉, Exchange가 둘 이상 포리스트에 배포된 경우) Exchange 2013 SP1 이상을 사용해야 합니다. 자세한 내용은 여기에서 찾을 수 있습니다. [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)
+비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 지원되는 토폴로지에 대한 세부 정보는 다음에 있습니다. [Business Server 2015용 Skype에 대한 환경 요구사항](https://technet.microsoft.com/library/dn933910.aspx)
 
 ## 스테이징 서버
 ![준비 서버](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -135,9 +135,9 @@ Azure AD Connect는 **준비 모드**에서 두 번째 서버의 설치를 지�
 ## 여러 Azure AD 디렉터리
 Microsoft는 조직을 위해 Azure AD에 단일 디렉터리를 보유할 것을 권장합니다. 여러 Azure AD 디렉터리의 사용을 계획하기 전에 다음 항목에서는 단일 디렉터리의 사용을 허용하는 일반적인 시나리오를 다룹니다.
 
-| 항목 | |
-| --------- | --------- |
-| 관리 단위를 사용하여 위임 | [Azure AD 에서 관리 단위 관리](active-directory-administrative-units-management.md)
+항목 |  
+--------- | ---------
+관리 단위를 사용하여 위임 | [Azure AD 에서 관리 단위 관리](active-directory-administrative-units-management.md)
 
 ![다중 포리스트 다중 디렉터리](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Python에서 Azure Blob 저장소를 사용하는 방법 | Microsoft Azure"
+	pageTitle="Python에서 Azure Blob 저장소(개체 저장소)를 사용하는 방법 | Microsoft Azure"
 	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	services="storage"
 	documentationCenter="python"
@@ -22,7 +22,9 @@
 
 ## 개요
 
-이 문서에서는 Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Microsoft Azure Storage SDK for Python]을 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
+Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
+
+이 문서에서는 Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python용 Microsoft Azure 저장소 SDK]를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -30,7 +32,7 @@
 
 ## 컨테이너 만들기
 
-사용하려는 blob의 형식을 기반으로 **BlockBlobService**, **AppendBlobService** 또는 **PageBlobService** 개체를 만듭니다. 다음 코드에서는 **BlockBlobService** 개체를 사용합니다. 프로그래밍 방식으로 Azure 블록 Blob 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
+사용하려는 Blob의 형식을 기반으로 **BlockBlobService**, **AppendBlobService** 또는 **PageBlobService** 개체를 만듭니다. 다음 코드에서는 **BlockBlobService** 개체를 사용합니다. 프로그래밍 방식으로 Azure 블록 Blob 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 	from azure.storage.blob import BlockBlobService
 
@@ -57,7 +59,7 @@
 
 ## 컨테이너에 Blob 업로드
 
-블록 blob을 만들고 데이터를 업로드하려면 **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** 또는 **create\_blob\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
+블록 Blob을 만들고 데이터를 업로드하려면 **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** 또는 **create\_blob\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
 **create\_blob\_from\_path**는 지정된 경로에서 파일의 내용을 업로드하고, **create\_blob\_from\_stream**은 이미 열린 파일/스트림에서 내용을 업로드합니다. **create\_blob\_from\_bytes**는 바이트 배열을 업로드하고, **create\_blob\_from\_text**는 지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드합니다(기본값은 UTF-8).
 
@@ -124,5 +126,6 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
+[Python용 Microsoft Azure 저장소 SDK]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

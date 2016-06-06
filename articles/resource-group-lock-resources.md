@@ -22,7 +22,7 @@
 
 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-부모 범위에서 잠금을 적용하면 모든 자식 리소스가 동일한 잠금을 상속합니다.
+부모 범위에서 잠금을 적용하면 모든 자식 리소스가 동일한 잠금을 상속합니다. 상속의 가장 제한적인 잠금이 우선 적용됩니다.
 
 ## 조직에서 잠금을 만들거나 삭제할 수 있는 사람
 
@@ -30,21 +30,21 @@
 
 ## 포털을 통해 잠금 만들기
 
-잠그려는 리소스, 리소스 그룹 또는 구독에 대한 설정 블레이드에서 **잠금**을 선택합니다.
+1. 잠그려는 리소스, 리소스 그룹 또는 구독에 대한 설정 블레이드에서 **잠금**을 선택합니다.
 
-![잠금 선택](./media/resource-group-lock-resources/select-lock.png)
+      ![잠금 선택](./media/resource-group-lock-resources/select-lock.png)
 
-잠금을 추가하려면 **추가**를 선택합니다. 현재 선택한 리소스에서 상속될 부모 수준에서 잠금을 만들려면 부모(예: 아래 표시된 구독)를 선택합니다.
+2. 잠금을 추가하려면 **추가**를 선택합니다. 현재 선택한 리소스에서 상속될 부모 수준에서 잠금을 만들려면 부모(예: 아래 표시된 구독)를 선택합니다.
 
-![잠금 추가](./media/resource-group-lock-resources/add-lock.png)
+      ![잠금 추가](./media/resource-group-lock-resources/add-lock.png)
 
-잠금에 이름과 잠금 수준을 지정합니다. 필요한 경우 잠금이 필요한 이유를 설명하는 참고 사항을 추가할 수 있습니다.
+3. 잠금에 이름과 잠금 수준을 지정합니다. 필요한 경우 잠금이 필요한 이유를 설명하는 참고 사항을 추가할 수 있습니다.
 
-![잠금 설정](./media/resource-group-lock-resources/set-lock.png)
+      ![잠금 설정](./media/resource-group-lock-resources/set-lock.png)
 
-잠금을 삭제하려면 사용 가능한 옵션에서 줄임표와 **삭제**를 선택합니다.
+4. 잠금을 삭제하려면 사용 가능한 옵션에서 줄임표와 **삭제**를 선택합니다.
 
-![잠금 삭제](./media/resource-group-lock-resources/delete-lock.png)
+      ![잠금 삭제](./media/resource-group-lock-resources/delete-lock.png)
 
 ## 템플릿에서 잠금 만들기
 
@@ -108,4 +108,4 @@ Azure PowerShell은 잠금을 업데이트하기 위한 **Set-AzureRmResourceLoc
 - 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 - 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

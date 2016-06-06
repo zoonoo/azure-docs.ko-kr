@@ -148,7 +148,10 @@ Windows 버전의 **iothub\_client\_sample\_ampq** 응용 프로그램은 다음
 
 이 솔루션에는 다음의 단일 프로젝트가 포함됩니다. 이 솔루션에 설치된 네 가지 NuGet 패키지는 주목할 만한 가치가 있습니다.
 
-  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.uamqp
 
 SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility** 패키지가 필요합니다. 이 샘플은 AMQP에 의존하므로 **Microsoft.Azure.uamqp** 및 **Microsoft.Azure.IoTHub.AmqpTransport** 패키지도 포함해야 합니다(HTTP 및 MQTT에 대한 해당 패키지가 존재함). 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
@@ -260,7 +263,11 @@ azure-iot-sdks 리포지토리의 **serializer** 폴더 내에는 **simplesample
 
 이전 샘플과 마찬가지로 이 하나에는 여러 NuGet 패키지가 포함됩니다.
 
-  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.IoTHub.Serializer
+- Microsoft.Azure.uamqp
 
 이전 샘플에서 이 중 대부분을 살펴봤지만 **Microsoft.Azure.IoTHub.Serializer**는 새롭습니다. **serializer** 라이브러리를 사용할 경우 필요합니다.
 
@@ -442,7 +449,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 함수 이름은 모델에서 동작 이름과 일치하고 함수 매개 변수는 동작에 대해 지정된 매개 변수와 일치하는 것을 알 수 있습니다. 첫 번째 매개 변수는 항상 필수이며 모델 인스턴스에 대한 포인터를 포함합니다.
 
-장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 동작에 대한 간단한 함수를 정의하는 정도의 문제입니다.
+장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 작업에 대한 간단한 함수를 정의하는 정도의 문제입니다.
 
 ### 라이브러리 초기화 취소
 
@@ -464,4 +471,4 @@ serializer_deinit();
 
 **C용 Azure IoT 장치 SDK**에서 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

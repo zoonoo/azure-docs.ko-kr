@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -28,18 +28,18 @@ Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다
 ## 관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다.
 
-| 항목 | |
-| --------- | --------- |
-| Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md) |
-| 사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) |
-| DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+항목 |  
+--------- | ---------
+Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md)
+사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
+DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 ## Express 설정 설치
 Express 설정에서는 온-프레미스 Active Directory를 Azure AD Connect에 필요한 사용 권한으로 구성하도록 AD DS 설치 마법사가 엔터프라이즈 관리자 자격 증명을 요청합니다. DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증명은 DirSync에서 사용되는 계정의 암호를 다시 설정하는 데 사용됩니다. 또한 Azure AD 전역 관리자 자격 증명이 필요합니다.
 
 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |-------------
 해당 없음|설치 마법사를 실행하는 사용자| 로컬 서버의 관리자| <li>[엔진 서비스 계정 동기화](#azure-ad-connect-sync-service-account)로 사용될 로컬 계정을 만듭니다.
 Azure에 연결| Azure AD 디렉터리 자격 증명 | Azure AD에서 글로벌 관리자 역할 | <li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li> <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 [Azure AD 계정](#azure-ad-service-account)을 만드는데 사용됩니다.</li>
 AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Directory의 Enterprise Admins(EA) 그룹의 구성원| <li>Active Directory에서 [계정](#active-directory-account)을 만들고 권한을 부여합니다. 만든 계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다.</li>
@@ -53,14 +53,14 @@ AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Direc
 ### Express 설정에서 만들어진 AD DS 계정에 대한 권한
 AD DS에 대해 읽고 쓰도록 만들어진 [계정](#active-directory-account)은 Express 설정에서 만들어질 때 다음과 같은 사용 권한이 있습니다.
 
-| 사용 권한 | 용도 |
-| ---- | ---- |
-| <li>디렉터리 변경 내용 복제</li><li>모든 디렉터리 변경 내용 복제 | 암호 동기화 |
-| 모든 속성 사용자 읽기/쓰기 | 가져오기 및 Exchange 하이브리드 |
-| 모든 속성 iNetOrgPerson 읽기/쓰기 | 가져오기 및 Exchange 하이브리드 |
-| 모든 속성 그룹 읽기/쓰기 | 가져오기 및 Exchange 하이브리드 |
-| 모든 속성 연락처 읽기/쓰기 | 가져오기 및 Exchange 하이브리드 |
-| 암호 재설정 | 비밀번호 쓰기 저장을 사용하기 위한 준비 |
+사용 권한 | 용도
+---- | ----
+<li>디렉터리 변경 내용 복제</li><li>모든 디렉터리 변경 내용 복제 | 암호 동기화
+모든 속성 사용자 읽기/쓰기 | 가져오기 및 Exchange 하이브리드
+모든 속성 iNetOrgPerson 읽기/쓰기 | 가져오기 및 Exchange 하이브리드
+모든 속성 그룹 읽기/쓰기 | 가져오기 및 Exchange 하이브리드
+모든 속성 연락처 읽기/쓰기 | 가져오기 및 Exchange 하이브리드
+암호 재설정 | 비밀번호 쓰기 저장을 사용하기 위한 준비
 
 ## 사용자 지정 설정 설치
 사용자 지정 설정을 사용하는 경우 Active Directory에 연결하는 데 사용된 계정은 설치하기 전에 만들어야 합니다. 이 계정에 부여해야 하는 권한은 [AD DS 계정 만들기](#create-the-ad-ds-account)에서 찾을 수 있습니다.
@@ -81,22 +81,22 @@ Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한
 
 어떤 사용 권한이 필요한지는 사용하도록 설정할 선택적 기능에 따라 달라집니다. 여러 도메인이 있는 경우 포리스트의 모든 도메인에 대한 사용 권한이 부여되어야 합니다. 이러한 기능을 사용하지 않는 경우 기본 **도메인 사용자** 사용 권한만으로도 충분합니다.
 
-| 기능 | 권한 |
-| ------ | ------ |
-| 암호 동기화 | <li>디렉터리 변경 내용 복제</li> <li>모든 디렉터리 변경 복제 |
-| Exchange 하이브리드 배포 | 사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
-| 암호 쓰기 저장 | 사용자에 대한 [암호 관리 시작](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)에 설명된 특성에 사용 권한을 작성합니다. |
-| 장치 쓰기 저장 | [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다.|
-| 그룹 쓰기 저장 | 배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.|
+기능 | 권한
+------ | ------
+암호 동기화 | <li>디렉터리 변경 내용 복제</li> <li>모든 디렉터리 변경 복제
+Exchange 하이브리드 배포 | 사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다.
+암호 쓰기 저장 | 사용자에 대한 [암호 관리 시작](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)에 설명된 특성에 사용 권한을 작성합니다.
+장치 쓰기 저장 | [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다.
+그룹 쓰기 저장 | 배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.
 
 ## 업그레이드
 Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
 
-| 주체 | 필요한 사용 권한 | 용도 |
-| ---- | ---- | ---- |
-| 설치 마법사를 실행하는 사용자 | 로컬 서버의 관리자 | 이진을 업데이트합니다. |
-| 설치 마법사를 실행하는 사용자 | ADSyncAdmins의 구성원 | 동기화 규칙 및 기타 구성을 변경합니다. |
-| 설치 마법사를 실행하는 사용자 | 전체 SQL Server를 사용하는 경우, 동기화 엔진 데이터베이스의 DBO(또는 유사한 권한) | 새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
+주체 | 필요한 사용 권한 | 용도
+---- | ---- | ----
+설치 마법사를 실행하는 사용자 | 로컬 서버의 관리자 | 이진을 업데이트합니다.
+설치 마법사를 실행하는 사용자 | ADSyncAdmins의 구성원 | 동기화 규칙 및 기타 구성을 변경합니다.
+설치 마법사를 실행하는 사용자 | 전체 SQL Server를 사용하는 경우, 동기화 엔진 데이터베이스의 DBO(또는 유사한 권한) | 새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다.
 
 ## 만든 계정에 대한 자세한 내용
 
@@ -134,4 +134,4 @@ Azure AD의 계정은 동기화 서비스의 사용에 만들어집니다. 이 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

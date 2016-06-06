@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/24/2016"
+    ms.author="ddove"/>
 
 # 확장성 있는 클라우드 데이터베이스 빌드
 
@@ -37,6 +37,7 @@ SQL Azure 데이터베이스의 확장성 있는 도구 및 기능을 사용하�
 * [엔터티 프레임 작업과 함께 탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [탄력적 데이터베이스 클라이언트 라이브러리 및 Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)
+* [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-client-library.md) 
 * [탄력적 데이터베이스 도구 FAQ](sql-database-elastic-scale-faq.md)
 
 ## 클라이언트 기능
@@ -72,4 +73,4 @@ SQL Azure 데이터베이스의 확장성 있는 도구 및 기능을 사용하�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

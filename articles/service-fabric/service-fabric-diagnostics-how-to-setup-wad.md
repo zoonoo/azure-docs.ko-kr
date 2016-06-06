@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/08/2016"
+   ms.date="05/20/2016"
    ms.author="toddabel"/>
 
 
@@ -59,11 +59,11 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 ### Azure Resource Manager를 사용하여 클러스터 만들기의 일환으로 진단 확장 배포
 리소스 관리자를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 클러스터 리소스 관리자 템플릿에 추가해야 합니다. 리소스 관리자 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 리소스 관리자 템플릿이 제공됩니다. Azure 샘플 갤러리의 다음 위치에서 샘플을 볼 수 있습니다. [진단 리소스 관리자 템플릿 샘플이 포함된 5노드 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad) Resource Manager 템플릿에서 진단 설정을 표시하려면 **azuredeploy.json** 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 위의 링크에서 제공하는 **Azure에 배포** 버튼을 누르면 됩니다.
 
-또는 리소스 관리자 샘플을 다운로드하여 변경한 후 Azure PowerShell 창에서 `New-AzureResourceGroupDeployment` 명령을 사용하여 수정된 템플릿으로 클러스터를 만들 수 있습니다. 명령에 전달해야 하는 매개 변수는 아래 정보를 참조하세요. PowerShell을 사용하여 리소스 그룹을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 사용하여 리소스 그룹 배포](../resource-group-template-deploy.md) 문서를 참조하세요.
+또는 리소스 관리자 샘플을 다운로드하여 변경한 후 Azure PowerShell 창에서 `New-AzureRmResourceGroupDeployment` 명령을 사용하여 수정된 템플릿으로 클러스터를 만들 수 있습니다. 명령에 전달해야 하는 매개 변수는 아래 정보를 참조하세요. PowerShell을 사용하여 리소스 그룹을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 사용하여 리소스 그룹 배포](../resource-group-template-deploy.md) 문서를 참조하세요.
 
 ```powershell
 
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
 ### 기존 클러스터에 진단 확장 배포
@@ -173,10 +173,10 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 
 
 ## 새 EventSource 채널에서 로그를 수집 및 업로드하도록 진단 업데이트
-배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 진단 설정을 설명하는 [위 섹션](#deploywadarm)에서와 동일한 단계를 수행하면 됩니다. *New-AzureResourceGroupDeployment* PowerShell 명령을 사용하여 구성 업데이트를 적용하기 전에 **template.json**에서 *EtwEventSourceProviderConfiguration* 섹션을 업데이트하여 새 EventSources에 대한 항목을 추가해야 합니다.
+배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 진단 설정을 설명하는 [위 섹션](#deploywadarm)에서와 동일한 단계를 수행하면 됩니다. *New-AzureRmResourceGroupDeployment* PowerShell 명령을 사용하여 구성 업데이트를 적용하기 전에 **template.json**에서 *EtwEventSourceProviderConfiguration* 섹션을 업데이트하여 새 EventSources에 대한 항목을 추가해야 합니다.
 
 
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

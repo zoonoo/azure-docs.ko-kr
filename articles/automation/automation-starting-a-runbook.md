@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/23/2016"
    ms.author="magoedte;bwren"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -23,13 +23,13 @@
 |-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Azure 포털](#starting-a-runbook-with-the-azure-portal) | <li>대화형 사용자 인터페이스를 사용하는 가장 간단한 방법<br> <li>단순한 매개 변수 값을 제공하는 양식<br> <li>작업 상태를 쉽게 추적<br> <li>Azure 로그온을 사용하여 액세스 인증 |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Windows PowerShell cmdlet을 사용하여 명령줄에서 호출<br> <li>여러 단계로 구성된 자동화된 솔루션에 포함할 수 있음<br> <li>인증서 또는 OAuth 사용자 계정/서비스 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적<br> <li>클라이언트에서 PowerShell cmdlet을 지원해야 함 |
-| [Azure 자동화 API](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>가장 유연하지만 가장 복잡한 방법<br> <li>HTTP 요청을 수행할 수 있는 모든 사용자 지정 코드에서 호출<br> <li>인증서 또는 OAuth 사용자 계정/서비스 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적 |
+| [Azure 자동화 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>가장 유연하지만 가장 복잡한 방법<br> <li>HTTP 요청을 수행할 수 있는 모든 사용자 지정 코드에서 호출<br> <li>인증서 또는 OAuth 사용자 계정/서비스 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적 |
 | [Webhook](automation-webhooks.md) | <li>단일 HTTP 요청에서 Runbook 시작<br> <li>URL의 보안 토큰으로 인증<br> <li>Webhook를 만들 때 지정된 매개 변수 값을 클라이언트에서 재정의할 수 없음 Runbook에서 HTTP 요청 세부 정보로 채워진 단일 매개 변수를 정의할 수 있음<br> <li>Webhook URL을 통해 작업 상태를 추적할 수 없음 |
 | [Azure 경고에 응답](automation-webhooks.md) | <li>Azure 경고에 응답하여 Runbook 시작<br> <li>Runbook에 대한 Webhook와 경고 링크 구성<br> <li>URL의 보안 토큰으로 인증<br> <li>현재 메트릭에서만 경고 지원 |
 | [일정](automation-scheduling-a-runbook.md) | <li>매시간, 매일 또는 매주 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure 포털, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
 | [다른 Runbook에서](automation-child-runbooks.md) | <li>Runbook을 다른 Runbook의 활동으로 사용<br> <li>여러 Runbook에서 사용하는 기능에 유용<br> <li>자식 Runbook에 매개 변수 값을 제공하고 부모 Runbook에서 출력 사용 |
 
-다음 이미지에서는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure 자동화에서 시작하는 다른 방법인 온-프레미스 컴퓨터에 필요한 구성 요소를 포함하여 Azure 자동화 Runbook 및 다른 구성 요소 간의 상호 작용을 실행합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
+다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure 자동화에서 시작하는 다른 방법인 Hybrid Runbook Worker에 필요한 구성 요소를 포함하여 Azure 자동화 Runbook 및 다른 구성 요소 간의 상호 작용을 실행합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
 
 ![Runbook 아키텍처](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -51,43 +51,47 @@
 
 ## Windows PowerShell을 사용하여 Runbook 시작
 
-[Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx)을 사용하여 Windows PowerShell에서 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작합니다.
+[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 Windows PowerShell에서 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작합니다.
 
 ```
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-Start-AzureAutomationRunbook은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx)에서 이 작업 개체를 사용하여 작업 상태를 확인하고 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/azure/dn690268.aspx)에서 이 작업 개체를 사용하여 해당 출력을 가져올 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작하고 완료될 때까지 기다린 후 해당 출력을 표시합니다.
+Start-AzureRmAutomationRunbook은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)에서 이 작업 개체를 사용하여 작업 상태를 확인하고 [Get-AzureRmAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx)에서 이 작업 개체를 사용하여 해당 출력을 가져올 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작하고 완료될 때까지 기다린 후 해당 출력을 표시합니다.
 
 ```
-$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+$runbookName = "Test-Runbook"
+$ResourceGroup = "ResourceGroup01"
+$AutomationAcct = "MyAutomationAccount"
+
+$job = Start-AzureRmAutomationRunbook –AutomationAccountName $AutomationAcct -Name $runbookName -ResourceGroupName $ResourceGroup
 
 $doLoop = $true
 While ($doLoop) {
-   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+   $job = Get-AzureRmAutomationJob –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup
    $status = $job.Status
-   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
 Runbook에 매개 변수가 필요한 경우 [해시 테이블](http://technet.microsoft.com/library/hh847780.aspx)로 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치하고 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 아래의 [Runbook 매개 변수](#Runbook-parameters)를 참조하세요.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
+Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
 ## Runbook 매개 변수
 
-Azure 관리 포털 또는 Windows PowerShell을 사용하여 Runbook을 시작한 경우 Azure 자동화 웹 서비스를 통해 지침이 전송됩니다. 이 서비스는 복잡한 데이터 형식을 가진 매개 변수를 지원하지 않습니다. 복잡한 매개 변수의 값을 제공해야 하는 경우 [Azure 자동화에서 자식 Runbook](automation-child-runbooks.md)에 설명된 대로 다른 Runbook에서 인라인으로 호출해야 합니다.
+Azure 포털 또는 Windows PowerShell을 사용하여 Runbook을 시작한 경우 Azure 자동화 웹 서비스를 통해 지침이 전송됩니다. 이 서비스는 복잡한 데이터 형식을 가진 매개 변수를 지원하지 않습니다. 복잡한 매개 변수의 값을 제공해야 하는 경우 [Azure 자동화에서 자식 Runbook](automation-child-runbooks.md)에 설명된 대로 다른 Runbook에서 인라인으로 호출해야 합니다.
 
 Azure 자동화 웹 서비스는 다음 섹션에 설명된 대로 특정 데이터 형식을 사용하는 매개 변수에 대해 특별한 기능을 제공합니다.
 
 ### 명명된 값
 
-매개 변수의 데이터 형식이 [object]인 경우 *{"Name1":Value1, "Name2":Value2, "Name3":Value3}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx)로 매개 변수가 수신됩니다.
+매개 변수의 데이터 형식이 [object]인 경우 *{"Name1":Value1, "Name2":Value2, "Name3":Value3}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx)로 매개 변수가 수신됩니다.
 
 예를 들어 다음 테스트 Runbook에서는 user라는 매개 변수를 허용합니다.
 
@@ -125,7 +129,7 @@ Smith
 
 매개 변수가 [array] 또는 [string]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
-예를 들어 다음 테스트 Runbook에서는 *user* 라는 매개 변수를 허용합니다.
+예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
 
 ```
 Workflow Test-Parameters
@@ -173,13 +177,13 @@ Workflow Test-Parameters
 }
 ```
 
-*My Credential* 이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
+*My Credential*이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ```
 My Credential
 ```
 
-자격 증명의 사용자 이름을 *jsmith* 라고 가정할 경우 다음과 같이 출력됩니다.
+자격 증명의 사용자 이름을 *jsmith*라고 가정할 경우 다음과 같이 출력됩니다.
 
 ```
 jsmith
@@ -187,6 +191,6 @@ jsmith
 
 ## 다음 단계
 
--	현재 문서의 Runbook 아키텍처에서는 Hybrid Runbook에 대한 대략적인 설명을 제공합니다. 자세한 내용을 확인하려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요
+-	현재 문서의 Runbook 아키텍처에서는 하이브리드 Runbook에 대한 자세한 설명을 제공합니다. 자세한 내용은 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

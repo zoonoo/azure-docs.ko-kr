@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/25/2016" 
+	ms.author="ddove"/>
 
 # 분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 
@@ -339,4 +339,4 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 [2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
 [3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

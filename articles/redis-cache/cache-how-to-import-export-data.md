@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache에서 데이터 가져오기 및 내보내기
@@ -94,6 +94,7 @@
 -	[Redis 서버에서 데이터를 가져올 수 있나요?](#can-i-import-data-from-any-redis-server)
 -	[가져오기/내보내기 작업을 진행하는 동안 캐시를 사용할 수 있나요?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[Redis 클러스터에 가져오기/내보내기를 사용할 수 있나요?](#can-i-use-importexport-with-redis-cluster)
+-	[가져오기/내보내기는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?](#how-does-importexport-work-with-a-custom-databases-setting)
 -	[가져오기/내보내기가 Redis 지속성과 어떻게 다른가요?](#how-is-importexport-different-from-redis-persistence)
 -	[PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 가져오기/내보내기를 자동화할 수 있나요?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 -	[가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
@@ -116,7 +117,16 @@
 
 ### Redis 클러스터에 가져오기/내보내기를 사용할 수 있나요?
 
-예, 클러스터형 캐시와 비클러스터형 캐시 사이에서 가져오기/내보내기를 수행할 수 있습니다. Redis 클러스터는 0 데이터베이스만 지원하기 때문에, 0 외의 데이터베이스에 저장된 데이터를 가져올 수 없습니다. 클러스터형 캐시 데이터를 가져올 때, 키가 클러스터의 분할에 재배포됩니다.
+예, 클러스터형 캐시와 비클러스터형 캐시 사이에서 가져오기/내보내기를 수행할 수 있습니다. Redis 클러스터는 [0 데이터베이스만 지원](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)하기 때문에, 0 외의 데이터베이스에 저장된 데이터를 가져올 수 없습니다. 클러스터형 캐시 데이터를 가져올 때, 키가 클러스터의 분할에 재배포됩니다.
+
+### 가져오기/내보내기는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?
+
+일부 가격 책정 계층에는 다른 [데이타 베이스 제한](cache-configure.md#databases)이 있으므로 캐시 생성 중에 `databases` 설정에 대한 사용자 지정 값을 구성했다면 가져오기 할 때 고려 사항이 있습니다.
+
+-	내보내기 한 계층보다 낮은 `databases` 제한을 가진 가격 책정 계층으로 가져오기할 때:
+	-	모든 가격 계층에 대해 기본값이 16개인 `databases`을 사용하는 경우 데이터 손실은 전혀 없습니다.
+	-	들여오기하는 계층의 대한 제한내에 포함되는 `databases`의 사용자 지정 수를 사용하는 경우, 데이터 손실은 전혀 없습니다.
+	-	내보낸 데이타가 새 계층의 제한을 초과하는 데이타베이스의 데이타를 포함한 경우, 더 높은 데이타베이스의 데이타는 들여오기되지 않습니다.
 
 ### 가져오기/내보내기가 Redis 지속성과 어떻게 다른가요?
 
@@ -158,4 +168,4 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

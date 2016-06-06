@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/09/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색 .NET SDK 버전 1.1로 업그레이드
@@ -181,7 +181,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
     var sp = new SearchParameters();
     sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
-    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+    sp.ScoringParameters = new[] { "featuredParam-featured", "mapCenterParam-" + lon + "," + lat };
 
 빌드 오류를 수정하기 위해 다음으로 변경할 수 있습니다.
 
@@ -190,7 +190,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
     sp.ScoringParameters =
         new[]
         {
-            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("featuredParam", new[] { "featured" }),
             new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
         };
 
@@ -391,4 +391,4 @@ SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Az
 
 Azure 검색을 이용해 주셔서 감사합니다!
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

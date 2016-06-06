@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/28/2016"
+	ms.date="05/19/2016"
 	ms.author="heidist"/>
 
 # Azure 검색의 서비스 제한 사항
@@ -59,4 +59,4 @@ API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니�
 
 표준 수준에서는 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 워크로드에 대한 QPS를 계산하는 방법에 대한 지침은 [검색 솔루션 관리](search-manage.md)에서 모범 사례 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

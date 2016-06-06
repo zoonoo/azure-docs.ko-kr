@@ -3,7 +3,7 @@
 	description="Resource Manager 배포 모델에서 사용할 Windows 가상 컴퓨터 이미지 업로드에 대해 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드
 
@@ -261,4 +261,4 @@ Azure PowerShell에서 다음 단계를 사용하여 저장소 계정에 VM 이�
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

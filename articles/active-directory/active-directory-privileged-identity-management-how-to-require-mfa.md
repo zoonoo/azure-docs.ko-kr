@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management에서 MFA를 요구하는 방법
@@ -26,7 +26,7 @@
 
 ## Azure AD Privileged Identity Management에서 MFA 요구
 
-보안 관리자로서 PIM의 ID를 관리하는 경우 권한 있는 계정에 대해 MFA를 권장하는 경고가 표시될 수 있습니다. PIM 대시보드에서 보안 경고를 클릭하면 MFA가 필요한 관리자 계정 목록이 포함된 새 블레이드가 열립니다. 여러 역할을 선택하고 **수정** 단추를 클릭하여 MFA를 요구하거나, 개별 역할 옆에 있는 줄임표를 클릭한 다음 **수정** 단추를 클릭할 수 있습니다.
+권한 있는 역할 관리자가 PIM의 ID를 관리하는 경우 권한 있는 계정에 대해 MFA를 권장하는 경고가 표시될 수 있습니다. PIM 대시보드에서 보안 경고를 클릭하면 MFA가 필요한 관리자 계정 목록이 포함된 새 블레이드가 열립니다. 여러 역할을 선택하고 **수정** 단추를 클릭하여 MFA를 요구하거나, 개별 역할 옆에 있는 줄임표를 클릭한 다음 **수정** 단추를 클릭할 수 있습니다.
 
 > [AZURE.IMPORTANT] Microsoft 계정(예: @outlook.com, @live.com 또는 @hotmail.com)은 현재 Azure MFA 등록에 사용하도록 지원되지 않으므로 높은 권한의 역할을 위한 임시 관리자로 허용되지 않습니다. 사용자가 Microsoft 계정을 사용하여 계속 워크로드를 관리해야 하는 경우 영구 관리자로 변환하세요.
 
@@ -45,4 +45,4 @@
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -57,10 +57,15 @@ Windows에서는 두 가지 방법, `makecert.exe` 유틸리티 또는 IIS를 �
 
 ### Makecert.exe
 
-이 유틸리티는 Visual Studio 2013/2015와 함께 설치됩니다. 이 콘솔 유틸리티에서는 인증서를 만들고 설치할 수 있습니다. Visual Studio 설치 시 만들어진 **VS2015용 개발자 명령 프롬프트** 바로 가기를 시작하면 이 도구가 경로에 포함된 명령 프롬프트가 나타납니다.
+이 유틸리티는 사용되지 않으므로 여기에 더 이상 설명되지 않습니다. 자세한 내용은 [이 MSDN 문서](https://msdn.microsoft.com/library/windows/desktop/aa386968)를 참조하세요.
 
-    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
+### PowerShell
 
+```
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
 
 ### IIS(인터넷 정보 서비스)
 
@@ -80,4 +85,4 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 >[AZURE.NOTE] Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

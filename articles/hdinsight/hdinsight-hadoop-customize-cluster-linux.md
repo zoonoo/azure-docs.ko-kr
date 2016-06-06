@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
@@ -27,7 +27,15 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 
 스크립트 작업은 사용자로부터 URL 및 매개 변수를 제공 받은 후 HDInsight 클러스터 노드에서 실행되는 간단한 Bash 스크립트입니다. 다음은 스크립트 작업의 특징 및 기능입니다.
 
-* 헤드 노드 또는 작업자 노드 같은 __특정 노드 유형에서만 실행__되도록 제한할 수 있습니다.
+* HDInsight 클러스터에서 액세스할 수 있는 URI에 저장되어야 합니다. 가능한 저장소 위치는 다음과 같습니다.
+
+    * HDInsight 클러스터에 대한 기본 또는 추가 저장소 계정인 Blob 저장소 계정. HDInsight는 클러스터를 만드는 동안 이러한 두 유형을 저장소 계정 모두에 대해 액세스 권한을 부여받으므로 public이 아닌 스크립트 작업을 사용할 수 있게 됩니다.
+    
+    * Azure Blob, GitHub, OneDrive, Dropbox 등과 같은 공개적으로 읽을 수 있는 URI.
+    
+    Blob 컨테이너(공개적으로 읽을 수 있음)에 저장된 스크립트의 URI 예를 보려면 [예제 스크립트 작업 스크립트](#example-script-action-scripts) 섹션을 참조하세요.
+
+* 헤드 노드 또는 작업자 노드와 같은 __특정 노드 유형에서만 실행__되도록 제한할 수 있습니다.
 
 * __지속형__ 또는 __임시__ 스크립트일 수 있습니다.
 
@@ -426,13 +434,11 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다.
 
-2. HDInsight 클러스터 블레이드에서 __설정__을 선택합니다.
+2. HDInsight 클러스터 블레이드에서 __스크립트 작업__ 타일을 선택합니다.
 
-    ![설정 아이콘](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![스크립트 작업 타일](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. 설정 블레이드에서 __스크립트 작업__을 선택합니다.
-
-    ![스크립트 작업 링크](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] __모든 설정__을 선택한 다음 설정 블레이드에서 __스크립트 작업__을 선택할 수도 있습니다.
 
 4. 스크립트 작업 블레이드 맨 위에서 __새로운 항목 제출__을 선택합니다.
 
@@ -440,8 +446,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 5. 스크립트 작업 추가 블레이드에서 다음 정보를 입력합니다.
 
-    * __이름__: 이 스크립트 작업에 사용할 이름입니다. 이 예에서는 `R`입니다.
-    * __스크립트 URI__: 스크립트 URI입니다. 이 예에서는 `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`입니다.
+    * __이름__: 이 스크립트 작업에 사용할 이름입니다. 이 예제에서는 `R`입니다.
+    * __스크립트 URI__: 스크립트 URI입니다. 이 예제에서는 `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`입니다.
     * __헤드__, __작업자__ 및 __Zookeeper__: 이 스크립트를 적용할 노드를 선택합니다. 이 예에서는 헤드와 작업자가 선택되었습니다.
     * __매개 변수__: 스크립트에서 매개 변수를 수락하면 여기에 해당 매개 변수를 입력합니다.
     * __지속형__: 클러스터를 강화할 때 새 작업자 노드에 스크립트가 적용되도록 스크립트를 보존하려면 이 항목을 선택합니다.
@@ -620,7 +626,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 	* **작업자 노드** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Zookeeper 노드** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및  **errors-\*.txt** 가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
+* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및 **errors-*.txt**가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -684,4 +690,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

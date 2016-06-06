@@ -124,15 +124,10 @@ authorization\_code를 획득하였으므로 이제 `POST` 요청을 `/token` �
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
-{
-	"grant_type": "authorization_code",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
-}
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+
 ```
 
 | 매개 변수 | Required? | 설명 |
@@ -201,15 +196,9 @@ id\_token은 수명이 짧습니다. 리소스에 계속 액세스하려면 만�
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
-{
-	"grant_type": "refresh_token",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
-}
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | 매개 변수 | Required? | 설명 |
@@ -277,4 +266,4 @@ Here is the entire flow for a native app; each request is detailed in the sectio
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트**를 포함하려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

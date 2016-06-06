@@ -68,7 +68,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] SDK가 **Hostname** 또는 **Namespace** 값을 필요로 하는 경우 **이벤트 허브와 호환 가능한 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
+> [AZURE.NOTE] SDK가 **Hostname** 또는 **Namespace** 값을 필요로 하는 경우 **이벤트 허브와 호환 가능한 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/** 인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
 
 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 보안 정책을 사용할 수 있습니다.
 
@@ -204,7 +204,7 @@ Azure IoT Hub는 공유 액세스 정책 및 장치 ID 레지스트리 보안 �
 
 지원되는 각 프로토콜(예: AMQP, MQTT 및 HTTP)은 다양한 방식으로 토큰을 전송합니다.
 
-HTTP는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다. 또한 **권한 부여**라는 쿼리 매개 변수는 토큰을 전송할 수 있습니다.
+HTTP는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
 [AMQP][lnk-amqp]을 사용하는 경우 IoT Hub는 [SASL PLAIN][lnk-sasl-plain] 및 [AMQP 클레임 기반-보안][lnk-cbs]을 지원합니다.
 
@@ -388,7 +388,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 또한 장치는 다음을 수행할 수 있습니다.
 
 - 메시지 *거부*. 이 경우 IoT Hub는 메시지를 **Deadlettered** 상태로 설정합니다.
-- 메시지 *중단*. 이 경우 IoT Hub는 상태를 **Enqueued**으로 설정하여 메시지를 큐에 다시 넣습니다.
+- 메시지 *중단*. 이 경우 IoT Hub는 상태를 **Enqueued**로 설정하여 메시지를 큐에 다시 넣습니다.
 
 스레드는 IoT Hub에 알리지 않고 메시지를 처리하는 데 실패할 수 있습니다. 이 경우 *표시 또는 잠금 시간 초과*의 기본값인 1분 후에 메시지는 **Invisible** 상태에서 **Enqueued** 상태로 자동 전환됩니다. 메시지는 IoT Hub의 *max delivery count* 속성에 지정된 최대 지정된 횟수만큼 **Enqueued**와 **Invisible** 상태 간에 전환될 수 있습니다. 해당 전환 횟수 후에 IoT Hub는 메시지의 상태를 **Deadlettered**로 설정합니다. 마찬가지로 해당 만료 시간 후에 IoT Hub는 메시지의 상태를 **Deadlettered**로 설정합니다. 관련 설명은 [TTL(Time to Live)](#ttl)을 참조하세요.
 
@@ -557,4 +557,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

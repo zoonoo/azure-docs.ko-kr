@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/17/2016"
 	ms.author="cynthn"/>
 
 # 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
@@ -23,17 +23,16 @@
 
 추가 데이터 디스크가 필요한 경우 빈 디스크나, 데이터가 있는 기존 디스크를 VM에 연결할 수 있습니다. 두 경우 모두, 디스크는 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 새 디스크의 경우 디스크를 연결한 후, Windows VM에서 사용할 수 있게 초기화가 필요합니다.
 
-모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 C 드라이브에 매핑되는 운영 체제용 디스크와 D 드라이브에 매핑되는 임시 디스크가 있습니다. **임시 디스크는 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 임시 디스크는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
+디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-windows-about-disks-vhds.md)를 참조하세요.
 
 ## 연습 동영상
 
-이 자습서의 단계 연습은 다음과 같습니다.
+이 자습서의 단계 [비디오 연습](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/)은 다음과 같습니다.
 
-[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>방법: Windows Server에서 새 데이터 디스크 초기화
+## 디스크 초기화
 
 1. 가상 컴퓨터에 연결합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법][logon]을 참조하세요.
 
@@ -61,4 +60,4 @@
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

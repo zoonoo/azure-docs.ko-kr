@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
@@ -32,7 +32,7 @@ Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 �
 
 Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍)에 대한 다양한 추가 설명서 및 Windows PowerShell 스크립팅에 사용되는 cmdlet에 대한 설명서를 웹에서 찾을 수 있습니다. 이러한 리소스에 대한 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
+- [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Azure HDInsight 소개][hdinsight-introduction]
 
@@ -91,7 +91,7 @@ Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Ja
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `
@@ -138,11 +138,11 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 - [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음으로 바꿉니다.
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-									-File "/example/apps/" `
-									-Mapper "cat.exe" `
-									-Reducer "wc.exe" `
-									-InputPath "/example/data/gutenberg/davinci.txt" `
-									-OutputPath "/example/data/StreamingOutput/wc.txt"
+    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
+    							-Mapper "cat.exe" `
+    							-Reducer "wc.exe" `
+    							-InputPath "/example/data/gutenberg/davinci.txt" `
+    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
 
 
 	출력 파일은 다음과 같습니다.
@@ -983,7 +983,7 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
@@ -1000,4 +1000,4 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
