@@ -49,13 +49,13 @@ system
 system error
 ```
 
-이 쿼리는 *시스템*과 *오류* 단어를 포함하는 결과를 반환합니다.
+이 쿼리는 *시스템* 과 *오류* 단어를 포함하는 결과를 반환합니다.
 
 ```
 system error | sort ManagementGroupName, TimeGenerated desc | top 10
 ```
 
-이 쿼리는 *시스템*과 *오류* 단어를 포함하는 결과를 반환합니다. *ManagementGroupName* 필드(오름차순)의 결과를 정렬한 다음 *TimeGenerated*(내림차순)의 결과를 정렬합니다. 처음 10개의 결과만 표시합니다.
+이 쿼리는 *시스템* 과 *오류* 단어를 포함하는 결과를 반환합니다. *ManagementGroupName* 필드(오름차순)의 결과를 정렬한 다음 *TimeGenerated*(내림차순)의 결과를 정렬합니다. 처음 10개의 결과만 표시합니다.
 
 >[AZURE.IMPORTANT] 모든 필드 이름과 문자열 및 텍스트 필드에 대한 값은 대/소문자를 구분합니다.
 
@@ -292,7 +292,7 @@ Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] 와일드 카드는 현재 따옴표 안에서 사용할 수 없습니다. 메시지=`"*This text*"`는 사용된 (*)를 리터럴 (*) 문자로 간주합니다.
+>[AZURE.NOTE] 와일드 카드는 현재 따옴표 안에서 사용할 수 없습니다. 메시지=`"*This text*"`는 사용된 (\*)를 리터럴 (\*) 문자로 간주합니다.
 
 ## 명령
 
@@ -350,7 +350,7 @@ Type=Event Computer=*SQL*
 
 	Type:Alert errors detected | select Name, Severity
 
-반환되는 결과 필드를 *이름** 및 *심각도*로 제한합니다.
+반환되는 결과 필드를 *이름* 및 *심각도* 로 제한합니다.
 
 ### 측정값
 
@@ -367,7 +367,7 @@ Type=Event Computer=*SQL*
 	 measure aggregateFunction1([aggregatedField]), aggregateFunction2([aggregatedField]), ...  interval interval
 
 
-*groupField*로 결과를 집계하고 *aggregatedField*를 사용하여 집계된 측정값을 계산합니다.
+*groupField* 로 결과를 집계하고 *aggregatedField* 를 사용하여 집계된 측정값을 계산합니다.
 
 
 |측정 통계 함수|설명|
@@ -391,7 +391,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-*ObjectID*에서 경고를 그룹화하고 각 그룹에 대한 경고의 수를 계산합니다. 집계된 값을 *Count* 필드(별칭)로 반환합니다.
+*ObjectID* 에서 경고를 그룹화하고 각 그룹에 대한 경고의 수를 계산합니다. 집계된 값을 *Count* 필드(별칭)로 반환합니다.
 
 **예 2**
 
@@ -447,7 +447,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-이전 예제와 동일하지만 *합계*를 사용합니다.
+이전 예제와 동일하지만 *합계* 를 사용합니다.
 
 **예제 9**
 
@@ -455,7 +455,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-이전 예제와 동일하지만 *STDDEV*를 사용합니다.
+이전 예제와 동일하지만 *STDDEV* 를 사용합니다.
 
 **예제 10**
 
@@ -463,7 +463,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-이전 예제와 동일하지만 *PERCENTILE70*을 사용합니다.
+이전 예제와 동일하지만 *PERCENTILE70* 을 사용합니다.
 
 **예제 11**
 
@@ -471,7 +471,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-이전 예제와 동일하지만 *PCT70*을 사용합니다. *PCT##*은 *PERCENTILE##* 함수의 유일한 별칭입니다.
+이전 예제와 동일하지만 *PCT70* 을 사용합니다. *PCT##* 은 *PERCENTILE##* 함수의 유일한 별칭입니다.
 
 **예제 12**
 
@@ -557,7 +557,7 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measur
 Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer
 ```    
 
-*현재 보안 업데이트가 없는 컴퓨터의 모든 Windows 이벤트*를 검색하는 최종 쿼리는 다음과 유사합니다.
+*현재 보안 업데이트가 없는 컴퓨터의 모든 Windows 이벤트* 를 검색하는 최종 쿼리는 다음과 유사합니다.
 
 ```
 Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
@@ -599,40 +599,42 @@ SQL 평가 권장 사항에 대해 가중 평균 권장 점수를 표시합니�
 
 **예제 4**
 
-	Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
+```
+Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
 50% 미만이 성능 카운터 값을 LOW로 태깅하고 나머지는 HIGH로 태깅합니다.
+```
 
 **지원되는 함수**
 
 
-|함수 |설명 |구문 예제|  
+| 함수 | 설명 | 구문 예제 |
 |---------|---------|---------|
-|abs | 지정된 값 또는 함수의 절대 값을 반환합니다.|<p>abs(x)</p> <p>abs(-5)</p>|
-|and | 모든 피연산자가 true로 계산될 경우에만 true 값을 반환합니다. | and(not(exists(**popularity**)),exists(**price**)):|
-|def | def는 기본값(default)의 약어입니다. 필드 "필드" 값을 반환하고 필드가 없을 경우에는 지정된 기본 값을 반환하며 exists()==true일 때 첫 번째 값을 산출합니다. |<p>div(1,y)</p><p>div(sum(x,100),max(y,1))</p>|
-| div | div(x,y)는 x를 y로 나눕니다. | div(1,y),div(sum(x,100),max(y,1)) |
-| dist | n차원 공간의 두 벡터(점) 사이의 거리를 반환합니다. 거듭제곱과 두 개 이상의 ValueSource 인스턴스를 가져와 두 벡터 간 거리를 계산합니다. 각 ValueSource는 숫자여야 합니다. 전달하는 ValueSource 인스턴스 수는 짝수여야 하며 메서드는 처음 절반이 첫 번째 벡터를 나타내고 나머지 절반이 두 번째 벡터를 나타내는 것으로 가정합니다. | <p>dist(2, x, y, 0, 0): 각 문서에 대해 (0,0)과 (x,y) 사이의 유클리드 거리를 계산합니다.</p><p>dist(1, x, y, 0, 0): 각 문서에 대해 (0,0)과 (x,y) 사이의 맨해턴 거리를 계산합니다.</p><p>dist(2,,x,y,z,0,0,0): 각 문서에 대해 (0,0,0)과 (x,y,z) 사이의 유클리드 거리를 계산합니다.</p><p>dist(1,x,y,z,e,f,g): (x,y,z)와 (e,f,g) 사이의 맨해턴 거리이며 각 문자는 필드 이름입니다.</p> |
-| exists | 필드에 구성원이 있을 경우 TRUE를 반환합니다. | <p>exists(author)는 문서의 "author" 필드에 값이 있을 경우 TRUE를 반환합니다.</p><p>exists(query(price:5.00))는 "price"가 "5.00"과 일치할 경우 TRUE를 반환합니다.</p> |
-| hsin | Haversine 거리는 구를 이동할 때 구상의 두 점 간 거리를 계산합니다. 값은 라디안이어야 합니다. hsin도 부울 인수를 사용하여 함수가 출력을 라디안으로 변환해야 하는지 여부를 지정합니다. | hsin(2, true, x, y, 0, 0) |
-| if | 조건부 함수 쿼리를 사용합니다. In if(test,value1,value2): 테스트가 논리적 값(TRUE 또는 FALSE)을 반환하는 논리적 값 또는 식이거나 논리적 값 또는 식을 나타냅니다. value1은 테스트가 TRUE를 산출할 때 함수에서 반환하는 값입니다. value2는 테스트에서 FALSE를 산출할 때 함수에서 반환하는 값입니다. 식은 부울 값을 출력하는 함수 또는 숫자 값을 반환하는 함수도 가능하며, 이 경우 0은 false 또는 문자열(빈 문자열은 false로 해석됨)로 해석됩니다. | if(termfreq(cat,'electronics'),popularity,42) : 이 함수는 각 문서의 cat 필드에 "electronics"라는 단어가 포함되었는지 여부를 검사합니다. 이 단어가 포함된 경우 인기도 필드의 값이 반환되며 그렇지 않을 경우 42 값이 반환됩니다. |
-| linear | m*x+c를 구현하며, 여기서 m과 c는 상수이고 x는 임의의 함수입니다. 이 함수는 sum(product(m,x),c)과 동일하지만 단일 함수로 구현되므로 약간 더 효율적입니다. | linear(x,m,c) linear(x,2,4)는 2*x+4</font?를 반환합니다. |
-| 로그 | 지정된 함수의 로그 밑 10을 반환합니다. | log(x) log(sum(x,100)) |
-| map | min(포함) 및 max(포함)에 포함되는 입력 함수 x의 모든 값을 지정된 대상에 매핑합니다. 인수 min 및 max는 상수여야 합니다. 인수 대상과 기본값은 상수 또는 함수가 가능합니다. x 값이 min 및 max 사이에 포함되지 않는 경우 x 값이 반환되며 5번째 인수로 지정된 경우는 기본값이 반환됩니다. | <p>map(x,min,max,target) map(x,0,0,1) - 모든 0 값을 1로 바꿉니다. 이 함수는 기본값 0을 처리하는 데 유용할 수 있습니다.</p> <p> map(x,min,max,target,default) map(x,0,100,1,-1) - 0 ~ 100 사이의 모든 값을 1로 바꾸고 나머지 값을 -1로 바꿉니다.</p> </p> map(x,0,100,sum(x,599),docfreq(text,solr)) - 0 ~ 100 사이의 모든 값을 x+599로 바꾸고 나머지 값을 필드 텍스트의 'solr' 용어의 빈도로 바꿉니다.</p> |
-| max | 인수: max(x,y,...)로 지정되어 여러 번 중첩된 함수 또는 상수의 최대 숫자 값을 반환합니다. max 함수는 지정된 상수에서 다른 함수 또는 필드를 "하한값으로 유지"하는 데에도 유용할 수 있습니다. (단일 다중값 필드의 최대값을 선택할 경우 field(myfield,max) 구문 사용) | max(myfield,myotherfield,0) |
-| min | 인수 max(x,y,...)로 지정되어 여러 번 중첩된 함수 또는 상수의 최소 숫자 값을 반환합니다. min 함수는 상수를 사용하는 함수에서 "상한"을 제공하는 데에도 유용할 수 있습니다. (단일 다중값 필드의 최소값을 선택할 경우 field(myfield,min) 구문 사용) | min(myfield,myotherfield,0) |
-| ms | 인수간 차이를 밀리초 단위로 반환합니다. 날짜는 Unix 또는 POSIX time epoch인 1970년 1월 1일 자정(UTC) 기준입니다. 인수는 상수 날짜 또는 NOW 기준의 인덱싱된 TrieDateField 또는 날짜 연산의 이름이 가능합니다. · ms(): epoch 이후 밀리초인 ms(NOW)와 동일합니다. · ms(a): 인수가 나타내는 epoch 이후의 밀리초를 반환합니다. · ms(a,b) : a 이전에 b가 발생한 밀리초를 반환합니다(즉, a - b). | <p> </p><p> ms(NOW/DAY) </p> <p> ms(2000-01-01T00:00:00Z)</p> <p> ms(mydatefield)</p> <p> ms(NOW,mydatefield)</p> <p> ms(mydatefield,2000-01-01T00:00:00Z)</p> <p> ms(datefield1,datefield2)</p> |
-| not | 래핑된 함수의 논리적 부정 값입니다. | not(exists(author)): exists(author)가 false일 경우에만 TRUE입니다. |
-| 또는 | 논리적 분리. | or(value1,value2): value1 또는 value2가 true일 경우에만 TRUE입니다. |
-| pow | 지정된 밑에 지정된 값으로 거듭제곱합니다. pow(x,y): x를 y 거듭제곱합니다. | <p> pow(x,y)</p> <p>pow(x,log(y))</p> <p> pow(x,0.5)</p>: sqrt와 동일 |
-| product | 쉼표로 구분된 목록으로 지정하는 여러 값 또는 함수의 곱을 반환합니다. mul(...)도 이 함수의 별칭으로 사용될 수 있습니다. | <p> product(x,y,...)</p> <p>product(x,2)</p> <p> product(x,y)</p> <p>mul(x,y)</p> |
-| recip | `<a/(m*x+b)`를 구현하는 `recip(x,m,a,b)`를 사용하는 역수를 수행합니다. 여기서 m, a, b는 상수이며 x는 임의의 복잡 함수입니다. a와 b가 동일하고 x>=0일 경우 이 함수의 최대값 1은 x가 증가함에 따라 감소합니다. a와 b 값을 함께 증가할 경우 전체 함수가 곡선의 평평한 부분으로 이동합니다. 이러한 속성으로 인해 x가 rord(datefield)일 때 더 많은 최근 문서를 출력하는 데 이상적인 함수가 됩니다. | <p>recip(myfield,m,a,b)<p> <p> recip(rord(creationDate),1,1000,1000)</p> |
-| 크기 조정 | 함수 x 값이 지정된 minTarget(포함) 및 maxTarget(포함) 안에 포함되도록 조정합니다. 현재 구현은 올바른 배율을 선택할 수 있도록 모든 함수 값을 확인하여 min 및 max를 구합니다. 현재 구현은 문서가 삭제된 시기 또는 값이 없는 문서를 구분할 수 없습니다. 그러한 경우는 0.0 값을 사용합니다. 즉, 일반적으로 모든 값이 0.0보다 클 경우 매핑을 시작하는 최소값이 0.0이 될 수 있습니다. 그럴 경우에는 해결 방법으로 적절한 map() 함수를 사용하여 0.0을 scale(map(x,0,0,5),1,2)와 같은 실제 범위 내의 값으로 바꿀 수 있습니다. | <p>scale(x,minTarget,maxTarget)</p> <p>scale(x,1,2): 모든 값이 1(포함) ~ 2(포함) 사이가 되도록 x 값을 조정합니다. </p> |
-| sqedist | 유클리드 제곱 거리는 2개의 표준(유클리드 거리)을 계산하지만 제곱근을 계산하지 않아 매우 많은 작업을 절감합니다. 유클리드 거리를 계산하는 응용 프로그램은 실제 거리가 필요하지 않은 경우가 많지만 거리의 제곱을 사용할 수 있습니다. 전달하는 ValueSource 인스턴스 수는 짝수여야 하며 메서드는 처음 절반이 첫 번째 벡터를 나타내고 나머지 절반이 두 번째 벡터를 나타내는 것으로 가정합니다. | sqedist(x\_td, y\_td, 0, 0) |
-| sqrt | 지정된 값 도는 함수의 제곱근을 반환합니다. | <p>sqrt(x)</p><p>sqrt(100)</p><p>sqrt(sum(x,100))</p> |
-| strdist | 두 문자열 간의 거리를 계산합니다. Lucene 맞춤법 검사기 StringDistance 인터페이스를 사용하며 해당 패키지에서 사용 가능한 모든 구현을 지원하고 응용 프로그램에서 Solr의 리소스 로딩 기능을 통해 자체 구현을 플러그인할 수 있습니다. strdist는 인수로 string1, string2, 거리 측정값을 사용합니다. 거리 측정에 가능한 값은 jw: Jaro-Winkler edit: Levenstein 또는 Edit distance ngram입니다(NGramDistance를 지정할 경우 ngram 크기도 전달할 수 있음). 기본값은 2입니다. FQN: StringDistance 인터페이스 구현의 정규화된 클래스 이름. 인수가 없는 생성자여야 합니다. | strdist("SOLR",id,edit) |
-| sub | sub(x,y)에서 x-y를 반환합니다. | <p>sub(myfield,myfield2)</p> <p> sub(100,sqrt(myfield))</p> |
-| sum | 쉼표로 구분된 목록으로 지정하는 여러 값 또는 함수의 합을 반환합니다. add(...)도 이 함수의 별칭으로 사용될 수 있습니다. | <p>sum(x,y,...)</p> <p>sum(x,1)</p> <p> sum(x,y)</p> <p> sum(sqrt(x),log(y),z,0.5)</p> <p> add(x,y)</p> |
-| xor | 둘 중 하나가 해당하며 둘 다는 해당하지 않습니다. | xor(field1,field2): field1 또는 field2가 ture일 경우 TRUE를 반환하며 둘 다 true일 경우 FALSE를 반환합니다. |
+| abs | 지정된 값 또는 함수의 절대 값을 반환합니다.| `abs(x)` <br> `abs(-5)` |
+| and | 모든 피연산자가 true로 계산될 경우에만 true 값을 반환합니다. | `and(not(exists(**popularity**)),exists(**price**))` |
+| def | def는 기본값(default)의 약어입니다. 필드 "필드" 값을 반환하고 필드가 없을 경우에는 지정된 기본 값을 반환하며 `exists()==true` 일 때 첫 번째 값을 산출합니다. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
+| div | `div(x,y)` 는 x를 y로 나눕니다. | `div(1,y),div(sum(x,100),max(y,1))` |
+| dist | n차원 공간의 두 벡터(점) 사이의 거리를 반환합니다. 거듭제곱과 두 개 이상의 ValueSource 인스턴스를 가져와 두 벡터 간 거리를 계산합니다. 각 ValueSource는 숫자여야 합니다. 전달하는 ValueSource 인스턴스 수는 짝수여야 하며 메서드는 처음 절반이 첫 번째 벡터를 나타내고 나머지 절반이 두 번째 벡터를 나타내는 것으로 가정합니다. | `dist(2, x, y, 0, 0)` - 각 문서에 대해 (0,0)과 (x,y) 사이의 유클리드 거리를 계산합니다. <br> `dist(1, x, y, 0, 0)` - 각 문서에 대해 (0,0)과 (x,y) 사이의 맨해턴 거리를 계산합니다. <br> `dist(2,,x,y,z,0,0,0)` - 각 문서에 대해 (0,0,0)과 (x,y,z) 사이의 유클리드 거리를 계산합니다.<br>`dist(1,x,y,z,e,f,g)` - (x,y,z)와 (e,f,g) 사이의 맨해턴 거리이며 각 문자는 필드 이름입니다. |
+| exists | 필드에 구성원이 있을 경우 TRUE를 반환합니다. | `exists(author)` - 는 문서의 "author" 필드에 값이 있을 경우 TRUE를 반환합니다.<br>`exists(query(price:5.00))` - 는 "price"가 "5.00"과 일치할 경우 TRUE를 반환합니다. |
+| hsin | Haversine 거리는 구를 이동할 때 구상의 두 점 간 거리를 계산합니다. 값은 라디안이어야 합니다. hsin도 부울 인수를 사용하여 함수가 출력을 라디안으로 변환해야 하는지 여부를 지정합니다. | `hsin(2, true, x, y, 0, 0)` |
+| if | 조건부 함수 쿼리를 사용합니다. In `if(test,value1,value2)`: 테스트가 논리적 값(TRUE 또는 FALSE)을 반환하는 논리적 값 또는 식이거나 논리적 값 또는 식을 나타냅니다. `value1` 은 테스트가 TRUE를 산출할 때 함수에서 반환하는 값입니다. `value2` 는 테스트에서 FALSE를 산출할 때 함수에서 반환하는 값입니다. 식은 부울 값을 출력하는 함수 또는 숫자 값을 반환하는 함수도 가능하며, 이 경우 0은 false 또는 문자열(빈 문자열은 false로 해석됨)로 해석됩니다. | `if(termfreq(cat,'electronics'),popularity,42)` : 이 함수는 각 문서의 cat 필드에 "electronics"라는 단어가 포함되었는지 여부를 검사합니다. 이 단어가 포함된 경우 인기도 필드의 값이 반환되며 그렇지 않을 경우 42 값이 반환됩니다. |
+| linear | `m*x+c` 를 구현하며, 여기서 m과 c는 상수이고 x는 임의의 함수입니다. 이 함수는 `sum(product(m,x),c)` 과 동일하지만 단일 함수로 구현되므로 약간 더 효율적입니다. | `linear(x,m,c) linear(x,2,4)` 는 `2*x+4` 를 반환합니다. |
+| 로그 | 지정된 함수의 로그 밑 10을 반환합니다. | `log(x)   log(sum(x,100))` |
+| map | min(포함) 및 max(포함)에 포함되는 입력 함수 x의 모든 값을 지정된 대상에 매핑합니다. 인수 min 및 max는 상수여야 합니다. 인수 대상과 기본값은 상수 또는 함수가 가능합니다. x 값이 min 및 max 사이에 포함되지 않는 경우 x 값이 반환되며 5번째 인수로 지정된 경우는 기본값이 반환됩니다. | `map(x,min,max,target) map(x,0,0,1)` - 모든 0 값을 1로 바꿉니다. 이 함수는 기본값 0을 처리하는 데 유용할 수 있습니다.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)` - 0 ~ 100 사이의 모든 값을 1로 바꾸고 나머지 값을 -1로 바꿉니다.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` - 0 ~ 100 사이의 모든 값을 x+599로 바꾸고 나머지 값을 필드 텍스트의 'solr' 용어의 빈도로 바꿉니다. |
+| max | 인수: `max(x,y,...)` 로 지정되어 여러 번 중첩된 함수 또는 상수의 최대 숫자 값을 반환합니다. max 함수는 지정된 상수에서 다른 함수 또는 필드를 "하한값으로 유지"하는 데에도 유용할 수 있습니다. (단일 다중값 필드의 최대값을 선택할 경우 `field(myfield,max)` 구문 사용) | `max(myfield,myotherfield,0)` |
+| min | 인수 `min(x,y,...)` 로 지정되어 여러 번 중첩된 함수 또는 상수의 최소 숫자 값을 반환합니다. min 함수는 상수를 사용하는 함수에서 "상한"을 제공하는 데에도 유용할 수 있습니다. (단일 다중값 필드의 최소값을 선택할 경우 `field(myfield,min)` 구문 사용) | `min(myfield,myotherfield,0)` |
+| ms | 인수간 차이를 밀리초 단위로 반환합니다. 날짜는 Unix 또는 POSIX time epoch인 1970년 1월 1일 자정(UTC) 기준입니다. 인수는 상수 날짜 또는 NOW 기준의 인덱싱된 TrieDateField 또는 날짜 연산의 이름이 가능합니다. · `ms()`: epoch 이후 밀리초인 `ms(NOW)` 와 동일합니다. · `ms(a)`: 인수가 나타내는 epoch 이후의 밀리초를 반환합니다. · `ms(a,b)` : a 이전에 b가 발생한 밀리초를 반환합니다(즉, `a - b`). | `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
+| not | 래핑된 함수의 논리적 부정 값입니다. | `not(exists(author))`: `exists(author)` 가 false일 경우에만 TRUE입니다. |
+| 또는 | 논리적 분리. | `or(value1,value2)`: value1 또는 value2가 true일 경우에만 TRUE입니다. |
+| pow | 지정된 밑에 지정된 값으로 거듭제곱합니다. `pow(x,y)`: x를 y 거듭제곱합니다. | `pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)`: sqrt와 동일 |
+| product | 쉼표로 구분된 목록으로 지정하는 여러 값 또는 함수의 곱을 반환합니다. `mul(...)` 도 이 함수의 별칭으로 사용될 수 있습니다. | `product(x,y,...)`<br>`product(x,2)`<br>`product(x,y)`<br>`mul(x,y)` |
+| recip | `a/(m*x+b)`를 구현하는 `recip(x,m,a,b)`를 사용하는 역수를 수행합니다. 여기서 m, a, b는 상수이며 x는 임의의 복잡 함수입니다. a와 b가 동일하고 x>=0일 경우 이 함수의 최대값 1은 x가 증가함에 따라 감소합니다. a와 b 값을 함께 증가할 경우 전체 함수가 곡선의 평평한 부분으로 이동합니다. 이러한 속성으로 인해 x가 `rord(datefield)` 일 때 더 많은 최근 문서를 출력하는 데 이상적인 함수가 됩니다. | `recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
+| 크기 조정 | 함수 x 값이 지정된 minTarget(포함) 및 maxTarget(포함) 안에 포함되도록 조정합니다. 현재 구현은 올바른 배율을 선택할 수 있도록 모든 함수 값을 확인하여 min 및 max를 구합니다. 현재 구현은 문서가 삭제된 시기 또는 값이 없는 문서를 구분할 수 없습니다. 그러한 경우는 0.0 값을 사용합니다. 즉, 일반적으로 모든 값이 0.0보다 클 경우 매핑을 시작하는 최소값이 0.0이 될 수 있습니다. 그럴 경우에는 해결 방법으로 적절한 `map()` 함수를 사용하여 0.0을 `scale(map(x,0,0,5),1,2)` 와 같은 실제 범위 내의 값으로 바꿀 수 있습니다. | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)`: 모든 값이 1(포함) ~ 2(포함) 사이가 되도록 x 값을 조정합니다. </p> |
+| sqedist | 유클리드 제곱 거리는 2개의 표준(유클리드 거리)을 계산하지만 제곱근을 계산하지 않아 매우 많은 작업을 절감합니다. 유클리드 거리를 계산하는 응용 프로그램은 실제 거리가 필요하지 않은 경우가 많지만 거리의 제곱을 사용할 수 있습니다. 전달하는 ValueSource 인스턴스 수는 짝수여야 하며 메서드는 처음 절반이 첫 번째 벡터를 나타내고 나머지 절반이 두 번째 벡터를 나타내는 것으로 가정합니다. | `sqedist(x_td, y_td, 0, 0)` |
+| sqrt | 지정된 값 도는 함수의 제곱근을 반환합니다. | `sqrt(x)`<br>`sqrt(100)`<br>`sqrt(sum(x,100))` |
+| strdist | 두 문자열 간의 거리를 계산합니다. Lucene 맞춤법 검사기 StringDistance 인터페이스를 사용하며 해당 패키지에서 사용 가능한 모든 구현을 지원하고 응용 프로그램에서 Solr의 리소스 로딩 기능을 통해 자체 구현을 플러그인할 수 있습니다. `(strdist는 인수로 string1, string2)`, 거리 측정값을 사용합니다. 거리 측정에 가능한 값은 jw: Jaro-Winkler edit: Levenstein 또는 Edit distance ngram입니다(NGramDistance를 지정할 경우 ngram 크기도 전달할 수 있음). 기본값은 2입니다. FQN: StringDistance 인터페이스 구현의 정규화된 클래스 이름. 인수가 없는 생성자여야 합니다. | `strdist("SOLR",id,edit)` |
+| sub | `sub(x,y)` 에서 x-y를 반환합니다. | `sub(myfield,myfield2)`<br>`sub(100,sqrt(myfield))` |
+| sum | 쉼표로 구분된 목록으로 지정하는 여러 값 또는 함수의 합을 반환합니다. `add(...)` 도 이 함수의 별칭으로 사용될 수 있습니다. | `sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)` |
+| xor | 둘 중 하나가 해당하며 둘 다는 해당하지 않습니다. | `xor(field1,field2)`: field1 또는 field2가 ture일 경우 TRUE를 반환하며 둘 다 true일 경우 FALSE를 반환합니다. |
 
 
 
