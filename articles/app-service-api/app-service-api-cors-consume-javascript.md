@@ -138,7 +138,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 �
 
 	코드가 Azure에서 실행되면 이 값은 *Web.config* 파일에 있는 localhost URL을 재정의합니다.
 
-	설정값을 가져오는 코드는 *index.cshtml*에 있습니다.
+	설정값을 가져오는 코드는 *index.cshtml* 에 있습니다.
 
 		<script type="text/javascript">
 		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
