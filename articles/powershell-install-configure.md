@@ -32,7 +32,7 @@ Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을
 
 WebPI에서 Azure PowerShell 1.0 이상을 설치하는 것은 0.9.x의 경우와 같습니다. [Azure Powershell](http://aka.ms/webpi-azps)을 다운로드하고 설치를 시작합니다. Azure PowerShell 0.9.x를 설치한 경우에는 업그레이드의 일부분으로 버전 0.9.x가 제거됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 Azure PowerShell 환경의 일관성을 유지하기 위해 설치 전에 설치 관리자가 해당 모듈을 자동으로 제거합니다.
 
-> [AZURE.NOTE] 이전에 PowerShell 갤러리에서 Azure 모듈을 설치한 경우에는 설치 관리자가 해당 모듈을 자동으로 제거합니다. 그러므로 설치한 모듈 버전과 모듈이 설치된 위치를 혼동하는 상황을 방지할 수 있습니다. PowerShell 갤러리 모듈은 보통 **%ProgramFiles%\\WindowsPowerShell\\Modules**에 설치됩니다. 반면 WebPI 설치 관리자는 Azure 모듈을 **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\PowerShell**에 설치합니다. 설치 중에 오류가 발생하는 경우 **%ProgramFiles%\\WindowsPowerShell\\Modules** 폴더의 Azure* 폴더를 수동으로 제거하고 설치를 다시 시도할 수 있습니다.
+> [AZURE.NOTE] 이전에 PowerShell 갤러리에서 Azure 모듈을 설치한 경우에는 설치 관리자가 해당 모듈을 자동으로 제거합니다. 그러므로 설치한 모듈 버전과 모듈이 설치된 위치를 혼동하는 상황을 방지할 수 있습니다. PowerShell 갤러리 모듈은 보통 **%ProgramFiles%\WindowsPowerShell\Modules**에 설치됩니다. 반면 WebPI 설치 관리자는 Azure 모듈을 **%ProgramFiles(x86)%\Microsoft SDKs\Azure\PowerShell**에 설치합니다. 설치 중에 오류가 발생하는 경우 **%ProgramFiles%\WindowsPowerShell\Modules** 폴더의 Azure* 폴더를 수동으로 제거하고 설치를 다시 시도할 수 있습니다.
 
 설치가 완료되면 ```$env:PSModulePath``` 설정에는 Azure PowerShell cmdlet이 들어 있는 디렉터리가 포함되어야 합니다.
 
@@ -52,9 +52,11 @@ cmdlet을 로드하거나 실행하려고 할 때 다음과 같은 메시지가 
         + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-This can be corrected by restarting the machine or importing the cmdlets from C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ as following (where XXXX is the version of PowerShell installed:
+컴퓨터 다시 시작하거나 다음과 같이 C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\에서 cmdlet을 가져와서 이를 해결할 수 있습니다(여기서 XXXX는 설치된 PowerShell의 버전입니다).
 ```
-import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure.psd1" import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\expressroute\\expressroute.psd1" ```
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
+```
 
 ###PowerShell 갤러리에서 Azure PowerShell 설치
 
@@ -68,7 +70,7 @@ import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure
 
 ####이러한 명령에 대한 자세한 내용
 
-- **Install-Module AzureRM**은 Azure Resource Manager cmdlet용 롤업 모듈을 설치합니다. AzureRM 모듈은 각 Azure Resource Manager 모듈의 특정 버전 범위에 따라 달라집니다. 포함된 버전 범위를 사용하는 경우 주 버전이 같은 AzureRM 모듈을 설치할 때 중요한 모듈 변경 내용을 포함할 수 없습니다. AzureRM 모듈을 설치할 때는 이전에 설치되지 않은 Azure Resource Manager 모듈이 PowerShell 갤러리에서 다운로드되어 설치됩니다. Azure PowerShell 모듈에서 사용되는 유의적 버전에 대한 자세한 내용은 [semver.org](http://semver.org)를 참조하세요. 
+- **Install-Module AzureRM**은 Azure Resource Manager cmdlet에 롤업 모듈을 설치합니다. AzureRM 모듈은 각 Azure Resource Manager 모듈의 특정 버전 범위에 따라 달라집니다. 포함된 버전 범위를 사용하는 경우 주 버전이 같은 AzureRM 모듈을 설치할 때 중요한 모듈 변경 내용을 포함할 수 없습니다. AzureRM 모듈을 설치할 때는 이전에 설치되지 않은 Azure Resource Manager 모듈이 PowerShell 갤러리에서 다운로드되어 설치됩니다. Azure PowerShell 모듈에서 사용되는 유의적 버전에 대한 자세한 내용은 [semver.org](http://semver.org)를 참조하세요. 
 - **Install-Module Azure**는 Azure 모듈을 설치합니다. 이 모듈은 Azure PowerShell 0.9.x의 서비스 관리 모듈입니다. 이 모듈에는 주요 변경 내용이 없어야 하며 이전 버전의 Azure 모듈에 대해 서로 교환할 수 있어야 합니다.
 
 ## 2단계: 시작
@@ -76,9 +78,9 @@ import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure
 
 - Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서 기본 제공 검색을 사용할 수 있습니다. **시작** 화면에서 power를 입력합니다. 그러면 Windows PowerShell이 포함된 앱 범위 목록이 반환됩니다. 콘솔을 열려면 앱을 클릭합니다. **시작** 화면에 앱을 고정하려면 아이콘을 마우스 오른쪽 단추로 클릭합니다.
 
-- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서는 **시작 메뉴**를 사용합니다. **시작** 메뉴에서 **모든 프로그램**, **보조프로그램**, **Windows PowerShell** 폴더를 차례로 클릭한 다음 **Windows PowerShell**을 클릭합니다.
+- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서 **시작 메뉴**를 사용합니다. **시작** 메뉴에서 **모든 프로그램**, **보조프로그램**, **Windows PowerShell** 폴더를 차례로 클릭한 다음 **Windows PowerShell**을 클릭합니다.
 
-**Windows PowerShell ISE**를 실행하여 메뉴 항목 및 바로 가기 키를 사용해 Windows PowerShell 콘솔에서 수행 가능한 것과 같은 대부분의 작업을 수행할 수도 있습니다. ISE를 사용하려면 Windows PowerShell 콘솔, Cmd.exe 또는 **실행** 상자에 **powershell\_ise.exe**를 입력합니다.
+Windows PowerShell 콘솔에서 수행한 동일한 작업을 대부분 수행하려면 **Windows PowerShell ISE**를 실행하여 메뉴 항목 및 바로 가기 키를 사용할 수도 있습니다. ISE를 사용하려면 Windows PowerShell 콘솔, Cmd.exe 또는 **실행** 상자에 **powershell\_ise.exe**를 입력합니다.
 
 ###시작하는 데 도움이 되는 명령
 
@@ -148,7 +150,7 @@ import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure
 
 ### 계정 및 구독 세부 정보 보기
 
-Azure PowerShell에서 사용 가능한 계정과 구독이 여러 개 있을 수 있습니다. **Add-AzureRmAccount**를 여러 번 실행하면 여러 계정을 추가할 수 있습니다.
+Azure PowerShell에서 사용 가능한 계정과 구독이 여러 개 있을 수 있습니다. **Add-AzureRmAccount**를 여러 번 실행하여 여러 계정을 추가할 수 있습니다.
 
 사용 가능한 Azure 계정을 표시하려면 **Get-AzureAccount**를 입력합니다.
 
@@ -173,7 +175,7 @@ Cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 다음 리
 
 Windows PowerShell을 사용하는 방법에 대한 기본 지침은 [Windows PowerShell 사용](http://go.microsoft.com/fwlink/p/?LinkId=321939)을 참조하세요.
 
-cmdlet에 대한 참조 정보는 [Azure cmdlet 참조](https://msdn.microsoft.com/library/windowsazure/jj554330.aspx)를 참조하세요.
+cmdlet에 대한 참조 정보는 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/windowsazure/jj554330.aspx)를 참조하세요.
 
 스크립팅을 사용하여 Azure를 관리하는 방법을 배우는 데 도움이 되는 샘플 스크립트 및 지침은 [스크립트 센터](http://go.microsoft.com/fwlink/p/?LinkId=321940)를 참조하세요.
 
