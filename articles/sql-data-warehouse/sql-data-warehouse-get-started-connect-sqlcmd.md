@@ -19,8 +19,10 @@
 # SQLCMD를 사용하여 연결 및 쿼리
 
 > [AZURE.SELECTOR]
-- [Visual Studio][]
-- [SQLCMD][]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+
 
 이 연습에서는 sqlcmd.exe 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 연결하고 쿼리하는 방법을 보여줍니다. 이 연습에서는 다음을 수행합니다.
 
@@ -34,7 +36,7 @@
 
 ## 정규화된 SQL Azure 서버 이름 가져오기
 
-데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
+데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(**servername**.database.windows.net*)이 필요합니다.
 
 1. [Azure 포털][]로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.
@@ -80,17 +82,17 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서][sqlcmd.exe]를 참조하세요
 Windows 인증을 위한 환경을 구성하려면 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결][]을 참조하세요.
 
 <!--Articles-->
-[Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결]: ../sql-database/sql-database-aad-authentication.md
+[Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [PowerBI로 연결]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/ko-KR/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/en-us/library/ms162773.aspx
 [SQL Server용 Microsoft 명령줄 유틸리티 11]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure 포털]: https://portal.azure.com
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

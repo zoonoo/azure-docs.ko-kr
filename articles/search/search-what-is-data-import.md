@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Azure 검색에 데이터 업로드
@@ -45,4 +45,4 @@ Azure 검색에서 이 기능은 *인덱서*를 통해 구현되며 [Blob 저장
 
 인덱서 기능은 [Azure 포털](search-import-data-portal.md)뿐만 아니라 [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)에서도 노출됩니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

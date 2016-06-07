@@ -4,7 +4,7 @@
 	services="active-directory"
     keywords="Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -14,25 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="05/31/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
-다음 설명서는 Azure AD Connect에 대한 사용자 지정 설치 옵션을 사용하여 정보를 제공합니다. 이 옵션을 사용하여 빠른 설치에서 다루지 않은 선택적 기능이 필요한 경우 추가 구성 옵션을 가져올 수 있습니다.
+설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md)가 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
 
-## 관련 설명서
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다. 설치를 시작하려면 굵게 표시된 처음 세 항목이 필요합니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 또한 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md)에 설명된 대로 사용할 수 있는 계정이 있어야 합니다.
 
-항목 |  
---------- | ---------
-**Azure AD Connect 다운로드** | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
-**하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect)
-**설치에 사용되는 계정** | [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md)
-Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md)
-DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-설치 후 | [설치 확인 및 라이선스 할당](active-directory-aadconnect-whats-next.md)
+DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오는 [관련 설명서](#related-documentation)를 참조하세요.
 
-## 필요한 구성 요소 설치
+## Azure AD Connect의 사용자 지정 설정 설치
+
+### Express 설정
+이 페이지에서 **사용자 지정**을 클릭하여 사용자 지정된 설정을 설치하기 시작합니다.
+
+### 필요한 구성 요소 설치
 동기화 서비스를 설치한 경우 선택적 구성 섹션을 선택하지 않은 채로 두고 Azure AD Connect가 모든 내용을 자동으로 설정하도록 할 수 있습니다. 즉, SQL Server 2012 Express LocalDB 인스턴스를 설정하고 적절한 그룹을 만들고 사용 권한을 할당합니다. 기본값을 변경하려면 다음 테이블을 사용하여 사용 가능한 선택적 구성 옵션을 숙지할 수 있습니다.
 
 ![필수 구성 요소](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
@@ -43,7 +40,7 @@ DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레�
 기존 서비스 계정 사용 | 기본적으로 Azure AD Connect에서는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL Server를 사용하거나 인증이 필요한 프록시를 사용하는 경우 도메인에 서비스 계정이 필요하며 암호를 알고 있어야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다. [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation)을 참조하세요.
 사용자 지정 동기화 그룹 지정 | 기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹 4개를 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다.
 
-## 사용자 로그인
+### 사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](active-directory-aadconnect-user-signin.md)을 참조하세요.
 
 ![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
@@ -54,12 +51,12 @@ SSO(Single Sign-On) 옵션 | 설명
 AD FS로 페더레이션 | 사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다. 사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다.
 구성하지 않음 | 기능이 설치 및 구성되지 않았습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다.
 
-## Azure에 연결
+### Azure에 연결
 Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
 
 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다. ![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-전역 관리자 계정이 MFA를 사용하도록 설정된 경우 로그인 팝업에서 암호를 다시 제공하고 MFA 인증을 완료해야 합니다. 확인 코드를 제공하거나 또는 전화 통화로 인증할 수 있습니다. ![사용자 로그인 MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+전역 관리자 계정이 MFA를 사용하도록 설정된 경우 로그인 팝업에서 암호를 다시 제공하고 MFA 인증을 완료해야 합니다. 과제에서는 확인 코드 또는 전화 통화를 제공할 수 있습니다. ![사용자 로그인 MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 또한 전역 관리자 계정은 [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)를 사용하도록 설정할 수 있습니다.
 
@@ -157,7 +154,7 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 - 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 
 ### AD FS 구성 필수 조건
-Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [표 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)에 나열된 포트 요구 사항을 훑어 보십시오.
+Azure AD Connect를 사용하여 AD FS 팜을 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)에 나열된 포트 요구 사항을 훑어 보십시오.
 
 ### 새 AD FS 팜을 만들거나 기존 AD FS 팜 사용
 기존 AD FS 팜을 사용하거나 새 AD FS 팜을 만들도록 선택할 수 있습니다. 새로 만들기를 선택하는 경우 SSL 인증서를 제공해야 합니다. SSL 인증서가 암호로 보호된 경우 암호를 묻는 메시지가 나타납니다.
@@ -246,6 +243,19 @@ AD Connect는 구성 단계에서 도메인을 확인하려고 합니다. 필요
 
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](active-directory-aadconnect-whats-next.md)할 수 있습니다.
 
+[실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](active-directory-aadconnect-health-sync.md)를 설치하여 사용할 수 있는 이러한 기능에 대해 자세히 알아봅니다.
+
+[스케줄러 및 동기화를 트리거하는 방법](active-directory-aadconnectsync-feature-scheduler.md)에서 공통 항목에 대해 자세히 알아봅니다.
+
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+## 관련 설명서
+
+항목 |  
+--------- | ---------
+Azure AD Connect 개요 | [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md)
+DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+설치에 사용되는 계정 | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
+
+<!---HONumber=AcomDC_0601_2016-->

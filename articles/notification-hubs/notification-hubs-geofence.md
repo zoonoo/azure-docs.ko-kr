@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/16/2016"
+	ms.date="05/31/2016"
 	ms.author="dendeli"/>
     
 # Azure 알림 허브 및 Bing 공간 데이터가 있는 지역 구분 푸시 알림
@@ -26,7 +26,7 @@
 ##필수 조건
 무엇보다도, 모든 소프트웨어 및 서비스 필수 구성 요소를 갖추어야 합니다.
 
-* [Visual Studio 2015 업데이트 1](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx) 이상([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)도 가능). 
+* [Visual Studio 2015 업데이트 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 이상([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)도 가능). 
 * 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Bing 맵 개발자 센터 계정](https://www.bingmapsportal.com/)(무료로 만들거나 Microsoft 계정으로 연결할 수 있음). 
 
@@ -378,8 +378,8 @@ UWP 앱으로 다시 돌아가면 이제 알림을 테스트할 수 있어야 �
 
 둘째, 맞는 참가자에게 배달했는지 확인하기 위해 작업을 수행하는 경우 [태그 지정](notification-hubs-routing-tag-expressions.md)을 통해 대상을 지정할 수 있습니다.
 
-위에 표시된 솔루션은 다양한 대상 플랫폼이 있을 수 있는 시나리오를 설명하므로 시스템 관련 기능에 대해 지역 구분을 제한하지 않습니다. 즉, 유니버설 Windows 플랫폼은 [지역 구분을 기본으로 검색](msdn.microsoft.com/ko-KR/windows/uwp/maps-and-location/set-up-a-geofence)하는 기능을 제공합니다.
+위에 표시된 솔루션은 다양한 대상 플랫폼이 있을 수 있는 시나리오를 설명하므로 시스템 관련 기능에 대해 지역 구분을 제한하지 않습니다. 즉, 유니버설 Windows 플랫폼은 [지역 구분을 기본으로 검색](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)하는 기능을 제공합니다.
 
 알림 허브 기능에 대한 자세한 내용은 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

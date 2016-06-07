@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,12 +14,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="03/24/2016"
+   ms.date="05/26/2016"
    ms.author="sstein"/>
 
-# SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
+# SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
 
-**단일 데이터베이스**
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-get-started.md)
@@ -47,7 +46,7 @@ C# 명령을 사용하여 [.NET용 Azure SQL 데이터베이스 라이브러리]
 C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용하는 다음 패키지를 설치하여 필요한 관리자 라이브러리를 가져옵니다.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -268,8 +267,8 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -457,4 +456,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

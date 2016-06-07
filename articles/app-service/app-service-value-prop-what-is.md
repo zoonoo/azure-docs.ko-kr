@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure 앱 서비스 정의" 
-	description="Azure 앱 서비스가 웹앱과 모바일 앱 개발을 위한 최상의 플랫폼인 이유를 알아봅니다." 
-	keywords="앱 서비스, Azure 앱 서비스, 앱 서비스 비용, 규모, 확장성, 앱 배포, Azure 앱 배포"
+	pageTitle="Azure 앱 서비스 정의 | Microsoft Azure" 
+	description="Azure 앱 서비스를 사용하여 웹 및 모바일 앱을 개발, 배포 및 관리하는 방법을 알아봅니다." 
+	keywords="앱 서비스, Azure 앱 서비스, 앱 서비스 비용, 규모, 확장성, 앱 배포, Azure 앱 배포, PaaS, Platform-as-a-Service "
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -14,49 +14,74 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/05/2016" 
+	ms.date="05/25/2016" 
 	ms.author="omark"/>
 
 # Azure 앱 서비스 정의
-Azure 앱 서비스는 모든 플랫폼과 장치용 웹앱과 모바일 앱을 빠르고 쉽게 빌드하는 데 필요한 모든 사항을 통합하는 유일한 클라우드 서비스입니다. 개발자용으로 빌드된 앱 서비스는 기본 제공 DevOps, Visual Studio Team Services 및 GitHub와의 연속 통합, 스테이징 및 프로덕션 지원, 자동 패치 적용과 같은 강력한 기능을 갖춘 완전히 관리된 플랫폼입니다.
 
-Azure 앱 서비스는 새로운 기능을 추가하는 동시에 Azure 웹 사이트, Azure 모바일 서비스 및 Azure Biztalk 서비스의 모든 기존 기능을 포함하는 단일 서비스입니다. 이러한 기존 서비스와 앱 서비스의 관계에 대해 [자세히 알아보세요](https://azure.microsoft.com/documentation/services/app-service/).
+*앱 서비스*는 플랫폼이나 장치에 웹 및 모바일 앱을 만들 수 있는 Microsoft Azure의 PaaS([platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service)) 제품입니다. SaaS 솔루션(예: Office 365, Dynamics CRM, Salesforce, Twilio)을 사용하여 앱을 통합하고 온-프레미스 응용 프로그램(예: SAP, Oracle, Siebel)과 연결하며 엄격한 보안, 안정성 및 확장성 요구를 충족하는 동시에 비즈니스 프로세스를 자동화하는 작업을 용이하게 할 수 있습니다.
 
-## 앱 서비스 사용 이유
-웹앱과 모바일 앱의 신속한 개발 및 비즈니스 프로세스 자동화에 중점을 두는 Azure 앱 서비스는 단일 개발 및 관리 환경을 통해 통합된 엔터프라이즈 기능 집합을 제공하므로 다음과 같은 이점이 있습니다.
+앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure 모바일 서비스로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다.
 
-- **신속하게 웹앱 및 모바일 앱 빌드** - 단일 백 엔드를 사용하여 직원이나 고객용 웹앱과 모바일 앱을 신속하게 빌드, 배포 및 관리합니다. 기존 언어 기술 사용 - .NET, Java, NodeJS, PHP 또는 Python. Azure 마켓플레이스에서 사용할 수 있는 풍부한 API, 커넥터 및 논리 갤러리에 액세스하여 개발을 가속화합니다.
+## 앱 서비스의 앱 유형
 
-- **모든 서비스에 연결하고 데이터 잠금 해제** - 기본 제공 커넥터를 사용하여 몇 분 내에 웹앱이나 모바일 앱을 엔터프라이즈 시스템 또는 SaaS에 연결합니다. 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), 인기 있는 엔터프라이즈 SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook, Twitter 및 Dropbox) 등을 위한 50개 이상의 커넥터에서 선택합니다.
+앱 서비스는 응용 프로그램 코드 또는 워크플로 프로세스를 실행하기 위해 다음과 같은 앱 유형을 제공합니다.
 
-- **통합 간소화** - 단순한 시각적 디자인 환경을 사용하여 몇 분 내에 클라우드 간의 데이터를 통합하고 비즈니스 프로세스를 자동화합니다. 표준 REST API를 통해 모바일 또는 웹앱과 논리를 쉽게 통합해 보세요. 업계 선도적인 BizTalk 플랫폼을 기반으로 하여 정교한 엔터프라이즈 응용 프로그램 통합, EDI를 사용하는 B2B 솔루션, 비즈니스 정책(규칙 엔진) 등을 빌드합니다.
+- [**웹앱**](../app-service-web/app-service-web-overview.md) - 웹 사이트와 웹 응용 프로그램을 호스팅합니다.
 
-- **우수한 개발자 생산성** - Visual Studio Team Services 및 Github에 대한 연속 통합 지원을 통해 DevOps에 대해 최적화되었으므로 인프라를 염려하지 않고 신속한 앱 향상에 집중할 수 있습니다. 기본 제공 스테이징, 롤백 및 프로덕션 내 테스트 기능을 사용하여 앱 업데이트를 배포합니다.
-
-- **엔터프라이즈 준비** - 엔터프라이즈급 보안 및 관리를 통해 안심하고 사용합니다. 위임 및 역할 기반의 관리를 제공하고, 모바일 앱으로 흐르는 데이터를 쉽게 보호 및 관리하며, 기본 제공 백업 및 복원 기능으로 자산을 보호합니다. 앱 서비스가 PCI 규격임을 알고 있으므로 안심할 수 있습니다. 전용 환경과 공용 및 사설 클라우드에 배포 기능을 통해 제어 기능을 유지합니다. 25년 이상의 Microsoft 경험과 엔터프라이즈 서비스 수준 계약을 활용합니다.
-
-##앱 서비스 개념
-아래의 개괄적 개념은 앱 서비스의 기능을 설명합니다.
-
-### 앱 유형
-앱 서비스를 통해 단일 개발 환경에서 다음과 같은 앱 유형을 만들 수 있습니다.
-
-- [**웹앱**](../app-service-web/app-service-web-overview.md) - 비즈니스와 더불어 크기가 조정되는 중요 업무용 웹앱을 신속하게 만들고 배포합니다.
-- [**모바일 앱**](../app-service-mobile/app-service-mobile-value-prop.md) - 언제든지 어떤 장치에서든 직원, 파트너 및 고객을 관리합니다.
-- [**API 앱**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 간편하게 빌드하고 사용합니다.
+- [**모바일 앱**](../app-service-mobile/app-service-mobile-value-prop.md) 모바일 앱 백 엔드를 호스팅합니다.
+   
+- [**API 앱**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 호스팅합니다.
+ 
 - [**논리 앱**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 코드를 작성하지 않고 클라우드 간의 데이터 액세스 및 사용을 자동화합니다.
 
-단일 통합 서비스인 앱 서비스를 통해 위와 같은 앱 형식을 단일 솔루션으로 쉽게 작성할 수 있으므로 동일한 백 엔드를 사용하는 웹 클라이언트 및 모바일 클라이언트를 모두 대상으로 하는 앱을 쉽게 빌드하고 온-프레미스 시스템 뿐만 아니라 인기 있는 서비스(예: Office 365 및 salesforce.com)와 통합할 수 있습니다.
+단일 통합 서비스인 앱 서비스를 사용하면 여러 앱 유형을 단일 솔루션으로 쉽게 작성할 수 있습니다.
 
-### 앱 서비스 계획
-앱 서비스 계획은 앱 간에 공유할 수 있는 기능 및 용량 집합을 나타냅니다. 앱 서비스 계획은 각 계층에 고유한 기능이 있는 몇 가지 가격 책정 계층(예: 무료, 공유, 기본, 표준 및 프리미엄)을 지원합니다. 가동 중지 시간 없이 앱이 호스트된 앱 서비스 계획을 신속하게 변경할 수 있습니다. [앱 서비스 계획에 대해 자세히 알아보세요](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+## 앱 서비스 계획 및 환경
 
-##앱 서비스 시작
-체험해 보고 싶으세요? 몇 초면 됩니다.
+[앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 앱에서 실행되는 계산 리소스를 나타냅니다. 더 낮은 가격 책정 계층에서는 공유 가상 컴퓨터(VM)에서 앱을 실행합니다. 더 높은 계층에서는 전용 VM에서 앱을 실행합니다. 다양한 VM 크기를 선택할 수 있고 가동 중지 시간 없이 가격 책정 계층을 변경할 수 있습니다. 확장성 및 네트워크 격리가 필요한 경우 앱을 [앱 서비스 환경](../app-service-web/app-service-app-service-environment-intro.md)에서 실행할 수 있습니다.
 
-Azure 앱 서비스를 사용하면 언어를 선택하는 것만큼 쉽습니다.
+## 앱 서비스를 사용하는 이유는 무엇인가요?
 
-지금 무료로 [새로운 앱을 만드세요](http://go.microsoft.com/fwlink/?LinkId=523751). 신용 카드는 필요하지 않으며 약정이나 수고도 필요하지 않습니다.
- 
+다음은 앱 서비스의 몇 가지 주요 기능입니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+- **완전히 관리되는 플랫폼** - 자동 OS 및 프레임워크 패치, 백업 및 재해 복구에 대한 기본 제공 지원입니다. 
+
+- **기존 기술 사용** - 좋아하는 언어, 프레임워크 및 개발 환경으로 코딩합니다. 앱 서비스는 .NET, Node.js, Java, PHP 및 Python을 지원합니다.
+
+- **빠른 배포** - 새 앱을 프로비전하고 몇 초만에 코드를 웹앱에 배포합니다.
+
+- **연속 통합** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continous-deployment.md)를 설정합니다.
+
+- **스테이징 및 테스트 환경** - [스테이징된 배포](../app-service-web/web-sites-staged-publishing.md)를 구현하여 프로덕션 환경과 동일한 프로덕션 전 환경에서 코드를 검증합니다. 준비되었으면 교환 작업을 수행하여 가동 중지 시간 0으로 새 버전의 앱을 릴리스합니다.
+
+- **프로덕션에서 테스트** - 다음 수준으로 스테이징된 배포를 사용하고 [A/B 테스트를 수행](../app-service-web/app-service-web-test-in-production-get-start.md)하여 구성 가능한 일부 라이브 트래픽으로 새 코드를 검증합니다.
+
+- **인증 및 권한 부여** - 코드를 변경하지 않고 API 앱을 인증되지 않은 액세스로부터 보호합니다. 기본 제공 인증 서비스는 사용자, 사용자를 나타내는 클라이언트 또는 서비스에서 액세스하는 경우 앱을 보호합니다. 지원되는 ID 공급자에는 Azure Active Directory, Facebook, Twitter, Google, Microsoft 계정 등이 있습니다. 자세한 내용은 [Azure 앱 서비스에서 인증 및 권한 부여](app-service-authentication-overview.md)를 참조하세요.
+
+- **모든 서비스에 연결** - 기본 제공 [커넥터](../connectors/apis-list.md)를 사용하여 몇 분 내에 엔터프라이즈 시스템 또는 SaaS(software-as-a-service)에 앱을 연결합니다. 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), 인기 있는 엔터프라이즈 SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook, Twitter 및 Dropbox) 등을 위한 50개 이상의 커넥터에서 선택합니다.
+
+- **뛰어난 확장성** - 규모를 [확장](../app-service/app-service-scale.md)하거나 [축소](../azure-portal/insights-how-to-scale.md)하여 들어오는 고객 부하를 처리합니다. 수동으로 VM 수와 크기를 선택하거나 부하 또는 일정에 따라 자동 확장을 설정합니다. Microsoft의 글로벌 데이터 센터 인프라는 앱을 호스팅하고 데이터 및 호스팅 서비스를 여러 위치에서 간편하게 복제할 수 있도록 합니다.
+
+- **엔터프라이즈급** - 앱 서비스는 중요 업무용 보안 응용 프로그램을 빌드 및 호스팅하도록 설계되었습니다. 안전하게 온-프레미스 리소스에 연결한 다음 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)인 보안 클라우드 플랫폼에 호스트하는 Active Directory 통합 비즈니스 앱을 빌드합니다. 모두 엔터프라이즈 수준 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)입니다.
+
+- **Azure 마켓플레이스** - 점점 증가하는 [응용 프로그램 템플릿 목록](https://azure.microsoft.com/marketplace/)에서 선택합니다. 한 번 클릭으로 WordPress, Joomla 및 Drupal과 같은 패키지를 설치하여 OSS 앱 커뮤니티를 최대한 활용합니다.
+
+- **WebJobs** - 앱 서비스 VM에서 [프로그램이나 스크립트를 실행](../app-service-web/web-sites-create-web-jobs.md)합니다. 일정에 따라 작업을 계속 실행하거나 이벤트에 의해 트리거됩니다. Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md)는 작성하는 코드를 간소화하여 다른 Azure 및 타사 서비스와 통합합니다.
+
+- **하이브리드 연결** - [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure 가상 네트워크](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
+
+- **Visual Studio 통합** - Visual Studio의 전용 도구는 웹앱, 모바일 앱 및 API 앱을 생성, 배포, 사용, 디버그 및 관리하는 작업을 간소화합니다.
+
+## 앱 서비스 시작
+
+신용 카드 없이도 약정이나 복잡한 과정을 거치지 않고 무료로 즉시 [임시 웹앱, 모바일 앱 또는 논리 앱을 만듭니다](http://go.microsoft.com/fwlink/?LinkId=523751).
+
+또는 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 열고 시작 자습서 중 하나를 사용해 봅니다.
+
+* [웹앱](https://azure.microsoft.com/documentation/services/app-service/web/)
+* [모바일 앱](https://azure.microsoft.com/documentation/services/app-service/mobile/)
+* [API 앱](https://azure.microsoft.com/documentation/services/app-service/api/)
+* [논리 앱](https://azure.microsoft.com/documentation/services/app-service/logic/)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -258,11 +258,36 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 ## 파일 저장소를 사용하여 개발
 
-파일 저장소를 프로그래밍 방식으로 다루려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행 중인 간단한 콘솔 응용 프로그램에서 [.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/mt347887.aspx)를 사용하여 파일 공유로 작업하는 방법을 설명합니다.
+파일 저장소를 호출하는 코드를 작성하려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행 중인 간단한 콘솔 응용 프로그램에서 [.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/mt347887.aspx)를 사용하여 파일 공유로 작업하는 방법을 설명합니다.
 
-[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
+### 콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
 
-[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
+Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 클라이언트 라이브러리를 포함하는 NuGet 패키지를 설치하려면:
+
+1. Visual Studio에서 **파일 > 새 프로젝트**를 선택한 다음 Visual C# 템플릿 목록에서 **Windows > 콘솔 응용 프로그램**을 선택합니다.
+2. 콘솔 응용 프로그램 이름을 지정한 다음 **확인**을 클릭합니다.
+3. 프로젝트가 만들어지면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 .NET용 Azure 저장소 클라이언트 라이브러리 패키지와 종속성을 설치합니다.
+
+또한 이 문서의 코드 예제에서 [Microsoft Azure 구성 관리자 라이브러리](https://msdn.microsoft.com/library/azure/mt634646.aspx)를 사용하여 콘솔 응용 프로그램의 app.config 파일에서 저장소 연결 문자열을 검색합니다. 응용 프로그램이 Microsoft Azure 또는 데스크톱이나 모바일, 웹 응용 프로그램에서 실행되는지 여부와 관계없이 런타임 시 Azure 구성 관리자를 사용하여 연결 문자열을 검색할 수 있습니다.
+
+Azure 구성 관리자 패키지를 설치하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "ConfigurationManager"를 검색하고 **설치**를 클릭하여 패키지를 설치합니다.
+
+Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework의 [ConfigurationManager 클래스](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)와 같은 API를 사용할 수 있습니다.
+
+### 저장소 계정 자격 증명을 app.config 파일에 저장
+
+다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 저장소 계정 이름으로 바꾸고 `mykey`을(를) 저장소 계정 키로 바꿉니다.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
 
 > [AZURE.NOTE] 최신 버전의 Azure 저장소 에뮬레이터는 파일 저장소를 지원하지 않습니다. 연결 문자열은 파일 저장소를 다룰 Azure 저장소 계정을 대상으로 해야 합니다.
 
@@ -513,7 +538,7 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 	using Microsoft.WindowsAzure.Storage.File.Protocol;
 	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 네임스페이스에서 공유 `ServiceProperties` 형식을 사용하는 반면 파일 저장소는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유한 `FileServiceProperties`형식을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
+Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 네임스페이스에서 공유 `ServiceProperties` 형식을 사용하는 반면 파일 저장소는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유한 `FileServiceProperties` 형식을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -609,7 +634,7 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
 
 13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
 
-	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/ko-KR/kb/3114025)를 확인합니다.
+	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/en-us/kb/3114025)를 확인하세요.
 
 14. **IBM MQ로 Azure 파일 저장소 사용**
 
@@ -642,4 +667,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

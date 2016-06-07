@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor="v-lincan"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/24/2016"
+	ms.date="05/31/2016"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -80,4 +80,4 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 - 캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다.
 - 공식 [Redis 설명서](http://redis.io/documentation)를 읽어보세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

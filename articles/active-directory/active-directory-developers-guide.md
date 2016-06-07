@@ -99,16 +99,15 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ### 인증 프로토콜
 
-- [SAML 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn195591.aspx): SAML 2.0 프로토콜을 사용하면 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
+- [Azure Active Directory 인증 프로토콜](active-directory-protocols.md): Azure Active Directory에서 지원하는 여러 인증 및 권한 부여 프로토콜에 대해 알아봅니다.
 
+- [SAML 2.0 프로토콜 참조](active-directory-saml-protocol-reference.md): SAML 2.0 프로토콜을 사용하면 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
 
-- [OAuth 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645545.aspx): OAuth 2.0 프로토콜을 사용하여 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
+- [OAuth 2.0 프로토콜 참조](active-directory-protocols-oauth-code.md): OAuth 2.0 프로토콜을 사용하여 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
 
+- [OpenID Connect 1.0 프로토콜 참조](active-directory-protocols-openid-connect-code.md)(영문): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
 
-- [OpenID Connect 1.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645541.aspx)(영문): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
-
-
-- [WS-Federation 1.2 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn903702.aspx): Web Services Federation 버전 1.2 사양에 지정된 WS-Federation 1.2 프로토콜입니다.
+- [WS-Federation 1.2 프로토콜](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory는 웹 서비스 페더레이션 버전 1.2 사양별 WS-Federation 1.2를 지원합니다.
 
 - [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md): 이 가이드를 사용하여 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰에서 클레임을 파악 및 평가할 수 있습니다.
 
@@ -140,4 +139,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,14 +1,14 @@
 캐시를 만들려면 먼저 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**, **데이터 + 저장소**, **Redis Cache**를 클릭합니다.
 
+>[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 [Azure 무료 계정을 열 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+
+![새 캐시](media/redis-cache-create/redis-cache-new-cache-menu.png)
+
 >[AZURE.NOTE] Azure 포털에서 캐시를 만드는 것 외에도 ARM 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다.
 >
 >-	ARM 템플릿을 사용하여 캐시를 만들려면 [템플릿을 사용하여 Redis Cache 만들기](../articles/redis-cache/cache-redis-cache-arm-provision.md)를 참조하세요.
 >-	Azure PowerShell을 사용하여 캐시를 만들려면 [Azure PowerShell을 사용하여 Azure Redis Cache 관리](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md)를 참조하세요.
 >-	Azure CLI를 사용하여 캐시를 만들려면 [Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법](../articles/redis-cache/cache-manage-cli.md)을 참조하세요.
-
-![새 캐시](media/redis-cache-create/redis-cache-new-cache-menu.png)
-
->[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 [Azure 무료 계정을 열 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 **새 Redis Cache** 블레이드에서 원하는 캐시 구성을 지정합니다.
 
@@ -27,3 +27,4 @@
 
 ![캐시 만듬](media/redis-cache-create/redis-cache-cache-created.png)
 
+<!---HONumber=AcomDC_0601_2016-->
