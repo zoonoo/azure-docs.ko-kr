@@ -24,8 +24,6 @@
 
 이 종단간 자습서는 Azure 포털을 사용하여 SQL Server를 실행하는 가상 컴퓨터를 프로비전하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 클릭 몇 번으로, 갤러리에서 SQL VM 이미지 중 하나를 선택하고 Azure 환경에 프로비전할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
@@ -251,4 +249,4 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

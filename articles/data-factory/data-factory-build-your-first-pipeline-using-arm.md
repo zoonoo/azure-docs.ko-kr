@@ -261,6 +261,41 @@ Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프�
 
 > [AZURE.IMPORTANT] 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 adfgetstarted 컨테이너의 inputdata 폴더에 입력 파일(input.log)을 업로드합니다.
 
+## 게이트웨이를 만드는 ARM 템플릿
+뒤에서 논리 게이트웨이를 만드는 샘플 ARM 템플릿입니다. 온-프레미스 컴퓨터 또는 Azure IaaS VM에 게이트웨이 설치하고 키를 사용하여 데이터 팩터리 서비스에 게이트웨이를 등록해야 합니다. 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
+
+	{
+	    "contentVersion": "1.0.0.0",
+	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "parameters": {
+	    },
+	    "variables": {
+	        "dataFactoryName":  "GatewayUsingArmDF",
+	        "apiVersion": "2015-10-01",
+	        "singleQuote": "'"
+	    },
+	    "resources": [
+	        {
+	            "name": "[variables('dataFactoryName')]",
+	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "Microsoft.DataFactory/datafactories",
+	            "location": "eastus",
+	            "resources": [
+	                {
+	                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+	                    "type": "gateways",
+	                    "apiVersion": "[variables('apiVersion')]",
+	                    "name": "GatewayUsingARM",
+	                    "properties": {
+	                    	"description": "my gateway"
+						}
+	                }            
+				]
+	        }
+	    ]
+	}
+
+이 템플릿은 GatewayUsingARM이라는 게이트웨이를 포함한 GatewayUsingArmDF라는 데이터 팩터리를 만듭니다.
 
 ## 참고 항목
 | 항목 | 설명 |
@@ -273,4 +308,4 @@ Azure 포털 블레이드를 사용하여 이 자습서에서 만든 파이프�
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

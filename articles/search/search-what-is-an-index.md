@@ -12,7 +12,7 @@ authors="ashmaka"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Azure 검색 인덱스 만들기
@@ -70,4 +70,4 @@ Azure 검색의 [인덱스 특성에 대한 자세한 내용은 MSDN에서](http
 
 데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 검색 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

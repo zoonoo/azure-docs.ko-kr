@@ -475,22 +475,9 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 * [서비스 버스 서비스 페이지][sbwacom]  
 * [서비스 버스 큐를 사용하는 방법][sbwacomqhowto]  
 
-다중 계층 시나리오에 대해 자세히 알아보거나 클라우드 서비스에 응용 프로그램을 배포하는 방법을 알아보려면 다음을 참조하세요.
+다중 계층 시나리오에 대한 자세한 내용은 다음을 참조하세요.
 
 * [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]  
-
-Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 응용 프로그램의 프런트 엔드를 구현할 수 있습니다.
-
-이 자습서에서 만든 응용 프로그램을 클라우드 서비스 웹 역할이 아닌 표준 웹 프로젝트로 구현하려면 다음 차이점을 고려하여 이 자습서의 단계를 수행하세요.
-
-1. 프로젝트를 만들 때 **클라우드** 범주의 **클라우드 서비스** 템플릿이 아니라 **웹** 범주의 **ASP.NET MVC 웹 응용 프로그램** 프로젝트 템플릿을 선택합니다. 그런 다음 **클라우드 구성 관리자** 섹션에 도달할 때까지 MVC 응용 프로그램을 만드는 것과 동일한 지침을 수행합니다.
-
-2. 작업자 역할을 만들 때 새로운 별도의 솔루션에 만들며, 이는 웹 역할에 대한 원래 지침과 유사합니다. 그러나 클라우드 서비스 프로젝트에서는 작업자 역할만 만듭니다. 그런 다음 작업자 역할을 만드는 것과 동일한 지침을 수행합니다.
-
-3. 프런트 엔드와 백 엔드를 별도로 테스트하거나 별도의 Visual Studio 인스턴스에서 둘 다를 동시에 실행할 수 있습니다.
-
-Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]을 참조하세요.
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -544,4 +531,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

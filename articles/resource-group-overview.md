@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/27/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -127,13 +127,13 @@ Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합�
 
 ## 다음 단계
 
-- 템플릿 작성에 대해 자세히 알아보려면 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-- 작성한 템플릿을 배포하려면 [템플릿 배포](resource-group-template-deploy.md)를 참조하세요.
+- 템플릿으로 작업하는 방법에 대한 간단한 소개는 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
+- 템플릿 작성에 대한 안내는 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 - 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-- 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
+- Resource Manager로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 이 개요에 대한 비디오 데모는 다음과 같습니다.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # REST API를 사용하여 Azure 검색 인덱스 만들기
@@ -106,4 +106,4 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 ## 다음
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

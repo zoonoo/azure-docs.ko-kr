@@ -63,4 +63,8 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)를 읽어보세요.
 - [Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+## 당사 제품에 대한 보안 업데이트 가져오기
+
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

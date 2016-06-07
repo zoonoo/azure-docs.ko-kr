@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -39,11 +39,11 @@ Azure에서 IoT에 대한 자세한 내용은 다음 리소스를 탐색합니�
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
-[Azure 이벤트 허브]: https://azure.microsoft.com/services/event-hubs/
-[Azure 스트림 분석]: https://azure.microsoft.com/services/stream-analytics/
-[Azure 기계 학습]: https://azure.microsoft.com/services/machine-learning/
-[Azure 저장소]: https://azure.microsoft.com/services/storage/
+[Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Azure 이벤트 허브]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Azure 스트림 분석]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure 기계 학습]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

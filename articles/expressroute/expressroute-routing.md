@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="05/26/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 
 **참고:** 기본 경로 광고는 Windows 및 다른 VM 라이선스 정품 인증을 중단합니다. [여기](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)서 지침을 수행하여 이 문제를 해결합니다.
 
-## BGP 커뮤니티에 대한 지원(서비스 예정)
+## BGP 커뮤니티에 대한 지원
 
 
 이 섹션에서는 BGP 커뮤니티를 어떻게 Express 경로와 함께 사용하는지에 대한 개요를 제공합니다. Microsoft는 적절한 커뮤니티 값으로 태그된 경로를 가진 공용 및 Microsoft 피어링 경로에 경로를 광고합니다. 이렇게 하는 이유 및 커뮤니티 값에 대한 세부 정보는 다음과 같습니다. 그러나 Microsoft는 Microsoft에 보급하는 경로에 태그된 커뮤니티 값을 인식하지 못합니다.
@@ -116,7 +116,7 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 
 지정학적 지역 마다 하나 이상의 Express 경로 회로를 구입할 수 있습니다. 여러 연결이 있으면 지리적 중복으로 인해 고가용성에 상당한 이점을 제공합니다. Express 경로 회로가 여러 개 있는 경우 공용 피어링 및 Microsoft 경로 피어링의 Microsoft에서 보급된 동일한 접두사 집합을 받게 됩니다. 즉, 네트워크에서 Microsoft까지 여러 경로가 있습니다. 잠재적으로 네트워크 내에서 최적이 아닌 라우팅이 결정될 수 있습니다. 결과적으로 다른 서비스에 최적이 아닌 연결 환경이 발생할 수도 있습니다.
 
-Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호스팅된 지역을 나타내는 적절한 BGP 커뮤니티 값으로 보급된 접두사를 태그합니다. 적절한 라우팅을 결정하는 커뮤니티 값에 의존하여 고객에게 최적의 라우팅을 제공할 수 있습니다.
+Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호스팅된 지역을 나타내는 적절한 BGP 커뮤니티 값으로 보급된 접두사를 태그합니다. 적절한 라우팅을 결정하는 커뮤니티 값에 의존하여 [고객에게 최적의 라우팅](expressroute-optimize-routing.md)을 제공할 수 있습니다.
 
 | **지역** | **Microsoft Azure 지역** | **BGP 커뮤니티 값** |
 |---|---|---|
@@ -163,10 +163,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | **CRM Online** | 12076:5040 |
 | **다른 Office 365 서비스** | 12076:5100 |
 
-
-### 라우팅의 기본 설정 조작
-
-Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어링 당 한 쌍의 BGP 세션을 설치하여 [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)에 대한 요구 사항이 충족되도록 해야 합니다. 그러나 표준 BGP 경로 조작 기술에 의존하여 다른 네트워크를 통해 링크를 선호하도록 사용자의 네트워크를 구성할 수 있습니다. 다른 BGP 로컬 기본 설정을 각 링크에 적용하여 사용자의 네트워크에서 Microsoft로 다른 경로 보다 하나의 경로를 우선할 수 있습니다. 경로 보급에 AS-PATH를 추가하여 Microsoft에서 네트워크로 가는 트래픽 흐름에 영향을 미칠 수 있습니다.
+>[AZURE.NOTE] Microsoft는 Microsoft에 보급하는 경로에 설정한 BGP 커뮤니티 값을 인식하지 않습니다.
 
 ## 다음 단계
 
@@ -176,4 +173,4 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
 	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 리소스 관리자 VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

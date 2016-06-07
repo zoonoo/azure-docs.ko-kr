@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect: Microsoft Azure AD 동기화 도구(DirSync)에서 업그레이드 | Microsoft Azure"
-   description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다."
+   pageTitle="Azure AD Connect: DirSync에서 업그레이드 | Microsoft Azure"
+   description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 DirSync에서 Azure AD Connect로 업그레이드하기 위한 단계를 설명합니다."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -13,21 +13,15 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/19/2016"
+   ms.date="05/31/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
-# Azure AD Connect: Microsoft Azure Active Directory 동기화(DirSync) 업그레이드
+# Azure AD Connect: DirSync에서 업그레이드
+Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
 
-다음 설명서를 참조하여 기존 DirSync 설치를 Azure AD Connect로 업그레이드할 수 있습니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다.
 
-## 관련 설명서
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다. DirSync에서 업그레이드를 시작하려면 굵게 표시된 처음 두 항목이 필요합니다.
-
- 항목 |  
---------- | ---------
-**Azure AD Connect 다운로드** | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
-**하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md)
-**설치에 사용되는 계정** | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
+DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 [관련 설명서](#related-documentation)를 참조하세요.
 
 ## DirSync에서 업그레이드
 현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이 3시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이 3시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
@@ -39,15 +33,11 @@
 
 >[AZURE.NOTE] DirSync에서 Azure AD Connect로 업그레이드하려는 경우 업그레이드하기 전에 DirSync를 직접 제거하지 마세요. Azure AD Connect는 DirSync에서 구성을 읽고 마이그레이션하며 서버를 검사한 후에 제거합니다.
 
-**전체 업그레이드**
-
-업그레이드를 완료하는 데 예상되는 시간은 마법사에서 표시됩니다. 이 예상치는 50,000개의 개체(사용자, 연락처 및 그룹)를 가진 데이터베이스에 대한 업그레이드를 완료하려면 3시간이 소요된다는 가정에 기반합니다. Azure AD Connect는 현재 DirSync 설정을 분석하고 데이터베이스의 개체 수가 50,000 보다 작은 경우 전체 업그레이드를 권장합니다. 계속하기로 결정한 경우 업그레이드하는 동안 현재 설정을 자동으로 적용하고 서버는 자동으로 활성 동기화를 다시 시작합니다.
+**전체 업그레이드** 업그레이드를 완료하는 데 예상되는 시간은 마법사에서 표시됩니다. 이 예상치는 50,000개의 개체(사용자, 연락처 및 그룹)를 가진 데이터베이스에 대한 업그레이드를 완료하려면 3시간이 소요된다는 가정에 기반합니다. Azure AD Connect는 현재 DirSync 설정을 분석하고 데이터베이스의 개체 수가 50,000 보다 작은 경우 전체 업그레이드를 권장합니다. 계속하기로 결정한 경우 업그레이드하는 동안 현재 설정을 자동으로 적용하고 서버는 자동으로 활성 동기화를 다시 시작합니다.
 
 구성 마이그레이션을 수행하고 병렬 배포를 수행하려는 경우 전체 업그레이드 권장 사항을 재정의할 수 있습니다. 예를 들어 하드웨어 및 운영 체제를 새로 고칠 수 있는 기회를 얻을 수 있습니다. 자세한 내용은 [병렬 배포](#parallel-deployment) 섹션을 참조하세요.
 
-**병렬 배포**
-
-50,000개 이상의 개체가 있는 경우 병렬 배포를 사용하는 것이 좋습니다. 사용자에게 운영 지연이 발생하지 않도록 합니다. Azure AD Connect 설치는 업그레이드에 대한 가동 중지 시간을 예측하려고 합니다. 하지만 과거에 DirSync를 업그레이드한 적이 있다면 자신만의 경험이 최선의 가이드일 수 있습니다.
+**병렬 배포** 50,000개 이상의 개체가 있는 경우 병렬 배포를 사용하는 것이 좋습니다. 사용자에게 운영 지연이 발생하지 않도록 합니다. Azure AD Connect 설치는 업그레이드에 대한 가동 중지 시간을 예측하려고 합니다. 하지만 과거에 DirSync를 업그레이드한 적이 있다면 자신만의 경험이 최선의 가이드일 수 있습니다.
 
 ### 업그레이드될 지원되는 DirSync 구성
 다음 구성 변경은 DirSync로 지원되고 업그레이드됩니다.
@@ -89,10 +79,10 @@
 1. Azure AD Connect 설치 관리자(MSI) 시작
 2. 사용 조건 및 개인 정보 알림을 검토하고 동의합니다. ![Azure AD 시작](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
 3. 다음을 클릭하여 기존 DirSync 설치 분석을 시작합니다. ![기존 디렉터리 동기화 설치 분석](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. 분석이 완료되면 진행 방법에 대해 권장 사항을 안내합니다.  
+4. 분석이 완료되면 진행 방법에 대해 권장 사항을 표시합니다.  
     - SQL Server Express를 사용하고 50,000개 미만의 개체가 있는 경우 다음과 같은 화면이 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
-    - DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/>DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버에 관한 정보가 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속합니다.
-    - 50,000개 이상의 개체가 있는 경우 다음 화면이 대신 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/>현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드** 메시지 옆에 있는 확인란을 클릭합니다. 대신 [병렬 배포](#parallel-deployment)를 수행하려면 DirSync 구성 설정을 내보내고 해당 사항을 새 서버로 이동합니다.
+    - DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png) DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버에 관한 정보가 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속합니다.
+    - 50,000개 이상의 개체가 있는 경우 다음 화면이 대신 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png) 현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드** 메시지 옆에 있는 확인란을 클릭합니다. 대신 [병렬 배포](#parallel-deployment)를 수행하려면 DirSync 구성 설정을 내보내고 해당 사항을 새 서버로 이동합니다.
 5. Azure AD에 연결하는 데 현재 사용하는 계정의 암호를 제공합니다. DirSync에서 현재 사용한 계정이어야 합니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png) 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 6. Active Directory에 대한 엔터프라이즈 관리자 계정을 지정합니다. ![ADDS 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. 이제 구성할 준비가 되었습니다. **업그레이드**를 클릭하면 DirSync가 제거되고 Azure AD Connect가 구성되어 동기화를 시작합니다. ![구성할 준비 완료](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
@@ -147,7 +137,6 @@
 9. **Install**을 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
-
 >[AZURE.NOTE] Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다. 이를 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)라고 합니다.
 
 ### Azure AD Connect가 동기화를 시작할 준비가 되었는지 확인
@@ -197,6 +186,20 @@ Azure AD Connect는 활성 서버에 있습니다.
 ## 다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](active-directory-aadconnect-whats-next.md)할 수 있습니다.
 
+[자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md), [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](active-directory-aadconnect-health-sync.md)를 설치하여 사용할 수 있는 이러한 새 기능에 대해 자세히 알아봅니다.
+
+[스케줄러 및 동기화를 트리거하는 방법](active-directory-aadconnectsync-feature-scheduler.md)에서 공통 항목에 대해 자세히 알아봅니다.
+
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+## 관련 설명서
+
+항목 |  
+--------- | ---------
+Azure AD Connect 개요 | [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+이전 Connect 버전에서 업그레이드 | [Connect의 이전 버전에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)
+Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md)
+사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
+설치에 사용되는 계정 | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스"
+	pageTitle="Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스"
 	description="Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
 # 관리되는 커넥터의 목록
@@ -25,18 +25,18 @@
 
 > [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-이러한 서비스를 호출하는 앱을 빌드하기 위해 이러한 커넥터를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다. 이러한 커넥터는 Logic Apps, PowerApps 및 Flows를 빌드하는 데 사용할 수 있습니다.
+이러한 서비스를 호출하는 앱을 빌드하기 위해 이러한 커넥터를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다. 이러한 커넥터는 논리 앱, PowerApps 및 흐름을 빌드하는 데 사용할 수 있습니다.
 
 |커넥터||||
 |-----------|-----------|-----------|-----------|
-|[![API 아이콘][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API 아이콘][bingsearchicon]<br/>**Bing 검색**][bingsearchdoc]|[![API 아이콘][boxicon]<br/>**Box**][boxDoc]|[![API 아이콘][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
-|[![API 아이콘][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API 아이콘][facebookicon]<br/>**Facebook**][facebookdoc]|[![API 아이콘][ftpicon]<br/>**FTP**][ftpdoc]|[![API 아이콘][githubicon]<br/>**GitHub**][githubdoc]|
-[![API 아이콘][googledriveicon]<br/>**Google 드라이브**][googledrivedoc]|[![API 아이콘][mailchimpicon]<br/>* * MailChimp * *][mailchimpdoc]|[![API 아이콘][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|
-|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**사용자**][office365usersdoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**비디오**][office365videodoc]|[![API 아이콘][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API 아이콘][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|
-|[![API 아이콘][outlookicon]<br/>**Outlook**][outlookdoc]|[![API 아이콘][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![API 아이콘][rssicon]<br/>**RSS**][rssdoc]|[![API 아이콘][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
-|[![API 아이콘][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![API 아이콘][servicebusicon]<br/>**서비스 버스**][servicebusdoc]|[![API 아이콘][sftpicon]<br/>**SFTP**][sftpdoc]|[![API 아이콘][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![API 아이콘][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API 아이콘][smtpicon]<br/>**SMTP**][smtpdoc]|[![API 아이콘][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API 아이콘][trelloicon]<br/>**Trello**][trellodoc]|
-[![API 아이콘][twilioicon]<br/>**Twilio**][twiliodoc]|[![API 아이콘][twittericon]<br/>**Twitter**][twitterdoc]|[![API 아이콘][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API 아이콘][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![API 아이콘][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API 아이콘][boxicon]<br/>**Box**][boxDoc]|[![API 아이콘][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![API 아이콘][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![API 아이콘][facebookicon]<br/>**Facebook**][facebookdoc]|[![API 아이콘][ftpicon]<br/>**FTP**][ftpdoc]|[![API 아이콘][githubicon]<br/>**GitHub**][githubdoc]|[![API 아이콘][googledriveicon]<br/>**Google 드라이브**][googledrivedoc]|
+|[![API 아이콘][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![API 아이콘][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**사용자**][office365usersdoc]|
+|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**비디오**][office365videodoc]|[![API 아이콘][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API 아이콘][onedriveicon]<br/>**비즈니스용 OneDrive<br/>**][onedriveforbusinessdoc]|[![API 아이콘][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![API 아이콘][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![API 아이콘][rssicon]<br/>**RSS**][rssdoc]|[![API 아이콘][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API 아이콘][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
+|[![API 아이콘][servicebusicon]<br/>**서비스 버스**][servicebusdoc]|[![API 아이콘][sftpicon]<br/>**SFTP**][sftpdoc]|[![API 아이콘][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API 아이콘][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![API 아이콘][smtpicon]<br/>**SMTP**][smtpdoc]|[![API 아이콘][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API 아이콘][trelloicon]<br/>**Trello**][trellodoc]|[![API 아이콘][twilioicon]<br/>**Twilio**][twiliodoc]|
+|[![API 아이콘][twittericon]<br/>**Twitter**][twitterdoc]|[![API 아이콘][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API 아이콘][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] 2014-12-01-preview 스키마를 사용하여 Logic Apps를 작성한 경우 엔터프라이즈 통합 API(예: BizTalk에 대한 커넥터)가 위에 나열되지 않은 것으로 나타납니다. 빠른 시일 내에 이를 해결하기 위해 최선을 다하고 있습니다. 정확한 공유 가능 날짜는 아직 정해지지 않았지만 최우선으로 고려하고 있습니다. 그 동안은 [논리 앱에서 v1 API 및 BizTalk API](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/)에 액세스할 수 있습니다. 이해해 주셔서 감사합니다. 기대하세요.
 
@@ -54,10 +54,7 @@
 커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 
-[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[지금 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[지금 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md)  
-[최신 스키마 버전으로 기존 논리 앱 마이그레이션](connectors-schema-migration.md)
+[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md) [지금 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md) [지금 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md) [최신 스키마 버전으로 기존 논리 앱 마이그레이션](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
@@ -128,4 +125,4 @@
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

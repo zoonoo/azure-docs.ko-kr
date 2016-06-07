@@ -13,10 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/27/2016"
 	ms.author="marsma"/>
 
 # .NET용 Azure 배치 라이브러리 시작
+
+> [AZURE.SELECTOR]
+- [.NET](batch-dotnet-get-started.md)
+- [Python](batch-python-tutorial.md)
 
 이 문서에서는 C# 샘플 응용 프로그램을 단계별로 설명하면서 [Azure 배치][azure_batch] 및 [Batch .NET][net_api] 라이브러리의 기본에 대해 알아봅니다. 샘플 응용 프로그램에서 배치 서비스를 활용하여 클라우드에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure 저장소](../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로 기술을 배우게 됩니다. 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대한 기본적인 이해를 습득하게 됩니다.
 
@@ -32,7 +36,7 @@
 - **배치 계정**: Azure 구독이 있으면 [Azure 배치 계정을 만듭니다](batch-account-create-portal.md).
 - **저장소 계정**: [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md#create-a-storage-account)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md) 섹션을 참조하세요.
 
-> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만*을 지원합니다.
+> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만* 지원합니다.
 
 ### Visual Studio
 
@@ -46,7 +50,7 @@
 
 ### Azure 배치 탐색기(선택 사항)
 
-[Azure 배치 탐색기][github_batchexplorer]는 GitHub의 [azure-batch-samples][github_samples] 리포지토리에 포함된 무료 유틸리티입니다. 배치 탐색기가 이 자습서를 완료하는 데 필수는 아니지만 디버깅 및 배치 계정에서 엔터티 관리를 위해 사용하는 것이 좋습니다. [Azure 배치 탐색기 샘플 연습][batch_explorer_blog] 블로그 게시물에서 배치 탐색기의 이전 버전에 대해 읽을 수 있습니다.
+[Azure 배치 탐색기][github_batchexplorer]는 GitHub의 [azure-batch-samples][github_samples] 리포지토리에 포함된 무료 유틸리티입니다. 이 자습서를 완료하는 것이 필수는 아니지만 배치 솔루션을 개발하고 디버깅하는 과정에서 유용할 수 있습니다.
 
 ## DotNetTutorial 샘플 프로젝트 개요
 
@@ -319,7 +323,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-[CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](../cloud-services/cloud-services-sizes-specs.md), 노드의 운영 체제와 같은 매개 변수를 몇 가지 지정합니다. *DotNetTutorial*에서 [CloudServiceConfiguration][net_cloudserviceconfiguration]을 사용하여 [클라우드 서비스](../cloud-services/cloud-services-guestos-update-matrix.md)의 Windows Server 2012 R2를 지정합니다. 그러나 [VirtualMachineConfiguration][net_virtualmachineconfiguration]을 지정하는 대신, 마켓플레이스 이미지로 만든 노드 풀을 만들 수도 있습니다. 마켓플레이스 이미지에는 Windows 및 Linux 이미지가 모두 포함되며, 자세한 내용은 [Azure 배치의 Linux 지원 소개][blog_linux]를 참조하세요.
+[CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](../cloud-services/cloud-services-sizes-specs.md), 노드의 운영 체제와 같은 매개 변수를 몇 가지 지정합니다. *DotNetTutorial*에서 [CloudServiceConfiguration][net_cloudserviceconfiguration]을 사용하여 [클라우드 서비스](../cloud-services/cloud-services-guestos-update-matrix.md)의 Windows Server 2012 R2를 지정합니다. 그러나 [VirtualMachineConfiguration][net_virtualmachineconfiguration]을 지정하는 대신, 마켓플레이스 이미지로 만든 노드 풀을 만들 수도 있습니다. 마켓플레이스 이미지에는 Windows 및 Linux 이미지가 모두 포함되며, 자세한 내용은 [Azure 배치 풀에 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
 > [AZURE.IMPORTANT] 배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicated`을 1로 낮출 수 있습니다.
 
@@ -757,4 +761,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -248,7 +248,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device-amqp** 패키지를 설치합니다.
 
     ```
-    npm install azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-amqp --save
     ```
 
 3. 텍스트 편집기를 사용하여 **simulateddevice** 폴더에 새 **SimulatedDevice.js** 파일을 만듭니다.
@@ -367,4 +367,4 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

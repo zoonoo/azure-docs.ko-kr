@@ -76,7 +76,7 @@
 
 	>[AZURE.IMPORTANT] 이 자습서에서는 C# 네임스페이스 **Microsoft.ServiceBus.Samples**를 사용합니다. 이는 [WCF 클라이언트 구성](#configure-the-wcf-client) 단계의 구성 파일에서 사용된 계약 관리 유형의 네임스페이스입니다. 이 샘플을 빌드할 때 아무 네임스페이스나 지정할 수 있지만, 응용 프로그램 구성 파일에서 계약과 서비스의 네임스페이스를 그에 맞게 수정하지 않으면 자습서가 작동하지 않습니다. App.config 파일에서 지정한 네임스페이스는 C# 파일에서 지정한 네임스페이스와 동일합니다.
 
-1. `Microsoft.ServiceBus.Samples` 네임스페이스 선언 직후 네임스페이스 안에서 이름이 `IEchoContract`인 새 인터페이스를 정의하고 네임스페이스 값이 **http://samples.microsoft.com/ServiceModel/Relay/**인 `ServiceContractAttribute` 특성을 해당 인터페이스에 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 대신 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용됩니다. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다.
+1. `Microsoft.ServiceBus.Samples` 네임스페이스 선언 직후 네임스페이스 안에서 이름이 `IEchoContract`인 새 인터페이스를 정의하고 네임스페이스 값이 ****http://samples.microsoft.com/ServiceModel/Relay/**인 `ServiceContractAttribute` 특성을 해당 인터페이스에 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 대신 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용됩니다. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -94,7 +94,7 @@
 	string Echo(string text);
 	```
 
-1. 다음과 같이 `IEchoContract` 인터페이스 정의 바로 다음에 `IEchoChannel` 및 `IClientChannel` 인터페이스에서 모두 상속되는 채널을 선언합니다.
+1. 다음과 같이 `IEchoContract` 인터페이스 정의 바로 다음에 `IEchoContract` 및 `IClientChannel` 인터페이스에서 모두 상속되는 채널을 선언합니다.
 
 	```
     public interface IEchoChannel : IEchoContract, IClientChannel { }
@@ -783,4 +783,4 @@ namespace Microsoft.ServiceBus.Samples
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

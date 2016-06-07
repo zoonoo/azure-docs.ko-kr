@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/10/2016"
+   ms.date="05/31/2016"
    ms.author="larryfr"/>
 
 
@@ -46,7 +46,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
 2. 매개 변수 블레이드에서 다음을 입력합니다.
 
@@ -178,15 +178,11 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##요약
-
-이 Apache Storm 자습서에서는 Storm Starter를 사용하여 HDInsight의 Storm 클러스터를 만드는 방법 및 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 알아보았습니다.
-
 ##<a id="next"></a>다음 단계
 
-* 다음 문서에는 HDInsight의 Storm에서 사용할 수 있는 다른 예제의 목록이 들어 있습니다.
+이 Apache Storm 자습서에서는 Storm Starter를 사용하여 HDInsight의 Storm 클러스터를 만드는 방법 및 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 알아보았습니다. 다음으로 [Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](hdinsight-storm-develop-java-topology.md)에 대해 알아봅니다.
 
-	* [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
+Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를 HDInsight에 배포하려는 경우 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -196,4 +192,4 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

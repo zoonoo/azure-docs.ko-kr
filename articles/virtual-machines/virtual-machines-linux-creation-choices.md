@@ -21,13 +21,11 @@
 
 Azure는 다른 사용자와 목적에 맞게 Resource Manager 배포 모델을 사용하여 다른 방법으로 VM을 만들 수 있습니다. 이 문서에는 이러한 차이점 및 Linux 가상 컴퓨터(VM)를 만들 때 선택할 수 있는 옵션이 요약되어 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 ## 도구 선택
 
 ### 명령 셸: Azure CLI 
 
-CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테이너 또는 설치 스크립트를 통해 [Azure CLI를 설치하는 방법](../xplat-cli-install.md)에 대해 자세히 참고할 수 있습니다. 다음 자습서에서는 Azure CLI를 사용하는 방법에 대한 예제를 제공합니다.
+CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테이너 또는 설치 스크립트를 통해 [Azure CLI를 설치하는 방법](../xplat-cli-install.md)에 대해 자세히 확인할 수 있습니다. 다음 자습서에서는 Azure CLI를 사용하는 방법에 대한 예제를 제공합니다.
 
 * [개발 및 테스트를 위해 Azure CLI에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md) 
 
@@ -67,4 +65,4 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 * [암호 또는 SSH 키 다시 설정 및 사용자 관리](virtual-machines-linux-using-vmaccess-extension.md)하는 빠른 단계
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

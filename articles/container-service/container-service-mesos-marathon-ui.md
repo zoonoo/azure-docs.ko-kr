@@ -29,19 +29,19 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 
 ## DC/OS UI 탐색
 
-SSH(Secure Shell) 터널이 설정된 상태에서 http://localhost/로 이동합니다. DC/OS 웹 UI가 로드되면서 클러스터에 대한 정보(예: 사용된 리소스, 활성 에이전트)가 표시되고 실행 중인 서비스를 볼 수 있습니다.
+SSH(Secure Shell) 터널이 설정된 상태에서 http://localhost/로 이동합니다. DC/OS 웹 UI가 로드되면서 클러스터에 대한 정보(예: 사용된 리소스, 활성 에이전트)가 표시되고 실행 중인 서비스를 보여 줍니다.
 
-![](media/dcos/dcos2.png)
+![DC/OS UI](media/dcos/dcos2.png)
 
 ## Marathon UI 탐색
 
 Marathon UI를 보려면 http://localhost/Marathon으로 이동합니다. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 응용 프로그램을 시작할 수 있습니다. 컨테이너 및 응용 프로그램을 실행하는 방법에 대한 정보를 볼 수 있습니다.
 
-![](media/dcos/dcos3.png)
+![Marathon UI](media/dcos/dcos3.png)
 
 ## Docker로 포맷된 컨테이너 배포
 
-Marathon을 사용하여 새 컨테이너를 배포하려면, **응용 프로그램 만들기** 단추를 클릭하고 양식에 다음 정보를 입력합니다. 준비가 되면 **응용 프로그램 만들기**를 클릭합니다.
+Marathon을 사용하여 새 컨테이너를 배포하려면, **응용 프로그램 만들기** 단추를 클릭하고 양식에 다음 정보를 입력합니다.
 
 필드 | 값
 ----------------|-----------
@@ -51,50 +51,50 @@ ID | nginx
 호스트 포트 | 80
 프로토콜 | TCP
 
-![](media/dcos/dcos4.png)
+![새 응용 프로그램 UI--일반](media/dcos/dcos4.png)
 
-![](media/dcos/dcos5.png)
+![새 응용 프로그램 UI--Docker 컨테이너](media/dcos/dcos5.png)
 
-![](media/dcos/dcos6.png)
+![새 응용 프로그램 UI--포트 및 서비스 검색](media/dcos/dcos6.png)
 
-컨테이너 포트를 에이전트의 포트에 정적으로 매핑하려면, ‘JSON Mode’를 사용하여 완료해야 합니다. 이렇게 하려면, 토글을 사용하여 새 응용 프로그램 마법사를 JSON Mode로 전환한 다음, 응용 프로그램 정의 ‘portMappings’ 섹션에 다음을 입력합니다. 이 예제는 컨테이너의 포트 80을 DC/OS 에이전트의 포트80으로 바인딩합니다. 이 마법사는 변경이 적용된 후에 JSON Mode를 빠져 나올 수 있습니다.
+에이전트의 포트에 컨테이너 포트를 정적으로 매핑하려는 경우 JSON 모드를 사용해야 합니다. 이렇게 하려면 토글을 사용하여 새 응용 프로그램 마법사를 **JSON 모드**로 전환합니다. 그런 다음 응용 프로그램 정의의 `portMappings` 섹션에 다음을 입력합니다. 이 예제는 컨테이너의 포트 80을 DC/OS 에이전트의 포트80으로 바인딩합니다. 이렇게 변경한 후에 이 마법사를 JSON 모드에서 해제할 수 있습니다.
 
 ```none
 “hostPort”: 80,
 ```
 
-![](media/dcos/dcos13.png)
+![새 응용 프로그램 UI--포트 80 예제](media/dcos/dcos13.png)
 
-DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 인터넷에서 응용 프로그램에 액세스하려면, 공용 에이전트에 배포되어야 합니다. 이를 위해, 새 응용 프로그램 마법사의 ‘optional(선택 사항)’ 탭을 선택하고 ‘Accepted Resource Roles(수락된 리소스 역할)’에 ‘slave\_public’을 입력합니다.
+DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 클러스터를 인터넷에서 응용 프로그램에 액세스할 수 있으려면 공용 에이전트에 응용 프로그램을 배포해야 합니다. 이를 위해, 새 응용 프로그램 마법사의 **선택 사항** 탭을 선택하고 **수락된 리소스 역할**에 **slave\_public**을 입력합니다.
 
-![](media/dcos/dcos14.png)
+![새 응용 프로그램 UI--공용 에이전트 설정](media/dcos/dcos14.png)
 
 다시 Marathon 주 페이지에서 컨테이너에 대한 배포 상태를 볼 수 있습니다.
 
-![](media/dcos/dcos7.png)
+![Marathon 기본 페이지 UI--컨테이너 배포 상태](media/dcos/dcos7.png)
 
-DC/OS 앱(http://localhost/)으로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
+DC/OS 앱 UI (http://localhost/)으로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
 
-![](media/dcos/dcos8.png)
+![DC/OS 웹 UI--클러스터에서 실행 중인 작업](media/dcos/dcos8.png)
 
 또한 태스크가 실행되는 클러스터 노드도 볼 수 있습니다.
 
-![](media/dcos/dcos9.png)
+![DC/OS 웹 UI--작업 클러스터 노드](media/dcos/dcos9.png)
 
 ## 컨테이너 확장
 
-컨테이너의 인스턴스 수를 확장하는 데 Marathon UI도 사용할 수 있습니다. 이렇게 하려면 Marathon 페이지로 이동하고 확장할 컨테이너를 선택하고 **확장** 단추를 클릭합니다. **응용 프로그램 확장** 대화 상자에서 원하는 컨테이너 인스턴스 수를 입력하고 **응용 프로그램 확장**을 선택합니다.
+컨테이너의 인스턴스 수를 확장하는 데 Marathon UI를 사용할 수 있습니다. 이렇게 하려면 **Marathon** 페이지로 이동하여 확장하려는 컨테이너를 선택하고 **확장** 단추를 클릭합니다. **응용 프로그램 확장** 대화 상자에서 원하는 컨테이너 인스턴스 수를 입력하고 **응용 프로그램 확장**을 선택합니다.
 
-![](media/dcos/dcos10.png)
+![Marathon UI--응용 프로그램 대화 상자 크기 조정](media/dcos/dcos10.png)
 
 확장 작업이 완료된 후에 DC/OS 에이전트 전역에 분산되어 있는 동일한 태스크의 여러 인스턴스가 표시됩니다.
 
-![](media/dcos/dcos11.png)
+![DC/OS 웹 UI 대시보드--에이전트에 작업 확산](media/dcos/dcos11.png)
 
-![](media/dcos/dcos12.png)
+![DC/OS 웹 UI--노드](media/dcos/dcos12.png)
 
 ## 다음 단계
 
-[DC/OS 및 Marathon API 작업](container-service-mesos-marathon-rest.md)
+- [DC/OS 및 Marathon API 작업](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

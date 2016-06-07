@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="06/01/2016"
    	ms.author="jgao"/>
 
 # Azure 마켓플레이스에 HDInsight 응용 프로그램 게시
@@ -63,6 +63,19 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)의 샘플을 참조하세요.
+
+	>[AZURE.IMPORTANT] 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다.
+	
+	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+		
+	>스크립트 이름은 세 부분으로 구성됩니다.
+		
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
+
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+
 - 모든 필수 스크립트입니다.
 
 > [AZURE.NOTE] 응용 프로그램 파일(있는 경우 웹 응용 프로그램 파일 포함)은 공개적으로 액세스할 수 있는 끝점에 위치할 수 있습니다.
@@ -85,4 +98,4 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

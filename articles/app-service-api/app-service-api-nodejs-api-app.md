@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="bradygaster"/>
 
 # Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
@@ -24,10 +24,12 @@
 
 ## 필수 조건
 
+1. Microsoft Azure 계정([여기서 무료 계정 열기](https://azure.microsoft.com/pricing/free-trial/))
 1. [Node.js](http://nodejs.org) 설치(이 샘플에서는 Node.js 버전 4.2.2가 설치된 경우를 가정)
 2. [Git](https://git-scm.com/) 설치
 1. [GitHub](https://github.com/) 계정
-1. Microsoft Azure [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
+
+앱 서비스에서 다양한 방법으로 API 앱에 코드를 배포하도록 지원하지만 이 자습서는 Git 메서드를 보여 주고 Git로 작업하는 방법에 대한 기본 지식이 있다고 가정합니다. 다른 배포 방법에 대한 정보는 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)를 참조하세요.
 
 ## 샘플 코드 가져오기
 
@@ -39,11 +41,13 @@
 
 	샘플 API는 두 개의 끝점을 제공합니다. `/contacts`에 대한 Get 요청은 이름 및 전자 메일 주소의 목록을 JSON 형식으로 반환하며 `/contacts/{id}`는 선택된 연락처만 반환합니다.
 
-## Swagger 메타데이터 기반 스캐폴드 Node.js 코드
+## Swagger 메타데이터 기반 Node.js 코드 스캐폴드(자동 생성)
 
-[Swagger](http://swagger.io/)는 RESTful API에 대해 설명하는 메타데이터의 파일 형식입니다. Azure 앱 서비스는 [기본적으로 Swagger 메타데이터를 지원](app-service-api-metadata.md)합니다. 이 자습서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩하는 데 사용하여 진행되는 API 개발 워크플로를 모델링합니다. 이 자습서의 일부에서는 Swagger 메타데이터 파일에 기반한 Node.js 서버 코드를 스캐폴딩하는 방법을 알아봅니다.
+[Swagger](http://swagger.io/)는 RESTful API에 대해 설명하는 메타데이터의 파일 형식입니다. Azure 앱 서비스는 [기본적으로 Swagger 메타데이터를 지원](app-service-api-metadata.md)합니다. 자습서의 이 섹션에서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩(자동 생성)하는 데 사용할 API 개발 워크플로를 모델링합니다.
 
->[AZURE.NOTE] 스캐폴딩 단계를 수행하지 않으려는 경우 [Azure에서 API 앱 만들기](#createapiapp) 섹션으로 직접 이동하여 샘플 코드를 새 API 앱에 배포할 수 있습니다.
+>[AZURE.NOTE] Swagger 메타데이터 파일에서 Node.js 코드를 스캐폴딩하는 방법을 알아보지 않으려면 이 섹션을 건너뛸 수 있습니다. 샘플 코드를 새 API 앱에 배포하려는 경우 [Azure에서 API 앱 만들기](#createapiapp) 섹션으로 직접 이동합니다.
+
+### Swaggerize 설치 및 실행
 
 1. 다음 명령을 실행하여 **yo** 및 **generator-swaggerize** NPM 모듈을 전역적으로 설치합니다.
 
@@ -84,7 +88,7 @@
         
     ![Swaggerize Ui 설치](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-## 스캐폴드된 코드 사용자 지정
+### 스캐폴드된 코드 사용자 지정
 
 1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다. 
 
@@ -149,17 +153,17 @@
         server.listen(port, function () { // fifth and final change
         });
 
-## 로컬로 실행되는 API로 테스트
+### 로컬로 실행되는 API로 테스트
 
 1. Node.js 명령줄 실행 파일을 사용하여 서버를 활성화합니다. 
 
         node server.js
 
-1. **http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
+1. ****http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
 
     ![모든 연락처 Api 호출](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. **http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
+1. ****http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
 
     ![특정 연락처 Api 호출](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -171,9 +175,9 @@
 
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a>Azure 포털에서 새 API 앱 만들기
+## <a id="createapiapp"></a> 새 API 앱 만들기
 
-이 섹션에서는 Azure에서 비어 있는 새 API 앱을 만드는 과정을 안내합니다. 그런 다음 아래 섹션에서 코드 변경 내용을 지속적으로 제공할 수 있도록 이 앱을 Git 리포지토리에 연결합니다.
+이 섹션에서는 Azure 포털을 사용하여 Azure에서 새로운 API 앱을 만듭니다. 이 API 앱은 Azure에서 코드를 실행하기 위해 제공하는 계산 리소스를 나타냅니다. 이후 섹션에서 새 API 앱에 코드를 배포합니다.
 
 1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 
 
@@ -183,9 +187,9 @@
 
 4. *azurewebsites.net* 도메인에 NodejsAPIApp에 고유 번호를 결합한 이름과 같은 고유한 **앱 이름**을 입력합니다.
 
-	다른 사용자가 이미 사용한 이름을 입력한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
+	예를 들어 이름이 `NodejsAPIApp`이면 URL은 `nodejsapiapp.azurewebsites.net`이 됩니다.
 
-	Azure에서는 API의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*으로 구성됩니다. 예를 들어 이름이 `NodejsAPIApp`이면 URL은 `nodejsapiapp.azurewebsites.net`이 됩니다.
+	다른 사용자가 이미 사용하는 이름을 입력하면 오른쪽에 빨간색 느낌표가 표시됩니다.
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음 **새 리소스 그룹 이름**에 "NodejsAPIAppGroup" 또는 선호하는 다른 이름을 입력합니다.
 
@@ -215,25 +219,23 @@
 
 ## Git 배포에 대한 새 API 앱 설정
 
-여기에서는 배포에 사용할 자격 증명과 Azure 앱 서비스의 API 앱에 대한 Git 리포지토리를 만듭니다. Azure 앱 서비스에서 이 리포지토리에 커밋을 푸시하여 API 앱에 코드를 배포합니다.
+Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱에 코드를 배포합니다. 여기에서는 배포에 사용할 Azure의 자격 증명과 Git 리포지토리를 만듭니다.
 
 1. API 앱을 만든 다음 포털 홈 페이지에서 **앱 서비스 > {API 앱}**을 클릭합니다. 
 
 	포털에 **API 앱** 및 **설정** 블레이드가 표시됩니다.
 
-    ![포털 API 앱 블레이드](media/app-service-api-nodejs-api-app/portalapiappblade.png)
-
-    ![포털 설정 블레이드](media/app-service-api-nodejs-api-app/portalsettingsblade.png)
+    ![포털 API 앱 및 설정 블레이드](media/app-service-api-nodejs-api-app/portalapiappblade.png)
 
 1. **설정** 블레이드에서 아래로 스크롤하여 **게시** 섹션을 표시한 다음 **배포 자격 증명**을 클릭합니다.
  
 3. **배포 자격 증명 설정** 블레이드에서 사용자 이름과 암호를 입력한 다음 **저장**을 클릭합니다.
 
-	API 앱에 Node.js 코드를 게시하기 위해 이러한 자격 증명을 사용합니다. 다음 단계에서는 사용자 API 앱과 연결된 Azure Git 리포지토리를 만듭니다.
+	API 앱에 Node.js 코드를 게시하기 위해 이러한 자격 증명을 사용합니다.
 
     ![배포 자격 증명](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
-1. **설정** 블레이드에서 **배포 소스 > 소스 선택 > 로컬 Git 리포지토리**를 클릭한 다음 **확인**을 클릭합니다.
+1. **설정** 블레이드에서 **배포 원본 > 원본 선택 > 로컬 Git 리포지토리**를 클릭한 다음 **확인**을 클릭합니다.
 
     ![Git 리포지토리 만들기](media/app-service-api-nodejs-api-app/create-git-repo.png)
 
@@ -245,21 +247,15 @@
 
     ![포털에서 Git Url 가져오기](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
-    **참고**: Git 복제 URL은 다음 단계에서 임의 위치에 임시로 저장하는 데 필요합니다.
+    **참고**: Git 복제 URL은 다음 섹션에서 임의 위치에 임시로 저장하는 데 필요합니다.
 
 백업하는 Git 리포지토리가 포함된 API 앱이 있으므로 코드를 리포지토리에 푸시하여 API 앱에 배포할 수 있습니다.
 
 ## Azure에 API 코드 배포
 
-이 섹션에서는 다음 단계를 수행합니다.
+이 섹션에서는 API에 대한 서버 코드를 포함하는 로컬 Git 리포지토리를 만들고 해당 리포지토리에서 이전에 Azure에 만든 리포지토리로 코드를 푸시합니다.
 
-* API에 대한 서버 코드가 포함된 로컬 Git 리포지토리를 만듭니다.
-* 이 리포지토리에서 Azure의 API 앱에 대해 만든 리포지토리를 가리키는 원격을 만듭니다.
-* 로컬 리포지토리에서 원격 리포지토리로 코드를 푸시합니다. 
-
-Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통해 API 앱에 연결된 Git 리포지토리에 커밋을 푸시하여 코드를 배포할 수 있습니다.
-
-1. 자습서의 첫 번째 부분을 수행한 경우 swaggerize 스캐폴더를 사용하여 만든 `start\ContactList` 폴더를 다른 폴더로 복사합니다. 그렇지 않을 경우 `end\ContactList` 폴더를 다른 폴더로 복사합니다.
+1. 새 로컬 Git 리포지토리에 사용할 수 있는 위치로 `ContactList` 폴더를 복사합니다. 이 자습서의 첫 번째 부분을 수행한 경우 `start` 폴더에서 `ContactList`를 복사합니다. 그렇지 않으면 `end` 폴더에서 `ContactList`를 복사합니다.
 
 1. 명령줄 도구에서 새 폴더로 이동한 다음 아래 명령을 실행하여 새 로컬 Git 리포지토리를 만듭니다.
 
@@ -302,9 +298,7 @@ Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통�
 
     ![배포 완료](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
-1. Postman 또는 Fiddler(또는 사용 중인 웹 브라우저)와 같은 REST API 클라이언트를 사용하여 연락처 API 호출 URL(API 앱의 `/contacts` 끝점)을 입력합니다.
-
-    **참고:** URL은 `https://{your API app name}.azurewebsites.net/contacts`입니다.
+1. Postman 또는 Fiddler(또는 사용 중인 웹 브라우저)와 같은 REST API 클라이언트를 사용하여 연락처 API 호출 URL(API 앱의 `/contacts` 끝점)을 입력합니다. URL은 `https://{your API app name}.azurewebsites.net/contacts`입니다.
 
     이 끝점에 GET 요청을 실행하면 API 앱의 JSON 출력이 표시됩니다.
 
@@ -316,6 +310,6 @@ Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통�
 
 ## 다음 단계
 
-이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
+이제 API 앱을 만들고 거기에 Node.js API 코드를 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,7 +3,7 @@
     description="PowerShell을 사용하여 여러 데이터베이스를 관리하도록 확장성 있는 탄력적 데이터베이스 풀을 만들어 Azure SQL 데이터베이스 리소스를 규모 확장하는 방법에 대해 알아봅니다."
 	services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기
 
@@ -80,4 +80,4 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 - [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
 - [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md): 탄력적 데이터베이스 도구를 사용하여 확장합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

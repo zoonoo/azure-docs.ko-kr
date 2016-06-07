@@ -3,7 +3,7 @@
     description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # C&#x23;을 사용한 새 탄력적 데이터베이스 풀 만들기
 
@@ -251,4 +251,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->
