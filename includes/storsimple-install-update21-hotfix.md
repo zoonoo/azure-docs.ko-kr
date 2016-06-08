@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/18/16-->
+<!--author=alkohli last changed: 05/19/16-->
 
 #### 핫픽스를 다운로드하려면
 
@@ -95,9 +95,9 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
     다음 버전이 표시되어야 합니다.
 
-    - HcsSoftwareVersion: 6.3.9600.17704
-    - CisAgentVersion: 1.0.9299.0
-    - MdsAgentVersion: 330.0.4698.13
+    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `CisAgentVersion: 1.0.9299.0`
+    - `MdsAgentVersion: 30.0.4698.16` 
 
 	업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](storsimple-contact-microsoft-support.md)에 문의하세요.
 
@@ -184,7 +184,7 @@ KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17704
+    	Software Version: 6.3.9600.17705
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
@@ -238,3 +238,5 @@ KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
     `Exit-HcsMaintenanceMode`
 
 1. 유지 관리 모드를 종료하면 컨트롤러가 다시 시작됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트가 설치되었는지 24시간 동안 포털에 표시되지 않을 수도 있습니다.
+
+<!---HONumber=AcomDC_0525_2016-->

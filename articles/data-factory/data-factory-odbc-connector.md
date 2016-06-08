@@ -352,9 +352,20 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 게�
 
 복사 작업에서 ODBC 데이터 저장소를 원본 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
 
-[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+## 연결 문제 해결
+연결 문제를 해결하려면 **데이터 관리 게이트웨이 구성 관리자**의 **진단** 탭을 사용합니다.
+
+1. **데이터 관리 게이트웨이 구성 관리자**를 시작합니다. "C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이**를 검색하여 **Microsoft 데이터 관리 게이트웨이** 응용 프로그램에 대한 링크를 찾을 수 있습니다. 
+
+	![게이트웨이 검색](./media/data-factory-odbc-connector/search-gateway.png)
+2. **진단** 탭으로 전환합니다.
+
+	![게이트웨이 진단](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. 데이터 저장소(연결된 서비스)의 **형식**을 선택합니다. 
+4. **인증**을 지정하고 **자격 증명**을 입력하거나 **연결 문자열**을 입력하여 데이터 저장소에 연결합니다. 
+5. **연결 테스트**를 클릭하여 데이터 저장소에 대한 연결을 테스트합니다. 
 
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

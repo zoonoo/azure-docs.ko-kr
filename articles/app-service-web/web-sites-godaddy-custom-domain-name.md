@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 
@@ -81,4 +81,4 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0525_2016-->

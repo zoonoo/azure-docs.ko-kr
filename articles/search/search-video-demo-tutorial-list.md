@@ -55,7 +55,9 @@
 
 링크|릴리스 날짜|세부 정보
 ----|------------|-----------
-[Channel9 제공 데이터: "Azure 검색의 사용자 지정 분석기, 검색 분석 및 포털 쿼리"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|2016년 1월|21분. 사용자 지정 분석기를 사용하면 토크나이저 및 토큰 파일을 구성할 수 있습니다. 검색 분석을 사용하면 사용자가 입력한 검색 용어와 검색 인덱스의 효율에 대한 통찰력을 가질 수 있습니다. 검색 탐색기는 포털 내부에서 쿼리를 시도할 수 있는 기본 제공 쿼리 도구입니다. 
+[Channel9 빌드 2016: "학습 및 적용하는 응용 프로그램: Azure 기계 학습 + 검색"](https://channel9.msdn.com/Events/Build/2016/P458)|2016년 5월|17분. Liam Cavanagh는 Azure 검색 응용 프로그램에 ‘권장' 기능 추가의 이점 및 기계 학습에서 사용자 기본 설정에 대한 통찰력을 얻는 방법을 설명합니다. 
+[Channel9 빌드 2016: "학습 및 적용하는 지능형 데이터 기반 응용 프로그램"](https://channel9.msdn.com/Events/Build/2016/B857)|2016년 5월|1시간 정교한 데이터 기반 응용 프로그램을 만들도록 기계 학습 및 Azure 검색을 함께 사용할 수 있는 방법을 알아봅니다.
+[Channel9 제공 데이터: "Azure 검색의 사용자 지정 분석기, 검색 분석 및 포털 쿼리"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|2016년 1월|15분 사용자 지정 분석기를 사용하면 토크나이저 및 토큰 파일을 구성할 수 있습니다. 검색 분석을 사용하면 사용자가 입력한 검색 용어와 검색 인덱스의 효율에 대한 통찰력을 가질 수 있습니다. 검색 탐색기는 포털 내부에서 쿼리를 시도할 수 있는 기본 제공 쿼리 도구입니다. 
 [Channel9 제공 데이터: "Azure 검색 향상"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|2015년 11월|17분. StackExchange 데이터 수집. Azure 포털에서 인덱스 작성. 인덱서가 지원되는 데이터 원본을 크롤링하여 Azure 검색 인덱스로 데이터를 끌어 넣는 방식을 알아봅니다. 언어 분석기. Lucene 쿼리 식.
 [Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|2015년 10월|1~2분만 시간을 내어 Azure 검색을 소개하는 약 1분 30초 길이의 비디오를 시청하세요.
 [AzureCon 2015 : Azure 검색에 대한 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|2015년 9월|웹 또는 모바일 시나리오용 앱 개발 시 확장, 성능 최적화 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 게시자: Pablo Castro 
@@ -88,4 +90,4 @@
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

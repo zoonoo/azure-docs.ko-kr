@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="05/12/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
@@ -23,11 +23,11 @@ DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(
 
 Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니다.
 
-| 메서드 | 설명 |
-| --- | --- |
-| [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) | 빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다. |
-| [전체 업그레이드](#in-place-upgrade) | 단일 서버가 있는 경우 같은 서버에서 설치를 전체 업그레이드합니다. |
-| [스윙 마이그레이션](#swing-migration) | 두 개의 서버가 있는 경우 서버 중 하나를 새 릴리스로 준비하고, 준비가 완료되면 활성 서버를 변경할 수 있습니다.
+메서드 | 설명
+--- | ---
+[자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) | 빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다.
+[전체 업그레이드](#in-place-upgrade) | 단일 서버가 있는 경우 같은 서버에서 설치를 전체 업그레이드합니다.
+[스윙 마이그레이션](#swing-migration) | 두 개의 서버가 있는 경우 서버 중 하나를 새 릴리스로 준비하고, 준비가 완료되면 활성 서버를 변경할 수 있습니다.
 
 필요한 사용 권한은 [업그레이드에 필요한 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 
@@ -85,4 +85,4 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

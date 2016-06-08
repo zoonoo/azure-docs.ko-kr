@@ -1,12 +1,12 @@
 <properties
-	pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 사용자 API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Office 365 사용자 API 개요"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 사용자 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Office 365 사용자 커넥터 개요"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Office 365 사용자 API 시작
+# Office 365 사용자 커넥터 시작
 
-Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자 API를 다음에서 사용할 수 있습니다.
+Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자 커넥터를 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -37,29 +37,28 @@ Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
 
 - Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 부하 직원 가져오기, 관리자의 사용자 프로필 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 사용자의 부하 직원을 가져온 다음 이 정보를 사용하여 SQL Azure 데이터베이스를 업데이트합니다. 
-- PowerApps 엔터프라이즈에 Office 365 사용자 API 추가 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 Office 365 사용자 커넥터 추가 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 
-Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
+Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
 
 | 트리거 | actions|
 | --- | --- |
 |없음 | <ul><li>관리자 가져오기</li><li>내 프로필 가져오기</li><li>부하 직원 가져오기</li><li>사용자 프로필 가져오기</li><li>사용자 검색</li></ul>|
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 
 ## Office 365 사용자에 대한 연결 만들기
 
-논리 앱에 이 API를 추가할 때 Office 365 사용자 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 Office 365 사용자 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
 
-1. Office 365 사용자 계정에 로그인합니다.
-2. 논리 앱에서 Office 365 계정에 연결하고 사용할 수 있도록 허용합니다. 
+>[AZURE.INCLUDE [Office 365 사용자에 대한 연결을 만드는 단계](../../includes/connectors-create-api-office365users.md)]
 
 연결을 만든 후 사용자 ID 등의 Office 365 사용자 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -204,4 +203,4 @@ Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있�
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

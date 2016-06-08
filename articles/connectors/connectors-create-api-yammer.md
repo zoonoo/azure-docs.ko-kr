@@ -1,10 +1,10 @@
 <properties
-pageTitle="논리 앱에 Yammer API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Yammer API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="논리 앱에 Yammer 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 Yammer 커넥터 개요"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Yammer API 시작
+# Yammer 커넥터 시작
 
 Yammer에 연결하여 엔터프라이즈 네트워크의 대화에 액세스합니다.
 
@@ -38,10 +38,10 @@ Yammer에는 다음 트리거 및 작업이 포함됩니다.
 --- | ---
 <ul><li>그룹에 새 메시지가 있을 때</li><li>내 팔로잉 피드에 새 메시지가 있을 때</li></ul>| <ul><li>모든 메시지 가져오기</li><li>그룹의 메시지 가져오기</li><li>내 팔로잉 피드에서 메시지 가져오기</li><li>메시지 게시</li><li>그룹에 새 메시지가 있을 때</li><li>내 팔로잉 피드에 새 메시지가 있을 때</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Yammer에 대한 연결 만들기
-Yammer API를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
+Yammer 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
 
 |속성| 필수|설명|
 | ---|---|---|
@@ -195,4 +195,4 @@ Yammer 웹 인터페이스의 "모든" 대화에 해당합니다. ```GET: /messa
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

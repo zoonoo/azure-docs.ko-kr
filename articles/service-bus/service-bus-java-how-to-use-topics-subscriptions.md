@@ -20,9 +20,53 @@
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
+이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][]\(영문)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
+## 서비스 버스 토픽 및 구독 정의
+
+서비스 버스 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지원합니다. 토픽 및 구독을 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 토픽을 통해 메시지를 교환합니다.
+
+![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+각 메시지가 단일 소비자에 의해 처리되는 서비스 버스 큐와 반대로, 토픽과 구독은 게시/구독 패턴을 사용하여 "일 대 다" 형태의 통신을 제공합니다. 하나의 토픽에 여러 구독을 등록할 수 있습니다. 토픽에 메시지를 전송하면 각 구독에서 독립적으로 처리할 수 있습니다.
+
+토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 선택적으로 구독별 토픽에 대한 필터 규칙을 등록할 수 있으며, 이렇게 하면 각 토픽 구독에서 받는 토픽 메시지를 필터링/제한할 수 있습니다.
+
+서비스 버스 토픽 및 구독을 사용하면 다수의 사용자와 응용 프로그램에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
+
+## 서비스 네임스페이스 만들기
+
+Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+
+네임스페이스를 만들려면
+
+1.  [Azure 클래식 포털][]에 로그온합니다.
+
+2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![][0]
+
+4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![][2]
+
+5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
+
+	중요: 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+
+6. 	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준 계층**) 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
+
+## 네임스페이스에 대한 기본 관리 자격 증명 얻기
+
+새 네임스페이스에 대해 토픽 또는 구독 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. 포털에서 이러한 자격 증명을 가져올 수 있습니다.
+
+### 포털에서 관리 자격 증명을 가져오려면
+
+1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![][0]
+
+2.  표시된 목록에서 방금 만든 네임스페이스를 클릭합니다. ![][3]
+
+3.  **구성**을 클릭하여 네임스페이스에 대한 공유 액세스 정책을 확인합니다. ![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
+
+4.  기본 키를 적어 두거나 클립보드에 복사해 둡니다.
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -146,7 +190,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-서비스 버스 토픽은 256MB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64MB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
+서비스 버스 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
 ## 구독에서 메시지를 받는 방법
 
@@ -240,10 +284,14 @@ service.deleteTopic("TestTopic");
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
   [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.com/
+  [Azure 클래식 포털]: http://manage.windowsazure.com/
   [서비스 버스 큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  
+  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

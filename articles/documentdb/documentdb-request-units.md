@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="stbaro"/>
 
 #DocumentDB의 요청 단위
@@ -178,6 +178,9 @@ Azure DocumentDB의 예약된 처리량에 대해 자세히 알아보려면 다�
 
 DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
 
+DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
+
+
 [1]: ./media/documentdb-request-units/queryexplorer.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

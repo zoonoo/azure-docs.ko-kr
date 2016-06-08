@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 보안 시작 | Microsoft Azure"
+   pageTitle="Azure 보안 개요 | Microsoft Azure"
    description="Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# 시작 - 개요
+# Azure 보안 개요
 
 Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다. Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/default.aspx)를 방문하세요.
 
@@ -30,6 +30,7 @@ Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 �
 각 범주에는 개요 문서가 있습니다. 개요 문서의 목적은 Azure가 해당 범주에 대해 보안 측면에서 제공해야 하는 항목에 대한 요약을 제공하는 것입니다. 개요 문서는 배포의 보안을 개선하기 위해 사용할 수 있는 Azure에서 제공되는 제품, 서비스 및 기능을 이해하는 데 도움이 됩니다. 이 개요 문서에는 해당 항목과 구현 방법에 대해 자세히 배울 수 있도록 기술 컨텐츠에 대한 수많은 링크가 있습니다.
 
 Azure 보안 정보 사이트에서는 현재 다음과 같은 범주를 다루고 있습니다.
+
 - 리소스
 - 네트워크 보안
 - 저장소 보안
@@ -45,4 +46,4 @@ Azure 보안 정보 사이트에서는 현재 다음과 같은 범주를 다루�
 
 사용자의 의견을 원합니다! 추가하고 싶은 범주가 있다면 알려 주세요! 기존 범주에 추가하고 싶은 문서가 있는 경우에도 알려 주세요! 아래 의견 섹션을 사용하거나 [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com)으로 보내 주시면 권장해 주신 내용을 계획에 통합하겠습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

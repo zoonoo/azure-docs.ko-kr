@@ -65,7 +65,7 @@
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

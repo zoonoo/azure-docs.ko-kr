@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
@@ -29,20 +29,20 @@ Azure AD Connect는 DirSync 및 Azure AD Sync의 후속 도구로서, 이 두 �
 
 ## 사용 중단 일정
 
-|Date | 주석 |
-| --- | --- |
-| 2016년 4월 13일 | Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync")가 사용 중단될 예정입니다. |
-| 2017년 4월 13일 | 지원이 종료됩니다. 이제 고객은 Azure AD Connect로 업그레이드해야만 지원 사례를 개설할 수 없습니다. |
+Date | 주석
+ --- | ---
+2016년 4월 13일 | Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync")가 사용 중단될 예정입니다.
+2017년 4월 13일 | 지원이 종료됩니다. 이제 고객은 Azure AD Connect로 업그레이드해야만 지원 사례를 개설할 수 없습니다.
 
 ## Azure AD Connect로 전환하는 방법
 DirSync를 실행 중인 경우 전체 업그레이드와 병렬 배포의 두 가지 방법으로 업그레이드할 수 있습니다. 전체 업그레이드는 대부분의 고객에게 권장되며, 최신 운영 체제가 설치되어 있고 개체 수가 50,000개 미만인 경우에 사용하는 것이 좋습니다. 그렇지 않은 경우에는 DirSync 구성이 Azure AD Connect를 실행하는 새 서버로 전환되는 병렬 배포를 수행하는 것이 좋습니다.
 
 Azure AD Sync를 사용하는 경우에는 전체 업그레이드가 권장됩니다. 필요한 경우 새 Azure AD Connect 서버를 병렬로 설치하고 Azure AD Sync 서버에서 Azure AD Connect로 스윙 마이그레이션을 수행할 수 있습니다.
 
-| 해결 방법 | 시나리오 |
-| ----- | ----- |
-| [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우입니다.</li>
-| [Azure AD Sync에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)| <li>Azure AD Sync에서 전환하는 경우</li>
+해결 방법 | 시나리오
+----- | -----
+[DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우입니다.</li>
+[Azure AD Sync에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)| <li>Azure AD Sync에서 전환하는 경우</li>
 
 DirSync에서 Azure AD Connect로 전체 업그레이드를 수행하는 방법은 이 Channel 9 동영상을 참조하세요.
 
@@ -61,4 +61,4 @@ DirSync에서 Azure AD Connect로 전체 업그레이드를 수행하는 방법�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/24/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB의 저장소 및 예측 가능한 성능 프로비전에 대한 자세한 정보
-DocumentDB는 JSON 문서에 대한 완전히 관리되고 확장 가능한 문서 지향 NoSQL 데이터베이스 서비스입니다. DocumentDB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링하거나, 재해 복구에 대해 걱정할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft 엔지니어가 DocumentDB를 작동하고 지속적으로 모니터링합니다.
+DocumentDB는 JSON 문서에 대한 완전히 관리되고 확장 가능한 문서 지향 NoSQL 데이터베이스 서비스입니다. DocumentDB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft 엔지니어가 DocumentDB를 작동하고 지속적으로 모니터링합니다.
 
 [Azure 포털](https://portal.azure.com/)을 통해 [데이터베이스 계정을 만들어서](documentdb-create-account.md) DocumentDB를 시작할 수 있습니다. DocumentDB는 SSD(반도체 드라이브) 지원 저장소 및 처리량의 단위로 제공됩니다. 이러한 단위는 데이터베이스 계정 내에서 데이터베이스 컬렉션을 만들어 프로비전됩니다. 각 컬렉션은 처리량이 예약되어 있습니다. 응용 프로그램의 처리량 요구 사항이 변경되면 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)을 설정하여 동적으로 변경합니다.
 
@@ -132,4 +132,4 @@ Azure 포털에서 성능 수준 모니터링에 대한 지침은 [DocumentDB �
 컬렉션에 대한 성능 수준 선택에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

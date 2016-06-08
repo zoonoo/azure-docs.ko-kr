@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@
 
 ## 필수 조건
 
-* R 서버가 설치된 Azure HDInsight 클러스터. 자세한 내용은 [HDInsight 클러스터에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.mdulet)을 참조하세요.
+* R 서버가 설치된 Azure HDInsight 클러스터. 자세한 내용은 [HDInsight 클러스터에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
 * SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다. 
 
 
@@ -36,7 +36,7 @@
 1. 클러스터의 에지 노드를 식별합니다. R 서버가 설치된 HDInsight 클러스터의 경우 헤드 노드와 에지 노드에 대한 명명 규칙은 다음과 같습니다.
 
 	* 헤드 노드 - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* 에지 노드- `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* 에지 노드 - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다.
  
@@ -75,7 +75,7 @@
 
 	* Linux 클라이언트 또는 Windows 클라이언트([Cygwin](http://www.redhat.com/services/custom/cygwin/) 사용)에서 터미널 세션을 열고 다음 명령을 사용합니다.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		**USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
@@ -124,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

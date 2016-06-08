@@ -234,7 +234,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 큐 크기의 상한은 5GB입니다. 할당량에 대한 자세한 내용은 [서비스 버스 할당량][]을 참조하세요.
+서비스 버스 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 토픽 크기의 상한은 5GB입니다. 할당량에 대한 자세한 내용은 [서비스 버스 할당량][]을 참조하세요.
 
 ## 구독에서 메시지 받기
 
@@ -338,4 +338,4 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 [require-once]: http://php.net/require_once
 [서비스 버스 할당량]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

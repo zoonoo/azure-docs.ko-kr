@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
@@ -128,7 +128,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
 
 		Write-Host "Define the Azure storage connection string ..." -ForegroundColor Green
-		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName |  %{ $_.Key1 }
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
 		Write-Host "`tThe connection string is $storageConnectionString." -ForegroundColor Yellow
 
@@ -407,7 +407,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 		Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 		
 		Write-Host "Define the connection string ..." -ForegroundColor Green
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName | %{$_.key1}
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 		
 		Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
@@ -474,7 +474,7 @@ $hqlScriptFile|HiveQL 스크립트 파일의 위치 및 파일 이름입니다. 
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
@@ -509,7 +509,7 @@ $hqlScriptFile|HiveQL 스크립트 파일의 위치 및 파일 이름입니다. 
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
 	Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
@@ -568,4 +568,4 @@ $hqlScriptFile|HiveQL 스크립트 파일의 위치 및 파일 이름입니다. 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

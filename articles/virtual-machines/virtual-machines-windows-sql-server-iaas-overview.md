@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
@@ -47,7 +47,7 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 Azure 가상 컴퓨터를 만들고 관리하기 위한 모델이 두 가지(클래식 및 리소스 관리자) 있다는 점에 유의해야 합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요. 이 문서처럼 클래식과 Resource Manager 양쪽 모두에 적용되는 게 아니라면, 각 항목에 대한 대상 모델이 분명하게 언급됩니다.
 
 ## SQL VM 이미지 선택
-다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다. 테이블의 링크를 클릭하여 클릭한 버전 및 운영 체제에 해당하는 VM을 만듭니다.
+다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다. 표에서 버전 및 운영 체제를 기반으로 링크를 클릭합니다. 그런 다음 마켓플레이스 페이지에서 **가상 컴퓨터 만들기** 단추를 클릭합니다.
 
 |SQL Server 버전|운영 체제|SQL Server 버전|
 |---|---|---|
@@ -61,9 +61,11 @@ Azure 가상 컴퓨터를 만들고 관리하기 위한 모델이 두 가지(클
 
 >[AZURE.NOTE] CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 필요한 경우, 가상 컴퓨터를 프로비전한 후에 CEIP를 사용자 지정하거나 비활성화할 수 있습니다. 원격 데스크톱을 사용하여 VM에 연결하고 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다.
 
+새 SQL VM을 만드는 데 지원이 필요한가요? [프로비전 자습서](virtual-machines-windows-portal-sql-server-provision.md)에서 자세한 설명을 참조하세요.
+
 미리 구성된 이미지뿐 아니라 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-hero-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](https://azure.microsoft.com/pricing/details/virtual-machines/)에 대해서만 지불합니다.
 
-SQL Server 이미지에 가장 적합한 가상 컴퓨터 구성 설정을 확인하려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 검토하세요. 프로덕션 작업의 경우 SQL Server Enterprise Edition에 대한 최소 권장 가상 컴퓨터 크기는 **DS3**이며 Standard Edition에 대한 최소 권장 가상 컴퓨터 크기는 **DS2**입니다.
+SQL Server 이미지에 가장 적합한 가상 컴퓨터 구성 설정을 확인하려면 [SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 검토하세요. 프로덕션 워크로드의 경우 SQL Server Enterprise 버전에 대한 가상 컴퓨터의 최소 권장 크기는 **DS3**입니다. Standard 버전에서 프로덕션 워크로드에 대한 가상 컴퓨터의 최소 권장 크기는 **DS2**입니다.
 
 ## 데이터 마이그레이션
 
@@ -88,6 +90,6 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 그런 다음 SQL Server 워크로드를 Azure VM으로 이동하는 것을 고려하며 [성능 모범 사례](virtual-machines-windows-sql-performance.md) 및 [마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 검토합니다.
 
-Azure 가상 컴퓨터의 SQL Server에 대한 질문이 더 있으면 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또는 SQL VM 항목의 맨 아래에 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
+Azure 가상 컴퓨터의 SQL Server에 대한 질문이 더 있으신가요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -184,4 +184,4 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

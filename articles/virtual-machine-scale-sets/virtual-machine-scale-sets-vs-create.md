@@ -24,14 +24,14 @@
 
 [Azure 가상 컴퓨터 규모 집합](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)은 자동 크기 조정 및 부하 분산을 위해 손쉽게 통합되는 옵션을 사용하여 유사한 가상 컴퓨터 컬렉션을 배포하고 관리하기 위한 Azure 계산 리소스입니다. [Azure 리소스 관리자(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용하여 VM 규모 집합을 프로비전하고 배포할 수 있습니다. ARM 템플릿은 Azure CLI, PowerShell, REST를 사용하여 배포가 가능하고 Visual Studio에서 직접 배포할 수도 있습니다. Visual Studio는 Azure 리소스 그룹 배포 프로젝트의 일부로 배포될 수 있는 예제 템플릿 집합을 제공합니다.
 
-Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹으로 모아서 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/)를 참조하세요.
+Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹으로 모아서 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 ## 필수 구성 요소
 
 Visual Studio에서 VM 규모 집합 배포를 시작하려면 다음 항목이 필요합니다.
 
 - Visual Studio 2013 또는 2015
-- Azure SDK 2.7 또는 2.8
+- Azure SDK 2.7, 2.8 또는 2.9
 
 참고: 이 지침은 사용자가 [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)과 Visual Studio 2015를 사용하는 것으로 가정합니다.
 
@@ -85,7 +85,7 @@ Visual Studio에서 VM 규모 집합 배포를 시작하려면 다음 항목이 
 
 ## VM 규모 집합 탐색
 
-배포가 완료되면 Visual Studio **Cloud Explorer**에서(목록 새로 고침) 새로운 VM 규모 집합을 볼 수 있습니다. Cloud Explorer를 사용하면 응용 프로그램을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. Azure 포털 및 Azure 리소스 탐색기에서 VM 규모 집합을 볼 수도 있습니다.
+배포가 완료되면 Visual Studio **Cloud Explorer**에서(목록 새로 고침) 새로운 VM 규모 집합을 볼 수 있습니다. Cloud Explorer를 사용하면 응용 프로그램을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. [Azure 포털](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com/)에서 VM 규모 집합을 볼 수도 있습니다.
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Visual Studio를 통해 VM 규모 집합을 성공적으로 배포하고 나면 
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,13 +1,13 @@
 <properties
-	pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Dropbox API 추가 | Microsoft Azure"
-	description="REST API 매개 변수를 사용하는 Dropbox API 개요"
-	services=""
+    pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Dropbox 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Dropbox 커넥터 개요"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
-# Dropbox API 시작 
-Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관리합니다. Dropbox API를 다음에서 사용할 수 있습니다.
+# Dropbox 커넥터 시작 
+Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관리합니다. Dropbox 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -38,9 +38,9 @@ Dropbox를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 - Dropbox에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 파일을 만들거나 업데이트할 때 트리거를 사용합니다.
 - 파일 만들기, 파일 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Dropbox에서 새 파일이 만들어지면 Office 365를 사용하여 해당 파일을 메일로 보낼 수 있습니다.
-- PowerApps 엔터프라이즈에 Dropbox API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 Dropbox 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -51,14 +51,13 @@ Dropbox에는 다음 트리거 및 작업이 포함됩니다.
 --- | ---
 <ul><li>파일을 만들 때</li><li>파일을 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>파일을 만들 때</li><li>파일 복사</li><li>파일 삭제</li><li>폴더에 보관 추출</li><li>ID를 사용하여 파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 가져오기</li><li>ID를 사용하여 파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 수정할 때</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Dropbox에 대한 연결 만들기
 
-논리 앱에 이 API를 추가할 때 Dropbox에 연결할 권한을 논리 앱에 부여해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 Dropbox에 연결할 권한을 논리 앱에 부여해야 합니다.
 
-1. Dropbox 계정에 로그인합니다.
-2. **권한 부여**를 선택하고 논리 앱에서 Dropbox에 연결하고 사용할 수 있도록 허용합니다. 
+>[AZURE.INCLUDE [Dropbox에 대한 연결을 만드는 단계](../../includes/connectors-create-api-dropbox.md)]
 
 연결을 만든 후에 폴더 경로 또는 파일 이름 등의 Dropbox 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -286,4 +285,4 @@ Dropbox 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GE
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

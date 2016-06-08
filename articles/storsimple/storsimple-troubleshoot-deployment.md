@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치 배포 문제 해결
@@ -21,7 +21,7 @@
 
 이 문서는 Microsoft Azure StorSimple 배포에 대한 유용한 문제 해결 지침을 제공합니다. 일반 문제, 가능한 원인 및 StorSimple을 구성할 때 발생할 수 있는 문제를 해결할 수 있는 권장 단계를 설명합니다. 이 정보는 StorSimple 온-프레미스 물리적 장치 및 StorSimple 가상 장치 모두에 적용됩니다.
 
-> [AZURE.NOTE]발생할 수 있는 장치 구성 관련 문제는 처음으로 장치를 배포할 때 나타나거나 장치가 작동 가능한 경우 나중에 나타날 수 있습니다. 이 문서는 처음 배포 시 문제 해결에 중점을 둡니다. 운영 장치 문제를 해결하려면 [운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)로 이동합니다.
+> [AZURE.NOTE] 발생할 수 있는 장치 구성 관련 문제는 처음으로 장치를 배포할 때 나타나거나 장치가 작동 가능한 경우 나중에 나타날 수 있습니다. 이 문서는 처음 배포 시 문제 해결에 중점을 둡니다. 운영 장치 문제를 해결하려면 [운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)로 이동합니다.
 
 또한 이 문서는 StorSimple 배포 문제 해결을 위한 도구에 대해 설명하며 단계별 문제 해결 예제를 제공합니다.
 
@@ -51,7 +51,7 @@
   - 장치 관리자 암호는 장치에 로그온하는 데 사용됩니다. 기본 장치 암호는 **Password1**입니다.
   - StorSimple 스냅숏 관리자를 사용하도록 장치를 구성할 때 StorSimple 스냅숏 관리자 암호가 필요합니다. 먼저 설치 마법사에서 암호를 설정한 다음 StorSimple Manager 서비스에서 설정하고 변경할 수 있습니다. 이 암호는 StorSimple 스냅숏 관리자 장치를 인증합니다.
  
-    > [AZURE.IMPORTANT]등록 하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
+    > [AZURE.IMPORTANT] 등록 하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
 
 4. 장치 등록: Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하여 장치를 등록하는 최종 단계입니다. 등록할 때 Azure 클래식 포털에서 [서비스 등록 키](storsimple-manage-service.md#get-the-service-registration-key)를 가져와야 하며, 설치 마법사에서 제공해야 합니다. 장치가 성공적으로 등록되면 서비스 데이터 암호화 키가 제공됩니다. 해당 서비스로 모든 후속 장치 서비스를 등록할 때 필요하기 때문에 이 암호화 키를 안전한 위치에 보관해야 합니다.
 
@@ -117,7 +117,7 @@
 
 장치를 등록하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호 복구 워크플로를 사용하려면 장치를 등록해야 합니다.
 
-> [AZURE.IMPORTANT]일반적으로 암호를 적용하려는 시도가 실패하면 성공할 때까지 다음 소프트웨어가 반복적으로 암호를 수집합니다. 드물지만 암호를 적용할 수 없는 경우가 있습니다. 이 상황에서는 장치를 등록하여 계속할 수 있지만 암호가 변경되지 않습니다. 변경되지 않은 암호 - 장치 관리자 암호 또는 StorSimple 스냅숏 관리자 암호에 대해 표시되지 않습니다. 이러한 상황이 발생하는 경우 두 암호를 변경하는 것이 좋습니다.
+> [AZURE.IMPORTANT] 일반적으로 암호를 적용하려는 시도가 실패하면 성공할 때까지 다음 소프트웨어가 반복적으로 암호를 수집합니다. 드물지만 암호를 적용할 수 없는 경우가 있습니다. 이 상황에서는 장치를 등록하여 계속할 수 있지만 암호가 변경되지 않습니다. 변경되지 않은 암호 - 장치 관리자 암호 또는 StorSimple 스냅숏 관리자 암호에 대해 표시되지 않습니다. 이러한 상황이 발생하는 경우 두 암호를 변경하는 것이 좋습니다.
 
 StorSimple 관리자 서비스를 통해 Azure 클래식 포털에서 암호를 재설정할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -163,7 +163,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
   1. Windows 클라이언트에서 **eventvwr** 명령을 실행합니다. 이벤트 뷰어를 시작합니다.
   2. **작업** 창에서 **저장된 로그 열기**를 클릭하고 etvx/etw 형식(지원 패키지)의 로그 파일을 가리킵니다. 이제 파일을 볼 수 있습니다. 파일을 연 후 마우스 오른쪽 단추로 클릭하고 텍스트로 파일을 저장할 수 있습니다.
    
-    > [AZURE.IMPORTANT]**Get-WinEvent** cmdlet을 사용하여 Windows PowerShell에서 이 파일을 열 수도 있습니다. 자세한 내용은 Windows PowerShell cmdlet 참조 설명서의 [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx)를 참조하세요.
+    > [AZURE.IMPORTANT] **Get-WinEvent** cmdlet을 사용하여 Windows PowerShell에서 이 파일을 열 수도 있습니다. 자세한 내용은 Windows PowerShell cmdlet 참조 설명서의 [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx)를 참조하세요.
 
 5. 로그가 이벤트 뷰어에서 열리면, 장치 구성과 관련된 문제를 포함하는 다음 로그를 찾습니다.
 
@@ -261,7 +261,7 @@ Ping이 비활성화된 경우 ping을 활성화하여 이 cmdlet과 연결 문�
 
 `Test-Connection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
-> [AZURE.NOTE]첫 번째 샘플에서 장치는 잘못된 DNS로 구성됩니다. 두 번째 샘플에서 DNS가 올바릅니다.
+> [AZURE.NOTE] 첫 번째 샘플에서 장치는 잘못된 DNS로 구성됩니다. 두 번째 샘플에서 DNS가 올바릅니다.
  
 **샘플 출력 – 잘못된 DNS**
 
@@ -328,7 +328,7 @@ Ping이 비활성화된 경우 ping을 활성화하여 이 cmdlet과 연결 문�
 
 Cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 Windows PowerShell 참조 설명서의 [HcsmConnection 테스트](https://technet.microsoft.com/library/dn715782.aspx)로 이동합니다.
 
-> [AZURE.IMPORTANT]활성 및 수동 컨트롤러 모두에 대해 이 cmdlet을 실행할 수 있습니다.
+> [AZURE.IMPORTANT] 활성 및 수동 컨트롤러 모두에 대해 이 cmdlet을 실행할 수 있습니다.
  
 `Test-HcsmConnection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
@@ -537,11 +537,11 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 
 1. 장치 구성을 확인합니다. 활성 컨트롤러에서 `Invoke-HcsSetupWizard`를 실행합니다.
 
-     >[AZURE.NOTE]설치 마법사는 활성 컨트롤러에서 실행해야 합니다. 활성 컨트롤러에 연결되어 있는지를 확인 하려면 직렬 콘솔에 표시된 배너를 찾습니다. 배너는 컨트롤러 0 또는 컨트롤러 1에 연결 되어있는지 여부 및 컨트롤러 활성 또는 수동인지를 나타냅니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동합니다.
+     > [AZURE.NOTE] 설치 마법사는 활성 컨트롤러에서 실행해야 합니다. 활성 컨트롤러에 연결되어 있는지를 확인 하려면 직렬 콘솔에 표시된 배너를 찾습니다. 배너는 컨트롤러 0 또는 컨트롤러 1에 연결 되어있는지 여부 및 컨트롤러 활성 또는 수동인지를 나타냅니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동합니다.
  
 2. 장치가 올바르게 연결되었는지 확인합니다. 장치 백플레인에서 네트워크 케이블을 확인합니다. 케이블은 장치 모델에 해당됩니다. 자세한 내용을 보려면 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [8600 StorSimple 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
-     >[AZURE.NOTE]10 GbE 네트워크 포트를 사용하는 경우제공된 QSFP-SFP 어댑터 및 SFP 케이블을 사용해야 합니다. 자세한 내용은 [Mellanox 포트에 대한 OEM 공급 업체에서 권장한 케이블, 스위치 및 트랜시버 목록](http://www.mellanox.com/page/cables?mtag=cable_overview)을 참조하세요.
+     > [AZURE.NOTE] 10 GbE 네트워크 포트를 사용하는 경우제공된 QSFP-SFP 어댑터 및 SFP 케이블을 사용해야 합니다. 자세한 내용은 [Mellanox 포트에 대한 OEM 공급 업체에서 권장한 케이블, 스위치 및 트랜시버 목록](http://www.mellanox.com/page/cables?mtag=cable_overview)을 참조하세요.
  
 3. 네트워크 인터페이스의 상태를 확인합니다.
 
@@ -559,7 +559,7 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
   - 설치 마법사를 다시 실행하고(**Invoke-HcsSetupWizard** 실행), 값을 다시 입력하여 오류가 없는지 확인합니다. 
   - 사용된 등록 확인 키를 확인합니다. 동일한 등록 키를 여러 장치에서 StorSimple Manager 서비스에 연결하는데 사용할 수 있습니다. [서비스 등록 키 받기](storsimple-manage-service.md#get-the-service-registration-key)의 절차를 사용하여 올바른 등록 키를 사용하고 있는지 확인합니다.
 
-    > [AZURE.IMPORTANT]여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 장치를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 관리자 서비스로 장치를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 장치의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
+    > [AZURE.IMPORTANT] 여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 장치를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 관리자 서비스로 장치를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 장치의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
 
 6. Test-Connection cmdlet을 사용하여 외부 네트워크에 연결했는지 확인합니다. 자세한 내용은 [Test-Connection cmdlet 문제 해결](#troubleshoot-with-the-test-connection-cmdlet)로 이동합니다.
 
@@ -577,4 +577,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0525_2016-->

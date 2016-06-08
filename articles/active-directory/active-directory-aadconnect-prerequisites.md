@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/10/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect에 대한 필수 조건
@@ -42,7 +42,11 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 응용 프로그램 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. 원격 설치를 위해 이러한 서버에서 [Windows 원격 관리](#windows-remote-management)를 사용할 수 있어야 합니다.
 - Active Directory Federation Services를 배포하고 있는 경우 [SSL 인증서](#ssl-certificate-requirements)가 필요합니다.
 - Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
-- Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다**.
+- Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다.
+- 별도의 SQL Server를 사용하는 경우 다음 요구 사항이 적용됩니다.
+    - Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다**.
+    - 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이 경우 이름에 \_CI\_를 사용하여 식별됩니다. 이름에 \_CS\_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
+    - 데이터베이스 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. 데이터베이스 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
 ### 계정
 - 통합하려는 Azure AD 디렉터리에 대한 Azure AD 전역 관리자 계정 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
@@ -57,6 +61,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](active-directory-aadconnect-ports.md)를 참조하세요.
 - 프록시가 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 URL이 프록시에서 열려야 합니다.
     - 독일의 Microsoft 클라우드 또는 Microsoft Azure Government 클라우드를 사용하는 경우 URL은 [Azure AD Connect 동기화 서비스 인스턴스가 고려 사항](active-directory-aadconnect-instances.md)을 참조하세요.
+- Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 Azure AD와 통신합니다. [Azure AD Connect에 TLS 1.2 사용](#enable-tls-12-for-azure-ad-connect)의 단계에 따라 TLS 1.2로 변경할 수 있습니다.
 - 인터넷에 연결하는 데 아웃바운드 프록시를 사용하는 경우 설치 마법사 및 Azure AD Connect 동기화에서 인터넷 및 Azure AD에 연결하려면 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일에 다음 설정을 추가해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYADRESS&gt;는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
 
 ```
@@ -93,7 +98,9 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - 선택 사항: 동기화를 확인할 테스트 사용자 계정
 
 ## 구성 요소 필수 조건
-Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. Windows Server 버전에 따라 다음을 수행합니다.
+
+### PowerShell 및 .Net Framework
+Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 - Windows Server 2012R2
   - Microsoft PowerShell은 기본적으로 설치되므로 조치가 필요하지 않습니다.
@@ -104,6 +111,23 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 - Windows Server 2008
   - 지원되는 최신 버전의 PowerShell은 **Windows Management Framework 3.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
  - .NET Framework 4.5.1과 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
+
+### Azure AD Connect에 TLS 1.2 사용
+Azure AD Connect는 동기화 엔진 서버와 Azure AD 간의 통신을 암호화하기 위해 기본적으로 TLS 1.0을 사용합니다. 서버에서 기본적으로 TLS 1.2를 사용하도록 .Net 응용 프로그램을 구성하여 이를 변경할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
+
+1. Windows Server 2008에서는 TLS 1.2를 사용할 수 없습니다. Windows Server 2008R2 이상이 필요합니다. 운영 체제에 대해 .Net 4.5.1 핫픽스를 설치했는지 확인하고 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조하세요. 이 릴리스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
+2. Windows Server 2008R2를 사용하는 경우 TLS 1.2가 사용되도록 설정되어 있는지 확인합니다. Windows Server 2012 서버 및 이후 버전의 서버 운영 체제에서는 TLS 1.2가 이미 사용되도록 설정되어 있습니다.
+```
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+```
+3. 모든 운영 체제에 대해 이 레지스트리 키를 설정하고 서버를 다시 시작합니다.
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+"SchUseStrongCrypto"=dword:00000001
+```
+4. 동기화 엔진 서버와 원격 SQL Server 간에 TLS 1.2를 사용하도록 설정하려는 경우 [Microsoft SQL Server에 대한 TLS 1.2 지원](https://support.microsoft.com/kb/3135244)을 위해 필요한 버전이 설치되어 있는지 확인합니다.
 
 ## 페더레이션 설치 및 구성을 위한 필수 조건
 
@@ -173,4 +197,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

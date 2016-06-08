@@ -144,13 +144,13 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
-	이는 CDN 끝점의 다음 원본 URL과 일치합니다.
+이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
 	http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동한 경우 브라우저에 따라 게시한 웹앱에서 제공한 bootstrap.css를 다운로드하거나 열라는 메시지가 표시됩니다.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
+![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
 마찬가지로 CDN 끝점에서 **http://*&lt;serviceName>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예:
 

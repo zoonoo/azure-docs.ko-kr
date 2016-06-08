@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/24/2016"
 	ms.author="nitinme"/>
 
 
 # Livy를 사용하여 Linux의 HDInsight Spark 클러스터에 원격으로 Spark 작업 제출(미리 보기)
 
-Azure HDInsight의 Apache Spark 클러스터는 모든 위치에서 Spark 클러스터에 원격으로 작업을 제출하기 위한 Livy, REST 인터페이스를 포함합니다. 자세한 설명서는 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)를 참조하세요.
+Azure HDInsight의 Apache Spark 클러스터는 Spark 클러스터에 원격으로 작업을 제출하기 위한 Livy, REST 인터페이스를 포함합니다. 자세한 설명서는 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)를 참조하세요.
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 아래 구문은 Curl을 사용하여 Livy 끝점에 대한 REST 호출을 만듭니다.
 
@@ -69,6 +69,14 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 **예제**:
 
 	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
+
+## Livy 및 고가용성
+
+Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 제공합니다. 다음은 몇 가지 예입니다.
+
+* Spark 클러스터에 원격으로 작업을 제출한 후에 Livy 서비스가 다운되면 작업은 백그라운드에서 계속 실행됩니다. Livy는 백업된 후 작업의 상태를 복원하고 다시 보고합니다.
+
+* HDInsight용 Jupyter 노트북은 백 엔드에서 Livy를 통해 구동됩니다. 노트북에서 Spark 작업이 실행되고 있으며 Livy 서비스가 다시 시작되면 해당 노트북은 코드 셀을 계속 실행합니다.
 
 ## 예제 보기
 
@@ -189,4 +197,4 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

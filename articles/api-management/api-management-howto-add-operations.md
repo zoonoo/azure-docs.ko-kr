@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API에 작업을 추가하는 방법
@@ -168,4 +168,4 @@ API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다.
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [Azure API 관리에서 작업 결과를 캐시하는 방법]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect 연결 문제 해결
@@ -33,14 +33,14 @@ Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 �
 
 이 중 다음 표는 Azure AD에 연결하기 위한 절대적인 최소 기본 사항입니다. 이 목록은 비밀번호 쓰기 저장 또는 Azure AD Connect Health와 같은 선택적 기능은 포함하지 않습니다. 여기에 초기 구성 시 발생하는 문제 해결에 도움이 되는 내용이 나와 있습니다.
 
-| URL | 포트 | 설명 |
-| ---- | ---- | ---- |
-| mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| **.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| *.entrust.com | HTTP/80 | MFA용 CRL 목록을 다운로드하는 데 사용합니다. |
-| *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | MFA에 사용됩니다. |
-| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 및 가져오기/내보내기 데이터를 구성하는 데 사용됩니다. |
+URL | 포트 | 설명
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다.
+\*.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다.
+\*.entrust.com | HTTP/80 | MFA에 대한 CRL 목록을 다운로드하는 데 사용됩니다.
+\*.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다.
+secure.aadcdn.microsoftonline-p.com | HTTPS/443 | MFA에 사용됩니다.
+\*.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다.
 
 ## 마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
@@ -51,7 +51,7 @@ Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 �
 마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - 이 오류가 표시되면 [machine.config](active-directory-aadconnect-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인합니다.
-- 올바로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
+- 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
 
 ### MFA 끝점에 연결할 수 없음
 끝점 **https://secure.aadcdn.microsoftonline-p.com**에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
@@ -64,7 +64,7 @@ Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 �
 - 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버와 다른 컴퓨터의 https://login.microsoftonline.com에 로그인하여 계정이 사용 가능한지 확인합니다.
 
 ### 프록시 연결 확인
-Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는지 확인하려면 프록시가 웹 요청을 허용하는지 확인하기 위해 PowerShell을 사용합니다. PowerShell 프롬프트에서 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`를 실행합니다. (기술적으로 https://login.microsoftonline.com을 첫 번째로 호출하고 작동도 되지만 다른 URI가 더 빠르게 응답합니다.)
+Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는지 확인하려면 프록시가 웹 요청을 허용하는지 확인하기 위해 PowerShell을 사용합니다. PowerShell 프롬프트에서 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`를 실행합니다. 기술적으로 https://login.microsoftonline.com을 첫 번째로 호출하고 작동도 되지만 다른 URI가 더 빠르게 응답합니다.
 
 PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사용합니다. winhttp/netsh 설정이 이러한 cmdlet에 영향을 주지 않아야 합니다.
 
@@ -74,10 +74,10 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 
 프록시가 올바르게 구성되지 않으면 오류가 표시됩니다. ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| 오류 | 오류 텍스트 | 주석 |
-| ---- | ---- | ---- |
-| 403 | 사용할 수 없음 | 요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)이 열려 있는지 확인합니다. |
-| 407 | 프록시 인증 필요 | 프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 machine.config에서 인증이 구성되었는지 확인합니다. 또한 서비스 계정뿐만 아니라 마법사를 실행하는 사용자에 대해 도메인 계정을 사용하고 있는지 확인합니다. |
+오류 | 오류 텍스트 | 주석
+---- | ---- | ---- |
+403 | 사용할 수 없음 | 요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)이 열려 있는지 확인합니다.
+407 | 프록시 인증 필요 | 프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 machine.config에서 인증이 구성되었는지 확인합니다. 또한 서비스 계정뿐만 아니라 마법사를 실행하는 사용자에 대해 도메인 계정을 사용하고 있는지 확인합니다.
 
 ## Azure AD Connect와 Azure AD 간의 통신 패턴
 위의 모든 단계를 수행했는데도 여전히 연결할 수 없다면 이제 네트워크 로그를 살펴봅니다. 이 섹션에는 일반적이고 성공적인 연결 패턴이 나와 있습니다. 네트워크 로그를 읽고 있는 중이라면 무시해도 되는 지엽적인 내용도 나옵니다.
@@ -135,7 +135,7 @@ Time | URL
 Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않은 도메인의 사용자 이름으로 로그인을 시도하시겠습니까?
 
 ### 사용자 영역 검색에 실패했습니다
-네트워크 또는 프록시 구성 문제 네트워크에 도달할 수 없는 경우 [설치 마법사에서 연결 문제 해결](#troubleshoot-connectivity-issues-in-the-installation-wizard)을 참조하세요.
+네트워크 또는 프록시 구성 문제 네트워크에 연결할 수 없는 경우 [설치 마법사에서 연결 문제 해결](#troubleshoot-connectivity-issues-in-the-installation-wizard)을 참조하세요.
 
 ### 사용자 암호가 만료되었습니다
 자격 증명이 만료되었습니다. 암호를 변경합니다.
@@ -170,9 +170,9 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 이 오류는 로그인 도우미가 프록시를 연결할 수 없거나 프록시가 요청을 허용하지 않을 때 표시됩니다. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
 - 이 오류가 표시되면 [netsh](active-directory-aadconnect-prerequisites.md#connectivity)에서 프록시 구성을 살펴보고 구성이 올바른지 확인합니다. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- 올바로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
+- 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

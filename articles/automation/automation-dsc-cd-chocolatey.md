@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/24/2016"
    ms.author="golive"/>
 
 # 사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
@@ -171,7 +171,7 @@ New-ConfigurationScript.ps1:
 
 ## 참고 사항
 
-이 사용 예에서는 Azure 갤러리의 일반 Windows 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다. 그러나 이미지에 반영되는 구성을 조정하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업 보다 훨씬 어렵습니다.
+이 사용 예에서는 Azure 갤러리의 일반 Windows 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다. 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
 
 이 방법을 VM에 사용하기 위해 ARM 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1:
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

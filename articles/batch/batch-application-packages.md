@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma" />
 
 # Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포
@@ -29,6 +29,8 @@ Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 
 이 문서에서 설명하는 응용 프로그램 패키지 기능은 2016년 3월 10일 이후에 만들어진 배치 풀하고*만* 호환됩니다. 이 날짜 전에 만들어진 풀의 계산 노드에는 응용 프로그램 패키지가 배포되지 않습니다.
 
 이 기능은 [배치 REST API][api_rest] 버전 2015-12-01.2.2 및 해당 [배치 .NET][api_net] 라이브러리 버전 3.1.0에서 도입되었습니다. 배치를 사용할 때에는 항상 최신 API 버전을 사용하는 것이 좋습니다.
+
+> [AZURE.IMPORTANT] 응용 프로그램 패키지는 현재 **CloudServiceConfiguration**으로 만든 풀에서만 지원됩니다. VirtualMachineConfiguration 이미지로 만든 풀에는 응용 프로그램 패키지를 사용할 수 없습니다. 두 개의 서로 다른 구성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)의 [가상 컴퓨터 구성](batch-linux-nodes.md#virtual-machine-configuration) 섹션을 참조하세요.
 
 ## 응용 프로그램 및 응용 프로그램 패키지 정보
 
@@ -50,7 +52,7 @@ Azure 배치 내에서 **응용 프로그램**이란 풀의 계산 노드에 자
 
 응용 프로그램 패키지는 배치 솔루션의 코드를 단순화하고, 태스크에서 실행하는 응용 프로그램을 관리하는 데 필요한 오버헤드를 낮출 수 있습니다.
 
-응용 프로그램 패키지를 사용하면 풀의 시작 태스크가 노드에 설치할 개별 리소스 파일 목록을 지정할 필요가 없습니다. Azure 저장소 또는 노드에서 이러한 파일의 여러 버전을 수동으로 관리할 필요가 없습니다. Azure 저장소 계정의 파일에 대한 액세스를 제공하기 위해 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성할 필요가 없습니다.
+응용 프로그램 패키지를 사용하면 풀의 시작 태스크가 노드에 설치할 개별 리소스 파일 목록을 지정할 필요가 없습니다. Azure 저장소 또는 노드에서 이러한 파일의 여러 버전을 수동으로 관리할 필요가 없습니다. Azure 저장소 계정의 파일에 대한 액세스 권한을 제공하기 위해 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성할 필요가 없습니다.
 
 배치는 백그라운드의 세부적인 Azure 저장소 작업을 처리하여 응용 프로그램 패키지를 저장하고 계산 노드에 배포합니다. 따라서 코드와 관리 오버헤드가 간소화됩니다.
 
@@ -62,9 +64,9 @@ Azure 포털을 사용하여 응용 프로그램 패키지를 추가, 업데이�
 
 ### 저장소 계정 연결
 
-응용 프로그램 패키지를 사용하려면 먼저 Azure 저장소 계정을 배치 계정에 연결해야 합니다. 아직 배치 계정에 대해 저장소 계정을 구성하지 않은 경우, 배치 계정 블레이드에서 *응용 프로그램* 타일을 처음으로 클릭하면 Azure 포털에서 경고를 표시합니다.
+응용 프로그램 패키지를 사용하려면 먼저 Azure 저장소 계정을 배치 계정에 연결해야 합니다. 아직 배치 계정에 대해 저장소 계정을 구성하지 않은 경우, 배치 계정 블레이드에서 *응용 프로그램* 타일을 처음으로 클릭하면 Azure 포털에서 경고가 표시됩니다.
 
-> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만*을 지원합니다. Azure 저장소 계정을 배치 계정에 연결할 경우 **범용** 저장소 계정*만*을 연결합니다.
+> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만* 지원합니다. Azure 저장소 계정을 배치 계정에 연결할 경우 **범용** 저장소 계정*만* 연결합니다.
 
 ![저장소 계정이 구성되지 않았다는 Azure 포털의 경고][9]
 
@@ -146,7 +148,7 @@ Azure 포털을 사용하여 응용 프로그램 패키지를 추가, 업데이�
 
 ![Azure 포털의 응용 프로그램 패키지 추가 블레이드][8]
 
-여기에서 볼 수 있듯이, 비활성화된 "응용 프로그램 ID" 텍스트 상자를 제외하고, 필드가 *새 응용 프로그램* 블레이드의 필드와 일치합니다. 위와 마찬가지로, 새 패키지의 **버전**을 지정하고, **응용 프로그램 패키지** ZIP 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
+여기에서 볼 수 있듯이, 비활성화된 "응용 프로그램 ID" 텍스트 상자를 제외하고, 필드가 *새 응용 프로그램* 블레이드의 필드와 일치됩니다. 위와 마찬가지로, 새 패키지의 **버전**을 지정하고, **응용 프로그램 패키지** ZIP 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
 
 ### 응용 프로그램 패키지 업데이트 또는 삭제
 
@@ -222,9 +224,13 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## 풀의 응용 프로그램 패키지 업데이트
 
-기존 풀이 이미 응용 프로그램 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 다시 부팅되거나 이미지로 다시 설치되는 모든 기존 노드와 마찬가지로, 풀에 조인하는 모든 새 노드는 새로 지정된 패키지를 설치합니다. 패키지 참조를 업데이트할 때 이미 풀에 있는 계산 노드는 새 응용 프로그램 패키지를 자동으로 설치하지 않습니다.
+기존 풀이 이미 응용 프로그램 패키지를 통해 구성된 경우 해당 풀에 대해 새 패키지를 지정할 수 있습니다. 풀에 대해 새 패키지 참조를 지정하면 다음이 적용됩니다.
 
-이 예에서는 기존 풀의 *blender* 응용 프로그램 2.7 버전이 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] 중 하나로 구성되었습니다. 풀의 노드를 2.76b 버전으로 업데이트하려면 새 버전을 사용하여 [ApplicationPackageReference][net_pkgref]를 지정하고 변경 내용을 커밋합니다.
+* 다시 부팅되거나 이미지로 다시 설치되는 모든 기존 노드와 마찬가지로, 풀에 조인하는 모든 새 노드는 새로 지정된 패키지를 설치합니다.
+* 패키지 참조를 업데이트할 때 이미 풀에 있는 계산 노드는 새 응용 프로그램 패키지를 자동으로 설치하지 않으므로 새 패키지를 받기 위해 다시 부팅하거나 이미지를 다시 작성해야 합니다.
+* 새 패키지가 배포될 때 만들어진 환경 변수는 새 응용 프로그램 패키지 참조를 반영합니다.
+
+이 예제에서는 기존 풀의 *blender* 응용 프로그램 2.7 버전이 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] 중 하나로 구성되었습니다. 풀의 노드를 2.76b 버전으로 업데이트하려면 새 버전을 사용하여 [ApplicationPackageReference][net_pkgref]를 지정하고 변경 내용을 커밋합니다.
 
 ```csharp
 string newVersion = "2.76b";
@@ -266,7 +272,7 @@ foreach (ApplicationSummary app in applications)
 
 * [배치 REST API][api_rest]는 응용 프로그램 패키지 작업도 지원합니다. 예를 들어 REST API를 사용하여 설치할 패키지를 지정하는 방법은 [계정에 풀 추가][rest_add_pool]에서 [applicationPackageReferences][rest_add_pool_with_packages] 요소를 참조하세요. 배치 REST API를 사용하여 응용 프로그램 정보를 얻는 방법에 대한 자세한 내용은 [응용 프로그램][rest_applications]을 참조하세요.
 
-* 프로그래밍 방식으로 [배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 수행하는 방법을 알아보세요. [배치 관리.NET][api_net_mgmt] 라이브러리는 배치 응용 프로그램 또는 서비스에 대해 계정 만들기 및 삭제 기능을 활성화할 수 있습니다.
+* 프로그래밍 방식으로 [배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 수행하는 방법을 알아보세요. [배치 관리 .NET][api_net_mgmt] 라이브러리는 배치 응용 프로그램 또는 서비스에 대해 계정 만들기 및 삭제 기능을 활성화할 수 있습니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -295,4 +301,4 @@ foreach (ApplicationSummary app in applications)
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

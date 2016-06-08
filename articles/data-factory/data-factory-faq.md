@@ -114,17 +114,47 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 
 ## 조각 - FAQ
 
+### 내 입력 조각이 준비 상태가 아닌 이유는 무엇인가요? 
+일반적인 실수는 입력 데이터가 데이터 팩터리 외부의 데이터일 때(데이터 팩터리에 의해 생성되지 않음) 입력 데이터 집합에 대해 **external** 속성을 **true**로 설정하지 않는 것입니다.
+
+다음 예제에서는 **dataset1**에 대해서만 **external**을 true로 설정해야 합니다.
+
+**DataFactory1** 파이프라인 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 파이프라인 2: dataset3-> activity3 -> dataset4
+
+dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용하는 파이프라인을 포함하는 다른 데이터 팩터리가 있는 경우 데이터 집합이 다른 데이터 팩터리(DataFactory1, DataFactory2는 아님)에 의해 생성되므로 dataset4를 외부 데이터 집합으로 표시해야 합니다.
+
+**DataFactory2** 1 파이프라인 1: dataset4->activity4->dataset5
+
+외부 속성이 제대로 설정된 경우 입력 데이터가 입력 데이터 집합 정의에 지정된 위치에 있는지 여부를 확인합니다.
+
+### 조각이 매일 생성될 때 자정 이외의 다른 시간에 조각을 실행하는 방법은 무엇인가요?
+**offset** 속성을 사용하여 조각을 생성할 시간을 지정합니다. 이 속성에 대한 자세한 내용은 [데이터 집합 가용성](data-factory-create-datasets.md#Availability) 섹션을 참조하세요. 간단한 예제는 다음과 같습니다.
+
+	"availability":
+	{
+	    "frequency": "Day",
+	    "interval": 1,
+	    "offset": "06:00:00"
+	}
+
+기본값인 자정 대신 **오전 6시**에 시작하는 일별 조각입니다.
+
 ### 어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
-- 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다. 
-- 조각의 Status를 **Waiting**로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
+- 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#re-run-selected-activity-windows)을 참조하세요.   
+- 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
+- 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
 
 ### 조각을 처리하는 데 얼마나 오래 걸렸나요?
+모니터링 및 관리 앱에서 작업 창 탐색기를 사용하여 데이터 조각을 처리하는 데 걸린 시간을 확인합니다. 자세한 내용은 [작업 창 탐색기](data-factory-monitor-manage-app.md#activity-window-explorer)를 참조하세요.
+
+Azure 포털에서 다음을 수행할 수도 있습니다.
+
 1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **데이터 집합** 타일을 클릭합니다.
 2. **데이터 집합** 블레이드에서 특정 데이터 집합을 클릭합니다.
 3. **테이블** 블레이드의 **최근 조각** 목록에서 관심 있는 조각을 선택합니다.
@@ -152,4 +182,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

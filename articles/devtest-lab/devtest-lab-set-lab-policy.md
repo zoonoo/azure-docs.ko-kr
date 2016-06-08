@@ -44,13 +44,13 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 	- [Allowed VM Size](#set-allowed-vm-sizes)(허용 VM 크기) - 랩에서 허용되는 VM 크기 목록을 선택합니다. 사용자는 이 목록에서만 VM을 만들 수 있습니다.
 
-	- [Maximum VMs per user(사용자당 최대 VM 수)](#set-maximum-vms-per-user) - 랩에 대해 만들 수 있는 최대 VM 수와 사용자가 만들 수 있는 최대 VM 수를 지정합니다.
+	- [Maximum VMs per user](#set-maximum-vms-per-user)(사용자당 최대 VM 수) -사용자가 만들 수 있는 최대 VM 수를 지정합니다.
 
-	- [Total VMs allowed(허용된 총 VM 수)](#set-total-vms-allowed) - 랩에 대해 만들 수 있는 최대 VM 수와 사용자가 만들 수 있는 최대 VM 수를 지정합니다.
+	- [Total VMs allowed](#set-total-vms-allowed)(허용되는 총 VM 수) -랩에 대해 만들 수 있는 최대 VM 수를 지정합니다.
 
-	- [Auto shutdown](#set-auto-shutdown)(자동 종료) - 현재 랩의 VM이 종료되어야 하는 시간을 지정합니다.
+	- [Auto shutdown](#set-auto-shutdown)(자동 종료) - 현재 랩의 VM이 자동으로 종료되는 시간을 지정합니다.
 
-	- [자동 시작](#set-auto-start) - 현재 랩의 VM이 종료되어야 하는 시간을 지정합니다.
+	- [Auto start](#set-auto-start)(자동 시작) - 현재 랩의 VM이 자동으로 시작되는 시간을 지정합니다.
 
 ## 허용 VM 크기 설정
 
@@ -135,4 +135,4 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 - [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 - [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

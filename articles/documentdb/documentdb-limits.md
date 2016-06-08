@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/19/2016" 
 	ms.author="arramac"/>
 
 
@@ -26,4 +26,4 @@
 
 별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

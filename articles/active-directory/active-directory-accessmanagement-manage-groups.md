@@ -1,7 +1,7 @@
 <properties
 
 	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
+	description="How to create and manage groups to manage Azure users using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -14,19 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 
 # Azure Active Directory에서 그룹 관리
 
-Azure AD(Azure Active Directory)의 주요 기능 중 하나는 리소스에 대한 액세스를 관리하는 기능입니다. 이러한 리소스는 디렉터리에 있는 개체이거나 SaaS 응용 프로그램, Azure 서비스, SharePoint 사이트 또는 온-프레미스 리소스와 같이디렉터리 외부에 있는 리소스일 수 있습니다. 또한 리소스 소유자는 Azure AD 그룹에 리소스에 대한 액세스를 할당할 수 있습니다. 이는 해당 그룹의 멤버에게 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 그룹의 소유자는 그룹의 멤버 자격을 관리합니다. 실질적으로 리소스 소유자는 그룹의 소유자에게 권한을 위임하여 해당 리소스에 사용자를 할당합니다.
+Azure AD(Azure Active Directory) 사용자 관리의 주요 기능 중 하나는 사용자 그룹을 만드는 기능입니다. 그런 다음 그룹을 사용하여 사용자의 클래스에 라이선스를 할당할 수 있습니다. 그룹을 사용하여 액세스 권한을 할당할 수도 있습니다.
+
+- 디렉터리의 개체와 같은 리소스
+- SaaS 응용 프로그램, Azure 서비스, SharePoint 사이트 또는 온-프레미스 리소스와 같은 디렉터리 외부에 있는 리소스입니다.
+
+또한 리소스 소유자는 Azure AD 그룹에 리소스에 대한 액세스를 할당할 수 있습니다. 이는 해당 그룹의 멤버에게 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 그룹의 소유자는 그룹의 멤버 자격을 관리합니다. 실질적으로 리소스 소유자는 그룹의 소유자에게 권한을 위임하여 해당 리소스에 사용자를 할당합니다.
 
 ## 그룹을 만드는 방법
 
-**그룹 만들려면**
-
-이 작업은 조직에서 구독한 서비스에 따라 Office 365 계정 포털, Windows Intune 계정 포털 또는 Azure 포털을 사용하여 완료될 수 있습니다. 포털을 사용하여 Azure Active Directory를 관리하는 방법에 대한 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
+이 작업은 조직에서 구독한 서비스에 따라 Office 365 계정 포털, Windows Intune 계정 포털 또는 Azure 클래식 포털을 사용하여 완료될 수 있습니다. 비 Azure 포털을 사용하여 Azure Active Directory를 관리하는 방법에 대한 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리 이름을 선택합니다.
 
@@ -72,7 +75,7 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여(단일 비교�
 > [AZURE.NOTE] 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 중첩 그룹 구성원은 이번 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
 >
 > 그룹의 동적 멤버 자격에는 할당될 Azure AD Premium 라이선스가 필요합니다.
-> 
+>
 > - 그룹의 규칙을 관리하는 관리자
 > - 규칙에 따라 그룹의 멤버로 선택된 모든 사용자
 
@@ -102,4 +105,4 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여(단일 비교�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

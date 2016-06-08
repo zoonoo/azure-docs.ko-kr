@@ -153,7 +153,7 @@
 
 디스크에 복원한 후에 가상 컴퓨터를 다시 만들기 위해 다음 단계를 수행합니다.
 
-1. [PowerShell](backup-azure-vms-automation.md/#restore-an-azure-vm)을 사용하여 복구 서비스 자격 증명 모음에서 디스크 복원
+1. [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)을 사용하여 복구 서비스 자격 증명 모음에서 디스크 복원
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는 데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
@@ -167,4 +167,4 @@ VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

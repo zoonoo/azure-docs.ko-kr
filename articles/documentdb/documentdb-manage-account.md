@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정을 관리하는 방법
@@ -116,4 +116,4 @@ Azure 포털에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하
 
 DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)에서 Azure DocumentDB 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

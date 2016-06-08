@@ -21,8 +21,8 @@
 | 빠른 참조 |
 | --------------- |
 | [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [논리 앱 관리 API 설명서](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [논리 앱 커넥터 문서](../connectors/apis-list.md) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
 Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 수 있게 해주는 완전히 관리되는 개발자용 PaaS(Platform as a Service)입니다. 논리 앱은 이 제품군의 일부로, 기술 사용자나 개발자가 사용하기 쉬운 비주얼 디자이너를 사용하여 비즈니스 프로세스 실행 및 워크플로를 자동화할 수 있게 합니다.
 
@@ -68,6 +68,7 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 ## 시작  
 
  - 논리 앱을 시작하려면 [논리 앱 만들기][create] 자습서를 따르세요.  
+ - [일반적인 예제 및 시나리오 보기](app-service-logic-examples-and-scenarios.md)
  - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
  - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 - Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스][appservice]를 참조하세요.
@@ -80,4 +81,4 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!------HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

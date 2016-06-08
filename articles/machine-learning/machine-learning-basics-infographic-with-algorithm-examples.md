@@ -20,17 +20,17 @@
 
 # 다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 
-기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘을 파악합니다. 알고리즘 예제에 대한 링크를 통해 기계 학습 초보자는 사용할 알고리즘과 용도를 이해할 수 있습니다.
+기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드합니다. 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘에 대해 알아봅니다. 알고리즘 예제를 통해 기계 학습 초보자는 사용할 알고리즘과 용도를 이해할 수 있습니다.
 
-## 기계 학습 스튜디오에서 널리 사용 가능한 알고리즘
+## 기계 학습 스튜디오에서 널리 사용되는 알고리즘
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net/)에는 예측 분석 문제를 해결하는 데 사용할 수 있는 많은 기계 학습 알고리즘이 포함되어 있습니다. 아래의 다운로드 가능한 인포그래픽은 기계 학습 질문에 답변하는 데 **회귀**, **이상 감지**, **클러스터링** 및 **분류**라는 네 가지 유형의 기계 학습 알고리즘을 어떻게 사용할 수 있는지 보여 줍니다.
+[Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석을 위한 대규모 알고리즘 라이브러리와 함께 제공됩니다. 인포그래픽은 **회귀**, **이상 탐지**, **클러스터링** 및 **분류** 등의 널리 사용되는 알고리즘 모음을 보여 줍니다.
 
-[Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)에는 이러한 알고리즘을 실제 솔루션에 적용하는 방법을 보여 주는 많은 예제가 포함되어 있습니다. 인포그래픽에 포함된 링크를 통해 각 알고리즘의 작업 예제로 이동합니다.
+[Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)는 이러한 알고리즘을 다양한 실제 솔루션에 어떻게 적용할 수 있는지를 보여 줍니다. 작업 예제를 보려면 인포그래픽에 대한 링크를 살펴보세요.
 
-## 기계 학습의 기본 인포그래픽 다운로드
+## 알고리즘 예제와 함께 인포그래픽을 다운로드합니다.
 
-**[다운로드: 알고리즘 예제에 대한 링크를 포함하는 기계 학습 기본 사항의 인포그래픽](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[다운로드: 알고리즘 예제에 대한 링크를 포함하는 기계 학습 기본 사항의 인포그래픽(PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항 널리 사용되는 알고리즘입니다. 초보자용 기계 학습입니다.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
@@ -52,4 +52,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

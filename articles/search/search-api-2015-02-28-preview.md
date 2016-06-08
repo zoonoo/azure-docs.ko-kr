@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
@@ -1056,35 +1056,112 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 
 **응답**
 
-상태 코드: 작업 성공 시의 응답에는 ‘200 OK’가 반환됩니다. 이 응답은 모든 항목이 올바르게 인덱싱되었음을 의미합니다(모든 항목의 'status' 필드가 true로 설정됨).
+작업 성공 시의 응답에는 상태 코드 200 (OK)가 반환됩니다. 이 응답은 모든 항목이 올바르게 인덱싱되었음을 의미합니다. 이는 모든 항목에 대해 `status` 속성이 true로 설정되고 `statusCode` 속성이 201(새롭게 업로드된 문서의 경우) 또는 200(병합 또는 삭제된 문서의 경우)으로 설정되는 것을 나타냅니다.
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-상태 코드: 하나 이상의 항목이 올바르게 인덱싱되지 않은 경우에는 207이 반환됩니다(인덱싱되지 않은 항목의 'status' 필드가 false로 설정됨).
+하나 이상의 항목이 성공적으로 인덱싱되지 않은 경우 상태 코드 207(다중 상태)이 반환됩니다. 인덱싱되지 않은 항목은 `status` 필드가 false로 설정됩니다. `errorMessage` 및 `statusCode` 속성은 인덱싱 오류의 원인을 표시합니다.
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-`errorMessage` 속성은 가능한 경우 인덱싱 오류의 원인을 표시합니다.
+다음 표는 응답에 반환될 수 있는 다양한 문서별 상태 코드를 설명합니다. 일부는 요청 자체로 문제를 나타내는 반면 일부는 임시 오류 상태를 나타냅니다. 후자는 지연 후 다시 시도해야 합니다.
 
-**참고**: 클라이언트 코드에서 207 응답이 자주 반환된다면 시스템 부하가 높기 때문일 수 있습니다. `errorMessage` 속성을 통해 시스템 부하가 원인인지 확인할 수 있습니다. 시스템 부하가 원인이라면 ***인덱싱 요청을 제한***하는 것이 좋습니다. 인덱싱 트래픽이 감소하지 않는 경우에는 시스템에서 모든 요청을 거부하며 503 오류가 발생할 수 있습니다.
+<table style="font-size:12">
+    <tr>
+		<th>상태 코드</th>
+		<th>의미</th>
+		<th>재시도 가능</th>
+		<th>참고 사항</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>문서가 성공적으로 수정되었거나 삭제되었습니다.</td>
+		<td>해당 없음</td>
+		<td>삭제 작업은 <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>입니다. 즉, 문서 키가 인덱스에 없더라도 해당 키로 삭제 작업을 시도하면 200 상태 코드가 발생합니다.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>문서를 성공적으로 만들었습니다.</td>
+		<td>해당 없음</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>인덱싱되는 것을 방지하는 문서에 오류가 발생했습니다.</td>
+		<td>아니요</td>
+		<td>응답에서 오류 메시지는 문서의 문제를 표시합니다.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>지정된 키가 인덱스에 존재하지 않으므로 문서를 병합할 수 없습니다.</td>
+		<td>아니요</td>
+		<td>새 문서를 만들기 때문에 업로드에 이 오류가 발생하지 않으며 <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>이므로 삭제에 오류가 발생하지 않습니다.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>문서를 인덱싱하려고 할 때 버전 충돌이 감지되었습니다.</td>
+		<td>예</td>
+		<td>동일한 문서를 동시에 한 번 이상 인덱싱하려고 하는 경우 발생할 수 있습니다.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>'true'로 설정된 'allowIndexDowntime' 플래그가 업데이트되었으므로 인덱스를 일시적으로 사용할 수 없습니다.</td>
+		<td>예</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>큰 부하로 인해 검색 서비스를 일시적으로 사용할 수 없습니다.</td>
+		<td>예</td>
+		<td>이 경우 다시 시도하기 전에 코드는 대기해야 합니다. 그렇지 않으면 서비스 사용 불가가 연장될 위험이 있습니다.</td>
+	</tr>
+</table> 
 
-상태 코드: 429는 인덱스당 문서 수의 할당량이 초과되었음을 나타냅니다. 이 경우에는 새 인덱스를 만들거나 업그레이드를 통해 용량 제한을 높여야 합니다.
+**참고**: 클라이언트 코드에서 207 응답이 자주 반환된다면 시스템 부하가 높기 때문일 수 있습니다. 503에 대한 `statusCode` 속성을 통해 시스템 부하가 원인인지 확인할 수 있습니다. 시스템 부하가 원인이라면 ***인덱싱 요청을 제한***하는 것이 좋습니다. 인덱싱 트래픽이 감소하지 않는 경우에는 시스템에서 모든 요청을 거부하며 503 오류가 발생할 수 있습니다.
+
+상태 코드 429는 인덱스당 문서 수의 할당량이 초과되었음을 나타냅니다. 이 경우에는 새 인덱스를 만들거나 업그레이드를 통해 용량 제한을 높여야 합니다.
 
 **예제:**
 
@@ -1244,9 +1321,13 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `scoringProfile=[string]`(선택) - 결과를 정렬하기 위해 일치하는 문서의 일치 점수를 평가할 점수 매기기 프로필의 이름입니다.
 
-`scoringParameter=[string]`(0 이상) - 이름: 값 형식을 사용하여 점수 매기기 함수에 정의된 각 매개 변수(예: `referencePointParameter`)의 값을 나타냅니다. 예를 들어 점수 매기기 프로필이 "mylocation"라는 매개 변수를 사용하여 함수를 정의하는 경우 쿼리 문자열 옵션은 &scoringParameter=mylocation:-122.2,44.8입니다.
+`scoringParameter=[string]`(0 이상) - `name-value1,value2,...` 형식을 사용하여 점수 매기기 함수에 정의된 각 매개 변수(예: `referencePointParameter`)의 값을 나타냅니다.
 
-> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `scoringParameter` 대신 `scoringParameters`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 이름:값 쌍입니다.
+- 예를 들어 점수 매기기 프로필이 "mylocation"라는 매개 변수를 사용하여 함수를 정의하는 경우 쿼리 문자열 옵션은 `&scoringParameter=mylocation--122.2,44.8`입니다. 첫 번째 대시는 값 목록에서 이름을 구분하는 반면 두 번째 대시는 첫 번째 값의 일부입니다(이 예제의 경도).
+- 쉼표를 포함할 수 있는 태그 가속과 같은 점수 매기기 매개 변수의 경우 작은따옴표를 사용하여 목록에서 해당 값을 이스케이프할 수 있습니다. 값 자체가 작은따옴표를 포함하는 경우 두 배로 높여 이스케이프할 수 있습니다.
+  - 예를 들어 "mytag"라는 태그 가속 매개 변수가 있고 "Hello, O'Brien" 및 "Smith" 태그 값을 상승하려는 경우 쿼리 문자열 옵션은 `&scoringParameter=mytag-'Hello, O''Brien',Smith`입니다. 따옴표는 쉼표를 포함하는 값에만 필요합니다.
+
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `scoringParameter` 대신 `scoringParameters`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 `name-values` 쌍입니다.
 
 `minimumCoverage`(선택 사항, 기본값 100까지) - 성공으로 보고할 쿼리를 위해 검색 쿼리를 통해 처리해야 하는 인덱스의 백분율을 나타내는 0과 100 사이의 숫자입니다. 기본적으로 전체 인덱스를 사용할 수 있습니다. 또는 `Search`이(가) HTTP 상태 코드 503을 반환합니다. `minimumCoverage` 및 `Search` 성공을 설정하는 경우 HTTP 200을 반환하며 쿼리에 포함되었던 인덱스의 백분율을 나타내는 응답에 `@search.coverage` 값을 포함합니다.
 
@@ -1492,13 +1573,13 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 13) 두 개의 거리 점수 매기기 함수를 사용하는 "geo"라는 점수 매기기 프로필이 있는 것으로 가정하여 인덱스를 검색합니다. 두 함수는 각각 "currentLocation"이라는 매개 변수와 "lastLocation"이라는 매개 변수를 정의합니다.
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 검색 가능한 필드에 "comfort" 및 "location"이라는 용어가 있지만 "motel"이라는 용어가 없는 호텔을 반환합니다.
@@ -1772,4 +1853,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

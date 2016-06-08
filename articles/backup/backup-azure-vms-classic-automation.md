@@ -20,8 +20,8 @@
 # PowerShell을 사용하여 Azure VM의 배포 및 백업 관리
 
 > [AZURE.SELECTOR]
-- [ARM VM PowerShell](backup-azure-vms-automation.md)
-- [클래식 VM PowerShell](backup-azure-vms-classic-automation.md)
+- [ARM](backup-azure-vms-automation.md)
+- [클래식](backup-azure-vms-classic-automation.md)
 
 이 문서에서는 Azure IaaS VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여줍니다.
 
@@ -342,4 +342,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 이 보고서 출력에 차트 기능을 추가하려는 경우 TechNet 블로그 게시물에서 [PowerShell을 사용한 차트 작성](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

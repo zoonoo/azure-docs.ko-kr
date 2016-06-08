@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/05/2016"
+   	ms.date="05/18/2016"
    	ms.author="nitinme"/>
 
 #Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -78,7 +78,7 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
 
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
-    $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+    $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
@@ -150,4 +150,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

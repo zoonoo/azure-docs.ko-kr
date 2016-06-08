@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="06/01/2016"
     ms.author="magoedte"/>
 
 # Azure 실행 계정으로 Runbook 인증
@@ -68,13 +68,10 @@ AzureRunAsConnection|자동화 계정 만드는 동안 실행 계정을 만들�
 
 계속하기 전에 다음을 확인하세요.
 
-1. [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드 및 설치함
-2. 자동화 계정을 만들었습니다. 이 계정은 아래 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
-3. [Azure 자동화 작성 도구 키트](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)를 설치함
+1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 다운로드하고 설치했습니다.. Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 및 Windows 7 SP1을 실행하는 경우 [Windows 관리 프레임워크 5.0](https://www.microsoft.com/download/details.aspx?id=50395)을 설치에 사용할 수 있습니다.
+2. Azure PowerShell 1.0 이 릴리즈에 대한 정보 및 설치하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 
+3. 자동화 계정을 만들었습니다. 이 계정은 아래 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
 
-```
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
-```
 
 PowerShell 스크립트는 다음을 구성합니다.
 
@@ -201,7 +198,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 7. **테스트 창**을 클릭하여 **테스트** 블레이드를 엽니다.
 8. **시작**을 클릭하여 테스트를 시작합니다.
 9. 이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다.  
-10. 작업 상태는 클라우드의 runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+10. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
 11. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 경우에는 상태가 **완료됨**으로 표시됩니다.<br> ![보안 주체 Runbook 테스트](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. 캔버스로 돌아가려면 **테스트** 블레이드를 닫습니다.
 13. **PowerShell Runbook 편집** 블레이드를 닫습니다.
@@ -246,4 +243,4 @@ AzureAutomationTutorial 예제 Runbook에서 가져온 아래 업데이트된 �
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

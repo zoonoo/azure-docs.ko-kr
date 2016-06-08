@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Hadoop 클러스터 만들기
@@ -136,9 +136,9 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
         -type Standard_LRS `
         -Location $location 
 
-    $destStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
         -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName |  %{ $_.Key1 }
+        -Name $destStorageAccountName)[0].Value
 
     $sourceContext = New-AzureStorageContext `
         -StorageAccountName $sourceStorageAccountName `
@@ -322,7 +322,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 마지막 섹션에서 만든 계정에 대해 **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** 및 **STORAGEACCOUNTKEY**를 입력한 후 **확인**을 클릭합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다.
 3. **리소스 그룹**에서, 마지막 섹션에서 사용한 동일한 리소스 그룹을 선택합니다.
@@ -438,4 +438,4 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

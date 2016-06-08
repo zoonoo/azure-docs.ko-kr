@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/23/2016"
    ms.author="larryfr"/>
 
 #PowerShell을 사용하여 Pig 작업 실행
@@ -58,7 +58,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get credentials for the admin/HTTPs account
-        $creds=Get-Credential
+        $creds = Get-Credential
 
         #Specify the cluster name
         $clusterName = "CLUSTERNAME"
@@ -66,12 +66,11 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container = $clusterInfo.DefaultStorageContainer
+        $storageAccountKey = (Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
 
         #Store the Pig Latin into $QueryString
         $QueryString =  @"
@@ -117,7 +116,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         } else {
             # Something went wrong, display error output
             # Print the output of the Pig job.
-            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Write-Host "Display the standard error output ..." -ForegroundColor Green
             Get-AzureRmHDInsightJobOutput `
                 -Clustername $clusterName `
                 -JobId $pigJob.JobId `
@@ -128,7 +127,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
                 -DisplayOutputType StandardError
         }
 
-2. 새 Azure PowerShell 명령 프롬프트를 엽니다. **pigjob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
+2. 새 Windows PowerShell 명령 프롬프트를 엽니다. **pigjob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
 
 		.\pigjob.ps1
         
@@ -151,7 +150,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **pigjob.ps1** 파일 끝에 다음 명령을 추가하고 저장한 다음 다시 실행합니다.
 
 	# Print the output of the Pig job.
-	Write-Host "Display the standard output ..." -ForegroundColor Green
+	Write-Host "Display the standard error output ..." -ForegroundColor Green
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
@@ -179,4 +178,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

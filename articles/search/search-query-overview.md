@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Azure 검색 인덱스 쿼리
@@ -58,4 +58,4 @@ Azure 검색을 사용하면 검색 결과의 페이징을 구현하기가 쉽�
 ## 적중 항목 강조 표시
 Azure 검색에서는 `highlight`, `highlightPreTag` 및 `highlightPostTag` 매개 변수를 사용하여 검색 쿼리와 일치하는 검색 결과의 정확한 부분을 쉽게 강조할 수 있습니다. 어떤 _검색 가능한_ 필드의 일치 텍스트를 강조할지를 지정할 수 있으며 Azure 검색에서 반환하는 일치 텍스트의 시작 및 끝부분에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

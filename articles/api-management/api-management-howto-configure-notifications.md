@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법
@@ -114,4 +114,4 @@ API 관리 인스턴스의 메일 템플릿을 보고 구성하려면 왼쪽 **A
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/20/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 및 규정 준수 블로그
@@ -26,6 +26,18 @@
 
 Azure 보안과 관련된 모든 사항의 최신 소식을 확인하려면 Azure 보안 및 규정 준수 팀 블로그를 확인하세요.
 
-**최근 문서**(매주 업데이트 됨):
+**최근 문서**(이 섹션은 새 게시물에 대한 링크로 매주 업데이트됩니다.):
 
-<!---HONumber=AcomDC_0518_2016-->
+[Windows 가상 컴퓨터에 대한 Azure 디스크 암호화가 일반 공급에 도달](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/)(2016년 5월 20일)
+
+[Azure 보안 센터 위협 요소 탐지의 고급 기능](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/)(2016년 5월 17일)
+
+[Operations Management Suite(OMS) 보안 업데이트](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/12/update-on-operations-management-suite-omssecurity/)(2016년 5월 12일)
+
+[Azure 서비스 SSL/TLS 암호화 Suite 업데이트 및 RC4의 제거](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/26/azure-services-ssltls-cipher-suite-update-and-removal-of-rc4/)(2016년 4월 26일)
+
+[Azure 맬웨어 방지에 대한 진단 로깅 활성화](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/19/enabling-diagnostics-logging-for-azure-antimalware/)(2016년 4월 19일)
+
+[클라우드 평균에서 공동 책임은 무엇입니까?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (2016년 4월 18일)
+
+<!---HONumber=AcomDC_0525_2016-->

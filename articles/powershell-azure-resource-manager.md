@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/11/2016" 
 	ms.author="tomfitz"/>
 
@@ -380,4 +380,4 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

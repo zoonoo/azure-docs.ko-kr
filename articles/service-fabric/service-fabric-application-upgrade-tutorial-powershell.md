@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -70,11 +70,11 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 
 ## 3단계: 상태 정책 결정 및 매개 변수 업그레이드
 
-[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다.
+[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다.
 
-그러나 *HealthCheckStableDuration* 을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다). 또한 *UpgradeDomainTimeout* 을 1200초로, *UpgradeTimeout* 을 3000초로 설정해 보겠습니다.
+그러나 *HealthCheckStableDuration*을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업데이트 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다). 또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다.
 
-또한 마지막으로 *UpgradeFailureAction* 을 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 롤백으로 설정해 보겠습니다. 따라서 업그레이드를 시작할 때(4단계에서) 우리가 지정할 업그레이드 매개 변수는 다음과 같습니다.
+또한 마지막으로 *UpgradeFailureAction*을 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 롤백으로 설정해 보겠습니다. 따라서 업그레이드를 시작할 때(4단계에서) 우리가 지정할 업그레이드 매개 변수는 다음과 같습니다.
 
 FailureAction = Rollback
 
@@ -87,7 +87,7 @@ UpgradeTimeout = 3000
 
 ## 4단계: 업그레이드를 위한 응용 프로그램 준비
 
-이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관리자로 PowerShell 창을 열고 **Get-ServiceFabricApplication** 을 입력하면 **VisualObjects** 의 응용 프로그램 형식 1.0.0.0이 배포되었음을 알려줍니다.
+이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관리자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 **VisualObjects**의 응용 프로그램 형식 1.0.0.0이 배포되었음을 알려줍니다.
 
 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램 패키지가 저장된 "Package" 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
@@ -136,4 +136,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

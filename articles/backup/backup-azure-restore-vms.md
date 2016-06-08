@@ -100,7 +100,7 @@
 
 ![복원 작업 완료](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](virtual-machines-set-up-endpoints)해야 할 수도 있습니다.
+가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)해야 할 수도 있습니다.
 
 ## 복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 클라우드 서비스에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 클라우드 서비스에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.
@@ -142,7 +142,7 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 
 가상 컴퓨터 사후 복원 디스크를 완전히 다시 만들려면 다음이 단계를 따르십시오.
 
-1. [Azure 백업 PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
+1. [Azure 백업 PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
@@ -155,4 +155,4 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

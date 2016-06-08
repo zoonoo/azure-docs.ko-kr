@@ -13,7 +13,7 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="support-article"
   ms.date="05/06/2016"
   ms.author="cjiang"/>
 
@@ -81,4 +81,4 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 - 새 가상 네트워크에 새 VM을 만듭니다.
 - 새 가상 네트워크에 [기존 가상 네트워크를 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요. 또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 새 VM을 만들 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

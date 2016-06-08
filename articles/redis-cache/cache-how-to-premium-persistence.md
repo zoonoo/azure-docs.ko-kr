@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
@@ -73,21 +73,33 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 다음 목록에는 Azure Redis Cache 지속성에 대해 일반적으로 묻는 질문과 답변이 들어 있습니다.
 
-## 이전에 만든 캐시에서 지속성을 사용할 수 있나요?
+-	[이전에 만든 캐시에서 지속성을 사용할 수 있나요?](#can-i-enable-persistence-on-a-previously-created-cache)
+-	[캐시를 만든 후 백업 주기를 변경할 수 있나요?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
+-	[60분 백업 주기인데 왜 백업 사이 간격이 60분 이상이 되나요?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+-	[새 백업을 만들면 이전 백업은 어떻게 되나요?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
+-	[다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 됩니까?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+
+### 이전에 만든 캐시에서 지속성을 사용할 수 있나요?
 
 예, Redis 지속성은 캐시를 만들 때와 기존 프리미엄 캐시에서 모두 구성할 수 있습니다.
 
-## 캐시를 만든 후 백업 주기를 변경할 수 있나요?
+### 캐시를 만든 후 백업 주기를 변경할 수 있나요?
 
 예, **Redis 데이터 지속성** 블레이드에서 백업 빈도를 변경할 수 있습니다. 자세한 내용은 [Redis 지속성 구성](#configure-redis-persistence)을 참조하세요.
 
-## 60분 백업 주기인데 왜 백업 사이 간격이 60분 이상이 되나요?
+### 60분 백업 주기인데 왜 백업 사이 간격이 60분 이상이 되나요?
 
 백업 간격의 주기는 이전 백업 프로세스가 성공적으로 완료되어야 시작됩니다. 백업 간격이 60분이고 백업 프로세스를 성공적으로 완료하는 데 15분이 걸린다면 다음 백업은 이전 백업 시작 시점에서 75분까지 시작되지 않습니다.
 
-## 새 백업을 만들면 이전 백업은 어떻게 되나요?
+### 새 백업을 만들면 이전 백업은 어떻게 되나요?
 
 가장 최근 백업을 제외한 모든 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다.
+
+### 다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 됩니까?
+
+-	더 큰 크기로 조정했다면 영향은 없습니다.
+-	더 작은 크기를 조정했고 새 크기에 대한 [데이타베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이타베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [설정 사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)를 참조하세요.
+-	더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 과정에서 키가 제거됩니다.
 
 ## 다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
@@ -107,4 +119,4 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

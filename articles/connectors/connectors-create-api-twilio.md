@@ -1,10 +1,10 @@
 <properties
-pageTitle="논리 앱에 Twilio API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Twilio API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="논리 앱에 Twilio 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 Twilio 커넥터 개요"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Twilio API 시작
+# Twilio 커넥터 시작
 
 Twilio에 연결하여 전역 SMS, MMS 및 IP 메시지를 보내고 받습니다.
 
@@ -31,16 +31,16 @@ Twilio를 사용하여 다음을 수행할 수 있습니다.
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
-Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
+Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 | 트리거 | actions|
 | --- | --- |
 |없음| <ul><li>메시지 가져오기</li><li>메시지 나열</li><li>메시지 보내기</li></ul>|
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Twilio에 대한 연결 만들기
-논리 앱에 이 API를 추가할 때 다음 Twilio 값을 입력합니다.
+논리 앱에 이 커넥터를 추가할 때 다음 Twilio 값을 입력합니다.
 
 |속성| 필수|설명|
 | ---|---|---|
@@ -249,4 +249,4 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

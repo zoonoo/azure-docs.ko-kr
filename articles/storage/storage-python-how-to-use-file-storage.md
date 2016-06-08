@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/23/2016"
 	ms.author="emgerner"/>
 
 # Python에서 Azure 파일 저장소를 사용하는 방법
@@ -55,7 +55,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
         'myshare',
-				None, # We want to create this blob in the root directory, so we specify None for the directory_name
+        None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
@@ -100,4 +100,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

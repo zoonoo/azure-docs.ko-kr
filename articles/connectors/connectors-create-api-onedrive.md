@@ -1,10 +1,10 @@
 <properties
-pageTitle="PowerApps 엔터프라이즈 및 논리 앱에 OneDrive API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 OneDrive API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="PowerApps 엔터프라이즈 및 논리 앱에 OneDrive 커넥터 추가 | Microsoft Azure"
+description="REST API 매개 변수를 사용하는 OneDrive 커넥터 개요"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# OneDrive API 시작
+# OneDrive 커넥터 시작
 
-OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive API를 다음에서 사용할 수 있습니다.
+OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive 커넥터는 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 - PowerApps
@@ -37,24 +37,24 @@ OneDrive를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 - OneDrive에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 파일을 만들거나 업데이트할 때 트리거를 사용합니다.
 - 파일 만들기, 파일 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 OneDrive에서 새 파일이 만들어지면 Office 365를 사용하여 해당 파일을 메일로 보낼 수 있습니다.
-- PowerApps 엔터프라이즈에 OneDrive API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
+- PowerApps 엔터프라이즈에 OneDrive 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
-OneDrive API에는 다음 트리거 및 작업이 포함됩니다.
+OneDrive 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 
 | 트리거 | 동작|
 | --- | --- |
 |<ul><li>파일을 만들 때</li><li>파일을 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>폴더의 파일 나열</li><li>파일을 만들 때</li><li>파일 복사</li><li>파일 삭제</li><li>폴더 추출</li><li>ID를 사용하여 파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>ID를 사용하여 파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>루트 폴더 나열</li><li>파일 업데이트</li><li>파일을 수정할 때</li></ul>
 
-모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
+모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## OneDrive에 대한 연결 만들기
 
-논리 앱에 이 API를 추가할 때 OneDrive에 연결할 권한을 논리 앱에 부여해야 합니다.
+논리 앱에 이 커넥터를 추가할 때 OneDrive에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. OneDrive 계정에 로그인합니다.
 2. 논리 앱에서 OneDrive에 연결하고 사용할 수 있도록 허용합니다. 
@@ -312,4 +312,4 @@ OneDrive로 폴더를 추출합니다. ```POST: /datasets/default/extractFolderV
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

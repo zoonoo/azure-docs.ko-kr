@@ -834,7 +834,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     **참고:** 5개의 입력 파일을 시도하기 전에 출력 파일 2015-11-16-01.txt를 삭제하지 않은 경우 이전 조각 실행에서 한 줄이 표시되고 현재 조각 실행에서 5줄이 표시됩니다. 기본적으로 콘텐츠는 이미 있는 경우 출력 파일에 추가됩니다.
 
-### 파이프라인 디버깅
+## 파이프라인 디버깅
 
 디버깅은 몇 가지 기본적인 방법으로 구성됩니다.
 
@@ -877,6 +877,9 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **참고:** **adfjobs**라는 **컨테이너**가 Azure Blob 저장소에 표시됩니다. 이 컨테이너는 자동으로 삭제되지 않지만 솔루션 테스트 후 안전하게 삭제할 수 있습니다. 마찬가지로 데이터 팩터리 솔루션은 **adf-<pool ID/name>:job-0000000001**이라는 Azure 배치 **작업**을 만듭니다. 원하는 경우 솔루션 테스트를 마친 후 이 작업을 삭제할 수 있습니다.
+7. 사용자 지정 활동은 패키지의 **app.config** 파일을 사용하지 않으므로 코드가 구성 파일에서 연결 문자열을 읽으면 런타임에 작동하지 않습니다. Azure 배치를 사용할 때의 모범 사례는 **Azure 주요 자격 증명 모음**에 모든 암호를 저장하고, 인증서 기반 서비스 사용자를 사용하여 주요 자격 증명 모음을 보호하고, 인증서를 Azure 배치 풀에 배포하는 것입니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이것은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
+
+	모범 사례는 아니지만 좀 더 쉬운 해결 방법이 있습니다. 연결 문자열 설정을 사용하여 새 **Azure SQL 연결된 서비스**를 만들고, 연결된 서비스를 사용하는 데이터 집합을 만들고, 데이터 집합을 더미 입력 데이터 집합으로 사용자 지정 .NET 작업에 연결할 수 있습니다. 그런 후 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 그러면 런타임에 문제 없이 작동합니다.
 
 ### 샘플 확장
 
@@ -937,4 +940,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

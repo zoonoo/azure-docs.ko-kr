@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 관리 및 모니터링 개요
@@ -46,6 +46,7 @@ Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파�
 RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자에게 해당 작업을 수행하는 데 필요한 정도의 액세스 권한만 부여할 수 있습니다. 또한 RBAC는 직원 퇴사 시 클라우드의 리소스에 대한 액세스 권한을 잃도록 해줄 수도 있습니다.
 
 자세한 정보:
+
 - [RBAC의 Active Directory 팀 블로그](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
 - [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
@@ -60,6 +61,7 @@ Microsoft 맬웨어 방지는 PaaS 역할 및 가상 컴퓨터 모두에 대한 
 SEP(Symantec End Point Protection)도 Azure에서 지원됩니다. 포털 통합을 통해 고객은 VM 내에서 SEP를 사용할지 지정할 수 있습니다. SEP는 Azure 포털을 통해 완전 새로운 VM에 설치하거나 PowerShell을 사용하여 기존 VM에 설치할 수 있습니다.
 
 자세한 정보:
+
 - [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Azure 클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)
 - [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
@@ -71,6 +73,7 @@ SEP(Symantec End Point Protection)도 Azure에서 지원됩니다. 포털 통합
 Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 자세한 정보:
+
 - [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 - [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
 - [Azure Multi-Factor Authentication 작동 방법](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
@@ -80,6 +83,7 @@ Azure MFA(Multi-Factor Authentication)는 두 개 이상의 인증 방법을 사
 Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 자세한 정보:
+
 - [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)
 
 ## 가상 네트워크 게이트웨이
@@ -87,7 +91,8 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 Azure 가상 네트워크 게이트웨이라는 VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(VNet 간)에 트래픽을 보내는 데에도 사용됩니다. VPN 게이트웨이는 Azure와 인프라 사이의 안전한 프레미스 간 연결을 제공합니다.
 
 자세한 정보:
-- [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md) - VPN 게이트웨이와 관련된 항목에 대해 자세히 알아보기
+
+- [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 - [Azure 네트워크 보안 개요](security-network-overview.md)
 
 ## Privileged Identity Management
@@ -97,6 +102,7 @@ Azure 가상 네트워크 게이트웨이라는 VPN 게이트웨이는 가상 �
 Privileged Identity Management는 할당된 역할에 대한 활성화 프로세스를 완료해야 하는 사용자인, 역할 또는 “적시" 관리자 액세스 권한에 대한 임시 관리자의 개념을 소개합니다. 활성화 프로세스는 Azure AD에서 할당된 사용자 역할을 지정된 시간(예: 8시간) 동안 비활성에서 활성 상태로 변경합니다.
 
 자세한 정보:
+
 - [Azure AD 권한 있는 ID 관리](../active-directory/active-directory-privileged-identity-management-configure.md)
 - [Azure AD Privileged Identity Management 시작](../active-directory/active-directory-privileged-identity-management-getting-started.md)
 
@@ -107,6 +113,7 @@ Azure AD(Active Directory) ID 보호는 의심스러운 로그인 활동 및 잠
 알림 및 권장된 수정을 제공하여 실시간으로 위험을 완화하는 데 도움이 됩니다. 사용자 위험 심각도를 계산하여 이후 위협으로부터 응용 프로그램 액세스를 자동으로 보호하도록 위험 기반 정책을 구성할 수 있습니다.
 
 자세한 정보:
+
 - [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)
 - [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
@@ -115,14 +122,16 @@ Azure AD(Active Directory) ID 보호는 의심스러운 로그인 활동 및 잠
 Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 보안 센터는 다음과 같은 방법을 통해 Azure 리소스의 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
+
 - 회사의 보안 요구 사항 및 응용 프로그램 형식 또는 각 구독의 데이터 민감도에 따라 Azure 구독 리소스에 대한 정책을 정의할 수 있습니다.
 - Azure 가상 컴퓨터, 네트워킹 및 응용 프로그램의 상태를 모니터링합니다.
 - 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 통합 파트너 솔루션의 경고를 포함하여 우선 순위가 지정된 보안 경고의 목록을 제공합니다.
 
 자세한 정보:
+
 - [Azure 보안 센터 소개](../security-center/security-center-intro.md)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

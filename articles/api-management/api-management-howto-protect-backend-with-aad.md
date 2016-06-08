@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
@@ -237,9 +237,9 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal-1]
 
-**로그인 URL**로 API 관리 서비스의 URL을 입력하고 `/signin`을 추가합니다. 이 예에서는 ****https://contoso5.portal.azure-api.net/signin **가 사용됩니다.
+**로그인 URL**로 API 관리 서비스의 URL을 입력하고 `/signin`을 추가합니다. 이 예에서는 **https://contoso5.portal.azure-api.net/signin **가 사용됩니다.
 
-**앱 ID URL**로 API 관리 서비스의 URL을 입력하고 일부 고유 문자를 추가합니다. 원하는 문자를 사용할 수 있으며 이 예에서는 ****https://contoso5.portal.azure-api.net/dp**이 사용됩니다. 원하는 **앱 속성**이 구성되면, 확인 표시를 클릭하여 응용 프로그램을 만듭니다.
+**앱 ID URL**로 API 관리 서비스의 URL을 입력하고 일부 고유 문자를 추가합니다. 원하는 문자를 사용할 수 있으며 이 예에서는 **https://contoso5.portal.azure-api.net/dp**이 사용됩니다. 원하는 **앱 속성**이 구성되면, 확인 표시를 클릭하여 응용 프로그램을 만듭니다.
 
 ![새 응용 프로그램][api-management-aad-new-application-devportal-2]
 
@@ -362,7 +362,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ## 다음 단계
 -	API 관리에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management)를 확인합니다.
--	백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md) 및 [VPN 또는 Express 경로를 통해 연결](api-management-howto-setup-vpn)을 참조하세요.
+-	백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md) 및 [VPN 또는 Express 경로를 통해 연결](api-management-howto-setup-vpn.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -413,4 +413,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [첫 번째 API 관리]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

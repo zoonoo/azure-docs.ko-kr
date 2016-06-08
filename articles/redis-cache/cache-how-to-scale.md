@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
@@ -115,6 +115,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 -	[크기를 조정한 후 내 캐시 이름 또는 액세스 키를 변경해야 하나요?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[크기 조정은 어떻게 수행되나요?](#how-does-scaling-work)
 -	[크기를 조정하는 동안 캐시의 데이터가 손실되나요?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[크기를 조정하는 동안 내 캐시를 사용할 수 있나요?](#will-my-cache-be-available-during-scaling)
 -	[지원되지 않는 작업](#operations-that-are-not-supported)
 -	[크기 조정은 시간이 얼마나 걸리나요?](#how-long-does-scaling-take)
@@ -146,6 +147,15 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 -	**기본** 캐시를 **표준** 캐시로 확장하는 경우 캐시의 데이터가 일반적으로 유지됩니다.
 -	**표준** 캐시가 더 큰 크기나 계층으로 확장되거나, **프리미엄** 캐시가 더 크게 확장되는 경우에는 일반적으로 모든 데이터가 유지됩니다. **표준** 또는 **프리미엄** 캐시를 더 작게 축소하는 경우, 새로 조정된 크기 대비 캐시에 있는 데이터의 양에 따라 데이터가 손실될 수 있습니다. 크기를 축소하는 경우 데이터가 손실되면 [allkeys-lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 키를 제거합니다. 
 
+### 사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?
+
+일부 가격 책정 계층에는 다른 [데이타 베이스 제한](cache-configure.md#databases)이 있으므로 캐시 만들기 중에 `databases` 설정에 대한 사용자 지정 값을 구성했다면 규모 축소를 할 때 고려 사항이 있습니다.
+
+-	현재 계층보다 낮은 `databases` 제한을 가진 가격 책정 계층으로 크기를 조정할 때:
+	-	모든 가격 계층에 대해 기본값이 16개인 `databases`을 사용하는 경우 데이터 손실은 전혀 없습니다.
+	-	크기 조정하는 계층에 대한 제한내에 포함되는 `databases`의 사용자 지정 수를 사용하는 경우, 이 `databases` 설정은 유지되고 데이터 손실은 전혀 없습니다.
+	-	새 계층의 제한을 초과하는 `databases`의 사용자 지정 수를 사용하는 경우, `databases` 설정은 새 계층의 제한까지 낮춰지고 제거된 데이터베이스의 모든 데이터는 손실됩니다.
+-	현재 계층보다 같거나 높은 `databases` 제한을 가진 가격 책정 계층으로 크기를 조정할 때:`databases` 설정은 유지되고 데이터 손실은 전혀 없습니다.
 
 표준 및 프리미엄 캐시의 가용성에 대한 SLA는 99.9%이나 데이터 손실에 대한 SLA는 없습니다.
 
@@ -189,4 +199,4 @@ Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

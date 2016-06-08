@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # 서비스 패브릭 서비스에 대한 배치 정책
-Service Fabric Cluster가 지리적으로 널리 분포되어 있는 경우, 즉 데이터 센터나 Azure 지역이 여러 곳에 배치된 경우 또는 환경이 지정학적으로 널리 분산된 경우(또는 법적 경계나 정책 경계를 고려해야 하는 경우) 여러 가지 규칙을 추가로 고려해야 합니다. 이러한 사항은 노드 속성 및 배치 제약 조건(앞 부분에서 설명)을 통해 구성할 수 있지만 일부는 더 복잡합니다. 어떤 경우든 간단한 방법을 사용할 수 있습니다. 배치 정책은 배치 제약 조건처럼 서비스 단위로 구성할 수 있습니다.
+서비스 패브릭 클러스터가 지리적으로 널리 분포되어 있는 경우, 즉 데이터 센터나 Azure 지역이 여러 곳에 배치된 경우 또는 환경이 지정학적으로 널리 분산된 경우(또는 법적 경계나 정책 경계를 고려해야 하는 경우 또는 관련된 거리에 실제 성능/지연 영향이 있는 경우) 여러 가지 규칙을 추가로 고려해야 합니다. 이러한 사항은 노드 속성 및 배치 제약 조건을 통해 구성할 수 있지만 일부는 더 복잡합니다. 어떤 경우든 간단한 방법을 사용할 수 있습니다. 배치 정책은 배치 제약 조건처럼 이름이 지정된 서비스 인스턴스 단위로 구성할 수 있습니다.
 
 ## 잘못된 도메인 지정
 InvalidDomain 배치 정책을 사용하여 특정 장애 도메인이 이 워크로드에 유효하지 않다고 지정할 수 있습니다. 이 정책을 사용하면 예를 들어 지정학적 또는 회사 정책상의 이유로 특정 영역에서 특정 서비스가 실행되지 않도록 할 수 있습니다. 잘못된 여러 도메인을 지정할 수 있음
@@ -92,10 +92,10 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 물론 가능합니다. 하지만 그럴 필요가 없습니다. 특히, 실제로 지리적으로 분산된 클러스터를 실행하지 않는 경우 필수 도메인, 잘못된 도메인, 기본 도메인 구성은 피해야 합니다.
 
 ## 다음 단계
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 다른 클러스터 리소스 관리자 구성에 대한 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md) 항목을 확인하세요.
+- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 리소스 관리자 구성에 대한 항목을 확인하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

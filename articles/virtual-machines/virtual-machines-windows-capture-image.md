@@ -3,7 +3,7 @@
 	description="Resource Manager 배포 모델을 사용하여 만든, Windows 기반 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법을 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/13/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # 리소스 관리자 배포 모델에서 Windows 가상 컴퓨터를 캡처하는 방법
 
@@ -210,4 +210,4 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

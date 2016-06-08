@@ -203,7 +203,7 @@ IIS 관리자에 익숙한 경우 IIS 관리자를 통해 Azure 앱 서비스에
 
 	> [AZURE.NOTE] 내보내는 동안 <strong>예, 개인 키를 내보냅니다.</strong> 옵션을 선택해야 합니다. 여기에는 내보낸 인증서의 개인 키가 포함됩니다.
 
-	> [AZURE.NOTE] 내보내는 동안 **인증 경로에 있는 인증서 모두 포함** 및 **확장된 속성 모두 내보내기** 옵션을 선택해야 합니다. 여기에는 내보낸 인증서의 중간 인증서가 모두 포함됩니다.
+	> 내보내는 동안 **인증 경로에 있는 인증서 모두 포함** 및 **확장된 속성 모두 내보내기** 옵션을 선택해야 합니다. 여기에는 내보낸 인증서의 중간 인증서가 모두 포함됩니다.
 
 <a name="bkmk_subjectaltname"></a>
 ### OpenSSL을 사용하여 SubjectAltName 인증서 받기
@@ -455,7 +455,9 @@ OpenSSL을 사용하면 SubjectAltName 확장을 사용하여 단일 인증서�
 >
 > 2. 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다.
 
-> [AZURE.NOTE] 이미 **SNI 바인딩**이 있는 웹앱에 다른 인증서와 함께 **IP 기반 SSL**을 추가하는 경우 웹앱에 대한 IP SSL이 사용되는 즉시 해당 IP 주소에 사이트의 호스트 이름을 다시 매핑하므로, 다른 호스트 이름이 해당 사이트의 호스트 이름에 CNAME을 지정하면 IP SSL 주소에서 트래픽도 가져옵니다. 이러한 경우에 대한 DNS 항목을 하나 더 만들었습니다. sni.&lt;nameofyourWebApp&gt;.azurewebsites.net이며 여기서 &lt;nameofyourWebApp&gt;는 Azure 앱 서비스 웹앱의 이름입니다. 따라서 SNI 바인딩에 사용되는 이름을 가리키는 DNS 레코드를 변경하여 대신 sni.&lt;nameofyourWebApp&gt;.azurewebsites.net을 가리키도록 해야 합니다.
+<br> 이미 **SNI 바인딩**이 있는 웹앱에 다른 인증서와 함께 **IP 기반 SSL**을 추가하는 경우 웹앱에 대한 IP SSL이 사용되는 즉시 해당 IP 주소에 사이트의 호스트 이름을 다시 매핑하므로, 다른 호스트 이름이 해당 사이트의 호스트 이름에 CNAME을 지정하면 IP SSL 주소에서 트래픽도 가져옵니다.
+
+이러한 경우에 대한 DNS 항목을 하나 더 만들었습니다. sni.&lt;nameofyourWebApp&gt;.azurewebsites.net이며 여기서 &lt;nameofyourWebApp&gt;는 Azure 앱 서비스 웹앱의 이름입니다. 따라서 SNI 바인딩에 사용되는 이름을 가리키는 DNS 레코드를 변경하여 대신 sni.&lt;nameofyourWebApp&gt;.azurewebsites.net을 가리키도록 해야 합니다.
 
 이제 `HTTP://` 대신 `HTTPS://`를 통해 앱을 방문하여 인증서가 올바르게 구성되었는지 확인할 수 있습니다.
 
@@ -503,9 +505,9 @@ web.config 파일에 이미 **&lt;rewrite>** 섹션이 포함되어 있으면 **
 
 PHP 응용 프로그램의 경우 [예제](#example)를 응용 프로그램 루트에 web.config 파일로 저장한 다음, 응용 프로그램을 앱으로 다시 배포하기만 하면 됩니다.
 
-###Node.js, Python Django 및 Java
+###Node.js, Python Django & Java
 
-Node.js, Python Django 및 Java 앱이 아직 web.config 파일을 제공하지 않으면 이러한 앱에 대해 이 파일이 자동으로 만들어지지만 배포 중에 만들어지므로 서버에만 존재합니다. 자동으로 생성된 이 파일에는 Azure에 응용 프로그램 호스트 방법을 알려주는 설정이 포함되어 있습니다.
+Node.js, Python Django & Java 앱이 아직 web.config 파일을 제공하지 않으면 이러한 앱에 대해 이 파일이 자동으로 만들어지지만 배포 중에 만들어지므로 서버에만 존재합니다. 자동으로 생성된 이 파일에는 Azure에 응용 프로그램 호스트 방법을 알려주는 설정이 포함되어 있습니다.
 
 앱에서 자동으로 생성된 파일을 검색하고 수정하려면 다음 단계를 사용하세요.
 
@@ -523,7 +525,7 @@ Node.js, Python Django 및 Java 앱이 아직 web.config 파일을 제공하지 
 
 		Apache Tomcat을 사용하는 Java 응용 프로그램용 web.config 파일에는 **&lt;rewrite>** 섹션이 포함되어 있지 않으므로 예제의 **&lt;rewrite>** 섹션을 **&lt;system.webServer>** 섹션에 추가해야 합니다.
 
-4. Azure에 프로젝트(업데이트된 web.config 포함)를 다시 배포
+4. 폴더 /site/wwwroot에 다시 넣습니다.
 
 HTTPS를 강제로 적용하기 위한 다시 쓰기 규칙을 사용하여 web.config를 배포하면 즉시 효과를 발휘하여 모든 요청이 HTTPS로 리디렉션됩니다.
 
@@ -564,3 +566,5 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
+
+<!---HONumber=AcomDC_0525_2016-->

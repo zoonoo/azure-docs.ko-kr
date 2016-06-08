@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="05/24/2016"
     ms.author="alkohli" />
 
 # StorSimple 모니터링 표시기를 사용하여 장치 관리   
@@ -262,4 +262,4 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

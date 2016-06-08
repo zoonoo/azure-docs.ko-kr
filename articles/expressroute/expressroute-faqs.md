@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -248,4 +248,4 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 ### Express 경로 연결을 통해 어느 Dynamics AX에 액세스할 수 있나요?
 아니요, 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

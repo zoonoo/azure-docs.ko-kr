@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법
@@ -22,7 +22,7 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 
 이 문서는 Azure AD PIM(Privileged Identity Management)에서 해당 역할을 활성화해야 하는 관리자를 위해 작성되었습니다. 사용 권한이 필요할 때 역할을 활성화하고 완료 시 역할을 비활성화하는 단계를 안내합니다.
 
-관리 역할에 할당되면 해당 역할에 필요한 작업을 수행해야 할 경우 해당 역할을 활성화할 수 있습니다. 예를 들어 경우에 따라 Office 365만 관리해야 하는 경우 조직의 보안 관리자는 영구 관리자 역할을 할당하려 하지 않습니다. 대신, Azure AD에서 전역 관리자 또는 Exchange Online 관리자 역할에 대한 후보로 지정합니다. 즉, 이러한 권한이 필요한 경우 임시 역할 할당을 요청할 수 있고 미리 결정된 기간에 대해 Office 365에 대한 관리자 제어가 가능합니다.
+관리 역할에 할당되면 해당 역할에 필요한 작업을 수행해야 할 경우 해당 역할을 활성화할 수 있습니다. 예를 들어 경우에 따라 Office 365만 관리해야 하는 경우 조직의 권한 있는 역할 관리자는 영구 관리자 역할을 할당하려 하지 않습니다. 대신, Azure AD에서 전역 관리자 또는 Exchange Online 관리자 역할에 대한 후보로 지정합니다. 즉, 이러한 권한이 필요한 경우 임시 역할 할당을 요청할 수 있고 미리 결정된 기간에 대해 Office 365에 대한 관리자 제어가 가능합니다.
 
 
 ## Privileged Identity Management 응용 프로그램 추가
@@ -46,7 +46,7 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 3. 활성화하려는 역할을 선택합니다.
 4. **활성화**를 선택합니다. **역할 활성화 요청** 블레이드가 나타납니다.
 5. 전역 관리자와 같은 일부 역할의 경우 역할을 활성화하는 데 MFA(Multi-Factor Authentication)가 필요합니다. 로그인할 때 MFA를 수행해야 역할을 활성화할 수 있습니다.
-6. 텍스트 필드에 활성화 요청 이유를 입력합니다. 보안 관리자에게 문제 티켓 번호를 제공해야 할 수도 있습니다.
+6. 텍스트 필드에 활성화 요청 이유를 입력합니다. 권한 있는 역할 관리자에게 문제 티켓 번호를 제공해야 할 수도 있습니다.
 7. **확인**을 선택합니다. 이제 Microsoft Online Services에 역할이 활성화되고 역할 변경이 표시됩니다.
 
 ## 역할 비활성화
@@ -63,4 +63,4 @@ Azure AD Privileged Identity Management에 대한 자세한 정보는 다음 링
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

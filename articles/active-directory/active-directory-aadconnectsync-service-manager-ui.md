@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Azure AD Connect 동기화: Synchronization Service Manager
 
-| [작업](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -35,4 +35,4 @@ UI에서 다른 탭에 대한 자세한 내용을 보려면 이 항목의 위쪽
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

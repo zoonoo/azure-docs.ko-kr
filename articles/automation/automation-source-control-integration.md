@@ -4,7 +4,7 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
+    manager="jwhit"
     editor="tysonn" />    
 <tags 
     ms.service="automation"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/23/2016"
+    ms.date="05/23/2016"
     ms.author="magoedte;sngun" />
 
 # Azure 자동화에서 원본 제어 통합
@@ -161,4 +161,4 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 - [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

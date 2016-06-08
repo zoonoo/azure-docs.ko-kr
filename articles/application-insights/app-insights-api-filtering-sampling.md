@@ -3,7 +3,7 @@
 	description="원격 분석이 Application Insights 포털에 전송되기 전에 데이터에 대한 속성을 필터링, 샘플링 또는 속성을 추가하는 SDK용 플러그인을 작성합니다." 
 	services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
+	authors="beckylino" 
 	manager="douge"/>
  
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="awills"/>
+	ms.date="05/19/2016" 
+	ms.author="borooji"/>
 
 # Application Insights SDK에서 원격 분석 샘플링, 필터링 및 전처리
 
@@ -30,13 +30,10 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 시작하기 전에 다음을 수행합니다.
 
-* [Application Insights SDK](app-insights-asp-net.md)를 응용 프로그램에 설치합니다. NuGet 패키지를 수동으로 설치하고 최신 *시험판* 버전을 선택합니다.
-* [Application Insights API](app-insights-api-custom-events-metrics.md)를 사용합니다. 
+* [ASP.NET v2용 Application Insights SDK](app-insights-asp-net.md)를 앱에 설치합니다. 
 
 
 ## 샘플링
-
-*이 기능은 베타에 있습니다.*
 
 [샘플링](app-insights-sampling.md)은 정확한 통계를 유지하면서 트래픽을 줄이는 권장 방법입니다. 필터는 관련된 항목을 선택하여 진단 항목 간을 탐색할 수 있도록 합니다. 이벤트 수는 메트릭 탐색기에서 조정되어 필터링된 항목을 보완합니다.
 
@@ -92,7 +89,7 @@ SDK가 고정 비율 또는 적응 샘플링을 수행하는 경우에는 수집
 
 ### 원격 분석 프로세서 만들기
 
-1. Application Insights SDK를 최신 버전(2.0.0-beta2 이상)으로 업데이트합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
+1. 프로젝트의 Application Insights SDK가 버전 2.0.0 이상인지 확인합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 Microsoft.ApplicationInsights.Web을 선택합니다.
 
 1. 필터를 만들려면 ITelemetryProcessor를 구현합니다. 원격 분석 모듈, 원격 분석 이니셜라이저 및 원격 분석 채널와 같은 또 다른 확장성 지점입니다.
 
@@ -239,6 +236,11 @@ public void Process(ITelemetry item)
 }
 
 ```
+
+#### 종속성 문제 진단
+
+[이 블로그](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/)에서는 종속성으로 정규 ping을 자동으로 전송하여 종속성 문제를 진단하는 프로젝트에 대해 설명합니다.
+
 
 <a name="add-properties"></a>
 ## 속성 추가: ITelemetryInitializer
@@ -419,4 +421,4 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

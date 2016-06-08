@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #RBAC: 기본 제공 역할
 
-## 기본 제공 역할
-
 Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)을 만들 수 있습니다.
+
+## Azure의 역할
 
 아래 표에서 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
 
@@ -57,6 +57,9 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [클래식 네트워크 참여자](#classic-network-contributor) | 클래식 가상 네트워크 및 예약된 IP를 관리할 수 있음 |
 | [웹 계획 참여자](#web-plan-contributor) | 웹 계획을 관리할 수 있음 |
 | [웹 사이트 참여자](#website-contributor) | 웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음 |
+
+## 역할 권한
+다음 표에서는 각 역할에 부여되는 특정 권한에 대해 설명합니다. 여기에는 권한을 부여하는 **작업**과 권한을 제한하는 **작업 안 함**이 포함될 수 있습니다.
 
 ### API 관리 서비스 참여자
 API 관리 서비스를 관리할 수 있음
@@ -142,7 +145,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
 
-| **not actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
@@ -153,7 +156,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | **actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-| Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 만들기 및 관리 |
+| Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 관리 |
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -324,7 +327,7 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Sql/servers/read | SQL Server 읽기 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-| **not actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingSettings/* | 감사 설정을 편집할 수 없음 |
@@ -370,7 +373,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Sql/servers/* | SQL 서버 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-| **not actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정을 편집할 수 없음 |
@@ -412,8 +415,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 |
-| Microsoft.Authorization/* | 읽기 권한 부여 |
+| */read | 암호를 제외한 모든 유형의 리소스 읽기 | | Microsoft.Authorization/* | 읽기 권한 부여 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 클래식 가상 컴퓨터 참여자
@@ -515,4 +517,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 - [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

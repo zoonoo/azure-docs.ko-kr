@@ -180,6 +180,14 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 액세스하는 테이블 컨트롤러의 예제는 Azure 포털의 빠른 시작 서버 프로젝트 다운로드에서 **TodoItemController** 클래스를 참조하세요.
 
+### 방법: 테이블 페이징 크기 조정
+
+기본적으로 Azure 모바일 앱은 요청당 50개의 레코드를 반환합니다. 따라서 클라이언트는 해당 UI 스레드와도, 서버와도 너무 오랫동안 연결되지 않으므로 최적의 사용자 환경이 보장됩니다. 테이블 페이징 크기 변경을 적용하려면 서버 쪽의 "허용되는 쿼리 크기"와 클라이언트 쪽 페이지 크기를 늘려야 합니다. 페이징 크기를 늘리려면 다음 줄을 사용하여 테이블 컨트롤러를 조정합니다.
+
+    [EnableQuery(PageSize = 500)]
+
+PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니다. 클라이언트 페이지 크기 변경에 대한 내용은 특정 클라이언트 방법 설명서를 참조하세요.
+
 ## 방법: 사용자 지정 API 컨트롤러 정의
 
 사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정합니다.
@@ -325,10 +333,6 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 
 **GetAppServiceIdentityAsync** 확장 메서드 작업을 만드는 `System.Security.Principal`에 문을 사용하여 추가해야 합니다.
 
-###<a name="authorize"></a>방법: 인증된 사용자에 대한 데이터 액세스 제한
-
-특정 인증된 사용자에게 반환되는 데이터를 제한하려는 경우가 종종 있습니다. 이러한 종류의 데이터 분할은 데이터 삽입 시 테이블의 userId 열을 포함하고 사용자의 SID를 저장함으로써 수행됩니다.
-
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
 **MobileAppConfiguration** 개체를 확장하고 알림 허브 클라이언트를 만들어 서버 프로젝트에 푸시 알림을 추가할 수 있습니다. [Microsoft.Azure.Mobile.Server.Quickstart] 패키지를 설치하고 **UseDefaultConfiguration** 확장 메서드를 호출하는 경우 3단계로 건너뛸 수 있습니다.
@@ -461,4 +465,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

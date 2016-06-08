@@ -1,7 +1,7 @@
 <properties
    pageTitle="Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례 | Microsoft Azure"
    description="문서는 Microsoft Azure IaaS 환경에서 소프트웨어 업데이트에 대한 모범사례의 컬렉션을 제공합니다. 조직의 보안 및 규정 준수 담당자를 포함하여, 매일 변경 내용 제어, 소프트웨어 업데이트 및 자산 관리를 처리하는 IT 전문가 및 보안 분석가를 위한 것입니다."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
@@ -9,12 +9,12 @@
    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2016"
+   ms.date="05/23/2016"
    ms.author="yurid"/>
 
 #Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례
@@ -119,4 +119,4 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴퓨터에 대한 소프트웨어 업데이트에 가장 적합한 옵션을 결정하도록 지원합니다. 기존 데이터 센터 및 Azure IaaS에서 소프트웨어 업데이트 모범 사례 간의 많은 공통점이 있습니다. 따라서 현재 소프트웨어 업데이트 정책을 평가하여 Azure VM을 포함하고 전체 소프트웨어 업데이트 프로세스의 이 문서에서 관련된 모범 사례를 포함하는 것이 좋습니다
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

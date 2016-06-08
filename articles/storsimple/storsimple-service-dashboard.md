@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 대시보드 사용
@@ -76,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
