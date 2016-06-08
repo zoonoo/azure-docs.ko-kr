@@ -543,7 +543,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     4.  **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
     
-		> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 <accountname>.<region>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
+		> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 

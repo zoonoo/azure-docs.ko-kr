@@ -262,4 +262,4 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->
