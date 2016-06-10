@@ -249,4 +249,4 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!-----HONumber=AcomDC_0601_2016-->
