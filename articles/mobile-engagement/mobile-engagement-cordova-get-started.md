@@ -237,4 +237,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!-------HONumber=AcomDC_0406_2016-->
+<!---------HONumber=AcomDC_0406_2016-->
