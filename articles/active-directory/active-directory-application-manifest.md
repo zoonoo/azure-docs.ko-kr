@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/16/2016"
+   ms.date="05/26/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Azure Active Directory 응용 프로그램 매니페스트 이해
@@ -33,12 +33,13 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 
 결과적으로 응용 프로그램 매니페스트의 형식 및 속성을 이해하기 위해 Graph API를 [응용 프로그램 엔터티][APPLICATION-ENTITY] 설명서를 참조해야 합니다. 응용 프로그램 매니페스트 업로드를 통해 수행할 수 있는 업데이트의 예는 다음을 포함합니다.
 
-- 웹 API에서 노출된 사용 권한 범위(oauth2Permissions)를 선언합니다. 사용 권한 범위를 위임한 oauth2Permissions를 사용하여 사용자 가장을 구현하는 방법에 대한 정보는 [Azure Active Directory와 응용 프로그램 통합][INTEGRATING-APPLICATIONS-AAD]에서 "웹 API를 다른 응용 프로그램에 노출" 항목을 참조하세요. 이전에 언급했듯이 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 형식의 컬렉션인 oauth2Permissions 속성을 포함하여 Graph API [엔터티 및 복합 형식 참조][APPLICATION-ENTITY] 참조 문서에서 모든 응용 프로그램 엔터티 속성을 설명합니다.
-- 앱에서 노출된 응용 프로그램 역할(appRoles)을 선언합니다. 응용 프로그램 엔터티의 appRoles 속성은 [AppRole][APPLICATION-ENTITY-APP-ROLE] 형식의 컬렉션입니다. 구현 예제는 [클라우드 응용 프로그램에서 Azure AD를 사용한 역할 기반 액세스 제어][RBAC-CLOUD-APPS-AZUREAD] 문서를 참조하세요.
-- 리소스/웹 API에 지정된 클라이언트 응용 프로그램에 대한 동의와 논리적으로 연결하도록 하는 알려진 클라이언트 응용 프로그램(knownClientApplications)을 선언합니다.
-- Azure AD를 요청하여 로그인한 사용자에 대해 그룹 멤버 자격 클레임을 제시합니다.(groupMembershipClaims) 참고: 이를 구성하여 추가적으로 사용자의 디렉터리 역할 멤버 자격에 대한 문제를 제기할 수 있습니다. 구현 예제는 [AD 그룹을 사용하여 클라우드 응용 프로그램에서 권한 부여][AAD-GROUPS-FOR-AUTHORIZATION] 문서를 참조하세요.
-- 응용 프로그램이 OAuth 2.0 암시적 허용 흐름을 지원하도록 합니다.(oauth2AllowImplicitFlow) 이 형식의 허용 흐름은 포함된 JavaScript 웹 페이지 또는 단일 페이지 응용 프로그램(SPA)을 통해 사용됩니다.
-- X509 인증서를 비밀 키로 사용할 수 있습니다.(keyCredentials) 구현 예제는 [Office 365에서 서비스 및 디먼 앱 빌드][O365-SERVICE-DAEMON-APPS]와 [Azure 리소스 관리자 API 인증에 대한 개발자 가이드][DEV-GUIDE-TO-AUTH-WITH-ARM] 문서를 참조하세요.
+- 웹 API에서 노출된 **사용 권한 범위(oauth2Permissions)**를 선언합니다. 사용 권한 범위를 위임한 oauth2Permissions를 사용하여 사용자 가장을 구현하는 방법에 대한 정보는 [Azure Active Directory와 응용 프로그램 통합][INTEGRATING-APPLICATIONS-AAD]에서 "웹 API를 다른 응용 프로그램에 노출" 항목을 참조하세요. 이전에 언급했듯이 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 형식의 컬렉션인 oauth2Permissions 속성을 포함하여 Graph API [엔터티 및 복합 형식 참조][APPLICATION-ENTITY] 참조 문서에서 모든 응용 프로그램 엔터티 속성을 설명합니다.
+- **앱에서 노출된 응용 프로그램 역할(appRoles)을 선언**합니다. 응용 프로그램 엔터티의 appRoles 속성은 [AppRole][APPLICATION-ENTITY-APP-ROLE] 형식의 컬렉션입니다. 구현 예제는 [클라우드 응용 프로그램에서 Azure AD를 사용한 역할 기반 액세스 제어][RBAC-CLOUD-APPS-AZUREAD] 문서를 참조하세요.
+- 리소스/웹 API에 지정된 클라이언트 응용 프로그램에 대한 동의와 논리적으로 연결하도록 하는 **알려진 클라이언트 응용 프로그램(knownClientApplications)을 선언**합니다.
+- Azure AD를 요청하여 로그인한 사용자에 대해 **그룹 멤버 자격 클레임을 제시**합니다(groupMembershipClaims). 참고: 이를 구성하여 추가적으로 사용자의 디렉터리 역할 멤버 자격에 대한 문제를 제기할 수 있습니다. 구현 예제는 [AD 그룹을 사용하여 클라우드 응용 프로그램에서 권한 부여][AAD-GROUPS-FOR-AUTHORIZATION] 문서를 참조하세요.
+- **응용 프로그램이 OAuth 2.0 암시적 허용 흐름을 지원**하도록 합니다.(oauth2AllowImplicitFlow) 이 형식의 허용 흐름은 포함된 JavaScript 웹 페이지 또는 단일 페이지 응용 프로그램(SPA)을 통해 사용됩니다.
+- **X509 인증서를 비밀 키로 사용할 수 있습니다**(keyCredentials). 구현 예제는 [Office 365에서 서비스 및 디먼 앱 빌드][O365-SERVICE-DAEMON-APPS]와 [Azure 리소스 관리자 API 인증에 대한 개발자 가이드][DEV-GUIDE-TO-AUTH-WITH-ARM] 문서를 참조하세요.
+- 응용 프로그램에 대한 **새 앱 ID URI 추가**(identifierURIs). 앱 ID Uri는 Azure AD 테넌트 내에서 (또는 확인된 사용자 지정 도메인을 통해 한정될 경우 다중 테넌트 시나리오에 대한 여러 Azure AD 테넌트 사이에) 응용 프로그램을 고유하게 식별하는 데 사용됩니다. 리소스 응용 프로그램에 대한 사용 권한을 요청하거나 리소스 응용 프로그램에 대한 액세스 토큰을 획득하는 경우에 사용됩니다. 이 요소를 업데이트하면 응용 프로그램의 홈 테넌트에 존재하는 해당 서비스 주체의 servicePrincipalNames 컬렉션에 동일한 업데이트가 이루어집니다.
 
 또한 응용 프로그램 매니페스트는 응용 프로그램 등록의 상태를 추적하는 좋은 방법을 제공합니다. JSON 형식에서 사용할 수 있기 때문에 파일 표시는 응용 프로그램의 소스 코드와 함께 소스 제어에 체크 인할 수 있습니다.
 
@@ -145,4 +146,4 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 	
 # 새 스키마 버전 2015-08-01-preview
@@ -27,11 +27,13 @@
 
 ## 1\. API 연결로 이동
 
-가장 큰 변화는 API를 사용하기 위해 API 앱을 Azure 구독에 더 이상 배포하지 않아도 된다는 점입니다. * 관리 API * 사용자 지정 Web API라는 두 가지 방법으로 API를 사용할 수 있습니다.
+가장 큰 변화는 API를 사용하기 위해 API 앱을 Azure 구독에 더 이상 배포하지 않아도 된다는 점입니다. 2가지 방법으로 API를 사용할 수 있습니다.
+* 관리 API
+* 사용자 지정 Web API
 
 이들 각각은 관리 및 호스팅 모델이 다르므로 약간 다르게 처리됩니다. 이 모델의 장점은 사용자의 리소스 그룹에 배포되는 리소스로 더 이상 제약되지 않는다는 점입니다.
 
-### 관리 API
+### 관리되는 API
 
 Office 365, Salesforce, Twitter, FTP 등 Microsoft가 사용자를 대신하여 관리하는 여러 API가 있습니다. 이러한 일부 관리 API는 Bing Translate처럼 있는 그대로 사용할 수 있는 반면 구성이 필요한 것도 있습니다. 이 구성을 *연결*이라고 합니다.
 
@@ -192,7 +194,8 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 
 사용자 고유의 API(특히, Microsoft 관리 항목)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 swagger 끝점을 노출해야 합니다. 이렇게 하면 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
 
-다음은 새 `metadata.apiDefinitionUrl` 속성을 보여주는 예입니다. ```
+다음은 새 `metadata.apiDefinitionUrl` 속성을 보여 주는 예입니다.
+```
 {
    "actions": {
         "mycustomAPI": {
@@ -215,7 +218,8 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 
 이전에 API 앱을 배포한 경우 **HTTP** 작업을 통해 호출할 수 있습니다.
 
-예를 들어 Dropbox를 사용하여 파일을 나열하는 경우 **2014-12-01-preview** 스키마 버전 정의에 다음과 같은 항목이 포함될 수 있습니다. ```
+예를 들어 Dropbox를 사용하여 파일을 나열하는 경우 **2014-12-01-preview** 스키마 버전 정의에 다음과 같은 항목이 포함될 수 있습니다.
+```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
     "contentVersion": "1.0.0.0",
@@ -459,4 +463,4 @@ HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API �
 ## 서비스 예정: 엔터프라이즈 통합 API
 현재는 관리된 버전의 엔터프라이즈 통합 API가 아직 없습니다(예: AS2). [로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)에 나와 있는 대로 곧 서비스 예정입니다. 그 동안은 위의 "이미 배포된 API 앱 사용"에 설명된 대로 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

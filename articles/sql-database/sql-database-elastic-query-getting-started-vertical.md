@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""  
 	manager="jhubbard"
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/23/2016"
 	ms.author="torsteng" />
 
 # 데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
@@ -106,4 +106,4 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

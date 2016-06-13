@@ -101,7 +101,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-develop-connections.md
 [SQL 데이터베이스 감사 시작]: ./sql-data-warehouse-overview-auditing.md
 [TDE(투명한 데이터 암호화) 시작]: ./sql-data-warehouse-encryption-tde.md
-[Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-aad-authentication.md
+[Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 방화벽]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

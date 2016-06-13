@@ -19,8 +19,6 @@
 
 # 테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 이 항목에서는 Microsoft Azure에서 호스트되는 인트라넷 SharePoint 팜을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -201,7 +199,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예**를 클릭합니다.
 4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
 5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com**을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음**을 클릭합니다.
-6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 ****P@ssphrase**를 입력하고 **다음**을 클릭합니다.
+6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 **P@ssphrase**를 입력하고 **다음**을 클릭합니다.
 7.	SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
 8.	SharePoint 제품 구성 마법사 완료 페이지에서 **다음**을 클릭합니다. SharePoint 제품 구성 마법사를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 9.	구성 완료 페이지에서 **마침**을 클릭합니다. 완료 후 초기 팜 구성 마법사라는 탭에서 Internet Explorer가 시작됩니다.
@@ -224,4 +222,4 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 - SharePoint 팜을 [구성](https://technet.microsoft.com/library/ee836142.aspx)합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

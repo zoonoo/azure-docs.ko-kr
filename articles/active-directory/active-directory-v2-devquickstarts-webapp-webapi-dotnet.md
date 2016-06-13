@@ -109,7 +109,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다. - 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- 또 다른 `using` 문을 ADAL용 `App_Start\Startup.Auth.cs` 파일에 추가합니다.
+- 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -192,7 +194,11 @@ catch (AdalException ee)
 ## 다음 단계
 
 추가 리소스는 다음을 확인해보세요.
-- [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md)
-- [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## 당사 제품에 대한 보안 업데이트 가져오기
+
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

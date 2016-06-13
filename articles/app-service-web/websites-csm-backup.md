@@ -3,8 +3,8 @@
 	description="Azure 앱 서비스에서 RESTful API 호출을 사용하여 앱을 백업하고 복원하는 방법 알아보기"
 	services="app-service"
 	documentationCenter=""
-	authors="nking92"
-	manager="edlauare"
+	authors="NKing92"
+	manager="wpickett"
     editor="" />
 
 <tags
@@ -13,36 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/17/2016"
 	ms.author="nicking"/>
-
 # REST를 사용하여 앱 서비스 앱 백업 및 복원
+
+> [AZURE.SELECTOR]
+- [PowerShell](../app-service/app-service-powershell-backup.md)
+- [REST API](websites-csm-backup.md)
+
 [Azure 서비스 앱](https://azure.microsoft.com/services/app-service/web/)을 Azure 저장소에 blob로 백업할 수 있습니다. 또한 백업에 앱의 데이터베이스를 포함할 수 있습니다. 앱이 실수로 삭제되거나 앱을 이전 버전으로 되돌려야 할 경우 이전 백업으로 복원할 수 있습니다. 필요할 때 언제든지 백업할 수 있으며, 적당한 간격으로 백업을 예약할 수도 있습니다.
 
 이 문서에서는 RESTful API 요청을 사용하여 앱을 백업 및 복원하는 방법을 설명합니다. Azure 포털을 통해 그래픽 방식으로 앱 백업을 만들고 관리하려면 [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md)을 참조하세요.
 
 <a name="gettingstarted"></a>
 ## 시작하기
-REST 요청을 보내려면 앱의 **이름**, **리소스 그룹** 및 **구독 id**를 알아야 합니다. 이 정보는 [Azure 포털](https://portal.azure.com)의 **앱 서비스** 블레이드에서 앱을 클릭하여 확인할 수 있습니다. 이 문서의 예에서는 `backuprestoreapiexamples.azurewebsites.net` 웹 사이트를 구성하겠습니다. Default-Web-WestUS 리소스 그룹에 저장되며 ID가 00001111-2222-3333-4444-555566667777인 구독에서 실행됩니다.
+REST 요청을 보내려면 앱의 **이름**, **리소스 그룹** 및 **구독 id**를 알아야 합니다. 이 정보는 [Azure 포털](https://portal.azure.com)의 **앱 서비스** 블레이드에서 앱을 클릭하여 확인할 수 있습니다. 이 문서의 예에서는 웹 사이트 **backuprestoreapiexamples.azurewebsites.net**을 구성합니다. Default-Web-WestUS 리소스 그룹에 저장되며 ID가 00001111-2222-3333-4444-555566667777인 구독에서 실행됩니다.
 
 ![샘플 웹 사이트 정보][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
 ## REST API 백업 및 복원
-이제 REST API를 사용하여 앱을 백업 및 복원하는 몇 가지 예를 살펴보겠습니다. 각 예제에는 URL 및 HTTP 요청 본문이 들어 있을 것입니다. 샘플 URL에 {subscriptionId}처럼 중괄호로 묶인 자리 표시자가 들어 있을 것입니다. 이러한 자리 표시자에 앱의 해당 정보를 입력해야 합니다. 예제 URL에 표시되는 각 자리 표시자에 대한 다음 설명을 참조하세요.
+이제 REST API를 사용하여 앱을 백업 및 복원하는 몇 가지 예를 살펴보겠습니다. 각 예제에는 URL 및 HTTP 요청 본문이 들어 있을 것입니다. 샘플 URL에 {subscription-id}처럼 중괄호로 묶인 자리 표시자가 들어 있을 것입니다. 이러한 자리 표시자에 앱의 해당 정보를 입력해야 합니다. 예제 URL에 표시되는 각 자리 표시자에 대한 다음 설명을 참조하세요.
 
-* subscriptionId – 앱이 포함된 Azure 구독의 ID
-* resourceGroupName – 앱이 포함된 리소스 그룹의 이름
-* sitename – 앱의 이름
-* backupId – 앱 백업의 ID
+* subscription-id – 앱이 포함된 Azure 구독의 ID
+* resource-group-name – 앱이 포함된 리소스 그룹의 이름
+* name – 앱의 이름
+* backup-id – 앱 백업의 ID
 
 HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하여 API에 대한 전체 설명서는 [Azure 리소스 탐색기](https://resources.azure.com/)를 참조하세요.
 
 <a name="backup-on-demand"></a>
 ## 주문형 앱 백업
-앱을 즉시 백업하려면 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{sitename}/backup/`에 **POST** 요청을 보내세요.
+앱을 즉시 백업하려면 **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**에 **POST** 요청을 보내세요.
 
-다음은 예제 웹 사이트를 사용한 URL의 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/`
+다음은 예제 웹 사이트를 사용한 URL의 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
 요청 본문에 JSON 개체를 넣어서 백업을 저장하는 데 사용할 저장소 계정을 지정해야 합니다. JSON 개체에 **storageAccountUrl**이라는 속성이 있어야 합니다. 이 속성에는 백업 Blob를 보관할 Azure 저장소 컨테이너에 대한 쓰기 액세스 권한을 부여하는 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)이 있습니다. 데이터베이스를 백업하려면 백업할 데이터베이스의 이름, 유형 및 연결 문자열이 들어 있는 목록을 제공해야 합니다.
 
@@ -99,9 +103,9 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 주문형 앱 백업 외에도 자동으로 백업하도록 예약할 수 있습니다.
 
 ### 새로운 자동 백업 일정 설정
-백업 일정을 설정하려면 `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup`에 **PUT**을 보냅니다.
+백업 일정을 설정하려면 **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**에 **PUT** 요청을 보냅니다.
 
-다음은 예제 웹 사이트의 URL 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup`
+다음은 예제 웹 사이트의 URL 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
 
 요청 본문에는 백업 구성을 지정하는 JSON 개체가 있어야 합니다. 다음은 필요한 매개 변수가 모두 포함된 예입니다.
 
@@ -128,17 +132,17 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 기존 백업은 저장소 계정에서 자동으로 제거됩니다. **retentionPeriodInDays** 매개 변수를 설정하여 백업 보존 기간을 제어할 수 있습니다. 백업 보존 기간에 관계없이 하나 이상의 백업을 항상 저장하려면 **keepAtLeastOneBackup**을 true로 설정합니다.
 
 ### 자동 백업 일정 가져오기
-앱의 백업 구성을 가져오려면 URL ` https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup/list`에 **POST** 요청을 보냅니다.
+앱의 백업 구성을 가져오려면 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**에 **POST** 요청을 보냅니다.
 
-예제 사이트의 URL은 `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list`입니다.
+예제 사이트의 URL은 **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**입니다.
 
 <a name="get-backup-status"></a>
 ## 백업 상태 가져오기
-앱의 크기에 따라 백업을 완료하는 데 다소 시간이 걸릴 수 있습니다. 또한 백업이 실패하거나, 시간이 초과되거나, 부분적으로 성공할 수 있습니다. 모든 앱의 백업 상태를 보려면 URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups`에 **GET** 요청을 보냅니다.
+앱의 크기에 따라 백업을 완료하는 데 다소 시간이 걸릴 수 있습니다. 또한 백업이 실패하거나, 시간이 초과되거나, 부분적으로 성공할 수 있습니다. 모든 앱의 백업 상태를 보려면 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**에 **GET** 요청을 보냅니다.
 
-특정 웹앱의 백업 상태를 보려면 URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`에 GET 요청을 보냅니다.
+특정 웹앱의 백업 상태를 보려면 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**에 GET 요청을 보냅니다.
 
-다음은 예제 웹 사이트의 URL 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
+다음은 예제 웹 사이트의 URL 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 응답 본문에는 이 예와 비슷한 JSON 개체가 들어 있을 것입니다.
 
@@ -176,9 +180,9 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 
 <a name="restore-app"></a>
 ## 백업으로 앱 복원
-앱이 삭제되었거나 앱을 이전 버전으로 되돌리고 싶은 경우 백업으로 앱을 복원할 수 있습니다. 복원을 호출하려면 URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{id}/restore`에 **POST** 요청을 보냅니다.
+앱이 삭제되었거나 앱을 이전 버전으로 되돌리고 싶은 경우 백업으로 앱을 복원할 수 있습니다. 복원을 호출하려면 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**에 **POST** 요청을 보냅니다.
 
-다음은 예제 웹 사이트의 URL 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore`
+다음은 예제 웹 사이트의 URL 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
 
 요청 본문에서 복원 작업의 속성이 포함된 JSON 개체를 보냅니다. 다음은 필요한 속성이 모두 포함된 예제입니다.
 
@@ -204,15 +208,15 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 
 <a name="delete-app-backup"></a>
 ## 앱 백업 삭제
-백업을 삭제하려면 URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`에 **DELETE** 요청을 보냅니다.
+백업을 삭제하려면 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**에 **DELETE** 요청을 보냅니다.
 
-다음은 예제 웹 사이트의 URL 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
+다음은 예제 웹 사이트의 URL 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
 ## 백업의 SAS URL 관리
-Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하여 Azure 저장소에서 백업을 삭제하려고 시도할 것입니다. 이 SAS URL이 더 이상 유효하지 않으면 REST API를 통해 백업을 삭제할 수 없습니다. 그러나 URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{id}/list`에 **POST** 요청을 보내서 백업과 연결된 SAS URL을 업데이트할 수 있습니다.
+Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하여 Azure 저장소에서 백업을 삭제하려고 시도할 것입니다. 이 SAS URL이 더 이상 유효하지 않으면 REST API를 통해 백업을 삭제할 수 없습니다. 그러나 URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**에 **POST** 요청을 보내서 백업과 연결된 SAS URL을 업데이트할 수 있습니다.
 
-다음은 예제 웹 사이트의 URL 모습입니다. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list`
+다음은 예제 웹 사이트의 URL 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
 
 요청 본문에서 새 SAS URL이 포함된 JSON 개체를 보냅니다. 다음은 예제입니다.
 
@@ -230,4 +234,4 @@ Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

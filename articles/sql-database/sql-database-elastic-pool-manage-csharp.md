@@ -3,7 +3,7 @@
     description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀을 관리합니다."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # C&#x23;으로 탄력적 데이터베이스 풀 모니터링 및 관리 
 
@@ -432,4 +432,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [탄력적 데이터베이스 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
 - [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

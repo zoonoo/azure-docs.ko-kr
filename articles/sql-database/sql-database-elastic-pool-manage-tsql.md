@@ -3,18 +3,18 @@
     description="T-SQL을 사용하여 탄력적 풀에 Azure SQL 데이터베이스를 만듭니다. 또는 T-SQL을 사용하여 풀 내부 및 외부로 데이터베이스를 이동합니다." 
 	services="sql-database" 
     documentationCenter="" 
-    authors="sidneyh" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Transact-SQL로 탄력적 데이터베이스 풀 모니터링 및 관리  
 
@@ -31,7 +31,7 @@
 
 
 ## 탄력적 풀에 새 데이터베이스 생성
-SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용합니다.
+SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용합니다.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용
 	-- Move the database named db1 to a pool named P1M125  
 
 ## 탄력적 풀로 데이터베이스 이동 
-수정으로 데이터베이스 변경 명령을 사용하고 SERVICE\_OBJECTIVE 옵션을 ELASTIC_POOL로 설정합니다. 이름을 대상 풀의 이름으로 설정합니다.
+수정으로 데이터베이스 변경 명령을 사용하고 SERVICE\_OBJECTIVE 옵션을 ELASTIC\_POOL로 설정합니다. 이름을 대상 풀의 이름으로 설정합니다.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## 탄력적 풀 외부로 데이터베이스 이동
-데이터베이스 변경 명령을 사용하고 성능 수준(S0, S1 등) 중 하나에 SERVICE_OBJECTIVE를 설정합니다.
+데이터베이스 변경 명령을 사용하고 성능 수준(S0, S1 등) 중 하나에 SERVICE\_OBJECTIVE를 설정합니다.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
@@ -84,4 +84,4 @@ SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용
 
 [Azure SQL 데이터베이스 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

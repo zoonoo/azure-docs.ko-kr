@@ -1,9 +1,11 @@
-Storage is constrained by disk space or the number of indexes or documents per service, whichever comes first.
+저장소는 디스크 공간 또는 먼저 도달하는 서비스당 인덱스 또는 문서의 수로 제한됩니다.
 
-Resource|Free|Basic (Preview)|S1|S2
+리소스|무료|기본(미리 보기)|S1|S2
 ---|---|---|---|----
-Disk space|50 MB |2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)
-Document count|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Index count|3|5|50|200
-Indexer count|3|5|50|200
-Indexer Data Source count|3|5|50|200
+디스크 공간|50MB |서비스당 2GB|파티션당 25GB |파티션당 100GB(서비스당 최대 1.2TB)
+문서 수|총 10,000개|서비스당 1백만|파티션당 1500만(서비스당 최대 180만 개 문서)|파티션당 60만(서비스당 최대 720만 개 문서)
+인덱스 수|3|5|50|200
+인덱서 수|3|5|50|200
+인덱서 데이터 원본 수|3|5|50|200
+
+<!---HONumber=AcomDC_0601_2016-->

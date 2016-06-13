@@ -3,7 +3,7 @@
     description="PowerShell을 사용하여 탄력적 데이터베이스 풀을 관리하는 방법을 알아봅니다."  
 	services="sql-database" 
     documentationCenter="" 
-    authors="stevestein" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # PowerShell로 탄력적 데이터베이스 풀 모니터링 및 관리 
 
@@ -28,7 +28,7 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 일반적인 오류 코드는 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)를 참조하세요.
 
-풀에 대한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)에서 찾을 수 있습니다.
+풀에 대한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)에서 찾을 수 있습니다.
 
 ## 필수 조건
 
@@ -44,7 +44,7 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 ## 풀의 성능 설정 변경
 
-성능이 저하되는 경우 규모 증가에 맞게 풀의 설정을 변경할 수 있습니다. [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet을 사용합니다. -Dtu 매개 변수를 풀당 eDTU로 설정합니다. 가능한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참조하세요.
+성능이 저하되는 경우 규모 증가에 맞게 풀의 설정을 변경할 수 있습니다. [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet을 사용합니다. -Dtu 매개 변수를 풀당 eDTU로 설정합니다. 가능한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참조하세요.
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
@@ -102,6 +102,67 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 메트릭을 검색하려면:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## 리소스 풀에 경고 추가
+
+리소스에 경고 규칙을 추가하여 리소스가 설정한 사용률 임계값에 도달할 경우 [URL 끝점](https://msdn.microsoft.com/library/mt718036.aspx)에 전자 메일 알림 또는 경고 문자열을 보낼 수 있습니다. Add-AzureRmMetricAlertRule cmdlet을 사용합니다.
+
+이 예제에서는 풀의 eDTU 소비가 특정 임계값을 초과할 때 알림을 받기 위해 경고를 추가합니다.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location =  '<location'                         # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    #$Target Resource ID
+    $ResourceID = '/subscriptions/' + $subscriptionId + '/resourceGroups/' +$resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticpools/' + $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # create a unique rule name
+    $alertName = $poolName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+
+## 풀 내의 모든 데이터베이스에 경고 추가
+
+탄력적 풀의 모든 데이터베이스에 경고 규칙을 추가하여 리소스가 경고에 의해 설정된 사용률 임계값에 도달할 경우 [URL 끝점](https://msdn.microsoft.com/library/mt718036.aspx)에 전자 메일 알림 또는 경고 문자열을 보낼 수 있습니다.
+
+이 예제에서는 해당 데이터베이스의 DTU 사용량이 지정된 특정 임계값을 초과할 경우 알림을 받기 위해 풀의 각 데이터베이스에 경고를 추가합니다.
+
+    # Set up your resource ID configurations
+    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+    $location = '<location'                          # Azure region
+    $resourceGroupName = '<resource group name>'     # Resource Group
+    $serverName = '<server name>'                    # server name
+    $poolName = '<elastic pool name>'                # pool name 
+
+    # Get the list of databases in this pool.
+    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+
+    # Create an email action
+    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+
+    # Get resource usage metrics for a database in an elastic database for the specified time interval.
+    foreach ($db in $dbList)
+    {
+    $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+
+    # create a unique rule name
+    $alertName = $db.DatabaseName + "- DTU consumption rule"
+
+    # Create an alert rule for DTU_consumption_percent
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+
+    # drop the alert rule
+    #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
+    } 
+
+
 
 ## 구독에서 여러 풀에 걸친 리소스 사용 데이터 수집 및 모니터링
 
@@ -209,6 +270,6 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 ## 다음 단계
 
 - [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
-- [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
+- [Azure SQL 데이터베이스 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

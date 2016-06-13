@@ -2,7 +2,8 @@
 	pageTitle="VM에서 Oracle GoldenGate 구성 | Microsoft Azure"
 	description="자습서를 단계별로 수행하여 고가용성 및 재해 복구를 위해 Azure Windows Server VM에서 Oracle GoldenGate를 설정 및 구현합니다."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,13 +12,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 
 #Azure에 대한 Oracle GoldenGate 구성
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle GoldenGate를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서는 비 RAC Oracle 데이터베이스의 [양방향 복제](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)에 중점을 두며 두 사이트가 모두 활성 상태여야 합니다.
@@ -34,7 +33,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 - [Oracle 다운로드](http://www.oracle.com/us/downloads/index.html) 웹 사이트에서 Oracle GoldenGate 소프트웨어를 다운로드했습니다. Oracle Fusion 미들웨어 제품 팩 - 데이터 통합을 선택 했습니다. 그런 다음, Oracle GoldenGate Oracle v11.2.1 미디어 팩에서 Microsoft Windows x64(64 비트)에 대한 Oracle 11g 데이터베이스를 선택 했습니다. 다음으로 Windows 2008(64bit)에서 구동되는 Oracle 11g 64bit용의 Oracle GoldenGate V11.2.1.0.3을 다운로드 합니다.
 
-- Windows Server에서 Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 가상 컴퓨터(VMs)을 만들었습니다. 자세한 내용은 [Azure에서 Oracle 데이터베이스 12c 가상 컴퓨터 만들기](#z3dc8d3c097cf414e9048f7a89c026f80) 및 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있게 하려면 가상 컴퓨터가 [동일한 클라우드 서비스](virtual-machines-linux-load-balance.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.
+- Windows Server에서 Oracle Enterprise Edition을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-linux-load-balance.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 가상 컴퓨터가 있어야 합니다.
 
 - Azure 클래식 포털에서 가상 컴퓨터 이름을 Site A에 대해서는 “MachineGG1” 로 Site B에 대해서는 “MachineGG2”로 설정했습니다.
 
@@ -602,4 +601,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

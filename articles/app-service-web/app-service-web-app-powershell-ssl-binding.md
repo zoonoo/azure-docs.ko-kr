@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-
+Azure Resource Manager 기반 Azure PowerShell cmdlet을 사용하여 [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)을 확인하는 웹앱 관리에 대해 알아보기
 
 ## 새 SSL 인증서 업로드 및 바인딩 ##
 
@@ -68,7 +68,8 @@ Set-AzureRmWebApp cmdlet이 웹앱에 대한 호스트 이름을 덮어쓴다는
 	Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### 참조 ###
+- [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)
 - [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

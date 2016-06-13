@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/27/2016"
    	ms.author="jgao"/>
 
 #.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -167,7 +167,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 ## 부트스트랩 사용
 
-자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap)을 참조하세요.
+자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)을 참조하세요.
 
 [클러스터 만들기](#create-clusters)에서 샘플을 수정하여 하이브 설정을 구성합니다.
 
@@ -348,7 +348,7 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 ###HBase 클러스터
 
 * [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux)
+* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Storm 클러스터
 
@@ -371,4 +371,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 - [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="sameerch"/>
 
 
@@ -124,4 +124,4 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

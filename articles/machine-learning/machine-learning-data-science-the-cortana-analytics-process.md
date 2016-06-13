@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/31/2016" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -87,8 +87,13 @@ Cortana Analytics 프로세스에 대한 분석 환경은 여러 구성 요소�
 
 CAP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않지만, 데이터 탐색, 모델링 및 평가의 결과를 문서화하고 필요한 경우 분석을 반복할 수 있도록 관련 코드를 저장하는 것이 모범 사례입니다. 이렇게 하면 유사한 데이터 및 예측 작업을 수반하는 다른 응용 프로그램에 대해 작업할 때에도 분석 작업을 다시 사용할 수 있습니다.
 
-**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md) 및 [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)을 참조하세요.
+**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. 예를 들어 다음을 참조하세요.
+
+- [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+- [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md).
+- [Azure HD.mdnsight에서 Spark를 사용하는 데이터 과학](machine-learning-data-science-spark-overview.md)
+- [Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

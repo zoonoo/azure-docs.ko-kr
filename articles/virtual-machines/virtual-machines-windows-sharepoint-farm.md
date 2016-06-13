@@ -19,8 +19,6 @@
 
 # SharePoint 서버 팜 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 모델입니다.
-
 Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
 > [AZURE.NOTE] Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다. 이 항목은 **SharePoint 2013 비 HA 팜** 및 **SharePoint 2013 HA 팜** 항목으로 대체되었습니다.
@@ -67,4 +65,4 @@ Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전�
 
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

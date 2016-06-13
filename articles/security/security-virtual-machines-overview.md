@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Azure 가상 컴퓨터 보안 개요
@@ -91,7 +91,7 @@ Azure 디스크 암호화는 Windows 및 Linux Azure 가상 컴퓨터 디스크�
 
 자세한 정보:
 
-- [Windows 및 Linux IaaS VM용 Azure 디스크 암호화](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0/file/150942/1/Azure%25)
+- [Windows 및 Linux IaaS VM용 Azure 디스크 암호화](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 - [Linux 및 Windows 가상 컴퓨터에 대한 Azure 디스크 암호화](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 - [가상 컴퓨터 암호화](../security-center/security-center-disk-encryption.md)
 
@@ -157,4 +157,4 @@ Azure 가상 컴퓨터는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 - [Microsoft 보안 센터: 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [신뢰할 수 있는 클라우드: Microsoft Azure 보안, 개인 정보 보호 정책 및 규정 준수](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

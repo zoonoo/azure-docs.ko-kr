@@ -18,9 +18,6 @@
 
 # Azure AD B2C 미리 보기: Graph API 사용
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
-
 Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주요 예제는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션해야 할 수 있습니다. 고유한 페이지에서 사용자 등록을 호스팅하고 백그라운드에서 Azure AD에 사용자 계정을 만들려할 수 있습니다. 이러한 형식의 태스크는 사용자 계정을 만들고 읽고 업데이트 및 삭제하는 기능이 필요합니다. Azure AD Graph API를 사용하여 이 태스크를 수행할 수 있습니다.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -319,7 +316,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 이 요청을 보내는 방법에 대한 세부 정보는 `B2CGraphClient.SendGraphDeleteRequest(...)` 메서드를 검사합니다.
 
-사용자 관리 외에도 Azure AD Graph API를 사용하여 다른 많은 작업을 수행할 수 있습니다. [Azure AD Graph API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)는 샘플 요청과 함께 각 동작의 세부 정보를 제공합니다.
+사용자 관리 외에도 Azure AD Graph API를 사용하여 다른 많은 작업을 수행할 수 있습니다. [Azure AD Graph API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)는 샘플 요청과 함께 각 작업의 세부 정보를 제공합니다.
 
 ## 사용자 지정 특성 사용
 
@@ -367,4 +364,4 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 미리 보�
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -17,9 +17,7 @@
 	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 워크로드 5단계: 가용성 그룹 만들기 및 응용 프로그램 데이터베이스 추가
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+# LOB(기간 업무) 응용 프로그램 작업 5단계: 가용성 그룹 만들기 및 응용 프로그램 데이터베이스 추가
 
 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 마지막 단계에서는 새 SQL Server AlwaysOn 가용성 그룹을 만들고 응용 프로그램의 데이터베이스를 추가합니다.
 
@@ -119,4 +117,4 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 - Azure에 자체 IT 워크로드를 배포하려면 이러한 [지침](virtual-machines-linux-infrastructure-service-guidelines.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

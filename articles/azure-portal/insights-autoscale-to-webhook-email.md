@@ -39,10 +39,10 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 
 
 ## Webhook의 인증
-다음과 같은 두 가지 인증 URI 형식이 사용됩니다.
+다음 두 가지 인증 URI 양식이 있습니다.
 
-	1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. 웹후크 URI를 토큰 ID와 함께 쿼리 매개 변수로 저장하는 토큰 기반 인증 위치(예:https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. 사용자 ID 및 암호를 사용하는 기본 인증 위치(예:https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## 크기 자동 조정 알림 Webhook 페이로드 스키마
 크기 자동 조정 알림이 생성될 때는 다음 메타데이터가 Webhook 페이로드에 포함됩니다.
@@ -93,4 +93,4 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 |newCapacity|	예 |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다.|
 |속성|	아니요|	선택 사항입니다. <Key  Value> 쌍의 집합(예: Dictionary <String  String>)입니다. 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다.|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

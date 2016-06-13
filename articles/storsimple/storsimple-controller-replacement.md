@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 컨트롤러 모듈 교체
@@ -77,7 +77,7 @@ Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발
 
 1. Azure 클래식 포털에서 StorSimple Manager 서비스로 이동하고 **장치** 탭을 클릭한 다음 모니터링하려는 장치의 이름을 클릭합니다.
 
-2. **유지 관리** 탭을 클릭하고 **하드웨어 상태**로 이동합니다. 컨트롤러 0 또는 컨트롤러 1의 상태가 오류를 나타내는 빨강이어야 합니다.
+2. **유지 관리 > 하드웨어 상태**로 이동합니다. 컨트롤러 0 또는 컨트롤러 1의 상태가 오류를 나타내는 빨강이어야 합니다.
 
     >[AZURE.NOTE] 단일 컨트롤러 교체에서 오류가 발생한 컨트롤러는 항상 대기 컨트롤러입니다.
 
@@ -96,7 +96,7 @@ Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발
 
 4. 오류가 발생한 컨트롤러의 데이터 포트에서 연결된 네트워크 케이블을 모든 뺍니다. 8600 모델을 사용하는 경우 컨트롤러를 EBOD 컨트롤러에 연결하는 SAS 케이블도 뺍니다.
 
-5. [컨트롤러 꺼내기](#remove-a-controller)의 단계에 따라 오류가 발생한 컨트롤러를 꺼냅니다.
+5. [컨트롤러 제거](#remove-a-controller)의 단계에 따라 오류가 발생한 컨트롤러를 제거합니다.
 
 6. 오류가 발생한 컨트롤러를 꺼낸 슬롯과 동일한 슬롯에 팩터리 교체를 설치합니다. 이렇게 하면 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
 
@@ -150,7 +150,7 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
 
 2. 데이터 포트에 연결된 모든 네트워크 케이블을 뺍니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 뺍니다.
 
-3. StorSimple 장치에서 두 컨트롤러를 모두 꺼냅니다. 자세한 내용은 [컨트롤러 꺼내기](#remove-a-controller)를 참조하세요.
+3. StorSimple 장치에서 두 컨트롤러를 모두 꺼냅니다. 자세한 내용은 [컨트롤러 제거](#remove-a-controller)를 참조하세요.
 
 4. 컨트롤러 0에 대한 팩터리 교체를 먼저 삽입하고 컨트롤러 1을 삽입합니다. 자세한 내용은 [컨트롤러 삽입](#insert-a-controller)을 참조하세요. 이렇게 하면 이중 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [이중 컨트롤러 교체 논리](#dual-controller-replacement-logic)를 참조하세요.
 
@@ -266,4 +266,4 @@ Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

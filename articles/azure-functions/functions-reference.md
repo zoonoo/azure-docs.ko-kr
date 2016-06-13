@@ -71,9 +71,9 @@ mycsharpfunction
 
 ## 런타임(스크립트 호스트 및 웹 호스트)
 
-런타임(스크립트 호스트라고도 함)은 이벤트 수신을 대기하고, 데이터를 모아서 보내고, 최종적으로 코드를 실행하는 기초를 이루는 WebJobs SDK 입니다.
+런타임(스크립트 호스트라고도 함)은 이벤트 수신을 대기하고, 데이터를 모아서 보내고, 최종적으로 코드를 실행하는 기초를 이루는 WebJobs SDK 호스트입니다.
 
-HTTP 트리거를 지원하기 위하여, 프로덕션 시나리오에서 스크립트 호스트 앞쪽에 위치하도록 설계되는 웹 호스트가 있습니다. 이것은 스크립트 호스트를 웹 호스트에서 관리하는 프런트 엔드 트래픽과 격리시키는 데 도움이 됩니다.
+HTTP 트리거를 지원하기 위해 프로덕션 시나리오에서 스크립트 호스트 앞쪽에 위치하도록 설계된 웹 호스트도 있습니다. 이것은 스크립트 호스트를 웹 호스트에서 관리하는 프런트 엔드 트래픽과 격리시키는 데 도움이 됩니다.
 
 ## 폴더 구조
 
@@ -129,7 +129,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 3. `D:\home\site\wwwroot`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot<function_name>`로 이동하여 함수 파일을 업데이트합니다.
 
-4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다.
+4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다. 파일을 삭제할 수 있는 파일 표에는 두 가지 영역이 있습니다. *.zip* 파일의 경우 "여기에 끌어 와서 업로드하고 압축을 풉니다" 레이블이 있는 상자가 나타납니다. 다른 파일 형식의 경우 "압축" 상자 외부에 파일 표를 살펴봅니다.
 
 #### FTP를 사용하려면
 
@@ -143,7 +143,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 ## Azure Functions 펄스  
 
-펄스는 함수의 실행 빈도는 물론 성공과 실패를 보여주는 라이브 이벤트 스트림입니다. 평균 실행 시간을 모니터링하는 것도 가능합니다. 앞으로 더 많은 기능과 사용자 지정을 추가할 예정입니다. **Pulse**(펄스) 페이지는 **Monitoring**(모니터링) 탭을 통해 액세스할 수 있습니다.
+펄스는 함수의 실행 빈도는 물론 성공과 실패를 보여주는 라이브 이벤트 스트림입니다. 평균 실행 시간을 모니터링할 수도 있습니다. 앞으로 더 많은 기능과 사용자 지정을 추가할 예정입니다. **펄스** 페이지는 **모니터링** 탭을 통해 액세스할 수 있습니다.
 
 ## 리포지토리
 
@@ -172,6 +172,6 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-* [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 여행. Azure Functions 개발에 대한 기록
+* [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

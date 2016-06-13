@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/26/2016"
-   ms.author="spyros;spyrossak" />
+   ms.date="05/31/2016"
+   ms.author="spyros;sethm" />
 
 # SQL에서 Azure 이벤트 허브로 데이터 끌어오기
 
@@ -42,4 +42,4 @@ SqlToEventHub 솔루션을 시작하면 readme.md 파일에 설명된 대로 많
 
 솔루션을 배포하려면 SqlToEventHub 응용 프로그램을 복제하거나 다운로드하고 App.config 파일을 편집하고 빌드한 다음 마지막으로 게시합니다. 응용 프로그램을 게시한 후에는 Azure 클래식 포털의 클라우드 서비스에서 실행하고 이벤트 허브로 들어오는 이벤트를 모니터링할 수 있습니다. 빈도는 두 가지 항목, 즉 SQL 테이블의 업데이트 빈도와 응용 프로그램의 구성 파일에 지정한 대기 간격에 따라 결정됩니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -47,9 +47,7 @@
 
 ## 일정 식의 서식
 
-일정 식은 다음과 같은 6개의 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)일 수 있습니다. {초} {분} {시간} {일} {월} {요일}. 온라인에서 찾은 cron 식 문서는 대부분 {두 번째} 필드를 생략하므로 해당 필드 중 하나를 복사하면 추가 필드에 대해 조정해야 합니다.
-
-일정 식은 함수가 트리거되는 간격의 지연 시간을 지정하는 *hh:mm:ss* 서식일 수도 있습니다.
+일정 식은 {초} {분} {시간} {일} {월} {요일}과 같은 6개의 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 온라인에서 찾은 cron 식 문서는 대부분 {두 번째} 필드를 생략하므로 해당 필드 중 하나를 복사하면 추가 필드에 대해 조정해야 합니다.
 
 다음은 몇 가지 일정 식의 예입니다.
 
@@ -67,13 +65,6 @@
 "runOnStartup": true,
 ```
 
-15초마다 트리거하려면:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
-```
-
 ## 타이머 트리거 C# 코드 예제
 
 이 C# 코드 예제에서는 함수가 트리거될 때마다 단일 로그를 작성합니다.
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

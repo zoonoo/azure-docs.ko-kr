@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="eugenesh"/>
 
 #인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
@@ -68,23 +68,7 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 
 `ADO.NET connection string` 옵션을 사용하여 [Azure 클래식 포털](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
 
-그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. SQL 및 Azure 검색 데이터 형식 간의 매핑은 다음 표를 참조하세요.
-
-## SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
-
-|SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 |참고 사항 
-|------|-----|----|
-|bit|Edm.Boolean, Edm.String| |
-|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
-| bigint | Edm.Int64, Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric | Edm.String| Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|문자열 열을 Collection(Edm.String) 변환하려면 API 버전 2015-02-28-Preview 미리 보기를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.| 
-|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
-|uniqueidentifer | Edm.String | |
-|geography | Edm.GeographyPoint | SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다. | | 
-|rowversion| 해당 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. | |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types | 해당 없음 |지원되지 않음 |
+그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. 자세한 내용은 [SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑](#TypeMapping)을 참조하세요.
 
 마지막으로, 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
@@ -102,6 +86,8 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
+
+인덱서 동작의 몇 가지 측면(예: 배치 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수)을 사용자 지정할 수 있습니다. 자세한 내용은 [인덱서 API 만들기](https://msdn.microsoft.com/library/azure/dn946899.aspx)를 참조하세요.
  
 Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure에서 연결](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 참조하세요.
 
@@ -249,15 +235,32 @@ SQL 통합 변경 내용 추적 정책을 사용하는 것이 좋지만 데이�
 
 여기서 **softDeleteMarkerValue**는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용하고, 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 `"True"`를 사용합니다.
 
-## Azure SQL 인덱서 사용자 지정
- 
-인덱서 동작의 특정 측면(예: 일괄 처리 크기, 인덱서 실행에 실패하기 전에 건너뛸 수 있는 문서 수 등)을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 검색 인덱서 사용자 지정](search-indexers-customization.md)을 참조하세요.
+<a name="TypeMapping"></a>
+## SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+
+|SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 |참고 사항 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|문자열 열을 Collection(Edm.String) 변환하려면 API 버전 2015-02-28-Preview 미리 보기를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다. | | 
+|rowversion| 해당 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | 해당 없음 |지원되지 않음 |
+
 
 ## 질문과 대답
 
 **Q:** Azure의 IaaS VM에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
-A: 예, 적절한 포트를 열어 Azure 서비스에서 데이터베이스에 연결할 수 있도록 하면 됩니다.
+A: 예. 그러나 검색 서비스에서 데이터베이스에 연결할 수 있도록 허용해야 합니다.
+
+1. 검색 서비스의 IP 주소에 대한 액세스를 허용하도록 방화벽을 구성합니다. 
+2. 또한 검색 서비스가 데이터베이스에 대한 SSL 연결을 열 수 있도록 신뢰할 수 있는 인증서로 데이터베이스를 구성해야 할 수 있습니다.
 
 **Q:** 온-프레미스에서 실행되는 SQL 데이터베이스에서 Azure SQL 인덱서를 사용할 수 있습니까?
 
@@ -275,4 +278,4 @@ A: 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 
 
 A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 검색 서비스를 확장하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

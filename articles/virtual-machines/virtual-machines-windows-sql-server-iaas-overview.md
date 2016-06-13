@@ -42,7 +42,7 @@ Azure VM에서 SQL Server를 실행하는 것은 관계형 데이터를 Azure에
 
 Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 구독을 얻어야 합니다. [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/)에서 Azure 구독을 구입할 수 있습니다. 무료로 사용해 보려면 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하세요.
 
-구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-windows-portal-sql-server-provision.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
+구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-windows-portal-sql-server-provision.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
 Azure 가상 컴퓨터를 만들고 관리하기 위한 모델이 두 가지(클래식 및 리소스 관리자) 있다는 점에 유의해야 합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요. 이 문서처럼 클래식과 Resource Manager 양쪽 모두에 적용되는 게 아니라면, 각 항목에 대한 대상 모델이 분명하게 언급됩니다.
 
@@ -51,13 +51,13 @@ Azure 가상 컴퓨터를 만들고 관리하기 위한 모델이 두 가지(클
 
 |SQL Server 버전|운영 체제|SQL Server 버전|
 |---|---|---|
-|**SQL Server 2016 RC**|Windows Server 2012 R2|[평가](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rc3evaluationwindowsserver2012r2/)|
-|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
-|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
+|**SQL Server 2016**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmenterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmstandardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmwebwindowsserver2012r2/), [Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rtmexpresswindowsserver2012r2/)|
+|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
+|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
 
 >[AZURE.NOTE] CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 필요한 경우, 가상 컴퓨터를 프로비전한 후에 CEIP를 사용자 지정하거나 비활성화할 수 있습니다. 원격 데스크톱을 사용하여 VM에 연결하고 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다.
 
@@ -92,4 +92,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 Azure 가상 컴퓨터의 SQL Server에 대한 질문이 더 있으신가요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

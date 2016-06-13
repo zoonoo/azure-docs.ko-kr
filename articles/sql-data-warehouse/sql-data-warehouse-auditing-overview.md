@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터 웨어하우스 데이터베이스 감사 시작 | Microsoft Azure"
-   description="SQL 데이터 웨어하우스 데이터베이스 감사 시작"
+   pageTitle="Azure SQL 데이터 웨어하우스 감사 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 감사 시작"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="05/31/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
-# SQL 데이터 웨어하우스 데이터베이스 감사 시작
+# Azure SQL 데이터 웨어하우스 감사
 Azure SQL 데이터 웨어하우스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 작성합니다.
 
 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
@@ -132,13 +132,13 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
-[2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
-[3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
-[4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
-[5]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-dashboard.png
+[1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
+[2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
+[3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
+[4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
+[5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -26,7 +26,7 @@
 * Azure HDInsight Spark 클러스터 리소스에 액세스하려면
 * Scala Spark 응용 프로그램을 로컬로 개발 및 실행하려면
 
-또한 비디오([여기](https://mix.office.com/watch/1nqkqjt5xonza))를 따라 시작할 수도 있습니다.
+또한 [여기](https://mix.office.com/watch/1nqkqjt5xonza)에 있는 비디오를 따라 시작할 수도 있습니다.
 
 >[AZURE.IMPORTANT] 이 도구를 사용하면 Linux의 HDInsight Spark 클러스터용 응용 프로그램만 만들고 제출할 수 있습니다.
 
@@ -281,4 +281,4 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

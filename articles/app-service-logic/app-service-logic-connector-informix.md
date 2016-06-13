@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="plarsen"/>
 
 # Informix 커넥터
@@ -129,7 +129,7 @@ API 대량 삽입 작업을 사용하여 Informix 테이블에 데이터를 추�
 - 논리 앱 작업 이름을 형성하는 경우 커넥터는 Informix 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에 대량 삽입**은 **NEW에 대량 삽입**에 대해 잘립니다.
 - Informix 데이터베이스는 테이블 및 열 이름에 대해 대/소문자를 구분할 수 있습니다. 예를 들어 대량 삽입 작업 배열 열 이름은 대문자(“CUSTID”) 대신 소문자("custid")로 지정해야 합니다.
 - ID 열(예: ORDID), nullable 열(예: SHIPDATE) 및 기본 값이 있는 열(예: ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY)을 생략하여 Informix 데이터베이스가 값을 생성합니다.
-- "현재" 및 "내일"를 지정하여 Informix 커넥터는 "현재 날짜" 및 "현재 날짜 + 1일"(예: REQDATE)을 생성합니다. 
+- "현재" 및 "내일"을 지정하여 Informix 커넥터는 "현재 날짜" 및 "현재 날짜 + 1일"(예: REQDATE)을 생성합니다. 
 
 
 ## Informix 커넥터 트리거를 통해 데이터를 읽기, 변경 또는 삭제하려는 논리 앱 ##
@@ -274,4 +274,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

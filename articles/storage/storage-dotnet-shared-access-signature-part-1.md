@@ -158,8 +158,8 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
     static string GetAccountSASToken()
     {
         // To create the account SAS, you need to use your shared key credentials. Modify for your account.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
         // Create a new access policy for the account.
         SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
@@ -181,8 +181,8 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
     {
         // In this case, we have access to the shared key credentials, so we'll use them
         // to get the Blob service endpoint.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create new storage credentials using the SAS token.
@@ -226,8 +226,8 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 다음 코드 예제에서는 컨테이너에 저장된 액세스 정책을 만든 다음 컨테이너에 대한 서비스 SAS를 생성합니다. 그런 다음 클라이언트에 이 SAS를 제공하여 컨테이너의 읽기-쓰기 권한을 제공할 수 있습니다. 자신의 계정 이름을 사용하려면 코드를 변경합니다.
 
     // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -318,4 +318,4 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

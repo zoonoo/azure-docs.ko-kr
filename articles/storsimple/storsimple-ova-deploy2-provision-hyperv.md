@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
@@ -22,14 +22,14 @@
 
 ## 개요
 
-이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다. 이 문서는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
+이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서에서는 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다. 이 문서는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 장치를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
 
 ## 프로비전 필수 조건
 
-여기에는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건이 제공됩니다.
+여기서는 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템에서 가상 디바이스를 프로비전하기 위한 필수 구성 요소를 확인할 수 있습니다.
 
 ### StorSimple 관리자 서비스의 경우
 
@@ -45,7 +45,7 @@
 
 가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
 
--   장치 프로비전에 사용될 수 있는 Hyper-V(2008 R2 이상)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+-   장치 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 
 -   가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
@@ -59,9 +59,7 @@
 
 ### 데이터 센터에서 네트워크의 경우
 
-시작하기 전에 다음 사항을 확인합니다.
-
--   StorSimple 가상 장치를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성했습니다. 자세한 내용은 [StorSimple 가상 배열 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements)을 참조하세요.
+시작하기 전에 StorSimple 가상 디바이스를 배포하고 데이터 센터 네트워크를 적절히 구성하기 위한 네트워킹 요구 사항을 검토하세요. 자세한 내용은 [StorSimple 가상 배열 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements)을 참조하세요.
 
 ## 단계별 프로비전
 
@@ -79,7 +77,7 @@
 
 가상 장치를 만들려면 다음이 필요합니다.
 
--   Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2에서 실행되는 Hyper-V 2008 R2 SP1, Hyper-V 2012 또는 Hyper-V 2012 R2
+-   Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1에 설치되어 있는 Hyper-V 역할
 
 -   호스트에 연결된 Microsoft Windows 클라이언트의 Microsoft Hyper-V 관리자
 
@@ -102,51 +100,38 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image1.png)
 
-	Hyper-V 2008 R2를 실행하는 경우에는 Hyper-V 관리자를 엽니다. 서버 관리자에서 **역할 > Hyper-V > Hyper-V 관리자**를 클릭합니다.
+	Windows Server 2008 R2를 실행하는 경우에는 Hyper-V 관리자를 엽니다. 서버 관리자에서 **역할 > Hyper-V > Hyper-V 관리자**를 클릭합니다.
 
-1.  **Hyper-V 관리자**의 범위 창에서 시스템 노드를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 엽니다. **새로 만들기**를 선택한 후 **가상 컴퓨터**를 선택합니다.
+1.  **Hyper-V 관리자**의 범위 창에서 시스템 노드를 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 연 다음 **새로 만들기** > **가상 컴퓨터**를 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
 
-1.  **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
-
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image3.png)
+1.  새 가상 컴퓨터 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 
 1.  **이름 및 위치 지정** 페이지에서 가상 장치의 **이름**을 입력합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  **세대 지정** 페이지에서 VHD를 사용하는 경우 **1세대**를 선택합니다. VHDX(Windows Server 2012 이상)를 사용하는 경우 **2세대**를 선택합니다. **다음**을 클릭합니다.
+1.  **세대 지정** 페이지에서 장치 이미지 유형을 선택하고 **다음**을 클릭합니다. Windows Server 2008 R2를 사용하는 경우에는 이 페이지가 표시되지 않습니다.
+
+    * Windows Server 2012 이상에 대한 .vhdx 이미지를 다운로드한 경우 **2세대**를 선택합니다.
+    * Windows Server 2008 R2 이상에 대한 .vhd 이미지를 다운로드한 경우 **1세대**를 선택합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-	Hyper-V 2008 R2를 실행하는 경우에는 이 화면이 표시되지 않습니다.
-
-1.  **메모리 할당** 페이지에서:
-
-    a. **시작 메모리**를 8192MB 이상으로 지정합니다. StorSimple 가상 장치에 대한 최소 메모리 요구 사항은 8GB 이상입니다. **이 가상 컴퓨터에 동적 메모리를 사용합니다.** 옵션을 선택하지 않습니다.
-
-    b. **다음**을 클릭합니다.
+1.  **메모리 할당** 페이지에서 **시작 메모리**를 **8192MB** 이상으로 지정하고, 동적 메모리는 사용하도록 설정하지 않은 후 **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
-1.  **네트워킹 구성** 페이지에서:
-
-    a. **연결** 드롭다운 목록에서 가상 스위치를 선택합니다. 인터넷에 연결된 가상 스위치를 선택해야 합니다.
-
-    b. **다음**을 클릭합니다.
+1.  **네트워킹 구성** 페이지에서 인터넷에 연결된 가상 스위치를 지정하고 **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  **가상 하드 디스크 연결** 페이지에서:
-
-    a. **기존 가상 하드 디스크 사용** 옵션을 선택합니다. 호스트 시스템에 다운로드한 VHD를 가리킵니다.
-
-    b. **다음**을 클릭합니다.
+1.  **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 장치 이미지(.vhdx 또는 .vhd)의 위치를 지정한 후 **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  표시되는 **요약**을 검토합니다. **마침**을 클릭하여 가상 컴퓨터를 만듭니다.
+1.  **요약**을 검토하고 **마침**을 클릭하여 가상 컴퓨터를 만듭니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
@@ -169,15 +154,13 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image13.png)
 
-1.  **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
+1.  새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image14.png)
-
-1.  **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Hyper-V 2008 R2를 실행하는 경우에는 이 화면이 표시되지 않습니다.
+1.  **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Windows Server 2008 R2를 실행하는 경우에는 이 화면이 표시되지 않습니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크를 선택하면 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. **동적 확장**은 Hyper-V 2012 및 Hyper-V 2012 R2의 기본값입니다. Hyper-V 2008 R2의 기본값은 **고정 크기**입니다.
+1.  **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크를 선택하면 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. Windows Server 2012 R2 및 Windows Server 2012에서는 **동적 확장**이 기본값입니다. Windows Server 2008 R2에서는 **고정 크기**가 기본값입니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -255,7 +238,7 @@
 
 1. (선택 사항) 이 단계는 정부 클라우드에서 장치를 배포하는 경우에만 수행합니다. 이제 장치에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
 	1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
-		
+
 		`Enter-HcsFIPSMode`
 
 	2. 암호화 유효성 검사에 적용되도록 FIPS 모드를 사용하도록 설정한 후 장치를 다시 부팅합니다.
@@ -284,4 +267,4 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

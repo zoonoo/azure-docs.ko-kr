@@ -3,7 +3,7 @@
 	description="이 문서에서는 탄력적인 확장 API를 사용하여 새 분할된 데이터베이스를 분할된 데이터베이스 집합에 추가하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 # 탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

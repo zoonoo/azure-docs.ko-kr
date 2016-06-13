@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Visual Studio용 SQL Server Data Tools를 사용하여 Azure SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
+# Visual Studio용 SQL Server Data Tools를 사용하여 Azure SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션 
+
+> [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [업그레이드 관리자](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
+
+이 문서에서는 Azure SQL 데이터베이스로 마이그레이션하기 전에 Visual Studio용 SQL Server 데이터 도구를 사용하여 SQL Server 데이터베이스 호환성 문제를 감지하고 해결하는 방법을 알아봅니다.
+
+## Visual Studio용 SQL Server Data Tools 사용
 
 Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이스 스키마를 Visual Studio 데이터베이스 프로젝트로 가져온 다음 분석할 수 있습니다. 분석하려면 대한 대상 플랫폼을 SQL 데이터베이스 V12로 프로젝트로 지정하고 프로젝트를 빌드합니다. 빌드에 성공한 경우 데이터베이스가 호환됩니다. 빌드가 실패한 경우 SSDT(또는 이 항목에서 설명한 다른 도구 중 하나)에서 오류를 해결할 수 있습니다. 프로젝트가 성공적으로 빌드되면 원본 데이터베이스의 복사본으로 다시 게시할 수 있으며 다음 SSDT에서 데이터 비교 기능을 사용하여 원본 데이터베이스에서 Azure SQL V12 호환 가능한 데이터베이스로 데이터를 복사할 수 있습니다. 그런 다음 이 업데이트된 데이터베이스를 마이그레이션할 수 있습니다. 이 옵션을 사용하려면 [최신 버전의 SSDT](https://msdn.microsoft.com/library/mt204009.aspx)를 다운로드합니다.
 
@@ -75,4 +86,15 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
     
 6.	배포 방법을 선택합니다. [호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+## 다음 단계
+
+- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## 자세한 정보
+
+- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
+- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

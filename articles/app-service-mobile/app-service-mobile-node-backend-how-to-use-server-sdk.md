@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/27/2016"
 	ms.author="adrianhall"/>
 
 # Azure 모바일 앱 Node.js SDK를 사용하는 방법
@@ -33,7 +33,7 @@ Azure 앱 서비스 모바일 앱은 모바일에 최적화된 데이터 액세�
 
 [GitHub의 샘플 디렉터리]에서 각 사용 사례에 대한 샘플을 찾을 수 있습니다.
 
-## <a name="howto-cmdline-basicapp"></a>방법: 명령줄을 사용하는 기본 Node.js 백 엔드 만들기
+### <a name="howto-cmdline-basicapp"></a>방법: 명령줄을 사용하는 기본 Node.js 백 엔드 만들기
 
 모든 Azure 앱 서비스 모바일 앱 Node.js 백 엔드는 ExpressJS 응용 프로그램으로 시작합니다. ExpressJS는 Node.js에 사용할 수 있는 가장 인기 있는 웹 서비스 프레임워크입니다. 다음과 같이 기본 [Express] 응용 프로그램을 만들 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure 앱 서비스 모바일 앱은 모바일에 최적화된 데이터 액세�
 
 [GitHub의 기본 앱 샘플]에서 이 기본 응용 프로그램에 대한 코드를 찾을 수 있습니다.
 
-## <a name="howto-vs2015-basicapp"></a>방법: Visual Studio 2015를 사용하여 노드 백 엔드 만들기
+### <a name="howto-vs2015-basicapp"></a>방법: Visual Studio 2015를 사용하여 노드 백 엔드 만들기
 
 Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 확장이 필요합니다. 시작하려면 [Visual Studio용 Node.js Tools 1.1]를 다운로드 및 설치합니다. Visual Studio용 Node.js Tools가 설치되면 Express 4.x 응용 프로그램을 만듭니다.
 
@@ -126,7 +126,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 
 10. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000에서 제공됨) Azure에 게시합니다.
 
-## <a name="download-quickstart"></a>방법: Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드
+### <a name="download-quickstart"></a>방법: Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드
 
 포털 **빠른 시작** 블레이드를 사용하여 새 Node.js 모바일 앱 백 엔드를 만들 때 새 Node.js 프로젝트가 생성되어 사이트에 배포됩니다. 테이블 및 API를 추가하고 포털에서 Node.js 백 엔드에 대한 코드 파일을 편집할 수 있습니다. 또한 백 엔드 프로젝트를 다운로드하기 위해 다양한 배포 도구 중 하나를 사용할 수 있으므로 테이블 및 API를 추가하거나 수정한 다음 프로젝트를 다시 게시할 수 있습니다. 자세한 내용은 [Azure 앱 서비스 배포 가이드]를 참조하세요. 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
@@ -151,7 +151,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 
 사이트는 사이트에 새로운 커밋 집합이 푸시될 때마다 다시 게시됩니다.
 
-## <a name="howto-publish-to-azure"></a>방법: Azure에 Node.js 백 엔드 게시
+### <a name="howto-publish-to-azure"></a>방법: Azure에 Node.js 백 엔드 게시
 
 Microsoft Azure는 Azure 앱 서비스 모바일 앱 Node.js 백 엔드를 Azure 서비스에 게시하기 위한 여러 메커니즘을 제공합니다. 여기에는 원본 제어에 따라 Visual Studio, 명령줄 도구 및 연속 배포 옵션에 통합된 배포 도구의 활용을 포함합니다. 이 항목에 대한 자세한 내용은 [Azure 앱 서비스 배포 가이드]를 참조합니다.
 
@@ -160,7 +160,7 @@ Azure 앱 서비스에는 배포하기 전에 검토해야 하는 Node.js 응용
 - [노드 버전 지정]하는 방법
 - [노드 모듈 사용]하는 방법
 
-## <a name="howto-enable-homepage"></a>방법: 응용 프로그램에 대한 홈페이지 사용
+### <a name="howto-enable-homepage"></a>방법: 응용 프로그램에 대한 홈페이지 사용
 
 대부분의 응용 프로그램은 웹앱 및 모바일 앱의 조합이고 ExpressJS 프레임워크를 사용하면 두 가지 측면을 결합할 수 있습니다. 그러나 때로는 모바일 인터페이스를 구현하려고 할 수 있습니다. 앱 서비스를 실행하도록 하기 위해 방문 페이지를 제공하는 것이 유용합니다. 고유한 홈 페이지에 제공하거나 임시 홈 페이지를 사용할 수 있습니다. 임시 홈 페이지를 사용하려면 다음에 모바일 앱 생성자를 조정합니다.
 
@@ -168,7 +168,7 @@ Azure 앱 서비스에는 배포하기 전에 검토해야 하는 Node.js 응용
 
 로컬로 개발할 때 이 옵션을 사용하려면 `azureMobile.js` 파일에 이 설정을 추가할 수 있습니다.
 
-## <a name="TableOperations"></a>개요: 테이블 작업
+## <a name="TableOperations"></a>테이블 작업 
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장된 데이터 테이블을 WebAPI로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업이 제공됩니다.
 
@@ -182,7 +182,7 @@ azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장�
 
 이 WebAPI는 [OData]를 지원하고 테이블 스키마를 확장하여 [오프라인 데이터 동기화]를 지원합니다.
 
-## <a name="howto-dynamicschema"></a>방법: 동적 스키마를 사용하여 테이블 정의
+### <a name="howto-dynamicschema"></a>방법: 동적 스키마를 사용하여 테이블 정의
 
 테이블을 사용하기 전에 정의되어야 합니다. 테이블은 정적 스키마(개발자가 스키마 내에서 열을 정의하는 위치) 또는 동적으로(SDK가 들어오는 요청에 따라 스키마를 제어하는 위치) 정의될 수 있습니다. 또한 개발자는 정의에 Javascript 코드를 추가하여 WebAPI의 특정 측면을 제어할 수 있습니다.
 
@@ -220,7 +220,7 @@ azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장�
 
 [GitHub의 할 일 샘플]에서 전체 예제를 찾을 수 있습니다.
 
-## <a name="howto-staticschema"></a>방법: 정적 스키마를 사용하여 테이블 정의
+### <a name="howto-staticschema"></a>방법: 정적 스키마를 사용하여 테이블 정의
 
 열을 명시적으로 정의하여 WebAPI를 통해 노출할 수 있습니다. azure-mobile-apps Node.js SDK는 오프라인 데이터 동기화에 필요한 모든 추가 열을 제공하는 목록에 자동으로 추가됩니다. 예를 들어 빠른 시작 클라이언트 응용 프로그램은 텍스트(문자열) 및 완료(부울)이라는 두 열이 있는 테이블이 필요합니다. 다음과 같이 테이블 정의 JavaScript 파일에서 정의될 수 있습니다.(테이블 디렉터리에 위치)
 
@@ -241,7 +241,7 @@ azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장�
 
 또한 정적으로 테이블을 정의하는 경우 tables.initialize() 메서드를 호출하여 시작 시 데이터베이스 스키마를 만들어야 합니다. Tables.initialize() 메서드는 [Promise]를 반환합니다 - 데이터베이스가 초기화되기 전에 웹 서비스가 요청을 처리하지 않도록 하는 데 사용됩니다.
 
-## <a name="howto-sqlexpress-setup"></a>방법: 로컬 컴퓨터에서 개발 데이터 저장소로 SQL Express 사용
+### <a name="howto-sqlexpress-setup"></a>방법: 로컬 컴퓨터에서 개발 데이터 저장소로 SQL Express 사용
 
 Azure 모바일 앱 AzureMobile 앱 노드 SDK는 상자에서 데이터를 처리 하기 위한 세 가지 옵션을 제공합니다. SDK는 상자에서 데이터를 처리 하기 위한 세 가지 옵션을 제공합니다.
 
@@ -300,7 +300,7 @@ Node.js 응용 프로그램은 **SQLCONNSTR\_MS\_TableConnectionString** 환경 
 
 TCP/IP 연결을 통해 데이터베이스에 액세스하고 연결에 대한 사용자 이름 및 암호를 제공해야 합니다.
 
-## <a name="howto-config-localdev"></a>방법: 로컬 개발에 대한 프로젝트 구성
+### <a name="howto-config-localdev"></a>방법: 로컬 개발에 대한 프로젝트 구성
 
 Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Azure 모바일 앱 SDK를 구성하지 않아야 합니다. 대신 [Azure 포털] 내에서 앱 설정을 사용합니다. _azureMobile.js_ 파일은 구성 개체를 내보내야 합니다. 가장 일반적인 설정은 다음과 같습니다.
 
@@ -328,7 +328,7 @@ Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 Java
 
 _.gitignore_ 파일에 _azureMobile.js_를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 앱 설정에서 프로덕션 설정을 항상 구성합니다.
 
-## <a name="howto-appsettings"></a>방법: 모바일 앱에 대한 앱 설정 구성
+### <a name="howto-appsettings"></a>방법: 모바일 앱에 대한 앱 설정 구성
 
 _azureMobile.js_ 파일에서 대부분의 설정은 [Azure 포털]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 앱 설정에서 앱을 구성합니다.
 
@@ -355,7 +355,7 @@ _azureMobile.js_ 파일에서 대부분의 설정은 [Azure 포털]에서 동일
 
 대부분의 경우 앱 설정을 변경하려면 서비스를 다시 시작해야 합니다.
 
-## <a name="howto-use-sqlazure"></a>방법: 프로덕션 데이터 저장소로 SQL 데이터베이스 사용
+### <a name="howto-use-sqlazure"></a>방법: 프로덕션 데이터 저장소로 SQL 데이터베이스 사용
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
@@ -393,7 +393,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 영역을 사용하여 배포의 진행률을 모니터링합니다. 데이터베이스가 성공적으로 배포될 때까지 진행하지 마세요. 성공적으로 배포되면 모바일 백 엔드 앱 설정에서 SQL 데이터베이스 인스턴스에 대한 연결 문자열을 만듭니다. **설정** > **응용 프로그램 설정** > **연결 문자열**에서 이 앱 설정을 볼 수 있습니다.
 
-## <a name="howto-tables-auth"></a>방법: 테이블에 대한 액세스 인증 요구
+### <a name="howto-tables-auth"></a>방법: 테이블에 대한 액세스 인증 요구
 
 테이블 끝점을 사용하여 앱 서비스 인증을 사용하려는 경우 [Azure 포털]에서 우선 앱 서비스 인증을 구성해야 합니다. Azure 앱 서비스에서 인증을 구성하는 데 대한 자세한 내용은 사용하려는 ID 공급자를 위한 구성 가이드를 검토합니다.
 
@@ -431,7 +431,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
-## <a name="howto-tables-getidentity"></a>방법: 테이블을 사용하여 인증 클레임 사용
+### <a name="howto-tables-getidentity"></a>방법: 테이블을 사용하여 인증 클레임 사용
 
 인증이 설정될 때 요청되는 클레임을 여러 개 설정할 수 있습니다. 이러한 클레임은 `context.user` 개체를 통해 정상적으로 사용할 수 없습니다. 그러나 `context.user.getIdentity()` 메서드를 사용하여 검색할 수 있습니다. `getIdentity()` 메서드는 개체로 확인되는 프라미스를 반환합니다. 개체는 인증 방법(facebook, google, twitter, microsoftaccount 또는 aad)을 키로 사용합니다.
 
@@ -492,14 +492,14 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 끝점을 봅니다.
 
-## <a name="howto-tables-disabled"></a>방법: 특정 테이블 작업에 대한 액세스 사용 안 함
+### <a name="howto-tables-disabled"></a>방법: 특정 테이블 작업에 대한 액세스 사용 안 함
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
-  - *삽입*은 테이블의 RESTful POST 작업입니다.
-  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
-  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
+  - *읽기* 는 테이블의 RESTful 가져오기 작업입니다.
+  - *삽입* 은 테이블의 RESTful POST 작업입니다.
+  - *업데이트* 는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제* 는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -515,7 +515,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
     module.exports = table;
 
-## <a name="howto-tables-query"></a>방법: 테이블 작업에 사용되는 쿼리 조정
+### <a name="howto-tables-query"></a>방법: 테이블 작업에 사용되는 쿼리 조정
 
 테이블 작업에 대한 일반적인 요구 사항은 데이터의 제한된 보기를 제공하는 것입니다. 예를 들어 사용자가 고유한 레코드를 읽거나 업데이트만할 수 있는 등 인증된 사용자 ID로 태그가 지정된 테이블을 제공할 수 있습니다. 다음 테이블 정의는 다음의 기능을 제공합니다.
 
@@ -552,7 +552,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
     context.query.where('myfield eq ?', 'value');
 
-## <a name="howto-tables-softdelete"></a>방법: 테이블에 일시 삭제 구성
+### <a name="howto-tables-softdelete"></a>방법: 테이블에 일시 삭제 구성
 
 일시 삭제는 레코드를 실제로 삭제하지 않습니다. 대신 삭제된 열을 true로 설정하여 데이터베이스 내에서 삭제된 것으로 표시합니다. 모바일 클라이언트 SDK가 IncludeDeleted()를 사용하지 않는 경우 Azure 모바일 앱 SDK는 일시 삭제된 레코드를 결과에서 자동으로 삭제합니다. 일시 삭제에 대한 테이블을 구성하려면 테이블 정의 파일에서 softDelete 속성을 설정합니다. 예는 다음과 같을 수 있습니다.
 
@@ -579,7 +579,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 클라이언트 응용 프로그램에서 웹WebJob 또는 사용자 지정 메커니즘을 통해 레코드를 제거하기 위한 메커니즘을 설정해야 합니다.
 
-## <a name="howto-tables-seeding"></a>방법: 데이터를 사용하여 데이터베이스 시드
+### <a name="howto-tables-seeding"></a>방법: 데이터를 사용하여 데이터베이스 시드
 
 새 응용 프로그램을 만들 때 데이터가 있는 테이블을 시드할 수 있습니다. 다음과 같이 테이블 정의 JavaScript 파일 내에서 수행될 수 있습니다.
 
@@ -609,7 +609,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 서비스가 실행되기 시작하면 initialize() 메서드를 명시적으로 호출하여 테이블을 만드는 것이 좋습니다.
 
-## <a name="Swagger"></a>방법: Swagger 지원 사용
+### <a name="Swagger"></a>방법: Swagger 지원 사용
 
 Azure 앱 서비스 모바일 앱은 기본 제공 [Swagger]를 지원합니다. Swagger 지원을 사용하려면 먼저Swagger UI를 종속성으로 설치합니다.
 
@@ -627,10 +627,11 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 또한 로컬로 개발할 때 Swagger 지원을 원하는 경우 `azureMobile.js` 파일에 Swagger 옵션을 추가할 수 있습니다.
 
-## <a name="push"></a>개요: 푸시 알림
+## <a name="push">푸시 알림
+
 모바일 앱은 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure 알림 허브와 통합됩니다. 알림 허브를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
 
-## <a name="send-push"></a>방법: 푸시 알림 보내기
+### </a><a name="send-push"></a>방법: 푸시 알림 보내기
 
 다음 코드는 등록된 iOS 장치에 브로드캐스트 푸시 알림을 보내기 위해 push 개체를 사용하는 방법을 보여 줍니다.
 
@@ -663,7 +664,8 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
     }
 
 
-##<a name="push-user"></a>방법: 태그를 사용하여 인증된 사용자에게 푸시 알림 보내기
+###<a name="push-user"></a>방법: 태그를 사용하여 인증된 사용자에게 푸시 알림 보내기
+
 인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 특정 사용자가 등록된 모든 장치에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 장치 등록에 템플릿 푸시 알림을 보냅니다.
 
     // Only do the push if configured
@@ -678,7 +680,10 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다.
 
-## <a name="CustomAPI"></a>개요: 사용자 지정 API
+## <a name="CustomAPI"></a> 사용자 지정 API
+
+###  <a name="howto-customapi-basic"></a>방법: 단순 사용자 지정 API 정의
+
 
 /tables 끝점을 통한 데이터 액세스 API 외에도 Azure 모바일 앱은 사용자 지정 API 범위를 제공할 수 있습니다. 사용자 지정 API는 유사한 방식으로 테이블 정의에 정의되고 인증을 비롯한 동일한 시설에 액세스할 수 있습니다.
 
@@ -689,8 +694,6 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 - [Google 인증을 구성하는 방법]
 - [Microsoft 인증을 구성하는 방법]
 - [Twitter 인증을 구성하는 방법]
-
-## <a name="howto-customapi-basic"></a>방법: 단순 사용자 지정 API 정의
 
 사용자 지정 API는 거의 동일한 방식으로 테이블 API로 정의됩니다.
 
@@ -728,7 +731,7 @@ _Date.now()_ 메서드를 사용하여 서버 날짜를 반환하는 간단한 A
 
 각 매개 변수는 GET, POST, PATCH 또는 DELETE와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
 
-## <a name="howto-customapi-auth"></a>방법: 사용자 지정 API에 대한 액세스 인증 요구
+### <a name="howto-customapi-auth"></a>방법: 사용자 지정 API에 대한 액세스 인증 요구
 
 Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 동일한 방식으로 인증을 구현합니다. 이전 섹션에서 개발된 API에 인증을 추가하려면 **access** 속성을 추가합니다.
 
@@ -758,7 +761,7 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 
 테이블 끝점에 사용되는 동일한 토큰은 인증을 요구하는 사용자 지정 API에 사용되어야 합니다.
 
-## <a name="howto-customapi-auth"></a>방법: 대용량 파일 업로드 처리
+### <a name="howto-customapi-auth"></a>방법: 대용량 파일 업로드 처리
 
 Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코드합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
 
@@ -784,7 +787,7 @@ Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs
 
 위에 표시된 50Mb 제한을 조정할 수 있습니다. 파일은 전송되기 전에 base-64로 인코딩되므로 실제 업로드 크기가 증가합니다.
 
-## <a name="howto-customapi-sql"></a>방법: 사용자 지정 SQL 문 실행
+### <a name="howto-customapi-sql"></a>방법: 사용자 지정 SQL 문 실행
 
 Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 매개 변수화된 SQL 문을 쉽게 실행할 수 있는 요청 개체를 통해 전체 컨텍스트에 액세스할 수 있습니다.
 
@@ -815,7 +818,9 @@ Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 
     api.get.access = 'authenticated';
     module.exports = api;
 
-## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>방법: Azure 모바일 앱의 디버깅, 진단 및 문제 해결
+## <a name="Debugging"></a>디버깅, 쉬운 테이블 및 쉬운 API
+
+### <a name="howto-diagnostic-logs"></a>방법: Azure 모바일 앱의 디버깅, 진단 및 문제 해결
 
 Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. Node.js 모바일 백 엔드 문제 해결에서 시작하는 다음 문서를 참조하세요.
 
@@ -825,7 +830,7 @@ Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 �
 
 Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세스합니다. 내부적으로 Azure 모바일 앱 Node.js SDK는 진단 로깅에 [윈스턴]을 사용합니다. [Azure 포털]에서 디버그 모드를 사용하거나 **MS\_DebugMode** 앱 설정을 true로 설정하여 자동으로 활성화합니다. 생성된 로그는 [Azure 포털]의 진단 로그에 표시됩니다.
 
-## <a name="in-portal-editing"></a><a name="work-easy-tables"></a>방법: Azure 포털에서 테이블로 간편하게 작업
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>방법: Azure 포털에서 테이블로 간편하게 작업
 
 포털에서 쉬운 테이블을 통해 포털에서 테이블을 만들고 작업할 수 있습니다. Visual Studio Online 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다.
 
@@ -842,7 +847,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 + **행 삭제** - 데이터의 개별 행을 삭제합니다.
 + **스트리밍 로그 보기** - 사이트에 대한 스트리밍 로그 서비스에 연결할 수 있습니다.
 
-##<a name="work-easy-apis"></a>방법: Azure 포털에서 API로 간편하게 작업
+###<a name="work-easy-apis"></a>방법: Azure 포털에서 API로 간편하게 작업
 
 포털에서 쉬운 API를 통해 포털에서 사용자 지정 API를 만들고 작업할 수 있습니다. Visual Studio Online 편집기를 사용하여 API 스크립트를 편집할 수도 있습니다.
 
@@ -852,7 +857,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 
 포털에서 지정된 HTTP 동작에 대한 액세스 권한을 변경하거나 Visual Studio Team Services 편집기에서 API 스크립트 파일을 편집, 또는 스트리밍 로그를 볼 수 있습니다.
 
-##<a name="online-editor"></a>방법: Visual Studio Team Services에서 코드 편집
+###<a name="online-editor"></a>방법: Visual Studio Team Services에서 코드 편집
 
 Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 Visual Studio Team Services에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
 
@@ -912,4 +917,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -24,9 +24,6 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 모델입니다.
-
-
 이 종단 간 자습서에서는 Azure 리소스 관리자 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트합니다.
 
 >[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 Always On 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 이것은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server Always On 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
@@ -259,4 +256,4 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

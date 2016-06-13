@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Azure Data Lake 저장소와 관련된 데이터 시나리오
@@ -132,6 +132,6 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 ![Data Lake 저장소에서 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake 저장소에서 데이터 시각화")
 
 * b먼저 [Azure Data Factory를 사용하여 Data Lake 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
-* 그 후에는 [Power BI를 Azure SQL 데이터 웨어하우스와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi)하여 데이터를 시각적으로 표현할 수 있습니다.
+* 그 후에는 [Power BI를 Azure SQL 데이터 웨어하우스와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md)하여 데이터를 시각적으로 표현할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

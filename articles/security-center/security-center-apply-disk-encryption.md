@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/31/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 디스크 암호화 적용
@@ -67,4 +67,4 @@ Azure 보안 센터는 암호화되지 않은 Windows 또는 Linux VM 디스크�
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="torsteng" />
 
 
 # 분할-병합 보안 구성  
@@ -357,7 +357,9 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 * 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
 * 표시가 모두를 나타내는지 확인합니다.
 * 목록에서 지문이라는 필드를 선택합니다.
-* 지문 값을 복사합니다. ** 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제합니다. ** 모든 공백을 삭제합니다.
+* 지문 값을 복사합니다. 
+** 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제합니다. 
+** 모든 공백을 삭제합니다.
 
 ## 서비스 구성 파일에서 허용된 클라이언트 구성
 
@@ -487,4 +489,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

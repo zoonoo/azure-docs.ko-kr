@@ -14,21 +14,22 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="05/30/2016"
    ms.author="hermannd"/>
 
-# Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
+# Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
 
 
-이 문서에서는 Microsoft Azure SUSE Linux VM(가상 컴퓨터)에서 SAP NetWeaver를 테스트할 때 고려해야 할 다양한 항목을 설명합니다. 현재 이러한 가상 컴퓨터에 대한 공식 SAP 지원 문이 없습니다. 그렇지만 공식적인 SAP 지원에 의존하지 않는다면 테스트나 데모 또는 프로토타입 생성을 수행할 수 있습니다.
+이 문서에서는 Microsoft Azure SUSE Linux VM(가상 컴퓨터)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 등과 관련된 모든 세부 정보는 SAP 정보 1928533, "Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형"에서 찾을 수 있습니다. Linux VM의 SAP에 대한 자세한 내용은 [Linux VM(가상 컴퓨터)에서 SAP 사용](virtual-machines-linux-sap-get-started.md)에서 확인할 수 있습니다.
+
 
 다음 정보는 일부 잠재적인 문제를 예방하는 데 도움이 됩니다.
 
-## SAP 테스트용 Azure의 SUSE 이미지
+## SAP 실행을 위한 Azure의 SUSE 이미지
 
-Azure에서 SAP 테스트를 수행하는 경우, SUSE Linux Enterprise Server(SLES) SP4 11 및 SLES 12만 사용합니다. 특수한 SUSE 이미지는 Azure 마켓플레이스("SLES 11 SP3 for SAP CAL")에 있지만, 일반 용도는 아닙니다. 이 이미지는 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 솔루션을 위한 것이기 때문에 사용하지 않습니다.
+Azure에서 SAP NetWeaver를 실행하기 위해서는 SUSE Linux Enterprise Server SLES 12(SPx)만 사용해야 합니다. 자세한 내용은 SAP 정보 1928533을 참조하세요. 특수한 SUSE 이미지는 Azure 마켓플레이스("SLES 11 SP3 for SAP CAL")에 있지만, 일반 용도는 아닙니다. 이 이미지는 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 솔루션을 위한 것이기 때문에 사용하지 않습니다.
 
-Azure의 모든 새로운 테스트에 대해 Azure 리소스 관리자를 사용해야 합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스(CLI)를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그런 다음 새 SUSE Linux VM 배포용 JSON 템플릿에서 OS 이미지를 정의하는 등 출력 내용을 사용할 수 있습니다. PowerShell 명령은 Azure PowerShell 1.0.1 이상 버전에 유효합니다.
+Azure의 모든 새로운 테스트 및 설치에 대해 Azure 리소스 관리자를 사용해야 합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스(CLI)를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그런 다음 새 SUSE Linux VM 배포용 JSON 템플릿에서 OS 이미지를 정의하는 등 출력 내용을 사용할 수 있습니다. PowerShell 명령은 Azure PowerShell 1.0.1 이상 버전에 유효합니다.
 
 * SUSE를 포함하는 기존 게시자를 찾습니다.
 
@@ -68,6 +69,10 @@ WALinuxAgent라고 하는 이 에이전트는 Azure 마켓플레이스 내 SLES 
 
 - [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
+## SAP "향상된 모니터링"
+
+SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 구성 요소입니다. SAP 정보 2191498, “Azure와 Linux의 SAP: 향상된 모니터링”에서 자세한 내용을 확인하세요.
+
 ## Azure Linux VM에 Azure 데이터 디스크 연결
 
 장치 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재하면 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
@@ -86,7 +91,7 @@ Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 
 
 이를 방지하는 방법에는 다음 두 가지가 있습니다.
 
-* VM 문제 해결을 위해 서로 다른 Azure 마켓플레이스 이미지를 사용합니다(예: SLES 11 SP4 대신 SLES 12).
+* VM 문제 해결을 위해 서로 다른 Azure 마켓플레이스 이미지를 사용합니다(예: SLES 12 대신 SLES 11 SPx).
 * UUID를 사용하여 다른 VM에서 손상된 OS 디스크를 연결하지 말고 다른 방법을 사용합니다.
 
 ## 온-프레미스에서 Azure로 SUSE VM 업로드
@@ -114,11 +119,11 @@ Azure Linux 에이전트(waagent)를 설치하여 NIC이 여러 개만 아니라
    ```
 JSON 템플릿 파일에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md) 및 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
+CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## SAP 라이선스 및 하드웨어 키
 
-공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 이것을 이용하려면 SAP 커널이 적용되어야 합니다. 현재 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다.
+공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 이것을 이용하려면 SAP 커널이 적용되어야 합니다. 이전 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다. 이 문제는 최신 SAP Linux 커널에서 해결되었습니다. 자세한 내용은 SAP 참고 1928533을 참조하세요.
 
 ## SUSE sapconf 패키지
 
@@ -130,7 +135,7 @@ SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를
 
 ## 논리 볼륨
 
-논리 볼륨 관리자(LVM)는 Azure에서 완벽하게 유효성 검사가 완료되지 않습니다. 다수의 Azure 데이터 디스크(예: SAP 데이터베이스)에 대해 큰 논리 볼륨이 필요한 경우에는 mdadm을 사용해야 합니다. mdadm을 사용하여 Azure에서 Linux RAID를 설정하는 방법을 알아보려면 [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)을 참조하세요.
+과거에는 여러 Azure 데이터 디스크에 큰 논리 볼륨이 필요한 경우(예: SAP 데이터베이스에 대해) lvm은 아직 Azure에서 유효성이 완전하게 확인되지 않았으므로 mdadm을 사용하는 것이 좋았습니다. mdadm을 사용하여 Azure에서 Linux RAID를 설정하는 방법을 알아보려면 [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)을 참조하세요. 2016년 5월부터 당분간 lvm이 Azure에서 완전히 지원되며 mdadm 대신 사용될 수 있습니다. Azure의 lvm에 대한 자세한 내용은 [Azure에서 Linux VM에 LVM 구성](virtual-machines-linux-configure-lvm.md)을 참조하세요.
 
 
 ## Azure SUSE 리포지토리
@@ -161,4 +166,4 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
 
 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. Azure 관련 항목은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 항목을 논의하려면 Oracle에 직접 문의합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->
