@@ -148,7 +148,7 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일로 이동한 다음 **메타데이터 업로드**를 클릭합니다.
 
-    c. **메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    c. **메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
 
     d. **이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
 

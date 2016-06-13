@@ -387,7 +387,7 @@ Azure 스트림 분석에서 모든 “창 작업” 기능에 대한 자세한 
 
 사용자 지정할 RealtimeDashboardApp Visual Studio 솔루션을 다운로드하려면 [RealtimeDashboardApp 다운로드](http://go.microsoft.com/fwlink/?LinkId=717078)를 클릭하세요.
 
-****실시간 대시보드 응용 프로그램을 실행하려면**
+**실시간 대시보드 응용 프로그램을 실행하려면**
 
 1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 “실시간 대시보드 응용 프로그램 다운로드” 링크를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
 2.	로컬에 압축을 풀고 저장합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*

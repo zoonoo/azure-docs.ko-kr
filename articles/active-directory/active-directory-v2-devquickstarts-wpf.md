@@ -214,12 +214,12 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null)
-{
-		// If the user clicked the 'clear cache' button,
-		// clear the ADAL token cache and show the user as signed out.
-		// It's also necessary to clear the cookies from the browser
-		// control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null) 
+{ 
+	// If the user clicked the 'clear cache' button, 
+	// clear the ADAL token cache and show the user as signed out. 
+	// It's also necessary to clear the cookies from the browser 
+	// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{

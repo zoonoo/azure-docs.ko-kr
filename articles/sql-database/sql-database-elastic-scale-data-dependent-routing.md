@@ -85,7 +85,7 @@
 
 **OpenConnectionForKey** 메서드는 이미 열려 있는 새 연결을 올바른 데이터베이스에 반환합니다. 이러한 방식으로 활용되는 연결은 ADO.Net 연결 풀링을 완벽하게 활용합니다. 트랜잭션 및 요청을 한 번에 하나의 분할된 데이터베이스를 통해 충족할 수 있다면 이미 ADO.Net을 사용하는 응용 프로그램에서는 이 수정만 수행하면 됩니다.
 
-응용 프로그램에서 ADO.Net과 함께 비동기 프로그래밍을 사용하는 경우 **[OpenConnectionForKeyAsync 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)**도 사용할 수 있습니다. 이 메서드의 동작은 ADO.Net의 ****[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** 메서드에 해당하는 데이터 종속 라우팅입니다.
+응용 프로그램에서 ADO.Net과 함께 비동기 프로그래밍을 사용하는 경우 **[OpenConnectionForKeyAsync 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)**도 사용할 수 있습니다. 이 메서드의 동작은 ADO.Net의 **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** 메서드에 해당하는 데이터 종속 라우팅입니다.
 
 ## 일시적인 오류 처리와 통합 
 

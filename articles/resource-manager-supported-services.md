@@ -35,7 +35,9 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | Dynamics Lifecycle Services | 예 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | 서비스 패브릭(미리 보기) | 예 | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 가상 컴퓨터 | 예 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | - | - | | 원격 앱 | 아니오 | - | - | | 클라우드 서비스(클래식) | 제한됨(아래 참조) | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | - | - | 
+| 원격 앱 | 아니오 | - | - | 
+| 클라우드 서비스(클래식) | 제한됨(아래 참조) | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -88,7 +90,8 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 데이터 레이크 저장소 | 예 | | | |
 | HDInsights | 예 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 스트림 분석 | 예 | [스트림 분석 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| 기계 학습 | 아니오 | - | - | | 데이터 카탈로그 | 아니오 | - | - |
+| 기계 학습 | 아니오 | - | - | 
+| 데이터 카탈로그 | 아니오 | - | - |
 
 ## 사물 인터넷
 

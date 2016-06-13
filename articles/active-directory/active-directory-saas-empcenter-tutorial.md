@@ -80,8 +80,8 @@
 
     ![앱 설정 구성](./media/active-directory-saas-empcenter-tutorial/IC802921.png "앱 설정 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 EmpCenter 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://partner-authenticati.empcenter.com/workforce/SSO.do*))
-2.  **다음**를 클릭합니다.
+    1.  **로그온 URL** 텍스트 상자에 사용자가 EmpCenter 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://partner-authenticati.empcenter.com/workforce/SSO.do*))
+    2.  **다음**를 클릭합니다.
 
 4.  **EmpCenter에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
@@ -96,7 +96,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
   
-Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCenter로 프로비전되어야 합니다. EmpCenter의 경우 사용자 계정을 EmpCenter 지원 팀에서 작성해야 합니다.
+Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCenter로 프로비전되어야 합니다. 
+EmpCenter의 경우 사용자 계정을 EmpCenter 지원 팀에서 작성해야 합니다.
 
 >[AZURE.NOTE] EmpCenter에서 제공하는 다른 EmpCenter 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정를 프로비전합니다.
 
@@ -108,7 +109,7 @@ Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCente
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **EmpCenter ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **EmpCenter** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-empcenter-tutorial/IC802924.png "사용자 할당")
 
