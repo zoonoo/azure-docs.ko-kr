@@ -19,8 +19,6 @@
 
 # Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Azure PowerShell에서 다음 Azure PowerShell cmdlet을 실행합니다.
@@ -52,4 +50,4 @@ VM 확장으로 템플릿을 완벽하게 완료하려면 다음을 참조하세
 
 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

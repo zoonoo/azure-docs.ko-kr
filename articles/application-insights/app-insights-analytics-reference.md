@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # 분석에 대한 참조
@@ -345,101 +345,135 @@ Self-join:
 
 ### parse 연산자
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 문자열에서 값을 추출합니다. simple 또는 보통의 식 일치를 사용할 수 있습니다.
 
-`with` 절의 요소는 원본 문자열에 대해 차례로 일치합니다. 각 요소는 소스 텍스트의 청크를 분할합니다. 일반 문자열인 경우 일치한다면 일치하는 커서가 따라서 움직입니다. 형식 이름을 가진 열인 경우 커서는 지정된 형식을 구문 분석하기에 충분할 만큼 따라서 움직입니다. (문자열 일치는 다음 요소에 대한 일치가 발견될 때까지 따라서 움직입니다.) regex인 경우 정규 식을 일치시킵니다(그리고 결과 열이 언제나 문자열 형식을 가짐).
-
 **구문**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **인수**
 
-* *T:* 입력 테이블입니다.
-* *kind:* simple 또는 regex입니다. 기본값은 simple입니다.
-* *StringExpression:* 문자열로 계산하거나 변환될 수 있는 식입니다.
-* *SimpleMatch:* 텍스트의 다음 부분과 일치하는 문자열입니다.
-* *Column:* 일치 항목을 할당할 새 열을 지정합니다.
-* *Type:* 원본 문자열의 다음 부분을 구문 분석하는 방법을 지정합니다.
-* *Regex:* 문자열의 다음 부분과 일치하는 정규식입니다. 
+* `T`: 입력 테이블입니다.
+* `kind`: 
+ * `simple`(기본값): `Match` 문자열은 일반 문자열입니다.
+ * `relaxed`: 텍스트를 열 형식으로 구문 분석하지 않으면 열은 null로 설정되고 구문 분석이 계속됩니다. 
+ * `regex`: `Match` 문자열은 정규식입니다.
+* `Text`: 문자열로 계산하거나 변환될 수 있는 열 또는 기타 식입니다.
+* *Match:* 문자열의 다음 부분과 일치한 후 삭제합니다.
+* *Column:* 문자열의 다음 부분을 이 열에 할당합니다. 열이 존재하지 않는 경우 생성됩니다.
+* *Type:* 문자열의 다음 부분을 지정된 형식(예: int, date, double)으로 구문 분석합니다. 
+
 
 **반환**
 
 입력된 테이블, 열 목록에 따라 확장됩니다.
 
+`with` 절의 요소는 원본 텍스트에 대해 차례로 일치합니다. 각 요소는 소스 텍스트의 청크를 분할합니다.
+
+* 리터럴 문자열 또는 정규식은 일치 항목의 길이 만큼 일치 커서를 이동합니다.
+* regex 구문 분석 시 정규식은 최소화 연산자 '?'를 사용하여 다음 일치 항목으로 가능한 한 빨리 이동합니다.
+* 형식이 있는 열 이름은 텍스트를 지정된 형식으로 구문 분석합니다. kind=relaxed가 아니면 실패한 구문 분석은 전체 패턴과 일치 항목을 무효화합니다.
+* 형식이 없거나 'string' 형식이 있는 열 이름은 다음 일치 항목에 가져올 최소 수의 문자를 복사합니다.
+* ' * ' 다음 일치 항목에 가져올 최소 수의 문자를 건너뜁니다. 패턴의 시작과 끝, 문자열이 아닌 형식 뒤 또는 문자열 일치 항목 중간에 '*'를 사용할 수 있습니다.
+
+구문 분석 패턴의 모든 요소가 바르게 일치해야 하며 그렇지 않으면 결과가 생성되지 않습니다. 이 규칙의 예외로, kind=relaxed일 때 형식화된 변수의 구문 분석에 실패하면 나머지 구문 분석이 진행됩니다.
 
 **예**
 
-`parse` 연산자는 같은 `string` 식에 대해 여러 개의 `extract` 응용 프로그램을 사용하여 테이블에 대해 `extend`를 실행하는 효율적인 방법을 제공합니다. 이는 테이블에 개발자 추적("`printf`"/"`Console.WriteLine`") 문에 의해 생성된 열과 같은 개별 열로 분할할 여러 개의 값을 포함하고 있는 `string` 열이 있는 경우에 가장 유용합니다.
-
-아래 예제에서는 테이블 `StormEvents`의 `EventNarrative` 열에 `{0} at {1} crested at {2} feet around {3} on {4} {5}` 형식의 문자열이 포함되어 있다고 가정합니다. 아래 작업은 `SwathSize` 및 `FellLocation` 두 열이 있는 테이블을 확장합니다.
-
-
-|EventNarrative|
-|---|
-|브라운스빌(Brownsville)의 그린 리버(Green River) 강은 12월 12일 오전 9시 30분 EST 경에 18.8피트의 수위를 형성하였습니다 (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). Brownsville의 고수위는 18피트입니다 (Flood stage at Brownsville is 18 feet). 이 수위에 경미한 홍수가 발생합니다 (Minor flooding occurs at this level). 강의 범람으로 벽면과 일부 하부 둑이 일부 농지와 함께 잠깁니다 (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
-|보스턴(Boston)의 롤링 포크 리버 강은 12월 12일 오후 5시 EST 경에 39.3피트의 수위를 형성하였습니다 (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). 보스턴의 고수위는 35피트입니다 (Flood stage at Boston is 35 feet). 이 수위에서 경미한 홍수가 발생하여 일부 농지가 덮였습니다 (Minor flooding occurs at this level, with some agricultural bottom land covered).|
-|우드베리(Woodbury)의 그린 리버(Green River) 강은 12월 16일 오전 6시 EST 경에 36.7피트의 수위를 형성하였습니다 (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). Woodbury에서 홍수 단계 33 피트입니다 (Flood stage at Woodbury is 33 feet). 이 수위에 경미한 홍수가 발생하고 우드베리 시내 주위의 저지대가 물로 덮였습니다 (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
-|텔 시티(Tell City)의 오하이오 리버(Ohio River) 강이 12월18일 오전 7시 EST에 경에 39.0피트의 수위를 형성하였습니다 (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). 텔 시티의 고수위는 38피트입니다 (Flood stage at Tell City is 38 feet). 이 수위에서 강은 표준보다 높게 둑을 범람하기 시작합니다 (At this level, the river begins to overflow its banks above the gage). 인디아나 고속도로 66번 가가 로마와 더비(Derby) 사이에 범람합니다 (Indiana Highway 66 floods between Rome and Derby).|
+*Simple:*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|위치|높이|Time|월|일|
-|---|---|---|---|---|---|
-|그린 리버 | 우드베리 |36\.7| 오전 6시 EST | 12월|16|
-|롤링 포크 강 | 보스턴 |39\.3| 오후 5시 EST | 12월|12|
-|그린 리버 | 브라운스빌 |18\.8| 오전 9시 30분 EST | 12월|12|
-|오하이오 강 | 텔 시티 |39| 오전 7시 EST | 12월|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-정규식을 사용하여 일치시킬 수도 있습니다. 이렇게 해도 같은 결과가 생성되지만 모든 결과 열이 문자열 형식을 갖게 됩니다.
+*Relaxed:*
+
+입력에 모든 형식화된 열에 대한 올바른 일치 항목이 있는 경우 relaxed 구문 분석은 simple 구문 분석과 동일한 결과를 생성합니다. 하지만 형식화된 열 중 하나라도 제대로 구문 분석되지 않으면 relaxed 구문 분석은 나머지 패턴을 계속 처리하지만 simple 구문 분석은 중지되고 어떠한 결과도 생성하지 않습니다.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x | present | Year
+---|---|---
+1 | socks | 63
+
+
+*Regex:*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\)"
+| project-away x, s
+```
+
+resource | slice | lock | 릴리스 | previous
+---|---|---|---|---
+스케줄러 | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### project 연산자
 
     T | project cost=price*quantity, price
 
-포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. `extend`을 참조하세요.
+포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. (`extend` 참조)
 
 
 **구문**
@@ -989,7 +1023,7 @@ traces
 
     dcount( Expression [ ,  Accuracy ])
 
-그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.
+그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)을 사용합니다.
 
 *정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
@@ -1359,17 +1393,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기 | 
-| / | 나누기 | 
-| % | 모듈로 |
-||
-|`<` |보다 작음
-|`<=`|작거나 같음
-|`>` |보다 큼
-|`>=`|크거나 같음
-|`<>`|같지 않음
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
 ### abs
@@ -1590,7 +1614,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* `part:String` - {"년", "월", "일", "시", "분", "초", "밀리초", "마이크로초", "나노초"}
+* `part:String` - {"Year", "Month", "Day", "Hour", "Minute", "Second", "Millisecond", "Microsecond", "Nanosecond"}
 * `datetime`
 
 **반환**
@@ -2391,4 +2415,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

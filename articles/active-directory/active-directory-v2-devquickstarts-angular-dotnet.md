@@ -229,4 +229,8 @@ v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_0323_2016-->
+## 당사 제품에 대한 보안 업데이트 가져오기
+
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -58,10 +58,10 @@ ARM 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및
 
 ## 1단계: 풀 서버 및 자동화 계정 설정
 
-인증된(Add-AzureAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
+인증된(Add-AzureRmAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 자동화 계정을 일본 동부, 미국 동부 2, 서유럽, 동남아, 미국 중부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
 
@@ -78,16 +78,16 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서의 예상 폴더 구조와 다소 차이가 있습니다. 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure 자동화에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
-    -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치(Win10에는 필요 없음)
-    -   `Install-Module  –ModuleName MODULENAME` <- PowerShell 갤러리에서 모듈 가져오기 
+    -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)
+    -   `Install-Module –Name MODULE-NAME` <- PowerShell 갤러리에서 모듈 가져오기 
 -   `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME`의 모듈 폴더를 임시 폴더에 복사 
 -   주 폴더에서 샘플 및 설명서 삭제 
--   주 폴더를 압축하고 zip 파일 이름을 폴더와 정확히 같게 지정 
--   zip 파일을 Azure 저장소 계정의 Blob 저장소와 같은 연결할 수 있는 http 위치에 배치합니다.
+-   주 폴더를 압축하고 ZIP 파일 이름을 폴더와 정확히 같게 지정 
+-   ZIP 파일을 Azure 저장소 계정의 Blob 저장소와 같은 연결할 수 있는 HTTP 위치에 배치합니다.
 -   이 PowerShell 실행:
 
-        New-AzureAutomationModule ``
-            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+        New-AzureRmAutomationModule `
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
@@ -171,7 +171,7 @@ New-ConfigurationScript.ps1:
 
 ## 참고 사항
 
-이 사용 예에서는 Azure 갤러리의 일반 Windows 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다. 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
+이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다. 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.
 
 이 방법을 VM에 사용하기 위해 ARM 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1:
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

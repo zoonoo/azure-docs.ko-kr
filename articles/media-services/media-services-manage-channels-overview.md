@@ -166,4 +166,4 @@ Azure 미디어 서비스에서 **채널**, **프로그램** 및 **스트리밍 
 
 [미디어 서비스 개념](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -17,9 +17,7 @@
 	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 워크로드 1단계: Azure 구성
- 
-[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+# LOB(기간 업무) 응용 프로그램 작업 1단계: Azure 구성
  
 이 인트라넷 전용 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 단계에서는 Azure 네트워킹 및 저장소 인프라를 구축합니다. [2단계](virtual-machines-windows-ps-lob-ph2.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-windows-lob-overview.md)를 참조하세요.
 
@@ -220,4 +218,4 @@ Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의
 
 - [2단계](virtual-machines-windows-ps-lob-ph2.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

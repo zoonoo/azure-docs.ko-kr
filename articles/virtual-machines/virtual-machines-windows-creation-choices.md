@@ -21,9 +21,6 @@
 
 가상 컴퓨터는 다양한 사용자와 목적에 맞게 조절 가능하기 때문에 Azure에서는 여러 방법으로 가상 컴퓨터를 만들 수 있습니다. 즉 가상 컴퓨터를 만드는 방법과 그에 대한 몇 가지 선택이 필요합니다. 이 문서에서는 이 선택 사항 및 지침에 대한 링크 요약을 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
-
 ## Azure 포털
 
 Azure 포털의 사용은 특히 Azure로 시작한 경우 가상 컴퓨터를 사용해 볼 수 있는 간단한 방법입니다.
@@ -47,4 +44,4 @@ Azure 포털의 사용은 특히 Azure로 시작한 경우 가상 컴퓨터를 �
 
 [계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스 배포](virtual-machines-windows-csharp.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

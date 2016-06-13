@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/26/2016"
 	ms.author="cjiang"/>
 
 # Azure 등록 문제 해결
 이 문서는 Azure에 등록할 때 발생할 수 있는 문제의 공통 원인을 해결하는 데 도움이 됩니다.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## 등록할 내 정보를 입력할 때 오류가 발생합니다.
 계정 프로필 정보가 정확한가요? 프로필 세부 정보는 청구 명세서를 생성하는 데 사용되므로 정보를 정확하게 입력해야 합니다. 다음은 잘못된 필드의 예입니다.
@@ -79,7 +81,4 @@
 제안:
 - 이전에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 종량제 구독의 구입을 고려하세요. 사용자가 혜택 제품에 대한 자격이 있을 수도 있습니다. Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)에서 더 자세히 알아보십시오. 참고로 혜택 계획에 특정 필수 구성 요소가 필요합니다.
 
-## 여전히 등록할 수 없습니까?
-여전히 등록 문제를 경험하거나 이 문서에서 문제를 다루지 않은 경우 지원에 대해서는 [Azure 지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하십시오.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

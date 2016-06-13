@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -46,29 +46,9 @@
 
 
 
-## 자격 증명 구성 및 구독 선택
+## SQL 데이터베이스 복사
 
-먼저 Azure 계정에 액세스 권한을 설정해야 하므로 PowerShell을 시작하고 다음 cmdlet을 실행합니다. 로그인 화면에서 Azure 클래식 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 입력합니다.
-
-	Add-AzureAccount
-
-로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
-
-
-### Azure 구독 선택
-
-구독을 선택하려면 구독 ID 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에 표시된 정보에서 구독 ID를 복사하거나, 구독이 여러 개이고 세부 정보가 필요한 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-성공적으로 **Select-azuresubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-azuresubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
-
-
-## 특정 환경에 맞게 변수 설정
-
-예제 값을 데이터베이스 및 서버에 대한 특정 값으로 바꿔야 하는 몇 개의 변수가 있습니다.
-
-자리 표시자 값을 사용자 환경에 대 한 값으로 바꿉니다.
+예제 값을 데이터베이스 및 서버에 대한 특정 값으로 바꿔야 하는 몇 개의 변수가 있습니다. 자리 표시자 값을 사용자 환경에 대 한 값으로 바꿉니다.
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
@@ -86,14 +66,14 @@
 
 
 
-## 동일한 서버에 SQL 데이터베이스 복사
+### 동일한 서버에 SQL 데이터베이스 복사
 
 이 명령은 데이터베이스 복사 요청을 서비스에 제출합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
-## SQL 데이터베이스를 다른 서버에 복사
+### SQL 데이터베이스를 다른 서버에 복사
 
 이 명령은 데이터베이스 복사 요청을 서비스에 제출합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -109,7 +89,7 @@
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
 
-## SQL 데이터베이스 복사 PowerShell 스크립트
+## PowerShell 스크립트 예
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"
@@ -146,4 +126,4 @@
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -2,7 +2,8 @@
 	pageTitle="Oracle WebLogic Server 12c VM 만들기 | Microsoft Azure"
 	description="리소스 관리자 배포 모델을 사용하여 Microsoft Azure에서 Windows Server 2012를 실행하는 Oracle WebLogic Server 12c 가상 컴퓨터를 만듭니다."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-resource-manager"/>
 
@@ -12,43 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
-다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-
-
-##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
-
-1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
-
-2. **Marketplace**를 클릭하고 **계산**을 클릭한 다음 검색 상자에 **Oracle**을 입력합니다.
-
-3.	**Oracle WebLogic Server 12c Standard Edition on Windows Server 2012** 또는 **Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012** 이미지를 선택합니다. 이 이미지에 관한 정보(예: 최소 권장된 크기)를 검토한 후 **다음**을 클릭합니다.
-
-4.	VM의 **호스트 이름**을 지정합니다.
-
-5.	VM의 **사용자 이름**을 지정합니다. 이 사용자는 VM에 원격으로 로그인하기 위함입니다. 이는 Oracle 데이터베이스 사용자 이름이 아닙니다.
-
-6.	VM의 암호를 지정하고 확인하거나 SSH 공용 키를 제공합니다.
-
-7.	**가격 책정 계층**을 선택합니다. 권장 가격 책정 계층이 기본으로 표시됩니다. 모든 구성 옵션을 보려면 오른쪽 맨 위에서 **모두 보기**를 클릭합니다.
-
-8.	다음 사항을 고려하여 필요에 따라 선택적 구성을 설정합니다.
-	1. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
-	2. **가용성 집합**을 "구성되지 않음"으로 둡니다.
-	3. 이때 모든 **끝점**을 추가하지 마십시오.
-
-9.	[리소스 그룹](../azure-portal/resource-group-portal.md)을 선택하거나 만듭니다.
-
-10. **구독**을 선택합니다.
-
-11. **위치**를 선택합니다.
-
+다음 예제에서는 이전에 만들었으며 Azure의 Windows Server 2012에서 실행되는 Oracle WebLogic Server 12c를 설치한 VM에서 실행되는 WebLogic Server 12c를 만드는 방법을 보여 줍니다.
 
 ##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터를 구성하려면
 
@@ -187,4 +159,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

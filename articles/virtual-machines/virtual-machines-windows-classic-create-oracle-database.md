@@ -2,7 +2,8 @@
 	pageTitle="Azure 클래식 포털을 사용하여 Oracle 데이터베이스 VM 만들기ㅣMicrosoft Azure"
 	description="클래식 배포 모델과 Azure 포털을 사용하여 Oracle 데이터베이스를 포함한 가상 컴퓨터를 생성하는 방법을 알아봅니다."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 
@@ -12,47 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Azure에서 Oracle 데이터베이스 가상 컴퓨터를 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-
-다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle 데이터베이스 이미지에 따라 가상 컴퓨터(VM)를 만드는 방법을 보여줍니다. 두 단계가 있습니다. 먼저 VM을 만들고 VM 내에서 Oracle 데이터베이스를 만듭니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
-
-##Azure에서 Oracle 데이터베이스 VM 만들기
-
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
-
-2.	**Marketplace**를 클릭하고 **계산**을 클릭한 다음 검색 상자에 **Oracle**을 입력합니다.
-
-3.	**버전 11g, 버전 12c, Standard Edition, Enterprise Edition 또는 가장 많이 사용하는 옵션이나 고급 옵션 번들**을 포함한 사용할 수 있는 Oracle 데이터베이스 이미지 중 하나를 선택합니다. 선택하는 이미지에 관한 정보(예: 최소 권장 크기)를 검토하고 **다음**을 클릭합니다.
-
-4.	VM의 **호스트 이름**을 지정합니다.
-
-5.	VM의 **사용자 이름**을 지정합니다. 이 사용자는 VM에 원격으로 로그인하기 위한 것으로 Oracle 데이터베이스 사용자 이름이 아닙니다.
-
-6.	VM의 암호를 지정하고 확인하거나 SSH 공용 키를 제공합니다.
-
-7.	**가격 책정 계층**을 선택합니다. 권장 가격 책정 계층이 기본으로 표시됩니다. 모든 구성 옵션을 보려면 오른쪽 맨 위에서 **모두 보기**를 클릭합니다.
-
-8.	다음 사항을 고려하여 필요에 따라 선택적 구성을 설정합니다.
-
-	a. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
-
-	b. **가용성 집합**을 “구성되지 않음“으로 둡니다.
-
-	c. 이때 모든 **끝점**을 추가하지 마십시오.
-
-9.	리소스 그룹을 선택하거나 만듭니다.
-
-10. **구독**을 선택합니다.
-
-11. **위치**를 선택합니다.
-
-12. **만들기**를 클릭하고 VM을 만드는 과정이 시작됩니다. VM이 **실행** 상태가 되면 다음 절차를 진행합니다.
+다음 예제에서는 미리 만든 후 Oracle 데이터베이스 버전 12c를 설치한 Windows Server VM에서 Oracle 데이터베이스를 만드는 방법을 보여 줍니다. 두 단계가 있습니다. 먼저 VM을 연결하고 VM 내에서 Oracle 데이터베이스를 만듭니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
 
 
 ##Azure에서 Oracle 데이터베이스 VM을 사용하여 데이터베이스를 만들려면
@@ -200,4 +168,4 @@ Oracle Database Enterprise Manager에 원격 액세스를 사용하고자 할 �
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -29,8 +29,6 @@ Azure는 [Jupyter를 사용하여 즉시 시작](http://blogs.technet.com/b/mach
 
 노트북 서비스가 시나리오에 대해 작동하지 않는 경우 Linux 가상 컴퓨터(VM)를 사용하여 Microsoft Azure의 Jupyter Notebook을 배포하는 방법을 보여 주는 이 문서를 계속해서 읽으세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Azure에서 VM 만들기 및 구성
@@ -195,8 +193,8 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [리포지토리]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

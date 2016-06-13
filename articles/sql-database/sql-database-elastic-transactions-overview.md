@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="torsteng"
    manager="jhubbard"
-   editor="sidneyh"/>
+   editor="torsteng"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/23/2016"
+   ms.date="05/27/2016"
    ms.author="torsteng"/>
 
 # 클라우드 데이터베이스의 분산 트랜잭션
@@ -158,4 +158,4 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/23/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# SQL 데이터베이스로 마이그레이션하기 전에 SQL Azure 마이그레이션 마법사를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
-
-원본 SQL Server 데이터베이스가 호환되지 않는 것으로 확인될 경우 다양한 옵션을 사용하여 식별한 데이터베이스 호환성 문제를 해결할 수 있습니다.
+# Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Azure 마이그레이션 마법사를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
 
 > [AZURE.SELECTOR]
 - [SQL Azure 마이그레이션 마법사](sql-database-cloud-migrate-fix-compatibility-issues.md) 사용
 - [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) 사용
 - [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md) 사용
+
+이 문서에서는 Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Azure 마이그레이션 마법사를 사용하여 SQL Server 데이터베이스 호환성 문제를 감지하고 해결하는 방법을 알아봅니다.
 
 ## SQL Azure 마이그레이션 마법사 사용
 
@@ -33,8 +33,16 @@
 
   > [AZURE.NOTE] 마법사에서 감지할 수 있는 모든 호환되지 않는 스키마를 기본 제공 변환으로 해결할 수 있는 것은 아닙니다. 처리할 수 없는 호환되지 않는 스크립트는 오류로 보고되고 생성된 스크립트에 주석이 삽입됩니다. 많은 오류가 감지될 경우 Visual Studio 또는 SQL Server Management Studio를 사용하여 SQL Server 마이그레이션 마법사로 해결할 수 없는 각 오류를 단계적으로 해결합니다.
 
-## 다음 단계: 마이그레이션 방법을 선택하고 마이그레이션 수행
+## 다음 단계
 
-[마이그레이션 방법을 선택합니다](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+- [호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0330_2016-->
+## 자세한 정보
+
+- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
+- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

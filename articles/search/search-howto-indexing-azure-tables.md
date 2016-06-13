@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/12/2016"
+ms.date="05/28/2016"
 ms.author="eugenesh" />
 
 # Azure 검색을 사용하여 Azure 테이블 저장소 인덱싱
@@ -21,7 +21,7 @@ ms.author="eugenesh" />
 
 > [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
-## 테이블 인덱싱 설정
+## Azure 테이블 인덱싱 설정
 
 Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https://msdn.microsoft.com/library/azure/dn946891.aspx)에 설명된 대로 Azure 검색 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. 향후에는 테이블 인덱싱에 대한 지원이 Azure 검색 .NET SDK 및 Azure 포털에 추가될 예정입니다.
 
@@ -31,7 +31,8 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
 
 테이블 인덱싱을 설정하려면
 
-1. Azure 저장소 계정에서 테이블(및 필요에 따라, 쿼리)을 참조하는 `azuretable` 유형의 데이터 원본을 만듭니다.
+1. 데이터 소스 만들기
+	- `type` 매개 변수를 `azuretable`로 설정합니다.
 	- 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다.
 	- `container.name` 매개 변수를 사용하여 테이블 이름을 지정합니다.
 	- 필요에 따라 `container.query` 매개 변수를 사용하여 쿼리를 지정합니다. 가능한 경우 최상의 성능을 위해 PartitionKey에서 필터를 사용합니다. 다른 쿼리를 사용하면 전체 테이블이 검색되므로 테이블이 큰 경우 성능이 저하될 수 있습니다.
@@ -123,4 +124,4 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/27/2016"
 	ms.author="mimig"/>
 
 # 일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화
@@ -66,9 +66,9 @@
 
 	![설정 아이콘 및 기본 일관성 항목이 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-5. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
+5. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **확인**을 클릭합니다.
 
-	![일관성 수준 및 저장 단추가 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-2.png)
+	![일관성 수준 및 확인 단추가 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## 쿼리에 대한 일관성 수준
 
@@ -91,4 +91,4 @@
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

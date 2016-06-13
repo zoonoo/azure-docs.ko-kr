@@ -39,8 +39,8 @@ Azure 저장소의 개체는 시스템 속성 및 사용자 정의 메타데이�
 다음 코드 예제는 컨테이너를 만들고 콘솔 창에 속성 값 일부를 씁니다.
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -62,7 +62,7 @@ Azure 저장소의 개체는 시스템 속성 및 사용자 정의 메타데이�
 
 Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메타 데이터를 지정할 수 있습니다. 메타 데이터를 설정하려면 이름-값 쌍을 리소스의 **메타 데이터** 컬렉션에 추가한 다음, **SetMetadata** 메서드를 호출하여 값을 서비스에 저장합니다.
 
-> [AZURE.NOTE]\: 메타 데이터의 이름은 C# 식별자에 대한 명명 규칙을 준수해야 합니다.
+> [AZURE.NOTE] 메타데이터의 이름은 C# 식별자에 대한 명명 규칙을 준수해야 합니다.
  
 다음 코드 예제에서는 컨테이너에서 메타데이터를 설정합니다. 하나의 값은 컬렉션의 **추가** 메서드를 사용하여 설정됩니다. 다른 값은 암시적 키/값 구문을 사용하여 설정됩니다. 둘 다 모두 유효합니다.
 
@@ -97,4 +97,4 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [.NET용 Azure 저장소 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

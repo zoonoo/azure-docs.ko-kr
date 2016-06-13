@@ -7,5 +7,7 @@
 * [인바운드 트래픽 보안](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [백 엔드 리소스에 연결](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Express 경로 및 앱 서비스 환경](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [앱 서비스 환경에 대한 사용자 지정 구성 설정](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [앱 서비스 환경에서 고밀도 앱 호스팅](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

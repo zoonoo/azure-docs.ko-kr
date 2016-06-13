@@ -91,7 +91,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 
 Windows 및 Linux 솔루션용 IaaS VM의 Azure 디스크 암호화에는 Windows용 디스크 암호화 확장, Linux용 디스크 암호화 확장, 디스크 암호화 PowerShell cmdlet, 디스크 암호화 CLI cmdlet 및 디스크 암호화 Azure 리소스 관리자 템플릿이 포함됩니다. Azure 디스크 암호화 솔루션은 Windows 또는 Linux OS를 실행하는 IaaS VM에서 지원됩니다. 지원되는 운영 체제에 대한 자세한 내용은 아래의 필수 구성 요소 섹션을 참조하세요.
 
-**참고:** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
+****참고: ** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
 
 ### 가치 제안
 
@@ -262,23 +262,23 @@ https://manage.windowsazure.com에서 Azure 서비스 관리 포털을 사용하
 
 1\. 아래 그림에 나와있는 것처럼 Active Directory 탭을 클릭합니다.
 
-![Azure 디스크 암호화](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\. 응용 프로그램 추가를 클릭하고 아래와 같이 응용 프로그램 이름을 입력합니다.
 
-![Azure 디스크 암호화](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\. 화살표 단추를 클릭하고 아래와 같이 앱 속성을 구성합니다.
 
-![Azure 디스크 암호화](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\. 왼쪽 하단에 있는 확인 표시를 클릭하여 마칩니다. 앱의 구성 페이지가 나타납니다. 아래 그림처럼 Azure AD 클라이언트 ID는 페이지의 아래쪽에 있습니다.
 
-![Azure 디스크 암호화](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5\. 저장 단추를 클릭하여 Azure AD 클라이언트 암호를 저장합니다. 저장 단추를 클릭하고 키 텍스트 상자에서 암호를 확인합니다. 이것이 Azure AD 클라이언트 암호입니다. Azure AD 클라이언트 암호를 적절하게 보호해야 합니다.
 
-![Azure 디스크 암호화](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **참고:** 위의 작업 과정은 포털에서는 지원되지 않습니다.
@@ -845,4 +845,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

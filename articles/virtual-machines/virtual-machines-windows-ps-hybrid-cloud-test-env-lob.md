@@ -19,8 +19,6 @@
 
 # 테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 이 항목에서는 Microsoft Azure에서 호스트되는 웹 기반 LOB(기간 업무) 응용 프로그램을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -130,7 +128,7 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 
 **Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
 
-다시 시작한 후 Azure 포털을 사용하여 *로컬 관리자 계정으로* SQL1에 연결합니다.
+다시 시작한 후 Azure 포털을 사용하여 *로컬 관리자 계정*으로 SQL1에 연결합니다.
 
 그런 다음 새 데이터베이스 및 사용자 계정 권한에 F: 드라이브를 사용하도록 SQL Server 2014를 구성합니다.
 
@@ -190,7 +188,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-**Add-Computer 명령**에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
+**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
 
 다시 시작한 후 Azure 포털을 사용하여 CORP\\User1 계정 및 암호로 LOB1에 연결합니다.
 
@@ -208,7 +206,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 10.	설치 선택 확인 페이지에서 **설치**를 클릭합니다.
 11.	구성 요소 설치가 완료될 때까지 기다렸다가 **닫기**를 클릭합니다.
 12.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
-13.	주소 표시줄에 **http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
+13.	주소 표시줄에 ****http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
 
 다음은 현재 구성입니다.
 
@@ -220,4 +218,4 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 - [프로덕션 환경](virtual-machines-windows-lob-overview.md)을 배포합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

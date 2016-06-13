@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #자습서: e-Builder와 Azure Active Directory 통합
@@ -76,11 +76,11 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **e-Builder 로그인 URL** 텍스트 상자에 다음 패턴 "https://\<tenant-name>.e-Builder.com"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **e-Builder 로그인 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.e-Builder.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-e-builder-tutorial/IC777383.png "앱 URL 구성")
 
-4.  **E-Builder에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 데이터 파일을 **c:\\E-BuilderMetaData.xml**에 로컬로 저장합니다.
+4.  **e-Builder에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 데이터 파일을 **c:\\e-BuilderMetaData.xml**에 로컬로 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Single Sign-On 구성")
 
@@ -110,4 +110,4 @@ e-Builder를 프로비전하는 사용자를 구성할 작업 항목이 없습�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/26/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,7 +34,7 @@ Azure 자동화에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 ## Azure 자동화를 통해 Azure SQL 데이터베이스 관리 향상
 
-Azure SQL 데이터베이스는 [Azure PowerShell 도구](https://msdn.microsoft.com/library/azure/jj156055.aspx)에서 사용할 수 있는 [Azure SQL 데이터베이스 PowerShell cmdlets](https://msdn.microsoft.com/library/azure/dn546726.aspx)를 이용하여 Azure 자동화에서 관리 할 수 있습니다. Azure 자동화에서는 이러한 Azure SQL 데이터베이스 PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Azure SQL 데이터베이스는 [Azure PowerShell 도구](https://msdn.microsoft.com/library/azure/jj156055.aspx)에서 사용할 수 있는 [Azure SQL 데이터베이스 PowerShell cmdlets](https://msdn.microsoft.com/library/dn546723.aspx)를 이용하여 Azure 자동화에서 관리 할 수 있습니다. Azure 자동화에서는 이러한 Azure SQL 데이터베이스 PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 또한 Azure 자동화에서 PowerShell을 통해 SQL 명령을 실행하여 SQL 서버와 직접 통신할 수 있습니다.
 
@@ -55,4 +55,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 SQL 데이�
 - [Azure 자동화: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

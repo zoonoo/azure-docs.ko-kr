@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
  
 이 항목에서는 Microsoft Azure를 사용하여 테스트용 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -313,7 +311,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 1.	Azure 포털의 왼쪽 창에서 가상 네트워크 아이콘을 클릭한 다음 **TestVNET**을 클릭합니다.
 2.	**설정** 탭에서 **DNS 서버**를 클릭합니다.
-3.	**주 DNS 서버**에서 10.0.0.4를 **192.168.0.4**로 바꿔서 입력합니다.
+3.	**주 DNS 서버**에서 10.0.0.4를 **192.168.0.4**로 바꿔 입력합니다.
 4.	저장을 클릭합니다.
 
 다음으로, Azure PowerShell 명령 프롬프트에서 이러한 명령으로 새 DNS 서버 구성을 사용할 수 있도록 DC2를 다시 시작합니다.
@@ -331,4 +329,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - 이 환경에서 [SharePoint 인트라넷 팜](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [웹 기반 LOB 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md)를 설정합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

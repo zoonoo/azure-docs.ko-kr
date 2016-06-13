@@ -22,5 +22,9 @@ iOS에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다.
 
 > [AZURE.NOTE]
 	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+	
+	## Get security updates for our product
 
-<!---HONumber=AcomDC_0224_2016-->
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

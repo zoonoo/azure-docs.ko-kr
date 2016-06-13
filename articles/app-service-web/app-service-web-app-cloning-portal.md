@@ -59,6 +59,7 @@
 - 간편한 인증 설정은 복제되지 않습니다.
 - Kudu 확장은 복제되지 않습니다.
 - TiP 규칙은 복제되지 않습니다.
+- 데이터베이스 내용이 복제되지 않습니다.
 
 
 ### 참조 ###
@@ -72,4 +73,4 @@
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -52,7 +52,7 @@
 ## 제품군 4 릴리스
 **Windows Server 2012 R2**
 
-.NET 4.0, 4.5, 4.5.1 4.5.2 지원(참고 2)
+.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
 
 >[AZURE.NOTE] *가 표시된 날짜는 변경될 수 있음
 
@@ -182,7 +182,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## 게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ko-KR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -203,4 +203,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

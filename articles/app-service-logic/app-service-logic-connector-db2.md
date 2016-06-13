@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="plarsen"/>
 
 # DB2 커넥터
@@ -128,7 +128,7 @@ API 대량 삽입 작업을 사용하여 DB2 테이블에 데이터를 추가하
 
 - 논리 앱 작업 이름을 형성하는 경우 커넥터는 DB2 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에 대량 삽입**은 **NEW에 대량 삽입**에 대해 잘립니다.
 - ID 열(예: ORDID), nullable 열(예: SHIPDATE) 및 기본 값이 있는 열(예: ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY)을 생략하여 DB2 데이터베이스가 값을 생성합니다.
-- "현재" 및 "내일"를 지정하여 DB2 커넥터는 "현재 날짜" 및 "현재 날짜 + 1일"(예: REQDATE)을 생성합니다. 
+- "현재" 및 "내일"을 지정하여 DB2 커넥터는 "현재 날짜" 및 "현재 날짜 + 1일"(예: REQDATE)을 생성합니다. 
 
 
 ## DB2 커넥터 트리거를 통해 데이터를 읽기, 변경 또는 삭제하려는 논리 앱 ##
@@ -165,7 +165,7 @@ PollToAlterData | &lt;CURSOR&gt;인 곳의 NEWORDERS 삭제
 3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
 4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
 5. API 앱 패널에서 **DB2 커넥터**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
-6. API 앱 패널에서 **DB2 커넥터**를 선택하고 작업 목록을 확장하여 **NEWORDER에서 선택**을 선택합니다.
+6. API 앱 패널에서 **DB2 커넥터**를 선택하고 작업 목록을 확장하여 **NEWORDERS에서 선택**을 선택합니다.
 7. 작업 설정을 저장하려면 **확인 표시**, **저장**을 차례로 선택합니다. 설정은 다음과 같이 표시되어야 합니다. ![][10]  
 8. **트리거 및 동작** 블레이드를 닫으려면 클릭한 다음 **설정** 블레이드를 클릭합니다.
 9. **작업**의 **모두 실행** 목록에서 첫 번째 나열된 항목(가장 최근 실행)을 클릭합니다.
@@ -177,7 +177,7 @@ PollToAlterData | &lt;CURSOR&gt;인 곳의 NEWORDERS 삭제
 API 삭제 또는 OData 항목에 게시 작업을 사용하여 DB2 테이블에서 데이터를 제거하도록 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 ID 값 또는 행을 반환하여 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
 ## DB2 커넥터를 사용하여 데이터를 제거하는 논리 앱 만들기 ##
-Azure 마켓플레이스 내에서 새 논리 앱을 만들고 DB2 커넥터를 작업으로 사용하여 고객 주문을 제거할 수 있습니다. 예를 들어 SQL DELETE 문을 처리하는 DB2 커넥터 조건부 삭제 작업을 사용할 수 있습니다. (ORDID >= 10000인 NEWORDERS에서 삭제)
+Azure 마켓플레이스 내에서 새 논리 앱을 만들고 DB2 커넥터를 작업으로 사용하여 고객 주문을 제거할 수 있습니다. 예를 들어 SQL DELETE 문을 처리하는 DB2 커넥터 조건부 삭제 작업을 사용할 수 있습니다. (DELETE FROM NEWORDERS WHERE ORDID >= 10000)
 
 1. Azure **시작** 보드의 허브 메뉴에서 **+**(더하기 기호)를 클릭하고 **웹 + 모바일**을 클릭한 다음 **논리 앱**을 클릭합니다. 
 2. **논리 앱 만들기** 블레이드에서 **이름**을 입력합니다.(예: **RemoveOrdersDb2**)
@@ -271,4 +271,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

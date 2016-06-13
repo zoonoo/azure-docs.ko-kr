@@ -16,46 +16,46 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-  # 논리 앱 루프, 범위 및 분할
+# 논리 앱 루프, 범위 및 분할
   
-  >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2016-04-01-preview 이상 스키마 버전에 적용됩니다. 개념은 이전 스키마와 유사하지만 범위는 이 스키마 이상에서만 사용할 수 있습니다.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2016-04-01-preview 이상 스키마 버전에 적용됩니다. 개념은 이전 스키마와 유사하지만 범위는 이 스키마 이상에서만 사용할 수 있습니다.
   
-  ## ForEach 루프 및 배열
+## ForEach 루프 및 배열
   
-  논리 앱을 사용하면 데이터 집합을 반복하고 각 항목에 대해 작업을 수행할 수 있습니다. 이는 `foreach` 작업을 통해 가능합니다. 디자이너에서 ForEach 루프를 추가하도록 지정할 수 있습니다. 반복하려는 배열을 선택한 후 작업 추가를 시작할 수 있습니다. 현재는 ForEach 루프당 하나의 작업으로만 제한되지만 이러한 제한이 향후 몇 주 후에는 변경될 예정입니다. 일단 루프 내에 들어오면 배열의 각 값에 나오는 항목을 지정할 수 있습니다.
-  
-  코드 보기를 사용하는 경우 아래와 같은 ForEach 루프를 지정할 수 있습니다. 다음은 'microsoft.com'을 포함하는 각 전자 메일 주소에 대해 전자 메일을 보내는 ForEach 루프의 예입니다.
-  
-  ```
-  {
-      "forEach_email": {
-          "type": "foreach",
-          "foreach": "@triggerBody()['emails']",
-          "expression": "@contains(item(), 'microsoft.com')",
-          "actions": {
-              "send_email": {
-                  "type": "ApiConnection",
-                  "inputs": {
-                    "body": {
-                        "to": "@item()",
-                        "from": "me@contoso.com",
-                        "message": "Hello, thank you for ordering"
+논리 앱을 사용하면 데이터 집합을 반복하고 각 항목에 대해 작업을 수행할 수 있습니다. 이는 `foreach` 작업을 통해 가능합니다. 디자이너에서 ForEach 루프를 추가하도록 지정할 수 있습니다. 반복하려는 배열을 선택한 후 작업 추가를 시작할 수 있습니다. 현재는 ForEach 루프당 하나의 작업으로만 제한되지만 이러한 제한이 향후 몇 주 후에는 변경될 예정입니다. 일단 루프 내에 들어오면 배열의 각 값에 나오는 항목을 지정할 수 있습니다.
+
+코드 보기를 사용하는 경우 아래와 같은 ForEach 루프를 지정할 수 있습니다. 다음은 'microsoft.com'을 포함하는 각 전자 메일 주소에 대해 전자 메일을 보내는 ForEach 루프의 예입니다.
+
+```
+{
+    "forEach_email": {
+        "type": "foreach",
+        "foreach": "@triggerBody()['emails']",
+        "expression": "@contains(item(), 'microsoft.com')",
+        "actions": {
+            "send_email": {
+                "type": "ApiConnection",
+                "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                }
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
                     }
-                    "host": {
-                        "connection": {
-                            "id": "@parameters('$connections')['office365']['connection']['id']"
-                        }
-                    }
-                  }
-              }
-          }
-      }
-  }
-  ```
+                }
+                }
+            }
+        }
+    }
+}
+```
   
   `foreach` 작업은 5,000개 행까지 배열을 반복할 수 있습니다. 각 반복은 동시에 실행될 수 있으므로 흐름 제어가 필요한 경우 큐에 메시지를 추가해야 할 수 있습니다.
   
-  ## Until 루프
+## Until 루프
   
   조건이 충족될 때까지 작업 또는 일련의 작업을 수행할 수 있습니다. 이에 대한 가장 일반적인 시나리오는 원하는 응답을 얻을 때까지 끝점을 호출하는 것입니다. 디자이너에서 Until 루프를 추가하도록 지정할 수 있습니다. 이 루프 내에 작업을 추가한 후에 루프 한도 뿐만 아니라 종료 조건을 설정할 수 있습니다. 루프 주기 사이에는 1분의 지연이 발생합니다.
   
@@ -132,4 +132,4 @@
 }
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -20,9 +20,6 @@
 
 # Linux 가상 컴퓨터를 캡처하여 리소스 관리자 템플릿으로 사용하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
-
-
 Azure CLI(명령줄 인터페이스)를 통해 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만드는 Azure Resource Manager 템플릿으로 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 데이터 디스크가 지정됩니다. Azure 리소스 관리자 VM을 만들 때 필요한 가상 네트워크 리소스는 포함되지 않으므로, 대부분의 경우 템플릿을 사용하는 다른 가상 컴퓨터를 만들기 전에 별도로 설정해야 합니다.
 
 ## 시작하기 전에
@@ -197,4 +194,4 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

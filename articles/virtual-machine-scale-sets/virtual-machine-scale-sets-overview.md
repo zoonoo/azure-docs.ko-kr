@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="guybo"/>
 
 # 가상 컴퓨터 규모 집합 개요
@@ -91,7 +91,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 - 저장소 계정별로 최대 20개(최대 40개까지 가능하도록 _overprovision_ 속성을 "false"로 설정하지 않은 이상)의 VM에 대해 계획합니다.
 - 저장소 계정 이름의 첫 문자를 최대한 골고루 사용합니다. [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/)의 예제 VMSS 템플릿에 방법에 대한 예제가 제공되어 있습니다.
 - 사용자 지정 VM을 사용하는 경우, 하나의 저장소 계정에 VM 규모 집합당 VM을 40개 이하로 계획합니다. VM 규모 집합 배포를 시작하려면 그 전에 저장소 계정에 이미지를 미리 복사해 두어야 합니다. 자세한 내용은 FAQ를 참조하세요.
-- VNET당 VM을 2048개 이하로 계획합니다. 이 한도는 나중에 상향 조정될 예정입니다.
+- VNET당 VM을 4096개 이하로 계획합니다.
 - 만들 수 있는 VM 개수는 배포하려는 지역의 코어 할당량에 따라 제한됩니다. 클라우드 서비스 또는 IaaS v1에 사용할 코어 한도가 높더라도, 계산 할당량 한도를 높이려면 고객 지원팀에 문의해야 합니다. 할당량을 쿼리하려면 Azure CLI 명령 `azure vm list-usage` 및 PowerShell 명령 `Get-AzureRmVMUsage`를 실행합니다. PowerShell 1.0 이전 버전을 사용하는 경우에는 `Get-AzureVMUsage`를 사용합니다.
 
 ## VM 규모 집합 질문과 대답
@@ -155,4 +155,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **A.** 예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

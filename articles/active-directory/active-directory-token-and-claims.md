@@ -18,6 +18,8 @@
 
 # 지원되는 토큰 및 클레임 유형
 
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+
 이 항목은 Azure AD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰의 클레임을 이해하고 평가할 수 있도록 설계되었습니다.
 
 항목의 첫 부분에서는 각 토큰 클레임에 대해 설명하고 SAML 토큰 및 JWT 토큰의 클레임 예를 적절하게 보여줍니다. 미리 보기 상태의 클레임은 별도로 나열됩니다. 마지막 부분에는 클레임의 전체적인 맥락을 살펴볼 수 있도록 샘플 토큰이 제공됩니다.
@@ -413,4 +415,4 @@ JWT 토큰에서 사용자 계정 이름은 upn 클레임에 표시됩니다.
 
 [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -2,7 +2,8 @@
 	pageTitle="VM에서 Oracle 데이터 가드 구성 | Microsoft Azure"
 	description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle Data Guard 설치 및 구현을 단계별로 설명합니다."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,12 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Azure용 Oracle Data Guard 구성하기
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
@@ -30,7 +29,7 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 - [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](virtual-machines-windows-classic-oracle-considerations.md) 항목에서 고가용성 및 재해 복구 고려 사항 섹션을 이미 검토했을 것입니다. Azure는 독립 실행형 Oracle 데이터베이스 인스턴스를 지원하지만 Oracle RAC(Oracle Real Application Clusters)는 현재 지원하지 않습니다.
 
 
-- Windows Server에서 Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 자세한 내용은 [Azure에서 Oracle 데이터베이스 12c 가상 컴퓨터 만들기](virtual-machines-windows-create-oracle-weblogic-server-12c.md) 및 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-windows-load-balance.md) 및 동일한 [가상 네트워크](azure.microsoft.com/documentation/services/virtual-network/)에 가상 컴퓨터가 있어야 합니다. 또한 Azure이 개별 장애 도메인 및 업그레이드 도메인에 VM을 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. Oracle Data Guard는 Oracle Database Enterprise Edition으로만 사용할 수 있습니다. 각 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다. 플랫폼에서 제공되는 VM 크기에 대한 최신 정보는 [Azure용 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)를 참조하세요. VM에 대한 추가 디스크 볼륨이 필요한 경우 추가 디스크를 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
+- Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-windows-load-balance.md) 및 동일한 [가상 네트워크](azure.microsoft.com/documentation/services/virtual-network/)에 가상 컴퓨터가 있어야 합니다. 또한 Azure이 개별 장애 도메인 및 업그레이드 도메인에 VM을 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. Oracle Data Guard는 Oracle Database Enterprise Edition으로만 사용할 수 있습니다. 각 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다. 플랫폼에서 제공되는 VM 크기에 대한 최신 정보는 [Azure용 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)를 참조하세요. VM에 대한 추가 디스크 볼륨이 필요한 경우 추가 디스크를 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
 
 
 
@@ -631,4 +630,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-windows-classic-oracle-images.md)
 
-<!-----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/28/2016"
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016"
+    ms.author="torsteng" />
 
 # 여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 
@@ -198,4 +198,4 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

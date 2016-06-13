@@ -19,8 +19,6 @@
 
 # Azure 하이브리드 클라우드 테스트 환경
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 개발/테스트 또는 개념 증명을 위해 하이브리드 클라우드 테스트 환경에서는 로컬 인터넷 연결 및 공용 IP 주소 중 하나를 사용하고 작동하는 프레미스 간 Azure VNet(가상 네트워크) 설정을 단계별로 안내합니다. 가져오기가 완료되면 응용 프로그램을 개발 및 테스트하고, 간단한 IT 워크로드를 실험하고, 현재 인터넷 위치를 기준으로 사이트 간 VPN(가상 사설망) 연결 성능을 측정할 수 있습니다.
 
 ## 하이브리드 클라우드 기본 구성
@@ -52,4 +50,4 @@
 
 - Azure 인프라 서비스에서 사용자 지정 개발/테스트 또는 프로덕션 배포를 디자인하기 위한 [구현 지침](virtual-machines-linux-infrastructure-service-guidelines.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
