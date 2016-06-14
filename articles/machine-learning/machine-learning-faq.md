@@ -85,7 +85,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 - SMOTE 모듈
 - Scripting 모듈: R, Python, SQL
 - 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
-- Cross-validation, Sweep Parameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
+- Cross-validation, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우).
 
 몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure 저장소 또는 Azure SQL 데이터베이스에 데이터를 업로드하거나 HDInsight를 사용해야 합니다.
 
@@ -95,7 +95,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
 
-소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [판독기][reader] 모듈을 사용하여 실험으로 가져옵니다.
+소량의 데이터를 http URL을 통해 노출하려는 경우 [Import Data][import-data] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Import Data][import-data] 모듈을 사용하여 실험으로 가져옵니다.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -227,7 +227,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 **RRS/BES의 출력을 볼 수 있는 곳이 있나요?**
 
-RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Azure Blob 저장소에 기록도 가능합니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. [데이터 내보내기][writer] 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
+RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Azure Blob 저장소에 기록도 가능합니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. [데이터 내보내기][export-data] 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
 
 **기계 학습 스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요?**
 
@@ -326,10 +326,10 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

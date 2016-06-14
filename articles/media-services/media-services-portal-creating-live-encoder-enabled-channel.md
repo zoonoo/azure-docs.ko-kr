@@ -71,7 +71,7 @@
 ##필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](azure.microsoft.com)을 참조하세요.
+- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
 - 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
@@ -173,7 +173,7 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 
 채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
-새 이벤트에 기존 프로그램을 다시 사용할 수 없습니다. 대신 프로그래밍 라이브 스트리밍 응용 프로그램 섹션에서 설명한 각각의 이벤트에 대한 새 프로그램을 만들고 시작합니다.
+새 이벤트에 기존 프로그램을 다시 사용할 수 없습니다. 대신, 각 이벤트에 대해 새 프로그램을 만들고 시작합니다.
 
 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
 
@@ -276,4 +276,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!-------HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

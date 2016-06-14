@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="06/06/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub란?
@@ -70,7 +70,7 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 -   **신뢰할 수 있는 클라우드-장치 메시징(또는 *명령*).** 솔루션 백 엔드는 IoT Hub를 사용하여 적어도 한 번 배달 보증으로 메시지를 개별 장치에 보낼 수 있습니다. 각 메시지는 개별 TTL(Time-to-Live) 설정이 있으며 백 엔드는 배달 및 만료 수신 확인을 모두 요청할 수 있습니다. 이렇게 하면 클라우드-장치 메시지의 수명 주기 전체에 대한 가시성을 확보할 수 있습니다. 그런 다음 장치에서 실행하는 작업을 포함하는 비즈니스 논리를 구현할 수 있습니다.
 
-또한 IoT Hub의 IoT 특정 기능을 활용하여 파일 업로드 및 다운로드와 같은 다른 일반적인 패턴도 구현할 수 있습니다. 이러한 기능으로는 일관된 장치 ID 관리, 연결 모니터링 및 크기 조정이 포함됩니다.
+-   **클라우드로 파일 및 캐싱된 센서 데이터를 업로드합니다.** 장치에서 IoT Hub에서 관리되는 SAS URI를 사용하여 Azure 저장소로 파일을 업로드할 수 있습니다. IoT Hub는 파일이 클라우드에 도착할 때 백 엔드에서 처리할 수 있도록 알림을 생성할 수 있습니다.
 
 ## 게이트웨이
 
@@ -121,4 +121,4 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

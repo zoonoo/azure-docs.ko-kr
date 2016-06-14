@@ -132,9 +132,9 @@ FROM [dbo].[vTargetMail]
 <!--Article references-->
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/
 [Azure의 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
+[샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-load-sample-databases.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -115,7 +115,7 @@
 
 이제 Azure 서비스 버스의 기초를 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
-- [서비스 버스 큐](service-bus-dotnet-how-to-use-queues.md)를 사용하는 방법
+- [서비스 버스 큐](service-bus-dotnet-get-started-with-queues.md)를 사용하는 방법
 - [서비스 버스 토픽](service-bus-dotnet-how-to-use-topics-subscriptions.md)을 사용하는 방법
 - [서비스 버스 릴레이](service-bus-dotnet-how-to-use-relay.md)를 사용하는 방법
 - [서비스 버스 샘플](service-bus-samples.md)
@@ -125,4 +125,4 @@
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

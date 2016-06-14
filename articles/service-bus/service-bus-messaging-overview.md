@@ -52,8 +52,8 @@ WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 �
 - [서비스 버스 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
-- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 - [서비스 버스 토픽을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

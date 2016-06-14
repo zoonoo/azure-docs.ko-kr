@@ -7,13 +7,9 @@
 	manager="mbaldwin"
 	editor=""/>
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="objectivec"
-	ms.topic="hero-article"
-	ms.date="02/17/2016"
+<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 미리 보기: iOS 응용 프로그램에서 Web API 호출하기
@@ -630,4 +626,4 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 [B2C 앱을 위한 UX 사용자 지정]()
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

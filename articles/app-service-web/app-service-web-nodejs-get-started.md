@@ -13,43 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
-	ms.author="cephalin;robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 Node.js 웹앱 시작
 
 [AZURE.INCLUDE [탭](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-이 자습서에서는 간단한 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄에서 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
+이 자습서에서는 간단한 [Node.js][NODEJS] 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄 환경에서 [Azure 앱 서비스]의 [웹앱]에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
-<a name="prereq"/>
+<a name="prereq"></a>
 ## 필수 조건
 
-- Node.js. 설치 이진은 [여기](https://nodejs.org/)에 있습니다.
-- Yeoman. 설치 지침은 [여기에](http://yeoman.io/) 있습니다.
-- Git. 설치 이진은 [여기](http://www.git-scm.com/downloads)에 있습니다.
-- Azure CLI. 설치 지침은 [여기에](../xplat-cli-install.md) 있습니다.
-- Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+- **Node.js**([설치하려면 여기를 클릭][NODEJS])
+- **Bower**([설치하려면 여기를 클릭][BOWER])
+- **Yeoman**([설치하려면 여기를 클릭][YEOMAN])
+- **Git**([설치하려면 여기를 클릭][GIT])
+- **Azure CLI**([설치하려면 여기를 클릭][Azure CLI])
+- Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록]하거나 [Visual Studio 구독자 혜택을 활성화]할 수 있습니다.
 
 ## 간단한 Node.js 웹앱 만들기 및 배포
 
-1. 원하는 명령줄 터미널을 열고 [Yeoman Express 생성기](https://github.com/petecoop/generator-express)를 설치합니다.
+1. 원하는 명령줄 터미널을 열고 [Yeoman Express 생성기]를 설치합니다.
 
         npm install -g generator-express
 
-2. 작업 디렉터리에 대해 `CD`하고 다음과 같이 Express 앱을 생성합니다.
+2. 작업 디렉터리에 대해 `CD`하고 다음 구문을 사용하여 Express 앱을 생성합니다.
 
         yo express
         
     메시지가 표시되면 다음 옵션을 선택합니다.
 
-    `? Would you like to create a new directory for your project?` **예** `? Enter directory name` **&lt;appname>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **없음** `? Select a database to use:` **없음** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **예** `? Enter directory name` **{appname}** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **없음** `? Select a database to use:` **없음** `? Select a build tool to use:` **Grunt**
 
 3. 새 앱의 루트 디렉터리에 대해 `CD`하고 이를 시작하여 개발 환경에서 실행되는지 확인합니다.
 
         npm start
 
-    브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 Express 홈 페이지를 볼 수 있는지 확인합니다. 앱이 제대로 실행되는지 확인했으면 `Ctrl-C`를 사용하여 중지합니다.
+    브라우저에서 <http://localhost:3000>으로 이동하여 Express 홈 페이지를 볼 수 있는지 확인합니다. 앱이 제대로 실행되는지 확인했으면 `Ctrl-C`를 사용하여 중지합니다.
     
 1. 이와 같은 방법으로 Azure에 로그인합니다(이를 위해 [Azure CLI](#prereq)가 필요).
 
@@ -57,13 +58,13 @@
 
     프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에서 계속 로그인합니다.
 
-2. 앱의 루트 디렉터리에 있는지 확인합니다. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹앱의 URL은 http://&lt;appname>.azurewebsites.net입니다.
+2. 앱의 루트 디렉터리에서 작업하고 있는지 확인합니다. 다음 명령(예: http://{appname}.azurewebsites.net)을 사용하여 고유한 앱 이름을 가진 Azure의 앱 서비스 앱 리소스를 만듭니다.
 
-        azure site create --git <appname>
+        azure site create --git {appname}
 
     프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우에도 배포 자격 증명을 만들라는 메시지가 표시됩니다.
 
-3. config/config.js를 열고 프로덕션 포트를 `process.env.port`로 변경합니다. 프로덕션 JSON 개체는 다음과 같습니다.
+3. 응용 프로그램의 루트에서 ./config/config.js 파일을 열고 프로덕션 포트를 `process.env.port`로 변경합니다. `config` 개체의 `production` 속성은 다음 예제와 같아야 합니다.
 
         production: {
             root: rootPath,
@@ -78,26 +79,26 @@
 4. 변경 내용을 저장한 후 git를 사용하여 앱을 Azure에 배포합니다.
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
 
     Express 생성기가 .gitignore 파일을 이미 제공하므로 `git push`가 node\_modules/ 디렉터리로 업로드를 시도하는 대역폭을 사용하지 않습니다.
 
-5. 마지막으로, 브라우저에서 라이브 Azure 앱만 시작합니다.
+5. 마지막으로 브라우저에서 라이브 Azure 앱을 시작합니다.
 
         azure site browse
 
     이제 Azure 앱 서비스에서 라이브로 실행되는 Node.js 웹앱이 표시됩니다.
     
-    ![](./media/app-service-web-nodejs-get-started/deployed-express-app.png)
+    ![배포된 응용 프로그램에 대한 검색의 예제][deployed-express-app]
 
 ## Node.js 웹앱 업데이트
 
-앱 서비스에서 실행되는 Node.js 웹앱을 업데이트하려면 처음 배포할 때 했던 것처럼 `git add`, `git commit` 및 `git push`를 실행합니다.
+앱 서비스에서 실행되는 Node.js 웹앱을 업데이트하려면 웹앱을 처음 배포할 때처럼 `git add`, `git commit` 및 `git push`을 실행합니다.
      
 ## 앱 서비스에서 Node.js 앱을 배포하는 방법
 
-Azure 앱 서비스는 [iisnode](https://github.com/tjanczuk/iisnode/wiki)를 사용하여 Node.js 앱을 실행합니다. Azure CLI 및 Kudu 엔진(Git 배포)은 함께 작동하여 명령줄에서 Node.js 앱을 개발 및 배포할 때 능률적인 환경을 제공합니다.
+Azure 앱 서비스는 [iisnode]를 사용하여 Node.js 앱을 실행합니다. Azure CLI 및 Kudu 엔진(Git 배포)은 함께 작동하여 명령줄에서 Node.js 앱을 개발 및 배포할 때 능률적인 환경을 제공합니다.
 
 - `azure site create --git`은 server.js 또는 app.js의 일반적인 Node.js 패턴을 인식하고 루트 디렉터리에 iisnode.yml을 생성합니다. 이 파일을 사용하여 iisnode를 사용자 지정할 수 있습니다.
 - `git push azure master`에서 Kudu는 다음 배포 작업을 자동화합니다.
@@ -108,13 +109,13 @@ Azure 앱 서비스는 [iisnode](https://github.com/tjanczuk/iisnode/wiki)를 �
     
 ## Node.js 프레임워크 사용
 
-앱을 개발하기 위해 [Sails.js](http://sailsjs.org/) 또는 [MEAN.js](http://meanjs.org/)와 같이 널리 사용되는 Node.js 프레임워크를 사용하는 경우 앱 서비스에 배포할 수 있습니다. 널리 사용되는 Node.js 프레임워크에는 특정 쿼크가 있고 해당 패키지 종속성은 계속 업데이트됩니다. 그러나 앱 서비스에서는 stdout 및 stderr 로그가 제공되므로 앱으로 수행하는 작업을 정확히 알고 적절히 변경할 수 있습니다. 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](#iisnodelog)를 참조하세요.
+앱을 개발하기 위해 [Sails.js][SAILSJS] 또는 [MEAN.js][MEANJS]와 같이 널리 사용되는 Node.js 프레임워크를 사용하는 경우 앱 서비스에 배포할 수 있습니다. 널리 사용되는 Node.js 프레임워크에는 특정 쿼크가 있고 해당 패키지 종속성은 계속 업데이트됩니다. 그러나 앱 서비스에서는 stdout 및 stderr 로그가 제공되므로 앱으로 수행하는 작업을 정확히 알고 적절히 변경할 수 있습니다. 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](#iisnodelog)를 참조하세요.
 
-앱 서비스에서 특정 프레임워크를 사용하는 방법을 보여 주는 자습서 확인
+다음 자습서에서는 앱 서비스에서 특정 프레임워크를 사용하는 방법을 보여 줍니다.
 
-- [Azure 앱 서비스에 Sails.js 웹앱 배포](app-service-web-nodejs-sails.md)
-- [Azure 앱 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기](web-sites-nodejs-chat-app-socketio.md)
-- [Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법](web-sites-nodejs-iojs.md)
+- [Azure 앱 서비스에 Sails.js 웹앱 배포]
+- [Azure 앱 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기]
+- [Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법]
 
 ## 특정 Node.js 엔진 사용
 
@@ -130,12 +131,14 @@ Kudu 배포 엔진은 다음 순서로 사용할 Node.js 엔진을 결정합니�
 - 다음으로 package.json에서 `engines` 개체에 `"node": "..."`가 지정되었는지 확인합니다. 지정된 경우 사용합니다.
 - 기본적으로 기본 Node.js 버전을 선택합니다.
 
-<a name="iisnodelog" />
+<a name="iisnodelog"></a>
 ## iisnode에서 stdout 및 stderr 로그 가져오기
 
-Iisnode 로그를 읽으려면 다음 단계를 수행하세요.
+iisnode 로그를 읽으려면 다음 단계를 사용합니다.
 
-1. Azure CLI에서 제공되는 iisnode.yml 파일을 엽니다.
+> [AZURE.NOTE] 다음 단계를 완료한 후에 오류가 발생할 때까지 로그 파일이 존재하지 않을 수 있습니다.
+
+1. Azure CLI에서 제공하는 iisnode.yml 파일을 엽니다.
 
 2. 이때 다음 두 매개 변수를 지정합니다.
 
@@ -147,27 +150,28 @@ Iisnode 로그를 읽으려면 다음 단계를 수행하세요.
 3. 변경 내용을 저장한 후 다음 Git 명령을 사용하여 Azure에 푸시합니다.
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
    
    이제 iisnode가 구성됩니다. 다음 단계에서는 이러한 로그에 액세스하는 방법을 보여 줍니다.
      
 4. 브라우저에서 다음과 같이 앱에 대한 Kudu 디버그 콘솔에 액세스합니다.
 
-        https://<appname>.scm.azurewebsites.net/DebugConsole 
+        https://{appname}.scm.azurewebsites.net/DebugConsole 
+
+    "*.scm.*"이 DNS 이름에 추가되어 이 URL은 웹앱 URL과 다릅니다. URL에 해당 추가를 생락하면 404 오류가 발생하게 됩니다.
 
 5. D:\\home\\site\\wwwroot\\iisnode로 이동합니다.
 
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png)
+    ![iisnode 로그 파일의 위치 탐색][iislog-kudu-console-find]
 
 6. 읽을 로그에 대한 **편집** 아이콘을 클릭합니다. 원하는 경우 **다운로드** 또는 **삭제**를 클릭할 수도 있습니다.
 
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png)
+    ![iisnode 로그 파일 열기][iislog-kudu-console-open]
 
     이제 앱 서비스 배포를 디버깅할 수 있도록 로그를 볼 수 있습니다.
     
-    ![](./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png)
-
+    ![iisnode 로그 파일 검사][iislog-kudu-console-read]
 
 ## Node-Inspector로 앱 디버그
 
@@ -183,16 +187,16 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 3. 변경 내용을 저장한 후 다음 Git 명령을 사용하여 Azure에 푸시합니다.
 
         git add .
-        git commit -m "<your commit message>"
+        git commit -m "{your commit message}"
         git push azure master
    
 4. 이제 package.json의 시작 스크립트에 지정된 대로 URL에 추가된 /debug와 함께 앱의 시작 파일로 이동합니다. 예를 들면 다음과 같습니다.
 
-        http://<appname>.azurewebsites.net/server.js/debug
+        http://{appname}.azurewebsites.net/server.js/debug
     
     또는
     
-        http://<appname>.azurewebsites.net/app.js/debug
+        http://{appname}.azurewebsites.net/app.js/debug
 
 ## 추가 리소스
 
@@ -202,5 +206,33 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 - [Azure 앱 서비스 웹앱: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Node.js 개발자 센터](/develop/nodejs/)
 - [Azure 앱 서비스에서 웹 앱 시작](app-service-web-get-started.md)
+- [Super 암호 Kudu 디버그 콘솔 탐색]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-- URL List -->
+
+[Azure CLI]: ../xplat-cli-install.md
+[Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
+[Visual Studio 구독자 혜택을 활성화]: http://go.microsoft.com/fwlink/?LinkId=623901
+[BOWER]: http://bower.io/
+[Azure 앱 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기]: ./web-sites-nodejs-chat-app-socketio.md
+[Azure 앱 서비스에 Sails.js 웹앱 배포]: ./app-service-web-nodejs-sails.md
+[Super 암호 Kudu 디버그 콘솔 탐색]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Yeoman Express 생성기]: https://github.com/petecoop/generator-express
+[GIT]: http://www.git-scm.com/downloads
+[Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법]: ./web-sites-nodejs-iojs.md
+[iisnode]: https://github.com/tjanczuk/iisnode/wiki
+[MEANJS]: http://meanjs.org/
+[NODEJS]: http://nodejs.org
+[SAILSJS]: http://sailsjs.org/
+[무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
+[웹앱]: ./app-service-web-overview.md
+[YEOMAN]: http://yeoman.io/
+
+<!-- IMG List -->
+
+[deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
+[iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
+[iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
+[iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
+
+<!---HONumber=AcomDC_0608_2016-->

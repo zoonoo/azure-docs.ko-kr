@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="06/02/2016"
     ms.author="magoedte;sngun"/>
 
 # 내 첫번째 PowerShell Runbook
 
-> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell Workflow](automation-first-runbook-textual.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md)
+> [AZURE.SELECTOR] - [Graphical](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell Workflow](automation-first-runbook-textual.md)
 
 이 자습서는 Azure 자동화에서 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)을 만드는 과정을 안내합니다. 런북 작업의 상태를 추적하는 방법을 설명하는 동안 테스트하고 게시할 단순한 런북부터 시작하겠습니다. 그 다음, 런북을 실제로 Azure 리소스 관리를 통해 수정합니다. 이 경우에는 Azure 가상 컴퓨터를 가동합니다. 그리고 runbook 매개 변수를 추가하여 Runbook을 더욱 강력히 만듭니다.
 
@@ -57,12 +57,12 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 프로덕션 환경에서 사용할 수 있도록 runbook을 게시하기 전에 제대로 작동하는지 확인할 수 있게 테스트합니다. Runbook을 테스트할 때 **초안**버전을 실행하고 해당 출력을 대화형으로 봅니다.
 
-1.	**테스트 창**을 클릭하여 테스트 창을 엽니다. 
+1.	**테스트 창**을 클릭하여 테스트 창을 엽니다.  
 	![테스트 창](media/automation-first-runbook-textual-powershell/automation-testpane.png)  
 2.	**시작**을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
 3.	이 창에서 [runbook 작업](automation-runbook-execution.md)이 생성되고 상태를 보여줍니다.  
-	작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다. 
-4.	Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World*가 표시됩니다.  
+	작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중* 에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중* 으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중* 으로 바뀝니다.  
+4.	Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World* 가 표시됩니다.  
 	![테스트 창 출력](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
 5.	캔버스로 돌아가려면 테스트 창을 닫습니다.
 
@@ -77,7 +77,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 4.	여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭한 다음 Runbook 시작 블레이드가 열리면 **확인**을 클릭합니다.  
 	![시작 단추](media/automation-first-runbook-textual-powershell/automation-start-button.png)  
 5.	우리가 방금 만들었던 runbook작업에 대한 작업 창이 열립니다. 창을 닫을 수 있지만, 이 경우에는 작업의 진행 상황을 보기 위해 열어둡니다.
-6.	Runbook을 테스트할 때의 상태와 같은 작업 상태가 **작업 요약**에 표시되며 합니다. 
+6.	Runbook을 테스트할 때의 상태와 같은 작업 상태가 **작업 요약**에 표시되며 합니다.  
 	![작업 요약](media/automation-first-runbook-textual-powershell/automation-job-summary.png)  
 7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리고 *Hello World*가 표시됩니다.  
 	![작업 출력](media/automation-first-runbook-textual-powershell/automation-job-output.png)
@@ -85,7 +85,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 9.	**모든 로그**를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 *Hello World*만 표시되어야 하지만 Runbook이 자세한 정보 표시, 오류와 같은 Runbook 작업에 대한 다른 스트림에 쓰는 경우 해당 스트림이 표시될 수 있습니다.  
 	![모든 로그](media/automation-first-runbook-textual-powershell/automation-alllogs.png)  
 10.	MyFirstRunbook-PowerShell 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
-11.	**작업**을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다. 
+11.	**작업**을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.  
 	![작업 목록](media/automation-first-runbook-textual-powershell/automation-job-list.png)  
 12.	runbook을 시작했을 때 우리가 봤던 동일한 작업창을 열려면 이 작업을 클릭합니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -144,7 +144,7 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 3.	창을 닫습니다.
 4.	**게시**를 클릭하여 Runbook의 새 버전을 게시합니다.
 5.	이전 단계에서 실행시킨 가상 컴퓨터를 중지합니다.
-6.	**시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**ResourceGroupName**을 입력합니다. 
+6.	**시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**ResourceGroupName**을 입력합니다.  
 	![매개 변수 전달](media/automation-first-runbook-textual-powershell/automation-pass-params.png)  
 7.	Runbook이 완료되면 가상 컴퓨터가 시작되었다는 것을 확인합니다.
 
@@ -164,4 +164,4 @@ PowerShell Runbook에는 PowerShell 워크플로 Runbook과 동일한 수명 주
 -	Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 -	PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
