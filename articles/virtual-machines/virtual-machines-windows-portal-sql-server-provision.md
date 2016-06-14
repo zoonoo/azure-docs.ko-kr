@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth" />
 
 # Azure 포털에서 SQL Server 가상 컴퓨터 프로비전
@@ -53,7 +53,9 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
 1. 각 템플릿은 SQL Server 버전 및 운영 체제를 식별합니다. 목록에서 이러한 이미지 중 하나를 선택합니다. 그런 다음 가상 컴퓨터 이미지에 대한 설명을 제공하는 세부 정보 블레이드를 검토하십시오.
 
-1. **배포 모델 선택**에서 **리소스 관리자**가 선택되었는지 확인하고 **만들기**를 클릭합니다.
+	>[AZURE.NOTE] SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다. BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이 옵션에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server 시작](virtual-machines-windows-sql-server-iaas-overview.md)을 참조하세요.
+
+1. **배포 모델 선택**에서 **리소스 관리자**가 선택되었는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. **만들기**를 클릭합니다.
 
 	![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -125,7 +127,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 | [Azure 주요 자격 증명 모음 통합](#azure-key-vault-integration) |
 
 ### 연결
-**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 자습서에서는 **공개(인터넷)**을 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택하면 Azure에서는 포트 1433에서 트래픽을 허용하도록 방화벽 및 네트워크 보안 그룹을 자동으로 구성합니다.
+**SQL 연결**에서 VM의 SQL Server 인스턴스에 대해 원하는 액세스 유형을 지정합니다. 이 자습서에서는 **공개(인터넷)**를 지정하여 인터넷 상의 컴퓨터 또는 서비스에서 SQL Server로의 연결을 허용합니다. 이 옵션을 선택하면 Azure에서는 포트 1433에서 트래픽을 허용하도록 방화벽 및 네트워크 보안 그룹을 자동으로 구성합니다.
 
 ![SQL 연결 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
@@ -249,4 +251,4 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -57,7 +57,7 @@ Windows PC의 명령줄을 통해 Azure 서비스를 관리하는 [명령줄 인
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 리소스는 둘 중 하나의 모델에서 배포할 수 있지만 다른 리소스는 두 모델 모두에서 배포할 수 있습니다. 리소스가 배포될 수 있는 모델에 대한 개별 Azure 리소스 세부 정보를 안내합니다.
 
 
-### <a name="faultdomain"></a>장애 도메인  
+### <a name="fault-domain"></a>장애 도메인  
 동시에 실패할 가능성이 있는 가용성 집합의 가상 컴퓨터 컬렉션입니다. 예를 들어 랙에서 공통된 전원 및 네트워크 스위치를 공유하는 컴퓨터 그룹입니다. Azure에서 가용성 집합의 가상 컴퓨터는 여러 장애 도메인에서 자동으로 분리됩니다. [Windows 가상 컴퓨터의 가용성 관리](./virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](./virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
 
 
@@ -142,7 +142,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 
 
 ### <a name="vnet"></a>가상 네트워크  
-다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. 다른 Azure 가상 네트워크에 [Azure VPN 게이트웨이](vpn-gateway-about-vpngateways/)를 통해 연결되고 [여러 옵션](vpn-gateway-cross-premises-options/)을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. [가상 네트워크 개요](./virtual-network/virtual-networks-overview.md)를 참조하세요.
+다른 모든 Azure 테넌트에서 격리된 Azure 리소스 간의 연결을 제공하는 네트워크입니다. 다른 Azure 가상 네트워크에 [Azure VPN 게이트웨이](./vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 연결되고 [여러 옵션](./vpn-gateway/vpn-gateway-cross-premises-options.md)을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. [가상 네트워크 개요](./virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 ###**참고 항목**  
 - [Azure 시작](https://azure.microsoft.com/get-started/)
@@ -150,4 +150,4 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 - [비즈니스 응용 프로그램을 위한 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [데이터 센터의 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

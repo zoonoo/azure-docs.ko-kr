@@ -19,8 +19,6 @@
 
 # 리소스 관리자 모드에서 Azure CLI 명령
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
-
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다.
 
 시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
@@ -1798,7 +1796,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`(으)로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`을(를) 실행합니다. 또한 0.10 버전부터 `azure vm quick-create`은(는) 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
+>[AZURE.TIP]CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`으로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`를 실행합니다. 또한 0.10 버전부터 `azure vm quick-create`는 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
 
 **계정 내에서 가상 컴퓨터 나열**
 
@@ -1874,4 +1872,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

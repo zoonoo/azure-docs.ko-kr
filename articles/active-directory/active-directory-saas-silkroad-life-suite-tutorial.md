@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ SilkRoad Life Suite와 Azure AD의 통합을 구성하려면 다음 항목이 �
 - SilkRoad Life Suite Single-Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -88,7 +88,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 5. SilkRoad 회사 사이트에 관리자로 로그인합니다. 
 
 
-    > [AZURE.NOTE]Microsoft Azure AD와 페더레이션을 구성하기 위한 SilkRoad Life 인증 응용 프로그램에 대한 액세스를 얻으려면 SilkRoad 지원 또는 SilkRoad 서비스 담당자에게 문의하세요.
+    > [AZURE.NOTE] Microsoft Azure AD와 페더레이션을 구성하기 위한 SilkRoad Life 인증 응용 프로그램에 대한 액세스를 얻으려면 SilkRoad 지원 또는 SilkRoad 서비스 담당자에게 문의하세요.
 
 
 6. **서비스 공급자**로 이동한 다음 **페더레이션 세부 정보**를 클릭합니다. <br><br>![Azure AD Single Sign-On][10] <br>
@@ -144,9 +144,9 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **사용**을 **예**로 선택합니다.
 
-    b. **IdP 설명** 텍스트 상자에 구성에 대한 설명을 입력합니다.(예: Azure AD SSO)
+    b. **IdP 설명** 텍스트 상자에 구성에 대한 설명을 입력합니다.(예: *Azure AD SSO*)
 
-    c. **IdP 이름** 텍스트 상자에 구성에 적용되는 이름을 입력합니다.(예: Azure SP)
+    c. **IdP 이름** 텍스트 상자에 구성에 적용되는 이름을 입력합니다.(예: *Azure SP*)
 
     d. **Save**를 클릭합니다.
 
@@ -201,7 +201,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
  
 ### SilkRoad Life Suite 테스트 사용자 만들기
 
-이 섹션에서는 SilkRoad Life Suite에서 Britta Simon이라는 사용자를 만들어 보겠습니다. Britta는 Azure AD에서 Britta의 **emailaddress**와 일치하는 SSO ID(종종 AuthParam라고 함)가 있어야 합니다
+이 섹션에서는 SilkRoad Life Suite에서 Britta Simon이라는 사용자를 만들어 보겠습니다. Britta는 Azure AD에서 Britta의 **emailaddress**와 일치하는 SSO ID(종종 *AuthParam*라고 함)가 있어야 합니다
 
 **SilkRoad Life Suite에서 Britta Simon라는 사용자를 만들려면 다음 단계를 수행합니다.**
 
@@ -271,4 +271,4 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -24,10 +24,11 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+Azure Resource Manager 기반 Azure PowerShell cmdlet을 사용하여 [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)을 확인하는 웹앱 관리에 대해 알아보기
 
 ## 기존 앱 복제 ##
 
-시나리오: 사용자가 미국 중남부 지역의 기존 웹앱의 콘텐츠를 미국 중북부 지역의 새 웹앱으로 복제하려고 합니다. 이 작업은 SourceWebApp 옵션으로 새 웹앱을 만들기 위해 PowerShell cmdlet의 ARM 버전을 사용하여 수행할 수 있습니다.
+시나리오: 사용자가 미국 중남부 지역의 기존 웹앱의 콘텐츠를 미국 중북부 지역의 새 웹앱으로 복제하려고 합니다. 이 작업은 SourceWebApp 옵션으로 새 웹앱을 만들기 위해 PowerShell cmdlet의 Azure Resource Manager 버전을 사용하여 수행할 수 있습니다.
 
 원본 웹앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 원본 웹앱의 정보를 가져올 수 있습니다(이 경우 이름은 source-webapp임).
 
@@ -77,17 +78,17 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 
 ## 앱을 복제하는 동한 트래픽 관리자 구성 ##
 
-다중 지역 웹앱을 만들고 이러한 웹앱에 트래픽을 라우팅하도록 Azure 트래픽 관리자를 구성하는 것은 고객에게 높은 앱 가용성을 보장하기 위해 매우 중요한 시나리오입니다. 기존 웹앱을 복제할 때 두 웹앱을 새 트래픽 관리자 프로필에 연결할 수도 있고 기존 트래픽 관리자 프로필에 연결할 수도 있습니다. 단, 트래픽 관리자의 ARM 버전만 지원됩니다.
+다중 지역 웹앱을 만들고 이러한 웹앱에 트래픽을 라우팅하도록 Azure 트래픽 관리자를 구성하는 것은 고객에게 높은 앱 가용성을 보장하기 위해 매우 중요한 시나리오입니다. 기존 웹앱을 복제할 때 두 웹앱을 새 트래픽 관리자 프로필에 연결할 수도 있고 기존 트래픽 관리자 프로필에 연결할 수도 있습니다. 단, 트래픽 관리자의 Azure Resource Manager 버전만 지원됩니다.
 
 ### 앱을 복제하는 동안 새 트래픽 관리자 프로필 만들기 ###
 
-시나리오: 사용자가 두 웹앱을 모두 포함하는 ARM 트래픽 관리자 프로필을 구성하는 동안 다른 지역에 웹앱을 복제하려고 합니다. 다음에서는 새 트래픽 관리자 프로필을 구성하는 동안 새 웹앱으로 원본 웹앱의 클론을 만드는 방법을 보여 줍니다.
+시나리오: 사용자가 두 웹앱을 모두 포함하는 Azure Resource Manager 트래픽 관리자 프로필을 구성하는 동안 다른 지역에 웹앱을 복제하려고 합니다. 다음에서는 새 트래픽 관리자 프로필을 구성하는 동안 새 웹앱으로 원본 웹앱의 클론을 만드는 방법을 보여 줍니다.
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 
 ### 기존 트래픽 관리자 프로필에 복제된 새 웹앱 추가 ###
 
-시나리오: 사용자가 두 웹앱을 끝점으로 추가하려고 하는 ARM 트래픽 관리자 프로필을 이미 가지고 있습니다. 이를 수행하려면 먼저 기존 트래픽 관리자 프로필 ID를 어셈블해야 하며 구독 ID, 리소스 그룹 이름 및 기존 트래픽 관리자 프로필 이름이 필요합니다.
+시나리오: 사용자가 두 웹앱을 끝점으로 추가하려고 하는 Azure Resource Manager 트래픽 관리자 프로필을 이미 가지고 있습니다. 이를 수행하려면 먼저 기존 트래픽 관리자 프로필 ID를 어셈블해야 하며 구독 ID, 리소스 그룹 이름 및 기존 트래픽 관리자 프로필 이름이 필요합니다.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 
@@ -106,13 +107,15 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 - 간편한 인증 설정은 복제되지 않습니다.
 - Kudu 확장은 복제되지 않습니다.
 - TiP 규칙은 복제되지 않습니다.
+- 데이터베이스 내용이 복제되지 않습니다.
 
 
 ### 참조 ###
+- [Azure 웹앱용 Azure Resource Manager 기반 PowerShell 명령](app-service-web-app-azure-resource-manager-powershell.md)
 - [Azure 포털을 사용하여 웹앱 복제](app-service-web-app-cloning-portal.md)
 - [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md)
 - [Azure 트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

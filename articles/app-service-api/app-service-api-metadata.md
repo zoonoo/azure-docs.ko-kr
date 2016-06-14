@@ -34,13 +34,15 @@ API 앱의 속성에서 API 앱에 Swagger 2.0 JSON 메타데이터를 제공하
 
 ### Azure 리소스 관리자 속성
 
-Azure PowerShell, CLI 또는 [리소스 탐색기](https://resources.azure.com/) 등의 Azure 리소스 관리자 도구를 사용하여 API 앱에 대한 API 정의 URL을 구성할 수도 있습니다.
+또한 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다.
 
-Microsoft.Web/sites/config 리소스 형식에서 <site name>/web 리소스에 대해 `apiDefinition` 속성을 설정합니다. 예를 들어, **리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 cors 속성이 표시됩니다.
+**리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
+
+`apiDefinition` 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면 [To-Do List 응용 프로그램 예제에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 위에 표시된 JSON 샘플과 같은 템플릿 섹션을 찾습니다.
 
 ### 기본값
 
@@ -58,4 +60,4 @@ API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 
 
 API 앱과 함께 Azure API 관리를 사용하는 경우 Swagger 메타데이터를 사용하여 API를 API 관리로 가져올 수 있습니다. 자세한 내용은 [Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법](../api-management/api-management-howto-import-api.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

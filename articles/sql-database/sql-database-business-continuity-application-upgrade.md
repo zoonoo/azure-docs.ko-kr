@@ -1,10 +1,10 @@
 <properties 
    pageTitle="응용 프로그램 업그레이드 중 SQL 데이터베이스의 비즈니스 연속성" 
-   description="이 섹션에서는 응용 프로그램을 업그레이드하는 동안 가동 중지 시간을 방지하기 위해 비즈니스 연속성에 대한 지침을 제공합니다." 
+   description="이 섹션에서는 응용 프로그램을 업그레이드하는 동안 가동 중지 시간을 방지하기 위한 지침을 제공합니다." 
    services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="05/27/2016"
    ms.author="elfish"/>
 
 #가동 중지 시간 없이 응용 프로그램 업그레이드
@@ -27,8 +27,9 @@ Microsoft Azure에서 '응용 프로그램'이라는 용어는 프런트 엔드,
 3.	업그레이드 하는 동안 오류가 발생할 경우 롤백할 수 있는 기능
 4.	관련된 총 비용. 여기에는 임시 복사본(활성 지역 복제를 위한 프리미엄 데이터베이스 등)을 만드는 데 필요한 추가적인 응용 프로그램 구성 요소의 비용과 업그레이드 프로세스에 사용되는 임시 배포를 위한 증분 비용이 포함됩니다. 
 
-응용 프로그램을 임시적으로 읽기 전용 모드로 가동할 수 있다면 작동 중단 시간을 효과적으로 없애도록 업그레이드 워크플로를 설계할 수 있습니다. 특정 응용 프로그램 토폴로지를 위한 업그레이드 워크플로를 구현하는 방법을 이해하려면 [응용 프로그램을 롤링 업그레이드하는 동안 Azure SQL DB의 중단 최소화를 위한 모범 사례](https://msdn.microsoft.com/library/azure/dn790385.aspx)를 참조하십시오.
+응용 프로그램을 임시적으로 읽기 전용 모드로 가동할 수 있다면 작동 중단 시간을 효과적으로 없애도록 업그레이드 워크플로를 설계할 수 있습니다. 특정 응용 프로그램 토폴로지를 위한 업그레이드 워크플로를 구현하는 방법을 이해하려면 [SQL 데이터베이스 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md)를 참조하세요.
+ 
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0601_2016-->

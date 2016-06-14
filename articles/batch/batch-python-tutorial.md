@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Azure 배치 Python 클라이언트 시작
@@ -24,7 +24,7 @@
 
 Python에서 작성한 작은 배치 응용 프로그램을 다룬 것처럼 [Azure 배치][azure_batch] 및 [배치 Python][py_azure_sdk] 클라이언트의 기본을 알아봅니다. 두 개의 샘플 스크립트에서는 배치 서비스를 활용하여 클라우드의 Linux 가상 컴퓨터에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure 저장소](./../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로를 습득하고 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대해 이해합니다.
 
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md) 및 [다중 인스턴스 작업](batch-mpi.md)은 Linux 계산 노드에서 **현재 지원되지 않습니다**.
+> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md)는 Linux 계산 노드에서 **현재 지원되지 않습니다**.
 
 ![배치 솔루션 워크플로(기본)][11]<br/>
 
@@ -78,7 +78,7 @@ Python 자습서 코드 샘플은 GitHub의 [azure-batch-samples][github_samples
 
 ![배치 예제 워크플로][8]<br/>
 
-[**1단계.**](#step-1-create-storage-containers) Azure Blob 저장소에 **컨테이너**를 만듭니다.<br/> [**2단계.**](#step-2-upload-task-script-and-data-files) 컨테이너에 작업 스크립트 및 입력 파일을 업로드합니다.<br/> [**3단계.**](#step-3-create-batch-pool) 배치 **풀**을 만듭니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** 풀은 노드가 풀에 연결되면 태스크 스크립트 (python\_tutorial\_task.py)를 노드에 다운로드합니다.<br/> [**4단계.**](#step-4-create-batch-job) 배치 **작업**을 만듭니다.<br/> [**5단계.**](#step-5-add-tasks-to-job) 작업에 **태스크**를 추가합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 태스크는 노드에서 실행되도록 예약됩니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure 저장소에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/> [**6단계.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure 저장소에 업로드합니다.<br/> [**7단계**](#step-7-download-task-output) 저장소에서 태스크 출력을 다운로드합니다.
+[**1단계.**](#step-1-create-storage-containers) Azure Blob 저장소에 **컨테이너**를 만듭니다.<br/> [**2단계.**](#step-2-upload-task-script-and-data-files) 컨테이너에 작업 스크립트 및 입력 파일을 업로드합니다.<br/> [**3단계.**](#step-3-create-batch-pool) 배치 **풀**을 만듭니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** 풀은 노드가 풀에 연결되면 태스크 스크립트 (python\_tutorial\_task.py)를 노드에 다운로드합니다.<br/> [**4단계.**](#step-4-create-batch-job) 배치 **작업**을 만듭니다.<br/> [**5단계.**](#step-5-add-tasks-to-job) 작업에 **태스크**를 추가합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 태스크는 노드에서 실행되도록 예약됩니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure 저장소에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/> [**6단계.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure 저장소에 업로드합니다.<br/> [**7단계.**](#step-7-download-task-output) 저장소에서 태스크 출력을 다운로드합니다.
 
 언급한 바와 같이, 모든 Batch 솔루션이 정확히 이러한 단계를 수행하는 것은 아니며, 훨씬 더 많은 단계를 포함할 수 있지만 이 샘플은 배치 솔루션에서 찾을 수 있는 일반적인 프로세스를 보여 줍니다.
 
@@ -250,9 +250,8 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 그런 다음 `create_pool`에 대한 호출을 사용하여 배치 계정에서 계산 노드의 풀을 만듭니다.
@@ -322,9 +321,9 @@ def create_pool(batch_service_client, pool_id,
 
 - 풀의 **ID**(*id* - 필수)<p/>배치에서 대부분의 엔터티처럼 새 풀은 배치 계정 내에서 고유 ID를 가지고 있어야 합니다. 코드는 해당 ID를 사용하여 이 풀을 참조하고 이를 통해 Azure [포털][azure_portal]에서 풀을 확인합니다.
 
-- **계산 노드 수**(*target\_dedicated* - 필수)<p/>풀에 배포할 VM 수를 지정합니다. 모든 배치 계정에서 배치 계정에 있는 **코어**(및 계산 노드)의 수를 제한하는 기본 **할당량**이 있어야 합니다. 기본 할당량 및 [할당량을 증가](batch-quota-limit.md#increase-a-quota)하는 방법에 대한 지침(예: 배치 계정의 최대 코어 수)은 [Azure 배치 서비스에 대한 제한 및 할당량](batch-quota-limit.md)에 있습니다. "풀이 X 노드보다 더 멀리 도달할 수 없나요?"하는 질문의 경우 이 코어 할당량이 원인일 수 있습니다.
+- **계산 노드 수**(*target\_dedicated* - 필수)<p/>풀에 배포할 VM 수를 지정합니다. 모든 배치 계정에서 배치 계정에 있는 **코어**(및 계산 노드)의 수를 제한하는 기본 **할당량**이 있어야 합니다. 기본 할당량 및 [할당량을 증가](batch-quota-limit.md#increase-a-quota)하는 방법에 대한 지침(예: 배치 계정의 최대 코어 수)은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)에 있습니다. "풀이 X 노드보다 더 멀리 도달할 수 없나요?"하는 질문의 경우 이 코어 할당량이 원인일 수 있습니다.
 
-- 노드에 대한 **운영 체제**(*virtual\_machine\_configuration* **또는** *cloud\_service\_configuration* - 필수)<p/>*python\_tutorial\_client.py*에서 `get_vm_config_for_distro` 도우미 함수로 얻은 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드의 풀을 만듭니다. 이 도우미 함수는 [list\_node\_agent\_skus][py_list_skus]를 사용하여 호환되는 [Azure 가상 컴퓨터 마켓플레이스][vm_marketplace] 이미지 목록에서 이미지를 가져오고 선택합니다. 대신 [CloudServiceConfiguration][py_cs_config]을 지정하고 클라우드 서비스에서 Windows 노드 풀을 만드는 옵션이 있습니다 두 개의 서로 다른 구성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
+- 노드에 대한 **운영 체제**(*virtual\_machine\_configuration* **또는** *cloud\_service\_configuration* - 필수)<p/>*python\_tutorial\_client.py*에서 `get_vm_config_for_distro` 도우미 함수로 얻은 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드의 풀을 만듭니다. 이 도우미 함수는 [list\_node\_agent\_skus][py_list_skus]를 사용하여 호환되는 [Azure 가상 컴퓨터 마켓플레이스][vm_marketplace] 이미지 목록에서 이미지를 가져오고 선택합니다. 대신 [CloudServiceConfiguration][py_cs_config]을 지정하고 클라우드 서비스에서 Windows 노드 풀을 만드는 옵션이 있습니다. 두 개의 서로 다른 구성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
 - **계산 노드 크기**(*vm\_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]에 Linux 노드를 지정하기 때문에 [Azure의 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
@@ -542,7 +541,7 @@ blob_client.delete_container(output_container_name)
 
 ## 9단계: 작업 및 풀 삭제
 
-마지막 단계로, *python\_tutorial\_client.py* 스크립트에서 만든 작업 및 풀을 삭제하라는 메시지가 표시됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구*됩니다*. 따라서 노드를 필요할 때만 할당하는 것이 좋습니다. 사용하지 않는 풀을 삭제하는 것이 유지 관리 프로세스의 일부가 될 수 있습니다.
+마지막 단계로, *python\_tutorial\_client.py* 스크립트에서 만든 작업 및 풀을 삭제하라는 메시지가 사용자에게 표시됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구*됩니다*. 따라서 노드를 필요할 때만 할당하는 것이 좋습니다. 사용하지 않는 풀을 삭제하는 것이 유지 관리 프로세스의 일부가 될 수 있습니다.
 
 BatchServiceClient의 [JobOperations][py_job] 및 [PoolOperations][py_pool]에는 사용자가 삭제를 확인하는 경우 호출되는 것에 해당하는 삭제 메서드가 있습니다.
 
@@ -559,7 +558,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## 샘플 스크립트 실행
 
-*python\_tutorial\_client.py* 스크립트를 실행하는 경우 콘솔 출력은 다음과 유사해 집니다. 풀의 계산 노드를 만들고 시작하고 풀의 시작 작업에서 명령을 실행하는 동안 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`에서 일시 중지가 발생합니다 [Azure 포털][azure_portal] 또는 [배치 탐색기][github_batchexplorer]를 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure 포털][azure_portal] 또는 [Microsoft Azure 저장소 탐색기][storage_explorer]를 사용하여 응용 프로그램에서 만든 저장소 리소스(컨테이너 및 Blob)를 봅니다.
+*python\_tutorial\_client.py* 스크립트를 실행하는 경우 콘솔 출력은 다음과 유사해 집니다. 풀의 계산 노드를 만들고 시작하고 풀의 시작 작업에서 명령을 실행하는 동안 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`에서 일시 중지가 발생합니다. [Azure 포털][azure_portal] 또는 [배치 탐색기][github_batchexplorer]를 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure 포털][azure_portal] 또는 [Microsoft Azure 저장소 탐색기][storage_explorer]를 사용하여 응용 프로그램에서 만든 저장소 리소스(컨테이너 및 Blob)를 봅니다.
 
 기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 5-7분**입니다.
 
@@ -599,7 +598,7 @@ Press ENTER to exit...
 
 - 이 서비스를 처음 사용하는 경우 [Azure 배치 기능 개요](batch-api-basics.md) 문서를 검토하는 것이 좋습니다.
 - [배치 학습 경로][batch_learning_path]의 **개발 세부 정보** 아래에서 다른 배치 개발 문서를 시작하세요.
-- [TopNWords][github_topnwords] 샘플의 배치를 사용하여 "상위 n개 단어" 워크로드 처리의 다른 구현 확인
+- [TopNWords][github_topnwords] 샘플의 배치를 사용하여 "상위 n개 단어" 워크로드 처리의 다른 구현을 확인하세요.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -665,4 +664,4 @@ Press ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

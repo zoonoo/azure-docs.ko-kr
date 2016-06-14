@@ -1,6 +1,6 @@
 <properties
-	pageTitle="저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리 | Microsoft Azure"
-	description="Microsoft Azure 저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스를 만들고 관리하는 방법을 설명합니다."
+	pageTitle="저장소 탐색기(미리 보기) 시작 | Microsoft Azure"
+	description="저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리"
 	services="visual-studio-online"
 	documentationCenter="na"
 	authors="TomArcher"
@@ -10,176 +10,284 @@
  <tags
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="06/05/2016"
 	ms.author="tarcher" />
 
-# 저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리
+# 저장소 탐색기(미리 보기) 시작
 
-Microsoft Azure 저장소 탐색기(미리 보기)는 Azure 저장소 계정을 손쉽게 관리하도록 도와주는 독립 실행형 도구입니다. Visual Studio에서 앱을 개발하는 경우와 같이, Azure 포털 외부에서 저장소를 신속하게 관리하려는 상황에 유용합니다. 이번 미리 보기 릴리스를 사용하면 Blob 저장소에서 손쉽게 작업할 수 있습니다. 컨테이너를 만들고 삭제하고, Blob을 업로드하고 다운로드하고 삭제하고, 모든 컨테이너와 Blob을 검색할 수 있습니다. 개발자와 ops는 고급 기능을 사용하여 SAS 키 및 정책 작업을 수행할 수 있습니다. Windows 개발자는 Azure 저장소 에뮬레이터를 통해 로컬 개발 저장소 계정을 사용하여 코드를 테스트할 수 있습니다.
+## 개요 
 
-저장소 탐색기에서 저장소 리소스를 보거나 관리하려면 구독 또는 외부 저장소 계정을 통해 Azure 저장소 계정에 액세스할 수 있어야 합니다. 저장소 계정이 없는 경우에는 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+Microsoft Azure 저장소 탐색기 프리뷰는 장소에 상관 없이 Windows, OSX 및 Linux에서 Azure 저장소 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다. 이 문서에서 Azure 저장소 계정에 연결하고 관리하는 다양한 방법을 알아봅니다.
 
-## Azure 계정 및 구독 관리
+## 필수 조건
 
-저장소 탐색기에서 Azure 저장소 리소스를 보려면 하나 이상의 구독이 활성화된 Azure 계정에 로그인해야 합니다. Azure 계정이 둘 이상 있으면 저장소 탐색기에서 추가한 다음 저장소 탐색기 리소스 보기에 포함하려는 구독을 선택합니다. 이전에 Azure를 사용하지 않았거나 Visual Studio에 필요한 계정을 추가하지 않은 경우, Azure 계정에 로그인하라는 메시지가 표시됩니다.
+- [저장소 탐색기(미리 보기) 다운로드 및 설치](http://go.microsoft.com/fwlink/?LinkId=708343)
 
-### 저장소 탐색기에 Azure 계정 추가
+## 저장소 계정 또는 서비스에 연결
 
-1.	저장소 탐색기 도구 모음에서 **설정**(기어) 아이콘을 선택합니다.
-1.	**계정 추가** 링크를 선택합니다. 검색하려는 저장소 리소스의 Azure 계정에 로그인합니다. 방금 추가한 계정을 계정 선택 드롭다운 목록에서 선택해야 합니다. 해당 계정에 대한 모든 구독은 계정 항목 아래에 나타납니다.
+저장소 탐색기(미리 보기)는 저장소 계정에 연결하는 다양한 방법을 제공합니다. Azure 구독에 연결된 저장소 계정에 연결, 다른 Azure 구독에서 공유 되는 저장소 계정 및 서비스에 연결, Azure 저장소 에뮬레이터를 사용하여 로컬 저장소에 연결 및 관리를 포함합니다.
+
+- [Azure 구독에 연결](#connect-to-an-azure-subscription) - Azure 구독에 속한 저장소 리소스를 관리합니다.
+- [로컬 저장소에 연결](#connect-to-local-storage) - Azure 저장소 에뮬레이터를 사용하여 로컬 저장소를 관리합니다. 
+- [외부 저장소에 연결](#attach-or-detach-an-external-storage-account) - 저장소 계정의 계정 이름 및 키를 사용하여 다른 Azure 구독에 속하는 저장소 리소스를 관리합니다.
+- [SAS를 사용하여 계정 연결](#attach-account-using-sas) - SAS를 사용하여 다른 Azure 구독에 속하는 저장소 리소스를 관리합니다.
+- [SAS를 사용하여 서비스 연결](#attach-service-using-sas) - SAS를 사용하여 다른 Azure 구독에 속하는 특정 저장소 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
+
+## Azure 구독에 연결
+
+> [AZURE.NOTE] Azure 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+
+1. 저장소 탐색기(미리 보기)를 시작합니다. 
+
+1. 처음으로 저장소 탐색기(미리 보기)를 실행하거나 이전에 저장소 탐색기(미리 보기)를 실행했지만 Azure 계정에 연결하지 않은 경우 Azure 계정에 연결할 수 있는 정보 표시줄이 표시됩니다.
 
 	![][0]
+	
+1. **Microsoft Azure에 연결**을 선택하고 대화 상자를 따라 하나 이상의 활성 Azure 구독에 연결된 Microsoft 계정으로 로그인합니다.
 
-1.	탐색할 계정 구독에 대한 확인란을 선택한 다음 **적용** 단추를 선택합니다.
+Microsoft 계정으로 성공적으로 로그인하면 저장소 탐색기(미리 보기)의 왼쪽 창에 Microsoft 계정과 연결된 모든 Azure 구독과 연결된 모든 저장소 계정으로 채워집니다.
+
+### Azure 구독 필터링
+
+저장소 탐색기(미리 보기)를 사용하면 왼쪽 창에 나열된 해당 저장소 계정을 갖는 로그인 Microsoft 계정으로 연결된 Azure 구독을 필터링할 수 있습니다.
+
+1. **설정**(기어) 아이콘을 선택합니다.
 
 	![][1]
 
-	선택한 구독에 대한 Azure 저장소 리소스는 저장소 탐색기에 나타납니다.
-
-### 외부 저장소 연결
-
-1. 연결할 저장소 계정에 대한 계정 이름 및 키를 준비합니다.
-	1.	[Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 연결할 저장소 계정을 선택합니다.
-	1.	**설정** 창의 **관리** 섹션에서 **키** 단추를 선택합니다.
-	1.	**저장소 계정 이름** 및 **기본 액세스 키** 값을 복사합니다.
-
-		![][2]
-
-1.	저장소 탐색기에서 **저장소 계정** 노드의 바로 가기 메뉴에서 **외부 저장소 연결** 명령을 선택합니다.
+1. 	왼쪽 창 맨 위에 로그인한 모든 Microsoft 계정을 포함하는 드롭다운 목록이 표시됩니다.
 
 	![][3]
-
-1. **계정 이름** 상자에 저장소 계정 이름을 입력하고 **계정 키** 상자에 기본 액세스 키를 입력합니다. **확인** 단추를 선택하여 계속합니다.
+	 
+1.	드롭다운 목록 옆의 아래쪽 화살표를 선택하여 모든 로그인 Microsoft 계정뿐만 아니라 추가 Microsoft 계정 추가(로그인)를 위한 링크를 표시합니다.
 
 	![][4]
 
-	외부 저장소가 저장소 탐색기에 표시됩니다.
+1.	드롭다운 목록에서 원하는 Microsoft 계정을 선택합니다.
+
+1. 	왼쪽 창은 선택한 Microsoft 계정과 연결된 모든 Azure 구독을 표시합니다. 각 Azure 구독의 왼쪽에 있는 확인란을 사용하면 해당 Azure 구독과 연결된 모든 저장소 계정을 나열하는 저장소 탐색기(미리 보기)를 사용할지 여부를 지정할 수 있습니다. 나열된 Azure 구독을 모두 선택하거나 하나도 선택하지 않는 **모든 구독** 토글을 선택/선택 취소합니다.
+
+	![][2]
+
+1.	관리하려는 Azure 구독 선택을 완료하면 **적용**을 선택합니다. 왼쪽 창은 현재 Microsoft 계정에 대해 선택한 각 Azure 구독에 대한 모든 저장소 계정을 나열하도록 업데이트됩니다.
+
+### 추가 Microsoft 계정 추가
+
+다음 단계는 각 계정의 Azure 구독 및 저장소 계정을 보는 추가 Microsoft 계정에 연결을 안내합니다.
+
+1.	**설정**(기어) 아이콘을 선택합니다.
+
+	![][1]
+
+1. 	왼쪽 창 맨 위에 현재 연결된 모든 Microsoft 계정을 포함하는 드롭다운 목록이 표시됩니다.
+
+	![][3]
+	 
+1.	드롭다운 목록 옆의 아래쪽 화살표를 선택하여 모든 로그인 Microsoft 계정뿐만 아니라 추가 Microsoft 계정 추가(로그인)를 위한 링크를 표시합니다.
+
+	![][4]
+
+1.	**계정 추가**를 선택하고 대화 상자를 따라 하나 이상의 활성 Azure 구독에 연결된 계정에 로그인합니다.
+
+1.	검색하려는 Azure 구독에 대한 확인란을 선택합니다.
+
+	![][2]
+
+1.	**적용**을 선택합니다.
+
+### Microsoft 계정 간 전환
+
+여러 Microsoft 계정에 연결할 수 있지만 왼쪽 창은 단일(현재) Microsoft 계정에 대한 구독과 연결된 저장소 계정만 표시합니다. 여러 Microsoft 계정에 연결하는 경우 다음 단계를 수행하여 계정 간에 전환할 수 있습니다.
+
+1.	**설정**(기어) 아이콘을 선택합니다.
+
+	![][1]
+
+1. 	왼쪽 창 맨 위에 현재 연결된 모든 Microsoft 계정을 포함하는 드롭다운 목록이 표시됩니다.
+
+	![][3]
+	 
+1.	드롭다운 목록 옆의 아래쪽 화살표를 선택하여 모든 로그인 Microsoft 계정뿐만 아니라 추가 Microsoft 계정 추가(로그인)를 위한 링크를 표시합니다.
+
+	![][4]
+
+1.	원하는 Microsoft 계정을 선택합니다.
+
+1.	검색하려는 Azure 구독에 대한 확인란을 선택합니다.
+
+	![][2]
+
+1.	**적용**을 선택합니다.
+  
+## 로컬 저장소에 연결
+
+저장소 탐색기(미리 보기)를 사용하면 Azure 저장소 에뮬레이터를 사용하여 로컬 저장소에서 작동할 수 있습니다. Azure에 배포된 저장소 계정 없이 저장소에 대한 코드를 작성하고 테스트할 수 있습니다(저장소 계정은 Azure 저장소 에뮬레이터에서 에뮬레이트되므로).
+
+>[AZURE.NOTE] Azure 저장소 에뮬레이터는 현재 Windows에 대해서만 지원됩니다.
+
+1. 저장소 탐색기(미리 보기)를 시작합니다. 
+
+1. 왼쪽 창에서 **(개발)** 노드를 확장합니다.
+
+	![][21]
+
+1. Azure 저장소 에뮬레이터를 아직 설치 하지 않은 경우 정보 표시줄을 통해 작업을 수행하라는 메시지가 표시됩니다. 정보 표시줄이 표시되면 **최신 버전 다운로드**를 선택하고 에뮬레이터를 설치합니다.
+
+	![][22]
+
+1. 에뮬레이터가 설치되면 로컬 Blob, 큐 및 테이블을 만들고 사용할 수 있습니다. 각 저장소 계정 유형으로 작업하는 방법을 알아보려면 아래의 해당 링크를 선택합니다.
+
+	- [Azure Blob 저장소 리소스 관리](./vs-azure-tools-storage-explorer-blobs.md)
+	- Azure 큐 저장소 리소스 관리 - *서비스 예정*
+	- Azure 테이블 저장소 리소스 관리 - *서비스 예정*
+
+## 외부 저장소 계정 연결 또는 분리
+
+저장소 탐색기(미리 보기)는 저장소 계정을 쉽게 공유할 수 있도록 외부 저장소 계정에 연결하는 기능을 제공합니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
+
+### 저장소 계정 자격 증명 가져오기
+
+외부 저장소 계정을 공유하기 위해 해당 계정의 소유자는 먼저 계정에 대한 자격 증명(계정 이름 및 키)을 가져온 다음 해당 정보를 해당(외부) 계정에 연결하려는 사용자와 공유해야 합니다. 다음 단계를 수행하여 Azure 포털을 통해 저장소 계정 자격 증명을 가져올 수 있습니다.
+
+1.	[Azure 포털](https://portal.azure.com)에 로그인합니다.
+1.	**찾아보기**를 선택합니다.
+1.	**저장소 계정**을 선택합니다.
+1.	**저장소 계정** 블레이드에서 원하는 저장소 계정을 선택합니다.
+1.	선택한 저장소 계정에 대한 **설정** 블레이드에서 **액세스 키**를 선택합니다.
 
 	![][5]
-
-1. 외부 저장소를 제거하려면 외부 저장소의 바로 가기 메뉴에서 분리 명령을 선택합니다.
+	
+1.	**액세스 키** 블레이드에서 저장소 계정에 연결할 때 사용할 **저장소 계정 이름** 및 **키 1** 값을 복사합니다.
 
 	![][6]
 
-## 저장소 리소스 보기 및 탐색
+### 외부 저장소 계정에 연결
 
-저장소 탐색기에서 Azure 저장소 리소스로 이동하여 정보를 보려면 저장소 유형을 확장한 후 리소스를 선택합니다. 선택한 리소스에 대한 정보가 저장소 탐색기 아래쪽의 **작업** 및 **속성** 탭에 표시됩니다.
+1.	저장소 탐색기(미리 보기)의 상황에 맞는 메뉴에서 **저장소 계정**을 마우스 오른쪽 단추로 클릭하고 **외부 저장소 연결**을 선택합니다.
 
-![][7]
+	![][7]
+	
+1.	*저장소 계정 자격 증명 가져오기* 섹션은 저장소 계정 이름 및 키 1 값을 가져오는 방법을 설명합니다. 해당 값은 이 단계에서 사용됩니다. **외부 저장소 연결** 대화 상자에서 **계정 이름** 상자에 저장소 계정 이름을 **계정 키** 상자에 키 1 값을 입력합니다. 완료되면 **확인**을 선택합니다.
 
--	**작업** 탭은 선택한 저장소 리소스에 대해 저장소 탐색기에서 수행할 수 있는 작업(예: 열기, 복사, 삭제 등)을 표시합니다. 작업은 리소스의 바로 가기 메뉴에도 표시됩니다.
+	![][8]
 
--	**속성** 탭은 저장소 리소스의 속성(예: 유형, 로캘, 연결된 리소스 그룹, URL 등)을 표시합니다.
+	연결되면 외부 저장소 계정이 저장소 계정 이름에 추가된 텍스트 **(외부)**와 함께 표시됩니다.
 
-모든 저장소 계정에는 **포털에서 열기** 작업이 있습니다. 이 작업을 선택하면 저장소 탐색기는 Azure Preview 포털에서 선택한 저장소 계정을 표시합니다.
+	![][9]
 
-추가 작업 및 속성 값은 선택된 리소스에 따라 다르게 나타납니다. 예를 들어, Blob 컨테이너, 큐, 테이블 노드에는 모두 **만들기** 작업이 있습니다. Blob 컨테이너와 같은 개별 항목에는 **열기**, **삭제**, **Get Shared Access Signature**(공유 액세스 서명 가져오기)와 같은 작업이 있습니다. Blob 편집기를 여는 작업은 저장소 계정 Blob을 선택하면 표시됩니다.
+### 외부 저장소 계정에서 분리
 
-## 저장소 계정 및 Blob 컨테이너 검색
-
-Azure 계정 구독에서 특정 이름으로 저장소 계정 및 Blob 컨테이너를 찾으려면 저장소 탐색기의 **검색** 상자에 해당 이름을 입력합니다.
-
-![][8]
-
-**검색** 상자에 문자를 입력하면 리소스 트리에 해당 문자와 이름이 일치하는 저장소 계정 또는 Blob 컨테이너만 표시됩니다. 검색 조건을 지우려면 **검색** 상자의 **x** 단추를 선택합니다.
-
-## 저장소 계정 편집
-
-저장소 계정의 콘텐츠를 추가하거나 변경하려면 해당 저장소 유형의 **Open Editor**(편집기 열기) 명령을 선택합니다. 선택한 항목의 바로 가기 메뉴 또는 저장소 탐색기 아래쪽의 **작업** 탭에서 작업을 선택할 수 있습니다.
-
-![][9]
-
-Blob 컨테이너, 큐 및 테이블을 만들거나 삭제할 수 있습니다. **Open Blob Container Editor**(Blob 컨테이너 편집기 열기) 작업을 선택하여 저장소 탐색기에서 Blob을 편집할 수 있습니다.
-
-### Blob 컨테이너 편집
-
-1.	**Open Blob Container Editor**(Blob 컨테이너 편집기 열기) 작업을 선택합니다. Blob 컨테이너 편집기가 오른쪽 창에 나타납니다.
+1. 	상황에 맞는 메뉴에서 분리하려는 외부 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **분리**를 선택합니다.
 
 	![][10]
 
-1.	**업로드** 단추를 선택한 후에 **파일 업로드** 명령을 선택합니다.
-
-	![][11]
-
-	업로드할 파일이 단일 폴더 내에 있으면 대신 Upload Folder(폴더 업로드) 명령을 선택할 수 있습니다.
-
-1. **파일 업로드** 대화 상자에서 파일 상자 오른쪽의 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다. 그 후 Blob에 대한 업로드 유형(블록, 페이지 또는 추가)을 선택합니다. 원한다면 Blob 컨테이너의 폴더에 파일을 업로드 하도록 선택할 수 있습니다. **Upload to folder (optional)**(업로드할 폴더(선택 사항)) 상자에 폴더의 이름을 입력합니다. 폴더가 없으면 폴더가 만들어집니다.
+1.	확인 메시지 상자가 나타나면 **예**를 선택하여 외부 저장소 계정에서 분리를 확인합니다.
 
 	![][12]
 
-	다음 스크린샷에, 이미지 파일 세 개가 **Images** Blob 컨테이너의 **My New Files**라는 새 폴더에 업로드되었습니다.
+## SAS를 사용하여 계정 연결
+
+SAS(공유 액세스 서명)는 Azure 구독 관리자에게 해당 Azure 구독 자격 증명을 제공할 필요 없이 임시 기반으로 저장소 계정에 대한 액세스를 부여할 수 있도록 합니다.
+
+이를 설명하기 위해 사용자 A가 Azure 구독의 관리자이고 사용자 A가 특정 권한으로 제한된 시간에 저장소 계정에 액세스하도록 사용자 B를 허용하려 한다고 가정해 보겠습니다.
+
+1. 사용자 A는 특정 기간 동안 원하는 사용 권한으로 SAS(저장소 계정에 대한 연결 문자열로 구성)를 생성합니다.
+1. 사용자 A는 저장소 계정에 액세스하려는 사용자(이 예에서 사용자 B)와 SAS를 공유합니다.  
+1. 사용자 B는 저장소 탐색기(미리 보기)를 사용하여 제공된 SAS를 사용하여 사용자 A에 속한 계정에 연결합니다. 
+
+### 공유하려는 계정에 대한 SAS 가져오기
+
+1.	저장소 탐색기(미리 보기)를 엽니다.
+1.	왼쪽 창의 상황에 맞는 메뉴에서 공유하려는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기**를 선택합니다.
 
 	![][13]
 
-	Blob 편집기 도구 모음의 단추를 사용하여 파일에 대해 선택, 다운로드, 열기, 복사, 삭제 등의 작업을 수행할 수 있습니다. 대화 상자 아래쪽의 **활동** 창에 작업이 성공적으로 수행되었는지가 표시되며, 보기에서 성공적인 활동만 제거하거나 전체 창을 지우는 것이 가능합니다. 파일 업로드 옆의 **+** 아이콘을 선택하여 업로드한 파일 목록을 자세히 볼 수 있습니다.
-
-## 공유 액세스 서명(SAS) 만들기
-
-일부 작업의 경우, 저장소 리소스에 액세스하려면 SAS가 필요합니다. 저장소 탐색기를 사용하여 SAS를 만들 수 있습니다.
-
-1.	SAS를 만들 항목을 선택한 후 **작업** 창이나 항목의 바로 가기 메뉴에서 **Get Shared Access Signature**(공유 액세스 서명 가져오기) 명령을 선택합니다.
+1. **공유 액세스 서명** 대화 상자에서 계정에 대해 원하는 시간 프레임 및 권한을 지정하고 **만들기**를 선택합니다.
 
 	![][14]
+ 
+1. 두 번째 **공유 액세스 서명** 대화 상자가 SAS 표시를 나타냅니다. **연결 문자열** 옆의 **복사**를 선택하여 클립보드에 복사합니다. **닫기**를 선택하여 대화 상자를 닫습니다.
 
-1.	**공유 액세스 서명** 대화 상자에서 정책, 시작 및 만료 날짜와 표준 시간대를 선택합니다. 또한 리소스에 적용할 액세스 수준(예: 읽기 전용, 읽기/쓰기 등)에 해당하는 확인란을 선택합니다. 완료되면 **만들기** 단추를 선택하여 SAS를 만듭니다.
+### SAS를 사용하여 공유 계정에 연결
 
-	![][15]
+1.	저장소 탐색기(미리 보기)를 엽니다.
+1.	왼쪽 창의 상황에 맞는 메뉴에서 **저장소 계정**을 마우스 오른쪽 단추로 클릭하고 **SAS를 사용하여 계정 연결**을 선택합니다. ![][15]
 
-1.	**공유 액세스 서명** 대화 상자에는 컨테이너와 함께 저장소 리소스에 액세스하는 데 사용할 수 있는 URL 및 쿼리 문자열이 나열됩니다. **복사** 단추를 클릭하여 문자열을 복사합니다.
+1. **SAS를 사용하여 계정 연결** 대화 상자에서:
 
+	- **계정 이름** - 이 계정과 연결하려는 이름을 입력합니다. **참고:** 계정 이름은 SAS가 생성된 원래 저장소 계정 이름과 일치하지 않아도 됩니다. 
+ 	- **연결 문자열** - 앞에서 복사한 연결 문자열을 붙여 넣습니다.
+ 	- 완료되면 **확인**을 선택합니다.
+	
 	![][16]
 
-## SAS 및 사용 권한 관리
+연결되면 저장소 계정이 제공한 계정 이름에 추가된 텍스트(SAS)와 함께 표시됩니다.
 
-Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control List**(액세스 제어 목록 관리) 및 **Set Public Access Level**(공용 액세스 수준 설정) 명령을 선택합니다.
+![][17]
 
--	Manage Access Control List(액세스 제어 목록 관리)를 사용하면 선택한 Blob 컨테이너에서 액세스 정책(사용자 읽기 쓰기 가능 여부)을 추가, 편집, 제거할 수 있습니다.
--	Set Public Access Level(공용 액세스 수준 설정)을 사용하면 리소스에 대한 공용 사용자의 액세스 수준을 지정할 수 있습니다.  
+## SAS를 사용하여 서비스 연결
 
--
+섹션 [SAS를 사용하여 계정 연결](#attach-account-using-sas)은 Azure 구독 관리자가 저장소 계정에 대한 SAS를 생성(및 공유)하여 저장소 계정에 대한 임시 액세스를 부여할 수 있는 방법을 보여 줍니다. 마찬가지로, SAS는 저장소 계정 내에서 특정 서비스(Blob 컨테이너, 큐 또는 테이블)에 대해 생성될 수 있습니다.
 
-1.	Blob 컨테이너를 선택한 후 바로 가기 메뉴 또는 **작업** 창에서 **Manage Access Control List**(액세스 제어 목록 관리)를 선택합니다.
+### 공유하려는 서비스에 대한 SAS 생성
 
-	![][17]
+이 컨텍스트에서 서비스는 Blob 컨테이너, 큐 또는 테이블일 수 있습니다. 다음 섹션은 나열된 서비스에 대한 SAS를 생성하는 방법을 설명합니다.
 
-1.	**액세스 제어 목록** 대화 상자에서 **추가** 단추를 선택하여 액세스 정책을 추가합니다. 액세스 정책을 선택한 후 그에 대한 사용 권한을 선택합니다. 완료되면 **저장** 단추를 선택합니다.
+- [Blob 컨테이너에 대한 SAS 가져오기](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- 큐에 대한 SAS 가져오기 - *서비스 예정*
+- 테이블에 대한 SAS 가져오기 - *서비스 예정*
 
-	![][18]
+### SAS를 사용하여 공유 계정 서비스에 연결
 
-1.	Blob 컨테이너에 대한 액세스 수준을 설정하려면 저장소 탐색기에서 Blob 컨테이너를 선택한 후 바로 가기 메뉴 또는 **작업** 창에서 **Set Public Access Level**(공용 액세스 수준 설정) 명령을 선택합니다.
+1.	저장소 탐색기(미리 보기)를 엽니다.
+1.	왼쪽 창의 상황에 맞는 메뉴에서 **저장소 계정**을 마우스 오른쪽 단추로 클릭하고 **SAS를 사용하여 서비스 연결**을 선택합니다. ![][18]
+
+1. **SAS를 사용하여 계정 연결** 대화 상자에서 이전에 복사한 SAS URI에 붙여 넣고 **확인**을 선택합니다.
 
 	![][19]
 
-1.	**Set Container Public Access Level**(컨테이너 공용 액세스 수준 설정) 대화 상자에서 공용 사용자에게 부여할 액세스 수준의 옵션 단추를 선택한 후 **적용** 단추를 선택합니다.
+연결되면 새로 연결된 서비스가 **(서비스 SAS)** 노드 아래에 표시됩니다.
 
-	![][20]
+![][20]
+
+## 저장소 계정 검색
+
+저장소 계정 목록이 긴 경우 특정 저장소 계정을 찾는 빠른 방법은 왼쪽 창 맨 위에 있는 검색 상자를 사용하는 것입니다.
+
+검색 상자에 내용을 입력하면 왼쪽 창에 해당 시점에 입력한 검색 값과 일치하는 저장소 계정만 표시됩니다. 다음 스크린샷은 저장소 계정 이름이 "tarcher" 텍스트를 포함하는 모든 저장소 계정에 대해 검색한 위치의 예를 보여 줍니다.
+
+![][11]
+	
+검색을 지우려면 검색 상자의 **x** 단추를 선택합니다.
 
 ## 다음 단계
-[Microsoft Azure 저장소 소개](./storage/storage-introduction.md)의 문서를 참조하여 Azure 저장소 서비스의 기능에 대해 알아봅니다.
+- [저장소 탐색기(미리 보기)를 사용하여 Azure Blob 저장소 리소스 관리](./vs-azure-tools-storage-explorer-blobs.md)
 
-[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External1c.png
-[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External2c.png
-[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External3c.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External4c.png
-[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External5c.png
-[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Navigatec.png
-[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Searchc.png
-[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit1c.png
-[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit2c.png
-[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit3c.png
-[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit4c.png
-[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit5c.png
-[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS1c.png
-[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS2c.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS3c.png
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS1c.png
-[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS2c.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
-[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
+[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure.png
+[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-gear.png
+[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-subscriptions.png
+[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-accounts.png
+[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/accounts-drop-down.png
+[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys.png
+[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys-copy.png
+[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage.png
+[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage-dlg.png
+[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/external-storage-account.png
+[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage.png
+[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-account-search.png
+[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
+[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-context-menu.png
+[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-dlg1.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-context-menu.png
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-dlg.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-finished.png
+[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-context-menu.png
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-dlg.png
+[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
+[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/local-storage-drop-down.png
+[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

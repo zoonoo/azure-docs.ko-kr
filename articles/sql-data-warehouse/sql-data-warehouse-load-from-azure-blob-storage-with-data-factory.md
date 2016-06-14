@@ -225,7 +225,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Azure Data Factory 시작(Data Factory 편집기)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Azure Data Factory 소개]: ../data-factory/data-factory-introduction.md
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [실제 시나리오 자습서]: ../data-factory/data-factory-tutorial.md
@@ -239,4 +239,4 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 [Azure 포털]: https://portal.azure.com
 [샘플 데이터를 다운로드합니다]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

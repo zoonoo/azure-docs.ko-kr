@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # AzCopy 명령줄 유틸리티로 데이터 전송
@@ -374,13 +374,15 @@ Blob 컨테이너에는 Azure 테이블과 해당 매니페스트 파일을 나�
 
 ### 대상에 없는 데이터만 복사
 
-`/XO` 및 `/XN` 매개 변수를 통해 이전 또는 최신 소스 리소스를 각각 복사 작업에서 제외할 수 있습니다. 원본 또는 대상이 테이블인 경우 지원되지 않습니다. 대상에 없는 소스 리소스만 복사하려는 경우 AzCopy 명령에 두 매개 변수를 지정할 수 있습니다.
+`/XO` 및 `/XN` 매개 변수를 통해 이전 또는 최신 소스 리소스를 각각 복사 작업에서 제외할 수 있습니다. 대상에 없는 소스 리소스만 복사하려는 경우 AzCopy 명령에 두 매개 변수를 지정할 수 있습니다.
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+참고: 원본 또는 대상이 테이블인 경우 지원되지 않습니다.
 
 ### 지시 파일을 사용하여 명령줄 매개 변수 지정
 
@@ -521,7 +523,7 @@ AzCopy의 매개 변수는 아래에 설명되어 있습니다. 명령줄에서 
 
 AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 대/소문자를 구분해서 검색하고 다른 모든 경우에서 대/소문자를 구분하지 않습니다.
 
-파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *.* 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
+파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *.*이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
 
 **적용 대상:** Blob, 파일
 
@@ -864,4 +866,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

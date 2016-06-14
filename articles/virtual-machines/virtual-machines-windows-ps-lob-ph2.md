@@ -17,10 +17,7 @@
 	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 워크로드 2단계: 도메인 컨트롤러 구성
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
- 
+# LOB(기간 업무) 응용 프로그램 작업 2단계: 도메인 컨트롤러 구성
 
 Azure 인프라 서비스에서 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 단계에서는 온-프레미스 네트워크 연결을 통해 해당 인증 트래픽을 보내는 대신 Azure 가상 네트워크에서 웹 리소스에 대한 클라이언트 웹 요청을 로컬로 인증할 수 있도록 두 복제본 도메인 컨트롤러를 구성합니다.
 
@@ -197,4 +194,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 - [3단계](virtual-machines-windows-ps-lob-ph3.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

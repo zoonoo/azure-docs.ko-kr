@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #SQL 데이터 웨어하우스와 함께 기타 서비스 활용
@@ -38,6 +38,7 @@ Power BI 통합을 통해 Power BI의 동적 보고 및 시각화와 더불어 S
 Azure 데이터 팩터리는 복잡한 추출-로드 파이프라인을 만들 수 있는 관리되는 플랫폼을 사용자에게 제공합니다. Azure 데이터 팩터리와 SQL 데이터 웨어하우스의 통합에는 다음이 포함됩니다.
 
 + **저장 프로시저**: SQL 데이터 웨어하우스에서 저장 프로시저의 실행을 오케스트레이션합니다.
++ **복사**: ADF를 사용하여 SQL 데이터 웨어하우스로 데이터를 이동합니다. 이 작업에서는 백그라운드에서 ADF의 표준 데이터 이동 메커니즘 또는 PolyBase가 사용될 수 있습니다. 
 
 자세한 내용은 [Azure 데이터 팩터리와 통합](./sql-data-warehouse-integrate-azure-data-factory.md) 또는 [Azure 데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
 
@@ -71,4 +72,4 @@ Azure 스트림 분석은 Azure 이벤트 허브에서 생성된 이벤트 데�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

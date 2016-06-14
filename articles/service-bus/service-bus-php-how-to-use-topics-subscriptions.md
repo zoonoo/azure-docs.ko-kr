@@ -75,7 +75,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 다음 예제에서는 **ServiceBusRestProxy**를 인스턴스화하고 **ServiceBusRestProxy->createTopic**을 호출하여 `MySBNamespace` 네임스페이스 내에 이름이 `mytopic`인 토픽을 만드는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ catch(ServiceException $e){
 **MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'mysubscription'이라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -191,7 +191,7 @@ $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleIn
 서비스 버스 토픽에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusRestProxy->sendTopicMessage** 메서드를 호출합니다. 다음 코드는 위에서 `MySBNamespace` 서비스 네임스페이스 내에서 이전에 만든 `mytopic` 항목에 메시지를 보내는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -247,7 +247,7 @@ for($i = 0; $i < 5; $i++){
 다음 예제에서는 **PeekLock** 모드(기본 모드 아님)를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -300,7 +300,7 @@ catch(ServiceException $e){
 다음 예제에서는 이름이 `mytopic`인 토픽 및 등록된 해당 구독을 삭제하는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +338,4 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 [require-once]: http://php.net/require_once
 [서비스 버스 할당량]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

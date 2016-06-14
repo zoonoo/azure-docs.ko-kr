@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Azure RemoteApp 컬렉션의 개별 사용자에게 응용 프로그램 게시(미리 보기)
@@ -102,4 +102,4 @@ AclLevel 속성은 다음 값을 가질 수 있습니다.
 ## 미리 보기 기능을 시도해 본 적이 있나요?
 미리 보기에 아직 참여하지 않은 경우 이 [설문 조사](http://www.instant.ly/s/AY83p)를 사용하여 액세스를 요청하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

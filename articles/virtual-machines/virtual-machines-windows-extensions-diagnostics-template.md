@@ -19,8 +19,6 @@
 
 # Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](virtual-machines-windows-extensions-authoring-templates.md)을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.
   
 
@@ -168,4 +166,4 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 - [Azure PowerShell](virtual-machines-windows-ps-manage.md) 또는 [Azure 명령줄](virtual-machines-linux-cli-deploy-templates.md)을 사용하여 리소스 관리자 템플릿 배포
 - [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 데이터 마이그레이션
-데이터를 마이그레이션하는 주된 목표는 SQLDW 데이터베이스를 채우는 것입니다. 이 프로세스는 다양한 방법으로 구현할 수 있습니다. ADF Copy, SSIS 및 bcp는 모두 이 목표를 달성하기 위해 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
+다양한 도구를 사용하여 다양한 원본의 데이터를 SQL 데이터 웨어하우스로 이동할 수 있습니다. ADF Copy, SSIS 및 bcp는 모두 이 목표를 달성하기 위해 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
 
 이 문서에서는 먼저 ADF Copy, SSIS 및 bcp의 간단한 마이그레이션 시나리오를 설명합니다. 그런 다음 마이그레이션이 최적화되는 방법을 좀 더 깊게 살펴봅니다.
 
@@ -30,7 +30,7 @@ PolyBase는 또한 데이터를 로드하기 위한 매우 높은 성능 옵션�
 
 > [AZURE.NOTE] PolyBase를 사용하려면 데이터 파일이 UTF-8이어야 합니다. 변경된 것이 아무 것도 없으므로 ADF 복사본의 기본 인코딩입니다. ADF 복사본의 기본 동작을 변경하지 말라고 알리는 것일 뿐입니다.
 
-일부 훌륭한 [ADF 복사 예제]에 대한 다음 문서를 읽어 보세요.
+일부 훌륭한 [ADF 복사 예제][]에 대한 다음 문서를 읽어 보세요.
 
 ## Integration Services ##
 Integration Services(SSIS)는 강력하고 유연한 변환 및 로드(ETL) 도구로, 복잡한 워크플로, 데이터 변환 및 여러 데이터 로드 옵션을 지원합니다. SSIS를 사용하여 광범위한 마이그레이션의 일부로 또는 Azure로 데이터를 전송합니다.
@@ -194,4 +194,4 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [ADO.NET 대상 어댑터]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 설명서]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

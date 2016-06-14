@@ -108,7 +108,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-overview-load.md
-[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
@@ -118,4 +118,4 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [Azure 포털]: https://portal.azure.com/
 [Power BI 웹 사이트]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

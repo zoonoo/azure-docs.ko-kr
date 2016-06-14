@@ -1,4 +1,6 @@
-Resource|Maximum Limit
+리소스|최대 제한
 ---|---
-Maximum number of VMs in a scale set|100
-Maximum number of scale sets in a region|50
+크기 집합에서 최대 VM 수|100
+지역에서 최대 크기 집합 수|50
+
+<!---HONumber=AcomDC_0601_2016-->

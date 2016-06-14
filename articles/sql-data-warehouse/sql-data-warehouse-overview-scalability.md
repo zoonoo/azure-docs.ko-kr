@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 성능 확장성
@@ -56,7 +56,7 @@ DWU 목록을 보려면 [용량 제한][] 문서에서 서비스 수준 목표�
 
 ### 성능을 조정하려면 어떻게 해야 합니까?
 
-계산 성능을 탄력적으로 증가 또는 감소하려면 데이터베이스의 DWU(데이터 웨어하우스 단위)를 변경하기만 하면 됩니다. SQL 데이터 웨어하우스가 SQL 데이터베이스의 빠르고 간단한 배포 역량을 사용하여 CPU와 메모리 할당을 변경합니다.
+계산 성능을 탄력적으로 증가 또는 감소하려면 데이터베이스의 DWU(데이터 웨어하우스 단위)를 변경하기만 하면 됩니다. 백그라운드에서 SQL 데이터 웨어하우스가 해당 인스턴스를 중지하고, CPU 및 메모리 할당을 변경한 후 인스턴스를 다시 시작합니다.
 
 DWU는 100개 단위로 할당되지만 모든 블록을 사용할 수 있는 것은 아닙니다. DWU가 성능을 선형적으로 증가합니다. 높은 DWU 수준에서 성능이 크게 향상되었음을 감지하려면 DWU를 100개 이상 추가해야 합니다. 의미 있는 DWU 증가분을 선택할 때에는 최고의 결과를 제공하는 DWU 수준을 참조할 수 있습니다.
  
@@ -142,13 +142,11 @@ DWU 성능 조정 시기에 대한 권장 사항:
 [PowerShell을 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [REST API를 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[동시성 모델]: sql-data-warehouse-develop-concurrency.md
-[테이블 디자인]: sql-data-warehouse-develop-table-design.md
-[테이블에 대한 해시 배포 키를 선택합니다.]: sql-data-warehouse-develop-hash-distribution-key.md
-[성능 향상을 위해 통계]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[동시성 모델]: ./sql-data-warehouse-develop-concurrency.md
+[테이블 디자인]: ./sql-data-warehouse-develop-table-design.md
+[테이블에 대한 해시 배포 키를 선택합니다.]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[성능 향상을 위해 통계]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
@@ -157,4 +155,4 @@ DWU 성능 조정 시기에 대한 권장 사항:
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -25,11 +25,7 @@
 
 <br>
 
-
 이 문서에서는 Linux VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 
 이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](virtual-machines-windows-extensions-features.md)를 클릭합니다.
 
@@ -220,4 +216,4 @@
 
 [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

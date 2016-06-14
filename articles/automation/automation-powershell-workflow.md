@@ -3,8 +3,8 @@
    description="이 문서는 PowerShell과 PowerShell 워크플로 간의 중대한 차이를 이해하는 PowerShell에 익숙한 작성자의 간단한 설명으로 제공됩니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/26/2016"
    ms.author="bwren" />
 
 # Windows PowerShell 워크플로 학습
@@ -211,7 +211,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 ## 검사점
 
-*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나[일시 중단](suspending-a-workflow)한 다음 실행하면 워크플로 처음부터 시작하는 게 아니라 해당 마지막 검사점에서 시작됩니다. **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로 처음부터 시작하는 게 아니라 해당 마지막 검사점에서 시작됩니다. **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 
@@ -240,13 +240,11 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 	}
 
 
-
 검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](http://technet.microsoft.com/library/jj574114.aspx)를 참조하세요.
 
 
+## 다음 단계
 
-## 관련된 문서
+- PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요. 
 
-- [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx) 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

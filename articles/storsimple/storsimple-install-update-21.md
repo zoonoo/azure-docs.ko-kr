@@ -87,11 +87,11 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 | 3\. | KB3103616 | WMI 패키지 | 일반 | ~ 12분 |
 
 
- &#42; *소프트웨어 업데이트는 두 개의 이진 파일, `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` 및 `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`로 구성되어 있습니다. 장치 소프트웨어 업데이트 `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe`는 Ci 및 Md 에이전트 `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe` 전에 설치해야 합니다.*
+ &#42; *소프트웨어 업데이트는 두 개의 이진 파일, `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` 및 `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`로 구성되어 있습니다. 장치 소프트웨어 업데이트 `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe`는 CI 및 MDS 에이전트 `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe` 전에 설치해야 합니다. 또한 CI 및 MDS 에이전트 업데이트를 적용한 후, 나머지 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.*
 
 #### 업데이트 2 이전 소프트웨어를 실행하는 장치에 대한 업데이트 다운로드
 
-**장치에서 0.2, 0.3, 1.0, 1.1 버전을 실행 중인 경우** LSI 드라이버 및 펌웨어 업데이트를 다운로드하고 설치해야 합니다. 이 업데이트는 업데이트 1.2 또는 2를 실행 중인 경우에는 이미 설치되어 있습니다.
+**장치에서 0.2, 0.3, 1.0, 1.1 버전을 실행 중인 경우** 소프트웨어, iSCSI 및 WMI 업데이트 외에, LSI 드라이버 및 펌웨어 업데이트를 다운로드하고 설치해야 합니다. 이 업데이트는 업데이트 1.2 또는 2를 실행 중인 경우에는 이미 설치되어 있습니다.
  
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -132,4 +132,4 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 [업데이트 2.1 릴리스](storsimple-update21-release-notes.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

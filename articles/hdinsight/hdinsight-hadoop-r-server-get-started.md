@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@ HDInsight용 Premium 계층 제품에는 HDInsight(미리 보기) 클러스터�
 
 SSH를 사용하여 HDInsight 클러스터의 R 서버 가장자리 노드에 연결합니다.
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] 클러스터를 선택한 다음 __모든 설정__, __앱__, __RServer__를 차례로 선택하여 Azure 포털에서 `RServer.CLUSTERNAME.ssh.azurehdinsight.net` 주소를 찾을 수도 있습니다. 그러면 가장자리 노드에 대한 SSH 끝점 정보가 표시됩니다.
+> [AZURE.NOTE] 클러스터를 선택한 다음 __모든 설정__, __앱__, __RServer__를 차례로 선택하여 Azure 포털에서 `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` 주소를 찾을 수도 있습니다. 그러면 가장자리 노드에 대한 SSH 끝점 정보가 표시됩니다.
 >
 > ![가장자리 노드에 대한 SSH 끝점의 이미지](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-SSH 사용자 계정을 보호하도록 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 일치하는 개인 키를 지정합니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`
+SSH 사용자 계정을 보호하도록 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 일치하는 개인 키를 지정합니다. 예: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
     
 Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -353,4 +353,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 ARM 템플릿 사용에 대한 일반적인 내용은 [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

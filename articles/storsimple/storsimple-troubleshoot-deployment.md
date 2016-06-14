@@ -137,7 +137,7 @@ Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하�
 | 5 | 오류 350031: 장치가 이미 등록되었습니다. | | 필요한 작업이 없습니다. |
 | 6 | 오류 350016: 장치 등록에 실패했습니다. | |등록 키가 올바른지 확인하세요. |
 | 7 | Invoke-HcsSetupWizard: 장치를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. (오류 350050) | 장치에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> | [단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
-| 8 | Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 장치의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. | 시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. 이 문제가 지속되면 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. |
+| 8 | Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 장치의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. | 시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. Set-HcsSystem -Timezone 명령을 사용하여 표준 시간대를 조정하는 경우 표준 시간대의 각 단어 첫 글자를 대문자로 표시합니다(예: "Pacific Standard Time"). 이 문제가 지속되면 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. |
 | 9 | 경고: 장치를 활성화할 수 없습니다. 장치 관리자 및 StorSimple 스냅숏 관리자 암호가 변경되지 않습니다. | 등록이 실패하면, 장치 관리자 및 StorSimple 스냅숏 관리자 암호가 변경되지 않습니다. |
 
 ## StorSimple 배포 문제 해결을 위한 팁
@@ -577,4 +577,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

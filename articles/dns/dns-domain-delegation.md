@@ -69,26 +69,50 @@ Azure DNS에서 DNS 영역을 만든 후 부모 영역에서 NS 레코드를 설
 
 예를 들어 'contoso.com' 도메인을 구입하고 Azure DNS에서 이름이 'contoso.com'인 영역을 만든다고 가정합니다. 도메인 소유자로, 등록 기관에서 도메인에 대한 이름 서버 주소(즉, NS 레코드)를 구성하는 옵션을 제공합니다. 등록 기관은 이러한 NS 레코드를 부모 도메인, 이 경우 'com'에 저장합니다. 그러면 전 세계 클라이언트가 'contoso.com'의 DNS 레코드를 확인하려고 할 때 Azure DNS 영역의 도메인으로 보내집니다.
 
-### 위임을 설정하려면
+### 이름 서버 이름 찾기
 
-위임을 설정하려면 영역에 대한 이름 서버 이름을 알고 있어야 합니다. Azure DNS는 영역이 생성될 때마다 풀에서 이름 서버를 할당하고, 영역 내에서 자동으로 생성되는 권한이 있는 NS 레코드에 이러한 이름 서버를 저장합니다. 이름 서버 이름을 확인하려면 이러한 레코드만 검색하면 됩니다.
+DNS 영역을 Azure DNS에 위임하려면 먼저 해당 영역에 대한 이름 서버 이름을 알아야 합니다. Azure DNS는 영역이 만들어질 때마다 풀에서 이름 서버를 할당합니다.
 
-Azure PowerShell을 사용하여 다음과 같이 권한 있는 NS 레코드를 검색할 수 있습니다. 레코드 이름 "@"은 영역 루트에 있는 레코드를 가리키는 데 사용합니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 ‘ns1-04.azure-dns.com’, ‘ns2-04.azure-dns.net’, ‘ns3-04.azure-dns.org’ 및 ‘ns4-04.azure-dns.info’가 할당되었습니다.
+영역에 할당된 이름 서버를 확인하는 가장 쉬운 방법은 Azure 포털을 통해서 확인하는 것입니다. 이 예제에서는 'contoso.com' 영역에 이름 서버 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', 'ns4-01.azure-dns.info'가 할당되었습니다.
 
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-	$zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+Azure DNS는 할당된 이름 서버를 포함하는 영역에 권한이 있는 NS 레코드를 자동으로 만듭니다. Azure PowerShell 또는 Azure CLI를 통해 이름 서버 이름을 확인하려면 이러한 레코드만 검색하면 됩니다.
+
+Azure PowerShell을 사용하여 다음과 같이 권한 있는 NS 레코드를 검색할 수 있습니다. 레코드 이름 "@"은 영역 루트에 있는 레코드를 가리키는 데 사용합니다.
+
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
-	ZoneName          : contoso.com
+	ZoneName          : contoso.net
 	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
-                     ns4-04.azure-dns.info}
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                        ns4-01.azure-dns.info}
 	Tags              : {}
 
+또한 권한이 있는 NS 레코드를 검색하는 데 크로스 플랫폼 Azure CLI를 사용할 수 있으므로 영역에 할당된 이름 서버를 검색할 수 있습니다.
+
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
+
+### 위임을 설정하려면
 
 각 등록 기관에는 도메인에 대한 이름 서버 레코드를 변경하는 자체 DNS 관리 도구가 있습니다. 등록 기관의 DNS 관리 페이지에서 NS 레코드를 편집하고 NS 레코드를 Azure DNS에서 만든 레코드로 바꿉니다.
 
@@ -126,10 +150,9 @@ Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이�
 3. 자식 영역을 가리키는 부모 영역에 NS 레코드를 구성하여 자식 영역을 위임합니다.
 
 
-
 ### 하위 도메인을 위임하려면
 
-다음 PowerShell 예는 작동 방식을 보여줍니다.
+다음 PowerShell 예는 작동 방식을 보여줍니다. Azure 포털 또는 크로스 플랫폼 Azure CLI를 통해 동일한 단계를 실행할 수 있습니다.
 
 #### 1단계. 부모 및 하위 영역 만들기
 
@@ -140,7 +163,7 @@ Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이�
 
 #### 2단계. NS 레코드 검색
 
-다음으로 아래 예제와 같이 자식 영역에서 신뢰할 수 있는 NS 레코드 검색합니다.
+다음으로 아래 예제와 같이 자식 영역에서 신뢰할 수 있는 NS 레코드 검색합니다. 여기에는 자식 영역에 할당된 이름 서버가 포함됩니다.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -176,4 +199,4 @@ Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이�
 
 [DNS 레코드 관리](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

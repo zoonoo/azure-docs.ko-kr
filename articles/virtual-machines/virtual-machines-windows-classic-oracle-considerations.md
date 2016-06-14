@@ -3,8 +3,8 @@ pageTitle="Oracle VM 이미지를 사용하기 위한 고려 사항 | Microsoft 
 description="배포하기 전에 Azure Windows Server에서 Oracle VM에 대해 지원되는 구성 및 제한 사항에 대해 알아봅니다."
 services="virtual-machines-windows"
 documentationCenter=""
-manager=""
-authors="bbenz"
+manager="timlt"
+authors="rickstercdn"
 tags="azure-service-management"/>
 
 <tags
@@ -13,16 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+ms.date="05/17/2016"
+ms.author="rclaus" />
 
 #Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
-
-이 문서는 운영 체제로 Windows Server와 함께 Microsoft에 의해 제공되는 Azure에서의 Oracle 가상 컴퓨터에 대한 고려 상황을 다룹니다.
+이 문서에서는 Oracle에서 제공하는 Oracle 소프트웨어 이미지를 기반으로 하는 Azure의 Oracle 가상 컴퓨터에 대한 고려 사항을 설명합니다.
 
 -  Oracle Database 가상 컴퓨터 이미지
 -  Oracle WebLogic Server 가상 컴퓨터 이미지
@@ -47,13 +45,9 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
 
 읽기 작업의 성능 또는 데이터베이스에 대한 쓰기 작업에 우선 순위를 지정하려는 여부에 따라 여러 디스크를 연결하기 위한 두 가지 방법을 고려해야 합니다.
 
-- **자체적인 Oracle ASM**을 사용하면 Windows Server 2012 저장소 풀을 사용하는 방법과 비교하여 쓰기 작업 성능은 향상되지만 읽기 작업에 대한 IOPS는 더 낮을 가능성이 큽니다. 다음 그림은 이 정렬을 논리적으로 보여 줍니다. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
+- **자체적인 Oracle ASM**을 사용하면 디스크 배열을 사용하는 방법과 비교하여 쓰기 작업 성능은 향상되지만 읽기 작업에 대한 IOPS는 더 낮을 가능성이 큽니다. 다음 그림은 이 정렬을 논리적으로 보여 줍니다. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
 
-- 데이터베이스가 주로 읽기 작업을 수행하거나 사용자가 쓰기 작업에 비해 읽기 작업의 성능을 중시할 경우 **Windows Server 2012 저장소 풀을 포함하는 Oracle ASM**을 사용하면 읽기 작업 IOPS 성능이 향상될 가능성이 큽니다. Windows Server 2012 운영 체제에 기초한 이미지가 요구됩니다. 저장소 풀에 대한 자세한 내용은 [독립 실행형 서버에 저장소 공간 배포](http://technet.microsoft.com/library/jj822938.aspx)를 참조하세요. 이 정렬에서, 연결된 디스크의 두개의 하위 집합 중 처음 것은, 두 개의 저장소 풀 볼륨에 물리적 디스크로 “스트라이프" 처리된 것이며, 두 번째 것은 ASM 디스크 그룹에 추가된 볼륨입니다. 다음 그림은 이 정렬을 논리적으로 보여줍니다.
-
-	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)
-
->[AZURE.IMPORTANT] 상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 이러한 접근 방식을 사용하는 경우 실제 결과가 달라질 수 있습니다.
+>[AZURE.IMPORTANT] 상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 이러한 방식을 사용하는 경우 실제 결과가 달라질 수 있습니다.
 
 ### 높은 가용성 및 재해 복구 고려 사항
 
@@ -65,7 +59,7 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 
 ##Oracle WebLogic Server 가상 컴퓨터 이미지
 
--  **클러스터링은 Enterprise Edition에서만 지원됩니다.** WeblLogic 서버(특별히, 운영 체제로 Windows Server를 사용하는)의 Microsoft 라이선스 이미지를 사용하는 경우, WebLogic Server의 Enterprise Edition을 사용할 때만 WebLogic 클러스터링을 사용할 수 잇는 라이선스가 부여됩니다. WebLogic Server Standard Edition으로 클러스터링을 사용하지 마십시오.
+-  **클러스터링은 Enterprise Edition에서만 지원됩니다.** WebLogic Server Enterprise Edition을 사용할 때만 WebLogic 클러스터링을 사용하도록 허가됩니다. WebLogic Server Standard Edition으로 클러스터링을 사용하지 마십시오.
 
 -  **연결 시간 제한:** 응용 프로그램이 다른 Azure 클라우드 서비스(예: 데이터베이스 계층 서비스)의 공용 끝점에 대한 연결을 사용하는 경우 4분간 활동이 없을 경우 Azure에서 열려 있는 연결을 닫을 수 있습니다. 이는 연결이 제한 이상으로 비활성되어 더이상 유효하지 않을 수 있기 때문에 연결 풀에 의존하는 기능 및 응용 프로그램에 영향을 줄 수 있습니다. 사용자의 응용 프로그램에 영향을 미치는 경우 연결 풀에 대한 “유지" 로직을 사용하도록 설정하는 것이 좋습니다.
 
@@ -108,4 +102,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/27/2016"
 	ms.author="roalexan" />
 
 
@@ -72,7 +72,7 @@ API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **웹 서비스 URL**로 ****https://ussouthcentral.services.azureml.net**을 입력합니다. **Web API URL 접미사**로 **azureml-demo**를 입력합니다. **Web API URL** 체계로 **HTTPS**를 확인합니다. **제품**으로 **시작**을 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
+**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **웹 서비스 URL**로 **https://ussouthcentral.services.azureml.net**을 입력합니다. **Web API URL 접미사**로 **azureml-demo**를 입력합니다. **Web API URL** 체계로 **HTTPS**를 확인합니다. **제품**으로 **시작**을 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

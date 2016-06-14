@@ -8,7 +8,6 @@
 구독당 SQL 데이터베이스 서버|6|150
 구독당 DNS 서버|9|100
 구독당 예약된 IP|20|100
-구독당 Express 경로 전용 회로|10|25
 구독당 호스티드 서비스 인증서|400|400
 구독당 [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)|256|256
 구독당 지역별 [배치](https://azure.microsoft.com/services/batch/) 계정|1|50
@@ -18,4 +17,4 @@
 
 <sup>2</sup>표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 100개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀이 비즈니스 사례를 검토하고 저장소 계정을 250개까지 승인할 수 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

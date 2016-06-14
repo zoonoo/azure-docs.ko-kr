@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
+
+
+> [AZURE.SELECTOR]
+- [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [트랜잭션 복제자](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사는 [호환되는 SQL Server 데이터베이스](sql-database-cloud-migrate.md)를 Azure SQL 데이터베이스 서버로 마이그레이션합니다.
 
@@ -50,8 +57,15 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터�
 7.	개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
 8.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
-## 다음 단계: 호환성 문제가 있는 경우 해결
+## 다음 단계
 
-[데이터베이스 호환성 문제가 있는 경우 해결합니다](sql-database-cloud-migrate-fix-compatibility-issues.md).
+- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+## 자세한 정보
+
+- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
+- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

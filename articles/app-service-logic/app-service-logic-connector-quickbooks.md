@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
@@ -73,7 +73,7 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 4.	'이 논리를 수동으로 실행'을 선택합니다. 이렇게 하면 이 논리 앱을 수동으로만 호출할 수 있습니다.
 
 
-5.	갤러리에서 ‘이 리소스 그룹의 API 앱’을 확장하여 사용할 수 있는 모든 API 앱을 확인합니다. 갤러리에서 ‘QuickBooks 커넥터’를 선택하면 ‘QuickBooks 커넥터’가 흐름에 추가됩니다.
+5.	갤러리에서 '이 리소스 그룹의 API 앱'을 확장하여 사용할 수 있는 모든 API 앱을 확인합니다. 갤러리에서 'QuickBooks 커넥터'를 선택하면 'QuickBooks 커넥터'가 흐름에 추가됩니다.
 
 
 6.	논리 앱을 인증하고 권한을 부여하여 QuickBooks가 온라인인 경우 사용자를 대신하여 작업을 수행하도록 해야 합니다. 권한 부여를 시작하려면 QuickBooks 커넥터에서 권한 부여를 클릭합니다.
@@ -100,7 +100,7 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 
 	![][9]
 
-12.	갤러리의 ‘최근에 사용한 항목’ 섹션에서 ‘QuickBooks 커넥터’를 선택하면 새 QuickBooks 작업이 추가됩니다.
+12.	갤러리의 '최근에 사용한 항목' 섹션에서 'QuickBooks 커넥터'를 선택하면 새 QuickBooks 작업이 추가됩니다.
 
 13.	작업 목록에서 ‘계정 만들기 또는 업데이트’를 선택하면 작업의 입력 매개 변수가 표시됩니다.
 
@@ -116,14 +116,14 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 
 16. 논리 앱 편집기 화면에서 확인을 클릭한 다음 '만들기'를 클릭합니다. 만들기를 완료하는 데 30초 정도 걸립니다.
 
-17. 새로 만든 논리 앱을 찾아 ‘Run’을 클릭하여 실행을 시작합니다.
+17. 새로 만든 논리 앱을 찾아 'Run'을 클릭하여 실행을 시작합니다.
 
 18. QuickBooks 계정에서 ‘Contoso’ 이름 옆에 새 계정이 만들어진 것을 확인할 수 있습니다.
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -144,4 +144,4 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

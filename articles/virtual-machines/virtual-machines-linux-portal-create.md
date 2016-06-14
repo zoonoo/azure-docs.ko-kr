@@ -19,9 +19,6 @@
 
 # Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 자습서에서는 Azure 포털을 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 빨리 만드는 방법과 `~/.ssh/id_rsa.pub` 공개 키 파일을 사용하여 VM에 연결된 **SSH** 연결 보안을 설정하는 방법을 보여줍니다. [사용자 고유의 이미지를 템플릿](virtual-machines-linux-classic-create-upload-vhd.md)으로 사용하여 Linux VM을 만들 수도 있습니다.
 
 
@@ -126,4 +123,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

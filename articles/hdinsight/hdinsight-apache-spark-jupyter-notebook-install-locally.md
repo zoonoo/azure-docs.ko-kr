@@ -14,16 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="05/27/2016" 
 	ms.author="nitinme"/>
 
 
 # 컴퓨터에 Jupyter 노트북을 설치하고 Azure HDInsight(미리 보기)에서 Apache Spark 클러스터에 연결
 
-이 문서에서는 Spark Magic이 있는 사용자 지정 PySpark(Python용) 및 Spark(Scala용) 커널을 사용하여 Jupyter 노트북을 설치한 후 해당 노트북을 HDInsight 클러스터에 연결하는 방법을 알아봅니다.
-
-Jupyter 노트북을 Azure HDInsight의 Spark 클러스터에 이미 사용할 수 있더라도 컴퓨터에 Jupyter를 설치하면 로컬에서 노트북을 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트한 다음 클러스터에 노트북을 업로드하는 옵션이 제공됩니다. 노트북에 클러스터를 업로드하려면 클러스터에서 실행되는 Jupyter 노트북을 사용하여 업로드하거나 클러스터와 연결된 저장소 계정의 /HdiNotebooks 폴더에 저장할 수 있습니다. 클러스터에 노트북을 저장하는 방법에 대한 자세한 내용은 [Jupyter 노트북이 저장되는 위치](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
-
+이 문서에서는 Spark Magic이 있는 사용자 지정 PySpark(Python용) 및 Spark(Scala용) 커널을 사용하여 Jupyter 노트북을 설치한 후 해당 노트북을 HDInsight 클러스터에 연결하는 방법을 알아봅니다. 로컬 컴퓨터에 Jupyter를 설치하는 여러 가지 이유와 몇 가지 어려운 문제가 있을 수 있습니다. 원인 및 문제의 목록은 이 문서의 끝에 있는 [내 컴퓨터에 Jupyter를 설치해야 하는 이유](#why-should-i-install-jupyter-on-my-computer) 섹션을 참조하세요.
 
 Jupyter 및 Spark Magic을 컴퓨터에 설치하는 것과 관련된 세 가지 주요 단계가 있습니다.
 
@@ -31,9 +28,9 @@ Jupyter 및 Spark Magic을 컴퓨터에 설치하는 것과 관련된 세 가지
 * Spark Magic과 함께 PySpark 및 Spark 커널 설치
 * HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic 구성
 
-HDInsight 클러스터의 Jupyter 노트북에 사용할 수 있는 사용자 지정 커널 및 Spark Magic에 대한 자세한 내용은 [HDInsight의 Apache Spark Linux 클러스터에서 Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지정 커널 및 Spark Magic에 대한 자세한 내용은 [HDInsight의 Apache Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-**필수 조건:**
+##필수 조건
 
 여기에 나열된 필수 구성 요소는 Jupyter를 설치하기 위한 것이 아니며 Jupyter 노트북이 설치되면 HDInsight 클러스터를 노트북을 연결하기 위한 것입니다.
 
@@ -132,6 +129,18 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Py
 
 	>[AZURE.TIP] 다른 클러스터에 연결하도록 노트북 구성을 업데이트하려는 경우 위의 3단계와 같이 새 값 집합으로 config.json을 업데이트합니다.
 
+## 내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
+
+컴퓨터에 Jupyter를 설치한 다음 HDInsight의 Spark 클러스터에 연결하는 데는 여러 가지 이유가 있을 수 있습니다.
+
+* Jupyter 노트북을 Azure HDInsight의 Spark 클러스터에 이미 사용할 수 있더라도 컴퓨터에 Jupyter를 설치하면 로컬에서 노트북을 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트한 다음 클러스터에 노트북을 업로드하는 옵션이 제공됩니다. 노트북에 클러스터를 업로드하려면 클러스터에서 실행되는 Jupyter 노트북을 사용하여 업로드하거나 클러스터와 연결된 저장소 계정의 /HdiNotebooks 폴더에 저장할 수 있습니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
+* 로컬에서 사용할 수 있는 Notebook을 사용하여 응용 프로그램 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
+* GitHub를 사용하여 원본 제어 시스템을 구현하고 Notebook에 대한 버전을 제어할 수 있습니다. 여러 사용자가 동일한 Notebook으로 작업할 수 있는 공동 작업 환경이 있을 수도 있습니다.
+* 클러스터 없이 로컬로 Notebook을 사용할 수 있습니다. Notebook 또는 개발 환경을 수동으로 관리하기 위해서가 아니라 Notebook을 테스트하기 위해 클러스터가 필요합니다.
+* 클러스터에서 Jupyter 설치를 구성하는 것보다 자체 로컬 개발 환경을 구성하는 것이 더 쉬울 수 있습니다. 하나 이상의 원격 클러스터를 구성하지 않고 로컬로 설치한 모든 소프트웨어를 모두 활용할 수 있습니다.
+
+>[AZURE.WARNING] 로컬 컴퓨터에 설치된 Jupyter를 사용하면 여러 사용자가 동일한 Spark 클러스터에서 동시에 동일한 Notebook을 실행할 수 있습니다. 이러한 상황에서 여러 Livy 세션이 생성됩니다. 문제가 발생하여 디버깅하려는 경우 어떤 사용자에게 어떤 Livy 세션이 속하는지를 추적하는 복잡한 작업이 됩니다.
+
 
 
 
@@ -168,4 +177,4 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Py
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

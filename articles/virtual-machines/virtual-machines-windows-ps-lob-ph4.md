@@ -17,9 +17,7 @@
 	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 워크로드 4단계: 웹 서버 구성
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+# LOB(기간 업무) 응용 프로그램 작업 4단계: 웹 서버 구성
 
 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 단계에서는 웹 서버를 구축하여 LOB 응용 프로그램을 로드합니다.
 
@@ -151,4 +149,4 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 - [5단계](virtual-machines-windows-ps-lob-ph5.md)를 사용하여 이 워크로드의 구성을 완료합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

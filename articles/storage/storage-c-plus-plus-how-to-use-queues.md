@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="05/27/2016"
     ms.author="dineshm"/>
 
 # C++에서 큐 저장소를 사용하는 방법  
@@ -236,4 +236,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

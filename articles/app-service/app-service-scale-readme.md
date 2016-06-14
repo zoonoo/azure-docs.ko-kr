@@ -38,4 +38,4 @@ Azure 앱 서비스에서 호스팅되는 응용 프로그램은 [대규모로 �
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

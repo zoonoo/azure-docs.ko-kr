@@ -56,6 +56,6 @@
 - [Azure 서비스 버스 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
-- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

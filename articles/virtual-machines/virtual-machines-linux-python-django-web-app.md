@@ -25,9 +25,6 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]리소스 관리자 모델.
-
-
 이 자습서에서는 Microsoft Azure에서 Linux 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 가이드를 완료하면 클라우드에서 Django 기반 응용 프로그램을 실행할 수 있게 됩니다.
 
 다음 방법에 대해 알아봅니다.
@@ -129,4 +126,4 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
  
 이 항목에서는 Microsoft Azure에서 호스트되는 암호 동기화 사용 Office 365 디렉터리 동기화(DirSync)를 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -181,4 +179,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
 - 이 워크로드를 [프로덕션에서](http://technet.microsoft.com/library/dn635310.aspx) 배포합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

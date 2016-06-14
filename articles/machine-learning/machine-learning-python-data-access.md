@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -108,7 +108,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 	![노트북][ipython-dataset]
 
-### <a name="accessingIntermediateDatasets"></a>기계 학습 실험에서 중간 데이터 집합에 액세스
+## <a name="accessingIntermediateDatasets"></a>기계 학습 실험에서 중간 데이터 집합에 액세스
 
 기계 학습 스튜디오에서 실험을 실행하고 나면 모듈의 출력 노드에서 중간 데이터 집합에 액세스할 수 있습니다. 중간 데이터 집합은 모델 도구가 실행될 때 중간 단계를 위해 생성되고 사용된 데이터입니다.
 
@@ -367,4 +367,4 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다은 형식�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

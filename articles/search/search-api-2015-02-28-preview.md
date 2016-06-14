@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/18/2016"
+   ms.date="05/27/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
@@ -1442,7 +1442,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2) 패싯 검색에서 인덱스를 검색하고 범주, 등급, 태그 및 특정 범위의 baseRate이 있는 항목에 대한 패싯을 검색합니다.
@@ -1487,7 +1487,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) 여러 필드에서 인덱스를 검색합니다. 예를 들어 모두 동일한 인덱스 내에서 여러 언어로 된 검색 가능 필드를 저장하고 쿼리할 수 있습니다. 같은 문서에 영어 설명과 프랑스어 설명이 둘 다 있는 경우 쿼리 결과에서 둘 중 하나 또는 둘 다를 반환할 수 있습니다.
@@ -1498,7 +1498,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 한 번에 하나의 인덱스만 쿼리할 수 있습니다. 한번에 하나씩 쿼리하려는 경우가 아니면 각 언어에 대한 여러 인덱스를 만들지 마세요.
@@ -1535,7 +1535,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10) 특정 필터 식과 일치하는 문서를 검색합니다.
@@ -1567,7 +1567,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) 두 개의 거리 점수 매기기 함수를 사용하는 "geo"라는 점수 매기기 프로필이 있는 것으로 가정하여 인덱스를 검색합니다. 두 함수는 각각 "currentLocation"이라는 매개 변수와 "lastLocation"이라는 매개 변수를 정의합니다.
@@ -1853,4 +1853,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

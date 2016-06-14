@@ -139,4 +139,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

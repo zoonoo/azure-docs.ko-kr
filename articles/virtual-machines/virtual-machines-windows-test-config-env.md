@@ -19,8 +19,6 @@
 
 # 기본 구성 테스트 환경
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 이 문서는 리소스 관리자에서 만든 가상 컴퓨터를 사용하는 Microsoft Azure 가상 네트워크에서 기본 구성 테스트 환경을 만드는 방법에 관한 단계별 지침을 제공합니다.
 
 결과 테스트 환경을 다음에 사용할 수 있습니다.
@@ -335,4 +333,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -52,7 +52,7 @@
 ## 제품군 4 릴리스
 **Windows Server 2012 R2**
 
-.NET 4.0, 4.5, 4.5.1 4.5.2 지원(참고 2)
+.NET 4.0, 4.5, 4.5.1, 4.5.2 지원
 
 >[AZURE.NOTE] *가 표시된 날짜는 변경될 수 있음
 
@@ -203,4 +203,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

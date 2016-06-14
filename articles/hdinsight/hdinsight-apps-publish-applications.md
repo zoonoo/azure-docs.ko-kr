@@ -70,11 +70,11 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 		
 	>스크립트 이름은 세 부분으로 구성됩니다.
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. 응용 프로그램 이름 또는 응용 프로그램에 관련된 이름을 포함하는 스크립트 이름 접두사.
+	>	2. 가독성을 위한 "-".
+	>	3. 매개 변수로 응용 프로그램 이름이 사용된 고유 문자열 함수.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	한 가지 예로서, 위 스크립트는 지속형 스크립트 작업 목록의 hue-install-v0-4wkahss55hlas가 됩니다. 샘플 JSON 페이로드는 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)를 참조하십시오.
 
 - 모든 필수 스크립트입니다.
 

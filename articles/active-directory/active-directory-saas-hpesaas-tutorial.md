@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -76,12 +76,12 @@ HPE SaaS의 Azure AD 통합을 구성하려면 갤러리의 HPE SaaS를 관리�
 	![응용 프로그램][4]
 
 6. 검색 상자에 **HPE SaaS**를 입력합니다.
-	
+
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_01.png)
 
 7. 결과 창에서 **HPE SaaS**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
-![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -117,11 +117,9 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 	![Single Sign-On 구성](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png)
 
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 사용자가 HPE SaaS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. `https://<tenant name>.saas.hpe.com`
+    a. **로그온 URL** 텍스트 상자에 사용자가 HPE SaaS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. **"https://login.saas.hpe.com/msg"** 고객은 응용 프로그램 특정 URL로 이를 변경할 수도 있습니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`
-
-    c. **다음**을 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 
 4. **HPE SaaS의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -147,8 +145,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-
-이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다. 사용자 목록에서 **Britta Simon**을 선택합니다.
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][20]
 
@@ -156,7 +153,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
+![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -164,7 +161,9 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_03.png)
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
+
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -270,4 +269,4 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

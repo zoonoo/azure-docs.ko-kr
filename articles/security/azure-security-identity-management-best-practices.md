@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="yurid"/>
 
 # Azure Identity Management 및 액세스 제어 보안 모범 사례
@@ -38,7 +38,7 @@
 - SSO(Single Sign-On) 사용
 - 암호 관리 배포
 - 사용자에 대한 MFA(Multi-Factor Authentication) 적용
-- RBAC(역할 기반 액세스 제어) 사용 
+- RBAC(역할 기반 액세스 제어) 사용
 - 리소스 관리자를 사용하여 리소스를 만드는 위치 제어
 - SaaS 앱에 ID 기능을 활용하도록 개발자 안내
 - 의심스러운 활동을 적극적으로 모니터링
@@ -91,26 +91,26 @@ Azure AD SSO에 대한 자세한 내용은 [Azure AD Connect를 통한 AD FS 관
 Azure MFA에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요.
 
 ## RBAC(역할 기반 액세스 제어) 사용
- 
+
 [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 특정 범위에서 사용자, 그룹 및 응용 프로그램에 권한을 할당할 수 있습니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
- 
+
 Azure의 [기본 제공 RBAC 역할](../active-directory/role-based-access-built-in-roles.md)을 활용하여 사용자에게 권한을 할당할 수 있습니다. 저장소 계정을 관리해야 하는 클라우드 운영자를 위한 *저장소 계정 참여자* 및 *클래식 저장소 계정 참여자* 역할을 사용하여 클래식 저장소 계정을 관리하는 방법을 고려해 볼 수 있습니다. VM 및 저장소 계정을 관리해야 하는 클라우드 운영자의 경우 *가상 컴퓨터 참여자* 역할에 계정을 추가하는 방법을 고려해 보세요.
 
 RBAC와 같은 기능을 활용하여 데이터 액세스 제어를 적용하지 않는 조직은 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 이로 인해 사용자가 처음에는 없어야 했던 특정 유형(예: 높은 비즈니스 영향)의 데이터에 액세스할 수 있도록 함으로써 데이터 손상을 초래할 수 있습니다.
- 
+
 Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서를 참조하세요.
 
 ## 리소스 관리자를 사용하여 리소스를 만드는 위치 제어
 
 클라우드 운영자가 조직의 리소스를 관리하는 데 필요한 규칙을 위반하지 않으면서도 작업을 수행할 수 있도록 하는 것이 아주 중요합니다.  
 리소스가 만들어지는 위치를 제어하고자 하는 조직은 이러한 위치를 하드 코딩해야 합니다.
- 
+
 이 목적을 달성하기 위해 조직이 작업을 설명하는 정의 또는 명시적으로 거부된 리소스가 포함된 보안 정책을 만들 수 있습니다. 구독, 리소스 그룹 또는 개별 리소스와 같이 원하는 범위에서 해당 정책 정의를 할당합니다.
 
 > [AZURE.NOTE] 이는 RBAC와 다르며 실제로 RBAC를 활용하여 해당 리소스를 만들 권한을 가지고 있는 사용자를 인증합니다.
 
 [Azure Resource Manager](../resource-group-overview.md)를 활용하여 조직이 해당 비용 센터가 연결될 때에만 작업을 허용하고 그렇지 않으면 요청을 거부하도록 할 시나리오에 대한 사용자 지정 정책을 만들 수도 있습니다.
- 
+
 리소스를 만드는 방법을제어하지 않는 조직은 사용자가 필요 이상으로 많은 리소스를 만들어 서비스를 남용할 수 있는 상황에 직면할 가능성이 더 높습니다. 리소스 만들기 프로세스의 강화는 멀티 테넌트 시나리오를 보호하기 위한 중요한 단계입니다.
 
 Azure Resource Manager를 사용하여 정책 만들기에 대한 자세한 내용은 [정책을 사용하여 리소스 관리 및 액세스 제어](../resource-manager-policy.md) 문서를 참조하세요.
@@ -135,4 +135,4 @@ SaaS 앱의 인증 시나리오에 대한 자세한 내용은 [Azure AD에 대�
 
 자신의 ID 시스템을 적극적으로 모니터링하지 않는 조직은 사용자 자격 증명이 손상될 위험에 직면합니다. 이러한 자격 증명을 사용하여 의심스러운 활동이 일어나고 있다는 것을 알아야 이 유형의 위협을 완화시킬 수 있습니다. Azure ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

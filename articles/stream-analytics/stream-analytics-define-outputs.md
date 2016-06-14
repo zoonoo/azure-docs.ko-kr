@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/23/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 데이터 변환 출력을 분석 도구 및 데이터 저장소 옵션에 연결
@@ -86,6 +86,8 @@
 | 사용자 이름 | 데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름 |
 | 암호 | 데이터베이스에 연결하는 암호 |
 | 테이블 | 출력을 쓸 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드 및 형식의 수와 정확하게 일치해야 합니다. |
+
+> [AZURE.NOTE] 현재, 스트림 분석의 작업 출력에 대해 Azure SQL 데이터베이스 제품을 사용할 수 있습니다. 그러나 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 컴퓨터는 지원되지 않습니다. 후속 릴리스에서는 변경될 수 있습니다.
 
 ## Blob 저장소
 
@@ -316,4 +318,4 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

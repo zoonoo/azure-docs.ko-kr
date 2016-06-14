@@ -407,4 +407,4 @@ Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

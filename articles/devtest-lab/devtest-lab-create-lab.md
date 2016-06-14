@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Labs에서 랩 만들기
@@ -29,11 +29,11 @@
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭합니다.
+1. **찾아보기**를 선택합니다.
 
-1. 목록에서 **DevTest Lab**을 탭합니다.
+1. 목록에서 **DevTest Labs**를 선택합니다.
 
-1. **DevTest Lab** 블레이드에서 **추가**를 탭합니다.
+1. **DevTest Labs** 블레이드에서 **추가**를 선택합니다.
 
     ![랩 추가](./media/devtest-lab-create-lab/add-lab-button.png)
 
@@ -42,7 +42,7 @@
     1. 새 랩에 대한 **랩 이름**을 입력합니다.
     1. **구독**을 선택하여 랩과 연결합니다.
     1. 랩을 저장할 **위치**를 선택합니다.
-    1. **만들기**를 탭합니다.
+    1. **만들기**를 선택합니다.
 
     ![랩 블레이드 만들기](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -60,4 +60,4 @@
 
 - [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->
