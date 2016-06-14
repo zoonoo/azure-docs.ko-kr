@@ -43,7 +43,7 @@
 [커넥터 공간 검색](#search-connector-space) | 개체를 찾고 [시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는](#follow-an-object-and-its-data-through-the-system) 데 사용됩니다.
 
 ### 삭제
-삭제 작업은 두 가지 작업에 사용됩니다.
+삭제 작업은 두 가지 작업에 사용됩니다.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 **커넥터 공간만 삭제** 옵션은 모든 데이터를 제거하지만 모든 구성은 그대로 유지합니다.
@@ -114,4 +114,4 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->
