@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="torsteng;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="torsteng"/>
 
 # Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 
 
@@ -174,4 +174,4 @@ Dapper 및 DapperExtensions를 사용하는 응용 프로그램에서는 Azure S
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

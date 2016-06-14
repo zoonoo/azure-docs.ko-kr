@@ -3,7 +3,7 @@
 	description="Azure 기계 학습 권장 사항 - 빠른 시작 가이드"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Cognitive 서비스 Recommendations API에 대한 빠른 시작 가이드
@@ -79,7 +79,7 @@ Recommendations API는 좋은 제품을 추천하기 위해 카탈로그 및 트
 
  이 데이터베이스는 [여기](http://aka.ms/RecoSampleData)서 다운로드할 수 있습니다. 로컬 컴퓨터의 폴더에 MsStoreData.Zip 파일을 복사하고 압축을 풉니다.
 
- > **참고: ** 작업 3에서 다운로드하여 실행하시는 샘플 코드는 이미 그 안에 샘플 데이터가 포함되어 있으므로 이 작업이 선택 사항입니다. 즉, 이 작업을 통해 보다 현실적인 데이터 집합을 다운로드하고 Recommendations API에 대한 입력을 더욱 완벽하게 이해할 수 있습니다.
+ > **참고:** 작업 3에서 다운로드하여 실행하시는 샘플 코드는 이미 그 안에 샘플 데이터가 포함되어 있으므로 이 작업이 선택 사항입니다. 즉, 이 작업을 통해 보다 현실적인 데이터 집합을 다운로드하고 Recommendations API에 대한 입력을 더욱 완벽하게 이해할 수 있습니다.
 
 1.	이제 카탈로그 파일에 살펴보겠습니다. 데이터를 복사한 위치로 이동합니다. **메모장**에서 카탈로그 파일을 엽니다.
 
@@ -129,6 +129,8 @@ Recommendations API는 좋은 제품을 추천하기 위해 카탈로그 및 트
 
 1. 모델이 생성되면 **모델 ID**를 기록해 두세요. 프로덕션 환경에서 권장 사항을 요청할 때 필요합니다.
 
+>  빌드 형식 및 빌드의 품질을 평가하는 방법에 대해 [여기](cognitive-services-recommendations-buildtypes.md)에서 알아봅니다.
+
 <a name="Ex1Task4"></a>
 ### 모델을 프로덕션 환경에 배치! ###
 
@@ -166,4 +168,4 @@ Recommendations API는 좋은 제품을 추천하기 위해 카탈로그 및 트
 ### 다음 작업
 여기까지 잘 따라오신 분들에게 박수를 보냅니다! 좀 더 자세히 배우고 싶은 분들은 [Recommendations API 참조](http://go.microsoft.com/fwlink/?LinkId=759348)를 방문하시고, 질문이 있다면 주저 말고 mlapi@microsoft.com으로 문의하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

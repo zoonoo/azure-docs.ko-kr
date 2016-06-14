@@ -19,8 +19,6 @@
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라인 배포의 이 단계에서는 SQL 서버와 클러스터 주 노드 컴퓨터를 실행하는 두 대의 컴퓨터를 구성한 다음 Windows 서버 클러스터로 결합합니다.
 
 [4단계](virtual-machines-windows-ps-lob-ph4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-windows-lob-overview.md)를 참조하세요.
@@ -259,4 +257,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 - [4단계](virtual-machines-windows-ps-lob-ph4.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

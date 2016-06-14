@@ -19,8 +19,6 @@
 
 # Azure Resource Manager 가상 컴퓨터에 정책 적용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델
-
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 가상 컴퓨터에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
 이 작업을 수행하는 개략적인 단계는 다음과 같습니다.
@@ -108,4 +106,4 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 
 * [정책 만들기](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/06/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # SSMS를 사용하여 BACPAC에서 SQL 데이터베이스로 가져오기
@@ -52,4 +52,15 @@
 
 6.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+## 다음 단계
+
+- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## 자세한 정보
+
+- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
+- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

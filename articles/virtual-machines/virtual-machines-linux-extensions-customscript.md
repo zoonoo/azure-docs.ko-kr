@@ -21,9 +21,6 @@
 
 이 문서에서는 Linux VM의 워크로드를 부트스트랩하기 위해 사용자 지정 스크립트 확장을 사용하여 Azure Resource Manager 템플릿을 작성하는 방법을 간략하게 설명합니다.
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-extensions-customscript.md).
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Linux VM의 템플릿 예제
@@ -42,8 +39,8 @@
       "type": "CustomScriptForLinux",
       "typeHandlerVersion": "1.2",
       "settings": {
-      "fileUris": [ "https: //raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh                        ],
-      "commandToExecute": "shmongo-install-ubuntu.sh"
+      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
       }
     }
     }
@@ -56,4 +53,4 @@
 
 * [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

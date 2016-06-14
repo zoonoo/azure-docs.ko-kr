@@ -26,7 +26,7 @@
 
 이 문서에서는 Jupyter 노트북에서 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하는 방법을 알아봅니다.
 
-**필수 조건:**
+##필수 조건
 
 다음이 있어야 합니다.
 
@@ -51,7 +51,7 @@
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. `%%configure` Magic을 사용하여 외부 패키지를 사용하도록 노트북을 구성합니다. 외부 패키지를 사용하는 노트북에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
+4. `%%configure` Magic을 사용하여 외부 패키지를 사용하도록 Notebook을 구성합니다. 외부 패키지를 사용하는 Notebook에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
 
 		%%configure
 		{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
@@ -59,7 +59,7 @@
 
 	>[AZURE.IMPORTANT] 첫 번째 셀에서 커널을 구성하는 것을 잊은 경우 `%%configure`과 `-f` 매개 변수를 사용할 수 있지만 세션이 다시 시작되고 모든 진행률이 손실됩니다.
 
-5. 위의 코드 조각에서 `packages`에는 Maven Center Repository의 Maven 좌표 목록이 필요합니다. 이 코드 조각에서는 `com.databricks:spark-csv_2.10:1.4.0`은 **spark-csv** 패키지에 대한 Maven 좌표입니다. 패키지의 좌표를 생성하는 방법은 다음과 같습니다.
+5. 위의 코드 조각에서 `packages`에는 Maven Center Repository의 Maven 좌표 목록이 필요합니다. 이 코드 조각에서 `com.databricks:spark-csv_2.10:1.4.0`는 **spark-csv** 패키지에 대한 Maven 좌표입니다. 패키지의 좌표를 생성하는 방법은 다음과 같습니다.
 
 	a. Maven Repository에서 패키지를 찾습니다. 이 자습서에서는 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)를 사용합니다.
 	
@@ -118,4 +118,4 @@
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

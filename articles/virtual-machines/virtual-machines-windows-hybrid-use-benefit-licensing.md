@@ -25,8 +25,8 @@ Software Assurance와 함께 Windows Server를 사용하는 고객의 경우, �
 ## 필수 구성 요소
 Azure에서 Windows Server VM에 대한 Azure 하이브리드 사용 혜택을 사용하려면 몇 가지 필수 조건이 있습니다.
 
-- 설치된 Azure PowerShell 모듈
-- Azure 저장소에 업로드한 Windows Server VHD
+- Azure PowerShell 모듈이 설치되어 있어야 합니다.
+- Windows Server VHD를 Azure 저장소에 업로드해야 합니다.
 
 ### Azure PowerShell 설치
 최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 리소스 관리자 템플릿을 사용하여 VM을 배포하려는 경우에도 Windows Server VHD를 업로드하기 위해서는 Azure PowerShell을 설치해야 합니다(다음 단계 참조).
@@ -164,4 +164,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 [리소스 관리자 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

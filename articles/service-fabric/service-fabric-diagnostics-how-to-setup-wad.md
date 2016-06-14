@@ -28,6 +28,8 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 * [Azure 리소스 관리자](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager 클라이언트](https://github.com/projectkudu/ARMClient)
+* [Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## 수집하려는 다양한 로그 원본
 1. **서비스 패브릭 로그:** 플랫폼에서 표준 ETW와 EventSource 채널로 내보냅니다. 로그는 여러 유형 중 하나일 수 있습니다.
@@ -54,7 +56,13 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 5. 템플릿 내보내기를 선택하여 템플릿은 패널을 표시합니다.
 6. 파일에 저장을 선택하여 템플릿, 매개 변수 및 PowerShell 파일을 포함하는 .zip 파일을 내보냅니다.
 
-파일을 내보낸 후 수정해야 합니다. **parameters.json** 파일을 편집하고 **adminPassword** 요소를 제거합니다. 배포 스크립트가 실행될 때 암호를 묻는 메시지가 표시됩니다.
+파일을 내보낸 후 수정해야 합니다. **parameters.json** 파일을 편집하고 **adminPassword** 요소를 제거합니다. 배포 스크립트가 실행될 때 암호를 묻는 메시지가 표시됩니다. 다운로드한 템플릿을 사용하여 구성을 업데이트하려면
+
+1. 로컬 컴퓨터의 폴더에 압축을 풉니다.
+2. 새 구성을 반영하도록 콘텐츠를 수정합니다.
+3. PowerShell을 시작하고 압축을 푼 폴더로 변경합니다.
+4. **deploy.ps1**을 실행하고 subscriptionId, 리소스 그룹 이름(같은 이름을 사용하여 구성 업데이트), 고유한 배포 이름을 입력합니다.
+
 
 ### Azure Resource Manager를 사용하여 클러스터 만들기의 일환으로 진단 확장 배포
 리소스 관리자를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 클러스터 리소스 관리자 템플릿에 추가해야 합니다. 리소스 관리자 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 리소스 관리자 템플릿이 제공됩니다. Azure 샘플 갤러리의 다음 위치에서 샘플을 볼 수 있습니다. [진단 리소스 관리자 템플릿 샘플이 포함된 5노드 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad) Resource Manager 템플릿에서 진단 설정을 표시하려면 **azuredeploy.json** 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 위의 링크에서 제공하는 **Azure에 배포** 버튼을 누르면 됩니다.
@@ -67,7 +75,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### 기존 클러스터에 진단 확장 배포
-진단이 배포되지 않은 기존 클러스터가 있으면 다음 단계에 따라 기존 클러스터를 추가할 수 있습니다. 기존 클러스터를 만드는 데 사용되는 ARM 템플릿을 수정하거나 위에 설명된 대로 포털에서 템플릿을 다운로드합니다. 다음 작업을 수행하여 **template.json** 파일을 수정합니다.
+진단이 배포되지 않은 기존 클러스터가 있거나 기존 구성을 수정하려는 경우 다음 단계에 따라 기존 클러스터를 추가하거나 업데이트할 수 있습니다. 기존 클러스터를 만드는 데 사용되는 ARM 템플릿을 수정하거나 위에 설명된 대로 포털에서 템플릿을 다운로드합니다. 다음 작업을 수행하여 **template.json** 파일을 수정합니다.
 
 리소스 섹션에 추가하여 새 저장소 리소스를 템플릿에 추가합니다.
 
@@ -179,4 +187,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+
+## 관련된 문서
+* [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
+<!---HONumber=AcomDC_0601_2016-->

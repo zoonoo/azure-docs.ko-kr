@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # HDinsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용  
@@ -43,7 +43,7 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 
 **SQLLine을 사용하려면**
 
-1. SSH를 사용하여 클러스터에 연결합니다. 지침은 클라이언트 컴퓨터 OS에 따라 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)을 참조하세요.
+1. SSH를 사용하여 클러스터에 연결합니다. 지침은 클라이언트 컴퓨터 OS에 따라 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
 2. SSH에서 다음 명령을 실행하여 SQLLine을 실행합니다.
 
@@ -95,4 +95,4 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

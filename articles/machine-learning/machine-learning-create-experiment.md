@@ -80,23 +80,23 @@
 
 먼저 **normalized-losses** 열을 제거한 다음 누락된 데이터가 있는 행을 제거하겠습니다.
 
-1. 모듈 팔레트의 맨 위에 있는 검색 상자에 **project columns**를 입력하여 [Project Columns][project-columns] 모듈을 찾은 다음 이를 실험 캔버스로 끌어와 **Automobile price data (Raw)** 데이터 집합의 출력 포트에 연결합니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
+1. 모듈 팔레트의 맨 위에 있는 검색 상자에 **select columns**를 입력하여 [Select Columns in Dataset][select-columns] 모듈을 찾은 다음 이를 실험 캔버스로 끌어와 **Automobile price data (Raw)** 데이터 집합의 출력 포트에 연결합니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
 
-2. [Project Columns][project-columns] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭합니다.
+2. [Select Columns in Dataset][select-columns] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭합니다.
 
-	- 필터 드롭다운 **Begin With** 목록에서 **All columns**를 선택합니다. 그러면 모든 열을 전달하는 [Project Columns][project-columns]로 리디렉션됩니다(제외할 열은 예외임).
+	- 필터 드롭다운 **Begin With** 목록에서 **All columns**를 선택합니다. 그러면 모든 열을 전달하는 [Select Columns in Dataset][select-columns]로 리디렉션됩니다(제외할 열은 예외임).
 	- 다음 행에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
 	- 확인 표시(확인) 단추를 클릭하여 열 선택기를 닫습니다.
 
     ![열 선택][screen3]
 
-	**Project Columns**의 속성 창에 **normalized-losses**를 제외하고 데이터 집합의 모든 열이 전달된다는 것이 나타납니다.
+	**Select Columns in Dataset**의 속성 창에 **normalized-losses**를 제외하고 데이터 집합의 모든 열이 전달된다는 것이 나타납니다.
 
-    ![프로젝트 열 속성][screen4]
+    ![Select Columns in Dataset 속성][screen4]
 
-    > [AZURE.TIP] 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [Project Columns][project-columns] 모듈을 두 번 클릭하고 주석 "Exclude normalized-losses"를 입력합니다.
+    > [AZURE.TIP] 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [Select Columns in Dataset][select-columns] 모듈을 두 번 클릭하고 주석 "Exclude normalized-losses"를 입력합니다.
 
-3. [Clean Missing Data][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [Project Columns][project-columns] 모듈과 연결합니다. **Properties** 창에서 **Cleaning mode** 아래의 **Remove entire row**를 선택하여 누락 값이 있는 행을 제거하는 방법으로 데이터를 정리합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
+3. [Clean Missing Data][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [Select Columns in Dataset][select-columns] 모듈과 연결합니다. **Properties** 창에서 **Cleaning mode** 아래의 **Remove entire row**를 선택하여 누락 값이 있는 행을 제거하는 방법으로 데이터를 정리합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
 	![Clean Missing Data 속성][screen4a]
 
@@ -114,17 +114,17 @@
 
 기계 학습에서 *기능*은 관심 있는 부분에 대한 측정 가능한 개별 속성입니다 여기서는 데이터 집합의 각 행이 하나의 자동차를 나타내고 각 열은 해당 자동차의 기능입니다. 예측 모델을 만들기에 적절한 기능 집합을 찾으려면 해결하려는 문제에 대한 실험과 지식이 있어야 합니다. 일부 기능은 다른 기능에 비해 대상 예측에 더 유용합니다. 또한 일부 기능은 다른 기능과 강력한 상관 관계를 가지기도 합니다(예: city-mpg와 highway-mpg). 이런 경우 해당 기능은 모델에 많은 새 정보를 추가하지 않으며 제거할 수 있습니다.
 
-데이터 집합에서 기능 하위 집합을 사용하는 모델을 빌드하겠습니다. 다시 돌아와서 다양한 특성을 선택하고 실험을 다시 실행하여 더 나은 결과가 나오는지 확인할 수 있습니다. 첫 번째 추측으로서, [프로젝트 열][project-columns] 모듈을 사용하여 다음 특성(열)을 선택합니다. 모델 학습을 위해서는 예측하려는 *가격* 값을 포함해야 합니다.
+데이터 집합에서 기능 하위 집합을 사용하는 모델을 빌드하겠습니다. 다시 돌아와서 다양한 특성을 선택하고 실험을 다시 실행하여 더 나은 결과가 나오는지 확인할 수 있습니다. 첫 번째 추측으로서, [Select Columns in Dataset][select-columns] 모듈을 사용하여 다음 특성(열)을 선택합니다. 모델 학습을 위해서는 예측하려는 *가격* 값을 포함해야 합니다.
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. 다른 [Project Columns][project-columns] 모듈을 실험 캔버스로 끌어 놓고 [Clean Missing Data][clean-missing-data] 모듈의 왼쪽 출력 포트에 연결합니다. 모듈을 두 번 클릭하고 "Select features for prediction"을 입력합니다.
+1. 다른 [Select Columns in Dataset][select-columns] 모듈을 실험 캔버스로 끌어 놓고 [Clean Missing Data][clean-missing-data] 모듈의 왼쪽 출력 포트에 연결합니다. 모듈을 두 번 클릭하고 "Select features for prediction"을 입력합니다.
 
 2. **Properties** 창에서 **Launch column selector**를 클릭합니다.
 
 3. 열 선택기에서 **Begin With**로 **No columns**를 선택한 후 필터 행에서 **Include** 및 **column names**를 선택합니다. 열 이름 목록을 입력합니다. 그러면 지정한 열만 전달하는 모듈로 리디렉션됩니다.
 
-	> [AZURE.TIP] 실험을 실행했기 때문에 원본 데이터 집합에서 가져온 데이터에 대한 열 정의가 [Clean Missing Data][clean-missing-data] 모듈을 통해 전달되었습니다. [Project Columns][project-columns]를 [Clean Missing Data][clean-missing-data]에 연결하면 [Project Columns][project-columns] 모듈이 데이터의 열 정의를 인식하게 됩니다. **column names** 상자를 클릭하면 열 목록이 표시되고, 목록에 추가하려는 열을 선택할 수 있습니다.
+	> [AZURE.TIP] 실험을 실행했기 때문에 원본 데이터 집합에서 가져온 데이터에 대한 열 정의가 [Clean Missing Data][clean-missing-data] 모듈을 통해 전달되었습니다. [Select Columns in Dataset][select-columns]를 [Clean Missing Data][clean-missing-data]에 연결하면 [Select Columns in Dataset][select-columns] 모듈이 데이터의 열 정의를 인식하게 됩니다. **column names** 상자를 클릭하면 열 목록이 표시되고, 목록에 추가하려는 열을 선택할 수 있습니다.
 
 4. 확인 표시(확인) 단추를 클릭합니다.
 
@@ -140,11 +140,11 @@
 
 임의의 값일 수 있는 자동차 가격을 예측하려고 하므로 회귀 모델을 사용하겠습니다. 이 예제에서는 간단한 *선형 회귀* 모델을 학습하고 다음 단계에서 이를 테스트합니다.
 
-1. 데이터를 별도의 학습 및 테스트 집합으로 분할하여 학습과 테스트 모두에 데이터를 사용할 수 있습니다. [Split Data][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [Project Columns][project-columns] 모듈의 출력과 연결합니다. **첫 번째 출력 데이터 집합의 행 분수**를 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
+1. 데이터를 별도의 학습 및 테스트 집합으로 분할하여 학습과 테스트 모두에 데이터를 사용할 수 있습니다. [Split Data][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [Select Columns in Dataset][select-columns] 모듈의 출력과 연결합니다. **첫 번째 출력 데이터 집합의 행 분수**를 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
 
 	> [AZURE.TIP] **Random seed** 매개 변수를 변경하면 학습 및 테스트용으로 서로 다른 무작위 샘플을 생성할 수 있습니다. 이 매개 변수는 난수 발생기의 시드를 제어합니다.
 
-2. 실험을 실행합니다. 그러면 [Project Columns][project-columns] 및 [Split Data][split] 모듈이 다음에 추가할 모듈에 열 정의를 전달할 수 있습니다.
+2. 실험을 실행합니다. 그러면 [Select Columns in Dataset][select-columns] 및 [Split Data][split] 모듈이 다음에 추가할 모듈에 열 정의를 전달할 수 있습니다.
 
 3. 학습 알고리즘을 선택하려면 캔버스 왼쪽의 모듈 팔레트에서 **Machine Learning** 범주를 확장한 후 **Initialize Model**을 확장합니다. 기계 학습 알고리즘을 초기화하는 데 사용할 수 있는 몇 가지 범주의 모듈이 표시됩니다.
 
@@ -229,9 +229,9 @@
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

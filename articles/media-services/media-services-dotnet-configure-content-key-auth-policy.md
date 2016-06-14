@@ -400,6 +400,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 ##<a id="types"></a>ContentKeyAuthorizationPolicy를 정의할 때 사용되는 형식
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -442,4 +443,4 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 콘텐츠 키의 권한 부여 정책을 구성했으므로 [자산 배포 정책 구성 방법](media-services-dotnet-configure-asset-delivery-policy.md) 항목으로 이동합니다.
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
@@ -21,7 +21,7 @@
 
 이 자습서에서는 재해 발생 시 StorSimple의 장애 조치에 필요한 단계를 설명합니다. 장애 조치를 사용하면 데이터 센터의 원래 장치에서 동일하거나 다른 지리적 위치에 있는 다른 실제 장치 또는 가상 장치에도 데이터를 마이그레이션할 수 있습니다.
 
-장치 장애 조치는 DR(재해 복구) 기능을 통해 조정되며 장치 페이지에서 시작됩니다. 이 페이지는 StorSimple 관리자 서비스에 연결된 모든 StorSimple 장치를 표로 작성합니다. 각 장치에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
+장치 장애 조치는 재해 복구(DR) 기능을 통해 조정되며 **장치** 페이지에서 시작됩니다. 이 페이지는 StorSimple 관리자 서비스에 연결된 모든 StorSimple 장치를 표로 작성합니다. 각 장치에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
 
 ![장치 페이지](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -89,6 +89,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 1. 열리는 마법사의 **장애 조치할 볼륨 컨테이너 선택**에서:
 
 	1. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다.
+	
 
 		>[AZURE.NOTE] **클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
 
@@ -170,9 +171,9 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 ## 다음 단계
 
-- 장애 조치(failover)를 수행한 후에 [StorSimple 장치 비활성화 또는 삭제](storsimple-deactivate-and-delete-device.md)해야 할 수도 있습니다.
+- 장애 조치(failover)를 수행한 후에 [StorSimple 장치 비활성화 또는 삭제](storsimple-deactivate-and-delete-device.md)를 해야 할 수도 있습니다.
 
 - StorSimple Manager 서비스를 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

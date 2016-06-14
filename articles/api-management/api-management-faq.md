@@ -36,6 +36,7 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	[ADFS 보안을 통해 OAUth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[여러 곳의 지리적 위치에 배포할 때 API 관리에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 
 
 
@@ -93,7 +94,7 @@ API 관리 서비스 인스턴스를 새 인스턴스에 복사하는 데 사용
 
 ### API 관리를 통해 API 버전 관리를 수행하는 방법은 무엇입니까?
 
--	API 관리에 다른 버전을 나타내는 별개의 API를 구성할 수 있습니다. 예를 들어, `MyAPI v1` 및 `MyAPI v2`을(를) 두 개의 다른 API로 구성할 수 있고, 개발자는 사용할 버전을 선택할 수 있습니다.
+-	API 관리에 다른 버전을 나타내는 별개의 API를 구성할 수 있습니다. 예를 들어, `MyAPI v1` 및 `MyAPI v2`를 두 개의 다른 API로 구성할 수 있고, 개발자는 사용할 버전을 선택할 수 있습니다.
 -	버전 세그먼트를 포함하지 않는 서비스 URL로(예: `https://my.api`) API를 구성할 수도 있습니다. 그 다음 각 작업의 [URL 다시 쓰기](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 템플릿에서 버전 세그먼트를 구성할 수 있습니다. 예를 들면, `/resource`의 [URL 템플릿](api-management-howto-add-operations.md#url-template) 및 `/v1/Resource`의 [URL 다시 쓰기](api-management-howto-add-operations.md#rewrite-url-template) 템플릿으로 작업을 수행할 수 있습니다. 이렇게 하면 각 작업에서 개별적으로 버전 세그먼트 값을 변경할 수 있습니다.
 -	API 서비스 URL의 “기본” 버전 세그먼트를 유지하려면, 선택한 작업에서 백 엔드 요청 경로를 변경하기 위해 [백 엔드 서비스 설정](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) 정책을 사용하는 정책을 설정할 수 있습니다.
 
@@ -131,10 +132,18 @@ IP 주소(또는 다중 지역 배포의 경우 여러 IP 주소)는 Azure 클�
 
 ### 여러 곳의 지리적 위치에 배포할 때 API 관리에서 사용하는 라우팅 방법은 무엇입니까? 
 
-API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. 라우팅 방법에 대한 자세한 내용은 [Tr트래픽 관리자 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
+API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 
 ### ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?
 
 예, [Azure API 관리 서비스](http://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+### 백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있나요?
+
+예. 아래 단계를 따르세요.
+
+1. 관리 API를 사용하여 [백 엔드](https://msdn.microsoft.com/library/azure/dn935030.aspx) 엔터티 만들기
+2. skipCertificateChainValidation 속성을 true로 설정
+3. 자체 서명된 인증서를 더 이상 허용하지 않으려면 백 엔드 엔터티를 삭제하거나 skipCertificateChainValidation 속성을 false로 설정할 수 있습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

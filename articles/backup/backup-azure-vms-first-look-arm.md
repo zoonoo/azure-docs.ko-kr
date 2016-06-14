@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 백업으로 ARM VM 보호 | Microsoft Azure"
-	description="Azure 백업 서비스로 ARM VM을 보호합니다. ARM VM 및 프리미엄 저장소 VM의 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
+	pageTitle="Azure 백업을 사용하여 Resource Manager 배포 VM 보호 | Microsoft Azure"
+	description="Azure 백업 서비스를 사용하여 Resource Manager 배포 VM을 보호합니다. Resource Manager 배포 VM 및 프리미엄 저장소 VM의 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
-# 먼저 보기: ARM VM을 복구 서비스 자격 증명 모음에 백업
+# 먼저 보기: Resource Manager 배포 VM을 복구 서비스 자격 증명 모음에 백업
 
 > [AZURE.SELECTOR]
-- [ARM VM 백업](backup-azure-vms-first-look-arm.md)
+- [Resource Manager 배포 VM 백업](backup-azure-vms-first-look-arm.md)
 - [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
 
 이 자습서에서는 복구 서비스 자격 증명 모음을 만들고 Azure 가상 컴퓨터(VM)를 백업하기 위한 단계를 안내합니다. 복구 서비스 자격 증명 모음이 보호하는 항목:
 
-- Azure Resource Manager(ARM) VM
+- Azure Resource Manager 배포 VM
 - 클래식 VM
 - 표준 저장소 VM
 - 프리미엄 저장소 VM
 
 프리미엄 저장소 VM 보호에 대한 자세한 내용은 [프리미엄 저장소 VM 백업 및 복원](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)을 참조하세요.
 
->[AZURE.NOTE] 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다. Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 이 문서는 리소스 관리자 및 ARM 기반 VM을 사용하기 위한 것입니다.
+>[AZURE.NOTE] 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다. Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 이 문서는 Resource Manager 및 Resource Manager 배포 VM을 사용하기 위한 것입니다.
 
 높은 수준에서 볼 때 다음 단계를 완료해야 합니다.
 
@@ -189,35 +189,7 @@
 
     백업 작업이 완료되면 상태는 *완료됨*입니다.
 
-## 백업 정책 정의
-
-백업 정책은 데이터 스냅숏이 생성된 시간 및 스냅숏을 보관하는 기간에 대한 행렬을 정의합니다. VM 백업을 위한 정책을 정의할 때 백업 작업을 *하루에 한 번* 트리거할 수 있습니다. 새 정책을 만들면 자격 증명 모음에 적용됩니다. 백업 정책 인터페이스는 다음과 같습니다.
-
-![백업 정책](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
-
-정책을 만들려면:
-
-1. **정책 이름**에 정책의 이름을 지정합니다.
-
-2. 데이터의 스냅숏을 매일 또는 매주 간격으로 생성할 수 있습니다. **백업 주기** 드롭다운 메뉴를 사용하여 데이터 스냅숏을 매일 또는 매주 생성할지를 선택합니다.
-
-    - 매일 간격을 선택한 경우 강조 표시된 컨트롤을 사용하여 스냅숏을 생성할 하루 중 시간을 선택합니다. 시간을 변경하려면 시간을 선택 취소하고 새 시간을 선택합니다.
-
-    ![매일 백업 정책](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
-
-    - 매주 간격을 선택한 경우 강조 표시된 컨트롤을 사용하여 스냅숏을 생성할 요일 및 시간을 선택합니다. 일 메뉴에서 하루 또는 여러 날짜를 선택합니다. 시간 메뉴에서 시간을 하나 선택합니다. 시간을 변경하려면 선택한 시간을 선택 취소하고 새 시간을 선택합니다.
-
-    ![매주 백업 정책](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
-
-3. 기본적으로 모든 **보존 범위** 옵션이 선택되어 있습니다. 사용하지 않으려면 보존 범위 제한을 선택 취소합니다.
-
-    >[AZURE.NOTE] VM을 보호하는 경우, 백업 작업이 하루에 한 번 실행됩니다. 백업이 실행되는 시간은 보존 범위마다 같습니다.
-
-    해당 컨트롤에서 사용할 간격을 지정합니다. 매월 및 매년 보존 범위를 통해 매주 또는 매일 증분으로 스냅숏을 지정할 수 있습니다.
-
-4. 정책에 대한 모든 옵션을 설정한 후 블레이드 맨 아래에서 **확인**을 클릭합니다.
-
-    복구 서비스 자격 증명 모음 설정이 완료되면 자격 증명 모음에 적용할 새 정책이 설정됩니다. [시나리오 설정 정책 선택 및 보호할 항목 정의](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect) 섹션의 6단계로 돌아갑니다.
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## 가상 컴퓨터에 VM 에이전트 설치
 
@@ -230,7 +202,7 @@
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
 | VM 에이전트 설치 | <li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. | <li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent)를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 | VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없어야 합니다. | [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따릅니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없어야 합니다. |
+| VM 에이전트 업데이트 | VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. | [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따르세요. <br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 | <li>Azure VM에서 *C:\\WindowsAzure\\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. | 해당 없음 |
 
 
@@ -238,7 +210,7 @@
 
 가상 컴퓨터에 VM 에이전트를 설치하면 Azure 백업 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. Azure 백업 서비스는 추가 사용자 개입 없이 원활하게 백업 확장을 업그레이드 및 패치합니다.
 
-백업 확장은 VM의 실행 여부와 상관없이 백업 서비스에 의해 설치됩니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 오프라인 VM이라고 합니다. 이 경우 복구 지점은 *크래시 일관성* 상태가 됩니다.
+백업 확장은 VM의 실행 여부와 상관없이 백업 서비스에 의해 설치됩니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 오프라인 VM이라고 합니다. 이 경우 복구 지점은 *충돌 일치*가 됩니다.
 
 ## 문제 해결 정보
 이 문서의 작업 중 일부를 수행하는 데 문제가 있는 경우 [문제 해결 지침](backup-azure-vms-troubleshoot.md)을 참조하세요.
@@ -247,4 +219,4 @@
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

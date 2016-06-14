@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/01/2016" 
 	ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -48,7 +48,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 > [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 **WindowsAzure.php** 자동 로더 파일을 참조해야 합니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -74,7 +74,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 
@@ -90,7 +90,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 다음 예제는 **ServiceBusRestProxy**를 인스턴스화하고 **ServiceBusRestProxy->createQueue**를 호출하여 `MySBNamespace` 서비스 네임스페이스 내에서라는 `myqueue` 큐를 만드는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -122,7 +122,7 @@ catch(ServiceException $e){
 서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusRestProxy->sendQueueMessage** 메서드를 호출합니다. 다음 코드는 위에서 `MySBNamespace` 서비스 네임스페이스 내에서 이전에 만든 `myqueue` 큐에 메시지를 보내는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -164,7 +164,7 @@ catch(ServiceException $e){
 다음 예제에서는 **PeekLock** 모드(기본 모드 아님)를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -220,4 +220,4 @@ catch(ServiceException $e){
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

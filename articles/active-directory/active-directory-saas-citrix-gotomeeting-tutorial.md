@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 
 <tags 
     ms.service="active-directory" 
@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/29/2016" 
+    ms.date="05/26/2016" 
     ms.author="jeedes" />
 
 #자습서: Citrix GoToMeeting과 Azure Active Directory 통합  
@@ -33,6 +33,9 @@ Azure에 적용합니다.
 4.  사용자 할당
 
 ![구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "구성")
+
+
+
 ##Citrix GoToMeeting에 응용 프로그램 통합 사용
 
 이 섹션은 Citrix GoToMeeting에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -79,7 +82,9 @@ Azure에 적용합니다.
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Single Sign-On 구성")
 
 
-3. **응용 프로그램 설정 구성** 페이지에서 **다음**을 클릭합니다. <br><br>![Single Sign-On 사용](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Single Sign-On 사용")
+3. **응용 프로그램 설정 구성** 페이지에서 **다음**을 클릭합니다.
+
+	![Single Sign-On 사용](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Single Sign-On 사용")
 
 4.  **Citrix GoToMeeting에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -87,26 +92,35 @@ Azure에 적용합니다.
 
 5.  다른 브라우저 창에서 Citrix 조직 센터에 로그인합니다.([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/))
 
-6. **ID 공급자** 탭을 클릭한 후에 다음 단계를 수행합니다. <br><br> ![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML 설정")
+6. **ID 공급자** 탭을 클릭한 후에 다음 단계를 수행합니다.
 
-     6\.1. **수동** 선택
+	![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML 설정")
 
-     6\.2. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
+	a. **수동** 선택
 
-     6\.3. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그아웃 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
+    
+	b. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-     6\.4. Azure 클래식 포털의 **Citrix GoToMeeting에 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    
+	c. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그아웃 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-     6\.5. 다운로드한 인증서를 업로드하려면 **인증서 업로드**를 클릭합니다.
+    
+	d. Azure 클래식 포털의 **Citrix GoToMeeting에 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-     6\.6. **Save**를 클릭합니다.
+   
+	e. 다운로드한 인증서를 업로드하려면 **인증서 업로드**를 클릭합니다.
+
+    
+	f. **Save**를 클릭합니다.
 
 6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Single Sign-On 구성")
 
 
-7. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML 설정")
+7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+
+	![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML 설정")
 
 
 
@@ -118,7 +132,7 @@ Azure에 적용합니다.
 
 ###사용자 프로비저닝을 구성하려면
 
-1.  Azure 클래식 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
 
     ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비저닝 구성")
 
@@ -126,15 +140,19 @@ Azure에 적용합니다.
 
     ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "사용자 프로비전 구성")
 
-     2\.1. **Citrix GoToMeeting 관리자 사용자 이름** 텍스트 상자에서 관리자의 사용자 이름을 입력합니다.
+	a. **Citrix GoToMeeting 관리자 사용자 이름** 텍스트 상자에서 관리자의 사용자 이름을 입력합니다.
 
-     2\.2. **Citrix GoToMeeting 관리자 암호** 텍스트 상자에서 관리자의 암호입니다.
+    
+	b. **Citrix GoToMeeting 관리자 암호** 텍스트 상자에서 관리자의 암호입니다.
 
-     2\.3. **다음**을 클릭합니다.
+    
+	c. **다음**을 클릭합니다.
 
 3.  **확인** 페이지에서 확인 표시를 클릭하여 구성을 저장합니다.
 
 4.  **유효성 검사** 단추를 클릭하여 구성을 확인합니다.
+
+
 ##사용자 할당
 
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
@@ -165,4 +183,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

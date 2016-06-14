@@ -19,7 +19,7 @@
 
 # Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결
 
-이 항목에서는 Azure에 리소스를 배포할 때 발생할 수 있는 일반적인 오류 중 일부를 해결할 수 있는 방법에 대해 설명합니다. 사용자가 오류를 설명하는 메시지를 살펴보았다고 가정합니다. 배포가 실패한 이유에 대한 자세한 내용이 필요한 경우 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하세요.
+이 항목에서는 Azure에 리소스를 배포할 때 발생할 수 있는 일반적인 오류 중 일부를 해결할 수 있는 방법에 대해 설명합니다. 지금까지 유용한 오류 메시지를 살펴보았습니다. 좋은 오류 메시지가 표시되지 않거나 배포에 실패한 이유에 대한 세부 정보가 필요한 경우 우선 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하고 오류를 해결하는 도움말을 찾아보려면 이 문서로 돌아옵니다.
 
 ## 잘못된 템플릿 또는 리소스
 
@@ -33,7 +33,7 @@
 
 ## 리소스 이름이 이미 있음
 
-일부 리소스, 가장 주목할 만한 저장소 계정, 데이터베이스 서버 및 웹사이트의 경우 Azure의 모든 고유한 리소스에 이름을 제공해야 합니다. 명명 규칙과 [uniqueString](./resource-group-template-functions/#uniquestring) 함수 결과를 연결함으로써 고유한 이름을 만들 수 있습니다.
+일부 리소스, 가장 주목할 만한 저장소 계정, 데이터베이스 서버 및 웹사이트의 경우 Azure의 모든 고유한 리소스에 이름을 제공해야 합니다. 명명 규칙과 [uniqueString](resource-group-template-functions.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -240,4 +240,4 @@ Azure Resource Manager는 모든 공급자가 배포에서 성공적으로 반�
 - Windows 기반 가상 컴퓨터에 대한 원격 데스크톱 프로토콜 오류를 해결하려면 [원격 데스크톱 연결 문제 해결](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
 - Linux 기반 가상 컴퓨터에 대한 보안 셸 오류를 해결하려면 [보안 셸 연결 문제 해결](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

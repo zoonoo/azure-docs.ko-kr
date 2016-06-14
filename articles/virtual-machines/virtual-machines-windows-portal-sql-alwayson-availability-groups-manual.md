@@ -24,11 +24,7 @@
 
 <br/>
 
-
-
 이 종단 간 자습서에서는 Azure Resource Manager 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여 줍니다.
-
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]리소스 관리자 모델.
 
 자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
 
@@ -98,7 +94,7 @@
 
 가상 네트워크를 만들려면
 
-1. Azure 포털에서 새 리소스 그룹을 클릭하고 **+**를 클릭하여 리소스 그룹에 새 항목을 추가합니다. **모두** 블레이드가 열립니다. 
+1. Azure 포털에서 새 리소스 그룹을 클릭하고 **+**을 클릭하여 리소스 그룹에 새 항목을 추가합니다. **모두** 블레이드가 열립니다. 
 
  ![새 항목](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
@@ -480,7 +476,7 @@
 
 ### **장애 조치(failover) 클러스터링** 기능을 각 클러스터 VM에 추가합니다.
 
-1. **sqlserver-0**로 RDP합니다.
+1. **sqlserver-0**으로 RDP합니다.
 
 1. **서버 관리자** 대시보드에서 **역할 및 기능 추가**를 클릭합니다.
 
@@ -865,4 +861,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

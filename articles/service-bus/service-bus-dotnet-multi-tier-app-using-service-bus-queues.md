@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/07/2015"
+	ms.date="05/27/2016"
 	ms.author="sethm"/>
 
 # Azure 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
 ## 소개
 
-Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 아직 Visual Studio가 없는 경우 SDK에서 Visual Studio Express를 자동으로 설치하므로 Azure용 개발을 무료로 시작할 수 있습니다. 이 문서에서는 이전에 Azure를 사용한 경험이 없는 사람을 대상으로 합니다. 이 자습서를 완료하면 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하고 다중 계층 응용 프로그램의 작동 방식을 보여 주는 응용 프로그램을 갖게 됩니다.
+Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 이 자습서에서는 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하는 응용 프로그램을 만드는 단계를 안내합니다. 이전에 Azure를 사용한 경험이 없다고 가정합니다.
 
-다음 내용을 배웁니다.
+다음을 학습합니다.
 
 -   한 번 다운로드하고 설치하여 Azure 개발용 컴퓨터를 사용하도록 설정하는 방법
 -   Visual Studio를 사용하여 Azure용으로 개발하는 방법
@@ -31,13 +31,11 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행하는 방법에 대한 지침은 [다음 단계](#nextsteps) 섹션을 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 다중 계층 응용 프로그램을 빌드하고 실행합니다. 프런트 엔드는 ASP.NET MVC 웹 역할이고 백 엔드는 서비스 버스 큐를 사용하는 작업자 역할입니다. 클라우드 서비스가 아닌 Azure 웹 사이트에 배포되는 웹 프로젝트와 동일한 다중 계층 응용 프로그램(프런트 엔드 포함)을 만들 수 있습니다. Azure 웹 사이트 프런트 엔드를 다르게 수행하는 방법에 대한 지침은 [다음 단계](#nextsteps) 섹션을 참조하세요. [.NET 온-프레미스/클라우드 하이브리드 응용 프로그램](service-bus-dotnet-hybrid-app-using-service-bus-relay.md) 자습서를 시도해 볼 수 있습니다.
 
 다음 스크린샷에서는 완성된 응용 프로그램을 보여 줍니다.
 
 ![][0]
-
-> [AZURE.NOTE] Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조][sbqueuecomparison]를 참조하십시오.
 
 ## 시나리오 개요: 역할 간 통신
 
@@ -63,33 +61,25 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 ## 개발 환경 설정
 
-Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로드하고 개발 환경을 설정해야 합니다.
+Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개발 환경을 설정해야 합니다.
 
-1.  .NET용 Azure SDK를 설치하려면 다음 링크를 클릭합니다.
+1.  [도구 및 SDK 가져오기][]에서 .NET 용 Azure SDK를 설치합니다.
 
-    [도구 및 SDK 얻기][]
+2. 	사용하고 있는 Visual Studio 버전에 대한 **SDK 설치**를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용합니다.
 
-2. 	사용하고 있는 Visual Studio 버전에 대한 링크를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2013을 사용합니다.
+4.  설치 관리자를 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 
-	![][32]
+5.  **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
 
-4. 	설치 파일을 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
+6.  설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다. Visual Studio가 설치되어 있지 않으면 SDK에서 무료로 제공되는 Visual Studio Express도 설치합니다.
 
-    ![][3]
-
-5.  웹 플랫폼 설치 관리자에서 **설치**를 클릭하여 설치를 계속합니다.
-
-    ![][33]
-
-6.  설치가 완료되면 앱 개발을 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 개발할 수 있는 도구가 포함되어 있습니다. Visual Studio가 설치되어 있지 않으면 무료로 제공되는 Visual Studio Express for Web도 설치해야 합니다.
-
-## 서비스 버스 네임스페이스 설정
+## 서비스 버스 네임스페이스 만들기
 
 다음 단계에서는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 얻습니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
 ### Azure 클래식 포털을 사용하여 네임스페이스 설정
 
-1.  [Azure 클래식 포털][]에 로그온합니다.
+1.  [Azure 클래식 포털][]에 로그인합니다.
 
 2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
@@ -107,15 +97,9 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 6.  확인 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
-	![][27]
-
 7.  주 창에서 서비스 네임스페이스의 이름을 클릭합니다.
 
-	![][30]
-
 8. **Connection Information**을 클릭합니다.
-
-	![][31]
 
 9.  **Access 연결 정보** 창에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다.
 
@@ -123,17 +107,21 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 10.  이러한 자격 증명을 적어 두거나 클립보드에 복사해 둡니다.
 
+11. 동일한 포털 페이지에서 페이지 맨 위에 있는 **구성** 탭을 클릭합니다.
+
+12. **RootManageSharedAccessKey** 정책에 대한 기본 키를 클립보드로 복사하거나 메모장에 붙여 넣습니다. 이 자습서의 뒷부분에서 이 값을 사용하게 됩니다.
+
+	![][36]
+
 ## 웹 역할 만들기
 
-이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다. 그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
+이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 먼저 응용 프로그램에서 표시하는 페이지를 만듭니다. 그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
 
 ### 프로젝트 만들기
 
-1.  관리자 권한을 사용하여 Microsoft Visual Studio 2013 또는 Microsoft Visual Studio Express를 시작합니다. 관리자 권한으로 Visual Studio를 시작하려면 **Microsoft Visual Studio 2013(또는 Microsoft Visual Studio Express)**을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다. 이 문서의 뒷부분에서 설명하는 Azure 계산 에뮬레이터를 사용하려면 Visual Studio를 관리자 권한으로 실행해야 합니다.
+1.  관리자 권한을 사용하여 Microsoft Visual Studio를 시작합니다. 관리자 권한으로 Visual Studio를 시작하려면 **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다. 이 문서의 뒷부분에서 설명하는 Azure 계산 에뮬레이터를 사용하려면 Visual Studio를 관리자 권한으로 실행해야 합니다.
 
     Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-
-    ![][8]
 
 2.  **설치된 템플릿**의 **Visual C#** 아래에서 **클라우드**를 클릭한 다음 **Azure 클라우드 서비스**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -147,17 +135,23 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
     ![][11]
 
-5.  **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC**를 클릭한 다음 **확인**을 클릭합니다.
+5.  **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC**를 클릭합니다.
 
     ![][12]
 
-6.  **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** 또는 **라이브러리 패키지 참조 추가**를 클릭합니다.
+6. **새 ASP.NET 프로젝트** 대화 상자에서 **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
 
-7.  대화 상자의 왼쪽에서 **온라인**을 선택합니다. “**서비스 버스**"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. 그런 다음 설치를 완료하고 이 대화 상자를 닫습니다.
+	![][16]
+
+7. **새 ASP.NET 프로젝트** 대화 상자로 돌아와서 **확인**을 클릭하여 프로젝트를 만듭니다.
+
+6.  **FrontendWebRole** 프로젝트의 **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+
+7.  **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
     ![][13]
 
-8.  이제 필요한 클라이언트 어셈블리가 참조되고 몇 가지 새 코드 파일이 추가되었습니다.
+	이제 필요한 클라이언트 어셈블리가 참조되고 몇 가지 새 코드 파일이 추가되었습니다.
 
 9.  **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에 **OnlineOrder.cs** 이름을 입력합니다. 그런 다음 **추가**를 클릭합니다.
 
@@ -167,75 +161,81 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 1.  Visual Studio의 OnlineOrder.cs 파일에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다.
 
-        namespace FrontendWebRole.Models
-        {
-            public class OnlineOrder
-            {
-                public string Customer { get; set; }
-                public string Product { get; set; }
-            }
-        }
+	```
+	namespace FrontendWebRole.Models
+	{
+	    public class OnlineOrder
+	    {
+	        public string Customer { get; set; }
+	        public string Product { get; set; }
+	    }
+	}
+	```
 
 2.  **솔루션 탐색기**에서 **Controllers\\HomeController.cs**를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 서비스 버스뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
 
-        using FrontendWebRole.Models;
-        using Microsoft.ServiceBus.Messaging;
-        using Microsoft.ServiceBus;
+	```
+	using FrontendWebRole.Models;
+	using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	```
 
 3.  또한 Visual Studio의 HomeController.cs 파일에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드에는 큐에 대한 항목 제출을 처리하는 메서드가 포함되어 있습니다.
 
-        namespace FrontendWebRole.Controllers
-        {
-            public class HomeController : Controller
-            {
-                public ActionResult Index()
-                {
-                    // Simply redirect to Submit, since Submit will serve as the
-                    // front page of this application.
-                    return RedirectToAction("Submit");
-                }
-
-                public ActionResult About()
-                {
-                    return View();
-                }
-
-                // GET: /Home/Submit.
-                // Controller method for a view you will create for the submission
-                // form.
-                public ActionResult Submit()
-                {
-                    // Will put code for displaying queue message count here.
-
-                    return View();
-                }
-
-                // POST: /Home/Submit.
-                // Controller method for handling submissions from the submission
-                // form.
-                [HttpPost]
-				// Attribute to help prevent cross-site scripting attacks and
-				// cross-site request forgery.  
-    			[ValidateAntiForgeryToken]
-                public ActionResult Submit(OnlineOrder order)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        // Will put code for submitting to queue here.
-
-                        return RedirectToAction("Submit");
-                    }
-                    else
-                    {
-                        return View(order);
-                    }
-                }
-            }
-        }
+	```
+	namespace FrontendWebRole.Controllers
+	{
+	    public class HomeController : Controller
+	    {
+	        public ActionResult Index()
+	        {
+	            // Simply redirect to Submit, since Submit will serve as the
+	            // front page of this application.
+	            return RedirectToAction("Submit");
+	        }
+	
+	        public ActionResult About()
+	        {
+	            return View();
+	        }
+	
+	        // GET: /Home/Submit.
+	        // Controller method for a view you will create for the submission
+	        // form.
+	        public ActionResult Submit()
+	        {
+	            // Will put code for displaying queue message count here.
+	
+	            return View();
+	        }
+	
+	        // POST: /Home/Submit.
+	        // Controller method for handling submissions from the submission
+	        // form.
+	        [HttpPost]
+			// Attribute to help prevent cross-site scripting attacks and
+			// cross-site request forgery.  
+			[ValidateAntiForgeryToken]
+	        public ActionResult Submit(OnlineOrder order)
+	        {
+	            if (ModelState.IsValid)
+	            {
+	                // Will put code for submitting to queue here.
+	
+	                return RedirectToAction("Submit");
+	            }
+	            else
+	            {
+	                return View(order);
+	            }
+	        }
+	    }
+	}
+	```
 
 4.  **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지의 작업에 대한 정확성을 테스트합니다.
 
-5.  이제 위에서 만든 **Submit()** 메서드에 대한 보기를 만듭니다. **Submit()** 메서드 내부를 마우스 오른쪽 단추로 클릭하고 **보기 추가**를 선택합니다.
+5.  이제 위에서 만든 `Submit()` 메서드에 대한 보기를 만듭니다. `Submit()` 메서드(매개 변수를 사용하지 않는 `Submit()`의 오버로드) 내에서 마우스 오른쪽 단추로 클릭한 다음 **보기 추가**를 선택합니다.
 
     ![][14]
 
@@ -253,9 +253,11 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 	![][28]
 
-11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\\Home\\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;h2>Submit&lt;/h2>** 뒤에 다음 줄을 추가합니다. 지금은 **ViewBag.MessageCount**가 비어 있습니다. 나중에 채웁니다.
+11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\\Home\\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<h2>Submit</h2>` 뒤에 다음 줄을 추가합니다. 이제 `ViewBag.MessageCount`은(는) 비어 있습니다. 나중에 채웁니다.
 
-        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+	```
+	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+	```
 
 12. 이제 UI를 구현했습니다. **F5** 키를 눌러 응용 프로그램을 실행하고 예상대로 나타나는지 확인할 수 있습니다.
 
@@ -267,154 +269,125 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 1.  **솔루션 탐색기**에서 **FrontendWebRole**을 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **클래스**를 클릭합니다.
 
-2.  클래스 이름을 QueueConnector.cs로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
+2.  클래스 이름을 **QueueConnector.cs**로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
 
-3.  이제 연결 정보를 캡슐화하고 서비스 버스 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs에서 다음 코드를 추가하고 **Namespace**(서비스 네임스페이스) 및 **yourKey**(이전에 [Azure 클래식 포털][]에서 얻은 SAS 키) 값을 입력합니다.
+3.  이제 연결 정보를 캡슐화하고 서비스 버스 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs의 전체 내용을 다음 코드로 바꾸고 `your Service Bus namespace`(네임스페이스 이름) 및 `yourKey`의 값을 입력합니다. 이는 “서비스 버스 네임스페이스 만들기" 섹션 12단계의 [Azure 클래식 포털][]에서 이전에 가져온 **기본 키**입니다.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Web;
-        using Microsoft.ServiceBus.Messaging;
-        using Microsoft.ServiceBus;
-
-        namespace FrontendWebRole
-        {
-            public static class QueueConnector
-            {
-                // Thread-safe. Recommended that you cache rather than recreating it
-                // on every request.
-                public static QueueClient OrdersQueueClient;
-
-                // Obtain these values from the portal.
-                public const string Namespace = "your service bus namespace";
-
-                // The name of your queue.
-                public const string QueueName = "OrdersQueue";
-
-                public static NamespaceManager CreateNamespaceManager()
-                {
-                    // Create the namespace manager which gives you access to
-                    // management operations.
-                    var uri = ServiceBusEnvironment.CreateServiceUri(
-                        "sb", Namespace, String.Empty);
-                    var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                        "RootManageSharedAccessKey", "yourKey");
-                    return new NamespaceManager(uri, tP);
-                }
-
-                public static void Initialize()
-                {
-                    // Using Http to be friendly with outbound firewalls.
-                    ServiceBusEnvironment.SystemConnectivity.Mode =
-                        ConnectivityMode.Http;
-
-                    // Create the namespace manager which gives you access to
-                    // management operations.
-                    var namespaceManager = CreateNamespaceManager();
-
-                    // Create the queue if it does not exist already.
-                    if (!namespaceManager.QueueExists(QueueName))
-                    {
-                        namespaceManager.CreateQueue(QueueName);
-                    }
-
-                    // Get a client to the queue.
-                    var messagingFactory = MessagingFactory.Create(
-                        namespaceManager.Address,
-                        namespaceManager.Settings.TokenProvider);
-                    OrdersQueueClient = messagingFactory.CreateQueueClient(
-                        "OrdersQueue");
-                }
-            }
-        }
-
-    이 자습서의 뒷부분에서 **네임스페이스** 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아봅니다.
+	```
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	
+	namespace FrontendWebRole
+	{
+	    public static class QueueConnector
+	    {
+	        // Thread-safe. Recommended that you cache rather than recreating it
+	        // on every request.
+	        public static QueueClient OrdersQueueClient;
+	
+	        // Obtain these values from the portal.
+	        public const string Namespace = "your Service Bus namespace";
+	
+	        // The name of your queue.
+	        public const string QueueName = "OrdersQueue";
+	
+	        public static NamespaceManager CreateNamespaceManager()
+	        {
+	            // Create the namespace manager which gives you access to
+	            // management operations.
+	            var uri = ServiceBusEnvironment.CreateServiceUri(
+	                "sb", Namespace, String.Empty);
+	            var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+	                "RootManageSharedAccessKey", "yourKey");
+	            return new NamespaceManager(uri, tP);
+	        }
+	
+	        public static void Initialize()
+	        {
+	            // Using Http to be friendly with outbound firewalls.
+	            ServiceBusEnvironment.SystemConnectivity.Mode =
+	                ConnectivityMode.Http;
+	
+	            // Create the namespace manager which gives you access to
+	            // management operations.
+	            var namespaceManager = CreateNamespaceManager();
+	
+	            // Create the queue if it does not exist already.
+	            if (!namespaceManager.QueueExists(QueueName))
+	            {
+	                namespaceManager.CreateQueue(QueueName);
+	            }
+	
+	            // Get a client to the queue.
+	            var messagingFactory = MessagingFactory.Create(
+	                namespaceManager.Address,
+	                namespaceManager.Settings.TokenProvider);
+	            OrdersQueueClient = messagingFactory.CreateQueueClient(
+	                "OrdersQueue");
+	        }
+	    }
+	}
+	```
 
 4.  이제 **Initialize** 메서드가 호출되는지 확인합니다. **솔루션 탐색기**에서 **Global.asax\\Global.asax.cs**를 두 번 클릭합니다.
 
-5.  **Application\_Start** 메서드 맨 아래에 다음 줄을 추가합니다.
+5.  다음 코드 줄을 **Application\_Start** 메서드의 끝에 추가합니다.
 
-        FrontendWebRole.QueueConnector.Initialize();
+	```
+	FrontendWebRole.QueueConnector.Initialize();
+	```
 
 6.  끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서 **Controllers\\HomeController.cs**를 두 번 클릭합니다.
 
-7.  **Submit()** 메서드를 다음과 같이 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
+7.  다음과 같이 `Submit()` 메서드(매개 변수를 사용하지 않는 오버로드)를 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
 
-        public ActionResult Submit()
-        {
-            // Get a NamespaceManager which allows you to perform management and
-            // diagnostic operations on your Service Bus queues.
-            var namespaceManager = QueueConnector.CreateNamespaceManager();
+	```
+	public ActionResult Submit()
+	{
+	    // Get a NamespaceManager which allows you to perform management and
+	    // diagnostic operations on your Service Bus queues.
+	    var namespaceManager = QueueConnector.CreateNamespaceManager();
+	
+	    // Get the queue, and obtain the message count.
+	    var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+	    ViewBag.MessageCount = queue.MessageCount;
+	
+	    return View();
+	}
+	```
 
-            // Get the queue, and obtain the message count.
-            var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-            ViewBag.MessageCount = queue.MessageCount;
+8.  다음과 같이 `Submit(OnlineOrder order)` 메서드(하나의 매개 변수를 사용하는 오버로드)를 업데이트하여 큐에 주문 정보를 제출합니다.
 
-            return View();
-        }
-
-8.  **Submit(OnlineOrder order)** 메서드를 다음과 같이 업데이트하여 주문 정보를 큐에 제출합니다.
-
-        public ActionResult Submit(OnlineOrder order)
-        {
-            if (ModelState.IsValid)
-            {
-                // Create a message from the order.
-                var message = new BrokeredMessage(order);
-
-                // Submit the order.
-                QueueConnector.OrdersQueueClient.Send(message);
-                return RedirectToAction("Submit");
-            }
-            else
-            {
-                return View(order);
-            }
-        }
+	```
+	public ActionResult Submit(OnlineOrder order)
+	{
+	    if (ModelState.IsValid)
+	    {
+	        // Create a message from the order.
+	        var message = new BrokeredMessage(order);
+	
+	        // Submit the order.
+	        QueueConnector.OrdersQueueClient.Send(message);
+	        return RedirectToAction("Submit");
+	    }
+	    else
+	    {
+	        return View(order);
+	    }
+	}
+	```
 
 9.  이제 응용 프로그램을 다시 실행할 수 있습니다. 주문을 제출할 때마다 메시지 수가 증가합니다.
 
     ![][18]
 
-## 클라우드 구성 관리자
-
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] 클래스의 [GetSetting][] 메서드를 사용하여 플랫폼의 구성 저장소에서 구성 설정을 읽을 수 있습니다. 예를 들어 코드가 웹 또는 작업자 역할에서 실행되는 경우 [GetSetting][] 메서드는 ServiceConfiguration.cscfg 파일을 읽고, 코드가 표준 콘솔 앱에서 실행되는 경우 [GetSetting][] 메서드는 app.config 파일을 읽습니다.
-
-서비스 버스 네임스페이스에 대한 연결 문자열을 구성 파일에 저장한 경우 [GetSetting][] 메서드를 사용하여 [NamespaceMananger][] 개체를 인스턴스화하는 데 사용할 수 있는 연결 문자열을 읽을 수 있습니다. [NamespaceMananger][] 인스턴스를 사용하여 서비스 버스 네임스페이스를 프로그래밍 방식으로 구성할 수 있습니다. 동일한 연결 문자열을 사용하여 메시지 보내기 및 받기와 같은 런타임 작업을 수행하는 데 사용할 수 있는 클라이언트 개체(예: [QueueClient][], [TopicClient][] 및 [EventHubClient][] 개체)를 인스턴스화할 수 있습니다.
-
-### 연결 문자열
-
-클라이언트(예: 서비스 버스 [QueueClient][])를 인스턴스화하려면 구성 정보를 연결 문자열로 나타낼 수 있습니다. 클라이언트 쪽에는 해당 연결 문자열을 사용하여 해당 클라이언트 유형을 인스턴스화하는 `CreateFromConnectionString()` 메서드가 있습니다. 예를 들어 다음과 같은 구성 섹션에서
-
-	<ConfigurationSettings>
-    ...
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
-	</ConfigurationSettings>
-
-다음 코드는 연결 문자열을 검색하고, 큐를 만들며, 큐에 대한 연결을 초기화합니다.
-
-	QueueClient Client;
-
-	string connectionString =
-     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-    var namespaceManager =
-     NamespaceManager.CreateFromConnectionString(connectionString);
-
-	if (!namespaceManager.QueueExists(QueueName))
-    {
-        namespaceManager.CreateQueue(QueueName);
-    }
-
-	// Initialize the connection to Service Bus queue.
-	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
-
-다음 섹션의 코드에서는 [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] 클래스를 사용합니다.
-
 ## 작업자 역할 만들기
 
-이제 주문 제출을 처리하는 작업자 역할을 만듭니다. 이 예제에서는 **Worker Role with Service Bus Queue** Visual Studio 프로젝트 템플릿을 사용합니다. 먼저 Visual Studio의 서버 탐색기를 사용하여 필요한 자격 증명을 얻습니다.
+이제 주문 제출을 처리하는 작업자 역할을 만듭니다. 이 예제에서는 **Worker Role with Service Bus Queue** Visual Studio 프로젝트 템플릿을 사용합니다. 포털에서 필요한 자격 증명을 이미 가져왔습니다.
 
 1. Visual Studio를 Azure 계정에 연결해야 합니다.
 
@@ -430,9 +403,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 5.  **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음 **추가**를 클릭합니다.
 
-6.  **서버 탐색기**에서 서비스 네임스페이스 이름을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. Visual Studio **속성** 창의 첫 번째 항목에는 필요한 권한 부여 자격 증명을 포함하는 네임스페이스 끝점으로 채워지는 연결 문자열이 포함됩니다. 예를 들어, 다음 스크린샷이 있습니다. **ConnectionString**을 두 번 클릭한 다음 **Ctrl+C**를 눌러 이 문자열을 클립보드에 복사합니다.
-
-	![][24]
+6.  "서비스 버스 네임스페이스 만들기" 섹션의 9단계에서 얻은 연결 문자열을 클립보드에 복사합니다.
 
 7.  **솔루션 탐색기**에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할** 아래의 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. 그런 다음 **속성**을 클릭합니다.
 
@@ -440,26 +411,32 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 	![][25]
 
-9.  **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기**에서 **OrderProcessingRole** 프로젝트를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
+9.  **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기**에서 **OrderProcessingRole** 클래스를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 클래스 아이콘을 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
 
 10. **FrontendWebRole\\Models**의 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
 
-11. **WorkerRole.cs**에서 다음 코드와 같이, **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
+11. **WorkerRole.cs**에서 다음 코드와 같이 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`(으)로 변경합니다.
 
-		// The name of your queue.
-		const string QueueName = "OrdersQueue";
+	```
+	// The name of your queue.
+	const string QueueName = "OrdersQueue";
+	```
 
 12. WorkerRole.cs 파일 맨 위에 다음 using 문을 추가합니다.
 
-		using FrontendWebRole.Models;
+	```
+	using FrontendWebRole.Models;
+	```
 
-13. `OnMessage` 호출 내의 `Run()` 함수에서 `try` 절 내에 다음 코드를 추가합니다.
+13. `Run()` 함수의 `OnMessage()` 호출 내에서 `try` 절의 내용을 다음 코드로 바꿉니다.
 
-		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-		// View the message as an OnlineOrder.
-		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-		receivedMessage.Complete();
+	```
+	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+	// View the message as an OnlineOrder.
+	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+	receivedMessage.Complete();
+	```
 
 14. 응용 프로그램을 완성했습니다. 솔루션 탐색기에서 MultiTierApp 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택한 후 F5 키를 눌러 전체 응용 프로그램을 테스트할 수 있습니다. 작업자 역할에서 큐의 항목을 처리하고 완료로 표시하므로 메시지 수가 증가하지 않습니다. Azure 계산 에뮬레이터 UI를 표시하여 작업자 역할의 추적 출력을 확인할 수 있습니다. 이 작업은 작업 표시줄의 알림 영역에 있는 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 **Show Compute Emulator UI**를 선택하여 수행할 수 있습니다.
 
@@ -481,10 +458,8 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [도구 및 SDK 얻기]: http://go.microsoft.com/fwlink/?LinkId=271920
-  [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
+  [도구 및 SDK 가져오기]: http://go.microsoft.com/fwlink/?LinkId=271920
 
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -500,7 +475,6 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
   [Azure 클래식 포털]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
-  [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -508,27 +482,23 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
   [13]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
   [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
   [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
-  [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
+  [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
   [17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
   [18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
 
   [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
   [23]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
-  [24]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
-  [27]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
-  [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-  [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
+
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

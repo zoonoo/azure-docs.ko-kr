@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열에 업데이트 0.1 설치
@@ -87,7 +87,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3160441**)를 입력하고 **검색**을 클릭합니다.
 
-    핫픽스 목록(예: **Microsoft Azure StorSimple 가상 배열 업데이트 0.1**)이 나타납니다.
+    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 0.1**)이 나타납니다.
 
     ![카탈로그 검색](./media/storsimple-ova-install-update-01/download1.png)
 
@@ -128,4 +128,4 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

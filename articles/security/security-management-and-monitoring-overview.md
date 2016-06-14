@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 관리 및 모니터링 개요
@@ -28,7 +28,7 @@ Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파�
 
 ![공동 책임][1]
 
-보안 관리에 더 자세히 알아 보려면 [Azure의 보안 관리](../azure-security-management.md)를 참조하세요.
+보안 관리에 대해 더 자세히 알아보려면 [Azure의 보안 관리](azure-security-management.md)를 참조하세요.
 
 다음은 이 문서에서 다루고 있는 핵심 기능입니다.
 
@@ -134,4 +134,4 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

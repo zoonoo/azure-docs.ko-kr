@@ -99,7 +99,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 <!--Article references-->
 [SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-develop-connections.md
-[SQL 데이터베이스 감사 시작]: sql-database-auditing-get-started.md
+[SQL 데이터베이스 감사 시작]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 방화벽]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -113,4 +113,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

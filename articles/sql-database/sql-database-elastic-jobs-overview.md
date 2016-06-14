@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
-	ms.author="ddove;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="ddove" />
 
 # 규모가 확장된 클라우드 데이터베이스 관리
 
@@ -152,4 +152,4 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

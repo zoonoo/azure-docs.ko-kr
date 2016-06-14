@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/26/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # StorSimple 하드웨어 구성 요소 교체
@@ -142,4 +142,4 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md)를 검토하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

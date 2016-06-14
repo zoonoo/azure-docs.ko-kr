@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Azure 저장소 보안 개요
@@ -28,7 +28,7 @@ Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요
 
 이 문서에서는 Azure 저장소에서 사용할 수 있는 이러한 각 핵심 보안 기능에 대해 간략히 설명합니다. 문서에는 각 기능에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
 
-Azure 저장소의 보안에 대해 보다 자세히 알아보려면 [Azure 저장소 보안 가이드](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md)를 참조하세요.
+Azure 저장소의 보안에 대해 보다 자세히 알아보려면 [Azure 저장소 보안 가이드](../storage/storage-security-guide.md)를 참조하세요.
 
 다음은 이 문서에서 다루고 있는 핵심 기능입니다.
 
@@ -160,4 +160,4 @@ VM에 대한 디스크 암호화는 Linux 및 Windows 운영 체제에 적합합
 - [Azure 포털에서 저장소 계정 모니터링](../storage/storage-monitor-storage-account.md)
 - [Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결](../storage/storage-e2e-troubleshooting.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

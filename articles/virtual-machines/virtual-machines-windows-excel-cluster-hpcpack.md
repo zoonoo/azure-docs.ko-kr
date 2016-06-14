@@ -1,6 +1,6 @@
 <properties
  pageTitle="Excel 및 SOA를 위한 HPC 팩 클러스터 | Microsoft Azure"
- description="Azure에서 HPC Pack 클러스터를 시작하여 대규모 Excel 및 SOA 워크로드 실행 "
+ description="Azure의 HPC Pack 클러스터에서 대규모 Excel 및 SOA 워크로드 실행 시작"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/19/2016"
+ ms.date="05/25/2016"
  ms.author="danlep"/>
 
 # Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작
@@ -382,4 +382,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

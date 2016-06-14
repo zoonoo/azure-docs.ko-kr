@@ -12,7 +12,11 @@
    	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
 
-4. 프로젝트 대시보드의 **모바일 API**에서 **Google Cloud Messaging**를 클릭하고 다음 페이지에서 **사용**을 클릭합니다.
+4. 프로젝트 대시보드의 **모바일 API**에서 **Google Cloud Messaging**를 클릭하고 다음 페이지에서 **Enable API**를 클릭하고 서비스 약관에 동의합니다.
+
+	![GCM 사용 설정](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+
+	![GCM 사용 설정](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png)
 
 5. 프로젝트 대시보드에서 **자격 증명** > **자격 증명 만들기** > **API 키**를 클릭합니다.
 
@@ -24,4 +28,4 @@
 
 	이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

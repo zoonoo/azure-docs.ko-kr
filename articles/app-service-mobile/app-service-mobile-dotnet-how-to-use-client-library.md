@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/25/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
 
 ##개요
 
-이 가이드에서는 Windows 및 Xamarin 앱용 Azure 앱 서비스 모바일 앱에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. 모바일 앱에 대한 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 서버 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 또는 [Node.js 서버 SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md)에 대한 사용 방법 설명서를 참조하세요.
+이 가이드에서는 Windows 및 Xamarin 앱용 Azure 앱 서비스 모바일 앱에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. 모바일 앱에 대한 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 서버 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 또는 [Node.js 서버 SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md)에 대한 설명서를 참조하세요.
 
 ## 참조 설명서
 
@@ -448,48 +447,142 @@ Azure 모바일 앱은 기본적으로 요청당 최대 50개의 항목을 반�
 
 모바일 앱은 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [앱에 인증 추가] 자습서를 참조하세요.
 
-두 가지의 인증 흐름, 즉 _서버 흐름_과 _클라이언트 흐름_이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 장치 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
+_클라이언트 관리_ 및 _서버 관리_ 흐름의 두 가지 인증 흐름이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 장치 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
 
-두 경우에서 앱을 ID 공급자에 등록해야 합니다. ID 공급자는 클라이언트 ID 및 클라이언트 암호를 제공합니다. 그런 다음 ID 공급자가 제공한 클라이언트 ID 및 클라이언트 암호로 Azure 앱 서비스 인증 / 권한 부여를 구성해야 합니다. 자세한 내용은 [앱에 인증 추가] 자습서의 자세한 지침을 따르세요.
+>[AZURE.NOTE] 프로덕션 앱에서 클라이언트 관리 흐름을 사용하는 것이 좋습니다.
 
-###<a name="serverflow"></a>서버 흐름
-ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient.[LoginAsync 메서드]를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+인증을 설정하려면 하나 이상의 ID 공급자로 앱을 등록해야 합니다. ID 공급자는 해당 ID 공급자를 사용하여 Azure 앱 서비스 인증/권한 부여를 활성화할 수 있도록 백 엔드에 설정되는 앱에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 자세한 내용은 [앱에 인증 추가] 자습서의 자세한 지침을 따르세요.
 
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
+이 섹션에서 다루는 항목은 다음과 같습니다.
 
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
++ [클라이언트 관리 인증](#client-flow)
++ [서버 관리 인증](#serverflow)
++ [인증 토큰 캐시](#caching)
 
-Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
+###<a name="client-flow"></a>클라이언트 관리 인증
 
-서버 흐름에서 Azure 앱 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 앱 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드]는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
+앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 백 엔드로 로그인하는 동안 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다. UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 서버 흐름 사용을 선호할 수 있습니다.
 
-###<a name="client-flow"></a>클라이언트 흐름
+다음 클라이언트 흐름 인증 패턴에 대한 예제가 제공됩니다.
 
-앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 앱 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
++ [Active Directory 인증 라이브러리](#adal)
++ [Facebook 또는 Google](#client-facebook)
++ [Live SDK](#client-livesdk)
 
-####Facebook 또는 Google의 토큰을 사용한 단일 로그인
+#### <a name="adal"></a>Active Directory 인증 라이브러리를 사용하여 사용자 인증
 
-가장 간소화된 형태로, 다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
+Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 인증을 시작하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다.
+
+1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
+
+2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
+
+3. 사용하는 플랫폼에 따라 응용 프로그램에 아래 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
+
+	* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
+	
+	* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
+	
+	* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+	
+	* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+	
+	각 플랫폼에 필요한 코드는 다음과 같습니다.
+	
+	**Windows:**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        while (user == null)
+	        {
+	            string message;
+	            try
+	            {
+	                AuthenticationContext ac = new AuthenticationContext(authority);
+	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+						new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+	                JObject payload = new JObject();
+	                payload["access_token"] = ar.AccessToken;
+	                user = await App.MobileService.LoginAsync(
+						MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	                message = string.Format("You are now logged in - {0}", user.UserId);
+	            }
+	            catch (InvalidOperationException)
+	            {
+	                message = "You must log in. Login Required";
+	            }
+	            var dialog = new MessageDialog(message);
+	            dialog.Commands.Add(new UICommand("OK"));
+	            await dialog.ShowAsync();
+	        }
+	    }
+	
+	**Xamarin.iOS**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync(UIViewController view)
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(view));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+	        }
+	    }
+	
+	**Xamarin.Android**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(this));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	            builder.SetMessage(ex.Message);
+	            builder.SetTitle("You must log in. Login Required");
+	            builder.Create().Show();
+	        }
+	    }
+	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+	    {
+	        base.OnActivityResult(requestCode, resultCode, data);
+	        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+	    }
+
+####<a name="client-facebook"></a>Facebook 또는 Google의 토큰을 사용한 단일 로그인
+
+다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
 
 	var token = new JObject();
 	// Replace access_token_value with actual value of your access token obtained
@@ -520,7 +613,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 		}
 	}
 
-####Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
+####<a name="client-livesdk"></a>Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
 
 사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 그런 다음 모바일 앱 백 엔드와 이 등록을 연결해야 합니다. [Microsoft 계정 로그인을 사용하도록 앱 등록]의 단계를 완료하여 Microsoft 계정 등록을 만들고 모바일 앱 백 엔드에 연결합니다. Windows 스토어 및 Windows Phone 8/Silverlight 버전의 앱이 둘 다 있는 경우 Windows 스토어 버전을 먼저 등록합니다.
 
@@ -575,143 +668,81 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 
 [Windows Live SDK]에 대한 자세한 내용은 설명서를 참조하세요.
 
+###<a name="serverflow"></a>서버 관리 인증
+ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 [MobileServiceClient]의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+
+	private MobileServiceUser user;
+	private async System.Threading.Tasks.Task Authenticate()
+	{
+		while (user == null)
+		{
+			string message;
+			try
+			{
+				user = await client
+					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+				message =
+					string.Format("You are now logged in - {0}", user.UserId);
+			}
+			catch (InvalidOperationException)
+			{
+				message = "You must log in. Login Required";
+			}
+
+			var dialog = new MessageDialog(message);
+			dialog.Commands.Add(new UICommand("OK"));
+			await dialog.ShowAsync();
+		}
+	}
+
+Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
+
+서버 흐름에서 Azure 앱 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 앱 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync] 메서드는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
+
 ###<a name="caching"></a>인증 토큰 캐시
-일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. Windows 스토어 앱용 [PasswordVault]를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있는 경우에도 사용자가 로그인 프로세스를 거치도록 해야 합니다.
 
-	// After logging in
+경우에 따라 클라이언트 흐름을 사용하는 경우 인증 토큰 및 공급자의 액세스 토큰을 저장하여 첫 번째 성공적인 인증 후 login 메서드에 대한 호출을 방지할 수 있습니다.
+
+Windows 스토어 및 UWP 앱은[PasswordVault]를 사용하여 다음과 같이 성공적인 로그인 후 현재 인증 토큰을 캐시할 수 있습니다.
+
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
+
 	PasswordVault vault = new PasswordVault();
-	vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
+	vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId, 
+		client.currentUser.MobileServiceAuthenticationToken));
 
-	// Log in
+UserId 값은 자격 증명의 사용자 이름으로 저장되며 토큰은 암호로 저장됩니다. 이후 시작 시 캐시된 자격 증명에 대한 **PasswordVault**를 확인할 수 있습니다. 다음 예제는 검색될 때 캐시된 자격 증명을 사용하고 그렇지 않으면 백 엔드로 인증을 다시 시도합니다.
+
+	// Try to retrieve stored credentials.
 	var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 	if (creds != null)
 	{
-		user = new MobileServiceUser(creds.UserName);
-		user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
+		// Create the current user from the stored credentials.
+		client.currentUser = new MobileServiceUser(creds.UserName);
+		client.currentUser.MobileServiceAuthenticationToken = 
+			vault.Retrieve("Facebook", creds.UserName).Password;
 	}
 	else
 	{
-		// Regular login flow
-		user = new MobileServiceuser( await client
-			.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-		var token = new JObject();
-		// Replace access_token_value with actual value of your access token
-		token.Add("access_token", "access_token_value");
+		// Regular login flow and cache the token as shown above.
 	}
 
-	 // Log out
+사용자를 로그아웃할 때 다음과 같이 저장된 자격 증명도 삭제해야 합니다.
+
 	client.Logout();
-	vault.Remove(vault.Retrieve("Facebook", user.UserId));
+	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
+Xamarin 앱은 [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) API를 사용하여 **Account** 개체에 자격 증명을 안전하게 저장합니다. 이러한 API 사용의 예제는 [ContosoMoments 사진 공유 샘플](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev)에서 [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) 코드 파일을 참조하세요.
 
-Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터를 암호화 및 캐시하고 격리된 저장소에 중요 정보를 저장할 수 있습니다.
+클라이언트 관리 인증을 사용하는 경우 Facebook 또는 Twitter와 같은 공급자로부터 얻은 액세스 토큰을 캐시할 수도 있습니다. 다음과 같이 백 엔드에서 새 인증 토큰을 요청하기 위해 이 토큰을 제공할 수 있습니다.
 
--->
+	var token = new JObject();
+	// Replace <your_access_token_value> with actual value of your access token
+	token.Add("access_token", "<your_access_token_value>");
 
-### <a name="adal"></a>Active Directory 인증 라이브러리를 사용하여 사용자 인증
+	// Authenticate using the access token.
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
-
-1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
-
-2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
-
-3. 사용하는 플랫폼에 따라 응용 프로그램에 아래 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
-
-* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
-
-* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
-
-* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-
-* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
-
-각 플랫폼에 필요한 코드는 다음과 같습니다.
-
-**Windows:**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        while (user == null)
-        {
-            string message;
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                message = string.Format("You are now logged in - {0}", user.UserId);
-            }
-            catch (InvalidOperationException)
-            {
-                message = "You must log in. Login Required";
-            }
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-    }
-
-**Xamarin.iOS**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-        }
-    }
-
-**Xamarin.Android**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(ex.Message);
-            builder.SetTitle("You must log in. Login Required");
-            builder.Create().Show();
-        }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
-        base.OnActivityResult(requestCode, resultCode, data);
-        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
 
 ##<a name="pushnotifications">푸시 알림
 
@@ -923,4 +954,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

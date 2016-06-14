@@ -3,8 +3,8 @@
 	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	documentationCenter="php"
 	services="storage"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-    ms.date="04/29/2016"
-	ms.author="robmcm"/>
+    	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 # PHP에서 Blob 저장소를 사용하는 방법
 
@@ -49,9 +49,9 @@ Azure Blob 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 Azure용 PHP 클라이언트 라이브러리를 작성기를 통해 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
+> [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 Azure용 PHP 클라이언트 라이브러리를 작성기를 통해 설치했다고 가정합니다. 라이브러리를 수동으로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -79,7 +79,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 여기에 설명된 예제의 경우 연결 문자열이 직접 전달됩니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -94,9 +94,9 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Blob\Models\CreateContainerOptions;
-	use WindowsAzure\Blob\Models\PublicAccessType;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+	use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -147,10 +147,10 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 
 파일을 Blob으로 업로드하려면 **BlobRestProxy->createBlockBlob** 메서드를 사용합니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 아래 코드 예제에서는 컨테이너가 이미 만들어졌고 [fopen][fopen]을 사용하여 파일을 스트림으로 연다고 가정합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -178,10 +178,10 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 
 컨테이너의 Blob을 나열하려면 **BlobRestProxy->listBlobs** 메서드를 **foreach** 루프와 함께 사용하여 결과를 반복합니다. 다음 코드는 컨테이너의 각 Blob 이름을 출력으로 표시하고 해당 URI를 브라우저에 표시합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -211,10 +211,10 @@ Blob 서비스 오류 코드에 대한 자세한 내용은 [Blob 서비스 오�
 
 Blob을 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 다음 결과 **GetBlobResult** 개체에서 **getContentStream** 메서드를 호출합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -240,10 +240,10 @@ Blob을 다운로드하려면 **BlobRestProxy->getBlob** 메서드를 호출한 
 
 Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->deleteBlob**에 전달합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -266,10 +266,10 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 
 마지막으로 Blob 컨테이너를 삭제하려면 컨테이너 이름을 **BlobRestProxy->deleteContainer**에 전달합니다.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -308,4 +308,4 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

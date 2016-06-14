@@ -3,7 +3,7 @@
    description="재활용이 중요한 가동 중지 시간을 갑작스럽게 발생시킬 수 있는 클라우드 서비스 역할입니다. 역할이 재활용되도록 하는 일반적인 문제는 다음과 같으며 이는 가동 중지를 줄이는 데 도움이 될 수 있습니다."
    services="cloud-services"
    documentationCenter=""
-   authors="dalechen"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/20/2016"
-   ms.author="daleche" />
+   ms.date="05/26/2016"
+   ms.author="v-six" />
 
 # 역할을 재활용하게 하는 일반적인 문제
 
@@ -82,4 +82,4 @@ SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [실행]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

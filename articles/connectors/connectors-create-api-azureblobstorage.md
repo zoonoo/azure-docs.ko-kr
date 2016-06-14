@@ -230,4 +230,4 @@ Azure Blob 저장소의 파일을 업데이트합니다. ```PUT: /datasets/defau
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->

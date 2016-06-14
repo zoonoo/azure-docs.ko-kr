@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="서비스 버스 조정된 메시징 REST 자습서 | Microsoft Azure"
-   description="조정된 메시징 REST 자습서"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 조정된 메시징 REST 자습서 | Microsoft Azure"
+    description="조정된 메시징 REST 자습서"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/15/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 조정된 메시징 REST 자습서
 
-이 자습서에서는 기본 REST 기반 Azure 서비스 버스 큐 및 항목/구독 서비스를 만드는 방법을 보여줍니다.
+이 자습서에서는 기본 REST 기반 Azure 서비스 버스 큐 및 항목/구독을 만드는 방법을 보여 줍니다.
 
 ## 1단계: 네임스페이스 만들기
 
 첫 단계는 서비스 네임스페이스를 만들고 [SAS(공유 액세스 서명)](service-bus-sas-overview.md) 키를 확보합니다. 서비스 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-### 네임 스페이스를 만들고 공유 비밀 키를 가져오기
+### 네임스페이스 만들기 및 SAS 키 얻기
 
 1. 서비스 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력한 다음 확인 표시를 클릭합니다.
 
@@ -186,17 +186,19 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
-    // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
+    // Create the URI of the new queue, note that this uses the HTTPS scheme
+    string queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
     Console.WriteLine("\nCreating queue {0}", queueAddress);
-    // Prepare the body of the create queue requestvar putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
-                                  <title type=""text"">" + queueName + @"</title>
-                                  <content type=""application/xml"">
-                                    <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
-                                  </content>
-                                </entry>";
+    // Prepare the body of the create queue request
+    var putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
+                          <title type=""text"">" + queueName + @"</title>
+                          <content type=""application/xml"">
+                            <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
+                          </content>
+                        </entry>";
 
     byte[] response = webClient.UploadData(queueAddress, "PUT", Encoding.UTF8.GetBytes(putData));
     return Encoding.UTF8.GetString(response);
@@ -633,4 +635,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

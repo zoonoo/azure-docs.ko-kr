@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/25/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="ddove"/>
 
 # Azure SQL 데이터베이스를 사용하여 규모 확장
 
@@ -109,4 +109,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

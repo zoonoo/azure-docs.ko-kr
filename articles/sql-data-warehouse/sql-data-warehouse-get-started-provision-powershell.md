@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="06/07/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -23,15 +23,15 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-### 필수 조건
+## 필수 조건
 시작하기 전에 다음과 같은 필수 조건을 갖추고 있는지 확인합니다.
 
-- 데이터베이스를 호스팅하는 A V12 Azure SQL 서버
-- SQL Server에 대한 리소스 그룹 이름을 알고 있습니다.
+- **Azure 계정**: [Azure 무료 평가판][] 또는 [MSDN Azure 크레딧][]을 참조하여 계정을 만듭니다.
+- **V12 Azure SQL Server**: [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][] 또는 [PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][]를 참조하세요.
+- **리소스 그룹 이름**: V12 Azure SQL 서버와 동일한 리소스 그룹을 사용하거나 [리소스 그룹][]을 참조하여 새 리소스 그룹을 만듭니다.
+- **PowerShell 버전 1.0.3 이상**: **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
 
-위의 필수 조건에 대한 자세한 내용은 [Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법][] 문서의 **서버 구성 및 만들기**를 참조하세요.
-
-> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
+> [AZURE.NOTE] 새 SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다. 가격에 대한 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.
 
 ## SQL 데이터 웨어하우스 데이터베이스 만들기
 1. Windows PowerShell을 엽니다.
@@ -47,7 +47,7 @@
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  데이터베이스를 만듭니다. 이 예제에서는 서비스 목표 수준이 "DW400”이고 이름이 "mynewsqldw"인 새 데이터베이스를 만들고, 리소스 그룹 "mywesteuroperesgp1"에 있는 이름이 "sqldwserver1"인 서버에 배치합니다. **참고: 새 SQL 데이터 웨어하우스 데이터베이스를 만들면 새로운 요금이 발생할 수 있습니다. 가격에 대한 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.**
+4.  데이터베이스를 만듭니다. 이 예제에서는 서비스 목표 수준이 "DW400”이고 이름이 "mynewsqldw"인 새 데이터베이스를 만들고, 리소스 그룹 "mywesteuroperesgp1"에 있는 이름이 "sqldwserver1"인 서버에 배치합니다.
 
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
@@ -71,14 +71,19 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 <!--Image references-->
 
 <!--Article references-->
+
 [마이그레이션]: sql-data-warehouse-overview-migrate.md
 [개발]: sql-data-warehouse-overview-develop.md
 [로드]: sql-data-warehouse-load-with-bcp.md
-[샘플 데이터를 로드]: sql-data-warehouse-get-started-manually-load-samples.md
+[샘플 데이터를 로드]: sql-data-warehouse-get-started-load-sample-databases.md
 [PowerShell cmdlet and REST API]: sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: sql-database-configure-firewall-settings.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
+
 [Azure PowerShell 설치 및 구성 방법]: ../powershell/powershell-install-configure.md
-[Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법]: sql-data-warehouse-get-started-provision.md
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[리소스 그룹]: ../azure-portal/resource-group-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -88,6 +93,7 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 <!--Other Web references-->
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 [SQL 데이터 웨어하우스 가격 책정]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
- 
+[Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

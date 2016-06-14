@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/25/2016"
+   ms.date="05/26/2016"
    ms.author="magoedte;tomfitz"/>
 
 # 리소스 관리자 공급자, 지역, API 버전 및 스키마
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
-모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
@@ -36,7 +35,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | Dynamics Lifecycle Services | 예 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | 서비스 패브릭(미리 보기) | 예 | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 가상 컴퓨터 | 예 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | - | - | 
 | 원격 앱 | 아니오 | - | - | 
 | 클라우드 서비스(클래식) | 제한됨(아래 참조) | - | - | - |
 
@@ -91,7 +90,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 데이터 레이크 저장소 | 예 | | | |
 | HDInsights | 예 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 스트림 분석 | 예 | [스트림 분석 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| 기계 학습 | 아니오 | - | - |
+| 기계 학습 | 아니오 | - | - | 
 | 데이터 카탈로그 | 아니오 | - | - |
 
 ## 사물 인터넷
@@ -134,7 +133,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 | 부여 | 리소스 관리자 사용 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------- | -------- | ------ | ------ |
-| 자동화 | 예 | [자동화 REST](https://azure.microsoft.com/documentation/articles/resource-manager-supported-services/) | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| 자동화 | 예 | [자동화 REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | 키 자격 증명 모음 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [키 자격 증명 모음](resource-manager-template-keyvault.md)<br />[키 자격 증명 모음 암호](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Operational Insights | 예 | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
 | 복구 서비스 | 예 | | | |
@@ -304,4 +303,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

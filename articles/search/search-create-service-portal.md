@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Azure 포털을 사용하여 Azure 검색 서비스 만들기
@@ -74,4 +74,4 @@ Azure 서비스인 Azure 검색은 전 세계 데이터 센터에서 호스팅�
 ## 다음
 Azure 검색 서비스를 프로비전한 후에 [Azure 검색 인덱스를 정의](search-what-is-an-index.md)할 준비가 되었으므로 데이터를 업로드하고 검색할 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

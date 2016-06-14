@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="06/01/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -469,4 +469,4 @@ Active Directory에 장치 개체를 만듭니다. 이러한 장치 개체는 Az
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

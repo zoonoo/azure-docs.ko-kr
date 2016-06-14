@@ -85,7 +85,7 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 | [기계 학습 스튜디오] 액세스 | 아니요 * | 예 |
 
 
-> [AZURE.NOTE] * Azure 구독 관리자는 작업 영역을 만들 때 자동으로 작업 영역 소유자가 되지만 작업 영역 소유자이므로 액세스 권한만 부여됩니다.
+> [AZURE.NOTE] * Azure 구독 관리자는 작업 영역 소유자 권한으로 만든 작업 영역에 자동으로 추가됩니다. 그러나 단순히 Azure 구독 관리자가 되었다고 해서 해당 구독의 모든 작업 영역에 대한 액세스 권한이 부여되는 것은 아닙니다.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -106,4 +106,4 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 [기계 학습 스튜디오]: https://studio.azureml.net/
 [Microsoft Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

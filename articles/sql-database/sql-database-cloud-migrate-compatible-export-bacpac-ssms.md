@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # SSMS를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내기
@@ -44,11 +44,20 @@
 
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
-## 다음 단계: BACPAC 파일에서 SQL 데이터베이스로 가져오기
 
-- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Azure 포털](sql-database-import.md)
-- [PowerShell](sql-database-import-powershell.md)
+## 다음 단계
 
-<!---HONumber=AcomDC_0413_2016-->
+- [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+- [SSMS을 사용하여 Azure SQL 데이터베이스로 BACPAC 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Azure SQL 데이터베이스 SqlPackage로 BACPAC 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Azure SQL 데이터베이스 Azure 포털로 BACPAC 가져오기](sql-database-import.md)
+- [Azure SQL 데이터베이스 PowerShell로 BACPAC 가져오기](sql-database-import-powershell.md)
+
+## 자세한 정보
+
+- [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+- [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
+- [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
 # Azure에 로그인하려고 할 때 내 신용 카드가 진행되지 않습니다.
@@ -31,7 +31,7 @@
 - 입력한 CVV 코드는 신용/직불 카드 앞면 또는 뒷면에 표시된 코드와 정확히 일치해야 합니다.
 
 ## Azure 무료 평가판을 활성화하려고 합니까?
-Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 번으로 제한됩니다. 이전에 무료 평가판을 활성화했거나, 과거에 Azure 구독이 있었지만 지금 무료 평가판을 활성화하려고 한다면, 시스템에서 진행이 허용되지 않습니다. 대신 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에 나열되어 있는 그 밖의 Azure 플랜 중 하나를 사용하세요.
+Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 번으로 제한됩니다. 이전에 이 신용 카드로 무료 평가판을 활성화했거나 과거에 이 신용 카드와 연결된 Azure 구독이 있었던 경우 시스템에서 무료 평가판 활성화를 허용하지 않습니다. 대신 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에 나열되어 있는 그 밖의 Azure 플랜 중 하나를 사용하세요.
 
 ## 신용 카드 또는 직불 카드 외에 다른 지불 옵션이 필요합니까?
 수표, 속달 수표(overnight checks), 전신 송금 같은 청구서 지불 방식을 통해 Azure 구독 비용을 지불할 수도 있습니다.
@@ -40,4 +40,4 @@ Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 
 
 청구서를 설정하는 프로세스를 시작하려면 [Azure 청구 - 청구 방법](https://azure.microsoft.com/pricing/invoicing/)에서 자세한 내용을 확인하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

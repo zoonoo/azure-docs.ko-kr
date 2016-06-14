@@ -235,7 +235,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 
 ## 실행
 
-축하합니다. 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능이 있는 .NET WPF 앱이 작동합니다. 두 프로젝트를 실행하고, 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인합니다. 작업을 사용자의 할 일 모음에 추가합니다.  다른 사용자의 할 일 목록을 보려면 로그아웃하고 해당 사용자로 다시 로그인합니다. 앱을 닫았다가 다시 실행합니다. 사용자의 세션이 원래 상태로 유지됩니다. 이는 앱이 로컬 파일의 토큰을 캐시하기 때문입니다.
+축하합니다. 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능이 있는 .NET WPF 앱이 작동합니다. 두 프로젝트를 실행하고, 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인합니다. 작업을 사용자의 할 일 모음에 추가합니다.  다른 사용자의 할 일 목록을 보려면 로그아웃하고 해당 사용자로 다시 로그인합니다. 앱을 닫았다가 다시 실행합니다. 사용자의 세션이 원래 상태로 유지됩니다. 이는 앱이 로컬 파일의 토큰을 캐시하기 때문입니다.
 
 ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽게 통합합니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireTokenAsync(...)`입니다.
 
@@ -249,6 +249,12 @@ ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 - [V2.0 끝점을 사용하여 TodoListService Web API 보안 유지 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-추가 리소스는 다음을 확인해보세요. - [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+추가 리소스는 다음을 확인해보세요.
+- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## 당사 제품에 대한 보안 업데이트 가져오기
+
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

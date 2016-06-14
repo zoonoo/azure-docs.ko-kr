@@ -159,6 +159,12 @@ Todo List Service가 작동하는 것을 보려면 먼저 v2.0 끝점에서 토�
 
 [웹앱에서 웹 API 호출 >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
-추가 리소스는 다음을 확인해보세요. - [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요.
+- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+## 당사 제품에 대한 보안 업데이트 가져오기
+
+[이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0601_2016-->

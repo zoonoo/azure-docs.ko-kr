@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""  
 	manager="jhubbard"
-	authors="sidneyh"/>
+	authors="SilviaDoomra"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/23/2016"
 	ms.author="SilviaDoomra" />
 
 # 확장된 클라우드 데이터베이스에서 보고(미리 보기)
@@ -145,4 +145,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -70,8 +70,7 @@
 
 **시뮬레이션된 데이터 생성**
 
-1. 로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
+1. 로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
 2.	응용 프로그램 ***CarEventGenerator.exe***를 실행합니다.
 3.	이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 이는 배포의 일부로 구성된 Azure 이벤트 허브 인스턴스에 배포됩니다.
 
@@ -84,8 +83,7 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 응용 프로그램을 다운로드하려면:
 
 1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 **실시간 대시보드 응용 프로그램 다운로드**’ 링크를 클릭합니다.![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2.	압축을 풀고 응용 프로그램을 로컬로 저장합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
+2.	압축을 풀고 응용 프로그램을 로컬로 저장합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
 
 3.	응용 프로그램 **RealtimeDashboardApp.exe**를 실행합니다.
 4.	유효한 Power BI 자격 증명을 제공하고 로그인한 후 **동의**를 클릭합니다.
@@ -123,24 +121,19 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 ### 1\. 운행 중인 차량
   
-**1페이지**를 두 번 클릭하고 “운행 중인 차량”으로 이름을 변경합니다.
-![연결된 자동차 - 운행 중인 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
+**1페이지**를 두 번 클릭하고 “운행 중인 차량”으로 이름을 변경합니다. ![연결된 자동차 - 운행 중인 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)
 
 **필드**에서 **vin**을 선택하고 시각화 형식을 **“카드”**로 선택합니다.
 
-카드 시각화는 그림에 나와 있는 것처럼 생성됩니다.
-![연결된 자동차 - vin 선택](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
+카드 시각화는 그림에 나와 있는 것처럼 생성됩니다. ![연결된 자동차 - vin 선택](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
-필드에서 **시/군/구** 및 **vin**을 선택합니다. 시각화를 **"맵"**으로 변경합니다. **vin**을 값 영역으로 끕니다. 필드에서 **시/군/구**를 **범례** 영역으로 끕니다.
-![연결된 자동차 - 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
+필드에서 **시/군/구** 및 **vin**을 선택합니다. 시각화를 **"맵"**으로 변경합니다. **vin**을 값 영역으로 끕니다. 필드에서 **시/군/구**를 **범례** 영역으로 끕니다. ![연결된 자동차 - 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
   
-**시각화**에서 **형식**을 선택하고 **제목**을 클릭한 다음 텍스트를 **“시/군/구별 운행 중인 차량”**으로 변경합니다.
-![연결된 자동차 - 도시별 운행 중인 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
+**시각화**에서 **형식**을 선택하고 **제목**을 클릭한 다음 텍스트를 **“시/군/구별 운행 중인 차량”**으로 변경합니다. ![연결된 자동차 - 도시별 운행 중인 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)
 
-최종 시각화는 그림과 같이 표시됩니다.
-![연결된 자동차 - 최종 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
+최종 시각화는 그림과 같이 표시됩니다. ![연결된 자동차 - 최종 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
@@ -150,19 +143,15 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 차트 **제목**을 **“시/군/구별 운행 중인 차량”**으로 변경합니다.
 
-**형식** 섹션을 클릭한 다음 **데이터 색**을 선택하고 **모두 표시**에 대한 **“켜기”**를 클릭합니다.
-![연결된 자동차 - 모든 데이터 색 표시](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
+**형식** 섹션을 클릭한 다음 **데이터 색**을 선택하고 **모두 표시**에 대한 **“켜기”**를 클릭합니다. ![연결된 자동차 - 모든 데이터 색 표시](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)
 
-색 아이콘을 클릭하여 개별 시/군/구의 색을 변경합니다.
-![연결된 자동차 - 색 변경](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
+색 아이콘을 클릭하여 개별 시/군/구의 색을 변경합니다. ![연결된 자동차 - 색 변경](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
-시각화에서 **묶은 세로 막대형 차트** 시각화를 선택하고 **시/군/구** 필드를 **축** 영역에, **모델**을 **범례** 영역에, **vin**을 **값** 영역으로 끕니다.
-![연결된 자동차 - 묶은 세로 막대형 차트](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![연결된 자동차 - 렌더링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
+시각화에서 **묶은 세로 막대형 차트** 시각화를 선택하고 **시/군/구** 필드를 **축** 영역에, **모델**을 **범례** 영역에, **vin**을 **값** 영역으로 끕니다. ![연결된 자동차 - 묶은 세로 막대형 차트](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png) ![연결된 자동차 - 렌더링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
   
-이 페이지의 모든 시각화를 페이지에 나와 있는 것처럼 다시 배열합니다.
-![연결된 자동차 - 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
+이 페이지의 모든 시각화를 페이지에 나와 있는 것처럼 다시 배열합니다. ![연결된 자동차 - 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
 "운행 중인 차량" 실시간 보고서를 성공적으로 구성했습니다. 다음 실시간 보고서를 계속 만들거나 여기서 작업을 중지하고 대시보드를 구성할 수 있습니다.
 
@@ -172,48 +161,38 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 ![연결된 자동차 - 유지보수가 필요한 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4l.png)
 
-**vin** 필드를 선택하고 시각화 유형을 **카드**로 변경합니다.
-![연결된 자동차 - Vin 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
+**vin** 필드를 선택하고 시각화 유형을 **카드**로 변경합니다. ![연결된 자동차 - Vin 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)
 
 데이터 집합에 “MaintenanceLabel”이라는 필드가 있습니다. 이 할당량 값은 “0” 또는 “1”일 수 있습니다. 솔루션의 일부로 프로비전된 Azure 기계 학습 모델에 의해 설정되고 실시간 경로와 통합됩니다. "1" 값은 유지보수가 필요한 차량을 의미합니다.
 
 유지보수가 필요한 차량 데이터를 표시하기 위해 **페이지 수준** 필터를 추가할 것입니다.
 
-1. **“MaintenanceLabel”** 필드를 **페이지 수준 필터**로 끕니다.
-![연결된 자동차 - 페이지 수준 필터](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
+1. **“MaintenanceLabel”** 필드를 **페이지 수준 필터**로 끕니다. ![연결된 자동차 - 페이지 수준 필터](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)  
 
-2. MaintenanceLabel 페이지 수준 필터 아래쪽에 있는 **기본 필터링**을 클릭합니다.
-![연결된 자동차 - 기본 필터링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
+2. MaintenanceLabel 페이지 수준 필터 아래쪽에 있는 **기본 필터링**을 클릭합니다. ![연결된 자동차 - 기본 필터링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png)
 
-3.  필터 값을 **"1"**로 설정합니다.
-![연결된 자동차 - 필터 값](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
+3.  필터 값을 **"1"**로 설정합니다. ![연결된 자동차 - 필터 값](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)
 
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
-시각화에서 **묶은 세로 막대형 차트**를 선택합니다.
-![연결된 자동차 - Vind 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![연결된 자동차 - 묶은 세로 막대형 차트](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
+시각화에서 **묶은 세로 막대형 차트**를 선택합니다. ![연결된 자동차 - Vind 카드 시각화](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png) ![연결된 자동차 - 묶은 세로 막대형 차트](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
 **모델** 필드를 **축** 영역으로, **Vin**을 **값** 영역으로 끕니다. 그런 다음 시각화를 **vin 개수**별로 정렬합니다. 차트 **제목**을 **“모델별 유지보수가 필요한 차량”**으로 변경합니다.
 
-**vin** 필드를 **시각화** 탭의 **필드** ![필드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 섹션에 있는 **색 채도**로 끕니다.
-![연결된 자동차 - 색 채도](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
+**vin** 필드를 **시각화** 탭의 **필드** ![필드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) 섹션에 있는 **색 채도**로 끕니다. ![연결된 자동차 - 색 채도](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)
 
-**형식** 섹션에서 시각화의 **데이터 색**을 변경합니다. 최소 색을 **F2C812**로 변경합니다. 최대 색을 **FF6300**로 변경합니다.
-![연결된 자동차 - 색 변경](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![연결된 자동차 - 새 시각화 색](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
+**형식** 섹션에서 시각화의 **데이터 색**을 변경합니다. 최소 색을 **F2C812**로 변경합니다. 최대 색을 **FF6300**로 변경합니다. ![연결된 자동차 - 색 변경](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png) ![연결된 자동차 - 새 시각화 색](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
-시각화에서 **묶은 세로 막대형 차트**를 선택하고 **vin** 필드를 **값** 영역으로, **시/군/구** 필드를 **축** 영역으로 끕니다. **“vin 개수”**별로 차트를 정렬합니다. 차트 **제목**을 **“시/군/구별 유지보수가 필요한 차량”**으로 변경합니다.
-![연결된 자동차 - 도시별 유지보수가 필요한 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
+시각화에서 **묶은 세로 막대형 차트**를 선택하고 **vin** 필드를 **값** 영역으로, **시/군/구** 필드를 **축** 영역으로 끕니다. **“vin 개수”**별로 차트를 정렬합니다. 차트 **제목**을 **“시/군/구별 유지보수가 필요한 차량”**으로 변경합니다. ![연결된 자동차 - 도시별 유지보수가 필요한 차량](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)
 
 빈 영역을 클릭하여 새 시각화를 추가합니다.
 
-시각화에서 **여러 행 카드** 시각화를 선택하고 **모델** 및 **vin**을 **필드** 영역으로 끕니다.
-![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
+시각화에서 **여러 행 카드** 시각화를 선택하고 **모델** 및 **vin**을 **필드** 영역으로 끕니다. ![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)
 
-모든 시각화를 다시 배열하면 최종 보고서는 아래와 같이 표시됩니다.
-![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
+모든 시각화를 다시 배열하면 최종 보고서는 아래와 같이 표시됩니다. ![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)
 
 "유지보수가 필요한 차량" 실시간 보고서를 성공적으로 구성했습니다. 다음 실시간 보고서를 계속 만들거나 여기서 작업을 중지하고 대시보드를 구성할 수 있습니다.
 
@@ -221,8 +200,7 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
   
 ![추가](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png)을 클릭하여 새 보고서를 추가하고 **“차량 상태 통계”**로 이름을 변경합니다.
 
-시각화에서 **계기** 시각화를 선택한 다음 **속도** 필드를 **값, 최소값, 최대값** 영역으로 끕니다.
-![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
+시각화에서 **계기** 시각화를 선택한 다음 **속도** 필드를 **값, 최소값, 최대값** 영역으로 끕니다. ![연결된 자동차 - 여러 행 카드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)
 
 **값 영역**에서**속도**의 기본 집계를 **평균**으로 변경합니다.
 
@@ -408,12 +386,11 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 **대시보드 구성**
 
 1.	대시보드로 이동
-2.	각 차트 위를 마우스로 가리키고 아래의 완전한 대시보드 이미지에 제공된 이름에 따라 이름을 변경합니다. 또한 아래 대시보드보드와 같이 표시되도록 차트를 이리저리 움직입니다.
-![차량 원격 분석 - 대시보드 2 구성](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![차량 원격 분석 PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
+2.	각 차트 위를 마우스로 가리키고 아래의 완전한 대시보드 이미지에 제공된 이름에 따라 이름을 변경합니다. 또한 아래 대시보드보드와 같이 표시되도록 차트를 이리저리 움직입니다. ![차량 원격 분석 - 대시보드 2 구성](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) ![차량 원격 분석 PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 3. 이 문서에서 설명한 대로 보고서를 만든 경우 최종 완료된 대시보드는 아래처럼 보여야 합니다. 
 
 ![차량 원격 분석 - 대시보드 2 구성](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

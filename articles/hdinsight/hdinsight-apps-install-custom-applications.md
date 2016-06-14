@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/24/2016"
+   	ms.date="06/07/2016"
    	ms.author="jgao"/>
 
 # 사용자 지정 HDInsight 응용 프로그램 설치
@@ -71,6 +71,8 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 2. 지시를 따라서 클러스터를 만들고 Hue를 설치합니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
+Azure 포털 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) 및 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli)를 사용하여 ARM 템플릿을 호출할 수도 있습니다.
+
 ## 설치 유효성 검사
 
 Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그램 설치를 확인할 수 있습니다. 또한 예상 대로 나타난 HTTP 끝점 및 웹 페이지가 존재하는 경우 확인할 수도 있습니다.
@@ -87,6 +89,7 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 ## 설치 문제 해결
 
 포털 알림에서 응용 프로그램 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭).
+
 
 응용 프로그램 설치에 실패한 경우 3곳에서 오류 메시지 및 디버그 정보를 확인할 수 있습니다.
 
@@ -106,6 +109,32 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 
     자세한 내용은 [문제 해결](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)을 참조하세요.
 
+## HDInsight 응용 프로그램 제거
+
+HDInsight 응용 프로그램을 삭제하는 방법에는 여러 가지가 있습니다.
+
+### 포털 사용
+
+**포털을 사용하여 응용 프로그램을 제거하려면**
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭합니다. 표시되지 않으면 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
+3. 응용 프로그램을 설치한 클러스터를 클릭합니다.
+4. **설정** 블레이드에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. 설치된 응용 프로그램 목록이 표시됩니다. 이 자습서에서는 **설치된 앱** 블레이드에 나열된 **Hue**가 표시됩니다.
+5. 제거할 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
+6. **예**를 클릭하여 확인합니다.
+
+포털에서 클러스터를 삭제하거나 응용 프로그램을 포함하는 리소스 그룹을 삭제할 수도 있습니다.
+
+### Azure PowerShell 사용
+
+Azure PowerShell을 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure PowerShell을 사용하여 클러스터 삭제](hdinsight-administer-use-powershell.md#delete-clusters)를 참조하세요.
+
+### Azure CLI 사용
+
+Azure CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure CLI를 사용하여 클러스터 삭제](hdinsight-administer-use-command-line.md#delete-clusters)를 참조하세요.
+
+
 ## 다음 단계
 
 - [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 배포하기 위해 ARM 템플릿을 개발하는 방법을 알아봅니다.
@@ -113,4 +142,4 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

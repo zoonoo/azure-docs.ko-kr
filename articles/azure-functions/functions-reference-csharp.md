@@ -160,7 +160,10 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 }
 ```
 
-*project.json* 파일을 업로드하는 경우 런타임 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `using` 문을 *run.csx* 파일에 추가하여 NuGet 패키지에 정의된 형식을 사용합니다.
+.NET Framework 4.6만 지원되므로 *project.json* 파일이 다음과 같이 `net46`를 지정하도록 합니다.
+
+*project.json* 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `using` 문을 *run.csx* 파일에 추가하여 NuGet 패키지에 정의된 형식을 사용합니다.
+
 
 ### project.json 파일을 업로드하는 방법
 
@@ -170,7 +173,7 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 
 2. project.json 파일을 업로드하려면, [Azure Functions 개발자 참조](functions-reference.md#fileupdate) 항목에 있는 **함수 앱 파일을 업데이트하는 방법** 섹션에 설명되어 있는 방법 중 하나를 사용합니다.
 
-3. *project.json* 파일을 업로드한 함수의 스트리밍 로그에서 다음 예제와 같은 출력을 확인합니다.
+3. *project.json* 파일을 업로드한 후에 함수의 스트리밍 로그에서 다음 예제와 같은 출력을 확인합니다.
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -251,4 +254,4 @@ public static void MyLogger(TraceWriter log, string logtext)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

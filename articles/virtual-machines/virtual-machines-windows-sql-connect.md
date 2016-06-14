@@ -30,8 +30,6 @@
 
 이 문서는 리소스 관리자 모델을 사용하여 SQL Server VM에 연결하는 방법에 중점을 둡니다. 프로비저닝 및 연결의 전체 연습은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 ## 연결 시나리오
 
 클라이언트가 가상 컴퓨터를 실행 중인 SQL Server에 연결하는 방법은 클라이언트의 위치 및 컴퓨터/네트워킹 구성에 따라 달라집니다. 이 시나리오에는 다음이 포함됩니다.
@@ -100,4 +98,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

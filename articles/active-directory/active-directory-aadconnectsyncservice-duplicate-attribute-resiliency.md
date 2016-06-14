@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/26/2016"
 	ms.author="markusvi"/>
 
 
@@ -118,20 +118,15 @@ Azure Active Directory PowerShell 모듈의 최신 버전을 다운로드하고 
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## Office365 관리자 포털
-O365 포털의 보고서는 이러한 오류가 있는 **사용자** 개체만을 표시합니다. **그룹**, **연락처** 또는 **PublicFolders** 간의 충돌에 대한 정보는 표시하지 않습니다.
+## Office 365 관리 포털
 
-**Office365 관리자 포털에서 이러한 오류를 확인하려면**
+Office 365 관리 센터에서 디렉터리 동기화 오류를 볼 수 있습니다. Office 365 포털의 보고서는 이러한 오류가 있는 **사용자** 개체만을 표시합니다. **그룹**, **연락처** 또는 **PublicFolders** 간의 충돌에 대한 정보는 표시하지 않습니다.
 
-1.	테넌트 관리자로 **portal.office.com**에 로그인합니다.
 
-2.	**사용자 -> 활성 사용자**를 클릭합니다. ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/2.png "활성 사용자")
+![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "활성 사용자")
 
-3.	페이지 상단의 경고는 테넌트의 개체에 중복 특성 오류가 있는 경우 표시됩니다. ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/3.png "활성 사용자")
+Office 365 관리 센터에서 디렉터리 동기화 오류를 보는 방법에 대한 지침은 [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/ko-KR/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)을 참조하세요.
 
-4.	개체의 특정 정보를 보려면 "보기 선택" 드롭다운에서 "오류가 있는 사용자"를 선택합니다. ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/4.png "활성 사용자")
-
-5.	화면의 오른쪽 아래에 표시되는 충돌의 자세한 내용을 보려면 개체를 클릭합니다. ![활성 사용자](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/5.png "활성 사용자")
 
 ### ID 동기화 오류 보고서
 중복 특성 충돌이 있는 개체가 이 새 동작으로 처리되는 경우 알림은 테넌트에 대한 기술 알림 문의로 전송되는 표준 ID 동기화 오류 보고서 전자 메일에 포함됩니다. 그러나 이 동작에서 중요한 변경 사항이 있습니다. 이전에 중복 특성 충돌에 대한 정보는 충돌이 해결될 때까지 모든 후속 오류 보고서에 포함됩니다. 이 새 동작으로 지정된 충돌에 대한 오류 알림이 충돌 특성이 격리되는 시간에 한 번만 나타납니다.
@@ -141,7 +136,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 ## 충돌 해결
 이러한 오류에 대한 문제 해결 전략 및 해결 방법은 중복 특성 오류가 이전에 처리된 방식과 다르지 않습니다. 유일한 차이점은 타이머 작업은 서비스쪽 테넌트를 통해 스윕하여 충돌이 해결되면 적절한 개체에 문제의 특성을 자동으로 추가한다는 점입니다.
 
-다음 문서에는 다양한 문제 해결 및 해결 방법을 간략하게 설명합니다. [Office 365에서 중복되거나 잘못된 특성이 디렉터리 동기화를 방해할 경우](https://support.microsoft.com/kb/2647098)
+다음 문서에서는 다양한 문제 해결 및 해결 방법을 간략하게 설명합니다. [Office 365에서 중복되거나 잘못된 특성이 디렉터리 동기화를 방해할 경우](https://support.microsoft.com/kb/2647098).
 
 ## 알려진 문제
 이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 "*사전 복원력*" 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
@@ -150,7 +145,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 1. 특정 특성 구성을 사용한 사용자는 격리되는 특성과 달리 내보내기 오류 수신을 계속합니다. 예:
 
-    a. 새로운 사용자가 ****Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
+    a. 새로운 사용자가 **Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
 
     b. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
 
@@ -158,9 +153,9 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 2. 해결된 중복 특성 충돌을 검색하는 타이머 작업은 UPN 충돌을 다른 UPN 충돌과 비교합니다. 이 경우 다음 시나리오의 4단계에 표시된 문제가 발생합니다.
 
-    a. ****UserA@contoso.com**은 해당 값을 갖는 ProxyAddress로 인해 고유하지 않은 UPN을 갖습니다.
+    a. **UserA@contoso.com**은 해당 값을 갖는 ProxyAddress로 인해 고유하지 않은 UPN을 갖습니다.
 
-    b. UserA는 임시 **MOERA UPN**, ****UserA1234@contoso.onmicrosoft.com**을 제공 받으며 실제 UPN 값은 격리됩니다(예상대로).
+    b. UserA는 임시 **MOERA UPN**, **UserA1234@contoso.onmicrosoft.com**을 제공 받으며 실제 UPN 값은 격리됩니다(예상대로).
 
     c. 다른 충돌 개체에는 나중에 제거된 ProxyAddress가 있습니다.
 
@@ -188,9 +183,9 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
     b. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
 
-    c. **사용자 B**의 UPN은 ****User1234@contoso.onmicrosoft.com**으로 변경되고 ****User@contoso.com**은 **DirSyncProvisioningErrors**에 추가됩니다.
+    c. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com**로 변경되며 **User@contoso.com**이 **DirSyncProvisioningErrors**에 추가됩니다.
 
-    d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미****User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
+    d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미**User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
 
 3. 보고서는 **ProxyAddress** 오류가 아닌 사용자의 **UPN** 충돌에 대한 자세한 오류 정보만을 표시합니다(일관적인지 환경적인지 여부를 아직 조사 중임).
 
@@ -200,4 +195,6 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+- [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/ko-KR/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+
+<!---HONumber=AcomDC_0601_2016-->

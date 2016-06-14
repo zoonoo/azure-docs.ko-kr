@@ -1,12 +1,11 @@
-To create a premium cache, sign-in to the [Azure Portal](https://portal.azure.com) and click **New** > **Data + Storage** > **Redis Cache**.
+프리미엄 캐시를 만들려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기** > **데이터 + 저장소** > **Redis Cache**를 클릭합니다.
 
-![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![캐시 만들기](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI. For more information, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+>[AZURE.NOTE] Azure 포털에서 캐시를 만드는 것 외에도 ARM 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다. 자세한 내용은 [캐시 만들기](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
 
-To configure premium features, first select one of the premium pricing tiers in the **Choose your pricing tier** blade.
+프리미엄 기능을 구성하려면 먼저 **가격 책정 계층 선택** 블레이드에서 프리미엄 가격 책정 계층 중 하나를 선택합니다.
 
-![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![가격 계층 선택](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
-
-
+<!---HONumber=AcomDC_0601_2016-->

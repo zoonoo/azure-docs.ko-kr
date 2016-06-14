@@ -63,11 +63,11 @@ SQL Server 인스턴스, 데이터베이스 및 하나 이상의 테이블에 �
 
 SQL Server 2016의 임시 테이블 기능을 사용하는 경우, 연결된 기록 테이블의 일부나 전부를 Azure의 비용 효율적인 저장소로 마이그레이션하기 위해 스트레치 데이터베이스를 사용합니다. 자세한 내용은 [시스템 버전 임시 테이블에서 기록 데이터 보존 관리](https://msdn.microsoft.com/library/mt637341.aspx)를 참조하세요.
 
-SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베이스 관리자를 사용하여 스트레치 데이터베이스용 데이터베이스 및 테이블을 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요. 잠재적인 차단 문제에 대한 자세한 내용은 [스트레치 데이터베이스에 대한 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 참조하세요.
+SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베이스 관리자를 사용하여 스트레치 데이터베이스용 데이터베이스 및 테이블을 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요. 잠재적인 차단 문제에 대한 자세한 내용은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
 
 ## <a name="FAQ"></a>스트레치 데이터베이스에 대한 질문과 대답
 **스트레치 데이터베이스는 &lt;SQL Server 기능 이름&gt;과 함께 작동합니까?**
--   스트레치에 테이블을 부적합하게 만드는 SQL Server 기능 목록은 [스트레치 데이터베이스에 대한 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 참조하세요.
+-   스트레치에 테이블을 부적합하게 만드는 SQL Server 기능 목록은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
 
 -   필요에 따라 SQL Server 2016 업그레이드 관리자를 다운로드하고 스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스로 사용할 수 있는 데이트베이스와 테이블을 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요.
 
@@ -123,4 +123,4 @@ SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

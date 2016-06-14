@@ -168,4 +168,4 @@ Azure 이벤트 허브는 규모에 관계 없이 모니터링하는 일반 응�
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->

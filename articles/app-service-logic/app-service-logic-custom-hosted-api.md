@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # 논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용
@@ -24,7 +24,7 @@
 
 ## 웹앱 배포
 
-우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 다룹니다. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [swagger 추가](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui)에서 세부 정보를 찾을 수 있습니다.
+우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 다룹니다. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [swagger 추가](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)에서 세부 정보를 찾을 수 있습니다.
 
 ### API 설정
 
@@ -169,4 +169,4 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 위의 단계를 계속해서 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

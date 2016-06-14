@@ -19,8 +19,6 @@
 
 # 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 이 문서에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
@@ -215,4 +213,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

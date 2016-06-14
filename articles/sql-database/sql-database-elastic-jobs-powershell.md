@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="ddove;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="ddove" />
 
 # PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)
 
@@ -694,4 +694,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

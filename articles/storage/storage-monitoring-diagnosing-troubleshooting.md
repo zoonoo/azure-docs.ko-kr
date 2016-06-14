@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/27/2016"
 	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소 모니터링, 진단 및 문제 해결
@@ -263,7 +263,9 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 아래의 코드 샘플은 요청의 **OperationContext** 개체를 저장소 서비스에 연결하여 사용자 지정 **ClientRequestId** 값을 설정하는 방법을 보여 줍니다. 또한 응답 메시지에서 **ServerRequestId** 값을 검색하는 방법도 보여 줍니다.
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	//Parse the connection string for the storage account.
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
@@ -925,4 +927,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->
