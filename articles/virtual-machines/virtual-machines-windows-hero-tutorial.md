@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="06/07/2016"
 	ms.author="cynthn"/>
 
 # Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기
@@ -49,7 +49,7 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 2. **사용자 이름**을 입력하고 VM에서 로컬 계정을 만드는 데 사용할 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다.
 
-	암호의 길이는 적어도 8-123자여야 하며 다음 중 적어도 3가지를 포함해야 합니다. 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자.
+	암호의 길이는 12-123자 사이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자가 있어야 합니다.
 
 
 3. 기존 [리소스 그룹](../resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. **미국 서부**와 같은 Azure 데이터 센터 **위치**를 입력합니다.
@@ -116,4 +116,4 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 * [Powershell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md) 또는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 사용할 수도 있습니다.
 
-<!---------HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

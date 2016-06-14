@@ -37,7 +37,7 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 [Azure 포털](https://portal.azure.com)의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 사용자의 시스템에 설치할 수 있는 것이 없기 때문에 쉽게 VM을 사용해 볼 수 있는 방법입니다. Azure 포털을 사용하여 다음과 같이 VM을 만듭니다.
 
-* [Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-portal-create.md) 
+* [Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-portal.md) 
 
 ## 운영 체제 및 이미지 선택
 
@@ -59,10 +59,10 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 ## 다음 단계
 
-* 이 자습서 중 하나를 사용하여 [CLI](virtual-machines-linux-quick-create-cli.md)로 [포털](virtual-machines-linux-portal-create.md)에서 Linux VM을 만들거나 Azure Resource Manager [템플릿](virtual-machines-linux-cli-deploy-templates.md)을 사용하여 Linux VM을 만듭니다.
+* 이 자습서 중 하나를 사용하여 [CLI](virtual-machines-linux-quick-create-cli.md)로 [포털](virtual-machines-linux-quick-create-portal.md)에서 Linux VM을 만들거나 Azure Resource Manager [템플릿](virtual-machines-linux-cli-deploy-templates.md)을 사용하여 Linux VM을 만듭니다.
 
 * Linux VM을 만든 후에 쉽게 [데이터 디스크를 추가](virtual-machines-linux-add-disk.md)할 수 있습니다.
 
 * [암호 또는 SSH 키 다시 설정 및 사용자 관리](virtual-machines-linux-using-vmaccess-extension.md)하는 빠른 단계
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

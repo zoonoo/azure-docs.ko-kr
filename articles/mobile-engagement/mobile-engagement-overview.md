@@ -45,12 +45,10 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 ###다음 단계:
 
-[Azure Mobile Engagement 응용 프로그램 만들기](mobile-engagement-create.md)
-
 [모범 사례 및 사용자의 Mobile Engagement를 만드는 프로세스](mobile-engagement-getting-started-best-practices.md)
 
-[시작(마케터)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[시작](/documentation/services/mobile-engagement/)
 
-[시작(개발자)](/documentation/services/mobile-engagement/)
+[소스 코드와 함께 데모 앱 다운로드](https://aka.ms/azmedemoapps)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/06/2016"
    ms.author="yurid"/>
 
 #Azure 보안 센터에서 보안 상태 모니터링
@@ -22,7 +22,7 @@
 > [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
 
 ## Azure 보안 센터란?
-보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
 
 ##보안 상태 모니터링이란?
 상황에 대응할 수 있도록 이벤트가 발생할 때까지 이벤트를 감시하면서 기다리는 것을 모니터링이라고 생각하는 경우가 많습니다. 보안 모니터링은 리소스를 감사하여 조직의 표준 또는 모범 사례를 충족하지 않는 시스템을 식별하는 사전 예방 전략을 의미합니다.
@@ -34,7 +34,7 @@
 
 **리소스 보안 상태** 타일에서 리소스의 보안 상태를 모니터링할 수 있습니다. 아래 예제와 같이 주의가 필요한 심각도가 높고 보통인 여러 문제를 확인할 수 있습니다. 활성화된 보안 정책은 모니터링되는 컨트롤 유형에 영향을 줍니다.
 
-![리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
+![리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
 보안 센터가 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)이 없는 서브넷 등과 같이 조치가 필요한 취약점을 식별하면 여기에 나열됩니다.
 
@@ -82,7 +82,7 @@
 
 ![VM별 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig6-new.png)
 
-> [AZURE.NOTE] 여기에 표시되는 보안 권장 사항과 권장 사항 블레이에 표시되는 보안 권장 사항이 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure 보안 센터에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이는 VM뿐 아니라 리소스 상태 타일에서 제공되는 모든 리소스에 해당합니다.
+> [AZURE.NOTE] 여기에 표시되는 보안 권장 사항과 권장 사항 블레이드에 표시되는 보안 권장 사항이 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure 보안 센터에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이는 VM뿐 아니라 리소스 상태 타일에서 제공되는 모든 리소스에 해당합니다.
 
 ####가상 컴퓨터 섹션
 가상 컴퓨터 섹션에는 모든 VM과 권장 사항에 대한 개요가 제공됩니다. 각 열에는 아래와 같이 권장 사항 집합이 표시됩니다.
@@ -100,20 +100,19 @@
 ###가상 네트워크 모니터링
 **리소스 보안 상태** 타일에서 **네트워킹**을 클릭하면 아래와 같이 자세한 내용이 포함된 **네트워킹** 블레이드가 열립니다.
 
-![네트워킹](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
+![네트워킹](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 ####네트워킹 권장 사항
 
 가상 컴퓨터 리소스 상태 정보와 마찬가지로, 이 블레이드는 맨 위에서 요약된 문제 목록을 제공하고 하단에서 모니터링된 네트워크 목록을 제공합니다.
 
-![네트워킹 블레이드](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
-
 네트워킹 상태 분석 섹션은 잠재적인 보안 문제를 나열하고 권장 사항을 제공합니다. 가능한 문제는 다음을 포함할 수 있습니다.
 
+- 차세대 방화벽(NGFW)이 설치되지 않음
 - 서브넷에서 NSG(네트워크 보안 그룹) 사용 안 함
 - VM에서 NSG 사용 안 함
 - 공용 외부 끝점을 통한 외부 액세스 제한
-- 정상 서브넷
+- 정상 인터넷 연결 끝점
 
 이들 권장 사항 중 하나를 클릭하면 새 블레이드가 열리고 아래 예에 표시된 것과 같이 권장 사항에 대한 자세한 내용이 표시됩니다.
 
@@ -123,18 +122,29 @@
 
 **네트워크 보안 그룹 선택** 블레이드에서 서브넷에 적절한 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다.
 
-####네트워킹 섹션
+####인터넷 연결 끝점 섹션
 
-**네트워킹** 섹션에 아래와 같이 리소스의 계층적 보기가 있습니다.
+**인터넷 연결 끝점** 섹션에서 현재 인터넷 연결 끝점으로 구성된 VM 및 해당 현재 상태를 볼 수 있습니다.
 
-![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
+![인터넷 연결 끝점](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
+
+이 테이블에는 VM, 인터넷 연결 IP 주소, NSG 및 NGFW의 현재 심각도 상태를 나타내는 끝점 이름이 있습니다. 테이블은 아래에 설명한 대로 심각도 별로 정렬됩니다.
+- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다. 
+- 주황색: 우선 순위가 보통이며 가능한 한 빨리 해결해야 합니다.
+- 녹색(마지막): 성능 상태
+
+####네트워킹 토폴로지 섹션
+
+**네트워킹 토폴로지** 섹션에 아래와 같이 리소스의 계층적 보기가 있습니다.
+
+![네트워킹 토폴로지](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 이 테이블은 아래에 설명한 대로 심각도 별로 정렬됩니다(VM 및 서브넷).
 - 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다. 
 - 주황색: 우선 순위가 보통이며 가능한 한 빨리 해결해야 합니다.
 - 녹색(마지막): 성능 상태
 
-이 계층에서 첫 번째 수준에는 [가상 네트워크](../virtual-network/virtual-networks-overview.md), [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-site-to-site-create.md) 및 [가상 네트워크(클래식)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)가 있습니다. 두 번째 수준에는 서브넷이 있고 세 번째 수준에는 해당 서브넷에 속하는 VM이 있습니다. 오른쪽 열에는 해당 리소스에 대한 NSG(네트워크 보안 그룹)의 현재 상태가 있습니다. 다음 예제는 VM VM-CL-W1을 선택한 결과입니다.
+이 토폴로지 보기에서 첫 번째 수준에는 [가상 네트워크](../virtual-network/virtual-networks-overview.md), [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-site-to-site-create.md) 및 [가상 네트워크(클래식)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)가 있습니다. 두 번째 수준에는 서브넷이 있고 세 번째 수준에는 해당 서브넷에 속하는 VM이 있습니다. 오른쪽 열에는 해당 리소스에 대한 NSG(네트워크 보안 그룹)의 현재 상태가 있습니다. 다음 예제는 VM VM-CL-W1을 선택한 결과입니다.
 
 ![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
@@ -145,7 +155,7 @@
 
 ![SQL 리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
-이러한 권장 사항을 클릭하고 문제 해결을 위해 추가 조치에 대한 자세한 정보를 가져올 수 있습니다. 아래 예에서는 **데이터베이스 감사 활성화되지 않음** 권장 사항의 확장을 보여줍니다.
+이러한 권장 사항을 클릭하고 문제 해결을 위해 추가 조치에 대한 자세한 정보를 가져올 수 있습니다. 아래 예에서는 **데이터베이스 감사 활성화되지 않음** 권장 사항의 확장을 보여 줍니다.
 
 ![SQL 리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig16-new.png)
 
@@ -185,4 +195,4 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)가 있는 [리
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

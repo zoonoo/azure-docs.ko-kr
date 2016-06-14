@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="06/07/2016"
     ms.author="magoedte"/>
 
 # Azure 실행 계정으로 Runbook 인증
-이 항목에서는 자동화 Runbook으로 구독에서 ARM(Azure Resource Manager) 리소스에 액세스하기 위해 새 실행 계정 기능(서비스 주체라고도 함)을 사용하여 Azure 포털에서 자동화 계정을 구성하는 방법을 보여줍니다. Azure 포털에서 새 자동화 계정을 만드는 경우 이 계정은 자동으로 새 서비스 주체를 만들고 기본적으로 구독에서 참가자 RBAC(역할 기반 액세스 제어) 역할에 할당됩니다. 이를 통해 처리를 간편하게 만들고 자동화 요구를 지원하는 Runbook의 구축 및 배포를 신속하게 시작할 수 있습니다.
+이 항목에서는 자동화 Runbook으로 구독에서 Azure Resource Manager 리소스에 액세스하기 위해 새 실행 계정 기능(서비스 주체라고도 함)을 사용하여 Azure 포털에서 자동화 계정을 구성하는 방법을 보여 줍니다. Azure 포털에서 새 자동화 계정을 만드는 경우 이 계정은 자동으로 새 서비스 주체를 만들고 기본적으로 구독에서 참가자 RBAC(역할 기반 액세스 제어) 역할에 할당됩니다. 이를 통해 처리를 간편하게 만들고 자동화 요구를 지원하는 Runbook의 구축 및 배포를 신속하게 시작할 수 있습니다.
 
 서비스 주체를 사용하여 다음을 수행할 수 있습니다.
 
-* Runbook을 사용하여 Azure ARM 리소스를 관리하는 경우 Azure로 인증하는 표준화된 방법을 제공합니다.
+* Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 경우 Azure로 인증하는 표준화된 방법 제공
 * Azure 경고에 구성된 글로벌 Runbook의 사용 자동화
 
 
@@ -45,7 +45,7 @@ Azure 포털에서 자동화 계정을 만들고 Azure PowerShell을 사용하�
 
     ![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] **아니요** 옵션을 선택하여 실행 계정을 만들지 않는 경우 **자동화 계정 추가** 블레이드에 경고 메시지가 나타납니다. 계정이 생성되고 구독의 **참가자** 역할에 할당되는 동안에는 구독 디렉터리 서비스 내에서 해당하는 인증 ID가 없으므로 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 ARM 리소스에 대해 인증되고 작업을 수행하지 못하도록 방지합니다.
+    >[AZURE.NOTE] **아니요** 옵션을 선택하여 실행 계정을 만들지 않는 경우 **자동화 계정 추가** 블레이드에 경고 메시지가 나타납니다. 계정이 생성되고 구독의 **참가자** 역할에 할당되는 동안에는 구독 디렉터리 서비스 내에서 해당하는 인증 ID가 없으므로 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 Azure Resource Manager 리소스에 대해 인증되고 작업을 수행하지 못하도록 방지합니다.
 
     ![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
@@ -85,7 +85,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 1. 컴퓨터에 다음 스크립트를 저장합니다. 이 예제에서는 파일 이름을 **New-AzureServicePrincipal.ps1**으로 저장합니다.  
 
     ```
-    #Requires - RunAsAdministrator
+    #Requires -RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
     [String] $ResourceGroup,
@@ -97,7 +97,7 @@ PowerShell 스크립트는 다음을 구성합니다.
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
-    [String] $SubscriptionName,
+    [String] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
@@ -108,7 +108,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -143,14 +143,14 @@ PowerShell 스크립트는 다음을 구성합니다.
     {
       # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
       Sleep 5
-      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose
+      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
       Sleep 5
       $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
       $Retries++;
     }
 
     # Get the tenant id for this subscription
-    $SubscriptionInfo = Get-AzureRmSubscription
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
@@ -158,20 +158,19 @@ PowerShell 스크립트는 다음을 구성합니다.
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
-    $SubscriptionId = $SubscriptionInfo | Select SubscriptionId -First 1
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
     $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
 2. 사용자 컴퓨터의 **시작** 화면에서 관리자 권한으로 **Windows PowerShell**을 시작합니다.
-3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
+3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -204,9 +203,9 @@ PowerShell 스크립트는 다음을 구성합니다.
 13. **PowerShell Runbook 편집** 블레이드를 닫습니다.
 14. **Test-SecPrin-Runbook** 블레이드를 닫습니다.
 
-## ARM 리소스를 사용하여 인증하는 샘플 코드
+## Resource Manager 리소스를 사용하여 인증하는 샘플 코드
 
-AzureAutomationTutorial 예제 Runbook에서 가져온 아래 업데이트된 샘플 코드를 사용하여 Runbook으로 ARM 리소스를 관리하는 실행 계정을 사용하여 인증할 수 있습니다.
+Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용하여 인증하기 위해 AzureAutomationTutorial 예제 Runbook에서 가져온 아래 업데이트된 샘플 코드를 사용할 수 있습니다.
 
    ```
    $connectionName = "AzureRunAsConnection"
@@ -243,4 +242,4 @@ AzureAutomationTutorial 예제 Runbook에서 가져온 아래 업데이트된 �
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -17,7 +17,7 @@
    ms.date="05/05/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# SQL 데이터 웨어하우스 만들기
+# Azure SQL 데이터 웨어하우스 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-data-warehouse-get-started-provision.md)
@@ -32,7 +32,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
+2. **+ 새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
 
     ![생성](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -44,7 +44,7 @@
 
 	- **데이터베이스 이름**: SQL 데이터 웨어하우스를 참조하는 데 사용할 이름입니다. 서버에 대해 고유해야 합니다.
 	
-    - **성능**: 400 DWU로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 설명서의 [확장](./sql-data-warehouse-overview-scalability.md) 또는 [가격 페이지](https://azure.microsoft.com/ko-KR/pricing/details/sql-data-warehouse/)를 참조하세요.
+    - **성능**: 400 DWU로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 설명서의 [확장](./sql-data-warehouse-manage-compute-overview.md) 또는 [가격 페이지](https://azure.microsoft.com/ko-KR/pricing/details/sql-data-warehouse/)를 참조하세요.
 
     - **구독**: SQL 데이터 웨어하우스가 청구될 구독을 선택합니다.
 
@@ -68,4 +68,4 @@ SQL 데이터 웨어하우스로 데이터를 로드하는 경우 [로드 개요
 
 기존 데이터베이스를 SQL 데이터 웨어하우스에 마이그레이션하려는 경우 [마이그레이션 개요](./sql-data-warehouse-overview-migrate.md)를 참조하거나 [마이그레이션 유틸리티](./sql-data-warehouse-migrate-migration-utility.md)를 사용하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

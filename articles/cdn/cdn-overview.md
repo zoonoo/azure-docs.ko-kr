@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/24/2016"
+	ms.date="06/06/2016"
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
@@ -56,6 +56,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | HTTPS 지원 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | 부하 분산 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | DDOS 보호 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 이중 스택 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [쿼리 문자열 캐싱](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [국가 필터링](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
@@ -78,4 +79,6 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+Azure CDN에서 참조하려는 기능이 있나요? [피드백 보내기](https://feedback.azure.com/forums/169397-cdn)
+
+<!---HONumber=AcomDC_0608_2016-->

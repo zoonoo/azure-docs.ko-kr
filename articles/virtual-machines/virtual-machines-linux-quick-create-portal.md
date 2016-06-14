@@ -23,6 +23,8 @@
 
 이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Linux 가상 컴퓨터를 빠르게 만드는 방법을 보여 줍니다. 유일한 요구 사항은 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 및 [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md)입니다.
 
+[AZURE.NOTE] VM에 대한 액세스를 보호하기 위해 암호를 사용하도록 선택한 경우 암호는 12자보다 커야 하며 하나 이상의 대문자, 소문자, 특수 문자 및 숫자가 있어야 합니다.
+
 
 1. Azure 계정 ID를 사용하여 Azure 포털에 로그인하고 왼쪽 위에서 **+ 새로 만들기**를 클릭합니다.
 
@@ -79,4 +81,4 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 이러한 문서로 Azure 인프라뿐만 아니라 독점 및 오픈 소스 인프라 배포, 구성 및 오케스트레이션 도구 작성을 시작합니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

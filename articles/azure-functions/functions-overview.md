@@ -44,7 +44,7 @@ Azure Functions는 데이터를 처리하고 시스템을 통합하며 IoT(사�
 Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템플릿을 제공합니다.
 
 * **BlobTrigger** - 컨테이너에 Azure 저장소 Blob을 추가할 때 해당 Blob을 처리합니다. 이미지 크기 조정에 사용할 수 있습니다.
-* **EventHubTrigger** - IoT 장치에서 발생하는 이벤트에 대응합니다.
+* **EventHubTrigger** - Azure 이벤트 허브에 전달된 이벤트에 응답합니다. 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다.
 * **일반 웹후크** - 웹후크를 지원하는 모든 서비스의 웹후크 HTTP 요청을 처리합니다.
 * **GitHub 웹후크** - GitHub 리포지토리에서 발생하는 이벤트에 대응합니다. 예제를 보려면 [웹후크 또는 API 함수 만들기](functions-create-a-web-hook-or-api-function.md)를 참조하세요.
 * **HTTPTrigger** - HTTP 요청을 사용하여 코드 실행을 트리거합니다.
@@ -87,4 +87,4 @@ Azure Functions에는 두 가지 가격 책정 계획이 있으므로 요구 사
 + [Azure Functions 조정 방법](functions-scale.md) 동적 서비스 계획, 올바른 계획 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 계획에 대해 설명합니다. 
 + [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-value-prop-what-is.md) Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure 앱 서비스 플랫폼을 활용합니다. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
