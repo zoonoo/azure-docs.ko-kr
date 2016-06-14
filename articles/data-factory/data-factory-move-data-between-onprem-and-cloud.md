@@ -497,7 +497,12 @@ Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이�
 
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | | *.servicebus.windows.net | 9350-9354, 5671 | TCP를 통한 선택적 서비스 버스 릴레이 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | 
+| *.servicebus.windows.net | 9350-9354, 5671 | TCP를 통한 선택적 서비스 버스 릴레이 | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 
