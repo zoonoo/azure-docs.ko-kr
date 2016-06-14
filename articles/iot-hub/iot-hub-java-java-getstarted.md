@@ -190,7 +190,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
     import java.util.logging.*;
     ```
 
-7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, **{youreventhubcompatiblename}**을 앞에서 기록해둔 값으로 바꿉니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점** 값이 적용되며 **xyznamespace** 형식을 사용합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 ****sb://** 접두사 및 **.servicebus.windows.net** 접미사를 제거함).
+7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, **{youreventhubcompatiblename}**을 앞에서 기록해둔 값으로 바꿉니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점** 값이 적용되며 **xyznamespace** 형식을 사용합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 **sb://** 접두사 및 **.servicebus.windows.net** 접미사를 제거함).
 
     ```
     private static String namespaceName = "{youreventhubcompatiblenamespace}";
