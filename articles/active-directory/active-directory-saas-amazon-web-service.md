@@ -224,7 +224,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 	![Single Sign-On 구성][24]
 
-    a. **특성 이름** 텍스트 상자에 ****https://aws.amazon.com/SAML/Attributes/Role**를 입력합니다.
+    a. **특성 이름** 텍스트 상자에 **https://aws.amazon.com/SAML/Attributes/Role**를 입력합니다.
 
     b. **특성 값** 텍스트 상자에 **[역할 ARN 값],[신뢰할 수 있는 엔터티 ARN 값]**을 입력합니다.
 
@@ -242,7 +242,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 	![Single Sign-On 구성][25]
 
 
-     a. **특성 이름** 텍스트 상자에 ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**를 입력합니다.
+     a. **특성 이름** 텍스트 상자에 **https://aws.amazon.com/SAML/Attributes/RoleSessionName**를 입력합니다.
 
      b. **특성 이름** 텍스트 상자에 **userprincipalname**을 입력합니다.
 

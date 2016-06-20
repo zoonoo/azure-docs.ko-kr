@@ -28,7 +28,7 @@ Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 
 
 두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 서비스 패브릭 응용 프로그램을 업그레이드하는 경우 응용 프로그램 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 응용 프로그램 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 참조하세요.
 
-*Monitored*, *UnmonitoredAuto* 및 *UnmonitoredManual*의 세 가지 업그레이드 모드가 있습니다.
+*Monitored* , *UnmonitoredAuto* 및 *UnmonitoredManual* 의 세 가지 업그레이드 모드가 있습니다.
 
   - Monitored 업그레이드는 업그레이드 및 응용 프로그램 상태 검사를 자동화합니다.
 

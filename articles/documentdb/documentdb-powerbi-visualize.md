@@ -76,7 +76,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 
 	![Power BI 데스크톱 시작 화면 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
 
-3. *시작* 화면에서 직접 **데이터를 가져오고**, **최근 원본을 보거나**, **다른 보고서를 직접 열 수 ** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
+3. *시작* 화면에서 직접 **데이터를 가져오고**, **최근 원본을 보거나**, **다른 보고서를 직접 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
 
 	![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 

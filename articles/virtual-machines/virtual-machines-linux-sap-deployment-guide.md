@@ -554,7 +554,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/>
 
 ___
 

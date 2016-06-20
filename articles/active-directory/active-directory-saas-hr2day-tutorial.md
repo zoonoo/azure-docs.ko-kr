@@ -169,7 +169,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 5. 응용 프로그램에 SSO를 구성하려면 [servicedesk@merces.nl](emailTo:servicedesk@merces.nl)을 통해 HR2day by Merces 지원 팀에 문의하고 다운로드한 인증서 파일을 메일에 첨부합니다. 또한 SSO 통합을 맞게 구성할 수 있도록 SAML SSO URL, 로그아웃 URL 및 발급자 URL을 제공하십시오.
 
 
-> [AZURE.NOTE] 이 통합에는 이 패턴 ****https://hr2day.force.com/INSTANCENAME**을 사용하여 설정되는 엔터티 ID가 필요하다고 Merces 팀에 알리세요.
+> [AZURE.NOTE] 이 통합에는 이 패턴 **https://hr2day.force.com/INSTANCENAME**을 사용하여 설정되는 엔터티 ID가 필요하다고 Merces 팀에 알리세요.
 
 
 

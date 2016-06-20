@@ -30,7 +30,7 @@ OAuth 2.0을 확장하기 때문에 앱에서 **access\_token**을 안전하게 
 
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. OpenID Connect를 사용하여 등록, 로그인 및 프로필 관리와 같은 앱에 사용자 환경을 추가할 수 있도록 하는 [**정책 매개 변수**](active-directory-b2c-reference-policies.md)를 소개합니다. 또한 OpenID Connect 및 정책을 사용하여 웹 응용 프로그램에서 각 이러한 환경을 구현하는 방법 및 Web API에 액세스하기 위한 access\_token을 얻는 방법을 보여 줍니다.
 
-아래 예제 HTTP 요청은 샘플 B2C 디렉터리, **fabrikamb2c.onmicrosoft.com** 뿐만 아니라 샘플 응용 프로그램****https://aadb2cplayground.azurewebsites.net** 및 정책을 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다. [사용자 고유의 B2C 테넌트, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory) 방법을 알아봅니다.
+아래 예제 HTTP 요청은 샘플 B2C 디렉터리, **fabrikamb2c.onmicrosoft.com** 뿐만 아니라 샘플 응용 프로그램**https://aadb2cplayground.azurewebsites.net** 및 정책을 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다. [사용자 고유의 B2C 테넌트, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory) 방법을 알아봅니다.
 
 ## 인증 요청 보내기
 웹앱이 사용자를 인증하고 정책을 실행해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 정책에 따라 사용자가 실제로 조치를 취하는 흐름의 대화형 부분입니다.

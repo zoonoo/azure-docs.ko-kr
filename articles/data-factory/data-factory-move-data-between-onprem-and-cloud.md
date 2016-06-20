@@ -344,7 +344,7 @@ Azure 데이터 팩터리를 통해 **데이터 관리 게이트웨이**를 사�
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
-- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
@@ -497,7 +497,12 @@ Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이�
 
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | | *.servicebus.windows.net | 9350-9354, 5671 | TCP를 통한 선택적 서비스 버스 릴레이 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | 
+| *.servicebus.windows.net | 9350-9354, 5671 | TCP를 통한 선택적 서비스 버스 릴레이 | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 

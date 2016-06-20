@@ -22,7 +22,7 @@
 
 이 가이드에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용하여 Azure 저장소 테이블을 읽고 쓰는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 [Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 		
 일부 코드 조각에서는 `Table` 특성이 [수동으로 호출](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
 
@@ -30,7 +30,7 @@
 
 테이블에 엔터티를 추가하려면 `ICollector<T>` 또는 `IAsyncCollector<T>` 매개 변수와 함께 `Table` 특성을 사용합니다(여기서 `T`는 추가하려는 엔터티의 스키마를 지정). 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
 
-다음 코드 샘플은 `Person` 엔터티를 *Ingress*라는 테이블에 추가합니다.
+다음 코드 샘플은 `Person` 엔터티를 *Ingress* 라는 테이블에 추가합니다.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(

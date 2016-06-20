@@ -286,7 +286,7 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     exit ${RTNSTS}
 ```
 
-이 테스트에서는 Power-On-Demand 라이선스 토큰을 사용했습니다. 이 테스트에서는 **$CDLMD\_LICENSE\_FILE** 환경 변수를 ****1999@flex.cd-adapco.com**으로 설정하고 명령줄의 **-podkey** 옵션에 키를 설정해야 합니다.
+이 테스트에서는 Power-On-Demand 라이선스 토큰을 사용했습니다. 이 테스트에서는 **$CDLMD\_LICENSE\_FILE** 환경 변수를 **1999@flex.cd-adapco.com**으로 설정하고 명령줄의 **-podkey** 옵션에 키를 설정해야 합니다.
 
 일부 초기화 후에는 스크립트가 (HPC 팩이 설정하는 **$CCP\_NODES\_CORES** 환경 변수에서) 노드 목록을 추출하여 MPI 시작 관리자가 사용하는 hostfile을 작성합니다. 이 hostfile에는 작업에 사용된 계산 노드 이름의 목록이 포함되며, 한 줄당 하나의 이름이 포함됩니다.
 

@@ -133,7 +133,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 SSO를 구성하려면 ****support@appblade.com**을 통해 AppBlade 지원 팀에 문의하고 다운로드한 메타데이터 파일을 메일에 첨부합니다. 또한 ****https://appblade.com/saml**로 **SSO 발급자 URL**을 구성하도록 요청합니다. 이 설정은 single sign-on 작업에 필요 합니다.
+5. 응용 프로그램에 SSO를 구성하려면 **support@appblade.com**을 통해 AppBlade 지원 팀에 문의하고 다운로드한 메타데이터 파일을 메일에 첨부합니다. 또한 **https://appblade.com/saml**로 **SSO 발급자 URL**을 구성하도록 요청합니다. 이 설정은 single sign-on 작업에 필요 합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
