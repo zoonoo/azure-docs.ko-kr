@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 예약 및 실행
@@ -282,7 +282,7 @@ CopyActivity2: 입력: Dataset3, Dataset2 출력: Dataset4
 
 여러 입력을 지정하는 경우 첫 번째 입력 데이터 집합만 데이터를 복사하는 데 사용되고 다른 데이터 집합은 종속성으로 사용됩니다. CopyActivity2는 다음 조건을 충족할 때만 실행을 시작합니다.
 
-- CopyActivity2가 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않으며 CopyActivity2에 대한 일정 종속성으로만 작동합니다.   
+- CopyActivity1이 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않으며 CopyActivity2에 대한 일정 종속성으로만 작동합니다.   
 - Dataset3을 사용할 수 있습니다. 이 데이터 집합은 대상에 복사되는 데이터를 나타냅니다.  
 
 
@@ -702,4 +702,4 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -131,7 +131,7 @@ VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드�
 
 ##<a name="SSMS"></a>SQL Server Management Studio에 연결하여 혼합 모드 인증 설정
 
-SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다. SQL 인증 모드는 판독기 모듈을 사용하여 [Azure 기계 학습 스튜디오](https://studio.azureml.net)의 SQL Server VM 데이터베이스에서 직접 데이터를 수집하는 데 필요합니다.
+SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다. SQL 인증 모드는 데이터 가져오기 모듈을 사용하여 [Azure 기계 학습 스튜디오](https://studio.azureml.net)의 SQL Server VM 데이터베이스에서 직접 데이터를 수집하는 데 필요합니다.
 
 1.  원격 데스크톱을 사용하여 가상 컴퓨터에 연결되어 있는 동안 Windows **검색** 창에 **SQL Server Management Studio**(SMSS)를 입력합니다. SSMS(SQL Server Management Studio)를 클릭하여 시작합니다. 나중에 사용하기 위해 바탕 화면에 SSMS의 바로 가기를 추가할 수 있습니다.
 
@@ -233,7 +233,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 1.  Azure 클래식 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
 
-2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 **http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
+2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 ****http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
 
 ##<a name="cde"></a>다른 컴퓨터에서 데이터베이스 엔진에 연결
 
@@ -251,9 +251,9 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 ##<a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
 
-Cortana 분석 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **판독기** 모듈을 사용합니다. 이 항목은 Cortana 분석 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
+Cortana 분석 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **데이터 가져오기** 모듈을 사용합니다. 이 항목은 Cortana 분석 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
 
-2.	[판독기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL 데이터베이스**를 선택합니다.
+2.	[데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL 데이터베이스**를 선택합니다.
 
 3.	**데이터베이스 서버 이름** 텍스트 상자에 `tcp:<DNS name of your virtual machine>,1433`을 입력합니다.
 
@@ -261,7 +261,7 @@ Cortana 분석 프로세스의 이후 단계에서는 [Azure 기계 학습 스�
 
 5.	**서버 사용자 계정 암호** 텍스트 상자에 SQL 사용자의 암호를 입력합니다.
 
-	![Azure 기계 학습 판독기][13]
+	![Azure ML 데이터 가져오기][13]
 
 ##<a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 
@@ -306,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

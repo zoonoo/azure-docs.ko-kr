@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/23/2016"
+   ms.date="06/06/2016"
    ms.author="magoedte;bwren"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -25,7 +25,7 @@
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Windows PowerShell cmdlet을 사용하여 명령줄에서 호출<br> <li>여러 단계로 구성된 자동화된 솔루션에 포함할 수 있음<br> <li>인증서 또는 OAuth 사용자 계정/서비스 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적<br> <li>클라이언트에서 PowerShell cmdlet을 지원해야 함 |
 | [Azure 자동화 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>가장 유연하지만 가장 복잡한 방법<br> <li>HTTP 요청을 수행할 수 있는 모든 사용자 지정 코드에서 호출<br> <li>인증서 또는 OAuth 사용자 계정/서비스 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적 |
 | [Webhook](automation-webhooks.md) | <li>단일 HTTP 요청에서 Runbook 시작<br> <li>URL의 보안 토큰으로 인증<br> <li>Webhook를 만들 때 지정된 매개 변수 값을 클라이언트에서 재정의할 수 없음 Runbook에서 HTTP 요청 세부 정보로 채워진 단일 매개 변수를 정의할 수 있음<br> <li>Webhook URL을 통해 작업 상태를 추적할 수 없음 |
-| [Azure 경고에 응답](automation-webhooks.md) | <li>Azure 경고에 응답하여 Runbook 시작<br> <li>Runbook에 대한 Webhook와 경고 링크 구성<br> <li>URL의 보안 토큰으로 인증<br> <li>현재 메트릭에서만 경고 지원 |
+| [Azure 경고에 응답](../log-analytics/log-analytics-alerts.md) | <li>Azure 경고에 응답하여 Runbook 시작<br> <li>Runbook에 대한 Webhook와 경고 링크 구성<br> <li>URL의 보안 토큰으로 인증<br> <li>현재 메트릭에서만 경고 지원 |
 | [일정](automation-scheduling-a-runbook.md) | <li>매시간, 매일 또는 매주 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure 포털, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
 | [다른 Runbook에서](automation-child-runbooks.md) | <li>Runbook을 다른 Runbook의 활동으로 사용<br> <li>여러 Runbook에서 사용하는 기능에 유용<br> <li>자식 Runbook에 매개 변수 값을 제공하고 부모 Runbook에서 출력 사용 |
 
@@ -193,4 +193,4 @@ jsmith
 
 -	현재 문서의 Runbook 아키텍처에서는 하이브리드 Runbook에 대한 자세한 설명을 제공합니다. 자세한 내용은 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

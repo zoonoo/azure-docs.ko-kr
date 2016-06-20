@@ -171,7 +171,7 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 - [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]
 - [Windows Server용 서비스 버스의 AMQP]
 
-  [서비스 버스 큐를 사용하는 방법]: service-bus-dotnet-how-to-use-queues.md
+  [서비스 버스 큐를 사용하는 방법]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

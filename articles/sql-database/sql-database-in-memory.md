@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/08/2016"
 	ms.author="jodebrui"/>
 
 
@@ -233,7 +233,7 @@ end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 
 ### RML 유틸리티 및 ostress 설치
@@ -537,4 +537,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

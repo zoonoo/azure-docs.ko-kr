@@ -3,7 +3,7 @@
 	description="Azure 모바일 앱을 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="android"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	authors="ysxu"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="06/07/2016"
 	ms.author="yuaxu;ricksal"/>
 
 # Android 앱에 푸시 알림 추가
@@ -37,7 +37,7 @@
 
 ## Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ##푸시 요청을 보내도록 모바일 앱 백 엔드 구성
 
@@ -57,7 +57,7 @@ Android 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 �
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]\(영문)을 참조하십시오.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하십시오.
 
 ###프로젝트에 Google Play Services 추가
 
@@ -81,4 +81,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 [Google Play Services SDK 설정]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

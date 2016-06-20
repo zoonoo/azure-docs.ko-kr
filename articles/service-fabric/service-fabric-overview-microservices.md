@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # 응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유
 소프트웨어 개발자로서 응용 프로그램을 구성 요소 부분으로 팩터링하는 것에 대한 생각에는 새로울 것이 없습니다. 객체 지향, 소프트웨어 추상화 및 구성 요소화가 중심적인 패러다임입니다. 현재 이러한 팩토링화는 공유 라이브러리와 기술 계층 간의 인터페이스와 클래스의 형태를 취하는 경향이 있는데, 일반적으로 백엔드 스토어, 중간 계층 비즈니스 로직, 프런트엔드 UI를 통한 계층화된 접근 방식을 통해 이루어집니다. 지난 몇 년 동안 우리 개발자들이 *겪은* 변화는 바로 비즈니스에서 추구하는 클라우드를 위해 분산된 응용 프로그램을 구축하는 것이었습니다.
@@ -143,9 +143,9 @@ Azure 서비스 패브릭은 Microsoft가 보통 모놀리식 스타일의 박�
 
 * 자세한 내용은 다음을 참조하세요.
 	* [서비스 패브릭의 개요](service-fabric-overview.md)
-    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/ko-KR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

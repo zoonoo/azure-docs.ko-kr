@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # 아티팩트를 사용하여 랩에 VM 추가
@@ -36,7 +36,7 @@ DevTest Lab *아티팩트*를 통해 VM을 만들 때 수행하는 *작업*을 �
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 새 VM을 만들려는 랩을 탭합니다.
 
@@ -76,7 +76,7 @@ DevTest Lab *아티팩트*를 통해 VM을 만들 때 수행하는 *작업*을 �
 
 VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 랩에는 공용 DevTest Lab 아티팩트 리포지토리의 아티팩트 및 사용자가 만들어서 사용자 고유 아티팩트 리포지토리에 추가한 아티팩트가 포함되어 있습니다. 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md) 문서를 참조하세요.
 
-1. **랩 VM** 블레이드에서 **아티팩트**를 누릅니다. 
+1. 에 **랩 VM** 블레이드, **아티팩트**합니다. 
 
 1. **아티팩트 추가** 블레이드에서 원하는 아티팩트를 누릅니다.
 
@@ -100,7 +100,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 
 1. 목록의 아티팩트를 원하는 순서대로 끌어 놓습니다. **참고:** 아티팩트를 끌어 놓는 데 문제가 있으면 아티팩트의 왼쪽에서 끌어 놓으세요.
 
-1. 완료되면 **확인**을 누릅니다.
+1. 선택 **확인** 완료 합니다.
 
 ## 아티팩트 확인 또는 수정
 
@@ -118,7 +118,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 
 ## ARM 템플릿 저장
 
-ARM 템플릿은 반복 가능한 배포를 정의하는 선언적 방법을 제공합니다. 다음 단계는 생성 중인 VM에 대한 ARM 템플릿을 저장하는 방법을 설명합니다. 저장한 후에는, ARM 템플릿을 사용하여 [Azure PowerShell로 새 VM을 배포](../resource-group-overview/#template-deployment)할 수 있습니다.
+ARM 템플릿은 반복 가능한 배포를 정의하는 선언적 방법을 제공합니다. 다음 단계는 생성 중인 VM에 대한 ARM 템플릿을 저장하는 방법을 설명합니다. 저장한 후에는, ARM 템플릿을 사용하여 [Azure PowerShell로 새 VM을 배포](../resource-group-overview.md#template-deployment)할 수 있습니다.
 
 1. **Lab VM**(랩 VM) 블레이드에서 **View ARM Template**(ARM 템플릿 보기)를 탭합니다.
 
@@ -140,4 +140,4 @@ ARM 템플릿은 반복 가능한 배포를 정의하는 선언적 방법을 제
 - [DevTest Lab VM에 대한 사용자 지정 아티팩트를 만드는](devtest-lab-artifact-author.md) 방법을 알아봅니다.
 - [DevTest Lab ARM QuickStart 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 탐색
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 # Eclipse에서 Azure용 Hello World 웹앱 만들기
@@ -193,18 +193,32 @@
 
 ## 다음 단계
 
-자세한 내용은 다음 링크를 참조하세요.
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Java 개발자 센터]
-* [웹앱 개요]
+- [Eclipse용 Azure 도구 키트]
+  - [Eclipse용 Azure 도구 키트 설치]
+  - *Eclipse에서 Azure용 Hello World 웹앱 만들기(이 문서)*
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
+
+Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
+[IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
+[IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
-[Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+[IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [웹앱 개요]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -225,4 +239,4 @@
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

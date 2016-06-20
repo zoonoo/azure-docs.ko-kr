@@ -51,7 +51,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 다음 단계에 따라 Azure 기계 학습에서 실험을 만들었습니다.
 
 1.	데이터 집합을 csv 파일(매우 작은 파일)로 Azure 기계 학습에 업로드했습니다.
-2.	새 실험을 만들고 [Project Columns][project-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다.   
+2.	새 실험을 만들고 [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다.   
 3.	[Split Data][split] 모듈(*Relative Expression* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 정확히 동일한 학습 집합으로 나누었습니다.  
 4.	[Linear Regression][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
 
@@ -155,8 +155,8 @@ Azure 기계 학습에서 Excel로 예측 분석을 체계적으로 전송하는
 [boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

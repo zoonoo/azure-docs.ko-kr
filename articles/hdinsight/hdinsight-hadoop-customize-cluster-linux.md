@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
@@ -22,6 +22,8 @@
 HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립트를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이러한 스크립트는 클러스터를 만들 때 또는 이미 실행 중인 클러스터에 사용할 수 있으며, 추가 구성 요소를 설치하거나 구성 설정을 변경하는 데 사용됩니다.
 
 > [AZURE.NOTE] 이미 실행 중인 클러스터에 스크립트 작업을 사용하는 기능은 Linux 기반 HDInsight 클러스터에만 제공됩니다. Windows 기반 클러스터에 스크립트 작업을 사용하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
+
+스크립트 작업을 Azure 마켓플레이스에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure 마켓플레이스에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
 ## 스크립트 작업 이해
 
@@ -36,6 +38,8 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
     Blob 컨테이너(공개적으로 읽을 수 있음)에 저장된 스크립트의 URI 예를 보려면 [예제 스크립트 작업 스크립트](#example-script-action-scripts) 섹션을 참조하세요.
 
 * 헤드 노드 또는 작업자 노드와 같은 __특정 노드 유형에서만 실행__되도록 제한할 수 있습니다.
+
+    > [AZURE.NOTE] HDInsight Premium에서 사용할 경우 스크립트를 에지 노드에서 사용해야 한다고 지정할 수 있습니다.
 
 * __지속형__ 또는 __임시__ 스크립트일 수 있습니다.
 
@@ -112,7 +116,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 **R 설치** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. [HDInsight 클러스터에서 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
 **Solr 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요.
-| **Hive 라이브러리 사전 로드** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) 참조 |
+| **Hive 라이브러리 사전 로드** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)를 참조하세요. |
 
 ## 클러스터를 만드는 동안 스크립트 작업 사용
 
@@ -140,6 +144,8 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 ### Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
 
 이 섹션에서 Azure 리소스 관리자(ARM) 템플릿을 사용하여 HDInsight 클러스터를 만들고 클러스터에서 사용자 지정 구성 요소(이 예에서는 R)를 설치하는 스크립트 작업을 사용할 수 있습니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 만드는 샘플 ARM 템플릿을 제공합니다.
+
+> [AZURE.NOTE] 이 섹션의 단계는 스크립트 작업을 사용하여 클러스터를 만드는 방법을 보여 줍니다. HDInsight 응용 프로그램을 사용하여 ARM 템플릿에서 클러스터를 만드는 예를 보려면 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 #### 시작하기 전에
 
@@ -468,7 +474,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-
+        
+    > [AZURE.NOTE] HDInsight Premium 클러스터를 사용하는 경우 nodetype의 `"edgenode"`를 사용하여 에지 노드에서 해당 스크립트를 실행할 수 있습니다.
 
 2. 다음 명령을 사용하여 클러스터에 스크립트를 적용합니다.
 
@@ -593,6 +600,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 .NET SDK를 사용하여 클러스터에서 스크립트 기록을 검색하거나 스크립트를 승격 또는 강등하는 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
 
+> [AZURE.NOTE] 이 예제에서는 .NET SDK를 사용하여 HDInsight 응용 프로그램을 설치하는 방법도 보여 줍니다.
+
 ## 문제 해결
 
 Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 수 있습니다. 스크립트가 클러스터 만들기에 사용되었으며 스크립트의 오류로 인해 클러스터 생성에 실패한 경우, 클러스터와 연결된 기본 저장소 계정에서도 로그를 사용할 수 있습니다. 이 섹션에서는 두 옵션을 모두 사용하여 로그를 검색하는 방법에 대한 정보를 제공합니다.
@@ -690,4 +699,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

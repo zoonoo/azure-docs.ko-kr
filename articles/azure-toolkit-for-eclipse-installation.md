@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -36,7 +36,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
     ![Eclipse용 Azure 도구 키트 설치][01]
 
-1. **Available Software** 대화 상자의 **Work with** 텍스트 상자에 **http://dl.microsoft.com/eclipse**를 입력한 후 **Enter** 키를 누릅니다.
+1. **Available Software** 대화 상자의 **Work with** 텍스트 상자에 ****http://dl.microsoft.com/eclipse**를 입력한 후 **Enter** 키를 누릅니다.
 
 1. **Name** 창에서 **Azure Toolkit for Eclipse**를 선택하고 **Contact all update sites during install to find required software**를 선택하지 않습니다. 화면은 다음과 유사한 모양입니다.
 
@@ -74,20 +74,28 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 ## 참고 항목
 
-[Eclipse용 Azure 도구 키트]
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-[Eclipse에서 Azure용 Hello World 웹앱 만들기]
-
-[Eclipse용 Azure 도구 키트의 새로운 기능]
+- [Eclipse용 Azure 도구 키트]
+  - *Eclipse용 Azure 도구 키트 설치(이 문서)*
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
 
 [Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
-[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+[IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
+
+[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -98,4 +106,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

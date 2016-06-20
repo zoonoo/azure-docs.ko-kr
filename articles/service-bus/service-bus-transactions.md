@@ -81,6 +81,6 @@ using (scope = new TransactionScope())
 - [자동 전달 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [서비스 버스 샘플과 함께 원자성 트랜잭션](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Azure 큐와 서비스 버스 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

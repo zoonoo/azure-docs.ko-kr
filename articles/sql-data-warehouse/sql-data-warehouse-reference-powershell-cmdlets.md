@@ -18,7 +18,7 @@
 
 # SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
 
-많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다. 다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다. 유용한 REST 예제는 [Manage scalability with REST][]\(REST를 사용하여 확장성 관리) 문서를 참조하세요.
+많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다. 다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다. 유용한 REST 예제는 [REST를 사용하여 확장성 관리][] 문서를 참조하세요.
 
 > [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
 
@@ -84,8 +84,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 더 많은 PowerShell 예제는 다음을 참조하세요.
 
 - [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기][]
-- [스냅숏에서 복원][]
-- [스냅숏에서 지역 복원][]
+- [데이터베이스 복원][]
 
 PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이터베이스 Cmdlet][]을 참조하세요. REST로 자동화할 수 있는 작업 목록은 [Azure SQL 데이터베이스에 대한 작업][]을 참조하세요.
 
@@ -94,9 +93,8 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Article references-->
 [Azure PowerShell 설치 및 구성 방법]: ./powershell-install-configure.md
 [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision-powershell.md
-[스냅숏에서 복원]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[스냅숏에서 지역 복원]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Manage scalability with REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[데이터베이스 복원]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[REST를 사용하여 확장성 관리]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 Cmdlet]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -116,4 +114,4 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Other Web references-->
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

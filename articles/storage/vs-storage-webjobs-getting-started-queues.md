@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -515,15 +515,15 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-WebJobs SDK 대시보드에서 **TextWriter** 개체 출력은 특정 함수 호출에 대한 페이지로 이동하여 **Toggle Output**을 클릭할 때 표시됩니다.
+WebJobs SDK 대시보드에서 **TextWriter** 개체 출력은 특정 함수 호출에 대한 페이지로 이동하여 **Toggle Output**을 선택할 때 표시됩니다.
 
-![함수 호출 링크 클릭](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![호출 링크](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![함수 호출 페이지에서 로그](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출이 아니라 WebJob에 대한 페이지로 이동하여 **Toggle Output**을 클릭할 때 표시됩니다.
+WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출이 아니라 WebJob에 대한 페이지로 이동하여 **Toggle Output**을 선택할 때 표시됩니다.
 
-![출력 설정/해제 클릭](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![출력 설정/해제](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job\_log.txt에 표시됩니다.
 
@@ -543,4 +543,4 @@ Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 
 
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # 서버 간, 구독 간, Azure 내부 및 외부로 데이터베이스 이동
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##동일한 구독의 다른 서버에 데이터베이스를 이동하려면
 - [Azure 포털](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭하고 목록에서 데이터베이스를 선택한 후 **복사**를 클릭합니다. 자세한 내용은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
@@ -29,4 +31,4 @@
 ## Azure 외부에서 사용할 데이터베이스 복사본을 만들려면
 - [BACPAC 파일을 내보냅니다.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

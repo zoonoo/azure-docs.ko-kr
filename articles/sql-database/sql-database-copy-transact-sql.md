@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Transact-SQL을 사용하여 Azure SQL 데이터베이스 복사
 
-**단일 데이터베이스**
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-copy.md)
@@ -103,4 +102,4 @@ sys.databases 및 sys.dm\_database\_copies 뷰 쿼리를 통해 복사 프로세
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

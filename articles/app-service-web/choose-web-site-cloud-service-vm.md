@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="06/06/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스, 가상 컴퓨터, 서비스 패브릭 및 클라우드 서비스 비교
@@ -197,4 +197,4 @@ ETW 이벤트 수신 가능||X|X|X|
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

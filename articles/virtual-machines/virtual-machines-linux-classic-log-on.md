@@ -20,7 +20,7 @@
 
 #Linux를 실행하는 가상 컴퓨터에 로그온하는 방법 #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-portal-create.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-quick-create-portal.md).
 
 가상 컴퓨터에 로그온하는 데 사용할 컴퓨터에 SSH 클라이언트를 설치해야 합니다. 선택할 수 있는 많은 SSH 클라이언트 프로그램이 있습니다. 가능한 선택 항목은 다음과 같습니다.
 
@@ -47,4 +47,4 @@
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

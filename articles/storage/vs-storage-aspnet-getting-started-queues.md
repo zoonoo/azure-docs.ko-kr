@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작
@@ -82,7 +82,9 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 큐의 메시지 읽기 및 제거
 
-이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다. 1. GetMessage()를 호출하여 큐에서 다음 메시지를 가져옵니다. GetMessage()에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 2. 큐에서 메시지 제거를 완료하려면 **DeleteMessage**를 호출합니다.
+이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
+1. GetMessage()를 호출하여 큐에서 다음 메시지를 가져옵니다. GetMessage()에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다.
+2.	큐에서 메시지 제거를 완료하려면 **DeleteMessage**를 호출합니다.
 
 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 **DeleteMessage**를 호출합니다.
 
@@ -154,4 +156,4 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

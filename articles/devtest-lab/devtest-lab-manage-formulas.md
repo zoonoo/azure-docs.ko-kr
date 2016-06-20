@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # VM을 만드는 DevTest Lab 수식 관리
@@ -42,7 +42,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -84,7 +84,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -105,7 +105,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -122,7 +122,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -145,4 +145,4 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 ## 다음 단계
 VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

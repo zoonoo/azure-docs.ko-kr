@@ -78,7 +78,7 @@
 
 > [AZURE.NOTE] 실험 캔버스 맨 위에 추가된 탭 아래에 두 부분으로 실험이 저장되었습니다. 원래 학습 실험은 **학습 실험** 탭 아래에, 새로 생성된 예측 실험은 **예측 실험** 아래에 저장됩니다.
 
-이 특정 실험과 함께 하나의 추가 단계를 수행해야 합니다. 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 추가하여 학습 및 테스트에 대한 데이터에 가중치 기능을 제공했습니다. 최종 모델에 대해서는 수행할 필요가 없습니다. 기계 학습 스튜디오에서 [분할][split] 모듈을 제거할 때 한 [R 스크립트 실행][execute-r-script] 모듈을 제거했으므로 이제 다른 모듈을 제거하고 [메타데이터 편집기][metadata-editor]를 [모델 점수 매기기][score-model]에 직접 연결할 수 있습니다.
+이 특정 실험과 함께 하나의 추가 단계를 수행해야 합니다. 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 추가하여 학습 및 테스트에 대한 데이터에 가중치 기능을 제공했습니다. 최종 모델에 대해서는 수행할 필요가 없습니다. 기계 학습 스튜디오에서 [분할][split] 모듈을 제거할 때 한 [R 스크립트 실행][execute-r-script] 모듈을 제거했으므로 이제 다른 모듈을 제거하고 [메타데이터 편집][edit-metadata]을 [모델 점수 매기기][score-model]에 직접 연결할 수 있습니다.
 
 이제 실험은 다음과 같이 표시됩니다.
 
@@ -108,9 +108,9 @@
 
 데이터 집합을 입력하고 **확인**을 클릭합니다.
 
-웹 서비스에서 데이터는 **웹 서비스 입력** 모듈 및 [메타데이터 편집기][metadata-editor] 모듈을 통해 점수가 매겨지는 [모델 점수 매기기][score-model] 모듈에 입력됩니다. 그런 다음 웹 서비스의 결과가 **웹 서비스 출력**을 통해 출력됩니다.
+웹 서비스에서 데이터는 **웹 서비스 입력** 모듈 및 [메타데이터 편집][edit-metadata] 모듈을 통해 점수가 매겨지는 [모델 점수 매기기][score-model] 모듈에 입력됩니다. 그런 다음 웹 서비스의 결과가 **웹 서비스 출력**을 통해 출력됩니다.
 
-> [AZURE.TIP] 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 신용 위험 값만 반환하는 등 다른 결과를 반환하려면 [프로젝트 열][project-columns] 모듈을 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 삽입하고 웹 서비스에서 반환하지 않으려는 열을 제거합니다.
+> [AZURE.TIP] 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 신용 위험 값만 반환하는 등 다른 결과를 반환하려면 [데이터 집합의 열 선택][select-columns] 모듈을 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 삽입하고 웹 서비스에서 반환하지 않으려는 열을 제거합니다.
 
 ## 웹 서비스 관리
 웹 서비스를 배포한 후에는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 관리할 수 있습니다.
@@ -145,13 +145,13 @@
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/ko-KR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/ko-KR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

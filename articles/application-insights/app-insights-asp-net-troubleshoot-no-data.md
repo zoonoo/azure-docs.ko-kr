@@ -12,11 +12,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/27/2016" 
 	ms.author="awills"/>
  
 # 데이터 없음 문제 해결 - .NET용 Application Insights
 
+## 일부 원격 분석이 누락됨
+
+*Application Insights에서 내 앱이 생성하는 이벤트의 일부만 표시됩니다.*
+
+* 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](app-insights-sampling.md) 때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다. 
+* 그렇지 않은 경우 요금제의 [데이터 속도 제한](app-insights-pricing.md#limits-summary)에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
 
 ## 상태 모니터 문제
 
@@ -96,7 +102,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
  * 해결 방법: 브라우저 창 오른쪽 상단에서 본인의 이름을 클릭하고 로그아웃합니다. 액세스 권한이 있는 계정으로 로그인합니다. 그런 다음 왼쪽의 탐색 모음에서 Application Insights를 클릭하고 앱을 선택합니다.
 
-* 다른 사용자가 프로젝트에 Application Insights를 추가한 후 나에게 프로젝트가 생성된 [리소스 그룹에 대한 액세스 권한](app-insights-resources-roles-access-control.md)을 부여하는 것을 잊어 버렸습니다.
+* 다른 사용자가 프로젝트에 Application Insights를 추가한 후 나에게 프로젝트가 생성된 [리소스 그룹에 대한 액세스 권한](app-insights-resources-roles-access-control.md)을 부여하는 것을 잊어버렸습니다.
 
  * 해결 방법: 다른 사용자가 조직 계정을 사용한 경우 나를 팀에 추가해 주면 됩니다. 또는 나에게 리소스 그룹에 대한 개별 액세스 권한을 부여하는 방법도 있습니다.
 
@@ -161,7 +167,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 + 기존 웹 프로젝트에 Application Insights를 추가한 경우 [스크립트를 직접 추가해야 합니다](app-insights-javascript.md).
 + Internet Explorer가 호환성 모드에서 사이트를 표시하고 있는지 확인합니다.
-+ 데이터가 `dc.services.visualstudio.com`으로 전송되고 있는지 확인하려면 브라우저의 디버그 기능을 사용합니다(일부 브라우저의 경우 F12를 누른 다음 네트워크 선택).
++ 데이터가 `dc.services.visualstudio.com`으로 전송되고 있는지 확인하려면 브라우저의 디버그 기능을 사용합니다(일부 브라우저의 경우 F12 키를 누른 다음 네트워크 선택).
 
 ## 종속성 또는 예외 데이터 없음
 
@@ -189,7 +195,7 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 ## 기대한 모든 데이터가 표시되지 않는 경우
 
-응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다.
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다.
 
 이 기능을 비활성화할 수는 있지만 그러지 않는 것이 좋습니다. 샘플링은 진단을 목적으로 관련 원격 분석이 올바르게 전송되도록 설계되었습니다.
 
@@ -205,4 +211,4 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

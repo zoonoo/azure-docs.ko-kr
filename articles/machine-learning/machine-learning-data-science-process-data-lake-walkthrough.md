@@ -158,7 +158,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
+Azure Blob에서 데이터 위치는 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
+다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -701,7 +701,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 이제 팁이 Azure 기계 학습에서 유료인지 여부를 예측하는 모델을 빌드 및 배포할 준비가 되었습니다. 계층화된 샘플 데이터는 이 이진 분류(팁인지 아닌지) 문제에서 사용할 준비가 되었습니다. 다중 클래스 분류(tip\_class) 및 회귀(tip\_amount)를 사용하는 예측 모델은 Azure 기계 학습 스튜디오를 사용하여 빌드 및 배포할 수도 있지만 여기에서는 이진 분류 모델을 사용하여 사례를 처리하는 방법만 살펴보겠습니다.
 
-1. **데이터 입력 및 출력** 섹션에서 제공되는 **판독기** 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [판독기 모듈](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 참조 페이지를 참조하세요.
+1. **데이터 입력 및 출력** 섹션에서 제공되는 **데이터 가져오기** 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 참조 페이지를 참조하세요.
 2. **속성** 패널에서 **데이터 원본**으로 **Hive 쿼리**를 선택합니다.
 3. 다음 Hive 스크립트를 **Hive 데이터베이스 쿼리** 편집기에 붙여 넣습니다.
 
@@ -741,4 +741,4 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 - [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 - [ Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

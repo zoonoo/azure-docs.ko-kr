@@ -100,4 +100,4 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

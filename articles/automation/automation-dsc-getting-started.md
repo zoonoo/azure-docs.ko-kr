@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="05/05/2016"
-   ms.author="eslesar"/>
+   ms.date="06/06/2016"
+   ms.author="magoedte;eslesar"/>
    
 
 # Azure 자동화 DSC 시작하기
@@ -27,7 +27,7 @@
 
 이 항목의 예제를 완료하려면 다음이 필요합니다.
 
-- Azure 자동화 계정. Azure 자동화 계정 만들기에 대한 지침은 [Azure 자동화 구성](automation-configuring.md)을 참조하세요.
+- Azure 자동화 계정. Azure 자동화 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
 - Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
 ## DSC 구성 만들기
@@ -266,4 +266,4 @@ Azure 자동화 DSC에 의해 노드를 더 이상 관리하지 않으려는 경
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

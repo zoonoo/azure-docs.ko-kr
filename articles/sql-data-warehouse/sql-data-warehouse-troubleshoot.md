@@ -1,6 +1,6 @@
 <properties
-   pageTitle="문제 해결 | Microsoft Azure"
-   description="SQL 데이터 웨어하우스 문제를 해결합니다."
+   pageTitle="Azure SQL 데이터 웨어하우스 문제 해결 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 문제 해결"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,8 +16,8 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# 문제 해결
-다음 항목에서는 Azure SQL 데이터 웨어하우스를 사용하는 고객에게 발생할 수 있는 일반적인 문제 중 일부를 설명합니다.
+# Azure SQL 데이터 웨어하우스 문제 해결
+이 항목에서는 Azure SQL 데이터 웨어하우스를 사용하는 발생할 수 있는 일반적인 문제 중 일부를 설명합니다.
 
 ## 연결
 다음은 좀 더 일반적인 연결 문제입니다.
@@ -39,7 +39,7 @@ SQL 데이터 웨어하우스에서 최적의 쿼리 성능을 얻을 수 있도
 
 ### 통계
 
-테이블의 [통계][]는 데이터베이스 열 또는 열 조합에 있는 값의 범위와 빈도에 대한 정보를 포함합니다. 쿼리 엔진은 이러한 통계를 사용하여 쿼리 실행을 최적화하고 쿼리 성능을 개선합니다. SQL Server 또는 SQL DB와 달리 SQL 데이터 웨어하우스는 통계를 자동으로 만들거나 업데이트하지 않습니다. 통계는 모든 테이블에서 수동으로 유지해야 합니다. 통계를 관리하고 통계가 필요한 테이블을 식별하는 방법을 알아보려면 [SQL 데이터 웨어하우스의 통계 관리][] 문서를 살펴보세요.
+테이블의 [통계][]는 데이터베이스 열 또는 열 조합에 있는 값의 범위와 빈도에 대한 정보를 포함합니다. 쿼리 엔진은 이러한 통계를 사용하여 쿼리 실행을 최적화하고 쿼리 성능을 개선합니다. SQL Server 또는 SQL 데이터베이스와 달리 SQL 데이터 웨어하우스는 통계를 자동으로 만들거나 업데이트하지 않습니다. 통계는 모든 테이블에서 수동으로 유지해야 합니다. 통계를 관리하고 통계가 필요한 테이블을 식별하는 방법을 알아보려면 [SQL 데이터 웨어하우스의 통계 관리][] 문서를 살펴보세요.
 
 ### 테이블 디자인
 
@@ -85,7 +85,7 @@ ORDER BY
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-> [AZURE.NOTE]  위의 LoadUser는 ALTER INDEX 문을 실행할 수 있도록 유효한 사용자를 만들어야 합니다. db\_owner 사용자의 리소스 클래스는 변경할 수 없습니다. 리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 아래 링크를 참조하십시오.
+> [AZURE.NOTE]  위의 LoadUser는 ALTER INDEX 문을 실행할 수 있도록 유용한 사용자로 만들어야 합니다. db\_owner 사용자의 리소스 클래스는 변경할 수 없습니다. 리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 아래 링크를 참조하십시오.
 
  
 **3단계:** 이제 더 높은 리소스 클래스를 사용 중인 2단계의 사용자(예: "LoadUser")로 로그온하고 1단계의 쿼리에서 생성한 ALTER INDEX 문을 실행합니다. 이 사용자가 1단계 쿼리에서 식별한 테이블에 대한 ALTER 권한이 있는지 확인합니다.
@@ -100,7 +100,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
 ```
 
-CCI 테이블에 대한 부하의 최소 리소스 클래스는 DW100-DW300의 경우 xlargerc, DW400-DW600의 경우 largerc, DW1000 이상에는 mediumrc를 사용하는 것이 좋습니다. 이 지침은 대부분의 워크로드에 적합합니다. 목표는 각 인덱스 빌드 작업에 400MB 이상의 메모리를 할당하는 것입니다. 하지만 모든 상황에 일괄적인 지침은 아닙니다. columnstore 인덱스를 최적화하는 데 필요한 메모리는 로드 중인 데이터에 따라 달라지며, 기본적으로 행 크기의 영향을 받습니다. 행 너비가 좁은 테이블은 더 적은 메모리가 필요하며 행 너비가 넓은 테이블은 더 많은 메모리가 필요합니다. 실험해 보고 싶은 경우 1단계의 쿼리를 사용하여 작은 메모리 할당 시 최적의 columnstore 인덱스를 얻을 수 있는지 확인해 보십시오. 행 그룹당 평균 10만 개 이상의 행이 적합합니다. 50만 개 이상이 더 좋습니다. 결과적으로 행 그룹당 최대 1백만 개의 행이 포함됩니다. 리소스 클래스 및 동시성을 관리하는 방법은 아래 링크를 참조하십시오.
+CCI 테이블에 대한 부하의 최소 리소스 클래스는 DW100-DW300의 경우 xlargerc, DW400-DW600의 경우 largerc, DW1000 이상에는 mediumrc를 사용하는 것이 좋습니다. 이 지침은 대부분의 워크로드에 적합합니다. 목표는 각 인덱스 빌드 작업에 400MB 이상의 메모리를 할당하는 것입니다. 하지만 모든 상황에 일괄적인 지침은 아닙니다. columnstore 인덱스를 최적화하는 데 필요한 메모리는 로드 중인 데이터에 따라 달라지며, 기본적으로 행 크기의 영향을 받습니다. 행 너비가 좁은 테이블은 더 적은 메모리가 필요하며 행 너비가 넓은 테이블은 더 많은 메모리가 필요합니다. 실험해 보고 싶은 경우 1단계의 쿼리를 사용하여 작은 메모리 할당 시 최적의 columnstore 인덱스를 얻을 수 있는지 확인해 보십시오. 적어도 행 그룹당 평균 10만 개 이상의 행이 적합합니다. 50만 개 이상이면 더 좋습니다. 결과적으로 행 그룹당 최대 1백만 개의 행이 포함됩니다. 리소스 클래스 및 동시성을 관리하는 방법은 아래 링크를 참조하십시오.
 
 
 ## 다음 단계
@@ -109,7 +109,7 @@ SQL 데이터 웨어하우스 솔루션을 최적화하는 방법에 대한 자�
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스를 조정]: ./sql-data-warehouse-overview-scalability.md
+[SQL 데이터 웨어하우스를 조정]: ./sql-data-warehouse-manage-compute-overview.md
 [테이블 디자인]: ./sql-data-warehouse-develop-table-design.md
 [사용자 테이블에 대한 올바른 해시 분산 키 선택]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
@@ -126,4 +126,4 @@ SQL 데이터 웨어하우스 솔루션을 최적화하는 방법에 대한 자�
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

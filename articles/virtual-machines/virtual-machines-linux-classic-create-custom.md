@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # 사용자 지정 Linux VM을 만드는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
-이 항목에서는 Azure CLI에서 클래식 배포 모델을 사용하여 *사용자 지정* 가상 컴퓨터를 만드는 방법을 설명합니다. Azure에서 제공되는 **이미지**의 Linux 이미지를 사용합니다. Azure CLI 명령은 특히 다음과 같은 구성 선택 항목을 제공합니다.
+이 항목에서는 Azure CLI에서 클래식 배포 모델을 사용하여 사용자 지정 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. Azure에서 제공되는 **이미지**의 Linux 이미지를 사용합니다. Azure CLI 명령은 특히 다음과 같은 구성 선택 항목을 제공합니다.
 
 - 가상 네트워크에 VM 연결
 - 기존 클라우드 서비스에 VM 추가
@@ -35,4 +35,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

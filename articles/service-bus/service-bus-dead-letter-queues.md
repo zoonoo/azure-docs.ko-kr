@@ -89,6 +89,6 @@ while(true)
 서비스 버스 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 큐와 서비스 버스 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [서비스 버스 큐](service-bus-dotnet-how-to-use-queues.md)를 사용하는 방법
+- [서비스 버스 큐](service-bus-dotnet-get-started-with-queues.md)를 사용하는 방법
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

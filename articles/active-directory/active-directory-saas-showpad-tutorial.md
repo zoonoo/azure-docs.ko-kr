@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Showpad의 Azure AD 통합을 구성하려면 갤러리의 Showpad를 관리되�
 
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
 
-	![Active Directory][1]
+	![응용 프로그램][1]
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -80,10 +80,11 @@ Showpad의 Azure AD 통합을 구성하려면 갤러리의 Showpad를 관리되�
 
 6. 검색 상자에 **Showpad**를 입력합니다.
 
-	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![응용 프로그램](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. 결과 창에서 **Showpad**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
+	![응용 프로그램](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Showpad에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -97,7 +98,7 @@ Showpad에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Showpad 테스트 사용자 만들기](#creating-a-showpad-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Showpad에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -303,4 +304,4 @@ Showpad는 Just-In-Time 프로비전을 지원합니다. **[Azure AD Single Sign
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

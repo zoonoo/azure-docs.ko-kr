@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Azure 배치 풀에서 Linux 계산 노드 프로비전
 
 Azure 배치를 사용하면 Linux 및 Windows 가상 컴퓨터에서 병렬 계산 워크로드를 실행할 수 있습니다. 이 문서에서는 [배치 Python][py_batch_package] 및 [배치 .NET][api_net] 클라이언트 라이브러리를 모두 사용하여 배치 서비스에서 Linux 계산 노드 풀을 만드는 방법에 대해 자세히 설명합니다.
 
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md) 및 [다중 인스턴스 작업](batch-mpi.md)은 Linux 계산 노드에서 **현재 지원되지 않습니다** .
+> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md)는 Linux 계산 노드에서 **현재 지원되지 않습니다**.
 
 ## 가상 컴퓨터 구성
 
@@ -186,7 +186,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
-위의 코드 조각은 지원되는 이미지와 노드 에이전트 SKU 조합을 동적으로 나열하고 이 중에서 선택하는 [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] 메서드를 사용(권장)하지만 [ImageReference][net_imagereference]를 명시적으로 구성할 수도 있습니다.
+위의 코드 조각은 [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] 메서드를 사용하여 동적으로 나열하고 지원되는 이미지와 노드 에이전트 SKU 조합에서 선택(권장)하지만, [ImageReference][net_imagereference]를 명시적으로 구성할 수도 있습니다.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -210,11 +210,13 @@ ImageReference imageReference = new ImageReference(
 | Canonical | UbuntuServer | 14\.04.3-LTS | 최신 | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | 최신 | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 15\.10 | 최신 | batch.node.debian 8 |
+| Canonical | UbuntuServer | 16\.04.0-LTS | 최신 | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | 최신 | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | 최신 | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | 최신 | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.2 | 최신 | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | 최신 | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7\.1 | 최신 | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7\.0 | 최신 | batch.node.centos 7 |
 | SUSE | SLES | 12 | 최신 | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | 최신 | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12 | 최신 | batch.node.opensuse 42.1 |
@@ -227,7 +229,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Linux 노드에 연결
 
-개발 또는 문제 해결 동안 풀의 노드에 로그인할 필요가 있습니다. Windows 계산 노드와 달리 Linux 노드에 연결하기 위해 RDP(원격 데스크톱 프로토콜)를 사용할 수 없습니다. 대신, 배치 서비스는 원격 연결을 위해 각 노드에서 SSH 액세스를 사용하도록 설정합니다.
+개발 또는 문제 해결 동안 풀의 노드에 로그인할 필요가 있을 수 있습니다. Windows 계산 노드와 달리 Linux 노드에 연결하기 위해 RDP(원격 데스크톱 프로토콜)를 사용할 수 없습니다. 대신, 배치 서비스는 원격 연결을 위해 각 노드에서 SSH 액세스를 사용하도록 설정합니다.
 
 다음 Python 코드 조각에서는 풀의 각 노드에서 사용자를 만듭니다(원격 연결에 필요). 그런 다음 각 노드에 대한 SSH 연결 정보를 인쇄합니다.
 
@@ -265,7 +267,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-다음은 4개의 Linux 노드를 포함하는 풀에 대해 위의 코드에 대한 샘플 출력입니다.
+다음은 4개의 Linux 노드를 포함하는 풀에 대한 위의 코드의 샘플 출력입니다.
 
 ```
 Password:
@@ -283,9 +285,13 @@ Azure 배치는 Azure 클라우드 서비스 및 Azure 가상 컴퓨터 기술�
 
 ## 다음 단계
 
+### 배치 Python 자습서
+
+Python을 사용하여 배치 작업을 수행하기 위한 자세한 자습서를 보려면 [Azure 배치 Python 클라이언트 시작](batch-python-tutorial.md)을 확인합니다. 함께 제공되는 [코드 샘플][github_samples_pyclient]에는 가상 컴퓨터 구성을 가져오기 위한 다른 기법을 보여 주는 도우미 함수(`get_vm_config_for_distro`)가 포함되어 있습니다.
+
 ### 배치 Python 코드 샘플
 
-풀, 작업 및 작업 만들기 등과 같은 일반적인 배치 작업을 수행하는 방법을 보여 주는 몇 가지 스크립트의 경우 GitHub의 [azure-batch-samples][github_samples] 리포지토리에서 [Python 코드 샘플][github_samples_py]을 확인하세요. Python 샘플과 함께 제공되는 [추가 정보][github_py_readme]에 필요한 패키지 설치에 대한 세부 정보가 있습니다.
+풀, 작업 및 작업 만들기 등과 같은 일반적인 배치 작업을 수행하는 방법을 보여 주는 몇 가지 스크립트의 경우 GitHub의 [azure-batch-samples][github_samples] 리포지토리에서 기타 [Python 코드 샘플][github_samples_py]을 확인하세요. Python 샘플과 함께 제공되는 [추가 정보][github_py_readme]에 필요한 패키지 설치에 대한 세부 정보가 있습니다.
 
 ### 배치 포럼
 
@@ -299,6 +305,7 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
@@ -320,4 +327,4 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "응용 프로그램 패키지에 대한 개략적인 다이어그램"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

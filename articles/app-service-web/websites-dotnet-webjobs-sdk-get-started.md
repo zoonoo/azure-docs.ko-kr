@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 .NET WebJob 만들기
@@ -36,7 +36,13 @@
 
 Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로그램을 로컬로 실행하기 전에 Web.config 및 App.config에서 SQL Server LocalDB 연결 문자열의 `Data Source` 부분을 `Data Source=(localdb)\v11.0`에서 `Data Source=(LocalDb)\MSSQLLocalDB`로 변경해야 합니다.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+  >
+  > + [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+  >
+  > + [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+  >
+  >Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a id="learn"></a>학습할 내용
 
@@ -73,13 +79,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 1. Visual Studio에서 **서버 탐색기** 창을 엽니다.
 
-2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 연결**을 클릭합니다.
-![Azure에 연결](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 연결**을 클릭합니다. ![Azure에 연결](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Azure 자격 증명을 사용하여 로그인합니다.
 
-5. Azure 노드 아래에서 **저장소**를 마우스 오른쪽 단추로 클릭하고 **저장소 계정 만들기**를 클릭합니다.
-![저장소 계정 만들기](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Azure 노드 아래에서 **저장소**를 마우스 오른쪽 단추로 클릭하고 **저장소 계정 만들기**를 클릭합니다. ![저장소 계정 만들기](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. **저장소 계정 만들기** 대화 상자에서 저장소 계정의 이름을 입력합니다.
 
@@ -397,7 +401,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 11. **새 프로젝트 추가** 대화 상자에서 **Visual C#** > **Windows 데스크톱** > **클래스 라이브러리** 템플릿을 선택합니다.
 
-10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
 	이 프로젝트에는 프런트 엔드 및 백 엔드 둘 다에서 사용할 Entity Framework 컨텍스트와 데이터 모델이 포함됩니다. 또는 웹 프로젝트에서 EF 관련 클래스를 정의하고 WebJob 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 WebJob 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -470,7 +474,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 	- *Global.asax.cs*  
 	- *Controllers* 폴더: *AdController.cs*
 	- *Views\\Shared* 폴더: *\_Layout.cshtml* 파일
-	- *Views\\Home* 폴더: *Index.cshtml*.
+- *Views\\Home* 폴더: *Index.cshtml*.
 	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
@@ -619,7 +623,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음, 코드는 앞서 *Global.asax.cs* 에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음, 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -817,4 +821,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -211,6 +211,6 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 ## 다음 단계
 
-- TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
+- TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-ps-create.md)합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

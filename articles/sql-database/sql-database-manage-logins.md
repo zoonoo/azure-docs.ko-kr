@@ -1,5 +1,5 @@
 <properties
-   pageTitle="SQL 데이터베이스 보안 관리 - 로그인 보안 | Microsoft Azure"
+   pageTitle="SQL 데이터베이스 인증 및 권한 부여: 액세스 부여 | Microsoft Azure"
    description="SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다."
    keywords="sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스"
    services="sql-database"
@@ -15,165 +15,146 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/06/2016"
    ms.author="rickbyh"/>
 
-# SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리  
+# SQL 데이터베이스 인증 및 권한 부여: 액세스 부여 
 
-SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다. SQL 데이터베이스와 온-프레미스 SQL Server에서 로그인 보안 옵션의 차이점과 유사점을 파악합니다. 간략한 자습서는 [Azure SQL 데이터베이스 자습서: Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md)을 참조하세요.
 
-## 데이터베이스 프로비저닝 및 서버 수준 보안 주체 로그인
+> [AZURE.SELECTOR]
+- [보안 시작](sql-database-get-started-security.md)
+- [액세스 권한 부여](sql-database-manage-logins.md)
 
-Microsoft Azure SQL 데이터베이스에서 서비스에 등록하면 프로비전 프로세스가 Azure SQL 데이터베이스 서버의 서버 수준 보안 주체가 되는 Azure SQL 데이터베이스 서버, **마스터**라는 데이터베이스 및 로그인을 만듭니다. 이 로그인은 SQL Server의 온-프레미스 인스턴스의 경우 서버 수준 보안 주체(**sa**)와 비슷합니다. 이 항목에 설명된 개념은 Azure SQL 데이터 웨어하우스에도 적용됩니다.
 
-Azure SQL 데이터베이스 서버 수준 보안 주체 계정은 항상 모든 서버 수준 및 데이터베이스 수준 보안을 관리할 권한이 있습니다. 이 항목에서는 서버 수준 보안 주체 및 기타 계정을 사용하여 SQL 데이터베이스에서 로그인 및 데이터베이스를 관리하는 방법을 설명합니다.
+관리자, 비관리자 및 역할에 대한 SQL 데이터베이스 액세스 개념의 개요에 대한 설명은 여기에서 시작합니다.
 
-Azure 역할 기반 액세스 제어(RBAC) 및 Azure Resource Manager REST API를 통해 SQL 데이터베이스에 액세스하는 Azure 사용자는 해당 Azure 역할에서 권한을 받습니다. 이러한 역할은 데이터 평면 작업이 아닌, 관리 평면 작업에 대한 액세스를 제공합니다. 이러한 관리 평면 작업에는 SQL 데이터베이스에서 다양한 속성 및 스키마 요소를 읽는 기능이 포함됩니다. 그리고 SQL 데이터베이스와 관련된 일부 서버 수준 기능의 만들기, 삭제 및 구성을 허용합니다. 이러한 수많은 관리 평면 작업은 Azure 포털을 사용할 때 보고 구성할 수 있는 항목입니다. RBAC 역할을 사용하는 경우 데이터베이스 엔진에 의해 데이터베이스 내부 Azure 역할 멤버의 작업(예: 테이블 나열)이 역할에 대해 실행되므로 GRANT/REVOKE/DENY 문의 표준 SQL Server 권한 시스템에 의해 영향을 받지 않습니다. RBAC 역할은 데이터 평면 작업이므로 데이터를 읽거나 변경하는 기능을 포함하지 않습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+## 무제한 관리 계정
 
-> [AZURE.IMPORTANT] SQL 데이터베이스 V12 사용자를 사용하면 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 포함된 데이터베이스 사용자는 로그인하지 않아도 됩니다. 데이터베이스를 이식 가능하지만 데이터베이스에 액세스를 제어하는 서버 수준 보안 주체의 성능이 감소합니다. 포함된 데이터베이스 사용자를 사용하면 보안에 중요한 영향이 발생합니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하십시오.
+가상 master 데이터베이스 및 모든 사용자 데이터베이스에 대한 무제한 액세스 권한이 있는 두 개의 가능한 관리 계정이 있습니다. 이러한 계정을 서버 수준 주체 계정이라고 합니다.
 
-## SQL 데이터베이스 보안 관리 개요
+### Azure SQL 데이터베이스 구독자 계정 
 
-SQL 데이터베이스 보안 관리는 SQL Server의 온-프레미스 인스턴스에 대한 보안 관리와 비슷합니다. 데이터베이스 수준에서 보안 관리는 사용 가능한 매개 변수만 다르고 거의 동일합니다. SQL 데이터베이스는 하나 이상의 물리적 컴퓨터로 크기를 조정할 수 있기 때문에 Azure SQL 데이터베이스는 서버 수준 관리에 다른 전략을 사용합니다. 다음 표는 온-프레미스 SQL Server에 대한 데이터베이스 보안 관리가 Azure SQL 데이터베이스와 어떻게 다른지 요약합니다.
+논리적 SQL 인스턴스가 만들어질 때, SQL 데이터베이스 구독자 계정이라는 단일 로그인 계정이 만들어집니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이 계정은 논리적 서버 인스턴스 및 해당 인스턴스에 연결된 모든 사용자 데이터베이스에서 관리자입니다. 구독자 계정의 사용 권한은 제한할 수 없습니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 
-| 차이점 | 온-프레미스 SQL Server | Azure SQL 데이터베이스 |
-|------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------|
-| 서버 수준 보안을 관리하는 위치 | SQL Server Management Studio의 개체 탐색기에서 **보안** 폴더 | **마스터** 데이터베이스 및 Azure 포털을 통해 |
-| Windows 인증 | Active Directory ID | Azure Active Directory ID |
-| 로그인을 만들 서버 수준 보안 역할 | **securityadmin** 고정된 서버 역할 | **마스터** 데이터베이스에서 **loginmanager** 데이터베이스 역할 |
-| 로그인 관리 명령 | CREATE LOGIN, ALTER LOGIN, DROP LOGIN | CREATE LOGIN, ALTER LOGIN, DROP LOGIN(일부 매개 변수 제한 사항이 있으며 **마스터** 데이터베이스에 연결되어야 함) |
-| 모든 로그인을 보여 주는 보기 | sys.server\_principals | sys.sql\_logins(**마스터** 데이터베이스에 연결되어야 함)|
-| 데이터베이스를 만들기 위한 서버 수준 역할 | **dbcreator** 고정된 데이터베이스 역할 | **마스터** 데이터베이스에서 **dbmanager** 데이터베이스 역할 |
-| 데이터베이스를 만들기 위한 명령 | CREATE DATABASE | CREATE DATABASE(일부 매개 변수 제한 사항이 있으며 **마스터** 데이터베이스에 연결되어야 함) |
-| 모든 데이터베이스를 나열하는 보기 | sys.databases | sys.databases(**마스터** 데이터베이스에 연결되어야 함) |
+### Azure Active Directory 관리자
+하나의 Azure Active Directory 계정만 관리자로 구성할 수 있습니다. 이 계정은 개별 Azure AD 사용자이거나 여러 Azure AD 사용자를 포함하는 Azure AD 그룹일 수 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만 Azure AD 계정에서 SQL 데이터베이스에 연결하는 데 Windows 인증을 사용하려면 Azure AD 관리자를 반드시 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결](sql-database-aad-authentication.md)을 참조하세요.
 
-## 서버 수준 관리 및 마스터 데이터베이스
+### 방화벽 구성
+서버 수준 방화벽이 구성된 경우 Azure SQL 데이터베이스 구독자 계정 및 Azure Active Directory 계정을 가상 master 데이터베이스 및 모든 사용자 데이터베이스에 연결할 수 있습니다. 포털을 통해 서버 수준 방화벽을 구성할 수 있습니다. 연결이 이루어지면 [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL 문을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다. 방화벽 구성에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 데이터베이스 방화벽 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
-Azure SQL 데이터베이스 서버는 데이터베이스 그룹화를 정의하는 추상입니다. Azure SQL 데이터베이스 서버와 연결된 데이터베이스는 Microsoft 데이터 센터의 개별 물리적 컴퓨터에 상주할 수 있습니다. 이들 모두에 **마스터**라는 단일 데이터베이스를 사용하여 서버 수준 관리를 수행합니다.
+### 관리자 액세스 경로
 
-**마스터** 데이터베이스는 로그인을 추적하여 데이터베이스 또는 다른 로그인을 만들 수 있는 권한이 있는 로그인을 추적합니다. 로그인 또는 데이터베이스를 생성, 변경 또는 삭제할 때마다 **마스터** 데이터베이스에 연결해야 합니다. **마스터** 데이터베이스에는 각각 로그인과 데이터베이스를 보는 데 사용할 수 있는 ``sys.sql_logins`` 및 ``sys.databases`` 보기가 있습니다.
+서버 수준 방화벽이 제대로 구성되면 SQL 데이터베이스 구독자 계정 및 Azure Active Directory SQL Server 관리자가 SQL Server Management Studio 또는 SQL Server Data Tools와 같은 클라이언트 도구를 사용하여 연결할 수 있습니다. 최신 도구만 모든 특징 및 기능을 제공합니다. 다음 다이어그램에서는 두 명의 관리자 계정에 대한 일반적인 구성을 보여 줍니다. ![관리자 액세스 경로](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-> [AZURE.NOTE] ``USE`` 명령은 데이터베이스 간의 전환에 지원되지 않습니다. 대상 데이터베이스에 직접 연결해야 합니다.
+서버 수준 방화벽에서 열려 있는 포트를 사용하면 관리자가 모든 SQL 데이터베이스에 연결할 수 있습니다.
 
-SQL Server의 온-프레미스 인스턴스에 대해 수행하는 것과 동일한 방식으로 Azure SQL 데이터베이스의 사용자 및 개체에 대한 데이터베이스 수준 보안을 관리할 수 있습니다. 해당 명령에 사용할 수 있는 매개 변수에 차이가 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md)을 참조하세요.
+### SQL Server Management Studio를 사용하여 데이터베이스에 연결
+SQL Server Management Studio를 사용하여 연결하는 연습은 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결 및 샘플 T-SQL 쿼리 실행](sql-database-connect-query-ssms.md)을 참조하세요.
 
-## 포함된 데이터베이스 사용자 관리
 
-서버 수준 보안 주체로 데이터베이스에 연결하여 데이터베이스에 처음 포함된 데이터베이스 사용자를 만듭니다. ``CREATE USER``, ``ALTER USER`` 또는 ``DROP USER`` 문을 사용합니다. 다음 예제에서는 user1이라는 사용자를 만듭니다.
+## 추가 특별 계정
+SQL 데이터베이스는 사용자 계정을 추가할 수 있는 가상 master 데이터베이스에 두 가지 제한된 관리 역할을 제공합니다.
 
-```
-CREATE USER user1 WITH password='<Strong_Password>';
-```
+### 데이터베이스 작성자
+관리자 계정에서 새 데이터베이스를 만들 수 있습니다. 데이터베이스를 만들 수 있는 추가 계정을 만들려면 master에서 사용자를 만들고 사용자를 특별 **dbmanager** 데이터베이스 역할에 추가해야 합니다. 사용자는 포함된 데이터베이스 사용자이거나 가상 master 데이터베이스에서 SQL Server 로그인을 기반으로 한 사용자일 수 있습니다.
 
-> [AZURE.NOTE] 포함된 데이터베이스 사용자를 만들 때 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
+1.	관리자 계정을 사용하여 가상 master 데이터베이스에 연결합니다.
+2.	선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
 
-추가로 포함된 데이터베이스 사용자는 **ALTER ANY USER** 권한으로 사용자가 만들 수 있습니다.
+     ```
+     CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
+     ```
 
-SQL 데이터베이스 V12는 Azure Active Directory ID를 포함된 데이터베이스 사용자로 미리 보는 기능을 지원합니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하십시오.
+     > [AZURE.NOTE] 로그인 또는 포함된 데이터베이스 사용자를 만들 때는 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
 
-Microsoft는 SQL 데이터베이스로 포함된 데이터베이스 사용자를 사용하는 것을 권장합니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
+3.	가상 master 데이터베이스에서 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 샘플 문:
 
-## 로그인 관리
+     ```
+     CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
+     CREATE USER Tran WITH PASSWORD = '<strong_password>';
+     CREATE USER Mary FROM LOGIN Mary; 
+     ```
 
-마스터 데이터베이스에 연결하여 서버 수준 보안 주체 로그인으로 로그인을 관리합니다. ``CREATE LOGIN``, ``ALTER LOGIN`` 또는 ``DROP LOGIN`` 문을 사용할 수 있습니다. 다음 예제에서는 **login1**이라는 로그인을 만듭니다.
+4.	[ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 문을 사용하여 새 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 샘플 문:
 
-```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-```
+     ```
+     ALTER ROLE dbmanager ADD MEMBER Mary; 
+     ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
+     ```
 
-> [AZURE.NOTE] 로그인을 만들 때 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
+     > [AZURE.NOTE] dbmanager는 가상 master 데이터베이스의 데이터베이스 역할이므로 사용자를 dbmanager 역할에만 추가할 수 있습니다. 서버 수준 로그인을 데이터베이스 수준 역할에 추가할 수 없습니다.
 
-#### 새 로그인 사용
+5.	필요한 경우 새 사용자의 연결을 허용하도록 서버 수준 방화벽을 구성합니다.
 
-만든 로그인을 사용하여 Microsoft Azure SQL 데이터베이스에 연결하기 위해 먼저 ``CREATE USER`` 명령을 사용하여 각 로그인 데이터베이스 수준의 권한을 부여해야 합니다. 자세한 내용은 아래의 **로그인에 데이터베이스 액세스 권한 부여** 섹션을 참조하세요.
+이제 사용자는 가상 master 데이터베이스에 연결할 수 있으며 새 데이터베이스를 만들 수 있습니다. 데이터베이스를 만드는 계정이 데이터베이스의 소유자가 됩니다.
 
-일부 도구는 TDS(Tabular Data Stream)를 다르게 구현하기 때문에 ``<login>@<server>`` 표기법을 사용하여 연결 문자열의 로그인에 Azure SQL 데이터베이스 서버 이름을 추가해야 할 수 있습니다. 이러한 경우 ``@`` 기호가 있는 로그인 및 Azure SQL 데이터베이스 서버 이름을 분리합니다. 예를 들어 로그인 이름 **login1**이고 Azure SQL 데이터베이스 서버의 정규화된 이름이 **servername.database. windows.net**인 경우 연결 문자열의 사용자 이름 매개 변수는 * ***login1@servername**여야 합니다. 제한 사항은 로그인 이름으로 선택할 수 있는 텍스트를 제한합니다. 자세한 내용은 [로그인 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)를 참조하세요.
+### 로그인 관리자
 
-## 로그인에 서버 수준 권한을 부여합니다.
+원한다면 동일한 단계(로그인 및 사용자 만들기, 사용자를 **loginmanager** 역할에 추가)를 완료하여 사용자가 가상 master에서 새 로그인을 만들 수 있도록 합니다. 대부분의 경우 Microsoft는 로그인 기반 사용자를 사용하는 대신 데이터베이스 수준에서 인증하는 포함된 데이터베이스 사용자를 사용할 것을 권장하므로 필수는 아닙니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
-서버 수준 보안을 관리하기 위해 서버 수준 보안 주체가 아닌 다른 로그인을 위해 Azure SQL 데이터베이스가 두 가지 보안 역할을 제공합니다. 로그인을 만들기 위한 **loginmanager** 및 데이터베이스를 만들기 위한 **dbmanager**입니다. **마스터** 데이터베이스의 사용자만이 이러한 데이터베이스 역할에 추가될 수 있습니다.
+## 비관리자 사용자
 
-> [AZURE.NOTE] 로그인 또는 데이터베이스를 만들려면 **마스터** 데이터베이스에 연결되어야 합니다.(**마스터**의 논리적 표현임)
+일반적으로 비관리자 계정은 가상 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
-### Loginmanager 역할
-
-SQL Server의 온-프레미스 인스턴스에 대한 **securityadmin** 고정 서버 역할과 마찬가지로 Azure SQL 데이터베이스의 **loginmanager** 데이터베이스 역할은 로그인을 만들 수 있는 권한이 있습니다. 서버 수준 보안 주체 로그인(프로비전 프로세스로 만들어진) 또는 **loginmanager** 데이터베이스 역할의 멤버는 새 로그인을 만들 수 있습니다.
-
-### dbmanager 역할
-
-Azure SQL 데이터베이스 **dbmanager** 데이터베이스 역할은 SQL Server의 온-프레미스 인스턴스에 대한 **dbcreator** 고정된 서버 역할과 유사합니다. 서버 수준 보안 주체 로그인(프로비전 프로세스로 만들어진) 또는 **dbmanager** 데이터베이스 역할의 멤버는 데이터베이스를 만들 수 있습니다. 사용자가 **dbmanager** 데이터베이스 역할의 멤버이면 Azure SQL 데이터베이스 ``CREATE DATABASE`` 명령을 사용하여 데이터베이스를 만들지만 해당 명령은 마스터 데이터베이스에서 실행되어야 합니다. 자세한 내용은 [데이터베이스 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx)를 참조하세요.
-
-### SQL 데이터베이스 서버 수준 역할을 할당하는 방법
-
-데이터베이스 또는 다른 로그인을 만들 수 있는 로그인 및 연결된 사용자를 만들려면 다음 단계를 수행합니다.
-
-1. 서버 수준 보안 주체 로그인의 자격 증명(프로비전 프로세스로 만들어짐) 또는 **loginmanager** 데이터베이스 역할의 기존 멤버 자격 증명을 사용하여 **마스터** 데이터베이스에 연결합니다.
-2. ``CREATE LOGIN`` 명령을 사용하여 로그인을 만듭니다. 자세한 내용은 [로그인 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)를 참조하세요.
-3. ``CREATE USER`` 명령을 사용하여 마스터 데이터베이스에서 해당 로그인에 새 사용자를 만듭니다. 자세한 내용은 [사용자 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx)를 참조하세요.
-4. 저장된 프로시저 ``sp_addrolememeber``를 사용하여 **dbmanager** 데이터베이스 역할, loginmanager 데이터베이스 역할 중 하나 또는 둘 모두에 새 사용자를 추가합니다.
-
-다음 코드 예제에서는 **login1**이라는 로그인과 데이터베이스나 **마스터** 데이터베이스에 연결되어 있는 동안 다른 로그인을 만들 수 있는 **login1User**라는 해당 데이터베이스 사용자를 만드는 방법을 보여줍니다.
+사용자를 만들고 데이터베이스에 연결하려면 다음과 유사한 문을 실행합니다.
 
 ```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-CREATE USER login1User FROM LOGIN login1;
-EXEC sp_addrolemember 'dbmanager', 'login1User';
-EXEC sp_addrolemember 'loginmanager', 'login1User';
+CREATE USER Mary FROM LOGIN Mary; 
+CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-> [AZURE.NOTE] 로그인을 만들 때 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
-
-## 로그인에 데이터베이스 액세스 권한 부여
-
-모든 로그인은 **마스터** 데이터베이스에서 만들어야 합니다. 로그인이 만들어진 후에 해당 로그인에 대해 다른 데이터베이스에 사용자 계정을 만들 수 있습니다. 또한 Azure SQL 데이터베이스는 SQL Server의 온-프레미스 인스턴스가 수행하는 동일한 방식으로 데이터베이스 역할을 지원합니다.
-
-다른 데이터베이스에 사용자 계정을 만들려면 로그인 또는 데이터베이스를 만들지 않았다고 가정하고 다음 단계를 수행합니다.
-
-1. **마스터** 데이터베이스에 연결합니다.(**loginmanager** 및 **dbmanager** 역할이 있는 로그인을 사용)
-2. ``CREATE LOGIN`` 명령을 사용하여 새 로그인을 만듭니다. 자세한 내용은 [로그인 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)를 참조하세요. Windows 인증은 지원되지 않습니다.
-3. ``CREATE DATABASE`` 명령을 사용하여 새 데이터베이스를 만듭니다. 자세한 내용은 [데이터베이스 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx)를 참조하세요.
-4. 새 데이터베이스에 연결을 설정합니다.(데이터베이스를 만든 로그인을 사용)
-5. ``CREATE USER`` 명령을 사용하여 새 데이터베이스에 새 사용자를 만듭니다. 자세한 내용은 [사용자 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx)를 참조하세요.
-
-다음 코드 예제에서는 **login1**이라는 로그인 및 **database1**라는 데이터베이스를 만드는 방법을 보여줍니다.
+처음에는 관리자 또는 데이터베이스 소유자 중 하나만 사용자를 만들 수 있습니다. 새 사용자를 만드는 추가 사용자의 권한을 부여하려면 다음과 같은 문을 사용하여 선택한 사용자에게 `ALTER ANY USER` 권한을 부여합니다.
 
 ```
--- first, connect to the master database
-CREATE LOGIN login1 WITH password='<ProvidePassword>';
-CREATE DATABASE database1;
+GRANT ALTER ANY USER TO Mary;
 ```
 
-> [AZURE.NOTE] 로그인을 만들 때 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
+추가 사용자에게 데이터베이스의 모든 권한을 부여하려면 `ALTER ROLE` 문을 사용하여 **db\_owner** 고정 데이터베이스 역할의 멤버로 만듭니다.
 
-이 다음 예제에서는 로그인 **login1**에 해당하는 데이터베이스 **database1**에 **login1User**라는 데이터베이스 사용자를 만드는 방법을 보여줍니다. 다음 예제를 실행하려면 해당 데이터베이스에서 **ALTER ANY USER** 권한으로 로그인을 사용하여 먼저 database1에 대한 새 연결을 만들어야 합니다. **db\_owner** 역할의 멤버로 연결하는 사용자는 데이터베이스를 만든 로그인 등과 같은 권한을 갖습니다.
+> [AZURE.NOTE] 로그인을 기반으로 데이터베이스 사용자를 만드는 주 원인은 여러 데이터베이스에 액세스해야 하는 SQL Server 인증 사용자가 있는 경우입니다. 로그인 기반 사용자가 로그인을 시도하면 해당 로그인에 대해 하나의 암호만 유지 관리됩니다. 개별 데이터베이스에 포함된 데이터베이스 사용자는 각 개별 엔터티이며 각각 고유한 암호를 유지 관리합니다. 사용자가 동일하게 암호를 유지 관리하지 않으면 포함된 데이터베이스 사용자를 혼동할 수 있습니다.
 
-```
--- Establish a new connection to the database1 database
-CREATE USER login1User FROM LOGIN login1;
-```
+### 데이터베이스 수준 방화벽 구성
 
-Azure SQL 데이터베이스에서 이 데이터베이스 수준 권한 모델은 SQL Server의 온-프레미스 인스턴스와 동일합니다. 정보는 SQL Server 온라인 설명서 참조의 다음 항목을 참조하세요.
+가장 좋은 방법은 비관리자 사용자가 방화벽을 통해서만 사용하는 데이터베이스에 액세스하는 것입니다. 서버 수준 방화벽을 통해 IP 주소를 권한 부여하고 모든 데이터베이스에 대한 액세스를 부여하는 대신 [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) 문을 사용하여 데이터베이스 수준 방화벽을 구성합니다. 포털을 사용해서는 데이터베이스 수준 방화벽을 구성할 수 없습니다.
 
-- [로그인, 사용자 및 스키마 방법 항목 관리](https://msdn.microsoft.com/library/aa337552.aspx)
-- [단원 2: 데이터베이스 개체에 사용 권한 구성](https://msdn.microsoft.com/library/ms365345.aspx)
+### 비관리자 액세스 경로
 
-> [AZURE.NOTE] Azure SQL 데이터베이스에서 보안 관련 Transact-SQL 문은 사용할 수 있는 매개 변수에서 약간 다를 수 있습니다. 자세한 내용은 특정 문에 대한 온라인 설명서 구문을 참조하세요.
+데이터베이스 수준 방화벽이 제대로 구성되었으면 데이터베이스 사용자는 SQL Server Management Studio 또는 SQL Server Data Tools와 같은 클라이언트 도구를 사용하여 연결할 수 있습니다. 최신 도구만 모든 특징 및 기능을 제공합니다. 다음 다이어그램에서는 일반적인 비관리자 액세스 경로를 보여 줍니다. ![비관리자 액세스 경로](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+ 
+## 그룹 및 역할
+효율적인 액세스 관리에서는 개별 사용자 대신 그룹 및 역할에 할당된 권한을 사용합니다. 예를 들어 Azure Active Directory 인증을 사용하는 경우:
 
-## 로그인 및 데이터베이스 보기
+- Azure Active Directory 사용자를 Azure Active Directory 그룹에 넣습니다. 해당 그룹에 대해 포함된 데이터베이스 사용자를 만듭니다. 하나 이상의 데이터베이스 사용자를 데이터베이스 역할에 배치합니다. 그런 다음 사용 권한을 데이터베이스 역할에 할당합니다.
+
+SQL Server 인증을 사용하는 경우:
+
+- 데이터베이스에 포함된 데이터베이스 사용자를 만듭니다. 하나 이상의 데이터베이스 사용자를 데이터베이스 역할에 배치합니다. 그런 다음 사용 권한을 데이터베이스 역할에 할당합니다.
+
+데이터베이스 역할은 **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, **db\_denydatareader**와 같은 기본 제공된 역할일 수 있습니다. **db\_owner**는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 예를 들어 **db\_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 반드시 필요합니다. [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 문을 사용하여 고유의 사용자 정의된 데이터베이스 역할을 만들고 각 역할에 비즈니스 요구에 필요한 최소한의 권한을 신중하게 부여하는 것이 좋습니다. 사용자가 여러 역할의 멤버인 경우 모두에 대한 권한을 집계합니다.
+
+## 권한
+
+SQL 데이터베이스에는 개별적으로 부여하거나 거부할 수 있는 100개가 넘는 사용 권한이 있습니다. 이러한 사용 권한은 대부분 중첩됩니다. 예를 들어 스키마에 대한 `UPDATE` 권한에는 해당 스키마 내에 있는 각 테이블에 대한 `UPDATE` 권한을 포함합니다. 대부분의 사용 권한 시스템에서와 같이 사용 권한 거부는 권한 부여를 재정의합니다. 중첩된 특성과 사용 권한 수로 인해 데이터베이스를 제대로 보호할 적절한 사용 권한 시스템을 설계하는 데 신중을 기할 수 있습니다. [사용 권한(데이터베이스 엔진)](https://msdn.microsoft.com/library/ms191291.aspx)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](http://go.microsoft.com/fwlink/?LinkId=229142)을 검토하세요.
 
 
-Azure SQL 데이터베이스 서버에서 로그인 및 데이터베이스를 보려면 마스터 데이터베이스의 ``sys.sql_logins`` 및 ``sys.databases`` 보기를 각각 사용합니다. 다음 예제에서는 Azure SQL 데이터베이스 서버에서 모든 로그인 및 데이터베이스 목록을 표시하는 방법을 보여줍니다.
+### 자세한 정보
 
-```
--- first, connect to the master database
-SELECT * FROM sys.sql_logins;
-SELECT * FROM sys.databases;
-```
+[SQL 데이터베이스 보안 설정](sql-database-security.md)
 
-## 참고 항목
+[SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589.aspx)
 
-[Azure SQL 데이터베이스 자습서: Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md) [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용한 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
+## 다음 단계
 
-<!---HONumber=AcomDC_0518_2016-->
+[SQL 데이터베이스 보안 설정](sql-database-security.md)
+
+[테이블 만들기(자습서)](https://msdn.microsoft.com/library/ms365315.aspx)
+
+[테이블에 데이터 삽입 및 업로드(자습서)](https://msdn.microsoft.com/library/ms365309.aspx)
+
+[테이블에서 데이터 읽기(자습서)](https://msdn.microsoft.com/library/ms365310.aspx)
+
+[뷰 및 저장 프로시저 만들기](https://msdn.microsoft.com/library/ms365311.aspx)
+
+[데이터베이스 개체에 대한 액세스 부여](https://msdn.microsoft.com/library/ms365327.aspx)
+
+<!---HONumber=AcomDC_0608_2016-->

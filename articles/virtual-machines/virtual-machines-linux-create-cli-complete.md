@@ -38,7 +38,7 @@ azure group show TestRG --json | jq '.'
 저장소 계정 만들기
 
 ```bash
-azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
 JSON 구문 분석기를 사용하여 저장소 확인
@@ -259,7 +259,7 @@ info:    group create command OK
 azure storage account create \  
 --location westeurope \
 --resource-group TestRG \
---type GRS \
+--kind Storage --sku-name GRS \
 computeteststore
 ```
 
@@ -1234,4 +1234,4 @@ info:    vm show command OK
 
 이제 여러 네트워킹 구성 요소 및 VM을 시작할 준비가 되셨습니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

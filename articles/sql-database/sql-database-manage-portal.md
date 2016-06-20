@@ -74,4 +74,4 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 트랜잭
 
 - [SQL 데이터베이스](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

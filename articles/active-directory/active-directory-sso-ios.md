@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/17/2015"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 
@@ -311,4 +311,4 @@ ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지
 
 이제 Microsoft ID SDK는 자동으로 응용 프로그램에서 자격 증명을 공유하고 장치에 있는 경우 브로커를 호출합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

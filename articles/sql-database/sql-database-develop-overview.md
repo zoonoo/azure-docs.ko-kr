@@ -62,4 +62,4 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 * [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 * [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

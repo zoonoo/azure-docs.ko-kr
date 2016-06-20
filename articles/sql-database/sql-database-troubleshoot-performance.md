@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Azure SQL 데이터베이스에서 데이터베이스 성능을 평가하고 향상하는 방법
 단일 데이터베이스의 [서비스 계층](sql-database-service-tiers.md)을 변경하거나 탄력적 데이터베이스 풀의 eDTU를 늘려 언제든지 성능을 개선할 수 있지만 먼저 쿼리 성능을 개선 및 최적화할 기회를 파악하고 싶을 수 있습니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다.
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 데이터베이스 성능을 평가 및 조정하는 단계
 1.	[Azure 포털](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭하고 데이터베이스를 선택한 후 모니터링 차트를 사용하여 최대값에 근접한 리소스를 찾습니다. 기본적으로 DTU 사용량이 표시됩니다. **편집**을 클릭하여 표시된 시간 범위 및 값을 변경합니다.
@@ -28,6 +30,4 @@
 1.	단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-scale-up.md)하여 데이터베이스 성능을 개선할 수 있습니다.
 2.	여러 데이터베이스의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)을 사용하여 리소스 규모를 자동으로 조정하는 방법을 고려합니다.
 
-성능 문제가 지속되면 지원에 문의하여 지원 사례를 확인하세요.
-
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

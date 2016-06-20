@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -61,9 +61,14 @@
 
 
 ##클러스터 삭제
+
 클러스터를 삭제하려면 다음 명령을 사용합니다.
 
 	azure hdinsight cluster delete <Cluster Name>
+
+또한 클러스터를 포함하는 리소스 그룹을 삭제하여 클러스터를 삭제할 수도 있습니다. 이렇게 하면 기본 저장소 계정을 포함한 그룹 내 모든 리소스가 삭제됩니다.
+
+	azure group delete <Resource Group Name>
 
 ##클러스터 크기 조정
 
@@ -108,4 +113,4 @@ Hadoop 클러스터 크기를 변경하려면
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

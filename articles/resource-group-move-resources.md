@@ -60,8 +60,10 @@
 - Redis 캐시
 - 스케줄러
 - 검색
+- 저장소
 - 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 - SQL 데이터베이스 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 여기에 속한 모든 데이터베이스도 함께 이동합니다.
+- 가상 컴퓨터
 - 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 
 ## 부분적으로 이동을 지원하는 서비스
@@ -76,8 +78,6 @@
 
 - Application Insights
 - Express 경로
-- 저장소
-- 가상 컴퓨터
 - 가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 
 ## 앱 서비스 제한
@@ -274,4 +274,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

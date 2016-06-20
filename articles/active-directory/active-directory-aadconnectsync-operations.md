@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/14/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect Sync: 운영 작업 및 고려 사항
@@ -30,7 +30,9 @@
 
 설치 중에 서버를 선택하여 **스테이징 모드**로 둘 수 있습니다. 서버가 가져오기 및 동기화에 대해 활성화되지만 내보내기는 수행되지 않습니다. 이러한 기능을 선택하더라도 스테이징 모드에 있는 서버는 암호 동기화를 실행하거나 비밀번호 쓰기 저장을 사용할 수 없습니다. 스테이징 모드를 해제하면 서버가 내보내기를 시작하고 경우 암호 동기화 및 비밀번호 쓰기 저장을 사용하도록 설정합니다.(활성화된 경우)
 
-스테이징 모드에 있는 서버는 Active Directory 및 Azure AD에서 계속 변경 내용을 받습니다. 따라서 항상 최신 변경 내용의 복사본이 있고 빠르게 다른 서버의 책임을 넘겨 받습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
+여전히 동기화 서비스 관리자를 사용하여 강제로 내보낼 수 있습니다.
+
+스테이징 모드에 있는 서버는 Active Directory 및 Azure AD에서 계속 변경 내용을 받습니다. 항상 최신 변경 내용의 복사본이 있고 빠르게 다른 서버의 책임을 넘겨 받을 수 있습니다. 기본 서버의 구성을 변경하는 경우 스테이징 모드에서 서버에 동일한 변경 내용을 적용해야 합니다.
 
 이전 동기화 기술에 대해 알고 있는 사용자의 경우 다른 서버에 자체 SQL 데이터베이스가 있으므로 스테이징 모드는 다릅니다. 이 경우 스테이징 모드 서버를 다른 데이터 센터에서 찾을 수 있습니다.
 
@@ -51,17 +53,17 @@
 
 1. **커넥터**를 선택하고 **Active Directory 도메인 서비스** 형식을 가진 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 이 작업을 수행합니다.
 2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
-4. 커넥터가 여전히 선택되어 있는지 확인하고 **Active Directory 도메인 서비스** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
-5. **Azure Active Directory (Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 확인을 차례로 선택합니다.
+3. 커넥터가 여전히 선택되어 있는지 확인하고 **Active Directory 도메인 서비스** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
+4. **Azure Active Directory (Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 확인을 차례로 선택합니다.
 
 이제 Azure AD 및 온-프레미스 AD에 스테이지된 내보내기 변경 사항이 있습니다.(Exchange 하이브리드 배포를 사용하는 경우) 다음 단계를 사용하면 디렉터리에 실제로 내보내기를 시작하기 전에 무엇이 변경될지를 검사할 수 있습니다.
 
 **Verify**
 
-1. cmd 프롬프트를 시작하고 `%Program Files%\Microsoft Azure AD Sync\bin`로 이동합니다.
-2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
+1. cmd 프롬프트를 시작하고 `%ProgramFiles%\Microsoft Azure AD Sync\bin`로 이동합니다.
+2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x` 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
 3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
-4. 이제 Microsoft Excel에서 검사할 수 있는 export.csv 라는 %temp%의 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
+4. 이제 %temp%에 Microsoft Excel에서 검사할 수 있는 export.csv 라는 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
 5. 내보내려는 변경 사항이 예정될 때까지 데이터 또는 구성에 필요한 변경을 수행하고 이러한 단계(가져오기 및 동기화 및 확인)를 다시 실행합니다.
 
 **export.csv 파일 이해**
@@ -114,4 +116,4 @@ Azure AD Connect와 함께 제공하는 SQL Server Express를 사용하지 않�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

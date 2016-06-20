@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jeffstok"/>
 
 
@@ -31,7 +31,9 @@ Azure 포털을 사용하여 클러스터를 만들 때 HDInsight 클러스터�
 
 ## 데이터 저장소 옵션
 
-HDInsight 클러스터에 대한 기본 저장소는 HDFS 파일 시스템이 blob 컨테이너에 매핑된 Azure Blob(WASB)에 있습니다. 따라서 분석하는 동안 클러스터 저장소에 업로드되거나 클러스터 저장소에 작성된 모든 데이터가 영구적으로 설정됩니다. Blob에서 데이터를 복사하는 편리한 방법은 [AzCopy](../storage/storage-use-azcopy/) 유틸리티를 사용하는 것입니다.
+HDInsight 클러스터에 대한 기본 저장소는 HDFS 파일 시스템이 blob 컨테이너에 매핑된 Azure Blob(WASB)에 있습니다. 따라서 분석하는 동안 클러스터 저장소에 업로드되거나 클러스터 저장소에 작성된 모든 데이터가 영구적으로 설정됩니다. Blob에서 데이터를 복사하는 편리한 방법은 [AzCopy](../storage/storage-use-azcopy.md) 유틸리티를 사용하는 것입니다.
+
+클러스터에 Blob 외에, [ADLS(Azure 데이터 레이크 저장소)](https://azure.microsoft.com/services/data-lake-store/)의 사용을 추가하는 옵션이 있습니다. ADLS의 사용을 추가하는 경우 HDFS 저장소에 대해 Blob 및 ADLS의 사용을 결합할 수 있습니다.
 
 [Azure 파일](../storage/storage-how-to-use-files-linux.md)을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure 저장소 계정에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 R 서버에 대한 데이터 저장소 옵션은 [HDInsight 클러스터의 R 서버에 대한 저장소 옵션](hdinsight-hadoop-r-server-storage.md)을 참조하세요.
   
@@ -63,7 +65,7 @@ Azure 기계 학습 웹 서비스를 사용하여 점수를 매기려면 [오픈
 
 ### R 패키지 설치 및 유지 관리
 
-사용하는 대부분의 R 패키지는 R 스크립트의 주요 부분이 에지 노드에서 실행되므로 에지 노드에 필요합니다. 에지 노드에 추가 R 패키지를 설치하려면 R의 일반적인 `install.packages()` 메서드를 사용하면 됩니다.
+사용하는 대부분의 R 패키지는 R 스크립트의 주요 부분이 에지 노드에서 실행되므로 에지 노드에 필요합니다. 에지 노드에 추가 R 패키지를 설치하려면 R에서 일반적인 `install.packages()` 메서드를 사용할 수 있습니다.
   
 클러스터에서 실행하기 위해 ScaleR 라이브러리의 루틴을 사용하는 경우에는 대부분 데이터 노드에 추가 R 패키지를 설치할 필요가 없습니다. 그러나 데이터 노드에서 **rxExec**의 사용 또는 **RxDataStep** 실행을 지원하려면 추가 패키지를 설치해야 할 수 있습니다. 이 경우 클러스터를 만든 후 스크립트 동작을 통해 이러한 추가 패키지를 지정해야 합니다. 자세한 내용은 [R 서버를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-r-server-get-started.md)를 참조하세요.
   
@@ -109,4 +111,4 @@ HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

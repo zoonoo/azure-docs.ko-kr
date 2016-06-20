@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 관리 REST API 시작
@@ -38,7 +38,7 @@ Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리
 
 이 자습서는 Visual Studio 2012 또는 2013에서 편집 및 실행할 수 있는 C#으로 작성된 Windows 콘솔 응용 프로그램을 기반으로 합니다.
 
-[Azure 검색 관리 API 데모](https://github.com/Azure-Samples/search-dotnet-management-api/)에서 Codeplex에 대한 클라이언트 응용 프로그램을 찾을 수 있습니다.
+[Azure 검색 .NET 관리 API 데모](https://github.com/Azure-Samples/search-dotnet-management-api/)에서 Github에 대한 클라이언트 응용 프로그램을 찾을 수 있습니다.
 
 
 ##응용 프로그램 구성
@@ -208,4 +208,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@
 ## 빠른 명령
 네트워크 보안 그룹 및 규칙을 만들려면 리소스 관리자 모드(`azure config mode arm`)에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
 
-다음과 같이 고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다.
+고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다.
 
 ```
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
@@ -61,4 +61,4 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/10/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -85,7 +85,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
-|`http://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
+|`https://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
 |`http://crl.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
@@ -127,12 +127,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
@@ -280,4 +275,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

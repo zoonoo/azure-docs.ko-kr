@@ -32,7 +32,9 @@ Microsoft ID SDK와 함께 Microsoft ID 플랫폼은 이 모든 어려운 작업
 
 * Azure Active Directory
 * Azure Active Directory B2C
-* Azure Active Directory B2B 아래 문서는 [Azure Active Directory에 대한 레거시 포털에서 응용 프로그램을 프로비전](active-directory-how-to-integrate.md)하는 방법을 알고 있으며 응용 프로그램을 [Microsoft ID Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 통합했다고 가정합니다.
+* Azure Active Directory B2B
+
+아래 문서는 [Azure Active Directory에 대한 레거시 포털에서 응용 프로그램을 프로비전](active-directory-how-to-integrate.md)하는 방법을 알고 있으며 응용 프로그램을 [Microsoft ID Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 통합했다고 가정합니다.
 
 ## Microsoft ID 플랫폼의 SSO 개념
 
@@ -204,7 +206,7 @@ App3 리디렉션 URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%
 
 `SharedUserID` 설정은 이 문서의 범위를 벗어나지만 [매니페스트](http://developer.android.com/guide/topics/manifest/manifest-element.html)의 Google Android 설명서를 참조하여 학습할 수 있습니다. 중요한 것은 사용자가 sharedUserID가 불리는 이름을 결정하는 것과 모든 응용 프로그램에서 이를 사용하는 것입니다.
 
-모든 응용 프로그램에 `SharedUserID`이(가) 있으면 SSO를 사용할 준비가 되었습니다.
+모든 응용 프로그램에 `SharedUserID`가 있으면 SSO를 사용할 준비가 되었습니다.
 
 > [AZURE.WARNING] 
 응용 프로그램에서 저장소를 공유하는 경우 모든 응용 프로그램은 사용자를 삭제하거나 더 심한 경우 응용 프로그램에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 응용 프로그램이 있는 경우에 특히 미치는 영향이 커집니다. 저장소를 공유하면 Microsoft ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
@@ -245,7 +247,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### 3단계: 응용 프로그램에 올바른 사용 권한 설정
 
-Android에서 브로커 응용 프로그램은 Android OS의 계정 관리자 기능을 사용하여 응용 프로그램 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. [계정 관리자에 대한 Google 설명서](http://developer.android.com/reference/android/accounts/AccountManager.html)에서 자세히 설명합니다.
+Android에서 브로커 응용 프로그램은 Android OS의 계정 관리자 기능을 사용하여 응용 프로그램 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. 이 부분은 [여기의 계정 관리자에 대한 Google 설명서](http://developer.android.com/reference/android/accounts/AccountManager.html)에서 자세히 설명합니다.
 
 특히 이러한 사용 권한은 다음과 같습니다.
 
@@ -259,4 +261,4 @@ MANAGE_ACCOUNTS
 
 이제 Microsoft ID SDK는 자동으로 응용 프로그램에서 자격 증명을 공유하고 장치에 있는 경우 브로커를 호출합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

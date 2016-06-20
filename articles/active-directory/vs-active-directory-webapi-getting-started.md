@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트)
@@ -29,4 +29,4 @@
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

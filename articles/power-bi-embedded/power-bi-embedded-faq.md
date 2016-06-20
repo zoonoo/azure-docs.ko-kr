@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="derrickv"/>
 
 # Power BI Embedded FAQ
@@ -50,7 +50,7 @@
 
     Power BI Embedded 서비스는 미국 중남부 데이터 센터의 BUILD 2016 알림 시점에 북아메리카에서 사용 가능합니다. 이 서비스는 Azure 데이터 센터의 다른 지역에도 곧 롤아웃될 계획입니다.
 
-9.	**어떤 SLA가 서비스에 사용 가능한가요?**
+9. **어떤 SLA가 서비스에 사용 가능한가요?**
 
     Power BI Embedded는 현재 공식 SLA가 없는 미리 보기 Azure 서비스로 사용할 수 있습니다. SLA는 서비스가 미리 보기에서 일반 공급으로 전환될 때 제공됩니다.
 
@@ -61,7 +61,8 @@
 
     (1) 응용 프로그램이 Microsoft 서비스에 중요한 기본 기능을 추가하고 Power BI 서비스에 대한 주요 대체 서비스가 아닌 경우, (2) 응용 프로그램이 외부 사용자 전용인 경우, 개발하는 응용 프로그램 내에서만 Power BI Embedded 서비스를 사용할 수 있습니다. 내부 비즈니스 응용 프로그램 내에서는 Power BI Embedded 서비스를 사용할 수 없습니다.
 
-    ![](media\power-bi-embedded-faq\price.png)
+
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**렌더란 무엇이며 어떻게 청구되나요?**
 
@@ -91,7 +92,7 @@
 
 16.	**사용자 인증이 Power BI Embedded와 작동하는 방법은 무엇인가요?**
 
-    Power BI Embedded 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 앱 토큰을 사용합니다. 앱 토큰 모델에서 응용 프로그램이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 그런 다음 필요한 경우 앱이 서비스에 요청된 보고서를 렌더링하라고 지시하는 앱 토큰을 만들어 보냅니다. 이 디자인에서는 앱이 사용자 인증 및 권한 부여에 Azure Active Directory를 사용할 수는 있지만 그럴 필요가 없습니다. 앱 토큰에 대한 자세한 내용은 [앱 토큰](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) 설명서 페이지를 참조하세요.
+    Power BI Embedded 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 앱 토큰을 사용합니다. 앱 토큰 모델에서 응용 프로그램이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 그런 다음 필요한 경우 앱이 서비스에 요청된 보고서를 렌더링하라고 지시하는 앱 토큰을 만들어 보냅니다. 이 디자인에서는 앱이 사용자 인증 및 권한 부여에 Azure Active Directory를 사용할 수는 있지만 그럴 필요가 없습니다. 앱 토큰에 대한 자세한 내용은 [앱 토큰](https://azure.microsoft.com/ko-KR/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) 설명서 페이지를 참조하세요.
 
 17.	**Power BI Embedded로 현재 지원되는 데이터 원본은 무엇인가요?**
 
@@ -101,7 +102,7 @@
 
     Power BI Embedded 모델에는 Azure AD(Azure Active Directory) 테넌트의 고객이 있어야 한다는 요구 사항이 없습니다. 고객에 대한 Azure AD를 요구하도록 선택하거나 선택하지 않을 수 있습니다. 결과적으로 응용 프로그램의 아키텍처 및 인프라는 Power BI Embedded에 필요한 테넌트 모델을 결정하는 것입니다.
 
-    응용 프로그램을 빌드하거나 작업하는 개발자 또는 직원에게는 Azure 포털을 통해 Azure 구독 및 작업 영역 컬렉션을 관리할 수 있도록 Azure AD 사용자 계정이 있어야 합니다. 개발자가 보고서를 가져오고, 연결 문자열을 수정하고, 포함된 URL을 가져오도록 하는 프로그래밍 API에서는 인증에 앱 토큰이 대신 사용되며 결과적으로 Azure AD가 필요하지 않습니다. API 및 Azure 포털을 사용하는 방법에 대한 자세한 내용은 [Azure.com의 Power BI Embedded 설명서 페이지](https://azure.microsoft.com/documentation/services/power-bi-embedded/)에서 확인할 수 있습니다.
+    응용 프로그램을 빌드하거나 작업하는 개발자 또는 직원에게는 Azure 포털을 통해 Azure 구독 및 작업 영역 컬렉션을 관리할 수 있도록 Azure AD 사용자 계정이 있어야 합니다. 개발자가 보고서를 가져오고, 연결 문자열을 수정하고, 포함된 URL을 가져오도록 하는 프로그래밍 API에서는 인증에 앱 토큰이 대신 사용되며 결과적으로 Azure AD가 필요하지 않습니다. API 및 Azure 포털을 사용하는 방법에 대한 자세한 내용은 [Azure.com의 Power BI Embedded 설명서 페이지](https://azure.microsoft.com/ko-KR/documentation/services/power-bi-embedded/)에서 확인할 수 있습니다.
 
 19.	**자세한 내용을 알아보려면 어떤 정보를 참조해야 하나요?**
 
@@ -116,4 +117,4 @@
 - [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

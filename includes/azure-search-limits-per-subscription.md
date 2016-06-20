@@ -1,22 +1,20 @@
-You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier within a single Azure subscription. Maximum services per tier are noted below. As indicated, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. 
+단일 구독 내에 각각의 서비스가 특정 계층에 프로비전되고, 단일 Azure 구독 내의 각 계층에서 허용되는 서비스로만 제한되는 여러 서비스를 만들 수 있습니다. 계층당 최대 서비스 수는 아래에 나와 있습니다. 설명된 것처럼 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 다른 서비스를 12개까지 만들 수 있습니다.
 
-Other tiers are one per subscription. You can contact Azure Support if you need more than one S2, S3, or S3 HD per subscription.
+다른 계층은 구독당 1개입니다. 구독당 둘 이상의 S2, S3 또는 S3 HD가 필요한 경우 Azure 지원 서비스에 문의할 수 있습니다.
 
-Resource|Free|Basic|S1|S2|S3 <sup>1</sup> <br/>(Preview) |S3 HD <sup>1</sup> <br/>(Preview) 
+리소스|무료|Basic|S1|S2|S3 <sup>1</sup><br/>(미리 보기) |S3 HD <sup>1</sup><br/>(미리 보기) 
 ---|---|---|---|----|---|----
-Maximum services |1 |12 |12  |1 |1 |1 
-Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU <sup>5</sup>
+최대 서비스 |1 |12 |12 |1 |1 |1 
+SU의 최대 소수 자릿수 <sup>2</sup>|해당 없음 <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU <sup>5</sup>
 
-<sup>1</sup> **Preview** tiers are billed at an introductory rate of 50% off the full price. Prior to general availability (GA) tiers are introduced as a Preview feature. During Preview, there is no service level agreement (SLA). See [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md) for more information about tiers.
+<sup>1</sup> **미리 보기** 계층은 전체 가격에서 50% 할인된 가입 특전 가격이 청구됩니다. GA(일반 공급) 이전에는 계층이 미리 보기 기능으로 제공됩니다. 미리 보기 중에는 SLA(서비스 수준 계약)가 없습니다. 계층에 대한 자세한 내용은 [Azure 검색에 대한 SKU 또는 계층 선택](../articles/search/search-sku-tier.md)을 참조하세요.
 
-<sup>2</sup> **Search units (SU)** are billable units per service, allocated as either a **replica** or a **partition**. You need both resource types for storage, indexing, and query operations. See [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations that stay under the maximum limits. 
+<sup>2</sup> **SU(검색 단위)**는 **복제본** 또는 **파티션**으로 할당되는 서비스당 청구 가능 단위입니다. 저장소, 인덱싱 및 쿼리 작업에 대해 두 리소스 유형이 모두 필요합니다. 최대 한도를 넘지 않는 유효한 조합에 대해서는 [쿼리 및 인덱스 작업의 리소스 수준 확장](../articles/search/search-capacity-planning.md)을 참조하세요.
 
-<sup>3</sup> **Free** is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, scalability is not supported.
+<sup>3</sup> **무료**는 여러 구독자가 사용하는 공유 리소스를 기준으로 합니다. 이 계층에서는 개별 구독자를 위한 전용 리소스가 없습니다. 이러한 이유로 확장성은 지원되지 않습니다.
 
-<sup>4</sup> **Basic** has one fixed partition. SUs are used to allocate replicas for scaling query workloads.
+<sup>4</sup> **기본**에는 하나의 고정된 파티션이 있습니다. SU는 쿼리 작업을 확장하기 위한 복제본을 할당하는 데 사용됩니다.
 
-<sup>5</sup> **S3 HD** is based on the same hardware as S3, but in a configuration that's optimized for a large number of smaller indexes. It has 1 very large partition instead of 12 smaller partitions, and it has a maximum of 12 replicas, similar to S3.
+<sup>5</sup> **S3 HD**는 S3와 동일한 하드웨어를 기준으로 하지만, 더 많은 수의 더 작은 인덱스에 맞게 최적화된 구성으로 이루어져 있습니다. 12개의 더 작은 파티션 대신, 매우 큰 파티션이 1개 있고 S3과 비슷한 최대 12개의 복제본이 있습니다.
 
-
-
-
+<!---HONumber=AcomDC_0608_2016-->

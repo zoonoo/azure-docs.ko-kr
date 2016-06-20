@@ -215,8 +215,8 @@
 [vpn-gateway-create-site-to-site-rm-powershell]: vpn-gateway-create-site-to-site-rm-powershell.md
 [vpn-gateway-cross-premises-options]: vpn-gateway-cross-premises-options.md
 [vpn-gateway-site-to-site-create]: vpn-gateway-site-to-site-create.md
-[virtual-machines-deploy-rmtemplates-azure-cli]: virtual-machines-deploy-rmtemplates-azure-cli.md "Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리"
-[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-deploy-rmtemplates-powershell.md "Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리"
+[virtual-machines-deploy-rmtemplates-azure-cli]: virtual-machines-deploy-rmtemplates-azure-cli.md "Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리"
+[virtual-machines-deploy-rmtemplates-powershell]: virtual-machines-deploy-rmtemplates-powershell.md "Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리"
 [virtual-machines-linux-capture-image-resource-manager]: virtual-machines-linux-capture-image.md
 [virtual-machines-manage-availability]: virtual-machines-manage-availability.md
 [virtual-machines-linux-how-to-attach-disk]: virtual-machines-linux-how-to-attach-disk.md
@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -554,7 +554,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> <https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-agent-user-guide/>
 
 ___
 
@@ -938,4 +938,4 @@ Azure에서 성능 메트릭 컬렉션이 여러 원본에서 데이터를 가�
 
 SAP Note [1999351]을 사용한 문제 해결이 도움이 되지 않는 경우 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터에 설명된 대로 구성 스크립트 Set-AzureRmVMAEMExtension을 다시 실행하세요. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 여전히 문제가 발생할 경우 Windows용 BC-OP-NT-AZR 또는 Linux 가상 컴퓨터용 BC-OP-LNX-AZR 구성 요소의 SAP 고객 지원 메시지를 엽니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

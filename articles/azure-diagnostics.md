@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
@@ -56,6 +56,7 @@ Azure 진단 확장은 이 데이터를 Azure 저장소 계정에 전송하거�
 - [클라우드 서비스 응용 프로그램에서 Azure 진단 설정](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 고급 항목의 경우 다음을 참조하세요.
+
 - [클라우드 서비스용 Application Insights에서 Azure 진단 사용](./application-insights/app-insights-cloudservices.md)
 - [Azure 진단으로 클라우드 서비스 응용 프로그램의 흐름 추적](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [PowerShell을 사용하여 클라우드 서비스에 진단 설정](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@ Azure 진단 확장은 이 데이터를 Azure 저장소 계정에 전송하거�
 - [Azure 가상 컴퓨터에서 Azure 진단 설정](./virtual-machines-dotnet-diagnostics.md)
 
 고급 항목의 경우 다음을 참조하세요.
+
 - [PowerShell을 사용하여 Azure 가상 컴퓨터에서 진단 설정](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
@@ -79,4 +81,4 @@ Azure 진단 확장은 이 데이터를 Azure 저장소 계정에 전송하거�
 - [Azure 진단 정보를 Application Insights에 라우트](./azure-diagnostics-configure-applicationinsights.md)하는 방법을 알아봅니다.
 - 진단을 시작하거나 Azure 저장소 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure 진단 문제 해결](./azure-diagnostics-troubleshooting.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

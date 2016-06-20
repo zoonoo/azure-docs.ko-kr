@@ -31,17 +31,17 @@ Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows
 
 ## 가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
 
-각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes)를 참조하세요.
+각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조하세요.
 
 Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
 
 ## 나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 
-RDP(원격 데스크톱 연결)를 사용하여 Windows VM에 대한 원격 연결을 설정해야 합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon)을 참조하세요. 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.
+RDP(원격 데스크톱 연결)를 사용하여 Windows VM에 대한 원격 연결을 설정해야 합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md)을 참조하세요. 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.
 
 
-원격 데스크톱에 문제가 있는 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection)을 참조하세요.
+원격 데스크톱에 문제가 있는 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
@@ -56,7 +56,7 @@ D: 드라이브 문자를 사용해야 하는 응용 프로그램이 있는 경�
 
 Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
 
-## 가용성 그룹에 기존 VM을 추가할 수 있나요?
+## 가용성 집합에 기존 VM을 추가할 수 있나요?
 
 아니요. VM이 가용성 집합에 속하려면 집합 내에서 VM을 만들어야 합니다. 현재는 VM을 만든 후에 가용성 집합에 VM을 추가할 수 없습니다.
 
@@ -80,4 +80,4 @@ Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 �
 
 예. 사용해 보기 위해 Linux VM을 신속하게 만들려면 [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

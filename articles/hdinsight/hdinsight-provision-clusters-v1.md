@@ -22,9 +22,9 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 > [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
 >
-> 또한 이 문서는 Azure PowerShell 및 Azure CLI를 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 Azure 서비스 관리(ASM)를 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거 됩니다.
+> 또한 이 문서는 Azure PowerShell, Azure CLI 및 HDInsight용 .NET SDK를 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 ASM(Azure 서비스 관리)을 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거됩니다.
 >
->ARM(Azure Resource Manager)을 사용하는 Azure 리소스 PowerShell 및 Azure CLI 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+>ARM(Azure Resource Manager)을 사용하는 PowerShell, Azure CLI 및 HDInsight용 .NET SDK 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
 **필수 조건:**
 
@@ -300,7 +300,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 ### Azure PowerShell 사용
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 섹션에서는 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn858087.aspx)를 참조하세요.
 
-> [AZURE.NOTE] 이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하세요.
+> [AZURE.NOTE] 이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)을 참조하세요.
 
 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다.
 
@@ -534,7 +534,7 @@ NPM 또는 Windows Installer를 사용하여 Azure CLI를 설치할 수 있습�
 
 **Windows Installer를 사용하여 Azure CLI를 설치하려면**
 
-1.	**http://azure.microsoft.com/downloads/** 로 이동합니다.
+1.	****http://azure.microsoft.com/downloads/**로 이동합니다.
 2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 **게시 설정을 다운로드하거나 가져오려면**
@@ -815,4 +815,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="03/14/2016"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Azure 포털을 통해 IoT Hub 관리
@@ -120,6 +120,24 @@ IoT Hub를 만든 후 기존 IoT Hub의 설정을 변경할 수 있습니다. �
 
 ![][11]
 
+## 파일 업로드
+
+IoT Hub에서 파일 업로드 기능을 사용하려면 먼저 Azure 저장소 계정을 허브에 연결해야 합니다. **파일 업로드** 설정을 선택하여 수정하려는 IoT hub에 대한 파일 업로드 속성 목록을 표시합니다.
+
+**저장소 계정**: 포털을 사용하여 현재 구독에서 IoT Hub와 연결할 저장소 계정을 선택합니다. IoT Hub는 파일을 업로드할 때 장치가 사용할 SAS URI를 이 저장소 계정에서 생성합니다.
+
+![][14]
+
+**업로드된 파일에 대한 알림 받기**: 토글을 통해 파일 업로드 알림을 사용하거나 사용하지 않도록 설정합니다.
+
+**SAS TTL**: 이 설정은 IoT Hub에서 장치로 반환하는 TTL(Time-To-Live)입니다. 기본적으로 1시간으로 설정되지만 슬라이더를 사용하여 다른 값으로 사용자 지정할 수 있습니다.
+
+**파일 알림 설정 기본 TTL **: 만료되기 전의 파일 업로드 알림 TTL입니다. 기본적으로 1일로 설정되지만 슬라이더를 사용하여 다른 값으로 사용자 지정할 수 있습니다.
+
+**파일 알림 최대 배달 횟수**: IoT Hub가 파일 업로드 알림 배달을 시도하는 횟수입니다. 기본적으로 10으로 설정되지만 슬라이더를 사용하여 다른 값으로 사용자 지정할 수 있습니다.
+
+![][13]
+
 ## 가격 및 크기 조정
 
 기존 IoT Hub의 가격 책정을 **가격 책정** 설정을 통해 변경할 수 있으며 단, 다음과 같은 예외가 적용됩니다.
@@ -149,8 +167,10 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->
