@@ -3,8 +3,8 @@
    description="Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/07/2016"
    ms.author="toddabel"/>
 
 # 서비스 상태 보고 및 확인
@@ -86,7 +86,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     ```
     이 복제본 상태는 상태 저장 서비스에서 보고되므로 해당 상태를 보고합니다. `HealthInformation` 매개 변수가 보고되는 상태 문제에 대한 정보를 저장합니다.
 
-    상태 비저장 서비스의 경우 다음 코드를 사용합니다.
+    상태 비저장 서비스를 만든 경우 다음 코드를 사용합니다.
 
     ```csharp
     if (!result.HasValue)
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## 다음 단계
 [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

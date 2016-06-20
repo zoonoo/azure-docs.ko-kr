@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jocaplan"/>
 
 
@@ -99,4 +99,4 @@ Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스
 - [Power BI REST API](http://docs.powerbi.apiary.io/reference)
 - [Azure 지역](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # 이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
@@ -64,7 +64,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-**SharedAccessKeyName**은 **ServiceBus/EventHub** 네임스페이스에서 정의되었던 SAS 키와 정책과 일치해야 합니다. 이 작업은 [클래식 Azure 포털](https://manage.windowsazure.com)에서 이벤트 허브 대시보드로 이동한 후 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: “SendRule”)을 설정하여 수행할 수 있습니다. 또한, **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 특히 작동 중인 경우에는 여기서 값을 변경할 필요가 없습니다. 이 예제에서는 다운스트림 자산이 값을 설정할 것이라는 표시로 값을 비워둡니다(예: *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름과 키를 설정합니다).
+**SharedAccessKeyName**은 **ServiceBus/EventHub** 네임스페이스에서 정의되었던 SAS 키와 정책과 일치해야 합니다. 이 작업은 [클래식 Azure 포털](https://manage.windowsazure.com)에서 이벤트 허브 대시보드로 이동한 후 **구성** 탭을 선택하고 *보내기* 권한이 있는 명명된 정책(예: “SendRule”)을 설정하여 수행할 수 있습니다. 또한, **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 특히 작동 중인 경우에는 여기서 값을 변경할 필요가 없습니다. 이 예제에서는 다운스트림 자산이 값을 설정할 것이라는 표시로 값을 비워둡니다(예: *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름과 키를 설정합니다).
 
 >[AZURE.WARNING] 이벤트 허브 SAS 키는 *.wadcfgx* 파일에 저장되어 있습니다. 소스 코드 컨트롤 또는 빌드 서버에서 자산으로 체크인되는 경우가 있으므로 적절하게 보호해야 합니다. 악의적인 사용자가 이벤트 허브에 쓰기만 하고 수신하거나 관리하지 않을 수 있으므로 여기서 *보내기 전용* 권한으로 SAS 키를 사용하는 것이 좋습니다.
 
@@ -295,4 +295,4 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

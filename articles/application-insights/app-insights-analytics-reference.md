@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # 분석에 대한 참조
@@ -22,30 +22,32 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize 연산자](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join 연산자](#join-operator)|[range](#range)|[take 연산자](#take-operator)
-|[모든](#any)|[dcount](#dcount)|[JSON Path 식](#json-path-expressions)|[range 연산자](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[let 절](#let-clause)|[reduce 연산자](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[let 절의 동적 개체](#dynamic-objects-in-let-clauses)|[limit 연산자](#limit-operator)|[render 지시문](#render-directive)|[todynamic](#todynamic)
-|[Arithmetic 연산자](#arithmetic-operators)|[endofday](#endofday)|[로그](#log)|[replace](#replace)|[toint](#toint)
-|[배열 및 개체 리터럴](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict 절](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[스칼라 비교](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort 연산자](#sort-operator)|[top 연산자](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[분할](#split)|[top-nested 연산자](#top-nested-operator)
-|[부울 리터럴](#boolean-literals)|[extend 연산자](#extend-operator)|[mvexpand 연산자](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Boolean 연산자](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[숫자 리터럴](#numeric-literals)|[startofyear](#startofyear)|[union 연산자](#union-operator)
-|[count 연산자](#count-operator)|[gettype](#gettype)|[난독 처리된 문자열 리터럴](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse 연산자](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[문자열 비교](#string-comparisons)|[where 연산자](#where-operator)
-|[날짜 및 시간 식](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[문자열 리터럴](#string-literals)
-|[날짜 및 시간 리터럴](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project 연산자](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away 연산자](#project-away-operator)|[sum](#sum)
+## 인덱스
+
+|쿼리 및 연산자|집계|스칼라|숫자|날짜 및 시간|String|배열, 개체 및 동적
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[모든](#any)|[부울 리터럴](#boolean-literals)|[산술 연산자](#arithmetic-operators)|[날짜 및 시간 식](#date-and-time-expressions)|[GUIDs](#guids)|[배열 및 개체 리터럴](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[부울 연산자](#boolean-operators)|[숫자 리터럴](#numeric-literals)|[날짜 및 시간 리터럴](#date-and-time-literals)|[난독 처리된 문자열 리터럴](#obfuscated-string-literals)|[동적 개체 함수](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Casts](#casts)|[abs](#abs)|[ago](#ago)|[문자열 리터럴](#string-literals)|[let 절의 동적 개체](#dynamic-objects-in-let-clauses)
+|[let 절](#let-clause)|[avg](#avg)|[스칼라 비교](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[문자열 비교](#string-comparisons)|[JSON Path 식](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[이름](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[로그](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[분할](#split)|[treepath](#treepath)
+|[render 지시문](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[restrict 절](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
+|[union](#union-operator)||||[todatetime](#todatetime)||
+|[여기서,](#where-operator)||||[totimespan](#totimespan)||
+|||||[weekofyear](#weekofyear)||
+
 
 
 
@@ -61,7 +63,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-파이프 문자 `|`이 접두사로 붙는 각 필터는 일부 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](##scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
+파이프 문자 `|`이 접두사로 붙는 각 필터는 일부 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](#scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
 
 쿼리는 단일 줄 바꿈을 포함할 수 있지만 빈 줄이 있으면 종료됩니다. 쿼리는 `//`와 줄의 끝 사이에 주석을 포함할 수 있습니다.
 
@@ -1007,7 +1009,7 @@ traces
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize count(filter)` 사용
 
-> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 데이터 요소 수가 실제 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
+> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 Application Insights에 유지되는 데이터 요소 수가 원래 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
 
 ### countif
 
@@ -1044,7 +1046,7 @@ traces
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-*Predicate*이 true인 그룹에 있는 행의 *Expr*에 대한 고유 값 수 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.
+*Predicate*이 true인 그룹에 있는 행의 *Expr*에 대한 고유 값 수 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)을 사용합니다.
 
 *정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
@@ -1071,7 +1073,7 @@ traces
 
     makeset(Expression [ , MaxSetSize ] )
 
-*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. 팁:고유 값을 세기만 하려면 [`dcount`](#dcount)를 사용합니다.
+*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. 팁: 고유 값을 세기만 하려면 [`dcount`](#dcount)를 사용합니다.
   
 *  *MaxSetSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값 *128*)입니다.
 
@@ -1361,7 +1363,6 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 
 
-## Boolean 
 
 ### 부울 리터럴
 
@@ -1393,16 +1394,16 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 | 
-| * | 곱하기 | 
-| / | 나누기 | 
-| % | 모듈로 | 
-|| 
-|`<` |보다 작음 
-|`<=`|작거나 같음 
-|`>` |보다 큼 
-|`>=`|크거나 같음 
-|`<>`|같지 않음 
+| - | 빼기 |
+| * | 곱하기 |
+| / | 나누기 |
+| % | 모듈로 |
+||
+|`<` |보다 작음
+|`<=`|작거나 같음
+|`>` |보다 큼
+|`>=`|크거나 같음
+|`<>`|같지 않음
 |`!=`|같지 않음
 
 
@@ -2091,7 +2092,7 @@ substring("ABCD", 0, 2)       // AB
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2199,7 +2200,7 @@ T
 ```
 
 
-## 동적 개체 함수
+### 동적 개체 함수
 
 |||
 |---|---|
@@ -2211,7 +2212,7 @@ T
 |[`range(`from,to,step`)`](#range)| 값의 배열
 |[`mvexpand` listColumn](#mvexpand-operator) | 각 값에 대한 행을 지정된 셀의 목록에 복제합니다.
 |[`summarize buildschema(`column`)`](#buildschema) |열 내용에서 형식 스키마를 유추
-|[`summarize makelist(`column`)` ](#makelist)| 행 그룹을 평면화하고 열의 값을 배열에 넣습니다.
+|[`summarize makelist(`column`)`](#makelist)| 행 그룹을 평면화하고 열의 값을 배열에 넣습니다.
 |[`summarize makeset(`column`)`](#makeset) | 행 그룹을 평면화하고 열의 값을 중복 없이 배열에 넣습니다.
 
 ### let 절의 동적 개체
@@ -2400,7 +2401,7 @@ path 식의 배열입니다.
 
 참고로 “[0]”은 배열이 존재하지만 특정 경로에 사용되는 인덱스를 지정하지 않았음을 나타냅니다.
 
-## 이름
+### 이름
 
 이름은 최대 1024자까지 가능합니다. 이름은 대/소문자를 구분하며 문자, 숫자 및 밑줄(`_`)을 포함할 수 있습니다.
 
@@ -2425,4 +2426,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

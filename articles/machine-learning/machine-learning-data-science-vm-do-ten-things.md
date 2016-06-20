@@ -198,7 +198,7 @@ Azure 기계 학습 R 라이브러리에 대한 자세한 정보는 [여기](htt
 
 DSVM을 사용하면 가상 컴퓨터에서 로컬로 분석 솔루션을 구축할 수 있을 뿐만 아니라 Microsoft의 Azure 클라우드 서비스에 액세스할 수 있습니다. Azure는 DSVM에서 관리 및 액세스할 수 있는 여러 가지 계산, 저장소, 데이터 분석 서비스 및 기타 서비스를 제공합니다.
 
-Azure 구독 및 클라우드 리소스를 관리하려면 [Azure 포털](portal.azure.com)로 이동하세요. Azure Powershell을 사용하여 스크립트를 통해 Azure 구독 및 리소스를 관리할 수도 있습니다. 바탕 화면의 바로 가기 또는 시작 메뉴의 "Microsoft Azure Powershell"을 사용하여 Azure Powershell을 실행할 수 있습니다. Windows Powershell 스크립트를 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Powershell 설명서](../powershell-azure-resource-manager.md)를 참조하세요.
+Azure 구독 및 클라우드 리소스를 관리하려면 [Azure 포털](https://portal.azure.com)로 이동하세요. Azure Powershell을 사용하여 스크립트를 통해 Azure 구독 및 리소스를 관리할 수도 있습니다. 바탕 화면의 바로 가기 또는 시작 메뉴의 "Microsoft Azure Powershell"을 사용하여 Azure Powershell을 실행할 수 있습니다. Windows Powershell 스크립트를 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Powershell 설명서](../powershell-azure-resource-manager.md)를 참조하세요.
 
 
 ## 5\. 공유 파일 시스템으로 저장소 공간 확장
@@ -268,7 +268,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 **필수 요소**
 
-- **[Azure 포털](http://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다.**
+- **[Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다.**
 
 ![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -287,7 +287,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-**C:\\myfolder**에는 파일이 저장되는 경로를, **mystorageaccount**에는 해당하는 Blob 저장소 계정 이름을, **mycontainer**에는 컨테이너 이름을, **storage account key**에는 해당하는 Blob 저장소 액세스 키를 입력합니다. 저장소 계정 자격 증명은 [Azure 포털](http://portal.azure.com)에서 찾을 수 있습니다.
+**C:\\myfolder**에는 파일이 저장되는 경로를, **mystorageaccount**에는 해당하는 Blob 저장소 계정 이름을, **mycontainer**에는 컨테이너 이름을, **storage account key**에는 해당하는 Blob 저장소 액세스 키를 입력합니다. 저장소 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
 ![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -318,7 +318,7 @@ Azure 저장소 탐색기를 사용하여 VM의 로컬 파일에서 데이터를
 
 **Azure Blob에서 데이터 읽기: AML 판독기 모듈**
 
-Azure 기계 학습 스튜디오에서 **판독기 모듈**을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
+Azure 기계 학습 스튜디오에서 **데이터 가져오기 모듈**을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
 
 
 ![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -379,7 +379,7 @@ Azure Data Lake 저장소는 빅 데이터 분석 작업에 대한 대규모 리
 
 **필수 요소**
 
-- [Azure 포털](http://portal.azure.com)에서 Azure Data Lake 분석을 만듭니다.
+- [Azure 포털](https://portal.azure.com)에서 Azure Data Lake 분석을 만듭니다.
 
 ![Azure\_Data\_Lake\_Create\_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -474,7 +474,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 **필수 요소**
 
-- [Azure 포털](http://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
+- [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -910,4 +910,4 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 ## 요약
 이는 Microsoft 데이터 과학 가상 컴퓨터에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

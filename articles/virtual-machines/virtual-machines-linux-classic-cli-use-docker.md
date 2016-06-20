@@ -27,7 +27,7 @@
 
 
 ##Azure와 함께 Docker VM 확장을 사용하는 방법
-Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.8.10임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
+Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.10.0임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
 
 
 Azure에서 Docker를 사용하는 전체 프로세스는 간단합니다.
@@ -41,7 +41,7 @@ Azure에서 Docker를 사용하는 전체 프로세스는 간단합니다.
 
 Azure CLI를 설치하고 구성하려면, [Azure 명령줄 인터페이스를 설치하는 방법](../xplat-cli-install.md)을 참조하세요. 설치를 확인하려면 명령줄에 `azure`를 입력합니다. 잠시 후에 사용 가능한 기본 명령을 나열하는 Azure CLI ASCII 아트가 표시됩니다. 설치가 제대로 작동한 경우 `azure help vm`을 입력하면 나열된 명령 중 하나가 "docker"임을 확인할 수 있습니다.
 
-> [AZURE.NOTE] Docker에 Windows용 설치 프로그램, [Boot2Docker](https://docs.docker.com/installation/windows/)가 있으며, docker 호스트로 Azure VM과 작업에 사용할 수 있는 docker 클라이언트 작성을 자동화할 수도 있습니다.
+> [AZURE.NOTE] Docker에 Windows용 도구, [Docker Machine](https://docs.docker.com/installation/windows/)이 있으며, docker 호스트로 Azure VM과 작업에 사용할 수 있는 docker 클라이언트 작성을 자동화할 수도 있습니다.
 
 ### Azure CLI를 Azure 계정에 연결
 Azure CLI를 사용하려면 먼저 Azure 계정 자격 증명을 사용자 플랫폼의 Azure CLI에 연결해야 합니다. [Azure 구독에 연결하는 방법](../xplat-cli-connect.md) 섹션에서 **.publishsettings** 파일을 다운로드하고 가져오거나 Azure CLI를 조직 ID에 연결하는 방법에 대해 설명합니다.
@@ -63,10 +63,10 @@ Bash 또는 터미널 세션에서 다음 Azure CLI 명령을 사용하여 VM �
 
 `azure vm image list | grep Ubuntu-14_04`
 
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-KR-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-ko-KR-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-KR-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-ko-KR-30GB" <username> <password>
 ```
 
 설명:
@@ -173,4 +173,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

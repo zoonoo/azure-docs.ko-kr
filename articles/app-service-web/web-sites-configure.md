@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱 구성" 
 	description="Azure 앱 서비스에서 웹 앱을 구성 하는 방법" 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
-	ms.author="tdykstra"/>
-
+	ms.date="06/02/2016" 
+	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 웹 앱 구성 #
 
-이 주제에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 웹 앱을 구성하는 방법을 설명합니다.
+이 주제에서는 [Azure 포털]을 사용하여 웹 앱을 구성하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 응용 프로그램 설정
 
-1. [Azure 포털](https://portal.azure.com/)에서, 웹 앱에 대한 블레이드를 엽니다.
+1. [Azure 포털]에서, 웹 앱에 대한 블레이드를 엽니다.
 2. **모든 설정**을 클릭합니다
 3. **응용 프로그램 설정**을 클릭합니다.
 
-![](./media/web-sites-configure/configure01.png)
+![응용 프로그램 설정][configure01]
 
 **응용 프로그램 설정** 블레이드 설정이 여러 범주 아래에 그룹화됩니다.
 
@@ -46,19 +45,17 @@
 
 <a name="platform"></a> **플랫폼**. 응용 프로그램이 32비트 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 모드가 필요합니다. 무료 및 공유 모드는 항상 32비트 환경에서 실행됩니다.
 
-**웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 [ASP.NET SignalR](http://www.asp.net/signalr) 또는 [socket.io](web-sites-nodejs-chat-app-socketio.md)를 사용하는 경우가 여기에 해당합니다.
+**웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기** 를 설정합니다. 예를 들어 [ASP.NET SignalR] 또는 [socket.io]를 사용하는 경우가 여기에 해당합니다.
 
 <a name="alwayson"></a> **무중단**. 기본적으로 웹 앱은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 **Always On**을 사용하도록 설정하여 앱을 항상 로드된 상태로 유지할 수 있습니다. 앱에서 지속형 웹 작업을 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그렇지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
 
-**관리되는 파이프라인 버전**. IIS [파이프라인 모드](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application)를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
+**관리되는 파이프라인 버전**. IIS [파이프라인 모드]를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
 
 **자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 앱 서비스는 자동으로 웹 앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
-
 
 ### 디버그
 
 **원격 디버깅**. 원격 디버깅을 사용하도록 설정합니다. 사용하도록 설정되면 Visual Studio에서 원격 디버거를 사용하여 웹 앱에 바로 연결할 수 있습니다. 원격 디버깅은 48시간 동안 사용 가능한 상태로 유지됩니다.
-
 
 ### 앱 설정
 
@@ -76,10 +73,10 @@
 
 PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
 
-- SQL 서버: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- SQL 데이터베이스: SQLAZURECONNSTR_
-- 사용자 지정: CUSTOMCONNSTR_
+- SQL Server: `SQLCONNSTR_`
+- MySQL: `MYSQLCONNSTR_`
+- SQL 데이터베이스: `SQLAZURECONNSTR_`
+- 사용자 지정: `CUSTOMCONNSTR_`
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 
@@ -129,52 +126,67 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 3. 사용자 이름 및 암호를 입력합니다.
 4. **Save**를 클릭합니다.
 
-![](./media/web-sites-configure/configure03.png)
-
+![배포 자격 증명 설정][configure03]
 
 전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
-![](./media/web-sites-configure/configure02.png)
+![FTP 배포 자격 증명][configure02]
 
 ## 기타 구성 작업
 
 ### SSL 
 
-기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [웹 앱에 대한 HTTPS 사용](web-sites-configure-ssl-certificate.md)을 참조하세요.
+기본 또는 표준 모드에서는 사용자 지정 도메인에 대해 SSL 인증서를 업로드할 수 있습니다. 자세한 내용은 [웹 앱에 대한 HTTPS 사용]을 참조하세요.
 
 업로드된 인증서를 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 클릭합니다.
 
 ### 도메인 이름
 
-웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)을 참조하세요.
+웹 앱에 대한 사용자 지정 도메인 이름을 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 사용자 지정 도메인 이름 구성]을 참조하세요.
 
 도메인 이름을 보려면 **모든 설정** > **사용자 지정 도메인 및 SSL**을 클릭합니다.
 
 ### 배포
 
-- 연속 배포를 설정합니다. [Azure 앱 서비스에서 웹 앱 배포를 위해 Git 사용](web-sites-publish-source-control.md)을 참조하세요.
-- 배포 슬롯입니다. [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경으로 배포](web-sites-staged-publishing.md)를 참조하세요.
+- 연속 배포를 설정합니다. [Azure 앱 서비스에서 웹 앱 배포를 위해 Git 사용]을 참조하세요.
+- 배포 슬롯입니다. [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경으로 배포]를 참조하세요.
 
 배포 슬롯을 보려면 **모든 설정** > **배포 슬롯**을 클릭합니다.
-
 
 ### 모니터링
 
 기본 또는 표준 모드에서는 지리적으로 분산된 최대 세 곳의 HTTP 또는 HTTPS 끝점에 대한 가용성을 테스트할 수 있습니다. HTTP 응답 코드가 오류(4xx 또는 5xx)이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 끝점은 사용 가능한 것으로 간주됩니다.
 
-자세한 내용은 [방법: 웹 끝점 모니터링](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)을 참조하세요.
+자세한 내용은 [방법: 웹 끝점 모니터링]을 참조하세요.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가]로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 다음 단계
 
-- [사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
-- [HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)
-- [Azure 앱 서비스에서 웹 앱 크기 조정](web-sites-scale.md)
-- [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링](web-sites-monitor.md)
+- [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]
+- [Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]
+- [Azure 앱 서비스에서 웹 앱 크기 조정]
+- [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
- 
+<!-- URL List -->
 
-<!---HONumber=AcomDC_0518_2016-->
+[ASP.NET SignalR]: http://www.asp.net/signalr
+[Azure 포털]: https://portal.azure.com/
+[Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]: ./web-sites-custom-domain-name.md
+[Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
+[Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]: ./web-sites-configure-ssl-certificate.md
+[방법: 웹 끝점 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
+[파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Azure 앱 서비스에서 웹 앱 크기 조정]: ./web-sites-scale.md
+[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
+[앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Azure 앱 서비스에서 웹 앱 배포를 위해 Git 사용]: ./web-sites-publish-source-control.md
+
+<!-- IMG List -->
+
+[configure01]: ./media/web-sites-configure/configure01.png
+[configure02]: ./media/web-sites-configure/configure02.png
+[configure03]: ./media/web-sites-configure/configure03.png
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -543,20 +543,20 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 **경고:** `copyToLocal`은 파일이 큰 경우 매우 느려질 수 있으므로 큰 파일에 사용하지 않는 것이 좋습니다.
 
-이 데이터를 Azure blob에 두면 [판독기][reader] 모듈을 사용하여 Azure 기계 학습 내에서 데이터를 탐색할 수 있는 이점이 있습니다.
+이 데이터를 Azure blob에 두면 [데이터 가져오기][import-data] 모듈을 사용하여 Azure 기계 학습 내에서 데이터를 탐색할 수 있는 이점이 있습니다.
 
 
 ## <a name="#downsample"></a>Azure 기계 학습에서 데이터 다운 샘플링 및 모델 빌드
 
 **참고:** 이는 일반적으로 **데이터 과학자** 작업입니다.
 
-예비 데이터 분석 단계를 마쳤으므로 이제 Azure 기계 학습에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 Azure 기계 학습의 [판독기][reader] 모듈에서 액세스할 데이터를 다운 샘플링하는 방법을 보여 줍니다.
+예비 데이터 분석 단계를 마쳤으므로 이제 Azure 기계 학습에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 액세스할 데이터를 다운 샘플링하는 방법을 보여 줍니다.
 
 ### 데이터 다운 샘플링
 
 이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키("medallion", "hack\_license" 및 "pickup\_datetime")에서 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
 
-다운 샘플링한 데이터를 Azure 기계 학습의 [판독기][reader] 모듈에서 직접 사용하려면 위 쿼리 결과를 내부 Hive 테이블에 저장해야 합니다. 내부 Hive 테이블을 만들고 조인 및 다운 샘플링된 데이터로 채웁니다.
+다운 샘플링한 데이터를 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 직접 사용하려면 위 쿼리 결과를 내부 Hive 테이블에 저장해야 합니다. 내부 Hive 테이블을 만들고 조인 및 다운 샘플링된 데이터로 채웁니다.
 
 이 쿼리는 표준 Hive 함수를 직접 적용하여 "pickup\_datetime" 필드에서 시간, 주, 요일(월요일은 1, 토요일은 7)을 생성하고 승차 위치와 하차 위치 간의 직접 거리를 생성합니다. 이러한 항목의 전체 목록은 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)에서 확인할 수 있습니다.
 
@@ -689,13 +689,13 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-이제 Azure 기계 학습의 [판독기][reader] 모듈을 사용하여 액세스할 수 있는 내부 테이블 "nyctaxidb.nyctaxi\_downsampled\_dataset"가 생성되었습니다. 또한 이 데이터 집합을 사용하여 기계 학습 모델을 빌드할 수 있습니다.
+이제 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈을 사용하여 액세스할 수 있는 내부 테이블 "nyctaxidb.nyctaxi\_downsampled\_dataset"가 생성되었습니다. 또한 이 데이터 집합을 사용하여 기계 학습 모델을 빌드할 수 있습니다.
 
-### Azure 기계 학습의 판독기 모듈을 사용하여 다운 샘플링된 데이터 액세스
+### Azure 기계 학습의 데이터 가져오기 모듈을 사용하여 다운 샘플링된 데이터 액세스
 
-Azure 기계 학습의 [판독기][reader] 모듈에서 Hive 쿼리를 실행하려면 Azure 기계 학습 작업 영역과 클러스터 및 연결된 해당 저장소 계정의 자격 증명에 액세스해야 합니다.
+Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼리를 실행하려면 Azure 기계 학습 작업 영역과 클러스터 및 연결된 해당 저장소 계정의 자격 증명에 액세스해야 합니다.
 
-[판독기][reader] 모듈과 입력할 매개 변수에 대한 일부 정보는 다음과 같습니다.
+[데이터 가져오기][import-data] 모듈과 입력할 매개 변수에 대한 일부 정보는 다음과 같습니다.
 
 **HCatalog server URI**: 클러스터 이름이 abc123인 경우 단순히 https://abc123.azurehdinsight.net입니다.
 
@@ -709,7 +709,7 @@ Azure 기계 학습의 [판독기][reader] 모듈에서 Hive 쿼리를 실행하
 
 **Azure container name**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 같습니다. "abc123"이라는 클러스터의 경우 단순히 abc123입니다.
 
-**중요:** **Azure 기계 학습의 [판독기][reader] 모듈을 사용하여 쿼리할 모든 테이블은 내부 테이블이어야 합니다.** 데이터베이스 D.db의 테이블 T가 내부 테이블인지 확인하기 위한 팁은 다음과 같습니다.
+**중요:** **Azure 기계 학습의 [데이터 가져오기][import-data] 모듈을 사용하여 쿼리할 모든 테이블은 내부 테이블이어야 합니다.** 데이터베이스 D.db의 테이블 T가 내부 테이블인지 확인하기 위한 팁은 다음과 같습니다.
 
 Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
@@ -717,7 +717,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 테이블이 내부 테이블이고 채워진 경우 해당 내용이 여기에 표시되어야 합니다. 테이블이 내부 테이블인지 확인하는 또 다른 방법은 Azure 저장소 탐색기를 사용하는 것입니다. Azure 저장소 탐색기를 사용하여 클러스터의 기본 컨테이너 이름으로 이동한 다음 테이블 이름으로 필터링합니다. 테이블과 해당 내용이 표시되면 내부 테이블인 것입니다.
 
-다음은 Hive 쿼리 및 [판독기][reader] 모듈의 스냅숏입니다.
+다음은 Hive 쿼리 및 [데이터 가져오기][import-data] 모듈의 스냅숏입니다.
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -733,7 +733,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 **사용된 학습자:** 2클래스 로지스틱 회귀
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tipped"입니다. 원래 다운 샘플링된 데이터 집합에는 이 분류 실험에 대한 대상 누수인 몇 가지 열이 있습니다. 특히 tip\_class, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tipped"입니다. 원래 다운 샘플링된 데이터 집합에는 이 분류 실험에 대한 대상 누수인 몇 가지 열이 있습니다. 특히 tip\_class, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
 
 아래 스냅숏은 주어진 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
@@ -753,7 +753,7 @@ b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
 **사용된 학습자:** 다중 클래스 로지스틱 회귀
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0,1,2,3,4) 중 하나일 수 있는 "tip\_class"입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 tipped, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0,1,2,3,4) 중 하나일 수 있는 "tip\_class"입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 tipped, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
 아래 스냅숏은 팁이 속할 수 있는 bin을 예측하는 실험을 보여 줍니다(Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20).
 
@@ -774,7 +774,7 @@ b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인�
 
 **사용된 학습자:** 향상된 의사 결정 트리
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입니다. 이 경우 대상 누수는 tipped, tip\_class, total\_amount입니다. 이러한 변수는 모두 일반적으로 테스트 시 사용할 수 없는 팁 금액에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입니다. 이 경우 대상 누수는 tipped, tip\_class, total\_amount입니다. 이러한 변수는 모두 일반적으로 테스트 시 사용할 수 없는 팁 금액에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
 아래 스냅숏에서는 주어진 팁 금액을 예측하는 실험을 보여 줍니다.
 
@@ -807,7 +807,7 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

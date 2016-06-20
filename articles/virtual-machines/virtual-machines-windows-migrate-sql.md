@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="06/06/2016"
 	ms.author="carlasab"/>
 
 
@@ -55,11 +55,11 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 | 메서드 | 원본 데이터베이스 버전 | 대상 데이터베이스 버전 | 원본 데이터베이스 백업 크기 제약 조건 | 참고 사항 |
 |---|---|---|---|---|
-| [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사 사용](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 이상 | SQL Server 2014 이상 | > 1TB | 가장 신속하고 간단한 메서드, Azure 가상 컴퓨터에서 새로운 또는 기존 SQL Server 인스턴스로 마이그레이션이 가능한 모든 경우에 사용 | 
+| [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사 사용](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 이상 | SQL Server 2014 이상 | 1TB 미만 | 가장 신속하고 간단한 메서드, Azure 가상 컴퓨터에서 새로운 또는 기존 SQL Server 인스턴스로 마이그레이션이 가능한 모든 경우에 사용 | 
 | [Azure Replica Wizard 추가 사용](virtual-machines-windows-classic-sql-onprem-availability.md) | SQL Server 2012 이상 | SQL Server 2012 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 가동 중지 시간을 최소화하고 AlwaysOn 온-프레미스 배포가 있을 경우 사용 |
 | [SQL Server 트랜잭션 복제 사용](https://msdn.microsoft.com/library/ms151176.aspx) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 작동 중단을 최소화하고 AlwaysOn 온-프레미스 배포가 없는 경우 사용 |
 | [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 컴퓨터에 백업 파일을 수동으로 복사](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 대상 데이터베이스 버전이 SQL Server 2012 SP1 CU2 미만이거나 데이터베이스 백업 크기가 1TB(SQL Server 2016의 경우 12.8TB)를 초과하는 경우와 같이 마법사를 사용할 수 없는 경우에만 사용 |
-| [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 이상 | SQL Server 2012 SP1 CU2 이상 | > 1TB(SQL Server 2016의 경우 < 12.8TB) | 일반적으로 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx)을 사용하는 것이 마법사를 사용하는 것과 성능 면에서 동등하지만 그만큼 쉽지는 않음 |
+| [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 이상 | SQL Server 2012 SP1 CU2 이상 | SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 일반적으로 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx)을 사용하는 것이 마법사를 사용하는 것과 성능 면에서 동등하지만 그만큼 쉽지는 않음 |
 | [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 이상 | SQL Server 2014 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx)하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 가상 컴퓨터 배포](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | [자체 SQL Server 라이선스를 소유](../data-management-azure-sql-database-and-sql-server-iaas/)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
 | [Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용 |
@@ -145,7 +145,7 @@ SQL Server 2014보다 오래된 버전의 SQL Server에 마이그레이션하거
 
 1.	온-프레미스 위치에 전체 데이터베이스 백업을 수행합니다.
 2.	원하는 버전의 SQL Server로 가상 컴퓨터를 만들거나 업로드합니다.
-3.	[Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines-provision-sql-server/#SSMS)에 포함된 단계를 사용하여 가상 컴퓨터를 프로비전합니다.
+3.	요구 사항에 따라 연결을 설정합니다. [Azure에서 SQL Server 가상 컴퓨터 연결(Resource Manager)](virtual-machines-windows-sql-connect.md)을 참조하세요.
 4.	원격 데스크톱, Windows 탐색기 또는 명령 프롬프트의 copy 명령을 사용하여 백업 파일을 VM에 복사합니다.
 
 ## URL에 백업 및 복원
@@ -178,4 +178,4 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

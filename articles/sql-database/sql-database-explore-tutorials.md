@@ -1,5 +1,5 @@
 <properties
-   pageTitle="SQL 데이터베이스 자습서 탐색"
+   pageTitle="Azure SQL 데이터베이스 자습서 탐색 | Microsoft Azure"
    description="SQL 데이터베이스 기능에 대해 알아보기"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# SQL 데이터베이스 자습서 탐색
+# Azure SQL 데이터베이스 자습서 탐색
 
-아래 링크를 통해 나열된 각 기능 영역의 개요 및 각 영역에 대한 빠른 시작 자습서로 이동합니다.
+아래 링크를 통해 나열된 각 기능 영역의 개요 및 각 영역에 대한 간단한 단계별 시작 자습서로 이동합니다. 실제 시나리오를 기준으로 완벽한 솔루션에서 SQL 데이터베이스를 사용하는 방법을 보여 주는 솔루션 범위별 빠른 시작 방법을 보려면 [Azure SQL 데이터베이스 솔루션 빠른 시작](sql-database-solution-quick-starts.md)을 참조하세요.
 
 ## SQL Server Management Studio 사용
 
@@ -92,12 +92,12 @@
 | [Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) | 이 자습서에서는 SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 호환되는 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션하는 방법을 알아봅니다.
 | [SSMS를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) | 이 자습서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 호환 가능한 SQL Server 데이터베이스를 BACPAC 파일로 내보내는 방법을 알아봅니다.|
 | [SqlPackage를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) | 이 자습서에서는 SQLPackage.exe 명령줄 유틸리티를 사용하여 호환되는 SQL Server 데이터베이스를 BACPAC 파일에 내보내는 방법을 알아봅니다.|
-| [PowerShell을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | 이 자습서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스로 데이터베이스를 가져오는 방법을 알아봅니다. |
+| [SSMS를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | 이 자습서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스로 데이터베이스를 가져오는 방법을 알아봅니다. |
 | [SqlPackage를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) | 이 자습서에서는 SQLPackage 명령줄 유틸리티를 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스로 데이터베이스를 가져오는 방법을 알아봅니다. |
 | [Azure 포털을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-import.md) | 이 자습서에서는 Azure 포털을 사용하여 Azure Blob에 저장된 BACPAC 파일에서 Azure SQL 데이터베이스로 데이터베이스를 가져오는 방법을 알아봅니다.|
 | [PowerShell을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-import-powershell.md) | 이 자습서에서는 PowerShell을 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스로 데이터베이스를 가져오는 방법을 알아봅니다.|
 | [Azure 포털을 사용하여 Azure SQL 데이터베이스 보관](sql-database-export.md#export-your-database) | 이 자습서에서는 Azure 포털을 사용하여 BACPAC 파일에 Azure SQL 데이터베이스를 보관하는 방법을 알아봅니다. |
-| [PowerShell을 사용하여 Azure SQL 데이터베이스 보관](sql-database-export-powershell.md) | 이 자습서에서는 Azure 포털을 사용하여 BACPAC 파일에 Azure SQL 데이터베이스를 보관하는 방법을 알아봅니다. |
+| [PowerShell을 사용하여 Azure SQL 데이터베이스 보관](sql-database-export-powershell.md) | 이 자습서에서는 PowerShell을 사용하여 BACPAC 파일에 Azure SQL 데이터베이스를 보관하는 방법을 알아봅니다. |
 | [Azure 포털을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy.md#copy-your-sql-database) | 이 자습서에서는 Azure 포털을 사용하여 Azure SQL 데이터베이스를 복사하는 방법을 알아봅니다. |
 | [PowerShell을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-powershell#copy-your-sql-database) | 이 자습서에서는 PowerShell을 사용하여 Azure SQL 데이터베이스를 복사하는 방법을 알아봅니다. |
 | [Transact-SQL을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-transact-sql.md#copy-your-sql-database) | 이 자습서에서는 Transact-SQL을 사용하여 Azure SQL 데이터베이스를 복사하는 방법을 알아봅니다. |
@@ -176,4 +176,8 @@
 | [Azure SQL 데이터 동기화 시작(미리 보기)](sql-database-get-started-sql-data-sync.md) | 이 자습서에서는 Azure 클래식 포털을 사용하여 Azure SQL 데이터 동기화의 기본 사항에 대해 알아봅니다. |
 ||||
 
-<!---HONumber=AcomDC_0518_2016-->
+## 다음 단계
+
+[Azure SQL 데이터베이스 솔루션 빠른 시작 탐색](sql-database-solution-quick-starts.md)
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@
 ## 빠른 명령
 네트워크 보안 그룹 및 ACL 규칙을 만들려면 [최신 버전의 Azure PowerShell을 설치](../powershell-install-configure.md)해야 합니다. [Azure 포털을 사용하여 수행할 수도 있습니다](virtual-machines-windows-nsg-quickstart-portal.md).
 
-먼저 다음과 같이 고유한 이름 및 설명을 입력하여 TCP 포트 80에서 HTTP 트래픽을 허용하는 규칙을 만들어야 합니다.
+먼저 고유한 이름 및 설명을 입력하여 TCP 포트 80에서 HTTP 트래픽을 허용하는 규칙을 만들어야 합니다.
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -38,13 +38,13 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westu
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-이제 서브넷에 네트워크 보안 그룹을 할당합니다. 먼저 다음과 같이 만든 가상 네트워크를 선택합니다.
+이제 서브넷에 네트워크 보안 그룹을 할당합니다. 먼저 만든 가상 네트워크를 선택합니다.
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-다음과 같이 네트워크 보안 그룹을 서브넷에 연결합니다.
+네트워크 보안 그룹을 서브넷에 연결합니다.
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
@@ -72,4 +72,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

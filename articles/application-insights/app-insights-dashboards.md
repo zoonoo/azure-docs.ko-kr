@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Application Insights 포털의 대시보드"
-	description="대시보드에서 응용 프로그램의 여러 구성 요소에서 원격 분석을 표시합니다."
+	pageTitle="Application Insights 포털 사용"
+	description="Application Insights 포털의 메트릭, 검색, 대시보드 및 설정"
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Application Insights 포털에서 탐색 및 대시보드
@@ -34,11 +34,12 @@
 
 다음을 클릭합니다.
 
-* **차트 또는 타일**: 자세한 내용을 볼 수 있습니다.
-* **설정**: 다른 메트릭의 미리 정의된 페이지에 액세스할 수 있습니다.
+* **임의 차트 또는 타일**: 차트에 표시되는 데이터에 대한 자세한 정보를 확인할 수 있습니다.
+* **설정**: 구성 페이지 뿐만 아니라 다른 메트릭의 미리 정의된 블레이드로 이동할 수 있습니다.
 * [**메트릭 탐색기**](app-insights-metrics-explorer.md): 사용자 고유의 메트릭 페이지를 만들 수 있습니다.
 * [**검색**](app-insights-diagnostic-search.md): 요청, 예외 또는 로그 추적과 같은 이벤트의 특정 인스턴스를 조사할 수 있습니다.
 * [**분석**](app-insights-analytics.md): 원격 분석을 통해 강력한 쿼리를 합니다.
+* [**라이브 스트림**](app-insights-metrics-explorer.md#live-stream): 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
 
 
 ![원격 분석을 보기 위한 주요 경로](./media/app-insights-dashboards/010-oview.png)
@@ -109,4 +110,4 @@
 
 [역할 및 액세스 제어](app-insights-resources-roles-access-control.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

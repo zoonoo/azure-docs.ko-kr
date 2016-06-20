@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,12 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/27/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Azure 가상 컴퓨터의 SQL Server FAQ
 
 이 항목에서는 [Azure 가상 컴퓨터에서 SQL Server 실행](https://azure.microsoft.com/services/virtual-machines/sql-server/)에 대해 가장 일반적인 질문 중 몇 가지에 대한 답변을 제공합니다.
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 질문과 대답
 
@@ -61,11 +63,11 @@
 
 9. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
 
-	[Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/ko-KR/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하십시오.
+	[Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/ko-KR/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하세요.
 
 ## 리소스
 
-Azure 가상 컴퓨터의 SQL Server에 대한 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) 동영상을 시청하십시오. 또한 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md) 항목에서도 간략한 소개를 확인할 수 있습니다.
+Azure 가상 컴퓨터의 SQL Server에 대한 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) 동영상을 시청하세요. 또한 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md) 항목에서도 간략한 소개를 확인할 수 있습니다.
 
 기타 리소스는 다음과 같습니다.
 
@@ -75,4 +77,4 @@ Azure 가상 컴퓨터의 SQL Server에 대한 개요는 [Azure VM은 SQL Server
 - [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

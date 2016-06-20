@@ -64,7 +64,7 @@
 
 6.  [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-7.  [판독기][reader] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
+7.  [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 
 8. 수집된 데이터 집합으로 시작하여 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
@@ -90,7 +90,7 @@
 
 8. [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-9. [판독기][reader] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
+9. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 
 10. 수집된 데이터 집합으로 시작하여 Azure ML 실험 흐름을 작성합니다.
 
@@ -132,7 +132,7 @@
 
 9. [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-10. [판독기][reader] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [판독기][reader] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
+10. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 
 11. 수집된 데이터 집합으로 시작하여 Azure ML 실험 흐름을 작성합니다.
 
@@ -176,7 +176,7 @@
 
 7.  [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-8. [판독기][reader] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [판독기][reader] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
+8. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 
 9. 업로드된 데이터 집합으로 시작한 간단한 Azure ML 실험 흐름
 
@@ -216,7 +216,7 @@
 
 7.  [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-8. [판독기][reader] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [판독기][reader] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
+8. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 
 9. 업로드된 데이터 집합으로 시작한 간단한 Azure ML 실험 흐름
 
@@ -280,7 +280,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 8.  [Azure 컴퓨터 학습 Studio](https://studio.azureml.net/)에 로그인합니다.
 
-9. [판독기][reader] 모듈을 사용하여 `Hive Queries`에서 데이터를 직접 읽습니다. [판독기][reader] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
+9. [데이터 가져오기][import-data] 모듈을 사용하여 `Hive Queries`에서 데이터를 직접 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 
 10. 업로드된 데이터 집합으로 시작한 간단한 Azure ML 실험 흐름
 
@@ -312,6 +312,6 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

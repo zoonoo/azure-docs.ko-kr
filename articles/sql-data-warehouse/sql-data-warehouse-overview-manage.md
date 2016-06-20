@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="06/05/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Azure SQL 데이터 웨어하우스의 데이터베이스 관리
@@ -61,7 +61,7 @@ SQL 데이터 웨어하우스는 주로 DMV를 사용하여 관리합니다. 포
 
 SQL 데이터 웨어하우스에서 CPU의 계산 리소스, 메모리, I/O 대역폭을 늘리거나 줄여 성능을 빠르게 확장 또는 축소할 수 있습니다. 성능을 조정할 경우 SQL 데이터 웨어하우스에서 데이터베이스에 할당하는 DWU(데이터 웨어하우스 단위) 수를 조정하기만 하면 됩니다. SQL 데이터 웨어하우스가 빠르게 변경하고 하드웨어 또는 소프트웨어의 모든 기본 변경 사항을 처리합니다.
 
-DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하십시오.
+DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 
 ##  일지 중지 및 다시 시작
 
@@ -89,25 +89,7 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하십시오
 
 ## 백업 및 복원
 
-데이터베이스를 복구하는 방법은 두 가지입니다. 데이터베이스에서 일부 데이터가 손상되었거나 실수를 한 경우 데이터베이스 스냅숏을 복원할 수 있습니다. 지역에 정전 또는 재해가 발생하여 지역 중 한 곳을 이용할 수 없게 된 경우 다른 지역에 데이터베이스를 다시 만들 수 있습니다.
-
-SQL 데이터 웨어하우스가 정기적 간격으로 데이터베이스를 자동으로 백업합니다. 백업 일정 및 보존 정책은 [높은 안정성][]을 참조하세요.
-
-### 지역 중복 저장소
-
-SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 모든 데이터는 지리적 중복 Azure 저장소(RA-GRS)로 직접 기록됩니다. 지역 중복 저장소는 기본 지역에서 수백 마일 떨어져 있는 보조 영역에 데이터를 복제합니다. 기본 및 보조 지역에서 데이터는 별도 오류 도메인 및 업그레이드 도메인에 걸쳐 각각 세 번씩 복제됩니다. 이렇게 하면 영역 중 하나를 사용할 수 없게 하는 완전한 지역 가동 중단 또는 재해 경우더라도 데이터를 지속적으로 사용할 수 있습니다. 읽기 액세스 지역 중복 저장소에 대한 자세한 정보는 [Azure 저장소 중복 옵션][]을 참조하세요.
-
-### 데이터베이스 복원
-
-데이터베이스 복원은 데이터베이스를 이전 시점으로 복원하도록 설계되었습니다. SQL 데이터 웨어하우스 서비스는 적어도 8시간마다 자동 저장소 스냅숏을 사용하여 모든 데이터베이스를 보호하고 7일 동안 복원 지점의 불연속 집합 제공을 유지합니다. 이러한 백업은 RA-GRS Azure 저장소에 저장되므로 기본적으로 지리적으로 중복됩니다. 자동 백업 및 복원 기능은 추가 비용 없이 제공되며 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호하는 데 비용이 들지 않으며 별도의 관리 방법도 없습니다.
-
-데이터베이스 복원에 대한 자세한 내용은 [스냅숏에서 복원][]을 참조하세요.
-
-### 지역 복원
-
-지역 복원은 중단 이벤트로 인해 사용할 수 없는 경우 데이터베이스를 복구하도록 설계되었습니다. 새 Azure 지역에서 새 데이터베이스를 만들려면 지역 중복 백업에서 데이터베이스를 복원하도록 지원을 요청할 수 있습니다. 백업이 지리적으로 중복되기 때문에 가동 중단으로 인해 데이터베이스에 액세스할 수 없는 경우더라도 데이터베이스를 복구하는 데 사용할 수 있습니다. 지역 복원 기능은 추가 비용 없이 제공됩니다.
-
-지역 복원을 사용하려면 [스냅숏에서 지역 복원][]을 참조하세요.
+데이터의 신뢰할 수 있는 백업을 만드는 것은 프로덕션 데이터베이스의 필수적인 부분입니다. SQL 데이터 웨어하우스는 정기적으로 활성 데이터베이스를 자동으로 백업하여 데이터를 안전하게 보관합니다. 이러한 백업을 사용하여 데이터를 손상했거나 데이터 또는 데이터베이스를 실수로 삭제한 시나리오에서 복구할 수 있습니다. 데이터 백업 일정 및 보존 정책에 대해서는 [높은 안정성][]을 참조하세요. 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [스냅숏에서 복원][]을 참조하세요.
 
 ## 다음 단계
 좋은 데이터베이스 디자인 원칙을 사용할 경우 SQL 데이터 웨어하우스를 더 손쉽게 관리할 수 있습니다. 자세한 내용은 [개발 개요][]를 참조하세요.
@@ -115,20 +97,18 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure 저장소 중복 옵션]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL 데이터 웨어하우스 만들기(Azure 포털)]: sql-data-warehouse-get-started-provision.md
 [데이터베이스 만들기(PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-get-started-connect.md
 [sqlcmd를 사용하여 연결 및 쿼리]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [개발 개요]: sql-data-warehouse-overview-development.md
-[스냅숏에서 지역 복원]: sql-data-warehouse-backup-and-geo-restore-from-snapshot.md
 [높은 안정성]: sql-data-warehouse-overview-expectations.md#high-reliability
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
-[계산 일시 중지]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
+[계산 일시 중지]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [스냅숏에서 복원]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[계산 다시 시작]: sql-data-warehouse-overview-scalability.md#resume-compute-performance-bk
-[성능 조정]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[계산 다시 시작]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
+[성능 조정]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [보안 개요]: sql-data-warehouse-overview-security.md
 [SQL 데이터 웨어하우스 모범 사례]: sql-data-warehouse-best-practices.md
 [SQL 데이터 웨어하우스 시스템 뷰]: sql-data-warehouse-reference-tsql-system-views.md
@@ -139,4 +119,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

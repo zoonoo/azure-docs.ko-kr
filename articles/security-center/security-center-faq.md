@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
@@ -113,8 +113,6 @@ Azure 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반
 ### 어떤 유형의 가상 컴퓨터가 지원되나요?
 Azure 서비스 패브릭 클러스터의 일부인 가상 컴퓨터를 포함하여 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md)을 사용하여 만들어진 가상 컴퓨터가 지원됩니다.
 
-액세스 제어 목록 권장 사항은 현재 가상 컴퓨터(클래식)에 적용됩니다. 네트워크 보안 그룹은 현재 가상 컴퓨터(리소스 관리자)에만 적용됩니다.
-
 지원되는 Windows 가상 컴퓨터:
 
 - Windows Server 2008 R2
@@ -124,9 +122,9 @@ Azure 서비스 패브릭 클러스터의 일부인 가상 컴퓨터를 포함�
 지원되는 Linux 가상 컴퓨터:
 
 - Ubuntu 버전 12.04, 14.04, 15.10, 16.04
-- Debian 버전 7.0, 8.0
-- CentOS 버전 6.0, 7.0
-- RHEL(Red Hat Enterprise Linux) 버전 6, 7
-- SLES(SUSE Linux Enterprise Server) 버전 11, 12
+- Debian 버전 7, 8
+- CentOS 버전 6.*, 7.*
+- RHEL(Red Hat Enterprise Linux) 버전 6.*, 7.*
+- SLES(SUSE Linux Enterprise Server) 버전 11.*, 12.*
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

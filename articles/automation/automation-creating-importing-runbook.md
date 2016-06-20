@@ -4,7 +4,7 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/29/2016"
+	ms.date="05/31/2016"
 	ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 Runbook 만들기 또는 가져오기
@@ -44,13 +44,12 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 
 ### Windows PowerShell에서 새 Azure 자동화 Runbook을 만들려면
 
-[New-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690272.aspx) cmdlet을 사용하여 빈 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만들 수 있습니다. **이름** 매개 변수를 지정하여 나중에 편집할 빈 Runbook을 만들거나, **경로** 매개 변수를 지정하여 스크립트 파일을 가져올 수 있습니다.
+[New-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt619376.aspx) cmdlet을 사용하여 빈 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만들 수 있습니다. **Name** 매개 변수를 지정하여 나중에 편집할 빈 Runbook을 만들거나, **Path** 매개 변수를 지정하여 Runbook 파일을 가져올 수 있습니다. 네 가지 Runbook 형식 중 하나를 지정하려면 **Type** 매개 변수도 포함해야 합니다.
 
 다음 명령 예제에서는 새로운 빈 Runbook을 만드는 방법을 보여줍니다.
 
-    $automationAccountName = "MyAutomationAccount"
-    $runbookName = "Sample-TestRunbook"
-    New-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
+    New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
+    -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 
 ## 파일의 Runbook을 Azure 자동화로 가져오기
 
@@ -72,34 +71,40 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 
 ### Azure 포털을 사용하여 파일에서 Runbook을 가져오려면
-Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell Runbook 또는 PowerShell 워크플로에 .ps1 파일을 가져올 수 있습니다.
+Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다.
+
+>[AZURE.NOTE] 이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다.
 
 1. Azure 포털에서 자동화 계정을 엽니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **가져오기**를 클릭합니다.
 4. **Runbook 파일**을 클릭하여 가져올 파일을 선택합니다.
 2. **이름** 필드가 활성화된 경우 변경이 가능합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
-3. 위에 나열된 제한 사항을 고려하여 [Runbook 유형](automation-runbook-types.md)을 선택합니다.
+3. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다. 
 3. 새 Runbook이 자동화 계정의Runbook 목록에 표시됩니다.
 4. 실행에 앞서 [Runbook을 게시](#publishing-a-runbook)해야 합니다.
 
+>[AZURE.NOTE] 그래픽 Runbook 또는 그래픽 PowerShell 워크플로 Runbook을 가져온 후 필요에 따라 다른 형식으로 변환할 수도 있습니다. 텍스트로는 변환할 수 없습니다.
+
 ### Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면
 
-[Set-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690267.aspx) cmdlet을 사용하여 스크립트 파일을 기존 Runbook의 초안 버전으로 가져올 수 있습니다. 스크립트 파일에는 단일 Windows PowerShell 워크플로가 포함되어야 합니다. Runbook에 초안 버전이 있는 경우 Overwrite 매개 변수를 사용하지 않으면 가져오기가 실패합니다. Runbook을 가져온 후에는 [Publish-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690266.aspx)으로 게시할 수 있습니다.
+[Import-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603735.aspx) cmdlet을 사용하여 스크립트 파일을 PowerShell 워크플로 Runbook 초안으로 가져올 수 있습니다. 해당 Runbook이 이미 있는 경우 *-Force* 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
 
-다음 명령 예제는 기존 Runbook에 스크립트 파일을 가져와 게시하는 방법을 보여줍니다.
+다음 명령 예제는 Runbook에 스크립트 파일을 가져오는 방법을 보여 줍니다.
 
-    $automationAccountName = "MyAutomationAccount"
-    $runbookName = "Sample-TestRunbook"
-    $scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+    $automationAccountName =  AutomationAccount"
+    $runbookName = "Sample_TestRunbook"
+    $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
+    $RGName = "ResourceGroup"
 
-    Set-AzureAutomationRunbookDefinition –AutomationAccountName $automationAccountName –Name $runbookName –Path $ scriptPath -Overwrite
-    Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
+    Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
+    -ResourceGroupName $RGName -AutomationAccountName $automationAccountName `
+    -Type PowerShellWorkflow 
 
 
 ## Runbook 게시
 
-새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다. Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
+새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다. 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
 
 ## Azure 클래식 포털을 사용하여 Runbook을 게시하려면
 
@@ -116,19 +121,19 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 ## Windows PowerShell을 사용하여 Runbook을 게시하려면
 
-[Publish-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690266.aspx) cmdlet을 사용하여 Windows PowerShell에서 Runbook을 게시할 수 있습니다. 다음 명령 예제에서는 샘플 Runbook을 게시하는 방법을 보여줍니다.
+[Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) cmdlet을 사용하여 Windows PowerShell에서 Runbook을 게시할 수 있습니다. 다음 명령 예제에서는 샘플 Runbook을 게시하는 방법을 보여줍니다.
 
-	$automationAccountName = "MyAutomationAccount"
-	$runbookName = "Sample-TestRunbook"
+	$automationAccountName =  AutomationAccount"
+    $runbookName = "Sample_TestRunbook"
+    $RGName = "ResourceGroup"
 
-	Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
+	Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
+    -Name $runbookName -ResourceGroupName $RGName
 
 
+## 다음 단계
+- Runbook 및 PowerShell 모듈 갤러리를 활용하는 방법을 알아보려면 [Azure 자동화용 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)를 참조하세요.
+- 텍스트 편집기를 사용하여 PowerShell 및 PowerShell 워크플로 Runbook을 편집하는 방법을 알아보려면 [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
+- 그래픽 Runbook 작성에 대한 자세한 내용은 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
-## 관련된 문서
-
-- [Azure 자동화용 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)
-- [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
-- [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

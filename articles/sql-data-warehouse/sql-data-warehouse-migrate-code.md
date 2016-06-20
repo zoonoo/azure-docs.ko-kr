@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
 
@@ -80,7 +80,7 @@ CTE(공용 테이블 식)는 SQL 데이터 웨어하우스에서 부분적으로
 
 재귀 CTE는 SQL 데이터 웨어하우스에서 지원되지 않습니다. 재귀 CTE의 마이그레이션은 완료될 수는 있으나 가장 좋은 프로세스는 여러 단계로 분할하는 것입니다. 재귀 중간 쿼리를 반복할 때 일반적으로 루프를 사용하여 임시 테이블을 채울 수 있습니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화][] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
 
-### 시스템 함수
+## 시스템 함수
 
 지원하지 않는 일부 시스템 함수도 있습니다. 일반적으로 데이터 웨어하우징에서 사용될 수 있는 일부 기본 함수는 다음과 같습니다.
 
@@ -103,34 +103,35 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## 다음 단계
-코드 개발에 대한 조언은 [개발 개요][]를 참조하세요.
+지원되는 모든 T-SQL 문의 전체 목록은 [Transact-SQL 항목][]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[업데이트 시 ANSI 조인]: sql-data-warehouse-develop-ctas.md
-[삭제 시 ANSI 조인]: sql-data-warehouse-develop-ctas.md
-[병합 문]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[업데이트 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md
+[삭제 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md
+[병합 문]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Transact-SQL 항목]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[커서]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: sql-data-warehouse-develop-group-by-options.md
-[롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화]: sql-data-warehouse-develop-group-by-options.md
-[8를 초과한 중첩 수준]: sql-data-warehouse-develop-transactions.md
-[뷰를 통한 업데이트]: sql-data-warehouse-develop-views.md
-[변수 할당을 위한 select 사용]: sql-data-warehouse-develop-variable-assignment.md
-[동적 SQL 문자열에 대한 최대 데이터 형식]: sql-data-warehouse-develop-dynamic-sql.md
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[커서]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: ./sql-data-warehouse-develop-group-by-options.md
+[롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화]: ./sql-data-warehouse-develop-group-by-options.md
+[8를 초과한 중첩 수준]: ./sql-data-warehouse-develop-transactions.md
+[뷰를 통한 업데이트]: ./sql-data-warehouse-develop-views.md
+[변수 할당을 위한 select 사용]: ./sql-data-warehouse-develop-variable-assignment.md
+[동적 SQL 문자열에 대한 최대 데이터 형식]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

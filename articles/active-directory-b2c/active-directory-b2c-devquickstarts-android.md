@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 미리 보기: Android 응용 프로그램에서 Web API 호출
@@ -975,4 +975,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [쿠키에 대해 자세히 알아봅니다](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

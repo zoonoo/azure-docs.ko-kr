@@ -208,7 +208,13 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## 샘플링된 데이터 수 계산
 
-`sum(itemCount)` 이벤트 수에 대한 권장 집계입니다. 대부분의 경우 itemCount=1이므로 함수는 단순히 그룹의 행 수를 계산합니다. 하지만 [샘플링](app-insights-sampling.md)이 작동 중인 경우에는 Application Insights에서 원래 이벤트의 일부만 데이터 요소로 유지되므로 각 데이터 요소에 `itemCount`개의 이벤트가 있습니다. 따라서 itemCount를 합하면 원래 이벤트 수에 대한 적절한 추정치가 제공됩니다.
+`sum(itemCount)` 이벤트 수에 대한 권장 집계입니다. 대부분의 경우 itemCount=1이므로 함수는 단순히 그룹의 행 수를 계산합니다. 하지만 [샘플링](app-insights-sampling.md)이 작동 중인 경우에는 Application Insights에서 원래 이벤트의 일부만 데이터 요소로 유지되므로 각 데이터 요소에 `itemCount`개의 이벤트가 있습니다.
+
+예를 들어 샘플링에서 원래 이벤트의 75%를 삭제하는 경우 유지되는 레코드에서 itemCount==4가 됩니다. 즉, 유지된 모든 레코드마다 4개의 원본 레코드가 있게 됩니다.
+
+적응 샘플링을 사용하면 응용 프로그램이 과도하게 사용되는 기간 동안 itemCount가 더 높아집니다.
+
+따라서 itemCount를 합하면 원래 이벤트 수에 대한 적절한 추정치가 제공됩니다.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -220,7 +226,6 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 
 ## 결과 차트로 작성
-
 
 
 ```AIQL
@@ -469,4 +474,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

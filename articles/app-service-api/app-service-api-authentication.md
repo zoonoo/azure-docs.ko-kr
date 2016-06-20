@@ -18,8 +18,6 @@
 
 # Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여
 
-[AZURE.INCLUDE [선택기](../../includes/app-service-api-auth-selector.md)]
-
 ## 개요 
 
 > [AZURE.NOTE] 이 항목은 웹, 모바일 및 API 앱을 다루는 통합된 [앱 서비스 인증/권한 부여](../app-service/app-service-authentication-overview.md) 항목으로 마이그레이션됩니다.
@@ -71,11 +69,11 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-옵션 1과 2에 대해 **앱 서비스 인증**을 설정하고 **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **로그인** 또는 **요청 허용(작업 없음)**을 선택합니다. **로그인**을 선택한 경우 인증 공급자를 선택하고 해당 공급자를 구성해야 합니다.
+옵션 1과 2에 대해 **앱 서비스 인증**을 설정하고 **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **로그인** 또는 **작업 없음(요청 허용)**을 선택합니다. **로그인**을 선택한 경우 인증 공급자를 선택하고 해당 공급자를 구성해야 합니다.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-인증 공급자 구성 블레이드를 구성하는 방법을 설명하는 자세한 지침은 [Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. 이 문서는 모바일 앱 뿐만 아니라 API 앱에 적용되고 다른 인증 공급자에 대한 다른 문서에 연결합니다.
+인증 공급자 구성 블레이드를 구성하는 방법을 설명하는 자세한 지침은 [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. 이 문서는 모바일 앱 뿐만 아니라 API 앱에 적용되고 다른 인증 공급자에 대한 다른 문서에 연결합니다.
  
 ## <a id="internal"></a> 서비스 계정 인증
 
@@ -89,14 +87,14 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 ## 모바일 클라이언트 인증
 
-모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
+모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱을 위한 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
   
 ## 자세한 정보
 
 Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [앱 서비스 인증/권한 부여 확장](/blog/announcing-app-service-authentication-authorization/)
-* [Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
+* [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
 
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -114,4 +112,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 시작 시리즈의 다음 자습서는 [앱 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

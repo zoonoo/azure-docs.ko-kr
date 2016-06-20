@@ -47,7 +47,7 @@
 
 2.  **분석 결과** 블레이드의 권장 테이블 목록에서 권장 테이블 중 하나를 선택하여 **테이블 결과** 블레이드를 표시합니다.
 
-    **테이블 결과** 블레이드에 선택한 테이블에 대한 차단 문제가 나열됩니다. 스트레치 데이터베이스 관리자에서 검색한 차단 문제에 대한 자세한 정보는 [스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 참조하세요.
+    **테이블 결과** 블레이드에 선택한 테이블에 대한 차단 문제가 나열됩니다. 스트레치 데이터베이스 관리자에서 검색한 차단 문제에 대한 자세한 정보는 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
 
 3.  **테이블 결과** 블레이드의 차단 문제 목록에서 문제 하나를 선택하여 **규칙 결과** 블레이드를 표시합니다.
 
@@ -62,10 +62,10 @@
 
 ## 참고 항목
 
-[스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)
+[스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)
 
 [데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)
 
 [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

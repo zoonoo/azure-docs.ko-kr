@@ -128,9 +128,9 @@
 	> [AZURE.NOTE] 형식화되지 않은 테이블을 사용할 경우 테이블의 SystemProperties에 Version 플래그를 추가하여 낙관적 동시성을 사용하도록 설정합니다.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. `TodoItem` 클래스에 `Version` 속성을 추가하여 마지막 쿼리 이후에 레코드가 변경된 경우 업데이트 중에 `MobileServicePreconditionFailedException` 예외가 발생하여 응용 프로그램에 알립니다. 이 예외에는 서버 항목의 최신 버전이 포함되어 있습니다. 공유 프로젝트에 대한 MainPage.cs에서 `UpdateToDoItem()` 메서드에 예외를 처리하는 다음 코드를 추가합니다.
@@ -370,4 +370,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

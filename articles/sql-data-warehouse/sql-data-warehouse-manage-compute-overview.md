@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(개요)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-overview-manage-compute.md)
+- [개요](sql-data-warehouse-manage-compute-overview.md)
 - [포털](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
@@ -128,19 +128,20 @@ DWU 성능 조정 시기에 대한 권장 사항:
 
 <!--Article references-->
 
-[Azure 포털을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-tasks-portal.md#task-1-scale-performance
-[PowerShell을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-1-scale-performance
-[REST API를 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-1-scale-performance
-[TSQL을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-tasks-tsql.md
+[Azure 포털을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[PowerShell을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[REST API를 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[TSQL을 사용하여 계산 능력 조정]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [용량 제한]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Azure 포털을 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[PowerShell을 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[REST API를 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Azure 포털을 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[PowerShell을 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[REST API를 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Azure 포털을 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[PowerShell을 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[REST API를 사용하여 계산 일시 중지]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+
+[Azure 포털을 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[PowerShell을 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[REST API를 사용하여 계산 다시 시작]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
 [동시성 모델]: sql-data-warehouse-develop-concurrency.md
 [테이블 디자인]: sql-data-warehouse-develop-table-design.md
@@ -157,4 +158,4 @@ DWU 성능 조정 시기에 대한 권장 사항:
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Azure의 Linux 소개
@@ -69,7 +69,7 @@ Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 �
  - [사용자 지정 데이터를 삽입 하는 방법](virtual-machines-windows-classic-inject-custom-data.md)
  - [Microsoft Azure의 사용자 지정 데이터 및 Cloud-Init](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Init 클라우드를 사용하여 Azure 스왑 파티션 만들기](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-classic-coreos-howto.md)
+ - [Azure에서 CoreOS를 사용하는 방법](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## 가상 컴퓨터 이미지 캡처
@@ -98,4 +98,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

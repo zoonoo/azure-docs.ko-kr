@@ -124,9 +124,8 @@ Todo List Service가 작동하는 것을 보려면 먼저 AAD에서 토큰을 �
 - Azure AD 테넌트에 새 응용 프로그램을 만들고 결과 프롬프트에서 **네이티브 클라이언트 응용 프로그램**을 선택합니다.
     -	응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
     -	**리디렉션 URI** 값으로 `http://TodoListClient/`를 입력합니다.
-- 등록이 끝나면 AAD는 앱에 고유한 **앱 ID**를 할당합니다. 이 값은 다음 단계에서 필요하므로 구성 탭에서 복사해둡니다.
--	등록을 완료한 후 **구성** 탭으로 이동한 후 **앱 ID URI** 필드를 찾습니다. 이 값으로 테넌트별 식별자를 입력합니다(예: `https://contoso.onmicrosoft.com/TodoListService`).
-- 또한 **구성** 탭에서 “다른 응용 프로그램에 대한 권한” 섹션을 찾습니다. “응용 프로그램 추가”를 클릭합니다. “표시” 드롭다운에서 “기타”를 선택하고 위쪽 확인 표시를 클릭합니다. To Do List Service를 찾아 클릭하고 아래쪽 확인 표시를 클릭하여 응용 프로그램을 추가합니다. “위임된 권한” 드롭다운에서 "Access To Do List Service"를 선택하고 구성을 저장합니다.
+- 등록이 끝나면 AAD는 앱에 고유한 **클라이언트 ID**를 할당합니다. 이 값은 다음 단계에서 필요하므로 구성 탭에서 복사해둡니다.
+- 또한 **구성** 탭에서 “다른 응용 프로그램에 대한 권한” 섹션을 찾습니다. “응용 프로그램 추가”를 클릭합니다. “표시” 드롭다운에서 “모든 앱”을 선택하고 위쪽 확인 표시를 클릭합니다. To Do List Service를 찾아 클릭하고 아래쪽 확인 표시를 클릭하여 응용 프로그램을 추가합니다. “위임된 권한” 드롭다운에서 "Access To Do List Service"를 선택하고 구성을 저장합니다.
 
 
 - Visual Studio의 TodoListClient 프로젝트에서 `App.config`를 열고 `<appSettings>` 섹션에 구성 값을 입력합니다.
@@ -140,4 +139,4 @@ Todo List Service가 작동하는 것을 보려면 먼저 AAD에서 토큰을 �
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

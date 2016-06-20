@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# HDInsight Linux에서 Spark 클러스터와 함께 Zeppelin Notebook 사용(미리 보기)
+# HDInsight Linux에서 Apache Spark 클러스터와 함께 Zeppelin Notebook 사용
 
-Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook 사용 방법을 알아봅니다.
+Apache Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법을 알아봅니다.
 
 > [AZURE.IMPORTANT] HDInsight Spark 클러스터용 Zeppelin Notebook은 Azure HDInsight Spark 환경에서 Zeppelin을 사용하는 방법을 보여줍니다. HDInsight Spark와 함께 작동하도록 노트북을 사용하려는 경우에는 Jupyter 노트북을 대신 사용하는 것이 좋습니다. 또한 Jupyter 노트북은 Scala 등의 다른 커널 옵션을 제공하고 지속적으로 향상된 기능을 제공합니다. HDInsight Spark와 Jupyter 노트북을 사용하는 방법에 대한 지침은 [Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)을 참조하세요.
 
 **필수 조건:**
 
 * 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+* Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다.
 
 	> [AZURE.NOTE] `ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
@@ -37,9 +37,9 @@ Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Note
 
 	> [AZURE.WARNING] FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
 
-## 클러스터 만들기의 일부로 Zeppelin 설치
+## Spark 클러스터에 Zeppelin 설치
 
-스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. 사용자 지정 스크립트를 사용하여 Azure 포털에서 HDInsight .NET SDK를 사용하거나 Azure PowerShell을 사용하여 Zeppelin을 설치할 수 있습니다.
+스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. 사용자 지정 스크립트를 사용하여 Azure 포털에서 HDInsight .NET SDK를 사용하거나 Azure PowerShell을 사용하여 Zeppelin을 설치할 수 있습니다. 클러스터 생성 과정의 일부로 또는 클러스터가 작동 및 실행된 이후에 이 스크립트를 사용하여 Zeppelin을 설치할 수 있습니다. 아래 섹션의 링크는 이러한 작업을 수행하는 방법에 지침을 제공합니다.
 
 ### Azure 포털 사용
 
@@ -325,11 +325,19 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### 리소스 관리
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+
+* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -342,4 +350,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

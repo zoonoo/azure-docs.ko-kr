@@ -180,7 +180,7 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 이제 아래 그림과 같이 Azure 기계 학습 [판독기][reader] 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
+3. 이제 아래 그림과 같이 Azure 기계 학습 [데이터 가져오기][import-data] 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
  
 ![판독기 blob][1]
 
@@ -188,7 +188,7 @@
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

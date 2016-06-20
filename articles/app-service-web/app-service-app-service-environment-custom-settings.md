@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에 대한 사용자 지정 구성 설정
@@ -85,7 +85,7 @@
             }
         ],
 
-> 참고: 암호화 그룹에 대해 SChannel에서 이해할 수 없는 잘못된 값이 설정된 경우 서버에 대한 모든 TLS 통신의 작동이 중지될 수 있습니다. 이러한 경우 심각한 중단 시간 및 데이터 손실이 발생할 수 있는 앱 서비스 환경을 다시 배포해야 합니다. 이 기능을 주의하여 사용하세요.
+> [AZURE.WARNING]  암호화 그룹에 대해 SChannel에서 이해할 수 없는 잘못된 값이 설정된 경우 서버에 대한 모든 TLS 통신의 작동이 중지될 수 있습니다. 이러한 경우 **clusterSettings**에서 *FrontEndSSLCipherSuiteOrder* 항목을 제거하고 업데이트된 ARM 템플릿을 제출하여 기본 암호화 제품군 설정으로 되돌려야 합니다. 이 기능을 주의하여 사용하세요.
 
 ## 시작
 Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 환경 만들기](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.
@@ -95,4 +95,4 @@ Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 �
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

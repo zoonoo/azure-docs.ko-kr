@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="05/27/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브 및 Node.js를 사용하여 푸시 알림 보내기
@@ -51,19 +51,7 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 
 1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Linux) 등과 같은 명령줄 인터페이스를 사용하여 빈 응용 프로그램을 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure**를 입력합니다. 그러면 아래와 같이 출력됩니다(버전 번호는 다를 수 있음).
-
-        azure@0.7.0 node_modules\azure
-		|-- dateformat@1.0.2-1.2.3
-		|-- xmlbuilder@0.4.2
-		|-- node-uuid@1.2.0
-		|-- mime@1.2.9
-		|-- underscore@1.4.4
-		|-- validator@0.4.28
-		|-- tunnel@0.0.2
-		|-- wns@0.5.3
-		|-- xml2js@0.2.6 (sax@0.4.2)
-		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
+2.  명령 창에 **npm install azure-sb**를 입력합니다.
 
 3.  **ls** 또는 **dir** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 알림 허브에 액세스하는 데 필요한 라이브러리가 들어 있는 **Azure** 패키지를 찾습니다.
 
@@ -102,15 +90,15 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 * **Android** - **notificationHubService.gcm**에서 제공되는 **GcmService** 개체를 사용합니다.
 * **iOS** - **notificationHubService.apns**에서 액세스할 수 있는 **ApnsService** 개체를 사용합니다.
 * **Windows Phone** - **notificationHubService.mpns**에서 제공되는 **MpnsService** 개체를 사용합니다.
-* **범용 Windows 플랫폼** - **notificationHubService.wns**에서 제공되는 **WnsService** 개체를 사용합니다.
+* **유니버설 Windows 플랫폼** - **notificationHubService.wns**에서 제공되는 **WnsService** 개체를 사용합니다.
 
 ### 방법: Android 응용 프로그램에 푸시 알림 보내기
 
 **GcmService** 개체는 Android 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
-* **태그** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
-* **페이로드** - 메시지의 JSON 또는 원시 문자열 페이로드.
-* **콜백** - 콜백 함수.
+* **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
+* **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
+* **Callback** - 콜백 함수.
 
 페이로드 형식에 대한 자세한 내용은 [GCM 서버 구현](http://developer.android.com/google/gcm/server.html#payload) 문서의 **페이로드** 섹션을 참조하세요.
 
@@ -131,9 +119,9 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 
 위에서 설명한 Android 응용 프로그램과 동일하게 **ApnsService** 개체는 iOS 응용 프로그램에 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
-* **태그** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
-* **페이로드** - 메시지의 JSON 또는 문자열 페이로드.
-* **콜백** - 콜백 함수.
+* **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
+* **Payload** - 메시지의 JSON 또는 문자열 페이로드
+* **Callback** - 콜백 함수.
 
 페이로드 형식에 대한 자세한 내용은 [로컬 및 푸시 알림 프로그래밍 가이드](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) 문서의 **알림 페이로드** 섹션을 참조하세요.
 
@@ -152,12 +140,12 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 
 **MpnsService** 개체는 Windows Phone 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
-* **태그** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
-* **페이로드** - 메시지의 XML 페이로드.
+* **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
+* **Payload** - 메시지의 XML 페이로드
 * **TargetName** - 알림 메시지의 경우 `toast`이고 타일 알림의 경우 `token`입니다.
 * **NotificationClass** - 알림 우선 순위. 유효한 값은 [서버에서 푸시 알림](http://msdn.microsoft.com/library/hh221551.aspx) 문서의 **HTTP 헤더 요소** 섹션을 참조하세요.
-* **옵션** - 선택적 요청 헤더.
-* **콜백** - 콜백 함수.
+* **Options** - 선택적 요청 헤더
+* **Callback** - 콜백 함수.
 
 유효한 **TargetName**, **NotificationClass** 및 헤더 옵션 목록은 [서버의 푸시 알림](http://msdn.microsoft.com/library/hh221551.aspx) 페이지를 확인하세요.
 
@@ -172,13 +160,13 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 
 ### 방법: UWP(범용 Windows 플랫폼) 응용 프로그램에 푸시 알림 보내기
 
-**WnsService** 개체는 범용 Windows 플랫폼 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **보내기** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
+**WnsService** 개체는 유니버설 Windows 플랫폼 응용 프로그램에 푸시 알림을 보내는 데 사용할 수 있는 **send** 메서드를 제공합니다. **send** 메서드는 다음 매개 변수를 수락합니다.
 
-* **태그** - 태그 식별자. 태그를 제공하지 않은 경우 모든 등록된 클라이언트에게 알림이 전송됩니다.
-* **페이로드** - XML 메시지 페이로드.
-* **형식** - 알림 유형.
-* **옵션** - 선택적 요청 헤더.
-* **콜백** - 콜백 함수.
+* **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 등록된 클라이언트에게 알림이 전송됩니다.
+* **Payload** - XML 메시지 페이로드
+* **Type** - 알림 유형
+* **Options** - 선택적 요청 헤더
+* **Callback** - 콜백 함수.
 
 유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx)를 참조하세요.
 
@@ -223,11 +211,11 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
   [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [WebMatrix를 사용하는 웹 사이트]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

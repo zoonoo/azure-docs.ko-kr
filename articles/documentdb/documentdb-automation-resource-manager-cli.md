@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/03/2016" 
 	ms.author="mimig"/>
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 DocumentDB 계정 자동화
@@ -37,7 +37,7 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 ### Azure CLI 버전 업데이트
 
-명령 프롬프트에서 `azure --version`을 입력하면 0.9.11 버전을 이미 설치했는지 여부를 확인할 수 있습니다.
+명령 프롬프트에서 `azure --version`을 입력하면 0.9.11 버전을 이미 설치했는지 여부를 확인할 수 있습니다. 이 단계에서 Microsoft Azure CLI 데이터 수집에 참여하라는 메시지가 표시될 수 있습니다. 그러면 y를 선택하여 옵트인하거나 n을 선택하여 옵트아웃할 수 있습니다.
 
 	azure --version
     0.9.11 (node: 0.12.7)
@@ -56,8 +56,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 
     info:    Executing command login
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
-    Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
-    AD application, use the --username and --password parameters.
+    Enter the code E1A2B3C4D to authenticate.
 
 > [AZURE.NOTE] Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/virtual-machines-windows-create-aad-work-id.md)를 참조하세요.
 
@@ -78,7 +77,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
     +
-    info:    login command OKK
+    info:    login command OK
 
 여기서 설명한 대화형 로그인 방법 외에 사용 가능한 추가 Azure CLI 로그인 방법이 있습니다. 다른 방법에 대한 자세한 내용 및 여러 구독 처리에 대한 자세한 내용은 [Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 
@@ -94,7 +93,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
     info:    New mode is arm
     info:    config mode command OK
 
-`azure config mode asm`을 입력하여 기본 명령 집합으로 다시 전환할 수 있습니다.
+필요한 경우 `azure config mode asm`을 입력하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
 ## <a id="quick-create-documentdb-account"></a>작업: Azure CLI를 사용하여 DocumentDB 계정 만들기
 
@@ -226,7 +225,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스
         }
     }
 
-azuredeploy.parameters.json 파일에서 "samplearmacct" 값을 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `<databaseAccountName>`에서는 소문자, 숫자, '-' 문자만 사용할 수 있고 3~50자 사이여야 합니다.
+azuredeploy.parameters.json 파일에서 "samplearmacct" 값을 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"`에서는 소문자, 숫자, '-' 문자만 사용할 수 있고 3~50자 사이여야 합니다.
 
 ### 2단계: 리소스 그룹 만들기 또는 검색
 
@@ -298,15 +297,21 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
     + Creating a deployment
     info:    Created template deployment "azuredeploy"
     + Waiting for deployment to complete
+    + 
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
     data:    ResourceGroupName  : new_res_group
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
     data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
     data:    databaseAccountName  String  samplearmacct
-    data:    location             String  West US
     info:    group deployment create command OK
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.
@@ -354,4 +359,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

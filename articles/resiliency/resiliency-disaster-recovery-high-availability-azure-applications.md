@@ -76,7 +76,7 @@ Azure와 같은 클라우드 플랫폼에서는 전 세계에 지리적으로 �
 복구 지점 목표(RPO)는 복구 프로세스로 인해 손실된 데이터를 허용할 수 있는 시간 창입니다. 예를 들어 RPO가 1시간이면 최소한 1시간 간격으로 데이터를 완전히 백업하거나 복제해야 합니다. 대체 지역에서 응용 프로그램을 가져오면 백업 데이터가 데이터를 한 시간 정도 누락할 수 있습니다. RTO와 마찬가지로 중요한 응용 프로그램은 RPO가 작아야 합니다.
 
 ##검사 목록
-이 문서에서 다뤄진 주요 내용을 요약해 보겠습니다(Azure 응용 프로그램에 대한 [고가용성](./resiliency-high-availability-azure-applications.md) 및 [재해 복구](./resiliency-disaster-recovery-azure-applications.md)에 관련된 문서임). 이 요약은 고유한 가용성 및 재해 복구 계획에 대해 고려해야 하는 항목의 검사 목록 역할을 합니다. 성공적인 솔루션을 구현하는 방법을 진지하게 찾고 있는 고객에게 유용한 모범 사례입니다. 이 유형의 솔루션은 실제로 작동하며 시스템 오류가 발생하는 경우 적시에 성공적인 방식으로 복구합니다.
+이 문서에서 다뤄진 주요 내용을 요약해 보겠습니다(Azure 응용 프로그램에 대한 [고가용성](resiliency-high-availability-azure-applications.md) 및 [재해 복구](resiliency-disaster-recovery-azure-applications.md)에 관련된 문서임). 이 요약은 고유한 가용성 및 재해 복구 계획에 대해 고려해야 하는 항목의 검사 목록 역할을 합니다. 성공적인 솔루션을 구현하는 방법을 진지하게 찾고 있는 고객에게 유용한 모범 사례입니다. 이 유형의 솔루션은 실제로 작동하며 시스템 오류가 발생하는 경우 적시에 성공적인 방식으로 복구합니다.
 
 1. 각각 다른 요구 사항이 있을 수 있으므로 각 응용 프로그램에 대한 위험 평가를 수행합니다. 일부 응용 프로그램은 다른 항목보다 더 중요하기 때문에 재해 복구를 설계하는 데 추가 비용이 들 수 있습니다.
 1. 이 정보를 사용하여 각 응용 프로그램에 대한 RTO 및 RPO를 정의합니다.
@@ -99,11 +99,11 @@ Azure는 여러 오류를 검색하고 처리하지만 응용 프로그램별로
 응용 프로그램의 가용성 및 재해 복구 계획을 만들 경우 응용 프로그램의 오류로 인한 비즈니스 결과를 고려합니다. 프로세스, 정책 및 절차를 정의하여 치명적인 재해가 시간, 계획 및 노력을 소비한 후에 중요한 시스템을 복원합니다. 그리고 계획을 설정하면 멈출 수 없습니다. 응용 프로그램 포트폴리오, 비즈니스 요구 사항 및 사용 가능한 기술을 기반으로 계획을 정기적으로 분석하고 테스트하며 지속적으로 개선해야 합니다. Azure는 오류를 견딜 수 있는 강력한 응용 프로그램을 만들도록 새로운 기능과 과제를 모두 제공합니다.
 
 ##추가 리소스
-[Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](./resiliency-high-availability-azure-applications.md)
+[Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)
 
-[Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](./resiliency-disaster-recovery-azure-applications.md)
+[Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](resiliency-disaster-recovery-azure-applications.md)
 
-[Azure 복구력 기술 지침](./resiliency-technical-guidance.md)
+[Azure 복구력 기술 지침](resiliency-technical-guidance.md)
 
 [개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md)
 
@@ -114,6 +114,6 @@ Azure는 여러 오류를 검색하고 처리하지만 응용 프로그램별로
 [Azure 클라우드 서비스에서 대규모 서비스 설계를 위한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 
 ##다음 단계
-이 문서는 Azure 응용 프로그램에 대한 재해 복구 및 고가용성에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](./resiliency-high-availability-azure-applications.md)입니다.
+이 문서는 Azure 응용 프로그램에 대한 재해 복구 및 고가용성에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)입니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

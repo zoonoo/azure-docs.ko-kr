@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/19/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,4 +97,4 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

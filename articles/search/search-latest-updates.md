@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
+	ms.date="06/05/2016"
 	ms.author="heidist"/>
 
 #Azure 검색에 최신 업데이트된 새로운 기능#
@@ -24,6 +24,7 @@ Azure 검색은 Microsoft Azure에서 클라우드 호스팅되는 검색 서비
 
 기능|릴리스 날짜|상태|세부 정보
 -------|--------|------|-------
+[SKU 업데이트](search-limits-quotas-capacity.md)|2016년 6월|미리 보기 및 GA|2016년 3월에 미리 보기로 제공된 기본 및 표준 2(S2) SKU는 현재 일반 공급됩니다. <br/><br/>새 표준 3(S3) 및 S3 HD(S3 고밀도) SKU의 미리 보기 버전은 이 업데이트에 포함되어 있습니다. 비교를 위해서는 [Azure 검색에 대한 SKU 또는 계층 선택](search-sku-tier.md)을 참조하세요.
 [.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|2016년 2월|GA|일반적으로 .NET 클라이언트 라이브러리 `Microsoft.Azure.Search.dll`에서 처음 사용할 수 있는 릴리스입니다. 이 버전은 주요 변경 사항을 소개합니다. 마이그레이션 참고 자료는 [Azure 검색 .NET SDK 버전 1.1로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.
 [Lucene 쿼리 구문 지원](https://msdn.microsoft.com/library/azure/mt589323.aspx)|2016년 2월|[GA](search-api-2015-02-28-preview.md)|이제 Lucene 쿼리 구문을 REST API 및 .NET SDK에서 일반적으로 사용할 수 있습니다. REST API에서 `queryType` 매개 변수를 `full`로 설정하고 .NET SDK에서 `SearchParameters.QueryType` 속성을 `QueryType.Full`로 지정하여 Lucene 구문을 사용할 수 있도록 설정합니다.
 [사용자 지정 분석기](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|2016년 1월|[미리 보기](search-api-2015-02-28-preview.md)|토크나이저 및 토큰 파일의 사용자 정의 구성입니다. MSDN의 [Azure 검색의 분석](https://msdn.microsoft.com/library/azure/mt605304.aspx)을 참조하세요.
@@ -71,4 +72,4 @@ Lucene 언어 분석기|2014년 11월|미리 보기|Lucene로 배포된 사용�
 
 전적으로 포털 또는 툴에 기반하는 기능은 시간이 지나면 변경될 수 있으며 미리 보기 또는 GA로 분류되지 않습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Active Directory 인증 프로토콜
@@ -37,4 +37,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 - [인증 프로토콜 문제 해결](active-directory-error-handling.md): OAuth 2.0 및 Azure AD를 사용할 때 가장 일반적인 오류를 해석 및 해결하는 방법을 알아봅니다.
 - [Azure AD에서 OAuth 2.0에 대한 모범 사례](active-directory-oauth-best-practices.md): Azure AD에서 OAuth 2.0을 사용하는 모범 사례와 일반적인 실수를 피하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

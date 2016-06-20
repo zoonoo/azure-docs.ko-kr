@@ -5,7 +5,7 @@
     keywords="엔터프라이즈 상태 로밍, windows 클라우드"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Windows 10 로밍 설정 참조
@@ -33,7 +33,7 @@ Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 �
 
 
 ##백업이란?
-Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로그램 목록 같은 일부 설정은 백업되기만 합니다. 사용자가 설정 앱을 사용하여 장치의 동기화를 비활성화하면 평소에는 동기화되는 응용 프로그램 데이터가 백업되기만 합니다. 백업 데이터는 새 장치를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. 백업은 장치 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.
+Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로그램 목록 같은 일부 설정은 백업되기만 합니다. 백업은 모바일 장치에 대해서만 사용할 수 있으며 현재 엔터프라이즈 상태 로밍 사용자를 위해서는 사용할 수 없습니다. 백업은 Microsoft 계정을 사용하고 설정 및 응용 프로그램 데이터를 OneDrive에 저장합니다. 사용자가 설정 앱을 사용하여 장치의 동기화를 비활성화하면 평소에는 동기화되는 응용 프로그램 데이터가 백업되기만 합니다. 백업 데이터는 새 장치를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. 백업은 장치 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.
 
 ## Windows 설정 개요
 다음 설정 그룹은 Windows 10 장치에서 최종 사용자가 설정 동기화를 활성화/비활성화하는 데 사용할 수 있습니다.
@@ -46,6 +46,10 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 - 기타 Windows 설정: Windows 설정 세부 정보를 참조하세요.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+
+Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge 브라우저 설정 메뉴 옵션을 통해 최종 사용자가 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
  
 ## Windows 설정 세부 정보
 다음 테이블에서 설정 그룹 열의 기타 항목이 참조하는 설정은 설정 > 계정 > 설정 동기화 > 기타 Windows 설정으로 이동하여 비활성화할 수 있습니다.
@@ -57,11 +61,11 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 |----------------------------------|---------|---------|-------|
 | **계정**: 계정 사진 | sync |X |테마 |
 | **계정**: 기타 계정 설정 |X |X | |
-| **고급 모바일 광대역**: 인터넷 연결 공유 네트워크 이름(Bluetooth를 통해 모바일 Wi-Fi 핫스폿 자동 검색 활성화)|sync |sync |암호 |
+| **고급 모바일 광대역**: 인터넷 연결 공유 네트워크 이름(Bluetooth를 통해 모바일 Wi-Fi 핫스폿 자동 검색 활성화)|X |X |암호 |
 |**앱 데이터**: 개별 앱이 데이터 동기화 가능|백업 동기화 | 백업 동기화|내부 |
 |**앱 목록**: 설치된 앱 목록 |X |backup |기타 |
 |**Bluetooth**: 모든 Bluetooth 설정 |X |X | |
-|**명령 프롬프트**: 모든 명령 프롬프트 설정 |sync| |X |기타
+|**명령 프롬프트**: 모든 명령 프롬프트 설정 |sync |X | |
 |**Cortana**: 켜기 또는 끄기 |X |X | |
 |**Cortana**: 잠금 화면에서 Cortana 활성화 |X |X | |
 |**Cortana**: 사용자 이름 |sync |sync |내부|
@@ -70,7 +74,7 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 |**Cortana**: 항공편 등에 대한 정보 검색|X |sync |내부|
 |**자격 증명**: 자격 증명 보관 |sync |sync |password|
 |**날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |sync |sync |language|
-|**날짜, 시간 및 지역**: 24시간|sync |sync |language|
+|**날짜, 시간 및 지역**: 24시간|sync |X |language|
 |**날짜, 시간 및 지역**: 날짜 및 시간|sync |X |language|
 |**날짜, 시간 및 지역**: 시간대 | |X |language|
 |**날짜, 시간 및 지역**: 일광 절약 시간제|sync |X |language|
@@ -82,13 +86,13 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 |**날짜, 시간 및 지역**: 간단한 시간 |sync |X |language|
 |**날짜, 시간 및 지역**: 자세한 시간 |sync |X |language|
 |**바탕 화면 개인 설정**: 바탕 화면 테마(배경, 시스템 색, 기본 시스템 소리, 화면 보호기) |sync |X |테마|
-|**바탕 화면 개인 설정**: 슬라이드 쇼 배경 무늬 |sync |X |테마|
+|**바탕 화면 개인 설정**: 슬라이드 쇼 배경 화면 |sync |X |테마|
 |**바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |sync |X |테마|
-|**바탕 화면 개인 설정**: 시작 화면 레이아웃 |sync |backup ||
-|**장치**: 연결된 공유 프린터 |sync | X |기타 |
+|**바탕 화면 개인 설정**: 시작 화면 레이아웃 |X |backup ||
+|**장치**: 연결된 공유 프린터 |X | X |기타 |
 |**Edge 브라우저**: 읽기 목록 |sync |sync |내부|
 |**Edge 브라우저**: 즐겨찾기 |sync |sync |내부|
-|**Edge 브라우저**: 모든 기타 Edge 설정|X |X ||
+|**Edge 브라우저**: 기타 모든 Edge 설정|X |X ||
 |**고대비**: 켜기 또는 끄기 |sync |sync |간편한 액세스|
 |**고대비**: 테마 설정|sync |X ||간편한 액세스|
 |**Internet Explorer**: 탭 열기(URL 및 제목)|sync |sync |Internet Explorer|
@@ -104,19 +108,19 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 |**키보드**: 필터 키 켜기(기본적으로 꺼져 있음)|sync |X |간편한 액세스|
 |**키보드**: 토글 키 켜기(기본적으로 꺼져 있음)|sync |X |간편한 액세스|
 |**Internet Explorer**: 도메인 언어: 중국어(간체) QWERTY - 자체 학습 활성화|sync |X |언어|
-|**언어**: CHS QWERTY - 동적 c&idate 순위 활성화|sync |X |언어|
+|**언어**: CHS QWERTY - 동적 후보 순위 활성화|sync |X |언어|
 |**언어**: CHS QWERTY - 문자 집합 중국어 간체|sync |X |언어|
 |**언어**: CHS QWERTY - 문자 집합 중국어 번체|sync |X |언어|
 |**언어**: CHS QWERTY - 퍼지 핀잉|sync |sync |언어|
 |**언어**: CHS QWERTY - 퍼지 쌍|sync |sync |언어|
-|**언어**: CHS QWERTY - 완전 핀잉||sync |X |언어|
+|**언어**: CHS QWERTY - 완전 핀잉|sync |X |언어|
 |**언어**: CHS QWERTY - 이중 핀잉|sync |X |언어|
 |**언어**: CHS QWERTY - 읽기 자동 교정|sync |X |언어|
 |**언어**: CHS QWERTY - C/E 전환 키, Shift|sync |X |언어|
 |**언어**: CHS QWERTY - C/E 전환 키, Ctrl|sync |X |언어|
 |**언어**: CHS WUBI - 단일 문자 입력 모드 |sync |X |언어|
-|**언어**: CHS WUBI - 나머지 c&idate 코딩 표시 |sync |X |언어|
-|**언어**: CHS WUBI - 4-코딩이 유효하지 않을 때 경고음|sync |X |언어|
+|**언어**: CHS WUBI - 나머지 후보 코딩 표시 |sync |X |언어|
+|**언어**: CHS WUBI - 4 코딩이 유효하지 않을 때 경고음|sync |X |언어|
 |**언어**: CHS 보포모포 - CJK Ext-A 포함|sync |X |언어|
 |**언어**: 일본어 IME - 예측 입력 및 사용자 지정 단어|sync |sync |언어|
 |**언어**: 한국어(KOR) IME|X |X |언어|
@@ -125,7 +129,7 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 |**언어**: 맞춤법 검사 - 맞춤법 오류 자동 수정 및 강조 표시|sync |backup |언어|
 |**언어**: 키보드 목록|sync |backup |언어|
 |**잠금 화면**: 모든 잠금 화면 설정|X |X ||
-|**돋보기**: 켜기 또는 끄기(마스터 토글)|X |backup |간편한 액세스|
+|**돋보기**: 켜기 또는 끄기(마스터 토글)|X |X |간편한 액세스|
 |**돋보기**: 반전 색 켜기 또는 끄기(기본적으로 꺼져 있음)|sync |X |간편한 액세스|
 |**돋보기**: 추적 - 키보드 포커스 추적|sync |X |간편한 액세스|
 |**돋보기**: 추적 - 마우스 커서 추적|sync |X |간편한 액세스|
@@ -172,4 +176,4 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

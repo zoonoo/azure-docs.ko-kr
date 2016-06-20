@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # v2.0 끝점을 사용하여 앱을 등록하는 방법
@@ -30,7 +30,8 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 
 등록했나요? 아마도 비어있을 Microsoft 앱의 목록을 보고 있을 것입니다. 변경을 시작해봅시다.
 
-**앱 추가**를 클릭하여 이름을 지정합니다. 포털은 코드에서 나중에 사용하는 전역적으로 고유한 응용 프로그램 ID를 앱에 할당합니다. 앱이 API(예: Office, Azure 또는 사용자의 고유한 웹 API)를 호출하는 액세스 토큰이 필요한 서버 측 구성 요소를 포함한 경우, **응용 프로그램 암호** 또한 만들어야 합니다.<!-- TODO: Link for app secrets -->
+**앱 추가**를 클릭하여 이름을 지정합니다. 포털은 코드에서 나중에 사용하는 전역적으로 고유한 응용 프로그램 ID를 앱에 할당합니다. 앱이 API(예: Office, Azure 또는 사용자의 고유한 웹 API)를 호출하는 액세스 토큰이 필요한 서버 측 구성 요소를 포함한 경우, **응용 프로그램 암호** 또한 만들어야 합니다.
+<!-- TODO: Link for app secrets -->
 
 다음으로, 앱에서 사용할 플랫폼을 추가합니다.
 
@@ -46,4 +47,4 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

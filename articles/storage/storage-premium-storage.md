@@ -256,39 +256,40 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 	<td><strong>배포</strong></td>
 	<td><strong>버전</strong></td>
 	<td><strong>지원되는 커널</strong></td>
-	<td><strong>지원되는 이미지</strong></td>
+	<td><strong>세부 정보</strong></td>
 </tr>
 <tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td rowspan="2"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
-	<td>3.2.0-75.110</td>
+	<td>3.2.0-75.110+</td>
 	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-KR-30GB</td>
 </tr>
 <tr>
-	<td>14.04</td>
-	<td>3.13.0-44.73</td>
+	<td>14.04+</td>
+	<td>3.13.0-44.73+</td>
 	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-KR-30GB</td>
 </tr>
 <tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB</td>
+	<td><strong>Debian</strong></td>
+	<td>7.x, 8.x</td>
+	<td>3.16.7-ckt4-1+</td>
+    <td> </td>
 </tr>
 <tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15_04-amd64-server-20150422-ko-KR-30GB</td>
-</tr>
-<tr>
-	<td><strong>SUSE</strong></td>
+	<td rowspan="2"><strong>SUSE</strong></td>
 	<td>SLES 12</td>
-	<td>3.12.36-38.1</td>
+	<td>3.12.36-38.1+</td>
 	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
 </tr>
 <tr>
+	<td>SLES 11 SP4</td>
+    <td>3.0.101-0.63.1+</td>
+    <td> </td>
+</tr>
+<tr>
 	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
+	<td>584.0.0+</td>
+	<td>3.18.4+</td>
 	<td>CoreOS 584.0.0</td>
 </tr>
 <tr>
@@ -296,29 +297,40 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 	<td>6.5, 6.6, 6.7, 7.0</td>
 	<td></td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a> </br>
-		*아래 참조
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 필요 </a> <br/>
+		*아래 참조*
 	</td>
 </tr>
 <tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
+	<td>7.1+</td>
+	<td>3.10.0-229.1.2.el7+</td>
 	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a> <br/>
-		*아래 참조
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 권장 </a> <br/>
+		*아래 참조*
 	</td>
 </tr>
-
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
-	<td>6.4</td>
+	<td><strong>RHEL</strong></td>
+	<td>6.8+, 7.2+</td>
+	<td> </td>
 	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td>
 </tr>
 <tr>
-	<td>7.0</td>
+	<td rowspan="3"><strong>Oracle</strong></td>
+    <td>6.8+, 7.2+</td>
+    <td> </td>
+    <td> UEK4 또는 RHCK </td>
+
+</tr>
+<tr>
+	<td>7.0-7.1</td>
+	<td> </td>
+	<td>UEK4 또는 RHCK(<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a> 포함)</td>
+</tr>
+<tr>
+	<td>6.4-6.7</td>
 	<td></td>
-	<td>세부 정보는 지원에 문의</td>
+	<td>UEK4 또는 RHCK(<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a> 포함)</td>
 </tr>
 </tbody>
 </table>
@@ -550,4 +562,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

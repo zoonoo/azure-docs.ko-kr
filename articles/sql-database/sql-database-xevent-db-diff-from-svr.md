@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
 # SQL 데이터베이스의 확장 이벤트
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 이 항목은 Azure SQL 데이터베이스의 확장 이벤트 구현과 Mirosoft SQL Server의 확장 이벤트 구현의 작은 차이점에 대해 설명합니다.
 
@@ -36,6 +37,12 @@
 > [AZURE.NOTE] 2015 년 10월을 기준으로 확장 이벤트 세션 기능은 Azure SQL 데이터베이스에서 미리 보기 수준으로 활성화됩니다. GA(일반 공급) 날짜는 아직 정해지지 않았습니다.
 >
 > Azure [서비스 업데이트](https://azure.microsoft.com/updates/?service=sql-database)페이지에 GA에 대한 공지 사항이 게시됩니다.
+
+
+Azure SQL 데이터베이스 및 Microsoft SQL Server용 확장 이벤트에 대한 추가 정보는 다음에 제공됩니다.
+
+- [빠른 시작: SQL Server의 확장 이벤트](http://msdn.microsoft.com/library/mt733217.aspx)
+- [확장 이벤트](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## 필수 조건
@@ -269,4 +276,4 @@ Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/06/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory ID 보호에서 검색하는 취약성 
@@ -62,4 +62,4 @@ Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 �
 
  - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -64,7 +64,7 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 
 다음 SDK는 주요 자격 증명 모음을 사용하는 작업에서 사용할 수 있습니다.
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
 |:--:|:--:|
 |[.NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK 설명서](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK 패키지](https://azure.microsoft.com/documentation/api/)|[Node.js SDK 패키지](https://www.npmjs.com/package/azure-keyvault)|
@@ -97,4 +97,4 @@ Azure에서 키 자격 증명 모음을 통합하고 사용하는 방법에 대�
 - [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
 - [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

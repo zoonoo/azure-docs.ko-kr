@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
@@ -235,7 +235,7 @@ Visual Studio에서 새 Azure 클라우드 서비스를 만들 때 기본적으�
 
 1. (선택 사항) 클라우드 서비스를 로컬로 실행할 때 만든 이 파일을 보려면 다음 단계를 사용합니다.
 
-  1. 웹 역할을 실행하고 **Button1**을 클릭하여 `Button1_Click` 내부의 코드가 호출되도록 합니다.
+  1. 웹 역할을 실행하고 **Button1**을 선택하여 `Button1_Click` 내부의 코드가 호출되도록 합니다.
 
   1. 알림 영역에서 Azure 아이콘에 대한 바로 가기 메뉴를 열고 **계산 에뮬레이터 UI 표시**를 선택합니다. **Azure 계산 에뮬레이터** 대화 상자가 나타납니다.
 
@@ -376,4 +376,4 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
 ## 다음 단계
 [Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/03/2016"
+   ms.date="06/02/2016"
    ms.author="ryanwi"/>
 
 # REST 기반 응용 프로그램 수명 주기 샘플
@@ -52,7 +52,7 @@
 1. **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug**를 **C:\\Temp\\WordCount**에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다.
 2. C:\\Temp\\WordCount를 **C:\\Temp\\WordCountUpgrade**에 복사합니다. 그러면 **WordCountUpgrade 응용 프로그램** 패키지가 만들어집니다.
 3. 텍스트 편집기에서 **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml**을 엽니다.
-4. **ApplicationManifest** 요소에서 **ApplicationTypeVersion ** 특성을 **"1.1.0"**으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다.
+4. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 **"1.1.0"**으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다.
 5. 변경된 ApplicationManifest.xml 파일을 저장합니다.
 6. 다음 PowerShell 스크립트를 관리자로 실행하여 응용 프로그램을 이미지 저장소에 복사합니다.
 
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

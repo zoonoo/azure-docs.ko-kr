@@ -3,7 +3,7 @@
    description="Visual Studio Tools for Docker를 사용하여 Azure Docket 호스트 컴퓨터에서 실행 중인 Docker 컨테이너에 ASP.NET 5 웹 앱을 게시하는 방법에 대해 설명합니다."   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # 원격 Docker 호스트에 ASP.NET 컨테이너 배포
 
@@ -57,13 +57,13 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 
     1.  [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)로 이동합니다. 
     
-    1.  **가상 컴퓨터**를 탭합니다.
+    1.  **가상 컴퓨터**를 선택합니다.
     
     1.  Docker 호스트 가상 컴퓨터를 선택합니다.
     
-    1.  **끝점** 탭을 탭합니다.
+    1.  **끝점** 탭을 선택합니다.
     
-    1.  페이지 맨 아래에 있는 **추가**를 탭합니다.
+    1.  페이지 맨 아래에 있는 **추가**를 선택합니다.
     
     1.  지침에 따라 기본적으로 배포 스크립트에서 사용되는 포트 80을 표시합니다.
 
@@ -83,7 +83,7 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 
 1.  시작 대상을 **Docker**로 변경합니다.
 
-1.  **Docker** 아이콘을 탭하여 앱을 빌드하고 실행합니다.
+1.  **Docker** 아이콘을 선택하여 앱을 빌드하고 실행합니다.
 
 ![앱 시작][2]
 
@@ -96,4 +96,4 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

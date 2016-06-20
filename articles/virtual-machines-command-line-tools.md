@@ -1880,13 +1880,15 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
 + **-a** 또는 **--affinity-group** &lt;name>: 저장소 계정을 연결할 선호도 그룹입니다.
-+ **--type**: 만드는 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
++ **--kind**: 계정 유형: 저장소 또는 저장소 Blob 
++ **--sku-name**: 만드는 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
++ **--access-tier**: 핫 또는 쿨 중에서 저장소 계층 지정
 
 **storage account set [options] <name>**
 
 이 명령은 지정된 저장소 계정을 업데이트합니다.
 
-	~$ azure storage account set mybasestorage --type GRS
+	~$ azure storage account set mybasestorage --kind Storage --sku-name GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1896,7 +1898,8 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-e** 또는 **--label** &lt;label>: 저장소 계정에 대한 레이블입니다.
 + **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
-+ **--type**: 새 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
++ **--sku-name**: 새 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
++ **--access-tier**: 핫 또는 쿨 중에서 저장소 계층 지정
 
 **storage account delete [options] <name>**
 
@@ -2350,4 +2353,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->
