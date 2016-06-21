@@ -303,7 +303,7 @@ PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니�
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 로그인 공급자에 대해 정적입니다.
+SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 로그인 공급자에 대해 정적입니다. 사용자가 익명으로 끝점에 액세스하면 User 속성은 null을 반환합니다.
 
 또한 앱 서비스는 로그인 공급자에서 특정 클레임을 요청할 수 있습니다. 이렇게 하면 Facebook Graph API를 사용하여 공급자에서 추가 정보를 요청할 수 있습니다. 포털의 공급자 블레이드에서 클레임을 지정할 수 있습니다. 일부 클레임은 공급자를 사용하여 추가 구성이 필요합니다.
 
@@ -332,6 +332,19 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
     }
 
 **GetAppServiceIdentityAsync** 확장 메서드 작업을 만드는 `System.Security.Principal`에 문을 사용하여 추가해야 합니다.
+
+### <a name="authorize"></a>방법: 인증된 사용자에 대한 데이터 액세스 제한
+
+이전 섹션에서는 인증된 사용자의 사용자 ID를 검색하는 방법을 살펴보았습니다. 이 값에 따라 데이터 및 다른 리소스에 대한 액세스를 제한할 수 있습니다. 예를 들어 테이블에 userId 열을 추가하고 사용자 ID를 기준으로 사용자의 쿼리 결과를 필터링하면 반환된 데이터를 허가된 사용자만 액세스하도록 할 수 있습니다. 다음 코드는 현재 사용자의 ID가 TodoItem 테이블의 UserId 열 값과 일치할 때만 데이터 행을 반환합니다.
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+특정 시나리오에 따라, 사용자 또는 역할 테이블을 만들어 지정된 사용자에게 액세스가 허용된 끝점과 같은 보다 자세한 사용자 권한 부여 정보를 추적할 수도 있습니다.
 
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
@@ -465,4 +478,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

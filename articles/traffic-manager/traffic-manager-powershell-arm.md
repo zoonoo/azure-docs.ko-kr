@@ -3,7 +3,7 @@
    description="ARM(Azure Resource Manager)과 함께 트래픽 관리자용 powershell 사용"
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="jtuliani" />
 
 # Azure 트래픽 관리자에 대한 Azure Resource Manager 지원
 ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다.
@@ -129,9 +129,9 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 예를 들어 프로필 TTL을 변경하려면:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
-	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## 트래픽 관리자 끝점 추가
 트래픽 관리자 끝점에는 세 가지 종류가 있습니다.
@@ -295,12 +295,12 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 
 이 cmdlet은 확인 메시지를 표시합니다. 옵션 ‘-Force’ 스위치를 사용하여 이 메시지가 표시되지 않도록 할 수 있습니다. 삭제할 프로필은 프로필 개체를 사용하여 지정할 수도 있습니다.
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
-	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> Remove-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 이 순서는 파이프될 수도 있습니다.
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
 
 ## 다음 단계
 
@@ -309,4 +309,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

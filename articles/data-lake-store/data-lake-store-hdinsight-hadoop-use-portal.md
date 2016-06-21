@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -31,7 +31,7 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액�
 
 * **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다. 자세한 내용은 [HBase 클러스터에서 Data Lake 저장소 사용](#use-data-lake-store-with-hbase-clusters)을 참조하세요.
 
-> [AZURE.NOTE] Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2(Windows 및 Linux의 경우)에만 사용할 수 있습니다.
+> [AZURE.NOTE] Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2 및 3.4(Windows 및 Linux의 경우)에만 사용할 수 있습니다. Linux에서 Spark 클러스터에 대 한이 옵션은 3.4 HDInsight 클러스터에서 사용할 수만 있습니다.
 
 
 ## 필수 조건
@@ -258,4 +258,4 @@ HBase 클러스터에서 추가 저장소 외에 기본 저장소로 Data Lake �
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

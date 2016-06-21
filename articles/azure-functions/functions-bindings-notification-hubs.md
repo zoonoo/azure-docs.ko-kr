@@ -3,7 +3,7 @@
 	description="Azure Functions에서 Azure 알림 허브 바인딩을 사용하는 방법을 파악합니다."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="wesmc7777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.author="wesmc"/>
 
 # Azure Functions 알림 허브 출력 바인딩
 
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-함수는 몇 줄의 코드로 구성된 Azure 알림 허브를 사용하여 푸시 알림을 보낼 수 있습니다. 그러나 알림 허브는 사용하려는 PNS(플랫폼 알림 서비스)에 대해 구성되어야 합니다. Azure 알림 허브를 구성하고 알림을 등록하는 클라이언트 응용 프로그램을 개발하는 데 대한 자세한 내용은 [알림 허브 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md)을 참조하고 맨 위에 있는 대상 클라이언트 플랫폼을 클릭합니다.
+함수는 몇 줄의 코드로 구성된 Azure 알림 허브를 사용하여 푸시 알림을 보낼 수 있습니다. 그러나 알림 허브는 사용하려는 PNS(플랫폼 알림 서비스)에 대해 구성되어야 합니다. Azure 알림 허브를 구성하고 알림 수신을 위해 등록하는 클라이언트 응용 프로그램을 개발하는 데 대한 자세한 내용은 [알림 허브 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md)을 참조하고 맨 위에 있는 대상 클라이언트 플랫폼을 클릭합니다.
 
 ## Azure 알림 허브 출력 바인딩에 대한 function.json
 
@@ -155,4 +155,4 @@ project.json 파일을 업로드하는 데 대한 자세한 내용은 [project.j
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

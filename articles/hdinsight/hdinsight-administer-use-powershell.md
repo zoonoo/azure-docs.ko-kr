@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -60,10 +60,15 @@ Azure PowerShell 버전 0.9x를 설치한 경우 최신 버전을 설치하기 �
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##클러스터 삭제
+
 클러스터를 삭제하려면 다음 명령을 사용합니다.
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+또한 클러스터를 포함하는 리소스 그룹을 제거하여 클러스터를 삭제할 수도 있습니다. 이렇게 하면 기본 저장소 계정을 포함한 그룹 내 모든 리소스가 삭제됩니다.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
@@ -234,4 +239,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

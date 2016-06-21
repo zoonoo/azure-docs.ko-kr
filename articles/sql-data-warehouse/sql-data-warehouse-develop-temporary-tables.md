@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="mausher;jrj;barbkess;sonyama"/>
+   ms.date="06/06/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 임시 테이블
 특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 매우 유용합니다. 임시 테이블은 SQL 데이터 웨어하우스의 세션 수준에서 존재합니다. 이 테이블은 로컬 임시 테이블로 정의되지만 SQL Server 테이블과 달리 세션 내 어디에서나 액세스할 수 있습니다.
@@ -248,10 +248,10 @@ DROP TABLE #stats_ddl;
 <!--Image references-->
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[개발 개요]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

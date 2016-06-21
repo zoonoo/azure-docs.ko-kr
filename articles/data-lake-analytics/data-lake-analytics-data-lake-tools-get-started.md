@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # 자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
@@ -132,8 +132,8 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     - **열 *확장**
 
-        \*의 오른쪽을 클릭하면* 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
-	![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        \*의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
+    	![데이터 레이크 visual studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
 
@@ -216,7 +216,7 @@ Visual Studio에서 U-SQL 로컬 실행 환경을 사용하면 다음과 같은 
 - 로컬에서 C# 어셈블리를 디버그합니다.
 - Azure 데이터 레이크 분석 서비스에서 하듯이 서버 탐색기에서 로컬 데이터베이스, 어셈블리, 스키마 및 테이블을 만들고/삭제하고/봅니다.
 
-Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
+Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
 
 - 테이블, DB, TVF를 비롯한 메타데이터를 저장합니다.
 - 특정 스크립트에 대해, 상대 경로가 입/출력 경로에 참조되는 경우, DataRoot 폴더(는 물론 입력인 경우 스크립트의 경로)를 찾아봅니다.
@@ -236,7 +236,7 @@ Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\LocalRu
 
     - 스크립트 입력(EXTRACT * FROM “/path/abc”) - DataRoot 경로와 스크립트 경로를 모두 검색합니다.
     - 스크립트 출력(OUTPUT TO “path/abc”): DataRoot 경로가 출력 폴더로 사용됩니다.
-    - 어셈블리 등록(CRREATE ASSEMBLY xyz FROM “/path/abc”): 스크립트 경로를 검색하지만 DataRoot 폴더는 검색하지 않습니다.
+    - 어셈블리 등록(CREATE ASSEMBLY xyz FROM “/path/abc”): 스크립트 경로를 검색하지만 DataRoot 폴더는 검색하지 않습니다.
     - 등록된 TVF/뷰 또는 다른 메타데이터 엔터티: DataRoot 경로를 검색하지만 스크립트 경로는 검색하지 않습니다.
 
     데이터 레이크 서비스에서 실행되는 스크립트의 경우, 기본 저장소 계정이 루트 폴더로 사용되며 따라서 그 폴더가 검색됩니다.
@@ -292,7 +292,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 
 ##자습서 준비를 위한 Appx-A PowerShell 샘플
 
-다음 PowerShell 스크립트는 Azure 데이터 레이크 분석 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
+다음 PowerShell 스크립트는 Azure Data Lake 분석 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +362,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

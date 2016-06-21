@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/11/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Power BI를 사용하여 데이터 시각화
@@ -21,16 +21,18 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Azure 기계 학습][]
+- [SQLCMD][] 
 
 이 자습서에서는 Power BI를 사용하여 SQL 데이터 웨어하우스에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 AdventureWorksDW 예제 데이터베이스가 미리 로그된 SQL 데이터 웨어하우스 데이터베이스가 필요합니다. [SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md)는 만드는 방법을 보여줍니다.
->
-> SQL 데이터 웨어하우스 데이터베이스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## AdventureWorksDW에 연결
+## 필수 조건
+
+이 자습서를 완료하려면 AdventureWorksDW 샘플 데이터베이스가 미리 로드된 SQL 데이터 웨어하우스가 필요합니다. 새 SQL 데이터 웨어하우스를 만들 경우 비어 있는 데이터 베이스, AdventureWorks 샘플 데이터를 포함하는 데이터베이스를 만들거나 다른 데이터베이스의 백업을 복원할 수 있습니다. 이미 로드된 샘플 데이터를 가진 SQL 데이터 웨어하우스를 만드는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스 만들기][]를 참조하세요. 사용하려는 SQL 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]의 지침을 따릅니다.
+
+
+## 데이터베이스에 연결
 
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
@@ -51,13 +53,13 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
     ![Power BI 로그인][4]
 
-1. Power BI에 로그인하면 왼쪽 블레이드에서 AdventureWorksDW 데이터 집합을 클릭합니다. 그러면 데이터베이스가 열립니다.
+7. Power BI에 로그인하면 왼쪽 블레이드에서 AdventureWorksDW 데이터 집합을 클릭합니다. 그러면 데이터베이스가 열립니다.
 
     ![Power BI AdventureWorksDW 열기][5]
 
 
 
-## 샘플 데이터 분석을 위한 Power BI 보고서 만들기
+## 보고서 만들기
 
 이제 Power BI를 사용하여 AdventureWorksDW 샘플 데이터를 분석할 준비가 되었습니다. 분석을 수행하기 위해 AdventureWorksDW에는 AggregateSales라는 뷰가 포함되어 있습니다. 이 뷰는 회사의 판매를 분석하기 위한 주요 메트릭 중 일부를 포함합니다.
 
@@ -108,14 +110,16 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-overview-load.md
-[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Azure 포털]: https://portal.azure.com/
 [Power BI 웹 사이트]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

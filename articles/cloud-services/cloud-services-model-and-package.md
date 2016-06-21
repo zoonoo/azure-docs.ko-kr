@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/11/2016"
+    ms.date="06/07/2016"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -201,7 +201,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 ## ServicePackage.cspkg
 응용 프로그램을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 응용 프로그램을 패키지해야 합니다. **CSPack** 명령줄 도구([Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
-**CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 포털](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
+**CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 포털](cloud-services-how-to-create-deploy-portal.md#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
 
 **CSPack**은 일반적으로 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`에 있습니다.
 
@@ -267,4 +267,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

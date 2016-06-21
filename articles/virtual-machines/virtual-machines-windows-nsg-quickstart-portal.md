@@ -63,4 +63,4 @@
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

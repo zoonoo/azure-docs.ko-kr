@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="05/31/2016" 
 	ms.author="bharaths"/>
 
 # Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 
@@ -109,4 +109,4 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0608_2016-->

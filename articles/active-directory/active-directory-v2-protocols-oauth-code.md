@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # v2.0 프로토콜 - OAuth 2.0 인증 코드 흐름
@@ -259,4 +259,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | trace\_id | 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 | correlation\_id | 여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

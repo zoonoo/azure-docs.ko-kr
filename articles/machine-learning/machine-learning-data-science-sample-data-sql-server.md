@@ -60,7 +60,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 
 ###<a name="sql-aml"></a>Azure 기계 학습에 연결
 
-Azure 기계 학습 판독기 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 아래에 표시되어 있습니다.
+Azure ML 데이터 가져오기 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 아래에 표시되어 있습니다.
    
 ![판독기 sql][1]
 
@@ -83,7 +83,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
 ###<a name="python-aml"></a>Azure 기계 학습에 연결
 
-다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. *판독기 모듈*을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다.
+다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. *데이터 가져오기 모듈*을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다.
 
 1. pandas 데이터 프레임을 로컬 파일에 기록합니다.
 
@@ -111,7 +111,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. 아래 화면에 표시된 대로 Azure 기계 학습 *판독기 모듈*을 사용하여 Azure Blob에서 데이터를 읽습니다.
+3. 아래 화면에 표시된 대로 Azure ML *데이터 가져오기 모듈*을 사용하여 Azure Blob에서 데이터를 읽습니다.
  
 ![판독기 blob][2]
 
@@ -124,4 +124,4 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

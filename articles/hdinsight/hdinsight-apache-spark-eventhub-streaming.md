@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/07/2016" 
 	ms.author="nitinme"/>
 
 
-# Spark 스트리밍: HDInsight Linux에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(미리 보기)
+# Spark 스트리밍: HDInsight Linux에서 Apache Spark 클러스터로 Azure 이벤트 허브의 이벤트 처리
 
 Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높은 처리량, 내결함성 스트림 처리 응용 프로그램을 빌드합니다. 여러 소스에서 데이터를 수집할 수 있습니다. 이 문서에서는 Azure 이벤트 허브를 사용하여 데이터를 수집합니다. 이벤트 허브는 초당 수백만의 이벤트를 유입하는 확장성이 뛰어난 수집 시스템입니다.
 
@@ -112,39 +112,46 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 	![프로젝트 보기](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-4. pom.xml을 열고 Spark 버전이 정확한지 확인합니다. <properties> 노드 아래에서 다음 코드 조각을 찾고 Spark 버전을 확인합니다.
+4. **pom.xml**을 열고 Spark 버전이 정확한지 확인합니다. <properties> 노드 아래에서 다음 코드 조각을 찾고 Spark 버전을 확인합니다.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
     	<scala.binary.version>2.10</scala.binary.version>
-    	<spark.version>1.5.1</spark.version>
+    	<spark.version>1.6.1</spark.version>
 
 	**spark.version**에 대한 값이 **1.5.1**로 설정되었는지 확인합니다.
 
 5. 응용 프로그램에는 두 가지는 종속성 jar이 필요합니다.
 
-	* **EventHub 수신기 jar**. Spark가 이벤트 허브에서 메시지를 받는데 필요합니다. 이 jar은 `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`의 Spark Linux 클러스터에서 사용할 수 있습니다. pscp를 사용하여 로컬 컴퓨터에 jar을 복사할 수 있습니다. (참고: 일부 인스턴스는 `/usr/hdp/2.4.1.0-327/spark/lib` 아래에 파일이 있음)
+	* **EventHub 수신기 jar**. Spark가 이벤트 허브에서 메시지를 받는데 필요합니다. 이 jar를 포함하려면 `<repositories>..</repositories>` 요소 사이에 다음을 포함하도록 **pom.xml**을 업데이트합니다. `<repositories>` 요소가 존재하지 않으면 `<properties>`와 같은 수준에 만듭니다.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
+			  <repository>
+			  	<id>spark-eventhubs</id>
+			  	<url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
+			  	<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+			  	</snapshots>
+			  </repository>
+			
 
-		이렇게 하면 로컬 컴퓨터에 Spark 클러스터에서 jar 파일을 복사합니다.
+		또한 `<dependencies>` 아래에 다음을 추가합니다.
 
-	* **JDBC 드라이버 jar**. 이벤트 허브에서 받은 메시지를 Azure SQL 데이터베이스에 작성해야 합니다. 이 jar 파일의 v4.1 이상을 [여기](https://msdn.microsoft.com/ko-KR/sqlserver/aa937724.aspx)에서 다운로드할 수 있습니다.
-	
+			<dependency>
+			  <groupId>com.microsoft.azure</groupId>
+			  <artifactId>spark-streaming-eventhubs_2.10</artifactId>
+			  <version>1.0.0</version>
+			</dependency> 
 
-		프로젝트 라이브러리의 이러한 jar에 참조를 추가합니다. 다음 단계를 수행합니다.
+	* **JDBC 드라이버 jar**. 이벤트 허브에서 받은 메시지를 Azure SQL 데이터베이스에 작성해야 합니다. 이 jar 파일의 v4.1 이상을 [여기](https://msdn.microsoft.com/sqlserver/aa937724.aspx)에서 다운로드할 수 있습니다. 프로젝트 라이브러리에 이러한 jar에 대한 참조를 추가합니다. 다음 단계를 수행합니다.
 
 		1. 응용 프로그램이 열려 있는 IntelliJ IDEA 창에서 **파일**을 클릭하고 **프로젝트 구조**를 클릭한 다음 **라이브러리**를 클릭합니다. 
+		
+		2. 추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 JDBC 드라이버 jar를 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
 
 			![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
 
-			추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 이벤트 허브 수신기 jar을 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
-
-		1. 프로젝트 라이브러리에도 JDBC jar을 추가하려면 이전 단계를 반복합니다.
-	
-			![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
-
-		1. **Apply**를 클릭합니다.
+		3. **Apply**를 클릭합니다.
 
 6. 출력 jar 파일을 만듭니다. 다음 단계를 수행합니다.
 	1. **프로젝트 구조** 대화 상자에서 **아티팩트**를 클릭한 다음 더하기 기호를 클릭합니다. 팝업 대화 상자에서 **JAR**을 클릭한 다음 **종속성이 있는 모듈에서**를 클릭합니다.
@@ -167,11 +174,11 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 		프로젝트를 작성하거나 업데이트할 때마다 jar이 생성되는지 확인하는 **Build on make** 확인란이 선택되었는지 확인합니다. **적용**을 클릭한 다음 **확인**을 클릭합니다.
 
-	1. **출력 레이아웃** 탭의 사용 가능한 요소 상자 맨 아래의 오른쪽에 이전에 프로젝트 라이브러리에 추가한 두 개의 종속성 jar이 있습니다. 출력 레이아웃 탭에 추가해야 합니다. 각 jar 파일을 마우스 오른쪽 단추로 클릭한 다음 **출력 루트로 추출**을 클릭합니다.
+	1. **출력 레이아웃** 탭의 **사용 가능한 요소** 상자 맨 아래의 오른쪽에 이전에 프로젝트 라이브러리에 추가한 SQL JDBC jar가 있습니다. **출력 레이아웃** 탭에 이를 추가해야 합니다. jar 파일을 마우스 오른쪽 단추로 클릭한 다음 **출력 루트로 추출**을 클릭합니다.
 
 		![종속성 jar 추출](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)
 
-		다른 종속성 jar도 이 단계를 반복합니다. **출력 레이아웃** 탭은 이제 다음과 같아집니다.
+		**출력 레이아웃** 탭은 이제 다음과 같아집니다.
 
 		![최종 출력 탭](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)
 
@@ -179,7 +186,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 	1. 메뉴 모음에서 **빌드**를 클릭한 다음 **프로젝트 만들기**를 클릭합니다. **빌드 아티팩트**를 클릭하여 jar을 만들 수도 있습니다. **\\out\\artifacts** 아래에 출력 jar이 만들어집니다.
 
-		![JAR 만들기](./media/hdinsight-apache-spark-create-standalone-application/output.png)
+		![JAR 만들기](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
 
 ## Livy를 사용하여 Spark 클러스터에서 원격으로 응용 프로그램 실행
 
@@ -312,7 +319,7 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 
 	{ "file":"wasb:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-응용 프로그램이 성공적으로 실행되는지 확인하려면 SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스에 연결할 수 있습니다. 작업을 수행하는 방법에 대한 자세한 내용은 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결](sql-database/sql-database-connect-query-ssms)을 참조하세요. 데이터베이스에 연결한 후 스트리밍 응용 프로그램에서 만든 **EventContent** 테이블로 이동할 수 있습니다. 빠른 쿼리를 실행하여 테이블에서 데이터를 가져올 수 있습니다. 다음 쿼리를 실행합니다.
+응용 프로그램이 성공적으로 실행되는지 확인하려면 SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스에 연결할 수 있습니다. 작업을 수행하는 방법에 대한 자세한 내용은 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결](../sql-database/sql-database-connect-query-ssms.md)을 참조하세요. 데이터베이스에 연결한 후 스트리밍 응용 프로그램에서 만든 **EventContent** 테이블로 이동할 수 있습니다. 빠른 쿼리를 실행하여 테이블에서 데이터를 가져올 수 있습니다. 다음 쿼리를 실행합니다.
 
 	SELECT * FROM EventCount
 
@@ -357,13 +364,21 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
 ### 리소스 관리
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+
+* [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -376,4 +391,4 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

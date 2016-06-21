@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 
@@ -78,4 +78,4 @@ Azure AD는 클라이언트가 쿼리할 수 있는 여러 토큰 발급 끝점�
 
 [Active Directory 인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

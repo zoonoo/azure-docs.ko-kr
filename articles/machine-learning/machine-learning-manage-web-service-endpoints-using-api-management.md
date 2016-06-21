@@ -162,15 +162,15 @@ This is a good day | 1 1 2 2 0 2 0 1
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-**데이터 변환** 및 **조작**을 확장하고 **프로젝트 열**을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰**를 **프로젝트 열**에 연결합니다.
+**데이터 변환** 및 **조작**을 확장하고 **데이터 집합의 열 선택**을 실험으로 끌어서 놓습니다. **Amazon의 도서 리뷰**를 **데이터 집합의 열 선택**에 연결합니다.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-**프로젝트 열**, **열 선택기 시작**을 차례로 클릭하고 **Col2**를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
+**데이터 집합의 열 선택**, **열 선택기 시작**을 차례로 클릭하고 **Col2**를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-**텍스트 분석**을 확장하고 **기능 해싱**을 실험으로 끌어서 놓습니다. **프로젝트 열**을 **기능 해싱**에 연결합니다.
+**텍스트 분석**을 확장하고 **기능 해싱**을 실험으로 끌어서 놓습니다. **데이터 집합의 열 선택**을 **기능 해싱**에 연결합니다.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

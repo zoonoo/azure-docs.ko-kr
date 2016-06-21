@@ -95,10 +95,10 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
     import java.net.URISyntaxException;
     ```
 
-7. **App** 클래스에 다음 클래스 수준 변수를 추가하고 **{yourhubname}** 및 **{yourhubkey}**를 앞에서 기록해둔 값으로 바꿉니다.
+7. **App** 클래스에 다음 클래스 수준 변수를 추가하고 **{yourhostname}** 및 **{yourhubkey}**를 앞에서 기록해둔 값으로 바꿉니다.
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,25 +190,20 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
     import java.util.logging.*;
     ```
 
-7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, **{youreventhubcompatiblename}**을 앞에서 기록해둔 값으로 바꿉니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점** 값이 적용되며 **xyznamespace** 형식을 사용합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 **sb://** 접두사 및 **.servicebus.windows.net** 접미사를 제거함).
+7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubkey}**, **{youreventhubcompatibleendpoint}**, **{youreventhubcompatiblename}**을 앞에서 기록해둔 값으로 바꿉니다.
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
-8. 다음 **receiveMessages** 메서드를 **App** 클래스에 추가합니다. 이 메서드는 이벤트 허브 호환 끝점에 연결하기 위해 **EventHubClient** 인스턴스를 만들고 이벤트 허브 파티션에서 읽기 위해 **PartitionReceiver** 인스턴스를 비동기식으로 만듭니다. 계속해서 반복하고 응용 프로그램이 종료될 때까지 메시지 세부 정보를 출력합니다.
+8. 다음 **receiveMessages** 메서드를 **App** 클래스에 추가합니다. 이 메서드는 **EventHubClient** 인스턴스를 만들어 이벤트 허브 호환 끝점에 연결하고 **PartitionReceiver** 인스턴스를 비동기식으로 만들어 이벤트 허브 파티션에서 읽습니다. 계속해서 반복하고 응용 프로그램이 종료될 때까지 메시지 세부 정보를 출력합니다.
 
     ```
     private static EventHubClient receiveMessages(final String partitionId)
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
@@ -225,7 +220,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
             System.out.println("** Created receiver on partition " + partitionId);
             try {
               while (true) {
-                Iterable<EventData> receivedEvents = receiver.receive().get();
+                Iterable<EventData> receivedEvents = receiver.receive(100).get();
                 int batchSize = 0;
                 if (receivedEvents != null)
                 {
@@ -354,7 +349,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
     이 응용 프로그램 예제는 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. HTTPS 또는 AMQPS 프로토콜을 사용하여 IoT Hub와 통신할 수 있습니다.
 
-8. 다음의 중첩 **TelemetryDataPoint** 클래스를 **앱** 클래스 안에 추가하여 장치가 IoT Hub에 전송하는 원격 분석 데이터를 지정합니다.
+8. 다음의 중첩된 **TelemetryDataPoint** 클래스를 **App** 클래스 안에 추가하여 장치가 IoT Hub에 전송한 원격 분석 데이터를 지정합니다.
 
     ```
     private static class TelemetryDataPoint {
@@ -515,4 +510,4 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

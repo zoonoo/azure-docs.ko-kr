@@ -23,7 +23,7 @@
 
 Azure 기계 학습에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합의 많은 부분이 [Azure Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)에서 샘플 모델로 사용되며, 일반적으로 나머지는 기계 학습에 사용되는 데이터의 다양한 형식의 예제로 포함됩니다.
 
-일부 데이터 집합은 Azure BLOB 저장소에서 사용할 수 있습니다. 이 데이터 집합의 경우 다음 표에서 바로 이동할 수 있는 링크를 제공합니다. [판독기][reader] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
+일부 데이터 집합은 Azure BLOB 저장소에서 사용할 수 있습니다. 이 데이터 집합의 경우 다음 표에서 바로 이동할 수 있는 링크를 제공합니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
 
 이러한 샘플 데이터 집합의 나머지는 기계 학습 스튜디오에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **Saved Datasets** 아래에 나열됩니다. 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
@@ -314,6 +314,6 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

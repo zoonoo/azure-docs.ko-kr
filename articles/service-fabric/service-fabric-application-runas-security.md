@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # RunAs: 다른 보안 권한으로 서비스 패브릭 응용 프로그램 실행
 Azure 서비스 패브릭은 **RunAs**라고 하는 다른 사용자 계정을 통해 클러스터에서 실행 중인 응용 프로그램을 보호하는 기능을 제공합니다. 또한 서비스 패브릭은 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다.
@@ -155,14 +155,14 @@ PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 ~~~
 
 **참고:** 기본적으로 배치 파일이 실행될 때 **work**라는 응용 프로그램 폴더에서 파일을 찾습니다. 이 경우 MySetup.bat가 실행될 때 같은 폴더(응용 프로그램 **코드 패키지** 폴더)에서 MySetup.ps1을 찾으려고 합니다. 이 폴더를 변경하려면 아래와 같이 작업 폴더를 설정합니다.
-    
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## 진입점의 로컬 디버깅에 대한 콘솔 리디렉션 정책 사용
@@ -179,13 +179,13 @@ PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 이제 MySetup.ps1 파일을 변경하여 **Echo** 명령을 작성하면 디버깅 목적으로 출력 파일에 기록합니다.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **스크립트를 디버그한 후 즉시 이 콘솔 리디렉션 정책을 제거합니다.**
@@ -351,4 +351,4 @@ Echo "Test console redirection which writes to the application log folder on the
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

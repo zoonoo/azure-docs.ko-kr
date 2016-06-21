@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/04/2015"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 # 문제 해결: 'Active Directory' 항목이 없거나 사용할 수 없음
@@ -40,7 +40,7 @@ Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분
 
     또는
 
-* Azure 테넌트에 Azure Multi-Factor Authentication 공급자가 하나 이상 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 공급자 관리](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider)를 참조하세요.
+* Azure 테넌트에 Azure Multi-Factor Authentication 공급자가 하나 이상 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 공급자 관리](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
 
 액세스 제어 네임스페이스 또는 Multi-Factor Authentication 공급자를 만들려면 **+새로 만들기** > **앱 서비스** > **Active Directory**를 클릭합니다.
 
@@ -54,4 +54,4 @@ Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분
 
 ![스크린샷: Active Directory를 사용할 수 없음](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0608_2016-->

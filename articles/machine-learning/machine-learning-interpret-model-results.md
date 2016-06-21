@@ -79,7 +79,7 @@ Azure 기계 학습에서는 서로 다른 모델에서 이러한 유형의 분�
 
 그림 3 붓꽃 2클래스 분류 문제 점수 매기기 실험
 
-이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 부분입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 여기에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하기 위해 [프로젝트 열][project-columns] 모듈을 사용해야 합니다. [프로젝트 열][project-columns] 모듈을 클릭하고, 오른쪽 패널에서 **열 선택기 시작**을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**을 선택합니다. [프로젝트 열][project-columns] 모듈의 출력 포트를 설정하고 다시 실행하고 나면, 맨 아래에 있는 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 되어야 합니다. 마지막 실험은 그림 4와 같이 표시됩니다.
+이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 부분입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 여기에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하기 위해 [데이터 집합의 열 선택][select-columns] 모듈을 사용해야 합니다. [데이터 집합의 열 선택][select-columns] 모듈을 클릭하고, 오른쪽 패널에서 **열 선택기 시작**을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**을 선택합니다. [데이터 집합의 열 선택][select-columns] 모듈의 출력 포트를 설정하고 다시 실행하고 나면, 맨 아래에 있는 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 되어야 합니다. 마지막 실험은 그림 4와 같이 표시됩니다.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -116,7 +116,7 @@ Azure 기계 학습에서는 서로 다른 모델에서 이러한 유형의 분�
 
 **웹 서비스 게시**
 
-이때, [프로젝트 열][project-columns]을 사용하여 웹 서비스의 출력이 될 열을 선택하지 않고, 각 항목의 점수가 매겨진 레이블과 점수가 매겨진 레이블의 확률을 가져오려고 합니다. 기본 논리는 점수가 매겨진 확률 중에서 가장 큰 확률을 찾는 것입니다. 그러려면 [R 스크립트 실행][execute-r-script] 모듈을 사용해야 합니다. R 코드는 그림 8에 표시되고 실험은 그림 9와 같습니다.
+이때, [데이터 집합의 열 선택][select-columns]을 사용하여 웹 서비스의 출력이 될 열을 선택하지 않고, 각 항목의 점수가 매겨진 레이블과 점수가 매겨진 레이블의 확률을 가져오려고 합니다. 기본 논리는 점수가 매겨진 확률 중에서 가장 큰 확률을 찾는 것입니다. 그러려면 [R 스크립트 실행][execute-r-script] 모듈을 사용해야 합니다. R 코드는 그림 8에 표시되고 실험은 그림 9와 같습니다.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -302,11 +302,11 @@ Azure 기계 학습의 기본 제공 [매치박스 추천 학습][train-matchbox
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(Azure 포털)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-overview-manage-compute.md)
+- [개요](sql-data-warehouse-manage-compute-overview.md)
 - [포털](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@
 - 계산 일시 중지
 - 계산 다시 시작
 
-이에 대해 알아보려면 [계산 능력 관리 개요][]를 참조하세요.
+이에 대해 알아보려면 [계산 관리 개요][]를 참조하세요.
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -112,7 +112,7 @@
 
 <!--Article references-->
 [관리 개요]: ./sql-data-warehouse-overview-manage.md
-[계산 능력 관리 개요]: ./sql-data-warehouse-overview-manage-compute.md
+[계산 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -121,4 +121,4 @@
 
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

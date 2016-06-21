@@ -302,13 +302,16 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 참고: 파이프라인을 처리하는 종단 간 배치의 경우 (성공적인 배포 완료에서) 실행을 완료하고 일 년 분량의 생성된 데이터를 처리하는 데 약 2시간이 걸립니다. 다음 단계를 계속하기 전에 잠시 기다려 주십시오.
 
-**PowerBI 디자이너 파일 다운로드** • 미리 구성된 PowerBI 디자이너 파일은 배포의 일부로 포함되어 있음 • 다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 ‘PowerBI 디자이너 파일 다운로드’ 링크를 클릭 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**PowerBI 디자이너 파일 다운로드**
+-	미리 구성 된 PowerBI 디자이너 파일 배포의 일부로 포함됩니다.
+-	PowerBI 노드 다이어그램 보기를 클릭 하 고 속성 창에서 PowerBI 디자이너 Download' 파일 링크를 클릭 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-• 로컬로 저장
+-	• 로컬로 저장
 
-**PowerBI 보고서 구성** • PowerBI 데스크톱을 사용하여 디자이너 파일 ‘VehicleTelemetryAnalytics - 데스크톱 Report.pbix’ 열기. 아직 없는 경우 [PowerBI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331)에서 PowerBI 데스크톱 설치.
+**PowerBI 보고서 구성**
+-	PowerBI 데스크톱을 사용하여 디자이너 파일 ‘VehicleTelemetryAnalytics - 데스크톱 Report.pbix’ 열기 아직 없는 경우 [PowerBI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331)에서 PowerBI 데스크톱 설치. 
 
-• **쿼리 편집** 클릭.
+-	• **쿼리 편집** 클릭.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -393,4 +396,4 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

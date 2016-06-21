@@ -133,12 +133,12 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 그림 9. 이진 분류자의 교차 유효성 검사 결과
 
 ##다중 클래스 분류 모델 평가##
-이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 집합을 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 집합을 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 집합은 [UCI 기계 학습 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][reader] 모듈을 사용하여 다운로드할 수 있습니다.
+이 실험에서는 세 가지 유형(클래스)의 붓꽃 인스턴스가 포함된 일반적인 [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 데이터 집합을 사용합니다. 각 인스턴스에 대해 4개의 기능 값(꽃받침 길이/너비 및 꽃잎 길이/너비)이 있습니다. 이전 실험에서 동일한 데이터 집합을 사용하여 모델을 학습하고 테스트했습니다. 여기에서는 [데이터 분할][split] 모듈을 사용하여 데이터의 하위 집합 2개를 만들고 첫 번째 하위 집합을 학습한 후 두 번째 하위 집합의 점수를 매기고 평가합니다. Iris 데이터 집합은 [UCI 기계 학습 리포지토리](http://archive.ics.uci.edu/ml/index.html)에서 공개적으로 사용할 수 있으며, [데이터 가져오기][import-data] 모듈을 사용하여 다운로드할 수 있습니다.
 
 ###실험 만들기###
 다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
 
-- [데이터 가져오기][reader]
+- [데이터 가져오기][import-data]
 - [다중 클래스 의사 결정 포리스트][multiclass-decision-forest]
 - [데이터 분할][split]
 - [모델 학습][train-model]
@@ -149,7 +149,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 [모델 학습][train-model] 모듈의 레이블 열 인덱스를 5로 설정합니다. 이 데이터 집합에는 헤더 행이 없지만 클래스 레이블이 다섯 번째 열에 있다는 것을 알고 있습니다.
 
-[데이터 가져오기][reader] 모듈을 클릭하고 *데이터 원본* 속성을 *HTTP를 통한 웹 URL*로 설정하고 *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
+[데이터 가져오기][import-data] 모듈을 클릭하고 *데이터 원본* 속성을 *HTTP를 통한 웹 URL*로 설정하고 *URL*을 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data로 설정합니다.
 
 [데이터 분할][split] 모듈에서 학습에 사용할 인스턴스 부분을 설정합니다(이 예의 경우 0.7).
  
@@ -182,11 +182,11 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

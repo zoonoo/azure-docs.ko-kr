@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 .NET WebJob 만들기
@@ -36,7 +36,13 @@
 
 Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로그램을 로컬로 실행하기 전에 Web.config 및 App.config에서 SQL Server LocalDB 연결 문자열의 `Data Source` 부분을 `Data Source=(localdb)\v11.0`에서 `Data Source=(LocalDb)\MSSQLLocalDB`로 변경해야 합니다.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+  >
+  > + [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+  >
+  > + [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+  >
+  >Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a id="learn"></a>학습할 내용
 
@@ -817,4 +823,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

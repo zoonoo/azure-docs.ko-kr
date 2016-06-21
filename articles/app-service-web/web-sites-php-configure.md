@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm"/>
 
 #Azure 앱 서비스 웹 앱에서 PHP 구성
@@ -160,14 +160,34 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 �
 
 	![구성 설정 저장][save-button]
 
+<a name="composer" />
+## 방법: Azure에서 작성기 자동화를 사용하도록 설정
+
+앱 서비스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. [Git 배포](app-service-web-php-get-started.md)를 사용하는 경우 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
+
+>[AZURE.NOTE] [여기에서 앱 서비스의 최고 수준 작성기 지원에 투표](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)할 수 있습니다.
+
+1. [Azure 포털](https://portal.azure.com)의 PHP 웹앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
+
+    ![Azure에서 작성기를 자동화하도록 설정하기 위한 Azure 포털 설정 블레이드](./media/web-sites-php-configure/composer-extension-settings.png)
+
+2. **추가**를 클릭한 다음 **작성기**를 클릭합니다.
+
+    ![Azure에서 작성기를 자동화하도록 설정하기 위하여 작성기 확장 추가](./media/web-sites-php-configure/composer-extension-add.png)
+    
+3. **확인**을 클릭하여 약관을 수락합니다. **확인**을 다시 클릭하여 확장을 추가합니다.
+
+    **설치된 확장** 블레이드에 이제 작성기 확장이 표시됩니다. ![Azure에서 작성기를 자동화하도록 설정하기 위하여 약관에 동의](./media/web-sites-php-configure/composer-extension-view.png)
+    
+4. 이제 `git add`, `git commit` 및 `git push`을 이전 섹션처럼 수행합니다. 이제 작성기가 composer.json에 정의된 종속성을 설치하고 있다고 표시됩니다.
+
+    ![Azure에서 작성기 자동화를 사용하여 GIT 배포](./media/web-sites-php-configure/composer-extension-success.png)
+
 ## 다음 단계
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 [무료 평가판]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -188,4 +208,4 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 �
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

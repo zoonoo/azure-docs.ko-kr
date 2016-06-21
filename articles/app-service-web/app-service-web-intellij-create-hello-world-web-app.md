@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # IntelliJ에서 Azure용 Hello World 웹앱 만들기
@@ -96,49 +96,49 @@
 
   1. 웹앱 컨테이너에 **DNS 레이블**을 입력합니다. 이는 Azure에서 웹 응용 프로그램에 대한 호스트 URL의 리프 DNS 레이블을 형성합니다. 참고: 이름은 사용 가능해야 하며, Azure 웹앱 명명 요구 사항을 준수해야 합니다.
 
-  1. **웹 컨테이너** 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
+  1. **Web Container**(웹 컨테이너) 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
 
         Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-  1. **구독** 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
+  1. **Subscription**(Subscription) 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
 
-  1. **리소스 그룹** 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
+  1. **Resource Group**(리소스 그룹) 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
 
         Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-      * **새로 만들기...**를 클릭합니다.
+      * **New...**(새로 만들기...)를 클릭합니다.
 
-      * **새 리소스 그룹** 대화 상자가 표시됩니다.
+      * **New Resource Group**(새 리소스 그룹) 대화 상자가 표시됩니다.
 
             ![][12]
 
-      * **이름** 텍스트 상자에서 새 리소스 그룹의 이름을 지정합니다.
+      * **Name**(이름) 텍스트 상자에서 새 리소스 그룹의 이름을 지정합니다.
 
-      * **지역** 드롭다운 메뉴에서 리소스 그룹에 적절한 Azure 데이터 센터 위치를 선택합니다.
+      * **Region**(지역) 드롭다운 메뉴에서 리소스 그룹에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
       * **확인**을 클릭합니다.
 
-  1. **앱 서비스 계획** 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 계획이 나열됩니다.
+  1. **App Service Plan**(앱 서비스 계획) 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 계획이 나열됩니다.
 
         Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-      * **새로 만들기...**를 클릭합니다.
+      * **New...**(새로 만들기...)를 클릭합니다.
 
-      * **새 앱 서비스 계획** 대화 상자가 표시됩니다.
+      * **New App Service Plan**(새 앱 서비스 계획) 대화 상자가 표시됩니다.
 
             ![][13]
 
-      * **이름** 텍스트 상자에서 새 앱 서비스 계획의 이름을 지정합니다.
+      * **Name**(이름) 텍스트 상자에서 새 앱 서비스 계획의 이름을 지정합니다.
 
-      * **위치** 드롭다운 메뉴에서 계획에 적절한 Azure 데이터 센터 위치를 선택합니다.
+      * **Location**(위치) 드롭다운 메뉴에서 계획에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
-      * **가격 책정 계층** 드롭다운 메뉴에서 계획에 적절한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
+      * **Pricing Tier**(가격 책정 계층) 드롭다운 메뉴에서 계획에 적절한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
 
-      * **인스턴스 크기** 드롭다운 메뉴에서 계획에 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
+      * **인스턴스 크기**(Instance Size) 드롭다운 메뉴에서 계획에 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
 
   1. 위 단계를 모두 완료한 경우 New Web App Container 대화 상자가 다음 그림과 유사하게 표시됩니다.
 
@@ -215,18 +215,32 @@ Azure에서 웹앱을 검색하려면 **Azure 탐색기** 보기를 사용할 �
 
 ## 다음 단계
 
-자세한 내용은 다음 링크를 참조하세요.
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [Java 개발자 센터]
-* [웹앱 개요]
+- [Eclipse용 Azure 도구 키트]
+  - [Eclipse용 Azure 도구 키트 설치]
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - *IntelliJ에서 Azure용 Hello World 웹앱 만들기(이 문서)*
+
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
+
+Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
-[Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+[Eclipse용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [웹앱 개요]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -251,4 +265,4 @@ Azure에서 웹앱을 검색하려면 **Azure 탐색기** 보기를 사용할 �
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

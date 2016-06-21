@@ -45,7 +45,7 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**McAfeeEndpointSecurity**|악성 소프트웨어로부터 VM을 보호합니다.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
 |**TrendMicroDSA**|침입 탐지 및 방지, 방화벽, 맬웨어 방지, 웹 평판, 로그 감사 및 무결성 모니터링을 제공하는 TrendMicro의 Deep Security 플랫폼을 구현합니다.|[Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md)|
 |**PortalProtectExtension**|Microsoft SharePoint 환경에 대한 위협으로부터 보호합니다.|[Azure에서의 SharePoint 배포 보호](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|Azure 클라우드 서비스 및 가상 컴퓨터에 대한 Microsoft Antimalware는 악성 또는 원치 않는 소프트웨어가 사용자 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 알림을 통해 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다.|[맬웨어 방지 설명서 다운로드](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**IaaSAntimalware**|Azure 클라우드 서비스 및 가상 컴퓨터에 대한 Microsoft Antimalware는 악성 또는 원치 않는 소프트웨어가 사용자 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 알림을 통해 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다.|[Azure 클라우드 서비스 및 가상 컴퓨터용 맬웨어 방지 프로그램](../articles/azure-security-antimalware.md)|
 |**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 는 실제 및 가상 시스템 전체에서 보안 및 성능을 구현합니다.|[Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 
 ##VM 운영 및 관리
@@ -78,7 +78,7 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 
 |VM 확장 이름|기능 설명|추가 정보|
 |---|---|---|
-|**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/mt589195.aspx)|
 |**HpcVmDrivers**|Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다.|[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

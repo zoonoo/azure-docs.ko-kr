@@ -65,7 +65,11 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![예외 스택 추적](./media/app-insights-visual-studio/17.png)
+
+또한 각 메서드의 코드 렌즈 줄에 지난 24시간 동안 Application Insights에 의해 기록된 예외 수를 표시합니다.
+
+![예외 스택 추적](./media/app-insights-visual-studio/21.png)
 
 
 ## 로컬 모니터링
@@ -86,8 +90,6 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 
 
-
-
 ## SDK의 나중 버전으로 업그레이드하려면
 
 [SDK의 새 릴리스](app-insights-release-notes-dotnet.md)로 업그레이드하려면, NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. Microsoft.ApplicationInsights.Web을 선택하고 업그레이드를 선택합니다.
@@ -101,9 +103,9 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 ||
 |---|---
 |**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual Studio](./media/app-insights-asp-net/64.png)
-|**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램 내보내기의 라이브 종속성 맵 및 원격 분석입니다. |![Visual Studio](./media/app-insights-asp-net/62.png)
+|**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

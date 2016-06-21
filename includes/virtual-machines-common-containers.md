@@ -97,7 +97,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 이 시점에서 설계자, 개발자, 또는 IT 운영 전문가라면 "이걸 다 자동화할 수 있다니 진정한 DCaaS(Data-Center-As-A-Service)야!"라고 할지도 모르겠습니다.
 
-맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](../articles/virtual-machines/virtual-machines-windows-create-powershell.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
+맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](../articles/virtual-machines/virtual-machines-windows-ps-create.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
 이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. ([Azure에서 이러한 도구를 사용하는 방법](#tools-for-working-with-containers)에 대한 몇 가지 링크는 여기에서 확인하실 수 있습니다.)
 
@@ -122,7 +122,7 @@ Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-
 
 [Deis](http://deis.io/overview/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다. [3개 노드의 Azure VM 그룹을 간단하게 만들어 Deis를](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) Azure에 설치한 후 [Hello World Go 응용 프로그램을 설치](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application)할 수 있습니다.
 
-Linux에서 배포한 [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
+Linux에서 배포한 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](https://coreos.com/using-coreos/clustering/)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
 
 또 다른 인기 Linux 제품인 Ubuntu는 Docker를 매우 적극적으로 지원하며 [Linux(LXC 스타일) 클러스터](https://help.ubuntu.com/lts/serverguide/lxc.html)도 지원합니다.
 
@@ -174,11 +174,11 @@ Microsoft Azure의 Docker:
 
 Linux 배포 도구 및 Azure 예시:
 
-- [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)
+- [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 구성, 클러스터 관리, 컨테이너 오케스트레이션:
 
-- [CoreOS의 Fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [CoreOS의 Fleet](https://coreos.com/using-coreos/clustering/)
 
 -	Deis
 	- [3개 노드의 Azure VM 그룹 생성, Azure에 Deis 설치, Hello World Go 응용 프로그램 설치 시작](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
@@ -216,4 +216,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

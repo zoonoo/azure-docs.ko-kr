@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Azure 리소스 관리자에 대해 PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
@@ -190,7 +190,7 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 
 기존 게이트웨이 구성에 프로브를 추가합니다.
 
-	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+	$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
 예제에서 사용자 지정 프로브는 URL 경로 contoso.com/path/custompath.htm에 대해 30초마다 확인하도록 구성되어 있습니다. 시간 제한 임계값 120초가 실패한 프로브 요청 최대 수 8과 함께 구성됩니다.
@@ -238,4 +238,4 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

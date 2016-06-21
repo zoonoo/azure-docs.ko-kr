@@ -161,4 +161,4 @@ ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성�
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!-----HONumber=AcomDC_0525_2016-->

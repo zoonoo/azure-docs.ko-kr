@@ -65,4 +65,4 @@
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

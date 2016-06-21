@@ -24,6 +24,8 @@
 
 이 문서는 다양한 릴리스 정보 및 Eclipse용 Azure 도구 키트에 대한 최신 업데이트를 포함합니다.
 
+> [AZURE.NOTE] IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
+
 ### 2016년 4월 12일
 
 Eclipse용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
@@ -297,22 +299,31 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
 
 ## 참고 항목 ##
 
-[Eclipse용 Azure 도구 키트]
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-[Eclipse용 Azure 도구 키트 설치]
-
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+- [Eclipse용 Azure 도구 키트]
+  - [Eclipse용 Azure 도구 키트 설치]
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - *Eclipse용 Azure 도구 키트의 새로운 기능(이 문서)*
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
 
+[Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
+[IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
+
 [Zulu OpenJDK용 Azul Systems 웹 페이지]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure 서비스 끝점]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[IntelliJ용 Azure 도구 키트]: https://plugins.jetbrains.com/plugin/8053
 [구성 요소 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Eclipse에서 Azure 응용 프로그램 디버깅]: http://go.microsoft.com/fwlink/?LinkID=699535
@@ -342,4 +353,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

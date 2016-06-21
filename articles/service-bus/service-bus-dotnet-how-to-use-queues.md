@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="06/10/2016"
     ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -32,8 +32,6 @@
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
-
-    ![][7]
 
 이제 서비스 버스에 대한 코드를 작성할 준비가 되었습니다.
 
@@ -140,11 +138,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-
-> [AZURE.NOTE]
-> <!--->
-> [NamespaceManager][] 개체의 [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
-
+> [AZURE.NOTE] [NamespaceManager][] 개체의 [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
 
 ## 큐에 메시지 보내기
 
@@ -181,7 +175,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
+서비스 버스 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB[, 프리미엄 계층](service-bus-premium-messaging.md)에서 1MB의 최대 메시지 크기를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔티티](service-bus-partitioning.md)를 참조하세요.
 
 ## 큐에서 메시지를 받는 방법
 
@@ -245,7 +239,6 @@ Client.OnMessage((message) =>
 -   [Azure 샘플][]에서 서비스 버스 샘플을 다운로드하거나 [서비스 버스 샘플 개요][]를 참조하세요.
 
   [Azure 클래식 포털]: http://manage.windowsazure.com
-  [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
@@ -259,4 +252,4 @@ Client.OnMessage((message) =>
   [Abandon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
   [완료]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

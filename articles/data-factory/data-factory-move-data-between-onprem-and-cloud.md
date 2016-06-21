@@ -521,6 +521,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL 데이터베이스 싱크 또는 Azure SQL 데이터 웨어하우스 싱크**에 복사하려면 Windows 방화벽 및 회사 방화벽 모두에 대해 포트 **1433**에서 아웃바운드 **TCP** 통신을 허용해야 하고, 게이트웨이 컴퓨터의 IP 주소를 허용된 IP 주소 목록에 추가하도록 Azure SQL Server의 방화벽 설정을 구성해야 합니다.
 
+SQL 데이터 웨어하우스로 데이터를 로드할 때 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용하여 기업 방화벽에서 추가 포트를 열지 못하게 할 수 있습니다.
+
 ### 프록시 서버 고려 사항
 기본적으로 데이터 관리 게이트웨이는 Internet Explorer에서 프록시 설정을 활용하고 액세스를 위해 기본 자격 증명을 사용합니다. 사용자의 경우와 맞지 않으면 아래와 같이 **프록시 서버 설정**을 추가로 구성하여 게이트웨이가 Azure Data Factory에 연결될 수 있도록 합니다.
 
@@ -687,4 +689,4 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 	
 	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

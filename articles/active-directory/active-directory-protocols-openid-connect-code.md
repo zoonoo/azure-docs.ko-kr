@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 
@@ -197,4 +197,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 인증 `code` 및 `id_token`을 받은 후 사용자를 로그인하고 대신 액세스 토큰을 얻을 수 있습니다. 사용자를 로그인하려면 위에 설명된 대로 정확하게 `id_token`의 유효성을 검사해야 합니다. 액세스 토큰을 얻으려면 [OAuth 프로토콜 설명서](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token)에 설명된 단계를 따르세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

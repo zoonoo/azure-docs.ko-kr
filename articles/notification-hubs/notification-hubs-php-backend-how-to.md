@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/07/2016" 
 	ms.author="wesmc"/>
 
 # PHP에서 알림 허브를 사용하는 방법
@@ -38,7 +38,7 @@ MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 iOS 기본 알림을 보내려면 다음을 수행합니다.
 	
 	$notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ## 구현
 아직 하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행하세요. 필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
@@ -206,18 +206,18 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 	$toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
 	$notification = new Notification("windows", $toast);
 	$notification->headers[] = 'X-WNS-Type: wns/toast';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### iOS
 
 	$alert = '{"aps":{"alert":"Hello from PHP!"}}';
 	$notification = new Notification("apple", $alert);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Android
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("gcm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Windows Phone 8.0 및 8.1 Silverlight
 
@@ -230,13 +230,13 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 
 ### Kindle Fire
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("adm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 이제 PHP 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
 
@@ -254,4 +254,4 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@ URL 경로 기반 라우팅을 사용하여 Http 요청의 URL 경로에 따라 
 
 URL 기반 라우팅에서는 응용 프로그램 게이트웨이에 새로운 규칙 형식을 제공합니다. 응용 프로그램 게이트웨이에는 두 가지 규칙 형식(기본 및 PathBasedRouting)이 있습니다. 기본 규칙 형식은 라운드 로빈 배포 외에도 PathBasedRouting 동안 백 엔드 풀에 대한 라운드 로빈 서비스를 제공하며 백 엔드 풀을 선택한 상태에서는 요청 URL의 경로 패턴도 적용합니다.
 
->[AZURE.IMPORTANT] PathPattern: 일치하는 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 *는 ‘/’ 다음의 끝에만 올 수 있습니다. 경로 검사기에 제공하는 문자열은 ? 또는 #으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다.
+>[AZURE.IMPORTANT] PathPattern: 일치하는 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 *는 끝에만 올 수 있습니다. 사용 가능한 예는 /xyz, /xyz* 또는 /xyz/*입니다. 경로 검사기에 제공하는 문자열은 ? 또는 #으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다.
 
 ## 시나리오
 다음 예제에서 응용 프로그램 게이트웨이는 두 개의 백 엔드 서버 풀(video 서버 풀 및 image 서버 풀)과 함께 contoso.com에 대한 트래픽을 제공합니다.
@@ -194,6 +194,6 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool1"과 IP �
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## 응용 프로그램 게이트웨이 가져오기
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

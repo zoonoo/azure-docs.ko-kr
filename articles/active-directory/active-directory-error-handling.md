@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # OAuth 2.0에서의 오류 처리
@@ -137,4 +137,4 @@ RFC 6750 사양은 응답에 WWW-authenticate 헤더와 전달자 체계를 사�
 | 403 | insufficient\_scope | 액세스 토큰에 리소스에 액세스하는 데 필요한 가장 권한이 포함되어 있지 않습니다. | 권한 부여 끝점에 새 권한 부여 요청을 보냅니다. 응답에 범위 매개 변수가 포함된 경우 리소스 요청에 해당 범위 값을 사용합니다. |
 | 403 | insufficient\_access | 토큰의 제목에 리소스에 액세스하는 데 필요한 사용 권한이 업습니다. | 사용자에게 다른 계정을 사용하거나 지정된 리소스에 대한 사용 권한을 요청하라는 메시지를 표시합니다. |
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

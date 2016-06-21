@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="06/02/2016"
    ms.author="sonyama;barbkess"/>
 
-# SQL 데이터 웨어하우스 모범 사례
+# Azure SQL 데이터 웨어하우스에 대한 모범 사례
 
 이 문서는 Azure SQL 데이터 웨어하우스에서 최적의 가격/성능을 달성할 수 있는 여러 가지 모범 사례에 대한 모음입니다. 이 문서에 설명된 개념 중 일부는 매우 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다. 이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 고려할 중요한 사항에 대한 인지도를 높이는 것입니다. 각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
 
@@ -121,9 +121,9 @@ SQL 데이터 웨어하우스에 대한 **기능 제안**이 있는 경우 [Azur
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
 [Azure Data Factory를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [SQL 데이터 웨어하우스에 대한 트랜잭션 최적화]: sql-data-warehouse-develop-best-practices-transactions.md
-[계산 리소스 일시 중지]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
-[계산 리소스 다시 시작]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
-[계산 리소스 크기 조정]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[계산 리소스 일시 중지]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[계산 리소스 다시 시작]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[계산 리소스 크기 조정]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [SQL 데이터 웨어하우스의 테이블 파티션]: sql-data-warehouse-develop-table-partitions.md
 [SQL 데이터 웨어하우스의 임시 테이블]: sql-data-warehouse-develop-temporary-tables.md
@@ -158,4 +158,4 @@ SQL 데이터 웨어하우스에 대한 **기능 제안**이 있는 경우 [Azur
 [Azure SQL 데이터 웨어하우스 Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL 데이터 웨어하우스 로딩 패턴 및 전략]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

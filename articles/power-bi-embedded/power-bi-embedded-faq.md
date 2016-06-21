@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="derrickv"/>
 
 # Power BI Embedded FAQ
@@ -50,7 +50,7 @@
 
     Power BI Embedded 서비스는 미국 중남부 데이터 센터의 BUILD 2016 알림 시점에 북아메리카에서 사용 가능합니다. 이 서비스는 Azure 데이터 센터의 다른 지역에도 곧 롤아웃될 계획입니다.
 
-9.	**어떤 SLA가 서비스에 사용 가능한가요?**
+9. **어떤 SLA가 서비스에 사용 가능한가요?**
 
     Power BI Embedded는 현재 공식 SLA가 없는 미리 보기 Azure 서비스로 사용할 수 있습니다. SLA는 서비스가 미리 보기에서 일반 공급으로 전환될 때 제공됩니다.
 
@@ -61,7 +61,8 @@
 
     (1) 응용 프로그램이 Microsoft 서비스에 중요한 기본 기능을 추가하고 Power BI 서비스에 대한 주요 대체 서비스가 아닌 경우, (2) 응용 프로그램이 외부 사용자 전용인 경우, 개발하는 응용 프로그램 내에서만 Power BI Embedded 서비스를 사용할 수 있습니다. 내부 비즈니스 응용 프로그램 내에서는 Power BI Embedded 서비스를 사용할 수 없습니다.
 
-    ![](media\power-bi-embedded-faq\price.png)
+
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**렌더란 무엇이며 어떻게 청구되나요?**
 
@@ -116,4 +117,4 @@
 - [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

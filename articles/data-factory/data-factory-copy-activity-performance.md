@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/03/2016"
 	ms.author="spelluru"/>
 
 
@@ -168,6 +168,68 @@ cloudDataMovementUnits 속성에 **허용되는 값** 은 1(기본값), 2, 4, 8�
  
 복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 따라서 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 같습니다. 또 다른 시나리오는 다음과 같습니다. 클라우드 단위 4개를 사용하는데 복사 작업이 실행된 상태에서 첫 번째 클라우드 단위는 10분을 사용하고, 두 번째 클라우드 단위는 10분을 사용하며, 세 번째 클라우드 단위는 5분을 사용하고, 네 번째 클라우드 단위는 5분을 사용한다고 가정하면, 총 복사(데이터 이동) 시간 30분(10 + 10 + 5 + 5)에 대해 요금이 청구됩니다. **parallelCopies** 사용은 청구 요금에 영향을 미치지 않습니다.
 
+## 준비된 복사
+원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 복사할 경우 중간 준비 저장소인 Azure Blob 저장소를 사용할 수 있습니다. 이 준비 기능은 다음과 같은 경우에 특히 유용합니다.
+
+1.	**때로는 느린 네트워크 연결을 통해 하이브리드 데이터 이동(즉, 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소 또는 그 반대로)을 수행하는 데 오랜 시간이 걸립니다.** 이러한 데이터 이동의 성능을 향상시키려면 데이터 온-프레미스를 압축하여 클라우드의 준비 데이터 저장소에 대한 연결을 통해 데이터를 이동하는 데 걸리는 시간을 줄일 수 있습니다. 그런 다음 데이터를 대상 데이터 저장소에 로드하기 전에 준비 저장소에서 데이터의 압축을 해제합니다. 
+2.	**IT 정책으로 인해 방화벽에서 포트 80 및 443이 아닌 포트를 열지 않으려 합니다.** 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL 데이터베이스 싱크 또는 Azure SQL 데이터 웨어하우스 싱크에 데이터를 복사할 경우 Windows 방화벽 및 회사 방화벽 모두에 대한 포트 1433에서 아웃바운드 TCP 통신을 사용하도록 설정해야 합니다. 이러한 시나리오에서 데이터 관리 게이트웨이를 활용하여 준비 Azure Blob 저장소에 데이터를 먼저 복사할 수 있습니다. 이는 Http(s) 즉, 포트 443을 통해 수행되고 준비 Blob 저장소에서 SQL 데이터베이스 또는 SQL 데이터 웨어하우스로 데이터를 로드합니다. 이러한 흐름에서 포트 1433을 사용할 필요가 없습니다. 
+3.	**PolyBase를 통해 다양한 데이터 저장소에서 Azure SQL 데이터 웨어하우스에 데이터를 수집합니다.** Azure SQL 데이터 웨어하우스는 많은 양의 데이터를 SQL 데이터 웨어하우스에 로드하는 처리량이 높은 메커니즘인 PolyBase를 제공합니다. 그러나 이렇게 하려면 원본 데이터가 Azure Blob 저장소에 있어야 하고 일부 추가 조건을 충족해야 합니다. Azure Blob 저장소 이외의 데이터 저장소에서 데이터를 로드할 경우 중간 준비 Azure blob 저장소를 통해 데이터를 복사할 수 있습니다. 이 경우에 Azure 데이터 팩터리는 PolyBase의 요구 사항을 만족하도록 데이터에 필요한 변환을 수행하고 SQL 데이터 웨어하우스로 데이터를 로드하는 데 PolyBase를 활용합니다. 자세한 내용 및 샘플은 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+
+### 준비 복사의 작동 방법
+준비 기능을 사용하도록 설정하면 먼저 데이터가 원본 데이터 저장소에서 준비 데이터 저장소(직접 준비)로 복사된 다음 준비 데이터 저장소에서 복사되어 데이터 저장소를 싱크합니다. Azure 데이터 팩터리는 자동으로 사용자에 대한 2단계 흐름을 관리하고 데이터 이동이 완료된 후에 준비 저장소에서 임시 데이터를 정리합니다.
+
+원본 및 싱크 데이터 저장소가 모두 클라우드에 있고 데이터 관리 게이트웨이를 활용하지 않는 **클라우드 복사 시나리오**에서 복사 작업은 **Azure 데이터 팩터리 서비스**에 의해 수행됩니다.
+
+![준비 복사 - 클라우드 시나리오](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+
+반면에 **하이브리드 복사 시나리오**에서는 원본이 온-프레미스이고 싱크가 클라우드에 있습니다. 이 때 원본 데이터 저장소에서 준비 데이터 저장소로 데이터를 이동하는 작업은 **데이터 관리 게이트웨이**에 의해 수행되고 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 작업은 **Azure 데이터 팩터리 서비스**에 의해 수행됩니다.
+
+![준비 복사 - 하이브리드 시나리오](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+
+준비 저장소를 사용한 데이터 이동을 사용하도록 설정하면 원본 데이터 저장소에서 중간/준비 데이터 저장소로 데이터를 이동하기 전에 데이터를 압축할지 및 중간/준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하기 전에 압축할지 여부를 지정할 수 있습니다.
+
+클라우드 데이터에서 온-프레미스 데이터 저장소에 또는 준비 저장소를 사용하여 두 온-프레미스 데이터 저장소 간에 데이터를 복사하는 작업은 이 시점에서 지원되지 않지만 곧 지원될 예정입니다.
+
+### 구성
+복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 Azure Blob 저장소에서 준비할지 여부를 지정할 수 있습니다. enableStaging을 true로 설정한 경우 다음 테이블에 나열된 추가 속성을 지정해야 합니다. Azure 저장소 또는 준비된 Azure 저장소 SAS 연결된 서비스가 아직 없는 경우 만들어야 합니다.
+
+속성 | 설명 | 기본값 | 필수
+--------- | ----------- | ------------ | --------
+enableStaging | 중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. | False | 아니요
+linkedServiceName | 중간 준비 저장소로 사용될 Azure 저장소를 참조하여 이름을 [AzureStoage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> PolyBase를 통해 Azure SQL 데이터 웨어하우스로 데이터를 로드하는 데 SAS(공유 액세스 서명)을 포함한 Azure 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서 사용할 수 있습니다. | 해당 없음 | 예, enableStaging true로 설정된 경우입니다. 
+path | 준비 데이터가 포함된 Azure Blob 저장소에 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> SAS를 포함한 Azure 저장소를 사용하지 않거나 임시 데이터가 상주해야 한다는 강력한 요구 사항이 없으면 경로를 지정할 필요가 없습니다. | 해당 없음 | 아니요
+enableCompression | 데이터가 원본 데이터 저장소에서 싱크 데이터 저장소로 이동하는 경우 압축할지 여부를 지정하여 통신 중에 전송되는 데이터의 양을 감소시킵니다. | False | 아니요
+
+다음은 위의 속성을 가진 복사 작업에 대한 샘플 정의입니다.
+
+	"activities":[  
+	{
+		"name": "Sample copy activity",
+		"type": "Copy",
+		"inputs": [{ "name": "OnpremisesSQLServerInput" }],
+		"outputs": [{ "name": "AzureSQLDBOutput" }],
+		"typeProperties": {
+			"source": {
+				"type": "SqlSource",
+			},
+			"sink": {
+				"type": "SqlSink"
+			},
+	    	"enableStaging": true,
+			"stagingSettings": {
+				"linkedServiceName": "MyStagingBlob",
+				"path": "stagingcontainer/path",
+				"enableCompression": true
+			}
+		}
+	}
+	]
+
+### 청구 영향
+복사 기간의 두 단계 및 해당하는 각가의 복사 형식에 따라 요금이 청구됩니다. 즉:
+
+- 클라우드 복사 중에 준비 저장소를 사용할 경우(예를 들어 Azure Data Lake에서 Azure SQL 데이터 웨어하우스 등 클라우드 데이터 저장소에서 다른 클라우드 데이터 저장소에 데이터를 복사) [1단계 및 2단계 복사 기간의 합]x[클라우드 복사 단가]로 요금이 청구됩니다.
+- 하이브리드 복사 중에 준비 저장소를 사용하는 경우(예를 들어 온-프레미스 SQL Server 데이터베이스에서 Azure SQL 데이터 웨어하우스 등 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 복사) [하이브리드 복사 기간]x[클라우드 복사 단가]+[클라우드 복사 기간]x[하이브리드 복사 단가]로 요금이 청구됩니다.
 
 
 ## 원본에 대한 고려 사항
@@ -303,7 +365,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성를 이
 
 ## 사례 연구 - 병렬 복사  
 
-**시나리오 I:** 1MB 파일 1000개를 온-프레미스 파일 시스템에서 Azure Blob 저장소로 복사하는 경우
+**시나리오 I:** 1MB 파일 1000개를 온-프레미스 파일 시스템에서 Azure Blob 저장소로 복사하는 경우.
 
 **분석 및 성능 튜닝:** 쿼드 코어 컴퓨터에 데이터 관리 게이트웨이를 설치했다고 가정할 때, Data Factory는 기본적으로 16개의 병렬 복사를 사용하여 파일 시스템에서 Azure Blob으로 동시에 파일을 이동합니다. 이렇게 하면 처리량이 만족스럽게 됩니다. 원한다면 병렬 복사 개수를 명시적으로 지정할 수도 있습니다. 다수의 작은 파일을 복사하는 경우, 병렬 복사는 관련된 리소스를 보다 효과적으로 활용하여 처리량을 급격히 향상시키는 데 유용합니다.
 
@@ -324,9 +386,9 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성를 이
 
 - Azure 저장소(Azure Blob, Azure 테이블 포함): [Azure 저장소 확장성 목표](../storage/storage-scalability-targets.md) 및 [Azure 저장소 성능 및 확장성 검사 목록](../storage//storage-performance-checklist.md)입니다.
 - Azure SQL 데이터베이스: [성능을 모니터링](../sql-database/sql-database-service-tiers.md#monitoring-performance)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
-- Azure SQL 데이터 웨어하우스: 해당 기능은 데이터 웨어하우스 단위(DWU)로 측정됩니다. [SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md)을 참조합니다.
+- Azure SQL 데이터 웨어하우스: 해당 기능은 데이터 웨어하우스 단위(DWU)로 측정됩니다. [SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)을 참조합니다.
 - Azure DocumentDB: [DocumentDB의 성능 수준](../documentdb/documentdb-performance-levels.md)입니다.
 - 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)을 수행합니다.
 - 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

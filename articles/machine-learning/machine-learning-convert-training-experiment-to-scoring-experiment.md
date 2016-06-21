@@ -54,7 +54,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 - **준비** - 점수 매기기를 위해 제출할 데이터에 따라 들어오는 데이터를 처리하는 데 이러한 모듈이 필요할 수도 있고 그렇지 않을 수도 있습니다.
 
-	예를 들어 이 예제에서는 샘플 데이터 집합에 누락된 값이 있을 수 있으며, 모델을 학습하는 데 필요 없는 열이 포함되어 있습니다. 따라서 누락된 값을 처리하기 위해 [누락된 데이터 처리][clean-missing-data] 모듈이 포함되었으며, 데이터 흐름에서 이러한 추가 열을 제외하기 위해 [프로젝트 열][project-columns] 모듈이 포함되었습니다. 점수 매기기를 위해 웹 서비스를 통해 제출할 데이터에 누락된 값이 있다는 것을 아는 경우 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다. 그러나 [프로젝트 열][project-columns] 모듈은 점수를 매길 기능 집합을 정의하는 데 유용하기 때문에 이 모듈은 유지해야 합니다.
+	예를 들어 이 예제에서는 샘플 데이터 집합에 누락된 값이 있을 수 있으며, 모델을 학습하는 데 필요 없는 열이 포함되어 있습니다. 따라서 누락된 값을 처리하기 위해 [누락된 데이터 정리][clean-missing-data] 모듈이 포함되었으며, 데이터 흐름에서 이러한 추가 열을 제외하기 위해 [데이터 집합의 열 선택][select-columns] 모듈이 포함되었습니다. 점수 매기기를 위해 웹 서비스를 통해 제출할 데이터에 누락된 값이 있다는 것을 아는 경우 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다. 그러나 [데이터 집합의 열 선택][select-columns] 모듈은 점수를 매길 기능 집합을 정의하는 데 유용하기 때문에 이 모듈은 유지해야 합니다.
 
 - **학습** - 모델이 성공적으로 학습되었으면 단일 학습된 모델 모듈로 저장합니다. 그런 다음 이러한 개별 모듈을 저장한 학습된 모델로 바꿉니다.
 
@@ -78,7 +78,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 마찬가지로 기본적으로 **웹 서비스 설정**은 웹 서비스 출력 모듈을 데이터 흐름의 맨 아래에 둡니다. 이 예제에서 웹 서비스는 사용자에게 전체 입력 데이터 벡터와 점수 매기기 결과가 포함된 [모델 점수 매기기][score-model] 모듈을 반환합니다.
 
-그러나 다른 결과를 반환하려는 경우, 예를 들어 입력 데이터의 전체 벡터를 제외하고 점수 매기기 결과만 반환하려는 경우 점수 매기기 결과를 제외하고 모든 열을 제외하도록 [프로젝트 열][project-columns] 모듈을 삽입할 수 있습니다. 그런 다음 **웹 서비스 출력** 모듈을 [프로젝트 열][project-columns] 모듈의 출력으로 이동합니다.
+그러나 다른 결과를 반환하려는 경우, 예를 들어 입력 데이터의 전체 벡터를 제외하고 점수 매기기 결과만 반환하려는 경우 점수 매기기 결과를 제외하고 모든 열을 제외하도록 [데이터 집합의 열 선택][select-columns] 모듈을 삽입할 수 있습니다. 그런 다음 **웹 서비스 출력** 모듈을 [데이터 집합의 열 선택][select-columns] 모듈의 출력으로 이동합니다.
 
 ![웹 서비스 출력 이동][figure5]
 
@@ -94,7 +94,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 경우에 따라 서비스에 액세스할 때 웹 서비스 사용자가 모듈의 동작을 변경하도록 허용할 수 있습니다. *웹 서비스 매개 변수*를 통해 이 작업을 수행할 수 있습니다.
 
-일반적인 예는 배포된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [판독기][reader] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [기록기][writer] 모듈을 구성하는 것입니다.
+일반적인 예는 배포된 웹 서비스의 사용자가 웹 서비스에 액세스할 때 다른 데이터 원본을 지정할 수 있도록 [데이터 가져오기][import-data] 모듈을 설정하는 것입니다. 또는 다른 대상을 지정할 수 있도록 [데이터 내보내기][export-data] 모듈을 구성하는 것입니다.
 
 웹 서비스 매개 변수를 정의하여 하나 이상의 모듈 매개 변수와 연결하고 이러한 매개 변수가 필수인지 또는 선택 사항인지 지정할 수 있습니다. 그런 다음 웹 서비스의 사용자는 서비스에 액세스할 때 이러한 매개 변수의 값을 제공할 수 있으며, 그에 따라 모듈 동작이 수정됩니다.
 
@@ -124,11 +124,11 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

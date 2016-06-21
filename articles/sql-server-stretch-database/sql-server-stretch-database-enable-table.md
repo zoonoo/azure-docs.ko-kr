@@ -24,7 +24,7 @@
 
 -   테이블에 기록 데이터와 현재 데이터가 모두 포함된 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다.
 
-**필수 조건**. 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정하지 않은 경우 테이블에 대해 **스트레치 | 사용**을 선택하면 마법사에서 먼저 스트레치 데이터베이스에 대해 데이터베이스를 구성합니다. 이 항목의 단계 대신 [스트레치에 데이터베이스 사용](sql-server-stretch-database-wizard.md) 마법사의 단계를 따르세요.
+**필수 조건**. 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정하지 않은 경우 테이블에 대해 **스트레치 | 사용**을 선택하면 마법사에서 먼저 스트레치 데이터베이스에 대해 데이터베이스를 구성합니다. 이 항목의 단계 대신 [스트레치에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md)의 단계를 따르세요.
 
 **사용 권한**. 데이터베이스 또는 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 db\_owner 권한이 필요합니다. 테이블에서 스트레치 데이터베이스를 사용하도록 설정하려면 테이블에 대한 ALTER 권한이 있어야 합니다.
 
@@ -43,11 +43,11 @@
 
 사용하도록 설정하려는 테이블이 표시되고 선택되었는지 확인합니다.
 
-전체 테이블을 마이그레이션하거나 마법사에서 간단한 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 조건자를 지정할 수 있습니다. 다른 종류의 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
 
 -   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 조건자를 지정합니다.
 
--   마법사를 종료한 후 ALTER TABLE 문을 실행하여 조건자를 지정합니다.
+-   마법사를 종료한 후 ALTER TABLE 문을 실행하여 조건자를 지정합니다. 필요한 단계는 [마법사를 실행한 후 필터 조건자 추가](sql-server-stretch-database-predicate-function.md#addafterwiz)를 참조하세요.
 
 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 
@@ -65,7 +65,7 @@ ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 ### 옵션
 CREATE TABLE 또는 ALTER TABLE을 실행하여 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 다음 옵션을 사용합니다.
 
--   필요에 따라 `FILTER_PREDICATE = <predicate>` 절을 사용하여 테이블에 기록 데이터와 현재 데이터가 모두 포함된 경우 마이그레이션할 행을 선택하도록 조건자를 지정합니다. 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)](sql-server-stretch-database-predicate-function.md)을 참조하세요. 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
+-   필요에 따라 `FILTER_PREDICATE = <predicate>` 절을 사용하여 테이블에 기록 데이터와 현재 데이터가 모두 포함된 경우 마이그레이션할 행을 선택하도록 조건자를 지정합니다. 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요. 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
     >   [AZURE.NOTE] 제대로 수행되지 않는 필터 조건자를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용합니다.
 
@@ -80,7 +80,7 @@ CREATE TABLE 또는 ALTER TABLE을 실행하여 테이블에 대해 스트레치
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)](sql-server-stretch-database-predicate-function.md)을 참조하세요.
+다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요.
 
 ```tsql
 ALTER TABLE <table name>
@@ -100,7 +100,7 @@ ALTER TABLE <table name>
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)](sql-server-stretch-database-predicate-function.md)을 참조하세요.
+다음은 `dbo.fn_stretchpredicate` 인라인 테이블 반환 함수로 식별된 행만 마이그레이션하고 데이터 마이그레이션을 연기하는 예제입니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요.
 
 ```tsql
 CREATE TABLE <table name> ...
@@ -118,4 +118,4 @@ CREATE TABLE <table name> ...
 
 [CREATE TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

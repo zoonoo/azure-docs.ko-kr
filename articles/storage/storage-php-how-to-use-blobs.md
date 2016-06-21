@@ -250,7 +250,7 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 
 
 	try	{
-		// Delete container.
+		// Delete blob.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
@@ -308,4 +308,4 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

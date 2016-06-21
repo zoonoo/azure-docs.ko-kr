@@ -3,7 +3,7 @@
    description="로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="AllenClark"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/13/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # 로컬 Docker 컨테이너에서 앱 디버깅
@@ -29,7 +29,7 @@ Visual Studio Tools for Docker는 Linux Docker 컨테이너에서 로컬로 응�
 - [Microsoft ASP.NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
 
-로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다. 릴리스된 [Docker 도구 상자](https://www.docker.com/products/overview#/docker_toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 대안으로 [윈도우용 Docke 베타](https://beta.docker.com)(Hyper-v를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
+로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다. 릴리스된 [Docker 도구 상자](https://www.docker.com/products/overview#/docker_toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 [윈도우용 Docke 베타](https://beta.docker.com)(Hyper-v를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
 
 Docker 도구 상자를 사용하는 경우 [Docker 클라이언트 구성](./vs-azure-tools-docker-setup.md)을 해야 합니다.
 
@@ -56,14 +56,18 @@ Visual Studio 2015 Tools for Docker를 통해 ASP.NET Core RC2 웹앱 개발자�
 
 	![][1]
 
-> [AZURE.NOTE] [Windows 베타용 Docker](https://beta.docker.com)를 사용하는 경우, Properties\\Docker.props을 열고, 기본값을 제거한 후 값이 적용되도록 Visaul Studio를 다시 시작합니다.![][2]
+> [AZURE.NOTE] [Windows 베타용 Docker](https://beta.docker.com)를 사용하는 경우, Properties\\Docker.props을 열고, 기본값을 제거한 후 값이 적용되도록 Visaul Studio를 다시 시작합니다.
+>
+> ![][2]
 
 ##편집 및 새로 고침
 변경을 신속하게 반복할 수 있도록, 응용 프로그램을 컨테이너에서 시작하고, IIS Express에서 하는 것처럼 변경 내용을 보며, 계속해서 변경해 나갈 수 있습니다.
 
-1. 솔루션 구성을 `Debug`로 설정하고 **&lt;CTRL + F5>** 키를 눌러 Docker 이미지를 빌드하고 로컬에서 실행합니다. 빌드를 사용하여 출력 창을 참조합니다.
+1. 솔루션 구성을 `Debug`로 설정하고 **&lt;CTRL + F5>** 키를 눌러 Docker 이미지를 빌드하고 로컬에서 실행합니다.
 
-1. 컨테이너 이미지가 빌드되고 Docker 컨테이너에서 실행되면 Visual Studio는 기본 브라우저에서 웹앱을 시작하려고 합니다. Microsoft Edge 브라우저를 사용하거나 달리 오류가 있는 경우 [문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md) 섹션을 참조하세요.
+    컨테이너 이미지가 빌드되고 Docker 컨테이너에서 실행되면 Visual Studio는 기본 브라우저에서 웹앱을 시작하려고 합니다. Microsoft Edge 브라우저를 사용하거나 달리 오류가 있는 경우 [문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md) 섹션을 참조하세요.
+
+1. 정보 페이지로 이동하며 정보 페이지에서 변경을 수행하게 됩니다.
 
 1. Visual Studio로 돌아가서 `Views\Home\About.cshtml`을 엽니다.
 
@@ -73,9 +77,14 @@ Visual Studio 2015 Tools for Docker를 통해 ASP.NET Core RC2 웹앱 개발자�
 	<h1>Hello from a Docker Container!</h1>
 	```
 
-1.	출력창을 보는 가운데 .NET 빌드가 완료되고 `Application started. Press Ctrl+C to shut down`가 표시될 때 브라우저로 전환하고 새로 고칩니다.
+1.	출력창을 보는 가운데 .NET 빌드가 완료되고 이러한 줄이 표시될 때 브라우저로 전환하고 정보 페이지를 새로 고칩니다.
 
-1.	변경 내용이 적용되었는지 표시되어야 합니다!
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
+
+1.	변경 내용이 적용되었습니다.
 
 ##중단점 디버깅
 흔히 변경은 Visual Studio의 디버깅 기능을 활용한 추가적인 검사를 필요로 합니다.
@@ -89,9 +98,9 @@ Visual Studio 2015 Tools for Docker를 통해 ASP.NET Core RC2 웹앱 개발자�
 	ViewData["Message"] = message;
     ````
 
-1.  `string message`... 줄 왼쪽에 중단점을 설정합니다
+1.  `string message`... 줄 왼쪽에 중단점을 설정합니다.
 
-1.  **&lt;F5>**를 눌러 디버깅을 시작합니다.
+1.  **&lt;F5>** 키를 눌러 디버깅을 시작합니다.
 
 1.  중단점에 도달하려면 정보 페이지로 이동합니다.
 
@@ -132,4 +141,4 @@ Visual Studio 2015 Tools for Docker를 통해 ASP.NET Core RC2 웹앱 개발자�
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
 [3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

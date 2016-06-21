@@ -26,57 +26,57 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
 
 ## Azure 포털을 사용하여 서비스 만들기
 
-Azure 포털에 로그인하여 새로 만들기를 선택하고, Azure 마켓플레이스에서 **Azure 컨테이너 서비스**를 검색합니다.
+Azure 포털에 로그인하여 **새로 만들기**를 선택하고, Azure 마켓플레이스에서 **Azure 컨테이너 서비스**를 검색합니다.
 
-![배포 만들기](media/acs-portal1.png) <br />
+![배포 만들기 1](media/acs-portal1.png) <br />
 
 **Azure 컨테이너 서비스**를 선택하고 **만들기**를 클릭합니다.
 
-![배포 만들기](media/acs-portal2.png) <br />
+![배포 만들기 2](media/acs-portal2.png) <br />
 
 다음 정보를 입력합니다.
 
-- 사용자 이름 – Azure 컨테이너 서비스 클러스터의 가상 컴퓨터 규모 집합 및 각 가상 컴퓨터의 계정에 사용할 사용자 이름입니다.
-- 구독 – Azure 구독을 선택합니다.
-- 리소스 그룹 – 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
-- 위치 – Azure 컨테이너 서비스 배포를 위한 Azure 지역을 선택합니다.
-- SSH 공개 키 – Azure 컨테이너 서비스 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함해야 합니다. 다음과 같이 표시됩니다. "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" SSH 키 생성에 대한 지침은 [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) 및 [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) 문서를 참조하세요.
+- **사용자 이름**: Azure 컨테이너 서비스 클러스터의 가상 컴퓨터 규모 집합 및 각 가상 컴퓨터의 계정에 사용할 사용자 이름입니다.
+- **구독**: Azure 구독을 선택합니다.
+- **리소스 그룹**: 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+- **위치**: Azure 컨테이너 서비스 배포를 위한 Azure 지역을 선택합니다.
+- **SSH 공개 키**: Azure 컨테이너 서비스 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함해야 합니다. **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**와 같은 형태여야 합니다. SSH(보안 셸) 키를 만드는 방법에 대한 지침은 [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) 및 [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) 문서를 참조하세요.
 
 진행할 준비가 되면 **확인**을 클릭합니다.
 
-![배포 만들기](media/acs-portal3.png) <br />
+![배포 만들기 3](media/acs-portal3.png) <br />
 
 오케스트레이션 유형을 선택합니다. 옵션은 다음과 같습니다.
 
-- DC/OS – DC/OS 클러스터를 배포합니다.
-- Swarm – Docker Swarm 클러스터를 배포합니다.
+- **DC/OS**: DC/OS 클러스터를 배포합니다.
+- **Swarm**: Docker Swarm 클러스터를 배포합니다.
 
 진행할 준비가 되면 **확인**을 클릭합니다.
 
-![배포 만들기](media/acs-portal4.png) <br />
+![배포 만들기 4](media/acs-portal4.png) <br />
 
 다음 정보를 입력합니다.
 
-- 마스터 수 – 클러스터의 마스터 수입니다.
-- 에이전트 수 – Docker Swarm의 경우, 에이전트 규모 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는, 클러스터 내에 생성되는 마스터의 수를(마스터 1개 대한 공개 에이전트 1개, 3또는 5개의 마스터에 대한 공개 에이전트 2개)를 저지합니다.
-- 에이전트 가상 컴퓨터 크기 – 에이전트 가상 컴퓨터의 크기입니다.
-- DNS 접두사 – 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용될 세계적으로 고유 이름입니다. 
+- **마스터 수**: 클러스터의 마스터 수입니다.
+- **에이전트 수**: Docker Swarm의 경우, 에이전트 규모 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트 1개, 3 또는 5개의 마스터에 대한 공개 에이전트 2개)를 결정합니다.
+- **에이전트 가상 컴퓨터 크기**: 에이전트 가상 컴퓨터의 크기입니다.
+- **DNS 접두사**: 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용될 세계적으로 고유 이름입니다.
 
 진행할 준비가 되면 **확인**을 클릭합니다.
 
-![배포 만들기](media/acs-portal5.png) <br />
+![배포 만들기 5](media/acs-portal5.png) <br />
 
 서비스 유효성 검사가 완료되면 **확인**을 클릭합니다.
 
-![배포 만들기](media/acs-portal6.png) <br />
+![배포 만들기 6](media/acs-portal6.png) <br />
 
 **만들기**를 클릭하여 배포 프로세스를 시작합니다.
 
-![배포 만들기](media/acs-portal7.png) <br />
+![배포 만들기 7](media/acs-portal7.png) <br />
 
-Azure 포털에 배포를 고정하도록 선택한 경우에는 배포 상태를 볼 수 있습니다.
+Azure 포털에 배포를 고정하도록 선택한 경우 배포 상태를 볼 수 있습니다.
 
-![배포 만들기](media/acs-portal8.png) <br />
+![배포 만들기 8](media/acs-portal8.png) <br />
 
 배포가 완료되면 Azure 컨테이너 서비스 클러스터를 사용할 준비가 됩니다.
 
@@ -109,11 +109,11 @@ azure config mode arm
 다음 명령을 통해 Azure 리소스 그룹 및 컨테이너 서비스 클러스터를 만듭니다.
 
 - **RESOURCE\_GROUP**은 이 서비스에 사용할 리소스 그룹의 이름입니다.
-- **위치**는 리소스 그룹 및 Azure 컨테이너 서비스 배포를 만들 Azure 지역입니다.
-- **TEMPLATE\_URI**는 배포 파일의 위치입니다. **참고** - GitHub UI에 대한 포인터가 아닌 원시 파일이어야 합니다. 이 URL을 찾으려면 GitHub에서 azuredeploy.json 파일을 선택하고 원시 단추를 클릭합니다.
+- **LOCATION**은 리소스 그룹 및 Azure 컨테이너 서비스 배포를 만들 Azure 지역입니다.
+- **TEMPLATE\_URI**는 배포 파일의 위치입니다. GitHub UI에 대한 포인터가 아닌 원시 파일이어야 합니다. 이 URL을 찾으려면 GitHub에서 azuredeploy.json 파일을 선택하고 **원시** 단추를 클릭합니다.
 
-> 참고 - 이 명령을 실행하는 경우 셸에서 배포 매개 변수 값을 묻는 메시지가 표시됩니다.
- 
+> [AZURE.NOTE] 이 명령을 실행하면 셸에서 배포 매개 변수 값을 묻는 메시지가 표시됩니다.
+
 ```bash
 # sample deployment
 
@@ -188,9 +188,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## 다음 단계
- 
-이제 클러스터가 작동하며 연결 및 관리 정보가 나와 있는 다음 문서를 방문합니다.
- 
-[Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md) [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+이제 클러스터가 작동하기 시작했으니 연결 및 관리 정보는 다음 문서를 참조하세요.
+
+- [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
+- [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
+- [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
+
+<!---HONumber=AcomDC_0615_2016-->

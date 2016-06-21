@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. [리소스 관리자 배포 모델을 사용하여 데이터 디스크 연결](virtual-machines-linux-add-disk.md) 방법을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. [리소스 관리자 배포 모델을 사용하여 데이터 디스크를 연결](virtual-machines-linux-add-disk.md)할 수도 있습니다.
 
 빈 디스크와 데이터가 포함된 디스크를 모두 Azure VM에 연결할 수 있습니다. 두 유형의 디스크 모두 Azure 저장소 계정에 상주하는 .vhd 파일입니다. Linux 컴퓨터에 디스크를 추가하는 것처럼 디스크를 연결한 후에는 사용할 준비를 하기 위해 디스크를 초기화하고 포맷해야 합니다. 이 문서에서는 새 디스크를 초기화하고 포맷하는 방법뿐만 아니라 빈 디스크와 이미 데이터가 있는 디스크를 모두 VM에 연결하는 방법에 대해 자세히 설명합니다.
 
@@ -160,15 +160,17 @@
 
 >[AZURE.NOTE] 이후에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 이런 경우가 자주 발생하면 대부분의 배포에서 디스크가 부팅 시 탑재되지 않더라도 시스템이 부팅되도록 하는 `nofail` 및/또는 `nobootwait` fstab 옵션을 제공합니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 
-## 추가 리소스
-[Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
+## 다음 단계
+다음 문서에서 Linux VM을 사용하는 방법을 읽어볼 수 있습니다.
 
-[Linux 가상 컴퓨터에서 디스크를 분리하는 방법](virtual-machines-linux-classic-detach-disk.md)
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
 
-[서비스 관리 API에서 Azure CLI 사용](../virtual-machines-command-line-tools.md)
+- [Linux 가상 컴퓨터에서 디스크를 분리하는 방법](virtual-machines-linux-classic-detach-disk.md)
+
+- [클래식 배포 모델에서 Azure CLI 사용](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

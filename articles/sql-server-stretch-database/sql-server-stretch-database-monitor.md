@@ -33,9 +33,6 @@ SQL Server Management Studio의 데이터베이스에 대해 **작업 | 스트�
 동적 관리 뷰 **sys.dm\_db\_rda\_migration\_status**를 열고 마이그레이션된 배치 수 및 데이터 행 수를 확인합니다. 자세한 내용은 [sys.dm\_db\_rda\_migration\_status(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935017.aspx)를 확인하세요.
 
 ## <a name="Firewall"></a>데이터 마이그레이션 문제 해결
-**Azure 방화벽이 내 로컬 서버에서 연결을 차단합니다.**
-
-SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azure 방화벽 설정에서 규칙을 추가해야 합니다.
 
 **내 스트레치 사용 테이블의 행이 Azure로 마이그레이션되지 않습니다. 문제가 뭔가요?**
 
@@ -51,6 +48,10 @@ SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azu
 
     -   SQL Server 오류 메시지 내용에 대한 자세한 내용은 [sys.messages(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms187382.aspx)를 참조하세요.
 
+**Azure 방화벽이 내 로컬 서버에서 연결을 차단합니다.**
+
+SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azure 방화벽 설정에서 규칙을 추가해야 합니다.
+
 ## 참고 항목
 
 [Manage and troubleshoot Stretch Database(스트레치 데이터베이스 관리 및 문제 해결)](sql-server-stretch-database-manage.md)
@@ -58,4 +59,4 @@ SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azu
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

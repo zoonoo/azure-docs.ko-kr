@@ -89,7 +89,7 @@ Microsoft Azure SQL 데이터베이스는 DaaS(Database-as-a-Service)를 제공�
 >[AZURE.NOTE]Azure SQL 데이터베이스는 SQL Server와 1대1 기능 패리티를 제공하지 않습니다. 그리고 클라우드 응용 프로그램에 고유하게 맞춘 일련의 요구 사항을 만족하도록 계획되었습니다(유지 관리 비용을 절감하는 탄력적인 확장, DaaS(Database-as-a-Service)). 자세한 정보는 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM(IaaS)의 SQL Server](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하세요.
 
 ####복제
-Azure SQL 데이터베이스는 노드 수준 오류에 대한 기본 제공 탄력성을 제공합니다. 데이터베이스에 대한 모든 쓰기는 쿼럼 커밋 기술을 사용하여 두 개 이상의 백그라운드 노드에 자동으로 복제됩니다(주 데이터베이스와 하나 이상의 보조 데이터베이스는 트랜잭션이 성공했다고 간주되어 반환되기 전에 트랜잭션 로그에 활동이 기록되는지 확인해야 함). 노드 오류가 발생할 경우 데이터베이스는 자동으로 보조 복제본 중 하나에 장애 조치합니다. 이로 인해 클라이언트 응용 프로그램에 대한 임시 연결 중단이 발생합니다. 이러한 이유로 Microsoft Azure SQL 데이터베이스 클라이언트는 모두 어떤 형태의 임시 연결 오류 처리를 구현해야 합니다. 자세한 내용은 [SQL Azure로 임시 오류 처리 응용 프로그램 블록 사용](https://msdn.microsoft.com/library/hh680899.aspx)을 참조하세요
+Azure SQL 데이터베이스는 노드 수준 오류에 대한 기본 제공 탄력성을 제공합니다. 데이터베이스에 대한 모든 쓰기는 쿼럼 커밋 기술을 사용하여 두 개 이상의 백그라운드 노드에 자동으로 복제됩니다(주 데이터베이스와 하나 이상의 보조 데이터베이스는 트랜잭션이 성공했다고 간주되어 반환되기 전에 트랜잭션 로그에 활동이 기록되는지 확인해야 함). 노드 오류가 발생할 경우 데이터베이스는 자동으로 보조 복제본 중 하나에 장애 조치합니다. 이로 인해 클라이언트 응용 프로그램에 대한 임시 연결 중단이 발생합니다. 이러한 이유로 Microsoft Azure SQL 데이터베이스 클라이언트는 모두 어떤 형태의 임시 연결 오류 처리를 구현해야 합니다. 자세한 내용은 [서비스 관련 재시도 지침](../best-practices-retry-service-specific.md)을 참조하세요.
 
 ####리소스 관리
 각 데이터베이스를 만들 경우 최대 크기 제한으로 구성됩니다. 현재 사용할 수 있는 최대 크기는 150GB입니다. 데이터베이스가 최대 크기 제한에 도달하면 추가 INSERT 또는 UPDATE 명령을 거부합니다(데이터 쿼리 및 삭제는 여전히 가능).
@@ -177,4 +177,4 @@ HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저�
 ##다음 단계
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서에서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)에 대해 자세히 알아 봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

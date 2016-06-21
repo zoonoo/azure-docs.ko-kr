@@ -60,4 +60,4 @@
 
 비즈니스 연속성을 위해 응용 프로그램을 설계할 때는 몇 가지 구성 옵션을 고려해야 합니다. 선택할 옵션은 응용 프로그램 배포 토폴로지와 응용 프로그램의 어느 부분이 작동 중단에 가장 취약한지에 따라 달라집니다. 지침은 [지역에서 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->
