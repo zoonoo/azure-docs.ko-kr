@@ -172,6 +172,7 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## 다음 단계
 
-[Mesos HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/). [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [Mesos HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/).
+- [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

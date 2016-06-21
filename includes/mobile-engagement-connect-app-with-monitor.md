@@ -8,8 +8,8 @@
 
 3. 모니터는 앱을 시작할 장치를 실시간으로 표시할 준비가 되어 있습니다.
 	 
-4. 에뮬레이터/시뮬레이터 또는 연결된 장치에서 앱을 시작합니다. 통합이 올바르게 수행되어 이제 앱이 Mobile Engagement 백 엔드에 연결되고 데이터를 보내는 경우 모니터에 하나의 세션이 표시되어야 합니다.
+4. 이제 앱을 시작합니다. 통합이 올바르게 수행되어 이제 앱이 Mobile Engagement 백 엔드에 연결되고 데이터를 보내는 경우 모니터에 하나의 세션이 표시되어야 합니다.
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0615_2016-->

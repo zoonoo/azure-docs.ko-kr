@@ -13,14 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/09/2016"
    ms.author="sonyama;barbkess"/>
 
 # Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 이 연습에서는 Visual Studio의 SSDT(SQL Server 데이터 도구) 확장을 사용하여 몇 분 이내에 Azure SQL 데이터 웨어하우스에 연결하는 방법을 보여 줍니다. 연결되면 간단한 쿼리를 실행합니다.
@@ -116,4 +115,4 @@ Windows 인증을 위한 환경을 구성하려면 [Azure Active Directory 인�
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

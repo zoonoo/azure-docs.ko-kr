@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/10/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -238,10 +238,19 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 서비스에 대한 유지 관리를 수행하는 동안 웹 테스트를 사용하지 않도록 설정할 수 있습니다.
 
+## 성능 테스트
+
+웹 사이트에 부하 테스트를 실행할 수 있습니다. 가용성 테스트와 같이 전 세계의 이 지점에서 간단한 요청 또는 다단계 요청을 보낼 수 있습니다. 가용성 테스트와는 달리 많은 요청이 전송되어 여러 동시 사용자를 시뮬레이션합니다.
+
+개요 블레이드에서 **설정**, **성능 테스트**를 엽니다. 테스트를 만들 경우 Visual Studio Team Services 계정에 연결하거나 만들어야 합니다.
+
+테스트가 완료되면 응답 시간 및 성공율이 표시됩니다.
+
+
 ## 자동화
 
 * [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)합니다. 
-* 경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)을 설정합니다.
+* 경고가 발생하면 호출되는 [웹후크](../azure-portal/insights-webhooks-alerts.md)를 설정합니다.
 
 ## 질문이 있으십니까? 문제가 있습니까?
 
@@ -421,4 +430,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

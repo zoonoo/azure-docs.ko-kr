@@ -3,7 +3,7 @@
 	description="C#로 장치 관리에 대한 Azure IoT Hub 시작 자습서입니다. Microsoft Azure IoT SDK를 포함한 Azure IoT Hub 및 C#을 사용하여 장치 관리를 구현합니다."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,27 +14,32 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # C#(미리 보기)을 사용하여 Azure IoT Hub 장치 관리 시작
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## 소개
-Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hub의 장치를 프로비전하며 여러 시뮬레이션된 장치를 시작해야 합니다. 이 자습서에서는 다음 단계를 안내합니다.
+Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hub의 장치를 프로비전하며 여러 시뮬레이션된 장치를 시작하고 장치 관리 샘플 UI에 이러한 장치가 표시되어야 합니다. 이 자습서에서는 다음 단계를 안내합니다.
 
 > [AZURE.NOTE]  기존 IoT Hub에 아직 장치 관리 기능이 없기 때문에 기존 IoT Hub가 있더라도 새 IoT Hub를 만들어서 장치 관리 기능을 사용해야 합니다. 장치 관리가 일반적으로 지원되면 모든 기존 IoT Hub는 장치 관리 기능을 가져도록 업그레이드됩니다.
 
 ## 필수 조건
 
+이 자습서는 사용자가 Windows 개발 컴퓨터를 사용한다고 가정합니다.
+
 단계를 완료하려면 다음을 설치해야 합니다.
 
 - Microsoft Visual Studio 2015
-- Git
-- CMake(버전 2.8이상). <https://cmake.org/download/>에서 CMake를 설치합니다. Windows PC에서 Windows Installer(.msi) 옵션을 선택합니다. CMake를 현재 사용자 경로 변수에 추가하도록 확인란을 선택해야 합니다.
-- 활성 Azure 구독.
 
-	계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk-free-trial]을 참조하세요.
+- Git
+
+- CMake(버전 2.8이상). <https://cmake.org/download/>에서 CMake를 설치합니다. Windows PC에서 Windows Installer(.msi) 옵션을 선택합니다. CMake를 현재 사용자 경로 변수에 추가하도록 확인란을 선택해야 합니다.
+
+- Node.js 6.1.0 이상. <https://nodejs.org/>의 플랫폼에 Node.js를 설치합니다.
+
+- 활성 Azure 구독. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk-free-trial]을 참조하세요.
 
 ## IoT Hub를 사용하는 장치 관리 만들기
 
@@ -45,7 +50,7 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 	![][img-new-hub]
 
-3.  **IoT Hub** 블레이드에서 IoT Hub에 대한 구성을 선택합니다.
+3.  **IoT Hub** 블레이드에서 IoT Hub의 구성을 선택합니다.
 
 	![][img-configure-hub]
 
@@ -53,11 +58,11 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
   -   **가격 및 크기 조정 계층**을 선택합니다. 이 자습서에는 특정 계층이 필요하지 않습니다.
   -   **리소스 그룹**에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리]를 참조하세요.
   -   **장치 관리 사용** 상자를 선택합니다.
-  -   **위치**에서 IoT Hub를 호스팅할 위치를 선택합니다. IoT Hub 장치 관리는 공개 미리 보기 중 미국 동부, 북유럽, 동아시아에서만 사용할 수 있습니다. 향후에는 모든 지역에서 사용할 수 있습니다.
+  -   **위치**에서 IoT hub를 호스트하는 위치를 선택합니다. IoT Hub 장치 관리는 공개 미리 보기 중 미국 동부, 북유럽, 동아시아에서만 사용할 수 있습니다. 향후에는 모든 지역에서 사용할 수 있습니다.
 
     > [AZURE.NOTE]  **장치 관리 사용** 상자를 선택하지 않으면 샘플이 작동하지 않습니다.
 
-4.  IoT Hub 구성 옵션을 선택했으면 **만들기**를 클릭합니다. Azure가 IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 **시작 보드** 또는 **알림** 패널에서 진행률을 모니터링합니다.
+4.  IoT hub 구성 옵션을 선택한 경우 **만들기**를 클릭합니다. Azure가 IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 **시작 보드** 또는 **알림** 패널에서 진행률을 모니터링할 수 있습니다.
 
 	![][img-monitor]
 
@@ -95,7 +100,7 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 이 스크립트는 다음을 수행합니다.
 
-1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
+1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
 
 2.  시뮬레이션 장치 프로젝트 **iotdm\_simple\_sample.vcxproj**를 빌드합니다.
 
@@ -125,17 +130,54 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 ![][img-output]
 
-"다음 단계"의 자습서를 완료하는 대로 모든 시뮬레이션된 장치를 실행하도록 합니다.
+다음 섹션을 완료하는 대로 모든 시뮬레이션된 장치를 실행하도록 합니다.
+
+## 장치 관리 샘플 UI 실행
+
+IoT Hub를 프로비전하고 관리를 위해 여러 시뮬레이션된 장치를 실행하고 등록했으니 장치 관리 샘플 UI를 배포할 수 있습니다. 장치 관리 샘플 UI에서는 장치 관리 API를 활용하여 대화형 UI 환경을 구축하는 방법의 작업 예제를 제공합니다. [알려진 문제](https://github.com/Azure/azure-iot-device-management#knownissues)를 포함하여 장치 관리 샘플 UI에 대한 자세한 내용은 [Azure IoT 장치 관리 UI][lnk-dm-github] GitHub 리포지토리를 참조하세요.
+
+장치 관리 샘플 UI를 검색하고 빌드하며 실행하려면 다음 단계를 수행합니다.
+
+1. **명령 프롬프트**를 엽니다.
+
+2. `node --version`을 입력하여 필수 구성 요소 섹션에 따라 Node.js 6.1.0 이상을 설치했는지 확인합니다.
+
+3. 다음 명령을 실행하여 Azure IoT 장치 관리 UI GitHub 리포지토리를 복제합니다.
+
+	```
+	git clone https://github.com/Azure/azure-iot-device-management.git
+	```
+	
+4. Azure IoT 장치 관리 UI 리포지토리에 있는 복제된 복사본의 루트 폴더에서 다음 명령을 실행하여 종속 패키지를 검색합니다.
+
+	```
+	npm install
+	```
+
+5. npm 설치 명령이 완료되면 다음 명령을 실행하여 코드를 작성합니다.
+
+	```
+	npm run build
+	```
+
+6. 텍스트 편집기를 사용하여 복제된 폴더의 루트에서 user-config.json 파일을 엽니다. "&lt;YOUR CONNECTION STRING HERE&gt;"라는 텍스트를 이전 섹션의 IoT Hub 연결 문자열로 바꾸고 파일을 저장합니다.
+
+7. 명령 프롬프트에서 다음 명령을 실행하여 장치 관리 UX 앱을 시작합니다.
+
+	```
+	npm run start
+	```
+
+8. 명령 프롬프트가 "서비스 시작"을 보고하면 웹 브라우저(Edge/IE 11+/Safari/Chrome은 현재 지원됨)를 열고 다음 URL에서 장치 관리 앱으로 이동하여 시뮬레이션된 장치를 봅니다. <http://127.0.0.1:3003>.
+
+	![][img-dm-ui]
+
+다음 장치 관리 자습서를 진행하면서 시뮬레이션된 장치 및 장치 관리 앱을 계속 실행합니다.
+
 
 ## 다음 단계
 
-Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자습서를 차례로 실행해 볼 수 있습니다.
-
-- [장치 쌍을 사용하는 방법][lnk-tutorial-twin]
-
-- [쿼리를 사용하여 장치 쌍을 찾는 방법][lnk-tutorial-queries]
-
-- [장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법][lnk-tutorial-jobs]
+Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [샘플 UI를 사용하여 Azure IoT Hub 장치 관리 탐색][lnk-sample-ui] 자습서를 참조하세요.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -144,12 +186,12 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [img-keys]: media/iot-hub-device-management-get-started/image4.png
 [img-connection]: media/iot-hub-device-management-get-started/image5.png
 [img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure 포털]: https://portal.azure.com/
 [리소스 그룹을 사용하여 Azure 리소스 관리]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

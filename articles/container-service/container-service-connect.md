@@ -21,7 +21,7 @@
 
 # Azure 컨테이너 서비스 클러스터에 연결
 
-Azure 컨테이너 서비스에 의해 배포되는 DC/OS 및 Swarm 클러스터는 REST 끝점을 노출합니다. 그러나 이러한 끝점 외부에 열려 있지 않습니다. 이러한 끝점을 관리하기 위해 SSH(보안 셸) 터널을 만들어야 합니다. SSH 터널이 설정되면 클러스터 끝점에 대해 명령을 실행하고 사용자 자신의 시스템에 있는 브라우저를 통해 클러스터 UI를 볼 수 있습니다. 이 문서에서는 Linux, OSX 및 Windows에서 SSH 터널을 만드는 방법을 안내합니다.
+Azure 컨테이너 서비스에 의해 배포되는 DC/OS 및 Docker Swarm 클러스터는 REST 끝점을 노출합니다. 그러나 이러한 끝점 외부에 열려 있지 않습니다. 이러한 끝점을 관리하기 위해 SSH(보안 셸) 터널을 만들어야 합니다. SSH 터널이 설정되면 클러스터 끝점에 대해 명령을 실행하고 사용자 자신의 시스템에 있는 브라우저를 통해 클러스터 UI를 볼 수 있습니다. 이 문서에서는 Linux, OSX 및 Windows에서 SSH 터널을 만드는 방법을 안내합니다.
 
 >[AZURE.NOTE] 클러스터 관리 시스템으로 SSH 세션을 만들 수 있습니다. 그러나 권장하지 않습니다. 관리 시스템에서 직접 작업하면 의도하지 않은 구성 변경에 대한 위험에 노출됩니다.
 
@@ -34,14 +34,14 @@ Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부�
 
 이제, 셸을 열고 다음 명령을 실행합니다. 여기서,
 
-**PORT**는 노출하려는 끝점의 포트입니다. Swarm의 경우 2375입니다. DC/OS의 경우 포트 80을 사용합니다. **USERNAME**은 클러스터를 배포할 때 제공된 사용자 이름입니다. **DNSPREFIX**는 클러스터를 배포할 때 제공한 DNS 접두사입니다. **REGION**은 리소스 그룹이 있는 하위 지역입니다. **PATH\_TO\_PRIVATE\_KEY** [선택 사항]은 컨테이너 서비스 클러스터를 만들 때 사용자가 제공한 공개 키에 해당하는 개인 키의 경로입니다. -i 플래그와 함께 이 옵션을 사용합니다.
+**PORT**는 노출하려는 끝점의 포트입니다. Swarm의 경우 2375입니다. DC/OS의 경우 포트 80을 사용합니다. **USERNAME**은 클러스터를 배포할 때 제공된 사용자 이름입니다. **DNSPREFIX**는 클러스터를 배포할 때 제공한 DNS 접두사입니다. **REGION**은 리소스 그룹이 있는 하위 지역입니다. **PATH\_TO\_PRIVATE\_KEY** [선택 사항]은 컨테이너 서비스 클러스터를 만들 때 제공한 공개 키에 해당하는 개인 키에 대한 경로입니다. -i 플래그와 함께 이 옵션을 사용합니다.
 
 ```bash
 # ssh sample
 
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> SSH 연결 포트는 표준 22가 아니라 2200입니다
+> SSH 연결 포트는 표준 22가 아니라 2200입니다.
 
 ## DC/OS 터널
 
@@ -71,7 +71,7 @@ Swarm 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행�
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-이제 다음과 같이 DOCKER\_HOST 환경 변수에 설정하고 정상적으로 Docker CLI(명령줄 인터페이스)를 계속 사용할 수 있습니다.
+이제 다음과 같이 DOCKER\_HOST 환경 변수를 설정할 수 있습니다. 정상적으로 Docker CLI(명령줄 인터페이스)를 계속 사용할 수 있습니다.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -87,11 +87,11 @@ Windows 시스템으로 PuTTY를 다운로드하고 응용 프로그램을 실�
 
 ![PuTTY 구성 1](media/putty1.png)
 
-`SSH` 및 `Authentication`을 선택합니다. 인증을 위한 개인 키 파일을 추가합니다.
+**SSH** 및 **인증**을 선택합니다. 인증을 위한 개인 키 파일을 추가합니다.
 
 ![PuTTY 구성 2](media/putty2.png)
 
-`Tunnels`을 선택하고 다음 전달된 포트를 구성합니다.
+**터널**을 선택하고 다음 전달된 포트를 구성합니다.
 - **원본 포트:** 기본 설정은 DC/OS의 경우 80 또는 Swarm의 경우 2375를 사용합니다.
 - **대상:** localhost:80(DC/OS) 또는 localhost:2375(Swarm)를 사용합니다.
 
@@ -117,6 +117,7 @@ Docker Swarm에 터널을 구성한 경우 Docker CLI를 통해 Swarm 클러스�
 
 DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
-[Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
+- [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
+- [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 # Azure 기계 학습 스튜디오란?
@@ -47,6 +47,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 
 **스튜디오** 탭을 클릭하면 Microsoft 계정이나 회사 또는 학교 계정을 사용하여 로그인하라는 메시지가 표시됩니다. 로그인하면 왼쪽에 다음과 같은 탭이 표시됩니다.
 
+- **프로젝트** - 단일 프로젝트를 나타내는 실험, 데이터 집합, notebooks 및 기타 리소스의 컬렉션입니다.
 - **실험** - 만들고 실행하고 초안으로 저장한 실험입니다.
 - **웹 서비스** - 실험에서 배포한 웹 서비스입니다.
 - **노트북** - 사용자가 만든 Jupyter 노트북입니다.
@@ -115,4 +116,4 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

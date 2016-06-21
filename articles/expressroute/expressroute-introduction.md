@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 기술 개요
@@ -68,6 +68,8 @@ Microsoft에서는 업계 표준 동적 라우팅 프로토콜(BGP)을 사용하
 각 Express 경로 회로는 연결 공급자/네트워크 Edge에서 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/사용자 쪽에서 이중 BGP 연결이 필요합니다. 종단에 중복 장치/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 장치를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](https://azure.microsoft.com/support/legal/sla/)가 유효한 경우 요구됩니다.
 
 ### Microsoft 클라우드 서비스에 연결
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 Express 경로 연결을 사용하면 다음 서비스에 액세스할 수 있습니다.
 
@@ -134,4 +136,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->
