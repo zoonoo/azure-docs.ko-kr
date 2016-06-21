@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="06/01/2016"
    ms.author="hascipio" />
 
 # Azure 마켓플레이스에 제품을 게시하는 방법
@@ -44,11 +44,12 @@
 | **4단계: 마켓플레이스로 제품 배포** | [마켓플레이스로 제품 배포][link-pushprod] | 비공개 미리 보기 | [마켓플레이스로 제품 배포][link-pushprod] | [마켓플레이스로 제품 배포][link-pushprod] |
 
 ## 지원
-- [게시자로 지원 받기][suppt-general]
+- [가상 컴퓨터에 대한 프로덕션 이후 가이드](marketplace-publishing-vm-image-post-publishing.md)
 - [판매자 통찰력 보고 이해][suppt-rpt-insights]
 - [지급 보고 이해][suppt-rpt-payouts]
 - [클라우드 솔루션 공급자 대리점 인센티브를 변경하는 방법](marketplace-publishing-csp-incentive.md)
 - [마켓플레이스에서 일반적인 게시 문제 해결][suppt-common]
+- [게시자로 지원 받기][suppt-general]
 
 ## 추가 리소스
 - 사용한 포털에 대한 자세한 내용은 [필요한 포털](marketplace-publishing-portals.md)을 참조하세요.
@@ -82,4 +83,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

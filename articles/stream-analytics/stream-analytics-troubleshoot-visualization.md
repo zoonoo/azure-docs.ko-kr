@@ -30,7 +30,7 @@
 
 이 시각화 도우미에 액세스하려면 스트림 분석 작업의 "설정" 블레이드에서 "진단 다이어그램" 단추를 클릭하면 됩니다.
 
-![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 모든 입력 및 출력은 아래와 같이 해당 구성 요소의 현재 상태를 나타내기 위해 색으로 표시됩니다.
 
@@ -51,4 +51,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

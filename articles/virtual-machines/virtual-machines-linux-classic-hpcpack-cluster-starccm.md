@@ -156,9 +156,6 @@ Azure 파일 공유를 탑재하려면
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Linux 드라이버 업데이트
-최종적으로 Linux 계산 노드의 InfiniBand 드라이버를 업데이트해야 할 수 있습니다. 자세한 내용은 [SLES 12용 Linux RDMA 드라이버 업데이트](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12) 문서를 참조하세요.
-
 ## STAR-CCM+ 설치
 Azure VM 인스턴스 A8 및 A9는 InfiniBand 지원 및 RDMA 기능을 제공합니다. 이러한 기능을 구현하는 커널 드라이버는 Azure 마켓플레이스에서 Windows Server 2012 R2, SUSE 12, CentOS 6.5, CentOS 7.1 이미지에 사용할 수 있습니다. Microsoft MPI 및 Intel MPI(릴리스 5.x)는 Azure에서 해당 드라이버를 지원하는 두 MPI 라이브러리입니다.
 
@@ -289,11 +286,11 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
     exit ${RTNSTS}
 ```
 
-이 테스트에서는 Power-On-Demand 라이선스 토큰을 사용했습니다. 이 테스트에서는 **$CDLMD\_LICENSE\_FILE** 환경 변수를 ****1999@flex.cd-adapco.com**으로 설정하고 명령줄의 **-podkey** 옵션에 키를 설정해야 합니다.
+이 테스트에서는 Power-On-Demand 라이선스 토큰을 사용했습니다. 이 테스트에서는 **$CDLMD\_LICENSE\_FILE** 환경 변수를 **1999@flex.cd-adapco.com**으로 설정하고 명령줄의 **-podkey** 옵션에 키를 설정해야 합니다.
 
 일부 초기화 후에는 스크립트가 (HPC 팩이 설정하는 **$CCP\_NODES\_CORES** 환경 변수에서) 노드 목록을 추출하여 MPI 시작 관리자가 사용하는 hostfile을 작성합니다. 이 hostfile에는 작업에 사용된 계산 노드 이름의 목록이 포함되며, 한 줄당 하나의 이름이 포함됩니다.
 
-**$CCP\_NODES\_CORES** 형식은 이 패턴을 따릅니다.
+**$CCP\_NODES\_CORES**의 형식은 이 패턴을 따릅니다.
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -348,4 +345,4 @@ Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니�
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

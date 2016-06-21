@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # 내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
@@ -117,4 +117,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

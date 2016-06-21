@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Monthly estimated cost trend(월간 예상 비용 추세)
@@ -28,11 +28,11 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
-1. **설정**을 탭합니다.
+1. **설정**을 선택합니다.
 
 	![설정](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
@@ -69,4 +69,4 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 - [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 - [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

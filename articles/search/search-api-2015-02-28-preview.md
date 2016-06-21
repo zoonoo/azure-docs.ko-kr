@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
@@ -52,6 +52,10 @@ Azure 검색 서비스 API는 API 작업을 위한 두 URL 구문, 즉 simple �
 [인덱스 통계 가져오기](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[테스트 분석기](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [인덱스 삭제](#DeleteIndex)
 
@@ -168,6 +172,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 - `fields`: 이름, 데이터 형식 및 해당 필드에 대해 허용되는 작업을 정의하는 속성을 포함하여 이 인덱스에 공급할 필드입니다.
 - `suggesters`: 자동 완성 또는 미리 입력 쿼리에 사용됩니다.
 - `scoringProfiles`: 사용자 지정 검색 점수 순위에 사용됩니다. 자세한 내용은 [점수 매기기 프로필 추가](https://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters`: 문서/쿼리를 인덱싱 가능/검색 가능 토큰으로 구분하는 방법을 정의하는 데 사용됩니다. 자세한 내용은 [Azure 검색의 분석](https://aka.ms//azsanalysis)을 참조하세요.
 - `defaultScoringProfile`: 기본 점수 매기기 동작을 덮어쓰는 데 사용됩니다.
 - `corsOptions`: 인덱스에 대한 교차 원본 쿼리를 허용합니다.
 
@@ -233,6 +238,10 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -804,6 +813,10 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -817,6 +830,14 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 요청이 성공적으로 실행되면 “204 콘텐츠 없음”이 반환됩니다.
 
 기본적으로 응답 본문은 비어 있습니다. 그러나 `Prefer` 요청 헤더가 `return=representation`으로 설정되어 있으면 응답 본문에는 업데이트된 인덱스 정의의 JSON이 포함됩니다. 이 경우의 성공 상태 코드는 "200 OK"입니다.
+
+**사용자 지정 분석기로 인덱스 정의 업데이트**
+
+분석기, 토크나이저, 토큰 필터 또는 문자 필터는 일단 정의한 후에는 수정할 수 없습니다. 인덱스 업데이트 요청에서 `allowIndexDowntime` 플래그가 true로 설정된 경우에만 이러한 새 항목을 기존 인덱스에 추가할 수 있습니다.
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+이 작업 중에 인덱스가 몇 초 이상 오프라인 상태가 되면 인덱싱 및 쿼리 요청이 실패합니다. 인덱스의 성능 및 쓰기 가용성은 인덱스를 업데이트한 후 몇 분 동안, 인덱스가 아주 큰 경우에는 더 긴 시간 동안 제대로 작동하지 않을 수 있습니다.
 
 <a name="ListIndexes"></a>
 ## 인덱스 나열
@@ -987,6 +1008,100 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
     {
       "documentCount": number,
 	  "storageSize": number (size of the index in bytes)
+    }
+
+<a name="TestAnalyzer"></a>
+## 테스트 분석기
+
+**분석 API**는 분석기가 텍스트를 토큰으로 구분하는 방법을 보여 줍니다.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**요청**
+
+모든 서비스 요청에는 HTTPS를 사용해야 합니다. **분석 API** 요청을 POST 메서드를 사용하여 생성할 수 있습니다.
+
+`api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
+
+
+**요청 헤더**
+
+다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
+
+- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **분석 API** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
+
+요청 URL을 생성하려면 인덱스 이름과 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+
+**요청 본문**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+또는
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+`analyzer_name`, `tokenizer_name`, `token_filter_name` 및 `char_filter_name`은 인덱스에 대한 사전 정의 또는 사용자 지정 분석기, 토크나이저, 토큰 필터 및 문자 필터의 유효한 이름이어야 합니다. 어휘 분석 프로세스에 대한 자세한 내용은 [Azure 검색에서 분석](https://aka.ms/azsanalysis)을 참조하세요.
+
+**응답**
+
+상태 코드: 응답에 성공하면 ‘200 OK’가 반환됩니다.
+
+응답 본문의 형식은 다음과 같습니다.
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**분석 API 예제**
+
+**요청**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**응답**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
     }
 
 ________________________________________
@@ -1853,4 +1968,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

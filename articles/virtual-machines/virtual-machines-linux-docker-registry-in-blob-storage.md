@@ -61,6 +61,7 @@ Microsoft Azure에서 Docker 레지스트리 인스턴스를 호스팅하고 Azu
 편의상 이 항목에서는 환경 변수를 사용하는 옵션 2를 수행합니다.
 
 다음과 같은 Docker 레지스트리 인스턴스를 실행하려면:
+
 * 이미지를 저장하는 데 Azure 저장소 계정 사용
 * 가상 컴퓨터의 포트 5000에서 수신 대기
 * 구성된 인증 없음(권장하지 않음, 아래 설명 참조)
@@ -99,4 +100,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

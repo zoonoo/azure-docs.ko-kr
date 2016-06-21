@@ -64,6 +64,11 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### Data Factory의 이름을 바꿀 수 있나요?
 아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
+### 데이터 팩터리를 Azure 구독 간에 이동할 수 있나요? 
+예. 데이터 팩터리 블레이드의 **이동** 단추를 아래와 같이 사용합니다.
+
+![데이터 팩터리 이동](media/data-factory-faq/move-data-factory.png)
+
 ## 작업 - FAQ
 ### Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요? 
 
@@ -182,4 +187,4 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

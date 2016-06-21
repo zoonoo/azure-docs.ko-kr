@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/06/2016"
 	ms.author="anandy"/>
 
 
@@ -47,4 +47,4 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

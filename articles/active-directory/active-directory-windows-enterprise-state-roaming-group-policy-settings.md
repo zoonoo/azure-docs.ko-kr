@@ -5,7 +5,7 @@
     keywords="엔터프라이즈 상태 로밍에 대한 그룹 정책 및 MDM 설정이란, 엔터프라이즈 상태 로밍, windows 클라우드"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # 그룹 정책 및 MDM 설정
@@ -24,20 +24,20 @@
 개인(관리되지 않는) 장치에 대한 로밍을 관리하려는 기업은 그룹 정책이나 MDM 대신 Azure 포털을 사용하여 로밍을 활성화 또는 비활성화할 수 있습니다. 다음은 사용 가능한 정책을 설명하는 테이블입니다.
 
 ## MDM 설정
-MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.
+MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다. Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다. Azure AD 기반 동기화가 지원되는 장치에 대한 내용은 "장치 및 끝점" 섹션을 참조하세요.
 
 | 이름 | 설명 |
 |------------------------------------|----------------------------------------------------------------------|
 | Microsoft 계정 연결 허용 | 사용자가 장치에서 Microsoft 계정을 사용하여 인증 가능 |
-| 내 설정 동기화 허용 | 사용자가 Windows 설정 및 앱 데이터 로밍 가능 |
- 
+| 내 설정 동기화 허용 | 사용자가 Windows 설정 및 앱 데이터 로밍 가능: 이 정책을 사용하지 않도록 설정하면 모바일 장치의 동기화 및 백업이 모두 사용되지 않도록 설정됩니다. |
+
 ## 그룹 정책 설정
-그룹 정책 설정은 Active Directory 도메인에 조인된 Windows 10 장치에 적용됩니다. 이 테이블에는 동기화 설정을 관리하지만 Windows 10의 엔터프라이즈 상태 로밍을 지원하지 않는 기존 설정이 포함되어 있습니다.
+그룹 정책 설정은 Active Directory 도메인에 조인된 Windows 10 장치에 적용됩니다. 이 테이블에는 동기화 설정을 관리하지만 Windows 10의 엔터프라이즈 상태 로밍을 지원하지 않는(설명에 ‘사용 안 함'으로 표시) 기존 설정도 포함되어 있습니다.
 
 | 이름 | 설명 |
 |-------------------------------------|-------------|
 | 계정: Microsoft 계정 차단 |이 정책 설정은 사용자가 이 컴퓨터에서 새 Microsoft 계정을 추가하지 못하게 차단합니다.|
-| 동기화 안 함 |사용자가 Windows 설정 및 앱 데이터 로밍 가능|
+| 동기화 안 함 |사용자의 Windows 설정 및 앱 데이터 로밍 금지|
 | 개인 설정 동기화 안 함 |테마 그룹 동기화 비활성화|
 | 브라우저 설정 동기화 안 함 |Internet Explorer 그룹 동기화 비활성화|
 | 암호 동기화 안 함 |암호 그룹 동기화 비활성화|
@@ -55,4 +55,4 @@ MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.
 - [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

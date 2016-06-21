@@ -42,7 +42,7 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기](virtual-machines-linux-portal-create.md)에 나와 있는 지침에 따라 *Ubuntu Server 14.04 LTS* 배포판의 Azure 가상 컴퓨터를 만듭니다. 원하는 경우 SSH 공용 키 대신 암호 인증을 선택할 수 있습니다.
+1. [여기](virtual-machines-linux-quick-create-portal.md)에 나와 있는 지침에 따라 *Ubuntu Server 14.04 LTS* 배포판의 Azure 가상 컴퓨터를 만듭니다. 원하는 경우 SSH 공용 키 대신 암호 인증을 선택할 수 있습니다.
 
 1. 들어오는 HTTP 트래픽을 포트 80에 허용하려면 [여기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)의 지침을 사용하여 네트워크 보안 그룹을 편집합니다.
 
@@ -126,4 +126,4 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

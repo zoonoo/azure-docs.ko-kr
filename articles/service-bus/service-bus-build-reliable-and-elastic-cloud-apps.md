@@ -29,7 +29,7 @@
  
 ## 빌드
 
-- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md) 
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md) 
 - [서비스 버스 조정된 메시징의 배달 못한 메시지(2011년 10월 21일 블로그 게시물)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [서비스 버스 중단 및 재해로부터 서비스 버스 응용 프로그램을 보호하는 최상의 방법](service-bus-outages-disasters.md)
 - [조정된 메시징: 요청 응답 예제](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@
 - [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

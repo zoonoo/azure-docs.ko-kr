@@ -1,14 +1,16 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes or documents, whichever comes first. 
+저장소는 디스크 공간이나 인덱스 또는 문서 *최대 수*의 엄격한 제한 중에서 먼저 충족되는 값에 따라 제한됩니다.
 
-Resource|Free|Basic|S1|S2|S3 <br/>(Preview)|S3 HD <br/>(Preview)
+리소스|무료|Basic|S1|S2|S3<br/>(미리 보기)|S3 HD<br/>(미리 보기)
 ---|---|---|---|----|---|----
-Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
-Storage per service|50 MB |2 GB|300 GB|1.2 TB|2.4 TB|200 GB
-Partitions per service|N/A|1|12|12|12|1
-Partition size|N/A|2 GB|25 GB|100 GB|200 GB |200 GB
-Replicas|N/A|1|12|12|12|12
-Maximum Indexes|3|5|50|200|200|1000
-Maximum Documents|10,000|1 million|180 million per service, 15 million per partition |720 million documents per service, 60 million per partition|1.4 billion documents per service, 120 million per partition|200 million per service, 1 million per index
-Estimated queries per second (QPS)|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+SLA(서비스 수준 계약)|아니요 <sup>1</sup> |예 |예 |예 |아니요 <sup>1</sup> |아니요 <sup>1</sup> 
+서비스당 저장소|50MB |2 GB|300GB|1\.2TB|2\.4TB|200GB
+서비스당 파티션|해당 없음|1|12|12|12|1
+파티션 크기|해당 없음|2 GB|25GB|100GB|200GB |200GB
+복제본|해당 없음|1|12|12|12|12
+최대 인덱스|3|5|50|200|200|1000
+최대 문서|10000|1백만|서비스당 1억 8천만, 파티션당 1천 5백만 |서비스당 7억 2천만, 파티션당 6천만|서비스당 14억, 파티션당 1억 2천만|서비스당 2억, 인덱스당 백만
+QPS(초당 예상 쿼리 수)|해당 없음|복제본당 3이하|복제본당 15이하|복제본당 60이하|복제본당 60 초과|복제본당 60 초과
 
-<sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
+<sup>1</sup> 무료 및 미리 보기 SKU에는 SLA가 함께 제공되지 않습니다. SLA는 SKU가 일반 공급되면 적용됩니다.
+
+<!---HONumber=AcomDC_0608_2016-->

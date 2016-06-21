@@ -36,13 +36,13 @@ ms.author="garye;haining"/>
 
 >[AZURE.NOTE] 이 예제를 함께 수행하려면 무료 작업 영역보다는 표준 작업 영역을 사용하는 것이 좋습니다. 고객당 끝점 하나(총 10개 끝점)를 만들고 무료 작업 영역이 3개 끝점으로 제한되므로 이를 위해서는 표준 작업 영역이 필요합니다. 무료 작업 영역만 있는 경우 3개의 위치만 허용하도록 아래 스크립트를 수정하세요.
 
-이 실험에서는 **판독기** 모듈을 사용하여 Azure 저장소 계정에서 학습 데이터 집합 *customer001.csv*를 가져옵니다. 모든 자전거 임대 위치에서 학습 데이터 집합을 수집하고 이를 *rentalloc001.csv* ~ *rentalloc10.csv* 범위의 파일 이름으로 동일한 Blob 저장소 위치에 저장한다고 가정해 보겠습니다.
+이 실험에서는 **데이터 가져오기** 모듈을 사용하여 Azure 저장소 계정에서 학습 데이터 집합 *customer001.csv*를 가져옵니다. 모든 자전거 임대 위치에서 학습 데이터 집합을 수집하고 이를 *rentalloc001.csv* ~ *rentalloc10.csv* 범위의 파일 이름으로 동일한 Blob 저장소 위치에 저장한다고 가정해 보겠습니다.
 
 ![이미지](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 **웹 서비스 출력** 모듈이 **모델 학습** 모듈에 추가되었습니다. 이 실험을 웹 서비스로 배포할 때 해당 출력과 연결된 끝점에서 학습된 모델을 .ilearner 파일 형식으로 반환합니다.
 
-또한 **판독기** 모듈에서 사용하는 URL에 대한 웹 서비스 매개 변수를 설정합니다. 이렇게 하면 각 위치에 대한 모델을 학습하기 위한 개별 학습 데이터 집합을 지정하는 데 매개 변수를 사용할 수 있습니다. 이를 수행할 수 있는 다른 방법으로, SQL Azure 데이터베이스에서 데이터를 가져오는 데 SQL 쿼리와 웹 서비스 매개 변수를 사용하거나 단순히 **웹 서비스 입력** 모듈을 사용하여 데이터 집합을 웹 서비스에 전달합니다.
+또한 **데이터 가져오기** 모듈에서 사용하는 URL에 대한 웹 서비스 매개 변수를 설정합니다. 이렇게 하면 각 위치에 대한 모델을 학습하기 위한 개별 학습 데이터 집합을 지정하는 데 매개 변수를 사용할 수 있습니다. 이를 수행할 수 있는 다른 방법으로, SQL Azure 데이터베이스에서 데이터를 가져오는 데 SQL 쿼리와 웹 서비스 매개 변수를 사용하거나 단순히 **웹 서비스 입력** 모듈을 사용하여 데이터 집합을 웹 서비스에 전달합니다.
 
 ![이미지](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -159,4 +159,4 @@ ms.author="garye;haining"/>
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

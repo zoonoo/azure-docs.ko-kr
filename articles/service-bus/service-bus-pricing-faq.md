@@ -80,7 +80,7 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 	- **큐/항목/구독** - 큐/항목/구독에 동시 TCP 연결 수가 100개로 제한됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. 모든 메시징 팩터리의 경우 해당 메시징 팩터리에서 만든 클라이언트가 활성 작업을 보류하거나 60초 이내에 작업을 완료한 경우 서비스 버스는 하나의 TCP 연결을 유지합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다.
 
 
-- **릴레이에서 동시 수신기 수** – 릴레이에서 동시 **netTcpRelay** 및 **netHttpRelay ** 수신기 수를 25개로 제한합니다.(**NetOneway** 릴레이에 1개)
+- **릴레이에서 동시 수신기 수** – 릴레이에서 동시 **netTcpRelay** 및 **netHttpRelay** 수신기 수를 25개로 제한합니다.(**NetOneway** 릴레이에 1개)
 
 - **네임스페이스 당 동시 릴레이 수신기 수** – 서비스 버스는 서비스 네임스페이스 당 동시 릴레이 수신기를 2000개로 제한합니다. 이 할당량에 도달하면 후속 추가 릴레이 수신기를 열기 위한 요청이 거부되며 호출 코드에서 예외를 수신합니다.
 
@@ -112,8 +112,8 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 - [Azure 서비스 버스 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
-- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
+- [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

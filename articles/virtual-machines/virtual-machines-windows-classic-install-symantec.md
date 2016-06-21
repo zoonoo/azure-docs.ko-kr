@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
 
 이 문서에서는 Windows Server가 실행되는 새 VM(가상 컴퓨터) 또는 기존 VM에서 Symantec Endpoint Protection 클라이언트를 설치하고 구성하는 방법을 보여 줍니다. 이 제품은 바이러스 및 스파이웨어 보호, 방화벽, 침입 방지와 같은 서비스를 포함하는 전체 클라이언트입니다.
 
@@ -98,4 +97,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

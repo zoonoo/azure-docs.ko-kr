@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="06/06/2016"
  ms.author="nberdy"/>
 
 # 작업 모니터링 소개
@@ -122,6 +122,25 @@ IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
          "deviceId": "device-ID"
     }
 
+### 파일 업로드
+
+파일 업로드 범주는 IoT Hub에서 발생하고 파일 업로드 기능과 관련된 오류를 추적합니다. 여기에는 SAS URI에서 발생하는 오류(예: 장치가 허브에 업로드 완료 사실을 알리기 전에 만료되는 경우), 장치에서 보고한 실패한 업로드, IoT Hub 알림 메시지를 만드는 동안 저장소에서 파일을 찾을 수 없는 경우 등이 포함됩니다. 이 범주는 장치가 저장소로 파일을 업로드하는 동안 직접 발생하는 오류를 검색할 수 없습니다.
+
+    {
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## 다음 단계
 
 지금까지 작업 모니터링의 개요를 살펴보았습니다. 자세한 내용을 보려면 다음 링크를 따라가십시오.
@@ -139,4 +158,4 @@ IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

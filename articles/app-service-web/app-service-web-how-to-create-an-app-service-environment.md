@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경을 만드는 방법 #
@@ -36,7 +36,7 @@ ASE 만들기에는 다음 정보를 제공하는 고객이 필요합니다.
 - ASE에 만든 모든 앱은 ASE 자체와 동일한 구독에 포함됩니다.
 - ASE를 만드는 데 사용된 구독에 액세스할 수 없는 경우 ASE는 앱을 만드는 데 사용할 수 없습니다.
 - ASE를 호스트하는 데 사용되는 VNET은 지역 클래식 "v1" VNET이어야 합니다. 
-- ASE를 호스트하는 데 사용되는 서브넷은 다른 계산 리소스를 포함해서는 안 됩니다.
+- **ASE를 호스트하는 데 사용되는 서브넷은 다른 계산 리소스를 포함해서는 안 됩니다.**
 - 하나의 ASE만 서브넷에 있을 수 있습니다.
 - 현재 RFC1918 주소 공간(즉, 개인 주소)을 사용하는 가상 네트워크만 지원됩니다.
 
@@ -165,4 +165,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

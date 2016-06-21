@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # 자습서: .NET SDK를 사용하여 Azure 데이터 레이크 분석 시작
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 데이터 레이크 분석 작업을 정의하고, 작업을 데이터 레이크 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+Azure .NET SDK를 사용하여 Azure Data Lake 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 Data Lake 분석 작업을 정의하고, 작업을 Data Lake 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 이 자습서에서는 TSV(탭으로 구분된 값) 파일을 읽어 CSV(쉼표로 구분된 값) 파일로 변환하는 U-SQL 스크립트가 포함된 C# 콘솔 응용 프로그램을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
 
@@ -45,7 +45,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
 
 1. Visual Studio를 엽니다.
 2. C# 콘솔 응용 프로그램을 만듭니다.
-3. Nuget 패키지 관리 콘솔을 열고 다음 명령을 실행합니다.
+3. NuGet 패키지 관리 콘솔을 열고 다음 명령을 실행합니다.
 
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
@@ -360,4 +360,4 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

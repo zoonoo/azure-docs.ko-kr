@@ -28,7 +28,7 @@
 
 -   스트레치에 대해 데이터베이스를 구성하기 전에 스트레치 데이터베이스 관리자를 실행하여 스트레치에 적합한 데이터베이스 및 테이블을 식별하는 것이 좋습니다. 스트레치 데이터베이스 관리자는 차단 문제도 식별합니다. 자세한 내용은 [스트레치 데이터베이스용 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)을 참조하세요.
 
--   [스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 검토합니다.
+-   [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 검토하세요.
 
 -   스트레치 데이터베이스는 데이터를 Azure에 마이그레이션합니다. 따라서 대금 청구를 위한 Azure 계정 및 구독이 있어야 합니다. Azure 계정을 얻으려면 [여기를 클릭](http://azure.microsoft.com/pricing/free-trial/)하세요.
 
@@ -52,7 +52,7 @@ GO
 자세한 내용은 [원격 데이터 보관 서버 구성 옵션 구성](https://msdn.microsoft.com/library/mt143175.aspx) 및 [sp\_configure(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188787.aspx)를 참조하세요.
 
 ## <a name="Wizard"></a>마법사를 사용하여 데이터베이스에서 스트레치 데이터베이스를 사용하도록 설정
-입력해야 하는 정보 및 선택해야 하는 항목을 포함하여 스트레치에 데이터베이스 사용 마법사에 대한 자세한 내용은 [스트레치에 데이터베이스 사용](sql-server-stretch-database-wizard.md) 마법사를 참조하세요.
+입력해야 하는 정보 및 선택해야 하는 항목을 포함하여 스트레치에 데이터베이스 사용 마법사에 대한 자세한 내용은 [스트레치에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md)을 참조하세요.
 
 ## <a name="EnableTSQLDatabase"></a>Transact-SQL을 사용하여 데이터베이스에서 스트레치 데이터베이스를 사용하도록 설정
 개별 테이블에서 스트레치 데이터베이스를 사용하도록 설정하려면 먼저 데이터베이스에서 사용하도록 설정해야 합니다.
@@ -125,7 +125,7 @@ GO
 
 -   [스트레치 데이터베이스 관리 및 문제 해결](sql-server-stretch-database-manage.md)
 
--   [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
+-   [스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md)
 
 ## 참고 항목
 
@@ -133,4 +133,4 @@ GO
 
 [ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

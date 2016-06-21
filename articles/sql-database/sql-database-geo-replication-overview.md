@@ -62,7 +62,7 @@
 
 - **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [ARM 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [ARM(Azure Resource Manager) API](sql-database-geo-replication-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
->[AZURE.NOTE] 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager(ARM)](../resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL 데이터베이스 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 기존 [Azure SQL Service Management(클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL 데이터베이스(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 ARM 기반 API를 사용하는 것이 좋습니다.
+>[AZURE.NOTE] 활성 지역 복제의 여러 새로운 기능은 [ARM(Azure Resource Manager)](../resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL 데이터베이스 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 기존 [Azure SQL Service Management(클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL 데이터베이스(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 ARM 기반 API를 사용하는 것이 좋습니다.
 
 ## 중요한 데이터 손실 방지
 광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 이렇게 하면 오류가 발생하는 경우 일부 데이터 손실은 불가피합니다. 그러나 일부 응용 프로그램은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 응용 프로그램 개발자는 트랜잭션을 커밋한 후 즉시 [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx) 시스템 프로시저를 호출할 수 있습니다. **sp\_wait\_for\_database\_copy\_sync** 호출은 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 복제될 때까지 호출 스레드를 차단합니다. 프로시저는 보조 데이터베이스에서 대기 중인 모든 트랜잭션을 승인할 때까지 기다립니다. **sp\_wait\_for\_database\_copy\_sync** 범위는 특정 연속 복사 링크로 지정됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
@@ -76,4 +76,4 @@
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

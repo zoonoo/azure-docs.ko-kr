@@ -123,7 +123,8 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
     this.listeningAddress = string.Format(
                 CultureInfo.InvariantCulture,
-                "http://+:{0}/");
+                "http://+:{0}/",
+                port);
                         
     this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
             
@@ -162,7 +163,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 public delegate FabricClient CreateFabricClientDelegate();
 ```
 
-`FabricClient`은 서비스 패브릭 클러스터의 다양한 관리 작업에서 클러스터와 통신하는 데 사용되는 개체입니다. `ServicePartitionClient`가 클러스터와 상호 작용하는 방법을 더 제어하려는 경우에 유용합니다.`FabricClient`은 내부적으로 캐싱을 수행하며 만드는 데 일반적으로 비용이 많이 드므로 `FabricClient` 인스턴스를 최대한 많이 다시 사용하는 것이 중요합니다.
+`FabricClient`은 서비스 패브릭 클러스터의 다양한 관리 작업에서 클러스터와 통신하는 데 사용되는 개체입니다. `ServicePartitionClient`와 클러스터가 상호 작용하는 방법을 더 제어하려는 경우에 유용합니다. `FabricClient`은 내부적으로 캐싱을 수행하며 일반적으로 만드는 비용이 많이 드므로 `FabricClient` 인스턴스를 최대한 많이 다시 사용하는 것이 중요합니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -281,4 +282,4 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 
  - [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

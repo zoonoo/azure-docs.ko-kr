@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴"
+   pageTitle="Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴 | Microsoft Azure" 
    description="이 문서는 클라우드 환경에서 실행되는 다중 테넌트 데이터베이스 응용 프로그램에 대해 고려해야 하는 요구 사항과 일반적인 데이터 아키텍처 패턴을 설명하고 이러한 패턴과 관련된 다양한 장단점을 설명합니다. Azure SQL 데이터베이스가 탄력적 데이터베이스 풀을 통해 서비스를 제공하는 방식과 탄력적 도구가 손상되지 않는 방식으로 이러한 요구 사항의 처리를 지원하는 방식도 설명합니다."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴
@@ -172,4 +172,4 @@ Azure SQL 데이터베이스는 테넌트 데이터베이스 간의 리소스 �
 
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

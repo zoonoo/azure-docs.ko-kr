@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # v2.0 인증 프로토콜에 대한 중요 업데이트
@@ -67,7 +67,8 @@ OpenID Connect 메타데이터 끝점에서 검색된 토큰의 서명 유효성
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-응답은 다음과 같은 JSON 개체처럼 보입니다. ```
+응답은 다음과 같은 JSON 개체처럼 보입니다.
+```
 { 
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -216,4 +217,4 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 
 Microsoft ID 부서
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

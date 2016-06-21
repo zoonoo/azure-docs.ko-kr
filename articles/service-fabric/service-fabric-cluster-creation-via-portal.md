@@ -100,15 +100,11 @@
 
 15. 옵션: 서비스 **패브릭 클러스터 설정**을 지정합니다. 이는 고급 옵션이므로 서비스 패브릭 클러스터에 대한 기본 설정을 변경할 수 있습니다. 응용 프로그램 또는 클러스터에 확실히 필요하지 않으면 기본값을 변경하지 않는 것이 좋습니다.
 
-
-
 ## 3단계- 보안 구성
 
-현재 서비스 패브릭에서는 x509 인증서를 통해서만 클러스터 보안을 지원합니다. 이 프로세스를 시작하기 전에 주요 자격 증명 모음에 인증서를 업로드해야 합니다. 이에 대한 자세한 방법은 [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)을 참조하세요.
+보안 시나리오 및 개념은 [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)에 설명되어 있습니다. 현재, 서비스 패브릭은 X509 인증서를 통한 클러스터 보안 유지를 지원합니다. 이 작업을 수행하는 방법에 대한 단계를 보려면 [인증서를 사용하여 Azure에서 서비스 패브릭 클러스터 보호](service-fabric-secure-azure-cluster-with-certs.md)를 참조하세요.
 
 클러스터 보안은 선택 사항이지만 강력하게 권장합니다. 클러스터 보안을 설정하지 않으려면 **보안 모드**를 **안전하지 않음**으로 전환합니다. 보안되지 않은 클러스터는 나중에 보안되는 클러스터로 업데이트할 수 **없습니다**.
-
-보안 고려 사항 및 지침은 [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)에 설명되어 있습니다.
 
 ![Azure 포털의 보안 구성 스크린샷][SecurityConfigs]
 
@@ -207,7 +203,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 ## 가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결
 
-클러스터에서 지정한 각 NodeType에 따라 VM 크기 집합이 설정됩니다. 자세한 내용은 [VM 크기 집합 인스턴스에 원격 연결](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node)을 참조하십시오.
+클러스터에서 지정한 각 NodeType에 따라 VM 크기 집합이 설정됩니다. 자세한 내용은 [VM 크기 집합 인스턴스에 원격 연결](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node)을 참조하세요.
 
 ## 다음 단계
 
@@ -229,4 +225,4 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # VHD 파일에서 DevTest Lab 사용자 지정 이미지 만들기
@@ -26,7 +26,7 @@
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -44,7 +44,7 @@
 
 1. 사용자 지정 이미지에 대한 설명을 입력합니다. 이 설명은 새 VM을 만들 때 기본 이미지 목록에 표시됩니다.
 
-1. **VHD 파일**을 탭합니다.
+1. 선택 **VHD 파일**합니다.
 
 1. 목록에 없는 VHD 파일에 액세스하려면 [VHD 파일 업로드](#upload-a-vhd-file) 섹션의 지침에 따라 추가한 후 완료되면 여기로 돌아옵니다.
 
@@ -78,4 +78,4 @@
 
 VM을 만들 때 사용할 사용자 지정 이미지를 추가했으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

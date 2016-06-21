@@ -23,7 +23,7 @@
 다음을 수행하면 기계 학습 스튜디오에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다.
 
 - 미리 하드 드라이브의 **로컬 파일**에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.  
-- [판독기][reader] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
+- [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
 - **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -65,7 +65,7 @@
 
 이 메타 데이터를 포함하지 않는 TSV 또는 CSV 형식과 같은 데이터를 가져오는 경우, 기계 학습에서는 데이터를 샘플링하여 각 열의 데이터 형식을 유추합니다. 데이터에 열 머리글이 없는 경우 기계 학습 스튜디오에서 기본 이름을 제공합니다.
 
-[메타 데이터 편집기][metadata-editor]를 사용하여 열의 머리글과 데이터 유형을 명시적으로 지정하거나 변경할 수 있습니다.
+[메타 데이터 편집][edit-metadata]을 사용하여 열의 머리글과 데이터 유형을 명시적으로 지정하거나 변경할 수 있습니다.
 
 기계 학습 스튜디오에서 인식하는 **데이터 유형**은 다음과 같습니다.
 
@@ -86,7 +86,7 @@
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

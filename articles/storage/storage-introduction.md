@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -132,7 +132,11 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 
 ## 내구성 및 고가용성을 위한 복제
 
-Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 [저장소용 SLA](https://azure.microsoft.com/support/legal/sla/storage/)을 충족합니다. 저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
+Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 [저장소용 SLA](https://azure.microsoft.com/support/legal/sla/storage/)을 충족합니다.
+
+각 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
+
+저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
 
 - **LRS(로컬 중복 저장소)** 로컬 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 시설 내에서 3번 복제됩니다. LRS는 단일 시설의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.  
   
@@ -149,6 +153,7 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 - **GRS(지역 중복 저장소)** 지역 중복 저장소는 기본적으로 저장소를 만들 때 저장소 계정에 사용할 수 있습니다. GRS는 데이터의 복사본을 6개 유지 관리합니다. GRS를 사용하면 데이터가 기본 영역에서 3번 복제되고 기본 지역으로부터 수백 킬로미터 떨어진 보조 지역에도 3번 복제되며, 최고 수준의 영속성을 제공합니다. 기본 지역의 오류 발생 시 Azure 저장소는 보조 지역으로 장애 조치(Failover)됩니다. GRS는 데이터가 두 개의 별도 지역에서 영속되도록 합니다.
 
+	지역별 기본 및 보조 쌍에 대한 정보는 [Azure 영역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 - **RA-GRS(읽기 액세스 지역 중복 저장소)** 읽기 액세스 지역 중복 저장소 복제에서는 보조 지역 위치로 데이터를 복제하고 보조 위치의 데이터에 대한 읽기 액세스도 제공합니다. 읽기 액세스 지역 중복 저장소에서는 기본 또는 보조 위치 중 하나가 사용 불가능하게 되는 경우 나머지 사용 가능한 기본 또는 보조 위치에서 데이터에 액세스할 수 있습니다.
 
@@ -156,7 +161,7 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
  
 저장소 복제 옵션에 대한 자세한 내용은 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요.
 
-저장소 계정 복제에 대한 가격 정보는 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+저장소 계정 복제에 대한 가격 정보는 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
 
@@ -260,4 +265,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 - [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

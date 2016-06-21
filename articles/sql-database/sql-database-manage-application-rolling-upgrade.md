@@ -131,4 +131,4 @@ SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-ove
 - [데이터베이스 복사](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [데이터베이스를 읽기 전용 또는 읽기-쓰기 모드로 설정](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

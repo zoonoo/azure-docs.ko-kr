@@ -24,7 +24,7 @@
 
 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 조건자를 지정할 수 있습니다. 다른 종류의 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
 
 -   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 조건자를 지정합니다.
 
@@ -32,7 +32,7 @@
 
 조건자를 추가하는 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 
-## 인라인 테이블 값 함수의 기본 요구 사항
+## 필터 조건자에 대한 기본 요구 사항
 스트레치 데이터베이스 필터 조건자에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
 
 ```tsql
@@ -155,6 +155,58 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 -   함수에 의해 사용되는 열은 스키마 바운드됩니다. 테이블이 필터 조건자로 함수를 사용하는 한 이들 열을 변경할 수 없습니다.
 
 테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블 값 함수를 삭제할 수 없습니다.
+
+>   [AZURE.NOTE] 필터 함수의 성능을 향상시키려면 해당 함수에서 사용되는 열에 대해 인덱스를 만듭니다.
+
+### 필터 조건자에 열 이름 전달
+테이블에 필터 함수를 할당하는 경우 필터 함수에 전달되는 열 이름을 한 부분으로 된 이름으로 지정합니다. 열 이름을 전달할 때 세 부분으로 된 이름을 지정하면 스트레치 지원 테이블에 대한 후속 쿼리가 실패합니다.
+
+예를 들어, 다음 예제와 같이 세 부분으로 이루어진 열 이름을 지정하면 문이 성공적으로 실행되지만 테이블에 대한 후속 쿼리는 실패합니다.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(dbo.SensorTelemetry.ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+대신에 다음 예제와 같이 한 부분으로 이루어진 열 이름을 사용하여 필터 함수를 지정합니다.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON  (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+## <a name="addafterwiz"></a>마법사를 실행한 후 필터 조건자 추가  
+
+**스트레치에 데이터베이스 사용** 마법사에서 만들 수 없는 조건자를 사용하려는 경우 마법사를 종료한 후에 ALTER TABLE 문을 실행하여 조건자를 지정할 수 있습니다. 그렇지만 조건자를 적용하려면 먼저 이미 진행 중인 데이터 마이그레이션을 중지하고 마이그레이션된 데이터를 다시 가져와야 합니다. (이 작업이 필요한 이유에 대한 자세한 내용은 [기존 필터 조건자 대체](#replacePredicate)를 참조하세요.
+
+1. 마이그레이션 방향을 반대로 바꾸고 이미 마이그레이션된 데이터를 불러옵니다. 이 작업은 일단 시작되면 취소할 수 없습니다. 또한 Azure에서 아웃바운드 데이터 전송(송신)에 따른 비용이 발생합니다. 자세한 내용은 [Azure 가격 적용 방식](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
+
+2. 마이그레이션이 완료될 때까지 기다립니다. SQL Server Management Studio에서 **스트레치 데이터베이스 모니터**에서 상태를 확인하거나 **sys.dm\_db\_rda\_migration\_status** 뷰를 쿼리할 수 있습니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md) 또는 [sys.dm\_db\_rda\_migration\_status](https://msdn.microsoft.com/library/dn935017.aspx)를 참조하세요.
+
+3. 테이블에 적용할 필터 조건자를 만듭니다.
+
+4. 테이블에 조건자를 추가하고 Azure에 대한 데이터 마이그레이션을 다시 시작합니다.
+
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
 
 ## 날짜별로 행 필터링
 다음 예제에서는 **date** 열에 2016년 1월 1일 이전 값이 포함된 경우 행을 마이그레이션합니다.
@@ -405,7 +457,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 함수가 행에 대해 비어 있지 않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
 
-## 기존 필터 조건자 대체
+## <a name="replacePredicate"></a>기존 필터 조건자 대체
 ALTER TABLE 문을 다시 실행하고 FILTER\_PREDICATE 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 조건자를 대체할 수 있습니다. 예:
 
 ```tsql
@@ -504,8 +556,15 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 ## 테이블에 적용된 필터 조건자 확인
 테이블에 적용된 필터 조건자를 확인하려면 카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열의 값을 확인합니다. 값이 null이면 전체 테이블을 보관할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
 
+## 필터 조건자에 대한 보안 정보  
+Db\_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 있습니다.
+
+-   많은 양의 서버 리소스를 소비하거나 장시간 대기하다가 서비스 거부를 초래하는 테이블 반환 함수를 만들고 적용합니다.  
+
+-   사용자의 읽기 액세스가 명시적으로 거부된 테이블의 콘텐츠를 유추할 수 있도록 하는 테이블 반환 함수를 만들고 적용합니다.
+
 ## 참고 항목
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

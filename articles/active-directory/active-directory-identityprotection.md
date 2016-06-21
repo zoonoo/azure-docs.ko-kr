@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/06/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -410,4 +410,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 플레이 북](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

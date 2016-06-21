@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/15/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 패싯 탐색을 구현하는 방법
@@ -369,4 +369,4 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -16,7 +16,7 @@
 	ms.date="05/15/2016"
 	ms.author="glenga"/>
 
-# Windows 런타임 8.1 범용 앱에 푸시 알림 추가
+# Windows 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -213,4 +213,4 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 <!-- Images. -->
 ))) )
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

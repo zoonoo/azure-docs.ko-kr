@@ -1,16 +1,21 @@
 
 Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
 
-표준 크기는 A, D, DS, G 및 GS 시리즈로 구성됩니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
+표준 크기는 A, D, DS, F, G 및 GS 시리즈로 구성됩니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
 
 *   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
 *   원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
+* F 시리즈는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고, Intel Turbo Boost Technology 2.0을 채택하여 최대 3.1GHz의 클럭 속도를 달성할 수 있습니다. Dv2 시리즈의 VM과 동일한 CPU 성능입니다. 더 낮은 시간당 목록 가격에서 F 시리즈는 코어당 ACU(Azure 계산 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. F 시리즈 크기 범위는 CPU 코어 1~16개로, 표준 및 프리미엄 저장소 둘 다에 최적화된 크기입니다.
+
+ 또한 F 시리즈는 Azure의 VM 크기 이름 지정에서 새로운 표준이 되고 있습니다. 이 시리즈와 향후 출시될 VM 크기의 경우 제품군 이름 문자 다음에 나오는 숫자가 CPU 코어 수와 일치합니다. 프리미엄 저장소에 맞춘 최적화를 비롯한 추가 기능의 경우 숫자 CPU 코어 수 다음에 문자가 나옵니다. 이 명명 형식은 향후에 출시될 VM 크기에 사용될 예정이지만, 이미 출시된 기존 VM의 이름을 소급해서 변경하지는 않습니다.
+
+
 *   G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 
 
-*   DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM은 I/O가 많은 작업에 대한 고성능, 지연율이 낮은 저장소를 제공하는 프리미엄 저장소를 사용할 수 있습니다. 이러한 VM은 SSD(반도체 드라이브)를 사용하여 가상 컴퓨터의 디스크를 호스트하고 로컬 SSD 디스크 캐시를 제공합니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+*   DS 시리즈, DSv2 시리즈, F 시리즈 및 GS 시리즈 VM은 I/O가 많은 작업에 대한 고성능, 지연율이 낮은 저장소를 제공하는 프리미엄 저장소를 사용할 수 있습니다. 이러한 VM은 SSD(반도체 드라이브)를 사용하여 가상 컴퓨터의 디스크를 호스트하고 로컬 SSD 디스크 캐시를 제공합니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
 
 *   다양한 하드웨어 유형 및 프로세서에 A 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 가상 컴퓨터 내에서 가상 하드웨어를 쿼리합니다.
@@ -29,6 +34,8 @@ Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, �
 
 *	Dv2 시리즈, D 시리즈, G 시리즈 및 DS/GS는 더 빠른 CPU와 더 좋은 로컬 디스크 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다. 이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
 
+* F 시리즈 VM은 더 빠른 CPU를 요구하지만 많은 메모리 또는 CPU 코어당 로컬 SSD가 필요하지 않은 워크로드에 적합합니다. 분석, 게임 서버, 웹 서버 및 배치 처리 등의 워크로드는 F 시리즈 값을 사용하면 도움이 됩니다.
+
 *   Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 컴퓨터를 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 컴퓨터의 크기를 새 크기로 조정, 2013년 4월 16일 이전에 만든 가상 네트워크에서 새 가상 컴퓨터 만들기 또는 새 가상 컴퓨터를 기존 클라우드 서비스에 추가할 때 **가상 컴퓨터를 구성하지 못했습니다<machine name>** 또는 **가상 컴퓨터를 만들지 못했습니다<machine name>**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 컴퓨터를 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)를 참조하세요.
 
 
@@ -42,16 +49,18 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 |SKU 제품군 |ACU/코어 |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series) |50 |
-|[Standard\_A1-4](#standard-tier-a-series) |100 |
-|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[Standard\_A0](#standard-tier-a-series)	|50 |
+|[Standard\_A1-4](#standard-tier-a-series)	|100 |
+|[Standard\_A5-7](#standard-tier-a-series)	|100 |
 |[A8-A11](#standard-tier-a-series)	|225 *|
 |[D1-14](#standard-tier-d-series)	|160 |
-|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[D1-15v2](#standard-tier-dv2-series)	|210 - 250*|
 |[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-15v2](#standard-tier-dsv2-series)	|210 - 250* |
+|[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
+|[F1-F16](#standard-storage-optimized-f-series)	| 210-250*|
+|[F1s-F16s](#premium-storage-optimized-f-series)	| 210-250*|
 |[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -132,7 +141,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_DS11 |2|14|2|로컬 SSD 디스크 = 28GB |4|72| 6,400 초당 64MB | 높음 |
 |Standard\_DS12 |4|28|4|로컬 SSD 디스크 = 56GB |8|144| 12,800 초당 128MB | 높음 |
 |Standard\_DS13 |8|56|8|로컬 SSD 디스크 = 112GB |16|288| 25,600 초당 256MB | 높음 |
-|Standard\_DS14 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 50,000 초당 512MB | 매우 높음 |
+|Standard\_DS14 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 51,200 초당 512MB | 매우 높음 |
 
 **DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
@@ -145,15 +154,46 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_DS2\_v2 |2|7|2|로컬 SSD 디스크 = 14GB |4|86| 6,400 초당 96MB | 높음 |
 |Standard\_DS3\_v2 |4|14|4|로컬 SSD 디스크 = 28GB |8|172| 12,800 초당 192MB | 높음 |
 |Standard\_DS4\_v2 |8|28|8|로컬 SSD 디스크 = 56GB |16|344| 25,600 초당 384MB | 높음 |
-|Standard\_DS5\_v2 |16|56|8|로컬 SSD 디스크 = 112GB |32|688| 50,000 초당 768MB | 높음 |
+|Standard\_DS5\_v2 |16|56|8|로컬 SSD 디스크 = 112GB |32|688| 51,200 초당 768MB | 높음 |
 |Standard\_DS11\_v2 |2|14|2|로컬 SSD 디스크 = 28GB |4|72| 6,400 초당 96MB | 높음 |
 |Standard\_DS12\_v2 |4|28|4|로컬 SSD 디스크 = 56GB |8|144| 12,800 초당 192MB | 높음 |
 |Standard\_DS13\_v2 |8|56|8|로컬 SSD 디스크 = 112GB |16|288| 25,600 초당 384MB | 높음 |
-|Standard\_DS14\_v2 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 50,000 초당 768MB | 매우 높음 |
-|Standard\_DS15\_v2 |20|140GB|10|로컬 SSD 디스크 = 280GB |40| 720|62,500 초당 960MB | 매우 높음 |
+|Standard\_DS14\_v2 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 51,200 초당 768MB | 매우 높음 |
+|Standard\_DS15\_v2 |20|140GB|10|로컬 SSD 디스크 = 280GB |40| 720|64,000 초당 960MB | 매우 높음 |
 
 
 **DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+
+
+## 표준 저장소 최적화 F 시리즈
+
+
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 디스크 크기 | 최대 데이터 디스크(각 1023GB) | IOPS(디스크당 500) | 최대 네트워크 대역폭 |
+|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
+| Standard\_F1 | 1 | 2 GB | 1 | 임시(SSD) = 16GB | 2 | 2x500 | 500Mbps |
+| Standard\_F2 | 2 | 4GB | 2 | 임시(SSD) = 32GB | 4 | 4x500 | 1000Mbps |
+| Standard\_F4 | 4 | 8GB | 4 | 임시(SSD) = 64GB | 8 | 8x500 | 2000Mbps |
+| Standard\_F8 | 8 | 16GB | 8 | 임시(SSD) = 128GB | 16 | 16x500 | 4000Mbps |
+| Standard\_F16 | 16 | 32GB | 8 | 임시(SSD) = 256GB | 32 | 32x500 | 8000Mbps |
+
+
+
+## 프리미엄 저장소 최적화 F-시리즈*
+
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 디스크 크기 | 최대 데이터 디스크(각 1023GB) | 캐시 크기(GB) | 최대 디스크 IOPS 및 대역폭 | 최대 네트워크 대역폭 |
+|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
+| Standard\_F1s | 1 | 2 | 1 | 로컬 SSD 디스크 = 4GB | 2 | 12 | 3,200 초당 48MB | 500Mbps |
+| Standard\_F2s | 2 | 4 | 2 | 로컬 SSD 디스크 = 8GB | 4 | 24 | 6,400 초당 96MB | 1000Mbps |
+| Standard\_F4s | 4 | 8 | 4 | 로컬 SSD 디스크 = 16GB | 8 | 48 | 12,800 초당 192MB | 2000Mbps |
+| Standard\_F8s | 8 | 16 | 8 | 로컬 SSD 디스크 = 32GB | 16 | 96 | 25,600 초당 384MB | 4000Mbps |
+| Standard\_F16s | 16 | 32 | 8 | 로컬 SSD 디스크 = 64GB | 32 | 192 | 51,200 초당 768MB | 8000Mbps |
+
+
+
+**DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
+
+
+
 
 
 ## 표준 계층: G 시리즈
@@ -166,6 +206,9 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_G4 |16|224GB|8|로컬 SSD 디스크 = 3,072GB |32|32 x 500| 극히 높음 |
 |Standard\_G5 |32|448GB|8|로컬 SSD 디스크 = 6,144GB |64| 64 x 500 | 극히 높음 |
 
+
+
+
 ## 표준 계층: GS 시리즈
 
 |크기 |CPU 코어|메모리|NIC(최대)|최대 디스크 크기|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭| 최대 네트워크 대역폭 |
@@ -175,6 +218,9 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_GS3|8|112|4|로컬 SSD 디스크 = 224GB |16|1056| 20,000 초당 500MB | 매우 높음 |
 |Standard\_GS4|16|224|8|로컬 SSD 디스크 = 448GB |32|2112| 40,000 초당 1,000MB | 극히 높음 |
 |Standard\_GS5|32|448|8|로컬 SSD 디스크 = 896GB |64|4224| 80,000 초당 2,000MB | 극히 높음 |
+
+
+
 
 ## 참고: CLI 및 Powershell을 사용하는 Standard A0 - A4 
 
@@ -193,4 +239,4 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
 - HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)에 대해 자세히 알아보세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

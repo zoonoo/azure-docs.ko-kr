@@ -1,6 +1,6 @@
 <properties 
     pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스에 대한 활성 지역 복제 구성 | Microsoft Azure" 
-    description="PowerShell을 사용하여 Azure SQL 데이터베이스에 대한 지역에서 복제" 
+    description="PowerShell을 사용하여 Azure SQL 데이터베이스에 대한 활성 지역 복제 구성" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -165,4 +165,4 @@
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

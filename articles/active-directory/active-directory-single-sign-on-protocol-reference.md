@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML 프로토콜
@@ -305,4 +305,4 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

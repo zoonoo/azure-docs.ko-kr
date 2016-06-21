@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="06/07/2016"
    ms.author="kyliel"/>
 
 # FreeBSD VHD를 만들어서 Azure에 업로드
@@ -68,39 +68,57 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 		# pkg install sudo
 
-5. Azure 에이전트에 대한 필수 조건
+5. **Azure 에이전트에 대한 필수 조건**
 
-    5\.1 **python 설치**
-
-		# pkg install python27
-		# ln -s /usr/local/bin/python2.7 /usr/bin/python
-
-    5\.2 **wget 설치**
-
-		# pkg install wget
+		# pkg install python27  
+		# pkg install Py27-setuptools27   
+		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
+		# pkg install git 
 
 6. **Azure 에이전트 설치**
 
-    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상에서는 공식적으로 FreeBSD 10 이상 버전을 지원합니다. FreeBSD에 대한 최신 Azure 에이전트 버전은 2.0.16입니다.
+    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10+는 FreeBSD 10 및 10.1을 공식적으로 지원하며 버전 2.1.4는 FreeBSD 10.2 이상 릴리스를 공식적으로 지원합니다.
 
-		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
-		# mv waagent /usr/sbin
-		# chmod 755 /usr/sbin/waagent
-		# /usr/sbin/waagent -install
+		# git clone https://github.com/Azure/WALinuxAgent.git  
+		# cd WALinuxAgent  
+		# git tag  
+		…
+		WALinuxAgent-2.0.16
+		…
+		v2.1.4
+		v2.1.4.rc0
+		v2.1.4.rc1
+   
+    2\.0의 경우 여기에서 예로 2.0.16을 사용하겠습니다.
+    
+		# git checkout WALinuxAgent-2.0.16
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
-    **중요**: 설치 후 실행 중인지 다시 확인하세요.
+    2\.1의 경우 여기에서 예로 2.1.4를 사용하겠습니다.
+    
+		# git checkout v2.1.4
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+   
+    **중요**: 설치 후에 버전과 실행되고 있는지를 한 번 더 확인할 수 있습니다.
 
+		# waagent -version
+		WALinuxAgent-2.1.4 running on freebsd 10.3
+		Python: 2.7.11
 		# service –e | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-    이제 VM을 **종료**할 수 있습니다. 또한 종료하기 전에 7단계를 실행할 수 있지만 이는 선택 사항입니다.
+7. **프로비전 해제**
 
-7. 프로비전 해제는 선택 사항입니다. 시스템을 정리하여 다시 프로비전하기에 적합하도록 만듭니다.
+    시스템을 정리하여 다시 프로비전하기에 적합하도록 만듭니다. 또한 다음 명령은 마지막으로 프로비전된 사용자 계정 및 관련 데이터를 삭제합니다.
 
-    또한 다음 명령은 마지막으로 프로비전된 사용자 계정 및 관련 데이터를 삭제합니다.
-
-		# waagent –deprovision+user
+		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+		# echo  'waagent_enable="YES"' >> /etc/rc.conf
+    
+    이제 VM을 **종료**할 수 있습니다.
 
 ## 2단계: Azure에서 저장소 계정 만들기 ##
 
@@ -177,7 +195,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
    자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하세요.
 
-   PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
+   PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 4단계: .vhd 파일 업로드 ##
 
@@ -209,4 +227,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![azure의 freebsd 이미지](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,7 +12,7 @@
 <tags
    ms.service="functions"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="05/07/2016"
@@ -20,7 +20,7 @@
    
 # API Azure Function용 웹후크 만들기
 
-Azure Functions 이벤트 기반 주문형 컴퓨터 환경을 통해 다양한 프로그래밍 언어로 구현된 예약되거나 트리거된 단위의 코드를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
+Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 다양한 프로그래밍 언어로 구현된 예약되거나 트리거된 코드 단위를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
 이 항목에서는 GitHub 웹후크에서 호출되는 새 Node.js 함수를 만드는 방법을 보여 줍니다. 새 함수는 Azure Functions 포털에서 미리 정의된 템플릿을 기반으로 생성됩니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
 
@@ -67,8 +67,7 @@ Azure Functions 이벤트 기반 주문형 컴퓨터 환경을 통해 다양한 
 
 	![새 GitHub 웹후크 함수 만들기](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png)
 
-이 시점에서 GitHub 웹후크는 새로운 문제 주석이 추가될 경우 함수를 트리거하도록 구성됩니다. 
-이제, 테스트하겠습니다.
+이 시점에서 GitHub 웹후크는 새로운 문제 주석이 추가될 경우 함수를 트리거하도록 구성됩니다. 이제, 테스트하겠습니다.
 
 ##함수 테스트
 
@@ -83,14 +82,11 @@ Azure Functions 이벤트 기반 주문형 컴퓨터 환경을 통해 다양한 
 
 Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
-+ [Azure Functions 개발자 참조](functions-reference.md)  
-함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
-+ [Azure Functions 테스트](functions-test-a-function.md)  
-함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-+ [Azure Functions 크기 조정 방법](functions-scale.md)  
-동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
++ [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하는 프로그래머 참조입니다.
++ [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
++ [Azure Functions 크기 조정 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
 
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

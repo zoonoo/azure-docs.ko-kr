@@ -40,10 +40,11 @@ Linux에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는
 
 Azure에서 Linux 가상 컴퓨터를 만들 때 SMB 2.1 이상을 지원하는 Linux 이미지를 Azure 이미지 갤러리에서 지정할 수 있습니다. 다음은 권장되는 Linux 이미지의 목록입니다.
 
-- Ubuntu Server 14.04
-- Ubuntu Server 15.04
-- CentOS 7.1
-- Open SUSE 13.2
+- Ubuntu Server 14.04+
+- RHEL 7+
+- CentOS 7+
+- Debian 8
+- openSUSE 13.2+
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12(Premium 이미지)
 
@@ -139,4 +140,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

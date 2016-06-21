@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Windows 데스크톱 앱에 로그인 추가
@@ -214,12 +214,12 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null) 
-{ 
-	// If the user clicked the 'clear cache' button, 
-	// clear the ADAL token cache and show the user as signed out. 
-	// It's also necessary to clear the cookies from the browser 
-	// control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null)
+{
+		// If the user clicked the 'clear cache' button,
+		// clear the ADAL token cache and show the user as signed out.
+		// It's also necessary to clear the cookies from the browser
+		// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{
@@ -257,4 +257,4 @@ ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

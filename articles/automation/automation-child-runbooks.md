@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/31/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 자동화의 자식 runbook
@@ -30,9 +30,19 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 인라인을 호출하는 자식 runbook의 매개 변수는 복잡한 개체를 포함한 모든 데이터 형식이 될 수 있습니다. 그리고 Azure 관리 포털을 사용하거나 Start-AzureRmAutomationRunbook cmdlet과 함께 runbook을 시작하는 경우 [JSON 직렬화](automation-starting-a-runbook.md#runbook-parameters)는 없습니다.
 
+
 ### Runbook 형식
 
-인라인 실행을 사용하는 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)에서는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 자식으로 사용할 수 없습니다. 마찬가지로, PowerShell 워크플로 Runbook 또는 그래픽 Runbook에서는 인라인 실행을 사용하는 PowerShell Runbook을 자식으로 사용할 수 없습니다. PowerShell Runbook은 다른 PowerShell만 자식으로 사용할 수 있습니다. 그래픽 및 PowerShell 워크플로 Runbook은 서로를 자식 Runbook으로 사용할 수 있습니다.
+서로를 호출할 수 있는 형식:
+
+- [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)및 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 기반임).
+- [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)및 그래픽 PowerShell 워크플로 Runbook은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 워크플로 기반임).
+- PowerShell 형식과 PowerShell 워크플로 형식은 인라인으로 서로를 호출할 수 없으므로 Start-AzureRmAutomationRunbook을 사용해야 합니다.
+	
+게시 순서가 중요한 경우:
+
+- Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
+
 
 인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다. PowerShell 자식 Runbook을 호출하는 경우 스크립트가 로컬 디렉터리에 있음을 지정하기 위해 이름 앞에 *.\*를 추가해야 합니다.
 
@@ -52,7 +62,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 ##  cmdlet을 사용하여 자식 runbook 시작
 
-[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 가지 모드에서 cmdlet은 자식 runbook에 자식 작업이 만들어지는 즉시 작업 ID를 반환합니다. **-wait** 매개 변수를 지정하여 사용하도록 설정할 수 있는 다른 모드에서 cmdlet은 자식 작업이 완료될 때까지 대기하고 자식 runbook의 출력을 반환합니다.
+[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 가지 모드에서 cmdlet은 자식 runbook에 자식 작업이 만들어지는 즉시 작업 ID를 반환합니다. **-wait** 매개 변수를 지정하여 사용하도록 설정할 수 있는 다른 모드에서 cmdlet은 자식 작업이 완료될 때까지 대기하고 자식 Runbook의 출력을 반환합니다.
 
 cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 작업에서 실행됩니다. Runbook 인라인을 호출하는 것 보다 많은 작업이 발생하고 추적하기 어려울 수 있습니다. 부모는 각각이 완료되기를 기다리지 않고 비동기식으로 여러 자식 runbook을 시작할 수 있습니다. 인라인에서 자식 Runbook을 호출하는 동일한 종류의 병렬 실행에 대해 부모 Runbook은 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용해야 합니다.
 
@@ -73,8 +83,8 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 | | 인라인| Cmdlet|
 |:---|:---|:---|
 |작업|자식 runbook은 부모와 동일한 작업을 실행합니다.|자식 runbook에 대한 별도 작업을 만듭니다.|
-|실행|계속하기 전에 부모 runbook은 자식 runbook이 완료되기를 기다립니다.|자식 runbook이 시작된 후에 즉시 부모 runbook이 계속되거나 *또는* 자식 작업이 완료될 때까지 부모 runbook이 대기합니다.|
-|출력|부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다.|부모 runbook은 자식 runbook 작업에서 출력을 검색하거나 *또는* 자식 runbook에서 출력을 직접 가져올 수 있습니다.|
+|실행|계속하기 전에 부모 runbook은 자식 runbook이 완료되기를 기다립니다.|자식 Runbook이 시작된 후에 즉시 부모 Runbook이 계속되거나 *또는* 자식 작업이 완료될 때까지 부모 Runbook이 대기합니다.|
+|출력|부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다.|부모 Runbook은 자식 Runbook 작업에서 출력을 검색하거나 *또는* 자식 Runbook에서 출력을 직접 가져올 수 있습니다.|
 |매개 변수|자식 runbook 매개 변수 값은 별도로 지정되며 모든 데이터 형식을 사용할 수 있습니다.|자식 runbook 매개 변수 값은 단일 hashtable로 결합해야 하며 JSON 직렬화를 활용하는 간단한 배열 및 개체 데이터 형식만을 포함할 수 있습니다.|
 |자동화 계정|부모 runbook은 같은 자동화 계정에서 자식 runbook을 사용할 수 있습니다.|부모 runbook은 연결된 경우 동일한 Azure 구독 및 심지어 다른 구독의 자동화 계정에서 자식 runbook을 사용할 수 있습니다.|
 |게시|부모 runbook을 게시하기 전에 자식 runbook을 게시해야 합니다.|부모 runbook을 시작하기 전 언제든 자식 runbook을 게시해야 합니다.|
@@ -84,4 +94,4 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

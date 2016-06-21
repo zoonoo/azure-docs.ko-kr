@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -23,6 +23,8 @@
 Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 MIT 라이선스에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
 * <https://github.com/microsoft/azure-tools-for-java>
+
+> [AZURE.NOTE] IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
 
 ## Eclipse용 Azure 도구 키트 시작
 
@@ -54,25 +56,40 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 ## 참고 항목
 
+Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- *Eclipse용 Azure 도구 키트(이 문서)*
+  - [Eclipse용 Azure 도구 키트 설치]
+  - [Eclipse에서 Azure용 Hello World 웹앱 만들기]
+  - [Eclipse용 Azure 도구 키트의 새로운 기능]
+- [IntelliJ용 Azure 도구 키트]
+  - [IntelliJ용 Azure 도구 키트 설치]
+  - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
 
+[IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
+[IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
+
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+
 [Azure 프로젝트 속성]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Azure 역할 속성]: ./azure-toolkit-for-eclipse-azure-role-properties.md
 [Azure 서비스 끝점]: ./azure-toolkit-for-eclipse-azure-service-endpoints.md
 [Azure 저장소 계정 목록]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Eclipse에서 Azure 응용 프로그램 디버그]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [대규모 배포]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
-[Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
 [세션 선호도 사용]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -82,4 +99,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

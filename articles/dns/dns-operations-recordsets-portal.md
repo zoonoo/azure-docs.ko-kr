@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure" 
-   description="Azure DNS에서 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리합니다." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="cherylmc" 
-   manager="carmon" 
+<properties
+   pageTitle="Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure"
+   description="Azure DNS에서 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리합니다."
+   services="dns"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmon"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
@@ -28,7 +28,7 @@
 
 이 문서는 Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다.
 
-DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](dns-getstarted-create-recordset-portal.md)를 참조하세요.
+DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 DNS 레코드 컬렉션입니다. 자세한 내용은 [Azure 포털을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)를 참조하세요.
 
 ## 새 레코드 집합 및 레코드 만들기
 
@@ -37,9 +37,9 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 
 ## 레코드 집합 보기
 
-1. Azure 포털에서 DNS 영역 블레이드로 이동합니다.
+1. Azure 포털에서 **DNS 영역** 블레이드로 이동합니다.
 
-2. 레코드 집합에 대해 검색하고 나열된 항목에서 선택할 수 있습니다. 레코드 집합을 클릭하여 선택합니다. 레코드 집합 속성이 열립니다.
+2. 레코드 집합을 검색한 후 선택합니다. 레코드 집합 속성이 열립니다.
 
 	![레코드 집합 검색](./media/dns-operations-recordsets-portal/searchset500.png)
 
@@ -51,37 +51,37 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 
 1. DNS 영역에 대한 **레코드 설정 속성** 블레이드에서 레코드를 추가하려는 레코드 집합을 클릭합니다.
 
-	![집합 선택](./media/dns-operations-recordsets-portal/selectset500.png)
+	![레코드 집합 선택](./media/dns-operations-recordsets-portal/selectset500.png)
 
-2. 필드에 입력하여 레코드를 지정합니다.
+2. 필드에 입력하여 레코드 집합 속성을 지정합니다.
 
 	![레코드 추가](./media/dns-operations-recordsets-portal/addrecord500.png)
 
-2. 블레이드 맨 위의 **저장**을 클릭하여 블레이드를 닫기 전에 설정을 저장합니다.
+2. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다. 그런 다음 블레이드를 닫습니다.
 
 3. 가장자리에 레코드가 저장되는 것이 표시됩니다.
 
-	![레코드 저장](./media/dns-operations-recordsets-portal/saving150.png)
+	![레코드 집합 저장](./media/dns-operations-recordsets-portal/saving150.png)
 
-4. 레코드가 저장된 후 DNS 블레이드의 레코드 집합에 대한 값은 새 레코드를 반영합니다.
+레코드가 저장된 후 **DNS 영역** 블레이드의 값은 새 레코드를 반영합니다.
 
 
 ## 레코드 업데이트
 
-기존 레코드 집합에서 레코드를 업데이트할 때 업데이트할 수 있는 사용 가능한 필드는 사용하는 레코드의 유형에 따라 다릅니다.
+기존 레코드 집합에서 레코드를 업데이트할 때 업데이트할 수 있는 필드는 사용하는 레코드의 유형에 따라 다릅니다.
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
 
-2. 레코드를 수정합니다. 레코드를 수정할 때 레코드에 대해 사용 가능한 설정을 변경할 수 있습니다. 아래 예제에서 IP 주소 필드를 클릭했고 IP 주소는 수정되는 중입니다.
+2. 레코드를 수정합니다. 레코드를 수정할 때 레코드에 대해 사용 가능한 설정을 변경할 수 있습니다. 다음 예제에서는 **IP 주소** 필드가 선택되고 IP 주소는 수정되는 중입니다.
 
 	![레코드 수정](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다. 오른쪽 위 모서리에서 레코드가 저장되었다는 알림을 볼 수 있습니다.
-	
-	![레코드 저장](./media/dns-operations-recordsets-portal/saved150.png)
+
+	![저장된 레코드 집합](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-3. 레코드가 저장된 후 DNS 블레이드의 레코드 집합에 대한 값은 업데이트된 레코드를 반영합니다.
+레코드가 저장된 후 **DNS 영역** 블레이드의 레코드 집합에 대한 값은 업데이트된 레코드를 반영합니다.
 
 
 ## 레코드 집합에서 레코드 제거
@@ -90,26 +90,26 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 레코드를 검색합니다.
 
-2. 제거하려는 레코드를 클릭합니다. 그런 다음 **제거**를 클릭합니다.
+2. 제거하려는 레코드를 클릭합니다. 그런 후 **제거**를 선택합니다.
 
 	![레코드 제거](./media/dns-operations-recordsets-portal/removerecord500.png)
 
 3. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다.
 
-3. 레코드가 제거된 후 DNS 블레이드의 레코드 집합에 대한 값은 레코드가 제거되었음을 반영합니다.
+3. 레코드가 제거된 후 **DNS 영역** 블레이드의 레코드 값에 제거 결과가 반영됩니다.
 
 
 ## <a name="delete"></a>레코드 집합 삭제
 
-1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 **삭제**를 클릭합니다. 
+1. 레코드 집합에 대한 **레코드 설정 속성** 블레이드에서 **삭제**를 클릭합니다.
 
 	![레코드 집합 삭제](./media/dns-operations-recordsets-portal/deleterecordset500.png)
 
-2. 레코드 집합 'name\_ of \_ record \_set'을 삭제할지 묻는 메시지가 나타납니다.
+2. 레코드 집합을 삭제할지 묻는 메시지가 표시됩니다.
 
 3. 이름이 삭제하려는 레코드 집합과 일치하는지 확인한 다음 **예**를 클릭합니다.
 
-4. DNS 영역 블레이드에서 레코드 집합을 더 이상 볼 수 없는지 확인할 수 있습니다.
+4. **DNS 영역** 블레이드에서 레코드 집합을 더 이상 볼 수 없는지 확인합니다.
 
 
 ## NS 및 SOA 레코드 작업
@@ -118,11 +118,11 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 ### SOA 레코드 수정
 
-영역 루트(이름 = '@')에 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가하거나 제거할 수는 없지만 SOA 레코드('Host' 제외) 내의 모든 매개 변수 및 레코드 집합 TTL을 수정할 수 있습니다.
+영역 루트(이름 = “@”)에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
 
 ### 영역 루트의 NS 레코드 수정
 
-영역 루트(이름 = '@')에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL을 수정하는 변경 작업만 허용됩니다.
+영역 루트(이름 = “@”)에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL을 수정하는 변경 작업만 허용됩니다.
 
 ### SOA 또는 NS 레코드 집합 삭제
 
@@ -130,10 +130,8 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 ## 다음 단계
 
-Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요. DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
+-   Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
+-   DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
+-   역방향 DNS 레코드에 대한 자세한 내용은 [PowerShell을 사용하여 서비스에 대한 역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-ps.md)을 참조하세요.
 
-
-역방향 DNS 레코드를 작업하려면 [역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-ps.md)을 참조하세요.
- 
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

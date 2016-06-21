@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/18/2016"
+ms.date="06/06/2016"
 ms.author="larryfr"/>
 
 #HDInsight에서 pig와 함께 DataFu 사용
@@ -107,4 +107,4 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

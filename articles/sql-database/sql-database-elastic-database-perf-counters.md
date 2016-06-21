@@ -36,7 +36,7 @@
 
 	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-메서드는 다음과 같은 성능 카운터를 만듭니다.
+[이](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell 스크립트를 사용하여 메서드를 실행할 수도 있습니다. 메서드는 다음과 같은 성능 카운터를 만듭니다.
 
 * **캐시된 매핑**: 분할된 맵에 대해 캐시된 매핑의 수.
 *  **DDR 작업/초**: 분할된 맵에 대한 데이터 종속 라우팅 작업의 속도. 이 카운터는 [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)에 대한 호출이 대상 분할에 대한 성공적인 연결로 이어지면 업데이트됩니다. 
@@ -73,4 +73,4 @@
 <!--Anchors-->
 <!--Image references-->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

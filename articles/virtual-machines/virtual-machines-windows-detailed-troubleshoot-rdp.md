@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/06/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Windows 기반 Azure 가상 컴퓨터에 원격 데스크톱 연결 상세 문제 해결
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 이 문서에서는 Windows 기반 Azure 가상 컴퓨터에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
 
 > [AZURE.IMPORTANT] 일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](virtual-machines-windows-troubleshoot-rdp-connection.md)를 읽어야 합니다.
 
-[기본적인 원격 데스크톱 문제 해결 가이드](virtual-machines-windows-troubleshoot-rdp-connection.md)에 나와 있는 특정 오류 메시지와 다른 원격 데스크톱 오류가 발생하는 경우 다음 단계에 따라 원격 데스크톱(또는 [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) 클라이언트를 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 파악할 수 있습니다.
+[기본적인 원격 데스크톱 문제 해결 가이드](virtual-machines-windows-troubleshoot-rdp-connection.md)에 나와 있는 특정 오류 메시지와 다른 원격 데스크톱 오류가 발생하는 경우 다음 단계에 따라 원격 데스크톱(RDP) 클라이언트를 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 파악할 수 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
@@ -47,7 +47,7 @@
 자세한 문제 해결을 계속하기 전에 다음을 수행합니다.
 
 - Azure 클래식 포털 또는 Azure 포털에서 확실한 문제가 있는지 가상 컴퓨터의 상태 확인
-- [기본적인 문제 해결 가이드의 일반적인 RDP 오류에 대한 빠른 해결 단계](virtual-machines-windows-troubleshoot-rdp-connection.md#quickfixrdp) 진행
+- [기본적인 문제 해결 가이드의 일반적인 RDP 오류에 대한 빠른 해결 단계](virtual-machines-windows-troubleshoot-rdp-connection.md) 진행
 
 
 이 단계를 거친 후 원격 데스크톱을 통해 VM에 다시 연결하세요.
@@ -195,4 +195,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

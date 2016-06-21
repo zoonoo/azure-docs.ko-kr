@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Azure Active Directory에서 서명 키 롤오버
@@ -228,4 +228,4 @@ namespace JWTValidation
 
 Azure AD에 대한 공개 키로 사용되는 X509 인증서를 만들었습니다. 지문 및 만료 날짜 등의 세부 정보를 사용하여 응용 프로그램의 현재 사용되는 인증서 및 지문이 유효한지 수동으로 또는 프로그래밍 방식으로 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

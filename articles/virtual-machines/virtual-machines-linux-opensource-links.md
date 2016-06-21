@@ -68,8 +68,7 @@
 - [방법: MySQL 설치 및 실행](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
-- [방법: Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-classic-coreos-howto.md)
-- [방법: Azure의 CoreOS에서 Fleet 및 Docker 시작](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [방법: Azure에서 CoreOS를 사용하는 방법](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## 계획
@@ -193,4 +192,4 @@
 
 - [Azure용 Packer 플러그인](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

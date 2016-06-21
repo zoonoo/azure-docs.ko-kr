@@ -86,4 +86,4 @@ Azure 클래식 포털에서 **구성** 탭을 열려면 **Active Directory**를
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

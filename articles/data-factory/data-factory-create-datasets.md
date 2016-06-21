@@ -13,17 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/08/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리의 데이터 집합
 Azure Data Factory의 데이터 집합은 파이프라인에서 작업의 입력 또는 출력으로 사용하려는 데이터에 대해 명명된 참조/포인터입니다. 데이터 집합은 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다.
 
-데이터 팩터리를 만들 때 데이터 저장소를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. **연결된 서비스**는 Azure Data Factory가 데이터 저장소에 **연결**하기 위해 필요한 정보를 정의합니다. 예를 들어 Azure 저장소 계정 및 Azure SQL 데이터베이스입니다. 연결된 서비스는 데이터 저장소에 액세스하는 메커니즘(주소, 프로토콜, 인증 체계 등)을 정의합니다.
+**연결된 서비스**는 Azure 데이터 팩터리가 **데이터 저장소**에 **연결**하는 데 필요한 정보(예: Azure 저장소 계정 및 Azure SQL 데이터베이스) 또는 **계산**하는 데 필요한 정보(예: Azure HDInsight 및 Azure 배치)를 정의합니다. 연결된 서비스는 데이터 저장소에 액세스하거나 계산을 수행하기 위한 메커니즘(주소, 프로토콜, 인증 체계 등)을 정의합니다.
 
-Data Factory의 **데이터 집합**은 파이프라인에서 작업의 입력 또는 출력으로 사용할 수 있는 이 데이터 저장소 내의 데이터 구조(예: Blob 컨테이너, SQL 테이블)를 나타냅니다. 데이터 집합을 만든 후 파이프라인의 작업에 사용할 수 있습니다. 예를 들어 복사 작업/HDInsightHive 작업의 입력/출력 데이터 집합인 데이터 집합이 있을 수 있습니다.
+지원되는 데이터 저장소 연결된 서비스 목록은 [지원되는 데이터 원본](data-factory-data-movement-activities.md#supported-data-stores)을 참조하세요. 테이블의 데이터 원본을 클릭하여 해당 데이터 저장소에 대한 연결된 서비스를 만들고 구성하는 방법을 자세히 설명하는 항목으로 이동합니다.
+
+지원되는 계산 연결된 서비스의 목록에 대해서는 [계산 연결된 서비스](data-factory-compute-linked-services.md)를 참조하세요. 이러한 연결된 서비스를 사용하는 작업을 이해하려면 [데이터 변환 작업](data-factory-data-transformation-activities.md)을 참조하세요.
+
+데이터 팩터리의 **dataset**은 데이터 저장소 내의 데이터 구조를 **데이터 저장소 연결된 서비스**로 나타냅니다.(예 Azure 저장소 계정의 Blob 컨테이너, Azure SQL 데이터베이스의 테이블). 이것을 파이프라인 작업의 입력 또는 출력으로 사용할 수 있습니다. 데이터 집합을 만든 후 파이프라인의 작업에 사용할 수 있습니다. 예를 들어 복사 작업/HDInsightHive 작업의 입력/출력 데이터 집합인 데이터 집합이 있을 수 있습니다.
 
 > [AZURE.NOTE] Azure Data Factory를 처음 접하는 경우 Azure Data Factory 서비스 개요에 대한 [Azure Data Factory 소개](data-factory-introduction.md) 및 첫 번째 데이터 팩터리를 만드는 자습서에 대한 [첫 번째 데이터 팩터리 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요. 이 두 문서는 본 문서를 더 잘 이해하는 데 필요한 배경 정보를 제공합니다.
+
 
 ## 데이터 집합 정의
 Azure Data Factory의 데이터 집합은 다음과 같이 정의됩니다.
@@ -342,4 +347,4 @@ AzureSqlLinkedService는 다음과 같이 정의됩니다.
 	    }
 	}
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

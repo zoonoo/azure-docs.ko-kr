@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="05/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -45,12 +45,12 @@ VM을 만든 후에는 클라이언트 컴퓨터에 Docker가 설치되어 있�
 명령줄에서 **`base64`** 또는 기타 인코딩 도구를 사용하여 base64 인코딩 항목을 만듭니다. 아래에는 간단한 인증서 및 키 파일 집합을 사용하는 이 작업의 예제가 나와 있습니다.
 
 ```
- ~/.docker$ l
+ ~/.docker$ ls
  ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
  ~/.docker$ base64 ca.pem > ca64.pem
  ~/.docker$ base64 server-cert.pem > server-cert64.pem
  ~/.docker$ base64 server-key.pem > server-key64.pem
- ~/.docker$ l
+ ~/.docker$ ls
  ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
@@ -79,11 +79,11 @@ Docker VM 확장을 선택하면 Docker 설명 및 중요 링크가 표시됩니
 > [AZURE.NOTE] 위의 이미지에 나와 있는 것처럼 포트에는 기본적으로 2376이 입력되어 있습니다. 여기에는 원하는 어떤 끝점이든 입력할 수 있지만 다음 단계에서 일치하는 끝점을 열어야 합니다. 기본값을 변경하는 경우에는 다음 단계에서 일치하는 끝점을 여세요.
 
 ## Docker 통신 끝점 추가
-직접 만든 리소스 그룹에서 VM을 표시하고 아래쪽으로 스크롤하여 **끝점**을 클릭합니다. 그러면 아래 그림과 같이 VM의 끝점이 표시됩니다.
+만든 리소스 그룹을 볼 경우, 여기에 표시된 대로 VM에 연결된 네트워크 보안 그룹을 선택하고 **인바운드 보안 규칙**을 클릭하여 규칙을 확인합니다.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
-**+ 추가**를 클릭하여 다른 끝점을 추가합니다. 기본 끝점의 경우 끝점 이름을 입력하고(여기서는 **docker**) 공용 포트와 개인 포트에 대해 모두 2376을 입력합니다. 프로토콜 값은 **TCP**로 유지하고 **확인**을 클릭하여 끝점을 만듭니다.
+**+ 추가**를 클릭하여 다른 규칙을 추가합니다. 기본 규칙의 경우 끝점 이름을 입력하고(이 예제에서는 **Docker**) 및 2376 ‘대상 포트 범위'를 입력합니다. 프로토콜 값은 **TCP**를 표시하도록 설정하고 **확인**을 클릭하여 규칙을 만듭니다.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
@@ -147,4 +147,4 @@ WARNING: No swap limit support
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

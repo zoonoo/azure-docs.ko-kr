@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Azure SQL 데이터 웨어하우스에서 데이터베이스 백업 및 복원(PowerShell)
 
@@ -30,7 +30,6 @@ SQL 데이터 웨어하우스에서 데이터베이스 복원을 위한 PowerShe
 
 - 라이브 데이터베이스 복원
 - 삭제된 데이터베이스 복원
-- 다른 Azure 지역에서 액세스할 수 없는 데이터베이스 복원
 
 [AZURE.INCLUDE [SQL 데이터 웨어하우스 백업 보존 정책](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -130,45 +129,6 @@ $RestoredDatabase.status
 
 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
 
-## Azure 지역에서 복원
-
-데이터베이스를 복구하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
-
-1. Windows PowerShell을 엽니다.
-2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
-3. 복원할 데이터베이스가 포함된 구독을 선택합니다.
-4. 복구하려는 데이터베이스를 가져옵니다.
-5. 데이터베이스 복구 요청을 만듭니다.
-6. 지역에서 복원된 데이터베이스의 상태를 확인합니다.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### 지역 복원을 수행한 후 데이터베이스 구성
-복구된 데이터베이스 프로덕션을 준비하는 데 유용한 검사 목록입니다.
-
-1. **연결 문자열 업데이트**: 클라이언트 도구의 연결 문자열이 새로 복구된 데이터베이스를 가리키는지 확인합니다.
-2. **방화벽 규칙 수정**: 대상 서버에서 방화벽 규칙을 확인하고 서버 및 새로 복구된 데이터베이스와 클라이언트 컴퓨터 또는 Azure의 연결이 설정되어 있는지 확인합니다.
-3. **서버 로그인 및 데이터베이스 사용자 확인**: 응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스트하는 서버에 존재하는지 확인합니다. 누락된 로그인을 다시 만들고 복구된 데이터베이스에 대한 적절한 사용 권한을 부여합니다. 
-4. **감사 사용**: 데이터베이스에 액세스하기 위해 감사가 필요한 경우 데이터베이스 복구 후에 감사 사용을 설정해야 합니다.
-
-원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
-
-
 ## 다음 단계
 자세한 내용은 [Azure SQL 데이터베이스 무중단 업무 방식 개요][] 및 [관리 개요][]를 참조하세요.
 
@@ -194,4 +154,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

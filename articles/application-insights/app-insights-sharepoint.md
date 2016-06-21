@@ -18,8 +18,6 @@
 # Application Insights를 사용하여 SharePoint 사이트 모니터링
 
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
 
 
@@ -175,4 +173,4 @@ function onRequestFail(sender, args) {
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

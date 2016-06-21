@@ -32,11 +32,15 @@
 4. 데이터 팩터리를 만들고 연결된 서비스, 테이블 및 파이프라인을 배포합니다.    
 
 ## 필수 조건
-[자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 
-다음 항목이 컴퓨터에 설치되어 있어야 합니다.
-- Visual Studio 2013
-- Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+1. [자습서 개요](data-factory-get-started.md) 문서를 읽고 진행하기 전에 필수 구성 요소 단계를 완료**해야** 합니다.
+2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재는 이렇게 제한됩니다. 요구 사항이 변경되는 즉시 사용자에게 알려줍니다. 
+3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다. 
+	- Visual Studio 2013 또는 Visual Studio 2015
+	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
+	- [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다. 
+ 
+
 
 ## Visual Studio 프로젝트 만들기 
 1. **Visual Studio 2013**을 실행합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
@@ -237,7 +241,7 @@
 ## 요약
 이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Visual Studio를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.
 
-1.	Azure **데이터 팩터리**를 만들었습니다.
+1.	Azure **Data Factory**를 만들었습니다.
 2.	**연결된 서비스**를 만들었습니다.
 	1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다. 	
 	2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다. 
@@ -271,4 +275,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

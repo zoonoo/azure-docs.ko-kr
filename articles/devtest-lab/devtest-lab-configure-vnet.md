@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # 랩에 대한 가상 네트워크 구성
@@ -27,19 +27,19 @@
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
+1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
 1. 선택된 랩의 **설정** 블레이드가 표시됩니다.
 
-1. **가상 네트워크**를 탭합니다.
+1. **가상 네트워크**를 선택합니다.
 
 	![랩의 설정 블레이드에서 가상 네트워크를 구성할 수 있습니다.](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. **가상 네트워크** 블레이드에서 현재 랩에 대해 구성한 가상 네트워크 및 랩에 대해 만들어진 기본 가상 네트워크의 목록이 표시됩니다.
 
-1. **+ 추가**를 탭합니다.
+1. **+추가**를 선택합니다.
 
 	![랩에 기존 가상 네트워크 추가](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
@@ -61,7 +61,7 @@
 
 1. **사용자당 최대 VM** 필드에서 각 서브넷에 대한 사용자당 최대 VM 지정합니다. VM 수에 제한을 두지 않으려면 이 필드는 공백으로 둡니다.
 
-1. **저장**을 탭합니다.
+1. **저장**을 선택합니다.
 
 1. 이제 가상 네트워크를 구성했으므로 새 VM을 만들 때 선택할 수 있습니다. 이는 [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md) 문서에 설명되어 있습니다.
 
@@ -69,4 +69,4 @@
 
 랩에 원하는 가상 네트워크를 추가한 후 다음 단계는 [랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -454,6 +454,20 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 | | | ![확인][12]| |
 
 
+#### 엔터프라이즈 상태 로밍
+
+**유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
+
+
+**가용성:**
+
+| Free Edition| Basic Edition| Premium Edition| Office 365 앱만 해당 |
+| :-: | :-: | :-: | :-: |
+| | | ![확인][12]| |
+
+**자세한 내용:**
+
+- [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Azure AD 미리 보기 기능
@@ -465,7 +479,6 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 - [관리 장치](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR 응용 프로그램 통합](active-directory-saas-workday-inbound-tutorial.md)
-- [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

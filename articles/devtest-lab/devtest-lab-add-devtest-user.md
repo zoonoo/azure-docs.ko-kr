@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # 랩에 소유자 및 사용자 추가
@@ -40,7 +40,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. 왼쪽 탐색에서 **구독**을 탭합니다.
+1. 왼쪽 탐색 창에서 선택 **구독**합니다.
 
 	![구독 링크](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
@@ -50,7 +50,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 	![사용자 액세스](./media/devtest-lab-add-devtest-user/access-users.png)
 
-1. **사용자** 블레이드에서 **추가**를 탭합니다.
+1. **사용자** 블레이드에서 **추가**를 선택합니다.
 
 	![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
@@ -60,7 +60,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 1. 찾은 사용자 이름을 탭합니다.
 
-1. **선택**을 탭합니다.
+1. **선택**을 선택합니다.
 
 1. **확인**을 탭하여 **액세스 추가** 블레이드를 닫습니다.
 
@@ -72,9 +72,9 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 탭합니다.
+1. **모두 찾아보기**를 선택합니다.
 
-1. **DevTest Lab**을 탭합니다.
+1. 선택 **DevTest 실습**합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -82,7 +82,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 	![사용자 액세스](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. **사용자** 블레이드에서 **추가**를 탭합니다.
+1. **사용자** 블레이드에서 **추가**를 선택합니다.
 
 	![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
@@ -92,7 +92,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 	1. **사용자 추가** 블레이드에 기본 제공 사용자 목록이 표시됩니다. 원하는 사용자가 이미 목록에 있는 경우 사용자 행을 탭하기만 하면 해당 사용자를 선택할 수 있습니다. 확인 표시가 사용자의 왼쪽에 나타나 사용자가 선택되었다는 것을 나타냅니다. 여러 사용자를 선택하려면 **&lt;Ctrl>** 키를 누른 채 각 사용자를 클릭합니다. 사용자를 선택 해제하려면 **&lt;Ctrl>** 키를 누른 채 사용자를 클릭합니다. 블레이드 맨 아래에 있는 카운터는 선택한 사용자의 수를 나타냅니다.
 
-	1. 원하는 사용자가 목록에 없는 경우 **사용자** 텍스트 상자에 유효한 Microsoft 메일 계정을 입력합니다. 메일 주소가 유효한 경우 사용자가 **사용자** 텍스트 상자 아래에 표시됩니다. 탭하면 선택할 수 있습니다.
+	1. 원하는 사용자가 목록에 없는 경우 **사용자** 텍스트 상자에 유효한 Microsoft 메일 계정을 입력합니다. 메일 주소가 유효한 경우 사용자가 **사용자** 텍스트 상자 아래에 표시됩니다.
 
 	1. 랩에 추가하려는 사용자를 선택했으면 **선택**을 탭합니다.
 
@@ -100,4 +100,4 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
  pageTitle="IoT Hub 보안 토큰을 생성하는 방법 | Microsoft Azure"
- description="IoT Hub에 사용되는 다양한 보안 토큰 유형과 이를 생성하는 방법에 대한 설명입니다."
+ description="IoT Hub에 사용되는 다양한 보안 토큰 유형(예: SAS 및 X.509)과 이를 생성하는 방법에 대한 설명입니다."
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -13,17 +13,23 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="04/29/2016"
+ ms.date="06/07/2016"
  ms.author="elioda"/>
 
-# IoT Hub 보안 토큰 사용
+# IoT Hub 보안 토큰 및 X.509 인증서 사용
 
 IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보안 토큰을 사용하여 장치 및 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Hub SDK][lnk-apis-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 그러나 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 여기에는 [IoT Hub 지침][lnk-guidance-security]에 설명된 대로 AMQP, MQTT 또는 HTTP 표면의 직접 사용 또는 토큰 서비스 패턴의 구현이 포함됩니다.
+
+또한 IoT Hub를 사용하면 장치가 X.509 인증서를 통해 IoT Hub에서 인증될 수 있습니다. IoT Hub는 AMQP, Websocket 통한 AMQP 및 HTTP 프로토콜을 사용한 장치에 대한 X.509 기반 인증을 지원합니다.
 
 이 문서에서는 다음을 설명합니다.
 
 * 보안 토큰 형식 및 생성 방법
 * 보안 토큰을 사용하여 장치 및 백 엔드 서비스를 인증하는 기본 사용 사례
+* 장치 인증을 위해 지원되는 X.509 인증서
+* 특정 장치에 연결된 X.509 클라이언트 인증서 등록 프로세스
+* 인증을 위해 X.509 클라이언트 인증서를 사용하는 장치 및 IoT Hub 간 런타임 흐름
+
 
 ## 보안 토큰 구조
 보안 토큰을 사용하여 장치 및 서비스에서 IoT Hub의 특정 기능에 대한 시간 제한 액세스 권한을 부여합니다. 승인된 장치 및 서비스만 연결할 수 있도록 하려면 보안 토큰을 ID 레지스트리에 장치 ID로 저장된 공유 액세스 정책 키 또는 대칭 키로 서명해야 합니다.
@@ -44,7 +50,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 | {URL-encoded-resourceURI} | 소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} | 이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 장치 레지스트리 자격 증명을 참조하는 토큰의 경우가 없습니다. |
 
-**접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
+**접두사에 대한 참고**: 문자가 아니라에 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
 
 이것은 입력 `resourceUri, signingKey, policyName, expiresInMins`에서 토큰을 계산하는 노드 함수입니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
@@ -174,6 +180,60 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
+## 지원되는 X.509 인증서
+
+X.509 인증서를 사용하여 IoT Hub에서 장치를 인증할 수 있습니다. 다음 내용이 포함됩니다.
+
+-   **기존 X.509 인증서**. 장치에 X.509 인증서가 이미 연결되어 있을 수 있습니다. 장치는 이 인증서를 사용하여 IoT Hub에서 인증을 받을 수 있습니다.
+
+-   **자체 생성 및 자체 서명 X-509 인증서**. 장치 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 장치에 해당 개인 키(및 인증서)를 저장할 수 있습니다. 이 목적을 위해 [OpenSSL] 및 [Windows SelfSignedCertificate] 유틸리티와 같은 도구를 사용할 수 있습니다.
+
+-   **CA 서명 X.509 인증서**. 또한 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용하여 장치를 식별하고 IoT Hub에서 장치 인증을 받을 수도 있습니다.
+
+장치는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
+
+## 장치에 대해 X.509 클라이언트 인증서 등록
+
+[C#에 대한 Azure IoT 서비스 SDK][lnk-service-sdk](버전 1.0.8+)는 인증을 위해 X.509 클라이언트 인증서를 사용하는 장치의 등록을 지원합니다. 장치 가져오기/내보내기 같은 기타 API에서도 X.509 클라이언트 인증서를 지원합니다.
+
+### C# 지원
+
+**RegistryManager** 클래스는 장치를 등록하는 프로그래밍 방식을 제공합니다. 특히 **AddDeviceAsync** 및 **UpdateDeviceAsync** 메서드를 사용하면 Iot Hub 장치 ID 레지스트리에서 사용자를 등록하고 장치를 업데이트할 수 있습니다. 이러한 두 메서드는 입력으로 **Device** 인스턴스를 수락합니다. **Device** 클래스에는 사용자가 기본 및 보조 X.509 인증서 지문을 지정할 수 있도록 하는 **인증Authentication** 속성이 포함되어 있습니다. 지문은 X.509 인증서의 SHA-1 해시(이진 DER 인코딩 사용)를 나타냅니다. 기본 지문이나 보조 지문 또는 둘 다를 지정하는 옵션이 제공됩니다. 인증서 롤오버 시나리오를 처리하기 위해 기본 및 보조 지문이 지원됩니다.
+
+> [AZURE.NOTE] IoT Hub는 전체 X.509 클라이언트 인증서를 요구하거나 저장하지 않으며 지문만 요구하거나 저장합니다.
+
+X.509 클라이언트 인증서를 사용하여 장치를 등록하는 샘플 C# 코드 조각은 다음과 같습니다.
+
+```
+var device = new Device(deviceId)
+{
+  Authentication = new AuthenticationMechanism()
+  {
+    X509Thumbprint = new X509Thumbprint()
+    {
+      PrimaryThumbprint = "921BC9694ADEB8929D4F7FE4B9A3A6DE58B0790B"
+    }
+  }
+};
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString(deviceGatewayConnectionString);
+await registryManager.AddDeviceAsync(device);
+```
+
+## 런타임 작업 중에 X.509 클라이언트 인증서 사용
+
+[.NET용 Azure IoT 장치 SDK][lnk-client-sdk](버전 1.0.11+)는 X.509 클라이언트 인증서의 사용을 지원합니다.
+
+### C# 지원
+
+클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 클라이언트 인증서를 사용하여 **DeviceClient** 인스턴스를 만들도록 지원합니다.
+
+다음은 샘플 코드 조각입니다.
+
+```
+var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509Certificate);
+
+var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
+```
 
 [lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-guidance-security]: iot-hub-guidance.md#customauth
@@ -181,4 +241,9 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[OpenSSL]: https://www.openssl.org/
+[Windows SelfSignedCertificate]: https://technet.microsoft.com/library/hh848633
+[lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
+[lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
+
+<!---HONumber=AcomDC_0608_2016-->

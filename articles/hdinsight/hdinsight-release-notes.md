@@ -14,11 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="06/06/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/06/06 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDP |HDI 버전 |Spark 버전 |Ambari 빌드 번호 |HDP 빌드 번호|
+|-------|---------------|---------------|-----------------------|----------------|
+|2\.3 |3\.3.1000.0.7702215|	1\.5.2|	2\.2.1.8-2|	2\.3.3.1-18|
+|2\.4 |3\.4.1000.0.7702224|	1\.6.1|	2\.2.1.8-2|	2\.4.2.0|
+
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| HDInsight의 Spark가 일반 공급됨 | 이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA</li><li>Azure 데이터 레이크 저장소를 사용하는 확장 가능한 저장소 계층</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구 사용자 지정된 Spark 커널이 있는 Jupyter 노트북은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul>| 부여 | Spark| 해당 없음|
+| IntelliJ용 HDInsight 도구 | HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 모든 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 원격으로 Spark 작업을 디버그할 수 있습니다.</li></ul>| 도구 | Spark| 해당 없음
 
 ## HDInsight의 2016/05/13 릴리스 정보
 
@@ -1224,7 +1241,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 <br>
 
 
-**참고**: 클러스터 사용자 지정을 통해 사용할 수 있는 새로운 기능을 설명하기 위해 스크립트 작업을 사용하여 Spark 및 R 모듈을 설치하는 절차가 문서에 포함되었습니다. 자세한 내용은 다음을 참조하세요.
+**참고**: 클러스터 사용자 지정을 통해 사용할 수 있는 새로운 기능을 설명하기 위해 스크립트 동작을 사용하여 Spark 및 R 모듈을 설치하는 절차가 문서에 포함되었습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 클러스터에 Spark 1.0 설치 및 사용](hdinsight-hadoop-spark-install.md)
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용](hdinsight-hadoop-r-scripts.md)
@@ -1312,7 +1329,7 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
 
 * 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureRmHDInsightCluster** 또는 **Invoke-AzureRmHDInsightHiveJob**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 
-* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure/)에서 얻을 수 있습니다.
+* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에서 얻을 수 있습니다.
 
 
 
@@ -1353,7 +1370,7 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 	* 동아시아
 	* 미국 중북부
 	* 미국 중남부
-* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning/) 페이지를 참조하세요.
+* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md) 페이지를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용:
 
 <table border="1">
@@ -1542,7 +1559,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
 
 ### 버그 수정
@@ -1584,4 +1601,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

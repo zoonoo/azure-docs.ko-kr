@@ -19,7 +19,7 @@
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(T-SQL)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-overview-manage-compute.md)
+- [개요](sql-data-warehouse-manage-compute-overview.md)
 - [포털](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
@@ -86,7 +86,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [관리 개요]: ./sql-data-warehouse-overview-manage.md
-[계산 능력 관리 개요]: ./sql-data-warehouse-overview-manage-compute-power.md
+[계산 능력 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

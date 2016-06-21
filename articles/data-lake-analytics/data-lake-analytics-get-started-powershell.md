@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # 자습서: Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 데이터 레이크 분석 작업을 정의하고, 작업을 데이터 레이크 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 Data Lake 분석 작업을 정의하고, 작업을 Data Lake 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
 
@@ -186,7 +186,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	스크립트에서 U-SQL 스크립트 파일은 c:\tutorials\data-lake-analytics\copyFile.usql에 저장됩니다. 이에 따라 파일 경로를 업데이트합니다.
+	스크립트에서 U-SQL 스크립트 파일은 c:\\tutorials\\data-lake-analytics\\copyFile.usql에 저장됩니다. 이에 따라 파일 경로를 업데이트합니다.
  
 작업이 완료된 후 다음 cmdlet을 사용하여 파일을 나열하고 다운로드할 수 있습니다.
 	
@@ -209,4 +209,4 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

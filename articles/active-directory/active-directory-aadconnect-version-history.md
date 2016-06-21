@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/11/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -30,14 +30,23 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.189.0
+릴리스 날짜: 2016년 6월
+
+**수정된 문제 및 향상된 기능:**
+
+- 이제 Azure AD Connect를 FIPS 호환 서버에 설치할 수 있습니다.
+    - 암호 동기화에 대해서는 [암호 동기화 및 FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)를 참조하세요.
+- Active Directory Connector에서 NetBIOS 이름을 FQDN으로 확인할 수 없던 문제를 해결했습니다.
+
 ## 1\.1.180.0
 릴리스 날짜: 2016년 5월
 
 **새로운 기능:**
 
 - Azure AD Connect를 실행하기 전에 수행하지 않은 경우 경고를 표시하고 도메인을 확인할 수 있습니다.
-- [Microsoft 클라우드 독일](active-directory-aadconnect-instances.md#microsoft-cloud-germany)에 대한 지원을 추가되었습니다.
-- 새 URL 요구 사항을 포함한 최신 [Microsoft Azure Government 클라우드](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) 인프라에 대한 지원을 추가했습니다.
+- [Microsoft 클라우드 독일](active-directory-aadconnect-instances.md#microsoft-cloud-germany)에 대한 지원을 추가했습니다.
+- 새 URL 요구 사항을 갖는 최신 [Microsoft Azure Government 클라우드](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) 인프라에 대한 지원을 추가했습니다.
 
 **수정된 문제 및 향상된 기능:**
 
@@ -84,8 +93,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
     - MFA를 사용하는 경우 https://secure.aadcdn.microsoftonline-p.com에 트래픽을 허용하려면 프록시도 허용해야 합니다.
     - MFA가 올바르게 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
 - 초기 설치 후 사용자의 로그인 방법 변경 허용
-- 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) 허용. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
-- 동기화 엔진에 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 기본 제공
+- 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
+- 동기화 엔진에 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)가 기본 제공됩니다.
 
 **미리 보기에서 GA로 승격되는 기능:**
 
@@ -284,4 +293,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="larryfr"/>
 
 # SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용
@@ -41,7 +41,7 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 **SSH 인증을 위해 인증서 키를 제공한 경우** HDInsight 클러스터를 만들 때 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+	ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
@@ -59,7 +59,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	이 명령은 **hadoop-mapreduce-examples.jar** 파일에 포함된 **wordcount** 클래스를 시작합니다. 입력으로 ****wasb://example/data/gutenberg/davinci.txt** 문서를 사용하며, 출력은 ****wasb:///example/data/WordCountOutput**에 저장됩니다.
+	이 명령은 **hadoop-mapreduce-examples.jar** 파일에 포함된 **wordcount** 클래스를 시작합니다. 입력으로 **wasb://example/data/gutenberg/davinci.txt** 문서를 사용하며, 출력은 **wasb:///example/data/WordCountOutput**에 저장됩니다.
 
 	> [AZURE.NOTE] 이 MapReduce 작업 및 예 데이터에 대한 자세한 내용은 [HDInsight Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 
@@ -70,7 +70,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 		File Output Format Counters
         Bytes Written=337623
 
-3. 작업이 완료되면 다음 명령을 사용하여 ****wasb://example/data/WordCountOutput**에 저장된 출력 파일을 나열합니다.
+3. 작업이 완료되면 다음 명령을 사용하여 **wasb://example/data/WordCountOutput**에 저장된 출력 파일을 나열합니다.
 
 		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
@@ -82,7 +82,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	****wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어 목록과 각 단어의 발생 횟수가 표시됩니다. 다음은 파일에 포함된 데이터의 예입니다.
+	**wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어 목록과 각 단어의 발생 횟수가 표시됩니다. 다음은 파일에 포함된 데이터의 예입니다.
 
 		wreathed        3
 		wreathing       1
@@ -108,4 +108,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

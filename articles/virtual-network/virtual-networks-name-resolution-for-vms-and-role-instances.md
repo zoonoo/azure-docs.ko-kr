@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="06/03/2016"
    ms.author="telmos" />
 
 # VM 및 역할 인스턴스에 대한 이름 확인
@@ -42,7 +42,7 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 
 ## Azure에서 제공하는 이름 확인
 
-Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 클라우드 서비스의 VM/인스턴스는 동일한 DNS 접미사를 공유하므로 호스트 이름만으로도 충분하지만 클래식 가상 네트워크에서는 여러 클라우드 서비스에 여러 DNS 접미사가 있으므로 여러 클라우드 서비스에서 이름을 확인하려면 FQDN이 필요합니다. 리소스 관리자 배포 모델 내의 가상 네트워크에 DNS 접미사가 가상 네트워크에 걸쳐 일관적이므로(따라서 FQDN이 필요 없음) Nic 및 Vm 모두에 DNS 이름을 지정할 수 있습니다. Azure에서 제공한 이름 확인은 별도로 구성할 필요가 없으나, 위의 표에 나온 바와 같이 모든 배포 서비스에서 선택할 수 있는 것은 아닙니다.
+Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 클라우드 서비스의 VM/인스턴스는 동일한 DNS 접미사를 공유하므로 호스트 이름만으로도 충분하지만 클래식 가상 네트워크에서는 여러 클라우드 서비스에 여러 DNS 접미사가 있으므로 여러 클라우드 서비스에서 이름을 확인하려면 FQDN이 필요합니다. 리소스 관리자 배포 모델 내의 가상 네트워크에 DNS 접미사가 가상 네트워크에 걸쳐 일관적이므로(따라서 FQDN이 필요 없음) NIC 및 VM 모두에 DNS 이름을 지정할 수 있습니다. Azure에서 제공한 이름 확인은 별도로 구성할 필요가 없으나, 위의 표에 나온 바와 같이 모든 배포 서비스에서 선택할 수 있는 것은 아닙니다.
 
 > [AZURE.NOTE] 웹 역할 및 작업자 역할의 경우, Azure 서비스 관리 REST API를 사용하면 역할 이름과 인스턴스 번호를 통해 역할 인스턴스의 내부 IP 주소를 접속할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)를 참조하세요.
 
@@ -101,7 +101,7 @@ dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가�
 	- "prepend domain-name-servers 127.0.0.1;"을 "/etc/dhclient-eth0.conf"에 추가합니다.
 	- 캐시를 로컬 DNS 확인자로 설정하기 위해 네트워크 서비스("service network restart")를 다시 시작합니다.
 
-> [AZURE.NOTE]\: 'dnsmasq' 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 특정 요구 사항에 대한 적합성을 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
+> [AZURE.NOTE] 'dnsmasq' 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 특정 요구 사항에 대한 적합성을 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
 
 **클라이언트쪽 재시도:**
 
@@ -131,14 +131,16 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 가상 네트워크 내에서 DNS 서버는 해당 가상 네트워크 내에서 호스트 이름을 확인하기 위해 Azure의 재귀 확인자에게 DNS 쿼리를 전달할 수 있습니다. 예를 들어 Azure에서 실행 중인 DC(도메인 컨트롤러)는 해당 도메인에 대한 DNS 쿼리에 응답하고 Azure에 다른 모든 쿼리를 전달할 수 있습니다. 이렇게 하면 VM은 온-프레미스 리소스(DC를 통해)와 Azure에서 제공하는 호스트 이름(전달자를 통해)을 확인할 수 있습니다. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
 
-또한 DNS 전달로 vnet 간 DNS 확인이 가능하며 온-프레미스 컴퓨터는 Azure에서 제공하는 호스트 이름을 확인할 수 있습니다. VM의 호스트 이름을 확인하려면 DNS 서버 VM이 동일한 가상 네트워크에 있어야 하며 Azure에 호스트 이름 쿼리를 전달하도록 구성되어야 합니다. DNS 접미사는 각 vnet마다 다르기 때문에 확인을 위해 올바른 vnet에 DNS 쿼리를 보내도록 조건부 전달 규칙을 사용할 수 있습니다. 다음 이미지에서는 두 vnet과 온-프레미스 네트워크가 이 메서드를 사용하여 vnet 간 DNS 확인을 수행하는 것을 보여 줍니다.
+또한 DNS 전달로 vnet 간 DNS 확인이 가능하며 온-프레미스 컴퓨터는 Azure에서 제공하는 호스트 이름을 확인할 수 있습니다. VM의 호스트 이름을 확인하려면 DNS 서버 VM이 동일한 가상 네트워크에 있어야 하며 Azure에 호스트 이름 쿼리를 전달하도록 구성되어야 합니다. DNS 접미사는 각 vnet마다 다르기 때문에 확인을 위해 올바른 vnet에 DNS 쿼리를 보내도록 조건부 전달 규칙을 사용할 수 있습니다. 다음 이미지에서는 두 vnet과 온-프레미스 네트워크가 이 메서드를 사용하여 vnet 간 DNS 확인을 수행하는 것을 보여 줍니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder)에서 사용할 수 있습니다.
 
 ![Vnet 간 DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하여 각 VM에 내부 DNS 접미사를 제공합니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다. FQDN으로 컴퓨터를 참조하거나 VM에 접미사를 구성하려면 PowerShell 또는 API를 사용하여 접미사를 확인할 수 있습니다.
+Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하여 각 VM에 내부 DNS 접미사(*.internal.cloudapp.net)를 제공합니다. 그러면 호스트 이름 레코드가 internal.cloudapp.net 영역에 있으므로 호스트 이름 확인을 수행할 수 있습니다. 자체 이름 확인 솔루션을 사용하는 경우 이 IDNS 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다(예: 도메인 가입 시나리오). 대신 작동하지 않는 자리 표시자(reddog.microsoft.com)가 제공됩니다.
+
+필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 
 -  리소스 관리자 배포 모델에서 가상 네트워크의 경우, [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스 또는 [Get AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet을 통해 접미사를 사용할 수 있습니다.    
--  클래식 배포 모델에서 접미사는 [배포 API 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 호출 또는 [Get-azureVM-디버그](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet을 통해 사용할 수 있습니다.
+-  클래식 배포 모델에서 접미사는 [배포 API 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 호출 또는 [Get-AzureVM-디버그](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet을 통해 사용할 수 있습니다.
 
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
@@ -148,19 +150,19 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 -  제공하는 클라이언트에서 액세스 가능해야 하고(포트 53에서 TCP 및 UDP) 인터넷에 액세스할 수 있어야 합니다.
 -  외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
-> [AZURE.NOTE] 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](virtual-networks-instance-level-public-ip.mp)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용하려고 선택한 경우 [이 문서](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)에서 추가로 성능을 분석하고 최적화하는 방법을 참조하세요.
+> [AZURE.NOTE] 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](virtual-networks-instance-level-public-ip.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용하려고 선택한 경우 [이 문서](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)에서 추가로 성능을 분석하고 최적화하는 방법을 참조하세요.
 
 
 ### DNS 서버 지정
 
-사용자 고유의 DNS 서버를 사용할 때 Azure는 가상 네트워크당 또는 네트워크 인터페이스(리소스 관리자)/클라우드 서비스(클래식)당 여러 DNS 서버를 지정할 수 있는 기능을 제공합니다. 클라우드 서비스/네트워크 인터페이스에 대 해 지정된 DNS 서버가 가상 네트워크에 대해 지정된 서버보다 우선적으로 사용됩니다.
+사용자 고유의 DNS 서버를 사용할 때 Azure는 가상 네트워크당 또는 네트워크 인터페이스(리소스 관리자)/클라우드 서비스(클래식)당 여러 DNS 서버를 지정할 수 있는 기능을 제공합니다. 클라우드 서비스/네트워크 인터페이스에 대해 지정된 DNS 서버가 가상 네트워크에 대해 지정된 서버보다 우선적으로 사용됩니다.
 
 > [AZURE.NOTE] DNS 서버 IP와 같은 네트워크 연결 속성은 Windows VM 내에서 직접 편집할 수 없습니다. 이들은 가상 네트워크 어댑터가 교체될 때 서비스 치료 중에 지워질 수도 있기 때문입니다.
 
 
 리소스 관리자 배포 모델을 사용할 때는 DNS 서버를 포털, API/템플릿([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) 또는 PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx))에서 지정할 수 있습니다.
 
-클래식 배포 모델을 사용할 때 가상 네트워크에 대한 DNS 서버를 포털 또는 [*네트워크 구성* 파일](https://msdn.microsoft.com/library/azure/jj157100)에서 지정할 수 있습니다. 클라우드 서비스의 경우 DNS 서버는 [ *서비스 구성* 파일](https://msdn.microsoft.com/library/azure/ee758710)을 통해 또는 powershell ([New-azurevm](https://msdn.microsoft.com/library/azure/dn495254.aspx)) 내에서 지정됩니다.
+클래식 배포 모델을 사용할 때 가상 네트워크에 대한 DNS 서버를 포털 또는 [*네트워크 구성* 파일](https://msdn.microsoft.com/library/azure/jj157100)에서 지정할 수 있습니다. 클라우드 서비스의 경우 DNS 서버는 [*서비스 구성* 파일](https://msdn.microsoft.com/library/azure/ee758710)을 통해 또는 Powershell ([새-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)) 내에서 지정됩니다.
 
 > [AZURE.NOTE] 이미 배포된 가상 네트워크/가상 컴퓨터에 대한 DNS 설정을 변경하면 영향을 받는 각 VM을 다시 시작해야 변경사항이 적용됩니다.
 
@@ -181,4 +183,4 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 - [가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
 - [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

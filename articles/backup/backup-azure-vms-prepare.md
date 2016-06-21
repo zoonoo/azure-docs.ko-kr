@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="백업; 백업;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Azure 가상 컴퓨터를 백업하기 위한 환경 준비
 
 > [AZURE.SELECTOR]
-- [ARM VM 백업 준비](backup-azure-arm-vms-prepare.md)
-- [Azure VM 백업 준비](backup-azure-vms-prepare.md)
+- [Resource Manager 모델](backup-azure-arm-vms-prepare.md)
+- [클래식 모델](backup-azure-vms-prepare.md)
 
 Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 합니다.
 
@@ -133,11 +133,11 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
      ```
     Internet Explorer 창이 열립니다.
 3. 도구 -> 인터넷 옵션 -> 연결 -> LAN 설정으로 이동합니다.
-4. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다. 
+4. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다.
 5. Internet Explorer를 닫습니다.
 
 시스템 수준의 프록시 구성을 설정하고 나가는 HTTP/HTTPS 트래픽에 사용됩니다.
-   
+
 현재 사용자 계정(로컬 시스템 계정이 아닌)으로 프록시 서버를 설정한 경우에는, 다음 스크립트를 사용하여 SYSTEMACCOUNT에 적용합니다.
 
 ```
@@ -151,7 +151,7 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
 
 >[AZURE.NOTE] 프록시 서버 로그에 "(407)프록시 인증 필요"가 있으면, 인증이 제대로 설정되었는지 확인합니다.
 
-######Linux 컴퓨터의 경우 
+######Linux 컴퓨터의 경우
 
 다음 줄을 ```/etc/environment``` 파일에 추가합니다.
 
@@ -160,7 +160,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 ```/etc/waagent.conf``` 파일에 다음 줄을 추가합니다.
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -238,4 +238,4 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 - [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

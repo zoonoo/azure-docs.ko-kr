@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # Express 경로 필수 구성 요소 및 검사 목록  
 
 Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려면 아래 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure 계정
 
@@ -63,4 +65,4 @@ Express 경로에서 CRM Online을 사용하도록 설정하려는 경우 CRM On
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

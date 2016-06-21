@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
@@ -48,7 +48,7 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
     ![연결된 서비스 추가 대화 상자 - 저장소](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. **Azure 저장소** 대화 상자에서, 기존 저장소 계정을 선택한 다음 **추가**를 클릭합니다.
+1. **Azure 저장소** 대화 상자에서, 기존 저장소 계정을 선택한 다음 **추가**를 선택합니다.
 
     새 저장소 계정을 만들어야 하는 경우 다음 단계로 이동합니다. 그렇지 않은 경우, 6단계로 건너뜁니다.
 
@@ -64,7 +64,7 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
         **Azure 저장소** 대화 상자로 돌아가면 새 저장소가 목록에 나타납니다.
 
-    1. 목록에서 새 저장소를 선택하고 **추가**를 클릭합니다.
+    1. 목록에서 새 저장소를 선택하고 **추가**를 선택합니다.
 
 1. 연결된 저장소 서비스가 WebJob 프로젝트의 서비스 참조 노드 아래에 나타납니다.
 
@@ -94,4 +94,4 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
      - [azure.microsoft.com의 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

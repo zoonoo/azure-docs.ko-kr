@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="hawong"/>
 
 # DocumentDB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
@@ -111,8 +111,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 11. 데이터를 변환할 수 있게, **편집**을 클릭하여 쿼리 편집기를 실행합니다.
 
 ## JSON 문서 평면화 및 변환
-1. Power BI 쿼리 편집기의 가운데 창에 **문서** 열이 표시됩니다.
-![Power BI 데스크톱 쿼리 편집기](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. Power BI 쿼리 편집기의 가운데 창에 **문서** 열이 표시됩니다. ![Power BI 데스크톱 쿼리 편집기](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다. 필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다. 화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등, 보고서에 필요한 필드를 선택하고 **확인**을 클릭합니다.
 
@@ -195,4 +194,4 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 - Power BI에 대해 자세히 알아보려면 [여기](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)를 클릭하세요.
 - DocumentDB에 대해 자세히 알아보려면 [여기](https://azure.microsoft.com/documentation/services/documentdb/)를 클릭하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

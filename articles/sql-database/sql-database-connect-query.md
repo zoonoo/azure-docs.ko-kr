@@ -121,4 +121,4 @@ Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->
