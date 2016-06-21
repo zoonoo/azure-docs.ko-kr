@@ -222,11 +222,11 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 1. **솔루션 탐색기**에서 **Item** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **뷰**를 차례로 클릭합니다.
 
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
-	- **뷰 이름** 상자에 ***Create*** 를 입력합니다.
-	- **템플릿** 상자에서 ***Create*** 를 선택합니다.
-	- **모델 클래스** 상자에서 ***Item (todo.Models)*** 을 선택합니다.
+	- **뷰 이름** 상자에 ***Create***를 입력합니다.
+	- **템플릿** 상자에서 ***Create***를 선택합니다.
+	- **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
 	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
-	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml*** 을 입력합니다.
+	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
 	- **추가**를 클릭합니다.
 
 #### <a name="_Toc395888515"></a>항목 편집 뷰 추가
@@ -236,12 +236,12 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 1. **솔루션 탐색기**에서 **Item** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **뷰**를 차례로 클릭합니다.
 
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
-	- **뷰 이름** 상자에 ***Edit*** 를 입력합니다.
-	- **템플릿** 상자에서 ***Edit*** 를 선택합니다.
-	- **모델 클래스** 상자에서 ***Item (todo.Models)*** 을 선택합니다.
+	- **뷰 이름** 상자에 ***Edit***를 입력합니다.
+	- **템플릿** 상자에서 ***Edit***를 선택합니다.
+	- **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
 	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
-	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml*** 을 입력합니다.
-	- **추가** 를 클릭합니다.
+	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+	- **추가**를 클릭합니다.
 
 이 작업이 완료되면 나중에 이러한 뷰로 돌아올 것이므로 Visual Studio에서 모든 cshtml 문서를 닫습니다.
 
@@ -591,4 +591,4 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

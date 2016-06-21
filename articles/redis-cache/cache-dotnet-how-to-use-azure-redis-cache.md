@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/31/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -59,21 +59,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 <a name="NuGet"></a>
 ## 캐시 클라이언트 구성
 
-Azure Redis Cache를 사용하여 만든 캐시는 모든 Azure 응용 프로그램에서 액세스할 수 있습니다. Visual Studio에서 개발한 .NET 응용 프로그램은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 응용 프로그램의 구성을 단순화하는 NuGet 패키지를 사용하여 구성할 수 있습니다.
-
->[AZURE.NOTE] 자세한 내용은 [StackExchange.Redis][](영문) github 페이지 및 [StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 참조하세요.
-
-StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-
-![NuGet 패키지 관리][NuGetMenu]
-
-검색 텍스트 상자에 **StackExchange.Redis** 또는 **StackExchange.Redis.StrongName**을 입력하고 결과에서 원하는 버전을 선택한 후 **설치**를 클릭합니다.
-
->[AZURE.NOTE] 강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
-
-![StackExchange.Redis NuGet 패키지][StackExchangeNuget]
-
-NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis 캐시 클라이언트를 사용하여 Azure Redis Cache에 액세스하는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 클라이언트 프로젝트의 캐싱을 구성했으면 캐시 작업에 대해 다음 섹션에서 설명하는 기술을 사용할 수 있습니다.
 
@@ -298,4 +284,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

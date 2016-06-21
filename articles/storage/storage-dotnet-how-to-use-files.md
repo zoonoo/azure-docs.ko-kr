@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-	  ms.date="04/11/2016"
+	ms.date="06/09/2016"
       ms.author="minet" />
 
 # Windows에서 Azure 파일 저장소 시작
@@ -634,7 +634,7 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
 
 13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
 
-	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/en-us/kb/3114025)를 확인하세요.
+	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/ko-KR/kb/3114025)를 확인하세요.
 
 14. **IBM MQ로 Azure 파일 저장소 사용**
 
@@ -667,4 +667,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

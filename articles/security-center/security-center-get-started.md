@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="06/10/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 빠른 시작 가이드
@@ -23,13 +23,17 @@
 > [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## Azure 보안 센터란?
- 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+
+## 데이터 수집
+
+보안 센터는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 가상 컴퓨터에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 보안 센터 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다. 다음 단계에서는 데이터 수집을 해제하는 방법을 보여 줍니다.
 
 ## 필수 조건
 
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 보안 센터는 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
- 보안 센터는 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
+보안 센터는 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
 
 
 ## 보안 센터 엑세스
@@ -49,10 +53,10 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 
 2. **보안 정책–구독 또는 리소스 그룹당 정책 정의** 블레이드에서 구독을 선택합니다. ![Azure 보안 센터의 보안 정책 블레이드][4]
 
-3. **보안 정책** 블레이드에서 자동으로 로그를 수집하도록 **데이터 컬렉션**을 켭니다. **데이터 컬렉션**을 켜면 구독에 현재 포함된 VM과 새로운 VM에 모니터링 확장이 프로비전됩니다.
+3. **보안 정책** 블레이드에서 자동으로 로그를 수집하도록 **데이터 컬렉션**을 활성화합니다. 구독에 있는 현재 VM과 새로운 VM에 모니터링 확장이 프로비전됩니다. (**데이터 수집**을 Off로 설정하여 데이터 수집을 옵트아웃할 수 있지만 보안 센터가 보안 경고 및 권장 사항을 제공하지 않도록 방지합니다.)
 4. **지역당 저장소 계정 선택**을 선택합니다. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면 사용자를 위해 계정이 생성됩니다. 수집된 데이터는 보안상의 이유로 다른 고객의 데이터와 논리적으로 격리됩니다.
 
-     > [AZURE.NOTE] 먼저 구독 수준에서 데이터 수집을 켜고 저장소 계정을 선택하는 것이 좋습니다. Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집 및 저장소 계정 구성은 구독 수준에서만 발생합니다.
+     > [AZURE.NOTE] 먼저 구독 수준에서 데이터 수집을 활성화하고 저장소 계정을 선택하는 것이 좋습니다. Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집 및 저장소 계정 구성은 구독 수준에서만 발생합니다.
 
 5. 보안 정책의 일부로 표시하려는 **권장 사항**을 켭니다. 예제:
 
@@ -89,13 +93,13 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 ## 다음 단계
 이 문서에서는 보안 센터의 보안 모니터링 및 정책 관리 구성 요소를 소개했습니다. 자세한 알아보려면 다음을 참조하세요.
 
-- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)--Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법 알아보기.
-- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md)--권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기.
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법 알아보기.
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법 알아보기.
-- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)--파트너 솔루션의 상태를 모니터링하는 방법 알아보기.
-- [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답 찾기.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보 가져오기.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)--Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md)–-권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)––Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md)-–서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
@@ -109,4 +113,4 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

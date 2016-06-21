@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@
 이 자세한 연습에서는 기계 학습 스튜디오에서 예측 분석 모델을 개발한 다음 Azure 기계 학습 웹 서비스로 배포하는 프로세스를 따릅니다. 공개적으로 사용 가능한 신용 위험 데이터에서 시작하여 해당 데이터를 기반으로 예측 모델의 학습을 진행한 다음 다른 사람이 사용할 수 있는 웹 서비스로 모델을 배포합니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
 
@@ -41,4 +43,4 @@
 
 이 연습은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)에서 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

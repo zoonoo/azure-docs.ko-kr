@@ -30,19 +30,13 @@
 ## 필수 조건
 
 1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 읽고 진행하기 전에 필수 구성 요소 단계를 완료**해야** 합니다.
-2. 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스의 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 읽어보는 것이 좋습니다.  
-
-## 데이터 팩터리 엔터티 만들기 및 배포  
-
-### 필수 구성 요소
-
-다음 항목이 컴퓨터에 설치되어 있어야 합니다.
-
-- Visual Studio 2013 또는 Visual Studio 2015
-- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
-- [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다. 
-	
-	
+2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재는 이렇게 제한됩니다. 요구 사항이 변경되는 즉시 사용자에게 알려줍니다. 
+3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다. 
+	- Visual Studio 2013 또는 Visual Studio 2015
+	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
+	- [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다. 
+ 
+다음 연습에서는 데이터 팩터리 엔터티를 만들고 배포하는 방법을 보여 줍니다.
 
 ## Visual Studio 프로젝트 만들기 
 1. **Visual Studio 2013** 또는 **Visual Studio 2015**를 시작합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
@@ -101,9 +95,9 @@
 
 	다음 사항에 유의하세요.
 	
-	- 데이터 팩터리는 사용자에 대해 **Windows 기반** HDInsight 클러스터를 JSON 위에 만듭니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
+	- 데이터 팩터리는 위의 JSON으로 사용자에게 **Windows 기반** HDInsight 클러스터를 만들어 줍니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
 	- 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터**를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
-	- HDInsight 클러스터는 JSON (**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+	- HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 	
 		점점 더 많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
 
@@ -306,8 +300,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ## 파이프라인 모니터링
 
 6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
-	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
-		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다. ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -367,7 +360,7 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 ## 구성 파일 사용
 각 환경마다 다르게 연결된 서비스/테이블/파이프라인에 대한 속성을 구성하기 위해 Visual Studio의 구성 파일을 사용할 수 있습니다.
 
-Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey에 대한 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 작업을 수행할 수 있습니다.
+Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 accountname 및 accountkey에 대해 서로 다른 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 작업을 수행할 수 있습니다.
 
 	{
 	    "name": "StorageLinkedService",
@@ -468,7 +461,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 ## 요약 
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.
 
-1.	Azure **데이터 팩터리**를 만들었습니다.
+1.	Azure **Data Factory**를 만들었습니다.
 2.	두 개의 **연결된 서비스**를 만들었습니다.
 	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure 저장소** 연결된 서비스입니다.
 	2.	주문형 HDInsight Hadoop 클러스터를 데이터 팩터리에 연결하는 **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다. 
@@ -488,4 +481,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

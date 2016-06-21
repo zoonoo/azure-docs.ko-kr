@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
@@ -143,4 +143,4 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 - [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 - [Node.js용 Microsoft Azure SDK - Data Lake 저장소 관리](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

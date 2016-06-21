@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Visual Studio에서 Azure 서비스 패브릭 응용 프로그램 처음 만들기
@@ -46,7 +46,7 @@
 
 	![Visual Studio의 새 서비스 대화 상자][2]
 
-	>[AZURE.NOTE] 옵션에 대한 자세한 내용은 [프레임워크 선택](service-fabric-choose-framework.md)을 참조하세요.
+	>[AZURE.NOTE] 옵션에 대한 자세한 내용은 [서비스 패브릭 프로그래밍 모델 개요](service-fabric-choose-framework.md)를 참조하세요.
 
 	Visual Studio는 응용 프로그램 프로젝트 및 상태 저장 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
@@ -110,31 +110,19 @@
 
     ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
 
-### 정리
+## 정리
 
-  마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하고 Visual Studio를 닫은 후에도 응용 프로그램은 백그라운드에서 계속 실행됩니다. 앱의 특성에 따라서, 이 백그라운드 작업은 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 이것을 관리하는 옵션이 몇 가지 있습니다.
+  마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 이것을 관리하는 옵션이 몇 가지 있습니다.
 
-  1. 개별 응용 프로그램 및 모든 데이터를 제거하려면 왼쪽 창에서 응용 프로그램 목록 보기에 있는 컨텍스트 메뉴 또는 **작업** 메뉴를 통해 서비스 패브릭 탐색기에서 **응용 프로그램 삭제** 작업을 사용합니다.
+  1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
 
-    ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfe-delete-application]
-
-  2. 클러스터에서 응용 프로그램을 삭제한 후 응용 프로그램의 패키지를 제거할 응용 프로그램의 **프로비전 해제 형식**(예: 코드 및 구성)을 클러스터의 이미지 저장소에서 선택할 수 있습니다.
-  3. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
-
-  4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에 사용합니다.
-
-
+  2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에 사용합니다.
 
 ## 다음 단계
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Azure에서 클러스터를 만드는 방법 알아보기](service-fabric-cluster-creation-via-portal.md)
-- [Reliable Services에 대해 자세히 알아보기](service-fabric-reliable-services-quick-start.md)
-- [Reliable Actors 프로그래밍 모델을 사용하여 서비스 만들어 보기](service-fabric-reliable-actors-get-started.md)
+- [Azure에서 클러스터](service-fabric-cluster-creation-via-portal.md)를 만들거나 [Windows에서 독립 실행형 클러스터](service-fabric-cluster-creation-for-windows-server.md)를 만드는 방법을 알아봅니다.
+- [Reliable Services](service-fabric-reliable-services-quick-start.md) 또는 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 서비스를 만들어 봅니다.
+- [웹 서비스 프런트 엔드](service-fabric-add-a-web-frontend.md)를 사용하여 인터넷에 서비스를 노출할 수 있는 방법을 알아봅니다.
 
 <!-- Image References -->
 
@@ -150,4 +138,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

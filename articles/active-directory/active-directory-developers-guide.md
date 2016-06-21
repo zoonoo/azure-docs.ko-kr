@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -40,25 +40,25 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ### 모바일 및 PC 응용 프로그램 빠른 시작 가이드
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)로 바꿉니다.|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.|[![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)로 바꿉니다.|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows 스토어](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 ### 웹 응용 프로그램 빠른 시작 가이드
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)로 바꿉니다.|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)로 바꿉니다.|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)로 바꿉니다.|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### 웹 API 빠른 시작 가이드
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)로 바꿉니다.|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)로 바꿉니다.
 |:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.JS](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### 디렉터리 쿼리 빠른 시작 가이드
 
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)로 바꿉니다.|
 |:--:|
 |[그래프 API](active-directory-graph-api-quickstart.md)|
 
@@ -97,17 +97,19 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)(영문): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
-### 인증 프로토콜
+### 인증 및 권한 부여 프로토콜
 
-- [Azure Active Directory 인증 프로토콜](active-directory-protocols.md): Azure Active Directory에서 지원하는 여러 인증 및 권한 부여 프로토콜에 대해 알아봅니다.
+- [Azure Active Directory 인증 및 권한 부여 프로토콜](active-directory-protocols.md): Azure Active Directory에서 지원하는 여러 인증 및 권한 부여 프로토콜에 대해 알아봅니다.
+
+- [OAuth 2.0 프로토콜: 권한 부여 코드 부여 사용](active-directory-protocols-oauth-code.md): OAuth 2.0 프로토콜의 권한 부여 코드 부여를 사용하여 Azure Active Directory 테넌트의 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
+
+- [OAuth 2.0 프로토콜: 암시적 부여 이해](active-directory-dev-understanding-oauth2-implicit-grant.md) : 암시적 권한 부여에 대한 자세한 정보 및 응용 프로그램에 적합한지 여부를 알아봅니다.
+
+- [OpenID Connect 1.0 프로토콜: 로그인 및 인증](active-directory-protocols-openid-connect-code.md): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용하는 OAuth 2.0을 확장합니다. 클라이언트 응용 프로그램은 id\_token을 수신하여 로그인 프로세스를 관리하거나 권한 부여 코드 흐름을 보강하여 id\_token 및 권한 부여 코드를 수신할 수 있습니다.
 
 - [SAML 2.0 프로토콜 참조](active-directory-saml-protocol-reference.md): SAML 2.0 프로토콜을 사용하면 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
 
-- [OAuth 2.0 프로토콜 참조](active-directory-protocols-oauth-code.md): OAuth 2.0 프로토콜을 사용하여 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
-
-- [OpenID Connect 1.0 프로토콜 참조](active-directory-protocols-openid-connect-code.md)(영문): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
-
-- [WS-Federation 1.2 프로토콜](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory는 웹 서비스 페더레이션 버전 1.2 사양별 WS-Federation 1.2를 지원합니다.
+- [WS-Federation 1.2 프로토콜](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory는 웹 서비스 페더레이션 버전 1.2 사양에 따라 WS-Federation 1.2를 지원합니다.
 
 - [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md): 이 가이드를 사용하여 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰에서 클레임을 파악 및 평가할 수 있습니다.
 
@@ -139,4 +141,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
