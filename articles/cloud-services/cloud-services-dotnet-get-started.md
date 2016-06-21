@@ -92,7 +92,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-	클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
+	클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터* 를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
 	클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 응용 프로그램 홈페이지가 표시됩니다.
 
@@ -157,7 +157,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
 
 1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 **새로 만들기 > 데이터 서비스 > SQL 데이터베이스 > 빠른 생성**을 클릭합니다.
 
-1. **데이터베이스 이름** 상자에 *contosoads*를 입력합니다.
+1. **데이터베이스 이름** 상자에 *contosoads* 를 입력합니다.
 
 1. **서버** 드롭다운 목록에서 **새 SQL 데이터베이스 서버**를 선택합니다.
 
@@ -399,7 +399,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#**에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.
 
-10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인**을 클릭합니다.
 
 	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 대안에서는 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -742,7 +742,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 
 Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드(`WorkerRole` 클래스에 있음)를 호출하고 `Run` 메서드를 호출합니다(`OnStart` 메서드가 완료되는 경우).
 
-`OnStart` 메서드는 *.cscfg** 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
+`OnStart` 메서드는 *.cscfg* 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
 
 ```csharp
 var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");

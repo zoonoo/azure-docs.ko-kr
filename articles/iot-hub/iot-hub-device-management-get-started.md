@@ -100,7 +100,7 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 이 스크립트는 다음을 수행합니다.
 
-1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
+1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
 
 2.  시뮬레이션 장치 프로젝트 **iotdm\_simple\_sample.vcxproj**를 빌드합니다.
 
