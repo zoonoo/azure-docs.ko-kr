@@ -843,7 +843,7 @@ azperflib.exe의 두 반환 값이 모든 카운터가 채워져 올바르게 �
             * 'python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon'과 비슷한 하나의 항목을 표시합니다.
     * Azure 고급 모니터링 확장이 설치 및 시작되었는지 확인합니다.
         * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
-    * Azure 고급 모니터링 확장 디렉터리의 내용을 나열합니다.
+            * Azure 고급 모니터링 확장 디렉터리의 내용을 나열합니다.
         * ps -ax | grep AzureEnhanced
             * 'python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon'과 비슷한 하나의 항목을 표시합니다.
 * SAP Note 1031096에 설명된 대로 SAP 호스트 에이전트를 설치하고 saposcol의 출력을 확인합니다.
