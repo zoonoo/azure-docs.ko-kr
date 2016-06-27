@@ -146,7 +146,7 @@ Azure 서비스 패브릭은 Microsoft가 보통 모놀리식 스타일의 박�
 
 * 자세한 내용은 다음을 참조하세요.
     * [서비스 패브릭의 개요](service-fabric-overview.md)
-    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/ko-KR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

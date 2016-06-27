@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 
 Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 종단 간에 SQL Server Always On 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
@@ -563,7 +563,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY ** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
+1. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1

@@ -19,7 +19,7 @@
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 
 

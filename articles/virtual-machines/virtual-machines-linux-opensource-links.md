@@ -23,7 +23,7 @@
 
 클래식 배포 모델에서 Linux 기반 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 ## 시작
 - [Azure의 Linux에 대한 소개](virtual-machines-linux-intro-on-azure.md)

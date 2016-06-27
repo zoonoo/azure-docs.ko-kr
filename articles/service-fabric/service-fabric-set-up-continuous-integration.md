@@ -194,7 +194,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
 
-    a. 팀 프로젝트(예: ****https://[your-VSTS-account-name].visualstudio.com**)에 로그인합니다.
+    a. 팀 프로젝트(예: **https://[your-VSTS-account-name].visualstudio.com**)에 로그인합니다.
 
     b. 화면 오른쪽 위 모퉁이에서 기어 아이콘을 선택합니다.
 
@@ -401,7 +401,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
     |스크립트 파일 이름|**...** 단추를 클릭하여 응용 프로그램 프로젝트 내 **스크립트** 디렉터리로 이동합니다. `Deploy-FabricApplication.ps1`을 선택합니다.|
     |인수|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] 작동하는 게시 프로필 xml 파일은 다음과 같이 Visual Studio에서 쉽게 만들 수 있습니다. https://azure.microsoft.com/ko-KR/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] 작동하는 게시 프로필 xml 파일은 다음과 같이 Visual Studio에서 쉽게 만들 수 있습니다. https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] 기존 응용 프로그램을 업그레이드하는 대신 덮어쓰는 방법으로 클러스터에 대한 응용 프로그램 배포를 지원하려는 경우 다음 Powershell 인수를 추가합니다. '-OverwriteBehavior SameAppTypeAndVersion'. 또한 선택한 게시 프로필이 업그레이드를 사용하도록 구성되지 않아야 합니다. 최신 빌드를 설치하기 전에 기존 ApplicationType을 먼저 제거합니다.
 

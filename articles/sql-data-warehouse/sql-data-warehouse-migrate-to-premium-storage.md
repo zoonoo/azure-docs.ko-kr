@@ -144,6 +144,6 @@ SQL 데이터 웨어하우스는 최근에 도입된 [큰 성능 예측 가능�
 
 
 <!--Other Web references-->
-[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/ko-KR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
 <!---HONumber=AcomDC_0615_2016-->

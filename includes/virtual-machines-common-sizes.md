@@ -49,18 +49,18 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 |SKU 제품군 |ACU/코어 |
 |---|---|
-|[Standard\_A0](#a-series) |50 |
-|[Standard\_A1-4](#a-series) |100 |
-|[Standard\_A5-7](#a-series) |100 |
-|[A8-A11](#a-series) |225*|
-|[D1-14](#d-series) |160 |
-|[D1-15v2](#dv2-series) |210 - 250*|
-|[DS1-14](#ds-series) |160 |
-|[DS1-15v2](#dsv2-series) |210-250* |
-|[F1-F16](#f-series) | 210-250*|
-|[F1s-F16s](#fs-series) | 210-250*|
-|[G1-5](#g-series) |180 - 240*|
-|[GS1-5](#gs-series) |180 - 240*|
+|[Standard\_A0](#a-series)	|50 |
+|[Standard\_A1-4](#a-series)	|100 |
+|[Standard\_A5-7](#a-series)	|100 |
+|[A8-A11](#a-series)	|225*|
+|[D1-14](#d-series)	|160 |
+|[D1-15v2](#dv2-series)	|210 - 250*|
+|[DS1-14](#ds-series)	|160 |
+|[DS1-15v2](#dsv2-series)	|210-250* |
+|[F1-F16](#f-series)	| 210-250*|
+|[F1s-F16s](#fs-series)	| 210-250*|
+|[G1-5](#g-series)	|180 - 240*|
+|[GS1-5](#gs-series)	|180 - 240*|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.

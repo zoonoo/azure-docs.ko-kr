@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Vm에 대한 공통 PowerShell 명령 | Microsoft Azure"
-   description="Windows Azure에서 Vm 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령"
+   description="Microsoft Azure에서 Vm 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="davidmu1" 

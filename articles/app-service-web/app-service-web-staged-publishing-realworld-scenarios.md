@@ -328,7 +328,7 @@ Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 
 
 ![새 스테이징 데이터베이스를 통해 스테이징 웹앱의 연결 문자열 업데이트](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다. 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
+배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다 . 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
 
  ![스테이징 웹앱의 게시 설정 가져오기](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 

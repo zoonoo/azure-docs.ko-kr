@@ -150,7 +150,7 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL 데이터베이스의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (다음 스크린샷은 Azure SQL 데이터베이스를 보여 주지만 동일한 개념이 Azure SQL 데이터 웨어하우스에 적용됩니다.)
 
 	![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 ** SQL 데이터 웨어하우스**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
+2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 **SQL 데이터 웨어하우스** 를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
 
 	![ad 설정][9]
 3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
@@ -263,7 +263,7 @@ Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할
 Azure와 페더레이션되지 않은 도메인으로부터 자격 증명을 사용하여 Windows에 로그인하거나, 최초 또는 클라이언트 도메인 기반의 Azure AD를 사용하는 Azure AD 인증을 사용할 경우 이 방법을 선택합니다.
 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진에 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 암호 인증**을 선택합니다.
-2. **사용자 이름** 상자에 ****username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
+2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다. ![AD 암호 인증 선택][12]
 
 4. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
@@ -277,7 +277,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+ *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 

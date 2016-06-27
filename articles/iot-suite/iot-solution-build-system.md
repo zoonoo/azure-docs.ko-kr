@@ -109,7 +109,7 @@ GitHub, Visual Studio 또는 다른 Git 클라이언트에서 **ZIP 다운로드
 
 또는 최신 상태로 유지하거나 코드에 적용하려면 다음과 같이 리포지토리를 복제합니다.
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Bing 지도 API 키 가져오기
 

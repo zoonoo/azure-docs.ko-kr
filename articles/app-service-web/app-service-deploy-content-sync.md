@@ -27,7 +27,7 @@
 ## <a name="contentsync"></a>콘텐츠 동기화 배포를 사용하는 방법
 [Azure 포털](https://portal.azure.com)에서 콘텐츠 동기화를 사용하려면 다음 단계를 따릅니다.
 
-1. Azure 포털의 앱 블레이드에서 **설정 ** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
+1. Azure 포털의 앱 블레이드에서 **설정** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
 
     ![콘텐츠 동기화](./media/app-service-deploy-content-sync/deployment_source.png)
 
