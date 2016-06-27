@@ -3,7 +3,7 @@
  description="Azure IoT Hub 장치 관리 개요: 장치 쌍, 장치 쿼리, 장치 작업"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Azure IoT Hub 장치 관리의 개요(미리 보기)
 
@@ -24,7 +24,7 @@ Azure IoT의 장치 관리에는 세 가지 주요 개념이 있습니다.
 
 1.  **장치 쌍:** IoT Hub 내 물리적 장치의 표현입니다.
 
-2.  **장치 쿼리**: 장치 쌍을 찾아서 장치 쌍을 이해하는 집계를 생성할 수 있도록 합니다. 예를 들어, 펌웨어 버전이 1.0인 모든 장치 쌍을 찾을 수 있습니다.
+2.  **장치 쿼리**: 여러 장치 쌍을 찾아서 장치 쌍을 이해하는 집계를 생성할 수 있도록 합니다. 예를 들어, 쿼리를 실행하여 펌웨어 버전이 1.0인 모든 장치 쌍을 찾을 수 있습니다.
 
 3.  **장치 작업**: 펌웨어 업데이트, 재부팅, 공장 재설정 등과 같이, 하나 이상의 물리적 장치에서 수행하기 위한 작업입니다.
 
@@ -105,15 +105,7 @@ DM 클라이언트 라이브러리는 장치 관리에 관하여 두 가지 주�
 
 ## 다음 단계
 
-Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면, 자습서를 살펴보세요.
-
-- [Azure IoT Hub 장치 관리 시작][lnk-get-started]
-
-- [장치 쌍을 사용하는 방법][lnk-tutorial-twin]
-
-- [쿼리를 사용하여 장치 쌍을 찾는 방법][lnk-tutorial-queries]
-
-- [장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법][lnk-tutorial-jobs]
+Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [Azure IoT Hub 장치 관리 시작하기][lnk-get-started] 자습서를 참조하세요.
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면, 자습�
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/14/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경으로 계층화된 보안 아키텍처 구현
@@ -89,6 +89,8 @@
 
 
 ## 추가 링크 및 정보 ##
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
+
 클래식 가상 네트워크에 [네트워크 보안 그룹][NetworkSecurityGroupsClassic] 구성.
 
 [아웃 바운드 IP 주소][NetworkArchitecture] 및 앱 서비스 환경 이해.
@@ -109,4 +111,4 @@
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

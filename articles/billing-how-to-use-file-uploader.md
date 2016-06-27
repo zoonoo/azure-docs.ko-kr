@@ -19,9 +19,9 @@
 
 # Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
 
-[새 지원 요청을 만들 때 ](https://ms.portal.azure.com/#create/Microsoft.Support) 파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.
+[새 지원 요청을 만들 때 ](https://portal.azure.com/#create/Microsoft.Support) 파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.
 
->[AZURE.NOTE]개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
+>[AZURE.NOTE] 개인 정보를 보호하려면 업로드 시 개인 정보를 포함시키기 마세요.
 
 파일 업로드 유틸리티를 사용할 때 다음 지침을 따르세요.
 
@@ -63,4 +63,4 @@
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0615_2016-->

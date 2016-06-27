@@ -82,19 +82,19 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 
 ### Azure 데이터 레이크 저장소 만들기
 
-[Azure 포털](http://ms.portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
+[Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Azure Data Lake 분석 계정 만들기
-[Azure 포털](http://ms.portal.azure.com)에서 ADLA 계정을 만듭니다. 자세한 내용은 [자습서: Azure 포털을 사용하여 Azure Data Lake 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 ADLA 계정을 만듭니다. 자세한 내용은 [자습서: Azure 포털을 사용하여 Azure Data Lake 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Azure Blob 저장소 계정 만들기
-[Azure 포털](http://ms.portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -158,7 +158,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
+Azure Blob에서 데이터 위치는 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
 
 	// change data types
 	@trip =
@@ -640,7 +640,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 ### HDInsight Linux 클러스터 만들기
 
-[Azure 포털](http://ms.portal.azure.com)에서 HDInsight 클러스터(Linux)를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)의 **Azure Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터 만들기** 섹션을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 HDInsight 클러스터(Linux)를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)의 **Azure Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터 만들기** 섹션을 참조하세요.
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -658,7 +658,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
+다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -741,4 +741,4 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 - [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 - [ Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

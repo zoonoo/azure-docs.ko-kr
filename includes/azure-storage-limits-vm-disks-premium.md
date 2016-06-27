@@ -15,6 +15,15 @@
 디스크 크기 | 128GiB | 512GiB | 1024GiB(1TB)
 디스크당 최대 IOPS | 500 | 2300 | 5000
 디스크당 최대 처리량 | 초당 100MB | 초당 150MB | 초당 200MB
-저장소 계정당 최대 디스크 수 | 280 | 140 | 35
+저장소 계정당 최대 디스크 수 | 280 | 70 | 35
 
-<!---HONumber=AcomDC_0413_2016-->
+**가상 컴퓨터 디스크: VM당 제한**
+
+리소스|기본 제한
+---|---
+VM당 최대 IOPS|GS5 VM에서 80,000 IOPS<sup>1</sup>
+VM당 최대 처리량|GS5 VM에서 2,000MB/s<sup>1</sup>
+
+<sup>1</sup>다른 VM 용량에 대한 제한은 [VM 용량](../articles/virtual-machines/virtual-machines-linux-sizes.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0615_2016-->

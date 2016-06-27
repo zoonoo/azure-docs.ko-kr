@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="06/08/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 및 규정 준수 블로그
@@ -28,6 +28,14 @@ Azure 보안과 관련된 모든 사항의 최신 소식을 확인하려면 Azur
 
 **최근 문서**(이 섹션은 새 게시물에 대한 링크로 매주 업데이트됩니다.):
 
+[Azure 인프라 보안록 서비스 예정](https://blogs.msdn.microsoft.com/azuresecurity/2016/06/06/azure-infrastructure-security-book-coming-soon/)(2016년 6월 6일)
+
+[ACS(Azure 컨테이너 서비스)와 컨테이너 보안에 대한 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/26/insights-on-container-security-with-azure-container-service-acs/)(2016년 5월 26일)
+
+[Azure.com의 Azure 보안 정보 사이트](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/azure-security-information-site-on-azure-com/)(2016년 5월 24일)
+
+[Azure 서비스 관리에서 Azure 리소스 관리로 마이그레이션하여 보안 향상](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/improve-security-by-migrating-from-azure-service-management-to-azure-resource-management/)(2016년 5월 24일)
+
 [Windows 가상 컴퓨터에 대한 Azure 디스크 암호화가 일반 공급에 도달](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/)(2016년 5월 20일)
 
 [Azure 보안 센터 위협 요소 탐지의 고급 기능](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/)(2016년 5월 17일)
@@ -40,4 +48,4 @@ Azure 보안과 관련된 모든 사항의 최신 소식을 확인하려면 Azur
 
 [클라우드 평균에서 공동 책임은 무엇입니까?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (2016년 4월 18일)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -34,7 +34,7 @@
 
 ## 복구 지점 복원
 
-1. [Azure 포털](http://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
 
 2. Azure 메뉴에서 **찾아보기**를 클릭하고 서비스 목록에서 **복구 서비스**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
 
@@ -157,7 +157,7 @@
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는 데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
-	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
+	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
 	- [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)를 사용하여 VM 만들기
 	- [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM 만들기
 
@@ -167,4 +167,4 @@ VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

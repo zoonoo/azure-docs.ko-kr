@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="진단 검색 사용" 
+	pageTitle="진단 검색 사용 | Microsoft Azure" 
 	description="개별 이벤트, 요청 및 로그 추적을 검색하고 필터링합니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 진단 검색 사용
@@ -63,9 +63,22 @@ Visual Studio에서 검색 창을 엽니다.
 
 키 필드 및 관련 항목을 보려면 원격 분석 항목을 선택합니다. 필드의 전체 집합을 확인하려는 경우 "..."를 클릭합니다.
 
-![진단 검색 열기](./media/app-insights-diagnostic-search/10-detail.png)
+
+![새 작업 항목을 클릭하고, 필드를 편집한 다음 확인을 클릭합니다.](./media/app-insights-diagnostic-search/10-detail.png)
 
 필드의 전체 집합을 찾으려면 일반 문자열(와일드 카드 없이)을 사용합니다. 사용할 수 있는 필드는 원격 분석 유형에 따라 다릅니다.
+
+## 작업 항목 만들기
+
+원격 분석 항목의 세부 정보를 이용하여 Visual Studio Team Services에서 버그를 만들 수 있습니다.
+
+![새 작업 항목을 클릭하고, 필드를 편집한 다음 확인을 클릭합니다.](./media/app-insights-diagnostic-search/42.png)
+
+처음 이 작업을 할 때는 Team Services 계정과 프로젝트 링크를 구성하라는 메시지가 나타납니다.
+
+![Team Services 서버 URL과 프로젝트 이름을 입력하고 권한 부여를 클릭합니다.](./media/app-insights-diagnostic-search/41.png)
+
+(설정 > 작업 항목에서 구성 블레이드로 이동할 수 있습니다.)
 
 ## 이벤트 유형 필터링
 
@@ -158,7 +171,7 @@ New Delay|w d|new<br/>delay<br/>n* AND d*
 샘플 쿼리 | 결과 
 ---|---
 slow|지정된 날짜 범위의 필드에 "slow" 용어가 포함된 모든 이벤트를 찾습니다.
-database|검색 용어를 Matches database01, databaseAB, ...<br/>?와 같이 시작할 수 없습니다.
+database|검색 용어를 Matches database01, databaseAB, ...<br/>?와(과) 같이 시작할 수 없습니다.
 database* |검색 용어를 Matches database, database01, databaseNNNN<br/>*과 같이 시작할 수 없습니다.
 apple AND banana|두 용어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요.
 apple OR banana<br/>apple banana|둘 중 한 용어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"를 사용하세요.</br/>약식입니다.
@@ -221,4 +234,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

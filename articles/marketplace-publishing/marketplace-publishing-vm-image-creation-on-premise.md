@@ -25,7 +25,7 @@
 ### Blob URL 찾기
 VHD를 다운로드하려면 먼저 운영 체제 디스크에 대한 Blob URL을 찾습니다.
 
-새 [Microsoft Azure 포털](https://ms.portal.azure.com)에서 Blob URL을 찾습니다.
+새 [Microsoft Azure 포털](https://portal.azure.com)에서 Blob URL을 찾습니다.
 
 1.	**찾아보기** > **VM**으로 이동하고 배포된 VM을 선택합니다.
 2.	**구성** 아래에서 **디스크** 타일을 선택하면 디스크 블레이드가 열립니다.
@@ -138,4 +138,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

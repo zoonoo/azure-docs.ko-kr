@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/12/2016" 
 	ms.author="awills"/>
  
 # Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
@@ -152,32 +152,22 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 ## 사용자 지정 이벤트
 
-사용자 지정 이벤트를 사용하여 다음 작업을 수행합니다. 장치 앱, 웹 페이지 또는 웹 서버에서 이를 전송할 수 있습니다.
-
-*JavaScript*
+사용자 지정 원격 분석을 작성하여 구체적 이벤트를 기록합니다. 특히 단일 페이지 앱에서는 사용자가 얼마나 자주 특정 작업을 수행하는지, 특정 목표를 달성하는지 알고 싶을 것입니다.
 
     appInsights.trackEvent("GameEnd");
 
-*C#*
+예를 들어, 링크 클릭을 로그하려면:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
-    tc.TrackEvent("GameEnd");
-
-*VB*
-
-    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
-    tc.TrackEvent("GameEnd")
+    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
 
 
-가장 자주 수행하는 사용자 지정 이벤트가 개요 블레이드에 나열됩니다.
+## 사용자 지정 이벤트 조회수 개수
 
-![개요 블레이드에서 아래로 스크롤하고 사용자 지정 이벤트를 클릭합니다.](./media/app-insights-web-track-usage/04-events.png)
-
-이벤트의 총 수를 확인하려면 표의 헤드를 클릭합니다. 이벤트 이름과 같은 다양한 특성으로 차트를 구분할 수 있습니다.
+메트릭 탐색기를 열고 차트를 추가하여 이벤트를 표시합니다. 이름별 세그먼트:
 
 ![하나의 메트릭만 보여주는 차트를 선택합니다. 그룹화로 전환합니다. 속성을 선택합니다. 일부 속성은 사용할 수 없습니다.](./media/app-insights-web-track-usage/06-eventsSegment.png)
 
-특별히 유용한 타임라인의 기능은 다른 메트릭 및 이벤트와 변경 내용을 연관지을 수 있다는 점입니다. 예를들어 더 많은 게임이 플레이되면 중단된 게임에도 상승 효과가 보이기를 기대하게 됩니다. 하지만 중단된 게임의 상승 효과는 균형이 맞지 않습니다. 높은 부하가 사용자가 받아들일 수 없는 문제를 유발하는지 알고 싶습니다.
+
 
 ## 특정 이벤트 자세히 알아보기
 
@@ -376,4 +366,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

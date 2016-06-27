@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스에 로컬 Git 배포를 사용하는 방법에 대해 알아봅니다."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Azure 앱 서비스에 로컬 Git 배포
 
@@ -175,9 +175,9 @@
 [Azure 포털]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure 명령줄 인터페이스]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
+[Azure 명령줄 인터페이스]: https://azure.microsoft.com/ko-KR/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

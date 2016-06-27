@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="06/09/2016"
+   ms.author="anbacker" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -254,4 +254,4 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 
 [StorSimple 오류 및 운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

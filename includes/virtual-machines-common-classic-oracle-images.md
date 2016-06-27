@@ -1,7 +1,7 @@
 
 
 
-Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https://ms.portal.azure.com/)에 로그인하고 **마켓플레이스**, **계산**을 차례로 클릭한 다음 검색 상자에 **Oracle**을 입력합니다. 이미지를 선택하고 지침에 따라 Microsoft Azure에서 이미지를 설정합니다. [Azure 포털](https://ms.portal.azure.com/)의 Microsoft 제공 Oracle 이미지는 Windows에서 실행되고 Oracle 제공 Oracle 이미지는 Oracle Linux에서 실행됩니다.
+Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https://portal.azure.com/)에 로그인하고 **마켓플레이스**, **계산**을 차례로 클릭한 다음 검색 상자에 **Oracle**을 입력합니다. 이미지를 선택하고 지침에 따라 Microsoft Azure에서 이미지를 설정합니다. [Azure 포털](https://portal.azure.com/)의 Microsoft 제공 Oracle 이미지는 Windows에서 실행되고 Oracle 제공 Oracle 이미지는 Oracle Linux에서 실행됩니다.
 
 ##Windows 기반 가상 컴퓨터 이미지
 다음은 Azure의 Windows Server에서 실행되는 사용 가능한 Oracle 가상 컴퓨터 이미지 목록입니다. 이러한 이미지 요금은 종량제이므로 Oracle 라이선스 비용이 해당 이미지 사용료에 포함됩니다. Microsoft는 더 이상 Azure 마켓플레이스에 Oracle 데이터베이스 또는 WebLogic 이미지를 게시하지 않습니다. Microsoft Azure에서 Oracle 소프트웨어를 실행하기 위해 사용자 지정 이미지를 만들고 사용자 라이선스 필요 모델을 사용할 수 있습니다.
@@ -26,4 +26,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

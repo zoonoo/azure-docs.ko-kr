@@ -103,7 +103,7 @@
 | 44 | [Node.js를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-nodejs-simple.md) | Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다. |
 | 45 | [Python을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-python-simple.md) | Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Python 코드 샘플을 제시합니다. |
 | 46 | [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple.md) | Azure SQL 데이터베이스에 연결하기 위해 실행할 수 있는 Ruby 코드 샘플을 제공합니다. |
-| 47 | [SQL 데이터베이스에 연결: 모범 사례 및 설계 지침](sql-database-connect-central-recommendations.md) | ADO.NET 및 PHP와 같은 기술에서 Azure SQL 데이터베이스에 연결하는 클라이언트 프로그램에 대한 링크 및 모범 사례 권장 사항을 수집하는 시작 지점 항목입니다. |
+| 47 | [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md) | ADO.NET 및 PHP와 같은 기술에서 Azure SQL 데이터베이스에 연결하는 클라이언트 프로그램에 대한 링크 및 모범 사례 권장 사항을 수집하는 시작 지점 항목입니다. |
 | 48 | [멤버 자격, OAuth 및 SQL 데이터베이스를 사용하여 보안 ASP.NET Web Forms 앱을 만들어 Azure 앱 서비스에 배포](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | 이 자습서에서는 SQL 데이터베이스를 통합하는 보안 ASP.NET 4.5 Web Forms 웹 앱을 빌드하고 응용 프로그램을 Azure에 배포하는 방법을 보여 줍니다. |
 | 49 | [코드에서 SQL 데이터베이스에 연결하기 위한 클라이언트 ID 및 키 가져오기](sql-database-client-id-keys.md) | 코드에서 SQL 데이터베이스에 액세스하기 위한 클라이언트 ID 및 키를 가져옵니다. |
 | 50 | [Azure SQL 데이터베이스의 임시 테이블 시작](sql-database-temporal-tables.md) | Azure SQL 데이터베이스에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다. |
@@ -351,7 +351,7 @@
 | 180 | [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md) | 이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다. |
 | 181 | [Azure SQL 데이터베이스 TRANSACT-SQL의 차이점](sql-database-transact-sql-information.md) | Azure SQL 데이터베이스에서 완전히 지원되지 않는 TRANSACT-SQL 문 |
 | 182 | [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md) | 클라이언트 프로그램에서 Azure SQL 데이터베이스 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 드라이버의 최소 버전 번호를 나열합니다. Microsoft가 아니라 커뮤니티에서 릴리즈된 드라이버에 대한 버전 정보 링크가 제공됩니다. |
-| 183 | [필터를 사용하여 검색](https://azure.microsoft.com/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
+| 183 | [필터를 사용하여 검색](https://azure.microsoft.com/ko-KR/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
 
 
 ## 기타
@@ -378,4 +378,4 @@
 
 - 학습 경로 그래픽: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

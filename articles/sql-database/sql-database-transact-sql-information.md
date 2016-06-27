@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
@@ -36,7 +36,7 @@
 
 ## SQL 데이터베이스 V12에서 부분적으로 지원되는 기능
 
-SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 있는 인수가 일부는 지원되고 일부는 지원되지 않습니다. 예를 들어 CREATE PROCEDURE 문은 사용할 수 있지만 CREATE PROCEDURE의 WITH ENCRYPTION 옵션은 사용할 수 없습니다. 각 문의 지원되는 영역에 대한 자세한 내용은 연결된 구문 항목을 참조하세요.
+SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 있는 인수가 일부는 지원되고 일부는 지원되지 않습니다. 예를 들어 CREATE PROCEDURE 문은 사용할 수 있지만 CREATE PROCEDURE의 모든 옵션은 사용할 수 없습니다. 각 문의 지원되는 영역에 대한 자세한 내용은 연결된 구문 항목을 참조하세요.
 
 - 데이터베이스: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV는 사용할 수 있는 기능에 대해 일반 공급됩니다.
@@ -64,7 +64,7 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 - 이벤트: 이벤트, 이벤트 알림, 쿼리 알림
 - 데이터베이스 파일 배치, 크기 및 Microsoft Azure에서 자동으로 관리되는 데이터베이스 파일과 관련된 기능
 - Microsoft Azure 계정을 통해 관리되는 고가용성과 관련된 기능: 백업, 복원, AlwaysOn, 데이터베이스 미러링, 로그 전달, 복구 모드. 자세한 내용은 Azure SQL 데이터베이스 백업 및 복원을 참조하세요.
-- 로그 판독기를 사용하는 기능: 복제, 데이터 캡처 변경
+- SQL 데이터베이스에서 실행되는 로그 판독기를 사용하는 기능: 푸시 복제, 데이터 캡처 변경
 - SQL Server 에이전트 또는 MSDB 데이터베이스를 사용하는 기능: 작업, 경고, 운영자, 정책 기반 관리, 데이터베이스 메일, 중앙 관리 서버
 - FILESTREAM
 - 함수: fn\_get\_sql, fn\_virtualfilestats, fn\_virtualservernodes
@@ -108,4 +108,4 @@ Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항�
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

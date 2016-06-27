@@ -58,7 +58,7 @@
 - [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-linux-classic-cli-use-docker.md)
 - [Azure 포털에서 Docker VM 확장 사용](virtual-machines-linux-classic-portal-use-docker.md)
 - [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-linux-classic-docker-quickstart.md)
-- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-classic-docker-machine.md)
+- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [방법: MySQL 클러스터](virtual-machines-linux-classic-mysql-cluster.md)
@@ -192,4 +192,4 @@
 
 - [Azure용 Packer 플러그인](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

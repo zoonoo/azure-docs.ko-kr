@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/13/2016"
    ms.author="jrj;barbkess"/>
 
 # SQL 데이터 웨어하우스에 대해 트랜잭션 최적화
@@ -420,7 +420,7 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 - [테이블 분할][]
 - [동시성][]
 - [CTAS][]
-- [RENAME OBJECT][]
+- [이름 바꾸기(Transact-SQL)][]
 
 <!--Image references-->
 
@@ -431,9 +431,10 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 [table partition]: sql-data-warehouse-develop-table-partitions.md
 [동시성]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]: https://msdn.microsoft.com/ko-KR/library/ms188388.aspx
+[alter index]: https://msdn.microsoft.com/library/ms188388.aspx
+[이름 바꾸기(Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

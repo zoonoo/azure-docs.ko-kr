@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights의 강력한 검색 도구인 Analytics 사용" 
+	pageTitle="Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Azure" 
 	description="Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -23,7 +23,6 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Analytics 열기
 
@@ -37,7 +36,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ## 쿼리 작성
 
-왼쪽에 나열된 테이블 이름으로 시작되는 쿼리를 작성합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`를 사용합니다.
+왼쪽에 나열된 테이블 이름으로 시작되는 쿼리를 작성합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다.
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -104,4 +103,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

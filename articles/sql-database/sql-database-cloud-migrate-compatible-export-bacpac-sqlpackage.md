@@ -46,10 +46,10 @@
 - [Azure SQL 데이터베이스 Azure 포털로 BACPAC 가져오기](sql-database-import.md)
 - [Azure SQL 데이터베이스 PowerShell로 BACPAC 가져오기](sql-database-import-powershell.md)
 
-## 자세한 정보
+## 추가 리소스
 
 - [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -233,7 +233,7 @@ end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 
 ### RML 유틸리티 및 ostress 설치
@@ -507,7 +507,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
  - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-## 추가 단계
+## 다음 단계
 
 
 - [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)을 시도합니다.
@@ -537,4 +537,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

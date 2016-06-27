@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # 데이터 마이그레이션 일시 중지 및 다시 시작(스트레치 데이터베이스)
@@ -59,4 +59,4 @@ ALTER TABLE <table name>
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

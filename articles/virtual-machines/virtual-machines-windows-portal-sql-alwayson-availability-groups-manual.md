@@ -1,6 +1,6 @@
 <properties
-	pageTitle="수동으로 AlwaysOn 가용성 그룹 구성 ARM(GUI) | Microsoft Azure"
-	description="Azure 가상 컴퓨터로 AlwaysOn 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
+	pageTitle="수동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자"
+	description="Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,20 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="06/09/2016"
 	ms.author="MikeRayMSFT" />
 
-# Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
+# 수동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
 
 > [AZURE.SELECTOR]
-- [Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [설명서](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [리소스 관리자: 자동](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-이 종단 간 자습서에서는 Azure Resource Manager 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여 줍니다.
+이 종단 간 자습서에서는 Azure Resource Manager 가상 컴퓨터에 SQL Server 가용성 그룹을 구현하는 방법을 보여줍니다.
 
-자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
+자습서 마지막에서 솔루션은 다음 요소로 구성됩니다.
 
 - 프런트 엔드 및 백 엔드 서브넷을 비롯한 두 서브넷을 포함하는 가상 네트워크
 
@@ -36,7 +38,7 @@
 
 - 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
 
-- AlwaysOn 가용성 그룹에 IP 주소를 제공하는 내부 부하 분산 장치
+- 가용성 그룹에 IP 주소를 제공하는 내부 부하 분산 장치
 
 - 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
@@ -46,7 +48,7 @@
 
 이것은 가능한 구성 중 하나입니다. 예를 들어, Azure에서 계산 시간을 줄이기 위해 2노드 WSFC 클러스터에서 쿼럼 파일 공유 감시로 도메인 컨트롤러를 사용하여 두 개의 복제된 가용성 그룹에 대한 VM 수를 최소화할 수 있습니다. 이 방법을 사용하면 위의 구성에서 하나로 VM 수가 줄어듭니다.
 
->[AZURE.NOTE] 이 자습서를 완료하는 데는 상당한 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [포털 - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하는 데는 상당한 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 이것은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [포털 - 리소스 관리자](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요.
 
 이 자습서에서는 다음을 가정합니다.
 
@@ -54,25 +56,23 @@
 
 - GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-- AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
->[AZURE.NOTE] SharePoint와 AlwaysOn 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
+>[AZURE.NOTE] SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
-## 리소스 그룹, 네트워크, 가용성 집합 만들기
-
-### Azure 구독에 연결하고 리소스 그룹 만들기
+## 리소스 그룹 만들기
 
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다. 
 
 1. **+ 새로 만들기**를 클릭하고 **마켓플레이스** 검색 창에 **리소스 그룹**을 입력합니다.
 
- ![리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+    ![리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
-1. **리소스 그룹**을 클릭합니다. 
+1. **리소스 그룹**을 클릭합니다.
 
- ![새 리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![새 리소스 그룹](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
-1. **만들기**를 클릭합니다. 
+1. **만들기**를 클릭합니다.
 
 1. **리소스 그룹** 블레이드의 **리소스 그룹 이름**에 **SQL-HA-RG**를 입력합니다.
 
@@ -86,7 +86,7 @@
 
 새 리소스 그룹이 만들어지고 리소스 그룹에 대한 바로 가기가 포털에 고정됩니다.
 
-### 네트워크 및 서브넷 만들기
+## 네트워크 및 서브넷 만들기
 
 다음 단계는 Azure 리소스 그룹에 네트워크 및 서브넷을 만드는 것입니다.
 
@@ -94,19 +94,19 @@
 
 가상 네트워크를 만들려면
 
-1. Azure 포털에서 새 리소스 그룹을 클릭하고 **+**을 클릭하여 리소스 그룹에 새 항목을 추가합니다. **모두** 블레이드가 열립니다. 
+1. Azure 포털에서 새 리소스 그룹을 클릭하고 **+**를 클릭하여 리소스 그룹에 새 항목을 추가합니다. **모두** 블레이드가 열립니다. 
 
- ![새 항목](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
+    ![새 항목](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
 1. **가상 네트워크**를 검색합니다.
 
- ![가상 네트워크 검색](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+    ![가상 네트워크 검색](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 1. **가상 네트워크**를 클릭합니다.
 
 1. **가상 네트워크** 블레이드에서 **Resource Manager** 배포 모델을 클릭하고 **만들기**를 클릭합니다.
 
- ![가상 네트워크 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+    ![가상 네트워크 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
 
  
@@ -127,7 +127,7 @@
 
 **만들기**를 클릭합니다.
 
-   ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 포털 대시보드가 반환되고 새 네트워크가 만들어지는 시점을 사용자에게 알립니다.
 
@@ -145,17 +145,17 @@
 
 1. **설정** 블레이드에서 **서브넷**을 클릭합니다.
 
-   이미 만들어진 서브넷을 확인합니다.
+    이미 만들어진 서브넷을 확인합니다.
 
-   ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
-1. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다. 
+1. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다.
 
  **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
 
 **확인**을 클릭합니다.
 
-   ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 다음은 가상 네트워크 및 두 서브넷에 대한 구성 설정의 요약입니다.
 
@@ -171,7 +171,7 @@
 | **리소스 그룹** | **SQL-HA-RG** |
 | **위치** | 리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
 
-### 가용성 집합 만들기
+## 가용성 집합 만들기
 
 가상 컴퓨터를 만들기 전에 가용성 집합을 만들어야 합니다. 가용성 집합은 계획되거나 계획되지 않은 유지 관리 이벤트에 대한 가동 중지 시간을 줄입니다. Azure 가용성 집합은 Azure에서 물리적 장애 도메인 및 업데이트 도메인에 배치하는 리소스의 논리적 그룹입니다. 장애 도메인을 사용하면 가용성 집합의 구성원이 개별 전원 및 네트워크 리소스를 사용할 수 있습니다. 업데이트 도메인을 사용하면 가용성 집합의 구성원이 유지 관리를 위해 동시에 중단되지 않습니다. [가상 컴퓨터의 가용성을 관리합니다](virtual-machines-windows-manage-availability.md).
 
@@ -190,7 +190,7 @@
 
 가용성 집합을 만든 후 Azure 포털의 리소스 그룹으로 돌아옵니다.
 
-## 도메인 컨트롤러를 만들고 구성합니다.
+## 도메인 컨트롤러 만들기
 
 이제 네트워크, 서브넷, 가용성 집합 및 인터넷 연결 부하 분산 장치를 만들었습니다. 도메인 컨트롤러에 대한 가상 컴퓨터를 만들 준비가 되었습니다.
 
@@ -376,7 +376,7 @@
 
 이제 Active Directory 및 사용자 개체 구성을 완료했으며 2개의 SQL Server VM과 1개의 감시 서버 VM을 만들고 이 도메인에 3개의 VM을 모두 연결합니다.
 
-## SQL Server 만들기 및 클러스터링 구성
+## SQL Server를 만듭니다.
 
 ###SQL Server VM 만들기 및 구성
 
@@ -474,6 +474,8 @@
 
 1. **sqlserver-1** 및 **cluster-fsw**에서 위의 단계를 반복합니다.
 
+## 클러스터 만들기
+
 ### **장애 조치(failover) 클러스터링** 기능을 각 클러스터 VM에 추가합니다.
 
 1. **sqlserver-0**으로 RDP합니다.
@@ -570,7 +572,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 1. 원격 데스크톱 세션에서 로그아웃합니다.
 
-## AlwaysOn 가용성 그룹 구성
+## 가용성 그룹 구성
 
 이 섹션에서는 **sqlserver-0** 및 **sqlserver-1**에 대해 다음을 수행합니다.
 
@@ -578,7 +580,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 - SQL Server 프로세스를 위한 SQL Server와 프로브 포트에 대한 원격 액세스를 위해 방화벽을 엽니다.
 
-- AlwaysOn 가용성 그룹 기능 사용
+- 가용성 그룹 기능 사용
 
 - SQL Server 서비스 계정을 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 각각 변경
 
@@ -618,7 +620,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 두 SQL Server에서 모든 단계를 완료합니다.
 
-### 각 SQL Server에서 AlwaysOn 가용성 그룹 기능을 사용하도록 설정
+### 각 SQL Server에서 가용성 그룹 기능을 사용하도록 설정
 
 두 SQL Server에서 다음 단계를 수행합니다.
 
@@ -756,7 +758,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 >[AZURE.WARNING] 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드**에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
 
-## Azure의 내부 부하 분산 장치 및 클러스터의 가용성 그룹 수신기 구성
+## 내부 부하 분산 장치 구성
 
 가용성 그룹에 직접 연결하려면 먼저 Azure에서 내부 부하 분산 장치를 구성하고 클러스터에서 수신기를 만들어야 합니다. 이 섹션에서는 이러한 단계에 대한 높은 수준의 개요를 제공합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 내부 부하 분산 장치 구성](virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 
@@ -861,4 +863,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

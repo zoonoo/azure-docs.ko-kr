@@ -48,7 +48,6 @@ Azure 기계 학습 추천 API는 다음 논리 그룹으로 나뉩니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
 - 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 - POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
-- 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 - 권장 사항을 가져올 때 질문할 수 있는 최대 항목 수는 150입니다.
 
 ##3\. API – 일반 정보
@@ -93,18 +92,14 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | 
-| apiVersion | 1.0 | 
-||| 
-| Request Body | NONE |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | | apiVersion | 1.0 | ||| | Request Body | NONE |
 
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-- `feed/entry/content/properties/id` – 모델 ID를 포함합니다.
-**참고**: 모델 ID는 대/소문자를 구분합니다.
+- `feed/entry/content/properties/id` – 모델 ID를 포함합니다. **참고**: 모델 ID는 대/소문자를 구분합니다.
 
 OData XML
 
@@ -804,15 +799,15 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 지원되는 규칙 유형은 다음과 같습니다.
 - <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. 
 
-- <strong>FeatureBlockList</strong> - 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
+- <strong>FeatureBlockList</strong> - 기능 차단 목록은 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
 
 *단일 차단 목록 규칙에 1000개보다 많은 항목을 전송하지 마세요. 호출 시간 제한에 도달할 수 있습니다. 1000개보다 많은 항목을 차단할 해야 할 경우 여러 개의 차단 목록을 호출하면 됩니다.*
 
 - <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다.
 
-- <strong>WhiteList</strong> - 항목 목록에서 권장 사항만 제안할 수 있습니다.
+- <strong>WhiteList</strong> - 허용 목록은 항목의 목록에서 권장 사항만 제안할 수 있습니다.
 
-- <strong>FeatureWhiteList</strong> - 특정 기능 값을 가진 항목만 추천할 수 있습니다.
+- <strong>FeatureWhiteList</strong> - 기능 허용 목록은 특정 기능 값을 가진 항목만 추천할 수 있습니다.
 
 - <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
@@ -889,18 +884,7 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | 요청 본문 | 
-<ins>비즈니스 규칙에 대한 항목 ID를 제공할 때마다 항목의 외부 ID를 사용하도록 합니다(카탈로그 파일에서 사용한 것과 동일한 ID)</ins><br>
-<ins>차단 목록 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>FeatureBlockList 규칙을 추가하려면:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>
-허용 목록 규칙을 추가하려면:</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>FeatureWhiteList 규칙을 추가하려면:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-PerSeedBlockList 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>비즈니스 규칙에 대한 항목 ID를 제공할 때마다 항목의 외부 ID를 사용하도록 합니다(카탈로그 파일에서 사용한 것과 동일한 ID)</ins><br> <ins>차단 목록 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>FeatureBlockList 규칙을 추가하려면:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>허용 목록 규칙을 추가하려면:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>FeatureWhiteList 규칙을 추가하려면:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> PerSeedBlockList 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **응답**:
@@ -990,11 +974,7 @@ HTTP 상태 코드: 200
 
 | 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | 
-| 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | 
-| 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | 
-| 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | 
-| 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000, 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | | 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | | 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | | 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | | 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000, 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
 
 
 | HTTP 메서드 | URI |
@@ -1005,10 +985,7 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
-| apiVersion | 1.0 | 
-||| 
-| 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **응답**:
@@ -1043,8 +1020,7 @@ OData XML
 	</feed>
 
 ###8\.2. 카탈로그 가져오기
-모든 카탈로그 항목을 검색합니다.
-한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
+모든 카탈로그 항목을 검색합니다. 한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1212,10 +1188,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-| apiVersion | 1.0 |
-|||
-| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1363,8 +1336,7 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**:
-HTTP 상태 코드: 200
+**응답**: HTTP 상태 코드: 200
 
 ###9\.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다. 한 번에 한 페이지씩 사용 파일이 검색됩니다. 각 페이지는 100개의 항목을 포함합니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
@@ -1650,9 +1622,7 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 ##10\. 기능
-이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다.
-기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다.
-기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
+이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
 ###10\.1. 기능 정보 가져오기(마지막 순위 빌드)
 마지막으로 성공한 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
@@ -1833,7 +1803,7 @@ OData
 	- `useFeatureInModel` - True로 설정합니다.
 	- `ModelingFeatureList` - 이전 단계에서 검색한 순위에 따라 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다.
 	- `AllowColdItemPlacement` - True로 설정합니다.
-	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고, `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링 또는 하위 목록에 사용되는 동일한 기능 목록)으로 설정할 수 있습니다.
+	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고, `ReasoningFeatureList`을(를) 설명에 사용할 기능 목록(일반적으로 모델링 또는 하위 목록에 사용되는 동일한 기능 목록)으로 설정할 수 있습니다.
 - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
 
 참고: 매개 변수를 구성하지 않은 경우(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우) 또는 기능 사용을 명시적으로 해제하지 않은 경우(예: `UseFeatureInModel`을 False로 설정) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
@@ -2273,8 +2243,8 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다.
-- `feed/entry/content/properties/Key` - 빌드 매개 변수 이름
-- `feed/entry/content/properties/Value` - 빌드 매개 변수 값
+- `feed/entry/content/properties/Key` - 빌드 매개 변수 이름.
+- `feed/entry/content/properties/Value` - 빌드 매개 변수 값.
 
 아래 표에서는 각 키가 나타내는 값을 설명합니다.
 
@@ -2475,7 +2445,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. <br>활성 빌드가 FBT 형식인 경우에는 항목을 하나만 보낼 수 있습니다. <br>최대 길이: 1024 |
-| numberOfResults | 필요한 결과 수 <br> 최대: 150 |
+| numberOfResults | 필요한 결과 수 <br>최대: 150 |
 | includeMetatadata | 나중에 사용, 항상 false |
 | apiVersion | 1\.0 |
 
@@ -2485,10 +2455,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 아래 예제 응답은 10개의 권장 항목을 포함합니다.
 
@@ -2655,7 +2625,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. <br>활성 빌드가 FBT 형식인 경우에는 항목을 하나만 보낼 수 있습니다. <br>최대 길이: 1024 |
-| numberOfResults | 필요한 결과 수 <br> 최대: 150 |
+| numberOfResults | 필요한 결과 수 <br>최대: 150 |
 | includeMetatadata | 나중에 사용, 항상 false
 | buildId | 이 권장 사항 요청에 사용할 빌드 ID |
 | apiVersion | 1\.0 |
@@ -2666,10 +2636,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2696,12 +2666,12 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id1` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name1` - 항목의 이름
-- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id1` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name1` - 항목의 이름.
+- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항).
+- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항).
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 아래 예제 응답은 3개의 권장 항목 집합을 포함합니다.
 
@@ -2788,12 +2758,12 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id1` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name1` - 항목의 이름
-- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id1` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name1` - 항목의 이름.
+- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항).
+- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항).
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.3의 응답 예제 참조
 
@@ -2825,10 +2795,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2862,10 +2832,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2897,10 +2867,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2935,16 +2905,15 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
 ##13\. 사용자 사용 기록
-권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다.
-이 API를 통해 사용자 기록을 검색할 수 있습니다.
+권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다. 이 API를 통해 사용자 기록을 검색할 수 있습니다.
 
 참고: 이 사용자 기록은 현재 권장 사항 작성에만 사용할 수 있습니다.
 
@@ -2969,10 +2938,10 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 해당 없음
-- `Feed\entry\content\properties\Reasoning` - 해당 없음
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 해당 없음.
+- `Feed\entry\content\properties\Reasoning` - 해당 없음.
 
 OData XML
 
@@ -3101,10 +3070,7 @@ HTTP 상태 코드: 200
 
 
 ##15\. 법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br>
-여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br>
-이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br>
-© 2015 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

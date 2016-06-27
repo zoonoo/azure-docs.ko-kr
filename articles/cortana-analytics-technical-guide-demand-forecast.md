@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # 에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
@@ -198,11 +198,11 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 1.  Azure 스트림 분석(ASA)에 Power BI 출력을 추가합니다.
 
-    -  [Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics\stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure 스트림 분석 작업의 출력을 설정해야 합니다.
+    -  [Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics-power-bi-dashboard.md)의 침에 따라 Power BI 대시보드로 Azure 스트림 분석 작업의 출력을 설정해야 합니다.
 
 	- [Azure 관리 포털](https://manage.windowsazure.com)에서 스트림 분석 작업을 찾습니다. 작업의 이름은 솔루션 이름+"streamingjob"+난수+"asapbi"(예: demostreamingjob123456asapbi)여야 합니다.
 
-	- **PBIoutput**인 ASA 쿼리의 출력을 설정합니다. **출력 별칭**이 쿼리에서 동일한지 확인합니다. **데이터 집합 이름** 및 **테이블 이름**을 **'EnergyStreamData'**로 이름 지정할 수 있습니다. 출력을 추가했으면 페이지 하단에서 **"시작"**을 클릭하여 스트림 분석 작업을 시작합니다. 확인 메시지를 받아야 합니다(*예:* "스트림 분석 작업 myteststreamingjob12345asablob 시작 성공").
+	- ASA 작업에 PowerBI 출력을 추가합니다. **출력 별칭**을 **‘PBIoutput’**으로 설정합니다. **데이터 집합 이름**과 **테이블 이름**을 **‘EnergyStreamData’**로 설정합니다. 출력을 추가했으면 페이지 하단에서 **"시작"**을 클릭하여 스트림 분석 작업을 시작합니다. 확인 메시지를 받아야 합니다(*예:* "스트림 분석 작업 myteststreamingjob12345asablob 시작 성공").
 
 2. [Power BI 온라인](http://www.powerbi.com)에 로그인합니다.
 
@@ -225,8 +225,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
 
-4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### 콜드 경로 대시보드 설정
@@ -253,8 +252,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	다운로드한 **"DemandForecastingDataGeneratorv1.0"** 폴더에서 **'Power BI Template\\DemandForecastPowerBI.pbix'** 파일을 두 번 클릭합니다. 초기 시각화는 더미 데이터를 기반으로 합니다. **참고:** 오류 메시지가 표시되면 최신 버전의 Power BI 데스크톱을 설치했는지 확인합니다.
 
-		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   표시되는 창에서 **"서버"** 및 **"데이터베이스"**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
 
@@ -282,6 +280,9 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 	-   필요에 따라 새로 고침을 예약합니다. 자세한 정보를 찾으려면 [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)을 참조하세요.
 
 
+## **솔루션을 삭제하는 방법**
+데이터 생성기를 실행하면 비용이 더 높아지므로 솔루션을 활발히 사용하지 않을 때 데이터 생성기를 중지하십시오. 솔루션을 사용하지 않는 경우 삭제하십시오. 솔루션을 삭제하면 솔루션을 배포할 때 구독에 프로 비전된 모든 구성 요소가 삭제됩니다. 솔루션을 삭제하려면 솔루션 템플릿 왼쪽 패널의 솔루션 이름을 클릭하고 삭제를 클릭합니다.
+
 ## **비용 예측 도구**
 
 다음 두 가지 도구는 구독에서 에너지 솔루션 템플릿에 대한 수요 예측을 실행하는 데 필요한 총 비용을 더욱 잘 이해할 수 있도록 사용할 수 있습니다.
@@ -290,4 +291,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0413_2016-->
+## **승인**
+이 문서는 Microsoft 소속 데이터 과학자 Yijing Chen과 소프트웨어 엔지니어 Qiu Min이 작성하였습니다.
+
+<!---HONumber=AcomDC_0615_2016-->

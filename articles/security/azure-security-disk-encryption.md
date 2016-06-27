@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/14/2016"
    ms.author="devtiw"/>
 
 
@@ -27,7 +27,7 @@ Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하�
 
 Azure 디스크 암호화는 Windows 및 Linux IaaS 가상 컴퓨터 디스크를 암호화할 수 있도록 하는 새로운 기능입니다. Azure 디스크 암호화는 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 [Azure 주요](https://azure.microsoft.com/documentation/services/key-vault/) 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
 
-Windows IaaS VM용 Azure 디스크 암호화는 지금 오스트레일리아 지역에서 [일반 공급](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) 상태입니다. 다른 지역에 대한 Windows IaaS VM의 일반 공급은 곧 제공됩니다.
+> [AZURE.NOTE] Windows IaaS VM용 Azure 디스크 암호화는 지금 [일반 공급](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) 상태입니다.
 
 ### 암호화 시나리오
 
@@ -91,7 +91,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 
 Windows 및 Linux 솔루션용 IaaS VM의 Azure 디스크 암호화에는 Windows용 디스크 암호화 확장, Linux용 디스크 암호화 확장, 디스크 암호화 PowerShell cmdlet, 디스크 암호화 CLI cmdlet 및 디스크 암호화 Azure 리소스 관리자 템플릿이 포함됩니다. Azure 디스크 암호화 솔루션은 Windows 또는 Linux OS를 실행하는 IaaS VM에서 지원됩니다. 지원되는 운영 체제에 대한 자세한 내용은 아래의 필수 구성 요소 섹션을 참조하세요.
 
-**참고:** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
+****참고: ** Azure 디스크 암호화로 VM 디스크를 암호화하는 작업에 대한 요금은 부과되지 않습니다.
 
 ### 가치 제안
 
@@ -169,21 +169,21 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 	- 유효한 암호 URL의 예:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 유효한 KRK KEK의 예:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화는 주요 자격 증명 모음 암호 및 KEK URL의 일부로 지정되는 포트 번호를 지원하지 않습니다. 지원되는 주요 자격 증명 모음 URL은 아래 예제를 참조하세요.
 
  	- 허용되지 않은 주요 자격 증명 모음 URL
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 허용되는 주요 자격 증명 모음 URL:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 끝점 구성 요구 사항을 충족해야 합니다.
 
@@ -606,7 +606,7 @@ PS cmdlet을 사용하지 않기 위해 [Disable-AzureRmVMDiskEncryption](https:
 
 ### 구독에 연결
 
-진행하기 전에 이 문서의 필수 조건 섹션을 검토해야 합니다. 모든 필수 조건이 충족되었는지 확인한 후 아래 단계에 따라 구독에 연결합니다.
+진행하기 전에 이 문서의 *필수 조건* 섹션을 검토해야 합니다. 모든 필수 조건이 충족되었는지 확인한 후 아래 단계에 따라 구독에 연결합니다.
 
 1\. Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
@@ -845,4 +845,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

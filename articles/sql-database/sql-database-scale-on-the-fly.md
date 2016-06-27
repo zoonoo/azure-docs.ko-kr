@@ -48,10 +48,10 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
 
 [무료 Azure 구독](https://azure.microsoft.com/get-started/)을 가져오고 [첫 번째 Azure SQL 데이터베이스를 만듭니다](sql-database-get-started.md).
 
-## 자세한 정보
+## 추가 리소스
 
 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
  
 [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

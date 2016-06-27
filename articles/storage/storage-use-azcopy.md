@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="micurd"/>
 
 # AzCopy 명령줄 유틸리티로 데이터 전송
@@ -357,7 +357,7 @@ AzCopy는 다음 명명 규칙을 사용하여 Blob 컨테이너에 JSON 데이�
 
 가져오기 시나리오에서는 `/PKRS` 옵션을 지정할 수 없습니다. 동시 작업을 시작하려면 `/PKRS` 옵션을 지정해야 하는 내보내기 시나리오와는 달리 테이블을 가져올 때는 AzCopy가 기본적으로 동시 작업을 시작합니다. 시작되는 동시 작업의 기본 수는 코어 프로세서의 수와 같습니다. 그러나 `/NC` 옵션을 사용하여 다른 동시 작업 수를 지정할 수 있습니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy /?:NC`를 입력하세요.
 
-AzCopy는 CSV가 아닌 JSON 가져오기만 지원합니다.
+AzCopy는 CSV가 아닌 JSON 가져오기만 지원합니다. AzCopy는 사용자가 만든 JSON 및 매니페스트 파일에서 테이블 가져오기를 지원하지 않습니다. 이러한 파일 모두는 AzCopy 테이블 내보내기에서 가져와야 합니다. 오류를 방지하려면 내보낸 JSON 또는 매니페스트 파일을 수정하지 마십시오.
 
 ### Blob을 사용하여 테이블에 엔터티 가져오기
 
@@ -866,4 +866,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

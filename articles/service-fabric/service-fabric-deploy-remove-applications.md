@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # 응용 프로그램 배포
@@ -30,7 +30,9 @@
 
 응용 프로그램 패키지를 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. PowerShell을 사용하여 업로드를 수행할 수 있습니다. 이 문서에서는 PowerShell 명령을 실행하기에 앞서 언제나 **Connect-ServiceFabricCluster**를 사용하여 서비스 패브릭 클러스터에 연결하는 것으로 시작합니다.
 
-필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 코드/구성/데이터 패키지가 들어 있는 *MyApplicationType*이라는 폴더가 있다고 가정합니다. **Copy-ServiceFabricApplicationPackage** 명령으로 패키지를 업로드합니다. 예:
+필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 코드/구성/데이터 패키지가 들어 있는 *MyApplicationType*이라는 폴더가 있다고 가정합니다. **Copy-ServiceFabricApplicationPackage** 명령으로 패키지를 클러스터 이미지 저장소에 업로드합니다. 서비스 패브릭 SDK PowerShell 모듈의 일부인 **Get ImageStoreConnectionStringFromClusterManifest** cmdlet은 이미지 저장소 연결 문자열을 가져오는 데 사용됩니다. SDK 모듈을 가져오려면 *Import-Module "$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1"*을 실행합니다.
+
+다음 예제에서는 패키지를 업로드합니다.
 
 ~~~
 PS D:\temp> dir
@@ -175,12 +177,6 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## 문제 해결
 
 ### Copy-ServiceFabricApplicationPackage가 ImageStoreConnectionString을 요청함
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

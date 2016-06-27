@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 지원 데이터베이스 복원
@@ -96,4 +96,4 @@ Azure 포털을 사용하여 다른 Azure 지역에서 Azure 데이터베이스�
 
 [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -150,20 +150,20 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL 데이터베이스의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (다음 스크린샷은 Azure SQL 데이터베이스를 보여 주지만 동일한 개념이 Azure SQL 데이터 웨어하우스에 적용됩니다.)
 
 	![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 **SQL 데이터 웨어하우스** 를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정** 을 클릭합니다.
+2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 ** SQL 데이터 웨어하우스**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
 
 	![ad 설정][9]
-3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)** 를 클릭하고 미리 보기 조항에 동의합니다.
-4. **Active Directory 관리자(미리 보기)** 블레이드에서 검토를 클릭하고 **확인** 을 클릭하여 미리 보기 조건에 동의합니다.
-5. **Active Directory 관리자(미리 보기)** 블레이드에서 **Active Directory 관리** 를 클릭한 다음 위쪽의 **관리자 설정**을 클릭합니다.
-6. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택** 을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. 위의 **Azure AD 기능 및 제한 사항**에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
-7. **Active directory 관리자** 블레이드 위쪽에서 **저장** 을 클릭합니다. ![관리자 선택][10]
+3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
+4. **Active Directory 관리자(미리 보기)** 블레이드에서 검토를 클릭하고 **확인**을 클릭하여 미리 보기 조건에 동의합니다.
+5. **Active Directory 관리자(미리 보기)** 블레이드에서 **Active Directory 관리**를 클릭한 다음 위쪽의 **관리자 설정**을 클릭합니다.
+6. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. 위의 **Azure AD 기능 및 제한 사항**에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
+7. **Active directory 관리자** 블레이드 위쪽에서 **저장**을 클릭합니다. ![관리자 선택][10]
 
 	관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
 
 > [AZURE.NOTE] Azure AD 관리자를 설정하는 경우, 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 로그인으로 master 데이터베이스에 있으면 안됩니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며, 생성 작업을 롤백하고 해당 관리자(이름)이 이미 존재한다는 것을 나타냅니다. SQL Server 인증 로그인은 Azure AD에 속하지 않기 때문에 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 모두 실패합니다.
 
-나중에 관리자를 제거하려면, **Active Directory 관리자** 블레이드 위쪽에서 **관리자 제거** 를 클릭하고 **저장** 을 클릭합니다.
+나중에 관리자를 제거하려면, **Active Directory 관리자** 블레이드 위쪽에서 **관리자 제거**를 클릭하고 **저장**을 클릭합니다.
 
 ### PowerShell을 사용하여 Azure SQL Server 또는 Azure SQL 데이터 웨어하우스에 대한 Azure AD 관리자 프로비전
 
@@ -367,4 +367,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

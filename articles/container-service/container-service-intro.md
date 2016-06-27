@@ -101,4 +101,8 @@ Azure 컨테이너 서비스 시작:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0525_2016-->
+Azure 컨테이너 서비스를 사용하여 응용 프로그램 빌드
+
+> [https://channel9.msdn.com/Events/Build/2016/B822]
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -81,16 +81,13 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 ###모델 만들기
 "모델 만들기" 요청 만들기:
 
-| HTTP 메서드     | URI |
+| HTTP 메서드 | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName	|	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 |
-|	apiVersion		| 1.0 |
-|||
-| Request Body | NONE |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | | apiVersion | 1.0 | ||| | Request Body | NONE |
 
 
 **응답**:
@@ -136,15 +133,12 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelId	|	모델의 고유 식별자(대/소문자 구분)  |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-|	apiVersion		| 1.0 |
-|||
-| 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Item Name</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>Item Category</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주(예: 요리책, 드라마...)</td></tr><tr><td>Description</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+|	modelId |	모델의 고유 식별자(대/소문자 구분) |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Item Name</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>Item Category</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속해 있는 범주(예: 요리책, 드라마...)</td></tr><tr><td>Description</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **응답**:
@@ -185,15 +179,12 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelId	|	모델의 고유 식별자(대/소문자 구분) |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-|	apiVersion		| 1.0 |
-|||
-| 요청 본문 | 사용 현황 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+|	modelId |	모델의 고유 식별자(대/소문자 구분) |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 사용 현황 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공된 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -234,11 +225,11 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
+|	apiVersion | 1\.0 |
 |||
 |요청 본문| Event data entry for each event you want to send. SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.|
 
@@ -333,18 +324,17 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**:
-HTTP 상태 코드: 200
+**응답**: HTTP 상태 코드: 200
 
 ###권장 사항 모델 작성
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-| modelId |	모델의 고유 식별자(대/소문자 구분)  |
+| modelId |	모델의 고유 식별자(대/소문자 구분) |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1\.0 |
 |||
@@ -414,15 +404,15 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|GET      |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelId			|	모델의 고유 식별자(대/소문자 구분)	|
-|	onlyLastBuild	|	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다.	|
-|	apiVersion		|	1\.0									|
+|	modelId |	모델의 고유 식별자(대/소문자 구분) |
+|	onlyLastBuild |	모델의 빌드 기록을 모두 반환할지 또는 최신 빌드의 상태만 반환할지를 나타냅니다. |
+|	apiVersion |	1\.0 |
 
 
 **응답**:
@@ -499,11 +489,11 @@ OData XML
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자(대/소문자 구분) |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다.<br>최대 길이: 1024 |
@@ -676,17 +666,16 @@ OData XML
 	</feed>
 
 ###모델 업데이트
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.
-*활성 빌드 ID* – 모든 모델에 대한 모든 빌드에는 빌드 ID가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다. *활성 빌드 ID* – 모든 모델에 대한 모든 빌드에는 빌드 ID가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
 
 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|PUT     |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
+|PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	매개 변수 이름	|	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | id | 모델의 고유 식별자(대/소문자 구분) |
 | apiVersion | 1\.0 |
@@ -709,9 +698,7 @@ OData XML
 	</feed>
 
 ##법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다.
-여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.
- 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

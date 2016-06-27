@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/20/2016"
+   	ms.date="06/13/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -36,7 +36,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- __Azure CLI__.
+- __Azure CLI__. 이 문서의 단계는 Azure CLI 버전 0.10.1로 마지막 테스트되었습니다.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -69,7 +69,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 5. 새 저장소 계정을 만듭니다. 이 저장소는 HDInsight 클러스터에 대한 기본 저장소로 사용됩니다.
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * __groupname__을 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
      * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다. 
@@ -88,7 +88,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 6. 새 HDInsight 클러스터를 만듭니다.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * __groupname__을 리소스 그룹 이름으로 바꿉니다.
     * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다.
@@ -121,4 +121,4 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

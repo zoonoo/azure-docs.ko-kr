@@ -30,7 +30,7 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 1. **찾아보기**를 선택한 다음 목록에서 **DevTest Lab**을 선택합니다.
 
-1. 랩 목록에서 원하는 랩을 선택합니다.
+1. 랩 목록에서 원하는 랩을 탭합니다.
 
 1. **설정**을 선택합니다.
 
@@ -135,4 +135,4 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 - [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 - [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

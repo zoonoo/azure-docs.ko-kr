@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/13/2016"
 	ms.author="rajanaki"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
@@ -186,7 +186,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 ## 6단계: Azure 복구 서비스 에이전트 설치
 
-1. [http:/aka.ms/latestmarsagent](http:/aka.ms/latestmarsagent "http:/aka.ms/latestmarsagent")에서 Azure 복구 서비스 에이전트를 다운로드하여 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 서버에 설치합니다.
+1. [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent)에서 Azure 복구 서비스 에이전트를 다운로드하여 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 서버에 설치합니다.
 
 2. 모든 VMM 호스트에 다음 명령을 실행합니다.
 
@@ -238,7 +238,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 네트워크 매핑을 시작하기 전에 원본 VMM 서버의 가상 컴퓨터가 VM 네트워크에 연결되었는지 확인합니다. 또한 Azure 가상 네트워크를 하나 이상 만듭니다.
 
-[Azure Resource Manager 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell/)에서 Azure Resource Manager 및 PowerShell을 사용하여 가상 네트워크를 만드는 방법을 자세히 알아보세요.
+[Azure Resource Manager 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)에서 Azure Resource Manager 및 PowerShell을 사용하여 가상 네트워크를 만드는 방법을 자세히 알아보세요.
 
 단일 Azure 네트워크에 여러 가상 컴퓨터 네트워크를 매핑할 수 있습니다. 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
@@ -266,7 +266,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
  다음 사항에 유의하세요.
 
- - 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](../site-recovery-best-practices)에서 해당 요구 사항을 확인하세요.
+ - 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](site-recovery-best-practices.md)에서 해당 요구 사항을 확인하세요.
 
  - 보호를 사용하도록 설정하려면 가상 컴퓨터에 대해 운영 체제 및 운영 체제 디스크 속성을 설정해야 합니다. VMM에서 가상 컴퓨터 템플릿을 사용하여 가상 컴퓨터를 만들 때 속성을 설정할 수 있습니다. 가상 컴퓨터 속성의 **일반** 및 **하드웨어 구성** 탭에서 기존 가상 컴퓨터에 대해 이러한 속성을 설정할 수도 있습니다. 이러한 속성을 VMM에서 설정하지 않는 경우 Azure Site Recovery 포털에서 구성할 수 있습니다.
 
@@ -343,6 +343,6 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 ## 다음 단계
 
-Azure Site Recovery PowerShell cmdlet에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx)</a>.
+Azure Resource Manager PowerShell cmdlet과 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

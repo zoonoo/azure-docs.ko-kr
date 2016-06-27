@@ -86,7 +86,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
 |`https://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
-|`http://crl.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
@@ -127,12 +127,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
@@ -258,7 +253,7 @@ StorSimple 장치 모델 8600에는 기본 인클로저 외에도 확장 EBOD(Ex
 
 - EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 
-- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** > **하드웨어** 상태에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
+- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** > **하드웨어 상태**에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
 
 - SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 
@@ -280,4 +275,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

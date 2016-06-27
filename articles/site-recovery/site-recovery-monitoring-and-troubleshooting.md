@@ -192,11 +192,14 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 -   [가상 컴퓨터에 대역 외 작업이 발생하고 장애 조치(failover)를 커밋하지 못했습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   테스트 장애 조치(Failover)
     -   [테스트 장애 조치(Failover)가 진행 중이므로 장애 조치(Failover)를 시작할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+-   <span style="color:green;">새로 만들기</span> 컴퓨터가 속한 가상 컴퓨터 또는 서브넷과 연결된 네트워크 보안 그룹의 구성 설정으로 인해 'PreFailoverWorkflow 작업 WaitForScriptExecutionTask 시간이 초과되었습니다.'로 장애 조치의 시간이 초과되었습니다. 자세한 내용은 ['PreFailoverWorkflow 작업 WaitForScriptExecutionTask 시간이 초과되었습니다.'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery)를 참조합니다.
+
 
 ### 구성 서버, 프로세스 서버, 마스터 대상
-CS(구성 서버), PS(프로세스 서버), MT(마스터 대상) - [PS/CS가 VM으로 호스트된 ESXi 호스트가 실패하고 퍼플 스크린이 표시되었습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
+-   [PS/CS가 VM으로 호스팅된 ESXi 호스트가 실패하고 퍼플 스크린이 표시되었습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 -   많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. [문제 해결 문서를 사용하여 VM에 RDP를 연결합니다.](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스에 연속 배포를 활성화하는 방법에 대해 알아봅니다."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Azure 앱 서비스에 연속 배포
 
-BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 [Azure 앱 서비스] 통합을 통해 Azure가 이러한 서비스 중 하나에 게시한 프로젝트에서 최신 업데이트를 가져오는 연속 배포 워크플로를 활성화합니다. 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다.
+이 자습서는 [Azure 앱 서비스] 앱의 연속 개발 워크플로를 구성하는 방법을 보여줍니다. BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 앱 서비스 통합을 통해 Azure가 이러한 서비스 중 하나에 게시한 프로젝트에서 최신 업데이트를 가져오는 연속 배포 워크플로를 활성화합니다. 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다.
 
 ## <a name="overview"></a>연속 배포 활성화
 
@@ -30,6 +30,8 @@ BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 [Azure 앱 서비스]
 
 	![](./media/app-service-continous-deployment/cd_options.png)
 	
+    > [AZURE.NOTE] 앱 서비스 배포를 위한 VSTS 계정을 구성하려면 이 [자습서](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)를 참조하세요.
+    
 3. 권한 부여 워크플로를 완료합니다.
 
 4. **배포 원본** 블레이드에서 배포할 프로젝트 및 분기를 선택합니다. 완료되면 **확인**을 클릭합니다.
@@ -58,7 +60,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 설명된 대로 리포지토리를 설정하고, 온라인 Git 리포지토리 중 하나에서 연속 게시에 대해 Azure에서 앱을 구성한 후에는 Visual Studio에서 ASP.NET 응용 프로그램을 로컬로 개발하고 온라인 Git 리포지토리에 변경 내용을 푸시하여 코드를 지속적으로 배포할 수 있습니다.
 
-## <a name="disableCD"></a>지속적 배포 비활성화
+## <a name="disableCD"></a>지속적 배포 사용 안 함
 
 지속적 배포를 비활성화하려면
 
@@ -81,7 +83,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 [Azure 포털]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ko-KR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure용 PowerShell 사용 방법]: ../articles/install-configure-powershell.md
+[Azure용 PowerShell 사용 방법]: ../articles/powershell-install-configure.md
 [Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법]: ../articles/xplat-cli-install.md
 [Git 설명서]: http://git-scm.com/documentation
 
@@ -90,4 +92,4 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 [VSTS 시작]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

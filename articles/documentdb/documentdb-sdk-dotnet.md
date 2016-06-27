@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/14/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -29,12 +29,20 @@
 <table>
 <tr><td>**다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**설명서**</td><td>[.NET SDK 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**샘플**</td><td>[.NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**샘플**</td><td>[.NET 코드 샘플] (https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
 <tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
 <tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## 릴리스 정보
+
+### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
+  - 다중 지역 데이터베이스 계정에 대한 지원이 추가되었습니다.
+  - 정제된 요청에 대한 재시도 지원이 추가되었습니다. 사용자가 ConnectionPolicy.RetryOptions 속성을 구성하여 재시도 횟수와 최대 대기 시간을 지정할 수 있습니다.
+  - 모든 DocumentClient 속성 및 메서드의 시그니처를 정의하는 새로운 IDocumentClient 인터페이스가 추가되었습니다. 이러한 변경의 일환으로 DocumentClient 클래스 자체에서 IQueryable과 IOrderedQueryable을 메서드로 만드는 확장 메서드도 변경되었습니다.
+  - 특정 DocumentDB 끝점 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다. ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
+  - IPartitionResolver와 해당 구현의 사용이 중단되었습니다. IPartitionResolver 지원이 중단되었습니다. 보다 큰 저장소 및 처리량에는 파티션된 컬렉션을 사용하는 것이 좋습니다.
+
 
 ### <a name="1.7.1"/>[1\.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
   - RequestOptions를 매개 변수로 사용하는 Uri 기반 ExecuteStoredProcedureAsync 메서드에 오버로드가 추가되었습니다.
@@ -55,7 +63,7 @@
   - 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 확장 LINQ 지원입니다.
     - LINQ에서 SELECT TOP 동작을 사용하도록 설정하는 Take 연산자
     - 문자열 범위 비교를 사용하도록 설정하는 CompareTo 연산자
-    - 조건부(?) 및 병합 연산자(??)
+    - 조건부 (?) 및 병합 연산자 (??)
   - **[수정됨]** 모델 프로젝션을 linq 쿼리의 Where-In과 결합할 때의 ArgumentOutOfRangeException이 수정되었습니다. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
@@ -99,9 +107,9 @@
   - OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   - Order By를 지원하기 위한 IndexingPolicy 
   
-		**NB: 가능한 새로운 변경** 
+		**NB: Possible breaking change** 
   
-    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
@@ -133,24 +141,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.7.1](#1.7.1) | 2016년 5월 06일 |---
-| [1\.7.0](#1.7.0) | 2016년 6월 26일 |---
-|[1\.6.3](#1.6.3) | 2016년 4월 08일 |---
-| [1\.6.2](#1.6.2) | 2016년 5월 29일 |---
-| [1\.5.3](#1.5.3) | 2016년 2월 19일 |---
-| [1\.5.2](#1.5.2) | 2015년 12월 14일 |---
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |---
-| [1\.5.0](#1.5.0) | 2015년 10월 05일 |---
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |---
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |---
-| [1\.3.0](#1.3.0) | 2015년 8월 05일 |---
-| [1\.2.0](#1.2.0) | 2015년 7월 06일 |---
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |---
-| [1\.0.0](#1.0.0) | 2015년 4월 08일 |---
-| [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일
-| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일
-| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일
-| [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.8.0](#1.8.0) | 2016년 6월 14일 |--- | [1\.7.1](#1.7.1) | 2016년 5월 6일 |--- | [1\.7.0](#1.7.0) | 2016년 4월 26일 |--- | [1\.6.3](#1.6.3) | 2016년 4월 8일 |--- | [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- | [1\.5.3](#1.5.3) | 2016년 2월 19일 |--- | [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- | [1\.5.1](#1.5.1) | 2015년 11월 23일 |--- | [1\.5.0](#1.5.0) | 2015년 10월 5일 |--- | [1\.4.1](#1.4.1) | 2015년 8월 25일 |--- | [1\.4.0](#1.4.0) | 2015년 8월 13일 |--- | [1\.3.0](#1.3.0) | 2015년 8월 5일 |--- | [1\.2.0](#1.2.0) | 2015년 7월 6일 |--- | [1\.1.0](#1.1.0) | 2015년 4월 30일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 | [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -159,4 +150,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

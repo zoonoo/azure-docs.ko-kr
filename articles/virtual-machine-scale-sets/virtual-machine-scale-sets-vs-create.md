@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Visual Studio를 사용하여 가상 컴퓨터 크기 집합 배포
@@ -75,7 +75,7 @@ Visual Studio에서 VM 규모 집합 배포를 시작하려면 다음 항목이 
 
 	![새 리소스 그룹][new_resource]
 
-9. 다음으로, **매개 변수 편집** 단추를 선택하여 템플릿에 전달될 매개 변수를 입력합니다. 배포를 만들려면 OS에 대한 사용자 이름 및 암호와 같은 특정한 값이 필요합니다.
+9. 다음으로, **매개 변수 편집** 단추를 선택하여 템플릿에 전달될 매개 변수를 입력합니다. 배포를 만들려면 OS에 대한 사용자 이름 및 암호와 같은 특정한 값이 필요합니다. 설치된 Visual Studio용 PowerShell 도구가 없다면, 숨겨진 PowerShell 명령줄 프롬프트를 피하거나 [keyvault 지원](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/)을 사용하기 위해 "암호 저장"을 확인하는 것이 좋습니다.
 
 	![매개 변수 편집][edit_parameters]
 
@@ -107,4 +107,4 @@ Visual Studio를 통해 VM 규모 집합을 성공적으로 배포하고 나면 
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

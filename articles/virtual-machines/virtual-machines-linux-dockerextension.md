@@ -22,6 +22,7 @@ Docker는 Linux(및 Windows)에서 컨테이너와 함께 빠르게 사용할 �
 
 - 앱의 프로토타입을 신속하게 만들려는 경우 또는 Docker Machine에 대해 이미 알고 사용하고 있는 경우 [Docker Machine Azure 드라이버를 사용](./virtual-machines-linux-docker-machine.md)하여 Azure 내 Docker 호스트를 배포할 수 있습니다.
 - 템플릿 기반 배포의 경우, Azure 가상 컴퓨터에 대해 Docker VM 확장이 사용될 수 있습니다. 이 방식은 Azure Resource Manager 템플릿 배포와 통합될 수 있으며, 역할 기반 액세스, 진단, 및 배포 후 구성 같은 관련된 이점을 모두 포함합니다.
+- Docker VM 확장은 또한 개발자 모델링된 응용 프로그램을 모든 환경에 가져가고 일관된 배포를 생성하기 위해 선언적 YAML 파일을 사용하는 Docker Compose를 지원합니다.  
 - 또한 Swarm에서 제공하는 추가 일정 예약 및 관리 도구를 활용하며 프로덕션에 준비된 확장 가능 배포의 경우 [Azure 컨테이너 서비스에 전체 Docker Swarm 클러스터를 배포](../container-service/container-service-deployment.md)할 수 있습니다.
 
 이 문서는 Resource Manager 템플릿을 사용하여 사용자가 정의하는 사용자 지정, 프로덕션 준비 환경에 Docker VM 확장을 배포하는 방법을 살펴봅니다.
@@ -135,6 +136,7 @@ Resource Manager 템플릿 사용에 대한 단계별 설명은 [Azure Resource 
 
 1. [Azure 드라이버로 Docker Machine 사용](./virtual-machines-linux-docker-machine.md)  
 2. [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

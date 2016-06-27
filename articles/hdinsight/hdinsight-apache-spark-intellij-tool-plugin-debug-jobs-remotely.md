@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -130,6 +130,10 @@
 
 	위의 그림에서 강조 표시된 **+** 아이콘을 클릭하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
+4. **프로젝트 구조** 대화 상자에서 **프로젝트**를 클릭합니다. **프로젝트 SDK**가 1.8로 설정되어 있다면 **프로젝트 언어 수준**이 **7 - 다이아몬드, ARM, 다중 캐치 등**으로 설정되어 있는지 확인합니다.
+
+	![프로젝트 언어 수준 설정](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+
 4. 프로젝트에 라이브러리를 추가합니다. 라이브러리를 추가하려면 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 클릭합니다. **프로젝트 구조** 대화 상자의 왼쪽 창에서 **라이브러리**, (+) 기호를 클릭한 다음 **Maven에서**를 클릭합니다.
 
 	![라이브러리 추가](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
@@ -182,7 +186,7 @@
 
 	![소스 코드 추가](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-8. **Create New Scala Class(새 Scala 클래스 만들기)** 대화 상자에서 이름을 제공하고 **종류**에 대해 **개체**를 선택한 다음 **확인**을 클릭합니다.
+8. **Create New Scala Class(새 Scala 클래스 만들기)** 대화 상자에서 이름을 제공하고 **종류**에 대해 **개체**를 선택하고 **확인**을 클릭합니다.
 
 	![소스 코드 추가](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
@@ -203,7 +207,7 @@
 		  }
 		}
 
-10. 위의 7 및 8단계를 반복하여 `SparkSample`(이)라는 새 Scala 개체를 추가합니다. 이 클래스에 다음 코드를 추가합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
+10. 위의 8 및 9단계를 반복하여 `SparkSample`(이)라는 새 Scala 개체를 추가합니다. 이 클래스에 다음 코드를 추가합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, CSV의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
 
 		import org.apache.spark.SparkContext
 	
@@ -223,7 +227,7 @@
 		
 		}
 
-11. 위의 7 및 8단계를 반복하여 `RemoteClusterDebugging`(이)라는 새 클래스를 추가합니다. 이 클래스는 응용 프로그램 디버깅에 사용되는 Spark 테스트 프레임워크를 구현합니다. `RemoteClusterDebugging` 클래스에 다음 코드를 추가합니다.
+11. 위의 8 및 9단계를 반복하여 `RemoteClusterDebugging`(이)라는 새 클래스를 추가합니다. 이 클래스는 응용 프로그램 디버깅에 사용되는 Spark 테스트 프레임워크를 구현합니다. `RemoteClusterDebugging` 클래스에 다음 코드를 추가합니다.
 
 		import org.apache.spark.{SparkConf, SparkContext}
 		import org.scalatest.FunSuite
@@ -340,4 +344,4 @@
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure SQL 데이터 웨어하우스에서 데이터베이스 복원(개요) | Microsoft Azure"
+   pageTitle="Azure SQL 데이터 웨어하우스 복원(개요) | Microsoft Azure"
    description="Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Azure SQL 데이터 웨어하우스에서 데이터베이스 복원(개요)
+# Azure SQL 데이터 웨어하우스 복원(개요)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-restore-database-overview.md)
-- [포털](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST (영문)](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [개요][]
+- [포털][]
+- [PowerShell][]
+- [REST (영문)][]
 
-Azure SQL 데이터 웨어하우스에서 데이터베이스를 복원하기 위한 옵션을 설명합니다. 여기에는 라이브 데이터 웨어하우스 및 삭제된 데이터 웨어하우스 복원 작업이 포함됩니다. 라이브 및 삭제된 데이터 웨어하우스는 모든 데이터 웨어하우스에서 만든 자동 스냅숏에서 복원됩니다.
+Azure SQL 데이터 웨어하우스는 로컬 중복 저장소 및 자동화된 백업을 사용하여 데이터를 보호합니다. 자동화된 백업은 별도의 관리 방법 없이 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호합니다. 사용자가 실수로 또는 우연하게 데이터를 수정하거나 삭제한 경우 이전 시점으로 데이터베이스를 복원하여 비즈니스 연속성을 보장할 수 있습니다. SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 가동 중지 시간 없이 원활하게 데이터베이스를 백업합니다.
 
-## 복구 시나리오
+## 자동화된 백업
 
-**인프라 오류로부터 복구:** 디스크 오류 등의 인프라 문제를 복구하는 데 이 시나리오를 참조합니다. 고객은 내결함성이 있는 비즈니스 연속성 및 고가용성 인프라를 확인하고자 합니다.
+**활성** 데이터베이스는 자동으로 최소 8시간마다 백업되고 7일 동안 유지됩니다. 이 옵션을 사용하면 지난 7일 동안의 여러 복원 지점 중 하나로 활성 데이터베이스를 복원할 수 있습니다.
 
-**사용자 오류에서 복구:** 이 시나리오에서는 의도 하지 않거나 부수적 데이터 손상 또는 삭제로부터의 복구를 가리킵니다. 사용자가 실수로 또는 우연하게 데이터를 수정하거나 삭제한 경우, 고객은 이전 시점으로 데이터베이스를 복원하여 비즈니스 연속성을 보장하고자 합니다.
+데이터베이스가 일시 중지되면 새 스냅숏은 중지하고 이전 스냅숏은 7일에 도달한 것처럼 없어집니다. 데이터베이스가 7일 이상 동안 일시 중지되는 경우 최소 하나의 백업이 항상 있도록 마지막 스냅숏이 저장됩니다.
 
-## 스냅숏 정책
+데이터베이스가 삭제되는 경우 마지막 스냅숏이 7일 동안 저장됩니다.
 
-[AZURE.INCLUDE [SQL 데이터 웨어하우스 백업 보존 정책](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+인스턴스에서 마지막 백업이 수행된 때를 확인하려면 이 쿼리를 실행합니다.
 
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-## 데이터베이스 복원 기능
+7일 이상 백업을 유지해야 할 경우 복원 지점 중 하나를 새 데이터베이스로 복원한 다음 해당 백업의 저장 공간에 대한 비용만 부담하도록 필요에 따라 해당 데이터베이스를 일시 중지할 수 있습니다.
 
-SQL 데이터 웨어하우스가 데이터베이스의 안정성을 개선하고 앞에서 언급한 시나리오에서의 복구 기능 및 연속 작업을 허용하는 방법을 살펴보겠습니다.
+## 데이터 중복
 
+백업 외에도 SQL 데이터 웨어하우스는 [로컬 중복(LRS)][] Azure 프리미엄 저장소를 사용하여 데이터를 보호합니다. 데이터의 여러 동기 복사본은 지역화된 오류 발생 시 투명 한 데이터 보호를 보장하기 위해 로컬 데이터 센터에 유지됩니다. 데이터 중복을 사용하면 데이터는 디스크 오류 등의 인프라 문제를 감당할 수 있습니다. 데이터 중복은 내결함성이 있는 비즈니스 연속성 및 고가용성 인프라를 보장합니다.
 
-### 데이터 중복
+## 데이터베이스 복원
 
-SQL 데이터 웨어하우스는 3개의 데이터 사본을 포함하는 [로컬 중복(LRS)](../storage/storage-redundancy.md) Azure 프리미엄 저장소에 모든 데이터를 저장합니다.
+SQL 데이터 웨어하우스 복원은 Azure 포털에서 수행되거나 PowerShell 또는 REST API를 사용하여 자동화될 수 있는 간단한 작업입니다.
 
-### 데이터베이스 복원
-
-데이터베이스 복원은 데이터베이스를 이전 시점으로 복원하도록 설계되었습니다. Azure SQL 데이터 웨어하우스 서비스는 적어도 8시간마다 자동 저장소 스냅숏을 사용하여 모든 데이터베이스를 보호하고 7일 동안 복원 지점의 불연속 집합 제공을 유지합니다. 자동 스냅숏 및 복원 기능은 별도의 관리 방법 없이 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호합니다. 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [데이터베이스 복원 작업][]을 참조하세요.
 
 ## 다음 단계
-기타 중요한 관리 작업은 [관리 개요][]를 참조하세요.
+Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][]를 읽으세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[관리 개요]: sql-data-warehouse-overview-management.md
-[데이터베이스 복원 작업]: sql-data-warehouse-manage-database-restore-portal.md
+[Azure SQL 데이터베이스 무중단 업무 방식 개요]: ./sql-database-business-continuity.md
+[로컬 중복(LRS)]: ../storage/storage-redundancy.md
+[개요]: ./sql-data-warehouse-restore-database-overview.md
+[포털]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

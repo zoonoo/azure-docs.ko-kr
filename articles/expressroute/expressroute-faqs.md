@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -61,6 +61,7 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 	- CDN
 	- Visual Studio Team Services 부하 테스트
 	- Multi-Factor 인증
+	- 트래픽 관리자
 
 ## 데이터 및 연결
 
@@ -177,7 +178,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 ### Express 경로 프리미엄이란?
 Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
- - 증가된 라우팅 테이블은 공용 피어링 및 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
+ - 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
  - Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
  - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서에서 만든 VNet을 연결할 수 있습니다.
  - Office 365 서비스 및 CRM Online에 대한 연결
@@ -217,6 +218,8 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
 ## Express 경로, Office 365 서비스 및 CRM Online
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 ### Office 365 서비스 및 CRM Online에 연결하려면 어떻게 Express 경로 회로를 만드나요?
 
 1. [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
@@ -248,4 +251,4 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 ### Express 경로 연결을 통해 어느 Dynamics AX에 액세스할 수 있나요?
 아니요, 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

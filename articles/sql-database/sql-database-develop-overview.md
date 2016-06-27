@@ -59,7 +59,9 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 ## 탄력적인 확장을 사용한 데이터 분할
 탄력적 확장은 확장(및 축소) 프로세스를 간소화합니다.
 
+[Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 * [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

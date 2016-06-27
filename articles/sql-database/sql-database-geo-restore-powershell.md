@@ -19,12 +19,12 @@
 # PowerShell을 사용하여 지역 중복 백업에서 Azure SQL 데이터베이스 복원
 
 > [AZURE.SELECTOR]
+- [개요](sql-database-geo-restore.md)
 - [Azure 포털](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-이 문서에서는 PowerShell을 사용하여 지역 중복을 사용하는 새 서버에 데이터베이스를 복원하는 방법을 보여 줍니다.
 
-[지역 복원](sql-database-geo-restore.md)은 지역 중복 백업에서 데이터베이스를 복원하여 새 데이터베이스를 만드는 기능을 제공합니다. Azure 지역의 모든 서버에서 데이터베이스를 만들 수 있습니다. 지역 중복 백업을 해당 원본으로 사용하므로 가동 중단으로 인해 데이터베이스에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용할 수 있습니다. 지역 복원은 모든 서비스 계층에서 추가 비용 없이 자동으로 사용할 수 있습니다.
+이 문서에서는 PowerShell을 사용하여 지역 중복을 사용하는 새 서버에 데이터베이스를 복원하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
 
@@ -60,4 +60,4 @@
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

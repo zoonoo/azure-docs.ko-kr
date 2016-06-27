@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 설계의 모범 사례
@@ -382,4 +382,4 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 - Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

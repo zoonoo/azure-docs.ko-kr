@@ -4,7 +4,7 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags
 	ms.service="automation"
@@ -12,15 +12,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="03/02/2016"
+	ms.date="06/14/2016"
 	ms.author="magoedte;bwren" />
 
 
 # Azure 자동화용 Runbook 및 모듈 갤러리
 
-Azure 자동화에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 솔루션을 액세스할 수 있습니다. 이러한 솔루션은 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
+Azure 자동화에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 시나리오에 액세스할 수 있습니다. 이러한 시나리오는 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
 
-Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다. 또한 자신이 개발한 솔루션을 공유하여 커뮤니티에 기여할 수 있습니다.
+Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다. 또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다.
 
 ## Runbook 갤러리의 Runbook
 
@@ -32,7 +32,7 @@ Azure 클래식 포털 또는 Azure 포털을 사용하는 Runbook 갤러리에�
 
 ### Azure 클래식 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
 
-1. Azure 관리 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **갤러리에서**를 클릭합니다.
+1. Azure 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **Gallery에서**을(를) 차례로 클릭합니다.
 2. 관련 Runbook을 볼 범주를 선택하고 Runbook을 선택하여 세부 내용을 확인합니다. 원하는 Runbook을 선택했으면 오른쪽 화살표 단추를 클릭합니다.
 
     ![Runbook 갤러리](media/automation-runbook-gallery/runbook-gallery.png)
@@ -66,9 +66,9 @@ Azure 클래식 포털 또는 Azure 포털을 사용하는 Runbook 갤러리에�
 
 Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 Runbook 갤러리에 추가하도록 장려하고 있습니다. 다음 세부 정보를 고려하여 [스크립트 센터에 업로드](http://gallery.technet.microsoft.com/site/upload)를 선택하면 Runbook을 추가할 수 있습니다.
 
-- **범주**에 *Microsoft Azure*를 지정하고 **하위 범주**에 *자동화*를 지정해야 Runbook이 마법사에 표시됩니다.  
+- **범주**에 *Windows Azure*를 지정하고 **하위 범주**에 *자동화*를 지정해야 Runbook이 마법사에 표시됩니다.  
 
-- 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다. Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다. 여러 Runbook이 필요한 솔루션인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 범주에 표시되도록 동일한 태그를 사용합니다. 솔루션이 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
+- 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다. Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다. 여러 Runbook이 필요한 시나리오인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 범주에 표시되도록 동일한 태그를 사용합니다. 시나리오가 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
 
 - **그래픽 Runbook**(그래픽 워크플로가 아닌)을 게시하는 경우 "GraphicalPS" 태그를 추가합니다.
 
@@ -133,9 +133,9 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 
 [사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
 
-## 관련된 문서
+## 다음 단계
 
-- [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
-- [PowerShell 워크플로 학습](automation-powershell-workflow.md)
+- Runbook 작성을 시작하려면 [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
+- Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [PowerShell 워크플로 학습](automation-powershell-workflow.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

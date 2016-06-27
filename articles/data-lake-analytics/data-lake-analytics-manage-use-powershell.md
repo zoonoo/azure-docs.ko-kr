@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -335,7 +335,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-##부록 A - 데이터 레이크 분석 ARM 템플릿
+##부록 A - Data Lake 분석 ARM 템플릿
 
 다음 ARM 템플릿은 데이터 레이크 분석 계정 및 해당 종속 데이터 레이크 저장소 계정을 배포하는 데 사용할 수 있습니다. Json 파일로 저장한 다음 PowerShell 스크립트를 사용하여 해당 템플릿을 호출합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md#deploy-with-powershell) 및 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
@@ -392,4 +392,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 	  }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

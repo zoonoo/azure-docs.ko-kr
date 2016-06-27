@@ -18,18 +18,19 @@
 
 # 개요: SQL 데이터베이스 지역 복원
 
+> [AZURE.SELECTOR]
+- [개요](sql-database-geo-restore.md)
+- [Azure 포털](sql-database-geo-restore-portal.md)
+- [PowerShell](sql-database-geo-restore-powershell.md)
+
 지역 복원을 사용하면 최신 매일 백업에서 SQL 데이터베이스를 복원할 수 있습니다. 또한 추가 비용 없이 자동으로 모든 서비스 계층에 사용할 수 있습니다. 지역 복원은 지역 중복 백업을 해당 원본으로 사용하고 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용될 수 있습니다.
 
 지역 복원을 시작하면 Azure 지역의 서버에서 만들 수 있는 새 SQL 데이터베이스를 만듭니다.
 
-
-|작업(포털) | PowerShell | REST (영문) |
-|:--|:--|:--|
-| [다른 지역의 복사본에서 SQL 데이터베이스 복구](sql-database-geo-restore-portal.md) | [PowerShell](sql-database-geo-restore-powershell.md) | [REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |
+> [AZURE.NOTE] [REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수도 있습니다.
 
 
-
-지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [특정 시점 복원](sql-database-point-in-time-restore.md)과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 기본 지역의 저장소 중단에 영향을 받지 않습니다.
+지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션입니다. Azure 지역의 모든 서버에서 데이터베이스를 만들 수 있습니다. 지역에서 복원은 지리적 중복 Azure 저장소에서 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)에 의존하고 지역에서 복제된 백업 복사본에서 복원되므로 주 지역의 저장소 중단에 유연합니다.
 
 
 
@@ -56,6 +57,12 @@
 
 지역 복원 기능은 모든 서비스 계층에서 사용할 수 있는 반면 RPO와 ERT(예상 복구 시간)이 가장 긴 SQL 데이터베이스에서 사용할 수 있는 재해 복구 솔루션 중 가장 기본적인 기능입니다. 최대 크기 2GB인 기본 데이터베이스의 경우 지역 복원은 ERT이 12시간인 적절한 DR 솔루션을 제공합니다. 대규모 표준 또는 프리미엄 데이터베이스의 경우 크게 복구 시간이 단축되지 않으면 데이터 손실 가능성을 줄이기 위해 활성 지역 복제를 사용하도록 고려해야 합니다. 활성 지역 복제는 지속적으로 복제된 보조 데이터베이스에 대한 장애 조치를 시작하도록 하여 훨씬 더 낮은 RPO와 ERT를 제공합니다. 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 
+## 다음 단계
+
+- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [Azure 포털을 사용한 지역 복원](sql-database-geo-restore-portal.md)
+- [PowerShell을 사용한 지역 복원](sql-database-geo-restore-powershell.md)
+
 ## 추가 리소스
 
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
@@ -63,6 +70,5 @@
 - [특정 시점 복원](sql-database-point-in-time-restore.md)
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

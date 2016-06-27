@@ -28,6 +28,7 @@ Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입
 2. Azure 키 자격 증명 모음에 인증서를 업로드합니다.
 3. 인증서의 위치 및 세부 정보를 서비스 패브릭 클러스터 만들기 프로세스에 제공합니다.
 
+<a id="acquirecerts"></a>
 ## 1단계: X.509 인증서를 획득합니다.
 
 프로덕션 워크로드를 실행하는 클러스터의 경우 클러스터 보호를 위해 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)로 서명된 X.509 인증서를 사용해야 합니다. 이러한 인증서를 얻는 방법에 대한 자세한 내용은 [방법: 인증서 가져오기](http://msdn.microsoft.com/library/aa702761.aspx)를 참조하세요.
@@ -178,4 +179,4 @@ Certificate URL /URL to the certificate location in the key vault: https://chack
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
    description="Azure SQL 데이터베이스를 사용한 비즈니스 연속성 및 재해 복구에 대한 기본 기능과 선택적 기능에 대해 고객이 자주 묻는 질문과 이에 대한 대답입니다." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # 비즈니스 연속성 FAQ
 
@@ -54,4 +54,4 @@
 
 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

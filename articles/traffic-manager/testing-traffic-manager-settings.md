@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # 트래픽 관리자 설정 테스트
@@ -59,4 +59,4 @@
 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md) [트래픽 관리자](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

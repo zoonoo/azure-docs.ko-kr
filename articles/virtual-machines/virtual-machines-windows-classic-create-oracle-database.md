@@ -25,7 +25,7 @@
 
 ##Azure에서 Oracle 데이터베이스 VM을 사용하여 데이터베이스를 만들려면
 
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1.	[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2.	**가상 컴퓨터**를 클릭합니다.
 
@@ -117,7 +117,7 @@
 
 ### 포트 1521에 대한 공용 끝점 만들기
 
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1.	[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2.	**찾아보기**를 클릭합니다.
 
@@ -146,7 +146,7 @@
 ##Oracle 데이터베이스 엔터프라이즈 관리자의 원격 액세스를 사용하도록 설정
 Oracle Database Enterprise Manager에 원격 액세스를 사용하고자 할 경우, 방화벽에서 포트 5500을 열고 Azure 클래식 포털에서 5500에 대한 가상 컴퓨터 끝점을 생성합니다.(포트 1521 열기 및 1521의 끝점 생성 방법은 이전 단계 참조) 그런 다음 원격 컴퓨터에서 Oracle 엔터프라이즈 관리자를 실행하기 위해 `http://<<unique_domain_name>>:5500/em`의 양식에 URL로 브라우저를 엽니다.
 
-> [AZURE.NOTE] 가상 컴퓨터 클릭 후, Oracle 데이터베이스를 실행할 때 사용하는 **가상 컴퓨터**를 선택하여 [Azure 클래식 포털](https://ms.portal.azure.com/)의 *\<\<unique\_domain\_name\>\>* 의 값을 설정할 수 있습니다.
+> [AZURE.NOTE] 가상 컴퓨터 클릭 후, Oracle 데이터베이스를 실행할 때 사용하는 **가상 컴퓨터**를 선택하여 [Azure 클래식 포털](https://portal.azure.com/)의 *<<unique\_domain\_name>>*의 값을 설정할 수 있습니다.
 
 ##가장 많이 사용하는 옵션 및 고급 옵션 번들 구성
 **인기있는 옵션이 탑재된 Oracle 데이터베이스** 또는 **고급 옵션이 탑재된 Oracle 데이터베이스**을 선택한 경우, 다음 단계는 Oracle 설치에서 추가 기능을 구성하는 것입니다. 각각의 개별 구성 요소의 필요에 따라 구성이 다양할 수 있기 때문에 Windows에서의 설정을 위한 지침은 Oracle 설명서를 참조합니다.
@@ -168,4 +168,4 @@ Oracle Database Enterprise Manager에 원격 액세스를 사용하고자 할 �
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -49,7 +49,7 @@ Microsoft 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있
 
 Microsoft 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 다음과 같습니다.
 
-1.	[Azure 포털](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 가상 컴퓨터 목록으로 이동합니다.
+1.	[Azure 포털](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 가상 컴퓨터 목록으로 이동합니다.
 2.	 마법사로 이동하려면 아래에 있는 **만들기** 단추를 클릭합니다.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 다음 섹션에서는 Microsoft 데이터 과학 가상 컴퓨터를 만드는 데 사용되는 마법사의 각 **5단계**(위의 그림 오른쪽에 열거됨)에 **입력**을 제공합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
 
@@ -147,4 +147,4 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 * 체계적으로 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana Intelligence 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)를 방문하세요. 또한 손쉽게 액세스할 수 있도록 가상 컴퓨터의 시작 메뉴 및 데스크톱에 아이콘을 제공합니다. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

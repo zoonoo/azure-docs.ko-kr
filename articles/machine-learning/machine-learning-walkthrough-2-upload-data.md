@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+	ms.date="06/10/2016" 
 	ms.author="garye"/>
 
 
@@ -84,4 +84,4 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

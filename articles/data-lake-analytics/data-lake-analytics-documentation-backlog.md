@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Azure 데이터 레이크 분석 설명서 백로그
@@ -62,4 +62,4 @@ U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

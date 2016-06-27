@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/28/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -98,7 +98,7 @@ HDInsight에 대한 기본 저장소가 된 이후 일반적으로 사용하기 
 
 	hadoop fs -ls /example/data
 
-일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **WASB://**를 명령 앞에 붙일 수 있습니다.
+일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 ****WASB://**를 명령 앞에 붙일 수 있습니다.
 
 HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
 
@@ -257,4 +257,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

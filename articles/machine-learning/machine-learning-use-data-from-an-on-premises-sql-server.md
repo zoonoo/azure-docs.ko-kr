@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/25/2016"
+ms.date="06/14/2016"
 ms.author="garye;krishnan"/>
 
 # 온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure 기계 학습을 통해 고급 분석 수행
@@ -57,7 +57,7 @@ Azure 기계 학습에서 온-프레미스 SQL Server 데이터베이스에 액�
 
 - 다른 데이터에 대해 Azure Express 경로를 사용하는 경우에도 Azure 기계 학습용 데이터 관리 게이트웨이를 사용해야 합니다. Express 경로 및 데이터 관리 게이트웨이를 사용하는 경우 데이터 원본을 온-프레미스 데이터 원본(즉, 방화벽 뒤)으로 처리하여 기계 학습과 데이터 원본 간에 연결을 설정해야 합니다.
 
-[온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) 문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
+[온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway) 문서의 시작 섹션 [데이터 관리 게이트웨이를 사용할 때 고려 사항](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway)에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>온-프레미스 SQL Server 데이터베이스의 데이터를 Azure 기계 학습으로 수신
 
@@ -104,7 +104,7 @@ Azure 기계 학습에서 온-프레미스 SQL Server 데이터베이스에 액�
 
     -   **상태**가 **Started**로 설정됩니다.
 
-    -   맨 아래 상태 표시줄에 **데이터 관리 게이트웨이 클라우드 서비스에 연결됨**과 함께 녹색 확인 표시가 나타납니다.
+    -   맨 아래 상태 표시줄에 **Connected to Data Management Gateway Cloud Service(데이터 관리 게이트웨이 클라우드 서비스에 연결됨)**와 함께 녹색 확인 표시가 나타납니다.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
@@ -136,7 +136,7 @@ Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다. �
 
 2.  **데이터 가져오기** 모듈을 찾아 실험 캔버스로 끌어 놓습니다.
 
-3.  캔버스 아래에서 **다른 이름으로 저장**을 클릭합니다. 실험 이름으로 "Azure 기계 학습 온-프레미스 SQL Server 자습서"를 입력하고 작업 영역을 선택한 후 **확인** 확인 표시를 클릭합니다.
+3.  캔버스 아래에서 **다른 이름으로 저장**을 클릭합니다. 실험 이름으로 "Azure 기계 학습 온-프레미스 SQL Server 자습서"를 입력하고 작업 영역을 선택한 후 **확인** 표시를 클릭합니다.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\experiment-save-as.png)
 
@@ -162,4 +162,4 @@ Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다. �
 
 실험 개발이 끝나면 모델을 배포하고 운영할 수 있습니다. 배치 실행 서비스를 사용하는 경우 **데이터 가져오기** 모듈에서 구성한 온-프레미스 SQL Server 데이터베이스의 데이터는 읽힌 후 점수를 매기는 데 사용됩니다. 온-프레미스 데이터의 점수를 매기는 데 요청 응답 서비스를 사용할 수 있지만, 대신 [Excel 추가 기능](machine-learning-excel-add-in-for-web-services.md)을 사용하는 것이 좋습니다. 현재, **데이터 내보내기**를 통해 온-프레미스 SQL Server 데이터베이스에 쓰는 방식은 실험 또는 게시된 웹 서비스에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -150,7 +150,9 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 
 ## 다음 단계
 
-이제 [Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. 새 포털에서 Docker 사용 가능 VM을 만들려면 [포털에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
+* 이제 [Docker 사용자 가이드]로 이동하여 Docker VM을 사용할 수 있습니다. 새 포털에서 Docker 사용 가능 VM을 만들려면 [포털에서 Docker VM 확장을 사용하는 방법]을 참조하세요.
+
+* Azure Docker VM 확장은 또한 개발자 모델링된 응용 프로그램을 모든 환경에 가져가고 일관된 배포를 생성하기 위해 선언적 YAML 파일을 사용하는 Docker Compose를 지원합니다. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]을 참조하세요.
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
@@ -172,5 +174,6 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
+[Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
