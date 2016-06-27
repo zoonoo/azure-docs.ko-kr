@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API" 
+	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API | Microsoft Azure" 
 	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다." 
 	services="application-insights"
     documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -366,7 +366,9 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
         @if (Request.IsAuthenticated)
         {
             <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name
+                   .Replace("\", "\\")"
+                   .replace(/[,;=| ]+/g, "_"));
             </script>
         }
 
@@ -748,4 +750,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

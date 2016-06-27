@@ -82,19 +82,19 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 
 ### Azure 데이터 레이크 저장소 만들기
 
-[Azure 포털](http://ms.portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
+[Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Azure Data Lake 분석 계정 만들기
-[Azure 포털](http://ms.portal.azure.com)에서 ADLA 계정을 만듭니다. 자세한 내용은 [자습서: Azure 포털을 사용하여 Azure Data Lake 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 ADLA 계정을 만듭니다. 자세한 내용은 [자습서: Azure 포털을 사용하여 Azure Data Lake 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Azure Blob 저장소 계정 만들기
-[Azure 포털](http://ms.portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 Azure Blob 저장소 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 ### HDInsight Linux 클러스터 만들기
 
-[Azure 포털](http://ms.portal.azure.com)에서 HDInsight 클러스터(Linux)를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)의 **Azure Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터 만들기** 섹션을 참조하세요.
+[Azure 포털](http://portal.azure.com)에서 HDInsight 클러스터(Linux)를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)의 **Azure Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터 만들기** 섹션을 참조하세요.
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -741,4 +741,4 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 - [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 - [ Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

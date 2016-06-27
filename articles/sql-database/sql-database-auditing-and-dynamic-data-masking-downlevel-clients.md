@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="nadavhelfman"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -72,4 +72,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 캐나다 중부 | 13\.88.248.106 |
 | 캐나다 동부 | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/10/2016"
+	ms.date="06/13/2016"
 	ms.author="pratshar"/>
 
 # Azure Site Recovery로 Active Directory 및 DNS 보호
@@ -121,4 +121,4 @@ DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스
 
 Azure Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법에 대해 자세히 알아보려면 [어떤 워크로드를 보호할 수 있습니까?](../site-recovery/site-recovery-workload.md)를 읽어보세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # 데이터 마이그레이션 모니터링 및 문제 해결(스트레치 데이터베이스)
@@ -59,4 +59,4 @@ SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azu
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

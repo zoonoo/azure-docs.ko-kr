@@ -106,4 +106,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

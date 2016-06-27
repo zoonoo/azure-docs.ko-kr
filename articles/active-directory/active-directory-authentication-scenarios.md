@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD의 인증 시나리오
@@ -96,7 +96,8 @@ Azure AD에서 발급된 보안 토큰에는 인증된 주체에 대한 클레�
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 응용 프로그램 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 응용 프로그램에 부여된 권한을 나타냅니다. |
-| 제목 | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
+| 제목  
+ | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. |
 | 사용자 계정 이름 | 주체의 사용자 계정 이름을 포함합니다. |
@@ -203,10 +204,9 @@ Azure AD에서 발급된 토큰의 수명이 만료되면 사용자의 세션이
 
 ### SPA(단일 페이지 응용 프로그램)
 
+이 섹션에서는 Azure AD와 OAuth 2.0 암시적 권한 부여를 사용하여 웹 API 백 엔드의 보안을 유지하는 단일 페이지 응용 프로그램에 대한 인증을 설명합니다. 단일 페이지 응용 프로그램은 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 레이어(프런트 엔드) 및 서버에서 실행되며 응용 프로그램 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 암시적 권한 부여에 관한 자세한 내용을 확인하고 자신의 응용 프로그램 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](active-directory-dev-understanding-oauth2-implicit-grant.md)를 참조하세요.
 
-이 섹션에서는 Azure AD를 사용하여 웹 API 백 엔드의 보안을 유지하는 단일 페이지 응용 프로그램에 대한 인증을 설명합니다. 단일 페이지 응용 프로그램은 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 레이어(프런트 엔드) 및 서버에서 실행되며 응용 프로그램 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 이 시나리오에서는 사용자가 로그인하면JavaScript 프런트 엔드에서 [JavaScript용 Active Directory 인증 라이브러리(ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 및 OAuth 2.0 암시적 허용 프로토콜을 사용하여 Azure AD로부터 ID 토큰(id\_token)을 가져옵니다. 토큰이 캐시되고, 클라이언트가 웹 API 백 엔드에 대해 호출할 때 이 토큰을 요청에 전달자 토큰으로 첨부합니다. 그러면 OWIN 미들웨어를 사용하여 보안됩니다.
-
-
+이 시나리오에서는 사용자가 로그인하면JavaScript 프런트 엔드에서 [JavaScript용 Active Directory 인증 라이브러리(ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 및 암시적 권한 부여를 사용하여 Azure AD로부터 ID 토큰(id\_token)을 가져옵니다. 토큰이 캐시되고, 클라이언트가 웹 API 백 엔드에 대해 호출할 때 이 토큰을 요청에 전달자 토큰으로 첨부합니다. 그러면 OWIN 미들웨어를 사용하여 보안됩니다.
 #### 다이어그램
 
 ![단일 페이지 응용 프로그램 다이어그램](./media/active-directory-authentication-scenarios/single_page_app.png)
@@ -469,4 +469,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -37,7 +37,7 @@ Azure의 서비스 패브릭 플랫폼은 다음과 같은 응용 프로그램 �
 ## 상태 비저장 및 상태 저장 마이크로 서비스로 구성된 응용 프로그램 설계
 Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 구축하는 것은 상태 비저장 서비스의 예입니다. 이와는 반대로 상태 저장 마이크로 서비스는 요청 및 응답 이후에도 믿을 수 있는 상태를 유지합니다. 복제에서 지원하는 트랜잭션 보장을 제공하는 간단한 API를 통해 상태의 높은 가용성 및 일관성을 제공합니다. 서비스 패브릭의 상태 저장 서비스는 고가용성을 보편화하여, 데이터베이스 및 기타 데이터 저장소가 아닌 모든 유형의 응용 프로그램에 가져옵니다. 자연적 진행 방향입니다. 응용 프로그램은 이미 NoSQL 데이터베이스에 대한 고가용성을 위해 순수하게 관계형 데이터베이스를 사용하지 않습니다. 이제 응용 프로그램 자체에서는 안정성, 일관성, 또는 가용성을 유지하면서 추가 성능 향상을 위해 자체 내에서 관리되는 "핫" 상태 및 데이터를 보유할 수 있습니다.
 
-마이크로 서비스로 구성되는 응용 프로그램을 빌드할 때 일반적으로 서비스 패브릭 명령을 사용하여 같은 서비스 패브릭 클러스터에 배포된 상태 비저장 및 상태 저장 비즈니스 중간 계층 서비스를 호출하는 상태 비저장 웹앱(ASP.NET, node.js 등)을 조합해서 사용합니다. 이러한 서비스 각각은 규모, 안정성 및 리소스 사용과 관련하여 독립적이고 개발 및 수명 주기 관리에서 민첩성을 크게 향상시킵니다.
+마이크로 서비스로 구성된 응용 프로그램을 구축할 경우 일반적으로 상태 비저장 및 상태 저장 비즈니스 중간 계층 서비스를 호출하는 상태 비저장 웹앱(ASP.NET, Node.js 등) 조합이 있으며 모두 서비스 패브릭 명령을 사용하여 동일한 서비스 패브릭 클러스터에 배포됩니다. 이러한 서비스 각각은 규모, 안정성 및 리소스 사용과 관련하여 독립적이고 개발 및 수명 주기 관리에서 민첩성을 크게 향상시킵니다.
 
 상태 저장 마이크로 서비스는 순수한 상태 비저장 응용 프로그램의 가용성 및 대기 시간 요구 사항을 해결하기 위해 일반적으로 필요했던 추가 큐 및 캐시에 대한 필요성을 제거하기 때문에 응용 프로그램 설계를 간소화합니다. 상태 저장 서비스는 기본적으로 가용성이 높고 대기 시간이 낮기 때문에 전체적으로 응용 프로그램에서 관리하는 이동 부분이 적습니다. 아래 다이어그램에는 상태 비저장 응용 프로그램과 상태 저장 응용 프로그램 간의 설계 차이점을 보여줍니다. [Reliable Services](service-fabric-reliable-services-introduction.md) 및 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 프로그래밍 모델을 활용하여 상태 저장 서비스에서 응용 프로그램 복잡성을 줄이고 높은 처리량과 낮은 대기 시간을 달성합니다.
 
@@ -50,22 +50,15 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-
-서비스 패브릭 [Reliable Services](service-fabric-reliable-services-quick-start.md) 및 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 상태 비저장 및 상태 저장 서비스 구축을 시작하세요.
-
-또한 다음 항목을 참조하세요.
-
-[마이크로 서비스 정보](service-fabric-overview-microservices.md)
-
-[서비스 상태 정의 및 관리](service-fabric-concepts-state.md)
-
-[서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
-
-[서비스 패브릭 서비스 크기 조정](service-fabric-concepts-scalability.md)
-
-[서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
+* 서비스 패브릭 [Reliable Services](service-fabric-reliable-services-quick-start.md) 및 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 상태 비저장 및 상태 저장 서비스 구축을 시작합니다.
+* 또한 다음 항목을 참조하세요.
+    * [마이크로 서비스 정보](service-fabric-overview-microservices.md)
+    * [서비스 상태 정의 및 관리](service-fabric-concepts-state.md)
+    * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
+    * [서비스 패브릭 서비스 크기 조정](service-fabric-concepts-scalability.md)
+    * [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

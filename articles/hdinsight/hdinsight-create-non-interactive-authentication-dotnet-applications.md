@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="06/13/2016"
 	ms.author="jgao"/>
 
 # 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
@@ -89,7 +89,7 @@ Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램
 
 ##HDInsight 클라이언트 응용 프로그램 개발
 
-[HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically/#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk)의 지침에 따라 C#.net 콘솔 응용 프로그램을 만듭니다. 그런 다음 GetTokenCloudCredentials 메서드를 다음으로 바꿉니다.
+[HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk)의 지침에 따라 C#.net 콘솔 응용 프로그램을 만듭니다. 그런 다음 GetTokenCloudCredentials 메서드를 다음으로 바꿉니다.
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -122,4 +122,4 @@ PowerShell을 통해 테넌트 ID를 검색하려면
 - [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)
 - [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # 장애 조치(Failover) 라우팅 방법 구성
@@ -52,4 +52,4 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터(지
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

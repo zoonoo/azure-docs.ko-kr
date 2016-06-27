@@ -57,7 +57,7 @@ Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있�
 
 **Hadoop 클러스터를 만들려면**
 
-1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다. 포털은 **새 HDInsight 클러스터** 블레이드를 엽니다.
 
     ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
@@ -97,7 +97,7 @@ HDInsight 클러스터를 만들었으므로 다음 단계는 Hive 작업을 실
 
 **클러스터 대시보드에서 Hive 작업 실행**
 
-1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **모두 찾아보기**를 클릭한 후 **HDInsight 클러스터**를 클릭하면 이전 섹션에서 방금 만든 클러스터를 포함하여 클러스터 목록이 표시됩니다.
 3. Hive 작업을 실행하는 데 사용할 클러스터 이름을 클릭하고 블레이드 위쪽에서 **대시보드**를 클릭합니다.
 4. 웹 페이지가 다른 브라우저 탭에서 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 만드는 동안 입력한 암호입니다.
@@ -222,7 +222,7 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

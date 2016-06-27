@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/08/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -65,20 +65,18 @@
 - SQL 데이터베이스 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 여기에 속한 모든 데이터베이스도 함께 이동합니다.
 - 가상 컴퓨터
 - 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
-
-## 부분적으로 이동을 지원하는 서비스
-
-새 리소스 그룹으로의 이동은 지원하지만 새 구독으로의 이동은 지원하지 않는 서비스는 다음과 같습니다.
-
 - 가상 네트워크
 
 ## 이동을 지원하지 않는 서비스
 
 현재 리소스 이동을 지원하지 않는 서비스는 다음과 같습니다.
 
+- 응용 프로그램 게이트웨이
 - Application Insights
 - Express 경로
-- 가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
+- 가상 컴퓨터 크기 집합
+- 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
+- VPN 게이트웨이
 
 ## 앱 서비스 제한
 
@@ -274,4 +272,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

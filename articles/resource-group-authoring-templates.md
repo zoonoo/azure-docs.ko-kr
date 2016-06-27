@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -86,8 +86,6 @@ Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니�
 
 배포된 리소스에 대한 값을 설정하는 템플릿 전체에서 이들 매개 변수 값을 사용할 수 있습니다. parameters 섹션에서 선언한 매개 변수만 템플릿의 다른 섹션에서 사용할 수 있습니다.
 
-parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 변수 값을 사용할 수 없습니다. 변수 섹션에서 새 값을 생성합니다.
-
 다음과 같은 구조를 사용하여 매개 변수를 정의합니다.
 
     "parameters": {
@@ -125,7 +123,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 - object 또는 secureObject - 유효한 모든 JSON 개체
 - array - 유효한 모든 JSON 배열
 
-매개 변수를 선택적으로 지정하려면 defaultValue를 빈 문자열로 설정합니다.
+매개 변수를 선택적으로 지정하려면 defaultValue를 제공합니다(빈 문자열 가능).
 
 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 매개 변수 이름을 지정하면(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
@@ -134,37 +132,37 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 다음 예제에서는 매개 변수를 정의하는 방법을 보여줍니다.
 
     "parameters": {
-       "siteName": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 60
-       },
-       "siteLocation": {
-          "type": "string",
-          "minLength": 2
-       },
-       "hostingPlanName": {
-          "type": "string"
-       },  
-       "hostingPlanSku": {
-          "type": "string",
-          "allowedValues": [
-            "Free",
-            "Shared",
-            "Basic",
-            "Standard",
-            "Premium"
-          ],
-          "defaultValue": "Free"
-       },
-       "instancesCount": {
-          "type": "int",
-          "maxValue": 10
-       },
-       "numberOfWorkers": {
-          "type": "int",
-          "minValue": 1
-       }
+      "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+      },
+      "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+      },
+      "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+      },
+      "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
+      }
     }
 
 배포 중에 매개 변수 값을 입력하는 방법은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md#parameter-file)를 참조하세요.
@@ -283,7 +281,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 
 
-다음 예제는 하위 **확장** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스도 사이트의 하위 항목입니다.
+다음 예제에는 자식 **Extensions** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스가 나와 있습니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **Extensions** 리소스는 사이트의 자식입니다.
 
     "resources": [
       {
@@ -377,4 +375,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 이 문서에서는 Transact-SQL을 사용하여 보조 SQL 데이터베이스로 장애 조치(failover)를 시작하는 방법을 보여 줍니다. 지역에서 복제를 구성하려면 [Azure SQL 데이터베이스에 대한 지역에서 복제 구성](sql-database-geo-replication-transact-sql.md)을 참조하세요.
@@ -98,4 +98,4 @@
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/services/sql-database/)
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

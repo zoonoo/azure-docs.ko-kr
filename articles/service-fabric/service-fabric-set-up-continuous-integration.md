@@ -261,6 +261,8 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 3. 소스 제어에 새 파일을 추가하고 VSTS에 푸시합니다.
 
+>[AZURE.NOTE] 서비스 패브릭 클러스터를 관리하는 데 다른 인증서를 사용한 경우 해당 인증서를 사용하여 '자동화 인증서 가져오기'의 단계를 반복합니다.
+
 ### 빌드 정의 만들기
 
 1.	빈 빌드 정의를 만듭니다. 다음을 수행합니다.
@@ -341,6 +343,8 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 이전 빌드에서 자체 정리되지 않은 경우(예: 정리되기 전에 빌드가 취소됨) 새 리소스 그룹과 충돌하는 기존 리소스 그룹이 있을 수 있습니다. 충돌을 방지하기 위해 새 리소스 그룹을 만들기 전에 잔여 리소스 그룹(및 관련 리소스)을 모두 정리해야 합니다.
 
+>[AZURE.NOTE] 모든 빌드에 동일한 클러스터를 만들고 다시 사용하려는 경우 이 단계를 건너뜁니다.
+
 1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
 
 2.	**배포** > **Azure 리소스 그룹 배포**를 선택합니다.
@@ -389,13 +393,17 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **배포**로 변경합니다.
 
-4. 다음 값을 선택합니다.
+4. 이러한 값(PublishProfile 및 -ApplicationPackagePath 값을 실제 경로로 대체)을 선택합니다.
 
     |설정 이름|값|
     |---|---|
     |형식|**File Path(파일 경로)**|
     |스크립트 파일 이름|**...** 단추를 클릭하여 응용 프로그램 프로젝트 내 **스크립트** 디렉터리로 이동합니다. `Deploy-FabricApplication.ps1`을 선택합니다.|
     |인수|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] 작동하는 게시 프로필 xml 파일은 다음과 같이 Visual Studio에서 쉽게 만들 수 있습니다. https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] 기존 응용 프로그램을 업그레이드하는 대신 덮어쓰는 방법으로 클러스터에 대한 응용 프로그램 배포를 지원하려는 경우 다음 Powershell 인수를 추가합니다. '-OverwriteBehavior SameAppTypeAndVersion'. 또한 선택한 게시 프로필이 업그레이드를 사용하도록 구성되지 않아야 합니다. 최신 빌드를 설치하기 전에 기존 ApplicationType을 먼저 제거합니다.
 
 5.	빌드 정의를 저장합니다.
 
@@ -429,4 +437,4 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
  - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

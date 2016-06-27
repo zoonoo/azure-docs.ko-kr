@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="awills"/>
 
 # Application Insights 포털에서 탐색 및 대시보드
@@ -79,7 +79,7 @@
 
 1. 타일에 차트 추가 
 2. 메트릭, group-by 차원 및 차트의 스타일(테이블, 그래프)를 설정합니다.
-3. 타일의 차트에 대한 timespan과 필터 속성을 설정합니다.
+3. 타일의 차트에 대한 timespan과 필터 속성을 설정합니다. 차트의 시간 범위를 설정하거나 대시보드의 시간 범위에서 상속할 수 있습니다.
 4. 타일 제목을 설정합니다.
 
 메트릭 탐색기 블레이드에서 고정된 타일에는 개요 블레이드에서 고정된 타일보다 편집 옵션이 많이 있습니다.
@@ -110,4 +110,40 @@
 
 [역할 및 액세스 제어](app-insights-resources-roles-access-control.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+## 설정
+
+개요 블레이드의 설정 단추는 구성뿐만 아니라 여러 가지 유형의 차트를 확인할 수 있습니다.
+
+* **감사 로그** - 앱 리소스에서 수행된 경고와 작업을 검토합니다.
+* [새 지원 요청](app-insights-get-dev-support.md) - Azure 도움말 옵션입니다. Application Insights에서는 창 오른쪽 위에 있는 웃는 단추를 사용하여 도움말을 가져올 수 있습니다.
+* [응용 프로그램 맵](app-insights-dependencies.md#application-map) -종속성 정보에서 파생된, 응용 프로그램의 구성 요소를 표시하는 활성 맵입니다.
+* [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream) -새로운 릴리스를 모니터링하기 위해, 약 1초마다 제공되는 주요 메트릭입니다.
+* **오류** - 오류가 발생한 요청, 종속성 호출, 예외입니다. [편집 가능한 메트릭 블레이드](app-insights-metrics-explorer.md)입니다.
+* **성능** - 응답 시간, 종속성 응답 시간입니다. [편집 가능한 메트릭 블레이드](app-insights-metrics-explorer.md)입니다.
+* [서버](app-insights-web-monitor-performance.md) - 성능 카운터입니다. [상태 모니터를 설치하면](app-insights-monitor-performance-live-website-now.md) 사용할 수 있습니다.
+* **브라우저** - 페이지 뷰 및 AJAX 성능입니다. [웹 페이지를 계측할 때](app-insights-javascript.md) 사용할 수 있습니다.
+* **사용** - 페이지 조회수, 사용자 및 세션 수입니다. [웹 페이지를 계측할 때](app-insights-javascript.md) 사용할 수 있습니다.
+* **시작하기** - 인라인 자습서입니다.
+* **속성** - 계측 키, 구독 및 리소스 ID입니다.
+* [가용성](app-insights-monitor-web-app-availability.md) -웹 테스트 구성 및 결과입니다.
+* [경고](app-insights-alerts.md) -메트릭 경고 구성입니다.
+* [연속 내보내기](app-insights-export-telemetry.md) - Azure 저장소에 대한 원격 분석 내보내기를 구성합니다.
+* [성능 테스트](app-insights-monitor-web-app-availability.md#performance-tests) -웹 사이트에 대한 종합 부하를 설정 합니다.
+* [할당량 및 가격](app-insights-pricing.md)과 [수집 샘플링](app-insights-sampling.md)입니다.
+* **API 액세스** - 현재 [릴리스 주석](app-insights-annotations.md)을 작성하는 작업과 데이터 액세스 API에 사용됩니다.
+* [**작업 항목**](app-insights-diagnostic-search.md#create-work-item) - 작업 추적 시스템과 연결하여 원격 분석을 검사하는 동안 버그를 만들 수 있습니다.
+* [**사용자**](app-insights-resources-roles-access-control.md) - 앱 리소스에 액세스할 권한이 있는 사용자를 관리합니다.
+* [**역할**](app-insights-resources-roles-access-control.md) - 사용자가 수행할 수 있는 작업을 관리합니다.
+* [**태그**](..\resource-group-using-tags.md) -Azure 리소스를 구성합니다.
+* [**잠금**](..\resource-group-lock-resources.md) -Azure 리소스를 잠급니다.
+* [**템플릿 내보내기**](app-insights-powershell.md) - Azure 리소스의 정의를 내보내서 새로운 리소스의 템플릿으로 사용합니다.
+
+## 다음 작업
+
+||
+|---|---
+|[메트릭 탐색기](app-insights-metrics-explorer.md)<br/>필터 및 세그먼트 메트릭|![검색 예제](./media/app-insights-dashboards/64.png)
+|[진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>강력한 쿼리 언어| ![검색 예제](./media/app-insights-dashboards/63.png)
+
+<!---HONumber=AcomDC_0615_2016-->

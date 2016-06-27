@@ -20,14 +20,13 @@
 
 Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL 데이터베이스 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-the-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 마지막으로 [Azure SQL 데이터베이스 연결 문제에 대한 모든 관련 문서](#all-topics-for-azure-sql-database-connection-problems)를 나열합니다.
 
-연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 원인
 
 연결 문제는 다음 중 하나로 인해 발생할 수 있습니다.
 
-- 응용 프로그램 디자인 프로세스 동안 [모범 사례 및 디자인 지침](sql-database-connect-central-recommendations.md)을 적용하지 못함
+- 응용 프로그램 디자인 프로세스 동안 모범 사례 및 디자인 지침을 적용하지 못함. 시작하려면 [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)를 참조하세요.
 - SQL Azure 데이터베이스 재구성
 - 방화벽 설정
 - 연결 제한 시간
@@ -80,7 +79,7 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 | 5 | ["서버 &lt;y&gt;의 데이터베이스 &lt;x&gt;을(를) 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오." 오류 해결](sql-database-troubleshoot-connection.md) | 40613 오류인 "&lt;y&gt; 서버의 &lt;x&gt; 데이터베이스를 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오.”를 식별하고 해결하는 방법을 설명합니다. |
 | 6 | [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md) | 일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL 데이터베이스 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대한 정보를 제공합니다. |
 | 7 | [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md) | 응용 프로그램에 적합한 서비스 계층을 확인하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL 데이터베이스를 최대한 활용하도록 응용 프로그램을 조정하기 위한 권장 지침도 제공합니다. |
-| 8 | [SQL 데이터베이스에 연결: 모범 사례 및 설계 지침](sql-database-connect-central-recommendations.md) | 이 항목에서는 SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. |
+| 8 | [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md) | 이 항목에서는 SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. |
 | 9 | Azure SQL Database v12로 업그레이드 페이지([Azure 포털](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Azure 포털 또는 PowerShell을 사용하여 기존 Azure SQL 데이터베이스 V11 서버 및 데이터베이스를 Azure SQL 데이터베이스 V12로 업그레이드하는 방법에 대한 지침을 제공합니다. |
 
 
@@ -93,12 +92,12 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 - [Azure SQL 데이터베이스 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## 자세한 정보
+## 추가 리소스
 
-- [SQL 데이터베이스에 연결: 모범 사례 및 설계 지침](sql-database-connect-central-recommendations.md)
+- [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 - [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 - [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 - [Azure SQL 데이터베이스를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [탄력적 데이터베이스 기능 및 도구를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

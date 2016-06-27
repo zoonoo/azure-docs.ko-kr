@@ -32,16 +32,13 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
 <table border="1">
     <tr>
         <td><strong>도구 얻기</strong></td>
-
         <td>BizTalk 서비스 SDK를 다운로드하여 온-프레미스 개발 컴퓨터에 Visual Studio 프로젝트 템플릿을 설치합니다. 이러한 템플릿은 BizTalk 서비스에 배포되는 <strong>BizTalk 서비스</strong>(브리지) 및 <strong>BizTalk 서비스 아티팩트</strong>(변형) Visual Studio 프로젝트를 만듭니다.
         <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk 서비스 SDK로 시작하는 방법</a> 및 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk 서비스 SDK 설치</a>(영문)에서 시작 단계를 나열합니다.
         </td>
     </tr>
-
     <tr>
         <td><strong>파트너 계약 만들기</strong></td>
-
         <td>Azure에서 호스트되는 Azure BizTalk 서비스 포털을 엽니다. 이 포털에서 파트너를 추가하고 X12, AS2 및 EDIFACT EDI 계약을 생성할 수 있습니다.
         <br/><br/>
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk 서비스 포털에서 EDI 메시징 구성 요소 구성</a>(영문)에서 시작 단계를 나열합니다.
@@ -365,4 +362,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
 	description="Azure Site Recovery를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버를 보조 사이트에 복제하려면 이 문서를 사용합니다."
 	services="site-recovery"
 	documentationCenter=""
-	authors="rayne-wiselman"
+	authors="nsoneji"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="raynew"/>
+	ms.date="06/14/2016"
+	ms.author="nisoneji"/>
 
 
 # 보조 사이트에 온-프레미스 VMWare 가상 컴퓨터 또는 물리적 서버 복제
@@ -57,52 +57,86 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 3. 프로세스 서버
 3. 마스터 대상 서버
 4. vContinuum 서버.
+5. 원본 서버(Windows server에만 해당)
 
 다음과 같이 설치합니다.
 
-1. [update](http://aka.ms/scoutupdates) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
+1. [update](https://aka.ms/asr-scout-update3) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
-	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
-	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
-	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
-	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
-	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
+	-  RX\_8.0.3.0\_GA\_Update\_3\_6684045\_17Mar16.tar.gz
+	-  CX\_Windows\_8.0.3.0\_GA\_Update\_3\_5048668\_16Mar16.exe
+	-  UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe
+	-  UA\_RHEL6-64\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.zip
+	-  vCon\_Windows\_8.0.3.0\_GA\_Update\_3\_6873369\_16Mar16.exe
+
 2. zip 파일의 압축을 풉니다.
-2. **RX 서버**: **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-2. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
-3. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. Windows용으로 통합된 에이전트는 원본 서버에 적용할 수 없습니다. Windows 마스터 대상 서버에만 설치해야 합니다.
-4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-5. **vContinuum 서버**: **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+3. **RX 서버**: **RX\_8.0.3.0\_GA\_Update\_3\_6684045\_17Mar16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+4. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.3.0\_GA\_Update\_3\_5048668\_16Mar16.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
+5. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 통합된 에이전트는 원본 서버에 적용할 수도 없습니다. 원본 서버에 설치해야 할 뿐만 아니라 아래에서 설명해야 합니다.
+6. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA\_RHEL6-64\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.zip**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+7. **vContinuum 서버**: **vCon\_Windows\_8.0.3.0\_GA\_Update\_3\_6873369\_16Mar16.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+8. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **UA\_Windows\_8.0.3.0\_GA\_Update\_3\_7101745\_04Apr16.exe**를 원본 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 
 
 ## 4단계: 복제 설정
-5. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
-6. 지침은 제품과 함께 다운로드된 InMage Scout 설명서를 사용합니다. 또는 다음과 같이 설명서에 액세스할 수 있습니다.
+1. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
+2. 지침은 제품과 함께 다운로드된 InMage Scout 설명서를 사용합니다. 또는 다음과 같이 설명서에 액세스할 수 있습니다.
 
-	- [릴리스 정보](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage_Scout_Standard_Release_Notes.pdf)
-	- [호환성 매트릭스](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage_Scout_Standard_Compatibility_Matrix.pdf)
-	- [사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
-	- [RX 사용자 가이드](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage_ScoutCloud_RX_User_Guide_8.0.1.pdf)
-	- [빠른 설치 가이드](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage_Scout_Standard_Quick_Install_Guide.pdf)
+	- [릴리스 정보](https://aka.ms/asr-scout-release-notes)
+	- [호환성 매트릭스](https://aka.ms/asr-scout-cm)
+	- [사용자 가이드](https://aka.ms/asr-scout-user-guide)
+	- [RX 사용자 가이드](https://aka.ms/asr-scout-rx-user-guide)
+	- [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)
 
 
 ## 업데이트
 
-### ASR Scout 8.0.1 업데이트 03Dec15
+### ASR Scout 8.0.1 업데이트 3
+업데이트 3에는 다음 버그 수정 및 향상된 기능이 포함됩니다.
 
-업데이트 03-Dec-15의 수정에 포함되는 내용:
+1. 구성 서버 및 RX가 프록시 뒤에 있는 경우 ASR 자격 증명 모음에 등록하는 데 실패했습니다.
+2. RPO가 충족되지 않는 시간 수는 상태 보고서에 업데이트되지 않습니다.
+3. ESX 하드웨어 세부 설명 및 네트워크 세부 설명이 UTF-8 문자를 포함하는 경우 구성 서버는 RX와 동기화하지 않습니다.
+4. Windows 2008 Server R2 DC 컴퓨터는 복구 후에 부팅에 실패합니다.
+5. 오프라인 동기화는 예상대로 작동하지 않습니다. 
+6. VM이 장애 조치한 후에 복제 쌍 삭제는 오랜 시간 동안 CX UI에서 중단되고 사용자는 장애 복구 다시 시작 작업을 수행할 수 없습니다.
+7. 응용 프로그램을 감소시킬 수 있는 일관성 작업에 의해 수행된 최적화된 전체 스냅숏 작업은 SQL 클라이언트와 같은 연결을 끊습니다.
+8. Windows에서 스냅숏을 만드는 데 필요한 메모리 사용량을 줄여 VACP의 성능이 향상되었습니다.
+9. 암호가 16자 이상인 경우 푸시 설치 서비스가 충돌합니다.
+10. 자격 증명을 변경할 경우 vContinuum은 새로운 vCenter 자격 증명을 검사하고 묻는 메시지를 표시하지 않습니다.
+11. Linux 마스터 대상 캐시에서 관리자(cachemgr)는 복제 쌍을 제한하는 프로세스 서버에서 파일을 다운로드하지 않습니다.
+12. 물리적 MSCS 클러스터 디스크 순서가 모든 노드에서 동일하지 않은 경우 클러스터 볼륨 중 일부에 복제를 설정하지 않습니다. <br/>참고: 이 수정 프로그램을 사용하려면 클러스터를 다시 보호해야 합니다.  
+13. RX가 Scout 7.1에서 Scout 8.0.1로 업그레이드된 후에는 SMTP 기능이 예상대로 작동하지 않습니다.
+14. 롤백 작업에 대한 로그에서 자세한 통계를 추가하여 완료하는 데 걸린 시간을 추적했습니다.
+15. 원본 서버에서 Linux 운영 체제에 대한 추가 지원: 
+	- RHEL 6 업데이트 7
+	- CentOS 6 업데이트 7 
+16. CX 및 RX UI는 이제 비트맵 모드로 전환되는 쌍에 대한 알림을 보여 줍니다.
+17. 다음 보안 수정 프로그램은 RX에 추가됩니다.
+
+**#**|**문제 설명**|**구현 절차**
+---|---|---
+1\. |매개 변수 변조를 통해 권한 부여 바이패스|적합하지 않은 사용자로 제한된 액세스
+2\. |교차 사이트 요청 위조|모든 페이지에 대해 임의로 생성되는 구현된 페이지 토큰 개념입니다. <br/>이를 통해 <br/>1) 동일한 사용자에 대한 단일 로그인 인스턴스를 확인합니다.,br/>2)페이지 새로 고침은 작동하지 않고 대시보드로 리디렉션됩니다. <br/>
+3\. |악성 파일 업로드|특정 확장에 대해 제한된 파일입니다. 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, zip 등이 허용됩니다.
+4\. | 영구 사이트 간 스크립팅 | 추가된 입력 유효성 검사
+
+
+>[AZURE.NOTE]
+>
+>-	모든 ASR 업데이트는 누적됩니다. 업데이트3은 업데이트1 및 업데이트2를 모두 수정합니다. 업데이트3은 8.0.1 GA에 직접 적용할 수 있습니다.
+>-	시스템에 적용되면 CS 및 RX 업데이트를 롤백할 수 없습니다.
+
+### ASR Scout 8.0.1 업데이트 03Dec15(업데이트2)
+
+업데이트 2에서 수정 사항은 다음과 같습니다.
 
 - **구성 서버** - 사이트 복구에 구성 서버가 등록되었을 때 31일 무료 계량 기능이 예상대로 작동하지 않는 문제를 해결합니다.
 - **통합 에이전트** - 버전 8.0에서 8.0.1로 업그레이드할 때 마스터 대상 서버에 업데이트가 설치되지 않는 마스터 대상에 대한 업데이트 1 문제를 해결합니다.
 
->[AZURE.NOTE]
->
->-	모든 ASR 업데이트는 누적됩니다.
->-	시스템에 적용되면 CS 및 RX 업데이트를 롤백할 수 없습니다.
-
 
 ### ASR Scout 8.0.1 업데이트 1
 
-이 최신 업데이트에는 버그 수정과 새 기능을 포함합니다.
+업데이트1은 다음과 같은 버그 수정과 새 기능을 포함합니다.
 
 - 서버 인스턴스 당 31일간 무료 보호됩니다. 기능을 테스트 하거나 개념 증명을 설정할 수 있습니다.
 	- 장애 조치 및 장애 복구를 포함한 서버의 모든 작업은 Scout ASR을 사용하여 서버를 먼저 보호한 시점부터 시작하여 처음 31일에 대해 무료입니다.
@@ -130,4 +164,4 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0615_2016-->

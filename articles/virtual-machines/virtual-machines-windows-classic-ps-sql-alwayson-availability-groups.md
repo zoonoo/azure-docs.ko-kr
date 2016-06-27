@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure VM의 Always On 가용성 그룹 구성 | Microsoft Azure"
+	pageTitle="PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성"
 	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,18 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Azure VM의 Always On 가용성 그룹 구성(PowerShell)
+# PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성
 
 > [AZURE.SELECTOR]
-- [포털](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [리소스 관리자: 자동](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 
 Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 종단 간에 SQL Server Always On 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
@@ -629,4 +631,4 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

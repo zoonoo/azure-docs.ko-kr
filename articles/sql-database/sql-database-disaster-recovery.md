@@ -3,7 +3,7 @@
    description="Azure SQL 데이터베이스 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
 
@@ -72,7 +72,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 복구된 데이터베이스가 다른 서버에 상주하기 때문에 해당 서버를 가리키도록 응용 프로그램의 연결 문자열을 업데이트해야 합니다.
 
-연결 문자열 변경에 대한 자세한 내용은 [Azure SQL 데이터베이스 연결: 핵심 권장 사항](sql-database-connect-central-recommendations.md)을 참조하세요.
+연결 문자열을 변경하는 방법에 대한 자세한 내용은 [연결 라이브러리](sql-database-libraries.md)에 대한 적절한 개발 언어를 참조하세요.
 
 ### 방화벽 규칙 구성
 
@@ -110,4 +110,4 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 - [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

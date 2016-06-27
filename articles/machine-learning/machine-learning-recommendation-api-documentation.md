@@ -48,7 +48,6 @@ Azure 기계 학습 추천 API는 다음 논리 그룹으로 나뉩니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
 - 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 - POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
-- 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 - 권장 사항을 가져올 때 질문할 수 있는 최대 항목 수는 150입니다.
 
 ##3\. API – 일반 정보
@@ -93,9 +92,9 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | 
-| apiVersion | 1.0 | 
-||| 
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 |
+| apiVersion | 1.0 |
+|||
 | Request Body | NONE |
 
 
@@ -268,7 +267,9 @@ OData XML
 
 ###5\.4. 모델 업데이트
 
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
+<ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
+이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 
 | HTTP 메서드 | URI |
@@ -804,15 +805,15 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 지원되는 규칙 유형은 다음과 같습니다.
 - <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. 
 
-- <strong>FeatureBlockList</strong> - 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
+- <strong>FeatureBlockList</strong> - 기능 차단 목록은 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
 
 *단일 차단 목록 규칙에 1000개보다 많은 항목을 전송하지 마세요. 호출 시간 제한에 도달할 수 있습니다. 1000개보다 많은 항목을 차단할 해야 할 경우 여러 개의 차단 목록을 호출하면 됩니다.*
 
 - <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다.
 
-- <strong>WhiteList</strong> - 항목 목록에서 권장 사항만 제안할 수 있습니다.
+- <strong>WhiteList</strong> - 허용 목록은 항목의 목록에서 권장 사항만 제안할 수 있습니다.
 
-- <strong>FeatureWhiteList</strong> - 특정 기능 값을 가진 항목만 추천할 수 있습니다.
+- <strong>FeatureWhiteList</strong> - 기능 허용 목록은 특정 기능 값을 가진 항목만 추천할 수 있습니다.
 
 - <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
@@ -1005,9 +1006,9 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
-| apiVersion | 1.0 | 
-||| 
+| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| apiVersion | 1.0 |
+|||
 | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
@@ -1043,8 +1044,7 @@ OData XML
 	</feed>
 
 ###8\.2. 카탈로그 가져오기
-모든 카탈로그 항목을 검색합니다.
-한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
+모든 카탈로그 항목을 검색합니다. 한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1833,7 +1833,7 @@ OData
 	- `useFeatureInModel` - True로 설정합니다.
 	- `ModelingFeatureList` - 이전 단계에서 검색한 순위에 따라 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다.
 	- `AllowColdItemPlacement` - True로 설정합니다.
-	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고, `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링 또는 하위 목록에 사용되는 동일한 기능 목록)으로 설정할 수 있습니다.
+	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고, `ReasoningFeatureList`을(를) 설명에 사용할 기능 목록(일반적으로 모델링 또는 하위 목록에 사용되는 동일한 기능 목록)으로 설정할 수 있습니다.
 - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
 
 참고: 매개 변수를 구성하지 않은 경우(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우) 또는 기능 사용을 명시적으로 해제하지 않은 경우(예: `UseFeatureInModel`을 False로 설정) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
@@ -2273,8 +2273,8 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다.
-- `feed/entry/content/properties/Key` - 빌드 매개 변수 이름
-- `feed/entry/content/properties/Value` - 빌드 매개 변수 값
+- `feed/entry/content/properties/Key` - 빌드 매개 변수 이름.
+- `feed/entry/content/properties/Value` - 빌드 매개 변수 값.
 
 아래 표에서는 각 키가 나타내는 값을 설명합니다.
 
@@ -2475,7 +2475,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. <br>활성 빌드가 FBT 형식인 경우에는 항목을 하나만 보낼 수 있습니다. <br>최대 길이: 1024 |
-| numberOfResults | 필요한 결과 수 <br> 최대: 150 |
+| numberOfResults | 필요한 결과 수 <br>최대: 150 |
 | includeMetatadata | 나중에 사용, 항상 false |
 | apiVersion | 1\.0 |
 
@@ -2485,10 +2485,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 아래 예제 응답은 10개의 권장 항목을 포함합니다.
 
@@ -2655,7 +2655,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. <br>활성 빌드가 FBT 형식인 경우에는 항목을 하나만 보낼 수 있습니다. <br>최대 길이: 1024 |
-| numberOfResults | 필요한 결과 수 <br> 최대: 150 |
+| numberOfResults | 필요한 결과 수 <br>최대: 150 |
 | includeMetatadata | 나중에 사용, 항상 false
 | buildId | 이 권장 사항 요청에 사용할 빌드 ID |
 | apiVersion | 1\.0 |
@@ -2666,10 +2666,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2696,12 +2696,12 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id1` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name1` - 항목의 이름
-- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id1` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name1` - 항목의 이름.
+- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항).
+- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항).
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 아래 예제 응답은 3개의 권장 항목 집합을 포함합니다.
 
@@ -2788,12 +2788,12 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id1` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name1` - 항목의 이름
-- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id1` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name1` - 항목의 이름.
+- `Feed\entry\content\properties\Id2` - 두 번째 권장된 항목 ID(선택 사항).
+- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항).
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.3의 응답 예제 참조
 
@@ -2825,10 +2825,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2862,10 +2862,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2897,10 +2897,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2935,10 +2935,10 @@ HTTP 상태 코드: 200
 
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
-- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명)
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 권장 사항의 등급(숫자가 클수록 신뢰도가 높음).
+- `Feed\entry\content\properties\Reasoning` - 권장 사항 추론(예: 권장 사항 설명).
 
 12\.1의 응답 예제 참조
 
@@ -2969,10 +2969,10 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
-- `Feed\entry\content\properties\Id` - 권장된 항목 ID
-- `Feed\entry\content\properties\Name` - 항목의 이름
-- `Feed\entry\content\properties\Rating` - 해당 없음
-- `Feed\entry\content\properties\Reasoning` - 해당 없음
+- `Feed\entry\content\properties\Id` - 권장된 항목 ID.
+- `Feed\entry\content\properties\Name` - 항목의 이름.
+- `Feed\entry\content\properties\Rating` - 해당 없음.
+- `Feed\entry\content\properties\Reasoning` - 해당 없음.
 
 OData XML
 
@@ -3107,4 +3107,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

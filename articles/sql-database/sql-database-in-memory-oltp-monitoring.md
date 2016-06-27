@@ -56,6 +56,6 @@
 - 메모리에 최적화된 테이블에서 유지하는 데 필요한 데이터에 대한 충분한 메모리 내 저장소가 있는 서비스 계층을 업그레이드합니다.
 
 ## 다음 단계
-[동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)에 대해 자세히 알아봅니다.
+[동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)에 대한 추가 리소스
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

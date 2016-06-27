@@ -13,32 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="carlrab"/>
 
 # TRANSACT-SQL로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
 
-
-
 > [AZURE.SELECTOR]
+- [개요](sql-database-geo-replication-overview.md)
 - [Azure 포털](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-이 문서에서는 TRANSACT-SQL을 사용하여 Azure SQL 데이터베이스에 대한 지역에서 복제를 구성하는 방법을 보여 줍니다.
+이 문서에서는 Transact-SQL을 사용하여 Azure SQL 데이터베이스에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
 장애 조치(Failover)를 시작하려면 [Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작](sql-database-geo-replication-failover-transact-sql.md)을 참조하세요.
 
 >[AZURE.NOTE] 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월, 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조로 자동으로 업그레이드됩니다.
 
-동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 보조 데이터베이스를 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 사용할 수 있습니다.
+Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 필요합니다.
 
-
-지역에서 복제를 구성하려면 다음이 필요합니다.
-
-- Azure 구독 - Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판**을 클릭합니다. 그 후 돌아와서 이 문서를 마칩니다.
-- 논리 Azure SQL 데이터베이스 서버 <MyLocalServer> 및 SQL 데이터베이스 <MyDB> - 다른 지리적 영역으로 복제하려는 주 데이터베이스입니다.
+- Azure 구독.
+- 논리 Azure SQL 데이터베이스 서버 <MyLocalServer> 및 SQL 데이터베이스 <MyDB> - 복제하려는 주 데이터베이스입니다.
 - 하나 이상의 논리 Azure SQL 데이터베이스 서버 <MySecondaryServer(n)> - 보조 데이터베이스를 만드는 파트너 서버가 될 논리 서버입니다.
 - 주 데이터베이스에서 DBManager인 로그인은 지역에서 복제하고 지역에서 복제를 구성하는 파트너 서버의 DBManager가 되는 로컬 데이터베이스의 db\_ownership을 가지고 있습니다.
 - 최신 버전의 SQL Server Management Studio - SSMS(SQL Server Management Studio)의 최신 버전을 가져오려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)로 이동합니다. SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 논리 서버 및 데이터베이스 관리에 대한 정보는 [SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리](sql-database-manage-azure-ssms.md)를 참조하세요.
@@ -183,4 +178,4 @@
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

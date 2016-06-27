@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -104,13 +104,17 @@
 ![웹 서비스 구성][5]
 
 ## 웹 서비스 테스트
-**대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 단추를 클릭합니다. 대화 상자가 팝업되고 서비스에 대한 입력 데이터를 요구합니다. 이는 원래 독일 신용 위험 데이터 집합에 나타난 열과 같습니다.
+**대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 단추를 클릭합니다.
+
+![웹 서비스 테스트][7]
+
+대화 상자가 팝업되고 서비스에 대한 입력 데이터를 요구합니다. 이는 원래 독일 신용 위험 데이터 집합에 나타난 열과 같습니다.
 
 데이터 집합을 입력하고 **확인**을 클릭합니다.
 
 웹 서비스에서 데이터는 **웹 서비스 입력** 모듈 및 [메타데이터 편집][edit-metadata] 모듈을 통해 점수가 매겨지는 [모델 점수 매기기][score-model] 모듈에 입력됩니다. 그런 다음 웹 서비스의 결과가 **웹 서비스 출력**을 통해 출력됩니다.
 
-> [AZURE.TIP] 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 신용 위험 값만 반환하는 등 다른 결과를 반환하려면 [데이터 집합의 열 선택][select-columns] 모듈을 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 삽입하고 웹 서비스에서 반환하지 않으려는 열을 제거합니다.
+> [AZURE.TIP] 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 차변 위험 값만 반환하는 등 다른 결과를 반환하려면 [데이터 집합의 열 선택][select-columns] 모듈을 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 삽입하고 웹 서비스에서 반환하지 않으려는 열을 제거합니다.
 
 ## 웹 서비스 관리
 웹 서비스를 배포한 후에는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 관리할 수 있습니다.
@@ -140,6 +144,7 @@
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->
@@ -154,4 +159,4 @@
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [select-columns]: https://msdn.microsoft.com/ko-KR/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # U-SQL 카탈로그 사용
@@ -73,7 +73,7 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
 - U-SQL 및 개발
     - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
     - [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-    - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - 관리
     - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
@@ -84,4 +84,4 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
     - [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
     - [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

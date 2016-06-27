@@ -24,7 +24,7 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 ## 1\. 필수 조건
 이 자습서를 완료하려면 다음 작업을 수행해야 합니다.
 
-- [Azure에서 docker-machine을 사용하는 방법](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)의 설명에 따라 Azure Docker 호스트 VM을 만듭니다.
+- [Azure에서 docker-machine을 사용하는 방법](./virtual-machines/virtual-machines-linux-docker-machine.md)의 설명에 따라 Azure Docker 호스트 VM을 만듭니다.
 - [Visual Studio 2015](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx)를 설치합니다.
 - [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)를 설치합니다.
 
@@ -96,4 +96,4 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

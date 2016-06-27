@@ -171,10 +171,9 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 | -------- | ----------- | -------- | 
 | type | 형식 속성은 **Web**으로 설정되어야 합니다. | 예 | 
 | Url | 웹 원본에 대한 URL입니다. | 예 |
+| authenticationType | 익명 또는 기본입니다. | 예 |
 | userName | 기본 인증을 위한 사용자 이름입니다. | 예(기본 인증의 경우)
 | password | 기본 인증을 위한 암호입니다. | 예(기본 인증의 경우)
-| authenticationType | Anonymous, Basic 또는 WebApi입니다. | 예 |
-| apiKey | WebApi 인증에 대한 ApiKey입니다. | 예(WebApi 인증의 경우)|   
 
 ### 익명 인증 사용
 
@@ -286,4 +285,4 @@ Excel 2013을 사용하는 경우 [Microsoft Excel용 파워 쿼리](https://www
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

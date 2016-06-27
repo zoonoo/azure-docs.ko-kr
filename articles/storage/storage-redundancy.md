@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 복제
@@ -84,4 +84,4 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 - [Microsoft Azure 저장소 중복 옵션 및 읽기 액세스 지역 중복 저장소](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
 - [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

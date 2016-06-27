@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="priyamo"/>
 
 # Active Directory 인증 프로토콜
@@ -22,7 +22,8 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 이 문서 집합에서는 Azure AD에서 지원되는 프로토콜 및 이 프로토콜의 구현에 대해 살펴봅니다. 샘플 요청 및 응답을 포함하고 프로토콜과 직접 통합하므로 이러한 문서는 주로 언어 독립적입니다.
 
-- [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md): OAuth2.0 권한 부여 흐름 및 Azure AD에서 해당 구현을 알아봅니다.
+- [OAuth 2.0 인증 코드 부여](active-directory-protocols-oauth-code.md): OAuth2.0 "인증 코드" 권한 부여와 Azure AD에서의 구현에 대해 알아봅니다.
+- [OAuth 2.0 암시적 부여](active-directory-dev-understanding-oauth2-implicit-grant.md): OAuth 2.0 “암시적” 권한 부여에 대한 정보 및 응용 프로그램에 적합한지 여부를 알아봅니다.
 - [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): Azure AD에서 OpenID Connect 인증 프로토콜을 사용하는 방법을 알아봅니다.
 - [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md): Azure AD에서 [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) 및 [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md)을 지원하는 SAML 프로토콜을 사용하는 방법에 대해 알아봅니다.
 
@@ -37,4 +38,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 - [인증 프로토콜 문제 해결](active-directory-error-handling.md): OAuth 2.0 및 Azure AD를 사용할 때 가장 일반적인 오류를 해석 및 해결하는 방법을 알아봅니다.
 - [Azure AD에서 OAuth 2.0에 대한 모범 사례](active-directory-oauth-best-practices.md): Azure AD에서 OAuth 2.0을 사용하는 모범 사례와 일반적인 실수를 피하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

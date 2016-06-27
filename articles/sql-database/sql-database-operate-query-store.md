@@ -89,7 +89,7 @@ Azure SQL 데이터베이스는 수집된 데이터를 사용하여:
 
 [SQL 데이터베이스 성능 Insight](sql-database-performance.md)
 
-## 자세한 정보
+## 추가 리소스
 
 자세한 내용은 다음 문서를 확인하세요.
 
@@ -101,4 +101,4 @@ Azure SQL 데이터베이스는 수집된 데이터를 사용하여:
 
 - [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -23,7 +23,7 @@
 
 창 함수는 *windows*라고 하는 행 집합 내에서 계산을 수행하는데 사용합니다. Windows는 OVER 절에 의해 정의됩니다. 창 함수는 매우 효율적으로 주요 시나리오의 일부를 해결합니다.
 
-이 자습서/학습 가이드는 두 가지 샘플 데이터 집합을 사용하여 창 함수를 적용할 수 있는 샘플 시나리오를 안내합니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
+이 학습 가이드는 두 가지 샘플 데이터 집합을 사용하여 창 함수를 적용할 수 있는 샘플 시나리오를 안내합니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
 창 함수는 다음과 같이 분류됩니다.
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC는 값을 보정하지 않으며 따라서 웹에 대한 중간
 - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

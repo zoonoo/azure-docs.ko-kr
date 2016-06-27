@@ -47,7 +47,9 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ![클러스터를 만들기 위해 포털에서 Azure 진단 설정](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 리소스 그룹에 만들어진 저장소 계정 중 하나에 저장됩니다. 진단 설정은 Azure 저장소에 저장되는 [행위자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Service](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 서비스 패브릭 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다. 포털을 사용하여 클러스터를 만드는 경우에는 배포가 완료된 후 템플릿을 내보내는 것이 좋습니다. 다음과 같은 방법으로 포털에서 템플릿을 내보낼 수 있습니다.
+지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 리소스 그룹에 만들어진 저장소 계정 중 하나에 저장됩니다. 진단 설정은 Azure 저장소에 저장되는 [행위자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Service](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 서비스 패브릭 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다.
+
+포털을 사용하여 클러스터를 만들 경우 클러스터를 만들기 위해 *확인을 클릭하기 전에* 템플릿을 다운로드하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조합니다. 이렇게 하면 만들려고 하는 클러스터에 사용 가능한 ARM 템플릿을 만듭니다. 나중에 변경해야 하며 일부 변경은 포털을 사용하지 않고 수행할 수 있습니다. 아래 단계를 사용하여 포털에서 템플릿을 내보낼 수 있지만 제공되는 값이 있거나 모든 필요한 정보가 없어야 하는 많은 null 값이 있을 수 있기 때문에 이러한 템플릿을 사용하는 것이 어려울 수 있습니다.
 
 1. 리소스 그룹을 엽니다.
 2. 설정을 선택하여 설정 패널을 표시합니다.
@@ -56,18 +58,18 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 5. 템플릿 내보내기를 선택하여 템플릿은 패널을 표시합니다.
 6. 파일에 저장을 선택하여 템플릿, 매개 변수 및 PowerShell 파일을 포함하는 .zip 파일을 내보냅니다.
 
-파일을 내보낸 후 수정해야 합니다. **parameters.json** 파일을 편집하고 **adminPassword** 요소를 제거합니다. 배포 스크립트가 실행될 때 암호를 묻는 메시지가 표시됩니다. 다운로드한 템플릿을 사용하여 구성을 업데이트하려면
+파일을 내보낸 후 수정해야 합니다. **parameters.json** 파일을 편집하고 **adminPassword** 요소를 제거합니다. 배포 스크립트가 실행될 때 암호를 묻는 메시지가 표시됩니다. 배포 스크립트를 실행할 때 null 매개 변수 값을 수정해야 하는 경우도 있습니다. 다운로드한 템플릿을 사용하여 구성을 업데이트하려면
 
 1. 로컬 컴퓨터의 폴더에 압축을 풉니다.
 2. 새 구성을 반영하도록 콘텐츠를 수정합니다.
 3. PowerShell을 시작하고 압축을 푼 폴더로 변경합니다.
-4. **deploy.ps1**을 실행하고 subscriptionId, 리소스 그룹 이름(같은 이름을 사용하여 구성 업데이트), 고유한 배포 이름을 입력합니다.
+4. **deploy.ps1**을 실행하고 subscriptionId, 리소스 그룹 이름(같은 이름을 사용하여 구성 업데이트) 및 고유한 배포 이름을 입력합니다.
 
 
 ### Azure Resource Manager를 사용하여 클러스터 만들기의 일환으로 진단 확장 배포
 리소스 관리자를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 클러스터 리소스 관리자 템플릿에 추가해야 합니다. 리소스 관리자 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 리소스 관리자 템플릿이 제공됩니다. Azure 샘플 갤러리의 다음 위치에서 샘플을 볼 수 있습니다. [진단 리소스 관리자 템플릿 샘플이 포함된 5노드 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad) Resource Manager 템플릿에서 진단 설정을 표시하려면 **azuredeploy.json** 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 위의 링크에서 제공하는 **Azure에 배포** 버튼을 누르면 됩니다.
 
-또는 리소스 관리자 샘플을 다운로드하여 변경한 후 Azure PowerShell 창에서 `New-AzureRmResourceGroupDeployment` 명령을 사용하여 수정된 템플릿으로 클러스터를 만들 수 있습니다. 명령에 전달해야 하는 매개 변수는 아래 정보를 참조하세요. PowerShell을 사용하여 리소스 그룹을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 사용하여 리소스 그룹 배포](../resource-group-template-deploy.md) 문서를 참조하세요.
+또는 리소스 관리자 샘플을 다운로드하여 변경한 후 Azure PowerShell 창에서 `New-AzureRmResourceGroupDeployment` 명령을 사용하여 수정된 템플릿으로 클러스터를 만들 수 있습니다. 명령에 전달해야 하는 매개 변수는 아래 정보를 참조하세요. PowerShell을 사용하여 리소스 그룹을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](../resource-group-template-deploy.md) 문서를 참조하세요.
 
 ```powershell
 
@@ -177,11 +179,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 }
 ```
 
-**template.json**을 설명된 대로 수정한 후 ARM 템플릿을 다시 게시합니다. 템플릿을 내보낸 경우 **deploy.ps1** 파일을 실행하면 템플릿이 다시 게시됩니다. 배포 후 *ProvisioningState*가 *Succeeded*인지 확인합니다.
+**template.json**을 설명된 대로 수정한 후 ARM 템플릿을 다시 게시합니다. 템플릿을 내보낸 경우 **deploy.ps1** 파일을 실행하면 템플릿이 다시 게시됩니다. 배포 후에 *ProvisioningState*가 *성공*했는지 확인합니다.
 
 
 ## 새 EventSource 채널에서 로그를 수집 및 업로드하도록 진단 업데이트
-배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 진단 설정을 설명하는 [위 섹션](#deploywadarm)에서와 동일한 단계를 수행하면 됩니다. *New-AzureRmResourceGroupDeployment* PowerShell 명령을 사용하여 구성 업데이트를 적용하기 전에 **template.json**에서 *EtwEventSourceProviderConfiguration* 섹션을 업데이트하여 새 EventSources에 대한 항목을 추가해야 합니다.
+배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하기 위해 진단을 업데이트하려면 기존 클러스터에 대한 진단 설정을 설명하는 [위 섹션](#deploywadarm)과 동일한 단계를 수행해야 합니다. *New-AzureRmResourceGroupDeployment* PowerShell 명령을 사용하여 구성 업데이트를 적용하기 전에 **template.json**에서 *EtwEventSourceProviderConfiguration* 섹션을 업데이트하여 새 EventSources에 대한 항목을 추가해야 합니다. 이벤트 원본의 이름은 **ServiceEventSource.cs** 파일을 생성한 Visual Studio에서 코드의 일부로 정의됩니다.
 
 
 ## 다음 단계
@@ -191,4 +193,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ## 관련된 문서
 * [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

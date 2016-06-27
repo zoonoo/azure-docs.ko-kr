@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
@@ -47,11 +47,23 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 [JsonPropertyAttribute]는 클라이언트 형식과 테이블 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
 
-모바일 앱 백 엔드에서 새 테이블을 작성하는 방법을 알아보려면 [.NET 서버 SDK 사용 방법](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) 또는 [Node.js 서버 SDK 사용 방법](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema)의 정보를 참조하세요. 빠른 시작을 사용하여 Azure 포털에서 모바일 앱 백 엔드를 만든 경우 [Azure 포털]에서 **쉬운 테이블** 설정을 사용할 수도 있습니다.
+모바일 앱 백 엔드에서 새 테이블을 작성하는 방법을 알아보려면 [.NET 서버 SDK 항목](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) 또는 [Node.js 서버 SDK 항목](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema)의 정보를 참조하세요. 빠른 시작을 사용하여 Azure 포털에서 모바일 앱 백 엔드를 만든 경우 [Azure 포털]에서 **쉬운 테이블** 설정을 사용할 수도 있습니다.
 
-###<a name="symbolsource"></a>방법: Visual Studio에서 디버그 기호 사용
+###방법: 관리되는 클라이언트 SDK 패키지 설치
 
-[SymbolSource]에서 Microsoft.Azure.Mobile 네임스페이스에 대한 기호를 사용할 수 있습니다. SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침]을 참조하세요.
+다음 메서드 중 하나를 사용하여 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에서 모바일 앱용 관리되는 클라이언트 SDK 패키지를 설치합니다.
+
++ **Visual Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 다음, `Microsoft.Azure.Mobile.Client` 패키지를 검색하고 **설치**를 클릭합니다.
+
++ **Xamarin Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 클릭한 다음, `Microsoft.Azure.Mobile.Client `패키지를 검색하고 **패키지 추가**를 클릭합니다.
+
+기본 활동 파일에 다음 **using**문을 추가합니다.
+
+	using Microsoft.WindowsAzure.MobileServices;
+
+###<a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
+
+Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource]에 있습니다. SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침]을 참조하세요.
 
 ##<a name="create-client"></a>모바일 앱 클라이언트 만들기
 
@@ -266,14 +278,14 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 * 여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
 * 응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
 
-문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 앱 백 엔드는 해당 ID에 대한 고유한 값을 생성합니다. [Guid.NewGuid] 메서드를 사용하여 클라이언트 또는 백 엔드에서 고유한 ID 값을 생성할 수 있습니다.
+문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 앱 백 엔드는 해당 ID에 대한 고유한 값을 생성합니다. [Guid.NewGuid] 메서드를 사용하여 클라이언트나 백엔드에서 고유한 ID 값을 생성할 수 있습니다.
 
     JObject jo = new JObject();
     jo.Add("id", Guid.NewGuid().ToString("N"));
 
 ###<a name="modifying"></a>방법: 모바일 앱 백 엔드의 데이터 수정
 
-다음 코드는 [UpdateAsync] 메서드를 사용하여 ID가 같은 기존 레코드를 새 정보로 업데이트하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 업데이트할 데이터가 포함되어 있습니다.
+다음 코드는 [UpdateAsync] 메서드를 사용하여 새로운 정보가 포함된 같은 ID로 기존 기록을 업데이트하는 방법을 보여줍니다. 매개 변수에는 .NET 개체로 업데이트할 데이터가 포함되어 있습니다.
 
 	await todoTable.UpdateAsync(todoItem);
 
@@ -299,7 +311,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 	jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-삭제 요청을 할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `MobileServiceInvalidOperationException`이 발생합니다.
+삭제 요청을 할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `MobileServiceInvalidOperationException`이(가) 발생합니다.
 
 ###<a name="optimisticconcurrency"></a>방법: 충돌 해결에 낙관적 동시성 사용
 
@@ -330,7 +342,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 	//Enable optimistic concurrency by retrieving version
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
-낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 검색해야 합니다. 업데이트된 레코드에 올바른 `version`을 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync]를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
+낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 검색해야 합니다. 업데이트된 레코드에 올바른 `version`을(를) 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync]를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -423,7 +435,7 @@ Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IM
 
 ###<a name="pagesize"></a>페이지 크기 변경
 
-Azure 모바일 앱은 기본적으로 요청당 최대 50개의 항목을 반환합니다. 서버에서 최대 페이지 크기를 늘리고 클라이언트 쪽에서 요청된 페이지 크기를 늘려 이 값을 변경할 수 있습니다. 요청된 페이지 크기를 늘리려면 `PullOptions`를 지정할 수 있는 `PullAsync`의 오버로드를 사용합니다.
+Azure 모바일 앱은 기본적으로 요청당 최대 50개의 항목을 반환합니다. 서버에서 최대 페이지 크기를 늘리고 클라이언트 쪽에서 요청된 페이지 크기를 늘려 이 값을 변경할 수 있습니다. 요청된 페이지 크기를 늘리려면 `PullOptions`을(를) 지정할 수 있는 `PullAsync`의 오버로드를 사용합니다.
 
     PullOptions pullOptions = new PullOptions
 		{
@@ -744,7 +756,7 @@ Xamarin 앱은 [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/)
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">푸시 알림
+##<a name="pushnotifications"></a>푸시 알림
 
 다음 항목은 푸시 알림에 대해 설명합니다.
 
@@ -830,7 +842,7 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 
 ###<a name="errors"></a>방법: 오류 처리
 
-백 엔드에서 오류가 발생하는 경우 클라이언트 SDK가 `MobileServiceInvalidOperationException`을 발생시킵니다. 다음 예제에서는 백 엔드에서 반환되는 예외를 처리하는 방법을 보여 줍니다.
+백 엔드에서 오류가 발생하는 경우 클라이언트 SDK가 `MobileServiceInvalidOperationException`을(를) 발생시킵니다. 다음 예제에서는 백 엔드에서 반환되는 예외를 처리하는 방법을 보여 줍니다.
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -954,4 +966,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

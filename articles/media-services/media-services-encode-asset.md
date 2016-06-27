@@ -220,7 +220,7 @@ ErrorCancelingTask|작업을 취소하려고 할 때 발생하는 오류를 포�
 TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저장소의 임시 네트워킹 문제)입니다.
 
 
-**미디어 서비스** 팀에 도움을 요청하려면 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 엽니다.
+**미디어 서비스** 팀에 도움을 요청하려면 [지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 엽니다.
 
 
 
@@ -242,4 +242,4 @@ TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

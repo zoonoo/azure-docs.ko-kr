@@ -3,8 +3,8 @@
     description="이 문서에서는 Azure 가상 컴퓨터 경고를 Azure 자동화 runbook과 통합하고 문제를 자동 수정하는 방법을 보여 줍니다."
     services="automation"
     documentationCenter=""
-    authors="csand-msft"
-    manager="stevenka"
+    authors="mgoedtel"
+    manager="jwhit"
     editor="tysonn" />    
 <tags
     ms.service="automation"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/24/2016"
+    ms.date="06/14/2016"
     ms.author="csand;magoedte" />
 
 # Azure 자동화 솔루션 - Azure VM 경고 수정
@@ -172,4 +172,4 @@ Azure VM에서 경고를 구성할 경우 경고가 트리거될 때 수정 작�
 - PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 - Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

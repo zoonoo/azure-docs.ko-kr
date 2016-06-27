@@ -2,16 +2,16 @@
 	pageTitle="MyDriving Azure IoT 예제: 빌드 | Microsoft Azure"
 	description="스트림 분석, 기계 학습, 이벤트 허브를 비롯한 Microsoft Azure를 사용하여 IoT 시스템을 설계하는 방법을 종합적으로 보여주는 앱을 빌드합니다."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -109,7 +109,7 @@ GitHub, Visual Studio 또는 다른 Git 클라이언트에서 **ZIP 다운로드
 
 또는 최신 상태로 유지하거나 코드에 적용하려면 다음과 같이 리포지토리를 복제합니다.
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Bing 지도 API 키 가져오기
 
@@ -438,7 +438,7 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 자세한 내용은 다음을 참조하세요.
 
--   [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits/#iot-hub-limits) 요약
+-   [Azure 서비스 할당량 및 제한](../azure-subscription-service-limits.md#iot-hub-limits) 요약
 
 -   Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
@@ -462,4 +462,4 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 시스템 및 해당 구성 요소의 설계에 대한 포괄적인 설명을 제공하는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

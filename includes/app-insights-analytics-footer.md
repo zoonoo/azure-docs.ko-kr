@@ -14,5 +14,6 @@
  - 분석을 사용합니다.
 - [언어 참조](../articles/application-insights/app-insights-analytics-reference.md)
  - 한 페이지 참조.
+- [문제 해결](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

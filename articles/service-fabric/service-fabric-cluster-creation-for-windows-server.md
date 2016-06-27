@@ -1,5 +1,5 @@
 <properties
-   pageTitle="온-프레미스 또는 다중 클라우드 Azure 서비스 패브릭 클러스터 만들기 | Microsoft Azure"
+   pageTitle="온-프레미스 또는 클라우드 Azure 서비스 패브릭 클러스터 만들기 | Microsoft Azure"
    description="Windows Server를 실행하는 컴퓨터(실제 또는 가상)에서 Azure 서비스 패브릭 클러스터를 만드는 방법 및 온-프레미스 또는 클라우드에 위치하는지 여부를 알아봅니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/12/2016"
+   ms.date="06/14/2016"
    ms.author="chackdan"/>
 
 
@@ -23,7 +23,11 @@ Azure 서비스 패브릭을 사용하면 Windows Server를 실행 중인 가상
 
 이 문서에서는 서비스 패브릭 온-프레미스에 독립 실행형 패키지를 사용하여 클러스터를 만드는 단계를 안내하지만 다른 클라우드와 같은 다른 환경에 쉽게 적용할 수 있습니다.
 
+>[AZURE.NOTE] 이 독립 실행형 제품은 현재 미리 보기 상태입니다. EULA의 복사본을 지금 다운로드하려는 경우 [여기를 클릭합니다](http://go.microsoft.com/fwlink/?LinkID=733084).
+
+<a id="downloadpackage"></a>
 ## 서비스 패브릭 독립 실행형 패키지 다운로드
+
 
 *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;버전&gt;.zip*이라는 [Windows Server 2012 R2용 서비스 패브릭에 독립 실행형 패키지를 다운로드합니다](http://go.microsoft.com/fwlink/?LinkId=730690).
 
@@ -82,6 +86,7 @@ UD를 *ClusterConfig.JSON*에 지정하는 경우 UD의 이름을 선택합니�
 ### 5단계: Windows Server용 서비스 패브릭에 대한 독립 실행형 패키지 다운로드
 [Windows Server용 서비스 패브릭에 대한 독립 실행형 패키지를 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690)하고 클러스터의 일부가 아닌 배포 컴퓨터 또는 클러스터의 일부인 컴퓨터 중 하나에 패키지의 압축을 풉니다.
 
+<a id="createcluster"></a>
 ## 클러스터 만들기
 
 위에서 계획 및 준비 섹션에 설명된 단계를 완료한 후에 클러스터를 만들 준비가 되었습니다.
@@ -115,4 +120,4 @@ JSON 문서에서 클러스터 구성을 수정하고 여기에 모든 노드 �
 Azure 클러스터 및 독립 실행형 클러스터에 대해 참고합니다.
 - [독립 실행형 클러스터 만들기 기능 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

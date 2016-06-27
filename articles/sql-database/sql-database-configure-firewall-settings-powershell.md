@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [개요](sql-database-firewall-configure.md)
 - [Azure 포털](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -70,4 +71,4 @@ Azure PowerShell을 사용하여 서버 수준 방화벽 규칙을 생성, 업�
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

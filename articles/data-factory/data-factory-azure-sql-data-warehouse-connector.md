@@ -485,7 +485,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
     }
 
 ## PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드
-**PolyBase**는 처리량이 높은 많은 양의 데이터를 Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다.
+**PolyBase**를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다.
 
 Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속성을 **true**로 설정하여 Azure SQL 데이터 웨어하우스로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 **polyBaseSettings** 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 위의 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.
 
@@ -504,18 +504,17 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
     }
 
 ### PolyBase를 사용하여 직접 복사
-원본 데이터가 아래 조건을 충족하는 경우 PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL 데이터 웨어하우스로 직접 복사할 수 있습니다. 그렇지 않으면 원본 데이터 저장소를 다음과 같은 조건을 충족하는 스테이징 Azure Blob 저장소로 복사한 후 PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드할 수 있습니다. 준비된 복사에 대한 자세한 내용은 [PolyBase를 사용한 준비된 복사](#staged-copy-using-polybase)를 참조하세요.
+원본 데이터가 아래 조건을 충족하는 경우 위 샘플 구성에서 언급한 PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL 데이터 웨어하우스로 직접 복사할 수 있습니다. 그렇지 않을 경우, [PolyBase를 사용하여 준비한 복사본](#staged-copy-using-polybase)을 활용할 수 있습니다.
 
 Azure 데이터 팩터리는 설정을 확인한 후, 요구 사항이 충족되지 않을 경우 데이터 이동을 위한 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
 1.	**원본에 연결된 서비스**는 **Azure 저장소** 형식이며 SAS(공유 액세스 서명) 인증을 사용하도록 구성되지 않습니다. 자세한 내용은 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
-2. **입력 데이터 집합**은 **Azure Blob** 형식이며 데이터 집합의 형식 속성은 다음 조건을 충족합니다. 
-	1. **Type**은 **TextFormat** 또는 **OrcFormat**이어야 합니다. 
-	2. **rowDelimiter**는 **\\n**이어야 합니다. 
-	3. **nullValue**는 **빈 문자열**("")로 설정됩니다. 
-	4. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요. 
-	5. **escapeChar** 및 **quoteChar**는 지정되지 않습니다. 
-	6. **Compression**은 **BZIP2**가 아닙니다.
+2. **입력 데이터 집합**은 **Azure Blob** 형식이고 형식 속성의 서식 형식은 아래와 같은 구성이 포함된 **OrcFormat** 또는 **TextFormat**입니다.
+	1. **rowDelimiter**는 **\\n**이어야 합니다. 
+	2. **nullValue**는 **빈 문자열**("")로 설정됩니다. 
+	3. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요. 
+	4. **escapeChar** 및 **quoteChar**는 지정되지 않습니다. 
+	5. **Compression**은 **BZIP2**가 아닙니다.
 	 
 			"typeProperties": {
 				"folderPath": "<blobpath>",
@@ -536,7 +535,9 @@ Azure 데이터 팩터리는 설정을 확인한 후, 요구 사항이 충족되
 5.	**columnMapping**은 연결된 복사 작업에서 사용되지 않습니다. 
 
 ### PolyBase를 사용한 준비된 복사
-PolyBase 메커니즘에서는 원본 데이터가 지원되는 형식(제한이 있는 DELIMITEDTEXT, RCFILE, ORC, PARQUET) 중 하나로 Azure Blob 저장소에 있어야 합니다. 원본 데이터가 위 섹션에 설명된 조건을 충족할 경우 중간 스테이징 Azure Blob 저장소를 통해 데이터를 복사할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 만족하도록 데이터에 필요한 변환을 수행하고 SQL 데이터 웨어하우스로 데이터를 로드하는 데 PolyBase를 사용합니다. 스테이징 Azure Blob을 통한 데이터 복사 작업이 진행되는 방식에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
+원본 데이터가 위 섹션에 설명된 조건을 충족할 경우 중간 스테이징 Azure Blob 저장소를 통해 데이터를 복사할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 만족하도록 데이터에 필요한 변환을 수행하고 SQL 데이터 웨어하우스로 데이터를 로드하는 데 PolyBase를 사용합니다. 스테이징 Azure Blob을 통한 데이터 복사 작업이 진행되는 방식에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
+
+> [AZURE.IMPORTANT] PolyBase 및 스테이징을 사용하여 Azure SQL 데이터 웨어하우스로 온-프레미스 데이터 저장소의 데이터를 복사하는 경우 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 게이트웨이 컴퓨터에 JRE(Java Runtime Environment)를 설치해야 합니다. 참고: 64비트 게이트웨이는 64비트 JRE가 필요하고 32비트 게이트웨이는 32비트 JRE가 필요합니다. 두 가지 버전은 [여기](http://go.microsoft.com/fwlink/?LinkId=808605)에서 찾을 수 있습니다. 적절히 선택하세요.
 
 이 기능을 사용하려면 중간 Blob 저장소가 있는 Azure 저장소 계정을 나타내는 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 만든 다음 아래에 표시된 복사 작업에 대해 **enableStaging** 및 **stagingSettings** 속성을 지정합니다.
 
@@ -555,16 +556,12 @@ PolyBase 메커니즘에서는 원본 데이터가 지원되는 형식(제한이
 				"allowPolyBase": true
 			},
     		"enableStaging": true,
-				"stagingSettings": {
+			"stagingSettings": {
 				"linkedServiceName": "MyStagingBlob"
 			}
 		}
 	}
 	]
-
-
-참고: PolyBase 및 스테이징을 사용하여 Azure SQL 데이터 웨어하우스로 온-프레미스 데이터 저장소의 데이터를 복사하는 경우 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 게이트웨이 컴퓨터에 JRE(Java Runtime Environment)를 설치해야 합니다.
-
 
 
 ### PolyBase를 사용하는 경우 모범 사례
@@ -657,4 +654,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

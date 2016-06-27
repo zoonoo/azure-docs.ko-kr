@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/15/2016"
 	ms.author="jeffstok"/>
 
 # 데이터 연결: 이벤트에서 스트림 분석으로의 데이터 스트림 입력에 대해 알아보기
@@ -40,7 +40,7 @@
 
 각 스트림 분석 이벤트 허브 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 자체 조인 또는 여러 입력이 포함된 경우 일부 입력이 둘 이상의 판독기 다운스트림에서 읽혀 단일 소비자 그룹의 판독기 수에 영향을 줍니다 파티션당 소비자 그룹마다 5 판독기의 이벤트 허브 한도 초과를 방지하려면 각 스트림 분석 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다. 또한 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
 
-## 입력 데이터 스트림으로 이벤트 허브 구성
+### 입력 데이터 스트림으로 이벤트 허브 구성
 
 다음 테이블은 해당 설명과 이벤트 허브 입력 탭의 각 속성을 설명합니다.
 
@@ -77,11 +77,13 @@ FROM Input
 
 Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게시-구독 이벤트 처리기입니다. 스트림 분석의 IoT 허브에서 오는 이벤트의 기본 타임스탬프가 EventEnqueuedUtcTime인 IoT 허브에 도착한 이벤트인 타임스탬프인지 확인해야 합니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
+> [AZURE.NOTE] DeviceClient 속성으로 전송된 메시지만 처리할 수 있습니다.
+
 ### 소비자 그룹
 
 각 스트림 분석 IoT 허브 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 자체 조인 또는 여러 입력이 포함된 경우 일부 입력이 둘 이상의 판독기 다운스트림에서 읽혀 단일 소비자 그룹의 판독기 수에 영향을 줍니다 파티션당 소비자 그룹마다 5 판독기의 IoT 허브 한도 초과를 방지하려면 각 스트림 분석 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다.
 
-## IoT 허브를 데이터 스트림 입력으로 구성
+### IoT 허브를 데이터 스트림 입력으로 구성
 
 다음 테이블은 해당 설명과 IoT 허브 입력 탭의 각 속성을 설명합니다.
 
@@ -209,4 +211,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

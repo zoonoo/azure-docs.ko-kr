@@ -110,22 +110,22 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 
 2.	경로 테이블이 만들어지면 특정 사용자 정의 경로를 추가할 수 있습니다. 이 코드 조각에서는 모든 트래픽(0.0.0.0/0)이 가상 어플라이언스를 통해 라우팅됩니다(스크립트 앞부분에서 가상 어플라이언스를 만들었을 때 변수인 $VMIP[0]을 사용하여 할당된 IP 주소를 전달). 스크립트에서는 프런트 엔드 테이블에 해당 규칙도 만듭니다.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. 위의 경로 항목은 기본 "0.0.0.0/0" 경로를 재정의하지만, VNet 내의 트래픽이 네트워크 가상 어플라이언스가 아닌 대상으로 직접 라우팅되도록 하는 기본 10.0.0.0/16 규칙이 존재합니다. 이 동작을 해결하려면 다음 규칙을 추가해야 합니다.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. 이 시점에서 선택을 해야 합니다. 위의 두 경로에서는 모든 트래픽이 방화벽으로 라우팅되어 평가를 받으며, 단일 서브넷 내에 있는 트래픽도 마찬가지입니다. 서브넷 내에 있는 트래픽이 방화벽의 관여 없이 로컬로 라우팅되도록 하려는 경우에는 이렇게 해도 좋지만, 타사의 매우 구체적인 규칙을 추가할 수 있습니다. 이 경로는 로컬 서브넷을 가리키는 모든 주소가 직접 라우팅할 수 있음을 나타냅니다(NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	마지막으로 사용자 정의 경로를 사용하여 만들고 채운 라우팅 테이블이 이제 서브넷에 바인딩됩니다. 스크립트에서는 프런트 엔드 경로 테이블도 프런트 엔드 서브넷에 바인딩됩니다. 백 엔드 서브넷의 바인딩 스크립트는 다음과 같습니다.
@@ -145,8 +145,8 @@ IP 전달 설정은 단일 명령이며 VM을 만들 때 지정할 수 있습니
 
 1.	가상 어플라이언스인 VM 인스턴스(이 경우 방화벽)를 호출하고 IP 전달을 사용하도록 설정합니다. 달러 기호로 시작하는 빨간색 항목(예: $VMName[0])은 이 문서의 참조 섹션에 있는 스크립트 중 사용자 정의 변수입니다. 대괄호 안의 0, [0]은 VM 어레이에서 첫 번째 VM을 나타냅니다. 예제 스크립트를 수정하지 않고 사용하려면 첫 번째 VM(VM 0)이 방화벽이어야 합니다.
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## 네트워크 보안 그룹(NSG)
 이 예제에서는 NSG 그룹을 빌드한 후 단일 규칙을 로드합니다. 그런 다음 이 그룹을 프런트 엔드 및 백 엔드 서브넷에만 바인딩합니다(SecNet 제외). 선언적으로 다음 규칙을 빌드합니다.
@@ -941,4 +941,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

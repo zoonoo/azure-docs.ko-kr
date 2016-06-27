@@ -38,7 +38,7 @@ V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새
 
 이 문서의 단계를 따르면 손쉽게 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션할 수 있습니다.
 
-데이터베이스는 업그레이드 작업 동안 온라인 상태로 유지되며 계속 작동합니다. 실제로 새 성능 수준으로 전환할 때 아주 짧은 시간(보통 90초 정도이지만 최대 5분일 수도 있음) 동안 데이터베이스 연결이 일시적으로 끊어질 수 있습니다. 응용 프로그램에 [연결 종료에 대한 일시적인 오류 처리](sql-database-connect-central-recommendations.md) 기능이 있을 경우 업그레이드 종료 시의 연결 끊김을 방지할 수 있습니다.
+데이터베이스는 업그레이드 작업 동안 온라인 상태로 유지되며 계속 작동합니다. 실제로 새 성능 수준으로 전환할 때 아주 짧은 시간(보통 90초 정도이지만 최대 5분일 수도 있음) 동안 데이터베이스 연결이 일시적으로 끊어질 수 있습니다. 응용 프로그램에 [연결 종료에 대한 일시적인 오류 처리](sql-database-connectivity-issues.md) 기능이 있을 경우 업그레이드 종료 시의 연결 끊김을 방지할 수 있습니다.
 
 SQL 데이터베이스 V12로 업그레이드하고 난 후에는 취소할 수 없습니다. 업그레이드 후에는 서버를 V11로 되돌릴 수 없습니다.
 
@@ -201,4 +201,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

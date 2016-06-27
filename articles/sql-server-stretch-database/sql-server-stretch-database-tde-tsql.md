@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/17/2016"
+   ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
 # Azure에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

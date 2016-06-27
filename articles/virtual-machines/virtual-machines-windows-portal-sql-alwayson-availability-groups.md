@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Always On 가용성 그룹 Azure Resource Manager 구성 | Microsoft Azure"
+	pageTitle="자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자"
 	description="Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,20 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Azure Resource Manager 가상 컴퓨터(GUI)에서 Always On 가용성 그룹 구성
+# 자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
 
 > [AZURE.SELECTOR]
-- [Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [설명서](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [리소스 관리자: 자동](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
 이 종단 간 자습서에서는 Azure 리소스 관리자 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트합니다.
 
->[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 Always On 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 이것은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server Always On 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
 
 자습서 마지막에 Azure의 SQL Server 가용성 그룹 솔루션은 다음 요소로 구성됩니다.
 
@@ -66,7 +67,7 @@
 
 - 도메인 컨트롤러 중 하나에 연결한 다음 SQL Server 중 하나에 연결
 
-## Resource Manager 배포 모델을 사용하여 갤러리에서 가용성 그룹 프로비전
+## 갤러리에서 클러스터 프로비전
 
 Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템플릿을 찾기 위해 다음을 수행합니다.
 
@@ -106,7 +107,7 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 - **가상 네트워크 이름**은 Azure 가상 네트워크에 대한 네트워크 이름입니다. 이 자습서에서는 **autohaVNET**을 사용합니다.
 
-- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**을 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**를 사용합니다.
+- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**을 사용합니다.
 
 - **SQL Server 서브넷 이름**은 SQL Server 및 파일 공유 감시를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-2**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.1.0/26**을 사용합니다.
 
@@ -256,4 +257,4 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -81,14 +81,12 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 리소스 공급자 | 기능
 ---------- | ------------
-계산 | 부트 진단
 계산 | 연결되지 않은 가상 컴퓨터 디스크
 계산 | 가상 컴퓨터 이미지
 네트워크 | 연결되지 않고 예약된 IP(VM에 연결되지 않은 경우) VM에 연결되어 있고 예약된 IP는 지원됩니다.
 네트워크 | 연결되지 않은 네트워크 보안 그룹(가상 네트워크 또는 네트워크 인터페이스에 연결되지 않은 경우). 가상 네트워크에서 참조되는 NSG는 지원됩니다.
 네트워크 | 끝점 ACL.
 네트워크 | 가상 네트워크 게이트웨이(사이트 간, Azure Express 경로, 지점 및 사이트 간)
-저장소 | 저장소 계정.
 
 ### 지원되지 않는 구성
 
@@ -103,7 +101,6 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 계산 | XML VM 확장(Visual Studio 디버거, 웹 배포 및 원격 디버깅) | 이 기능은 지원되지 않습니다. 가상 컴퓨터에서 이러한 확장을 제거하고 마이그레이션을 계속하는 것이 좋습니다.
 계산 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다.
 네트워크 | 가상 컴퓨터와 웹/작업자 역할이 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
-네트워크 | 이름에 공백이 포함된 서브넷 | 현재는 지원되지 않습니다.
 Azure 앱 서비스 | 앱 서비스 환경이 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
 Azure HDInsight | HDInsight Services가 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
 Microsoft Dynamics Lifecycle Services | Dynamics Lifecycle Services에서 관리하는 가상 컴퓨터가 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
@@ -226,4 +223,4 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 - [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

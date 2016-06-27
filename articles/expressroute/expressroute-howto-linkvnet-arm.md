@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="06/09/2016"
    ms.author="ganesr" />
 
 # 가상 네트워크를 Express 경로 회로에 연결합니다.
@@ -75,8 +75,8 @@
 다음 cmdlet 조각은 권한 부여를 만드는 방법을 보여 줍니다.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
@@ -105,8 +105,8 @@
 회로 소유자는 다음 cmdlet를 사용하여 권한 부여를 추가할 수 있습니다.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
@@ -117,7 +117,7 @@
 회로 소유자는 다음 cmdlet을 실행하여 권한 부여를 취소/삭제할 수 있습니다.
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
 
 ### 회로 사용자 작업
 
@@ -138,4 +138,4 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

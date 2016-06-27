@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="06/08/2016"
+    ms.date="06/15/2016"
     ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
@@ -60,6 +60,7 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.jpg)| [Canvas LMS](https://go.microsoft.com/fwLink/?LinkID=510249&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.jpg)| [Capriza](https://go.microsoft.com/fwLink/?LinkID=708671&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.jpg)| [Central Desktop](https://go.microsoft.com/fwLink/?LinkID=403249&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.jpg)| [Ceridian Dayforce HCM](https://go.microsoft.com/fwLink/?LinkID=733445&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Certify.jpg)| [Certify](http://go.microsoft.com/fwlink/?LinkID=708681&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.jpg)| [Cherwell](https://go.microsoft.com/fwLink/?LinkID=530225&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.png)| [Chromeriver](https://go.microsoft.com/fwLink/?LinkID=530233&clcid=0x409)|
@@ -234,12 +235,9 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
 
 
-
-
-
 ##관련 문서
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

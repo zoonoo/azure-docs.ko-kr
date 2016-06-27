@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Azure 자동화로 가상 컴퓨터 시작 및 중지 - PowerShell 워크플로 | Microsoft Azure"
-	description="기존 가상 컴퓨터를 시작 또는 중지하기 위한 runbook을 포함하는 Azure 자동화 솔루션의 그래픽 버전"
+	description="기존 가상 컴퓨터를 시작 또는 중지하기 위해 Runbook을 포함하는 Azure 자동화 시나리오의 그래픽 버전"
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
+	authors="mgoedtel"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,12 +12,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/27/2016"
+	ms.date="06/14/2016"
 	ms.author="bwren" />
 
-# Azure 자동화 솔루션 - 가상 컴퓨터 시작 및 중지
+# Azure 자동화 시나리오 - 가상 컴퓨터 시작 및 중지
 
-Azure 자동화 솔루션은 기존 가상 컴퓨터를 시작하고 중지하는 Runbook을 포함합니다. 다음과 같은 경우에 이 솔루션을 사용할 수 있습니다.
+Azure 자동화 시나리오는 기존 가상 컴퓨터를 시작하고 중지하는 Runbook을 포함합니다. 다음과 같은 경우에 이 시나리오를 사용할 수 있습니다.
 
 - 사용자의 환경에서 수정하지 않고 Runbook을 사용합니다. 
 - 사용자 지정 기능을 수행하도록 Runbook을 수정합니다.  
@@ -25,14 +25,14 @@ Azure 자동화 솔루션은 기존 가상 컴퓨터를 시작하고 중지하�
 - Runbook을 자습서로 사용하여 Runbook 작성 개념을 알아봅니다. 
 
 > [AZURE.SELECTOR]
-- [Graphical](automation-solution-startstopvm-graphical.md)
-- [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
+- [그래픽](automation-solution-startstopvm-graphical.md)
+- [PowerShell 워크플로](automation-solution-startstopvm-psworkflow.md)
 
-이 솔루션의 PowerShell 워크플로 Runbook 버전입니다. [그래픽 Runbook](automation-solution-startstopvm-graphical.md)을 사용하여 사용할 수도 있습니다.
+이 시나리오의 PowerShell 워크플로 Runbook 버전입니다. [그래픽 Runbook](automation-solution-startstopvm-graphical.md)을 사용하여 사용할 수도 있습니다.
 
-## 솔루션 가져오기
+## 시나리오 가져오기
 
-이 솔루션은 다음 링크에서 다운로드할 수 있는 PowerShell 워크플로 Runbook으로 구성됩니다. 그래픽 Runbook에 대한 링크는 이 솔루션의 [그래픽 버전](automation-solution-startstopvm-graphical.md)을 참조하세요.
+이 시나리오는 다음 링크에서 다운로드할 수 있는 PowerShell 워크플로 Runbook으로 구성됩니다. 그래픽 Runbook에 대한 링크는 이 시나리오의 [그래픽 버전](automation-solution-startstopvm-graphical.md)을 참조하세요.
 
 | Runbook | 링크 | 형식 | 설명 |
 |:---|:---|:---|:---|
@@ -40,7 +40,7 @@ Azure 자동화 솔루션은 기존 가상 컴퓨터를 시작하고 중지하�
 | Stop-AzureVMs | [Azure 클래식 VM 중지](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) | PowerShell 워크플로 | 자동화 계정의 모든 가상 컴퓨터 또는 특정 서비스 이름의 모든 가상 컴퓨터를 중지합니다. |
 
 
-## 솔루션 설치
+## 시나리오 설치 및 구성
 
 ### 1\. Runbook 설치
 
@@ -57,7 +57,7 @@ Runbook은 적절한 값으로 생성하고 채워야 하는 다음 자산을 �
 | 자격 증명 | AzureCredential | Azure 구독에서 가상 컴퓨터를 시작 및 중지할 권한이 있는 계정에 대한 자격 증명을 포함합니다. **Add-AzureAccount** 활동의 **Credential** 매개 변수에 다른 자격 증명 자산을 지정할 수도 있습니다. |
 | 변수 | AzureSubscriptionId | Azure 구독의 구독 ID를 포함합니다. |
 
-## 솔루션 사용
+## 시나리오 사용
 
 ### 매개 변수
 
@@ -66,12 +66,12 @@ Runbook은 적절한 값으로 생성하고 채워야 하는 다음 자산을 �
 | 매개 변수 | 형식 | 필수 | 설명 |
 |:---|:---|:---|:---|
 | ServiceName | string | 아니요 | 값이 제공되면 해당 서비스 이름의 모든 가상 컴퓨터가 시작되거나 중지됩니다. 값이 제공되지 않으면 Azure 구독의 모든 기존 가상 컴퓨터가 시작되거나 중지됩니다. |
-| AzureSubscriptionIdAssetName | string | 아니요 | Azure 구독의 구독 ID를 포함하는 [변수 자산](#installing-the-solution)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureSubscriptionId*가 사용됩니다. |
-| AzureCredentialAssetName | string | 아니요 | 사용할 Runbook에 대한 자격 증명을 포함하는 [자격 증명 자산](#installing-the-solution)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureCredential*이 사용됩니다. |
+| AzureSubscriptionIdAssetName | string | 아니요 | Azure 구독의 구독 ID를 포함하는 [변수 자산](#installing-and-configuring-the-scenario)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureSubscriptionId*가 사용됩니다. |
+| AzureCredentialAssetName | string | 아니요 | 사용할 Runbook에 대한 자격 증명을 포함하는 [자격 증명 자산](#installing-and-configuring-the-scenario)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureCredential*이 사용됩니다. |
 
 ### Runbook 시작
 
-이 솔루션의 Runbook 중 하나를 시작하도록 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)의 메서드를 사용할 수 있습니다.
+이 시나리오의 Runbook 중 하나를 시작하도록 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)의 메서드를 사용할 수 있습니다.
 
 다음 샘플 명령은 서비스 이름이 *MyVMService*인 모든 가상 컴퓨터를 시작하기 위하여 **StartAzureVMs**을 실행하도록 Windows PowerShell을 사용합니다.
 
@@ -106,7 +106,7 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 
 ## 자세한 분석
 
-다음은 이 솔루션의 Runbook에 대한 자세한 분석입니다. 이 정보를 사용하여 Runbook을 사용자 지정하거나 학습에 활용할 수 있습니다.
+다음은 이 시나리오의 Runbook에 대한 자세한 분석입니다. 이 정보를 사용하여 Runbook을 사용자 지정하거나 자체 자동화 시나리오를 작성하기 위한 학습에 활용할 수 있습니다.
 
 ### 매개 변수
 
@@ -121,7 +121,7 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
         [String] $ServiceName
     )
 
-워크플로는 [입력 매개 변수](#using-the-solution)의 값을 가져오면서 시작됩니다. 자산 이름이 제공되지 않으면 기본 이름이 사용됩니다.
+워크플로는 [입력 매개 변수](#using-the-scenario)의 값을 가져오면서 시작됩니다. 자산 이름이 제공되지 않으면 기본 이름이 사용됩니다.
 
 ### 출력
 
@@ -188,9 +188,9 @@ Runbook과 작업할 가상 컴퓨터를 검색하도록 **Get-AzureVM**이 사�
 다음 줄은 각각의 가상 컴퓨터에 적용됩니다. 우선 가상 컴퓨터가 실행 중인지, 중지되었는지(Runbook에 따라서) 파악하기 위해 가상 컴퓨터의 **PowerState**를 확인합니다. 이미 대상 상태이면 메시지가 출력을 위해 전송되고 runbook은 종료됩니다. 그렇지 않으면 변수에 저장된 요청의 결과를 사용하여 가상 컴퓨터를 시작 또는 중지하기 위해 **Start-AzureVM** 또는 **Stop-AzureVM**이 사용됩니다. 그러면 시작 또는 중지 요청이 성공적으로 제출되었는지를 알리는 메시지가 출력을 위해 전송됩니다.
 
 
-## 관련된 문서
+## 다음 단계
 
 - [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

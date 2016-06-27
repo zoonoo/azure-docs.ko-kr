@@ -11,7 +11,7 @@ Azure Preview 포털을 사용하여 위의 시나리오에 따라 VNet을 만�
 
 	![가상 네트워크 만들기 블레이드](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새로 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 아래 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md/#resource-groups)를 참조하세요.
+4. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새로 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 아래 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md#resource-groups)를 참조하세요.
 
 	![리소스 그룹](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -35,4 +35,4 @@ Azure Preview 포털을 사용하여 위의 시나리오에 따라 VNet을 만�
 
 	![VNet의 서브넷 목록](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

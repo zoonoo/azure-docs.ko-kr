@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -229,6 +229,91 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 	`hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
+## Spark 클러스터로 Data Lake 저장소 사용
+
+이 섹션에서는 HDInsight Spark 클러스터로 사용할 수 있는 Jupyter 노트북을 사용하여, 기본 Azure Storage Blob 계정 대신 HDInsight Spark 클러스터와 관련이 있는 Data Lake 저장소 계정에서 데이터를 읽는 작업을 실행합니다.
+
+1. Spark 클러스터와 연결된 기본 저장소 계정(WASB)에서 해당 클러스터와 연결된 Azure Data Lake 저장소 계정으로 몇 가지 샘플 데이터를 복사합니다. 이 작업에는 [ADLCopy 도구](http://aka.ms/downloadadlcopy)를 사용합니다. 링크에서 도구를 다운로드하여 설치합니다.
+
+2. 명령 프롬프트를 열고 AdlCopy가 설치된 디렉터리로 이동합니다(일반적으로 `%HOMEPATH%\Documents\adlcopy`).
+
+3. 다음 명령을 실행하여 원본 컨테이너에서 데이터 레이크 저장소로 특정 BLOB를 복사합니다.
+
+		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+
+	이 자습서에서는 **/HdiSamples/HdiSamples/SensorSampleData/hvac/**의 **HVAC.csv** 샘플 데이터 파일을 Azure Data Lake 저장소 계정으로 복사합니다. 코드 조각은 다음과 같습니다.
+
+		AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+
+	>[AZURE.WARNING] 파일과 경로 이름의 대/소문자가 적절한지 확인합니다.
+
+4. 데이터 레이크 저장소 계정이 있는 Azure 구독에 대한 자격 증명을 입력하라는 메시지가 표시됩니다. 다음과 유사한 출력이 표시됩니다.
+
+		Initializing Copy.
+		Copy Started.
+		100% data copied.
+		Copy Completed. 1 file copied.
+
+	데이터 파일(**HVAC.csv**)은 Data Lake 저장소 계정의 **/hvac** 폴더에 복사됩니다.
+
+4. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+
+2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
+
+	![새 Jupyter 노트북 만들기](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
+
+3. 새 노트북이 만들어지고 **Untitled.pynb** 이름으로 열립니다.
+
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER**를 누릅니다.
+
+		from pyspark.sql.types import *
+		
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
+
+	 ![Jupyter 노트북 작업의 상태](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.jupyter.job.status.png "Jupyter 노트북 작업의 상태")
+
+4. Data Lake 저장소 계정에 복사한 **HVAC.csv** 파일을 사용하여 샘플 데이터를 임시 테이블에 로드합니다. 다음 URL 패턴을 사용하여 Data Lake 저장소 계정의 데이터에 액세스할 수 있습니다.
+
+		adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+
+	빈 셀에는 다음 코드 예제를 붙여넣습니다. **MYDATALAKESTORE**를 Data Lake 저장소 계정 이름으로 대체하고 **SHIFT + ENTER**를 누릅니다. 이 코드 예제는 **hvac**라는 임시 테이블에 데이터로 등록됩니다.
+
+		# Load the data
+		hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/hvac/HVAC.csv")
+		
+		# Create the schema
+		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+		
+		# Parse the data in hvacText
+		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+		
+		# Create a data frame
+		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+		
+		# Register the data fram as a table to run queries against
+		hvacdf.registerTempTable("hvac")
+
+5. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+		
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
+
+5. 작업이 성공적으로 완료되면 기본적으로 다음 테이블 형식의 출력이 표시됩니다.
+
+ 	![쿼리 결과의 테이블 출력](./media/data-lake-store-hdinsight-hadoop-use-portal/tabular.output.png "쿼리 결과의 테이블 출력")
+
+	다른 시각화로 결과를 볼 수도 있습니다. 예를 들어 동일한 출력에 대한 영역 그래프는 다음과 같습니다.
+
+	![쿼리 결과의 영역 그래프](./media/data-lake-store-hdinsight-hadoop-use-portal/area.output.png "쿼리 결과의 영역 그래프")
+
+
+6. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 ## Storm 토폴로지에서 데이터 레이크 저장소 사용
 
@@ -258,4 +343,4 @@ HBase 클러스터에서 추가 저장소 외에 기본 저장소로 Data Lake �
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -114,7 +114,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 몇몇 인기 시스템에서는 전체 Azure VM 그룹을 배포하고 거기에 Docker 또는 기타 Linux 컨테이너 호스트 시스템을 자동화 가능한 그룹으로 설치할 수 있습니다. 바로 가기 링크는 아래의 [컨테이너 및 도구](#containers-and-vm-technologies) 섹션에서 확인하시기 바랍니다. 이러한 작업이 가능한 시스템은 성능 수준 면에서 다양하며 여기에 소개된 목록이 전부가 아닙니다. 또한 이 시스템들은 사용자의 기술과 시나리오에 따라 유용할 수도, 유용하지 않을 수도 있습니다.
 
-Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md))와 로드 밸런싱 Docker 컨테이너 클러스터 관리 도구([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md))가 있습니다. 또한 [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)이 [`docker-compose`](https://docs.docker.com/compose/)를 위한 기본 지원에 포함되기 때문에 구성된 응용 프로그램 컨테이너를 여러 컨테이너에 배포할 수 있습니다.
+Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-machines/virtual-machines-linux-docker-machine.md))와 로드 밸런싱 Docker 컨테이너 클러스터 관리 도구([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md))가 있습니다. 또한 [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)이 [`docker-compose`](https://docs.docker.com/compose/)를 위한 기본 지원에 포함되기 때문에 구성된 응용 프로그램 컨테이너를 여러 컨테이너에 배포할 수 있습니다.
 
 [Mesosphere의 DCOS(데이터 센터 운영체제)](http://docs.mesosphere.com/install/azurecluster/)도 사용해 볼만 합니다. DCOS는 "분산형 시스템 커널"인 공개 소스 [Mesos](http://mesos.apache.org/)에 기반하여 데이터 센터를 주소 지정이 가능한 단일 서비스로 사용할 수 있습니다. DCOS에는 [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) 등의 여러 중요한 시스템에 기본 제공되는 패키지뿐만 아니라 [Marathon](https://mesosphere.github.io/marathon/)(컨테이너 제어 시스템) 및 [Chronos](https://mesosphere.github.io/chronos/)(분산형 스케줄러) 같은 기본 제공 서비스가 있습니다. Mesos는 Twitter, AirBnb, 기타 큰 웹 비즈니스의 경험을 바탕으로 탄생했습니다.
 
@@ -165,7 +165,7 @@ Microsoft Azure의 Docker:
 - [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Azure 포털에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
 - [Azure 마켓플레이스에서 신속하게 Docker 시작](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
-- [Azure에서 docker-machine을 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [Azure에서 docker-machine을 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Azure에서 swarm과 함께 Docker를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Azure 리소스 그룹 템플릿을 사용하여 Azure에서 신속하게 Docker 호스트 생성](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
@@ -216,4 +216,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
