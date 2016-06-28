@@ -44,9 +44,9 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 
 다단계 인증을 사용하는 방법|설명
 :------------- | :------------- | 
-[Office 365에서 사용](#creating-and-deleting-app-passwords-with-office-365)| Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
+[Office 365에서 사용](#Office 365에서 앱 암호 만들기 및 삭제)| Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
 [잘 모름](#creating-and-deleting-app-passwords-with-myapps-portal)|[https://myapps.microsoft.com](https://myapps.microsoft.com)을 통해 앱 암호를 만들 수 있습니다.
-[Microsoft Azure에서 사용](#create-app-passwords-in-the-azure-portal)| Azure 포털을 통해 앱 암호를 만들 수 있습니다.
+[Microsoft Azure에서 사용](#Azure 포털에서 앱 암호 만들기)| Azure 포털을 통해 앱 암호를 만들 수 있습니다.
 
 ## Office 365에서 앱 암호 만들기 및 삭제 
 
