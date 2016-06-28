@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;viviali"/>
 
 # Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가
@@ -84,4 +84,4 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

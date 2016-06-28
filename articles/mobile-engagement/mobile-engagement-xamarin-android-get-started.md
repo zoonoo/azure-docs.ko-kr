@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="06/16/2016"
 	ms.author="piyushjo" />
 
 # Xamarin.Android 앱용 Azure Mobile Engagement 시작
@@ -108,6 +108,20 @@ Xamarin Studio가 Mobile Engagement를 통합할 앱을 만듭니다.
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면을 하나 이상 보내야 합니다. 이 작업을 수행하려면 `MainActivity`가 `Activity` 대신 `EngagementActivity`에서 상속되어야 합니다.
 
 	public class MainActivity : EngagementActivity
+	
+또는 `EngagementActivity`에서 상속할 수 없는 경우 `OnResume` 및 `OnPause`에 각각 `.StartActivity` 및 `.EndActivity` 메서드를 추가해야 합니다.
+
+		protected override void OnResume()
+	        {
+	            EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+	            base.OnResume();             
+	        }
+	
+	        protected override void OnPause()
+	        {
+	            EngagementAgent.EndActivity();
+	            base.OnPause();            
+	        }
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
 
@@ -131,4 +145,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

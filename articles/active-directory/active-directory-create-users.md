@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;viviali"/>
 
 # Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
@@ -86,4 +86,4 @@ Azure 클래식 포털에서 **구성** 탭을 열려면 **Active Directory**를
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

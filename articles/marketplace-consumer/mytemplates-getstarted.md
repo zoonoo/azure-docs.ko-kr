@@ -113,7 +113,7 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 
 ![템플릿 공유](media/share-template-portal1a.png) <br />
 
- 이제 특정 **템플릿**에 대한 액세스를 제공하는 데 역할, 사용자 또는 그룹을 선택할 수 있습니다. 사용 가능한 역할은 소유자, 판독기 및 참가자입니다. 자세한 정보는 아래 [액세스 제어](#access-control-for-a-tenant-resource-provider) 섹션에 나와 있습니다.
+ 이제 특정 **템플릿**에 대한 액세스를 제공하는 데 역할, 사용자 또는 그룹을 선택할 수 있습니다. 사용 가능한 역할은 소유자, 판독기 및 참가자입니다. 자세한 정보는 위의 [액세스 제어](#access-control-for-a-tenant-resource-provider) 섹션에 나와 있습니다.
 
 ![템플릿 공유](media/share-template-portal2b.png) <br />
 
@@ -131,4 +131,4 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 - Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

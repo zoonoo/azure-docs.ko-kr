@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="06/20/2016"
     ms.author="awills"/>
 
 # Android 앱에 대한 분석
@@ -30,8 +30,8 @@ Microsoft는 장치 devOps에 대해 클라이언트측 분석을 위한 [Hockey
 
 앱에 서버측이 있으면, [Application Insights](app-insights-overview.md)를 사용하여 [ASP.NET](app-insights-asp-net.md) 또는 [J2EE](app-insights-java-get-started.md)에서 앱의 웹 서버측을 모니터링합니다.
 
-> [AZURE.NOTE] 2016년 6월 15일에 iOS, Android, Windows Store 및 Windows Phone 앱용 Application Insights에서의 데이터 표시가 중지됩니다.
+> [AZURE.NOTE] HockeyApp SDK에서 보낸 원격 분석과 함께 [Application Insights 분석](app-insights-analytics.md) 및 [연속 내보내기](app-insights-export-telemetry.md)를 곧 사용할 수 있게 됩니다.
 >
-> [이 변경 내용에 대한 자세한 정보](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)입니다.
+> [이 변경 내용에 대한 자세한 정보입니다.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

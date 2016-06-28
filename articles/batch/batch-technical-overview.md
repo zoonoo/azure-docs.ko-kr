@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/02/2016"
+	ms.date="06/16/2016"
 	ms.author="marsma"/>
 
 # Azure 배치의 기본 사항
@@ -24,7 +24,7 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
 
 ## 배치에 대한 사용 사례
 
-배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅* 에 사용되는 관리된 Azure 서비스입니다. 배치 컴퓨팅은 대량의 데이터를 정기적으로 처리, 변환 및 분석하는 조직에서 가장 일반적으로 사용합니다.
+배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅*에 사용되는 관리된 Azure 서비스입니다. 배치 컴퓨팅은 대량의 데이터를 정기적으로 처리, 변환 및 분석하는 조직에서 가장 일반적으로 사용합니다.
 
 배치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 응용 프로그램 및 워크로드에서 잘 작동합니다. 본질적으로 병렬 워크로드는 여러 컴퓨터에서 동시에 작업을 수행하는 여러 태스크로 쉽게 분할됩니다.
 
@@ -46,9 +46,11 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 ## 배치를 사용하는 개발
 
-병렬 워크로드 처리를 위해 Azure 배치를 사용하는 솔루션을 빌드하는 경우 배치 API를 사용하여 프로그래밍 방식으로 수행합니다. 배치 API를 사용하여 계산 노드(가상 컴퓨터)의 풀을 만들고 관리하며 해당 노드에서 실행할 작업 및 태스크를 예약합니다. 사용자가 작성하는 클라이언트 응용 프로그램 또는 서비스는 배치 API를 사용하여 배치 서비스와 통신합니다. 조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure 데이터 팩터리][data_factory]와 같은 도구에서 관리하는 대규모 워크플로의 일부로 배치를 사용할 수도 있습니다.
+병렬 워크로드 처리를 위해 Azure 배치를 사용하는 솔루션을 빌드하는 경우 [배치 API](#batch-development-apis)를 사용하여 프로그래밍 방식으로 수행합니다. 배치 API를 사용하여 계산 노드(가상 컴퓨터)의 풀을 만들고 관리하며 해당 노드에서 실행할 작업 및 태스크를 예약합니다. 사용자가 작성하는 클라이언트 응용 프로그램 또는 서비스는 배치 API를 사용하여 배치 서비스와 통신합니다.
 
-> [AZURE.TIP] 배치 API에서 제공하는 기능을 좀더 자세히 알아볼 준비가 되면 [Azure 배치 기능 개요](batch-api-basics.md)를 확인하세요.
+조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure 데이터 팩터리](../data-factory/data-factory-data-processing-using-batch.md)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 배치를 사용할 수도 있습니다.
+
+> [AZURE.TIP] 배치 API에서 제공하는 기능을 좀더 자세히 알아볼 준비가 되면 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 확인하세요.
 
 ### 필요한 Azure 계정
 
@@ -56,7 +58,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 - **Azure 계정 및 구독** - Azure 구독이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
 
-- **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 선택키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
+- **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 액세스 키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
 
 - **저장소 계정** - 배치는 [Azure 저장소][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 태스크에서 실행하는 프로그램, 프로그램에서 처리하는 데이터, 생성하는 출력 데이터의 저장소 등 거의 모든 배치 시나리오에서 준비를 위해 Azure 저장소를 사용합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)를 참조하세요.
 
@@ -69,8 +71,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 | **Batch REST** | [MSDN][batch_rest] | 해당 없음 | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **배치 Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java**(미리 보기) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
+| **배치 Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **배치 Java**(미리 보기) | [github.io][api_java] | [Maven 스냅숏 리포지토리][api_java_jar] | - |
 
 ### 배치 리소스 관리
 
@@ -81,14 +82,6 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 - [Azure CLI](../xplat-cli-install.md): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
 
 - [배치 관리 .NET](batch-management-dotnet.md) 클라이언트 라이브러리: [NuGet][api_net_mgmt_nuget]을 통해 제공되며 배치 관리 .NET 클라이언트 라이브러리를 사용하여 배치 계정, 할당량 및 응용 프로그램 패키지를 프로그래밍 방식으로 관리할 수 있습니다. 관리 라이브러리에 대한 참조는 [MSDN][api_net_mgmt]에 있습니다.
-
-### 배치 도구
-
-배치를 사용하여 솔루션을 구축해야 하는 것은 아니지만 배치 응용 프로그램 및 서비스를 구축 및 디버깅하는 동안에는 이러한 도구가 필수적일 수 있습니다.
-
-- [Azure 배치 탐색기][batch_explorer]\: 배치 탐색기는 [GitHub][github_samples]에서 제공되는 배치 .NET 예제 응용 프로그램 중 하나입니다. 배치 솔루션을 개발 및 디버깅하는 동안 Visual Studio 2013 또는 2015로 WPF(Windows Presentation Foundation) 응용 프로그램을 빌드하고 사용하여 배치 계정의 리소스를 검색 및 관리합니다. 작업, 풀 및 태스크 세부 정보를 보고 계산 노드에서 파일을 다운로드하거나 배치 탐색기 인터페이스에서 몇 번의 클릭으로 얻을 수 있는 RDP(원격 데스크톱) 파일을 사용하여 원격으로 노드에 연결합니다.
-
-- [Microsoft Azure 저장소 탐색기][storage_explorer]\: 엄격히 말해 Azure 배치 도구는 아니지만 저장소 탐색기는 배치 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
 
 ## 시나리오: 병렬 워크로드 규모 확장
 
@@ -120,13 +113,13 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 ## 다음 단계
 
-지금까지 배치 시나리오 예를 살펴보았으며 이제 서비스를 좀더 자세히 살펴보고 계산 집약적인 병렬 워크로드를 처리하는 데 어떻게 사용할 수 있는지 알아봅니다.
+지금까지 배치 서비스의 고급 개요를 살펴보았습니다. 이제 서비스를 좀더 자세히 살펴보고 계산 집약적인 병렬 워크로드를 처리하기 위해 사용하는 방법을 알아봅니다.
 
-- [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)에서는 위에서 설명한 기술을 수행하는 데 C# 및 배치 .NET 라이브러리를 사용하는 방법을 알아봅니다. 배치 서비스 사용 방법을 학습하는 과정의 첫걸음 중 하나입니다.
+- 워크로드를 처리하기 위해 배치에서 제공하는 API 기능에 대한 심층 정보를 자세히 알아보려면 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 참고하세요. 배치를 사용하려는 사용자에게 중요한 자료입니다.
 
-- 계산 집약적인 워크로드를 처리하기 위해 배치에서 제공하는 API 기능에 대한 자세한 내용은 [배치 기능 개요](batch-api-basics.md)를 확인하세요.
+- [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)에서는 일반적인 배치 워크플로를 사용하여 간단한 워크로드를 실행하는 데 C# 및 배치 .NET 라이브러리를 사용하는 방법을 알아봅니다. 배치 서비스 사용 방법을 학습하는 과정의 첫걸음 중 하나입니다. 또한 [Python 버전](batch-python-tutorial.md) 자습서도 있습니다.
 
-- 배치 탐색기 외에도 [GitHub의 기타 코드 샘플][github_samples]은 배치 .NET 라이브러리를 사용하여 수많은 배치 기능을 사용하는 방법을 보여 줍니다.
+- [GitHub의 코드 샘플][github_samples]을 다운로드하여 샘플 워크로드를 예약하고 처리하기 위해 C# 및 Python가 배치와 상호 작용하는 방법을 확인합니다.
 
 - 배치 작업을 학습하면서 사용 가능한 리소스는 [배치 학습 경로][learning_path]를 확인하세요.
 
@@ -143,17 +136,14 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

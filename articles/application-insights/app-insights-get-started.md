@@ -63,6 +63,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 ## <a name="video"></a>동영상
 
+[![애니메이션 소개](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)로 바꿉니다.
 
 > [AZURE.VIDEO 218]
 
@@ -76,4 +77,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->
