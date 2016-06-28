@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 기계 학습을 사용한 데이터 분석 | Microsoft Azure"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁"
+   description="Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="shivaniguptamsft"
@@ -13,30 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="shigu;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure 기계 학습][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-이 자습서는 Azure SQL 데이터 웨어하우스에 데이터를 사용하여 Azure 기계 학습으로 예측 기계 학습 모델을 구축하는 방법을 보여 줍니다. 이 자습서에는 고객이 자전거를 구매할 가능성 여부를 예측하여 자전거 매장인 Adventure Works에 대한 대상 마케팅 캠페인을 구축합니다.
+이 자습서는 Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다. 특히 고객이 자전거를 구매할 가능성 여부를 예측하여 자전거 매장인 Adventure Works에 대한 대상 마케팅 캠페인을 구축합니다.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
+
 
 ## 필수 조건
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-- AdventureWorksDW 샘플 데이터베이스로 SQL 데이터 웨어하우스.
+- AdventureWorksDW 샘플 데이터로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL 데이터 웨어하우스 만들기][]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
-[SQL 데이터 웨어하우스에 만들기][]는 샘플 데이터로 데이터베이스를 프로비전하는 방법을 보여 줍니다. SQL 데이터 웨어하우스 데이터베이스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
-
-
-## 1단계: 데이터 가져오기
-AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에서 데이터를 읽습니다.
+## 1\. 데이터 가져오기
+데이터는 AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에 있습니다. 이 데이터를 읽으려면:
 
 1. [Azure 기계 학습 스튜디오][]에 로그인하고 내 실험을 클릭합니다.
 2. **+새로 만들기**를 클릭하고 **빈 실험**을 선택합니다.
@@ -71,8 +70,8 @@ FROM [dbo].[vTargetMail]
 실험이 성공적으로 실행되고 나면 판독기 모듈 아래쪽에서 출력 포트를 클릭하고 **시각화**를 선택하여 가져온 데이터를 확인합니다. ![가져온 데이터 확인][3]
 
 
-## 2단계: 데이터 정리
-모델에 관련되지 않은 일부 열을 삭제합니다.
+## 2\. 데이터 정리
+데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 다음을 수행합니다.
 
 1. **프로젝트 열** 모듈을 캔버스로 끌어서 놓습니다.
 2. 속성 창에서 **열 선택기 시작**을 클릭하여 삭제하려는 열을 지정합니다. ![Project Columns][4]
@@ -80,7 +79,7 @@ FROM [dbo].[vTargetMail]
 3. 다음 두 열을 제외합니다. CustomerAlternateKey 및 GeographyKey ![불필요한 열 제거][5]
 
 
-## 3단계: 모델 작성
+## 3\. 모델 작성
 데이터를 80-20으로 분할합니다. 80%는 기계 학습 모델을 학습하고 20%는 모델을 테스트합니다. 이진 분류 문제에 대해 "2클래스" 알고리즘을 활용합니다.
 
 1. **분할** 모듈을 캔버스로 끌어서 놓습니다.
@@ -92,7 +91,7 @@ FROM [dbo].[vTargetMail]
 5. **BikeBuyer** 열을 예측할 열로 선택합니다. ![예측할 열 선택][8]
 
 
-## 4단계: 모델 점수 매기기
+## 4\. 모델 점수 매기기
 이제 모델이 테스트 데이터를 수행하는 방법을 테스트합니다. 더 잘 수행하는 알고리즘을 확인하도록 다른 알고리즘을 선택하여 비교합니다.
 
 1. **모델 점수 매기기** 모듈을 캔버스로 끌어서 놓습니다. 첫 번째 입력: 학습된 모델 두 번째 입력: 테스트 데이터 ![모델 점수 매기기][9]
@@ -116,27 +115,24 @@ FROM [dbo].[vTargetMail]
 예측 기계 학습 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 기계 학습 소개][]를 참고하세요.
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/
 [Azure의 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-load-sample-databases.md
-[SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # 클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
@@ -154,5 +154,6 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 - [SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 SQL 데이터베이스를 시작합니다.
 - [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 - Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+- [Azure 가상 컴퓨터의 SQL Server: 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

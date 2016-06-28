@@ -28,14 +28,13 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Microsoft Visual Studio 2013 이후 또는 Windows용 Microsoft Visual Studio Express. 이 문서의 예제에서는 Visual Studio 2015를 사용합니다.
++ [Microsoft Visual Studio](http://visualstudio.com)
 
 + 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")을 참조하세요.
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -95,4 +94,4 @@
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

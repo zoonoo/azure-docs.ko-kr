@@ -13,15 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Power BI를 사용하여 데이터 시각화
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure 기계 학습][]
-- [SQLCMD][] 
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 이 자습서에서는 Power BI를 사용하여 SQL 데이터 웨어하우스에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
 
@@ -29,10 +30,12 @@
 
 ## 필수 조건
 
-이 자습서를 완료하려면 AdventureWorksDW 샘플 데이터베이스가 미리 로드된 SQL 데이터 웨어하우스가 필요합니다. 새 SQL 데이터 웨어하우스를 만들 경우 비어 있는 데이터 베이스, AdventureWorks 샘플 데이터를 포함하는 데이터베이스를 만들거나 다른 데이터베이스의 백업을 복원할 수 있습니다. 이미 로드된 샘플 데이터를 가진 SQL 데이터 웨어하우스를 만드는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스 만들기][]를 참조하세요. 사용하려는 SQL 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]의 지침을 따릅니다.
+이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
+
+- AdventureWorksDW 데이터베이스로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL 데이터 웨어하우스 만들기][]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
 
-## 데이터베이스에 연결
+## 1\. 데이터베이스 연결
 
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
@@ -59,7 +62,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 
 
-## 보고서 만들기
+## 2\. 보고서 만들기
 
 이제 Power BI를 사용하여 AdventureWorksDW 샘플 데이터를 분석할 준비가 되었습니다. 분석을 수행하기 위해 AdventureWorksDW에는 AggregateSales라는 뷰가 포함되어 있습니다. 이 뷰는 회사의 판매를 분석하기 위한 주요 메트릭 중 일부를 포함합니다.
 
@@ -93,33 +96,29 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 이제 샘플 데이터로 [개발][], [로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트][]를 살펴보세요.
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
-[2]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
-[3]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
-[4]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
-[5]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
-[6]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
-[7]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
-[8]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
-[9]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
-[10]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
-[11]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
-[12]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
+[1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
+[2]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png
+[3]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png
+[4]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png
+[5]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png
+[6]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-aggregatesales.png
+[7]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png
+[8]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png
+[9]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png
+[10]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png
+[11]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png
+[12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[개발]: ./sql-data-warehouse-overview-develop.md
-[로드]: ./sql-data-warehouse-overview-load.md
-[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
-[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
+[마이그레이션]: sql-data-warehouse-overview-migrate.md
+[개발]: sql-data-warehouse-overview-develop.md
+[로드]: sql-data-warehouse-overview-load.md
+[샘플 데이터를 수동으로 로드]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Azure 포털]: https://portal.azure.com/
 [Power BI 웹 사이트]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

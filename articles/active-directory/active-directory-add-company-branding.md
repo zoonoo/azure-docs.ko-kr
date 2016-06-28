@@ -46,9 +46,7 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com와 같�
 
 > [AZURE.NOTE]
 >
-
 - 도메인 이름은 브랜딩을 구성한 Azure 클래식 포털의 **Active Directory** > **디렉터리** > **도메인** 섹션에 “활성”으로 나타나야 합니다.
-
 - 로그인 페이지 브랜딩은 Microsoft의 소비자 로그인 페이지에 적용되지 않습니다. 개인 Microsoft 계정으로 로그인한 사용자는 Azure AD에서 렌더링하는 브랜드가 지정된 사용자 타일 목록을 볼 수 있지만 조직의 브랜딩이 Microsoft 계정 로그인 페이지에 적용되지는 않습니다.
 
 
@@ -221,4 +219,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

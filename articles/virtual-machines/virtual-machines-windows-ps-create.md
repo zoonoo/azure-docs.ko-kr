@@ -33,34 +33,36 @@
 
 1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort Location | Select Location
         
     다음과 유사한 결과가 표시됩니다.
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. **$locName** 값을 목록의 위치로 바꿉니다. 변수를 만듭니다.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3. **$rgName** 값을 새 리소스 그룹 이름으로 바꿉니다. 변수 및 리소스 그룹을 만듭니다.
 
@@ -74,13 +76,13 @@
 1. **$stName** 값을 저장소 계정 이름으로 바꿉니다. 이름의 고유성을 테스트합니다.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    이 명령에서 **False**가 반환되면 제안한 이름은 Azure 내에서 고유합니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+    이 명령에서 **True**가 반환되면 제안한 이름은 Azure 내에서 고유합니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
     
 2. 이제 명령을 실행하여 저장소 계정을 만듭니다.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## 4단계: 가상 네트워크 만들기
 
@@ -170,4 +172,4 @@
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 - [리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
