@@ -31,7 +31,7 @@
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - 알림 또는 일회용 암호 중 하나를 선택하고 설정을 클릭합니다.
-- Azure Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 [수동으로 계정 추가](#adding-an-account-manually)를 참조하세요.
+- Azure Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 [수동으로 계정 추가](## 수동으로-계정-추가)를 참조하세요.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
