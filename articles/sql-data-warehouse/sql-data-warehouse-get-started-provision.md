@@ -32,7 +32,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. **+ 새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
+2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
 
     ![생성](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -44,7 +44,7 @@
 
 	- **데이터베이스 이름**: SQL 데이터 웨어하우스를 참조하는 데 사용할 이름입니다. 서버에 대해 고유해야 합니다.
 	
-    - **성능**: 400 DWU로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 설명서의 [확장](./sql-data-warehouse-manage-compute-overview.md) 또는 [가격 페이지](https://azure.microsoft.com/ko-KR/pricing/details/sql-data-warehouse/)를 참조하세요.
+    - **성능**: 400 DWU로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 설명서의 [확장](./sql-data-warehouse-manage-compute-overview.md) 또는 [가격 페이지](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)를 참조하세요.
 
     - **구독**: SQL 데이터 웨어하우스가 청구될 구독을 선택합니다.
 
