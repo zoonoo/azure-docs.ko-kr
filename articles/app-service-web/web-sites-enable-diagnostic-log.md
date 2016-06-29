@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="06/06/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
@@ -270,4 +270,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -23,7 +23,8 @@
 
 이 문서는 **모니터링 및 관리 앱**을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하며, 오류에 대한 알림을 받도록 경고를 만드는 방법을 설명합니다. 모니터링 및 관리 앱에 대해 자세히 알아보려면 다음 동영상을 시청하세요.
    
-> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
+
+> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
 ## 모니터링 및 관리 앱 시작
 모니터 및 관리 앱을 시작하려면 데이터 팩터리에 대한 **데이터 팩터리** 블레이드에서 **모니터링 및 관리** 타일을 클릭합니다.
@@ -313,4 +314,4 @@
     
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

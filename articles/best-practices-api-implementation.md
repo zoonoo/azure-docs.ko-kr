@@ -640,7 +640,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	```HTTP
 	PUT http://adventure-works.com/orders/1 HTTP/1.1
-	If-None-Match: "2282343857"
+	If-Match: "2282343857"
 	Content-Type: application/x-www-form-urlencoded
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
@@ -958,7 +958,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	알림을 구현하려는 경우 가능한 옵션은 다음과 같습니다.
 
-	- Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 대한 비동기 응답을 푸시합니다. Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md)(Azure 알림 허브 사용자에게 알림) 페이지에 자세한 내용이 제공되어 있습니다.
+	- Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 대한 비동기 응답을 푸시합니다. Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md)(Azure 알림 허브 사용자에게 알림) 페이지에 자세한 내용이 제공되어 있습니다.
 
 	- Comet 모델을 사용하여 클라이언트와 Web API를 호스팅하는 서버 사이의 영구적인 네트워크 연결을 유지하고, 이 연결을 사용하여 서버의 메시지를 클라이언트로 푸시합니다. MSDN Magazine [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx)(Microsoft .NET Framework에서 간단한 Comet 응용 프로그램 빌드) 문서에 예제 솔루션 설명이 있습니다.
 
@@ -1143,7 +1143,7 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - ASP.NET Web API를 통한 HTTP 예외 처리에 대한 자세한 정보를 보려면 Microsoft 웹 사이트의 [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling)(ASP.NET Web API에서 예외 처리) 페이지를 방문하세요.
 - Microsoft 웹 사이트의 [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling)(Web API 전역 오류 처리) 문서는 Web API에 대한 전역 오류 처리 및 로깅 전략을 구현하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [WebJob을 사용하여 백그라운드 작업 실행](../articles/app-service-web/web-sites-create-web-jobs.md) 페이지는 Azure 웹 사이트에서 백그라운드 작업을 수행하기 위해 WebJob을 사용하는 것에 대한 정보와 예제를 제공합니다.
-- Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)(Azure 알림 허브 사용자 알림) 페이지는 Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 비동기 응답을 푸시하는 방법을 보여줍니다.
+- Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md)(Azure 알림 허브 사용자 알림) 페이지는 Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 비동기 응답을 푸시하는 방법을 보여줍니다.
 - Microsoft 웹 사이트의 [API 관리](https://azure.microsoft.com/services/api-management/) 페이지는 Web API에 제어 및 보안 액세스를 제공하는 제품을 게시하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)(Azure API 관리 REST API 참조) 페이지는 API 관리 REST API를 사용하여 사용자 지정 관리 응용 프로그램을 빌드하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [트래픽 관리자 라우팅 메서드](../articles/traffic-manager/traffic-manager-routing-methods.md) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
@@ -1151,4 +1151,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

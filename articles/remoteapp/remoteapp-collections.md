@@ -57,7 +57,7 @@ Azure RemoteApp 컬렉션을 최대한 활용하는 데 필요한 여러 가지 
 Azure RemoteApp은 Microsoft 계정과 Azure Active Directory 계정을 모두 지원하지만 일부 컬렉션은 일부 방법을 지원하지 않을 수 있습니다.
 
 | 계정 유형 | | 클라우드 | 클라우드 + VNET | 하이브리드 |
-|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
 | Microsoft 계정 | | 예 | 예 | 아니요 |
 | Azure AD(Azure Active Directory) | | | | |
 | | Azure AD만 | 예 | 예 | 아니요 |
@@ -91,4 +91,4 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 
 [클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

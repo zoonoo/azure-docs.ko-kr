@@ -566,4 +566,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

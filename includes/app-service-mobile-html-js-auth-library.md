@@ -58,11 +58,13 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ###<a name="auth-getinfo"></a>방법: 인증된 사용자에 대한 정보 얻기
 
-모든 AJAX 메서드를 사용하여 현재 사용자에 대한 인증 정보를 `/.auth/me` 끝점에서 검색할 수 있습니다. 예를 들어, fetch API를 사용하려면 다음과 같이 합니다.
+모든 AJAX 메서드를 사용하여 현재 사용자에 대한 인증 정보를 `/.auth/me` 끝점에서 검색할 수 있습니다. `X-ZUMO-AUTH` 헤더를 인증 토큰으로 설정했는지 확인합니다. 인증 토큰은 `client.currentUser.mobileServiceAuthenticationToken`에 저장되어 있습니다. 예를 들어, fetch API를 사용하려면 다음과 같이 합니다.
 
 ```
 var url = client.applicationUrl + '/.auth/me';
-fetch(url)
+var headers = new Headers();
+headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
+fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
@@ -70,6 +72,6 @@ fetch(url)
     });
 ```
 
-또한 jQuery 또는 AJAX API를 사용하여 정보를 가져올 수도 있습니다. 데이터는 JSON 개체로 수신됩니다.
+fetch는 npm 패키지로 제공되거나 CDNJS에서 브라우저 다운로드할 수 있습니다. 또한 jQuery 또는 AJAX API를 사용하여 정보를 가져올 수도 있습니다. 데이터는 JSON 개체로 수신됩니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

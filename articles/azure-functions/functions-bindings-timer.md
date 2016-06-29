@@ -26,14 +26,13 @@
 
 ## 타이머 트리거에 대한 function.json
 
-*function.json* 파일은 함수를 즉시 트리거해야 하는지 여부를 나타내는 일정 식 및 스위치를 제공합니다.
+*function.json* 파일은 예약 식을 제공합니다.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -54,15 +53,13 @@
 5분마다 한 번씩 트리거하려면:
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-즉시 트리거한 다음 이후 두 시간마다 트리거하려면:
+2시간마다 한 번씩 트리거하려면:
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
 ```
 
 ## 타이머 트리거 C# 코드 예제
@@ -80,4 +77,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

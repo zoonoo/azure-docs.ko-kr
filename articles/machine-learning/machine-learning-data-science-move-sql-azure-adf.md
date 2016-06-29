@@ -53,7 +53,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 * **Azure SQL 데이터베이스**에 대한 액세스. Azure SQL 데이터베이스를 설정해야 하는 경우, [Microsoft Azure SQL 데이터베이스 시작](../sql-database/sql-database-get-started.md)에서 Azure SQL 데이터베이스의 새 인스턴스를 프로비전하는 방법에 대한 정보를 제공합니다.
 * 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](../powershell-install-configure.md)을 참조하세요.
 
-> [AZURE.NOTE] 이 절차에서는 [Azure 포털](https://ms.portal.azure.com/)을 사용합니다.
+> [AZURE.NOTE] 이 절차에서는 [Azure 포털](https://portal.azure.com/)을 사용합니다.
 
 
 ##<a name="upload-data"></a>온-프레미스 SQL Server에 데이터 업로드
@@ -66,7 +66,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 ##<a name="create-adf"></a>Azure 데이터 팩터리 만들기
 
-[Azure 포털](https://ms.portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
+[Azure 포털](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 
 ## 데이터 관리 게이트웨이 설치 및 구성
@@ -310,4 +310,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

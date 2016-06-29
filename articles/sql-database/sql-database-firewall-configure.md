@@ -1,5 +1,5 @@
 <properties
-   pageTitle="SQL 데이터베이스 방화벽 구성 | Microsoft Azure"
+   pageTitle="SQL 서버 방화벽 구성 개요 | Microsoft Azure"
    description="서버 수준 및 데이터베이스 수준 방화벽 규칙으로 SQL 데이터베이스 방화벽을 구성하여 액세스를 관리하는 방법에 대해 알아봅니다."
    keywords="데이터베이스 방화벽"
    services="sql-database"
@@ -15,28 +15,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/10/2016"
    ms.author="rickbyh"/>
 
-# Azure SQL 데이터베이스 방화벽을 구성하는 방법
-
-Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해, SQL 데이터베이스 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 SQL 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
-
-데이터베이스 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다.
-
-- **서버 수준 방화벽 규칙:** 이 규칙은 모든 Azure SQL 데이터베이스 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 **master** 데이터베이스에 저장됩니다.
-- **데이터베이스 수준 방화벽 규칙:** 이 규칙은 Azure SQL 데이터베이스 서버 내의 개별 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 데이터베이스 마다 생성되며 개별 데이터베이스에 저장됩니다(**master** 포함). 이 규칙은 동일 논리 서버 내의 특정(보안) 데이터베이스에 액세스를 제한할 때 유용합니다.
-
-**권장사항:** Microsoft는 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 동일한 액세스를 요구하는 데이터베이스가 많을 때, 서버 수준 방화벽을 사용하면 각 데이터베이스 개별적으로 구성할 필요가 없습니다.
+# Azure SQL 서버 방화벽을 구성하는 방법 - 개요
 
 
-## SQL 데이터베이스 방화벽 개요
+> [AZURE.SELECTOR]
+- [개요](sql-database-firewall-configure.md)
+- [Azure 포털](sql-database-configure-firewall-settings.md)
+- [TSQL](sql-database-configure-firewall-settings-tsql.md)
+- [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [REST API](sql-database-configure-firewall-settings-rest.md)
 
-먼저, Azure SQL 데이터베이스 서버로의 모든 액세스는 방화벽에 의해 차단됩니다. Azure SQL 데이터베이스 서버를 사용하려면 Azure 포털로 가서 Azure SQL 데이터베이스 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 데이터베이스 서버의 연결 시도 가능 여부를 지정할 수 있습니다.
 
-그러나, Azure SQL 데이터베이스 서버에 있는 단 하나의 데이터베이스에 선택적으로 권한을 부여하고자 하는 경우, 서버 수준 방화벽 규칙의 지정된 IP 주소 범위를 초과하는 IP 주소의 데이터베이스에 대한 데이터베이스 수준 규칙을 생성해야 하고, 사용자의 IP 주소가 데이터베이스 수준 규칙 내의 지정된 범위에 있는지 확인해 야합니다.
+Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 
-아래의 다이어그램이 보여주는 것처럼 인터넷 및 Azure에서 연결 시도는 Azure SQL Database 서버 또는 데이터베이스에 연결되기 전에 처음에 방화벽을 통과해야 합니다.
+방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다.
+
+- **서버 수준 방화벽 규칙:** 이 규칙은 모든 Azure SQL 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 **master** 데이터베이스에 저장됩니다. 포털 또는 Transact-SQL 문을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다.
+- **데이터베이스 수준 방화벽 규칙:** 이 규칙은 Azure SQL 데이터베이스 서버 내의 개별 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 데이터베이스 마다 생성되며 개별 데이터베이스에 저장됩니다(**master** 포함). 이 규칙은 동일 논리 서버 내의 특정(보안) 데이터베이스에 액세스를 제한할 때 유용합니다. Transact-SQL 문을 사용해야만 데이터베이스 수준 방화벽 규칙을 구성할 수 있습니다.
+
+**권장 사항:** Microsoft는 보안을 강화하고 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 관리자의 경우 서버 수준 방화벽 규칙을 사용하면 동일한 액세스를 요구하는 데이터베이스가 많을 때 각 데이터베이스를 개별적으로 구성할 필요가 없습니다.
+
+
+## 방화벽 개요
+
+먼저, Azure SQL 서버에 대한 모든 Transact-SQL 액세스는 방화벽에 의해 차단됩니다. Azure SQL 서버를 사용하려면 Azure 포털로 가서 Azure SQL 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 서버의 연결 시도 가능 여부를 지정할 수 있습니다.
+
+그러나, Azure SQL 서버에 있는 단 하나의 데이터베이스에 선택적으로 권한을 부여하고자 하는 경우, 서버 수준 방화벽 규칙의 지정된 IP 주소 범위를 초과하는 IP 주소의 데이터베이스에 대한 데이터베이스 수준 규칙을 생성해야 하고, 사용자의 IP 주소가 데이터베이스 수준 규칙 내의 지정된 범위에 있는지 확인해야 합니다.
+
+아래의 다이어그램이 보여주는 것처럼 인터넷 및 Azure에서 연결 시도는 Azure SQL 서버 또는 SQL 데이터베이스에 연결되기 전에 먼저 방화벽을 통과해야 합니다.
 
    ![방화벽 구성을 설명하는 다이어그램입니다.][1]
 
@@ -65,7 +74,7 @@ Azure에서 두 가지 방법으로 연결을 설정할 수 있습니다.
 
 ## 첫 번째 서버 수준 방화벽 규칙 만들기
 
-첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방화벽 설정 구성: 방법(Azure SQL Database)](sql-database-configure-firewall-settings.md)을 참조하세요.
+첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 서버 방화벽 설정](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## 데이터베이스 수준 방화벽 규칙 만들기.
 
@@ -128,11 +137,11 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 
 ## 참고 항목
 
-[방법: 데이터베이스 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)
+[방법: Azure 포털을 사용하여 Azure SQL 서버 방화벽 구성](sql-database-configure-firewall-settings.md)
 
 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

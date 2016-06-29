@@ -42,7 +42,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 
 - Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)에서 무료 평가판을 등록할 수 있습니다.
 
-- Azure 포털에서 데이터 과학 가상 컴퓨터를 프로비전하는 방법에 대한 지침은 [가상 컴퓨터 만들기](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 확인할 수 있습니다.
+- Azure 포털에서 데이터 과학 가상 컴퓨터를 프로비전하는 방법에 대한 지침은 [가상 컴퓨터 만들기](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 확인할 수 있습니다.
 
 ## 1\. Microsoft R 서버 또는 Python을 사용하여 데이터 탐색 및 모델 개발
 
@@ -404,7 +404,7 @@ Azure Data Lake 저장소는 빅 데이터 분석 작업에 대한 대규모 리
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob 저장소의 데이터를 참조할 때에는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때에는 **swbhdfs://**를 사용합니다.
+Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob 저장소의 데이터를 참조할 때에는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때에는 **swbhdfs://** 를 사용합니다.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -910,4 +910,4 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 ## 요약
 이는 Microsoft 데이터 과학 가상 컴퓨터에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 문제 해결
@@ -116,7 +116,7 @@ SQL 데이터 웨어하우스 솔루션을 최적화하는 방법에 대한 자�
 [쿼리 모니터링 방법 알아보기]: ./sql-data-warehouse-manage-monitor.md
 [SQL 데이터 웨어하우스의 통계 관리]: ./sql-data-warehouse-develop-statistics.md
 [프로비전 지침]: ./sql-data-warehouse-get-started-provision.md
-[클라이언트 IP에 대한 서버 방화벽 액세스 구성]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[클라이언트 IP에 대한 서버 방화벽 액세스 구성]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 또는 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 [통계]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ SQL 데이터 웨어하우스 솔루션을 최적화하는 방법에 대한 자�
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

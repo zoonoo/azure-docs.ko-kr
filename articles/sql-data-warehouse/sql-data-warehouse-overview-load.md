@@ -35,6 +35,7 @@ SQL 데이터 웨어하우스로 데이터를 가져오는 가장 빠른 방법�
 2. Azure Blob 저장소로 데이터를 이동하고 텍스트 파일에 저장합니다.
 3. SQL 데이터 웨어하우스의 외부 개체를 데이터의 위치 및 형식을 정의하도록 구성합니다.
 4. 새 데이터베이스 테이블에 병렬로 데이터를 로드하기 위해 T-SQL 명령을 실행합니다.
+
 <!-- 5. Schedule and run a loading job. --> 
 
 자습서의 경우 [Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(PolyBase)][]를 참조하세요.
@@ -133,4 +134,4 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 <!--Other Web references-->
 [가져오기/내보내기]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

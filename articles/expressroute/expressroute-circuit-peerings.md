@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/21/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 회로 및 라우팅 도메인
@@ -61,6 +61,8 @@ Azure 저장소, SQL 데이터베이스 및 웹사이트와 같은 서비스는 
  
 ### Microsoft 피어링
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: Office 365 서비스)에 대해 연결됩니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 모든 정의된 규칙을 따라야 합니다. 자세한 내용은 [Express 경로 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.
 
 지원 서비스, 비용 및 구성 세부 정보에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md)를 참조하세요. Microsoft 피어링이 지원하는 연결 공급자의 목록에 대한 정보는 [Express 경로 위치](expressroute-locations.md) 페이지를 참조하세요.
@@ -90,4 +92,4 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 	- [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

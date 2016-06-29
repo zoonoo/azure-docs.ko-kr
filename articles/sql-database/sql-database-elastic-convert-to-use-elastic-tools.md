@@ -173,7 +173,13 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](sql-database-elastic-scale-get-started.md)를 참조하세요.
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## 추가 리소스
+
+다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+
+## 질문 및 기능 요청
+
+의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
@@ -181,4 +187,4 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

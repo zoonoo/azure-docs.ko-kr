@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/15/2016"
 	ms.author="cynthn"/>
 
 #Azure에서 Linux 가상 컴퓨터 정보
@@ -38,4 +38,4 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 이 자습서는 가상 컴퓨터를 신속하게 만들 수 있도록 안내하기 위해 가상 컴퓨터를 만들 때 사용할 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크 요약은 [Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 
 # 여러 개의 게스트 실행 파일 배포
@@ -66,6 +66,8 @@
 - **/exe**: 서비스 패브릭이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
 - **/ma**: 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다. `/ma:'bin/www'`는 `bin/ma`를 node.exe 인수로 사용하도록 패키징 도구에 지시합니다.
 - **/AppType**: 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다.
+
+>[AZURE.NOTE] 또한 Visual Studio를 사용하여 응용 프로그램 프로젝트의 일환으로 응용 프로그램 패키지를 생성할 수 있습니다. Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 응용 프로그램 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다.
 
 /target 매개 변수에서 지정한 디렉터리로 이동하면 다음과 같이 도구가 완벽하게 작동하는 서비스 패브릭 패키지를 만든 것을 볼 수 있습니다.
 
@@ -135,6 +137,8 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 
 서비스 패브릭 응용 프로그램 패키지에 MongoDB를 추가하려면 /target 매개 변수가 응용 프로그램 매니페스트와 Node.js 응용 프로그램이 이미 포함된 디렉터리를 가리켜야 합니다. 또한 동일한 ApplicationType 이름을 사용해야 합니다.
 
+>[AZURE.NOTE] 또한 Visual Studio를 사용하여 응용 프로그램 프로젝트의 일환으로 응용 프로그램 패키지를 생성할 수 있습니다. Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 응용 프로그램 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다.
+
 해당 디렉터리로 이동하여 도구가 만든 항목을 확인합니다.
 
 ```
@@ -190,6 +194,8 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
+>[AZURE.NOTE] Visual Studio를 사용하면 디버깅(F5) 또는 게시 마법사를 사용하여 응용 프로그램을 로컬로 게시할 수 있습니다.
+
 응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000)에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
 
 이 자습서에서는 간편하게 두 기존 응용 프로그램을 하나의 서버 패브릭 응용 프로그램으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
@@ -198,4 +204,4 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 - [게스트 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

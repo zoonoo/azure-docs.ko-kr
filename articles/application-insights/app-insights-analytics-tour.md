@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights의 Analytics 둘러보기" 
+	pageTitle="Application Insights 내 Analytics 둘러보기 | Microsoft Azure" 
 	description="Application Insights의 강력한 검색 도구인 Analytics의 모든 주요 쿼리에 대한 간단한 샘플" 
 	services="application-insights" 
     documentationCenter=""
@@ -22,8 +22,6 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 시작하기 위해 몇 가지 기본적인 쿼리를 연습해 보겠습니다.
 
@@ -58,7 +56,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## [Top](app-insights-analytics-reference.md#top-operator) 및 [sort](app-insights-analytics-reference.md#sort-operator)
 
-`take`는 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)를 사용합니다.
+`take`은(는) 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을(를) 사용합니다.
 
 특정 열을 기준으로 순서가 정해진 처음 n 행 표시:
 
@@ -67,26 +65,26 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 	requests | top 10 by timestamp desc 
 ```
 
-* *구문:* 대부분의 연산자에는 `by`와 같은 키워드 매개 변수가 있습니다.
-* `desc`는 내림차순을 의미하고 `asc`는 오름차순을 의미합니다.
+* *구문:* 대부분의 연산자에는 `by`와(과) 같은 키워드 매개 변수가 있습니다.
+* `desc`은(는) 내림차순을 의미하고 `asc`은(는) 오름차순을 의미합니다.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...`을 사용하면 `sort ... | take...`를 보다 효율적으로 설명할 수 있습니다. 다음과 같이 작성했을 수도 있음:
+`top...`을(를) 사용하면 `sort ... | take...`을(를) 보다 효율적으로 설명할 수 있습니다. 다음과 같이 작성했을 수도 있음:
 
 ```AIQL
 
 	requests | sort by timestamp desc | take 10
 ```
 
-결과는 같지만 조금 더 느리게 실행될 수 있습니다. `sort`의 별칭인 `order`를 작성할 수도 있습니다.
+결과는 같지만 조금 더 느리게 실행될 수 있습니다. `sort`의 별칭인 `order`을(를) 작성할 수도 있습니다.
 
-테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
+테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을(를) 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
 
 
 ## [Project](app-insights-analytics-reference.md#project-operator): 열 선택, 이름 바꾸기 및 계산
 
-원하는 열만 선택하려면 [`project`](app-insights-analytics-reference.md#project-operator)를 사용합니다.
+원하는 열만 선택하려면 [`project`](app-insights-analytics-reference.md#project-operator)을(를) 사용합니다.
 
 ```AIQL
 
@@ -112,10 +110,10 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* [열 이름](app-insights-analytics-reference.md#names)은 `['...']` 또는 `["..."]`와 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
-* `%`는 일반적인 모듈로 연산자입니다. 
-* `1d`(한 자릿수, 'd' 한 개)는 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
-* `floor`(별칭 `bin`)는 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`는 시간을 가장 가까운 초로 반올림합니다.
+* [열 이름](app-insights-analytics-reference.md#names)은(는) `['...']` 또는 `["..."]`와(과) 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
+* `%`은(는) 일반적인 모듈로 연산자입니다. 
+* `1d`(한 자릿수, 'd' 한 개)은(는) 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
+* `floor`(별칭 `bin`)은(는) 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`은(는) 시간을 가장 가까운 초로 반올림합니다.
 
 [식](app-insights-analytics-reference.md#scalars)은 `+`, `-` 등 모든 일반적인 연산자를 포함할 수 있으며, 특정 범위의 함수를 식에 사용할 수 있습니다.
 
@@ -123,7 +121,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## [확장](app-insights-analytics-reference.md#extend-operator): 열 계산
 
-기존 열에 열을 추가하기만 하려면 [`extend`](app-insights-analytics-reference.md#extend-operator)를 사용합니다.
+기존 열에 열을 추가하기만 하려면 [`extend`](app-insights-analytics-reference.md#extend-operator)을(를) 사용합니다.
 
 ```AIQL
 
@@ -132,7 +130,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-기존 열을 모두 유지하려는 경우 [`extend`](app-insights-analytics-reference.md#extend-operator)를 사용하면 [`project`](app-insights-analytics-reference.md#project-operator)에 비해 대략적인 정보가 표시됩니다.
+기존 열을 모두 유지하려는 경우 [`extend`](app-insights-analytics-reference.md#extend-operator)을(를) 사용하면 [`project`](app-insights-analytics-reference.md#project-operator)에 비해 대략적인 정보가 표시됩니다.
 
 
 ## 중첩된 개체에 액세스
@@ -175,12 +173,12 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ``` 
 
-> [AZURE.NOTE] [메트릭 탐색기](app-insights-metrics-explorer.md)에서 원격 분석의 모든 형식에 연결된 모든 사용자 지정 측정값은 `TrackMetric()`를 사용하여 전송되는 메트릭과 함께 메트릭 블레이드에 표시됩니다. 하지만 분석에서 사용자 지정 측정은 수행된 유형의 원격 분석에 연결되고 메트릭은 해당 `metrics` 스트림에 표시됩니다.
+> [AZURE.NOTE] [메트릭 탐색기](app-insights-metrics-explorer.md)에서 원격 분석의 모든 형식에 연결된 모든 사용자 지정 측정값은 `TrackMetric()`을(를) 사용하여 전송되는 메트릭과 함께 메트릭 블레이드에 표시됩니다. 하지만 분석에서 사용자 지정 측정은 수행된 형식의 원격 분석에 연결되고 메트릭은 해당 `metrics` 스트림에 표시됩니다.
 
 
 ## [요약](app-insights-analytics-reference.md#summarize-operator): 행 그룹 집계
 
-`Summarize`는 행 그룹에서 지정된 *집계 함수*를 적용합니다.
+`Summarize`은(는) 행 그룹에서 지정된 *집계 함수*를 적용합니다.
 
 예를 들어 웹앱이 요청에 응답하는 데 걸리는 시간은 `duration` 필드에 보고됩니다. 모든 요청에 대한 평균 응답 시간을 살펴보겠습니다.
 
@@ -191,20 +189,20 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`는 스트림의 데이터 요소를 `by` 절에서 동일하게 평가하는 그룹으로 수집합니다. `by` 식의 각 값(예: 위 예제의 경우 각 작업 이름)은 결과 테이블의 행이 됩니다.
+`Summarize`은(는) 스트림의 데이터 요소를 `by` 절에서 동일하게 평가하는 그룹으로 수집합니다. `by` 식의 각 값(예: 위 예제의 경우 각 작업 이름)은 결과 테이블의 행이 됩니다.
 
 또는 하루 중 시간으로 결과를 그룹화할 수 있습니다.
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-`bin` 함수(즉, `floor`)를 사용하는 방법을 알아보겠습니다. `by timestamp`을 사용하면 모든 입력 행이 고유한 작은 그룹이 됩니다. 시간 또는 숫자와 같은 모든 연속적인 스칼라의 경우 연속되는 범위를 관리 가능한 개수의 불연속 값으로 나누어야 하며, 그러려면 `floor`, 즉 실제로 친숙한 내림 함수인 `bin` 함수를 사용하는 것이 가장 간편합니다.
+`bin` 함수(즉, `floor`)를 사용하는 방법을 알아보겠습니다. `by timestamp`을(를) 사용하면 모든 입력 행이 고유한 작은 그룹이 됩니다. 시간 또는 숫자와 같은 모든 연속적인 스칼라의 경우 연속되는 범위를 관리 가능한 개수의 불연속 값으로 나누어야 하며, 그러려면 `floor`, 즉 실제로 친숙한 내림 함수인 `bin` 함수를 사용하는 것이 가장 간편합니다.
 
 동일한 기술을 사용하여 문자열의 범위를 줄일 수 있습니다.
 
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-`name=`을 사용하여 집계 식 또는 by 절에서 결과 열의 이름을 설정할 수 있습니다.
+`name=`을(를) 사용하여 집계 식 또는 by 절에서 결과 열의 이름을 설정할 수 있습니다.
 
 ## 샘플링된 데이터 수 계산
 
@@ -281,7 +279,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode`는 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts)해야 합니다.
+`responseCode`은(는) 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts)해야 합니다.
 
 서로 다른 응답 요약:
 
@@ -451,7 +449,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ```
 
 
-조인을 수행하기 전에 `project`를 사용하여 필요한 열만 선택하는 것이 좋습니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
+조인을 수행하기 전에 `project`을(를) 사용하여 필요한 열만 선택하는 것이 좋습니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
 
 
 
@@ -474,4 +472,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

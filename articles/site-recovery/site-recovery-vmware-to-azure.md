@@ -724,7 +724,9 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 - SSH 포트(기본적으로 TCP 포트 22)로 들어오는 연결을 허용하려면 공용 끝점을 만들어야 합니다.
 - VPN 연결(Express 경로 또는 사이트 간 VPN)을 통해 VM에 액세스하는 경우 클라이언트를 사용하여 SSH를 통해 VM에 직접 연결할 수 있습니다.
 
+**장애 조치 후에 Azure Windows/Linux VM에서**:
 
+네트워크 보안 그룹이 컴퓨터가 속한 가상 컴퓨터 및 서브넷과 연결된 경우 네트워크 보안 그룹에 HTTP/HTTPS를 허용하는 아웃바운드 규칙이 있는지 확인합니다. 또한 가상 컴퓨터를 장애 조치한 네트워크의 DNS가 올바르게 구성되어 있는지 확인합니다. 그렇지 않으면 장애 조치는 'PreFailoverWorkflow 작업 WaitForScriptExecutionTask 시간이 초과되었습니다.' 오류로 인해 시간이 초과되었습니다. 자세히 이해하려면 [모니터링 및 문제 해결 가이드](site-recovery-monitoring-and-troubleshooting.md#recovery)에서 복구에 대한 섹션을 참조합니다.
 
 ## 테스트 장애 조치(Failover) 실행
 
@@ -807,7 +809,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 ## VMware 계정 권한
 
-프로세스 서버는 vCenter Server에서 VM을 자동으로 검색할 수 있습니다. 자동 검색을 수행하려면 Site Recovery에서 vCenter Server에 액세스할 수 있도록 [역할(Azure\_Site\_Recovery)을 정의](#prepare-an-account-for-automatic-discovery)해야 합니다. VMware 컴퓨터를 Azure로 마이그레이션해야 하고 Azure에서 장애 복구(failback)가 필요하지 않은 경우 읽기 전용 역할을 정의하는 것만으로도 충분합니다. 필요한 역할 권한이 다음 표에 요약되어 있습니다.
+프로세스 서버는 vCenter Server에서 VM을 자동으로 검색할 수 있습니다. 자동 검색을 수행하려면 Site Recovery에서 VMware Server에 액세스할 수 있도록 [역할(Azure\_Site\_Recovery)을 정의](#prepare-an-account-for-automatic-discovery)해야 합니다. VMware 컴퓨터를 Azure로 마이그레이션해야 하고 Azure에서 장애 복구(failback)가 필요하지 않은 경우 읽기 전용 역할을 정의하는 것만으로도 충분합니다. 필요한 역할 권한이 다음 표에 요약되어 있습니다.
 
 **역할** | **세부 정보** | **권한**
 --- | --- | ---
@@ -831,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

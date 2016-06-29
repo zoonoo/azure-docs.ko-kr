@@ -24,7 +24,7 @@
 
 ##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터를 구성하려면
 
-1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2.	**가상 컴퓨터**를 클릭합니다.
 
@@ -101,7 +101,7 @@
 
 10.	가상 컴퓨터의 끝점 만들기:
 
-	1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+	1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 	2.	**찾아보기**를 클릭합니다.
 
@@ -145,7 +145,7 @@
 
 	8.	규칙 이름 및 설명(선택 사항)을 지정하고 **마침**을 클릭합니다.
 
-12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 브라우저에서 `http://<<unique_domain_name>>/shoppingcart` 형식의 URL을 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<*unique\_domain\_name*>>의 값을 확인할 수 있습니다.
+12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 브라우저에서 `http://<<unique_domain_name>>/shoppingcart` 형식의 URL을 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://portal.azure.com/) 내에서 <<*unique\_domain\_name*>>의 값을 확인할 수 있습니다.
 
 
 ##추가 리소스
@@ -159,4 +159,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

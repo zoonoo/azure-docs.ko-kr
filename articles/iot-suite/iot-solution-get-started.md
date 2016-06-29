@@ -2,16 +2,16 @@
 	pageTitle="MyDriving Azure IoT 예제: 빠른 시작 | Microsoft Azure"
 	description="스트림 분석, 기계 학습, 이벤트 허브를 비롯한 Microsoft Azure를 사용하여 IoT 시스템을 설계하는 방법을 종합적으로 보여주는 앱을 시작합니다."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -170,4 +170,4 @@ MyDriving 앱 자체 내에서 기본 제공되는 HockeyApp 피드백 메커니
   [HockeyApp 포털]: https://rink.hockeyapp.org
   [GitHub에 문제점]: https://github.com/Azure-Samples/MyDriving/issues
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

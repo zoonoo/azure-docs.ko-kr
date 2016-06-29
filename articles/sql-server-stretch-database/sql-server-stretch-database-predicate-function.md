@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # 필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
@@ -567,4 +567,4 @@ Db\_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 �
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

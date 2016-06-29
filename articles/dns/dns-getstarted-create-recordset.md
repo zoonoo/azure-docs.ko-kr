@@ -145,4 +145,4 @@ Azure DNS 이름 서버에 도메인을 아직 위임하지 않은 경우 영역
 
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

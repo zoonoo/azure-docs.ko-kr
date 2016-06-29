@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # 클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동
@@ -110,4 +110,4 @@ Express 경로 회로는 클래식 및 리소스 관리자 배포 모델 간의 
 	- [라우팅 구성](expressroute-howto-routing-arm.md)
 	- [가상 네트워크를 Express 경로 회로에 연결합니다.](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

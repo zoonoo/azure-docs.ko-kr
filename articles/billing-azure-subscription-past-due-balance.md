@@ -28,13 +28,13 @@ Azure 구독의 계정 관리자이고, 정해진 기한에 결제하지 않으�
 
 전체 금액에서 미지불된 금액을 결제하면 됩니다.
 
-**시나리오 1**: 결제를 송장으로 처리한다면, 송장 밑에 나열된 장소에 결제금액을 보냅니다. 도움이 필요하면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
+**시나리오 1**: 결제를 송장으로 처리한다면, 송장 밑에 나열된 장소에 결제금액을 보냅니다. 도움이 필요하면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
 **시나리오 2**: 파일 상의 신용카드가 거부 또는 만료의 이유로 결제가 안 된다면, 다른 신용카드를 사용하거나 은행에 연락하여 문제를 해결합니다. 지불 방법을 업데이트하면 해당 지불 방법에 대한 모든 미결제 요금은 즉시 자동으로 조정됩니다. Azure에 대한 미결제 요금 뿐만 아니라 해당 카드를 사용한 다른 Microsoft 서비스도 포함됩니다.
 
 Azure에서 지불 방식 변경에 대한 지침은 [Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법](./billing-how-to-change-credit-card.md)을 참조하세요. 변경하려면 계정 관리자로 로그온해야 합니다.
 
 
-**시나리오 3**: 계정 관리자가 회사를 그만두거나 역할 변경의 이유로 고지서를 받지 못한 경우에는 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 문제를 해결할 수 있습니다.
+**시나리오 3**: 계정 관리자가 회사를 그만두거나 역할 변경의 이유로 고지서를 받지 못한 경우에는 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 문제를 해결할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

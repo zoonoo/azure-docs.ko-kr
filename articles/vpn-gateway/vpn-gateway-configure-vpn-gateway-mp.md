@@ -52,7 +52,7 @@ Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만�
 
 게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 다음 아래 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다.
 
-VPN 게이트웨이가 이미 있는 경우 라우팅 유형을 변경하려면 [VPN 게이트웨이 라우팅 유형을 변경하는 방법](#how-to-change-your-vpn-gateway-type)을 참조하세요.
+VPN 게이트웨이가 이미 있는 경우 라우팅 유형을 변경하려면 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.
 
 ## VPN 게이트웨이 만들기
 
@@ -168,4 +168,4 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

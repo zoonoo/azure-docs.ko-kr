@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [개요](sql-database-firewall-configure.md)
 - [Azure 포털](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -73,4 +74,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

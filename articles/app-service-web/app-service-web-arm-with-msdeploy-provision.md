@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="john.dehavilland"/>
 
 # MSDeploy, 사용자 지정 호스트 이름 및 SSL 인증서를 사용하여 웹앱 배포
@@ -197,4 +197,4 @@ ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
 
 이제 응용 프로그램이 배포되었고 https://www.yourcustomdomain.com을 통해 탐색할 수 있어야 합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

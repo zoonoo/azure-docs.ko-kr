@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Azure PowerShell을 사용하여 리소스에 액세스하는 Active Directory 응용 프로그램 만들기
@@ -115,7 +115,7 @@ AD 응용 프로그램에서 서비스 주체를 만들고 역할을 할당해�
 
 이 섹션에서는 인증서를 사용하여 AD 응용 프로그램을 만드는 단계를 수행합니다.
 
-1. 자체 서명된 인증서를 만듭니다.
+1. 자체 서명된 인증서를 만듭니다. Windows 10 또는 Windows Server 2016 Technical Preview 사용자라면 다음 명령을 실행합니다. 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -126,6 +126,12 @@ AD 응용 프로그램에서 서비스 주체를 만들고 역할을 할당해�
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     Windows 10 또는 Windows Server 2016 Technical Preview 사용자가 아니라면 [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) PowerShell 스크립트를 다운로드합니다. 다음 명령을 실행하여 인증서를 생성합니다.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
 
 2. 인증서에서 키 값을 검색합니다.
 
@@ -209,4 +215,4 @@ AD 응용 프로그램에서 서비스 주체를 만들고 역할을 할당해�
 - REST 인증 예제의 경우 [REST APIs용 Resource Manager SDK](resource-manager-rest-api.md)를 참조하세요.
 - 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

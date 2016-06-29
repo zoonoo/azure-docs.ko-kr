@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
 
 # 보안 아키텍처 개요
@@ -24,6 +24,6 @@
 
 - [클라우드 준비를 위한 데이터 분류](azure-security-data-classification.md)
 - [Microsoft Azure의 응용 프로그램 아키텍처](security-application-architecture-on-azure.md)
-- [Azure 보안 모범 사례 및 패턴](azure-security-best-practices-and-patterns.md)
+- [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

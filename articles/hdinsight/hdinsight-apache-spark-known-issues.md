@@ -65,15 +65,6 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 
 다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
 
-### .ipynb 형식으로 Jupyter Notebook을 다운로드할 수 없음
-
-HDInsight Spark용 Jupyter Notebook 최신 버전을 실행 중이고 Jupyter Notebook 사용자 인터페이스에서 **.ipynb** 파일로 Notebook의 복사본을 다운로드하려는 경우 내부 서버 오류가 표시됩니다.
-
-**해결 방법:**
-
-1.	.ipynb(예:.txt) 외에 다른 형식으로 Notebook을 다운로드하면 성공합니다.  
-2.	.ipynb 파일이 필요한 경우 **/HdiNotebooks**의 저장소 계정에 있는 클러스터 컨테이너에서 다운로드할 수 있습니다. 이는 저장소 계정에서 Notebook 백업을 지원하는 최신 버전의 HDInsight용 Jupyter Notebook에만 적용됩니다. 즉, 이전 버전의 HDInsight Spark용 Jupyter Notebook에는 이 문제가 없습니다.
-
 
 ### 파일 이름에 ASCII가 아닌 문자가 있는 Notebook
 
@@ -112,10 +103,6 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
     - YARN에서 다른 Spark 응용 프로그램을 중지합니다.
 
 2. 시작하려는 노트북을 다시 시작합니다. 이제 세션을 만들기 위한 충분한 리소스를 사용할 수 있습니다.
-
-### 검사점으로 되돌리기가 실패할 수 있음
-
-이전 버전의 Notebook으로 되돌려야 하는 경우를 대비해 Jupyter Notebook에서 검사점을 만들 수 있습니다. 그러나 Notebook의 현재 상태에 자동 시각화가 설정된 SQL 쿼리가 있는 경우 이전에 저장된 검사점으로 되돌리려고 하면 오류가 발생할 수 있습니다.
 
 ##참고 항목
 
@@ -159,4 +146,4 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

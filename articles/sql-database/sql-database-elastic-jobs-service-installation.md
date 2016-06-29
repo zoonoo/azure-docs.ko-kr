@@ -156,7 +156,7 @@
 
 **예상 완료 시간:** 10분
 
-1. [Azure 포털](https://ms.portal.azure.com/#)을 통해 탄력적 데이터베이스 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com/#)을 통해 탄력적 데이터베이스 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
 2. 처음으로 작업을 만드는 경우 **PREVIEW 약관**을 클릭하여 **탄력적 데이터베이스 작업**을 설치해야 합니다.
 3. 확인란을 클릭하여 약관에 동의합니다.
 4. "서비스 설치" 화면에서 **작업 자격 증명**을 클릭합니다.
@@ -187,4 +187,4 @@
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

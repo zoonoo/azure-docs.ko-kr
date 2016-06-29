@@ -110,7 +110,7 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 
 ## AdlCopy 사용에 대한 고려 사항
 
-* AdlCopy에서는 전체적으로 1000개보다 많은 파일 및 폴더가 있는 원본에서의 데이터 복사를 지원하지 않습니다. 대체 방법은 파일/폴더를 다른 하위 폴더에 배포하고 해당 하위 폴더에 대한 경로를 원본으로 대신 사용하는 것입니다.
+* AdlCopy(버전 1.0.4)는 모두 수천 개가 넘는 파일과 폴더가 있는 원본에서 데이터를 복사하는 작업을 지원합니다. 그러나 대량의 데이터 집합을 복사할 때 문제가 발생할 경우, 파일/폴더를 다른 하위 폴더에 배포하고 해당 하위 폴더에 대한 경로를 원본으로 대신 사용할 수 있습니다.
 
 ## 다음 단계
 
@@ -118,4 +118,4 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL 데이터 웨어하우스에서 데이터베이스 복원(포털) | Microsoft Azure"
-   description="Azure SQL 데이터 웨어하우스의 라이브 또는 삭제된 데이터베이스를 복원하기 위한 Azure 포털 작업입니다."
+   pageTitle="Azure SQL 데이터 웨어하우스 복원(포털) | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 복원을 위한 Azure 포털 작업."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,30 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Azure SQL 데이터 웨어하우스에서 데이터베이스 복원(포털)
+# Azure SQL 데이터 웨어하우스 복원(포털)
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-restore-database-overview.md)
-- [포털](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST (영문)](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [개요][]
+- [포털][]
+- [PowerShell][]
+- [REST (영문)][]
 
-Azure SQL 데이터 웨어하우스의 라이브 또는 삭제된 데이터베이스를 복원하기 위한 PowerShell 작업입니다.
-
-이 항목의 작업:
-
-- 라이브 데이터베이스 복원
-- 삭제된 데이터베이스 복원
+이 문서에서는 Azure 포털을 사용하여 Azure SQL 데이터 웨어하우스를 복원하는 방법을 배웁니다.
 
 ## 시작하기 전에
 
-SQL 데이터베이스의 DTU 용량을 확인합니다. SQL 데이터 웨어하우스는 논리적 SQL Server에 있는 새 데이터베이스로 복원하므로 복원하려는 SQL Server가 새 데이터베이스에 대해 충분한 DTU 용량을 가지고 있는지 확인해야 합니다. [DTU 할당량을 보고 늘리는 방법][]에 대한 자세한 내용은 이 블로그 게시물을 참조하세요.
+**DTU 용량을 확인합니다.** 각 SQL 데이터 웨어하우스는 SQL Server 논리 서버에 의해 호스팅됩니다. 이 논리 서버는 DTU로 측정된 용량 제한을 가집니다. SQL 데이터 웨어하우스를 복원하기 전에 데이터베이스를 호스팅하는 SQL Server 논리 서버에 복원 중인 데이터베이스에 대한 충분한 DTU 용량이 있는지 확인하십시오. [DTU 할당량을 보고 늘리는 방법][]에 대한 자세한 내용은 이 블로그 게시물을 참조하세요.
 
 
-## 라이브 데이터베이스 복원
+## 활성 또는 일시 중지된 데이터베이스 복원
 
 데이터베이스를 복원하려면
 
@@ -46,7 +41,6 @@ SQL 데이터베이스의 DTU 용량을 확인합니다. SQL 데이터 웨어하
 4. 데이터베이스 블레이드의 위쪽에서 **복원**을 클릭합니다.
 5. 새 **데이터베이스 이름**을 지정하고 **복원 지점**을 선택한 다음 **만들기**를 클릭합니다.
 6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
-
 
 ## 삭제된 데이터베이스 복원
 
@@ -62,14 +56,16 @@ SQL 데이터베이스의 DTU 용량을 확인합니다. SQL 데이터 웨어하
 
 
 ## 다음 단계
-자세한 내용은 [Azure SQL 데이터베이스 무중단 업무 방식 개요][] 및 [관리 개요][]를 참조하세요.
+Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][]를 읽으세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL 데이터베이스 무중단 업무 방식 개요]: sql-database-business-continuity.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[관리 개요]: sql-data-warehouse-overview-manage.md
+[Azure SQL 데이터베이스 무중단 업무 방식 개요]: ./sql-database-business-continuity.md
+[개요]: ./sql-data-warehouse-restore-database-overview.md
+[포털]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
@@ -79,4 +75,4 @@ SQL 데이터베이스의 DTU 용량을 확인합니다. SQL 데이터 웨어하
 <!--Other Web references-->
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
 	description="클라우드 폴더에서 콘텐츠 동기화를 통해 Azure 앱 서비스에 앱을 배포하는 방법에 대해 알아봅니다."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # 클라우드 폴더에서 Azure 앱 서비스로 콘텐츠 동기화
 
-[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하기 위한 옵션 중 하나는 Dropbox 및 OneDrive와 같은 인기 있는 클라우드 저장소 서비스에서 콘텐츠를 동기화하는 것입니다.
+이 자습서는 Dropbox 및 OneDrive와 같은 인기 있는 클라우드 저장소 서비스에서 콘텐츠를 동기화하여 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 배포하는 방법을 보여줍니다.
 
 ## <a name="overview"></a>콘텐츠 동기화 배포 개요
 
@@ -27,7 +27,7 @@
 ## <a name="contentsync"></a>콘텐츠 동기화 배포를 사용하는 방법
 [Azure 포털](https://portal.azure.com)에서 콘텐츠 동기화를 사용하려면 다음 단계를 따릅니다.
 
-1. Azure 포털의 앱 블레이드에서 **설정 ** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
+1. Azure 포털의 앱 블레이드에서 **설정** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
 
     ![콘텐츠 동기화](./media/app-service-deploy-content-sync/deployment_source.png)
 
@@ -41,4 +41,4 @@
  
 Dropbox 배포에 대한 자세한 내용은 [Dropbox에서 배포](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx)에서 제공됩니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

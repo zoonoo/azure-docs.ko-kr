@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/14/2016"
 	ms.author="aelnably"/>
 
 # Azure Resource Manager 기반 PowerShell을 사용하여 Azure 웹앱 관리#
@@ -42,11 +42,22 @@ Microsoft Azure PowerShell 버전 1.0.0이 릴리스되면서 사용자에게 Az
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### 앱 서비스 환경에서 앱 서비스 계획 만들기 ###
+앱 서비스 환경(ASE)에서 새 앱 서비스 계획을 만들려면 ASE가 속하는 ASE 이름과 리소스 그룹 이름을 지정하는 데 추가 매개 변수로 동일한 **New-AzureRmAppServicePlan** 명령을 사용할 수 있습니다.
+
+이 cmdlet을 사용하는 예제:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+앱 서비스 환경에 대해 자세히 알아보려면 [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)를 참조하세요.
+
 ### 기존 앱 서비스 계획 나열 ###
 
 기존 앱 서비스 계획을 나열하려면 **Get-AzureRmAppServicePlan** cmdlet을 사용합니다.
 
-구독에서 모든 앱 서비스 계획을 나열하려면 **Get-AzureRmAppServicePlan**을 사용합니다.
+구독에서 모든 앱 서비스 계획을 목록화하려면 다음을 사용합니다.
+
+    Get-AzureRmAppServicePlan
 
 특정 리소스 그룹에서 모든 앱 서비스 계획을 나열하려면 다음을 사용합니다.
 
@@ -59,7 +70,7 @@ Microsoft Azure PowerShell 버전 1.0.0이 릴리스되면서 사용자에게 Az
 
 ### 기존 앱 서비스 계획 구성 ###
 
-기존 앱 서비스 계획에 대한 설정을 변경하려면 **Set-AzureRmAppServicePlan** cmdlet을 사용합니다. 계층, 작업자 크기 및 작업자의 수를 변경할 수 있습니다.
+기존 앱 서비스 계획의 설정을 변경하려면 **Set-AzureRmAppServicePlan** cmdlet를 사용합니다. 계층, 작업자 크기 및 작업자의 수를 변경할 수 있습니다.
 
     Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Tier Standard -WorkerSize Medium -NumberofWorkers 9
 
@@ -204,4 +215,4 @@ FTP에 대한 게시 암호 및 웹앱에 대한 웹 배포를 다시 설정하�
 - PowerShell을 사용하여 앱 서비스 SSL 인증서 관리에 대해 알아보려면 [PowerShell을 사용하여 SSL 인증서 바인딩](app-service-web-app-powershell-ssl-binding.md)을 참조하세요.
 - Azure 웹앱에 대한 Azure Resource Manager 기반 PowerShell cmdlet의 전체 목록에 대해 알아보려면 [웹앱 Azure Resource Manager PowerShell Cmdlet의 전체 Cmdlet 참조](https://msdn.microsoft.com/library/mt619237.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

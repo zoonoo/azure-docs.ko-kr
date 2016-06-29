@@ -1,18 +1,11 @@
-<properties 
-   pageTitle="Azure 자동화의 변수 자산 | Microsoft Azure"
-   description="변수 자산은 Azure 자동화의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다. 이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다."
-   services="automation"
-   documentationCenter=""
-   authors="mgoedtel"
-   manager="stevenka"
-   editor="tysonn" />
-<tags 
+<properties pageTitle="Azure 자동화의 변수 자산 | Microsoft Azure" description="변수 자산은 Azure 자동화의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다. 이 문서는 변수의 세부 정보와 텍스트 및 그래픽 작성에서 변수를 사용하는 방법을 설명합니다." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<tags  
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 자동화의 변수 자산
@@ -183,9 +176,9 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 ![필터링된 복잡한 변수 가져오기](media/automation-variables/get-complex-variable-filter.png)
 
 
-## 관련된 문서
+## 다음 단계
 
-- [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
- 
+- 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 참조하세요.
+- 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)을 참조하세요. 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

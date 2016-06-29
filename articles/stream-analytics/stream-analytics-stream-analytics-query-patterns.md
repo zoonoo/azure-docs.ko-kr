@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 
@@ -432,25 +432,29 @@ Azure Stream 분석의 쿼리는 [스트림 분석 쿼리 언어 참조](https:/
 
 **출력**:
 
-| StartFault | EndFault | FaultDurationSeconds |
-| --- | --- | --- |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| StartFault | EndFault |
+| --- | --- |
+| 2015-01-01T00:00:02.000Z | 2015-01-01T00:00:07.000Z |
 
 **솔루션**:
 
 ````
-SELECT 
-    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
-    [time] [EndFault]
-FROM input
-WHERE
-    [weight] < 20000
-    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+	WITH SelectPreviousEvent AS
+	(
+	SELECT
+	*,
+		LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+		LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+	FROM input TIMESTAMP BY [time]
+	)
+
+	SELECT 
+    	LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+    	previousTime [EndFault]
+	FROM SelectPreviousEvent
+	WHERE
+    	[weight] < 20000
+	    AND previousWeight > 20000
 ````
 
 **설명**: LAG를 사용하여 24시간 동안 입력 스트림을 보고 StartFault와 StopFault가 가중치 < 20000인 인스턴스를 찾습니다.
@@ -510,4 +514,4 @@ WHERE
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

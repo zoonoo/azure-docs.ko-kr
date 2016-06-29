@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="06/14/2016"
    ms.author="nitinme"/>
 
-# Azure Data Lake 저장소와 관련된 데이터 시나리오
+# 빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
 
 빅 데이터 처리에는 네 가지 주요 단계가 있습니다.
 
@@ -24,7 +24,6 @@
 * 데이터 처리
 * 데이터 다운로드
 * 데이터 시각화
-
 
 이 문서에서는 Azure Data Lake 저장소와 관련된 네 단계를 살펴보고 빅 데이터 요구 사항을 충족하는 옵션 및 도구에 대해 알아보겠습니다.
 
@@ -81,6 +80,16 @@
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure 데이터 팩터리](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
 
+### 온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
+
+HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의 데이터를 저장할 수 있습니다. Hadoop 클러스터는 온-프레미스 배포 또는 Azure의 IaaS 클러스터에 있을 수 있습니다. 이러한 데이터를 Azure Data Lake 저장소에 일회성 또는 반복적으로 복사하는 데는 요구 사항이 있을 수 있습니다. 이 작업을 수행하는 방법은 다양한 옵션이 있습니다. 다음은 이를 대체할 수 있는 방법 목록과 관련 절충 사항입니다.
+
+| 접근 방식 | 세부 정보 | 장점 | 고려 사항 |
+|-----------|---------|--------------|-----------------|
+| Azure Data Factory(ADF)를 사용하여 Hadoop 클러스터에서 Azure Data Lake 저장소로 직접 데이터를 복사합니다. | [ADF는 데이터 원본으로 HDFS 지원](../data-factory/data-factory-hdfs-connector.md) | ADF는 HDFS에 대한 기본 지원과 일등급 종단 간 관리 및 모니터링을 제공합니다. | 온-프레미스 또는 IaaS 클러스터에 배포하려면 데이터 관리 게이트웨이가 필요합니다. |
+| Hadoop에서 데이터를 파일로 내보냅니다. 그런 다음 적절한 메커니즘을 사용하여 파일을 Azure Data Lake 저장소에 복사합니다. | Azure Data Lake 저장소에 파일을 복사하는 방법: <ul><li>[Windows OS용 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[비 Windows OS용 Azure 크로스 플랫폼 CLI](data-lake-store-get-started-cli.md)</li><li>Data Lake 저장소 SDK를 사용한 사용자 지정 앱</li></ul> | 빠르게 시작할 수 있습니다. 맞춤 업로드를 수행할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. 도구를 맞춤화할 수 있으므로 시간이 지날수록 관리와 모니터링이 어려워집니다. |
+| Distcp를 사용하여 Hadoop에서 Azure 저장소로 데이터를 복사합니다. 그런 다음 적절한 메커니즘을 사용하여 Azure 저장소에서 Data Lake 저장소로 데이터를 복사합니다. | Azure 저장소에서 Data Lake 저장소로 데이터를 복사하는 방법: <ul><li>[Azure 데이터 팩터리](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| 오픈 소스 도구를 사용할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. |
+
 ### 매우 큰 데이터 집합
 
 용량이 수 테라바이트에 달하는 데이터 집합을 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 다음 옵션을 사용할 수 있습니다.
@@ -134,4 +143,4 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 * b먼저 [Azure Data Factory를 사용하여 Data Lake 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
 * 그 후에는 [Power BI를 Azure SQL 데이터 웨어하우스와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md)하여 데이터를 시각적으로 표현할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

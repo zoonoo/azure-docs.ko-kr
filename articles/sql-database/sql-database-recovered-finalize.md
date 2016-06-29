@@ -3,8 +3,8 @@
    description="특정 시점 복원, Microsoft Azure SQL 데이터베이스, 데이터베이스 복원, 데이터베이스 복구, Azure 클래식 포털, Azure 클래식 포털"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # 복구된 Azure SQL 데이터베이스 마무리
 
@@ -29,7 +29,7 @@
   + 복구된 데이터베이스 이름으로 원본 데이터베이스와 다른 이름 사용
   + 복구된 데이터베이스가 원본 서버와 다른 서버에 존재
 
-연결 문자열 변경에 대한 자세한 내용은 [프로그래밍 방식으로 Azure SQL 데이터베이스에 연결하기 위한 지침](https://msdn.microsoft.com/library/azure/ee336282.aspx) 및 [Azure SQL 데이터베이스 연결: 핵심 권장 사항](sql-database-connect-central-recommendations.md)을 참조하세요.
+연결 문자열 변경에 대한 자세한 내용은 [프로그래밍 방식으로 Azure SQL 데이터베이스에 연결하기 위한 지침](https://msdn.microsoft.com/library/azure/ee336282.aspx) 및 [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)를 참조하세요.
  
 ## 방화벽 규칙 수정
 서버 수준 및 데이터베이스 수준에서 방화벽 규칙을 확인하고 서버 및 새로 복구된 데이터베이스와 클라이언트 컴퓨터 또는 Azure의 연결이 설정되어 있는지 확인합니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx) 및 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/azure/jj553530.aspx)를 참조하세요.
@@ -56,4 +56,4 @@
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

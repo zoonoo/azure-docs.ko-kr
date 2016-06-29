@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 만들기
@@ -32,7 +32,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. **+ 새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
+2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
 
     ![생성](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -62,10 +62,10 @@
 
 ## 다음 단계
 
-SQL 데이터 웨어하우스를 만들었으니, [연결](./sql-data-warehouse-get-started-connect.md)하여 쿼리할 준비가 되었습니다.
+SQL 데이터 웨어하우스를 만들었으니, [연결](./sql-data-warehouse-connect-overview.md)하여 쿼리할 준비가 되었습니다.
 
 SQL 데이터 웨어하우스로 데이터를 로드하는 경우 [로드 개요](./sql-data-warehouse-overview-load.md)를 참조하세요.
 
 기존 데이터베이스를 SQL 데이터 웨어하우스에 마이그레이션하려는 경우 [마이그레이션 개요](./sql-data-warehouse-overview-migrate.md)를 참조하거나 [마이그레이션 유틸리티](./sql-data-warehouse-migrate-migration-utility.md)를 사용하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -17,7 +17,7 @@
 # PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)
 
 > [AZURE.SELECTOR]
-- [Azure 클래식 포털](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure 포털](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -236,23 +236,9 @@
 
 ## 탄력적 데이터베이스 분할된 데이터베이스 맵 대상을 정의하려면
 
-분할된 데이터베이스 맵을 데이터베이스 대상으로 사용하여 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 통해 만든 분할된 데이터베이스 집합의 모든 데이터베이스에 대해 작업을 실행합니다. 이 예제에서는 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 만든 분할된 데이터베이스 응용 프로그램이 필요합니다. [탄력적 데이터베이스 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 참조하세요.
+[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 통해 만든 분할된 데이터베이스 집합의 모든 데이터베이스에 대해 작업을 실행하려면 분할된 데이터베이스 맵을 데이터베이스 대상으로 사용합니다. 이 예제에서는 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 만든 분할된 데이터베이스 응용 프로그램이 필요합니다. [탄력적 데이터베이스 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 참조하세요.
 
-###샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기
-
-이 예제에서는 여러 분할된 데이터베이스와 함께 분할된 데이터베이스 맵 관리자를 만든 후 분할된 데이터베이스에 데이터를 삽입합니다.
-
-1. **탄력적 데이터베이스 도구 시작** 샘플 응용 프로그램을 빌드하고 실행합니다. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) 섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
-
-	![명령 프롬프트][1]
-
-2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-  
-3.  [Azure 포털](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
-
-	![Visual Studio 확인][2]
-
-[**New-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/library/mt346063.aspx)을 사용하여 분할된 데이터베이스 맵 대상을 만듭니다. 분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정한 후 분할된 특정 데이터베이스 맵을 대상으로 지정해야 합니다.
+분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정한 후 분할된 특정 데이터베이스 맵을 대상으로 지정해야 합니다.
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -694,4 +680,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

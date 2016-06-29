@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -54,7 +54,7 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 
 진단 설정이 구성되면 **저장**을 클릭하여 구성을 저장합니다. 변경 사항이 적용되는 데 다소 시간이 걸릴 수 있습니다.
 
->[AZURE.IMPORTANT] 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 계정을 공유하며 구성이 변경되면 해당 지역에 있는 구독의 모든 캐시에 적용됩니다.
+>[AZURE.IMPORTANT] 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다.
 
 저장된 메트릭을 보려면 `WADMetrics`로 시작하는 이름의 테이블을 저장소 계정에서 검사합니다. Azure 포털 외부에 저장된 메트릭에 액세스하는 방법에 대한 자세한 내용은 [Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플을 참조하세요.
 
@@ -259,4 +259,4 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

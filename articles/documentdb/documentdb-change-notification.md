@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/17/2016" 
+    ms.date="06/14/2016" 
     ms.author="b-hoedid"/>
 
 # 논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림
@@ -1156,4 +1156,4 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 
 DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

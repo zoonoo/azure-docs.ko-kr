@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Linux VM을 만드는 다양한 방법 | Microsoft Azure"
-	description="Azure에 Linux 가상 컴퓨터를 만드는 다른 방법을 나열하고 추가 지침에 대한 링크를 제공합니다."
+	description="Azure에 Linux 가상 컴퓨터를 만드는 다양한 방법을 나열하고 각 방법에 대한 도구 및 자습서에 연결합니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,18 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # 리소스 관리자로 Linux 가상 컴퓨터를 만드는 다양한 방법
 
 Azure는 다른 사용자와 목적에 맞게 Resource Manager 배포 모델을 사용하여 다른 방법으로 VM을 만들 수 있습니다. 이 문서에는 이러한 차이점 및 Linux 가상 컴퓨터(VM)를 만들 때 선택할 수 있는 옵션이 요약되어 있습니다.
 
-## 도구 선택
+## Azure CLI 
 
-### 명령 셸: Azure CLI 
-
-CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테이너 또는 설치 스크립트를 통해 [Azure CLI를 설치하는 방법](../xplat-cli-install.md)에 대해 자세히 확인할 수 있습니다. 다음 자습서에서는 Azure CLI를 사용하는 방법에 대한 예제를 제공합니다.
+npm, Docker 컨테이너 또는 설치 스크립트를 통해 [Azure CLI를 설치하는 방법](../xplat-cli-install.md)에 대해 자세히 확인할 수 있습니다. 다음 자습서에서는 Azure CLI를 사용하는 방법에 대한 예제를 제공합니다.
 
 * [개발 및 테스트를 위해 Azure CLI에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md) 
 
@@ -33,7 +31,7 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 * [Azure CLI를 사용하여 Linux VM을 처음부터 새로 만들기](virtual-machines-linux-create-cli-complete.md)
 
-### GUI: Azure 포털
+## Azure 포털
 
 [Azure 포털](https://portal.azure.com)의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 사용자의 시스템에 설치할 수 있는 것이 없기 때문에 쉽게 VM을 사용해 볼 수 있는 방법입니다. Azure 포털을 사용하여 다음과 같이 VM을 만듭니다.
 
@@ -55,7 +53,7 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 * [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md)
 
-* [Linux 가상 컴퓨터를 Resource Manager 템플릿으로 캡처하는 방법](virtual-machines-linux-capture-image.md)
+* [Linux 가상 컴퓨터를 Resource Manager 템플릿으로 캡처하는 방법](virtual-machines-linux-capture-image.md).
 
 ## 다음 단계
 
@@ -65,4 +63,4 @@ CLI에서 Azure 명령줄 인터페이스를 사용합니다. npm, Docker 컨테
 
 * [암호 또는 SSH 키 다시 설정 및 사용자 관리](virtual-machines-linux-using-vmaccess-extension.md)하는 빠른 단계
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # 자습서: Azure 데이터 레이크 분석 U-SQL 언어 시작
@@ -112,7 +112,7 @@ Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. 
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-WHERE 절에는 [C# 부울 식](https://msdn.microsoft.com/library/6a71f45d.aspx)을 사용합니다. 자신의 식 및 함수에 C# 식 언어를 사용할 수 있습니다. 식 및 함수를 논리 결합(ands) 및 분리(ors)와 결합하여 더 복잡한 필터링을 수행할 수 있습니다.
+WHERE 절에는 [C# 부울 식](https://msdn.microsoft.com/library/6a71f45d.aspx)을 사용합니다. 자신의 식 및 함수에 C# 식 언어를 사용할 수 있습니다. 식 및 함수를 논리 결합(ANDs) 및 분리(ORs)와 결합하여 더 복잡한 필터링을 수행할 수 있습니다.
 
 다음 스크립트는 DateTime.Parse() 메서드와 논리 결합을 사용합니다.
 
@@ -247,7 +247,7 @@ U-SQL은 ANSI 규격 조인 구문(Rowset1 JOIN Rowset2 ON 조건자)만 지원�
 
 U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용하도록 허용합니다. 따라서 항상 파일에서 읽어오거나 파일에 쓸 필요가 없습니다.
 
-모든 U-SQL 스크립트는 기본 데이터베이스(master) 및 기본 스키마(dbo)를 기본 컨텍스트로 실행합니다 사용자 고유의 데이터베이스 및/또는 스키마를 만들 수 있습니다. 컨텍스트를 변경하려면 **USE** 문을 사용하여 컨텍스트를 변경합니다.
+모든 U-SQL 스크립트는 기본 데이터베이스(master) 및 기본 스키마(DBO)를 기본 컨텍스트로 실행합니다 사용자 고유의 데이터베이스 및/또는 스키마를 만들 수 있습니다. 컨텍스트를 변경하려면 **USE** 문을 사용하여 컨텍스트를 변경합니다.
 
 
 ### 테이블 반환 함수(TVF) 만들기
@@ -317,7 +317,7 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
         FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
     
-다음 스크립트는 정의된 뷰를 사용하는 것을 나타냅니다.
+다음 스크립트는 정의된 뷰를 사용하고 있음을 나타냅니다.
 
     @res =
         SELECT
@@ -419,4 +419,4 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 - [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

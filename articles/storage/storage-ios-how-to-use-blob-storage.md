@@ -58,7 +58,7 @@ Azure 저장소 iOS 라이브러리를 사용하려면 먼저 프레임워크 �
 Azure 저장소 API를 호출하려는 파일에 다음 import 문을 포함해야 합니다.
 
     // Include the following import statement to use blob APIs.
-    #import <Azure Storage Client Library/Azure_Storage_Client_Library.h>
+    #import <AZSClient/AZSClient.h>
 
 ## Blob 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -355,4 +355,4 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 
 이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안 사항이 있는 경우 [Azure 저장소 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/16/2016"
+	ms.date="06/13/2016"
 	ms.author="bsiva"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터와 Azure 간 복제
@@ -47,7 +47,7 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 다음 필수 조건이 충족되었는지 확인합니다.
 
-- [Microsoft Azure](https://azure.microsoft.com/) 계정. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 - Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](https://azure.microsoft.com/)을 참조하세요.
 - [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈. [PowerShell 갤러리](https://www.powershellgallery.com/)에서 이러한 모듈의 최신 버전을 가져올 수 있습니다.
 
@@ -261,4 +261,9 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0518_2016-->
+
+##다음 단계
+
+Azure Resource Manager PowerShell cmdlet과 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
+
+<!---HONumber=AcomDC_0615_2016-->

@@ -23,7 +23,7 @@
 
 클래식 배포 모델에서 Linux 기반 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 ## 시작
 - [Azure의 Linux에 대한 소개](virtual-machines-linux-intro-on-azure.md)
@@ -58,7 +58,7 @@
 - [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-linux-classic-cli-use-docker.md)
 - [Azure 포털에서 Docker VM 확장 사용](virtual-machines-linux-classic-portal-use-docker.md)
 - [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-linux-classic-docker-quickstart.md)
-- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-classic-docker-machine.md)
+- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [방법: MySQL 클러스터](virtual-machines-linux-classic-mysql-cluster.md)
@@ -192,4 +192,4 @@
 
 - [Azure용 Packer 플러그인](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
