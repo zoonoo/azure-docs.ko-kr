@@ -24,7 +24,8 @@
 
 ## 필수 조건
 
-DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트에서 클러스터에 연결할 수 있는지 확인합니다](container-service-connect.md). 또한 다음 단계를 수행합니다.[AZURE.INCLUDE [DC/OS 명령줄 인터페이스(CLI) 설치](../../includes/container-service-install-dcos-cli-include.md)]
+DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트에서 클러스터에 연결할 수 있는지 확인합니다](container-service-connect.md). 또한 다음 단계를 수행합니다.
+[AZURE.INCLUDE [DC/OS 명령줄 인터페이스(CLI) 설치](../../includes/container-service-install-dcos-cli-include.md)]
 
 
 ## 부하 분산
