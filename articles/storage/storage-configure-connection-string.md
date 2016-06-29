@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -80,13 +80,11 @@ SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스
 
 다음은 Blob 저장소에 대한 서비스 SAS를 포함하는 연결 문자열의 예제입니다.
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
-그리고 다음은 URL 인코딩을 사용하는 동일한 연결 문자열의 예제입니다.
+그리고 다음은 특수 문자의 인코딩을 사용하는 동일한 연결 문자열의 예제입니다.
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### 계정 SAS 예
 
@@ -165,4 +163,4 @@ SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스
 - [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)
 - [Azure 저장소 탐색기](storage-explorers.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

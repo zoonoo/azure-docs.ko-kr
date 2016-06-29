@@ -34,7 +34,7 @@
 
 ## 복구 지점 복원
 
-1. [Azure 포털](http://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
 
 2. Azure 메뉴에서 **찾아보기**를 클릭하고 서비스 목록에서 **복구 서비스**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
 
@@ -167,4 +167,4 @@ VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

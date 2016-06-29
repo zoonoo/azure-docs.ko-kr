@@ -151,11 +151,11 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 * Azure SQL DB V12의 데이터베이스만 지원됩니다.
 * WCF 서비스에서 트랜잭션은 지원되지 않습니다. 예를 들어 트랜잭션을 실행하는 WCF 서비스 메서드가 있습니다. 트랜잭션 범위 내로 호출을 묶으면 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)으로 실패합니다.
 
-## 자세한 정보
+## 추가 리소스
 
 아직 Azure 응용 프로그램용 탄력적 데이터베이스 기능을 사용하지 않나요? [설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)을 확인하세요. 의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

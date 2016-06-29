@@ -46,7 +46,7 @@
 ### 빠른 시작 템플릿 사용
 Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC 팩 클러스터를 쉽고 빠르게 배포합니다. Preview 포털에서 템플릿을 열면 클러스터에 대한 설정을 입력할 수 있는 간단한 UI가 표시됩니다. 단계는 다음과 같습니다.
 
->[AZURE.TIP]원하는 경우 Excel 워크로드에 특별히 유사한 클러스터를 만드는 [Azure 마켓플레이스 템플릿](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn)을 사용합니다. 단계는 다음과 약간 다릅니다.
+>[AZURE.TIP]원하는 경우 Excel 워크로드에 특별히 유사한 클러스터를 만드는 [Azure 마켓플레이스 템플릿](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn)을 사용합니다. 단계는 다음과 약간 다릅니다.
 
 1.  [GitHub의 HPC 클러스터 만들기 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)를 방문합니다. 원하는 경우 템플릿 및 소스 코드에 대한 정보를 검토합니다.
 
@@ -382,4 +382,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

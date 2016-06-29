@@ -18,7 +18,9 @@
 
 # 탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램 
 
-[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)](https://msdn.microsoft.com/library/dn765131)는 Azure SQL 데이터베이스로 다중 테넌트 응용 프로그램의 데이터를 유연하고 효율적으로 확장할 수 있는 강력한 기능 집합을 제공합니다. 이 문서에서는 이러한 기술을 함께 사용하여 **ADO.NET SqlClient** 및/또는 **Entity Framework**를 통해 다중 테넌트 분할된 데이터베이스를 지원하는 우수한 확장성의 응용 프로그램을 구축하는 방법을 보여 줍니다.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)](https://msdn.microsoft.com/library/dn765131)는 Azure SQL 데이터베이스로 다중 테넌트 응용 프로그램의 데이터를 유연하고 효율적으로 확장할 수 있는 강력한 기능 집합을 제공합니다. 자세한 내용은 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+
+이 문서에서는 이러한 기술을 함께 사용하여 **ADO.NET SqlClient** 및/또는 **Entity Framework**를 통해 다중 테넌트 분할된 데이터베이스를 지원하는 우수한 확장성의 응용 프로그램을 구축하는 방법을 보여 줍니다.
 
 * **탄력적 데이터베이스 도구**를 사용하면 개발자는 .NET 라이브러리 및 Azure 서비스 템플릿 집합을 사용하는 산업 표준 분할 관행을 통해 응용 프로그램의 데이터 계층을 확장할 수 있습니다. 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스를 관리하면 일반적으로 분할과 관련된 여러 인프라 작업을 자동화 및 간소화하는 데 도움이 됩니다. 
 
@@ -304,7 +306,18 @@ GO
 
 탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 응용 프로그램의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스를 사용하여 데이터를 보다 효율적으로 저장할 수 있고(특히 테넌트 수는 많은데 데이터 행은 적은 경우), 단일 테넌트 분할된 데이터베이스를 사용하여 성능 및 격리 요구 사항이 엄격한 프리미엄 테넌트를 지원할 수 있습니다. 자세한 내용은 [행 수준 보안 참조](https://msdn.microsoft.com/library/dn765131)를 참조하세요.
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## 추가 리소스
+
+- [Azure 탄력적 데이터베이스 풀이란?](sql-database-elastic-pool.md)
+- [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
+- [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Azure AD 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
+
+## 질문 및 기능 요청
+
+의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
@@ -312,4 +325,4 @@ GO
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -127,7 +127,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 Azure 포털에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
 
-첫 번째 이벤트는 라이브 스트림 창에 표시됩니다.
+첫 이벤트는 [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream)에 나타납니다.
 
 
 ## 지속성 채널 
@@ -256,4 +256,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

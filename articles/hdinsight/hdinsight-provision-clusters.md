@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/21/2016"
+   ms.date="06/09/2016"
    ms.author="jgao"/>
 
 # HDInsight에서 Windows 기반 Hadoop 클러스터 만들기
@@ -31,7 +31,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 | 클러스터 유형 | 필요한 경우 다음 사용... |
 | ------------ | ----------------------------- |
-| Hadoop은 | 쿼리 및 분석(배치 작업) |
+| Hadoop | 쿼리 및 분석(배치 작업) |
 | HBase | NoSQL 데이터 저장소 |
 | Storm | 실시간 이벤트 처리 |
 | Spark(미리 보기) | 메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
@@ -104,7 +104,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 	![Azure Blob 저장소](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-    기본 Blob 컨테이너를 비즈니스 데이터를 저장하는 데 사용하지는 않는 것이 좋습니다. 사용한 후에는 저장소 비용을 줄이기 위해 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
+    기본 Blob 컨테이너를 비즈니스 데이터 저장에 사용하지 않는 것이 좋습니다. 사용한 후에는 저장소 비용을 줄이기 위해 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
     
 	>[AZURE.WARNING] 여러 클러스터에 대해 단일 Blob 저장소 컨테이너를 공유하는 것은 지원되지 않습니다.
 
@@ -187,9 +187,9 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 ## Hive/Oozie Metastore 사용
 
-나중에 다른 HDInsight 클러스터에 해당 메타 저장소를 연결하기 위해 HDInsight 클러스터를 삭제한 후 하이브 테이블을 유지하려는 경우 사용자 지정 메타 저장소를 사용하는 것이 좋습니다.
+나중에 다른 HDInsight 클러스터에 해당 Metastore를 연결하기 위해 HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우 사용자 지정 Metastore를 사용하는 것이 좋습니다.
 
-Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. 예를 들어, Hive Metastore로 만든 클러스터가 있습니다. 몇 개의 Hive 테이블을 만들었습니다. 클러스터를 삭제하고 동일한 하이브 Metastore를 사용하여 클러스터를 다시 만든 후, 원래 클러스터에서 만든 하이브 테이블을 볼 수 있습니다.
+Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. 예를 들어, Hive Metastore로 만든 클러스터가 있습니다. 몇 개의 Hive 테이블을 만들었습니다. 클러스터를 삭제하고 동일한 Hive Metastore를 사용하여 클러스터를 다시 만든 후, 원래 클러스터에서 만든 Hive 테이블을 볼 수 있습니다.
 
 > [AZURE.NOTE] HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
 
@@ -207,18 +207,29 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
     | -------------------------- | --------------------------- |
     | 사이트 간 구성에서는 하드웨어 VPN 또는 라우팅 및 원격 액세스 서비스를 사용하여 데이터 센터의 여러 리소스를 Azure 가상 네트워크에 연결할 수 있습니다.<br />![사이트 간 구성 다이어그램](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | 지점 및 사이트 간 구성에서는 소프트웨어 VPN을 사용하여 Azure 가상 네트워크에 특정 리소스를 연결할 수 있습니다.<br />![지점 및 사이트 간 구성 다이어그램](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
+Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하고, Linux 기반 클러스터에는 v2(Azure 리소스 관리자) 가상 네트워크가 필요합니다. 올바른 유형의 네트워크가 없으면, 클러스터를 만들어도 사용할 수 없습니다.
+
 가상 네트워크에 대한 특정 구성 요구 사항을 비롯한 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 ## HDInsight 클러스터 사용자 지정을 사용하여 클러스터 사용자 지정(bootstrap)
 
 경우에 따라 구성 파일을 구성해야 할 수 있습니다.
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용하거나 Linux 기반 클러스터에서 Ambari를 안전하게 사용할 수 있습니다. 자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)을 참조하세요.
 
@@ -243,4 +254,4 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 템플릿](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

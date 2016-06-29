@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/21/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 그래픽 Runbook
@@ -110,10 +110,10 @@
 10.  **Add-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다. 
 11.  매개 변수 집합을 선택하면, Activity Parameter Configuration(활동 매개 변수 구성) 블레이드에 매개 변수가 표시 됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  매개 변수 값 블레이드에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음 **파일 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음 **확인**을 클릭합니다. 활동에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
-13.  **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbrprint**를 입력한 다음 **확인**을 클릭합니다. 
+13.  **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다. 
 14.  **SERVICEPRINCIPAL**을 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **ConstantValue**를 선택하고 **True** 옵션을 클릭한 다음 **확인**을 클릭합니다.
 15.  **TENANTID**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **TenantId**를 입력한 다음 **확인**을 두 번 클릭합니다.  
-16.  라이브러리 컨트롤에서 검색 텍스트 상자에 **Set-AzureRmContext**을 입력합니다.
+16.  라이브러리 컨트롤에서 검색 텍스트 상자에 **Get-AzureRmContext**을 입력합니다.
 17.	 캔버스에 **Set-AzureRmContext**를 추가합니다.
 18.	 캔버스에서 **Set-AzureRmContext**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **구독 ID 지정**을 입력합니다.
 19.	 **매개 변수**를 클릭하면 활동 매개 변수 구성 블레이드가 표시됩니다. 
@@ -130,7 +130,7 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 이제 가상 컴퓨터를 시작하기 위한 **Start-AzureRmVM** 활동을 추가합니다. Azure 구독에서 모든 가상 컴퓨터를 선택 할 수 있지만 지금은 cmdlet의 이름을 하드코딩합니다.
 
 1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Start-AzureRm**을 입력합니다.
-2. **Start-AzureRmVM**을 캔버스에 추가한 다음 클릭하여 **구독 ID 지정** 아래로 끌어 놓습니다.
+2. **Start-AzureRmVM**을 캔버스에 추가한 다음 클릭하여 **Azure에 연결** 아래로 끌어 놓습니다.
 3. 도형 아래에 원이 나타날 때까지 **구독 ID 지정**을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Start-AzureRmVM**으로 끌어 놓습니다. 
 4.	**Start-AzureRmVM**을 선택합니다. **매개 변수**와 **매개 변수 집합**을 차례로 클릭하여 **Start-AzureRmVM**에 대한 집합을 표시합니다. **ResourceGroupNameParameterSetName** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
 5.	**Name**을 선택합니다. **데이터 원본**에 대해 **PowerShell 식** 을 선택하고 이runbook으로 시작될 가상 컴퓨터의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.<br>![Start-AzureRmVM 이름 매개 변수 값](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -193,15 +193,15 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 17. **조건 식**에 *$ActivityOutput['Get Status'] -eq "Stopped"*를 입력합니다. 이제 **Start-AzureRmVM**은 가상 컴퓨터가 중지된 경우에만 실행됩니다.
 18.	라이브러리 컨트롤에서 **Cmdlet**과 **Microsoft.PowerShell.Utility**를 차례로 확장합니다.
 19.	캔버스에 **Write-Output**을 두 번 추가합니다.<br> ![쓰기 출력으로 Runbook](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. 첫 번째 **Write-Output** 컨트롤에서 **레이블** 값을 *VM 시작 알림*으로 변경합니다.
+20. 첫 번째 **Write-Output** 컨트롤에서 **매개 변수**를 클릭하고 **레이블** 값을 *VM 시작 알림*으로 변경합니다.
 21. **InputObject**에 대해, **데이터 원본**을 **PowerShell 식**으로 변경하고 *"$VMName successfully started"* 식을 입력합니다.
-22. 두 번째 **Write-Output** 컨트롤에서 **레이블** 값을 *VM 실패 알림*으로 변경합니다.
+22. 두 번째 **Write-Output** 컨트롤에서 **매개 변수**를 클릭하고 **레이블** 값을 *VM 시작 실패 알림*으로 변경합니다.
 23. **InputObject**에서 **데이터 원본**을 **PowerShell 식**으로 변경하고 *"$VMName could not start"* 식을 입력합니다.
 24. **Start-AzureRmVM**에서 **VM 중지 알림** 및 **VM 시작 실패 알림**에 대한 링크를 만듭니다.
 25. **VM 시작 알림** 링크를 선택하고 **조건 적용**을 **True**로 변경합니다.
 26. **조건 식**에 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*를 입력합니다. 이제 Write-Output 컨트롤은 가상 컴퓨터가 성공적으로 시작된 경우에만 실행됩니다.
 27. **VM 시작 실패 알림** 링크를 선택하고 **조건 적용**을 **True**로 변경합니다.
-28. **조건 식**에 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*를 입력합니다. 이제 Write-Output 컨트롤은 가상 컴퓨터가 성공적으로 시작되지 않은 경우에만 실행됩니다. 
+28. **조건 식**에 *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*를 입력합니다. 이제 Write-Output 컨트롤은 가상 컴퓨터가 성공적으로 시작되지 않은 경우에만 실행됩니다.
 29.	Runbook을 저장하고 테스트 창을 엽니다.
 30.	중지된 가상 컴퓨터로 runbook을 시작합니다.
 
@@ -211,4 +211,4 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 -	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 -	PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

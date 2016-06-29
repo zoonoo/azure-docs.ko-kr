@@ -112,9 +112,9 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격
 
 7. 다음 명령을 입력하여 장치에서 Windows PowerShell 세션을 시작합니다.
 
-     `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
+     `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] StorSimple 가상 장치에 사용할 Windows PowerShell 세션을 만들려면 `–port` 매개 변수를 추가하고 Remoting for StorSimple Virtual Appliance에서 구성한 공용 포트를 지정합니다.
+     >[AZURE.NOTE] StorSimple 가상 장치에 사용할 Windows PowerShell 세션을 만들려면 `–Port` 매개 변수를 추가하고 Remoting for StorSimple Virtual Appliance에서 구성한 공용 포트를 지정합니다.
 
      이제 장치에 대한 활성 원격 Windows PowerShell 세션이 있습니다.
 
@@ -172,7 +172,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원�
 
      `Get-HcsSystem`
 
-    **RemoteManagementMode** 필드에 **Https Enabled**가 표시되는지 확인합니다. 다음 그림은 PuTTY에서 이러한 설정을 보여 줍니다.
+    **RemoteManagementMode** 필드에 **HttpsEnabled**가 표시되는지 확인합니다. 다음 그림은 PuTTY에서 이러한 설정을 보여 줍니다.
 
      ![직렬 HTTPS 사용](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
@@ -250,15 +250,15 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 3. 다음을 입력하여 새 자격 증명을 만듭니다.
 
-     `$cred = new-object pscredential @("<IP of target device>\SSAdmin", (convertto-securestring -force -asplaintext "<Device Administrator Password>"))`
+     `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
     여기서 <*대상 장치의 IP*>는 장치에 대한 DATA 0의 IP 주소(예: hosts 파일의 이전 그림에 표시된 **10.126.173.90**)입니다. 또한 장치에 대한 관리자 암호를 제공합니다.
 
 4. 다음을 입력하여 세션을 만듭니다.
 
-     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
+     `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    cmdlet의 CN 이름에는 <*대상 장치의 일련 번호*>를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
+    cmdlet의 ComputerName 매개 변수의 경우 <*대상 장치의 일련 번호*>를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
 
 5. 형식:
 
@@ -274,4 +274,4 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

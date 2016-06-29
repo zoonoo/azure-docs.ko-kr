@@ -240,7 +240,7 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion		| 1\.0 |
 |||
-|요청 본문| Event data entry for each event you want to send. SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.|
+|요청 본문| 전송하려는 각 이벤트에 대한 이벤트 데이터 항목 SessionId 필드에서 같은 사용자 또는 브라우저 세션에 대해 같은 ID를 전송해야 합니다. 아래 이벤트 본문 샘플을 참조하세요.
 
 
 - 'Click' 이벤트의 예:
@@ -333,8 +333,7 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**:
-HTTP 상태 코드: 200
+**응답**: HTTP 상태 코드: 200
 
 ###권장 사항 모델 작성
 
@@ -714,4 +713,4 @@ OData XML
  이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

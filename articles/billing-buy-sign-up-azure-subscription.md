@@ -44,8 +44,7 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 1. [Azure 무료 평가판 페이지](https://azure.microsoft.com/pricing/free-trial/)를 열고, **지금 평가판 사용**을 선택합니다.
 2. Microsoft 계정 또는 학교/직장 계정으로 로그인합니다.
-3. **사용자 정보** 섹션에 개인 정보를 입력합니다.
-![개인 정보 스크린샷](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. **사용자 정보** 섹션에 개인 정보를 입력합니다. ![개인 정보 스크린샷](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **참고** Azure 구독에 등록할 때 제공하는 전자 메일 주소 및 국가 정보는 항상 구독과 연결되며 나중에 변경할 수 없습니다.</br>
 4. **전화로 확인** 섹션에서 확인 프로세스를 완료하기 위해 제공할 수 있는 인증 코드를 받을 전화번호를 제공해야 합니다.
@@ -62,11 +61,11 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
  ![카드인증하기](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. 구독 규약, 제품 세부 정보 및 개인정보 취급 방침에 동의하는 경우 **계약** 섹션에서 확인란을 선택합니다. 그런 다음 **등록**을 선택합니다. 규약의 영어 버전에 대한 예제 스크린샷입니다. 규약 양식은 국가에 따라 다를 수 있습니다.
 
- ![등록](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> 구독을 설정하는 데 몇 분 정도 걸릴 수 있습니다. 15분 이내에 구독 설정이 완료되지 않으면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요. </br> 오류 메시지가 표시될 경우 문제 해결을 위해 메시지의 단계를 따르세요. 일반적인 오류 메시지는 다음과 같습니다.
+ ![등록](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> 구독을 설정하는 데 몇 분 정도 걸릴 수 있습니다. 15분 이내에 구독 설정이 완료되지 않으면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요. </br> 오류 메시지가 표시될 경우 문제 해결을 위해 메시지의 단계를 따르세요. 일반적인 오류 메시지는 다음과 같습니다.
 
  **죄송합니다. 작업을 완료할 수 없습니다. 나중에 다시 시도하거나 웹 페이지를 다시 로드하세요.** </br>
 
- 이 경우, 다른 브라우저를 사용하여 등록 프로세스를 완료하십시오. 문제가 계속 발생하면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요.</br>
+ 이 경우, 다른 브라우저를 사용하여 등록 프로세스를 완료하십시오. 문제가 계속 발생하면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요.</br>
 7. 구독이 준비되어 시작하려면 **내 서비스 관리 시작**을 선택하세요.</br> ![서비스시작](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 <a name="UpgradeFreeToPYG"></a>
@@ -89,4 +88,4 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,14 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="06/09/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
@@ -58,4 +57,4 @@ Azure SQL 데이터베이스와 함께 사용하는 Azure Active Directory 인�
 - 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md) 항목의 자세한 단계를 따릅니다.
 - 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](https://msdn.microsoft.com/library/mt667986.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

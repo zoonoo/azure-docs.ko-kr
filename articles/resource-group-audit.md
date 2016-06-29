@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # 리소스 관리자로 작업 감사
@@ -125,4 +125,4 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 - 배포 문제를 해결하는 명령에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

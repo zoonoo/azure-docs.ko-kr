@@ -105,7 +105,7 @@
 
 ##개발
 
-다음 자습서에서 [Azure SQL 데이터베이스에 대한 클라이언트 연결](sql-database-connect-central-recommendations.md) 및 [연결 라이브러리](sql-database-libraries.md) 사용에 대해 알아봅니다.
+다음 자습서에서 [SQL 데이터베이스 개발](sql-database-develop-overview.md) 및 [연결 라이브러리](sql-database-libraries.md) 사용에 대해 알아봅니다.
 
 | 자습서 | 설명 |
 |---|---|---|
@@ -180,4 +180,4 @@
 
 [Azure SQL 데이터베이스 솔루션 빠른 시작 탐색](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

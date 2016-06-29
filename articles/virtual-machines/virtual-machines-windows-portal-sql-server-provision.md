@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/21/2016"
 	ms.author="jroth" />
 
 # Azure 포털에서 SQL Server 가상 컴퓨터 프로비전
@@ -251,4 +251,6 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+Azure 가상 컴퓨터의 SQL Server에 대한 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다.
+
+<!---HONumber=AcomDC_0622_2016-->

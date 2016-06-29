@@ -23,7 +23,7 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 - Azure 마켓플레이스에서 게시자이고 VM을 개발하고 있는 경우 Microsoft 등록 또는 계산 팀과 함께 작업해야 합니다.
 
-- 마켓플레이스에서 게시자이고 고객에게 질문을 받은 경우 https://ms.portal.azure.com/의 지원 링크를 통해 지원을 요청하도록 고객에게 알려 줍니다.
+- 마켓플레이스에서 게시자이고 고객에게 질문을 받은 경우 https://portal.azure.com/의 지원 링크를 통해 지원을 요청하도록 고객에게 알려 줍니다.
 
 - 마켓플레이스에서 게시자이고 앱이나 서비스와 관련된 질문이 있는 경우 아래의 내용을 계속 읽습니다.
 
@@ -79,7 +79,9 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
 
 문제가 제출된 후 Microsoft는 24시간 내에 받았다는 응답을 하고 문제에 우선 순위와 심각도를 할당합니다. 전담 지원 엔지니어 팀이 서비스 수준 계약 응답 시간에 따라 문제의 해결을 도와줍니다.
 
-![확인 페이지][6] + 문제에 대해 Microsoft에 알릴 내용이 있는 경우 모든 통신에서 확인 번호를 사용합니다. + 언제든지 문제에 대한 진행률을 확인할 수 있습니다.
+![확인 페이지][6]
++ 문제에 대해 Microsoft에 알릴 내용이 있는 경우 모든 통신에서 확인 번호를 사용합니다.
++ 언제든지 문제에 대한 진행률을 확인할 수 있습니다.
 
 ## 다음 단계
 
@@ -92,4 +94,4 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0615_2016-->

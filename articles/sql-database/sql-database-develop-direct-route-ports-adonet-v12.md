@@ -112,7 +112,7 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 - [TDS 프로토콜 버전 목록](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md)
+- [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 
 
 - [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
@@ -120,4 +120,4 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 
 - [방법: SQL 데이터베이스에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

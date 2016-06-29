@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 연결
-SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다. 보안에 대한 자세한 내용과 SQL 데이터 웨어하우스에 연결하는 방법은 [SQL 데이터 웨어하우스에서 데이터베이스 보호][] 문서를 참조하십시오.
+SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다. 보안에 대한 자세한 내용과 SQL 데이터 웨어하우스에 연결하는 방법은 [SQL 데이터 웨어하우스에서 데이터베이스 보호][] 문서를 참조하세요.
 
 이 문서는 SQL 데이터 웨어하우스 연결에 대한 다음 측면에 대해 자세히 설명합니다.
 
@@ -155,10 +155,10 @@ WHERE   s.[session_id] <> SESSION_ID()
 <!--Azure.com references-->
 [연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
 [테이블 디자인]: ./sql-data-warehouse-develop-table-design.md
-[SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-security.md
+[SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

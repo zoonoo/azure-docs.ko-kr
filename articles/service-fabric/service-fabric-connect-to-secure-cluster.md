@@ -37,6 +37,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+<a id="connectsecurecluster"></a>
 ## PowerShell을 사용하여 보안 클러스터에 연결
 
 다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
@@ -108,4 +109,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
 - [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -131,7 +131,7 @@ function.json 파일은 다음 속성을 제공합니다.
 	  }
 	}
 
-project.json 파일을 업로드하는 데 대한 자세한 내용은 [project.json 파일 업로드](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions)를 참조하세요.
+project.json 파일을 업로드하는 자세한 내용은 [project.json 파일 업로드](functions-reference.md#fileupdate)를 참조하세요.
 
 예제 코드:
 
@@ -155,4 +155,4 @@ project.json 파일을 업로드하는 데 대한 자세한 내용은 [project.j
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

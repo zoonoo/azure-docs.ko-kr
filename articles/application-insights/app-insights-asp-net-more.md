@@ -40,7 +40,7 @@
 |[**인스턴스 데이터에 대한 진단 검색**](app-insights-visual-studio.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다. Visual Studio의 스택 추적에서 코드로 이동합니다.|![Visual Studio](./media/app-insights-asp-net/61.png)
 |[**집계된 데이터에 대한 메트릭 탐색기**](app-insights-metrics-explorer.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다.|![Visual Studio](./media/app-insights-asp-net-more/060.png)
 |[**대시보드**](app-insights-dashboards.md#dashboards)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 응용 프로그램에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-asp-net/62.png)
-|[**라이브 스트림**](app-insights-metrics-explorer.md#live-stream)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다.|![분석 샘플](./media/app-insights-asp-net-more/050.png)
+|[**라이브 매트릭 스트림**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다.|![분석 샘플](./media/app-insights-asp-net-more/050.png)
 |[**분석**](app-insights-analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다.|![분석 샘플](./media/app-insights-asp-net-more/010.png)
 |[**자동 및 수동 경고**](app-insights-alerts.md)<br/>자동 경고는 앱의 일반적인 원격 분석 패턴에 맞게 조정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 경고를 설정할 수도 있습니다.|![경고 샘플](./media/app-insights-asp-net-more/020.png)
 
@@ -52,4 +52,4 @@
 |**데이터 액세스 API**<br/>곧 제공될 예정입니다.|
 |[**샘플링**](app-insights-sampling.md)<br/>데이터 속도를 줄이고 가격 책정 계층 제한을 벗어나지 않도록 하는 데 도움이 됩니다.|![샘플링 타일](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

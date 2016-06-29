@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
@@ -34,11 +34,11 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [설명서](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) 및 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 참조
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) 및 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 참조
 
 * [배치 관리 .NET 라이브러리](https://msdn.microsoft.com/library/mt463120.aspx) 참조
 
-* [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
+* 자습서: [NET용 Azure 배치 라이브러리](batch-dotnet-get-started.md) 및 [배치 Python 클라이언트](batch-python-tutorial.md) 시작하기
 
 * [배치 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch)
 
@@ -122,7 +122,7 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 ## 아키텍처 청사진
 
-* [Azure 배치 및 Azure 데이터 팩토리를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md)
+* [Azure 배치 및 Azure Data Factory를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?linkid=717686)(PDF) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 업계 솔루션
 
@@ -157,4 +157,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

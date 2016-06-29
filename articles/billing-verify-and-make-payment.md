@@ -40,6 +40,6 @@
 
 지불 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다. 언제든지 카드를 변경하려면 [azure 구독에 대한 지불 또는 크레딧 변경 방법](billing-how-to-change-credit-card.md)을 참조하세요.
 
-결제를 송장으로 처리한다면, 송장 밑에 나열된 장소에 결제 금액을 보냅니다. 도움이 필요하면 [Microsoft 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
+결제를 송장으로 처리한다면, 송장 밑에 나열된 장소에 결제 금액을 보냅니다. 도움이 필요하면 [Microsoft 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

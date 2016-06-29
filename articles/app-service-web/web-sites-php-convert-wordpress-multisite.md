@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
@@ -24,13 +24,13 @@
 
 *[벤 로바우(Ben Lobaugh)][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-이 자습서에서는 Azure의 갤러리를 통해 만든 기존 WordPress 웹 앱을 가져와서 WordPress 멀티 사이트 설치로 변환하는 방법을 알아봅니다. 또한 설치 내에 있는 각 하위 사이트에 사용자 지정 도메인을 할당하는 방법도 알아봅니다.
+이 자습서에서는 Azure의 갤러리를 통해 만든 기존 WordPress 웹앱을 가져와서 WordPress 멀티 사이트 설치로 변환하는 방법을 알아봅니다. 또한 설치 내에 있는 각 하위 사이트에 사용자 지정 도메인을 할당하는 방법도 알아봅니다.
 
 여기서는 WordPress가 이미 설치되어 있다고 가정합니다. 아직 설치하지 않은 경우 [Azure의 갤러리에서 WordPress 웹 사이트 만들기][website-from-gallery]의 지침을 따르십시오.
 
 기존 WordPress 단일 사이트 설치를 멀티 사이트로 변환하는 작업은 일반적으로 매우 간단하며 여기서는 초기의 많은 단계를 [WordPress Codex][wordpress-codex-create-a-network](영문)의 [네트워크 만들기](http://codex.wordpress.org) 페이지에서 가져옵니다.
 
-그럼 시작해 보겠습니다.
+이제 시작하겠습니다.
 
 ## 멀티 사이트 허용
 
@@ -83,7 +83,7 @@
 * **일반**에서 *공유* 또는 *표준*을 선택합니다.
 * **저장**을 클릭합니다.
 
-변경을 확인하고 사용량 및 기타 설정된 구성에 따라 웹 앱에 비용이 청구될 수 있음을 알리는 메시지가 표시될 수 있습니다.
+변경을 확인하고 사용량 및 기타 설정된 구성에 따라 웹앱에 비용이 청구될 수 있음을 알리는 메시지가 표시될 수 있습니다.
 
 새 설정을 처리하는 데 몇 초 정도 걸리며, 이제 도메인을 설정할 수 있습니다.
 
@@ -153,4 +153,4 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

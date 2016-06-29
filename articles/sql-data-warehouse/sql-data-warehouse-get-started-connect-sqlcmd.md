@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQLCMD를 사용하는 쿼리 | Microsoft Azure"
-   description="SQLCMD를 사용하여 데이터 웨어하우스 쿼리"
+   pageTitle="Azure SQL 데이터 웨어하우스 쿼리(sqlcmd) | Microsoft Azure"
+   description="sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# SQLCMD를 사용하여 쿼리
+# Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure 기계 학습][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-이 연습에서는 sqlcmd.exe 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리하는 방법을 보여 줍니다.
+이 연습에서는 sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다.
 
 ## 필수 조건
 
-+ [sqlcmd.exe][]를 다운로드하려면 [SQL Server용 Microsoft 명령줄 유틸리티 11][]을 참조하세요.
+이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
-## 연결
+-  [sqlcmd.exe][]. 이를 다운로드하려면 [SQL Server용 Microsoft 명령줄 유틸리티 11][]을 참조하세요.
+
+## 1\. 연결
 
 sqlcmd를 시작하려면 명령 프롬프트를 열고 SQL 데이터 웨어하우스 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd**를 입력합니다. 연결 문자열은 다음 필수 매개 변수를 포함해야 합니다.
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] 따옴표 붙은 식별자를 설정하는 -I 옵션은 현재 SQL 데이터 웨어하우스에 연결해야 합니다.
 
-## 쿼리
+## 2\. 쿼리
 
 연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다. 이 예에서 쿼리는 대화형 모드로 전송됩니다.
 
@@ -73,17 +76,14 @@ C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d A
 sqlcmd 옵션에 대해 모두 알아보려면 [sqlcmd 설명서][sqlcmd.exe]를 참조하세요.
 
 <!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
+
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/ko-KR/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
 [SQL Server용 Microsoft 명령줄 유틸리티 11]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

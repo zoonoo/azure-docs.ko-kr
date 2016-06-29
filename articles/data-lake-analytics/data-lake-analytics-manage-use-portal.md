@@ -28,9 +28,6 @@ Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-
-
-
 <!-- ################################ -->
 <!-- ################################ -->
 ## 계정 관리
@@ -293,4 +290,4 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

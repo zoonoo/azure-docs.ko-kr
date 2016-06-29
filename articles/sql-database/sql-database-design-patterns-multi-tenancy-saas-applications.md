@@ -150,13 +150,17 @@ Azure SQL 데이터베이스는 테넌트 데이터베이스 간의 리소스 �
 
 도구를 사용하도록 기존 데이터베이스를 변환하려면 [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
 
-[자습서](sql-database-elastic-pool-create-portal.md)를 사용하여 새 풀을 만들기.
+새 풀을 만들려면 [탄력적 풀 자습서 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
 
-## 자세한 정보
+탄력적 데이터베이스 풀을 모니터링하고 관리하려면 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
 
-[Azure 탄력적 데이터베이스 풀이란?](sql-database-elastic-pool.md)
+## 추가 리소스
 
-[Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
+- [Azure 탄력적 데이터베이스 풀이란?](sql-database-elastic-pool.md)
+- [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
+- [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Azure AD 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## 질문 및 기능 요청
 
@@ -172,4 +176,4 @@ Azure SQL 데이터베이스는 테넌트 데이터베이스 간의 리소스 �
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

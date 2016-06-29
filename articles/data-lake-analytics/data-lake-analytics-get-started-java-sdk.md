@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # 자습서: Java SDK를 사용하여 Azure Data Lake 분석 시작
@@ -75,7 +75,17 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
 	            <artifactId>azure-client-authentication</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.microsoft.azure</groupId>
@@ -95,7 +105,9 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 5. **Main.java**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 **localFolderPath**, **\_adlaAccountName**, **\_adlsAccountName**, **\_resourceGroupName** 등의 코드 조각에서 호출되는 매개 변수의 값을 입력하고 **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** 및 **SUBSCRIPTION-ID**의 자리 표시자를 바꿉니다.
 
 	이 코드는 Data Lake 저장소와 Data Lake 분석 계정을 만들고, 저장소에 파일을 만들고, 작업을 실행하고, 작업 상태를 가져오고, 작업 출력을 다운로드하고, 계정을 삭제하는 프로세스를 진행합니다.
- 
+
+>[AZURE.NOTE] 현재 Azure Data Lake 서비스와 관련된 알려진 문제가 있습니다. 샘플 앱이 중단되거나 오류가 발생할 경우, 스크립트가 생성하는 Data Lake 저장소 및 Data Lake 분석 계정을 수동으로 삭제해야 할 수 있습니다. 포털에 친숙하지 않다면 [Azure 포털을 사용한 Azure Data Lake 분석 관리](data-lake-analytics-manage-use-portal.md) 가이드로 시작해 보세요.
+
 
 		package com.company;
 
@@ -255,6 +267,8 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
+				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+ 
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
@@ -389,4 +403,4 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

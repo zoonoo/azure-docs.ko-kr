@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# 미리 보기: 클라이언트 인증에 대해 Azure Active Directory를 사용하여 서비스 패브릭 클러스터 만들기
+# 클라이언트 인증에 대해 Azure Active Directory를 사용하여 서비스 패브릭 클러스터 만들기
 
 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클러스터의 관리 끝점에 안전하게 액세스할 수 있습니다. 이 문서에서는 필요한 AAD 아티팩트를 만드는 방법, 클러스터를 만드는 동안 해당 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법을 설명합니다.
-
->[AZURE.IMPORTANT] 서비스 패브릭 클러스터와 AAD 통합은 현재 미리 보기 상태입니다. 이 문서에서 설명된 모든 항목은 서비스 패브릭 5.0 런타임에서 사용할 수 있지만 지금은 프로덕션 클러스터에 사용하지 않는 것이 좋습니다.
 
 ## AAD에서 서비스 패브릭 클러스터 모델링
 
@@ -160,4 +158,4 @@ Visual Studio 또는 PowerShell과 같은 네이티브 클라이언트에서 인
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

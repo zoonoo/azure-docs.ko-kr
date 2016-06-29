@@ -24,14 +24,6 @@ Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 
 
 이 항목에서는 이벤트 타이머에 따라 실행되는 C#에 새 함수를 만들어 저장소 큐에 메시지를 추가하는 방법을 보여 줍니다.
 
-포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
-
-## 비디오 보기
-
-다음 비디오는 이 자습서에서 기본 단계를 수행하는 방법을 보여 줍니다.
-
-[AZURE.VIDEO create-an-event-processing-azure-function]
-
 ## 필수 조건 
 
 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
@@ -89,4 +81,4 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

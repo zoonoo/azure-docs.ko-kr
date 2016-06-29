@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Azure Resource Manager와 연결된 템플릿 | Microsoft Azure"
+   pageTitle="리소스 관리자와 연결된 템플릿 | Microsoft Azure"
    description="Azure 리소스 관리자 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 연결된 템플릿 사용
@@ -51,6 +51,29 @@
         "contentVersion": "1.0.0.0",
     }
 
+연결된 템플릿은 외부에서 사용할 수 있어야 하지만 일반에 공개할 필요는 없습니다. 템플릿을 저장소 계정 소유자만 액세스할 수 있는 개인 저장소 계정에 추가하고 공유 액세스 서명(SAS) 토큰을 만들어서 배포 중에 액세스를 가능하게 합니다. 링크된 템플릿 URI에 SAS 토큰을 추가합니다. 저장소 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Deploy리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.
+
+다음 예제는 다른 템플릿에 연결되는 상위 템플릿을 보여줍니다. 중첩된 템플릿은 매개 변수로 전달된 SAS 토큰으로 액세스합니다.
+
+    "parameters": {
+        "sasToken": { "type": "securestring" }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "incremental",
+              "templateLink": {
+                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+                "contentVersion": "1.0.0.0"
+              }
+            }
+        }
+    ],
+
+토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 해당 리소스 그룹의 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
 
 ## 매개 변수 파일에 연결
 
@@ -75,7 +98,7 @@
       } 
     ] 
 
-연결된 매개 변수 파일의 URI 값은 로컬 파일일 수 없으며 **http** 또는 **https** 중 하나를 포함해야 합니다.
+연결된 매개 변수 파일의 URI 값은 로컬 파일일 수 없으며 **http** 또는 **https** 중 하나를 포함해야 합니다. 물론, 매개 변수 파일은 SAS 토큰으로 액세스를 제한할 수 있습니다.
 
 ## 변수를 사용하여 템플릿 연결
 
@@ -102,18 +125,78 @@
         }
     }
 
-또한 [deployment()](../resource-group-template-functions/#deployment)를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이는 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다.
+또한 [deployment()](resource-group-template-functions.md#deployment)를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이는 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## 연결된 템플릿의 값을 다시 전달
+## 전체 예제
 
-연결된 템플릿에서 주 템플릿으로 값을 전달해야 하는 경우 연결된 템플릿의 **출력** 섹션에서 값을 만들 수 있습니다. 예제를 보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
+다음 예제 템플릿은 이 문서의 여러 가지 개념을 설명하기 위해 링크된 템플릿의 단순화된 배열을 보여줍니다. 이 예제는 템플릿이 공용 액세스가 꺼진 저장소 계정에 있는 동일한 컨테이너에 추가되었다고 가정합니다. 링크된 템플릿은 **출력** 섹션의 기본 템플릿에 값을 다시 전달합니다.
+
+**parent.json** 파일은 다음과 같이 구성됩니다.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "containerSasToken": { "type": "string" }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+              "contentVersion": "1.0.0.0"
+            }
+          }
+        }
+      ],
+      "outputs": {
+        "result": {
+          "type": "object",
+          "value": "[reference('nestedTemplate').outputs.result]"
+        }
+      }
+    }
+
+**helloworld.json** 파일은 다음과 같이 구성됩니다.
+
+    {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
+    }
+    
+PowerShell에서는 컨테이너용 토큰을 얻고 다음을 사용하여 템플릿을 배포합니다.
+
+    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+
+Azure CLI에서는 컨테이너용 토큰을 얻고 다음 코드를 사용하여 템플릿을 배포합니다. 현재는 SAS 토큰을 포함한 템플릿 URI를 사용할 때 배포에 이름을 지정해야 합니다.
+
+    expiretime=$(date -I'minutes' --date "+30 minutes")  
+    azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
+    azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+
+SAS 토큰을 매개 변수로 제공하라는 메시지가 나타날 것입니다. **?**로 토큰을 삽입해야 합니다.
 
 ## 다음 단계
 - 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 - 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

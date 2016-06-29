@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="sethm" />
 
 # 서비스 버스 가격 및 대금 청구
 
 서비스 버스는 기본, 표준 및 [프리미엄](service-bus-premium-messaging.md) 계층으로 제공됩니다. 자신이 만든 서비스 버스 서비스 네임스페이스 각각에 서비스 계층을 선택할 수 있으며, 이 계층 선택은 해당 네임스페이스 안에서 모든 큐, 토픽/구독, 릴레이, 이벤트 허브에 적용됩니다.
 
->[AZURE.NOTE] 최신 서비스 버스 가격에 대한 자세한 내용은 [Azure 서비스 버스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/) 및 [서비스 버스 가격 책정 FAQ](service-bus-pricing-faq.md)를 참조하세요.
+>[AZURE.NOTE] 최신 서비스 버스 가격 책정에 대한 자세한 내용은 [Azure 서비스 버스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/) 및 [서비스 버스 FAQ](service-bus-faq.md#service-bus-pricing)를 참조하세요.
 
 서비스 버스는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
@@ -106,7 +106,7 @@
 |---|
 |프리미엄 계층에서는 조정된 연결에 요금이 부과되지 않습니다.|
 
-조정된 연결에 대한 자세한 내용은 이 항목의 뒷부분에 나오는 [FAQ](#FAQ) 섹션을 참조하세요.
+조정된 연결에 대한 자세한 내용은 이 항목의 뒷부분에 나오는 [FAQ](#faq) 섹션을 참조하세요.
 
 ## 릴레이
 
@@ -121,7 +121,7 @@
 
 ### 릴레이 시간 측정기는 어떻게 계산되나요?
 
-[이 항목](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?)을 참조하세요.
+[이 항목](service-bus-faq.md#how-is-the-relay-hours-meter-calculated)을 참조하세요.
 
 ### 조정된 연결이 무엇이며 요금은 어떻게 청구되나요?
 
@@ -147,8 +147,8 @@
 
 - 서비스 버스 가격 책정에 대한 자세한 내용은 [Azure 서비스 버스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
-- 서비스 버스 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [서비스 버스 가격 책정 FAQ](service-bus-pricing-faq.md)를 참조하세요.
+- 서비스 버스 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [서비스 버스 FAQ](service-bus-faq.md#service-bus-pricing)를 참조하세요.
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
@@ -173,7 +173,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-데이터베이스, 스키마, 어셈블리, externaldatasource, 테이블, tablevaluedfunction 또는 tablestatistics가 형식에 포함됩니다.
+데이터베이스, 스키마, 어셈블리, 외부 데이터 소스, 테이블, 테이블 값 함수 또는 테이블 통계가 형식에 포함됩니다.
 
 ###카탈로그 암호 만들기
 
@@ -214,4 +214,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/10/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement 데모 앱
@@ -37,7 +37,7 @@
 - **Windows 유니버설 데모 앱**:
 
 	- [Windows 앱 스토어](https://www.microsoft.com/ko-KR/store/apps/azure-mobile-engagement/9nblggh4qmh2)에서 앱을 다운로드합니다.
-	- 이 앱은 Windows 10 유니버설 앱으로 개발되었습니다. 소스 코드는 [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios)에서 사용할 수 있습니다.
+	- 이 앱은 Windows 10 유니버설 앱으로 개발되었습니다. 소스 코드는 [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows)에서 사용할 수 있습니다.
 
 - **iOS 데모 앱**:
 
@@ -185,4 +185,4 @@
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

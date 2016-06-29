@@ -14,19 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/09/2016"
 	ms.author="jgao"/>
 
 # 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
 경우에 따라 다음과 같이 구성 파일을 구성해야 할 수 있습니다.
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
 클러스터는 재이미징하므로 변경 내용을 유지할 수 없습니다. 재이미징에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)을 참조하세요. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다. 클러스터의 구성을 변경하고 이러한 Azure 이미지로 다시 설치 다시 부팅 다시 시작 이벤트에서 구성을 유지하려면 이 방법을 사용하는 것이 좋습니다. 구성 변경 내용은 서비스가 시작되기 전에 적용되므로 서비스를 다시 시작할 필요가 없습니다.
 
@@ -103,7 +112,7 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 
 ## .NET SDK 사용
 
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap)를 참조하세요.
+[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap)를 참조하세요.
 
 ## Azure ARM 템플릿 사용
 
@@ -252,4 +261,4 @@ ARM 템플릿에 부트스트랩을 사용할 수 있습니다.
 
     #endregion
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

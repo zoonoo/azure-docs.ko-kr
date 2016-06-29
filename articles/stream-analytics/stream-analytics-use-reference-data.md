@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 입력 스트림에서 참조 데이터 또는 조회 테이블 사용
@@ -72,9 +72,16 @@
 
 ## 일정에 따라 참조 데이터 생성
 
-참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. 스트림 분석이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 "YYYY-MM-DD"의 날짜 형식 및 "HH:mm"의 시간 형식의 ````"/sample/{date}/{time}/products.csv"```` 패턴은 표준 시간대 2015년 4월 16일 오후 5시 30분에 스트림 분석이 업데이트된 Blob ````"/sample/2015-04-16/17:30/products.csv"````를 선택하도록 알립니다.
+참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. 스트림 분석이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 **“YYYY-MM-DD”**의 날짜 형식 및 **“HH:mm”**의 시간 형식의 `sample/{date}/{time}/products.csv` 패턴은 표준 시간대 2015년 4월 16일 오후 5시 30분에 스트림 분석이 업데이트된 Blob `sample/2015-04-16/17:30/products.csv`를 선택하도록 지시합니다.
 
-> [AZURE.NOTE] 현재 스트림 분석 작업은 컴퓨터 시간이 Blob 이름에 인코드된 시간과 일치하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어, 작업은 UTC 표준 시간대로 2015년 4월 16일 오후 5시 30분과 오후 5시 30분 59.9초 사이에 /sample/2015-04-16/17:30/products.csv를 찾습니다. 컴퓨터 시계가 오후 5시 31분을 가리키면 /sample/2015-04-16/17:30/products.csv 찾기를 중지하고 /sample/2015-04-16/17:31/products.csv 찾기를 시작합니다. 이에 대한 예외는 시간을 거슬러 데이터를 재처리해야 하는 작업이거나 작업을 최초로 시작할 때입니다. 시작 시점에 작업은 지정된 작업 시작 시간 이전에 생성된 가장 최근 Blob를 찾습니다. 이렇게 하면 작업을 시작할 때 비어 있지 않은 참조 데이터가 설정됩니다. 찾을 수 없는 경우 작업이 실패하고 사용자에게 진단 알림이 표시됩니다.
+> [AZURE.NOTE] 현재 스트림 분석 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17:30/products.csv`을(를) 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 발견된 마지막 파일보다 이전에 인코딩된 시간으로 파일을 찾지 *않습니다*.
+> 
+> 예를 들어 작업이 Blob `sample/2015-04-16/17:30/products.csv`을(를) 발견하면 2015년 4월 16일 오후 5시 30분 이전에 인코딩된 날짜의 모든 파일을 무시합니다. 따라서 늦게 도착하는 `sample/2015-04-16/17:25/products.csv` Blob이 동일한 컨테이너에 만들어지는 경우 작업은 이를 사용하지 않습니다.
+> 
+> 마찬가지로 `sample/2015-04-16/17:30/products.csv`이(가) 2015년 4월 16일 오후 10시 3분에 생성되었지만 컨테이너에 이전 날짜의 Blob이 없는 경우 작업은 2015년 4월 16일 오후 10시 3분에 시작하는 이 파일을 사용하고 그때까지 이전 참조 데이터를 사용합니다.
+> 
+> 이에 대한 예외는 시간을 거슬러 데이터를 재처리해야 하는 작업이거나 작업을 최초로 시작할 때입니다. 시작 시점에 작업은 지정된 작업 시작 시간 이전에 생성된 가장 최근 Blob를 찾습니다. 이렇게 하면 작업을 시작할 때 **비어 있지 않은** 참조 데이터가 설정됩니다. 찾을 수 없는 경우 작업은 다음 진단 `Initializing input without a valid reference data blob for UTC time <start time>`을(를) 표시합니다.
+
 
 스트림 분석에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob를 만드는 작업을 오케스트레이션하는 데 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/data-factory-data-movement-activities.md)을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 스트림 분석을 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)을 확인하세요.
 
@@ -103,4 +110,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

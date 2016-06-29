@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(PowerShell)
@@ -41,7 +41,7 @@
 
 ### Azure PowerShell 최신 버전 설치
 
-> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. 현재 버전을 확인하려면 **Get-Module -ListAvailable -Name Azure** 명령을 실행합니다. [Microsoft 웹 플랫폼 설치 관리자][]를 통해 최신 버전을 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법]을 참조하세요.
+> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. 현재 버전을 확인하려면 **Get-Module -ListAvailable -Name Azure** 명령을 실행합니다. [Microsoft 웹 플랫폼 설치 관리자][]를 통해 최신 버전을 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법][]을 참조하세요.
 
 ### Azure PowerShell Cmdlet 시작
 
@@ -124,16 +124,15 @@ $resultDatabase
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [관리 개요]: ./sql-data-warehouse-overview-manage.md
-
+[Azure PowerShell 설치 및 구성하는 방법]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -60,4 +60,4 @@ Visual Studio 2015에서 프로젝트를 만든 경우에는 Application Insight
 
 [코드를 읽고 참여하기](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

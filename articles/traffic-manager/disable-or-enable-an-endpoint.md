@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # 트래픽 관리자 끝점 사용 안 함 또는 사용
@@ -44,4 +44,4 @@
 
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

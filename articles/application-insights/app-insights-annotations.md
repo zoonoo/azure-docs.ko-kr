@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/09/2016"
     ms.author="awills"/>
 
 # Application Insights의 릴리스 주석
@@ -96,4 +96,4 @@ Application Insights 리소스에서 `applicationId` 및 `apiKey`를 가져옵�
 
 ![릴리스 주석 마커를 클릭합니다.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

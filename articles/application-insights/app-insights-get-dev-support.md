@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights 개발팀에서 기술 지원을 받는 방법" 
+	pageTitle="Application Insights 개발팀에서 기술 지원을 받는 방법 | Microsoft Azure" 
 	description="Application Insights 개발팀으로부터 특수한 지원이 필요한 경우 지원을 받기 위해 세부 정보를 제출하는 방법입니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@
 
 1. [Application Insights 포털](https://portal.azure.com)의 오른쪽 위에서 웃는 얼굴을 클릭합니다.  
 
-    ![이미지](./media/app-insights-get-dev-support/01.png)
+    ![피드백 단추](./media/app-insights-get-dev-support/01.png)
 
 2. 설명 상자에서 첫 번째 줄로 **AppInsights**를 지정한 후 다음 정보를 포함해야 합니다.
 
@@ -51,17 +51,16 @@
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![이미지](./media/app-insights-get-dev-support/02.png)
+    ![피드백 대화 상자](./media/app-insights-get-dev-support/02.png)
 
 3. "예, 전자 메일을 받아도 좋습니다."를 선택합니다.
 
-    ![이미지](./media/app-insights-get-dev-support/03.png)
+    ![섹션 제출](./media/app-insights-get-dev-support/03.png)
 
-Application Insights 팀의 엔지니어가 곧 연락을 드립니다. 이 서비스를 최상의 기준으로 제공하고 있으므로 현재 공식 SLA는 제공할 수 없습니다.
+Application Insights 팀의 엔지니어가 곧 연락드립니다. 이 서비스를 최상의 기준으로 제공하고 있으므로 현재 공식 SLA는 제공할 수 없습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

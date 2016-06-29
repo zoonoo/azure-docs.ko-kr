@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Azure SQL 데이터 웨어하우스의 데이터베이스 관리
@@ -89,7 +89,7 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 
 ## 백업 및 복원
 
-데이터의 신뢰할 수 있는 백업을 만드는 것은 프로덕션 데이터베이스의 필수적인 부분입니다. SQL 데이터 웨어하우스는 정기적으로 활성 데이터베이스를 자동으로 백업하여 데이터를 안전하게 보관합니다. 이러한 백업을 사용하여 데이터를 손상했거나 데이터 또는 데이터베이스를 실수로 삭제한 시나리오에서 복구할 수 있습니다. 데이터 백업 일정 및 보존 정책에 대해서는 [높은 안정성][]을 참조하세요. 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [스냅숏에서 복원][]을 참조하세요.
+데이터의 신뢰할 수 있는 백업을 만드는 것은 프로덕션 데이터베이스의 필수적인 부분입니다. SQL 데이터 웨어하우스는 정기적으로 활성 데이터베이스를 자동으로 백업하여 데이터를 안전하게 보관합니다. 이러한 백업을 사용하여 데이터를 손상했거나 데이터 또는 데이터베이스를 실수로 삭제한 시나리오에서 복구할 수 있습니다. 데이터 백업 일정, 보존 정책 및 데이터베이스를 복원하는 방법은 [스냅숏에서 복원][]을 참조하세요.
 
 ## 다음 단계
 좋은 데이터베이스 디자인 원칙을 사용할 경우 SQL 데이터 웨어하우스를 더 손쉽게 관리할 수 있습니다. 자세한 내용은 [개발 개요][]를 참조하세요.
@@ -103,13 +103,12 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-get-started-connect.md
 [sqlcmd를 사용하여 연결 및 쿼리]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [개발 개요]: sql-data-warehouse-overview-development.md
-[높은 안정성]: sql-data-warehouse-overview-expectations.md#high-reliability
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
 [계산 일시 중지]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[스냅숏에서 복원]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[스냅숏에서 복원]: sql-data-warehouse-restore-database-overview.md
 [계산 다시 시작]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [성능 조정]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[보안 개요]: sql-data-warehouse-overview-security.md
+[보안 개요]: sql-data-warehouse-overview-manage-security.md
 [SQL 데이터 웨어하우스 모범 사례]: sql-data-warehouse-best-practices.md
 [SQL 데이터 웨어하우스 시스템 뷰]: sql-data-warehouse-reference-tsql-system-views.md
 
@@ -119,4 +118,4 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

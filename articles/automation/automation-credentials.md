@@ -3,8 +3,8 @@
    description="Azure 자동화의 자격 증명 자산은 runbook 또는 DSC 구성을 통해 액세스 되는 리소스를 인증하는 보안 자격 증명을 포함합니다. 이 문서에서는 자격 증명 자산을 만들고 runbook 또는 DSC 구성에 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="06/09/2016"
    ms.author="bwren" />
 
 # Azure 자동화의 자격 증명 자산
@@ -27,7 +27,7 @@
 
 |Cmdlet|설명|
 |:---|:---|
-|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다.|
+|[Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx)|자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다.|
 |[New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|새 자동화 자격 증명을 만듭니다.|
 |[Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|자동화 자격 증명을 제거합니다.|
 |[Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx)|기존 자동화 자격 증명에 대한 속성을 설정합니다.|
@@ -42,10 +42,10 @@
 
 >[AZURE.NOTE] Get-AutomationPSCredential의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
-## 새 자격 증명 만들기
+## 새 자격 증명 자산 만들기
 
 
-### Azure 클래식 포털을 사용하여 새 변수를 만들려면
+### Azure 클래식 포털을 사용하여 새 자격 증명 자산을 만들려면
 
 1. 자동화 계정에서 창의 위쪽에 있는 **자산**을 클릭합니다.
 1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
@@ -54,7 +54,7 @@
 1. 마법사를 완료하고 새 자격 증명을 저장하는 확인란을 클릭합니다.
 
 
-### Azure 포털을 사용하여 새 자격 증명을 만들려면
+### Azure 포털을 사용하여 새 자격 증명 자산을 만들려면
 
 1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
 1. **자격 증명** 파트를 클릭하여 **자격 증명** 블레이드를 엽니다.
@@ -62,7 +62,7 @@
 1. 양식을 완료하고 **만들기**를 클릭하여 새 자격 증명을 저장합니다.
 
 
-### Windows PowerShell을 사용하여 새 PowerShell 자격 증명을 만들려면
+### Windows PowerShell을 사용하여 새 자격 증명 자산을 만들려면
 
 다음 명령 예제에서는 새 자동화 자격 증명을 만드는 방법을 보여 줍니다. 먼저 이름 및 암호를 사용하여 PSCredential 개체를 만든 다음 이를 사용하여 자격 증명 자산을 만듭니다. 또는 **Get-Credential** cmdlet을 사용하여 이름 및 암호를 입력하라는 메시지를 표시할 수 있습니다.
 
@@ -92,17 +92,20 @@
 
 ![캔버스에 자격 증명 추가](media/automation-credentials/credential-add-canvas.png)
 
-다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 예제에서는 [Azure 리소스에 대한 인증 구성](automation-configuring.md)에 설명된 대로 자격 증명을 사용하여 Azure 리소스에 Runbook에 대한 인증을 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음 **Add-AzureAccount** 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. **Get-AutomationPSCredential**에는 단일 개체가 필요하기 때문에 여기에서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용합니다.
+다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 예제에서는 [Azure AD 사용자 계정으로 Runbook 인증](automation-sec-configure-aduser-account.md)에 설명된 대로 자격 증명을 사용하여 Azure 리소스에 Runbook에 대한 인증을 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음 **Add-AzureAccount** 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. **Get-AutomationPSCredential**에는 단일 개체가 필요하기 때문에 여기에서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용합니다.
 
 ![캔버스에 자격 증명 추가](media/automation-credentials/get-credential.png)
 
 ## DSC에서 PowerShell 자격 증명을 사용
 Azure 자동화에서 DSC 구성은 **Get-AutomationPSCredential**을 사용하여 자격 증명 자산을 참조할 수 있지만 원하는 경우 자격 증명 자산은 매개 변수를 통해 전달될 수 있습니다. 자세한 내용은 [Azure 자동화 DSC에서 구성을 컴파일](automation-dsc-compile.md#credential-assets)을 참조하세요.
 
-## 관련된 문서
+## 다음 단계
 
-- [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
+- 그래픽 작성 링크에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 참조하세요.
+- 자동자동화가 포함된 다양한 메서드를 이해하려면 [Azure 자동화 보안](automation-security-overview.md)을 참조하세요.
+- 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)을 참조하세요.
+- PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요. 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->
