@@ -305,4 +305,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!----HONumber=AcomDC_0615_2016-->
