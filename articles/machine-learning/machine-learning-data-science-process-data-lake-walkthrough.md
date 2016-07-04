@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -158,7 +158,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
+Azure Blob에서 데이터 위치는 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
+첫 번째 행에 헤더가 있으므로 헤더를 제거하고 열 형식을 적절하게 변경해야 합니다. ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_을 사용하여 처리된 데이터를 Azure Data Lake 저장소에 저장하거나 ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**을 사용하여 Azure Blob 저장소 계정에 저장할 수 있습니다.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
+다음 Hive 스크립트를 붙여 넣어 테이블을 만듭니다. 데이터 원본의 위치는 다음과 같은 방식으로 Azure Data Lake 저장소 참조에 있습니다. ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -734,11 +734,11 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 ## 다음 작업
 
-[CAP(Cortana 분석 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 항목에 대한 링크를 제공합니다. **전체 데이터 과학 프로세스의 실제** 노드는 Cortana 제품군의 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 일련의 연습 과정과 연결되어 있습니다.
+[TDSP(팀 데이터 과학 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 항목에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
 
-- [실행 중인 Cortana 분석 프로세스: SQL 데이터 웨어하우스 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
-- [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-- [ Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)
+- [실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
+- [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+- [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
 # 기존 Office 365 계정을 Azure 구독에 사용하거나 그 반대로 사용하는 경우
@@ -144,4 +144,7 @@ Office 365 및 Azure는 Azure Active Directory(AAD) 서비스를 사용하여 �
 - Azure 구독은 디렉터리 내 개별 사용자가 소유합니다.
 - Office 365 구독은 디렉터리 자체에 의해 소유됩니다. 디렉터리 내 사용자는 필수 권한이 있으면, 이러한 구독을 조정할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+##다음 단계
+과거에 Azure 및 Office 365 구독을 모두 별도로 획득하고 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 하려는 관련된 시나리오가 있습니다. 이 작업을 수행하는 방법을 알아보려면 [Azure 구독과 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0622_2016-->

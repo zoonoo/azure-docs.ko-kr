@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016" 
+	ms.date="06/17/2016" 
 	ms.author="jeannt"/>
 
 # Azure 기계 학습을 사용하여 고객 이탈 분석
@@ -22,7 +22,11 @@
 이 항목에서는 Azure 기계 학습 스튜디오를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.
 
 ### 감사의 말
-이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure 기계 학습 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 이 백서에서 학습 내용을 공유해 준 데 대해 감사드립니다.
+
+이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure 기계 학습 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
+
+>[AZURE.NOTE] 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 기계 학습 모델을 작성하는 방법의 예제를 보려면 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)을 참조하세요.
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -98,7 +102,7 @@
 
 
 *그림 7: 데이터 원본에서 추출된 기능*
-> 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 이탈](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
+> 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 이탈](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)의 이 샘플 실험을 참조하세요.
 > 
 > Cortana Intelligence 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
 > 
@@ -215,13 +219,13 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 ##참조
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
-\[2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-\[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)
+[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)
 ##부록
 
 ![][10]
@@ -240,4 +244,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

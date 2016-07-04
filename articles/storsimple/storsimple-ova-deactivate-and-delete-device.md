@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열 비활성화 및 삭제
@@ -101,4 +101,4 @@ StorSimple 가상 배열을 비활성화하면 장치 및 해당 StorSimple Mana
 
 - StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-manager-service-administration.md)로 이동하세요. 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0622_2016-->

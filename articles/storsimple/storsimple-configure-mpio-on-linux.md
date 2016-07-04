@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -492,4 +492,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -6,7 +6,7 @@
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-네임스페이스 및 이벤트 허브 이름을 이벤트 허브를 만들 때 사용한 값으로 바꿉니다. `sasKeyName` 및 `sasKey`는 앞서 만든 Send 규칙의 이름 및 키에 해당합니다. 이 정보를 사용하여 연결 문자열을 만듭니다.
+네임스페이스 및 이벤트 허브 이름을 이벤트 허브를 만들 때 사용한 값으로 바꿉니다.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -56,3 +56,5 @@ public class Send
 }
 
 ``` 
+
+<!---HONumber=AcomDC_0622_2016-->

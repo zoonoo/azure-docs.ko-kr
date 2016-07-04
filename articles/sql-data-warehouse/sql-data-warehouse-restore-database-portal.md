@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/17/2016"
+   ms.author="elfish;barbkess;sonyama;nicw"/>
 
 # Azure SQL 데이터 웨어하우스 복원(포털)
 
@@ -35,24 +35,64 @@
 
 데이터베이스를 복원하려면
 
-1. [Azure 포털][]에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
-3. 사용자의 데이터베이스로 이동한 후 선택합니다.
-4. 데이터베이스 블레이드의 위쪽에서 **복원**을 클릭합니다.
-5. 새 **데이터베이스 이름**을 지정하고 **복원 지점**을 선택한 다음 **만들기**를 클릭합니다.
-6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+1. [Azure 포털][]에 로그인
+2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 서버** 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
+    
+3. 서버로 이동한 후 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
+
+4. 복원하려는 SQL 데이터 웨어하우스를 찾아서 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. 데이터 웨어하우스 블레이드의 위쪽에서 **복원** 클릭
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
+
+6. 새 **데이터베이스 이름** 지정
+7. 최신 **복원 지점** 선택
+    1. 최신 복원 지점을 선택했는지 확인합니다. 복원 지점은 UTC로 표시되므로 표시된 기본 옵션이 최신 복원 지점이 아닐 때도 있습니다.
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
+
+8. **확인**을 클릭합니다.
+9. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+
+>[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
+
 
 ## 삭제된 데이터베이스 복원
 
 삭제된 데이터베이스를 복원하려면:
 
-1. [Azure 포털][]에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 서버**를 선택합니다.
-3. 사용자의 서버로 이동한 후 선택합니다.
-4. 서버 블레이드에서 작업까지 아래로 스크롤하여 **삭제된 데이터베이스** 타일을 클릭합니다.
-5. 복원할 삭제된 데이터베이스를 선택합니다.
-5. 새 **데이터베이스 이름**을 지정하고 **만들기**를 클릭합니다.
-6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+1. [Azure 포털][]에 로그인
+2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 서버** 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
+
+3. 서버로 이동한 후 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
+
+4. 서버 블레이드의 작업 섹션까지 아래로 스크롤
+5. **삭제된 데이터베이스** 타일 클릭
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+
+6. 복원할 삭제된 데이터베이스 선택
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+
+7. 새 **데이터베이스 이름** 지정
+    
+    ![](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
+    
+8. **확인**을 클릭합니다.
+9. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
+
+>[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
 
 
 ## 다음 단계
@@ -66,6 +106,7 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 [포털]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
+[복구된 데이터베이스 마무리]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 
@@ -75,4 +116,4 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 <!--Other Web references-->
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

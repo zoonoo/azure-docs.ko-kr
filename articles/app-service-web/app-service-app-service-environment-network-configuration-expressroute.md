@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Express 경로를 사용하는 앱 서비스 환경에 대한 네트워크 구성 세부 정보 
@@ -29,7 +29,7 @@
 Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않는 앱 서비스 환경에 대한 네트워크 연결 요구 사항이 있습니다. 앱 서비스 환경은 기능을 제대로 작동시키기 위해 다음 사항을 전부 요구합니다.
 
 
--  전세계 Azure 저장소 끝점에 아웃바운드 네트워크 연결. 앱 서비스 환경과 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다. 다음 DNS 도메인에서 Azure 저장소 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.  
+-  80 포트 및 443 포트에서 전세계 Azure 저장소 끝점에 아웃바운드 네트워크 연결. 앱 서비스 환경과 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다. 다음 DNS 도메인에서 Azure 저장소 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.  
 -  앱 서비스 환경처럼 동일한 지역에 위치한 Sql DB 끝점에 대한 아웃바운드 네트워크 연결. Sql DB 끝점은 다음 도메인에서 해결합니다. *database.windows.net*
 -  Azure 관리 평면 끝점에 아웃바운드 네트워크 연결(ASM 및 ARM 끝점 모두) *management.core.windows.net* 및 *management.azure.com* 모두에 아웃 바운드 연결을 포함합니다. 
 -  *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. SSL 기능을 지원하는 데 필요합니다.
@@ -114,6 +114,7 @@ Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않
 그런 다음 앱 서비스 환경을 계속 만듭니다!
 
 ## 시작
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
 앱 서비스 환경을 시작하려면 [앱 서비스 환경 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
@@ -137,4 +138,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

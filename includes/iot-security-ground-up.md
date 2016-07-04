@@ -87,3 +87,4 @@ Microsoft Azure IoT Suite는 설계부터 보안 조치로 구축되어 자산�
 - [**논리 앱**](https://azure.microsoft.com/services/app-service/logic/): Azure 앱 서비스의 논리 앱 기능을 통해 IoT 솔루션을 기존의 비즈니스 시스템 라인에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. 논리 앱을 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. 논리 앱은 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
 - [**Blob 저장소**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 저장소입니다.
 
+<!---HONumber=AcomDC_0622_2016-->

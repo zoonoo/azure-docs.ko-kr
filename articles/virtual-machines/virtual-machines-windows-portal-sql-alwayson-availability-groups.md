@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/12/2016"
 	ms.author="mikeray" />
 
 # 자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
@@ -27,7 +27,6 @@
 <br/>
 
 이 종단 간 자습서에서는 Azure 리소스 관리자 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트합니다.
-
 
 자습서 마지막에 Azure의 SQL Server 가용성 그룹 솔루션은 다음 요소로 구성됩니다.
 
@@ -66,6 +65,9 @@
 - 환경 전체를 생성하면서 Azure 모니터링
 
 - 도메인 컨트롤러 중 하나에 연결한 다음 SQL Server 중 하나에 연결
+
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
+
 
 ## 갤러리에서 클러스터 프로비전
 
@@ -107,7 +109,7 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 - **가상 네트워크 이름**은 Azure 가상 네트워크에 대한 네트워크 이름입니다. 이 자습서에서는 **autohaVNET**을 사용합니다.
 
-- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**을 사용합니다.
+- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**을 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**를 사용합니다.
 
 - **SQL Server 서브넷 이름**은 SQL Server 및 파일 공유 감시를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-2**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.1.0/26**을 사용합니다.
 
@@ -194,7 +196,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 
 **SQL Server 설정**에서 SQL Server VM 이름 접두사, SQL Server 버전, SQL Server 서비스 계정과 암호 및 SQL 자동 패치 유지 관리 일정을 검토하고 수정합니다.
 
-- **SQL Server 이름 접두사**는 각 SQL Server에 대한 이름을 만드는 데 사용됩니다. 이 자습서에서는 **Contoso-ag**를 사용합니다. SQL Server 이름은 *Contoso-ag-0* 및 *Contoso-ag-1*입니다.
+- **SQL Server 이름 접두사**는 각 SQL Server의 이름을 만드는 데 사용됩니다. 이 자습서에서는 **Contoso-ag**를 사용합니다. SQL Server 이름은 *Contoso-ag-0* 및 *Contoso-ag-1*입니다.
 
 - **SQL Server 버전**은 SQL Server의 버전입니다. 이 자습서에서는 **SQL Server 2014**를 사용합니다. 또한 **SQL Server 2012** 또는 **SQL Server 2016**을 선택할 수 있습니다.
 
@@ -218,7 +220,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 
 ###구입
 
-이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비된 경우 **만들기**를 클릭합니다.
+이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비가 된 경우 **만들기**를 클릭합니다.
 
 Azure 포털에서 리소스 그룹 및 모든 리소스를 만듭니다.
 
@@ -257,4 +259,4 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

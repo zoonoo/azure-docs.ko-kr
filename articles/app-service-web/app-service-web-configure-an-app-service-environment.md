@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -75,9 +75,10 @@ ASE에 사용되는 VNET에 몇 가지 제한 사항이 있습니다.
 
 - 현재 V1 "클래식" VNET만 지원합니다.
 - VNET이 지역 VNET이어야 함
-- ASE를 호스트하는 데 사용하는 VNET은 RFC1918 주소(즉, 개인 주소)를 사용해야 합니다.
+- 최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 *또는* RFC1918 주소 공간(즉, 개인 주소) 중 *하나*를 사용하는 가상 네트워크에 ASE를 배포할 수 있습니다. 공용 주소 범위를 가진 가상 네트워크를 사용하기 위해 사전에 서브넷을 만들고 ASE 만들기 UX에서 서브넷을 선택해야 합니다.
 - ASE를 배포하는 8개 이상의 주소가 있는 서브넷이 있어야 합니다.
 - 서브넷을 사용하여 ASE를 호스트하면 서브넷의 주소 범위를 변경할 수 없습니다. 따라서 서브넷에는 향후 ASE 성장을 수용하도록 64개 이상의 주소가 포함되는 것이 좋습니다. 
+- **ASE를 호스트하는 데 사용되는 서브넷은 다른 계산 리소스를 포함해서는 안 됩니다.**
 
 ASE를 포함하는 호스티드 서비스와 달리 [가상 네트워크][virtualnetwork] 및 서브넷은 모두 사용자가 제어하고 있습니다. VNET 관리는 가상 네트워크 UI 또는 Powershell을 통해 수행됩니다.
 
@@ -176,6 +177,7 @@ ASE 블레이드에서 크기 조정 작업을 사용하려면 슬라이더를 �
 ![][9]
 
 ## 시작
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
 앱 서비스 환경을 시작하려면 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
@@ -208,4 +210,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
+    ms.date="06/17/2016"
     ms.author="spelluru"/>
 # Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션
 
@@ -380,7 +380,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
+13.  **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactivitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
 
 ### Execute 메서드
 
@@ -543,7 +543,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     4.  **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
     
-		> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
+		> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 <accountname>.<region>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
@@ -754,11 +754,11 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 	-   **AssemblyName**을 DLL의 이름 **MyDotNetActivity.dll**로 설정합니다.
 
-	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
+	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 <namespace>.<classname>입니다.
 
 	-   **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 
-	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
+	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. <containerforthezip>/<nameofthezip.zip> 형식입니다.
 
 	-   사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
 
@@ -797,11 +797,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  [Azure 배치 탐색기](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)를 사용하여 **조각**과 연결된 **작업**을 보고 각 조각이 실행된 VM을 봅니다. **adf-<poolname>**으로 만들어진 작업이 표시됩니다. 이 작업에는 각 조각에 대한 작업이 있습니다. 이 예제에서는 5개 조각이 있으므로 Azure 배치에 5개의 작업이 있게 됩니다. Azure 데이터 팩터리의 파이프라인 JSON에서 **동시성**을 **5**로, **2**개의 VM이 있는 Azure 배치 풀에서 **VM당 최대 작업**을 **2**로 설정하여 작업이 매우 빠르게 실행되었습니다**Created** 시간 참조).
-
-    ![](./media/data-factory-data-processing-using-batch/image14.png)
-
-	> [AZURE.NOTE] [Azure 배치 Explorer 도구][batch-explorer]에 대한 코드를 다운로드하고, 컴파일하여, 배치 풀을 만들고 모니터링하는 데 사용합니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
+6.  Azure 포털을 사용하여 **조각**과 연결된 **작업**을 보고 각 조각이 실행된 VM을 봅니다. 자세한 내용은 [Data Factory 및 배치 통합](#data-factory-and-batch-integration) 섹션을 참조하세요.
 
 7.  Azure Blob 저장소에서 **mycontainer**의 **outputfolder**에 출력 파일이 표시됩니다.
 
@@ -833,6 +829,19 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 
     **참고:** 5개의 입력 파일을 시도하기 전에 출력 파일 2015-11-16-01.txt를 삭제하지 않은 경우 이전 조각 실행에서 한 줄이 표시되고 현재 조각 실행에서 5줄이 표시됩니다. 기본적으로 콘텐츠는 이미 있는 경우 출력 파일에 추가됩니다.
+
+### Data Factory 및 배치 통합
+Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx** 이름으로 작업을 만듭니다.
+
+![Azure Data Factory - 배치 작업](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+
+조각의 각 작업 실행에 대한 작업(task)이 작업(job)에 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업(task)이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+
+이 예제에서는 5개 조각이 있으므로 Azure 배치에 5개의 작업이 있게 됩니다. Azure Data Factory의 파이프라인 JSON에서 **동시성**을 **5**로, **2**개의 VM이 있는 Azure 배치 풀에서 **VM당 최대 작업**을 **2**로 설정하여 작업이 매우 빠르게 실행되었습니다(작업에 대한 시작 및 종료 시간 확인).
+
+포털을 사용하여 배치 작업 및 **조각**과 연결된 작업을 보고 각 조각이 실행된 VM을 봅니다.
+
+![Azure Data Factory - 배치 작업 태스크](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
 ## 파이프라인 디버깅
 
@@ -940,4 +949,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

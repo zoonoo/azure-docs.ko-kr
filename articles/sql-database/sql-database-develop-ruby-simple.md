@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="andrela"/>
 
 
@@ -40,8 +40,14 @@
 
 [Ruby를 사용하여 SQL에 연결하는 개념 증명](http://msdn.microsoft.com/library/mt715797.aspx)
 
-## 추가 리소스
+## 다음 단계
 
-다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+* [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)를 검토합니다.
+* [SQL Server용 Microsoft Ruby Driver](https://msdn.microsoft.com/library/mt691981.aspx)에 대한 추가 정보
 
-<!---HONumber=AcomDC_0615_2016-->
+## 추가 리소스 
+
+* [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
+
+<!---HONumber=AcomDC_0622_2016-->

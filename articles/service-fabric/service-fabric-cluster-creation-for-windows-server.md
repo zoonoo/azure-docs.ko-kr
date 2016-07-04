@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ Azure 서비스 패브릭을 사용하면 Windows Server를 실행 중인 가상
 |**파일 이름**|**간단한 설명**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|클러스터의 각 컴퓨터에 배포될 이진 파일을 포함하는 CAB 파일입니다.|
-|ClusterConfig.JSON|클러스터의 일부인 각 컴퓨터에 대한 정보를 포함하여 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일입니다.|
+|ClusterConfig.Unsecure.DevCluster.JSON|클러스터의 일부인 각 노드에 대한 정보를 포함하여 3개 노드의 비보안 단일 VM/컴퓨터 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일입니다. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|비보안 다중 VM/컴퓨터 클러스터의 일부인 각 컴퓨터에 대한 정보를 포함하여 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일 샘플입니다.|
+|ClusterConfig.Windows.DevCluster.JSON|클러스터의 일부인 각 노드에 대한 정보를 포함하여 3개 노드의 보안 단일 VM/컴퓨터 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일입니다. 클러스터는 [Windows ID](https://msdn.microsoft.com/library/ff649396.aspx)를 사용하여 보안이 유지됩니다.|
+|ClusterConfig.Windows.MultiMachine.JSON|보안 다중 VM/컴퓨터 클러스터의 일부인 각 컴퓨터에 대한 정보를 포함하여 보안 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일 샘플입니다. 클러스터는 [Windows ID](https://msdn.microsoft.com/library/ff649396.aspx)를 사용하여 보안이 유지됩니다.|
+|ClusterConfig.x509.DevCluster.JSON|클러스터의 일부인 각 노드에 대한 정보를 포함하여 3개 노드의 보안 단일 VM/컴퓨터 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일입니다. 클러스터는 Windows x509 인증서를 사용하여 보안이 유지됩니다.|
+|ClusterConfig.x509.MultiMachine.JSON|보안 다중 VM/컴퓨터 클러스터의 일부인 각 컴퓨터에 대한 정보를 포함하여 보안 클러스터에 대한 모든 설정이 포함된 클러스터 구성 파일 샘플입니다. 클러스터는 x509 인증서를 사용하여 보안이 유지됩니다.|
 |EULA.txt|Microsoft Azure Service Fabric 서비스 패브릭 독립 실행형 패키지를 사용하기 위한 사용 조건입니다. EULA의 복사본을 지금 다운로드하려는 경우 [여기를 클릭합니다](http://go.microsoft.com/fwlink/?LinkID=733084).|
 |Readme.txt|릴리스 정보 및 기본 설치 지침에 연결합니다. 이 페이지에서 찾을 수 있는 지침의 작은 하위 집합입니다.|
 |CreateServiceFabricCluster.ps1|ClusterConfig.JSON 파일에서 설정을 사용하여 클러스터를 만드는 PowerShell 스크립트입니다.|
 |RemoveServiceFabricCluster.ps1|ClusterConfig.JSON에서 설정을 사용하여 클러스터를 제거하는 PowerShell 스크립트입니다.|
+|AddNode.ps1|기존 클러스터에 노드를 추가하는 클러스터에 대한 PowerShell 스크립트|
+|RemoveNode.ps1|클러스터에서 노드를 제거하는 클러스터에 대한 PowerShell 스크립트|
+
 
 ## 클러스터 배포를 위한 계획 및 준비
 클러스터를 만들기 전에 다음 단계를 수행해야 합니다.
@@ -63,7 +71,7 @@ Azure 서비스 패브릭을 사용하면 Windows Server를 실행 중인 가상
 각 노드는 전체 서비스 패브릭 스택으로 구성되며 서비스 패브릭 클러스터의 개별 멤버입니다. 일반적인 서비스 패브릭 배포에서는 OS 인스턴스당(실제 또는 가상) 하나의 노드가 있습니다. 클러스터 크기는 비즈니스 요구에 따라 결정됩니다. 그러나 최소 클러스터 크기인 세 개의 노드가 있어야 합니다(컴퓨터/VM). 개발 용도로 지정된 컴퓨터에 하나 이상의 노드를 보유할 수 있습니다. 프로덕션 환경에서 서비스 패브릭은 실제 또는 가상 컴퓨터당 하나의 노드만을 지원합니다.
 
 ### 4단계: 장애 도메인 및 업그레이드 도메인 수 확인
-**FD(장애 도메인)**은 실패의 물리적 단위이며 데이터 센터의 물리적 인프라에 직접 연관됩니다. 장애 도메인은 실패한 단일 지점이 공유하는 하드웨어 구성 요소(컴퓨터, 스위치 등)으로 구성됩니다. 쉽게 말해 장애 도메인과 랙 간에 1:1 매핑이 없지만 각 랙은 장애 도메인으로 간주될 수 있습니다. 클러스터에서 노드를 고려하는 경우 노드가 세 개 이상의 장애 도메인에 배포되는 것이 좋습니다.
+**FD(장애 도메인)**는 실패의 물리적 단위이며 데이터 센터의 물리적 인프라에 직접 연관됩니다. 장애 도메인은 실패한 단일 지점이 공유하는 하드웨어 구성 요소(컴퓨터, 스위치 등)으로 구성됩니다. 쉽게 말해 장애 도메인과 랙 간에 1:1 매핑이 없지만 각 랙은 장애 도메인으로 간주될 수 있습니다. 클러스터에서 노드를 고려하는 경우 노드가 세 개 이상의 장애 도메인에 배포되는 것이 좋습니다.
 
 FD를 *ClusterConfig.JSON*에 지정하는 경우 FD의 이름을 선택합니다. 서비스 패브릭은 내부에서 인프라 토폴로지를 반영할 수 있도록 계층적 FD를 지원합니다. 예를 들어 다음이 허용됩니다.
 
@@ -72,7 +80,7 @@ FD를 *ClusterConfig.JSON*에 지정하는 경우 FD의 이름을 선택합니�
 - "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
 
-**UD(업그레이드 도메인)**은 노드의 논리적 단위입니다. 서비스 패브릭이 업그레이드(응용 프로그램 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
+**UD(업그레이드 도메인)**는 노드의 논리적 단위입니다. 서비스 패브릭이 업그레이드(응용 프로그램 업그레이드 또는 클러스터 업그레이드)를 조정하는 동안 다른 UD의 노드를 요청을 처리하는 데 계속 사용할 수 있도록 업그레이드를 수행하기 위해 UD의 모든 노드를 사용합니다. 컴퓨터에 수행하는 펌웨어 업그레이드는 UD를 인식하지 못하므로 한 번에 하나의 컴퓨터를 수행해야 합니다.
 
 이러한 개념에 대해 생각하는 가장 간단한 방법은 FD를 계획되지 않은 오류의 단위로, UD를 계획된 유지 관리의 단위로 인식하는 것입니다.
 
@@ -92,12 +100,12 @@ UD를 *ClusterConfig.JSON*에 지정하는 경우 UD의 이름을 선택합니�
 위에서 계획 및 준비 섹션에 설명된 단계를 완료한 후에 클러스터를 만들 준비가 되었습니다.
 
 ### 1단계: 클러스터 구성 수정
-다운로드한 패키지에서 *ClusterConfig.JSON*를 엽니다. 편집기를 사용하여 다음 설정을 선택하고 수정할 수 있습니다.
+다운로드한 패키지에서 *ClusterConfig.JSON*을 엽니다. 편집기를 사용하여 다음 설정을 선택하고 수정할 수 있습니다.
 
 |**구성 설정**|**설명**|
 |-----------------------|--------------------------|
-|NodeTypes|노드 유형을 사용하면 클러스터 노드를 다양한 그룹으로 구분할 수 있습니다. 클러스터에는 하나 이상이 NodeType이 있어야 합니다. 그룹의 모든 노드는 다음과 같은 일반적인 특징이 있습니다. <br> *이름* - 노드 유형 이름입니다. <br>*EndPoints* - 노드 유형과 연결된 다양하게 명명된 끝점(포트)입니다. 이 매니페스트의 다른 요소와 충돌하지 않으며 컴퓨터/VM의 다른 응용 프로그램에서 사용하지 않는 한 원하는 모든 포트 번호를 사용할 수 있습니다 <br> *PlacementProperties* - 이는 시스템 서비스 또는 서비스에 대한 배치 제약 조건으로 사용할 다음 노드 유형에 대한 속성을 설명합니다. 이런 속성은 주어진 노드에 대한 여분의 메타데이터를 제공하는 사용자 정의 키/값 쌍입니다. 노드 속성의 예로는 노드에 하드 드라이브 또는 그래픽 카드가 있는지 여부, 하드 드라이브, 코어에 포함된 스핀들 수, 기타 물리 속성이 있습니다. <br> *용량* - 노드 용량은 특정 노드가 사용할 수 있는 특정 리소스의 이름과 양을 정의합니다. 예를 들어 노드에는 "MemoryInMb"라는 메트릭에 대한 용량 및 기본적으로 사용할 수 있는 2048MB가 있음을 정의할 수 있습니다. 이러한 용량은 특정한 양의 리소스를 필요로 하는 서비스가 아직 사용 가능한 해당 리소스로 노드에 배치되도록 런타임 시 사용됩니다.|
-|노드|클러스터의 일부인 노드 각각에 대한 세부 정보입니다(노드 유형, 노드 이름, IP 주소, 노드의 장애 도메인 및 업그레이드 도메인). 클러스터를 만들려는 컴퓨터는 여기서 해당 IP 주소로 나열되어야 합니다. <br> 모든 노드에 대해 동일한 IP 주소를 사용하는 경우 다음 one-box 클러스터가 만들어지며 테스트를 위해 사용할 수 있습니다. one-box 클러스터는 프로덕션 워크로드를 배포하는 데 사용하지 않아야 합니다.|
+|NodeTypes|노드 유형을 사용하면 클러스터 노드를 다양한 그룹으로 구분할 수 있습니다. 클러스터에는 하나 이상이 NodeType이 있어야 합니다. 그룹의 모든 노드는 다음과 같은 일반적인 특징이 있습니다. <br> *이름* - 노드 유형 이름입니다. <br>*EndPoints* - 이 노드 유형과 연결된 다양한 이름의 끝점(포트)입니다. 이 매니페스트의 다른 요소와 충돌하지 않으며 컴퓨터/VM의 다른 응용 프로그램에서 사용하지 않는 한 원하는 모든 포트 번호를 사용할 수 있습니다 <br> *PlacementProperties* - 이는 시스템 서비스 또는 서비스에 대한 배치 제약 조건으로 사용할 다음 노드 유형에 대한 속성을 설명합니다. 이런 속성은 주어진 노드에 대한 여분의 메타데이터를 제공하는 사용자 정의 키/값 쌍입니다. 노드 속성의 예로는 노드에 하드 드라이브 또는 그래픽 카드가 있는지 여부, 하드 드라이브, 코어에 포함된 스핀들 수, 기타 물리 속성이 있습니다. <br> *용량* - 노드 용량은 특정 노드가 사용할 수 있는 특정 리소스의 이름과 양을 정의합니다. 예를 들어 노드에는 "MemoryInMb"라는 메트릭에 대한 용량 및 기본적으로 사용할 수 있는 2048MB가 있음을 정의할 수 있습니다. 이러한 용량은 특정한 양의 리소스를 필요로 하는 서비스가 아직 사용 가능한 해당 리소스로 노드에 배치되도록 런타임 시 사용됩니다.|
+|노드|클러스터의 일부인 노드 각각에 대한 세부 정보입니다(노드 유형, 노드 이름, IP 주소, 노드의 장애 도메인 및 업그레이드 도메인). 클러스터를 만들려는 컴퓨터는 여기서 해당 IP 주소로 나열되어야 합니다. <br> 모든 노드에 동일한 IP 주소를 사용하는 경우 다음 one-box 클러스터가 만들어지며 테스트를 목적으로 사용할 수 있습니다. one-box 클러스터는 프로덕션 워크로드를 배포하는 데 사용하지 않아야 합니다.|
 
 ### 2단계: 클러스터 만들기 스크립트 실행
 JSON 문서에서 클러스터 구성을 수정하고 여기에 모든 노드 정보를 추가하면 패키지 폴더에서 클러스터 만들기 PowerShell 스크립트를 실행하고 구성 파일에 대한 경로 및 그에 대한 패키지 루트의 위치에 전달합니다.
@@ -105,19 +113,47 @@ JSON 문서에서 클러스터 구성을 수정하고 여기에 모든 노드 �
 이 스크립트는 클러스터 구성 파일에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 실행될 수 있습니다. 이 스크립트가 실행되는 컴퓨터는 클러스터의 일부일 수도 있고 일부가 아닐 수도 있습니다.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] 배포 로그는 CreateServiceFabricCluster powershell을 실행하는 VM/컴퓨터에서 로컬로 사용할 수 있습니다. 이 로그는 PS 명령을 실행한 폴더의 "DeploymentTraces"라는 하위 폴더에서 찾을 수 있습니다.
+
+## 서비스 패브릭 클러스터에 노드 추가 
+
+1. 클러스터에 추가하려는 VM/컴퓨터를 준비합니다(계획의 2단계 참조 및 위의 클러스터 배포 섹션 준비). 
+2. 이 VM/컴퓨터를 추가하려는 장애 도메인 및 업그레이드 도메인으로 계획합니다.
+3. [Windows Server용 서비스 패브릭에 대한 독립 실행형 패키지를 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690)하고 클러스터에 추가하려는 VM/컴퓨터에 패키지 압축을 풉니다. 
+4. Powershell 관리자 프롬프트를 열고 압축을 푼 패키지의 위치로 이동
+5. AddNode.PS1 실행
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## 서비스 패브릭 클러스터에서 노드 제거 
+
+1. 클러스터에서 제거하려는 VM/컴퓨터로 TS 수행
+2. Powershell 관리자 프롬프트를 열고 압축을 푼 패키지의 위치로 이동
+5. RemoveNode.PS1 실행
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## 서비스 패브릭 클러스터 삭제 
+1. 클러스터의 일부인 VM/컴퓨터 중 하나로 TS 수행
+2. Powershell 관리자 프롬프트를 열고 압축을 푼 패키지의 위치로 이동
+5. RemoveNode.PS1 실행
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## 다음 단계
-
-클러스터를 만든 후에 보안을 설정해야 합니다.
-- [클러스터 보안](service-fabric-cluster-security.md)
-
-앱 개발 및 배포를 시작하려면 다음을 참고합니다.
+- [클러스터 보안 이해](service-fabric-cluster-security.md)
 - [서비스 패브릭 SDK 및 시작](service-fabric-get-started.md)
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md).
-
-Azure 클러스터 및 독립 실행형 클러스터에 대해 참고합니다.
 - [독립 실행형 클러스터 만들기 기능 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

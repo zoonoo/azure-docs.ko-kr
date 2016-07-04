@@ -13,12 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/18/2016"
+   ms.date="06/21/2016"
    ms.author="yuemlu"/>
 
 # Azure 게스트 OS 
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## 게스트 OS 6월 
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-035 | [3141780] | 보안 기능 우회 문제를 해결하기 위한 .NET Framework용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| 권고 | [3155527] | FalseStart용 암호 그룹으로 업데이트 | 4\.33, 3.40 | 2016년 6월 14일 |
+| MS16-063 | [3163649] | Internet Explorer용 누적 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-069 | [3163640] | JScript 및 VBScript용 누적 보안 업데이트 | 2\.52 | 2016년 6월 14일 |
+| MS16-071 | [3164065] | Microsoft Windows DNS 서버용 보안 업데이트 | 4\.33, 3.40 | 2016년 6월 14일 |
+| MS16-072 | [3163622] | 그룹 정책용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-073 | [3164028] | 커널 모드 드라이버용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-074 | [3164036] | Microsoft 그래픽 구성 요소용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-075 | [3164038] | Windows SMB 서버용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-076 | [3167691] | Netlogon용 보안 업데이트 | 4\.33 | 2016년 6월 14일 |
+| MS16-077 | [3165191] | WPAD용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| MS16-080 | [3164302] | Microsoft Windows PDF용 보안 업데이트 | 4\.33, 3.40 | 2016년 6월 14일 |
+| MS16-081 | [3160352] | Active Directory용 보안 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+| | [2922223] | Windows에서 RealTimeIsUniversal 레지스트리 항목을 사용하는 경우 시스템 시간을 변경할 수 없습니다. | 2\.52 | 2016년 6월 14일 |
+| | [3121255] | FsRtlNotifyFilterReportChange 및 복사 파일의 "0x00000024" 중지 오류는 Windows에서 실패할 수 있습니다. | 2\.52 | 2016년 6월 14일 |
+| | [3125424] | LSASS 교착 상태로 인해 Windows Server 2012 R2 또는 Windows Server 2012가 응답하지 않습니다. | 4\.33, 3.40 | 2016년 6월 14일 |
+| | [3125574] | Windows 7 SP1 및 Windows Server 2008 R2 SP1용 편의성 롤업 업데이트 | 2\.52 | 2016년 6월 14일 |
+| | [3140245] | TLS 1.1 및 TLS 1.2를 Windows의 WinHTTP에서 기본 보안 프로토콜로 사용하는 업데이트 | 3\.40, 2.52 | 2016년 6월 14일 |
+| | [3146604] | WMI 서비스가 Windows Server 2012 R2 또는 Windows Server 2012에서 임의로 충돌합니다. | 4\.33, 3.40 | 2016년 6월 14일 |
+| | [3149157] | Windows 8.1 및 Windows Server 2012 R2용 TCP/IP에서 안정성 및 확장성 향상 | 4\.33 | 2016년 6월 14일 |
+| | [3156416] | Windows Server 2012용 2016년 5월 업데이트 롤업 | 3\.40 | 2016년 6월 14일 |
+| | [3156418] | Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 5월 업데이트 롤업 | 4\.33 | 2016년 6월 14일 |
+| | [3153731] | Windows에서 아제르바이잔, 칠레, 아이티 및 모로코에 대한 2016년 5월 DST 업데이트 | 4\.33, 3.40, 2.52 | 2016년 6월 14일 |
+
 
 ## 게스트 OS 5월 
 
@@ -253,7 +282,7 @@
 | MS15-014 | [3004361][3004361] | SMB의 취약점으로 인한 보안 기능 우회 | 4\.17, 3.24, 2.36 | 해당 없음 |
 | MS15-015 | [3031432][3031432] | Microsoft Windows의 취약성으로 인한 권한 상승 | 4\.17, 3.24, 2.36 | 해당 없음 |
 | MS15-016 | [3029944][3029944] | Microsoft 그래픽 구성의 취약성으로 인한 정보 공개 | 4\.17, 3.24, 2.36 | 해당 없음 |
-| 해당 없음 | [3004375][3004375] | Windows 명령줄 감사 개선 업데이트<p/>**참고**: 이것은 설치되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있습니다. | 4.17, 3.24, 2.36 | 해당 없음 |
+| 해당 없음 | [3004375][3004375] | Windows 명령줄 감사 개선 업데이트<p/>**참고**: 이것은 설치되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있습니다. | 4\.17, 3.24, 2.36 | 해당 없음 |
  
 
 ## 게스트 OS 1월
@@ -287,6 +316,32 @@
 | 해당 없음 | [3007054][3007054] | Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2999802][2999802] | 점선 대신 실선이 Windows에서 인쇄됨 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
+
+
+[3141780]: http://support.microsoft.com/kb/3141780
+[3155527]: http://support.microsoft.com/kb/3155527
+[3163649]: http://support.microsoft.com/kb/3163649
+[3163640]: http://support.microsoft.com/kb/3163640
+[3164065]: http://support.microsoft.com/kb/3164065
+[3163622]: http://support.microsoft.com/kb/3163622
+[3164028]: http://support.microsoft.com/kb/3164028
+[3164036]: http://support.microsoft.com/kb/3164036
+[3164038]: http://support.microsoft.com/kb/3164038
+[3167691]: http://support.microsoft.com/kb/3167691
+[3165191]: http://support.microsoft.com/kb/3165191
+[3164302]: http://support.microsoft.com/kb/3164302
+[3160352]: http://support.microsoft.com/kb/3160352
+[2922223]: http://support.microsoft.com/kb/2922223
+[3121255]: http://support.microsoft.com/kb/3121255
+[3125424]: http://support.microsoft.com/kb/3125424
+[3125574]: http://support.microsoft.com/kb/3125574
+[3140245]: http://support.microsoft.com/kb/3140245
+[3146604]: http://support.microsoft.com/kb/3146604
+[3149157]: http://support.microsoft.com/kb/3149157
+[3156416]: http://support.microsoft.com/kb/3156416
+[3156418]: http://support.microsoft.com/kb/3156418
+[3153731]: http://support.microsoft.com/kb/3153731
+
 
 [3155533]: http://support.microsoft.com/kb/3155533
 [3156764]: http://support.microsoft.com/kb/3156764
@@ -489,4 +544,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

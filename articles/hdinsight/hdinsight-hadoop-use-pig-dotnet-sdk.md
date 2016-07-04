@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="06/17/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
@@ -128,7 +128,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ## 요약
 
-이처럼 Hadoop용 .NET SDK를 사용하면 Pig 작업을 HDInsight 클러스터를 제출 하고, 작업 상태를 모니터링하며, 출력을 검색하는 .NET 응용 프로그램을 만들 수 있습니다.
+이처럼 Hadoop용 .NET SDK를 사용하면 Pig 작업을 HDInsight 클러스터를 제출하고, 작업 상태를 모니터링할 수 있습니다.
 
 ## 다음 단계
 
@@ -143,4 +143,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

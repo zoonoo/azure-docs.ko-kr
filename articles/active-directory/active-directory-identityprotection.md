@@ -5,7 +5,7 @@
 	keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -97,8 +97,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 | 감염된 장치에서 로그인 | 감염 가능성이 있는 장치에서 로그인 |
 | 익명 IP 주소에서 로그인 | 알 수 없는 원본에서 로그인 |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |	의심스러운 작업이 있는 IP 주소에서 로그인 |
-| 알 수 없는 위치에서 로그인 | - | 
-| 잠금 이벤트(공개 미리 보기 상태 아님) | - |
+| 알 수 없는 위치에서 로그인 | - | | 잠금 이벤트(공개 미리 보기 상태 아님) | - |
 
 다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 관리 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
 
@@ -409,5 +408,6 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 흐름](active-directory-identityprotection-flows.md)
  - [Azure Active Directory ID 보호 플레이 북](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
+ - [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="실행 중인 Cortana 분석 프로세스: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure"
-	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다."
+	pageTitle="실행 중인 팀 데이터 과학 프로세스: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure"
+	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="ginathan;bradsev" />
 
-# 실행 중인 Cortana 분석 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
+# 실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단간 환경에서 Cortana 분석 프로세스를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합 중 하나에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링하는 방법을 보여줍니다. Azure 기계 학습을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 줍니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합 중 하나에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링하는 방법을 보여줍니다. Azure 기계 학습을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 줍니다.
 
 이 연습에서 IPython 노트북을 사용하여 작업을 수행할 수도 있습니다. 이 방법을 사용하려면 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 항목을 참조해야 합니다.
 
@@ -663,4 +663,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

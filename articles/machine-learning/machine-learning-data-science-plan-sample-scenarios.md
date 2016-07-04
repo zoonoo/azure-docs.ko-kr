@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 기계 학습의 고급 분석 프로세스 및 기술 시나리오 | Microsoft Azure"
-	description="Azure 기계 학습의 고급 예측 분석 프로세스에 대한 적절한 시나리오를 선택하세요."
+	description="팀 데이터 과학 프로세스에서 고급 예측 분석을 수행하기 위한 적절한 시나리오를 선택합니다."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Azure 기계 학습의 고급 분석 시나리오
 
-이 문서에서는 Cortana 분석 프로세스로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 처리 시퀀스에서 사용 가능한 옵션을 보여 줍니다.
+이 문서에서는 TDSP(팀 데이터 과학 프로세스)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 응용 프로그램 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
 
 마지막 섹션에서는 데이터 및 목표에 적합한 샘플 시나리오를 선택하는 **의사 결정 트리**를 소개합니다.
 
@@ -296,8 +296,8 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 공용 데이터 집합에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure 기계 학습 연습에 대한 자세한 내용은 다음을 참조하세요.
 
 
-* [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-* [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
+* [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+* [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

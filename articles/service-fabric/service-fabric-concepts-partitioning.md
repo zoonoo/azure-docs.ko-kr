@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/15/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl"/>
 
 # 서비스 패브릭 Reliable Services 분할
@@ -124,15 +124,15 @@
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
 
-    ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+    ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createstateful.png)
 
-5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing\_PartitionCount를 26으로 업데이트합니다.
+5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationPackageRoot 폴더에 있는 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing\_PartitionCount를 26으로 업데이트합니다.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-
-    또한 아래와 같이 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다.
+    
+    또한 아래와 같이 ApplicationManifest.xml에 있는 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다.
 
     ```xml
     <Service Name="Processing">
@@ -145,7 +145,7 @@
 6. 서비스에 액세스할 수 있게 만들려면 아래와 같이 Alphabet.Processing 서비스에 대한 ServiceManifest.xml(PackageRoot 폴더에 있음)의 끝점 요소를 추가하여 포트의 끝점을 엽니다.
 
     ```xml
-    <Endpoint Name="ProcessingServiceEndpoint" Protocol="http" Type="Internal" />
+    <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
 
     이제 26 파티션으로 내부 끝점을 수신하도록 서비스가 구성됩니다.
@@ -163,23 +163,24 @@
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+         return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
     }
-    private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
+    private ICommunicationListener CreateInternalListener(ServiceContext context)
     {
-        EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+            
+         EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+         string uriPrefix = String.Format(
+                "{0}://+:{1}/{2}/{3}-{4}/",
+                internalEndpoint.Protocol,
+                internalEndpoint.Port,
+                context.PartitionId,
+                context.ReplicaOrInstanceId,
+                Guid.NewGuid());
 
-        string uriPrefix = String.Format(
-            "{0}://+:{1}/{2}/{3}-{4}/",
-            internalEndpoint.Protocol,
-            internalEndpoint.Port,
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
-            Guid.NewGuid());
+         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
 
-        string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
-        string uriPublished = uriPrefix.Replace("+", nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
+         string uriPublished = uriPrefix.Replace("+", nodeIP);
+         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
 
@@ -234,31 +235,31 @@
 10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다.
 
     이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
-
-11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 Alphabet.WebApi로 지정합니다.
-
-    ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    
+11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 “Alphabet.Web”으로 지정합니다.
+    
+    ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createnewstateless.png).
 
 12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 끝점 정보를 업데이트하여 아래와 같이 포트를 엽니다.
 
     ```xml
-    <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
+    <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
 
-13. ServiceInstanceListeners의 컬렉션을 반환해야 합니다. 다시 간단한 HttpCommunicationListener를 구현하도록 선택할 수 있습니다.
+13. Web 클래스의 ServiceInstanceListeners 컬렉션을 반환해야 합니다. 다시 간단한 HttpCommunicationListener를 구현하도록 선택할 수 있습니다.
 
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
     }
-    private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
+    private ICommunicationListener CreateInputListener(ServiceContext context)
     {
         // Service instance's URL is the node's IP & desired port
-        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        EndpointResourceDescription inputEndpoint = context.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
         string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+        var uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
 
@@ -272,12 +273,13 @@
         {
             string lastname = context.Request.QueryString["lastname"];
             char firstLetterOfLastName = lastname.First();
-            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+            ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
 
             ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
             ResolvedServiceEndpoint ep = partition.GetEndpoint();
+                
             JObject addresses = JObject.Parse(ep.Address);
-            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            string primaryReplicaAddress = (string)addresses["Endpoints"].First();
 
             UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
             primaryReplicaUriBuilder.Query = "lastname=" + lastname;
@@ -285,7 +287,7 @@
             string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
             output = String.Format(
-                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    "Result: {0}. <p>Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
                     result,
                     partitionKey,
                     firstLetterOfLastName,
@@ -312,13 +314,13 @@
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
-    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
     ```
 
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다. 그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver`는 다음으로 정의됩니다.
 
     ```CSharp
-    private static readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
+    private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
 
     `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 끝점을 가져옵니다.
@@ -331,7 +333,7 @@
 
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
-    string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+    string primaryReplicaAddress = (string)addresses["Endpoints"].First();
 
     UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
     primaryReplicaUriBuilder.Query = "lastname=" + lastname;
@@ -351,12 +353,12 @@
     ```
 
 16. 배포가 완료되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다.
-
-    ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-
-17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
-
-    ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+    
+    ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
+    
+17. 브라우저에서 `http://localhost:8081/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
+    
+    ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
@@ -372,4 +374,4 @@
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

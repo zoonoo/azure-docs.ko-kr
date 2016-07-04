@@ -81,11 +81,13 @@ Azure 포털을 사용하여 다른 Azure 지역에서 Azure 데이터베이스�
 
 	-   원격 데이터의 복사본을 만들고 복사본에 연결할 것인지 지정합니다(권장).
 
-	```tsql  
-	DECLARE @credentialName nvarchar(128);   
-	SET @credentialName = N'<existing_database_scoped_credential_name>';   
-	EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 1;  
-
+    ```tsql  
+    USE <Stretch-enabled database name>;
+	GO
+	EXEC sp_rda_reauthorize_db
+	    @credential = N'<existing_database_scoped_credential_name>',
+		@with_copy = 1 ;  
+	GO
 	```  
 
 ## 참고 항목
@@ -96,4 +98,4 @@ Azure 포털을 사용하여 다른 Azure 지역에서 Azure 데이터베이스�
 
 [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

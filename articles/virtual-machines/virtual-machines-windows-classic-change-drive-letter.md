@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # D 드라이브를 Windows VM의 데이터 드라이브로 사용 
@@ -111,4 +111,4 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 ## 다음 단계
 - [추가 데이터 디스크를 연결](virtual-machines-windows-attach-disk-portal.md)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법
-
-> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 항목에서는 무인 설치가 Azure AD 응용 프로그램 프록시 커넥터를 설치하고 등록할 수 있도록 하는 Windows PowerShell 스크립트를 만드는 방법에 대해 설명합니다.
 
@@ -53,7 +51,7 @@
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. PowerShell 자격 증명 개체를 사용하여 **C:\\Program Files\\Microsoft AAD App Proxy Connector**로 이동하고 스크립트를 실행합니다. 여기서 $cred는 만든 PowerShell 자격 증명 개체의 이름입니다.
+2. **C:\\Program Files\\Microsoft AAD App Proxy Connector**로 이동하고 PowerShell 자격 증명 개체를 사용하여 스크립트를 실행합니다. 여기서 $cred는 만든 PowerShell 자격 증명 개체의 이름입니다.
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
@@ -134,4 +132,4 @@
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

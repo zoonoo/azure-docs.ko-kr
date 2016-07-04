@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
@@ -111,7 +111,7 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 
 4. **kerberos 설치:** PuTTY 터미널에서 다음 명령을 입력합니다.
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![kerberos 설치](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
@@ -177,4 +177,4 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 - [Kerberos 설치](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows 통합 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="실행 중인 Cortana 분석 프로세스: SQL 데이터 웨어하우스 사용 | Microsoft Azure"
+	pageTitle="실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용 | Microsoft Azure"
 	description="활성 중인 고급 분석 프로세스 및 기술"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
-# 실행 중인 Cortana 분석 프로세스: SQL 데이터 웨어하우스 사용
+# 실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용
 
 이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL 데이터 웨어하우스(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
-절차는 [CAP(Cortana 분석 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure 기계 학습으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
+이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure 기계 학습으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합
@@ -91,7 +91,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 **Visual Studio 2015 및 SQL Server 데이터 도구 설치** 자세한 지침은 [SQL 데이터 웨어하우스에 Visual Studio 2015 및/또는 SSDT(SQL Server Data Tools) 설치](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)를 참조하세요.
 
-**Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md)의 1단계 및 2단계를 참조하세요.
+**Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결](../sql-data-warehouse/sql-data-warehouse-connect-overview.md)의 1단계 및 2단계를 참조하세요.
 
 >[AZURE.NOTE] SQL 데이터 웨어하우스에 만든 데이터베이스에 다음 SQL 쿼리(연결 항목의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
 
@@ -920,7 +920,7 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 
 ## 요약
-이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 집합으로 작업하며, Cortana 분석 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure 기계 학습 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
+이 연습 자습서에서 수행한 작업을 설명하면 Azure 데이터 과학 환경을 만들고 대용량 공용 데이터 집합으로 작업하며, 팀 데이터 과학 프로세스를 통해 가져오고, 데이터 취득에서 모델 학습, Azure 기계 학습 웹 서비스의 배포에 이르는 모든 과정을 수행했습니다.
 
 ### 라이선스 정보
 
@@ -964,4 +964,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

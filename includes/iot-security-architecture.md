@@ -247,8 +247,7 @@ Azure IoT 아키텍처에서 설명한 각 범주에서, 데이터/정보가 존
 추가 정보는 다음 문서를 참조하세요.
 
 - [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Microsoft Azure IoT 참조 아키텍처](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

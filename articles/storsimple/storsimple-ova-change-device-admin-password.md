@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/02/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열 장치 관리자 암호 변경
@@ -69,4 +69,4 @@ Azure 클래식 포털을 통해 장치 관리자 암호를 변경하려면 다�
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

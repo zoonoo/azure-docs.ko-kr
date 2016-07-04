@@ -311,6 +311,7 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
     ```
     
     참고로, 시작 시 IoT Hub로 전송되는 샘플 **장치 정보** 메시지는 다음과 같습니다.
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -329,11 +330,13 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
     ```
     
     참고로, IoT Hub로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     참고로, IoT Hub에서 수신되는 샘플 **명령**은 다음과 같습니다.
+    
     ```
     {
       "Name":"SetHumidity",
@@ -361,4 +364,4 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

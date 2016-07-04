@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/31/2016"
+   ms.date="06/21/2016"
    ms.author="vturecek;mikhegn"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그
@@ -146,4 +146,4 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

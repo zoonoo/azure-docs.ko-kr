@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cortana 분석 프로세스를 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
+	pageTitle="팀 데이터 과학 프로세스용 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
 	description="일반적인 Python 모듈을 사용자 지정 Azure HDInsight Hadoop 클러스터에서 사용할 수 있습니다."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
-# Cortana 분석 프로세스를 위한 Azure HDInsight Hadoop 클러스터 사용자 지정 
+# 팀 데이터 과학 프로세스용 Azure HDInsight Hadoop 클러스터 사용자 지정 
 
 이 문서에서는 HDInsight 서비스로 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다. 이 사용자 지정을 통해 클러스터에서 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)에서 Anaconda에 포함된 널리 사용되는 많은 Python 모듈을 편리하게 사용할 수 있습니다. 이 시나리오에 사용되는 프로시저에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-move-hive-tables.md#submit)을 참조하세요.
 
-다음 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
+다음 메뉴는 TDSP(Team Data Science Process)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -80,10 +80,10 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
 ![작업 영역 만들기](./media/machine-learning-data-science-customize-hadoop-cluster/enable-remote-access-3.png)
 
-고급 분석 프로세스의 다음 단계는 [CAP(Cortana 분석 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
+고급 분석 프로세스의 다음 단계는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 클러스터에 저장된 Hive 레코드를 처리하는 데 사용된 UDF(사용자 정의 함수)의 클러스터 헤드 노드에서 Anaconda에 포함된 Python 모듈에 액세스하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-move-hive-tables.md#submit)을 참조하세요.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

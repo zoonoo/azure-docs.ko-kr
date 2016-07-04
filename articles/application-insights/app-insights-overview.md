@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights를 사용한 분석" 
+	pageTitle="Application Insights로 분석 | Microsoft Azure" 
 	description="장치 및 웹앱 분석입니다. 라이브 웹 응용 프로그램의 사용 현황 및 성능을 추적합니다. 문제를 감지, 심사 및 진단합니다. 지속적인 모니터링을 통해 사용자와 더불어 성공할 수 있도록 개선합니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -128,6 +128,7 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
 ## 비디오
 
+[![애니메이션 소개](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)로 바꿉니다.
 
 > [AZURE.VIDEO 218]
 
@@ -157,4 +158,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

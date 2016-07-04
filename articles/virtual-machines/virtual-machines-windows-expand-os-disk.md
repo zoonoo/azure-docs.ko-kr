@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="06/21/2016"
    ms.author="kirpas"/>
 
 # Azure 리소스 그룹에서 가상 컴퓨터의 OS 드라이브를 확장하는 방법
 
 [AZURE.INCLUDE [virtual-machine-common-expand-os-disk](../../includes/virtual-machines-common-expand-os-disk.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -88,7 +88,7 @@ Azure 포털의 Site Recovery는 여러 새 기능을 제공합니다.
 
 **필수 요소** | **세부 정보**
 --- | ---
-**구성 서버**| Windows Server 2012 R2를 실행하는 온-프레미스 물리적 또는 가상 컴퓨터가 있어야 합니다. 모든 온-프레미스 Site Recovery 구성 요소가 이 컴퓨터에 설치됩니다.<br/><br/>VMware VM 복제의 경우 서버를 고가용성의 VMware VM으로 배포하는 것이 좋습니다. 물리적 컴퓨터를 복제하는 경우 컴퓨터가 물리적 서버가 될 수 있습니다.<br/><br/> Azure에서 온-프레미스 사이트로 장애 복구(failback)는 VM 또는 물리적 서버 장애 조치에 관계없이 항상 VMware VM으로 이루어집니다. VMware VM으로 구성 서버를 배포하지 않는 경우 장애 복구(failback) 트래픽을 수신하려면 VMware VM으로 별도 마스터 대상 서버를 설정해야 합니다.<br/><br/>서버가 VMware VM인 경우 네트워크 어댑터 유형은 VMXNET3이어야 합니다. 다른 유형의 네트워크 어댑터를 사용하는 경우 [VMware 업데이트](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1)를 vSphere 5.5 서버에 설치해야 합니다.<br/><br/>서버에는 고정 IP 주소가 있어야 합니다.<br/><br/>서버는 도메인 컨트롤러가 아니어야 합니다.<br/><br/>서버의 호스트 이름은 15자 이하여야 합니다.<br/><br/>운영 체제는 영어만 사용해야 합니다.<br/><br/> VMware vSphere PowerCLI 6.0을 구성 서버에 설치해야 합니다.<br/><br/>구성 서버는 인터넷 액세스가 필요합니다. 다음과 같이 아웃바운드 액세스가 필요합니다.<br/><br/>Site Recovery 구성 요소 설치 동안 HTTP 80에서의 임시 액세스(MySQL 다운로드)<br/><br/>복제 관리에 대한 HTTPS 443에서의 지속적인 아웃바운드 액세스<br/><br/>복제 트래픽에 대한 HTTPS 9443에서의 지속적인 아웃바운드 액세스(이 포트를 수정할 수 있음)<br/><br/>Azure에 연결할 수 있도록 서버에서는 다음 URL에 대한 액세스도 필요합니다. *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net<br/><br/>서버의 IP 주소 기반 방화벽 규칙이 있는 경우 규칙이 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(433) 프로토콜을 허용해야 합니다.<br/><br/>구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용합니다.<br/><br/>MySQL 다운로드를 위해 다음 URL을 허용합니다. .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+**구성 서버**| Windows Server 2012 R2를 실행하는 온-프레미스 물리적 또는 가상 컴퓨터가 있어야 합니다. 모든 온-프레미스 Site Recovery 구성 요소가 이 컴퓨터에 설치됩니다.<br/><br/>VMware VM 복제의 경우 서버를 고가용성의 VMware VM으로 배포하는 것이 좋습니다. 물리적 컴퓨터를 복제하는 경우 컴퓨터가 물리적 서버가 될 수 있습니다.<br/><br/> Azure에서 온-프레미스 사이트로 장애 복구(failback)는 VM 또는 물리적 서버 장애 조치에 관계없이 항상 VMware VM으로 이루어집니다. VMware VM으로 구성 서버를 배포하지 않는 경우 장애 복구(failback) 트래픽을 수신하려면 VMware VM으로 별도 마스터 대상 서버를 설정해야 합니다.<br/><br/>서버가 VMware VM인 경우 네트워크 어댑터 유형은 VMXNET3이어야 합니다. 다른 유형의 네트워크 어댑터를 사용하는 경우 [VMware 업데이트](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1)를 vSphere 5.5 서버에 설치해야 합니다.<br/><br/>서버에는 고정 IP 주소가 있어야 합니다.<br/><br/>서버는 도메인 컨트롤러가 아니어야 합니다.<br/><br/>서버의 호스트 이름은 15자 이하여야 합니다.<br/><br/>운영 체제는 영어만 사용해야 합니다.<br/><br/> VMware vSphere PowerCLI 6.0을 구성 서버에 설치해야 합니다.<br/><br/>구성 서버는 인터넷 액세스가 필요합니다. 다음과 같이 아웃바운드 액세스가 필요합니다.<br/><br/>Site Recovery 구성 요소 설치 동안 HTTP 80에서의 임시 액세스(MySQL 다운로드)<br/><br/>복제 관리에 대한 HTTPS 443에서의 지속적인 아웃바운드 액세스<br/><br/>복제 트래픽에 대한 HTTPS 9443에서의 지속적인 아웃바운드 액세스(이 포트를 수정할 수 있음)<br/><br/>Azure에 연결할 수 있도록 서버에서는 다음 URL에 대한 액세스도 필요합니다. *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net<br/><br/>서버의 IP 주소 기반 방화벽 규칙이 있는 경우 규칙이 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 프로토콜을 허용해야 합니다.<br/><br/>구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용합니다.<br/><br/>MySQL 다운로드를 위해 다음 URL을 허용합니다. .http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 ## VMware vCenter/vSphere 호스트 필수 조건
@@ -145,10 +145,10 @@ Site Recovery 프로세스 서버는 vSphere 호스트 또는 호스트를 관�
 1.	구성 서버에 사용하는 컴퓨터가 [필수 조건](#configuration-server-prerequisites)을 준수하는지 확인합니다. 특히 컴퓨터가 다음 설정과 함께 인터넷에 연결되어 있는지 확인합니다.
 
 	- 다음 URL에 대한 액세스를 허용합니다. *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net
-	- MySQL을 다운로드하도록 [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)에 대한 액세스를 허용합니다.
-	- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(433) 프로토콜과 함께 Azure와의 방화벽 통신을 허용합니다.
+- MySQL을 다운로드하도록 [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)에 대한 액세스를 허용합니다.
+	- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 프로토콜과 함께 Azure와의 방화벽 통신을 허용합니다.
 
-2.	구성 서버에 [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)을 다운로드 및 설치합니다.
+2.	구성 서버에 [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)을 다운로드 및 설치합니다. (현재 버전 6.0의 R 릴리스를 비롯한 다른 버전의 PowerCLI는 지원되지 앟습니다.)
 
 
 ## 복구 서비스 자격 증명 모음 만들기
@@ -532,10 +532,9 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
-Windows Server(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
+Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
 #### Windows 서버에 수동으로 설치
@@ -834,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

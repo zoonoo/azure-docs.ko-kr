@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/16/2016"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -70,12 +70,13 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE] 구문 **wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 ##<a id="job"></a>샘플 작업: 구분된 데이터에 열을 투영
 
-다음 HiveQL 문은 **wasb:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
+다음 HiveQL 문은 ****wasb:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
 
+    set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -83,6 +84,10 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다:
+
+* __set hive.execution.engine=tez;__: Tez를 사용하도록 실행 엔진을 설정합니다. MapReduce 대신 Tez를 사용하면 쿼리 성능 향상을 제공할 수 있습니다. Tez에 대한 자세한 내용은 [향상된 성능을 위해 Apache Tez 사용](#usetez)을 참조하세요.
+
+    > [AZURE.NOTE] Windows 기반 HDInsight 클러스터를 사용할 때만 이 문이 필요합니다. Tez는 Linux 기반 HDInsight에 대한 기본 실행 엔진입니다.
 
 * **DROP TABLE**: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
 * **CREATE EXTERNAL TABLE** - Hive에서 새 **외부** 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 원래 형태로 남아 있습니다.
@@ -97,10 +102,11 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 
 외부 테이블을 만든 후에 다음 문은 **내부** 테이블을 만드는데 사용됩니다.
 
+    set hive.execution.engine=tez;
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
 	INSERT OVERWRITE TABLE errorLogs
-	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 이러한 문은 다음 작업을 수행합니다.
 
@@ -206,4 +212,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

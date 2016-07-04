@@ -77,7 +77,7 @@
 
 	c. 주 노드 유형에 대한 최소 VM 수는 선택한 안정성 계층에 따라 결정됩니다. 안정성 계층에 대한 기본값은 은입니다. [서비스 패브릭 클러스터 안정성 및 내구성 선택](service-fabric-cluster-capacity.md) 방법 문서를 참조하세요.
 
-	c. 노드 유형에 대한 VM 수를 선택합니다. 나중에 노드 유형의 VM 수를 늘리거나 줄일 수 있지만 주 노드 유형에서는 선택한 안정성 수준에 따라 최소 개수가 결정됩니다. 다른 노드 유형은 1대 이상의 VM을 가질 수 있습니다.
+	c. 노드 유형에 대한 VM 수를 선택합니다. 나중에 노드 유형의 VM 수를 늘리거나 줄일 수 있지만 주 노드 유형에서는 선택한 안정성 수준에 따라 최소 개수가 결정됩니다. 다른 노드 유형은 VM이 1대만 있어도 됩니다.
 
 
   	![노드 유형 만들기 스크린샷][CreateNodeType]
@@ -225,4 +225,4 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

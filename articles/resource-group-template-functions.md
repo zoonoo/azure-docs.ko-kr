@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -93,30 +93,6 @@
     }
 
 
-<a id="length" />
-### length
-
-**length(array 또는 string)**
-
-배열의 요소 수 또는 문자열의 문자 수를 반환합니다. 배열과 함께 이 함수를 사용하면 리소스를 만들 때 반복 횟수를 지정할 수 있습니다. 다음 예제에서 매개 변수 **siteNames**는 웹 사이트를 만들 때 사용할 이름 배열을 나타냅니다.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-배열과 함께 이 함수를 사용하는 방법의 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-
-또는 다음과 같이 문자열을 사용할 수 있습니다.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [분할](#split)
@@ -455,7 +432,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | baseUri | 예 | 기본 uri 문자열입니다.
 | relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 **http://contoso.com/resources/azuredeploy.json** 을 baseUri 매개 변수로 전달하면 기본 URI는 **http://contoso.com/resources/** 가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 ****http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 ****http://contoso.com/resources/**가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -465,11 +442,96 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 리소스 관리자는 배열 값 작업을 위한 여러 기능을 제공합니다.
 
-다중 배열을 단일 배열로 결합하려면 [concat](#concat)를 사용합니다.
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [분할](#split)
 
-배열 내의 요소 수를 가져오려면 [length](#length)를 사용합니다.
+<a id="length" />
+### length
 
-문자열 값을 문자열 값의 배열로 나누려면 [split](#split)을 사용합니다.
+**length(array 또는 string)**
+
+배열의 요소 수 또는 문자열의 문자 수를 반환합니다. 배열과 함께 이 함수를 사용하면 리소스를 만들 때 반복 횟수를 지정할 수 있습니다. 다음 예제에서 매개 변수 **siteNames**는 웹 사이트를 만들 때 사용할 이름 배열을 나타냅니다.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+배열과 함께 이 함수를 사용하는 방법의 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+
+또는 다음과 같이 문자열을 사용할 수 있습니다.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+배열 또는 문자열의 시작 부분부터 지정된 수의 요소 또는 문자와 함께 배열 또는 문자열을 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| originalValue | 예 | 요소 또는 문자를 가져올 배열 또는 문자열입니다.
+| numberToTake | 예 | 가져올 요소 또는 문자 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다.
+
+다음 예제에서는 배열에서 지정된 수의 요소를 가져옵니다.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+배열 또는 문자열에서 지정된 수 이후 모든 요소 또는 문자와 함께 배열 또는 문자열을 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| originalValue | 예 | 요소 또는 문자를 건너뛰기 위해 사용할 배열 또는 문자열입니다.
+| numberToSkip | 예 | 건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 배열 또는 문자열에 있는 모든 요소가 반환됩니다. 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. 
+
+다음 예제에서는 배열에서 지정된 수의 요소를 건너뜁니다.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## 배포 값 함수
 
@@ -815,4 +877,4 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

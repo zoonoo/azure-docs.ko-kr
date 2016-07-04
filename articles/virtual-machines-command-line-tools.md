@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/15/2016"
 	ms.author="danlep"/>
 
 # ASM(Azure 서비스 관리) 모드의 Azure CLI 명령
@@ -25,19 +25,19 @@
 
 시작하려면 먼저 [Azure CLI](xplat-cli-install.md)를 설치하고 [Azure 구독에 연결](xplat-cli-connect.md)합니다.
 
-현재 명령 구문 및 옵션을 보려면 서비스 관리 모드의 명령줄에서 `azure help`를 입력하고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
+asm 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
 선택적 매개 변수는 대괄호 안에 표시(예: `[parameter]`)됩니다. 모든 다른 매개 변수는 필수 항목입니다.
 
 여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. `-v` 매개 변수는 자세한 정보를 출력하고 `-vv` 매개 변수는 훨씬 더 자세한 정보를 출력합니다. `--json` 옵션은 결과를 원시 JSON 형식으로 출력합니다.
 
-## 서비스 관리 모드 설정
+## asm 모드 설정
 
-현재 서비스 관리 모드는 CLI를 처음 설치할 때 기본적으로 사용하도록 설정됩니다. 필요한 경우 다음 명령을 사용하여Azure CLI 서비스 관리 명령을 사용하도록 설정합니다.
+현재 asm 모드는 CLI를 처음 설치할 때 기본적으로 사용하도록 설정됩니다. 필요한 경우 다음 명령을 사용하여 asm 모드를 설정합니다.
 
 	azure config mode asm
 
->[AZURE.NOTE] Azure 리소스 관리자 모드 및 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
+>[AZURE.NOTE] CLI의 Azure Resource Manager 모드와 asm 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
 
 ## 계정 정보 및 게시 설정 관리
 CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사용하는 것입니다. 기타 옵션을 보려면 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요. 여기에 설명된 대로 게시 설정 파일의 Azure 클래식 포털에서 이 정보를 가져올 수 있습니다. CLI에서 후속 작업에 사용할 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
@@ -1879,10 +1879,8 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-e** 또는 **--label** &lt;label>: 저장소 계정에 대한 레이블입니다.
 + **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
-+ **-a** 또는 **--affinity-group** &lt;name>: 저장소 계정을 연결할 선호도 그룹입니다.
-+ **--kind**: 계정 유형: 저장소 또는 저장소 Blob 
-+ **--sku-name**: 만드는 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
-+ **--access-tier**: 핫 또는 쿨 중에서 저장소 계층 지정
++ **-a** 또는 **--affinity-group** &lt;name>: 저장소 계정을 연결할 선호도 그룹입니다. 
++ **--type**: 만드는 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
 
 **storage account set [options] <name>**
 
@@ -1898,8 +1896,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-e** 또는 **--label** &lt;label>: 저장소 계정에 대한 레이블입니다.
 + **-d** 또는 **--description** &lt;description>: 설명 저장소 계정입니다.
 + **-l** 또는 **--location** &lt;name>: 저장소 계정을 만들 지리적 영역입니다.
-+ **--sku-name**: 새 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
-+ **--access-tier**: 핫 또는 쿨 중에서 저장소 계층 지정
++ **--type**: 새 계정 유형을 나타냅니다. 중복 옵션이 있는 표준 저장소(LRS/ZRS/GRS/RAGRS) 또는 프리미엄 저장소(PLRS).
 
 **storage account delete [options] <name>**
 
@@ -2353,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

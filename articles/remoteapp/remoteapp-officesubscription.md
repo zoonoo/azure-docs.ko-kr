@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/28/2016" 
+    ms.date="06/13/2016" 
     ms.author="elizapo" />
 
 
@@ -123,4 +123,4 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 - [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(동영상)
 - [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Visual Studio를 사용하여 Windows에서 Docker 클라이언트 오류 문제해결 | Microsoft Azure"
    description="Visual Studio를 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -21,7 +21,7 @@ Docker 미리 보기를 위해 Visual Studio 도구로 작업할 경우, 미리 
 
 ##Docker 지원에 대한 Program.cs를 구성하지 못했습니다.
 
-Docker 지원을 추가할 때, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`를 WebHostBuilder()에 추가해야 합니다. Program.cs main() 함수나 새 클래스 WebHostBuilder을 찾을 수 없는 경우, 경고가 표시됩니다. docker 컨테이너 내에서 실행 시 localhost 너머에서 들어오는 트래픽을 Kestrel이 수신하도록 설정하는데 UseUrls()가 필요합니다. 완료 시 일반적인 코드는 다음과 같이 표시됩니다.
+Docker 지원을 추가할 때, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))`를 WebHostBuilder()에 추가해야 합니다. Program.cs `Main()` 함수나 새 클래스 WebHostBuilder를 찾을 수 없는 경우, 경고가 표시됩니다. docker 컨테이너 내에서 실행 시 localhost 너머에서 들어오는 트래픽을 Kestrel이 수신하도록 설정하는데 `.UseUrls()`가 필요합니다. 완료 시 일반적인 코드는 다음과 같이 표시됩니다.
 
 ```
 public class Program
@@ -29,7 +29,7 @@ public class Program
     public static void Main(string[] args)
     {
         var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? String.Empty)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
             .UseIISIntegration()
@@ -52,8 +52,8 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 편집 및 새로 고침 기능을 사용하도록 설정하려면, 프로젝트의 소스 코드를 컨테이너 내의 .app 폴더와 공유하도록 볼륨 매핑을 구성합니다. 호스트 컴퓨터에서 파일들이 변경될 때, 컨테이너 /app 디렉토리는 동일한 디렉토리를 사용합니다. Docker-compose.debug.yml에서 다음 구성은 볼륨 매핑을 사용하도록 설정합니다.
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
 
 볼륨 매핑이 작동하는지 테스트 하려면, 다음 명령을 실행해 보세요.
@@ -61,8 +61,7 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 **Windows에서**
 
 ```
-docker run -it -v /c/Users/Public:/wormhole busybox
-cd wormhole
+a
 / # ls
 ```
 
@@ -103,14 +102,17 @@ Documents        Libraries        Pictures         desktop.ini
 ##Microsoft Edge를 기본 브라우저로 사용
 
 Microsoft Edge 브라우저를 사용하는 경우 Edge에서 IP 주소를 보안되지 않은 상태로 간주하므로 사이트가 열리지 않을 수 있습니다. 이를 해결하려면 다음 단계를 수행합니다.
-1. Windows 실행 상자에서 `Internet Options`를 입력합니다.
-2. 나타나면 **인터넷 옵션**을 선택합니다. 
-2. **보안**을 선택합니다.
-3. **로컬 인트라넷** 영역을 선택합니다.
-4. **사이트**를 선택합니다. 
-5. 목록에서 가상 컴퓨터의 IP(이 경우 Docker 호스트)를 추가합니다. 
-6. Edge에서 페이지를 새로 고치면 사이트가 실행 중임이 표시됩니다. 
-7. 이 문제에 대한 자세한 내용은 Scott Hanselman의 블로그 게시물인 [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx)(Microsoft Edge에서 VirtualBox 호스트된 로컬 웹 사이트를 보거나 열 수 없음)를 참조하세요. 
+
+1. **인터넷 옵션**으로 이동합니다.
+    - Windows 10에서는 Windows 실행 상자에 `Internet Options`을 입력하면 됩니다.
+    - Internet Explorer에서는 **설정** 메뉴로 이동하고 **인터넷 옵션**을 선택할 수 있습니다. 
+1. 나타나면 **인터넷 옵션**을 선택합니다. 
+1. **보안** 탭을 선택합니다.
+1. **로컬 인트라넷** 영역을 선택합니다.
+1. **사이트**를 선택합니다. 
+1. 목록에서 가상 컴퓨터의 IP(이 경우 Docker 호스트)를 추가합니다. 
+1. Edge에서 페이지를 새로 고치면 사이트가 실행 중임이 표시됩니다. 
+1. 이 문제에 대한 자세한 내용은 Scott Hanselman의 블로그 게시물인 [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx)(Microsoft Edge에서 VirtualBox 호스트된 로컬 웹 사이트를 보거나 열 수 없음)를 참조하세요. 
 
 ##문제 해결 버전 0.15 이전
 
@@ -123,10 +125,14 @@ Microsoft Edge 브라우저를 사용하는 경우 Edge에서 IP 주소를 보�
 1. Docker 항목을 찾습니다.
 1. 다음과 같이 시작하는 줄을 찾습니다.
 
+    ```
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+    ```
 	
 1. `-noexit` 매개 변수를 추가하면 이제 줄이 다음과 유사합니다. 이렇게 하면 PowerShell이 계속 열려 있어서 오류를 확인할 수 있습니다.
 
+    ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+    ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

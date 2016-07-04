@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # 새 모니터링 및 관리 앱을 사용하여 Azure 데이터 팩터리 파이프라인 모니터링 및 관리
@@ -314,4 +314,4 @@
     
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="anhoh"/>
 
 #인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
@@ -21,6 +21,9 @@
 DocumentDB 데이터에 대해 뛰어난 검색 환경을 구현하기 위해서는 DocumentDB에 대한 Azure 검색 인덱서를 사용할 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure DocumentDB를 Azure 검색과 통합하는 방법을 보여 줍니다.
 
 이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search/search-create-service-portal.md)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
+
+REST API와 상호 작용하기 위한 요청을 보내려면 [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler) 또는 기본 설정 도구를 사용할 수 있습니다.
+
 
 ##<a id="Concepts"></a>Azure 검색 인덱서 개념
 
@@ -42,11 +45,11 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
     Content-Type: application/json
     api-key: [Search service admin key]
 
-`api-version`은 필수 사항입니다. 유효한 값에는 `2015-02-28` 이상 버전이 포함됩니다.
+`api-version`은 필수 사항입니다. 유효한 값에는 `2015-02-28` 이상 버전이 포함됩니다. 지원되는 모든 검색 API 버전을 보려면 [Azure 검색의 API 버전](../search/search-api-versions.md)을 확인하세요.
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-- **이름**: 데이터 소스의 이름입니다.
+- **이름**: DocumentDB 데이터베이스를 표시할 이름을 선택합니다.
 
 - **형식**: `documentdb`를 사용합니다.
 
@@ -56,13 +59,15 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 - **컨테이너**:
 
-    - **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션을 지정합니다.
+    - **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션의 ID를 지정합니다.
 
     - **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 
 - **dataChangeDetectionPolicy**: 선택 사항입니다. 아래의 [데이터 변경 감지 정책](#DataChangeDetectionPolicy)을 참조하십시오.
 
 - **dataDeletionDetectionPolicy**: 선택 사항입니다. 아래의 [데이터 삭제 감지 정책](#DataDeletionDetectionPolicy)을 참조하십시오.
+
+아래 [요청 본문 예제](#CreateDataSourceExample)를 참조하세요.
 
 ###<a id="DataChangeDetectionPolicy"></a>변경된 문서 캡처
 
@@ -75,7 +80,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 또한 프로젝션에 `_ts`를 추가하고 쿼리에 대한 `WHERE` 절을 추가해야 합니다. 예:
 
-    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
+    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
 ###<a id="DataDeletionDetectionPolicy"></a>삭제된 문서 캡처
@@ -88,7 +93,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 속성을 포함해야 합니다.
+> [AZURE.NOTE] 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 softDeleteColumnName 속성을 포함해야 합니다.
 
 ###<a id="CreateDataSourceExample"></a>요청 본문 예
 
@@ -121,7 +126,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 ##<a id="CreateIndex"></a>2단계: 인덱스 만들기
 
-대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 포털 UI](../search/search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 포털 UI](../search/search-create-index-portal.md) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -269,4 +274,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
  - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->
