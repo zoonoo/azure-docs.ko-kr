@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Azure 기계 학습 작업을 사용하여 예측 파이프라인 만들기   
@@ -772,4 +772,4 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

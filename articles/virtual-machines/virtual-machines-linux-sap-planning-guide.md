@@ -1300,7 +1300,7 @@ New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -Type Standard_LRS -Location "North Europe"
+$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * 모든 학습/데모 환경에 대해 새 가상 네트워크를 만들어 동일한 호스트 이름 및 IP 주소를 사용하도록 설정합니다. 가상 네트워크는 포트 3389로의 트래픽만 허용하여 SSH에 대해 원격 데스크톱 액세스 및 포트 22를 사용하도록 설정하는 네트워크 보안 그룹에 의해 보호됩니다. 
@@ -1499,13 +1499,13 @@ Azure의 SAP 구현에 대한 자세한 배경 정보를 알고 싶으면 이 �
 | 부여 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 주석 |
 |---------|-----------|-------------------|-------------------------|---------|
 | 디스패처 | sapdp`<nn>` 참조: * | 3201 | 3200 – 3299 | SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
-| 메시지 서버 | sapms`<sid`> 참조: ** | 3600 | 제한 없는 sapms`<anySID`> | sid = SAP-System-ID |
+| 메시지 서버 | sapms`<sid`> 참조: * | 3600 | 제한 없는 sapms`<anySID`> | sid = SAP-System-ID |
 | 게이트웨이 | sapgw`<nn`> 참조: * | 3301 | 제한 없음 | SAP 게이트웨이, CPIC 및 RFC 통신에 사용 |
 | SAP 라우터 | sapdp99 | 3299 | 제한 없음 | CI(중앙 인스턴스) 서비스 이름만 설치한 후에 /etc/services에서 임의 값으로 재할당될 수 있습니다. |
 
 **) nn = SAP 인스턴스 번호
 
-****) sid = SAP-System-ID
+**) sid = SAP-System-ID
 
 여러 SAP 제품에 필요한 포트 또는 SAP 제품 서비스에 대한 자세한 내용은 여기 <http://scn.sap.com/docs/DOC-17124>에서 확인할 수 있습니다. 이 문서를 사용할 경우 특정 SAP 제품 및 시나리오에 필요한 VPN 장치에서 전용 포트를 열 수 있습니다.
 
@@ -1930,4 +1930,4 @@ Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 * 간단한 대화 상자 인스턴스를 재배포하는 것이 더 빠르므로 SAP 대화 상자 인스턴스를 백업하는 것은 거의 의미가 없습니다.
 * SAP 시스템의 전체 디렉터리를 포함하는 VM과 다양한 인스턴스의 모든 프로필을 백업하는 것은 도움이 되며 Windows 백업(또는 Linux의 tar)을 사용하여 수행해야 합니다. Windows Server 2008(R2) 및 Windows Server 2012(R2) 간에는 차이가 있으며 좀 더 최신의 Windows Server 릴리스를 사용하여 백업하는 것이 더 쉬우므로 Windows Server 2012(R2)를 Windows 게스트 운영 체제로 실행하는 것이 좋습니다. 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,17 +12,17 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # PowerShell을 사용하여 지역 중복 백업에서 Azure SQL 데이터베이스 복원
+
 
 > [AZURE.SELECTOR]
 - [개요](sql-database-geo-restore.md)
 - [Azure 포털](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
-
 
 이 문서에서는 PowerShell을 사용하여 지역 중복을 사용하는 새 서버에 데이터베이스를 복원하는 방법을 보여 줍니다.
 
@@ -51,13 +51,13 @@
 
 ## 다음 단계
 
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
+- 지역 중복 백업에서 Azure 포털을 사용하여 Azure SQL 데이터베이스를 복원하는 방법에 대한 자세한 단계는 [Azure 포털을 사용하여 지리적 복원](sql-database-geo-restore-portal.md)을 참조하세요.
+- 지역 중복 백업에서 Azure SQL 데이터베이스를 복원하는 것과 관련된 자세한 내용은 [PowerShell을 사용하여 지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+- 가동 중단에서 복구하는 방법에 대한 자세한 내용은 [가동 중단에서 복구](sql-database-disaster-recovery.md)를 참조하세요.
 
 
 ## 추가 리소스
 
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
+- [비즈니스 연속성 시나리오](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

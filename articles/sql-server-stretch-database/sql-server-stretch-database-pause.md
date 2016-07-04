@@ -34,9 +34,11 @@ Azure에 대한 데이터 마이그레이션을 일시 중지하거나 다시 �
 다음 명령을 실행합니다.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;
-GO;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <Stretch-enabled table name>  
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;  
+GO
 ```
 
 ## 데이터 마이그레이션 다시 시작
@@ -51,12 +53,23 @@ GO;
 다음 명령을 실행합니다.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <Stretch-enabled table name>   
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;  
+ GO
 ```
+
+## 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
+
+### SQL Server Management Studio를 사용하여 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
+SQL Server Management Studio를 열고 **스트레치 데이터베이스 모니터**를 열고 **마이그레이션 상태** 열 값을 확인합니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md)을 참조하세요.
+
+### Transact-SQL을 사용하여 마이그레이션이 활성화되었는지 또는 일시 중지되었는지 확인
+카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 쿼리하고 **is\_migration\_paused** 열의 값을 확인합니다. 자세한 내용은 [sys.remote\_data\_archive\_tables](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
 
 ## 참고 항목
 
-[ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+[ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx) [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

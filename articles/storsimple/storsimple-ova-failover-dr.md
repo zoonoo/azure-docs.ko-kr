@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치(failover)
@@ -82,9 +82,9 @@ DR이 성공적으로 완료된 후에는, 원본 장치에 있는 클라우드 
 > 
 > 장치를 더 이상 사용할 수 없지만, 호스트 시스템에서 프로비전한 가상 컴퓨터는 여전히 자원을 소비합니다. DR이 성공적으로 완료되고 나면 이 가상 컴퓨터를 호스트 시스템에서 제거할 수 있습니다.
 
-## 가상 장치에 대한 장애 조치
+## 가상 배열에 대한 장애 조치
 
-로컬 웹 UI를 통해 StorSimple 가상 장치를 프로비전하고, 구성하고, 이 절차를 실행하기 전에 StorSimple Manager 서비스에 등록하는 것이 좋습니다.
+로컬 웹 UI를 통해 다른 StorSimple 가상 배열을 프로비전하고, 구성하고, 이 절차를 실행하기 전에 StorSimple Manager 서비스에 등록하는 것이 좋습니다.
 
 
 > [AZURE.IMPORTANT]
@@ -175,4 +175,4 @@ DR이 시작된 후와 장치 복원이 완료되기 전에 클라우드 연결�
 
 [로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

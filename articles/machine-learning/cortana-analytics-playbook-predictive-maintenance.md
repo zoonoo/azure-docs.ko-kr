@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="06/21/2016"
 	ms.author="fboylu" />
 
 # 항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿 플레이 북
@@ -346,4 +346,4 @@
 
 아키텍처의 각 구성 요소에 대한 자세한 내용은 [Azure](https://azure.microsoft.com/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

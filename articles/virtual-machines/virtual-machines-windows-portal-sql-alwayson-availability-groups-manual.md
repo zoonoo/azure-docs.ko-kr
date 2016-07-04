@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/15/2016"
 	ms.author="MikeRayMSFT" />
 
 # 수동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
@@ -49,6 +49,8 @@
 이것은 가능한 구성 중 하나입니다. 예를 들어, Azure에서 계산 시간을 줄이기 위해 2노드 WSFC 클러스터에서 쿼럼 파일 공유 감시로 도메인 컨트롤러를 사용하여 두 개의 복제된 가용성 그룹에 대한 VM 수를 최소화할 수 있습니다. 이 방법을 사용하면 위의 구성에서 하나로 VM 수가 줄어듭니다.
 
 >[AZURE.NOTE] 이 자습서를 완료하는 데는 상당한 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 이것은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [포털 - 리소스 관리자](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요.
+
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
 이 자습서에서는 다음을 가정합니다.
 
@@ -110,11 +112,11 @@
  
 
  
-**가상 네트워크 만들기** 블레이드에서 가상 네트워크를 구성합니다.
+1. **가상 네트워크 만들기** 블레이드에서 가상 네트워크를 구성합니다.
 
-다음 표는 가상 네트워크에 대한 설정을 보여 줍니다.
+    다음 표는 가상 네트워크에 대한 설정을 보여 줍니다.
 
-| **필드** | 값 |
+    | **필드** | 값 |
 | ----- | ----- |
 | **Name** | autoHAVNET |
 | **주소 공간** | 10\.0.0.0/16 |
@@ -123,11 +125,11 @@
 | **구독** | 사용하려는 구독을 지정합니다. 하나의 구독만 있는 경우 이 옵션이 비어 있을 수 있습니다. |
 | **위치** | 가용성 그룹을 배포할 Azure 위치를 지정합니다. |
 
-해당 주소 공간 및 서브넷 주소 범위는 표와 다를 수 있습니다. 구독에 따라 사용 가능한 주소 공간 및 해당 서브넷 주소 범위가 자동으로 지정됩니다. 사용할 수 있는 주소 공간이 충분하지 않으면 다른 구독을 사용하세요.
+    해당 주소 공간 및 서브넷 주소 범위는 표와 다를 수 있습니다. 구독에 따라 사용 가능한 주소 공간 및 해당 서브넷 주소 범위가 자동으로 지정됩니다. 사용할 수 있는 주소 공간이 충분하지 않으면 다른 구독을 사용하세요.
 
-**만들기**를 클릭합니다.
+1. **만들기**를 클릭합니다.
 
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+    ![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 포털 대시보드가 반환되고 새 네트워크가 만들어지는 시점을 사용자에게 알립니다.
 
@@ -151,11 +153,11 @@
 
 1. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다.
 
- **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
+    **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
 
-**확인**을 클릭합니다.
-
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+1. **확인**을 클릭합니다.
+ 
+![가상 네트워크 구성](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 다음은 가상 네트워크 및 두 서브넷에 대한 구성 설정의 요약입니다.
 
@@ -202,14 +204,14 @@
 
 1. **Windows Server 2012 R2 Datacenter**를 입력합니다.
 
-1. **Windows Server 2012 R2 Datacenter**를 클릭합니다. **Windows Server 2012 R2 Datacenter** 블레이드에서 배포 모델이 **리소스 관리자**로 설정되었는지 확인하고 **만들기**를 클릭합니다. **가상 컴퓨터 만들기** 블레이드가 열립니다.
+1. **Windows Server 2012 R2 Datacenter**를 클릭합니다. **Windows Server 2012 R2 Datacenter** 블레이드에서 배포 모델이 **Resource Manager**로 설정되었는지 확인하고 **만들기**를 클릭합니다. **가상 컴퓨터 만들기** 블레이드가 열립니다.
 
 해당 프로세스를 두 번 수행하여 두 개의 가상 컴퓨터를 만듭니다. 두 개의 가상 컴퓨터 이름을 지정합니다.
 
 - ad-primary-dc
 - ad-secondary-dc
 
- [AZURE.NOTE] **ad-secondary-dc**는 Active Directory 도메인 서비스에 높은 가용성을 제공하는 선택적 구성 요소입니다.
+ >[AZURE.NOTE] **ad-secondary-dc**는 Active Directory 도메인 서비스에 높은 가용성을 제공하는 선택적 구성 요소입니다.
 
 다음 표에서는 이러한 두 컴퓨터에 대한 설정을 보여 줍니다.
 
@@ -279,7 +281,7 @@
 
 | **Page** |설정|
 |---|---|
-|** 배포 구성** |**새 포리스트 추가** = 선택<br/>**루트 도메인 이름** = corp.contoso.com|
+|**배포 구성** |**새 포리스트 추가** = 선택<br/>**루트 도메인 이름** = corp.contoso.com|
 |**도메인 컨트롤러 옵션**|**DSRM 암호** = Contoso!000<br/>**암호 확인** = Contoso!000|
 
 1. **다음**을 클릭하여 마법사의 다른 페이지를 진행합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토해야 하지만 설치는 계속할 수 있습니다.
@@ -478,7 +480,7 @@
 
 ### **장애 조치(failover) 클러스터링** 기능을 각 클러스터 VM에 추가합니다.
 
-1. **sqlserver-0**으로 RDP합니다.
+1. **sqlserver-0**로 RDP합니다.
 
 1. **서버 관리자** 대시보드에서 **역할 및 기능 추가**를 클릭합니다.
 
@@ -574,7 +576,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 ## 가용성 그룹 구성
 
-이 섹션에서는 **sqlserver-0** 및 **sqlserver-1**에 대해 다음을 수행합니다.
+이 섹션에서는 **sqlserver-0** 및 **sqlserver-1** 모두에 대해 다음을 수행합니다.
 
 - 기본 SQL Server 인스턴스에 sysadmin 역할로 **CORP\\Install** 추가
 
@@ -584,7 +586,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 - SQL Server 서비스 계정을 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 각각 변경
 
-이 작업은 순서와 관계없이 수행할 수 있습니다. 하지만 아래 단계는 순서대로 진행합니다. **sqlserver-0** 및 **sqlserver-1**에 대해 단계를 수행합니다.
+이 작업은 순서와 관계없이 수행할 수 있습니다. 하지만 아래 단계는 순서대로 진행합니다. **sqlserver-0** 및 **sqlserver-1** 모두에 대해 단계를 수행합니다.
 
 ### 각 SQL Server에서 sysadmin 고정 서버 역할로 설치 계정 추가
 
@@ -863,4 +865,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

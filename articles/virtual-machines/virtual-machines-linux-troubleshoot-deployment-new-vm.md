@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/06/2016"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Azure에서 새 Linux 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
@@ -81,4 +81,7 @@
   - 다른 가용성 집합(동일한 지역의)에 새 VM을 만듭니다.
   - 새 VM을 동일한 가상 네트워크에 추가합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+## 다음 단계
+중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](virtual-machines-linux-restart-resize-error-troubleshooting.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -26,4 +26,4 @@
 
 - 일정 기간 동안 비활성 상태이면 RemoteApp에서 자동으로 로그오프됩니다. 데이터 손실을 방지하려면 서비스 사용을 마쳤을 때 응용 프로그램을 닫는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

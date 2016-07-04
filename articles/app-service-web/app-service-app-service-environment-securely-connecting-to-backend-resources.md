@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
@@ -34,9 +34,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 아웃 바운드 연결 및 DNS 요구 사항 ##
-앱 서비스 환경이 제대로 작동하려면 동일한 Azure 지역의 SQL 데이터베이스에 대한 연결 및 전세계 Azure 저장소에 대한 아웃바운드 액세스가 필요합니다. 가상 네트워크에서 아웃바운드 인터넷 액세스가 차단 될 경우, 앱 서비스 환경은 이러한 Azure 끝점에 액세스 할 수 없습니다.
-
-고객들은 가상 네트워크에서 사용자 지정 DNS 서버를 구성할 수도 있습니다. 앱 서비스 환경은 Azure 끝점을 *.database.windows.net, *.file.core.windows.net 및 *.blob.core.windows.net에서 해결할 수 있어야 합니다.
+앱 서비스 환경이 제대로 작동하려면 다양한 끝점에 대한 아웃바운드 액세스가 필요합니다. ASE에서 사용하는 외부 끝점의 전체 목록은 [Express 경로에 대한 네트워크 구성](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 문서의 "필수 네트워크 연결" 섹션에 있습니다.
 
 가상 네트워크의 모든 사용자 지정 DNS 서버는 앱 서비스 환경 생성보다 미리 설치하는 것을 권장합니다. 앱 서비스 환경이 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, 앱 서비스 환경 생성 과정에 장애가 발생합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있고 DNS 서버를 연결하거나 사용할 수 없는 경우 앱 서비스 환경을 만드는 프로세스도 실패합니다.
 
@@ -88,6 +86,7 @@ VNet 내부 트래픽으로만 액세스를 제한하는 작업은 네트워크 
 
 
 ## 시작
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
 앱 서비스 환경을 시작하려면 [앱 서비스 환경 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
@@ -116,4 +115,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

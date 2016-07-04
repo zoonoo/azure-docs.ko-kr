@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="clemensv;sethm"/>
 
 # 서비스 버스 배달 못 한 편지 큐의 개요
@@ -88,7 +88,7 @@ while(true)
 
 서비스 버스 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
+- [서비스 버스 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 - [Azure 큐와 서비스 버스 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [서비스 버스 큐](service-bus-dotnet-get-started-with-queues.md)를 사용하는 방법
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

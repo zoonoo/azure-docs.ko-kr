@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Azure 가상 컴퓨터용 디스크 및 VHD 정보
@@ -31,4 +31,4 @@
 -  중복성을 위해 [소프트웨어 RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
 -  추가 VM을 신속하게 배포할 수 있도록 [Linux 가상 컴퓨터를 캡처](virtual-machines-linux-classic-capture-image.md)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

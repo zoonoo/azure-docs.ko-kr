@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # PowerShell로 탄력적 데이터베이스 풀 모니터링 및 관리 
@@ -107,6 +107,8 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 리소스에 경고 규칙을 추가하여 리소스가 설정한 사용률 임계값에 도달할 경우 [URL 끝점](https://msdn.microsoft.com/library/mt718036.aspx)에 전자 메일 알림 또는 경고 문자열을 보낼 수 있습니다. Add-AzureRmMetricAlertRule cmdlet을 사용합니다.
 
+> [AZURE.IMPORTANT]탄력적 풀에 대한 리소스 사용률 모니터링은 20분 이상 지연됩니다. 탄력적 풀에 대한 경고를 30분 미만으로 설정하는 것은 현재 지원되지 않습니다. 탄력적 풀에 대해 30분 미만의 기간으로 설정한 경고(PowerShell API에서 "-WindowSize"라는 매개 변수 사용)는 트리거되지 않을 수 있습니다. 탄력적 풀에 대해 정의하는 모든 경고는 30분 이상의 기간(WindowSize)을 사용해야 합니다.
+
 이 예제에서는 풀의 eDTU 소비가 특정 임계값을 초과할 때 알림을 받기 위해 경고를 추가합니다.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## 풀 내의 모든 데이터베이스에 경고 추가
 
 탄력적 풀의 모든 데이터베이스에 경고 규칙을 추가하여 리소스가 경고에 의해 설정된 사용률 임계값에 도달할 경우 [URL 끝점](https://msdn.microsoft.com/library/mt718036.aspx)에 전자 메일 알림 또는 경고 문자열을 보낼 수 있습니다.
+
+> [AZURE.IMPORTANT] 탄력적 풀에 대한 리소스 사용률 모니터링은 20분 이상 지연됩니다. 탄력적 풀에 대한 경고를 30분 미만으로 설정하는 것은 현재 지원되지 않습니다. 탄력적 풀에 대해 30분 미만의 기간으로 설정한 경고(PowerShell API에서 "-WindowSize"라는 매개 변수 사용)는 트리거되지 않을 수 있습니다. 탄력적 풀에 대해 정의하는 모든 경고는 30분 이상의 기간(WindowSize)을 사용해야 합니다.
 
 이 예제에서는 해당 데이터베이스의 DTU 사용량이 지정된 특정 임계값을 초과할 경우 알림을 받기 위해 풀의 각 데이터베이스에 경고를 추가합니다.
 
@@ -156,7 +160,7 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
@@ -270,6 +274,6 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 ## 다음 단계
 
 - [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
-- [Azure SQL 데이터베이스 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
+- [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

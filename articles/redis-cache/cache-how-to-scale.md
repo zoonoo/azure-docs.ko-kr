@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="06/16/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
@@ -85,7 +85,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 
 ### MAML을 사용하여 크기 조정
 
-[MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)를 사용하여 Azure Redis Cache 인스턴스의 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`에 대해 새 크기를 전달합니다.
+[MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)를 사용하여 Azure Redis Cache 인스턴스의 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`에 대한 새 크기를 전달합니다.
 
     static void Main(string[] args)
     {
@@ -199,4 +199,4 @@ Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

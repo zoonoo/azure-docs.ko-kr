@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 
 # 응용 프로그램 프록시에서 클레임 인식 앱으로 작업
-
-> [AZURE.IMPORTANT] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 클레임 인식 앱은 STS(보안 토큰 서비스)에 리디렉션을 수행하며, 이에 대한 반응으로 사용자를 응용 프로그램에 리디렉션하기 전에 토큰 대신 사용자에게 자격 증명을 요청합니다. 이러한 리디렉션에서 응용 프로그램 프록시를 사용하려면 다음 단계를 수행해야 합니다.
 
@@ -51,4 +49,4 @@
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

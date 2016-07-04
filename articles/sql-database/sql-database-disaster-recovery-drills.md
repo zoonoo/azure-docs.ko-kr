@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL 데이터베이스 재해 복구 훈련" 
+   pageTitle="SQL 데이터베이스 재해 복구 훈련 | Microsoft Azure" 
    description="Azure SQL 데이터베이스를 사용하여 중요 업무용 비즈니스 응용 프로그램이 오류 및 중단에 대한 복원력을 유지하도록 만드는 방법에 대한 지침과 모범 사례에 대해 알아봅니다." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #재해 복구 훈련 수행
@@ -63,4 +63,21 @@
 
 - 복구 후 응용 프로그램 무결성 검사(예: 연결 문자열, 로그인, 기본 기능 테스트 또는 기타 표준 응용 프로그램 로그아웃 절차의 유효성 검사 부분)로 훈련을 완료합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## 다음 단계
+
+- 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+
+## 추가 리소스
+
+- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
+- [특정 시점 복원](sql-database-point-in-time-restore.md)
+- [지역 복원](sql-database-geo-restore.md)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
+- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

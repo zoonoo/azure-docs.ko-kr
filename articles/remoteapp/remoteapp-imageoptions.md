@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -31,4 +31,4 @@ Azure RemoteApp에서는 이미지를 사용하여 사용자와 공유할 앱을
 
 이미지를 가져오는 위치 또는 만드는 방법에 관계없이 앱이 RemoteApp에서 올바르게 작동하려면 [앱 요구 사항](remoteapp-appreqs.md)을 이해해야 합니다. 다음 단계에서는 [클라우드](remoteapp-create-cloud-deployment.md) 또는 [하이브리드](remoteapp-create-hybrid-deployment.md) 컬렉션을 만듭니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

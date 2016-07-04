@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # SQL 데이터베이스 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드 관리
@@ -120,8 +120,9 @@ SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-ove
 
 문서에서 설명된 두 개의 업그레이드 방법은 복잡성과 달러 비용에서 차이가 있지만 둘 다 최종 사용자가 읽기 전용 작업으로 제한될 때 시간을 최소화하는 데 집중합니다. 해당 시간은 업그레이드 스크립트의 기간으로 직접 정의됩니다. 데이터베이스 크기, 선택한 서비스 계층, 웹 사이트 구성 및 쉽게 제어할 수 없는 기타 요인에 따라 달라지지 않습니다. 이는 모든 준비 단계가 업그레이드 단계에서 분리되고 프로덕션 응용 프로그램에 영향을 주지 않고 수행될 수 있기 때문입니다. 업그레이드 스크립트의 효율성은 업그레이드하는 동안 최종 사용자 환경을 결정하는 핵심 요소입니다. 따라서 사용자 환경을 개선하는 가장 좋은 방법은 업그레이드 스크립트를 가능한 한 효율적으로 만드는 데 집중하는 것입니다.
 
-## 추가 리소스
- 다음 페이지는 업그레이드 워크플로 구현에 필요한 특정 작업을 이해하는 데 도움이 됩니다.
+
+## 다음 단계
+다음 페이지는 업그레이드 워크플로 구현에 필요한 특정 작업을 이해하는 데 도움이 됩니다.
 
 - [보조 데이터베이스 추가](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [보조로 데이터베이스 장애 조치(Failover)](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -131,4 +132,15 @@ SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-ove
 - [데이터베이스 복사](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [데이터베이스를 읽기 전용 또는 읽기-쓰기 모드로 설정](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+## 추가 리소스
+
+- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
+- [특정 시점 복원](sql-database-point-in-time-restore.md)
+- [지역 복원](sql-database-geo-restore.md)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
+- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="가상 컴퓨터 규모 집합 만들기 | Microsoft Azure"
-	description="Powershell을 사용하여 가상 컴퓨터 크기 집합 만들기"
+	description="PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@
 
 1. **$storageProfile** 값을 저장소 프로필에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. 사용할 이미지를 정의하는 변수를 만듭니다.
       
@@ -264,7 +264,7 @@
         
 4. 저장소 프로필을 만듭니다.
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### 가상 컴퓨터 크기 집합
 
@@ -298,7 +298,7 @@
 
 - Azure 포털 - 포털을 사용하여 제한된 양의 정보를 얻을 수 있습니다.
 - [Azure 리소스 탐색기](https://resources.azure.com/) - 크기 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다.
-- Azure Powershell - 이 명령을 사용하여 정보를 가져옵니다.
+- Azure PowerShell - 이 명령을 사용하여 정보를 가져옵니다.
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -313,4 +313,4 @@
 - [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)의 정보를 사용하여 크기 집합의 자동 크기 조정을 설정해 보십시오.
 - [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 검토하여 수직 크기 조정에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

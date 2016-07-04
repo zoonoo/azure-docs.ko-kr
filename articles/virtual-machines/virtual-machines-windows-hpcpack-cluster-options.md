@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Microsoft HPC Pack을 사용하여 Azure에서 Windows HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션
@@ -32,9 +32,9 @@ ms.service="virtual-machines-windows"
 
 * (마켓플레이스) [Excel 워크로드용 HPC Linux 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 
-* (퀵 스타트) [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+* (퀵 스타트) [HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 
-* (퀵 스타트) [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+* (퀵 스타트) [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
 ### Azure VM 이미지
 
@@ -89,4 +89,4 @@ ms.service="virtual-machines-windows"
 
 * [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

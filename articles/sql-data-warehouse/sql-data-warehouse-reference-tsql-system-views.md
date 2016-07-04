@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # 시스템 뷰
@@ -128,7 +128,7 @@
 
 ## SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server DMV
 
-SQL 데이터 웨어하우스는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL 데이터 웨어하우스에서 쿼리할 때 배포에 대해 실행하는 SQL 데이터베이스의 상태를 보고합니다.
+SQL 데이터 웨어하우스는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL 데이터 웨어하우스에서 쿼리한 경우 배포에서 실행되고 있는 SQL 데이터베이스의 상태를 보고합니다.
 
 SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므로, SQL 데이터웨어하우스와 분석 플랫폼 시스템의 병렬 데이터 웨어하우스(PDW) 모두 동일한 시스템 보기를 사용합니다.
 
@@ -236,4 +236,4 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

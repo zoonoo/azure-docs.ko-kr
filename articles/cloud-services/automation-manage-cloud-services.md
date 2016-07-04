@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/20/2016"
 	ms.author="jolevy"/>
 
 
@@ -49,4 +49,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 클라우드
 - [Azure 자동화 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

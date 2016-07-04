@@ -140,14 +140,14 @@
 
 이 자습서에서는 Windows 스토어 앱에서 모바일 서비스 및 알림 허브를 사용하여 푸시 알림을 보내도록 설정하기 위한 기본 사항에 대해 설명했습니다. 이후에는 다음 자습서 중 하나를 완료하는 것이 좋습니다.
 
-+ [구독자에게 브로드캐스트 알림 보내기](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>관심이 있는 범주에 대해 푸시 알림을 등록하고 받아보는 방법에 대해 알아봅니다.
++ [구독자에게 브로드캐스트 알림 보내기](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) <br/>관심이 있는 범주에 대해 푸시 알림을 등록하고 받아보는 방법에 대해 알아봅니다.
 
-+ [구독자에게 플랫폼을 알 수 없는 알림 보내기](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
++ [구독자에게 플랫폼을 알 수 없는 알림 보내기](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
 
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [Azure 알림 허브-진단 지침](../notification-hubs/notification-hubs-diagnosing.md) <br/>프로그램 푸시 알림 문제를 해결하는 방법에 대해 알아봅니다.
+* [Azure 알림 허브-진단 지침](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>프로그램 푸시 알림 문제를 해결하는 방법에 대해 알아봅니다.
 
 * [인증 시작] <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
@@ -176,4 +176,4 @@
 
 [알림 허브 정의]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

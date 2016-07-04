@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;jeffsta"/>
 
 # 사용자 지정 도메인에 사용자 할당
@@ -62,4 +62,4 @@ Azure Active Directory에 사용자 지정 도메인을 추가한 후에 인증�
 
 -   [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

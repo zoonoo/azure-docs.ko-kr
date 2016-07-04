@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경으로 지역 분산된 규모
@@ -107,6 +107,8 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 ![DNS 조회][DNSLookup]
 
 ## 추가 링크 및 정보 ##
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
+
 미리 보기 Powershell [Azure 리소스 관리자(ARM) 트래픽 관리자 지원][ARMTrafficManager]에서 설명서입니다.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -125,4 +127,4 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

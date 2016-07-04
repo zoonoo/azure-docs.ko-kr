@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -285,8 +285,7 @@ StorSimple 장치에는 다음이 있어야 합니다.
 
 
 
-> [AZURE.NOTE] 
-`path_grouping_policy`의 가장 일반적인 값은 다음을 포함합니다.
+> [AZURE.NOTE]`path_grouping_policy`의 가장 일반적인 값은 다음을 포함합니다.
 	
 > - 장애 조치 = 우선 순위 그룹 당 1개의 경로
 > - multibus = 1개의 우선 순위 그룹에서 모든 유효한 경로
@@ -492,4 +491,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

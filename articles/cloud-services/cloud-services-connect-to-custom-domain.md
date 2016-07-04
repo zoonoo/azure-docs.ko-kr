@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/25/2016"
+    ms.date="06/22/2016"
     ms.author="adegeo"/>
 
 # Azure 클라우드 서비스 역할을 Azure에서 호스팅되는 사용자 지정 AD 도메인 컨트롤러에 연결
 
-먼저 Azure에서 가상 네트워크(VNET)를 설정합니다. 그런 다음 VNET에 Active Directory 도메인 컨트롤러(Azure 가상 컴퓨터에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNET에 추가한 후 도메인 컨트롤러에 연결합니다.
+먼저 Azure에서 가상 네트워크(VNet)를 설정합니다. 그런 다음 VNet에 Active Directory 도메인 컨트롤러(Azure 가상 컴퓨터에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNet에 추가한 후 도메인 컨트롤러에 연결합니다.
 
 시작하기 전에 다음 몇 가지를 유의하십시오.
 
 1.	이 자습서에서는 Powershell을 사용하므로, Azure Powershell이 설치되어 있고 사용할 수 있는지 확인하십시오. Azure Powershell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요
 
-2.	사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNET에 있어야 합니다.
+2.	사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNet에 있어야 합니다.
 
 이 단계별 가이드를 따르고 문제가 발생하는 경우 아래에 의견을 남겨 주세요. 담당자가 연락드립니다(물론, 저희는 여러분의 의견을 확인합니다.).
 
@@ -95,7 +95,7 @@ VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법에 대한
 
 ## 가상 네트워크에 클라우드 서비스 추가
 
-그런 다음 방금 만든 VNET에 클라우드 서비스 배포를 추가해야 합니다. 이 작업을 수행하려면 Visual Studio 또는 원하는 편집기를 사용하여 cscfg에 관련 섹션을 추가하여 클라우드 서비스 cscfg를 수정합니다.
+그런 다음 방금 만든 VNet에 클라우드 서비스 배포를 추가해야 합니다. 이 작업을 수행하려면 Visual Studio 또는 원하는 편집기를 사용하여 cscfg에 관련 섹션을 추가하여 클라우드 서비스 cscfg를 수정합니다.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -110,7 +110,7 @@ VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법에 대한
     </Dns>
     <!--optional-->
 
-    <!--VNET settings-->
+    <!--VNet settings-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -119,7 +119,7 @@ VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법에 대한
         </Subnets>
         </InstanceAddress>
     </AddressAssignments>
-    <!--VNET settings-->
+    <!--VNet settings-->
 
     </NetworkConfiguration>
 </ServiceConfiguration>
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 가상 컴퓨터를 도메인 컨트롤러로 승격하는 확장명이 유용한 경우, 여러분의 피드백을 주세요. 유용하다고 생각하시는 경우, 저희들이 알 수 있도록 의견 섹션에 의견을 남겨 주세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->
