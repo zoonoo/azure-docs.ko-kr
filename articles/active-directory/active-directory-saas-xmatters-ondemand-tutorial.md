@@ -146,7 +146,7 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **XMatters OnDemand ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **XMatters OnDemand** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "사용자 할당")
 

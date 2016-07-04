@@ -78,8 +78,8 @@
 
     ![앱 URL 구성](./media/active-directory-saas-cherwell-tutorial/IC798992.png "앱 URL 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://pictdev.cherwellondemand.com/cherwellclient*))
-2.  **다음**를 클릭합니다.
+    1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://pictdev.cherwellondemand.com/cherwellclient*)
+    2.  **다음**를 클릭합니다.
 
 4.  **Cherwell의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 
@@ -92,14 +92,16 @@
 
 5.  다운로드한 인증서, **ID 공급자 URL** 및 **Single Sign-On 서비스 URL**을 Cherwell 지원팀에 제출합니다.
 
-    >[AZURE.NOTE] Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+    >[AZURE.NOTE] Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다.
+    구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
 6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell로 프로비전되어야 합니다. Cherwell의 경우 사용자 계정을 Cherwell 지원 팀에서 작성해야 합니다.
+Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell로 프로비전되어야 합니다.  
+Cherwell의 경우 사용자 계정을 Cherwell 지원 팀에서 작성해야 합니다.
 
 >[AZURE.NOTE] Cherwell에서 제공하는 다른 Cherwell 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정를 프로비전합니다.
 
@@ -111,7 +113,7 @@ Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell�
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Cherwell ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Cherwell** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-cherwell-tutorial/IC798995.png "사용자 할당")
 

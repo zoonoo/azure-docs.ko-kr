@@ -97,7 +97,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 다음과 같은 필드와 소스가 지원됩니다.
 
-필드: **name**, **kind**, **type**, **location**, **tags**, **tags.*** 및 **property alias**.
+필드: **name**, **kind**, **type**, **location**, **tags**, **tags.** 및 **property alias**.
 
 ### 속성 별칭 
 속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 표시된 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).

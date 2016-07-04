@@ -285,8 +285,7 @@ StorSimple 장치에는 다음이 있어야 합니다.
 
 
 
-> [AZURE.NOTE] 
-`path_grouping_policy`의 가장 일반적인 값은 다음을 포함합니다.
+> [AZURE.NOTE]`path_grouping_policy`의 가장 일반적인 값은 다음을 포함합니다.
 	
 > - 장애 조치 = 우선 순위 그룹 당 1개의 경로
 > - multibus = 1개의 우선 순위 그룹에서 모든 유효한 경로

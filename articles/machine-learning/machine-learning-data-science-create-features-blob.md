@@ -20,7 +20,9 @@
 
 이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. Panda 데이터 프레임에 데이터를 로드하는 방법을 설명한 후, 표시기 값과 범주화 기능과 함께 Python 스크립트를 사용하여 범주 기능을 생성하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 
 ## 필수 조건

@@ -145,7 +145,7 @@ Site Recovery 프로세스 서버는 vSphere 호스트 또는 호스트를 관�
 1.	구성 서버에 사용하는 컴퓨터가 [필수 조건](#configuration-server-prerequisites)을 준수하는지 확인합니다. 특히 컴퓨터가 다음 설정과 함께 인터넷에 연결되어 있는지 확인합니다.
 
 	- 다음 URL에 대한 액세스를 허용합니다. *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net
-- MySQL을 다운로드하도록 [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)에 대한 액세스를 허용합니다.
+	- MySQL을 다운로드하도록 [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)에 대한 액세스를 허용합니다.
 	- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 프로토콜과 함께 Azure와의 방화벽 통신을 허용합니다.
 
 2.	구성 서버에 [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)을 다운로드 및 설치합니다. (현재 버전 6.0의 R 릴리스를 비롯한 다른 버전의 PowerCLI는 지원되지 앟습니다.)
@@ -532,9 +532,10 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
-Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
+Windows Server(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Windows 서버에 수동으로 설치

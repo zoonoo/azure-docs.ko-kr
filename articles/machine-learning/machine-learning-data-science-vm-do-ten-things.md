@@ -404,7 +404,7 @@ Azure Data Lake 저장소는 빅 데이터 분석 작업에 대한 대규모 리
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob 저장소의 데이터를 참조할 때에는 ****wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때에는 ****swbhdfs://**를 사용합니다.
+Visual Studio에서 Blob 저장소의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob 저장소에 결과 데이터를 출력할 수 있습니다. Blob 저장소의 데이터를 참조할 때에는 **wasb://**를 사용하고, Azure Data Lake의 데이터를 참조할 때에는 **swbhdfs://**를 사용합니다.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

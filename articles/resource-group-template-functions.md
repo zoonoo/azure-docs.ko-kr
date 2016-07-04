@@ -432,7 +432,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | baseUri | 예 | 기본 uri 문자열입니다.
 | relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 ****http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 ****http://contoso.com/resources/**가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 **http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 **http://contoso.com/resources/**가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 

@@ -106,10 +106,10 @@
 
     4.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
     5.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    6.  **TargetedID** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-7.  **이름** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
-8.  **성** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**를 입력합니다.
-9.  **이메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    6.  **TargetedID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+7.  **이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
+8.  **성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**를 입력합니다.
+9.  **이메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
 10. **Save**를 클릭합니다.
 
 9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -143,7 +143,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **TalentLMS ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **TalentLMS** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-talentlms-tutorial/IC777300.png "사용자 할당")
 

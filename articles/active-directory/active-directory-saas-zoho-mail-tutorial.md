@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure 클래식 포털의 **Zoho Mail** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성 ** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Zoho Mail** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Single Sign-On 구성")
 

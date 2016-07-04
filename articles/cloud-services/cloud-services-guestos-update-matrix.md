@@ -157,7 +157,7 @@
 ## 게스트 OS 제품군 버전 설명
 게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure 클라우드 서비스에서 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
 
-- **게스트 OS 제품군**은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3*은 Windows Server 2012를 기반으로 합니다.
+- **게스트 OS 제품군**은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3* 은 Windows Server 2012를 기반으로 합니다.
 
 - **게스트 OS 버전**은 새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 [MSRC(Microsoft 보안 대응 센터)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다.
 
@@ -188,7 +188,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## 게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ko-KR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
