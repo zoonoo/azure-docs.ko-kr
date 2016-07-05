@@ -102,11 +102,14 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure AD에서 서명 키 롤오버](active-directory-signing-key-rollover.md): Azure AD의 서명 키 롤오버 주기 및 가장 일반적인 응용 프로그램 시나리오에 대한 키를 업데이트하는 방법에 대해 알아봅니다.
 
+
 - [OAuth 2.0 프로토콜: 암시적 부여 이해](active-directory-dev-understanding-oauth2-implicit-grant.md) : 암시적 권한 부여에 대한 자세한 정보 및 응용 프로그램에 적합한지 여부를 알아봅니다.
+
 
 - [SAML 2.0 프로토콜 참조](active-directory-saml-protocol-reference.md): SAML 2.0 프로토콜을 사용하면 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
 
 - [WS-Federation 1.2 프로토콜](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory는 웹 서비스 페더레이션 버전 1.2 사양에 따라 WS-Federation 1.2를 지원합니다. 페더레이션 메타데이터 문서에 대한 자세한 정보는 [페더레이션 메타데이터](active-directory-federation-metadata.md)를 참조하세요.
+
 
 - [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md): 이 가이드를 사용하여 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰에서 클레임을 파악 및 평가할 수 있습니다.
 

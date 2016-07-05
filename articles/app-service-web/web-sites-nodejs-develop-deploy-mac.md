@@ -40,7 +40,7 @@
 더 복잡한 Node.js 응용 프로그램을 가진 자습서 및 샘플 코드 또는 Azure에서 Node.js를 사용하는 방법에 대한 다른 항목의 경우 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
 > [AZURE.NOTE]
-이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
@@ -112,7 +112,7 @@
 
 이 섹션에서는 [nodejs.org]에서 'Hello World' 예제의 조금 변형된 버전이 포함된 **server.js** 파일을 만듭니다. 코드는 Azure 웹앱에서 실행되는 경우 수신할 포트로 process.env.PORT를 추가합니다.
 
-1. *helloworld*라는 디렉터리를 만듭니다.
+1. *helloworld* 라는 디렉터리를 만듭니다.
 
 2. 텍스트 편집기를 사용하여 *helloworld* 디렉터리에 **server.js**라는 새 파일을 만듭니다.
 
@@ -183,7 +183,7 @@
 
 ## 응용 프로그램의 변경 내용 게시
 
-1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다.
+1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다. 
 
 2. 파일을 저장합니다.
 

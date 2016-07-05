@@ -52,6 +52,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다.
 
 
+
 ## 새 응용 프로그램 게이트웨이 만들기
 
 응용 프로그램 게이트웨이를 만들려면
@@ -79,7 +80,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* 및 *GatewaySize*는 선택적 매개 변수입니다.
+ *Description*, *InstanceCount* 및 *GatewaySize* 는 선택적 매개 변수입니다.
 
 
 생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
@@ -98,7 +99,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
@@ -345,7 +346,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 ## 게이트웨이 상태를 확인합니다.
 
-**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태*가 실행 중이어야 하고, *Vip*와 *DnsName*에 유효한 항목이 있어야 합니다.
+**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태* 가 실행 중이어야 하고, *Vip* 와 *DnsName* 에 유효한 항목이 있어야 합니다.
 
 다음 샘플은 응용 프로그램 게이트웨이가 시작되고 실행 중이며 `http://<generated-dns-name>.cloudapp.net`으로 보낸 트래픽을 사용할 준비가 되었음을 보여 줍니다.
 
