@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/25/2016"
+	ms.date="05/25/2016"
 	ms.author="himad"/>
 
 
@@ -47,4 +47,4 @@ Azure 기계 학습의 웹 서비스 끝점에는 끝점이 사용되는 속도�
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

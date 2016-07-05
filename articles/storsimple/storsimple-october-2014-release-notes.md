@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/23/2016"
+    ms.date="06/21/2016"
     ms.author="alkohli" />
 
 # StorSimple 8000 시리즈 업데이트 0.1 릴리스 정보-2014 년 10 월  
@@ -99,4 +99,4 @@ StorSimple 장치를 업데이트 하기 전에 다음 필수 조건이 충족�
 이 릴리스에는 가상 장치에 대한 업데이트는 포함되지 않습니다. 이 업데이트를 적용해도 가상 장치의 소프트웨어 버전은 변경되지 않습니다.
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

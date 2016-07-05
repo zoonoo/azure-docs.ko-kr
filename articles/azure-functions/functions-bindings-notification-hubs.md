@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-함수는 몇 줄의 코드로 구성된 Azure 알림 허브를 사용하여 푸시 알림을 보낼 수 있습니다. 그러나 알림 허브는 사용하려는 PNS(플랫폼 알림 서비스)에 대해 구성되어야 합니다. Azure 알림 허브를 구성하고 알림 수신을 위해 등록하는 클라이언트 응용 프로그램을 개발하는 데 대한 자세한 내용은 [알림 허브 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md)을 참조하고 맨 위에 있는 대상 클라이언트 플랫폼을 클릭합니다.
+함수는 몇 줄의 코드로 구성된 Azure 알림 허브를 사용하여 푸시 알림을 보낼 수 있습니다. 그러나 알림 허브는 사용하려는 PNS(플랫폼 알림 서비스)에 대해 구성되어야 합니다. Azure 알림 허브를 구성하고 알림 수신을 위해 등록하는 클라이언트 응용 프로그램을 개발하는 데 대한 자세한 내용은 [알림 허브 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하고 맨 위에 있는 대상 클라이언트 플랫폼을 클릭합니다.
 
 ## Azure 알림 허브 출력 바인딩에 대한 function.json
 
@@ -32,7 +32,7 @@ function.json 파일은 다음 속성을 제공합니다.
 
 - `name`: 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `type`: *"notificationHub"*로 설정해야 합니다.
-- `tagExpression`: 태그 식을 사용하면 알림을 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 장치에 배달하도록 지정할 수 있습니다. 자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-routing-tag-expressions.md)을 참조하세요.
+- `tagExpression`: 태그 식을 사용하면 알림을 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 장치에 배달하도록 지정할 수 있습니다. 자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요.
 - `hubName`: Azure 포털에서 알림 허브 리소스의 이름입니다.
 - `connection`: 이 연결 문자열은 알림 허브에 대한 *DefaultFullSharedAccessSignature*값으로 설정된 **응용 프로그램 설정** 연결 문자열이어야 합니다.
 - `direction`: *out*으로 설정해야 합니다. 
@@ -68,7 +68,7 @@ function.json 파일은 다음 속성을 제공합니다.
 
 ## Node.js 타이머 트리거에 대한 Azure 알림 허브 코드 예제 
 
-이 예제는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates.md)에 대한 알림을 보냅니다.
+이 예제는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ function.json 파일은 다음 속성을 제공합니다.
 
 ## C# 큐 트리거에 대한 Azure 알림 허브 코드 예제
 
-이 예제는 `message`를 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates.md)에 대한 알림을 보냅니다.
+이 예제는 `message`를 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
 
 
 	using System;
@@ -107,7 +107,7 @@ function.json 파일은 다음 속성을 제공합니다.
 	    return templateProperties;
 	}
 
-이 예제는 유효한 JSON 문자열을 사용하여 `message`를 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates.md)에 대한 알림을 보냅니다.
+이 예제는 유효한 JSON 문자열을 사용하여 `message`를 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
 
 	using System;
 	 
@@ -155,4 +155,4 @@ project.json 파일을 업로드하는 자세한 내용은 [project.json 파일 
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

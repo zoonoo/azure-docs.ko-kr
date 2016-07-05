@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/16/2016"
 	ms.author="tobiast"/>
 
 # .NET(C#)을 사용하여 SQL 데이터베이스에 연결
@@ -37,8 +37,16 @@
 * [ADO.NET을 사용하여 SQL에 연결하는 개념 증명](https://msdn.microsoft.com/library/mt718320.aspx)
 * [ADO.NET으로 SQL에 탄력적으로 연결](https://msdn.microsoft.com/library/mt703195.aspx)
 
-## 추가 리소스
+## 다음 단계
 
-다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+* [인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
+* [모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
+* [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)를 검토합니다.
+* [SQL Server용 Microsoft ADO.Net Driver](https://msdn.microsoft.com/library/mt657768.aspx)에 대한 추가 정보
 
-<!---HONumber=AcomDC_0615_2016-->
+## 추가 리소스 
+
+* [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
+
+<!---HONumber=AcomDC_0622_2016-->

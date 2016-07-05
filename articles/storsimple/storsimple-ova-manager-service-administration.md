@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리
@@ -96,4 +96,4 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 ##다음 단계
 웹 UI 및 사용 방법에 대한 자세한 내용은 [StorSimple 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

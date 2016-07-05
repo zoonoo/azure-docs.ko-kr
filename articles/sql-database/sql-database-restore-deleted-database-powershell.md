@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,11 +49,10 @@
 
 ## 다음 단계
 
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)
-- [Azure 포털을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)
-- [REST API를 사용하여 삭제된 데이터베이스 복원](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)
+- Azure 포털을 사용하여 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 단계는 [Azure 포털을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)을 참조하세요.
+- 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [REST API를 사용하여 삭제된 데이터베이스 복원](https://msdn.microsoft.com/library/azure/mt163685.aspx)을 참조하세요.
+- 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 
 ## 추가 리소스
 
@@ -63,4 +62,4 @@
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

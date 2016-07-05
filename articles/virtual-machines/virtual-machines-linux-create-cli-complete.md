@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure CLI를 사용하여 Linux VM을 처음부터 새로 만들기 | Microsoft Azure"
-   description="Azure CLI를 사용하여 Linux VM, 저장소, 가상 네트워크 및 서브넷, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
+   pageTitle="Azure CLI를 사용하여 완전한 Linux 환경 만들기 | Microsoft Azure"
+   description="Azure CLI를 사용하여 Linux VM, 저장소, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
-   manager="squillace"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,14 +14,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/29/2016"
+   ms.date="06/10/2016"
    ms.author="iainfou"/>
 
-# Azure CLI를 사용하여 Linux VM을 처음부터 새로 만들기
+# Azure CLI를 사용하여 완전한 Linux 환경 만들기
 
-Linux VM을 만들려면 Resource Manager 모드(`azure config mode arm`)의 [Azure CLI](../xplat-cli-install.md)와 JSON 구문 분석 도구가 필요합니다. 이 문서에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
+개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 연결할 수 있는 안전한 Linux VM에 연결할 수 있을 때까지 기본적인 모든 환경을 명령별로 안내합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
+
+그 과정에서 리소스 관리자 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
+
+환경에는 다음이 포함됩니다.
+
+- 가용성 집합 안의 두 VM
+- 포트 80에서 부하 분산 규칙이 있는 부하 분산 장치
+- 원치 않는 트래픽으로부터 VM을 보호하기 위한 네트워크 보안 그룹 규칙
+
+![기본 환경 개요](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
+
+이러한 사용자 지정 환경을 만들려면 최신 [Azure CLI](../xplat-cli-install.md)가 설치되어 있고 Resource Manager 모드(`azure config mode arm`)여야 합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
 
 ## 빠른 명령
+다음에 나오는 빠른 명령을 사용하여 사용자 지정 환경을 빌드할 수 있습니다. 환경을 빌드할 때 각 명령이 수행하는 작업을 보다 잘 이해하고 파악할 수 있도록 [아래의 자세한 연습 단계](#detailed-walkthrough)를 읽어보세요.
 
 리소스 그룹 만들기
 
@@ -118,16 +131,16 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 첫 번째 NIC 만들기
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
 두 번째 NIC 만들기
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
@@ -175,7 +188,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 첫 번째 Linux VM 만들기
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM1 \
     --location westeurope \
@@ -193,7 +206,7 @@ azure vm create \
 두 번째 Linux VM 만들기
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM2 \
     --location westeurope \
@@ -215,15 +228,14 @@ azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
+빌드한 환경을 템플릿으로 내보내 새 인스턴스를 빠르게 다시 만듭니다.
+
+```bash
+azure resource export TestRG
+```
+
 ## 자세한 연습
-
-### 소개
-
-이 문서는 부하 분산 장치의 두 가지 Linux VM을 사용하여 배포하는 방법에 대해 살펴봅니다. 인터넷 어디에서나 연결할 수 있는 안전한 Linux VM에 연결할 수 있을 때까지 기본적인 모든 배포 과정을 명령별로 안내합니다.
-
-그 과정에서 리소스 관리자 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템 빌드 방식을 살펴본 후에는 추가적으로 직접적인 Azure CLI 명령을 사용하여 훨씬 빠르게 시스템을 다시 빌드하거나(`azure vm quick-create` 명령을 사용하는 거의 동일한 배포는 [여기](virtual-machines-linux-quick-create-cli.md) 참조) [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 전체 네트워크 및 응용 프로그램 배포를 디자인 및 자동화하고 업데이트하는 방법을 배울 수 있습니다. 배포의 여러 파트가 서로 어떻게 연결되는지 살펴보면 파트를 자동화하는 템플릿을 좀 더 쉽게 만들 수 있습니다.
-
-개발 및 간단한 계산에 유용한 VM 2개를 사용하여 간단한 네트워크와 부하 분산 장치를 빌드하면서 차례대로 설명하겠습니다. 그 후에는 좀 더 복잡한 네트워크 및 배포로 넘어갈 수 있을 것입니다.
+이러한 자세한 단계에서는 환경을 빌드할 때 각 명령이 수행하는 작업을 설명하며, 개발 또는 프로덕션 워크로드를 위해 고유한 사용자 지정 환경을 빌드할 때 이러한 개념을 활용하도록 도와줍니다.
 
 ## 리소스 그룹을 만들고 배포 위치 선택
 
@@ -643,7 +655,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-앞에서 만든 TestLBPIP를 전달하기 위해 `--public-ip-name` 스위치를 어떻게 사용했는지 확인하십시오. 이 스위치는 인터넷에서 VM에 연결하기 위해 부하 분산 장치에 공용 IP 주소를 할당합니다.
+앞에서 만든 TestLBPIP를 전달하기 위해 `--public-ip-name` 스위치를 어떻게 사용했는지 확인하세요. 이 스위치는 인터넷에서 VM에 연결하기 위해 부하 분산 장치에 공용 IP 주소를 할당합니다.
 
 다음으로 백 엔드 트래픽에 사용할 두 번째 IP 풀을 만들겠습니다.
 
@@ -662,7 +674,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-`azure network lb show`를 사용하여 부하 분산 장치가 어떻게 표시되며 JSON 출력을 검사하는지 확인할 수 있습니다.
+부하 분산 장치가 `azure network lb show`를 통해 어떻게 표시되며 JSON 출력을 검사하는지 확인할 수 있습니다.
 
 ```bash
 azure network lb show TestRG TestLB --json | jq '.'
@@ -771,7 +783,7 @@ info:    network lb rule create command OK
 
 ## 부하 분산 장치 상태 프로브 만들기
 
-상태 프로브는 부하 분산 장치에 설정된 VM을 주기적으로 검사하여 VM이 정의된 대로 작동하며 요청에 응답하는지 확인합니다. 그렇지 않을 경우 사용자가 오류가 발생한 VM으로 연결되지 않도록 작동을 중단합니다. 상태 프로브에 대한 사용자 지정 검사, 간격, 시간 제한 값을 정의할 수 있습니다. 상태 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하십시오.
+상태 프로브는 부하 분산 장치에 설정된 VM을 주기적으로 검사하여 VM이 정의된 대로 작동하며 요청에 응답하는지 확인합니다. 그렇지 않을 경우 사용자가 오류가 발생한 VM으로 연결되지 않도록 작동을 중단합니다. 상태 프로브에 대한 사용자 지정 검사, 간격, 시간 제한 값을 정의할 수 있습니다. 상태 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
@@ -926,13 +938,14 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 NIC는 프로그래밍 방식으로 사용할 수도 있습니다. NIC에 사용법 규칙을 적용하고 NIC를 여러 개 만들 수 있습니다. 다음 `azure network nic create` 명령에서 NIC를 부하 백 엔드 IP 풀에 연결하고 SSH 트래픽을 허용하기 위한 NAT 규칙을 연결했습니다. 이 작업을 하려면 `<GUID>` 대신 Azure 구독의 구독 ID를 지정해야 합니다.
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+     -d /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
 출력
 
 ```bash 
-/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1008,13 +1021,9 @@ azure network nic show TestRG LB-NIC1 --json | jq '.'
 계속해서 두 번째 NIC를 만들고 백 엔드 IP 풀에 다시 연결하겠습니다. 여기서는 두 번째 NAT 규칙을 설정하여 SSH 트래픽을 허용합니다.
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
-```
-
-출력
-
-```bash
- /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d  /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+    -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
 ## 네트워크 보안 그룹 및 규칙 만들기
@@ -1066,7 +1075,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 
 ## Linux VM 만들기
 
-인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](virtual-machines-linux-cli-ps-findimage.md)에 설명된 대로 `azure vm image list` 명령을 사용하여 해당 이미지 정보를 찾을 것입니다. 앞에서 `azure vm image list westeurope canonical | grep LTS` 명령을 사용하여 이미지를 선택했는데 이 예에서는 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060` 명령을 사용합니다. 하지만 마지막 필드에 대해서는 향후에 항상 가장 최근 빌드를 가져오도록 `latest`를 전달하겠습니다(사용할 문자열은 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](virtual-machines-linux-cli-ps-findimage.md)에 설명된 대로 `azure vm image list` 명령을 사용하여 해당 이미지 정보를 찾을 것입니다. 앞에서 `azure vm image list westeurope canonical | grep LTS` 명령을 사용하여 이미지를 선택했는데 이 예제에서는 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060` 명령을 사용합니다. 하지만 마지막 필드에 대해서는 향후에 항상 가장 최근 빌드를 가져오도록 `latest`를 전달하겠습니다(사용할 문자열은 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
 
 > [AZURE.NOTE] 다음 단계는 **ssh-keygen -t rsa -b 2048**을 사용하여 Linux 또는 Mac에서 ssh rsa 공개 키 및 개인 키 쌍을 만든 경험이 있는 사용자에게 익숙할 것입니다. `~/.ssh` 디렉터리에 인증서 키 쌍이 하나도 없으면 다음 방법으로 만들 수 있습니다. <br /> 1. `azure vm create --generate-ssh-keys` 옵션을 사용하여 자동으로 만들기 2. [직접 인증서 키 쌍을 만드는 지침](virtual-machines-linux-ssh-from-linux.md)에 따라 수동으로 만들기 <br /> 또는 VM이 만들어지면 `azure vm create --admin-username --admin-password` 옵션을 사용하여 일반적으로 보안 수준이 낮은 사용자 이름 및 암호로 ssh 연결을 인증하는 방법도 있습니다.
 
@@ -1230,8 +1239,26 @@ data:      Diagnostics Instance View:
 info:    vm show command OK
 ```
 
+
+## 환경을 템플릿으로 내보내기
+지금까지 이 환경을 빌드했습니다. 동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 작업 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 따라서 이 JSON 템플릿을 참조하여 전체 환경을 빌드할 수 있습니다. [JSON 템플릿을 수동으로 빌드](../resource-group-authoring-templates.md)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다.
+
+```bash
+azure group export TestRG
+```
+
+이렇게 하면 `TestRG.json` 파일이 현재 작업 디렉터리에 만들어집니다. 그런 다음 이 템플릿에서 새 환경을 만들 경우 부하 분산 장치, 네트워크 인터페이스, VM 등과 같은 모든 리소스 이름을 지정하라는 메시지가 표시됩니다. `-p` 또는 `--includeParameterDefaultValue`를 위에 표시된 `azure group export` 명령에 추가하거나, JSON 템플릿을 편집하여 리소스 이름을 지정하거나, 리소스 이름을 지정하는 [parameters.json 파일을 만들어](../resource-group-authoring-templates.md#parameters) 템플릿 파일에 이러한 항목을 채울 수 있습니다.
+
+템플릿에서 새 환경을 만들려면:
+
+```bash
+azure group deployment create -f TestRG.json -g NewRGFromTemplate
+```
+
+환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 포함하여 [템플릿에서 배포하는 방식에 대한 자세한 내용](../resource-group-template-deploy-cli.md)을 읽어볼 수 있습니다.
+
 ## 다음 단계
 
-이제 여러 네트워킹 구성 요소 및 VM을 시작할 준비가 되셨습니다.
+이제 여러 네트워킹 구성 요소 및 VM을 시작할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

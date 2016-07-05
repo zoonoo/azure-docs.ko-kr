@@ -13,12 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/22/2016"
     ms.author="darosa;sethm"/>
 
 # 공유 액세스 서명
 
-*공유 액세스 서명*(SAS)은 이벤트 허브, 조정된 메시징(큐 및 토픽) 및 릴레이된 메시징을 포함한 서비스 버스에 대한 기본 보안 메커니즘입니다. 이 문서에서는 공유 액세스 서명, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
+*SAS(공유 액세스 서명)*는 이벤트 허브, 조정된 메시징(큐 및 토픽) 및 릴레이된 메시징을 포함한 서비스 버스의 기본 보안 메커니즘입니다. 이 문서에서는 공유 액세스 서명, 그 작동 방법 및 플랫폼과 상관 없는 방식으로 사용하는 방법에 대해 설명합니다.
 
 ## SAS 개요
 
@@ -192,7 +192,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ```
 /// <summary>
-/// Send Claim Based Security (CBS) token
+/// Send claim-based security (CBS) token
 /// </summary>
 /// <param name="shareAccessSignature">Shared access signature (token) to send</param>
 private bool PutCbsToken(Connection connection, string sasToken)
@@ -259,4 +259,4 @@ C# 및 Java Script에서 SAS의 자세한 예는 [이 블로그 게시물](http:
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

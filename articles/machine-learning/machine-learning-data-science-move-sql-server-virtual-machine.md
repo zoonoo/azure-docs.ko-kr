@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;bradsev" />
 
 # Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 
-이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이 작업은 Azure에서 제공하는 Cortana 분석 프로세스의 일부입니다.
+이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
 기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 항목은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
-다음 **메뉴**는 CAPS(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -224,4 +224,4 @@ SQL Server는 다음을 지원합니다.
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

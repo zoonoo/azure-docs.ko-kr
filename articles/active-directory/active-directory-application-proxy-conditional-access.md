@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # 조건부 액세스로 작업하기
-> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스 권한을 부여하도록 액세스 규칙을 구성할 수 있습니다. 다음을 수행할 수 있습니다.
 
@@ -33,7 +32,7 @@
 
 - Azure Active Directory Premium 구독
 - 페더레이션 또는 관리되는 Azure Active Directory 테넌트
-- 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 ![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png) 사용 요구
+- 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 사용 요구 ![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## 응용 프로그램당 Multi-Factor Authentication 구성
 1. Azure 클래식 포털에서 관리자로 로그인합니다.
@@ -44,7 +43,7 @@
 
   - 규칙에서 보안 그룹을 명시적으로 제외하려면 **제외**를 선택하고 하나 이상의 그룹을 지정합니다. 제외 목록에 있는 그룹 회원인 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다.  
 
-  - 사용자별 다단계 인증 기능을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 다단계 인증 규칙보다 우선적으로 적용됩니다. 즉, 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [다단계 인증 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
+  - 사용자별 다단계 인증 기능을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 다단계 인증 규칙보다 우선적으로 적용됩니다. 즉, 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [Multi-Factor Authentication 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
 
 6. 설정하려는 액세스 규칙을 선택합니다.
 	- **Multi-Factor Authentication 필요**: 액세스 규칙이 적용되는 사용자는 규칙이 적용되는 응용 프로그램에 액세스하기 전에 Multi-Factor Authentication을 완료해야 합니다.
@@ -57,7 +56,7 @@
 
 다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하도록 설정하는 방법을 보여 줍니다. `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. [온-프레미스에 Microsoft Azure 다단계 인증을 배포](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)하기 위한 지침을 따르세요.
+이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. [온-프레미스에 Microsoft Azure Multi-Factor Authentication을 배포](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)하기 위한 지침을 따르세요.
 
 
 ## 참고 항목
@@ -69,4 +68,4 @@
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

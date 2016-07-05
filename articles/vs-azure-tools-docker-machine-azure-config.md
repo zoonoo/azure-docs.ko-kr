@@ -1,7 +1,7 @@
 <properties
    pageTitle="Docker Machine으로 Azure에서 Docker 호스트 만들기 | Microsoft Azure"
    description="Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -109,4 +109,4 @@ Docker-machine을 사용하면 개별 docker 호스트 유효성 검사를 위�
 
 Visual Studio를 사용한 .NET 핵심 응용 프로그램 개발은 [Visual Studio 용 Docker 도구](http://aka.ms/DockerToolsForVS)를 참조합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

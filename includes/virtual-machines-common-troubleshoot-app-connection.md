@@ -15,8 +15,8 @@ RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 �
 
 - 가상 컴퓨터 다시 시작
 - 끝점 / 방화벽 규칙 / NSG(네트워크 보안 그룹) 규칙 다시 만들기
-	- [클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - 다른 Azure 가상 네트워크 등 다른 위치에서 연결
 - 가상 컴퓨터 다시 배포
 	- [Windows VM 다시 배포](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
@@ -74,8 +74,8 @@ VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP �
 - 대상 VM의 호스트 방화벽이 인바운드 요청 및 아웃 바운드 응답 트래픽을 허용 중입니다.
 - 대상 VM에서 실행되는 침입 탐지 또는 네트워크 모니터링 소프트웨어가 트래픽을 허용 중입니다.
 - 클라우드 서비스 끝점 또는 네트워크 보안 그룹이 트래픽을 허용하고 있습니다.
-	- [클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [클래식 모델 - 클라우드 서비스 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - 부하 분산 장치 또는 방화벽과 같은 테스트 VM 및 VM 간의 경로에서 사용자의 VM에서 실행 중인 개별 구성 요소가 트래픽을 허용 중입니다.
 
 Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 프로그램의 인바운드 및 아웃 바운드 트래픽을 제외할지 여부를 확인하려면 고급 보안이 포함된 Windows 방화벽을 사용하세요.
@@ -90,12 +90,14 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 
 응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인합니다.
 
-- VM에 대한 끝점 구성에서 클래식 배포 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
+- 클래식 배포 모델을 사용하여 만든 VM
+	- VM에 대한 끝점 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되는지 확인합니다.
+	- 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다.
 	- 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
-- 클래식 배포 모델을 사용하여 만든 VM에 대해, 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다.
-	- 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
-- VM에 대한 인바운드 NAT 규칙 구성에서 리소스 관리자 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
-- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다.
+	
+- Resource Manager 배포 모델을 사용하여 만든 VM
+	- VM에 대한 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
+	- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다.
 	- 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../articles/virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 가상 컴퓨터 또는 끝점이 부하 분산 집합의 구성원인 경우:
@@ -115,3 +117,5 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0622_2016-->

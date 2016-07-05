@@ -3,7 +3,7 @@
 	description="장치 작업을 사용하여 원격 펌웨어 업데이트와 같은 작업을 수행하는 방법을 설명하는 Azure IoT Hub 장치 관리 자습서."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # 자습서: 장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법(미리 보기)
 
@@ -178,4 +178,4 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

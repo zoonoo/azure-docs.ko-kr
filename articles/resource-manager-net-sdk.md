@@ -13,42 +13,92 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
 # .Net용 Azure Resource Manager SDK  
-ARM(Azure Resource Manager) 미리 보기 SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
+Azure Resource Manager SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
 
 이러한 SDK의 각 코드는 [Azure RESTful API 사양](https://github.com/azure/azure-rest-api-specs)에서 생성됩니다. 이러한 사양은 오픈 소스이며 Swagger v2 사양을 기반으로 합니다. SDK 코드는 [AutoRest](https://github.com/azure/autorest)라는 오픈 소스 프로젝트를 통해 생성된 코드입니다. AutoRest는 이러한 RESTful API 사양을 여러 언어의 클라이언트 라이브러리로 변환합니다. SDK에서 생성된 코드의 어떤 측면을 개선하려면 SDK를 만드는 전체 도구는 오픈되어 자유롭게 사용 가능하고 광범위하게 채택된 API 사양 형식에 기반으로 해야 합니다.
 
-.Net용 Azure SDK는 Azure Resource Manager에서 노출되는 API 대부분을 호출하는 데 유용한 일련의 NuGet 패키지로 제공됩니다. SDK가 필요한 기능을 노출하지 않는 경우 백그라운드에서 ARM REST API에 대한 일반 호출로 SDK를 쉽게 결합할 수 있습니다.
+[.NET용 Azure SDK](https://azure.microsoft.com/downloads/)는 Azure Resource Manager에서 노출되는 API 대부분을 호출하는 데 유용한 일련의 NuGet 패키지로 제공됩니다. SDK가 필요한 기능을 노출하지 않는 경우 백그라운드에서 ARM REST API에 대한 일반 호출로 SDK를 쉽게 결합할 수 있습니다.
 
 이 설명서는 .NET용 Azure SDK, Azure ARM API 또는 Visual Studio의 모든 측면을 설명하려는 목적이지만 사용자가 신속하게 작업을 시작할 수 있는 방법을 제공합니다.
 
 아래의 모든 코드 조각을 가져온 전체 다운로드 가능한 샘플 프로젝트를 [여기](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net)에서 찾을 수 있습니다.
 
+## NuGet 패키지 설치
+
+이 항목의 예제를 사용하려면 .NET용 Azure SDK 외에도 두 개의 NuGet 패키지가 필요합니다. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+
+1. **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색하고 최신 버전의 패키지를 설치합니다.
+2. **Microsoft.Azure.Management.ResourceManager**를 검색하고 **시험판 포함**을 선택합니다. 최신 미리 보기 버전(예: 1.1.2-preview)을 설치합니다.
+
 ## 인증
-ARM에 대한 인증은 Azure AD(Active Directory)에 의해 처리됩니다. API에 연결하기 위해 먼저 모든 요청에 전달할 수 있는 인증 토큰을 수신하도록 Azure AD로 인증해야 합니다. 이 토큰을 가져오려면 먼저 로그인에 사용되는 Azure AD 응용 프로그램 및 서비스 주체를 만들어야 합니다. 단계별 지침은 [Azure AD 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md)를 따릅니다.
+Resource Manager에 대한 인증은 Azure AD(Active Directory)에 의해 처리됩니다. API에 연결하기 위해 먼저 모든 요청에 전달할 수 있는 인증 토큰을 수신하도록 Azure AD로 인증해야 합니다. 이 토큰을 가져오려면 먼저 로그인에 사용되는 Azure AD 응용 프로그램 및 서비스 주체를 만들어야 합니다. 단계별 지침은 [Azure PowerShell을 사용하여 리소스에 액세스할 Active Directory 응용 프로그램 만들기](resource-group-authenticate-service-principal.md), [Azure CLI를 사용하여 리소스에 액세스할 Active Directory 응용 프로그램 만들기](resource-group-authenticate-service-principal-cli.md), [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 만들기](resource-group-create-service-principal-portal.md) 중 하나를 따르세요.
 
 서비스 주체를 만든 후에 다음을 수행해야 합니다.
-* 클라이언트 ID(GUID)
-* 클라이언트 암호(문자열)
-* 테넌트 ID(GUID) 또는 도메인 이름(문자열)
+
+- 클라이언트 ID 또는 응용 프로그램 ID(GUID)
+- 클라이언트 암호(문자열)
+- 테넌트 ID(GUID) 또는 도메인 이름(문자열)
 
 ### 코드에서 AccessToken 받기
 Azure AD 테넌트 ID, Azure AD 응용 프로그램 클라이언트 ID 및 Azure AD 응용 프로그램 클라이언트 암호를 전달하여 아래 코드 줄로 인증 토큰을 쉽게 얻을 수 있습니다. 몇몇 요청에 대한 토큰은 기본적으로 1시간 동안 유효하므로 저장합니다.
 
 ```csharp
-private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
         ("https://login.windows.net/" /* AAD URI */
-            + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
 
-    AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", credential);
+
+    Console.WriteLine($"Token: {token.AccessToken}");
+    return token;
+}
+```
+
+로그인에 테넌트 ID를 사용하는 대신 아래와 같이 Active Directory 도메인을 사용할 수 있습니다. 이 방법을 사용하려면 테넌트 ID 대신 도메인 이름을 포함하도록 메서드 서명을 변경해야 합니다.
+
+```csharp
+AuthenticationContext authContext = new AuthenticationContext
+    ("https://login.windows.net/" /* AAD URI */
+    + $"{domain}.onmicrosoft.com");
+```
+
+인증을 위해 인증서를 사용하는 Active Directory 앱에 대한 액세스 토큰을 가져올 수 있습니다.
+
+```csharp
+private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
+{
+    Console.WriteLine("Aquiring Access Token from Azure AD");
+    AuthenticationContext authContext = new AuthenticationContext
+        ("https://login.windows.net/" /* AAD URI */
+        + $"{tenantId}" /* Tenant ID or AAD domain */);
+
+    X509Certificate2 cert = null;
+    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+
+    try
+    {
+        store.Open(OpenFlags.ReadOnly);
+        var certCollection = store.Certificates;
+        var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false);
+        cert = certs[0];
+    }
+    finally
+    {
+        store.Close();
+    }
+
+    var certCredential = new ClientAssertionCertificate(clientId, cert);
+
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", certCredential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
@@ -88,7 +138,7 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 }
 ```
 
-ID의 목록을 반환하기 위해 다음 구독 ID를 추출하는 Azure에서 JSON 응답을 가져옵니다. 이 설명서에서 Azure ARM API에 대한 모든 후속 호출은 단일 Azure 구독 ID를 사용합니다. 따라서 응용 프로그램을 여러 구독과 연결된 경우 그 중에 적합한 구독을 선택하고 앞으로 이동하는 매개 변수로 전달합니다.
+ID의 목록을 반환하기 위해 다음 구독 ID를 추출하는 Azure에서 JSON 응답을 가져옵니다. 이 설명서에서 Azure Resource Manager API에 대한 모든 후속 호출은 단일 Azure 구독 ID를 사용합니다. 따라서 응용 프로그램을 여러 구독과 연결된 경우 그 중에 적합한 구독을 선택하고 앞으로 이동하는 매개 변수로 전달합니다.
 
 여기에서부터 Azure API에 대해 수행하는 모든 호출은 .NET용 Azure SDK를 사용하므로 코드가 약간 다르게 보입니다.
 
@@ -99,8 +149,14 @@ ID의 목록을 반환하기 위해 다음 구독 ID를 추출하는 Azure에서
 var credentials = new TokenCredentials(token);
 ```
 
+이전 버전의 Resource Manager NuGet 패키지(**Microsoft.Azure.Management.Resources**로 이름 지정)가 있는 경우 다음 코드를 사용해야 합니다.
+
+```csharp
+var credentials = new TokenCloudCredentials(subscriptionId, token.AccessToken);
+```
+
 ## 리소스 그룹 만들기
-Azure의 모든 기능은 리소스 그룹에 집중합니다. 이제 하나를 만들어 보겠습니다. 일반 리소스 및 리소스 그룹은 *ResourceManagementClient*에서 처리됩니다. 사용할 트수한 다음 관리 클라이언트 중 하나로 구독 ID 뿐만 아니라 사용자의 자격 증명을 제공하여 작업하려는 구독을 식별해야 합니다.
+Azure의 모든 기능은 리소스 그룹에 집중합니다. 이제 하나를 만들어 보겠습니다. 일반 리소스 및 리소스 그룹은 *ResourceManagementClient*에서 처리됩니다. 사용할 특수한 다음 관리 클라이언트 중 하나로 구독 ID 뿐만 아니라 사용자의 자격 증명을 제공하여 작업하려는 구독을 식별해야 합니다.
 
 ```csharp
 private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentials credentials, string subscriptionId, string resourceGroup, string location)
@@ -298,4 +354,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열 백업
 
 ## 개요 
 
-이 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다.
+이 자습서는 2016년 3월 GA(일반 공급) 버전 또는 이상 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다.
 
 StorSimple 가상 배열은 파일 서버 또는 iSCSI 서버로 구성할 수 있는 하이브리드 클라우드 저장소 온-프레미스 가상 장치입니다. 백업을 만들고, 백업에서 복원하고, 재해 복구가 필요하면 장치 장애 조치를 수행할 수 있습니다. 파일 서버로 구성하면 항목 수준 복구도 가능합니다. 이 자습서는 Azure 클래식 포털 또는 StorSimple 웹 UI를 사용하여 가상 배열의 예약된 백업 및 수동 백업을 만드는 방법을 설명합니다.
 
@@ -64,7 +64,7 @@ StorSimple 가상 장치에는 하루 중 지정된 시간(22:30)에 시작하�
 
     ![백업 작업 생성됨](./media/storsimple-ova-backup/image7.png)
 
-3. 작업의 진행률을 추적하려면 **작업 보기** 아이콘을 클릭합니다.
+3. 작업의 진행률을 추적하려면 **작업 보기**를 클릭합니다.
 
 4. 백업 작업이 완료되면 **백업 카탈로그** 탭으로 이동합니다. 완료된 백업이 표시됩니다.
 
@@ -104,4 +104,4 @@ StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데�
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

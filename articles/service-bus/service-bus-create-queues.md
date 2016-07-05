@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # 서비스 버스 큐를 사용하는 응용 프로그램 만들기
@@ -53,13 +53,13 @@
 
 다음 섹션에서는 서비스 버스를 사용하여 이 응용 프로그램을 빌드하는 방법을 보여줍니다.
 
-### 서비스 버스 계정 및 구독에 등록
+### Azure 계정 등록
 
 서비스 버스 작업을 시작하려면 Azure 계정이 필요합니다. 아직 등록하지 않은 경우 [여기](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)에서 무료 계정을 등록할 수 있습니다.
 
 ### 서비스 네임스페이스 만들기
 
-구독이 있으면 새 네임스페이스를 만들 수 있습니다. 모든 서비스 버스 계정에서 새 네임스페이스에 고유한 이름을 지정합니다. 각각의 네임스페이스는 서비스 버스 엔터티 집합에 대한 범위 컨테이너입니다.
+구독이 있으면 [새 네임스페이스를 만들 수 있습니다](service-bus-create-namespace-portal.md). 각각의 네임스페이스는 서비스 버스 엔터티 집합에 대한 범위 컨테이너입니다. 모든 서비스 버스 계정에서 새 네임스페이스에 고유한 이름을 지정합니다.
 
 ### NuGet 패키지 설치
 
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### 큐에서 메시지 받기
 
-큐에서 메시지를 수신하는 가장 쉬운 방법은 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx)를 사용하여 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx)로부터 직접 만들 수 있는 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 사용하는 것입니다. 메시지 수신기는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다. [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)는 메시지 수신기가 만들어졌을 때 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx) 호출에 대한 매개 변수 형태로 설정됩니다.
+큐에서 메시지를 수신하려면 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx)를 사용하여 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx)로부터 직접 만들 수 있는 [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx)를 사용합니다. 메시지 수신기는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다. [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)는 메시지 수신기가 만들어졌을 때 [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx) 호출에 대한 매개 변수 형태로 설정됩니다.
 
 
 **ReceiveAndDelete** 모드를 사용할 경우 수신은 1단계 작업으로, 서비스 버스가 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 장애 상황에서 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
 **PeekLock** 모드에서는 수신이 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 수신된 메시지에 대해 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스가 [완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 호출을 확인하면 메시지를 이용한 것으로 표시하고 큐에서 제거합니다.
 
-다른 두 결과 가능합니다. 첫 번째는 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 [중단](https://msdn.microsoft.com/library/azure/hh181837.aspx)을 호출할 수 있습니다([완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 대신). 그러면 서비스 버스에서 메시지의 잠금을 해제하므로 동일한 소비나 다른 경쟁적 소비자에게서 메시지를 다시 받을 수 있습니다. 두 번째는 잠금과 연결된 시간 제한으로, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 잠금 해제하여 다시 받을 수 있게 합니다.
+다른 두 결과 가능합니다. 첫 번째는 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 [중단](https://msdn.microsoft.com/library/azure/hh181837.aspx)을 호출할 수 있습니다([완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 대신). 그러면 서비스 버스에서 메시지의 잠금을 해제하므로 동일한 소비나 다른 경쟁적 소비자에게서 메시지를 다시 받을 수 있습니다. 두 번째는 잠금과 연결된 시간 제한으로, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 잠금 해제하여 다시 받을 수 있게 합니다(기본적으로 [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) 작업 수행).
 
 응용 프로그램이 메시지를 처리한 후 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 종종 *한 번 이상* 처리라고 합니다. 즉, 각 메시지가 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램이 중복 항목을 탐지하기 위한 추가적인 논리가 필요합니다. 이 작업은 메시지의 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성을 기반으로 수행할 수 있습니다. 이 속성의 값은 전체 배달 시도에서 일관되게 유지됩니다. 이를 *정확히 한 번* 처리라고 합니다.
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 이제 큐의 기본 사항을 학습했으므로 서비스 버스 토픽 및 구독의 게시/구독 기능을 사용하여 이 논의를 계속하려면 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
@@ -139,7 +139,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM\_이름**\\로컬\_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
+2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 **VM\_이름**\\로컬\_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
 
     ![서버에 연결][6]
 
@@ -251,7 +251,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 ##<a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
 
-Cortana 분석 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **데이터 가져오기** 모듈을 사용합니다. 이 항목은 Cortana 분석 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
+팀 데이터 과학 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **데이터 가져오기** 모듈을 사용합니다. 이 항목은 팀 데이터 과학 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
 
 2.	[데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL 데이터베이스**를 선택합니다.
 
@@ -285,9 +285,9 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 ## Azure SQL Server VM을 사용할 준비가 되었습니다. 다음 단계는 무엇입니까?
 
-이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 CAP(Cortana 분석 프로세스)와 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
+이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 TDSP(팀 데이터 과학 프로세스)와 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
 
-데이터 과학 프로세스의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
+데이터 과학 프로세스의 다음 단계는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -306,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

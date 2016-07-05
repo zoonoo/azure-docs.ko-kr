@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="06/16/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -118,7 +118,7 @@ MFA 보고서| | | *
 이벤트 확인| | | *
 신뢰할 수 있는 IP| | | *
 신뢰할 수 있는 장치에 대한 MFA 기억 |* | * | *
-MFA SDK| | | *
+MFA SDK | | | * Multi-factor Auth 공급자 및 전체 Azure 구독 필요
 MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
 
 
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

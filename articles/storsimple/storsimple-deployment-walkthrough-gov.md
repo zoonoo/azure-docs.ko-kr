@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="06/17/2016"
    ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포
@@ -279,4 +279,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

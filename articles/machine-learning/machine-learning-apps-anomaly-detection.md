@@ -3,7 +3,7 @@
 	description="이상 감지 API는 Microsoft Azure 기계 학습을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="pingf" 
+	authors="alokkirpal" 
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/01/2016" 
-	ms.author="pingf"/>
+	ms.date="06/21/2016" 
+	ms.author="alokkirpal"/>
 
 
 # 기계 학습 이상 감지 서비스#
@@ -89,4 +89,4 @@ Time|Data|Tspike|Zspike|Martingale values|Alert indicator|Martingale values (2)|
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

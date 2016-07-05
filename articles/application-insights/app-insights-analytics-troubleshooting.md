@@ -72,9 +72,7 @@
 
     웹 사이트 목록에 다음 URL이 포함되어 있다면 다른 URL도 포함하세요.
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404 ... 리소스를 찾을 수 없음
@@ -126,4 +124,4 @@ URL이 올바르지 않습니다.
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

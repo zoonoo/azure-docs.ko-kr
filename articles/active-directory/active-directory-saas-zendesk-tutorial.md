@@ -2,7 +2,7 @@
     pageTitle="자습서: Azure Active Directory와 Zendesk 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Zendesk을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/20/2016" 
+    ms.author="jeedes" />
 
 #자습서:Azure Active Directory와 Zendesk 통합
   
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Zendesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign On ** 대화 상자를 엽니다.
+1.  Azure AD 포털의 **Zendesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign On** 대화 상자를 엽니다.
 
     ![SSO(Single sign-on)](./media/active-directory-saas-zendesk-tutorial/IC773086.png "SSO(Single sign-on)")
 
@@ -78,11 +78,17 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Single Sign-On 구성")
 
-3.  **Zendesk 로그인 URL** 텍스트 상자의 **앱 URL 구성** 페이지에서 "*https://\<tenant-name>.zendesk.com*"패턴을 사용하여 URL을 입력하고 **다음**을 누릅니다.
+3.  **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-zendesk-tutorial/IC773088.png "앱 URL 구성")
+  
+	a. **Zendesk 로그인 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<tenant-name>.zendesk.com`
 
-4.  인증서를 다운로드하려면 **Zendesk에서 Single Sign-On 구성**페이지에서 **인증서 다운로드**를 클릭하고 **c:\\zendesk.cer**로 로컬에 저장합니다.
+	b. **다음**을 클릭합니다.
+
+
+
+4.  **Zendesk에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Single Sign-On 구성")
 
@@ -94,7 +100,7 @@
 
     ![보안](./media/active-directory-saas-zendesk-tutorial/IC773089.png "보안")
 
-8.  **보안** 페이지에서 **관리자 및 에이전트** 탭을 선택합니다.
+8.  **보안** 페이지에서 **관리자 및 에이전트** 탭을 클릭합니다.
 
 9.  **SSO(Single Sign-On) 및 SAML**을 선택하고**SAML**을 선택합니다.
 
@@ -106,7 +112,7 @@
 
 12. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
 
-	>[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+	>[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 13. **저장**을 클릭합니다.
 
@@ -132,7 +138,7 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 
     ![새 사용자](./media/active-directory-saas-zendesk-tutorial/IC773633.png "새 사용자")
 
->[AZURE.NOTE]다른 Zendesk 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Zendesk 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -142,7 +148,7 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **Zendesk ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Zendesk** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-zendesk-tutorial/IC773094.png "사용자 할당")
 
@@ -152,4 +158,4 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

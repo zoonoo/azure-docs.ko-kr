@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/25/2016"
+	ms.date="06/20/2016"
 	ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
@@ -59,13 +59,13 @@ Azure Redis Cache는 **설정** 블레이드에 다음 설정을 제공합니다
 
 캐시에서 수행된 작업을 보려면 **감사 로그**를 클릭합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../azure-portal/insights-debugging-with-events.md) 및 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
-**리소스 상태**는 Azure Redis Cache에 대해 현재 지원 되지 않는 Azure 포털 전역 설정입니다. Azure Redis Cache 인스턴스의 상태를 모니터링하기 위한 정보 및 지침을 보려면 이 항목 뒷부분에서 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md) 및 [Redis 캐시 관리자](#redis-cache-advisor) 섹션을 참조하세요.
+**리소스 상태** 기능을 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
 
 캐시에 대한 지원 요청을 열려면 **새 지원 요청**을 클릭합니다.
 
 ## 일반 설정
 
-**일반** 섹션의 설정을 사용하여 캐시에 대한 다음 설정을 액세스 및 구성할 수 있습니다.
+**일반** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
 ![일반 설정](./media/cache-configure/redis-cache-general-settings.png)
 
@@ -155,7 +155,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ## 데이터 관리 설정
 
-**데이터 관리** 섹션의 설정을 사용하여 캐시에 대한 다음 설정을 액세스 및 구성할 수 있습니다.
+**데이터 관리** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
 ![데이터 관리](./media/cache-configure/redis-cache-data-management.png)
 
@@ -190,7 +190,7 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 ## 네트워크 설정
 
-**네트워크** 섹션의 설정을 사용하여 캐시에 대한 다음 설정을 액세스 및 구성할 수 있습니다.
+**네트워크** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
 ![네트워크](./media/cache-configure/redis-cache-network.png)
 
@@ -212,7 +212,7 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 
 ## 크기 조정 설정
 
-**규모** 섹션의 설정을 사용하여 캐시에 대한 다음 설정을 액세스 및 구성할 수 있습니다.
+**규모** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
 ![네트워크](./media/cache-configure/redis-cache-scale.png)
 
@@ -249,7 +249,7 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 
 조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 Azure 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내기 하려면 **템플릿 내보내기**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 리소스 배포](../resource-group-template-deploy.md)를 참조하세요.
+미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내기 하려면 **템플릿 내보내기**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../resource-group-template-deploy.md)를 참조하세요.
 
 ## 기본 Redis 서버 구성
 
@@ -271,7 +271,7 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 |lua-event-limit|500|스크립트 이벤트 큐의 최대 크기입니다.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요.|
 
-<a name="databases"></a> <sup>1</sup> `databases`에 대한 제한은 Azure Redis Cache 가격 책정 계층마다 다르며 캐시 만들기 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.
+<a name="databases"></a> <sup>1</sup> `databases`에 대한 제한은 Azure Redis Cache 가격 책정 계층마다 다르며 캐시를 만들 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.
 
 -	기본 및 표준 캐시
 	-	C0(250MB) 캐시 - 최대 16개의 데이타베이스
@@ -354,4 +354,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

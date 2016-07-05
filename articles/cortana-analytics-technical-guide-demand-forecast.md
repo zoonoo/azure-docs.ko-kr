@@ -294,4 +294,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 ## **승인**
 이 문서는 Microsoft 소속 데이터 과학자 Yijing Chen과 소프트웨어 엔지니어 Qiu Min이 작성하였습니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

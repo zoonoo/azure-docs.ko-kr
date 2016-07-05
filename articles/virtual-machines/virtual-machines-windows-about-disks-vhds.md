@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Azure 가상 컴퓨터용 디스크 및 VHD 정보
@@ -30,4 +30,4 @@
 -  새 VM을 만들 때 사용하기 위해 [Windows VM 이미지를 Azure에 업로드](virtual-machines-windows-upload-image.md)합니다.
 -  응용 프로그램이 D: 드라이브를 사용할 수 있도록 [Windows 임시 디스크의 드라이브 문자를 변경](virtual-machines-windows-classic-change-drive-letter.md)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

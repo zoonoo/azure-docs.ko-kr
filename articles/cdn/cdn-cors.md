@@ -65,7 +65,7 @@ Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*
  
 > [AZURE.TIP] **Verizon의 Azure CDN**은 [Perl 호환 정규식](http://pcre.org/)을 정규식에 대한 엔진으로 사용합니다. [Regular Expressions 101](https://regex101.com/)과 같은 도구를 사용하여 정규식이 유효한지 검사할 수 있습니다. "/" 문자는 정규식에서 유효하며 이스케이프할 필요가 없지만 일부 정규식 유효성 검사기에서는 이 문자의 이스케이프를 모범 사례로 간주하고 예상합니다.
 
-정규식이 일치하는 경우 CDN 에지 규칙은 원본의 **Access-Control-Allow-Origin** 헤더(있는 경우)를 요청을 전송한 원본으로 바꿉니다. **Access-Control-Allow-Methods**와 같은 CORS 헤더를 더 추가할 수도 있습니다.
+정규식이 일치하는 경우 규칙은 원본의 **Access-Control-Allow-Origin** 헤더(있는 경우)를 요청을 전송한 원본으로 바꿉니다. **Access-Control-Allow-Methods**와 같은 CORS 헤더를 더 추가할 수도 있습니다.
 
 ![정규식을 사용하는 규칙 예제](./media/cdn-cors/cdn-cors-regex.png)
  
@@ -81,4 +81,4 @@ Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*
 
 Azure CDN 표준 프로필에서 와일드카드 원본을 사용하지 않고 여러 원본에 대해 허용되는 유일한 메커니즘은 [쿼리 문자열 캐싱](cdn-query-string.md)을 사용하는 것입니다. CDN 끝점에 대해 쿼리 문자열 설정을 사용하도록 지정하고 허용된 각 도메인의 요청에 대해 고유한 쿼리 문자열을 사용해야 합니다. 이렇게 하면 CDN은 고유한 각 쿼리 문자열에 대해 별도의 개체를 캐싱합니다. 그렇지만 이 방법은 동일한 파일의 여러 복사본이 CDN에 캐시되므로 이상적이지 않습니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

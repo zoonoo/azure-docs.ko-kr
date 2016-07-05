@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스 인증 및 권한 부여 | Microsoft Azure"
-   description="공유 액세스 서명(SAS) 인증의 개요입니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 인증 및 권한 부여 | Microsoft Azure"
+    description="공유 액세스 서명(SAS) 인증의 개요입니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 인증 및 권한 부여
 
@@ -73,4 +73,4 @@ SAS에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세�
 
 [방법: OAuth WRAP 프로토콜을 통해 ACS에서 토큰 요청](https://msdn.microsoft.com/library/hh674475.aspx)에서 ACS 토큰에 대한 자세한 정보를 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

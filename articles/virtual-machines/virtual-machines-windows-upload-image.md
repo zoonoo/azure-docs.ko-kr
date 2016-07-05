@@ -30,7 +30,7 @@
 
 - **Azure 구독** - 아직 구독이 없으면, [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)하고 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하세요.
 
-- **Azure PowerShell 버전 1.0 이상** - 아직 설치하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+- **Azure PowerShell 버전 1.4 이상** - 아직 설치하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 - **Windows를 실행하는 가상 컴퓨터** - 온-프레미스 가상 컴퓨터를 만들기 위한 여러 도구가 있습니다. 예를 들어, [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오. Azure에서 지원되는 Windows 운영 체제를 알아보려면, [Microsoft Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/kb/2721672)을 참조하세요.
 
@@ -108,7 +108,7 @@ VM 이미지를 업로드하려면 Azure 저장소 계정이 필요합니다. �
 
 ### PowerShell을 사용하여 Azure 저장소 계정을 만들거나 찾으려면
 
-1. Azure PowerShell 1.0.x를 열고 Azure 계정에 로그인합니다.
+1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.
 
 		Login-AzureRmAccount
 
@@ -142,7 +142,7 @@ VM 이미지를 업로드하려면 Azure 저장소 계정이 필요합니다. �
 
 	3. 다음을 사용하여 이 리소스 그룹에 새 저장소 계정을 만듭니다.
 
-			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
+			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -SkuName "Standard_GRS" -Kind "Storage"
 
 
 </br> <a id="uploadvm"></a>
@@ -261,4 +261,4 @@ Azure PowerShell에서 다음 단계를 사용하여 저장소 계정에 VM 이�
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

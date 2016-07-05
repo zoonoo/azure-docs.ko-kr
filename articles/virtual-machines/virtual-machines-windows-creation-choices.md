@@ -27,21 +27,24 @@ Azure 포털의 사용은 특히 Azure로 시작한 경우 가상 컴퓨터를 �
 
 [포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-hero-tutorial.md)
 
-## Azure PowerShell
-
-명령 셸에서 작업하고 싶다면 Azure PowerShell을 사용할 수 있습니다.
-
-- [PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md)
-- [리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)
-
-## 템플릿
+## Template
 
 가상 컴퓨터에 가용성 집합 및 저장소 계정과 같은 리소스의 조합이 필요합니다. 각 리소스를 개별적으로 배포하고 관리하는 대신, 모든 리소스를 하나의 조정된 작업으로 배포하고 프로비전하는 Azure Resource Manager 템플릿을 만들 수 있습니다.
 
 - [리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)
 
+
+## Azure PowerShell
+
+명령 셸에서 작업하고 싶다면 Azure PowerShell을 사용할 수 있습니다.
+
+- [PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md)
+
+
 ## Visual Studio
 
-[계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스 배포](virtual-machines-windows-csharp.md)
+Visual Studio를 사용하여 Azure Tools for Visual Studio 및 Azure SDK로 VM을 빌드, 관리 및 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
+
+<!---HONumber=AcomDC_0622_2016-->

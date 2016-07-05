@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -21,7 +21,7 @@
 
 이 항목에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
 
-이 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+이 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -38,7 +38,7 @@
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 저장소 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다.
 
-_NYC Taxi Trip Data_를 연습하고 싶다면 먼저 24개의 <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> 파일(Trip 파일 12개, Fare 파일 12개)을 다운로드하고, .csv 파일로 모든 파일의 **압축을 풀고**, [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md) 항목에 설명된 절차에 따라 작성된 기본 Azure 저장소 계정 또는 Azure 저장소 계정의 적절한 컨테이너에 해당 파일을 업로드해야 합니다. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](machine-learning-data-science-process-hive-walkthrough/#upload)에 나와 있습니다.
+_NYC Taxi Trip Data_를 연습하고 싶다면 먼저 24개의 <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> 파일(Trip 파일 12개, Fare 파일 12개)을 다운로드하고, .csv 파일로 모든 파일의 **압축을 풀고**, [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md) 항목에 설명된 절차에 따라 작성된 기본 Azure 저장소 계정 또는 Azure 저장소 계정의 적절한 컨테이너에 해당 파일을 업로드해야 합니다. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](machine-learning-data-science-process-hive-walkthrough.md#upload)에 나와 있습니다.
 
 
 ## <a name="submit"></a>Hive 쿼리를 제출하는 방법
@@ -245,4 +245,4 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
 
 이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

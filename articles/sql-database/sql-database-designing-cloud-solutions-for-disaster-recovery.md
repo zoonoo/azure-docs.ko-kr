@@ -153,14 +153,20 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 | 응용 프로그램 부하 분산에 대한 활성-활성 배포 | 읽기-쓰기 액세스 < 5초 | 실패 감지 시간 + 장애 조치 API 호출 + SQL 연결 문자열 변경 + 응용 프로그램 확인 테스트
 | 데이터 보존에 대한 활성-수동 배포 | 읽기 전용 액세스 < 5초 읽기-쓰기 액세스 = 0 | 읽기 전용 액세스 = 연결 실패 감지 시간 + 응용 프로그램 확인 테스트 <br>읽기-쓰기 액세스 = 가동 중단을 완화하는 시간
 
+## 다음 단계
+
+- 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
 
 ## 추가 리소스
 
-
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
+- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
+- [특정 시점 복원](sql-database-point-in-time-restore.md)
+- [지역 복원](sql-database-geo-restore.md)
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

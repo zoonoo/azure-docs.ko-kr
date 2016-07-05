@@ -43,6 +43,10 @@ Microsoft Azure 미디어 서비스에 액세스할 때는 Azure 액세스 제�
 
 	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
+##액세스 제어 주소
+
+미디어 서비스 액세스 제어 주소는 중국 북부 지역(여기서는 https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn)을 제외한 https://wamsprodglobal001acs.accesscontrol.windows.net입니다.
+
 ##액세스 토큰 가져오기
 
 REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 액세스 토큰을 검색하여 서비스에 HTTP 요청을 할 때마다 이를 사용합니다. 이 토큰은 HTTP 요청 헤더에서 제공하는 액세스 클레임을 기반으로 하고 OAuth v2 프로토콜을 사용하는 ACS에서 제공하는 다른 토큰과 비슷합니다. 미디어 서비스에 직접 연결하기 전에는 다른 필수 조건은 필요하지 않습니다.
@@ -173,4 +177,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

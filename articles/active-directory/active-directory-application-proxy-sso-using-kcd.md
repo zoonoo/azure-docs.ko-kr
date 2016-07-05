@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 # 응용 프로그램 프록시를 사용하는 Single Sign-On
-
-> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니다. 다음 단계를 통해 최상의 사용자 환경을 제공합니다.
 1. 사용자가 클라우드에 로그인합니다.
@@ -107,7 +105,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 ![비 Windows SSO 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
 ### 부분 위임된 ID
-비 Windows 응용 프로그램은 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져옵니다(username@domain). UPN을 선호하는 대부분의 Windows 기반 시스템과 다르며 이는 더 명확하고 중복 크로스 도메인이 없습니다.
+비 Windows 응용 프로그램은 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져옵니다.(username@domain) UPN을 선호하는 대부분의 Windows 기반 시스템과 다르며 이는 더 명확하고 중복 크로스 도메인이 없습니다.
 
 이러한 이유로 응용 프로그램 프록시를 사용하면 어떤 ID가 응용 프로그램 단위 Kerberos 티켓에 표시할지 선택할 수 있습니다. 이러한 옵션 중 일부는 전자 메일 주소 형식 받아들이지 않는 시스템에 적합합니다.
 
@@ -162,4 +160,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -16,7 +16,18 @@
 
 # 릴리스 정보 - 개발자 분석 도구
 ##### Visual Studio에서 Application Insights 및 HockeyApp 분석
-## Version 7.0.1
+## 버전 7.0
+###Application Insights Trends
+Application Insights Trends는 시간이 지남에 따라 앱이 동작하는 방식을 분석하기 위한 Visual Studio의 새로운 도구입니다. 시작하려면 Application Insights 도구 모음 단추 또는 Application Insights 검색 창에서 "원격 분석 추세 탐색"을 선택하거나 보기 - 다른 창에서 "Application Insights Trends"를 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다. 데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
+
+![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.PNG)
+
+###CodeLens의 예외
+예외 원격 분석은 이제 CodeLens에 표시됩니다. 프로젝트를 Application Insights 서비스에 연결한 경우 지난 24시간 동안 프로덕션의 각 메서드에서 발생한 예외 수가 표시됩니다. CodeLens에서 검색 또는 추세로 이동하여 예외를 자세히 조사할 수 있습니다.
+
+![CodeLens의 예외](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+
+###ASP.NET Core 지원
 Application Insights는 이제 Visual Studio에서 ASP.NET Core RC2 프로젝트를 지원합니다. Application Insights를 새 프로젝트 대화 상자에서 새로운 ASP.NET Core RC2 프로젝트나 기존 프로젝트에 추가할 수 있습니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 “Application Insights 원격 분석 추가..."를 선택합니다.
 
 ![.NET Core 지원](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
@@ -25,11 +36,15 @@ ASP.NET 5 RC1과 ASP.NET Core RC2 프로젝트는 진단 도구 창에서 새 �
 
 ![진단 도구 지원](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###유니버설 Windows 앱용 HockeyApp
+베타 분포 및 사용자 의견 외에도 HockeyApp에서은 유니버설 Windows 앱에 기호화된 충돌 보고를 제공합니다. HockeyApp SDK를 쉽게 추가할 수 있게 되었습니다. 유니버설 Windows 프로젝트를 마우스 오른쪽 단추로 클릭하고 Hockey 앱 - 충돌 분석 사용...을 선택합니다. 그러면 SDK를 설치하고, 충돌 컬렉션을 설정하며 HockeyApp 서비스에 앱을 업로드하지 않고 클라우드에서 HockeyApp 리소스를 프로비전하게 됩니다.
+
 다른 새 기능:
 
 * 시간 범위와 세부 정보 필터를 선택하는 즉시 자동 적용되도록 하여 Application Insights Search 경험이 더욱 빠르고 직관적이 되었습니다.
 * Application Insights Search에는 요청에서 코드로 이동 옵션이 생겼습니다.
 * HockeyApp 로그인 환경도 개선했습니다.
+* 이제 진단 도구에 프로덕션 원격 분석 정보가 예외에 표시됩니다.
 
 ## 버전 5.2
 Visual Studio에 HockeyApp 시나리오가 도입되었음을 알려 드립니다. Microsoft에서 구현한 첫 번째 통합은 VS 내 유니버설 Windows 및 Windows Forms 앱의 베타 배포판입니다.
@@ -164,4 +179,4 @@ Application Insights 포털에서 검색하는 것과 마찬가지로 이벤트 
 
 향후 Application Insights 확장 릴리스에서는 HockeyApp과 Visual Studio 간에 보다 통합된 환경을 사용할 수 있도록 새로운 기능이 도입됩니다. 이제 NuGet 참조를 추가하기만 하면 HockeyApp을 시작할 수 있습니다. 자세한 내용은 [설명서](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

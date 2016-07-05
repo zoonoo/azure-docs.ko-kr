@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="06/21/2016"
    ms.author="tiandert; bwren" />
 
-# Azure 자동화 솔루션 - AWS 가상 컴퓨터 프로비전 
+# Azure 자동화 시나리오 - AWS 가상 컴퓨터 프로비전 
 
 이 문서에서는 Azure 자동화를 사용하여 AWS(Amazon Web Service) 구독에서 가상 컴퓨터를 프로비전하고 해당 VM에 특정 이름을 지정하는 방법을 설명합니다. 이는 AWS에서 VM "태그 지정"이라고 합니다.
 
@@ -72,14 +72,14 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 		#Sample to get the AWS VM available images
 		#Please provide the path where you have downloaded the AWS PowerShell module
 		Import-Module AWSPowerShell
-		$AWSRegion = "us-west-2"
+		$AwsRegion = "us-west-2"
 		$AwsCred = Get-Credential
 		$AwsAccessKeyId = $AwsCred.UserName
 		$AwsSecretKey = $AwsCred.GetNetworkCredential().Password
 
 		# Set up the environment to access AWS
-		Set-AWSCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
-		Set-DefaultAWSRegion -Region $AWSRegion
+		Set-AwsCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
+		Set-DefaultAWSRegion -Region $AwsRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
 다음과 같은 출력이 반환됩니다. <br> ![AWS 이미지 가져오기](./media/automation-scenario-aws-deployment/powershell-ise-output.png)  
@@ -90,7 +90,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 ### AWS VM Runbook 테스트
 Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-   -  AWS에 대해 인증하기 위한 자산을 만들고 **AWScred**로 이름을 지정하거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.  
+   -  AWS에 대해 인증하기 위한 **AWScred**라는 이름의 자산을 만들거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.  
    -  Azure 자동화에서 AWS PowerShell 모듈을 가져왔습니다.
    -  새 Runbook을 만든 후 매개 변수 값을 확인하고 필요한 경우 업데이트했습니다.
    -  Runbook **로깅 및 추적** 설정 아래에서 **상세 레코드 기록** 및 **진행률 레코드 기록**(옵션)을 **사용**으로 설정했습니다.<br> ![Runbook 로깅 및 추적](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
@@ -107,4 +107,4 @@ Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합�
 -	Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 -	PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

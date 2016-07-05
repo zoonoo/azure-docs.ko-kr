@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -256,4 +256,4 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [
 - [Azure SQL 데이터베이스 일반 제한 사항 및 지침](sql-database-general-limitations.md)
 - [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -3,7 +3,7 @@
 	description="장치 쌍을 사용하는 방법을 설명하는 Azure IoT Hub 장치 관리 자습서."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # 자습서: C#으로 장치 쌍을 사용하는 방법(미리 보기)
 
@@ -139,4 +139,4 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

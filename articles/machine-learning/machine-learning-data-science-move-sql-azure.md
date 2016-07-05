@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev" />
 
 # Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동
 
-이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이 작업은 Azure에서 제공하는 Cortana 분석 프로세스의 일부입니다.
+이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하기 위한 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
 기계 학습을 위해 온-프레미스 SQL Server로 데이터를 이동하기 위한 옵션을 설명하는 항목은 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)을 참조하세요.
 
-다음 **메뉴**는 CAPS(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,4 +85,4 @@ ADF(Azure Data Factory)를 사용하여 Azure SQL 데이터베이스로 데이�
 
 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->
