@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako;anilmur"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -29,13 +29,13 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- 사용 가능한 클라이언트 SDK 중 하나: 
-	- [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), 
-	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
-	- [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)(Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다). 
-- 기존 도구: 
-	- [Azure 클래식 포털](http://manage.windowsazure.com/) 
+- 사용 가능한 클라이언트 SDK 중 하나:
+	- [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
+	- [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
+	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+	- [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)(Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).
+- 기존 도구:
+	- [Azure 클래식 포털](http://manage.windowsazure.com/)
 	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)(AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
 
 ##미디어 서비스 학습 경로
@@ -49,9 +49,9 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니다.
  
-3. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](azure.microsoft.com)을 참조하세요.
+3. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com)을 참조하세요.
 2. Azure 미디어 서비스 계정. Azure 클래식 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-create-account.md)를 참조하세요.
-3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요. 
+3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요.
 
 	프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
 4. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 자세한 내용은 [스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
@@ -99,7 +99,7 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 2. 콘텐츠 키 인증 정책을 구성합니다.
 1. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
 1. 주문형 로케이터를 만들어 자산을 게시합니다.
-1. 게시된 콘텐츠를 스트리밍합니다. 
+1. 게시된 콘텐츠를 스트리밍합니다.
 
 ###미디어 분석을 사용하여 비디오에 대한 실질적인 통찰력 얻기 
 
@@ -113,7 +113,7 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 	- **동작 감지** – [Azure 미디어 분석을 위한 동작 감지](media-services-motion-detection.md)
 	- **얼굴 감지 및 표정** – [Azure 미디어 분석을 위한 얼굴 및 표정 감지](media-services-face-and-emotion-detection.md)
 	- **비디오 요약 만들기** – [Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기](media-services-video-summarization.md)
-3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
+3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다.
 
 
 ###점진적 다운로드 제공 
@@ -155,7 +155,7 @@ Azure 미디어 서비스에서 **채널**, **프로그램** 및 **스트리밍 
 
 - 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 채널에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **채널**을 통과하는 경우를 **통과** 전달이라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Elemental, Envivio, Cisco를 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe Flash Live, Telestream Wirecast 및 Tricaster 트랜스코더입니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
-	>[AZURE.NOTE] 통과 메서드를 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](/pricing/details/media-services/) 세부 정보를 참조하세요.
+	>[AZURE.NOTE] 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](/pricing/details/media-services/) 세부 정보를 참조하세요.
 	
 - 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
@@ -220,4 +220,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

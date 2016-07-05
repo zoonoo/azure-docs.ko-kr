@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
+    ms.date="06/28/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 그래픽 Runbook
@@ -62,7 +62,7 @@
 
 1.	**테스트 창**을 클릭하여 테스트 블레이드를 엽니다.<br> ![테스트 창](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
 2.	**시작**을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
-3.	이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다. 작업 상태는 클라우드의 runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+3.	이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다. 작업 상태는 클라우드의 runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.
 4.	Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World*가 표시됩니다.<br>![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5.	캔버스로 돌아가려면 테스트 블레이드를 닫습니다.
 
@@ -76,7 +76,7 @@
 4.	여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
 5.	우리가 방금 만들었던 runbook작업에 대한 작업 블레이드가 열립니다. 블레이드를 닫을 수 있지만, 이 경우에는 작업의 진행 상황을 보기 위해 열어둡니다.
 6.	작업 상태가 **작업 요약**에 표시되며 Runbook을 테스트할 때의 상태와 일치합니다.<br>![작업 요약](media/automation-first-runbook-graphical/runbook-job-summary.png)
-7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. **출력** 블레이드가 열리고 창에서 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-graphical/runbook-job-output.png)  
+7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. **출력** 블레이드가 열리고 창에서 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-graphical/runbook-job-output.png)
 8.	출력 블레이드를 닫습니다.
 9.	**모든 로그**를 클릭하여 runbook 작업에 대한 스트림 블레이드를 엽니다. 출력 스트림에 *Hello World*만 표시되어야 하지만 Runbook이 자세한 정보 표시 및 오류와 같은 Runbook 작업에 대한 다른 스트림에 쓰는 경우 해당 스트림이 표시될 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
 10.	모든 로그 블레이드와 작업 블레이드를 닫고 MyFirstRunbook 블레이드로 돌아갑니다.
@@ -90,8 +90,8 @@
 1. 자동화 계정 블레이드에서 **자산** 타일 클릭하면 **자산** 블레이드가 열립니다.
 2. 자산 블레이드에서 **변수** 타일을 클릭합니다.
 3. 변수 블레이드에서 **변수 추가**를 클릭합니다.<br>![자동화 변수](media/automation-first-runbook-graphical/create-new-subscriptionid-variable.png)
-4. 새로운 변수 블레이드의 **이름** 상자에 **AzureSubscriptionId**를 입력하고 **값** 상자에 사용자의 구독 ID를 입력합니다. **형식**에 대한 *문자열* 및 **암호화**에 대한 기본 값을 유지합니다.  
-5. **만들기**를 클릭하여 변수를 만듭니다.  
+4. 새로운 변수 블레이드의 **이름** 상자에 **AzureSubscriptionId**를 입력하고 **값** 상자에 사용자의 구독 ID를 입력합니다. **형식**에 대한 *문자열* 및 **암호화**에 대한 기본 값을 유지합니다.
+5. **만들기**를 클릭하여 변수를 만듭니다.
 
 
 ## 6 단계 - Azure 리소스를 관리하는 인증 추가
@@ -101,25 +101,25 @@
 1.	MyFirstRunbook 블레이드에서 **편집**을 클릭하여 그래픽 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2.	**Write Hello World to output**은 더 이상 필요하지 않으므로 마우스 오른쪽 버튼을 클릭하고 **삭제**를 선택합니다.
 3.	라이브러리 컨트롤에서 **연결**을 확장하고 **캔버스에 추가**를 선택하여 **AzureRunAsConnection**을 캔버스에 추가합니다.
-4.	캔버스에서 **AzureRunAsConnection**을 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **실행 연결 가져오기**를 입력합니다. 연결입니다. 
+4.	캔버스에서 **AzureRunAsConnection**을 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **실행 연결 가져오기**를 입력합니다. 연결입니다.
 5.	라이브러리 컨트롤에서 검색 텍스트 상자에 **Add-AzureRmAccount**을 입력합니다.
 6.	캔버스에 **Add-AzureRmAccount**를 추가합니다.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
 7.	도형 아래에 원이 나타날 때까지 **실행 연결 가져오기**를 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Add-AzureRmAccount**로 끌어 놓습니다. 방금 만든 화살표는 *링크*입니다. runbook은 **실행 연결 가져오기**를 시작한 다음 **Add-AzureRmAccount**를 실행합니다.<br> ![활동 간 링크 만들기](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8.	캔버스에서 **Add-AzureRmAccount**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **Azure에 로그인**을 입력합니다.
-9.	**매개 변수**를 클릭하면 활동 매개 변수 구성 블레이드가 표시됩니다. 
-10.  **Add-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다. 
+9.	**매개 변수**를 클릭하면 활동 매개 변수 구성 블레이드가 표시됩니다.
+10.  **Add-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다.
 11.  매개 변수 집합을 선택하면, Activity Parameter Configuration(활동 매개 변수 구성) 블레이드에 매개 변수가 표시 됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  매개 변수 값 블레이드에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음 **파일 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음 **확인**을 클릭합니다. 활동에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
-13.  **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다. 
+13.  **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다.
 14.  **SERVICEPRINCIPAL**을 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **ConstantValue**를 선택하고 **True** 옵션을 클릭한 다음 **확인**을 클릭합니다.
-15.  **TENANTID**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **TenantId**를 입력한 다음 **확인**을 두 번 클릭합니다.  
-16.  라이브러리 컨트롤에서 검색 텍스트 상자에 **Get-AzureRmContext**을 입력합니다.
+15.  **TENANTID**를 클릭하고 매개 변수 값 블레이드에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **TenantId**를 입력한 다음 **확인**을 두 번 클릭합니다.
+16.  라이브러리 컨트롤에서 검색 텍스트 상자에 **Set-AzureRmContext**을 입력합니다.
 17.	 캔버스에 **Set-AzureRmContext**를 추가합니다.
 18.	 캔버스에서 **Set-AzureRmContext**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **구독 ID 지정**을 입력합니다.
-19.	 **매개 변수**를 클릭하면 활동 매개 변수 구성 블레이드가 표시됩니다. 
-20. **Set-AzureRmContext**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **SubscriptionId** 매개 변수 집합을 선택합니다.  
+19.	 **매개 변수**를 클릭하면 활동 매개 변수 구성 블레이드가 표시됩니다.
+20. **Set-AzureRmContext**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **SubscriptionId** 매개 변수 집합을 선택합니다.
 21.	 매개 변수 집합을 선택하면, Activity Parameter Configuration(활동 매개 변수 구성) 블레이드에 매개 변수가 표시 됩니다. **SubscriptionID**를 클릭합니다.
-22.	 매개 변수 값 블레이드에서 **데이터 원본**에 대해 **변수 자산**을 선택하고 목록에서 **AzureSubscriptionId**을 선택한 다음 **확인**을 두 번 클릭합니다.   
+22.	 매개 변수 값 블레이드에서 **데이터 원본**에 대해 **변수 자산**을 선택하고 목록에서 **AzureSubscriptionId**을 선택한 다음 **확인**을 두 번 클릭합니다.
 23.  아래에 원 모양이 나타날 때까지 **Azure에 로그인**을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **구독 ID 지정**으로 끌어 놓습니다.
 
 
@@ -131,7 +131,7 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 
 1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Start-AzureRm**을 입력합니다.
 2. **Start-AzureRmVM**을 캔버스에 추가한 다음 클릭하여 **Azure에 연결** 아래로 끌어 놓습니다.
-3. 도형 아래에 원이 나타날 때까지 **구독 ID 지정**을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Start-AzureRmVM**으로 끌어 놓습니다. 
+3. 도형 아래에 원이 나타날 때까지 **구독 ID 지정**을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Start-AzureRmVM**으로 끌어 놓습니다.
 4.	**Start-AzureRmVM**을 선택합니다. **매개 변수**와 **매개 변수 집합**을 차례로 클릭하여 **Start-AzureRmVM**에 대한 집합을 표시합니다. **ResourceGroupNameParameterSetName** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
 5.	**Name**을 선택합니다. **데이터 원본**에 대해 **PowerShell 식** 을 선택하고 이runbook으로 시작될 가상 컴퓨터의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.<br>![Start-AzureRmVM 이름 매개 변수 값](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	**ResourceGroupName**을 선택합니다. **데이터 원본**에 **PowerShell 식**을 사용하고 리소스 그룹의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.<br>![Start-AzureRmVM 매개 변수](media/automation-first-runbook-graphical/startazurermvm-params.png)
@@ -169,12 +169,12 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 5. **Get-AzureRmVM**과 **매개 변수 집합**을 차례로 선택하여 **Get-AzureRmVM**에 대한 집합을 표시합니다. **GetVirtualMachineInResourceGroupNameParamSet** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
 6. **이름**에 대한 **데이터 원본**에서 **Runbook 입력**을 선택한 다음 **VMName**을 선택합니다. **확인**을 클릭합니다.
 7. **ResourceGroupName**에 대한 **데이터 원본**에서 **Runbook 입력**을 선택한 다음 **ResourceGroupName**을 선택합니다. **확인**을 클릭합니다.
-8. **상태**에 대한 **데이터 원본**에 **상수 값**을 선택한 다음 **True**를 클릭합니다. **확인**을 클릭합니다.  
+8. **상태**에 대한 **데이터 원본**에 **상수 값**을 선택한 다음 **True**를 클릭합니다. **확인**을 클릭합니다.
 9. **구독 ID 지정**에서 **Get-AzureRmVM**에 대한 링크를 만듭니다.
-10. 라이브러리 컨트롤에서 **Runbook 컨트롤**을 확장하고 캔버스에 **코드**를 추가합니다.  
-11. **Get-AzureRmVM**에서 **코드**에 대한 링크를 만듭니다.  
+10. 라이브러리 컨트롤에서 **Runbook 컨트롤**을 확장하고 캔버스에 **코드**를 추가합니다.
+11. **Get-AzureRmVM**에서 **코드**에 대한 링크를 만듭니다.
 12. **코드**를 클릭하고 구성 창에서 레이블을 **상태 가져오기**로 변경합니다.
-13. **코드** 매개 변수를 선택하면 **코드 편집기** 블레이드가 나타납니다.  
+13. **코드** 매개 변수를 선택하면 **코드 편집기** 블레이드가 나타납니다.
 14. 코드 편집기에 다음 코드 조각을 붙여 넣습니다.
 
      ```
@@ -189,7 +189,7 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
      ```
 
 15. **상태 가져오기**에서 **Start-AzureRmVM**에 대한 링크를 만듭니다.<br> ![코드 모듈과 Runbook](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)
-16. 링크를 선택하고 구성 창에서 **조건 적용**을 **예**로 변경합니다. 링크가 파선으로 바뀌면서 조건이 True로 확인되는 경우에만 목표 활동이 실행된다는 것을 나타냅니다.  
+16. 링크를 선택하고 구성 창에서 **조건 적용**을 **예**로 변경합니다. 링크가 파선으로 바뀌면서 조건이 True로 확인되는 경우에만 목표 활동이 실행된다는 것을 나타냅니다.
 17. **조건 식**에 *$ActivityOutput['Get Status'] -eq "Stopped"*를 입력합니다. 이제 **Start-AzureRmVM**은 가상 컴퓨터가 중지된 경우에만 실행됩니다.
 18.	라이브러리 컨트롤에서 **Cmdlet**과 **Microsoft.PowerShell.Utility**를 차례로 확장합니다.
 19.	캔버스에 **Write-Output**을 두 번 추가합니다.<br> ![쓰기 출력으로 Runbook](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
@@ -211,4 +211,4 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 -	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 -	PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

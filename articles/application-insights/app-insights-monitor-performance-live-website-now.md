@@ -143,24 +143,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ### 연결 오류
 
-상태 모니터가 작동할 수 있도록 서버 방화벽에서 일부 나가는 포트를 열어야 합니다.
-
-+ 원격 분석 - 항상 다음 항목이 필요합니다.
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ 구성 - 변경하는 경우에만 필요합니다.
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ 설치:
- +	`packages.nuget.org:443`
-
-이 목록은 수시로 변경될 수 있습니다.
+상태 모니터가 작동할 수 있도록 서버 방화벽에서 [일부 나가는 포트](app-insights-ip-addresses.md#outgoing-ports)를 열어야 합니다.
 
 ### 원격 분석이 없나요?
 
@@ -235,7 +218,7 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
 * `-Name` IIS에서 앱의 이름
-* `-All` `SdkState==EnabledAfterDeployment`인 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다
+* `-All` `SdkState==EnabledAfterDeployment`인 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다.
 
 * 지정된 앱의 모니터링을 중지하고 계측을 제거합니다. 실행 시 상태 모니터링 도구 또는 Start-ApplicationInsightsApplication을 사용하여 계측된 앱에서 작동합니다. (`SdkState==EnabledAfterDeployment`)
 
@@ -243,7 +226,7 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`: IIS에서 웹앱의 이름입니다.
+* `-Name`: IIS에서 웹앱의 이름
 * `-InstrumentationKey` (선택 사항) 이를 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
 * 이 cmdlet은:
  * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
@@ -301,4 +284,4 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

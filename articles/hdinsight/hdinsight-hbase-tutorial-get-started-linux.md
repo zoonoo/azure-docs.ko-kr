@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/04/2016"
+	ms.date="06/27/2016"
 	ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 6. **만들기**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
 
->[AZURE.NOTE] HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
+>[AZURE.NOTE] HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다. 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
 
 ## 테이블 만들기 및 데이터 삽입
 
@@ -111,12 +111,14 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 		exit
 
+
+
 **연락처 HBase 테이블로 대량으로 데이터 로드**
 
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다. 자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
 
-샘플 데이터 파일은 공용 Blob 컨테이너인 **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너인 *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -152,7 +154,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 1. **PuTTY**를 열고 클러스터에 연결합니다. 이전 절차의 지침을 참조하세요.
 2. Hive 셸을 엽니다.
 
-	hive
+	   hive
 3. 다음 HiveQL 스크립트를 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
 
 		CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -174,34 +176,59 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 1. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
 	그러면 다음과 같은 응답이 표시됩니다.
 
-    {"status":"ok","version":"v1"}
+		{"status":"ok","version":"v1"}
 
   이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
-    * **-G** - GET 요청임을 나타냅니다.
+	* **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
+	* **-G** - GET 요청임을 나타냅니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. 다음 명령을 사용하여 두 열 패밀리가 있는 새 HBase 테이블을 만듭니다.
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{"@name":"Contact1","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}" \
+		-v
 
 	스키마는 JSon 형식으로 제공됩니다.
 
 4. 다음 명령을 사용하여 데이터 일부를 삽입합니다.
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{"Row":{"key":"MTAwMA==","Cell":{"column":"UGVyc29uYWw6TmFtZQ==", "$":"Sm9obiBEb2xl"}}}" \
+		-v
+
+	-d 스위치에 지정된 값을 base64로 인코딩해야 합니다. 예제에서:
+
+	- MTAwMA==: 1000
+	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name
+	- Sm9obiBEb2xl: John Dole
+
+	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single)를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
 
 5. 다음 명령을 사용하여 행을 가져옵니다.
 
-		curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+		curl -u <UserName>:<Password> \
+		-X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+		-H "Accept: application/json" \
+		-v
+
+HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https://hbase.apache.org/book.html#_rest)를 참조하세요.
 
 ## 클러스터 상태 확인
 
@@ -252,15 +279,18 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 	- **SOCKS v5**: (선택됨)
 	- **원격 DNS**: (선택됨)
 7. **확인**을 클릭하여 변경 내용을 저장합니다.
-8. http://<TheFQDN of a ZooKeeper>:60010/master-status로 이동합니다.
+8. ZooKeeper>:60010/master-status의 http://&lt;The FQDN으로 이동합니다.
 
 고가용성 클러스터에서 WebUI를 호스트하는 현재 활성 HBase 마스터 노드에 대한 링크를 찾을 수 있습니다.
 
 ##클러스터 삭제
 
+불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 다음 단계
+
 HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
 자세한 내용은 다음을 참조하세요.
@@ -295,4 +325,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

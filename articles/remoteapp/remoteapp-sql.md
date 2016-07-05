@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하는 SQL Azure
@@ -27,12 +27,12 @@
 ## Azure RemoteApp 구성
 Azure RemoteApp에서 Windows 응용 프로그램을 호스트합니다. 다음은 단계별로 매우 높은 수준입니다.
 
-1.     [Azure RemoteApp 템플릿 VM](remoteapp-imageoptions.md) 만들기 
+1.     [Azure RemoteApp 템플릿 VM](remoteapp-imageoptions.md) 만들기
 2.     VM에 필요한 응용 프로그램을 설치합니다.
 3.     응용 프로그램을 구성하므로 SQL DB에 연결하고 작동하는지 확인합니다.
 4.     VM Sysprep 및 종료 Azure와 함께 사용하기 위해 이미지 형식으로 캡처합니다. **참고:** 응용 프로그램이 sysprep 프로세스를 통해 DB 연결 정보를 유지할 수 있도록 해야 합니다. 응용 프로그램이 DB 연결 정보를 유지할 수 없는 경우 연결 문자열을 지정할 수 있는 방법을 확인하도록 응용 프로그램의 공급 업체가 참여하길 바랄 수 있습니다.
-5.     SQL Azure 배포에 있는 적절한 지리적 위치를 선택하여 Azure RemoteApp 라이브러리에 사용자 지정 이미지를 가져옵니다. 
-6.     위의 템플릿을 사용하여 SQL Azure 배포와 동일한 데이터 센터에 RemoteApp 컬렉션을 배포하고 응용 프로그램을 게시합니다. SQL Azure와 동일한 데이터 센터에서 Azure RemoteApp을 배포하면 연결 속도가 가장 빨라지고 대기 시간을 줄일 수 있습니다. 
+5.     SQL Azure 배포에 있는 적절한 지리적 위치를 선택하여 Azure RemoteApp 라이브러리에 사용자 지정 이미지를 가져옵니다.
+6.     위의 템플릿을 사용하여 SQL Azure 배포와 동일한 데이터 센터에 RemoteApp 컬렉션을 배포하고 응용 프로그램을 게시합니다. SQL Azure와 동일한 데이터 센터에서 Azure RemoteApp을 배포하면 연결 속도가 가장 빨라지고 대기 시간을 줄일 수 있습니다.
 
 ## 앱 및 SQL 구성 고려 사항
 RemoteApp과 함께 Azure SQL을 사용하는 경우 고려해야 할 몇가지 사항이 있습니다.
@@ -46,8 +46,8 @@ RemoteApp과 함께 Azure SQL을 사용하는 경우 고려해야 할 몇가지 
 ## 문제 해결
 Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연결하는 Azure RemoteApp에서 호스팅되는 클라이언트 응용 프로그램을 사용하는 환경이 느린 경우 몇 가지 이유가 있을 수 있습니다.
 
-- 장치에서 Azure에 대한 네트워크 대기 시간이 깁니다. 최상의 성능을 위해 가장 좋고 빠른 네트워크 연결로 이동합니다. [azurespeed.com](http://azurespeed.com/)을 일반적인 도구로 사용하여 Azure 데이터 센터에 장치 대기 시간을 테스트합니다.  
+- 장치에서 Azure에 대한 네트워크 대기 시간이 깁니다. 최상의 성능을 위해 가장 좋고 빠른 네트워크 연결로 이동합니다. [azurespeed.com](http://azurespeed.com/)을 일반적인 도구로 사용하여 Azure 데이터 센터에 장치 대기 시간을 테스트합니다.
 - Azure RemoteApp에서 호스팅되는 클라이언트 앱은 부하가 높습니다. Premium 청구와 같은 다른 요금제를 선택하면 성능이 향상됩니다. 응용 프로그램이 소비하는 리소스를 모니터링하는 다른 방법은 다음과 같습니다. 활성 세션 동안 SAS 화면을 시작하고 작업 관리자를 선택하며 앱에 대한 리소스 사용률을 관찰하는 ctrl-alt-end 키 시퀀스를 수행합니다.
-- SQL Server은 부하가 많거나 최적화되지 않습니다. 문제 해결에 대한 SQL 지침을 따릅니다. 
+- SQL Server은 부하가 많거나 최적화되지 않습니다. 문제 해결에 대한 SQL 지침을 따릅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->
