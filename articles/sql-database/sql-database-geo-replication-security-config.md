@@ -1,6 +1,6 @@
 <properties
-	pageTitle="재해 복구 후에 보안을 관리하는 방법"
-	description="이 항목에서는 SQL 데이터베이스에 대한 활성 지역 복제 시나리오를 관리하기 위한 보안 고려 사항을 설명합니다."
+	pageTitle="새 서버로 데이터베이스를 복원하거나 데이터베이스를 보조 데이터베이스 복사본으로 장애 조치(failover)한 후 보안을 관리하는 방법 | Microsoft Azure"
+	description="이 항목에서는 데이터베이스 복원 또는 장애 조치(failover) 후 보안을 관리하기 위한 보안 고려 사항에 대해 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
 	authors="carlrabeler"
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/10/2016"
+	ms.date="06/16/2016"
 	ms.author="carlrab" />
 
-# 재해 복구 후에 보안을 관리하는 방법
+# 재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md)은 현재 모든 서비스 계층의 모든 데이터베이스에 대해 제공됩니다.
 
@@ -27,7 +27,7 @@
 
 ## 포함된 사용자를 사용한 재해 복구
 
-[Azure SQL 데이터베이스의 V12 버전](sql-database-v12-whats-new.md)과 함께 SQL 데이터베이스는 이제 포함된 사용자를 지원합니다. master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사용자와 달리 포함된 사용자는 데이터베이스 자체에서 완전히 관리됩니다. 두 가지 이점이 있습니다. 재해 복구 시나리오에서 데이터베이스는 사용자를 관리하므로 사용자는 추가 구성 없이 지역 복원을 사용하여 복구된 새로운 주 데이터베이스 또는 데이터베이스에 계속해서 연결할 수 있습니다. 로그인 관점에서 이 구성에는 잠재적인 확장성 및 성능 이점이 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
+master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사용자와 달리 포함된 사용자는 데이터베이스 자체에서 완전히 관리됩니다. 두 가지 이점이 있습니다. 재해 복구 시나리오에서 데이터베이스는 사용자를 관리하므로 사용자는 추가 구성 없이 지역 복원을 사용하여 복구된 새로운 주 데이터베이스 또는 데이터베이스에 계속해서 연결할 수 있습니다. 로그인 관점에서 이 구성에는 잠재적인 확장성 및 성능 이점이 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
 기본 절충점은 대규모로 재해 복구 프로세스를 관리하는 것이 좀 더 어렵다는 점입니다. 동일한 로그인을 사용하는 여러 데이터베이스가 있는 경우 여러 데이터베이스에 포함된 사용자를 사용하여 자격 증명을 유지 관리하면 포함된 사용자의 이점이 없어질 수 있습니다. 예를 들어 암호 회전 정책에 따라 마스터 데이터베이스에 한 번 로그인하기 위해 암호를 변경하는 대신 여러 데이터베이스에 변경 내용이 일관되어야 합니다. 이러한 이유로 동일한 사용자 이름 및 암호를 사용하는 여러 데이터베이스가 있는 경우 포함된 사용자를 사용하는 것은 좋지 않습니다.
 
@@ -46,7 +46,6 @@
 >[AZURE.NOTE] 적절히 구성된 로그인 액세스가 없는 서버에 장애 조치 또는 지역 복원을 수행하는 경우 서버 관리자 계정으로 제한됩니다.
 
 대상 서버에서 로그인을 설정하는 작업은 아래에서 설명할 세 가지 단계를 포함합니다.
-
 
 #### 1\. 주 데이터베이스에 대한 액세스를 사용하여 로그인을 확인합니다.
 프로세스의 첫 번째 단계는 대상 서버에 중복되어야 하는 로그인을 결정하는 것입니다. 이는 원본 서버의 논리적 master 데이터베이스에 있는 하나와 주 데이터베이스 자체에 있는 하나로 이루어진 SELECT 문 쌍으로 수행됩니다.
@@ -91,13 +90,18 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 
 - 데이터베이스 액세스 및 로그인 관리에 대한 자세한 내용은 [SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md)를 참조하세요.
 - 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
+- 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 지리적 복원 사용에 대한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
 
 ## 추가 리소스
 
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
+- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
+- [특정 시점 복원](sql-database-point-in-time-restore.md)
+- [지역 복원](sql-database-geo-restore.md)
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

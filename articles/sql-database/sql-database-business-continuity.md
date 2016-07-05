@@ -13,11 +13,18 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-business-continuity"
+   ms.workload="sqldb-bcdr"
    ms.date="06/09/2016"
    ms.author="carlrab"/>
 
 # 개요: Azure SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구
+
+> [AZURE.SELECTOR]
+- [지정 시간 복원](sql-database-point-in-time-restore.md)
+- [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)
+- [지역 복원](sql-database-geo-restore.md)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [비즈니스 연속성 시나리오](sql-database-business-continuity-scenarios.md)
 
 Azure SQL 데이터베이스는 다양한 비즈니스 연속성 솔루션을 제공합니다. 무중단 업무 방식이란 응용 프로그램이 영구적 또는 임시적으로 그 기능을 잃어 비즈니스 기능을 수행하지 못하게 되는 계획되거나 계획되지 않은 중단 이벤트로부터 회복될 수 있도록 응용 프로그램을 디자인, 배포 및 실행하는 것입니다. 계획되지 않은 이벤트란 사람의 실수부터 영구적이거나 일시적인 중단, 지역 재해에 이르기까지 특정 Azure 지역 내의 장비에 방대한 범위의 손실을 일으킬 수 있는 이벤트를 말합니다. 계획된 이벤트에는 다른 지역으로의 응용 프로그램 재배포 및 응용 프로그램 업그레이드가 포함됩니다. 비즈니스 연속성의 목표는 응용 프로그램이 이러한 이벤트가 발생한 기간 동안에도 비즈니스 기능에 최소한의 영향만으로 계속해서 작동하도록 하는 것입니다.
 
@@ -61,7 +68,7 @@ SQL 데이터베이스 클라우드 비즈니스 연속성 솔루션에 대해 �
 다음 테이블에서는 SQL 데이터베이스 비즈니스 연속성 기능을 나열하고 [서비스 계층](sql-database-service-tiers.md)에 따른 차이를 보여 줍니다.
 
 | 기능 | 기본 계층 | 표준 계층 |프리미엄 계층
-| --- |--- | --- | ---
+| --- | --- | --- | ---
 | 지정 시간 복원 | 7일 이내의 모든 복원 지점 | 14일 이내의 모든 복원 지점 | 35일 이내의 모든 복원 지점
 | 지역 복원 | ERT < 12시간, RPO < 1시간 | ERT < 12시간, RPO < 1시간 | ERT < 12시간, RPO < 1시간
 | 활성 지역 복제 | ERT < 30초, RPO < 5초 | ERT < 30초, RPO < 5초 | ERT < 30초, RPO < 5초
@@ -73,27 +80,65 @@ SQL 데이터베이스 클라우드 비즈니스 연속성 솔루션에 대해 �
 
 ###지정 시간 복원
 
-[특정 시점 복원](sql-database-point-in-time-restore.md)은 데이터베이스를 이전 시점으로 되돌리기 위해 설계되었습니다. 이 복원은 모든 사용자 데이터베이스에 대한 서비스를 자동으로 유지 관리하는 데이터베이스 백업, 증분 백업 및 트랜잭션 로그 백업을 사용합니다. 이 기능은 모든 서비스 계층에 사용할 수 있습니다. 기본은 7일, 표준은 14일, 프리미엄은 35일 뒤로 돌아갈 수 있습니다. 지정 시간 복원을 사용하는 자세한 방법은 [사람의 실수로부터 복구](sql-database-user-error-recovery.md)를 참조하십시오.
+[지정 시간 복원](sql-database-point-in-time-restore.md)은 데이터베이스를 이전 시점으로 되돌리기 위해 설계되었습니다. 이 복원은 모든 사용자 데이터베이스에 대한 서비스를 자동으로 유지 관리하는 데이터베이스 백업, 증분 백업 및 트랜잭션 로그 백업을 사용합니다. 이 기능은 모든 서비스 계층에 사용할 수 있습니다. 기본은 7일, 표준은 14일, 프리미엄은 35일 뒤로 돌아갈 수 있습니다.
 
 ### 지역 복원
 
-[지역 복원](sql-database-geo-restore.md)도 기본, 표준 및 프리미엄 데이터베이스에서 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 지정 시간 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 기본 지역의 저장소 중단에 영향을 받지 않습니다. 지역 복원 사용에 대한 자세한 방법은 [가동 중단에서 복구](sql-database-disaster-recovery.md)를 참조하십시오.
+[지리적 복원](sql-database-geo-restore.md)은 기본, 표준 및 프리미엄 데이터베이스에서도 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 지정 시간 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 기본 지역의 저장소 중단에 영향을 받지 않습니다.
 
 ### 활성 지역 복제
 
-[활성 지역 복제](sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. [지역에서 복제를 구성](sql-database-geo-replication-portal.md)하고 [보조 데이터베이스로의 장애 조치](sql-database-geo-replication-failover-portal.md)하는 방법에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md)를 참조하세요. 가동 중지 시간 없이 응용 프로그램 업그레이드를 구현하는 자세한 방법은 [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-business-continuity-application-upgrade.md)를 참조하십시오.
+[활성 지역 복제](sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 [응용 프로그램 업그레이드 또는 재배치 시나리오](sql-database-manage-application-rolling-upgrade.md)뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다.
+
+## 비즈니스 연속성 기능 중에서 선택
+
+비즈니스 연속성을 위해 응용 프로그램을 설계하려면 다음 질문에 대답해야 합니다.
+
+1. 내 응용 프로그램을 가동 중단에서 보호하기 위해 적절한 비즈니스 연속성 기능은 무엇인가?
+2. 어떤 수준의 중복성 및 복제 토폴로지를 사용해야 하는가?
+
+탄력적 풀을 사용하는 경우 자세한 복구 전략에 대해서는 [SQL 데이터베이스의 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+
+### 지역 복원을 사용할 시기
+
+[지리적 복원](sql-database-geo-restore.md)은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. SQL 데이터베이스는 기본적으로 모든 데이터베이스를 보호할 수 있는 기본 제공 보호 기능을 제공합니다. 이러한 보호는 지역 중복 Azure 저장소(GRS)에서 [데이터베이스 백업](sql-database-automated-backups.md)을 수행하고 저장하면 됩니다. 이 방법을 선택할 경우 특별한 구성 또는 추거 리소스 할당이 필요하지 않습니다. 이러한 자동화된 지역 중복 백업에서 새 데이터베이스로 복원함으로써 모든 지역에 데이터베이스를 복구할 수 있습니다.
+
+응용 프로그램이 다음 조건에 맞는 경우 기본 제공 보호 기능을 사용하면 됩니다.
+
+1. 중요 업무용으로 간주되지 않습니다. 연계된 SLA가 없으므로 24시간 이상의 가동 중지가 발생해도 재무적 책임이 없습니다.
+2. 데이터 변경 비율(예: 시간당 트랜잭션 수)이 낮습니다. 1시간의 RPO로 방대한 데이터가 손실되지 않습니다.
+3. 응용 프로그램이 비용에 민감하여 지역에서 복제를 위한 추가적 비용을 지불할 수 없습니다. 
+
+> [AZURE.NOTE] 지역 복원은 작동 중단 시간 동안 백업에서 활성 데이터베이스를 복원하는 데 필요한 특정 지역의 계산 용량을 미리 할당하지 않습니다. 서비스는 지역 복원 요청에 관련된 작업을 지역 내의 기존 데이터베이스에 미치는 영향을 최소화하고 용량 요구 사항을 우선하는 방식으로 관리합니다. 따라서 데이터베이스의 복구 시간은 동시에 같은 지역에서 다른 데이터베이스가 얼마나 복구되는지와 DB의 크기, 트랜잭션 로그의 수, 네트워크 대역폭 등에 따라 달라집니다.
+
+### 활성 지역 복제를 사용할 시기
+
+[활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하면 기본 데이터베이스를 통해 다른 지역에 읽을 수 있는 (보조) 데이터베이스를 만들고 유지 관리할 수 있으며, 비동기 복제 메커니즘을 사용하여 최신 상태로 유지할 수 있습니다. 이를 통해 데이터베이스가 복구 후 응용 프로그램의 작업을 지원하는 데 필요한 데이터와 계산 리소스를 보유할 수 있게 됩니다.
+
+응용 프로그램이 다음 조건에 맞는 경우 활성 지역 복제 기능을 사용하면 됩니다.
+
+1. 중요 업무용입니다. 연계된 SLA가 있고 RPO와 RTO에 민감합니다. 데이터 및 가용성이 손실될 경우 재무적 책임이 발생할 수 있습니다. 
+2. 데이터 변경 비율(예: 분 또는 초당당 트랜잭션 수)이 높습니다. 기본 보호 기능을 적용한 상태에서 1시간의 RPO가 허용할 수 없는 수준의 데이터 손실로 이어질 수 있습니다.
+3. 지역에서 복제를 사용하는 것에 관련된 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 크게 낮습니다.
+
 
 ## 다음 단계
 
-- [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md)
-- [지정 시간 복원](sql-database-point-in-time-restore.md)
-- [지역 복원](sql-database-geo-restore.md)
-- [활성 지역 복제](sql-database-geo-replication-overview.md)
-
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업을 사용하여 데이터베이스의 지정 시간 복원을 수행하는 방법을 알아보려면 [지정 시간 복원](sql-database-point-in-time-restore.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업을 사용하여 삭제된 데이터베이스 복원을 수행하는 방법을 알아보려면 [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업을 사용하여 데이터베이스의 지리적 복원을 수행하는 방법을 알아보려면 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+- 비즈니스 연속성을 위해 활성 지역 복제를 구성 및 사용하는 방법을 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 
 ## 추가 리소스
 
-- [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)
-- [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-business-continuity-application-upgrade.md)
+- [가동 중단에서 복구](sql-database-disaster-recovery.md)
+- [사용자 오류에서 복구](sql-database-user-error-recovery.md)
+- [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)
+- [복구 후 보안 관리](sql-database-geo-replication-security-config.md)
+- [SQL 데이터베이스 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md)
+- [재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [SQL 데이터베이스의 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [지역에서 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

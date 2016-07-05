@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="03/16/2016" 
+    ms.date="06/17/2016" 
     ms.author="jeedes" />
 
 #자습서: ITRP와 Azure Active Directory 통합
@@ -159,4 +159,4 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 하려면 ITRP로 프�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL 데이터베이스 재해 복구" 
+   pageTitle="SQL 데이터베이스 재해 복구 | Microsoft Azure" 
    description="Azure SQL 데이터베이스 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
@@ -34,6 +34,8 @@ Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능�
 3.	Azure SQL 데이터베이스 서버는 성능이 저하됨으로 표시됩니다. 
 
 가동 중지 시간에 대한 응용 프로그램 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
+
+[Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx)(*LastAvailableBackupDate*)를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
 
 ## 서비스 복구 대기
 
@@ -66,7 +68,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ## 복구 후 데이터베이스 구성
 
-지역 복원 옵션의 지역에서 복제 장애 조치를 사용하여 가동 중단된 응용 프로그램을 복구하는 경우 일반적인 응용 프로그램 함수를 다시 시작할 수 있도록 새 데이터베이스에 대한 연결이 제대로 구성되었는지 확인해야 합니다. 복구된 데이터베이스 프로덕션을 준비하는 작업의 검사 목록입니다.
+지역에서 복제 장애 조치(failover) 또는 지리적 복원을 사용하여 가동 중단에서 복구하는 경우 일반적인 응용 프로그램 함수를 다시 시작할 수 있도록 새 데이터베이스에 대한 연결이 제대로 구성되었는지 확인해야 합니다. 복구된 데이터베이스 프로덕션을 준비하는 작업의 검사 목록입니다.
 
 ### 연결 문자열 업데이트
 
@@ -81,9 +83,9 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ### 로그인 및 데이터베이스 사용자 구성
 
-응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 재해 복구 중 보안을 관리하는 방법을 참조하세요. 자세한 내용은 [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)을 참조하세요.
+응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)을 참조하세요.
 
->[AZURE.NOTE] 가동 중단을 복구하는 지역 복원 옵션을 사용하는 경우 서버 방화벽 규칙을 구성해야 하고 DR 드릴 중에 로그인하여 기본 서버가 해당 구성을 검색할 수 있도록 해야 합니다. 지역 복원이 데이터베이스 백업을 사용하기 때문에 중단된 시간 동안 서버 수준 구성을 사용할 수 없습니다. 드릴 후에 복원된 데이터베이스를 제거할 수 있지만 서버 및 해당 구성이 복구 프로세스에 대비하도록 합니다. DR 드릴에 대한 자세한 내용은 [재해 복구 드릴 수행](sql-database-disaster-recovery-drills.md)을 참조하세요.
+>[AZURE.NOTE] 재해 복구 훈련 동안 서버 방화벽 규칙 및 로그인(및 해당 사용 권한)을 구성하고 테스트해야 합니다. 이러한 서버 수준 개체 및 해당 구성을 중단 도중에는 사용하지 못할 수 있습니다. 자세한 내용은 [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)을 참조하세요.
 
 ### 원격 분석 경고 설정
 
@@ -96,10 +98,12 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
 
 
+## 다음 단계
 
+- 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
 
 ## 추가 리소스
-
 
 - [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
 - [특정 시점 복원](sql-database-point-in-time-restore.md)
@@ -110,4 +114,4 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 - [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
 - [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev" />
 
 
@@ -21,7 +21,7 @@
 
 이 항목에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob 저장소를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
 
-다음 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -310,4 +310,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

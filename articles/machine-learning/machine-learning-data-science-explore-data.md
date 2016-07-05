@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cortana 분석 프로세스에서 데이터 탐색 | Microsoft Azure" 
+	pageTitle="팀 데이터 과학 프로세스에서 데이터 탐색 | Microsoft Azure" 
 	description="다양한 저장소 환경에서 데이터를 탐색하는 방법" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
-#Cortana 분석 프로세스에서 데이터 탐색
+#팀 데이터 과학 프로세스에서 데이터 탐색
 
-이 문서에서는 Cortana 분석 프로세스에 일반적으로 사용되는 4개의 서로 다른 환경에서 데이터를 탐색하는 방법을 설명합니다.
+이 문서에서는 팀 데이터 과학 프로세스에 일반적으로 사용되는 4개의 서로 다른 환경에서 데이터를 탐색하는 방법을 설명합니다.
 
 - **Azure blob 컨테이너** 데이터는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 탐색합니다.
 - **SQL Server 데이터** 데이터는 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하여 탐색합니다.
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

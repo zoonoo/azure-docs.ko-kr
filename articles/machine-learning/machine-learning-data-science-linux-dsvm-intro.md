@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Linux 데이터 과학 가상 컴퓨터 프로비전 
@@ -177,7 +177,7 @@ Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook�
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
 
-**Eclipse**는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 Eclipse 환경을 확장할 수 있습니다. 또한 Eclipse에는 Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 **Azure Toolkit for Eclipse** 플러그 인이 설치되어 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK**도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse/)를 참조하세요.
+**Eclipse**는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 Eclipse 환경을 확장할 수 있습니다. 또한 Eclipse에는 Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 **Azure Toolkit for Eclipse** 플러그 인이 설치되어 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK**도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse.md)를 참조하세요.
 
 **LaTex**는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.
 
@@ -228,7 +228,7 @@ Python 및 R에는 데이터베이스에 액세스하는 데 사용할 수 있�
 ### Azure 도구 
 다음 Azure 도구가 VM에 설치됩니다.
 
-- **Azure 명령줄 인터페이스**: Azure CLI(명령줄 인터페이스)를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려면 ***azure help***를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](../virtual-machines-command-line-tools/)를 참조하세요.
+- **Azure 명령줄 인터페이스**: Azure CLI(명령줄 인터페이스)를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려면 ***azure help***를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](../virtual-machines-command-line-tools.md)를 참조하세요.
 - **Microsoft Azure 저장소 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장된 개체를 통해 이동하고 Azure Blob에서 데이터를 업로드/다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 저장소 탐색기에 액세스할 수 있습니다. ***StorageExplorer***를 입력하여 셸 프롬프트에서 저장소 탐색기를 호출합니다. X2go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다. 
 - **Azure 라이브러리**: 설치되어 사용할 수 있는 일부 라이브러리는 다음과 같습니다.
 
@@ -354,7 +354,7 @@ Rattle 및 R을 종료합니다. 이제 생성된 R 스크립트를 수정하거
 학습 및 탐색을 계속하려면 다음 단계는 다음과 같습니다.
 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터의 셸에서 *dsvm-more-info*를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* 체계적으로 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
+* 체계적으로 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana 분석 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하세요. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

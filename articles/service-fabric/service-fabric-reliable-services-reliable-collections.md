@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="mcoskun"/>
 
 # Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -102,6 +102,8 @@
 - 읽기 작업(예: `TryPeekAsync` 또는 `TryGetValueAsync`)에 의해 반환되는 사용자 지정 형식의 개체는 수정하지 마세요. 신뢰할 수 있는 컬렉션은 동시 컬렉션처럼 개체에 대한 복사본이 아닌 참조를 반환합니다.
 - 수정하기 전에 사용자 지정 형식의 반환된 개체에 대한 전체 복사를 수행합니다. 구조체 및 기본 제공 형식은 pass-by-value이므로 전체 복사를 수행할 필요가 없습니다.
 - 시간 제한에 `TimeSpan.MaxValue`를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
+- 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
+- 트랜잭션 범위 내에서 생성된 열거자는 트랜잭션 범위 밖에서 사용하면 안 됩니다.
 - 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
 - `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 병합을 위해 이에 대한 종속성을 보유합니다.
 - 재해 복구를 위해 백업 및 복원 기능을 사용하는 것이 좋습니다.
@@ -123,4 +125,4 @@
 - [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

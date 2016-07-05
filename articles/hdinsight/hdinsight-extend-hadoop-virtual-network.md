@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2016"
+   ms.date="06/20/2016"
    ms.author="larryfr"/>
 
 
@@ -67,10 +67,6 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 ###위치 기반 가상 네트워크
 
 Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다.
-
-###서브넷
-
-각각의 HDInsight 클러스터에 단일 서브넷을 만드는 것이 좋습니다.
 
 ###클래식 또는 v2 가상 네트워크
 
@@ -309,4 +305,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

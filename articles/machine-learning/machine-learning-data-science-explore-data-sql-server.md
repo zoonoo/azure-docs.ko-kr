@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색
@@ -71,8 +71,8 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 
 ## 실행 중인 Cortana 분석 프로세스 예
 
-공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단간 연습 예제는 [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

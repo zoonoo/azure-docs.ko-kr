@@ -1,5 +1,5 @@
 <properties
-	pageTitle="실행 중인 Cortana 분석 프로세스: SQL Server 사용 | Microsoft Azure"
+	pageTitle="실행 중인 팀 데이터 과학 프로세스: SQL Server 사용 | Microsoft Azure"
 	description="활성 중인 고급 분석 프로세스 및 기술"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev"/>
 
 
-# 실행 중인 Cortana 분석 프로세스: SQL Server 사용
+# 실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 
-이 자습서에서는 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 기계 학습 모델의 빌드 및 배포를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
+이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 기계 학습 모델의 빌드 및 배포를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
@@ -716,4 +716,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

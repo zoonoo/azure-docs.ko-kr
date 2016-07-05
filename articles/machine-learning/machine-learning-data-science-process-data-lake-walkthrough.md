@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -734,11 +734,11 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 ## 다음 작업
 
-[CAP(Cortana 분석 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 항목에 대한 링크를 제공합니다. **전체 데이터 과학 프로세스의 실제** 노드는 Cortana 제품군의 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 일련의 연습 과정과 연결되어 있습니다.
+[TDSP(팀 데이터 과학 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 항목에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
 
-- [실행 중인 Cortana 분석 프로세스: SQL 데이터 웨어하우스 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
-- [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
-- [ Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)
+- [실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
+- [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+- [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

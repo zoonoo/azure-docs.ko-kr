@@ -13,8 +13,8 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="support-article"
-  ms.date="05/06/2016"
+  ms.topic="article"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Azure에서 새 Linux 가상 컴퓨터 생성 관련 클래식 배포 문제 해결
@@ -81,4 +81,7 @@ Azure 포털에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴
 - 새 가상 네트워크에 새 VM을 만듭니다.
 - 새 가상 네트워크에 [기존 가상 네트워크를 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요. 또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 새 VM을 만들 수 있습니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+## 다음 단계
+중지된 Linux VM을 시작하거나 Azure에서 기존 Linux VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결 ](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0622_2016-->

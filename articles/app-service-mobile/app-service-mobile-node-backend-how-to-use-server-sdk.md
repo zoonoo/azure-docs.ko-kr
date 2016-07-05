@@ -629,7 +629,7 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 ## <a name="push">푸시 알림
 
-모바일 앱은 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure 알림 허브와 통합됩니다. 알림 허브를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
+모바일 앱은 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure 알림 허브와 통합됩니다. 알림 허브를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](./notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
 
 ### </a><a name="send-push"></a>방법: 푸시 알림 보내기
 
@@ -917,4 +917,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

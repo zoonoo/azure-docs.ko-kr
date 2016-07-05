@@ -28,7 +28,10 @@
 SQL Server에서 스트레치 지원 테이블이 사용하는 공간을 확인하려면 다음 문을 실행합니다.
 
  ```tsql
- EXEC sp_spaceused '<table name>', 'true', 'LOCAL_ONLY';
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
+GO
  ```
 ## 데이터 마이그레이션 관리
 
@@ -48,6 +51,15 @@ SQL Server에서 스트레치 지원 테이블이 사용하는 공간을 확인�
 ### <a name="RemoteInfo"></a>스트레치 데이터베이스에서 사용하는 원격 데이터베이스 및 테이블에 대한 정보 가져오기
 마이그레이션된 데이터가 저장된 원격 데이터베이스 및 테이블에 대한 정보를 보려면 카탈로그 뷰 **sys.remote\_data\_archive\_databases** 및 **sys.remote\_data\_archive\_tables**를 엽니다. 자세한 내용은 [sys.remote\_data\_archive\_databases(Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) 및 [sys.remote\_data\_archive\_tables(Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
 
+Azure에서 스트레치 지원 테이블이 사용하는 공간을 확인하려면 다음 문을 실행합니다.
+
+ ```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
+GO
+ ```
+
 ### 마이그레이션 데이터 삭제  
 Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx)에 설명된 단계를 따르세요.
 
@@ -59,7 +71,7 @@ Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.s
 ### 테이블 열 조정  
 원격 테이블에서 열을 실수로 삭제한 경우 **sp\_rda\_reconcile\_columns**를 실행하여 스트레치 지원 SQL Server 테이블에는 있지만 원격 테이블에는 없는 열을 원격 테이블에 추가합니다. 자세한 내용은 [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx)를 참조하세요.
 
-  > [!중요] **sp\_rda\_reconcile\_columns**는 원격 테이블에서 실수로 삭제된 열을 다시 만들 때 이전에 삭제된 열에 있던 데이터를 복원하지 않습니다.
+  > [!중요] **sp\_rda\_reconcile\_columns**는 실수로 원격 테이블에서 삭제된 열을 다시 만들 때 이전에 삭제된 열에 있던 데이터를 복원하지 않습니다.
 
 **sp\_rda\_reconcile\_columns**는 원격 테이블에는 있지만 스트레치 지원 SQL Server 테이블에는 없는 열을 원격 테이블에서 삭제하지 않습니다. 스트레치 지원 SQL Server 테이블에 더 이상 존재하지 않는 열이 원격 Azure 테이블에 있는 경우 이러한 추가 열 때문에 스트레치 데이터베이스가 제대로 작동하지 않는 것은 아닙니다. 필요에 따라 추가 열을 수동으로 제거할 수 있습니다.
 
@@ -95,7 +107,10 @@ Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.s
 예를 들어 다음 쿼리는 로컬 결과만 반환합니다.
 
  ```tsql  
-SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ...  
+ USE <Stretch-enabled database name>;
+ GO
+ SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
+ GO
 ```  
 
 ## <a name="adminHints"></a>관리 업데이트 및 삭제 수행  
@@ -114,4 +129,4 @@ SELECT * FROM Stretch_enabled_table WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_O
 
 [스트레치 지원 데이터베이스 복원](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

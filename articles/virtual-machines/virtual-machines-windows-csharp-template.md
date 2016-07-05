@@ -39,9 +39,9 @@
 
 1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. **$locName** 값을 목록의 위치(예: **미국 중부**)로 바꿉니다. 변수를 만듭니다.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. **$locName** 값을 목록의 위치(예: **centralus**)로 바꿉니다. 변수를 만듭니다.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@
 1. $stName의 값을 저장소 계정의 이름(소문자와 숫자만 사용 가능)으로 바꿉니다. 이름의 고유성을 테스트합니다.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    이 명령에서 **False**가 반환되면 제안한 이름이 고유한 것입니다.
+    이 명령에서 **True**가 반환되면 제안한 이름이 고유한 것입니다.
     
 2. 이제 명령을 실행하여 저장소 계정을 만듭니다.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. {blob-storage-endpoint}를 계정의 blob 저장소의 끝점으로 바꿉니다. {storage-account-name}을 저장소 계정 이름으로 바꿉니다. {primary-storage-key}를 기본 선택키로 바꿉니다. 파일이 저장되는 컨테이너를 만들려면 이 명령을 실행합니다. Azure 포털에서 끝점 및 키 값을 가져올 수 있습니다.
 
@@ -497,4 +497,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

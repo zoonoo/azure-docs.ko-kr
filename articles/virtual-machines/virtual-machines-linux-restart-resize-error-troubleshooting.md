@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.author="delhan"/>
 
 # Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결
@@ -74,4 +74,8 @@ VM 크기를 조정하기 위한 요청은 클라우드 서비스를 호스트�
   2. VM을 모두 중지한 후에, 원하는 VM을 더 크게 조정합니다.
   3. 크기가 조정된 VM을 선택하고 **시작**을 클릭한 다음 중지된 각각의 VM을 시작합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+## 다음 단계
+
+Azure에서 새 Linux VM을 만들 때 문제가 발생하면 [Azure에서 새 Linux 가상 컴퓨터 생성 관련 배포 문제 해결](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0622_2016-->

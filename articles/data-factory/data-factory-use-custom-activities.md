@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -319,7 +319,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "file.txt",
-		            "folderPath": "mycontainer/inputfolder/",
+		            "folderPath": "adftutorial/inputfolder/",
 	
 	Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어("Microsoft")는 코드에 하드 코딩됩니다.
 
@@ -328,7 +328,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함할 수 있습니다. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위**여야 합니다.
 
 	![이진 출력 파일](./media/data-factory-use-custom-activities/Binaries.png)
-13. **ADFTutorialDataFactory**의 연결된 서비스 **AzureStorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
+13. **ADFTutorialDataFactory**의 연결된 서비스 **AzureStorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactivitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
 
 > [AZURE.NOTE] 데이터 팩터리 프로젝트를 포함하는 Visual Studio의 솔루션에 이 .NET 작업 프로젝트를 추가하고 데이터 팩터리 응용 프로그램 프로젝트의 .NET 작업 프로젝트에 참조를 추가하는 경우에는 zip 파일을 만들고 Azure Blob 저장소에 업로드하는 마지막 두 단계를 수행할 필요가 없습니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 게시하면 이러한 단계가 게시 프로세스에서 자동으로 수행됩니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 만들고 게시하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline-using-vs.md) 및 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started-using-vs.md) 문서를 참조하세요.
 
@@ -402,15 +402,15 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
 **사용자 지정 작업 만들기** 섹션에서 사용자 지정 작업을 만들고 이진과 함께 zip 파일을 업로드하고 PDB 파일을 Azure Blob 컨테이너에 업로드했습니다. 이 섹션에서는 **사용자 지정 작업**을 사용하는 **파이프라인**으로 Azure **데이터 팩터리**를 만듭니다.
  
-사용자 지정 작업에 대한 입력 데이터 집합은 Blob 저장소에서 입력 폴더(mycontainer\\inputfolder)의 BLOB(파일)를 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob 저장소에서 출력 폴더(mycontainer\\outputfolder)의 출력 BLOB를 나타냅니다.
+사용자 지정 작업에 대한 입력 데이터 집합은 Blob 저장소에서 입력 폴더(adftutorial\\inputfolder)의 BLOB(파일)를 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob 저장소에서 출력 폴더(adftutorial\\outputfolder)의 출력 BLOB를 나타냅니다.
 
-다음과 같은 내용으로 **file.txt**라는 파일을 만들고 **mycontainer\\inputfolder**에 업로드합니다(mycontainer는 Azure Blob 컨테이너의 이름이고 inputfolder는 해당 컨테이너의 폴더 이름임).
+다음과 같은 내용으로 **file.txt**라는 파일을 만들고 **adftutorial\\inputfolder**에 업로드합니다(adftutorial은 Azure Blob 컨테이너의 이름이고 inputfolder는 해당 컨테이너의 폴더 이름임).
 
 	test custom activity Microsoft test custom activity Microsoft
 
 입력 폴더는 폴더에 2개 이상의 파일이 포함된 경우에도 Azure Data Factory의 조각에 해당합니다. 각 조각이 파이프라인으로 처리될 때 사용자 지정 작업은 해당 조각에 대한 입력 폴더에서 모든 BLOB를 반복합니다.
 
-mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와 동일)이 포함된 하나의 출력 파일이 표시됩니다.
+adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와 동일)이 포함된 하나의 출력 파일이 표시됩니다.
  
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
@@ -456,7 +456,7 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 	1. **accountName** 속성의 Azure 배치 계정 이름을 지정합니다. **Azure 배치 계정 블레이드**의 **URL**은 http://**accountname**.region.batch.azure.com 형식입니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
 	2. **accessKey** 속성에 대한 Azure 배치 계정 키를 지정합니다. 
 	3. **poolName** 속성에 대한 필수 조건의 일부로 만든 풀의 이름을 지정합니다. 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
-	4. **batchUri** 속성에 대한 Azure 배치 URI를 지정합니다. **Azure 배치 계정 블레이드**의 **URL**은 http://accountname.region.batch.azure.com 형식입니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
+	4. **batchUri** 속성에 대한 Azure 배치 URI를 지정합니다. **accountName** 속성에 대한 위의 참고 사항을 참조하세요. 예: https://westus.batch.azure.com.  
 	5. **linkedServiceName** 속성에 대해 **AzureStorageLinkedService**를 지정합니다.
 		
 			{
@@ -466,16 +466,14 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 			    "typeProperties": {
 			      "accountName": "myazurebatchaccount",
 				  "batchUri": "https://westus.batch.azure.com",
-			      "accessKey": "batchaccountkey>",
+			      "accessKey": "<yourbatchaccountkey>",
 			      "poolName": "myazurebatchpool",
 			      "linkedServiceName": "AzureStorageLinkedService"
 			    }
 			  }
 			}
 
-	> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 accountname.region.batch.azure.com 형식을 사용합니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
-
-	**poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
+		**poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
 
 	> [AZURE.NOTE] 데이터 팩터리 서비스는 HDInsight에 대해서와 마찬가지로 Azure Batch에 대한 주문형 옵션을 지원하지 않습니다. Azure Data Factory에서는 사용자 고유의 Azure Batch 풀만 사용할 수 있습니다.
 	
@@ -657,18 +655,18 @@ mycontainer\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 
 데이터 집합 및 파이프라인 모니터링에 대한 자세한 단계는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)를 참조하세요.
 
-Data Factory 서비스가 Azure 배치에 **adf-<pool name>:job-xxx** 이름으로 작업을 만듭니다. 조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+### Data Factory 및 배치 통합
+Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx** 이름으로 작업을 만듭니다.
 
-	
-![배치 탐색기 작업](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+![Azure Data Factory - 배치 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-> [AZURE.NOTE] [Azure 배치 Explorer 도구][batch-explorer]에 대한 코드를 다운로드하고, 컴파일하여, 배치 풀을 만들고 모니터링하는 데 사용합니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
+조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+
+![Azure Data Factory - 배치 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+
+다음 다이어그램에서는 Azure Data Factory 및 배치 작업 간의 관계를 보여 줍니다.
 
 ![데이터 팩터리 및 배치](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
-
-다음 다이어그램과 같이 Azure 배치 탐색기에서 조각 처리와 관련된 Azure 배치 작업을 확인할 수 있습니다.
-
-![Azure 배치 작업][image-data-factory-azure-batch-tasks]
 
 
 ## 파이프라인 디버깅
@@ -857,8 +855,6 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [Azure 데이터 팩터리 업데이트: Azure 배치를 사용하여 ADF 사용자 지정 .NET 작업 실행](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
-[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch-create-account]: ../batch/batch-account-create-portal.md
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
@@ -888,6 +884,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-[image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

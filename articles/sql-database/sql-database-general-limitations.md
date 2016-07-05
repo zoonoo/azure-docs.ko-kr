@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="06/21/2016"
    ms.author="carlrab" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
@@ -35,7 +35,7 @@ Microsoft Azure SQL 데이터베이스는 SQL Server 에이전트 또는 작업�
 
 ## SQL Server 데이터 정렬 지원
 
-Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**이며 여기서 **LATIN1\_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. Transact-SQL을 사용하여 V12 데이터베이스의 데이터 정렬을 변경할 수 있습니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
+Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**이며 여기서 **LATIN1\_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. V12 데이터베이스의 데이터 정렬을 변경하는 것은 불가능합니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
 
 ## 명명 요구 사항
 
@@ -63,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

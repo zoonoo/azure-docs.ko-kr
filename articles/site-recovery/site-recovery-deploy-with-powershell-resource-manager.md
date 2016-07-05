@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="06/15/2016"
 	ms.author="bsiva"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터와 Azure 간 복제
@@ -82,19 +82,10 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 	이러한 명령의 출력에서 **RegistrationState**가 **Registered**로 설정된 경우에 2단계를 진행할 수 있습니다. 그렇지 않은 경우 구독에서 누락된 공급자를 등록해야 합니다.
 
-	사이트 복구에 대해 Azure 공급자를 등록하려면 다음 명령을 수행합니다.
+	사이트 복구 및 복구 서비스에 대해 Azure 공급자를 등록하려면 다음 명령을 수행합니다.
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
-
-	마찬가지로, 구독에서 처음으로 복구 서비스 cmdlet을 사용하는 경우 복구 서비스에 대한 Azure 공급자를 등록해야 합니다. 이 작업을 수행하려면 다음 명령을 실행하여 구독에서 복구 서비스 공급자에 대한 액세스를 먼저 활성화해야 합니다.
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] 위의 명령을 성공적으로 완료한 후 구독에서 복구 서비스 공급자에 대한 액세스를 활성화하려면 최대 1시간까지 걸릴 수 있습니다. `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 명령을 사용하여 구독에서 복구 서비스 공급자를 등록하려고 시도하는 경우 중간에 실패할 수 있습니다. 이런 문제가 발생하는 경우 잠시 기다린 후 다시 시도합니다.
-
-	구독에서 복구 서비스 공급자에 대한 액세스를 활성화하면 다음 명령을 실행하여 구독에서 공급자를 등록합니다.
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
 	`Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` 및 `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery` 명령을 사용하여 공급자가 성공적으로 등록되었는지 확인합니다.
 
@@ -143,7 +134,7 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 ## 5단계: Hyper-V 호스트에 Azure Site Recovery 공급자와 Azure 복구 서비스 에이전트 설치
 
-1. [Microsoft](https://aka.ms/downloaddra)에서 공급자의 최신 버전에 대한 설치 관리자를 다운로드합니다.
+1. [Microsoft](https://aka.ms/downloaddra)에서 공급자의 최신 버전을 위한 설치 관리자를 다운로드합니다.
 
 2. Hyper-V 호스트에서 설치 관리자를 실행하고 설치 끝부분에서 등록 단계를 계속 진행합니다.
 
@@ -266,4 +257,4 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 Azure Resource Manager PowerShell cmdlet과 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
 
-[SQL 데이터 웨어하우스 데이터베이스 인스턴스를 만들고][create a SQL Data Warehouse database instance] 나면 다음 단계는 테이블을 만들고 로드하는 것입니다. SQL 데이터 웨어하우스용으로 만든 Adventure Works 샘플 스크립트를 사용하여 Adventure Works라는 가상 회사의 테이블을 만들고 로드할 수 있습니다. 이 스크립트는 sqlcmd를 사용하여 SQL을 실행하고 bcp를 사용하여 데이터를 로드합니다. 이런 도구가 아직 설치되어 있지 않다면 다음 링크를 따라 [bcp를 설치][]하고 [sqlcmd를 설치][]합니다.
+다음의 간단한 단계에 따라 Adventure Works 샘플 데이터베이스를 로드하고 쿼리합니다. 이러한 스크립트는 먼저 sqlcmd를 사용하여 테이블 및 뷰를 만드는 SQL을 실행합니다. 테이블을 만든 후 스크립트는 bcp를 사용하여 데이터를 로드합니다. sqlcmd 및 bcp가 아직 설치되어 있지 않다면 다음 링크를 따라 [bcp를 설치][]하고 [sqlcmd를 설치][]합니다.
 
-다음 단계에 따라서 Adventure Works 샘플 데이터베이스를 SQL DW에 로드합니다.
+##샘플 데이터 로드
 
-1. [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트][]를 다운로드합니다.
+1. [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트][] Zip 파일을 다운로드합니다.
 
 2. 사용자의 로컬 컴퓨터 디렉터리에 다운로드한 zip 파일의 압축을 풉니다.
 
@@ -43,7 +43,7 @@
 	* 각 Adventure Works 테이블의 모든 열에 대해 통계를 수집합니다.
 
 
-##샘플 데이터 쿼리
+##쿼리 샘플 데이터
 
 SQL 데이터 웨어하우스로 샘플 데이터를 로드하고 나면, 몇 가지 쿼리를 신속하게 실행할 수 있습니다. 쿼리를 실행하려면 [연결][] 문서의 설명대로, Visual Studio 및 SSDT를 사용하여 Azure SQL DW에 새로 만든 Adventure Works 데이터베이스에 연결합니다.
 
@@ -85,11 +85,10 @@ SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 
 [로드]: ./sql-data-warehouse-overview-load.md
 [연결]: ./sql-data-warehouse-get-started-connect.md
 [코드 마이그레이션]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [bcp를 설치]: ./sql-data-warehouse-load-with-bcp.md
 [sqlcmd를 설치]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

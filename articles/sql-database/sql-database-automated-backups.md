@@ -3,7 +3,7 @@
    description="Azure SQL 데이터베이스를 이전 지정 시간으로 롤백하거나 지리적 영역(최대 35일)의 새 데이터베이스에 데이터베이스를 복사할 수 있도록 하는 SQL 데이터베이스 기본 제공 백업에 대해 알아봅니다."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # 개요: SQL 데이터베이스 자동화된 백업
 
@@ -30,11 +30,20 @@ Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프�
 
 모든 기본, 표준 및 프리미엄 데이터베이스는 자동 백업에 의해 보호됩니다. 전체 백업은 매일, 차등 백업은 매주, 로그 백업은 5분 마다 수행됩니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 이내에 완료되지만 더 오래 걸릴 수 있습니다. 예를 들어 데이터베이스가 이미 큰 경우, 큰 데이터베이스에서 데이터베이스를 복사 또는 복원하여 만들어진 경우 첫 번째 전체 백업은 완료하는 데 시간이 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 전체 및 차등 백업의 정확한 타이밍은 전체 부하를 분산하는 시스템에 의해 결정됩니다. 백업 파일은 읽기 액세스 권한을 가진 지역 중복 저장소 계정(RA-GRS)에 저장되어 재해 복구에 대비한 가용성을 보장합니다.
 
-## 추가 리소스
+## 다음 단계
 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
+- [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)
+- [지정 시간 복원](sql-database-point-in-time-restore.md)
 - [지역 복원](sql-database-geo-restore.md)
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [데이터베이스 복사](sql-database-copy.md)
+
+## 추가 리소스
+
+- [가동 중단에서 복구](sql-database-disaster-recovery.md)
+- [사용자 오류에서 복구](sql-database-user-error-recovery.md)
+- [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

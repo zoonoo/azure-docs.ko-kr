@@ -4,11 +4,11 @@
 
 **리소스** | **기본 제한** | **최대 제한**
 -------- | ------------- | -------------
-월별 세션 데이터 요소<sup>1</sup> | 무제한 | 
-월별 기타 데이터 요소 | 500만 | 5,000만<sup>2</sup>
-[추적 또는 로그](../articles/application-insights/app-insights-search-diagnostic-logs.md) 데이터 속도 | 200dp/s | 500dp/s
+월별 세션 데이터 요소<sup>1, 2</sup> | 무제한 | 
+요청, 이벤트, 종속성, 추적, 예외 및 페이지 보기에 대한 월별 총 데이터 요소 | 500만 | 5,000만<sup>3</sup>
+[추적 및 로그](../articles/application-insights/app-insights-search-diagnostic-logs.md) 데이터 속도 | 200dp/s | 500dp/s
 [예외](../articles/application-insights/app-insights-asp-net-exceptions.md) 데이터 속도 | 50dp/s | 50dp/s
-기타 원격 분석 데이터 속도 | 200dp/s | 500dp/s
+요청, 이벤트, 종속성 및 페이지 보기 원격 분석에 대한 총 데이터 속도 | 200dp/s | 500dp/s
 [원시 데이터](../articles/application-insights/app-insights-diagnostic-search.md) 보존 | 7 일
 [집계된 데이터](../articles/application-insights/app-insights-metrics-explorer.md) 보존 | 90일
 [속성](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) 이름 수 | 100 |
@@ -21,8 +21,10 @@
 
 <sup>1</sup> 데이터 요소는 개별 메트릭 값 또는 이벤트로, 연결된 속성 및 측정 값이 있습니다.
 
-<sup>2</sup> 5,000만 이상의 추가 용량을 구매할 수 있습니다.
+<sup>2</sup> 세션 데이터 요소는 세션의 시작 또는 종료를 기록하고 사용자 ID를 기록합니다.
+
+<sup>3</sup> 5,000만을 넘는 추가 용량을 구매할 수 있습니다.
  
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

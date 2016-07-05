@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/16/2016" 
 	ms.author="spelluru"/>
 
 
@@ -547,7 +547,7 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-*metricName* 은 현재 두 가지 값을 지원합니다.
+*metricName*은 현재 두 가지 값을 지원합니다.
 - FailedRuns
 - SuccessfulRuns
 
@@ -585,4 +585,4 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

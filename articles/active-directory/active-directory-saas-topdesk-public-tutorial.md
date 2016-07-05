@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/21/2016" 
     ms.author="jeedes" />
 
 #자습서: TOPdesk - Public과 Azure Directory 통합
@@ -39,7 +39,7 @@
 
 ###TOPdesk - Public에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-topdesk-public-tutorial/IC700993.png "Active Directory")
 
@@ -97,9 +97,9 @@ TOPdesk - Public에 대한 Single Sign-On을 구성하려면 로고 아이콘 �
 
         >[AZURE.NOTE] 해당 값은 자습서 뒷부분의 **앱 URL 구성** 섹션에서 필요합니다.
 
-6.  다른 웹 브라우저 창에서 **Azure Active Directory** 포털에 관리자 권한으로 로그인합니다.
+6.  다른 웹 브라우저 창에서 **Azure 클래식 포털**에 관리자 권한으로 로그인합니다.
 
-7.  **TOPdesk - Public** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성** 을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+7.  **TOPdesk - Public** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Single Sign-On 구성")
 
@@ -155,7 +155,7 @@ TOPdesk - Public에 대한 Single Sign-On을 구성하려면 로고 아이콘 �
     5.  **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
     6.  **Save**를 클릭합니다.
 
-17. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+17. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Single Sign-On 구성")
 
@@ -189,9 +189,9 @@ TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
 
 ###TOPdesk - Public에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **TOPdesk Public ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **TOPdesk Public** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "사용자 할당")
 
@@ -201,4 +201,4 @@ TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

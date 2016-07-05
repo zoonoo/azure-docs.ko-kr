@@ -33,7 +33,7 @@
 이 자습서에는 다음이 필요합니다.
 
 - 시작하기 전에 Azure 계정 및 구독. 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
-- [Azure PowerShell](../powershell-install-configure.md), 최소 버전 1.0.0 이상(이 자습서는 1.0.4 버전을 사용하여 작성)
+- [Azure PowerShell](../powershell-install-configure.md), 최소 버전 1.4.0 이상(이 자습서는 1.5.0 버전을 사용하여 작성)
     - 버전을 검색하려면 **Get-Module Azure -ListAvailable**을 입력합니다.
 
 ## 구독 구성
@@ -69,7 +69,7 @@ Windows PowerShell을 열고 다음 cmdlet을 실행하여 Azure 계정에 대�
 원하는 대로 수정하고 다음 cmdlet을 실행하여 이러한 변수를 초기화합니다. 이 예제에서는 프로덕션 워크로드에 권장되는 [프리미엄 저장소](../storage/storage-premium-storage.md)를 사용합니다. 이 참고 자료 및 기타 권장 사항에 대한 세부 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
 ### 네트워크 속성
 
@@ -125,11 +125,11 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 
 ## 저장소 계정 만들기
 
-가상 컴퓨터에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 이름 및 위치로 새 리소스 그룹에서 저장소 계정을 만듭니다.
+가상 컴퓨터에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 SKU 이름 및 위치로 새 리소스 그룹에서 표준 저장소 계정을 만듭니다.
 
 다음 cmdlet을 실행하여 새 저장소 계정을 만듭니다.
 
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
 ## 네트워크 리소스 만들기
 
@@ -258,7 +258,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $ResourceGroupName = "sqlvm1"
     ## Storage
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
     ## Network
     $InterfaceName = $ResourceGroupName + "ServerInterface"
@@ -285,7 +285,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
     # Storage
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
     # Network
     $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
@@ -310,4 +310,4 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 ## 다음 단계
 가상 컴퓨터가 만들어지면 RDP를 사용하여 가상 컴퓨터에 연결하고 연결을 설정할 수 있습니다. 자세한 내용은 [Azure(리소스 관리자)에서 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

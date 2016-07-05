@@ -77,7 +77,7 @@
 
 	c. 주 노드 유형에 대한 최소 VM 수는 선택한 안정성 계층에 따라 결정됩니다. 안정성 계층에 대한 기본값은 은입니다. [서비스 패브릭 클러스터 안정성 및 내구성 선택](service-fabric-cluster-capacity.md) 방법 문서를 참조하세요.
 
-	c. 노드 유형에 대한 VM 수를 선택합니다. 나중에 노드 유형의 VM 수를 늘리거나 줄일 수 있지만 주 노드 유형에서는 선택한 안정성 수준에 따라 최소 개수가 결정됩니다. 다른 노드 유형은 1대 이상의 VM을 가질 수 있습니다.
+	c. 노드 유형에 대한 VM 수를 선택합니다. 나중에 노드 유형의 VM 수를 늘리거나 줄일 수 있지만 주 노드 유형에서는 선택한 안정성 수준에 따라 최소 개수가 결정됩니다. 다른 노드 유형은 VM이 1대만 있어도 됩니다.
 
 
   	![노드 유형 만들기 스크린샷][CreateNodeType]
@@ -123,8 +123,9 @@
 
 1. **찾아보기**로 이동하고 **서비스 패브릭 클러스터**를 클릭합니다.
 
-2. 클러스터를 찾아 클릭합니다. ![포털에서 클러스터를 찾는 스크린샷][BrowseCluster]
+2. 클러스터를 찾아 클릭합니다.
 
+  ![포털에서 클러스터를 찾는 스크린샷][BrowseCluster]
 3. 이제 대시보드에서 클러스터의 공용 IP 주소를 포함한 클러스터 세부 정보를 볼 수 있습니다. **클러스터 공용 IP 주소** 위에 마우스 커서를 대면 클립보드가 나타나며 이를 클릭하여 주소를 복사할 수 있습니다. ![대시보드의 클러스터 세부 정보 스크린샷][ClusterDashboard]
 
   클러스터 대시보드 블레이드의 **노드 모니터** 섹션에 정상 및 비정상 상태인 VM 수가 표시됩니다. 클러스터 상태에 대한 자세한 내용은 [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)에서 볼 수 있습니다.
@@ -153,8 +154,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 2. 다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 포털에서 입력한 것과 동일합니다.
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
               -KeepAliveIntervalInSec 10 `
               -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
               -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
@@ -163,41 +164,41 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
     예를 들어 위의 PowerShell 명령은 다음과 비슷합니다.
 
-    ```powershell
+```powershell
     Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
               -KeepAliveIntervalInSec 10 `
               -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
               -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
               -StoreLocation CurrentUser -StoreName My
-    ```
+```
 
 ### 앱 배포
 이제 연결되었으며 다음 명령을 실행하여 응용 프로그램을 배포하고 표시된 경로를 해당 컴퓨터의 적절한 경로로 바꿉니다. 아래 예제에서는 단어 개수 응용 프로그램 예제를 배포합니다.
 
 1. 이전에 연결한 클러스터에 패키지를 복사합니다.
 
-    ```powershell
-    $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
-    ```
+```powershell
+$applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
+```
 
-    ```powershell
-    Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
-    ```
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
+```
 2. 응용 프로그램 종류를 서비스 패브릭에 등록합니다.
 
-    ```powershell
+```powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-    ```
+```
 
 3. 방금 등록한 응용 프로그램 종류에 새 인스턴스를 만듭니다.
 
-    ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-    ```
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+```
 
 4. 이제 선택한 브라우저를 열고 응용 프로그램이 수신하는 끝점에 연결합니다. WordCount 응용 프로그램 예제의 경우 URL은 다음과 같습니다.
 
-    http://sfcluster4doc.westus.cloudapp.azure.com:31000
+http://sfcluster4doc.westus.cloudapp.azure.com:31000
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
@@ -225,4 +226,4 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

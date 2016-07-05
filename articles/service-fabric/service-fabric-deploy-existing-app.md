@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 # 서비스 패브릭에 게스트 실행 파일 배포
@@ -284,17 +284,19 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다. 게시를 완료하려면 다음을 수행해야 합니다.
 
-1. 파일 -> 새 프로젝트를 선택하여 새 서비스 패브릭 응용 프로그램 만들기
-2. 게스트 실행 파일을 서비스 템플릿으로 선택
-3. 찾아보기를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 새 서비스 만들기
+>[AZURE.NOTE] 이 기능을 사용하려면 [SDK 버전 2.1.150](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/)이 필요합니다.
+
+1. 파일 -> 새 프로젝트를 선택하여 새 서비스 패브릭 응용 프로그램을 만듭니다.
+2. 게스트 실행 파일을 서비스 템플릿으로 선택합니다.
+3. 찾아보기를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 새 서비스를 만듭니다.
   - *코드 패키지 동작*은 Visual Studio 프로젝트에 폴더의 모든 콘텐츠를 복사하도록 설정할 수 있으며 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다.
-  - *프로그램*은 서비스를 시작하기 위해 실행되어야 하는 실행 파일을 선택합니다.
+  - *프로그램*은 서비스를 시작하기 위해 실행해야 하는 실행 파일을 선택합니다.
   - *인수*는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
   - *WorkingFolder*는 곧 시작될 프로세스의 작업 디렉터리를 선택합니다. 두 값을 지정할 수 있습니다.
   	- *CodeBase*는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리(아래 표시된 구조의 `Code` 디렉터리)에 설정되도록 지정합니다.
     - *CodePackage*는 작업 디렉터리가 응용 프로그램 패키지(`MyServicePkg`)의 루트로 설정되도록 지정합니다.
 4. 서비스에 이름을 지정하고 확인을 클릭합니다.
-5. 서비스에서 통신에 끝점이 필요한 경우 지금 프로토콜, 포트 및 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다(예: ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```).
+5. 서비스에서 통신에 끝점이 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다(예: ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```).
 6. 이제 패키지를 사용해 보고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 
 >[AZURE.NOTE] Visual Studio에서 응용 프로그램 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 시행 파일을 업데이트할 수 있으며 해당 업데이트가 빌드 시 응용 프로그램 패키지의 일부가 됩니다.
@@ -306,4 +308,4 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 - [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 - [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

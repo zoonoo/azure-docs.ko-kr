@@ -36,8 +36,8 @@ Azure SQL 데이터베이스는 액세스를 제한하고, 데이터를 보호�
 * 추가 정보: [SQL 데이터베이스 보안 설정](sql-database-security.md)
 
 ## 인증
-* Azure SQL 데이터베이스에서 사용할 수 없는 Windows 인증 대신 SQL 데이터베이스 인증을 사용해야 합니다.
-* *마스터* 데이터의 기본값 대신 특정 데이터 베이스를 지정해야 합니다.
+* Azure SQL 데이터베이스는 SQL Server 인증 사용자 및 로그인과 [Azure Active Directory 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다.
+* *master* 데이터베이스를 기본 데이터베이스로 지정하지 말고 특정 데이터베이스를 지정해야 합니다.
 * SQL 데이터베이스에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용하여 다른 데이터베이스로 전환할 수 없습니다.
 * 추가 정보: [SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md)
 
@@ -64,4 +64,8 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 * [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 * [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+## 다음 단계
+
+모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
+
+<!---HONumber=AcomDC_0622_2016-->

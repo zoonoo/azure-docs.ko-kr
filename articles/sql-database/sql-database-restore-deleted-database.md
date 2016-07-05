@@ -12,26 +12,36 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
    ms.date="06/09/2016"
    ms.author="sstein"/>
 
 # 개요: 삭제된 Azure SQL 데이터베이스 복원
 
 > [AZURE.SELECTOR]
-- [개요](sql-database-restore-deleted-database.md)
+- [비즈니스 연속성 개요](sql-database-business-continuity.md)
+- [지정 시간 복원](sql-database-point-in-time-restore.md)
+- [삭제된 데이터베이스 복원](sql-database-restore-deleted-database.md)
+- [지역 복원](sql-database-geo-restore.md)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [비즈니스 연속성 시나리오](sql-database-business-continuity-scenarios.md)
+
+
+[서비스 계층](sql-database-service-tiers.md)의 [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)에 대한 보존 기간 동안 삭제된 데이터베이스를 복원할 수 있습니다. [Azure 포털](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
+
+> [AZURE.SELECTOR]
 - [Azure 포털](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
 
-[SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)에 대한 보존 기간 동안 삭제된 데이터베이스를 복원할 수 있습니다. [Azure 포털](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
-
-데이터베이스를 삭제하면 삭제된 시점으로 데이터베이스를 복원할 수 있으므로 기본 보존 기간에 대한 최종 백업이 보존됩니다.
-
 ## 최근에 삭제된 데이터베이스 복원
 
-삭제된 데이터베이스의 경우 복원 지점은 데이터베이스의 삭제 시점에 고정됩니다. 삭제된 데이터베이스를 복원할 경우에만 원래 데이터베이스를 포함하는 서버에 복원할 수 있습니다. 일단 삭제되면 해당 서버에 이전에 있던 데이터베이스를 복원할 수 없으므로 서버를 삭제할 때 주의를 기울여야 합니다.
+동일하거나 다른 데이터베이스 이름을 사용하여 삭제된 데이터베이스를 원래 데이터베이스를 포함하는 논리 서버로 복원할 수 있습니다. 삭제된 데이터베이스의 경우 복원 지점은 데이터베이스의 삭제 시점에 고정됩니다.
 
 > [AZURE.IMPORTANT] Azure SQL 데이터베이스 서버 인스턴스를 삭제하면 모든 해당 데이터베이스도 삭제되고 복구할 수 없습니다.
+
+## 복원 시간
+
+데이터베이스를 복원하는 데 걸린 시간은 선택한 지점의 상태를 다시 생성하기 위해 재생하는 데 필요한 데이터베이스의 크기, 트랜잭션 로그의 수, 선택된 시점 및 작업량을 비롯한 많은 요인에 따라 달라집니다. 매우 큰 및/또는 활성 데이터베이스의 경우 복원에는 몇 시간이 걸릴 수 있습니다. 데이터베이스를 복원하면 항상 원본 데이터베이스와 동일한 서버에 새 데이터베이스를 만들기 때문에 복원된 데이터베이스에 새 이름을 지정해야 합니다. 대부분의 데이터베이스는 12시간 내에 완전히 복원됩니다.
 
 ## 요약
 
@@ -39,11 +49,10 @@
 
 ## 다음 단계
 
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [Azure 포털을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)
-- [PowerShell을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-powershell.md)
-- [REST API를 사용하여 삭제된 데이터베이스 복원](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)
+- Azure 포털을 사용하여 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 단계는 [Azure 포털을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)을 참조하세요.
+- PowerShell을 사용하여 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 단계는 [PowerShell을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-powershell.md)을 참조하세요.
+- 삭제된 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [REST API를 사용하여 삭제된 데이터베이스 복원](https://msdn.microsoft.com/library/azure/mt163685.aspx)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 
 ## 추가 리소스
 
@@ -53,4 +62,4 @@
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
 - [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

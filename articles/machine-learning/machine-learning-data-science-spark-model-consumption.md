@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Spark에서 만든 기계 학습 모델 점수 매기기 
@@ -120,7 +120,7 @@ Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호
 
 이 섹션에는 점수를 매길 데이터를 수집하는 데 필요한 일련의 작업에 대한 코드가 포함되어 있습니다. 택시 여정 및 요금 파일(.tsv 파일로 저장됨)의 연결된 0.1% 샘플을 읽고 데이터를 서식 지정한 다음 정리된 데이터 프레임을 만듭니다.
 
-택시 여정 및 요금 파일은 [작업 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md) 항목에 제공된 절차를 기반으로 연결됩니다.
+택시 여정 및 요금 파일은 [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md) 항목에 제공된 절차를 기반으로 연결됩니다.
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -610,4 +610,4 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

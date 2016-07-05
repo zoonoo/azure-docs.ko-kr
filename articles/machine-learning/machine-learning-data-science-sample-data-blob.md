@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-이 샘플링 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
+이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 
 ## 데이터 다운로드 및 저해상도로 처리
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

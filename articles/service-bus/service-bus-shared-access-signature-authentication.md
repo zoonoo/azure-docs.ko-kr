@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스를 사용한 공유 액세스 서명 인증 | Microsoft Azure"
-   description="서비스 버스를 사용하는 SAS 인증에 대한 세부 정보입니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="서비스 버스를 사용한 공유 액세스 서명 인증 | Microsoft Azure"
+    description="서비스 버스를 사용하는 SAS 인증에 대한 세부 정보입니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # 서비스 버스를 사용한 공유 액세스 서명 인증
 
@@ -25,7 +25,7 @@ SAS 인증 지원은 Azure SDK 버전 2.0 이후에 포함됩니다. 서비스 �
 
 서비스 버스에서 SAS 인증은 서비스 버스 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 SAS 토큰을 발급하여 서비스 버스 리소스에 액세스를 주장합니다. 이 토큰은 액세스된 리소스 URI 및 구성된 키로 서명된 만료 매개 변수로 구성됩니다.
 
-서비스 버스 [릴레이](service-bus-fundamentals-hybrid-solutions.md#relays), [큐](service-bus-fundamentals-hybrid-solutions.md#queues), [항목](service-bus-fundamentals-hybrid-solutions.md#topics) 및 [이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)에서 공유 액세스 서명 권한 부여 규칙을 구성할 수 있습니다.
+서비스 버스 [릴레이](service-bus-fundamentals-hybrid-solutions.md#relays), [큐](service-bus-fundamentals-hybrid-solutions.md#queues), [항목](service-bus-fundamentals-hybrid-solutions.md#topics) 및 [이벤트 허브](service-bus-fundamentals-hybrid-solutions.md#event-hubs)에서 공유 액세스 서명 권한 부여 규칙을 구성할 수 있습니다.
 
 SAS 인증은 다음과 같은 요소를 사용합니다.
 
@@ -35,7 +35,7 @@ SAS 인증은 다음과 같은 요소를 사용합니다.
 
 ## 공유 액세스 서명 인증을 위한 구성
 
-서비스 버스 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 규칙을 구성할 수 있습니다. 서비스 버스 구독에서 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx)의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 인증 사용](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
+서비스 버스 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 규칙을 구성할 수 있습니다. 서비스 버스 구독에서 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx)의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 인증 사용](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
 
 이러한 규칙을 서비스 버스 네임 스페이스, 큐 또는 항목에서 최대 12개까지 구성할 수 있습니다. 서비스 버스 네임 스페이스에 구성된 규칙이 해당 네임스페이스에 있는 모든 엔터티에 적용됩니다.
 
@@ -52,7 +52,7 @@ SAS 인증은 다음과 같은 요소를 사용합니다.
 |*SecondaryKey*|서명하고 SAS 토큰의 유효성을 검사하기 위한 base64로 인코딩된 256비트 보조 키입니다.|
 |*AccessRights*|권한 부여 규칙에서 부여된 액세스 권한의 목록입니다. 이러한 권한은 수신, 보내기 및 관리 권한의 컬렉션일 수 있습니다.|
 
-서비스 버스 네임스페이스를 프로비전하면 기본적으로 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx)이 **RootManageSharedAccessKey**로 설정된 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx)이 생성됩니다. 또한 두 기본 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 개체는 알림 허브에 대해 구성되어 하나는 수신, 보내기 및 관리 권한, 그리고 다른 하나는 허브로 구성됩니다.
+서비스 버스 네임스페이스를 프로비전하면 기본적으로 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx)이 **RootManageSharedAccessKey**로 설정된 [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx)이 생성됩니다.
 
 ## 공유 액세스 권한 부여 규칙에 대한 키를 다시 생성하고 해지합니다.
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

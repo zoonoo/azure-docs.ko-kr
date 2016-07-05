@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="06/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에서 장치 모드 변경
@@ -98,4 +98,4 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 StorSimple 장치에서 [표준 및 유지 관리 모드 업데이트를 적용](storsimple-update-device.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

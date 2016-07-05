@@ -52,15 +52,18 @@ Transact-SQL을 사용하여 테이블 또는 데이터베이스에 대해 스�
 
 ### Transact-SQL을 사용하여 테이블에 대해 스트레치 데이터베이스를 사용하지 않도록 설정
 
--   테이블에 대해 스트레치를 사용하지 않도록 설정하고 Azure에서 SQL Server로 테이블의 원격 데이터를 다시 복사하려면 다음 명령을 실행합니다. 이 명령은 취소할 수 없습니다.
+-   테이블에 대해 스트레치를 사용하지 않도록 설정하고 Azure에서 SQL Server로 테이블의 원격 데이터를 다시 복사하려면 다음 명령을 실행합니다. Azure에서 SQL Server로 모든 원격 데이터가 다시 복사된 후에는 테이블에 대해 스트레치가 사용하지 않도록 설정됩니다.
+
+    이 명령은 취소할 수 없습니다.
 
     ```tsql
-    ALTER TABLE <table name>
+	USE <Stretch-enabled database name>;
+    GO
+    ALTER TABLE <Stretch-enabled table name>  
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
+    GO
     ```
     >   [AZURE.NOTE] 테이블에 대한 원격 데이터를 Azure에서 SQL Server로 복사할 경우 데이터 전송 비용이 발생합니다. 자세한 내용은 [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)를 참조하세요.
-
-    Azure에서 SQL Server로 모든 원격 데이터가 다시 복사된 후에는 테이블에 대해 스트레치가 사용하지 않도록 설정됩니다.
 
 -   테이블에 대해 스트레치를 사용하지 않도록 설정하고 원격 데이터를 중단하려면 다음 명령을 실행합니다.
 
@@ -98,4 +101,4 @@ ALTER DATABASE <database name>
 
 [스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

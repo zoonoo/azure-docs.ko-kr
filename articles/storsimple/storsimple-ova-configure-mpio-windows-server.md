@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Windows Server 호스트에 StorSimple 가상 배열에 대한 다중 경로 I/O 구성
@@ -178,4 +178,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 배열에 생성된 볼륨이
 [StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열을 관리](storsimple-ova-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

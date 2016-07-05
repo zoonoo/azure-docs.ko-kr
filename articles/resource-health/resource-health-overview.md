@@ -3,7 +3,7 @@
    description="Azure 리소스 상태 개요"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Azure 리소스 상태 개요
 
@@ -59,22 +59,28 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 ![리소스 상태 타일](./media/resource-health-overview/resourceHealthTile.png)
 
 ### 리소스 상태 API
-Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수 있는 API도 있습니다. API는 구독의 모든 리소스의 상태, 리소스 그룹의 모든 리소스 또는 특정 리소스의 상태를 가져오는 호출을 지원합니다.
+Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수 있는 API 집합이 있습니다. 사용 가능한 API를 통해 구독에 포함된 모든 리소스, 리소스 그룹의 모든 리소스의 현재 상태 또는 특정 리소스의 상태를 요청할 수 있습니다.
+
+특정 리소스의 기록 상태를 요청하는 데 사용할 수 있는 API도 있습니다. 응답은 지난 14일 동안의 리소스 상태 모음입니다. 리소스가 선언된 중단의 영향을 받았을 수 있으면 상태에는 serviceImpactingEvents라는 주석과 중단에 대한 자세한 내용이 포함됩니다.
 
 리소스 상태를 쿼리하는 API를 사용하기 전에 다음 URL로 POST 요청을 제출하여 구독을 서비스에 등록해야 합니다.
-
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 다음은 리소스 상태 API를 호출하는 방법에 대한 예제입니다.
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## 내 리소스 상태는 무엇을 의미하나요?
@@ -111,7 +117,7 @@ Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수
 ![리소스 상태를 알 수 없음](./media/resource-health-overview/unknown.png)
 
 ## 서비스에 영향을 미치는 이벤트
-리소스가 진행 중인 서비스에 영향을 미치는 이벤트에 의해 영향을 받을 수 있는 경우 리소스 상태 블레이드 맨 위에 배너가 표시됩니다. 배너를 클릭하면 감사 이벤트 블레이드가 자동으로 열리고 여기서 가동 중단에 대한 자세한 정보를 가져올 수 있습니다.
+리소스가 진행 중인 서비스에 영향을 미치는 이벤트에 의해 영향을 받을 수 있는 경우 리소스 상태 블레이드 맨 위에 배너가 표시됩니다. 배너를 클릭하면 감사 이벤트 블레이드가 자동으로 열리고 가동 중단에 대한 추가 정보를 표시합니다.
 
 ![리소스 상태가 SIE의 영향을 받을 수 있음](./media/resource-health-overview/serviceImpactingEvent.png)
 
@@ -126,4 +132,4 @@ Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수
 ## 사용자 의견
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -51,7 +51,7 @@ HTTP 응답에 대한 속성:
       "webHookType": "",
       "name": "req",
       "type": "httpTrigger",
-      "direction": "in"
+      "direction": "in",
       "authLevel": "function"
     },
     {
@@ -201,4 +201,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

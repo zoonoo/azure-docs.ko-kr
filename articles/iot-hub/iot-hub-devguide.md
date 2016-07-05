@@ -491,7 +491,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 끝점을 가집니�
 
 #### IoT Hub에 완료된 파일 업로드 알림
 
-장치는 Azure 저장소 SDK를 사용하여 저장소에 파일을 업로드하는 일을 담당합니다. 업로드가 완료되면 장치는 초기 GET에서 수신된 상관관계 ID를 사용하여 `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}`에서 IoT Hub에 게시물을 보냅니다.
+장치는 Azure 저장소 SDK를 사용하여 저장소에 파일을 업로드하는 일을 담당합니다. 업로드가 완료되면 장치는 초기 GET에서 수신된 상관관계 ID를 사용하여 `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}`에서 IoT Hub에 게시물을 보냅니다.
 
 #### 파일 업로드 알림
 
@@ -624,4 +624,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->
