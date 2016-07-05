@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱 만들기
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -183,7 +183,7 @@
 
 ## 응용 프로그램의 변경 내용 게시
 
-1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다. 
+1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다.
 
 2. 파일을 저장합니다.
 
@@ -225,4 +225,4 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0629_2016-->

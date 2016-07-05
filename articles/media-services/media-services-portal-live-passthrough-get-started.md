@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="06/05/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Azure 포털에서 Azure 미디어 서비스는 현재 미리 보기 상태입�
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-- Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+- Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)을 참조하세요.
 - 웹캠. 예를 들어, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm)
 
@@ -48,10 +48,10 @@ Azure 포털에서 Azure 미디어 서비스는 현재 미리 보기 상태입�
 	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 
 1. 통과 채널을 만들고 시작합니다.
-1. 채널 수집 URL을 검색합니다. 
+1. 채널 수집 URL을 검색합니다.
 
 	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-1. 채널 미리 보기 URL을 검색합니다. 
+1. 채널 미리 보기 URL을 검색합니다.
 
 	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 
@@ -63,7 +63,7 @@ Azure 포털에서 Azure 미디어 서비스는 현재 미리 보기 상태입�
 1. 스트리밍 및 보관을 시작할 준비가 되었으면 이벤트/프로그램을 시작합니다.
 2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
 1. 이벤트 스트리밍 및 보관을 중지할 때마다 이벤트/프로그램을 중지합니다.
-1. 이벤트/프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.     
+1. 이벤트/프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
 
 >[AZURE.IMPORTANT] 온-프레미스 인코더 및 통과 채널을 사용한 라이브 스트리밍과 관련한 개념 및 고려 사항에 대해 알아보려면 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 확인하세요.
 
@@ -81,7 +81,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 
 스트리밍 예약 단위의 수를 만들고 변경하려면 다음을 수행합니다.
 
-1. **설정** 창에서 **스트리밍 끝점**을 클릭합니다. 
+1. **설정** 창에서 **스트리밍 끝점**을 클릭합니다.
 
 2. 기본 스트리밍 끝점을 클릭합니다.
 
@@ -121,7 +121,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 
 통과 채널에 대한 자세한 내용은 [다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
 
-1. **설정** 창에서 **라이브 스트리밍**을 클릭합니다. 
+1. **설정** 창에서 **라이브 스트리밍**을 클릭합니다.
 
 	![시작](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
@@ -130,7 +130,7 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 3. **빠른 생성**을 클릭하여 RTMP 수집 프로토콜로 통과 채널을 만듭니다.
 
 	**새 채널 만들기** 창이 나타납니다.
-4. 새 채널 이름을 지정하고 **만들기**를 클릭합니다. 
+4. 새 채널 이름을 지정하고 **만들기**를 클릭합니다.
 
 	그러면 RTMP 수집 프로토콜로 통과 채널이 만들어집니다.
 
@@ -175,4 +175,4 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

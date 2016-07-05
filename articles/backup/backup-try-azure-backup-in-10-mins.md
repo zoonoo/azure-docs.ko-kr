@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# 소개: Resource Manager 배포 모델을 사용하여 Windows Server 또는 클라이언트에서 Azure 백업이 포함된 Azure로 파일 및 폴더 백업
+# 소개: Resource Manager 배포 모델을 사용하여 Azure 백업이 포함된 파일 및 폴더 백업
 
 이 문서는 Resource Manager를 사용하여 Azure 백업이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure 백업을 시작하려는 분들은 여기서 시작하시면 됩니다.
 
@@ -203,4 +203,4 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 - 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 - 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

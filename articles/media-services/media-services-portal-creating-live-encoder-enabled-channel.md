@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/05/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -43,18 +43,18 @@
 1. 채널 수집 URL을 검색합니다.
 
 	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
-1. 채널 미리 보기 URL을 검색합니다. 
+1. 채널 미리 보기 URL을 검색합니다.
 
 	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 
 3. 프로그램을 만듭니다(자산도 만들어짐).
-1. 프로그램을 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).  
+1. 프로그램을 게시합니다(연결된 자산에 대한 주문형 로케이터가 만들어짐).
 
 	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
 1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
 1. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
-1. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.   
+1. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
 
 ##자습서 내용
 
@@ -64,8 +64,8 @@
 3.  라이브 인코딩을 수행할 수 있는 채널 만들기
 1.  라이브 인코더에 제공하기 위해 수집 URL 가져오기. 라이브 인코더는 이 URL을 사용하여 스트림을 채널에 수집합니다.
 1.  프로그램(및 자산) 만들기
-1.  자산을 게시하고 스트리밍 URL 가져오기  
-1.  콘텐츠 재생 
+1.  자산을 게시하고 스트리밍 URL 가져오기
+1.  콘텐츠 재생
 2.  정리
 
 ##필수 조건
@@ -276,4 +276,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -33,7 +33,7 @@
 - **템플릿**은 Resource Manager 템플릿 및 추가 메타데이터를 포함하는 캡슐화된 리소스입니다. 마켓플레이스에 있는 항목과 매우 비슷하게 작동합니다. 주요 차이점은 공용 마켓플레이스 항목이 아니라 비공개 항목이라는 점입니다.
 - **템플릿** 라이브러리는 자신의 배포를 사용자 지정해야 하는 사용자에 대해 제대로 작동합니다.
 - **템플릿**은 Azure 내에서 간단한 리포지토리가 필요한 사용자에 대해 제대로 작동합니다.
-- 기존 Resource Manager 템플릿으로 시작합니다. [github](https://github.com/Azure/azure-quickstart-templates)에서 템플릿을 찾거나 기존 리소스 그룹에서 [템플릿을 내보냅니다](https://azure.microsoft.com/blog/export-template/).
+- 기존 Resource Manager 템플릿으로 시작합니다. [github](https://github.com/Azure/azure-quickstart-templates)에서 템플릿을 찾거나 기존 리소스 그룹에서 [템플릿을 내보냅니다](../resource-manager-export-template.md).
 - **템플릿**은 템플릿을 게시하는 사용자와 연결됩니다. 게시자 이름은 읽기 액세스 권한이 있는 모든 사람에게 표시됩니다.
 - **템플릿**은 Resource Manager 리소스이며 게시된 후에는 이름을 바꿀 수 없습니다.
 
@@ -44,7 +44,7 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 ### 방법 1: 실행 중인 리소스 그룹에서 새 템플릿 리소스 만들기
 
 1. Azure 포털에서 기존 리소스 그룹으로 이동합니다. **설정**에서 **템플릿 내보내기**를 선택합니다.
-2. Resource Manager 템플릿을 내보낸 후는 **템플릿 저장** 단추를 사용하여 **템플릿** 리포지토리에 저장합니다. 템플릿 내보내기에 대한 전체 세부 정보는 [여기](https://azure.microsoft.com/blog/export-template/)에서 확인하세요. <br /><br /> ![리소스 그룹 내보내기](media/rg-export-portal1.PNG) <br />
+2. Resource Manager 템플릿을 내보낸 후는 **템플릿 저장** 단추를 사용하여 **템플릿** 리포지토리에 저장합니다. 템플릿 내보내기에 대한 전체 세부 정보는 [여기](../resource-manager-export-template.md)에서 확인하세요. <br /><br /> ![리소스 그룹 내보내기](media/rg-export-portal1.PNG) <br />
 
 3. **템플릿에 저장** 명령 단추를 선택합니다. <br /><br />
 
@@ -131,4 +131,4 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 - Resource Manager 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

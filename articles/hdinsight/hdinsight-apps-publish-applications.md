@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/01/2016"
+   	ms.date="06/28/2016"
    	ms.author="jgao"/>
 
 # Azure 마켓플레이스에 HDInsight 응용 프로그램 게시
@@ -64,17 +64,17 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)의 샘플을 참조하세요.
 
-	>[AZURE.IMPORTANT] 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다.
+	>[AZURE.IMPORTANT] 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다. 또한 스크립트 작업을 설치 및 제거하는 것은 idempotent이여야 합니다. 즉, 동일한 결과를 생성하는 동안 스크립트를 반복하여 호출할 수 있습니다.
 	
 	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
 		
 	>스크립트 이름은 세 부분으로 구성됩니다.
 		
-	>	1. 응용 프로그램 이름 또는 응용 프로그램에 관련된 이름을 포함하는 스크립트 이름 접두사.
-	>	2. 가독성을 위한 "-".
-	>	3. 매개 변수로 응용 프로그램 이름이 사용된 고유 문자열 함수.
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
 
-	>	한 가지 예로서, 위 스크립트는 지속형 스크립트 작업 목록의 hue-install-v0-4wkahss55hlas가 됩니다. 샘플 JSON 페이로드는 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)를 참조하십시오.
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - 모든 필수 스크립트입니다.
 
@@ -87,9 +87,9 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 1. [Azure 게시 포털](https://publish.windowsazure.com/)에 로그인합니다.
 2. **솔루션 템플릿**을 클릭하여 새 솔루션 템플릿을 만듭니다.
 3. **Dev Center 계정 만들기 및 Azure 프로그램 조인**을 클릭하여 아직 수행하지 않은 경우 회사를 등록합니다. [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
-4. **시작할 몇 가지 토폴로지 정의**를 클릭합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 
+4. **시작할 몇 가지 토폴로지 정의**를 클릭합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다.
 5. 새 버전을 추가합니다.
-6. [패키지 응용 프로그램](#package-application)에서 준비한 zip 파일을 업로드합니다.  
+6. [패키지 응용 프로그램](#package-application)에서 준비한 zip 파일을 업로드합니다.
 7. **인증 요청**을 클릭합니다. Microsoft 인증 팀이 파일을 검토하고 토폴로지를 인증합니다.
 
 ## 다음 단계
@@ -98,4 +98,4 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

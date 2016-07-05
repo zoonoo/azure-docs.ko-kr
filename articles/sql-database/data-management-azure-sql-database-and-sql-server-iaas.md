@@ -67,7 +67,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 |||||
 |**리소스:**|기본 인프라의 지원 및 유지 관리에 IT 리소스를 사용하지 않지만 응용 프로그램 계층에 중점을 두려고 합니다.|지원 및 유지 관리용 IT 리소스가 있습니다.|
 |**총 소유 비용**|하드웨어 비용을 제거하고 관리 비용을 절감합니다.|하드웨어 비용을 제거합니다.|
-|**비즈니스 연속성:**|Azure SQL 데이터베이스는 내결함성 인프라 기능을 기본적으로 제공할 뿐 아니라 [지정 시간 복원](sql-database-point-in-time-restore.md), [지역 복원](sql-database-geo-restore.md) 및 [활성 지역 복제](sql-database-active-geo-replication.md) 등의 다양한 기능을 제공하여 비즈니스 연속성을 향상합니다. 자세한 내용은 [SQL 데이터베이스 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.|Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.|
+|**비즈니스 연속성:**|Azure SQL 데이터베이스는 내결함성 인프라 기능을 기본적으로 제공할 뿐 아니라 [자동화된 백업](sql-database-automated-backups.md), [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore), [지역 복원](sql-database-recovery-using-backups.md#geo-restore) 및 [활성 지역 복제](sql-database-active-geo-replication.md) 등의 다양한 기능을 제공하여 비즈니스 연속성을 향상합니다. 자세한 내용은 [SQL 데이터베이스 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.|Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.|
 |**하이브리드 클라우드:**|온-프레미스 응용 프로그램은 Azure SQL 데이터베이스의 데이터에 액세스할 수 있습니다.|Azure VM의 SQL Server를 사용하면 응용 프로그램을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 또한 [Azure의 SQL Server 데이터 파일](http://msdn.microsoft.com/library/dn385720.aspx)을 사용하여 온-프레미스 데이터 파일을 Azure 저장소에 저장할 수도 있습니다. 자세한 내용은 [SQL Server 2014 하이브리드 클라우드 소개](http://msdn.microsoft.com/library/dn606154.aspx)를 참조하세요.|
 ||[SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx)를 구독자로 지원합니다.|[SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx), 재해 복구 및 [Azure VM의 AlwaysOn 복제본](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)을 지원합니다.|
 |||||
@@ -156,4 +156,4 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 - Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 - [Azure 가상 컴퓨터의 SQL Server: 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

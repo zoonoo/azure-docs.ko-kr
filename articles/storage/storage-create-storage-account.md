@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="06/23/2016"
 	ms.author="robinsh"/>
 
 
@@ -35,9 +35,9 @@ Azure 저장소 계정은 Azure 저장소 데이터 개체의 저장 및 액세�
 
 ## 저장소 계정 끝점
 
-Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점* 을 구성합니다.
+Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점*을 구성합니다.
 
-예를 들어 저장소 계정의 이름이 *mystorageaccount* 일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
+예를 들어 저장소 계정의 이름이 *mystorageaccount*일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
 
 - Blob 서비스: http://*mystorageaccount*.blob.core.windows.net
 
@@ -51,7 +51,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. ARM 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell과 함께 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
+사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. Resource Manager 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell과 함께 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
 
 ## 저장소 계정 만들기
 
@@ -101,7 +101,7 @@ Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층�
 
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
 
-> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명* 을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 #### 저장소 액세스 키 보기 및 복사
 
@@ -141,7 +141,7 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 
 저장소 계정이 클래식 배포 모델을 사용하는 경우 [Azure 포털](https://manage.windowsazure.com)에서 이러한 단계를 수행하여 가상 컴퓨터 디스크를 제거할 수 있습니다.
 
-1. [클래식 포털](https://manage.windowsazure.com)로 이동합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
 2. 가상 컴퓨터 탭으로 이동합니다.
 3. 디스크 탭을 클릭합니다.
 4. 데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
@@ -157,4 +157,4 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

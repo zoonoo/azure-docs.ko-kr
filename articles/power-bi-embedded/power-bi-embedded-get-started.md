@@ -3,7 +3,7 @@
    description="Power BI Embedded, 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Microsoft Power BI Embedded 미리 보기 시작
 
-**Microsoft Power BI Embedded**는 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다. **Power BI Embedded**는 기존의 응용 프로그램과 함께 작동하므로 응용 프로그램을 다시 디자인하거나 사용자가 로그인하는 방법을 변경하지 않아도 됩니다.
+**Power BI Embedded**는 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다. **Power BI Embedded**는 기존의 응용 프로그램과 함께 작동하므로 응용 프로그램을 다시 디자인하거나 사용자가 로그인하는 방법을 변경하지 않아도 됩니다.
 
 Power BI Embedded에 대한 자세한 내용은 [Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)을 참조하세요.
 
@@ -107,4 +107,4 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

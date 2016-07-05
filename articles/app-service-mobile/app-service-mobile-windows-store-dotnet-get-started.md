@@ -64,7 +64,7 @@
 
 4. UWP 앱을 시작 프로젝트로 사용하여 앱을 배포하고 실행하도록 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
 	![Windows 빠른 시작 완료 데스크톱](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -82,7 +82,7 @@
 
 * [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure 알림 허브를 사용하는 방법을 알아봅니다.
 
-* [Windows 앱에 대한 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법에 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
+* [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -91,4 +91,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

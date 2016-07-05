@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="06/27/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -258,4 +258,4 @@ Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](acti
 DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 설치에 사용되는 계정 | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
 
-<!-----HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

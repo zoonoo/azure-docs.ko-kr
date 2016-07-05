@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="05/03/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
@@ -198,4 +198,4 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

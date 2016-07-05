@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->
