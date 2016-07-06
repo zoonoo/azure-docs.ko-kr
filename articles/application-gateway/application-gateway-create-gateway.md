@@ -33,7 +33,8 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 ## 시작하기 전에
 
 1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
-2. 유효한 서브넷과 작업 가상 네트워크가 있는지 확인합니다. 서브넷을 사용 중인 가상 컴퓨터 또는 클라우드 배포가 없는지 확인합니다. 응용 프로그램 게이트웨이는 가상 네트워크 서브넷에서 단독이어야 합니다.
+2. 기존 가상 네트워크가 있는 경우 기존의 빈 서브넷을 선택하거나 응용 프로그램 게이트웨이에서 사용할 기존 가상 네트워크에만 새 서브넷을 만듭니다. 응용 프로그램 게이트웨이 뒤에 배포하려는 리소스가 아닌 다른 가상 네트워크에 응용 프로그램 게이트웨이를 배포할 수 없습니다.
+3. 유효한 서브넷과 작업 가상 네트워크가 있는지 확인합니다. 서브넷을 사용 중인 가상 컴퓨터 또는 클라우드 배포가 없는지 확인합니다. 응용 프로그램 게이트웨이는 가상 네트워크 서브넷에서 단독이어야 합니다.
 3. 응용 프로그램 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 끝점이 만들어져야 합니다.
 
 ## 응용 프로그램 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
@@ -49,6 +50,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 - **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 - **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다.
+
 
 
 ## 새 응용 프로그램 게이트웨이 만들기
@@ -78,10 +80,10 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* 및 *GatewaySize*는 선택적 매개 변수입니다.
+ *Description*, *InstanceCount* 및 *GatewaySize* 는 선택적 매개 변수입니다.
 
 
-생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용할 수 있습니다.
+생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
 
 
 
@@ -97,7 +99,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
@@ -344,7 +346,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 ## 게이트웨이 상태를 확인합니다.
 
-**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태*가 실행 중이어야 하고, *Vip*와 *DnsName*에 유효한 항목이 있어야 합니다.
+**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태* 가 실행 중이어야 하고, *Vip* 와 *DnsName* 에 유효한 항목이 있어야 합니다.
 
 다음 샘플은 응용 프로그램 게이트웨이가 시작되고 실행 중이며 `http://<generated-dns-name>.cloudapp.net`으로 보낸 트래픽을 사용할 준비가 되었음을 보여 줍니다.
 
@@ -406,11 +408,11 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
-내부 부하 분산 장치로 사용하도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

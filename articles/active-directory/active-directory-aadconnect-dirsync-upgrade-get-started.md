@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: DirSync에서 업그레이드
@@ -79,7 +79,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 1. Azure AD Connect 설치 관리자(MSI) 시작
 2. 사용 조건 및 개인 정보 알림을 검토하고 동의합니다. ![Azure AD 시작](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
 3. 다음을 클릭하여 기존 DirSync 설치 분석을 시작합니다. ![기존 디렉터리 동기화 설치 분석](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. 분석이 완료되면 진행 방법에 대해 권장 사항을 표시합니다.  
+4. 분석이 완료되면 진행 방법에 대해 권장 사항을 표시합니다.
     - SQL Server Express를 사용하고 50,000개 미만의 개체가 있는 경우 다음과 같은 화면이 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png) DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버에 관한 정보가 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속합니다.
     - 50,000개 이상의 개체가 있는 경우 다음 화면이 대신 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png) 현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드** 메시지 옆에 있는 확인란을 클릭합니다. 대신 [병렬 배포](#parallel-deployment)를 수행하려면 DirSync 구성 설정을 내보내고 해당 사항을 새 서버로 이동합니다.
@@ -202,4 +202,4 @@ Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](acti
 사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
 설치에 사용되는 계정 | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

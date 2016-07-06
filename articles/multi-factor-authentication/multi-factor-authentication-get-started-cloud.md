@@ -30,7 +30,7 @@
 
 
 - [Azure 구독 등록](https://azure.microsoft.com/pricing/free-trial/) - 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용하려면 평가판 구독을 사용할 수 있습니다.
-2. [Multi-Factor Auth 공급자를 만들고](multi-factor-authentication-get-started-auth-provider.md) 디렉터리에 할당하거나 [사용자에게 라이선스를 할당](multi-factor-authentication-get-started-assign-licenses.md)합니다. 
+2. [Multi-Factor Auth 공급자를 만들고](multi-factor-authentication-get-started-auth-provider.md) 디렉터리에 할당하거나 [사용자에게 라이선스를 할당](multi-factor-authentication-get-started-assign-licenses.md)합니다.
 
 > [AZURE.NOTE]  라이선스는 Azure MFA, Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 사용자가 사용할 수 있습니다. MFA는 Azure AD Premium 및 EMS에 포함되어 있습니다. 라이선스가 충분한 경우 인증 공급자를 만들 필요가 없습니다.
 		
@@ -57,12 +57,12 @@
 
 ## PowerShell을 사용하여 Multi-Factor Authentication 설정 자동화
 
-[Azure AD PowerShell](powershell-install-configuremd)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다. `$st.State`를 다음 중 하나로 변경할 수 있습니다.
+[Azure AD PowerShell](../powershell-install-configure.md)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다. `$st.State`를 다음 중 하나로 변경할 수 있습니다.
 
 
 - 사용
 - 적용
-- 사용 안 함  
+- 사용 안 함
 
 > [AZURE.IMPORTANT]  사용 안 함 상태에서 적용 상태로 직접 변경할 경우 최신 버전이 아닌 인증 클라이언트에서는 사용자가 MFA 등록을 거치거나 [앱 암호](multi-factor-authentication-whats-next.md#app-passwords)를 얻지 않으므로 작동이 중지될 수 있습니다. 인증 클라이언트가 최신 버전이 아니고 앱 암호가 필요한 경우에는 사용 안 함 상태에서 사용으로 전환하는 것이 좋습니다. 그러면 사용자가 앱 암호를 등록하고 얻을 수 있습니다.
 		
@@ -90,4 +90,4 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
 ## 다음 단계
 클라우드에서 Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. [Azure Multi-Factor Authentication 구성]을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

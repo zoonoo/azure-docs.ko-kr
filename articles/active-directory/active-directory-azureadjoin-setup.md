@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # 조직에서 Azure AD 조인 설정
@@ -32,9 +32,9 @@ Azure AD에서 사용자를 수동으로 만들고 관리하려면 [Azure AD에�
 3. **디렉터리** 탭에서 해당 디렉터리를 선택합니다.
 4. **구성** 탭을 선택합니다.
 5. **장치** 섹션으로 이동합니다.
-6. **장치** 탭에서 다음을 설정합니다.  
+6. **장치** 탭에서 다음을 설정합니다.
    * **사용자당 최대 장치 수**: Azure AD에서 사용자가 보유할 수 있는 장치의 최대 수를 선택합니다. 사용자가 이 할당량에 도달하는 경우 기존 장치 중 하나 이상이 제거될 때까지 장치를 더 추가할 수 없습니다.
-   * **장치에 연결하기 위해 다단계 인증 필요**: 사용자가 Azure AD에 장치를 연결하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 설정합니다. Azure 다단계 인증에 대한 자세한 내용은 [클라우드에서 Azure 다단계 인증 시작](multi-factor-authentication-get-started-cloud/)을 참조하세요.
+   * **장치에 연결하기 위해 다단계 인증 필요**: 사용자가 Azure AD에 장치를 연결하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 설정합니다. Azure Multi-Factor Authentication에 대한 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md)을 참조하세요.
    * **사용자가 Azure AD에 장치를 연결할 수 있음**: Azure AD에 장치를 연결하도록 허용된 사용자 및 그룹을 선택합니다.
    * **Azure AD 연결 장치의 추가 관리자**: Azure AD Premium 또는 EMS(Enterprise Mobility Suite)를 사용하여 장치에 대한 로컬 관리자 권한을 부여 받은 사용자를 선택할 수 있습니다. 전역 관리자 및 장치 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다.
 
@@ -55,4 +55,4 @@ Azure AD에서 사용자를 수동으로 만들고 관리하려면 [Azure AD에�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

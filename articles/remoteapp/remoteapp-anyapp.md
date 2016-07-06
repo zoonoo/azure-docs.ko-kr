@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="06/02/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
@@ -119,4 +119,4 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

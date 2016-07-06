@@ -5,7 +5,7 @@
 	keywords="장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Azure Active Directory 장치 등록 시작
@@ -87,4 +87,4 @@ Azure AD 장치 등록을 사용하여 Windows 7 및 Windows 8.1 도메인 가�
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

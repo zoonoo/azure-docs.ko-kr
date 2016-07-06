@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/16/2016" 
+	ms.date="06/29/2016" 
 	ms.author="billmath"/>
 
 
@@ -46,7 +46,7 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
 	2. **디렉터리** – Multi-Factor Authentication 공급자와 연결된 Azure Active Directory 테넌트입니다. 다음에 주의하세요.
 		- Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않습니다. Azure Multi-Factor Authentication 서버 또는 SDK를 사용하려는 경우 상자를 비워둡니다.
 		- Multi-Factor Authentication 공급자를 Azure AD 디렉터리와 연결하여 고급 기능을 활용해야 합니다.
-		- Azure AD Connect, AAD Sync 또는 DirSync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우는 ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)	
-5. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 **Multi-Factor Authentication 공급자를 성공적으로 만들었습니다**라는 메시지가 표시됩니다. **확인**을 클릭합니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)	
+		- Azure AD Connect, AAD Sync 또는 DirSync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우 필요하지 않습니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+5. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 **Multi-Factor Authentication 공급자를 성공적으로 만들었습니다**라는 메시지가 표시됩니다. **확인**을 클릭합니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

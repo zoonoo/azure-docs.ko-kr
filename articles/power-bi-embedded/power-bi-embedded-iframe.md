@@ -3,7 +3,7 @@
    description="Microsoft Power BI Embedded 미리 보기 - 보고서를 앱에 통합하기 위한 필수 코드, Power BI Embedded 앱 토큰으로 인증하는 방법, 보고서를 가져오는 방법"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # IFrame을 사용하여 Power BI 보고서 포함
 이 문서는 **Power BI Embedded** REST API, 앱 토큰, IFrame, 일부 JavaScript를 사용하여 앱에 보고서를 통합 또는 포함하기 위한 필수 코드에 대해 설명합니다.
@@ -228,4 +228,4 @@ $filter=Store/Chain%20eq%20'Lindseys'
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

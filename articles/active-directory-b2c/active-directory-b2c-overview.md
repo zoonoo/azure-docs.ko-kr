@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 응용 프로그램에 소비자 등록 및 로그인
@@ -54,7 +54,7 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
-- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c/)를 참조하세요.
+- [Azure Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c/)를 참조하세요.
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
 - [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 미리 보기 버전에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 - Azure Active Directory B2C는 "앱 모델 v2.0"이라고 하는 응용 프로그램 등록 모델을 사용하여 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원합니다.
@@ -67,4 +67,4 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

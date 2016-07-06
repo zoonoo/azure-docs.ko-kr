@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="06/24/2016"
    ms.author="magoedte" />
 
 # Azure 자동화 통합 모듈
@@ -27,6 +27,8 @@ PowerShell 모듈은 WindowsFeature 또는 파일과 같은 PowerShell 콘솔, �
 ## Azure 자동화 통합 모듈이란?
 
 통합 모듈은 PowerShell 모듈과 다르지 않습니다. 단순히 필요에 따라 추가 파일(Runbook에서 모듈의 cmdlet과 함께 사용되는 Azure 자동화 연결 형식을 지정하는 메타데이터 파일)을 포함하는 PowerShell 모듈입니다. 선택 사항 파일인지 여부와 상관 없이 이러한 PowerShell 모듈은 Azure 자동화로 가져와서 DSC 구성 내에서 사용할 수 있는 runbook 및 DSC 리소스 내에서 해당 cmdlet을 사용할 수 있도록 합니다. 배후에서 Azure 자동화는 이러한 모듈을 저장하고 runbook 작업 및 DSC 컴파일 작업 실행 시 runbook을 실행하고 DSC 구성을 컴파일하는 Azure 자동화 샌드박스에 로드합니다. 또는 모듈의 DSC 리소스는 DSC 구성을 적용하려는 컴퓨터에서 가져올 수 있도록 자동으로 자동화 DSC 끌어오기 서버에 배치됩니다. Azure 관리를 즉시 자동화하기 시작할 수 있도록 다양한 Azure 자동화에서 Azure PowerShell 모듈을 기본적으로 제공하지만 통합하려는 시스템, 서비스 또는 도구가 무엇이든 PowerShell 모듈을 쉽게 가져올 수 있습니다.
+
+>[AZURE.NOTE] 특정 모듈은 자동화 서비스에서 "전역 모듈"로 제공됩니다. 이러한 전역 모듈은 자동화 계정을 만들 경우 기본으로 제공되고 때로 업데이트하여 자동화 계정에 자동으로 푸시됩니다. 자동 업데이트하지 않으려면 언제든지 같은 모듈을 직접 가져올 수 있습니다. 그렇게 하면 서비스에 제공된 해당 모듈의 전역 모듈 버전보다 우선적으로 적용됩니다.
 
 통합 모듈 패키지를 가져온 형식은 모듈 및.zip 확장명과 동일한 이름을 가진 압축된 파일입니다. Windows PowerShell 모듈 및 모듈에 있는 매니페스트 파일(.psd1)를 포함한 모든 지원 파일을 포함합니다.
 
@@ -65,7 +67,7 @@ PowerShell 모듈은 WindowsFeature 또는 파일과 같은 PowerShell 콘솔, �
 
 단지 통합 모듈이 기본적으로 PowerShell 모듈이기 때문에 작성하는 동안 일련의 사례가 없다고는 할 수 없습니다. PowerShell 모듈을 Azure 자동화에서 유용하게 만들기 위해 작성하는 동안 고려해야 할 점이 많습니다. 그 중 일부는 Azure 자동화에 특정되고 일부는 자동화를 사용하는지 여부에 관계 없이 PowerShell 워크플로에서 모듈이 잘 작동할 수 있도록 합니다.
 
-1. 모듈에서 모든 cmdlet에 대한 개요, 설명 및 도움말 URI를 포함합니다. PowerShell에서는 cmdlet에 대한 도움말 정보를 정의하여 사용자가 **Get-help** cmdlet과 해당 정보를 통해 도움을 받을 수 있습니다. 예를 들어 .psm1 파일 <br>에 기록된 PowerShell 모듈에 대한 개요 및 도움말 URI를 정의할 수 있는 방법은 다음과 같습니다.  
+1. 모듈에서 모든 cmdlet에 대한 개요, 설명 및 도움말 URI를 포함합니다. PowerShell에서는 cmdlet에 대한 도움말 정보를 정의하여 사용자가 **Get-help** cmdlet과 해당 정보를 통해 도움을 받을 수 있습니다. 예를 들어 .psm1 파일에 기록된 PowerShell 모듈에 대한 개요 및 도움말 URI를 정의할 수 있는 방법은 다음과 같습니다. <br>
 
     ```
     <#
@@ -192,11 +194,11 @@ PowerShell 모듈은 WindowsFeature 또는 파일과 같은 PowerShell 콘솔, �
     }
     ```
 <br>
-6. 모듈은 Xcopy 가능 패키지에 완전히 포함되어야 합니다. runbook을 실행해야 하는 경우 Azure 자동화 모듈이 자동화 샌드박스에 분산되어 있기 때문에 실행 중인 호스트와 독립적으로 작동해야 합니다. 즉, 모듈 패키지를 압축하고 동일하거나 최신 PowerShell 버전인 다른 호스트에 이동하며 해당 호스트의 PowerShell 환경으로 가져오는 경우 정상적으로 작동할 수 있도록 해야 합니다. 이를 위해서 모듈은 모듈 폴더(Azure 자동화로 가져올 때 압축된 폴더) 외부의 파일 또는 호스트의 고유한 레지스트리 설정(제품의 설정으로 설정됨)에 의존해서 안됩니다. 이 모범 사례를 따르지 않으면 모듈은 Azure 자동화에서 사용할 수 없습니다.  
+6. 모듈은 Xcopy 가능 패키지에 완전히 포함되어야 합니다. runbook을 실행해야 하는 경우 Azure 자동화 모듈이 자동화 샌드박스에 분산되어 있기 때문에 실행 중인 호스트와 독립적으로 작동해야 합니다. 즉, 모듈 패키지를 압축하고 동일하거나 최신 PowerShell 버전인 다른 호스트에 이동하며 해당 호스트의 PowerShell 환경으로 가져오는 경우 정상적으로 작동할 수 있도록 해야 합니다. 이를 위해서 모듈은 모듈 폴더(Azure 자동화로 가져올 때 압축된 폴더) 외부의 파일 또는 호스트의 고유한 레지스트리 설정(제품의 설정으로 설정됨)에 의존해서 안됩니다. 이 모범 사례를 따르지 않으면 모듈은 Azure 자동화에서 사용할 수 없습니다.
 
 ## 다음 단계
 
 - PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 - PowerShell 모듈을 만드는 자세한 내용은 [Windows PowerShell 모듈 작성](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->
