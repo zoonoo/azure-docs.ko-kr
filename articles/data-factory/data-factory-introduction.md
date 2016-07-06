@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 소개" 
-	description="Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다." 
+	pageTitle="데이터 팩터리란? 데이터 통합 서비스 | Microsoft Azure" 
+	description="Azure Data Factory가 무엇인지 알아봅니다. 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스입니다." 
+	keywords="데이터 통합, 클라우드 데이터 통합, Azure 데이터 팩터리란"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +17,14 @@
 	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
-# Azure Data Factory 서비스 소개
+# Azure 데이터 팩터리 서비스인 클라우드의 데이터 통합 서비스 소개
 
-## 개요
+## Azure 데이터 팩터리란 무엇인가요? 
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 실행하는 제조 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
 
 데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 빅 데이터 컴퓨팅 요구를 위해 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 및 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) 같은 서비스를 사용하여 데이터를 변환하기 위해, [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)으로 분석 솔루션을 운영할 수 있도록 하기 위해 데이터 팩터리를 사용하여 서비스를 관리되는 데이터 흐름 파이프라인으로 작성합니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
 
-![개요](./media/data-factory-introduction/data-factory-overview.png)
+![다이어그램: 데이터 팩터리 개요, 데이터 통합 서비스](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **그림 1.** 다양한 온-프레미스 데이터 원본으로부터 데이터를 수집하고 받아들여서 준비하고 다양한 변환으로 데이터를 구성하고 분석한 후 소비를 위해 바로 사용할 수 있는 데이터를 게시합니다.
 
@@ -35,7 +36,7 @@
 
 Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요한 데이터 흐름을 실행하는데 필요한 일정과 리소스를 정의하기 위해 함께 작용하는 몇 가지 주요 엔터티가 있습니다.
 
-![주요 개념](./media/data-factory-introduction/key-concepts.png)
+![다이어그램: 데이터 팩터리, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **그림 2.** 데이터 집합, 활동, 파이프라인 및 연결된 서비스 간의 관계
 
@@ -69,4 +70,4 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 나중에 Azure에서 지원하는 모든 지리적 위치에서 Azure 데이터 팩터리를 사용하게 될 예정입니다.
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

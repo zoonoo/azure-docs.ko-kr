@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 클래식 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure"
+	pageTitle=" Azure 클래식 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure"
 	description="이 자습서에서는 Azure 클래식 포털을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@
 2.  스트리밍 끝점을 구성합니다.
 1.  비디오 파일을 업로드합니다.
 1.  원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-1.  자산을 게시하고, 스트리밍 기능을 사용하고, URL을 점진적으로 다운로드합니다.  
+1.  자산을 게시하고, 스트리밍 기능을 사용하고, URL을 점진적으로 다운로드합니다.
 1.  콘텐츠를 재생합니다.
 
 
@@ -73,7 +73,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 동적 패키징을 이용하려면 다음을 수행해야 합니다.
 
-- mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).  
+- mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).
 - 콘텐츠를 배달하는 출발점이 될 *스트리밍 끝점*에 하나 이상의 스트리밍 단위를 구성합니다.
 
 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
@@ -107,7 +107,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	![UploadContentDialog][uploadcontent]
 
 5. **콘텐츠 업로드** 대화 상자에서 확인 단추를 클릭하여 **파일** 및 **콘텐츠 이름**을 적용합니다.
-6. 업로드가 시작되며, 포털 맨 아래에서 진행 상태를 추적할 수 있습니다.  
+6. 업로드가 시작되며, 포털 맨 아래에서 진행 상태를 추적할 수 있습니다.
 
 	![JobStatus][status]
 
@@ -253,4 +253,4 @@ Azure 클래식 포털에서는 비디오를 테스트하는 데 사용할 수 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->
