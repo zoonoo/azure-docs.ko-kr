@@ -164,7 +164,7 @@ Edison 장치를 설정하고 친숙해지려면 현재 자습서에서는 불�
     Discovery stopped
     ```
 
-6. **connect <MAC address>**을 입력하고 MAC 주소를 사용하여 SensorTag 장치에 연결합니다. 아래의 샘플 출력은 축약 형태입니다.
+6. **connect <MAC 주소>**를 입력하고 MAC 주소를 사용하여 SensorTag 장치에 연결합니다. 아래의 샘플 출력은 축약 형태입니다.
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -217,7 +217,7 @@ Edison의 **git** 버전이 하위 모듈을 지원하지 않습니다. 게이�
 - 옵션 #1: Edison의 [Microsoft Azure IoT 게이트웨이 SDK][lnk-sdk] 리포지토리를 복제한 후 각 하위 모듈에 대한 리포지토리를 수동으로 복제합니다.
 - 옵션 #2: **git**가 하위 모듈을 지원하는 데스크톱 장치에서 [Microsoft Azure IoT 게이트웨이 SDK][lnk-sdk] 리포지토리를 복제한 후 하위 모듈을 포함하는 전체 리포지토리를 Edison에 복사합니다.
 
-옵션 # 2를 선택하는 경우 다음 **git** 명령을 사용하여 게이트웨이 SDK 및 해당 하위 모듈을 복제합니다.
+옵션 #2를 선택하는 경우 다음 **git** 명령을 사용하여 게이트웨이 SDK 및 해당 하위 모듈을 복제합니다.
 
 ```
 git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git 
@@ -241,7 +241,6 @@ Edison에 게이트웨이 SDK 저장소의 전체 복사본이 있는 경우 다
 샘플을 부트스트랩하고 실행하려면 게이트웨이에서 참여하는 각 모듈을 구성해야 합니다. 이 구성은 JSON 파일에 제공되며 참여하는 5가지 모듈을 모두 구성해야 합니다. 리포지토리에는 구성 파일을 직접 작성하기 위한 시작 지점으로 사용할 수 있는 **gateway\_sample.json**이라는 샘플 JSON 파일이 제공되어 있습니다. 이 파일은 게이트웨이 SDK 리포지토리의 로컬 복사본에 있는 **samples/ble\_gateway\_hl/src**에 있습니다.
 
 다음 섹션에서는 BLE 샘플에 대해 이 구성 파일을 편집하는 방법을 설명하고 게이트웨이 SDK 리포지토리가 Edison 장치의 **/home/root/azure-iot-gateway-sdk/** 폴더에 있다고 가정합니다. 리포지토리가 다른 위치에 있으면 그에 맞게 경로를 조정해야 합니다.
-
 
 #### 로거 구성
 
@@ -316,7 +315,7 @@ BLE 장치에 대한 샘플 구성에서는 Texas Instruments SensorTag 장치�
 
 #### IoT Hub HTTP 모듈
 
-IoT Hub의 이름을 추가합니다. 일반적으로 접미사 값은 **azure devices.net**입니다.
+IoT Hub의 이름을 추가합니다. 일반적으로 접미사 값은 **azure-devices.net**입니다.
 
 ```json
 {
@@ -442,4 +441,4 @@ HTTP 프로토콜을 사용하여 IoT Hub에 연결하는 장치의 기본 동�
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

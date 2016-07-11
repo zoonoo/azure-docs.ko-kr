@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm" />
 
 # Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
@@ -74,7 +74,7 @@ Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프�
 이 가이드의 작업을 완료하려면 다음이 필요합니다.
 
 - JDK(Java 개발자 키트), v 1.6 이상
-- Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다. 
+- Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 - Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server 또는 Jetty)
 - Azure 구독. <http://www.microsoft.com/windowsazure/offers/>에서 구입할 수 있습니다.
 - Eclipse용 Azure 도구 키트, 2014년 4월 릴리스 이상. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)를 참조하세요.
@@ -86,8 +86,8 @@ Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프�
 Azure에서 ACS(액세스 제어 서비스) 사용을 시작하려면 ACS 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
 
 1. [Azure 관리 포털][]에 로그인합니다.
-2. **Active Directory**를 클릭합니다. 
-3. 새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**, **앱 서비스**, **액세스 제어**, **빠른 생성**을 차례로 클릭합니다. 
+2. **Active Directory**를 클릭합니다.
+3. 새 액세스 제어 네임스페이스를 만들려면 **새로 만들기**, **앱 서비스**, **액세스 제어**, **빠른 생성**을 차례로 클릭합니다.
 4. 네임스페이스의 이름을 입력합니다. Azure에서 이름이 고유한지 검증합니다.
 5. 네임스페이스가 사용되는 지역을 선택합니다. 최상의 성능을 얻으려면 응용 프로그램을 배포할 지역을 사용합니다.
 6. 둘 이상의 구독이 있는 경우 ACS 네임스페이스에 사용할 구독을 선택합니다.
@@ -115,9 +115,9 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 3.  **신뢰 당사자 응용 프로그램 추가** 페이지에서 다음을 수행합니다.
     1.  **이름**에 RP의 이름을 입력합니다. 이 자습서에서는 **Azure Web App**을 입력합니다.
     2.  **모드**에서 **Enter settings manually**를 선택합니다.
-    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/** 을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
-4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp** 을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]
-5.  나머지 필드는 기본값을 그대로 사용합니다.
+    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
+    4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]
+    5.  나머지 필드는 기본값을 그대로 사용합니다.
 
 4.  **Save**를 클릭합니다.
 
@@ -130,7 +130,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 1.  ACS 관리 포털 기본 페이지에서 **규칙 그룹**을 클릭합니다.
 2.  **규칙 그룹** 페이지에서 **Azure Web App의 기본 규칙 그룹**을 클릭합니다.
 3.  **규칙 그룹 편집** 페이지에서 **생성**을 클릭합니다.
-4.  **규칙 생성: Azure Web App의 기본 규칙 그룹** 페이지에서 Windows Live ID가 선택되어 있는지 확인한 후 **생성**을 클릭합니다.	
+4.  **규칙 생성: Azure Web App의 기본 규칙 그룹** 페이지에서 Windows Live ID가 선택되어 있는지 확인한 후 **생성**을 클릭합니다.
 5.  **규칙 그룹 편집** 페이지에서 **저장**을 클릭합니다.
 
 ## ACS 네임스페이스에 인증서 업로드
@@ -152,7 +152,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 
 ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하도록 Java 웹 응용 프로그램(RP 응용 프로그램)을 구성하는 데 필요한 모든 정보 및 코드를 찾을 수 있습니다. 페더레이션 인증에 대해 Java 웹 응용 프로그램을 구성할 때 이 정보가 필요합니다.
 
-1.  ACS 관리 포털에서 **응용 프로그램 통합**을 클릭합니다.  
+1.  ACS 관리 포털에서 **응용 프로그램 통합**을 클릭합니다.
 2.  **응용 프로그램 통합** 페이지에서 **로그인 페이지**를 클릭합니다.
 3.  **로그인 페이지 통합** 페이지에서 **Azure Web App**을 클릭합니다.
 
@@ -240,7 +240,7 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
 
 13. **Finish**를 클릭하여 **Edit Library** 대화 상자를 닫습니다.
 14. **OK**를 클릭하여 **Properties for MyACSHelloWorld** 대화 상자를 닫습니다.
-15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기**(영문) 항목의 [To deploy your application to Azure](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다. 
+15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기**(영문) 항목의 [To deploy your application to Azure](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다.
 
 웹 응용 프로그램이 배포된 후 열려 있는 모든 브라우저 세션을 닫고 웹 응용 프로그램을 실행하고 나면 Windows Live ID 자격 증명을 사용하여 로그인하라는 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램의 반환 URL로 이동되어야 합니다.
 
@@ -258,7 +258,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 3. **추가**를 클릭합니다.
 4. **Add Component** 대화 상자 내에서 다음을 수행합니다.
     1. **Import** 섹션에서 다음을 수행합니다.
-        1. **File** 단추를 사용하여 사용할 인증서로 이동합니다. 
+        1. **File** 단추를 사용하여 사용할 인증서로 이동합니다.
         2. **Method**의 경우 **copy**를 선택합니다.
     2. **As Name**의 경우 텍스트 상자를 클릭하고 기본 이름을 그대로 사용합니다.
     3. **Deploy** 섹션에서 다음을 수행합니다.
@@ -288,7 +288,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [encutil.exe]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /ko-KR/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -310,4 +310,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

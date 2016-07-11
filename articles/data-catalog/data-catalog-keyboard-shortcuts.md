@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="03/31/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Azure 데이터 카탈로그에 대한 키보드 바로 가기
@@ -92,4 +92,4 @@
 |**열기** 메뉴 토글 | ALT + O
 |자산이 컨테이너인 경우 컨테이너 탐색 | ALT+L
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

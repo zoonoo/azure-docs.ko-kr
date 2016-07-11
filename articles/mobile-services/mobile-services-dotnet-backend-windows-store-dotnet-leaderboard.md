@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="glenga"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
@@ -142,7 +142,7 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 
 ![][8]
 
-이 컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
+컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
 
 - 라우팅: **TableController**의 기본 경로는 `/tables/{table_name}/{id}`입니다. 여기서 *table\_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)와 일치하게 됩니다.
 - 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다. 스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다.
@@ -593,7 +593,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
 ## MobileServiceClient 인스턴스 추가
 
-*App.xaml.cs*파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클래스에 추가합니다.
+*App.xaml.cs* 파일을 열고 **MobileServiceClient** 인스턴스를 `App` 클래스에 추가합니다.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -765,4 +765,4 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 [푸시 알림 추가]: ../notification-hubs-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

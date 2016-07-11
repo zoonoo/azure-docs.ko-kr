@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="04/07/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # 데이터 원본 데이터 프로파일링
@@ -91,4 +91,4 @@
 -	[데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
 -	[Azure 데이터 카탈로그 시작](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

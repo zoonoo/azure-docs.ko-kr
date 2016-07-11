@@ -20,20 +20,20 @@ Azure의 IP 주소는 두 범주 즉, 동적 IP 및 예약된 IP로 나뉩니다
 
 IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니다. 예약된 IP는 VIP로만 사용할 수 있으므로 리소스가 종료 또는 할당 취소된 때에도 클라우드 서비스의 IP 주소가 동일하게 유지됩니다. 또한 VIP로 사용하는 기존의 동적 IP를 예약된 IP 주소로 변환할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-network-ip-addresses-overview-arm.md)하는 방법을 알아봅니다.
 
 Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어떻게 작동하는지 이해해야 합니다.
 
 ## 예약된 IP는 언제 필요한가요?
-- **IP가 구독에서 예약되어 있는지 확인하려고 합니다**. 어떤 상황에서도 구독에서 해제되지 않을 IP 주소를 예약하려는 경우 예약된 공용 IP를 사용해야 합니다.  
+- **IP가 구독에서 예약되어 있는지 확인하려고 합니다**. 어떤 상황에서도 구독에서 해제되지 않을 IP 주소를 예약하려는 경우 예약된 공용 IP를 사용해야 합니다.
 - **중지 상태 또는 할당 취소 상태(VM)에서도 IP를 클라우드 서비스에서 유지하려고 합니다**. 클라우드 서비스의 VM이 중지 또는 할당 취소된 경우에도 변경되지 않는 IP 주소를 사용하여 서비스에 액세스할 수 있도록 설정하기를 원합니다.
 - **Azure의 아웃바운드 트래픽이 예측 가능한 IP 주소를 사용하는지 확인하려고 합니다**. 특정 IP 주소의 트래픽만 허용하도록 온-프레미스 방화벽을 구성할 수 있습니다. IP를 예약하면 원본 IP 주소를 알고 있으므로 IP 변경 때문에 방화벽 규칙을 업데이트할 필요가 없습니다.
 
 ## FAQ
-1. 모든 Azure 서비스에 예약된 IP를 사용할 수 있나요?  
+1. 모든 Azure 서비스에 예약된 IP를 사용할 수 있나요?
   - 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
-1. 예약된 IP를 몇 개까지 사용할 수 있나요?  
-  - 현재 모든 Azure 구독은 20개의 예약된 IP를 사용할 권한이 있습니다. 그러나 예약된 IP를 추가로 요청할 수 있습니다. 자세한 내용은 [구독 및 서비스 제한](../azure-subscription-service-limits/) 페이지를 참조하세요.
+1. 예약된 IP를 몇 개까지 사용할 수 있나요?
+  - 현재 모든 Azure 구독은 20개의 예약된 IP를 사용할 권한이 있습니다. 그러나 예약된 IP를 추가로 요청할 수 있습니다. 자세한 내용은 [구독 및 서비스 제한](../azure-subscription-service-limits.md) 페이지를 참조하세요.
 1. 예약된 IP는 사용 요금이 있나요?
   - 가격 정보는 [예약된 IP 주소 가격 정보](http://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
 1. IP 주소를 어떻게 예약하나요?
@@ -84,7 +84,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 
->[AZURE.NOTE] 클라우드 서비스에서 사용할 예약된 IP를 만들 때 여전히 인바운드 통신에 *VIP:&lt;포트 번호>*를 사용하여 VM을 참조해야 합니다. IP를 예약했다고 VM에 직접 연결할 수 있다는 의미는 아닙니다. 예약된 IP는 VM이 배포된 클라우드 서비스에 할당됩니다. IP 통해 VM에 직접 연결하려는 경우 인스턴스 수준 공용 IP를 구성해야 합니다. 인스턴스 수준 공용 IP(ILPIP라고 함)는 VM에 직접 할당된 공용 IP의 한 유형입니다. ILPIP는 예약할 수 없습니다. 자세한 내용은 [인스턴스 수준 공용 IP(ILPIP)](../virtual-networks-instance-level-public-ip)를 참조하세요.
+>[AZURE.NOTE] 클라우드 서비스에서 사용할 예약된 IP를 만들 때 여전히 인바운드 통신에 *VIP:&lt;포트 번호>*를 사용하여 VM을 참조해야 합니다. IP를 예약했다고 VM에 직접 연결할 수 있다는 의미는 아닙니다. 예약된 IP는 VM이 배포된 클라우드 서비스에 할당됩니다. IP 통해 VM에 직접 연결하려는 경우 인스턴스 수준 공용 IP를 구성해야 합니다. 인스턴스 수준 공용 IP(ILPIP라고 함)는 VM에 직접 할당된 공용 IP의 한 유형입니다. ILPIP는 예약할 수 없습니다. 자세한 내용은 [인스턴스 수준 공용 IP(ILPIP)](virtual-networks-instance-level-public-ip.md)를 참조하세요.
 
 ## 실행 중인 배포에서 예약된 IP를 제거하는 방법
 위의 스크립트에서 만든 새 서비스에 추가된 예약된 IP를 제거하려면 다음 PowerShell 명령을 실행합니다.
@@ -126,8 +126,8 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)이 어떻게 작동하는지 이해합니다.
 
-- [예약된 개인 IP 주소](../virtual-networks-reserved-private-ip)에 대해 알아봅니다.
+- [예약된 개인 IP 주소](virtual-networks-reserved-private-ip.md)에 대해 알아봅니다.
 
-- [ILPIP(인스턴스 수준 공용 IP) 주소](../virtual-networks-instance-level-public-ip)에 대해 알아봅니다.
+- [ILPIP(인스턴스 수준 공용 IP) 주소](virtual-networks-instance-level-public-ip.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

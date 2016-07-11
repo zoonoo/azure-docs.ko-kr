@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석
 
 HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, D3.js를 통해 이를 시각화하는 방법에 대해 알아봅니다. 또한 이 문서에서는 Azure 가상 네트워크를 사용하여 HDInsight의 Storm을 HDInsight의 HBase와 연결하고 토폴로지의 데이터를 HBase에 저장하는 방법에 대해서도 설명합니다.
 
-> [AZURE.NOTE] 이 문서에 있는 정보는 HDInsight 클러스터에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 HDInsight 클러스터 버전 3.2에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -93,7 +93,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이벤트 허브는 이 예제의 데이터 원본입니다. 다음 단계에 따라 새 이벤트 허브를 만듭니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기 | 서비스 버스 | 이벤트 허브 | 사용자 지정 만들기**를 선택합니다.
+1. [Azure 클래식 포털에서](https://manage.windowsazure.com) **새로 만들기를 선택합니다.| Service Bus | Event Hub | Custom Create**.
 
 2. **새 이벤트 허브 추가** 대화 상자에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. 마지막으로 화살표를 클릭하여 계속합니다.
 
@@ -196,7 +196,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 		Server listening at port 3000
 
-2. 웹 브라우저를 열고 ****http://localhost:3000/**을 주소로 입력합니다. 다음과 유사한 결과가 표시됩니다.
+2. 웹 브라우저를 열고 **http://localhost:3000/**을 주소로 입력합니다. 다음과 유사한 결과가 표시됩니다.
 
 	![웹 대시보드](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -427,4 +427,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

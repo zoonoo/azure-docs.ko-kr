@@ -20,7 +20,7 @@
 
 # Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 
@@ -34,4 +34,4 @@
 
 클래식 포털을 사용하여 [Windows를 실행하는 사용자 지정 가상 컴퓨터를 만들](virtual-machines-windows-classic-createportal.md) 수도 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

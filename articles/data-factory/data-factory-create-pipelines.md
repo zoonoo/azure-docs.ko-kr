@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리의 파이프라인 및 활동 | Microsoft Azure" 
-	description="Azure 데이터 팩터리 파이프라인을 이해하며 데이터를 이동하게 만들고 통찰력을 얻는 데 사용할 수 있는 정보를 생성하게 변환하는 방법을 알아봅니다." 
+	pageTitle="데이터 팩터리에서 파이프라인, 체인 작업 만들기/예약 | Microsoft Azure" 
+	description="Azure Data Factory에서 데이터 파이프라인을 만들어 데이터를 이동하고 변환하는 방법을 배웁니다. 데이터 기반 워크플로를 만들어 정보를 사용하도록 준비합니다." 
+    keywords="데이터 파이프라인, 데이터 기반 워크플로"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,18 +14,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="04/08/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리의 파이프라인 및 활동
-이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다.
+# Azure Data Factory의 파이프라인 및 작업: 파이프라인 및 체인 작업 만들기/예약
+이 문서는 Azure 데이터 팩터리의 데이터 파이프라인을 이해하고 이를 사용하여 마케팅 캠페인을 분석하는 개인 설정된 제품 권장사항에서 시나리오 또는 비즈니스를 위한 종단 간 데이터 기반 워크플로를 생성하는 데 도움이 됩니다.
 
-> [AZURE.NOTE] 이 문서는 사용자가 이전의 [Azure Data Factory 소개](data-factory-introduction.md) 및 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 마쳤다고 간주합니다. 데이터 팩터리를 만드는 실습 문제가 없는 경우 [첫 번째 데이터 팩터리 빌드](data-factory-build-your-first-pipeline.md) 자습서를 진행하면 이 문서를 이해하는 데 도움이 됩니다.
+> [AZURE.NOTE] 이 문서는 사용자가 이전의 [Azure Data Factory 소개](data-factory-introduction.md) 및 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 마쳤다고 간주합니다. 데이터 팩터리를 만드는 실습 경험이 없는 경우 [첫 번째 데이터 팩터리 빌드](data-factory-build-your-first-pipeline.md) 자습서를 진행하면 이 문서를 이해하는 데 도움이 됩니다.
 
-## 파이프라인 정의
+## 데이터 파이프라인이란?
 **파이프라인은 활동의 논리적 그룹화입니다**. 파이프라인은 여러 활동 작업을 수행하는 하나의 단위로 그룹화하기 위해 사용됩니다. 파이프라인을 더 이해하려면 먼저 활동을 이해해야 합니다.
 
-### 활동 정의
+## 활동 정의
 활동은 데이터에 수행할 작업을 정의합니다. 각 활동은 0개 이상의 [데이터 집합](data-factory-create-datasets.md)을 입력 항목으로 취하며 하나 이상의 데이터 집합을 출력물로 생성합니다. **활동은 Azure 데이터 팩터리의 오케스트레이션 단위입니다.**
 
 예를 들어 하나의 데이터 집합에서 다른 데이터 집합으로의 데이터 복사를 오케스트레이션하기 위해 복사 활동을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 HDInsight Hive 활동을 사용할 수 있습니다. Azure 데이터 팩터리는 다양한 [데이터 변환, 분석](data-factory-data-transformation-activities.md) 및 [데이터 이동 활동](data-factory-data-movement-activities.md)을 제공합니다. 또한 사용자 고유의 코드를 실행하려면 사용자 지정 .NET 활동을 만들 수 있습니다.
@@ -226,24 +227,24 @@ Azure 데이터 팩터리에서 파이프라인을 만드는 경우 일반적인
 
 태그 | 설명 | 필수
 --- | ----------- | --------
-name | 작업 또는 파이프라인의 이름입니다. 작업 또는 파이프라인을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다<br/><ul><li>최대 문자 수: 260개</li><li>문자 숫자 또는 밑줄(\_)로 시작해야 합니다</li><li>다음 문자는 사용할 수 없습니다. ".", "+","?", "/", "<",">", "*", "%", "&", ":","\"</li></ul>| 예 
-description | 작업 또는 파이프라인의 용도를 설명하는 텍스트 | 예
-type | 활동의 형식을 지정합니다. 다른 활동의 형식은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하세요. | 예
-inputs | 활동에서 사용하는 테이블 입력<br/><br/>//한 개의 입력 테이블<br/>"inputs": [{"name": "inputtable1"}],<br/><br/>// 2개의 입력 테이블 /<br/>"inputs": [{"name": "inputtable1"}, {"name": "inputtable2"}], | 예
-outputs | 활동에서 사용하는 테이블을 출력합니다.//한 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}],<br/><br/>//두 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}, {"name": "outputtable2"}], | 예
-linkedServiceName | 활동에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>활동은 필요한 계산 환경에 연결되는 연결된 서비스를 지정할 필요가 있습니다. | HDInsight 활동 및 Azure 기계 학습 배치 평가 활동에 예<br/><br/>다른 모든 에 대해 아니요
-typeProperties | typeProperties 섹션의 속성은 활동의 형식에 따라 달라집니다. 이에 대해 자세히 알아보려면 각 개별 활동에 대한 문서를 참조하십시오 | 아니요
-policy | 활동의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다 | 아니요
-start | 파이프라인의 시작 날짜-시간입니다. [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41Z. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: 6 AM EST인 "2016-02-27T06:00:00**-05:00**".<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. | 아니요<br/><br/>end 속성에 대한 값을 지정하면 start 속성에 대한 값을 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있지만 파이프라인을 실행할 활성 기간을 설정하려면 둘 다 값을 지정해야 합니다. 파이프라인을 만들 때 시작 시간과 종료 시간을 지정하지 않으면 나중에 Set-AzureRmDataFactoryPipelineActivePeriod cmdlet를 사용하여 설정할 수 있습니다. 
-end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: 2014-10-14T17:32:41Z <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: 6 AM EST인 "2016-02-27T06:00:00**-05:00**".<br/><br/>파이프라인을 무기한으로 실행하려면 end 속성에 대한 값으로 9999-09-09를 지정합니다. | 아니요 <br/><br/>start 속성에 대한 값을 지정하면 end 속성에 대한 값을 지정해야 합니다.<br/><br/>**start** 속성에 대한 설명을 참조하세요. 
-isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 속성을 활성화 또는 비활성화하여 사용할 수 있습니다. | 아니요
-scheduler | "스케줄러" 속성을 작업에 원하는 예정을 정의하는 데 사용합니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)과 같습니다. | 아니요 |
-| pipelineMode | 예약에 대한 메서드가 파이프라인에 대해 실행됩니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. Onetime 설정에 대한 자세한 내용은 [Onetime 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline)을 참조하세요. | 아니요|
-| expirationTime | 생성 후 파이프라인이 유효하고 프로비전 상태로 남아야 하는 기간. 활성 작업, 실패한 작업, 또는 보류중인 작업이 없는 경우, 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. | 아니요 |
-| datasets | 파이프라인에 정의된 활동에 의해 사용될 데이터 집합 목록. 이것은 데이터 팩터리 내에 정의되지 않은 파이프라인에만 해당되는 데이터 집합을 정의하는 데 사용될 수 있습니다. 이 파이프라인 내에 정의된 데이터 집합은 이 파이프라인에서만 사용될 수 있고 공유될 수 없습니다. 자세한 내용은 [범위가 지정된 데이터 집합](data-factory-create-datasets.md#scoped-datasets)을 참조하세요.| 아니요 | 
+name | 작업 또는 파이프라인의 이름입니다. 작업 또는 파이프라인을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다<br/><ul><li>최대 문자 수: 260개</li><li>문자 숫자 또는 밑줄(\_)로 시작해야 합니다</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | 예
+description | 작업 또는 파이프라인이 무엇에 사용되는지 설명하는 텍스트입니다. | 예
+type | 작업의 유형을 지정합니다. 다른 종류의 작업은 [데이터 이동 작업](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하세요. | 예
+inputs | 작업에서 사용하는 입력 테이블<br/><br/>// 하나의 입력 테이블<br/>"inputs": [ { "name": "inputtable1" } ],<br/><br/>// 두 개의 입력 테이블 <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ], | 예
+outputs | 작업에서 사용하는 출력 테이블.// 하나의 출력 테이블<br/>"outputs": [ { "name": “outputtable1” } ],<br/><br/>//두 개의 출력 테이블<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ], | 예
+linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업 및 Azure 기계 학습 배치 평가 작업의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요
+typeProperties | typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. 이에 대한 자세한 내용을 알아보려면 각 개별 작업에 대한 문서를 참조합니다. | 아니요
+policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다. | 아니요
+시작 | 파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41Z. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: "2016-02-27T06:00:00**-05:00**"는 EST 시간 오전 6시입니다<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. | 아니요<br/><br/>end 속성에 대한 값을 지정하면 start 속성에 대한 값을 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있지만 파이프라인을 실행할 활성 기간을 설정하려면 둘 다 값을 지정해야 합니다. 파이프라인을 만들 때 시작 시간과 종료 시간을 지정하지 않으면 나중에 Set-AzureRmDataFactoryPipelineActivePeriod cmdlet를 사용하여 설정할 수 있습니다.
+end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: 2014-10-14T17:32:41Z <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: "2016-02-27T06:00:00**-05:00**"는 EST 시간 오전 6시입니다<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. | 아니요 <br/><br/>start 속성에 대한 값을 지정하는 경우 반드시 end 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다.
+isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 이 속성을 사용하여 활성화 또는 비활성화할 수 있습니다. | 아니요 
+scheduler | "scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)에 있는 속성과 같습니다. | 아니요 |
+| pipelineMode | 파이프라인에 대한 실행을 예약하는 메서드입니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. 일회성 설정에 대한 세부 정보는 [일회성 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline)을 참조하세요. | 아니요 | 
+| expirationTime | 생성 후에 파이프라인이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 작업, 실패한 작업, 또는 보류중인 작업이 없는 경우, 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. | 아니요 | 
+| datasets | 파이프라인에 정의된 작업에서 사용할 데이터 집합 목록입니다. 이것은 데이터 팩터리 내에 정의되지 않은 파이프라인에만 해당되는 데이터 집합을 정의하는 데 사용될 수 있습니다. 이 파이프라인 내에 정의된 데이터 집합은 이 파이프라인에서만 사용될 수 있고 공유될 수 없습니다. 자세한 내용은 [범위가 지정된 데이터 집합](data-factory-create-datasets.md#scoped-datasets)을 참조하세요.| 아니요 |  
  
 
-### 활동 형식
+## 데이터 이동 및 데이터 변환에 대한 작업 유형
 Azure 데이터 팩터리는 다양한 [데이터 이동](data-factory-data-movement-activities.md) 및 [데이터 변환](data-factory-data-transformation-activities.md) 활동을 제공합니다.
 
 ### 정책
@@ -251,12 +252,12 @@ Azure 데이터 팩터리는 다양한 [데이터 이동](data-factory-data-move
 
 속성 | 허용된 값 | 기본값 | 설명
 -------- | ----------- | -------------- | ---------------
-동시성 | 정수 <br/><br/>최대값: 10 | 1 | 활동의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 활동 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성을 높이면 데이터 처리가 빨라집니다. 
+동시성 | 정수 <br/><br/>최대값: 10 | 1 | 작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성을 높이면 데이터 처리가 빨라집니다. 
 executionPriorityOrder | NewestFirst<br/><br/>OldestFirst | OldestFirst | 처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst이 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. 
 retry | 정수<br/><br/>최대값이 10이 될 수 있음 | 3 | 조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다.
 시간 제한 | TimeSpan | 00:00:00 | 활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값을 지정하지 않거나 0으로 지정하는 경우 시간 제한이 없습니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 초과가 발생할 때 상태는 TimedOut입니다.
-delay | TimeSpan | 00:00:00 | 조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>예상된 실행 시간 이후까지 지연된 후에 데이터 조각에 대한 활동이 실행되기 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함)
-longRetry | 정수<br/><br/>최대값: 10 | 1 | 조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 항목이 있는 경우:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나 뿐이며(Waiting 상태) 활동 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후에 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간 후에(즉, longRetryInteval의 값) 3번의 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>참고: 모든 실행이 성공하면 조각 상태가 Ready가 되고 더 이상 다시 시도되지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 여기에서 무시되는 다른 시스템 문제가 발생합니다. 
+delay | TimeSpan | 00:00:00 | 조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>예상된 실행 시간 이후까지 지연된 후에 데이터 조각에 대한 작업이 실행되기 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함)
+longRetry | 정수<br/><br/>최대값: 10 | 1 | 조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 작업 정책에 다음 항목이 있는 경우:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나 뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후에 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간 후에(즉, longRetryInteval의 값) 3번의 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>참고: 모든 실행이 성공하면 조각 상태가 Ready가 되고 더 이상 다시 시도되지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 여기에서 무시되는 다른 시스템 문제가 발생합니다. 
 longRetryInterval | TimeSpan | 00:00:00 | 긴 다시 시도 간의 지연 
 
 ## 활동 연결
@@ -266,8 +267,8 @@ longRetryInterval | TimeSpan | 00:00:00 | 긴 다시 시도 간의 지연
 
 예를 들어 다음과 같은 경우를 고려해 보겠습니다.
  
-1.	파이프라인 P1에는 외부 입력 데이터 집합 D1이 필요하고 **출력** 데이터 집합 **D2**를 생성하는 활동 A1이 있습니다.
-2.	파이프라인 P2에는 데이터 집합 **D2**의 **입력**이 필요하고 출력 데이터 집합 D3을 생성하는 활동 A2가 있습니다.
+1.	파이프라인 P1에는 외부 입력 데이터 집합 D1이 필요하고 **출력** 데이터 집합 **D2**를 생성하는 작업 A1이 있습니다.
+2.	파이프라인 P2에는 데이터 집합 **D2**의 **입력**이 필요하고 출력 데이터 집합 D3을 생성하는 작업 A2가 있습니다.
  
 이 시나리오에서 활동 A1은 외부 데이터를 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 활동 A2는 D2에서 예약된 조각을 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 데이터 집합 A2의 조각 중 하나에 오류가 있으면 해당 조각을 사용할 수 있을 때까지 A2가 실행되지 않습니다.
 
@@ -287,7 +288,7 @@ longRetryInterval | TimeSpan | 00:00:00 | 긴 다시 시도 간의 지연
 Azure 데이터 팩터리에서 예약 및 실행의 작동 방식을 이해하려면 [예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요.
 
 ### 조각의 병렬 처리
-런타임 시 활동의 여러 인스턴스에서 여러 조각을 병렬로 처리하도록 활동 JSON 정의에서 **concurrency** 값을 1보다 큰 값으로 설정합니다. 이는 과거부터 채워진 조각을 처리할 때 유용합니다.
+런타임 시 작업의 여러 인스턴스에서 여러 조각을 병렬로 처리하도록 작업 JSON 정의에서 **concurrency** 값을 1보다 큰 값으로 설정합니다. 이는 과거부터 채워진 조각을 처리할 때 유용합니다.
 
 
 ## 파이프라인 제작 및 관리
@@ -342,34 +343,9 @@ REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다
 
 ## 다음 단계
 
-- [Azure 데이터 팩터리에서 예약 및 실행](data-factory-scheduling-and-execution.md)을 이해합니다.  
+- [Azure 데이터 팩터리에서 예약 및 실행](data-factory-scheduling-and-execution.md)을 이해합니다.
 - Azure 데이터 팩터리에서 [데이터 이동](data-factory-data-movement-activities.md) 및 [데이터 변환 기능](data-factory-data-transformation-activities.md)에 대해 읽어봅니다.
 - [Azure 데이터 팩터리에서 관리 및 모니터링](data-factory-monitor-manage-pipelines.md)을 이해합니다.
-- [첫 번째 파이프라인을 빌드 및 배포](data-factory-build-your-first-pipeline.md)합니다. 
+- [첫 번째 파이프라인을 빌드 및 배포](data-factory-build-your-first-pipeline.md)합니다.
 
-
- 
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
- 
-
- 
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,8 +1,11 @@
 ### Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 
-1. Windows 원격 데스크톱을 통해 가상 컴퓨터에 연결합니다. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다. 
+1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)를 참조하세요.
+
+1. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다.
 
 	![방화벽 프로그램 시작](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+
 2. **고급 보안이 포함된 Windows 방화벽**의 왼쪽 창에 있는 작업 창에서 **인바운드 규칙**을 마우스 오른쪽 단추로 클릭한 후 **새 규칙**을 클릭합니다.
 
 	![새 규칙](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
@@ -37,12 +40,12 @@
 ### TCP 프로토콜을 수신 대기하도록 SQL Server 구성
 
 1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자**를 입력하고 ENTER 키를 누릅니다.
-	
+
 	![SSCM 열기](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 
 2. SQL Server 구성 관리자의 콘솔 창에서 **SQL Server 네트워크 구성**을 확장합니다.
 
-3. 콘솔 창에서 **MSSQLSERVER용 프로토콜**(기본 인스턴스 이름)을 클릭합니다. 세부 정보 창에서 TCP를 마우스 오른쪽 단추로 클릭하면 기본적으로 갤러리 이미지에 대해 사용으로 설정되어 있어야 합니다. 사용자 지정 이미지에 대해 **사용**(상태가 사용 안 함인 경우)을 클릭합니다.
+3. 콘솔 창에서 **MSSQLSERVER용 프로토콜**(기본 인스턴스 이름)을 클릭합니다. 세부 정보 창에서 **TCP**를 마우스 오른쪽 단추로 클릭하고 아직 사용으로 설정하지 않은 경우 **사용**을 클릭합니다.
 
 	![TCP 사용](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
@@ -60,13 +63,11 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 >[AZURE.NOTE] Azure 가상 네트워크를, 구성된 도메인 환경으로 구성한 경우, 혼합 모드 인증은 구성할 필요가 없습니다.
 
-1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 2014 Management Studio**를 입력하고 선택한 아이콘을 클릭합니다.
-
-	![SSMS 시작](./media/virtual-machines-sql-server-connection-steps/18Start-SSMS.png)
+1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio**를 입력하고 선택한 아이콘을 클릭합니다.
 
 	처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM\_이름**\\로컬\_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다(가상 컴퓨터 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM\_이름**\\로컬\_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
 
 	![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 
@@ -102,21 +103,15 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 5. **암호** 상자에 새 사용자의 암호를 입력합니다. **암호 확인** 상자에 암호를 다시 입력합니다.
 
-6. 복잡성 및 강제성에 대한 암호 정책 옵션을 적용하려면 **암호 정책 강제 적용**(권장)을 선택합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
-
-7. 만료에 대한 암호 정책 옵션을 적용하려면 **암호 만료 강제 적용**(권장)을 선택합니다. 이 확인란을 사용하려면 먼저 암호 정책 강제 적용을 선택해야 합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
-
-8. 처음으로 로그인을 사용한 후 사용자가 새 암호를 만들도록 강제하려면 **다음 로그인할 때 반드시 암호 변경**을 선택합니다. 다른 사용자가 이 로그인을 사용할 경우에 이 옵션을 선택하는 것이 좋습니다. 사용자만 이 로그인을 사용하는 경우에는 이 옵션을 선택하지 마십시오. 이 확인란을 사용하려면 먼저 암호 만료 강제 적용을 선택해야 합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
+6. 필요한 암호 적용 옵션(**암호 정책 강제 적용**, **암호 만료 강제 적용** 및 **다음 로그인할 때 반드시 암호 변경**)을 선택합니다. 이 로그인을 직접 사용하는 경우 다음 로그인 시 암호를 변경하도록 요구할 필요가 없습니다.
 
 9. **기본 데이터베이스** 목록에서 로그인의 기본 데이터베이스를 선택합니다. **master**가 이 옵션의 기본값입니다. 사용자 데이터베이스를 아직 만들지 않은 경우 **master**로 설정된 상태로 둡니다.
 
-10. **기본 언어** 목록에서 **기본값**을 선택 값으로 둡니다.
-    
 	![로그인 속성](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 
 11. 처음 로그인을 만드는 경우 이 로그인을 SQL Server 관리자로 지정할 수 있습니다. 그렇게 하는 경우 **서버 역할** 페이지에서 **sysadmin**을 선택합니다.
 
-	**보안 정보:** sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 따라서 이 역할의 구성원은 신중하게 제한해야 합니다.
+	>[AZURE.NOTE] sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 따라서 이 역할의 구성원은 신중하게 제한해야 합니다.
 
 	![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 
@@ -124,4 +119,4 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/21/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용
@@ -82,8 +82,8 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 3. **Microsoft Azure Storage Account Configuration** 섹션에서:
     1. [Azure 포털](https://portal.azure.com)에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
     2. [Azure 포털](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
-    3. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](https://portal.azure.com)에서 저장소 계정에 대해 지정된 끝점을 사용합니다. 
-    4. **Validate storage credentials**를 클릭하여 저장소 계정의 유효성을 검사합니다. 
+    3. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](https://portal.azure.com)에서 저장소 계정에 대해 지정된 끝점을 사용합니다.
+    4. **Validate storage credentials**를 클릭하여 저장소 계정의 유효성을 검사합니다.
     5. [옵션] Jenkins CI에서 더 많은 저장소 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**를 클릭합니다.
     6. **Save**를 클릭하여 설정을 저장합니다.
 
@@ -166,4 +166,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0629_2016-->

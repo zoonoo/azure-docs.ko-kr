@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스의 데이터베이스를 복구하기 위한 데이터베이스 복원 옵션 개요입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/15/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 
 # Azure SQL 데이터 웨어하우스 복원(개요)
@@ -23,7 +23,9 @@
 - [개요][]
 - [포털][]
 - [PowerShell][]
-- [REST][]의 Azure SQL 데이터 웨어하우스는 로컬 중복 저장소 및 자동화된 백업을 사용하여 데이터를 보호합니다. 자동화된 백업은 별도의 관리 방법 없이 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호합니다. 사용자가 실수로 또는 우연하게 데이터를 수정하거나 삭제한 경우 이전 시점으로 데이터베이스를 복원하여 비즈니스 연속성을 보장할 수 있습니다. SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 가동 중지 시간 없이 원활하게 데이터베이스를 백업합니다.
+- [REST (영문)][]
+
+Azure SQL 데이터 웨어하우스는 로컬 중복 저장소 및 자동화된 백업을 사용하여 데이터를 보호합니다. 자동화된 백업은 별도의 관리 방법 없이 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호합니다. 사용자가 실수로 또는 우연하게 데이터를 수정하거나 삭제한 경우 이전 시점으로 데이터베이스를 복원하여 비즈니스 연속성을 보장할 수 있습니다. SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 가동 중지 시간 없이 원활하게 데이터베이스를 백업합니다.
 
 ## 자동화된 백업
 
@@ -63,11 +65,11 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 [개요]: ./sql-data-warehouse-restore-database-overview.md
 [포털]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

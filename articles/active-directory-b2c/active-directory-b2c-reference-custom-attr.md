@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C 미리 보기: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
@@ -53,4 +53,4 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 - 등록 정책과 함께 등록 또는 로그인 정책 및 프로필 편집 정책에서 사용자 지정 특성을 사용할 수도 있습니다.
 - 사용자 지정 특성의 알려진 제한 사항이 있습니다. **사용자 특성** 목록에 추가될 때가 아니라 정책에 사용하는 경우 처음으로 만들어집니다. 이 문제를 빨리 해결할 계획입니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

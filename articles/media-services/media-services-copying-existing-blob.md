@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #기존 Blob을 미디어 서비스 자산에 복사
@@ -39,7 +39,7 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 이 섹션에서는 C# 콘솔 응용 프로그램 프로젝트를 만들고 설정합니다.
 
-1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램 프로젝트가 포함된 새 솔루션을 만듭니다. 
+1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램 프로젝트가 포함된 새 솔루션을 만듭니다.
 2. 이름에 CopyExistingBlobsIntoAsset을 입력하고 확인을 클릭합니다.
 1. Nuget을 사용하여 미디어 서비스 관련된 DLL에 참조를 추가합니다. Visual Studio 주 메뉴에서 도구 -> 라이브러리 패키지 관리자 -> 패키지 관리자 콘솔을 선택합니다. 콘솔 창에 Install-Package windowsazure.mediaservices를 입력하고 Enter를 누릅니다.
 1. 이 프로젝트에 필요한 다른 참조를 추가합니다: System.Configuration.
@@ -76,7 +76,7 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 아래 코드 예제에서는 다음 작업을 수행합니다.
 
-1. CloudMediaContext 인스턴스를 만듭니다. 
+1. CloudMediaContext 인스턴스를 만듭니다.
 1. CloudStorageAccount 인스턴스인 \_sourceStorageAccount 및 \_destinationStorageAccount를 만듭니다.
 1. 로컬 디렉터리에서 \_sourceStorageAccount에 있는 Blob 컨테이너로 부드러운 스트리밍 파일을 업로드합니다.
 1. 새 자산을 만듭니다. 이 자산용으로 만든 Blob 컨테이너는 \_destinationStorageAccount에 위치합니다.
@@ -85,7 +85,7 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 	>[AZURE.NOTE]로케이터가 만료된 경우 복사 작업에서 예외가 발생하지 않습니다.
 
 1. 이 예제에서는 부드러운 스트리밍 파일을 복사하므로 .ism 파일을 주 파일로 설정하는 방법을 보여 줍니다. 예를 들어 .mp4 파일을 복사했으면 mp4 파일이 주 파일로 설정됩니다.
-1. 자산과 연결된 OnDemandOrigin 로케이터의 부드러운 스트리밍 URL을 만듭니다. 
+1. 자산과 연결된 OnDemandOrigin 로케이터의 부드러운 스트리밍 URL을 만듭니다.
 			
 		class Program
 	        {
@@ -322,4 +322,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -351,4 +351,4 @@ AMS(Azure 미디어 서비스)를 사용하면 수집, 인코드, 콘텐츠 보�
 
 [파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

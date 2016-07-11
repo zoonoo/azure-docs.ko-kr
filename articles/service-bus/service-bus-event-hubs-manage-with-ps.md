@@ -1,20 +1,20 @@
 <properties
-   pageTitle="PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리"
-   description="PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 만들기 및 관리"
-   services="service-bus"
-   documentationCenter=".NET"
-   authors="sethmanheim"
-   manager="timlt"
-   editor=""/>
+    pageTitle="PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리 | Microsoft Azure"
+    description="PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 만들기 및 관리"
+    services="service-bus"
+    documentationCenter=".NET"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/24/2016"
+    ms.author="sethm"/>
 
 # PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리
 
@@ -273,7 +273,7 @@ catch [System.Exception]
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[서비스 버스용 .NET API]: https://msdn.microsoft.com/ko-KR/library/azure/mt419900.aspx
+[서비스 버스용 .NET API]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
 [Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0629_2016-->

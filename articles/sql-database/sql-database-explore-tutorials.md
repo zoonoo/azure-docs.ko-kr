@@ -74,7 +74,7 @@
 |---|---|---|
 | [데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | 이 자습서에서는 서비스 계층을 사용하여 Azure SQL 데이터베이스의 성능을 확장 또는 축소하는 방법을 알아봅니다. |
 | [SQL 데이터베이스 관리자 Query Performance Insight](sql-database-performance.md#performance-overview) | 이 자습서에서는 SQL 데이터베이스 관리자 Query Performance Insight를 열고 사용하는 방법을 알아봅니다.|
-| [SQL 데이터베이스 관리자 성능 권장 사항](sql-database-index-advisor.md#viewing-recommendations) | 이 자습서에서는 SQL 데이터베이스 관리자 성능 권장 사항을 검토 및 적용하는 방법을 알아봅니다. |
+| [SQL 데이터베이스 관리자 성능 권장 사항](sql-database-advisor.md#viewing-recommendations) | 이 자습서에서는 SQL 데이터베이스 관리자 성능 권장 사항을 검토 및 적용하는 방법을 알아봅니다. |
 | [최상위 CPU 소비 쿼리 검토](sql-database-query-performance.md#review-top-cpu-consuming-queries)| 이 자습서에서는 SQL 데이터베이스 관리자 Query Performance Insight를 사용하여 쿼리를 사용하는 최상위 CPU를 검토하는 방법을 알아봅니다.|
 | [개별 쿼리 세부 정보 보기](sql-database-query-performance.md#viewing-individual-query-details)| 이 자습서에서는 SQL 데이터베이스 관리자 Query Performance Insight를 사용하여 개별 쿼리 성능 세부 정보를 보는 방법을 알아봅니다.|
 ||||
@@ -180,4 +180,4 @@
 
 [Azure SQL 데이터베이스 솔루션 빠른 시작 탐색](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

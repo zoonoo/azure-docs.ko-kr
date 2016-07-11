@@ -14,26 +14,22 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # C를 사용하여 Azure 리소스 배포# 
 
-이 문서는 Azure PowerShell을 사용하여 인증 및 저장소를 설정한 다음 C#을 사용하여 Azure 리소스를 만드는 방법을 보여 줍니다.
+이 문서에서는 C#을 사용하여 Azure 리소스를 만드는 방법을 보여 줍니다.
 
-이 자습서를 완료하려면 다음이 필요합니다.
+먼저 다음 작업을 수행해야 합니다.
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- [인증 토큰](../resource-group-authenticate-service-principal.md)
+- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx) 설치
+- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855) 설치 확인
+- [인증 토큰](../resource-group-authenticate-service-principal.md) 가져오기
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
 
-## 1단계: Azure PowerShell 설치
-
-최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
-
-## 2단계: Visual Studio 프로젝트를 만들고 라이브러리 설치
+## 1단계: Visual Studio 프로젝트를 만들고 라이브러리 설치
 
 NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Azure 리소스 관리 라이브러리, Azure Active Directory 인증 라이브러리 및 컴퓨터 리소스 공급자 라이브러리를 설치해야 합니다. Visual Studio에서 이 라이브러리를 가져오려면 다음을 수행합니다.
 
@@ -51,11 +47,11 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
 
 7. 검색 상자에 *Microsoft.Azure.Management.Storage*를 입력하고 저장소 .NET 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
-8. 검색 상자에 *Microsoft.Azure.Management.Resources*를 입력하고 리소스 관리 라이브러리에 대해 **설치**를 클릭합니다.
+8. 검색 상자에 *Microsoft.Azure.Management.ResourceManager*를 입력하고 리소스 관리 라이브러리에 대해 **설치**를 클릭합니다.
 
 이제 라이브러리를 사용하기 시작하여 응용 프로그램을 만들 준비가 되었습니다.
 
-## 3단계: 요청을 인증하는데 사용되는 자격 증명 만들기
+## 2단계: 요청을 인증하는 데 사용되는 자격 증명 만들기
 
 Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러리가 설치되므로 이제 Azure Resource Manager에 요청을 인증하는 데 사용되는 자격 증명에 대한 응용 프로그램 정보의 서식을 지정합니다. 방법
 
@@ -63,8 +59,8 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.Azure.Management.ResourceManager.Models;
         using Microsoft.Azure.Management.Storage;
         using Microsoft.Azure.Management.Storage.Models;
         using Microsoft.Azure.Management.Network;
@@ -75,32 +71,28 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가하여 자격 증명을 만드는 데 필요한 토큰을 가져옵니다.
 
-        private static string GetAuthorizationHeader()
+        private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
           var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-
           if (result == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token");
           }
-
-          string token = result.AccessToken;
-
           return token;
         }
 
-	{application-id}를 이전에 기록한 응용 프로그램 ID로 바꾸고, {password}를 AD 응용 프로그램에 대해 선택한 암호로 바꾸고, {tenant-id}를 구독을 위한 테넌트 ID로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다.
+	{client-id}를 Azure Active Directory의 식별자로 바꾸고 {client-secret}을 AD 응용 프로그램의 선택키로 바꾸고, {tenant-id}를 구독의 테넌트 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다. 선택키는 Azure 포털을 사용하여 찾을 수 있습니다.
 
 3. Program.cs 파일에서 Main 메서드에 다음 코드를 추가하여 자격 증명을 만듭니다.
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Program.cs 파일을 저장합니다.
 
-## 4단계: 코드를 추가하여 공급자를 등록하고 리소르르 만듭니다.
+## 3단계: 코드를 추가하여 공급자를 등록하고 리소스를 만듭니다.
 
 ### 공급자 등록 및 리소스 그룹 만들기
 
@@ -109,90 +101,90 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 1. 변수를 Program 클래스의 Main 메서드에 추가하여 리소스, "미국 중부"와 같은 리소스의 위치, 관리자 계정 정보 및 구독 식별자에 사용하려는 이름을 지정합니다.
 
         var groupName = "resource group name";
-        var ipName = "public ip name";
-        var avSetName = "availability set name";
-        var nicName = "network interface name";
+        var subscriptionId = "subsciption id";
+        var location = "location name";
         var storageName = "storage account name";
-        var vmName = "virtual machine name";  
-        var vnetName = "virtual network name";
+        var ipName = "public ip name";
         var subnetName = "subnet name";
+        var vnetName = "virtual network name";
+        var nicName = "network interface name";
+        var avSetName = "availability set name";
+        var vmName = "virtual machine name";  
         var adminName = "administrator account name";
         var adminPassword = "administrator account password";
-        var location = "location name";
-        var subscriptionId = "subsciption id";
-
+        
     모든 변수 값을 사용하려는 이름 및 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 구독 식별자를 찾을 수 있습니다.
 
-2. Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 만듭니다.
+2. Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 만들고 공급자를 등록합니다.
 
-        public static void CreateResourceGroup(
+        public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
           string subscriptionId,
           string location)
         {
-          Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var resourceGroup = new ResourceGroup {
-            Location = location
-          };
-          var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-          Console.WriteLine(rgResult.Properties.ProvisioningState);
-
           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
           Console.WriteLine(rpResult.RegistrationState);
+          
+          Console.WriteLine("Creating the resource group...");
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var resourceGroup = new ResourceGroup { Location = location };
+          return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateResourceGroup(
+        var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
           subscriptionId,
           location);
+        Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 ### 저장소 계정 만들기
 
-가상 컴퓨터에 대해 생성된 가상 하드 디스크 파일을 저장하는 데 저장소 계정이 필요합니다.
+가상 컴퓨터에 대해 생성된 가상 하드 디스크 파일을 저장하는 데 [저장소 계정](../storage/storage-create-storage-account.md)이 필요합니다.
 
 1. Program 클래스에 다음 메서드를 추가하여 저장소 계정을 만듭니다.
 
-        public static void CreateStorageAccount(
-          TokenCredentials credential,         
-          string storageName,
+        public static async Task<StorageAccount> CreateStorageAccountAsync(
+          TokenCredentials credential,       
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string storageName)
         {
           Console.WriteLine("Creating the storage account...");
           var storageManagementClient = new StorageManagementClient(credential);
-          storageManagementClient.SubscriptionId = subscriptionId;
-          var saResult = storageManagementClient.StorageAccounts.Create(
+            { SubscriptionId = subscriptionId };
+          return await storageManagementClient.StorageAccounts.CreateAsync(
             groupName,
             storageName,
             new StorageAccountCreateParameters()
             {
-              AccountType = AccountType.StandardLRS,
+              Sku = new Microsoft.Azure.Management.Storage.Models.Sku() 
+                { Name = SkuName.StandardLRS},
+              Kind = Kind.Storage,
               Location = location
             }
           );
-          Console.WriteLine(saResult.ProvisioningState);
         }
 
 2. 방금 추가한 메서드를 호출하려면 Program 클래스의 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateStorageAccount(
+        var stResult = CreateStorageAccountAsync(
           credential,
-          storageName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          storageName);
+        Console.WriteLine(stResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### 공용 IP 주소 만들기
@@ -201,17 +193,17 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1. Program 클래스에 다음 메서드를 추가하여 가상 컴퓨터의 공용 IP 주소를 만듭니다.
 
-        public static void CreatePublicIPAddress(
-          TokenCredentials credential,
-          string ipName,  
+        public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
+          TokenCredentials credential,  
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string ipName)
         {
           Console.WriteLine("Creating the public ip...");
-          var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
-          var ipResult = networkManagementClient.PublicIPAddresses.CreateOrUpdate(
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await networkManagementClient.PublicIPAddresses.CreateOrUpdateAsync(
             groupName,
             ipName,
             new PublicIPAddress
@@ -220,17 +212,17 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
               PublicIPAllocationMethod = "Dynamic"
             }
           );
-          Console.WriteLine(ipResult.ProvisioningState);
         }
 
 2. 방금 추가한 메서드를 호출하려면 Program 클래스의 Main 메서드에 다음 코드를 추가합니다.
 
-        CreatePublicIPAddress(
+        var ipResult = CreatePublicIPAddressAsync(
           credential,
-          ipName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          ipName);
+        Console.WriteLine(ipResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### 가상 네트워크 만들기
@@ -239,19 +231,17 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1. Program 클래스에 다음 메서드를 추가하여 서브넷 및 가상 네트워크를 만듭니다.
 
-        public static void CreateNetwork(
+        public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
           TokenCredentials credential,
-          string vnetName,
-          string subnetName,
-          string nicName,
-          string ipName,
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string vnetName,
+          string subnetName)
         {
           Console.WriteLine("Creating the virtual network...");
-          var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
           
           var subnet = new Subnet
           {
@@ -263,7 +253,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
             AddressPrefixes = new List<string> { "10.0.0.0/16" }
           };
           
-          var vnResult = networkManagementClient.VirtualNetworks.CreateOrUpdate(
+          return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
             groupName,
             vnetName,
             new VirtualNetwork
@@ -273,19 +263,47 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
               Subnets = new List<Subnet> { subnet }
             }
           );
-          
-          Console.WriteLine(vnResult.ProvisioningState);
-          
-          var subnetResponse = networkManagementClient.Subnets.Get(
+        }
+        
+2. 방금 추가한 메서드를 호출하려면 Program 클래스의 Main 메서드에 다음 코드를 추가합니다.
+
+        var vnResult = CreateVirtualNetworkAsync(
+          credential,
+          groupName,
+          subscriptionId,
+          location,
+          vnetName,
+          subnetName);
+        Console.WriteLine(vnResult.Result.ProvisioningState);  
+        Console.ReadLine();
+        
+### 네트워크 인터페이스 만들기
+
+가상 컴퓨터는 방금 만든 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
+
+1. Program 클래스에 다음 메서드를 추가하여 네트워크 인터페이스를 만듭니다.
+
+        public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
+          TokenCredentials credential,
+          string groupName,
+          string subscriptionId,
+          string location,
+          string subnetName,
+          string vnetName,
+          string ipName,
+          string nicName)
+        {
+          Console.WriteLine("Creating the network interface...");
+          var networkManagementClient = new NetworkManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var subnetResponse = await networkManagementClient.Subnets.GetAsync(
             groupName,
             vnetName,
             subnetName
           );
+          var pubipResponse = await networkManagementClient.PublicIPAddresses.GetAsync(groupName, ipName);
 
-          var pubipResponse = networkManagementClient.PublicIPAddresses.Get(groupName, ipName);
-
-          Console.WriteLine("Updating the network with the nic...");
-          var nicResult = networkManagementClient.NetworkInterfaces.CreateOrUpdate(
+          return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
             groupName,
             nicName,
             new NetworkInterface
@@ -295,27 +313,27 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
               {
                 new NetworkInterfaceIPConfiguration
                 {
-                  Name = "nicConfig1",
+                  Name = nicName,
                   PublicIPAddress = pubipResponse,
                   Subnet = subnetResponse
                 }
               }
             }
           );
-          Console.WriteLine(vnResult.ProvisioningState);
         }
 
 2. 방금 추가한 메서드를 호출하려면 Program 클래스의 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateNetwork(
+        var ncResult = CreateNetworkInterfaceAsync(
           credential,
-          vnetName,
-          subnetName,
-          nicName,
-          ipName,
           groupName,
           subscriptionId,
-          location);
+          location,
+          subnetName,
+          vnetName,
+          ipName,
+          nicName);
+        Console.WriteLine(ncResult.Result.ProvisioningState);  
         Console.ReadLine();
 
 ### 가용성 집합 만들기
@@ -324,17 +342,17 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1. Program 클래스에 다음 메서드를 추가하여 가용성 집합을 만듭니다.
 
-        public static void CreateAvailabilitySet(
+        public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
           TokenCredentials credential,
-          string avsetName,
           string groupName,
           string subscriptionId,
-          string location)
+          string location,
+          string avsetName)
         {
           Console.WriteLine("Creating the availability set...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var avResult = computeManagementClient.AvailabilitySets.CreateOrUpdate(
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await computeManagementClient.AvailabilitySets.CreateOrUpdateAsync(
             groupName,
             avsetName,
             new AvailabilitySet()
@@ -346,12 +364,12 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. 방금 추가한 메서드를 호출하려면 Program 클래스의 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateAvailabilitySet(
-          credential,
-          avSetName,
+        var avResult = CreateAvailabilitySetAsync(
+          credential,  
           groupName,
           subscriptionId,
-          location);
+          location,
+          avSetName);
         Console.ReadLine();
 
 ### 가상 컴퓨터 만들기
@@ -360,20 +378,20 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1. Program 클래스에 다음 메서드를 추가하여 가상 컴퓨터를 만듭니다.
 
-        public static void CreateVirtualMachine(
-          TokenCredentials credential,
-          string vmName,
+        public static async Task<VirtualMachine> CreateVirtualMachineAsync(
+          TokenCredentials credential, 
           string groupName,
+          string subscriptionId,
+          string location,
           string nicName,
           string avsetName,
           string storageName,
           string adminName,
           string adminPassword,
-          string subscriptionId,
-          string location)
+          string vmName)
         {
           var networkManagementClient = new NetworkManagementClient(credential);
-          networkManagementClient.SubscriptionId = subscriptionId;
+            { SubscriptionId = subscriptionId };
           var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
 
           var computeManagementClient = new ComputeManagementClient(credential);
@@ -381,7 +399,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
           var avSet = computeManagementClient.AvailabilitySets.Get(groupName, avsetName);
 
           Console.WriteLine("Creating the virtual machine...");
-          var vm = computeManagementClient.VirtualMachines.CreateOrUpdate(
+          return await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(
             groupName,
             vmName,
             new VirtualMachine
@@ -436,46 +454,50 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
           Console.WriteLine(vm.ProvisioningState);
         }
 
-	>[AZURE.NOTE] 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
+	>[AZURE.NOTE] 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
 
 2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateVirtualMachine(
+        var vmResult = CreateVirtualMachineAsync(
           credential,
-          vmName,
           groupName,
+          subscriptionId,
+          location,
           nicName,
-          avSetName,
+          avsetName,
           storageName,
           adminName,
           adminPassword,
-          subscriptionId,
-          location);
+          vmName);
+        Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-##5단계: 코드를 추가하여 리소스 삭제
+##4단계: 리소스를 삭제하는 코드 추가
 
 Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 가상 컴퓨터 및 모든 지원 리소스를 삭제하려는 경우, 리소스 그룹을 삭제해야 합니다.
 
-1. Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 삭제합니다.
+1.	Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 삭제합니다.
 
-        public static void DeleteResourceGroup(
+        public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
-          string groupName)
+          string groupName,
+          string subscriptionId)
         {
-            Console.WriteLine("Deleting resource group...");
-            var resourceGroupClient = new ResourceManagementClient(credential);
-            resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+          Console.WriteLine("Deleting resource group...");
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
-2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
+2.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        DeleteResourceGroup(
+        DeleteResourceGroupAsync(
           credential,
-          groupName);
+          groupName,
+          subscriptionId);
         Console.ReadLine();
 
-## 6단계: 콘솔 응용 프로그램 실행
+## 5단계: 콘솔 응용 프로그램 실행
 
 1. 콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작**을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
 
@@ -489,6 +511,7 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
     
 ## 다음 단계
 
-[C# 및 리소스 관리자 템플릿을 사용하여 Azure 가상 컴퓨터 배포](virtual-machines-windows-csharp-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
+- [C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포](virtual-machines-windows-csharp-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

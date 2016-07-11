@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스 솔루션 빠른 시작 탐색
@@ -30,7 +30,7 @@ GitHub SQL Server 예제 리포지토리의 [PowerShell 및 Power BI를 사용�
 
 이 솔루션 빠른 시작 설명서는 탄력적 풀을 활용하여 SaaS 응용 프로그램의 비용 효과적이고 확장 가능한 데이터베이스 백 엔드를 제공하는 SaaS(Softwware-as-a-Solution) 시나리오에 대한 솔루션을 제공합니다. 이 솔루션에서는 Azure 포털을 보완하는 사용자 지정 대시보드를 사용하여 부하 생성기가 탄력적 풀에서 생성하는 부하를 시각화할 수 있는 웹앱 구현 과정을 안내합니다.
 
-GitHub SQL Server 샘플 리포지토리의 [Saas-scenario-with-elastic-pool](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)에서는 부하 생성기와 모니터링 웹앱 및 이러한 기능이 수행하는 작업과 사용 방법에 대한 설명서를 제공합니다.
+GitHub SQL Server 샘플 리포지토리의 [Saas에 대한 탄력적 풀 사용자 지정 대시보드](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard)에서는 부하 생성기와 모니터링 웹앱 및 이러한 기능이 수행하는 작업과 사용 방법에 대한 설명서를 제공합니다.
 
 ## Entity Framework 및 Code First 개발을 사용하여 Azure SQL 데이터베이스 만들기
 
@@ -52,4 +52,4 @@ GitHub SQL Server 샘플 리포지토리의 [Saas-scenario-with-elastic-pool](ht
 
 [Azure SQL 데이터베이스 자습서 탐색](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

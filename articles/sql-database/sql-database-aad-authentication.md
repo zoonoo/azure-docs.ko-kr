@@ -150,7 +150,7 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL 데이터베이스의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (다음 스크린샷은 Azure SQL 데이터베이스를 보여 주지만 동일한 개념이 Azure SQL 데이터 웨어하우스에 적용됩니다.)
 
 	![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 **SQL 데이터 웨어하우스** 를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
+2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 ** SQL 데이터 웨어하우스**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
 
 	![ad 설정][9]
 3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
@@ -336,7 +336,7 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 ### 7\.3 Azure AD 토큰에 연결
 이 인증 방법을 사용하면 AAD(Azure Active Directory)에서 토큰을 가져와 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에 연결할 수 있습니다. 이는 인증서 기반 인증을 비롯한 정교한 시나리오를 지원합니다. Azure AD 토큰 인증을 사용하려면 다음 네 가지 기본 단계를 완료해야 합니다.
 
-1. Azure Active Directory에 응용 프로그램을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다. 
+1. Azure Active Directory에 응용 프로그램을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다.
 2. 응용 프로그램을 나타내는 데이터베이스 사용자를 만듭니다(이전 6단계에서 완료).
 3. 응용 프로그램을 실행할 클라이언트 컴퓨터에서 인증서를 만듭니다.
 4. 인증서를 응용 프로그램의 키로 추가합니다.
@@ -367,4 +367,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

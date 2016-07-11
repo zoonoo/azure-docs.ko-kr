@@ -1,6 +1,6 @@
 <properties pageTitle="Node.js 모듈 작업" description="Azure 앱 서비스 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="05/04/2016" ms.author="robmcm"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="06/24/2016" ms.author="robmcm"/>
 
 
 
@@ -78,4 +78,4 @@ Azure 앱 서비스에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

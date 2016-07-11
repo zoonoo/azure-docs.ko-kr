@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 데이터베이스 관리 및 문제 해결
@@ -35,8 +35,8 @@ GO
  ```
 ## 데이터 마이그레이션 관리
 
-### 테이블에 적용된 필터 조건자 확인
-카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열 값을 확인하여 스트레치 데이터베이스가 마이그레이션할 행을 선택하는 데 사용하는 함수를 식별합니다. 값이 null이면 전체 테이블을 마이그레이션할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
+### 테이블에 적용된 필터 함수 확인
+카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열 값을 확인하여 스트레치 데이터베이스가 마이그레이션할 행을 선택하는 데 사용하는 함수를 식별합니다. 값이 null이면 전체 테이블을 마이그레이션할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) 및 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요.
 
 ### <a name="Migration"></a>데이터 마이그레이션 상태 확인
 스트레치 데이터베이스 모니터에서 데이터 마이그레이션을 모니터링하려면 SQL Server Management Studio에서 데이터베이스에 대한 **작업 | 스트레치 | 모니터**를 선택합니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결(스트레치 데이터베이스)](sql-server-stretch-database-monitor.md)을 참조하세요.
@@ -98,7 +98,7 @@ Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.s
 
 ### <a name="queryHints"></a>관리자에 대해 단일 쿼리의 쿼리 범위 변경  
  Db\_owner 역할 구성원의 단일 쿼리에 대한 범위를 변경하려면 **WITH ( REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *value* )** 쿼리 힌트를 SELECT 문에 추가합니다. REMOTE\_DATA\_ARCHIVE\_OVERRIDE 쿼리 힌트는 다음 값을 가질 수 있습니다.
- -   **LOCAL\_ONLY**. 로컬 데이터만 쿼리합니다.  
+ -   **LOCAL\_ONLY**. 로컬 데이터만 쿼리합니다.
 
  -   **REMOTE\_ONLY**. 원격 데이터만 쿼리합니다.
 
@@ -115,7 +115,7 @@ Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.s
 
 ## <a name="adminHints"></a>관리 업데이트 및 삭제 수행  
  기본적으로 스트레치 지원 테이블에서 마이그레이션에 적합한 행이나 이미 마이그레이션된 행은 업데이트하거나 삭제할 수 없습니다. 이 문제를 해결해야 할 경우 Db\_owner 역할의 구성원은 문에 **WITH ( REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *value* )** 쿼리 힌트를 추가하여 업데이트 또는 삭제 작업을 실행할 수 있습니다. REMOTE\_DATA\_ARCHIVE\_OVERRIDE 쿼리 힌트는 다음 값을 가질 수 있습니다.
- -   **LOCAL\_ONLY**. 로컬 데이터만 업데이트 또는 삭제합니다.  
+ -   **LOCAL\_ONLY**. 로컬 데이터만 업데이트 또는 삭제합니다.
 
  -   **REMOTE\_ONLY**. 원격 데이터만 업데이트 또는 삭제합니다.
 
@@ -129,4 +129,4 @@ Azure로 이미 마이그레이션된 데이터를 삭제하려는 경우 [sys.s
 
 [스트레치 지원 데이터베이스 복원](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

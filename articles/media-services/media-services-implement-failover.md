@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #장애 조치 스트리밍 시나리오 구현
@@ -22,10 +22,10 @@
 
 1. "데이터 센터 A"에서 미디어 서비스 계정을 설치합니다.
 1. mezzanine 파일을 원본 자산에 업로드합니다.
-1. 자산을 다중 비트 전송률 MP4 파일로 인코딩합니다. 
+1. 자산을 다중 비트 전송률 MP4 파일로 인코딩합니다.
 1. 원본 자산에 읽기 전용 SAS 로케이터를 만들어 원본 자산과 연관된 저장소 계정에서 컨테이너에 대한 읽기 액세스 권한을 갖습니다.
 1. 이전 단계에서 만든 읽기 전용 SAS 로케이터에서 원본 자산의 컨테이너 이름을 가져옵니다. 저장소 계정 간에 blob를 복사하기 위해 이 정보가 필요합니다.(이 항목의 뒷부분에 설명함)
-1. 인코딩 작업에서 만든 자산에 원본 로케이터를 만듭니다. 
+1. 인코딩 작업에서 만든 자산에 원본 로케이터를 만듭니다.
 
 그런 다음 장애 조치를 처리합니다.
 
@@ -33,17 +33,17 @@
 1. 대상 미디어 서비스 계정에서 빈 대상 자산을 만듭니다.
 1. 빈 대상 자산에 쓰기 SAS 로케이터를 만들어 대상 자산과 연관된 대상 저장소 계정에서 컨테이너에 대한 쓰기 액세스 권한을 갖습니다.
 1. Azure 저장소 SDK를 사용하여 "데이터 센터 A"의 원본 저장소 계정과 "데이터 센터 B"의 대상 저장소 계정 간에 blob(자산 파일)를 복사합니다.(이러한 저장소 계정은 관련 자산과 연관됨)
-1. 대상 자산을 사용하여 대상 blob 컨테이너에 복사된 blob(자산 파일)를 연결합니다. 
-1. "데이터 센터 B"의 자산에 원본 로케이터를 만들고 "데이터 센터 A"의 자산에 생성된 로케이터 ID를 지정합니다. 
-1. 이렇게 하면 URL의 상대 경로가 동일한 스트리밍 URL 위치를 제공합니다.(기본 URL만 다름) 
+1. 대상 자산을 사용하여 대상 blob 컨테이너에 복사된 blob(자산 파일)를 연결합니다.
+1. "데이터 센터 B"의 자산에 원본 로케이터를 만들고 "데이터 센터 A"의 자산에 생성된 로케이터 ID를 지정합니다.
+1. 이렇게 하면 URL의 상대 경로가 동일한 스트리밍 URL 위치를 제공합니다.(기본 URL만 다름)
  
 그런 다음 정전 문제를 처리하려면 이러한 원본 로케이터 위에 CDN을 만들 수 있습니다.
 
 고려 사항은 다음과 같습니다.
 
 - 미디어 서비스 SDK의 현재 버전은 지정된 로케이터 ID를 사용하여 로케이터를 만들도록 지원하지 않습니다. 이 작업을 수행하려면 미디어 서비스 REST API를 사용합니다.
-- 미디어 서비스 SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이 작업을 수행하려면 CreateFileInfos 미디어 서비스 REST API를 사용합니다. 
-- 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다.(암호화 키가 미디어 서비스 계정 모두에서 다르기 때문에) 
+- 미디어 서비스 SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이 작업을 수행하려면 CreateFileInfos 미디어 서비스 REST API를 사용합니다.
+- 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다.(암호화 키가 미디어 서비스 계정 모두에서 다르기 때문에)
 - 동적 패키징의 장점을 활용하려면 먼저 하나 이상의 주문형 스트리밍 예약 단위를 가져와야 합니다. 자세한 내용은 [동적으로 자산 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
  
 
@@ -61,7 +61,7 @@
 이 섹션에서는 C# 콘솔 응용 프로그램 프로젝트를 만들고 설정합니다.
 
 1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 HandleRedundancyForOnDemandStreaming를 입력하고 확인을 클릭합니다.
-1. HandleRedundancyForOnDemandStreaming.csproj 프로젝트 파일과 동일한 수준에 SupportFiles 폴더를 만듭니다. SupportFiles 폴더에서 OutputFiles 및 MP4Files 폴더를 만듭니다. MP4Files 폴더에 .mp4 파일을 복사합니다.(이 예에서 BigBuckBunny.mp4 파일을 사용함) 
+1. HandleRedundancyForOnDemandStreaming.csproj 프로젝트 파일과 동일한 수준에 SupportFiles 폴더를 만듭니다. SupportFiles 폴더에서 OutputFiles 및 MP4Files 폴더를 만듭니다. MP4Files 폴더에 .mp4 파일을 복사합니다.(이 예에서 BigBuckBunny.mp4 파일을 사용함)
 1. **Nuget**을 사용하여 미디어 서비스 관련된 DLL에 참조를 추가합니다. Visual Studio 주 메뉴에서 도구 -> 라이브러리 패키지 관리자 -> 패키지 관리자 콘솔을 선택합니다. 콘솔 창에 Install-Package windowsazure.mediaservices를 입력하고 Enter를 누릅니다.
 1. System.Configuration, System.Runtime.Serialization, 및 System.Web와 같이 이 프로젝트에 필요한 다른 참조를 추가합니다.
 1. 기본적으로 Programs.cs 파일에 추가한 using 문을 다음 중 하나로 바꿉니다.
@@ -799,7 +799,7 @@
 		    sb.Append(", "AccessPolicyId" : "" + accessPolicyId + """);
 		    sb.Append(", "Type" : "" + locatorType + """);
 		    if (startTime != DateTime.MinValue)
-		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("ko-KR")) + """);
+		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("en-us")) + """);
 		    if (!string.IsNullOrEmpty(locatorIdToReplicate))
 		        sb.Append(", "Id" : "" + locatorIdToReplicate + """);
 		    sb.Append("}");
@@ -972,4 +972,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

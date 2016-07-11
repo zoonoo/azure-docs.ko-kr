@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 DNS 구성
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [VPN 연결 구성](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
+- [HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 
 
 Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네트워크 내부 및 가상 네트워크 간에 이름 확인을 처리하는 방법에 대해 알아봅니다.
@@ -67,8 +67,8 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 2.	**Windows Server 2012 R2 Datacenter**를 선택합니다.
 3.	다음을 입력합니다.
 	- **가상 컴퓨터 이름**: Contoso-DNS-EU
-	- **새 사용자 이름**: 
-	- **새 암호**: 
+	- **새 사용자 이름**:
+	- **새 암호**:
 4.	다음을 입력합니다.
 	- **클라우드 서비스**: 새 클라우드 서비스를 만듭니다.
 	- **지역/선호도 그룹/가상 네트워크**:(Contoso-VNet-EU 선택)
@@ -77,8 +77,8 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 	
 		클라우드 서비스 이름은 가상 컴퓨터 이름과 같아야 합니다. 이 경우 Contoso-DNS-EU입니다. 이후 가상 컴퓨터의 경우, 동일한 클라우드 서비스를 사용하도록 선택할 수 있습니다. 동일한 클라우드 서비스 내의 모든 가상 컴퓨터는 동일한 가상 네트워크 및 도메인 접미사를 공유합니다.
 
-		저장소 계정이 가상 컴퓨터 이미지 파일을 저장하는데 사용됩니다. 
-	- **끝점**:(아래로 스크롤하여 **DNS** 선택) 
+		저장소 계정이 가상 컴퓨터 이미지 파일을 저장하는데 사용됩니다.
+	- **끝점**:(아래로 스크롤하여 **DNS** 선택)
 
 가상 컴퓨터를 만든 후 내부 IP 및 외부 IP를 확인합니다.
 
@@ -105,7 +105,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 클래
 **두 가상 컴퓨터에 대한 고정 IP 주소를 구성하려면**
 
 1. Windows PowerShell ISE를 엽니다.
-2. 다음 cmdlet을 실행합니다.  
+2. 다음 cmdlet을 실행합니다.
 
 		Add-AzureAccount
 		Select-AzureSubscription [YourAzureSubscriptionName]
@@ -122,7 +122,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 클래
 
 **Contoso-DNS-EU에 대한 DNS 서버 역할을 추가하려면**
 
-1.	Azure 클래식 포털에서 왼쪽에 있는 **가상 컴퓨터**를 클릭합니다. 
+1.	Azure 클래식 포털에서 왼쪽에 있는 **가상 컴퓨터**를 클릭합니다.
 2.	**Contoso-DNS-EU**를 클릭합니다.
 3.	위쪽에서 **대시보드**를 클릭합니다.
 4.	아래쪽에서 **연결**을 클릭하고 지침에 따라 RDP를 통해 가상 컴퓨터에 연결합니다.
@@ -134,7 +134,7 @@ DNS 서버에는 고정 IP 주소가 필요합니다. 이 단계는 Azure 클래
 7.	DNS 가상 컴퓨터(이미 강조 표시되어 있음)를 선택하고 **다음**을 클릭합니다.
 8.	**DNS 서버**를 선택합니다.
 9.	**기능 추가**를 클릭하고 **계속**을 클릭합니다.
-10.	**다음**을 세 번 클릭한 후 **설치**를 클릭합니다. 
+10.	**다음**을 세 번 클릭한 후 **설치**를 클릭합니다.
 
 **Contoso-DNS-US에 대한 DNS 서버 역할을 추가하려면**
 
@@ -184,7 +184,7 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 1. **Contoso-DNS-EU**로 RDP를 연결합니다.
 2. Windows PowerShell 콘솔 또는 명령 프롬프트를 엽니다.
 3. **ipconfig**를 실행하고 **연결별 DNS 접미사**를 적어 둡니다.
-4. RDP 세션을 닫지 마세요. 계속 필요합니다. 
+4. RDP 세션을 닫지 마세요. 계속 필요합니다.
 5. 같은 단계를 반복하여 **Contoso-DNS-US**의 **연결별 DNS 접미사**를 확인합니다.
 
 
@@ -199,7 +199,7 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 	- **마스터 서버의 IP 주소**: Contoso-DNS-US의 IP 주소인 10.2.0.4를 입력합니다.
 6.	**Enter** 키를 누르고 **확인**을 클릭합니다. 이제 Contoso-DNS-EU에서 Contoso-DNS-US의 IP 주소를 확인할 수 있습니다.
 7.	다음 값으로 단계를 반복하여 Contoso-DNS-US 가상 컴퓨터의 DNS 서비스에 DNS 전달자를 추가합니다.
-	- **DNS 도메인**: Contoso-DNS-EU의 DNS 접미사를 입력합니다. 
+	- **DNS 도메인**: Contoso-DNS-EU의 DNS 접미사를 입력합니다.
 	- **마스터 서버의 IP 주소**: Contoso-DNS-EU의 IP 주소인 10.2.0.4를 입력합니다.
 
 ##가상 네트워크에서 이름 확인 테스트
@@ -222,4 +222,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -3,7 +3,7 @@
    description="인증 및 권한 부여를 위한 앱 토큰에 대한 Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Power BI Embedded의 앱 토큰 흐름 정보
 
@@ -56,4 +56,4 @@
 - [일반적인 Microsoft Power BI Embedded 미리 보기 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

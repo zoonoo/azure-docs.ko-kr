@@ -54,7 +54,7 @@ PowerShell에 대한 Azure 리소스 관리자(ARM) 모듈의 최신 프로덕�
 
 ### 1단계
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
 
@@ -62,20 +62,20 @@ PowerShell에 대한 Azure 리소스 관리자(ARM) 모듈의 최신 프로덕�
 
 계정에 대한 구독을 확인합니다.
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### 3단계 
 
 사용할 Azure 구독을 선택합니다. <BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### 4단계
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## 프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
@@ -181,7 +181,7 @@ NIC를 만들어야 하는 가상 네트워크 및 가상 네트워크 서브넷
 NIC를 확인합니다.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 예상된 출력:
 
@@ -248,7 +248,7 @@ NIC를 확인합니다.
 
 백 엔드 구성을 변수로 로드합니다.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### 3단계 
 
@@ -260,13 +260,13 @@ NIC를 확인합니다.
 
 네트워크 인터페이스에서 백 엔드 구성을 변경합니다.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### 5단계 
 
 네트워크 인터페이스 개체를 저장합니다.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 네트워크 인터페이스가 부하 분산 장치 백 엔드 풀에 추가된 후 해당 부하 분산 장치 리소스에 대한 부하 분산 규칙에 따라 네트워크 트래픽을 받기 시작합니다.
 
@@ -308,4 +308,4 @@ Set-AzureLoadBalancer를 사용하여 새 구성 저장
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

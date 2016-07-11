@@ -20,7 +20,7 @@
 
 다음과 같은 두 가지 종류의 Azure RemoteApp 컬렉션이 있습니다.
 
-- 클라우드: Azure에 완전히 상주합니다. 클라우드에 모든 데이터를 저장(클라우드 전용 컬렉션)하거나 컬렉션을 VNET에 연결하고 해당 위치에 데이터를 저장하도록 선택할 수 있습니다.   
+- 클라우드: Azure에 완전히 상주합니다. 클라우드에 모든 데이터를 저장(클라우드 전용 컬렉션)하거나 컬렉션을 VNET에 연결하고 해당 위치에 데이터를 저장하도록 선택할 수 있습니다.
 - 하이브리드: 온-프레미스 액세스를 위해 가상 네트워크를 포함합니다. 이 경우 Azure AD 및 온-프레미스 Active Directory 환경을 사용해야 합니다.
 
 필요한 사항을 모르십니까? [Azure RemoteApp에 필요한 컬렉션의 종류](remoteapp-collections.md)를 확인합니다.
@@ -112,7 +112,7 @@ Azure RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이
 
 RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다.
 
-[AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)를 확인합니다. 이 문서는 4단계에서 디렉터리 통합을 설정하는 데 도움이 됩니다.
+[AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/)를 확인합니다. 이 문서는 4단계에서 디렉터리 통합을 설정하는 데 도움이 됩니다.
 
 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵](http://msdn.microsoft.com//library/azure/hh967642.aspx)을 참조하세요.
 
@@ -149,4 +149,4 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 ### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -37,7 +37,7 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	[여러 곳의 지리적 위치에 배포할 때 API 관리에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
-
+-	[GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇인가요?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 
 
 ### API 관리 팀에 질문하려면 어떻게 해야 합니까?
@@ -75,7 +75,7 @@ API 관리 서비스 인스턴스를 새 인스턴스에 복사하는 데 사용
 
 아래 단계를 통해 수행할 수 있습니다.
 
-1. 새 [Azure 포털](https://portal.azure.com)에 로그인 
+1. 새 [Azure 포털](https://portal.azure.com)에 로그인
 2. 원하는 API 관리 인스턴스를 포함하는 리소스 그룹으로 이동
 3. "API 관리 참여자" 역할에 원하는 사용자를 추가
 
@@ -146,4 +146,8 @@ API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-man
 2. skipCertificateChainValidation 속성을 true로 설정
 3. 자체 서명된 인증서를 더 이상 허용하지 않으려면 백 엔드 엔터티를 삭제하거나 skipCertificateChainValidation 속성을 false로 설정할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+### GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇인가요? 
+
+GIT 자격 증명 관리자를 사용하거나 Visual Studio를 통해 리포지토리를 복제하려고 하면 암호 길이를 127자로만 제한하여 생성된 암호가 잘리는 Windows 자격 증명 대화 상자의 알려진 문제가 발생한 것일 수 있습니다. 암호 길이를 줄이는 작업 중입니다. 현재는 복제하는 데 GIT Bash를 사용하세요.
+
+<!---HONumber=AcomDC_0629_2016-->

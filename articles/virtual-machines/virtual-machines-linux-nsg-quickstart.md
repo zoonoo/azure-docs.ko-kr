@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Linux VM에 대한 외부 액세스 허용 | Microsoft Azure"
+   pageTitle="Linux VM에 대한 포트 또는 끝점 열기 | Microsoft Azure"
    description="리소스 관리자 배포 모드 및 Azure CLI를 사용하여 Linux VM에 대한 외부 액세스를 허용하는 포트를 열고 끝점을 만드는 방법 알아보기"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,11 +16,11 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# VM에 대한 외부 액세스 허용
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+# 포트 및 끝점 열기
+서브넷 또는 VM(가상 컴퓨터) 네트워크 인터페이스에서 선택한 포트에 트래픽을 허용하는 네트워크 필터를 만들어 Azure에서 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 네트워크 보안 그룹에 배치하고 트래픽을 수신하는 리소스에 연결합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다.
 
 ## 빠른 명령
-네트워크 보안 그룹 및 규칙을 만들려면 리소스 관리자 모드(`azure config mode arm`)에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
+네트워크 보안 그룹 및 규칙을 만들려면 Resource Manager 모드(`azure config mode arm`)에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
 
 고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다.
 
@@ -61,4 +61,4 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

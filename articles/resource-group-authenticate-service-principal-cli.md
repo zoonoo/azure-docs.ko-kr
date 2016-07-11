@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure CLI를 사용하여 AD 응용 프로그램 만들기 | Microsoft Azure"
-   description="Azure CLI를 사용하여 Active Directory 응용 프로그램을 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 암호 또는 인증서를 사용하여 응용 프로그램을 인증하는 방법을 보여 줍니다."
+   pageTitle="Azure CLI에서 서비스 주체 만들기 | Microsoft Azure"
+   description="Azure CLI를 사용하여 Active Directory 응용 프로그램 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 암호 또는 인증서를 사용하여 응용 프로그램을 인증하는 방법을 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Azure CLI를 사용하여 리소스에 액세스하는 Active Directory 응용 프로그램 만들기
+# Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -149,7 +149,7 @@
 스크립트에서 서비스 주체로 로그인하는 데 필요한 세 가지 값을 전달합니다. 다음 정보가 필요합니다.
 
 - 응용 프로그램 ID
-- 테넌트 ID 
+- 테넌트 ID
 - 인증서 지문
 
 이전 단계에서 응용 프로그램 ID 및 인증서 지문을 확인했습니다. 그러나 나중에 이러한 값을 검색해야 하는 경우 명령은 아래와 같이 테넌트 ID를 가져오는 명령과 함께 표시됩니다.
@@ -183,10 +183,10 @@ Azure CLI를 인증하려면 인증서 지문, 인증서 파일, 응용 프로�
 ## 다음 단계
   
 - .NET 인증 예제의 경우 [.NET용 Azure Resource Manager SDK](resource-manager-net-sdk.md)를 참조하세요.
-- Java 인증 예제의 경우 [Java용 Azure Resource Manager SDK](resource-manager-java-sdk.md)를 참조하세요. 
+- Java 인증 예제의 경우 [Java용 Azure Resource Manager SDK](resource-manager-java-sdk.md)를 참조하세요.
 - Python 인증 예제의 경우 [Python에 대한 리소스 관리 인증](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html)을 참조하세요.
 - REST 인증 예제의 경우 [REST APIs용 Resource Manager SDK](resource-manager-rest-api.md)를 참조하세요.
 - 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
-- 인증서 및 Azure CLI 사용에 대한 자세한 내용은 [Linux 명령줄에서 Azure 서비스 보안 주체로 인증서 기반 인증](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)을 참조하세요. 
+- 인증서 및 Azure CLI 사용에 대한 자세한 내용은 [Linux 명령줄에서 Azure 서비스 보안 주체로 인증서 기반 인증](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

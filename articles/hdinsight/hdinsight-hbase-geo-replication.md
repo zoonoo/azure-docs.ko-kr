@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # HDInsight에서 HBase 지역에서 복제 구성
@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [VPN 연결 구성](../hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
+- [HBase 복제 구성](hdinsight-hbase-geo-replication.md)
  
 두 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다. 클러스터 복제의 몇 가지 사용 사례는 다음과 같습니다.
 
@@ -169,18 +169,18 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 
 **DNS 전달자를 구성하려면**
  
-1.	**Contoso-DNS-EU**로 RDP를 연결합니다. 
+1.	**Contoso-DNS-EU**로 RDP를 연결합니다.
 2.	왼쪽 아래에서 Windows 키를 클릭합니다.
 2.	**관리 도구**를 클릭합니다.
 3.	**DNS**를 클릭합니다.
 4.	왼쪽 창에서 **DSN**, **Contoso-DNS-EU**를 확장합니다.
-5.	**조건부 전달자**를 마우스 오른쪽 단추로 클릭하고 **새 조건부 전달자**를 클릭합니다. 
+5.	**조건부 전달자**를 마우스 오른쪽 단추로 클릭하고 **새 조건부 전달자**를 클릭합니다.
 5.	다음 정보를 입력합니다.
 	- **DNS 도메인**: Contoso-HBase-US의 DNS 접미사를 입력합니다. 예를 들면 Contoso-HBase-US.f5.internal.cloudapp.net과 같습니다.
 	- **마스터 서버의 IP 주소**: Contoso-DNS-US의 IP 주소인 10.2.0.4를 입력합니다. IP를 확인하세요. DNS 서버의 IP 주소가 다를 수 있습니다.
 6.	**Enter** 키를 누르고 **확인**을 클릭합니다. 이제 Contoso-DNS-EU에서 Contoso-DNS-US의 IP 주소를 확인할 수 있습니다.
 7.	다음 값으로 단계를 반복하여 Contoso-DNS-US 가상 컴퓨터의 DNS 서비스에 DNS 조건부 전달자를 추가합니다.
-	- **DNS 도메인**: Contoso-HBase-EU의 DNS 접미사를 입력합니다. 
+	- **DNS 도메인**: Contoso-HBase-EU의 DNS 접미사를 입력합니다.
 	- **마스터 서버의 IP 주소**: Contoso-DNS-EU의 IP 주소인 10.2.0.4를 입력합니다.
 
 **도메인 이름 확인을 테스트하려면**
@@ -314,4 +314,4 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

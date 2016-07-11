@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #고급 미디어 인코더 Premium 워크플로 자습서
@@ -27,7 +27,7 @@
 다음 항목이 다루어집니다.
 
 - [단일 비트 전송률 MP4로 MXF 인코딩](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [새 워크플로 시작](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [새 워크플로 시작](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [미디어 파일 입력 사용](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [미디어 스트림 검사](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [MP4 파일 생성을 위해 비디오 인코더 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@
 
 - 기본 원본 파일
 - 클립 목록 XML
-- 출력 파일/자산  
+- 출력 파일/자산
 
 ![새 인코딩 워크플로](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -791,7 +791,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 *결과 클립 목록 로깅*
 
-비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, 처음 시작 및 종료 지점을 설정한 때에만 xml을 변환할 수 있고 다른 시점에는 자르기 요소가 이미 있는 경우 가드 절(if(clipListXML.indexOf("<trim>") == -1))이 다른 자르기 요소를 추가할 수 없도록 방지합니다.
+비디오 및 오디오 스트림을 자르는 방법을 보려면 테스트 실행을 수행합니다. 하지만 트리밍 지점에 대한 값이 서로 다른 둘 이상의 테스트를 실행하면 고려하지 않은 점인 있음을 알 수 있습니다! 이유는 Azure 런타임과 달리 디자이너가 실행할 때 마다 cliplist xml을 재정의하지 않기 때문입니다. 즉, 시작 및 종료 지점을 처음 설정한 때에만 xml을 변환할 수 있습니다. 나머지 경우에는 워크플로에서 다른 자르기 요소를 추가하지 못하도록 가드 절(if(clipListXML.indexOf("<trim>") == -1))이 방지합니다.
 
 워크플로를 편리하게 로컬로 테스트하려는 가장 좋은 방법은 자르기 요소가 이미 있는지 조사하는 정리 코드를 추가하는 것입니다. 그렇다면 새 값으로 xml을 수정하여 계속하기 전에 제거할 수 있습니다. 일반 문자열 조작을 사용하지 않고 구문 분석하는 실제 xml 개체 모델을 통해이 작업을 수행하는 것이 안전합니다.
 
@@ -986,4 +986,4 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

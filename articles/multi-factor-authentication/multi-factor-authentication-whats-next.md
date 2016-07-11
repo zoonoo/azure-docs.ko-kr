@@ -32,7 +32,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 [사기 행위 경고](#fraud-alert)|사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 사기를 보고할 수 있습니다.|사기 행위 설치, 구성 및 보고 방법
 [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 Multi-Factor Authentication "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다.|일회성 바이패스 설치 및 구성 방법
 [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 Multi-Factor Authentication으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. |사용자 지정 인사말 및 메시지 설정 및 구성 방법
-[캐싱](#caching)|캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. |인증 캐싱을 설정 및 구성하는 방법입니다.
+[캐싱](#caching-in-azure-multi-factor-authentication)|캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. |인증 캐싱을 설정 및 구성하는 방법입니다.
 [신뢰할 수 있는 IP](#trusted-ips)|신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다.|Multi-Factor Authentication에서 제외된 IP 주소 구성 및 설정	
 [앱 암호](#app-passwords)|앱 암호를 사용하면 mfa를 인식하지 않는 응용 프로그램은 Multi-Factor Authentication를 바이패스하고 계속 작업할 수 있습니다.|앱 암호에 대한 정보입니다.
 [기억된 장치 및 브라우저용 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-users-trust)|사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다.|이 기능을 활성화하고 일 수를 설정하는 방법에 대한 정보입니다.
@@ -50,7 +50,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 3.	Azure Multi-Factor Authentication 관리 포털의 구성 섹션에서 설정을 클릭합니다.
 4.	설정 페이지의 사기 경고 섹션에서 허용 사용자를 선택하여 사기 행위 경고 확인란을 제출합니다.
 5.	사기 보고 시 사용자를 차단하려는 경우 사기 보고 시 사용자 차단에 확인란을 선택합니다.
-6.	**초기 인사말 중 사기 행위 보고 코드** 텍스트 상자에 호출 확인 중 사용할 수 있는 숫자 코드를 입력합니다. 사용자가 # 기호 대신 코드와 #를 입력하면 사기 행위 경고가 보고됩니다. 
+6.	**초기 인사말 중 사기 행위 보고 코드** 텍스트 상자에 호출 확인 중 사용할 수 있는 숫자 코드를 입력합니다. 사용자가 # 기호 대신 코드와 #를 입력하면 사기 행위 경고가 보고됩니다.
 7.	아래쪽에서 저장을 클릭합니다.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 
 
 1. 전화에 전송된 확인 메시지를 클릭하면 Azure Authenticator 앱이 시작됩니다.
-2. 사기를 보고하려면 취소 및 사기 보고를 클릭합니다. 그러면 조직의 IT 지원 담당자에 통지됩니다라는 상자가 표시됩니다. 
+2. 사기를 보고하려면 취소 및 사기 보고를 클릭합니다. 그러면 조직의 IT 지원 담당자에 통지됩니다라는 상자가 표시됩니다.
 3. 사기 행위 보고를 클릭합니다.
 4. 앱에서 닫기를 클릭합니다.
 
@@ -194,7 +194,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
 6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 다음 중 하나를 선택합니다.
 
-	- 내 인트라넷에서 발생한 페더레이션된 사용자의 요청에 대해 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-Factor Authentication을 바이패스합니다. 
+	- 내 인트라넷에서 발생한 페더레이션된 사용자의 요청에 대해 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-Factor Authentication을 바이패스합니다.
 	- 공용 IP 중 특정 범위의 요청에 대해 CIDR 표기법을 사용하여 제공된 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 50개의 IP 주소 범위를 입력할 수 있습니다.
 
 7. 저장을 클릭합니다.
@@ -321,7 +321,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 ### Office 365 또는 Azure 구독이 없는 경우 앱 암호를 만들려면
 --------------------------------------------------------------------------------
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.	
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 2. 위쪽에서 프로필을 선택합니다.
 3. 사용자 이름을 클릭하고 추가 보안 확인을 선택합니다.
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
@@ -362,8 +362,8 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 :------------- | :------------- | 
 [휴대폰에 전화 걸기](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 인증 휴대폰으로 자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다.
 [휴대폰에 문자 메시지 전송](multi-factor-authentication-end-user-first-time-mobile-phone.md)|확인 코드를 포함하는 문자 메시지를 사용자에게 보냅니다. 사용자는 확인 코드로 문자 메시지에 응답하거나 또는 로그인 인터페이스에 확인 코드를 입력하도록 요구됩니다.
-[모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Azure Authenticator 앱은 [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 제공됩니다.|
-[모바일 앱의 확인 코드](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 이 확인 코드를 사용자 이름 및 암호와 함께 입력하여 두 번째 형식의 인증을 제공할 수 있습니다.</li><br><p> [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
+[모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Azure Authenticator 앱은 [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 제공됩니다.|
+[모바일 앱의 확인 코드](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 이 확인 코드를 사용자 이름 및 암호와 함께 입력하여 두 번째 형식의 인증을 제공할 수 있습니다.</li><br><p> [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
 
 ### 인증 방법을 활성화/비활성화하는 방법
 
@@ -376,4 +376,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

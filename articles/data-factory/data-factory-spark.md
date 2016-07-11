@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Data Factory에서 Spark 프로그램 호출
@@ -102,9 +102,9 @@ Data Factory 파이프라인에서 MapReduce 작업을 사용하여 HDInsight Sp
 
 보는 것처럼 MapReduce 작업은 Azure 저장소의 **libs** 컨테이너에 있는 **spark-adf-job-bin.jar**을 호출하도록 구성됩니다(StorageLinkedService.json에서 지정) . 이 프로그램의 소스 코드는 Spark-ADF/src/main/java/com/adf/spark 폴더에 있으며 spark-submit을 호출하고 Spark 작업을 실행합니다.
 
-HDInsight Spark 클러스터에서 실행되는 이 MapReduce 프로그램(spark-adf-job-bin.jar)은 Spark 프로그램 **sparkdemoapp\_2.10-1.0.jar**을 호출하고 MapReduce 작업(위의 JSON에 표시)을 통해 받은 인수를 Spark 프로그램에 전달합니다. **sparkdemoapp\_2.10-1.0.jar**에는 Azure blob 컨테이너 간에 데이터를 복사하는 Scala 소스 코드가 포함되어 있습니다. 이 데모 앱 jar를 Spark를 사용하여 실행하려는 작업이 포함된 다른 jar로 바꿀 수 있습니다.
+HDInsight Spark 클러스터에서 실행되는 이 MapReduce 프로그램(spark-adf-job-bin.jar)은 Spark 프로그램 **sparkdemoapp_2.10-1.0.jar**을 호출하고 MapReduce 작업(위의 JSON에 표시)을 통해 받은 인수를 Spark 프로그램에 전달합니다. **sparkdemoapp_2.10-1.0.jar**에는 Azure blob 컨테이너 간에 데이터를 복사하는 Scala 소스 코드가 포함되어 있습니다. 이 데모 앱 jar를 Spark를 사용하여 실행하려는 작업이 포함된 다른 jar로 바꿀 수 있습니다.
 
-다시 말해, **MapReduce 작업**은 Spark 프로그램 **sparkdemoapp\_2.10-1.0.jar**을 호출하는 MapReduce 프로그램 **spark-adf-job-bin.jar**을 호출합니다. 사용자 고유의 Spark 프로그램을 실행하려면 sparkdemoapp\_2.10-1.0.jar을 해당 프로그램으로 바꿉니다.
+다시 말해, **MapReduce 작업**은 Spark 프로그램 **sparkdemoapp_2.10-1.0.jar**을 호출하는 MapReduce 프로그램 **spark-adf-job-bin.jar**을 호출합니다. 사용자 고유의 Spark 프로그램을 실행하려면 sparkdemoapp_2.10-1.0.jar을 해당 프로그램으로 바꿉니다.
 
 > [AZURE.NOTE] MapReduce 작업을 사용하여 Spark 프로그램을 호출하려면 사용자 고유의 HDInsight Spark 클러스터를 사용해야 합니다. 주문형 HDInsight 클러스터 사용은 지원되지 않습니다.
 
@@ -116,4 +116,4 @@ HDInsight Spark 클러스터에서 실행되는 이 MapReduce 프로그램(spark
 - [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

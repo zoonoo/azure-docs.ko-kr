@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/07/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -39,7 +39,7 @@ Azure RemoteApp에서 사용자 고유의 응용 프로그램을 호스팅할 �
 핵심 내용:
 
 - 사용자 지정 이미지를 만들 때 이미지에 손실될 수 있는 중요 이미지를 저장하지 않습니다.
-- 중요한 데이터는 항상 별도의 파일 서버, 클라우드의 별도 Azure VM에 상주해야 하며 항상 Azure RemoteApp에서 응용 프로그램을 호스팅하는 VM 인스턴스 외부에 있어야 합니다. 
+- 중요한 데이터는 항상 별도의 파일 서버, 클라우드의 별도 Azure VM에 상주해야 하며 항상 Azure RemoteApp에서 응용 프로그램을 호스팅하는 VM 인스턴스 외부에 있어야 합니다.
 - 사용자 데이터는 사용자 프로필 디스크(UPD)에 저장되어 유지됩니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

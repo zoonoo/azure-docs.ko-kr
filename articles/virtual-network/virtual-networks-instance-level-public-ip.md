@@ -18,7 +18,7 @@
 # 인스턴스 수준 공용 IP 개요
 ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-network-ip-addresses-overview-arm.md)하는 방법을 알아봅니다.
 
 Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어떻게 작동하는지 이해해야 합니다.
 
@@ -31,13 +31,13 @@ Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어
 Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동으로 만들어져, 실제 VIP를 사용하지 않고 정규화된 도메인 이름(FQDN)을 통해 서비스에 액세스할 수 있습니다. 동일한 프로세스가 ILPIP에 대해 발생하며 ILPIP 대신 FQDN으로 VM 또는 역할 인스턴스에 액세스할 수 있습니다. 예를 들어, *contosoadservice*라는 클라우드 서비스를 만들고 두 인스턴스가 있는 *contosoweb*이라는 웹 역할을 구성한 경우, Azure는 인스턴스에 대해 다음 A 레코드를 등록합니다.
 
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net
-- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net
 
 >[AZURE.NOTE] 각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독 당 최대 5개의 ILPIP를 사용할 수 있습니다. 이때 ILPIP는 다중 NIC VM에 대해 지원되지 않습니다.
 
 ## ILPIP를 요청해야 하는 이유
 클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
-- **수동 FTP** - VM에 ILPIP를 지정하여 모든 포트에서 트래픽을 받을 수 있으며, 트래픽을 수신할 끝점을 열지 않아도 됩니다. 이 포트를 동적으로 선택한 수동 FTP와 같은 시나리오를 통해 사용됩니다.
+- **수동 FTP** - VM에 ILPIP를 지정하여 모든 포트에서 트래픽을 받을 수 있으며 트래픽을 수신할 끝점을 열지 않아도 됩니다. 이 포트를 동적으로 선택한 수동 FTP와 같은 시나리오를 통해 사용됩니다.
 - **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP와 함께 보내지며 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 ## VM 생성 중 ILPIP를 요청하는 방법
@@ -126,7 +126,7 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 
 - 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)이 어떻게 작동하는지 이해합니다.
 
-- [예약된 IP](../virtual-networks-reserved-public-ip)에 대해 자세히 알아봅니다.
+- [예약된 IP](virtual-networks-reserved-public-ip.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

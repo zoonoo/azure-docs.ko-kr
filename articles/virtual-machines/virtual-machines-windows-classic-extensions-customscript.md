@@ -25,7 +25,7 @@ VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및
 을 참조하세요.
 
 링크:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-classic-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-windows-classic-extensions-customscript.md)하는 방법을 알아봅니다.
 
 
 ## 사용자 지정 스크립트 확장 개요
@@ -93,4 +93,4 @@ Azure 리소스 관리자 템플릿으로 사용자 지정 스크립트 확장�
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

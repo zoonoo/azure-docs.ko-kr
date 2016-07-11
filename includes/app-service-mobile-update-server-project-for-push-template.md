@@ -1,4 +1,6 @@
-백 엔드 프로젝트 형식([.NET 백 엔드](#dotnet) 또는 [Node.js 백 엔드](#nodejs))과 일치하는 절차를 사용합니다.
+이 섹션에서는 새 항목이 추가될 때마다 푸시 알림을 보내도록 기존 모바일 앱 백 엔드 프로젝트의 코드를 업데이트합니다. 클라이언트는 템플릿 등록을 사용하여 푸시 알림에 등록되므로 모든 클라이언트 플랫폼에 단일 푸시 알림 메시지를 보낼 수 있습니다. 각 클라이언트 템플릿 등록에는 *messageParam* 매개 변수가 포함됩니다. 알림이 전송되면 삽입되는 항목의 텍스트인 문자열이 *messageParam*에 포함됩니다. 알림 허브에서 템플릿을 사용하는 방법에 대한 자세한 내용은 [템플릿](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요.
+
+백 엔드 프로젝트 type&mdash([.NET 백 엔드](#dotnet) 또는 [Node.js 백 엔드](#nodejs))와 일치하는 아래의 절차를 선택합니다.
 
 ### <a name="dotnet"></a>.NET 백 엔드 프로젝트
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 후 `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 백 엔드에서 알림을 보내기 위한 알림 허브 라이브러리를 설치합니다.
@@ -46,17 +48,15 @@
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    이 코드는 알림 허브가 "messageParam"을 포함하는 모든 템플릿 등록에 템플릿 알림을 보내도록 지시합니다. 문자열은 "messageParam"을 사용하여 등록된 각 PNS에서 messageParam 대신 삽입됩니다. 이를 통해 APNS, GCM, WNS 또는 기타 모든 PNS에 알림을 보낼 수 있습니다.
-
-	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](notification-hubs-templates.md)을 참조하세요.
+	이는 새 항목이 삽입된 경우 item.Text가 포함된 템플릿 알림을 보냅니다.
 
 4. 서버 프로젝트를 다시 게시합니다.
 
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
+1. 아직 수행하지 않은 경우 [빠른 시작 백 엔드 프로젝트를 다운로드](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
 
-2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
+2. todoitem.js의 기존 코드를 다음으로 바꿉니다.
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -70,7 +70,7 @@
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam":' + context.item.text + '}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -97,6 +97,8 @@
 
 		module.exports = table;  
 
-	이는 새 todo 항목이 삽입된 경우 item.text가 포함된 템플릿 알림을 보냅니다.
+	이는 새 항목이 삽입된 경우 item.Text가 포함된 템플릿 알림을 보냅니다.
 
 2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
+
+<!---HONumber=AcomDC_0629_2016-->

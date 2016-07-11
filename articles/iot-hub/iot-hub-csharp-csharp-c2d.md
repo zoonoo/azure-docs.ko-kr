@@ -13,10 +13,12 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="06/23/2016"
      ms.author="elioda"/>
 
-# 자습서: IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법
+# 자습서: IoT Hub 및 .Net을 사용하여 클라우드-장치 메시지를 보내는 방법
+
+[AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## 소개
 
@@ -37,12 +39,133 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 + Microsoft Visual Studio 2015
 
-+ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
 
-[AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
+## 시뮬레이션된 장치에서 메시지 받기
 
+이 섹션에서는 [IoT Hub 시작]에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
-[AZURE.INCLUDE [iot-hub-c2d-cloud-csharp](../../includes/iot-hub-c2d-cloud-csharp.md)]
+1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
+
+        private static async void ReceiveC2dAsync()
+        {
+            Console.WriteLine("\nReceiving cloud to device messages from service");
+            while (true)
+            {
+                Message receivedMessage = await deviceClient.ReceiveAsync();
+                if (receivedMessage == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
+                Console.ResetColor();
+
+                await deviceClient.CompleteAsync(receivedMessage);
+            }
+        }
+
+    `ReceiveAsync` 메서드는 수신 메시지를 장치에서 받은 시간에 비동기적으로 반환합니다. 지정 가능한 시간 제한 기간(이 경우 기본값 1분이 사용됨) 이후에는 *null*을 반환합니다. 이러한 경우 코드가 새 메시지를 계속 기다리게 됩니다. 이는 `if (receivedMessage == null) continue` 줄 때문입니다.
+
+    `CompleteAsync()`에 대한 호출은 메시지가 성공적으로 처리되었음을 IoT Hub에 알립니다. 장치 큐에서 메시지를 안전하게 제거할 수 있습니다. 장치 앱의 메시지 처리를 완료하지 못하게 하는 문제가 발생하는 경우 IoT Hub에서 메시지를 다시 전달합니다. 장치 앱의 메시지 처리 논리는 *idempotent*이므로 같은 메시지를 여러 번 수신하면 동일한 결과가 생성됩니다. 응용 프로그램이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 응용 프로그램이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-장치 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+
+    > [AZURE.NOTE] AMQP 대신 HTTP/1을 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTP/1에서 클라우드-장치 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 장치에 간헐적으로 연결됩니다. HTTP/1 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. AMQP와 HTTP/1 지원 간의 차이점 및 IoT Hub 제한에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+
+2. **Main** 메서드에서 `Console.ReadLine()` 줄 바로 앞에 다음 메서드를 추가합니다.
+
+        ReceiveC2dAsync();
+
+> [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+
+## 앱 백 엔드에서 클라우드-장치 메시지 보내기
+
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Windows 콘솔 응용 프로그램을 작성합니다.
+
+1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 새로 만듭니다. 프로젝트 **SendCloudToDevice**의 이름을 지정합니다.
+
+    ![Visual Studio의 새 프로젝트][20]
+
+2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **Manage NuGet Packages for Solution...(솔루션에 대한 NuGet 패키지 관리...)**을 클릭합니다.
+
+	그러면 **NuGet 패키지 관리** 창이 표시됩니다.
+
+3. `Microsoft Azure Devices`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+
+	그러면 [Azure IoT - 서비스 SDK NuGet 패키지]가 다운로드 및 설치되고 해당 참조가 추가됩니다.
+
+4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+
+		using Microsoft.Azure.Devices;
+
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 [IoT Hub 시작]에서 만든 IoT Hub 연결 문자열로 대체합니다.
+
+		static ServiceClient serviceClient;
+        static string connectionString = "{iot hub connection string}";
+
+6. **Program** 클래스에 다음 메서드를 추가합니다.
+
+		private async static Task SendCloudToDeviceMessageAsync()
+        {
+            var commandMessage = new Message(Encoding.ASCII.GetBytes("Cloud to device message."));
+            await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        }
+
+	이 메서드는 새 클라우드-장치 메시지를 ID `myFirstDevice`를 사용하여 장치에 보냅니다. [IoT Hub 시작]에서 사용한 값을 수정한 경우 그에 따라 이 매개 변수를 변경합니다.
+
+7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+
+        Console.WriteLine("Send Cloud-to-Device message\n");
+        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+
+        Console.WriteLine("Press any key to send a C2D message.");
+        Console.ReadLine();
+        SendCloudToDeviceMessageAsync().Wait();
+        Console.ReadLine();
+
+8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 동작을 선택합니다.
+
+9.  **F5** 키를 누릅니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 시뮬레이션된 앱에서 수신하고 있는 메시지가 표시됩니다.
+
+    ![앱 메시지 수신][21]
+
+## 배달 피드백 받기
+각 클라우드-장치 메시지에 대해 배달(또는 만료) 승인을 IoT Hub에 요청할 수 있습니다. 이를 통해 클라우드 백 엔드가 다시 시도 또는 보정 논리를 쉽게 알릴 수 있습니다. 클라우드-장치 피드백에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+
+이 섹션에서는 **SendCloudToDevice** 앱을 수정하여 피드백을 요청하고 IoT Hub에서 수신합니다.
+
+1. Visual Studio의 **SendCloudToDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
+   
+        private async static void ReceiveFeedbackAsync()
+        {
+            var feedbackReceiver = serviceClient.GetFeedbackReceiver();
+
+            Console.WriteLine("\nReceiving c2d feedback from service");
+            while (true)
+            {
+                var feedbackBatch = await feedbackReceiver.ReceiveAsync();
+                if (feedbackBatch == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
+                Console.ResetColor();
+
+                await feedbackReceiver.CompleteAsync(feedbackBatch);
+            }
+        }
+
+    수신 패턴은 장치 앱으로부터 클라우드-장치 메시지를 받는 데 사용되는 방식과 동일합니다.
+
+2. **Main** 메서드에서 `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` 줄 바로 뒤에 다음 메서드를 추가합니다.
+
+        ReceiveFeedbackAsync();
+
+3. 클라우드-장치 메시지 배달에 대한 피드백을 요청하려면 **SendCloudToDeviceMessageAsync** 메서드에서 속성을 지정해야 합니다. `var commandMessage = new Message(...);` 줄 바로 뒤에 다음 줄을 추가합니다.
+
+        commandMessage.Ack = DeliveryAcknowledgement.Full;
+
+4.  **F5** 키를 눌러 앱을 실행합니다. 세 응용 프로그램이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 시뮬레이트된 앱에서 메시지가 수신되는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 받는지 확인해야 합니다.
+
+    ![앱 메시지 수신][22]
+
+> [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 ## 다음 단계
 
@@ -56,30 +179,31 @@ IoT Hub에 대한 추가 정보:
 * [IoT Hub 개요]
 * [IoT Hub 개발자 가이드]
 * [IoT Hub 지침]
-* [지원하는 장치 플랫폼 및 언어][Supported devices]
+* [지원하는 장치 플랫폼 및 언어]
 * [Azure IoT 개발자 센터]
 
-<!-- Images. -->
+<!-- Images -->
+[20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
+[21]: ./media/iot-hub-csharp-csharp-c2d/sendc2d1.png
+[22]: ./media/iot-hub-csharp-csharp-c2d/sendc2d2.png
 
 <!-- Links -->
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Azure IoT - 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Azure portal]: https://portal.azure.com/
-
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
 [장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub 개요]: iot-hub-what-is-iot-hub.md
 [IoT Hub 지침]: iot-hub-guidance.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
+[지원하는 장치 플랫폼 및 언어]: iot-hub-supported-devices.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub 시작하기]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

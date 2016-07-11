@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # 키 자격 증명 모음 템플릿 스키마
@@ -62,7 +62,7 @@
 | ---- | ---- | 
 | type | 열거형<br />필수<br />**Microsoft.KeyVault/vaults**<br /><br />만들려는 리소스 종류입니다. |
 | apiVersion | 열거형<br />필수<br />**2015-06-01** 또는 **2014-12-19-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. | 
-| name | 문자열<br />필수<br />Azure 내에서 고유한 이름<br /><br />만들려는 키 자격 증명 모음의 이름입니다. 아래의 예제에 표시된 대로 명명 규칙에 따라 [uniqueString](resource-group-template-functions.md#uniquestring) 기능을 사용하여 고유한 이름을 만드는 것이 좋습니다. |
+| name | 문자열<br />필수<br />Azure 내에서 고유한 이름<br /><br />만들려는 키 자격 증명 모음의 이름입니다. 아래의 예제에 표시된 대로 명명 규칙에 따라 [uniqueString](resource-group-template-functions.md#uniquestring) 함수를 사용하여 고유한 이름을 만드는 것이 좋습니다. |
 | 위치 | 문자열<br />필수<br />키 자격 증명 모음의 유효한 하위 지역입니다. 유효한 하위 지역을 확인하려면 [지원되는 하위 지역](resource-manager-supported-services.md#supported-regions)을 참조하세요.<br /><br />키 자격 증명 모음을 호스트하는 하위 지역입니다. |
 | properties | 개체<br />필수<br />[속성 개체](#properties)<br /><br />만들려는 키 자격 증명 모음의 유형을 지정하는 개체입니다. |
 | 리소스 | 배열<br />선택<br />허용되는 값: [키 자격 증명 모음 암호 리소스](resource-manager-template-keyvault-secret.md)<br /><br />키 자격 증명 모음의 자식 리소스입니다. |
@@ -73,9 +73,9 @@
 | 이름 | 값 |
 | ---- | ---- | 
 | enabledForDeployment | 부울<br />선택<br />**true** 또는 **false**<br /><br />가상 컴퓨터 또는 서비스 패브릭 배포에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
-| enabledForTemplateDeployment | 부울<br />선택<br />**true** 또는 **false**<br /><br />리소스 관리자 템플릿 배포에 자격 증명 모음을 사용할 수 있는지 지정합니다. 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. |
-| enabledForVolumeEncryption | 부울<br />선택<br />**true** 또는 **false**<br /><br />볼륨 암호화에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
-| tenantId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />구독의 테넌트 식별자입니다. [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet 또는 **azure account show** Azure CLI 명령을 사용하여 검색할 수 있습니다. |
+| enabledForTemplateDeployment | 부울<br />선택<br />**true** 또는 **false**<br /><br />Resource Manager 템플릿 배포에 자격 증명 모음을 사용할 수 있는지 지정합니다. 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. |
+| enabledForVolumeEncryption | 부울<br />선택l<br />**true** 또는 **false**<br /><br />볼륨 암호화에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
+| tenantId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />구독의 테넌트 식별자입니다. [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet 또는 **azure account show** Azure CLI 명령을 사용하여 검색할 수 있습니다. |
 | accessPolicies | 배열<br />필수<br />[accessPolicies 개체](#accesspolicies)<br /><br />사용자 또는 서비스 주체에 대한 사용 권한을 지정하는 최대 16개 개체의 배열입니다. |
 | sku | 개체<br />필수<br />[sku 개체](#sku)<br /><br />키 자격 증명 모음의 SKU입니다. |
 
@@ -85,7 +85,7 @@
 | 이름 | 값 |
 | ---- | ---- | 
 | tenantId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />이 액세스 정책의 **objectId**를 포함하는 Azure Active Directory 테넌트의 테넌트 식별자입니다. |
-| objectId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />자격 증명 모음에 액세스할 수 있는 Azure Active Directory 사용자 또는 서비스 사용자의 개체 식별자입니다. [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) 또는 [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlet이나 **azure ad user** 또는 **azure ad sp** Azure CLI 명령에서 값을 검색할 수 있습니다. |
+| objectId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />자격 증명 모음에 액세스할 수 있는 Azure Active Directory 사용자 또는 서비스 사용자의 개체 식별자입니다. [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) 또는 [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlet이나 **azure ad user** 또는 **azure ad sp** Azure CLI 명령에서 값을 검색할 수 있습니다. |
 | 권한 | 개체<br />필수<br />[permissions 개체](#permissions)<br /><br />이 자격 증명 모음에 부여된 Active Directory 개체의 사용 권한입니다. |
 
 <a id="permissions" />
@@ -122,13 +122,13 @@
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -245,4 +245,4 @@
 - 키 자격 증명 모음에 대한 일반 정보는 [Azure 키 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
 - 템플릿을 배포할 때 키 자격 증명 모음 암호를 참조하는 예제는 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

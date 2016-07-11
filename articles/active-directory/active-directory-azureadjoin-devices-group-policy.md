@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결
@@ -57,7 +57,7 @@ PKI 배포 요구 사항에 대한 대안으로 다음을 수행할 수 있습�
 
 ### 1단계: Azure Active Directory Connect 배포
 
-Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에서 장치 개체로 프로비전할 수 있습니다. Azure AD Connect를 배포하려면 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect/#install-azure-ad-connect) 문서에서 "Azure AD Connect 설치"를 참조하세요.
+Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에서 장치 개체로 프로비전할 수 있습니다. Azure AD Connect를 배포하려면 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md#install-azure-ad-connect) 문서에서 "Azure AD Connect 설치"를 참조하세요.
 
  - [Azure AD Connect를 위한 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)(Express 설치 아님)를 수행한 경우 이 단계 뒷부분에 있는 **온-프레미스 Active Directory에 서비스 연결점 만들기** 절차를 따라야 합니다.
  - Azure AD Connect를 설치하기 전에 Azure AD를 사용하여 페더레이션된 구성이 있는 경우(예: 이전에 AD FS(Active Directory Federation Services)를 배포한 경우) 이 단계 뒷부분에 있는 **AD FS 클레임 규칙 구성**을 따라야 합니다.
@@ -147,4 +147,4 @@ Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 �
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

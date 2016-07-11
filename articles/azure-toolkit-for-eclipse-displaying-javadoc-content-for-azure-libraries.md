@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
@@ -30,8 +30,8 @@ Javadoc 콘텐츠를 Java용 Azure 라이브러리 패키지에 연결하면 Jav
 * **속성**을 클릭합니다.
 * **속성** 대화 상자의 왼쪽 창에서 **Javadoc Location**(Javadoc 위치)을 클릭합니다. **Javadoc Location**(Javadoc 위치) 대화 상자가 표시됩니다.
 * **Javadoc URL** 또는 **Javadoc in archive**(보관 중인 Javadoc)를 지정할 수 있습니다.
-    * **Javadoc URL** 지정을 선택하는 경우 **http://dl.windowsazure.com/javadoc** 또는 **http://dl.windowsazure.com/storage/javadoc** 과 같은 URL을 사용합니다.
-* **Javadoc in archive**(보관 중인 Javadoc)를 사용하도록 선택하는 경우 외부 파일 또는 작업 영역 파일을 지정할 수 있습니다. 필요에 따라 선택하여 찾거나 유효성을 검사합니다. 다음 예제에서는 Java용 Azure 라이브러리를 **c:\\MyAzureJARs**라는 폴더에 로컬로 다운로드된 해당 Javadoc JAR와 연결합니다. ![][ic553487]
+    * **Javadoc URL** 지정을 선택하는 경우 **http://dl.windowsazure.com/javadoc** 또는 **http://dl.windowsazure.com/storage/javadoc**과 같은 URL을 사용합니다.
+    * **Javadoc in archive**(보관 중인 Javadoc)를 사용하도록 선택하는 경우 외부 파일 또는 작업 영역 파일을 지정할 수 있습니다. 필요에 따라 선택하여 찾거나 유효성을 검사합니다. 다음 예제에서는 Java용 Azure 라이브러리를 **c:\\MyAzureJARs**라는 폴더에 로컬로 다운로드된 해당 Javadoc JAR와 연결합니다. ![][ic553487]
 * *옵션*: **유효성 검사**를 클릭합니다. Javadoc JAR의 잠재적 문제가 여기에 표시될 수 있습니다.
 * **확인**을 클릭합니다.
 
@@ -61,4 +61,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic553487]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553487.png
 [ic553488]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553488.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

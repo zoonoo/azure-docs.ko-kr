@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/27/2016" 
 	ms.author="johnmac"/>
 
 # DocumentDB의 성능 수준
@@ -31,7 +31,7 @@
 
 표준 계정으로 생성된 각 DocumentDB 컬렉션은 연관된 성능 수준과 함께 프로비전됩니다. 데이터베이스에서 각 컬렉션은 자주 액세스되는 컬렉션에 대해 더 많은 처리량을 지정하고 가끔 액세스되는 컬렉션에 대해 더 적은 처리량을 지정할 수 있도록 여러 성능 수준을 포함할 수 있습니다. DocumentDB는 사용자 정의 성능 수준과 미리 정의된 성능 수준을 모두 지원합니다.
 
-각 성능 수준에는 연관된 [RU(요청 단위)](http://go.microsoft.com/fwlink/?LinkId=735027) 속도 제한이 있습니다. 이러한 한도는 성능 수준에 따라 컬렉션에 대해 예약되는 처리량이며, 해당 컬렉션에서만 배타적으로 사용할 수 있습니다.
+각 성능 수준에는 연관된 [RU(요청 단위)](documentdb-request-units.md) 속도 제한이 있습니다. 이러한 한도는 성능 수준에 따라 컬렉션에 대해 예약되는 처리량이며, 해당 컬렉션에서만 배타적으로 사용할 수 있습니다.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -97,29 +97,30 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
 ## Azure 포털을 사용하여 성능 수준 변경
 
-Azure 포털은 컬렉션의 성능 수준을 관리할 때 사용할 수 있는 한 가지 옵션입니다. 다음 단계에 따라 미리 정의된 성능 수준을 Azure 포털에서 사용자가 정의한 성능 수준으로 변경하거나 75초 분량의 [채널 9 비디오](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance)를 시청하세요. 가격 책정 옵션 변경에 대한 자세한 내용은 블로그 게시물 [DocumentDB: 새 가격 책정 옵션 사용에 대해 알아야 하는 모든 항목](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)(영문)을 참조하세요.
+Azure 포털은 컬렉션의 성능 수준을 관리할 때 사용할 수 있는 한 가지 옵션입니다. 미리 정의된 처리량 수준을 사용하여 Azure 포털에서 사용자 정의 처리량 수준으로 변경하려면 다음 단계를 수행합니다. 사용자 정의 처리량 수준을 사용하여 요구에 맞게 처리량을 조정할 수 있습니다. 그리고 S1 계정을 사용 중인 경우 단 몇 번의 클릭으로 기본 처리량을 250RU/s에서 400RU/s로 늘릴 수 있습니다.
+
+미리 정의된 사용자 정의 처리량과 관련된 가격 책정 변경에 대한 자세한 내용은 블로그 게시물 [DocumentDB: 새 가격 책정 옵션 사용에 대해 알아야 하는 모든 항목](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)을 참조하세요.
+
+> [AZURE.VIDEO changedocumentdbcollectionperformance]
 
 1. 브라우저에서 [**Azure 포털**](https://portal.azure.com)로 이동합니다.
-2. 왼쪽에 있는 점프 모음에서 **찾아보기**를 클릭합니다.
-3. **찾아보기** 허브의 **필터 기준** 레이블에서 **DocumentDB 계정**를 클릭합니다.
-4. **DocumentDB 계정** 블레이드에서 원하는 컬렉션을 포함하는 DocumentDB 계정을 클릭합니다.
-5. **DocumentDB 계정** 블레이드에서 **데이터베이스** 렌즈 아래로 스크롤하고 원하는 컬렉션을 포함하는 데이터베이스를 클릭합니다. 
-6. 새로 연 **데이터베이스** 블레이드에서 아래의 **컬렉션** 필터로 스크롤하고 원하는 컬렉션을 선택합니다.
-7. **컬렉션 관리** 블레이드에서 **가격 책정 계층**을 클릭합니다.
+2. **찾아보기** -> **DocumentDB 계정**을 클릭한 다음 수정할 DocumentDB 계정을 선택합니다.
+3. **데이터베이스** 렌즈에서 수정할 데이터베이스를 선택한 다음 **데이터베이스** 블레이드에서 수정할 컬렉션을 선택합니다. 미리 정의된 처리량을 사용하는 계정은 S1, S2 또는 S3의 가격 책정 계층을 보유합니다.
 
-    ![컬렉션의 가격 책정 계층을 변경하는 위치를 보여 주는 컬렉션 관리 및 Azure DocumentDB에 대한 가격 책정 계층 블레이드 선택의 스크린 샷][1]
+      ![S1 컬렉션과 데이터베이스 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-8. **가격 책정 계층 선택** 블레이드에서 **표준**을 선택합니다.
+4. **컬렉션** 블레이드의 위쪽 막대에서 **설정**를 클릭합니다.
+5. **설정** 블레이드에서 **가격 책정 계층**을 클릭하면 각 계획에 대한 월별 비용 예상액이 **가격 책정 계층 선택** 블레이드에 표시되어 있습니다. 사용자 정의 처리량을 변경하려면 **표준** 및 **선택**을 차례로 클릭하여 변경 내용을 저장합니다.
 
-9. **가격 책정 계층 선택** 블레이드에서 **선택**을 클릭합니다.
+      ![DocumentDB 설정의 스크린샷 및 가격 책정 계층 블레이드 선택](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-10. **컬렉션 관리** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자가 표시됩니다.
+6. **설정** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자가 기본값 400으로 표시됩니다. 처리량을 400에서 10,000[요청 단위](documentdb-request-units.md)/초(RU/s) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **가격 책정 요약**이 자동으로 업데이트됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+    
+	![처리량 값을 변경하는 위치를 보여 주는 설정 블레이드의 스크린 샷](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-    **처리량** 상자의 값을 400에서 10000 [요청 단위](documentdb-request-units.md)/초(RU/s) 사이의 값으로 변경합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **가격 책정 요약**이 자동으로 업데이트됩니다.
+7. **데이터베이스** 블레이드로 다시 돌아가면 새로운 컬렉션의 처리량을 확인할 수 있습니다.
 
-    ![컬렉션에 대한 처리량 값을 변경하는 위치를 보여 주는 컬렉션 관리 블레이드의 스크린 샷][2]
-
-9. **컬렉션 관리** 블레이드에서 **확인**을 클릭하여 사용자 정의 성능으로 컬렉션을 업데이트합니다.
+	![수정된 컬렉션과 데이터베이스 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
 더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 분할된 컬렉션을 만들려면 [컬렉션 만들기](documentdb-create-collection.md)를 참조하세요.
 
@@ -159,14 +160,14 @@ offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN]
 - [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 - [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
+- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
 ## 다음 단계
 
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
  
 - [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
-- [DocumentDB 용량 관리](documentdb-manage.md) 
+- [DocumentDB 용량 관리](documentdb-manage.md)
 - [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
 - [DocumentDB에서 데이터 분할](documentdb-partition-data.md)
 - [요청 단위](http://go.microsoft.com/fwlink/?LinkId=735027)
@@ -178,4 +179,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

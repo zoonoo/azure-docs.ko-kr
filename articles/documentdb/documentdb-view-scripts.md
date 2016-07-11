@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # 저장 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용하는 사용자 정의 함수 만들기 및 실행
@@ -119,4 +119,4 @@ DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [저장 프�
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

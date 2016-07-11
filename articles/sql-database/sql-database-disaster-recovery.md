@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -21,9 +21,9 @@
 Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
 - [활성 지역 복제](sql-database-geo-replication-overview.md)
-- [지역 복원](sql-database-geo-restore.md)
+- [지역 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-재해 대비 및 데이터베이스 복구 시기에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md) 페이지를 참조하세요.
+재해 대비 및 데이터베이스 복구 시기에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md) 및 [비즈니스 연속성 설계 및 복구 시나리오]()를 참조하세요.
 
 ## 복구를 시작해야 하는 시기
 
@@ -31,7 +31,7 @@ Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능�
 
 1.	응용 프로그램 계층에서 데이터베이스로 영구적인 연결 실패
 2.	Azure 포털에 광범위한 영향이 있는 지역 내 인시던트에 대한 경고가 표시됩니다.
-3.	Azure SQL 데이터베이스 서버는 성능이 저하됨으로 표시됩니다. 
+3.	Azure SQL 데이터베이스 서버는 성능이 저하됨으로 표시됩니다.
 
 가동 중지 시간에 대한 응용 프로그램 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 - [Azure 포털을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-portal.md)
 - [PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-powershell.md)
-- [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-transact-sql.md) 
+- [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-transact-sql.md)
 
 
 
@@ -63,7 +63,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 다음 가이드 중 하나를 사용하여 새 영역에는 데이터베이스를 지역 복원합니다.
 
 - [Azure 포털을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-portal.md)
-- [PowerShell을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-powershell.md) 
+- [PowerShell을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-powershell.md)
 
 
 ## 복구 후 데이터베이스 구성
@@ -100,18 +100,10 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ## 다음 단계
 
-- 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
+- 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
+- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
+- 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-## 추가 리소스
-
-- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
-- [특정 시점 복원](sql-database-point-in-time-restore.md)
-- [지역 복원](sql-database-geo-restore.md)
-- [활성 지역 복제](sql-database-geo-replication-overview.md)
-- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
-- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -57,20 +57,20 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-Azure 포털의 클래식 또는 ARM 저장소 계정에서 이러한 값을 가져오려면
+Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러한 값을 가져오려면
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 오른쪽의 설정 블레이드에서 **액세스 키**를 클릭합니다.
-4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
-5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 
+4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다.
+5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
-클래식 포털의 클래식 저장소 계정에서 이러한 값을 가져오려면
+클래식 Azure 포털의 클래식 저장소 계정에서 이러한 값을 가져오려면
 
-1. [클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [클래식 Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 탐색 창 아래쪽에서 **액세스 키 관리**를 클릭합니다.
-4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다. 
+4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다.
 
 ## 큐를 만드는 방법
@@ -162,4 +162,4 @@ Azure 포털의 클래식 또는 ARM 저장소 계정에서 이러한 값을 가
 이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하십시오.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

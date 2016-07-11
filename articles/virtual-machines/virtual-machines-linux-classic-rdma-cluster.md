@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-linux-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA를 설정하는 방법을 알아봅니다. 지원되는 Linux HPC 및 지원되는 MPI 구현을 실행하도록 A8 및 A9 크기 VM의 클러스터를 설정한 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
@@ -53,7 +53,7 @@ Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-linux-a8-
 
 *   **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
-*   **Intel MPI** - 클러스터에 대한 SLES 12 HPC VM 이미지를 사용자 지정하려면(이 문서의 뒷부분에 나오는 세부 정보 참조) [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 현재 Intel MPI Library 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** - 클러스터에 대한 SLES 12 HPC VM 이미지를 사용자 지정하려면(이 문서의 뒷부분에 나오는 세부 정보 참조) [Intel.com 사이트](https://software.intel.com/en-us/intel-mpi-library/)에서 현재 Intel MPI Library 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 
     >[AZURE.NOTE] Azure 마켓플레이스에서 CentOS 6.5 또는 CentOS 7.1 HPC 이미지를 사용하여 클러스터 노드를 만드는 경우 Intel MPI 버전 5.1.3.181이 VM에 미리 설치되어 있습니다
 
@@ -101,7 +101,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
 >[AZURE.IMPORTANT]Microsoft Azure에서는 Linux VM에 대한 루트 액세스를 제공하지 않습니다. VM에 사용자로 연결된 경우 관리 액세스 권한을 얻으려면 `sudo`을(를) 사용하여 명령을 실행합니다.
 
-* **업데이트** -**zypper**를 사용하여 업데이트를 설치합니다. NFS 유틸리티를 설치하려고 할 수도 있습니다.  
+* **업데이트** -**zypper**를 사용하여 업데이트를 설치합니다. NFS 유틸리티를 설치하려고 할 수도 있습니다.
 
     >[AZURE.IMPORTANT]SLES 12 HPC V를 배포한 경우 이 시점에 Linux RDMA 드라이버에 문제가 발생할 수 있으므로 커널 업데이트를 적용하지 않는 것이 좋습니다.
     >
@@ -127,9 +127,9 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
         <User or group name> soft    memlock <memory required for your application in KB>
 
-    >[AZURE.NOTE]테스트를 위해 memlock을 무제한으로 설정할 수도 있습니다. 예: '<User or group name> 하드 memlock 무제한
+    >[AZURE.NOTE]테스트를 위해 memlock을 무제한으로 설정할 수도 있습니다. 예: '<사용자 또는 그룹 이름> hard memlock unlimited
 
-* **SLES 12 VM에 대한 SSH 키** - MPI 작업을 실행하는 경우 SSH 키를 생성하여 SLES 12 HPC 클러스터의 모든 계산 노드 간에 사용자 계정에 대한 트러스트를 설정합니다. (HPC CentOS 기반 VM을 배포한 경우 단계를 수행하지 않습니다. 이미지를 캡처하고 클러스터를 배포한 후에 클러스터 노드 간에 암호 없는 SSH 트러스트를 설정하려면 문서의 뒷부분에 나오는 지침을 참조하세요.)
+* **SLES 12 VM에 대한 SSH 키** - MPI 작업을 실행하는 경우 SSH 키를 생성하여 SLES 12 HPC 클러스터의 모든 컴퓨터 노드 간에 사용자 계정에 대한 트러스트를 설정합니다. (HPC CentOS 기반 VM을 배포한 경우 단계를 수행하지 않습니다. 이미지를 캡처하고 클러스터를 배포한 후에 클러스터 노드 간에 암호 없는 SSH 트러스트를 설정하려면 문서의 뒷부분에 나오는 지침을 참조하세요.)
 
     다음 명령을 실행하여 SSH 키를 만듭니다. enter 키를 눌러 암호를 설정하지 않고 기본 위치에 키를 생성합니다.
 
@@ -234,9 +234,9 @@ CentOS 기반 HPC 이미지를 사용하여 클러스터를 배포한 경우 계
 
 이 스크립트는 다음을 수행합니다.
 
-* .ssh라는 호스트 노드에 디렉터리를 만듭니다. 이것은 암호 없는 로그인에 필요합니다. 
-* 클러스터의 노드에서 로그인할 수 있도록 암호 없는 로그인을 지시하는 .ssh 디렉터리에 구성 파일을 만듭니다. 
-* 클러스터의 모든 노드에 대한 노드 이름 및 노드 IP 주소를 포함하는 파일을 만듭니다. 이러한 파일은 사용자가 참조하기 위해 스크립트를 실행한 후에도 남아 있습니다. 
+* .ssh라는 호스트 노드에 디렉터리를 만듭니다. 이것은 암호 없는 로그인에 필요합니다.
+* 클러스터의 노드에서 로그인할 수 있도록 암호 없는 로그인을 지시하는 .ssh 디렉터리에 구성 파일을 만듭니다.
+* 클러스터의 모든 노드에 대한 노드 이름 및 노드 IP 주소를 포함하는 파일을 만듭니다. 이러한 파일은 사용자가 참조하기 위해 스크립트를 실행한 후에도 남아 있습니다.
 * 호스트 노드를 포함하여 각 클러스터 노드에 개인 및 공개 키 쌍을 만들고 키 쌍에 대한 정보를 공유하며 authorized\_keys 파일에 항목을 만듭니다.
 
 >[AZURE.WARNING]이 스크립트를 실행하면 잠재적인 보안 위협이 생길 수 있습니다. ~/.ssh의 공개 키 정보가 분산되지 않도록 확인하세요.
@@ -394,8 +394,8 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 
 * Linux 클러스터에서 Linux MPI 응용 프로그램을 배포하고 실행합니다.
 
-* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
+* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/)를 참조하세요.
 
 * CentOS 기반 HPC 이미지를 사용하여 Intel Lustre 클러스터를 만들기 위해 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos)을 사용해 봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

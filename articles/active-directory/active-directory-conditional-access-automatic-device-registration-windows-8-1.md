@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성| Microsoft Azure"
-	description="Windows 8.1 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 하는 그룹 정책을 구성하는 단계입니다."
+	description=" Windows 8.1 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 하는 그룹 정책을 구성하는 단계입니다. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성
@@ -61,4 +61,4 @@ Windows 8.1 컴퓨터의 Windows 이벤트 로그에는 장치 등록과 관련�
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

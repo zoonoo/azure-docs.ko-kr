@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-deploy-multinic-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-network-deploy-multinic-arm-cli.md)하는 방법을 알아봅니다.
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 포함할 수 없습니다. 따라서 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스에 *IaaSStory* 라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 포함할 수 없습니다. 따라서 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스에 *IaaSStory*라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

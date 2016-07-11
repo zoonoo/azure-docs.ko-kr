@@ -98,7 +98,7 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 재해 복구에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure SQL 데이터베이스 비즈니스 연속성][]
-- [Azure 비즈니스 연속성 기술 지침][]
+- [Azure 복구력 기술 지침][]
 
   [서비스 버스 인증]: service-bus-authentication-and-authorization.md
   [분할된 메시징 엔터티]: service-bus-partitioning.md
@@ -109,6 +109,6 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
   [서비스 버스 조정된 메시지를 사용한 지역 복제]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [지속형 메시지 발신자]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Azure SQL 데이터베이스 비즈니스 연속성]: ../sql-database/sql-database-business-continuity.md
-  [Azure 비즈니스 연속성 기술 지침]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Azure 복구력 기술 지침]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
