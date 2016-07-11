@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](application-gateway-create-probe-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -157,16 +156,16 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 >[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
 
-새 구성 항목 <Probe>을 추가하여 사용자 지정 프로브를 구성합니다.
+새 구성 항목 <Probe>를 추가하여 사용자 지정 프로브를 구성합니다.
 
 구성 매개 변수:
 
-- **Name** - 사용자 지정 프로브에 대한 참조 이름
-- **Protocol** - 사용되는 프로토콜(가능한 값은 HTTP 또는 HTTPS)
-- **Host** 및 **Path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
-- **Interval** - 프로브 간격 확인(초) 구성
-- **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한 정의
-- **UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수
+- **Name** - 사용자 지정 프로브에 대한 참조 이름.
+- **Protocol** - 사용되는 프로토콜(가능한 값은 HTTP 또는 HTTPS).
+- **Host** 및 **Path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
+- **Interval** - 프로브 간격 확인(초)을 구성합니다.
+- **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
+- **UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 <BackendHttpSettings> 구성에서 참조합니다.
 
@@ -223,4 +222,4 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

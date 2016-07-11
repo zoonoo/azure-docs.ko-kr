@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/05/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp 등에 대한 액세스 보호
@@ -34,7 +34,7 @@
 Azure RemoteApp에 대한 액세스를 제어하는 Azure AD 계정을 사용하면 다음 두 가지를 제공합니다.
 
 1.	게시한 응용 프로그램에 액세스할 수 있고 연결할 해당 백 엔드 응용 프로그램에 액세스할 수 있는 사용자를 항상 압니다.
-2.	기본 Azure AD를 제어하므로 사용자 계정을 만들고 삭제하며 암호 정책을 설정하고 Multi-Factor Authentication을 사용할 수 있습니다. 
+2.	기본 Azure AD를 제어하므로 사용자 계정을 만들고 삭제하며 암호 정책을 설정하고 Multi-Factor Authentication을 사용할 수 있습니다.
 
 ## 컬렉션에 어떻게 액세스하나요? 어디서 액세스하나요?
 일반적으로 관리자는 Azure RemoteApp과 같은 공용 인터넷 연결 환경에 액세스하기 위한 정책을 정의하려 합니다. 예를 들어 회사 네트워크 외부에서 환경에 액세스하는 사용자가 Multi-Factor Authentication(MFA)을 사용하여 액세스 권한을 얻거나 혹은 함께 차단되도록 해야 합니다.
@@ -110,4 +110,4 @@ Azure RemoteApp으로 VNet을 구성해야 하고 컬렉션의 만들기 과정�
 ## 전체 솔루션
 아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다. ![Azure RemoteApp 보호](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택했고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 생성합니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다. "2단계"에서 제어하는 VNet/VPN 구성을 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

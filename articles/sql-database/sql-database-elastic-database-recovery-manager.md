@@ -42,9 +42,8 @@ GSM 및 LSM이 동기화되지 않는 이유는 다음과 같습니다.
 
 Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 복제 및 복원에 대한 자세한 내용은 다음을 참조하세요.
 
-* [개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](sql-database-business-continuity.md) 
-* [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md)
-* [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)  
+* [개요: SQL 데이터베이스의 클라우드 무중단 업무 방식 및 데이터베이스 재해 복구](sql-database-business-continuity.md)
+* [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)
 * [ShardMap 관리](sql-database-elastic-scale-shard-map-management.md)
 
 ## ShardMapManager에서 RecoveryManager 검색 
@@ -63,8 +62,8 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 [DetachShard 메서드](https://msdn.microsoft.com/library/azure/dn842083.aspx)는 분할된 데이터베이스 맵에서 지정된 분할된 데이터베이스를 분리하고 여기에 연결된 매핑을 삭제합니다.
 
-* 위치 매개 변수는 분할된 데이터베이스 위치, 특히 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
-* shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다. 
+* 위치 매개 변수는 분할된 데이터베이스 위치, 특히 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
+* shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
 **중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요. 위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.
 
@@ -82,8 +81,8 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 	rm.DetectMappingDifferences(location, shardMapName);
 
-* *위치*는 서버 이름과 데이터베이스 이름을 지정합니다. 
-* *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다. 
+* *위치*는 서버 이름과 데이터베이스 이름을 지정합니다.
+* *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
 ## 매핑 차이를 해결하려면
 
@@ -91,7 +90,7 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
-* *RecoveryToken* 매개 변수는 특정 분할된 데이터베이스에 대한 GSM 및 LSM 간의 매핑에서 차이를 열거합니다. 
+* *RecoveryToken* 매개 변수는 특정 분할된 데이터베이스에 대한 GSM 및 LSM 간의 매핑에서 차이를 열거합니다.
 
 * [MappingDifferenceResolution 열거](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx)는 분할된 데이터베이스 매핑 간 차이를 해결하기 위한 메서드를 나타내는 데 사용됩니다.
 * **MappingDifferenceResolution.KeepShardMapping**은 LSM이 정확한 매핑을 포함하므로 분할된 데이터베이스의 매핑이 사용되는 경우에 권장됩니다. 이 방법은 장애 조치 시 일반적인 사례입니다. 이제 분할된 데이터베이스는 새 서버에 상주합니다. 분할된 데이터베이스는 GSM에서 먼저 제거되므로(RecoveryManager.DetachShard 메서드 사용) GSM에 매핑이 더 이상 존재하지 않습니다. 따라서 분할된 매핑을 다시 설정하기 위해 LSM을 사용해야 합니다.
@@ -102,7 +101,7 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 	rm.AttachShard(location, shardMapName) 
 
-* *location* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
+* *location* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다.
 
 * *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
@@ -123,17 +122,17 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 지역 장애 조치(failover) 및 복구는 의도적으로 Azure SQL 데이터베이스 무중단 업무 방식 기능 중 하나를 활용하는 응용 프로그램의 클라우드 관리자가 일반적으로 관리하는 작업입니다. 비즈니스 연속성 계획에는 비즈니스 작업을 중단 없이 계속할 수 있도록 보장해주는 프로세스, 절차 및 측정이 필요합니다. 이 워크플로 내에서 RecoveryManager 클래스의 일부로 제공되는 메서드를 사용하여 수행되는 복구 작업에 따라 GSM 및 LSM이 최신 상태로 유지되도록 해야 합니다. 장애 조치 이벤트 후 GSM 및 LSM이 정확한 정보를 반영하도록 제대로 보장하는 5가지 기본 단계가 있습니다. 이러한 단계를 실행할 응용 프로그램 코드를 기존 도구 및 워크플로에 통합할 수 있습니다.
 
-1. ShardMapManager에서 RecoveryManager를 검색합니다. 
+1. ShardMapManager에서 RecoveryManager를 검색합니다.
 2. 분할된 데이터베이스 맵에서 이전 분할된 데이터베이스를 분리합니다.
 3. 새 분할된 데이터베이스 위치를 포함하여 새 분할된 데이터베이스를 분할된 데이터베이스 맵에 연결합니다.
-4. GSM 및 LSM 간의 매핑에서 불일치를 감지합니다. 
-5. LSM을 신뢰하여 GSM 및 LSM 간의 차이를 해결합니다. 
+4. GSM 및 LSM 간의 매핑에서 불일치를 감지합니다.
+5. LSM을 신뢰하여 GSM 및 LSM 간의 차이를 해결합니다.
 
 이 예제에서는 다음 단계를 수행합니다.
 1. 장애 조치 이벤트 이전에, 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다.
 2. 분할된 데이터베이스를 새 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에 연결합니다("Configuration.SecondaryServer" 매개 변수는 새로운 서버 이름이지만 동일한 데이터베이스 이름입니다).
-3. 각 분할된 데이터베이스에 대해 GSM 및 LSM 간의 매핑 차이를 감지하여 복구 토큰을 검색합니다. 
-4. 각 분할된 데이터베이스의 LSM에서 매핑을 신뢰하여 불일치를 해결합니다. 
+3. 각 분할된 데이터베이스에 대해 GSM 및 LSM 간의 매핑 차이를 감지하여 복구 토큰을 검색합니다.
+4. 각 분할된 데이터베이스의 LSM에서 매핑을 신뢰하여 불일치를 해결합니다.
 
 	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
@@ -159,4 +158,4 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

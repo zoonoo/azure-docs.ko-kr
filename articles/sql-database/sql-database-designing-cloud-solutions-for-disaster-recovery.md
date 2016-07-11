@@ -32,7 +32,7 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 
 + 단일 Azure 지역의 활성 인스턴스
 + 데이터에 대한 읽기-쓰기(RW) 액세스의 강력한 종속성
-+ 응용 프로그램 논리와 데이터베이스 간의 영역 간 연결은 대기 시간 및 트래픽 비용으로 인해 허용되지 않음    
++ 응용 프로그램 논리와 데이터베이스 간의 영역 간 연결은 대기 시간 및 트래픽 비용으로 인해 허용되지 않음
 
 이 경우 응용 프로그램 배포 토폴로지는 모든 응용 프로그램 구성 요소가 영향을 받고 하나의 단위로 장애 조치 해야 할 때 지역 재해를 처리하기 위해 최적화됩니다. 지리적 중복성을 위해 응용 프로그램 논리와 데이터베이스 모두는 다른 지역에 복제되지만 정상 조건에서는 응용 프로그램 작업에 사용되지 않습니다. 보조 지역의 응용 프로그램은 보조 데이터베이스에 대해 SQL 연결 문자열을 사용하도록 구성되어야 합니다. 트래픽 관리자는 [장애 조치 라우팅 메서드](../traffic-manager/traffic-manager-configure-failover-routing-method.md)를 사용하도록 설정됩니다.
 
@@ -76,9 +76,9 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 이 클라우드 재해 복구 옵션은 다음 특성을 가진 응용 프로그램에 가장 적합합니다.
 
 + 높은 비율의 데이터베이스 읽기 및 쓰기
-+ 데이터베이스 쓰기 대기 시간이 최종 사용자 환경에 영향을 주지 않음  
++ 데이터베이스 쓰기 대기 시간이 최종 사용자 환경에 영향을 주지 않음
 + 읽기 전용 논리가 다른 연결 문자열을 사용하여 읽기-쓰기 논리에서 분리될 수 있음
-+ 읽기 전용 논리가 최신 업데이트를 통해 완전하게 동기화되는 데이터에 의존하지 않음  
++ 읽기 전용 논리가 최신 업데이트를 통해 완전하게 동기화되는 데이터에 의존하지 않음
 
 응용 프로그램이 이러한 특성 부하 분산을 가진 경우 다른 지역의 여러 응용 프로그램 인스턴스에 걸친 최종 사용자 연결은 성능 및 최종 사용자 환경을 향상시킬 수 있습니다. 이를 달성하기 위해 각 지역은 주 지역의 주 데이터베이스에 연결된 읽기-쓰기(RW) 논리로 응용 프로그램의 활성 인스턴스가 있어야 합니다. 읽기 전용(RO) 논리는 응용 프로그램 인스턴스와 동일한 지역의 보조 데이터베이스에 연결되어야 합니다. 트래픽 관리자는 각 응용 프로그램 인스턴스에 대해 활성화된 [끝점 모니터링](../traffic-manager/traffic-manager-monitoring.md)으로 [라운드 로빈 라우팅](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) 또는 [성능 라우팅](../traffic-manager/traffic-manager-configure-performance-routing-method.md)을 사용하도록 설정되어야 합니다.
 
@@ -103,7 +103,7 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 
 + 응용 프로그램 인스턴스 및 데이터베이스 간의 읽기-쓰기 연결에는 다양한 대기 시간 및 비용이 있음
 + 작동 중단 동안 응용 프로그램 성능이 저하됨
-+ 응용 프로그램 인스턴스는 데이터베이스 장애 조치(failover) 후 동적으로 SQL 연결 문자열을 변경해야 함  
++ 응용 프로그램 인스턴스는 데이터베이스 장애 조치(failover) 후 동적으로 SQL 연결 문자열을 변경해야 함
 
 > [AZURE.NOTE] 작업 보고, 비즈니스 인텔리전스 도구 또는 백업과 같은 특수한 작업을 오프로드하는데 유사한 방법을 사용할 수 있습니다. 일반적으로 이러한 작업은 상당한 데이터베이스 리소스를 소비하므로 예상된 작업에 일치하는 성능 수준으로 보조 데이터베이스 중 하나를 지정하는 것이 좋습니다.
 
@@ -156,17 +156,14 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 ## 다음 단계
 
 - 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-recovery-using-backups.md#geo-restore)을 참조하세요.
 
-## 추가 리소스
+## 다음 단계
 
-- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
-- [특정 시점 복원](sql-database-point-in-time-restore.md)
-- [지역 복원](sql-database-geo-restore.md)
-- [활성 지역 복제](sql-database-geo-replication-overview.md)
-- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
-- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
+- 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
+- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
+- 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Reliable Services 및 Reliable Actors 백업 및 복원
@@ -54,7 +54,7 @@ Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고�
 
 백업을 시작하려면 서비스가 상속된 멤버 함수 **BackupAsync**를 호출해야 합니다. 백업은 주 복제본에서만 수행되며 상태 쓰기 권한을 부여해야 합니다.
 
-아래와 같이 **BackupAsync**는 **BackupDescription** 개체를 가져오고 여기서 콜백 함수인 **Func<< BackupInfo, CancellationToken, Task<bool>>>**뿐만 아니라 전체 또는 증분 백업을 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 경우 호출되고 몇몇 외부 저장소로 이동할 준비가 되었습니다.
+아래와 같이 **BackupAsync**는 **BackupDescription** 개체를 가져오고 여기서 콜백 함수인 **Func<< BackupInfo, CancellationToken, Task<bool>>>** 뿐만 아니라 전체 또는 증분 백업을 지정할 수 있습니다. 이 함수는 백업 폴더를 로컬로 만들 경우 호출되고 몇몇 외부 저장소로 이동할 준비가 되었습니다.
 
 ```C#
 
@@ -64,11 +64,11 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-증분 백업을 가져오는 요청은 **FabricFullBackupMissingException**과 함께 실패할 수 있으며 이는 복제본이 전체 백업을 아예 가져올 수 없거나 마지막 백업 이후 일부 로그 레코드가 잘렸음을 나타냅니다. 사용자는 **CheckpointThresholdInMB**를 수정하여 잘림 비율을 수정할 수 있습니다.
+증분 백업을 가져오는 요청은 **FabricMissingFullBackupException**과 함께 실패할 수 있으며 이는 복제본이 전체 백업을 아예 가져올 수 없거나 마지막 백업 이후 일부 로그 레코드가 잘렸음을 나타냅니다. 사용자는 **CheckpointThresholdInMB**를 수정하여 잘림 비율을 수정할 수 있습니다.
 
 **BackupInfo**는 백업과 관련한 정보를 제공합니다. 여기에는 런타임이 백업을 저장한 폴더의 위치가 포함됩니다(**BackupInfo.Directory**). 콜백 함수는 **BackupInfo.Directory**를 외부 저장소 또는 다른 위치로 이동할 수 있습니다. 이 함수는 백업 폴더를 대상 위치로 이동할 수 있는지 여부를 표시하는 부울 값도 반환합니다.
 
-다음 코드는 **BackupCallbackAsync** 메서드를 사용하여 Azure 저장소에 백업을 업로드하는 방법을 보여줍니다.
+다음 코드는 **BackupCallbackAsync** 메서드를 사용하여 Azure 저장소에 백업을 업로드하는 방법을 보여 줍니다.
 
 ```C#
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
@@ -87,7 +87,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 - 특정 시점에서 처리 중인 복제본 당 하나의 백업 작업만이 존재할 수 있습니다. 동시에 여러 **BackupAsync**가 호출되면 처리 중인 백업을 하나로 제한하는 **FabricBackupInProgressException**이 발생합니다.
 
-- 백업 진행 중에 복제본 장애 조치가 발생하면 백업이 완료되지 않을 수 있습니다. 따라서 장애 조치(failover)가 완료된 후 서비스가 필요에 따라 **BackupAsync**를 호출하여 백업을 다시 시작해야 합니다.
+- 백업 진행 중에 복제본 장애 조치가 발생하면 백업이 완료되지 않을 수 있습니다. 따라서 장애 조치(failover)가 완료된 후 필요에 따라 서비스가 **BackupAsync**를 호출하여 백업을 다시 시작해야 합니다.
 
 ## Reliable Services 복원
 
@@ -133,7 +133,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-**RestoreContext.RestoreAsync** 호출에 전달된 **RestoreDescription**에는 **BackupFolderPath**라는 멤버가 포함됩니다. 단일 전체 백업을 복원할 때 이 **BackupFolderPath**는 전체 백업이 들어 있는 폴더의 로컬 경로로 설정해야 합니다. 전체 백업과 여러 번의 증분 백업을 복원할 때 **BackupFolderPath**는 전체 백업뿐만 아니라 모든 증분 백업까지도 들어 있는 폴더의 로컬 경로로 설정해야 합니다. **RestoreAsync** 호출은 제공된 **BackupFolderPath**에 전체 백업이 포함되지 않으면 **FabricFullBackupMissingException**을 throw할 수 있습니다. 또한 **BackupFolderPath**에 증분 백업의 끊어진 체인이 있는 경우 **ArgumentException**도 throw할 수 있습니다. 예를 들어, 전체 백업을 포함하는 경우 두 번째 증분 백업을 제외하고, 첫 번째 증분과 세 번째 증분 백업을 포함하는 경우입니다.
+**RestoreContext.RestoreAsync** 호출에 전달된 **RestoreDescription**에는 **BackupFolderPath**라는 멤버가 포함됩니다. 단일 전체 백업을 복원할 때 이 **BackupFolderPath**는 전체 백업이 들어 있는 폴더의 로컬 경로로 설정해야 합니다. 전체 백업과 여러 번의 증분 백업을 복원할 때 **BackupFolderPath**는 전체 백업뿐만 아니라 모든 증분 백업까지도 들어 있는 폴더의 로컬 경로로 설정해야 합니다. **RestoreAsync** 호출은 제공된 **BackupFolderPath**에 전체 백업이 포함되지 않으면 **FabricMissingFullBackupException**을 throw할 수 있습니다. 또한 **BackupFolderPath**에 증분 백업의 끊어진 체인이 있는 경우 **ArgumentException**도 throw할 수 있습니다. 예를 들어, 전체 백업을 포함하는 경우 두 번째 증분 백업을 제외하고, 첫 번째 증분과 세 번째 증분 백업을 포함하는 경우입니다.
 
 >[AZURE.NOTE] RestorePolicy는 기본적으로 Safe로 설정됩니다. 즉, 백업 폴더에 이 복제본에 포함된 상태와 같거나 그 이전인 상태가 포함되었음을 탐지한 경우 **RestoreAsync** API가 ArgumentException과 함께 실패합니다. **RestorePolicy.Force**를 사용하여 이 보안 검사를 건너뛸 수 있습니다. 이것은 **RestoreDescription**의 일환으로 지정됩니다.
 
@@ -183,7 +183,7 @@ Reliable Actors에 대한 백업 및 복원은 Reliable Services에서 제공하
 다음은 백업 및 복원에 대한 자세한 내용입니다.
 
 ### 백업
-Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관된 백업을 만드는 기능을 제공합니다. 이를 위해 검사점 및 로그 지속성 메커니즘을 활용합니다. Reliable State Manager는 트랜잭션 로그로부터의 부담을 줄이고 복구 시간을 단축하기 위해 특정 지점에서 유사 항목(경량) 검사점을 사용합니다. **BackupAsync**가 호출되면 신뢰할 수 있는 상태 관리자가 모든 신뢰할 수 있는 개체에게 최신 검사점 파일을 로컬 백업 폴더에 복사하도록 지시합니다. 그런 다음 Reliable State Manager가 "시작 포인터"에서부터 마지막 로그 레코드까지의 모든 로그 레코드를 백업 폴더에 복사합니다. 최신 로그 레코드까지의 모든 로그 레코드가 백업에 포함되고 신뢰할 수 있는 상태 관리자가 미리 쓰기 로깅을 유지하므로 신뢰할 수 있는 상태 관리자는 커밋된 모든 트랜잭션(**CommitAsync**가 성공적으로 반환됨)이 백업에 포함되도록 보장합니다.
+Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관된 백업을 만드는 기능을 제공합니다. 이를 위해 검사점 및 로그 지속성 메커니즘을 활용합니다. Reliable State Manager는 트랜잭션 로그로부터의 부담을 줄이고 복구 시간을 단축하기 위해 특정 지점에서 유사 항목(경량) 검사점을 사용합니다. **BackupAsync**가 호출되면 신뢰할 수 있는 상태 관리자가 모든 신뢰할 수 있는 개체에 최신 검사점 파일을 로컬 백업 폴더에 복사하도록 지시합니다. 그런 다음 Reliable State Manager가 "시작 포인터"에서부터 마지막 로그 레코드까지의 모든 로그 레코드를 백업 폴더에 복사합니다. 최신 로그 레코드까지의 모든 로그 레코드가 백업에 포함되고 신뢰할 수 있는 상태 관리자가 미리 쓰기 로깅을 유지하므로 신뢰할 수 있는 상태 관리자는 커밋된 모든 트랜잭션(**CommitAsync**가 성공적으로 반환됨)이 백업에 포함되도록 보장합니다.
 
 **BackupAsync**가 호출된 이후에 커밋된 모든 트랜잭션은 백업에 포함되거나 포함되지 않을 수 있습니다. 로컬 백업 폴더를 플랫폼에서 입력합 후에는(즉, 런타임에서 로컬 백업 완료됨) 서비스의 백업 콜백이 호출됩니다. 이 콜백은 백업 폴더를 Azure 저장소 등의 외부 위치로 이동하는 것을 담당합니다.
 
@@ -193,4 +193,10 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
 
 **RestoreAsync**는 먼저 호출된 기본 복제본에서 모든 기존 상태를 삭제합니다. 그런 다음 신뢰할 수 있는 상태 관리자가 백업 폴더에 존재하는 모든 신뢰 개체를 만듭니다. 다음으로 백업 폴더의 검사점으로부터 백업하도록 신뢰 개체에게 지시합니다. 마지막으로 Reliable State Manager가 백업 폴더의 로그 레코드에서 자체 상태를 복구하고 복구를 수행합니다. 복구 프로세스의 일환으로 백업 폴더에서 로그 레코드를 커밋한 "시작점"에서 시작하는 작업이 신뢰 개체에 재현됩니다. 이 단계를 통해 일관된 복구 상태를 유지합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+## 다음 단계
+
+- [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
+- [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!---HONumber=AcomDC_0629_2016-->

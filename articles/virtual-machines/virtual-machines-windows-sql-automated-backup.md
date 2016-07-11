@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server 가상 컴퓨터의 자동화된 백업(리소스 관리자) | Microsoft Azure"
-	description="리소스 관리자를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL Server에 대한 자동화된 백업 기능에 대해 설명합니다."
+	description="리소스 관리자를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL Server에 대한 자동화된 백업 기능에 대해 설명합니다. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,8 +24,7 @@
 
 자동화된 백업에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -81,7 +80,7 @@ Azure 포털을 사용하여 리소스 관리자 배포 모델에서 새 SQL Ser
 
 ## PowerShell을 사용하여 구성
 
-SQL VM을 프로비전한 후 자동화된 패치를 구성하려면 PowerShell을 사용합니다.
+SQL VM을 프로비전한 후 자동화된 백업을 구성하려면 PowerShell을 사용합니다.
 
 다음 PowerShell 예제에서는 기존 SQL Server 2014 VM에 대해 자동화된 백업이 구성됩니다. **AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** 명령은 가상 컴퓨터와 연결된 Azure 저장소 계정에 백업을 저장하도록 자동화된 백업 설정을 구성합니다. 이러한 백업은 10일 동안 보존됩니다. **Set-AzureRmVMSqlServerExtension** 명령은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
 
@@ -117,4 +116,4 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -26,7 +26,7 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 
 사용자 프로필 데이터에 대한 구체적인 내용을 읽습니다.
 
->[AZURE.NOTE] UPD를 비활성화해야 하나요? 바로 가능합니다. 자세한 내용은 Pavithra의 블로그 게시물 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
+>[AZURE.NOTE] UPD를 비활성화해야 하나요? 바로 가능합니다. 자세한 내용은 Pavithra의 블로그 게시물 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/)를 참조하세요.
 
 
 ## 관리자는 데이터를 어떻게 얻을 수 있습니까?
@@ -83,10 +83,10 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 다음 상황 중 하나에서 UPD를 비활성화할 수 있습니다.
 
 - 사용자 데이터에 대한 완전한 액세스 및 제어가 필요합니다(금융 기관처럼 감사 및 검토 목적으로).
-- 타사 사용자 프로필 관리 솔루션이 온-프레미스에 있고 도메인에 가입된 Azure RemoteApp 배포에서 계속 사용하고 싶습니다. 골드 이미지에 프로필 에이전트가 로드되어야 합니다. 
+- 타사 사용자 프로필 관리 솔루션이 온-프레미스에 있고 도메인에 가입된 Azure RemoteApp 배포에서 계속 사용하고 싶습니다. 골드 이미지에 프로필 에이전트가 로드되어야 합니다.
 - 로컬 데이터 저장소가 필요하지 않으며 모든 데이터를 클라우드(예: OneDrive for Business) 또는 파일 공유로 유지하고 Azure RemoteApp을 사용하여 데이터를 로컬로 저장하는 것을 제어하려고 합니다.
 
-자세한 내용은 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
+자세한 내용은 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/)를 참조하세요.
 
 ## 시스템 드라이브에 데이터를 저장하지 않도록 사용자를 제한할 수 있습니까?
 
@@ -159,4 +159,4 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 이렇게 하면 New-PSDrive cmdlet에서 -Credential 매개 변수를 건너뛸 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

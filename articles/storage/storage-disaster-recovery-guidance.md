@@ -25,9 +25,9 @@ Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많
 
 모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 저장소 중단을 복구하려면 일반적으로 응용 프로그램을 작동 중인 상태로 다시 활성화하기 위해 운영 직원과 자동화된 프로시저가 모두 작업에 관여합니다. 자체 재해 복구 계획을 빌드하려면 아래 Azure 설명서를 참조하세요.
 
--   [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Azure 비즈니스 연속성 기술 지침](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Azure 복구력 기술 지침](../resiliency/resiliency-technical-guidance.md)
 
 -   [Azure Site Recovery 서비스](https://azure.microsoft.com/services/site-recovery/)
 
@@ -61,7 +61,7 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 
 -   저장소 지역 장애 조치(failover)는 Azure 저장소 팀에 의해서만 트리거되며 고객이 수행할 작업은 없습니다.
 
--   Blob, 테이블, 큐 및 파일에 대한 기존 저장소 서비스 끝점은 장애 조치(failover) 후에도 그대로 유지되며 기본 지역에서 보조 지역으로 전환하려면 DNS 항목을 업데이트해야 합니다.
+-   Blob, 테이블, 큐 및 파일에 대한 기존 저장소 서비스 끝점은 장애 조치(failover) 후에도 그대로 유지되며 주 지역에서 보조 지역으로 전환하려면 DNS 항목을 업데이트해야 합니다.
 
 -   지역 장애 조치(failover) 전과 수행하는 동안에는 재해 영향으로 인해 저장소 계정에 대한 쓰기 권한이 없지만 저장소 계정이 RA-GRS로 구성된 경우에는 보조에서 여전히 읽을 수 있습니다.
 
@@ -81,4 +81,4 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 
 -   파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

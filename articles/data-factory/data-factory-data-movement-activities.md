@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="데이터 이동 활동" 
-	description="데이터를 이동하기 위해 데이터 팩터리 파이프라인에서 사용할 수 있는 데이터 팩터리 엔터티를 알아봅니다." 
+	pageTitle="데이터 이동 작업 | Microsoft Azure" 
+	description="데이터 팩터리 파이프라인에서 데이터 이동에 대해 알아보기: 클라우드 저장소 간 및 온-프레미스 및 클라우드 간의 데이터 마이그레이션. 복사 작업 사용" 
+	keywords="데이터 이동, 데이터 마이그레이션, 데이터 복사, 데이터 전송"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,16 +17,16 @@
 	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
-# 데이터 이동 활동
-[복사 작업](#copyactivity)이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 [전역적으로 사용 가능한 서비스](#global)를 통해 이루어집니다. 이 서비스는 데이터 이동을 수행할 최적의 영역을 자동으로 선택합니다. 싱크 데이터 저장소에 가장 가까운 영역이 사용됩니다.
- 
-이 데이터 이동이 발생하는 다양한 시나리오를 살펴보겠습니다.
+# 데이터 이동 및 복사 작업: 데이터를 클라우드 및 클라우드 저장소 간에 마이그레이션
+Azure 데이터 팩터리의 [복사 작업](#copyactivity)에 의해 원본에서 싱크(대상)에 데이터 이동을 수행합니다. 안전하고 믿을 수 있으며 확장성 있고 [전역적으로 사용할 수 있는 서비스](#global)에 의해 복사 작업을 사용합니다. 서비스는 자동으로 데이터 이동을 수행할 최적의 영역을 선택하며 일반적으로 싱크 데이터 저장소에 가장 가까운 지역입니다.
+
+두 개의 클라우드 데이터 저장소, 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 및 Azure Iaas VM에서 데이터 저장소 간에 데이터 마이그레이션이 발생하는 방식은 다음과 같습니다.
 
 ## 두 클라우드 데이터 저장소 간의 데이터 복사
 원본 및 싱크(대상) 데이터 저장소가 모두 클라우드에 있는 경우 복사 작업은 다음 단계를 통해 원본에서 싱크로 데이터를 복사/이동합니다. 복사 작업을 구동하는 서비스는 다음을 수행합니다.
 
 1. 원본 데이터 저장소에서 데이터 읽기
-2.	입력 데이터 집합, 출력 데이터 집합 및 복사 작업의 구성을 기준으로 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환 수행 
+2.	입력 데이터 집합, 출력 데이터 집합 및 복사 작업의 구성을 기준으로 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환 수행
 3.	대상 데이터 저장소에 데이터 기록
 
 ![클라우드-클라우드 복사](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
@@ -44,15 +45,15 @@
 
 | 원본| 싱크 |
 |:------- | :---- |
-| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)</li><li>[HDFS(Hadoop 분산 파일 시스템) 온-프레미스/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[OData 소스](data-factory-odata-connector.md)</li><li>[웹 테이블](data-factory-web-table-connector.md)</li><li>[GE Historian 온-프레미스/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
+| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)</li><li>[HDFS(Hadoop 분산 파일 시스템) 온-프레미스/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[OData 소스](data-factory-odata-connector.md)</li><li>[웹 테이블(HTML의 테이블)](data-factory-web-table-connector.md)</li><li>[GE Historian 온-프레미스/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
-> [AZURE.NOTE] Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, Azure DocumentDB 및 Azure 데이터 레이크 저장소 등 다른 Azure 서비스에서/Azure 서비스로 Azure DocumentDB로/Azure DocumentDB에서만 이동할 수 있습니다. 또한 Azure Document DB에 대한 전체 매트릭스도 곧 지원됩니다.
+> [AZURE.NOTE] 현재 온-프레미스/Azure IaaS 데이터 저장소와 Azure DocumentDB 간에 데이터를 복사하도록 지원되지 않습니다. 또한 Azure Document DB에 대한 전체 매트릭스도 곧 사용할 수 있습니다.
 
 **복사 작업**에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동해야 하는 경우 Data Factory의 **사용자 지정 작업**에서 데이터 복사/이동에 대한 사용자 고유의 논리를 사용할 수 있습니다. 사용자 지정 작업을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](data-factory-use-custom-activities.md)을 참조하세요.
 
 ## 자습서
-복사 작업 사용에 대한 빠른 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 작업 사용](data-factory-get-started.md)을 참조하세요. 자습서에서는 복사 작업을 사용하여 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다.
+복사 작업 사용에 대한 빠른 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 작업 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요. 자습서에서는 복사 작업을 사용하여 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다.
 
 ## <a name="copyactivity"></a>복사 작업
 복사 작업은 한 입력 데이터 집합(**원본**)에서 한 출력 데이터 집합(**싱크**)으로 데이터를 복사합니다. 데이터 복사는 작업에 지정된 일정에 따라 일괄 처리 방식으로 수행됩니다. 일반적인 작업 정의에 대해 알려면 [파이프라인 및 작업 이해](data-factory-create-pipelines.md) 문서를 참조하세요.
@@ -76,8 +77,8 @@
 
 
 
-### <a name="moveonpremtocloud"></a>온-프레미스 위치와 클라우드 간에 데이터를 안전하게 이동
-최신 데이터 통합에 대한 도전 과제 중 하나는 온-프레미스와 클라우드에서 원활한 데이터 이동입니다. 데이터 관리 게이트웨이는 하이브리드 데이터 파이프라인을 사용하도록 온-프레미스를 설치할 수 있는 에이전트입니다.
+### <a name="moveonpremtocloud"></a>온-프레미스 위치와 클라우드 간에 데이터를 안전하게 전송
+최신 데이터 통합에 대한 도전 과제 중 하나는 온-프레미스와 클라우드에서 데이터를 원활하게 전송하는 것입니다. 데이터 관리 게이트웨이는 하이브리드 데이터 파이프라인을 사용하도록 온-프레미스를 설치할 수 있는 에이전트입니다.
 
 데이터 게이트웨이는 다음 기능을 제공합니다.
 
@@ -128,8 +129,8 @@ CopyActivity2: 입력: Dataset3, Dataset2 출력: Dataset4
 
 여러 입력을 지정하는 경우 첫 번째 입력 데이터 집합만 데이터를 복사하는 데 사용되고 다른 데이터 집합은 종속성으로 사용됩니다. CopyActivity2는 다음 조건을 충족할 때만 실행을 시작합니다.
 
-- CopyActivity2가 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않으며 CopyActivity2에 대한 일정 종속성으로만 작동합니다.   
-- Dataset3을 사용할 수 있습니다. 이 데이터 집합은 대상에 복사되는 데이터를 나타냅니다.  
+- CopyActivity2가 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않으며 CopyActivity2에 대한 일정 종속성으로만 작동합니다.
+- Dataset3을 사용할 수 있습니다. 이 데이터 집합은 대상에 복사되는 데이터를 나타냅니다.
 
 
 ### 복사 작업 성능 및 조정 
@@ -195,4 +196,4 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 ![사용자 지정 변수 사용](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

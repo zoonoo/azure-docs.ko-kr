@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
@@ -58,4 +58,4 @@ Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../m
 
 위의 등록 및 로그인 정책에 설명한 대로 등록 또는 로그인 정책과 암호 재설정 정책에 Multi-Factor Authentication을 사용하도록 설정할 수 있습니다. 정책을 편집하는 프로필에서 곧 지원됩니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -160,7 +160,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 
 **구문:** `str ConvertFromBase64(str source)` - 인코딩에 유니코드 가정 <br> `str ConvertFromBase64(str source, enum Encoding)`
 
-- 원본: Base64 인코딩된 문자열  
+- 원본: Base64 인코딩된 문자열
 - 인코딩: 유니코드, ASCII, UTF8
 
 **예제:** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -516,7 +516,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **주의** Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고 구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
 
-**예제:** `Join([proxyAddresses],",")` "SMTP"를 반환할 수 있습니다.john.doe@contoso.com,smtp:jd@contoso.com
+**예제:** `Join([proxyAddresses],",")` "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"를 반환할 수 있습니다.
 
 ----------
 ### LCase
@@ -525,7 +525,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str LCase(str value)`
 
-**예제:** `LCase("TeSt")` "Test"를 반환합니다.
+**예제:** `LCase("TeSt")` "TEST"를 반환합니다.
 
 ----------
 ### Left
@@ -563,7 +563,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str LTrim(str value)`
 
-**예제:** `LTrim(" Test ")` "Test"를 반환합니다.
+**예제:** `LTrim(" Test ")` "TEST"를 반환합니다.
 
 ----------
 ### Mid
@@ -657,7 +657,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `String PCase(string)`
 
-**예제:** `PCase("TEsT")` "Test"를 반환합니다.
+**예제:** `PCase("TEsT")` "TEST"를 반환합니다.
 
 ----------
 ### RandomNum
@@ -757,7 +757,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str RTrim(str value)`
 
-**예제:** `RTrim(" Test ")` "Test"를 반환합니다.
+**예제:** `RTrim(" Test ")` "TEST"를 반환합니다.
 
 ----------
 ### 분할
@@ -818,7 +818,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
-**예제:** `Trim(" Test ")` "Test"를 반환합니다.
+**예제:** `Trim(" Test ")` "TEST"를 반환합니다.
 
 `Trim([proxyAddresses])` proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
@@ -859,4 +859,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

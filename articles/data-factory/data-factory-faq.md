@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 질문과 대답
@@ -35,8 +35,8 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 ### Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 
 - Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
-- 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-get-started.md)를 참조하세요.
-- HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요. 
+- 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+- HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요.
   
 ### 데이터 팩터리의 지역 가용성은 얼마나 되나요?
 Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 계산 및 저장소 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
@@ -73,7 +73,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요? 
 
 - 데이터를 이동하는 [데이터 이동 작업](data-factory-data-movement-activities.md)
-- 데이터를 처리/변환하는 [데이터 변환 작업](data-factory-data-transformation-activities.md) 
+- 데이터를 처리/변환하는 [데이터 변환 작업](data-factory-data-transformation-activities.md)
 
 ### 작업은 언제 실행되나요?
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지(즉, **Ready** 상태) 검사합니다.
@@ -81,6 +81,11 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ## 복사 작업 - FAQ
 ### 여러 작업이 포함된 파이프라인 1개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요? 
 파이프라인은 관련 작업의 번들로 간주됩니다. 논리적으로, 작업을 연결하는 테이블이 파이프라인 외부의 다른 작업에서 사용 되지 않는 경우 파이프라인 하나에 작업을 유지할 수 있습니다. 이 경우 서로 정렬되도록 파이프라인 활성 기간을 연결할 필요가 없습니다. 또한 파이프라인을 업데이트할 때 파이프라인 내부 테이블의 데이터 무결성이 보다 완벽하게 유지됩니다. 파이프라인 업데이트는 기본적으로 파이프라인 내의 모든 작업을 중지하고 제거한 후 다시 만듭니다. 제작 관점에서는 파이프라인에 대한 하나의 JSON 파일에서 관련 작업 내의 데이터 흐름을 확인하는 것이 더 쉬울 수도 있습니다.
+
+### 복사 작업을 어디서 수행하나요? 
+
+자세한 내용은 [전역적으로 사용 가능한 데이터 이동](data-factory-data-movement-activities.md#global) 섹션을 참조하세요. 즉, 온-프레미스 데이터 저장소가 관련된 경우 온-프레미스 환경의 데이터 관리 게이트웨이에서 복사 작업을 수행합니다. 그리고 두 클라우드 저장소 간에 데이터를 이동하는 경우 같은 지리의 싱크 위치에 가장 가까운 지역에서 복사 작업을 수행합니다.
+
 
 ## HDInsight 작업 - FAQ
 
@@ -119,7 +124,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 
 ## 조각 - FAQ
 
-### 내 입력 조각이 준비 상태가 아닌 이유는 무엇인가요? 
+### 내 입력 조각이 준비 상태가 아닌 이유는 무엇인가요?  
 일반적인 실수는 입력 데이터가 데이터 팩터리 외부의 데이터일 때(데이터 팩터리에 의해 생성되지 않음) 입력 데이터 집합에 대해 **external** 속성을 **true**로 설정하지 않는 것입니다.
 
 다음 예제에서는 **dataset1**에 대해서만 **external**을 true로 설정해야 합니다.
@@ -128,7 +133,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 
 dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용하는 파이프라인을 포함하는 다른 데이터 팩터리가 있는 경우 데이터 집합이 다른 데이터 팩터리(DataFactory1, DataFactory2는 아님)에 의해 생성되므로 dataset4를 외부 데이터 집합으로 표시해야 합니다.
 
-**DataFactory2** 1 파이프라인 1: dataset4->activity4->dataset5
+**DataFactory2** 파이프라인 1: dataset4->activity4->dataset5
 
 외부 속성이 제대로 설정된 경우 입력 데이터가 입력 데이터 집합 정의에 지정된 위치에 있는지 여부를 확인합니다.
 
@@ -147,9 +152,9 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 ### 어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
-- 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#re-run-selected-activity-windows)을 참조하세요.   
+- 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#re-run-selected-activity-windows)을 참조하세요.
 - 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
-- 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
+- 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
@@ -163,9 +168,9 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **데이터 집합** 타일을 클릭합니다.
 2. **데이터 집합** 블레이드에서 특정 데이터 집합을 클릭합니다.
 3. **테이블** 블레이드의 **최근 조각** 목록에서 관심 있는 조각을 선택합니다.
-4. **데이터 조각** 블레이드의 **작업 실행** 목록에서 작업 실행을 클릭합니다. 
-5. **작업 실행 세부 정보** 블레이드에서 **속성** 타일을 클릭합니다. 
-6. **기간** 필드와 값이 표시됩니다. 이것이 조각을 처리하는 데 소요된 시간입니다.   
+4. **데이터 조각** 블레이드의 **작업 실행** 목록에서 작업 실행을 클릭합니다.
+5. **작업 실행 세부 정보** 블레이드에서 **속성** 타일을 클릭합니다.
+6. **기간** 필드와 값이 표시됩니다. 이것이 조각을 처리하는 데 소요된 시간입니다.
 
 ### 실행 중인 조각을 중지하려면 어떻게 해야 하나요?
 파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet를 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
@@ -187,4 +192,4 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

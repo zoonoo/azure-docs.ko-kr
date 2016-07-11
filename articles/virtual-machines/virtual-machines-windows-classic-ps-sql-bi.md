@@ -18,8 +18,7 @@
 
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Microsoft Azure 가상 컴퓨터 갤러리에는 SQL Server 설치가 포함된 이미지가 들어 있습니다. 갤러리 이미지에서 지원되는 SQL Server 버전은 온-프레미스 컴퓨터와 가상 컴퓨터에 설치할 수 있는 동일한 설치 파일입니다. 이 항목은 가상 컴퓨터가 프로비전된 후 필요한 구성 단계 및 이미지에 설치된 SQL Server BI(비즈니스 인텔리전스) 기능을 요약합니다. 이 항목은 BI 기능에 대해 지원되는 배포 토폴로지 및 모범 사례도 설명합니다.
 
@@ -316,7 +315,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. **SQL Server 설치 센터**를 클릭합니다.
 
-또는 C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe, C:\\SQLServer\_11.0\_full\\setup.exe를 실행합니다.
+또는 C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.exe, C:\\SQLServer_11.0\_full\\setup.exe를 실행합니다.
 
 >[AZURE.NOTE] 처음으로 SQL Server 설치 프로그램을 실행하면 더 많은 설치 파일이 다운로드될 수 있으며 가상 컴퓨터를 재부팅하고 SQL Server 설치를 다시 시작해야 할 수도 있습니다.
 >
@@ -334,7 +333,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. SQL Server 설치 마법사에서 왼쪽 창의 **설치**를 클릭한 다음 **새 SQL Server 독립 실행형 설치 또는 기존 설치에 기능 추가**를 클릭합니다.
 
-	- **폴더 찾아보기**가 표시되면 c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full 또는 c:\\SQLServer\_11.0\_full로 이동한 다음 **확인**을 클릭합니다.
+	- **폴더 찾아보기**가 표시되면 c:\\SQLServer\_13.0_full, c:\\SQLServer_12.0_full or c:\\SQLServer_11.0\_full로 이동한 다음 **확인**을 클릭합니다.
 
 1. 제품 업데이트 페이지에서 **다음**을 클릭합니다.
 
@@ -392,8 +391,8 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 	|포트|형식|설명|
 |---|---|---|
-|**80**|TCP|보고서 서버 원격 액세스(*).|
-|**1433**|TCP|SQL Server Management Studio(*).|
+|**80**|TCP|보고서 서버 원격 액세스(*)|
+|**1433**|TCP|SQL Server Management Studio(*)|
 |**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
 |**2382**|TCP|SQL Server Browser입니다.|
 |**2383**|TCP|SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다.|
@@ -437,4 +436,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

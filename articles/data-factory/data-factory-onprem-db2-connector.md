@@ -25,6 +25,8 @@
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 DB2로가 아닌 DB2에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
+> [AZURE.NOTE] 현재 이 DB2 커넥터는 LUW에 DB2를 지원합니다(Linux, UNIX, Windows). z/OS의 DB2 또는 AS/400의 DB2에서 데이터를 복사하려면 일반 ODBC 커넥터를 사용하고 게이트웨이 컴퓨터에 해당 ODBC 드라이버를 설치하는 것이 좋습니다. 예를 들어, AS/400의 DB2에서 데이터를 수집하려면 iSeries Access ODBC 드라이버를 사용하고 [ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)를 참조하여 복사 작업을 설정할 수 있습니다.
+
 ## 설치 
 
 DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [IBM DB2 데이터 서버 드라이버](http://go.microsoft.com/fwlink/p/?LinkID=274911)를 설치해야 합니다.
@@ -36,15 +38,15 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 
 ## 샘플: DB2에서 Azure Blob로 데이터 복사
 
-이 샘플은 온-프레미스 DB2 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+이 샘플은 온-프레미스 DB2 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties) 형식의 연결된 서비스
-2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스 
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
 3.	[RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md) 
-5.	[RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md) 
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+5.	[RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 DB2 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -324,4 +326,4 @@ Char | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

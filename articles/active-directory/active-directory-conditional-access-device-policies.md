@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 # Office 365 서비스에 대한 조건부 액세스 장치 정책
 
@@ -44,4 +44,4 @@ Q: Office 365 서비스에 대한 조건부 액세스 정책이 언제 브라우
 
 A: 현재 Office365 서비스에 대한 조건부 액세스는 장치의 풍부한 응용 프로그램으로 제한됩니다. 브라우저에서 서비스에 액세스하는 사용자에게도 조건부 액세스 정책을 확장할 계획입니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

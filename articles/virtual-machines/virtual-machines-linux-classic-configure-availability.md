@@ -19,8 +19,8 @@
 
 # 클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 또한 리소스 관리자 배포에서 가용성 집합을 구성할 수 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. 또한 리소스 관리자 배포에서 가용성 집합을 구성할 수 있습니다.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

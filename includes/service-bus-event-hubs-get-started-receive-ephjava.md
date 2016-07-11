@@ -20,7 +20,7 @@ EventProcessorHost를 사용하려면 [Azure 저장소 계정][]이 있어야 �
 
 ###EventProcessor 호스트를 사용하여 Java 프로젝트 만들기
 
-이벤트 허브에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다.
+이벤트 허브에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리][Maven Package]의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다.
 
 ``` XML
 <dependency>
@@ -30,9 +30,9 @@ EventProcessorHost를 사용하려면 [Azure 저장소 계정][]이 있어야 �
 </dependency>
 ```
  
-다양한 유형의 빌드 환경을 위해, [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) 또는 [GitHub의 릴리스 배포 지점](https://github.com/Azure/azure-event-hubs/releases)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
+다양한 유형의 빌드 환경을 위해, [Maven 중앙 리포지토리][Maven Package] 또는 [GitHub의 릴리스 배포 지점](https://github.com/Azure/azure-event-hubs/releases)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
 
-1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 응용 프로그램에 대한 새 Maven 프로젝트를 만듭니다. 이 클래스를 ```ErrorNotificationHandler```라고 합니다.     
+1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 응용 프로그램에 대한 새 Maven 프로젝트를 만듭니다. 이 클래스를 ```ErrorNotificationHandler```라고 합니다.
 
 	``` Java
 	import java.util.function.Consumer;
@@ -187,9 +187,10 @@ EventProcessorHost를 사용하려면 [Azure 저장소 계정][]이 있어야 �
 [Event Hubs Overview]: event-hubs-overview.md
 [Azure 저장소 계정]: ../storage/storage-create-storage-account.md
 [Azure 클래식 포털]: http://manage.windowsazure.com
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

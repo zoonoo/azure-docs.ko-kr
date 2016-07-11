@@ -60,7 +60,7 @@
 스크립트가 완료되면 대상 서버의 모든 후보 데이터베이스를 포함하는 풀에 필요한 eDTU의 예상 수를 출력합니다. 이 예상 eDTU는 풀을 만들고 구성하는 데 사용할 수 있습니다. 풀을 만들고 데이터베이스를 풀로 이동한 후 며칠 동안 풀을 면밀히 모니터링하고 필요에 따라 풀 eDTU 구성을 조정해야 합니다. [탄력적 데이터베이스 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)을 참조하세요.
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -266,4 +266,4 @@
 
         
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

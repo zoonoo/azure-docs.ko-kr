@@ -1,6 +1,6 @@
 <properties
 	pageTitle="NoSQL 및 SQL을 사용하는 경우 | Microsoft Azure"
-	description="SQL 솔루션과 비관계형 NoSQL 솔루션 사용의 이점을 비교합니다. Microsoft Azure NoSQL 서비스 또는 SQL Server 솔루션 중 하나가 시나리오에 가장 적합한지 여부를 알아봅니다."
+	description="SQL 솔루션과 비관계형 NoSQL 솔루션 사용의 이점을 비교합니다. Microsoft Azure NoSQL 서비스 또는 SQL Server 중 무엇이 시나리오에 가장 적합한지를 알아봅니다."
 	keywords="nosql과 sql, NoSQL을 사용하는 경우, sql과 nosql"
 	services="documentdb"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/24/2016"
 	ms.author="mimig"/>
 
 # NoSQL과 SQL
@@ -106,7 +106,7 @@ Microsoft는 5가지의 SQL 제품을 제공합니다.
 - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
 - [Azure SQL 데이터 웨어하우스(미리 보기)](https://azure.microsoft.com/services/sql-data-warehouse/)
-- [분석 플랫폼 시스템(온-프레미스 어플라이언스)](https://www.microsoft.com/ko-KR/server-cloud/products/analytics-platform-system/)
+- [분석 플랫폼 시스템(온-프레미스 어플라이언스)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
 가상 컴퓨터 또는 SQL 데이터베이스의 SQL Server에 관심이 있다면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하여 둘 사이의 차이점에 대해 자세히 알아봅니다.
 
@@ -126,8 +126,8 @@ SQL 및 NoSQL 제품을 자세히 알아볼 수 있도록 무료 이용에 초�
     - [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
     - [Azure 테이블 저장소](https://azure.microsoft.com/services/storage/)
 
-- [가상 컴퓨터의 SQL Server 2016 평가판](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/)을 스핀업하거나 [SQL Server 평가판](https://www.microsoft.com/ko-KR/evalcenter/evaluate-sql-server-2016)을 다운로드할 수 있습니다.
+- [가상 컴퓨터의 SQL Server 2016 평가판](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/)을 스핀업하거나 [SQL Server 평가판](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016)을 다운로드할 수 있습니다.
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

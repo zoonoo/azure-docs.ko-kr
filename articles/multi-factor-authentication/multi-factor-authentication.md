@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 - **용이성** -Azure Multi-Factor Authentication은 간단하게 설정하고 사용할 수 있습니다. Azure Multi-Factor Authentication과 함께 제공되는 추가 보호를 사용하면 자신의 장치를 관리하고 대부분의 경우 간단한 몇 번 클릭으로 설치할 수 있습니다.
 - **확장성** -Azure Multi-Factor Authentication은 클라우드의 강력한 클라우드의 기능을 이용하며 온-프레미스 AD와 사용자 지정 앱을 통합합니다. 이러한 보호는 고용량 업무상 중요 한 시나리오에도 확장됩니다.
 - **항상 보호** -Azure Multi-Factor Authentication은 가장 높은 업계 표준을 사용하여 강력한 인증을 제공합니다.
-- **안정성** -Azure Multi-Factor Authentication의 99.9%의 가용성을 보장합니다. Multi-Factor Authentication에 대한 인증 요청을 수신하거나 처리할 수 없는 경우 서비스는 사용할 수 없는 것으로 간주됩니다.  
+- **안정성** -Azure Multi-Factor Authentication의 99.9%의 가용성을 보장합니다. Multi-Factor Authentication에 대한 인증 요청을 수신하거나 처리할 수 없는 경우 서비스는 사용할 수 없는 것으로 간주됩니다.
 
 Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보는 다음 비디오를 참조하세요.
 
@@ -137,7 +137,7 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
 - **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
 - **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
 
-Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선택 가능한 확인 방법을 제공합니다. 즉, 다단계 인증을 사용할 때 사용자에게 제공할 방법을 선택할 수 있다는 것을 의미합니다. 이 기능은 현재 다단계 인증의 클라우드 버전에 대한 공개 미리 보기 상태입니다. 자세한 내용은 [선택 가능한 확인 방법](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview)을 참조하세요.
+Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선택 가능한 확인 방법을 제공합니다. 즉, 다단계 인증을 사용할 때 사용자에게 제공할 방법을 선택할 수 있다는 것을 의미합니다. 이 기능은 현재 다단계 인증의 클라우드 버전에 대한 공개 미리 보기 상태입니다. 자세한 내용은 [선택 가능한 확인 방법](multi-factor-authentication-whats-next.md#selectable-verification-methods)을 참조하세요.
 
 가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하십시오.
 
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스) | Microsoft Azure"
-	description="필터 조건자를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다."
+	pageTitle="필터 함수를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스) | Microsoft Azure"
+	description="필터 함수를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/28/2016"
 	ms.author="douglasl"/>
 
-# 필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
+# 필터 함수를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
 
-콜드 데이터를 별도 테이블에 저장하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면 테이블에 핫 및 콜드 데이터가 모두 포함된 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수입니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
+콜드 데이터를 별도 테이블에 저장하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면 테이블에 핫 및 콜드 데이터가 모두 포함된 경우 필터 함수를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수입니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
 
->   [AZURE.NOTE] 제대로 수행되지 않는 필터 조건자를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용합니다.
+>   [AZURE.NOTE] 제대로 수행되지 않는 필터 함수를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용합니다.
 
-필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
+필터 함수를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 조건자를 지정할 수 있습니다. 다른 종류의 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 필터 함수를 지정할 수 있습니다. 다른 종류의 필터 함수를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
 
--   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 조건자를 지정합니다.
+-   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 필터 함수를 지정합니다.
 
--   마법사를 종료한 후 ALTER TABLE 문을 실행하여 조건자를 지정합니다.
+-   마법사를 종료한 후 ALTER TABLE 문을 실행하여 필터 함수를 지정합니다.
 
-조건자를 추가하는 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
+함수를 추가하는 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 
-## 필터 조건자에 대한 기본 요구 사항
+## 필터 함수에 대한 기본 요구 사항
 스트레치 데이터베이스 필터 조건자에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
 
 ```tsql
@@ -45,7 +45,7 @@ RETURN	SELECT 1 AS is_eligible
 ```
 함수의 매개 변수는 테이블의 열에 대한 식별자이어야 합니다.
 
-스키마 바인딩은 필터 조건자에 의해 사용되는 열이 삭제되거나 변경되는 것을 방지하기 위해 필요합니다.
+스키마 바인딩은 필터 함수에 의해 사용되는 열이 삭제되거나 변경되는 것을 방지하기 위해 필요합니다.
 
 ### 반환 값
 함수가 비어 있지 않은 결과를 반환하는 경우 해당 행을 마이그레이션할 수 있습니다. 그렇지 않은 경우, 즉 함수가 결과를 반환하지 않는 경우에는 해당 행을 마이그레이션할 수 없습니다.
@@ -124,7 +124,7 @@ RETURN	SELECT 1 AS is_eligible
 ```
 
 ### 상수 식
-필터 조건자에서 사용하는 상수는 함수를 정의할 때 계산될 수 있는 결정 식이 될 수 있습니다. 상수 식에는 다음을 포함할 수 있습니다.
+필터 함수에서 사용하는 상수는 함수를 정의할 때 계산될 수 있는 결정 식이 될 수 있습니다. 상수 식에는 다음을 포함할 수 있습니다.
 
 -   리터럴 예: `N’abc’, 123`.
 
@@ -135,12 +135,12 @@ RETURN	SELECT 1 AS is_eligible
 -   CAST 또는 CONVERT를 사용하는 결정 변환 예: `CONVERT(datetime, '1/1/2016', 101)`.
 
 ### 기타 식
-BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 조건자가 여기에 설명된 규칙을 준수하는 경우 BETWEEN 및 NOT BETWEEN 연산자를 사용할 수 있습니다.
+BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하는 경우 BETWEEN 및 NOT BETWEEN 연산자를 사용할 수 있습니다.
 
 하위 쿼리나 rand() 또는 getdate() 등의 비결정 함수를 사용할 수 없습니다.
 
-## 필터 조건자를 테이블에 추가
-ALTER TABLE 문을 실행하고 기존 인라인 테이블 값 함수를 FILTER\_PREDICATE 매개 변수 값으로 지정하여 필터 조건자를 테이블에 추가합니다. 예:
+## 테이블에 필터 함수 추가
+**ALTER TABLE** 문을 실행하고 기존 인라인 테이블 값 함수를 **FILTER\_PREDICATE** 매개 변수 값으로 지정하여 필터 함수를 테이블에 추가합니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -158,7 +158,7 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 
 >   [AZURE.NOTE] 필터 함수의 성능을 향상시키려면 해당 함수에서 사용되는 열에 대해 인덱스를 만듭니다.
 
-### 필터 조건자에 열 이름 전달
+### 필터 함수에 열 이름 전달
 테이블에 필터 함수를 할당하는 경우 필터 함수에 전달되는 열 이름을 한 부분으로 된 이름으로 지정합니다. 열 이름을 전달할 때 세 부분으로 된 이름을 지정하면 스트레치 지원 테이블에 대한 후속 쿼리가 실패합니다.
 
 예를 들어, 다음 예제와 같이 세 부분으로 이루어진 열 이름을 지정하면 문이 성공적으로 실행되지만 테이블에 대한 후속 쿼리는 실패합니다.
@@ -181,11 +181,11 @@ ALTER TABLE SensorTelemetry
   )
 ```
 
-## <a name="addafterwiz"></a>마법사를 실행한 후 필터 조건자 추가  
+## <a name="addafterwiz"></a>마법사를 실행한 후 필터 함수 추가  
 
-**스트레치에 데이터베이스 사용** 마법사에서 만들 수 없는 조건자를 사용하려는 경우 마법사를 종료한 후에 ALTER TABLE 문을 실행하여 조건자를 지정할 수 있습니다. 그렇지만 조건자를 적용하려면 먼저 이미 진행 중인 데이터 마이그레이션을 중지하고 마이그레이션된 데이터를 다시 가져와야 합니다. (이 작업이 필요한 이유에 대한 자세한 내용은 [기존 필터 조건자 대체](#replacePredicate)를 참조하세요.
+**스트레치에 데이터베이스 사용** 마법사에서 만들 수 없는 함수를 사용하려는 경우 마법사를 종료한 후에 ALTER TABLE 문을 실행하여 함수를 지정할 수 있습니다. 그렇지만 함수를 적용하려면 먼저 이미 진행 중인 데이터 마이그레이션을 중지하고 마이그레이션된 데이터를 다시 가져와야 합니다. (이 작업이 필요한 이유에 대한 자세한 내용은 [기존 필터 함수 대체](#replacePredicate)를 참조하세요.
 
-1. 마이그레이션 방향을 반대로 바꾸고 이미 마이그레이션된 데이터를 불러옵니다. 이 작업은 일단 시작되면 취소할 수 없습니다. 또한 Azure에서 아웃바운드 데이터 전송(송신)에 따른 비용이 발생합니다. 자세한 내용은 [Azure 가격 적용 방식](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.  
+1. 마이그레이션 방향을 반대로 바꾸고 이미 마이그레이션된 데이터를 불러옵니다. 이 작업은 일단 시작되면 취소할 수 없습니다. 또한 Azure에서 아웃바운드 데이터 전송(송신)에 따른 비용이 발생합니다. 자세한 내용은 [Azure 가격 책정 방식](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
 
     ```tsql  
     ALTER TABLE <table name>  
@@ -194,9 +194,9 @@ ALTER TABLE SensorTelemetry
 
 2. 마이그레이션이 완료될 때까지 기다립니다. SQL Server Management Studio에서 **스트레치 데이터베이스 모니터**에서 상태를 확인하거나 **sys.dm\_db\_rda\_migration\_status** 뷰를 쿼리할 수 있습니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md) 또는 [sys.dm\_db\_rda\_migration\_status](https://msdn.microsoft.com/library/dn935017.aspx)를 참조하세요.
 
-3. 테이블에 적용할 필터 조건자를 만듭니다.
+3. 테이블에 적용할 필터 함수를 만듭니다.
 
-4. 테이블에 조건자를 추가하고 Azure에 대한 데이터 마이그레이션을 다시 시작합니다.
+4. 테이블에 함수를 추가하고 Azure에 대한 데이터 마이그레이션을 다시 시작합니다.
 
     ```tsql  
     ALTER TABLE <table name>  
@@ -223,7 +223,7 @@ GO
 ```
 
 ## 상태 열 값으로 행 필터링
-다음 예제에서는 **status** 열에 지정된 된 값 중 하나가 포함된 경우 행을 마이그레이션합니다.
+다음 예제에서는 **status** 열에 지정된 값 중 하나가 포함된 경우 행을 마이그레이션합니다.
 
 ```tsql
 -- Filter by status column
@@ -241,9 +241,9 @@ GO
 
 -   함수는 명확해야 합니다. 따라서 시간이 지남에 따라 슬라이딩 윈도우를 자동으로 다시 계산하는 함수를 만들 수 없습니다.
 
--   함수에서 스키마 바인딩을 사용해야 합니다. 따라서 슬라이딩 윈도우를 이동하기 위해 ALTER FUNCTION을 호출하여 매일 "현재 위치"에서 함수를 업데이트할 수 없습니다.
+-   함수에서 스키마 바인딩을 사용해야 합니다. 따라서 슬라이딩 윈도우를 이동하기 위해 **ALTER FUNCTION**을 호출하여 매일 "현재 위치"에서 함수를 업데이트할 수 없습니다.
 
-다음 예제와 같이 **systemEndTime** 열에 2016년 1월 1일 이전 값이 포함된 행을 마이그레이션하는 필터 조건자로 시작합니다.
+다음 예제와 같이 **systemEndTime** 열에 2016년 1월 1일 이전 값이 포함된 행을 마이그레이션하는 필터 함수로 시작합니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
@@ -254,7 +254,7 @@ RETURN SELECT 1 AS is_eligible
   WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
 ```
 
-테이블에 필터 조건자를 적용합니다.
+테이블에 필터 함수를 적용합니다.
 
 ```tsql
 ALTER TABLE <table name>
@@ -272,9 +272,9 @@ SET (
 
 1.  새 슬라이딩 윈도우를 지정하는 새 함수를 만듭니다. 다음 예제에서는 2016년 1월 1일 대신 2016년 1월 2일 이전 날짜를 선택합니다.
 
-2.  다음 예제와 같이 ALTER TABLE을 호출하여 이전 필터 조건자를 새 필터 조건자로 바꿉니다.
+2.  다음 예제와 같이 **ALTER TABLE**을 호출하여 이전 필터 함수를 새 필터 함수로 바꿉니다.
 
-3. 필요에 따라 DROP FUNCTION을 호출하여 더 이상 사용하지 않는 이전 필터 함수를 삭제합니다. 이 단계는 예제에 표시되어 있지 않습니다.
+3. 필요에 따라 **DROP FUNCTION**을 호출하여 더 이상 사용하지 않는 이전 필터 함수를 삭제합니다. 이 단계는 예제에 표시되어 있지 않습니다.
 
 ```tsql
 BEGIN TRAN
@@ -288,7 +288,7 @@ GO
                WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
         GO
 
-        /*(2) Set the new function as filter predicate */
+        /*(2) Set the new function as the filter predicate */
         ALTER TABLE <table name>
         SET
         (
@@ -301,7 +301,7 @@ GO
 COMMIT ;
 ```
 
-## 유효한 필터 조건자의 더 많은 예제
+## 유효한 필터 함수의 추가 예제
 
 -   다음 예제는 AND 논리 연산자를 사용하여 두 개의 기본 조건을 결합한 것입니다.
 
@@ -344,7 +344,7 @@ COMMIT ;
     GO
     ```
 
--   다음 예제는 BETWEEN 및 NOT BETWEEN 연산자를 사용한 것입니다. BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 조건자가 여기에 설명된 규칙을 준수하기 때문에 이렇게 사용하는 것은 올바릅니다.
+-   다음 예제는 BETWEEN 및 NOT BETWEEN 연산자를 사용한 것입니다. BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하기 때문에 이렇게 사용하는 것은 올바릅니다.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
@@ -368,7 +368,7 @@ COMMIT ;
     GO
     ```
 
-## 유효하지 않은 필터 조건자의 예제
+## 올바르지 않는 필터 함수 예제
 
 -   다음 함수는 비결정 변환을 포함하기 때문에 올바르지 않습니다.
 
@@ -449,16 +449,16 @@ COMMIT ;
     GO
     ```
 
-## 스트레치 데이터베이스가 필터 조건자를 적용하는 방법
-스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용하고 해당 행을 결정합니다. 예:
+## 스트레치 데이터베이스가 필터 함수를 적용하는 방법
+스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용하고 해당 행을 결정합니다. 예:
 
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
 ```
 함수가 행에 대해 비어 있지 않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
 
-## <a name="replacePredicate"></a>기존 필터 조건자 대체
-ALTER TABLE 문을 다시 실행하고 FILTER\_PREDICATE 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 조건자를 대체할 수 있습니다. 예:
+## <a name="replacePredicate"></a>기존 필터 함수 대체
+**ALTER TABLE** 문을 다시 실행하고 **FILTER\_PREDICATE** 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 함수를 대체할 수 있습니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -475,7 +475,7 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 
 -   연산자 인수의 순서를 변경할 수 없습니다.
 
--   `<, <=, >, >=` 비교의 일부인 상수 값만이 조건자를 덜 제한적으로 만드는 방식으로 변경될 수 있습니다.
+-   `<, <=, >, >=` 비교의 일부인 상수 값만이 함수를 덜 제한적으로 만드는 방식으로 변경될 수 있습니다.
 
 ### 올바른 대체의 예제
 다음 함수가 현재 필터 조건자임을 가정합니다.
@@ -490,7 +490,7 @@ RETURN	SELECT 1 AS is_eligible
 			AND (@column2 < -100 OR @column2 > 100)
 GO
 ```
-다음 함수는 새 날짜 상수(나중 구분 날짜를 지정)가 조건자를 덜 제한적으로 만들기 때문에 올바른 대체입니다.
+다음 함수는 새 날짜 상수(나중 구분 날짜를 지정)가 함수를 덜 제한적으로 만들기 때문에 올바른 대체입니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate_new (@column1 datetime, @column2 int)
@@ -504,7 +504,7 @@ GO
 ```
 
 ### 올바르지 않은 대체의 예제
-다음 함수는 새 날짜 상수(이전 구분 날짜를 지정)가 조건자를 덜 제한적으로 만들지 않기 때문에 올바른 대체가 아닙니다.
+다음 함수는 새 날짜 상수(이전 구분 날짜를 지정)가 함수를 덜 제한적으로 만들지 않기 때문에 올바른 대체가 아닙니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_1 (@column1 datetime, @column2 int)
@@ -542,8 +542,8 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## 테이블에서 필터 조건자 제거
-선택한 행이 아니라 테이블 전체를 마이그레이션하려면 기존 FILTER\_PREDICATE를 null로 설정하여 제거합니다. 예:
+## 테이블에서 필터 함수 제거
+선택한 행이 아니라 테이블 전체를 마이그레이션하려면 **FILTER\_PREDICATE**를 null로 설정하여 기존 함수를 제거합니다. 예:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -551,15 +551,15 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 	MIGRATION_STATE = <desired_migration_state>
 ) )
 ```
-필터 조건자를 제거한 후 테이블의 모든 행은 마이그레이션할 수 있습니다. 따라서 먼저 Azure에서 테이블에 대한 모든 원격 데이터를 다시 가져오지 않는 한 나중에 같은 테이블에 대해 필터 조건자를 지정할 수 없습니다. 이 제한 사항은 새 필터 조건자를 제공할 때 마이그레이션할 수 없는 행이 Azure에 이미 마이그레이션되는 상황을 방지하기 위한 것입니다.
+필터 함수를 제거한 후 테이블의 모든 행은 마이그레이션할 수 있습니다. 따라서 먼저 Azure에서 테이블에 대한 모든 원격 데이터를 다시 가져오지 않는 한 나중에 같은 테이블에 대해 필터 함수를 지정할 수 없습니다. 이 제한 사항은 새 필터 함수를 제공할 때 마이그레이션할 수 없는 행이 Azure에 이미 마이그레이션되는 상황을 방지하기 위한 것입니다.
 
-## 테이블에 적용된 필터 조건자 확인
-테이블에 적용된 필터 조건자를 확인하려면 카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열의 값을 확인합니다. 값이 null이면 전체 테이블을 보관할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
+## 테이블에 적용된 필터 함수 확인
+테이블에 적용된 필터 함수를 확인하려면 카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열의 값을 확인합니다. 값이 null이면 전체 테이블을 보관할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
 
-## 필터 조건자에 대한 보안 정보  
+## 필터 함수에 대한 보안 정보  
 Db\_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 있습니다.
 
--   많은 양의 서버 리소스를 소비하거나 장시간 대기하다가 서비스 거부를 초래하는 테이블 반환 함수를 만들고 적용합니다.  
+-   많은 양의 서버 리소스를 소비하거나 장시간 대기하다가 서비스 거부를 초래하는 테이블 반환 함수를 만들고 적용합니다.
 
 -   사용자의 읽기 액세스가 명시적으로 거부된 테이블의 콘텐츠를 유추할 수 있도록 하는 테이블 반환 함수를 만들고 적용합니다.
 
@@ -567,4 +567,4 @@ Db\_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 �
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

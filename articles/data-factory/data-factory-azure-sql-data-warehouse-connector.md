@@ -29,7 +29,7 @@ Azure SQL 데이터 웨어하우스로 데이터를 로드하는 동안 PolyBase
 > [AZURE.NOTE] 
 Azure 데이터 팩터리 서비스에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
 > 
-> 이 문서에서는 JSON 예제를 제공하지만 데이터 팩터리를 만들기 위한 단계별 지침을 제공하지 않습니다. Azure 데이터 팩터리에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습은 [자습서: Azure Blob에서 Azure SQL 데이터베이스에 데이터 복사](data-factory-get-started.md)를 참조하세요.
+> 이 문서에서는 JSON 예제를 제공하지만 데이터 팩터리를 만들기 위한 단계별 지침을 제공하지 않습니다. Azure 데이터 팩터리에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습은 [자습서: Azure Blob에서 Azure SQL 데이터베이스에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 
 ## 샘플: Azure SQL 데이터 웨어하우스에서 Azure Blob에 데이터 복사
@@ -37,8 +37,8 @@ Azure 데이터 팩터리 서비스에 대한 개요는 [Azure 데이터 팩터�
 아래 샘플은 다음을 보여줍니다.
 
 1. [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다. 
-3. [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
+3. [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
@@ -464,15 +464,15 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer(단위 = 행 수). | 아니요(기본값 = 10000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예: "00:30:00"(30분). | 아니요 | 
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer | 아니요(기본값: 10000) |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: “00:30:00”(30분). | 아니요 | 
 | sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 쿼리 문입니다. | 아니요 |
 | allowPolyBase | BULKINSERT 메커니즘 대신 (해당하는 경우)PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드할지 여부를 나타냅니다. <br/><br/>이 때 원본 데이터 집합인 **TextFormat**으로 설정된 **서식**을 가진 **Azure Blob** 데이터 집합이 지원되고 다른 원본 유형에 대한 지원도 곧 제공됩니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. | True <br/>False(기본값) | 아니요 |  
 | polyBaseSettings | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | &nbsp; | 아니요 |  
 | rejectValue | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>[외부 테이블 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) 항목의 **인수** 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. | 0(기본값), 1, 2, … | 아니요 |  
 | rejectType | rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. | 값(기본값), 백분율 | 아니요 |   
 | rejectSampleValue | PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. | 1, 2, … | 예. **rejectType**가 **백분율**인 경우 |  
-| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)의 인수 섹션에서 이 속성에 대해 자세히 알아봅니다. | True, False(기본값) | 아니요 | 
+| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)의 인수 섹션에서 이 속성에 대해 자세히 알아봅니다. | True, False(기본값) | 아니요 | 
 
 
 #### SqlDWSink 예제
@@ -508,12 +508,12 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
 
 Azure 데이터 팩터리는 설정을 확인한 후, 요구 사항이 충족되지 않을 경우 데이터 이동을 위한 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
-1.	**원본에 연결된 서비스**는 **Azure 저장소** 형식이며 SAS(공유 액세스 서명) 인증을 사용하도록 구성되지 않습니다. 자세한 내용은 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
+1.	**원본에 연결된 서비스**는 **Azure 저장소** 형식이며 SAS(공유 액세스 서명) 인증을 사용하도록 구성되지 않습니다. 자세한 내용은 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.
 2. **입력 데이터 집합**은 **Azure Blob** 형식이고 형식 속성의 서식 형식은 아래와 같은 구성이 포함된 **OrcFormat** 또는 **TextFormat**입니다.
-	1. **rowDelimiter**는 **\\n**이어야 합니다. 
-	2. **nullValue**는 **빈 문자열**("")로 설정됩니다. 
-	3. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요. 
-	4. **escapeChar** 및 **quoteChar**는 지정되지 않습니다. 
+	1. **rowDelimiter**는 **\\n**이어야 합니다.
+	2. **nullValue**는 **빈 문자열**("")로 설정됩니다.
+	3. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요.
+	4. **escapeChar** 및 **quoteChar**는 지정되지 않습니다.
 	5. **Compression**은 **BZIP2**가 아닙니다.
 	 
 			"typeProperties": {
@@ -530,14 +530,14 @@ Azure 데이터 팩터리는 설정을 확인한 후, 요구 사항이 충족되
 	                "level": "Optimal"  
     	        }  
 			},
-3.	**skipHeaderLineCount**는 파이프라인에서 복사 작업에 대한 **BlobSource**에 설정되지 않습니다. 
+3.	**skipHeaderLineCount**는 파이프라인에서 복사 작업에 대한 **BlobSource**에 설정되지 않습니다.
 4.	**sliceIdentifierColumnName**은 파이프라인에서 복사 작업에 대한 **SqlDWSink**에 설정되지 않습니다. (PolyBase는 한 번의 실행으로 모든 데이터를 업데이트하거나 아무 것도 업데이트하지 않도록 보장합니다. **반복성**을 달성하려면 **sqlWriterCleanupScript**를 사용할 수 있습니다.
-5.	**columnMapping**은 연결된 복사 작업에서 사용되지 않습니다. 
+5.	**columnMapping**은 연결된 복사 작업에서 사용되지 않습니다.
 
 ### PolyBase를 사용한 준비된 복사
-원본 데이터가 위 섹션에 설명된 조건을 충족할 경우 중간 스테이징 Azure Blob 저장소를 통해 데이터를 복사할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 만족하도록 데이터에 필요한 변환을 수행하고 SQL 데이터 웨어하우스로 데이터를 로드하는 데 PolyBase를 사용합니다. 스테이징 Azure Blob을 통한 데이터 복사 작업이 진행되는 방식에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
+원본 데이터가 위 섹션에 설명된 조건을 충족할 경우 중간 스테이징 Azure Blob 저장소를 통해 데이터를 복사할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 만족하도록 데이터에 필요한 변환을 수행하고 SQL 데이터 웨어하우스로 데이터를 로드하는 데 PolyBase를 사용합니다. 스테이징 Azure Blob을 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
 
-> [AZURE.IMPORTANT] PolyBase 및 스테이징을 사용하여 Azure SQL 데이터 웨어하우스로 온-프레미스 데이터 저장소의 데이터를 복사하는 경우 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 게이트웨이 컴퓨터에 JRE(Java Runtime Environment)를 설치해야 합니다. 참고: 64비트 게이트웨이는 64비트 JRE가 필요하고 32비트 게이트웨이는 32비트 JRE가 필요합니다. 두 가지 버전은 [여기](http://go.microsoft.com/fwlink/?LinkId=808605)에서 찾을 수 있습니다. 적절히 선택하세요.
+> [AZURE.IMPORTANT] PolyBase 및 스테이징을 사용하여 Azure SQL 데이터 웨어하우스로 온-프레미스 데이터 저장소의 데이터를 복사하는 경우 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 게이트웨이 컴퓨터에 JRE 8(Java 런타임 환경)을 설치해야 합니다. 64비트 게이트웨이는 64비트 JRE가 필요하고 32비트 게이트웨이는 32비트 JRE가 필요합니다. [Java 다운로드 위치](http://go.microsoft.com/fwlink/?LinkId=808605)에서 적절한 버전을 다운로드합니다.
 
 이 기능을 사용하려면 중간 Blob 저장소가 있는 Azure 저장소 계정을 나타내는 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 만든 다음 아래에 표시된 복사 작업에 대해 **enableStaging** 및 **stagingSettings** 속성을 지정합니다.
 
@@ -654,4 +654,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

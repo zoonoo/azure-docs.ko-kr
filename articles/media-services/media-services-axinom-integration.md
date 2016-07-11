@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"   
+	ms.date="06/22/2016"   
 	ms.author="willzhan;Mingfeiy;rajputam;Juliako"/>
 
 #Axinom을 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공  
@@ -45,7 +45,7 @@ Azure 미디어 서비스(AMS)에 Google Widevine 동적 보호가 추가되었�
 다음 두 가지가 모두 있는 DASH 스트리밍용 다중 DRM으로 동적 CENC 보호를 구성할 수 있습니다.
 
 1. 토큰 인증 제한이 포함될 수 있는 MS Edge 및 IE11에 대한 PlayReady 보호. 토큰 제한 정책은 Azure Active Directory 등과 같은 보안 토큰 서비스(STS)에 의해 발급된 토큰이 수반되어야 합니다.
-1. Chrome에 대한 Widevine 보호의 경우 다른 STS가 발급한 토큰을 이용한 토큰 인증이 필요할 수 있습니다. 
+1. Chrome에 대한 Widevine 보호의 경우 다른 STS가 발급한 토큰을 이용한 토큰 인증이 필요할 수 있습니다.
 
 Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS로 사용할 수 없는 이유는 [JWT 토큰 생성](media-services-axinom-integration.md#jwt-token-generation)을 참조하세요.
 
@@ -209,4 +209,4 @@ Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Axinom의 Kristjan Jõgi, Mingfei Yan 및 Amit Rajput
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장
@@ -36,7 +36,7 @@ Azure AD 조인은 클라우드 우선/클라우드 전용인 기업(일반적�
 * **교육 기관**: 일반적인 시나리오 중 하나는 교육 기관에 두 가지 사용자 유형인 교직원과 학생이 있는 경우입니다. 교직원은 조직에서 장기 멤버로 간주되므로 온-프레미스 계정을 만드는 것이 적절합니다. 하지만 학생은 조직의 단기 멤버이며 Azure AD에서 관리할 수 있습니다. 즉, 디렉터리 규모를 온-프레미스로 저장하는 대신 클라우드에 푸시할 수 있습니다. 또한 학생들은 자신의 Azure AD 계정으로 Windows에 로그인하고 브라우저 또는 Office 응용 프로그램에서 Office 365 리소스에 액세스할 수 있습니다.
 
 * **소매 기업**: 고객에게서 들은 다른 시나리오는 비정규직 근로자를 보다 쉽게 관리하고 싶다는 내용입니다. 역시, 장기적인 정규직 직원을 위한 계정은 보통 도메인에 연결된 컴퓨터에 온-프레미스 계정으로 만들어집니다. 하지만 비정규직 근로자는 조직의 단기 멤버이므로 사용자 라이선스를 보다 쉽게 이동할 수 있도록 관리하는 것이 좋습니다. Office 365 라이선스를 사용하여 클라우드에 이러한 사용자 계정을 만들면 이러한 사용자는 Azure AD 계정을 사용하여 Windows 및 Office 응용 프로그램에 로그인할 수 있습니다. 한편, 사용자가 조직을 떠난 후에 해당 라이선스에 더 많은 유연성을 유지할 수 있습니다.
-* **기타 기업**: 온-프레미스 Active Directory에서 사용자를 유지 관리하더라도 사용자가 Azure-AD에 가입되는 장점을 계속 활용할 수 있습니다. Azure AD가 간소화된 가입 환경, 효율적인 장치 관리, 자동 모바일 장치 관리 등록 및 Azure AD/온-프레미스 리소스에 대한 Single Sign-On 기능을 제공하기 때문입니다.  
+* **기타 기업**: 온-프레미스 Active Directory에서 사용자를 유지 관리하더라도 사용자가 Azure-AD에 가입되는 장점을 계속 활용할 수 있습니다. Azure AD가 간소화된 가입 환경, 효율적인 장치 관리, 자동 모바일 장치 관리 등록 및 Azure AD/온-프레미스 리소스에 대한 Single Sign-On 기능을 제공하기 때문입니다.
 
 ## Azure AD 조인에서 제공하는 기능은 무엇인가요?
 Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니다.
@@ -79,4 +79,4 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

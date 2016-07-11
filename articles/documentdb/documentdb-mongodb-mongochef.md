@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
@@ -28,15 +28,19 @@ MongoChef를 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 
 
 MongoChef 연결 관리자에 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 추가하려면 다음 단계를 수행합니다.
 
-1. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.
+1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 MongoDB 연결 정보에 대한 프로토콜 지원을 사용하는 DocumentDB를 검색합니다.
+
+	![연결 문자열 블레이드의 스크린샷](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.
 
 	![MongoChef 연결 관리자의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. **새 연결** 창의 **서버** 탭에서 MongoDB 및 포트에 대한 프로토콜 지원을 사용하는 DocumentDB 계정의 FQDN을 입력합니다.
+2. **새 연결** 창의 **서버** 탭에서 MongoDB 및 포트에 대한 프로토콜 지원을 사용하는 DocumentDB 계정의 호스트(FQDN)을 입력합니다.
 	
 	![MongoChef 연결 관리자 서버 탭의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. **새 연결** 창의 **인증** 탭에서 인증 모드 **표준(MONGODB CR 또는 SCARM-SHA-1)**을 선택하고 사용자 이름 및 암호 정보를 입력합니다. 기본 인증 DB(관리자)를 그대로 사용하거나 고유한 값을 지정합니다.
+3. **새 연결** 창의 **인증** 탭에서 인증 모드 **표준(MONGODB CR 또는 SCARM-SHA-1)**을 선택하고 사용자 이름 및 암호를 입력합니다. 기본 인증 DB(관리자)를 그대로 사용하거나 고유한 값을 지정합니다.
 
 	![MongoChef 연결 관리자 인증 탭의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -128,4 +132,4 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -22,7 +22,7 @@
 
 암호를 잊었거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨서 Azure에서 Linux 가상 컴퓨터에 연결할 수 없는 경우 VMAccessForLinux 확장과 Azure CLI를 사용하여 암호 또는 SSH 키를 재설정하고 SSH 구성을 수정하며 디스크 일관성을 검사합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)하는 방법을 알아봅니다.
 
 Azure CLI에서는 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure vm extension set** 명령을 사용하여 명령에 액세스할 수 있습니다. 자세한 확장 사용을 보려면 **azure help vm extension set**를 실행합니다.
 
@@ -122,7 +122,7 @@ SSH 구성이 원치 않는 상태인 경우, VM에 대한 액세스도 손실�
 
 VM에 직접 로그인하지 않고 사용자 계정을 삭제하려면 이 스크립트를 사용합니다.
 
-1. 이 콘텐츠를 사용하고 &#60;usernametoremove&#62;에 제거할 사용자 이름을 지정하여 PrivateConf.json이라는 파일을 만듭니다. 
+1. 이 콘텐츠를 사용하고 &#60;usernametoremove&#62;에 제거할 사용자 이름을 지정하여 PrivateConf.json이라는 파일을 만듭니다.
 
         {
         "remove_user":"<usernametoremove>"
@@ -142,7 +142,7 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 
 Linux 가상 컴퓨터의 모든 디스크에 fsck를 실행하려면, 다음을 수행해야 합니다.
 
-1. 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다. 디스크 검사는 부울 함수를 통해 가상 컴퓨터에 연결되어 있는 디스크를 검사할지 여부를 결정합니다. 
+1. 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다. 디스크 검사는 부울 함수를 통해 가상 컴퓨터에 연결되어 있는 디스크를 검사할지 여부를 결정합니다.
 
         {   
         "check_disk": "true"
@@ -156,7 +156,7 @@ Linux 가상 컴퓨터의 모든 디스크에 fsck를 실행하려면, 다음을
 
 탑재가 되지 않거나 탑재 구성 오류가 있는 디스크를 복구하려면, VMAccess 확장을 사용하여 Linux 가상 컴퓨터의 탑재 구성을 재설정합니다. &#60;yourdisk&#62;에 디스크 이름을 입력합니다.
 
-1. 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다. 
+1. 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다.
 
         {
         "repair_disk":"true",
@@ -171,10 +171,10 @@ Linux 가상 컴퓨터의 모든 디스크에 fsck를 실행하려면, 다음을
 
 ## 다음 단계
 
-* Azure PowerShell cmdlet 또는 Azure Resource Manager 템플릿을 사용하여 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하려면 [GitHub의 VMAccess 확장 문서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)를 참조하세요. 
+* Azure PowerShell cmdlet 또는 Azure Resource Manager 템플릿을 사용하여 암호 또는 SSH 키 재설정, SSH 구성 수정, 디스크 일관성 검사를 수행하려면 [GitHub의 VMAccess 확장 문서](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)를 참조하세요.
 
 * 또한 [Azure 포털](https://portal.azure.com)을 사용하여 클래식 배포 모델에서 배포된 Linux VM의 암호 또는 SSH 키를 재설정할 수 있습니다. 현재는 이 포털을 사용하여 Resource Manager 배포 모델에 배포된 Linux VM에 대해 이 작업을 수행할 수 없습니다.
 
 * Azure 가상 컴퓨터에 VM 확장을 사용하는 방법에 대한 자세한 내용은 [가상 컴퓨터 확장 및 기능 정보](virtual-machines-linux-extensions-features.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

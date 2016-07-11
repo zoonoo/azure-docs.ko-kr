@@ -26,7 +26,7 @@
 
 이 항목에서는 **ILB(내부 부하 분산장치)**를 사용하여 Always On 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. Resource Manager 모델에서 Always On 가용성 그룹에 대한 ILB 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 내부 부하 분산 장치 구성](virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager 모델에서 Always On 가용성 그룹에 대한 ILB 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 내부 부하 분산 장치 구성](virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 
 
 가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
@@ -138,4 +138,4 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

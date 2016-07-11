@@ -20,7 +20,7 @@
 
 # 클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-linux-capture-image.md)하는 방법을 알아봅니다.
 
 이 문서에서는 Linux를 실행하는 클래식 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 이 이미지를 사용하여 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
@@ -95,4 +95,4 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Linux 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

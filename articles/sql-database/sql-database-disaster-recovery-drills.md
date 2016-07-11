@@ -23,7 +23,7 @@
 재해 복구 훈련의 수행은 다음으로 구성됩니다.
 
 - 데이터 계층 중단 시뮬레이션
-- 복구 
+- 복구
 - 복구 후 응용 프로그램 무결성 검사
 
 [비즈니스 연속성을 위한 응용 프로그램 설계](sql-database-business-continuity.md) 방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 아래에 Azure SQL 데이터베이스와 관련하여 재해 복구 훈련을 수행하는 모범 사례가 설명되어 있습니다.
@@ -38,7 +38,7 @@
 
 ####복구
 
-- [여기](sql-database-disaster-recovery.md)에 설명된 대로 서로 다른 서버에 데이터베이스의 지역 복원을 수행합니다. 
+- [여기](sql-database-disaster-recovery.md)에 설명된 대로 서로 다른 서버에 데이터베이스의 지역 복원을 수행합니다.
 - 복구된 데이터베이스에 연결하도록 응용 프로그램 구성을 변경하고 [복구 후 데이터베이스 구성](sql-database-disaster-recovery.md) 가이드에 따라 복구를 완료합니다.
 
 ####유효성 검사
@@ -55,7 +55,7 @@
 
 ####복구
 
-- DR 지역의 응용 프로그램 구성이 완전히 액세스 가능한 새로운 주 데이터베이스가 될 이전의 보조 데이터베이스를 가리키는지 확인합니다. 
+- DR 지역의 응용 프로그램 구성이 완전히 액세스 가능한 새로운 주 데이터베이스가 될 이전의 보조 데이터베이스를 가리키는지 확인합니다.
 - [계획된 장애 조치(failover)](sql-database-geo-replication-powershell.md#initiate-a-planned-failover)를 수행하여 보조 데이터베이스를 새로운 주 데이터베이스로 지정합니다.
 - [복구 후 데이터베이스 구성](sql-database-disaster-recovery.md) 가이드에 따라 복구를 완료합니다.
 
@@ -66,18 +66,10 @@
 
 ## 다음 단계
 
-- 재해 복구를 위해 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 재해 복구를 위해 지리적 복원을 사용하는 방법에 대한 자세한 내용은 [지리적 복원](sql-database-geo-restore.md)을 참조하세요.
+- Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
+- 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
+- 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
+- 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-## 추가 리소스
-
-- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
-- [특정 시점 복원](sql-database-point-in-time-restore.md)
-- [지역 복원](sql-database-geo-restore.md)
-- [활성 지역 복제](sql-database-geo-replication-overview.md)
-- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
-- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

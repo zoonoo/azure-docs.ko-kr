@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -162,7 +162,7 @@ Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
 **<IFrameResource>**는 IFrame에 표시될 수 있는 HTML 리소스를 설명합니다. **<HTMLResource>**는 웹 페이지에 삽입될 수 있는 HTML 코드 조각을 설명합니다. **<TrackingEvents>**는 이벤트가 발생할 때 요청할 URI 및 추적 이벤트를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **<NonLinearAds>** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **<TrackingEvents>** 요소는 **<NonLinear>** 요소가 아닌 **<NonLinearAds>** 요소 내에 있습니다.
 
-동반 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 동반 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
+동반 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소는 하나 이상의 <Companion> 요소를 포함할 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 동반 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
 ###디지털 VMAP(Video Multiple Ad Playlist) 파일 사용
 
@@ -232,7 +232,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 
 - <VASTAdData>는 VAST 광고 응답이 VMAP 파일 내에 포함됨을 나타냅니다.
 - <AdTagURI>는 다른 시스템에서 나오는 광고 응답을 참조하는 URI입니다.
-- <CustomAdData>는 비 VAST 응답을 나타내는 임의 문자열입니다.
+- <CustomAdData>는 VAST 이외의 응답을 나타내는 임의 문자열입니다.
 
 이 예제에서 인라인 광고 응답은 VAST 광고 응답을 포함하는 <VASTAdData> 요소로 지정합니다. 기타 요소에 대한 자세한 내용은 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)(영문)를 참조하세요.
 
@@ -316,14 +316,14 @@ MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리
 
 MAST 파일은 하나의 **<triggers>** 요소를 포함하는 **<MAST>** 요소로 시작합니다. <triggers> 요소는 광고가 표시되어야 하는 시기를 정의하는 하나 이상의 **<trigger>** 요소를 포함합니다.
 
-**<trigger>** 요소는 광고 재생이 시작되어야 하는 시기를 지정하는 **<startConditions>** 요소를 포함합니다. **<startConditions>** 요소는 하나 이상의 <condition> 요소를 포함합니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **<startConditions**> 또는 **<endConditions>** 요소에 포함되는지에 따라 트리거가 시작되거나 호출됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다.
+**<trigger>** 요소는 광고 재생이 시작되어야 하는 시기를 지정하는 **<startConditions>** 요소를 포함합니다. **<startConditions>** 요소에는 하나 이상의 <condition> 요소가 포함되어 있습니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **<startConditions**> 또는 **<endConditions>** 요소에 포함되는지에 따라 트리거가 시작되거나 호출됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다.
 
 1. **type** – 조건, 이벤트 또는 속성 유형 지정
 1. **name** – 평가 중에 사용할 속성 또는 이벤트의 이름
 1. **value** – 속성을 평가할 기준 값
 1. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
 
-**<endConditions>**는 <condition> 요소도 포함합니다. 조건이 true로 평가되면 트리거가 재설정됩니다. <trigger> 요소는 하나 이상의 <source> 요소가 들어 있는 <sources> 요소도 포함합니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 이 예제에서는 VAST 응답에 대한 URI가 제공됩니다.
+**<endConditions>**에도 <condition> 요소가 포함되어 있습니다. 조건이 true로 평가되면 트리거가 재설정됩니다. <trigger> 요소는 하나 이상의 <sources> 요소가 들어 있는 <source> 요소도 포함합니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 이 예제에서는 VAST 응답에 대한 URI가 제공됩니다.
 
 
 	<trigger id="postroll" description="postroll"  >
@@ -353,7 +353,7 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
 	</MediaFiles>
  
 
-실행 가능한 광고는 VAST 응답의 <Linear> 또는 <NonLinear> 요소 내에서 <AdParameters> 요소를 사용하여 초기화할 수 있습니다. <AdParameters> 요소에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
+실행 가능한 광고는 VAST 응답의 <Linear> 또는 <NonLinear> 요소 내에서 <AdParameters> 요소를 사용하여 초기화할 수 있습니다. <AdParameters> 요소에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
 
 ##광고 지원이 포함된 Windows 또는 Windows Phone 8 플레이어 구현
 
@@ -399,7 +399,7 @@ AdSchedulerPlugin에 대한 자세한 내용은 [Windows 8 및 Windows Phone 8�
 
 ###AdSchedulingPage
 
-이 샘플에서도 AdSchedulerPlugin을 사용합니다. 세 가지 광고인 재생 전 광고, 재생 중 광고 및 재생 후 광고를 예약합니다. 각 광고의 VAST 파일에 대한 URI는 <RemoteAdSource> 요소에서 지정됩니다.
+이 샘플에서도 AdSchedulerPlugin을 사용합니다. 세 가지 광고인 재생 전 광고, 재생 중 광고 및 재생 후 광고를 예약합니다. 각 광고에 대한 VAST 파일의 URI는 <RemoteAdSource> 요소에서 지정됩니다.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -537,7 +537,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 
 ###VastLinearNonLinearPage
 
-이 샘플에서는 AdSchedulerPlugin을 사용하여 선형 및 비선형 광고를 예약합니다. VAST 파일 위치는 <RemoteAdSource> 요소로 지정합니다.
+이 샘플에서는 AdSchedulerPlugin을 사용하여 선형 및 비선형 광고를 예약합니다. VAST 파일 위치는 <RemoteAdSource> 요소로 지정됩니다.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -813,4 +813,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

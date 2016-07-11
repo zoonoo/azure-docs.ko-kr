@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Azure 테이블 서비스를 사용하는 Node.js 웹앱
@@ -53,7 +53,7 @@
 
 Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하기 위해 이 계정을 사용합니다.
 
-1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소**를 클릭합니다. 저장소 계정에 고유한 이름을 지정하고 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
@@ -72,7 +72,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### express 설치 및 스캐폴딩 생성
 
-1. 명령줄에서 **tasklist**라는 새 디렉터리를 만들고 해당 디렉터리로 전환합니다.  
+1. 명령줄에서 **tasklist**라는 새 디렉터리를 만들고 해당 디렉터리로 전환합니다.
 
 2. 다음 명령을 입력하여 Express 모듈을 설치합니다.
 
@@ -423,7 +423,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 구성 파일 만들기
 
-앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json* *이라는 파일 이름을 만듭니다.
+앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json**이라는 파일 이름을 만듭니다.
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -497,6 +497,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 	이 명령은 브라우저를 시작하고 다운로드 페이지로 이동합니다. 메시지가 나타나면 Azure 구독과 관련된 계정으로 로그인합니다.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	파일 다운로드가 자동으로 시작됩니다. 그렇지 않은 경우 페이지 처음 부분에서 링크를 클릭하여 수동으로 파일을 다운로드할 수 있습니다. 파일을 저장하고 파일 경로를 기록해 둡니다.
 
 2. 다음 명령을 입력하여 설정을 가져옵니다.
@@ -544,9 +545,9 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-앞서 만든 저장소 계정 이름으로 **<storage account name>**을(를) 바꾸고 저장소 계정의 기본 액세스 키로 **<storage access key>**을(를) 바꿉니다. (이전에 만든 config.json 파일과 동일한 값을 사용합니다.)
+앞서 만든 저장소 계정 이름으로 **<저장소 계정 이름>**을 바꾸고 저장소 계정의 기본 액세스 키로 **<저장소 액세스 키>**를 바꿉니다. (이전에 만든 config.json 파일과 동일한 값을 사용합니다.)
 
-또는 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정할 수 있습니다.
+또는 [Azure 포털](https://portal.azure.com/)에서 환경 변수를 설정할 수 있습니다.
 
 1.  **찾아보기** > **웹앱** > 사용자의 웹앱 이름을 클릭하여 웹앱 블레이드를 엽니다.
 
@@ -636,4 +637,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -125,6 +125,7 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 
 ![스트리밍 끝점 CDN 사용][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] Azure 미디어 서비스와 Azure CDN의 통합은 **Verizon의 Azure CDN**에 구현됩니다. Azure 미디어 서비스에 **Akamai의 Azure CDN**을 사용하려면 [끝점을 수동으로 구성](../cdn/cdn-create-new-endpoint.md)해야 합니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](../cdn/cdn-overview.md)를 참조하세요.
 
 ###추가 고려 사항
 
@@ -150,4 +151,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

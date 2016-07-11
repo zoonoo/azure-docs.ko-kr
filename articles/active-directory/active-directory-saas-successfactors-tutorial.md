@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #자습서: SuccessFactors와 Azure Active Directory 통합
@@ -38,7 +38,7 @@
 
 ###SuccessFactors에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Single Sign-On을 구성하려면 SuccessFactors 지원 팀에 문의해야 합�
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **SuccessFactors** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **SuccessFactors** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Single Sign-On 구성")
 
@@ -84,10 +84,10 @@ Single Sign-On을 구성하려면 SuccessFactors 지원 팀에 문의해야 합�
 
     ![앱 URL 구성](./media/active-directory-saas-successfactors-tutorial/IC791140.png "앱 URL 구성")
 
-    1.  **SuccessFactors 로그온 URL** 텍스트 상자에 사용자가 SuccessFactors 응용 프로그램에 로그인하는 데 사용하는 URL(예: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*"))을 입력합니다.
+    1.  **SuccessFactors 로그온 URL** 텍스트 상자에 사용자가 SuccessFactors 응용 프로그램에 로그인하는 데 사용하는 URL(예: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")을 입력합니다.
     2.  **SuccessFactors 회신 URL** 텍스트 상자에 **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**을 입력합니다.
 
-        >[AZURE.NOTE]이 값은 임시 자리 표시자입니다. SuccessFactors 지원팀에서 실제 값을 얻을 수 있습니다. 이 자습서의 뒷부분에서 SuccessFactors 지원 팀의 연락처 정보를 찾을 수 있습니다. 이 대화의 컨텍스트에서 실제 SuccessFactors 회신 URL을 받게 됩니다.
+        >[AZURE.NOTE] 이 값은 임시 자리 표시자입니다. SuccessFactors 지원팀에서 실제 값을 얻을 수 있습니다. 이 자습서의 뒷부분에서 SuccessFactors 지원 팀의 연락처 정보를 찾을 수 있습니다. 이 대화의 컨텍스트에서 실제 SuccessFactors 회신 URL을 받게 됩니다.
 
 4.  **SuccessFactors에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -99,11 +99,11 @@ Single Sign-On을 구성하려면 SuccessFactors 지원 팀에 문의해야 합�
     2.  원격 로그인 URL
     3.  원격 로그아웃 URL
 
-    >[AZURE.IMPORTANT]SuccessFactors 지원 팀에 연락하여 NameId 형식 매개 변수를 "*Unspecified(지정되지 않음)*"로 설정할 것을 요청합니다.
+    >[AZURE.IMPORTANT] SuccessFactors 지원 팀에 연락하여 NameId 형식 매개 변수를 "*Unspecified(지정되지 않음)*"로 설정할 것을 요청합니다.
 
     Successfactors 지원 팀이 **앱 URL 구성** 대화 상자에 필요한 **Successfactors 회신 URL**을 전송합니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Single Sign-On 구성")
 
@@ -119,7 +119,7 @@ SuccessFactors에서 사용자를 생성하려면 SuccessFactors 지원 팀에 �
 
 ###SuccessFactors에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **SuccessFactors** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -129,6 +129,6 @@ SuccessFactors에서 사용자를 생성하려면 SuccessFactors 지원 팀에 �
 
     ![예](./media/active-directory-saas-successfactors-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

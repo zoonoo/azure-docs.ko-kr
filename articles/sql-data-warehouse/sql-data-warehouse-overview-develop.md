@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 디자인 결정 및 코딩 기술
@@ -42,8 +42,6 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 - [임시 테이블][]
 - [동적 SQL][]
 - [반복][]
-- [개체 이름 바꾸기][]
-- [데이터 피벗][]
 - [옵션으로 그룹화][]
 - [변수 할당][]
 
@@ -61,7 +59,6 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 [해시 배포 키]: sql-data-warehouse-develop-hash-distribution-key.md
 [레이블]: sql-data-warehouse-develop-label.md
 [반복]: sql-data-warehouse-develop-loops.md
-[데이터 피벗]: sql-data-warehouse-develop-pivot-unpivot.md
 [통계]: sql-data-warehouse-develop-statistics.md
 [저장 프로시저]: sql-data-warehouse-develop-stored-procedures.md
 [테이블 디자인]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 [Transact-SQL 참조]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[개체 이름 바꾸기]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

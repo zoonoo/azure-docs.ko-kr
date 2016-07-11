@@ -23,16 +23,16 @@
 ## 클라우드 서비스에 원격 디버깅 사용
 
 1. 빌드 에이전트에서 [Azure에 대한 명령줄 빌드](http://msdn.microsoft.com/library/hh535755.aspx)에 간략히 설명된 Azure에 대한 초기 환경을 설정합니다.
-2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, [Visual Studio 2015용 원격 도구](http://www.microsoft.com/ko-KR/download/details.aspx?id=48155)(또는 Visual Studio 2013을 사용할 경우 [Microsoft Visual Studio 2013 업데이트 5용 원격 도구](https://www.microsoft.com/ko-KR/download/details.aspx?id=48156))를 설치합니다. 또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
+2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, [Visual Studio 2015용 원격 도구](http://www.microsoft.com/en-us/download/details.aspx?id=48155)(또는 Visual Studio 2013을 사용할 경우 [Microsoft Visual Studio 2013 업데이트 5용 원격 도구](https://www.microsoft.com/en-us/download/details.aspx?id=48156))를 설치합니다. 또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
 3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명된 인증서를 만듭니다. .pfx 및 RDP 인증서 지문을 유지하고 대상 클라우드 서비스에 인증서를 업로드합니다.
 4. MSBuild 명령줄에 다음 옵션을 사용하여 원격 디버그를 사용하도록 설정한 상태로 빌드 및 패키지화합니다. (꺾쇠 괄호가 항목의 경우 시스템 및 프로젝트 파일에 대한 실제 경로를 대체합니다.)
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-	`VSX64RemoteDebuggerPath` Visual Studio용 원격 도구에서 msvsmon.exe를 포함하는 폴더의 경로입니다.
+	`VSX64RemoteDebuggerPath` Visual Studio용 원격 도구에서 msvsmon.exe를 포함하는 폴더의 경로입니다. `RemoteDebuggerConnectorVersion`는 클라우드 서비스의 Azure SDK 버전입니다. 또한 Visual Studio와 함께 설치된 버전과 일치해야 합니다.
 
 5. 위의 단계에서 생성한 패키지 및 .cscfg 파일을 사용하여 대상 클라우드 서비스에 게시합니다.
-6. Visual Studio 및 Azure SDK for .NET이 설치된 컴퓨터로 인증서(.pfx 파일)를 가져옵니다.
+6. Visual Studio 및 Azure SDK for .NET이 설치된 컴퓨터로 인증서(.pfx 파일)를 가져옵니다. `CurrentUser\My` 인증서 저장소로 로 가져와야 합니다. 그렇지 않은 경우 Visual Studio의 디버거에 연결는 데 실패합니다.
 
 ## 가상 컴퓨터에 원격 디버깅 사용
 
@@ -91,4 +91,4 @@
 
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

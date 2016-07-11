@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 설계 개념
@@ -37,7 +37,7 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 
 - 길이는 60자 미만이어야 합니다.
     - 문자가 a-z, A-Z 또는 0-9가 아니면 인코드되고 세 문자로 계산됩니다.
-- &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_ 기호와 같은 특수 문자는 포함할 수 없습니다.
+- &#92; ! # $ % & * + / = ? ^ &#96; { } 기호와 같은 특수 문자는 포함할 수 없습니다.| ~ < > ( ) ' ; : , [ ] " @ _
 - 전역적으로 고유해야 합니다.
 - 문자열, 정수 또는 이진이어야 합니다.
 - 사용자 이름을 기반으로 할 수 없습니다. 사용자 이름은 변경됩니다.
@@ -93,4 +93,4 @@ Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

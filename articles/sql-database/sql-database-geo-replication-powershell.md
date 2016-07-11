@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="sstein"/>
 
@@ -26,7 +26,7 @@
 
 이 문서에서는 PowerShell을 사용하여 SQL 데이터베이스에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
-장애 조치(Failover)를 시작하려면 [Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작](sql-database-geo-replication-failover-powershell.md)을 참조하세요.
+PowerShell을 사용하여 장애 조치(Failover)를 시작하려면 [PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치(Failover) 시작](sql-database-geo-replication-failover-powershell.md)을 참조하세요.
 
 >[AZURE.NOTE] 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월, 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조로 자동으로 업그레이드됩니다.
 
@@ -34,7 +34,7 @@
 
 PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필요합니다.
 
-- Azure 구독. 
+- Azure 구독.
 - Azure SQL 데이터베이스 - 복제하려는 주 데이터베이스입니다.
 - Azure PowerShell 1.0 이상 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
 
@@ -143,24 +143,9 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-  
-
 ## 다음 단계
 
-- [Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작](sql-database-geo-replication-failover-powershell.md)
-- [재해 복구 연습](sql-database-disaster-recovery-drills.md)
+- 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+- 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
 
-
-
-
-## 추가 리소스
-
-- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
-- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [활성 지역 복제](sql-database-geo-replication-overview.md)
-- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -51,8 +51,8 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 - [IoT Hub 시작(자습서)][lnk-get-started]
 - [IoT Hub Azure란?][]
 
-[Azure 비즈니스 연속성 기술 지침]: https://msdn.microsoft.com/library/azure/hh873027.aspx
-[Azure 응용 프로그램에 대한 재해 복구 및 고가용성]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[Azure 응용 프로그램에 대한 재해 복구 및 고가용성]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
 [Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Azure 트래픽 관리자]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [IoT Hub 개발자 가이드 - ID 레지스트리]: iot-hub-devguide.md#identityregistry
@@ -60,4 +60,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

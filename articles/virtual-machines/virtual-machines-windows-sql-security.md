@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/23/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항
-
+ 
 이 항목에는 Azure VM에서 SQL Server 인스턴스로의 안전하게 액세스하는 데 도움이 되는 전반적인 보안 지침이 포함되어 있습니다. 그러나 Azure의 SQL Server 데이터베이스 인스턴스를 더 잘 보호하기 위해서는 Azure에 대한 보안 모범 사례에 더불어 기존의 온-프레미스 보안 사례 역시 구현하는 것이 좋습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 SQL Server 보안 방법에 대한 자세한 내용은 [SQL Server 2008 R2 보안 모범 사례 - 운영 및 관리 작업](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)을 참조하세요.
@@ -33,7 +33,7 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 
 - 로컬 관리자 계정의 이름을 **Administrator**가 아닌 다른 이름으로 만듭니다.
 
-- 모든 계정에 복잡하고 강력한 암호를 사용합니다. 강력한 암호를 만드는 방법에 대한 자세한 내용은 [강력한 암호를 만들기 위한 팁](http://windows.microsoft.com/ko-KR/windows-vista/Tips-for-creating-a-strong-password) 문서를 참조하세요.
+- 모든 계정에 복잡하고 강력한 암호를 사용합니다. 강력한 암호를 만드는 방법에 대한 자세한 내용은 [강력한 암호를 만들기 위한 팁](http://windows.microsoft.com/en-us/windows-vista/Tips-for-creating-a-strong-password) 문서를 참조하세요.
 
 - 기본적으로 Azure는 SQL Server 가상 컴퓨터를 설치하는 동안 Windows 인증을 선택합니다. 따라서 **SA** 로그인이 사용하지 않도록 설정되고 설치 프로그램에서 암호를 할당합니다. **SA** 로그인을 사용하거나 사용하도록 설정하지 않는 것이 좋습니다. SQL 로그인을 원할 경우 다음과 같은 다른 전략을 사용할 수 있습니다.
 	- sysadmin 멤버 자격을 보유하는 SQL 계정을 만듭니다.
@@ -58,4 +58,4 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 
 Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
@@ -28,7 +28,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-* [Visual Studio 2013](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx) 설치
+* [Visual Studio 2013](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 설치
 * [Node.js](https://nodejs.org/download/) 설치
 * [Python 버전 2.7.10](https://www.python.org/) 설치
 
@@ -115,7 +115,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  브라우저를 열고 **http://127.0.0.1** 로 이동합니다.
+2.  브라우저를 열고 **http://127.0.0.1**로 이동합니다.
 
 3.  브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다. 이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
 
@@ -170,4 +170,4 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
   
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

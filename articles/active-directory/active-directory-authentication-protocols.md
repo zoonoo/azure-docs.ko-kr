@@ -22,7 +22,7 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 ## 인증 프로토콜 기사 및 참조
 
-- [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx) - Azure AD의 서명 키 롤오버 주기, 키를 자동으로 업데이트하기 위해 수행할 수 있는 변경 사항, 가장 일반적인 응용 프로그램 시나리오를 업데이트하는 방법에 대해 알아봅니다.
+- [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md) - Azure AD의 서명 키 롤오버 주기, 키를 자동으로 업데이트하기 위해 수행할 수 있는 변경 사항, 가장 일반적인 응용 프로그램 시나리오를 업데이트하는 방법에 대해 알아봅니다.
 
 
 - [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md) - Azure AD에서 발급되는 토큰의 클레임에 대해 알아봅니다.
@@ -55,4 +55,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

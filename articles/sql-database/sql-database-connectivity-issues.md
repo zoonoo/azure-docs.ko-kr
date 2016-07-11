@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL 연결 오류 해결, 일시적 오류 | Microsoft Azure"
-	description="SQL 연결 오류 또는 Azure SQL 데이터베이스의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다."
+	description="SQL 연결 오류 또는 Azure SQL 데이터베이스의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다. "
 	keywords="SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류"
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 
@@ -83,7 +83,7 @@
 
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -146,7 +146,6 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 4. 사용자 이름에서 'WRONG\_'을 제거합니다.
 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
-
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### 연결 다시 시도에 대한 .NET SqlConnection 매개 변수
@@ -178,7 +177,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 ### 연결과 명령 비교
 
 
-**ConnectRetryCount** 및 **ConnectRetryInterval** 매개 변수를 사용하면 **SqlConnection** 개체는 프로그램에 제어를 반환하는 등 프로그램에 전달하거나 신경쓰지 않고 연결 작업을 다시 시도합니다. 다시 시도는 다음과 같은 상황에서 발생할 수 있습니다.
+**ConnectRetryCount** 및 **ConnectRetryInterval** 매개 변수를 사용하면 **SqlConnection** 개체는 프로그램에 제어를 반환하는 등 프로그램에 전달하거나 신경 쓰지 않고 연결 작업을 다시 시도합니다. 다시 시도는 다음과 같은 상황에서 발생할 수 있습니다.
 
 - mySqlConnection.Open 메서드 호출
 - mySqlConnection.Execute 메서드 호출
@@ -219,8 +218,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-자세한 내용은
-[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -246,8 +244,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL 데이터베이스 V12용 1433 이상의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)가 표시됩니다.
 
 
-포트 및 IP 주소 구성에 대한 배경 정보는
-[Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -430,7 +427,7 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에 추가 클래스가 있을 수 있습니다.
 
-***Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스의*
+*Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling* 네임스페이스의*:*
 
 - **RetryPolicy** 클래스
  - **ExecuteAction** 메서드
@@ -556,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## 다음 단계
 
-- 다른 일반적인 Azure SQL 데이터베이스 연결 문제를 해결하는 경우, [Azure SQL 데이터베이스에 일반적인 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
+- 다른 일반적인 Azure SQL 데이터베이스 연결 문제를 해결하는 경우, [Azure SQL 데이터베이스에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
 
 - [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

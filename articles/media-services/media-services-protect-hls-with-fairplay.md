@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/11/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍 
@@ -42,19 +42,33 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 	- Azure 계정. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
 	- 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
 	- [Apple Development Program](https://developer.apple.com/)에 등록합니다.
-	- Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. Azure 미디어 서비스로 KSM(Key Security Module)을 이미 구현했고 최종 FPS 패키지를 요청하고 있음을 요청에 명시하세요. 최종 FPS 패키지에는 FairPlay를 구성하는 데 사용할 인증서를 생성하고 ASK를 가져오기 위한 지침이 포함됩니다. 
+	- Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. Azure 미디어 서비스로 KSM(Key Security Module)을 이미 구현했고 최종 FPS 패키지를 요청하고 있음을 요청에 명시하세요. 최종 FPS 패키지에는 FairPlay를 구성하는 데 사용할 인증서를 생성하고 ASK를 가져오기 위한 지침이 포함됩니다.
 
 	- Azure 미디어 서비스 .NET SDK 버전 **3.6.0** 이상.
 
 - AMS 키 배달 쪽에서 다음을 설정해야 합니다.
-	- **AC(응용 프로그램 인증서)** - 개인 키가 포함된 .pfx 파일입니다. 이 파일은 고객이 생성하며 해당 고객의 암호로 암호화됩니다. 
+	- **AC(응용 프로그램 인증서)** - 개인 키가 포함된 .pfx 파일입니다. 이 파일은 고객이 생성하며 해당 고객의 암호로 암호화됩니다.
 		
 	 	고객은 키 배달 정책을 구성할 때 이 암호와 base64 형식의 .pfx를 제공해야 합니다.
 
+		다음 단계에서는 FairPlay에 대한 pfx 인증서를 생성하는 방법을 설명합니다.
+		
+		1. https://slproweb.com/products/Win32OpenSSL.html에서 OpenSSL을 설치합니다.
+		
+			FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
+		
+		2. cer을 pem으로 변환하기 위한 명령줄:
+		
+			"C:\\OpenSSL-Win32\\bin\\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+		
+		3. 개인 키를 사용하여 pem을 pfx로 변환하기 위한 명령줄(pfx 파일의 암호는 OpenSSL에서 요청함)
+		
+			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+		
 	- **응용 프로그램 인증서 암호** - .pfx 파일을 만들기 위한 고객 암호입니다.
 	- **응용 프로그램 인증서 암호 ID** - 고객은 다른 AMS 키를 업로드할 때와 유사한 방법으로 **ContentKeyType.FairPlayPfxPassword** 열거형 값을 사용하여 암호를 업로드해야 합니다. 그 결과로 AMS ID가 제공되며, 키 배달 정책 옵션 내에서 이를 사용해야 합니다.
-	- **iv** - 16 바이트 임의 값이 자산 배달 정책의 iv와 일치해야 합니다. 고객은 IV를 생성하여 두 곳, 즉 자산 배달 정책 및 키 배달 정책 옵션에 두어야 합니다. 
-	- **ASK** - Apple 개발자 포털을 사용하여 인증서를 생성하는 경우 ASK(Application Secret Key)가 제공됩니다. 각 개발 팀에 고유한 ASK가 제공됩니다. ASK 복사본을 저장하여 안전한 장소에 보관하세요. 나중에 ASK를 Azure 미디어 서비스의 FairPlayAsk로 구성해야 합니다. 
+	- **iv** - 16 바이트 임의 값이 자산 배달 정책의 iv와 일치해야 합니다. 고객은 IV를 생성하여 두 곳, 즉 자산 배달 정책 및 키 배달 정책 옵션에 두어야 합니다.
+	- **ASK** - Apple 개발자 포털을 사용하여 인증서를 생성하는 경우 ASK(Application Secret Key)가 제공됩니다. 각 개발 팀에 고유한 ASK가 제공됩니다. ASK 복사본을 저장하여 안전한 장소에 보관하세요. 나중에 ASK를 Azure 미디어 서비스의 FairPlayAsk로 구성해야 합니다.
 	-  **ASK ID** - 고객이 ASk를 AMS에 업로드할 때 가져옵니다. 고객은 **ContentKeyType.FairPlayASk** 열거형 값을 사용하여 ASk를 업로드해야 합니다. 결과적으로 AMS ID가 반환되고 이 ID는 키 배달 정책 옵션을 설정할 때 사용해야 합니다.
 
 - FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
@@ -62,8 +76,8 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 - FairPlay 암호화 스트림을 재생하려면 먼저 실제 ASK를 가져온 다음 실제 인증서를 생성해야 합니다. 이 프로세스는 다음 세 부분을 만듭니다.
 
-	-  .der, 
-	-  .pfx 및 
+	-  .der,
+	-  .pfx 및
 	-  .pfx에 대한 암호
  
 - **AES-128 CBC** 암호화와 함께 HLS를 지원하는 클라이언트: OS X의 Safari, Apple TV, iOS
@@ -72,27 +86,27 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 다음은 FairPlay로 자산을 보호하고 미디어 서비스 라이선스 배달 서비스를 사용하며 동적 암호화를 사용할 때 수행해야 하는 일반적인 단계입니다.
 
-1. 자산을 만들고 파일을 자산에 업로드합니다. 
+1. 자산을 만들고 파일을 자산에 업로드합니다.
 1. 파일이 들어 있는 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
-1. 콘텐츠 키를 만들고 인코딩된 자산에 연결합니다.  
-1. 콘텐츠 키의 권한 부여 정책을 구성합니다. 콘텐츠 키 권한 부여 정책을 만들 때 다음을 지정해야 합니다. 
+1. 콘텐츠 키를 만들고 인코딩된 자산에 연결합니다.
+1. 콘텐츠 키의 권한 부여 정책을 구성합니다. 콘텐츠 키 권한 부여 정책을 만들 때 다음을 지정해야 합니다.
 	
-	- 배달 방법(이 예제의 경우 FairPlay) 
+	- 배달 방법(이 예제의 경우 FairPlay)
 	- FairPlay 정책 옵션 구성. FairPlay를 구성하는 방법에 대한 자세한 내용은 아래 샘플의 ConfigureFairPlayPolicyOptions() 메서드를 참조하세요.
 	
 		>[AZURE.NOTE] 대부분의 경우 하나의 인증서 및 ASK 집합만 포함하게 되므로 FairPlay 정책 옵션을 한 번만 구성하려고 합니다.
-	- 제한 사항(열기 또는 토큰) 
-	- 클라이언트에 키가 배달되는 방식을 정의하는 키 배달 유형에 특정한 정보 
+	- 제한 사항(열기 또는 토큰)
+	- 클라이언트에 키가 배달되는 방식을 정의하는 키 배달 유형에 특정한 정보
 	
 2. 자산 배달 정책을 구성합니다. 배달 정책 구성에는 다음이 포함됩니다.
 
-	- 배달 프로토콜(HLS) 
-	- 동적 암호화 형식(일반 CBC 암호화) 
-	- 라이선스 획득 URL 
+	- 배달 프로토콜(HLS)
+	- 동적 암호화 형식(일반 CBC 암호화)
+	- 라이선스 획득 URL
 	
 	>[AZURE.NOTE]FairPlay와 또 다른 DRM으로 암호화된 스트림을 배달하려면 별도의 배달 정책을 구성해야 합니다.
 	>
-	>- CENC(PlayReady + WideVine) 및 Smooth with PlayReady로 구성하기 위한 하나의 IAssetDeliveryPolicy 
+	>- CENC(PlayReady + WideVine) 및 Smooth with PlayReady로 구성하기 위한 하나의 IAssetDeliveryPolicy
 	>- HLS에 대한 FairPlay를 구성하기 위한 또 다른 IAssetDeliveryPolicy
 
 1. 스트리밍 URL을 얻기 위해 주문형 로케이터를 만듭니다.
@@ -540,4 +554,4 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

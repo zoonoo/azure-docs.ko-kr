@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법
@@ -126,4 +126,4 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

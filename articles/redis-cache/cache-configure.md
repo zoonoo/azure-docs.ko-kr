@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/20/2016"
+	ms.date="06/29/2016"
 	ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
@@ -39,27 +39,30 @@ Azure Redis Cache는 **설정** 블레이드에 다음 설정을 제공합니다
 	-	[Maxmemory 정책](#maxmemory-policy-and-maxmemory-reserved)
 	-	[고급 설정(keyspace 알림)](#keyspace-notifications-advanced-settings)
 	-	[Redis 캐시 관리자](#redis-cache-advisor)
--	[데이터 관리 설정](#data-management-settings)
-	-	[Redis 데이터 지속성](#redis-data-persistence)
-	-	[가져오기/내보내기](#importexport)
--	[네트워크 설정](#network-settings)
--	[진단 설정](#diagnostics-settings)
 -	[크기 조정 설정](#scale-settings)
 	-	[가격 책정 계층](#pricing-tier)
 	-	[Redis 클러스터 크기](#cluster-size)
+-	[데이터 관리 설정](#data-management-settings)
+	-	[Redis 데이터 지속성](#redis-data-persistence)
+	-	[가져오기/내보내기](#importexport)
+-	[관리 설정](#administration-settings)
+	-	[Reboot](#reboot)
+	-	[업데이트 예약](#schedule-updates)
+-	[진단 설정](#diagnostics-settings)
+-	[네트워크 설정](#network-settings)
 -	[리소스 관리 설정](#resource-management-settings)
 
 ## 설정 지원 및 문제 해결
 
-**설정 지원 + 문제 해결** 섹션의 설정은 캐시로 문제를 해결 하기 위한 옵션을 제공합니다.
+**설정 지원 + 문제 해결** 섹션의 설정은 캐시로 문제를 해결하는 옵션을 제공합니다.
 
 ![지원 + 문제 해결](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 문제 해결을 위한 일반적인 문제 및 전략을 제공받으려면 **문제 해결**을 클릭합니다.
 
-캐시에서 수행된 작업을 보려면 **감사 로그**를 클릭합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../azure-portal/insights-debugging-with-events.md) 및 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+캐시에서 수행된 작업을 보려면 **감사 로그**를 클릭합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../azure-portal/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
-**리소스 상태** 기능을 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
+**리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
 
 캐시에 대한 지원 요청을 열려면 **새 지원 요청**을 클릭합니다.
 
@@ -153,6 +156,35 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 캐시를 업그레이드하려면 **지금 업그레이드**를 클릭하여 [가격 책정 계층](#pricing-tier)을 변경하고 캐시 크기를 조정하세요. 가격 책정 계층 선택에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
 
+## 크기 조정 설정
+
+**규모** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
+
+![네트워크](./media/cache-configure/redis-cache-scale.png)
+
+-	[가격 책정 계층](#pricing-tier)
+-	[Redis 클러스터 크기](#cluster-size)
+
+### 가격 책정 계층
+
+**가격 책정 계층**을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기 조정에 대한 자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
+
+![Redis Cache 가격 책정 계층](./media/cache-configure/pricing-tier.png)
+
+<a name="cluster-size"></a>
+### Redis 클러스터 크기
+
+**(미리 보기) Redis 클러스터 크기**를 클릭하여 클러스터링을 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에 대한 클러스터 크기를 변경합니다.
+
+>[AZURE.NOTE] Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
+
+![Redis 클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
+
+클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
+
+>[AZURE.IMPORTANT] Redis 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+
+
 ## 데이터 관리 설정
 
 **데이터 관리** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
@@ -188,13 +220,43 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 >[AZURE.IMPORTANT] 가져오기/내보내기는 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용 및 지침은 [Azure Redis Cache에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)를 참조하세요.
 
-## 네트워크 설정
 
-**네트워크** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
+## 관리 설정
 
-![네트워크](./media/cache-configure/redis-cache-network.png)
+**관리** 섹션의 설정을 사용하여 프리미엄 캐시에 대해 다음과 같은 관리 작업을 수행할 수 있습니다.
 
->[AZURE.IMPORTANT] 가상 네트워크 설정은 캐시를 만드는 동안 VNET 지원을 통해 구성된 프리미엄 캐시에만 제공됩니다. VNET 지원을 통해 프리미엄 캐시를 만들고 설정을 업데이트하는 방법에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+![관리](./media/cache-configure/redis-cache-administration.png)
+
+-	[Reboot](#reboot)
+-	[업데이트 예약](#schedule-updates)
+
+>[AZURE.IMPORTANT] 이 섹션의 설정은 프리미엄 계층 캐시에만 사용할 수 있습니다.
+
+### Reboot
+
+**다시 부팅** 블레이드에서는 하나 이상의 캐시 노드를 다시 부팅할 수 있습니다. 따라서 오류 발생 시 응용 프로그램의 복원력을 테스트할 수 있습니다.
+
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
+
+클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 캐시 분할을 선택할 수 있습니다.
+
+![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+
+하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
+
+>[AZURE.IMPORTANT] 다시 부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 다시 부팅](cache-administration.md#reboot)을 참조하세요.
+
+### 업데이트 예약
+
+**업데이트 예약** 블레이드에서는 캐시의 Redis 서버 업데이트에 대한 유지 관리 기간을 지정할 수 있습니다.
+
+>[AZURE.IMPORTANT] 유지 관리 기간이 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.
+
+![업데이트 예약](./media/cache-configure/redis-schedule-updates.png)
+
+유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다.
+
+>[AZURE.IMPORTANT] 업데이트 예약은 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 업데이트 예약](cache-administration.md#schedule-updates)을 참조하세요.
 
 ## 진단 설정
 
@@ -210,34 +272,14 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)을 참조하세요.
 
-## 크기 조정 설정
 
-**규모** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
+## 네트워크 설정
 
-![네트워크](./media/cache-configure/redis-cache-scale.png)
+**네트워크** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
--	[가격 책정 계층](#pricing-tier)
--	[Redis 클러스터 크기](#cluster-size)
+![네트워크](./media/cache-configure/redis-cache-network.png)
 
-### 가격 책정 계층
-
-**가격 책정 계층**을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기 조정에 대한 자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
-
-![Redis Cache 가격 책정 계층](./media/cache-configure/pricing-tier.png)
-
-<a name="cluster-size"></a>
-### Redis 클러스터 크기
-
-**(미리 보기) Redis 클러스터 크기**를 클릭하여 클러스터링을 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에 대한 클러스터 크기를 변경합니다.
-
->[AZURE.NOTE] Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
-
-![Redis 클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
-
-클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
-
->[AZURE.IMPORTANT] Redis 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
-
+>[AZURE.IMPORTANT] 가상 네트워크 설정은 캐시를 만드는 동안 VNET 지원을 통해 구성된 프리미엄 캐시에만 제공됩니다. VNET 지원을 통해 프리미엄 캐시를 만들고 설정을 업데이트하는 방법에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 ## 리소스 관리 설정
 
@@ -249,7 +291,7 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 
 조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 Azure 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내기 하려면 **템플릿 내보내기**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../resource-group-template-deploy.md)를 참조하세요.
+미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내려면 **템플릿 내보내기**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../resource-group-template-deploy.md)를 참조하세요.
 
 ## 기본 Redis 서버 구성
 
@@ -286,13 +328,13 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 	-	P2(13GB-130GB)-최대 32개의 데이터베이스
 	-	P3(26GB-260GB)-최대 48개의 데이터베이스
 	-	P4(53GB-530GB)-최대 64개의 데이터베이스
-	-   Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [선택](http://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클라이언트 응용 프로그램에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)를 참조하세요.
+	-   Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [선택](http://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 응용 프로그램을 변경해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)를 참조하세요.
 
 
 >[AZURE.NOTE] `databases` 설정은 캐시를 만드는 동안에만 PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 구성할 수 있습니다. PowerShell을 사용하여 캐시를 만드는 동안 `databases`를 구성하는 예제는 [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)를 참조하세요.
 
 
-<a name="maxclients"></a> <sup>2</sup>`maxclients`은 Azure Redis Cache 가격 책정 계층마다 다릅니다.
+<a name="maxclients"></a> <sup>2</sup>`maxclients`는 Azure Redis Cache 가격 책정 계층마다 다릅니다.
 
 -	기본 및 표준 캐시
 	-	C0(250MB) 캐시 - 최대 256개 연결
@@ -354,4 +396,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

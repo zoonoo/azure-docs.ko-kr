@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -34,7 +34,7 @@ Microsoft Azure AD B2C는 Microsoft Office 365와 함께 사용할 수 없습니
 
 Azure AD 테넌트에서 테넌트의 모든 사용자(기존 Microsoft 계정을 가진 사용자 제외)는 형식 `<xyz>@<tenant domain>`의 메일 주소를 사용하여 로그인합니다. 여기서 `<tenant domain>`는 테넌트 또는 초기 `<...>.onmicrosoft.com` 도메인에서 확인된 도메인 중 하나입니다. 이 계정 유형은 회사 또는 학교 계정입니다.
 
-Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com))를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
+Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
 
 ### 지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 
@@ -102,15 +102,17 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
-- [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독 관리자로 로그인합니다. (이것은 동일한 작업이거나 학교 계정 또는 Azure에 등록 하는데 사용한 동일한 Microsoft 계정입니다.)
+- 다음 단계에 따라 [Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+- **응용 프로그램**, **Id 공급자** 및 **모든 정책** 블레이드로 이동하여 각각의 제품에서 모든 항목을 삭제 합니다.
+- 이제 [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독 관리자로 로그인합니다. (이것은 동일한 작업이거나 학교 계정 또는 Azure에 등록 하는데 사용한 동일한 Microsoft 계정입니다.)
 - 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
+- **사용자** 탭을 클릭합니다.
+- 각 사용자를 돌아가며 선택합니다.(현재 자신이 로그인한, 즉, 구독 관리자를 사용자에서 제외함) 페이지 맨 아래에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - **응용 프로그램** 탭을 클릭합니다.
 - **표시** 드롭다운 필드에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
 - 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - Active Directory 확장으로 다시 이동하고 B2C 테넌트를 선택합니다.
 - 페이지 맨 아래에서 **삭제**를 클릭합니다. 화면의 지시에 따라 프로세스를 완료합니다.
-
-B2C 테넌트에서 **사용자**, **응용 프로그램** 또는 기타 개체를 이미 만든 경우 위의 단계를 수행하기 전에 삭제해야 합니다.
 
 ### Enterprise Mobility Suite의 일부로 Azure AD B2C를 가져올 수 있나요?
 
@@ -128,4 +130,4 @@ B2C 테넌트에서 **사용자**, **응용 프로그램** 또는 기타 개체�
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

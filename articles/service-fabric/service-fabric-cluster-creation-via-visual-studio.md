@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="06/27/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 클러스터 설정
@@ -39,16 +39,17 @@
 
 |매개 변수 이름 |설명|
 |-----------------------  |--------------------------|
+|adminUserName |서비스 패브릭 컴퓨터(노드)에 대한 관리자 계정의 이름입니다.|
 |certificateThumbprint |클러스터를 보호하는 인증서의 지문입니다.|
 |sourceVaultResourceId |저장된 클러스터를 보호하는 인증서가 있는 키 자격 증명 모음의 *리소스 ID*입니다.|
 |certificateUrlValue |클러스터 보안 인증서의 URL입니다.|
 
-Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 3개의 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 키 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [인증서를 사용하여 서비스 패브릭 클러스터를 보호하는 방법](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates) 항목을 참조하세요.
+Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 3개의 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안 시나리오](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) 문서를 참조하세요.
 
 ## 선택 사항: 클러스터 이름 변경
-모든 서비스 패브릭 클러스터에는 이름이 있습니다. Azure에서 패브릭 클러스터가 만들어지면 클러스터 이름은 클러스터에 대한 DNS(Domain Name System) 이름을 Azure 지역과 함께 결정합니다. 예를 들어 클러스터 이름을 `myBigCluster`로 지정하고 매개 변수를 `clusterLocation`로 설정한 경우 매개 변수는 클러스터의 DNS 이름이 `myBigCluster.eastus.cloudapp.azure.com`인 미국 동부로 설정됩니다.
+모든 서비스 패브릭 클러스터에는 이름이 있습니다. Azure에서 패브릭 클러스터가 만들어지면 클러스터 이름은 클러스터에 대한 DNS(Domain Name System) 이름을 Azure 지역과 함께 결정합니다. 예를 들어 클러스터 이름을 `myBigCluster`로 지정했으며 새 클러스터를 호스트할 리소스 그룹의 위치(Azure 지역)가 미국 동부이면 클러스터의 DNS 이름은 `myBigCluster.eastus.cloudapp.azure.com`이 됩니다.
 
-기본적으로 클러스터 이름은 자동으로 생성되며 임의의 접미사를 "cluster" 접두사에 추가하여 고유하게 만들어집니다. 이렇게 하면 템플릿을 **Ci(연속 통합)** 시스템의 일부로 쉽게 사용할 수 있습니다. 클러스터에 대해 사용자에게 의미가 있는 특정 이름을 사용하려는 경우 리소스 관리자 템플릿 파일(`ServiceFabricCluster.json`)의 `clusterName` 변수 값을 선택한 이름으로 설정합니다. 해당 파일에 정의된 첫 번째 변수입니다.
+기본적으로 클러스터 이름은 자동으로 생성되며 임의의 접미사를 "cluster" 접두사에 추가하여 고유하게 만들어집니다. 이렇게 하면 템플릿을 **Ci(연속 통합)** 시스템의 일부로 쉽게 사용할 수 있습니다. 클러스터에 대해 사용자에게 의미가 있는 특정 이름을 사용하려는 경우 Resource Manager 템플릿 파일(`ServiceFabricCluster.json`)의 `clusterName` 변수 값을 선택한 이름으로 설정합니다. 해당 파일에 정의된 첫 번째 변수입니다.
 
 ## 옵션: 공용 응용 프로그램 포트 추가
 배포하기 전에 클러스터에 대한 공용 응용 프로그램 포트를 변경할 수도 있습니다. 기본적으로 템플릿에서는 두 개의 공용 TCP 포트(80과 8081)만 열립니다. 응용 프로그램에 더 많은 포트가 필요한 경우 템플릿에서 Azure 부하 분산 장치 정의를 수정합니다. 정의는 기본 템플릿 파일(`ServiceFabricCluster.json`)에 저장됩니다. 해당 파일을 열고 `loadBalancedAppPort`를 검색합니다. 각 포트는 세 개의 아티팩트에 연결됩니다.
@@ -96,10 +97,10 @@ Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 
 	    }
 	}
     ```
-클러스터에 배포하려고 하는 응용 프로그램이 더 많은 포트를 필요로 하는 경우 추가 프로브 및 부하 분산 규칙 정의를 만들어 추가할 수 있습니다. 리소스 관리자 템플릿을 통해 Azure 부하 분산 장치를 사용하는 방법에 대한 자세한 내용은 [템플릿을 사용하여 내부 부하 분산 장치 만들기 시작](../load-balancer/load-balancer-get-started-ilb-arm-template.md)을 참조하세요.
+클러스터에 배포하려고 하는 응용 프로그램이 더 많은 포트를 필요로 하는 경우 추가 프로브 및 부하 분산 규칙 정의를 만들어 추가할 수 있습니다. Resource Manager 템플릿을 통해 Azure Load Balancer를 사용하는 방법에 대한 자세한 내용은 [템플릿을 사용하여 내부 부하 분산 장치 만들기 시작](../load-balancer/load-balancer-get-started-ilb-arm-template.md)을 참조하세요.
 
 ## Visual Studio를 사용하여 템플릿 배포
-`ServiceFabricCluster.param.dev.json` 파일에 모든 필수 매개 변수 값을 저장하면 템플릿을 배포하고 서비스 패브릭 클러스터를 만들 준비가 된 것입니다. Visual Studio 솔루션 탐색기에서 리소스 그룹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다. Visual Studio에서 **리소스 그룹에 배포** 대화 상자를 표시하고 필요한 경우 Azure에 인증하라는 메시지가 표시됩니다.
+`ServiceFabricCluster.param.dev.json` 파일에 모든 필수 매개 변수 값을 저장하면 템플릿을 배포하고 서비스 패브릭 클러스터를 만들 준비가 된 것입니다. Visual Studio 솔루션 탐색기에서 리소스 그룹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포 | 새 배포...**를 선택합니다. Visual Studio에서 **리소스 그룹에 배포** 대화 상자를 표시하고 필요한 경우 Azure에 인증하라는 메시지가 표시됩니다.
 
 ![리소스 그룹 대화 상자에 배포][3]
 
@@ -126,4 +127,4 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

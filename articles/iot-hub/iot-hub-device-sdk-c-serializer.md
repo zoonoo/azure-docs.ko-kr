@@ -26,6 +26,8 @@
 
 이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 응용 프로그램을 참조하세요.
 
+[Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C에 대한 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+
 ## 모델링 언어
 
 이 시리즈의 [소개 자료](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 응용 프로그램에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
@@ -487,7 +489,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-**IoTHubMessage** 구현에서는 모델의 각 동작에 대해 특정 함수를 호출합니다. 예를 들어 모델에서 다음 동작을 정의하는 경우:
+**IoTHubMessage** 구현에서는 모델의 각 작업에 대해 특정 함수를 호출합니다. 예를 들어 모델에서 다음 동작을 정의하는 경우:
 
 ```
 WITH_ACTION(SetAirResistance, int, Position)
@@ -514,7 +516,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "", "Parameters" : "" }
 ```
 
-다음 두 속성으로 직렬화된 JSON 개체를 전송합니다. **Name**은 동작(메시지)의 이름이고 **Parameters**는 해당 동작의 매개 변수를 포함합니다.
+다음 두 속성으로 직렬화된 JSON 개체를 전송합니다. **Name**은 작업(메시지)의 이름이고 **Parameters**는 해당 작업의 매개 변수를 포함합니다.
 
 예를 들어 **SetAirResistance**를 호출하려면 다음 메시지를 장치에 보낼 수 있습니다.
 
@@ -666,4 +668,4 @@ serializer_deinit();
 
 또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdks)가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

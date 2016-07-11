@@ -1,6 +1,6 @@
 <properties
 	pageTitle="조건부 액세스 FAQ | Microsoft Azure"
-	description="조건부 액세스에 대해 자주 묻는 질문과 대답"
+	description="조건부 액세스에 대해 자주 묻는 질문과 대답 "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # 조건부 액세스 FAQ
@@ -30,4 +30,4 @@ B2B 공동 작업 사용자에 대한 정책이 적용됩니다. 그러나 경�
 ## Word나 Outlook 등의 클라이언트 앱에 정책을 설정할 수 없는 이유는 무엇입니까?
 조건부 액세스 정책은 서비스 액세스 요구 사항을 설정하고, 해당 서비스에서 인증하는 경우에 적용됩니다. 그러므로 클라이언트 응용 프로그램에서 정책이 설정되는 것이 아니라 서비스가 호출될 때 적용됩니다. 예를 들어, SharePoint에서 설정된 정책은 SharePoint를 호출하는 클라이언트에, Exchange에서 설정된 정책은 Outlook에 적용됩니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Azure VM에서 SQL Server에 대한 Azure 주요 자격 증명 모음 통합 구성(리소스 관리자)
@@ -39,9 +39,8 @@
 
 프로비전의 자세한 연습은 [Azure 포털에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-기존 VM에 AKV 통합을 사용하도록 설정해야 할 경우 템플릿을 사용할 수 있습니다. 자세한 내용은 [Azure 키 자격 증명 모음 통합을 위한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup)을 참조하세요.
-
+기존 VM에 AKV 통합을 사용하도록 설정해야 할 경우 템플릿을 사용할 수 있습니다. 자세한 내용은 [Azure 주요 자격 증명 모음 통합을 위한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)을 참조하세요.
 
 [AZURE.INCLUDE [AKV 통합 다음 단계](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

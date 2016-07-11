@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Single Sign-Out SAML 프로토콜
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면 Azure AD에서 응용 프로그램 등록 중에 메타데이터 URL을 등록해야 합니다. Azure AD는 메타데이터에서 클라우드 서비스의 로그아웃 URL 및 서명 키를 가져옵니다. Azure AD는 서명 키를 사용하여 들어오는 LogoutRequest에서 서명을 확인하고 LogoutURL을 사용하여 로그아웃 후 사용자를 리디렉션합니다.
 
@@ -86,4 +84,4 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 
 Azure AD에서는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃의 성공 여부를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소는 사용자 지정 오류 메시지를 포함할 수도 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

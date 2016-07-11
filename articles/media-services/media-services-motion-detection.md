@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Azure 미디어 검색으로 동작 검색
@@ -165,7 +165,7 @@ RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
-1. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 동영상 동작 검색 작업을 만듭니다. 
+1. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 동영상 동작 검색 작업을 만듭니다.
 					
 		{
 		    "version": "1.0"
@@ -351,4 +351,4 @@ RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

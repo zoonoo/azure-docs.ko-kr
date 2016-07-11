@@ -55,7 +55,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 온-프레미스에 vContinuum 서버를 설치하고 구성 서버를 가리키도록 해야 합니다.
 
-1.  [VContinuum을 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=526305). 
+1.  [VContinuum을 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=526305).
 2.  그런 다음 [vContinuum 업데이트](http://go.microsoft.com/fwlink/?LinkID=533813) 버전을 다운로드합니다.
 3. 최신 버전의 vContinuum을 설치합니다. **Welcome** 페이지에서 **다음**을 클릭합니다. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  마법사의 첫 번째 페이지에서 CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. **HTTPS 사용**을 선택합니다.
@@ -143,7 +143,7 @@ Linux 가상 컴퓨터에서 각 SCSI 하드 디스크에 대해 SCSI ID를 가�
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. **disk.EnableUUID**가 있는 행이 존재하는지 확인합니다. 존재하며 **False**로 설정된 경우 **True **로 설정합니다(대/소문자 구분 안 함). 존재하며 true로 설정되어 있는 경우 **취소**를 클릭하고 부팅된 후 게스트 운영 체제 내에서SCSI 명령을 테스트합니다. 존재하지 않는 경우 **행 추가**를 클릭합니다.
+4. **disk.EnableUUID**가 있는 행이 존재하는지 확인합니다. 존재하며 **False**로 설정된 경우 **True**로 설정합니다(대/소문자 구분 안 함). 존재하며 true로 설정되어 있는 경우 **취소**를 클릭하고 부팅된 후 게스트 운영 체제 내에서SCSI 명령을 테스트합니다. 존재하지 않는 경우 **행 추가**를 클릭합니다.
 5. **이름** 열에 disk.EnableUUID를 추가합니다. 해당 값을 TRUE로 설정합니다. 위의 값을 큰따옴표와 함께 추가하지 마세요.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
@@ -152,7 +152,7 @@ Linux 가상 컴퓨터에서 각 SCSI 하드 디스크에 대해 SCSI ID를 가�
 
 참고: 추가 패키지를 다운로드하고 설치하기 전에 시스템이 인터넷에 연결되어 있는지 확인합니다.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 이 명령은 CentOS 6.6 저장소에서 이러한 15개의 패키지를 다운로드 및 설치:
 
@@ -188,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 참고: 원본 컴퓨터가 루트 또는 부팅 장치에 Reiser 또는 XFS 파일 시스템을 사용하는 경우 보호 전에 다음 패키지를 Linux 마스터 대상에 다운로드하고 설치해야 합니다.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 사용자 지정 구성 변경 내용 적용
 
@@ -223,7 +223,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 3. 선택한 ssh 클라이언트를 사용하여 Linux 마스터 대상 서버 가상 컴퓨터에 로그인합니다.
 4. VPN 연결을 통해 Linux 마스터 대상 서버를 배포한 Azure 네트워크에 연결하는 경우 가상 컴퓨터 **대시보드** 탭 및 포트 22에서 찾을 수 있는 서버에 대한 내부 IP 주소를 사용하여 Secure Shell을 통해 Linux 마스터 대상 서버에 연결합니다.
 5. 공용 인터넷 연결을 통해 Linux 마스터 대상 서버에 연결하는 경우 Linux 마스터 대상 서버의 공용 가상 IP 주소(가상 컴퓨터 **대시보드** 탭에서) 및 ssh용으로 생성된 공용 끝점을 사용하여 Linux 서버에 로그인합니다.
-6. 설치 관리자 파일을 포함하는 디렉터리에서 *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*”*를 실행하여 GZip 압축된 Linux 마스터 대상 서버 설치 프로그램 tar 압축 파일에서 파일을 추출합니다.
+6. 설치 관리자 파일을 포함하는 디렉터리에서 *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\\”*를 실행하여 GZip 압축된 Linux 마스터 대상 서버 설치 프로그램 tar 압축 파일에서 파일을 추출합니다.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -266,7 +266,7 @@ Azure Site Recovery 자격 증명 모음 > **구성 서버** > **서버 세부 �
 VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 추가됩니다. 이것은 이미 페이지 파일 전용 드라이브를 가지고 있을 수도 있으므로 일반적으로 장애 조치된 VM에서 필요로 하지 않는 추가 드라이브입니다. 가상 컴퓨터의 역방향 보호를 시작하기 전에 보호되지 않도록 드라이브가 오프라인으로 가져와지도록 해야 합니다. 다음과 같이 수행합니다.
 
 1.  컴퓨터 관리를 열고 저장소 관리를 선택하여 온라인 디스크와 컴퓨터에 연결된 디스크를 나열시킵니다.
-2.  컴퓨터에 연결된 임시 디스크를 선택하고 오프라인으로 전환을 선택합니다. 
+2.  컴퓨터에 연결된 임시 디스크를 선택하고 오프라인으로 전환을 선택합니다.
 
 ### VM 보호
 
@@ -325,7 +325,7 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 
 #### NAT 설정 구성
 
-1. 가상 컴퓨터의 보호를 활성화하려면 통신 채널 2개를 구축해야 합니다. 첫 번째 채널은 가상 컴퓨터와 프로세스 서버 사이입니다. 이 채널은 VM에서 데이터를 수집하고 마스터 대상 서버에 데이터를 전송하는 프로세스 서버에 보냅니다. 프로세스 서버와 보호할 가상 컴퓨터가 동일한 Azure 가상 네트워크에 있다면 NAT 설정을 사용하지 않아도 됩니다. 그렇지 않으면 NAT 설정을 지정합니다. Azure에서 프로세스 서버의 공용 IP 주소를 봅니다. 
+1. 가상 컴퓨터의 보호를 활성화하려면 통신 채널 2개를 구축해야 합니다. 첫 번째 채널은 가상 컴퓨터와 프로세스 서버 사이입니다. 이 채널은 VM에서 데이터를 수집하고 마스터 대상 서버에 데이터를 전송하는 프로세스 서버에 보냅니다. 프로세스 서버와 보호할 가상 컴퓨터가 동일한 Azure 가상 네트워크에 있다면 NAT 설정을 사용하지 않아도 됩니다. 그렇지 않으면 NAT 설정을 지정합니다. Azure에서 프로세스 서버의 공용 IP 주소를 봅니다.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
@@ -428,4 +428,4 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

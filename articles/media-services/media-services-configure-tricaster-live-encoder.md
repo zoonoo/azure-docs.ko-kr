@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
@@ -70,22 +70,22 @@
 
 **비디오**:
  
-- 코덱: H.264 
-- 프로필: 높음(수준 4.0) 
-- 비트 전송률: 5,000kbps 
-- 키 프레임: 2초(60초) 
+- 코덱: H.264
+- 프로필: 높음(수준 4.0)
+- 비트 전송률: 5,000kbps
+- 키 프레임: 2초(60초)
 - 프레임 속도: 30
  
 **오디오**:
 
-- 코덱: AAC(LC) 
-- 비트 전송률: 192kbps 
+- 코덱: AAC(LC)
+- 비트 전송률: 192kbps
 - 샘플 속도: 44.1khz
 
 
 ###구성 단계
 
-1. 사용 중인 비디오 입력 원본에 따라 새 **NewTek TriCaster** 프로젝트를 만듭니다. 
+1. 사용 중인 비디오 입력 원본에 따라 새 **NewTek TriCaster** 프로젝트를 만듭니다.
 2. 해당 프로젝트 내에 있는 경우 **스트림** 단추를 찾고 그 옆의 기어 아이콘을 클릭하여 스트림 구성 메뉴에 액세스합니다.
 
 	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
@@ -126,7 +126,7 @@
 
 ##테스트 재생
   
-1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Playback the Preview**(미리 보기 재생)를 가리키고 **with Azure Media Player**(Azure 미디어 플레이어 사용)를 선택합니다.  
+1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Playback the Preview**(미리 보기 재생)를 가리키고 **with Azure Media Player**(Azure 미디어 플레이어 사용)를 선택합니다.
 
 	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
@@ -136,18 +136,18 @@
 
 ##프로그램 만들기
 
-1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.  
+1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.
 
 	![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
 2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이**(기본값은 4시간)를 조정합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
 3. **지금 프로그램 시작** 상자를 선택합니다.
-4. **프로그램 만들기**를 클릭합니다.  
+4. **프로그램 만들기**를 클릭합니다.
   
 	참고: 프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
  
 5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생**으로 이동한 다음 **Azure 미디어 플레이어 사용**을 선택하여 재생을 확인합니다.
-6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **Copy the Output URL to Clipboard**(클립보드로 출력 URL 복사)를 선택하거나 메뉴의 **Program information and settings**(프로그램 정보 및 설정) 옵션에서 이 정보를 검색합니다. 
+6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **Copy the Output URL to Clipboard**(클립보드로 출력 URL 복사)를 선택하거나 메뉴의 **Program information and settings**(프로그램 정보 및 설정) 옵션에서 이 정보를 검색합니다.
 
 이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.
 
@@ -165,4 +165,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

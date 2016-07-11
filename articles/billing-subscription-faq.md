@@ -14,86 +14,80 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
 
 이 문서에서는 Azure 청구 및 구독에 대한 일반적인 질문에 대한 답변을 제공합니다.
 
-**결제**
-
-- [Azure 구입에 대해 어떤 지불 옵션이 있나요?](#what-payment-options-do-i-have-in-purchasing-azure)
-
-- [지불 청구서 방법을 어떻게 요청할 수 있나요?](#how-can-i-request-the-invoice-method-of-payment)
-
-- [신용 카드 지불 상태를 어떻게 확인하나요?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
-
-- [내 청구서 복사본은 어떻게 받나요?](#how-do-i-get-a-copy-of-my-invoice)
-
-- [Azure 지불 방법으로 더 이상 사용하지 않는 신용 카드는 어떻게 제거하나요?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
-
-- [내 신용 카드 정보를 업데이트하거나 변경하려면 어떻게 해야 하나요?](#how-can-i-update-or-change-my-credit-card-information)
-
-- [계획된 유지 관리로 인한 서비스 가동 중지 시간을 어떻게 미리 알 수 있나요?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
-
-- [작동 시간 및 연결에 대한 Azure SLA 계약이란 무엇인가요?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
-
-- [Azure SLA 크레딧이란 무엇인가요?](#what-are-the-azure-sla-credits)
-
-- [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
-
-- [마지막 청구 기간에 대한 송장이 보이지 않습니다. 그 이유는 무엇일까요?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
-
-**구독**
-
-- [Azure 포털에 로그인할 수 없습니다.](#i-am-unable-to-log-in-to-the-azure-portal)
-
-- [Azure 지원은 어떻게 구입하나요?](#how-do-i-purchase-azure-support)
-
-- [월간 요금은 단일 Azure 플랜에 해당하나요, 아니면 전체 계정에 해당하나요?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
-
-- [더 높은 계층의 Azure 지원 계획으로 업그레이드하려면 어떻게 해야 하나요?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
-
-- [Azure 지원 요금은 언제 청구되나요?](#when-will-i-be-billed-for-azure-support)
-
-- [구독 기간이 끝나면 어떻게 되나요?](#what-happens-at-the-end-of-the-term)
-
-- [Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?](#how-do-i-cancel-my-azure-support-plan)
-
-- [내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하려면 어떻게 해야 하나요?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+**계정 관리**
 
 - [새 Azure 포털에서 관리자 계정은 어떻게 관리하나요?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
-
-- [내 구독 소유권을 양도하려면 어떻게 해야 하나요?](#how-do-i-transfer-ownership-of-my-subscriptions)
-
-- [서버 라이선스를 Azure로 전송하여 가상 컴퓨터에서 실행할 수 있나요?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
-
-- [Azure 서비스의 혜택 및 가격 정보는 어디에서 찾을 수 있나요?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
-
-- [내 요금제는 어떻게 변경하나요?](#how-do-i-change-my-pricing-plan)
-
 - [내 계정과 연결된 계정 소유자 메일 주소 외에 다른 메일 주소로 알림을 받을 수 있나요?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
+- [내 구독에 대해 세부 정보를 편집 또는 추가할 수 없는 이유는 무엇인가요?](#why-cannot-i-edit-or-add-details-to-my-subscription)
+- [Azure 포털에 로그인할 수 없습니다.](#i-am-unable-to-log-in-to-the-azure-portal)
 
-- [Azure 구독을 위한 지불 정보를 어떻게 수정하나요?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+**결제**
 
-- [내 구독에 대해 세부 정보를 편집 또는 추가할 수 없는 이유는 무엇인가요?](#why-i-cannot-edit-or-add-details-to-my-subscription)
+- [내 청구서 복사본은 어떻게 받나요?](#how-do-i-get-a-copy-of-my-invoice)
+- [마지막 청구 기간에 대한 송장이 보이지 않습니다. 그 이유는 무엇일까요?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
-- [Azure 서비스를 누가 구매할 수 있나요?](#who-can-purchase-azure-services)
+**무료 평가판**
 
 - [요금을 내지 않고 Azure를 무료로 사용해 볼 수 있나요?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
+- [평가판 구독이란 무엇이고 지속 기간은 얼마나 되나요?](#what-is-a-trial-subscription-and-how-long-does-it-last)
+- [무료 평가판 계정을 사용하는 경우 어떤 리소스를 사용할 수 있나요?](#what-resources-are-available-when-using-a-trial-account)
+- [내 무료 평가판에 대한 지출 한도를 제거하면 어떻게 되나요?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
+- [무료 평가판에 대한 더 많은 세부 정보는 어디서 찾을 수 있나요?](#where-can-i-get-more-details-on-free-trial)
 
-- [지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
-
-- [지출 한도 금액을 조정할 수 있나요?](#can-i-adjust-the-amount-of-the-spending-limit)
+**Azure 구입 방법**
 
 - [Microsoft Azure가 상업적으로 제공되는 국가와 지역은 어디이며, Azure를 구매하는 데 사용할 수 있는 통화는 무엇인가요?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
-
 - [통상 금지령이 내려져 있는 국가에 대한 Azure 기반 서비스 재판매가 제한되나요?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
-
 - [Microsoft Services Provider License Agreement를 통해 Azure 및 SQL 데이터베이스를 사용할 수 있나요?](#are-azure-and-sql-database-available-through-microsoft-services-provider-license-agreement)
+- [Azure 외부에서 구입한 내 기존 Windows 라이선스를 사용할 수 있나요?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
+- [Azure 서비스를 누가 구매할 수 있나요?](#who-can-purchase-azure-services)
 
-## 결제
+**대금 지불**
+
+- [Azure 구입에 대해 어떤 지불 옵션이 있나요?](#what-payment-options-do-i-have-in-purchasing-azure)
+- [지불 청구서 방법을 어떻게 요청할 수 있나요?](#how-can-i-request-the-invoice-method-of-payment)
+- [신용 카드 지불 상태를 어떻게 확인하나요?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
+- [Azure 지불 방법으로 더 이상 사용하지 않는 신용 카드는 어떻게 제거하나요?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
+- [내 신용 카드 정보를 업데이트하거나 변경하려면 어떻게 해야 하나요?](#how-can-i-update-or-change-my-credit-card-information)
+- [Azure 구독을 위한 지불 정보를 어떻게 수정하나요?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+
+**Azure 가격 책정**
+
+- [Azure 서비스의 혜택 및 가격 정보는 어디에서 찾을 수 있나요?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
+- [내 요금제는 어떻게 변경하나요?](#how-do-i-change-my-pricing-plan)
+
+**SLA(서비스 수준 계약)**
+
+- [계획된 유지 관리로 인한 서비스 가동 중지 시간을 어떻게 미리 알 수 있나요?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
+- [작동 시간 및 연결에 대한 Azure SLA 계약이란 무엇인가요?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
+- [Azure SLA 크레딧이란 무엇인가요?](#what-are-the-azure-sla-credits)
+- [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
+
+**Azure 지출 한도**
+
+- [지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
+- [지출 한도 금액을 조정할 수 있나요?](#can-i-adjust-the-amount-of-the-spending-limit)
+
+**지원 플랜**
+
+- [Azure 지원은 어떻게 구입하나요?](#how-do-i-purchase-azure-support)
+- [월간 요금은 단일 Azure 플랜에 해당하나요, 아니면 전체 계정에 해당하나요?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+- [더 높은 계층의 Azure 지원 계획으로 업그레이드하려면 어떻게 해야 하나요?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+- [Azure 지원 요금은 언제 청구되나요?](#when-will-i-be-billed-for-azure-support)
+- [구독 기간이 끝나면 어떻게 되나요?](#what-happens-at-the-end-of-the-term)
+- [Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?](#how-do-i-cancel-my-azure-support-plan)
+
+**구독, 서비스 및 데이터 마이그레이션**
+
+- [내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하려면 어떻게 해야 하나요?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+- [내 구독 소유권을 양도하려면 어떻게 해야 하나요?](#how-do-i-transfer-ownership-of-my-subscriptions)
 
 ### Azure 구입에 대해 어떤 지불 옵션이 있나요?
 
@@ -119,7 +113,7 @@ Azure 계정 관리자는 Azure 계정 센터에서 현재 청구서를 볼 수 
 
 ### Azure 지불 방법으로 더 이상 사용하지 않는 신용 카드는 어떻게 제거하나요?
 
-지원을 요청하려면 지원 티켓을 제출해야 합니다. 신용 카드를 제거하는 지원 티켓을 만들려면 문서 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
+지원을 요청하려면 지원 티켓을 제출해야 합니다. 신용 카드를 제거하는 지원 티켓을 만들려면 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md) 문서를 참조하세요.
 
 ### 내 신용 카드 정보를 업데이트하거나 변경하려면 어떻게 해야 하나요?
 
@@ -153,8 +147,6 @@ Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약�
 - Azure를 구독한 지 30일 이내입니다.
 - 구독 형식이 무료 평가판 또는 신용 카드나 다른 결제 방법이 연결되지 않은 회원 제안(MSDN/Open/BizSpark/DreamSpark) 중 하나입니다.
 - 아직 송장 생성 날짜가 아닙니다.
-
-## 구독
 
 ### Azure 포털에 로그인할 수 없습니다.
 
@@ -209,9 +201,9 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 
 이제 종량제, MSDN, Action Pack 또는 BizSpark 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 소유하고 있는 종량제, MSDN, Action Pack 또는 BizSpark 구독의 계정 관리자를 변경할 수 있습니다. 받는 사람의 사용자 계정이 같은 국가에 있어야 하고 마켓플레이스 구매와 관련된 구독은 양도할 수 없습니다. 자세한 내용은 [Azure 구독을 양도하는 방법](billing-subscription-transfer.md) 문서를 참조하세요.
 
-### 서버 라이선스를 Azure로 전송하여 가상 컴퓨터에서 실행할 수 있나요?
+### Azure 외부에서 구입한 내 기존 Windows 라이선스를 사용할 수 있나요?
 
-예, SA가 있는 경우 라이선스 이동을 통해 Windows Server를 제외하고 가상 컴퓨터가 지원되는 모든 서버 제품에 대해 "사용자의 라이선스가 필요"할 수 있습니다.
+예, SA가 있는 경우 라이선스 이동을 통해 Windows Server를 제외하고 가상 컴퓨터가 지원되는 모든 서버 제품에 대해 "사용자의 라이선스가 필요"할 수 있습니다. 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
 
 ### Azure 서비스의 혜택 및 가격 정보는 어디에서 찾을 수 있나요?
 
@@ -219,7 +211,7 @@ Azure 서비스의 혜택에 대한 자세한 내용은 [Microsoft Azure 제품 
 
 ### 내 요금제는 어떻게 변경하나요?
 
-종량제 구독을 [12개월 선불 약정](https://azure.microsoft.com/offers/ms-azr-0026p/)으로 전환할 수 있습니다. 이 제공 사항을 통해 12개월 기간의 Azure 서비스 요금을 선불하고 Azure 서비스에 대해 5% 할인을 받으세요. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 구독으로 이동하여 제안 전환을 클릭합니다. 이는 현재 계정 센터를 통해 전환할 수 있는 유일한 제안입니다. 또는 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 다른 제안으로 전환할 수 있습니다.
+종량제 구독을 [12개월 선불 약정](https://azure.microsoft.com/offers/ms-azr-0026p/)으로 전환할 수 있습니다. 이 제공 사항을 통해 12개월 기간의 Azure 서비스 요금을 선불하고 Azure 서비스에 대해 5% 할인을 받으세요. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 구독으로 이동하여 제품 전환을 클릭합니다. 이는 현재 계정 센터를 통해 전환할 수 있는 유일한 제안입니다. 또는 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 다른 제품으로 전환할 수 있습니다.
 
 ### 내 계정과 연결된 계정 소유자 메일 주소 외에 다른 메일 주소로 알림을 받을 수 있나요?
 
@@ -255,7 +247,7 @@ Azure는 클라우드 규모의 응용 프로그램 및 서비스를 빌드하�
 
 ### 요금을 내지 않고 Azure를 무료로 사용해 볼 수 있나요?
 
-예. [지출 한도 기능](https://azure.microsoft.com/pricing/spending-limits/)을 사용하는 경우 무료 평가판, MSDN, MPN 또는 BizSpark 제안에 등록한 고객은 지출 한도 기능이 설정되어 있는 한 요금 부과 걱정 없이 Azure를 사용할 수 있습니다. Azure 등록에 대한 자세한 내용은 [Azure 구독 등록, 구매, 업그레이드 또는 활성화 방법](billing-buy-sign-up-azure-subscription.md) 문서를 참조하세요.
+예. [지출 한도 기능](https://azure.microsoft.com/pricing/spending-limits/)을 사용하는 경우 무료 평가판, MSDN, MPN 또는 BizSpark 제품에 등록한 고객은 지출 한도 기능을 설정하는 한 요금이 부과될 걱정 없이 Azure를 사용할 수 있습니다. Azure 등록에 대한 자세한 내용은 [Azure 구독 등록, 구매, 업그레이드 또는 활성화 방법](billing-buy-sign-up-azure-subscription.md) 문서를 참조하세요.
 
 ### 지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?
 
@@ -277,4 +269,21 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 현재 SPLA를 통해 Azure 또는 SQL 데이터베이스를 사용할 수 있는 계획은 없습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+### 평가판 구독이란 무엇이고 지속 기간은 얼마나 되나요?
+
+Azure 평가판 구독을 사용하면 Microsoft 서비스에서 30일 동안 필요에 따라 금액만큼의 크레딧을 사용할 수 있습니다. 무료 평가판 크레딧에서 다루는 서비스 및 다루지 않는 서비스를 확인하려면 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 참조하세요.
+
+[여기](http://azure.microsoft.com/pricing/free-trial/)에서 평가판 구독에 등록할 수 있습니다.
+
+### 무료 평가판 계정을 사용하는 경우 어떤 리소스를 사용할 수 있나요?
+
+무료 평가판과 함께 \\240,000의 Azure 크레딧을 받습니다. Azure 크레딧은 원하는 대로 사용할 수 있습니다. 자세한 내용은 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 참조하세요.
+
+### 내 무료 평가판에 대한 지출 한도를 제거하면 어떻게 되나요?
+
+지출 한도를 제거하면 무료 평가판 크레딧보다 많은 리소스 사용에 대해 청구되기 시작합니다. 지출 한도를 제거하면 다시 설정할 수 없습니다.
+
+### 무료 평가판에 대한 더 많은 세부 정보는 어디서 찾을 수 있나요?
+[무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 방문하여 [공식 무료 평가판 FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)를 참고합니다.
+
+<!---HONumber=AcomDC_0629_2016-->

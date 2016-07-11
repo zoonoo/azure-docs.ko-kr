@@ -56,7 +56,7 @@ IaaS(infrastructure as a service) VM(가상 컴퓨터)의 복구는 여러 가�
 
   * __운영 체제 디스크에서 데이터 디스크를 분리합니다__. IaaS VM의 경우 VM을 다시 만들지 않고 운영 체제 디스크를 변경할 수 없다는 점을 고려합니다. 복구 전략을 재해 후 재배포하는 경우 문제가 되지 않습니다. 그러나 예약 용량에 대해 웜 스페어 방법을 사용하는 경우 문제가 될 수 있습니다. 이를 제대로 구현하려면 올바른 운영 체제 디스크를 주 및 보조 위치에 배치하고 별도 드라이브에 응용 프로그램 데이터를 저장해야 합니다. 가능하면 두 위치에서 제공할 수 있는 표준 운영 체제 구성을 사용합니다. 장애 조치 후에 보조 DC의 기존 IaaS VM에 데이터 드라이브를 연결해야 합니다. AzCopy를 사용하여 원격 사이트에 데이터 디스크의 스냅숏을 복사합니다.
 
-  * __여러 VM 디스크의 지역 장애 조치 후 잠재적인 일관성 문제에 주의합니다__. VM 디스크는 Azure 저장소 Blob으로 구현되고 동일한 지역에서 복제 특성을 갖습니다. [Azure 백업](https://azure.microsoft.com/services/backup/)을 사용하지 않는 한 지역에서 복제가 비동기적이며 독립적으로 복제되기 때문에 디스크에 걸쳐 일관성을 보장할 수 없습니다 . 개별 VM 디스크는 지역 장애 조치 후에 일관된 충돌 상태이지만 디스크에 걸쳐 일관되지 않습니다. 경우에 따라 문제가 발생할 수 있습니다(예: 디스크 스트라이프의 경우).
+  * __여러 VM 디스크의 지역 장애 조치 후에 발생할 수 있는 일관성 문제에 유의하세요__. VM 디스크는 Azure 저장소 Blob으로 구현되고 지역에서 복제 특성이 동일합니다. [Azure 백업](https://azure.microsoft.com/services/backup/)을 사용하지 않는 한 지역에서 복제가 비동기적이며 독립적으로 복제되기 때문에 디스크에 걸쳐 일관성을 보장할 수 없습니다 . 개별 VM 디스크는 지역 장애 조치 후에 일관된 충돌 상태이지만 디스크에 걸쳐 일관되지 않습니다. 경우에 따라 문제가 발생할 수 있습니다(예: 디스크 스트라이프의 경우).
 
 ##저장소
 
@@ -102,11 +102,11 @@ Azure SQL 데이터베이스는 지역 복원 및 활성 지역 복제와 같은
 
 ####지역 복원
 
-[지역 복원](../sql-database/sql-database-geo-restore.md)도 기본, 표준 및 프리미엄 데이터베이스에서 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 특정 시점 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 주 지역의 저장소 중단에 영향을 받지 않습니다. 자세한 내용은 [중단으로부터 복구](../sql-database/sql-database-disaster-recovery.md)를 참조하세요.
+[지리적 복원](../sql-database/sql-database-recovery-using-backups.md#geo-restore)은 기본, 표준 및 프리미엄 데이터베이스에서도 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 특정 시점 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 주 지역의 저장소 중단에 영향을 받지 않습니다. 자세한 내용은 [중단으로부터 복구](../sql-database/sql-database-disaster-recovery.md)를 참조하세요.
 
 ####활성 지역 복제
 
-[활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. [지역에서 복제를 구성](../sql-database/sql-database-geo-replication-portal.md)하고 [보조 데이터베이스로의 장애 조치](../sql-database/sql-database-geo-replication-failover-portal.md)하는 방법에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](../sql-database/sql-database-business-continuity-design.md)를 참조하세요. 가동 중지 시간 없이 응용 프로그램 업그레이드를 구현하는 자세한 방법은 [가동 중지 시간 없이 응용 프로그램 업그레이드](../sql-database/sql-database-business-continuity-application-upgrade.md)를 참조하십시오.
+[활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. 자세한 내용은 [지역에서 복제 구성](../sql-database/sql-database-geo-replication-portal.md) 및 [보조 데이터베이스로 장애 조치(failover)](../sql-database/sql-database-geo-replication-failover-portal.md)를 참조하세요. 가동 중단 없는 응용 프로그램 및 응용 프로그램 업그레이드를 설계하고 구현하는 방법에 대한 자세한 내용은 [활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-business-continuity-application-upgrade.md)를 참조하세요.
 
 ###가상 컴퓨터의 SQL Server
 
@@ -166,7 +166,7 @@ Azure 미디어 서비스에는 인코딩 및 스트리밍을 위한 다른 복�
 
 ##SQL 데이터베이스 검사 목록
   1. 이 문서의 [SQL 데이터베이스](#sql-database) 섹션을 검토합니다.
-  2. [지역 복원](../sql-database/sql-database-geo-restore.md) 또는 [지역에서 복제](../sql-database/sql-database-geo-replication-overview.md) 적절하게 사용합니다.
+  2. [지역 복원](../sql-database/sql-database-recovery-using-backups.md#geo-restore) 또는 [지역에서 복제](../sql-database/sql-database-geo-replication-overview.md)를 적절하게 사용합니다.
 
 ##가상 컴퓨터 검사 목록의 SQL Server
   1. 이 문서의 [가상 컴퓨터에서 SQL Server](#sql-server-on-virtual-machines) 섹션을 검토합니다.
@@ -214,4 +214,4 @@ Azure 미디어 서비스에는 인코딩 및 스트리밍을 위한 다른 복�
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서에서는 [데이터 온-프레미스 데이터 센터에서 Azure에 복구](./resiliency-technical-guidance-recovery-on-premises-azure.md)에 대해 자세히 알아 봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

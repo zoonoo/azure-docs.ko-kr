@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -84,7 +84,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 **Azure SQL DW 인스턴스를 프로비전합니다.** [SQL 데이터 웨어하우스 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
 
-  - **서버 이름**: <server Name>.database.windows.net
+  - **Server Name**: <server Name>.database.windows.net
   - **SQLDW(데이터베이스) 이름**
   - **사용자 이름**
   - **암호**
@@ -121,7 +121,7 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 
 ![][19]
 
-*-DestDir*에서는 관리자 모드로 다음 PowerShell 스크립트를 실행합니다.
+*-DestDir*의 관리자 모드에서 다음 PowerShell 스크립트를 실행합니다.
 
 	./SQLDW_Data_Import.ps1
 
@@ -314,13 +314,18 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 			)
 			;
 
+저장소 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
+
 >[AZURE.NOTE] 개인 Blob 저장소 계정의 지리적 위치에 따라 공용 Blob에서 개인 저장소 계정에 데이터를 복사하는 프로세스는 15분 이상이 걸릴 수 있습니다. 저장소 계정에서 Azure SQL DW로 데이터를 로드하는 프로세스는 20분 이상이 걸릴 수 있습니다.
+
+중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 >[AZURE.NOTE] 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n**을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y**를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
 
 ![그림 #21][21]
 
->[AZURE.TIP] **고유 데이터 사용:** 데이터가 실제 응용 프로그램의 온-프레미스 컴퓨터에 있으면 AzCopy를 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
+사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 응용 프로그램의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
+
 
 >[AZURE.TIP] 데이터가 실제 응용 프로그램의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
 
@@ -452,7 +457,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 	GO
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -499,7 +504,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 	GO
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -626,7 +631,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <nyctaxi_trip> 테이블의 행 및 열 수 보고
+### <nyctaxi\_trip> 테이블의 행 및 열 수 보고
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -642,10 +647,10 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- 총 행 수 = 173179759  
+- 총 행 수 = 173179759
 - 총 열 수 = 14
 
-### <nyctaxi_fare> 테이블의 행 및 열 수 보고
+### <nyctaxi\_fare> 테이블의 행 및 열 수 보고
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -661,7 +666,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- 총 행 수 = 173179759  
+- 총 행 수 = 173179759
 - 총 열 수 = 11
 
 ### SQL 데이터 웨어하우스에서 소량의 데이터 샘플 읽기
@@ -964,4 +969,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

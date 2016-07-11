@@ -22,7 +22,7 @@
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 이 항목의 리소스 관리자 버전에 대해서는 [Azure PowerShell 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 이 항목의 리소스 관리자 버전에 대해서는 [Azure PowerShell 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
 ## PowerShell 설치 및 구성
 
@@ -64,7 +64,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE] 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다(예: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**).
+	>[AZURE.NOTE] 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다(예: **New-AzureStorageAccount -StorageAccountName "<저장소 계정 이름>" -Location $dcLocation**).
 
 1. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription**을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
 
@@ -172,4 +172,4 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-windows-sql-server-iaas-overview.md)을 확인하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
