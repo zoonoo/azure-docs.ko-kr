@@ -154,8 +154,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 2. 다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 포털에서 입력한 것과 동일합니다.
 
-```powershell
-Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
               -KeepAliveIntervalInSec 10 `
               -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
               -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
