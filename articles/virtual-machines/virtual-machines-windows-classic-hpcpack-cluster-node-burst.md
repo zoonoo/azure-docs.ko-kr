@@ -80,7 +80,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
+Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결을 참조하세요](http://technet.microsoft.com/library/jj159097.aspx)).
 
 ## 다음 단계
 

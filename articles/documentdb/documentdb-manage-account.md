@@ -88,7 +88,8 @@ DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액�
 
 1. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 2. **DocumentDB 계정** 블레이드의 **필수** 모음에서 **키**를 클릭합니다.
-3. **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.![Azure 포털에서 선택키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/copykeys.png)
+3. **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
+  ![Azure 포털에서 선택키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/copykeys.png)
 
 ### 액세스 키 다시 생성
 

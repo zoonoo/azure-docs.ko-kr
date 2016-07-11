@@ -85,7 +85,7 @@ Azure 앱 서비스는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 
 <!-- URLs. -->
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[앱에 인증 추가]: app-service-mobile-cordova-get-started-users.md
 
 [Azure 모바일 앱용 JavaScript SDK]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx

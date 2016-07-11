@@ -100,7 +100,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	![Azure 포털 HDInsight 클러스터 사용 현황](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
 	- **속성**: 클러스터 속성을 표시합니다.
-	- **클러스터 AAD ID**:
+	- **클러스터 AAD ID**: 
 	- **Azure 저장소 키**: 기본 저장소 계정 및 키를 표시합니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
 	- **클러스터 로그인**: 클러스터 HTTP 사용자 이름 및 암호를 변경합니다.
 	- **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.
@@ -120,7 +120,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	- **지역**: Azure 위치입니다. 지원되는 Azure 위치를 보려면, [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)의 **지역** 드롭다운 목록 상자를 참고하세요.
 	- **생성된 데이터**.
 	- **운영 체제**: **Windows** 또는 **Linux**입니다.
-	- **형식**: Hadoop, HBase, Storm, Spark.
+	- **형식**: Hadoop, HBase, Storm, Spark. 
 	- **버전**. [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
 	- **구독**: 구독 이름입니다.
 	- **구독 ID**
@@ -195,7 +195,8 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
 ##클러스터 일시 중지/종료
 
-대부분의 Hadoop 작업은 이따금 실행되는 일괄 처리 작업입니다. 대부분의 Hadoop 클러스터는 프로세스에 사용되지 않는 기간이 깁니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+대부분의 Hadoop 작업은 이따금 실행되는 일괄 처리 작업입니다. 대부분의 Hadoop 클러스터는 프로세스에 사용되지 않는 기간이 깁니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
@@ -258,7 +259,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹과 생성됩니다. 클러스터가 속하는 Azure 리소스 그룹이 아래 표시됩니다.
 
 - 클러스터 목록에 **리소스 그룹** 열이 있습니다.
-- 클러스터 **Essential** 타일.
+- 클러스터 **Essential** 타일.  
 
 [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
    

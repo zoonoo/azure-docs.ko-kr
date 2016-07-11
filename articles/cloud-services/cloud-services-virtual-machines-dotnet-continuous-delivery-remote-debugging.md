@@ -13,6 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
+
 	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
@@ -23,7 +24,7 @@
 ## 클라우드 서비스에 원격 디버깅 사용
 
 1. 빌드 에이전트에서 [Azure에 대한 명령줄 빌드](http://msdn.microsoft.com/library/hh535755.aspx)에 간략히 설명된 Azure에 대한 초기 환경을 설정합니다.
-2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, [Visual Studio 2015용 원격 도구](http://www.microsoft.com/en-us/download/details.aspx?id=48155)(또는 Visual Studio 2013을 사용할 경우 [Microsoft Visual Studio 2013 업데이트 5용 원격 도구](https://www.microsoft.com/en-us/download/details.aspx?id=48156))를 설치합니다. 또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
+2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, [Visual Studio 2015용 원격 도구](http://www.microsoft.com/download/details.aspx?id=48155)(또는 Visual Studio 2013을 사용할 경우 [Microsoft Visual Studio 2013 업데이트 5용 원격 도구](https://www.microsoft.com/download/details.aspx?id=48156))를 설치합니다. 또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
 3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명된 인증서를 만듭니다. .pfx 및 RDP 인증서 지문을 유지하고 대상 클라우드 서비스에 인증서를 업로드합니다.
 4. MSBuild 명령줄에 다음 옵션을 사용하여 원격 디버그를 사용하도록 설정한 상태로 빌드 및 패키지화합니다. (꺾쇠 괄호가 항목의 경우 시스템 및 프로젝트 파일에 대한 실제 경로를 대체합니다.)
 

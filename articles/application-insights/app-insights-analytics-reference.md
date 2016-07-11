@@ -1461,7 +1461,17 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
+| - | 빼기 |
+| * | 곱하기 |
+| / | 나누기 |
+| % | 모듈로 |
+||
+|`<` |보다 작음
+|`<=`|작거나 같음
+|`>` |보다 큼
+|`>=`|크거나 같음
+|`<>`|같지 않음
+|`!=`|같지 않음
 
 
 ### abs
@@ -2031,7 +2041,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **인수**
 
-* *regex:* *text*를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
+* *regex:* *text* 를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
 * *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`을(를) 사용하는 식입니다.
 * *text:* 문자열입니다.
 
@@ -2241,7 +2251,7 @@ substring("ABCD", 0, 2)       // AB
 동적 리터럴을 만들려면 JSON 문자열 인수와 함께 `parsejson`(별칭 `todynamic`)을 사용합니다.
 
 * `parsejson('[43, 21, 65]')` - 숫자의 배열
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
 * `parsejson('21')` - 숫자를 포함하는 동적 형식의 단일 값
 * `parsejson('"21"')` - 문자열을 포함하는 동적 형식의 단일 값
 

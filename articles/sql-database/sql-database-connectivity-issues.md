@@ -83,7 +83,7 @@
 
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -218,7 +218,8 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은
+[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -244,7 +245,8 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL 데이터베이스 V12용 1433 이상의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)가 표시됩니다.
 
 
-포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+포트 및 IP 주소 구성에 대한 배경 정보는
+[Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>

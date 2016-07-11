@@ -44,7 +44,7 @@ Azure Active Directory Device Registration 서비스 조건부 액세스 정책�
 * Windows Server 2012 R2에서 업데이트된 스키마
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
-* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/en-us/download/details.aspx?id=47594).
+* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/download/details.aspx?id=47594).
 * 확인된 도메인.
 
 이 릴리스의 알려진 문제
@@ -238,7 +238,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 이 iOS 장치를 작업 공간에 연결합니다.
 
 
-**Windows 8.1 장치를 사용하는 경우** **PC 설정** >**네트워크** > **작업 공간**으로 이동하여 장치를 연결할 수 있습니다.
+**Windows 8.1 장치를 사용하는 경우** **PC 설정** > **네트워크** > **작업 공간**으로 이동하여 장치를 연결할 수 있습니다.
 
 
 여기서 "**신뢰 당사자 트러스트 이름**"은 AD FS에서 응용 프로그램 신뢰 당사자 트러스트 개체의 이름입니다. 여기서 **yourdomain.com**은 Azure Active Directory를 사용하여 구성한 도메인 이름입니다. 예를 들어 contoso.com입니다. **Set-AdfsRelyingPartyWebContent** cmdlet에 전달하는 html 콘텐츠에서 줄 바꿈(있는 경우)을 모두 제거해야 합니다.

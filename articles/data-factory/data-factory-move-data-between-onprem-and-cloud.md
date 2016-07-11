@@ -266,13 +266,13 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 	![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
 3.	**JSON 편집기**에서 다음을 수행합니다.
-	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.
+	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.	
 	2. Windows 인증을 사용하는 경우
-		1. **connectionString**에서
+		1. **connectionString**에서 
 			1. **Integrated Security**를 **true**로 설정합니다.
-			2. 데이터베이스 **server name**과 **database name**을 지정합니다.
-			2. **User ID** 및 **Password**를 제거합니다.
-		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.
+			2. 데이터베이스 **server name**과 **database name**을 지정합니다. 
+			2. **User ID** 및 **Password**를 제거합니다. 
+		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -282,7 +282,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
         		}
 
 	4. SQL 인증을 사용하는 경우
-		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.
+		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.       
 		2. 마지막 두 JSON 속성, 즉 **userName** 및 **password**를 JSON에서 제거합니다.
 		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다.
 
@@ -335,7 +335,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 ### 입력 테이블 만들기
 
 1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **SQL Server 테이블**을 클릭합니다.
-2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
+2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.    
 
 		{
 		  "name": "EmpOnPremSQLTable",
@@ -365,7 +365,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	- **type**을 **SqlServerTable**로 설정합니다.
 	- **tablename**을 **emp**로 설정합니다.
 	- **linkedServiceName**을 **SqlServerLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
-	- Azure Data Factory의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.
+	- Azure Data Factory의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
 
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]를 참조하세요.
 
@@ -401,7 +401,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	- **type**을 **AzureBlob**으로 설정합니다.
 	- **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
-	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
 
 	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
@@ -433,7 +433,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	명령 모음에서 **새 파이프라인**을 클릭합니다. 단추가 표시되지 않는 경우 **...(줄임표)**를 클릭하여 명령 모음을 확장합니다.
-2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
+2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.   
 
 
 		{
@@ -561,7 +561,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 ## 컴퓨터 간에 게이트웨이 이동
 이 섹션에서는 컴퓨터 간에 게이트웨이 클라이언트를 이동하는 단계를 제공합니다.
 
-2. 포털에서 **데이터 팩터리 홈 페이지**로 이동하여 **연결된 서비스** 타일을 클릭합니다.
+2. 포털에서 **데이터 팩터리 홈 페이지**로 이동하여 **연결된 서비스** 타일을 클릭합니다. 
 
 	![데이터 게이트웨이 링크](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png)
 3. **연결된 서비스** 블레이드의 **데이터 게이트웨이** 섹션에서 게이트웨이를 선택합니다.
@@ -576,7 +576,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 6. **Microsoft 데이터 관리 게이트웨이 구성 관리자**를 열어 둡니다.
  
 	![구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)
-7. 포털의 **구성** 블레이드에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.
+7. 포털의 **구성** 블레이드에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.  
 	
 	![키 다시 만들기](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
 	 
@@ -598,12 +598,12 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음을 수�
 1. 트리 보기에서 기존 **연결된 서비스**를 클릭하여 해당 JSON 정의를 보거나 데이터 관리 게이트웨이(예: SQL Server 또는 Oracle)를 필요로 하는 새로운 연결된 서비스를 만듭니다.
 2. JSON 편집기에서 **gatewayName** 속성으로 게이트웨이의 이름을 입력합니다.
 3. **connectionString**에 **데이터 원본** 속성의 서버 이름을 입력합니다.
-4. **connectionString**에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.
+4. **connectionString**에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.    
 5. 명령 모음에서 **암호화** 단추를 클릭하여 ClickOnce **자격 증명 관리자** 응용 프로그램을 시작합니다. **자격 증명 설정** 대화 상자가 표시됩니다. ![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-6. **자격 증명 설정** 대화 상자에서 다음을 수행합니다.
+6. **자격 증명 설정** 대화 상자에서 다음을 수행합니다.  
 	1.	데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다.
 	2.	**USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다.
-	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다.
+	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다.  
 	4.	**확인**을 클릭하여 자격 증명을 암호화하고 대화 상자를 닫습니다.
 5.	이제 **connectionString**에 **encryptedCredential** 속성이 표시되어야 합니다.
 		
