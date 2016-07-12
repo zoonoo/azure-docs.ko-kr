@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/30/2016" 
 	ms.author="sdanie"/>
 
 # Redis Cache를 사용하여 웹앱을 만드는 방법
@@ -82,7 +82,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 ### 모델 추가
 
-1. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다. 
+1. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다.
 
     ![모델 추가][cache-model-add-class]
 
@@ -190,7 +190,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 ### 컨트롤러 추가
 
-1. **F6**을 눌러 프로젝트를 빌드합니다. 
+1. **F6**을 눌러 프로젝트를 빌드합니다.
 2. **솔루션 탐색기**에서 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **컨트롤러**를 클릭합니다.
 
     ![컨트롤러 추가][cache-add-controller]
@@ -268,7 +268,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 ### StackExchange.Redis를 사용하도록 응용 프로그램 구성
 
-1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
+1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
     ![NuGet 패키지 관리][redis-cache-manage-nuget-menu]
 
@@ -686,7 +686,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 이 **Azure에 배포** 단추는 [웹앱 및 Redis Cache 및 SQL 데이터베이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure 빠른 시작](https://github.com/Azure/azure-quickstart-templates) 템플릿을 사용하여 이러한 서비스를 프로비전하고 SQL 데이터베이스에 대한 연결 문자열을 설정하고 Azure Redis Cache 연결 문자열에 대한 응용 프로그램 설정을 지정합니다.
 
->[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 [무료 계정을 만들 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 [무료 계정을 만들](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) 수 있습니다.
 
 **Azure에 배포** 단추를 클릭하면 Azure 포털로 이동하며 템플릿에서 설명한 리소스 만들기 과정을 시작합니다.
 
@@ -701,7 +701,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 1. **약관 검토**를 클릭합니다.
 2. **구매** 블레이드에서 약관을 읽고 **구매**를 클릭합니다.
-3. 리소스 프로비전을 시작하려면 **사용자 지정 배포** 블레이드에서 **만들기**를 클릭합니다.
+3. 리소스를 프로비전하기 시작하려면 **사용자 지정 배포** 블레이드에서 **만들기**를 클릭합니다.
 
 배포의 진행률을 보려면 알림 아이콘을 클릭하고 **배포가 시작됨**을 클릭합니다.
 
@@ -846,4 +846,4 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

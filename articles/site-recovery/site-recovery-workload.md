@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/27/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
@@ -39,7 +39,7 @@
 - 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제입니다.
 - 단일 또는 다중 계층 응용 프로그램에 대한 앱 일관성 스냅숏
 - AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 응용 프로그램 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
-- 유연한 복구는 한 번의 클릭으로 전체 응용 프로그램 스택을 복구하도록 설정하고 계획에 외부 스크립트 또는 수동 작업을 포함합니다. 
+- 유연한 복구는 한 번의 클릭으로 전체 응용 프로그램 스택을 복구하도록 설정하고 계획에 외부 스크립트 또는 수동 작업을 포함합니다.
 - 사이트 복구 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure 트래픽 관리자와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
 -  다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 응용 프로그램 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.
 
@@ -77,7 +77,7 @@ Active Directory 및 DNS 보호에 대해 [자세히 알아봅니다](site-recov
 
 SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 앱에 대한 데이터 서비스의 데이터 서비스 기반을 제공합니다. 사이트 복구와 SQL Server HA/DR 기술을 함께 사용하여 SQL Server를 사용하는 다중 계층 엔터프라이즈 앱을 보호할 수 있습니다. 사이트 복구는 다음을 제공합니다.
 
-- SQL Server에 대해 간단하고 비용 효율적인 재해 복구 솔루션. SQL Server 독립 실행형 서버 및 클러스터의 여러 버전 및 에디션을 Azure 또는 보조 사이트로 복제합니다.  
+- SQL Server에 대해 간단하고 비용 효율적인 재해 복구 솔루션. SQL Server 독립 실행형 서버 및 클러스터의 여러 버전 및 에디션을 Azure 또는 보조 사이트로 복제합니다.
 - SQL AlwaysOn 가용성 그룹 통합은 Azure Site Recovery 복구 계획을 통해 장애 조치 및 장애 복구를 관리합니다.
 - SQL Server 데이터베이스를 포함한 응용 프로그램의 모든 계층에 대한 종단간 복구 계획.
 - Azure에서 더 큰 IaaS 가상 컴퓨터로 "폭발적으로 증가"하여 사이트 복구와 함께 최대 부하에 대한 SQL Server의 규모 증가.
@@ -149,4 +149,4 @@ SAP 보호에 대해 [자세히 알아봅니다](http://aka.ms/asr-sap).
 
 사이트 복구 배포 [준비](site-recovery-best-practices.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

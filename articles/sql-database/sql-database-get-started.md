@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기
@@ -59,4 +59,4 @@
 
 [SQL 데이터베이스 정의](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,10 +4,9 @@
 
 3. **리소스 그룹**에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(앱과 같은 이름을 사용하여).
  
+	다른 앱 서비스 계획을 선택하거나 새 앱 서비스 계획을 만들 수 있습니다. 앱 서비스 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure 앱 서비스 계획의 포괄 개요](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
 
- 다른 앱 서비스 계획을 선택하거나 새 앱 서비스 계획을 만들 수 있습니다. 앱 서비스 계획에 대한 자세한 내용과 다른 가격 책정 계층 및 원하는 위치에서 새 계획을 만드는 방법은 [Azure 앱 서비스 계획의 포괄 개요](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
-
-4. **앱 서비스 계획**에 대해서는 기본 계획([표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). 앱 서비스 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/)가 결정됩니다. 
+4. **앱 서비스 계획**에 대해서는 기본 계획([표준 계층](https://azure.microsoft.com/pricing/details/app-service/)에)이 선택되어 있습니다. 또한 다른 계획을 선택하거나 [새 계획을 만들 수 있습니다](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). 앱 서비스 계획의 설정에 따라 앱과 연결된 [위치, 기능, 비용 및 계산 리소스](https://azure.microsoft.com/pricing/details/app-service/)가 결정됩니다.
 
 	계획을 결정한 다음 **만들기**를 클릭합니다. 이렇게 모바일 앱 백 엔드를 만듭니다.
 	
@@ -25,3 +24,5 @@
 
 <!-- URLs. -->
 [Azure 포털]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_0706_2016-->

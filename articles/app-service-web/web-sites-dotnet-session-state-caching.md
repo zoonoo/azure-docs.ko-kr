@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor="none"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="02/27/2016" 
+	ms.date="06/27/2016" 
 	ms.author="riande"/>
 
 
@@ -108,4 +108,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

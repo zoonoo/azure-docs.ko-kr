@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	keywords="푸시 알림,푸시알림,android 푸시 알림"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="07/05/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기
@@ -22,7 +22,7 @@
 
 ##개요
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
+> [AZURE.IMPORTANT] 이 항목에서는 GCM(Google Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. Google의 FCM(Firebase Cloud Messaging)을 사용하는 경우 [Azure 알림 허브 및 FCM을 사용하여 Android에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
 
 이 자습서에서는 Azure 알림 허브를 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
@@ -32,6 +32,8 @@
 
 
 ##필수 조건
+
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
 
 이 자습서에서는 위에서 언급한 활성 Azure 계정 이외에 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797) 최신 버전만 있으면 됩니다.
 
@@ -91,7 +93,7 @@
 ### AndroidManifest.xml을 업데이트합니다.
 
 
-1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서는 클래스의 이름을 `MyInstanceIDService`라고 하겠습니다. 
+1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서는 클래스의 이름을 `MyInstanceIDService`라고 하겠습니다.
  
 	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
 
@@ -102,7 +104,7 @@
 		</service>
 
 
-2. 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 해당 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-push-notification-registration-management.md)합니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원합니다. 이 서비스는 [GCM 등록 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)도 책임집니다.
+2. 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 해당 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-push-notification-registration-management.md)합니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원될 것입니다. 이 서비스는 [GCM 등록 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)에 대한 책임도 맡습니다.
  
 	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
 
@@ -141,7 +143,7 @@
 ### 코드 추가
 
 
-1. 프로젝트 뷰에서 **앱** > **원본** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다. 
+1. 프로젝트 뷰에서 **앱** > **원본** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다.
 
 	![Android Studio - 새 Java 프로젝트][6]
 
@@ -229,7 +231,7 @@
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -457,7 +459,7 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
+2. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 새 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
@@ -619,7 +621,7 @@
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -725,4 +727,4 @@
 [Azure 포털]: https://portal.azure.com
 [액세스 정책]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

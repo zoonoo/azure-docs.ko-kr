@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="07/05/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터에서 보안 정책 설정
@@ -69,7 +69,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 | 정책 | 상태가 켜진 경우 |
 |----- |-----|
-| 시스템 업데이트 | 해당 가상 컴퓨터에 대해 구성된 서비스에 따라 매일 Windows 업데이트 또는 WSUS에서 사용 가능한 보안 및 중요 업데이트를 검색하여 누락된 업데이트 적용을 권장합니다. |
+| 시스템 업데이트 | 해당 가상 컴퓨터에 대해 구성된 서비스에 따라 매일 Windows 업데이트 또는 WSUS에서 사용 가능한 보안 및 중요 업데이트를 검색하여 누락된 업데이트 적용을 권장합니다. 또한 Linux 시스템에서 최신 업데이트를 확인하고 [클라우드 서비스](./cloud-services/cloud-services-how-to-configure.md) 가상 컴퓨터에서 보안 및 중요 업데이트를 확인합니다. |
 | 기준 규칙 | 매일 가상 컴퓨터를 공격에 취약할 수 있도록 하는 OS 구성을 분석하고 이러한 취약점을 해결하기 위해 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. |
 | Endpoint Protection | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 Endpoint Protection을 프로비전하도록 권장합니다. 
 | 네트워크 보안 그룹 | 서브넷 및 네트워크 인터페이스에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)를 구성하도록 권장합니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 NSG는 모든 가상 컴퓨터 네트워크 인터페이스에서 상속합니다. NSG가 구성되었는지 확인하는 것 외에도 이 옵션은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙이 있는지 식별합니다. |
@@ -104,4 +104,4 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

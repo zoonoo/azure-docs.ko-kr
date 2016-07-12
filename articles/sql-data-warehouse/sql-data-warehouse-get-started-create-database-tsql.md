@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
@@ -52,15 +52,13 @@ CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400',
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-**MAXSIZE** 및 **SERVICE\_OBJECTIVE** 매개 변수는 데이터베이스가 디스크에서 사용할 수 있는 최대 공간과, 데이터 웨어하우스 인스턴스에 할당되는 계산 리소스를 지정합니다. 서비스 목표는 기본적으로 DWU의 크기에 따라 선형적으로 확장되는 CPU와 메모리를 할당 받습니다.
-
-MAXSIZE는 250GB ~ 240TB 범위가 될 수 있습니다. 서비스 목표는 DW100 ~ DW2000 범위가 될 수 있습니다. MAXSIZE 및 SERVICE\_OBJECTIVE에 유효한 모든 값의 목록은 [CREATE DATABASE][]에 대한 MSDN 설명서를 참조하세요. MAXSIZE와 SERVICE\_OBJECTIVE 모두 [ALTER DATABASE][] T-SQL 명령으로 변경할 수 있습니다. SERVICE\_OBJECTIVE를 변경하면 서비스가 재시작되어 진행 중인 모든 쿼리가 취소될 수 있으므로 주의가 필요합니다. MAXSIZE 변경은 간단한 메타데이터 작업이므로 서비스를 다시 시작하지 않습니다.
+`MAXSIZE`는 250GB~240TB 사이가 될 수 있습니다. `SERVICE_OBJECTIVE`는 DW100~DW2000 [DWU][] 사이가 될 수 있습니다. 유효한 모든 값의 목록은 [CREATE DATABASE][]에 대한 MSDN 설명서를 참조하세요. MAXSIZE와 SERVICE\_OBJECTIVE 모두 [ALTER DATABASE][] T-SQL 명령으로 변경할 수 있습니다. SERVICE\_OBJECTIVE를 변경하면 서비스가 재시작되어 진행 중인 모든 쿼리가 취소될 수 있으므로 주의가 필요합니다. MAXSIZE 변경은 간단한 메타데이터 작업이므로 서비스를 다시 시작하지 않습니다.
 
 ## 다음 단계
 SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][] 방법을 확인할 수 있습니다.
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Visual Studio로 SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-get-started-connect.md
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
@@ -82,4 +80,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Azure 포털에서 Azure 스케줄러 시작
@@ -21,7 +21,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
 
 ## 작업 만들기
 
-1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
+1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2.  **+새로 만들기**를 클릭하고 > 검색 상자에 _스케줄러_를 입력하고 > 결과에서 **스케줄러**를 선택하고 > **만들기**를 클릭합니다.
 
@@ -29,7 +29,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
 
 3.  간단히 GET 요청으로 http://www.microsoft.com/을 히트하는 작업을 만들어 보겠습니다. **스케줄러 작업** 화면에서 다음 정보를 입력합니다.
 
-    1.  **이름:** `getmicrosoft`  
+    1.  **이름:** `getmicrosoft`
 
     2.  **구독:** Azure 구독입니다.
 
@@ -37,7 +37,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
 
 4.  다음으로 **동작 설정**에서 다음 값을 정의합니다.
 
-    1.  **동작 유형:** ` HTTP`  
+    1.  **동작 유형:** ` HTTP`
 
     2.  **메서드:** `GET`
 
@@ -63,7 +63,7 @@ Azure 스케줄러에서 예약된 작업을 만드는 것은 쉽습니다. 이 
 
 작업이 만들어지면 기본 Azure 대시보드에 표시됩니다. 작업을 클릭하면 다음 탭을 제공하는 새 창이 열립니다.
 
-1.  속성  
+1.  속성
 
 2.  동작 설정
 
@@ -111,7 +111,7 @@ HTTP 및 HTTPS 작업 동작 유형에서, 메서드를 허용되는 HTTP 동사
 
 **기록** 탭은 선택한 작업에 대해 시스템의 모든 작업 실행에 선택한 메트릭을 표시합니다. 이러한 메트릭은 스케줄러 상태와 관련된 실시간 값을 제공합니다.
 
-1.  상태  
+1.  상태
 
 2.  세부 정보
 
@@ -182,4 +182,4 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 스케줄러에 대�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->
