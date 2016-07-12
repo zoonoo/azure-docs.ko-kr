@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,7 @@ Azure RemoteApp의 장점 중 하나는 앱을 모든 장치에서 액세스할 
 
 장치가 다음 운영 체제 중 하나를 실행하는 경우 아래 단계에 따라 RemoteApp에 액세스할 수 있습니다.
 
- - Windows 10 
+ - Windows 10
  - Windows 8.1
  - Windows 8
  - Windows 7 서비스 팩 1
@@ -58,7 +58,7 @@ Azure RemoteApp의 장점 중 하나는 앱을 모든 장치에서 액세스할 
 
 Google Play 스토어에서 Microsoft 원격 데스크톱 앱을 설치하고 나면 앱 목록의 **원격 데스크톱** 아래에서 찾을 수 있습니다.
 
-1. 아직 앱을 사용한 적이 없는 경우 앱을 시작하면 빈 연결 센터로 이동됩니다. Azure RemoteApp을 시작하려면 추가 단추 **""+""**를 탭한 다음 **Azure RemoteApp**을 탭합니다.	
+1. 아직 앱을 사용한 적이 없는 경우 앱을 시작하면 빈 연결 센터로 이동됩니다. Azure RemoteApp을 시작하려면 추가 단추 **""+""**를 탭한 다음 **Azure RemoteApp**을 탭합니다.
 
 	 ![빈 연결 센터](./media/remoteapp-clients/Android1.png)
 
@@ -207,4 +207,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

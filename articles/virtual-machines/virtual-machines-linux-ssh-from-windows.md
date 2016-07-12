@@ -56,10 +56,10 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 섹션](#What-SSH-and-key-creation-programs-do-you-need) 위에 나열되어 있습니다. 몇 가지 예가 아래 나열되어 있습니다.
 
-###Windows용 GitHub 사용###
+###Windows용 Git 사용###
 
-1.	[https://git-for-windows.github.io/](https://git-for-windows.github.io/)에서 Windows용 GitHub를 다운로드하여 설치합니다.
-2.	시작 메뉴 > 모든 앱 > GitHub에서 Git Bash를 실행합니다.
+1.	[https://git-for-windows.github.io/](https://git-for-windows.github.io/)에서 Windows용 Git를 다운로드하여 설치합니다.
+2.	시작 메뉴 > 모든 앱 > Git Shell에서 Git Bash를 실행합니다.
 
 > [AZURE.NOTE] 위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
 
@@ -166,4 +166,4 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -47,8 +47,8 @@
 - [2014년 8월 릴리스](#august_changes_14)
 - [2014년 7월 릴리스](#july_changes_14)
 - [2014년 5월 릴리스](#may_changes_14)
-- [2014 년 4 월 릴리스](#april_changes_14) 
-- [2014년 1월/2월 릴리스](#jan_feb_changes_14) 
+- [2014 년 4 월 릴리스](#april_changes_14)
+- [2014년 1월/2월 릴리스](#jan_feb_changes_14)
 - [2013년 12월 릴리스](#december_changes_13)
 - [2013년 11월 릴리스](#november_changes_13)
 - [2013년 8월 릴리스](#august_changes_13)
@@ -189,7 +189,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.4.0.0입니다. 이 릴
 Azure 미디어 서비스 .NET SDK의 현재 버전은 3.3.0.0입니다. 이 릴리스에서는 다음 기능이 추가되었습니다.
 
 - OpenId Connect Discovery 사양 지원
-- ID 공급자 측의 키 롤오버 처리 지원 
+- ID 공급자 측의 키 롤오버 처리 지원
 
 OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active Directory, Google, Salesforce)를 사용하는 경우 Azure 미디어 서비스에 OpenID Connect Discovery의 JWT 토큰에 대한 유효성을 검사하기 위한 서명 키를 가져오도록 지시할 수 있습니다.
 
@@ -343,7 +343,7 @@ OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active D
 	
 	* 사용자 지정 도메인 이름에 대한 소유권이 있어야 합니다.
 	
-	* Azure 미디어 서비스에서 도메인 이름 소유권의 유효성을 확인해야 합니다. 도메인의 유효성을 검사 하려면 <MediaServicesAccountId>.<parent domain>을 verifydns.<mediaservices-dns-zone>으로 매핑하는 CName을 만듭니다.
+	* Azure 미디어 서비스에서 도메인 이름 소유권의 유효성을 확인해야 합니다. 도메인이 유효한지 검사하려면 <MediaServicesAccountId>.<parent domain>을 verifydns.<mediaservices-dns-zone>에 매핑하는 CName을 만듭니다.
 	
 	* 사용자 지정 호스트 이름(예: sports.contoso.com)을 미디어 서비스 StreamingEndpont 호스트 이름(예: amstest.streaming.mediaservices.windows.net)에 매핑되는 다른 CName을 만들어야 합니다.
 
@@ -395,7 +395,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 * 다시 시도 논리와 일시적 예외 처리 시 다음이 향상되었습니다.
 
-	* 쿼리, 변경 내용 저장, 파일 업로드 또는 다운로드로 인해 발생한 예외의 경우 일시적인 오류 감지 및 다시 시도 논리가 향상되었습니다. 
+	* 쿼리, 변경 내용 저장, 파일 업로드 또는 다운로드로 인해 발생한 예외의 경우 일시적인 오류 감지 및 다시 시도 논리가 향상되었습니다.
 	
 	* 웹 예외(예: ACS 토큰 요청 중)가 발생할 경우 치명적인 오류가 급속도로 사라집니다.
 
@@ -430,7 +430,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 3\.0.0.3에서 변경된 사항은 다음과 같습니다.
 
-* 버전 3.0.3.0을 사용하도록 Azure 저장소 종속성이 업그레이드되었습니다. 
+* 버전 3.0.3.0을 사용하도록 Azure 저장소 종속성이 업그레이드되었습니다.
 
 * 3\.0.*.* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
 
@@ -461,7 +461,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 다음 미디어 서비스 PowerShell cmdlet이 [azure-sdk-tools]에 포함되었습니다.
 
-* Get-AzureMediaServices 
+* Get-AzureMediaServices
 
 	예: `Get-AzureMediaServicesAccount`.
 
@@ -483,7 +483,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 이 섹션에 언급된 변경 내용은 2013년 6월 미디어 서비스 릴리스에 포함된 업데이트입니다.
 
-* 여러 저장소 계정을 미디어 서비스 계정에 연결할 수 있는 기능 
+* 여러 저장소 계정을 미디어 서비스 계정에 연결할 수 있는 기능
 
 	StorageAccount
 	
@@ -666,4 +666,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

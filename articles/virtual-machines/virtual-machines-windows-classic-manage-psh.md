@@ -19,7 +19,7 @@
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
@@ -27,12 +27,12 @@ Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행�
 >[AZURE.NOTE] Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서에서 지침을 확인할 수 있습니다.
 
 ## 예제 명령을 사용하는 방법
-명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < and > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
+명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < 및 > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
 
 ## VM 확인
 자주 사용하게 될 기본 작업입니다. 이 작업을 사용하여 VM에 대한 정보를 가져오거나 VM에서 작업을 수행하거나 변수에 저장할 출력을 가져옵니다.
 
-VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
+VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -46,10 +46,10 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 
 >[AZURE.NOTE] **Get-AzureVM** 명령 표시에서 가상 컴퓨터 및 클라우드 서비스 이름을 가져올 수 있습니다.
 >
-	$svcName="<cloud service name>"
-	$vmName="<virtual machine name>"
-	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "" + $vmname + ".rdp"
+	$svcName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile = $localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## VM 중지
@@ -73,20 +73,18 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
-              | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
 기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
-              | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
 Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
-              -DiskLabel "<main>" -LUN <0> `
-              | Update-AzureVM
+              -DiskLabel "<main>" -LUN <0> |
+              Update-AzureVM
 
 ## Windows 기반 VM 만들기
 
@@ -97,4 +95,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

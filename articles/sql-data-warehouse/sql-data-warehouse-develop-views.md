@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -22,6 +22,8 @@
 뷰는 SQL 데이터 웨어하우스에서 특히 유용합니다. 여러가지 다양한 방법을 사용하여 솔루션의 품질을 개선할 수 있습니다.
 
 이 문서에는 뷰를 구현하여 솔루션을 보완하는 방법을 보여주는 몇 가지 예를 강조 표시합니다. 다음 제한 사항도 고려해야 합니다.
+
+> [AZURE.NOTE] `CREATE VIEW`에 대한 구문은 이 문서에서 다루지 않습니다. 이 참조 정보에 대해서는 MSDN의 [CREATE VIEW][] 문서를 참조하세요.
 
 ## 아키텍처 추상화
 매우 일반적인 응용 프로그램 패턴은 CREATE TABLE AS SELECT (CTAS) 뒤에 데이터 로드 중 개체 이름 바꾸기 패턴을 사용하여 테이블을 다시 작성하는 것입니다.
@@ -63,7 +65,7 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 
 ## 다음 단계
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
+더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요. `CREATE VIEW` 구문에 대해서는 [CREATE VIEW][]를 참조하세요.
 
 <!--Image references-->
 
@@ -71,7 +73,8 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 [SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
+[CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

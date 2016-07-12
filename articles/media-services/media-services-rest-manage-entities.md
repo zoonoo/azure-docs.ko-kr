@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #REST API를 사용하여 미디어 서비스 엔터티 관리
@@ -25,11 +25,11 @@
 
 Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비스입니다. 이 때문에 다른 OData 서비스에서와 거의 같은 방법으로 엔터티를 추가, 쿼리, 업데이트 및 삭제할 수 있습니다. 예외는 해당하는 경우 호출됩니다. OData에 대한 자세한 내용은 [개방형 데이터 프로토콜 설명서](http://www.odata.org/documentation/)를 참조하세요.
 
-- 엔터티 추가 
-- 엔터티 쿼리 
+- 엔터티 추가
+- 엔터티 쿼리
 - 대용량 엔터티 컬렉션 열거
-- 엔터티 업데이트 
-- 엔터티 삭제 
+- 엔터티 업데이트
+- 엔터티 삭제
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
@@ -175,4 +175,4 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

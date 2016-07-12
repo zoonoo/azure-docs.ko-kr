@@ -21,13 +21,13 @@
 
 이 문서에서는 FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 생성 및 업로드하고 이를 Azure에서 가상 컴퓨터(VM)를 만들기 위한 고유한 이미지로 사용하는 방법을 소개합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##필수 조건##
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-- **Azure 구독** - 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
+- **Azure 구독** - 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 
 - **Azure PowerShell 도구** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하십시오. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
 
@@ -227,4 +227,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![azure의 freebsd 이미지](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

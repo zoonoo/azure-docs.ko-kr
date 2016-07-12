@@ -23,7 +23,7 @@
 
 개인 IP 주소는 VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet), 클라우드 서비스 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 배포 모델을 사용하여 이러한 단계를 수행](virtual-network-ip-addresses-overview-arm.md)하는 방법을 알아봅니다.
 
 ## 공용 IP 주소
 공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 및 [Azure 저장소](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
@@ -136,7 +136,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
-||기본 제한|최대 제한|
+|기본 제한|최대 제한|
 |---|---|---|
 |공용 IP 주소(동적)|5|지원에 문의|
 |예약된 공용 IP 주소|20|지원에 문의|
@@ -157,7 +157,7 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 |**공용 IP 주소**|VM|ILPIP(동적 전용)로 참조|공용 IP(동적 또는 정적)로 참조|
 |||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 연결|
 ||인터넷 연결 부하 분산 장치|VIP(동적) 또는 예약된 IP(정적)로 참조|공용 IP(동적 또는 정적)로 참조|
-|||클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
+||||클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
 ||||
 |**개인 IP 주소**|VM|DIP로 참조|개인 IP 주소로 참조|
 |||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 할당|
@@ -166,4 +166,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 다음 단계
 - 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

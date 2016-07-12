@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 
@@ -81,7 +81,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	__선택__을 사용하여 __노드 가격 책정 계층__ 정보를 저장합니다.
 
-8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하여 클러스터 버전을 선택하고 __가상 네트워크__에 가입 또는 Hive 및 Oozie의 데이터를 유지하기 위한 __외부 Metastore__ 설정 등 기타 선택적 설정을 구성할 수 있습니다.
+8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하면 클러스터 버전을 선택할 수 있을 뿐만 아니라 __가상 네트워크__에 가입하는 등 기타 선택적 설정을 구성할 수 있습니다.
 
 	![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -245,4 +245,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

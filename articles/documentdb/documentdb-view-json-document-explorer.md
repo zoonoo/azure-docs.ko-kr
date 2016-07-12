@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드
 
 이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드하고, 필터링할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다.
+
+MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
 
 ## 문서 탐색기 시작
 
@@ -150,7 +152,7 @@
 
 Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 가지입니다. 또한 [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업할 수도 있습니다. 예를 들어, 코드의 경우 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.
 
-다른 소스(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 Amazon DynamoDB 또는 HBase)의 파일을 가져오거나 마이그레이션해야 하는 경우, DocumentDB [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 신속하게 데이터를 DocumentDB로 가져올 수 있습니다.
+다른 원본(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소, Amazon DynamoDB 또는 HBase)에서 파일을 가져오거나 마이그레이션해야 하는 경우, DocumentDB [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 DocumentDB로 가져올 수 있습니다.
 
 ## 다음 단계
 
@@ -158,4 +160,4 @@ Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 �
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0629_2016-->

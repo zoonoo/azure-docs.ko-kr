@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -32,10 +32,10 @@
 
 ## 리소스에 대한 사용자 기반 액세스
   
-- **사용자 특성**: 사용자 특성 수준에서 권한이 있는 사용자만 회사 리소스에 액세스할 수 있도록 하는 정책을 적용할 수 있습니다.   
-- **사용자의 그룹 멤버 자격**: 그룹에 대한 멤버 자격을 기반으로 사용자에게 제공되는 액세스 수준을 제어할 수도 있습니다.   
-- **MFA(다단계 인증)**: 다단계 인증 시스템을 사용하여 사용자 자신의 ID를 인증하는 정책을 적용할 수 있습니다. 예를 들어 추가 보안 계층을 위해 사용자 개인 휴대폰의 PIN을 확인할 수 있습니다. MFA 인증은 유효한 사용자의 사용자 이름과 암호에 대한 액세스 권한을 얻은 권한이 없는 사용자가 액세스하는 것으로부터 리소스를 보호합니다. 
-- **로그인 및 사용자 위험**: 조건부 액세스 위험 정책은 Azure AD ID 보호에서 제공되며, 위험 이벤트와 비정상 로그인 활동을 바탕으로 고급 보호 기능을 제공합니다. 
+- **사용자 특성**: 사용자 특성 수준에서 권한이 있는 사용자만 회사 리소스에 액세스할 수 있도록 하는 정책을 적용할 수 있습니다.
+- **사용자의 그룹 멤버 자격**: 그룹에 대한 멤버 자격을 기반으로 사용자에게 제공되는 액세스 수준을 제어할 수도 있습니다.
+- **MFA(다단계 인증)**: 다단계 인증 시스템을 사용하여 사용자 자신의 ID를 인증하는 정책을 적용할 수 있습니다. 예를 들어 추가 보안 계층을 위해 사용자 개인 휴대폰의 PIN을 확인할 수 있습니다. MFA 인증은 유효한 사용자의 사용자 이름과 암호에 대한 액세스 권한을 얻은 권한이 없는 사용자가 액세스하는 것으로부터 리소스를 보호합니다.
+- **로그인 및 사용자 위험**: 조건부 액세스 위험 정책은 Azure AD ID 보호에서 제공되며, 위험 이벤트와 비정상 로그인 활동을 바탕으로 고급 보호 기능을 제공합니다.
  
 
 ## 장치 기반 조건부 액세스 
@@ -51,9 +51,9 @@
 
 | 시나리오 | 문서 |
 |------------------------------------------------------|----------|
-| 인증 강도 또는 사용자에 따른 리소스 보호 |[MFA와 익스트라넷으로 Azure AD SaaS 앱 조건부 액세스 적용하기](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)|
+| 인증 강도 또는 사용자에 따른 리소스 보호 |[그룹, 위치 및 응용 프로그램 민감도를 기반으로 Azure AD 앱에 대한 조건부 액세스 시작하기](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)|
 | 분실 또는 도난당한 장치의 회사 데이터 보호 |[Microsoft Intune을 사용하여 전체 또는 선택적 초기화로 데이터 보호](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)|
 |로그인 위험을 기반으로 리소스 보호 |[Azure AD ID 보호](active-directory-identityprotection.md) |
-| 추가 정보 |[조건부 액세스 FAQ](active-directory-conditional-faqs.md)|
+| 추가 정보 |[조건부 액세스 FAQ](active-directory-conditional-faqs.md)<br><br>[기술 참조](active-directory-conditional-access-technical-reference.md) |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

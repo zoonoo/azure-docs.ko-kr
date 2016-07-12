@@ -14,14 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # Azure Resource Manager 및 C를 사용하여 Azure 가상 컴퓨터 관리#  
 
+이 문서의 작업은 가상 컴퓨터의 시작, 중지 및 업데이트와 같은 가상 컴퓨터 관리 방법을 보여 줍니다.
+
 이 문서에서 작업을 완료하려면 다음이 필요합니다.
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [인증 토큰](../resource-group-authenticate-service-principal.md)
 
 ## Visual Studio 프로젝트를 만들고 패키지를 설치합니다.
@@ -63,28 +65,24 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
     
 3. Program 클래스에 다음 메서드를 추가하여 자격 증명을 만드는 데 필요한 토큰을 가져옵니다.
 
-	    private static string GetAuthorizationHeader()
+	    private static async Task<AuthenticationResult> GetAccessTokenAsync()
 	    {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
           var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-
           if (result == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 	
-    {application-id}를 이전에 기록한 응용 프로그램 ID로 바꾸고, {password}를 AD 응용 프로그램에 대해 선택한 암호로 바꾸고, {tenant-id}를 구독을 위한 테넌트 ID로 바꿉니다.
+    {client-id}를 Azure Active Directory의 식별자로 바꾸고 {client-secret}을 AD 응용 프로그램의 선택키로 바꾸고, {tenant-id}를 구독의 테넌트 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다. 선택키는 Azure 포털을 사용하여 찾을 수 있습니다.
     
 4. Program.cs의 Main 메서드에 다음 코드를 추가하여 자격 증명을 만듭니다.
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 5. Program.cs 파일을 저장합니다.
 
@@ -92,7 +90,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1. 이전에 만든 프로젝트의 Program 클래스에 이 메서드를 추가합니다.
 
-        public static void GetVirtualMachine(
+        public static async void GetVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
@@ -100,9 +98,9 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
         {
           Console.WriteLine("Getting information about the virtual machine...");
 
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(
             groupName, 
             vmName, 
             InstanceViewTypes.InstanceView);
@@ -174,11 +172,12 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
             Console.WriteLine("  level: " + istat.Level);
             Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
           }
+          
         }
 
 2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        GetVirtualMachine(
+        GetVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -259,21 +258,21 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가합니다.
 
-        public static void StartVirtualMachine(
+        public static async void StartVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Starting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Start(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
         }
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        StartVirtualMachine(
+        StartVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -295,16 +294,16 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가합니다.
 
-        public static void StopVirtualMachine(
+        public static void StopVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Stopping the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.PowerOff(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
         }
 
 	가상 컴퓨터의 할당을 취소하려는 경우 PowerOff 호출을 다음으로 변경합니다.
@@ -313,7 +312,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        StopVirtualMachine(
+        StopVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -333,21 +332,21 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가합니다.
 
-        public static void RestartVirtualMachine(
+        public static async void RestartVirtualMachineAsync(
           TokenCredentials credential,
           string groupName,
           string vmName,
           string subscriptionId)
         {
           Console.WriteLine("Restarting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Restart(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.RestartAsync(groupName, vmName);
         }
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        RestartVirtualMachine(
+        RestartVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -365,21 +364,21 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가합니다.
 
-        public static void DeleteVirtualMachine(
+        public static async void DeleteVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Deleting the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          computeManagementClient.VirtualMachines.Delete(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
         }
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        DeleteVirtualMachine(
+        DeleteVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -399,23 +398,23 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 2. Program 클래스에 다음 메서드를 추가합니다.
 
-        public static void UpdateVirtualMachine(
+        public static async void UpdateVirtualMachineAsync(
           TokenCredentials credential, 
           string groupName, 
           string vmName, 
           string subscriptionId)
         {
           Console.WriteLine("Updating the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential);
-          computeManagementClient.SubscriptionId = subscriptionId;
-          var vmResult = computeManagementClient.VirtualMachines.Get(groupName, vmName);
+          var computeManagementClient = new ComputeManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
           vmResult.HardwareProfile.VmSize = "Standard_A1";
-          computeManagementClient.VirtualMachines.CreateOrUpdate(groupName, vmName, vmResult);
+          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
         }
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        UpdateVirtualMachine(
+        UpdateVirtualMachineAsync(
           credential,
           groupName,
           vmName,
@@ -433,4 +432,4 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 배포에 문제가 있는 경우 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -46,7 +46,7 @@ C# 명령을 사용하여 [.NET용 Azure SQL 데이터베이스 라이브러리]
 C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용하는 다음 패키지를 설치하여 필요한 관리자 라이브러리를 가져옵니다.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -456,4 +456,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

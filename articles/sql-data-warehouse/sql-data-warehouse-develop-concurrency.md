@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
@@ -49,7 +49,7 @@ SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 
 
 | 동시성 슬롯 사용량 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
-| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
+| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
 | 최대 동시성 슬롯 수 | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
 SQL 데이터 웨어하우스 쿼리 작업은 이러한 임계값 내에 있어야 합니다. 동시 쿼리가 32개보다 많거나 동시성 슬롯 수를 초과하면 두 임계값을 모두 만족할 수 있게 될 때까지 쿼리가 큐에 저장됩니다.
@@ -250,7 +250,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-)
+) 
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -317,13 +317,13 @@ AND     ro.[is_fixed_role]  = 0
 증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
 
 ```sql
-EXEC sp_addrolemember 'largerc', 'newperson'
+EXEC sp_addrolemember 'largerc', 'newperson' 
 ```
 
 워크로드 관리 역할에서 사용자를 제거하려면 다음 쿼리를 사용합니다.
 
 ```sql
-EXEC sp_droprolemember 'largerc', 'newperson'
+EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
 > [AZURE.NOTE] smallrc에서 사용자를 제거하는 것은 불가능합니다.
@@ -357,7 +357,7 @@ FROM    sys.dm_pdw_exec_requests r
 SQL 데이터 웨어하우스에는 동시성을 측정하기 위한 특정 대기 유형이 있습니다.
 
 아래에 이 계정과 키의 예제가 나와 있습니다.
-
+ 
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -455,4 +455,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

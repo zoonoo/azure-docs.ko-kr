@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="06/27/2016"
    ms.author="jgao"/>
 
 # Azure 가상 네트워크에 HBase 클러스터 만들기 
@@ -40,28 +40,27 @@
 
 1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
-
     - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
     - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 **admin**입니다.
     - **SSH username and password**(SSH 사용자 이름 및 암호): 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다. 
+	
+	일부 속성이 템플릿에 하드 코딩되었습니다. 예를 들면 다음과 같습니다.<br/>
 
-    많은 속성이 템플릿에 하드 코딩되었습니다. 예:
-    
     - 위치: 미국 동부
     - 클러스터 작업자 노드 수: 4
-    - 기본 저장소 계정: <Cluster Name>store
-    - 가상 네트워크 이름: <Cluster Name>-vnet
+    - 기본 저장소 계정: &lt; 클러스터 이름>저장소
+    - 가상 네트워크 이름: &lt;클러스터 이름>-vnet
     - 가상 네트워크 주소 공간: 10.0.0.0/16
     - 서브넷 이름: 기본값
     - 서브넷 주소 범위: 10.0.0.0/24
 
 3. **확인**을 클릭하여 매개 변수를 저장합니다.
-4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
-5. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
-6. **만들기**를 클릭합니다. **템플릿 배포에 배포 제출**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
+4. **사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 다음 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+5. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
+6. **만들기**를 클릭합니다. **템플릿 배포에 배포 제출 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
 
 이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
 
@@ -71,9 +70,18 @@
 
 1.	동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 만듭니다. 따라서 가상 컴퓨터와 HBase 클러스터가 둘 다 동일한 내부 DNS 서버를 사용하여 호스트 이름을 확인합니다. 이렇게 하려면 **갤러리에서** 옵션을 선택한 다음 데이터 센터 대신 가상 네트워크를 선택해야 합니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요. 작은 VM 크기의 표준 Windows Server 2012 이미지면 충분합니다.
 
-2.	Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 Curl을 사용하여 Ambari를 쿼리하거나 원격 데스크톱을 사용하여 클러스터에 연결합니다.
+2.	Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
-	* **Curl** - 다음 명령을 사용합니다.
+	* 웹 브라우저를 사용하여 Ambari를 호출합니다.
+	
+		https://&lt;ClusterName>.azurehdinsight.net/api/v1/clusters/&lt;ClusterName>/hosts?minimal\_response=true로 이동합니다. JSON 파일의 DNS 접미사를 설정합니다.
+
+	* Ambari 웹 사이트를 사용합니다.
+
+		1. https://&lt;ClusterName>.azurehdinsight.net으로 이동합니다.
+		2. 상위 메뉴에서 **호스트**를 클릭합니다.
+
+	* Curl을 사용하여 REST를 호출합니다.
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
@@ -85,7 +93,9 @@
 
 		클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다. 예를 들면 mycluster.b1.cloudapp.net과 같습니다.
 
-	* **Azure PowerShell** - 다음 Azure PowerShell 스크립트를 사용하여 DNS 접미사를 반환하는 데 사용할 수 있는 **Get-ClusterDetail** 함수를 등록합니다.
+	* Azure PowerShell 사용
+	
+		다음 Azure PowerShell 스크립트를 사용하여 DNS 접미사를 반환하는 데 사용할 수 있는 **Get-ClusterDetail** 함수를 등록합니다.
 
 			function Get-ClusterDetail(
 			    [String]
@@ -183,9 +193,11 @@
 
 		그러면 DNS 접미사가 반환됩니다. 예를 들면 **yourclustername.b4.internal.cloudapp.net**과 같습니다.
 
-	> [AZURE.NOTE] 원격 데스크톱을 사용하여 HBase 클러스터에 연결하고(헤드 노드에 연결됨) 명령 프롬프트에서 **ipconfig**를 실행하여 DNS 접미사를 가져올 수도 있습니다. RDP를 사용하도록 설정하고 RDP(원격 데스크톱 프로토콜)를 통해 클러스터에 연결하는 방법에 대한 지침은 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
-	>
-	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
+	* RDP 사용
+	
+		원격 데스크톱을 사용하여 HBase 클러스터에 연결하고(헤드 노드에 연결됨) 명령 프롬프트에서 **ipconfig**를 실행하여 DNS 접미사를 가져올 수도 있습니다. RDP를 사용하도록 설정하고 RDP(원격 데스크톱 프로토콜)를 통해 클러스터에 연결하는 방법에 대한 지침은 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+		
+		![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
 
 <!--
@@ -272,4 +284,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

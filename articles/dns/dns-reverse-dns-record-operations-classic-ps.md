@@ -1,6 +1,6 @@
 <properties 
    pageTitle="클래식 배포 모델에서 PowerShell을 사용하여 서비스에 대한 역방향 DNS 레코드를 관리하는 방법 | Microsoft Azure"
-   description="클래식 배포 모델에서 PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 또는 PTR 레코드를 관리하는 방법"
+   description="클래식 배포 모델에서 PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 또는 PTR 레코드를 관리하는 방법 "
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
@@ -23,7 +23,7 @@
 <BR>
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 <BR>
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](dns-reverse-dns-record-operations-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](dns-reverse-dns-record-operations-ps.md) 방법을 알아봅니다.
 
 ## 역방향 DNS 레코드의 유효성 검사
 타사에서 DNS 도메인에 매핑하는 역방향 DNS 레코드를 만들 수 없도록 하기 위해 Azure에서는 다음 중 하나에 해당하는 역방향 DNS 레코드만 만들도록 허용합니다.
@@ -55,4 +55,4 @@
 
 [AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

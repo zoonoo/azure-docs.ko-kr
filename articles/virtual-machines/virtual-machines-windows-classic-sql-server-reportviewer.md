@@ -18,7 +18,7 @@
 
 # Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 응용 프로그램 템플릿을 사용하여 빌드하는 웹 응용 프로그램에 있습니다.
@@ -83,7 +83,7 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 
 1. 위에서 지정한 지침에 따라 Microsoft Report Viewer 2012 런타임 재배포 가능 패키지를 다운로드하여 설치합니다.
 
-1. 프로젝트에 <language> 폴더를 만들어 관련 리소스 어셈블리 파일을 복사합니다. 복사할 리소스 어셈블리 파일은 **Microsoft.ReportViewer.Webforms.Resources.dll** 및 **Microsoft.ReportViewer.Common.Resources.dll**입니다. 리소스 어셈블리 파일을 선택하고 속성 창에서 **출력 디렉터리에 복사**를 "**항상 복사**"로 설정합니다.
+1. 프로젝트에 <language> 폴더를 만들어 관련 리소스 어셈블리 파일을 복사합니다. 복사할 리소스 어셈블리 파일은 **Microsoft.ReportViewer.Webforms.Resources.dll** 및 **Microsoft.ReportViewer.Common.Resources.dll**입니다. 리소스 어셈블리 파일을 선택하고 속성 창에서 **출력 디렉터리에 복사**를 “**항상 복사**”로 설정합니다.
 
 1. 웹 프로젝트의 문화권 및 UI 문화권을 설정합니다. ASP.NET 웹 페이지의 문화권 및 UI 문화권을 설정하는 방법에 대한 자세한 내용은 [ASP.NET 웹 페이지 세계화를 위해 문화권 및 UI 문화권 설정 방법](http://go.microsoft.com/fwlink/?LinkId=237461)을 참조하세요.
 
@@ -109,4 +109,4 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 
 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

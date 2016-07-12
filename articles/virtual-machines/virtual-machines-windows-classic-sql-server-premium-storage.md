@@ -24,7 +24,7 @@
 
 [Azure 프리미엄 저장소](../storage/storage-premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
@@ -120,7 +120,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 
 1. **Get-AzureVM** 명령을 사용하여 VM에 연결된 디스크 목록을 가져옵니다.
 
-    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <서비스 이름> -Name <VM 이름> | Get-AzureDataDisk
 
 1. Diskname과 LUN을 확인합니다.
 
@@ -149,7 +149,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)를 참조하세요.
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard\_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -484,7 +484,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 이 시나리오에서는 비동기 Azure **Start-AzureStorageBlobCopy** commandlet을 사용합니다. 복사 완료에 대한 SLA는 없습니다. 복사 시간은 큐의 대기 시간과 전송할 데이터 양에 따라 달라집니다. 다른 지역의 프리미엄 저장소를 지원하는 다른 Azure 데이터 센터로 전송하는 경우에는 복사 시간이 길어집니다. 노드가 2개뿐인 경우 테스트할 때보다 복사 시간이 더 오래 걸리면 이러한 현상을 완화할 수 있는 방법을 고려합니다. 다음과 같은 방법을 사용할 수 있습니다.
 	- 가동 중지 시간을 합의한 마이그레이션을 수행하기 전에 HA용 세 번째 임시 SQL Server 노드를 추가합니다.
 	- Azure 예약 유지 관리를 수행하지 않는 시간에 마이그레이션을 실행합니다.
-	- 클러스터 쿼럼을 올바르게 구성했는지 확인합니다.  
+	- 클러스터 쿼럼을 올바르게 구성했는지 확인합니다.
 
 ##### 대략적인 단계
 
@@ -608,7 +608,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### 2단계: 리소스에 대해 허용되는 실패 횟수 늘리기 <Optional>
+#### 2단계: 리소스에 대해 허용되는 실패 횟수 늘리기<선택 사항>
 Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서비스가 리소스 그룹 다시 시작을 시도하는 일정 기간 동안 발생 가능한 실패 횟수에 대한 한도가 있습니다. 이 절차를 진행하면서 해당 횟수를 늘리는 것이 좋습니다. 수동으로 장애 조치(failover)하지 않고 컴퓨터를 종료하여 장애 조치(failover)를 트리거하는 경우에는 이 제한에 접근할 수 있기 때문입니다.
 
 실패 허용 횟수는 두 배로 늘리는 것이 좋습니다. 이렇게 하려면 장애 조치(Failover) 클러스터 관리자에서 Always On 리소스 그룹의 속성으로 이동합니다.
@@ -617,7 +617,7 @@ Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서�
 
 최대 실패 횟수를 6으로 변경합니다.
 
-#### 3단계: 클러스터 그룹에 IP 주소 리소스 추가 <Optional>
+#### 3단계: 클러스터 그룹에 IP 주소 리소스 추가<선택 사항>
 
 클러스터 그룹의 IP 주소가 하나뿐이며 해당 주소가 클라우드 서브넷에 지정되어 있는 경우, 네트워크에서 클라우드의 모든 클러스터 노드를 실수로 오프라인으로 설정하면 클러스터 IP 리소스 및 클러스터 네트워크 이름을 온라인으로 설정할 수 없습니다. 이 경우 다른 클러스터 리소스도 업데이트할 수 없게 됩니다.
 
@@ -1148,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

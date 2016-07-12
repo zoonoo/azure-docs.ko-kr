@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -31,7 +31,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## 쿼리 실행 조사
 쿼리 실행을 모니터링하려면 먼저 [sys.dm\_pdw\_exec\_requests][]를 확인합니다. 이 보기에는 진행 중인 쿼리와 최근에 완료된 쿼리의 기록이 모두 포함되어 있습니다. 이 보기의 기본 키인 request\_id는 각 쿼리를 고유하게 식별하며 각 새 쿼리에 대해 순차적으로 할당됩니다. 이 테이블에서 특정 session\_id를 쿼리하면 지정된 로그온에 대한 모든 쿼리가 표시됩니다.
 
-특정 쿼리의 실행을 조사하려는 시나리오에서는 보통 다음과 같은 단계를 수행합니다.
+특정 쿼리에 대한 쿼리 실행 계획 및 시간을 조사하기 위해 수행하는 단계는 다음과 같습니다.
 
 ### 1단계: 조사할 쿼리 찾기
 
@@ -162,4 +162,4 @@ DMV(Dynamic Management Views)에 대한 자세한 내용은 [시스템 뷰][]를
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

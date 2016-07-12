@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -113,7 +113,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
-* Azure CLI 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurescripting)을 방문하세요.
+* Azure CLI 또는 Azure 사용에 대한 질문이 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)을 방문하세요.
 
 * Linux 시스템의 경우 [소스](http://aka.ms/linux-azure-cli)에서 빌드하여 Azure CLI를 설치할 수도 있습니다. 원본에서 빌드하는 방법에 대한 자세한 내용은 원본 보관 파일에 포함된 INSTALL 파일을 참조하세요.
 
@@ -123,4 +123,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

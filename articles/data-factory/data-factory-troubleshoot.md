@@ -24,23 +24,23 @@
 ### 오류: 구독이 'Microsoft.DataFactory' 네임스페이스를 사용하도록 등록되어 있지 않습니다.
 이 오류가 발생하는 경우 Azure Data Factory 리소스 공급자가 컴퓨터에 등록되지 않은 것입니다. 다음 작업을 수행하세요.
 
-1. Azure PowerShell을 시작합니다. 
-2. 다음 명령을 사용하여 Azure 계정에 로그인합니다. Login-AzureRmAccount 
+1. Azure PowerShell을 시작합니다.
+2. 다음 명령을 사용하여 Azure 계정에 로그인합니다. Login-AzureRmAccount
 3. 다음 명령을 실행하여 Azure Data Factory 공급자를 등록합니다. Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 
 ### 문제: 데이터 팩터리 cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
 
 1. Login-AzureRmAccount - 올바른 사용자 ID 및 암호를 사용합니다.
-2. Get-AzureRmSubscription - 계정의 모든 구독을 확인합니다. 
-3. Select-AzureRmSubscription <subscription name> - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
+2. Get-AzureRmSubscription - 계정의 모든 구독을 확인합니다.
+3. Select-AzureRmSubscription <구독 이름> - 올바른 구독을 선택합니다. Azure 포털에서 데이터 팩터리를 만드는 데 사용한 것과 동일한 구독을 사용합니다.
 
 ### 문제: Azure 포털에서 데이터 관리 게이트웨이 빠른 설치를 시작하지 못함
 데이터 관리 게이트웨이 빠른 설치를 수행하려면 Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저가 필요합니다. 빠른 설치를 시작할 수 없는 경우 다음 중 하나를 수행합니다.
 
 - Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용하세요.
 
-	크롬을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
+	Chrome을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
 	
 	Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 가로 줄 세 개)의 열기 메뉴 단추를 클릭하고 추가 기능을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 
@@ -113,9 +113,8 @@ HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blo
 자세한 내용은 [Azure PowerShell을 사용하여 Data Factory 파이프라인 모니터링](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline)을 참조하세요.
 
 
-[adfgetstarted]: data-factory-get-started.md
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -144,4 +143,4 @@ HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blo
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

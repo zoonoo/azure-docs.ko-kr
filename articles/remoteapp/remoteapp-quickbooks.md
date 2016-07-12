@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/05/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 
@@ -29,9 +29,9 @@
 ## QuickBooks를 배포하는 단계
 
 1. Azure VM을 만들고 QuickBooks, QuickBooks 데이터베이스 서버를 설치하고 Azure VM에 회사 파일을 저장합니다. 방화벽 규칙을 올바르게 구성해야 합니다.
-2. QuickBooks를 [사용자 지정 이미지](remoteapp-imageoptions.md)에 설치하고 회사 파일이 있는 QuickBooks 데이터베이스 서버를 호스팅하는 VM이 있는 위치와 동일한 VNET 내에 [Azure RemoteApp 컬렉션](remoteapp-collections.md)(클라우드 또는 하이브리드)을 만듭니다. 
+2. QuickBooks를 [사용자 지정 이미지](remoteapp-imageoptions.md)에 설치하고 회사 파일이 있는 QuickBooks 데이터베이스 서버를 호스팅하는 VM이 있는 위치와 동일한 VNET 내에 [Azure RemoteApp 컬렉션](remoteapp-collections.md)(클라우드 또는 하이브리드)을 만듭니다.
 3.	사용자에게 QuickBooks 앱 [게시](remoteapp-publish.md)
-4.	Azure RemoteApp이 호스팅하는 QuickBooks 클라이언트를 시작하고, 표준 Windows 네트워킹을 사용하여 QuickBooks 데이터베이스 서버를 호스팅하는 VM으로 이동하고, 회사 파일을 엽니다. 
+4.	Azure RemoteApp이 호스팅하는 QuickBooks 클라이언트를 시작하고, 표준 Windows 네트워킹을 사용하여 QuickBooks 데이터베이스 서버를 호스팅하는 VM으로 이동하고, 회사 파일을 엽니다.
 
 ## 설명서 참조
 
@@ -44,4 +44,4 @@
 
 ![QuickBooks + Azure RemoteApp 배포](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

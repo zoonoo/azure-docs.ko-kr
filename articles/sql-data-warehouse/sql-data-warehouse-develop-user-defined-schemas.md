@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 사용자 정의 스키마
@@ -45,7 +45,7 @@
 
 ### 예제:
 
-1. 데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현합니다.
+데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현합니다.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -63,7 +63,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-2. 테이블 이름으로 미리 보류하여 레거시 스키마 이름을 유지합니다. 워크로드 경계에 대한 스키마를 사용합니다.
+테이블 이름으로 미리 보류하여 레거시 스키마 이름을 유지합니다. 워크로드 경계에 대한 스키마를 사용합니다.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -81,7 +81,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-3. 뷰를 사용하여 레거시 스키마 이름을 유지합니다.
+뷰를 사용하여 레거시 스키마 이름을 유지합니다.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -122,4 +122,4 @@ FROM	[edw].customer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

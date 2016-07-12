@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="06/28/2016"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 VPN 연결 구성  
 
 > [AZURE.SELECTOR]
-- [VPN 연결 구성](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [VPN 연결 구성](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
+- [HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 
 Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 사용하여 Ipsec/IKE를 통한 보안 터널을 제공합니다. VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. Vnet 간 연결을 사용하는 이유는 다음과 같습니다.
 
-- 지역 간 지리적 중복 및 지리적 상태 
-- 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램 
+- 지역 간 지리적 중복 및 지리적 상태
+- 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램
 - Azure의 구독 간/조직 간 통신
 
 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
@@ -83,7 +83,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 		이 자습서에서는 북유럽 및 미국 동부 데이터 센터를 사용합니다. 사용자 고유의 데이터 센터를 선택할 수 있습니다.
 4.	다음을 입력합니다.
 
-	- **DNS 서버**:(빈 상태로 둠) 
+	- **DNS 서버**:(빈 상태로 둠)
 	
 		가상 네트워크 내에서 이름 확인을 위해 자체 DNS 서버가 필요합니다. Azure가 제공한 이름 확인을 사용하는 경우 및 사용자 고유의 DNS 서버를 사용하는 경우에 대한 자세한 내용은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요. VNet 간의 이름 확인을 구성하는 지침은 [두 Azure 가상 네트워크 간 DNS 구성][hdinsight-hbase-dns]을 참조하세요.
   
@@ -260,16 +260,16 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: ../install-configure-powershell.md
 
 
 
-[hdinsight-hbase-replication]: ../hdinsight-hbase-geo-replication/
-[hdinsight-hbase-dns]: ../hdinsight-hbase-geo-replication-configure-DNS/
+[hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

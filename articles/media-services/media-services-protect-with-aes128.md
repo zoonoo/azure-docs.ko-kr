@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="06/16/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #AES-128 동적 암호화 및 키 전달 서비스 사용
@@ -39,11 +39,11 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 다음은 AES로 자산을 암호화하고 미디어 서비스 키 배달 서비스를 사용하며 동적 암호화를 사용할 때 수행해야 하는 일반적인 단계입니다.
 
-1. [자산을 만들고 파일을 자산에 업로드합니다](media-services-protect-with-aes128.md#create_asset). 
+1. [자산을 만들고 파일을 자산에 업로드합니다](media-services-protect-with-aes128.md#create_asset).
 1. [파일이 들어 있는 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다](media-services-protect-with-aes128.md#encode_asset).
 1. [콘텐츠 키를 만들어 인코딩된 자산에 연결합니다](media-services-protect-with-aes128.md#create_contentkey). 미디어 서비스에서 콘텐츠 키에는 자산의 암호화 키가 들어 있습니다.
-1. [콘텐츠 키의 권한 부여 정책을 구성합니다](media-services-protect-with-aes128.md#configure_key_auth_policy). 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 콘텐츠 키를 클라이언트에 배달하기 위해서는 해당 클라이언트를 충족시켜야 합니다. 
-1. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(Initialization Vector)(AES 128에는 암호화 및 해독 시 동일한 IV를 제공해야 함), 배달 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두), 동적 암호화 유형(예: 봉투(envelope) 또는 동적이지 않은 암호화)이 포함됩니다. 
+1. [콘텐츠 키의 권한 부여 정책을 구성합니다](media-services-protect-with-aes128.md#configure_key_auth_policy). 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 콘텐츠 키를 클라이언트에 배달하기 위해서는 해당 클라이언트를 충족시켜야 합니다.
+1. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(Initialization Vector)(AES 128에는 암호화 및 해독 시 동일한 IV를 제공해야 함), 배달 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두), 동적 암호화 유형(예: 봉투(envelope) 또는 동적이지 않은 암호화)이 포함됩니다.
 
 	동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어, Smooth/DASH에 PlayReady 암호화를, HLS에 AES 봉투(envelope)를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 정의한 자산 배달 정책이 없는 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
@@ -91,10 +91,10 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 자산에 대한 배달 정책을 구성합니다. 자산 배달 정책 구성에는 다음이 포함됩니다.
 
-- 키 획득 URL. 
-- 봉투(envelope) 암호화에 사용할 IV(Initialization Vector). AES 128에는 암호화 및 해독 시 동일한 IV를 제공해야 합니다. 
+- 키 획득 URL.
+- 봉투(envelope) 암호화에 사용할 IV(Initialization Vector). AES 128에는 암호화 및 해독 시 동일한 IV를 제공해야 합니다.
 - 자산 배달 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두).
-- 동적 암호화 유형(예: AES 봉투) 또는 동적이지 않은 암호화. 
+- 동적 암호화 유형(예: AES 봉투) 또는 동적이지 않은 암호화.
 
 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
@@ -129,7 +129,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 ###매니페스트 파일
 
-클라이언트는 매니페스트 파일에서 URL(콘텐츠 키 Id도 포함(kid)) 값을 추출해야 합니다. 그런 다음 키 배달 서비스로부터 암호화 키 가져오기를 시도합니다. 또한 IV 값을 추출하고 이 값을 사용하여 스트림을 해독합니다. 다음 코드 조각은 부드러운 스트리밍 매니페스트의 <Protection> 요소를 보여줍니다.
+클라이언트는 매니페스트 파일에서 URL(콘텐츠 키 Id도 포함(kid)) 값을 추출해야 합니다. 그런 다음 키 배달 서비스로부터 암호화 키 가져오기를 시도합니다. 또한 IV 값을 추출하고 이 값을 사용하여 스트림을 해독합니다. 다음 코드 조각은 부드러운 스트리밍 매니페스트의 <Protection> 요소를 보여 줍니다.
 
 	<Protection>
 	  <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -630,4 +630,4 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -22,7 +22,7 @@
 
 클래식 배포 모델에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## 개요
@@ -162,7 +162,7 @@
 
 [MySQL](virtual-machines-windows-classic-mysql-2008r2.md)
 
-[Oracle](virtual-machines-windows-classic-oracle.md)
+[Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
@@ -192,4 +192,4 @@
 
 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

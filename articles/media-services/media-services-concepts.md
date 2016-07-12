@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개념 
@@ -31,7 +31,7 @@
 업로드하고 자산에 저장할 미디어 콘텐츠를 결정할 때는 다음 사항을 고려해야 합니다.
 
 - 자산에는 미디어 콘텐츠의 고유한 단일 인스턴스만 포함되어야 합니다. 예를 들어 TV 에피소드, 영화 또는 광고의 단일 편집이 포함됩니다.
-- 자산에는 시청각 파일의 변환이나 편집이 여러 개 포함되어서는 안 됩니다. 잘못된 자산 사용의 한 가지 예는 둘 이상의 TV 에피소드, 광고 또는 단일 프로덕션의 여러 카메라 각도를 자산 내에 저장하려고 하는 경우입니다. 시청각 파일의 여러 가지 변환 또는 편집을 자산에 저장하면 워크플로 뒷부분에서 인코딩 작업 제출, 자산 배달의 스트리밍 및 보안 설정에 문제가 발생할 수 있습니다.  
+- 자산에는 시청각 파일의 변환이나 편집이 여러 개 포함되어서는 안 됩니다. 잘못된 자산 사용의 한 가지 예는 둘 이상의 TV 에피소드, 광고 또는 단일 프로덕션의 여러 카메라 각도를 자산 내에 저장하려고 하는 경우입니다. 시청각 파일의 여러 가지 변환 또는 편집을 자산에 저장하면 워크플로 뒷부분에서 인코딩 작업 제출, 자산 배달의 스트리밍 및 보안 설정에 문제가 발생할 수 있습니다.
 
 ###자산 파일 
 [AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx)은 Blob 컨테이너에 저장되는 실제 비디오 또는 오디오 파일을 나타냅니다. 자산 파일은 항상 자산과 연결되며 자산에는 하나 이상의 파일이 포함될 수 있습니다. 자산 파일 개체가 blob 컨테이너의 디지털 파일과 연결되지 않은 경우 미디어 서비스 인코더 작업을 하지 못합니다.
@@ -138,7 +138,7 @@ Azure 미디어 서비스에서 채널은 라이브 스트리밍 콘텐츠를 �
 
 - [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
 - [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-live-streaming-with-onprem-encoders.md)
-- [할당량 및 제한 사항](media-services-quotas-and-limitations.md)  
+- [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 
 ##콘텐츠 보호
 
@@ -252,4 +252,4 @@ SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

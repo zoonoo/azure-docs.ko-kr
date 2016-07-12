@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2016" 
+	ms.date="06/27/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hive 및 Pig와 함께 Python 사용
 
 Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive 및 Pig에서 Python UDF를 사용하는 방법을 알아봅니다.
-
-> [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0, 3.1 및 3.2에 적용됩니다.
 
 ##요구 사항
 
@@ -176,8 +174,8 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 4. SSH 세션에서 이전에 업로드된 python 파일을 클러스터의 WASB 저장소에 추가합니다.
 
-		hadoop fs -copyFromLocal streaming.py /streaming.py
-		hadoop fs -copyFromLocal jython.py /jython.py
+		hdfs dfs -put streaming.py /streaming.py
+		hdfs dfs -put jython.py /jython.py
 
 파일을 업로드한 후 다음 단계를 사용하여 Hive 및 Pig 작업을 실행합니다.
 
@@ -189,7 +187,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 		add file wasb:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING ' pythonstreaming.py' AS
+		  USING 'python streaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
@@ -308,13 +306,13 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
         -HttpCredential $creds
     # Uncomment the following to see stderr output
     # Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
+    #   -Clustername $clusterName `
+    #   -JobId $job.JobId `
+    #   -DefaultContainer $container `
+    #   -DefaultStorageAccountName $storageAccountName `
+    #   -DefaultStorageAccountKey $storageAccountKey `
+    #   -HttpCredential $creds `
+    #   -DisplayOutputType StandardError
 	Write-Host "Display the standard output ..." -ForegroundColor Green
 	Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
@@ -446,4 +444,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

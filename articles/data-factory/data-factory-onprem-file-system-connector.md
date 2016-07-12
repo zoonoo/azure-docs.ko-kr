@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/29/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 온-프레미스 파일 시스템 간 데이터 이동
 
-이 문서는 데이터 팩터리 복사 작업을 사용하여 온-프레미스 파일 시스템에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+이 문서는 데이터 팩터리 복사 작업을 사용하여 온-프레미스 파일 시스템에서 데이터를 이동하는 방법을 설명합니다. 온-프레미스 파일 시스템과 함께 원본 또는 싱크로 사용할 수 있는 데이터 저장소 목록은 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores)를 참조하세요. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
 데이터 팩터리는 데이터 관리 게이트웨이를 통해 온-프레미스 파일 시스템에서 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
@@ -32,11 +32,11 @@
 다음 두 단계를 수행하여 서비스에 연결된 파일 서버와 Linux 파일 공유를 사용합니다.
 
 - Linux 서버에 [Samba](https://www.samba.org/)를 설치합니다.
-- Windows 서버에 데이터 관리 게이트웨이를 설치하고 구성합니다. Linux 서버에 게이트웨이 설치가 지원되지 않습니다. 
+- Windows 서버에 데이터 관리 게이트웨이를 설치하고 구성합니다. Linux 서버에 게이트웨이 설치가 지원되지 않습니다.
  
 ## 샘플: 온-프레미스 파일 시스템에서 Azure Blob으로 데이터 복사
 
-이 샘플은 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+이 샘플은 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
@@ -44,7 +44,7 @@
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
 3.	[FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
-4.	[FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md) 
+4.	[FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 아래 샘플은 온-프레미스 파일 시스템에서 Azure blob로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -255,7 +255,7 @@
 
 1.	AzureSqlDatabase 형식의 연결된 서비스입니다.
 2.	OnPremisesFileServer 형식의 연결된 서비스입니다.
-3.	AzureSqlTable 형식의 입력 데이터 집합입니다. 
+3.	AzureSqlTable 형식의 입력 데이터 집합입니다.
 3.	FileShare 형식의 출력 데이터 집합입니다.
 4.	SqlSource 및 FileSystemSink를 사용하는 복사 작업의 파이프라인입니다.
 
@@ -436,7 +436,7 @@
 속성 | 설명 | 필수
 -------- | ----------- | --------
 type | 형식 속성은 **OnPremisesFileServer**로 설정해야 합니다. | 예 
-host | 서버의 호스트 이름입니다. '\\'를 다음 예제와 같이 이스케이프 문자로 사용합니다. 공유가 :\\servername인 경우 \\\servername을 지정합니다.<br/><br/>파일 시스템이 게이트웨이 컴퓨터에 로컬인 경우 로컬 또는 localhost를 사용합니다. 파일 시스템이 게이트웨이 컴퓨터와 다른 서버에 있는 경우 \\\servername을 사용합니다. | 예
+host | 서버의 호스트 이름입니다. '\\'를 다음 예제와 같이 이스케이프 문자로 사용합니다. 공유가 :\\servername인 경우 \\\servername을 지정합니다.<br/><br/>파일 시스템이 게이트웨이 컴퓨터에 로컬인 경우 Local 또는 localhost를 사용합니다. 파일 시스템이 게이트웨이 컴퓨터와 다른 서버에 있는 경우 \\\servername을 사용합니다. | 예
 userid | 서버에 액세스 권한이 있는 사용자의 ID 지정 | 아니요(encryptedCredential을 선택하는 경우)
 password | 사용자에 암호 지정(userid) | 아니요(encryptedcredential을 선택하는 경우) 
 encryptedCredential | New-AzureRmDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다<br/><br/>**참고:** 버전 0.8.14 이상의 Azure PowerShell을 사용하여 OnPremisesFileSystemLinkedService로 설정된 형식 매개 변수로 New-AzureRmDataFactoryEncryptValue와 같은 cmdlet을 사용해야 합니다. | 아니요(일반 텍스트에 userid 및 암호를 지정하는 경우)
@@ -482,10 +482,10 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 속성 | 설명 | 필수
 -------- | ----------- | --------
 folderPath | 파일의 경로입니다. 예제: myfolder<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\\'를 사용합니다. 예를 들어 folder\\subfolder, folder\\subfolder 및 d:\\samplefolder에 d:\\samplefolder를 지정합니다.<br/><br/>**partitionBy**로 이를 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다. | 예
-fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 집합에 fileName을 지정하지 않으면 생성된 파일의 이름은 다음 이 서식에 있습니다.<br/><br/>데이터.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | 아니요
+fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름은 다음 형식을 사용합니다.<br/><br/>Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | 아니요
 partitionedBy | 동적 folderPath, 시계열 데이터에 대 한 filename을 지정 하려면 partitionedBy는 활용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. | 아니요
 형식 | **TextFormat**, **AvroFormat**, **JsonFormat** 및 **OrcFormat**과 같은 서식 유형이 지원됩니다. 이 중 하나로 서식에서 **type** 속성을 설정해야 합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat) 및 [OrcFormat 지정](#specifying-orcformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다. | 아니요
-fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).<br/><br/>예제 1: "fileFilter": "*.log"<br/>예제 2: "fileFilter":2014-1-?.txt"<br/><br/>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다. | 아니요
+fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).<br/><br/>예제 1: "fileFilter: "*.log"<br/>예제 2: "fileFilter":2014-1-?.txt"<br/><br/>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다. | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 > [AZURE.NOTE] filename 및 fileFilter는 동시에 사용할 수 없습니다.
@@ -544,9 +544,9 @@ recursive | copyBehavior | 결과 동작
 --------- | ------------ | --------
 true | preserveHierarchy | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 폴더 Folder1은 원본과 동일한 구조를 갖게 됩니다.<br/><br/>>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.  
 true | flattenHierarchy | 다음 구조를 가진 원본 폴더 Folder1의 경우: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 Folder1은 다음 구조를 갖게 됩니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File3에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5에 대해 자동으로 생성된 이름
-true | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 콘텐츠는 자동으로 생성된 파일 이름을 가진 하나의 파일로 병합됩니다.
+true | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 콘텐츠는 자동으로 생성된 파일 이름을 가진 하나의 파일로 병합됩니다<
 false | preserveHierarchy | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 폴더 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다.
-false | flattenHierarchy | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 폴더 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동으로 생성된 이름<br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다.
+false | flattenHierarchy | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 폴더 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동으로 생성된 이름<br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다.<
 false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>대상 폴더 Folder1은 다음 구조를 갖게 됩니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 콘텐츠는 자동으로 생성된 파일 이름을 가진 하나의 파일로 병합됩니다. File1에 대해 자동으로 생성된 이름<br/><br/>File3, File4, File5를 가진 Subfolder1은 선택되지 않습니다.
 
 
@@ -564,4 +564,4 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

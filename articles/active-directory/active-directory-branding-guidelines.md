@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
 # 응용 프로그램에 대한 브랜딩 지침
 
 
-이 항목에서는 Azure Active Directory를 사용해 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 설명합니다. 이 지침은 Azure AD에서 관리되는 회사 또는 학교 계정을 응용 프로그램을 등록하고 로그인하는 데 사용하려는 고객을 안내하는 데 도움이 됩니다.
+이 항목에서는 Azure Active Directory(Azure AD)를 사용해 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 설명합니다. 이 지침은 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램을 등록하고 로그인하는 데 사용하려는 고객을 안내하는 데 도움이 됩니다.
 
 ## Microsoft의 개인 계정과 회사 또는 학교 계정
 
@@ -47,7 +47,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 앱의 등록 경로와 로그인 경로가 별도로 제공될 수 있으며, 다음 섹션에서는 두 시나리오에 대한 시각적인 지침을 제공합니다.
 
-**최종 사용자 등록을 지원하는 앱의 경우(예: 무료 평가판 또는 프리미엄(freemium) 모델)**: 사용자가 Microsoft의 회사 또는 학교 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
+**최종 사용자 등록을 지원하는 앱의 경우(예: 무료 평가판 또는 프리미엄(freemium) 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
 
 **관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리해야 합니다. **"이 앱 가져오기" 단추**는 관리자에게 로그인하도록 리디렉션한 다음 조직의 사용자를 대신하여 동의하도록 요청합니다. 이 기능은 최종 사용자 동의를 요청하는 메시지를 표시하지 않게 하는 기능을 앱에 추가합니다.
 
@@ -60,25 +60,28 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 ![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
 그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
-> *미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
+> *미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your\_app\_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your\_app\_name>에 액세스할 수 있습니다.*
 
 
 ## 로그인에 대한 시각적 지침
 앱은 Azure AD와 통합하는 데 사용하는 프로토콜에 해당하는 로그인 끝점으로 사용자를 리디렉션하는 로그인 단추를 표시해야 합니다. 다음 섹션에서는 이 단추의 모양을 자세히 설명합니다.
 
-### 픽토그램 및 "회사 또는 학교 계정"
-Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD를 고유하게 나타내는 “회사 또는 학교”라는 일반 용어를 결합한 것입니다. 공간이 부족하여 "회사 또는 학교 계정"을 사용할 수 없는 경우에는 "회사 계정"으로 줄여도 됩니다.
+### 픽토그램 및 “Microsoft 로그인”
+Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD를 고유하게 나타내는 “Microsoft 로그인”이라는 일반 용어를 결합한 것입니다. 공간이 부족하여 "Microsoft 로그인"을 사용할 수 없는 경우에는 "로그인"으로 줄여도 됩니다.
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-or-school-account.png)
+![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-account.png)
+![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-최종 사용자가 이 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공할 수도 있습니다.
+단추에 어두운 색 구성표를 사용할 수 있습니다.
 
-![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
+![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## 브랜딩 관련 할 일과 하지 말아야 할 일
-**권장** "회사 또는 학교 계정"을Microsoft 로고와 함께 사용하여 Azure AD에서 로그인을 나타냅니다. 공간이 부족한 경우 “회사 계정”이라고 해도 됩니다. **권장 안 함** “엔터프라이즈 계정”, “비즈니스 계정” 또는 “회사 계정”과 같은 다른 용어는 사용하지 않습니다.
+
+**권장** 최종 사용자가 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공하기 위해 "회사 또는 학교 계정"을 "Microsoft 로그인" 단추와 함께 사용합니다. **권장 안 함** "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 다른 용어는 사용하지 않습니다.
 
 **권장 안 함** “Office 365 ID” 또는 “Azure ID”를 사용하지 않습니다. Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
 
@@ -90,8 +93,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 **권장** 사용자가 로그아웃한 후 다른 사용자 계정으로 전환하는 방법을 제공합니다. 대부분의 사람들은 Microsoft/Facebook/Google/Twitter의 단일 개인 계정을 가지고 있지만, 사람들은 종종 여러 조직과 연결됩니다. 여러 명의 로그인한 사용자에 대한 지원이 곧 제공됩니다.
 
-## 앱에서 Azure AD 및 Microsoft 계정 지원
-
-앱이 Azure AD 및 Microsoft 계정을 모두 지원하는 경우 앱에 두 개의 개별 로그인 단추를 포함해야 합니다. 한 번 통합하면 Microsoft의 개인 계정과 회사 계정을 모두 지원할 수 있는 업데이트를 제공하기 위해 현재 적극적으로 노력하고 있습니다. 이 업데이트가 제공되면 앱에 하나의 "Microsoft로 로그인" 단추를 표시할 수 있습니다.
-
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

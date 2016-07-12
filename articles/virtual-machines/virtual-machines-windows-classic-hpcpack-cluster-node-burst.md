@@ -22,7 +22,7 @@ ms.service="virtual-machines-windows"
 
 이 문서는 Azure 주문형 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 기존 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 이렇게 하면 사전 구성된 컴퓨터 노드 VM을 유지 관리하지 않고 요청 시 Azure에서 HPC 클러스터의 계산 용량을 확장할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![버스트 노드][burst]
 
@@ -80,7 +80,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx) 을 참조하세요.
+Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결을 참조하세요](http://technet.microsoft.com/library/jj159097.aspx)).
 
 ## 다음 단계
 
@@ -89,4 +89,4 @@ Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

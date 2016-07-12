@@ -2,17 +2,17 @@
     pageTitle="자습서: SmarterU와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 SmarterU를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #자습서: SmarterU와 Azure Active Directory 통합
   
@@ -38,7 +38,7 @@
 
 ###SmarterU에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **SmarterU** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **SmarterU** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Single Sign-On 구성")
 
@@ -99,7 +99,7 @@
     5.  다운로드한 메타데이터 파일의 내용을 복사한 다음 **Okta 메타데이터** 텍스트 상자에 붙여넣습니다.
     6.  **Save**를 클릭합니다.
 
-7.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+7.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Single Sign-On 구성")
 
@@ -122,7 +122,7 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
     3.  **활성**을 클릭합니다.
     4.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 SmarterU 사용자 계정 생성 도구 또는 SmarterU가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 SmarterU 사용자 계정 생성 도구 또는 SmarterU가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -130,9 +130,9 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
 
 ###SmarterU에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **SmarterU ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **SmarterU** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-smarteru-tutorial/IC777330.png "사용자 할당")
 
@@ -142,4 +142,4 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

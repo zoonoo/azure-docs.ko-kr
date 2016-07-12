@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="06/23/2016"
    ms.author="navale;tomfitz;"/>
    
 # 리소스 관리자 REST API
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 이 요청에 대한 매우 긴 JSON 응답은 이 설명서의 가독성을 높이기 위해 생략되었습니다. 응답에는 방금 만든 템플릿 기반 배포에 대한 정보가 포함됩니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

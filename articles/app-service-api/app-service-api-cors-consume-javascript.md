@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="05/27/2016"
 	ms.author="tdykstra"/>
 
 # CORS를 사용하여 JavaScript에서 API 앱 사용
@@ -22,7 +22,7 @@
 
 이 문서에는 다음과 같은 두 섹션이 포함되어 있습니다.
 
-* [CORS를 구성하는 방법](#corsconfig) 섹션에서는 API 앱, 웹앱 또는 모바일 앱에 CORS를 구성하는 방법을 일반적으로 설명합니다. 이는 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다. 
+* [CORS를 구성하는 방법](#corsconfig) 섹션에서는 API 앱, 웹앱 또는 모바일 앱에 CORS를 구성하는 방법을 일반적으로 설명합니다. 이는 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다.
 
 * [.NET 시작 자습서 계속](#tutorialstart) 섹션을 시작하면 해당 문서는 [첫 번째 API 앱 시작 자습서](app-service-api-dotnet-get-started.md)에서 수행한 작업을 빌드하여 CORS 지원을 설명하는 자습서입니다.
 
@@ -210,7 +210,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 �
 
 ### CORS를 사용하여 응용 프로그램 테스트
 
-* 웹앱의 HTTPS URL로 브라우저를 엽니다. 
+* 웹앱의 HTTPS URL로 브라우저를 엽니다.
 
 	이번에는 응용 프로그램이 할 일 목록을 보기, 추가, 편집 및 삭제합니다.
 
@@ -285,4 +285,4 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱에 대한 자세한 내용은 [앱 서비스에서 인증 소개](../app-service/app-service-authentication-overview.md)를 참고하고 [API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md) 자습서로 이동합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -40,10 +40,10 @@
 
    1. 콘텐츠가 암호화되어 있는 경우 액세스 정책을 정의합니다.
    2. 주문형 스트리밍 로케이터를 만듭니다.
-   3. 스트리밍하려는 경우 자산의 스트리밍 매니페스트 파일(.ism)을 가져옵니다. 
+   3. 스트리밍하려는 경우 자산의 스트리밍 매니페스트 파일(.ism)을 가져옵니다.
    		
-	점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다.  
-   4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
+	점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다.
+   4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다.
    
 
 ###Media Services .NET SDK 사용 
@@ -171,4 +171,4 @@
 
 [자산 다운로드](media-services-deliver-asset-download.md) [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

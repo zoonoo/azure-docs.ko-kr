@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/12/2016"
+ms.date="06/28/2016"
 ms.author="larryfr"/>
 
 #SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스
@@ -181,7 +181,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![YARN ResourceManager UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.NOTE] 이 페이지에 대한 URL은 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
+	> [AZURE.NOTE] 이 페이지에 대한 URL은 \_\_http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
 
 ##다음 단계
 
@@ -195,4 +195,4 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

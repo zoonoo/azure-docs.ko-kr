@@ -30,9 +30,7 @@ C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 
 
 ## SDK 아키텍처
 
-다음 GitHub 리포지토리에서 **C용 Azure IoT 장치 SDK**를 찾을 수 있습니다.
-
-[azure-iot-sdks](https://github.com/Azure/azure-iot-sdks)
+[Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C에 대한 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 최신 버전의 라이브러리를 이 리포지토리의 **마스터** 분기에서 찾을 수 있습니다.
 
@@ -45,7 +43,7 @@ C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 
 * SDK의 핵심 구현은 **iothub\_client** 폴더에서 찾을 수 있습니다. 이 폴더에는 SDK의 최하위 API 계층에 대한 구현인 **IoTHubClient** 라이브러리가 포함되어 있습니다. 이 **IoTHubClient** 라이브러리에는 IoT Hub와 메시지를 보내고 받기 위한 원시 메시징을 구현하는 API가 포함되어 있습니다. 이 라이브러리를 사용하는 경우 사용자가 메시지 직렬화를 구현해야 하며(아래 설명된 직렬 변환기 샘플 사용) IoT Hub와 통신하기 위한 기타 세부 사항도 직접 처리해야 합니다.
 * **serializer** 폴더에는 클라이언트 라이브러리를 사용하여 Azure IoT Hub로 보내기 전에 데이터를 직렬화하는 방법을 보여 주는 샘플 및 도우미 함수가 포함되어 있습니다. 직렬 변환기 사용은 필수 사항이 아니며, 편의를 위해 제공될 뿐입니다. **직렬 변환기** 라이브러리를 사용하는 경우 IoT Hub로 전송할 이벤트와 수신하려는 메시지를 지정하는 모델을 정의하는 것으로 시작합니다. 모델을 정의한 후에는 SDK에서 API 노출 영역을 제공하므로 직렬화 세부 사항에 대해 신경쓰지 않고도 이벤트 및 메시지에 대해 쉽게 작업할 수 있습니다. 라이브러리는 여러 프로토콜(AMQP, MQTT)을 사용하여 전송을 구현하는 오픈 소스 라이브러리에 따라 달라집니다.
 * **IoTHubClient** 라이브러리는 다른 오픈 소스 라이브러리에 따라 달라집니다.
-   * 여러 Azure 관련 C SDK에서 필요한 기본 작업(예: 문자열, 목록 조작, IO 등)에 대한 공통 기능을 제공하는 [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility) 라이브러리
+   * 여러 Azure 관련 C SDK에서 필요한 기본 작업(예: 문자열, 목록 조작, IO 등)에 대한 공통 기능을 제공하는 [Azure C 공유 유틸리티](https://github.com/Azure/azure-c-shared-utility) 라이브러리
    * 리소스 제한 장치에 최적화된 AMQP의 클라이언트 측 구현인 [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) 라이브러리
    * 리소스 제한 장치에 최적화되고 MQTT 프로토콜을 구현하는 범용 라이브러리인 [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) 라이브러리
 
@@ -471,4 +469,4 @@ serializer_deinit();
 
 **C용 Azure IoT 장치 SDK**에서 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

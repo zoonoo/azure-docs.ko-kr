@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
@@ -38,7 +38,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-    
+
 8. **확인**을 두 번 클릭하여 대화 상자를 완료합니다.
 
 Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추가 구성
@@ -47,7 +47,7 @@ Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-   
+
 여기서 <RPObjectName>은 Azure Active Directory 신뢰 당사자 트러스트 개체에 대한 신뢰 당사자 개체 이름입니다. 일반적으로 이 개체의 이름은 Microsoft Office 365 ID 플랫폼입니다.
 
 AD FS 전역 인증 정책
@@ -105,4 +105,4 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

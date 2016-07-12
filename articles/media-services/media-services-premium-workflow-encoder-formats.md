@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako;anilmur"/>
 
 #미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -82,7 +82,7 @@
 - Windows Media/ASF
 - AVI(압축되지 않은 8비트/10비트)
 - 부드러운 스트리밍 파일 형식(PIFF 1.3)
-- MPEG-TS 
+- MPEG-TS
 
 
 ###출력 비디오 코덱
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 #Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포#
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Linux용 Microsoft Azure CustomScript 확장을 사용하면 Python 및 Bash와 같은 VM에서 지원하는 모든 스크립팅 언어로 작성된 임의 코드를 실행하여 VM(가상 컴퓨터)을 사용자 지정할 수 있습니다. 이렇게 하면 매우 유동적으로 응용 프로그램을 여러 컴퓨터에 자동으로 배포할 수 있습니다.
@@ -96,7 +96,7 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP 페이지를 찾아볼 수 있습니다. 이 문서의 예제에 대한 PHP 페이지는 **http://lamp-vm.cloudapp.net/phpinfo.php*입니다.
+CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP 페이지를 찾아볼 수 있습니다. 이 문서의 예제에 대한 PHP 페이지는 *http://lamp-vm.cloudapp.net/phpinfo.php*입니다.
 
 ## 추가 리소스
 
@@ -110,4 +110,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

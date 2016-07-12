@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -44,7 +44,7 @@ Azure Active Directory Device Registration 서비스 조건부 액세스 정책�
 * Windows Server 2012 R2에서 업데이트된 스키마
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
-* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/ko-KR/download/details.aspx?id=47594).
+* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/download/details.aspx?id=47594).
 * 확인된 도메인.
 
 이 릴리스의 알려진 문제
@@ -122,9 +122,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
   
   > [AZURE.NOTE] 
-  > 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
-
-
+  아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
@@ -254,4 +252,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

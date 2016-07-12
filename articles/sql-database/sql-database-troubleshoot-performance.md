@@ -23,11 +23,11 @@
 
 ## 데이터베이스 성능을 평가 및 조정하는 단계
 1.	[Azure 포털](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭하고 데이터베이스를 선택한 후 모니터링 차트를 사용하여 최대값에 근접한 리소스를 찾습니다. 기본적으로 DTU 사용량이 표시됩니다. **편집**을 클릭하여 표시된 시간 범위 및 값을 변경합니다.
-2.	[쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 DTU를 사용하는 쿼리를 평가한 다음 [SQL 데이터베이스 관리자](sql-database-index-advisor.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화 및 스키마 문제 해결에 대한 권장 사항을 확인합니다.
+2.	[쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 DTU를 사용하는 쿼리를 평가한 다음 [SQL 데이터베이스 관리자](sql-database-advisor.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화 및 스키마 문제 해결에 대한 권장 사항을 확인합니다.
 3.	동적 관리 뷰(DMV), 확장 이벤트(Xevents) 및 SSMS의 쿼리 저장소를 사용하여 실시간으로 성능 매개 변수를 가져올 수 있습니다. 자세한 모니터링 및 튜닝 팁은 [성능 지침 항목](sql-database-performance-guidance.md)을 참조하세요.
 
 ## 보다 많은 리소스와 함께 데이터베이스 성능을 개선하는 단계
 1.	단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-scale-up.md)하여 데이터베이스 성능을 개선할 수 있습니다.
 2.	여러 데이터베이스의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)을 사용하여 리소스 규모를 자동으로 조정하는 방법을 고려합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

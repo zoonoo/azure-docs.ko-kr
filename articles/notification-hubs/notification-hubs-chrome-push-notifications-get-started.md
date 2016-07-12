@@ -5,7 +5,7 @@
     keywords="모바일 푸시 알림, 푸시 알림, 푸시 알림, Chrome 푸시 알림"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Chrome 앱에 푸시 알림 보내기
@@ -23,7 +23,7 @@
 
 이 항목에서는 Azure 알림 허브를 사용하여 Google Chrome 브라우저의 컨텍스트 내에서 표시되는 Chrome 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 자습서에서는 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다.
 
->[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
 
 이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 차례로 안내합니다.
 
@@ -477,4 +477,4 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 [Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

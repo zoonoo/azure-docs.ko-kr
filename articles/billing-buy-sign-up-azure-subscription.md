@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/21/2016"
 	ms.author="genli"/>
 
-# Azure 제품 - 혜택 및 제한, 등록, 구입, 업그레이드 또는 활성화 방법
+# Azure를 등록, 구매, 업그레이드 또는 활성화하는 방법
 
 Azure는 비즈니스 요구 사항에 맞고 Azure를 사용하여 시작하도록 다양한 제품을 제공합니다. 다루는 내용, 혜택 및 국가/지역별로 가용성에 대한 각 제품의 세부 정보가 있는 모든 활성 제품의 완전한 목록은 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 방문하세요.
+
+## Azure 제품 - 이점 및 제한
 
 다음 표에서는 일반적인 제품에 대한 세부 정보를 제공합니다.
 
@@ -88,4 +90,4 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

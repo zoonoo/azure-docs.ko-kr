@@ -3,7 +3,7 @@
    description="PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/18/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드
@@ -103,7 +103,7 @@ Azure 저장소 키를 찾으려면:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. 다음 명령을 실행하여 파일을 업로드합니다. <blob service endpoint URL>에 대한 Blob 서비스 끝점 URL과 <azure_storage_account_key>에 대한 Azure 저장소 계정 키를 지정합니다.
+1. 다음 명령을 실행하여 파일을 업로드합니다. <Blob 서비스 끝점 URL>에 Blob 서비스 끝점 URL을 지정하고 <azure\_storage\_account\_key>에 Azure 저장소 계정 키를 지정합니다.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -256,12 +256,10 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[통계]: sql-data-warehouse-develop-statistics.md
-[PolyBase 가이드]: sql-data-warehouse-load-polybase-guide.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase 가이드]: ./sql-data-warehouse-load-polybase-guide.md
 [AzCopy 명령줄 유틸리티 시작]: ../storage/storage-use-azcopy.md
 [AzCopy 최신 버전]: ../storage/storage-use-azcopy.md
 
@@ -287,4 +285,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

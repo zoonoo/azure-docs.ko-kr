@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights 내 Analytics 참조 | Microsoft Azure" 
-	description="Application Insights의 강력한 검색 도구인 분석의 문 참조입니다." 
+	description="Application Insights의 강력한 검색 도구인 분석의 문 참조입니다. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -22,7 +22,11 @@
 
 ## 인덱스
 
-**쿼리 및 연산자** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Let 및 set** [let](#let-clause) | [set](#set-clause)
+
+
+**쿼리 및 연산자** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **집계** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -38,7 +42,85 @@
 
 
 
+## Let 및 set
 
+### let 절
+
+**Tabular let - 테이블 이름 지정**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Scalar let - 값 이름 지정**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Lambda let - 함수 이름 지정**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
+let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names)을 바인딩합니다. 이 절은 쿼리에 대한 접두사이며 바인딩 범위는 해당 쿼리입니다. (Let은 세션에서 나중에 사용할 사항의 이름을 지정하는 방법을 제공하지 않습니다.)
+
+**구문**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
+
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain\_query:* let 절이 접두사로 되어있지 않은 쿼리입니다.
+
+**예**
+
+    let rows(n:long) = range steps from 1 to n step 1;
+    rows(10) | ...
+
+
+Self-join:
+
+    let Recent = events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+### Set 절
+
+set 절은 쿼리 기간에 대한 옵션을 설정합니다. 쿼리 옵션은 쿼리가 실행되고 결과가 반환되는 방법을 제어합니다. Boolean 플래그(기본적으로 해제됨)이거나 정수 값이 포함될 수 있습니다. 쿼리는 0개 이상의 set 문을 포함할 수 있습니다. Set 문은 프로그램 순서로 추적하는 표 형태의 식 문에만 영향을 줍니다.
+
+    set OptionName [= OptionValue] ; query
+
+
+|이름 | true로 설정된 경우 영향
+|---|---
+|querytrace| 쿼리에 의해 생성된 디버그 추적 수준이 증가합니다. 
+|noexecute| 쿼리의 실제 실행을 사용하지 않도록 설정합니다(쿼리 계획 단계만 실행). 
+|perftrace| 성능 추적을 사용하도록 설정합니다. 
+|notruncation| 결과 집합 잘림을 사용하지 않도록 설정합니다. 
+|truncationmaxsize| 쿼리 결과 데이터 크기(바이트)를 제한합니다. 
+|truncationmaxrecords| 쿼리 결과 레코드 번호를 제한합니다. 
+|nostreaming |결과 집합 스트리밍을 사용하지 않도록 설정합니다. 
+
+**예제**
+
+```
+
+    set querytrace;
+    requests | take 100
+```
 
 ## 쿼리 및 연산자
 
@@ -119,7 +201,7 @@ requests | count
 **팁**
 
 * 일부 열의 삭제 또는 이름을 바꾸려는 경우에도 [`project`](#project-operator)을(를) 대신 사용합니다.
-* 단지 긴 식에서 더 짧은 이름을 얻기 위해 `extend`을(를) 사용하지 마세요. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* 단지 긴 식에서 더 짧은 이름을 얻기 위해 `extend`을(를) 사용하지 마세요. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
 
     테이블의 기본 열은 인덱싱되었으며, 새 이름은 인덱싱되지 않은 추가 열을 정의하므로 쿼리가 더 느리게 실행될 가능성이 있습니다.
 
@@ -155,7 +237,7 @@ traces
 다음을 포함하고 있는 테이블:
 
 * 일치하는 키를 포함하여 두 테이블 각각의 모든 열에 대한 열. 이름 충돌이 있는 경우 우변의 열 이름이 자동으로 바뀝니다.
-* 입력된 테이블 간의 모든 일치 항목에 대한 행. 일치 항목은 한 테이블에서 선택된 행이며 모든 `on` 필드에 대해 다른 테이블의 행과 같은 값을 가지고 있습니다. 
+* 입력된 테이블 간의 모든 일치 항목에 대한 행. 일치 항목은 한 테이블에서 선택된 행이며 모든 `on` 필드에 대해 다른 테이블의 행과 같은 값을 가지고 있습니다.
 
 * `Kind` 지정 안 함
 
@@ -179,7 +261,7 @@ traces
 
 최상의 성능을 얻으려면:
 
-* `where` 및 `project`을(를) 사용하여 `join`에 앞서 입력 테이블의 행 및 열 수를 줄입니다. 
+* `where` 및 `project`을(를) 사용하여 `join`에 앞서 입력 테이블의 행 및 열 수를 줄입니다.
 * 한 테이블이 언제나 다른 테이블보다 더 작으면 해당 테이블을 조인의 좌변(파이프된)으로 사용합니다.
 * 조인 일치에 대한 열은 같은 이름을 가져야 합니다. 테이블 중 하나의 열 이름을 바꾸어야 할 경우 project 연산자를 사용합니다.
 
@@ -200,53 +282,6 @@ traces
 
 ```
 
-### let 절
-
-**Tabular let - 테이블 이름 지정**
-
-    let recentReqs = requests | where timestamp > ago(3d); 
-    recentReqs | count
-
-**Scalar let - 값 이름 지정**
-
-    let interval = 3d; 
-    requests | where timestamp > ago(interval)
-
-**Lambda let - 함수 이름 지정**
-
-    let Recent = 
-       (interval:timespan) { requests | where timestamp > ago(interval) };
-    Recent(3h) | count
-
-let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names)을 바인딩합니다. 이 절은 쿼리에 대한 접두사이며 바인딩 범위는 해당 쿼리입니다. (Let은 세션에서 나중에 사용할 사항의 이름을 지정하는 방법을 제공하지 않습니다.)
-
-**구문**
-
-    let name = scalar_constant_expression ; query
-
-    let name = query ; query
-
-    let name = (parameterName : type [, ...]) { plain_query }; query
-
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
-* *plain\_query:* let 절이 접두사로 되어있지 않은 쿼리입니다.
-
-**예**
-
-    let rows(n:long) = range steps from 1 to n step 1;
-    rows(10) | ...
-
-
-Self-join:
-
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
 
 ### limit 연산자
 
@@ -307,7 +342,7 @@ Self-join:
 
 **인수**
 
-* *ColumnName:* 결과적으로 명명된 열의 배열이 여러 행으로 확장됩니다. 
+* *ColumnName:* 결과적으로 명명된 열의 배열이 여러 행으로 확장됩니다.
 * *ArrayExpression:* 배열을 생성하는 식입니다. 이 양식을 사용하면 새 열이 추가되며 기존 열은 보존됩니다.
 * *Name:* 새 열에 대한 이름입니다.
 * *Typename:* 확장된 식을 특정 형식으로 캐스트합니다.
@@ -322,7 +357,7 @@ Self-join:
 속성 모음 확장의 두 가지 모드가 지원됩니다.
 
 * `bagexpansion=bag`: 속성 모음이 단일 항목 속성 모음으로 확장됩니다. 이는 기본 확장입니다.
-* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 고유 카운트 집계 실행). 
+* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 고유 카운트 집계 실행).
 
 **예**
 
@@ -357,14 +392,14 @@ Self-join:
 **인수**
 
 * `T`: 입력 테이블입니다.
-* `kind`: 
+* `kind`:
  * `simple`(기본값): `Match` 문자열은 일반 문자열입니다.
- * `relaxed`: 텍스트를 열 형식으로 구문 분석하지 않으면 열은 null로 설정되고 구문 분석이 계속됩니다. 
+ * `relaxed`: 텍스트를 열 형식으로 구문 분석하지 않으면 열은 null로 설정되고 구문 분석이 계속됩니다.
  * `regex`: `Match` 문자열은 정규식입니다.
 * `Text`: 문자열로 계산하거나 변환될 수 있는 열 또는 기타 식입니다.
 * *Match:* 문자열의 다음 부분과 일치한 후 삭제합니다.
 * *Column:* 문자열의 다음 부분을 이 열에 할당합니다. 열이 존재하지 않는 경우 생성됩니다.
-* *Type:* 문자열의 다음 부분을 지정된 형식(예: int, date, double)으로 구문 분석합니다. 
+* *Type:* 문자열의 다음 부분을 지정된 형식(예: int, date, double)으로 구문 분석합니다.
 
 
 **반환**
@@ -464,7 +499,7 @@ resource | slice | lock | 릴리스 | previous
 
     T | project cost=price*quantity, price
 
-포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. (`extend` 참조)
+포함, 이름 바꾸기 또는 삭제할 열을 선택하고 새 계산된 열을 삽입합니다. 결과의 열 순서는 인수 순서에 의해 지정됩니다. 인수에 지정된 열만이 결과에 포함되며: 입력의 다른 열은 삭제됩니다. (`extend` 참조.)
 
 
 **구문**
@@ -475,7 +510,7 @@ resource | slice | lock | 릴리스 | previous
 
 * *T:* 입력 테이블입니다.
 * *ColumnName:* 출력에 나타낼 열 이름입니다. *Expression*이 없는 경우 해당 이름의 열이 입력에 나타나야 합니다. [이름](#names)은 대/소문자를 구분하며 영문자, 숫자 또는 '\_' 문자를 포함할 수 있습니다. `['...']` 또는 `["..."]`을(를) 사용하여 다른 문자가 있는 키워드 또는 이름을 따옴표로 묶습니다.
-* *Expression:* 입력 열을 참조하는 선택적 스칼라 식입니다. 
+* *Expression:* 입력 열을 참조하는 선택적 스칼라 식입니다.
 
     입력의 기존 열과 같은 이름을 가진 새 계산된 열을 반환하는 것이 올바릅니다.
 
@@ -485,7 +520,7 @@ resource | slice | lock | 릴리스 | previous
 
 **예제**
 
-다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 형식 `int`의 열 세 개, 즉 `A`, `B` 및 `C`이(가) 있습니다.
+다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여줍니다. 입력된 테이블 `T`에는 형식 `int`의 열 세 개: 즉, `A`, `B` 및 `C`가 있습니다.
 
 ```AIQL
 T
@@ -527,7 +562,7 @@ T
 * *ColumnName:* 출력 테이블의 단일 열 이름입니다.
 * *Start:* 출력에서 가장 작은 값입니다.
 * *Stop:* 출력에서 생성되는 가장 높은 값입니다(또는 *step*으로 이 값에 대해 단계를 지정한 경우 가장 높은 값에 대한 범위).
-* *Step:* 연속된 두 값 사이의 차입니다. 
+* *Step:* 연속된 두 값 사이의 차입니다.
 
 인수는 숫자, 날짜 또는 시간 간격 값이어야 합니다. 아무 테이블의 열이나 참조할 수는 없습니다. 입력 테이블을 기반으로 범위를 계산하려면 [range *함수*](#range)를 사용하며, [mvexpand 연산자](#mvexpand-operator)와 함께 사용할 수 있습니다.
 
@@ -580,7 +615,7 @@ range timestamp from ago(4h) to now() step 1m
 **인수**
 
 * *ColumnName:* 검사할 열입니다. 문자열 형식이어야 합니다.
-* *Threshold:* 범위 {0..1}의 값입니다. 기본값은 0.001입니다. 큰 입력의 경우 임계값이 작아야 합니다. 
+* *Threshold:* 범위 {0..1}의 값입니다. 기본값은 0.001입니다. 큰 입력의 경우 임계값이 작아야 합니다.
 
 **반환**
 
@@ -667,7 +702,7 @@ Traces
 
 * *Column:* 결과 열에 대한 선택적 이름입니다. 기본적으로 식에서 파생된 이름입니다. [이름](#names)은 대/소문자를 구분하며 영문자, 숫자 또는 '\_' 문자를 포함할 수 있습니다. `['...']` 또는 `["..."]`을(를) 사용하여 다른 문자가 있는 키워드 또는 이름을 따옴표로 묶습니다.
 * *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 집계 함수에 대한 호출입니다. [집계](#aggregations)를 참조하세요.
-* *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 이미 제한된 값 집합을 제공한 열의 이름 또는 숫자나 시간 열을 인수로 하는 `bin()`입니다. 
+* *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 이미 제한된 값 집합을 제공한 열의 이름 또는 숫자나 시간 열을 인수로 하는 `bin()`입니다.
 
 `bin()`을(를) 사용하지 않고 숫자 또는 시간 식을 제공할 경우 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`와(과) 함께 자동으로 이를 적용합니다.
 
@@ -731,7 +766,7 @@ Traces
 **인수**
 
 * N:int - 반환하거나 다음 수준으로 전달할 행 개수입니다. N이 5, 3, 3인 세 개 수준의 쿼리에서 총 행 수는 45개가 됩니다.
-* COLUMN - 집계를 위한 그룹화 기준 열입니다. 
+* COLUMN - 집계를 위한 그룹화 기준 열입니다.
 * AGGREGATION - 각 행 그룹에 적용할 [집계 함수](#aggregations)입니다. 이러한 집계의 결과에 따라 표시할 상위 그룹이 결정됩니다.
 
 
@@ -753,7 +788,7 @@ Traces
  *  `requests`와(과) 같은 테이블의 이름 또는 [let 절](#let-clause)에 정의된 테이블 또는
  *  `(requests | where success=="True")`와(과) 같은 쿼리 식
  *  와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `e*`은(는) 'exceptions' 테이블과 함께 이름이 'e'로 시작하는 이전 let 절에 정의된 모든 테이블의 합집합을 형성합니다.
-* `kind`: 
+* `kind`:
  * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
  * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력 행에 의해 정의되지 않은 셀은 `null`(으)로 설정됩니다.
 * `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 원본 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다.
@@ -1183,7 +1218,7 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 
 몇 가지 중요 사항:
 
-* 추정 오류의 범위는 요청한 백분위수의 값에 따라 달라집니다. 최고의 정확도는 [0 ~ 100] 눈금의 끝에서 얻어지며, 백분위수 0 및 100은 분포의 최소값 및 최대값과 똑같습니다. 정확도는 눈금의 중앙으로 갈수록 서서히 감소합니다. 중앙값에서 최악이 되고 1%에서 최고가 됩니다. 
+* 추정 오류의 범위는 요청한 백분위수의 값에 따라 달라집니다. 최고의 정확도는 [0 ~ 100] 눈금의 끝에서 얻어지며, 백분위수 0 및 100은 분포의 최소값 및 최대값과 똑같습니다. 정확도는 눈금의 중앙으로 갈수록 서서히 감소합니다. 중앙값에서 최악이 되고 1%에서 최고가 됩니다.
 * 오류 범위는 값이 아닌 순위에서 관찰됩니다.. 백분위수(X, 50)가 Xm의 값을 반환한다고 가정합니다. 추정치는 X의 값 중 최소 49%와 최대 51%는 Xm보다 작다는 것을 보장합니다. Xm과 X의 실제 중간값 사이에 이론적 제한은 없습니다.
 
 ### stdev
@@ -1467,8 +1502,8 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* *value:* 숫자, 날짜 또는 시간 범위입니다. 
-* *roundTo:* "bin 크기"입니다. *값*을 나누는 숫자, 날짜 또는 시간 범위입니다. 
+* *value:* 숫자, 날짜 또는 시간 범위입니다.
+* *roundTo:* "bin 크기"입니다. *값*을 나누는 숫자, 날짜 또는 시간 범위입니다.
 
 **반환**
 
@@ -1539,7 +1574,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **반환**
 
 * `sqrt(x) * sqrt(x) == x`이(가) 되도록 하는 양수입니다.
-* 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`입니다. 
+* 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`입니다.
 
 
 
@@ -1677,7 +1712,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* `a_date`: A `datetime`.
+* `a_date`: `datetime`입니다.
 
 
 ### dayofweek
@@ -1692,7 +1727,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* `a_date`: A `datetime`.
+* `a_date`: `datetime`입니다.
 
 **반환**
 
@@ -1718,7 +1753,7 @@ dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 
 **인수**
 
-* `a_date`: A `datetime`.
+* `a_date`: `datetime`입니다.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
 ### endofday, endofweek, endofmonth, endofyear
@@ -1898,7 +1933,7 @@ h"hello"
 
 * *text:* 문자열입니다.
 * *search:* *text*내에서 일치하는 일반 문자열 또는 정규식입니다.
-* *kind:* `"normal"|"regex"`입니다(기본값: `normal`). 
+* *kind:* `"normal"|"regex"`입니다(기본값: `normal`).
 
 **반환**
 
@@ -1933,7 +1968,7 @@ h"hello"
 * *regex:* [정규식](#regular-expressions)입니다.
 * *captureGroup:* 추출할 캡처 그룹을 나타내는 양의 `int` 상수입니다. 0은 전체 일치, 1은 정규식의 첫 번째 '(' 괄호')'에 의해 일치된 값, 2 이상은 이후 괄호를 나타냅니다.
 * *text:* 검색할 `string`입니다.
-* *typeLiteral:* 선택적 형식 리터럴(예: `typeof(long)`)입니다. 제공된 경우 추출된 부분 문자열이 이 형식으로 변환됩니다. 
+* *typeLiteral:* 선택적 형식 리터럴(예: `typeof(long)`)입니다. 제공된 경우 추출된 부분 문자열이 이 형식으로 변환됩니다.
 
 **반환**
 
@@ -2006,7 +2041,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **인수**
 
-* *regex:* *text*를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다. 
+* *regex:* *text* 를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
 * *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`을(를) 사용하는 식입니다.
 * *text:* 문자열입니다.
 
@@ -2051,7 +2086,7 @@ range x from 1 to 5 step 1
 
 * *source*: 지정된 구분 기호에 따라 분할될 원본 문자열입니다.
 * *delimiter*: 원본 문자열을 분할하기 위해 사용될 구분 기호입니다.
-* *requestedIndex*: 선택적 0부터 시작하는 인덱스`int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
+* *requestedIndex*: 선택적 0부터 시작하는 인덱스 `int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다.
 
 **반환**
 
@@ -2096,7 +2131,7 @@ split("aabbcc", "bb")         // ["aa","cc"]
 
 * *source:* 부분 문자열을 가져올 원본 문자열입니다.
 * *startingIndex:* 요청된 부분 문자열의 0부터 시작하는 시작 문자 위치입니다.
-* *length:* 부분 문자열에서 요청된 문자 수를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다. 
+* *length:* 부분 문자열에서 요청된 문자 수를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
 **반환**
 
@@ -2244,7 +2279,7 @@ T
 |[`range(`from,to,step`)`](#range)| 값의 배열
 |[`mvexpand` listColumn](#mvexpand-operator) | 각 값에 대한 행을 지정된 셀의 목록에 복제합니다.
 |[`summarize buildschema(`column`)`](#buildschema) |열 내용에서 형식 스키마를 유추
-|[`summarize makelist(`column`)`](#makelist)| 행 그룹을 평면화하고 열의 값을 배열에 넣습니다.
+|[`summarize makelist(`column`)` ](#makelist)| 행 그룹을 평면화하고 열의 값을 배열에 넣습니다.
 |[`summarize makeset(`column`)`](#makeset) | 행 그룹을 평면화하고 열의 값을 중복 없이 배열에 넣습니다.
 
 ### let 절의 동적 개체
@@ -2387,7 +2422,7 @@ T
 
 **인수**
 
-* *start:* 결과 배열의 첫 번째 요소의 값입니다. 
+* *start:* 결과 배열의 첫 번째 요소의 값입니다.
 * *stop:* 결과 배열의 마지막 요소의 값 또는 결과 배열 및 *start*부터 *step*의 정수 배 내에서 마지막 요소보다 더 큰 가장 작은 값입니다.
 * *step:* 배열의 연속된 두 요소 사이의 차입니다.
 
@@ -2458,4 +2493,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

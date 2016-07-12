@@ -19,9 +19,9 @@
 
 # MariaDB(MySQL) 클러스터 - Azure 자습서
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-> [AZURE.NOTE]  Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/ko-KR/marketplace/partners/mariadb/cluster-maxscale/에서 새 기능을 사용해야 합니다.
+> [AZURE.NOTE]  Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/에서 새 기능을 사용해야 합니다.
 
 Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
@@ -374,4 +374,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: virtual-machines-linux-mysql-cluster.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

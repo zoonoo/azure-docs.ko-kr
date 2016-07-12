@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
@@ -23,7 +23,7 @@
 
 다음 내용을 배웁니다.
 
-* [Azure 포털](https://portal.azure.com)을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure 포털][management-portal]을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
 * 작성기 확장을 사용하여 `git push`마다 작성기 태스크를 자동화하는 방법
 
@@ -35,8 +35,8 @@
 
 이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
 
-
-##<a id="create-web-site-and-set-up-git"></a>웹앱 만들기 및 Git 게시 설정
+<a id="create-web-site-and-set-up-git"></a>
+## Azure 웹 앱 만들기 및 Git 게시 설정
 
 웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
@@ -213,8 +213,8 @@
 
 앱을 로컬에서 테스트한 후 Git를 사용하여 웹 앱에 게시할 수 있습니다. 로컬 Git 리포지토리를 초기화하고 응용 프로그램을 게시하겠습니다.
 
-> [AZURE.NOTE]
-이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
+
+> [AZURE.NOTE]이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
 
 1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 Azure 포털의 웹앱 속성으로 이동합니다.
 
@@ -257,45 +257,47 @@
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-<a name="composer">
+<a name="composer"></a>
 ## 작성기 확장으로 작성기 자동화 사용
 
 앱 서비스의 git 배포 프로세스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)의 PHP 웹앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
+1. [Azure 포털][management-portal]의 PHP 웹앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+    ![작성기 확장 설정][composer-extension-settings]
 
 2. **추가**를 클릭한 다음 **작성기**를 클릭합니다.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    ![작성기 확장 추가][composer-extension-add]
     
 3. **확인**을 클릭하여 약관을 수락합니다. **확인**을 다시 클릭하여 확장을 추가합니다.
 
-    **설치된 확장** 블레이드에 이제 작성기 확장이 표시됩니다. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    **설치된 확장** 블레이드에 이제 작성기 확장이 표시됩니다. ![작성기 확장 보기][composer-extension-view]
     
 4. 이제 `git add`, `git commit` 및 `git push`을 이전 섹션처럼 수행합니다. 이제 작성기가 composer.json에 정의된 종속성을 설치하고 있다고 표시됩니다.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+    ![작성기 확장 성공][composer-extension-success]
 
 ## 다음 단계
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
+<!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
-
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
+[management-portal]: https://portal.azure.com
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+
+<!-- IMG List -->
+
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
 [custom-create]: ./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png
-[website-details]: ./media/web-sites-php-mysql-deploy-use-git/website_details.jpg
 [new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/create_db.png
 [go-to-webapp]: ./media/web-sites-php-mysql-deploy-use-git/select_webapp.png
 [setup-git-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png
@@ -311,10 +313,10 @@
 [git-instructions]: ./media/web-sites-php-mysql-deploy-use-git/git-instructions.png
 [git-change-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
 [git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-[deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
-[connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
-[management-portal]: https://portal.azure.com
-[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
- 
 
-<!---HONumber=AcomDC_0504_2016-->
+[composer-extension-settings]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png
+[composer-extension-add]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png
+[composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
+[composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
+
+<!---HONumber=AcomDC_0629_2016-->

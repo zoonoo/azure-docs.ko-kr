@@ -17,7 +17,8 @@ SSMS를 사용하여 기존 데이터베이스에서 새 데이터베이스 사�
 3. 쿼리 창에서 TRANSACT-SQL 문을 편집 및 사용하여 사용자 데이터베이스에 포함된 사용자를 만듭니다.
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
      ![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,6 +14,8 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 컴퓨터**를 선택
 
 3. DNS 레이블 이름을 입력합니다. 이 이름은 IP 주소로 직접 연결하는 대신 이름으로 SQL Server VM에 연결하는 데 사용할 수 있는 A 레코드입니다.
 
+4. **저장** 단추를 클릭합니다.
+
 	![dns 레이블](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### 다른 컴퓨터에서 데이터베이스 엔진에 연결
@@ -31,3 +33,5 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 컴퓨터**를 선택
 7. **Connect**를 클릭합니다.
 
 	![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Azure 응용 프로그램에서 Node.js 버전 지정
@@ -22,7 +22,7 @@ Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 
 
 ##기본 버전
 
-Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다. 별도로 지정되지 않은 경우 사용 가능한 최신 버전이 사용됩니다.
+Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다. 별도로 지정하지 않는 한, `WEBSITE_NODE_DEFAULT_VERSION` 환경 변수에 지정된 기본 버전이 사용됩니다. 기본값을 재정의하려면, 이 문서의 다음 섹션에 나오는 단계를 수행합니다.
 
 > [AZURE.NOTE] Azure 클라우드 서비스(웹 또는 작업자 역할)에서 응용 프로그램을 호스트하며 응용 프로그램을 처음 배포하는 것이면 Azure는 Azure에서 사용 가능한 기본 버전 중 하나와 일치할 경우 개발 환경에 설치한 것과 동일한 버전의 Node.js를 사용하려고 합니다.
 
@@ -102,4 +102,4 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

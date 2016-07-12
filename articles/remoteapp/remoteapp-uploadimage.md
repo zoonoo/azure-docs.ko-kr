@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="06/12/2016"
     ms.author="ericor" />
 
 
@@ -49,6 +49,6 @@
 
 - Azure PowerShell이 아닌 Windows PowerShell을 사용해야 합니다. 업로드 프로세스 중 특정 모듈이 필요하기 때문에 Azure PowerShell 모듈을 설치해야 합니다.
 - 스크립트를 변경하지 않아야 하며, 유효성 검사는 사용자 편의를 위한 것입니다.
-- 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.  
+- 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

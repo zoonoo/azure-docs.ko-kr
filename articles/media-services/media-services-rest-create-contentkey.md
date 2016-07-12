@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -35,11 +35,11 @@
 
 다음은 암호화하려는 자산과 연결할 콘텐츠 키를 생성하기 위한 일반적인 단계입니다.
 
-1. 16바이트 AES 키(일반 및 봉투 암호화의 경우) 또는 32 바이트 AES 키(저장소 암호화의 경우)를 임의로 생성합니다. 
+1. 16바이트 AES 키(일반 및 봉투 암호화의 경우) 또는 32 바이트 AES 키(저장소 암호화의 경우)를 임의로 생성합니다.
 
-	이는 자산에 대한 콘텐츠 키로 암호화하는 동안 해당 자산과 연결된 모든 파일이 동일한 콘텐츠 키를 사용해야 한다는 뜻입니다. 
+	이는 자산에 대한 콘텐츠 키로 암호화하는 동안 해당 자산과 연결된 모든 파일이 동일한 콘텐츠 키를 사용해야 한다는 뜻입니다.
 2.	[GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) 및 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 메서드를 호출하여 콘텐츠 키를 암호화하는 데 사용해야 하는 올바른 X.509 인증서를 가져옵니다.
-3.	X.509 인증서의 공개 키로 콘텐츠 키를 암호화합니다. 
+3.	X.509 인증서의 공개 키로 콘텐츠 키를 암호화합니다.
 
 	Media Services.NET SDK는 암호화 시 OAEP가 포함된 RSA를 사용합니다. [EncryptSymmetricKeyData 함수](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)에서 예를 확인할 수 있습니다.
 4.	키 식별자 및 콘텐츠 키를 사용하여 계산된 체크섬 값(PlayReady AES 키 체크섬 알고리즘에 기반)을 만듭니다. 자세한 내용은 [여기](http://www.microsoft.com/playready/documents/)에 있는 PlayReady 헤더 개체 문서의 "PlayReady AES 키 체크섬 알고리즘" 섹션을 참조하세요.
@@ -262,4 +262,4 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

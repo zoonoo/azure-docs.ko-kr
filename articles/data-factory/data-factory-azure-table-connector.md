@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure 테이블 간 데이터 이동
@@ -29,8 +29,8 @@
 
 1.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
 2.	[AzureTable](#azure-table-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
-3.	[AzureTableSource](#azure-table-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+3.	[AzureTableSource](#azure-table-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 매시간 Azure 테이블의 기본 파티션에 속하는 데이터를 blob로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -190,8 +190,8 @@ Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서�
 
 1.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
 3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4.	[AzureTable](#azure-table-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
-4.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [AzureTableSink](#azure-table-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
+4.	[AzureTable](#azure-table-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [AzureTableSink](#azure-table-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 
 샘플은 Azure blob에서 Azure 테이블 데이터베이스의 테이블로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
@@ -360,7 +360,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| tableName | 연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. | 예
+| tableName | 연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. | 예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
 ### Data Factory에서의 스키마
 Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
@@ -380,7 +380,7 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | Azure 테이블 쿼리 문자열. 아래 예제를 참조하세요. | 아니요
+azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | Azure 테이블 쿼리 문자열. 아래 예제를 참조하세요. | 아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다.  
 azureTableSourceIgnoreTableNotFound | 존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. | TRUE<br/>FALSE | 아니요 |
 
 ### azureTableSourceQuery 예제
@@ -403,8 +403,8 @@ azureTableDefaultPartitionKeyValue | 싱크에서 사용할 수 있는 기본 �
 azureTablePartitionKeyName | 사용자 지정 열 이름으로, 해당 열 값이 파티션 키로 사용됩니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. | 열 이름 | 아니요 |
 azureTableRowKeyName | 사용자 지정 열 이름으로, 해당 열 값이 행 키로 사용됩니다. 지정하지 않으면 각 행에 GUID를 사용합니다. | 열 이름 | 아니요  
 azureTableInsertType | Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. | 병합(기본값)<br/>바꾸기 | 아니요 
-writeBatchSize | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | 1에서 100 사이의 정수(단위 = 행 수) | 아니요(기본값 = 100) 
-writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | (단위 = timespan)샘플: “00:20:00” (20분) | No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정)
+writeBatchSize | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | Integer | 아니요(기본값: 10000) 
+writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | timespan<br/><br/>예: "00:20:00"(20분) | No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정)
 
 ### azureTablePartitionKeyName
 대상 열을 azureTablePartitionKeyName으로 사용할 수 있기 전에 JSON 속성 변환기를 사용하여 원본 열을 대상 열에 매핑해야 합니다.
@@ -529,4 +529,4 @@ lastlogindate | Edm.DateTime
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

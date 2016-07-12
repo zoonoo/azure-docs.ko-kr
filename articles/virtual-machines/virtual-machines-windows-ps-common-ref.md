@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Vm에 대한 공통 PowerShell 명령 | Microsoft Azure"
-   description="Microsoft Azure에서 Vm 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령"
+   description="Windows Azure에서 Vm 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="davidmu1" 
@@ -31,8 +31,8 @@ VM 구성 만들기 | $vm = [New-AzureRmVMConfig](https://msdn.microsoft.com/lib
 구성 설정 추가 | $vm = [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) -VM $vm -Windows -ComputerName "computer\_name" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>[자격 증명](https://technet.microsoft.com/library/hh849815.aspx)을 포함한 운영 체제 설정은 New-AzureRmVMConfig를 사용하여 이전에 만든 구성 개체에 추가됩니다.
 네트워크 인터페이스 추가 | $vm = [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) -VM $vm -Id $nic.Id<BR></BR><BR></BR>VM에는 가상 네트워크에서 통신할 [네트워크 인터페이스](virtual-machines-windows-ps-create.md)가 있어야 합니다. 또한 기존 네트워크 인터페이스 개체를 검색하는 데 [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx)를 사용할 수도 있습니다.
 플랫폼 이미지 지정 | $vm = [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) -VM $vm -PublisherName "publisher\_name" -Offer "publisher\_offer" -Skus "product\_sku" -Version "latest"<BR></BR><BR></BR>[이미지 정보 ](virtual-machines-windows-cli-ps-findimage.md)는 New-AzureRmVMConfig 사용하여 이전에 만든 구성 개체에 추가됩니다. 이 명령에서 반환되는 개체는 플랫폼 이미지를 사용하도록 OS 디스크를 설정할 때에만 사용됩니다.
-플랫폼 이미지를 사용하도록 OS 디스크 설정 | $vm = [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) -VM $vm -Name "disk\_name" -VhdUri "http://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption fromImage<BR></BR><BR></BR>운영 체제 디스크의 이름과 [저장소](../storage/storage-powershell-guide-full.md)에서의 위치는 이전에 만든 구성 개체에 추가됩니다.
-일반화된 이미지를 사용하도록 OS 디스크 설정 | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "disk\_name" -SourceImageUri "https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption fromImage -Windows<BR></BR><BR></BR>운영 체제 디스크의 이름, 원본 이미지의 위치 및 [저장소](../storage/storage-powershell-guide-full.md)에서 디스크가 배치된 위치는 이전에 만든 구성 개체에 추가됩니다.
+플랫폼 이미지를 사용하도록 OS 디스크 설정 | $vm = [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) -VM $vm -Name "disk\_name" -VhdUri "http://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption FromImage<BR></BR><BR></BR>운영 체제 디스크의 이름과 [저장소](../storage/storage-powershell-guide-full.md)에서의 위치는 이전에 만든 구성 개체에 추가됩니다.
+일반화된 이미지를 사용하도록 OS 디스크 설정 | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "disk\_name" -SourceImageUri "https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption FromImage -Windows<BR></BR><BR></BR>운영 체제 디스크의 이름, 원본 이미지의 위치 및 [저장소](../storage/storage-powershell-guide-full.md)에서 디스크가 배치된 위치는 이전에 만든 구성 개체에 추가됩니다.
 특수 이미지를 사용하도록 OS 디스크 설정 | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "name\_of\_disk" -VhdUri "http://mystore1.blob.core.windows.net/vhds/" -CreateOption Attach -Windows
 VM 만들기 | [New-AzureRmVM]() -ResourceGroupName "resource\_group\_name" -Location "location\_name" -VM $vm<BR></BR><BR></BR>모든 리소스는 [리소스 그룹](../powershell-azure-resource-manager.md)에서 만듭니다. VM을 리소스 그룹과 동일한 [위치](https://msdn.microsoft.com/library/azure/dn495177.aspx)에 캐시를 만듭니다. 이 명령을 실행하기 전에, New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface, and Set-AzureRmVMOSDisk을 실행합니다.
 구독에서 Vm 나열| [Get AzureRmVM](https://msdn.microsoft.com/library/mt603718.aspx)
@@ -54,4 +54,4 @@ VM 확장 제거 | [Remove-AzureRmVMExtension](https://msdn.microsoft.com/librar
 
 - [리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md)에서 가상 컴퓨터 만들기 기본 단계를 참조합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

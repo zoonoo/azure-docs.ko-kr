@@ -19,7 +19,7 @@
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. [리소스 관리자 배포 모델을 사용하여 데이터 디스크를 연결](virtual-machines-linux-add-disk.md)할 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. [리소스 관리자 배포 모델을 사용하여 데이터 디스크 연결](virtual-machines-linux-add-disk.md) 방법을 참조하세요.
 
 빈 디스크와 데이터가 포함된 디스크를 모두 Azure VM에 연결할 수 있습니다. 두 유형의 디스크 모두 Azure 저장소 계정에 상주하는 .vhd 파일입니다. Linux 컴퓨터에 디스크를 추가하는 것처럼 디스크를 연결한 후에는 사용할 준비를 하기 위해 디스크를 초기화하고 포맷해야 합니다. 이 문서에서는 새 디스크를 초기화하고 포맷하는 방법뿐만 아니라 빈 디스크와 이미 데이터가 있는 디스크를 모두 VM에 연결하는 방법에 대해 자세히 설명합니다.
 
@@ -173,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

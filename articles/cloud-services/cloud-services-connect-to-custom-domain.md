@@ -1,6 +1,6 @@
 <properties
   pageTitle="클라우드 서비스를 사용자 지정 도메인 컨트롤러에 연결 | Microsoft Azure"
-  description="Powershell 및 AD 도메인 확장을 사용하여 사용자 지정 AD 도메인에 웹/작업자 역할을 연결하는 방법에 알아봅니다."
+  description="PowerShell 및 AD 도메인 확장을 사용하여 사용자 지정 AD 도메인에 웹/작업자 역할을 연결하는 방법을 알아봅니다."
   services="cloud-services"
   documentationCenter=""
   authors="Thraka"
@@ -22,7 +22,7 @@
 
 시작하기 전에 다음 몇 가지를 유의하십시오.
 
-1.	이 자습서에서는 Powershell을 사용하므로, Azure Powershell이 설치되어 있고 사용할 수 있는지 확인하십시오. Azure Powershell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요
+1.	이 자습서에서는 PowerShell을 사용하므로, Azure PowerShell이 설치되어 있고 사용할 수 있는지 확인하세요. Azure PowerShell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 2.	사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNet에 있어야 합니다.
 
@@ -30,7 +30,7 @@
 
 ## 가상 네트워크 만들기
 
-Azure 클래식 포털 또는 Powershell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 Powershell을 사용합니다. Azure 클래식 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
+Azure 클래식 포털 또는 PowerShell을 사용하여 Azure에서 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 PowerShell을 사용합니다. Azure 클래식 포털을 사용하여 가상 네트워크를 만들려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
 ```powershell
 #Create Virtual Network
@@ -56,14 +56,14 @@ $vnetStr =
 "@;
 
 $vnetConfigPath = "<path-to-vnet-config>"
-Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
+Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## 가상 컴퓨터 만들기
 
 가상 네트워크 설정을 완료한 후에 AD 도메인 컨트롤러를 만들어야 합니다. 이 자습서는 Azure 가상 컴퓨터에서 AD 도메인 컨트롤러를 설정합니다.
 
-이 작업을 수행하려면 아래 명령을 사용하여 Powershell을 통해 가상 컴퓨터를 만듭니다.
+이 작업을 수행하려면 아래 명령을 사용하여 PowerShell을 통해 가상 컴퓨터를 만듭니다.
 
 ```powershell
 # Initialize variables
@@ -78,13 +78,13 @@ $affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
-New-AzureQuickVM -Windows -ServiceName $vmsvc1 -name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
+New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
 ## 가상 컴퓨터를 도메인 컨트롤러로 승격
 가상 컴퓨터를 AD 도메인 컨트롤러로 구성하려면 VM에 로그인하여 구성해야 합니다.
 
-VM에 로그인하려면 Powershell을 통해 RDP 파일을 가져올 수 있으며 아래 명령을 사용합니다.
+VM에 로그인하려면 PowerShell을 통해 RDP 파일을 가져올 수 있으며 아래 명령을 사용합니다.
 
 ```powershell
 # Get RDP file
@@ -129,7 +129,7 @@ VM에 로그인한 후 [고객 AD 도메인 컨트롤러 설치 방법에 대한
 
 ## 웹/작업자 역할을 도메인에 연결
 
-Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확장명을 사용하여 사용자의 역할 인스턴스가 사용자 지정 AD 도메인에 연결합니다. AD 도메인 확장명을 기존 클라우드 서비스 배포에 추가하고 사용자 지정 도메인에 가입하려면 Powershell에서 다음 명령을 실행합니다.
+Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확장명을 사용하여 사용자의 역할 인스턴스가 사용자 지정 AD 도메인에 연결합니다. AD 도메인 확장명을 기존 클라우드 서비스 배포에 추가하고 사용자 지정 도메인에 가입하려면 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 # Initialize domain variables
@@ -147,7 +147,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 지금까지 전반적인 내용을 알아보았습니다.
 
-클라우드 서비스가 이제 사용자 지정 도메인 컨트롤러에 가입되어 있어야 합니다. AD 도메인 확장을 구성하는 방법에 대해 사용할 수 있는 다른 옵션에 대한 자세한 내용을 보려면, 아래와 같이 PS 도움말을 사용합니다.
+클라우드 서비스가 이제 사용자 지정 도메인 컨트롤러에 가입되어 있어야 합니다. AD 도메인 확장을 구성하는 방법에 대해 사용할 수 있는 다른 옵션에 대한 자세한 내용을 보려면, 아래와 같이 PowerShell 도움말을 사용합니다.
 
 ```powershell
 help Set-AzureServiceADDomainExtension
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 가상 컴퓨터를 도메인 컨트롤러로 승격하는 확장명이 유용한 경우, 여러분의 피드백을 주세요. 유용하다고 생각하시는 경우, 저희들이 알 수 있도록 의견 섹션에 의견을 남겨 주세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

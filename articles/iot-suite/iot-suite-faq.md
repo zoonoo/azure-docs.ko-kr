@@ -25,16 +25,20 @@
 
 - [Azure 포털][lnk-azure-portal]에서 리소스 그룹을 삭제하면 해당 리소스 그룹에 포함된 리소스만 삭제됩니다. 따라서 [Azure 클래식 포털][lnk-classic-portal]의 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램도 삭제해야 합니다.
 
+### 하나의 구독에 프로비전할 수 있는 IoT Hub 인스턴스는 몇 개인가요? 
+
+10개입니다. [Azure 지원 티켓][link-azuresupportticket]을 만들어서 이 한도를 높일 수 있지만, 기본적으로 [Azure 구독 제한][link-azuresublimits]에서 정한 대로 구독당 10개의 IoT Hub를 프로비전할 수 있습니다. 결과적으로 미리 구성된 모든 솔루션이 새 IoT Hub를 프로비전하기 때문에 지정된 구독에서 최대 10개의 미리 구성된 솔루션을 프로비전할 수 있습니다.
+
 ### 하나의 구독에 프로비전할 수 있는 DocumentDB 인스턴스는 몇 개인가요?
 
-50개입니다. [Azure 지원 티켓][link-azuresupportticket]을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독 당 DocumentDB 인스턴스를 50개만 프로비전할 수 있습니다. 결과적으로, 지정된 구독에 원격 모니터링 미리 구성된 솔루션을 5개까지만 프로비전할 수 있습니다.
+50개입니다. [Azure 지원 티켓][link-azuresupportticket]을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독 당 DocumentDB 인스턴스를 50개만 프로비전할 수 있습니다.
 
 ### 하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 
 2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜젝션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
 
 ### 정적 맵이 있는 원격 모니터링 솔루션 배포에서는 대화형 Bing 맵을 어떻게 추가하나요? 
-1. [Azure 포털][lnk-azure-portal]에서 엔터프라이즈용 Bing 맵 API QueryKey 키 가져오기:
+1. [Azure 포털][lnk-azure-portal]에서 엔터프라이즈용 Bing 맵 API QueryKey를 가져옵니다.
  1. [Azure 포털][lnk-azure-portal]에서 엔터프라이즈용 Bing 맵 API가 있는 리소스 그룹으로 이동합니다.
  2. 모든 설정을 클릭한 다음 키 관리를 클릭합니다.
  3. MasterKey와 QueryKey 등, 두 개의 키가 보일 것입니다. QueryKey에 대한 값을 복사합니다.
@@ -59,6 +63,7 @@
 Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk-delete-aad-tennant]을 참조하세요.
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[link-azuresublimits]: https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -67,4 +72,4 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

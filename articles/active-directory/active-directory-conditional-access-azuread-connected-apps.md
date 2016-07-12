@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SaaS 앱에 대한 Azure 조건부 액세스 미리 보기| Microsoft Azure"
-	description="Azure AD의 조건부 액세스를 사용하면 응용 프로그램별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다."
+	description="Azure AD의 조건부 액세스를 사용하면 응용 프로그램별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Azure Conditional Access Preview for SaaS Apps
+# Azure AD 조건부 액세스 시작하기  
 
-SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공됩니다. 미리 보기에서는 응용 프로그램별 다단계 인증 액세스(MFA) 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다.
+SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액세스는 공개 미리 보기로 제공됩니다. 미리 보기를 사용하면 그룹, 위치 및 응용 프로그램 민감도를 기반으로 조건부 액세스를 구성할 수 있습니다.
 
-응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다. 이러한 기능은 Azure Active Directory Premium 라이선스를 구입한 고객에게 제공됩니다.
+응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 multi-factor authentication 규칙을 적용할 수 있습니다. 응용 프로그램 민감도를 기반으로 하는 조건부 액세스를 통해 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 제공하도록 응용 프로그램 마다 Multi-Factor Authentication (MFA) 액세스 규칙을 설정할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
+
+이러한 기능은 Azure Active Directory Premium 라이선스를 구입한 고객에게 제공됩니다.
 
 ## 시나리오 필수 조건
 * Azure Active Directory Premium에 대한 라이선스
@@ -66,7 +68,7 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 * **다단계 인증 요구**: 이 옵션을 사용하면 액세스 규칙이 적용되는 사용자가 정책이 적용되는 응용 프로그램에 액세스하기 전에 다단계 인증을 완료해야 합니다.
 
-* **회사에 있지 않을 때 다단계 인증 요구**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 다단계 인증을 수행하지 않아도 됩니다. 신뢰하는 IP 주소 범위를 다단계 인증 설정 페이지에서 구성하거나, 디렉터리 구성 탭에서 공용 IP 주소 범위를 구성할 수 있습니다.
+* **회사에 있지 않을 때 Multi-Factor Authentication 요구**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 Multi-Factor Authentication을 수행하지 않아도 됩니다. 신뢰하는 IP 주소 범위를 다단계 인증 설정 페이지에서 구성하거나, 디렉터리 구성 탭에서 공용 IP 주소 범위를 구성할 수 있습니다.
 
 * **회사에 있지 않을 때 액세스 차단**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 차단됩니다. 신뢰되는 IP 주소 범위는 Multi-Factor Authentication 설정 페이지에서 구성할 수 있습니다.
 
@@ -92,4 +94,4 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 - [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/02/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -38,7 +38,7 @@ Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 �
 8월에 발생한 큰 변화 중 주목해야 할 부분은 다음과 같습니다.
 
 - 이제 클라우드 컬렉션으로 Azure VNET을 사용할 수 있습니다. 새로운 단계에 대한 [클라우드 만들기 지침](remoteapp-create-cloud-deployment.md)을 확인하세요.
-- Windows RemoteApp 클라이언트의 경우 앱을 **시작** 메뉴에 추가할 수 있게 되었습니다. 앱이 응용 프로그램 목록에 표시되고 해당 앱을 Windows의 **시작 **메뉴에 고정할 수 있습니다.
+- Windows RemoteApp 클라이언트의 경우 앱을 **시작** 메뉴에 추가할 수 있게 되었습니다. 응용 프로그램 목록에 앱이표시되고 해당 앱을 Windows의 **시작** 메뉴에 고정할 수 있습니다.
 - 새 이미지를 Azure VM 갤러리(Microsoft Office 365 ProPlus가 있는 Windows 서버 원격 데스크톱 세션 호스트)에 추가했습니다.
 - 모달 창을 사용하는 앱이 중단되지 않도록 Mac 클라이언트를 수정했습니다.
 - Azure RemoteApp으로 [Office 365 ProPlus 구독](remoteapp-officesubscription.md)을 사용하는 방법에 대해 문서화했습니다.
@@ -87,4 +87,4 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 ### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -23,14 +23,13 @@ Docker 및[Compose](http://github.com/docker/compose)를 사용하여 Azure의 L
 
 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL 데이터베이스로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만, Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql)하는 방법을 알아봅니다.
 
 Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이트보드](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)를 참조하세요.
 
 ## 1단계: Docker 호스트로 Linux VM 설정
 
-다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지 또는 Resource Manager 템플릿을 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어, [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)을 사용하여. Azure Docker VM 확장으로 Ubuntu VM을 만드는 빠른 절차는 [Docker VM 확장을 사용하여 환경 배포](virtual-machines-linux-dockerextension.md)를 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정되고 Compose는 이미 설치되어 있습니다. 해당 문서의 예제에서는 리소스 관리자 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli-install.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여줍니다.
+다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지 또는 Resource Manager 템플릿을 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어, [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)을 사용하여 Azure Docker VM 확장으로 Ubuntu VM을 만드는 빠른 절차는 [Docker VM 확장을 사용하여 환경 배포](virtual-machines-linux-dockerextension.md)를 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정되고 Compose는 이미 설치되어 있습니다. 해당 문서의 예제에서는 Resource Manager 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli-install.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여 줍니다.
 
 ## 2 단계: Compose 설치 여부 확인
 
@@ -98,7 +97,7 @@ wordpress_wordpr   /entrypoint.sh     Up                 0.0.0.0:80->80
 ess_1              apache2-for ...                       /tcp
 ```
 
-이제는 포트 80에서 VM에서 직접 WordPress에 연결할 수 있습니다. Resource Manager 템플릿을 사용하여 VM을 만든 경우 `http://<dnsname>.<region>.cloudapp.azure.com`에 연결을 시도하거나, 또는 클래식 배포 모델을 사용 하여 VM을 만든 경우 `http://<cloudservicename>.cloudapp.net`에 연결을 시도합니다. 이제 WordPress 시작 화면이 표시되면 이 화면에서 설치를 완료하고 응용 프로그램을 시작할 수 있습니다.
+이제는 포트 80에서 VM에서 직접 WordPress에 연결할 수 있습니다. Resource Manager 템플릿을 사용하여 VM을 만든 경우 `http://<dnsname>.<region>.cloudapp.azure.com`에 연결을 시도하거나, 또는 클래식 배포 모델을 사용하여 VM을 만든 경우 `http://<cloudservicename>.cloudapp.net`에 연결을 시도합니다. 이제 WordPress 시작 화면이 표시되면 이 화면에서 설치를 완료하고 응용 프로그램을 시작할 수 있습니다.
 
 ![WordPress 시작 화면][wordpress_start]
 
@@ -114,4 +113,4 @@ ess_1              apache2-for ...                       /tcp
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

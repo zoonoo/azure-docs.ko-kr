@@ -19,7 +19,7 @@
 
 # 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터는 항상 클라우드 서비스에 배치됩니다. 클라우드 컴퓨터는 컨테이너 역할을 하며 인터넷을 통해 가상 컴퓨터에 액세스할 수 있도록 고유한 공용 DNS 이름, 공용 IP 주소 및 끝점 집합을 제공합니다. 클라우드 서비스는 가상 네트워크에 있을 수 있지만 요구 사항은 아닙니다. 또한 [Linux 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결](virtual-machines-linux-classic-connect-vms.md)할 수도 있습니다.
 
@@ -33,4 +33,4 @@
 
 가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](virtual-machines-windows-classic-attach-disk.md)하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

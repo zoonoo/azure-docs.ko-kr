@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/23/2016"
 	ms.author="prkhad"/>
 
 
@@ -39,7 +39,7 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 **프리미엄 페이지 Blob**: 프리미엄 저장소는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다. 현재 프리미엄 저장소는 Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables 또는 Azure Queues를 지원하지 않습니다. 프리미엄 저장소 계정에 있는 다른 모든 개체는 페이지 Blob이 되고 지원되는 프로비전 크기 중 하나로 맞춥니다. 따라서 프리미엄 저장소 계정은 작은 Blob을 저장하기 위한 저장소 계정이 아닙니다.
 
-**프리미엄 저장소 계정**: 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정을 만들어야 합니다. [Azure 포털](https://portal.azure.com)을 사용하려는 경우 "프리미엄" 및 "LRS(로컬 중복 저장소)"를 복제 옵션으로 지정하여 프리미엄 저장소 계정을 만들 수 있습니다. 또한 [저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure 저장소 리소스 공급자 REST API 참조](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상을 사용해 유형을 “Premium\_LRS”로 지정하여 프리미엄 저장소 계정을 만들 수도 있습니다. [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)에 대한 다음 섹션에서 프리미엄 저장소 계정 제한에 대해 자세히 알아보세요.
+**프리미엄 저장소 계정**: 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정을 만들어야 합니다. [Azure 포털](https://portal.azure.com)을 사용하려는 경우 "프리미엄" 및 "LRS(로컬 중복 저장소)"를 복제 옵션으로 지정하여 프리미엄 저장소 계정을 만들 수 있습니다. 또한 [저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure 저장소 리소스 공급자 REST API 참조](http://msdn.microsoft.com/library/azure/mt163683.aspx)(Resource Manager 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상을 사용해 유형을 “Premium\_LRS”로 지정하여 프리미엄 저장소 계정을 만들 수도 있습니다. [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)에 대한 다음 섹션에서 프리미엄 저장소 계정 제한에 대해 자세히 알아보세요.
 
 **프리미엄 로컬 중복 저장소**: 프리미엄 저장소 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob)를 참조하세요.
 
@@ -79,13 +79,13 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
-프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
+프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-when-using-premium-storage) 섹션의 테이블을 참조하세요.
 
 ## 프리미엄 저장소 확장성 및 성능 목표
 
 이 섹션에서는 프리미엄 저장소 사용 시 고려해야 하는 모든 확장성 및 성능 목표에 설명합니다.
 
-### 프리미엄 저장소 계정 제한
+### 프리미엄 저장소 계정 한도
 
 프리미엄 저장소 계정은 다음과 같은 확장성 목표가 있습니다.
 
@@ -163,24 +163,24 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Max Throughput per P10 disk</strong></td>
-	<td><strong>Non-cache Reads from disk</strong></td>
-	<td><strong>Non-cache Writes to disk</strong></td>
+<td><strong>Max Throughput per P10 disk</strong></td>
+<td><strong>Non-cache Reads from disk</strong></td>
+<td><strong>Non-cache Writes to disk</strong></td>
 </tr>
 <tr>
-	<td>100 MB per sec</td>
-	<td>100 MB per sec</td>
-	<td>0</td>
+<td>100 MB per sec</td>
+<td>100 MB per sec</td>
+<td>0</td>
 </tr>
 <tr>
-	<td>100 MB per sec</td>
-	<td>0</td>
-	<td>100 MB per sec</td>
+<td>100 MB per sec</td>
+<td>0</td>
+<td>100 MB per sec</td>
 </tr>
 <tr>
-	<td>초당 100MB </td>
-	<td>60 MB per second </td>
-	<td>초당 40MB </td>
+<td>초당 100MB </td>
+<td>60 MB per second </td>
+<td>초당 40MB </td>
 </tr>
 </tbody>
 </table>
@@ -262,12 +262,12 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 	<td rowspan="2"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
 	<td>3.2.0-75.110+</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-KR-30GB</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
 </tr>
 <tr>
 	<td>14.04+</td>
 	<td>3.13.0-44.73+</td>
-	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-KR-30GB</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
 </tr>
 <tr>
 	<td><strong>Debian</strong></td>
@@ -351,7 +351,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 - 프리미엄 저장소 스냅숏
 - 아웃바운드 데이터 전송
 
-**프리미엄 저장소 디스크/Blob 크기**: 프리미엄 저장소 디스크/Blob에 대한 청구는 프로비전된 디스크/Blob 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션에 지정된 표에 따라 프로비전된 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 프리미엄 저장소 계정에 저장된 모든 개체는 지원되는 프로비전 크기 중 하나로 매핑하며 이에 따라 요금이 청구됩니다. 따라서 작은 Blob 저장에는 프리미엄 저장소 계정을 사용하지 마세요. 프로비전된 디스크/Blob에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
+**프리미엄 저장소 디스크/Blob 크기**: 프리미엄 저장소 디스크/Blob에 대한 청구는 프로비전된 디스크/Blob 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-when-using-premium-storage) 섹션에 지정된 표에 따라 프로비전된 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 프리미엄 저장소 계정에 저장된 모든 개체는 지원되는 프로비전 크기 중 하나로 매핑하며 이에 따라 요금이 청구됩니다. 따라서 작은 Blob 저장에는 프리미엄 저장소 계정을 사용하지 마세요. 프로비전된 디스크/Blob에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
 
 **프리미엄 저장소 스냅숏**: 프리미엄 저장소의 스냅숏은 스냅숏이 사용한 추가 용량에 대해 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](http://msdn.microsoft.com/library/azure/hh488361.aspx)를 참조하세요.
 
@@ -388,7 +388,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 	>  
 	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
 
-4. 사용할 배포 모델을 **리소스 관리자** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
 5. 저장소 계정의 성능 계층을 **프리미엄**으로 지정합니다.
 
@@ -480,7 +480,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 #### II. Azure CLI를 통해 DS 시리즈 가상 컴퓨터 만들기
 
 	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB" -u "myusername" -p "passwd@123"
+		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
 가상 컴퓨터에 대한 정보 표시
 
@@ -562,4 +562,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

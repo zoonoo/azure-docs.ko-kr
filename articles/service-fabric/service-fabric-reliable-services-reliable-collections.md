@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/14/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -119,10 +119,11 @@
 ## 다음 단계
 
 - [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
 - [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
 - [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
 - [서비스 패브릭 Web API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
 - [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -26,6 +26,8 @@
 
 이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 응용 프로그램을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
+[Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C에 대한 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+
 ## 하위 수준 API
 
 이전 문서에서는 **iothub\_client\_sample\_amqp** 응용 프로그램 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
@@ -278,4 +280,4 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. [다음 문서](iot-hub-device-sdk-c-serializer.md)에서는 **serializer** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

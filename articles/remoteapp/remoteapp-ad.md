@@ -26,14 +26,14 @@ Azure RemoteApp 하이브리드 컬렉션 또는 AD Connect를 사용하여 페�
 
 ### Azure AD 및 Active Directory 연결
 
-Azure AD 테넌트와 온-프레미스 Active Directory 환경을 연결하려면 AD Connect를 사용합니다. [4번 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)만으로 두 개의 디렉터리를 연결할 수 있습니다.
+Azure AD 테넌트와 온-프레미스 Active Directory 환경을 연결하려면 AD Connect를 사용합니다. [4번 클릭](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/)만으로 두 개의 디렉터리를 연결할 수 있습니다.
 
 참고 - 하이브리드 컬렉션에는 디렉터리 동기화가 필요합니다.
 
 ### "@domain.com" 일치를 확인합니다.
 시작하기 전에 온-프레미스 포리스트에 대한 UPN이 Azure AD 도메인의 접미사와 일치하는지 확인합니다.
 
-Azure AD에서 UPN 도메인 접미사를 설정한 후 Azure RemoteApp에 로그인하는 모든 사용자는 “user@<the suffix you set up>”로 로그인하게 됩니다. 또한 사용자가 동일한 user@suffix를 사용하여 온-프레미스 도메인에 로그인할 수 있는지 확인합니다. 특정한 경우에는 온-프레미스 사용자를 위해 다른 도메인 접미사를 지정하는 동안 Azure AD에 하나의 도메인 이름을 설정할 수 있습니다. 이런 경우 사용자는 Azure RemoteApp을 통해 도메인에 가입된 컴퓨터나 리소스에 연결할 수 없습니다.
+Azure AD에서 UPN 도메인 접미사를 설정한 후 Azure RemoteApp에 로그인하는 모든 사용자는 “user@<설정한 접미사>”로 로그인하게 됩니다. 또한 사용자가 동일한 user@suffix를 사용하여 온-프레미스 도메인에 로그인할 수 있는지 확인합니다. 특정한 경우에는 온-프레미스 사용자를 위해 다른 도메인 접미사를 지정하는 동안 Azure AD에 하나의 도메인 이름을 설정할 수 있습니다. 이런 경우 사용자는 Azure RemoteApp을 통해 도메인에 가입된 컴퓨터나 리소스에 연결할 수 없습니다.
 
 예를 들어 AAD에서 UPN 도메인 접미사를 contoso.com으로 설정하고 일부 온-프레미스/AD 사용자를 @contoso.uk로 로그인하도록 구성한다면 해당 사용자는 ARA 컬렉션에 제대로 로그인할 수 없습니다. 로그인을 가능하게 하려면 AAD와 AD의 사용자 UPN이 동일해야 합니다.
 
@@ -45,4 +45,4 @@ Azure AD에서 UPN 도메인 접미사를 설정한 후 Azure RemoteApp에 로�
 
 RemoteApp 컬렉션을 만들 때 이러한 두 개체가 필요하므로 이 단계를 먼저 수행해야 합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

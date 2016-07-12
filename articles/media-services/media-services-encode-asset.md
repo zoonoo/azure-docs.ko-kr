@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/25/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -242,4 +242,4 @@ TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

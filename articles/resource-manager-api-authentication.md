@@ -64,10 +64,10 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 
 Azure Active Directory(AD)를 사용하여 웹앱을 등록하는 작업으로 시작합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 응용 프로그램이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 응용 프로그램에 관한 기본 정보를 저장합니다. 또한 앱 등록은 응용 프로그램이 사용자를 대신하여 Microsoft API에 액세스할 때 필요한 여러 가지 위임된 권한을 기록합니다.
 
-토픽 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md)는 응용 프로그램을 설치하는 데 필요한 모든 단계를 보여 줍니다. 다음과 같은 속성을 가진 응용 프로그램을 만들 때 해당 토픽을 참조하세요.
+[포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md) 토픽은 응용 프로그램을 설치하는 데 필요한 모든 단계를 보여 줍니다. 다음과 같은 속성을 가진 응용 프로그램을 만들 때 해당 토픽을 참조하세요.
 
 - **CloudSense**라는 이름의 웹 응용 프로그램
-- 로그인 URL 및 * ***http://{domain_name_of_your_directory}/{name_of_the_app}** 형식의 앱 ID URI
+- 로그인 URL 및 **http://{domain_name_of_your_directory}/{name_of_the_app}** 형식의 앱 ID URI
 - 응용 프로그램에 서명하기 위한 인증 키
 - **Azure Service Management API**에 대해 위임된 권한 **Azure Service Management 액세스**. **Azure Active Directory**에 대한 기본값 **Single Sign-On 사용 및 사용자 프로필 읽기**를 그대로 둡니다.
 - 다중 테넌트 응용 프로그램
@@ -80,13 +80,13 @@ Azure Active Directory(AD)를 사용하여 웹앱을 등록하는 작업으로 �
 
 ## 사용자를 인증하고 액세스 토큰 가져오기
 
-이제 응용 프로그램 코딩을 시작하는 데 필요한 모든 것을 갖게 되었습니다. 이 토픽은 종단 간 흐름의 각 단계에 대한 REST API 예제 및 각 단계에 유용한 C# 코드에 대한 링크를 제공합니다. 전체 ASP.NET MVC 응용 프로그램 샘플은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
+이제 응용 프로그램 코딩을 시작하는 데 필요한 모든 것을 갖추게 되었습니다. 이 토픽은 종단 간 흐름의 각 단계에 대한 REST API 예제 및 각 단계에 관련된 C# 코드에 대한 링크를 제공합니다. 전체 ASP.NET MVC 응용 프로그램 샘플은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
 
 사용자가 응용 프로그램에 자신의 Azure 구독을 연결하기 위해 결정하는 지점에서 시작합니다.
 
 사용자에게 다음 두 가지를 요구해야 합니다.
 
-1. **디렉터리 도메인 이름**: 사용자의 Azure 구독과 연결된 Azure Active Directory의 도메인 이름입니다. 이 Azure AD에 OAuth 2.0 권한 부여 요청을 전송해야 합니다. 사용자는 Azure 포털로 이동하고 오른쪽 위에서 계정을 선택하여 Azure AD의 도메인 이름을 알아낼 수 있습니다. 사용자에게 다음과 같은 시각적 지침을 제공할 수 있습니다. 
+1. **디렉터리 도메인 이름**: 사용자의 Azure 구독과 연결된 Azure Active Directory의 도메인 이름입니다. 이 Azure AD에 OAuth 2.0 권한 부여 요청을 전송해야 합니다. 사용자는 Azure 포털로 이동하고 오른쪽 위에서 계정을 선택하여 Azure AD의 도메인 이름을 알아낼 수 있습니다. 사용자에게 다음과 같은 시각적 지침을 제공할 수 있습니다.
 
      ![](./media/resource-manager-api-authentication/show-directory.png)
    
@@ -96,13 +96,13 @@ Azure Active Directory(AD)를 사용하여 웹앱을 등록하는 작업으로 �
 
 ### 인증 요청(OAuth 2.0)
 
-Azure AD 권한 부여 끝점에 대한 Open ID Connect/Oauth 2.0 권한 부여 요청을 실행합니다.
+Azure AD 권한 부여 끝점에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
 
 이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [권한 부여 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx) 토픽에서 설명합니다.
 
-다음 예제에서는 Oauth2.0 권한 부여를 요청하는 방법을 보여 줍니다.
+다음 예제에서는 OAuth2.0 권한 부여를 요청하는 방법을 보여 줍니다.
 
     https://login.windows.net/dushyantgill.com/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
@@ -140,21 +140,21 @@ Open ID Connect 응답 예제:
 
 ### id\_token 유효성 검사
 
-응용 프로그램이 사용자를 로그인하기 전에 id\_token의 유효성을 검사해야 합니다. 토큰 유효성 검사는 관련 토픽이며 개발 플랫폼에 표준 JSON 웹 토큰 처리기 라이브러리를 사용하는 것이 좋습니다([.NET Azure AD JWT 처리기 소스 코드](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/System.IdentityModel.Tokens.Jwt/JwtSecurityTokenHandler.cs) 참조). 즉, 응용 프로그램의 보안은 사용자의 책임이므로 id\_token을 올바르게 처리하기 위해 사용하는 라이브러리가 토큰의 다음과 같은 측면에 대한 유효성을 검사해야 확인합니다.
+응용 프로그램이 사용자를 로그인하기 전에 id\_token의 유효성을 검사해야 합니다. 토큰 유효성 검사는 관련 토픽이며 개발 플랫폼에 표준 JSON 웹 토큰 처리기 라이브러리를 사용하는 것이 좋습니다([.NET Azure AD JWT 처리기 소스 코드](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/System.IdentityModel.Tokens.Jwt/JwtSecurityTokenHandler.cs) 참조). 즉, 응용 프로그램의 보안은 사용자의 책임이므로 id\_token을 올바르게 처리하기 위해 사용하는 라이브러리가 토큰의 다음과 같은 측면에 대한 유효성을 검사하도록 확인합니다.
 
 - **토큰의 타이밍**: nbf와 exp 클레임을 검사하여 토큰이 너무 새롭거나 너무 오래되지 않았는지 확인합니다. 시간 오차에 대비하기 위해 약간의 slack(5분)을 유지하는 것이 관례입니다.
 - **발급자**: iss 클레임을 검사하여 토큰의 발급자가 Azure Active Directory인지 확인: https://sts.windows.net/{tenant_id_of_the_directory}
 - **대상 그룹**: aud 클레임을 검사하여 응용 프로그램에 대한 토큰이 만들어졌는지 확인합니다. 값은 응용 프로그램의 클라이언트 ID여야 합니다.
 - **Nonce**: 권한 부여 요청에 보낸 nonce 데이터를 기준으로 nonce 클레임을 검사하여 응답을 응용 프로그램에서 요청했는지 그리고 토큰이 재생되지 않는지 확인합니다.
-- **서명**: 앱은 Azure Active Directory에서 토큰에 서명했는지 확인해야 합니다. Azure AD 서명 키는 자주 순환되므로 앱은 매일 새로 고친 키를 폴링하거나 서명 유효성 검사가 실패한 경우 새로 고친 키를 취소해야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
+- **서명**: 앱은 Azure Active Directory에서 토큰에 서명했는지 확인해야 합니다. Azure AD 서명 키는 자주 순환되므로 앱은 매일 새로 고친 키를 폴링하거나 서명 유효성 검사가 실패한 경우 새로 고친 키를 취소해야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory/active-directory-signing-key-rollover.md)를 참조하세요.
 
-**id\_token**의 유효성 검사를 실행한 후 oid 클레임 값을 변경 불가능하고 재사용 불가능한 사용자 ID로 사용합니다. **unique\_name** 클레임 또는 upn/email 클레임을 사람이 읽을 수 있는 사용자의 표시 이름을 사용합니다. 표시 목적으로 선택적인 given\_name/family\_name 클레임을 사용할 수도 있습니다.
+**id\_token**의 유효성 검사를 실행한 후 oid 클레임 값을 변경 불가능하고 재사용 불가능한 사용자 ID로 사용합니다. **unique\_name** 클레임 또는 upn/email 클레임을 사람이 읽을 수 있는 사용자의 표시 이름으로 사용합니다. 표시 목적으로 선택적인 given\_name/family\_name 클레임을 사용할 수도 있습니다.
 
-### 토큰 요청(Oauth2.0 코드 부여 흐름)
+### 토큰 요청(OAuth2.0 코드 부여 흐름)
 
-이제 응용 프로그램이 Azure AD에서 권한 부여 코드를 수신했으므로 Azure Resource Manager에 대한 토큰을 가져올 차례입니다. Oauth2.0 코드 부여 토큰 요청을 Azure AD 토큰 끝점에 게시:
+이제 응용 프로그램이 Azure AD에서 권한 부여 코드를 수신했으므로 Azure Resource Manager에 대한 토큰을 가져올 차례입니다. OAuth2.0 코드 부여 토큰 요청을 Azure AD 토큰 끝점에 게시:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [권한 부여 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx) 토픽에서 설명합니다.
 
@@ -169,7 +169,7 @@ Open ID Connect 응답 예제:
 
 인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [권한 부여 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs)를 참조하세요.
 
-클라이언트 인증에 대한 자세한 내용은 [Open ID connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조하세요. 다음은 [샘플 클라이언트 어설션 JWT 토큰](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA)입니다.
+클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조하세요. 다음은 [샘플 클라이언트 어설션 JWT 토큰](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA)입니다.
 
 다음 예제에서는 인증서 자격 증명을 사용하여 코드 부여 토큰에 대한 요청을 보여 줍니다.
 
@@ -188,9 +188,9 @@ Open ID Connect 응답 예제:
 
 #### 코드 부여 토큰 응답 처리
 
-성공적인 토큰 응답은 Azure Resource Manager에 대한 (사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1 시간입니다. 웹 응용 프로그램이 (사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. - 그러나 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용할 수 있습니다. Oauth2.0 토큰 요청을 Azure AD 토큰 끝점에 게시:
+성공적인 토큰 응답은 Azure Resource Manager에 대한 (사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램이 (사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. 그러나 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용할 수 있습니다. OAuth2.0 토큰 요청을 Azure AD 토큰 끝점에 게시:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 새로 고침 요청에 사용할 매개 변수는 [권한 부여 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)에서 설명합니다.
 
@@ -203,7 +203,7 @@ Open ID Connect 응답 예제:
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-참고로 새로 고침 토큰을 사용하여 Azure Resource Manager에 대한 새 액세스 토큰을 가져올 수 있지만 이는 응용 프로그램에 의한 오프라인 액세스에 적합하지 않습니다. 새로 고침 토큰 수명은 제한되어 있고 새로 고침 토큰은 사용자에게 바인딩되기 때문입니다. 사용자가 조직을 떠나면 새로 고침 토큰을 사용하는 응용 프로그램은 액세스 권한을 잃게 됩니다. 이 방법은 팀이 자신의 Azure 리소스를 관리하기 위해 사용하는 응용 프로그램에 적합하지 않습니다.
+참고로 새로 고침 토큰을 사용하여 Azure Resource Manager에 대한 새 액세스 토큰을 가져올 수 있지만 이는 응용 프로그램에 의한 오프라인 액세스에 적합하지 않습니다. 새로 고침 토큰 수명은 제한되어 있고 새로 고침 토큰은 사용자에게 바인딩되기 때문입니다. 사용자가 조직을 떠나면 새로 고침 토큰을 사용하는 응용 프로그램은 액세스 권한을 잃게 됩니다. 이 방법은 Azure 리소스를 관리하는 팀이 사용하는 응용 프로그램에 적합하지 않습니다.
 
 ## 사용 가능한 구독 나열
 
@@ -215,7 +215,7 @@ Open ID Connect 응답 예제:
 
 ### 사용자가 액세스 권한을 가지고 있는 구독 나열
 
-여기서는 먼저 [Resource Manager가 구독 나열](https://msdn.microsoft.com/library/azure/dn790531.aspx) API를 호출하여 사용자가 액세스 종류를 가지고 있는 모든 구독을 나열합니다. 그런 다음 사용자가 액세스를 관리할 수 있는 구독을 식별합니다.
+여기서는 먼저 [Resource Manager 목록 구독](https://msdn.microsoft.com/library/azure/dn790531.aspx) API를 호출하여 사용자가 액세스 종류를 가지고 있는 모든 구독을 나열합니다. 그런 다음 사용자가 액세스를 관리할 수 있는 구독을 식별합니다.
 
 ASP.net MVC 샘플 앱의 [GetUserSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L79) 메서드가 이 호출을 구현합니다.
 
@@ -233,7 +233,7 @@ ASP.net MVC 샘플 앱의 [GetUserSubscription](https://github.com/dushyantgill/
 
 ### 구독에 대한 사용자의 권한 가져오기
 
-사용자가 액세스를 관리할 수 있는 구독에 대해서만 연결/연결 끊기 작업이 표시되어야 합니다. 각 구독에 대해 [Resource Manager 나열 권한](https://msdn.microsoft.com/library/azure/dn906889.aspx) API를 호출하여 사용자가 구독에 대한 액세스 관리 권한을 가지고 있는지 여부를 결정해야 합니다.
+사용자가 액세스를 관리할 수 있는 구독에 대해서만 연결/연결 끊기 작업이 표시되어야 합니다. 각 구독에 대해 [Resource Manager 목록 권한](https://msdn.microsoft.com/library/azure/dn906889.aspx) API를 호출하여 사용자가 구독에 대한 액세스 관리 권한을 가지고 있는지 여부를 결정해야 합니다.
 
 ASP.net MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L132) 메서드가 이 호출을 구현합니다.
 
@@ -253,7 +253,7 @@ ASP.net MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
 ### 필요에 따라 사용자 계정이 있는 디렉터리 나열
 
-사용자의 계정이 여러 Azure Active 디렉터리에 있을 수 있습니다. 사용자가 초기에 올바른 디렉터리 이름을 지정하지 않은 경우 - 즉, 원하는 구독이 목록에 표시되지 않는 경우가 있을 수 있습니다.
+사용자의 계정이 여러 Azure Active 디렉터리에 있을 수 있습니다. 사용자가 초기에 올바른 디렉터리 이름을 지정하지 않은 경우, 원하는 구독이 목록에 표시되지 않을 수 있습니다.
 
 [Resource Manager 목록 테넌트](https://msdn.microsoft.com/library/azure/dn790536.aspx) API는 사용자의 계정이 존재하는 모든 디렉터리의 ID를 나열합니다. 이 API를 호출하여 사용자의 계정이 둘 이상의 디렉터리에 있는지 여부를 결정하고 필요에 따라 사용자에게 다음과 같은 메시지를 표시할 수 있습니다. "찾고 있는 구독을 찾지 못했습니까? 사용자가 멤버인 다른 Azure Active Directory에 있을 수 있습니다. 디렉터리를 전환하려면 여기를 클릭하세요."
 
@@ -273,27 +273,27 @@ ASP.NET MVC 샘플 앱의 [GetUserOrganizations](https://github.com/dushyantgill
 
 ## 응용 프로그램에 구독 연결
 
-이제 사용자가 응용 프로그램에 연결할 수 있는 Azure 구독 목록을 가지고 있습니다. 다음 단계는 사용자에게 연결 을 만드는 명령을 제공하는 것입니다. 사용자가 **연결**을 선택할 때 앱은:
+이제 사용자가 응용 프로그램에 연결할 수 있는 Azure 구독 목록을 가지고 있습니다. 다음 단계는 사용자에게 연결을 만드는 명령을 제공하는 것입니다. 사용자가 **연결**을 선택할 때 앱은 다음을 수행합니다.
 
 1. 구독에 대한 응용 프로그램의 ID에 대해 적절한 RBAC 역할을 할당합니다.
-2. 구독에 대한 응용 프로그램의 사용 권한을 쿼리하거나 앱만 토큰을 사용하여 Resource Manager에 액세스하여 액세스 할당의 유효성을 검사합니다.
-1. 응용 프로그램의 "연결된 구독"에 연결을 기록합니다. - 구독의 ID를 유지합니다.
+2. 구독에 대한 응용 프로그램의 사용 권한을 쿼리하거나 응용 프로그램 전용 토큰을 사용해 Resource Manager에 액세스하여 액세스 할당의 유효성을 검사합니다.
+1. 응용 프로그램의 "연결된 구독" 데이터 구조에 연결을 기록하여 구독의 ID를 유지합니다.
 
-첫 번째 단계를 더 자세히 살펴보겠습니다: 응용 프로그램의 ID에 적절한 RBAC 역할을 할당하려면 다음을 결정해야 합니다.
+첫 번째 단계를 자세히 살펴보겠습니다. 응용 프로그램의 ID에 적절한 RBAC 역할을 할당하려면 다음을 결정해야 합니다.
 
 - 사용자의 Azure Active Directory에서 응용 프로그램의 ID의 개체 ID
 - 응용 프로그램이 구독에 대해 요구하는 RBAC 역할의 ID
 
-첫 번째 부분을 자세히 살펴보겠습니다: 응용 프로그램이 Azure AD에서 사용자를 처음 인증할 때 응용 프로그램에 대한 서비스 주체 개체가 해당 Azure AD에 생성됩니다. Azure는 RBAC 역할을 서비스 주체에 할당하여 Azure 리소스에 대한 직접 액세스 권한을 해당 응용 프로그램에 부여할 수 있습니다. 이는 우리가 원하던 기능 그대로입니다. - 따라서 먼저 Azure AD Graph API를 쿼리하여 로그인한 사용자의 Azure AD에서 응용 프로그램의 서비스 주체의 ID를 결정합니다.
+첫 번째 부분을 자세히 살펴보겠습니다. 응용 프로그램이 Azure AD에서 사용자를 처음 인증할 때 응용 프로그램에 대한 서비스 주체 개체가 해당 Azure AD에 생성됩니다. Azure는 RBAC 역할을 서비스 주체에 할당하여 Azure 리소스에 대한 직접 액세스 권한을 해당 응용 프로그램에 부여할 수 있습니다. 이는 우리가 원하던 기능으로, 먼저 Azure AD Graph API를 쿼리하여 로그인한 사용자의 Azure AD에서 응용 프로그램의 서비스 주체의 ID를 결정합니다.
 
-Azure Resource Manager에 대한 액세스 토큰만 가지고 있으므로 - Azure AD Graph API를 호출하려면 새 액세스 토큰이 필요합니다. Azure AD의 모든 응용 프로그램은 자신의 서비스 주체 개체를 쿼리하는 권한을 가지고 있으므로 이에 대한 사용자 + 앱 액세스 토큰은 필요 없으며 앱만 액세스 토큰이면 충분합니다.
+사용자는 Azure Resource Manager에 대한 액세스 토큰만 가지고 있으므로 Azure AD Graph API를 호출하려면 새 액세스 토큰이 필요합니다. Azure AD의 모든 응용 프로그램은 서비스 주체 개체를 직접 쿼리하는 권한을 가지고 있으므로 이에 대한 사용자 + 앱 액세스 토큰이 필요 없으며 응용 프로그램 전용 액세스 토큰이면 충분합니다.
 
 <a id="app-azure-ad-graph">
-### Azure AD Graph API에 대한 앱만 액세스 토큰 가져오기
+### Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기
 
-앱을 인증하고 Azure AD Graph API에 대한 토큰을 가져오려면 Azure AD 토큰 끝점(**http://login.microsoftonline.com/{directory\_domain\_name}/OAuth2/Token**)에 대한 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 실행합니다.
+앱을 인증하고 Azure AD Graph API에 대한 토큰을 가져오려면 Azure AD 토큰 끝점(**https://login.microsoftonline.com/{directory\_domain\_name}/OAuth2/Token**)에 대한 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 실행합니다.
 
-ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) 메서드의 73-77행은 Active Directory Authentication Library for .NET를 사용하여 Graph API에 대한 앱만 액세스 토큰을 가져옵니다.
+ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) 메서드의 73-77행은 Active Directory Authentication Library for .NET를 사용하여 Graph API에 대한 응용 프로그램 전용 액세스 토큰을 가져옵니다.
 
 클라이언트 자격 증명 부여 토큰 요청 데이터:
 
@@ -301,8 +301,8 @@ ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrgani
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | 응용 프로그램의 클라이언트 ID
-| resource | 액세스 토큰이 요청하는 리소스의 URL 인코딩된 액세스 ID입니다. 이 경우 Azure AD Graph API의 ID: **https://graph.windows.net/** 
-| client\_secret 또는 client\_assertion\_type + client\_assertion | 응용 프로그램이 암호 자격 증명을 사용하는 경우 client\_secret을 사용합니다. 인증서 자격 증명을 사용하는 경우 응용 프로그램 client\_assertion을 사용합니다.
+| resource | 액세스 토큰을 요청하는 리소스의 URL 인코딩된 ID입니다. 이 경우, Azure AD Graph API의 ID: **https://graph.windows.net/**
+| client\_secret 또는 client\_assertion\_type + client\_assertion | 응용 프로그램이 암호 자격 증명을 사용하는 경우, client\_secret을 사용합니다. 인증서 자격 증명을 사용하는 응용 프로그램의 경우 client\_assertion을 사용합니다.
 
 클라이언트 자격 증명 부여 토큰에 대한 요청 예제:
 
@@ -319,7 +319,7 @@ ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrgani
 
 ### 사용자 Azure AD에서 응용 프로그램 서비스 주체의 ObjectId 가져오기
 
-이제 앱만 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) API를 쿼리하여 디렉터리에 있는 응용 프로그램의 서비스 주체의 Object Id를 결정합니다.
+이제 응용 프로그램 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) API를 쿼리하여 디렉터리에 있는 응용 프로그램의 서비스 주체의 개체 ID를 결정합니다.
 
 ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) 메서드가 이 호출을 구현합니다.
 
@@ -348,7 +348,7 @@ ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrgani
 
 응용 프로그램에 대한 역할 할당은 사용자가 볼 수 있으므로 필요한 최소 권한을 선택합니다.
 
-[Resource Manager 역할 정의 API](https://msdn.microsoft.com/library/azure/dn906879.aspx)를 호출하여 모든 Azure RBAC 역할을 나열하고 검색한 다음 결과에 대해 이를 반복 실행하여 이름에 의해 원하는 역할 정의를 찾습니다.
+[Resource Manager 역할 정의 API](https://msdn.microsoft.com/library/azure/dn906879.aspx)를 호출하여 모든 Azure RBAC 역할을 나열하고 검색한 다음, 결과에 대해 이를 반복 실행하여 이름에 의해 원하는 역할 정의를 찾습니다.
 
 ASP.net MVC 샘플 앱의 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L354) 메서드가 이 호출을 구현합니다.
 
@@ -413,35 +413,35 @@ ASP.net MVC 샘플 앱의 [GrantRoleToServicePrincipalOnSubscription](https://gi
 
     {"properties":{"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2","scope":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb"},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleAssignments/4f87261d-2816-465d-8311-70a27558df4c","type":"Microsoft.Authorization/roleAssignments","name":"4f87261d-2816-465d-8311-70a27558df4c"}
 
-### Azure Resource Manager에 대한 앱만 액세스 토큰 가져오기
+### Azure Resource Manager에 대한 응용 프로그램 전용 액세스 토큰 가져오기
 
-다음 단계는 앱이 구독에 대한 원하는 액세스 권한을 가졌는지 확인하는 것입니다. 이를 위해 Azure Resource Manager에 대한 앱만 토큰을 사용하여 구독에 대한 시험 작업을 수행해야 합니다. 오프라인 모니터링/관리를 수행하려면 테스트 작업에서 응용 프로그램이 구독에 대해 원하는 액세스 권한을 실제로 가지고 있는지 확인해야 합니다.
+다음 단계는 앱이 구독에 대한 원하는 액세스 권한을 가졌는지 확인하는 것입니다. 이를 위해 Azure Resource Manager에 대한 응용 프로그램 전용 토큰을 사용하여 구독에 대한 테스트 작업을 수행해야 합니다. 오프라인 모니터링/관리를 수행하려면 테스트 작업에서 응용 프로그램이 구독에 대해 원하는 액세스 권한을 실제로 가지고 있는지 확인해야 합니다.
 
-리소스 매개 변수에 대해 서로 다른 값을 사용하여 Azure Resource Manager에 대한 앱만 액세스 토큰을 가져오려면 섹션 [Azure AD Graph API에 대한 앱만 액세스 토큰 가져오기](#app-azure-ad-graph)의 지침을 따릅니다.
+리소스 매개 변수에 대해 서로 다른 값을 사용하여 Azure Resource Manager에 대한 응용 프로그램 전용 액세스 토큰을 가져오려면 섹션 [Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기](#app-azure-ad-graph)의 지침을 따릅니다.
 
     https://management.core.windows.net/
 
-ASP.net MVC 샘플 응용 프로그램의 [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) 메서드의 210-214행은 Active Directory Authentication Library for .net를 사용하여 Azure Resource Manager에 대한 앱만 액세스 토큰을 가져옵니다.
+ASP.net MVC 샘플 응용 프로그램의 [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) 메서드의 210-214행은 Active Directory Authentication Library for .net를 사용하여 Azure Resource Manager에 대한 응용 프로그램 전용 액세스 토큰을 가져옵니다.
 
 #### 구독에 대한 응용 프로그램의 권한 가져오기
 
-응용 프로그램이 Azure 구독에 대해 원하는 액세스 권한을 가지고 있는지 확인하기 위해 사용자가 구독에 대해 액세스 관리 권한을 가지고 있는지 여부를 결정하는 방법과 유사한 [Resource Manager 사용 권한](https://msdn.microsoft.com/library/azure/dn906889.aspx)을 호출할 수도 있습니다. 그러나 이번에는 이전 단계에서 수신한 앱만 액세스 토큰을 사용하여 사용 권한 API를 호출합니다.
+응용 프로그램이 Azure 구독에 대해 원하는 액세스 권한을 가지고 있는지 확인하기 위해 사용자가 구독에 대해 액세스 관리 권한을 가지고 있는지 여부를 결정하는 방법과 유사한 [Resource Manager 사용 권한](https://msdn.microsoft.com/library/azure/dn906889.aspx) API를 호출할 수도 있습니다. 그러나 이번에는 이전 단계에서 수신한 응용 프로그램 전용 액세스 토큰을 사용하여 사용 권한 API를 호출합니다.
 
 ASP.NET MVC 샘플 앱의 [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) 메서드가 이 호출을 구현합니다.
 
 ## 연결된 구독 관리
 
-구독에 대해 응용 프로그램의 서비스 주체에 적절한 RBAC 역할이 할당된 경우 응용 프로그램은 Azure Resource Manager에 대한 앱만 액세스 토큰을 사용하여 해당 역할에 대한 모니터링/관리를 유지할 수 있습니다.
+구독에 대해 응용 프로그램의 서비스 주체에 적절한 RBAC 역할이 할당된 경우 응용 프로그램은 Azure Resource Manager에 대한 응용 프로그램 전용 액세스 토큰을 사용하여 해당 역할에 대한 모니터링/관리를 유지할 수 있습니다.
 
-구독 소유자가 Azure 관리 포털 또는 명령줄 도구를 사용하여 응용 프로그램의 역할 할당을 제거하는 경우 응용 프로그램은 더 이상 해당 구독에 액세스할 수 없습니다. 이 경우 사용자에게 구독과의 연결이 응용 프로그램 외부에서 분리되었음을 알리고 연결을 "복구"하는 옵션을 사용자에게 제공해야 합니다. "복구"는 다름이 아니라 삭제된 역할 할당을 오프라인으로 만드는 것입니다.
+구독 소유자가 Azure 관리 포털 또는 명령줄 도구를 사용하여 응용 프로그램의 역할 할당을 제거하는 경우 응용 프로그램은 더 이상 해당 구독에 액세스할 수 없습니다. 이 경우 사용자에게 구독과의 연결이 응용 프로그램 외부에서 끊어졌음을 알리고 연결을 "복구"하는 옵션을 사용자에게 제공해야 합니다. 여기서 "복구"는 오프라인 상태에서 삭제된 역할 할당을 다시 만드는 것입니다.
 
 
 ## 구독 연결 끊기
 
-사용자가 응용 프로그램에 대한 자신의 구독을 연결할 수 있도록 하는 것과 마찬가지로 사용자가 구독의 연결을 끊는 것도 허용해야 합니다. 액세스 관리 관점에서 연결 끊기라 응용 프로그램의 서비스 주체가 구독에 대해 가지고 있는 역할 할당을 제거하는 것을 의미합니다. 필요에 따라 구독에 대한 응용 프로그램의 상태도 제거할 수 있습니다. 구독에 대한 액세스 관리 권한을 가진 사용자만이 구독의 연결을 끊을 수 있습니다.
+사용자가 응용 프로그램에 대한 자신의 구독을 연결할 수 있도록 하는 것과 마찬가지로 사용자가 구독의 연결을 끊는 것도 허용해야 합니다. 액세스 관리 관점에서 연결 끊기란 응용 프로그램의 서비스 주체가 구독에 대해 가지고 있는 역할 할당을 제거하는 것을 의미합니다. 필요에 따라 구독에 대한 응용 프로그램의 상태도 제거할 수 있습니다. 구독에 대한 액세스 관리 권한을 가진 사용자만이 구독의 연결을 끊을 수 있습니다.
 
 ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서드](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L303)가 이 호출을 구현합니다.
 
-됐습니다. - 사용자는 이제 응용 프로그램을 사용하여 쉽게 Azure 구독을 연결 및 관리할 수 있습니다.
+이와 같이 사용자는 이제 응용 프로그램을 사용하여 쉽게 Azure 구독을 연결 및 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

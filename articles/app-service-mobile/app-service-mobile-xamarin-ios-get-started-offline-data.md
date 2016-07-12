@@ -123,7 +123,7 @@
 
 이 섹션에서는 앱을 모바일 백 엔드에 다시 연결하여 다시 온라인 상태로 전환되는 앱을 시뮬레이트합니다. 새로 고침 제스처를 수행하면 데이터가 모바일 백 엔드에 동기화됩니다.
 
-1. `QSTodoService.cs`를 엽니다. 올바른 URL을 가리키도록 `applicationURL` 및 `gatewayURL`를 수정합니다.
+1. `QSTodoService.cs`를 엽니다. 올바른 URL을 가리키도록 `applicationURL`를 수정합니다.
 
 2. 클라이언트 앱을 다시 빌드하고 실행합니다. 앱을 시작한 후에 Azure 모바일 앱 백 엔드와 동기화하려고 합니다. 디버그 콘솔에 로그인된 예외가 없이 확인합니다.
 
@@ -156,4 +156,4 @@
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

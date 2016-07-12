@@ -22,14 +22,15 @@
 
 다음 샘플은 Azure DocumentDB 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
 
+[AZURE.NOTE] 현재 온-프레미스/Azure IaaS 데이터 저장소와 Azure DocumentDB 간에 데이터를 복사하도록 지원되지 않습니다. 또한 Azure Document DB에 대한 전체 매트릭스도 곧 사용할 수 있습니다.
 
 ## 샘플: DocumentDB에서 Azure Blob로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
 
 1. [DocumentDb](#azure-documentdb-linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다. 
-3. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
+3. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
@@ -170,7 +171,7 @@ DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하�
 1. [DocumentDb](#azure-documentdb-linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
 3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 
@@ -399,7 +400,7 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | ------------ | --------------- | ------------------ | ------------ |
-| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | 아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select <columns defined in structure> from mycollection 
+| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | 아니요 <br/><br/>지정하지 않은 경우 실행되는 SQL 문: select <columns defined in structure> from mycollection 
 | nestingSeparator | 문서가 중첩됨을 나타내는 특수 문자 | 모든 character입니다. <br/><br/>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator 즉, 위의 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. | 아니요
 
 **DocumentDbCollectionSink**는 다음 속성을 지원합니다.
@@ -407,8 +408,8 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | -------- | ----------- | -------------- | -------- |
 | nestingSeparator | 중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 Name.First는 DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"이름": {<br/> "First": "John"<br/>}, | 중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 .(점)입니다. | 중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 .(점)입니다. | 아니요 | 
-| writeBatchSize | 병렬 수가 DocumentDB 서비스에 문서를 만들도록 요청합니다.<br/><br/>이 속성을 사용하여 DocumentDB에서 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 "요청 속도가 큽니다."라는 오류 메시지를 발생할 수 있는 제한을 방지해야 합니다. <br/><br/>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 포함하는 많은 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. | 정수 값 | 아니요 |
-| writeBatchTimeout | 시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. | (단위 = timespan) 예를 들어 “00:30:00”(30분)입니다. | 아니요 |
+| writeBatchSize | 병렬 수가 DocumentDB 서비스에 문서를 만들도록 요청합니다.<br/><br/>이 속성을 사용하여 DocumentDB에서 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 "요청 속도가 큽니다."라는 오류 메시지를 발생할 수 있는 제한을 방지해야 합니다. <br/><br/>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 포함하는 많은 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. | Integer | 아니요(기본값: 10000) |
+| writeBatchTimeout | 시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: “00:30:00”(30분). | 아니요 |
  
 ## 부록
 1. **질문:** 복사 작업은 기존 레코드의 업데이트를 지원합니까?
@@ -421,7 +422,7 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
  
 3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
 
-	**대답:** 아니요. 
+	**대답:** 아니요.
 4. **질문:** 하나의 테이블에 대해 하나 이상의 DocumentDB 컬렉션을 지정할 수 있습니까?
 	
 	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
@@ -429,4 +430,4 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

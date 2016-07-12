@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@ Azure Media Encryptor|사용 중단됨|
 
 ##미디어 프로세서 가져오기
 
-다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **\_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결](media-services-dotnet-connect_programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
+다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **\_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결](media-services-dotnet-connect-programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -69,4 +69,4 @@ Azure Media Encryptor|사용 중단됨|
 
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 미디어 인코더 표준을 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md) 항목으로 이동합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

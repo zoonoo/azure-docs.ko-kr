@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Azure 보안 센터에서 보안 상태 모니터링
@@ -97,7 +97,20 @@
 
 이 블레이드에는 VM에 대한 보안 세부 정보가 있습니다. 이 블레이드의 하단에서 권장되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 
-###가상 네트워크 모니터링
+#### 클라우드 서비스(미리 보기) 섹션
+클라우드 서비스에 대한 상태는 가상 컴퓨터 보안 상태 타일에 포함됩니다. OS 버전이 아래와 같이 오래된 경우 권장 사항이 표시됩니다.
+
+![클라우드 서비스](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+권장 사항의 단계를 수행하여 OS 버전을 업데이트해야 합니다. 예를 들어 웹 역할(IIS에 자동으로 배포된 웹앱을 사용하여 Windows Server를 실행) 또는 작업자 역할(IIS에 자동으로 배포된 웹앱을 사용하여 Windows Server를 실행) 중 하나에서 빨간색 경고를 클릭하면 아래와 같이 이 권장 사항에 대한 자세한 정보를 포함한 새 블레이드가 열립니다.
+
+![클라우드 서비스 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+
+이 권장 사항에 대한 규범적인 설명을 자세히 보려면 **설명** 열에서 업데이트 **OS 버전**을 클릭합니다. 자세한 내용을 포함한 **업데이트 OS 버전(미리 보기)** 블레이드가 열립니다.
+
+![클라우드 서비스 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+
+### 가상 네트워크 모니터링
 **리소스 보안 상태** 타일에서 **네트워킹**을 클릭하면 아래와 같이 자세한 내용이 포함된 **네트워킹** 블레이드가 열립니다.
 
 ![네트워킹](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
@@ -129,7 +142,7 @@
 ![인터넷 연결 끝점](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
 
 이 테이블에는 VM, 인터넷 연결 IP 주소, NSG 및 NGFW의 현재 심각도 상태를 나타내는 끝점 이름이 있습니다. 테이블은 아래에 설명한 대로 심각도 별로 정렬됩니다.
-- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다. 
+- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다.
 - 주황색: 우선 순위가 보통이며 가능한 한 빨리 해결해야 합니다.
 - 녹색(마지막): 성능 상태
 
@@ -140,7 +153,7 @@
 ![네트워킹 토폴로지](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 이 테이블은 아래에 설명한 대로 심각도 별로 정렬됩니다(VM 및 서브넷).
-- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다. 
+- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다.
 - 주황색: 우선 순위가 보통이며 가능한 한 빨리 해결해야 합니다.
 - 녹색(마지막): 성능 상태
 
@@ -195,4 +208,4 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)가 있는 [리
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

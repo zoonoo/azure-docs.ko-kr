@@ -63,7 +63,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 • 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065.aspx) 설명서를 참조하세요.
 
 
-> [AZURE.IMPORTANT] Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
+> [AZURE.IMPORTANT] Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 참조하세요.
 
 
 • 인증 프로세스에 대한 요청 및 응답 흐름은 사용된 인증 프로토콜(예: OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0)에 의해 결정됩니다. 이 프로토콜에 대한 자세한 내용은 [Azure Active Directory 인증 프로토콜](active-directory-authentication-protocols.md) 항목 및 다음 섹션을 참조하세요.
@@ -465,8 +465,8 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
-[Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

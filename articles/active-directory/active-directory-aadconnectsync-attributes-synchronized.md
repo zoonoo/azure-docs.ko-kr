@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="06/27/2016"
 	ms.author="markvi;andkjell"/>
 
 
@@ -469,4 +469,4 @@ Active Directory에 장치 개체를 만듭니다. 이러한 장치 개체는 Az
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->
