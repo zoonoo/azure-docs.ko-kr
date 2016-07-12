@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2016"
+	ms.date="07/06/2016"
 	ms.author="marsma"/>
 
 # Azure 배치의 기본 사항
@@ -46,7 +46,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 ## 배치를 사용하는 개발
 
-병렬 워크로드 처리를 위해 Azure 배치를 사용하는 솔루션을 빌드하는 경우 [배치 API](#batch-development-apis)를 사용하여 프로그래밍 방식으로 수행합니다. 배치 API를 사용하여 계산 노드(가상 컴퓨터)의 풀을 만들고 관리하며 해당 노드에서 실행할 작업 및 태스크를 예약합니다. 사용자가 작성하는 클라이언트 응용 프로그램 또는 서비스는 배치 API를 사용하여 배치 서비스와 통신합니다.
+배치를 사용한 병렬 워크로드 처리는 일반적으로 [배치 API](#batch-development-apis) 중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 배치 API를 사용하여 계산 노드(가상 컴퓨터)의 풀을 만들고 관리하며 해당 노드에서 실행할 작업 및 태스크를 예약합니다. 사용자가 작성하는 클라이언트 응용 프로그램 또는 서비스는 배치 API를 사용하여 배치 서비스와 통신합니다.
 
 조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure 데이터 팩터리](../data-factory/data-factory-data-processing-using-batch.md)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 배치를 사용할 수도 있습니다.
 
@@ -71,8 +71,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 | **Batch REST** | [MSDN][batch_rest] | 해당 없음 | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **배치 Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **배치 Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **배치 Java**(미리 보기) | [github.io][api_java] | [Maven 스냅숏 리포지토리][api_java_jar] | - |
+| **배치 Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **배치 Java**(미리 보기) | [github.io][api_java] | [Maven 스냅숏 리포지토리][api_java_jar] | [GitHub][api_sample_java] |
 
 ### 배치 리소스 관리
 
@@ -96,7 +95,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 1. 이러한 파일을 처리할 **입력 파일** 및 **응용 프로그램**을 Azure 저장소 계정에 업로드합니다. 입력 파일은 응용 프로그램이 처리할 모든 데이터가 될 수 있습니다(예: 금융 모델링 데이터 또는 트랜스코딩할 비디오 파일). 응용 프로그램 파일은 데이터를 처리하는 데 사용되는 모든 응용 프로그램일 수 있습니다(3D 렌더링 응용 프로그램 또는 미디어 트랜스코더).
 
-2. 태스크를 실행할 가상 컴퓨터인 계산 노드로 구성된 배치 **풀**을 배치 계정에 만듭니다. [노드 크기](./../cloud-services/cloud-services-sizes-specs.md), 운영 체제, 노드가 풀에 참여할 때 설치할 응용 프로그램(1단계에서 업로드한 응용 프로그램)의 Azure 저장소 위치와 같은 속성을 지정합니다. 또한 [자동으로 규모를 확장](batch-automatic-scaling.md)하도록 풀을 구성할 수도 있습니다. 태스크에서 생성하는 워크로드에 맞게 풀에서 계산 노드 수를 동적으로 조정합니다.
+2. 배치 계정에 계산 노드의 배치 **풀**을 만듭니다. 다음은 태스크를 실행할 가상 컴퓨터입니다. 노드가 풀에 조인할 때 설치할 응용 프로그램의 Azure 저장소에 있는 [노드 크기](./../cloud-services/cloud-services-sizes-specs.md), 운영 체제 및 위치와 같은 속성을 지정합니다(1단계에서 업로드한 응용 프로그램). 또한 [자동으로 규모를 확장](batch-automatic-scaling.md)하도록 풀을 구성할 수도 있습니다. 태스크에서 생성하는 워크로드에 맞게 풀에서 계산 노드 수를 동적으로 조정합니다.
 
 3. 배치 **작업**을 만들어 계산 노드의 풀에서 워크로드를 실행합니다. 작업을 만들 때 배치 풀과 연결합니다.
 
@@ -137,6 +136,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
@@ -147,4 +147,4 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

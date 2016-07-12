@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기 | Microsoft Azure"
-	description="이 자습서에서 Azure 알림 허브를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
+	pageTitle="Azure 알림 허브 및 Firebase Cloud Messaging을 사용하여 Android에 푸시 알림 보내기 | Microsoft Azure"
+	description="이 자습서에서 Azure 알림 허브 및 Firebase Cloud Messaging을 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
 	services="notification-hubs"
 	documentationCenter="android"
-	keywords="푸시 알림,푸시알림,android 푸시 알림"
+	keywords="푸시 알림, 푸시알림, Android 푸시 알림, FCM, Firebase Cloud Messaging"
 	authors="wesmc7777"
 	manager="erikre"
 	editor=""/>
@@ -22,53 +22,57 @@
 
 ##개요
 
-> [AZURE.IMPORTANT] 이 항목에서는 GCM(Google Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. Google의 FCM(Firebase Cloud Messaging)을 사용하는 경우 [Azure 알림 허브 및 FCM을 사용하여 Android에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
+> [AZURE.IMPORTANT] 이 항목에서는 FCM(Google Firebase Cloud Messaging)을 사용한 푸시 알림을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하는 경우 [Azure 알림 허브 및 GCM을 사용하여 Android에 푸시 알림 보내기](notification-hubs-android-push-notification-google-gcm-get-started.md)를 참조하세요.
 
-이 자습서에서는 Azure 알림 허브를 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
+이 자습서에서는 Azure 알림 허브 및 Firebase Cloud Messaging을 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
+
+
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)서 다운로드할 수 있습니다.
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase)서 다운로드할 수 있습니다.
 
 
 ##필수 조건
 
 > [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
 
-이 자습서에서는 위에서 언급한 활성 Azure 계정 이외에 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797) 최신 버전만 있으면 됩니다.
+- 이 자습서에서는 위에서 언급한 활성 Azure 계정 외에도 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797) 최신 버전이 필요합니다.
+- Firebase Cloud Messaging에 Android 2.3 이상이 필요합니다.
+- Firebase Cloud Messaging에 Google 리포지토리 수정 27 이상이 필요합니다.
+- Firebase Cloud Messaging에 Google Play Services 9.0.2 이상이 필요합니다.
+- 이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-##Google Cloud Messaging을 지원하는 프로젝트 만들기
+##새 Android Studio 프로젝트 만들기
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
+
+   	![Android Studio - 새 프로젝트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+
+2. **Phone and Tablet** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+
+   	![Android Studio - 프로젝트 만들기 워크플로](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+
+3. **빈 활동**를 기본 활동으로 선택하고 **다음**, **마침**를 차례로 클릭합니다.
+
+
+##Firebase Cloud Messaging을 지원하는 프로젝트 만들기
+
+[AZURE.INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 
 ##새 알림 허브 구성
 
-
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
+&emsp;&emsp;6. 알림 허브의 **설정** 블레이드에서 **알림 서비스**를 선택한 다음 **Google(GCM)**을 선택합니다. [Firebase 콘솔](https://firebase.google.com/console/)에서 이전에 복사한 FCM 서버 키를 입력하고 **저장**을 클릭합니다.
 
-&emsp;&emsp;6. **설정** 블레이드에서 **알림 서비스**를 선택한 다음 **Google(GCM)**을 선택합니다. API 키를 입력하고 **저장**을 클릭합니다.
+&emsp;&emsp;![Azure 알림 허브 - Google(GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
-&emsp;&emsp;![Azure 알림 허브 - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
-
-이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
+이제 알림 허브가 Firebase Cloud Messaging과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
 ##<a id="connecting-app"></a>알림 허브에 앱 연결
-
-###새 Android 프로젝트 만들기
-
-1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
-
-   	![Android Studio - 새 프로젝트][13]
-
-2. **Phone and Tablet** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
-
-   	![Android Studio - 프로젝트 만들기 워크플로][14]
-
-3. **빈 활동**를 기본 활동으로 선택하고 **다음**, **마침**를 차례로 클릭합니다.
 
 ###프로젝트에 Google Play Services 추가
 
@@ -93,23 +97,24 @@
 ### AndroidManifest.xml을 업데이트합니다.
 
 
-1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서는 클래스의 이름을 `MyInstanceIDService`라고 하겠습니다.
+1. FCM을 지원하기 위해, 코드에 [Google FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId)를 사용하여 [등록 토큰 가져오기](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서는 클래스의 이름을 `MyInstanceIDService`라고 하겠습니다.
  
-	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
+	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다.
 
-		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
-		    <intent-filter>
-		        <action android:name="com.google.android.gms.iid.InstanceID"/>
-		    </intent-filter>
-		</service>
+        <service android:name=".MyInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
 
 
-2. 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 해당 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-push-notification-registration-management.md)합니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원될 것입니다. 이 서비스는 [GCM 등록 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)에 대한 책임도 맡습니다.
+
+2. FirebaseInstanceId API에서 FCM 등록 토큰을 수신하면 해당 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-push-notification-registration-management.md)합니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원합니다. 이 서비스에는 FCM 등록 토큰 새로 고침에 대한 책임이 있습니다.
  
-	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
+	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다.
 
         <service
-            android:name="<your package>.RegistrationIntentService"
+            android:name=".RegistrationIntentService"
             android:exported="false">
         </service>
 
@@ -127,17 +132,13 @@
 
 
 
-4. `</application>` 태그 아래에 다음 필수 GCM 관련 권한을 추가합니다. 반드시 `<your package>`을(를) `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
+4. `</application>` 태그 아래에 다음 필수 FCM 관련 권한을 추가합니다. 반드시 `<your package>`을(를) `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
 
-	이러한 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest)를 참조하세요.
+	이러한 사용 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest) 및 [Firebase Cloud Messaging에 Android용 GCM 클라이언트 앱 마이그레이션](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm)을 참조하세요.
 
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-		<uses-permission android:name="android.permission.WAKE_LOCK"/>
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
 
 ### 코드 추가
@@ -145,10 +146,10 @@
 
 1. 프로젝트 뷰에서 **앱** > **원본** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다.
 
-	![Android Studio - 새 Java 프로젝트][6]
+	![Android Studio - 새 Java 프로젝트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
 
 	`NotificationSettings` 클래스에 대한 다음 코드에서 아래 세 개의 자리 표시자를 업데이트합니다.
-	* **SenderId**: 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
+	* **SenderId**: [Firebase 콘솔](https://firebase.google.com/console/)의 프로젝트 설정에 있는 **클라우드 메시징** 탭에서 이전에 가져온 보낸 사람 ID입니다.
 	* **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. **Azure 포털**에 있는 허브의 **설정** 블레이드에서 [액세스 정책]을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
 	* **HubName**: [Azure 포털]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
 
@@ -162,21 +163,21 @@
 
 2. 위의 단계에 따라 `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이것으로 인스턴스 ID 수신기 서비스가 구현될 것입니다.
 
-	이 클래스의 코드는 `IntentService`를 호출하여 백그라운드에서 [GCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+	이 클래스의 코드는 `IntentService`를 호출하여 백그라운드에서 [FCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
 
 		import android.content.Intent;
 		import android.util.Log;
-		import com.google.android.gms.iid.InstanceIDListenerService;
+		import com.google.firebase.iid.FirebaseInstanceIdService;
 		
 		
-		public class MyInstanceIDService extends InstanceIDListenerService {
+		public class MyInstanceIDService extends FirebaseInstanceIdService {
 		
 		    private static final String TAG = "MyInstanceIDService";
 		
 		    @Override
 		    public void onTokenRefresh() {
 		
-		        Log.i(TAG, "Refreshing GCM Registration Token");
+		        Log.d(TAG, "Refreshing GCM Registration Token");
 		
 		        Intent intent = new Intent(this, RegistrationIntentService.class);
 		        startService(intent);
@@ -184,7 +185,7 @@
 		};
 
 
-3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 그러면 [GCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리하는 `IntentService`에 대한 솔루션이 구현됩니다.
+3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 그러면 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리하는 `IntentService`에 대한 솔루션이 구현됩니다.
 
 	이 클래스에 대해 다음 코드를 사용합니다.
 
@@ -192,10 +193,8 @@
 		import android.content.Intent;
 		import android.content.SharedPreferences;
 		import android.preference.PreferenceManager;
-		import android.util.Log;
-		
-		import com.google.android.gms.gcm.GoogleCloudMessaging;
-		import com.google.android.gms.iid.InstanceID;
+		import android.util.Log;		
+		import com.google.firebase.iid.FirebaseInstanceId;
 		import com.microsoft.windowsazure.messaging.NotificationHub;
 		
 		public class RegistrationIntentService extends IntentService {
@@ -209,39 +208,62 @@
 		    }
 		
 		    @Override
-		    protected void onHandleIntent(Intent intent) {		
+		    protected void onHandleIntent(Intent intent) {
+		
 		        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		        String resultString = null;
 		        String regID = null;
+		        String storedToken = null;
 		
 		        try {
-		            InstanceID instanceID = InstanceID.getInstance(this);
-		            String token = instanceID.getToken(NotificationSettings.SenderId,
-		                    GoogleCloudMessaging.INSTANCE_ID_SCOPE);		
-		            Log.i(TAG, "Got GCM Registration Token: " + token);
+		            String FCM_token = FirebaseInstanceId.getInstance().getToken();
+		            Log.d(TAG, "FCM Registration Token: " + FCM_token);
 		
 		            // Storing the registration id that indicates whether the generated token has been
 		            // sent to your server. If it is not stored, send the token to your server,
 		            // otherwise your server should have already received the token.
-		            if ((regID=sharedPreferences.getString("registrationID", null)) == null) {		
+		            if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
+		
 		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
 		                        NotificationSettings.HubListenConnectionString, this);
-		                Log.i(TAG, "Attempting to register with NH using token : " + token);
-
-		                regID = hub.register(token).getRegistrationId();
-
+		                Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
+		                regID = hub.register(FCM_token).getRegistrationId();
+		
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
-
-		                resultString = "Registered Successfully - RegId : " + regID;
-		                Log.i(TAG, resultString);		
+		
+		                resultString = "New NH Registration Successfully - RegId : " + regID;
+		                Log.d(TAG, resultString);
+		
 		                sharedPreferences.edit().putString("registrationID", regID ).apply();
-		            } else {
+		                sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+		            }
+		
+		            // Check if the token may have been compromised and needs refreshing.
+		            else if ((storedToken=sharedPreferences.getString("FCMtoken", "")) != FCM_token) {
+		
+		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+		                        NotificationSettings.HubListenConnectionString, this);
+		                Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
+		                regID = hub.register(FCM_token).getRegistrationId();
+		
+		                // If you want to use tags...
+		                // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+		
+		                resultString = "New NH Registration Successfully - RegId : " + regID;
+		                Log.d(TAG, resultString);
+		
+		                sharedPreferences.edit().putString("registrationID", regID ).apply();
+		                sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+		            }
+		
+		            else {
 		                resultString = "Previously Registered Successfully - RegId : " + regID;
 		            }
 		        } catch (Exception e) {
-		            Log.e(TAG, resultString="Failed to complete token refresh", e);
+		            Log.e(TAG, resultString="Failed to complete registration", e);
 		            // If an exception happens while fetching the new token or updating our registration data
 		            // on a third-party server, this ensures that we'll attempt the update at a later time.
 		        }
@@ -259,8 +281,8 @@
 
 		import com.google.android.gms.common.ConnectionResult;
 		import com.google.android.gms.common.GoogleApiAvailability;
-		import com.google.android.gms.gcm.*;
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.content.Intent;
 		import android.util.Log;
 		import android.widget.TextView;
 		import android.widget.Toast;
@@ -269,7 +291,7 @@
 
 	    public static MainActivity mainActivity;
     	public static Boolean isVisible = false;	
-		private GoogleCloudMessaging gcm;
+	    private static final String TAG = "MainActivity";
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
 6. `MainActivity` 클래스에서 Google Play Services 가용성에 다음 메서드를 추가합니다.
@@ -297,14 +319,12 @@
 	    }
 
 
-7. `MainActivity` 클래스에서 Google Play Services를 검사한 후 `IntentService`를 호출하는 다음 코드를 추가하여 GCM 등록 토큰을 가져와 알림 허브에 등록합니다.
+7. `MainActivity` 클래스에서 Google Play Services를 검사한 후 `IntentService`를 호출하는 다음 코드를 추가하여 FCM 등록 토큰을 가져와서 알림 허브에 등록합니다.
 
 	    public void registerWithNotificationHubs()
 	    {
-	        Log.i(TAG, " Registering with Notification Hubs");
-	
 	        if (checkPlayServices()) {
-	            // Start IntentService to register this application with GCM.
+	            // Start IntentService to register this application with FCM.
 	            Intent intent = new Intent(this, RegistrationIntentService.class);
 	            startService(intent);
 	        }
@@ -374,6 +394,8 @@
 		import android.app.PendingIntent;
 		import android.content.Context;
 		import android.content.Intent;
+		import android.media.RingtoneManager;
+		import android.net.Uri;
 		import android.os.Bundle;
 		import android.support.v4.app.NotificationCompat;
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
@@ -426,12 +448,15 @@
 
 
 14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
+15. 장치에서 앱을 실행하고 알림 허브를 사용하여 성공적으로 등록되는지 확인합니다.
+
+	> [AZURE.NOTE] 등록은 인스턴스 ID 서비스의 `onTokenRefresh()` 메서드를 호출할 때까지 초기 시작 시 실패할 수 있습니다. 새로 고침은 알림 허브를 사용하여 성공적으로 등록하기 시작해야 합니다.
 
 ##푸시 알림 보내기
 
 [Azure 포털]을 통해 푸시 알림을 보내서 앱에서 푸시 알림 수신을 테스트할 수 있습니다. 아래와 같이 허브 블레이드의 **문제 해결** 섹션을 살펴보세요.
 
-![Azure 알림 허브 - 전송 테스트](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
+![Azure 알림 허브 - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
@@ -673,15 +698,15 @@
 
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
 
-   	![Android에서 테스트 - 채널 등록][18]
+   	![Android에서 테스트 - 채널 등록](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
 
 2. 허브에 등록된 모든 Android 장치로 보낼 알림 메시지를 입력합니다.
 
-   	![Android에서 테스트 - 메시지 보내기][19]
+   	![Android에서 테스트 - 메시지 보내기](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
 
 3. **알림 보내기**를 누릅니다. 앱을 실행 중인 장치에 푸시 알림 메시지가 포함된 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되고 있지는 않지만 이전에 푸시 알림을 등록한 장치는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 쓸어 넘겨 알림을 볼 수 있습니다.
 
-   	![Android에서 테스트 - 알림][21]
+   	![Android에서 테스트 - 알림](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ##다음 단계
 
@@ -692,28 +717,7 @@
 알림 허브에 대한 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
 
 <!-- Images. -->
-[6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
-[12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
-
-[13]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-new-project.png
-[14]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-choose-form-factor.png
-[15]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
-[16]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png
-[17]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png
-
-[18]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-registered.png
-[19]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-set-message.png
-
-[20]: ./media/notification-hubs-android-get-started/notification-hub-create-console-app.png
-[21]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-received-message.png
-[22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
-[23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
-[29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
-
-[30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
-
-[31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 
 <!-- URLs. -->

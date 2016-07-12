@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Kindle 앱에 대한 알림 허브 시작
@@ -79,7 +79,7 @@
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
-2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
+2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java 빌드 경로**를 선택한 다음 맨 위에 있는 **라이브러리** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
 4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs` 폴더로 끌어옵니다.
 
@@ -281,4 +281,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

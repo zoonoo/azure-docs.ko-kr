@@ -135,7 +135,7 @@
 
     ![][014]
 
-5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫 번째 질문을 소유하고 두 번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
+5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야 ** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫 번째 질문을 소유하고 두 번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
 
     ![][015]
 
@@ -195,7 +195,7 @@
 
 
 ### 1단계: 최신 버전의 Azure AD Connect 다운로드
-암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](active-directory-aadconnect.md#download-azure-ad-connect).
+암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Azure AD Sync의 버전을 확인하려면
 1.	**%ProgramFiles%\\Azure Active Directory Sync**로 이동합니다.
@@ -232,7 +232,7 @@
 4.	다음 cmdlet을 실행하여 현재 커넥터에 대한 쓰기 저장의 현재 상태를 가져오려면: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	이 cmdlet을 실행하여 암호 쓰기 저장을 활성화합니다. `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] 자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 **클라우드 관리자 계정(Azure AD에서 만든)**입니다.[AZURE.NOTE] 위의 동일한 지침을 반복하지만 단계에서 `$false`을 전달하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책 섹션**에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정하여 PowerShell을 통해 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다.
+> [AZURE.NOTE] 자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 **클라우드 관리자 계정(Azure AD에서 만든)**입니다. [AZURE.NOTE] 위의 동일한 지침을 반복하지만 단계에서 `$false`을 전달하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책 섹션**에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정하여 PowerShell을 통해 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다.
 
 #### 구성이 성공되었는지 확인합니다.
 구성이 성공하면 Windows PowerShell 창에서 암호 재설정 쓰기 저장을 사용하도록 설정되었다는 메시지를 보거나, 구성 UI에서 성공 메시지를 볼 수 있습니다.
@@ -280,9 +280,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 8.	위쪽의 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 9.	나타나는 **권한 항목** 대화 상자에서, **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한** 및 `pwdLastSet`에서 **쓰기 권한** 상자를 선택합니다.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	열린 모든 대화 상자를 통해 **적용/확인**을 클릭합니다.
 
@@ -353,4 +351,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!-------HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

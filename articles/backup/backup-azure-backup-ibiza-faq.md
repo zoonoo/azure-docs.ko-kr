@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Azure 백업 서비스의 공개 미리 보기 릴리스- FAQ
@@ -43,4 +43,4 @@
 
 **Q1. Azure VM에 대한 ARM 지원을 제한하나요?** <br/> A1. 현재 ARM에 대해 PowerShell cmdlet을 사용할 수 없습니다. 리소스 그룹에 리소스를 추가하려면 Azure 포털 UI를 사용해야 합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

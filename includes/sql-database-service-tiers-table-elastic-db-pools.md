@@ -1,3 +1,3 @@
 ![탄력적 풀에 대한 서비스 계층](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

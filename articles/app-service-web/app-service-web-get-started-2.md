@@ -64,7 +64,7 @@
 
 ## 필요에 따라 자동으로 앱 크기 조정
 
-다음으로 앱이 사용자 요청에 맞게 용량을 자동으로 조정하도록 앱 크기를 자동으로 조정하겠습니다([Azure 앱 서비스에서 가격 책정 계층 크기 조정](app-service-scale) 및 [수동 또는 자동으로 인스턴스 개수 조정](../azure-portal/insights-how-to-scale.md)에 추가 정보).
+다음으로 앱이 사용자 요청에 맞게 용량을 자동으로 조정하도록 앱 크기를 자동으로 조정하겠습니다([Azure에서 앱 크기 확장](web-sites-scale.md) 및 [수동 또는 자동으로 인스턴스 개수 조정](../azure-portal/insights-how-to-scale.md)에 추가 정보).
 
 간단히 말하면 다음과 같은 두 가지 방법으로 웹앱의 크기를 조정할 수 있습니다.
 
@@ -99,7 +99,7 @@
 - 일정에 따라 자동 크기 조정
 - 향후 이벤트에 대해 자동 크기 조정 동작 설정
 
-앱 강화에 대한 자세한 내용은 [Azure 앱 서비스에서 가격 책정 계층 크기 조정](../app-service/app-service-scale.md)을 참조하세요. 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-portal/insights-how-to-scale.md)을 참조하세요.
+앱 강화에 대한 자세한 내용은 [Azure에서 앱 크기 확장](../app-service-web/web-sites-scale.md)을 참조하세요. 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-portal/insights-how-to-scale.md)을 참조하세요.
 
 ## 앱에 대한 경고 받기
 
@@ -128,13 +128,13 @@
 배포한 앱으로 더 많은 작업을 수행하는 방법에 대해 알아보세요. 다음은 일부 목록입니다.
 
 - [사용자 지정 도메인 이름 구입 및 구성](custom-dns-web-site-buydomains-web-app.md) - *.azurewebsites.net 도메인 대신 웹앱에 대한 매력적인 도메인을 구입합니다. 또는 이미 있는 도메인을 사용합니다.
-- [스테이징 환경 설정](web-sites-staged-publishing.md) - 앱을 프로덕션으로 전환하기 전에 스테이징 URL에 배포합니다. 안심하고 라이브 웹앱을 업데이트합니다. 다중 배포 슬롯으로 정교한 DevOps 솔루션을 설정합니다. 
+- [스테이징 환경 설정](web-sites-staged-publishing.md) - 앱을 프로덕션으로 전환하기 전에 스테이징 URL에 배포합니다. 안심하고 라이브 웹앱을 업데이트합니다. 다중 배포 슬롯으로 정교한 DevOps 솔루션을 설정합니다.
 - [연속 배포 설정](web-sites-publish-source-control.md) - 원본 제어 시스템에 앱 배포를 통합합니다. 모든 커밋을 사용하여 Azure에 배포합니다.
 - [온-프레미스 리소스에 액세스](web-sites-hybrid-connection-get-started.md) - 기존 온-프레미스 데이터베이스 또는 CRM 시스템에 액세스합니다.
 - [앱 백업](web-sites-backup.md) - 백업을 설정하고 웹앱에 복원합니다. 예기치 않은 오류에 준비하고 해당 오류에서 복구합니다.
 - [진단 로그 사용](web-sites-enable-diagnostic-log.md) - Azure 또는 응용 프로그램 추적에서 IIS 로그를 읽습니다. 스트림에서 읽고 다운로드하거나 턴키 분석을 위해 [Application Insights](../application-insights/app-insights-overview.md)로 가져옵니다.
 - [취약점에 대한 앱 스캔](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) - [Tinfoil Security](https://www.tinfoilsecurity.com/)에서 제공하는 서비스를 사용하여 최신 위협에 대해 웹앱을 스캔합니다.
 - [백그라운드 작업 실행](../azure-functions/functions-overview.md) - 데이터 처리, 보고 등의 작업을 실행합니다.
-- [앱 서비스 작동 방법 알아보기](../app-service/app-service-how-works-readme.md) 
+- [앱 서비스 작동 방법 알아보기](../app-service/app-service-how-works-readme.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

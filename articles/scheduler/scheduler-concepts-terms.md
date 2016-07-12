@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 + 엔터티 계층 구조
@@ -45,7 +45,7 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 
 기본 수준에서, 예약된 작업에는 다음과 같은 여러 부분이 있습니다.
 
-- 작업 타이머가 발생할 때 수행할 작업  
+- 작업 타이머가 발생할 때 수행할 작업
 
 - (선택 사항) 작업 실행 시간
 
@@ -109,7 +109,7 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 
 위의 예제 예약된 작업에서와 같이 작업 정의에는 여러 부분이 있습니다.
 
-- 시작 시간("startTime")  
+- 시작 시간("startTime")
 
 - 오류 동작("errorAction")을 포함하는 동작("action")
 
@@ -160,7 +160,7 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 
 되풀이에는 여러 부분이 있습니다.
 
-- 빈도: 분, 시간, 일, 주, 월, 년 중 하나  
+- 빈도: 분, 시간, 일, 주, 월, 년 중 하나
 
 - 간격: 되풀이를 위해 제공한 빈도의 간격
 
@@ -214,4 +214,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

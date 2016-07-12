@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 가상 네트워크 만들기 또는 선택
@@ -70,4 +70,4 @@ Azure AD 도메인 서비스를 사용하도록 설정할 Azure 가상 네트워
 ## 작업 3 - Azure AD 도메인 서비스 활성화
 다음 구성 작업은 [Azure AD 도메인 서비스를 활성화](active-directory-ds-getting-started-enableaadds.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

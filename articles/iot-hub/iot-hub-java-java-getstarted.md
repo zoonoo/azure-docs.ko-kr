@@ -85,7 +85,7 @@
 
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
-    private static final String deviceId = "javadevice";
+    private static final String deviceId = "myFirstJavaDevice";
     
     ```
     
@@ -325,12 +325,12 @@
     import java.util.concurrent.ExecutorService;
     ```
 
-7. 다음의 클래스 수준 변수를 **App** 클래스에 추가하고 **{youriothubname}**을 IoT Hub 이름, **{yourdeviceid}** 및 **{yourdevicekey}**를 *장치 ID 만들기* 섹션에서 만든 장치 값으로 바꿉니다.
+7. 다음의 클래스 수준 변수를 **App** 클래스에 추가하고 **{youriothubname}**을 IoT Hub 이름으로 바꾸고 **{yourdevicekey}**를 *장치 ID 만들기* 섹션에서 만든 장치 값으로 바꿉니다.
 
     ```
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
+    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static String deviceId = "{yourdeviceid}";
+    private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
 
@@ -489,4 +489,4 @@
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

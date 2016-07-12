@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="04/19/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 #iOS 앱 만들기
@@ -29,7 +29,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-* [Visual Studio Community 2013] 이상이 설치된 PC 
+* [Visual Studio Community 2013] 이상이 설치된 PC
 * Xcode 7.3 이상이 설치된 Mac
 
 ## 단계 I: 새 Azure 모바일 앱 백 엔드 만들기
@@ -52,4 +52,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

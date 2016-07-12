@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -182,16 +182,16 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 bcp의 **queryout** 함수를 사용하면 전체 테이블을 내보내는 대신 쿼리 결과를 내보낼 수 있습니다.
 
 ## 다음 단계
-로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요. SQL 데이터 웨어하우스에 테이블을 만드는 방법에 대한 내용은 [테이블 디자인][] 또는 [CREATE TABLE 구문][]을 참조하세요.
+로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요. SQL 데이터 웨어하우스에 테이블을 만드는 방법에 대한 내용은 [테이블 개요][] 또는 [CREATE TABLE 구문][]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스로 데이터 로드]: sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
-[테이블 디자인]: sql-data-warehouse-develop-table-design.md
-[통계]: sql-data-warehouse-develop-statistics.md
+[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[테이블 개요]: ./sql-data-warehouse-tables-overview.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -200,4 +200,4 @@ bcp의 **queryout** 함수를 사용하면 전체 테이블을 내보내는 대�
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

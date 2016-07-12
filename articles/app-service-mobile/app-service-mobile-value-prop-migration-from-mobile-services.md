@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스를 사용하고 있습니다. 앱 서비스가 어떤 도움을 주나요?
@@ -61,4 +61,4 @@
 
 이 [자습서](app-service-mobile-migrating-from-mobile-services.md)에 따라 기존 모바일 서비스에 *앱 서비스*를 이용하기 시작할 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/13/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 
-[Azure SQL 데이터베이스](sql-database-technical-overview.md)에는 다양한 워크로드를 처리하는 여러 서비스 계층이 있습니다. 응용 프로그램의 작동 중지 시간 없이 서비스 계층을 언제든지 변경할 수 있습니다. 정의된 특성을 가진 [단일 데이터베이스를 만들고](sql-database-get-started.md) 가격을 책정할 수도 있습니다. 또는 [탄력적 데이터베이스 풀을 만들어](sql-database-elastic-pool-create-portal.md) 여러 데이터베이스를 관리할 수 있습니다. 두 경우 모두 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 단일 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 단일 데이터베이스 및 탄력적 데이터베이스에 대한 서비스 계층에 대해 자세히 설명합니다.
+[Azure SQL 데이터베이스](sql-database-technical-overview.md)에는 다양한 워크로드를 처리하는 여러 서비스 계층이 있습니다. 응용 프로그램의 작동 중지를 최소로 하여 언제든지 [서비스 계층을 변경](sql-database-scale-up.md)할 수 있습니다(일반적으로 4초 이하 평균임). 정의된 특성을 가진 [단일 데이터베이스를 만들고](sql-database-get-started.md) 가격을 책정할 수도 있습니다. 또는 [탄력적 데이터베이스 풀을 만들어](sql-database-elastic-pool-create-portal.md) 여러 데이터베이스를 관리할 수 있습니다. 두 경우 모두 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 단일 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 단일 데이터베이스 및 탄력적 데이터베이스에 대한 서비스 계층에 대해 자세히 설명합니다.
 
 ## 서비스 계층 및 데이터베이스 옵션
 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 예측 가능한 성능, 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 다음 표에서 다양한 응용 프로그램 워크로드에 가장 적합한 계층의 예제를 제공합니다.
@@ -33,7 +33,7 @@
 >[AZURE.NOTE] Web 및 Business 버전은 사용이 중지되었습니다. Web 및 Business Edition을 계속 사용하려는 경우 [지원 종료 FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/)를 잘 읽어 보세요.
 
 ## 단일 데이터베이스 서비스 계층 및 성능 수준
-단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 규모를 확장 또는 축소해야 하는 경우는 **응용 프로그램 가동 중지 시간 없이** 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
+단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 규모를 확장 또는 축소해야 하는 경우는 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
 
 여기에 나열된 성능 특성은 [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)를 사용하여 만든 데이터베이스에 적용됩니다. Azure에서 기본 하드웨어가 여러 데이터베이스를 호스팅하는 경우 데이터베이스는 여전히 보장된 리소스 집합을 가져오며 데이터베이스의 예상되는 성능 특징은 영향을 받지 않습니다.
 
@@ -68,4 +68,4 @@ DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-d
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

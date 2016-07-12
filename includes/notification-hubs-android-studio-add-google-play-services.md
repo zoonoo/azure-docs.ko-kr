@@ -13,16 +13,14 @@
 
 4. *종속성* 아래에 이 줄 추가:
 
-   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
+   		compile 'com.google.android.gms:play-services-gcm:9.2.0'
 
-5. *defaultConfig* 아래에서 *minSdkVersion* 을 9로 변경합니다.
- 
-6. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 아이콘을 클릭합니다.
+5. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 아이콘을 클릭합니다.
 
-7. **AndroidManifest.xml**을 열고 이 태그를 *응용프로그램* 태그에 추가합니다.
+6. **AndroidManifest.xml**을 열고 이 태그를 *응용프로그램* 태그에 추가합니다.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

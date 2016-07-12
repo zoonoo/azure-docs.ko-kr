@@ -21,7 +21,7 @@
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] QoS 요구 사항은 Microsoft 피어링에만 적용합니다.
+>[AZURE.NOTE] QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 개인 피어링에 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다.
 
 다음 테이블에서는 비즈니스용 Skype에서 사용하는 DSCP 표시의 목록을 제공합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://technet.microsoft.com/library/gg405409.aspx)를 참조합니다.
 
@@ -50,4 +50,4 @@
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

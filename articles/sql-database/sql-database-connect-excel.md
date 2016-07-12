@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="07/05/2016"
 	ms.author="joseidz"/>
 
 
@@ -30,7 +30,7 @@
 
 시작하기 전에 Azure에서 SQL 데이터베이스가 필요합니다. SQL 데이터베이스가 없다면 [첫 번째 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 몇 분 내에 샘플 데이터와 함께 실행되는 데이터베이스를 가져옵니다. 이 문서에서는 해당 문서에서 샘플 데이터를 Excel에 가져오지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
 
-또한 Excel의 사본이 필요합니다. 이 문서는 [Microsoft Excel 2016](https://products.office.com/ko-KR/)를 사용합니다.
+또한 Excel의 사본이 필요합니다. 이 문서는 [Microsoft Excel 2016](https://products.office.com/en-US/)를 사용합니다.
 
 ## SQL 데이터베이스에 Excel 연결 및 odc 파일 만들기
 
@@ -83,4 +83,4 @@
 - [탄력적 풀](sql-database-elastic-pool.md)의 이점에 대해 알아보세요.
 - [백 엔드에서 SQL 데이터베이스에 연결할 웹 응용 프로그램을 만드는](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 방법에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->
