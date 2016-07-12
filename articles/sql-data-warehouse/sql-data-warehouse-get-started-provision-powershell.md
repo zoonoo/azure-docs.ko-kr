@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -55,7 +55,7 @@
 
 이 cmdlet에 필요한 매개 변수 목록은 다음과 같습니다.
 
-- **RequestedServiceObjectiveName**: "DWXXX" 형식의 요청 중인 DWU의 양입니다. DWU는 CPU 및 메모리 할당을 나타냅니다. 각 DWU 값은 이 리소스에서 선형적으로 증가합니다. 현재 지원되는 값은 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000입니다.
+- **RequestedServiceObjectiveName**: 요청 중인 [DWU][]의 양입니다. 지원되는 값은 DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500 및 DW2000입니다.
 - **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
 - **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
 - **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
@@ -71,12 +71,12 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 <!--Image references-->
 
 <!--Article references-->
-
-[마이그레이션]: sql-data-warehouse-overview-migrate.md
-[개발]: sql-data-warehouse-overview-develop.md
-[로드]: sql-data-warehouse-load-with-bcp.md
-[샘플 데이터를 로드]: sql-data-warehouse-get-started-load-sample-databases.md
-[PowerShell cmdlet and REST API]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-load-with-bcp.md
+[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[PowerShell cmdlet and REST API]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Azure PowerShell 설치 및 구성 방법]: ../powershell/powershell-install-configure.md
@@ -96,4 +96,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

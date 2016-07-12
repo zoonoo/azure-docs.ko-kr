@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Azure VM의 Ruby on Rails 웹 응용 프로그램
@@ -23,7 +23,7 @@
 
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Azure VM 만들기
 
@@ -156,4 +156,4 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

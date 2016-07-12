@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 &nbsp;
 
 
-> [AZURE.WARNING] 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 앞의 '?'를 제거해야 합니다.
+> [AZURE.WARNING] 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다*. 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
 
 
 &nbsp;
@@ -559,9 +559,17 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+&nbsp;
 
 
+앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event\_file을 읽었습니다.
 
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+
+
+확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
+
+- [확장된 이벤트의 대상 데이터에 대한 고급 보기](http://msdn.microsoft.com/library/mt752502.aspx)
 
 &nbsp;
 
@@ -585,20 +593,15 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 ## 자세한 정보
 
 
-Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목은 다음과 같습니다.
-
-- [SQL 데이터베이스의 확장 이벤트](sql-database-xevent-db-diff-from-svr.md)는 Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목입니다.
- - Microsoft SQL Server와 Azure SQL 데이터베이스 간 다른 확장 이벤트의 측면으로 구성되어 있습니다.
-
-
-- [SQL 데이터베이스의 확장 이벤트에 링 버퍼 대상 코드](sql-database-xevent-code-ring-buffer.md) - 쉽고 빠른 자매 코드 샘플을 제공하지만 대규모 작업보다 간단한 테스트에 적합합니다.
-
-
 Azure 저장소 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 - [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
 - [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [루트 컨테이너 사용](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

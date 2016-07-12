@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+    ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
@@ -40,7 +40,7 @@ R은 Azure Blob 저장소(WASB)와 호환되므로 HDInsight의 R을 사용하�
 
 HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)는 Azure 저장소의 읽기 전용 Blob에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만드는 동안 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서 도입되었습니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서 도입되었습니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
 
 1. 포털에서 HDInsight 클러스터를 만들 때 **선택적 구성**을 클릭한 다음 **스크립트 동작**을 클릭합니다.
 2. **스크립트 동작** 페이지에서 다음 값을 입력합니다.
@@ -112,6 +112,6 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 [powershell-install-configure]: powershell-install-configure.md
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
+[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #미디어 서비스 PlayReady 라이선스 템플릿 개요
@@ -23,10 +23,10 @@ Azure 미디어 서비스는 현재 Microsoft PlayReady 라이선스를 배달�
 또한 미디어 서비스는 PlayReady 라이선스를 구성할 수 있는 API를 제공합니다. 라이선스에는 사용자가 보호된 콘텐츠를 재생하려고 할 때 PlayReady DRM 런타임에서 적용하도록 하려는 권한 및 제한이 포함됩니다. 지정할 수 있는 PlayReady 라이선스 제한 사항의 몇 가지 예는 다음과 같습니다.
 
 - 라이선스가 유효한 날짜/시간.
-- 라이선스가 만료될 대 날짜/시간 값. 
+- 라이선스가 만료될 대 날짜/시간 값.
 - 클라이언트의 영구 저장소에 라이선스를 저장할지 여부. 일반적으로 영구 라이선스는 콘텐츠의 오프라인 재생을 허용하는 데 사용됩니다.
-- 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준. 
-- 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준. 
+- 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준.
+- 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준.
 - 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/)(영문) 문서에서 출력 컨트롤 섹션(3.5)을 참조하세요.
 
 >[AZURE.NOTE]현재 PlayReady 라이선스의 PlayRight만 구성할 수 있습니다(이 권한은 필수임). PlayRight는 콘텐츠를 재생할 능력을 클라이언트에 제공합니다. PlayRight를 사용하여 재생과 관련된 제한 사항을 구성할 수 있습니다. 자세한 내용은 [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight)를 참조하세요.
@@ -311,4 +311,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>미디어 서비스 계정을 모니터링하는 방법
@@ -26,7 +26,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
 ##<a id="configuremonitoring"></a>방법: 미디어 서비스 계정 모니터링
 
-1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666)에서 **미디어 서비스**를 클릭한 후 대시보드를 열 미디어 서비스 계정 이름을 클릭합니다. 
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666)에서 **미디어 서비스**를 클릭한 후 대시보드를 열 미디어 서비스 계정 이름을 클릭합니다.
 
 	![MediaServices\_Dashboard][dashboard]
 
@@ -62,7 +62,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
 ##피드백 제공
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)] 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +71,4 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

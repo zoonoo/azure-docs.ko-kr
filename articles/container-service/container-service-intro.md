@@ -45,11 +45,11 @@ Azure 컨테이너 서비스는 오케스트레이션을 위해 Docker Swarm 또
 
 ### DC/OS 사용
 
-DC/OS는 Apache Software Foundation에 상주하는 오픈 소스 프로젝트입니다. 사용자 및 참가자로 [IT 업계에서 가장 유명한 기업](http://mesos.apache.org/documentation/latest/powered-by-mesos/)의 일부를 나열합니다.
+DC/OS는 Apache Mesos 분산 시스템 커널을 기반으로 운영 체제를 배포합니다. Apache Mesos는 Apache Software Foundation에 들어있고 [IT 업계에서 가장 유명한 기업](http://mesos.apache.org/documentation/latest/powered-by-mesos/) 일부를 사용자 및 참가자로 나열합니다.
 
 ![에이전트 및 마스터가 표시된 Swarm에 대해 구성된 Azure 컨테이너 서비스](media/acs-intro/dcos.png)
 
-DC/OS에는 매우 유용한 기능 집합이 포함되어 있습니다.
+DC/OS 및 Apache Mesos는 다음과 같은 인상적인 기능 집합을 포함합니다.
 
 -   노드 10,000개로의 확장성
 
@@ -65,15 +65,15 @@ DC/OS에는 매우 유용한 기능 집합이 포함되어 있습니다.
 
 -   클러스터 상태를 볼 수 있는 웹 UI
 
-DC/OS는 Azure 컨테이너 서비스에서 워크로드를 예약하는 데 사용할 수 있는 다수의 [프레임워크](http://mesos.apache.org/documentation/latest/frameworks/)를 지원합니다. 기본적으로 Azure 컨테이너 서비스에는 Marathon 및 Chronos 프레임워크가 포함되어 있습니다.
+기본적으로 Azure 컨테이너 서비스에서 실행 중인 DC/OS에는 워크로드를 예약하기 위한 Marathon 오케스트레이션 플랫폼이 포함되어 있습니다.
 
-#### Marathon 및 Chronos 사용
+#### Marathon 사용
 
-Marathon은 cgroups의 서비스 또는 Docker 형식의 컨테이너(Azure 컨테이너 서비스의 경우)에 대한 클러스터 전체 초기화 및 제어 시스템입니다. 이는 종속성 및 시간 기반 일정을 처리하는 DC/OS에 대한 내결함성 있는 작업 스케줄러인 Chronos와 이상적인 파트너입니다.
+Marathon은 cgroups의 서비스 또는 Docker 형식의 컨테이너(Azure 컨테이너 서비스의 경우)에 대한 클러스터 전체 초기화 및 제어 시스템입니다. 이는 종속성 및 시간 기반 일정을 처리하는 DC/OS에 대한 내결함성 있는 작업 스케줄러인 [Chronos](https://mesos.github.io/chronos/)와 이상적인 파트너입니다.
 
-Marathon 및 Chronos는 응용 프로그램을 배포할 수 있는 웹 UI를 제공합니다. 사용자는 배포 시 DNS\_PREFIX 및 REGION이 모두 정의된 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`과 유사한 URL에서 웹 UI에 액세스할 수 있습니다. 물론, 사용자는 자체 DNS 이름을 제공할 수도 있습니다. Marathon 웹 UI를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [웹 UI를 통한 컨테이너 관리](container-service-mesos-marathon-ui.md)를 참조하세요.
+Marathon은 응용 프로그램을 배포할 수 있는 웹 UI를 제공합니다. 사용자는 배포 시 DNS\_PREFIX 및 REGION이 모두 정의된 `http://DNS_PREFIX.REGION.cloudapp.azure.com`과 유사한 URL에서 웹 UI에 액세스할 수 있습니다. 물론, 사용자는 자체 DNS 이름을 제공할 수도 있습니다. Marathon 웹 UI를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [웹 UI를 통한 컨테이너 관리](container-service-mesos-marathon-ui.md)를 참조하세요.
 
-또한 Marathon 및 Chronos와 통신하기 위해 REST API를 사용할 수 있습니다. 각 도구에 사용할 수 있는 여러 클라이언트 라이브러리가 있습니다. 이러한 라이브러리는 다양한 언어를 지원할 뿐만 아닐라 모든 언어로 된 HTTP 프로토콜을 사용할 수 있습니다. 또한 인기 있는 다양한 DevOps 도구는 이러한 스케줄러에 대한 지원을 제공합니다. Azure 컨테이너 서비스 클러스터를 사용하여 작업하는 경우 운영 팀에 최대의 유연성을 제공합니다. Marathon REST API를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [REST API로 컨테이너 관리](container-service-mesos-marathon-rest.md)를 참조하세요.
+또한 Marathon과 통신하기 위해 REST API를 사용할 수 있습니다. 각 도구에 사용할 수 있는 여러 클라이언트 라이브러리가 있습니다. 이러한 라이브러리는 다양한 언어를 지원할 뿐만 아닐라 모든 언어로 된 HTTP 프로토콜을 사용할 수 있습니다. 또한 인기 있는 다양한 DevOps 도구는 이러한 스케줄러에 대한 지원을 제공합니다. Azure 컨테이너 서비스 클러스터를 사용하여 작업하는 경우 운영 팀에 최대의 유연성을 제공합니다. Marathon REST API를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [REST API로 컨테이너 관리](container-service-mesos-marathon-rest.md)를 참조하세요.
 
 ### Docker Swarm 사용
 
@@ -105,4 +105,4 @@ Azure 컨테이너 서비스를 사용하여 응용 프로그램 빌드
 
 > [https://channel9.msdn.com/Events/Build/2016/B822]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/05/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 
@@ -36,8 +36,8 @@ Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](../powe
 
 1.	[Azure PowerShell cmdlet](http://go.microsoft.com/?linkid=9811175)을 다운로드하여 설치합니다.
 2.	Microsoft Azure PowerShell을 시작합니다.
-3.	**Add-AzureAccount**를 실행하여 Azure 구독을 인증합니다. 메시지가 나타나면 Azure 포털에 로그인하는 데 사용하는 것과 동일한 사용자 이름 및 암호를 입력합니다.  
-4.	**Get-AzureSubscription**을 실행하여 사용자 계정과 연경된 구독을 나열합니다. 
+3.	**Add-AzureAccount**를 실행하여 Azure 구독을 인증합니다. 메시지가 나타나면 Azure 포털에 로그인하는 데 사용하는 것과 동일한 사용자 이름 및 암호를 입력합니다.
+4.	**Get-AzureSubscription**을 실행하여 사용자 계정과 연경된 구독을 나열합니다.
 5.	**Select-AzureSubscription**을 실행하고 PowerShell 콘솔에서 사용할 구독 이름 또는 ID를 지정합니다.
 
 축하합니다. Azure PowerShell 콘솔이 사용할 수 있도록 구성되었습니다. Azure PowerShell 콘솔을 시작할 때마다 2~5단계를 반복해야 합니다.
@@ -111,4 +111,4 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

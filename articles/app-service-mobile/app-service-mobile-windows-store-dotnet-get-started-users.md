@@ -122,12 +122,12 @@
 
 이 기본 인증 자습서를 완료했으므로 다음 자습서 중 하나를 계속하는 것을 고려해보세요.
 
-+ [Windows 앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 앱에 푸시 알림 지원을 추가하고 푸시 알림을 보내도록 Azure 알림 허브를 사용하여 푸시 알림을 보내도록 모바일 앱 백엔드를 구성하는 방법을 알아봅니다.
++ [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure 알림 허브를 사용하는 방법을 알아봅니다.
 
-+ [Windows 앱에 대한 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법에 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
++ [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다.
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="06/29/2016"
    	ms.author="jgao"/>
 
 # 사용자 지정 HDInsight 응용 프로그램 설치
@@ -23,6 +23,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 다른 관련 문서:
 
+- [HDInsight 응용 프로그램 설치](hdinsight-apps-install-applications.md): HDInsight 응용 프로그램을 클러스터에 설치하는 방법을 알아봅니다.
 - [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure 마켓플레이스에 게시하는 방법을 알아봅니다.
 - [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
 
@@ -34,23 +35,23 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 ## HDInsight 응용 프로그램 설치
 
-이렇게 만든 클러스터 또는 기존 HDInsight 클러스터에 HDInsight 응용 프로그램을 설치할 수 있습니다. ARM 템플릿 정의는 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
+이렇게 만든 클러스터 또는 기존 HDInsight 클러스터에 HDInsight 응용 프로그램을 설치할 수 있습니다. Azure Resource Manager 템플릿 정의는 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 
 이 응용 프로그램(Hue)을 배포하기 위해 필요한 파일은 다음과 같습니다.
 
-- [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): HDInsight 응용 프로그램을 설치하기 위한 ARM 템플릿. ARM 템플릿을 직접 개발하려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
-- [hue-install\_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): 에지 노드를 구성하기 위해 ARM 템플릿에 의해 호출되는 스크립트 작업. 
-- [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install\_v0.sh에서 호출되는 Hue 이진 파일. 
-- [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install\_v0.sh에서 호출되는 Hue 이진 파일. 
+- [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): HDInsight 응용 프로그램을 설치하기 위한 Azure Resource Manager 템플릿. Azure Resource Manager 템플릿을 직접 개발하려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
+- [hue-install\_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): 에지 노드를 구성하기 위해 Azure Resource Manager 템플릿에 의해 호출되는 스크립트 작업.
+- [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install\_v0.sh에서 호출되는 Hue 이진 파일.
+- [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install\_v0.sh에서 호출되는 Hue 이진 파일.
 - [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): hui-install\_v0.sh에서 호출되는 샘플 웹 응용 프로그램(Tomcat).
 
 **기존 HDInsight 클러스터에 Hue를 설치하려면**
 
-1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 
+1. Azure 포털에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    이 단추는 Azure 포털에서 ARM 템플릿을 엽니다. ARM 템플릿은 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)에 있습니다. 이 ARM 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
+    이 단추는 Azure 포털에서 Azure Resource Manager 템플릿을 엽니다. Azure Resource Manager 템플릿은 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)에 있습니다. 이 Azure Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
     
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
@@ -58,20 +59,20 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
     
 3. **확인**을 클릭하여 매개 변수를 저장합니다.
 4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 입력합니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 리소스를 그룹화하는 컨테이너입니다. 클러스터와 동일한 리소스 그룹을 사용해야 합니다.
-5. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
+5. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
 6. **대시보드에 고정** 확인란이 선택되었는지 확인한 다음 **만들기**를 클릭합니다. 포털 대시보드 및 포털 알림에 고정된 타일에서 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭). 응용 프로그램을 설치하는 데 약 10분이 걸립니다.
 
 **클러스터를 만드는 동안 Hue를 설치하려면**
 
-1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 
+1. Azure 포털에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    이 단추는 Azure 포털에서 ARM 템플릿을 엽니다. ARM 템플릿은 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다. 이 ARM 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
+    이 단추는 Azure 포털에서 Azure Resource Manager 템플릿을 엽니다. Azure Resource Manager 템플릿은 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)에 있습니다. 이 Azure Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 
 2. 지시를 따라서 클러스터를 만들고 Hue를 설치합니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-Azure 포털 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) 및 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli)를 사용하여 ARM 템플릿을 호출할 수도 있습니다.
+Azure 포털 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) 및 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli)를 사용하여 Azure Resource Manager 템플릿을 호출할 수도 있습니다.
 
 ## 설치 유효성 검사
 
@@ -83,7 +84,7 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 2. 왼쪽 메뉴에서 **HDInsight 클러스터**를 클릭합니다. 표시되지 않으면 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
 3. 응용 프로그램을 설치한 클러스터를 클릭합니다.
 4. **설정** 블레이드에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. **설치된 앱** 블레이드에 나열된 **Hue**가 표시됩니다.
-5. 목록에서 **Hue**를 클릭하여 속성을 나열합니다.  
+5. 목록에서 **Hue**를 클릭하여 속성을 나열합니다.
 6. 웹 페이지 링크를 클릭하여 웹 사이트의 유효성을 검사합니다. 브라우저에서 HTTP 끝점을 열어 Hue 웹 UI의 유효성을 검사하고 [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) 또는 기타 [SSH 클라이언트](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하여 SSH 끝점을 엽니다.
  
 ## 설치 문제 해결
@@ -137,9 +138,10 @@ Azure CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 
 
 ## 다음 단계
 
-- [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 배포하기 위해 ARM 템플릿을 개발하는 방법을 알아봅니다.
+- [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 배포하기 위해 Azure Resource Manager 템플릿을 개발하는 방법을 알아봅니다.
+- [HDInsight 응용 프로그램 설치](hdinsight-apps-install-applications.md): HDInsight 응용 프로그램을 클러스터에 설치하는 방법을 알아봅니다.
 - [HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 응용 프로그램을 Azure 마켓플레이스에 게시하는 방법을 알아봅니다.
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-- [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+- [Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!-----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

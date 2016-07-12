@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure Blob 간 데이터 이동 | Azure 데이터 팩터리" 
-	description="Azure Data Factory를 사용하여 Azure Blob 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure Blob 데이터 집합을 복사/이동하는 방법 알아보기 | Azure Data Factory" 
+	description="Azure Data Factory에서 Blob 데이터를 복사하는 방법을 알아봅니다. 샘플 사용: Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법입니다." 
+    keywords="Blob 데이터, Azure Blob 복사"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,9 +18,9 @@
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 Azure Blob 간 데이터 이동
-이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소와 Azure Blob 간에 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+이 문서에서는 다른 데이터 저장소에서 Blob 데이터를 소싱하여 Azure Blob 간에 데이터를 이동하기 위해 Azure Data Factory에서 복사 작업을 사용하는 방법을 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 데이터 이동 작업 문서를 작성합니다.
 
-다음 샘플은 Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+다음 샘플은 Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
 
 ## 샘플: Azure Blob에서 Azure SQL로 데이터 복사
@@ -57,7 +58,7 @@
 	  }
 	}
 
-Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
+Azure Data Factory는 **AzureStorage** 및 **AzureStorageSas**라는 두 가지 유형의 Azure 저장소 연결된 서비스를 지원합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
 
 **Azure Blob 입력 데이터 집합:**
 
@@ -229,7 +230,7 @@ Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서�
 	  }
 	}
 
-Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
+Azure Data Factory는 **AzureStorage** 및 **AzureStorageSas**라는 두 가지 유형의 Azure 저장소 연결된 서비스를 지원합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
 
 
 **Azure SQL 입력 데이터 집합:**
@@ -385,7 +386,7 @@ Azure Blob 저장소를 Azure 데이터 팩터리에 연결하는 데 사용할 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- | 
 | folderPath | blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\\myblobfolder\\ | 예 |
-| fileName | Blob 이름. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하면 활동(복사 포함)이 특정 Blob에서 작동합니다.<br/><br/>fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 Blob을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 다음 서식으로 생성된 파일의 이름이 표시됩니다. 데이터.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | 아니요 |
+| fileName | Blob 이름. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하면 작업(복사 포함)이 특정 Blob에서 작동합니다.<br/><br/>fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 Blob을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 다음 서식으로 생성된 파일의 이름이 표시됩니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 [partitionedBy 속성 활용 섹션](#Leveraging-partitionedBy-property)을 참조하세요. | 아니요
 | format | **TextFormat**, **AvroFormat**, **JsonFormat** 및 **OrcFormat**과 같은 서식 유형이 지원됩니다. 이 중 하나로 서식에서 **type** 속성을 설정해야 합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat) 및 [OrcFormat 지정](#specifying-orcformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다.| 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
@@ -470,4 +471,4 @@ false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

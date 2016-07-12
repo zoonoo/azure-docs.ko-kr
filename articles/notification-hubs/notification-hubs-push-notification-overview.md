@@ -2,7 +2,7 @@
 	pageTitle="Azure 알림 허브"
 	description="Azure에서 푸시 알림을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="hero-article"
-	ms.date="02/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 
@@ -166,9 +166,9 @@ Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성�
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [앱 서비스 모바일 앱]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
+  [앱 서비스 모바일 앱]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
   [템플릿]: notification-hubs-templates.md
   [Azure 포털]: https://portal.azure.com
   [태그]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

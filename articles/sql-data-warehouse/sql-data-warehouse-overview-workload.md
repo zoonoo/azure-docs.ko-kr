@@ -1,6 +1,6 @@
 <properties
    pageTitle="데이터 웨어하우스 워크로드"
-   description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다."
+   description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/01/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -48,7 +48,7 @@
 ### 데이터 관리
 데이터 관리는 중요합니다. 특히 조만간 디스크 공간이 부족해진다는 사실을 알고 있을 경우 그렇습니다. 데이터 웨어하우스는 일반적으로 데이터를 의미 있는 범위로 나누는데, 이들은 테이블에서 파티션으로 저장됩니다. 모든 SQL Server 기반 제품을 사용하여 테이블 내외부로 파티션을 이동할 수 있습니다. 이러한 파티션 전환을 통해 오래된 데이터를 저렴한 저장소로 이동하고 최신 데이터를 온라인 저장소에 보관할 수 있습니다.
 
-- Columnstore 인덱스는 분할된 테이블을 지원합니다. Columnstore 인덱스의 경우 분할된 테이블은 데이터 관리 및 보관에 사용됩니다. 행 단위로 저장된 테이블의 경우 파티션이 쿼리 성능에 더 큰 역할을 가지게 됩니다.  
+- Columnstore 인덱스는 분할된 테이블을 지원합니다. Columnstore 인덱스의 경우 분할된 테이블은 데이터 관리 및 보관에 사용됩니다. 행 단위로 저장된 테이블의 경우 파티션이 쿼리 성능에 더 큰 역할을 가지게 됩니다.
 
 - PolyBase는 데이터 관리에서 중요한 역할을 담당합니다. PolyBase를 사용하면 오래된 데이터를 Hadoop 또는 Azure blob 저장소에 보관할 수 있습니다. 이를 통해 데이터가 여전히 온라인 상태를 유지하므로 많은 옵션을 이용할 수 있습니다. Hadoop로부터 데이터 검색에 시간이 더 오래 걸릴 수는 있지만 검색 시간의 증가로 인해 저장 비용이 절감되는 효과가 더 중요합니다.
 
@@ -59,18 +59,16 @@
 - 분석을 위해 데이터 웨어하우스에서 분석 큐브를 빌드하고 데이터 웨어하우스에 대해 분석을 실행하거나 데이터를 미리 처리한 다음 추가 분석을 위해 분석 서버로 내보낼 수 있습니다.
 
 ## 다음 단계
-데이터 웨어하우스의 개발을 시작하려면[개발 개요][]를 참조하세요.
-
-## 설명서
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications). [Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하게 [SQL 데이터 웨어하우스 만들기][] 및 [샘플 데이터 로드][]에 대해 알아봅니다.
 
 <!--Image references-->
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
+[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

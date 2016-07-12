@@ -85,12 +85,8 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 
 사용자가 작성한 모든 자동화 및 스크립트는 Azure 서비스 관리 모드에서 만든 기존 가상 컴퓨터 및 가상 네트워크에서 계속 작동합니다. 그러나 새 Azure 리소스 관리자 모드를 통해 동일한 리소스를 만드는 데 새 스키마를 사용하도록 스크립트를 업데이트해야 합니다.
 
-**새 Azure 리소스 관리자 API를 사용하여 만든 가상 네트워크를 Express Route 회로에 연결할 수 있나요?**
-
-이 기능은 현재 지원되지 않습니다. 새 Azure 리소스 관리자 API를 사용하여 만든 가상 네트워크는 Express Route 회로에 연결할 수 없습니다. 이 기능은 나중에 지원될 예정입니다.
-
 **Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있나요?**
 
 [Azure 리소스 관리자 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

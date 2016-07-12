@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/24/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect에 대한 필수 조건
@@ -45,7 +45,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다.
 - 별도의 SQL Server를 사용하는 경우 다음 요구 사항이 적용됩니다.
     - Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다**.
-    - 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이 경우 이름에 \_CI\_를 사용하여 식별됩니다. 이름에 \_CS\_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
+    - 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이 경우 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
     - 데이터베이스 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. 데이터베이스 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
 ### 계정
@@ -154,7 +154,7 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 - 테스트 랩 환경의 페더레이션 서버에서 자체 서명된 인증서를 사용할 수 있습니다. 그러나 프로덕션 환경에서는 공용 CA에서 인증서를 가져오는 것이 좋습니다.
     - 공개적으로 신뢰할 수 없는 인증서를 사용하면 각 웹 응용 프로그램 프록시 서버에 설치된 인증서가 모든 페더레이션 서버 및 로컬 서버에서 신뢰할 수 있는 지 확인합니다.
 - 인증서의 ID는 페더레이션 서비스 이름(예: sts.contoso.com)과 일치해야 합니다.
-    - ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.  
+    - ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.
     - 그 중 하나가 페더레이션 서비스 이름과 일치하는 경우 여러 SAN 항목이 인증서에 있을 수 있습니다.
     - 작업 공간 연결을 사용하려는 경우 추가 SAN은 값 **enterpriseregistration.** 다음에 조직의 UPN(사용자 계정 이름) 접미사(예: **enterpriseregistration.contoso.com**)가 필요합니다.
 - CryptoAPI 다음 세대(CNG) 및 키 저장소 공급자를 기반으로 하는 인증서는 지원되지 않습니다. 즉, KSP(키 저장소 공급자)가 아닌 CSP(암호화 서비스 공급자)를 기반으로 인증서를 사용해야 합니다.
@@ -197,4 +197,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

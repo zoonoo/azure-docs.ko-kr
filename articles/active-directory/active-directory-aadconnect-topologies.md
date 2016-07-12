@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="05/19/2016"
+    ms.date="06/27/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
@@ -187,4 +187,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

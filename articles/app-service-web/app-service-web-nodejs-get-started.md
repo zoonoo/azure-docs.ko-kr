@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 Node.js 웹앱 시작
@@ -179,7 +179,7 @@ Node-Inspector를 사용하여 Node.js 앱을 디버깅하는 경우 라이브 �
 
 Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 
-1. 리포지토리 루트에서 iisnode.yml을 열고 다음 매개 변수를 지정합니다. 
+1. 리포지토리 루트에서 iisnode.yml을 열고 다음 매개 변수를 지정합니다.
 
         debuggingEnabled: true
         debuggerExtensionDll: iisnode-inspector.dll
@@ -201,6 +201,7 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 ## 추가 리소스
 
 - [Azure 응용 프로그램에서 Node.js 버전 지정](../nodejs-specify-node-version-azure-apps.md)
+- [Azure에서 Node.js 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법](web-sites-nodejs-debug.md)
 - [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 - [Azure 앱 서비스 웹앱: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -235,4 +236,4 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

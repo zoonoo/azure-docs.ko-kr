@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -27,9 +27,9 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 
 REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
-- 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
+- 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다.
 
-- JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **\_\_metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **\_\_metadata** 속성을 인식하지 못합니다.
+- JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **__metadata** 속성을 인식하지 못합니다.
 
 		POST https://media.windows.net/API/Jobs HTTP/1.1
 		Content-Type: application/json;odata=verbose
@@ -74,7 +74,7 @@ Accept-Language|"en", "es" 등입니다.|응답에 대한 기본 언어를 지�
 Accept-Charset|"UTF-8"과 같은 문자 집합 유형|기본값은 UTF-8입니다.
 X-HTTP-Method|HTTP 메서드|PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다.
 콘텐츠 형식|콘텐츠 형식|PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다.
-client-request-id|String|지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다.<p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다.
+client-request-id|String|지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다.
 
 ## 미디어 서비스에서 지원되는 표준 HTTP 응답 헤더
 
@@ -132,4 +132,4 @@ HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
@@ -119,7 +119,7 @@ Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 �
 Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
 
 - 큐 서비스는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
-- Azure 저장소 큐는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다. 
+- Azure 저장소 큐는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
 - 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)를 참조하세요.
 - Azure 저장소 큐에는 일부 제한 사항이 있으며 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx) 문서에서 설명합니다.
 
@@ -132,10 +132,10 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 1. 인코딩 작업에 대한 알림 메시지를 받는 큐를 만듭니다.
 1. 큐에 매핑되는 알림 끝점을 만듭니다.
 1. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
-1. 이 예에서 우리의 관심은 작업 처리의 최종 상태에 있으므로 **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드로 전달합니다. 
+1. 이 예에서 우리의 관심은 작업 처리의 최종 상태에 있으므로 **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드로 전달합니다.
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. NotificationJobState.All을 전달하는 경우 모든 상태 변경 알림(큐에 대기 -> 예약됨 -> 처리 중 -> 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Azure 저장소 큐 서비스가 순차적 전달을 보장하지 않습니다. 주문 메시지에 타임스탬프 속성(아래 예제에서는 EncodingJobMessage 형식에서 정의됨)을 사용할 수 있습니다. 중복된 알림 메시지를 받을 수 있습니다. ETag 속성(EncodingJobMessage 형식에서 정의됨)을 사용하여 중복을 확인합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다. 
+1. NotificationJobState.All을 전달하는 경우 모든 상태 변경 알림(큐에 대기 -> 예약됨 -> 처리 중 -> 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Azure 저장소 큐 서비스가 순차적 전달을 보장하지 않습니다. 주문 메시지에 타임스탬프 속성(아래 예제에서는 EncodingJobMessage 형식에서 정의됨)을 사용할 수 있습니다. 중복된 알림 메시지를 받을 수 있습니다. ETag 속성(EncodingJobMessage 형식에서 정의됨)을 사용하여 중복을 확인합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
 1. 10초마다 큐를 검사하여 작업이 완성된 상태가 될 때를 기다립니다. 처리된 후 메시지를 삭제합니다.
 1. 큐와 알림 끝점을 삭제합니다.
 
@@ -436,4 +436,4 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/15/2016"
+	ms.date="07/06/2016"
 	ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스에서 데이터베이스 성능 모니터링
@@ -27,7 +27,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 - CPU 비율
 - DTU 비율
 - 데이터 IO 비율
-- 저장소 비율
+- 데이터베이스 크기 비율
 
 이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU**를 기준으로 평균 사용률 비율을 표시합니다. DTU에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
@@ -47,4 +47,4 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

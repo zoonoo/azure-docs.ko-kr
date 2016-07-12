@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
@@ -26,7 +26,7 @@
 ##포털을 사용하여 작업 상태 확인하기
 
 1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
-2. **작업** 페이지를 선택합니다. 
+2. **작업** 페이지를 선택합니다.
 
 	페이지에서 모든 작업 상태를 볼 수 있습니다. 상태, 시간 또는 작업 ID로 필터링할 수도 있습니다.
 
@@ -50,4 +50,4 @@
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

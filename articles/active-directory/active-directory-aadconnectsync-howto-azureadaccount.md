@@ -2,7 +2,7 @@
 	pageTitle="Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법 | Microsoft Azure"
 	description="이 항목은 Azure AD 서비스 계정을 복원하는 방법을 설명합니다."
 	services="active-directory"
-    keywords="Azure AD Connect 동기화 커넥터 서비스 계정의 암호를 재설정하는 방법"
+    keywords="AADSTS70002, AADSTS50054, Azure AD Connect 동기화 커넥터 서비스 계정의 암호를 재설정하는 방법"
 	documentationCenter=""
 	authors="andkjell"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
@@ -29,7 +29,16 @@ Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 그러�
 
 이 cmdlet은 서비스 계정의 암호를 재설정하고 Azure AD와 동기화 엔진에서 암호를 업데이트합니다.
 
+## 이 단계에서 해결할 수 있다고 알려진 문제
+다음은 이 단계를 따름으로써 해결되었다고 고객이 알려온 오류 목록입니다.
+
+-----------
+이벤트 6900 서버가 암호 변경 알림을 처리하는 동안 예기치 않은 오류가 발생 했습니다. AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+
+----------
+이벤트 659 암호 정책 동기화 구성을 검색하는 도중 오류 발생. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

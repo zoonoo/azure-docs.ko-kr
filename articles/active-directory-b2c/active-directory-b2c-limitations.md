@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 제한 사항
@@ -24,7 +24,7 @@
 
 ## Azure AD B2C 테넌트를 만드는 동안 문제
 
-[Azure AD B2C 테넌트를 만드는](active-directory-b2c-get-started) 동안 문제가 발생하는 경우 참고 자료로 [Azure AD 테넌트 또는 Azure AD B2C 테넌트 만들기--문제점 및 해결 방법](active-directory-b2c-support-create-directory.md)을 참조하세요.
+[Azure AD B2C 테넌트를 만드는](active-directory-b2c-get-started.md) 동안 문제가 발생하는 경우 참고 자료로 [Azure AD 테넌트 또는 Azure AD B2C 테넌트 만들기--문제점 및 해결 방법](active-directory-b2c-support-create-directory.md)을 참조하세요.
 
 ## 확인 메일에 대한 브랜딩 문제
 
@@ -70,6 +70,10 @@ Azure AD B2C 미리 보기는 OpenID Connect 및 OAuth 2.0을 지원합니다. �
 
 Azure AD B2C 미리 보기에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred\_username" 클레임을 포함합니다. 미리 보기하는 동안 여기서 상당히 변경될 것을 예상해야 합니다. Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-reference-tokens.md)를 자세히 읽어보세요.
 
+## 중첩된 그룹에 대한 제한
+
+중첩된 그룹 멤버 자격은 Azure AD B2C 테넌트에서 지원되지 않습니다. 이 기능을 추가할 계획이 없습니다.
+
 ## Azure 클래식 포털에서 사용자 관리의 문제
 
 B2C 기능은 Azure 포털에 액세스할 수 있습니다. 그러나 Azure 클래식 포털을 사용하여 사용자 관리를 포함하여 다른 테넌트 기능에 액세스할 수 있습니다. 현재 Azure 클래식 포털의 사용자 관리(**사용자** 탭)와 관련해서 알려진 몇 가지 문제가 있습니다.
@@ -82,11 +86,11 @@ B2C 기능은 Azure 포털에 액세스할 수 있습니다. 그러나 Azure 클
 
 ## Azure 클래식 포털의 관리자가 시작한 암호 재설정 관련 문제
 
-Azure 클래식 포털에서 로컬 계정 기반 소비자에 대한 암호를 재설정하는 경우(**사용자** 탭의 **암호 재설정** 명령) 해당 소비자는 다음 로그인 시 자신의 암호를 변경할 수 없고 응용 프로그램에서 잠깁니다. 당사에서 이 문제를 해결하기 위한 작업을 하고 있습니다. 해결 방법으로 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 소비자의 암호를 재설정하세요.
+Azure 클래식 포털에서 로컬 계정 기반 소비자에 대한 암호를 재설정하는 경우(**사용자** 탭의 **암호 재설정** 명령) 해당 소비자가 등록 또는 로그인 정책을 사용한다면 다음 로그인 시 자신의 암호를 변경할 수 없고 응용 프로그램에서 잠깁니다. 당사에서 이 문제를 해결하기 위한 작업을 하고 있습니다. 연습으로 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 소비자의 암호를 (암호 만료 없이) 재설정하거나 등록 또는 로그인 정책 대신 로그인 정책을 사용합니다.
 
-## Azure AD B2C 테넌트의 삭제에 대한 제한 사항
+## 사용자 지정 특성 만들기 관련 문제
 
-Azure 클래식 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니다.
+[Azure 포털에서 추가된 사용자 지정 특성](active-directory-b2c-reference-custom-attr.md)은 B2C 테넌트에 즉시 만들어지지 않습니다. 사용자 지정 특성은 B2C 테넌트에 생성하고 Graph API를 통해 사용할 수 있게 되기 전에 적어도 정책 중 하나에서 사용해야 합니다.
 
 ## Azure 클래식 포털에서 도메인 확인 문제
 
@@ -97,6 +101,6 @@ Azure 클래식 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니�
 HTTP 400(잘못된 요청) 오류가 있는 Safari 브라우저에서 (MFA를 사용하는) 일시적인 로그인 정책 실패에 대한 요청입니다. Safari의 쿠키 크기가 낮게 제한되기 때문입니다. 이 문제에 대한 해결 방법은 다음과 같이 몇 가지가 있습니다.
 
 - "로그인 정책" 대신 "등록 또는 로그인 정책"을 사용합니다.
-- 정책에서 요청되는 **응용 프로그램 클레임** 수를 줄입니다. 
+- 정책에서 요청되는 **응용 프로그램 클레임** 수를 줄입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

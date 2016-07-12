@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # 기술 참조: Azure AD 앱에 대한 조건부 액세스
@@ -55,13 +55,14 @@
 
 “회사” 네트워크 지정 옵션
 
-1. 신뢰할 수 있는 IP 주소 범위는 [다단계 인증 구성 페이지](../multi-factor-authentication/multi-factor-authentication-whats-next.md)에서 구성합니다. 조건부 액세스 정책은 각 인증 요청 및 토큰 발급의 구성 범위를 사용하여 규칙을 평가합니다. 
+1. 신뢰할 수 있는 IP 주소 범위는 [다단계 인증 구성 페이지](../multi-factor-authentication/multi-factor-authentication-whats-next.md)에서 구성합니다. 조건부 액세스 정책은 각 인증 요청 및 토큰 발급의 구성 범위를 사용하여 규칙을 평가합니다.
 2. Corpnet 내부 클레임을 사용하여 구성합니다. 이 옵션은 AD FS를 이용하여 페더레이트된 디렉터리와 함께 사용할 수 있습니다. [Coronet 내부 클레임에 대해 자세히 알아보기](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. 공용 IP 주소 범위를 구성합니다. 구성 탭에서 디렉터리에 대한 공용 IP 주소를 설정할 수 있습니다. 조건부 액세스는 ‘회사' IP 주소에 이 주소를 사용합니다. MFA 설정 페이지에서 강제하는 IP 주소 50개 제한을 넘는 추가 범위를 구성할 수 있습니다.
 
 
 
-## 응용 프로그램 단위 규칙
+## 응용 프로그램 민감도에 기반한 규칙
+
 다른 서비스에 대한 액세스에 영향을 주지 않고 중요한 서비스의 보안이 유지되도록 허용하는 응용 프로그램 단위로 규칙이 구성됩니다. 응용 프로그램의 **구성** 탭에서 조건부 액세스 규칙을 구성할 수 있습니다.
 
 현재 제공되는 규칙은 다음과 같습니다.
@@ -81,4 +82,4 @@
 - [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
@@ -182,4 +182,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0629_2016-->

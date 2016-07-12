@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/28/2016"
 	ms.author="tarcher"/>
 
 # Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
@@ -39,7 +39,7 @@ ASP.NET 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려�
 
 1. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Azure;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
@@ -227,4 +227,4 @@ Blob을 삭제하려면 **Delete** 메서드를 사용합니다.
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

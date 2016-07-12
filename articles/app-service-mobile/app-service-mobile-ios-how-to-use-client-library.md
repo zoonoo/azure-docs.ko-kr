@@ -24,7 +24,7 @@
 
 ## 참조 설명서
 
-iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure 모바일 앱 iOS 클라이언트 참조](http://azure.github.io/azure-mobile-services/iOS/v3/)를 참조하세요.
+iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure 모바일 앱 iOS 클라이언트 참조](http://azure.github.io/azure-mobile-apps-ios-client/)를 참조하세요.
 
 ##<a name="Setup"></a>설정 및 필수 조건
 
@@ -525,7 +525,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
-* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
 
 **Objective-C**:
 
@@ -792,4 +792,4 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

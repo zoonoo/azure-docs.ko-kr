@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -32,23 +32,23 @@ Microsoft Azure 미디어 서비스에서 컨텐츠를 DASH, 부드러운 스트
 자세한 내용은 다음을 참조하세요.
 
 - [Azure 미디어 플레이어](http://aka.ms/ampinfo)
-- [Azure 미디어 플레이어 서비스 설명서](http://aka.ms/ampdocs) 
+- [Azure 미디어 플레이어 서비스 설명서](http://aka.ms/ampdocs)
 - [Azure 미디어 플레이어 시작 블로그](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [최신 Azure 미디어 플레이어 관련 최신 정보를 얻으려면 등록](http://aka.ms/ampsignup)
-- [새로운 기능 요청, 아이디어, 사용자 의견 추가](http://aka.ms/ampuservoice) 
+- [새로운 기능 요청, 아이디어, 사용자 의견 추가](http://aka.ms/ampuservoice)
 
 
 ##플레이어 응용 프로그램을 만들기 위한 다른 도구
 
 또한 다음 SDK 중 하나를 사용할 수도 있습니다.
 
-- [부드러운 스트리밍 클라이언트 SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [부드러운 스트리밍 클라이언트 SDK](http://www.iis.net/downloads/microsoft/smooth-streaming)
 - [부드러운 스트리밍 Windows 스토어 앱](media-services-build-smooth-streaming-apps.md)
-- [Microsoft Media Platform: 플레이어 프레임워크](http://playerframework.codeplex.com/) 
-- [HTML5 플레이어 프레임워크 설명서](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](http://aka.ms/sspk) 
-- [XBOX 비디오 응용 프로그램 개발](http://xbox.create.msdn.com/) 
+- [Microsoft Media Platform: 플레이어 프레임워크](http://playerframework.codeplex.com/)
+- [HTML5 플레이어 프레임워크 설명서](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation)
+- [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057)
+- [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](http://aka.ms/sspk)
+- [XBOX 비디오 응용 프로그램 개발](http://xbox.create.msdn.com/)
  
 
 ##광고
@@ -81,4 +81,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

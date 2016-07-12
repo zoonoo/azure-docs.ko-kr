@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스 복원을 위한 PowerShell 작업."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 복원(PowerShell)
 
@@ -95,7 +95,6 @@ $RestoredDatabase.status
 6. 복원된 데이터베이스가 온라인 상태인지 확인합니다.
 
 ```Powershell
-
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -114,7 +113,6 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
@@ -132,7 +130,6 @@ $RestoredDatabase.status
 6. 지역에서 복원된 데이터베이스의 상태를 확인합니다.
 
 ```Powershell
-
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
@@ -145,7 +142,6 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
-
 ```
 
 >[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
@@ -179,4 +175,4 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

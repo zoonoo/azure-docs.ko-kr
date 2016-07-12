@@ -22,7 +22,7 @@
 
 [MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL Server로 커뮤니티 버전의 MySQL 5.6.23을 설치하고 실행하는 방법을 보여 줍니다. Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-mysql-install.md)을 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Windows Server 2012 R2를 실행하는 가상 컴퓨터 만들기
 
@@ -126,4 +126,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

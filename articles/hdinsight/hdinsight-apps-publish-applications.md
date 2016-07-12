@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/28/2016"
+   	ms.date="06/29/2016"
    	ms.author="jgao"/>
 
 # Azure 마켓플레이스에 HDInsight 응용 프로그램 게시
@@ -25,6 +25,7 @@ HDInsight 응용 프로그램은 *BYOL(사용자 라이선스 필요)*을 사용
 
 다른 HDInsight 응용 프로그램 관련 문서:
 
+- [HDInsight 응용 프로그램 설치](hdinsight-apps-install-applications.md): HDInsight 응용 프로그램을 클러스터에 설치하는 방법을 알아봅니다.
 - [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): 사용자 지정 HDInsight 응용 프로그램을 설치하고 테스트하는 방법을 알아봅니다.
 
  
@@ -94,8 +95,9 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 
 ## 다음 단계
 
+- [HDInsight 응용 프로그램 설치](hdinsight-apps-install-applications.md): HDInsight 응용 프로그램을 클러스터에 설치하는 방법을 알아봅니다.
 - [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
-- [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+- [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

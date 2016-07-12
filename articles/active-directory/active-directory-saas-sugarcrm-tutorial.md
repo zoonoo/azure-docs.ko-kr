@@ -2,17 +2,17 @@
     pageTitle="자습서: SugarCRM과 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Sugar CRM을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #자습서: SugarCRM과 Azure Active Directory 통합
   
@@ -38,7 +38,7 @@
 
 ###Sugar CRM에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Sugar CRM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Sugar CRM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Single Sign-On 구성")
 
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Sugar CRM Sign On URL** 텍스트 상자에 Sugar CRM 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: "**http://company.sugarondemand.com*")을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Sugar CRM Sign On URL** 텍스트 상자에 Sugar CRM 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: "*http://company.sugarondemand.com*")을 입력한 후 *다음*을 클릭합니다**.
 
     ![앱 URL 구성](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "앱 URL 구성")
 
@@ -104,16 +104,16 @@
 
     ![SAML 인증](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML 인증")
 
-    1.  Azure 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
-    2.  Azure 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SLO URL** 텍스트 상자에 붙여넣습니다.
+    1.  Azure 클래식 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SLO URL** 텍스트 상자에 붙여넣습니다.
     3.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
-        >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+        >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     4.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
-    5.  **저장**을 클릭합니다.
+    5.  **Save**를 클릭합니다.
 
-10. Azure 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭합니다.
+10. Azure 클래식 포털의 **Sugar CRM에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Single Sign-On 구성")
 
@@ -152,7 +152,7 @@ Azure AD 사용자가 Sugar CRM에 로그인할 수 있도록 하려면 Sugar CR
     1.  관련된 텍스트 상자에 암호를 입력합니다.
     2.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 Sugar CRM 사용자 계정 생성 도구 또는 Sugar CRM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Sugar CRM 사용자 계정 생성 도구 또는 Sugar CRM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -160,7 +160,7 @@ Azure AD 사용자가 Sugar CRM에 로그인할 수 있도록 하려면 Sugar CR
 
 ###Sugar CRM에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **Sugar CRM** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -172,4 +172,4 @@ Azure AD 사용자가 Sugar CRM에 로그인할 수 있도록 하려면 Sugar CR
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

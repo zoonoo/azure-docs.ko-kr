@@ -229,11 +229,11 @@
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages** 및 **SimulatedDevice** 프로젝트 모두에 대한 작업으로 **시작**을 선택합니다.
+1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ReadDeviceToCloudMessages** 및 **SimulatedDevice** 프로젝트 모두에 대한 작업으로 **시작**을 선택합니다.
 
    	![시작 프로젝트 속성][41]
 
-2.	**F5**를 눌러 두 응용 프로그램 실행을 시작합니다. **SimulatedDevice** 앱의 콘솔 출력은 시뮬레이션된 장치가 IoT Hub로 전송하는 메시지를 보여 줍니다. **ProcessDeviceToCloudMessages** 앱의 콘솔 출력은 IoT Hub가 수신하는 메시지를 보여 줍니다.
+2.	**F5**를 눌러 두 응용 프로그램 실행을 시작합니다. **SimulatedDevice** 앱의 콘솔 출력은 시뮬레이션된 장치가 IoT Hub로 전송하는 메시지를 보여 줍니다. **ReadDeviceToCloudMessages** 앱의 콘솔 출력은 IoT Hub가 수신하는 메시지를 보여 줍니다.
 
    	![앱에서 콘솔 출력][42]
 
@@ -277,4 +277,4 @@
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

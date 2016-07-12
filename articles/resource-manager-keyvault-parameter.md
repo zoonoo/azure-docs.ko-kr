@@ -4,8 +4,8 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # 배포 중 보안 값 전달
@@ -26,9 +26,9 @@
 
 키 자격 증명 모음 및 암호 배포에 대한 자세한 내용은 [키 자격 증명 모음 스키마](resource-manager-template-keyvault.md) 및 [키 자격 증명 모음 암호 스키마](resource-manager-template-keyvault-secret.md)를 참조하세요.
 
-## 암호 참조
+## 정적 ID로 암호 참조
 
-템플릿에 값을 전달하는 매개 변수 파일 내에서 암호를 참조합니다. 키 자격 증명 모음의 리소스 식별자와 암호 이름을 전달하여 암호를 참조합니다.
+템플릿에 값을 전달하는 매개 변수 파일 내에서 암호를 참조합니다. 키 자격 증명 모음의 리소스 식별자와 암호 이름을 전달하여 암호를 참조합니다. 이 예에서는 키 자격 증명 모음 암호가 이미 있어야 하고, 리소스 ID에 정적 값을 사용합니다.
 
     "parameters": {
       "adminPassword": {
@@ -94,7 +94,49 @@
         "outputs": { }
     }
 
+## 동적 ID로 암호 참조
 
+이전 섹션에서는 키 자격 증명 모음 암호에 대해 정적 리소스 ID를 전달하는 방법을 살펴보았습니다. 하지만, 일부 시나리오에서는, 현재 배포를 기반으로 달라지는 키 자격 증명 모음 암호를 참조해야 합니다. 이런 경우, 매개 변수 파일에 리소스 ID를 하드 코딩할 수 없습니다. 아쉽게도, 매개 변수 파일에 템플릿 식이 허용되지 않기 때문에 매개 변수 파일에 리소스 ID를 동적으로 생성할 수 없습니다.
+
+키 자격 증명 모음 암호에 대한 리소스 ID를 동적으로 생성하려면, 암호가 필요한 리소스를 중첩된 템플릿으로 이동해야 합니다. 마스터 템플릿에서, 중첩된 템플릿을 추가하고 동적으로 생성된 리소스 ID를 포함하는 매개 변수에 전달합니다.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "vaultName": {
+          "type": "string"
+        },
+        "secretName": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
+              "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+              "adminPassword": {
+                "reference": {
+                  "keyVault": {
+                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
+                  },
+                  "secretName": "[parameters('secretName')]"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "outputs": {}
+    }
 
 
 ## 다음 단계
@@ -103,4 +145,4 @@
 - 가상 컴퓨터에서 키 자격 증명 모음을 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 키 암호를 참조하는 전체 예제는 [키 자격 증명 모음 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

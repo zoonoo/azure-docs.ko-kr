@@ -4,17 +4,12 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="06/23/2016"
+
 	ms.author="femila"/>
 
 # Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항
@@ -37,7 +32,7 @@ Azure Active Directory 연결(Azure AD 연결)은 현재 클라우드에서 업�
 위에서 설명한 이점 외에도, 사용자의 장치를 Azure AD에 연결하여 간소화된 연결 환경, 효율적인 장치 관리, 자동 모바일 장치 관리 등록 및 Azure AD/온-프레미스 리소스에 대한 Single Sign-On 등에 따른 많은 이점을 얻을 수 있습니다.
 
 
-## Azure AD 연결에 대한 배포 고려 사항
+##Azure AD 연결에 대한 배포 고려 사항
 
 ### 사용자가 Azure AD에 직접 회사 소유의 장치를 연결하도록 허용
 
@@ -47,7 +42,7 @@ Azure Active Directory 연결(Azure AD 연결)은 현재 클라우드에서 업�
 ### 필수 조건
 **엔터프라이즈 수준(관리자)**
 
-*	Azure Active Directory를 사용하는 Azure 구독  
+*	Azure Active Directory를 사용하는 Azure 구독
 
 **사용자 수준**
 
@@ -92,4 +87,4 @@ Azure Active Directory 연결(Azure AD 연결)은 현재 클라우드에서 업�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

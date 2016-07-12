@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/02/2016"
+   ms.date="07/02/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
@@ -28,7 +28,9 @@
 
 Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공유에 액세스하여 데이터베이스를 유용하게 활용할 수 있도록 몇 가지 추가 단계를 수행해 보겠습니다. 응용 프로그램이 데이터베이스가 아니거나 사용자의 파일 공유 액세스가 필요하지 않은 경우 이 자습서에서 해당 단계를 건너뛸 수 있습니다.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> - [Azure 계정을 무료로 개설](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+> - [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 
 ## RemoteApp에서 컬렉션 만들기
@@ -119,4 +121,4 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

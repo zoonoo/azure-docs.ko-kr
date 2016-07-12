@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"   
+	ms.date="06/22/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
@@ -289,4 +289,4 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect: 인스턴스에 대한 특별한 고려 사항
@@ -65,4 +65,4 @@ Microsoft Azure Government 클라우드에 현재 표시되지 않는 기능은 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="06/24/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/)하는 방법을 알아봅니다.
 
 ## 개요
 Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성되었으므로 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
@@ -33,7 +33,7 @@ Microsoft Azure 네트워킹을 사용하면 미세 조정된 네트워크 보�
 
 - 외부 시스템은 Azure 내부나 외부에서 Cassandra 데이터베이스에 액세스할 수 없어야 합니다.
 - Cassandra 클러스터는 쓰리프트 트래픽에 대한 부하 분산 장치 뒤에 있어야 합니다.
-- 클러스터 가용성 향상을 위해 각 데이터 센터의 두 그룹에 Cassandra 노드를 배포해야 합니다. 
+- 클러스터 가용성 향상을 위해 각 데이터 센터의 두 그룹에 Cassandra 노드를 배포해야 합니다.
 - 응용 프로그램 서버 팜만 데이터베이스에 직접 액세스할 수 있도록 클러스터를 잠가야 합니다.
 - SSH 이외의 공용 네트워킹 끝점이 없어야 합니다.
 - 각 Cassandra 노드에 고정된 내부 IP 주소가 필요합니다.
@@ -82,7 +82,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관에 대한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스를 제공합니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
 
-**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다. 단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999)) * 100)으로 계산된 99.9999의 가용성을 를 얻을 수 있습니다. 자세한 내용은 위의 문서를 참조하세요.
+**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다. 단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위의 문서를 참조하세요.
 
 **재해 복구:** 제대로 설계된 경우 다중 지역 Cassandra 클러스터는 치명적인 데이터 센터 중단을 견딜 수 있습니다. 한 지역이 다운된 경우, 다른 지역에 배포된 응용 프로그램이 최종 사용자를 제공하기 시작할 수 있습니다. 다른 모든 비즈니스 연속성 구현과 마찬가지로, 응용 프로그램은 비동기 파이프라인의 데이터에서 일부 데이터 손실을 허용해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에서 소요된 시간 보다 훨씬 빠르게 복구를 작성합니다. 그림 2는 각 지역에 8개의 노드가 있는 일반적인 다중 지역 배포 모델을 보여줍니다. 두 지역은 같은 대칭에 대한 서로 다른 미러 이미지입니다. 실제는 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 디자인됩니다.
 
@@ -440,7 +440,7 @@ VM에 로그인하고 다음을 수행합니다.
 
 1.    Powershell 명령 Get-AzureInternalLoadbalancer commandlet을 사용하여 내부 부하 분산 장치의 IP 주소를 가져옵니다(예: 10.1.2.101). 명령 구문은 다음과 같습니다. Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us”[주소와 함께 내부 부하 분산 장치의 세부 정보 표시]
 2.	Putty 또는 ssh를 사용하여 웹 팜 VM(예: hk-w1-west-us)에 로그인합니다.
-3.	$CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
+3.	$CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
 4.	다음 CQL 명령을 사용하여 클러스터가 작동하는지 확인합니다.
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -559,12 +559,12 @@ VM에 로그인하고 다음을 수행합니다.
 
 ###1단계: PowerShell을 사용하여 두 지역에 대한 내부 부하 분산 장치 IP 가져오기
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
 
     표시되는 IP 주소를 확인합니다(예: 서부 - 10.1.2.101, 동부 - 10.2.2.101).
 
 ###2단계: hk-w1-west-us에 로그인한 후 서부 지역에서 다음 실행
-1.    $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
+1.    $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다.
 2.	다음 CQL 명령을 실행합니다.
 
 		CREATE KEYSPACE customers_ks
@@ -584,7 +584,7 @@ VM에 로그인하고 다음을 수행합니다.
 
 
 ###3단계: hk-w1-east-us에 로그인한 후 동부 지역에서 다음 실행
-1.    $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 실행 
+1.    $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 실행
 2.	다음 CQL 명령을 실행합니다.
 
 		USE customers_ks;
@@ -611,7 +611,7 @@ VM에 로그인하고 다음을 수행합니다.
 
 1. Node.js 및 npm을 설치합니다.
 2. npm을 사용하여 노드 패키지 "cassandra-client"를 설치합니다.
-3. 검색된 데이터의 json 문자열을 표시하는 셸 프롬프트에서 다음 스크립트를 실행합니다. 
+3. 검색된 데이터의 json 문자열을 표시하는 셸 프롬프트에서 다음 스크립트를 실행합니다.
 
 		var pooledCon = require('cassandra-client').PooledConnection;
 		var ksName = "custsupport_ks";
@@ -702,7 +702,7 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
 ##참조##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com) 
-- [http://www.nodejs.org](http://www.nodejs.org) 
+- [http://www.datastax.com](http://www.datastax.com)
+- [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

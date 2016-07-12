@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -51,6 +51,8 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 **작업 및 UI** |
 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | [작업](active-directory-aadconnectsync-service-manager-ui-operations.md), [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md), [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) 및 [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) 탭을 포함한 Synchronization Service Manager UI를 설명합니다.
 [운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md) | 재해 복구와 같은 운영 문제에 대해 설명합니다.
+**방법...** |
+[Azure AD 계정 재설정](active-directory-aadconnectsync-howto-azureadaccount.md) | Azure AD Connect 동기화에서 Azure AD로 연결하는 데 사용되는 서비스 계정의 자격 증명을 재설정하는 방법.
 **자세한 내용 및 참조** |
 [포트](active-directory-aadconnect-ports.md) | 동기화 엔진, 온-프레미스 디렉터리 및 Azure AD 간에 열어야 하는 포트를 나열합니다.
 [Azure Active Directory에 동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md) | 온-프레미스 AD와 Azure AD 간에 동기화되는 모든 특성을 나열합니다.
@@ -60,4 +62,4 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

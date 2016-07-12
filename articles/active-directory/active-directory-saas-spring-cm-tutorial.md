@@ -2,17 +2,17 @@
     pageTitle="자습서: Spring CM과 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Spring CM을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #자습서: Spring CM과 Azure Active Directory 통합
   
@@ -38,7 +38,7 @@
 
 ###SpringCM에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-spring-cm-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **SpringCM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **SpringCM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Single Sign-On 구성")
 
@@ -80,7 +80,7 @@
 
 3.  **앱 URL 구성** 페이지의 **SpringCM Sign On URL** 텍스트 상자에 SpringCM 응용 프로그램에 로그온하기 위해 사용자가 사용한 URL을 입력한 후 **다음**을 클릭합니다.
 
-    앱 URL은 SpringCM 테넌트 URL입니다(예: **https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*):).
+    앱 URL은 SpringCM 테넌트 URL입니다(예: *https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*:).
 
     ![앱 URL 구성](./media/active-directory-saas-spring-cm-tutorial/IC797049.png "앱 URL 구성")
 
@@ -99,12 +99,12 @@
     ![Id 공급자 구성](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Id 공급자 구성")
 
     1.  다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경**을 클릭합니다.
-    2.  Microsoft Azure 포털의 **SpringCM에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
-    3.  Microsoft Azure 포털의 **SpringCM에 대한 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **SpringCM에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
+    3.  Azure 클래식 포털의 **SpringCM에 대한 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여넣습니다.
     4.  **SAML 사용**으로 설정되었을 때 **사용**을 선택합니다.
     5.  **Save**를 클릭합니다.
 
-8.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Single Sign-On 구성")
 
@@ -112,7 +112,7 @@
   
 Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하려면 SpringCM으로 프로비전되어야 합니다. SpringCM의 경우 프로비전은 수동 작업입니다.
 
->[AZURE.NOTE]자세한 내용은 [SpringCM 사용자 만들기 및 편집](http://knowledge.springcm.com/create-and-edit-a-springcm-user)을 참조하십시오.
+>[AZURE.NOTE] 자세한 내용은 [SpringCM 사용자 만들기 및 편집](http://knowledge.springcm.com/create-and-edit-a-springcm-user)을 참조하십시오.
 
 ###사용자 계정을 SpringCM에 프로비전하려면 다음 단계를 수행합니다.
 
@@ -134,7 +134,7 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 
 8.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -142,7 +142,7 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 
 ###SpringCM에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **SpringCM** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -154,4 +154,4 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

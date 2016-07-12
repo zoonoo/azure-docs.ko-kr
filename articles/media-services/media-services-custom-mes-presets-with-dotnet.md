@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -42,7 +42,7 @@
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- 작업에 인코딩 작업을 추가합니다. 
+- 작업에 인코딩 작업을 추가합니다.
 - 인코딩할 입력 자산을 지정합니다.
 - 인코딩된 자산을 포함할 출력 자산을 만듭니다.
 - 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
@@ -445,7 +445,7 @@
 
 이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. 스키마의 맨 위에 **Sources**가 배치되어야 합니다.
+비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. 스키마의 맨 위에 **원본**이 배치되어야 합니다.
  
 ###<a id="json"></a>JSON 사전 설정
 	
@@ -569,7 +569,7 @@
 
 ###XML 사전 설정
 	
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다.
+비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -959,4 +959,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

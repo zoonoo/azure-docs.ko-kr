@@ -21,7 +21,7 @@
 
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Azure 가상 컴퓨터에서 RAID 활용
@@ -105,7 +105,7 @@ Linux에서는 다음 네 가지 유형의 I/O 일정 알고리즘을 구현합�
 -	NOOP 알고리즘(작업 없음)
 -	Deadline 알고리즘(기한)
 -	Completely Fair Queuing 알고리즘(CFQ)
--	Budget Period 알고리즘(예상)  
+-	Budget Period 알고리즘(예상)
 
 상황에 따라 다른 I/O 스케줄러를 선택하여 성능을 최적화할 수 있습니다. 완전한 임의 액세스 환경에서는 CFQ 알고리즘과 Deadline 알고리즘 간에 성능 면에서 큰 차이가 없습니다. 일반적으로 MySQL 데이터베이스 환경은 안정성을 위해 Deadline으로 설정하는 것이 좋습니다. 순차적 I/O가 많은 경우 CFQ는 디스크 I/O 성능을 저하시킬 수 있습니다.
 
@@ -208,7 +208,7 @@ MySQL은 동시성이 뛰어난 데이터베이스입니다. 기본 동시 핸�
 기본 I/O 최적화 규칙은 다음과 같습니다.
 
 -	캐시 크기 증가.
--	I/O 응답 시간 감소  
+-	I/O 응답 시간 감소
 
 MySQL 서버 설정을 최적화하려면 서버 컴퓨터와 클라이언트 컴퓨터 모두의 기본 구성 파일인 my.cnf 파일을 업데이트하면 됩니다.
 
@@ -220,7 +220,7 @@ MySQL 서버 설정을 최적화하려면 서버 컴퓨터와 클라이언트 �
 -	**Innodb\_file\_per\_table**: 이 설정은 InnoDB에서 테이블을 별도의 파일에 저장할 수 있는 기능을 사용하거나 사용하지 않도록 설정합니다. 이 옵션을 설정하면 여러 고급 관리 작업을 효율적으로 적용할 수 있습니다. 성능 면에서는 테이블 공간 전송 속도를 높이고 잔류물 관리 성능을 최적화할 수 있습니다. 따라서 이를 설정하는 것이 권장 설정입니다.</br> MySQL 5.6부터는 기본적으로 설정됩니다. 그러므로 별도의 작업이 필요 없습니다. 5.6 이전 버전에서는 기본적으로 해제됩니다. 수동으로 설정해야 합니다. 또한 새로 만든 테이블만 영향을 받으므로 데이터를 로드하기 전에 적용해야 합니다.
 -	**innodb\_flush\_log\_at\_trx\_commit**: 기본값은 1이며 범위는 0 ~ 2로 설정됩니다. 기본값은 독립 실행형 MySQL DB에 가장 적합한 옵션입니다. 2로 설정하면 데이터 무결성이 가장 높아지며, 이는 MySQL 클러스터의 마스터에 적합합니다. 0으로 설정하면 데이터가 손실되어 안정성이 저하(경우에 따라 성능이 향상될 수 있음)되며, 이는 MySQL 클러스터의 슬레이브에 적합합니다.
 -	**Innodb\_log\_buffer\_size**: 로그 버퍼는 트랜잭션이 커밋되기 전에 로그를 디스크에 플러시하지 않고도 트랜잭션이 실행되도록 해줍니다. 그러나 큰 이진 개체 또는 텍스트 필드가 있는 경우에는 캐시가 매우 빠르게 소모되고 디스크 I/O가 자주 트리거됩니다. Innodb\_log\_waits 상태 변수가 0이 아닌 경우 버퍼 크기를 늘리는 것이 좋습니다.
--	**query\_cache\_size**: 처음부터 사용하지 않도록 설정하는 것이 가장 좋습니다. query\_cache\_size를 0(현재 MySQL 5.6의 기본 설정)으로 설정하고 다른 방법을 사용하여 쿼리 속도를 높이세요.  
+-	**query\_cache\_size**: 처음부터 사용하지 않도록 설정하는 것이 가장 좋습니다. query\_cache\_size를 0(현재 MySQL 5.6의 기본 설정)으로 설정하고 다른 방법을 사용하여 쿼리 속도를 높이세요.
 
 최적화 후의 성능 비교는 [부록 D](#AppendixD)를 참조하세요.
 
@@ -348,4 +348,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [13]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-classic-optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

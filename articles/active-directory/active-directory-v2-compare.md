@@ -58,7 +58,7 @@ v2.0 끝점은 새 위치 [apps.dev.microsoft.com](https://apps.dev.microsoft.co
 원래의 Azure AD 서비스에서 앱은 **리소스** 또는 토큰 수신자로 작동할 수 있습니다. 리소스는 많은 **범위** 또는 이해할 수 있는 **oAuth2Permissions**를 정의할 수 있으며, 클라이언트 앱이 범위의 특정 집합에 대한 리소스에 토큰을 요청하도록 허용합니다. Azure AD Graph API를 리소스의 예로 생각해 볼 경우:
 
 - 리소스 식별자, 또는 `AppID URI`: `https://graph.windows.net/`
-- 범위, 또는 `OAuth2Permissions`: `Directory.Read`, `Directory.Write` 등.  
+- 범위, 또는 `OAuth2Permissions`: `Directory.Read`, `Directory.Write` 등.
 
 이 모든 것은 v2.0 끝점에서도 유효합니다. 앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다. 클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다. 그러나 클라이언트가 권한을 요청하는 방식이 변경되었습니다. 이전에는, OAuth 2.0 인증을 Azure AD로 보냈습니다.
 
@@ -72,7 +72,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 클라이언트 앱이 권한 부여를 요청할 때 어떤 리소스가 필요한지 **리소스** 매개 변수가 표시해 주는 곳입니다. Azure AD는 Azure 포털의 정적 구성을 기반 앱에 필요한 권한을 계산하고, 이에 따라 토큰을 발급합니다. 이제, 동일한 OAuth 2.0 인증 요청은 다음과 같습니다.
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -94,7 +94,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 v2.0 끝점을 사용하여 앱이 원하는 권한을 런타임, 즉 앱을 일반적으로 사용하는 동안 **동적으로** 지정할 수 있습니다. 이렇게 하려면, `scope` 매개 변수의 범위를 포함하는 권한을 요청하는 동안 앱이 요구하는 범위를 제 시간에 주어진 지점에 지정해야 합니다.
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -132,4 +132,4 @@ v2.0 토큰에서 내보내는 특정 클레임에 관한 더 자세한 내용�
 ## 제한 사항
 v2.0 끝점을 사용할 때 고려해야 할 몇 가지 제한 사항이 있습니다. 이 제한 사항 중 하나라도 특정 시나리오에 적용하는 경우 [v2.0 제한 사항 문서](active-directory-v2-limitations.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

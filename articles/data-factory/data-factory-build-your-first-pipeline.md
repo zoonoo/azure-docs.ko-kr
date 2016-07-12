@@ -1,11 +1,12 @@
 <properties
-	pageTitle="첫 번째 데이터 팩터리 빌드 | Microsoft Azure"
-	description="이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 데이터 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다."
+	pageTitle="데이터 팩터리 자습서: 첫 번째 데이터 파이프라인 | Microsoft Azure"
+	description="이 Azure 데이터 팩터리 자습서에서는 Hadoop 클러스터에서 Hive 스크립트를 사용하여 데이터를 처리하는 데이터 팩터리를 만들고 예약하는 방법을 보여 줍니다."
 	services="data-factory"
+	keywords="Azure 데이터 팩터리 자습서, Hadoop 클러스터, Hadoop Hive"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="data-factory"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# 자습서: 첫 번째 데이터 팩터리 빌드(개요)
+# Azure 데이터 팩터리 자습서: Hadoop 클러스터를 사용하여 데이터를 처리하는 데이터 파이프라인 구축 
 > [AZURE.SELECTOR]
 - [자습서 개요](data-factory-build-your-first-pipeline.md)
 - [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +25,7 @@
 - [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-이 문서는 Azure 데이터 팩터리 작성을 처음 시작할 때 도움이 됩니다.
+이 자습서에서는 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다.
 
 > [AZURE.NOTE] 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
 
@@ -43,14 +44,14 @@
 
 이 자습서에서는 다음 단계를 수행합니다.
 
-1.	**데이터 팩터리** 만들기. 데이터 팩터리는 데이터를 이동 및 처리하는 하나 이상의 데이터 파이프라인을 포함할 수 있습니다. 
-2.	**연결된 서비스** 만들기. 연결된 서비스를 만들어서 데이터 저장소 또는 계산 서비스를 데이터 팩터리에 연결합니다. Azure 저장소와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. Azure HDInsight와 같은 계산 서비스는 데이터를 처리/변환합니다.    
+1.	**데이터 팩터리** 만들기. 데이터 팩터리는 데이터를 이동 및 처리하는 하나 이상의 데이터 파이프라인을 포함할 수 있습니다.
+2.	**연결된 서비스** 만들기. 연결된 서비스를 만들어서 데이터 저장소 또는 계산 서비스를 데이터 팩터리에 연결합니다. Azure 저장소와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. Azure HDInsight와 같은 계산 서비스는 데이터를 처리/변환합니다.
 3.	입력 및 출력 **데이터 집합**을 만듭니다. 입력 데이터 집합은 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 집합은 작업에 대한 출력을 나타냅니다.
 3.	**파이프라인** 만들기. 파이프라인에는 원본에서 대상 (또는) HDInsight Hive 작업으로 데이터를 복사하는 복사 작업과 같은 하나 이상의 작업이 있어서 출력 데이터를 생성하는 Hive 스크립트를 사용하여 입력 데이터를 변환할 수 있습니다. 이 샘플에서는 Hive 스크립트를 실행하는 HDInsight Hive 작업을 사용합니다. 스크립트는 먼저 Azure Blob 저장소에 저장된 원시 웹 로그 데이터를 참조하는 외부 테이블을 만든 다음 원시 데이터를 연도별 및 월별로 분할합니다.
 
 **MyFirstPipeline**이라는 첫 번째 파이프라인은 Hive 활동을 사용하여 Azure Blob 저장소의 **adfgetstarted** 컨테이너(adfgetstarted/inputdata)에 있는 **inputdata** 폴더에 업로드하려는 웹 로그를 변환하고 분석합니다.
  
-![다이어그램 뷰](./media/data-factory-build-your-first-pipeline/diagram-view.png)
+![데이터 팩터리 자습서에서 다이어그램 보기](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 이 자습서에서 adfgetstarted(컨테이너) => inputdata(폴더)는 input.log라는 하나의 파일을 포함합니다. 이 로그 파일은 2014년 1월, 2월 및 3월 등 세 달에 항목이 있습니다. 다음은 입력 파일의 각 월에 대한 샘플 행입니다.
@@ -73,11 +74,11 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 이 섹션에서는 다음 작업을 수행합니다.
 
 2. **adfgetstarted** 컨테이너의 **스크립트** 폴더에 Hive 쿼리 파일(HQL)을 업로드합니다.
-3. **adfgetstarted** 컨테이너의 **inputdata** 폴더에 입력 파일을 업로드합니다. 
+3. **adfgetstarted** 컨테이너의 **inputdata** 폴더에 입력 파일을 업로드합니다.
 
 ### HQL 스크립트 파일 만들기 
 
-1. **메모장**을 시작하고 다음의 HQL 스크립트를 붙여넣습니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다. 메뉴에서 **파일**을 클릭하고 **다른이름으로**를 선택합니다. 하드 드라이브의 **C:\\adfgetstarted** 폴더로 전환합니다. **형식으로 저장** 필드에서 **모든 파일 (*.*)**을 선택합니다. **파일 이름**에 **partitionweblogs.hql**을 입력합니다. 대화 상자의 아래쪽에서 **인코딩** 필드가 **ANSI**로 설정된 것을 확인합니다. 그렇지 않은 경우 **ANSI**로 설정합니다.  
+1. **메모장**을 시작하고 다음의 HQL 스크립트를 붙여넣습니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다. 메뉴에서 **파일**을 클릭하고 **다른이름으로**를 선택합니다. 하드 드라이브의 **C:\\adfgetstarted** 폴더로 전환합니다. **형식으로 저장** 필드에서 **모든 파일 (*.*)**을 선택합니다. **파일 이름**에 **partitionweblogs.hql**을 입력합니다. 대화 상자의 아래쪽에서 **인코딩** 필드가 **ANSI**로 설정된 것을 확인합니다. 그렇지 않은 경우 **ANSI**로 설정합니다.
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -189,7 +190,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
-	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가할 수 있습니다. 
+	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가할 수 있습니다.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
@@ -209,7 +210,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 다음 명령을 실행하여 **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. 명령은 다음과 같습니다. 
+	1. 다음 명령을 실행하여 **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. 명령은 다음과 같습니다.
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -220,6 +221,6 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Azure 포털(데이터 팩터리 편집기)
 - Azure PowerShell
 - Visual Studio
-- Azure 리소스 관리자 템플릿 
+- Azure 리소스 관리자 템플릿
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

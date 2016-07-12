@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Azure RemoteApp은 Azure AD(Azure Active Directory)를 사용하여 사용자 �
 
 이제 새 Azure AD 테넌트를 사용하여 Azure 구독에 대한 액세스를 제어하고 Azure RemoteApp에서 사용자 액세스를 구성할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # 저장소를 사용하는 Node.js 웹 응용 프로그램
@@ -241,7 +241,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 ### app.js 수정
 
-1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다. 
+1. **WebRole1** 디렉터리에 있는 **app.js** 파일을 텍스트 편집기에서 엽니다.
 
 2. 파일 시작 부분에 다음을 추가하여 azure 모듈을 로드하고 테이블 이름과 파티션 키를 설정합니다.
 
@@ -403,4 +403,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

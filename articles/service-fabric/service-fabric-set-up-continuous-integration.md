@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Visual Studio Team Services를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정
@@ -401,7 +401,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
     |스크립트 파일 이름|**...** 단추를 클릭하여 응용 프로그램 프로젝트 내 **스크립트** 디렉터리로 이동합니다. `Deploy-FabricApplication.ps1`을 선택합니다.|
     |인수|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] 작동하는 게시 프로필 xml 파일은 다음과 같이 Visual Studio에서 쉽게 만들 수 있습니다. https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] 작동하는 게시 프로필 xml 파일은 다음과 같이 Visual Studio에서 쉽게 만들 수 있습니다. https://azure.microsoft.com/en-us/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] 기존 응용 프로그램을 업그레이드하는 대신 덮어쓰는 방법으로 클러스터에 대한 응용 프로그램 배포를 지원하려는 경우 다음 Powershell 인수를 추가합니다. '-OverwriteBehavior SameAppTypeAndVersion'. 또한 선택한 게시 프로필이 업그레이드를 사용하도록 구성되지 않아야 합니다. 최신 빌드를 설치하기 전에 기존 ApplicationType을 먼저 제거합니다.
 
@@ -437,4 +437,4 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
  - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

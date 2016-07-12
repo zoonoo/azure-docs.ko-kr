@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Azure에 사용자 지정 Java 웹 앱 업로드
@@ -30,7 +30,7 @@
 - 단일 HTTP 수신기 이외의 모든 수신 포트는 사용하지 않도록 설정해야 합니다. Tomcat에서는 종료, HTTPS 및 AJP 포트가 포함됩니다.
 - 컨테이너는 IPv4 트래픽에 대해서만 구성해야 합니다.
 - 응용 프로그램의 **startup** 명령은 구성에서 설정해야 합니다.
-- 쓰기 권한이 있는 디렉터리가 필요한 응용 프로그램은 Azure 웹 앱의 콘텐츠 디렉터리(**D:\\home**)에 있어야 합니다. 환경 변수 `HOME`은 D:\\home을 참조합니다.  
+- 쓰기 권한이 있는 디렉터리가 필요한 응용 프로그램은 Azure 웹 앱의 콘텐츠 디렉터리(**D:\\home**)에 있어야 합니다. 환경 변수 `HOME`은 D:\\home을 참조합니다.
 
 필요에 따라 환경 변수를 web.config 파일에서 설정할 수 있습니다.
 
@@ -257,4 +257,4 @@ Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -18,14 +18,11 @@ ms.service="virtual-machines-windows"
 
 # MPI 응용 프로그램을 실행하기 위해 HPC Pack, A8 및 A9 인스턴스를 사용하여 Windows RDMA 클러스터 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
-
 Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [크기가 A8 및 A9인 계산 집약적 인스턴스](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 사용하여 MPI(메시지 전달 인터페이스) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터를 실행하도록 크기가 A8 및 A9인 Windows Server 기반 인스턴스를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
 Azure RDMA 네트워크에 액세스하는 Linux VM에서 MPI 워크로드를 실행하려는 경우 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md)을 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## HPC 팩 클러스터 배포 옵션
 Microsoft HPC Pack은 Azure에서 Windows Server 기반 HPC 클러스터를 만드는 데 추가 비용 없이 제공되는 도구입니다. HPC Pack에 Windows(MS-MPI)용 메시지 전달 인터페이스의 Microsoft 구현에 대한 런타임 환경을 포함합니다. A8 및 A9 인스턴스에 사용할 경우 HPC 팩은 Azure의 RDMA 네트워크에 액세스하는 Windows 기반 MPI 응용 프로그램을 실행하는 가장 효율적인 방법을 제공합니다.
@@ -56,7 +53,7 @@ Microsoft HPC Pack은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 ### A8 및 A9 인스턴스 사용에 대한 고려 사항
 
-* **프록시 노드** - 계산 집약적인 인스턴스를 사용하는 각 Azure로 버스트 배포에서 HPC Pack은 사용자가 지정하는 Azure 작업자 역할 인스턴스 이외에 최소 2개 이상의 A8 크기 인스턴스를 프록시 노드로 자동 배포합니다. 프록시 노드는 구독에 할당된 코어를 사용하고 Azure 작업자 역할 인스턴스와 함께 요금이 청구됩니다.
+* **프록시 노드** - 계산 집약적인 인스턴스를 사용하는 각 Azure로 버스트 배포에서 HPC 팩은 사용자가 지정하는 Azure 작업자 역할 인스턴스 이외에 최소 2개 이상의 A8 크기 인스턴스를 프록시 노드로 자동 배포합니다. 프록시 노드는 구독에 할당된 코어를 사용하고 Azure 작업자 역할 인스턴스와 함께 요금이 청구됩니다.
 
 ### 단계
 
@@ -102,7 +99,7 @@ Microsoft HPC Pack은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 ## 시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
 
-이 시나리오에서는 Azure 가상 네트워크의 Active Directory 도메인에 연결된 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md)을 제공합니다. 예를 들어 고려 사항 및 다음 단계는 [HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 사용하여 이 프로세스의 대부분을 자동화할 수 있는 방법을 안내합니다.
+이 시나리오에서는 Azure 가상 네트워크의 Active Directory 도메인에 연결된 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC 팩은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md)을 제공합니다. 예를 들어 고려 사항 및 다음 단계는 [HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 사용하여 이 프로세스의 대부분을 자동화할 수 있는 방법을 안내합니다.
 
 ![Azure VM의 클러스터][iaas]
 
@@ -246,4 +243,4 @@ Microsoft HPC Pack은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

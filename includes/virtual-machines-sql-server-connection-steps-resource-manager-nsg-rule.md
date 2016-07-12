@@ -4,9 +4,7 @@
 
 1. 포털에서 **가상 컴퓨터**를 선택한 다음 SQL Server VM을 선택합니다.
 
-2. **모든 설정** 링크를 클릭합니다.
-
-3. **네트워크 인터페이스**를 확장합니다.
+3. 그런 후 **네트워크 인터페이스**를 선택합니다.
 
 	![네트워크 인터페이스](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
@@ -20,7 +18,7 @@
 
 5. **추가** 단추를 클릭합니다.
 
-6. "SQLServerPublicTraffic"의 **이름**을 제공합니다.
+6. **이름**으로 "SQLServerPublicTraffic"을 제공합니다.
 
 7. **프로토콜**을 **TCP**로 변경합니다.
 
@@ -32,4 +30,4 @@
 
 9. **확인**을 클릭하여 VM에 대한 규칙을 저장합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0629_2016-->

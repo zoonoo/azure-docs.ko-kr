@@ -1,11 +1,4 @@
-<properties
-	pageTitle="자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사"
-	description="이 자습서에서는 Azure Data Factory 파이프라인에 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하는 방법을 보여 줍니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+<properties pageTitle="Blob 저장소에서 SQL 데이터베이스로 데이터 복사 | Microsoft Azure" description="이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다." 키워드: "Blob SQL, Blob 저장소, 데이터 복사" services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -13,18 +6,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/01/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
-# 자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사
+# 데이터 팩터리를 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터 복사 
 > [AZURE.SELECTOR]
 - [자습서 개요](data-factory-get-started.md)
-- [Data Factory 편집기 사용](data-factory-get-started-using-editor.md)
+- [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
 - [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
 - [Visual Studio 사용](data-factory-get-started-using-vs.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
-이 자습서에서는 Azure Data Factory를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하여 파이프라인을 만듭니다.
+이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 
 복사 작업이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
@@ -36,7 +29,7 @@
 - **Azure 구독**. 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판][azure-free-trial] 문서를 참조하세요.
 - **Azure 저장소 계정**. 이 자습서에서는 Blob 저장소를 **원본** 데이터 저장소로 사용합니다. Azure 저장소 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기][data-factory-create-storage] 문서를 참조하세요.
 - **Azure SQL 데이터베이스**. 이 자습서에서는 Azure SQL 데이터베이스를 **대상** 데이터 저장소로 사용합니다. 자습서에서 사용할 수 있는 Azure SQL 데이터베이스가 없는 경우 [Azure SQL 데이터베이스를 만들고 구성하는 방법][data-factory-create-sql-database]을 참조하여 새로 만드세요.
-- **SQL Server 2012/2014 또는 Visual Studio 2013**. SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.  
+- **SQL Server 2012/2014 또는 Visual Studio 2013**. SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.
 
 ### Azure 저장소 계정의 계정 이름과 계정 키를 수집합니다.
 이 자습서를 수행하려면 Azure 저장소 계정의 계정 이름과 계정 키가 필요합니다. 아래 지침에 따라 Azure 저장소 계정의 **계정 이름**과 **계정 키**를 적어둡니다.
@@ -45,7 +38,7 @@
 2. 왼쪽의 **찾아보기** 허브를 클릭하고 **저장소 계정**을 선택합니다.
 3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
 4. **저장소** 블레이드에서 **키** 타일을 클릭합니다.
-5. **키 관리** 블레이드에서 **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.  
+5. **키 관리** 블레이드에서 **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 **기본 액세스 키**를 복사하거나 적어둡니다.
 7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
@@ -53,7 +46,7 @@
 이 자습서를 수행하려면 Azure SQL Server, 데이터베이스 및 사용자의 이름이 필요합니다. 아래 지침에 따라 Azure SQL 데이터베이스의 **서버**, **데이터베이스** 및 **사용자**의 이름을 적어둡니다.
 
 1. **Azure 포털**에서 왼쪽의 **찾아보기**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
-2. **SQL 데이터베이스 블레이드**에서, 이 자습서에서 사용하려는 **데이터베이스**를 선택합니다. **데이터베이스 이름**을 적어둡니다.  
+2. **SQL 데이터베이스 블레이드**에서, 이 자습서에서 사용하려는 **데이터베이스**를 선택합니다. **데이터베이스 이름**을 적어둡니다.
 3. **SQL 데이터베이스** 블레이드에서 **속성** 타일을 클릭합니다.
 4. **서버 이름** 및 **서버 관리자 로그인**의 값을 적어둡니다.
 5. **X**를 클릭하여 모든 블레이드를 닫습니다.
@@ -77,8 +70,8 @@
 
 2. [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 **adftutorial** 컨테이너를 만들고 **emp.txt** 파일을 이 컨테이너에 업로드합니다.
 
-    ![Azure 저장소 탐색기](./media/data-factory-get-started/getstarted-storage-explorer.png)
-3. 다음 SQL 스크립트를 사용하여 **emp** 테이블을 Azure SQL 데이터베이스에 만듭니다.  
+    ![Azure 저장소 탐색기. Blob 저장소에서 SQL 데이터베이스로 데이터 복사](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+3. 다음 SQL 스크립트를 사용하여 **emp** 테이블을 Azure SQL 데이터베이스에 만듭니다.
 
 
         CREATE TABLE dbo.emp
@@ -116,4 +109,4 @@ Azure Data Factory의 복사 작업에 대한 자세한 내용은 [데이터 이
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

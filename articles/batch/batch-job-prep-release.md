@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma" />
 
 # Azure 배치 계산 노드에서 작업 준비와 완료 작업 실행
@@ -28,19 +28,19 @@ Azure 배치 작업은 실행에 앞서 일정한 형태의 설치는 물론 작
 
 ## 작업 준비 및 해제 태스크를 사용하는 시점
 
-많은 경우에 작업 준비 및 해제 태스크로 이득을 얻습니다. 다음에 몇몇 이유가 있습니다.
+언제든지 작업 관련 구성 또는 데이터를 사용하여 노드를 준비(하고 태스크 결과 데이터를 정리하거나 유지)해야 하는 경우 작업 준비 및 릴리스 태스크를 사용하는 것이 좋습니다. 이러한 상황의 예는 다음과 같습니다.
 
 **공통 태스크 데이터의 전송**
 
-배치 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 공통 집합이 필요합니다. 예를 들어 매일 위험 분석 계산, 시장 데이터는 작업 특정적이지만 작업의 모든 태스크에 공통적입니다. 기가바이트 크기인 이 시장 데이터는 각 계산 노드로 한 번만 다운로드해야 하므로 노드에서 실행되는 모든 태스크가 사용할 수 있습니다. *작업 준비 태스크*를 사용하여 작업의 다른 태스크를 실행하기 전에 각 노드에 데이터를 다운로드합니다.
+배치 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 공통 집합이 필요합니다. 예를 들어 매일 위험 분석 계산, 시장 데이터는 작업 특정적이지만 작업의 모든 태스크에 공통적입니다. 기가바이트 크기인 이 시장 데이터는 각 계산 노드로 한 번만 다운로드해야 하므로 노드에서 실행되는 모든 태스크가 사용할 수 있습니다. **작업 준비 태스크**를 사용하여 작업의 다른 태스크를 실행하기 전에 각 노드에 데이터를 다운로드합니다.
 
 **작업 데이터 삭제**
 
-작업 사이에 풀의 계산 노드의 서비스가 해지된 공유 풀 환경 내에서 실행 사이의 작업 삭제는 노드에서 디스크 공간을 절약하기 위해 또는 조직의 보안 정책을 충족하기 위해 필요할 수 있습니다. *작업 릴리스 태스크*를 사용하여 작업 준비 태스크에서 다운로드되거나 태스크를 실행하는 동안 생성된 데이터를 삭제합니다.
+작업 사이에 풀의 계산 노드의 서비스가 해지되지 않은 공유 풀 환경 내에서 실행 간의 작업 데이터를 삭제하여 노드에서 디스크 공간을 절약하거나 조직의 보안 정책을 충족해야 합니다. **작업 릴리스 태스크**를 사용하여 작업 준비 태스크에서 다운로드되거나 태스크를 실행하는 동안 생성된 데이터를 삭제합니다.
 
 **로그 보존**
 
-태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 응용 프로그램에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이런 경우 *작업 릴리스 태스크*를 사용하여 [Azure 저장소][azure_storage] 계정에 이 데이터를 압축하고 업로드합니다.
+태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 응용 프로그램에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이런 경우 **작업 릴리스 태스크**를 사용하여 [Azure 저장소][azure_storage] 계정에 이 데이터를 압축하고 업로드합니다.
 
 ## 작업 준비 태스크
 
@@ -56,7 +56,7 @@ Azure 배치 작업은 실행에 앞서 일정한 형태의 설치는 물론 작
 
 > [AZURE.NOTE] 또한 작업 삭제는 작업 릴리스 태스크를 실행합니다. 그러나 작업이 이미 종료된 경우 이후에 작업이 삭제될 때 릴리스 태스크는 두 번째로 실행되지 않습니다.
 
-## 배치 .NET API의 작업 준비 및 릴리스 태스크
+## 배치 .NET을 사용한 작업 준비 및 릴리스 태스크
 
 작업 준비 태스크를 사용하려면 [JobPreparationTask][net_job_prep]를 만들고 구성하며 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
 
@@ -85,9 +85,7 @@ Azure 배치 작업은 실행에 앞서 일정한 형태의 설치는 물론 작
 		// thus you need not call Terminate if you typically delete your jobs upon task completion.
 		await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
-## 다음 단계
-
-### GitHub에서 샘플 프로젝트
+## GitHub의 코드 샘플
 
 GitHub에서 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인하여 작동 중인 작업 준비 및 릴리스 태스크를 봅니다. 이 콘솔 응용 프로그램은 다음을 수행합니다.
 
@@ -104,64 +102,74 @@ GitHub에서 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 �
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-The pool already existed when we tried to create it
+Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
 All tasks completed.
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_1-20151015t150030z:
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_1-20160623t173951z:
 -------------------------------------------
-tvm-3105992504_1-20151015t150030z tasks:
+tvm-2434664350_1-20160623t173951z tasks:
   task001
-  task002
+  task004
+  task005
   task006
+
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_2-20160623t173951z:
+-------------------------------------------
+tvm-2434664350_2-20160623t173951z tasks:
+  task008
+  task002
+  task003
   task007
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_2-20151015t150030z:
--------------------------------------------
-tvm-3105992504_2-20151015t150030z tasks:
-  task003
-  task005
-  task004
-  task008
-
 Waiting for job JobPrepReleaseSampleJob to reach state Completed
-....
+...
 
-tvm-3105992504_1-20151015t150030z:
+tvm-2434664350_1-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
-tvm-3105992504_2-20151015t150030z:
+tvm-2434664350_2-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
 Delete job? [yes] no
 yes
 Delete pool? [yes] no
-no
+yes
 
 Sample complete, hit ENTER to exit...
 ```
 
-### 배치 탐색기를 사용하여 작업 준비 및 릴리스 태스크를 검사합니다.
+>[AZURE.NOTE] 새 풀에 있는 노드의 변수 생성 및 시작 시간으로 인해(일부 노드는 다른 노드 전에 태스크에 대해 준비됨) 다른 출력이 표시될 수 있습니다. 특히, 태스크가 신속하게 완료되기 때문에 풀의 노드 중 하나에서 작업의 태스크를 모두 실행할 수 있습니다. 이러한 경우 작업을 실행하지 않은 노드에는 작업 준비 및 릴리스 태스크가 존재하지 않습니다.
 
-또한 GitHub의 배치 [샘플 코드 리포지토리][batch_explorer_project]에서 찾을 수 있는 [Azure 배치 탐색기][batch_explorer_article]는 Azure 배치를 사용하여 솔루션을 개발할 경우 사용하기 적합한 도구입니다. 예를 들어 위의 샘플 응용 프로그램을 실행하는 경우 배치 탐색기를 사용하여 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정된 공유 텍스트 파일을 다운로드할 수 있습니다.
+### Azure 포털에서 작업 준비 및 릴리스 태스크 검사
 
-아래 스크린샷에서는 *JobPrepReleaseSampleJob* 작업을 **작업** 탭에서 선택할 경우 **작업 세부 정보** 창에 표시된 작업 준비 및 릴리스 태스크 속성을 강조 표시합니다.
+위의 샘플 응용 프로그램을 실행하는 경우 [Azure 포털][portal]을 사용하여 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정된 공유 텍스트 파일을 다운로드할 수 있습니다.
 
-![배치 탐색기][1]
+아래 스크린샷에서는 샘플 응용 프로그램의 실행 후에 Azure 포털의 **준비 태스크 블레이드**를 보여 줍니다. 작업이 완료된 후에(하지만 작업 및 풀을 삭제하기 전에) *JobPrepReleaseSampleJob* 속성으로 이동하고 **준비 태스크** 또는 **릴리스 태스크**를 클릭하여 속성을 확인합니다.
 
-*작업 준비 및 릴리스 태스크를 표시하는 배치 탐색기 스크린샷*
+![Azure 포털에서 작업 준비 속성][1]
+
+## 다음 단계
+
+### 응용 프로그램 패키지
+
+작업 준비 태스크 외에도 배치의 [응용 프로그램 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 계산 노드를 준비할 수 있습니다. 이 기능은 설치 관리자를 실행하지 않아도 되는 응용 프로그램, 100개 이상의 파일을 포함하는 응용 프로그램 또는 엄격한 버전 제어를 필요로 하는 응용 프로그램을 배포하는 데 특히 유용합니다.
+
+### 응용 프로그램 설치 및 데이터 준비
+
+태스크를 실행하기 위해 노드를 준비하는 다양한 방법의 개요는 Azure 배치 포럼에서 [배치 계산 노드에서 응용 프로그램 설치 및 데이터 준비][forum_post] 게시물을 확인합니다. Azure 배치 팀 멤버 중 하나가 작성한 이 게시물은 계산 노드에 (응용 프로그램 및 태스크 입력 데이터를 모두 포함한) 파일을 가져오는 다른 방법에 대한 좋은 기초이며 각 메서드에 고려해야 할 특별한 고려 사항입니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_explorer_article]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
+[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
@@ -184,6 +192,6 @@ Sample complete, hit ENTER to exit...
 [net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
-[1]: ./media/batch-job-prep-release/batchexplorer-01.png
+[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

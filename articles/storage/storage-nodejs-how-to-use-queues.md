@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="micurd"/>
+	ms.date="06/24/2016"
+	ms.author="robmcm"/>
 
 
 # Node.js에서 큐 저장소를 사용하는 방법
@@ -304,7 +304,7 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
--   [Azure 저장소 팀 블로그](영문)를 방문하세요.
+-   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 -   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
@@ -325,4 +325,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

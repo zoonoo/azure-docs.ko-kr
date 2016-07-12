@@ -44,4 +44,4 @@
 - [VM 만들기](virtual-machines-windows-ps-create.md)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
 - [여러 네트워크 인터페이스를 사용하여 VM 만들기](../virtual-network/virtual-networks-multiple-nics.md)를 할 수 있는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

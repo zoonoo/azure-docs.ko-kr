@@ -17,13 +17,15 @@
 	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# 관리되는 커넥터의 목록
+# 커넥터 목록
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [커넥터 목록](../app-service-logic/app-service-logic-connectors-list.md)를 클릭합니다.
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
 > [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+## 표준 커넥터
 
 이러한 서비스를 호출하는 앱을 빌드하기 위해 이러한 커넥터를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다. 이러한 커넥터는 논리 앱, PowerApps 및 흐름을 빌드하는 데 사용할 수 있습니다.
 
@@ -32,13 +34,19 @@
 |[![API 아이콘][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API 아이콘][boxicon]<br/>**Box**][boxDoc]|[![API 아이콘][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![API 아이콘][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![API 아이콘][facebookicon]<br/>**Facebook**][facebookdoc]|[![API 아이콘][ftpicon]<br/>**FTP**][ftpdoc]|[![API 아이콘][githubicon]<br/>**GitHub**][githubdoc]|[![API 아이콘][googledriveicon]<br/>**Google 드라이브**][googledrivedoc]|
 |[![API 아이콘][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![API 아이콘][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**사용자**][office365usersdoc]|
-|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**비디오**][office365videodoc]|[![API 아이콘][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API 아이콘][onedriveicon]<br/>**비즈니스용 OneDrive<br/>**][onedriveforbusinessdoc]|[![API 아이콘][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**비디오**][office365videodoc]|[![API 아이콘][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API 아이콘][onedriveicon]<br/>**비즈니스용<br/>OneDrive**][onedriveforbusinessdoc]|[![API 아이콘][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![API 아이콘][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![API 아이콘][rssicon]<br/>**RSS**][rssdoc]|[![API 아이콘][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API 아이콘][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![API 아이콘][servicebusicon]<br/>**서비스 버스**][servicebusdoc]|[![API 아이콘][sftpicon]<br/>**SFTP**][sftpdoc]|[![API 아이콘][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API 아이콘][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![API 아이콘][smtpicon]<br/>**SMTP**][smtpdoc]|[![API 아이콘][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API 아이콘][trelloicon]<br/>**Trello**][trellodoc]|[![API 아이콘][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![API 아이콘][twittericon]<br/>**Twitter**][twitterdoc]|[![API 아이콘][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API 아이콘][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] 2014-12-01-preview 스키마를 사용하여 Logic Apps를 작성한 경우 엔터프라이즈 통합 API(예: BizTalk에 대한 커넥터)가 위에 나열되지 않은 것으로 나타납니다. 빠른 시일 내에 이를 해결하기 위해 최선을 다하고 있습니다. 정확한 공유 가능 날짜는 아직 정해지지 않았지만 최우선으로 고려하고 있습니다. 그 동안은 [논리 앱에서 v1 API 및 BizTalk API](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/)에 액세스할 수 있습니다. 이해해 주셔서 감사합니다. 기대하세요.
+## EIP(엔터프라이즈 통합 팩) 커넥터
+EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 대한 논리 앱을 만듭니다.
+ 
+|EIP 커넥터 ||||
+|-----------|-----------|-----------|-----------|
+|[![API 아이콘][as2icon]<br/>**AS2</br>인코딩/디코딩**][as2doc]|[![API 아이콘][x12icon]<br/>**X12</br>인코딩/디코딩**][x12Doc]|[![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc]|[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc]|
+|[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc]|[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc]|||
 
 
 ### 커넥터는 트리거가 될 수 있습니다.
@@ -54,9 +62,9 @@
 커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 
-[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md)
-[지금 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)
-[지금 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md)
+[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[지금 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[지금 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md)  
 [최신 스키마 버전으로 기존 논리 앱 마이그레이션](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
@@ -94,6 +102,12 @@
 [twitterdoc]: ./connectors-create-api-twitter.md "Twitter에 연결하여 타임 라인을 가져오고 트윗에 게시합니다."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "업무를 동기화 상태로 유지합니다."
 [yammerdoc]: ./connectors-create-api-yammer.md "Yammer에 연결하여 메시지를 게시하고 새 메시지를 받습니다."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
@@ -127,5 +141,11 @@
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
+[as2icon]: ./media/apis-list/as2new.png
+[x12icon]: ./media/apis-list/x12new.png
+[flatfileicon]: ./media/apis-list/flatfileencoding.png
+[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
+[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
+[xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

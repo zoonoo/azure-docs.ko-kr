@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@
 만들 수 있는 예제 워크플로는 다음과 같습니다.
 
 - 해결 방법에 대한 원본 콘텐츠를 검사하고 원하는 출력 트랙만 인코딩하는 워크플로를 기반으로 한 의사 결정. 이는 원본 콘텐츠를 실수로 업스케일링하여 생성되는 낭비 트랙을 제거하는 데 도움이 됩니다.
-- 캡션, 오버레이, 그리고 콘텐츠 연결을 지원하는 데 여러 개의 입력 파일을 사용할 수 있습니다. 
+- 캡션, 오버레이, 그리고 콘텐츠 연결을 지원하는 데 여러 개의 입력 파일을 사용할 수 있습니다.
 
 이 도구를 사용하여 [게시 워크플로](media-services-workflow-designer.md#existing_workflows)를 수정할 수도 있습니다.
 
@@ -90,4 +90,4 @@
 
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Government 이미지 갤러리" 
-   description="이 문서에서는 Azure Government 이미지 갤러리 및 포함된 이미지에 대한 개요를 제공합니다." 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Azure Government 이미지 갤러리 | Microsoft Azure"
+   description="이 문서에서는 Azure Government 이미지 갤러리 및 포함된 이미지에 대한 개요를 제공합니다."
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="06/01/2016"
    ms.author="brendalee"/>
 
@@ -118,7 +118,7 @@ Visual Studio|Windows Server 2012 R2의 Azure SDK 2.9가 있는 Visual Studio En
 
 다음은 이미지 갤러리에서 배포하거나 사용자 고유의 VHD를 만드는 방법에 대한 자세한 정보를 제공하는 리소스입니다. Azure Government로 작업할 때 끝점 간의 프로그래밍 차이점은 <a href="../azure-government-developer-guide">Azure Government 개발자 가이드</a>를 참조하세요.
 
-###기타 리소스: 
+###기타 리소스:
 
 - [Windows 가상 컴퓨터 배포](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
@@ -141,4 +141,4 @@ Visual Studio|Windows Server 2012 R2의 Azure SDK 2.9가 있는 Visual Studio En
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

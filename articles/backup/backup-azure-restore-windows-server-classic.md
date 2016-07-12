@@ -29,7 +29,7 @@
 
 두 경우 모두 데이터는 Azure 백업 자격 증명 모음에서 검색됩니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## 동일한 컴퓨터로 데이터 복구
 파일을 실수로 삭제했는데 (백업이 수행된) 동일한 컴퓨터에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
@@ -123,4 +123,4 @@
 - [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 - [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

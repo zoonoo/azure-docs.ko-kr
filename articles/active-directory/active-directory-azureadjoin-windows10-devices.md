@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # 작업 공간에서 Windows 10 장치 사용
+
+적용 대상: Windows 10 PC
 
 Windows 10은 조직을 위한 세 가지 모델을 제공하여 사용자가 안전하고 편리한 방식으로 작업 리소스에 액세스할 수 있도록 합니다.
 
@@ -175,4 +177,4 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

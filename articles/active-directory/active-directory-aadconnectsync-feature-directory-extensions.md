@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/12/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 디렉터리 확장
@@ -21,8 +21,7 @@
 
 현재 이 특성을 이용하는 Office 365 워크로드가 없습니다.
 
-설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다.
-![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) 설치에 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
+설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다. ![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) 설치에 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
 
 - 사용자 및 그룹 개체 유형
 - 단일 값 특성: 문자열, 부울, 정수, 이진
@@ -30,11 +29,9 @@
 
 개체에는 최대 100개의 디렉터리 확장 특성이 있을 수 있습니다. 최대 길이는 250자입니다. 특성 값이 더 긴 경우 동기화 엔진에 의해 잘립니다.
 
-Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는 응용 프로그램이 등록됩니다. Azure 포털에서 다음 응용 프로그램을 볼 수 있습니다.
-![스키마 확장 앱](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는 응용 프로그램이 등록됩니다. Azure 포털에서 다음 응용 프로그램을 볼 수 있습니다. ![스키마 확장 앱](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
 
-이제 이 특성은 Graph를 통해 사용할 수 있습니다.
-![그래프](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+이제 이 특성은 Graph를 통해 사용할 수 있습니다. ![그래프](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
 특성은 extension\_{AppClientId}\_를 접두사로 사용합니다. AppClientId는 Azure AD 디렉터리의 모든 특성에 대해 동일한 값을 갖습니다.
 
@@ -43,4 +40,4 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

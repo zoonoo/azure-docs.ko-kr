@@ -14,26 +14,22 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/24/2016"
 	ms.author="davidmu"/>
 
 # C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포
 
 리소스 그룹 및 템플릿을 사용하면 응용 프로그램을 함께 지원하는 모든 리소스를 관리할 수 있습니다. 이 문서는 Azure PowerShell을 사용하여 인증 및 저장소를 설정한 다음 C#을 사용하여 Azure 리소스를 만들고 배포하는 방법을 보여 줍니다.
 
-이 자습서를 완료하려면 다음이 필요합니다.
+먼저 다음 작업을 수행해야 합니다.
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- [인증 토큰](../resource-group-authenticate-service-principal.md)
+- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx) 설치
+- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855) 설치 확인
+- [인증 토큰](../resource-group-authenticate-service-principal.md) 가져오기
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
-
-## 1단계: Azure PowerShell 설치
-
-최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
     
-## 2단계: 템플릿 저장소에 대한 리소스 그룹 만들기
+## 1단계: 템플릿 저장소에 대한 리소스 그룹 만들기
 
 모든 리소스는 리소스 그룹에 배포되어야 합니다. 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
@@ -58,7 +54,7 @@
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
     
-## 3단계: 저장소 계정 및 템플릿 컨테이너 만들기
+## 2단계: 저장소 계정 및 템플릿 컨테이너 만들기
 
 저장소 계정은 만들고 배포할 템플릿을 저장하기 위해 필요합니다.
 
@@ -83,7 +79,7 @@
 
 ### 템플릿 파일 만들기
 
-Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 매개 변수에 대한 JSON 설명을 사용하여 Azure 리소스를 함께 배포하고 관리할 수 있습니다. 이 자습서에서 작성하는 템플릿은 템플릿 갤러리에서 찾을 수 있는 템플릿과 유사합니다. 자세한 내용을 알아보려면 [미국 서부에서 간단한 Windows VM 배포](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/)를 참조하세요.
+Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 매개 변수에 대한 JSON 설명을 사용하여 Azure 리소스를 함께 배포하고 관리할 수 있습니다.
 
 Visual Studio에서 다음을 수행:
 
@@ -330,7 +326,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
 
 2. 검색 상자에 *Active Directory*를 입력하고 Active Directory 인증 라이브러리 패키지에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
-4. 페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.ResourceManager*를 입력하고 Microsoft Azure 리소스 관리 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
+4. 페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.Management.ResourceManager*를 입력하고 Microsoft Azure 리소스 관리 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
 이제 라이브러리를 사용하기 시작하여 응용 프로그램을 만들 준비가 되었습니다.
 
@@ -342,33 +338,30 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure.Management.Resources;
-        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.Azure.Management.ResourceManager.Models;
         using Microsoft.Rest;
 
 2.	Program 클래스에 다음 메서드를 추가하여 자격 증명을 만드는 데 필요한 토큰을 가져옵니다.
 
-        private static string GetAuthorizationHeader()
+        private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
-          ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+          var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+            throw new InvalidOperationException("Could not get the token.");
           }
-
-          string token = result.Result.AccessToken;
-
           return token;
         }
 
-    {application-id}를 이전에 기록한 응용 프로그램 ID로 바꾸고, {password}를 AD 응용 프로그램에 대해 선택한 암호로 바꾸고, {tenant-id}를 구독을 위한 테넌트 ID로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다.
+    {client-id}를 Azure Active Directory의 식별자로 바꾸고 {client-secret}을 AD 응용 프로그램의 선택키로 바꾸고, {tenant-id}를 구독의 테넌트 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다. 선택키는 Azure 포털을 사용하여 찾을 수 있습니다.
 
 3. Program.cs 파일에서 Main 메서드에 다음 코드를 추가하여 자격 증명을 만듭니다.
 
-        var token = GetAuthorizationHeader();
-        var credential = new TokenCredentials(token);
+        var token = GetAccessTokenAsync();
+        var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Program.cs 파일을 저장합니다.
 
@@ -380,10 +373,6 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
         var groupName = "resource group name";
         var storageName = "storage account name";
-        var vmName = "virtual machine name";  
-        var deploymentName = "deployment name";
-        var adminName = "administrator account name";
-        var adminPassword = "administrator account password";
         var location = "location name";
         var subscriptionId = "subsciption id";
 
@@ -391,34 +380,32 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
     
 2. Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 만듭니다.
 
-        public static void CreateResourceGroup(
+        public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
           string groupName,
           string subscriptionId,
           string location)
         {
           Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var resourceGroup = new ResourceGroup {
-            Location = location
-          };
-          var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-          Console.WriteLine(rgResult.Properties.ProvisioningState);
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          var resourceGroup = new ResourceGroup { Location = location };
+          return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
 2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateResourceGroup(
+        var rgResult = CreateResourceGroupAsync(
           credential,
           groupName,
           subscriptionId,
           location);
+        Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 3. Program 클래스에 이 메서드를 추가하여 사용자가 정의한 템플릿으로 리소스 그룹에 리소스를 배포합니다.
 
-        public static void CreateTemplateDeployment(
+        public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
           TokenCredentials credential,
           string groupName,
           string storageName,
@@ -439,23 +426,23 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
               Uri = "https://" + storageName + ".blob.core.windows.net/templates/Parameters.json"
             }
           };
-          var resourceManagementClient = new ResourceManagementClient(credential);
-          resourceManagementClient.SubscriptionId = subscriptionId;
-          var dpResult = resourceManagementClient.Deployments.CreateOrUpdate(
+          var resourceManagementClient = new ResourceManagementClient(credential) 
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
             groupName,
             deploymentName,
             deployment);
-          Console.WriteLine(dpResult.Properties.ProvisioningState);
         }
 
 4. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        CreateTemplateDeployment(
+        var dpResult = CreateTemplateDeploymentAsync(
           credential,
           groupName",
           storageName,
           deploymentName,
           subscriptionId);
+        Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
 ##7단계: 리소스를 삭제하는 코드 추가
@@ -464,25 +451,28 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 1.	Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 삭제합니다.
 
-        public static void DeleteResourceGroup(
+        public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
-          string groupName)
+          string groupName,
+          string subscriptionId)
         {
           Console.WriteLine("Deleting resource group...");
-          var resourceGroupClient = new ResourceManagementClient(credential);
-          resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
 2.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-        DeleteResourceGroup(
+        DeleteResourceGroupAsync(
           credential,
-          groupName);
+          groupName,
+          subscriptionId);
         Console.ReadLine();
 
 ##8단계: 콘솔 응용 프로그램 실행
 
-1.	콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작**을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
+1.	콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작**을 클릭한 다음 구독에 사용되는 동일한 자격 증명을 사용하여 Azure AD에 로그인합니다.
 
 2.	수락됨 상태가 표시된 후에 **Enter** 키를 누릅니다.
 
@@ -495,6 +485,6 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 ## 다음 단계
 
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

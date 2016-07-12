@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -48,16 +48,16 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
     1. **Java project to debug**에 대해 **MyHelloWorld** 프로젝트를 선택합니다.
     1. **Configure debugging for**에 대해 **Azure cloud (staging)**를 선택합니다.
     1. **Azure compute emulator**가 선택 취소되었는지 확인합니다.
-    1. **Host**에 대해 앞의 **http://** 없이 스테이징된 배포의 DNS 이름을 입력합니다. 예를 들어(여기에 나와 있는 GUID 대신 실제 GUID 사용): **4e616d65-6f6e-6 d 65 6973 526f62657274.cloudapp.net**
+    1. **Host**에 대해 앞의 **http://** 없이 스테이징된 배포의 DNS 이름을 입력합니다. 예를 들어(여기에 나와 있는 GUID 대신 실제 GUID 사용): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. **OK**를 클릭하여 **Azure Debug Configuration** 대화 상자를 닫습니다.
 1. **OK**를 클릭하여 **Properties for WorkerRole1 Debugging** 대화 상자를 닫습니다.
 1. index.jsp에서 설정된 중단점이 없는 경우 다음과 같이 설정합니다.
     1. Eclipse의 프로젝트 탐색기 내에서 **MyHelloWorld**를 확장하고 **WebContent**를 확장하고 **index.jsp**를 두 번 클릭합니다.
     1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다.  
-    ![][ic551537]
+        ![][ic551537]
 1. Eclipse 메뉴 내에서 **Run**을 클릭한 다음 **Debug Configurations**를 클릭합니다.
 1. **Debug Configurations** 대화 상자에서 왼쪽 창의 **Remote Java Application**을 확장하고 **Azure Cloud (WorkerRole1)**를 선택한 다음 **Debug**를 클릭합니다.
-1. 브라우저 내에서 스테이징된 응용 프로그램, **http://** *&lt;guid&gt;* **.cloudapp.net/MyHelloWorld**, *&lt;guid&gt;* 에 대한 DNS 이름에서 GUID 대체를 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **Yes**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
+1. 브라우저 내에서 *&lt;guid&gt;*에 대한 DNS 이름에서 GUID 대체하는 스테이징된 응용 프로그램, **http://** *&lt;guid&gt;***.cloudapp.net/MyHelloWorld**를 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **예**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
 
 >[AZURE.NOTE] 여러 역할 인스턴스를 실행하는 배포에 원격 디버깅 연결을 시작하려는 경우 Azure 부하 분산 장치에서 인스턴스를 임의로 선택하므로 디버거가 처음에 연결되는 인스턴스를 제어할 수 없습니다. 해당 인스턴스로 연결되더라도 동일한 인스턴스 디버깅을 계속합니다. 또한 4분 이상의 비활성화가 있는 경우(예: 너무 오랫동안 중단점에서 중지되어 있는 경우) Azure에서 연결을 닫을 수 있습니다.
 
@@ -86,6 +86,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
     1. **Enable remote debugging for this role**을 선택합니다.
     1. **Input endpoint to use**에 대해 **Debugging (public:8090, private:8090)**에 나열된 도구 키트에 의해 자동으로 생성된 기본 끝점을 사용합니다.
     1. **Start JVM in suspended mode, waiting for a debugger connection** 옵션이 선택 취소되었는지 확인합니다.
+
         >[AZURE.IMPORTANT] **Start JVM in suspended mode, waiting for a debugger connection** 옵션은 계산 에뮬레이터에서 고급 디버깅 시나리오를 위한 것입니다(클라우드 배포용이 아님). **Start JVM in suspended mode, waiting for a debugger connection** 옵션을 사용하는 경우 Eclipse 디버거가 해당 JVM에 연결될 때까지 서버의 시작 프로세스를 일시 중단합니다. 계산 에뮬레이터를 사용하여 디버깅 세션에 이 옵션을 사용할 수도 있지만 클라우드 배포에서 디버깅 세션에 사용하지 마십시오. 서버 초기화는 Azure 시작 작업에서 수행되고 Azure 클라우드는 시작 작업이 완료될 때까지 사용 가능한 공용 끝점을 만들지 않습니다. 따라서 외부 Eclipse 클라이언트에서 연결을 수신할 수 없기 때문에 클라우드 배포에서 이 옵션을 사용하는 경우 시작 프로세스가 올바르게 완료되지 않습니다.
     1. **Create Debug Configurations**를 클릭합니다.
 1. **Azure Debug Configuration** 대화 상자에서:
@@ -95,14 +96,13 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 1. **OK**를 클릭하여 **Properties for WorkerRole1 Debugging** 대화 상자를 닫습니다.
 1. index.jsp에서 중단점 설정:
     1. Eclipse의 프로젝트 탐색기 내에서 **MyHelloWorld**를 확장하고 **WebContent**를 확장하고 **index.jsp**를 두 번 클릭합니다.
-    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다.  
-        ![][ic551537]
+    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다. ![][ic551537]
 
-	    Java 코드 왼쪽의 파란색 막대 안에 중단점 아이콘이 보이면 중단점이 설정된 것입니다.
+       Java 코드 왼쪽의 파란색 막대 안에 중단점 아이콘이 보이면 중단점이 설정된 것입니다.
 1. Azure 도구 모음에서 **Run in Azure Emulator** 단추를 클릭하여 계산 에뮬레이터에서 응용 프로그램을 시작합니다.
 1. Eclipse 메뉴 내에서 **Run**을 클릭한 다음 **Debug Configurations**를 클릭합니다.
 1. **Debug Configurations** 대화 상자에서 왼쪽 창의 **Remote Java Application**을 확장하고 **Azure Emulator (WorkerRole1)**를 선택한 다음 **Debug**를 클릭합니다.
-1. 브라우저 내에서 계산 에뮬레이터가 응용 프로그램이 실행 중임을 나타낸 후 **http://localhost:8080/MyHelloWorld**을(를) 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **Yes**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
+1. 브라우저 내에서 계산 에뮬레이터가 응용 프로그램이 실행 중임을 나타낸 후 **http://localhost:8080/MyHelloWorld**을(를) 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **예**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
 
 계산 에뮬레이터에서 디버그하는 방법을 살펴보았습니다. 다음 섹션에서는 Azure에 배포된 응용 프로그램을 디버그하는 방법을 보여 줍니다.
 
@@ -135,4 +135,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="포털에서 Active Directory 응용 프로그램 만들기 | Microsoft Azure"
+   pageTitle="포털에서 서비스 보안 주체 만들기 | Microsoft Azure"
    description="Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,13 @@
    ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 만들기
+# 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [포털](resource-group-create-service-principal-portal.md)
+
 
 리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 Active Directory 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 항목에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 현재 클래식 포털을 사용하여 새 Active Directory 응용 프로그램을 만든 후 Azure 포털로 전환하여 응용 프로그램에 역할을 할당해야 합니다.
 
@@ -163,7 +169,7 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
      ![표시](./media/resource-group-create-service-principal-portal/show-app.png)
 
-포털을 통해 역할에 사용자 및 응용 프로그램 할당에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal)를 참조하세요.
+포털을 통해 역할에 사용자 및 응용 프로그램 할당에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal)를 참조하세요.
 
 ## 코드에서 액세스 토큰 가져오기
 
@@ -180,7 +186,7 @@ Active Directory 응용 프로그램은 현재 리소스에 액세스하도록 �
 
 ## 다음 단계
 
-- 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.  
+- 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -21,7 +21,7 @@
 
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현하며, Java 코드를 실행할 순수 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 이 가이드에서는 Linux 이미지에 tomcat7을 설치하여 Microsoft Azure에서 배포합니다.
@@ -75,8 +75,8 @@ tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. 
 
 1.	Azure 포털에서 **찾아보기** -> **가상 컴퓨터**를 클릭한 다음 직접 만든 가상 컴퓨터를 클릭합니다. ![][5]
 2.	가상 컴퓨터에 끝점을 추가하려면 **끝점** 확인란을 클릭합니다. ![][6]
-3.	**추가**를 클릭합니다.  
-	1.	**끝점**의 경우, 끝점에 끝점 이름을 입력하고 **공용 포트**에 80을 입력합니다.  
+3.	**추가**를 클릭합니다.
+	1.	**끝점**의 경우, 끝점에 끝점 이름을 입력하고 **공용 포트**에 80을 입력합니다.
 
 		80으로 설정하는 경우 tomcat에 액세스할 수 있게 해주는 URL에 포트 번호를 포함할 필요가 없습니다. 예: http://tomcatdemo.cloudapp.net.
 
@@ -128,7 +128,7 @@ open-jdk
 
 oracle-jdk
 
--	Oracle 웹 사이트에서 JDK를 다운로드하려면 다음을 실행합니다.  
+-	Oracle 웹 사이트에서 JDK를 다운로드하려면 다음을 실행합니다.
 
 		wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 
@@ -206,7 +206,7 @@ tomcat 서비스를 다시 시작하려면：
 
 	sudo /etc/init.d/tomcat7 restart  
 
-브라우저를 열고 URL **http://<your tomcat server DNS name>/manager/html**을 입력합니다. 이 문서의 예제에 나와 있는 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.
+브라우저를 열고 URL **http://<tomcat 서버 DNS 이름>/manager/html**을 입력합니다. 이 문서의 예제에 나와 있는 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.
 
 연결되면 다음과 유사한 페이지가 표시됩니다. ![][18]
 
@@ -215,8 +215,8 @@ tomcat 서비스를 다시 시작하려면：
 ###인터넷에서 Tomcat 및 Moodle이 있는 가상 컴퓨터에 액세스할 수 없음
 
 -	**증상** Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
--	**가능한 근본 원인**   
-	1.	Tomcat 수신 대기 포트가 Tomcat 트래픽에 대한 가상 컴퓨터 끝점의 개인 포트와 다릅니다.  
+-	**가능한 근본 원인**
+	1.	Tomcat 수신 대기 포트가 Tomcat 트래픽에 대한 가상 컴퓨터 끝점의 개인 포트와 다릅니다.
 
 		공용 포트 및 개인 포트 끝점 설정을 검사하고 개인 포트가 Tomcat 수신 대기 포트와 같은지 확인합니다. 가상 컴퓨터에 대한 끝점 구성 지침은 1단계: 이미지 만들기를 참조하세요.
 
@@ -240,7 +240,7 @@ tomcat 서비스를 다시 시작하려면：
 			w3m http://localhost:8080  
 
 -	**해결 방법**
-	1. Tomcat 수신 대기 포트가 가상 컴퓨터의 트래픽에 대한 끝점의 개인 포트와 다른 경우 개인 포트를 Tomcat 수신 대기 포트와 동일하게 변경해야 합니다.   
+	1. Tomcat 수신 대기 포트가 가상 컴퓨터의 트래픽에 대한 끝점의 개인 포트와 다른 경우 개인 포트를 Tomcat 수신 대기 포트와 동일하게 변경해야 합니다.
 
 	2.	방화벽/iptables로 인해 문제가 발생한 경우 /etc/sysconfig/iptables에 다음 줄을 추가합니다.
 
@@ -261,7 +261,7 @@ tomcat 서비스를 다시 시작하려면：
 
 ###/var/lib/tomcat7/webapps/에 프로젝트 파일을 업로드할 때 권한이 거부됨  
 
--	**증상** SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터에 연결한 다음 /var/lib/tomcat7/webapps/로 이동하여 사이트를 게시하는 경우 다음과 유사한 오류 메시지가 표시됩니다.  
+-	**증상** SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터에 연결한 다음 /var/lib/tomcat7/webapps/로 이동하여 사이트를 게시하는 경우 다음과 유사한 오류 메시지가 표시됩니다.
 
 		status:	Listing directory /var/lib/tomcat7/webapps
 		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
@@ -269,7 +269,7 @@ tomcat 서비스를 다시 시작하려면：
 		Error:	File transfer failed
 
 -	**가능한 근본 원인** /var/lib/tomcat7/webapps 폴더에 액세스할 수 있는 권한이 없습니다.
--	**해결 방법** 루트 계정에서 권한을 받아야 합니다. 해당 폴더의 소유권을 루트에서 컴퓨터를 프로비전할 때 사용한 사용자 이름으로 변경할 수 있습니다. 다음은 azureuser 계정 이름을 사용한 예제입니다.  
+-	**해결 방법** 루트 계정에서 권한을 받아야 합니다. 해당 폴더의 소유권을 루트에서 컴퓨터를 프로비전할 때 사용한 사용자 이름으로 변경할 수 있습니다. 다음은 azureuser 계정 이름을 사용한 예제입니다.
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
@@ -306,4 +306,4 @@ tomcat 서비스를 다시 시작하려면：
 [17]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

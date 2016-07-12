@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure"
-    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다. Azure CLI는 플랫폼 간 도구입니다."
+    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다. Azure CLI는 플랫폼 간 도구입니다. "
     services="storage"
     documentationCenter="na"
     authors="tamram"
@@ -25,7 +25,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
-> [AZURE.NOTE] 이 가이드는 Azure 서비스 관리 모드 (ASM)에서 실행 중인 Azure CLI 명령 및 스크립트 예제를 제공합니다. ARM(Azure Resource Management) 모드에서의 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
+> [AZURE.NOTE] 이 가이드에서는 클래식 저장소 계정에 대한 Azure CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 저장소 계정에 대한 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
 
 ## 5분 안에 Azure 저장소 및 Azure CLI 시작하기
 
@@ -74,15 +74,15 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 6. 이제, 구성 설정에 따라 스크립트 변수를 업데이트해야 합니다.
 
-    - **<storage_account_name>** 스크립트에 지정된 이름을 사용하거나 사용자 저장소 계정에 대한 새 이름을 입력합니다. **중요:** 저장소 계정 이름은 Azure에서 고유해야 합니다. 소문자여야 합니다.
+    - **<storage\_account\_name>** 스크립트에 지정된 이름을 사용하거나 사용자 저장소 계정에 대한 새 이름을 입력합니다. **중요:** 저장소 계정 이름은 Azure에서 고유해야 합니다. 소문자여야 합니다.
 
-    - **<storage_account_key>** 저장소 계정의 액세스 키.
+    - **<storage\_account\_key>** 저장소 계정의 선택키
 
-    - **<container_name>** 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
+    - **<container\_name>** 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
 
-    - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "~/images/HelloWorld.png")를 입력합니다.
+    - **<image\_to\_upload>** 로컬 컴퓨터의 그림 경로(예: "~/images/HelloWorld.png")를 입력합니다.
 
-    - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “~/downloadImages”)를 입력합니다.
+    - **<destination\_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “~/downloadImages”)를 입력합니다.
 
 7. vim에서 필요한 변수를 업데이트 한 후 키 조합 "Esc,:, wq!"를 눌러 스크립트를 저장합니다.
 
@@ -129,7 +129,7 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure st
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob 업로드
 
@@ -221,4 +221,4 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

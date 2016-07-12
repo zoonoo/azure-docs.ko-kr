@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server Always On을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
@@ -88,7 +88,7 @@
 	|Page|설정|
 |---|---|
 |가상 컴퓨터 운영 체제 선택|Windows Server 2012 R2 Datacenter|
-|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoDC<br/>**계층** = 표준<br/>**크기** = A2(2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
+|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoDC<br/>**계층** = 표준<br/>**크기** = A2 (2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
 |가상 컴퓨터 구성|**클라우드 서비스** = 새 클라우드 서비스 만들기<br/>**클라우드 서비스 DNS 이름** = 고유한 클라우드 서비스 이름<br/>**DNS 이름** = 고유한 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/>**저장소 계정** = 자동으로 생성된 저장소 계정 사용<br/>**가용성 집합** = (없음)|
 |가상 컴퓨터 옵션|기본값 사용|
 
@@ -548,4 +548,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

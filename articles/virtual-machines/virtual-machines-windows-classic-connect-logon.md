@@ -24,7 +24,7 @@ Azure 클래식 포털에서 **연결** 버튼을 사용하여 원격 데스크�
 
 Linux VM에 연결하고 싶으세요? [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md)을 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-connect-logon.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-windows-connect-logon.md)하는 방법을 알아봅니다.
 
 
 ## 연습 동영상
@@ -57,4 +57,4 @@ Linux VM에 연결하고 싶으세요? [Linux를 실행하는 가상 컴퓨터�
 
 이러한 팁이 작동하지 않거나 필요한 정보가 아닌 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

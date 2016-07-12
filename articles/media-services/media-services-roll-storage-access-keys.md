@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/26/2016" 
+	ms.date="06/22/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
 #방법: 저장소 액세스 키 롤링 후 미디어 서비스 업데이트
@@ -159,4 +159,4 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

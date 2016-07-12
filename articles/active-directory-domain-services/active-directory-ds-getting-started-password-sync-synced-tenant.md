@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - Azure AD 도메인 서비스에 대한 암호 동기화 활성화
@@ -40,7 +40,7 @@ Azure AD 디렉터리에 Azure AD 도메인 서비스를 사용하도록 설정�
 
 **[Azure AD Connect 다운로드](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-권장 버전: **1.1.130.0** - 2016년 4월 12일에 게시되었습니다.
+권장 버전: **1.1.189.0** - 2016년 6월 3일에 게시되었습니다.
 
   > [AZURE.WARNING] Azure AD 테넌트에 동기화할 레거시 암호 자격 증명(NTLM 및 Kerberos 인증에 필요)을 사용하도록 설정하려면 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. 이 기능은 Azure AD Connect의 이전 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다.
 
@@ -80,4 +80,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 - [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

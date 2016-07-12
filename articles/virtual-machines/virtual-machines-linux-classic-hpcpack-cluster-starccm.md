@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="06/28/2016"
  ms.author="xpillons"/>
 
 # Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩으로 STAR-CCM+ 실행
@@ -24,7 +24,7 @@
 Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
 ## HPC 팩 클러스터 설정
-[다운로드 센터](https://www.microsoft.com/ko-KR/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
+[다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
 
 Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서를 참조하세요.
 
@@ -290,7 +290,7 @@ STAR-CCM+는 메모리 대역폭을 초과할 수 있으므로 계산 노드당 
 
 일부 초기화 후에는 스크립트가 (HPC 팩이 설정하는 **$CCP\_NODES\_CORES** 환경 변수에서) 노드 목록을 추출하여 MPI 시작 관리자가 사용하는 hostfile을 작성합니다. 이 hostfile에는 작업에 사용된 계산 노드 이름의 목록이 포함되며, 한 줄당 하나의 이름이 포함됩니다.
 
-**$CCP\_NODES\_CORES**의 형식은 이 패턴을 따릅니다.
+**$CCP\_NODES\_CORES**의 형식은 다음 패턴을 따릅니다.
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -345,4 +345,4 @@ Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니�
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

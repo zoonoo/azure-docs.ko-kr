@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="06/24/2016"
    ms.author="toddabel"/>
 
 
@@ -192,5 +192,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 ## 관련된 문서
 * [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Log Analytics의 서비스 패브릭 데이터 솔루션](../log-analytics/log-analytics-service-fabric.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

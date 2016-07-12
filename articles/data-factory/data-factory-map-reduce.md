@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
@@ -31,7 +31,7 @@ HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다:
 1. **activity**의 **type**을 **HDInsight**로 설정합니다.
 3. **className** 속성에 대한 클래스 이름을 지정합니다.
 4. **jarFilePath **속성의 JAR 파일 경로(파일 이름 포함)를 지정합니다.
-5. **jarLinkedService** 속성의 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.   
+5. **jarLinkedService** 속성의 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.
 6. **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정합니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수와 사용자 인수를 구분하려면 다음 예제와 같이 옵션과 값을 둘 다 인수로 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임).
 
 		{
@@ -215,8 +215,8 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[adfgetstartedmonitoring]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -228,4 +228,4 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

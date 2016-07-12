@@ -3,7 +3,7 @@
    description="Power BI Embedded, SDK를 사용하여 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Microsoft Power BI Embedded 샘플 시작
 
@@ -242,4 +242,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 - [Power BI Embedded의 앱 토큰 흐름 정보](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

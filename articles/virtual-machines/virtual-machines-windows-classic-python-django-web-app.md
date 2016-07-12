@@ -27,7 +27,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 이 자습서에서는 Microsoft Azure에서 Windows Server 가상 컴퓨터를 사용하여 Django 기반 웹 사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 Django 기반 응용 프로그램을 실행할 수 있게 됩니다.
@@ -54,7 +54,7 @@
  - 화면 아래쪽에 있는 **추가** 단추를 클릭합니다. ![끝점 추가](./media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-addendpoint.png)
 
  - **TCP** 프로토콜의 **공용 포트 80**을 **개인 포트 80**으로 엽니다. ![][port80]
-1. **대시보드** 탭에서 **연결**을 클릭하여 **원격 데스크톱**을 사용해 새로 만든 Azure 가상 컴퓨터에 원격으로 로그인합니다.  
+1. **대시보드** 탭에서 **연결**을 클릭하여 **원격 데스크톱**을 사용해 새로 만든 Azure 가상 컴퓨터에 원격으로 로그인합니다.
 
 **중요:** 아래에 설명된 모든 지침에서는 가상 컴퓨터에 올바로 로그인했고 로컬 컴퓨터가 아니라 가상 컴퓨터에서 명령을 실행하는 것으로 가정합니다.
 
@@ -184,4 +184,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

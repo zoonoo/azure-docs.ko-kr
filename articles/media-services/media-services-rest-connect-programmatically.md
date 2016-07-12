@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -29,8 +29,8 @@ Microsoft Azure 미디어 서비스에 액세스할 때는 Azure 액세스 제�
 
 다음 단계는 미디어 서비스 REST API를 사용하여 미디어 서비스에 연결할 때 가장 일반적인 워크플로를 설명합니다.
 
-1. 액세스 토큰 가져오기 
-2. 미디어 서비스 URI에 연결 
+1. 액세스 토큰 가져오기
+2. 미디어 서비스 URI에 연결
 
 	>[AZURE.NOTE] https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 
@@ -177,4 +177,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->
