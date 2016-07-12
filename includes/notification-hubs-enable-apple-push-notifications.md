@@ -37,7 +37,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
 	* **Name**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
 	
-	* **번들 식별자**: **명시적 앱 ID**에 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+	* **번들 식별자**: **명시적 앱 ID**에 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name* 은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs* 가 사용되고 제품 이름으로 *GetStarted* 가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
 	
 	* **푸시 알림**: **앱 서비스** 섹션에서 **푸시 알림** 옵션을 선택합니다.
 
@@ -79,7 +79,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE] 기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
+    > [AZURE.NOTE] 기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps_development.cer**로 지정됩니다.
 
 7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
