@@ -136,7 +136,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
-|기본 제한|최대 제한|
+||기본 제한|최대 제한|
 |---|---|---|
 |공용 IP 주소(동적)|5|지원에 문의|
 |예약된 공용 IP 주소|20|지원에 문의|
