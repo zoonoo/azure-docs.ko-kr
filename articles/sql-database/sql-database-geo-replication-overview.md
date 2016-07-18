@@ -40,7 +40,7 @@
 - [장애 조치: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [장애 조치: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
-활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대 4개의 데이터베이스 복사본으로 비동기적으로 복제합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 주 데이터베이스에 커밋된 변경 내용과 트랜잭션 측면에서 항상 일관되도록 보장됩니다.
+활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대 4개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 주 데이터베이스에 커밋된 변경 내용과 트랜잭션 측면에서 항상 일관되도록 보장됩니다.
 
 활성 지역 복제의 주요 이점 중 하나는 복구 시간이 매우 짧은 데이터베이스 수준 재해 복구 솔루션을 제공한다는 것입니다. 다른 지역의 서버에 보조 데이터베이스를 배치하면 응용 프로그램의 복원력이 극대화됩니다. 지역 간 중복을 사용하면 자연 재해, 치명적인 사람의 실수 또는 악의적 행동으로 인해 데이터 센터의 일부 또는 전체가 영구적으로 손실되더라도 응용 프로그램을 복구할 수 있습니다. 다음 그림은 미국 중북부 지역에 주 데이터베이스, 미국 중남부 지역에 보조 데이터베이스가 있는 프리미엄 데이터베이스에 구성된 활성 지역 복제의 예입니다.
 
@@ -92,9 +92,9 @@
 
 |명령|설명|
 |-------|-----------|
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다.|
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS를 사용합니다.
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다.|
+|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다.|
+|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS를 사용합니다.
+|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다.|
 |[sys.geo\_replication\_links (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt575501.aspx)|Azure SQL 데이터베이스 논리 서버의 각 데이터베이스에 대한 모든 기존 복제 링크에 대한 정보를 반환합니다.|
 |[sys.dm\_geo\_replication\_link\_status (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt575504.aspx)|지정된 SQL 데이터베이스의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다.|
 |[sys.dm\_operation\_status (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx)|복제 링크의 상태를 비롯한 모든 데이터베이스 작업에 대한 상태를 표시합니다.|
@@ -105,10 +105,10 @@
 
 |Cmdlet|설명|
 |------|-----------|
-|[Get AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx)|하나 이상의 데이터베이스를 가져옵니다.|
+|[Get AzureRmSqlDatabase](https://msdn.microsoft.com/ko-KR/library/azure/mt603648.aspx)|하나 이상의 데이터베이스를 가져옵니다.|
 |[New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx)|기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다.|
-|[Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다.|
-|[Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다.|
+|[Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/ko-KR/library/mt619393.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다.|
+|[Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/ko-KR/library/mt603457.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다.|
 |[Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx)|Azure SQL 데이터베이스와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다.|
 ||||
 
@@ -134,4 +134,4 @@
 - 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 - 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

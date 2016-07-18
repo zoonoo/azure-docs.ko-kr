@@ -32,7 +32,7 @@ ASP.NET 5에서는 ASP.NET을 완전히 다시 디자인했습니다. ASP.NET 5�
 
 * [VS Code](http://code.visualstudio.com/Docs/setup)를 설치합니다.
 * [Node.js](http://nodejs.org) 설치 - Node.js는 JavaScript를 사용하여 빠르고 확장성이 뛰어난 서버 응용 프로그램을 빌드하기 위한 플랫폼입니다. 노드는 런타임(노드)이고 [npm](http://www.npmjs.com/)은 노드 모듈에 대한 패키지 관리자입니다. 이 자습서에서는 npm을 사용하여 ASP.NET 5 웹앱을 스캐폴딩합니다.
-* Git 설치 - [Chocolatey](https://chocolatey.org/packages/git) 또는 [git-scm.com](http://git-scm.com/downloads)에서 설치할 수 있습니다. Git를 처음 사용하는 경우 [git-scm.com](http://git-scm.com/downloads)을 선택하고 **Windows 명령 프롬프트에서 Git 사용** 옵션을 선택합니다. Git를 설치한 후 자습서의 뒤에 나오는 VS Code에서 커밋을 수행할 때 필요하므로 Git 사용자 이름과 전자 메일을 설정해야 합니다.  
+* Git 설치 - [Chocolatey](https://chocolatey.org/packages/git) 또는 [git-scm.com](http://git-scm.com/downloads)에서 설치할 수 있습니다. Git를 처음 사용하는 경우 [git-scm.com](http://git-scm.com/downloads)을 선택하고 **Windows 명령 프롬프트에서 Git 사용** 옵션을 선택합니다. Git를 설치한 후 자습서의 뒤에 나오는 VS Code에서 커밋을 수행할 때 필요하므로 Git 사용자 이름과 전자 메일을 설정해야 합니다.
 
 ## ASP.NET 5 및 DNX 설치
 ASP.NET 5/DNX(.NET 실행 환경)는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 및 웹앱을 제작하기 위한 린(lean) .NET 스택입니다. ASP.NET 5/DNX는 클라우드에 배포되거나 온-프레미스로 실행될 앱에 최적화된 개발 프레임워크를 제공하기 위해 처음부터 다시 제작되었습니다. 오버헤드를 최소화하는 모듈식 구성 요소로 구성되므로 솔루션을 구성하는 동안 유연성이 유지할 수 있습니다.
@@ -123,7 +123,7 @@ ASP.NET 5/DNX(.NET 실행 환경)는 OS X, Linux 및 Windows에서 실행되는 
 
 	명령 창에 응용 프로그램이 시작되었음이 표시됩니다. 명령 창에 이 메시지가 표시되지 않는 경우 VS Code의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
 	
-	> [AZURE.NOTE] **명령 팔레트**에서 명령을 실행하려면 명령줄의 시작 부분에 **>** 문자가 있어야 합니다. 또한 *project.json* 파일에서 **web** 명령과 관련된 세부 정보를 볼 수 있습니다.
+	> [AZURE.NOTE] **명령 팔레트**에서 명령을 실행하려면 명령줄의 시작 부분에 **>** 문자가 있어야 합니다. 또한 *project.json* 파일에서 **web** 명령과 관련된 세부 정보를 볼 수 있습니다. 명령이 나타나지 않거나 사용할 수 없는 경우 C# 확장을 설치해야 할 수 있습니다. `>Extensions: Install Extension` 및 `ext install c#`을 실행하여 C# 확장을 설치합니다.
 
 2. 브라우저를 열고 다음 URL로 이동합니다.
 
@@ -250,7 +250,7 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 이 작업은 두 가지 방법으로 수행할 수 있습니다.
 
-* 브라우저를 열고 웹앱의 이름을 다음과 같이 입력합니다.   
+* 브라우저를 열고 웹앱의 이름을 다음과 같이 입력합니다.
 
 		http://SampleWebAppDemo.azurewebsites.net
  
@@ -262,4 +262,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

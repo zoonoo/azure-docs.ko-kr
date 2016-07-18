@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
@@ -115,14 +115,14 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[업데이트 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md
-[삭제 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md
-[병합 문]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[업데이트 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[삭제 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[병합 문]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Transact-SQL 항목]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [커서]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: ./sql-data-warehouse-develop-group-by-options.md
 [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화]: ./sql-data-warehouse-develop-group-by-options.md
 [8를 초과한 중첩 수준]: ./sql-data-warehouse-develop-transactions.md
@@ -134,4 +134,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

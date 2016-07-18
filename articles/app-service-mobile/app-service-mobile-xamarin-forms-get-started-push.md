@@ -330,43 +330,14 @@ GCM(Google Cloud Messaging)을 사용하도록 구성된 백 엔드를 통해 �
 
 ####iOS 앱에 푸시 알림 추가
 
-1. 다음 `using` 문을 **AppDelegate.cs** 파일의 맨 위에 추가합니다.
+1. **iOS** 프로젝트에서 AppDelegate.cs를 열고 다음 **using** 문을 코드 파일의 맨 위에 추가합니다.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. 또한 **AppDelegate** 클래스에서 **RegisteredForRemoteNotifications** 이벤트 재정의를 추가하여 알림을 등록합니다.
 
-2. iOS 프로젝트에서 AppDelegate.cs를 열고 다음과 같이 원격 알림을 지원하도록 `FinishedLaunching`을 업데이트합니다.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. 또한 AppDelegate.cs에서 알림을 등록하기 위한 **RegisteredForRemoteNotifications** 이벤트 재정의를 추가합니다.
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
@@ -381,9 +352,10 @@ GCM(Google Cloud Messaging)을 사용하도록 구성된 백 엔드를 통해 �
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. 또한 AppDelegate.cs에서 앱이 실행하는 동안 들어오는 알림을 처리하기 위한 **DidReceivedRemoteNotification** 이벤트 재정의를 추가합니다.
+5. **AppDelegate**에서 **DidReceivedRemoteNotification** 이벤트 처리기에 대한 다음 재정의도 추가합니다.
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -398,6 +370,22 @@ GCM(Google Cloud Messaging)을 사용하도록 구성된 백 엔드를 통해 �
                 avAlert.Show();
             }
         }
+
+	이 메서드는 앱을 실행하는 동안 들어오는 알림을 처리합니다.
+
+2. **AppDelegate** 클래스에서 다음 코드를 **FinishedLaunching** 메서드에 추가합니다.
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	이를 통해 원격 알림을 지원하고 푸시 등록을 요청합니다.
 
 이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
@@ -510,4 +498,4 @@ GCM(Google Cloud Messaging)을 사용하도록 구성된 백 엔드를 통해 �
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

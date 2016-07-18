@@ -231,7 +231,8 @@ server.js 파일이 Web API 서버의 기능 대부분을 제공하게 됩니다
 	var getopt = require('posix-getopt');
 	var mongoose = require('mongoose/');
 	var restify = require('restify');
-  var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
+	var passport = require('passport');
+  var BearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 파일을 저장합니다. 잠시 후에 이 파일로 다시 돌아갈 것입니다.
@@ -254,7 +255,7 @@ server.js 파일이 Web API 서버의 기능 대부분을 제공하게 됩니다
      audience: 'your application URL',
     // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
   // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
-     identityMetadata: 'https://login.microsoftonline.com/<your client id>/.well-known/openid-configuration', 
+     identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration', 
      validateIssuer: true, // if you have validation on, you cannot have users from multiple tenants sign in to your server
      passReqToCallback: false,
      loggingLevel: 'info' // valid are 'info', 'warn', 'error'. Error always goes to stderr in Unix.
@@ -927,4 +928,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

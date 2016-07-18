@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="05/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Soonr Workplace의 Azure AD 통합을 구성하려면 갤러리의 Soonr Workpla
 
 **갤러리에서 Soonr Workplace를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -86,7 +86,7 @@ Soonr Workplace의 Azure AD 통합을 구성하려면 갤러리의 Soonr Workpla
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Soonr Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Soonr Workplace 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Soonr Workplace의 관련 사용자 간에 연결이 형성되어야 합니다. 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Soonr Workplace의 **Username** 값으로 할당하여 설정합니다.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Soonr Workplace 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Soonr Workplace의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 
 Soonr Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -131,7 +131,7 @@ Soonr Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 Soonr Workplace 지원 팀에 다운로드한 메타데이터 파일을 첨부하여 메일을 보냅니다. 또한 SSO 통합을 위해 구성할 수 있도록 발급자 URL, SAML SSO URL 및 로그아웃 URL을 제공하세요.
+5. 응용 프로그램에 구성된 SSO를 가져오려면 자세한 내용은 Soonr Workplace SSO 통합 가이드를 참조하거나 통합 파트너를 참조할 수 있습니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -268,4 +268,4 @@ Soonr Workplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 [204]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

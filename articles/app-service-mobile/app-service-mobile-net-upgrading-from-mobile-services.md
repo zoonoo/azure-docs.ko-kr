@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="모바일 서비스에서 Azure 앱 서비스로 업그레이드" 
-	description="모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다." 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="모바일 서비스에서 Azure 앱 서비스로 업그레이드"
+	description="모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # 기존 .NET Azure 모바일 서비스를 앱 서비스로 업그레이드
@@ -84,10 +84,10 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
 
         // Use this class to set configuration options for your mobile service
         ConfigOptions options = new ConfigOptions();
-        
+
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-        
+
 다음으로 바꿀 수 있습니다.
 
         HttpConfiguration config = new HttpConfiguration();
@@ -98,9 +98,9 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
 >[AZURE.NOTE] 앱에서 기능을 추가/제거하는 방법 및 새 .NET 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
 
 또한 앱이 인증 기능을 사용하는 경우 OWIN 미들웨어를 등록해야 합니다. 이 경우 새 OWIN 시작 클래스에 위의 구성 코드를 이동해야 합니다.
- 
+
 1. 프로젝트에 아직 포함되지 않은 경우 NuGet 패키지 `Microsoft.Owin.Host.SystemWeb`를 추가합니다.
-2. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목**을 선택합니다. **웹** -> **일반** -> **OWIN 시작 클래스**를 선택합니다. 
+2. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목**을 선택합니다. **웹** -> **일반** -> **OWIN 시작 클래스**를 선택합니다.
 3. MobileAppConfiguration에 대한 위의 코드를 `WebApiConfig.Register()`에서 새 시작 클래스의 `Configuration()` 메서드로 이동합니다.
 
 `Configuration()` 메서드가 다음으로 끝나도록 합니다.
@@ -117,19 +117,19 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
 이전에 참조된 동일한 스키마가 있는지 확인하려면 다음을 사용하여 응용 프로그램에 DbContext의 스키마를 설정합니다.
 
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
-        
+
 위의 작업을 수행하는 경우 MS\_MobileServiceName을 설정해야 합니다. 또한 응용 프로그램이 이전에 사용자 지정한 경우 다른 스키마 이름을 제공할 수 있습니다.
 
 ### 시스템 속성
 
-#### 이름 지정 
+#### 이름 지정
 
 Azure 모바일 서비스 서버 SDK에서 시스템 속성은 항상 속성에 대해 두 개의 밑줄(`__`) 접두사를 포함합니다.
 
-- __\_\_createdAt
-- __\_\_updatedAt
-- __\_\_deleted
-- __\_\_version
+- \_\_createdAt
+- \_\_updatedAt
+- \_\_deleted
+- \_\_version
 
 모바일 서비스 클라이언트 SDK는 이 형식에서 시스템 속성을 구문 분석하기 위한 특수한 논리입니다.
 
@@ -142,7 +142,7 @@ Azure 모바일 앱에서 시스템 속성에는 더 이상 특별 한 형식 �
 
 모바일 앱 클라이언트 SDK는 새 시스템 속성 이름을 사용하므로 클라이언트 코드에는 변경이 필요하지 않습니다. 그러나 서비스에 직접 REST 호출을 하는 경우 쿼리를 적절하게 변경해야 합니다.
 
-#### 로컬 저장소 
+#### 로컬 저장소
 
 시스템 속성의 이름에 변경 사항이 있으면 모바일 서비스에 대한 오프라인 동기화 로컬 데이터베이스가 모바일 앱과 호환되지 않습니다. 가능한 경우 보류 중인 변경 내용이 서버에 보내진 이후까지 모바일 서비스에서 모바일 앱에 클라이언트 앱 업그레이드하지 않도록 해야 합니다. 그런 다음 업그레이드된 앱은 새 데이터베이스 파일 이름을 사용해야 합니다.
 
@@ -209,7 +209,7 @@ Azure 모바일 서비스에서 시스템 속성은 기본적으로 전송되지
 
 `ApiServices` 개체는 더이상 SDK의 일부가 아닙니다. 모바일 앱 설정에 액세스하려면 다음을 사용할 수 있습니다.
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings(); 
+    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
 마찬가지로, 로깅은 이제 표준 ASP.NET 추적 쓰기를 사용하여 수행됩니다.
 
@@ -230,11 +230,11 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 `GetAppServiceIdentityAsync()` 메서드를 통해 액세스 토큰을 포함하는 추가 사용자 정보를 가져올 수 있습니다.
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
-        
+
 또한 데이터베이스에 사용자 ID를 저장하는 경우와 같이 응용 프로그램이 사용자 ID에 종속된 경우 모바일 서비스와 앱 서비스 모바일 앱 간에 사용자 ID가 서로 다르다는 것에 유의해야 합니다. 그러나 모바일 서비스 사용자 ID도 가져올 수 있습니다. ProviderCredentials 하위 클래스는 모두 UserId 속성을 가집니다. 따라서 앞의 예제부터 계속 실행합니다.
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
-        
+
 앱이 사용자 ID에 종속된 경우 가능하면 ID 공급자와 함께 동일한 등록을 활용하는 것이 중요합니다. 일반적으로 사용자 ID의 범위는 사용된 응용 프로그램 등록으로 지정되므로 새 등록을 도입하면 사용자를 해당 데이터에 일치시킬 때 문제가 발생할 수 있습니다.
 
 ### 사용자 지정 인증
@@ -253,7 +253,7 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 아래 링크를 통해 새 SDK를 설치하고 새 구조를 사용하는 데 대한 내용을 읽을 수 있습니다.
 
 - [iOS 버전 3.0.0 이상](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md) 
+- [.NET(Windows/Xamarin) 버전 2.0.0 이상](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 응용 프로그램이 푸시 알림을 사용하면 일부 변경 사항이 있는 경우와 같이 각 플랫폼에 대한 특정 등록 지침을 기록합니다.
 
@@ -277,4 +277,4 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

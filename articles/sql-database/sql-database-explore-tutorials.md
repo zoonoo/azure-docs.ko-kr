@@ -25,6 +25,10 @@
 
 다음 자습서에서 SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스를 관리 및 쿼리하는 방법을 배웁니다.
 
+
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 | 자습서 | 설명 |
 |---|---|---|
 | [서버 수준 보안 주체 로그인을 사용하여 AzureSQL 데이터베이스에 연결](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| 이 자습서에서는 서버 수준 보안 주체를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다.|
@@ -180,4 +184,4 @@
 
 [Azure SQL 데이터베이스 솔루션 빠른 시작 탐색](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

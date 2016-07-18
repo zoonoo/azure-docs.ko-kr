@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/28/2016"
 	ms.author="krisragh"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
@@ -241,4 +241,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

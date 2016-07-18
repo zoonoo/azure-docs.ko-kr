@@ -17,6 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 감사
+
+> [AZURE.SELECTOR]
+- [보안 개요](sql-data-warehouse-overview-manage-security.md)
+- [위협 감지](sql-data-warehouse-security-threat-detection.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [감사 개요](sql-data-warehouse-auditing-overview.md)
+- [하위 수준 클라이언트 감사](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
 Azure SQL 데이터 웨어하우스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 작성합니다.
 
 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
@@ -111,11 +121,11 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 
 1. 감사 구성 블레이드(위에 나온 감사 설정 섹션의 설명 참조) **저장소 액세스 키**를 *기본*에서 *보조*로 전환하고 **저장**을 클릭합니다.![][4]
-2. 저장소 구성 블레이드로 이동하고 *기본 선택키*를 **다시 생성**합니다.
+2. 스토리지 구성 블레이드로 이동하고 *기본 액세스 키*를 **다시 생성**합니다.
 
 3. 감사 구성 블레이드로 돌아가서 **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 누릅니다.
 
-4. 저장소 UI로 돌아와서 *보조 선택키*를 **다시 생성**합니다(다음 키 새로 고침 주기를 위한 준비).
+4. 저장소 UI로 돌아와서 *보조 액세스 키*를 **다시 생성**합니다(다음 키 새로 고침 주기를 위한 준비).
 
 ##<a id="subheading-6"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
@@ -141,4 +151,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

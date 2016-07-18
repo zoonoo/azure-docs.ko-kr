@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터로 대답할 수 있는 질문하기 | Microsoft Azure"
+   pageTitle="데이터로 대답할 수 있는 질문하기 - 초급자를 위한 데이터 과학 | Microsoft Azure"
    description="초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다."
    keywords="질문 선택,데이터 과학 질문,질문 작성, 질문 작성,회귀 질문,분류 질문,정확한 질문"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# 데이터로 대답할 수 있는 질문하기: 초급자를 위한 데이터 과학 비디오 3 
+# 초급자를 위한 데이터 과학 비디오 3: 데이터로 대답할 수 있는 질문하기 
 
 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 이 비디오에는 분류 및 회귀 알고리즘 질문에 대한 비교가 포함되어 있습니다.
+
+시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 
@@ -86,14 +88,15 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 *초급자를 위한 데이터 과학*은 5개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
 
 
-  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) **현재 사용 가능합니다.**
-  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **현재 사용 가능합니다.**
-  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) **현재 사용 가능합니다.**
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) 6월 30일에 제공될 예정입니다.
+  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * 비디오 3: 데이터로 대답할 수 있는 질문하기
+  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## 다음 단계
 
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

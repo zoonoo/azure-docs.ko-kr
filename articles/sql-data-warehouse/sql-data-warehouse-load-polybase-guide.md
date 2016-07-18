@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/30/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -180,9 +180,7 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 <!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [PolyBase를 사용하여 데이터 로드]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: ./sql-data-warehouse-solution-partners.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[통계]: ./sql-data-warehouse-develop-statistics.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 [데이터 마이그레이션 개요]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
@@ -208,4 +206,4 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 
 <!-- External Links -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

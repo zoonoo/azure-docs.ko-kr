@@ -4,7 +4,7 @@
 
     새 CDN 프로필 블레이드가 나타납니다.
 
-    ![새 CDN 프로필](./media/cdn-create-profile/new-cdn-profile.png)
+    ![새 CDN 프로필](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. CDN 프로필에 대한 이름을 입력합니다.
 
@@ -14,8 +14,10 @@
 
 5. **가격 책정 계층**을 선택합니다. 가격 책정 계층은 [CDN 개요](cdn-overview.md#azure-cdn-features)를 참조합니다.
     
-    ![CDN 가격 책정 계층 선택](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![CDN 가격 책정 계층 선택](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. 이 CDN 프로필에 대한 **구독**을 선택합니다.
 
 7. **만들기** 단추를 클릭하여 새 프로필을 만듭니다.
+
+<!---HONumber=AcomDC_0706_2016-->

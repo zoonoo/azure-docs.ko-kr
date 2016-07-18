@@ -84,11 +84,11 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 4. **앱 설정 구성** 페이지에서 다음 형식으로 Salesforce 도메인 URL을 입력하여 **로그온 URL**을 작성합니다.
  - 엔터프라이즈 계정: `https://<domain>.my.salesforce.com`
- - 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com` 
+ - 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![로그온 URL 입력][8]
 
@@ -216,7 +216,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Salesforce **개발자** 환경으로 프로비전하는 경우 각 프로필에 매우 제한된 수의 라이선스만 사용할 수 있습니다. 따라서 4,999개 라이선스를 사용할 수 있는 **Chatter Free User** 프로필로 사용자를 프로비전하는 것이 좋습니다.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Salesforce**를 클릭합니다.
 
@@ -256,4 +256,4 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -20,9 +20,13 @@
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
 > [AZURE.SELECTOR]
+- [포털](azure-portal/resource-group-portal.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 이 문서에서는 Azure 리소스 관리자 모드에서 Azure CLI(명령줄 인터페이스)를 사용하여 Azure 리소스를 만들고 관리하는 일반적인 방법을 설명합니다.
@@ -33,15 +37,15 @@
 
 Azure 리소스 관리자를 통해 _리소스_(가상 컴퓨터, 데이터베이스 서버, 데이터베이스 또는 웹 사이트와 같은 사용자 관리 엔터티) 그룹을 만들어서 단일 논리 단위 또는 _리소스 그룹_으로 관리할 수 있습니다.
 
-Azure 리소스 관리자의 장점 중 하나는 JSON *템플릿*에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 _선언적_ 방식으로 Azure 리소스를 만들 수 있다는 것입니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON(JavaScript Object Notation) 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
+Azure Resource Manager의 장점 중 하나는 JSON *템플릿*에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 _선언적_ 방식으로 Azure 리소스를 만들 수 있다는 것입니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON(JavaScript Object Notation) 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
 
 그룹을 수정 또는 생성하는 데 템플릿을 사용한 경우 _배포_가 만들어져서 그룹에 적용됩니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
-배포를 만든 후에는 클래식 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 리소스 관리자 모드에서 CLI를 사용하여 [Azure 리소스 관리자 가상 컴퓨터](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
+배포를 만든 후에는 클래식 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 Resource Manager 모드에서 CLI를 사용하여 [Azure Resource Manager 가상 컴퓨터](./virtual-machines/virtual-machines-linux-cli-deploy-templates.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
 
 ## 인증
 
-Azure CLI를 통해 Azure 리소스 관리자 작업을 수행하려면 현재는 `azure login` 명령을 사용하여 Microsoft Azure에 인증한 다음 회사 또는 학교 계정(조직 계정) 등의 Azure Active Directory에서 관리되는 계정이나 Microsoft 계정을 지정합니다. .publishsettings 파일을 통해 설치한 인증서를 사용하여 인증하는 방법은 이 모드에서 사용할 수 없습니다.
+Azure CLI를 통해 Azure Resource Manager 작업을 수행하려면 현재는 `azure login` 명령을 사용하여 Microsoft Azure에 인증한 다음 회사 또는 학교 계정(조직 계정) 등의 Azure Active Directory에서 관리되는 계정이나 Microsoft 계정을 지정합니다. .publishsettings 파일을 통해 설치한 인증서를 사용하여 인증하는 방법은 이 모드에서 사용할 수 없습니다.
 
 Microsoft Azure에 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요.
 
@@ -65,7 +69,7 @@ Microsoft Azure에 인증하는 방법에 대한 자세한 내용은 [Azure CLI�
 
 ## 리소스 그룹 만들기
 
-리소스 그룹은 네트워크, 저장소 및 컴퓨터 리소스 등의 리소스에 대한 논리적 그룹화입니다. 리소스 관리자 모드의 거의 모든 명령에 리소스 그룹이 필요합니다. 예를 들어 다음 명령을 사용하여 미국 서부 지역에 이름이 _testRG_인 리소스 그룹을 만들 수 있습니다.
+리소스 그룹은 네트워크, 저장소 및 컴퓨터 리소스 등의 리소스에 대한 논리적 그룹화입니다. 리소스 관리자 모드의 거의 모든 명령에 리소스 그룹이 필요합니다. 예를 들어 다음 명령을 사용하여 미국 서부 지역에 _testRG_라는 리소스 그룹을 만들 수 있습니다.
 
 	azure group create -n "testRG" -l "West US"
 
@@ -232,6 +236,6 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 ## 다음 단계
 
 * Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
-* Azure 포털에서 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
+* Azure 포털에서 Azure Resource Manager 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

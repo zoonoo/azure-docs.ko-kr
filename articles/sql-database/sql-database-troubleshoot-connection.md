@@ -37,6 +37,6 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 
 ## 다음 단계
 - 다른 오류가 발생하는 경우에는 [오류 메시지](sql-database-develop-error-messages.md)를 점검하여 오류의 원인을 파악합니다.
-- 문제가 지속되면 [SQL Azure 데이터베이스의 일반적인 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)의 지침을 확인해 보세요.
+- 문제가 지속되면 [Azure SQL 데이터베이스의 일반적인 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)의 지침을 확인해 보세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

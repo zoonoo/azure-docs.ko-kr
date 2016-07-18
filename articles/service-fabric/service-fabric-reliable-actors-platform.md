@@ -39,7 +39,7 @@ Reliable Services에서 서비스는 자체가 `StatefulServiceBase`에서 파�
 
  - 서비스 백업 및 복원입니다.
  - 예를 들어 회로 차단기 등 모든 행위자에 대한 공유 기능입니다.
- - 원격 프로시저는 각 개별 행위자 뿐만 아니라 행위자 서비스 자체를 호출합니다. 
+ - 원격 프로시저는 각 개별 행위자 뿐만 아니라 행위자 서비스 자체를 호출합니다.
 
 ### 행위자 서비스 사용
 
@@ -251,7 +251,7 @@ GUID 및 문자열을 사용하는 경우 값은 Int64로 해시됩니다. 그�
  - [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
  - [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
  - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [샘플 코드](https://github.com/Azure/servicefabric-samples)
+ - [샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -261,4 +261,4 @@ GUID 및 문자열을 사용하는 경우 값은 Int64로 해시됩니다. 그�
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -69,7 +69,7 @@ Blitline은 JSON을 사용하여 이미지에 적용할 동작을 정의합니�
 
 또한 여기서 나온 작업 옵션에 대한 설명서는 다음에서 찾을 수 있습니다.<http://www.blitline.com/docs/api>
 
-JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 됩니다.
+JSON이 있으면 `http://api.blitline.com/job`에 **게시**하기만 하면 됩니다.
 
 다음과 유사한 JSON이 반환됩니다.
 
@@ -85,7 +85,7 @@ JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 �
     }
 
 
-이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## Azure 저장소 계정에 이미지를 저장하는 방법
 
@@ -132,4 +132,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
 * Blitline API 예제 <http://www.blitline.com/docs/examples>
 * 타사 Nuget 라이브러리 <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

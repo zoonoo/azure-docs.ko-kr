@@ -47,7 +47,7 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 행위자 프로젝트는 행위자의 상태 내에서 안정적으로 유지되는 카운터의 값을 설정하고 가져오는 메서드를 제공합니다. 인터페이스 프로젝트는 다른 서비스가 행위자를 호출하는 데 사용할 수 있는 인터페이스를 제공합니다.
 
 ### 상태 비저장 웹 API
-상태 비저장 웹 API 프로젝트는 응용 프로그램을 외부 클라이언트에 공개하는 데 사용할 수 있는 기본 웹 서비스를 제공 합니다. 프로젝트 구성 방법에 대한 자세한 내용은 [OWIN 자체 호스팅을 포함한 서비스 패브릭 웹 API 서비스](service-fabric-reliable-services-communication-webapi)를 참조하세요.
+상태 비저장 웹 API 프로젝트는 응용 프로그램을 외부 클라이언트에 공개하는 데 사용할 수 있는 기본 웹 서비스를 제공 합니다. 프로젝트 구성 방법에 대한 자세한 내용은 [OWIN 자체 호스팅을 포함한 서비스 패브릭 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
 
 ## 다음 단계
 ### Azure 클러스터 만들기
@@ -80,4 +80,4 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

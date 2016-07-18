@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -31,7 +31,11 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액�
 
 * **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다. 자세한 내용은 [HBase 클러스터에서 Data Lake 저장소 사용](#use-data-lake-store-with-hbase-clusters)을 참조하세요.
 
-> [AZURE.NOTE] Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2 및 3.4(Windows 및 Linux의 경우)에만 사용할 수 있습니다. Linux에서 Spark 클러스터에 대 한이 옵션은 3.4 HDInsight 클러스터에서 사용할 수만 있습니다.
+> [AZURE.NOTE] 염두해 둘 몇 가지 중요한 사항은 다음과 같습니다.
+> 
+> * Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2 및 3.4(Windows 및 Linux의 경우)에만 사용할 수 있습니다. Linux에서 Spark 클러스터에 대 한이 옵션은 3.4 HDInsight 클러스터에서 사용할 수만 있습니다.
+>
+> * 위에서 설명했듯이 일부 클러스터 형식(HBase)에 대한 기본 저장소 및 다른 클러스터 형식(예: Hadoop, Spark, Storm)에 대한 추가 저장소로 Data Lake 저장소를 사용할 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다. Data Lake 저장소를 추가 저장소로 사용하는 시나리오에서 처리하려는 데이터는 Data Lake 저장소 계정에 저장되는 반면 클러스터 관련 파일(예: 로그 등)은 기본 저장소(Azure Blob)에 기록됩니다.
 
 
 ## 필수 조건
@@ -268,7 +272,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 	![새 Jupyter 노트북 만들기](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
-3. 새 노트북이 만들어지고 **Untitled.pynb** 이름으로 열립니다.
+3. 새 Notebook이 만들어지고 **Untitled.pynb** 이름으로 열립니다.
 
 4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER**를 누릅니다.
 
@@ -343,4 +347,4 @@ HBase 클러스터에서 추가 저장소 외에 기본 저장소로 Data Lake �
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

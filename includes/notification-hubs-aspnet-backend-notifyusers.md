@@ -4,7 +4,7 @@
 
 1. **클라이언트 인증**: 나중에 클라이언트 요청을 인증하고 사용자를 요청과 연결하는 메시지 처리기가 추가될 예정입니다.
 2. **클라이언트 알림 등록**: 나중에 클라이언트 장치에서 알림을 받을 수 있도록 새 등록을 처리하는 컨트롤러를 추가할 예정입니다. 인증된 사용자 이름은 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)로 등록에 자동으로 추가됩니다.
-3. **클라이언트로 알림 보내기**: 나중에 사용자가 태그와 연결된 장치 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가할 예정입니다. 
+3. **클라이언트로 알림 보내기**: 나중에 사용자가 태그와 연결된 장치 및 클라이언트로 보안 푸시를 트리거할 수 있는 방법을 제공하는 컨트롤러를 추가할 예정입니다.
 
 다음 단계에서는 새 ASP.NET WebAPI 백 엔드를 만드는 방법을 보여 줍니다.
 
@@ -16,7 +16,7 @@
 > [AZURE.NOTE] 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다. **서버 탐색기**를 클릭하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 Visual Studio에 로그인해야 합니다.
-2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
+2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다.
 	
 	![][B1]
 
@@ -48,7 +48,10 @@
 
 3. AuthenticationTestHandler.cs에서 `AuthenticationTestHandler` 클래스 정의를 다음으로 바꿉니다.
 
-	이 처리기는 다음 세 조건이 모두 참일 때 요청에 권한을 부여합니다. * 요청이 *권한 부여* 헤더에 포함되었습니다. * 요청이 *기본* 인증을 사용합니다. * 사용자 이름 문자열 및 암호 문자열이 동일한 문자열입니다.
+	이 처리기는 다음 세 가지 조건이 모두 충족될 때 요청을 인증합니다.
+	* 요청에 *Authorization* 헤더가 포함되어 있습니다.
+	* 요청이 *기본* 인증을 사용합니다.
+	* 사용자 이름 문자열과 암호 문자열은 동일한 문자열입니다.
 
 	그렇지 않으면 요청이 거부됩니다. 이는 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 매우 간단한 예제일 뿐입니다.
 
@@ -124,7 +127,7 @@
 
 	그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
 
-4. 이제 전송할 다른 보안 알림을 나타내는 새 클래스 파일을 만듭니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 클릭하여 클래스를 생성합니다.
+4. 이제 알림을 보내는 데 사용되는 알림 허브와의 연결을 나타내는 새 클래스 파일을 만들 것입니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 클릭하여 클래스를 생성합니다.
 
 	![][B6]
 
@@ -364,4 +367,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0706_2016-->

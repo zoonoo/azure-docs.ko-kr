@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -150,4 +150,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

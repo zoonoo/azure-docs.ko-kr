@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/30/2016"
 	ms.author="marsma" />
 
 # Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포
@@ -198,6 +198,8 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
+노드가 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 경우 풀에 대해 지정하는 응용 프로그램 패키지는 각 계산 노드에 설치됩니다. 어떤 이유로든 응용 프로그램 패키지 배포가 실패하면 배치 서비스에서는 노드를 [사용할 수 없으며][net_nodestate] 해당 노드에서 실행하기로 예정된 작업이 없다고 표시합니다. 이 경우에 노드를 **다시 시작**하여 패키지 배포를 다시 시작합니다(또한 노드를 다시 시작하면 노드에서 작업 일정을 다시 사용할 수 있음).
+
 ## 설치된 응용 프로그램 실행
 
 각 계산 노드가 풀에 조인하면(또는 다시 부팅되거나 이미지로 다시 설치되면) 앞에서 지정한 패키지가 노드의 `AZ_BATCH_ROOT_DIR` 내에 있는 명명된 디렉터리에 다운로드되어 추출됩니다. 또한 배치는 응용 프로그램 이진 파일을 호출할 때 사용할 태스크 명령줄에 대한 환경 변수를 만듭니다. 이 변수는 다음 명명 체계를 따릅니다.
@@ -230,7 +232,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 * 패키지 참조를 업데이트할 때 이미 풀에 있는 계산 노드는 새 응용 프로그램 패키지를 자동으로 설치하지 않으므로 새 패키지를 받기 위해 다시 부팅하거나 이미지를 다시 작성해야 합니다.
 * 새 패키지가 배포될 때 만들어진 환경 변수는 새 응용 프로그램 패키지 참조를 반영합니다.
 
-이 예제에서는 기존 풀의 *blender* 응용 프로그램 2.7 버전이 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] 중 하나로 구성되었습니다. 풀의 노드를 2.76b 버전으로 업데이트하려면 새 버전을 사용하여 [ApplicationPackageReference][net_pkgref]를 지정하고 변경 내용을 커밋합니다.
+이 예에서는 기존 풀의 *blender* 응용 프로그램 2.7 버전이 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] 중 하나로 구성되었습니다. 풀의 노드를 2.76b 버전으로 업데이트하려면 새 버전을 사용하여 [ApplicationPackageReference][net_pkgref]를 지정하고 변경 내용을 커밋합니다.
 
 ```csharp
 string newVersion = "2.76b";
@@ -272,7 +274,7 @@ foreach (ApplicationSummary app in applications)
 
 * [배치 REST API][api_rest]는 응용 프로그램 패키지 작업도 지원합니다. 예를 들어 REST API를 사용하여 설치할 패키지를 지정하는 방법은 [계정에 풀 추가][rest_add_pool]에서 [applicationPackageReferences][rest_add_pool_with_packages] 요소를 참조하세요. 배치 REST API를 사용하여 응용 프로그램 정보를 얻는 방법에 대한 자세한 내용은 [응용 프로그램][rest_applications]을 참조하세요.
 
-* 프로그래밍 방식으로 [배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 수행하는 방법을 알아보세요. [배치 관리 .NET][api_net_mgmt] 라이브러리는 배치 응용 프로그램 또는 서비스에 대해 계정 만들기 및 삭제 기능을 활성화할 수 있습니다.
+* 프로그래밍 방식으로 [배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 수행하는 방법을 알아보세요. [배치 관리.NET][api_net_mgmt] 라이브러리는 배치 응용 프로그램 또는 서비스에 대해 계정 만들기 및 삭제 기능을 활성화할 수 있습니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -284,6 +286,7 @@ foreach (ApplicationSummary app in applications)
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -301,4 +304,4 @@ foreach (ApplicationSummary app in applications)
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

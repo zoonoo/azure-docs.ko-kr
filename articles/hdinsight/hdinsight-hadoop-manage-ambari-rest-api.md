@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -76,13 +76,11 @@ HDInsight에서 Ambari에 대한 연결에는 HTTPS가 필요합니다. 또한 �
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-이는 JSON이므로 JSON 파서를 사용하여 데이터를 검색하는 것이 일반적으로 더 쉽습니다. 예를 들어 경고의 개수를 검색하려는 경우(__"Host/host\_status/ALERT"__ 요소에 포함됨) 다음을 사용하여 값에 직접 액세스할 수 있습니다.
+이는 JSON이므로 JSON 파서를 사용하여 데이터를 검색하는 것이 일반적으로 더 쉽습니다. 예를 들어 클러스터에 대한 상태 정보를 검색하려는 경우 다음을 사용할 수 있습니다.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-이는 JSON 문서를 검색한 다음 jq에 출력을 파이프합니다. `'.Clusters.health_report."Host/host_status/ALERT"'`은(는) 검색하려는 JSON 문서 내에서 요소를 나타냅니다.
-
-> [AZURE.NOTE] __Host/host\_status/ALERT__ 요소는 '/'가 요소 이름의 일부임을 나타내는 따옴표로 묶여 있습니다. jq 사용에 대한 자세한 내용은 [jq 웹사이트](https://stedolan.github.io/jq/)를 참조하세요.
+이는 JSON 문서를 검색한 다음 jq에 출력을 파이프합니다. `.Clusters.health_report`은(는) 검색하려는 JSON 문서 내에서 요소를 나타냅니다.
 
 ##예: 클러스터 노드의 FQDN 가져오기
 
@@ -257,4 +255,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE] HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

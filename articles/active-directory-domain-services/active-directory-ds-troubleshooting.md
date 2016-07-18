@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 문제 해결 가이드
@@ -64,4 +64,4 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리된 �
 ### 문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md) Azure Active Directory 도메인 서비스 제품 팀에 문의하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

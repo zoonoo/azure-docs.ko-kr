@@ -26,6 +26,18 @@
 
 > [AZURE.NOTE] IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
 
+### 2016년 6월 29일
+
+Eclipse용 Azure 도구 키트 - 2016년 6월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
+
+* **Java 8 요구 사항**. 이제 Eclipse용 Azure 도구 키트에는 Java 8이 필요하지만 이 요구 사항은 도구 키트에만 해당합니다. 응용 프로그램은 Azure에서 지원되는 모든 버전의 Java를 계속 사용할 수 있습니다.
+* **최신 Java JDK에 대한 지원**. 이제 최신 버전의 Java JDK가 Eclipse용 Azure 도구 키트에서 지원됩니다.
+* **Azure SDK v2.9.1에 대한 지원**. 이제 Azure SDK 최신 버전은 Eclipse용 Azure 도구 키트에 필요한 최소 구성 요소입니다.
+* **통합된 샘플**. 이제 Eclipse용 Azure 도구 키트가 몇 가지 샘플 응용 프로그램을 갖추어 개발자가 사용할 수 있습니다.
+* **HDInsight 도구 통합**. 이제 Azure의 HDInsight 도구는 Eclipse용 Azure 도구 키트와 함께 제공됩니다.
+* **Java 웹앱의 원격 디버깅**. 이제 Eclipse용 Azure 도구 키트는 Azure 앱 서비스에서 Java 웹앱의 원격 디버깅을 지원합니다.
+* **Eclipse Luna 릴리스에 대한 지원.** 최소한의 새로운 Eclipse IDE 버전은 Luna입니다.
+
 ### 2016년 4월 12일
 
 Eclipse용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
@@ -48,7 +60,7 @@ Eclipse용 Azure 도구 키트 - 2016년 1월 릴리스에는 다음과 같은 �
 
 * **Zulu OpenJDK 업데이트에 대한 지원**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지]를 참조하세요.
 * **업데이트된 Tomcat 및 Jetty 배포판**. Eclipse용 Azure 도구 키트와 함께 사용할 Microsoft Azure에서 사용할 수 있는 Jetty 및 Tomcat 배포판이 업데이트되었습니다.
-* **Eclipse 및 IntelliJ Azure용 도구 키트 간 기능 패리티**. 이제 Eclipse용 Azure 도구 키트 및 [IntelliJ용 Azure 도구 키트]는 동일한 기능 집합을 지원합니다.
+* **Azure용 Eclipse 및 IntelliJ 도구 키트 간 기능 패리티**. 이제 Eclipse용 Azure 도구 키트 및 [IntelliJ용 Azure 도구 키트]는 동일한 기능 집합을 지원합니다.
 
 ### 2015년 9월 1일
 
@@ -308,6 +320,7 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 �
 - [IntelliJ용 Azure 도구 키트]
   - [IntelliJ용 Azure 도구 키트 설치]
   - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -319,9 +332,12 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [Zulu OpenJDK용 Azul Systems 웹 페이지]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure 서비스 끝점]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
 [구성 요소 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
@@ -353,4 +369,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

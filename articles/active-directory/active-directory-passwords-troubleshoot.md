@@ -37,7 +37,7 @@
  - **오류에 대한 일반적인 설명** – 사용자가 본 정확한 오류 메시지 정의 오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다.
  - **페이지** – 오류(URL 포함)가 나타나는 경우 페이지 정의
  - **날짜/시간/표준 시간대** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
- - **지원 코드** – 오류가 나타나는 경우 생성된 지원 코드 정의(오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보냄.) 
+ - **지원 코드** – 오류가 나타나는 경우 생성된 지원 코드 정의(오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보냄.)
    - 아래에서 지원 코드 없이 페이지에서 F12 키를 누그로 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
 
     ![][001]
@@ -102,7 +102,7 @@
             </td>
             <td>
               <p>필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려면 페이지의 모든 옵션을 사용하도록 설정하십시오.</p>
-              <p>모든 컨트롤을 사용할 수 있는 방법에 대한 자세한 정보는 <a href="../active-directory-passwords-customize#password-management-behavior">사용자 암호 재설정 정책 사용자 지정</a>을 참조하십시오.</p>
+              <p>모든 컨트롤을 사용할 수 있는 방법에 대한 자세한 정보는 <a href="active-directory-passwords-customize.md#password-management-behavior">암호 관리 동작</a>을 참조하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@
             </td>
             <td>
               <p>Azure AD 연결을 다운로드하고 암호 쓰기 저장을 구성하는 경우 이 옵션을 표시합니다. 이 작업을 하는 경우 해당 옵션이 표시되고 클라우드에서 쓰기 저장을 사용하거나 사용하지 않도록 설정할 수 있습니다.</p>
-              <p>이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화 하는 방법</a>을 참조하십시오.</p>
+              <p>이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Azure AD Connect에서 비밀번호 쓰기 저장 활성화</a>를 참조하십시오.</p>
             </td>
           </tr>
         </tbody></table>
@@ -289,7 +289,7 @@
               <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
             </td>
             <td>
-              <p>진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록  합니다. </p>
+              <p>진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록  합니다. </p>
             </td>
           </tr>
           <tr>
@@ -305,7 +305,7 @@
               <p>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다.</p>
             </td>
             <td>
-              <p>계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법(예: 휴대폰 및 사무실 전화)이 있는지를 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록  합니다. </p>
+              <p>계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법(예: 휴대폰 및 사무실 전화)이 있는지를 확인합니다. 디렉터리에 인증 정보를 구성하는 방법에 대한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정으로 사용되는 데이터 정의</a>를 참조하여 사용자에게 이 오류가 표시되지 않도록  합니다. </p>
             </td>
           </tr>
           <tr>
@@ -327,7 +327,7 @@
               <p>사용자는 "내게 텍스트" 또는 "내게 전화 걸기"를 클릭하고 아무것도 수신하지 않습니다.</p>
             </td>
             <td>
-              <p>이것은 디렉터리에서 형식이 잘못된 전화번호의 결과일 수 있습니다. 전화번호가 "+ ccc xxxyyyzzzzXeeee" 형식인지 확인합니다. 암호 재설정에 사용할 전화번호 형식에 대한 자세한 내용은 <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
+              <p>이것은 디렉터리에서 형식이 잘못된 전화번호의 결과일 수 있습니다. 전화번호가 "+ ccc xxxyyyzzzzXeeee" 형식인지 확인합니다. 암호 재설정에 사용할 전화번호 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
               <p>문제의 사용자에게 라우팅할 확장이 필요한 경우 디렉터리에서 하나를 지정하더라도 해당 암호 재설정은 확장을 지원하지 않습니다.(호출이 발송되기 전에 제거됨)  확장을 사용하지 않고 숫자를 사용하거나 사용자의 PBX의 전화번호에 확장을 통합하려 합니다.</p>
             </td>
           </tr>
@@ -340,7 +340,7 @@
             </td>
             <td>
               <p>이 문제에 대한 가장 일반적인 원인은 스팸 필터에 의해 메시지가 거부된다는 점입니다. 전자 메일에 대한 스팸, 정크, 또는 삭제된 항목 폴더를 확인하십시오.</p>
-              <p>또한 메시지를 위해 올바른 전자 메일인지를 확인하십시오...많은 사람이 매우 유사한 전자 메일 주소가 있고 메시지를 받은 편지함을 잘못 확인합니다. 이러한 두 옵션이 모두 효과가 없으면 디렉터리에서 전자 메일 주소 형식이 잘못된 것일 수도 있습니다. 전자 메일 주소가 올바른지 확인하고 다시 시도하십시오. 암호 재설정에 사용할 전자 메일 주소 형식에 대한 자세한 내용은 <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
+              <p>또한 메시지를 위해 올바른 전자 메일인지를 확인하십시오...많은 사람이 매우 유사한 전자 메일 주소가 있고 메시지를 받은 편지함을 잘못 확인합니다. 이러한 두 옵션이 모두 효과가 없으면 디렉터리에서 전자 메일 주소 형식이 잘못된 것일 수도 있습니다. 전자 메일 주소가 올바른지 확인하고 다시 시도하십시오. 암호 재설정에 사용할 전자 메일 주소 형식에 대한 자세한 내용은 <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">암호 재설정에서 사용하는 데이터 정의</a>를 참조하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -519,7 +519,7 @@
               <p>시간이 지난 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다.</p>
             </td>
             <td>
-              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
               <p>
                 
               </p>
@@ -563,7 +563,7 @@
                 <li>
 										이제 암호 쓰기 저장 활성화/비활성화를 시도할 수 있습니다. 마법사는 자격 증명을 사용하여 "abc.onmicrosoft.com – AAD"으로 커넥터의 이름을 생성하고 암호 쓰기 저장 cmdlet에 전달합니다. 이 이름을 사용하여 만든 커넥터가 없기 때문에 실패합니다.&lt;br>&lt;br></li>
               </ol>
-              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
+              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 및 방화벽 규칙을 구성"을 참조하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -638,7 +638,7 @@
               <p>Azure 관리 포털에서 사용자를 대신하여 암호를 재설정하려고 할 때 다음과 같은 내용의 메시지가 표시됩니다. “온-프레미스 환경에서 실행되는 암호 재설정 서비스는 관리자가 사용자 암호 재설정하도록 지원하지 않습니다. 이 문제를 해결하려면 Azure AD Connect최신 버전으로 업그레이드하십시오.”</p>
             </td>
             <td>
-              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&#160; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하여(자세한 내용은 <a href="../active-directory-aadconnect#download-azure-ad-connect">디렉터리 통합 도구</a>를 참조) 조직에서 이 문제를 해결 하고 암호 쓰기 저장을 최대한 활용하는 것이 좋습니다</p>
+              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&#160; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하여(자세한 내용은 <a href="active-directory-aadconnect">디렉터리 통합 도구</a>를 참조) 조직에서 이 문제를 해결 하고 암호 쓰기 저장을 최대한 활용하는 것이 좋습니다</p>
             </td>
           </tr>
         </tbody></table>
@@ -1284,7 +1284,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>이 이벤트는 관리 에이전트 서비스 계정이 해당 계정에 새 암호를 설정할 적절한 권한을 가지지 않음을 나타냅니다. 사용자의 포리스트에서 MA 계정이 포리스트의 모든 개체에 암호 재설정 및 변경 권한이 있는지 확인합니다. 이를 수행하는 방법에 대한 자세한 내용은 <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">4단계: 적절한 Active Directory 사용 권한 설정</a>을 참조하십시오.</p>
+              <p>이 이벤트는 관리 에이전트 서비스 계정이 해당 계정에 새 암호를 설정할 적절한 권한을 가지지 않음을 나타냅니다. 사용자의 포리스트에서 MA 계정이 포리스트의 모든 개체에 암호 재설정 및 변경 권한이 있는지 확인합니다. 이를 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">4단계: 적절한 Active Directory 사용 권한 설정</a>을 참조하십시오.</p>
             </td>
           </tr>
           <tr>
@@ -1416,11 +1416,12 @@
             </td>
           </tr>
         </tbody></table>
+		
 ## 암호 쓰기 저장 연결 문제 해결
 
 Azure AD Connect의 암호 쓰기 저장 구성 요소로 서비스 중단이 발생하는 경우 이 문제를 해결하기 위해 수행할 수 있는 빠른 단계는 다음과 같습니다.
 
- - [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-AD-sync-service)
+ - [Azure AD Connect 동기화 서비스 다시 시작](#restart-the-azure-AD-Connect-sync-service)
  - [암호 쓰기 저장 기능을 비활성화 및 재활성화](#disable-and-re-enable-the-password-writeback-feature)
  - [최신 Azure AD Connect 릴리스 설치](#install-the-latest-azure-ad-connect-release)
  - [암호 쓰기 저장 문제 해결](#troubleshoot-password-writeback)
@@ -1465,7 +1466,7 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 ### 최신 Azure AD Connect 릴리스 설치
 Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또는 로컬 AD 환경에서 암호를 관리하는 능력에 영향을 미칠 수 있는 모든 구성 문제를 해결할 것입니다. 위에서 설명한 처음 두 단계를 시도한 후에 이 단계를 수행하는 것이 좋습니다.
 
- 1.	최신 버전의 Azure AD Connect을 [여기서](active-directory-aadconnect.md#download-azure-ad-connect) 다운로드
+ 1.	최신 버전의 Azure AD Connect을 [여기서](active-directory-aadconnect.md#install-azure-ad-connect) 다운로드
  2.	Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
  3.	다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오. 상자 동기화 규칙 중 사용자 지정을 하지 않으면 추가 수동 단계가 필요하지 않으며 이 경우 **업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포**해야 합니다.
 
@@ -1497,4 +1498,4 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

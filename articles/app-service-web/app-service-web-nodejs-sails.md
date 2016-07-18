@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에 Sails.js 웹앱을 배포합니다.
@@ -82,7 +82,7 @@
         loggingEnabled: true
         logDirectory: iisnode
 
-    이제 iisnode에 대해 로깅을 사용할 수 있습니다. 이 작업 방법에 대한 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-sails.md#iisnodelog)를 참조하세요.
+    이제 iisnode에 대해 로깅을 사용할 수 있습니다. 이 작업 방법에 대한 자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-get-started.md#iisnodelog)를 참조하세요.
 
 2. 프로덕션 환경을 구성하기 위해 config/env/production.js를 열고 `port` 및 `hookTimeout`을 설정합니다.
 
@@ -238,4 +238,4 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL 데이터베이�
 - [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
 - [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

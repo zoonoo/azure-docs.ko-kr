@@ -1,5 +1,5 @@
 <properties
-	pageTitle="규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리 | Micosoft Azure"
+	pageTitle="규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리 | Microsoft Azure"
 	description="탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/27/2016"
 	ms.author="ddove"/>
 
-# 규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리(미리 보기)
+# 규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

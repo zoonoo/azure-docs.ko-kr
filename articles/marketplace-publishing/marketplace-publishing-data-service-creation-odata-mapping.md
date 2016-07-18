@@ -69,15 +69,15 @@ ATOM pub의 확장 기능으로, 각 항목이 결과 집합의 한 행을 나�
 
 데이터베이스를 통해 노출되는 함수(SPROC) 및 엔터티를 정의할 수 있습니다. 자세한 내용은 [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)에서 확인할 수 있습니다.
 
-> [AZURE.TIP]문서가 보이지 않으면 **다른 버전** 드롭다운을 클릭하고 다른 버전을 선택하세요.
+> [AZURE.TIP] 문서가 보이지 않으면 **다른 버전** 드롭다운을 클릭하고 다른 버전을 선택하세요.
 
 ### EDM - 항목 데이터 모델
 - 개요: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
 - 미리 보기: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- 데이터 유형: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- 데이터 형식: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
+[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 다음은 클라이언트가 OData 문(콘텐츠 공급자의 웹 서비스 호출)을 입력하고 결과/데이터를 받는 순차적 흐름을 자세히 보여 줍니다.
 
@@ -115,7 +115,11 @@ CSDL은 웹 서비스를 설명하는 XML 문법입니다. 사양 자체는 Enti
 - EntityType ~= 열
 - FunctionImport ~= 저장된 프로시저
 
-**허용되는 HTTP 동사** - GET – 데이터베이스의 값을 반환(컬렉션 반환) - POST – 데이터베이스로 데이터를 전송하고 선택적으로 데이터베이스의 값을 반환하는 데 사용(컬렉션에 새 항목 생성, id/URI 반환) - DELETE – 데이터베이스에서 데이터 삭제(컬렉션 삭제) - PUT – 데이터베이스에 데이터 업데이트(컬렉션을 대체하거나 새로 생성)
+**허용되는 HTTP 동사**
+- GET – db의 값 반환(컬렉션 반환)
+- POST – db에 데이터를 전달하고 db에서 선택적으로 값을 반환하는 데 사용(컬렉션에 새 항목 만들기, id/URI 반환)
+- DELETE – DB에서 데이터 삭제(컬렉션 삭제)
+- PUT – DB로 데이터를 업데이트(컬렉션 바꾸기 또는 새로 만들기)
 
 ## 메타데이터/매핑 문서
 
@@ -123,7 +127,10 @@ CSDL은 웹 서비스를 설명하는 XML 문법입니다. 사양 자체는 Enti
 
 CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XML 편집기에 붙여넣고 해당 서비스와 일치하도록 변경하세요. 그런 다음 [Azure 마켓플레이스 게시 포털](https://publish.windowsazure.com)에서 서비스를 만들 때 DataService 탭 아래에 CSDL 매핑을 붙여넣으세요).
 
-**용어:** CSDL 용어와 [게시 포털](https://publish.windowsazure.com) UI(PPUI) 용어 사이의 관계. - PPUI의 제품 “제목”은 MyWebOffer에 해당 - PPUI의 MyCompany는 [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure)의 **게시자 표시 이름**에 해당 - API는 웹 서비스 또는 데이터 서비스(PPUI의 플랜)에 해당
+**용어:** CSDL 용어를 PPUI([게시 포털](https://publish.windowsazure.com) UI) 용어와 연관 지음
+- PPUI의 제품 "Title"은 MyWebOffer와 관련이 있습니다.
+- PPUI의 MyCompany는 [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure) UI의 **게시자 표시 이름**과 관련이 있습니다.
+- API는 웹 또는 데이터 서비스(PPUI의 계획)와 관련이 있습니다.
 
 **계층:** 회사(콘텐츠 공급자)는 API와 일직선상에 있는 플랜, 즉 서비스가 포함된 제품을 소유합니다.
 
@@ -301,4 +308,4 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_0114_2016---->
+<!---HONumber=AcomDC_0706_2016-->

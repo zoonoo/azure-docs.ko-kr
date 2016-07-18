@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 저장된 프로시저
@@ -89,12 +89,12 @@ SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 �
 <!--Image references-->
 
 <!--Article references-->
-[임시 테이블]: sql-data-warehouse-develop-temporary-tables.md
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[임시 테이블]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[개발 개요]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

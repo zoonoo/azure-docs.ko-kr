@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # 감성, 핵심 문구, 항목 및 언어를 검색하는 텍스트 분석 API 시작
@@ -24,7 +24,7 @@
 
 API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
-이 가이드는 API의 버전 2용입니다. API의 버전 1에 대한 자세한 내용은 [이 문서를 참조](../machine-learning-apps-text-analytics/)하세요.
+이 가이드는 API의 버전 2용입니다. API의 버전 1에 대한 자세한 내용은 [이 문서를 참조](../machine-learning/machine-learning-apps-text-analytics.md)하세요.
 
 이 자습서를 마치면 프로그래밍 방식으로 검색할 수 있습니다.
 
@@ -66,29 +66,39 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 >[AZURE.TIP] 감성 분석의 경우 텍스트를 문장으로 분할하는 것이 좋습니다. 이렇게 하면 일반적으로 감성 예측의 정밀도가 더 높아집니다.
 
+지원되는 언어는 다음과 같습니다.
+
+| 기능 | 지원되는 언어 코드 |
+|:-----|:----|
+| 데이터 | `en`(영어), `es`(스페인어), `fr`(프랑스어), `pt`(포르투갈어) |
+| 키 구 | `en`(영어), `es`(스페인어), `de`(독일어), `ja`(일본어) |
+
+
 1. 다음과 같이 헤더를 설정해야 합니다. 현재는 JSON의 경우에만 API에 대한 입력 형식이 허용됩니다. XML은 지원되지 않습니다.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. 다음으로 JSON에서 입력 행 형식을 지정합니다. 감성, 핵심 문구 및 언어의 경우 형식은 같습니다. 각 ID는 고유해야 하며 시스템에서 반환됩니다. 제출할 수 있는 단일 문서의 최대 크기는 10KB이고 제출된 입력의 총 최대 크기는 1MB입니다. 한 번 호출에 최대 1,000개의 문서를 제출할 수 있습니다. 다음은 입력 예입니다.
+1. 다음으로 JSON에서 입력 행 형식을 지정합니다. 감성, 핵심 문구 및 언어의 경우 형식은 같습니다. 각 ID는 고유해야 하며 시스템에서 반환됩니다. 제출할 수 있는 단일 문서의 최대 크기는 10KB이고 제출된 입력의 총 최대 크기는 1MB입니다. 한 번 호출에 최대 1,000개의 문서를 제출할 수 있습니다. 영어가 아닌 텍스트를 분석하는 경우 언어는 지정해야 하는 선택적 매개 변수입니다. 입력의 예는 아래에서 보여주며 여기서 감정 분석 및 핵심 구문 추출에 대한 선택적 매개 변수 `language`이 포함되어 있습니다.
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
 			]
 		}
 
-1. 감성, 핵심 문구 및 언어의 입력과 함께 시스템에 대한 **POST** 호출을 수행합니다. URL은 다음과 같습니다.
+1. 감정, 핵심 문구 및 언어의 입력을 사용하여 시스템에 대한 **POST** 호출을 수행합니다. URL은 다음과 같습니다.
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
@@ -153,13 +163,12 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 			]
 		}
 
-        
 
 ## 작업 3 - 텍스트 모음에 있는 항목 검색 ####
 
 새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 항목을 반환합니다. 항목은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 리뷰와 사용자 피드백 등 짧고 직접 작성한 텍스트 사용 시 더 효과적입니다.
 
-이 API는 제출되는 텍스트 **레코드 수가 100개 이상** 필요하지만 수백 개에서 수천 개의 레코드에서 항목을 검색할 수 있습니다. 영어 이외의 레코드 또는 3개 단어보다 적은 레코드는 삭제되므로 항목에 할당되지 않습니다. 항목 검색의 경우 제출할 수 있는 단일 문서의 최대 크기는 30KB이고 제출된 입력의 총 최대 크기는 30MB입니다.
+이 API는 제출되는 **텍스트 레코드 수가 100개 이상** 필요하지만 수백 개에서 수천 개의 레코드에서 항목을 검색할 수 있습니다. 영어 이외의 레코드 또는 3개 단어보다 적은 레코드는 삭제되므로 항목에 할당되지 않습니다. 항목 검색의 경우 제출할 수 있는 단일 문서의 최대 크기는 30KB이고 제출된 입력의 총 최대 크기는 30MB입니다.
 
 결과의 품질을 향상시키는 데 도움이 될 수 있는 두 가지 추가 **선택적** 입력 매개 변수가 있습니다.
 
@@ -206,7 +215,7 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -284,4 +293,4 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 축하합니다. 데이터에 대한 텍스트 분석 사용을 완료했습니다. 이제 데이터를 시각화하고 통찰력을 자동화하여 텍스트 데이터의 실시간 보기를 제공하는 [Power BI](//powerbi.microsoft.com)와 같은 도구 사용에 대해 살펴보고 싶을 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기
@@ -80,7 +80,7 @@
 - examplecopy-2
 - examplecopy-3
 
-## 배열 사용
+## 배열을 사용하여 복사
    
 복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 특히 유용합니다. 다음 이름의 웹 사이트 3개를 배포하려면
 
@@ -210,282 +210,118 @@
         ...
     }]
 
-## 가상 컴퓨터에 대한 여러 데이터 디스크 만들기
+## 복사되지 않은 경우 여러 인스턴스 만들기
 
-일반적인 시나리오는 가상 컴퓨터에 대해 여러 데이터 디스크를 만드는 것입니다. **dataDisks**는 자체 리소스 형식이 아니라 가상 컴퓨터에 대한 속성이므로 데이터 디스크에 대해 **복사**를 사용할 수 없습니다. **복사**는 리소스에만 작동합니다. 대신 필요한 수만큼의 데이터 디스크를 정의하고 지정된 수의 데이터 디스크가 있는 배열을 출력하는 연결된 템플릿을 만듭니다. 배포 템플릿에서 이 템플릿으로 연결한 후 반환할 데이터 디스크 수를 전달합니다. 배포 템플릿에서 **dataDisks** 속성을 연결된 템플릿의 출력 값으로 설정합니다.
+리소스 형식 내의 속성이 아니라 리소스 형식에서 **복사**를 사용할 수 있습니다. 리소스의 일부인 항목에 여러 인스턴스를 만드는 경우 문제를 일으킬 수 있습니다. 일반적인 시나리오는 가상 컴퓨터에 대해 여러 데이터 디스크를 만드는 것입니다. **dataDisks**는 자체 리소스 형식이 아니라 가상 컴퓨터에 대한 속성이므로 데이터 디스크에 대해 **복사**를 사용할 수 없습니다. 대신 필요한 만큼 많은 데이터 디스크를 포함한 배열을 만들고 만들 데이터 디스크의 실제 수를 전달합니다. 가상 컴퓨터 정의에서 **take** 함수를 사용하여 배열에서 실제로 원하는 요소의 수를 알아냅니다.
 
 이 패턴의 전체 예제는 [동적 데이터 디스크를 선택하여 VM 만들기](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) 템플릿에 나와 있습니다.
 
-배포 템플릿의 관련 섹션은 아래에 나와 있습니다. 많은 수의 데이터 디스크를 동적으로 만드는 작업과 관련된 섹션을 중점적으로 제공하기 위해 많은 템플릿을 제거했습니다. **numDataDisks** 매개 변수는 만들려는 디스크 수를 제공하는 데 사용합니다. **diskSelection**이라는 연결된 템플릿이 리소스 섹션에 지정됩니다. 이 연결된 템플릿의 출력은 가상 컴퓨터의 **dataDisks** 속성에 할당됩니다.
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        ...
-        "numDataDisks": {
-          "type": "string",
-          "allowedValues": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "32"
-          ],
-          "metadata": {
-            "description": "This parameter allows the user to select the number of disks they want"
-          }
-        }
-      },
-      "variables": {
-        "artifactsLocation": "https://raw.githubusercontent.com/singhkay/azure-quickstart-templates/master/201-vm-dynamic-data-disks-selection/", 
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
-        "sizeOfDataDisksInGB": 100,
-        "diskCaching": "ReadWrite",
-        ...
-      },
-      "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "diskSelection",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "Incremental",
-            "templateLink": {
-              "uri": "[concat(variables('artifactsLocation'), 'disksSelector', '.json')]",
-              "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-              "numDataDisks": {
-                "value": "[parameters('numDataDisks')]"
-              },
-              "diskStorageAccountName": {
-                "value": "[variables('storageAccountName')]"
-              },
-              "diskCaching": {
-                "value": "[variables('diskCaching')]"
-              },
-              "diskSizeGB": {
-                "value": "[variables('sizeOfDataDisksInGB')]"
-              }
-            }
-          }
-        },
-        ...
-        {
-          "type": "Microsoft.Compute/virtualMachines",
-          "properties": {
-            "storageProfile": {
-              ...
-              "dataDisks": "[reference('diskSelection').outputs.dataDiskArray.value]"
-            },
-            ...
-          }
-        }
-      ]
-    }
-
-연결된 템플릿은 반환할 배열을 정의합니다. 아래에 나와 있는 템플릿은 3~32개 사이의 반복되는 디스크 정의를 생략하지만 실제 템플릿에서는 이러한 모든 정의를 포함해야 합니다. 32개보다 많은 데이터 디스크가 필요하면 패턴을 계속할 수 있습니다. 이 템플릿을 통해 배포되는 리소스는 없습니다. 대신 데이터 디스크를 정의하는 요청된 수의 개체가 있는 배열을 반환합니다.
+배포 템플릿의 관련 섹션은 아래에 나와 있습니다. 많은 수의 데이터 디스크를 동적으로 만드는 작업과 관련된 섹션을 중점적으로 제공하기 위해 많은 템플릿을 제거했습니다. **numDataDisks** 매개 변수는 만들려는 디스크 수를 제공하는 데 사용합니다.
 
 ```
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    ...
     "numDataDisks": {
-      "type": "string",
-      "allowedValues": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "32"
-      ],
-      "metadata": {
-        "description": "This parameter allows the user to select the number of disks they want"
-      }
-    },
-    "diskStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account where the data disks are stored"
-      }
-    },
-    "diskCaching": {
-      "type": "string",
-      "allowedValues": [
-        "None",
-        "ReadOnly",
-        "ReadWrite"
-      ],
-      "metadata": {
-        "description": "Caching type for the data disks"
-      }
-    },
-    "diskSizeGB": {
       "type": "int",
-      "minValue": 1,
-      "maxValue": 1023,
+      "maxValue": 64,
       "metadata": {
-        "description": "Size of the data disks"
+        "description": "This parameter allows you to select the number of disks you want"
       }
     }
   },
   "variables": {
-    "disksArray": {
-      "1": "[variables('dataDisks')['1']]",
-      "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
-      "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
-      "4": "[variables('diskDeltas')['4delta']]",
-      "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
-      "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
-      "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
-      "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
-      "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
-      "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
-      "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
-      "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
-      "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
-      "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
-      "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
-      "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]",
-      "32": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]"
-    },
-    "dataDisks": {
-      "1": [
-        {
-          "name": "datadisk1",
-          "lun": 0,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "2": [
-        {
-          "name": "datadisk2",
-          "lun": 1,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
-      "3": [
-        {
-          "name": "datadisk3",
-          "lun": 2,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ],
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
+    "sizeOfDataDisksInGB": 100,
+    "diskCaching": "ReadWrite",
+    "diskArray": [
+      {
+        "name": "datadisk1",
+        "lun": 0,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk2",
+        "lun": 1,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk3",
+        "lun": 2,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk4",
+        "lun": 3,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
       ...
-      "32": [
-        {
-          "name": "datadisk32",
-          "lun": 31,
-          "vhd": {
-            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk32.vhd')]"
-          },
-          "createOption": "Empty",
-          "caching": "[parameters('diskCaching')]",
-          "diskSizeGB": "[parameters('diskSizeGB')]"
-        }
-      ]
-    },
-    "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
-    "diskDeltas": {
-      "4delta": [
-        "[variables('dataDisks')['1'][0]]",
-        "[variables('dataDisks')['2'][0]]",
-        "[variables('dataDisks')['3'][0]]",
-        "[variables('dataDisks')['4'][0]]"
-      ],
-      "8delta": [
-        "[variables('dataDisks')['5'][0]]",
-        "[variables('dataDisks')['6'][0]]",
-        "[variables('dataDisks')['7'][0]]",
-        "[variables('dataDisks')['8'][0]]"
-      ],
-      "12delta": [
-        "[variables('dataDisks')['9'][0]]",
-        "[variables('dataDisks')['10'][0]]",
-        "[variables('dataDisks')['11'][0]]",
-        "[variables('dataDisks')['12'][0]]"
-      ],
-      "16delta": [
-        "[variables('dataDisks')['13'][0]]",
-        "[variables('dataDisks')['14'][0]]",
-        "[variables('dataDisks')['15'][0]]",
-        "[variables('dataDisks')['16'][0]]"
-      ],
-      "32delta": [
-        "[variables('dataDisks')['17'][0]]",
-        "[variables('dataDisks')['18'][0]]",
-        "[variables('dataDisks')['19'][0]]",
-        "[variables('dataDisks')['20'][0]]",
-        "[variables('dataDisks')['21'][0]]",
-        "[variables('dataDisks')['22'][0]]",
-        "[variables('dataDisks')['23'][0]]",
-        "[variables('dataDisks')['24'][0]]",
-        "[variables('dataDisks')['25'][0]]",
-        "[variables('dataDisks')['26'][0]]",
-        "[variables('dataDisks')['27'][0]]",
-        "[variables('dataDisks')['28'][0]]",
-        "[variables('dataDisks')['29'][0]]",
-        "[variables('dataDisks')['30'][0]]",
-        "[variables('dataDisks')['31'][0]]",
-        "[variables('dataDisks')['32'][0]]"
-      ]
-    }
+      {
+        "name": "datadisk63",
+        "lun": 62,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk63.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      },
+      {
+        "name": "datadisk64",
+        "lun": 63,
+        "vhd": {
+          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
+        },
+        "createOption": "Empty",
+        "caching": "[variables('diskCaching')]",
+        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
+      }
+    ]
   },
-  "resources": [],
-  "outputs": {
-    "dataDiskArray": {
-      "type": "array",
-      "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+  "resources": [
+    ...
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "properties": {
+        ...
+        "storageProfile": {
+          ...
+          "dataDisks": "[take(variables('diskArray'),parameters('numDataDisks'))]"
+        },
+        ...
+      }
+      ...
     }
-  }
+  ]
 }
-
 ```
+
 
 ## 다음 단계
 - 템플릿 섹션에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿에서 사용할 수 있는 모든 함수는 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 - 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

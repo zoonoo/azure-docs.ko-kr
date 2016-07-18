@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="푸시 알림, 푸시 알림, iOS 푸시 알림, Android 푸시 알림, iOS 푸시, Android 푸시"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Azure 알림 허브로 푸시 알림 - 질문과 대답
@@ -197,7 +197,7 @@ Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [전체 샘플]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure 모바일 앱]: https://azure.microsoft.com/services/app-service/mobile/
-[앱 서비스 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
+[Azure 모바일 앱]: https://azure.microsoft.com/ko-KR/services/app-service/mobile/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

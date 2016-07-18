@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
@@ -134,4 +134,4 @@ Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려
 
 - 시작 가이드에 지정된 대로 암호 동기화가 완료될 때까지 충분히 기다려야 합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

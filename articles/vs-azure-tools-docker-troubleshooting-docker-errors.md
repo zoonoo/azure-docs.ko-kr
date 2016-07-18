@@ -61,7 +61,7 @@ volumes:
 **Windows에서**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -105,14 +105,14 @@ Microsoft Edge 브라우저를 사용하는 경우 Edge에서 IP 주소를 보�
 
 1. **인터넷 옵션**으로 이동합니다.
     - Windows 10에서는 Windows 실행 상자에 `Internet Options`을 입력하면 됩니다.
-    - Internet Explorer에서는 **설정** 메뉴로 이동하고 **인터넷 옵션**을 선택할 수 있습니다. 
-1. 나타나면 **인터넷 옵션**을 선택합니다. 
+    - Internet Explorer에서는 **설정** 메뉴로 이동하고 **인터넷 옵션**을 선택할 수 있습니다.
+1. 나타나면 **인터넷 옵션**을 선택합니다.
 1. **보안** 탭을 선택합니다.
 1. **로컬 인트라넷** 영역을 선택합니다.
-1. **사이트**를 선택합니다. 
-1. 목록에서 가상 컴퓨터의 IP(이 경우 Docker 호스트)를 추가합니다. 
-1. Edge에서 페이지를 새로 고치면 사이트가 실행 중임이 표시됩니다. 
-1. 이 문제에 대한 자세한 내용은 Scott Hanselman의 블로그 게시물인 [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx)(Microsoft Edge에서 VirtualBox 호스트된 로컬 웹 사이트를 보거나 열 수 없음)를 참조하세요. 
+1. **사이트**를 선택합니다.
+1. 목록에서 가상 컴퓨터의 IP(이 경우 Docker 호스트)를 추가합니다.
+1. Edge에서 페이지를 새로 고치면 사이트가 실행 중임이 표시됩니다.
+1. 이 문제에 대한 자세한 내용은 Scott Hanselman의 블로그 게시물인 [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx)(Microsoft Edge에서 VirtualBox 호스트된 로컬 웹 사이트를 보거나 열 수 없음)를 참조하세요.
 
 ##문제 해결 버전 0.15 이전
 
@@ -135,4 +135,4 @@ Microsoft Edge 브라우저를 사용하는 경우 Edge에서 IP 주소를 보�
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

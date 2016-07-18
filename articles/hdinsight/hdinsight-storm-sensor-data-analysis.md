@@ -13,30 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
-# HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석
+# HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석 
 
-HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, D3.js를 통해 이를 시각화하는 방법에 대해 알아봅니다. 또한 이 문서에서는 Azure 가상 네트워크를 사용하여 HDInsight의 Storm을 HDInsight의 HBase와 연결하고 토폴로지의 데이터를 HBase에 저장하는 방법에 대해서도 설명합니다.
+HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, HDInsight의 Apache HBase에 저장하고, D3.js를 Azure 웹앱으로 사용하여 시각화하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE] 이 문서에 있는 정보는 HDInsight 클러스터 버전 3.2에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+이 문서에 사용되는 Azure Resource Manager 템플릿은 리소스 그룹에 여러 Azure 리소스를 만드는 방법을 보여 줍니다. 특히 Azure 가상 네트워크, 두 개의 HDInsight 클러스터(Storm, HBase) 및 Azure 웹앱을 만듭니다. 실시간 웹 대시보드의 node.js 구현은 웹앱에 자동으로 배포됩니다.
+
+> [AZURE.NOTE] 이 문서의 정보 및 제공된 예제는 Linux 기반 HDInsight 3.3 및 3.4 클러스터 버전을 사용하여 테스트되었습니다.
 
 ## 필수 조건
 
 * Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* [HDInsight의 Apache Storm 클러스터](hdinsight-apache-storm-tutorial-get-started.md)
+    > [AZURE.IMPORTANT] 기존 HDInsight 클러스터가 필요하지 않습니다. 이 문서의 단계에 따라 다음 리소스를 만듭니다.
+    >
+    > * Azure 가상 네트워크
+    > * HDInsight의 클러스터의 Storm(Linux 기반, 작업자 노드 2 개)
+    > * HDInsight의 클러스터의 HBase(Linux 기반, 작업자 노드 2 개)
+    > * 웹 대시보드를 호스트하는 Azure 웹앱
 
-* [Node.js](http://nodejs.org/): 웹 대시보드에 사용되며 센서 데이터를 이벤트 허브를 보냅니다.
+* [Node.js](http://nodejs.org/): 개발 환경에서 로컬로 웹 대시보드를 미리 보는 데 사용합니다.
 
-* [Java 및 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java 및 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Storm 토폴로지를 개발하는 데 사용합니다.
 
-* [Maven](http://maven.apache.org/what-is-maven.html)
+* [Maven](http://maven.apache.org/what-is-maven.html): 프로젝트를 빌드하고 컴파일하고 하는 데 사용합니다.
 
-* [Git](http://git-scm.com/)
+* [Git](http://git-scm.com/): GitHub에서 프로젝트를 다운로드하는 데 사용합니다.
 
-> [AZURE.NOTE] Java, JDK, Maven 및 Git는 [Chocolatey NuGet](http://chocolatey.org/) 패키지 관리자를 통해서도 제공됩니다.
+* __SSH__ 클라이언트: Linux 기반 HDInsight 클러스터에 연결하는 데 사용합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+    * [Windows 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    * [Linux, Unix 및 Mac 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+    > [AZURE.NOTE] SSH를 사용하여 로컬 개발 환경과 HDInsight 클러스터 간에 파일을 복사하는 데 사용되는 `scp` 명령에 대한 액세스 권한도 필요합니다.
 
 ## 아키텍처
 
@@ -44,13 +57,15 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이 예제는 다음 구성 요소로 구성됩니다.
 
-* **Azure 이벤트 허브**: 센서에서 수집된 데이터를 제공합니다. 이 예제에서는 모조 데이터를 생성하는 응용 프로그램이 제공됩니다.
+* **Azure 이벤트 허브**: 센서에서 수집된 데이터를 포함합니다. 이 예제에서는 데이터를 생성하는 응용 프로그램이 제공됩니다.
 
 * **HDInsight의 Storm**: 이벤트 허브의 데이터를 실시간으로 처리합니다.
 
-* **HDInsight의 HBase**(선택 사항): 영구 NoSQL 데이터 저장소를 제공합니다.
+* **HDInsight의 HBase**: Storm에서 처리된 후에 데이터에 대한 영구 NoSQL 데이터 저장소를 제공합니다.
 
-* **Azure 가상 네트워크 서비스**(선택 사항, HBase를 사용하는 경우 필수): HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터 간 보안 통신을 설정합니다.
+* **Azure 가상 네트워크 서비스**: HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터 간 보안 통신을 설정합니다.
+
+    > [AZURE.NOTE] 가상 네트워크는 HBase 클러스터에 대한 공용 게이트웨이를 통해 공개되지 않으므로 Java HBase 클라이언트 API를 사용하는 데 필요합니다. HBase 및 Storm 클러스터를 동일한 가상 네트워크에 설치하면 Storm 클러스터(또는 가상 네트워크의 다른 시스템)에서 클라이언트 API를 사용하여 HBase에 직접 액세스할 수 있습니다.
 
 * **대시보드 웹 사이트**: 실시간으로 데이터 차트를 작성하는 예제 대시보드입니다.
 
@@ -62,9 +77,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 	* [D3.js](http://d3js.org/)는 웹 사이트로 전송되는 데이터의 그래프를 작성하는 데 사용됩니다.
 
-이 토폴로지는 HDInsight의 Storm 클러스터에서 제공되는 **com.microsoft.eventhubs.spout.EventHubSpout** 클래스를 사용하여 이벤트 허브에서 데이터를 읽습니다. 웹 사이트와의 통신은 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java)를 사용하여 수행됩니다.
-
-필요에 따라 HBase와의 통신은 Storm의 일부로 제공되는 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 클래스를 사용하여 수행됩니다.
+이 토폴로지는 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 클래스를 사용하여 이벤트 허브에서 데이터를 읽고 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 클래스를 사용하여 HBase에 데이터를 씁니다. 웹 사이트와의 통신은 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java)를 사용하여 수행됩니다.
 
 다음은 토폴로지의 다이어그램입니다.
 
@@ -73,11 +86,13 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 > [AZURE.NOTE] 이는 토폴로지의 매우 단순화된 보기입니다. 런타임에 읽고 있는 이벤트 허브의 각 파티션에 대해 각 구성 요소의 인스턴스가 만들어집니다. 이러한 인스턴스는 클러스터의 노드에 분산되며 노드 간에 다음과 같이 데이터가 라우팅됩니다.
 >
 > * Spout에서 파서로 전송되는 데이터는 부하 분산됩니다.
-> * 파서에서 대시보드 및 HBase(사용하는 경우)로 전송되는 데이터는 장치 ID별로 그룹화되므로 같은 장치의 메시지는 항상 동일한 구성 요소로 흐릅니다.
+> * 파서에서 대시보드 및 HBase로 전송되는 데이터는 장치 ID별로 그룹화되므로 같은 장치의 메시지는 항상 동일한 구성 요소로 흐릅니다.
 
-### 구성 요소
+### 토폴로지 구성 요소
 
-* **EventHub Spout**: 이 Spout는 GitHub에서 [HDInsight Storm 예제](https://github.com/hdinsight/hdinsight-storm-examples)의 일부로 제공됩니다.
+* **EventHub Spout**: spout는 Apache Storm 버전 0.10.0 이상의 일부로 제공됩니다.
+
+    > [AZURE.NOTE] 이 예제에서 사용되는 이벤트 허브 spout를 위해서는 HDInsight 클러스터 버전 3.3 또는 3.4의 Storm이 필요합니다. HDInsight의 Storm 이전 버전에서 이벤트 허브를 사용하는 방법에 대한 자세한 내용은 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 * **ParserBolt.java**: Spout에서 내보내는 데이터는 원시 JSON이며, 한 번에 둘 이상의 이벤트를 내보낼 때도 있습니다. 이 Bolt는 Spout에서 내보낸 데이터를 읽어 여러 필드가 포함된 튜플로 새 스트림에 내보내는 방법을 보여 줍니다.
 
@@ -85,9 +100,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ## 환경 준비
 
-이 예제를 사용하려면 먼저 Storm 토폴로지에서 읽을 Azure 이벤트 허브를 만들어야 합니다. 또한 이벤트 허브에서 데이터를 읽는 데 사용되는 구성 요소는 클러스터에서만 사용할 수 있기 때문에 HDInsight의 Storm 토폴로지를 만들어야 합니다.
-
-> [AZURE.NOTE] 최종적으로 이벤트 허브 Spout는 Maven에서 사용할 수 있습니다.
+이 예제를 사용하려면 먼저 Storm 토폴로지에서 읽을 Azure 이벤트 허브를 만들어야 합니다.
 
 ### 이벤트 허브 구성
 
@@ -103,41 +116,14 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
-	<table>
-	<tr><th>이름</th><th>권한</th></tr>
-	<tr><td>장치</td><td>보내기</td></tr>
-	<tr><td>Storm</td><td>수신 대기</td></tr>
-	</table>
+	| 이름 | 권한 |
+    | ----- | ----- |
+	| devices | 보내기 |
+	| storm | 수신 |
 
 	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
 
 5. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **장치** 및 **Storm** 정책의 키를 검색합니다. 이러한 키는 나중에 사용되므로 저장합니다.
-
-### HDInsight의 Storm 클러스터 만들기
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
-
-2. 왼쪽 창에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
-
-3. 두 번째 열에서 HDInsight 아이콘을 클릭하고 **사용자 지정**을 선택합니다.
-
-4. **클러스터 세부 정보** 페이지에서 새 클러스터의 이름을 입력하고 **클러스터 유형**으로 **Storm**을 선택합니다. 화살표를 클릭하여 계속합니다.
-
-5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다.
-
-	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
-
-6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 클릭하여 계속합니다.
-
-4. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 왼쪽 아래에 있는 확인 표시 아이콘을 선택하여 Storm 클러스터를 만듭니다.
-
-## EventHubSpout 다운로드 및 설치
-
-1. [HDInsight Storm 예제 프로젝트](https://github.com/hdinsight/hdinsight-storm-examples/)를 다운로드합니다. 다운로드한 후 **lib/eventhubs/eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일을 찾습니다.
-
-2. 명령 프롬프트에서 다음 명령을 사용하여 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일을 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 해당 패키지를 Storm 프로젝트에 참조로 쉽게 추가할 수 있습니다.
-
-		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
 ## 프로젝트 다운로드 및 구성
 
@@ -159,7 +145,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 > [AZURE.NOTE] 이 문서에서는 이 샘플에 포함된 코드에 대해 자세히 알아보지 않습니다. 그러나 코드는 완전히 주석 처리되어 있습니다.
 
-**Config.properties** 파일을 열고 이전에 이벤트 허브를 만들 때 사용한 정보를 추가합니다. 이 정보를 추가한 후 파일을 저장합니다.
+**Config.properties** 파일을 열고 아래 나열된 항목에 대해 이전에 이벤트 허브를 만들 때 사용한 정보를 추가합니다. 이 정보를 추가한 후 파일을 저장합니다.
 
 	eventhubspout.username = storm
 
@@ -171,16 +157,11 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 	eventhubspout.partitions.count = <the number of partitions for the event hub>
 
-	## if not provided, will use storm's zookeeper settings
-	## zookeeper.connectionstring=localhost:2181
-
-	eventhubspout.checkpoint.interval = 10
-
-	eventhub.receiver.credits = 1024
-
 ## 로컬로 컴파일 및 테스트
 
 테스트하기 전에 대시보드를 시작하여 토폴로지의 출력을 확인하고 이벤트 허브에 저장할 데이터를 생성해야 합니다.
+
+> [AZURE.IMPORTANT] HBase 클러스터의 Java API는 클러스터를 포함하는 Azure 가상 네트워크 외부에서 액세스할 수 없으므로 로컬로 테스트할 때 이 토폴로지의 HBase 구성 요소가 활성 상태가 아닙니다.
 
 ### 웹 응용 프로그램 시작
 
@@ -204,8 +185,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### 데이터 생성 시작
 
-> [AZURE.NOTE] 이 섹션의 단계에서는 모든 플랫폼에서 실행할 수 있도록 Node.js를 사용합니다. 다른 언어 예제는 **SendEvents** 디렉터리를 참조하세요.
-
+> [AZURE.NOTE] 이 섹션의 단계에서는 모든 플랫폼에서 사용할 수 있도록 Node.js를 사용합니다. 다른 언어 예제는 **SendEvents** 디렉터리를 참조하세요.
 
 1. 새 명령 프롬프트 또는 터미널을 열고 디렉터리를 **hdinsight-eventhub-example/SendEvents/nodejs**로 변경한 후 다음 명령을 사용하여 응용 프로그램에 필요한 종속성을 설치합니다.
 
@@ -227,152 +207,162 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 	이벤트 허브로 전송된 데이터가 포함된 여러 줄의 출력이 표시됩니다. 이러한 출력은 다음과 유사합니다.
 
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":0,"Temperature":7}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":1,"Temperature":39}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":2,"Temperature":86}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":3,"Temperature":29}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":4,"Temperature":30}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":5,"Temperature":5}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":6,"Temperature":24}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":7,"Temperature":40}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":8,"Temperature":43}
-		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":9,"Temperature":84}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"0","Temperature":7}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"1","Temperature":39}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"2","Temperature":86}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"3","Temperature":29}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"4","Temperature":30}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"5","Temperature":5}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"6","Temperature":24}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"7","Temperature":40}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"8","Temperature":43}
+		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
 ### 토폴로지 시작
 
 2. 다음 명령을 사용하여 로컬로 토폴로지를 시작합니다.
 
-	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+        mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	그러면 토폴로지가 시작되고 이벤트 허브에서 파일을 읽은 후 Azure 웹 사이트에서 실행되는 대시보드로 파일을 보냅니다. 웹 대시보드에 다음과 유사한 줄이 표시됩니다.
 
 	![데이터가 표시된 대시보드](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-3. 대시보드가 실행 중인 동안 이전 단계의 `node app.js` 명령을 사용하여 새 데이터를 대시보드로 보냅니다. 온도 값은 임의로 생성되기 때문에 새 값을 표시하도록 그래프가 업데이트됩니다.
+    > [AZURE.NOTE] PowerShell 프롬프트에서 이 명령을 실행하는 경우 `-Dstorm.topology=com.microsoft.examples.Temperature` 매개 변수를 큰따옴표로 묶어야 합니다. 예: `mvn compile exec:java "-Dstorm.topology=com.microsoft.examples.Temperature"`
 
-3. 제대로 작동하는지 확인하고 Ctrl+C를 입력하여 토폴로지를 중지합니다. SendEvent 앱을 중지하려면 창을 선택하고 아무 키나 누릅니다. Ctrl+C를 사용하여 웹 서버를 중지할 수도 있습니다.
+3. 이벤트 허브가 실행 중인 동안 이전 단계의 `node app.js` 명령을 사용하여 새 데이터를 대시보드로 보냅니다. 온도 값은 임의로 생성되기 때문에 큰 온도 변화를 표시하도록 그래프가 업데이트됩니다.
 
-## 토폴로지를 패키지하여 HDInsight에 배포
+3. 제대로 작동하는지 확인하고 Ctrl+C를 사용하여 토폴로지를 중지합니다. SendEvent 앱을 중지하려면 창을 선택하고 아무 키나 누릅니다. Ctrl+C를 사용하여 웹 서버를 중지할 수도 있습니다.
 
-개발 환경에서 다음 단계를 수행하여 HDInsight Storm 클러스터에서 Temperature 토폴로지를 실행합니다.
+## Storm 및 HBase 클러스터 만들기
 
-### 웹 사이트 대시보드 게시
+Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설정하려면 새 Storm 클러스터 및 HBase 클러스터를 만들어야 합니다. 이 섹션의 단계에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 새 Azure 가상 네트워크를 만들고 해당 가상 네트워크에서 Storm 및 HBase 클러스터를 만듭니다. 또한 이 템플릿은 Azure 웹앱을 만들고 대시보드의 복사본을 배포합니다.
 
-1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](../app-service-web/web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
+> [AZURE.NOTE] 가상 네트워크는 Storm 클러스터에서 실행되는 토폴로지가 HBase Java API를 사용하여 HBase 클러스터와 직접 통신할 수 있도록 하는 데 사용됩니다.
 
-2. 웹 사이트가 만들어지면 Azure 클래식 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
+이 문서에 사용되는 Resource Manager 템플릿은 \_\_https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json__의 공용 Blob 컨테이너에 있습니다.
 
-2. **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
+1. Azure 포털에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 단추를 클릭합니다.
 
-		socket = IO.socket("http://mywebsite.azurewebsites.net");
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-3. **DashboardBolt.java** 파일을 저장합니다.
+2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
-### 토폴로지 패키지 및 배포
+    ![HDInsight 매개 변수](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
+    
+    * **BASECLUSTERNAME**: 이 값은 Storm 및 HBase 클러스터에 대한 기본 이름으로 사용됩니다. 예를 들어 __hdi__를 입력하면 __storm-hdi__이라는 Storm 클러스터와 __hbase-hdi__라는 HBase 클러스터가 생성됩니다.
+    * __CLUSTERLOGINUSERNAME__: Storm 및 HBase 클러스터에 대한 관리자 이름입니다.
+    * __CLUSTERLOGINPASSWORD__: Storm 및 HBase 클러스터에 대한 관리자 암호입니다.
+    * __SSHUSERNAME__: Storm 및 HBase 클러스터를 만들기 위한 SSH 사용자입니다.
+    * __SSHPASSWORD__: Storm 및 HBase 클러스터에 대한 SSH 사용자의 암호입니다.
+    * __LOCATION__: 클러스터가 생성되는 지역입니다.
+    
+    __확인__을 클릭하여 매개 변수를 저장합니다.
+    
+3. __리소스 그룹__ 섹션에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 
-1. 다음 명령을 사용하여 프로젝트에서 JAR 패키지를 만듭니다.
+4. __리소스 그룹 위치__ 드롭다운 메뉴에서 __LOCATION__ 매개 변수에 대해 선택한 것과 동일한 위치를 선택합니다.
 
-		mvn package
+5. __약관__을 선택한 다음 __만들기__를 선택합니다.
 
-	그러면 프로젝트의 **target** 디렉터리에 **TemperatureMonitor-1.0-SNAPSHOT.jar** 파일이 만들어집니다.
+6. 마지막으로 __대시보드에 고정__을 선택하고 __만들기__를 선택합니다. 클러스터를 만드는 데 20분 정도 걸립니다.
 
-2. [Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)의 단계에 따라 **Storm 대시보드**를 사용하여 HDInsight의 Storm 클러스터에서 토폴로지를 업로드하고 시작합니다.
+리소스를 만들면 클러스터 및 웹 대시보드를 포함하는 리소스 그룹에 대한 블레이드로 리디렉션됩니다.
 
-3. 토폴로지가 시작되면 브라우저에서 Azure에 게시한 웹 사이트를 열고 `node app.js` 명령을 사용하여 이벤트 허브로 데이터를 보냅니다. 정보를 표시하기 위해 웹 대시보드가 업데이트됩니다.
+![vnet 및 클러스터에 대한 리소스 그룹 블레이드](./media/hdinsight-storm-sensor-data-analysis/groupblade.png)
 
-	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+> [AZURE.IMPORTANT] HDInsight 클러스터의 이름은 __storm-BASENAME__ 및 __hbase-BASENAME__입니다. 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다. 또한 대시보드 사이트의 이름은 __basename-dashboard__입니다. 대시보드를 볼 때 나중에 이 이름을 사용합니다.
 
-## 선택 사항: HBase 사용
+## 대시보드 bolt 구성
 
-Storm과 HBase를 함께 사용하려면 Azure 가상 네트워크를 만든 다음 해당 네트워크 내에 Storm 및 HBase 클러스터를 만들어야 합니다.
+웹앱으로 배포된 대시보드로 데이터를 전송하려면 __DashboardBolt.java__ 파일에서 다음 줄을 수정해야 합니다.
 
-### Azure 가상 네트워크 만들기(선택 사항)
+    socket = IO.socket("http://localhost:3000");
 
-이 예제에서 HBase를 사용하려면 HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터를 포함할 Azure 가상 네트워크를 만들어야 합니다.
+`http://localhost:3000`을 `http://BASENAME-dashboard.azurewebsites.net`으로 변경하고 파일을 저장합니다. __BASENAME__을 이전 단계에서 제공한 기본 이름으로 바꿉니다. 또한 이전에 만든 리소스 그룹을 사용하여 대시보드를 선택하고 URL을 확인할 수도 있습니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+## HBase 테이블 만들기
 
-2. 페이지 아래쪽에서 **+새로 만들기** >**네트워크 서비스** > **가상 네트워크** > **빠른 생성**을 클릭합니다.
+HBase에 데이터를 저장하려면 먼저 테이블을 만들어야 합니다. Storm 토폴로지 내에서 리소스를 만들려고 하면 분산된 여러 코드 복사본이 동일한 리소스를 만들려고 할 수 있으므로 일반적으로는 Storm이 데이터를 써야 하는 리소스를 미리 만들려고 할 수 있습니다. 토폴로지 외부에 리소스를 만들고 읽기/쓰기 및 분석에만 Storm을 사용합니다.
 
-3. 다음 값을 입력하거나 선택합니다.
+1. SSH를 사용하여 클러스터 생성 중에 템플릿에 제공한 SSH 사용자 이름 및 암호를 사용하여 HBase 클러스터에 연결합니다. 예를 들어 `ssh` 명령을 사용하여 연결하는 경우 다음 구문을 사용합니다.
 
-	- **이름**: 가상 네트워크의 이름입니다.
+        ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
+    
+    이 명령에서 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자 이름으로 바꾸고 __BASENAME__을 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-	- **주소 공간**: 클러스터의 모든 노드에 대한 주소를 제공하기에 충분히 큰 가상 네트워크의 주소 공간을 선택합니다. 그렇지 않으면 프로비전에 실패합니다.
+2. SSH 세션에서 HBase 셸을 시작합니다.
 
-	- **최대 VM 수**: 최대 가상 컴퓨터 수 중 하나를 선택합니다.
+    	hbase shell
+	
+	셸이 로드되면 `hbase(main):001:0>` 프롬프트가 표시됩니다.
 
-	- **위치**: 위치는 만들 HBase 클러스터와 동일해야 합니다.
+3. HBase 셸에서 다음 명령을 입력하여 센서 데이터를 저장할 테이블을 만듭니다.
 
-	- **DNS 서버**: 이 문서에서는 Azure에서 제공하는 내부 DNS 서버를 사용하므로 **없음**을 선택하면 됩니다. 사용자 지정 DNS 서버가 포함된 고급 네트워킹 구성도 지원됩니다. 자세한 지침은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
+    	create 'SensorData', 'cf'
 
-4. **가상 네트워크 만들기**를 클릭합니다. 새 가상 네트워크 이름이 목록에 나타납니다. 상태 열에 **생성됨**이 표시될 때까지 기다립니다.
+4. 다음 명령을 사용하여 테이블이 생성되었는지 확인합니다.
 
-5. 기본 창에서 방금 만든 가상 네트워크를 클릭합니다.
+    	scan 'SensorData'
+		
+	이렇게 하면 테이블에 행이 0개 있음을 나타내는 다음과 비슷한 정보가 반환됩니다.
+	
+		ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
-6. 페이지 맨 위에서 **대시보드**를 클릭합니다.
+5. 다음을 입력하여 HBase 셸을 끝냅니다.
 
-7. **간략 상태** 아래에서 **가상 네트워크 ID**를 적어 둡니다. 이 ID는 Storm 및 HBase 클러스터를 프로비전할 때 필요합니다.
+		exit
 
-8. 페이지 위쪽에서 **구성**을 클릭합니다.
+## HBase bolt 구성
 
-9. 페이지 아래쪽에 표시된 기본 서브넷 이름은 **Subnet-1**입니다. **서브넷 추가** 단추를 사용하여 **Subnet-2**를 추가합니다. 이러한 서브넷에 Storm 및 HBase 클러스터가 포함됩니다.
+Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 정보를 HBase bolt에 제공해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 클러스터에서 __hbase-site.xml__을 다운로드하고 프로젝트에 포함하는 것입니다. __pom.xml__ 파일에서 여러 종속성의 주석 처리를 해제하여 storm-hbase 구성 요소 및 필수 종속성을 로드합니다.
 
-	> [AZURE.NOTE] 이 문서에서는 노드가 하나뿐인 클러스터를 사용합니다. 다중 노드 클러스터를 만드는 경우에는 클러스터에 사용할 서브넷의 **CIDR(주소 수)**을 확인해야 합니다. 주소 수는 작업자 노드 수에 7(게이트웨이: 2, 헤드 노드: 2, Zookeeper: 3)을 더한 값보다 커야 합니다. 예를 들어 10개 노드 HBase 클러스터가 필요한 경우 서브넷의 주소 수는 17(10+7)보다 커야 합니다. 그렇지 않으면 배포에 실패합니다.
-	>
-	> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
+> [AZURE.IMPORTANT] 또한 HDInsight 클러스터 3.3 또는 3.4 클러스터의 Storm에 제공된 storm-hbase.jar 파일도 다운로드해야 합니다. 이 버전은 HDInsight 3.3 및 3.4 클러스터의 HBase에 사용되는 HBase 1.1.x와 작동하도록 컴파일되었습니다. 다른 위치에서 storm-hbase 구성 요소를 사용하는 경우 이전 버전의 HBase에 대해 컴파일할 수 있습니다.
 
-11. 페이지 맨 아래에서 **저장**을 클릭합니다.
+### hbase-site.xml 다운로드
 
-### 가상 네트워크에서 Storm 및 HBase 클러스터 만들기
+명령 프롬프트에서 SCP를 사용하여 클러스터에서 __hbase-site.xml__ 파일을 다운로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다. `/path/to/TemperatureMonitor/conf/hbase-site.xml`을 TemperatureMonitor 프로젝트의 이 파일 경로로 바꿉니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
+    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/conf/hbase-site.xml
 
-2. 왼쪽 창에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
+이렇게 하면 __hbase-site.xml__이 지정된 경로에 다운로드됩니다.
 
-3. 두 번째 열에서 HDInsight 아이콘을 클릭하고 **사용자 지정**을 선택합니다.
+### storm-hbase 구성 요소 다운로드 및 설치
 
-4. **클러스터 세부 정보** 페이지에서 새 클러스터의 이름을 입력하고 **클러스터 유형**으로 **Storm**을 선택합니다. 화살표를 클릭하여 계속합니다.
+1. 명령 프롬프트에서 SCP를 사용하여 Storm 클러스터에서 __storm-hbase.jar__ 파일을 다운로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **하위 지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-1**을 선택합니다.
+        scp USERNAME@storm-BASENAME-ssh.azurehdinsight.net:/usr/hdp/current/storm-client/contrib/storm-hbase/storm-hbase*.jar .
 
-	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
+    이렇게 하면 `storm-hbase-####.jar` 파일이 다운로드됩니다. 여기서 ###은 이 클러스터에 대한 Storm의 버전 번호입니다. 이 번호는 나중에 사용하게 되므로 적어둡니다.
 
-6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 클릭하여 계속합니다.
+2. 개발 환경의 로컬 Maven 저장소에 이 구성 요소를 설치하려면 다음 명령을 사용합니다. 이렇게 하면 Maven에서 프로젝트를 컴파일할 때 패키지를 찾을 수 있습니다. __###__을 파일 이름에 포함된 버전 번호로 바꿉니다.
 
-4. **저장소 계정**에서는 **새 저장소 만들기** 또는 기존 저장소 계정을 선택합니다. 그런 다음 사용할 **계정 이름** 및 **기본 컨테이너**를 선택하거나 입력합니다. 왼쪽 아래에 있는 확인 표시 아이콘을 선택하여 Storm 클러스터를 만듭니다.
+        mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
 
-5. 이러한 단계를 반복하여 새 **HBase** 클러스터를 만듭니다. 다음은 주요 차이점입니다.
+### 프로젝트에서 storm-hbase 구성 요소를 사용하도록 설정
 
-	* **클러스터 유형**: **HBase** 선택
+1. __TemperatureMonitor/pom.xml__ 파일을 열고 다음 줄을 삭제합니다.
 
-	* **가상 네트워크 서브넷**: **Subnet-2** 선택
+        <!-- uncomment this section to enable the hbase-bolt
+        end comment for hbase-bolt section -->
+    
+    > [AZURE.IMPORTANT] 두 줄만 삭제하고 사이에 있는 줄은 삭제하지 마세요.
+    
+    그러면 HBase bolt를 사용하여 HBase와 통신할 때 필요한 몇 가지 구성 요소가 사용되도록 설정됩니다.
 
-	* **저장소 계정**: Storm 클러스터에 사용했던 것과는 다른 컨테이너를 사용해야 합니다.
+2. 다음 줄을 찾은 후 __###__을 이전에 다운로드한 storm-hbase 파일의 버전 번호로 바꿉니다.
 
-### HBase DNS 접미사 검색
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-hbase</artifactId>
+            <version>####</version>
+        </dependency>
 
-Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화된 도메인 이름)을 사용해야 합니다. 다음 명령을 사용하여 이 정보를 검색합니다.
+    > [AZURE.IMPORTANT] 버전 번호는 로컬 Maven 리포지토리에 구성 요소를 설치할 때 사용한 버전과 일치해야 합니다. Maven이 프로젝트를 빌드할 때 이 정보를 사용하여 구성 요소를 로드하기 때문입니다.
 
-	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
+2. __pom.xml__ 파일을 저장합니다.
 
-반환되는 JSON 데이터에서 **"host\_name"** 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예를 들면 다음과 같습니다.
-
-	...
-	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
-	...
-
-클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다(예: **mycluster.b1.cloudapp.net**).
-
-### HBase bolt 사용
-
-1. **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml**을 열고 다음 줄의 `suffix` 항목을 앞에서 가져온 HBase 클러스터의 DNS 접미사로 바꿉니다. 변경을 완료한 후 파일을 저장합니다.
-
-		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
-
-	이는 HBase bolt에서 HBase 클러스터와 통신하는 데 사용됩니다.
-
-1. 텍스트 편집기에서 **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts**를 열고 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다. 변경을 완료한 후 파일을 저장합니다.
+3. 텍스트 편집기에서 **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.java**를 열고 각각의 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -381,33 +371,93 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 	> [AZURE.NOTE] 로컬로 테스트할 때까지 아니라 Storm 클러스터에 배포할 때만 HBase Bolt를 사용하도록 설정해야 합니다.
 
-### HBase 및 Storm 데이터
+4. __Temperature.java__ 파일을 저장합니다.
+    
+## 솔루션을 빌드, 패키지하여 HDInsight에 배포
 
-토폴로지를 실행하기 전에 데이터를 허용하도록 HBase를 준비해야 합니다.
+개발 환경에서 다음 단계를 수행하여 Storm 토폴로지를 Storm 클러스터에 배포합니다.
 
-1. 원격 데스크톱을 사용하여 HBase 클러스터에 연결합니다.
+1. 다음 명령을 사용하여 새 빌드를 수행하고 프로젝트에서 JAR 패키지를 만듭니다.
 
-2. 데스크톱에서 HDInsight 명령줄을 시작하고 다음 명령을 입력합니다.
+		mvn clean compile package
 
-    cd %HBASE\_HOME% bin\\hbase shell
+	그러면 프로젝트의 **target** 디렉터리에 **TemperatureMonitor-1.0-SNAPSHOT.jar** 파일이 만들어집니다.
 
-3. HBase 셸에서 다음 명령을 입력하여 센서 데이터를 저장할 테이블을 만듭니다.
+2. scp를 사용하여 __TemperatureMonitor-1.0-SNAPSHOT.jar__ 파일을 Storm 클러스터에 업로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-    create 'SensorData', 'cf'
+        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:
+    
+    > [AZURE.NOTE] 파일 크기가 몇 메가바이트에 달하므로 로드하는 데 몇 분 정도 걸릴 수 있습니다.
 
-4. 다음 명령을 입력하여 테이블에 데이터가 없음을 확인합니다.
+3. 파일이 업로드되면 SSH를 사용하여 클러스터에 연결합니다.
 
-    scan 'SensorData'
+        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
 
-Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경우 다시 `scan 'SensorData'` 명령을 사용하여 데이터가 HBase에 삽입되었는지 확인할 수 있습니다.
+4. SSH 세션에서 다음 명령을 사용하여 토폴로지를 시작합니다.
+
+        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature tempmonitor
+    
+    이렇게 하면 이 토폴로지 인스턴스에 대한 표시 이름으로 __tempmonitor__를 사용하고 패키지에 포함된 __com.microsoft.examples.Temperature__ 클래스를 사용하여 토폴로지가 시작됩니다.
+
+3. 토폴로지가 시작되면 브라우저에서 Azure에 게시한 웹 사이트를 열고 `node app.js` 명령을 사용하여 이벤트 허브로 데이터를 보냅니다. 정보를 표시하기 위해 웹 대시보드가 업데이트됩니다.
+
+	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
+
+## HBase 데이터 보기
+
+`node app.js`를 사용하여 토폴로지에 데이터를 제출한 후에는 다음 단계를 사용하여 HBase에 연결하고 앞에서 만든 테이블에 데이터가 기록되었는지 확인합니다.
+
+1. SSH를 사용하여 HBase 클러스터에 연결합니다.
+
+        ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
+
+2. SSH 세션에서 HBase 셸을 시작합니다.
+
+    	hbase shell
+	
+	셸이 로드되면 `hbase(main):001:0>` 프롬프트가 표시됩니다.
+
+2. 테이블의 행 보기:
+
+    	scan 'SensorData'
+		
+	이렇게 하면 테이블에 행이 0개 있음을 나타내는 다음과 비슷한 정보가 반환됩니다.
+	
+		hbase(main):002:0> scan 'SensorData'
+        ROW                             COLUMN+CELL
+        \x00\x00\x00\x00               column=cf:temperature, timestamp=1467290788277, value=\x00\x00\x00\x04
+        \x00\x00\x00\x00               column=cf:timestamp, timestamp=1467290788277, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x01               column=cf:temperature, timestamp=1467290788348, value=\x00\x00\x00M
+        \x00\x00\x00\x01               column=cf:timestamp, timestamp=1467290788348, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x02               column=cf:temperature, timestamp=1467290788268, value=\x00\x00\x00R
+        \x00\x00\x00\x02               column=cf:timestamp, timestamp=1467290788268, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x03               column=cf:temperature, timestamp=1467290788269, value=\x00\x00\x00#
+        \x00\x00\x00\x03               column=cf:timestamp, timestamp=1467290788269, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x04               column=cf:temperature, timestamp=1467290788356, value=\x00\x00\x00>
+        \x00\x00\x00\x04               column=cf:timestamp, timestamp=1467290788356, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x05               column=cf:temperature, timestamp=1467290788326, value=\x00\x00\x00\x0D
+        \x00\x00\x00\x05               column=cf:timestamp, timestamp=1467290788326, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x06               column=cf:temperature, timestamp=1467290788253, value=\x00\x00\x009
+        \x00\x00\x00\x06               column=cf:timestamp, timestamp=1467290788253, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x07               column=cf:temperature, timestamp=1467290788229, value=\x00\x00\x00\x12
+        \x00\x00\x00\x07               column=cf:timestamp, timestamp=1467290788229, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x08               column=cf:temperature, timestamp=1467290788336, value=\x00\x00\x00\x16
+        \x00\x00\x00\x08               column=cf:timestamp, timestamp=1467290788336, value=2015-02-10T14:43.05.00320Z
+        \x00\x00\x00\x09               column=cf:temperature, timestamp=1467290788246, value=\x00\x00\x001
+        \x00\x00\x00\x09               column=cf:timestamp, timestamp=1467290788246, value=2015-02-10T14:43.05.00320Z
+        10 row(s) in 0.1800 seconds
+
+    > [AZURE.NOTE] 이 검색 작업은 테이블에서 최대 10개의 행만 반환합니다.
 
 ## 클러스터 삭제
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+클러스터, 저장소, 웹앱을 한꺼번에 삭제하려면 해당 항목을 포함하는 리소스 그룹을 삭제합니다.
+
 ## 다음 단계
 
-지금까지 Storm을 사용하여 이벤트 허브에서 데이터를 읽고, SignalR 및 D3.js를 사용하여 외부 대시보드에 Storm의 정보를 표시하는 방법에 대해 알아보았습니다. 또한 선택적 단계를 사용한 경우 가상 네트워크에서 HDInsight를 구성하는 방법 및 HBase Bolt를 사용하여 Storm 토폴로지와 HBase 간에 통신하는 방법도 배웠습니다.
+지금까지 이벤트 허브에서 데이터를 읽고, HBase에 저장하고, Socket.io 및 D3.js를 사용하여 외부 대시보드에서 해당 정보를 시각화하는 방법에 대해 알아보았습니다.
 
 * HDinsight의 Storm 토폴로지에 대한 추가 예제는 다음을 참조하세요.
 
@@ -425,6 +475,6 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 * .NET에서 토폴로지를 만들기에 대한 자세한 내용은 [Visual Studio를 사용하여 HDInsight의 Apache Storm용 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
-[azure-portal]: https://manage.windowsazure.com/
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

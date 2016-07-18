@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # PowerShell을 사용하여 알림 허브 배포 및 관리
@@ -96,7 +96,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 이 스크립트 부분에서는 4개의 로컬 변수를 설정합니다.
 
 1. `$Namespace`: 알림 허브를 만들려는 네임스페이스 이름으로 설정합니다.
-2. `$Path`: 새 알림 허브의 이름으로 설정합니다. 예를 들면 "MyHub"와 같습니다.    
+2. `$Path`: 새 알림 허브의 이름으로 설정합니다. 예를 들면 "MyHub"와 같습니다.
 3. `$WnsPackageSid`: [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱용 패키지 SID로 설정합니다.
 4. `$WnsSecretkey`: [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱 비밀 키로 설정합니다.
 
@@ -172,4 +172,4 @@ else
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

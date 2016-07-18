@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
@@ -25,12 +25,10 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하여 사용자 고유의 사용자 지정 비즈니스 인텔리전스 도구를 만들고 실시간 대시보드를 활용하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure 포털에서 지원되지 않으며 Azure 클래식 포털에서만 지원됩니다.
-
 ## 필수 조건
 
 * Microsoft Azure 계정
-* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
+* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.
 * Power BI에 대한 회사 또는 학교 계정
 
 ## Azure 스트림 분석 작업 만들기
@@ -100,11 +98,11 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 *	**작업 영역** – 데이터 집합을 만들려고 하는 Power BI 테넌트에서 작업 영역을 선택합니다.
 
->	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## 쿼리 작성
@@ -203,9 +201,18 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 
 ![graphic12][graphic12]
 
+마찬가지로 토큰이 만료된 동안 작업이 시작되려고 하는 경우 오류가 발생하고 작업이 실패합니다. 오류는 다음과 같이 표시됩니다.
+
+![PowerBI 유효성 검사 오류](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하고 마지막 중지 시간부터 작업을 다시 시작하여 데이터 손실을 방지합니다.
 
-![graphic13][graphic13]
+![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에서 녹색 경고가 표시됩니다.
+
+![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -233,4 +240,4 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

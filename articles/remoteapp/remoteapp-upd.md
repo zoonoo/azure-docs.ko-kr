@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="06/30/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
@@ -50,9 +50,6 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](remoteapp-outlook.md)를 참조하세요.
 
-## 공유된 데이터 솔루션을 사용할 수 있습니까?
-예, Azure RemoteApp은 공유 데이터 솔루션, 특히 비즈니스 사용자와 Dropbox용 OneDrive를 지원합니다. 그러나 OneDrive 소비자(개인 버전) 및 상자는 지원되지 않습니다.
-
 ## 리디렉션은 어떻습니까?
 [리디렉션](remoteapp-redirection.md)을 설정하여 사용자가 로컬 장치에 액세스할 수 있도록 Azure RemoteApp을 구성할 수 있습니다. 로컬 장치는 UPD의 데이터에 액세스할 수 있습니다.
 
@@ -84,7 +81,7 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 
 - 사용자 데이터에 대한 완전한 액세스 및 제어가 필요합니다(금융 기관처럼 감사 및 검토 목적으로).
 - 타사 사용자 프로필 관리 솔루션이 온-프레미스에 있고 도메인에 가입된 Azure RemoteApp 배포에서 계속 사용하고 싶습니다. 골드 이미지에 프로필 에이전트가 로드되어야 합니다.
-- 로컬 데이터 저장소가 필요하지 않으며 모든 데이터를 클라우드(예: OneDrive for Business) 또는 파일 공유로 유지하고 Azure RemoteApp을 사용하여 데이터를 로컬로 저장하는 것을 제어하려고 합니다.
+- 로컬 데이터 저장소가 필요하지 않으며 모든 데이터를 클라우드 또는 파일 공유로 유지하고 Azure RemoteApp을 사용하여 데이터를 로컬로 저장하는 것을 제어하려고 합니다.
 
 자세한 내용은 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/)를 참조하세요.
 
@@ -111,7 +108,6 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 3. 시작 스크립트를 사용하여 파일 공유를 로드합니다. Azure RemoteApp의 시작 스크립트에 대한 자세한 내용은 아래를 참조하세요.
 4. 사용자에 모든 데이터를 파일 공유에 저장하도록 지시합니다.
 
-또한 비즈니스에 대한 OneDrive와 같은 데이터 동기화 앱을 사용할 수 있습니다.
 
 ## Azure RemoteApp의 시작 스크립트를 어떻게 실행합니까?
 
@@ -143,7 +139,7 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 
 ## VM에 데이터를 로컬로 저장할 수 있나요?
 
-아니요, UPD 이외의 VM에서 임의 위치에 저장된 데이터가 손실됩니다. 사용자가 다음에 Azure RemoteApp에 로그인할 때 동일한 VM을 얻지 못할 가능성이 높습니다. 사용자-VM의 지속성을 유지하지 않으므로 사용자가 동일한 VM에 로그인하지 않고 데이터가 손실됩니다. 또한 컬렉션을 업데이트할 때 기존 VM이 새 VM 집합으로 바뀝니다. 따라서 VM 자체에 저장된 데이터가 손실됩니다. 권장되는 방법은 UPD, Azure Files과 같은 공유 저장소, VNET 내부의 파일 서버, OneDrive for Business를 사용하는 클라우드 또는 DropBox처럼 다른 지원되는 클라우드 저장소 시스템에 데이터를 저장하는 것입니다.
+아니요, UPD 이외의 VM에서 임의 위치에 저장된 데이터가 손실됩니다. 사용자가 다음에 Azure RemoteApp에 로그인할 때 동일한 VM을 얻지 못할 가능성이 높습니다. 사용자-VM의 지속성을 유지하지 않으므로 사용자가 동일한 VM에 로그인하지 않고 데이터가 손실됩니다. 또한 컬렉션을 업데이트할 때 기존 VM이 새 VM 집합으로 바뀝니다. 따라서 VM 자체에 저장된 데이터가 손실됩니다. 권장되는 방법은 UPD, Azure Files과 같은 공유 저장소, VNET 내부의 파일 서버, DropBox와 같은 클라우드 저장소 시스템을 사용하는 클라우드에 데이터를 저장하는 것입니다.
 
 ## PowerShell을 사용하여 VM에 Azure File 공유를 탑재하려면 어떻게 하나요?
 
@@ -159,4 +155,4 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 이렇게 하면 New-PSDrive cmdlet에서 -Credential 매개 변수를 건너뛸 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
 	documentationCenter="android"
     keywords="푸시 알림,푸시알림,푸시 메시지,android 푸시 알림"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/15/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 #Azure 알림 허브를 사용하여 보안 푸시 알림 보내기
@@ -134,4 +134,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 4. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

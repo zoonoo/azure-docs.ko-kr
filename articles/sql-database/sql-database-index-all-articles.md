@@ -161,7 +161,7 @@
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
 | 83 | [PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-powershell.md) | Azure SQL 데이터베이스 풀을 관리하는데 사용되는 PowerShell |
-| 84 | [규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-create-and-manage.md) | 탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다. |
+| 84 | [규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-create-and-manage.md) | 탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다. |
 | 85 | [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md) | 탄력적 데이터베이스 작업을 사용하는 방법 |
 | 86 | [탄력적 데이터베이스 작업 설치 개요](sql-database-elastic-jobs-service-installation.md) | 탄력적 작업 기능의 설치에 대한 단계별 안내 |
 | 87 | [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md) | 탄력적 데이터베이스 작업 서비스를 설명합니다. |
@@ -351,7 +351,7 @@
 | 180 | [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md) | 이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다. |
 | 181 | [Azure SQL 데이터베이스 TRANSACT-SQL의 차이점](sql-database-transact-sql-information.md) | Azure SQL 데이터베이스에서 완전히 지원되지 않는 TRANSACT-SQL 문 |
 | 182 | [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md) | 클라이언트 프로그램에서 Azure SQL 데이터베이스 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 드라이버의 최소 버전 번호를 나열합니다. Microsoft가 아니라 커뮤니티에서 릴리즈된 드라이버에 대한 버전 정보 링크가 제공됩니다. |
-| 183 | [필터를 사용하여 검색](https://azure.microsoft.com/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
+| 183 | [필터를 사용하여 검색](https://azure.microsoft.com/ko-KR/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
 
 
 ## 기타
@@ -378,4 +378,4 @@
 
 - 학습 경로 그래픽: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -68,14 +68,14 @@ ms.author="garye;haining"/>
 	# Assume the default configuration file exists and is properly set to point to the valid Workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 그런 다음 아래 PowerShell 명령을 실행합니다.
 
 	# Create 10 endpoints on the scoring web service.
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
 	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
+	    Write-Host ('adding endpoint ' + $endpointName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
 
@@ -87,8 +87,10 @@ ms.author="garye;haining"/>
 
 다음 단계는 각 고객의 개별 데이터에서 고유하게 학습된 모델로 끝점을 업데이트하는 것입니다. 하지만 먼저 **Bike Rental Training** 웹 서비스에서 이러한 모델을 생성해야 합니다. **Bike Rental Training** 웹 서비스를 다시 살펴보겠습니다. 10가지 서로 다른 모델을 생성하기 위해서는 10개의 서로 다른 학습 데이터 집합으로 BES 끝점을 10번 호출해야 합니다. 이를 위해 **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet을 사용합니다.
 
+Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **클래식 Azure 관리 포털**(*저장소* 탭)에 표시되는 계정 이름 중 하나가 될 수 있습니다. 저장소 계정에서 클릭하면 아래쪽의 **액세스 키 관리** 단추를 누르고 *기본 액세스 키*를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 저장소의 상대적인 경로입니다. 예를 들어 아래 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure 저장소 탐색기](../storage/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.ilearner 파일)을 저장할 새 컨테이너를 저장소에 만드는 것이 좋습니다. 저장소 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 아래 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
+
 	# Invoke the retraining API 10 times
-	# This is the default (and the only) endpoint on the training web service 
+	# This is the default (and the only) endpoint on the training web service
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
 	$apiKey = $trainingSvcEp.PrimaryKey;
@@ -122,12 +124,12 @@ ms.author="garye;haining"/>
 ## 전체 PowerShell 스크립트
 
 전체 소스 코드 목록은 다음과 같습니다.
-	
+
 	Import-Module .\AzureMLPS.dll
 	# Assume the default configuration file exists and properly set to point to the valid workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 	# Create 10 endpoints on the scoring web service
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
@@ -135,7 +137,7 @@ ms.author="garye;haining"/>
 	    Write-Host ('adding endpoint ' + $endpontName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
-	
+
 	# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
@@ -147,7 +149,7 @@ ms.author="garye;haining"/>
 	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
 	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
 	}
-	
+
 	# Patch the 10 endpoints with respective .ilearner models
 	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
 	$sasToken = '?test'
@@ -159,4 +161,4 @@ ms.author="garye;haining"/>
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

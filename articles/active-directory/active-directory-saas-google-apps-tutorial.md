@@ -88,7 +88,7 @@
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
 
@@ -124,7 +124,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
 
@@ -194,7 +194,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 4. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 아래 단계를 따릅니다.
 
-	- [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다. 
+	- [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다.
 
 	- 최상위 메뉴에서 **도메인**을 클릭하고 **사용자 지정 도메인 추가**를 클릭합니다.
 
@@ -313,4 +313,4 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

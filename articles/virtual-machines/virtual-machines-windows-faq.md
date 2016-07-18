@@ -80,4 +80,8 @@ Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 �
 
 예. 사용해 보기 위해 Linux VM을 신속하게 만들려면 [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+## VM을 만든 후에 NIC를 추가할 수 있나요?
+
+아니요. 현재는 만들 때만 이 작업을 수행할 수 있습니다.
+
+<!---HONumber=AcomDC_0706_2016-->

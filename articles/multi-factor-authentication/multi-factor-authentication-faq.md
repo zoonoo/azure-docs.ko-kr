@@ -52,10 +52,10 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 - 메일 주소 - 선택 사항
 - 전화 번호 - 음성 통화 또는 SMS 인증을 수행할 때
 - 장치 토큰 - 모바일 앱 인증을 수행할 때
-- 인증 모드 
-- 인증 결과 
-- MFA 서버 이름 
-- MFA 서버 IP 
+- 인증 모드
+- 인증 결과
+- MFA 서버 이름
+- MFA 서버 IP
 - 클라이언트 IP - 사용 가능한 경우
 
 
@@ -83,7 +83,7 @@ Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션 당 독�
 사용자 당 소비(Azure 약정 금액)| 1\.40$/월(무제한 인증)
 인증 단위 소비(Azure 약정 금액)|$1.40에 10건 인증
 사용자 당 연간 라이선스(직접)|1\.40$/월(무제한 인증)
-사용자 당 연간 라이선스(볼륨 라이선스)|[기업 계약 담당자](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)에 문의합니다.
+사용자 당 연간 라이선스(볼륨 라이선스)|[기업 계약 담당자](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx)에 문의합니다.
 
 **Q: ‘사용자 단위' 청구 모델은 Multi-Factor Authentication이 사용 가능하게 설정된 사용자 수를 기반으로 청구되나요? 아니면 확인을 수행하는 사용자의 수에 따라 요금이 청구되나요?**
 
@@ -132,7 +132,7 @@ Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션 당 독�
 **Q: 사용자가 비브라우저 앱에 로그인할 수 없는 경우 어떻게 해야 하나요?**
 
 - 다단계 인증이 사용 가능하게 설정된 사용자는 일부 비브라우저 앱에 로그인하려면 앱 암호가 필요합니다.
-- 사용자는 로그인 정보를 지우고(로그인 정보 삭제), 응용 프로그램을 다시 시작하고, 사용자 이름 및 앱 암호로 로그인해야 합니다. 
+- 사용자는 로그인 정보를 지우고(로그인 정보 삭제), 응용 프로그램을 다시 시작하고, 사용자 이름 및 앱 암호로 로그인해야 합니다.
 
 앱 암호 만들기에 대한 자세한 내용은 [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
 
@@ -185,4 +185,4 @@ Azure MFA 서버는 Windows Server 2012 이전 버전에서 LSA 보안 패키지
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->
