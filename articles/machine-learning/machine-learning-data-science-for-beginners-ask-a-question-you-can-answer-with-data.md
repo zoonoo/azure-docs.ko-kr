@@ -23,12 +23,11 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 
- 
+<!---Fix video-->
 
-## 비디오 내용: 데이터로 대답할 수 있는 질문하기
+<h2>비디오 내용: 데이터로 대답할 수 있는 질문하기</h2>
 
 “초급자를 위한 데이터 과학” 시리즈 중 3번째 비디오를 시작합니다.
 
@@ -102,4 +101,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
