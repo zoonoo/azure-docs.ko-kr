@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # 웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용 #
@@ -97,7 +97,8 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE] 클라이언트 암호 사용 클라이언트 ID 및 클라이언트 암호를 사용하는 것은 Azure AD 응용 프로그램을 인증하는 가장 쉬운 방법입니다. 웹 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 사용하여 의무를 분리하고 키 관리를 보다 세밀하게 제어할 수 있습니다. 하지만 이 방법은 클라이언트 암호를 구성 설정에 배치하는 것을 기반으로 하며 이것은 보호할 암호를 구성 설정에 배치하는 것 만큼이나 위험할 수 있습니다. 클라이언트 ID 및 클라이언트 암호 대신 클라이언트 ID 및 인증서를 사용하여 Azure AD 응용 프로그램을 인증하는 방법에 대한 설명은 다음을 참조하세요.
+> [AZURE.NOTE] 
+클라이언트 ID 및 클라이언트 암호를 사용하는 것은 Azure AD 응용 프로그램을 인증하는 가장 쉬운 방법입니다. 웹 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 사용하여 의무를 분리하고 키 관리를 보다 세밀하게 제어할 수 있습니다. 하지만 이 방법은 클라이언트 암호를 구성 설정에 배치하는 것을 기반으로 하며 이것은 보호할 암호를 구성 설정에 배치하는 것 만큼이나 위험할 수 있습니다. 클라이언트 ID 및 클라이언트 암호 대신 클라이언트 ID 및 인증서를 사용하여 Azure AD 응용 프로그램을 인증하는 방법에 대한 설명은 다음을 참조하세요.
 
 
 
@@ -228,7 +229,7 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**웹앱에 인증서 추가** 웹앱에 인증서를 추가하는 과정은 간단한 두 단계로 이루어집니다. 먼저 Azure 포털로 이동하여 웹앱을 탐색합니다. 웹앱에 대한 설정 블레이드에서 "사용자 지정 도메인 및 SSL" 항목을 클릭합니다. 열리는 블레이드에서 위에서 만든 인증서인 KVWebApp.pfx를 업로드할 수 있습니다. pfx에 대한 암호는 기억하고 있어야 합니다.
+**Azure 포털을 통해 웹앱에 인증서 추가** 웹앱에 인증서를 추가하는 과정은 간단한 두 단계로 이루어집니다. 먼저 Azure 포털로 이동하여 웹앱을 탐색합니다. 웹앱에 대한 설정 블레이드에서 "사용자 지정 도메인 및 SSL" 항목을 클릭합니다. 열리는 블레이드에서 위에서 만든 인증서인 KVWebApp.pfx를 업로드할 수 있습니다. pfx에 대한 암호는 기억하고 있어야 합니다.
 
 ![Azure 포털에서 웹앱에 인증서 추가][2]
 
@@ -236,6 +237,9 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 마지막으로 수행해야 하는 일은 응용 프로그램 설정을 이름이 WEBSITE\_LOAD\_CERTIFICATES이고 값이 *인 웹앱에 추가하는 것입니다. 이렇게 하면 모든 인증서가 로드됩니다. 업로드한 인증서만 로드하려면 지문 복사의 쉼표로 구분된 목록을 입력하면 됩니다.
 
 웹앱에 인증서 추가에 대해 자세히 알아보려면 [Azure 웹 사이트 응용 프로그램에서 인증서 사용](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)을 참조하세요.
+
+
+**주요 자격 증명 모음에 암호로 인증서 추가** 웹앱 서비스에 인증서를 직접 업로드하는 대신, 암호로 주요 자격 증명 모음에 저장하고 해당 위치에서 배포할 수 있습니다. 다음은 다음 블로그 게시물 [주요 자격 증명 모음을 통해 Azure 웹앱 인증서 배포](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)에 설명된 2단계 프로세스입니다.
 
 
 
@@ -249,4 +253,4 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

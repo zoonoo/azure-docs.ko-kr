@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # 등록 관리
@@ -329,4 +329,4 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 백 엔드에서 등록 업데이트 간의 동시성을 처리해야 합니다. 서비스 버스는 등록 관리를 위해 낙관적 동시성 제어를 제공합니다. HTTP 수준에서 이 기능은 등록 관리 작업에 ETag를 사용하여 구현 됩니다. 이 기능은 동시성 문제로 인해 업데이트가 거부될 경우 예외를 throw하는 Microsoft SDK에 의해 투명하게 사용됩니다. 앱 백 엔드는 이러한 예외를 처리하고 필요한 경우 업데이트를 다시 시도하는 일을 담당합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

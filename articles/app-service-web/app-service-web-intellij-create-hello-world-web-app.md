@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # IntelliJ에서 Azure용 Hello World 웹앱 만들기
@@ -26,7 +26,7 @@
  
 ## 필수 조건
 
-* JDK(Java 개발자 키트), v 1.7 이상
+* JDK(Java 개발자 키트), v 1.8 이상.
 * IntelliJ IDEA Ultimate Edition. <https://www.jetbrains.com/idea/download/index.html>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
 * Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
@@ -80,7 +80,7 @@
 
    ![][08]
 
-1. **Azure 웹앱 컨테이너에 배포** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.   
+1. **Azure 웹앱 컨테이너에 배포** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.
 
    ![][09]
 
@@ -224,6 +224,7 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 �
 - [IntelliJ용 Azure 도구 키트]
   - [IntelliJ용 Azure 도구 키트 설치]
   - *IntelliJ에서 Azure용 Hello World 웹앱 만들기(이 문서)*
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -236,9 +237,11 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [웹앱 개요]: ./app-service-web-overview.md
@@ -265,4 +268,4 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

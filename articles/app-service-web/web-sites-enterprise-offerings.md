@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2016" 
+	ms.date="06/29/2016" 
 	ms.author="anwestg"/>
 
 # 엔터프라이즈용 Azure 앱 서비스 웹 앱 오퍼링 백서 #
@@ -47,9 +47,9 @@ IT 환경이 빠르게 변화하여, 자본 비용이 높고 지연 시간이 �
 
 또 다른 접근 방법으로 기존 온-프레미스 투자를 활용하는 방법이 있습니다. 예제 시나리오인 직원 비용 시스템에서는 자체의 내부 인프라 내에 데이터 저장소를 유지 관리할 수 있습니다. 이는 내부 시스템(보고, 급여, 청구 등)과의 통합을 위해서이거나 IT 거버넌스 요구 사항을 충족하기 위해서일 수 있습니다. 웹앱은 온-프레미스 인프라에 연결할 수 있는 여러 가지 방법을 제공합니다.
 
-- [앱 서비스 환경](app-service-app-service-environment-intro.md) - ASE(앱 서비스 환경)는 최근에 Microsoft Azure 앱 서비스 제품에 추가된 새로운 프리미엄 기능입니다. ASE는 격리 및 보안 네트워크 액세스를 제공하면서 Azure 앱 서비스 앱을 대규모로 안전하게 실행하는 완전히 격리된 전용 환경을 제공합니다.   
-- [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) – 하이브리드 연결은 Microsoft Azure BizTalk 서비스의 기능이며, 웹 앱에서 SQL Server, MySQL, Web API 및 사용자 지정 웹 서비스 등과 같은 온-프레미스 리소스에 안전하게 액세스할 수 있도록 지원합니다. 
-- [가상 네트워크 통합 ](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Azure 가상 네트워크와 웹 앱을 통합하면 웹 앱을 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다. 
+- [앱 서비스 환경](app-service-app-service-environment-intro.md) - ASE(앱 서비스 환경)는 최근에 Microsoft Azure 앱 서비스 제품에 추가된 새로운 프리미엄 기능입니다. ASE는 격리 및 보안 네트워크 액세스를 제공하면서 Azure 앱 서비스 앱을 대규모로 안전하게 실행하는 완전히 격리된 전용 환경을 제공합니다.
+- [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) – 하이브리드 연결은 Microsoft Azure BizTalk 서비스의 기능이며, 웹 앱에서 SQL Server, MySQL, Web API 및 사용자 지정 웹 서비스 등과 같은 온-프레미스 리소스에 안전하게 액세스할 수 있도록 지원합니다.
+- [가상 네트워크 통합 ](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Azure 가상 네트워크와 웹 앱을 통합하면 웹 앱을 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다.
 
 다음 다이어그램에서는 온-프레미스 리소스에 대한 연결 옵션을 사용하는 고급 솔루션의 예제를 보여 줍니다. 첫 번째 예제에서는 Azure 앱 서비스의 표준 기능을 사용하여 수행하는 방법을 보여 주고, 두 번째 예제에서는 프리미엄 서비스인 앱 서비스 환경을 사용하여 수행하는 방법을 보여 줍니다.
 
@@ -110,11 +110,11 @@ Azure 앱 서비스 환경[http://aka.ms/aseintro](http://aka.ms/aseintro)은 Az
 온-프레미스 환경에서 응용 프로그램을 마이그레이션할 때는 몇몇 웹 앱에서 제한하는 사항에 유의해야 합니다. 다음은 웹 응용 프로그램을 웹 앱으로 마이그레이션할 때 알고 있어야 하는 몇 가지 주요 항목입니다([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)(영문)).
 
 -	포트 바인딩 - 웹 앱은 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 응용 프로그램이 다른 포트를 사용하는 경우, 한 번 마이그레이션된 응용 프로그램은 HTTP로 포트 80를 사용하고 HTTPS 트래픽에 대해 포트 443를 사용합니다. 이는 문제가 되지 않는 경우가 많은데, 온-프레미스 배포 특히, 개발 및 테스트 환경에서는 도메인 이름 사용을 원활히 처리하기 위해 다른 포트를 사용하는 경우가 일반적이기 때문입니다.
--	인증 - 웹 앱은 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. 응용 프로그램이 Azure Active Directory 및 ADFS와만 통합 하는 경우, 웹 앱은 Windows 인증을 제공할 수 있습니다. [여기](http://aka.ms/azurebizapp)에서 자세히 설명된 기능입니다. 
+-	인증 - 웹 앱은 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. 응용 프로그램이 Azure Active Directory 및 ADFS와만 통합 하는 경우, 웹 앱은 Windows 인증을 제공할 수 있습니다. [여기](http://aka.ms/azurebizapp)에서 자세히 설명된 기능입니다.
 -	GAC 어셈블리 기반 – 웹 앱은 전역 어셈블리 캐시(GAC)에 어셈블리 배포를 허용하지 않습니다. 따라서 마이그레이션 중인 응용 프로그램이 온-프레미스 기능을 사용하면, 응용 프로그램의 bin 폴더에 어셈블리를 이동할 것을 고려합니다.
 -	IIS5 호환 모드 – 웹 앱은 IIS5 호환 모드를 지원하지 않으므로 부모 웹 앱 인스턴스 아래의 각 웹 앱 인스턴스와 모든 웹 응용 프로그램이 단일 응용 프로그램 풀 내에서 동일한 작업자 프로세스로 실행됩니다.
 -	COM 라이브러리 사용 – 웹 앱에서는 플랫폼에 COM 구성 요소를 등록할 수 없습니다. 따라서 응용 프로그램이 모든 COM 구성 요소를 사용하는 경우, 이러한 관리 코드로 다시 작성하고 응용 프로그램을 사용하여 배포합니다.
--	ISAPI 필터 – 웹 앱에서 ISAPI 필터를 지원할 수 있습니다. 응용 프로그램의 일부로 배포해야 하며 웹 응용 프로그램의 web.config 파일에 등록됩니다. 자세한 내용은 [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md)을 참조하세요. 
+-	ISAPI 필터 – 웹 앱에서 ISAPI 필터를 지원할 수 있습니다. 응용 프로그램의 일부로 배포해야 하며 웹 응용 프로그램의 web.config 파일에 등록됩니다. 자세한 내용은 [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md)을 참조하세요.
 
 이러한 항목을 고려했으면 웹 응용 프로그램이 클라우드에서 사용할 준비가 된 것입니다. 그리고 일부 항목이 완전히 부합되지 않더라고 마이그레이션 도구가 최적의 마이그레이션을 수행하므로 걱정하지 않아도 됩니다.
 
@@ -159,4 +159,4 @@ Azure 앱 서비스 웹 앱 서비스에 대한 자세한 내용은 [http://aka.
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

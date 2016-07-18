@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Python에서 알림 허브를 사용하는 방법
@@ -28,8 +28,8 @@ MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * Python에서 알림 허브 기능에 대한 REST 클라이언트를 빌드하는 방법
-* Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다. 
-* 디버그/교육 용도로 HTTP REST 요청/응답의 덤프를 가져옵니다. 
+* Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다.
+* 디버그/교육 용도로 HTTP REST 요청/응답의 덤프를 가져옵니다.
 
 선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에 따라 Python에서 백 엔드 부분을 구현할 수 있습니다.
 
@@ -320,7 +320,7 @@ NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록
 
 예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
-- 자세한 알림 허브 결과가 표시됩니다. 
+- 자세한 알림 허브 결과가 표시됩니다.
 	
 		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
@@ -391,4 +391,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

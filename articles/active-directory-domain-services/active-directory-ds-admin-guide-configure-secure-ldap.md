@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -242,4 +242,4 @@ LDAPS 인증서를 .PFX 파일로 내보내기 위해서는 다음 단계를 수
 
 - [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

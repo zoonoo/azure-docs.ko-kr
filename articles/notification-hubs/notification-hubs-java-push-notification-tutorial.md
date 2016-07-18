@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Java에서 알림 허브를 사용하는 방법
@@ -25,14 +25,14 @@
 
 현재 SDK에 포함되어 있는 기능은 다음과 같습니다.
 
-- 알림 허브에 대한 CRUD 
+- 알림 허브에 대한 CRUD
 - 등록에 대한 CRUD
 - 설치 관리
 - 등록 가져오기/내보내기
 - 일반 보내기
 - 예약된 보내기
 - Java NIO를 통한 비동기 작업
-- 지원되는 플랫폼: APNS(iOS), GCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 포함되지 않은 Android) 
+- 지원되는 플랫폼: APNS(iOS), GCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 포함되지 않은 Android)
 
 ## SDK 사용
 
@@ -285,7 +285,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 ##<a name="next-steps"></a>다음 단계
 이 항목에서는 알림 허브에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
-* 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다. 
+* 전체 SDK 코드가 포함된 전체 [Java SDK]를 다운로드합니다.
 * 다음 샘플을 사용해 봅니다.
 	- [알림 허브 시작]
 	- [속보 보내기]
@@ -303,4 +303,4 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

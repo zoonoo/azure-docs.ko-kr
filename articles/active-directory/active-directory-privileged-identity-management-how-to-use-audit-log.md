@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management에서 감사 로그를 사용하는 방법
@@ -21,7 +21,7 @@
 Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다.
 
 ## 감사 로그로 이동
-[Azure 포털](https://portal.azure.com) 대시보드에서 **Azure AD Priviliged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **감사 기록**을 클릭하여 감사 로그에 액세스합니다.
+[Azure 포털](https://portal.azure.com) 대시보드에서 **Azure AD Priviliged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **권한 있는 역할 관리** > **감사 기록**을 클릭하여 감사 로그에 액세스합니다.
 
 ## 감사 로그 그래프
 감사 로그를 사용하여 전체 활성화, 일일 최대 활성화, 일일 평균 활성화를 선 그래프로 보도록 사용할 수 있습니다. 감사 기록에 역할이 둘 이상인 경우 역할별로 데이터를 필터링할 수도 있습니다.
@@ -60,4 +60,4 @@ Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

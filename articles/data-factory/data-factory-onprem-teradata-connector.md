@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
@@ -41,7 +41,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 1.	[OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
 3.	[RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md) 
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 4.	[RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 Teradata 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
@@ -311,4 +311,4 @@ Xml | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

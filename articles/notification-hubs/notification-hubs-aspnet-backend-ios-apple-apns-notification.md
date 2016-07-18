@@ -3,7 +3,7 @@
 	description="Azure에서 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 백 엔드용 .NET API 및 Objective-C로 작성되었습니다."
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림
@@ -69,7 +69,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 		- (IBAction)LogInAction:(id)sender;
 
-4. ViewController.h에서 다음 `#define`를 import 문을 바로 아래 추가합니다. *<Enter Your Backend Endpoint>* 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예:**http://you_backend.azurewebsites.net*
+4. ViewController.h에서 다음 `#define`를 import 문을 바로 아래 추가합니다. *<Enter Your Backend Endpoint>* 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예:*http://you_backend.azurewebsites.net*
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 	![][3]
 
-4. **받는사람 사용자 태그* 텍스트 필드에 다른 장치에서 등록에 사용되는 사용자 이름 태그를 입력합니다.
+4. **받는 사람 사용자 이름 태그* 텍스트 필드에 다른 장치에서 등록에 사용되는 사용자 이름 태그를 입력합니다.
 5. 알림 메시지를 입력하고 **알림 보내기**를 클릭합니다. 받는 사람 사용자 이름 태그로 등록된 장치만이 알림 메시지를 받습니다. 이러한 사용자에만 전송됩니다.
 
 	![][4]
@@ -465,4 +465,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

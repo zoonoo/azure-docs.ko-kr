@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/11/2016"
+   ms.date="06/21/2016"
    ms.author="rclaus" />
 
 # Azure의 Linux VM에 대한 DNS 이름 확인 옵션
@@ -78,9 +78,9 @@ dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가�
 - **Ubuntu(resolvconf 사용)**:
 	- dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
 - **SUSE(netconf 사용)**:
-	- dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq"). 
-	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service"). 
-	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service"). 
+	- dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq").
+	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
+	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
 	- "/etc/sysconfig/network/config"를 편집하고 NETCONFIG\_DNS\_FORWARDER=""를 "dnsmasq"로 변경합니다.
 	- 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf("netconfig update")를 업데이트합니다.
 - **OpenLogic(NetworkManager 사용)**:
@@ -96,8 +96,8 @@ dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가�
 
 DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을 보장하지 않으므로 DNS 프로토콜 자체에서 재시도 논리가 처리됩니다. 각 DNS 클라이언트(운영 체제)는 작성자의 기본 설정에 따라 서로 다른 재시도 논리를 나타낼 수 있습니다.
 
- - Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다. 
- - 기본 Linux 설정에서는 5초 후 재시도합니다. 1초 간격으로 5번 재시도하도록 설정을 변경하는 것이 좋습니다.  
+ - Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다.
+ - 기본 Linux 설정에서는 5초 후 재시도합니다. 1초 간격으로 5번 재시도하도록 설정을 변경하는 것이 좋습니다.
 
 Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'options' 줄을 확인합니다. 예를 들면 다음과 같습니다.
 
@@ -106,13 +106,13 @@ Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'op
 resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
 
 - **Ubuntu**(resolvconf 사용):
-	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다. 
+	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다.
 	- 'resolvconf -u'를 실행하여 업데이트합니다.
 - **SUSE**(netconf 사용):
-	- 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 매개 변수에 추가합니다. 
+	- 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 매개 변수에 추가합니다.
 	- 'netconfig update'를 실행하여 업데이트합니다.
 - **OpenLogic**(NetworkManager 사용):
-	- 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다. 
+	- 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다.
 	- 'service network restart'를 실행하여 업데이트합니다.
 
 ## 자체 DNS 서버를 이용한 이름 확인
@@ -126,16 +126,16 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하여 각 VM에 내부 DNS 접미사를 제공합니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다. FQDN으로 컴퓨터를 참조하거나 VM에 접미사를 구성하려면 PowerShell 또는 API를 사용하여 접미사를 확인할 수 있습니다.
 
--  Azure 리소스 관리에서 관리되는 vnet의 경우 [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스를 통해 접미사를 사용하거나 `azure network public-ip show <resource group> <pip name>` 명령을 실행하여 공용 IP 세부 정보(NIC의 FQDN 포함)를 표시할 수 있습니다.    
+-  Azure 리소스 관리에서 관리되는 vnet의 경우 [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스를 통해 접미사를 사용하거나 `azure network public-ip show <resource group> <pip name>` 명령을 실행하여 공용 IP 세부 정보(NIC의 FQDN 포함)를 표시할 수 있습니다.
 
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
 
--  예를 들어 [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md)를 통해 적절한 호스트 이름 확인을 제공해야 합니다. DDNS를 사용하는 경우 Azure의 DHCP 임대는 매우 길고 청소는 DNS 레코드를 중간에 제거할 수 있기 때문에 DNS 레코드 청소를 사용하지 않도록 설정해야 합니다. 
+-  예를 들어 [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md)를 통해 적절한 호스트 이름 확인을 제공해야 합니다. DDNS를 사용하는 경우 Azure의 DHCP 임대는 매우 길고 청소는 DNS 레코드를 중간에 제거할 수 있기 때문에 DNS 레코드 청소를 사용하지 않도록 설정해야 합니다.
 -  외부 도메인 이름을 확인할 수 있도록 적절한 재귀 확인을 제공해야 합니다.
 -  제공하는 클라이언트에서 액세스 가능해야 하고(포트 53에서 TCP 및 UDP) 인터넷에 액세스할 수 있어야 합니다.
 -  외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
 > [AZURE.NOTE] 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](../virtual-network/virtual-networks-instance-level-public-ip.md)를 각 DNS 서버 VM에 할당해야 합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

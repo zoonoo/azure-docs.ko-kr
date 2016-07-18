@@ -426,11 +426,11 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
-[통계]: ./sql-data-warehouse-develop-statistics.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

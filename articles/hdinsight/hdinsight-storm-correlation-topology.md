@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/19/2016"
+ ms.date="07/05/2016"
  ms.author="larryfr"/>
 
 # HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
@@ -27,11 +27,11 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
 
 ## 필수 조건
 
--	HDInsight Tools for Visual Studio: 설치 정보는 [HDInsight Tools for Visual Studio 사용 시작](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+-	Visual Studio 및 HDInsight Tools for Visual Studio: 설치 정보는 [HDInsight Tools for Visual Studio 사용 시작](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
--	HDInsight의 Apache Storm 클러스터
+-	HDInsight 클러스터의 Apache Storm(Windows 기반). 들어오는 데이터를 처리하고 HBase에 저장하는 Storm 토폴로지를 실행합니다.
 
--	HDInsight의 Apache HBase 클러스터
+-	HDInsight 클러스터의 Apache HBase(Windows 또는 Linux 기반). 이 예제의 데이터 저장소입니다.
 
 ## 아키텍처
 
@@ -204,4 +204,4 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

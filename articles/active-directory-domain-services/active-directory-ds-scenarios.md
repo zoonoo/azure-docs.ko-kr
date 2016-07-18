@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -62,4 +62,4 @@ Azure RemoteApp을 통해 Contoso의 관리자는 도메인에 가입된 컬렉�
 
 이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서 [Azure RemoteApp 및 Azure AD 도메인 서비스로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

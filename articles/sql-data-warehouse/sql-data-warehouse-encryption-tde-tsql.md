@@ -17,9 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # 투명한 데이터 암호화(TDE) 시작
+
+
 > [AZURE.SELECTOR]
-- [Azure 포털](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [보안 개요](sql-data-warehouse-overview-manage-security.md)
+- [위협 감지](sql-data-warehouse-security-threat-detection.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [감사 개요](sql-data-warehouse-auditing-overview.md)
+- [하위 수준 클라이언트 감사](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 Azure SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE)는 응용 프로그램에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
 
@@ -66,7 +73,7 @@ FROM
 
 ##암호화 DMV  
 
-- [sys.databases][] 
+- [sys.databases][]
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
 
 
@@ -79,4 +86,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

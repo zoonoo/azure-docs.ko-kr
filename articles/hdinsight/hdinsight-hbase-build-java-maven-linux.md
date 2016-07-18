@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="06/29/2016"
 	ms.author="larryfr"/>
 
-#Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
+#Maven을 사용하여 Linux 기반 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드
 
 Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만들어 빌드하는 방법을 알아봅니다. 그런 다음 Linux 기반 HDInsight 클러스터에서 응용 프로그램을 사용합니다.
 
 [Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Linux 기반 HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
+
+> [AZURE.NOTE] 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Linux 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
 
 ##요구 사항
 
@@ -29,6 +31,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 * [Maven](http://maven.apache.org/)
 
 * [Linux 기반 Azure HDInsight 클러스터 및 HBase](../hdinsight-hbase-get-started-linux.md#create-hbase-cluster)
+
+    > [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 3.2, 3.3 및 3.4로 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.4 클러스터에 대한 것입니다.
 
 * **SSH 및 SCP 사용 경험**. HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -59,10 +63,29 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 		<dependency>
       	  <groupId>org.apache.hbase</groupId>
           <artifactId>hbase-client</artifactId>
-          <version>0.98.4-hadoop2</version>
+          <version>1.1.2</version>
         </dependency>
 
-	이 코드를 통해 Maven은 프로젝트에 __hbase-client__ 버전 __0.98.4-hadoop2__가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 중앙 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
+	이 코드를 통해 Maven은 프로젝트에 __hbase-client__ 버전 __1.1.2__가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 중앙 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)을 사용하여 이 종속성에 대한 자세한 정보를 확인할 수 있습니다.
+
+    > [AZURE.IMPORTANT] 버전 번호는 HDInsight 클러스터와 함께 제공되는 HBase 버전과 일치해야 합니다. 다음 표를 사용하여 올바른 버전 번호를 찾으세요.
+
+    | HDInsight 클러스터 버전 | 사용할 HBase 버전 |
+    | ----- | ----- |
+    | 3\.2 | 0\.98.4-hadoop2 |
+    | 3\.3 및 3.4 | 1\.1.2 |
+
+    HDInsight 버전 및 구성 요소에 대한 자세한 내용은 [HDInsight에서 사용할 수 있는 다양한 Hadoop 구성 요소](hdinsight-component-versioning.md)를 참조하세요.
+
+2. HDInsight 3.3 또는 3.4 클러스터를 사용하는 경우 `<dependencies>` 섹션에 다음을 추가해야 합니다.
+
+        <dependency>
+            <groupId>org.apache.phoenix</groupId>
+            <artifactId>phoenix-core</artifactId>
+            <version>4.4.0-HBase-1.1</version>
+        </dependency>
+    
+    이렇게 하면 Hbase 버전 1.1.x에 필요한 phoenix-core 구성 요소가 로드됩니다.
 
 2. __pom.xml__ 파일에 다음 코드를 추가합니다. 이 코드는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어`</dependencies>`과 `</project>` 사이에 있어야 합니다.
 
@@ -83,8 +106,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         	  <artifactId>maven-compiler-plugin</artifactId>
 						<version>3.3</version>
         	  <configuration>
-          	    <source>1.6</source>
-          	    <target>1.6</target>
+          	    <source>1.7</source>
+          	    <target>1.7</target>
         	  </configuration>
       		</plugin>
 		    <plugin>
@@ -163,7 +186,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
             //NOTE: Actual zookeeper host names can be found using Ambari:
             //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
             
-            //Linux-based HDInsight clusters don't use the default znode parent
+            //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
             config.set("zookeeper.znode.parent","/hbase-unsecure");
 
             // create an admin object using the config
@@ -367,4 +390,4 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

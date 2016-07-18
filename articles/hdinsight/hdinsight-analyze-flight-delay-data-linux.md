@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="07/05/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -43,7 +43,11 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website](영문)로 이동합니다.
 2. 페이지에서 다음 값을 선택합니다.
 
-	| Name | Value | | Filter Year | 2013 | | Filter Period | January | | Fields | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Clear all other fields |
+    | 이름 | 값 |
+    | ---- | ---- |
+    | Filter Year | 2013 |
+    | Filter Period | January |
+    | 필드 | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. 기타 모든 필드 지우기 |
 
 3. **다운로드**를 클릭합니다.
 
@@ -75,7 +79,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 	
 4. 다음을 사용하여 WASB(HDInsight에서 사용된 분산 데이터 저장소)에 새 디렉터리를 만들고 파일을 복사합니다.
 
-	hadoop fs -mkdir -p /tutorials/flightdelays/data hadoop fs -copyFromLocal FILENAME.csv /tutorials/flightdelays/data/FILENAME.csv
+	hdfs dfs -mkdir -p /tutorials/flightdelays/data hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
 	
 ##HiveQL 만들기 및 실행
 
@@ -149,13 +153,18 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 3. 다음을 사용하여 Hive를 시작하고 __flightdelays.hql__ 파일을 실행합니다.
 
-		hive -i flightdelays.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
 		
-	파일을 실행한 후 `hive>` 프롬프트를 반환합니다.
+	> [AZURE.NOTE] 이 예제에서 HDInsight 클러스터의 헤드 노드에 연결되어 있기 때문에 `localhost`을 사용합니다. 여기서 HiveServer2가 실행 중입니다.
 
-4. `hive>` 프롬프트를 수신하면, 다음을 사용하여 가져온 비행 지연 데이터에서 데이터를 검색합니다.
+4. 다음 명령을 사용하여 대화형 Beeline 세션을 엽니다.
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+5. `jdbc:hive2://localhost:10001/>` 프롬프트를 수신하면, 다음을 사용하여 가져온 비행 지연 데이터에서 데이터를 검색합니다.
 
 		INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 		SELECT regexp_replace(origin_city_name, '''', ''),
 			avg(weather_delay)
 		FROM delays
@@ -164,34 +173,13 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 	평균 지연 시간과 함께 날씨 지연이 발생 된 도시 목록을 검색하고 `/tutorials/flightdelays/output`에 저장합니다. 나중에 Sqoop는 이 위치에서 데이터를 읽어 Azure SQL 데이터베이스로 내보냅니다.
 
-##SQL 데이터베이스 만들기
+6. Beeline을 종료하려면 프롬프트에 `!quit`을 입력합니다.
 
-다음 단계에 따라 Azure SQL 데이터베이스를 만듭니다. Sqoop 통해 HDInsight에서 내보낸 데이터를 보관하는데 사용됩니다.
+## SQL 데이터베이스 만들기
 
-1. Azure CLI가 설치된 개발 환경에서 새 Azure SQL 데이터베이스를 만들려면 다음 명령을 사용합니다.
+SQL 데이터베이스가 이미 있는 경우 서버 이름을 가져와야 합니다. __SQL 데이터베이스__를 선택하여 [Azure 포털](https://portal.azure.com)에서 데이터베이스를 찾은 다음 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 __서버__ 열에 나열됩니다.
 
-		azure sql server create <adminLogin> <adminPassword> <region>
-
-	예: `azure sql server create admin password "West US"`
-
-	명령이 완료되면 다음과 유사한 응답이 표시됩니다.
-
-		info:    Executing command sql server create
-		+ Creating SQL Server
-		data:    Server Name i1qwc540ts
-		info:    sql server create command OK
-
-> [AZURE.IMPORTANT] 이 명령에 의해 반환된 서버 이름에 유의합니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. FQDN(정규화된 도메인 이름)은 `<shortname>.database.windows.net`입니다.
-
-2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **sqooptest**라는 이름의 데이터베이스를 생성합니다.
-
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
-
-    완료되면 “OK” 메시지가 반환됩니다.
-
-	> [AZURE.NOTE] 액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 클라이언트 워크스테이션의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
-	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장해야 합니다.
 
 ##SQL 데이터베이스 테이블 만들기
 
@@ -203,9 +191,9 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. FreeTDS가 설치되면 다음 명령을 사용하여 이전에 생성한 SQL 데이터베이스 서버에 연결합니다.
+4. FreeTDS가 설치되면 다음 명령을 사용하여 SQL 데이터베이스 서버에 연결합니다. __serverName__을 SQL 데이터베이스 서버 이름으로 바꿉니다. __adminLogin__ 및 __adminPassword__를 SQL 데이터베이스의 로그인으로 바꿉니다. __databaseName__을 데이터베이스 이름으로 바꿉니다.
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
 
     다음과 유사한 출력이 표시됩니다.
 
@@ -234,27 +222,23 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     다음과 비슷한 결과가 나타나야 합니다.
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     delays      BASE TABLE
+        databaseName       dbo     delays      BASE TABLE
 
 8. `1>` 프롬프트에서 `exit`를 입력하여 tsql 유틸리티를 종료합니다.
 	
 ##Sqoop으로 데이터 내보내기
 
-1. 다음 명령을 사용하여 Sqoop lib 디렉터리에서 SQL Server JDBC 드라이버에 링크를 만듭니다. 이를 통해 Sqoop이 다음 드라이버를 사용하여 SQL 데이터베이스와 통신할 수 있습니다.
-
-		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
-
 2. 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
 
 		sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
-	그러면 앞에서 만든 sqooptest 데이터베이스를 포함한 데이터베이스 목록이 반환됩니다.
+	그러면 앞에서 지연 테이블을 만든 데이터베이스를 포함한 데이터베이스 목록이 반환되게 됩니다.
 
 3. 다음 명령을 사용하여 hivesampletable에서 mobiledata 테이블로 데이터를 내보냅니다.
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Sqoop가 SQL 데이터베이스, sqooptest 데이터베이스에 연결하고 wasb:///tutorials/flightdelays/output(이전에 hive 쿼리의 출력을 저장한 위치)에서 데이터를 지연 테이블로 내보내도록 합니다.
+	Sqoop가 SQL 데이터베이스, 지연 테이블을 표함한 데이터베이스에 연결하고 wasb:///tutorials/flightdelays/output(이전에 hive 쿼리의 출력을 저장한 위치)에서 데이터를 지연 테이블로 내보내도록 합니다.
 
 4. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -268,6 +252,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 	테이블에 데이터 목록이 표시됩니다. `exit`를 입력하여 tsql 유틸리티를 종료합니다.
 
 ##<a id="nextsteps"></a> 다음 단계
+
 이제 파일을 Azure Blob 저장소로 업로드하는 방법, Azure Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
@@ -306,4 +291,4 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

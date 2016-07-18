@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="jtuliani" />
 
 # 트래픽 관리자 끝점 모니터링 및 장애 조치(failover)
@@ -175,4 +175,4 @@ HTTP 및 HTTPS 상태 검사에 사용되는 호스트 헤더는 각 끝점과 �
 
 트래픽 관리자 끝점에서 [Degraded 상태 문제를 해결](traffic-manager-troubleshooting-degraded.md)합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

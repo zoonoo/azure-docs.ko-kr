@@ -140,14 +140,15 @@
 
 *초급자를 위한 데이터 과학*은 5개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
 
-  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **현재 사용 가능합니다.**
-  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) **현재 사용 가능합니다.**
-  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) **현재 사용 가능합니다.**
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) 6월 30일에 제공될 예정입니다.
+  * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
+  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## 다음 단계
 
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

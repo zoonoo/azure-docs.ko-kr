@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="07/06/2016" 
 	ms.author="anbacker"/>
 	
 # 가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결
@@ -148,7 +148,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 -   [장애 조치 또는 Azure로 마이그레이션된 보호된 가상 컴퓨터에 대한 드라이브 문자를 유지하는 방법](http://support.microsoft.com/kb/3031135)
 -   [Azure 보호 네트워크 대역폭 사용에 대한 온-프레미스 관리 방법](https://support.microsoft.com/kb/3056159)
 -   [ASR: 가상 컴퓨터에 대한 보호를 사용하도록 설정하려고 할 때 "클러스터 리소스를 찾을 수 없습니다." 오류](http://support.microsoft.com/kb/3010979)
--   [Hyper-V 복제본 가이드 이해 및 문제 해결](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+-   [Hyper-V 복제본 가이드 이해 및 문제 해결](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 
 ## 일반적 ARS 오류 및 해결 방법
 
@@ -171,7 +171,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 ### 보호
 - <span style="color:green;">신규</span> [보호를 사용하도록 설정하지 못했으며 "가상 컴퓨터에 대해 보호를 구성할 수 없습니다." 오류가 표시됩니다. 오류 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
 - <span style="color:green;">신규</span> [보호를 사용하도록 설정하지 못했으며 "가상 컴퓨터에 대해 보호를 사용하도록 설정할 수 없습니다." 오류가 표시됩니다. 오류 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-- <span style="color:green;">신규</span> [실시간 마이그레이션 오류 23848 - 가상 컴퓨터가 실시간 유형을 사용하여 이동됩니다. 가상 컴퓨터의 복구 보호 상태를 손상시킬 수 있습니다.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
+- <span style="color:green;">신규</span> [실시간 마이그레이션 오류 23848 - 가상 컴퓨터가 실시간 유형을 사용하여 이동됩니다. 가상 컴퓨터의 복구 보호 상태를 손상시킬 수 있습니다.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 - [호스트 컴퓨터에 에이전트가 설치되어 있지 않아 보호를 사용하도록 설정하지 못했습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [계산 리소스가 부족하여 복제 가상 컴퓨터의 적절한 호스트를 찾을 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [논리 네트워크가 연결되어 있지 않아 복제 가상 컴퓨터의 적절한 호스트를 찾을 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
@@ -202,4 +202,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 -   많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. [문제 해결 문서를 사용하여 VM에 RDP를 연결합니다.](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

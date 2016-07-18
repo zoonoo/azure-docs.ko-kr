@@ -45,11 +45,7 @@
 | [Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-powershell.md) | 이 자습서에서는 Azure PowerShell을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md) | 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: 첫 번째 데이터 팩터리 빌드(개요)](data-factory-build-your-first-pipeline.md) | 이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 데이터 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다. |
-| [자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-get-started.md) | 이 자습서에서는 Azure Data Factory 파이프라인에 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하는 방법을 보여 줍니다. |
-| [자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-monitor-manage-using-powershell.md) | 이 자습서에서는 Azure PowerShell을 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) | 이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure 데이터 팩터리 파이프라인을 만들 것입니다. |
-| [자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-editor.md) | 이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
-| [자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-vs.md) | 이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
 
 ## 데이터 이동
 
@@ -157,4 +153,4 @@
 
 - 학습 경로 그래픽: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

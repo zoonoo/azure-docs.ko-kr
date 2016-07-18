@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>
 
 # Express 경로를 사용하는 앱 서비스 환경에 대한 네트워크 구성 세부 정보 
@@ -21,7 +21,7 @@
 ## 개요 ##
 고객은 [Azure Express 경로][ExpressRoute] 회로를 가상 네트워크 인프라로 연결 할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다. 앱 서비스 환경은 [가상 네트워크][virtualnetwork]인프라의 서브넷에서 만들 수 있습니다. 다음 앱 서비스 환경에서 실행 중인 앱은 Express 경로 연결을 통해서만 액세스할 수 있는 백엔드 리소스에 대한 보안 연결을 설정할 수 있습니다.
 
-**참고:** "v2" 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다. 앱 서비스 환경은 현재 RFC1918 주소 공간(즉, 개인 주소)을 사용하는 클래식 "v1" 가상 네트워크에서만 지원됩니다.
+**참고:** "v2" 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다. 최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수 있습니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -140,4 +140,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,4 +1,4 @@
-* [Azure 앱 서비스 크기 조정](../articles/app-service/app-service-scale.md)
+* [Azure 앱 서비스 크기 조정](../articles/app-service-web/web-sites-scale.md)
 	* 중복성 및 안정성 이해
 	* 상태 저장 vs 상태 비저장 응용 프로그램
 		* [상태 비저장 앱 구성](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
@@ -14,4 +14,4 @@
 * 지역 배포
 	* [트래픽 관리자를 활용하여 글로벌 규모 달성](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

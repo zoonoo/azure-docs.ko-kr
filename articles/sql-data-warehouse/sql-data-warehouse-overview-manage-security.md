@@ -18,6 +18,16 @@
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
 
+> [AZURE.SELECTOR]
+- [보안 개요](sql-data-warehouse-overview-manage-security.md)
+- [위협 감지](sql-data-warehouse-security-threat-detection.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [감사 개요](sql-data-warehouse-auditing-overview.md)
+- [하위 수준 클라이언트 감사](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 이 문서는 Azure SQL 데이터 웨어하우스 데이터베이스 보호에 대한 기본 사항을 안내합니다. 특히, 이 문서는 데이터베이스에서 액세스 제한, 데이터 보호 및 작업 모니터링을 위한 리소스로 시작할 수 있습니다.
 
 ## 연결 보안
@@ -115,4 +125,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

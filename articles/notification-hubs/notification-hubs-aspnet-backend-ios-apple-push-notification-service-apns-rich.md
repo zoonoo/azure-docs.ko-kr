@@ -4,7 +4,7 @@
 	documentationCenter="ios"
 	services="notification-hubs"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 다양한 푸시
@@ -96,7 +96,7 @@
             }
         }
 
-	>[AZURE.NOTE](optional) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
+	>[AZURE.NOTE] \(optional) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
 
 7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
 
@@ -381,4 +381,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

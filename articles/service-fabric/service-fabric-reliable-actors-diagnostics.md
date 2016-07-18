@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Reliable Actors에 대한 진단 및 성능 모니터링
@@ -118,7 +118,7 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 |서비스 패브릭 행위자|평균 밀리초 행위자 잠금 보유됨|행위자별 잠금이 보유되는 시간(밀리초)|
 
 ### 행위자 상태 관리 이벤트 및 성능 카운터
-Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -169,4 +169,4 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
  - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

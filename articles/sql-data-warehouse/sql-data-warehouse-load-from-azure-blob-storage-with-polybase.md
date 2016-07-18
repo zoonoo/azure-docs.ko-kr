@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -85,7 +85,7 @@ WITH (
 
 ### 1\.2. 외부 데이터 원본 만들기
 
-[외부 데이터 원본 만들기][] 명령을 사용하여 데이터의 위치와 데이터의 유형을 저장합니다.
+이 [CREATE EXTERNAL DATA SOURCE][] 명령을 사용하여 데이터의 위치와 데이터의 형식을 저장합니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -100,7 +100,7 @@ WITH
 
 ## 2\. 데이터 형식 구성
 
-데이터는 Azure blob 저장소에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. [외부 파일 형식 만들기][] 명령을 실행하여 텍스트 파일로 된 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
+데이터는 Azure blob 저장소에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. 이 [CREATE EXTERNAL FILE FORMAT][] 명령을 실행하여 텍스트 파일로 된 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +264,7 @@ WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
 
 ## 5\. Columnstore 압축을 최적화합니다.
 
-기본적으로 SQL 데이터 웨어하우스는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다. 여기에는 다양한 이유가 있습니다. 자세한 내용은 다음을 참조하세요.
+기본적으로 SQL 데이터 웨어하우스는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다. 여기에는 다양한 이유가 있습니다. 자세한 내용은 [columnstore 인덱스 관리][]를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
@@ -276,13 +276,13 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [columnstore 인덱스 관리(manage columnstore indexes)][] 문서를 참조하세요.
+Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [columnstore 인덱스 관리][] 문서를 참조하세요.
 
 ## 6\. 통계를 최적화합니다.
 
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 `prc_sqldw_create_stats`[통계][] 문서에 저장된 프로시저 코드 샘플을 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계][] 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 
@@ -351,16 +351,17 @@ SQL 데이터 웨어하우스를 탐색해 보십시오.
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
-[columnstore 인덱스 관리]:
-[통계]: sql-data-warehouse-develop-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
+[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[columnstore 인덱스 관리]: ./sql-data-warehouse-tables-index.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[label]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[외부 데이터 원본 만들기]: [외부 파일 형식 만들기]:
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/ko-KR/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/ko-KR/library/dn935026.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
@@ -368,4 +369,4 @@ SQL 데이터 웨어하우스를 탐색해 보십시오.
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [전체 Contoso 소매 데이터 웨어하우스 로드하기]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

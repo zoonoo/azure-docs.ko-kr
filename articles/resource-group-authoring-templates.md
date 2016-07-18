@@ -348,7 +348,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
     "outputs": {
        "<outputName>" : {
          "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>",
+         "value": "<output-value-expression>"
        }
     }
 
@@ -368,6 +368,8 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
        }
     }
 
+출력 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
+
 ## 다음 단계
 - 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 - 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
@@ -375,4 +377,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

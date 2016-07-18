@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # 엔터프라이즈 푸시 아키텍처 지침
@@ -45,7 +45,7 @@
 ###이점:
 
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
-2. 이렇게 하면 하나 이상의 백엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
+2. 이렇게 하면 하나 이상의 백엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.
 
 ## 샘플:
 
@@ -272,4 +272,4 @@
 [알림 허브 - Windows 유니버설 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

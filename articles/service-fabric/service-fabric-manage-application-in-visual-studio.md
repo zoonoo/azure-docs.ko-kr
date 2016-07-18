@@ -36,23 +36,24 @@ Visual Studio를 통해 Azure 서비스 패브릭 응용 프로그램 및 서비
 
 Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 첨부됩니다. **Ctrl+F5**를 사용하여 디버그하지 않고 응용 프로그램을 배포하거나, 게시 프로필을 사용하여 로컬 또는 원격 클러스터에 게시할 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시](service-fabric-publish-app-remote-cluster.md)를 참조하세요.
 
-### 테스트를 실행하는 사이에 데이터 유지
+### 응용 프로그램 디버그 모드
 
-테스트 데이터 입력을 추가하고, 코드 블록을 조금 수정하여 로컬에서 서비스를 테스트한 후에 로컬에서 다시 디버깅을 하는 경우가 자주 있습니다. Visual Studio 서비스 패브릭 도구에는 **Preserve Data on Start**(시작 시 데이터 유지)라고 하는 편리한 속성이 제공되는데, 이 속성은 이전 세션에서 입력한 데이터를 유지하여 다시 사용할 수 있도록 합니다.
+로컬로 서비스를 디버깅하는 동안 기존 응용 프로그램 및 데이터를 유지하려고 할 수 있습니다. Visual Studio 서비스 패브릭 도구는 **응용 프로그램 디버그 모드**라는 속성을 제공합니다. 이 속성은 **F5** 키로 응용 프로그램을 제거할 수 있는지 또는 디버그 세션이 끝난 후에 응용 프로그램을 유지할지를 제어합니다.
 
-#### Preserve Data on Start(시작 시 데이터 유지) 속성을 사용하도록 설정하려면
+#### 응용 프로그램 디버그 모드 속성을 설정하려면
 
 1. 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **속성**을 선택하거나 **F4** 키를 누릅니다.
-1. **속성** 창에서 **Preserve Data on Start**(시작 시 데이터 유지) 속성을 **예**로 설정합니다.
+2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 **제거** 또는 **자동 업그레이드**로 설정합니다.
 
-	![Preserve Data on Start(시작 시 데이터 유지) 속성 설정][preservedata]
+![응용 프로그램 디버그 모드 속성 설정][debugmodeproperty]
 
-응용 프로그램을 다시 실행하면, 배포 스크립트는 모니터링되지 않는 자동 모드를 사용하여 배포를 업그레이드로 처리하여 응용 프로그램을 새로운 버전으로(추가된 날짜 문자열과 함께) 신속하게 업그레이드합니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
+이 속성 값을 **자동 업그레이드**로 설정하면 로컬 클러스터에서 응용 프로그램은 계속 진행됩니다. 다음에 **F5** 키를 누르면 모니터링되지 않는 자동 모드를 사용하여 배포가 업그레이드로 처리되어, 응용 프로그램이 새로운 버전으로(추가된 날짜 문자열과 함께) 신속하게 업그레이드됩니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
 
-![데이터가 추가된 새 응용 프로그램 버전의 예][preservedate]
+![date1이 추가된 새 응용 프로그램 버전의 예][preservedate]
 
 데이터는 서비스 패브릭 플랫폼의 업그레이드 기능을 활용하여 유지됩니다. 응용 프로그램 업그레이드에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요.
 
+**참고:** Visual Studio용 서비스 패브릭 도구 1.1 버전 이전에는 이 속성이 없습니다. 1.1 버전 이전에는 **시작 시 데이터 보존** 속성을 사용하여 동일한 동작을 얻을 수 있습니다.
 ## 서비스 패브릭 응용 프로그램에 서비스 추가
 
 응용 프로그램에 새 패브릭 서비스를 추가하면 기능을 확장할 수 있습니다. 응용 프로그램 패키지에 서비스가 포함되도록 하려면 **새 패브릭 서비스...** 메뉴 항목을 통해 서비스를 추가합니다.
@@ -96,5 +97,6 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+[debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

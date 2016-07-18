@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # 다른 Azure 제안으로 전환
@@ -26,9 +26,11 @@
 
 ## 구독을 다른 제안으로 전환하는 방법
 
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
+
 1.	[Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
 2.	양도할 구독을 선택합니다.
-3.	**다른 제안으로 전환**을 클릭합니다.
+3.	**다른 제품으로 전환**을 클릭합니다.
 
 	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
 4.	구독을 전환할 수 있는 모든 제안이 표시됩니다. 이 목록은 계정이 연결된 멤버 자격 및 현재 제안에 따라 다릅니다. 각 제안에 대한 자세한 내용은 해당 제안 아래의 "자세히" 링크를 클릭하여 확인할 수 있습니다. 다음 단계를 계속하려면 원하는 제안을 클릭합니다.
@@ -60,17 +62,17 @@
 
 전환한 날 모든 미결제 요금에 대한 송장이 생성됩니다. 이후에는 새 제안의 가격 책정 조건에 따라 구독 요금이 청구됩니다. 구독 요금 청구일은 제안을 변경한 날짜로 변경됩니다. 제안 변경 전 사용 및 요금 청구 데이터는 보존되지 않으므로 전환하기 전에 다운로드하는 것이 좋습니다.
 
-**참고** 청구 관련 제약 조건으로 인해 구독을 만든 후 첫 번째 청구 주기 이내에는 제안을 변경할 수 없습니다.
+**참고** 청구 관련 제약 조건으로 인해 구독을 만든 후 첫 번째 청구 주기 이내에는 제품을 변경할 수 없습니다.
 
-**이 메커니즘을 사용하여 웹 다이렉트에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA) 제안으로 마이그레이션할 수 있나요?**
+**이 메커니즘을 사용하여 웹 다이렉트에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA) 제품으로 마이그레이션할 수 있나요?**
 
 이 메커니즘은 웹 다이렉트 제안 간에 전환하는 데에만 사용될 수 있습니다. 기존 구독을 EA로 전환하려면 등록 관리자에게 계정을 EA에 추가하도록 요청해야 합니다. 그러면 초대 메일을 받게 됩니다. 지침에 따라 초대를 수락하면 구독이 기업 계약으로 자동으로 전환됩니다. 현재 기존 웹 다이렉트 구독을 CSP로 전환하는 옵션은 없습니다.
 
 ## 전환할 수 있는 제안
 
-현재 [계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원되는 경로는 다음과 같습니다. 이 문서는 옵션이 추가되는 대로 업데이트될 예정입니다. 다른 제안 변경 내용은 [지원에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)하세요.
+현재 [계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원되는 경로는 다음과 같습니다. 이 문서는 옵션이 추가되는 대로 업데이트될 예정입니다. 다른 제품 변경 내용은 [지원에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)하세요.
 
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [12개월 선불 약정](https://azure.microsoft.com/offers/ms-azr-0026p/)으로
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [Visual Studio 구독자용 월별 Azure 크레딧 제안](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)으로
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

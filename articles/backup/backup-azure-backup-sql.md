@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="07/01/2016"
 	ms.author="giridham; jimpark;"/>
 
 
@@ -30,7 +30,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 3. Azure에서 데이터베이스를 복구합니다.
 
 ## 시작하기 전에
-시작하기 전에, 워크로드를 보호하기 위하여 Microsoft Azure 백업 사용을 위한 [필수 구성 요소](../backup-azure-dpm-introduction/#prerequisites)를 모두 충족하는지 확인합니다. 필수 구성 요소는 백업 저장소 만들기, 보관 자격 증명 다운로드, Azure 백업 에이전트 설치 및 저장소에 서버 등록 등의 작업들을 다룹니다.
+시작하기 전에, 워크로드를 보호하기 위하여 Microsoft Azure 백업 사용을 위한 [필수 구성 요소](../backup-azure-dpm-introduction.md#prerequisites)를 모두 충족하는지 확인합니다. 필수 구성 요소는 백업 저장소 만들기, 보관 자격 증명 다운로드, Azure 백업 에이전트 설치 및 저장소에 서버 등록 등의 작업들을 다룹니다.
 
 ## Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
 
@@ -52,7 +52,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![SQL DB를 선택합니다.](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. 만들 보호 그룹에 이름을 제공합니다. "**온라인 보호를 원합니다**" 옵션을 선택합니다.
+6. 만들 보호 그룹에 이름을 제공합니다. "**온라인 보호를 사용합니다**" 옵션을 선택합니다.
 
     ![데이터 보호 방법 - 단기 디스크 및 온라인 Azure](./media/backup-azure-backup-sql/pg-name.png)
 
@@ -62,7 +62,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![단기 목표](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] 오후 8시에(화면 입력에 따라) 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 매일 만들어집니다. 이 프로세스를 **빠른 전체 백업**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다.(이 경우에 오후 8시)
+    >[AZURE.NOTE] 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 오후 8시에(화면 입력에 따라) 매일 만들어집니다. 이 프로세스를 **빠른 전체 백업**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다.(이 경우에 오후 8시)
 
 8. **다음**를 클릭합니다.
 
@@ -174,4 +174,4 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 
 • [Azure 백업 FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -123,4 +123,4 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 
 네트워크 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 시작](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -38,7 +38,7 @@ Application Insights가 Azure에서 두 작업자 역할이 호스팅되는 클�
 
 Application Insights 리소스는 원격 분석 데이터를 분석하고 표시할 수 있는 위치입니다.
 
-1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다. 
+1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다.
 
     ![새로 만들기, Application Insights 클릭](./media/app-insights-cloudservices/01-new.png)
 
@@ -59,7 +59,7 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. 웹 역할의 경우 [웹용 Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 [Windows 서비스용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 사용합니다.
+2. 웹 역할의 경우 [웹용 Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 [Windows Server용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 사용합니다.
 
     !["Application Insights" 검색](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -87,9 +87,9 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
  
  * [웹 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
  * [작업자 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
- * [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
+ * [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
-4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 
+4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다.
 
     .config 파일에서 해당 위치에 계측 키를 배치할지 묻는 메시지가 표시됩니다. 그러나 클라우드 응용 프로그램의 경우에는 .cscfg 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
@@ -145,7 +145,7 @@ Azure 진단은 역할이 예기치 않게 실패하거나 시작되지 않을 �
 
 진단 유틸리티를 찾을 수 있는 위치:
 
-* 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
+* 성능 카운터는 사용자 지정 메트릭으로 표시됩니다.
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
 * 응용 프로그램 로그, ETW 로그 및 진단 인프라 로그는 추적으로 표시됩니다.
 
@@ -286,4 +286,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

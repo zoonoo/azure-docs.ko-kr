@@ -30,7 +30,7 @@
 
 SSMS(SQL Server Management Studio) 및 Visual Studio의 SSDT(SQL Server Data Tools)는 사용자의 컴퓨터에서 실행되며 클라우드의 데이터베이스를 연결, 관리 및 개발할 수 있는 클라이언트 도구입니다. Visual Studio 또는 다른 IDE(통합 개발 환경)에 익숙한 응용 프로그램 개발자라면 [Visual Studio에서 SSDT를 사용](https://msdn.microsoft.com/library/mt204009.aspx)해 보세요. 많은 데이터베이스 관리자가 Azure SQL 데이터베이스에서 사용할 수 있는 SSMS와 유사합니다. Azure SQL 데이터베이스에서 작업할 때 [최신 SSMS 버전을 다운로드](https://msdn.microsoft.com/library/mt238290)하고 항상 최신 릴리스를 사용합니다. SSMS를 사용하여 Azure SQL 데이터베이스를 관리하는 방법에 대한 자세한 내용은 [SSMS를 사용하여 SQL 데이터베이스 관리](sql-database-manage-azure-ssms.md)를 참조하세요.
 
-> [AZURE.IMPORTANT] 최신 버전의 SQL Server Management Studio 및 Visual Studio용 SQL Server 데이터 도구를 사용하여 Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지해야 합니다. 이러한 도구의 이전 버전은 SQL 데이터베이스에서 제대로 작동하지 않습니다.
+> [AZURE.IMPORTANT] 최신 버전의 SQL Server Management Studio 및 Visual Studio용 SQL Server Data Tools를 사용하여 Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지해야 합니다. 이러한 도구의 이전 버전은 SQL 데이터베이스에서 제대로 작동하지 않습니다.
 
 ## 명령줄 도구.
 
@@ -46,4 +46,4 @@ PowerShell 같은 명령줄 도구를 사용하여 데이터베이스 및 탄력
 * [탄력적인 확장 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 단일 테넌트 모델 또는 다중 테넌트 모델에서 데이터베이스 관리
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK 릴리스 정보"
+	pageTitle="Azure Mobile Engagement iOS SDK 릴리스 정보 | Microsoft Azure"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#릴리스 정보
+#Azure Mobile Engagement iOS SDK 릴리스 정보
+
+##3\.2.4(2016년 6월 30일)
+
+-   기술 로그 및 기타 로그 간 집계를 수정했습니다.
 
 ##3\.2.3(06/07/2016)
 
@@ -67,4 +71,4 @@
 -   보안이 개선되었습니다.
 -   SmartAd 추적 기능이 제거되었습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

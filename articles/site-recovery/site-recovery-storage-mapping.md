@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -65,7 +65,9 @@ Hyper-V 복제본을 사용하여 사이트 복구를 복제할 때 두 사이�
 
 ![저장소 매핑 구성](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-이 예제에서: - 복제본 가상 컴퓨터가 GOLD 저장소(SourceShare1)에서 가상 컴퓨터에 대해 생성되면 GOLD\_TARGET 저장소(TargetShare1)에 복제됩니다. - 복제본 가상 컴퓨터가 SILVER 저장소(SourceShare2)에서 가상 컴퓨터에 대해 생성되면 SILVER\_TARGET(TargetShare2) 저장소에 복제됩니다.
+이 예제에서:
+- 복제본 가상 컴퓨터가 GOLD 저장소(SourceShare1)의 임의의 가상 컴퓨터에 대해 만들어지면 GOLD\_TARGET 저장소(TargetShare1)로 복제됩니다.
+- 복제본 가상 컴퓨터가 SILVER 저장소(SourceShare2)의 임의의 가상 컴퓨터에 대해 만들어지면 SILVER\_TARGET 저장소(TargetShare2) 저장소로 복제되며, 이러한 방식으로 계속됩니다.
 
 실제 파일 공유 및 VMM에서 할당된 해당 분류는 다음 스크린샷과 같습니다.
 
@@ -98,4 +100,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | 해당 없음 | 매핑이 없어 Hyper
 
 저장소 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 준비](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

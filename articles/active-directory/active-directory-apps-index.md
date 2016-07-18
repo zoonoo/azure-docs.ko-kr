@@ -42,7 +42,7 @@
 | 페더레이션된 Single Sign-On | [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 암호 기반 Single Sign-On | [Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 | [앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
-| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On | [암호 동기화 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| 온-프레미스 AD 및 Azure AD 간의 Single Sign-On | [암호 동기화 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
 | 동적 그룹 멤버 자격 | [동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
 ##SSO(Single Sign-On)
@@ -60,7 +60,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 | [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 | [Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](active-directory-sso-certs.md) |
 
-페더레이션된 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 페더레이션된 응용 프로그램에 액세스 권한을 할당](#how-to-manage-who-has-access-to-which-apps)할 수 있습니다.
+페더레이션된 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 페더레이션된 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다.
 
 ###암호 기반 Single Sign-On: 페더레이션되지 않은 앱에 대한 계정 공유 및 SSO
 
@@ -73,7 +73,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 일정한 간격으로 특정 앱에 대한 암호 자동 변경 | [자동화된 암호 롤오버(미리 보기)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
 | Azure AD 암호 관리 확장의 Internet Explorer 버전에 대한 배포 및 문제 해결 가이드 | [그룹 정책을 사용하여 Internet Explorer에 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)<br /><br />[Internet Explorer에 대한 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 
-암호 기반 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#how-to-manage-who-has-access-to-which-apps)할 수 있습니다. 자동화된 암호 롤오버는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
+암호 기반 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다. 자동화된 암호 롤오버는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ###앱 프록시: 온-프레미스 응용 프로그램에 Single Sign-On 및 원격 액세스
 
@@ -81,13 +81,13 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 
 | 문서 가이드 | |
 | :---: | --- |
-| Azure AD 응용 프로그램 프록시 및 작동 방식 개요 | [온-프레미스 응용 프로그램에 대한 보안 원격 액세스 제공](active-directory-application-proxy-get-started.md)<br /><br />[Azure AD 앱 프록시 작동 방식](active-directory-appssoaccess-enable-hybrid-access.md) |
+| Azure AD 응용 프로그램 프록시 및 작동 방식 개요 | [온-프레미스 응용 프로그램에 대한 보안 원격 액세스 제공](active-directory-application-proxy-get-started.md) |
 | 응용 프로그램 프록시를 구성하는 방법 및 첫 번째 앱을 게시하는 방법에 대한 자습서 | [Azure AD 앱 프록시를 설정하는 방법](active-directory-application-proxy-enable.md)<br /><br />[자동으로 앱 프록시 커넥터를 설치하는 방법](active-directory-application-proxy-silent-installation.md)<br /><br />[앱 프록시를 사용하여 응용 프로그램을 게시하는 방법](active-directory-application-proxy-publish.md)<br /><br />[고유한 도메인 이름을 사용하는 방법](active-directory-application-proxy-custom-domains.md) |
 | 앱 프록시로 게시된 앱에 Single Sign-On 및 조건부 액세스를 사용하는 방법 | [응용 프로그램 프록시를 사용한 Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[조건부 액세스 및 응용 프로그램 프록시](active-directory-application-proxy-conditional-access.md) |
 | 다음 시나리오에 응용 프로그램 프록시를 사용하는 방법에 대한 지침 | [네이티브 클라이언트 응용 프로그램을 지원하는 방법](active-directory-application-proxy-native-client.md)<br /><br />[클레임 인식 응용 프로그램을 지원하는 방법](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[별도 네트워크 및 위치에 게시된 응용 프로그램을 지원하는 방법](active-directory-application-proxy-connectors.md) |
 | 응용 프로그램 프록시에 대한 문제 해결 가이드 | [앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
 
-응용 프로그램 프록시는 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#how-to-manage-who-has-access-to-which-apps)할 수 있습니다.
+응용 프로그램 프록시는 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다.
 
 [Azure AD 도메인 서비스](../active-directory-domain-services/active-directory-ds-overview.md)에 관심이 있을 수 있으며 이를 사용하면 해당 응용 프로그램의 ID 요구를 만족하면서 Azure에 온-프레미스 응용 프로그램을 마이그레이션할 수 있습니다.
 
@@ -114,7 +114,7 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | :---: | --- |
 | Azure AD, Office365 및 Intune에 제공되는 조건부 액세스 기능 소개 | [조건부 액세스를 사용한 위험 관리](active-directory-conditional-access.md) |
 | 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 | [SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-application-proxy-conditional-access.md) |
-| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 | [Azure Active Directory 장치 등록의 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 자동 장치 등록을 사용하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />— [Windows 8.1 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />— [Windows 7 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 | [Azure Active Directory 장치 등록의 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 자동 장치 등록을 사용하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />— [Windows 8.1 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows8-1.md)<br />— [Windows 7 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Multi-Factor Authentication과 관련된 정책에 Android 버전의 Azure Authenticator 앱을 사용하는 방법 | [Android용 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
@@ -148,7 +148,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 | 프로비전 오류의 알림 받기 | [프로비전 알림](active-directory-saas-account-provisioning-notifications.md) |
 | 특성 값에 따라 응용 프로그램에 프로비전된 제한 | [범위 지정 필터](active-directory-saas-scoping-filters.md) |
 
-자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#how-to-manage-who-has-access-to-which-apps)할 수 있습니다.
+자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#managing-access-to-applications)할 수 있습니다.
 
 ###Azure AD와 통합되는 응용 프로그램 작성
 
@@ -174,7 +174,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 | Azure AD 액세스 관리 기능의 개요 | [앱에 대한 액세스 관리 소개](active-directory-managing-access-to-apps.md)<br /><br />[Azure AD에서 액세스 관리의 작동 방식](active-directory-manage-groups.md)<br /><br />[그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 관리하는 방법](active-directory-accessmanagement-group-saasapps.md) |
 | 앱 및 그룹의 셀프 서비스 관리 사용 | [셀프 서비스 응용 프로그램 관리](active-directory-self-service-application-access.md)<br /><br />[셀프 서비스 그룹 관리](active-directory-accessmanagement-self-service-group-management.md) |
 | Azure AD에서 그룹을 설정하기 위한 지침 | [보안 그룹을 만드는 방법](active-directory-accessmanagement-manage-groups.md)<br /><br />[그룹에 소유자를 지정하는 방법](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["모든 사용자" 그룹을 사용하는 방법](active-directory-accessmanagement-dedicated-groups.md) |
-| 동적 그룹을 사용하여 자동으로 특성 기반 멤버 자격 규칙을 사용하는 그룹 멤버 자격 채우기 | [동적 그룹 멤버 자격: 간단한 규칙](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[동적 그룹 멤버 자격: 고급 규칙](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
+| 동적 그룹을 사용하여 자동으로 특성 기반 멤버 자격 규칙을 사용하는 그룹 멤버 자격 채우기 | [동적 그룹 멤버 자격: 고급 규칙](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
 그룹 기반 응용 프로그램 액세스 관리는 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 셀프 서비스 그룹 관리, 셀프 서비스 응용 프로그램 관리 및 동적 그룹은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
@@ -212,7 +212,7 @@ Azure Active Directory는 여러 보고서 및 경고를 제공하여 응용 프
 | 문서 가이드 | |
 | :---: | --- |
 | Azure Active Directory의 보고 기능 개요 | [Azure AD Reporting 시작](active-directory-reporting-getting-started.md) |
-| 사용자의 로그인 및 앱 사용을 모니터링하는 방법 | [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)<br /><br />[Azure Active Directory 모든 사용자 로그인 활동 보고서](active-directory-reporting-all-user-sign-in-activity-report.md) |
+| 사용자의 로그인 및 앱 사용을 모니터링하는 방법 | [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md) |
 | 특정 응용 프로그램에 액세스할 수 있는 사용자에 대한 변경 내용 추적 | [Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md) |
 | 보고 API를 사용하여 원하는 도구에 이러한 보고서의 데이터 내보내기 | [Azure AD Reporting API 시작하기](active-directory-reporting-api-getting-started.md) |
 
@@ -228,4 +228,4 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

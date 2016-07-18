@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/21/2016"
 	ms.author="rclaus"/>
 
 # Azure에서 Linux VM 최적화
@@ -59,7 +59,7 @@ Azure 마켓플레이스에서 배포된 VM 이미지에는 VM이 다양한 Azur
 다음으로 변경해야 합니다.
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={필요에 맞는 크기(MB)} 
+* ResourceDisk.SwapSizeMB={필요에 맞는 크기(MB)}
 
 변경한 후에는 변경 내용을 반영하기 위해 waagent를 다시 시작하거나 Linux VM을 다시 시작해야 합니다. 변경 내용을 구현했다면 `free` 명령을 사용하여 여유 공간을 볼 때 스왑 파일이 만들어졌습니다. 아래 예제에서는 waagent.conf 파일을 수정한 결과로 생성된 512MB 스왑 파일이 있습니다.
 
@@ -126,4 +126,4 @@ Redhat 배포 패밀리의 경우 다음 명령만 필요합니다.
 - [Azure Linux VM에서 MySQL 성능 최적화](virtual-machines-linux-classic-optimize-mysql.md)
 - [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->
