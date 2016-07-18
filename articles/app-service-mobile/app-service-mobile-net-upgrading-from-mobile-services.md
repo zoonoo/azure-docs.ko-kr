@@ -274,7 +274,7 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 <!---HONumber=AcomDC_0706_2016-->

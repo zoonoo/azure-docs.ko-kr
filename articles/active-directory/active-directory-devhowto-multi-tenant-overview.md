@@ -160,7 +160,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-graph-api/
+[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant

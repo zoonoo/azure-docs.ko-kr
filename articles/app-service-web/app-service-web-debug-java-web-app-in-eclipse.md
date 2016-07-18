@@ -29,7 +29,7 @@
 * JDK(Java 개발자 키트), v 1.8 이상.
 * Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
-* Azure 구독(<https://azure.microsoft.com/ko-KR/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
+* Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
 * Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 * Azure 앱 서비스에서 만들고 배포된 동적 웹 프로젝트는 [Eclipse에서 Azure용 Hello World 웹앱 만들기] 등을 참조하세요.
 

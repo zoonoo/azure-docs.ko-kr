@@ -57,13 +57,13 @@ Azure SQL 데이터베이스 등의 다른 SQL 플랫폼에서 데이터베이�
 |---|---|
 |[geometry][]|[varbinary][]|
 |[geography][]|[varbinary][]|
-|[hierarchyid][]|[nvarchar][](4000)|
+|[hierarchyid][]|[nvarchar][]\(4000)|
 |[이미지][ntext,text,image]|[varbinary][]|
 |[텍스트][ntext,text,image]|[varchar][]|
 |[ntext][ntext,text,image]|[nvarchar][]|
 |[sql\_variant][]|열을 강력한 형식의 열로 분할합니다.|
 |[테이블][]|임시 테이블로 변환합니다.|
-|[timestamp][]|[datetime2][] 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업을 수행합니다. 상수만 기본값으로 지원됩니다. 따라서 current\_timestamp는 기본 제약 조건으로 정의할 수 없습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 [BINARY][](8) 또는 [VARBINARY][BINARY](8)를 사용합니다.|
+|[timestamp][]|[datetime2][] 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업을 수행합니다. 상수만 기본값으로 지원됩니다. 따라서 current\_timestamp는 기본 제약 조건으로 정의할 수 없습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 [BINARY][]\(8) 또는 [VARBINARY][BINARY](8)를 사용합니다.|
 |[xml][]|[varchar][]|
 |[사용자 정의 형식][]|가능한 경우 해당 네이티브 형식으로 다시 변환합니다.|
 |기본값|기본값은 리터럴 및 상수만 지원합니다. `GETDATE()` 또는 `CURRENT_TIMESTAMP`와 같은 명확하지 않은 식 또는 함수는 지원되지 않습니다.|

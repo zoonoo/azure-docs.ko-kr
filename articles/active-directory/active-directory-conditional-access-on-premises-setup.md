@@ -122,7 +122,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
   
   > [AZURE.NOTE] 
-  아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
+  > 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
@@ -252,4 +252,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
