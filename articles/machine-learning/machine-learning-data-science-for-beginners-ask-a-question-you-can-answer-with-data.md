@@ -23,7 +23,10 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
+
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+
+ 
 
 ## 비디오 내용: 데이터로 대답할 수 있는 질문하기
 
