@@ -47,19 +47,19 @@ Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL �
 
 이 섹션에서는 샘플 템플릿을 사용하여 Visual Studio 프로젝트를 만듭니다. 가상 환경을 만들고 필요한 패키지를 설치합니다. sqlite를 사용하여 로컬 데이터베이스를 만듭니다. 그런 후 응용 프로그램을 로컬로 실행합니다.
 
-1. Visual Studio에서 **파일**, **새 프로젝트**를 선택합니다.
+1.  Visual Studio에서 **파일**, **새 프로젝트**를 선택합니다.
 
 1. [Python Tools 2.2 for Visual Studio Samples VSIX]의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다. **Polls Django Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
 
-    ![새 프로젝트 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
+  	![새 프로젝트 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
-1. 외부 패키지를 설치할지 묻는 메시지가 표시됩니다. **가상 환경에 설치**를 선택합니다.
+1.  외부 패키지를 설치할지 묻는 메시지가 표시됩니다. **가상 환경에 설치**를 선택합니다.
 
-    ![외부 패키지 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
+  	![외부 패키지 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
 1. 기본 해석기로 **Python 2.7** 또는 **Python 3.4**를 선택합니다.
 
-    ![가상 환경 추가 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
+  	![가상 환경 추가 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
 1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**을 선택한 다음 **Django Migrate**를 선택합니다. 그런 다음 **Django Create Superuser**를 선택합니다.
 
@@ -67,15 +67,15 @@ Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL �
 
 1. `F5` 키를 눌러 응용 프로그램이 작동하는지 확인합니다.
 
-1. 위쪽의 탐색 모음에서 **로그인**을 클릭합니다.
+1.  위쪽의 탐색 모음에서 **로그인**을 클릭합니다.
 
     ![Django 탐색 모음](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
 
-1. 데이터베이스를 동기화할 때 만든 사용자의 자격 증명을 입력합니다.
+1.  데이터베이스를 동기화할 때 만든 사용자의 자격 증명을 입력합니다.
 
     ![로그인 형식](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
 
-1. **Create Sample Polls**를 클릭합니다.
+1.  **Create Sample Polls**를 클릭합니다.
 
     ![샘플 설문 조사 만들기](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserNoPolls.png)
 
@@ -95,7 +95,7 @@ Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL �
 
 1. 탐색 창 맨 위에서 **새로 만들기**를 클릭한 다음 **데이터 + 저장소**를 클릭한 다음 **MySQL 데이터베이스**를 클릭합니다.
 
-1. 새 리소스 그룹을 만들어 새 MySQL 데이터베이스를 구성하고 적절한 위치를 선택합니다.
+1.  새 리소스 그룹을 만들어 새 MySQL 데이터베이스를 구성하고 적절한 위치를 선택합니다.
 
 1. MySQL 데이터베이스를 만든 후 데이터베이스 블레이드에서 **속성**을 클릭합니다.
 
@@ -123,42 +123,42 @@ Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL �
         }
 
 
-1. 솔루션 탐색기의 **Python Environments**에서 가상 환경을 마우스 오른쪽 단추로 클릭하고 **Install Python Package**를 선택합니다.
+1.  솔루션 탐색기의 **Python Environments**에서 가상 환경을 마우스 오른쪽 단추로 클릭하고 **Install Python Package**를 선택합니다.
 
 1. **pip**를 사용하여 패키지 `mysqlclient`를 설치합니다.
 
-    ![설치 패키지 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
+  	![설치 패키지 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
 1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**을 선택한 다음 **Django Migrate**를 선택합니다. 그런 다음 **Django Create Superuser**를 선택합니다.
 
     이렇게 하면 이전 섹션에서 만든 MySQL 데이터베이스에 대한 테이블이 만들어집니다. 프롬프트에 따라 사용자를 만듭니다. 이 사용자가 이 문서의 첫 번째 섹션에서 만든 sqlite 데이터베이스의 사용자와 일치할 필요는 없습니다.
 
-1. `F5` 키를 눌러 응용 프로그램을 실행합니다. **Create Sample Polls**를 사용하여 만든 설문 조사와 투표를 통해 제출된 데이터는 MySQL 데이터베이스에서 serialize됩니다.
+1.  `F5` 키를 눌러 응용 프로그램을 실행합니다. **Create Sample Polls**를 사용하여 만든 설문 조사와 투표를 통해 제출된 데이터는 MySQL 데이터베이스에서 serialize됩니다.
 
 ## Azure 앱 서비스에 웹앱 게시
 
 Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 있습니다.
 
-1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-    ![웹 게시 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
+  	![웹 게시 대화 상자](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 
 1. **Microsoft Azure 앱 서비스**를 클릭합니다.
 
-1. **새로 만들기**를 클릭하여 새 웹앱을 만듭니다.
+1.  **새로 만들기**를 클릭하여 새 웹앱을 만듭니다.
 
-1. 다음 필드에 입력하고 **만들기**를 클릭합니다.
-	- **웹앱 이름**
-	- **앱 서비스 계획**
-	- **리소스 그룹**
-	- **지역**
-	- **데이터베이스 서버**를 **데이터베이스 없음**으로 그대로 설정합니다.
+1.  다음 필드에 입력하고 **만들기**를 클릭합니다.
+	-	**웹앱 이름**
+	-	**앱 서비스 계획**
+	-	**리소스 그룹**
+	-	**지역**
+	-	**데이터베이스 서버**를 **데이터베이스 없음**으로 그대로 설정합니다.
 
 1. 다른 모든 기본값을 그대로 적용하고 **게시**를 클릭합니다.
 
-1. 웹 브라우저가 자동으로 게시된 웹앱으로 열립니다. Azure에 호스트된 **MySQL** 데이터베이스를 사용하여 예상한 대로 웹앱이 작동하는지 확인합니다.
+1.  웹 브라우저가 자동으로 게시된 웹앱으로 열립니다. Azure에 호스트된 **MySQL** 데이터베이스를 사용하여 예상한 대로 웹앱이 작동하는지 확인합니다.
 
-    ![웹 브라우저](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
+  	![웹 브라우저](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
 
     축하합니다. Azure에 MySQL 기반 웹앱을 성공적으로 게시했습니다.
 
