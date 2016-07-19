@@ -77,7 +77,7 @@ Azure PowerShell에서 "NextHopType" 값의 일부에는 다른 이름이 지정
 
 사용자 정의 경로를 만드는 방법은 [를 만들고 IP 전달을 사용하도록 설정하는 방법](virtual-network-create-udr-arm-template.md)을 참조하십시오.
 
->[AZURE.IMPORTANT] 사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
+>[AZURE.IMPORTANT] 사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 Express 경로 회로를 통해 Azure 환경으로 직접 이동합니다.
 
 ### BGP 경로
 온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 시스템 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](../expressroute/expressroute-introduction.md)를 참조하세요.
@@ -94,4 +94,4 @@ Azure PowerShell에서 "NextHopType" 값의 일부에는 다른 이름이 지정
 - [리소스 관리자 배포 모델에서 경로를 만들어](virtual-network-create-udr-arm-template.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
 - [클래식 배포 모델에서 경로를 만들어](virtual-network-create-udr-classic-ps.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

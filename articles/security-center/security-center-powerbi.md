@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="07/08/2016"
    ms.author="yurid"/>
 
 # Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
@@ -27,11 +27,11 @@ Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-securi
 
 1. **Azure 보안 센터** 대시보드에서 **Power BI에서 탐색** 단추를 클릭합니다.
 
-	![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
+	![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png)
 
 2. **Power BI에서 탐색** 블레이드가 아래와 같이 오른쪽에 열립니다.
 
-	![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig2-new.png)
+	![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
 
 3. 처음으로 Power BI 대시보드를 만드는 경우 Power BI 블레이드의 탐색에서 아래 옵션 중 하나를 선택할 수 있습니다.
 
@@ -39,14 +39,18 @@ Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-securi
 	- **정책 관리 대시보드**: 관리 및 적용 정책을 탐색하려는 경우 이 옵션을 선택합니다. 관리에 중점을 둔 Central IT에 일반적인 옵션입니다. 이 대시보드를 사용하여 조직 내에서 보안 정책 준수에 대한 가시성 및 통찰력을 얻을 수 있습니다.
 	- Power BI 대시보드가 이미 있는 경우 **현재 Power BI 대시보드로 이동**을 클릭합니다.
 
-4. 이 예의 목적에 맞게 **보안 insights 대시보드**를 클릭하면 아래 창이 표시됩니다.
+4. 이 예의 목적에 맞게 **보안 insights 대시보드** 옵션을 클릭합니다. 보안 센터에 대한 Power BI 대시보드를 처음 만드는 경우 콘텐츠 팩을 설치하라는 메시지가 나타납니다. 아래와 같이 **Power BI용 콘텐츠 팩** 창에서 **가져오기** 단추를 클릭합니다.
 
-	![Azure 보안 센터 보안 Insights 대시보드](./media/security-center-powerbi/security-center-powerbi-fig3-new.png)
+	![Azure 보안 센터 보안 Insights 대시보드](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 
-5. **인증 방법**이 **oAuth2**인지 확인하고 **로그인**을 클릭합니다.
-6. **Power BI** 창이 열리고 아래와 같이 유사한 구조를 사용한 보고서가 표시됩니다.
+5. **Azure 보안 센터 보안 Insights에 연결** 창이 나타납니다. 아래와 같이 **인증** 방법이 **oAuth2**인지 확인하고 **로그인** 단추를 클릭합니다.
 	
-	![보안 Insights 대시보드](./media/security-center-powerbi/security-center-powerbi-fig5.png)
+	![인증](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
+
+6. Azure 자격 증명으로 다시 인증하라는 메시지가 나타날 수 있습니다. 인증 후 대시보드가 생성됩니다. 대시보드가 생성된 후 아래와 같이 유사한 구조를 사용한 보고서가 표시됩니다.
+
+	![Power BI 대시보드](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
+
 
 > [AZURE.NOTE] 보고서의 새로 고침을 매일 수행하도록 예약했을 경우 이 새로 고침에 오류가 발생한다면 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 보안 센터 Power BI의 잠재적인 새로 고침 문제](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/)를 참조하세요.
 
@@ -55,15 +59,15 @@ Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-securi
 Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트는 다음을 포함하여 보안 권장 사항 및 경고에 대한 정보를 쉽게 시각화합니다.
 
 - 리소스 보안 상태
-- 보류 중인 전체 권장 사항
+- 보류 중인 권장 사항
 - VM 권장 사항
 - 시간에 따른 경고
 - 공격 받은 리소스
 - 공격 받은 IP
 
-각 차트 뒤에 자세한 내용이 있습니다. 자세한 내용을 보려면 타일을 선택합니다. 예를 들어 리소스 보안 상태 타일은 다음과 같이 리소스에 의해 보류 중인 권장 사항에 대한 추가 세부 정보를 표시합니다.
+각 차트 뒤에 자세한 내용이 있습니다. 자세한 내용을 보려면 타일을 선택합니다. 예를 들어 **리소스 보안 상태** 타일은 다음과 같이 리소스에 의해 보류 중인 권장 사항에 대한 추가 세부 정보를 표시합니다.
 
-![추천](./media/security-center-powerbi/security-center-powerbi-fig6.png)
+![추천](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
 
 이 그래프의 줄을 클릭하면 다른 줄은 회색으로 표시되고 사용자가 선택한 줄에만 집중됩니다. 대시보드 돌아가려면 이 페이지의 왼쪽 창에서 **대시보드** 옵션의 **Azure 보안 센터**를 클릭합니다.
 
@@ -71,7 +75,7 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 
 **시간에 따른 경고, 공격 받은 리소스** 및 **공격자 IP** 타일은 각각을 클릭할 때 비슷한 출력을 갖습니다. 보고서가 이러한 세 개의 변수 모두에 대한 정보를 집계하고 다음과 같이 **공격받는 리소스**를 호출하기 때문에 발생합니다.
 
-![공격받는 리소스](./media/security-center-powerbi/security-center-powerbi-fig7.png)
+![공격받는 리소스](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
 
 이 시점에서 이 보고서의 복사본을 저장하고 인쇄하거나 **파일** 메뉴에서 사용할 수 있는 옵션을 사용하여 웹에 게시할 수 있습니다.
 
@@ -85,11 +89,13 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 
 	![Power BI용 콘텐츠 팩](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
 
+	>[AZURE.NOTE] 이미 이 문서의 첫 번째 부분을 실행한 경우 Azure 보안 센터 정책 관리라는 하나의 옵션만 표시됩니다.
+
 2. 이 예의 목적에 맞게 **Azure 보안 센터 정책 관리** 타일에서 **가져오기**를 클릭합니다.
 
 3. **Azure 보안 센터 정책 관리에 연결** 창에서 아래와 같이 **인증 방법** 드롭다운 아래에서 **oAuth2**를 선택하고 **로그인** 단추를 클릭합니다.
 
-	![정책 관리 창](./media/security-center-powerbi/security-center-powerbi-fig4-new.png)
+	![정책 관리 창](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 
 4. Azure 보안 센터에 연결하는 데 사용하는 자격 증명을 입력해야 하는 인증 페이지로 이동합니다. 인증 프로세스를 완료한 후에 Power BI에서 데이터를 가져오기 시작하여 보고서를 작성합니다. 이 시간 동안 브라우저의 오른쪽 모퉁이에 다음과 같은 메시지가 나타날 수 있습니다.
 
@@ -97,8 +103,9 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 
 	>[AZURE.NOTE] 대시보드가 처음으로 생성되는 경우 여러 구독이 있는 시나리오에 주로 평소보다 시간이 오래 걸릴 수 있습니다.
 
-5. 프로세스가 완료되면 Azure 보안 센터 Power BI 대시보드가 **정책 관리** 보고서와 함께 로드됩니다.
+5. 프로세스가 완료되면 Azure 보안 센터 Power BI 대시보드가 아래에 표시된 것과 유사한 **정책 관리** 보고서와 함께 로드됩니다.
 
+	![정책 관리 대시보드](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
 ## 다음 단계
 이 문서에서는 Azure 보안 센터의 Power BI를 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -109,4 +116,4 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

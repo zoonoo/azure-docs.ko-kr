@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # API 앱 개요
 
@@ -57,10 +57,10 @@ API 관리 및 API 앱의 일부 기능에는 유사한 함수가 있습니다. 
 
 샘플 코드를 배포하여 API 앱을 시작하려면 선호하는 프레임워크에 대한 자습서를 참조하세요.
 
-* [ASP.NET](app-service-api-dotnet-get-started.md) 
-* [Node.JS](app-service-api-nodejs-api-app.md) 
-* [Java](app-service-api-java-api-app.md) 
+* [ASP.NET](app-service-api-dotnet-get-started.md)
+* [Node.JS](app-service-api-nodejs-api-app.md)
+* [Java](app-service-api-java-api-app.md)
 
 API 앱에 대해 질문하려면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)에서 스레드를 시작하세요.
 
-<!--------HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

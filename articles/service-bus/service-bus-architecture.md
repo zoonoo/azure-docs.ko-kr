@@ -1,23 +1,23 @@
 <properties 
     pageTitle="서비스 버스 아키텍처 | Microsoft Azure"
-    description="Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다."
+    description="Azure 서비스 버스의 메시지 및 릴레이 처리 아키텍처를 설명합니다."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # 서비스 버스 아키텍처
 
-이 문서에서는 Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다.
+이 문서에서는 Azure 서비스 버스의 메시지 및 릴레이 처리 아키텍처를 설명합니다.
 
 ## 서비스 버스 배율 단위
 
@@ -53,10 +53,10 @@
 
 ## 다음 단계
 
-서비스 버스 작동 방식에 대해 간략히 살펴보았으므로 다음 링크를 방문하여 시작하세요.
+서비스 버스 아키텍처의 개요에 대해 살펴보았으므로 다음 링크를 방문하여 시작하세요.
 
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 큐 메시징 솔루션](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte"/>
 
 # Azure 실행 계정으로 Runbook 인증
@@ -41,7 +41,7 @@ Azure 포털에서 자동화 계정을 만들고 Azure PowerShell을 사용하�
 3. 자동화 계정 블레이드에서 **추가**를 클릭합니다.<br>![자동화 계정 추가](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 4. **자동화 계정 추가** 블레이드의 **이름** 상자에 새 자동화 계정에 대한 이름을 입력합니다.
 5. 구독이 둘 이상인 경우 새 계정의 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**를 지정합니다.
-6. **Azure 실행 계정 만들기** 옵션에 **예** 값을 선택했는지 확인하고 **만들기** 단추를 클릭합니다.  
+6. **Azure 실행 계정 만들기** 옵션에 **예** 값을 선택했는지 확인하고 **만들기** 단추를 클릭합니다.
 
     ![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
@@ -69,20 +69,20 @@ AzureRunAsConnection|자동화 계정 만드는 동안 실행 계정을 만들�
 계속하기 전에 다음을 확인하세요.
 
 1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855)을 다운로드하고 설치했습니다.. Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 및 Windows 7 SP1을 실행하는 경우 [Windows 관리 프레임워크 5.0](https://www.microsoft.com/download/details.aspx?id=50395)을 설치에 사용할 수 있습니다.
-2. Azure PowerShell 1.0 이 릴리즈에 대한 정보 및 설치하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 
+2. Azure PowerShell 1.0 이 릴리즈에 대한 정보 및 설치하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 3. 자동화 계정을 만들었습니다. 이 계정은 아래 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
 
 
 PowerShell 스크립트는 다음을 구성합니다.
 
-* 자체 서명된 인증서로 인증되는 Azure AD 응용 프로그램은, Azure AD에서 이 응용 프로그램에 대한 서비스 주체 계정을 만들며, 현재 구독 내에 이 계정에 대한 참가자 역할(소유자 또는 다른 어떤 역할로든 변경 가능)을 할당합니다. 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md) 문서를 검토합니다.  
+* 자체 서명된 인증서로 인증되는 Azure AD 응용 프로그램은, Azure AD에서 이 응용 프로그램에 대한 서비스 주체 계정을 만들며, 현재 구독 내에 이 계정에 대한 참가자 역할(소유자 또는 다른 어떤 역할로든 변경 가능)을 할당합니다. 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md) 문서를 검토합니다.
 * **AzureRunAsCertificate**라는 지정된 자동화 계정의 자동화 인증서 자산은 서비스 주체에서 사용하는 인증서를 보유합니다.
-* **AzureRunAsConnection**이라는 지정된 자동화 계정의 자동화 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.  
+* **AzureRunAsConnection**이라는 지정된 자동화 계정의 자동화 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
 
 ### PowerShell 스크립트 실행
 
-1. 컴퓨터에 다음 스크립트를 저장합니다. 이 예제에서는 파일 이름을 **New-AzureServicePrincipal.ps1**으로 저장합니다.  
+1. 컴퓨터에 다음 스크립트를 저장합니다. 이 예제에서는 파일 이름을 **New-AzureServicePrincipal.ps1**으로 저장합니다.
 
     ```
     #Requires -RunAsAdministrator
@@ -181,7 +181,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 ### 인증 확인
 다음으로 작은 테스트를 수행하여 새 서비스 주체를 사용하여 성공적으로 인증될 수 있는지 확인합니다. 성공적으로 인증할 수 없는 경우 1단계로 돌아가서 다시 이전 단계 각각을 확인합니다.
 
-1. Azure 포털에서 이전에 만든 자동화 계정을 엽니다.  
+1. Azure 포털에서 이전에 만든 자동화 계정을 엽니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **Runbook 추가** 블레이드에서 **새 Runbook 만들기**를 선택하여 새 Runbook을 만듭니다.
 4. Runbook의 이름을 *Test-SecPrin-Runbook*으로 지정하고 **Runbook 형식**에 PowerShell을 선택합니다. **만들기**를 클릭하여 Runbook을 만듭니다.
@@ -196,8 +196,8 @@ PowerShell 스크립트는 다음을 구성합니다.
 6. **저장**을 클릭하여 Runbook을 저장합니다.
 7. **테스트 창**을 클릭하여 **테스트** 블레이드를 엽니다.
 8. **시작**을 클릭하여 테스트를 시작합니다.
-9. 이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다.  
-10. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+9. 이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다.
+10. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.
 11. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 경우에는 상태가 **완료됨**으로 표시됩니다.<br> ![보안 주체 Runbook 테스트](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. 캔버스로 돌아가려면 **테스트** 블레이드를 닫습니다.
 13. **PowerShell Runbook 편집** 블레이드를 닫습니다.
@@ -242,4 +242,4 @@ Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

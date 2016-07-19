@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스"
+	pageTitle="Microsoft Azure Logic Apps에서 사용하는 Microsoft 관리 커넥터 목록 | Microsoft Azure 앱 서비스 | Microsoft Azure"
 	description="Azure 앱 서비스에서 Logic Apps를 빌드하는 데 사용할 수 있는 Microsoft 관리 커넥터의 전체 목록 가져오기"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # 커넥터 목록
@@ -105,7 +105,7 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
 
@@ -148,4 +148,4 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

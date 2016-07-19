@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/27/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스에서 API 앱, ASP.NET 및 Swagger 시작
 
@@ -42,7 +42,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
 
 ![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
-* **ToDoListAngular** - 프런트 엔드: 중간 계층을 호출하는 AngularJS SPA입니다. 
+* **ToDoListAngular** - 프런트 엔드: 중간 계층을 호출하는 AngularJS SPA입니다.
 
 * **ToDoListAPI** - 중간 계층: 할 일 항목에서 CRUD 작업을 수행하는 데이터 계층을 호출하는 ASP.NET Web API 프로젝트입니다.
 
@@ -86,7 +86,7 @@ ASP.NET Web API 프로젝트는 [Swashbuckle](https://www.nuget.org/packages/Swa
 
 자습서의 이 섹션에서는 생성된 Swagger 2.0 메타데이터를 살펴본 다음 Swagger 메타데이터를 기반으로 하는 테스트 UI를 사용해봅니다.
 
-2. ToDoListDataAPI 프로젝트(ToDoListAPI 프로젝트가 **아닌**)를 시작 프로젝트로 설정합니다. 
+2. ToDoListDataAPI 프로젝트(ToDoListAPI 프로젝트가 **아닌**)를 시작 프로젝트로 설정합니다.
  
 4. 디버그 모드에서 프로젝트를 실행하려면 F5 키를 누르거나 **디버그 > 디버깅 시작**을 클릭합니다.
 
@@ -233,7 +233,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	다른 사용자가 이미 사용하는 이름을 입력하면 오른쪽에 빨간색 느낌표가 표시됩니다.
 
-	API 앱의 URL는 `{APi app name}.azurewebsites.net`입니다.
+	API 앱의 URL은 `{API app name}.azurewebsites.net`입니다.
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음, "ToDoListGroup" 또는 원하는 이름을 입력합니다.
 
@@ -391,7 +391,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 	생성자 매개 변수는 `toDoListDataAPIURL` 앱 설정에서 끝점 URL을 가져옵니다. Web.config 파일에서 해당 값은 응용 프로그램을 로컬로 실행할 수 있도록 API 프로젝트의 로컬 IIS Express URL에 설정됩니다. 생성자 매개 변수를 생략한 경우 코드를 생성한 URL이 기본 끝점이 됩니다.
 
-6. 클라이언트 클래스는 API 앱 이름을 기반으로 다른 이름으로 생성됩니다. 형식 이름이 프로젝트에서 생성된 이름과 일치하도록 *Controllers\\ToDoListController.cs*에서 코드를 변경합니다. 예를 들어 API 앱을 ToDoListDataAPI0121이라고 명명한 경우 다음 코드를
+6. 클라이언트 클래스는 API 앱 이름을 기반으로 다른 이름으로 생성됩니다. 형식 이름이 프로젝트에서 생성된 이름과 일치하도록 *Controllers\\ToDoListController.cs*에서 코드를 변경합니다. 예를 들어 API 앱을 ToDoListDataAPI071316이라고 명명한 경우 이 코드를
 
 		private static ToDoListDataAPI NewDataAPIClient()
 		{
@@ -399,9 +399,9 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 다음과 같이 변경합니다.
 
-		private static ToDoListDataAPI0121 NewDataAPIClient()
+		private static ToDoListDataAPI071316 NewDataAPIClient()
 		{
-		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## 중간 계층을 호스트하는 API 앱 만들기
@@ -445,7 +445,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 	| **키** | toDoListDataAPIURL |
 	|---|---|
 	| **값** | https://{your 데이터 계층 API 앱 이름}.azurewebsites.net |
-	| **예제** | https://todolistdataapi0121.azurewebsites.net |
+	| **예제** | https://todolistdataapi.azurewebsites.net |
 
 4. **Save**를 클릭합니다.
 
@@ -491,4 +491,4 @@ API 앱에 기존 웹 API 프로젝트를 배포하고 API 앱에 클라이언�
 
 **Azure API 앱** 프로젝트 템플릿은 **빈** ASP.NET 4.5.2 템플릿을 선택하고, 확인란을 클릭하여 Web API 지원을 추가하고, Swashbuckle NuGet 패키지를 설치하는 것과 동일합니다. 또한 탬플릿은 중복 Swagger 작업 ID가 만들어지지 않도록 하기 위해 설계된 일부 Swashbuckle 구성 코드를 추가합니다. API 앱 프로젝트를 만들면 이 자습서와 동일한 방식으로 API 앱에 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="07/13/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터에서 보안 경고 관리 및 대응
@@ -90,4 +90,4 @@ Microsoft 보안 연구원은 소비자 및 엔터프라이즈 제품 및 온라
 - [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답 찾기.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

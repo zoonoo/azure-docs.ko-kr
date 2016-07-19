@@ -147,7 +147,7 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 
       ![리소스 그룹 내보내기](./media/resource-manager-export-template/export-resource-group.png)
 
-     모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 리소스 그룹에 이 문서에 표시된 저장소 계정 및 가상 네트워크만이 있는 경우 오류가 표시되지 않습니다. 그러나 다른 리소스 종류를 만든 경우 내보내기에 문제가 있다는 오류가 표시될 수 있습니다. [내보내기 문제 수정](#fixing-export-issues) 섹션에서 이러한 문제를 처리하는 방법을 알아봅니다.
+     모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 리소스 그룹에 이 문서에 표시된 저장소 계정 및 가상 네트워크만이 있는 경우 오류가 표시되지 않습니다. 그러나 다른 리소스 종류를 만든 경우 내보내기에 문제가 있다는 오류가 표시될 수 있습니다. [내보내기 문제 수정](#fix-export-issues) 섹션에서 이러한 문제를 처리하는 방법을 알아봅니다.
 
       
 
@@ -342,4 +342,4 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 - PowerShell을 통해 템플릿을 내보내는 방법을 알아보려면 [Azure Resource Manager에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 - Azure CLI를 통해 템플릿을 내보내는 방법은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

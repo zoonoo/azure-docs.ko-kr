@@ -30,7 +30,7 @@
 - 올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 - 역할 기반 액세스 제어(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 액세스 제어를 적용할 수 있습니다.
 - 리소스에 태그를 적용하여 논리적으로 구독에서 모든 리소스를 구성할 수 있습니다.
-- 동일한 태그를 공유하여 전체 그룹 또는 리소스 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다.  
+- 동일한 태그를 공유하여 전체 그룹 또는 리소스 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다.
 
 리소스 관리자는 솔루션을 배포 및 관리하는 새로운 방식을 제공합니다. 이전의 배포 모델을 사용한 경우 변경 사항을 알아보려면 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -125,6 +125,32 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합니다. CORS를 통해 다른 도메인에 상주하는 웹 응용 프로그램에서 리소스 관리자 REST API 또는 Azure 서비스 REST API를 호출할 수 있습니다. CORS 지원하지 않는 웹 브라우저에서는 한 도메인의 응용 프로그램이 다른 도메인의 리소스에 액세스할 수 없습니다. 리소스 관리자는 유효한 인증 자격 증명을 사용하여 모든 요청에 대해 CORS할 수 있습니다.
 
+## SDK 및 샘플
+
+Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
+
+이러한 SDK의 각 코드는 Azure RESTful API 사양에서 생성됩니다. 이러한 사양은 오픈 소스이며 Swagger 2.0 사양을 기반으로 합니다. SDK 코드는 AutoRest라는 오픈 소스 프로젝트를 통해 생성됩니다. AutoRest는 이러한 RESTful API 사양을 여러 언어의 클라이언트 라이브러리로 변환합니다. SDK에서 생성된 코드의 어떤 측면을 개선하려면, SDK를 만드는 전체 도구는 오픈되어 자유롭게 사용 가능하고 광범위하게 채택된 API 사양 형식에 기반으로 해야 합니다.
+
+**샘플**: 사용자가 선택한 언어로 신속하게 시작합니다.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *서비스 예정*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *서비스 예정*
+- [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *서비스 예정*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**오픈 소스 SDK 리포지토리**: 피드백, 문제 및 요청 끌어오기 요청을 환영합니다.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.JS](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] SDK가 필요한 기능을 제공하지 않는 경우 [Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)에 직접 요청할 수 있습니다.
+
 ## 다음 단계
 
 - 템플릿으로 작업하는 방법에 대한 간단한 소개는 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
@@ -136,4 +162,4 @@ Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 그래픽 Runbook
@@ -211,4 +211,4 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 -	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 -	PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

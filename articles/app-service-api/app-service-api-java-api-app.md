@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="get-started-article"
 	ms.date="06/01/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스에서 Java API 앱 빌드 및 배포
 
@@ -153,7 +153,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 
 이 섹션에서는 Swagger로 생성된 코드의 서버 측 구현을 사용자 지정 코드로 바꿉니다. 새 코드는 클라이언트를 호출하는 데 연락처의 ArrayList 엔터티를 반환합니다.
 
-1. [Visual Studio Code] 또는 원하는 텍스트 편집기를 사용하여 *src/gen/java/io/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다. 
+1. [Visual Studio Code] 또는 원하는 텍스트 편집기를 사용하여 *src/gen/java/io/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다.
 
     ![연락처 모델 파일 열기][open-contact-model-file]
 
@@ -338,4 +338,4 @@ Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개�
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->
