@@ -25,10 +25,9 @@
 
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 <!---Fix video-->
-<br>
-
-
 ## 비디오 내용: 데이터로 대답할 수 있는 질문하기
+
+비디오 내용: 데이터로 대답할 수 있는 질문하기
 
 “초급자를 위한 데이터 과학” 시리즈 중 3번째 비디오를 시작합니다.
 
