@@ -25,6 +25,7 @@
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
+<!---Fix video-->
 
 ## 비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 

@@ -24,6 +24,7 @@
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+<!---Fix video-->
 
 ## 비디오 내용: 단순 모델을 사용하여 답변 예측
 
