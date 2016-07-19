@@ -25,7 +25,6 @@
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 <!---Fix video-->
-
 ## 비디오 내용: 단순 모델을 사용하여 답변 예측
 
 “초급자를 위한 데이터 과학” 시리즈 중 4번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
