@@ -45,7 +45,7 @@
 
 runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdlet, Runbook 및 자산을 선택한 후 관련 매개 변수와 함께 Runbook에 추가되도록 할 수 있습니다. 이 연습에서는 Runbook에 직접 입력합니다.
 
-1.	현재 Runbook에는 필요한 *워크플로* 키워드, Runbook의 이름, 전체 워크플로를 포함하는 중괄호만 있으며 빈 상태입니다. 
+1.	현재 Runbook에는 필요한 *워크플로* 키워드, Runbook의 이름, 전체 워크플로를 포함하는 중괄호만 있으며 빈 상태입니다.
 
     ```
     Workflow MyFirstRunbook-Workflow
@@ -70,7 +70,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 1.	테스트 창을 열려면 **테스트 창**을 클릭합니다.<br>![테스트 창](media/automation-first-runbook-textual/runbook-edit-toolbar-test-pane.png)
 2.	**시작**을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
-3.	이 창에서 [runbook 작업](automation-runbook-execution.md)이 생성되고 상태를 보여줍니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+3.	이 창에서 [runbook 작업](automation-runbook-execution.md)이 생성되고 상태를 보여줍니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.
 4.	Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World*가 표시됩니다.<br>![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 5.	캔버스로 돌아가려면 테스트 창을 닫습니다.
 
@@ -84,16 +84,16 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 4.	여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5.	우리가 방금 만들었던 runbook작업에 대한 작업 창이 열립니다. 창을 닫을 수 있지만, 이 경우에는 작업의 진행 상황을 보기 위해 열어둡니다.
 6.	작업 상태가 **작업 요약**에 표시되며 Runbook을 테스트할 때의 상태와 일치합니다.<br>![작업 요약](media/automation-first-runbook-textual/job-pane-summary.png)
-7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리면 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-output.png)  
+7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리면 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-output.png)
 8.	출력 창을 닫습니다.
 9.	**스트림**을 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 *Hello World*만 표시되어야 하지만 Runbook이 자세한 정보 표시 및 오류와 같은 Runbook 작업에 대한 다른 스트림에 쓰는 경우 해당 스트림이 표시될 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-streams.png)
-10.	MyFirstRunbook 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
+10.	MyFirstRunbook-Workflow 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
 11.	**작업**을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.<br> ![작업](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12.	runbook을 시작했을 때 우리가 봤던 동일한 작업창을 열려면 이 작업을 클릭합니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
 ## 5 단계-Azure 리소스를 관리 인증 추가
 
-지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. 이 리소스를 관리하기 위해 **Add-AzureRMAccount** cmdlet을 사용합니다.
+지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. 이 리소스를 관리하기 위해 **Add-AzureRmAccount** cmdlet을 사용합니다.
 
 1.	MyFirstRunbook-Workflow 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	**Write-Output** 줄은 더 이상 필요하지 않으므로 삭제합니다.
@@ -101,9 +101,8 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 4.	자동화 실행 계정으로 인증을 처리할 다음 코드를 입력하거나 복사하여 붙여 넣습니다.
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
 
 5.	Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
@@ -113,14 +112,14 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 있습니다. 가상 컴퓨터를 시작하는 명령을 추가합니다. Azure 구독에서 모든 가상 컴퓨터를 선택 할 수 있지만 지금은 cmdlet의 이름을 하드코딩합니다.
 
-1.	*Add-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*을 입력하여 시작하려는 가상 컴퓨터의 이름과 리소스 그룹 이름을 입력합니다.  
+1.	*Add-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*을 입력하여 시작하려는 가상 컴퓨터의 이름과 리소스 그룹 이름을 입력합니다.
 
     ```
     workflow MyFirstRunbook-Workflow
     {
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+ 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -132,7 +131,7 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 
 현재 Runbook은 Runbook에 하드 코딩된 가상 컴퓨터를 시작하지만 Runbook이 시작될 때 가상 컴퓨터를 지정할 수 있으면 더욱더 유용할 것입니다. 이제 해당 기능을 제공하도록 Runbook에 입력 매개 변수를 추가합니다.
 
-1.	Runbook에 *VMName* 및 *ResourceGroupName*에 대한 매개 변수를 추가하고 아래 예제와 같이 **Start-AzureRmVM** cmdlet에 이러한 변수를 사용합니다. 
+1.	Runbook에 *VMName* 및 *ResourceGroupName*에 대한 매개 변수를 추가하고 아래 예제와 같이 **Start-AzureRmVM** cmdlet에 이러한 변수를 사용합니다.
 
     ```
     workflow MyFirstRunbook-Workflow
@@ -142,8 +141,7 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,8 +157,8 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 ## 다음 단계
 
 -  그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)을 참조하세요.
--	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
+-  PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 -  Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
--	PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
+-  PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

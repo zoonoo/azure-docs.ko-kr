@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -43,7 +43,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 �
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
-1. 데스크톱에서 새 Azure PowerShell 창을 열고 다음 조각을 입력하여 Azure 계정에 로그인하고 구독을 설정한 다음 데이터 레이크 저장소 공급자를 등록합니다. 로그인하라는 메시지가 표시되면 구독 관리자/소유자 중 하나로 로그인해야 합니다.
+1. 데스크톱에서 새 Windows PowerShell 창을 열고 다음 조각을 입력하여 Azure 계정에 로그인하고 구독을 설정한 다음 Data Lake 저장소 공급자를 등록합니다. 로그인하라는 메시지가 표시되면 구독 관리자/소유자 중 하나로 로그인해야 합니다.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +141,4 @@ Azure 데이터 레이크 저장소 계정에서 디렉터리를 만들어 데�
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -54,9 +54,11 @@
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
+- BCP를 사용하여 CSV 파일에서 새 테이블로 일부 데이터를 로드하려는 경우 [BCP를 사용하여 CSV 파일에서 SQL 데이터베이스로 데이터 로드](sql-database-load-from-csv-with-bcp.md)를 참조하세요.
+
 
 ## 추가 리소스
 
 [SQL 데이터베이스 정의](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

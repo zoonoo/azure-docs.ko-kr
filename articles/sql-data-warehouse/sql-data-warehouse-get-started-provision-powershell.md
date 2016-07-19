@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -24,7 +24,7 @@
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## 필수 조건
-시작하기 전에 다음과 같은 필수 조건을 갖추고 있는지 확인합니다.
+시작하기 전에 다음과 같은 필수 조건을 충족하는지 확인합니다.
 
 - **Azure 계정**: [Azure 무료 평가판][] 또는 [MSDN Azure 크레딧][]을 참조하여 계정을 만듭니다.
 - **V12 Azure SQL Server**: [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][] 또는 [PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][]를 참조하세요.
@@ -33,7 +33,7 @@
 
 > [AZURE.NOTE] 새 SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다. 가격에 대한 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.
 
-## SQL 데이터 웨어하우스 데이터베이스 만들기
+## SQL 데이터 웨어하우스 만들기
 1. Windows PowerShell을 엽니다.
 2. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
 
@@ -55,7 +55,7 @@
 
 이 cmdlet에 필요한 매개 변수 목록은 다음과 같습니다.
 
-- **RequestedServiceObjectiveName**: 요청 중인 [DWU][]의 양입니다. 지원되는 값은 DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500 및 DW2000입니다.
+- **RequestedServiceObjectiveName**: 요청 중인 [DWU][]의 양입니다. 지원되는 값은 DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 및 DW6000입니다.
 - **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
 - **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
 - **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
@@ -64,6 +64,7 @@
 매개 변수 옵션에 대한 자세한 내용은 [데이터베이스 만들기(Azure SQL 데이터 웨어하우스)][]를 참조하세요. 명령 참조는 [New-AzureRmSqlDatabase][]를 참조하세요.
 
 ## 다음 단계
+
 SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][]을 시도할 수 있습니다.
 
 SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방법에 대한 자세한 내용은 [PowerShell cmdlet and REST API][] 사용 방법에 관한 문서를 참조하세요.
@@ -96,4 +97,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

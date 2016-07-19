@@ -41,6 +41,11 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### 추가 샘플
+
+Blob 저장소를 사용하는 추가 예제는 [.NET에서 Azure Blob 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+
+
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -367,11 +372,15 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암호화합니다.
 
 - **클라이언트 쪽 암호화:** NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure 키 자격 증명 모음과의 통합을 지원합니다. 자세한 내용은 [Microsoft Azure 저장소용 .NET을 사용하는 클라이언트 쪽 암호화](storage-client-side-encryption.md)를 참조하세요. 또한 [자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
-- **서버 쪽 암호화**: 이제 Azure 저장소에서는 서버 쪽 암호화를 지원합니다. [미사용 데이터에 대한 Azure 저장소 서비스 암호화(미리 보기)](storage-service-encryption.md)를 참조하세요. 
+- **서버 쪽 암호화**: 이제 Azure 저장소에서는 서버 쪽 암호화를 지원합니다. [미사용 데이터에 대한 Azure 저장소 서비스 암호화(미리 보기)](storage-service-encryption.md)를 참조하세요.
 
 ## 다음 단계
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
+
+### Blob 저장소 샘플
+
+- [.NET에서 Azure Blob 저장소 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Blob 저장소 참조
 
@@ -395,4 +404,4 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

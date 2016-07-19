@@ -3,7 +3,7 @@
 	description="ASP.NET 웹 사이트, 호스팅된 온-프레미스 또는 Azure에 대한 성능, 가용성 및 사용 현황 분석을 구성합니다." 
 	services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="NumberByColors" 
 	manager="douge"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="06/21/2016" 
-	ms.author="awills"/>
+	ms.author="daviste"/>
 
 
 # ASP.NET용 Application Insights 설치
@@ -26,7 +26,7 @@
 다음 작업을 수행해야 합니다.
 
 * Visual Studio 2013 업데이트 3 이상 나중일수록 좋습니다.
-* [Microsoft Azure](http://azure.com) 구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다. 
+* [Microsoft Azure](http://azure.com) 구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 
 관심이 있는 경우 확인할 대체 문서가 있습니다.
 
@@ -50,7 +50,7 @@ Visual Studio에서 새 프로젝트를 만들 경우 Application Insights를 �
 
 ![Application Insights 추가 선택](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-* ASP.NET Core 프로젝트? - [다음 지침에 따라 몇 줄의 코드를 수정합니다](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
+* ASP.NET Core 프로젝트? - [다음 지침에 따라 몇 줄의 코드를 수정합니다](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
 
 
 
@@ -88,7 +88,7 @@ Visual Studio에서 Application Insights 창을 열고 Application Insights 단�
 
 포털은 앱에서 원격 분석의 보기를 엽니다. ![](./media/app-insights-asp-net/66.png)
 
-* **검색**(1)에 개별 이벤트가 표시됩니다. 데이터는 여기(및 [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream))에서 처음으로 표시됩니다. 이벤트를 클릭하여 속성을 확인합니다. 
+* **검색**(1)에 개별 이벤트가 표시됩니다. 데이터는 여기(및 [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream))에서 처음으로 표시됩니다. 이벤트를 클릭하여 속성을 확인합니다.
 * 집계된 메트릭은 차트(2)에 표시됩니다. 데이터를 여기에 표시하려면 1-2분 정도 걸릴 수 있습니다. 차트를 클릭하여 자세한 내용이 있는 블레이드를 엽니다.
 
 [Azure 포털에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](app-insights-dashboards.md).
@@ -123,4 +123,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 |**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

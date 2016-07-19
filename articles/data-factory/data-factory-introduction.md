@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/26/2016" 
+	ms.date="07/12/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 서비스인 클라우드의 데이터 통합 서비스 소개
@@ -69,5 +69,13 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 
 나중에 Azure에서 지원하는 모든 지리적 위치에서 Azure 데이터 팩터리를 사용하게 될 예정입니다.
   
+## 다음 단계
+다음 자습서의 단계별 지침을 따라 데이터 파이프라인을 사용하여 데이터 팩터리를 빌드하는 방법에 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+자습서 | 설명
+-------- | -----------
+[Hadoop 클러스터를 사용하여 데이터를 처리하는 데이터 파이프라인 구축](data-factory-build-your-first-pipeline.md) | 이 자습서에서는 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 **데이터를 처리**하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다. |
+[데이터 파이프라인을 빌드하여 두 클라우드 데이터 저장소 간에 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob 저장소에서 SQL 데이터베이스로 **데이터를 이동**합니다.
+[데이터 파이프라인을 빌드하여 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) | 이 자습서에서는 **온-프레미스** SQL Server 데이터베이스에서 Azure Blob으로 **데이터를 이동**하는 파이프라인이 포함된 데이터 팩터리를 구축합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. 
+
+<!---HONumber=AcomDC_0713_2016-->

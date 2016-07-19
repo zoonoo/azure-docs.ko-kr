@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded 미리 보기 - IFrame을 사용하여 Power BI 보고서 포함"
-   description="Microsoft Power BI Embedded 미리 보기 - 보고서를 앱에 통합하기 위한 필수 코드, Power BI Embedded 앱 토큰으로 인증하는 방법, 보고서를 가져오는 방법"
+   pageTitle="Microsoft Power BI Embedded - IFrame을 사용하여 Power BI 보고서 포함"
+   description="Microsoft Power BI Embedded - 보고서를 앱에 통합하기 위한 필수 코드, Power BI Embedded 앱 토큰으로 인증하는 방법, 보고서를 가져오는 방법"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,17 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # IFrame을 사용하여 Power BI 보고서 포함
 이 문서는 **Power BI Embedded** REST API, 앱 토큰, IFrame, 일부 JavaScript를 사용하여 앱에 보고서를 통합 또는 포함하기 위한 필수 코드에 대해 설명합니다.
 
-[Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)에서 **작업 공간 컬렉션**을 구성하여 보고서 내용에 대해 하나 이상의 **작업 공간**을 보유하는 방법을 배웁니다. 그런 다음 [Microsoft Power BI Embedded 샘플 시작](power-bi-embedded-get-started-sample.md)에서 **작업 공간**으로 보고서를 가져옵니다.
+[Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)에서 **작업 공간 컬렉션**을 구성하여 보고서 내용에 대해 하나 이상의 **작업 공간**을 보유하는 방법을 배웁니다. 그런 다음 [Microsoft Power BI Embedded 샘플 시작](power-bi-embedded-get-started-sample.md)에서 **작업 공간**으로 보고서를 가져옵니다.
 
-이 문서는 앱에 보고서를 포함하는 단계를 설명합니다. 이 문서를 따르려면 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe) 샘플을 다운로드해야 합니다. 이 샘플은 보고서를 통합하는 데 필요한 필수 C# 및 JavaScript 코드를 설명하기 위한 간단한 ASP.NET 웹 형식의 앱입니다. MVC() 디자인 패턴을 사용하여 보고서를 통합하는 고급 샘플은 GitHub에서 [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)을 참조하세요.
-
-이제 앱에 **Power BI Embedded** 보고서를 통합하는 방법을 설명하겠습니다.
+이 문서에서는 앱에 보고서를 포함하는 단계를 안내합니다. 이 문서를 따르려면 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe) 샘플을 다운로드해야 합니다. 이 샘플은 보고서를 통합하는 데 필요한 필수 C# 및 JavaScript 코드를 설명하기 위한 간단한 ASP.NET 웹 형식의 앱입니다. MVC() 디자인 패턴을 사용하여 보고서를 통합하는 고급 샘플은 GitHub에서 [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)을 참조하세요.
 
 보고서를 통합하는 단계는 다음과 같습니다.
 
@@ -32,9 +30,9 @@
 
 보고서를 통합할 방법을 보기 위해 샘플을 실행하려는 경우 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe) 샘플을 다운로드하고 Web.Config 설정을 구성합니다.
 
-- **AccessKey**: **AccessKey**는 보고서를 가져오고 보고서를 포함하는 데 사용하는 JWT(JSON Web Token)를 생성하는 데 사용합니다. **AccessKey**를 가져오는 방법은 [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)을 참조하세요.
-- **WorkspaceName**: **WorkspaceName**을 가져오는 방법은 [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)을 참조하세요.
-- **WorkspaceId**: **WorkspaceId**을 가져오는 방법은 [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)을 참조하세요.
+- **AccessKey**: **AccessKey**는 보고서를 가져오고 보고서를 포함하는 데 사용하는 JWT(JSON Web Token)를 생성하는 데 사용합니다. **AccessKey**를 가져오는 방법은 [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
+- **WorkspaceName**: **WorkspaceName**을 가져오는 방법은 [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
+- **WorkspaceId**: **WorkspaceId**을 가져오는 방법은 [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
 
 다음 섹션에서는 보고서를 통합하는 데 필요한 코드를 보여줍니다.
 
@@ -213,19 +211,16 @@ $filter=Store/Chain%20eq%20'Lindseys'
 &filterPaneEnabled=false
 ```
 
-## 결론
+## 추가 리소스
 
-이 문서에서는 앱에 **Power BI** 보고서를 통합하기 위한 코드를 소개했습니다. 앱에 보고서를 빠르게 통합하려면 GitHub에서 다음 샘플을 다운로드합니다.
+이 문서에서는 앱에 **Power BI** 보고서를 통합하기 위한 코드를 소개했습니다. GitHub에서 이러한 추가 샘플을 확인해야 합니다.
 
 - [IFrame 샘플을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## 참고 항목
-- [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
-- [샘플 시작](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -5,8 +5,8 @@
 	keywords="Active directory 암호 관리, 암호 관리, Azure AD 암호 재설정"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # 암호 관리 시작
+
+> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+
 사용자가 자신의 클라우드 Azure Active Directory 또는 온-프레미스 Active Directory 암호를 사용하려면 간단한 몇 단계를 거치면 됩니다. 몇 가지 간단한 필수 구성 요소를 충족한 후, 전체 조직에 대해 암호 변경 및 재설정을 사용할 수 있도록 설정해야 합니다. 이 문서는 다음 개념을 설명합니다.
 
 * [**사용자가 클라우드 Azure Active Directory 암호를 재설정할 수 있도록 하는 방법**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -258,7 +261,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
   ![][032]
 
-이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. 이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다. 다음은 **Active Directory 사용자 및 컴퓨터** 관리 스냅인을 사용하여 수행할 수 있는 방법에 대한 자세한 단계입니다.
+  이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. 이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다. 다음은 **Active Directory 사용자 및 컴퓨터** 관리 스냅인을 사용하여 수행할 수 있는 방법에 대한 자세한 단계입니다.
 
 >[AZURE.NOTE] 이 사용 권한이 디렉터리의 모든 개체를 복제하려면 한 시간이 걸릴 수 있습니다.
 
@@ -280,9 +283,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 8.	위쪽의 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 9.	나타나는 **권한 항목** 대화 상자에서, **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한** 및 `pwdLastSet`에서 **쓰기 권한** 상자를 선택합니다.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	열린 모든 대화 상자를 통해 **적용/확인**을 클릭합니다.
 
@@ -309,7 +310,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -353,4 +354,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
