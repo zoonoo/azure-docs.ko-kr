@@ -26,6 +26,9 @@
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 <!---Fix video-->
+<br>
+
+
 ## 비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 
 *초급자를 위한 데이터 과학* 시리즈의 두 번째 비디오인 "데이터 과학에 사용할 수 있게 데이터가 준비되었나요?"를 시작하겠습니다.
