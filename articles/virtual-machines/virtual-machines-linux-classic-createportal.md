@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 
@@ -34,4 +34,4 @@
 
 클래식 포털을 사용하여 [Windows를 실행하는 사용자 지정 가상 컴퓨터를 만들](virtual-machines-windows-classic-createportal.md) 수도 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

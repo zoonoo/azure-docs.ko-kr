@@ -59,7 +59,7 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 -   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. 다음을 수행하여 사용자 지정 프로토콜에 대한 지원을 제공하는 IoT Hub를 확장할 수도 있습니다.
 
-    - IoT Hub가 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]로 필드 게이트웨이를 만듭니다. 
+    - IoT Hub가 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]로 필드 게이트웨이를 만듭니다.
     - 클라우드에서 실행되는 오픈 소스 구성 요소인 [Azure IoT 프로토콜 게이트웨이][protocol-gateway]를 사용자 지정합니다.
 
 -   **확장**. Azure IoT Hub는 동시에 연결된 수백만 대의 장치 및 수백만 개의 초당 이벤트로 확장 가능합니다.
@@ -96,13 +96,14 @@ Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴�
 
 ## 다음 단계
 
-Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
+Azure IoT Hub를 사용하여 표준 기반 IoT 장치 관리를 통해 원격으로 장치를 관리, 구성, 업데이트할 수 있는 방법을 알아보려면 [Azure IoT Hub 장치 관리의 개요][lnk-device-management]를 참조하세요.
 
-* [IoT Hub 시작][lnk-get-started]
-* [장치 연결][lnk-connect-device]
-* [장치-클라우드 메시지 처리][lnk-d2c]
+다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 IoT 장치 SDK를 제공할 수 있습니다. IoT 장치 SDK에는 IoT Hub로 원격 분석 전송 및 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 있습니다. SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
+
+일부 코드를 작성하고 몇 가지 샘플을 실행하기 시작하려면 [IoT Hub 시작][lnk-get-started] 자습서를 참조하세요.
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,5 +121,6 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

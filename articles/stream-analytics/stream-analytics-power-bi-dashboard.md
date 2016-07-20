@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
@@ -24,8 +24,6 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 [Microsoft Power BI](https://powerbi.com/)를 사용하여 라이브 대시보드를 빠르게 만들 수 있습니다. [시나리오를 설명하는 동영상을 시청합니다](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
 이 문서에서는 Azure 스트림 분석 작업에 대한 출력으로 Power BI를 사용하여 사용자 고유의 사용자 지정 비즈니스 인텔리전스 도구를 만들고 실시간 대시보드를 활용하는 방법에 대해 알아봅니다.
-
-> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure 포털에서 지원되지 않으며 Azure 클래식 포털에서만 지원됩니다.
 
 ## 필수 조건
 
@@ -203,9 +201,18 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 
 ![graphic12][graphic12]
 
+마찬가지로 토큰이 만료된 동안 작업이 시작되려고 하는 경우 오류가 발생하고 작업이 실패합니다. 오류는 다음과 같이 표시됩니다.
+
+![PowerBI 유효성 검사 오류](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하고 마지막 중지 시간부터 작업을 다시 시작하여 데이터 손실을 방지합니다.
 
-![graphic13][graphic13]
+![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에서 녹색 경고가 표시됩니다.
+
+![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -233,4 +240,4 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

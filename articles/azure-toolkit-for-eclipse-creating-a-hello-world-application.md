@@ -42,7 +42,10 @@
 *  이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다. ![][ic589576]
 * **마침**을 클릭합니다.
 * Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
-* **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다. ![][ic659262]
+* **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다.  
+
+	![][ic659262]
+
 * **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라 **새 JSP 파일(html)**을 선택하고 **완료**를 클릭합니다.
 * Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
 ```
@@ -57,8 +60,13 @@
 Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바로 가기를 사용하여 Azure 클라우드에서 직접 체험할 수 있습니다.
 
 1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld**를 클릭합니다.
-1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다 ![][publishDropdownButton]
-1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다. ![][ic789598]
+1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다 
+
+	![][publishDropdownButton]
+
+1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다.
+
+	![][ic789598]
 
     이 바로 가기 방식을 사용하면 기본값과 다른 특정 서버 또는 JDK를 구성할 필요 없이 Azure에서 응용 프로그램을 테스트하는 빠르고 쉬운 방법이 가능합니다. 기본값에 만족할 경우 **확인**을 클릭하여 다음 단계를 계속할 수 있습니다. 그러나 응용 프로그램에 사용할 JDK 또는 응용 프로그램 서버를 변경하려는 경우 나중에 사용자를 위해 자동으로 만들어진 Azure 배포 프로젝트를 편집하여 수행하거나 지금 **취소**를 클릭하고 이 자습서의 **Azure 배포 프로젝트 섹션 정보**를 읽을 수 있습니다.
 1. **Azure에 게시** 대화 상자에서:
@@ -180,4 +188,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->

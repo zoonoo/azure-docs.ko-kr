@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -32,7 +32,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 1. Eclipse를 시작합니다.
 
-1. Eclipse의 메뉴에서 아래 다이어그램과 같이 **Help**를 클릭한 후 **Install New Software**를 클릭합니다.
+1. Eclipse이 열리면 **도움말** 메뉴를 클릭하고 다음 그림에 보이는 대로 **새 소프트웨어 설치**를 클릭합니다.
 
     ![Eclipse용 Azure 도구 키트 설치][01]
 
@@ -83,6 +83,7 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 �
 - [IntelliJ용 Azure 도구 키트]
   - [IntelliJ용 Azure 도구 키트 설치]
   - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -92,8 +93,10 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 
@@ -106,4 +109,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

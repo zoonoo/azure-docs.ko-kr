@@ -93,7 +93,7 @@ ReplicatorConfig
 |MaxRecordSizeInKB|KB|1024|복제자가 로그에 기록할 수 있는 최대 레코드 크기. 이 값은 4의 배수이고 16보다 커야 합니다.|
 |SharedLogId|GUID|""|이 복제본과 함께 사용되는 공유 로그 파일을 식별하는 데 사용할 고유한 GUID를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다.|
 |SharedLogPath|정규화된 경로 이름|""|이 복제본의 공유 로그 파일을 생성할 정규화된 경로를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
-
+|SlowApiMonitoringDuration|초|300|관리되는 API 호출에 대한 모니터링 간격을 설정합니다. 예: 사용자 제공 백업 콜백 함수. 이 간격이 지나면 상태 경고 보고서가 상태 관리자로 전송됩니다.|
 
 ### 코드를 통한 샘플 구성
 ```csharp
@@ -162,4 +162,4 @@ SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 
  - [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
  - [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -64,7 +64,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 **일반 기능**
 
-- [디렉터리 개체](#directory-objects) 
+- [디렉터리 개체](#directory-objects)
 
 - [사용자/그룹 관리(추가/업데이트/삭제)/ 사용자 기반 프로비전, 장치 등록](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
@@ -163,11 +163,11 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 | Free Edition| Basic Edition| Premium Edition| Office 365 앱만 해당 |
 | :-: | :-: | :-: | :-: |
-| 사용자당 앱 10개 [1](사전 통합 SaaS 및 개발자 통합 앱)| 사용자당 앱 10개 [1](무료 계층 + 응용 프로그램 프록시 앱) | 제한 없음 [2](무료, 기본 계층 + 셀프 서비스 앱 통합 템플릿)| 사용자당 앱 10개 [1](사전 통합 SaaS 및 개발자 통합 앱)|
+| 사용자당 앱 10개 [1] | 사용자당 앱 10개 [1] | 제한 없음 [2] | 사용자당 앱 10개 [1]|
 
-[1] Azure AD Free와 Azure AD Basic을 사용하면 SaaS 앱 액세스 권한이 할당된 최종 사용자가 액세스 패널에서 최대 10개의 앱을 보고 해당 앱에 대한 SSO 액세스 권한을 가질 수 있습니다. 관리자는 Free 및 Basic에서 SSO를 구성하고 원하는 수만큼 SaaS 앱에 대한 사용자 액세스 권한을 할당할 수 있지만 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
+1. Azure AD Free와 Azure AD Basic을 사용하면 SaaS 앱 액세스 권한이 할당된 최종 사용자가 액세스 패널에서 최대 10개의 앱을 보고 해당 앱에 대한 SSO 액세스 권한을 가질 수 있습니다. 관리자는 Free 및 Basic에서 SSO를 구성하고 원하는 수만큼 SaaS 앱에 대한 사용자 액세스 권한을 할당할 수 있지만 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
 
-[2] 응용 프로그램 갤러리 메뉴에 제공되는 템플릿을 사용하여 SAML, SCIM 또는 양식 기반 인증을 지원하는 모든 응용 프로그램을 셀프 서비스로 통합합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)을 참조하세요.
+2. 응용 프로그램 갤러리 메뉴에 제공되는 템플릿을 사용하여 SAML, SCIM 또는 양식 기반 인증을 지원하는 모든 응용 프로그램을 셀프 서비스로 통합합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)을 참조하세요.
 
 **자세한 내용:**
 
@@ -495,4 +495,4 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

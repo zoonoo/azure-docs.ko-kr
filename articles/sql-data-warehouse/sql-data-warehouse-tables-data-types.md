@@ -1,0 +1,141 @@
+<properties
+   pageTitle="SQL 데이터 웨어하우스 테이블의 데이터 형식 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스 테이블에 대한 데이터 형식으로 시작"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/29/2016"
+   ms.author="jrj;barbkess;sonyama"/>
+
+# SQL 데이터 웨어하우스 테이블의 데이터 형식
+
+> [AZURE.SELECTOR]
+- [개요][]
+- [데이터 형식][]
+- [배포][]
+- [Index][]
+- [파티션][]
+- [통계][]
+- [임시][]
+
+SQL 데이터 웨어하우스는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 다음은 SQL 데이터 웨어하우스에서 지원하는 데이터 형식 목록입니다. 데이터 형식 지원에 대한 자세한 내용은 [테이블 만들기][]를 참조하세요.
+
+|**지원되는 데이터 형식**|||
+|---|---|---|
+[bigint][]|[decimal][]|[smallint][]|
+[binary][]|[float][]|[smallmoney][]|
+[bit][]|[int][]|[sysname][]|
+[char][]|[money][]|[time][]|
+[date][]|[nchar][]|[tinyint][]|
+[datetime][]|[nvarchar][]|[uniqueidentifier][]|
+[datetime2][]|[real][]|[varbinary][]|
+[datetimeoffset][]|[smalldatetime][]|[varchar][]|
+
+
+## 데이터 형식 모범 사례
+
+ 열 형식을 정의할 때 데이터를 지원할 가장 작은 데이터 형식을 사용하면 쿼리 성능이 향상됩니다. 이것은 CHAR 및 VARCHAR 열에 대해 특히 중요합니다. 열에서 가장 긴 값이 25자인 경우 열을 VARCHAR(25)로 정의합니다. 모든 문자 열을 큰 기본 길이로 정의하지 마세요. 또한 반드시 필요한 경우에는 열을 [NVARCHAR][]를 사용하는 것보다 VARCHAR로 정의하세요. 가능한 경우 NVARCHAR(MAX) 또는 VARCHAR(MAX) 대신 NVARCHAR(4000) 또는 VARCHAR(8000)를 사용하세요.
+
+## Polybase 제한
+
+Polybase를 사용하여 테이블을 로드하려면 가변 길이 열의 전체 길이를 포함하여 가능한 최대 행 크기가 32,767바이트를 초과하지 않도록 테이블을 정의합니다. 이 너비를 초과할 수 있는 가변 길이 데이터로 행을 정의할 수 있고 BCP를 사용하여 행을 로드할 수 있는 반면 이 데이터를 로드하는 데 Polybase를 사용할 수 없습니다. 넓은 행에 대한 Polybase 지원이 곧 추가될 예정입니다.
+
+## 지원되지 않는 데이터 형식
+
+Azure SQL 데이터베이스 등의 다른 SQL 플랫폼에서 데이터베이스를 마이그레이션하려는 경우 마이그레이션할 때 SQL 데이터 웨어하우스에서 지원되지 않는 일부 데이터 형식이 나타날 수 있습니다. 다음은 지원하지 않는 데이터 형식 대신 사용할 수 있는 일부 대안 및 지원되지 않는 데이터 형식입니다.
+
+|데이터 형식|해결 방법|
+|---|---|
+|[geometry][]|[varbinary][]|
+|[geography][]|[varbinary][]|
+|[hierarchyid][]|[nvarchar][]\(4000)|
+|[이미지][ntext,text,image]|[varbinary][]|
+|[텍스트][ntext,text,image]|[varchar][]|
+|[ntext][ntext,text,image]|[nvarchar][]|
+|[sql\_variant][]|열을 강력한 형식의 열로 분할합니다.|
+|[테이블][]|임시 테이블로 변환합니다.|
+|[timestamp][]|[datetime2][] 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업을 수행합니다. 상수만 기본값으로 지원됩니다. 따라서 current\_timestamp는 기본 제약 조건으로 정의할 수 없습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 [BINARY][]\(8) 또는 [VARBINARY][BINARY](8)를 사용합니다.|
+|[xml][]|[varchar][]|
+|[사용자 정의 형식][]|가능한 경우 해당 네이티브 형식으로 다시 변환합니다.|
+|기본값|기본값은 리터럴 및 상수만 지원합니다. `GETDATE()` 또는 `CURRENT_TIMESTAMP`와 같은 명확하지 않은 식 또는 함수는 지원되지 않습니다.|
+
+아래의 SQL은 Azure SQL 데이터 웨어하우스에서 지원되지 않는 열을 식별하기 위해 현재 SQL 데이터베이스에 대해 실행할 수 있습니다.
+
+```sql
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
+FROM sys.tables  t
+JOIN sys.columns c on t.[object_id]    = c.[object_id]
+JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+ AND  y.[is_user_defined] = 1;
+```
+
+## 다음 단계
+
+자세히 알아보려면 [테이블 개요][Overview], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요. 모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
+
+<!--Image references-->
+
+<!--Article references-->
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[개요]: ./sql-data-warehouse-tables-overview.md
+[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[배포]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[파티션]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[임시]: ./sql-data-warehouse-tables-temporary.md
+[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+
+<!--MSDN references-->
+
+<!--Other Web references-->
+[테이블 만들기]: https://msdn.microsoft.com/library/mt203953.aspx
+[bigint]: https://msdn.microsoft.com/library/ms187745.aspx
+[binary]: https://msdn.microsoft.com/library/ms188362.aspx
+[bit]: https://msdn.microsoft.com/library/ms177603.aspx
+[char]: https://msdn.microsoft.com/library/ms176089.aspx
+[date]: https://msdn.microsoft.com/library/bb630352.aspx
+[datetime]: https://msdn.microsoft.com/library/ms187819.aspx
+[datetime2]: https://msdn.microsoft.com/library/bb677335.aspx
+[datetimeoffset]: https://msdn.microsoft.com/library/bb630289.aspx
+[decimal]: https://msdn.microsoft.com/library/ms187746.aspx
+[float]: https://msdn.microsoft.com/library/ms173773.aspx
+[geometry]: https://msdn.microsoft.com/library/cc280487.aspx
+[geography]: https://msdn.microsoft.com/library/cc280766.aspx
+[hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
+[int]: https://msdn.microsoft.com/library/ms187745.aspx
+[money]: https://msdn.microsoft.com/library/ms179882.aspx
+[nchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[nvarchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[ntext,text,image]: https://msdn.microsoft.com/library/ms187993.aspx
+[real]: https://msdn.microsoft.com/library/ms173773.aspx
+[smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
+[smallint]: https://msdn.microsoft.com/library/ms187745.aspx
+[smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
+[sql\_variant]: https://msdn.microsoft.com/library/ms173829.aspx
+[sysname]: https://msdn.microsoft.com/library/ms186939.aspx
+[테이블]: https://msdn.microsoft.com/library/ms175010.aspx
+[time]: https://msdn.microsoft.com/library/bb677243.aspx
+[timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
+[tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
+[uniqueidentifier]: https://msdn.microsoft.com/library/ms187942.aspx
+[varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
+[varchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[xml]: https://msdn.microsoft.com/library/ms187339.aspx
+[사용자 정의 형식]: https://msdn.microsoft.com/library/ms131694.aspx
+
+<!---HONumber=AcomDC_0706_2016-->

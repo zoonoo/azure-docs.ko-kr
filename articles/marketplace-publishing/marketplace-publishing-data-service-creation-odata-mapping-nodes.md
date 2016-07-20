@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="06/29/2016"
       ms.author="hascipio; avikova" />
 
 # CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
@@ -39,9 +39,9 @@
 ## FunctionImport 노드
 FunctionImport 노드는 최종 사용자에게 서비스를 노출하는 하나의 URL(진입점)을 나타냅니다. 노드를 사용하여 URL이 처리되는 방식, 최종 사용자에게 제공되는 매개 변수, 매개 변수가 제공되는 방식을 설명할 수 있습니다.
 
-이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink]에서 찾을 수 있습니다.
+이 노드에 대한 세부 정보는 [여기][MSDNFunctionImportLink]에서 찾을 수 있습니다.
 
-[MSDNFunctionImportLink]: 'http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
 다음은 FunctionImport 노드에 의해 노출되는 추가 특성(또는 특성에 추가되는 항목)입니다.
 
@@ -53,8 +53,8 @@ FunctionImport 노드는 최종 사용자에게 서비스를 노출하는 하나
 
 **ReturnType** *(선택 사항)* - URI에서 반환하는 요소 유형을 지정합니다. 함수에서 값을 반환하지 않는 경우에는 이 특성을 사용하지 마십시오. 지원되는 유형은 다음과 같습니다.
 
- - **Collection (<Entity type name>)**: 정의된 엔터티 유형 컬렉션을 지정합니다. 이름은 EntityType 노드의 Name 특성에 있습니다. 예: Collection(WXC.HourlyResult)
- - **Raw (<mime type>)**: 사용자에게 반환되는 원시 문서/blob를 지정합니다. 예: Raw(image/jpeg) 기타 예:
+ - **Collection(<엔터티 유형 이름>)**: 정의된 엔터티 유형 컬렉션을 지정합니다. 이름은 EntityType 노드의 Name 특성에 있습니다. 예: Collection(WXC.HourlyResult)
+ - **Raw(<mime 형식>)**: 사용자에게 반환되는 원시 문서/Blob을 지정합니다. 예: Raw(image/jpeg) 기타 예:
 
   - ReturnType="Raw(text/plain)"
   - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
@@ -143,18 +143,18 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
 
 이 노드는 FunctionImport 노드에서 지정된 URI 템플릿/요청 본문의 일부로 노출되는 하나의 매개 변수를 나타냅니다.
 
-[http://msdn.microsoft.com/library/ee473431.aspx](http://msdn.microsoft.com/library/ee473431.aspx)에서 "매개 변수 요소" 노드에 대해 자세하게 설명되어 있는 매우 유용한 문서를 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+[여기](http://msdn.microsoft.com/library/ee473431.aspx)에서 "매개 변수 요소" 노드에 대해 자세하게 설명되어 있는 매우 유용한 문서를 찾을 수 있습니다. 문서를 보려는 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | 매개 변수 특성 | 필수 여부 | 값 |
 |----|----|----|
 | 이름 | 예 | 매개 변수의 이름입니다. 대/소문자를 구분합니다. BaseUri 대/소문자가 일치해야 합니다. **예:** `<Property Name="IsDormant" Type="Byte" />` |
-| 형식 | 예 | 매개 변수 유형입니다. 값이 **EDMSimpleType** 또는 모델 범위에 포함되는 복합 형식이어야 합니다. 자세한 내용은 “지원되는 6가지 매개 변수/속성 유형”을 참조하세요. (대/소문자를 구분합니다. 첫 번째 문자는 대문자, 나머지는 소문자입니다.) [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][MSDNParameterLink]도 참조하세요. **예:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| 형식 | 예 | 매개 변수 유형입니다. 값이 **EDMSimpleType** 또는 모델 범위에 포함되는 복합 형식이어야 합니다. 자세한 내용은 “지원되는 6가지 매개 변수/속성 유형”을 참조하세요. (대/소문자를 구분합니다. 첫 번째 문자는 대문자, 나머지는 소문자입니다.) 또한 [개념적 모델 형식(CSDL)][MSDNParameterLink]도 참조하세요. **예:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | 아니요 | 매개 변수가 입력인지, 출력인지 아니면 입력/출력 매개 변수인지에 따라 **In**, Out 또는 InOut입니다. (Azure 마켓플레이스에서는 "IN"만 사용할 수 있습니다.) **예:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | 아니요 | 매개 변수에 허용되는 최대 길이입니다. **예:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | 자릿수 | 아니요 | 매개 변수의 자릿수입니다. **예:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | 확장 | 아니요 | 매개 변수의 크기입니다. **예:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: 'http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx'
+[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 다음은 CSDL 사양에 추가된 특성입니다.
 
@@ -169,7 +169,7 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
 
 이 노드는 마켓플레이스에서 최종 사용자에게 반환되는 유형 중 하나를 나타냅니다. 또한 콘텐츠 공급자의 서비스가 반환하는 출력에서 최종 사용자에게 반환되는 값으로의 매핑을 포함합니다.
 
-이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/bb399206.aspx](http://msdn.microsoft.com/library/bb399206.aspx)에서 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다.
+이 노드에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/bb399206.aspx)에서 찾을 수 있습니다. 문서를 보려는 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다.
 
 | 특성 이름 | 필수 여부 | 값 |
 |----|----|----|
@@ -272,4 +272,4 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/30/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 사용자 인증
@@ -91,7 +91,7 @@ API 앱에 대한 .NET 자습서를 따르고 있고 이미 [첫 번째](app-ser
 
 * 중간 계층 API 앱을 호출하기 위해 Azure AD(Active Directory) 인증을 요구하는 앱 서비스를 구성합니다.
 * Azure AD 응용 프로그램을 만듭니다.
-* 로그온 후 AngularJS 프런트 엔드에 로그온한 후 전달자 토큰을 보내도록 Azure AD 응용 프로그램을 구성합니다. 
+* 로그온 후 AngularJS 프런트 엔드에 로그온한 후 전달자 토큰을 보내도록 Azure AD 응용 프로그램을 구성합니다.
 
 자습서의 지침을 수행하는 동안 문제가 발생하는 경우 자습서 끝부분의 [문제 해결](#troubleshooting) 섹션을 참조하세요.
  
@@ -135,7 +135,7 @@ API 앱에 대한 .NET 자습서를 따르고 있고 이미 [첫 번째](app-ser
 
 ### 선택 사항: API 앱 테스트
 
-1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL** 아래 링크를 클릭합니다.  
+1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL** 아래 링크를 클릭합니다.
 
 	인증되지 않은 요청은 API 앱에 도달할 수 없으므로 로그인 화면으로 리디렉션됩니다.
 
@@ -329,11 +329,11 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 [AZURE.INCLUDE [문제 해결](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* ToDoListAPI(중간 계층) 및 ToDoListDataAPI(데이터 계층)를 혼동하지 않아야 합니다. 예를 들어 데이터 계층이 아닌 중간 계층 API 앱에 인증을 추가했는지 확인합니다. 
-* AngularJS 소스 코드가 중간 계층 API 앱 URL(ToDoListDataAPI가 아닌 ToDoListAPI) 및 올바른 Azure AD 클라이언트 ID를 참조하는지 확인합니다. 
+* ToDoListAPI(중간 계층) 및 ToDoListDataAPI(데이터 계층)를 혼동하지 않아야 합니다. 예를 들어 데이터 계층이 아닌 중간 계층 API 앱에 인증을 추가했는지 확인합니다.
+* AngularJS 소스 코드가 중간 계층 API 앱 URL(ToDoListDataAPI가 아닌 ToDoListAPI) 및 올바른 Azure AD 클라이언트 ID를 참조하는지 확인합니다.
 
 ## 다음 단계
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

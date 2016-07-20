@@ -18,7 +18,7 @@
 
 #데이터 종속 라우팅
 
-**데이터 종속 라우팅**은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 이러한 방식은 분할된 데이터베이스에서 작업할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 응용 프로그램의 구체적인 각 쿼리 또는 트랜잭션은 요청당 단일 데이터베이스에 대한 액세스로 제한됩니다. SQL Azure 데이터베이스 탄력적 데이터베이스 도구의 경우 이 라우팅은 ADO.NET 응용 프로그램의 **[ShardMapManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)**와 함께 수행됩니다.
+**데이터 종속 라우팅**은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 이러한 방식은 분할된 데이터베이스에서 작업할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 응용 프로그램의 구체적인 각 쿼리 또는 트랜잭션은 요청당 단일 데이터베이스에 대한 액세스로 제한됩니다. Azure SQL 데이터베이스 탄력적 데이터베이스 도구의 경우 이 라우팅은 ADO.NET 응용 프로그램의 **[ShardMapManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)**와 함께 수행됩니다.
 
 응용 프로그램에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 응용 프로그램의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer\_id*, *tenant\_id*, *date\_key* 또는 데이터베이스 요청의 기본 매개 변수인 다른 특정 식별자입니다.
 
@@ -52,7 +52,7 @@
 	)
 
 
-* **key** 매개 변수는 요청에 대한 적합한 데이터베이스를 결정하는 분할된 데이터베이스 맵의 조회 키로 사용됩니다. 
+* **key** 매개 변수는 요청에 대한 적합한 데이터베이스를 결정하는 분할된 데이터베이스 맵의 조회 키로 사용됩니다.
 
 * **connectionString**은 원하는 연결에 대한 사용자 자격 증명만 전달하는 데 사용됩니다. 메서드에서 **ShardMap**을 사용하여 데이터베이스 및 서버를 결정하므로 데이터베이스 이름 또는 서버 이름은 이 *connectionString*에 포함되지 않습니다.
 
@@ -133,4 +133,4 @@ int newPersonId = 4321;
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

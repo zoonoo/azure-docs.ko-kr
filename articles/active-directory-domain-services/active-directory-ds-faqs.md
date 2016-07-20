@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory 도메인 서비스 개요: FAQ
@@ -78,4 +78,4 @@ Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역의 목록은 [
 #### 언제 Azure AD 도메인 서비스를 일반적으로 사용할 수 있습니까?
 현재 언제 서비스를 일반적으로 사용할 수 있는지에 대한 타임 라인을 공유할 수 없습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-* Azure 마켓플레이스에서 응용 프로그램 템플릿 찾기
-* 템플릿을 기반으로 하는 Azure 앱 서비스에서 웹앱 만들기
-* 새 웹앱 및 데이터베이스에 Azure 앱 서비스 설정 구성
+* Azure 마켓플레이스 템플릿을 기반으로 하는 Azure 앱 서비스에서 웹앱 찾기 및 만들기
+* 새 웹앱에 Azure 앱 서비스 설정 구성
+* 웹앱 시작 및 관리
 
 이 자습서에서는 학습 목표에 따라 Azure 마켓플레이스에서 WordPress 블로그 사이트를 배포합니다. 이 자습서의 단계를 완료하면 WordPress 사이트를 소유하고 클라우드에서 실행하게 됩니다.
 
-![WordPress 웹앱 대시보드 예제][WordPressDashboard]
+![WordPress 웹앱 대시보드 예제][WordPressDashboard1]
 
 이 자습서에서 배포하는 WordPress 사이트는 데이터베이스에 MySQL을 사용합니다. 데이터베이스에 대신 SQL 데이터베이스를 사용하려면 Azure 마켓플레이스를 통해서도 사용 가능한 [프로젝트 Nami]를 참조하세요.
 
@@ -41,7 +41,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험]으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
-## WordPress 선택 및 Azure 앱 서비스에 대한 구성
+## Azure 앱 서비스에서 웹앱 찾기 및 만들기
 
 1. [Azure 포털]에 로그인합니다.
 
@@ -57,7 +57,9 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 	![WordPress 웹앱 만들기][MarketplaceCreate]
 
-1. 다음 단계를 완료하는 데 사용할 WordPress 설정 블레이드가 표시됩니다.
+## 새 웹앱에 Azure 앱 서비스 설정 구성
+
+1. 새 웹앱을 만든 후에 다음 단계를 완료하는 데 사용할 WordPress 설정 블레이드가 표시됩니다.
 
 	![WordPress 웹앱 설정 구성][ConfigStart]
 
@@ -131,7 +133,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 1. 사이트 대시보드 페이지가 열리고 입력한 정보가 표시됩니다.
 
-	![WordPress 대시보드 보기][WordPressDashboard]
+	![WordPress 대시보드 보기][WordPressDashboard2]
 
 ## 다음 단계
 
@@ -174,7 +176,8 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

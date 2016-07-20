@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="07/06/2016"
    ms.author="magoedte" />
 
 # Azure 자동화 보안
@@ -45,4 +45,4 @@ Azure AD 서비스 사용자 개체 | Azure 리소스 관리자 | [Azure 실행 
 Windows 인증 | 온-프레미스 데이터 센터 | [Hybrid Runbook Worker용 Runbook 인증](../automation/automation-hybrid-runbook-worker.md)
 AWS 자격 증명 | Amazon 웹 서비스 | [AWS(Amazon 웹 서비스)로 Runbook 인증](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -161,7 +161,7 @@
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
 | 83 | [PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-powershell.md) | Azure SQL 데이터베이스 풀을 관리하는데 사용되는 PowerShell |
-| 84 | [규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-create-and-manage.md) | 탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다. |
+| 84 | [규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-create-and-manage.md) | 탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다. |
 | 85 | [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md) | 탄력적 데이터베이스 작업을 사용하는 방법 |
 | 86 | [탄력적 데이터베이스 작업 설치 개요](sql-database-elastic-jobs-service-installation.md) | 탄력적 작업 기능의 설치에 대한 단계별 안내 |
 | 87 | [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md) | 탄력적 데이터베이스 작업 서비스를 설명합니다. |
@@ -378,4 +378,4 @@
 
 - 학습 경로 그래픽: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -47,7 +47,7 @@
 | UDR | UDR | 서브넷과 연결된 사용자 정의 경로는 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 UDR은 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 UDR의 관리 평면 작업이 차단됩니다. | | |
 | VM 네트워크 구성의 IP 전달 속성 | NIC의 IP 전달 속성 | 마이그레이션 중 VM의 IP 전달 속성이 네트워크 인터페이스의 속성으로 변환됩니다. | | |
 | 여러 IP가 포함된 부하 분산 장치 | 여러 공용 IP 리소스가 포함된 부하 분산 장치 | 부하 분산 장치와 연결된 모든 공용 IP는 공용 IP 리소스로 변환되며 마이그레이션 후 부하 분산 장치와 연결됩니다. | | |
-| VM의 내부 DNS 이름 | NIC의 내부 DNS 이름 | 마이그레이션 중 내부 DNS 접미사는 Resource Manager 배포 모델의 접미사와 동일하게 업데이트됩니다. 마이그레이션 후에도 이름 확인은 계속 작동합니다. 하지만 VM과 연결된 접미사는 변경됩니다. | | |
+| VM의 내부 DNS 이름 | NIC의 내부 DNS 이름 | 마이그레이션하는 동안 VM의 내부 DNS 접미사는 NIC의 "InternalDomainNameSuffix"라는 읽기 전용 속성으로 마이그레이션됩니다. 마이그레이션 후 접미사는 그대로 유지되며 VM 확인은 이전처럼 계속 작동해야 합니다. | | |
 
 ## 간단한 마이그레이션 연습의 설명
 
@@ -64,4 +64,4 @@
 - [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

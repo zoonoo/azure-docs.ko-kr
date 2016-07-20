@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="07/05/2016"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
@@ -50,8 +50,9 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 - [Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
 - [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 - [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
+- [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
 
-> [AZURE.IMPORTANT] 스크립트 동작은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
+> [AZURE.IMPORTANT] 스크립트 작업은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
 ### <a name="bPS1"></a>Hadoop 버전 대상
 
@@ -115,6 +116,40 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
+
+###<a name="bps9"></a> 다시 시도 논리를 사용하여 일시적 오류에서 복구
+
+파일을 다운로드할 때 apt-get 또는 인터넷을 통해 데이터를 전송하는 기타 작업을 사용하여 패키지를 설치하면 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로의 장애 조치(failover) 중일 수 있습니다.
+
+스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대 3번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는 2초 동안 대기됩니다.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+다음은 이 함수 사용 예제입니다.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
 ## <a name="helpermethods"></a>사용자 지정 스크립트에 대한 도우미 메서드
 
@@ -181,7 +216,7 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 
 ## <a name="runScriptAction"></a>스크립트 작업을 실행하는 방법
 
-스크립트 작업을 사용하여 Azure 포털, Azure PowerShell, ARM(Azure Resource Manager) 템플릿 또는 HDInsight .NET SDK로 HDInsight 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+스크립트 작업을 사용하여 Azure 포털, Azure PowerShell, ARM(Azure Resource Manager) 템플릿 또는 HDInsight .NET SDK로 HDInsight 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업 사용 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ## <a name="sampleScripts"></a>사용자 지정 스크립트 샘플
 
@@ -190,7 +225,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 - [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
 - [HDInsight Hadoop 클러스터에 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)
 - [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
-- [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)  
+- [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 
 > [AZURE.NOTE] 위에 링크된 문서는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 HDInsight로 작동하는 스크립트는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하거나 각 문서의 위쪽에 사용할 수 있는 링크를 사용합니다.
 
@@ -227,10 +262,10 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 ## <a name="seeAlso"></a>다음 단계
 
-* [스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)하는 방법을 알아봅니다.
+* [스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 알아봅니다.
 
 * [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx)를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

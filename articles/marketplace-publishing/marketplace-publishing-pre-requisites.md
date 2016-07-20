@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="04/07/2016"
+  ms.date="06/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스용 제품을 만들기 위한 일반적인 필수 조건
@@ -46,13 +46,11 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 Microsoft Azure 마켓플레이스에서 서비스를 판매하려면, 승인된 “판매" 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure 마켓플레이스 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.
 
 ## 다음 단계
-다음은 각 제품 유형에 대한 기술적인 필수 조건입니다. Azure 마켓플레이스용으로 만들 제품 유형에 해당하는 문서로 연결되는 링크를 클릭하세요.
-
-| 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
-|-----|-----|-----|-----|
-| [VM 기술적인 필수 조건](marketplace-publishing-vm-image-creation-prerequisites.md) | 비공개 미리 보기 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
+비기술 필수 구성 요소가 충족되면 제품별 기술 구성 요소를 충족해야 합니다. Azure 마켓플레이스용으로 만들 제품 유형에 해당하는 문서로 연결되는 링크를 클릭하세요.
+- [VM 기술 필수 구성 요소](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [솔루션 템플릿 기술 필수 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

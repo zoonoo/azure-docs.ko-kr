@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Azure에서 Linux 가상 컴퓨터에 태그를 지정하는 방법
 
@@ -25,7 +25,7 @@
 
 ## Azure CLI를 사용하여 태그 지정
 
-Azure CLI를 통해 이미 생성된 리소스에 대한 태그 지정도 지원됩니다. 먼저 [Azure CLI 환경][]을 설정합니다. Azure CLI를 통해 구독에 로그인하고 리소스 관리자 모드(`azure config mode arm`)로 전환합니다.
+시작하려면 [Azure CLI를 설치 및 구성](../xplat-cli-azure-resource-manager.md)하고 Resource Manager 모드(`azure config mode arm`)에 있는지 확인합니다.
 
 다음 명령을 사용하여 태그를 비롯한 지정된 가상 컴퓨터의 모든 속성을 볼 수 있습니다.
 
@@ -53,10 +53,10 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 
 
 
-[Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Azure Resource Manager 개요]: ../resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 정보 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

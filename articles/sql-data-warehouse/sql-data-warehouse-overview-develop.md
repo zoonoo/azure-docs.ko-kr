@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 디자인 결정 및 코딩 기술
@@ -27,8 +27,8 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 - [동시성][]
 - [트랜잭션][]
 - [사용자 정의 스키마][]
-- [테이블 디자인][]
-- [해시 배포 키][]
+- [테이블 배포][]
+- [테이블 인덱스][]
 - [테이블 파티션][]
 - [CTAS][]
 - [통계][]
@@ -51,29 +51,28 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 <!--Image references-->
 
 <!--Article references-->
-[동시성]: sql-data-warehouse-develop-concurrency.md
-[연결]: sql-data-warehouse-develop-connections.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[동적 SQL]: sql-data-warehouse-develop-dynamic-sql.md
-[옵션으로 그룹화]: sql-data-warehouse-develop-group-by-options.md
-[해시 배포 키]: sql-data-warehouse-develop-hash-distribution-key.md
-[레이블]: sql-data-warehouse-develop-label.md
-[반복]: sql-data-warehouse-develop-loops.md
-[통계]: sql-data-warehouse-develop-statistics.md
-[저장 프로시저]: sql-data-warehouse-develop-stored-procedures.md
-[테이블 디자인]: sql-data-warehouse-develop-table-design.md
-[테이블 파티션]: sql-data-warehouse-develop-table-partitions.md
-[임시 테이블]: sql-data-warehouse-develop-temporary-tables.md
-[트랜잭션]: sql-data-warehouse-develop-transactions.md
-[사용자 정의 스키마]: sql-data-warehouse-develop-user-defined-schemas.md
-[변수 할당]: sql-data-warehouse-develop-variable-assignment.md
-[뷰]: sql-data-warehouse-develop-views.md
-
-[Transact-SQL 참조]: sql-data-warehouse-overview-reference.md
+[동시성]: ./sql-data-warehouse-develop-concurrency.md
+[연결]: ./sql-data-warehouse-develop-connections.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[동적 SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
+[옵션으로 그룹화]: ./sql-data-warehouse-develop-group-by-options.md
+[레이블]: ./sql-data-warehouse-develop-label.md
+[반복]: ./sql-data-warehouse-develop-loops.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
+[저장 프로시저]: ./sql-data-warehouse-develop-stored-procedures.md
+[테이블 배포]: ./sql-data-warehouse-tables-distribute.md
+[테이블 인덱스]: ./sql-data-warehouse-tables-index.md
+[테이블 파티션]: ./sql-data-warehouse-tables-partition.md
+[임시 테이블]: ./sql-data-warehouse-tables-temporary.md
+[트랜잭션]: ./sql-data-warehouse-develop-transactions.md
+[사용자 정의 스키마]: ./sql-data-warehouse-develop-user-defined-schemas.md
+[변수 할당]: ./sql-data-warehouse-develop-variable-assignment.md
+[뷰]: ./sql-data-warehouse-develop-views.md
+[Transact-SQL 참조]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Hive 작업
@@ -106,7 +106,7 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 1. 연결된 서비스를 만들어 [고유의 HDInsight 계산 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 계산 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
 2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob 저장소에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
 3. 입력 및 출력 데이터를 가리키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 "HiveSampleIn"라고 하고 출력 데이터 집합을 "HiveSampleOut"라고 합니다.
-4. 위의 #2단계에서 구성된 Azure Blob 저장소에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**을 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
+4. 위의 #2단계에서 구성된 Azure Blob 저장소에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
 
 	> [AZURE.NOTE] **스크립트** 속성을 사용하여 활동 정의에서 Hive 스크립트 인라인을 제공할 수도 있지만 JSON 문서 내에서 스크립트의 모든 특수 문자가 이스케이프되어야 하고 디버깅 문제를 발생킬 수 있기 때문에 권장되지 않습니다. 모법 사례는 #4단계를 수행하는 것입니다.
 5.	HDInsightHive 활동으로 아래 파이프라인을 만들어 데이터를 처리합니다.
@@ -143,7 +143,7 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 		}
 
 6.	파이프라인을 배포합니다. 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
-7.	데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 세부 정보는 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요. 
+7.	데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 세부 정보는 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요.
 
 
 ## 사용하여 Hive 스크립트에 매개 변수를 지정하면 요소를 정의합니다. 
@@ -222,4 +222,4 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

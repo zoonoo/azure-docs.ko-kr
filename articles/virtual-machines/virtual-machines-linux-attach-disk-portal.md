@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Azure 포털에서 Linux VM에 데이터 디스크를 연결하는 방법
@@ -34,4 +34,4 @@
 
 디스크를 추가한 후 해당 디스크를 사용할 수 있도록 준비해야 합니다. 이 [문서](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux)에서 가상 컴퓨터 운영 체제의 "방법: Linux에서 새 데이터 디스크 초기화"를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

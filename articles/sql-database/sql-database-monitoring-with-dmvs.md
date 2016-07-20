@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/22/2016"
-   ms.author="rickbyh"/>
+   ms.date="07/05/2016"
+   ms.author="carlrab"/>
 
 # 동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링
 
@@ -33,18 +33,18 @@ SQL 데이터베이스는 세 가지 범주의 동적 관리 뷰를 부분적으
 
 SQL 데이터베이스에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 있어야 합니다. **VIEW DATABASE STATE** 권한은 현재 데이터베이스 내의 모든 개체에 대한 정보를 반환합니다. 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 다음 쿼리를 실행합니다.
 
-```GRANT VIEW DATABASE STATE TO database_user;```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
-온 프레미스 SQL 서버의 인스턴스에서 동적 관리 뷰는 서버 상태 정보를 반환합니다. SQL 데이터베이스에서는 현재의 논리 데이터베이스에 관한 정보만 반환합니다.
+온-프레미스 SQL 서버의 인스턴스에서 동적 관리 뷰는 서버 상태 정보를 반환합니다. SQL 데이터베이스에서는 현재의 논리 데이터베이스에 관한 정보만 반환합니다.
 
 ## 데이터베이스 크기 계산
 
 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
 
 ```
--- 데이터베이스의 크기를 계산합니다. 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats;
+-- Calculates the size of the database.
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats;
 GO
 ```
 
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

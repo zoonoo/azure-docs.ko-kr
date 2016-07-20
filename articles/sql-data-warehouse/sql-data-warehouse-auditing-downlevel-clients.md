@@ -18,6 +18,14 @@
 
 # SQL 데이터 웨어하우스 - 감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원
 
+> [AZURE.SELECTOR]
+- [보안 개요](sql-data-warehouse-overview-manage-security.md)
+- [위협 감지](sql-data-warehouse-security-threat-detection.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [감사 개요](sql-data-warehouse-auditing-overview.md)
+- [하위 수준 클라이언트 감사](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 [감사](sql-data-warehouse-auditing-overview.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 작동합니다.
 
@@ -38,4 +46,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
 **주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

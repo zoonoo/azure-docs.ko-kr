@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB를 사용하여 소셜 네트워크 디자인
@@ -106,6 +106,33 @@ Azure DocumentDB는 모든 속성이 해당 [원자성 인덱싱](documentdb-ind
 
 이 동일한 기술을 사용하여 궁극적으로 일관된 환경을 만들어 게시물에 대한 평점 및 좋아요를 지연된 방식으로 처리할 수 있습니다.
 
+팔로워는 더 복잡합니다. DocumentDB는 문서의 최대 크기를 512Kb로 제한하므로 다음 구조를 사용하여 팔로워를 저장하는 방법을 고려할 수 있습니다.
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+이 방식은 수천 명의 팔로워를 지닌 사용자에게 적합하지만 일부 유명인이 랭크에 조인하면 결국 이 접근 방식은 문서 크기 용량이 부족합니다.
+
+이 문제를 해결하기 위해 혼합된 접근 방식을 사용할 수 있습니다. 사용자 통계 문서의 일부로 팔로워의 수를 저장할 수 있습니다.
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+또한 팔로워의 실제 그래프는 간단한 "A 다음에 B"를 저장하고 검색하도록 허용하는 [확장](https://github.com/richorama/AzureStorageExtensions#azuregraphstore)을 사용하여 Azure 저장소 테이블에 저장할 수 있습니다. 이렇게 Azure 저장소 테이블에 대한 정확한 팔로워 목록(필요한 경우)을 검색하는 프로세스를 삭제할 수 있지만 단축 번호 조회의 경우 DocumentDB를 계속 사용합니다.
+
 ## "사다리" 패턴 및 데이터 중복
 
 게시물을 참조하는 JSON 문서에서 볼 수 있듯이 하나의 사용자가 여러 번 발생합니다. 이는 이러한 역정규화가 주어진 경우 사용자를 나태는 정보가 여러 곳에 표시될 수 있음을 의미합니다.
@@ -140,21 +167,26 @@ Azure DocumentDB는 모든 속성이 해당 [원자성 인덱싱](documentdb-ind
 
 가장 큰 단계는 Extended User입니다. 여기에는 중요한 모든 사용자 정보와 실제로 빠르게 읽을 필요가 없으며 마지막에 사용되는(예: 로그인 프로세스) 기타 데이터가 포함됩니다. 이 데이터를 DocumentDB 외부, Azure SQL 데이터베이스 또는 Azure 저장소 테이블에 저장할 수 있습니다.
 
-사용자를 분할하고 심지어 이 정보를 여러 곳에 저장하는 이유는 무엇일까요? DocumentDB의 저장소 공간은 무한하지 않으며 성능 면에서 문서가 클수록 쿼리 비용이 많이 들기 때문입니다. 소셜 네트워크에 대한 모든 성능 종속 쿼리를 수행하는 데 적합한 정보로 문서를 간소하게 유지하고 전체 프로필 편집, 로그인, 사용량 분석 및 빅 데이터 이니셔티브를 위한 데이터 마이닝 등 최종적인 시나리오에 대한 기타 추가 정보를 저장하세요. 사용자 환경이 빠르고 간소하게 유지된다면 데이터 마이닝을 위한 데이터 수집이 Azure SQL 데이터베이스에서 실행되기 때문에 느려지는 것은 중요하지 않습니다. 사용자는 DocumentDB에 다음과 같이 저장됩니다.
+사용자를 분할하고 심지어 이 정보를 여러 곳에 저장하는 이유는 무엇일까요? DocumentDB의 저장소 공간은 [무한하지 않으며](documentdb-limits.md) 성능 면에서 문서가 클수록 쿼리 비용이 많이 들기 때문입니다. 소셜 네트워크에 대한 모든 성능 종속 쿼리를 수행하는 데 적합한 정보로 문서를 간소하게 유지하고 전체 프로필 편집, 로그인, 사용량 분석 및 빅 데이터 이니셔티브를 위한 데이터 마이닝 등 최종적인 시나리오에 대한 기타 추가 정보를 저장하세요. 사용자 환경이 빠르고 간소하게 유지된다면 데이터 마이닝을 위한 데이터 수집이 Azure SQL 데이터베이스에서 실행되기 때문에 느려지는 것은 중요하지 않습니다. 사용자는 DocumentDB에 다음과 같이 저장됩니다.
 
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
         "surname":"Doe",
+        "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "totalPoints":100,
-        "totalPosts":24,
-        "following":{
-            "count":2,
-            "list":[
-                UserChunk1, UserChunk2
-            ]
+        "twitterHandle":"@john"
+    }
+
+그리고 게시물은 다음과 유사합니다.
+
+    {
+        "id":"1234-asd3-54ts-199a",
+        "title":"Awesome post!",
+        "date":"2016-01-02",
+        "createdBy":{
+        	"id":"dse4-qwe2-ert4-aad2",
+    		"username":"johndoe"
         }
     }
 
@@ -164,7 +196,7 @@ Azure DocumentDB는 모든 속성이 해당 [원자성 인덱싱](documentdb-ind
 
 다행히 사용자는 많은 콘텐츠를 생성합니다. 우리는 콘텐츠 스트림에 없을 수 있는 콘텐츠를 검색하고 찾을 수 있는 기능을 제공할 수 있어야 합니다. 만든 사람을 추적하지 않거나 6개월 전에 게시한 오래된 게시물을 찾으려고 할 수 있기 때문입니다.
 
-다행히 Azure DocumentDB를 사용하기 때문에 단일 코드 줄을 입력하지 않고도 [Azure 검색](https://azure.microsoft.com/services/search/)을 통해 몇 분 이내에 검색 엔진을 쉽게 구현할 수 있습니다.
+다행히 Azure DocumentDB를 사용하기 때문에 단일 코드 줄을 입력하지 않고도 [Azure 검색](https://azure.microsoft.com/services/search/)을 통해 몇 분 이내에 검색 엔진을 쉽게 구현할 수 있습니다(검색 프로세스 및 UI가 아님).
 
 이 작업이 이렇게 쉬운 이유는 무엇일까요?
 
@@ -184,6 +216,8 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 [Cortana Intelligence 제품군](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)의 일부인 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/)은 완전히 관리되는 클라우드 서비스로서, 간단한 끌어서 놓기 인터페이스에서 알고리즘을 사용하여 워크플로를 만들거나, [R](https://en.wikipedia.org/wiki/R_(programming_language))에서 사용자 고유의 알고리즘을 코딩하거나, 이미 빌드되고 즉시 사용 가능한 API(예: [텍스트 분석](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [콘텐츠 중재자](https://www.microsoft.com/moderator) 또는 [추천](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2))를 사용할 수 있도록 해줍니다.
 
+이러한 기계 학습 시나리오를 달성하려면 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)를 사용하여 다양 한 원본에서 정보를 수집하고 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/)을 사용하여 정보를 처리하고 Azure 기계 학습에서 처리할 수 있는 출력을 생성할 수 있습니다.
+
 ## 결론
 
 이 문서에서는 완전히 Azure에서 저렴한 서비스를 사용하여 소셜 네트워크를 만들고, 다중 계층 저장소 솔루션 및 “사다리”라는 데이터 분산을 사용하도록 권장하여 뛰어난 결과를 제공하는 대안에 대해 살펴보았습니다.
@@ -198,4 +232,4 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 또는 [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)에서 DocumentDB에 대해 자세히 알아보세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

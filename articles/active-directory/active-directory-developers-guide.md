@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Azure Active Directory 개발자 가이드
 
 ## 개요
-IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 개발자에게 응용 프로그램에 ID 관리 기능을 통합하는 효과적인 방법을 제공합니다. 다음 문서에서는 Azure Active Directory의 구현 및 주요 기능에 대한 개요를 제공합니다. 자세히 살펴볼 준비가 되면 순서대로 읽어보거나 [시작](#getting-started)부터 진행합니다.
+IDMaaS(Identity Management As A Service) 플랫폼인 Azure AD(Active Directory)는 개발자에게 응용 프로그램에 ID 관리 기능을 통합하는 효과적인 방법을 제공합니다. 다음 문서에서는 Azure AD의 구현 및 주요 기능에 대한 개요를 제공합니다. 자세히 살펴볼 준비가 되면 순서대로 읽어보거나 [시작](#getting-started)부터 진행합니다.
 
 
-1. [Azure Active Directory 통합의 장점](active-directory-how-to-integrate.md): Azure Active Directory와 통합할 경우 보안 로그인 및 권한 부여를 위한 최상의 솔루션이 구현될 수 있는 이유를 알아보세요.
+1. [Azure Active Directory 통합의 장점](active-directory-how-to-integrate.md): Azure AD와 통합할 경우 보안 로그인 및 권한 부여를 위한 최상의 솔루션이 구현될 수 있는 이유를 알아보세요.
 
-1. [Active Directory 인증 시나리오](active-directory-authentication-scenarios.md): Azure Active Directory의 간단한 인증을 활용하여 응용 프로그램에 로그인을 제공하세요.
+1. [Active Directory 인증 시나리오](active-directory-authentication-scenarios.md): Azure AD의 간단한 인증을 활용하여 응용 프로그램에 로그인을 제공하세요.
 
-1. [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md): Azure Active Directory에서 응용 프로그램을 추가, 업데이트 및 제거하는 방법 및 통합된 앱에 대한 브랜딩 지침에 대해 알아보세요.
+1. [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md): Azure AD에서 응용 프로그램을 추가, 업데이트 및 제거하는 방법 및 통합된 앱에 대한 브랜딩 지침에 대해 알아보세요.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure Active Directory에 액세스하세요. Azure AD Graph API는 단일 REST API 끝점을 통해 여러 Microsoft 클라우드 서비스 API에 액세스할 수 있도록 하는 통합 API인 [Microsoft Graph](https://graph.microsoft.io/)를 통해, 그리고 단일 액세스 토큰을 사용하여 액세스할 수도 있습니다.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure AD Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure AD에 액세스하세요. Azure AD Graph API는 단일 REST API 끝점을 통해 여러 Microsoft 클라우드 서비스 API에 액세스할 수 있도록 하는 통합 API인 [Microsoft Graph](https://graph.microsoft.io/)를 통해, 그리고 단일 액세스 토큰을 사용하여 액세스할 수도 있습니다.
 
 1. [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 .NET, JavaScript, Objective-C, Android 등에 대한 Azure AD 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
 
@@ -40,25 +40,25 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ### 모바일 및 PC 응용 프로그램 빠른 시작 가이드
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)로 바꿉니다.|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.|[![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)로 바꿉니다.|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)로 바꿉니다.|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)로 바꿉니다.
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.|[![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows 범용](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[OAuth 2.0을 사용하여 직접 통합](active-directory-protocols-oauth-code.md)|
 
 ### 웹 응용 프로그램 빠른 시작 가이드
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)로 바꿉니다.|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)로 바꿉니다.|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)로 바꿉니다.|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)로 바꿉니다.|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)로 바꿉니다. | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)로 바꿉니다.
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)| [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md)|[OpenID Connect를 사용하여 직접 통합](active-directory-protocols-openid-connect-code.md)|
 
 ### 웹 API 빠른 시작 가이드
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)로 바꿉니다.|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)로 바꿉니다.
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.JS](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### 디렉터리 쿼리 빠른 시작 가이드
 
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)로 바꿉니다.|
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
 |:--:|
 |[그래프 API](active-directory-graph-api-quickstart.md)|
 
@@ -66,12 +66,13 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 이러한 문서는 Azure Active Directory를 사용하여 특정 작업을 수행하는 방법을 설명합니다.
 
-- [Azure Active Directory 테넌트 가져오기](active-directory-howto-tenant.md)
-- [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](active-directory-app-gallery-listing.md)
-- [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)
-- [Office 365 API와 함께 응용 프로그램 만들기](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
+- [다중 테넌트 응용 프로그램 패턴을 사용하는 모든 Azure AD 사용자 로그인](active-directory-devhowto-multi-tenant-overview.md)
+- [Android](active-directory-sso-android.md) 및 [iOS](active-directory-sso-ios.md) 장치에서 ADAL을 사용하여 앱 간 SSO 사용
+- [Azure AD에 대한 AppSource 인증된 응용 프로그램](active-directory-devhowto-appsource-certified.md)
+- [Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](active-directory-app-gallery-listing.md)
 - [판매자 대시보드로 Office 365용 웹앱 제출](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- ADAL을 사용하여 [Android](active-directory-sso-android.md) 및 [iOS](active-directory-sso-ios.md) 장치에서 앱 간 SSO를 사용하도록 설정하는 방법 알아보기
+- [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)
 - [클라이언트 응용 프로그램에서 로그인 및 앱 취득 단추에 대한 브랜딩 지침 이해](active-directory-branding-guidelines.md)
 - [미리 보기: 개인 및 회사 또는 학교 계정 모두를 사용하여 사용자를 로그인하는 앱을 빌드하는 방법](active-directory-appmodel-v2-overview.md)
 - [미리 보기: 소비자를 등록 및 로그인하는 앱을 빌드하는 방법](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -141,4 +142,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

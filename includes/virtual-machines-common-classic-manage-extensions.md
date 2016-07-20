@@ -3,7 +3,7 @@
 
 ##VM 확장 사용
 
-Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: **WebDeployForVSDevTest** 확장은 Azure VM에서 Visual Studio의 웹 배포 솔루션 작업을 허용함) 일부 다른 동작을 지원하기 위해 VM과 상호 작용하는 기능을 제공(예: Powershell, Azure CLI 및 REST 클라이언트에서 VM Access 확장을 사용하여 Azure VM에서의 원격 액세스 값을 재설정하거나 수정할 수 있음)하는 동작이나 기능을 구현합니다.
+Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: **WebDeployForVSDevTest** 확장은 Azure VM에서 Visual Studio의 웹 배포 솔루션 작업을 허용함) 일부 다른 동작을 지원하기 위해 VM과 상호 작용하는 기능을 제공(예: PowerShell, Azure CLI 및 REST 클라이언트에서 VM Access 확장을 사용하여 Azure VM에서의 원격 액세스 값을 재설정하거나 수정할 수 있음)하는 동작이나 기능을 구현합니다.
 
 >[AZURE.IMPORTANT] 지원하는 기능별 전체 확장 목록은 [Azure VM 확장 및 기능](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)을 참조하세요. 각 VM 확장은 특정 기능을 지원하므로 확장에서 정확히 지원하는 기능과 지원하지 않는 기능은 확장마다 다릅니다. 따라서 VM을 수정하기 전에 사용하려는 VM 확장에 대한 설명서를 읽어야 합니다. 어떤 VM 확장은 제거가 지원되지 않으며 어떤 확장에서는 VM 동작을 근본적으로 변경하는 속성을 설정할 수 있습니다.
 
@@ -22,12 +22,12 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 다음을 사용하여 확장 및 확장 정보를 찾을 수 있습니다.
 
 -   PowerShell
--   Azure 플랫폼 간 인터페이스(Azure CLI)
+-   Azure 플랫폼 간 명령줄 인터페이스(Azure CLI)
 -   서비스 관리 REST API
 
 ###Azure PowerShell
 
-일부 확장에는 PowerShell로부터의 구성 편의를 위한 특정 Powershell cmdlet이 있지만 다음 cmdlet은 모든 VM 확장에서 작동합니다.
+일부 확장에는 PowerShell로부터의 구성 편의를 위한 특정 PowerShell cmdlet이 있지만 다음 cmdlet은 모든 VM 확장에서 작동합니다.
 
 다음 cmdlet을 사용하여 사용 가능한 확장에 대한 정보를 구할 수 있습니다.
 
@@ -36,9 +36,7 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 
      예를 들어, 다음 코드 예제에서는 PowerShell을 사용하여 **IaaSDiagnostics** 확장에 대한 정보를 나열하는 방법을 나타냅니다.
 
-        PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
-        VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
-        VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
+        PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
 
         Publisher                   : Microsoft.Azure.Diagnostics
         ExtensionName               : IaaSDiagnostics
@@ -64,7 +62,7 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 
 일부 확장에는 구성 편의를 위한 고유의 Azure CLI 명령(예: Docker VM 확장)이 있지만 다음 명령은 모든 VM 확장에 적용됩니다.
 
-**azure vm extension list** 명령을 사용하여 사용 가능한 확장에 대한 정보를 구하고 **–-json** 옵션을 사용하여 하나 이상의 확장에 대한 모든 사용 가능한 정보를 표시할 수 있습니다. 확장 이름을 사용하지 않는 경우 명령은 모든 사용 가능한 확장에 대해 json 설명을 반환합니다.
+**azure vm extension list** 명령을 사용하여 사용 가능한 확장에 대한 정보를 구하고 **–-json** 옵션을 사용하여 하나 이상의 확장에 대한 모든 사용 가능한 정보를 표시할 수 있습니다. 확장 이름을 사용하지 않는 경우 명령은 모든 사용 가능한 확장에 대해 JSON 설명을 반환합니다.
 
 예를 들어 다음 코드 예제에서는 Azure CLI **azure vm extension list** 명령을 사용하여 **IaaSDiagnostics** 확장 정보를 나열하는 방법을 보여 주고 **–-json** 옵션을 사용하여 전체 정보를 반환합니다.
 
@@ -119,4 +117,4 @@ REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 
 
 >[AZURE.NOTE]확장은 JSON으로 정의된 구성을 사용할 수도 있습니다. 이러한 유형의 확장을 사용할 때는 만**SampleConfig** 요소만 사용됩니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

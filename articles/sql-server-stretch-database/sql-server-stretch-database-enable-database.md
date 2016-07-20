@@ -46,6 +46,7 @@
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -62,6 +63,10 @@ GO
 1.  시작하기 전에 스트레치 데이터베이스에서 마이그레이션하는 데이터에 대한 기존 Azure 서버를 선택하거나 새 Azure 서버를 만듭니다.
 
 2.  Azure 서버에서 SQL Server가 원격 서버와 통신하는 데 필요한 SQL Server의 IP 주소 범위를 사용하여 방화벽 규칙을 만듭니다.
+
+    SSMS(SQL Server Management Studio)의 개체 탐색기에서 Azure 서버에 연결을 시도하여 필요한 값을 쉽게 찾고 방화벽 규칙을 만들 수 있습니다. SSMS는 필요한 IP 주소 값을 이미 포함하는 다음과 같은 대화 상자를 열어 규칙을 만드는 데 도움을 줍니다.
+
+	![SSMS에서 방화벽 규칙 만들기][FirewallRule]
 
 3.  스트레치 데이터베이스에 대해 SQL Server 데이터베이스를 구성하려면 데이터베이스에 데이터베이스 마스터 키가 있어야 합니다. 데이터베이스 마스터 키는 스트레치 데이터베이스가 원격 데이터베이스에 연결하는 데 사용하는 자격 증명을 보호합니다. 새 데이터베이스 마스터 키를 만드는 예제는 다음과 같습니다.
 
@@ -136,4 +141,6 @@ GO
 
 [ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
+
+<!---HONumber=AcomDC_0706_2016-->

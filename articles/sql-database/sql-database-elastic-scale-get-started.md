@@ -51,19 +51,20 @@
 
 축하합니다. 이제 Azure SQL 데이터베이스에서 탄력적 데이터베이스 도구를 사용하는 첫 번째 분할 응용 프로그램을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 Azure DB Server에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
-**참고** SQL Server Management Studio가 없으면 해당 도구를 얻는 지침이 포함된 [SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리](sql-database-manage-azure-ssms.md)를 참조하세요.
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ### 코드 샘플의 주요 부분
 
-1. **분할된 데이터베이스 및 분할된 데이터베이스 맵 관리**: 코드는 **ShardMapManagerSample.cs** 파일에서 분할된 데이터베이스, 범위 및 매핑으로 작업하는 방법을 보여 줍니다. 이 항목에 대한 자세한 내용은 다음을 참조하세요. [분할된 데이터베이스 맵 관리](http://go.microsoft.com/?linkid=9862595).  
-2. **데이터 종속 라우팅**: 적절한 분할로의 트랜잭션 라우팅은 **DataDependentRoutingSample.cs**에 나와 있습니다. 자세한 내용은 [데이터 종속 라우팅](http://go.microsoft.com/?linkid=9862596)을 참조하세요. 
+1. **분할된 데이터베이스 및 분할된 데이터베이스 맵 관리**: 코드는 **ShardMapManagerSample.cs** 파일에서 분할된 데이터베이스, 범위 및 매핑으로 작업하는 방법을 보여 줍니다. 이 항목에 대한 자세한 내용은 다음을 참조하세요. [분할된 데이터베이스 맵 관리](http://go.microsoft.com/?linkid=9862595).
+2. **데이터 종속 라우팅**: 적절한 분할로의 트랜잭션 라우팅은 **DataDependentRoutingSample.cs**에 나와 있습니다. 자세한 내용은 [데이터 종속 라우팅](http://go.microsoft.com/?linkid=9862596)을 참조하세요.
 3. **여러 분할된 데이터베이스에 대한 쿼리**: 여러 분할된 데이터베이스에 대한 쿼리 방법은 **MultiShardQuerySample.cs** 파일에서 설명합니다. 자세한 내용은 [다중 분할 쿼리](http://go.microsoft.com/?linkid=9862597)를 참조하세요.
 4. **비어 있는 분할 추가**: **AddNewShardsSample.cs** 파일의 코드를 사용하여 비어 있는 새 분할을 반복적으로 추가할 수 있습니다. 이 항목에 대한 자세한 내용은 다음에서 다룹니다. [분할된 데이터베이스 맵 관리](http://go.microsoft.com/?linkid=9862595).
 
 ### 기타 탄력적인 확장 작업
 
 1. **기존의 분할된 데이터베이스 분할**: **분할/병합 도구**를 통해 분할된 데이터베이스를 분할하는 기능이 제공됩니다. 이 도구에 대한 자세한 내용은 다음을 참조하세요. [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **기존의 분할된 데이터베이스 병합**: 분할 병합도 **분할/병합 도구**를 사용하여 수행할 수 있습니다. 자세한 내용은 [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.   
+2. **기존의 분할된 데이터베이스 병합**: 분할 병합도 **분할/병합 도구**를 사용하여 수행할 수 있습니다. 자세한 내용은 [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
 
 
 ## 비용
@@ -77,8 +78,8 @@
 ## 다음 단계
 탄력적 데이터베이스 도구에 대한 자세한 내용은 다음을 참조하세요.
 
-* [탄력적 데이터베이스 도구 설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
--    코드 샘플: 
+* [탄력적 데이터베이스 도구 설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
+-    코드 샘플:
     -    [Azure SQL과 탄력적 DB - 시작](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Azure SQL과 탄력적 DB - Entity Framework와 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
@@ -101,4 +102,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

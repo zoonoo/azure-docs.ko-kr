@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러의 버전 및 요금 청구
@@ -25,7 +25,8 @@
 |:---|:---|:---|:---|:---|
 |**Free**|작업 컬렉션당 5개 작업|시간당 1회. 한 시간에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 1개의 Free 작업 컬렉션이 허용됩니다.|[HTTP 아웃바운드 권한 부여 개체](scheduler-outbound-authentication.md)를 사용할 수 없습니다.
 |**Standard**|작업 컬렉션당 50개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 100개의 Standard 작업 컬렉션이 허용됩니다.|스케줄러의 모든 기능 액세스|
-|**Premium**|작업 컬렉션당 50개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 10,000개의 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요.|스케줄러의 모든 기능 액세스|
+|**P10 Premium**|작업 컬렉션당 50개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 10,000개의 P10 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요.|스케줄러의 모든 기능 액세스|
+|**P20 Premium**|작업 컬렉션당 1,000개 작업|1분당 1회. 1분에 한 번 이상 작업을 실행할 수 없습니다.|구독에는 최대 500개의 P20 Premium 작업 컬렉션이 허용됩니다. 자세한 내용은 <a href="mailto:wapteams@microsoft.com">저희에게 문의</a>하세요.|스케줄러의 모든 기능 액세스|
 
 ## 작업 컬렉션 버전의 업그레이드 및 다운그레이드
 
@@ -85,4 +86,4 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

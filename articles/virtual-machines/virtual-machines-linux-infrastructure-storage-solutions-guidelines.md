@@ -46,7 +46,7 @@ Azure 저장소는 VM(가상 컴퓨터) 및 응용 프로그램의 배포 및 �
 VM 지원을 위해 다음 두 가지 저장소 계정 유형을 사용할 수 있습니다.
 
 - 표준 저장소 계정은 Blob 저장소(Azure VM 디스크를 저장하는 데 사용), 테이블 저장소, 큐 저장소 및 파일 저장소에 대한 액세스 권한을 제공합니다.
-- [프리미엄 저장소](../storage/storage-premium-storage.md)는 AlwaysOn 클러스터의 SQL Server와 같이 I/O 집약적 워크로드에 대해 대기 시간이 낮은 고성능 디스크 지원을 제공하며, 현재 Azure VM 디스크만 지원합니다.
+- [프리미엄 저장소](../storage/storage-premium-storage.md)는 MongoDB Sharded 클러스터와 같이 I/O 집약적 워크로드에 대해 대기 시간이 낮은 고성능 디스크 지원을 제공하며, 현재 Azure VM 디스크만 지원합니다.
 
 Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택적 데이터 디스크로 VM을 만듭니다. 운영 체제 디스크 및 데이터 디스크는 Azure 페이지 Blob이지만 임시 디스크는 컴퓨터가 있는 노드에 로컬로 저장됩니다. VM은 유지 관리 이벤트 동안 호스트 간에 마이그레이션될 수 있으므로 응용 프로그램을 디자인할 때는 비영구 데이터에 대해 이러한 임시 디스크만 사용하도록 해야 합니다. 임시 디스크에 저장된 모든 데이터는 손실됩니다.
 
@@ -56,7 +56,7 @@ Blob의 최대 크기가 1024GB이며 VHD 파일의 메타데이터(바닥글)�
 
 Azure 저장소 배포를 디자인할 때는 확장성이 어느 정도 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](../storage/storage-scalability-targets.md)도 참조하세요.
 
-응용 프로그램 저장소의 경우, 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 Blob 저장소를 사용하여 저장할 수 있습니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob 저장소는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
+응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 Blob 저장소를 사용하여 저장할 수 있습니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob 저장소는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
 
 
 ## 스트라이프 디스크
@@ -71,7 +71,7 @@ Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 �
 - LVM 사용
 - Azure 데이터 디스크 캐싱 옵션 사용 안 함(캐싱 정책 = 없음)
 
-자세한 내용은 [저장소 공간 - 성능을 높이기 위한 설계](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx)를 참조하세요.
+자세한 내용은 [Linux VM에서 LVM 구성](virtual-machines-linux-configure-lvm.md)을 참조하세요.
 
 
 ## 여러 저장소 계정
@@ -85,4 +85,4 @@ Azure 저장소 환경을 디자인할 때 배포하는 VM 수가 증가할 경�
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

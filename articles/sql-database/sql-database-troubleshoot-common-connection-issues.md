@@ -20,15 +20,14 @@
 
 Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL 데이터베이스 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-the-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 마지막으로 [Azure SQL 데이터베이스 연결 문제에 대한 모든 관련 문서](#all-topics-for-azure-sql-database-connection-problems)를 나열합니다.
 
-연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 원인
 
 연결 문제는 다음 중 하나로 인해 발생할 수 있습니다.
 
 - 응용 프로그램 디자인 프로세스 동안 모범 사례 및 디자인 지침을 적용하지 못함. 시작하려면 [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)를 참조하세요.
-- SQL Azure 데이터베이스 재구성
+- Azure SQL 데이터베이스 재구성
 - 방화벽 설정
 - 연결 제한 시간
 - 잘못된 로그인 정보
@@ -53,7 +52,7 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 
 ## 영구적인 오류(일시적이지 않은 오류) 문제 해결
 
-응용 프로그램이 SQL Azure 데이터베이스 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
+응용 프로그램이 Azure SQL 데이터베이스 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
 
 - 방화벽 구성. Azure SQL 데이터베이스 또는 클라이언트 쪽 방화벽이 Azure SQL 데이터베이스에 대한 연결을 차단하고 있습니다.
 - 클라이언트 쪽 네트워크 재구성: 예를 들어 새 IP 주소 또는 프록시 서버.
@@ -99,6 +98,6 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 - [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 - [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 - [Azure SQL 데이터베이스를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [탄력적 데이터베이스 기능 및 도구를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
+- [탄력적 데이터베이스 기능 및 도구를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

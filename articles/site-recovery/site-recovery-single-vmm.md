@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 #  단일 VMM 서버에서 Hyper-V 가상 컴퓨터 복제
@@ -27,7 +27,7 @@
 
 여러 가지 방법으로 VMM 클라우드에서 Hyper-V 호스트에 있는 Hyper-V VM을 복제할 수 있습니다.
 
-- Azure에 복제 
+- Azure에 복제
 - 보조 VMM 사이트에 복제
 
 그러나 보조 VMM 위치로 복제하고 싶지만 배포에 VMM 서버가 하나뿐인 경우에는 어떻게 될까요?
@@ -62,7 +62,7 @@
 
 중단이 발생하면 Hyper-V VM에서 다음과 같이 워크로드를 복구합니다.
 
-1. 계획된 장애 조치(failover)를 통해 Hyper-V 관리자를 사용하여 수동으로 VMM VM을 보조 사이트로 장애 조치합니다. 
+1. 계획된 장애 조치(failover)를 통해 Hyper-V 관리자를 사용하여 수동으로 VMM VM을 보조 사이트로 장애 조치합니다.
 2. VMM VM이 복구된 후에, 보조 사이트에서 Hyper-V 복구 관리자에 로그인하여 보조 사이트에서 기본 사이트로 VM의 계획되지 않은 장애 조치(failover)를 실행합니다. 워크로드 VM을 장애 조치(failover)하려면 먼저 VMM VM을 수동으로 보조 사이트에 장애 조치(failover)해야 합니다.
 3. 계획되지 않은 장애 조치(failover)가 완료되면 기본 사이트에서 모든 리소스에 다시 액세스할 수 있습니다.
 
@@ -71,7 +71,7 @@
 
 ## 늘어난(stretched) 클러스터의 단일 VMM 서버로 사이트 간 복제
 
-독립 실행형 VMM 서버를 보조 사이트로 복제되는 가상 컴퓨터로 배포하는 대신 VMM을 Windows 장애 조치(failover) 클러스터의 VM으로 배포하면 항상 사용할 수 있도록 만들 수 있습니다. 그러면 워크로드 복원력이 제공되고 하드웨어 장애로부터 보호됩니다. Site Recovery와 함께 배포하기 위해서 VMM VM은 지리적으로 떨어져 있는 사이트에 걸친 확대 클러스터에 배포되어야 합니다. 다음을 수행합니다.
+독립 실행형 VMM 서버를 보조 사이트로 복제되는 가상 컴퓨터로 배포하는 대신 VMM을 Windows 장애 조치(failover) 클러스터의 VM으로 배포하면 VMM의 가용성을 높일 수 있습니다. 그러면 워크로드 복원력이 제공되고 하드웨어 장애로부터 보호됩니다. Site Recovery와 함께 배포하기 위해서 VMM VM은 지리적으로 떨어져 있는 사이트에 걸친 확대 클러스터에 배포되어야 합니다. 다음을 수행합니다.
 
 1. Windows 장애 조치(failover) 클러스터의 가상 컴퓨터에 VMM을 설치하고 설치하는 동안 항상 사용이 가능하게 서버를 실행하도록 옵션을 선택합니다.
 2. 보조 사이트에 데이터베이스 복제본이 존재하도록 VMM에 사용되는 SQL Server 인스턴스는 SQL Server AlwaysOn 가용성 그룹과 함께 복제되어야 합니다.
@@ -93,4 +93,4 @@ VMM 간 복제에 대한 [자세한](site-recovery-vmm-to-vmm.md) Site Recovery 
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

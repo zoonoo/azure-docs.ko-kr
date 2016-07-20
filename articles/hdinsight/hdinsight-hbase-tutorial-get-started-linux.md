@@ -216,7 +216,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 	-d 스위치에 지정된 값을 base64로 인코딩해야 합니다. 예제에서:
 
 	- MTAwMA==: 1000
-	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name
+	- UGVyc29uYWw6TmFtZQ==: Personal:Name
 	- Sm9obiBEb2xl: John Dole
 
 	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single)를 사용하면 여러 (일괄 처리된) 값을 삽입할 수 있습니다.
@@ -325,4 +325,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -109,7 +109,7 @@ HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 24/7 지원이 �
 
 ##실시간 분석의 일반적인 사용 사례
 
-아래에는 HDInsight의 Apache Storm을 사용할 수 있는 몇 가지 일반적인 시나리오가 나와 있습니다. 실제 시나리오에 대한 자세한 내용은 [기업에서 Storm을 사용하는 방식](https://storm.incubator.apache.org/documentation/Powered-By.html)을 참조하세요.
+아래에는 HDInsight의 Apache Storm을 사용할 수 있는 몇 가지 일반적인 시나리오가 나와 있습니다. 실제 시나리오에 대한 자세한 내용은 [기업에서 Storm을 사용하는 방식](https://storm.apache.org/documentation/Powered-By.html)을 참조하세요.
 
 * IoT(사물 인터넷)
 * 부정 행위 감지
@@ -162,11 +162,11 @@ Visual Studio용 HDInsight 도구를 통해 .NET 개발자는 C#으로 토폴로
 
 흔히 확인할 수 있는 대부분의 Java 예제는 일반 Java 또는 Trident입니다. Trident는 조인, 집계, 그룹화, 필터링 등의 작업을 보다 쉽게 수행할 수 있도록 하는 고급 추상화입니다. 그러나 Trident는 튜플 배치에 대해 작동하며 이 경우 원시 Java 솔루션은 한 번에 한 튜플씩 스트림을 생성합니다.
 
-Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https://storm.incubator.apache.org/documentation/Trident-tutorial.html)를 참조하세요.
+Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https://storm.apache.org/documentation/Trident-tutorial.html)를 참조하세요.
 
 Java 및 Trident 토폴로지의 예제는 [예제 Storm 토폴로지 목록](hdinsight-storm-example-topology.md) 또는 HDInsight 클러스터의 storm 스타터 예제를 참조하세요.
 
-Storm 스타터 예제는 Linux 기반 클러스터에서는 \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ 디렉터리에 있고, Windows 기반 클러스터에서는 **%storm\_home%\\contrib\\storm-starter** 디렉터리에 있습니다.
+Storm 스타터 예제는 Linux 기반 클러스터에서는 __ /usr/hdp/current/storm-client/contrib/storm-starter__ 디렉터리에 있고, Windows 기반 클러스터에서는 **%storm\_home%\\contrib\\storm-starter** 디렉터리에 있습니다.
 
 ##몇 가지 일반적인 개발 패턴
 
@@ -214,9 +214,9 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

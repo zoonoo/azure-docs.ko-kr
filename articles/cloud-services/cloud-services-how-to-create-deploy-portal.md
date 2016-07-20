@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 클라우드 서비스를 만들고 배포하는 방법
 
 > [AZURE.SELECTOR]
-- [Azure 포털](cloud-services-how-to-create-deploy.md)
-- [Azure Preview 포털](cloud-services-how-to-create-deploy-portal.md)
+- [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
+- [Azure 클래식 포털](cloud-services-how-to-create-deploy.md)
 
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
 
@@ -41,7 +41,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 
 - **서비스 패키지**  
-  서비스 패키지(.cspkg)는 응용 프로그램 코드와 구성 및 서비스 정의 파일을 포함합니다.
+  서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 4. 새 **클라우드 서비스** 블레이드에서 **DNS 이름**의 값을 입력합니다.
 5. 새 **리소스 그룹**을 만들거나 기존 항목을 선택합니다.
 6. **위치**를 선택합니다.
-7. **패키지**를 클릭합니다. 그러면 **패키지 업로드** 블레이드가 열립니다. 필수 필드를 입력합니다.  
+7. **패키지**를 클릭합니다. 그러면 **패키지 업로드** 블레이드가 열립니다. 필수 필드를 입력합니다.
 
      역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.**가 선택되어 있어야 합니다.
 
@@ -119,4 +119,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md) 구성
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

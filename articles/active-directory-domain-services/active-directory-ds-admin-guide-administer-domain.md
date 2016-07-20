@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory 도메인 서비스 관리되는 도메인 관리
@@ -146,4 +146,4 @@ TechNet의 지침에 따라 Windows 클라이언트 가상 컴퓨터에 [원격 
 
 - [원격 서버 관리 도구 배포](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

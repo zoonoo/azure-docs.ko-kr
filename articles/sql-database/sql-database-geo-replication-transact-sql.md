@@ -36,7 +36,10 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 - 논리 Azure SQL 데이터베이스 서버 <MyLocalServer> 및 SQL 데이터베이스 <MyDB> - 복제하려는 주 데이터베이스입니다.
 - 하나 이상의 논리 Azure SQL 데이터베이스 서버 <MySecondaryServer(n)> - 보조 데이터베이스를 만드는 파트너 서버가 될 논리 서버입니다.
 - 주 데이터베이스에서 DBManager인 로그인은 지역에서 복제하고 지역에서 복제를 구성하는 파트너 서버의 DBManager가 되는 로컬 데이터베이스의 db\_ownership을 가지고 있습니다.
-- 최신 버전의 SQL Server Management Studio - SSMS(SQL Server Management Studio)의 최신 버전을 가져오려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)로 이동합니다. SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 논리 서버 및 데이터베이스 관리에 대한 정보는 [SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리](sql-database-manage-azure-ssms.md)를 참조하세요.
+- SSMS(SQL Server Management Studio)
+
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ## 보조 데이터베이스 추가
 
@@ -167,4 +170,4 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 - 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 - 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

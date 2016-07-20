@@ -62,7 +62,7 @@ Azure에서 항목을 만들기 전에 좋은 명명 규칙이 구현되어 있�
 | Environment | dev, stg, prod | 각 환경의 목적 및 이름에 따라 다릅니다. |
 | 위치 | usw(West US), use(East US 2) | 데이터 센터의 지역 또는 조직의 지역에 따라 다릅니다. |
 | Azure 구성 요소, 서비스 또는 제품 | 리소스 그룹은 RG, 가상 네트워크는 VNet | 리소스가 지원을 제공하는 제품에 따라 다릅니다. |
-| 역할 | sql, ora, sp, iis | 가상 컴퓨터의 역할에 따라 다릅니다. |
+| 역할 | db, 앱, 웹 | 가상 컴퓨터의 역할에 따라 다릅니다. |
 | 인스턴스 | 01, 02, 03 등 | 둘 이상의 인스턴스가 있는 리소스의 경우. 예를들어, 클라우드 서비스의 분산된 웹 서버를 로드합니다. |
 
 
@@ -110,4 +110,4 @@ Azure VM 이름을 기본 운영 체제 컴퓨터 이름과 동일하게 하는 
 ## 다음 단계
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 엔터프라이즈 웹 앱 마이그레이션
@@ -30,14 +30,14 @@ IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를
 ## 호환성 분석 중 확인하는 요소 ##
 Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 앱으로의 성공적인 마이그레이션을 방해할 수 있는 우려나 차단 문제의 잠재적인 원인을 식별하는 준비 보고서를 만듭니다. 알고 있어야 하는 몇 가지 주요 항목은 다음과 같습니다.
 
--	포트 바인딩 - 웹 앱은 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 다른 포트 구성은 무시되며 트래픽이 80 또는 443으로 라우팅됩니다. 
--	인증 - 웹 앱은 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. Windows 인증은 Azure Active Directory 및 ADFS와 통합해야만 사용할 수 있습니다. 예를 들어, 기본 인증과 같은 다른 인증 형식은 현재 지원되지 않습니다. 
--	GAC(전역 어셈블리 캐시) – GAC는 웹 앱에서 지원되지 않습니다. 응용 프로그램에서 일반적으로 GAC에 배포하는 어셈블리를 참조하는 경우 웹 앱의 응용 프로그램 bin 폴더에 배포해야 합니다. 
--	IIS5 호환 모드 - 웹 앱에서 지원되지 않습니다. 
+-	포트 바인딩 - 웹 앱은 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 다른 포트 구성은 무시되며 트래픽이 80 또는 443으로 라우팅됩니다.
+-	인증 - 웹 앱은 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. Windows 인증은 Azure Active Directory 및 ADFS와 통합해야만 사용할 수 있습니다. 예를 들어, 기본 인증과 같은 다른 인증 형식은 현재 지원되지 않습니다.
+-	GAC(전역 어셈블리 캐시) – GAC는 웹 앱에서 지원되지 않습니다. 응용 프로그램에서 일반적으로 GAC에 배포하는 어셈블리를 참조하는 경우 웹 앱의 응용 프로그램 bin 폴더에 배포해야 합니다.
+-	IIS5 호환 모드 - 웹 앱에서 지원되지 않습니다.
 -	응용 프로그램 풀 – 웹 앱에서 각 사이트와 해당 자식 응용 프로그램은 동일한 응용 프로그램 풀에서 실행됩니다. 사이트의 여러 자식 응용 프로그램이 여러 응용 프로그램 풀을 사용하는 경우에는 공통 설정을 사용해 응용 프로그램을 단일 응용 프로그램 풀로 통합하거나 각 응용 프로그램을 별도의 웹 앱으로 마이그레이션하세요.
 -	COM 구성 요소 – 웹 앱에서는 플랫폼에 COM 구성 요소를 등록할 수 없습니다. 웹 사이트 또는 응용 프로그램에서 COM 구성 요소를 사용하는 경우에는 구성 요소를 관리 코드로 다시 작성하고 웹 사이트 또는 응용 프로그램을 함께 배포해야 합니다.
 -	ISAPI 필터 – 웹 앱에서는 ISAPI 필터를 사용할 수 있습니다. 다음을 수행해야 합니다.
-	-	웹 앱에 DLL 배포 
+	-	웹 앱에 DLL 배포
 	-	[Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)(영문)를 사용하여 DLL 등록
 	-	아래 내용이 포함된 applicationHost.xdt 파일을 사이트 루트에 저장
 
@@ -57,7 +57,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 ## Web App Migration Assistant 사용 방법 ##
 이 섹션에서는 SQL Server 데이터베이스를 사용하고 온-프레미스 Windows Server 2003 R2(IIS 6.0) 컴퓨터에서 실행 중인 몇 개 웹 사이트를 마이그레이션하는 예제를 단계별로 설명합니다.
 
-1.	IIS 서버 또는 클라이언트 컴퓨터에서 [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)으로 이동합니다. 
+1.	IIS 서버 또는 클라이언트 컴퓨터에서 [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)으로 이동합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
@@ -74,7 +74,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	설치가 끝나면 Web App Migration Assistant가 자동으로 시작합니다.
   
-6.	**Migrate sites and databases from a remote server to Azure**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
+6.	**원격 서버에서 Azure로 사이트 및 데이터베이스 마이그레이션**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -135,4 +135,4 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

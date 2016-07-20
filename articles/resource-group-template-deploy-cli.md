@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 템플릿과 Azure CLI로 리소스 배포
@@ -22,8 +22,11 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [포털](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [REST API](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 이 토픽에서는 리소스 관리자 템플릿과 Azure CLI를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다.
 
@@ -31,6 +34,17 @@
 >
 > - [Azure CLI를 사용한 배포 작업 보기](resource-manager-troubleshoot-deployments-cli.md)에서 오류를 해결하는 데 유용한 정보를 알 수 있습니다.
 > - [Azure Resource Manager로 Azure에 리소스를 배포할 때 발생하는 일반적인 오류 해결](resource-manager-common-deployment-errors.md)에서 일반적인 배포 오류를 해결하는 방법을 알 수 있습니다.
+
+템플릿은 로컬 파일이거나 URI를 통해 사용 가능한 외부 파일일 수 있습니다. 템플릿이 저장소 계정에 상주하는 경우, 템플릿에 대한 액세스를 제한하고 배포 중에 공유 액세스 서명(SAS) 토큰을 제공할 수 있습니다.
+
+## 배포에 대한 빠른 단계
+
+이 문서에는 배포하는 동안 사용할 수 있는 다양한 옵션을 모두 설명합니다. 그러나 간단한 두 개의 명령만 필요한 경우가 많습니다. 신속하게 배포를 시작하려면 다음 명령을 사용합니다.
+
+    azure group create -n ExampleResourceGroup -l "West US"
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+
+시나리오에 더 적합할 수 있는 배포 옵션에 대한 자세한 내용은 이 문서를 계속 진행합니다.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -130,7 +144,7 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. 새 컨테이너를 만듭니다. 권한은 **Off**로 설정합니다. 즉, 이 컨테이너는 소유자만 액세스할 수 있습니다.
+4. 새 컨테이너를 만듭니다. 권한은 **끄기**로 설정합니다. 즉, 이 컨테이너는 소유자만 액세스할 수 있습니다.
 
         azure storage container create --container templates -p Off 
         
@@ -159,6 +173,6 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](virtual-machines/virtual-machines-windows-csharp-template.md)를 참조하세요.
 - 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](resource-group-authoring-templates.md#parameters)을 참조하세요.
 - 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
-- 보안 값을 전달하기 위한 주요 자격 증명을 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
+- 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

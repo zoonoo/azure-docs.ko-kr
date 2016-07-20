@@ -1,24 +1,26 @@
 
-This article walks you through how to move a VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+이 문서에서는 구독 간에 VM을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들었으며 회사 구독으로 이동한 후 작업을 계속하려는 경우에 이 작업이 편리할 수 있습니다.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [AZURE.NOTE] 새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동하면 새 리소스 ID를 사용하도록 도구 및 스크립트를 업데이트해야 합니다.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
+2. **찾아보기** > **가상 컴퓨터**를 클릭하고 목록에서 이동하려는 VM을 선택합니다.
 	
-	![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
+	![연필 아이콘을 클릭하여 리소스 이동 블레이드를 여는 Essentials 섹션 스크린샷](./media/virtual-machines-common-move-vm/move-button.png)
 	
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+3. **Essentials** 섹션에서 구독 이름 옆에 있는 **구독 변경** 연필 아이콘을 클릭합니다. **리소스 이동** 블레이드가 열립니다.
 	
-	![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
+	![리소스 이동 블레이드의 스크린샷](./media/virtual-machines-common-move-vm/move.png)
 	
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+4. 이동할 각 리소스를 선택합니다. 대부분의 경우에는 나열된 모든 선택적 리소스를 이동합니다.
+5. VM을 이동할 **구독**을 선택합니다.
+6. 기존 **리소스 그룹**을 선택하거나 만들 새 리소스 그룹의 이름을 입력합니다.
+7. 완료되면 새 리소스 ID가 생성될 것이며, 해당 VM이 이동된 후에는 이 ID를 함께 사용해야 한다는 사실을 이해했음을 선택하고 **확인**을 클릭합니다.
 
 
 
-## Next steps
+## 다음 단계
 
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).	
+리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../articles/resource-group-move-resources.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0706_2016-->

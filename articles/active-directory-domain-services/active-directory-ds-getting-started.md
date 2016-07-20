@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미기 보기)* - 'AAD DC Administrators' 그룹 만들기
@@ -58,4 +58,4 @@
 ## 작업 2: Azure 가상 네트워크 만들기 또는 선택
 다음 구성 작업은 [Azure 가상 네트워크를 만들거나 선택하는](active-directory-ds-getting-started-vnet.md) 작업입니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

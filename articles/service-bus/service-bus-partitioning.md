@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
-    ms.author="sethm" />
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # 분할된 메시징 엔터티
 
@@ -93,7 +93,7 @@ committableTransaction.Commit();
 
 메시지 세션 인식 항목 또는 큐에 트랜잭션 메시지를 보내려면 메세지에는 [BrokeredMessage.SessionId][] 속성 집합이 있어야 합니다. [BrokeredMessage.PartitionKey][] 속성이 지정되면 [SessionId][] 속성과 동일해야 합니다. 다른 경우 서비스 버스가 **InvalidOperationException** 예외를 반환합니다.
 
-일반(분할되지 않은) 큐 또는 항목과 달리 단일 트랜잭션을 사용하여 다른 세션에 여러 메시지를 보낼 수 없습니다. 시도하는 경우 서비스 버스가 **InvalidOperationException **예외를 반환합니다. 예:
+일반(분할되지 않은) 큐 또는 항목과 달리 단일 트랜잭션을 사용하여 다른 세션에 여러 메시지를 보낼 수 없습니다. 시도하는 경우 서비스 버스가 **InvalidOperationException** 예외를 반환합니다. 예:
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -111,21 +111,30 @@ committableTransaction.Commit();
 
 Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 지원합니다. 자동 메시지 전달을 사용하려면 원본 큐 또는 구독에 [QueueDescription.ForwardTo][] 속성을 설정합니다. 메시지가 파티션 키를 지정하는 경우([SessionId][], [PartitionKey][], 또는 [MessageId][]) 해당 파티션 키를 대상 엔터티에 사용합니다.
 
+## 고려 사항 및 지침
+
+- **높은 일관성 기능**: 엔터티가 세션, 중복 검색 또는 분할 키의 명시적 제어와 같은 기능을 사용하면 메시징 작업이 항상 특정 부분으로 라우팅됩니다. 어떤 부분이라도 트래픽이 높아지거나 기본 저장소가 손상되면 해당 작업은 실패하고 가용성은 줄어듭니다. 결과적으로 분할되지 않은 엔터티보다 일관성은 훨씬 높아집니다. 모든 트래픽이 아닌 트래픽 일부에서만 문제가 나타나기 때문입니다.
+- **관리**: 생성, 업데이트 및 삭제와 같은 작업은 엔터티의 모든 부분에서 수행되어야 합니다. 어떤 부분이라도 손상되면 이러한 작업이 실패할 수 있습니다. Get 작업의 경우 메시지 수와 같은 정보를 모든 부분에서 집계해야 합니다. 어떤 부분이라도 손상되면 엔터티 가용성 상태가 제한으로 보고됩니다.
+- **저용량 메시지 시나리오**: 이런 시나리오에서, 특히 HTTP 프로토콜을 사용하는 경우 모든 메시지를 가져오기 위해 여러 수신 작업을 수행해야 할 수 있습니다. 수신 요청의 경우 프런트 엔드는 모든 부분에 대해 수신을 수행하고 수신된 모든 응답을 캐시합니다. 동일한 연결에 대한 후속 수신 요청은 이러한 캐싱 덕분에 수신 대기 시간이 감소합니다. 그러나 연결이 여러 개 있거나 HTTP를 사용하는 경우 각 요청에 대해 새 연결이 설정됩니다. 따라서 동일한 노드에 요청이 들어온다고 보장할 수 없습니다. 모든 기존 메시지가 잠기고 다른 프런트 엔드에 캐시될 경우 수신 작업은 **null**을 반환합니다. 결과적으로 메시지가 만료되고 다시 받을 수 있습니다. HTTP 연결 유지를 사용하는 것이 좋습니다.
+- **메시지 찾아보기/엿보기**: PeekBatch가 [MessageCount 속성](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx)에 지정된 메시지 수를 항상 반환하지는 않습니다. 그 이유에는 일반적으로 다음 두 가지가 있습니다. 하나는 메시지 컬렉션의 집계 크기가 최대 크기인 256KB를 초과하기 때문입니다. 또 다른 이유는 큐 또는 항목의 [EnablePartitioning 속성](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx)이 **true**로 설정되면 파티션에 요청된 메시지 수를 완료하기 위한 충분한 메시지에 없을 수 있기 때문입니다. 일반적으로 응용 프로그램이 특정 개수의 메시지를 받으려는 경우 해당 메시지 수에 도달할 때까지 또는 엿볼 수 있는 추가 메시지가 없게 될 때까지 [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx)를 반복적으로 호출해야 합니다. 코드 샘플을 비롯한 자세한 내용은 [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) 또는 [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx)를 참조하세요.
+
+## 최근에 추가된 기능
+
+- 이제 분할된 엔터티에 대해 규칙 추가 또는 제거가 지원됩니다. 분할되지 않은 엔터티와 달리, 트랜잭션에서 이러한 작업은 지원되지 않습니다.
+- AMQP는 분할된 엔터티와 메시지를 주고받기 위해 지원됩니다.
+- 현재 AMQP는 [일괄 전송](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [일괄 수신](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [시퀀스 번호로 수신](https://msdn.microsoft.com/library/azure/hh330765.aspx), [엿보기](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [잠금 갱신](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [메시지 예약](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [예약된 메시지 취소](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [규칙 추가](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [규칙 제거](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [세션 잠금 갱신](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [세션 상태 설정](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [세션 상태 가져오기](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [세션 메시지 엿보기](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx) 및 [세션 열거](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx) 작업에 지원됩니다.
+
 ## 분할된 엔터티 제한 사항
 
 현재 구현에서 서비스 버스에서는 분할된 큐 및 항목에 다음과 같은 제한 사항이 적용됩니다.
 
--   분할된 큐 및 항목은 SBMP 또는 HTTP/HTTPS 뿐아니라 AMQP을 통해 사용할 수 있습니다.
-
 -   분할된 큐 및 항목은 단일 트랜잭션에서 다른 세션에 속한 보내는 메시지를 지원하지 않습니다.
-
 -   서비스 버스는 현재 네임스페이스당 최대 100개의 분할된 큐 또는 항목을 허용합니다. 각 분할된 큐 또는 항목은 네임스페이스 당 10,000개의 엔터티를 할당량으로 계산합니다.
-
 -   분할된 큐 및 항목은 Windows Server 버전 1.0 및 1.1용 서비스 버스에서 지원되지 않습니다.
 
 ## 다음 단계
 
-[서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원][] 설명을 참조하여 메시징 엔터티 분할에 대해 자세히 알아봅니다.
+[분할된 서비스 버스 큐 및 항목에 대한 AMQP 1.0 지원][] 설명을 참조하여 메시징 엔터티 분할에 대해 자세히 알아봅니다.
 
   [서비스 버스 아키텍처]: service-bus-architecture.md
   [Azure 클래식 포털]: http://manage.windowsazure.com
@@ -142,6 +151,6 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+  [분할된 서비스 버스 큐 및 항목에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

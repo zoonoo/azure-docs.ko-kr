@@ -52,6 +52,9 @@
 SQL Server Management Studio를 사용하여 연결하는 연습은 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결 및 샘플 T-SQL 쿼리 실행](sql-database-connect-query-ssms.md)을 참조하세요.
 
 
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## 추가 특별 계정
 SQL 데이터베이스는 사용자 계정을 추가할 수 있는 가상 master 데이터베이스에 두 가지 제한된 관리 역할을 제공합니다.
 
@@ -158,4 +161,4 @@ SQL 데이터베이스에는 개별적으로 부여하거나 거부할 수 있�
 
 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

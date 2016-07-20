@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="06/29/2016"
 	ms.author="juliako;anilmur"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -37,7 +37,9 @@ MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv)|예
 Matroska/WebM(.mkv) |예 
 WAVE/WAV(.wav) |예 
 QuickTime(.mov) |예
- 
+
+>[AZURE.NOTE] 위 내용은 일반적으로 나오는 파일 확장명 목록입니다. 미디어 인코더 표준은 여러 다른 확장명도 지원합니다(예: .m2ts, .mpeg2video, .qt). 파일을 인코딩하려는 동안 지원되지 않는 형식에 대한 오류 메시지가 표시되면 [여기](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)에서 피드백을 제공하세요.
+
 ###입력 컨테이너의 오디오 형식 
 
 미디어 인코더 표준은 입력 컨테이너에서 다음과 같은 오디오 형식의 전달을 지원합니다.
@@ -121,4 +123,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

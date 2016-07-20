@@ -184,7 +184,9 @@ IoT Hub를 프로비전하고 관리를 위해 여러 시뮬레이션된 장치�
 
 ## 다음 단계
 
-Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [샘플 UI를 사용하여 Azure IoT Hub 장치 관리 탐색][lnk-sample-ui] 자습서를 참조하세요.
+IoT Hub를 계속 시작하려면 [게이트웨이 SDK 시작][lnk-gateway-SDK]을 참조하세요.
+
+Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 [샘플 UI를 사용하여 Azure IoT Hub 장치 관리 탐색][lnk-sample-ui] 자습서를 참조하세요.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
@@ -200,5 +202,6 @@ Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [샘플 UI�
 [리소스 그룹을 사용하여 Azure 리소스 관리]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

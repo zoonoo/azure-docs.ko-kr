@@ -25,7 +25,7 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 키 자격 증명 모음 작업 후 최대 10분 후에 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다. 저장소 계정의 로그 관리에 따라 다릅니다.
 
 - 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
-- 더 이상 저장소 계정에 유지하지 않으려는 로그를 삭제합니다. 
+- 더 이상 저장소 계정에 유지하지 않으려는 로그를 삭제합니다.
 
 이 자습서를 사용하면 저장소 계정을 만들고 로깅을 활성화하고 수집되는 로깅 정보를 해석하는 Azure 키 자격 증명 모음을 시작하는 데 도움이 됩니다.
 
@@ -40,8 +40,8 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 사용하고 있는 기존 키 자격 증명 모음  
-- Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
+- 사용하고 있는 기존 키 자격 증명 모음
+- Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.
 - 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
 
 
@@ -105,7 +105,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 - 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청을 포함하는 모든 인증된 REST API 요청이 로깅됩니다.
 - 키 자격 증명 모음 액세스 정책 만들기, 삭제, 설정 및 태그와 같은 키 자격 증명 모음 특성 업데이트를 포함하는 키 자격 증명 모음 자체에 대한 작업.
 - 이러한 키 또는 암호 만들기, 수정 또는 삭제를 포함하는 키 자격 증명 모음의 키 및 암호에 대한 작업, 키 서명, 확인, 암호화, 해독, 래핑 및 래핑 해제, 암호 가져오기, 키, 암호 및 버전 나열과 같은 작업.
-- 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나 형식이 잘못되거나 만료되거나 토큰이 잘못된 요청이 해당합니다.  
+- 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나 형식이 잘못되거나 만료되거나 토큰이 잘못된 요청이 해당합니다.
 
 
 ## <a id="access"></a>로그 액세스 ##
@@ -116,7 +116,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 출력은 다음과 유사합니다.
 
-****컨테이너 Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**컨테이너 Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Name**
@@ -127,10 +127,10 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
  
 
-이 출력에서 확인할 수 있듯이 Blob은 명명 규칙 **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**을 따릅니다.
+이 출력에서 볼 수 있다면 Blob는 다음 명명 규칙을 따릅니다. **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
 
 날짜 및 시간 값은 UTC를 사용합니다.
 
@@ -221,7 +221,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 **operationName** 필드 값은 ObjectVerb 형식입니다. 예:
 
-- 모든 키 자격 증명 모음 작업은 `VaultGet`, `VaultCreate` 등의 'Vault`<action>`' 형식입니다. 
+- 모든 키 자격 증명 모음 작업은 `VaultGet`, `VaultCreate` 등의 'Vault`<action>`' 형식입니다.
 
 - 모든 키 작업은 `KeySign`, `KeyList` 등의 'Key`<action>`' 형식입니다.
 
@@ -264,11 +264,12 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 ## <a id="next"></a>다음 단계 ##
 
-웹 응용 프로그램에서 Azure 키 자격 증명 모음을 사용하는 자습서는 [웹 응용 프로그램에서 Azure 키 자격 증명 모음](key-vault-use-from-web-application.md)을 참조하세요.
+웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 자습서는 [웹 응용 프로그램에서 Azure 주요 자격 증명 모음](key-vault-use-from-web-application.md)을 참조하세요.
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-Azure 키 자격 증명 모음의 Azure PowerShell 1.0 cmdlet 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
- 
+Azure 주요 자격 증명 모음의 Azure PowerShell 1.0 cmdlet 목록은 [Azure 주요 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+Azure 주요 자격 증명 모음을 사용하는 키 회전 및 로그 감사에 대한 자습서는 [종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법](key-vault-key-rotation-log-monitoring.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0713_2016-->

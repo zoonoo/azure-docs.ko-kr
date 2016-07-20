@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 
@@ -132,12 +132,12 @@ VMM에서 복제하는 경우 사이트 복구와 SQL AlwaysOn을 통합하는 �
 ####  1단계: SQL Server 추가
 
 
-1. 새 SQL Server를 추가하려면 **SQL 추가**를 클릭합니다. 
+1. 새 SQL Server를 추가하려면 **SQL 추가**를 클릭합니다.
 
 	![SQL 추가](./media/site-recovery-sql/add-sql.png)
 
 2. **SQL 설정 구성** > **이름**에서 SQL Server를 참조하는 이름을 제공합니다.
-3. **SQL Server(FQDN)**에서 추가하려는 원본 SQL Server의 FQDN을 지정합니다. SQL Server를 장애 조치(failover) 클러스터에 설치한 경우 클러스터의 FQDN을 입력합니다. 클러스터 노드의 FQDN은 입력하지 않습니다.  
+3. **SQL Server(FQDN)**에서 추가하려는 원본 SQL Server의 FQDN을 지정합니다. SQL Server를 장애 조치(failover) 클러스터에 설치한 경우 클러스터의 FQDN을 입력합니다. 클러스터 노드의 FQDN은 입력하지 않습니다.
 4. **SQL Server 인스턴스**에서 기본 SQL 인스턴스를 선택하거나 사용자 지정 인스턴스의 이름을 제공합니다.
 5. **VMM 서버**에서 사이트 복구 자격 증명 모음에 등록된 VMM 서버를 선택합니다. 사이트 복구는 이 VMM 서버를 사용하여 SQL Server와 통신합니다.
 6. **실행 계정**에서 지정된 VMm 서버에서 생성된 실행 계정의 이름을 제공합니다. 이 계정은 SQL Server에 액세스하는 데 사용하며 SQL Server 컴퓨터의 가용성 그룹에서 읽기 및 장애 조치(failover) 권한이 있어야 합니다.
@@ -151,7 +151,7 @@ SQL Server를 추가한 후 **SQL Server** 탭에 나타납니다.
 
 #### 2단계: SQL 가용성 그룹 추가
 
-1. SQL Server를 추가한 다음에는 사이트 복구에 가용성 그룹을 추가해야 합니다. 그러려면 이전 단계에서 추가한 SQL Server 안을 드릴다운하고 'SQL 가용성 그룹 추가'를 클릭합니다. 
+1. SQL Server를 추가한 다음에는 사이트 복구에 가용성 그룹을 추가해야 합니다. 그러려면 이전 단계에서 추가한 SQL Server 안을 드릴다운하고 'SQL 가용성 그룹 추가'를 클릭합니다.
 
 	![SQL AG 추가](./media/site-recovery-sql/add-sqlag.png)
 
@@ -353,4 +353,4 @@ SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) �
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

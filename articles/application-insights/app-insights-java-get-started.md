@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Application Insights로 Java 웹앱 분석 | Microsoft Azure"
-	description="Application Insights로 Java 웹 사이트의 성능 및 사용량을 모니터링합니다."
+	description="Application Insights로 Java 웹 사이트의 성능 및 사용량을 모니터링합니다. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -163,6 +163,19 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
+### 계측 키를 설정하는 다른 방법
+
+Application Insights SDK는 다음 순서로 키를 찾습니다.
+
+1. 시스템 속성: -DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey
+2. 환경 변수: APPLICATION\_INSIGHTS\_IKEY
+3. 구성 파일: ApplicationInsights.xml
+
+또한 [코드로 설정](app-insights-api-custom-events-metrics.md#ikey)할 수 있습니다.
+
+    telemetryClient.InstrumentationKey = "...";
+
+
 ## 4\. HTTP 필터 추가
 
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
@@ -248,16 +261,14 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![분석 예제](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. 서버에 앱 설치
+## 7\. 서버에 앱 설치
 
 이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
 
 * 방화벽에서 응용 프로그램이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Windows 서버에 다음을 설치합니다.
@@ -274,7 +285,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions]. 
+* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions].
 * [서버에 Java 에이전트를 설치합니다](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 
@@ -401,4 +412,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

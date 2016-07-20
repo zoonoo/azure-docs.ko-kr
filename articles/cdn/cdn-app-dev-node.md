@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Node.js용 Azure CDN SDK 시작하기
+# Azure CDN 개발 시작
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
 
 [Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴볼 것입니다. 이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
 이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다. 원하는 텍스트 편집기를 사용하여 Node.js 응용 프로그램을 만들 수 있습니다. 이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.
 
-이 자습서의 완성된 예제는 [여기](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74)에 있습니다.
+> [AZURE.TIP] [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74)는 MSDN에서 다운로드할 수 있습니다.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -363,4 +367,4 @@ Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](http://azure.git
 
 Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](http://azure.github.io/azure-sdk-for-node/)를 봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 데이터 로드
@@ -105,7 +105,6 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 
 상당수의 파트너에게는 로드 솔루션이 있습니다. 자세한 내용을 알아보려면 [솔루션 파트너][] 목록을 참조하세요.
 
-
 비관계형 원본에서 가져온 데이터를 SQL 데이터 웨어하우스로 로드하려는 경우 로드하기 전에 데이터를 행과 열로 변환해야 합니다. 변환된 데이터는 데이터베이스에 저장할 필요 없이 텍스트 파일에 저장할 수 있습니다.
 
 새로 로드한 데이터에 대한 통계를 만듭니다. Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 자세한 내용은 [통계][]를 참조하세요.
@@ -117,21 +116,21 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 <!--Image references-->
 
 <!--Article references-->
-[Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(Azure Data Factory)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
-[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
+[Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(Azure Data Factory)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
-[샘플 데이터베이스 로드]: sql-data-warehouse-load-sample-databases.md
-[마이그레이션 개요]: sql-data-warehouse-overview-migrate.md
-[솔루션 파트너]: sql-data-warehouse-integrate-solution-partners.md
-[개발 개요]: sql-data-warehouse-overview-develop.md
-[통계]: sql-data-warehouse-develop-statistics.md
+[샘플 데이터베이스 로드]: ./sql-data-warehouse-load-sample-databases.md
+[마이그레이션 개요]: ./sql-data-warehouse-overview-migrate.md
+[솔루션 파트너]: ./sql-data-warehouse-integrate-solution-partners.md
+[개발 개요]: ./sql-data-warehouse-overview-develop.md
+[통계]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [가져오기/내보내기]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

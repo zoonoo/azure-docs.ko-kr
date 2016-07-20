@@ -28,7 +28,7 @@
   - [사용자의 암호 재설정 데이터에 액세스하는 방법](#how-to-access-password-reset-data-for-your-users)
 
 ## 암호 쓰기 저장 개요
-암호 쓰기 저장은 Azure Active Directory Premium의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](active-directory-aadconnect) 구성 요소입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+암호 쓰기 저장은 Azure Active Directory Premium의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](active-directory-aadconnect.md) 구성 요소입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 암호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 클라우드 테넌트를 구성할 수 있습니다. 복잡한 온-프레미스 셀프 서비스 암호 재설정 솔루션을 설정 및 관리할 필요가 없으며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다. 암호 쓰기 저장의 주요 기능 중 몇 가지가 나와 있으므로 잘 읽어보시기 바랍니다.
 
@@ -66,7 +66,7 @@
 10.	암호 설정 작업에 실패한 경우는 사용자에게 오류를 반환하고 다시 시도하라고 알려줍니다. 서비스가 다운되었거나, 선택한 암호가 조직의 정책과 맞지 않거나, 로컬 AD에서 해당 사용자를 찾을 수 없거나, 또는 기타 여러 가지 이유로 인해 작업에 실패할 수 있습니다. 이러한 경우를 위한 특정 메시지가 있어서 문제를 해결하기 위해 어떤 작업을 수행할 수 있는지 사용자에게 알려줍니다.
 
 ### 암호 쓰기 저장에 지원되는 시나리오
-아래 테이블에서는 동기화 기능의 버전에 따라 지원되는 시나리오를 설명합니다. 일반적으로 암호 쓰기 저장 기능을 사용하려면 최신 버전의 [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect)를 설치하는 것이 좋습니다.
+아래 테이블에서는 동기화 기능의 버전에 따라 지원되는 시나리오를 설명합니다. 일반적으로 암호 쓰기 저장 기능을 사용하려면 최신 버전의 [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect)를 설치하는 것이 좋습니다.
 
   ![][002]
 
@@ -279,7 +279,7 @@
 * 인증 전자 메일
 
 ####등록 UI를 통해서만 설정할 수 있는 데이터
-다음 필드는 SSPR 등록 UI(https://aka.ms/ssprsetup))를 통해서만 액세스할 수 있습니다.
+다음 필드는 SSPR 등록 UI(https://aka.ms/ssprsetup)를 통해서만 액세스할 수 있습니다.
 
 * 보안 질문 및 답변
 
@@ -379,4 +379,4 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

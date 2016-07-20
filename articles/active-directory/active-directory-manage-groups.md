@@ -67,7 +67,7 @@ Azure AD의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 
 ## 액세스 관리 시작
 시작할 준비가 되셨습니까? Azure AD 그룹으로 수행할 수 있는 기본 작업 중 일부를 시도해야 합니다. 이러한 기능을 사용하여 조직의 다른 리소스에 다른 사용자 그룹에 대한 특별한 액세스 권한을 제공합니다. 다음은 기본 첫 단계 목록입니다.
 
-* [그룹에 대한 동적 구성원을 구성하는 간단한 규칙 만들기](active-directory-accessmanagement-manage-groups.md#how-can-i-create-a-simple-rule-to-manage-members-of-a-group-dynamically)
+* [그룹에 대한 동적 구성원을 구성하는 간단한 규칙 만들기](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
 
 * [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](active-directory-accessmanagement-group-saasapps.md)
 
@@ -91,4 +91,4 @@ Azure AD의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 
 
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

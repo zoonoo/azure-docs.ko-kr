@@ -34,18 +34,18 @@
 
 ## 다음 단계
 
-관리에 대한 추가 팁을 보려면 [관리][] 개요를 참조하세요.
+관리에 대한 추가 팁을 보려면 [관리 개요][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[장기 실행 쿼리 찾기]: sql-data-warehouse-manage-find-long-running-queries.md
-[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md
-[관리]: sql-data-warehouse-overview-manage.md
+[장기 실행 쿼리 찾기]: ./sql-data-warehouse-manage-monitor.md
+[동시성 및 워크로드 관리]: ./sql-data-warehouse-develop-concurrency.md
+[관리 개요]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

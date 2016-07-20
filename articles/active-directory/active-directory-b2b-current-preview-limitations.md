@@ -25,7 +25,7 @@
 - 소비자 전자 메일 주소로 초대하기(예: Gmail 또는 comcast.net)는 현재 지원되지 않습니다.
 - 온-프레미스 응용 프로그램에 대한 외부 사용자 액세스는 테스트되지 않았습니다.
 - 실제 사용자의 디렉터리에서 삭제되면 외부 사용자는 자동으로 정리되지 않습니다.
-- DL에 대한 초대는 지원되지 않습니다.
+- 메일 그룹 초대를 지원하지 않습니다.
 - CSV를 통해 최대 2,000개의 레코드를 업로드할 수 있습니다.
 
 ## 관련 문서
@@ -39,4 +39,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->
