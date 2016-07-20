@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과
@@ -196,10 +196,10 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 |메트릭|카운터|
 |---|---|
 |CPU|\\Processor(\_Total)\\% 프로세서 시간|
-|사용 가능한 메모리|\\메모리\\사용 가능한 MB|
+|사용 가능한 메모리|\\Memory\\사용 가능한 MB|
 |IOPS|\\PhysicalDisk(\_Total)\\디스크 전송/초|
 |VM 읽기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초|
-|VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초|
+|VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 작업/초|
 |VM 읽기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 바이트/초|
 |VM 쓰기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 바이트/초|
 
@@ -208,4 +208,4 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 - [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

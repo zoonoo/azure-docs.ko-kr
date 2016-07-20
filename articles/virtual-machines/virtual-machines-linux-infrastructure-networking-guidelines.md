@@ -52,7 +52,7 @@
 ### 클라우드 전용 가상 네트워크
 온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 VM에 지속적인 연결을 필요로 하지 않는 경우, 상당히 직관적으로 가상 네트워크를 디자인할 수 있습니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![기본 클라우드 전용 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 이는 일반적으로 인터넷 기반 웹 서버와 같은 인터넷 연결 작업을 위한 것입니다. SSH 또는 지점-사이트 간 VPN 연결을 사용하여 이러한 VM을 관리할 수 있습니다.
 
@@ -62,7 +62,7 @@
 ### 크로스-프레미스 가상 네트워크
 온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 VM에 지속적인 연결을 필요로 하는 경우, 크로스-프레미스 가상 네트워크를 만들어 Express 경로 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크에 연결합니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![프레미스 간 가상 네트워크 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 이 구성에서 Azure 가상 네트워크는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
 
@@ -107,4 +107,4 @@
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

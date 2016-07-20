@@ -27,7 +27,6 @@
  - [Azure Active Directory Reporting 백필](active-directory-reporting-backfill.md)
  - [Azure Active Directory Reporting 대기 시간](active-directory-reporting-latencies.md)
  - [Azure Active Directory Reporting '알 수 없는 작업자' 이벤트](active-directory-reporting-unknown-actor.md)
- - [Azure Active Directory 모든 사용자 로그인 활동 보고서](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/15/2016" 
 	ms.author="spelluru"/>
 
 # Pig 작업
@@ -98,7 +98,7 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
 2.	데이터를 호스팅하는 Azure Blob 저장소로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md)를 만듭니다. 이 연결된 서비스를 "StorageLinkedService"라고 하겠습니다.
 3.	입력 및 출력 데이터를 가르키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 "PigSampleIn"이라고 하고 출력 데이터 집합을 "PigSampleOut"이라고 하겠습니다.
-4.	위의 2단계에서 구성된 Azure Blob 저장소에 Pig 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**을 사용하여 Pig 스크립트 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
+4.	위의 2단계에서 구성된 Azure Blob 저장소에 Pig 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**를 사용하여 Pig 스크립트 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
 	
 	> [AZURE.NOTE] **스크립트** 속성을 사용하여 활동 정의에서 Pig 스크립트를 인라인으로 입력할 수도 있지만 JSON 문서 내에서 스크립트의 모든 특수 문자가 이스케이프되어야 하고 디버깅 문제를 발생킬 수 있기 때문에 권장되지 않습니다. 모법 사례는 4단계를 수행하는 것입니다.
 5. HDInsightPig 작업으로 아래 파이프라인을 만들어 데이터를 처리합니다.
@@ -133,7 +133,7 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 		    ]
 		  }
 		} 
-6. 파이프라인을 배포합니다. 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 
+6. 파이프라인을 배포합니다. 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
 7. 데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요.
 
 ## 정의 요소를 사용하여 Pig 스크립트의 매개 변수 지정
@@ -194,4 +194,4 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

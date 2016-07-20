@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="06/28/2016"
 	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소 모니터링, 진단 및 문제 해결
@@ -26,7 +26,7 @@
 
 이러한 응용 프로그램은 올바르게 관리하려면 미리 모니터링하여 응용 프로그램과 종속 기술의 모든 측면을 진단하고 문제를 해결하는 방법을 파악해야 합니다. Azure 저장소 서비스 사용자는 응용 프로그램이 사용하는 저장소 서비스를 지속적으로 모니터링하여 정상적인 응답 시간보다 속도가 느려지는 등 예기치 않은 동작 변경을 파악해야 하며, 로깅을 사용하여 보다 자세한 데이터를 수집하고 문제를 자세하게 분석해야 합니다. 모니터링 및 로깅을 통해 얻은 진단 정로를 토대로 응용 프로그램에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위해 수행할 수 있는 적절한 단계를 결정할 수 있습니다. Azure 저장소는 핵심 Azure 서비스이며 고객이 Azure 인프라에 배포하는 대부분의 솔루션에서 중요한 역할을 합니다. Azure 저장소에는 클라우드 기반 응용 프로그램의 저장소 문제 모니터링, 진단 및 해결 과정을 간소화하는 기능이 포함되어 있습니다.
 
-> [AZURE.NOTE] 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다.
+> [AZURE.NOTE] 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다. 또한 현재 Azure 파일 서비스는 로깅을 지원하지 않습니다.
 
 Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이드는, [Azure 저장소 및 로깅, Azcopy, 메시지 분석기를 사용한 종단 간 문제 해결](storage-e2e-troubleshooting.md)을 참조하세요.
 
@@ -102,9 +102,11 @@ Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이�
 
 ## <a name="monitoring-your-storage-service"></a>저장소 서비스 모니터링
 
-Windows 성능 모니터링에 대해 잘 알고 있는 경우 저장소 메트릭은 Windows 성능 모니터 카운터의 Azure 저장소 버전이라고 생각하면 됩니다. 저장소 메트릭에서는 서비스 가용성, 처리할 총 요청 수, 처리할 성공한 요청의 백분율 등 포괄적인 메트릭(Windows 성능 모니터 용어로는 카운터) 집합이 제공됩니다. 사용 가능한 메트릭의 전체 목록은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>를 참조하세요. 저장소 서비스가 메트릭을 수집 및 집계하는 간격(1시간마다/1분마다)을 지정할 수 있습니다. 메트릭을 사용하도록 설정하고 저장소 계정을 모니터링하는 방법에 대한 자세한 내용은 MSDN의 <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">저장소 메트릭 사용</a>을 참조하세요.
+Windows 성능 모니터링에 대해 잘 알고 있는 경우 저장소 메트릭은 Windows 성능 모니터 카운터의 Azure 저장소 버전이라고 생각하면 됩니다. 저장소 메트릭에서는 서비스 가용성, 처리할 총 요청 수, 처리할 성공한 요청의 백분율 등 포괄적인 메트릭(Windows 성능 모니터 용어로는 카운터) 집합이 제공됩니다. 사용 가능한 메트릭의 전체 목록은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요. 저장소 서비스가 메트릭을 수집 및 집계하는 간격(1시간마다/1분마다)을 지정할 수 있습니다. 메트릭을 사용하도록 설정하고 저장소 계정을 모니터링하는 방법에 대한 자세한 내용은 [저장소 메트릭 설정 및 메트릭 데이터 보기](http://go.microsoft.com/fwlink/?LinkId=510865)를 참조하세요.
 
-[Azure 포털](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. (자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Azure에서 경고 알림 받기 및 경고 규칙 관리</a>에서 확인하세요.) 저장소 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 저장소 작업을 기록하지는 못합니다.
+[Azure 포털](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
+
+저장소 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 저장소 작업을 기록하지는 못합니다.
 
 Azure 포털에서 저장소 계정에 대해 가용성, 총 요청 수, 평균 대기 시간 수 등의 메트릭을 확인할 수 있습니다. 알림 규칙도 설정되어 가용성이 특정 수준 아래로 떨어지면 관리자에게 경고를 보냅니다. 이 데이터를 확인함으로써 조사할 수 있는 한 가지 영역은 테이블 서비스 성공 백분율이 100% 미만이라는 것입니다. 자세한 내용은 "[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]" 섹션을 참조하세요.
 
@@ -125,23 +127,23 @@ Azure 응용 프로그램을 지속적으로 모니터링한 후 다음을 수�
 
 [Azure 포털](https://portal.azure.com)을 사용하여 전 세계 모든 Azure 지역의 저장소 서비스와 기타 Azure 서비스 상태를 확인할 수 있습니다. 그러면 응용 프로그램에서 사용 중인 지역의 저장소 서비스가 통제 범위를 벗어난 문제의 영향을 받는지 즉시 파악할 수 있습니다.
 
-[Azure 포털](https://portal.azure.com)에서는 여러 Azure 서비스에 영향을 주는 문제에 대한 알림도 제공합니다. 참고: 이전에는 이 정보가 Azure 서비스 대시보드(<a href="http://status.azure.com" target="_blank">http://status.azure.com</a>)에서 기록 데이터와 함께 제공되었습니다.
+[Azure 포털](https://portal.azure.com)에서는 여러 Azure 서비스에 영향을 주는 문제에 대한 알림도 제공합니다. 참고: 이전에는 이 정보가 [Azure 서비스 대시보드](http://status.azure.com)에서 기록 데이터와 함께 제공되었습니다.
 
-[Azure 포털](https://portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]"을 참조하세요.
+[Azure 포털](https://portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링](#appendix-5)"을 참조하세요.
 
 ### <a name="monitoring-capacity"></a>용량 모니터링
 
-일반적으로는 저장되는 데이터 중 Blob가 가장 큰 비율을 차지하므로, 저장소 메트릭은 Blob 서비스의 용량 메트릭만을 저장합니다. 이 문서 작성 당시에는 저장소 메트릭을 사용하여 테이블과 큐의 용량을 모니터링할 수 없었습니다. Blob 서비스에 대해 모니터링을 사용하도록 설정한 경우 **$MetricsCapacityBlob** 테이블에서 이 데이터를 확인할 수 있습니다. 저장소 메트릭은 매일 한 번씩 이 데이터를 기록하며, **RowKey**의 값을 사용하여 행에 사용자 데이터(**data** 값) 또는 분석 데이터(**analytics** 값)와 관련된 엔터티가 포함되어 있는지 확인할 수 있습니다. 저장되는 각 엔터티에는 사용된 저장소 공간(바이트 단위로 측정되는 **Capacity**)과 저장소 계정에서 사용되는 현재 컨테이너 수(**ContainerCount**) 및 Blob 수(**ObjectCount**)에 대한 정보가 포함됩니다. **$MetricsCapacityBlob** 테이블에 저장되는 용량 메트릭에 대한 자세한 내용은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>를 참조하세요.
+일반적으로는 저장되는 데이터 중 Blob가 가장 큰 비율을 차지하므로, 저장소 메트릭은 Blob 서비스의 용량 메트릭만을 저장합니다. 이 문서 작성 당시에는 저장소 메트릭을 사용하여 테이블과 큐의 용량을 모니터링할 수 없었습니다. Blob 서비스에 대해 모니터링을 사용하도록 설정한 경우 **$MetricsCapacityBlob** 테이블에서 이 데이터를 확인할 수 있습니다. 저장소 메트릭은 매일 한 번씩 이 데이터를 기록하며, **RowKey**의 값을 사용하여 행에 사용자 데이터(**data** 값) 또는 분석 데이터(**analytics** 값)와 관련된 엔터티가 포함되어 있는지 확인할 수 있습니다. 저장되는 각 엔터티에는 사용된 저장소 공간(바이트 단위로 측정되는 **Capacity**)과 저장소 계정에서 사용되는 현재 컨테이너 수(**ContainerCount**) 및 Blob 수(**ObjectCount**)에 대한 정보가 포함됩니다. **$MetricsCapacityBlob** 테이블에 저장되는 용량 메트릭에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
 > [AZURE.NOTE] 저장소 계정의 용량 제한에 도달했다는 경고를 조기에 받으려면 이러한 값을 모니터링해야 합니다. Azure 포털에서 집계 저장소 사용량이 지정한 임계값보다 크거나 작아지면 알림을 보내는 경고 규칙을 추가할 수 있습니다.
 
-Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 도움말은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Azure 저장소 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량</a> 블로그 게시물을 참조하세요.
+Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 도움말은 [Azure 저장소 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) 블로그 게시물을 참조하세요.
 
 ### <a name="monitoring-availability"></a>가용성 모니터링
 
 시간 또는 분 메트릭 테이블(**$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **Availability** 열 값을 모니터링하여 저장소 계정의 저장소 서비스 가용성을 모니터링해야 합니다. **Availability** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
 
-값이 100%보다 작으면 일부 저장소 요청이 실패함을 나타냅니다. 메트릭 데이터에서 **ServerTimeoutError**와 같이 오류 유형이 다른 요청 수를 표시하는 기타 열을 검사하여 해당 요청이 실패하는 이유를 확인할 수 있습니다. 서비스가 요청을 보다 효율적으로 부하 분산하기 위해 파티션을 이동하는 동안 일시적으로 서버 시간이 초과되는 등의 경우에는 **Availability**가 잠시 동안 100%보다 낮아질 수 있습니다. 클라이언트 응용 프로그램의 다시 시도 논리가 이와 같은 일시적인 상황을 처리해야 합니다. <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> 페이지에는 저장소 메트릭의 **Availability** 계산에 포함되는 트랜잭션 유형이 나열됩니다.
+값이 100%보다 작으면 일부 저장소 요청이 실패함을 나타냅니다. 메트릭 데이터에서 **ServerTimeoutError**와 같이 오류 유형이 다른 요청 수를 표시하는 기타 열을 검사하여 해당 요청이 실패하는 이유를 확인할 수 있습니다. 서비스가 요청을 보다 효율적으로 부하 분산하기 위해 파티션을 이동하는 동안 일시적으로 서버 시간이 초과되는 등의 경우에는 **Availability**가 잠시 동안 100%보다 낮아질 수 있습니다. 클라이언트 응용 프로그램의 다시 시도 논리가 이와 같은 일시적인 상황을 처리해야 합니다. [저장소 분석에서 기록한 작업 및 상태 메시지](http://msdn.microsoft.com/library/azure/hh343260.aspx) 문서에는 저장소 메트릭이 해당 **가용성** 계산에 포함하는 트랜잭션 유형이 나와 있습니다.
 
 [Azure 포털](https://portal.azure.com)에서 서비스의 **Availability**가 지정한 임계값보다 작아지면 알림을 보내는 경고 규칙을 추가할 수 있습니다.
 
@@ -182,7 +184,7 @@ Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 �
 
 ### <a name="service-health-issues"></a>서비스 상태 문제
 
-서비스 상태 문제는 대개 직접 해결할 수가 없습니다. [Azure 포털](https://portal.azure.com)에서는 저장소 서비스를 포함한 Azure 서비스에서 지속적으로 발생하는 문제와 관련된 정보를 제공합니다. 저장소 계정을 만들 때 읽기 권한 지역 중복 저장소를 신청한 경우 기본 위치에서 데이터를 사용할 수 없게 되면 응용 프로그램이 일시적으로 보조 위치의 읽기 전용 복사본을 사용하도록 전환할 수 있습니다. 이렇게 하려면 응용 프로그램이 기본 저장소 위치와 보조 저장소 위치 간을 전환할 수 있어야 하며 읽기 전용 데이터를 사용하여 기능 제한 모드에서도 작동할 수 있어야 합니다. Azure 저장소 클라이언트 라이브러리에서는 기본 저장소에서 읽기가 실패하는 경우 보조 저장소에서 읽을 수 있는 다시 시도 정책을 정의할 수 있습니다. 또한 응용 프로그램은 보조 위치의 데이터가 기본 위치와 일치함을 인식할 수 있어야 합니다. 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure 저장소 중복성 옵션 및 읽기 액세스 지역 중복 저장소</a> 블로그 게시물을 참조하세요.
+서비스 상태 문제는 대개 직접 해결할 수가 없습니다. [Azure 포털](https://portal.azure.com)에서는 저장소 서비스를 포함한 Azure 서비스에서 지속적으로 발생하는 문제와 관련된 정보를 제공합니다. 저장소 계정을 만들 때 읽기 권한 지역 중복 저장소를 신청한 경우 기본 위치에서 데이터를 사용할 수 없게 되면 응용 프로그램이 일시적으로 보조 위치의 읽기 전용 복사본을 사용하도록 전환할 수 있습니다. 이렇게 하려면 응용 프로그램이 기본 저장소 위치와 보조 저장소 위치 간을 전환할 수 있어야 하며 읽기 전용 데이터를 사용하여 기능 제한 모드에서도 작동할 수 있어야 합니다. Azure 저장소 클라이언트 라이브러리에서는 기본 저장소에서 읽기가 실패하는 경우 보조 저장소에서 읽을 수 있는 다시 시도 정책을 정의할 수 있습니다. 또한 응용 프로그램은 보조 위치의 데이터가 기본 위치와 일치함을 인식할 수 있어야 합니다. 자세한 내용은 [Azure 저장소 중복성 옵션 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) 블로그 게시물을 참조하세요.
 
 ### <a name="performance-issues"></a>성능 문제
 
@@ -198,12 +200,13 @@ Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 �
 
 > [AZURE.NOTE] 일부 일시적인 오류 확인을 기억하세요: 예, 일시적인 네트워크 조건으로 인한 오류나 응용 프로그램 오류를 예로 들 수 있습니다.
 
-MSDN의 다음 리소스에서 저장소 관련 상태 및 오류 코드를 파악할 수 있습니다.
+다음 리소스에서 저장소 관련 상태 및 오류 코드를 파악할 수 있습니다.
 
-- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">공통 REST API 오류 코드</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Blob 서비스 오류 코드</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">큐 서비스 오류 코드</a>
-- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">테이블 서비스 오류 코드</a>
+- [공통 REST API 오류 코드](http://msdn.microsoft.com/library/azure/dd179357.aspx)
+- [Blob 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dd179439.aspx)
+- [큐 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dd179446.aspx)
+- [테이블 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dd179438.aspx)
+- [파일 서비스 오류 코드](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
 ### <a name="storage-emulator-issues"></a>저장소 에뮬레이터 문제
 
@@ -213,9 +216,9 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 ### <a name="storage-logging-tools"></a>저장소 로깅 도구
 
-저장소 로깅은 Azure 저장소 계정의 저장소 요청에 대한 서버 쪽 로깅 기능을 제공합니다. 서버 쪽 로깅을 사용하도록 설정하고 로그 데이터에 액세스하는 방법에 대한 자세한 내용은 MSDN의 <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">서버 쪽 로깅 사용</a>을 참조하세요.
+저장소 로깅은 Azure 저장소 계정의 저장소 요청에 대한 서버 쪽 로깅 기능을 제공합니다. 서버 쪽 로깅을 사용하도록 설정하고 로그 데이터에 액세스하는 방법에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](http://go.microsoft.com/fwlink/?LinkId=510867)를 참조하세요.
 
-.NET용 저장소 클라이언트 라이브러리에서는 응용 프로그램이 수행하는 저장소 작업과 관련된 클라이언트 쪽 로그 데이터를 수집할 수 있습니다. 클라이언트 쪽 로깅을 사용하도록 설정하고 로그 데이터에 액세스하는 방법에 대한 자세한 내용은 MSDN의 <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅</a>을 참조하세요.
+.NET용 저장소 클라이언트 라이브러리에서는 응용 프로그램이 수행하는 저장소 작업과 관련된 클라이언트 쪽 로그 데이터를 수집할 수 있습니다. 자세한 내용은 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://go.microsoft.com/fwlink/?LinkId=510868)을 참조하세요.
 
 > [AZURE.NOTE] SAS 권한 부여 실패 등의 특정 상황에서는 사용자가 오류를 보고하는데 서버 쪽 저장소 로그에서 요청 데이터를 찾을 수 없는 경우도 있습니다. 이러한 경우에는 저장소 클라이언트 라이브러리의 로깅 기능을 사용하여 문제의 원인이 클라이언트에 있는지 조사하거나, 네트워크 모니터링 도구를 사용하여 네트워크를 조사할 수 있습니다.
 
@@ -223,10 +226,10 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 클라이언트와 서버 간의 트래픽을 캡처하여 클라이언트와 서버가 교환하는 데이터 및 기본 네트워크 상태에 대한 상세 정보를 제공할 수 있습니다. 다음과 같은 유용한 네트워크 로깅 도구를 사용할 수 있습니다.
 
-- Fiddler(<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>)는 HTTP/HTTPS 요청 및 응답 메시지의 헤더 및 페이로드 데이터를 검사하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 자세한 내용은 “[부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]”를 참조하세요.
-- Microsoft 네트워크 모니터(Netmon)(<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) 및 Wireshark(<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인하는 데 사용할 수 있는 무료 네트워크 프로토콜 분석기입니다. Wireshark에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
-- Microsoft Message Analyzer는 Netmon을 대체하는 Microsoft의 도구로, 네트워크 패킷 데이터를 캡처할 뿐 아니라 다른 도구에서 캡처한 로그 데이터를 확인 및 분석할 수도 있습니다. 자세한 내용은 "[부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
-- 기본 연결 테스트를 수행하여 클라이언트 컴퓨터가 네트워크를 통해 Azure 저장소 서비스에 연결할 수 있는지를 확인하려는 경우 클라이언트에서 표준 **ping** 도구를 통해서는 이 작업을 수행할 수 없습니다. 그러나 **tcping** 도구를 사용하면 연결을 확인할 수 있습니다. **Tcping**은 <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>에서 다운로드할 수 있습니다.
+- [Fiddler](http://www.telerik.com/fiddler)는 HTTP/HTTPS 요청 및 응답 메시지의 헤더 및 페이로드 데이터를 검사하는 데 사용할 수 있는 무료 웹 디버깅 프록시입니다. 자세한 내용은 [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처](#appendix-1)를 참조하세요.
+- [Microsoft 네트워크 모니터(Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) 및 [Wireshark](http://www.wireshark.org/)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인하는 데 사용할 수 있는 무료 네트워크 프로토콜 분석기입니다. Wireshark에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처](#appendix-2)"를 참조하세요.
+- Microsoft Message Analyzer는 Netmon을 대체하는 Microsoft의 도구로, 네트워크 패킷 데이터를 캡처할 뿐 아니라 다른 도구에서 캡처한 로그 데이터를 확인 및 분석할 수도 있습니다. 자세한 내용은 "[부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처](#appendix-3)"를 참조하세요.
+- 기본 연결 테스트를 수행하여 클라이언트 컴퓨터가 네트워크를 통해 Azure 저장소 서비스에 연결할 수 있는지를 확인하려는 경우 클라이언트에서 표준 **ping** 도구를 통해서는 이 작업을 수행할 수 없습니다. 그러나 [**tcping** 도구](http://www.elifulkerson.com/projects/tcping.php)를 사용하면 연결을 확인할 수 있습니다.
 
 대부분의 경우 저장소 로깅 및 저장소 클라이언트 라이브러리의 로그 데이터로 문제를 충분히 진단할 수 있습니다. 그러나 이러한 네트워크 로깅 도구가 제공할 수 있는 상세 정보가 필요한 경우도 있습니다. 예를 들어 Fiddler를 통해 HTTP 및 HTTPS 메시지를 확인하면 저장소 서비스가 보내고 받는 헤더 및 페이로드 데이터를 볼 수 있으므로 클라이언트 응용 프로그램이 저장소 작업을 다시 시도하는 방법을 검사할 수 있습니다. Wireshark 등의 프로토콜 분석기는 패킷 수준에서 작동하여 TCP 데이터를 확인할 수 있도록 합니다. 따라서 패킷 손실 및 연결 끊김 문제를 해결할 수 있습니다. 메시지 분석기는 HTTP 및 TCP 계층에서 모두 작동할 수 있습니다.
 
@@ -369,7 +372,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 사용 가능한 연결 또는 스레드 수가 제한되거나 CPU, 메모리 또는 네트워크 대역폭과 같은 리소스가 부족한 경우 클라이언트의 응답 속도가 느려질 수 있습니다. 저장소 서비스에 대한 비동기 호출을 사용하는 등 클라이언트 코드를 보다 효율적으로 수정하거나, 코어와 메모리가 더 많은 대형 가상 컴퓨터를 사용하면 문제가 해결될 수도 있습니다.
 
-테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 Microsoft Azure 저장소 팀 블로그의 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 응용 프로그램에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application\_Start** 메서드 예제가 나와 있습니다.
+테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 응용 프로그램에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application\_Start** 메서드 예제가 나와 있습니다.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -377,7 +380,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-클라이언트 쪽 로그를 통해 클라이언트 응용 프로그램이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 응용 프로그램 문제 해결을 시작하려면 <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">MSDN의 디버깅, 추적 및 프로파일링</a>을 참조하세요.
+클라이언트 쪽 로그를 통해 클라이언트 응용 프로그램이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 응용 프로그램 문제 해결을 시작하려면 [MSDN의 디버깅, 추적 및 프로파일링](http://msdn.microsoft.com/library/7fe0dd2y)을 참조하세요.
 
 #### 네트워크 대기 시간 문제 조사
 
@@ -397,7 +400,7 @@ Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하�
 
 - 저장소 분석 로그를 검사합니다. 재시도가 여러 번 발생하는 경우 다른 서버 요청 ID의 동일한 클라이언트 요청 ID로 여러 작업이 표시됩니다.
 - 클라이언트 로그를 검사합니다. 자세한 정보 로깅은 다시 시도가 발생된 것을 표시됩니다.
-- 코드를 디버깅하고 요청과 관련된 **OperationContext** 개체의 속성을 확인합니다. 작업을 다시 시도하는 경우 **RequestResults** 속성은 여러 고유한 서버 요청 ID를 포함합니다. 또한 각 요청에 대한 시작 및 종료 시간을 확인할 수 있습니다. 자세한 내용은 [서버 요청 ID] 섹션의 코드 샘플을 참조하세요. 
+- 코드를 디버깅하고 요청과 관련된 **OperationContext** 개체의 속성을 확인합니다. 작업을 다시 시도하는 경우 **RequestResults** 속성은 여러 고유한 서버 요청 ID를 포함합니다. 또한 각 요청에 대한 시작 및 종료 시간을 확인할 수 있습니다. 자세한 내용은 [서버 요청 ID] 섹션의 코드 샘플을 참조하세요.
 
 클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 네트워크 문제를 조사할 수 있습니다.
 
@@ -428,7 +431,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨
 
-저장소 서비스의 확장성 목표를 초과하면 제한 오류가 발생합니다. 저장소 서비스는 단일 클라이언트나 테넌트만이 서비스를 사용하는 현상을 방지하기 위해 이 오류를 발생시킵니다. 저장소 계정의 확장성 목표와 저장소 계정 내 파티션의 성능 목표에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 저장소 확장성 및 성능 목표</a>를 참조하세요.
+저장소 서비스의 확장성 목표를 초과하면 제한 오류가 발생합니다. 저장소 서비스는 단일 클라이언트나 테넌트만이 서비스를 사용하는 현상을 방지하기 위해 이 오류를 발생시킵니다. 저장소 계정의 확장성 목표와 저장소 계정 내 파티션의 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
 **PercentThrottlingError** 메트릭에서 제한 오류로 인해 실패하는 요청 백분율이 증가하는 것으로 표시되면 다음의 두 시나리오 중 하나를 조사해야 합니다.
 
@@ -439,7 +442,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>일시적인 PercentThrottlingError 증가
 
-응용 프로그램의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 대해 선형이 아닌 지수 백오프 전략을 구현해야 합니다. 그러면 파티션의 부하가 즉시 감소하며 응용 프로그램이 트래픽 급증 현상을 안정적으로 해결할 수 있습니다. 저장소 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a>를 참조하세요.
+응용 프로그램의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 대해 선형이 아닌 지수 백오프 전략을 구현해야 합니다. 그러면 파티션의 부하가 즉시 감소하며 응용 프로그램이 트래픽 급증 현상을 안정적으로 해결할 수 있습니다. 저장소 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 [Microsoft.WindowsAzure.Storage.RetryPolicies 네임스페이스](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)를 참조하세요.
 
 > [AZURE.NOTE] 응용 프로그램의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.
 
@@ -491,10 +494,10 @@ Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서
 
 - 보통 클라이언트에 대해 즉시 사용할 SAS를 만들 때는 시작 시간을 설정하면 안 됩니다. 현재 시간을 사용하여 SAS를 생성하는 호스트와 저장소 서비스 간에 약간의 클럭 차이가 있는 경우에는 저장소 서비스가 아직 유효하지 않은 SAS를 받을 가능성이 있습니다.
 - SAS에 대해 매우 짧은 만료 시간을 설정해서는 안 됩니다. 마찬가지로 SAS를 생성하는 호스트와 저장소 서비스 간에 클럭 차이가 약간이라도 있으면 SAS가 예상보다 빨리 만료됩니다.
-- SAS 키의 버전 매개 변수(예: **sv=2015-04-05**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 [저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하는 것이 좋습니다. SAS 토큰 버전 관리에 대한 자세한 내용은 [Microsoft Azure 저장소의 새로운 기능](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx)을 참조하세요.
+- SAS 키의 버전 매개 변수(예: **sv=2015-04-05**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 [저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하는 것이 좋습니다.
 - 저장소 액세스 키를 다시 생성하면 기존 SAS 토큰이 무효화될 수 있습니다. 클라이언트 응용 프로그램이 캐시하도록 만료 시간이 매우 긴 SAS 토큰을 생성하는 경우 문제가 발생할 수 있습니다.
 
-저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임 항목</a>을 자세히 확인해야 합니다.
+저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 [공유 액세스 서명으로 액세스 위임 항목](http://msdn.microsoft.com/library/azure/ee395415.aspx)을 자세히 확인해야 합니다.
 
 ### <a name="the-client-is-receiving-404-messages"></a>클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨
 클라이언트 응용 프로그램이 서버에서 HTTP 404(찾을 수 없음) 메시지를 수신하는 경우 클라이언트가 사용하려는 엔터티, 테이블, Blob, 컨테이너, 큐 등의 개체가 저장소 서비스에 없는 것입니다. 이러한 현상은 다음과 같은 여러 가지 이유로 인해 발생합니다.
@@ -621,9 +624,9 @@ JavaScript 클라이언트를 사용 중인데 저장소 서비스에서 HTTP 40
 
 > [AZURE.NOTE] 클라이언트 쪽 JavaScript 문제를 해결할 때는 Internet Explorer에서 F12 개발자 도구를 사용하여 브라우저와 저장소 서비스 간에 교환되는 메시지를 추적할 수 있습니다.
 
-이러한 오류가 발생하는 이유는 웹 페이지가 생성된 도메인과 다른 도메인에서 API를 호출할 수 없도록 하는 <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">동일 원본 정책</a> 보안 제한을 웹 브라우저가 구현하기 때문입니다.
+이러한 오류가 발생하는 이유는 웹 페이지가 생성된 도메인과 다른 도메인에서 API를 호출할 수 없도록 하는 [동일 원본 정책](http://www.w3.org/Security/wiki/Same_Origin_Policy) 보안 제한을 웹 브라우저가 구현하기 때문입니다.
 
-JavaScript 문제를 해결하려면 클라이언트가 액세스하는 저장소 서비스에 대해 CORS(Cross-Origin Resource Sharing)을 구성할 수 있습니다. 자세한 내용은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Azure 저장소 서비스에 대한 CORS(크로스-원본 자원 공유) 지원</a>을 참조하세요.
+JavaScript 문제를 해결하려면 클라이언트가 액세스하는 저장소 서비스에 대해 CORS(Cross-Origin Resource Sharing)을 구성할 수 있습니다. 자세한 내용은 [Azure 저장소 서비스에 대한 CORS(크로스-원본 자원 공유) 지원](http://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.
 
 다음 코드 샘플에서는 Contoso 도메인에서 실행되는 JavaScript가 Blob 저장소 서비스의 Blob에 액세스할 수 있도록 Blob 서비스를 구성하는 방법을 보여 줍니다.
 
@@ -677,7 +680,7 @@ Timestamp|작업|결과|컨테이너 이름|클라이언트 요청 ID
 - **ResouceAlreadyExists**(충돌 409): 리소스가 이미 있는 **CreateIfNotExist** 작업 등에서 발생합니다.
 - **ConditionNotMet**(수정되지 않음 304): 클라이언트가 **ETag** 값과 HTTP **If-None-Match** 헤더를 보내 마지막 작업 이후 업데이트된 경우에만 이미지를 요청하는 것과 같은 조건부 작업 등에서 발생합니다.
 
-저장소 서비스에서 반환하는 공통 REST API 오류 코드의 목록은 <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">공통 REST API 오류 코드</a> 페이지에서 확인할 수 있습니다.
+저장소 서비스에서 반환하는 공통 REST API 오류 코드의 목록은 [공통 REST API 오류 코드](http://msdn.microsoft.com/library/azure/dd179357.aspx) 페이지에서 확인할 수 있습니다.
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>용량 메트릭에 예기치 않은 저장소 용량 사용 증가가 표시됨
 
@@ -688,7 +691,7 @@ Timestamp|작업|결과|컨테이너 이름|클라이언트 요청 ID
 
 Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연결되어 있으면 개별 저장소 계정의 확장성 목표가 초과되어 VM에서 오류가 발생할 수 있습니다. 저장소 계정의 분 메트릭(**TotalRequests**/**TotalIngress**/**TotalEgress**)에서 저장소 계정의 확장성 목표를 초과하는 메트릭 값의 급증 현상을 확인해야 합니다. 저장소 계정에 대해 제한이 적용되었는지를 확인하는 데 도움이 필요하면 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]" 섹션을 참조하세요.
 
-일반적으로 가상 컴퓨터에서 수행하는 VHD의 개별 입력 또는 출력 작업은 기본 페이지 Blob에서 **페이지 가져오기** 또는 **페이지 배치** 작업으로 변환됩니다. 따라서 환경에 대한 예상 IOPS를 사용하여 응용 프로그램의 특정 동작을 기준으로 단일 저장소 계정에 포함할 수 있는 VHD의 수를 조정할 수 있습니다. 단일 저장소 계정에 디스크를 40개 이하로 유지하는 것이 좋습니다. 저장소 계정의 현재 확장성 목표, 특히 사용 중인 저장소 계정 유형에 대한 총 요청 속도 및 총 대역폭에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 저장소 확장성 및 성능 목표</a>를 참조하세요. 저장소 계정의 확장성 목표가 초과되는 경우에는 여러 저장소 계정에 VHD를 배치하여 개별 계정의 작업량을 줄여야 합니다. 저장소 계정의 확장성 목표를 초과 하는 경우에 각 개별 계정에 대한 작업을 줄일 수 있는 여러 다른 저장소 계정에서 Vhd를 배치 해야 합니다.
+일반적으로 가상 컴퓨터에서 수행하는 VHD의 개별 입력 또는 출력 작업은 기본 페이지 Blob에서 **페이지 가져오기** 또는 **페이지 배치** 작업으로 변환됩니다. 따라서 환경에 대한 예상 IOPS를 사용하여 응용 프로그램의 특정 동작을 기준으로 단일 저장소 계정에 포함할 수 있는 VHD의 수를 조정할 수 있습니다. 단일 저장소 계정에 디스크를 40개 이하로 유지하는 것이 좋습니다. 저장소 계정의 현재 확장성 목표, 특히 사용 중인 저장소 계정 유형에 대한 총 요청 속도 및 총 대역폭에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요. 저장소 계정의 확장성 목표가 초과되는 경우에는 여러 저장소 계정에 VHD를 배치하여 개별 계정의 작업량을 줄여야 합니다. 저장소 계정의 확장성 목표를 초과 하는 경우에 각 개별 계정에 대한 작업을 줄일 수 있는 여러 다른 저장소 계정에서 Vhd를 배치 해야 합니다.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>개발 또는 테스트용으로 저장소 에뮬레이터 사용 시 문제가 발생함
 
@@ -700,7 +703,7 @@ Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연�
 
 #### <a name="feature-X-is-not-working"></a>"X" 기능이 저장소 에뮬레이터에서 작동하지 않음
 
-저장소 에뮬레이터는 파일 서비스 등 Azure 저장소 서비스의 일부 기능을 지원하지 않습니다. 자세한 내용은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">저장소 에뮬레이터와 Azure 저장소 서비스의 차이점</a>을 참조하세요.
+저장소 에뮬레이터는 파일 서비스 등 Azure 저장소 서비스의 일부 기능을 지원하지 않습니다. 자세한 내용은 [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
 
 저장소 에뮬레이터에서 지원하지 않는 기능의 경우 클라우드에서 Azure 저장소 서비스를 사용하세요.
 
@@ -716,7 +719,7 @@ Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연�
 
 저장소 에뮬레이터를 실행하면 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 이러한 메시지는 저장소 에뮬레이터를 처음 초기화할 때만 표시됩니다. 저장소 에뮬레이터를 초기화한 후에는 관리 권한이 없어도 에뮬레이터를 실행할 수 있습니다.
 
-자세한 내용은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">명령줄 도구를 사용하여 저장소 에뮬레이터 초기화</a>를 참조하세요. Visual Studio에서 저장소 에뮬레이터를 초기화할 수도 있으며, 이 경우에도 역시 관리 권한이 필요합니다.
+자세한 내용은 [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요. Visual Studio에서 저장소 에뮬레이터를 초기화할 수도 있으며 이 작업을 위해서도 관리자 권한이 필요합니다.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Azure SDK for .NET 설치 시 문제가 발생함
 
@@ -754,7 +757,7 @@ Microsoft Message Analyzer 사용에 대한 자세한 내용은 [부록3: Micros
 
 ### <a name="appendix-1"></a>부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처
 
-Fiddler는 사용 중인 Azure 저장소 서비스와 클라이언트 응용 프로그램 간의 HTTP 및 HTTPS 트래픽을 분석하는 유용한 도구입니다. <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>에서 Fiddler를 다운로드할 수 있습니다.
+[Fiddler](http://www.telerik.com/fiddler)는 사용 중인 Azure 저장소 서비스와 클라이언트 응용 프로그램 간의 HTTP 및 HTTPS 트래픽을 분석하는 유용한 도구입니다.
 
 > [AZURE.NOTE] Fiddler는 HTTPS 트래픽을 디코딩할 수 있습니다. Fiddler 설명서에서 Fiddler가 HTTPS 트래픽을 디코딩하는 방식과 그에 따른 보안 관련 사항을 자세히 확인해야 합니다.
 
@@ -771,14 +774,14 @@ Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서
 
 ### <a name="appendix-2"></a>부록2: Wireshark를 사용하여 네트워크 트래픽 캡처
 
-Wireshark는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인할 수 있는 네트워크 프로토콜 분석기입니다. <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>에서 Wireshark를 다운로드할 수 있습니다.
+[Wireshark](http://www.wireshark.org/)는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정보를 확인할 수 있는 네트워크 프로토콜 분석기입니다.
 
 다음 절차에서는 Wireshark를 설치한 로컬 컴퓨터에서 Azure 저장소 계정의 테이블 서비스로 이동하는 트래픽에 대한 상세 패킷 정보를 캡처하는 방법을 설명합니다.
 
 1.	로컬 컴퓨터에서 Wireshark를 시작합니다.
 2.	**시작** 섹션에서 로컬 네트워크 인터페이스 또는 인터넷에 연결된 인터페이스를 선택합니다.
 3.	**캡처 옵션**을 클릭합니다.
-4.	**캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 테이블 서비스 끝점에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. 캡처 필터의 전체 목록은 <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>를 참조하세요.
+4.	**캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 테이블 서비스 끝점에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. [캡처 필터의 전체 목록](http://wiki.wireshark.org/CaptureFilters)을 확인하세요.
 
     ![][6]
 
@@ -790,11 +793,11 @@ WireShark의 **packetlist** 창에는 발생한 모든 오류가 강조 표시�
 
 ![][7]
 
-TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확인**을 선택하여 응용 프로그램 계층에 표시되는 대로 TCP 데이터를 확인할 수도 있습니다. 캡처 필터를 사용하지 않고 덤프를 캡처한 경우 이와 같이 확인하면 특히 유용합니다. 자세한 내용은 <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">여기</a>를 참조하세요.
+TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확인**을 선택하여 응용 프로그램 계층에 표시되는 대로 TCP 데이터를 확인할 수도 있습니다. 캡처 필터를 사용하지 않고 덤프를 캡처한 경우 이와 같이 확인하면 특히 유용합니다. 자세한 내용은 [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(TCP 스트림 따라 이동)를 참조하세요.
 
 ![][8]
 
-> [AZURE.NOTE] Wireshark를 사용하는 방법에 대한 자세한 내용은 <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark 사용 설명서</a>를 참조하세요.
+> [AZURE.NOTE] Wireshark를 사용하는 방법에 대한 자세한 내용은 [Wireshark 사용 설명서](http://www.wireshark.org/docs/wsug_html_chunked)를 참조하세요.
 
 ### <a name="appendix-3"></a>부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처
 
@@ -810,7 +813,7 @@ Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 �
 
 추적 데이터 수집을 시작할 준비가 되면 **시작** 단추를 클릭합니다.
 
-Microsoft 메시지 분석기 **웹 프록시** 추적에 대한 자세한 내용은 TechNet의 <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy 공급자</a>를 참조하세요.
+Microsoft 메시지 분석기 **웹 프록시** 추적에 대한 자세한 내용은 [Microsoft-PEF-WebProxy 공급자](http://technet.microsoft.com/library/jj674814.aspx)를 참조하세요.
 
 Microsoft Message Analyzer의 기본 제공 **웹 프록시** 추적은 Fiddler를 기반으로 하며 클라이언트 쪽 HTTPS 트래픽을 캡처하고 암호화되지 않은 HTTPS 메시지를 표시할 수 있습니다. **웹 프록시** 추적은 암호화되지 않은 메시지 액세스 권한을 제공하는 모든 HTTP 및 HTTPS 트래픽에 대해 로컬 프록시를 구성하는 방식으로 작동합니다.
 
@@ -826,11 +829,11 @@ Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이
 
 ![][10]
 
-Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 TechNet의 <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 공급자</a>를 참조하세요.
+Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 [Microsoft-PEF-NDIS-PacketCapture 공급자](http://technet.microsoft.com/library/jj659264.aspx)를 참조하세요.
 
 ### <a name="appendix-4"></a>부록4: Excel을 사용하여 메트릭 및 로그 데이터 보기
 
-다양한 도구를 통해 Azure 테이블 저장소에서 저장소 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob 저장소의 저장소 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">저장소 분석 로그 형식</a> 및 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
+다양한 도구를 통해 Azure 테이블 저장소에서 저장소 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob 저장소의 저장소 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [저장소 분석 로그 형식](http://msdn.microsoft.com/library/azure/hh343259.aspx) 및 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
 
 Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가져오려면 다음 단계를 수행합니다.
 
@@ -847,8 +850,7 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 - 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 장치 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다.
 - 웹 서비스의 성능 문제나 예외를 빠르게 진단합니다. CPU 또는 기타 리소스가 확대되는지 확인하고 예외에서 스택 추적을 가져오며 로그 추적을 쉽게 검색할 수 있습니다. 앱 성능이 허용되는 제한 미만으로 떨어지면 전자 메일이 전송됩니다. .NET 및 Java 웹 서비스를 모두 모니터링할 수 있습니다.
 
-이 문서를 작성한 시점에서는 Application Insights가 미리 보기 상태였습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN의 Visual Studio Team Services용 Application Insights</a>에서 확인할 수 있습니다.
-
+[Application Insights란?](../application-insights/app-insights-overview.md)에서 추가 정보를 찾을 수 있습니다.
 
 <!--Anchors-->
 [소개]: #introduction
@@ -910,10 +912,8 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
 [부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
 [부록3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처]: #appendix-3
-[부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
 [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
-[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 
 <!--Image references-->
@@ -927,4 +927,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

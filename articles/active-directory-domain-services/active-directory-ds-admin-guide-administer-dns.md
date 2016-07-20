@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스 관리되는 도메인에서 DNS 관리
@@ -118,4 +118,4 @@ DNS 관리에 대한 자세한 내용은 [Technet의 DNS 도구 문서](https://
 
 - [DNS 관리 도구](https://technet.microsoft.com/library/cc753579.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

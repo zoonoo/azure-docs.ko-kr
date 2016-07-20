@@ -29,14 +29,14 @@
 
 - [서비스 버스 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램 빌드](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 - [서비스 버스 릴레이 사용 방법(비디오 및 코드 샘플)](http://appfabricdemos.codeplex.com/releases/view/67597)
-- [서비스 버스 릴레이를 통해 Azure 웹 사이트를 LOB 앱에 통합하는 방법](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8) 
+- [서비스 버스 릴레이를 통해 Azure 웹 사이트를 LOB 앱에 통합하는 방법](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8)
 - [서비스 버스 릴레이 메시지를 지역에서 복제](http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd)
 - [모바일 서비스를 REST 서비스 버스 릴레이 서비스에 통합하는 방법](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## 인기 사이트
 
 - [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/)
-- [서비스 버스 가격 FAQ](service-bus-pricing-faq.md)
+- [서비스 버스 FAQ](service-bus-faq.md)
 - [서비스 버스 REST API 참조](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - [무료 Azure 계정 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
@@ -44,7 +44,7 @@
 
 - [BizTalk 서비스](https://azure.microsoft.com/services/biztalk-services/)
 - [모바일 앱](https://azure.microsoft.com/services/app-service/mobile/)
-- [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
+- [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

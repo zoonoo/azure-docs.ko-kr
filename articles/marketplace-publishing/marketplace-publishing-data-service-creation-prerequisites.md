@@ -66,4 +66,4 @@ OData 서비스는 백 엔드의 데이터베이스에 위배되지만 않으면
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

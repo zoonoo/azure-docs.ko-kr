@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="07/06/2016"
 	ms.author="nitinme"/>
 
 
@@ -42,7 +42,7 @@
  
 * IntelliJ IDEA. 이 문서에서는 버전 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
  
-* IntelliJ IDEA용 HDInsight 도구 플러그 인. 플러그 인을 설치하는 지침은 [IntelliJ IDEA용 HDInsight 도구 플러그 인 설치](hdinsight-apache-spark-intellij-tool-plugin.md#install-hdinsight-tools-plugin-for-intellij-idea)를 참조하세요.
+* IntelliJ IDEA용 HDInsight 도구 플러그 인. IntelliJ IDEA 용 HDInsight 도구 플러그 인은 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](../azure-toolkit-for-intellij-installation.md)를 참조하세요.
  
 * Windows 컴퓨터에서 원격 디버깅을 위해 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명된 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없는 경우 발생합니다. 이 오류를 해결하려면 [여기에서 실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\\WinUtils\\bin** 등의 위치에 저장해야 합니다. 그런 다음 환경 변수 **HADOOP\_HOME**을 추가하고 변수 값을 **C\\WinUtils**로 설정합니다.
 
@@ -50,9 +50,9 @@
 
 아래 링크의 지침을 따라 Azure 가상 네트워크를 만든 다음 데스크톱 및 Azure 가상 네트워크 간의 연결을 확인합니다.
 
-* [Azure 포털을 사용하여 사이트 간 VPN 연결로 VNet 만들기](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기](..\vpn-gateway\vpn-gateway-create-site-to-site-rm-powershell.md)
-* [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성](..\vpn-gateway\vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Azure 포털을 사용하여 사이트 간 VPN 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## 2단계: HDInsight Spark 클러스터 만들기
 
@@ -156,7 +156,7 @@
 
 6. `core-site.xml`을(를) 업데이트하여 다음과 같이 변경합니다.
 
-	1. `core-site.xml`은(는) 클러스터와 연결된 저장소 계정에 암호화된 키를 포함합니다. 프로젝트에 추가한 `core-site.xml`에서 암호화된 키를 기본 저장소 계정과 연결된 실제 저장소 키로 대체합니다. [저장소 액세스 키 관리](..\storage\storage-create-storage-account.md#manage-your-storage-account)를 참조하세요.
+	1. `core-site.xml`은(는) 클러스터와 연결된 저장소 계정에 암호화된 키를 포함합니다. 프로젝트에 추가한 `core-site.xml`에서 암호화된 키를 기본 저장소 계정과 연결된 실제 저장소 키로 대체합니다. [저장소 액세스 키 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)를 참조하세요.
 
 			<property>
 	      		<name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
@@ -252,7 +252,7 @@
 	유의해야 할 몇 가지 중요한 사항은 다음과 같습니다.
 	
 	* `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`의 경우 Spark 어셈블리 JAR를 지정된 경로의 클러스터 저장소에서 사용할 수 있는지 확인합니다.
-	* `setJars`의 경우 아티팩트 jar를 만들 위치를 지정합니다. 일반적으로 `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`입니다. 
+	* `setJars`의 경우 아티팩트 jar를 만들 위치를 지정합니다. 일반적으로 `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`입니다.
 
 
 11. `RemoteClusterDebugging` 클래스에서 마우스 오른쪽 단추로 `test` 키워드를 클릭하고 **RemoteClusterDebugging 구성 만들기**를 선택합니다.
@@ -330,6 +330,8 @@
 
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Eclipse용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
+
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -344,4 +346,4 @@
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

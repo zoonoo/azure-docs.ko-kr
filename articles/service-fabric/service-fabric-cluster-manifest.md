@@ -75,9 +75,9 @@
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 이러한 변수는 성능 카운터는 물론 ETW 추적 로그, 크래시 덤프를 수집하는 데 유용합니다. ETW 추적 로그에 대한 자세한 내용은 [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) 및 [ETW 추적](https://msdn.microsoft.com/library/ms751538.aspx)을 읽어보세요. 클러스터 뿐 아니라 서비스 패브릭 노드에 대한 [크래시 덤프](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/)도 **crashDumpConnectionString** 폴더로 보내질 수 있습니다. 클러스터에 대한 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)는 컴퓨터의 **perfCtrConnectionString** 폴더로 보내질 수 있습니다.
@@ -109,7 +109,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
-**nodeTypes** 섹션에서는 클러스터가 갖는 노드 형식에 대해 설명합니다. 아래 코드 조각처럼 클러스터에 대해 적어도 하나의 노드 형식을 지정해야 합니다.
+**nodeTypes** 섹션에서는 클러스터가 갖는 노드 형식에 대해 설명합니다. 아래 코드 조각처럼 클러스터에 대해 노드 형식을 하나 이상 지정해야 합니다.
 
 	"nodeTypes": [{
         "name": "NodeType0",
@@ -137,10 +137,10 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 데이터 루트만 사용자 지정하는 경우 로그 루트가 데이터 루트에서 한 수준 아래에 배치됩니다.
@@ -150,4 +150,4 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 
 독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [온-프레미스 또는 클라우드에서 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

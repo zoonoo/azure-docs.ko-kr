@@ -19,8 +19,14 @@
 # Azure 리소스 관리자로 Azure PowerShell 사용
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [포털](azure-portal/resource-group-portal.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방식으로 접근합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 관리 및 배포합니다.
 
@@ -31,7 +37,7 @@ Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방�
 - 방화벽 규칙 - 웹 앱을 데이터베이스에 연결하도록 허용
 - 앱 서비스 계획 - 웹 앱의 기능과 비용 정의
 - 웹 사이트, 웹 앱 실행
-- 웹 구성 - 연결 문자열을 데이터베이스에 저장 
+- 웹 구성 - 연결 문자열을 데이터베이스에 저장
 - 경고 규칙 - 성능 및 오류 모니터링
 - App Insights - 자동 크기 조정 설정
 
@@ -134,7 +140,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 접미사가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 명령이 실행되고 리소스가 만들어질 때 메시지를 반환합니다. 결국 배포 결과를 표시합니다.
 
@@ -380,4 +386,4 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

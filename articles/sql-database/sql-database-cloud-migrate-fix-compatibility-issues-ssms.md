@@ -25,6 +25,10 @@
 
 고급 사용자는 Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Server 데이터베이스 호환성 문제를 해결할 수 있습니다.
 
+
+> [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## SQL Server Management Studio 사용
 
 SQL Server Management Studio를 사용하여 **ALTER DATABASE** 등 다양한 Transact-SQL 명령을 사용할 때 발생하는 호환성 문제를 해결합니다. 이 방법은 주로 라이브 데이터베이스에서 Transact-SQL을 사용하는 데 익숙한 고급 사용자를 위한 방법입니다. 그렇지 않은 경우 SSDT를 사용하는 것이 좋습니다.
@@ -43,4 +47,4 @@ SQL Server Management Studio를 사용하여 **ALTER DATABASE** 등 다양한 Tr
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

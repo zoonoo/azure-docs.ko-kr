@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="07/05/2016"
 	ms.author="jroth"/>
 
 # Azure VM에서 SQL Server에 대한 Azure 키 자격 증명 모음 통합 구성(클래식)
@@ -70,4 +70,4 @@ SQL IaaS 에이전트 확장에서 이 새로운 구성을 사용하여 SQL VM�
 
 [AZURE.INCLUDE [AKV 통합 다음 단계](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

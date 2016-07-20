@@ -13,11 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/28/2016"
+      ms.date="06/28/2016"
       ms.author="hascipio; avikova" />
 
 # Azure 마켓플레이스에 대한 데이터 서비스 게시 가이드
-1단계 [계정 만들기 및 등록][link-acct-creation]을 완료한 후 Azure 마켓플레이스에서 제공하는 데이터 서비스 제품의 [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md) 및 [기술 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md)을 안내해 드렸습니다. 이제 Azure 마켓플레이스의 [게시 포털][link-pubportal]에서 데이터 서비스 제품을 만드는 단계를 안내해 드리겠습니다.
+1단계 [계정 만들기 및 등록](marketplace-publishing-accounts-creation-registration.md)을 완료한 후 Azure 마켓플레이스에서 제공하는 데이터 서비스 제품의 [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md) 및 [기술 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md)을 안내해 드렸습니다. 이제 Azure 마켓플레이스의 [게시 포털][link-pubportal]에서 데이터 서비스 제품을 만드는 단계를 안내해 드리겠습니다.
 
 ## 1\. 게시 포털에 로그인합니다.
 
@@ -143,7 +143,6 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 
 
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0706_2016-->

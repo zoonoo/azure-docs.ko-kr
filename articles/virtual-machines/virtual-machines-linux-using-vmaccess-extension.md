@@ -25,9 +25,12 @@
 
 ## 빠른 명령
 
-Linux VM에서 VMAccess를 사용하는 방법은 두 가지입니다. 첫 번째 방법은 Azure cli를 올바른 플래그가 포함된 `azure vm reset-access`와 함께 사용하는 것입니다. VMAccess를 사용하는 두 번째 방법은 VMAccess가 처리한 다음 실행하는 원시 json 파일을 사용하는 것입니다. 빠른 명령 섹션에서는 `azure vm reset-access` 메서드를 사용합니다.
+Linux VM에서 VMAccess를 사용하는 방법에는 다음 두 가지가 있습니다.
 
-다음 명령 예제에서 &lt;와 &gt; 사이의 값을 사용자 환경의 값으로 바꿉니다.
+- Azure CLI 및 필요한 매개 변수 사용
+- VMAccess에서 처리한 후 관련 작업을 수행하는 원시 JSON 파일 사용
+
+빠른 명령 섹션에서는 Azure CLI `azure vm reset-access` 메서드를 사용합니다. 다음 명령 예제에서 &lt;와 &gt; 사이의 값을 사용자 환경의 값으로 바꿉니다.
 
 ## 루트 암호 재설정
 
@@ -72,9 +75,9 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess 정의:
 
-Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 과거의 데이터 센터 시대에 이와 같은 상황이 발생했다면 데이터 센터로 운전해 이동한 다음 문을 잠금 해제하기 위해 지문을 제출하고 케이지로 들어가서 KVM을 크랙으로 열고 서버 콘솔로 들어갔을 것입니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하십시오.
+Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 과거의 데이터 센터 시대에 이와 같은 상황이 발생했다면 데이터 센터로 운전해 이동한 다음 문을 잠금 해제하기 위해 지문을 제출하고 케이지로 들어가서 KVM을 크랙으로 열고 서버 콘솔로 들어갔을 것입니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
 
-자세한 연습에서는 원시 json 파일을 사용하는 긴 형식의 VMAccess를 사용합니다. 이러한 VMAccess json 파일은 Azure 템플릿에서도 호출할 수 있습니다.
+자세한 연습에서는 원시 JSON 파일을 사용하는 긴 형식의 VMAccess를 사용합니다. 이러한 VMAccess JSON 파일은 Azure 템플릿에서도 호출할 수 있습니다.
 
 ### VMAccess를 사용하여 Linux VM의 디스크 검사 또는 복구
 
@@ -101,7 +104,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### VMAccess를 사용하여 Linux에 대한 사용자 액세스 권한 재설정
 
-Linux VM의 루트에 대한 액세스 권한을 잃어버린 경우 VMAccess 스크립트를 실행하여 루트 암호를 재설정하고 Linux 잠금을 해제할 수 있습니다.
+Linux VM의 루트에 대한 액세스 권한을 잃어버린 경우 VMAccess 스크립트를 실행하여 루트 암호를 재설정할 수 있습니다.
 
 루트 암호를 재설정하려면 이 VMAccess 스크립트를 사용합니다.
 
@@ -205,4 +208,4 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

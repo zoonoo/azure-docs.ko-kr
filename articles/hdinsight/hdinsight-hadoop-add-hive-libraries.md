@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/20/2016"
+ms.date="07/05/2016"
 ms.author="larryfr"/>
 
 #HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가
@@ -51,7 +51,7 @@ __요구 사항__
     
     * 연결된 저장소 컨테이너에 있는 컨테이너에 둡니다. 예를 들어 포털에서 __옵션 구성__, __연결된 저장소 계정__을 사용하여 추가 저장소를 추가할 수 있습니다.
 
-* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 __mystorage__ 저장소 계정에 있는 __libs__ 컨테이너에 저장되는 경우 매개 변수는 \_\___wasb://libs@mystorage.blob.core.windows.net/__입니다.
+* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 __mystorage__ 저장소 계정에 있는 __libs__ 컨테이너에 저장되는 경우 매개 변수는 \_\_wasb://libs@mystorage.blob.core.windows.net/__입니다.
 
     > [AZURE.NOTE] 이 문서는 이미 저장소 계정, Blob 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
     >
@@ -72,7 +72,7 @@ __요구 사항__
     * __HEAD__: 이 옵션 선택
     * __작업자__: 이 옵션을 선택합니다.
     * __ZOOKEEPER__: 비워둡니다.
-    * __매개 변수__: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예: \_\___wasb://libs@mystorage.blob.core.windows.net/__.
+    * __매개 변수__: jar을 포함하는 컨테이너 및 저장소 계정에 WASB 주소를 입력합니다. 예: \_\_wasb://libs@mystorage.blob.core.windows.net/__.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다.
 
@@ -88,4 +88,4 @@ __요구 사항__
 
 이 문서에서는 클러스터를 만드는 동안 jar 파일에 포함된 Hive 라이브러리를 HDInsight 클러스터에 추가하는 방법을 알아보았습니다. Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

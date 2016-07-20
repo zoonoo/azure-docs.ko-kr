@@ -27,7 +27,6 @@
 
 - [지원되지 않는 구성 또는 기능 목록](virtual-machines-windows-migration-classic-resource-manager.md)을 읽어보세요. 지원되지 않는 구성 또는 기능을 사용하는 가상 컴퓨터가 있다면, 해당 구성/기능 지원이 발표되기를 기다리는 것이 좋습니다. 아니면, 필요에 맞을 경우 마이그레이션이 가능하도록 해당 기능을 제거하거나 해당 구성을 사용하지 않을 수 있습니다.
 -	현재 인프라 및 응용 프로그램을 배포하는 스크립트를 자동화한 경우 마이그레이션을 위해 해당 스크립트를 사용하여 유사한 테스트 설정을 만들어봅니다. 또는 Azure 포털을 사용하여 샘플 환경을 설정할 수도 있습니다.
-- 서비스가 공개 미리 보기에 포함되므로, 마이그레이션을 위한 테스트 환경이 프로덕션 환경과 반드시 격리되도록 해야 합니다. 테스트와 프로덕션 환경 사이에 저장소 계정, 가상 네트워크 또는 기타 리소스를 혼합하지 마세요.
 
 ## 2단계: Azure PowerShell 최신 버전 설치
 
@@ -35,7 +34,7 @@
 
 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/)을 참조하세요.
 
-## 3단계: 마이그레이션 공개 미리 보기용 구독 및 등록 설정
+## 3단계: 구독 설정 및 마이그레이션에 등록
 
 먼저, PowerShell 프롬프트를 시작합니다. 마이그레이션 시나리오의 경우 클래식 및 Resource Manager에 대한 환경을 설정해야 합니다.
 
@@ -47,13 +46,17 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-현재 세션에 대한 Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+현재 세션에 대한 Azure 구독을 설정합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
-다음 명령을 사용하여 공개 미리 보기에 등록합니다.
+>[AZURE.NOTE] 등록은 일회용 단계이지만 마이그레이션 전에 한 번 수행해야 합니다. 등록하지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 
+>	*BadRequest : Subscription is not registered for migration.* 
+
+다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다.
+	
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 등록이 완료될 때까지 5분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다. 계속 진행하기 전에 RegistrationState가 `Registered`인지 확인합니다.
@@ -68,7 +71,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-현재 세션에 대한 Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+현재 세션에 대한 Azure 구독을 설정합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
@@ -133,10 +136,27 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터에 대
 
 	Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
+### 저장소 계정 마이그레이션
+
+가상 컴퓨터 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
+
+다음 명령을 사용하여 마이그레이션을 위한 저장소 계정을 준비합니다.
+
+	$storageAccountName = "storagename"
+	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
+
+PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
+
+	Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
+
+준비된 구성이 양호하면 계속 진행하고 다음 명령을 사용하여 리소스를 커밋합니다.
+
+	Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
+
 ## 다음 단계
 
 - [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
 - [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
@@ -102,7 +102,7 @@ Azure 보안 센터는 리소스, 네트워크 및 맬웨어 방지 프로그램
 ### Microsoft 보안 응답 센터와 Azure 보안 센터에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
 Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다. MSRC는 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스했거나 고객의 Azure 사용이 사용 제한에 대한 조건을 준수하지 않는 것을 인식하면 보안 사고 관리자는 고객에게 알립니다. 보안 연락처를 지정하지 않은 경우 Azure 보안 센터 또는 Azure 구독 소유자에서 지정된 보안 연락처에 전자 메일을 전송하여 알림이 일반적으로 발생합니다.
 
-보안 센터는 지속적으로 고객의 Azure 환경을 모니터링하고 다양한 잠재적인 악의적 활동을 자동으로 검색하도록 분석을 적용하는 Azure 서비스입니다. 이러한 감지는 보안 센터 대시보드에서 보안 경고로 표시됩니다. 나중에 보안 경고 전자 메일 알림은 보안 연락처에도 전송됩니다.
+보안 센터는 지속적으로 고객의 Azure 환경을 모니터링하고 다양한 잠재적인 악의적 활동을 자동으로 검색하도록 분석을 적용하는 Azure 서비스입니다. 이러한 감지는 보안 센터 대시보드에서 보안 경고로 표시됩니다.
 
 ### Azure 보안 센터에서 사용 권한은 어떻게 처리되나요?
 Azure 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
@@ -114,15 +114,15 @@ Azure 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반
 ## 가상 컴퓨터
 
 ### 어떤 유형의 가상 컴퓨터가 지원되나요?
-Azure 서비스 패브릭 클러스터의 일부인 가상 컴퓨터를 포함하여 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md)을 사용하여 만들어진 가상 컴퓨터가 지원됩니다.
+Azure Service Fabric 클러스터의 일부를 비롯한 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 만들어진 VM(가상 컴퓨터)에 대해 보안 상태 모니터링 및 권장 사항을 사용할 수 있습니다.
 
-지원되는 Windows 가상 컴퓨터:
+지원되는 Windows VM:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-지원되는 Linux 가상 컴퓨터:
+지원되는 Linux VM:
 
 - Ubuntu 버전 12.04, 14.04, 15.10, 16.04
 - Debian 버전 7, 8
@@ -130,4 +130,8 @@ Azure 서비스 패브릭 클러스터의 일부인 가상 컴퓨터를 포함�
 - RHEL(Red Hat Enterprise Linux) 버전 6.*, 7.*
 - SLES(SUSE Linux Enterprise Server) 버전 11.*, 12.*
 
-<!---HONumber=AcomDC_0615_2016-->
+클라우드 서비스에서 실행 중인 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
+
+보안 센터 권장 사항인 [시스템 업데이트 적용](security-center-recommendations.md)에 따르면 누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. 클라우드 서비스에 있는 VM의 경우 권장 사항인 **OS 버전 업데이트**에 따라 OS를 최신 버전으로 업데이트하는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="단순 모델을 사용하여 답변 예측 | Microsoft Azure"
+   pageTitle="단순 모델로 답변 예측 - 초급자를 위한 데이터 과학 | Microsoft Azure"
    description="초급자를 위한 데이터 과학 비디오 4에서는 다이아몬드의 가격을 예측하는 간단한 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 기본 선형 회귀가 포함됩니다."                                  
    keywords="모델 만들기,간단한 모델,간단한 데이터 모델,가격 예측,간단한 회귀 모델"
    services="machine-learning"
@@ -17,13 +17,17 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# 단순 모델로 답변 예측: 초급자를 위한 데이터 과학 비디오 4
+# 초급자를 위한 데이터 과학 비디오 4: 단순 모델로 답변 예측
 
 초급자를 위한 데이터 과학 비디오 4에서는 다이아몬드의 가격을 예측하는 간단한 모델을 만드는 방법을 알아봅니다. 대상 데이터를 사용하여 회귀 모델을 그려볼 것입니다.
 
-> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+
+<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-predict-an-answer-with-a-simple-model"> <a title="Data science for beginners: Predict an answer with a simple model" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-predict-an-answer-with-a-simple-model" data-caption="" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player/" data-expanding="false"> <img class="thumbnail" alt="Data science for beginners: Predict an answer with a simple model" src="https://sec.ch9.ms/ch9/d060/48bc9b8a-987c-4f60-94fe-fc482da2d060/DataScienceForBeginnersSeriesPredictAnAnswerWithA_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-28-2016</span> <span>07 min, 42 sec</span> </span> </span> </a> </div>
 
 ## 비디오 내용: 단순 모델을 사용하여 답변 예측
+
+비디오 내용: 단순 모델을 사용하여 답변 예측
 
 “초급자를 위한 데이터 과학” 시리즈 중 4번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
 
@@ -41,10 +45,10 @@
 
 실제로 여기에 작은 데이터 집합인 표를 만들었습니다. 이 표가 우리의 품질 기준을 충족한다는 것을 알 수 있습니다.
 
-* 데이터는 **관련성이 있습니다**. 무게가 가격이 확실히 연관되어 있습니다.
-* **정확합니다**. 적어놓은 가격을 한 번 더 확인했습니다.
-* **연결되어 있습니다**. 이러한 열에는 공백이 없습니다.
-* 또한 여기서 확인된 것처럼 질문에 답변할 수 있는 **충분 한** 데이터가 됩니다.
+* 데이터가 **관련 있음** - 무게가 가격이 확실히 연관되어 있습니다.
+* **정확함** - 적어놓은 가격을 한 번 더 확인했습니다.
+* **연결되어 있음** - 이러한 열에는 공백이 없습니다.
+* 또한 여기서 확인된 것처럼 질문에 답변할 수 있는 **충분한** 데이터가 됩니다.
 
 ## 정확하게 질문하기
 
@@ -76,7 +80,7 @@
 
 ![선형 회귀 선](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-모든 점이 정확히 선을 지나가지 않아도 괜찮습니다. 데이터 과학자들은 이제 선에 해당하는 모델이 형성되었고 거기의 각 점에는 자신과 연관된 *노이즈* 또는 *분산*이 있다고 설명합니다. 기본적인 완벽한 관계가 있으며, 또한 노이즈와 불확실성이 적용되는 단호한 실제 세계가 있는 것입니다.
+모든 점이 정확히 선을 지나가지 않아도 괜찮습니다. 데이터 과학자들은 이제 선에 해당하는 모델이 형성되었고 각 점에는 자신과 연관된 *노이즈* 또는 *분산*이 있다고 설명합니다. 기본적인 완벽한 관계가 있으며, 또한 노이즈와 불확실성이 적용되는 단호한 실제 세계가 있는 것입니다.
 
 여기서는 *가격은 얼마일까요?*라는 질문에 답변하려고 하기 때문에 이를 *회귀*라고 합니다. 또한 직선을 사용하므로 *선형 회귀*에 해당합니다.
 
@@ -101,7 +105,7 @@
 데이터 과학자들이 돈을 받고 하는 일을 우리가 해넀습니다. 그림만 그려서 말이죠.
 
 * 데이터로 답변할 수 있는 질문을 했습니다.
-* *선형 회귀*를 사용하여 *모델*를 작성했습니다.
+* *선형 회귀*를 사용하여 *모델*을 작성했습니다.
 * *신뢰 구간*을 토대로 *예측*을 했습니다.
 
 또한 수학이나 컴퓨터를 사용하지 않고 이 모든 것을 해냈습니다.
@@ -125,14 +129,15 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 
 *초급자를 위한 데이터 과학*은 5개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
 
-  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) **현재 사용 가능합니다.**
-  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **현재 사용 가능합니다.**
-  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) **현재 사용 가능합니다.**
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) 6월 30일에 제공될 예정입니다.
+  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * 비디오 4: 단순 모델을 사용하여 답변 예측
+  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## 다음 단계
 
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

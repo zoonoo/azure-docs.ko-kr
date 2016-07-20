@@ -22,14 +22,14 @@
 
 * 데이터베이스의 사용자 정의 컬렉션(아래 설명)
 * [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의 모든 데이터베이스
-* 분할된 데이터베이스 집합([탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 생성) 
+* 분할된 데이터베이스 집합([탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 생성)
  
 ## 설명서
 
-* [탄력적 데이터베이스 작업 구성 요소를 설치합니다](sql-database-elastic-jobs-service-installation.md). 
+* [탄력적 데이터베이스 작업 구성 요소를 설치합니다](sql-database-elastic-jobs-service-installation.md).
 * [탄력적 데이터베이스 작업을 시작합니다](sql-database-elastic-jobs-getting-started.md).
 * [PowerShell을 사용하여 작업을 만들고 관리합니다](sql-database-elastic-jobs-powershell.md).
-* [규모가 확장된 SQL Azure 데이터베이스를 만들고 관리합니다](sql-database-elastic-jobs-getting-started.md).
+* [규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리](sql-database-elastic-jobs-getting-started.md)
 
 **탄력적 데이터베이스 작업**은 현재 **작업**이라는 임시 및 예약된 관리 태스크를 실행할 수 있도록 하는 고객 호스트된 Azure 클라우드 서비스입니다. 작업을 통해 관리 작업을 수행하는 Transact-SQL 스크립트를 실행하여 대규모 그룹의 Azure SQL 데이터베이스를 쉽고 안정적으로 관리할 수 있습니다.
 
@@ -73,10 +73,10 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
 ## 탄력적 데이터베이스 작업: 종단 간 
 1.	**탄력적 데이터베이스 작업** 구성 요소를 설치합니다. 자세한 내용은 [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요. 설치에 실패하는 경우 [제거 방법](sql-database-elastic-jobs-uninstall.md)을 참조하세요.
-2.	PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 데이터베이스 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다. 
+2.	PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 데이터베이스 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다.
 3.	작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-security.md)합니다.
-4.	그룹의 모든 데이터베이스에 대해 실행할 수 있는 idempotent T-SQL 스크립트를 만듭니다. 
-5.	Azure 포털을 사용하여 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md) 단계에 따라 작업을 만듭니다. 
+4.	그룹의 모든 데이터베이스에 대해 실행할 수 있는 idempotent T-SQL 스크립트를 만듭니다.
+5.	Azure 포털을 사용하여 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md) 단계에 따라 작업을 만듭니다.
 6.	또는 PowerShell 스크립트를 사용하여 [PowerShell로 SQL 데이터베이스 탄력적 데이터베이스 작업을 만들고 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)합니다.
 
 ## Idempotent 스크립트
@@ -111,7 +111,7 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
  
 다음 구성 요소는 함께 작동하여 관리 작업의 임시 실행을 지원하는 Azure 클라우드 서비스를 구성합니다. 구성 요소는 구독에 포함되어 설치 도중 자동으로 설치 및 구성됩니다. 서비스는 모두 동일하게 자동으로 생성된 이름을 가지므로 식별할 수 있습니다. 각 이름은 고유하며, 접두사 "edj"에 이어 임의로 생성된 문자 21개로 구성됩니다.
 
-* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
+* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요.
 * **Azure SQL 데이터베이스**: 이 서비스는 **제어 데이터베이스**로 알려진 Azure SQL 데이터베이스를 사용하여 모든 작업 메타데이터를 저장합니다. 기본 서비스 계층은 S0입니다. 가격에 대한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 * **Azure 서비스 버스**: Azure 서비스 버스는 Azure 클라우드 서비스 내의 작업 조정에 사용됩니다. [서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 * **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우 이벤트에 진단 출력 로그를 저장하는 데 사용됩니다([Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 참조). 가격에 대한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
@@ -120,7 +120,7 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
 1.	Azure SQL 데이터베이스는 모든 메타데이터 및 상태 데이터를 저장하는 **제어 데이터베이스**로 지정됩니다.
 2.	**작업 서비스**로 제어 데이터베이스에 액세스하여 실행할 작업을 시작 및 추적합니다.
-3.	다음 두 가지 역할이 제어 데이터베이스와 통신합니다. 
+3.	다음 두 가지 역할이 제어 데이터베이스와 통신합니다.
 	* 컨트롤러: 요청된 작업을 수행할 태스크가 필요한 작업을 확인하고 새 작업 태스크를 만들어 실패한 작업을 다시 시도합니다.
 	* 작업 태스크 실행: 작업 태스크를 수행합니다.
 
@@ -138,8 +138,8 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
 1.	포털이나 PowerShell API를 사용하여 **제어 데이터베이스**에 작업이 삽입됩니다. 작업이 특정 자격 증명을 사용하여 데이터베이스 그룹에 대해 TRANSACT-SQL 스크립트를 실행하도록 요청합니다.
 2.	컨트롤러가 새 작업을 식별합니다. 작업 태스크가 생성 및 실행되어 스크립트를 분할하고 그룹의 데이터베이스를 새로 고칩니다. 마지막으로, 새 작업이 생성 및 실행되어 작업을 확장하고 새 자식 작업을 만듭니다. 여기서 각 자식 작업은 그룹의 개별 데이터베이스에 대해 TRANSACT-SQL 스크립트를 실행하도록 지정됩니다.
-3.	컨트롤러가 생성된 자식 작업을 식별합니다. 각 작업에서 컨트롤러가 데이터베이스에 대해 스크립트를 실행할 작업 태스크를 만들고 트리거합니다. 
-4.	모든 작업 태스크가 완료된 후 컨트롤러가 작업을 완료 상태로 업데이트합니다. 작업 실행 중 언제든지 PowerShell API를 사용하여 작업 실행의 현재 상태를 볼 수 있습니다. PowerShell API에서 반환되는 모든 시간은 UTC로 표시됩니다. 원하는 경우 취소 요청을 시작하여 작업을 중지할 수 있습니다. 
+3.	컨트롤러가 생성된 자식 작업을 식별합니다. 각 작업에서 컨트롤러가 데이터베이스에 대해 스크립트를 실행할 작업 태스크를 만들고 트리거합니다.
+4.	모든 작업 태스크가 완료된 후 컨트롤러가 작업을 완료 상태로 업데이트합니다. 작업 실행 중 언제든지 PowerShell API를 사용하여 작업 실행의 현재 상태를 볼 수 있습니다. PowerShell API에서 반환되는 모든 시간은 UTC로 표시됩니다. 원하는 경우 취소 요청을 시작하여 작업을 중지할 수 있습니다.
 
 ## 다음 단계
 [구성 요소를 설치](sql-database-elastic-jobs-service-installation.md)하고 [데이터베이스 그룹의 각 데이터베이스를 만들고 로그인을 추가](sql-database-security.md)합니다. 작업 만들기 및 관리를 더 잘 이해하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요. [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)도 참조하세요.
@@ -152,4 +152,4 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

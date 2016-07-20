@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Xamarin Android 앱에 인증 추가
@@ -107,4 +107,4 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
 <!-- URLs. -->
 [Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

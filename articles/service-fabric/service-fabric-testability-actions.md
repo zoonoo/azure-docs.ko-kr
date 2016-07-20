@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/05/2016"
    ms.author="heeldin;motanv"/>
 
 # 테스트 용이성 작업
@@ -95,7 +95,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 PowerShell을 사용하여 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법은 로컬 클러스터에 대해 작업을 실행하는 방법과 비슷합니다. 작업을 실행하려면 로컬 클러스터 대신 Azure 클러스터에 먼저 연결해야 한다는 점만 다릅니다.
 
-## C&#35;을 사용하여 테스트 용이성 작업 실행 
+## C&#35;을 사용하여 테스트 용이성 작업 실행
 
 C#을 사용하여 테스트 용이성 작업을 실행하려면 먼저 FabricClient를 사용하여 클러스터에 연결해야 합니다. 그런 다음 작업 실행에 필요한 매개 변수를 가져옵니다. 다른 매개 변수를 사용하여 같은 작업을 실행할 수 있습니다. RestartServiceFabricNode 작업을 살펴보면 노드 정보(노드 이름 및 노드 인스턴스 ID)를 사용하여 노드를 실행할 수 있습니다.
 
@@ -105,7 +105,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 매개 변수 설명:
 
-- **CompleteMode**는 모드에서 다시 시작 작업이 실제로 성공했는지 여부를 확인하지 말라고 지정합니다. 완료 모드를 "Verify"로 지정하면 다시 시작 작업이 실제로 성공했는지 여부를 확인합니다.  
+- **CompleteMode**는 모드에서 다시 시작 작업이 실제로 성공했는지 여부를 확인하지 말라고 지정합니다. 완료 모드를 "Verify"로 지정하면 다시 시작 작업이 실제로 성공했는지 여부를 확인합니다.
 - **OperationTimeout**은 TimeoutException 예외가 throw되기 전에 작업이 완료되어야 하는 시간을 설정합니다.
 - **CancellationToken**은 보류 중인 호출을 취소할 수 있습니다.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

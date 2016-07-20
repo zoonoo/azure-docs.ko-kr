@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# .NET용 Azure CDN 라이브러리 시작하기
+# Azure CDN 개발 시작
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.JS](cdn-app-dev-node.md)
 
 [.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 응용 프로그램을 살펴볼 것입니다. 이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
 
 이 자습서를 완료하려면 Visual Studio 2015가 필요합니다. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)는 무료로 다운로드할 수 있습니다.
 
-이 자습서의 완성된 예제는 [여기](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)에 있습니다.
+> [AZURE.TIP] [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)는 MSDN에서 다운로드할 수 있습니다.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -30,7 +34,7 @@
 
 CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
 
-Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...**를 클릭하여 새 프로젝트 대화 상자를 엽니다. **Visual C#**를 펼치고 왼쪽 창에서 **Windows**를 선택합니다. 중앙 창에서 **콘솔 응용 프로그램**을 클릭합니다. 프로젝트 이름을 지정하고 **확인**을 클릭합니다.
+Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...**를 클릭하여 새 프로젝트 대화 상자를 엽니다. **Visual C#**를 펼치고 왼쪽 창에서 **Windows**를 선택합니다. 가운데 창에서 **콘솔 응용 프로그램**을 클릭합니다. 프로젝트 이름을 지정하고 **확인**을 클릭합니다.
 
 ![새 프로젝트](./media/cdn-app-dev-net/cdn-new-project.png)
 
@@ -142,7 +146,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -333,4 +337,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 .NET용 Azure CDN 관리 라이브러리에 관한 추가 설명서는 [MSDN 참조](https://msdn.microsoft.com/library/mt657769.aspx)를 확인하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

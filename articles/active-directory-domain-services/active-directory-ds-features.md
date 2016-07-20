@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)*
@@ -37,7 +37,13 @@
 
 - **LDAP 바인딩 및 LDAP 읽기 지원:** Azure AD 도메인 서비스에서 처리하는 도메인에서 사용자를 인증하기 위해 LDAP 바인딩을 이용하는 응용 프로그램을 사용할 수 있습니다. 또한 LDAP 읽기 작업을 사용하여 디렉터리에서 사용자/컴퓨터 특성을 쿼리하는 응용 프로그램도 Azure AD 도메인 서비스에서 작동할 수 있습니다.
 
+- **보안 LDAP (LDAPS):** 보안 LDAP (LDAPS)를 통해 디렉터리에 대한 액세스를 사용하도록 설정할 수 있습니다. 보안 LDAP 액세스는 기본적으로 가상 네트워크 내에서 사용할 수 있습니다. 하지만 인터넷을 통한 보안 LDAP 액세스 또한 필요에 따라 사용할 수 있습니다.
+
 - **그룹 정책:** 사용자 계정과 도메인에 가입한 컴퓨터에 대해 필수 보안 정책을 준수하도록 하기 위해 사용자 및 컴퓨터 컨테이너마다 단일 기본 제공 GPO를 활용할 수 있습니다.
+
+- **DNS 관리:** 'AAD DC 관리자' 그룹 구성원은 DNS 관리 MMC 스냅인과 같은 친숙한 DNS 관리 도구를 사용하여 Azure AD 도메인 서비스 관리되는 도메인에 대한 DNS를 관리할 수 있습니다.
+
+- **사용자 지정 조직 구성 단위 (OU) 만들기:** 'AAD DC 관리자' 그룹의 구성원은 AAD 도메인 서비스 관리되는 도메인 내에서 사용자 지정 OU를 만들 수 있습니다. 이러한 사용자에게 사용자 지정 OU를 통해 모든 관리 권한이 부여되므로, 이러한 사용자 지정 OU 내에서 서비스 계정, 컴퓨터, 그룹 등을 추가/제거할 수 있습니다.
 
 - **여러 Azure 지역에서 사용 가능:** Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
 
@@ -45,4 +51,4 @@
 
 - **익숙한 관리 도구 사용:** Azure AD 도메인 서비스에서 제공하는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="07/05/2016"
     ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 .NET에서 서비스 버스 사용
@@ -21,7 +21,7 @@
 
 ## 서비스 버스 SDK 다운로드
 
-AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 있습니다. [NuGet][]에서 최신 서비스 버스 비트를 다운로드할 수 있습니다.
+AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 있습니다. [NuGet][]에서 서비스 버스 비트를 다운로드하여 최신 버전이 있는지 확인할 수 있습니다.
 
 ## AMQP 1.0을 사용하여 .NET 응용 프로그램 구성
 
@@ -99,51 +99,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 
 -   전송 대상을 통해 보냅니다.
 
--   메시지 시퀀스 번호로 받습니다.
-
--   메시지 및 세션 탐색.
-
--   세션 상태.
-
--   일괄 처리 기반 API.
-
 -   확장된 받기.
-
--   구독 규칙의 런타임 조작.
-
--   세션 잠금 갱신.
-
-특히, 다음 API는 AMQP를 사용하는 경우 현재 지원되지 않습니다.
-
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession][]
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)][]
-
-- [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek][]
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch][]
-
-- [Microsoft.ServiceBus.Messaging.QueueClient.Peek][]
-- [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch][]
-
-- [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule][]
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)][]
-
-- [Microsoft.ServiceBus.Messaging.MessageSession.GetState][]
-- [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)][]
-- [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock][]
-
-- [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock][]
 
 AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET API의 동작에 몇 가지 작은 차이점이 있습니다.
 
@@ -176,26 +132,6 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh322665.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek]: https://msdn.microsoft.com/library/azure/jj908731.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh293110.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.addrule.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.removerule.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.GetState]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx
-  [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure 클래식 포털]: http://manage.windowsazure.com
@@ -203,4 +139,4 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

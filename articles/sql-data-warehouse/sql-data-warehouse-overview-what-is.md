@@ -162,13 +162,13 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
-[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
-[마이그레이션 설명서]: ./sql-data-warehouse-overview-migrate.md
-[SQL 데이터 웨어하우스 솔루션 파트너]: ./sql-data-warehouse-integrate-solution-partners.md
-[통합된 도구 개요]: ./sql-data-warehouse-overview-integrate.md
-[백업 및 복원 개요]: ./sql-data-warehouse-restore-database-overview.md
+[지원 티켓 만들기]: sql-data-warehouse-get-started-create-support-ticket.md
+[샘플 데이터 로드]: sql-data-warehouse-load-sample-databases.md
+[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
+[마이그레이션 설명서]: sql-data-warehouse-overview-migrate.md
+[SQL 데이터 웨어하우스 솔루션 파트너]: sql-data-warehouse-partner-business-intelligence.md
+[통합된 도구 개요]: sql-data-warehouse-overview-integrate.md
+[백업 및 복원 개요]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

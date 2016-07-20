@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Eclipse에서 Azure용 Hello World 웹앱 만들기
@@ -26,8 +26,8 @@
  
 ## 필수 조건
 
-* JDK(Java 개발자 키트), v 1.7 이상
-* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
+* JDK(Java 개발자 키트), v 1.8 이상.
+* Eclipse IDE for Java EE Developers, Luna 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
 * Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
 * Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
@@ -46,9 +46,9 @@
 
 1. Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 
-1. **New JSP File** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 부모 폴더를 **MyHelloWorld/WebContent**로 유지합니다.
+1. **새 JSP 파일** 대화 상자에서 **index.jsp** 파일의 이름을 지정하고 부모 폴더를 **MyHelloWorld/WebContent**로 유지한 후에 **다음**을 클릭합니다.
 
-1. **Select JSP Template** 대화 상자에서 이 자습서의 목적에 따라, **New JSP File (html)**을 선택한 후 **Finish**를 클릭합니다.
+1. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)**을 선택한 후 **마침**을 클릭합니다.
 
 1. Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 콘텐츠는 다음 예제와 유사하게 표시됩니다.
 
@@ -60,7 +60,7 @@
 
 몇 가지 방법으로 Azure에 Java 웹 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 가장 간단한 방법 중 하나를 설명합니다. 즉, 특별한 프로젝트 형식이나 추가 도구 없이 Azure 웹앱 컨테이너에 응용 프로그램을 배포하는 방법을 설명합니다. JDK 및 웹 컨테이너 소프트웨어는 Azure에서 제공되므로 별도로 업로드할 필요가 없습니다. Java 웹앱만 있으면 됩니다. 따라서 응용 프로그램 게시 프로세스에 걸리는 시간이 몇 분이 아니라 몇 초입니다.
 
-1. Eclipse의 Project Explorer에서 **MyHelloWorld**를 마우스 오른쪽 단추로 클릭합니다.
+1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld**를 마우스 오른쪽 단추로 클릭합니다.
 
 1. 상황에 맞는 메뉴에서 **Azure**를 선택하고 **Azure 웹앱으로 게시...**를 클릭합니다.
 
@@ -75,7 +75,7 @@
    ![][04]
    
    참고: Azure 계정이 여러 개 있으면 로그인 프로세스 중에 일부 메시지가 동일한 것이더라도 두 번 이상 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
-1. Azure 계정에 정상적으로 로그인하면 **구독 관리** 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **닫기**를 클릭합니다.
+1. Azure 계정에 성공적으로 로그인하면 **구독 관리** 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **닫기**를 클릭합니다.
 
    ![][05]
    
@@ -95,7 +95,7 @@
 
   1. 웹앱 컨테이너에 **DNS 레이블**을 입력합니다. 이는 Azure에서 웹 응용 프로그램에 대한 호스트 URL의 리프 DNS 레이블을 형성합니다. 참고: 이름은 사용 가능해야 하며, Azure 웹앱 명명 요구 사항을 준수해야 합니다.
 
-  1. **웹 컨테이너** 드롭다운 메뉴에서 응용 프로그램에 적합한 소프트웨어를 선택합니다.
+  1. **웹 컨테이너** 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
 
         현재, Tomcat 8, Tomcat 7, Jetty 9 중에서 선택할 수 있습니다. 선택한 소프트웨어의 최근 배포는 Azure에서 제공되며, Oracle에서 만들고 Azure에서 제공되는 JDK 8의 최근 배포에서 실행됩니다.
 
@@ -107,7 +107,7 @@
 
         기존 리소스 그룹(있는 경우)을 선택하고 아래 g 단계로 건너뛰거나 이들 단계를 통해 새 리소스 그룹을 만들 수 있습니다.
 
-      * **New...**를 클릭합니다.
+      * **새로 만들기...**를 클릭합니다.
 
       * **새 리소스 그룹** 대화 상자가 표시됩니다.
 
@@ -135,9 +135,9 @@
 
       * **위치** 드롭다운 메뉴에서 계획에 적합한 Azure 데이터 센터 위치를 선택합니다.
 
-      * **가격 책정 계층** 드롭다운 메뉴에서 계획에 적합한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
+      * **가격 책정 계층** 드롭다운 메뉴에서 계획에 적합한 가격 책정을 선택합니다. 테스트 목적으로 **무료**를 선택할 수 있습니다.
 
-      * **인스턴스 크기** 드롭다운 메뉴에서 계획에 적합한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
+      * **인스턴스 크기** 드롭다운 메뉴에서 계획에 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
 
   1. 위 단계를 모두 완료한 경우 New Web App Container 대화 상자가 다음 그림과 유사하게 표시됩니다.
 
@@ -182,12 +182,12 @@
 
 기존 Azure 웹앱 컨테이너(여기에 배포된 모든 Java 응용 프로그램 포함)를 중지하려면 **Azure 탐색기** 보기를 사용하면 됩니다.
 
-**Azure 탐색기** 보기가 열려 있지 않은 경우 Eclipse에서 **Window** 메뉴를 클릭한 다음 **Show View**, **Other...**, **Azure**, **Azure Explorer**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
+**Azure 탐색기** 보기가 열려 있지 않은 경우 Eclipse에서 **Window** 메뉴를 클릭한 다음 **보기 표시**, **기타...**, **Azure**, **Azure 탐색기**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
 
 **Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 중지합니다.
 
 1. **Azure** 노드를 확장합니다.
-2. **웹앱** 노드를 확장합니다. 
+2. **웹앱** 노드를 확장합니다.
 3. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
 5. 상황에 맞는 메뉴가 나타나면 **중지**를 클릭합니다. ![][13]
 
@@ -202,6 +202,7 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 �
 - [IntelliJ용 Azure 도구 키트]
   - [IntelliJ용 Azure 도구 키트 설치]
   - [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+  - [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -213,10 +214,12 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 [Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-eclipse-whats-new.md
+[IntelliJ용 Azure 도구 키트의 새로운 기능]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [웹앱 개요]: ./app-service-web-overview.md
@@ -239,4 +242,4 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

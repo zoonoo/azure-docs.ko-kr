@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 지원 데이터베이스 복원
@@ -56,28 +56,13 @@ Azure 포털을 사용하여 Azure 데이터베이스를 삭제되었던 시점�
 5. 새 **데이터베이스 이름**을 지정하고 **만들기**를 클릭합니다.
 6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
 
-### 다른 Azure 지역에서 Azure 데이터베이스 복구  
-Azure의 SQL Server 스트레치 데이터베이스 서비스는 지역별 오류 시 추가된 복구 기능을 위해 스냅숏을 서로 다른 지리적 Azure 지역에 비동기적으로 복사합니다. Azure 지역에서 오류로 인해 데이터베이스에 액세스할 수 없는 경우 지역 중복 스냅숏 중 하나에 데이터베이스를 복원할 수 있습니다.
-
->   [AZURE.NOTE] 다른 Azure 지역에서 Azure 데이터베이스를 복구하는 경우 복구 이후에 클라이언트 응용 프로그램의 연결 문자열을 변경해야 하며, 이로 인해 영구 데이터 손실이 발생할 수 있습니다. 이러한 유형의 복구는 가동 중단 시간이 오래 지속될 가능성이 높은 경우에만 사용합니다.
-
-Azure 포털을 사용하여 다른 Azure 지역에서 Azure 데이터베이스를 이전 시점으로 복구하려면 다음을 수행합니다.
-
-1. Azure 포털에 로그인합니다.
-2. 화면 왼쪽에서 **새로 만들기**를 선택한 다음 **데이터 및 저장소**를 선택하고 **SQL 데이터 웨어하우스**를 선택합니다.
-3. 원본으로 **백업**을 선택한 다음 복구에 사용할 지역 중복 백업을 선택합니다.
-4. 나머지 데이터베이스 속성을 지정하고 **만들기**를 클릭합니다.
-5. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
-
-다른 지역에서 Azure 데이터베이스를 복원한 후에는 저장 프로시저 **sys.sp\_rda\_deauthorize\_db** 및 **sys.sp\_rda\_reauthorize\_db**를 실행하여 스트레치 지원 SQL Server 데이터베이스와 원격 Azure 데이터베이스 간에 연결을 다시 설정해야 합니다. 자세한 내용은 [SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database)을 참조하세요.
-
 ## SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원
 
-1.  다른 이름을 사용하거나 다른 지역에 있는 복원된 Azure 데이터베이스에 연결하려는 경우 저장 프로시저 [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx)를 실행하여 이전 Azure 데이터베이스에서의 연결을 끊습니다.  
+1.  다른 이름을 사용하거나 다른 지역에 있는 복원된 Azure 데이터베이스에 연결하려는 경우 저장 프로시저 [sys.sp\_rda\_deauthorize\_db](https://msdn.microsoft.com/library/mt703716.aspx)를 실행하여 이전 Azure 데이터베이스에서의 연결을 끊습니다.
 
 2.  저장 프로시저 [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx)를 실행하여 로컬 스트레치 지원 데이터베이스를 Azure 데이터베이스에 다시 연결합니다.
 
-	-   기존 데이터베이스 범위 자격 증명을 sysname 또는 varchar(128) 값으로 제공합니다. varchar(max)를 사용하지 마세요. **sys.database\_scoped\_credentials** 뷰에서 자격 증명 이름을 조회할 수 있습니다.  
+	-   기존 데이터베이스 범위 자격 증명을 sysname 또는 varchar(128) 값으로 제공합니다. varchar(max)를 사용하지 마세요. **sys.database\_scoped\_credentials** 뷰에서 자격 증명 이름을 조회할 수 있습니다.
 
 	-   원격 데이터의 복사본을 만들고 복사본에 연결할 것인지 지정합니다(권장).
 
@@ -98,4 +83,4 @@ Azure 포털을 사용하여 다른 Azure 지역에서 Azure 데이터베이스�
 
 [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

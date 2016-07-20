@@ -19,7 +19,16 @@
 
 # 포털을 통해 Azure 리소스 관리
 
-이 토픽에서는 [Azure 리소스 관리자](../resource-group-overview.md)로 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [리소스 관리자 템플릿과 Azure 포털로 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+> [AZURE.SELECTOR]
+- [포털](azure-portal/resource-group-portal.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
+이 항목에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
 현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
 
@@ -30,10 +39,10 @@
 
 ![dashboard](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] 가장 좋은 대시보드 학습 방법은 [Microsoft Azure 포털에서 사용자 지정 대시보드 빌드](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) 비디오를 보는 것입니다.
+> [AZURE.TIP] 대시보드를 사용하는 방법을 알아보려면 [Microsoft Azure 포털에서 사용자 지정 대시보드 빌드](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) 비디오를 시청하는 것이 가장 좋습니다.
 
 ### Azure 대시보드 및 액세스 제어 공유
-대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)는 포털에서 타일이 표시하는 정보 액세스를 관리합니다. 모든 게시된 대시보드는 Azure 리소스로 구현됩니다. 액세스 제어 관점에서 대시보드는 가상 컴퓨터 또는 저장소 계정과 차이가 없습니다.
+대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)는 포털에서 타일이 표시하는 정보에 대한 액세스를 관리합니다. 모든 게시된 대시보드는 Azure 리소스로 구현됩니다. 액세스 제어 관점에서 대시보드는 가상 컴퓨터 또는 저장소 계정과 차이가 없습니다.
 
 다음은 예제입니다. Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽기 권한자** 역할에 할당된 팀의 다양한 멤버가 있다고 가정해 보겠습니다. 소유자 또는 참여자인 사용자는 구독 내에서 대시보드를 나열, 보기, 만들기, 수정 또는 삭제할 수 있습니다. 읽기 권한자인 사용자는 대시보드를 나열 및 볼 수 있지만 수정 또는 삭제할 수 없습니다. 읽기 권한자 액세스를 보유한 사용자는 게시된 대시보드에 대한 로컬 편집을 만들 수 있지만(예: 문제 해결 시) 해당 변경 내용을 서버로 다시 게시할 수 없습니다. 대시보드의 개인 복사본을 직접 만들 수 있는 옵션을 갖게 됩니다.
 
@@ -120,6 +129,6 @@
 
 - 감사 로그를 보려면 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요.
 - 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
-- 포털을 통해 리소스를 배포하려면 [리소스 관리자 템플릿과 Azure 포털로 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+- 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

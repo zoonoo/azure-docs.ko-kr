@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
@@ -24,10 +24,10 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-이 문서에서는 TRANSACT-SQL(T-SQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스를 만드는 방법을 보여줍니다.
+이 문서에서는 TRANSACT-SQL(T-SQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스를 만드는 방법을 보여 줍니다.
 
 ## 필수 조건
-시작하기 전에 다음과 같은 필수 조건을 갖추고 있는지 확인합니다.
+시작하기 전에 다음과 같은 필수 조건을 충족하는지 확인합니다.
 
 - **Azure 계정**: [Azure 무료 평가판][] 또는 [MSDN Azure 크레딧][]을 참조하여 계정을 만듭니다.
 - **V12 Azure SQL Server**: [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][] 또는 [PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][]를 참조하세요.
@@ -80,4 +80,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

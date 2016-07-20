@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 
@@ -43,7 +43,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 단어에 그림을 넣으려면:
 
--	배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [규모](web-sites-scale.md) 설정, SQL 데이터베이스가 있습니다. 
+-	배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [규모](web-sites-scale.md) 설정, SQL 데이터베이스가 있습니다.
 -	각 환경을 별도로 관리할 수 있습니다. 서로 다른 구독에도 존재할 수 있습니다.
 -	스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 -	마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md) 프로덕션 슬롯으로 교체됩니다.
@@ -60,16 +60,18 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 -	Azure 계정.
 -	[GitHub](https://github.com/) 계정
--	Git 셸(설치된 [Windows용 GitHub](https://windows.github.com/)) - 이것은 동일한 세션에서 Git와 PowerShell 명령을 실행할 수 있도록 합니다. 
+-	Git 셸(설치된 [Windows용 GitHub](https://windows.github.com/)) - 이것은 동일한 세션에서 Git와 PowerShell 명령을 실행할 수 있도록 합니다.
 -	최신 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) 비트
 -	다음의 기본적인 이해:
 	-	[Azure 리소스 관리자](../resource-group-overview.md) 템플릿 배포([Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md) 참조)
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 프로덕션 환경을 설정합니다. ##
 
@@ -121,7 +123,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 이제 Azure의 프로덕션 내에서 실행되는 복합 응용 프로그램을 갖게 되었으므로, agile방법론에 따라 사용자의 응용 프로그램의 업데이트를 생성합니다. 이 섹션에서는 업데이트 요구 사항을 만드는 데 필요한 분기점을 테스트하고 dev를 생성합니다.
 
-1.	먼저 테스트 환경을 만듭니다. Git 셸 세션에서 다음 명령을 실행하여 **NewUpdate**라는 새로운 분기에 대한 환경을 만듭니다. 
+1.	먼저 테스트 환경을 만듭니다. Git 셸 세션에서 다음 명령을 실행하여 **NewUpdate**라는 새로운 분기에 대한 환경을 만듭니다.
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -280,4 +282,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

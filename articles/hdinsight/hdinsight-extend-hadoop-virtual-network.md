@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/20/2016"
+   ms.date="07/06/2016"
    ms.author="larryfr"/>
 
 
@@ -92,6 +92,8 @@ HDInsight 서비스는 관리되는 서비스이며 프로비전하고 실행하
 * 138\.91.141.162
 
 이 주소에 포트 443에서 인바운드 액세스를 허용하면 보안 가상 네트워크에 HDInsight를 정상적으로 설치할 수 있습니다.
+
+> [AZURE.IMPORTANT] HDInsight는 아웃바운드 트래픽 제한은 지원하지 않으며 인바운드 트래픽만 제한합니다. HDInsight를 포함하는 서브넷에 대해 네트워크 보안 그룹 규칙을 정의할 때는 인바운드 규칙만 사용합니다.
 
 다음 예제는 필요한 주소를 허용하고 가상 네트워크 내의 서브넷에 보안 그룹을 적용하는 새 네트워크 보안 그룹을 만드는 방법을 보여 줍니다. 이러한 단계에서는 HDInsight에 설치하려는 가상 네트워크 및 서브넷을 이미 만들었다고 가정합니다.
 
@@ -305,4 +307,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

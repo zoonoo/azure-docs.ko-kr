@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법  
@@ -132,7 +132,7 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 |:---|:---|:---|
 |**minutes**|작업이 실행될 시간(분)|<ul><li>정수 또는</li><li>정수 배열</li></ul>|
 |**hours**|작업이 실행될 시간(시간)|<ul><li>정수 또는</li><li>정수 배열</li></ul>|
-|**weekDays**|작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" 또는 "Sunday"</li><li>위 값의 배열(최대 배열 크기는 7)</li></ul>대/소문자 구분 안 함|
+|**weekDays**|작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" 또는 "Sunday"</li><li>위 값의 배열(최대 배열 크기는 7)</li></ul>대/소문자 구분 _안 함_|
 |**monthlyOccurrences**|며칠에 작업을 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>monthlyOccurence 개체의 배열:</li></ul> <pre>{ "day": _일_,<br /> "occurrence": _되풀이_<br />}</pre><p> _일_은 작업이 실행될 요일입니다. 예를 들어 {Sunday}는 매주 일요일입니다. 필수.</p><p>occurrence는 월 중에 _되풀이_되는 날입니다. 예를 들어 {Sunday, -1}은 월의 마지막 일요일입니다. 선택 사항입니다.</p>|
 |**monthDays**|작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>-31 ~ -1 사이의 값.</li><li>1 ~ 31 사이의 값.</li><li>위 값의 배열</li></ul>|
 
@@ -197,4 +197,4 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

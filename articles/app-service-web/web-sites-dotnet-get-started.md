@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에 ASP.NET 웹앱 배포
 
@@ -199,8 +199,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 
 	![Azure에서 실행되는 웹앱](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 > 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다. 
-	![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 > 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다. ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## 문제 해결
 
@@ -214,7 +213,7 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 이 자습서에서는 간단한 웹 응용 프로그램을 만들고 Azure 웹앱에 배포하는 방법을 확인했습니다. 다음은 Azure 앱 서비스에 관한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
 
-* [Azure 포털](https://portal.azure.com/)에서 웹앱을 모니터링 및 관리합니다. 
+* [Azure 포털](https://portal.azure.com/)에서 웹앱을 모니터링 및 관리합니다.
 
 	자세한 내용은 [Azure 포털의 개요](/services/management-portal/) 및 [Azure 앱 서비스에서 웹앱 구성](web-sites-configure.md)을 참조하세요.
 
@@ -241,4 +240,4 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 	Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](../resource-group-portal.md)를 참조하세요.
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

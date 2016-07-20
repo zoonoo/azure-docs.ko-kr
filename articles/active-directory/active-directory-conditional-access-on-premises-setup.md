@@ -44,7 +44,7 @@ Azure Active Directory Device Registration 서비스 조건부 액세스 정책�
 * Windows Server 2012 R2에서 업데이트된 스키마
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
-* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/download/details.aspx?id=47594).
+* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/ko-KR/download/details.aspx?id=47594).
 * 확인된 도메인.
 
 이 릴리스의 알려진 문제
@@ -80,15 +80,15 @@ Azure Active Directory Device Registration 서비스 및 Azure Active Directory 
 
 | 작업 | 참조 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Windows Server 2012 R2 스키마 확장을 사용하여 Active Directory 도메인 서비스 도메인을 배포합니다. 도메인 컨트롤러는 Windows Server 2012 R2로 업그레이드할 필요가 없습니다. 스키마 업그레이드만 수행하면 됩니다. | [Active Directory 도메인 서비스 스키마 업그레이드](#Active Directory 도메인 서비스 스키마 업그레이드) |
-| 장치는 잘 알려진 DNS 레코드를 찾아 Azure Active Directory Device Registration 서비스를 검색합니다. 장치가 Azure Active Directory Device Registration 서비스를 검색할 수 있도록 회사 DNS를 구성해야 합니다. | [Active Directory 지원 장치 준비](#장치 지원을 위해 Active Directory 준비) |
+| Windows Server 2012 R2 스키마 확장을 사용하여 Active Directory 도메인 서비스 도메인을 배포합니다. 도메인 컨트롤러는 Windows Server 2012 R2로 업그레이드할 필요가 없습니다. 스키마 업그레이드만 수행하면 됩니다. | [Active Directory 도메인 서비스 스키마 업그레이드](#upgrade-your-active-directory-domain-services-schema) |
+| 장치는 잘 알려진 DNS 레코드를 찾아 Azure Active Directory Device Registration 서비스를 검색합니다. 장치가 Azure Active Directory Device Registration 서비스를 검색할 수 있도록 회사 DNS를 구성해야 합니다. | [Active Directory 지원 장치 준비](#prepare-your-active-directory-to-support-devices) |
 
 
 ##3부: Azure AD에서 장치 쓰기 저장 사용
 
 | 작업 | 참조 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Azure AD Connect에서 장치 쓰기 저장 사용의 2부를 완료합니다. 완료되면 이 가이드로 돌아옵니다. | [Azure AD Connect에서 장치 쓰기 저장 사용](#Active Directory 도메인 서비스 스키마 업그레이드) |
+| Azure AD Connect에서 장치 쓰기 저장 사용의 2부를 완료합니다. 완료되면 이 가이드로 돌아옵니다. | [Azure AD Connect에서 장치 쓰기 저장 사용](#upgrade-your-active-directory-domain-services-schema) |
 
 
 ##[선택 사항] 4부: Multi-Factor Authentication 사용
@@ -102,10 +102,10 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 
 | 작업 | 참조 |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Azure Active Directory Device Registration을 사용하여 작업 공간에 몇몇 장치를 연결합니다. iOS, Windows 및 Android 장치를 연결할 수 있습니다. | [Azure Active Directory Device Registration을 사용하여 작업 공간에 장치 연결](#Azure Active Directory Device Registration을 사용하여 작업 공간에 장치 연결) |
+| Azure Active Directory Device Registration을 사용하여 작업 공간에 몇몇 장치를 연결합니다. iOS, Windows 및 Android 장치를 연결할 수 있습니다. | [Azure Active Directory Device Registration을 사용하여 작업 공간에 장치 연결](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | 관리자 포털을 사용하여 등록된 장치를 보고 사용/사용하지 않도록 설정할 수 있습니다. 이 작업에서는 관리자 포털을 사용하여 등록된 일부 장치를 살펴봅니다. | [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md) |
-| Azure Active Directory에서 Windows Server Active Directory로 장치 개체가 다시 기록되었는지 확인합니다. | [등록된 장치가 Active Directory에 다시 쓰기 되었는지 확인](등록된 장치가 Active Directory에 다시 쓰기 되었는지 확인) |
-| 이제 사용자가 장치를 등록할 수 있으므로 등록된 장치만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만들게 됩니다. | [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기) |
+| Azure Active Directory에서 Windows Server Active Directory로 장치 개체가 다시 기록되었는지 확인합니다. | [등록된 장치가 Active Directory에 쓰기 저장되는지 확인](#verify-registered-devices-are-written-back-to-active-directory) |
+| 이제 사용자가 장치를 등록할 수 있으므로 등록된 장치만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만들게 됩니다. | [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 
 
@@ -122,7 +122,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
   
   > [AZURE.NOTE] 
-  아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
+  > 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
@@ -180,7 +180,7 @@ Azure Active Directory Device Registration은 iOS 장치에 대해 무선 프로
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-다양한 방법으로 이 URL을 사용자에게 알릴 수 있습니다. 한 가지 권장 방법은 AD FS의 사용자 지정 응용 프로그램 액세스 거부 메시지에 이 URL을 게시하는 것입니다. 이는 곧 게시될 섹션인 [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기)에서 다룰 것입니다.
+다양한 방법으로 이 URL을 사용자에게 알릴 수 있습니다. 한 가지 권장 방법은 AD FS의 사용자 지정 응용 프로그램 액세스 거부 메시지에 이 URL을 게시하는 것입니다. 이 내용은 이후 섹션: [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message)에서 설명합니다.
 
 ###Azure Active Directory Device Registration을 사용하여 Windows 8.1 장치 연결
 
@@ -238,7 +238,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 이 iOS 장치를 작업 공간에 연결합니다.
 
 
-**Windows 8.1 장치를 사용하는 경우** **PC 설정** > **네트워크** > **작업 공간**으로 이동하여 장치를 연결할 수 있습니다.
+**Windows 8.1 장치를 사용하는 경우** **PC 설정** >**네트워크** > **작업 공간**으로 이동하여 장치를 연결할 수 있습니다.
 
 
 여기서 "**신뢰 당사자 트러스트 이름**"은 AD FS에서 응용 프로그램 신뢰 당사자 트러스트 개체의 이름입니다. 여기서 **yourdomain.com**은 Azure Active Directory를 사용하여 구성한 도메인 이름입니다. 예를 들어 contoso.com입니다. **Set-AdfsRelyingPartyWebContent** cmdlet에 전달하는 html 콘텐츠에서 줄 바꿈(있는 경우)을 모두 제거해야 합니다.
@@ -252,4 +252,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0706_2016-->

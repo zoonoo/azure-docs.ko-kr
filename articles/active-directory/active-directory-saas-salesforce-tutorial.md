@@ -84,11 +84,11 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 4. **앱 설정 구성** 페이지에서 다음 형식으로 Salesforce 도메인 URL을 입력하여 **로그온 URL**을 작성합니다.
  - 엔터프라이즈 계정: `https://<domain>.my.salesforce.com`
- - 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com` 
+ - 개발자 계정: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![로그온 URL 입력][8]
 
@@ -256,4 +256,4 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

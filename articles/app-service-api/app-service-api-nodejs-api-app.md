@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="get-started-article"
 	ms.date="05/26/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Node.js RESTful API를 빌드하여 Azure의 API 앱에 배포
 
@@ -90,7 +90,7 @@
 
 ### 스캐폴드된 코드 사용자 지정
 
-1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다. 
+1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다.
 
 1. **handlers/contacts.js** 파일의 코드를 다음 코드로 바꿉니다.
 
@@ -155,7 +155,7 @@
 
 ### 로컬로 실행되는 API로 테스트
 
-1. Node.js 명령줄 실행 파일을 사용하여 서버를 활성화합니다. 
+1. Node.js 명령줄 실행 파일을 사용하여 서버를 활성화합니다.
 
         node server.js
 
@@ -179,7 +179,7 @@
 
 이 섹션에서는 Azure 포털을 사용하여 Azure에서 새로운 API 앱을 만듭니다. 이 API 앱은 Azure에서 코드를 실행하기 위해 제공하는 계산 리소스를 나타냅니다. 이후 섹션에서 새 API 앱에 코드를 배포합니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 1. **새로 만들기 > 웹 + 모바일 > API 앱**을 클릭합니다.
 
@@ -221,7 +221,7 @@
 
 Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱에 코드를 배포합니다. 여기에서는 배포에 사용할 Azure의 자격 증명과 Git 리포지토리를 만듭니다.
 
-1. API 앱을 만든 다음 포털 홈 페이지에서 **앱 서비스 > {API 앱}**을 클릭합니다. 
+1. API 앱을 만든 다음 포털 홈 페이지에서 **앱 서비스 > {API 앱}**을 클릭합니다.
 
 	포털에 **API 앱** 및 **설정** 블레이드가 표시됩니다.
 
@@ -294,7 +294,7 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 ## Azure에서 실행되는 API로 테스트
  
-3. API 앱 블레이드의 **필수 패키지** 섹션에서 **URL**을 복사합니다. 
+3. API 앱 블레이드의 **필수 패키지** 섹션에서 **URL**을 복사합니다.
 
     ![배포 완료](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
@@ -312,4 +312,4 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 이제 API 앱을 만들고 거기에 Node.js API 코드를 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

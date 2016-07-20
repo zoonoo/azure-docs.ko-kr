@@ -180,6 +180,12 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
 PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
 
+먼저 Application Insights 모듈을 가져옵니다.
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+어떤 앱을 모니터링 중인지 확인합니다.
+
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
 * `-Name` (선택 사항) 웹앱의 이름입니다.
@@ -284,4 +290,4 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

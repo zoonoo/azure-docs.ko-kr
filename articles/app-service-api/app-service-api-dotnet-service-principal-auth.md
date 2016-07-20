@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 서비스 주체 인증
@@ -83,8 +83,8 @@
 
 동일한 테넌트의 사용자에 대한 전달자 토큰은 보호된 API 앱에 대해 유효하다고 간주됩니다. 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하려는 경우 보호된 API 앱에 코드를 추가하여 토큰으로부터 다음과 같은 클레임의 유효성을 검사합니다.
 
-* `appid`는 호출자와 관련된 Azure AD 응용 프로그램의 클라이언트 ID여야 합니다. 
-* `oid`(`objectidentifier`)는 호출자의 서비스 주체 ID여야 합니다. 
+* `appid`는 호출자와 관련된 Azure AD 응용 프로그램의 클라이언트 ID여야 합니다.
+* `oid`(`objectidentifier`)는 호출자의 서비스 주체 ID여야 합니다.
 
 앱 서비스는 X-MS-CLIENT-PRINCIPAL-ID 헤더에 있는 `objectidentifier` 클레임을 제공합니다.
 
@@ -150,7 +150,7 @@ API 앱에 Node.js 또는 Java 자습서 시리즈를 수행 중인 경우 [다�
 
 ### API 앱이 보호되는지 확인합니다.
 
-1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL**에 있는 링크를 클릭합니다. 
+1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL**에 있는 링크를 클릭합니다.
 
 	인증되지 않은 요청은 API 앱에 도달할 수 없으므로 로그인 화면으로 리디렉션됩니다.
 
@@ -166,7 +166,7 @@ API 앱에 Node.js 또는 Java 자습서 시리즈를 수행 중인 경우 [다�
 
 * Azure AD 응용 프로그램 자격 증명을 사용하는 중간 계층 API 앱에서 코드를 추가하여 토큰을 획득하고 데이터 계층 API 앱에 HTTP 요청으로 보냅니다.
 * Azure AD에서 필요한 자격 증명을 가져옵니다.
-* 중간 계층 API 앱의 Azure 앱 서비스 런타임 환경 설정에 자격 증명을 입력합니다. 
+* 중간 계층 API 앱의 Azure 앱 서비스 런타임 환경 설정에 자격 증명을 입력합니다.
 
 ### ToDoListAPI 프로젝트를 구성하여 Azure AD 토큰 획득 및 전송
 
@@ -415,4 +415,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](../app-service-web/web-sites-deploy.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

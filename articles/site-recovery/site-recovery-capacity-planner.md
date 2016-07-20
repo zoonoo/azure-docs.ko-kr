@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획
@@ -42,7 +42,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 	- 물리적 서버를 복제하는 경우 수동으로 예측해야 합니다.
 
 ## Quick Planner 실행
-1.	[Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 도구를 다운로드하고 엽니다. 매크로를 실행하여 메시지가 표시될 때 편집 및 콘텐츠를 사용하도록 설정할지 선택해야 합니다. 
+1.	[Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 도구를 다운로드하고 엽니다. 매크로를 실행하여 메시지가 표시될 때 편집 및 콘텐츠를 사용하도록 설정할지 선택해야 합니다.
 2.	**플래너 유형 선택**의 목록 상자에서 **Quick Planner**를 선택합니다.
 
 	![시작](./media/site-recovery-capacity-planner/getting-started.png)
@@ -50,23 +50,23 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 3.	**Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 아래 스크린샷에 빨간색 원이 표시된 모든 필드를 입력해야 합니다.
 
 	- **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
-	- **평균 일일 데이터 변경률(%)**에 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 수집한 정보를 입력합니다.  
-	- **압축**은 VMware VM 또는 물리적 서버를 Azure에 복제할 때 제공되는 압축에만 적용됩니다. 30% 이상이 예상되지만 필요에 따라 설정을 수정할 수 있습니다. Hyper-V VM을 Azure 압축으로 복제하기 위해서는 Riverbed와 같은 타사 어플라이언스를 사용하면 됩니다. 
+	- **평균 일일 데이터 변경률(%)**에 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 수집한 정보를 입력합니다.
+	- **압축**은 VMware VM 또는 물리적 서버를 Azure에 복제할 때 제공되는 압축에만 적용됩니다. 30% 이상이 예상되지만 필요에 따라 설정을 수정할 수 있습니다. Hyper-V VM을 Azure 압축으로 복제하기 위해서는 Riverbed와 같은 타사 어플라이언스를 사용하면 됩니다.
 	-  **보존 입력**은 복제본을 보존해야 하는 기간을 지정합니다. VMware 또는 물리적 서버를 복제하는 경우 일 단위로 값을 입력합니다. Hyper-V를 복제하는 경우 시 단위의 시간을 지정합니다.
-	-  **가상 컴퓨터의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 컴퓨터 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. 사이트 복구가 배포되면 초기 데이터 집합 전체가 업로드되어야 합니다. 
+	-  **가상 컴퓨터의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 컴퓨터 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. 사이트 복구가 배포되면 초기 데이터 집합 전체가 업로드되어야 합니다.
 
 	![입력](./media/site-recovery-capacity-planner/inputs.png)
 
 2.	원본 환경에 대한 값을 입력하면 표시된 출력에는 다음이 포함됩니다.
 
 	- **델타 복제에 필요한 대역폭**(MB/sec). 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
-	- **초기 복제에 필요한 대역폭**(MB/sec). 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에서 계산됩니다. 
+	- **초기 복제에 필요한 대역폭**(MB/sec). 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에서 계산됩니다.
 	- **필요한 저장소(GB)**는 필요한 총 Azure 저장소입니다.
-	- **표준 저장소 계정에 대한 총 IOPS**는 총 표준 저장소 계정에서 8K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
-	- **표준 저장소 계정 수**는 VM을 보호하는 데 필요한 총 표준 저장소 계정 수를 제공합니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있으며 디스크당 최대 500 IOPS가 지원됩니다. 
+	- **표준 저장소 계정에 대한 총 IOPS**는 총 표준 저장소 계정에서 8K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
+	- **표준 저장소 계정 수**는 VM을 보호하는 데 필요한 총 표준 저장소 계정 수를 제공합니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있으며 디스크당 최대 500 IOPS가 지원됩니다.
 	- **필요한 BLOB 디스크 수**는 Azure 저장소에 생성될 디스크 수를 제공합니다.
 	- **필요한 프리미엄 저장소 계정 수**는 VM을 보호하는 데 필요한 총 프리미엄 저장소 계정 수를 제공합니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 프리미엄 저장소 계정이 필요합니다. 프리미엄 저장소 계정은 최대 80000 IOPS를 보유할 수 있습니다.
-	- **프리미엄 저장소에 대한 총 IOPS**는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
+	- **프리미엄 저장소에 대한 총 IOPS**는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
 	- **필요한 구성 서버 수**는 배포에 필요한 구성 서버 수를 보여 줍니다(1).
 	- **필요한 추가 프로세스 서버 수**는 기본적으로 구성 서버에 구성된 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
 	- **원본의 100% 추가 저장소**는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
@@ -76,7 +76,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 ## Detailed Planner 실행
 
 
-1.	[Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 도구를 다운로드하고 엽니다. 매크로를 실행하여 메시지가 표시될 때 편집 및 콘텐츠를 사용하도록 설정할지 선택해야 합니다. 
+1.	[Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 도구를 다운로드하고 엽니다. 매크로를 실행하여 메시지가 표시될 때 편집 및 콘텐츠를 사용하도록 설정할지 선택해야 합니다.
 2.	**플래너 유형 선택**의 목록 상자에서 **Detailed Planner**를 선택합니다.
 
 	![시작하기](./media/site-recovery-capacity-planner/getting-started-2.png)
@@ -84,13 +84,13 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 3.	**Workload Qualification** 워크시트에서 필요한 정보를 입력합니다. 표시된 필드를 모두 입력해야 합니다.
 
 	- **프로세서 코어**에는 원본 서버의 총 코어 수를 지정합니다.
-	- **메모리 할당(MB)**에는 원본 서버의 RAM 크기를 지정합니다. 
-	- **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다. 
+	- **메모리 할당(MB)**에는 원본 서버의 RAM 크기를 지정합니다.
+	- **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 	-  **총 저장소(GB)**에는 VM 저장소의 총 크기를 지정합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 저장소 크기는 1500GB입니다.
 	-  **연결된 디스크 수**에는 원본 서버의 총 디스크 수를 지정합니다.
 	-  **디스크 용량 사용률**에는 평균 사용률을 지정합니다.
 	-  **일일 데이터 변경률(%)**에는 원본 서버의 일일 데이터 변경률을 지정합니다.
-	-  **매핑 Azure 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 하지 않으려면 **IaaS VM 계산**을 클릭합니다. 수동 설정을 입력하고 IaaS VM 계산을 클릭한 경우 계산 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문에 수동 입력을 덮어쓸 수도 있습니다.
+	-  **매핑 Azure 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면 **IaaS VM 계산**을 클릭합니다. 수동 설정을 입력하고 IaaS VM 계산을 클릭한 경우 계산 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문에 수동 입력을 덮어쓸 수도 있습니다.
 
 	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification.png)
 
@@ -115,7 +115,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 - 이 예제에 대한 출력에서 다음을 확인할 수 있습니다.
 	
 	- 첫 번째 열은 VM, 디스크 및 이탈에 대한 유효성 검사 열입니다.
-	- VM 5대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다. 
+	- VM 5대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다.
 	-  VM3은 하나 이상의 디스크가 1TB를 초과하므로 보호하기에 적합하지 않습니다.
 	-  VM1 및 VM2는 첫 번째 표준 저장소 계정을 사용할 수 있습니다.
 	-  VM4는 두 번째 표준 저장소 계정을 사용할 수 있습니다.
@@ -128,9 +128,9 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 ### Capacity Planner에서 데이터를 제출합니다.
 
-1.	**Capacity Planne** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. **인프라 입력 소스** 셀에 'Workload'라는 단어가 나타나 입력 **Workload Qualification** 워크시트임을 나타냅니다. 
-2.	변경하려면 **Workload Qualification** 워크시트를 수정하고 플래너 도구에 데이터 전송을 다시 클릭합니다.  
+1.	**Capacity Planne** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. **인프라 입력 소스** 셀에 'Workload'라는 단어가 나타나 입력 **Workload Qualification** 워크시트임을 나타냅니다.
+2.	변경하려면 **Workload Qualification** 워크시트를 수정하고 플래너 도구에 데이터 전송을 다시 클릭합니다.
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->
