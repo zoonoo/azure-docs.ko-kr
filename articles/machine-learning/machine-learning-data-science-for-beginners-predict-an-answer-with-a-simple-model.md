@@ -23,7 +23,7 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-predict-an-answer-with-a-simple-model"> <a title="Data science for beginners: Predict an answer with a simple model" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-predict-an-answer-with-a-simple-model" data-caption="" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player/" data-expanding="false"> <img class="thumbnail" alt="Data science for beginners: Predict an answer with a simple model" src="https://sec.ch9.ms/ch9/d060/48bc9b8a-987c-4f60-94fe-fc482da2d060/DataScienceForBeginnersSeriesPredictAnAnswerWithA_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-28-2016</span> <span>07 min, 42 sec</span> </span> </span> </a> </div>
 
 ## 비디오 내용: 단순 모델을 사용하여 답변 예측
 

@@ -16,7 +16,8 @@
 
 #자습서: Jobscience와 Azure Active Directory 통합
   
-이 자습서는 Azure와 Jobscience의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 Jobscience의 통합을 보여 주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Jobscience Single Sign-On이 가능하도록 설정된 구독
@@ -64,7 +65,9 @@
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Single Sign-On 구성
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다. Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.  
+Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
+이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -145,7 +148,8 @@
 
 ![보안 제어](./media/active-directory-saas-jobscience-tutorial/IC784368.png "보안 제어")
   
-위 단계에서 만든 SSO 프로필을 클릭합니다. 이 페이지에 회사의 Single Sign-On URL(예: *https://companyname.my.salesforce.com?so=companyid*)이 표시됩니다.
+위 단계에서 만든 SSO 프로필을 클릭합니다.  
+이 페이지에 회사의 Single Sign-On URL(예: *https://companyname.my.salesforce.com?so=companyid*)이 표시됩니다.
 ##사용자 프로비전 구성
   
 Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscience로 프로비저닝되어야 합니다. Jobscience의 경우 프로비저닝은 수동 작업입니다.

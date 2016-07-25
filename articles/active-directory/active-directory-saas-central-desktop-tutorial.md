@@ -62,7 +62,9 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다.  
+이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
 
@@ -110,7 +112,7 @@
 
     1.  **인증서**를 선택합니다.
     2.  **SSO 인증서**목록에서 **RSH SHA256**을 선택합니다.
-    3.  다운로드한 인증서에서 텍스트 파일을 만들고 텍스트 파일의 내용을 복사한 다음 **SSO 인증서** 필드를 붙여 넣습니다.
+    3.  다운로드한 인증서에서 텍스트 파일을 만들고 텍스트 파일의 내용을 복사한 다음 **SSO 인증서** 필드를 붙여 넣습니다.  
 
         >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 

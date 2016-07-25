@@ -16,7 +16,8 @@
 
 #자습서: ArcGIS와 Azure Active Directory 통합
 
-이 자습서는 Azure 및 ArcGIS의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 ArcGIS의 통합을 보여주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ArcGIS Single Sign-on이 설정된 구독
@@ -112,7 +113,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다. ArcGIS의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다.  
+ArcGIS의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비전을 구성하려면
 

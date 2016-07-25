@@ -38,7 +38,7 @@
 
 프로세스 서버가 Azure에 있고 VPN 또는 Express 경로를 연결할 경우 이 아키텍처를 사용합니다.
 
-![VPN용 아키텍처 다이어그램](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![VPN용 아키텍처 다이어그램](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 포트 및 장애 복구(failback) 아키텍처 다이어그램의 전체 목록을 보려면 아래 이미지를 참조하세요.
 
@@ -98,7 +98,7 @@ Azure에 프로세스 서버를 설치해야 Azure VM이 데이터를 온-프레
 
 1.  자격 증명 모음 > 설정 > 사이트 복구 인프라 관리 > VMware 및 실제 컴퓨터 머리글을 위한 **구성 서버**에서 구성 서버를 선택 합니다. +프로세스 서버를 클릭합니다.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. 프로세스 서버 배포를 위해 "Azure에서 장애 복구(failback) 프로세스 서버 배포"를 선택합니다.
 
@@ -108,11 +108,11 @@ Azure에 프로세스 서버를 설치해야 Azure VM이 데이터를 온-프레
 
 5. *클래식 배포* 네트워크를 선택하면 Azure 갤러리를 통해 새로운 VM을 생성하고 그 안에 프로세스 서버를 설치할 것인지에 대한 질문을 받게 됩니다.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. 이미지의 이름은 *Microsoft Azure Site Recovery 프로세스 서버 V2*입니다. 배포 모델로 *클래식*을 선택했는지 확인하도록 합니다.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. [여기에 주어진](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server) 단계에 따라 프로세스 서버를 설치하세요.
 	
@@ -128,7 +128,7 @@ Azure에 프로세스 서버를 설치해야 Azure VM이 데이터를 온-프레
 	
 	5. 연결할 특정 서브넷과 네트워크 인터페이스를 선택합니다. 참고 - 자신만의 [네트워크 인터페이스](../virtual-network/virtual-networks-multiple-nics.md)(NIC)를 생성하고 배포하는 동안 선택해야 합니다.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. 확인을 클릭합니다. 이것으로 프로세스 서버 설정과 함께 리소스 관리자 배포 유형 가상 컴퓨터를 생성하는 작업이 트리거됩니다. 서버를 구성 서버에 등록하기 위해 VM 내에서 설치 프로그램을 실행해야 합니다. [다음 단계](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)에 따라 실시할 수 있습니다.
 
@@ -252,4 +252,4 @@ VPN 연결 또는 Azure Express 경로를 통해 장애 복구할 수 있습니�
 - Express 경로는 원본 컴퓨터가 장애 조치되고 장애 조치가 발생한 후 Azure VM이 위치하는 Azure 가상 네트워크에 설치되어 있어야 합니다.
 - 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. Express 경로를 사용하려면 사이트 복구 복제에 대한 대상 데이터 센터로 Express 경로에 공용 피어링을 설정해야 합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016--->

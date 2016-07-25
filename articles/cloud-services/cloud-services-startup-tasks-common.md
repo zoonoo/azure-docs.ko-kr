@@ -72,7 +72,7 @@ ms.author="adegeo"/>
 
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe* 에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

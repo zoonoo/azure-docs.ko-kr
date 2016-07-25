@@ -64,7 +64,9 @@
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Samanage에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Samanage에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다.  
+이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -96,16 +98,19 @@
 
 8.  **SAML을 사용하여 로그인** 대화 상자 페이지에서 다음 단계를 수행한 다음 **변경 내용 저장**을 클릭합니다.
 
-    1.  **SAML로 Single Sign-On 사용**을 클릭합니다.![SAML을 사용하여 로그인](./media/active-directory-saas-samanage-tutorial/IC771719.png "SAML을 사용하여 로그인")
-    2.  Azure 클래식 포털의 **Samanage에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다. ![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/IC771720.png "Single Sign-On 구성")
+    1.  **SAML로 Single Sign-On 사용**을 클릭합니다.
+        ![SAML을 사용하여 로그인](./media/active-directory-saas-samanage-tutorial/IC771719.png "SAML을 사용하여 로그인")
+    2.  Azure 클래식 포털의 **Samanage에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
+        ![Single Sign-On 구성](./media/active-directory-saas-samanage-tutorial/IC771720.png "Single Sign-On 구성")
     3.  Azure 클래식 포털의 **Samanage에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
     4.  Azure 클래식 포털의 **Samanage에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    5.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
+    5.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
 
         >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     6.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
-    7.  **Samanage에 없는 경우 사용자 만들기**를 클릭합니다. ![업데이트](./media/active-directory-saas-samanage-tutorial/IC771722.png "업데이트")
+    7.  **Samanage에 없는 경우 사용자 만들기**를 클릭합니다.
+        ![업데이트](./media/active-directory-saas-samanage-tutorial/IC771722.png "업데이트")
     8.  **업데이트**를 클릭합니다.
 
 9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.

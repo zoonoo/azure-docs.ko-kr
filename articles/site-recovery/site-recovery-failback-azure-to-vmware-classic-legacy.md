@@ -55,7 +55,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 온-프레미스에 vContinuum 서버를 설치하고 구성 서버를 가리키도록 해야 합니다.
 
-1.  [VContinuum을 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=526305).
+1.  [VContinuum을 다운로드합니다](http://go.microsoft.com/fwlink/?linkid=526305). 
 2.  그런 다음 [vContinuum 업데이트](http://go.microsoft.com/fwlink/?LinkID=533813) 버전을 다운로드합니다.
 3. 최신 버전의 vContinuum을 설치합니다. **Welcome** 페이지에서 **다음**을 클릭합니다. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  마법사의 첫 번째 페이지에서 CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. **HTTPS 사용**을 선택합니다.
@@ -266,7 +266,7 @@ Azure Site Recovery 자격 증명 모음 > **구성 서버** > **서버 세부 �
 VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 추가됩니다. 이것은 이미 페이지 파일 전용 드라이브를 가지고 있을 수도 있으므로 일반적으로 장애 조치된 VM에서 필요로 하지 않는 추가 드라이브입니다. 가상 컴퓨터의 역방향 보호를 시작하기 전에 보호되지 않도록 드라이브가 오프라인으로 가져와지도록 해야 합니다. 다음과 같이 수행합니다.
 
 1.  컴퓨터 관리를 열고 저장소 관리를 선택하여 온라인 디스크와 컴퓨터에 연결된 디스크를 나열시킵니다.
-2.  컴퓨터에 연결된 임시 디스크를 선택하고 오프라인으로 전환을 선택합니다.
+2.  컴퓨터에 연결된 임시 디스크를 선택하고 오프라인으로 전환을 선택합니다. 
 
 ### VM 보호
 

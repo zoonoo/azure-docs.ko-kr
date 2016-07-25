@@ -170,6 +170,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 <!-- Links -->
 
+[IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [Azure 포털]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/

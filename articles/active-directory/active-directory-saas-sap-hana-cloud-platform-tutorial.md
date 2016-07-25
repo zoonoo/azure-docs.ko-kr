@@ -140,7 +140,9 @@
 
         |어설션 특성| 보안 주체 특성|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 HCP의 응용 프로그램이 개발된 방법에 따라 다릅니다.
     >  

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights 내 Analytics 참조 | Microsoft Azure" 
-	description="Application Insights의 강력한 검색 도구인 분석의 문 참조입니다. " 
+	description="Application Insights의 강력한 검색 도구인 분석의 문 참조입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -129,9 +129,8 @@ set 절은 쿼리 기간에 대한 옵션을 설정합니다. 쿼리 옵션은 �
 
 ```AIQL
 requests // The request table starts this pipeline.
-| where client_City == "London" // filter the records
-   and timestamp > ago(3d)
-| count 
+| where client_City == "London" // filter the records and timestamp > ago(3d)
+| count
 ```
     
 파이프 문자 `|`이 접두사로 붙는 각 필터는 일부 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](#scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
@@ -237,7 +236,7 @@ traces
 다음을 포함하고 있는 테이블:
 
 * 일치하는 키를 포함하여 두 테이블 각각의 모든 열에 대한 열. 이름 충돌이 있는 경우 우변의 열 이름이 자동으로 바뀝니다.
-* 입력된 테이블 간의 모든 일치 항목에 대한 행. 일치 항목은 한 테이블에서 선택된 행이며 모든 `on` 필드에 대해 다른 테이블의 행과 같은 값을 가지고 있습니다.
+* 입력된 테이블 간의 모든 일치 항목에 대한 행. 일치 항목은 한 테이블에서 선택된 행이며 모든 `on` 필드에 대해 다른 테이블의 행과 같은 값을 가지고 있습니다. 
 
 * `Kind` 지정 안 함
 
@@ -906,7 +905,7 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-*ExprToMaximize*를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn*(전체 행을 반환하려는 경우에는 `*`)의 값을 반환합니다.
+*ExprToMaximize*를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn* (전체 행을 반환하려는 경우에는 `*`)의 값을 반환합니다.
 
 **팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5`를 사용하여 결과를 검사합니다.
 
@@ -936,7 +935,7 @@ traces
 
     avg(Expression)
 
-그룹 전체에서 *Expression*의 평균을 계산합니다.
+그룹 전체에서 *Expression* 의 평균을 계산합니다.
 
 ### buildschema
 
@@ -1030,7 +1029,7 @@ traces
 
     count([ Predicate ])
 
-*Predicate*이 `true`로 계산되는 행 수를 반환합니다. *Predicate*을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
+*Predicate*이 `true`로 계산되는 행 수를 반환합니다. *Predicate* 을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize count(filter)` 사용
 
@@ -1462,7 +1461,17 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
+| - | 빼기 |
+| * | 곱하기 |
+| / | 나누기 |
+| % | 모듈로 |
+||
+|`<` |보다 작음
+|`<=`|작거나 같음
+|`>` |보다 큼
+|`>=`|크거나 같음
+|`<>`|같지 않음
+|`!=`|같지 않음
 
 
 ### abs
@@ -2038,7 +2047,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **인수**
 
-* *regex:* *text*를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
+* *regex:* *text* 를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
 * *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`를 사용하는 식입니다.
 * *text:* 문자열입니다.
 

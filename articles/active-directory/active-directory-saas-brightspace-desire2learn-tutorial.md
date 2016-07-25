@@ -16,7 +16,8 @@
 
 #자습서: Brightspace by Desire2Learn와 Azure Active Directory 통합
 
-이 자습서는 Azure 및 Brightspace by Desire2Learn의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 Brightspace by Desire2Learn의 통합을 보여 주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Brightspace Desire2Learn single sign-on이 사용된 구독
@@ -89,14 +90,16 @@
 
 5.  다운로드 한 메타데이터 파일을 Brightspace by Desire2Learn 지원팀에 보냅니다.
 
-    >[AZURE.NOTE] Brightspace by Desire2Learn 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+    >[AZURE.NOTE] Brightspace by Desire2Learn 지원팀은 실제 SSO 구성을 수행해야 합니다.
+    구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
 6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 Brightspace by Desire2Learn에 로그인하기 위해 Brightspace by Desire2Learn에 프로비전되어야 합니다. Brightspace by Desire2Learn의 경우 Brightspace by Desire2Learn 지원팀에서 사용자 계정을 만들어야 합니다.
+Azure AD 사용자가 Brightspace by Desire2Learn에 로그인하기 위해 Brightspace by Desire2Learn에 프로비전되어야 합니다.  
+Brightspace by Desire2Learn의 경우 Brightspace by Desire2Learn 지원팀에서 사용자 계정을 만들어야 합니다.
 
 >[AZURE.NOTE] Brightspace by Desire2Learn에서 제공하는 다른 Brightspace by Desire2Learn 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
 
@@ -108,7 +111,7 @@ Azure AD 사용자가 Brightspace by Desire2Learn에 로그인하기 위해 Brig
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Brightspace by Desire2Learn** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Brightspace by Desire2Learn** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다. 
 
     ![사용자 할당](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798964.png "사용자 할당")
 
