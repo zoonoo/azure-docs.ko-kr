@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure Resource Manager 템플릿을 사용하여 서비스 버스 리소스 만들기 | Microsoft Azure"
-    description="Azure Resource Manager 템플릿을 사용하여 자동으로 서비스 버스 리소스 만들기 "
+    description="Azure Resource Manager 템플릿을 사용하여 자동으로 서비스 버스 리소스 만들기"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/22/2016"
+    ms.date="07/11/2016"
     ms.author="sethm"/>
 
 # Azure Resource Manager 템플릿을 사용하여 서비스 버스 리소스 만들기
@@ -22,7 +22,7 @@
 
 Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. Azure Resource Manager 템플릿 작성에 대한 자세한 내용과 템플릿 형식에 대한 논의는 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
->[AZURE.NOTE] 이 문서의 예제에서는 Azure Resource Manager를 사용하여 서비스 버스 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여줍니다. 다른 템플릿 예제는 [Azure 빠른 시작 템플릿 갤러리][]에서 "서비스 버스"를 검색하세요.
+>[AZURE.NOTE] 이 문서의 예제에서는 Azure Resource Manager를 사용하여 서비스 버스 네임스페이스와 메시징 엔터티(큐)를 만드는 방법을 보여 줍니다. 다른 템플릿 예제는 [Azure 빠른 시작 템플릿 갤러리][]를 방문하고 "서비스 버스"를 검색하세요.
 
 ## 서비스 버스 및 이벤트 허브 리소스 관리자 템플릿
 
@@ -144,7 +144,7 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 }
 ```
 
-자세한 내용은 [매개 변수 파일](../resource-group-template-deploy.md#parameter-file) 문서를 참조하세요.
+자세한 내용은 [매개 변수 파일](../resource-group-template-deploy.md#parameter-file) 항목을 참조하세요.
 
 ### Azure에 로그인하고 Azure 구독 설정
 
@@ -202,7 +202,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-그 대신에 매개 변수 파일을 사용하려면 다음 명령을 사용합니다.
+그 대신에 매개 변수 파일을 지정하려면 다음 명령을 사용합니다.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -253,4 +253,4 @@ Parameters        :
 [Azure Resource Manager 템플릿으로 리소스 배포]: ../resource-group-template-deploy.md
 [Azure 빠른 시작 템플릿 갤러리]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

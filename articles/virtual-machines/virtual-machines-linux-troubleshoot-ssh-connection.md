@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Azure VM에 SSH 연결 문제 해결 | Microsoft Azure"
+	pageTitle="Linux VM에 대한 SSH 연결이 거부되거나 실패하거나 오류가 발생함 | Microsoft Azure"
 	description="Linux를 실행하는 Azure 가상 컴퓨터에 대해 SSH 연결 실패 또는 SSH 연결 거부와 같은 SSH 오류 문제를 해결합니다."
-	keywords="ssh 연결 거부,ssh 오류,azure ssh,SSH 연결 실패"
+	keywords="ssh 연결 거부, ssh 오류, azure ssh, SSH 연결 실패"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Azure VM에 SSH 연결 문제 해결
+# 실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 
-Linux 기반 Azure VM(가상 컴퓨터)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다.
+Linux 기반 Azure VM(가상 컴퓨터)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제�
 	- SSH 구성을 재설정합니다.
 
 - VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > *Linux 가상 컴퓨터* > **설정** > **상태 검사**를 선택합니다.
-	 
+
 
 ## 추가 리소스
 
@@ -134,4 +134,4 @@ Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제�
 
 - 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](virtual-machines-linux-classic-reset-access.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

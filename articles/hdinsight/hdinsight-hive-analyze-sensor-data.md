@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석
@@ -54,4 +54,4 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

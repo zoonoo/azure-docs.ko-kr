@@ -379,7 +379,14 @@ IoT 장치 관리 서비스에서 요청한 Edison의 펌웨어 업데이트는 
 
 IoT Hub 및 샘플 UI를 사용한 장치 관리에 대해 자세히 알아보려면 [Azure IoT Hub 장치 관리의 개요][lnk-device-management] 문서를 참조하세요.
 
-IoT Hub에 물리적 장치를 연결하는 방법을 알아보려면 [IoT 게이트웨이 SDK - Linux를 사용하여 실제 장치로 장치-클라우드 메시지 보내기][lnk-gateway-physical] 문서를 참조하세요.
+게이트웨이 SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]를 방문하세요.
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 
 
@@ -411,4 +418,9 @@ IoT Hub에 물리적 장치를 연결하는 방법을 알아보려면 [IoT 게�
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -188,7 +188,7 @@ Lumia 650 휴대폰 예제에서 Lumia 650 휴대폰과 동일한 세션에서 �
 
 2.	필요에 따라 *splitterStrategy*(*RandomSplitter* 또는 *LastEventSplitter* 중 하나)를 선택할 수 있습니다. *RandomSplitter*는 지정된 *randomSplitterParameters* 테스트 비율 및 임의 시드 값에 따라 학습 및 테스트 집합에서 사용 현황 데이터를 분할합니다. *LastEventSplitter*는 각 사용자에 대한 마지막 트랜잭션에 따라 학습 및 테스트 집합에서 사용 현황 데이터를 분할합니다.
 
-학습에 대한 데이터의 하위 집합만을 사용하는 빌드를 트리거하고 데이터의 나머지는 평가 메트릭을 계산하는 데 사용됩니다. 빌드가 완료된 후 평가의 출력을 가져오려면 해당 *modelId* 및 *buildId*를 전달하는 [빌드 메트릭 API 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console)를 호출해야 합니다.
+학습에 대한 데이터의 하위 집합만을 사용하는 빌드를 트리거하고 데이터의 나머지는 평가 메트릭을 계산하는 데 사용됩니다. 빌드가 완료된 후 평가의 출력을 가져오려면 해당 *modelId* 및 *buildId*를 전달하는 [빌드 메트릭 API 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f)를 호출해야 합니다.
 
  다음은 수행한 샘플 평가에 대한 JSON 출력입니다.
 
@@ -271,4 +271,4 @@ Lumia 650 휴대폰 예제에서 Lumia 650 휴대폰과 동일한 세션에서 �
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -124,4 +124,4 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트 구성](./vs
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

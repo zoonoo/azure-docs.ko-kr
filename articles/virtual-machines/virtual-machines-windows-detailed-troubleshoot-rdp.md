@@ -1,23 +1,24 @@
 <properties
-	pageTitle="원격 데스크톱 상세 문제 해결 | Microsoft Azure"
-	description="Windows를 실행하는 Azure 가상 컴퓨터에 RDP 연결에 대한 상세 문제 해결 단계."
+	pageTitle="자세한 문제 해결: VM의 원격 데스크톱에 연결할 수 없음 | Microsoft Azure"
+	description="원격 데스크톱을 Azure에서 Windows 가상 컴퓨터에 연결하는 데 사용할 수 없는 원격 데스크톱 오류 문제 해결"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="원격 데스크탑에 연결할 수 없습니다, 원격 데스크톱 문제 해결, 원격 데스크톱을 연결할 수 없습니다, 원격 데스크톱 오류, 원격 데스크톱 문제 해결, 원격 데스크톱 문제"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Windows 기반 Azure 가상 컴퓨터에 원격 데스크톱 연결 상세 문제 해결
+# Azure의 Windows VM에 연결할 수 없는 원격 데스크톱 문제에 대한 세부적인 문제 해결
 
 이 문서에서는 Windows 기반 Azure 가상 컴퓨터에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
 
@@ -115,6 +116,14 @@
 
 네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 살펴보고 인터넷에서 들어오는 원격 데스크톱 트래픽이 허용되어 있는지 확인하세요.
 
+- Azure 포털에서 VM을 선택합니다.
+- **모든 설정** | **네트워크 인터페이스**를 클릭하고 해당 네트워크 인터페이스를 선택합니다.
+- **모든 설정** | **네트워크 보안 그룹**을 클릭하고 해당 네트워크 보안 그룹을 선택합니다.
+- **모든 설정** | **인바운드 보안 규칙**을 클릭하고 TCP 포트 3389에 RDP를 허용하는 규칙이 있는지 확인합니다.
+	- 규칙이 없다면 새 규칙을 만들기 위해 **추가**를 클릭합니다. 프로토콜에 대한 **TCP**를 입력한 후 대상 포트 범위에 대해 **3389**를 입력합니다.
+	- 작업이 **허용**으로 설정되었는지 확인하고 새 인바운드 규칙을 저장하려면 확인을 클릭합니다.
+
+
 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 ### 발생지 5: Windows 기반 Azure 가상 컴퓨터
@@ -195,4 +204,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/12/2016"
+	ms.date="07/12/2016"
 	ms.author="kgremban"/>
 
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
@@ -152,6 +152,6 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## 참고 항목
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -25,9 +25,11 @@
 
 ##소개
 
-Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 이 에이전트는 다음을 수행합니다.
+Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 또한 실행 중인 VM에 에이전트를 설치하고 업데이트하는 방법에 대한 자세한 내용은 [Azure Linux 에이전트를 업데이트하는 방법](virtual-machines-linux-update-agent.md)을 참조하세요.
 
-> [AZURE.NOTE] 이 가이드의 최신 버전은 Azure Linux 에이전트 [추가 정보](https://github.com/Azure/WALinuxAgent/blob/2.0/README)를 참조하세요.
+Azure Linux 에이전트는 다음과 같은 작업을 수행합니다.
+
+> [AZURE.NOTE] 이 가이드의 최신 버전은 Azure Linux 에이전트 [추가 정보](https://github.com/Azure/WALinuxAgent/blob/master/README.md)를 참조하세요.
 
 * **이미지 프로비전**
   - 사용자 계정 만들기
@@ -323,4 +325,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

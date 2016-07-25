@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 ##필수 조건
 
-* Windows 7, Windows 8, 또는 Windows 8.1
+* Windows 7 이후 버전
 
 * 다음 버전의 Visual Studio:
 
@@ -34,7 +34,7 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 	* Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
-	* Visual Studio 2015 Preview
+	* Visual Studio 2015
 
 * HDInsight 클러스터의 Hadoop - 클러스터를 만드는 단계는 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
@@ -241,4 +241,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

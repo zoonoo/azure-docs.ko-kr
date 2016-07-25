@@ -80,7 +80,7 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 3. **Runbook 추가** 단추를 클릭하고 **가져오기**를 클릭합니다.
 4. **Runbook 파일**을 클릭하여 가져올 파일을 선택합니다.
 2. **이름** 필드가 활성화된 경우 변경이 가능합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
-3. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다. 
+3. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다.
 3. 새 Runbook이 자동화 계정의Runbook 목록에 표시됩니다.
 4. 실행에 앞서 [Runbook을 게시](#publishing-a-runbook)해야 합니다.
 
@@ -92,7 +92,7 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 다음 명령 예제는 Runbook에 스크립트 파일을 가져오는 방법을 보여 줍니다.
 
-    $automationAccountName =  AutomationAccount"
+    $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
     $RGName = "ResourceGroup"
@@ -123,7 +123,7 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) cmdlet을 사용하여 Windows PowerShell에서 Runbook을 게시할 수 있습니다. 다음 명령 예제에서는 샘플 Runbook을 게시하는 방법을 보여줍니다.
 
-	$automationAccountName =  AutomationAccount"
+	$automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
@@ -136,4 +136,4 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 - 텍스트 편집기를 사용하여 PowerShell 및 PowerShell 워크플로 Runbook을 편집하는 방법을 알아보려면 [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 - 그래픽 Runbook 작성에 대한 자세한 내용은 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # 응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유
@@ -140,15 +140,16 @@ Azure 서비스 패브릭은 Microsoft가 보통 모놀리식 스타일의 박�
 
 아마도 그렇습니다. 비즈니스적인 이유로 클라우드에 대해 구축하는 팀들이 점점 더 늘어나고 있습니다. 이들 중 다수는 마이크로 서비스와 유사한 접근 방식의 장점을 인식하게 되었습니다. 예를 들어, Bing은 수년 동안 검색에서 이를 수행하고 있습니다. 다른 팀에서는 이것이 매우 새로웠습니다. 핵심 역량이 아니면서 해결이 필요한 까다로운 문제를 찾았습니다. 이 때문에 서비스 구축을 위해 서비스 패브릭을 선택해야 하는 근거를 얻고 있습니다.
 
-서비스 패브릭의 목표는 마이크로 서비스를 통한 응용 프로그램 구축의 복잡성을 줄여 비용이 소요되는 여러 번의 재설계를 겪지 않아도 되게 하는 것입니다. 소규모로 시작해서 필요에 따라 확장하고, 고객 사용에 따라 서비스를 중단하고 새 서비스를 추가하며 진화해가는 것이 바로 이 접근 방식입니다. 다수의 개발자들이 더 쉽게 마이크로 서비스에 접근할 수 있게 하기 위해서는 아직 많은 문제들을 해결해야 한다는 점을 알고 있습니다. 컨테이너와 행위자 프로그래밍 모델은 이 방향으로 나아가기 위한 예이며 더 편리한 활용을 위해 앞으로 더 많은 혁신이 등장할 것을 확신합니다.
+서비스 패브릭의 목표는 마이크로 서비스를 통한 응용 프로그램 구축의 복잡성을 줄여 비용이 소요되는 여러 번의 재설계를 겪지 않아도 되게 하는 것입니다. 소규모로 시작해서 필요에 따라 확장하고, 고객 사용에 따라 서비스를 중단하고 새 서비스를 추가하며 진화해가는 것이 바로 이 접근 방식입니다. 다수의 개발자들이 더 쉽게 마이크로 서비스에 접근할 수 있게 하기 위해서는 아직 많은 문제들을 해결해야 한다는 점을 알고 있습니다. 컨테이너와 행위자 프로그래밍 모델은 이 방향으로 나아가기 위한 예이며 더 편리한 활용을 위해 앞으로 더 많은 혁신이 등장할 것을 확신합니다.  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
 * 자세한 내용은 다음을 참조하세요.
     * [서비스 패브릭의 개요](service-fabric-overview.md)
-    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/ko-KR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Reliable Services 통신 API를 사용하는 방법
@@ -69,7 +69,7 @@ class MyStatefulService : StatefulService
 
 상태 비저장 서비스에서는 재정의가 ServiceInstanceListeners의 컬렉션을 반환합니다. ServiceInstanceListener는 ICommunicationListener를 만들 함수를 포함하고 이름을 지정합니다. 상태 저장 서비스에서는 재정의가 ServiceReplicaListeners의 컬렉션을 반환합니다. 이는 ServiceReplicaListener에 보조 복제본에서 ICommunicationListener를 여는 옵션이 있기 때문에 해당 상태 비저장에 상응하는 것과는 약간 다릅니다. 서비스에서 여러 통신 수신기를 사용할 수 있을 뿐만 아니라 보조 복제본에서 요청을 수락하는 수신기와 주 복제본에서만 수신하는 수신기를 지정할 수도 있습니다.
 
-예를 들어 주 복제본에서는 RPC만 호출하는 ServiceRemotingListener와 보조 복제본에서는 읽기 요청을 수행하는 두 번째 사용자 지정 수신기가 있을 수 있습니다.
+예를 들어 주 복제본에서는 RPC만 호출하는 ServiceRemotingListener와 HTTP를 통해 보조 복제본에서는 읽기 요청을 수행하는 두 번째 사용자 지정 수신기가 있을 수 있습니다.
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -77,8 +77,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     return new[]
     {
         new ServiceReplicaListener(context =>
-            new MyCustomListener(context),
-            "customReadonlyEndpoint",
+            new MyCustomHttpListener(context),
+            "HTTPReadonlyEndpoint",
             true),
 
         new ServiceReplicaListener(context =>
@@ -88,6 +88,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     };
 }
 ```
+
+> [AZURE.NOTE] 서비스에 대한 여러 수신기를 만들 때 각 수신기에 고유한 이름을 지정**해야** 합니다.
 
 마지막으로 끝점의 섹션에 있는 [서비스 매니페스트](service-fabric-application-model.md)에서 서비스에 필요한 끝점을 설명합니다.
 
@@ -145,10 +147,10 @@ Reliable Services API는 서비스와 통신하는 클라이언트를 작성하�
 ### 서비스 끝점 확인
 서비스와 통신하는 첫 번째 단계는 통신하려는 서비스의 파티션 또는 인스턴스의 끝점 주소를 확인하는 것입니다. `ServicePartitionResolver` 유틸리티 클래스는 클라이언트가 런타임 시 서비스의 끝점을 확인할 수 있게 도와주는 기본 항목입니다. 서비스 패브릭 용어로 서비스의 끝점을 결정하는 프로세스를 *서비스 끝점 확인*이라고 합니다.
 
-클러스터 내의 서비스에 연결하면 매개 변수 없이 `ServicePartitionResolver`을 만들 수 있습니다.
+클러스터 내의 서비스에 연결하려면 기본 설정을 사용하여 `ServicePartitionResolver`을 만들 수 있습니다. 다음은 대부분의 상황에 대한 권장 사용법입니다.
 
 ```csharp
-ServicePartitionResolver resolver = new  ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ```
 
 다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 끝점으로 `ServicePartitionResolver`을 만들 수 있습니다. 게이트웨이 끝점은 동일한 클러스터에 연결하기 위한 다른 끝점입니다. 예:
@@ -157,13 +159,13 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver();
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-`ServicePartitionResolver`은 `FabricClient`를 만들기 위한 함수를 지정하여 내부적으로 사용할 수 있습니다.
+또는 `ServicePartitionResolver`은 `FabricClient`를 만들기 위한 함수를 지정하여 내부적으로 사용할 수 있습니다.
  
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
 
-`FabricClient`은 서비스 패브릭 클러스터의 다양한 관리 작업에서 클러스터와 통신하는 데 사용되는 개체입니다. `ServicePartitionClient`와 클러스터가 상호 작용하는 방법을 더 제어하려는 경우에 유용합니다. `FabricClient`은 내부적으로 캐싱을 수행하며 일반적으로 만드는 비용이 많이 드므로 `FabricClient` 인스턴스를 최대한 많이 다시 사용하는 것이 중요합니다.
+`FabricClient`은 서비스 패브릭 클러스터의 다양한 관리 작업에서 클러스터와 통신하는 데 사용되는 개체입니다. `ServicePartitionResolver`와 클러스터가 상호 작용하는 방법을 더 제어하려는 경우에 유용합니다. `FabricClient`은 내부적으로 캐싱을 수행하며 일반적으로 만드는 비용이 많이 드므로 `FabricClient` 인스턴스를 최대한 많이 다시 사용하는 것이 중요합니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -172,7 +174,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 그런 다음 확인 메서드는 분할된 서비스에 대한 서비스의 주소 또는 서비스 파티션을 검색하는 데 사용됩니다.
 
 ```csharp
-ServicePartitionResolver resolver = new ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 
 ResolvedServicePartition partition =
     await resolver.ResolveAsync(new Uri("fabric:/MyApp/MyService"), new ServicePartitionKey(), cancellationToken);
@@ -226,10 +228,10 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 마지막으로 예외 처리기는 예외가 발생할 때 수행할 동작을 결정하는 작업을 담당합니다. 예외는 **다시 시도 가능** 및 **다시 시도 불가능**으로 분류됩니다.
 
- - **다시 시도 불가능** 예외는 단순히 다시 호출자로 throw됩니다. 
+ - **다시 시도 불가능** 예외는 단순히 다시 호출자로 throw됩니다.
  - **다시 시도 가능** 예외는 **일시적** 및 **영구** 예외로 더 세분화됩니다.
-  - **일시적** 예외는 서비스 끝점 주소를 다시 확인하지 않고 다시 시도할 수 있는 예외입니다. 일시적인 네트워크 문제 또는 서비스 끝점 주소가 존재하지 않음을 나타내는 것 이외의 서비스 오류 응답을 포함합니다. 
-  - **영구** 예외는 다시 확인할 서비스 끝점 주소를 필요로 하는 예외입니다. 이는 서비스 끝점에 도달하지 못했음을 나타내는 예외를 포함하며 이는 서비스가 다른 노드로 이동되었음을 나타냅니다. 
+  - **일시적** 예외는 서비스 끝점 주소를 다시 확인하지 않고 다시 시도할 수 있는 예외입니다. 일시적인 네트워크 문제 또는 서비스 끝점 주소가 존재하지 않음을 나타내는 것 이외의 서비스 오류 응답을 포함합니다.
+  - **영구** 예외는 다시 확인할 서비스 끝점 주소를 필요로 하는 예외입니다. 이는 서비스 끝점에 도달하지 못했음을 나타내는 예외를 포함하며 이는 서비스가 다른 노드로 이동되었음을 나타냅니다.
 
 `TryHandleException`은 주어진 예외에 대한 결정을 내립니다. 예외에 대해 어떤 결정을 내릴지 **모르는** 경우 **false**를 반환해야 합니다. 어떤 결정을 내릴지 **아는** 경우 결과를 적절하게 설정하여 **true**를 반환해야 합니다.
  
@@ -282,4 +284,4 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 
  - [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

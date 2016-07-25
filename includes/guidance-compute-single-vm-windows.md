@@ -34,7 +34,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ### VM 권장 사항
 
-- 고성능 컴퓨팅과 같은 특수한 워크로드가 발생하지 않는다면 DS 및 GS 시리즈가 좋습니다. 자세한 내용은 [가상 컴퓨터 크기][virtual-machine-sizes]를 참조하세요. 기존 워크로드를 Azure로 이동할 때 온-프레미스 서버와 가장 근접하게 일치하는 VM 크기부터 사용하기 시작합니다. 그런 다음 CPU, 메모리, 디스크 IOPS에 따라 실제 워크로드의 성능을 측정하고 필요에 따라 크기를 조정합니다. 또한 여러 NIC가 필요한 경우 각 크기에 대한 NIC 제한을 알아야 합니다.  
+- 고성능 컴퓨팅과 같은 특수한 워크로드가 발생하지 않는다면 DS 및 GS 시리즈가 좋습니다. 자세한 내용은 [가상 컴퓨터 크기][virtual-machine-sizes]를 참조하세요. 기존 워크로드를 Azure로 이동할 때 온-프레미스 서버와 가장 근접하게 일치하는 VM 크기부터 사용하기 시작합니다. 그런 다음 CPU, 메모리, 디스크 IOPS에 따라 실제 워크로드의 성능을 측정하고 필요에 따라 크기를 조정합니다. 또한 여러 NIC가 필요한 경우 각 크기에 대한 NIC 제한을 알아야 합니다.
 
 - VM 및 기타 리소스를 프로비전할 경우 위치를 지정해야 합니다. 일반적으로 내부 사용자 또는 고객에게 가장 가까운 위치를 선택합니다. 그러나 일부 위치에서는 일부 VM 크기를 사용할 수 없을 수 있습니다. 자세한 내용은 [지역별 서비스][services-by-region]를 참조하세요. 지정된 위치에서 사용할 수 있는 VM 크기를 나열하려면 다음 Azure CLI 명령을 실행합니다.
 
@@ -46,7 +46,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ### 디스크 및 저장소 권장 사항
 
-- 최상의 디스크 I/O 성능을 위해서는 SSD(Solid State Drive)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량(즉, 데이터 전송 속도)도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다. 
+- 최상의 디스크 I/O 성능을 위해서는 SSD(Solid State Drive)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량(즉, 데이터 전송 속도)도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다.
 
 - 하나 이상의 데이터 디스크를 추가합니다. 새 VHD를 만들 때 형식은 지정되지 않습니다. 디스크를 포맷하려면 VM에 로그인합니다.
 
@@ -70,7 +70,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ## 확장성 고려 사항
 
-- [VM 크기를 변경][vm-resize]하여 VM 규모를 확장하거나 축소할 수 있습니다. 
+- [VM 크기를 변경][vm-resize]하여 VM 규모를 확장하거나 축소할 수 있습니다.
 
 - 규모를 확장하려면 부하 분산 장치를 기준으로 두 개 이상의 VM을 가용성 집합에 추가합니다. 자세한 내용은 [Azure에서 여러 Windows VM 실행][multi-vm]을 참조하세요.
 
@@ -114,7 +114,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ## 보안 고려 사항
 
-- [Azure 보안 센터][security-center]를 사용하여 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다. 보안 센터는 시스템 업데이트, 맬웨어 방지와 같은 잠재적인 보안 문제를 모니터링하고 배포의 보안 상태에 대한 종합적인 그림을 제공합니다. 
+- [Azure 보안 센터][security-center]를 사용하여 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다. 보안 센터는 시스템 업데이트, 맬웨어 방지와 같은 잠재적인 보안 문제를 모니터링하고 배포의 보안 상태에 대한 종합적인 그림을 제공합니다.
 
     - 보안 센터는 각 Azure 구독을 기준으로 구성됩니다. [보안 센터 사용]에 설명된 것처럼 보안 데이터 수집을 사용하도록 설정합니다.
     - 데이터 수집이 사용되도록 설정되면 보안 센터는 해당 구독에서 만든 모든 VM을 자동으로 검색합니다.
@@ -260,19 +260,19 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ko-KR/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ko-KR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/ko-KR/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/ko-KR/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -284,21 +284,21 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ko-KR/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/ko-KR/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ko-KR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/ko-KR/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ko-KR/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [보안 센터 사용]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/ko-KR/support/legal/sla/virtual-machines/v1_0/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

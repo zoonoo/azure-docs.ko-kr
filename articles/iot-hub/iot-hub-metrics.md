@@ -54,11 +54,17 @@ IoT Hub는 허브의 상태와 연결 된 장치의 총 수에 대한 개요를 
 
 ## 다음 단계
 
-지금까지 진단 메트릭의 개요를 살펴보았습니다. 자세한 내용을 보려면 다음 링크를 따라가십시오.
+지금까지 진단 메트릭의 개요를 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
-- [IoT Hub 작업 모니터링][lnk-operations-monitoring]
-- [IoT Hub 크기 조정][lnk-scaling]
-- [IoT Hub 고가용성 및 재해 복구][lnk-dr]
+- [작업 모니터링][lnk-monitor]
+- [IoT Hub에 대한 액세스 관리][lnk-itpro]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@ IoT Hub는 허브의 상태와 연결 된 장치의 총 수에 대한 개요를 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

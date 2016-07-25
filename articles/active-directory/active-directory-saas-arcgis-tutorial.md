@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: ArcGIS와 Azure Active Directory 통합
@@ -38,7 +38,7 @@
 
 ###ArcGIS에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-arcgis-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **ArcGIS** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **ArcGIS** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Single Sign-On 구성")
 
@@ -77,7 +77,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **ArcGIS Sign In URL** 텍스트 상자에 다음 패턴 "**https://company.maps.arcgis.com*"을 사용하여 로그인하기 위해 사용자가 사용한 URL을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **ArcGIS 로그인 URL** 텍스트 상자에 다음 패턴 "*https://company.maps.arcgis.com*"을 사용하여 로그인하기 위해 사용자가 사용한 URL을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-arcgis-tutorial/IC784740.png "앱 URL 구성")
 
@@ -108,7 +108,7 @@
     3.  다운로드한 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
     4.  **ID 공급자 설정**을 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -147,7 +147,7 @@ ArcGIS의 경우 프로비전은 수동 작업입니다.
 
 ###ArcGIS에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **ArcGIS** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -159,4 +159,4 @@ ArcGIS의 경우 프로비전은 수동 작업입니다.
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -38,10 +38,14 @@ Azure IoT Hub의 주요 사용 사례 중 하나는 장치에서 원격 분석�
 
 ## 다음 단계
 
-Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
+IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 [크기 조정, HA 및 DR][lnk-scaling]을 참조하세요.
 
-- [Azure IoT Hub 시작(자습서)][lnk-get-started]
-- [IoT Hub Azure란?][]
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [Azure 이벤트 허브]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [IoT Hub 개발자 가이드의 보안 섹션]: iot-hub-devguide.md#security
@@ -49,8 +53,12 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
 [Azure 서비스 버스 할당량]: ../service-bus/service-bus-quotas.md
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

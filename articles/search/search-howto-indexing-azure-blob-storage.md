@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="06/27/2016"
+ms.date="07/12/2016"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
@@ -62,7 +62,7 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
   		"name" : "my-target-index",
   		"fields": [
     		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
   		]
 	}
 
@@ -294,4 +294,4 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

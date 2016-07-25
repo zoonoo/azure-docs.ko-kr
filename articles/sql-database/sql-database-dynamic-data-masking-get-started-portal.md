@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/11/2016"
+   ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)
@@ -100,4 +100,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

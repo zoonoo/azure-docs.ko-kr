@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #자습서: Overdrive Books와 Azure Active Directory 통합
@@ -37,7 +37,7 @@
 
 ###OverDrive에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **OverDrive** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **OverDrive** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 사용](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Single Sign-On 사용")
 
@@ -76,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **OverDrive 로그인 URL** 텍스트 상자에 다음 패턴 "**http://mslibrarytest.libraryreserve.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **OverDrive 로그인 URL** 텍스트 상자에 다음 패턴 "*http://mslibrarytest.libraryreserve.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "앱 URL 구성")
 
@@ -86,7 +86,7 @@
 
     >[AZURE.NOTE]OverDrive 지원팀은 Single Sign-On을 구성하고 구성이 완료되면 알림을 보냅니다.
 
-5.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+5.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -101,9 +101,9 @@ OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 
 ###OverDrive에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **OverDrive ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **OverDrive** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "사용자 할당")
 
@@ -113,4 +113,4 @@ OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

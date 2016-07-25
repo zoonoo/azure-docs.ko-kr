@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
@@ -1358,4 +1358,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

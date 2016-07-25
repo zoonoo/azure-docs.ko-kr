@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="mohisri"/>
+	ms.author="rachelap"/>
 
 # 앱 서비스 API 앱 - 변경된 내용
 
@@ -119,7 +119,7 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
-- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
+- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)
 - [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

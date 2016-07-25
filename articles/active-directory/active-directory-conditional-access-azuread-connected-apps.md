@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Azure AD 조건부 액세스 시작하기  
@@ -68,7 +68,7 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 
 * **다단계 인증 요구**: 이 옵션을 사용하면 액세스 규칙이 적용되는 사용자가 정책이 적용되는 응용 프로그램에 액세스하기 전에 다단계 인증을 완료해야 합니다.
 
-* **회사에 있지 않을 때 Multi-Factor Authentication 요구**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 Multi-Factor Authentication을 수행하지 않아도 됩니다. 신뢰하는 IP 주소 범위를 다단계 인증 설정 페이지에서 구성하거나, 디렉터리 구성 탭에서 공용 IP 주소 범위를 구성할 수 있습니다.
+* **회사에 있지 않을 때 Multi-Factor Authentication 요구**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 Multi-Factor Authentication을 수행하지 않아도 됩니다. 신뢰되는 IP 주소 범위는 Multi-Factor Authentication 설정 페이지에서 구성할 수 있습니다.
 
 * **회사에 있지 않을 때 액세스 차단**: 이 옵션을 사용하면 신뢰할 수 있는 IP 주소에서 액세스하는 사용자가 차단됩니다. 신뢰되는 IP 주소 범위는 Multi-Factor Authentication 설정 페이지에서 구성할 수 있습니다.
 
@@ -94,4 +94,4 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 - [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

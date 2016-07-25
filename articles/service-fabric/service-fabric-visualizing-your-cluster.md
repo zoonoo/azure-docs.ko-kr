@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 탐색기로 클러스터 시각화
@@ -99,9 +99,9 @@ http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
 ### 보안 클러스터에 연결
 
-연결하려면 인증서를 제공하도록 클라이언트에 요청하여 서비스 패브릭 클러스터에 대한 액세스를 제어할 수 있습니다.
+[인증서](service-fabric-cluster-security.md) 또는 [AAD(Azure Active Directory)](service-fabric-cluster-security-client-auth-with-aad.md)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.
 
-보안 클러스터에서 서비스 패브릭 탐색기에 연결하려는 경우 액세스 권한을 얻으려면 인증서를 제공하라는 메시지가 브라우저에 표시됩니다.
+보안 클러스터에 Service Fabric Explorer를 연결하려고 하는 경우 클러스터의 관리 끝점에 대해 설정한 보안 유형에 따라 클라이언트 인증서를 제시하거나 AAD를 사용하여 로그인해야 합니다.
 
 ## 다음 단계
 
@@ -116,4 +116,4 @@ http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

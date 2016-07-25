@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Microsoft Azure가 상업적으로 제공되는 국가와 지역은 어디이며, Azure를 구매하는 데 사용할 수 있는 통화는 무엇인가요?
@@ -171,4 +171,4 @@
 | 잠비아 | USD |
 | 짐바브웨 | USD |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

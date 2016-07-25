@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2016"
-	ms.author="mikeray" />
+	ms.date="07/12/2016"
+	ms.author="MikeRayMSFT" />
 
 # Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 
@@ -130,4 +130,4 @@ Always On 복제본이 다른 서브넷에 있는 경우 클라이언트는 연�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

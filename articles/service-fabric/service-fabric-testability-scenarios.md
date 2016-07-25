@@ -3,9 +3,9 @@
    description="서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시나리오를 통해 결함을 유도하고 서비스의 신뢰성을 확인합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmolah"
+   authors="motanv"
    manager="timlt"
-   editor="vturecek"/>
+   editor="toddabel"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
-   ms.author="anmola"/>
+   ms.date="07/08/2016"
+   ms.author="motanv"/>
 
 # 테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. Azure 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다.
@@ -247,4 +247,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

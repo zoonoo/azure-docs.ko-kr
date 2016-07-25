@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="carlasab"/>
 
 
 # Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] 리소스 관리자 모델.
 
 
 Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL Server로 마이그레이션하는 메서드가 많이 있습니다. 이 문서는 다양한 메서드를 간략하게 설명하고 다양한 시나리오에 맞는 최상의 메서드를 추천하고 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하는 과정을 안내하는 [자습서](#azure-vm-deployment-wizard-tutorial)를 포함합니다.
@@ -178,4 +178,6 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+Azure SQL Server 가상 컴퓨터를 만드는 방법에 대한 지침은 CSS SQL Server 엔지니어 블로그에서 [캡처한 이미지에서 Azure SQL 가상 컴퓨터를 '복제'하는 팁과 트릭](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)을 참조하세요.
+
+<!---HONumber=AcomDC_0713_2016-->

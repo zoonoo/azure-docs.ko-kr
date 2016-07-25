@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="06/20/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
@@ -134,6 +134,8 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 
 대상 인덱스의 스키마가 소스 JSON 문서의 스키마 또는 사용자 지정 쿼리 프로젝션의 출력과 호환되는지 확인합니다.
+
+>[AZURE.NOTE] 분할된 컬렉션의 경우 기본 문서 키는 DocumentDB의 `_rid` 속성이며 Azure 검색에서 이름을 `rid`로 변경합니다. 또한 DocumentDB의 `_rid` 값은 Azure 검색 키에 유효하지 않은 문자를 포함합니다. 따라서 `_rid` 값은 Base64로 인코딩됩니다.
 
 ###그림 A: JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
 
@@ -274,4 +276,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
  - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

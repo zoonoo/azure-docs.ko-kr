@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Azure SQL 데이터베이스에서 서버의 데이터베이스를 현재 사용할 수 없는 문제 해결"
-	description="Azure SQL 데이터베이스에 대한 연결 오류를 확인 및 해결하는 단계"
+	pageTitle="현재 서버의 데이터베이스를 사용할 수 없습니다, SQL 데이터베이스에 연결하세요 | Microsoft Azure"
+	description="응용 프로그램이 SQL 데이터베이스에 연결할 때 현재 서버의 데이터베이스를 사용할 수 없습니다 오류를 해결합니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="현재 서버의 데이터베이스를 사용할 수 없습니다, sql 데이터베이스에 연결하세요 | Microsoft Azure"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/06/2016"
 	ms.author="daleche"/>
 
-# "서버 &lt;y&gt;의 데이터베이스 &lt;x&gt;을(를) 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오." 오류 해결
+# SQL 데이터베이스에 연결할 때 “현재 서버의 데이터베이스를 사용할 수 없습니다” 오류
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 응용 프로그램이 Azure SQL 데이터베이스에 연결할 때 다음 오류 메시지가 표시됩니다.
@@ -39,4 +40,4 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 - 다른 오류가 발생하는 경우에는 [오류 메시지](sql-database-develop-error-messages.md)를 점검하여 오류의 원인을 파악합니다.
 - 문제가 지속되면 [Azure SQL 데이터베이스의 일반적인 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)의 지침을 확인해 보세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

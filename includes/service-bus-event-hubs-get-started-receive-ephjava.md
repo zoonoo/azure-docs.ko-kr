@@ -28,6 +28,11 @@ EventProcessorHost를 사용하려면 [Azure 저장소 계정][]이 있어야 �
 	<artifactId>azure-eventhubs</artifactId>
 	<version>0.7.2</version>
 </dependency>
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs-eph</artifactId>
+	<version>0.7.2</version>
+</dependency>
 ```
  
 다양한 유형의 빌드 환경을 위해, [Maven 중앙 리포지토리][Maven Package] 또는 [GitHub의 릴리스 배포 지점](https://github.com/Azure/azure-event-hubs/releases)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
@@ -193,4 +198,4 @@ EventProcessorHost를 사용하려면 [Azure 저장소 계정][]이 있어야 �
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

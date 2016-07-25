@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="07/07/2016"
    	ms.author="nitinme"/>
 
 
@@ -99,7 +99,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure ARM �
 
 9. **옵션 구성**을 클릭하여 클러스터 버전을 선택하고 **가상 네트워크**에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 **외부 Metastore** 설정 등 기타 선택적 설정을 구성하고 스크립트 동작을 사용하여 사용자 지정 구성 요소를 설치하기 위해 클러스터를 사용자 지정하거나 클러스터에 추가 저장소 계정을 사용합니다.
 
-	* **가상 네트워크**: 클러스터를 가상 네트워크에 배치하려는 경우 Azure 가상 네트워크 및 서브넷을 선택합니다.  
+	* **가상 네트워크**: 클러스터를 가상 네트워크에 배치하려는 경우 Azure 가상 네트워크 및 서브넷을 선택합니다.
 
 		![가상 네트워크 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "가상 네트워크 세부 정보 지정")
 
@@ -114,6 +114,10 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure ARM �
 		**Hive 메타데이터에 기존 SQL DB 사용**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Oozie 메타데이터에 기존 SQL DB 사용**을 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
 
 		>[AZURE.NOTE] 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+
+        &nbsp;
+
+        > [AZURE.IMPORTANT] Metastore를 만들 때 클러스터를 만드는 프로세스가 실패할 수 있으므로 대시 또는 하이픈을 포함하는 데이터베이스 이름을 사용하지 않습니다.
 
 	* **스크립트 동작**: 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우에 사용합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. 스크립트 동작 블레이드에서는 화면 캡처에 표시된 것과 같은 세부 정보를 제공합니다.
 
@@ -179,7 +183,7 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 ###HBase 클러스터
 
 * [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux)
+* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Storm 클러스터
 
@@ -195,4 +199,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

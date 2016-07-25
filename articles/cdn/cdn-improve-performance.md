@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # 파일을 압축하여 성능 향상
@@ -114,15 +114,16 @@
 |----------------|-----------|------------|-----|
 |압축|압축|압축|지원되는 형식 간 CDN 코드 변환|
 |압축|미압축|압축|CDN이 압축 수행|
-|압축|캐시되지 않음|압축|원본이 미압축 상태로 반환되면 CDN가 압축 수행|
+|압축|캐시되지 않음|압축|원본이 미압축 상태로 반환되면 CDN가 압축을 수행합니다. **Verizon에서 Azure CDN**은 첫 번째 요청에 압축되지 않은 파일을 전달한 다음 후속 요청에 대한 파일을 압축하고 캐시합니다. `Cache-Control: no-cache` 헤더를 포함한 파일을 압축되지 않습니다. 
 |미압축|압축|미압축|CDN이 압축 해제 수행|
 |미압축|미압축|미압축| |	
-|미압축|캐시되지 않음|미압축| |	
+|미압축|캐시되지 않음|미압축| |
 
-## 참고
-1. 미디어 서비스 CDN 사용 스트리밍 끝점의 경우 다음 콘텐츠 형식에 대해 기본적으로 압축이 사용됩니다. application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. Azure 포털에서 언급된 형식에 대해 압축을 사용하거나 사용하지 않도록 설정할 수 없습니다.  
+## 미디어 서비스 CDN 압축
+
+미디어 서비스 CDN 사용 스트리밍 끝점의 경우 다음 콘텐츠 형식에 대해 기본적으로 압축이 사용됩니다. application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. Azure 포털에서 언급된 형식에 대해 압축을 사용하거나 사용하지 않도록 설정할 수 없습니다.
 
 ## 참고 항목
-- [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
+- [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

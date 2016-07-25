@@ -469,4 +469,23 @@ serializer_deinit();
 
 **C용 Azure IoT 장치 SDK**에서 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 [IoT Hub SDK][lnk-sdks]를 참조하세요.
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

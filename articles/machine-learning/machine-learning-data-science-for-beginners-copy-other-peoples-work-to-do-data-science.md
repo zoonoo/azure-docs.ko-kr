@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터 과학을 수행하기 위해 다른 사람의 작품 복사 - 초급자를 위한 데이터 과학 | Microsoft Azure"
+   pageTitle="데이터 과학을 수행하기 위해 다른 사람의 작품 복사 - 실험 예제 | Microsoft Azure"
    description="데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 클러스터링 알고리즘 예제와 같은 Cortana 분석 갤러리의 예제를 참조하세요."
    keywords="데이터 과학 예제,알고리즘 예제,실험 예제,기계 학습 예제,클러스터링 알고리즘"
    services="machine-learning"
@@ -23,7 +23,7 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
+<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science"> <a title="Data science for beginners: Copy other people’s work to do data science" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science" data-expanding="false" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player/" data-caption=""> <img class="thumbnail" alt="Data science for beginners: Copy other people’s work to do data science" src="https://sec.ch9.ms/ch9/c2de/f3d64d4d-e9b3-44c7-9617-4f78e1c2c2de/DataScienceForBeginnersSeriesCopyOtherPeoplesWork_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-30-2016</span> <span>03 min, 18 sec</span> </span> </span> </a> </div>
 
 ## 비디오 내용: 데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 
@@ -94,4 +94,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

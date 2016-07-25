@@ -4,7 +4,7 @@
 	keywords="스택 추적, 오류 메시지"
 	services="hdinsight"
 	documentationCenter="NA"
-	authors="cjgronlund"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
 	ms.date="03/21/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # HDInsight에서 Hadoop 스택 추적 오류: 문제 해결 문서의 인덱스
 
@@ -34,4 +34,4 @@ Hadoop 스택 추적 오류의 이 인덱스를 사용하여 HDInsight에서 문
 * [Blob 저장소에서 힙 덤프를 수집하여 Hadoop 서비스 디버그 및 분석](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

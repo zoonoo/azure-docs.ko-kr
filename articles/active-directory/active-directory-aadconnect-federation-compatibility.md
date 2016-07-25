@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="07/06/2016"
 	ms.author="billmath"/>
 
 # Azure AD 페더레이션 호환성 목록
@@ -21,33 +21,36 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 
 타사 페더레이션 솔루션에 투자한 조직의 경우 이 항목에는 해당 조직의 Windows Server Active Directory 사용자를 위해 아래 "Azure Active Directory 페더레이션 호환성 목록"의 타사 ID 공급자를 사용하여 Microsoft Online Services로 Single Sign-On을 구성하는 지침이 포함되어 있습니다.
 
-Microsoft는 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
 
->[AZURE.IMPORTANT] Microsoft는 이러한 Single Sign-On 시나리오의 페더레이션 기능만을 테스트했습니다. Microsoft는 이러한 Single Sign-On 시나리오의 동기화, 2단계 인증 등 구성 요소에 대한 테스트는 수행하지 않았습니다.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
+
+여기에 나열된 타사 ID 공급자를 가져오는 방법에 대한 내용은 Oxford Computer Group([idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com))에 문의하세요.
+
+>[AZURE.IMPORTANT] Oxford Computer Group은 이러한 Single Sign-On 시나리오의 페더레이션 기능만을 테스트했습니다. Oxford Computer Group은 이러한 Single Sign-On 시나리오의 동기화, 2단계 인증 등 구성 요소에 대한 테스트는 수행하지 않았습니다.
 
 >UPN에 대한 대체 ID 로그인의 사용도 이 프로그램에서 테스트되지 않았습니다.
 
 
 
 - [Azure Active Directory](#azure-active-directory)
-- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
-- [PingFederate 6.11](#pingfederate-611) 
-- [PingFederate 7.2](#pingfederate-72) 
-- [Centrify](#centrify) 
-- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
-- [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
-- [CA SiteMinder 12.52](#ca-siteminder-1252) 
-- [RadiantOne CFS 3.0](#radiantone-cfs-30) 
-- [Okta](#okta) 
-- [OneLogin](#onelogin) 
-- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
-- [BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
-- [VMware Workspace Portal 버전 2.1](#vmware-workspace-portal-version-21) 
-- [Sign&go 5.3](#signampgo-53) 
-- [IceWall Federation 버전 3.0](#icewall-federation-version-30) 
-- [CA Secure Cloud](#ca-secure-cloud) 
-- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
-- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45) 
+- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
+- [PingFederate 6.11](#pingfederate-611)
+- [PingFederate 7.2](#pingfederate-72)
+- [Centrify](#centrify)
+- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
+- [SecureAuth IdP 7.2.0](#secureauth-idp-720)
+- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [RadiantOne CFS 3.0](#radiantone-cfs-30)
+- [Okta](#okta)
+- [OneLogin](#onelogin)
+- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401)
+- [BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x)
+- [VMware Workspace Portal 버전 2.1](#vmware-workspace-portal-version-21)
+- [Sign&go 5.3](#signampgo-53)
+- [IceWall Federation 버전 3.0](#icewall-federation-version-30)
+- [CA Secure Cloud](#ca-secure-cloud)
+- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71)
+- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
 
 >[AZURE.IMPORTANT] 이러한 제품은 타사 제품이므로 Microsoft는 배포, 구성, 문제 해결, 모범 사례 등 이러한 ID 공급자에 관한 문제 및 질문에 대한 지원을 제공하지 않습니다. 이러한 ID 공급자에 관한 지원 및 질문은 타사 담당자에게 직접 문의하세요.
 
@@ -81,7 +84,7 @@ Optimal IDM Virtual Identity Server Federation Services는 고객의 온-프레�
 | --------- | --------- |--------- |
 | Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
-| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |클라이언트 액세스 정책에 대한 자세한 내용은 [Limiting Access to Office 365 Services Based on the Location of the Client(클라이언트 위치 기반 Office 365 서비스에 대한 액세스 제한)](https://technet.microsoft.com/library/hh526961.aspx)을 참조하세요.|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |클라이언트 액세스 정책에 대한 자세한 내용은 [클라이언트 위치 기반 Office 365 서비스에 대한 액세스 제한](https://technet.microsoft.com/library/hh526961.aspx)을 참조하세요.|
 
 
 
@@ -98,7 +101,7 @@ PingFederate 6.11은 널리 사용되는 WS Federation ID 표준을 구현하여
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음(이전 버전은 6.11로 업그레이드해야 함)|
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://go.microsoft.com/fwlink/?LinkID=266321)서 pdf를 다운로드하세요.
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://go.microsoft.com/fwlink/?LinkID=266321)서 pdf 파일을 다운로드하세요.
 
 ## PingFederate 7.2 
 PingFederate 7.2는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
@@ -215,11 +218,11 @@ NetIQ Access Manager 4.0.1은 널리 사용되는 WS Federation/WS-Trust ID 표�
 
 | 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |**Kerberos 계약 지원됨|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |*Kerberos 계약 지원됨|
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-**NetIQ는 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다. 이 구성에 지원이 필요한 경우 NetIQ에 문의하거나 설치 가이드를 확인하세요. NetIQ Access Manager에 대한 자세한 내용은 [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)를 참조하세요.
+*NetIQ는 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다. 이 구성에 지원이 필요한 경우 NetIQ에 문의하거나 설치 가이드를 확인하세요. NetIQ Access Manager에 대한 자세한 내용은 [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)를 참조하세요.
 
 ## BIG-IP with Access Policy Manager BIG-IP 버전 11.3x – 11.6x 
 BIG-IP with Access Policy Manager(APM) BIG-IP 버전 11.3x – 11.6x는 널리 사용되는 SAML ID 표준을 구현하여 Single Sign-On 환경 및 특성 교환 프레임워크를 제공합니다.
@@ -318,6 +321,6 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 
-자세한 내용은 [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
+자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

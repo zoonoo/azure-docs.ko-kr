@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="07/11/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
 
 ## 개요 ##
-앱 서비스 환경은 항상 지역 클래식 "v1" [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 앱 서비스 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다. RFC1918 주소 공간(즉, 개인 주소)을 사용하는 가상 네트워크만 지원됩니다.
-
-**참고:** "v2" ARM 관리 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다.
+앱 서비스 환경은 **항상** Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 앱 서비스 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다. 최근에 수행된 2016년 6월 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.
 
 예를 들어 잠긴 포트 1433을 통해 가상 컴퓨터의 클러스터에서 실행되는 SQL Server가 있을 수 있습니다. 끝점은 동일한 가상 네트워크에 있는 다른 리소스의 액세스만 허용하도록 ACL에 포함될 수 있습니다.
 
@@ -36,7 +34,9 @@
 ## 아웃 바운드 연결 및 DNS 요구 사항 ##
 앱 서비스 환경이 제대로 작동하려면 다양한 끝점에 대한 아웃바운드 액세스가 필요합니다. ASE에서 사용하는 외부 끝점의 전체 목록은 [Express 경로에 대한 네트워크 구성](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 문서의 "필수 네트워크 연결" 섹션에 있습니다.
 
-가상 네트워크의 모든 사용자 지정 DNS 서버는 앱 서비스 환경 생성보다 미리 설치하는 것을 권장합니다. 앱 서비스 환경이 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, 앱 서비스 환경 생성 과정에 장애가 발생합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있고 DNS 서버를 연결하거나 사용할 수 없는 경우 앱 서비스 환경을 만드는 프로세스도 실패합니다.
+앱 서비스 환경에는 가상 네트워크에 대해 구성된 유효한 DNS 인프라가 필요합니다. 앱 서비스 환경을 만든 후에 어떤 이유로든 DNS 구성이 변경되면 개발자는 앱 서비스 환경을 강제하여 새 DNS 구성을 선택할 수 있습니다. 포털에서 앱 서비스 환경 관리 블레이드의 상단에 있는 "다시 시작" 아이콘을 사용하여 롤링 환경 다시 부팅을 트리거하면 환경에서 새 DNS 구성을 선택하게 됩니다.
+
+Vnet의 모든 사용자 지정 DNS 서버는 앱 서비스 환경 생성보다 미리 설치하는 것을 권장합니다. 앱 서비스 환경이 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, 앱 서비스 환경 생성 과정에 장애가 발생합니다. 이와 비슷하게, 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있고 DNS 서버를 연결하거나 사용할 수 없는 경우 앱 서비스 환경을 만드는 프로세스도 실패합니다.
 
 ## SQL Server 가상 컴퓨터에 연결
 일반적인 SQL Server 구성에는 포트 1433에서 수신 대기하는 끝점이 있습니다.
@@ -115,4 +115,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

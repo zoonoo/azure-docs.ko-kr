@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -30,6 +30,7 @@
 
 이 항목에서는 중요한 콘텐츠 배달 개념에 대해 간략하게 설명합니다.
 
+알려진 문제를 확인하려면 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 
 ##동적 패키징
 
@@ -86,7 +87,7 @@
 
 ##스트리밍 URL 형식
 
-**MPEG DASH 형식**
+###MPEG DASH 형식
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -96,28 +97,28 @@
 
 
 
-**Apple HLS(HTTP 라이브 스트리밍) V4 형식**
+###Apple HLS(HTTP 라이브 스트리밍) V4 형식
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-**Apple HLS(HTTP 라이브 스트리밍) V3 형식**
+###Apple HLS(HTTP 라이브 스트리밍) V3 형식
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-**오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷**
+###오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷
 
 기본적으로 오디오 전용 트랙은 HLS 매니페스트에 포함되어 있습니다. 셀룰러 네트워크에 대한 Apple 스토어 인증이 필요합니다. 이 경우 클라이언트가 충분한 대역폭이 없거나 2G 이상으로 연결되지 않은 경우 오디오 전용 재생으로 전환합니다. 버퍼링 없이 지속적인 스트리밍을 유지할 수 있도록 하지만 비디오가 없는 단점이 있습니다. 그러나 일부 시나리오에서 플레이어 버퍼링은 오디오 전용보다 선호될 수 있습니다. 오디오 전용 트랙을 제거하려는 경우 URL에 추가하고(오디오 전용=false) 제거할 수 있습니다.
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조하세요.
+자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)를 참조하세요.
 
 
-**부드러운 스트리밍 형식**
+###부드러운 스트리밍 형식
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
@@ -125,7 +126,7 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-**부드러운 스트리밍 2.0 매니페스트(레거시 매니페스트)**
+###<a id="fmp4_v20"></a>부드러운 스트리밍 2.0 매니페스트(레거시 매니페스트)
 
 기본적으로 부드러운 스트리밍 매니페스트 형식에는 반복 태그(r 태그)가 포함됩니다. 그러나 일부 플레이어에서는 r 태그를 지원하지 않습니다. 이러한 클라이언트에서는 r 태그를 사용하지 않는 형식을 사용할 수 있습니다.
 
@@ -133,12 +134,11 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-**HDS(Adobe PrimeTime/Access 정식 사용자만 해당)**
+###HDS(Adobe PrimeTime/Access 정식 사용자만 해당)
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
-
 
 ##점진적 다운로드 
 
@@ -151,7 +151,6 @@
 다음 고려 사항이 적용됩니다.
 
 - 점진적 다운로드를 위해 원본 서비스에서 스트리밍하려는 저장소 암호화된 자산을 암호 해독해야 합니다.
-
 
 ##다운로드
 
@@ -166,13 +165,38 @@
 - 점진적 다운로드를 위해 원본 서비스에서 스트리밍하려는 저장소 암호화된 자산을 암호 해독해야 합니다.
 - 12시간 안에 완료되지 않은 다운로드는 실패합니다.
 
-
-
 ##스트리밍 끝점
 
 **스트리밍 끝점**은 추가 배포를 위해 CDN(콘텐츠 배달 네트워크) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 스트리밍 끝점 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 미디어 서비스 계정에 주문형 비디오 자산이 될 수 있습니다. 또한 스트리밍 예약 단위를 조정하여 증가하는 대역폭 요구를 처리하기 위해 스트리밍 끝점 서비스의 용량을 제어할 수 있습니다. 제작 환경에서 응용 프로그램에 최소 한 개의 예약 단위를 할당해야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
 
+##알려진 문제
 
+### 부드러운 스트리밍 매니페스트 버전에 대한 변경 내용
+
+2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 레거시 Azure 미디어 인코더가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수하며 이 경우 조각 기간에서 소위 반복('r') 태그를 사용하지 않습니다. 예:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" n="0" />
+			<c d="2000" />
+			<c d="2000" />
+			<c d="2000" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+2016년 7월 이후 릴리스에서는 생성된 부드러운 스트리밍 매니페스트가 버전 2.2를 준수하며 조각 기간에서 반복 태그를 사용합니다. 예:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" r="4" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+일부 레거시 부드러운 스트리밍 클라이언트는 반복 태그를 지원하지 않을 수 있으며 매니페스트를 로드하지 못합니다. 이 문제를 완화하기 위해 레거시 매니페스트 형식 매개 변수 **(format=fmp4-v20)**를 사용하거나(자세한 내용은 [이](media-services-deliver-content-overview.md#fmp4_v20) 섹션 참조) 반복 태그를 지원하는 최신 버전으로 클라이언트를 업데이트할 수 있습니다.
 
 ##미디어 서비스 학습 경로
 
@@ -187,4 +211,4 @@
 [저장소 키를 롤링 후 미디어 서비스 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

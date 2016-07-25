@@ -27,7 +27,7 @@
 
 ![백업 프로세스 단계](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 ## 시작하기 전에
 서버 또는 클라이언트를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
@@ -184,6 +184,8 @@
 
 백업 에이전트는 네트워크 제한 기능을 제공합니다. 제한 기능은 데이터 전송 중에 사용되는 네트워크 대역폭의 양을 제어합니다. 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 제한은 백업 및 복원 작업에 적용됩니다.
 
+>[AZURE.NOTE] 네트워크 제한은 Windows Server 2008 R2 SP1, Windows Server 2008 SP2 또는 Windows 7(서비스 팩 포함)에서 사용할 수 없습니다. Azure 백업 네트워크 제한 기능은 로컬 운영 체제에 대한 QoS(서비스 품질)에 영향을 줍니다. Azure 백업이 이러한 운영 체제를 보호할 수 있지만 이러한 플랫폼에서 사용할 수 있는 QoS의 버전은 Azure 백업 네트워크 제한과 함께 작동하지 않습니다. 네트워크 제한은 다른 모든 [지원되는 운영 체제](backup-azure-backup-faq.md#installation-amp-configuration)에서 사용할 수 있습니다.
+
 **네트워크 제한을 사용하려면**
 
 1. 백업 에이전트에서 **속성 변경**을 클릭합니다.
@@ -194,7 +196,7 @@
 
     ![네트워크 제한](./media/backup-configure-vault/throttling-dialog.png)
 
-3. 제한을 사용하도록 설정했으면 **근무 시간** 및 **휴무 시간** 중에 백업 데이터 전송에 허용되는 대역폭을 지정합니다.
+3. 제한을 사용하도록 설정한 다음 **근무 시간** 및 **휴무 시간** 동안 백업 데이터 전송에 허용되는 대역폭을 지정합니다.
 
     대역폭 값은 512Kbps(초당 킬로비트)에서 시작하여 최대 1023MBps(초당 메가바이트)까지 증가할 수 있습니다. 또한 **근무 시간**의 시작 및 완료 시간과 근무일로 간주되는 요일을 지정할 수도 있습니다. 지정된 작업 시간 이외의 시간은 비 작업 시간으로 간주됩니다.
 
@@ -220,7 +222,7 @@
 ## 다음 단계
 VM 또는 다른 워크로드를 백업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- 파일과 폴더를 백업했으므로 [자격 증명 모음 및 서버를 관리](backup-azure-manage-windows-server.md)할 수 있습니다.
+- 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 - 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

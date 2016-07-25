@@ -157,10 +157,19 @@ IoT Hub에서 파일 업로드 기능을 사용하려면 먼저 Azure 저장소 
 
 ## 다음 단계
 
-Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
+Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-- [IoT Hub 시작(자습서)][lnk-get-started]
-- [IoT Hub Azure란?][]
+- [IoT 장치 대량 관리][lnk-bulk]
+- [사용 현황 메트릭][lnk-metrics]
+- [작업 모니터링][lnk-monitor]
+- [IoT Hub에 대한 액세스 관리][lnk-itpro]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -173,6 +182,16 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
   [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

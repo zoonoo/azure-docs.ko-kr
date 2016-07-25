@@ -20,7 +20,7 @@
 
 ## 소개
 
-Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([IoT Hub로 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 기타 자습서([IoT Hub로 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
 
 이 자습서는 [IoT Hub 시작] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 확장성 있는 두 개의 패턴을 보여 줍니다.
 
@@ -108,14 +108,14 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 샘플은 [블�
 
 메시지가 중복 제거 창 외부에서 다시 전송되지 않도록 하려면 코드가 **EventProcessorHost** 검사점 메커니즘을 서비스 버스 큐 중복 제거 창과 동기화합니다. 중복 제거 창이 경과(이 자습서에서 1시간)될 때마다 검사점을 최소 한 번 강제 적용하여 수행됩니다.
 
-> [AZURE.NOTE] 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [서비스 버스 설명서]를 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [Azure 서비스 버스] 설명서를 참조하세요.
 
 ### Azure 저장소 계정 및 서비스 버스 큐 프로비전
 [EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure 저장소 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보]의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
 
 > [AZURE.NOTE] 저장소 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
 
-대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [서비스 버스 큐를 사용하는 방법][Service Bus queue]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 다음 단계에 따라 [Azure 클래식 포털]을 사용할 수 있습니다.
+대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [서비스 버스 큐를 사용하는 방법][Service Bus queue]에서 설명한 것처럼 한 시간 동안 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나, 또는 다음 단계에 따라 [Azure 클래식 포털][lnk-classic-portal]을 사용할 수 있습니다.
 
 1. 왼쪽 아래 구석에 있는 **새로 만들기**를 클릭합니다. **앱 서비스** > **서비스 버스** > **큐** > **사용자 지정 만들기**를 클릭합니다. 이름 **d2ctutorial**을 입력하고 영역을 선택한 후 기존 네임스페이스를 사용하거나 새로 만듭니다. 다음 페이지에서 **중복 검색 사용**을 선택하고 **중복 검색 기록 기간**을 1시간으로 설정합니다. 그런 후 오른쪽 아래 모서리에 있는 확인 표시를 클릭하여 큐 구성을 저장합니다.
 
@@ -396,24 +396,15 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 샘플은 [블�
 
 이 자습서에서 [EventProcessorHost]를 사용하여 안정적으로 데이터 요소 및 대화형 장치-클라우드 메시지를 처리하는 방법을 알아보았습니다.
 
-[장치에서 파일 업로드] 자습서는 이 자습서를 토대로 유사한 메시지 처리 논리를 사용하여 작성되었습니다. 이 자습서는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴도 설명합니다.
+[IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법][lnk-c2d]에서는 백 엔드에서 사용자 장치에 메시지를 전송하는 방법을 보여 줍니다.
 
-IoT Hub에 대한 추가 정보:
+IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT Suite][lnk-suite]를 참조하세요.
 
-* [IoT Hub 개요]
-* [IoT Hub 개발자 가이드]
-* [IoT Hub 지침]
-* [지원하는 장치 플랫폼 및 언어][Supported devices]
-* [Azure IoT 개발자 센터]
+IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드]를 참조하세요.
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-[12]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp3.png
-
-[20]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage1.png
-[21]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage2.png
-[22]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage3.png
 
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
@@ -426,25 +417,17 @@ IoT Hub에 대한 추가 정보:
 [HDInsight(Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [Azure 서비스 버스 큐]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-
-
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide.md#d2c
+[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
 [Azure 서비스 버스]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
-[장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub 개요]: iot-hub-what-is-iot-hub.md
-[IoT Hub 지침]: iot-hub-guidance.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub로 시작]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -453,18 +436,17 @@ IoT Hub에 대한 추가 정보:
 
 <!-- Links -->
 [Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [이벤트 허브 시작]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 [Azure 저장소 확장성 지침]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [이벤트 허브]: ../event-hubs/event-hubs-overview.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [이벤트 허브 프로그래밍 가이드]: ../event-hubs/event-hubs-programming-guide.md
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Portal]: https://manage.windowsazure.com/
 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[서비스 버스 설명서]: https://azure.microsoft.com/documentation/services/service-bus/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-classic-portal]: https://manage.windowsazure.com
+[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Hightail을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 - Hightail에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Hightail에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -60,7 +60,7 @@ Hightail과 Azure AD 통합을 구성하려면 갤러리의 Hightail을 관리�
 
 **갤러리에서 Hightail을 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
  
 	![Active Directory][1]
 
@@ -356,4 +356,4 @@ Hightail 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니�
 [204]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

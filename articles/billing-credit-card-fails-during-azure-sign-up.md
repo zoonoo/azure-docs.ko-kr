@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Azure에 등록하려고 할 때 내 신용 카드가 진행되지 않습니다. | Microsoft Azure"
-	description="신용 카드 또는 직불 카드를 사용하여 Microsoft Azure 등록 문제의 공통적인 원인 설명"
+	pageTitle="등록 시 신용 카드 또는 직불 카드 거부 | Microsoft Azure"
+	description="신용 카드 또는 직불 카드 거부와 같은 Microsoft Azure 등록 문제의 일반적인 원인을 논의합니다."
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="신용 카드 거부, 직불 카드 거부, 신용 카드가 거부됨, 신용 카드가 인식되지 않음"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# Azure에 로그인하려고 할 때 내 신용 카드가 진행되지 않습니다.
-현재는 가상 카드 또는 선불 카드가 아닌 신용 카드 및 직불 카드만 유효한 지불 옵션으로 허용됩니다. 허용되는 신용 카드 및 직불 카드 공급자는 국가에 따라 다양합니다.
+# Azure에 등록하려고 할 때 내 신용 카드 또는 직불 카드가 거부됨
+신용 카드 또는 직불 카드가 거부될 경우 가상 또는 선불 카드를 사용하고 있기 때문일 수 있습니다. 현재 대부분의 신용 카드와 직불 카드는 허용되지만 가상 또는 선불 카드는 허용되지 않습니다. 가상 또는 선불 카드는 유효한 지불 옵션으로서 허용되지 않습니다. 허용되는 신용 카드 및 직불 카드 공급자는 국가에 따라 다양합니다. 신용 카드 선택을 위한 드롭다운 목록에는 선택한 국가에서 유효한 옵션만 표시됩니다.
 
-또한, 지불 방법이 활성 상태인지, 보안 정책으로 인해 은행에서 온라인 거래를 차단하지 않는지 확인해야 합니다.
+실제로 유효한 신용 카드나 직불 카드를 사용하고 있으면 해당 카드가 활성 상태인지, 보안 정책으로 인해 은행에서 온라인 거래를 차단하지 않는지 확인해야 합니다.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
@@ -40,4 +41,4 @@ Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 
 
 청구서를 설정하는 프로세스를 시작하려면 [Azure 청구 - 청구 방법](https://azure.microsoft.com/pricing/invoicing/)에서 자세한 내용을 확인하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 응용 프로그램 및 다음 단계
@@ -49,6 +49,10 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 ### 상태 비저장 웹 API
 상태 비저장 웹 API 프로젝트는 응용 프로그램을 외부 클라이언트에 공개하는 데 사용할 수 있는 기본 웹 서비스를 제공 합니다. 프로젝트 구성 방법에 대한 자세한 내용은 [OWIN 자체 호스팅을 포함한 서비스 패브릭 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)를 참조하세요.
 
+### ASP.NET core
+
+서비스 패브릭 SDK는 독립 실행형 ASP.NET Core 프로젝트에 사용할 수 있는 ASP.NET 코어 템플릿의 동일한 집합(비어 있음, [웹 API][aspnet-webapi] 및 [웹 응용 프로그램][aspnet-webapp])을 제공합니다.
+
 ## 다음 단계
 ### Azure 클러스터 만들기
 서비스 패브릭 SDK는 개발 및 테스트를 위한 로컬 클러스터를 제공합니다. Azure에서 클러스터를 만들려면 [Azure 포털에서 서비스 패브릭 클러스터 설정][create-cluster-in-portal]을 참조하세요.
@@ -70,7 +74,6 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 서비스 패브릭 응용 프로그램에 대해 지속적인 통합 프로세스를 설정할 수 있는 방법을 알아보려면 [Visual Studio Team Services를 사용하여 지속적인 통합 구성][ci-with-vso]을 참조하세요.
 
 
-
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
@@ -79,5 +82,7 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
+[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
+[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -54,15 +54,25 @@ IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련�
 
 ## 다음 단계
 
-Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-- [IoT Hub 시작(자습서)][lnk-get-started]
-- [IoT Hub Azure란?][]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub 할당량 및 제한]: iot-hub-devguide.md#throttling
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
+[lnk-design]: iot-hub-guidance.md
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

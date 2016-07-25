@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="awills"/>
  
 # Application Insights란?
@@ -27,7 +27,7 @@ NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 
 
 Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수행할 수 있습니다.
 
-* [사용 패턴을 분석][knowUsers]은 사용자에게 응용 프로그램을 지속적이고 보다 낫게 향상을 이해시킵니다. 
+* [사용 패턴을 분석][knowUsers]은 사용자에게 응용 프로그램을 지속적이고 보다 낫게 향상을 이해시킵니다.
  * 페이지 보기 수, 신규 및 복귀 사용자, 지리적 위치, 플랫폼 및 기타 핵심 사용량 통계
  * 각 기능의 성공을 평가하는 사용 현황 경로를 추적합니다.
 * 성능 문제를 [감지, 심사 및 진단][detect]하여 대부분의 사용자가 인식하기 전에 해결합니다.
@@ -118,8 +118,6 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
  * [문제 해결][qna]
  * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* 버그:
- * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * 제안:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * 블로그:
@@ -158,4 +156,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

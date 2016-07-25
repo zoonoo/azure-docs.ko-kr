@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 
 # 사용자 환경에 MyDriving 솔루션 빌드 및 배포
@@ -462,4 +462,4 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 시스템 및 해당 구성 요소의 설계에 대한 포괄적인 설명을 제공하는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #자습서: Jive와 Azure Active Directory 통합
@@ -33,7 +33,7 @@
 
 ###Jive에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.png "Active Directory")
 
@@ -62,9 +62,9 @@
 
 ![사용자 프로비저닝 구성](./media/active-directory-saas-jive-tutorial/IC698794.png "사용자 프로비저닝 구성")
 
-###사용자 프로비저닝을 구성하려면 다음 단계를 수행합니다.
+###사용자 프로비전을 구성하려면
 
-1.  Azure 관리 포털의 **Jive** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Jive** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
 
 2.  **Jive 자격 증명을 입력하여 자동 사용자 프로비저닝 사용** 페이지에서 다음 구성 설정을 입력합니다.
 
@@ -74,7 +74,7 @@
 
     3.  **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
 
-        >[AZURE.NOTE]Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다. 일반적으로 URL의 형식은 **www.<organization>.jive.com**입니다.
+        >[AZURE.NOTE] Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다. 일반적으로 URL의 형식은 **www.<organization>.jive.com**입니다.
 
     4.  **유효성 검사**를 클릭하여 구성을 확인합니다.
 
@@ -84,4 +84,4 @@
   
 이제 테스트 계정을 만들 수 있습니다. 10분 동안 기다린 후 계정이 Jive.com에 동기화되었는지 확인해 보십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

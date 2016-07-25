@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -31,112 +31,9 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  - 참고 항목: [Linux 표준 기반 - 사용자 ID 범위](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-다음은 Linux 가상 컴퓨터를 프로비전할 때 사용하지 말아야 할 사용자 이름입니다. VM 프로비전 프로세스가 실패할 수 있으므로 **이러한 사용자 이름은 사용하지 않는 것**이 좋습니다.
+다음은 Azure에서 Linux 가상 컴퓨터를 프로비전할 때 사용하지 말아야 할 Ubuntu 및 CentOS에 대한 일반적인 기본 제공 시스템 사용자 목록입니다. 이 목록은 예로 든 것일 뿐입니다. 선택한 사용자 이름이 기존 시스템 사용자와 충돌하지 않는지 확인하기 위해 배포에 대한 설명서를 참조하세요.
 
 
-## openSUSE
-- abrt
-- adm
-- audio
-- bin
-- bin
-- cdrom
-- cgred
-- daemon
-- dbus
-- dialout
-- dip
-- disk
-- floppy
-- ftp
-- games
-- gopher
-- haldaemon
-- halt
-- kmem
-- lock
-- lp
-- mail
-- man
-- mem
-- nfsnobody
-- nobody
-- ntp
-- operator
-- oprofile
-- postdrop
-- postfix
-- qpidd
-- root
-- rpc
-- rpcuser
-- saslauth
-- shutdown
-- slocate
-- sshd
-- stapdev
-- stapusr
-- sync
-- sys
-- tape
-- test
-- tcpdump
-- tty
-- users
-- utempter
-- utmp
-- uucp
-- vcsa
-- video
-- wheel
-
-
-## SLES
-- audio
-- bin
-- cdrom
-- console
-- daemon
-- dialout
-- disk
-- floppy
-- ftp
-- ftp
-- games
-- haldaemon
-- kmem
-- lp
-- lp
-- mail
-- maildrop
-- man
-- messagebus
-- modem
-- news
-- news
-- nobody
-- nogroup
-- polkituser
-- postfix
-- public
-- root
-- shadow
-- sshd
-- sys
-- test
-- trusted
-- tty
-- users
-- utmp
-- uucp
-- uuidd
-- video
-- wheel
-- www
-- wwwrun
-- xok
-
- 
 ## CentOS
 - abrt
 - adm
@@ -251,4 +148,4 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->
