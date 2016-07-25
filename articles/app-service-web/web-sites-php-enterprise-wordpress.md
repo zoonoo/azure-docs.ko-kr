@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 앱 서비스의 엔터프라이즈급 WordPress"
+	pageTitle="Azure 앱 서비스의 엔터프라이즈급 WordPress | Microsoft Azure"
 	description="Azure 앱 서비스에서 엔터프라이즈급 WordPress 사이트를 호스트하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="01/26/2016"
-	ms.author="robmcm"/>
+	ms.date="07/06/2016"
+	ms.author="sumuth"/>
 
-#Azure 앱 서비스의 엔터프라이즈급 WordPress
+# Azure 앱 서비스의 엔터프라이즈급 WordPress
 
 Azure 앱 서비스는 중요 업무용 대규모 [WordPress][wordpress] 사이트를 위한 안전하고 사용하기 쉬운 확장 가능 환경을 제공합니다. Microsoft는 자체적으로 [Office][officeblog] 및 [Bing][bingblog] 블로그와 같은 엔터프라이즈급 사이트를 운영하고 있습니다. 이 문서에서는 Azure 앱 서비스 웹 앱을 사용하여 대규모 방문자를 처리할 수 있는 엔터프라이즈급 클라우드 기반 WordPress 사이트를 설정하고 유지 관리하는 방법을 보여 줍니다.
 
@@ -32,7 +32,7 @@ Azure 앱 서비스는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 
 	> [AZURE.NOTE] 최신 버전의 PHP에서 실행하여 최신 보안 픽스를 설치하는 것이 좋습니다.
 
-###기본 배포
+### 기본 배포
 
 기본적인 요구 사항만 사용하면 Azure 지역 내에서 기본 솔루션을 만들 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 앱 서비스는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 이를 통해 사이트의 여러 웹 앱 인스턴스를 만들어 응용 프로그램을 확장할 수 있지만 모든 항목은 특정 지리적 영역에 있는 데이터 센터 내에 호스트됩니다. 이 지역 외부의 방문자는 이 사이트를 사용할 때 느린 응답 시간을 경험할 수 있으며 이 지역의 데이터 센터가 작동 중단되면 응용 프로그램도 작동 중단됩니다.
 
 
-###다중 지역 배포
+### 다중 지역 배포
 
 Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단일 URL만 제공하면서 여러 지리적 지역으로 WordPress 사이트를 확장할 수 있습니다. 모든 방문자는 트래픽 관리자를 통해 들어온 다음 부하 분산 구성에 따라 지역으로 라우팅됩니다.
 
@@ -51,7 +51,7 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 여러 MySQL 데이터베이스로의 복제 및 라우팅은 ClearDB의 [CDBR 고가용성 라우터][cleardbscale](왼쪽에 표시) 또는 [MySQL 클러스터 CGE][cge]를 사용하여 수행될 수 있습니다.
 
-###미디어 저장소 및 캐싱을 사용한 다중 지역 배포
+### 미디어 저장소 및 캐싱을 사용한 다중 지역 배포
 
 사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우에는 [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](https://azure.microsoft.com/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나를 고려하세요.
 
@@ -59,9 +59,9 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 있으므로 모든 사이트에 파일을 복제하는 문제를 걱정할 필요가 없습니다. Blob 저장소에 대해 Azure [CDN(Content Distribution Network)][cdn]을 사용하도록 설정할 수도 있습니다. 그러면 여기서 파일을 방문자에게 가까운 끝 노드로 분산합니다.
 
-###계획
+### 계획
 
-####추가 요구 사항
+#### 추가 요구 사항
 
 원하는 작업.. | 사용 기능...
 ------------------------|-----------
@@ -73,14 +73,14 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 **모니터링 및 문제 해결** | [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정][log] 및 [Azure 앱 서비스에서 웹앱 모니터링][monitor]
 **사이트 배포** | [Azure 앱 서비스에서 웹앱 배포][deploy]
 
-####가용성 및 재해 복구
+#### 가용성 및 재해 복구
 
 원하는 작업.. | 사용 기능...
 ------------------------|-----------
 **사이트 부하 분산** 또는 **사이트 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager]
 **백업 및 복원** | [Azure 앱 서비스에서 웹앱 백업][backup] 및 [Azure 앱 서비스에서 웹앱 복원][restore]
 
-####성능
+#### 성능
 
 클라우드의 성능은 주로 캐싱 및 확장을 통해 구현되지만 웹 앱 호스팅의 메모리, 대역폭 및 기타 특성도 고려해야 합니다.
 
@@ -90,7 +90,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 **리소스 캐시** | [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나
 **응용 프로그램 확장** | [Azure 앱 서비스에서 웹앱 크기 조정][websitescale] 및 [ClearDB 고가용성 라우팅][cleardbscale] 자체 MySQL 설치를 호스트하고 관리하도록 선택한 경우 확장을 위해 [MySQL 클러스터 CGE][cge]를 고려하는 것이 좋습니다.
 
-####마이그레이션
+#### 마이그레이션
 
 기존 WordPress 사이트를 Azure 앱 서비스로 마이그레이션하는 방법에는 두 가지가 있습니다.
 
@@ -120,7 +120,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 다음 섹션 중 하나를 사용하여 사이트를 마이그레이션합니다.
 
-####내보내기 및 가져오기 방법
+#### 내보내기 및 가져오기 방법
 
 1. [WordPress 내보내기][export]를 사용하여 기존 사이트를 내보냅니다.
 
@@ -145,7 +145,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 **테마** | **모양** -> **테마**로 이동한 다음 필요에 따라 사이트 테마 업데이트
 **메뉴** | 테마가 메뉴를 지원하는 경우 홈 페이지에 대한 링크에 이전 하위 디렉터리가 포함되어 있을 수 있습니다. **모양** -> **메뉴**로 이동한 후 업데이트
 
-####백업 및 복원 방법
+#### 백업 및 복원 방법
 
 1. [WordPress 백업][wordpressbackup](영문)의 정보를 사용하여 기존 WordPress 사이트를 백업합니다.
 
@@ -177,17 +177,17 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 5. WordPress 사이트가 배포되면 사이트에 대한 *.azurewebsite.net URL을 사용하여 새 사이트(앱 서비스 웹 앱)에 액세스할 수 있어야 합니다.
 
-###사이트 구성
+### 사이트 구성
 
 WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보를 사용하여 성능을 향상시키거나 추가 기능을 사용하도록 설정합니다.
 
 원하는 작업.. | 사용 기능...
 ------------- | -----------
 **앱 서비스 계획 모드, 크기 및 사용 크기 조정 설정** | [Azure 앱 서비스에서 웹 앱 크기 조정][websitescale]
-**영구 데이터베이스 연결 사용** <p>기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에 데이터베이스에 대한 연결이 조절될 수 있습니다.</p> | <ol><li><p><strong>wp-includes/wp-db.php</strong> 파일을 편집합니다.</p></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>이전 줄을 다음으로 바꿉니다.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>위 줄을 다음으로 바꿉니다.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p><strong>wp-includes/wp-db.php</strong> 파일을 저장하고 사이트를 다시 배포합니다.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>WordPress를 업데이트하면 변경 내용을 덮어쓸 수 있습니다.</p><p>WordPress는 기본적으로 자동으로 업데이트됩니다. <strong>wp-config.php</strong> 파일을 편집하고 <code>정의를 추가하여 이 기능을 해제할 수 있습니다.( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>업데이트를 해결하는 다른 방법으로 WebJob을 사용하여 <strong>wp-db.php</strong> 파일을 모니터링하고 파일이 업데이트될 때마다 위 수정을 수행할 수 있습니다. 자세한 내용은 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 소개</a>를 참조하세요.</p></div>
-**성능 향상** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">ARR 쿠키 사용 안 함</a> - 여러 웹앱 인스턴스에서 WordPress를 실행할 때 성능을 향상시킬 수 있습니다.</p></li><li><p>캐싱을 사용하도록 설정합니다. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis 캐시</a>(미리 보기)를 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 개체 캐시 WordPress 플러그 인과 함께 사용하거나</a> <a href="/gallery/store/">Azure Store</a>의 기타 캐싱 서비스 중 하나를 사용합니다.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Wincache로 WordPress를 더 빠르게 만드는 방법</a> - Wincache는 웹앱에 대해 기본적으로 사용되도록 설정되어 있습니다.</p></li><li><p><a href="../web-sites-scale/">Azure 앱 서비스에서 웹앱을 확장하고</a> <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 고가용성 라우팅</a> 또는 <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>를 사용합니다.</p></li></ul>
-**저장소에 Blob 사용** | <ol><li><p><a href="../storage-create-storage-account/">Azure 저장소 계정 만들기</a></p></li><li><p><a href="../cdn-how-to-use/">CDN(콘텐츠 배포 네트워크)을 사용하여</a> blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li><li><p><a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress용 Azure 저장소 플러그 인</a>을 설치하고 구성합니다.</p><p>이 플러그 인의 자세한 설정 및 구성 정보에 대해서는 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">사용자 가이드</a>를 참조하세요.</p> </li></ol>
-**전자 메일 사용** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Azure Store를 사용하여 SendGrid 사용</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">WordPress용 SendGrid 플러그 인 설치</a></p></li></ol>
+**영구 데이터베이스 연결 사용** <p>기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에 데이터베이스에 대한 연결이 조절될 수 있습니다.</p> | <ol><li><p><strong>wp-includes/wp-db.php</strong> 파일을 편집합니다.</p></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>이전 줄을 다음으로 바꿉니다.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>위 줄을 다음으로 바꿉니다.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p><strong>wp-includes/wp-db.php</strong> 파일을 저장하고 사이트를 다시 배포합니다.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>WordPress를 업데이트하면 변경 내용을 덮어쓸 수 있습니다.</p><p>WordPress는 기본적으로 자동으로 업데이트됩니다. <strong>wp-config.php</strong> 파일을 편집하고 <code>정의를 추가하여 이 기능을 해제할 수 있습니다.( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>업데이트를 해결하는 다른 방법으로 WebJob을 사용하여 <strong>wp-db.php</strong> 파일을 모니터링하고 파일이 업데이트될 때마다 위 수정을 수행할 수 있습니다. 자세한 내용은 [WebJobs 소개](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)를 참조하세요.</p></div>
+**성능 향상** | <ul><li><p>[ARR 쿠키 사용 안 함](http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx) - 여러 웹앱 인스턴스에서 WordPress를 실행할 때 성능을 향상시킬 수 있습니다.</p></li><li><p>캐싱을 사용하도록 설정합니다. [Redis cache](http://msdn.microsoft.com/library/azure/dn690470.aspx)를 [Redis 개체 캐시 WordPress 플러그 인](https://wordpress.org/plugins/redis-object-cache/)과 함께 사용하거나[Azure 스토어](/gallery/store/)의 기타 캐싱 서비스 중 하나를 사용합니다.</p></li><li><p>[Wincache로 WordPress를 더 빠르게 만드는 방법](http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/) - Wincache는 웹앱에 대해 기본적으로 사용되도록 설정되어 있습니다.</p></li><li><p>[Azure 앱 서비스에서 웹앱을 확장하고](../app-service-web/web-sites-scale.md) [ClearDB 고가용성 라우팅](http://www.cleardb.com/developers/cdbr/introduction) 또는 [MySQL Cluster CGE](http://www.mysql.com/products/cluster/)를 사용합니다.</p></li></ul>
+**저장소에 Blob 사용** | <ol><li><p>[Azure 저장소 계정 만들기](../storage/storage-create-storage-account.md)</p></li><li><p>[CDN(콘텐츠 배포 네트워크)을 사용하여][cdn] Blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li><li><p>[WordPress용 Azure 저장소 플러그 인](https://wordpress.org/plugins/windows-azure-storage/)을 설치하고 구성합니다.</p><p>이 플러그 인의 자세한 설정 및 구성 정보에 대해서는 [사용자 가이드](http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx)를 참조하세요.</p> </li></ol>
+**전자 메일 사용** | <ol><li><p>[Azure 스토어를 사용하여 SendGrid 사용](/gallery/store/sendgrid/sendgrid-azure/)</p></li><li><p>[WordPress용 SendGrid 플러그 인 설치](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)</p></li></ol>
 **사용자 지정 도메인 이름 구성** | [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성][customdomain]
 **사용자 지정 도메인 이름에 HTTPS 사용** | [Azure 앱 서비스에서 웹앱에 대한 HTTPS를 사용하도록 설정][httpscustomdomain]
 **사이트 부하 분산 또는 지리적으로 분산** | [Azure 트래픽 관리자로 트래픽 라우팅][trafficmanager] 사용자 지정 도메인을 사용하는 경우 사용자 지정 도메인 이름으로 트래픽 관리자 사용에 대한 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성][customdomain]을 참조하세요.
@@ -237,6 +237,8 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
+<!-- URL List -->
+
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
 [multi-region-diagram]: ./media/web-sites-php-enterprise-wordpress/multi-region-diagram.png
@@ -260,8 +262,8 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -276,10 +278,9 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
-[posh]: ../install-configure-powershell.md
+[posh]: ../powershell-install-configure.md
 [Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: ../cdn-how-to-use.md
- 
+[cdn]: ../cdn/cdn-overview.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

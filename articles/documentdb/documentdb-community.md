@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="06/21/2016"
+  ms.date="07/06/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -21,7 +21,6 @@
 ## 커뮤니티 스포트라이트
 
 프로젝트의 수준을 올려보겠습니다. DocumentDB로 작업 중인 멋진 프로젝트를 보여주고 사용자의 재능을 다른 사람과 공유할 수 있도록 합니다. 프로젝트를 제출하려면 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)으로 메일을 보내세요.
-
 
 ### documentdb-lumenize
 
@@ -31,7 +30,6 @@ DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N �
 
 [Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인하세요.
 
-
 ### DocumentDB 스튜디오
 
 *Ming Liu 작성*
@@ -39,7 +37,6 @@ DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N �
 Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기입니다.
 
 [GitHub](https://github.com/mingaliu/DocumentDBStudio)에서 확인하세요.
-
 
 ### DoQmentDB
 
@@ -49,7 +46,6 @@ DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.
 
 [Github](https://github.com/a8m/doqmentdb) 및 [npm](https://www.npmjs.com/package/doqmentdb)에서 확인하세요.
 
-
 ### DocumentDB용 Swagger REST API
 
 *Howard Edidin 작성*
@@ -57,7 +53,6 @@ DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.
 API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입니다.
 
 [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi)에서 확인하세요.
-
 
 ### fluent-plugin-documentdb
 
@@ -75,47 +70,47 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 **커뮤니티 게시물:**
 
-* [**Going Social with DocumentDB(DocumentDB로 소셜 이동)**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *Matias Quarantaas 작성*
+- [**Going Social with DocumentDB(DocumentDB로 소셜 이동)**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *Matias Quarantaas 작성*
 
-* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app(UWP, Azure 앱 서비스 및 DocumentDB Soup: 사진 공유 앱)**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *Eric Langland 작성*
+- [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app(UWP, Azure 앱 서비스 및 DocumentDB Soup: 사진 공유 앱)**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *Eric Langland 작성*
 
-* [**Notifications for new or changed DocumentDB resources using Logic Apps(논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림)**](documentdb-change-notification.md) - *Howard Edidin 작성*
+- [**Notifications for new or changed DocumentDB resources using Logic Apps(논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림)**](documentdb-change-notification.md) - *Howard Edidin 작성*
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb(fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그 수집)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
+- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb(fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그 수집)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
 
-* [**DocumentDB revisited Part 1/2 – The theory(DocumentDB 재고 파트 1/2 - 이론)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *Peter Mannerhult 작성*
+- [**DocumentDB revisited Part 1/2 – The theory(DocumentDB 재고 파트 1/2 - 이론)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *Peter Mannerhult 작성*
 
-* [**What to love and hate about Azure’s DocumentDB(Azure DocumentDB의 장점과 단점)**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *George Saadeh 작성*
+- [**What to love and hate about Azure’s DocumentDB(Azure DocumentDB의 장점과 단점)**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *George Saadeh 작성*
 
-* [**Azure DocumentDB Server-Side Scripting(Azure DocumentDB 서버 쪽 스크립팅)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *Robert Sheldon 작성*
+- [**Azure DocumentDB Server-Side Scripting(Azure DocumentDB 서버 쪽 스크립팅)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *Robert Sheldon 작성*
 
-* [**Azure 스트림 분석에 대한 데이터 싱크로 DocumentDB**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *Jan Hentschel 작성*
+- [**Azure 스트림 분석에 대한 데이터 싱크로 DocumentDB**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *Jan Hentschel 작성*
 
-* [**프로덕션 환경에서 Azure DocumentDB!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *Alexandre Walsh 및 Marc Olivier Duval 작성*
+- [**프로덕션 환경에서 Azure DocumentDB!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *Alexandre Walsh 및 Marc Olivier Duval 작성*
 
-* [**Azure 검색 인덱서 - DocumentDB 쿼리(스페인어)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *Matthias Quaranta 작성*
+- [**Azure 검색 인덱서 - DocumentDB 쿼리(스페인어)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *Matthias Quaranta 작성*
 
-* [**Azure DocumentDB のSQLクエリ基礎**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *Atsushi Yokohama 작성*
+- [**Azure DocumentDB SQL 쿼리 기본 사항(일본어)**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *Atsushi Yokohama 작성*
 
-* [**데이터 요소 - Aurelia와 DocumentDB의 결합: 매치메이커의 여행**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *Julie Lerman 작성*
+- [**데이터 요소 - Aurelia와 DocumentDB의 결합: 매치메이커의 여행**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *Julie Lerman 작성*
 
-* [**Infrastructure as Code 및 Node.js + Azure DocumentDB 솔루션의 연속 배포**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *Thiago Almedia 작성*
+- [**Infrastructure as Code 및 Node.js + Azure DocumentDB 솔루션의 연속 배포**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *Thiago Almedia 작성*
 
-* [**DocumentDb가 비즈니스 측면에서 일부 프로젝트에 적합한 이유**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *Samuel Uresin 작성*
+- [**DocumentDb가 비즈니스 측면에서 일부 프로젝트에 적합한 이유**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *Samuel Uresin 작성*
 
-* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *Atsushi Yokohama 작성*
+- [**Azure DocumentDB 개발 진행 방향 – 클라이언트 클래스의 개발(1/2)(일본어)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *Atsushi Yokohama 작성*
 
-* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *Atsushi Yokohama 작성*
+- [**Azure DocumentDB를 사용할 때 알아야 할 사항(일본어)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *Atsushi Yokohama 작성*
 
-* [**Azure DocumentDB의 RequestRateTooLarge 오류 처리 및 성능 테스트**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *Azim Uddin 작성*
+- [**Azure DocumentDB의 RequestRateTooLarge 오류 처리 및 성능 테스트**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *Azim Uddin 작성*
 
-* [**Data Points - Microsoft Azure DocumentDB의 개요**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Julie Lerman 작성*
+- [**Data Points - Microsoft Azure DocumentDB의 개요**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Julie Lerman 작성*
 
-* [**F#과 함께 DocumentDB 사용**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *Jamie Dixon 작성*
+- [**F#과 함께 DocumentDB 사용**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *Jamie Dixon 작성*
 
-* [**DocumentDB로 응용 프로그램 로그 분석**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *Vincent Philippe Lauzon 작성*
+- [**DocumentDB로 응용 프로그램 로그 분석**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *Vincent Philippe Lauzon 작성*
 
-* [**Azure DocumentDB – 지정 시간 백업**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *Juan Carlos Sanchez 작성*
+- [**Azure DocumentDB – 지정 시간 백업**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *Juan Carlos Sanchez 작성*
 
 *공유하려는 블로그 게시물, 코드 샘플 또는 사례 연구가 있나요? [알려주세요](mailto:askdocdb@microsoft.com)!*
 
@@ -125,7 +120,7 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [통합 및 IoT](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgium | 2016년 6월 30일 | 해당 없음 |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu와 Tara Jana | 애틀랜타, GA | 2016년 9월 26-30일 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
@@ -134,7 +129,10 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [Logic Apps에서 오류 처리를 지원하나요?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) | Howard S. Edidin | 웹캐스트 | 2016년 6월 20일 | 해당 없음 |
+| [DevTeach](http://devteach.com/) | Ken Cenerelli | 몬트리올, 캐나다 | 2016년 7월 4-8일 | [NoSQL, 문제 없음, Azure DocumentDB 사용](http://www.slideshare.net/KenCenerelli) |
+| [통합 및 IoT](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgium | 2016년 6월 30일 | 해당 없음 |
+| [MongoDB World 2016](https://www.mongodb.com/world16) | Kirill Gavrylyuk | 뉴욕, 뉴욕 | 2016년 6월 28-29일 | 해당 없음 |
+| [통합 사용자 그룹](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | 웹캐스트 | 2016년 6월 20일 | [Logic Apps에서 오류 처리를 지원하나요?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [모임: 영국 Azure 사용자 그룹](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | 런던, 영국 | 2016년 5월 12일 | 해당 없음
 |[Meetup: ONETUG - Orlando .NET 사용자 그룹 ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| 올랜도, FL| 2016년 5월 12일| 해당 없음 
 | [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | 해당 없음| [모임: NYC .NET 개발자 그룹](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | 뉴욕 시, NY | 2016년 4월 21일 | 해당 없음 |
@@ -256,8 +254,8 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 ## DocumentDB 마법사
 
 DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최대한 활용할 수 있도록 돕기 위해 모범을 보여왔던 커뮤니티 리더입니다. 놀라운 열정, 실제 지식 및 기술적 전문성을 커뮤니티 및 DocumentDB 팀과 공유합니다.
-      
-                                                                                                                                                                                                                                                                                                           Wizard | Picture 
+
+마법사 | 그림 
  --- | --- 
  [Allan Mitchell](https://twitter.com/allansqlis) | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis)로 바꿉니다. 
  [Jen Stirrup](https://twitter.com/jenstirrup) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup)로 바꿉니다.            
@@ -268,4 +266,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

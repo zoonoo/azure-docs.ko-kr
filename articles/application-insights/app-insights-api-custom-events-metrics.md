@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -47,8 +47,8 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 * 프로젝트에 Application Insights SDK 추가:
  * [ASP.NET 프로젝트][greenbrown]
  * [Windows 프로젝트][windows]
- * [Java 프로젝트][java] 
- * [각 웹 페이지의 JavaScript][client]   
+ * [Java 프로젝트][java]
+ * [각 웹 페이지의 JavaScript][client]
 
 * 장치 또는 웹 서버 코드에 다음을 포함합니다.
 
@@ -505,7 +505,35 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 > [AZURE.WARNING] Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 마세요. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
 
-#### <a name="timed"></a> 타이밍 이벤트
+## 작업 컨텍스트
+
+웹앱이 HTTP 요청을 받으면 Application Insights 요청 추적 모듈은 요청에 ID를 할당하고 현재 작업 ID와 동일한 값을 설정합니다. 작업 ID는 요청에 대한 응답을 전송할 때 삭제됩니다. 해당 작업 중에 수행되는 모든 추적 호출에는 동일한 작업 ID가 할당됩니다(기본 TelemetryContext를 사용하는 경우). 따라서 포털에서 이러한 호출을 검사할 때 특정 요청에 관련된 이벤트에 상관 관계를 설정할 수 있습니다.
+
+![관련 항목](./media/app-insights-api-custom-events-metrics/21.png)
+
+HTTP 요청과 연결되지 않은 이벤트를 모니터링하거나 요청 추적 모듈을 사용하지 않는 경우(예를 들어 백 엔드 프로세스를 모니터링하는 경우) 다음 패턴을 사용하여 사용자 고유의 작업 컨텍스트를 설정할 수 있습니다.
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+`StartOperation`에서는 작업 컨텍스트를 설정할 뿐 아니라 사용자가 지정하는 형식의 원격 분석 항목을 만든 후, 사용자가 작업을 삭제할 때나 `StopOperation`을 명시적으로 호출하는 경우에 전송합니다. 원격 분석 형식으로 `RequestTelemetry`를 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
+
+작업 컨텍스트는 중첩할 수 없습니다. 작업 컨텍스트가 이미 있는 경우 해당 ID가 StartOperation을 사용하여 만든 항목을 비롯한 모든 포함된 항목에 연결됩니다.
+
+
+## <a name="timed"></a> 타이밍 이벤트
 
 어떤 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 다음은 측정 매개 변수 사용 방법을 보여 주는 유용한 예입니다.
 
@@ -576,7 +604,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
-* `ITelemetryInitializer`를 구현하여 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예를 들어 다른 속성에서 계산된 값 또는 버전 번호를 추가합니다. 
+* `ITelemetryInitializer`를 구현하여 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예를 들어 다른 속성에서 계산된 값 또는 버전 번호를 추가합니다.
 * `ITelemetryProcesor`를 구현하면 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
 * [샘플링](app-insights-api-filtering-sampling.md#sampling)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 샘플링은 표시된 메트릭에 영향을 주지 않고 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하며 문제를 진단하는 기능에 영향을 주지 않습니다.
 
@@ -617,7 +645,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -672,11 +700,11 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **Location** 장치의 지리적 위치를 식별합니다.
 * **Operation** 웹 앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.
  * **Id**: 진단 검색의 이벤트를 검사할 때 "항목 관련"을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
- * **Name**: 식별자이며, 일반적으로 HTTP 요청의 URL입니다. 
+ * **Name**: 식별자이며, 일반적으로 HTTP 요청의 URL입니다.
  * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
 * **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
-* **User** 사용자 정보입니다. 
+* **User** 사용자 정보입니다.
 
 ## 제한
 
@@ -750,4 +778,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

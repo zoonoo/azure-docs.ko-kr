@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Microsoft Power BI Embedded란?
 
-**Power BI Embedded**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자를 위해 데이터를 시각화하려고 사용자 지정 솔루션을 빌드할 필요가 없습니다.
+**Power BI Embedded**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있습니다.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Power BI Embedded**는 ISV(독립 소프트웨어 공급업체)가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 Azure 서비스입니다. ISV가 응용 프로그램을 빌드했습니다. 이러한 응용 프로그램에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 **Microsoft Power BI Embedded**를 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 응용 프로그램의 사용자는 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 사용자는 이전처럼 응용 프로그램에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 및 타일 환경을 보고 조작할 수 있습니다.
+Power BI Embedded는 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스**입니다. 개발자가 응용 프로그램을 구축한 경우 이러한 응용 프로그램에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI Embedded를 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 사용자는 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 사용자는 이전처럼 응용 프로그램에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
 
 ## Microsoft Power BI Embedded 라이선스
 
@@ -32,7 +32,7 @@
 
 ![](media\powerbi-embedded-whats-is\model.png)
 
-Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스는 [Azure ARM API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
+Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure ARM API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
 
 ## 작업 영역 컬렉션
 
@@ -40,7 +40,7 @@ Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스
 
 -	**액세스 키** - Power BI API(다음 섹션에서 설명)를 안전하게 호출할 때 사용하는 키입니다.
 -	**사용자** - Azure 포털 또는 ARM API를 통해 Power BI 작업 영역 컬렉션을 관리하는 관리자 권한이 있는 AAD(Azure Active Directory) 사용자입니다.
--	**지역** – **작업 영역 컬렉션** 프로비전의 일부이며 프로비전할 지역을 선택할 수 있습니다. 자세한 내용은 [Azure 영역](https://azure.microsoft.com/regions/)을 참조하세요.
+-	**지역** – **작업 영역 컬렉션** 프로비전의 일부이며 프로비전할 지역을 선택할 수 있습니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 ## 작업 영역
 
@@ -48,17 +48,6 @@ Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스
 
 ## 작업 영역 컬렉션 및 작업 영역 사용
 **작업 영역 컬렉션** 및 **작업 영역**은 빌드할 응용 프로그램의 디자인에 가장 적합한 방법으로 사용되거나 구성되는 콘텐츠의 컨테이너입니다. 컨테이너 내에서 콘텐츠를 정렬할 수 있는 다양한 방법이 있습니다. 하나의 작업 영역 내에 모든 콘텐츠를 배치한 다음 나중에 앱 토큰을 사용하여 고객 간 콘텐츠를 더 세분화하는 방법을 선택할 수 있습니다. 또한 고객이 어느 정도 구분이 되도록 모든 고객을 분할된 작업 영역에 배치하는 방법을 선택할 수 있습니다. 또는 고객이 아닌 지역으로 사용자를 구성하는 방법을 선택할 수 있습니다. 이 유연한 디자인을 사용하면 콘텐츠를 구성할 가장 좋은 방법을 선택할 수 있습니다.
-## 미리 보기의 데이터 원본
-
-다음과 같이 미리 보기용으로 제한된 데이터 원본 집합을 사용할 수 있도록 지원할 예정입니다.
-
-### 직접 쿼리
-
-미리 보기용 클라우드 소스에 대한 직접 쿼리 연결을 지원합니다. 즉, 해당 데이터 원본에 연결하여 최신 데이터를 표시할 수 있습니다. 이러한 데이터 원본은 클라우드에서 연결할 수 있어야 하며 기본 인증을 사용해야 합니다. 이에 대한 몇 가지 이상적인 후보는 다음과 같습니다.
-
--	SQL Azure
--	SQL Azure DW
--	HD Insight Spark
 
 ## 캐시된 데이터 집합
 
@@ -93,9 +82,6 @@ Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스
 
 ## 참고 항목
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
-- [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
-- [앱 토큰](power-bi-embedded-get-started-sample.md#key-flow)
-- [Power BI REST API](http://docs.powerbi.apiary.io/reference)
-- [Azure 지역](https://azure.microsoft.com/regions/)
+- [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

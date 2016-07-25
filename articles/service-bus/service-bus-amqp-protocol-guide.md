@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0 | Microsoft Azure" 
     description="Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -206,11 +206,7 @@ API 수준의 "수신" 호출은 클라이언트가 서비스 버스로 보내�
 
 | 필드 이름 | 사용 | API 이름 |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - |
-| priority | - | - |
-| ttl | Time to live for this message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
-| first-acquirer | - | - |
-| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - | | priority | - | - | | ttl | Time to live for this message | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 
@@ -234,6 +230,8 @@ API 수준의 "수신" 호출은 클라이언트가 서비스 버스로 보내�
 ## 고급 서비스 버스 기능
 
 이 섹션에서는 현재 AMQP의 OASIS 기술 위원회에서 개발 중인 AMQP의 확장 초안에 기반하는 Azure 서비스 버스의 고급 기능을 설명합니다. Azure 서비스 버스는 이러한 초안의 최신 상태를 구현하고 해당 초안이 표준 상태에 도달될 때 도입된 변경 내용을 채택하게 됩니다.
+
+> [AZURE.NOTE] 서비스 버스 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [서비스 버스의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
 
 ### AMQP 관리
 
@@ -328,4 +326,4 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
@@ -1296,13 +1296,13 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
 
 이 R 프로그래밍 자습서는 Azure 기계 학습 스튜디오에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
-- R for Beginners by Emmanuel Paradis(http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)는 초보자가 시작하기에 아주 좋은 곳입니다.  
+- R for Beginners by Emmanuel Paradis(http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)는 초보자가 시작하기에 아주 좋은 곳입니다.
 
 - W. N. Venables 등이 http://cran.r-project.org/doc/manuals/R-intro.html에서 R에 대해 좀 더 구체적으로 소개합니다.
 
 R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지 유용한 서적은 다음과 같습니다.
 
-- 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
+- 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.
 
 - 'R Cookbook'(저자: Paul Teetor)(영문)은 R을 사용한 문제 및 해결 접근 방식을 제공합니다.
 
@@ -1318,7 +1318,7 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 
 다음은 유용한 인터넷 리소스입니다.
 
-- DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서를 받을 수 있습니다.  
+- DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서를 받을 수 있습니다.
 
 - 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

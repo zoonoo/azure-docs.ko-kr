@@ -28,22 +28,7 @@ ms.author="adegeo"/>
 
 ## 역할이 시작되기 전에 환경 변수를 정의합니다.
 
-서비스 정의 파일의 역할 정의에 [런타임] 요소를 추가하여 전체 역할에 대한 환경 변수를 정의할 수 있습니다.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-특정 작업에 대해 정의된 다른 작업과 공유되지 않는 환경 변수가 필요한 경우 [작업] 요소 내부의 [환경] 요소를 사용할 수 있습니다.
+특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [태스크] 요소 내부의 [환경] 요소를 사용합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -87,7 +72,7 @@ ms.author="adegeo"/>
 
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe* 에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) 특성을 `elevated`에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,7 +376,6 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
     REM   Exit normally.
     EXIT /B 0
 
-
 ## 작업 모범 사례
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
@@ -491,10 +475,10 @@ Startup2.cmd:
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[태스크]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
@@ -504,4 +488,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

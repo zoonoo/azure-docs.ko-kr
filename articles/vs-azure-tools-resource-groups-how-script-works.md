@@ -3,8 +3,8 @@
 	description="Azure 리소스 그룹 배포 프로젝트에서 PowerShell 스크립트가 작동하는 방식을 설명합니다."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Azure 리소스 그룹 프로젝트 배포 스크립트 개요
 
@@ -105,7 +105,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
         }
     ```
 
-1.	JSON 매개 변수 컬렉션을 반복합니다. *\_artifactsLocation* or *\_artifactsLocationSasToken*에 매개 변수 값이 할당된 경우에는 해당 값에 *$OptionalParameters* 매개 변수를 설정합니다. 이렇게 하면 사용자가 제공한 매개 변수 값을 스크립트가 의도치 않게 덮어쓰는 것을 방지합니다.
+1.	JSON 매개 변수 컬렉션을 반복합니다. *\_artifactsLocation* 또는 *\_artifactsLocationSasToken*에 매개 변수 값이 할당된 경우에는 해당 값에 *$OptionalParameters* 매개 변수를 설정합니다. 이렇게 하면 사용자가 제공한 매개 변수 값을 스크립트가 의도치 않게 덮어쓰는 것을 방지합니다.
 
     ```
     $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -264,4 +264,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

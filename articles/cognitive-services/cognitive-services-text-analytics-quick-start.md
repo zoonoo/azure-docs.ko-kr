@@ -36,7 +36,9 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 - **언어** - 텍스트가 작성된 언어
 
-이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다.
+이 API는 제출된 문서당 하나의 트랜잭션을 사용합니다. 예를 들어 단일 호출에서 1000개의 문서에 대한 정서를 요청하면 1000개의 트랜잭션이 공제됩니다.
+
+
 
 <a name="Overview"></a>
 ## 일반 개요 ##
@@ -293,4 +295,6 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 축하합니다. 데이터에 대한 텍스트 분석 사용을 완료했습니다. 이제 데이터를 시각화하고 통찰력을 자동화하여 텍스트 데이터의 실시간 보기를 제공하는 [Power BI](//powerbi.microsoft.com)와 같은 도구 사용에 대해 살펴보고 싶을 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+감정과 같은 텍스트 분석 기능을 봇의 일부로 사용할 수 있는 방법을 확인하려면 봇 프레임워크 사이트에서 [감정적 봇](http://docs.botframework.com/ko-KR/bot-intelligence/language/#example-emotional-bot) 예제를 참조하세요.
+
+<!---HONumber=AcomDC_0713_2016-->

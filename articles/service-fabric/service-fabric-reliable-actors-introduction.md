@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # 서비스 패브릭 신뢰할 수 있는 행위자 소개
@@ -105,7 +105,7 @@ await myActor.DoWorkAsync();
 
 Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간단한 턴 기반 액세스 모델을 제공합니다. 따라서 행위자 개체의 코드 내에는 항상 둘 이상의 스레드가 활성화될 수 없습니다. 데이터 액세스에 대한 동기화 메커니즘이 필요하지 않기에 턴 기반 액세스는 동시 시스템을 매우 간소화합니다. 또한 각 행위자 인스턴스의 단일 스레드 액세스 특성에 대해 특별히 고려하여 시스템을 디자인해야 합니다.
 
- - 단일 행위자 인스턴스는 한 번에 둘 이상의 요청을 처리할 수 없습니다. 행위자 인스턴스가 동시 요청을 처리해야 하는 경우 처리량 병목 지점이 발생할 수 있습니다. 
+ - 단일 행위자 인스턴스는 한 번에 둘 이상의 요청을 처리할 수 없습니다. 행위자 인스턴스가 동시 요청을 처리해야 하는 경우 처리량 병목 지점이 발생할 수 있습니다.
  - 행위자는 행위자 중 하나에 외부 요청을 동시에 수행하는 동안 두 행위자 간에 순환 요청이 있는 경우 행위자는 서로 교착 상태가 될 수 있습니다. 행위자 런타임은 자동으로 행위자 호출에 대해 시간이 초과되고 교착 상태가 발생한 호출자에게 예외를 throw합니다.
 
 ![Reliable Actors 통신][3]
@@ -158,4 +158,4 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

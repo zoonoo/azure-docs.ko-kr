@@ -1,19 +1,20 @@
 <properties
    pageTitle="Azure 구독의 소유권 양도 | Microsoft Azure"
    description="다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)"
-   services="billing"
+   services=""
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor=""/>
+   editor="n/a"
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
-   ms.date="07/04/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Azure 구독의 소유권 양도
@@ -27,12 +28,9 @@
 
 이제 종량제, MSDN, Action Pack 또는 BizSpark 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 구독을 운영하고 있는 국가와 관계없이 소유하고 있는 종량제, MSDN, Action Pack 또는 BizSpark 구독의 계정 관리자를 변경할 수 있습니다. 이제 이러한 구독 유형에 대해서도 Azure 마켓플레이스 구매에 대한 양도를 지원합니다.
 
-**참고** 소유권 양도를 수행하려면 계정 관리자여야 합니다. 다음과 같이 구독의 계정 관리자가 누구인지 확인할 수 있습니다.
+> [AZURE.NOTE]  구독을 다른 제품으로 변경하려면 [다른 Azure 제품으로 전환](billing-how-to-switch-azure-offer.md)에서 자세한 내용을 참조하세요.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **구독**을 선택합니다.
-3. 확인하려는 구독을 선택한 다음 **설정**을 선택합니다. ![설정](./media/billing-subscription-transfer/settings.png)
-4. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시 됩니다. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+> 소유권 양도를 수행하려면 계정 관리자여야 합니다. 구독의 계정 관리자를 알아내는 방법에 대한 자세한 내용은 [질문과 대답](#faq)을 참조하세요.
 
 ## Azure 구독의 소유권을 양도하는 방법
 
@@ -62,7 +60,17 @@
 
 7. 성공! 구독이 이제 양도됩니다.
 
+<a id="faq"></a>
 ## 질문과 대답(FAQ)
+
+-   **구독의 계정 관리자가 누구인지를 어떻게 알 수 있나요?**
+
+    다음과 같이 구독의 계정 관리자가 누구인지 확인할 수 있습니다.
+
+    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    2. 허브 메뉴에서 **구독**을 선택합니다.
+    3. 확인하려는 구독을 선택한 다음 **설정**을 선택합니다.
+    4. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시 됩니다.
 
 -   **구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?**
 
@@ -123,4 +131,4 @@
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

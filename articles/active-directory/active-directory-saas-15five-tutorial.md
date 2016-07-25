@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: 15Five와 Azure Active Directory 통합
@@ -37,7 +37,7 @@
 
 ###15Five에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-15five-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **15Five** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **15Five** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-15five-tutorial/IC784670.png "Single Sign-On 구성")
 
@@ -76,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-15five-tutorial/IC784671.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **15Five 로그인 URL** 텍스트 상자에 다음 패턴 "**https://company.15Five.com*"을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **15Five 로그인 URL** 텍스트 상자에 다음 패턴 "*https://company.15Five.com*"을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-15five-tutorial/IC784672.png "앱 URL 구성")
 
@@ -84,9 +84,9 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-15five-tutorial/IC784673.png "Single Sign-On 구성")
 
-    >[AZURE.NOTE]Single Sign-on은 15Five 지원팀에서 사용할 수 있어야 합니다.
+    >[AZURE.NOTE] Single Sign-on은 15Five 지원팀에서 사용할 수 있어야 합니다.
 
-5.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+5.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-15five-tutorial/IC784674.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -112,9 +112,9 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
     1.  관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **이름**, **성**, **제목**, **전자 메일 주소**를 입력합니다.
     2.  **Done**을 클릭합니다.
 
-    >[AZURE.NOTE]Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+    >[AZURE.NOTE] Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
 
->[AZURE.NOTE]다른 15Five 사용자 계정 생성 도구 또는 15Five가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 15Five 사용자 계정 생성 도구 또는 15Five가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -122,9 +122,9 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
 ###15Five에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **15Five ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **15Five** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-15five-tutorial/IC784678.png "사용자 할당")
 
@@ -134,4 +134,4 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

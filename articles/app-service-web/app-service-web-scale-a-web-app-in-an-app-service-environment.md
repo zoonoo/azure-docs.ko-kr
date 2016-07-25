@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 앱 확장 #
@@ -21,7 +21,7 @@
 Azure 앱 서비스에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
 
 - 가격 계획
-- 작업자 크기 
+- 작업자 크기
 - 인스턴스 수
 
 ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다. 기능적인 측면에서 이미 프리미엄 가격 기능 수준이기 때문입니다.
@@ -84,4 +84,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

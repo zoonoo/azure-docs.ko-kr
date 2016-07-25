@@ -97,7 +97,6 @@ Azure Active Directory를 만들고 사용자 및 그룹으로 채웁니다. 다
 
 - 최초의 Azure AD 관리 도메인을 만듭니다.
 - 온-프레미스 Active Directory 도메인 서비스를 Azure Active Directory와 페더레이션합니다.
-- **서비스**, **끝점** 섹션에 있는 **AD FS** 도구를 사용하여 URL 경로 **/adfs/services/trust/13/windowstransport**에 대한 **WS-Trust 1.3**을 사용합니다.
 
 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
 
@@ -277,7 +276,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 	FROM EXTERNAL PROVIDER;
 
 
- *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 
@@ -367,4 +366,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #고급 미디어 인코더 Premium 워크플로 자습서
@@ -974,7 +974,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 [미디어 인코더 Premium 워크플로 형식 및 코덱](media-services-premium-workflow-encoder-formats.md)
 
-[샘플 워크플로 파일](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+[샘플 워크플로 파일](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Azure 미디어 서비스 탐색기 도구](http://aka.ms/amse)
 
@@ -986,4 +986,4 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

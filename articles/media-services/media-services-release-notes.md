@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2016년 7월 릴리스](#july_changes16)
 - [2016년 4월 릴리스](#apr_changes16)
 - [2016년 2월 릴리스](#feb_changes16)
 - [2016년 1월 릴리스](#jan_changes_16)
@@ -68,8 +69,8 @@ REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.|REST API�
 %20과 같이 이스케이프 문자가 포함된 파일 이름으로 자산을 인코딩하면 "MediaProcessor: 파일을 찾을 수 없습니다."라는 메시지와 함께 작업에 실패합니다.|자산에 추가된 후 인코딩되는 파일 이름에는 영숫자와 공백만 사용할 수 있습니다. 이 문제는 이후 업데이트에서 수정될 예정입니다.
 Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.|미디어 서비스에서는 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.
 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.|자세한 내용은 [Azure 미디어 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx) 항목의 503 HTTP 상태 코드 설명을 참조하세요.
-엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. | [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/ **top**(REST)을 사용해야 합니다. 
-
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. | [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
+부드러운 스트리밍 매니페스트 버전에 대한 변경 내용|자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 
 ### <a id="dotnet_issues"></a>.NET용 미디어 서비스 SDK 관련 문제
 
@@ -80,6 +81,24 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+##<a id="july_changes16"></a>2016년 7월 릴리스
+
+###인코딩 작업으로 생성된 매니페스트 파일(*.ISM)에 대한 업데이트
+
+인코딩 작업이 미디어 인코더 표준 또는 Azure 미디어 인코더에 제출된 경우 인코딩 작업은 출력 자산에 [스트리밍 매니페스트 파일](media-services-deliver-content-overview.md)(*.ism)을 생성합니다. 최신 서비스 릴리스와 함께 이 스트리밍 매니페스트 파일의 구문이 업데이트되었습니다.
+
+>[AZURE.NOTE]스트리밍 매니페스트(.ism) 파일의 구문은 내부 용도로 예약되며 향후 릴리스에서 변경될 수 있습니다. 이 파일의 내용을 수정하거나 조작하지 마세요.
+
+###인코딩 작업이 하나 이상의 MP4 파일을 출력하는 경우 새 클라이언트 매니페스트(*. ISMC) 파일이 출력 자산에 생성됩니다.
+
+최신 서비스 릴리스부터, 하나 이상의 MP4 파일을 생성하는 인코딩 작업이 완료되면 출력 자산에 스트리밍 클라이언트 매니페스트(*.ismc) 파일도 포함됩니다. .ismc 파일을 통해 동적 스트리밍의 성능을 향상시킬 수 있습니다.
+
+>[AZURE.NOTE]클라이언트 매니페스트(.ismc) 파일의 구문은 내부 용도로 예약되며 향후 릴리스에서 변경될 수 있습니다. 이 파일의 내용을 수정하거나 조작하지 마세요.
+
+자세한 내용은 [이](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) 블로그를 참조하세요.
+
+알려진 문제를 확인하려면 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 
 ##<a id="apr_changes16"></a>2016년 4월 릴리스
 
@@ -206,29 +225,29 @@ OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active D
 
 ##<a id="april_changes_15"></a>2015년 4월 릴리스
 
-        ###General Media Services Updates
+ ###일반 미디어 서비스 업데이트
 
-        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
-        - Azure Media Indexer updates
-        - Support for Spanish Language
-        - New configuration xml format
+- [Azure 미디어 플레이어가 도입](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)되었습니다.
+- 미디어 서비스 REST 2.10부터 RTMP 프로토콜을 수집하도록 구성된 채널이 기본 및 보조 수집 URL을 통해 생성됩니다. 자세한 내용은 [채널 수집 구성](media-services-live-streaming-with-onprem-encoders.md#channel_input)을 참조하세요.
+- Azure 미디어 인덱서 업데이트
+- 스페인어 지원
+- 새로운 구성 xml 형식
 
-        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-        ###Media Services .NET SDK Updates
+자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
+###미디어 서비스 .NET SDK 업데이트
 
-        Azure Media Services .NET SDK is now version 3.2.0.0.
+Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 
-        The following are some of the customer facing updates:
+다음은 고객을 위한 몇 가지 업데이트입니다.
 
-        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
-        - Updates related to creating custom retry policies.
-        - Bug fixes related to uploading/downloading files.
-        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+- **주요 변경 내용**: **TokenRestrictionTemplate.Issuer** 및 **TokenRestrictionTemplate.Audience**가 문자열 형식으로 변경됨
+- 사용자 지정 다시 시도 정책 만들기 관련 업데이트
+- 파일 업로드/다운로드 관련 버그 수정
+- **MediaServicesCredentials** 클래스에서 이제 기본 및 보조 액세스 제어 끝점에 대한 인증을 허용합니다.
 
 
 
-        ##<a id="march_changes_15"></a>March 2015 Release
+##<a id="march_changes_15"></a>2015년 3월 릴리스
 
 ### 일반 미디어 서비스 업데이트
 
@@ -631,7 +650,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 <!-- Images. -->
 
-<!-- URLs. -->
+<!--- URLs. --->
 [Azure 미디어 서비스 MSDN 포럼]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 미디어 서비스 REST API 참조]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [미디어 서비스 가격 정보]: http://azure.microsoft.com/pricing/details/media-services/
@@ -666,4 +685,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure" 
-	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure"
+	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # 암호 관리에 대한 자세한 정보
+
+> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+
 암호 관리를 이미 배포했거나 배포하기 전에 작동 원리에 대한 기술적 핵심 사항을 자세히 알아보려는 경우, 이 섹션에서 해당 서비스의 기술적 개념에 대한 훌륭한 개요를 제공합니다. 여기서 다루는 내용은 다음과 같습니다.
 
 * [**암호 쓰기 저장 개요**](#password-writeback-overview)
@@ -365,7 +368,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -379,4 +382,4 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

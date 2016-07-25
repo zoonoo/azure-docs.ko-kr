@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스키마 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스" 
+	pageTitle="스키마 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 스키마를 사용하는 방법 알아보기" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 스키마 및 엔터프라이즈 통합 팩에 대해 알아보기  
@@ -53,8 +53,8 @@ Azure 포털에서 다음을 수행합니다.
 
 ## 다음 단계
 
-- [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
+- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
       
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

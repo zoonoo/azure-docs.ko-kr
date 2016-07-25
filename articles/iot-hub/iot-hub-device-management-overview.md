@@ -105,7 +105,9 @@ DM 클라이언트 라이브러리는 장치 관리에 관하여 두 가지 주�
 
 ## 다음 단계
 
-Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [Azure IoT Hub 장치 관리 시작하기][lnk-get-started] 자습서를 참조하세요.
+다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 IoT 장치 SDK를 제공할 수 있습니다. IoT 장치 SDK에는 IoT Hub로 원격 분석 전송 및 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 있습니다. SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
+
+Azure IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [Azure IoT Hub 장치 관리 시작하기][lnk-get-started] 자습서를 참조하세요.
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -118,5 +120,6 @@ Azure IoT Hub 장치 관리 기능에 대해 계속 학습하려면 [Azure IoT H
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

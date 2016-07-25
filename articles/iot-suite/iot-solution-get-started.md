@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 # MyDriving IoT 시스템: 빠른 시작
 
@@ -54,7 +54,7 @@ Android, iOS 또는 Windows 10 장치를 사용하는 경우 MyDriving 앱을 �
 
 *Windows 10 Mobile에서 앱을 시작하는 데 문제가 있나요?* 휴대폰이 업데이트되었거나 너무 오래되었을 수 있습니다. 최신 업데이트가 있는지 확인하거나 다음을 설치합니다.
 
- - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
+ - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx)
 
  - [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx)
 
@@ -170,4 +170,4 @@ MyDriving 앱 자체 내에서 기본 제공되는 HockeyApp 피드백 메커니
   [HockeyApp 포털]: https://rink.hockeyapp.org
   [GitHub에 문제점]: https://github.com/Azure-Samples/MyDriving/issues
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

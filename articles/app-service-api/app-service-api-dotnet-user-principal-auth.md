@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스의 API 앱에 대한 사용자 인증
 
@@ -336,4 +336,4 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

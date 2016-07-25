@@ -24,9 +24,9 @@
 ||
 |---|---
 |[**가용성 테스트**](app-insights-monitor-web-app-availability.md)<br/>전 세계에서 정기적으로 발생하는 웹앱 HTTP 요청을 전송합니다. 응답 속도가 느리거나 불안정한 경우 경고가 표시됩니다.| 
-|[**종속성 및 AJAX 호출**](app-insights-asp-net-dependencies.md)<br/>SQL 쿼리 및 REST 또는 기타 리소스에 대한 호출을 모니터링합니다.|
+|[**종속성 호출**](app-insights-asp-net-dependencies.md)<br/>SQL 쿼리 및 REST 또는 기타 리소스에 대한 호출을 모니터링합니다.|
 |[**예외**](app-insights-asp-net-exceptions.md)<br/>처리된 예외 및 처리되지 않은 예외를 계산하고, 스택 추적을 가져오고, 클릭하여 코드로 이동합니다.|
-|[**웹 페이지**](app-insights-javascript.md)<br/>웹 페이지를 조정하여 페이지 사용 현황 및 성능을 모니터링합니다.
+|[**웹 페이지**](app-insights-javascript.md)<br/>웹 페이지를 조정하여 페이지 사용 현황, 성능 및 AJAX 호출을 모니터링합니다.
 |**호스트 성능: [Azure 진단](app-insights-azure-diagnostics.md), [Windows 성능 카운터](app-insights-web-monitor-performance.md)**<br/>CPU 사용량 및 기타 컨텍스트 메트릭을 참조하세요. |![](./media/app-insights-asp-net-more/04.png)
 |[**SDK API - 사용자 지정 원격 분석**](app-insights-api-custom-events-metrics.md)<br/>서버 및 클라이언트 코드에서 앱의 성능 및 사용 현황을 보다 자세하게 표시할 수 있도록 자체 이벤트 및 메트릭을 보냅니다.|
 |[**로그 통합**](app-insights-asp-net-trace-logs.md)<br/>로깅 프레임워크(예: Log4Net, NLog 또는 System.Diagnostics.Trace)를 사용하는 경우 다른 원격 분석과 함께 이러한 추적을 Application Insights로 전송하는 어댑터가 있습니다.|
@@ -52,4 +52,4 @@
 |**데이터 액세스 API**<br/>곧 제공될 예정입니다.|
 |[**샘플링**](app-insights-sampling.md)<br/>데이터 속도를 줄이고 가격 책정 계층 제한을 벗어나지 않도록 하는 데 도움이 됩니다.|![샘플링 타일](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

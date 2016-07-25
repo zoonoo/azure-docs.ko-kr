@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # 서비스 패브릭 Reliable Services 시작
@@ -24,7 +24,7 @@ Azure 서비스 패브릭 응용 프로그램에는 코드를 실행하는 하�
 
 상태 비저장 서비스는 현재 클라우드 응용 프로그램에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
 
-관리자 권한으로 Visual Studio 2015 RC를 시작하고 *HelloWorld*라는 새로운 서비스 패브릭 응용 프로그램 프로젝트를 만듭니다.
+관리자 권한으로 Visual Studio 2015를 시작하고 *HelloWorld*라는 새로운 서비스 패브릭 응용 프로그램 프로젝트를 만듭니다.
 
 ![새 프로젝트 대화 상자를 사용하여 새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -70,7 +70,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     long iterations = 0;
@@ -122,7 +122,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
@@ -140,7 +140,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
@@ -159,7 +159,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary*는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본*을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx)는 서비스에서 상태를 안정적으로 저장하는데 사용할 수 있는 사전 구현입니다. 서비스 패브릭 및 신뢰할 수 있는 컬렉션을 사용하면 외부 영구 저장소 없이도 서비스에 데이터를 직접 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 데이터를 항상 사용할 수 있게 만듭니다. 서비스 패브릭은 서비스의 여러 *복제본*을 만들고 관리하여 이를 달성합니다. 또한 해당 복제본 및 해당 상태 전환을 관리하는 복잡성을 추상화하는 API를 제공합니다.
 
 신뢰할 수 있는 컬렉션은 사용자 지정 형식을 포함하여 모든 .NET 유형을 저장할 수 있습니다. 단, 몇 가지 주의 사항이 있습니다.
 
@@ -213,4 +213,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

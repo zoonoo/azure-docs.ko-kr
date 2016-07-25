@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 자동화 Runbook 형식"
-   description="Azure 자동화에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다."
+   description="Azure 자동화에서 사용할 수 있는 다양한 형식의 Runbook을 설명하고 사용할 형식을 결정할 때 고려해야 하는 사항을 설명합니다. "
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="07/06/2016"
    ms.author="bwren" />
 
 # Azure 자동화 Runbook 형식
@@ -52,7 +52,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 
 ### 장점
 
-- PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다. 
+- PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다.
 - Runbook은 실행 전에 컴파일이 필요 없기 때문에 그래픽 또는 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
 
 ### 제한 사항
@@ -67,7 +67,7 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
 - PowerShell Runbook은 null 값으로 암호화되지 않은 [변수 자산](automation-variables.md)을 검색할 수 없습니다.
 - PowerShell Runbook은 이름에 *~*을 사용하여 [변수 자산](automation-variables.md)을 검색할 수 없습니다.
-- PowerShell Runbook의 반복적인 Get-Process는 80회 반복 후에 작동이 중단될 수 있습니다. 
+- PowerShell Runbook의 반복적인 Get-Process는 80회 반복 후에 작동이 중단될 수 있습니다.
 - PowerShell Runbook은 한 번에 스트림을 출력하기 위해 매우 큰 데이터를 쓰려는 시도를 하면 실패할 수 있습니다. 일반적으로 큰 개체로 작업하는 경우 필요한 정보만 출력하면 이 문제를 극복할 수 있습니다. 예를 들어 *Get-Process* 같은 출력 대신 *Get-Process | Select ProcessName, CPU*를 사용하여 필요한 필드만 출력할 수 있습니다.
 
 ## PowerShell 워크플로 Runbook
@@ -104,4 +104,4 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 - Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)을 참조하세요.
 - Runbook을 만들거나 가져오는 방법에 대한 자세한 내용은 [Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

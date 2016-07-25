@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 인덱싱
@@ -244,6 +244,16 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
 SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다. 인덱스 다시 작성에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][]의 ALTER INDEX REBUILD 섹션과 [ALTER INDEX][] 구문 항목을 참조하세요.
  
 ### 3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
@@ -315,6 +325,7 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [임시]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -327,4 +338,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

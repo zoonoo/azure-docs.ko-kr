@@ -729,25 +729,26 @@ Traces
 
 ### top 연산자
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 지정한 열을 기준으로 정렬된 처음 *N*개 레코드를 반환합니다.
 
 
 **구문**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **인수**
 
 * *NumberOfRows:* 반환할 *T*의 행 수입니다.
 * *Sort\_expression:* 행을 정렬하는 기준이 되는 식입니다. 일반적으로 단지 열 이름일 뿐입니다. sort\_expression을 두 개 이상 지정할 수 있습니다.
 * 선택이 실제로 범위의 "맨 아래"에서 시작되는지 아니면 "맨 위"에서 시작되는지를 제어하기 위해 `asc` 또는 `desc`(기본값)가 나타날 수 있습니다.
+* `nulls first` 또는 `nulls last`는 null 값이 나타나는 위치를 제어합니다. `First`는 `asc`의 기본값이고 `last`는 `desc`의 기본값입니다.
 
 
 **팁**
 
-`top 5 by name`은(는) 외관상으로는 `sort by name | take 5`와(과) 동일하지만 실행 속도가 더 빠르며 항상 정렬된 결과를 반환하는 반면 `take`에서는 이와 같은 속도와 결과 정렬이 보장되지 않습니다.
+`top 5 by name`은 외관상으로는 `sort by name | take 5`와 동일하지만 실행 속도가 더 빠르며 항상 정렬된 결과를 반환하는 반면 `take`에서는 이와 같은 속도와 결과 정렬이 보장되지 않습니다.
 
 ### top-nested 연산자
 
@@ -785,12 +786,12 @@ Traces
 **인수**
 
 * *Table1*, *Table2* ...
- *  `requests`와(과) 같은 테이블의 이름 또는 [let 절](#let-clause)에 정의된 테이블 또는
- *  `(requests | where success=="True")`와(과) 같은 쿼리 식
- *  와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `e*`은(는) 'exceptions' 테이블과 함께 이름이 'e'로 시작하는 이전 let 절에 정의된 모든 테이블의 합집합을 형성합니다.
+ *  `requests`와 같은 테이블의 이름 또는 [let 절](#let-clause)에 정의된 테이블 또는
+ *  `(requests | where success=="True")`와 같은 쿼리 식
+ *  와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `e*`는 'exceptions' 테이블과 함께 이름이 'e'로 시작하는 이전 let 절에 정의된 모든 테이블의 합집합을 형성합니다.
 * `kind`:
  * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
- * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력 행에 의해 정의되지 않은 셀은 `null`(으)로 설정됩니다.
+ * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력 행에 의해 정의되지 않은 셀은 `null`로 설정됩니다.
 * `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 원본 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다.
 
 **반환**
@@ -853,11 +854,11 @@ exceptions
 
 가장 빠른 성능을 얻으려면:
 
-* 열 이름과 상수 사이에는 **단순 비교를 사용**합니다('상수'는 테이블에 대한 상수를 의미합니다. 따라서 `now()` 및 `ago()`을(를) 사용 가능하며 [`let` 절](#let-clause)을 사용하여 할당된 스칼라 값입니다).
+* 열 이름과 상수 사이에는 **단순 비교를 사용**합니다('상수'는 테이블에 대한 상수를 의미합니다. 따라서 `now()` 및 `ago()`를 사용 가능하며 [`let` 절](#let-clause)을 사용하여 할당된 스칼라 값입니다).
 
-    예를 들어 `where floor(Timestamp, 1d) == ago(1d)`보다 `where Timestamp >= ago(1d)`을(를) 선호합니다.
+    예를 들어 `where floor(Timestamp, 1d) == ago(1d)`보다 `where Timestamp >= ago(1d)`를 선호합니다.
 
-* **가장 단순한 용어를 먼저 사용**합니다. `and`을(를) 사용하여 여러 절을 결합하는 경우에는 열이 하나만 포함된 절을 앞쪽에 배치합니다. 따라서 `Timestamp > ago(1d) and OpId == EventId`이(가) 다른 방법보다 낫습니다.
+* **가장 단순한 용어를 먼저 사용**합니다. `and`를 사용하여 여러 절을 결합하는 경우에는 열이 하나만 포함된 절을 앞쪽에 배치합니다. 따라서 `Timestamp > ago(1d) and OpId == EventId`이 다른 방법보다 낫습니다.
 
 
 **예제**
@@ -907,7 +908,7 @@ traces
 
 *ExprToMaximize*를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn*(전체 행을 반환하려는 경우에는 `*`)의 값을 반환합니다.
 
-**팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5`을(를) 사용하여 결과를 검사합니다.
+**팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5`를 사용하여 결과를 검사합니다.
 
 **예**
 
@@ -967,7 +968,7 @@ traces
       "rawStack":"string"
     }}
 
-참고로 `indexer`은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
+참고로 `indexer`는 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
 
     details[0].parsedStack[2].level
     details[0].message
@@ -1029,29 +1030,29 @@ traces
 
     count([ Predicate ])
 
-*Predicate*이 `true`(으)로 계산되는 행 수를 반환합니다. *Predicate*을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
+*Predicate*이 `true`로 계산되는 행 수를 반환합니다. *Predicate*을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize count(filter)` 사용
 
-> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 Application Insights에 유지되는 데이터 요소 수가 원래 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`을(를) 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
+> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 Application Insights에 유지되는 데이터 요소 수가 원래 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
 
 ### countif
 
     countif(Predicate)
 
-*Predicate*이 `true`(으)로 계산되는 행 수를 반환합니다.
+*Predicate*이 `true`로 계산되는 행 수를 반환합니다.
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize countif(filter)` 사용
 
-> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 countif()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 데이터 요소 수가 실제 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`을(를) 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
+> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 countif()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 데이터 요소 수가 실제 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
 
 ### dcount
 
     dcount( Expression [ ,  Accuracy ])
 
-그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)을(를) 사용합니다.
+그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. (고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.)
 
-*정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
+*정확도* 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
  * `0` = 정확성은 가장 떨어지지만 가장 빠른 계산입니다.
  * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%
@@ -1070,7 +1071,7 @@ traces
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-*Predicate*이 true인 그룹에 있는 행의 *Expr*에 대한 고유 값 수 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)을(를) 사용합니다.
+*Predicate*이 true인 그룹에 있는 행의 *Expr*에 대한 고유 값 수 추정치를 반환합니다. 고유 값을 나열하려면 [`makeset`](#makeset)을 사용합니다.
 
 *정확도*를 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
@@ -1091,15 +1092,15 @@ traces
 
 그룹에 있는 *Expr*의 모든 값의 `dynamic`(JSON) 배열을 반환합니다.
 
-* *MaxListSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값 *128*)입니다.
+* *MaxListSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값: *128*)입니다.
 
 ### makeset
 
     makeset(Expression [ , MaxSetSize ] )
 
-*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. (팁: 고유 값을 세기만 하려면 [`dcount`](#dcount)을(를) 사용합니다.)
+*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. (팁: 고유 값을 세기만 하려면 [`dcount`](#dcount)를 사용합니다.)
   
-*  *MaxSetSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값 *128*)입니다.
+*  *MaxSetSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값: *128*)입니다.
 
 **예제**
 
@@ -1134,15 +1135,15 @@ traces
     
     percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
-`percentile()`와(과) 유사하지만 백분위 수 값을 계산합니다(각 백분위 수를 개별적으로 계산하는 것보다 더 빠름).
+`percentile()`과 유사하지만 백분위 수 값을 계산합니다(각 백분위 수를 개별적으로 계산하는 것보다 더 빠름).
 
     percentilew(Expression, WeightExpression, Percentile)
 
-가중치가 적용된 백분위 수입니다. 사전 집계된 데이터에 사용합니다. `WeightExpression`은(는) 각 집계된 행이 몇 개의 원래 행을 나타내는지 표시하는 정수입니다.
+가중치가 적용된 백분위 수입니다. 사전 집계된 데이터에 사용합니다. `WeightExpression`은 각 집계된 행이 몇 개의 원래 행을 나타내는지 표시하는 정수입니다.
 
     percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
 
-`percentilew()`와(과) 비슷하지만 백분위 수 값을 계산합니다.
+`percentilew()`와 비슷하지만 백분위 수 값을 계산합니다.
 
 **예**
 
@@ -1208,7 +1209,7 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 
     customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
 
-원래 측정 집합에서 기본적인 `percentiles`을(를) 사용했을 때 얻는 결과와 같습니다.
+원래 측정 집합에서 기본적인 `percentiles`를 사용했을 때 얻는 결과와 같습니다.
 
 > [AZURE.NOTE] 가중치가 적용된 백분위 수는 [샘플링한 데이터](app-insights-sampling.md)에는 적용할 수 없습니다. 샘플링된 데이터에서는 각 샘플링된 행이 bin이 아니라 원래 행의 무작위 샘플을 나타냅니다. 일반 백분위 수 함수는 샘플링된 데이터에 적합합니다.
 
@@ -1297,7 +1298,7 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 
 **반환**
 
-단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`은(는) 값이 인코딩되는 방법을 표시합니다.
+단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`은 값이 인코딩되는 방법을 표시합니다.
 
 **예**
 
@@ -1351,12 +1352,12 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 **인수**
 
 * *Predicate:* `boolean` 값으로 계산되는 식입니다.
-* *ifTrue:* *predicate*이 `true`(으)로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 값입니다.
-* *ifFalse:* *predicate*이 `false`(으)로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 식의 값입니다.
+* *ifTrue:* *predicate*이 `true`로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 값입니다.
+* *ifFalse:* *predicate*이 `false`로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 식의 값입니다.
 
 **반환**
 
-이 함수는 *predicate*이 `true`(으)로 계산되는 경우 *ifTrue*의 값을 반환하며 그렇지 않은 경우 *ifFalse*의 값을 반환합니다.
+이 함수는 *predicate*이 `true`로 계산되는 경우 *ifTrue*의 값을 반환하며 그렇지 않은 경우 *ifFalse*의 값을 반환합니다.
 
 **예제**
 
@@ -1461,17 +1462,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기 |
-| / | 나누기 |
-| % | 모듈로 |
-||
-|`<` |보다 작음
-|`<=`|작거나 같음
-|`>` |보다 큼
-|`>=`|크거나 같음
-|`<>`|같지 않음
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
 ### abs
@@ -1547,7 +1538,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     log10(v)  // Logarithm base 10 of v
 
 
-`v`은(는) 0보다 큰 실수여야 합니다. 그렇지 않으면 null이 반환됩니다.
+`v`는 0보다 큰 실수여야 합니다. 그렇지 않으면 null이 반환됩니다.
 
 ### rand
 
@@ -1573,7 +1564,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **반환**
 
-* `sqrt(x) * sqrt(x) == x`이(가) 되도록 하는 양수입니다.
+* `sqrt(x) * sqrt(x) == x`가 되도록 하는 양수입니다.
 * 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`입니다.
 
 
@@ -1657,7 +1648,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ### ago
 
-현재 UTC 시계 시간에서 지정된 시간 범위를 뺍니다. `now()`와(과) 마찬가지로, 이 함수를 문에 여러 번 사용할 수 있으며 참조하는 UTC 시계 시간은 모든 인스턴스에 대해 동일합니다.
+현재 UTC 시계 시간에서 지정된 시간 범위를 뺍니다. `now()`와 마찬가지로, 이 함수를 문에 여러 번 사용할 수 있으며 참조하는 UTC 시계 시간은 모든 인스턴스에 대해 동일합니다.
 
 **구문**
 
@@ -1719,7 +1710,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
     dayofweek(datetime("2015-12-14")) == 1d  // Monday
 
-`timespan`와(과) 같이 이전 일요일 이후 일의 정수입니다.
+`timespan`과 같이 이전 일요일 이후 일의 정수입니다.
 
 **구문**
 
@@ -1803,7 +1794,7 @@ datetime에서 연도를 가져옵니다.
 
 **반환**
 
-`datetime`(으)로 반환되는 현재 UTC 시계 시간입니다.
+`datetime`으로 반환되는 현재 UTC 시계 시간입니다.
 
     now() + offset
 
@@ -1896,20 +1887,26 @@ h"hello"
 연산자|설명|대/소문자 구분|True 예제
 ---|---|---|---
 `==`|같음 |예| `"aBc" == "aBc"`
-`<>`|같지 않음|예| `"abc" <> "ABC"`
+`<>` `!=`|같지 않음|예| `"abc" <> "ABC"`
 `=~`|같음 |아니요| `"abc" =~ "ABC"`
 `!~`|같지 않음 |아니요| `"aBc" !~ "xyz"`
 `has`|오른쪽(RHS)이 왼쪽(LHS)의 전체 항임|아니요| `"North America" has "america"`
 `!has`|RHS가 LHS의 전체 항이 아님|아니요|`"North America" !has "amer"` 
+`hasprefix`|RHS는 LHS의 용어 접두사임|아니요|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS는 LHS의 용어 접두사가 아님|아니요|`"North America" !hasprefix "mer"`
 `contains` | RHS가 LHS의 하위 시퀀스로 발생|아니요| `"FabriKam" contains "BRik"`
 `!contains`| RHS가 LHS에서 발생하지 않음|아니요| `"Fabrikam" !contains "xyz"`
 `containscs` | RHS가 LHS의 하위 시퀀스로 발생|예| `"FabriKam" contains "Kam"`
 `!containscs`| RHS가 LHS에서 발생하지 않음|예| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS가 LHS의 초기 하위 시퀀스임|아니요|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS가 LHS의 초기 하위 시퀀스가 아님|아니요|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS가 LHS의 종료 하위 시퀀스임|아니요|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS가 LHS의 종료 하위 시퀀스가 아님|아니요|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS가 RHS에 대한 일치 항목을 포함|예| `"Fabrikam" matches regex "b.*k"`
+`in`|요소와 같음|예|`"abc" in ("123", "345", "abc")`
+`!in`|요소와 같지 않음|예|`"bc" !in ("123", "345", "abc")`
 
-
-전체 어휘 용어의 존재를 시험하는 경우 `has` 또는 `in`을(를) 사용합니다. 즉, 기호 또는 필드 시작 또는 끝에 경계가 지어진 영숫자 단어입니다. `has`은(는) `contains` 또는 `startswith`보다 빠르게 수행합니다. 이러한 쿼리의 첫 번째 쿼리가 더 빠르게 실행됩니다.
+전체 어휘 용어의 존재를 시험하는 경우 `has` 또는 `in`을 사용합니다. 즉, 기호 또는 필드 시작 또는 끝에 경계가 지어진 영숫자 단어입니다. `has`는 `contains`, `startswith` 또는 `endswith`보다 빠르게 수행합니다. 이러한 쿼리의 첫 번째 쿼리가 더 빠르게 실행됩니다.
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1978,7 +1975,7 @@ h"hello"
 
 **예**
 
-예제 문자열 `Trace`에서 `Duration`에 대한 정의를 검색합니다. 일치 항목은 `real`(으)로 변환된 다음, 시간 상수(`1s`)를 곱하여 `Duration`이(가) `timespan` 형식이 됩니다. 이 예제에서 이는 123.45초와 같음:
+예제 문자열 `Trace`에서 `Duration`에 대한 정의를 검색합니다. 일치 항목은 `real`로 변환된 다음, 시간 상수(`1s`)를 곱하여 `Duration`이 `timespan` 형식이 됩니다. 이 예제에서 이는 123.45초와 같음:
 
 ```AIQL
 ...
@@ -1986,7 +1983,7 @@ h"hello"
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
 ```
 
-이 예제는 `substring(Text, 2, 4)`와(과) 같습니다.
+이 예제는 `substring(Text, 2, 4)`와 같습니다.
 
 ```AIQL
 extract("^.{2,2}(.{4,4})", 1, Text)
@@ -2041,8 +2038,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **인수**
 
-* *regex:* *text* 를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
-* *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`을(를) 사용하는 식입니다.
+* *regex:* *text*를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
+* *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`를 사용하는 식입니다.
 * *text:* 문자열입니다.
 
 **반환**
@@ -2251,7 +2248,7 @@ substring("ABCD", 0, 2)       // AB
 동적 리터럴을 만들려면 JSON 문자열 인수와 함께 `parsejson`(별칭 `todynamic`)을 사용합니다.
 
 * `parsejson('[43, 21, 65]')` - 숫자의 배열
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` - 숫자를 포함하는 동적 형식의 단일 값
 * `parsejson('"21"')` - 문자열을 포함하는 동적 형식의 단일 값
 
@@ -2285,7 +2282,7 @@ T
 ### let 절의 동적 개체
 
 
-[let 절](#let-clause)은 동적 값을 문자열로 저장하므로 이 두 절은 동일하며 둘 다 사용하기 전에 `parsejson`(또는 `todynamic`)이(가) 필요합니다.
+[let 절](#let-clause)은 동적 값을 문자열로 저장하므로 이 두 절은 동일하며 둘 다 사용하기 전에 `parsejson`(또는 `todynamic`)이 필요합니다.
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2358,9 +2355,9 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **성능 팁**
 
-* `extractjson()`을(를) 사용하기 전에 where 절을 적용합니다.
+* `extractjson()`을 사용하기 전에 where 절을 적용합니다.
 * 정규식 일치 사용은 [extract](#extract)를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
-* JSON에서 둘 이상의 값을 추출해야 하는 경우 `parsejson()`을(를) 사용합니다.
+* JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()`을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
 
 ### JSON Path 식
@@ -2379,7 +2376,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 ### parsejson
 
-`string`을(를) [JSON 값](http://json.org/)으로 해석하고 값을 `dynamic`(으)로 반환합니다. JSON 복합 개체의 요소를 두 개 이상 추출해야 하는 경우 `extractjson()`을(를) 사용하는 것이 좋습니다.
+`string`을 [JSON 값](http://json.org/)으로 해석하고 값을 `dynamic`으로 반환합니다. JSON 복합 개체의 요소를 둘 이상 추출해야 하는 경우 `extractjson()`을 사용하는 것이 좋습니다.
 
 **구문**
 
@@ -2395,7 +2392,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **예제**
 
-다음 예제에서 `context_custom_metrics`이(가) `string`인 경우 다음과 유사합니다.
+다음 예제에서 `context_custom_metrics`가 `string`인 경우 다음과 유사합니다.
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
@@ -2424,11 +2421,11 @@ T
 
 * *start:* 결과 배열의 첫 번째 요소의 값입니다.
 * *stop:* 결과 배열의 마지막 요소의 값 또는 결과 배열 및 *start*부터 *step*의 정수 배 내에서 마지막 요소보다 더 큰 가장 작은 값입니다.
-* *step:* 배열의 연속된 두 요소 사이의 차입니다.
+* *step:* 배열의 연속된 두 요소 사이의 차이입니다.
 
 **예**
 
-다음 예제는 `[1, 4, 7]`을(를) 반환합니다.
+다음 예제는 `[1, 4, 7]`을 반환합니다.
 
 ```AIQL
 range(1, 8, 3)
@@ -2493,4 +2490,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

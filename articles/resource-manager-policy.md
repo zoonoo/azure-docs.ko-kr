@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # 정책을 사용하여 리소스 및 컨트롤 액세스 관리
@@ -97,7 +97,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 다음과 같은 필드와 소스가 지원됩니다.
 
-필드: **name**, **kind**, **type**, **location**, **tags**, **tags.** 및 **property alias**.
+필드: **name**, **kind**, **type**, **location**, **tags**, **tags.*** 및 **property alias**.
 
 ### 속성 별칭 
 속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 표시된 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
@@ -155,7 +155,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 - 거부는 감사 로그에 이벤트를 생성하고 요청을 실패합니다.
 - 감사는 감사 로그에 이벤트를 생성하지만 요청을 실패하지는 않습니다.
-- 추가는 정의된 필드 집합을 요청에 추가합니다. 
+- 추가는 정의된 필드 집합을 요청에 추가합니다.
 
 **추가**의 경우 아래와 같이 세부 정보를 제공해야 합니다.
 
@@ -468,4 +468,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,12 +1,13 @@
 <properties
-	pageTitle="문제 해결: HTTP 502/503으로 인해 사용할 수 없는 웹앱"
-	description="Azure 앱 서비스에 호스트된 웹앱의 HTTP 502/503 오류 문제를 해결할 방법을 이 문서에서 찾을 수 있습니다."
+	pageTitle="502 잘못된 게이트웨이, 503 서비스를 사용할 수 없음 오류 수정 | Microsoft Azure"
+	description="Azure 앱 서비스에서 호스트되는 웹앱의 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 오류를 해결합니다."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="502 잘못된 게이트웨이, 503 서비스를 사용할 수 없음, 오류 503, 오류 502"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# 문제 해결: HTTP 502/503으로 인해 사용할 수 없는 웹앱
+# Azure 웹앱의 "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" HTTP 오류 해결
 
-[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호스트된 웹앱의 HTTP 502/503 오류 문제를 해결할 방법을 이 문서에서 찾을 수 있습니다.
+"502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 호스트되는 웹앱에서 일반적으로 나타나는 오류입니다. 이 문서는 이러한 오류를 해결하는 데 도움이 됩니다.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
 ## 증상
 
-웹앱을 찾아볼 때 HTTP "502 잘못된 게이트웨이" 또는 HTTP "503 서비스를 사용할 수 없음"을 반환합니다.
+웹앱을 찾아볼 때 HTTP "502 잘못된 게이트웨이" 또는 HTTP "503 서비스를 사용할 수 없음" 오류를 반환합니다.
 
 ## 원인
 
@@ -35,7 +36,7 @@
 -	높은 메모리/CPU를 사용하는 응용 프로그램
 -	예외로 인해 충돌하는 응용 프로그램
 
-## 문제 해결 단계
+## "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류를 해결하기 위한 문제 해결 단계
 
 문제 해결은 해결하는 순서대로 세 가지로 구분할 수 있습니다.
 
@@ -64,7 +65,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 -	메모리 작업 집합
 -	요청
 
-![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![웹앱을 모니터링하여 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 HTTP 오류 해결](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 자세한 내용은 다음을 참조하세요.
 
@@ -134,8 +135,8 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
 이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com/) 또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
 
- ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![앱을 다시 시작하여 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 HTTP 오류 해결](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

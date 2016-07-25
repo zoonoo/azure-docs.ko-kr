@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/26/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #자습서: ServiceNow와 Azure Active Directory 통합
@@ -20,7 +20,7 @@
 
 -   유효한 Azure 구독
 -   ServiceNow의 테넌트(Calgary 이상 버전)
--   ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다. https://hi.service-now.com/에서 서비스 요청을 제출하면 이 플러그 인을 사용하도록 설정할 수 있습니다. 
+-   ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다. https://hi.service-now.com/에서 서비스 요청을 제출하면 이 플러그 인을 사용하도록 설정할 수 있습니다.
   
 이 자습서를 완료한 후, ServiceNow에 할당한 Azure AD 사용자는 ServiceNow 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
   
@@ -145,7 +145,8 @@
     e. **형식**으로 **저장소 인증서 신뢰**를 선택합니다.
 
     f. 다운로드한 인증서에서 Base-64로 인코딩한 파일을 만듭니다.
-    > [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+   
+	> [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
     
     g. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **PEM 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -177,15 +178,15 @@
     
     **참고:** Azure 클래식 포털의 **ServiceNow > 특성 > Single Sign-On** 섹션으로 이동한 다음 원하는 필드를 **nameidentifier** 특성에 매핑하면 Azure AD 사용자 ID(사용자 계정 이름) 또는 전자 메일 주소를 SAML 토큰의 고유 식별자로 내보내도록 Azure AD를 구성할 수 있습니다. Azure AD에서 선택한 특성에 대해 저장되는 값(예: 사용자 계정 이름)은 입력하는 필드에 대해 ServiceNow에 저장된 값(예: user\_id)과 일치해야 합니다.
 
-    c. Azure AD 클래식 포털에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여 넣습니다.
+    c. Azure AD 클래식 포털에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure AD 클래식 포털에서 **인증 요청 URL** 값을 복사한 다음 **ID 공급자의 AuthnRequest** 텍스트 상자에 붙여 넣습니다.
+    d. Azure AD 클래식 포털에서 **인증 요청 URL** 값을 복사한 다음 **ID 공급자의 AuthnRequest** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자의 SingleLogoutRequest** 텍스트 상자에 붙여 넣습니다.
+    e. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자의 SingleLogoutRequest** 텍스트 상자에 붙여넣습니다.
 
     f. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
 
-    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: *https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다(예: *https://fabrikam.service-now.com/navpage.do*).
  
 
     g. **엔터티 ID/발급자** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
@@ -227,24 +228,28 @@
 
 ### 사용자 프로비전을 구성하려면
 
-1. Azure 관리 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다. <br><br> ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
+1. Azure 관리 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다.
+
+	![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
 
 
 2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비전 구성 설정을 제공합니다.
 
-     2\.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
+     a. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-     2\.2. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
+     b. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
 
-     2\.3. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
+     c. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
-     2\.4. **유효성 검사**를 클릭하여 구성을 확인합니다.
+     d. **유효성 검사**를 클릭하여 구성을 확인합니다.
 
-     2\.5. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
+     e. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
 
-     2\.6. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "** 이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. <br><br> ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
+     f. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "**이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다.
 
-     2\.7. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
+	![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
+
+     g. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
 
 
 
@@ -264,7 +269,7 @@
 
 1.  Azure AD 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **ServiceNow ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-servicenow-tutorial/IC769499.png "사용자 할당")
 
@@ -280,4 +285,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

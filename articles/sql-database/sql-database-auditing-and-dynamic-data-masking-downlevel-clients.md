@@ -3,7 +3,7 @@
 	description="SQL 데이터베이스 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경에 대해 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="nadavhelfman"
+	authors="ronitr"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nadavh;ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
 
 # SQL 데이터베이스 - 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경
 
@@ -72,4 +72,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 캐나다 중부 | 13\.88.248.106 |
 | 캐나다 동부 | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

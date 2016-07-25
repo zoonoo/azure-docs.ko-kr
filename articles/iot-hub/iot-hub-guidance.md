@@ -94,10 +94,20 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 ## 다음 단계
 
-Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
+IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [IoT Hub 시작(자습서)][lnk-get-started]
-- [IoT Hub Azure란?][lnk-what-is-hub]
+- [MQTT 지원][lnk-mqtt]
+- [지원되는 장치][lnk-devices]
+- [추가 프로토콜 지원][lnk-protocols]
+- [이벤트 허브와 비교][lnk-compare]
+- [크기 조정, HA 및 DR][lnk-scaling]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal-manage]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -121,4 +131,14 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [IoT Hub 할당량 및 제한]: iot-hub-devguide.md#throttling
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

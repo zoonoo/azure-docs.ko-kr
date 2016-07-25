@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # 서비스 패브릭 응용 프로그램 시나리오
@@ -61,4 +61,4 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,11 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # PowerApps 및 논리 흐름에 대한 Swagger 정의 사용자 지정
+
+>[AZURE.IMPORTANT] 이 항목은 [PowerApps 및 논리 흐름에 대한 Swagger 정의 사용자 지정](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/)의 powerapps.microsoft.com으로 이동되었습니다. 최신 버전에 대한 PowerApps로 이동하세요. 이 Azure 링크가 보관됩니다.
+
 
 ## API에 대한 Swagger 2.0 API 정의 작성
 
@@ -115,4 +118,4 @@ Salesforce에는 기본 제공되는 개체가 많이 있습니다. `x-ms-dynami
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스" 
-	description="엔터프라이즈 통합 팩의 기능을 사용하여 Microsoft Azure 앱 서비스를 사용하는 비즈니스 프로세스 및 통합 시나리오 사용" 
+	pageTitle="엔터프라이즈 통합 팩 및 논리 앱을 사용하여 플랫 파일을 인코딩 또는 디코딩하는 방법 배우기 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
+	description="엔터프라이즈 통합 팩 및 논리 앱의 기능을 사용하여 플랫 파일 인코딩 또는 디코딩" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 플랫 파일과 엔터프라이즈 통합
@@ -65,4 +65,4 @@ XML 콘텐츠를 인코딩하는 논리 앱 내에서 플랫 파일 인코딩 �
 ## 자세한 정보
 - [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

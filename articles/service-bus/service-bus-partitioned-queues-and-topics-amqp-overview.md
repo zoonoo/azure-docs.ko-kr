@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="07/08/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # 서비스 버스 분할된 큐 및 토픽을 위한 AMQP 1.0 지원 
@@ -25,6 +25,8 @@ Azure 서비스 버스는 이제 서비스 버스 **분할된 큐 및 토픽**�
 *분할된 엔터티*로도 알려진 **분할된 큐 및 토픽**은 기존의 분할되지 않은 큐 및 토픽에 비해 더 높은 가용성, 안정성 및 처리량을 제공합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md)를 참조하세요.
 
 분할된 큐 및 토픽과 통신하기 위한 프로토콜로 AMQP 1.0을 추가하면 서비스 버스 분할된 엔터티에서 제공된 더 높은 가용성, 안정성, 처리량의 이점을 이용할 수 있는 상호 운용 가능한 응용 프로그램을 구축할 수 있습니다.
+
+서비스 버스가 OASIS AMQP 기술 사양을 구현하고 빌드하는 방법을 설명하는 자세한 유선 수준 AMQP 1.0 프로토콜 가이드는 [Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0](service-bus-amqp-protocol-guide.md)을 참조하세요.
 
 ## 분할된 큐가 있는 AMQP 사용
 
@@ -66,9 +68,9 @@ receivedMessage.Complete();
 
 ## 분할된 토픽이 있는 AMQP 사용
 
-토픽은 큐와 개념적으로 유사하지만 동일한 메시지의 복사본을 여러 구독자에게 라우팅할 수 있습니다. 항목에서, 게시자는 항목에 메시지를 보내고 소비자는 *구독*으로부터 메시지를 수신합니다. 재고 시스템 POS(point-of-sale) 시나리오에서 터미널은 데이터를 토픽에 게시합니다. 그러면 재고 관리 시스템은 구독으로부터 메시지를 받습니다. 또한 모니터링 시스템은 다른 구독으로부터 동일한 메시지를 받을 수 있습니다. 서비스 버스 토픽 및 구독에 대한 자세한 내용은 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
+토픽은 큐와 개념적으로 유사하지만 동일한 메시지의 복사본을 여러 *구독*에 라우팅할 수 있습니다. 항목에서, 게시자는 항목에 메시지를 보내고 소비자는 구독으로부터 메시지를 수신합니다. 재고 시스템 POS(point-of-sale) 시나리오에서 터미널은 데이터를 토픽에 게시합니다. 그러면 재고 관리 시스템은 구독으로부터 메시지를 받습니다. 또한 모니터링 시스템은 다른 구독으로부터 동일한 메시지를 받을 수 있습니다. 서비스 버스 토픽 및 구독에 대한 자세한 내용은 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
 
-이러한 토픽과 해당 구독이 여러 메시지 브로커 및 메시징 저장소에 걸쳐 분할되기 때문에 분할된 토픽은 응용 프로그램에 대한 가용성, 안정성 및 처리량을 더욱 높입니다.
+큐와 마찬가지로 이러한 토픽과 구독이 여러 메시지 브로커 및 메시징 저장소에 결쳐 분할되기 때문에 분할 토픽은 응용 프로그램에 대한 가용성, 안정성 및 처리량을 더욱 높입니다.
 
 ### 분할된 토픽 만들기
 
@@ -108,14 +110,15 @@ receivedMessage.Complete();
 
 ## 다음 단계
 
-메시징 엔터티 분할 방법에 대한 자세한 내용은 다음 추가 정보를 참조하세요.
+AMQP 및 분할된 메시징 엔터티에 대한 자세한 내용은 다음 추가 정보를 참조하세요.
 
 *    [분할된 메시징 엔터티](service-bus-partitioning.md)
 *    [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [서비스 버스의 AMQP 1.0 지원](service-bus-amqp-overview.md)
+*    [Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0](service-bus-amqp-protocol-guide.md)
 *    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

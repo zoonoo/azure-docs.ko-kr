@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Azure Redis Cache를 관리하는 방법
@@ -80,7 +80,7 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 
 ### PowerShell, CLI 또는 기타 관리 도구를 사용하여 내 캐시를 다시 부팅할 수 있나요?
 
-지금은 가능하지 않지만 이 기능은 곧 제공될 예정입니다.
+예, PowerShell 소개는 [Redis Cache를 다시 부팅하려면](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)을 참조하세요.
 
 ### 어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?
 
@@ -116,4 +116,4 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 
 -	추가 [Azure Redis Cache 프리미엄 계층](cache-premium-tier-intro.md) 기능을 알아봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Azure 스트림 분석을 사용하여 Azure 저장소 Blob에서 Data Lake 저장소에 데이터 스트리밍
 
 이 문서는 Azure 스트림 분석 작업에 대한 출력으로 Azure Data Lake 저장소를 사용하는 방법을 알아봅니다. 이 문서에서는 Azure 저장소 Blob(입력)에서 데이터를 읽고 Data Lake 저장소(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
->[AZURE.NOTE] 이때 [Azure 클래식 포털](manage.windowsazure.com)에서만 스트림 분석에 대한 Data Lake 저장소 출력을 만들고 구성할 수 있습니다. 따라서 이 자습서의 일부는 Azure 클래식 포털을 사용합니다.
+>[AZURE.NOTE] 이 때 [Azure 클래식 포털](https://manage.windowsazure.com)에서만 스트림 분석에 대한 Data Lake Store 출력을 만들고 구성할 수 있습니다. 따라서 이 자습서의 일부는 Azure 클래식 포털을 사용합니다.
 
 ## 필수 조건
 
@@ -103,7 +103,7 @@
 
 	![출력 서식 지정](./media/data-lake-store-stream-analytics/create.output.4.png "출력 서식 지정")
 
-6. 마법사를 실행하면 Data Lake 저장소 출력은 **출력** 탭에 추가되고 **진단** 열은 **확인**을 표시해야 합니다. 아래쪽의 **연결 테스트** 단추를 사용하여 출력에 대한 연결을 명시적으로 테스트할 수 있습니다.
+6. 마법사를 실행하면 Data Lake Store 출력은 **출력** 탭에 추가되고 **진단** 열은 **확인**을 표시해야 합니다. 아래쪽의 **연결 테스트** 단추를 사용하여 출력에 대한 연결을 명시적으로 테스트할 수 있습니다.
 
 ## 스트림 분석 작업 실행
 
@@ -119,14 +119,14 @@
 
 ![작업 모니터링](./media/data-lake-store-stream-analytics/run.query.3.png "작업 모니터링")
 
-마지막으로 [Azure 포털](portal.azure.com)을 사용하여 Data Lake 저장소 계정을 열고 계정에 데이터가 성공적으로 기록되었는지 여부를 확인할 수 있습니다.
+마지막으로 [Azure 포털](https://portal.azure.com)을 사용하여 Data Lake Store 계정을 열고 계정에 데이터가 성공적으로 기록되었는지 여부를 확인할 수 있습니다.
 
 ![출력 확인](./media/data-lake-store-stream-analytics/run.query.4.png "출력 확인")
 
-데이터 탐색기 창에서 Data Lake 저장소 출력 설정에 지정된 대로 출력(`streamanalytics/job/output/{date}/{time}`)이 폴더에 기록됩니다.
+데이터 탐색기 창에서 Data Lake Store 출력 설정에 지정된 대로 출력(`streamanalytics/job/output/{date}/{time}`)이 폴더에 기록됩니다.
 
 ## 참고 항목
 
 * [HDInsight 클러스터를 만들어 Data Lake 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

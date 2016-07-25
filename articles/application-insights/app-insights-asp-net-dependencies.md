@@ -99,11 +99,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## <a name="diagnosis"></a> 종속성 성능 문제 진단
 
-서버에서 요청 성능을 평가하려면:
-
-![Application Insights의 응용 프로그램 개요 페이지에서 성능 타일을 클릭합니다.](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-아래로 스크롤하여 요청 표를 확인합니다.
+서버에서 요청의 성능을 평가하려면 성능 블레이드를 열고 아래로 스크롤하여 요청 표를 확인합니다.
 
 ![평균 및 개수가 포함된 요청 목록](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 장기 실행 인스턴스를 클릭하면 세부 사항을 조사할 수 있습니다.
 
-> [AZURE.NOTE] 인스턴스를 선택하려면 약간 아래로 스크롤합니다. 파이프라인의 대기 시간은 최상위 인스턴스의 데이터가 완료되지 않았음을 의미할 수 있습니다.
-
 이 요청과 관련된 원격 종속성 호출까지 스크롤합니다.
 
 ![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 이 요청을 서비스하는 데 걸린 시간은 대부분 로컬 서비스 호출에 소요된 시간인 것 같습니다.
 
-해당 행을 선택하여 자세한 정보를 봅니다.
 
+해당 행을 선택하여 자세한 정보를 봅니다.
 
 ![해당 원격 종속성을 클릭하여 원인 식별](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 세부 정보에는 문제를 진단하는 데 충분한 정보가 들어 있습니다.
 
+
+경우에 따라 종속성 호출이 길지 않은 상태에서 시간 표시 막대 뷰로 전환할 때 내부 처리에 지연이 발생하는 것을 확인할 수 있습니다.
+
+
+![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## 오류
@@ -178,9 +177,9 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 다음 단계
 
-- [예외](app-insights-asp-net-exception-mvc.md#selector1)
-- [사용자 및 페이지 데이터](app-insights-asp-net-client.md#selector1)
-- [Availability](app-insights-monitor-web-app-availability.md#selector1)
+- [예외](app-insights-asp-net-exceptions.md)
+- [사용자 및 페이지 데이터][client]
+- [Availability](app-insights-monitor-web-app-availability.md)
 
 
 
@@ -202,4 +201,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

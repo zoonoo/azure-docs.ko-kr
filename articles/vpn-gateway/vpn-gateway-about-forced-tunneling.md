@@ -140,15 +140,15 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 	아래 cmdlet 예제는 기본 경로를 1단계에서 생성된 라우팅 테이블에 추가합니다. 경로만 지원되는 경우는 "VPNGateway" 다음 홉에 대한 "0.0.0.0/0"의 대상 접두사입니다.
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. 서브넷에 라우팅 테이블을 연결합니다.
 
 	라우팅 테이블을 만들고 경로를 추가한 후 아래 cmdlet을 사용하여 경로 테이블을 VNet 서브넷에 추가하거나 연결합니다. 아래 샘플은 경로 테이블 "MyRouteTable"을 VNet 다중 계층-VNet의 중간 계층 및 백 엔드 서브넷에 추가합니다.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. 강제 터널링에 대한 기본 사이트를 할당합니다.
 
@@ -161,7 +161,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ### 경로 테이블을 삭제하려면
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### 경로 테이블을 나열하려면
 
@@ -173,14 +173,14 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ### 서브넷에서 경로를 제거하려면
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### 서브넷에 연결된 경로 테이블을 나열하려면
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### VNet VPN 게이트웨이에서 기본 사이트를 제거하려면
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

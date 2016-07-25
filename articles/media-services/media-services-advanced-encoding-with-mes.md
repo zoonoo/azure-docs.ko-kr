@@ -32,6 +32,8 @@
 - [자동 디인터레이스 사용 안 함](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [오디오 전용 사전 설정](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [둘 이상의 비디오 파일 연결](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [미디어 인코더 표준으로 비디오 자르기](media-services-custom-mes-presets-with-dotnet.md#crop)
+
 
 ##<a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 
@@ -1072,7 +1074,10 @@
 	    }
 	  ]
 	}
-	
+
+##<a id="crop"></a>미디어 인코더 표준으로 비디오 자르기
+
+[미디어 인코더 표준으로 비디오 자르기](media-services-crop-video.md) 항목을 참조하세요.
 
 ##미디어 서비스 학습 경로
 
@@ -1086,4 +1091,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

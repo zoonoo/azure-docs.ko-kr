@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Central Desktop와 Azure Active Directory 통합
@@ -35,7 +35,7 @@
 
 ###Central Desktop에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-central-desktop-tutorial/IC700993.png "Active Directory")
 
@@ -62,15 +62,13 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다.  
-이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Central Desktop** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Central Desktop** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Single Sign-On 구성")
 
@@ -80,10 +78,10 @@
 
 3.  **앱 URL 구성** 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다.
 
-    -   **Central Desktop 로그인 URL** 텍스트 상자에서 Central Desktop 테넌트의 URL을 입력합니다.(예: **http://contoso.centraldesktop.com*))
-    -   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다.(예:https://contoso.centraldesktop.com/saml2-assertion.php))
+    -   **Central Desktop 로그인 URL** 텍스트 상자에서 Central Desktop 테넌트의 URL을 입력합니다(예: *http://contoso.centraldesktop.com*).
+    -   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다(예:https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Central Desktop 메타데이터에서 값을 가져올 수 있습니다.(예: **http://contoso.centraldesktop.com*))
+    >[AZURE.NOTE] Central Desktop 메타데이터에서 값을 가져올 수 있습니다(예: *http://contoso.centraldesktop.com*).
 
     ![앱 URL 구성](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "앱 URL 구성")
 
@@ -102,9 +100,9 @@
     ![Singl Sign On 설정](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Singl Sign On 설정")
 
     1.  **SAML v2 Single Sign-On 사용**을 선택합니다.
-    2.  Azure AD 포털의 **Central Desktop에 대한 Single Sign-on 구성** 페이지에서 **발급자 URL** 값을 복사한 다음 **SSO URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure AD 포털의 **Central Desktop에 대한 Single Sign-on 구성** 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SSO 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    4.  Azure AD 포털의 **Central Desktop에 대한 Single Sign-on 구성** 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **SSO 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Central Desktop에 대한 Single Sign-On 구성** 페이지에서 **발급자 URL** 값을 복사한 다음 **SSO URL** 텍스트 상자에 붙여넣습니다.
+    3.  Azure 클래식 포털의 **Central Desktop에 대한 Single Sign-On 구성** 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SSO 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    4.  Azure 클래식 포털의 **Central Desktop에 대한 Single Sign-On 구성** 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **SSO 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
 8.  **메시지 서명 확인 방법** 섹션에서 다음 단계를 수행합니다.
 
@@ -112,15 +110,15 @@
 
     1.  **인증서**를 선택합니다.
     2.  **SSO 인증서**목록에서 **RSH SHA256**을 선택합니다.
-    3.  다운로드한 인증서에서 텍스트 파일을 만들고 텍스트 파일의 내용을 복사한 다음 **SSO 인증서** 필드를 붙여 넣습니다.  
+    3.  다운로드한 인증서에서 텍스트 파일을 만들고 텍스트 파일의 내용을 복사한 다음 **SSO 인증서** 필드를 붙여 넣습니다.
 
-        >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+        >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     4.  **SAMLv2 로그인 페이지의 링크 표시**를 선택합니다.
 
 9.  **업데이트**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -145,9 +143,9 @@ AAD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램�
 
     ![내부 멤버 추가](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "내부 멤버 추가")
 
-    >[AZURE.NOTE]추가한 사용자는 계정을 활성화하기 위해 클릭해야 할 확인 링크를 포함하는 전자 메일을 받게 됩니다.
+    >[AZURE.NOTE] 추가한 사용자는 계정을 활성화하기 위해 클릭해야 할 확인 링크를 포함하는 전자 메일을 받게 됩니다.
 
->[AZURE.NOTE]다른 Central Desktop 사용자 계정 생성 도구 또는 Central Desktop가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Central Desktop 사용자 계정 생성 도구 또는 Central Desktop가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -155,7 +153,7 @@ AAD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램�
 
 ###Central Desktop에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **Central Desktop** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -167,4 +165,4 @@ AAD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램�
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

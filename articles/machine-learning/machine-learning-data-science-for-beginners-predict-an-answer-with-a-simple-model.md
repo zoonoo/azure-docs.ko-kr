@@ -1,5 +1,5 @@
 <properties
-   pageTitle="단순 모델로 답변 예측 - 초급자를 위한 데이터 과학 | Microsoft Azure"
+   pageTitle="단순 모델을 사용하여 답변 예측 - 회귀 모델 | Microsoft Azure"
    description="초급자를 위한 데이터 과학 비디오 4에서는 다이아몬드의 가격을 예측하는 간단한 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 기본 선형 회귀가 포함됩니다."                                  
    keywords="모델 만들기,간단한 모델,간단한 데이터 모델,가격 예측,간단한 회귀 모델"
    services="machine-learning"
@@ -23,11 +23,9 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-predict-an-answer-with-a-simple-model"> <a title="Data science for beginners: Predict an answer with a simple model" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-predict-an-answer-with-a-simple-model" data-caption="" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player/" data-expanding="false"> <img class="thumbnail" alt="Data science for beginners: Predict an answer with a simple model" src="https://sec.ch9.ms/ch9/d060/48bc9b8a-987c-4f60-94fe-fc482da2d060/DataScienceForBeginnersSeriesPredictAnAnswerWithA_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-28-2016</span> <span>07 min, 42 sec</span> </span> </span> </a> </div>
+> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
 ## 비디오 내용: 단순 모델을 사용하여 답변 예측
-
-비디오 내용: 단순 모델을 사용하여 답변 예측
 
 “초급자를 위한 데이터 과학” 시리즈 중 4번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
 
@@ -140,4 +138,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

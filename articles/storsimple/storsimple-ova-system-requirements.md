@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 시스템 요구 사항
@@ -93,6 +93,9 @@
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
+> [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+
+
 ### 방화벽 규칙에 대한 URL 패턴 
 
 네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. 가상 배열 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정, Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
@@ -101,7 +104,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 > [AZURE.NOTE] 
 > 
-> - 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
+> - 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다.
 > - 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
 
@@ -110,7 +113,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스|
 |`http://*.backup.windowsazure.com`|장치 등록|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |
-| `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 |
@@ -120,4 +123,4 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 -   [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

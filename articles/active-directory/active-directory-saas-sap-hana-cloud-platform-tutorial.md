@@ -2,17 +2,17 @@
     pageTitle="자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 SAP HANA Cloud Platform을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합
   
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **SAP HANA Cloud Platform** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성 ** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **SAP HANA Cloud Platform** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Single Sign-On 구성")
 
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Single Sign-On 구성")
 
-3.  다른 웹 브라우저 창에서, https://account.\<landscape host>.ondemand.com/cockpit (예: **https://account.hanatrial.ondemand.com/cockpit*)의 SAP HANA Cloud Platform Cockpit에 로그온합니다.
+3.  다른 웹 브라우저 창에서, https://account.\<landscape host>.ondemand.com/cockpit (예: *https://account.hanatrial.ondemand.com/cockpit*)의 SAP HANA Cloud Platform Cockpit에 로그온합니다.
 
 4.  **신뢰** 탭을 클릭합니다.
 
@@ -91,11 +91,11 @@
     1.  **로컬 서비스 공급자** 탭을 클릭합니다.
     2.  SAP HANA Cloud Platform 메타데이터 파일을 다운로드하려면 **메타데이터 가져오기**를 클릭합니다.
 
-6.  Azure Active Directory 포털의 **앱 URL 구성** 페이지에서 다음 단계를 수행한 후 **다음**을 선택합니다.
+6.  Azure Active 클래식 포털의 **앱 URL 구성** 페이지에서 다음 단계를 수행한 후 **다음**을 선택합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "앱 URL 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 **SAP HANA Cloud Platform** 응용 프로그램에 사용자가 로그인하기 위해 사용한 URL을 입력합니다. SAP HANA Cloud Platform 응용 프로그램에서 보호 된 리소스의 계정 관련 URL입니다. URL은 다음 패턴 *https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (예: **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)을 기반으로 합니다.
+    1.  **로그온 URL** 텍스트 상자에 **SAP HANA Cloud Platform** 응용 프로그램에 사용자가 로그인하기 위해 사용한 URL을 입력합니다. SAP HANA Cloud Platform 응용 프로그램에서 보호 된 리소스의 계정 관련 URL입니다. URL은 다음 패턴 *https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (예: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)을 기반으로 합니다.
 
 		>[AZURE.NOTE]사용자의 인증을 필요로 하는 SAP HANA Cloud Platform 응용 프로그램의 URL입니다.
 
@@ -128,7 +128,7 @@
 
     ![트러스트 관리](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "트러스트 관리")
 
-    >[AZURE.NOTE]메타데이터 파일을 업로드한 후 **Single Sign-On URL**, **Single Logout URL** 및**서명 인증서**의 값이 자동으로 채워집니다.
+    >[AZURE.NOTE] 메타데이터 파일을 업로드한 후 **Single Sign-On URL**, **Single Logout URL** 및**서명 인증서**의 값이 자동으로 채워집니다.
 
 11. **특성** 탭을 클릭합니다.
 
@@ -140,9 +140,7 @@
 
         |어설션 특성| 보안 주체 특성|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 HCP의 응용 프로그램이 개발된 방법에 따라 다릅니다.
     >  
@@ -150,7 +148,7 @@
     >
     >b. 스크린샷에 표시되는 **보안 주체 특성**의 이름 및 값은 응용 프로그램 개발 방법에 따라 달라집니다. 응용 프로그램에 다른 매핑이 필요할 수 있습니다.
 
-13. Azure 포털의 **SAP HANA Cloud Platform에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭합니다.
+13. Azure 클래식 포털의 **SAP HANA Cloud Platform에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Single Sign-On 구성")
   
@@ -184,7 +182,7 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
 
 ###SAP HANA Cloud Platform에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **SAP HANA Cloud Platform** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -196,4 +194,4 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

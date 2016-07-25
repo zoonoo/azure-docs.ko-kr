@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="맵 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스" 
+	pageTitle="맵 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 맵을 사용하는 방법 알아보기" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 맵 및 엔터프라이즈 통합 팩에 대해 알아보기
@@ -47,15 +47,15 @@ Azure 포털에서 다음을 수행합니다.
 4. 열린 파일 선택 대화 상자를 사용하여 업로드하려는 맵 파일을 선택한 다음 파일 선택에서 **열기**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. 맵을 업로드한 후에 알림 팝업을 받게 됩니다.
 
-
 ## 맵 삭제 방법
 1. **맵** 타일을 선택합니다.
 2. 맵 블레이드가 열리면 삭제할 맵을 선택합니다.
 3. **삭제** 링크를 선택합니다. ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. 정말로 맵을 삭제하려는지를 확인합니다. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## 다음 단계
+- [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 - [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
+- [변환에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아보기")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

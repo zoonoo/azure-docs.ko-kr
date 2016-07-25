@@ -3,7 +3,7 @@
    description="Microsoft Power BI Embedded 미리 보기 문제 해결"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/25/2016"
-   ms.author="derrickv"/>
+   ms.date="06/29/2016"
+   ms.author="owend"/>
 
 # Microsoft Power BI Embedded 미리 보기 문제 해결
 이 문서에서는 **Power BI Embedded** 문제를 해결하는 방법에 대한 답변을 제공합니다.
@@ -40,4 +40,4 @@ SQL Server 연결 문자열에 대해 자세히 알아보려면 다음 문서를
 - [샘플 시작](power-bi-embedded-get-started-sample.md)
 - [Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

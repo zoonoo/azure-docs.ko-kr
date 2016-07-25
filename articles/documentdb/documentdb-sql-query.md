@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB의 SQL 쿼리 및 SQL 구문
@@ -157,9 +157,9 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
  
--	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
--	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
--	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
+-	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.
+-	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.
+-	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 ## DocumentDB 인덱싱
@@ -552,7 +552,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우
 
 -	형식 비교 결과가 Undefined입니다.
--	두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.   
+-	두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
@@ -864,8 +864,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	]
 
 
-###* 연산자
-특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
+###* 연산자 특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
@@ -1052,7 +1051,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 ### 조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
-언어가 지원하는 구문은 <from\_source1> JOIN <from\_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
+언어가 지원하는 구문은 <from\_source1> JOIN <from\_source2> JOIN ... JOIN <from\_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
 
 다음 예제는 JOIN 절의 작동 방식을 보여 줍니다. 다음 예제에서는 소스의 각 문서와 빈 집합의 교차곱이 비어 있으므로 결과가 비어 있습니다.
 
@@ -1376,7 +1375,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>공간 함수</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID 및 ST_ISVALIDDETAILED</td>
 </tr>
-</table>
+</table>  
 
 현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다.
 
@@ -1482,7 +1481,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>지정된 식에서 입력 식의 탄젠트를 반환합니다.</td>
 </tr>
 
-</table>
+</table> 
 
 예를 들어 이제 다음과 같은 쿼리를 실행할 수 있습니다.
 
@@ -2378,4 +2377,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->
