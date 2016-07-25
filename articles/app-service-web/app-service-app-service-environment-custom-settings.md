@@ -95,4 +95,4 @@ Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 �
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

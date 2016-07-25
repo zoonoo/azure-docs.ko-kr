@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Bonus.ly와 Azure Active Directory 통합
@@ -35,7 +35,7 @@
 
 ###Bonus.ly에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Single Sign-On 사용](./media/active-directory-saas-bonus-tutorial/IC773680.png "Single Sign-On 사용")
 
@@ -66,7 +66,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Bonus.ly** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Bonus.ly** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC749323.png "Single Sign-On 구성")
 
@@ -74,7 +74,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773683.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Bonus.ly 테넌트 URL** 텍스트 상자에 다음 패턴 "https://\<tenant-name>.Bonus.ly"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Bonus.ly 테넌트 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Bonus.ly*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-bonus-tutorial/IC773684.png "앱 URL 구성")
 
@@ -94,16 +94,16 @@
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonusly")
 
-    1.  Azure 포털의 **Bonus.ly에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP SSO 대상 URL** 텍스트 상자에 붙여넣습니다.
-    2.  Azure 포털의 **Bonus.ly에서 Single Sign-on 구성** 대화 상자 페이지에서 **발급자 ID** 값을 복사한 다음 **IdP 발급자** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 포털의 **Bonus.ly에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    1.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP SSO 대상 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 ID** 값을 복사한 다음 **IdP 발급자** 텍스트 상자에 붙여넣습니다.
+    3.  Azure 클래식 포털의 **Bonus.ly에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
     4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
 
-        >[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+        >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 9.  **저장**을 클릭합니다.
 
-10. Microsoft Azure AD 포털에서 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign On 구성** 대화 상자를 닫습니다.
+10. Microsoft Azure 클래식 포털에서 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773689.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -134,12 +134,12 @@ Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly�
 
     ![사용자 추가](./media/active-directory-saas-bonus-tutorial/IC781045.png "사용자 추가")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 “**전자 메일**, **이름**, **성**을 입력합니다.
+    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 “**전자 메일**, **이름**, **성**”을 입력합니다.
     2.  **Save**를 클릭합니다.
 
-    >[AZURE.NOTE]AAD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+    >[AZURE.NOTE] AAD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
 
->[AZURE.NOTE]다른 Bonus.ly 사용자 계정 생성 도구 또는 Bonus.ly가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Bonus.ly 사용자 계정 생성 도구 또는 Bonus.ly가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -147,7 +147,7 @@ Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly�
 
 ###Bonus.ly에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  Bonus.ly 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -159,4 +159,4 @@ Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly�
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

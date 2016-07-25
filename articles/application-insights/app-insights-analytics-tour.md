@@ -111,7 +111,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * [열 이름](app-insights-analytics-reference.md#names)은(는) `['...']` 또는 `["..."]`와(과) 같이 대괄호로 묶은 경우 공백이나 기호를 포함할 수 있습니다.
-* `%`은(는) 일반적인 모듈로 연산자입니다. 
+* `%`은(는) 일반적인 모듈로 연산자입니다.
 * `1d`(한 자릿수, 'd' 한 개)은(는) 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
 * `floor`(별칭 `bin`)은(는) 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`은(는) 시간을 가장 가까운 초로 반올림합니다.
 
@@ -412,7 +412,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 확인할 수 있는 사항:
 
-* 세션의 5%가 3분 34초 미만의 기간을 가지고 있음; 
+* 세션의 5%가 3분 34초 미만의 기간을 가지고 있음;
 * 세션의 50%가 36분 미만 동안 지속;
 * 세션의 5%가 7일보다 오래 지속
 
@@ -455,7 +455,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## [Let](app-insights-analytics-reference.md#let-clause): 변수에 결과 할당
 
-[let](./app-insights-analytics-syntax.md#let-statements)을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
+[let](./app-insights-analytics-reference.md#let-statements)을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
 
 ```AIQL
 
@@ -472,4 +472,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

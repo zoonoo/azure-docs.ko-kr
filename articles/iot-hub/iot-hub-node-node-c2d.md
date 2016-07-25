@@ -179,18 +179,11 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 ## 다음 단계
 
-이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다. IoT Hub 기능 및 시나리오는 다음의 자습서와 함께 계속해서 탐색할 수 있습니다.
+이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다.
 
-- [장치-클라우드 메시지 처리]는 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여 줍니다.
-- [장치에서 파일 업로드]는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
+IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT Suite]를 참조하세요.
 
-IoT Hub에 대한 추가 정보:
-
-* [IoT Hub 개요]
-* [IoT Hub 개발자 가이드]
-* [IoT Hub 지침]
-* [지원하는 장치 플랫폼 및 언어]
-* [Azure IoT 개발자 센터]
+IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드]를 참조하세요.
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
@@ -201,16 +194,17 @@ IoT Hub에 대한 추가 정보:
 [IoT Hub 시작]: iot-hub-node-node-getstarted.md
 [IoT Hub 시작하기]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
-[장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub 개요]: iot-hub-what-is-iot-hub.md
-[IoT Hub 지침]: iot-hub-guidance.md
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
-[지원하는 장치 플랫폼 및 언어]: iot-hub-supported-devices.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

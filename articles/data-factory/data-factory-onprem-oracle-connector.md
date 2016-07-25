@@ -433,7 +433,7 @@ oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습�
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: 00:30:00(30분). | 아니요
-writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer | 아니요(기본값: 10000)  
+writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | 정수(행 수)| 아니요(기본값: 10000)  
 sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. | 쿼리 문입니다. | 아니요
 sliceIdentifierColumnName | 복사 작업에 대해 사용자가 지정한 열 이름으로 자동 생성된 조각 식별자로 채워집니다. 다시 실행하면 특정 조각의 데이터가 정리됩니다. | binary(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요
 
@@ -477,7 +477,7 @@ XML | String
 
 ## 문제 해결 팁
 
-**문제:** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
+**문제: ** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
 
 **가능한 원인**
 
@@ -501,4 +501,4 @@ XML | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

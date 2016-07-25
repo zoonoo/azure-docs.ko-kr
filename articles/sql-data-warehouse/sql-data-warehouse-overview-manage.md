@@ -102,7 +102,7 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 [connection]: sql-data-warehouse-develop-connections.md
 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-get-started-connect.md
 [sqlcmd를 사용하여 연결 및 쿼리]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[개발 개요]: sql-data-warehouse-overview-development.md
+[개발 개요]: sql-data-warehouse-overview-develop.md
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
 [계산 일시 중지]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [스냅숏에서 복원]: sql-data-warehouse-restore-database-overview.md
@@ -118,4 +118,4 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

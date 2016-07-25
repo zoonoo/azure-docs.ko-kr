@@ -1,19 +1,20 @@
 <properties
    pageTitle="Azure 구독의 소유권 양도 | Microsoft Azure"
    description="다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)"
-   services="billing"
+   services=""
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor=""/>
+   editor="n/a"
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
-   ms.date="07/04/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Azure 구독의 소유권 양도
@@ -27,12 +28,9 @@
 
 이제 종량제, MSDN, Action Pack 또는 BizSpark 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 구독을 운영하고 있는 국가와 관계없이 소유하고 있는 종량제, MSDN, Action Pack 또는 BizSpark 구독의 계정 관리자를 변경할 수 있습니다. 이제 이러한 구독 유형에 대해서도 Azure 마켓플레이스 구매에 대한 양도를 지원합니다.
 
-**참고** 소유권 양도를 수행하려면 계정 관리자여야 합니다. 다음과 같이 구독의 계정 관리자가 누구인지 확인할 수 있습니다.
+> [AZURE.NOTE]  구독을 다른 제품으로 변경하려면 [다른 Azure 제품으로 전환](billing-how-to-switch-azure-offer.md)에서 자세한 내용을 참조하세요.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **구독**을 선택합니다.
-3. 확인하려는 구독을 선택한 다음 **설정**을 선택합니다. ![설정](./media/billing-subscription-transfer/settings.png)
-4. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시 됩니다. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+> 소유권 양도를 수행하려면 계정 관리자여야 합니다. 구독의 계정 관리자를 알아내는 방법에 대한 자세한 내용은 [질문과 대답](#faq)을 참조하세요.
 
 ## Azure 구독의 소유권을 양도하는 방법
 
@@ -62,13 +60,24 @@
 
 7. 성공! 구독이 이제 양도됩니다.
 
+<a id="faq"></a>
 ## 질문과 대답(FAQ)
+
+-   **구독의 계정 관리자가 누구인지를 어떻게 알 수 있나요?**
+
+    다음과 같이 구독의 계정 관리자가 누구인지 확인할 수 있습니다.
+
+    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    2. 허브 메뉴에서 **구독**을 선택합니다.
+    3. 확인하려는 구독을 선택한 다음 **설정**을 선택합니다.
+    4. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시 됩니다.
 
 -   **구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?**
 
     서비스에 영향은 없습니다. 이는 현재 계정 관리자 하에서 구독을 효과적으로 취소하고 받는 사람의 계정 하에서 새 계정을 만들어 새 구독과 기본 Azure 서비스를 연결합니다. 구독 ID는 동일합니다.
 
--   **이 메커니즘을 어떻게 사용하여 구독 디렉터리를 변경하나요?** - Azure 구독은 계정 관리자가 속한 디렉터리에 생성됩니다. 따라서 디렉터리를 변경하려면 구독을 대상 디렉터리의 사용자 계정으로 전달하면 됩니다. 해당 사용자가 전달을 수락하는 절차를 완료하면 구독이 자동으로 대상 디렉터리로 이동합니다.
+-   **이 메커니즘을 어떻게 사용하여 구독 디렉터리를 변경하나요?**-   
+    Azure 구독은 계정 관리자가 속한 디렉터리에 생성됩니다. 따라서 디렉터리를 변경하려면 구독을 대상 디렉터리의 사용자 계정으로 전달하면 됩니다. 해당 사용자가 전달을 수락하는 절차를 완료하면 구독이 자동으로 대상 디렉터리로 이동합니다.
 
 -   **다른 조직으로부터 구독 청구 소유권을 양도 받은 경우, 내 리소스에 계속 액세스할 수 있습니까?**
 
@@ -79,7 +88,7 @@
 
     이는 완전한 목록이 아닙니다. 받는 사람은 리소스에 액세스를 제한해야 하는 경우 서비스와 연결된 암호 업데이트를 고려해야 합니다. 대부분의 리소스는 다음과 같이 업데이트할 수 있습니다.
 
-    1.   Azure 포털로 이동합니다. [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Azure 포털로 이동합니다.[*https://portal.azure.com*](https://portal.azure.com)
 
     2.    모두 찾아보기 -&gt; 모든 리소스를 클릭합니다.
 
@@ -117,10 +126,10 @@
 1. 이제 계정 관리자입니다. 서비스 관리자 및 공동 관리자를 검토하고 업데이트합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 설정으로 이동하여 관리자를 관리합니다. [자세히 알아봅니다](http://go.microsoft.com/fwlink/?LinkID=533293).
 2. 구독 및 서비스에 대해 RBAC(역할 기반 액세스 제어)를 사용할 수도 있습니다. [Azure 포털](https://portal.azure.com) [RBAC에 대한 자세한 정보](http://go.microsoft.com/fwlink/?LinkID=544802)를 방문하세요.
 3. 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다. 내용은 다음과 같습니다.
-    - 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하세요.
+    -   구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하세요.
     -	저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
     -	Azure 가상 컴퓨터와 같은 서비스에 대한 원격 액세스 자격 증명
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

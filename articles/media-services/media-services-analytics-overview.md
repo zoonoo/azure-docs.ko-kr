@@ -73,7 +73,7 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 ### .NET
 
-다음 함수는 지정된 MP 이름 중 하나를 사용하고 NP 개체를 반환합니다.
+다음 함수는 지정된 MP 이름 중 하나를 사용하고 MP 개체를 반환합니다.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -144,4 +144,4 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

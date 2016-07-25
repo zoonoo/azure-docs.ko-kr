@@ -41,7 +41,7 @@
 
 Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext][synccontext]를 초기화합니다. 그런 다음 [IMobileServiceSyncTable][IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 장치의 로컬 저장소로 사용됩니다.
 
-1. [유니버설 Windows 유니버설용 SQLite 런타임](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
+1. [유니버설 Windows 플랫폼용 SQLite 런타임](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
 
 2. Visual Studio에서는 [Windows 앱 만들기] 자습서에서 완료한 UWP 앱 프로젝트용 NuGet 패키지 관리자를 열고 검색한 다음 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 설치합니다.
 
@@ -211,4 +211,4 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 [클라우드 커버: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

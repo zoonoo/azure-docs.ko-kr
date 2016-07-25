@@ -14,34 +14,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/11/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
 
 이 문서에서는 Azure 청구 및 구독에 대한 일반적인 질문에 대한 답변을 제공합니다.
 
-**계정 관리**
+## 계정 관리
 
 - [새 Azure 포털에서 관리자 계정은 어떻게 관리하나요?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [내 계정과 연결된 계정 소유자 메일 주소 외에 다른 메일 주소로 알림을 받을 수 있나요?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
 - [내 구독에 대해 세부 정보를 편집 또는 추가할 수 없는 이유는 무엇인가요?](#why-cannot-i-edit-or-add-details-to-my-subscription)
 - [Azure 포털에 로그인할 수 없습니다.](#i-am-unable-to-log-in-to-the-azure-portal)
 
-**결제**
+## 결제
 
 - [내 청구서 복사본은 어떻게 받나요?](#how-do-i-get-a-copy-of-my-invoice)
 - [마지막 청구 기간에 대한 송장이 보이지 않습니다. 그 이유는 무엇일까요?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
-**무료 평가판**
+## 무료 평가판
 
 - [요금을 내지 않고 Azure를 무료로 사용해 볼 수 있나요?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
 - [평가판 구독이란 무엇이고 지속 기간은 얼마나 되나요?](#what-is-a-trial-subscription-and-how-long-does-it-last)
-- [무료 평가판 계정을 사용하는 경우 어떤 리소스를 사용할 수 있나요?](#what-resources-are-available-when-using-a-trial-account)
+- [무료 평가판 계정을 사용하는 경우 어떤 리소스를 사용할 수 있나요?](#what-resources-are-available-whko-KRing-a-trial-account)
 - [내 무료 평가판에 대한 지출 한도를 제거하면 어떻게 되나요?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
 - [무료 평가판에 대한 더 많은 세부 정보는 어디서 찾을 수 있나요?](#where-can-i-get-more-details-on-free-trial)
 
-**Azure 구입 방법**
+## Azure 구입 방법
 
 - [Microsoft Azure가 상업적으로 제공되는 국가와 지역은 어디이며, Azure를 구매하는 데 사용할 수 있는 통화는 무엇인가요?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
 - [통상 금지령이 내려져 있는 국가에 대한 Azure 기반 서비스 재판매가 제한되나요?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
@@ -49,7 +49,7 @@
 - [Azure 외부에서 구입한 내 기존 Windows 라이선스를 사용할 수 있나요?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
 - [Azure 서비스를 누가 구매할 수 있나요?](#who-can-purchase-azure-services)
 
-**대금 지불**
+## 대금 지불
 
 - [Azure 구입에 대해 어떤 지불 옵션이 있나요?](#what-payment-options-do-i-have-in-purchasing-azure)
 - [지불 청구서 방법을 어떻게 요청할 수 있나요?](#how-can-i-request-the-invoice-method-of-payment)
@@ -58,24 +58,24 @@
 - [내 신용 카드 정보를 업데이트하거나 변경하려면 어떻게 해야 하나요?](#how-can-i-update-or-change-my-credit-card-information)
 - [Azure 구독을 위한 지불 정보를 어떻게 수정하나요?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
 
-**Azure 가격 책정**
+## Azure 가격 책정
 
 - [Azure 서비스의 혜택 및 가격 정보는 어디에서 찾을 수 있나요?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
 - [내 요금제는 어떻게 변경하나요?](#how-do-i-change-my-pricing-plan)
 
-**SLA(서비스 수준 계약)**
+## SLA(서비스 수준 계약)
 
 - [계획된 유지 관리로 인한 서비스 가동 중지 시간을 어떻게 미리 알 수 있나요?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
 - [작동 시간 및 연결에 대한 Azure SLA 계약이란 무엇인가요?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
 - [Azure SLA 크레딧이란 무엇인가요?](#what-are-the-azure-sla-credits)
 - [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-**Azure 지출 한도**
+## Azure 지출 한도
 
 - [지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [지출 한도 금액을 조정할 수 있나요?](#can-i-adjust-the-amount-of-the-spending-limit)
 
-**지원 플랜**
+## 지원 플랜
 
 - [Azure 지원은 어떻게 구입하나요?](#how-do-i-purchase-azure-support)
 - [월간 요금은 단일 Azure 플랜에 해당하나요, 아니면 전체 계정에 해당하나요?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
@@ -84,7 +84,7 @@
 - [구독 기간이 끝나면 어떻게 되나요?](#what-happens-at-the-end-of-the-term)
 - [Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?](#how-do-i-cancel-my-azure-support-plan)
 
-**구독, 서비스 및 데이터 마이그레이션**
+## 구독, 서비스 및 데이터 마이그레이션
 
 - [내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하려면 어떻게 해야 하나요?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [내 구독 소유권을 양도하려면 어떻게 해야 하나요?](#how-do-i-transfer-ownership-of-my-subscriptions)
@@ -123,7 +123,7 @@ Azure 계정 관리자는 Azure 계정 센터에서 현재 청구서를 볼 수 
 
 가용성에 대한 서비스 수준 계약은 최소 두 개의 역할 인스턴스를 사용하는 고객 응용 프로그램에 적용됩니다. 단일 인스턴스에 대한 SLA는 없습니다. 자세한 정보는 [SLA 페이지](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-**계획된 유지 관리(클래식 포털)**: 단일 및 다중 인스턴스 구성 모두에 대해 Azure에서 사전에 메일을 전송하여 향후 계획된 유지 관리에 대해 알려줍니다(단일 인스턴스의 경우 1주 전 및 다중 인스턴스의 경우 48시간 전). 구독에 제공된 계정 관리자, 서비스 관리자 및 공동 관리자 메일 계정으로 메일이 전송됩니다.
+**계획된 유지 관리(클래식 포털)**: 단일 및 다중 인스턴스 구성 모두에 대해 Azure에서 사전에 전자 메일을 전송하여 향후 계획된 유지 관리에 대해 알려줍니다(단일 인스턴스의 경우 1주 전 및 다중 인스턴스의 경우 48시간 전). 구독에 제공된 계정 관리자, 서비스 관리자 및 공동 관리자 메일 계정으로 메일이 전송됩니다.
 
 **참고:** 가상 컴퓨터에 관련된 자세한 내용은 [Azure 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines/virtual-machines-linux-planned-maintenance.md) 문서를 참조하세요.
 
@@ -157,7 +157,7 @@ Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약�
 **참고** 관리자 권한으로 로그인했는지 확인하세요. 계정 관리자는 [계정 센터](https://account.windowsazure.com/)에만 액세스할 수 있는 반면 SA(서비스 관리자) 및 CA(공동 관리자)는 [Azure 포털](https://portal.azure.com/) 또는 [Azure 클래식 포털](https://manage.windowsazure.com/)에 대한 액세스 권한이 있습니다.
 
 ### Azure 지원은 어떻게 구입하나요?
-Azure 지원 플랜은 온라인으로 또는 기업계약을 통해 구입할 수 있습니다. 개발자, 표준 또는 전문가 지원 플랜은 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지에서 온라인으로 사용할 수 있습니다. 지원 계획을 구매하려면 Microsoft Azure 계정 소유자여야 합니다.
+Azure 지원 플랜은 온라인으로 또는 기업계약을 통해 구입할 수 있습니다. Developer, Standard 또는 Professional Direct 지원 플랜은 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지에서 온라인으로 사용할 수 있습니다. 지원 계획을 구매하려면 Microsoft Azure 계정 소유자여야 합니다.
 
 EA(기업계약)를 통해 Microsoft Azure를 구매하는 경우 LAR(대기업 고객 대상 재판매인)에 연락하여 표준 또는 전문가 지원 플랜을 기업 계약에 추가할 수 있습니다. 개발자 지원은 기업계약을 통해 제공되지 않습니다.
 
@@ -218,7 +218,7 @@ Azure 서비스의 혜택에 대한 자세한 내용은 [Microsoft Azure 제품 
 예. 알림을 받기 위해 다른 메일 주소를 지정하려면 다음 지침을 따르세요.
 
 1.	Azure 계정 포털에서 [프로필 탭](https://account.windowsazure.com/Profile)으로 이동합니다.
-2.	**세부 정보 편집**을 클릭하여 알림을 받을 메일 주소를 업데이트합니다.
+2.	**세부 정보 편집**을 클릭하여 알림을 받을 전자 메일 주소를 업데이트합니다.
 
 ### Azure 구독을 위한 지불 정보를 어떻게 편집하나요?
 
@@ -286,4 +286,4 @@ Azure 평가판 구독을 사용하면 Microsoft 서비스에서 30일 동안 �
 ### 무료 평가판에 대한 더 많은 세부 정보는 어디서 찾을 수 있나요?
 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 방문하여 [공식 무료 평가판 FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)를 참고합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

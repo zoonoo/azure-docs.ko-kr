@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Keylight를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 - Keylight에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Keylight에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -60,7 +60,7 @@ Keylight와 Azure AD 통합을 구성하려면 갤러리의 Keylight를 관리�
 
 **갤러리에서 Keylight를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -99,12 +99,12 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Keylight 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Keylight 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 
 **Keylight에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털의 **Keylight** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1. Azure 클래식 포털의 **Keylight** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
 	![Single Sign-On 구성][6]
 
@@ -163,7 +163,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     e. **SAML User Id location(SAML 사용자 ID 위치)**을 **NameIdentifier element of the subject statement(Subject 문의 NameIdentifier 요소)**로 설정합니다.
    
-    f. **https://&lt;Company Name&gt;.keylightgrc.com** 패턴을 사용하여 **Keylight 서비스 공급자를 입력합니다.
+    f. https://&lt;Company Name&gt;.keylightgrc.com** 패턴을 사용하여 **Keylight 서비스 공급자를 입력합니다**.
 
     g. **Auto-provision users(사용자 자동 프로비전)**를 **활성**으로 설정합니다.
 
@@ -184,7 +184,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
   
    
   
-6. Azure 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
 	![Azure AD Single Sign-On][10]
 
@@ -196,7 +196,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션에서는 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
+이 섹션에서는 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -206,7 +206,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png)
 
@@ -277,7 +277,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Britta Simon을 Keylight에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
 
 	![사용자 할당][201]
 
@@ -329,4 +329,4 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

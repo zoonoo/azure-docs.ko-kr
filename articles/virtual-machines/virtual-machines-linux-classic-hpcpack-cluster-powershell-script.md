@@ -1,6 +1,6 @@
 <properties
    pageTitle="Linux HPC 팩 클러스터를 배포하기 위한 PowerShell 스크립트 | Microsoft Azure"
-   description="PowerShell 스크립트를 실행하여 Azure 인프라 서비스에 Linux HPC 팩 클러스터 배포"
+   description="PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 Linux HPC Pack 클러스터 배포"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC(고성능 컴퓨팅) 클러스터 만들기
 
-클라이언트 컴퓨터에 HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 인프라 서비스(IaaS)에서 완전한 Linux 워크로드용 HPC 클러스터를 배포합니다. Azure에서 Windows 워크로드용 HPC Pack 클러스터를 배포하려면 [HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 완전한 Linux 워크로드용 HPC 클러스터를 배포합니다. 이 클러스터는 Windows Server 및 Microsoft HPC Pack을 실행하는 Active Directory 가입 헤드 노드와 HPC Pack에서 지원하는 Linux 배포판 중 하나를 실행하는 계산 노드로 구성됩니다. Azure에서 Windows 워크로드용 HPC Pack 클러스터를 배포하려면 [HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요. Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)를 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -26,9 +26,9 @@
 
 ## 예제 구성 파일
 
-### 예제 1
+다음 구성 파일은 새 도메인 컨트롤러 및 도메인 포리스트를 만들고 HPC Pack 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 10개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 계산 노드는 2개 클라우드 서비스와 2개 저장소 계정에 만들어집니다(즉, _MyLnxCN-0001_ to _MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, and _MyLnxCN-0006_ to _MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다.
 
-다음 구성 파일은 새 도메인 포리스트를 만들고 HPC Pack 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 20개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 컴퓨터 노드는 4개 클라우드 서비스와 4개 저장소 계정에 만들어집니다(즉, _MyLnxCNService01_ 및 _mylnxstorage01_에서 _MyLnxCN-0001_ - _MyLnxCN-0005_, _MyLnxCNService02_ 및 _mylnxstorage02_에서 _MyLnxCN-0006_ - _MyLnxCN-0010_, _MyLnxCNService03_ 및 _mylnxstorage03_에서 _MyLnxCN-0011_ - _MyLnxCN-0015_, _MyLnxCNService04_ 및 _mylnxstorage04_에서 _MyLnxCN-0016_ - _MyLnxCN-0020_). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다.
+구독 이름과 계정 및 서비스 이름을 고유한 값으로 대체합니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -65,12 +65,8 @@
     <MaxNodeCountPerService>5</MaxNodeCountPerService>
     <StorageAccountNamePattern>mylnxstorage%01%</StorageAccountNamePattern>
     <VMSize>Medium</VMSize>
-    <NodeCount>20</NodeCount>
+    <NodeCount>10</NodeCount>
     <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20150325 </ImageName>
-    <SSHKeyPairForRoot>
-      <PfxFile>d:\mytestcert1.pfx</PfxFile>
-      <Password>MyPsw!!2</Password>
-    </SSHKeyPairForRoot>
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
@@ -84,8 +80,10 @@
     
 ## 다음 단계
 
-* 스크립트를 사용하여 클러스터를 만들고 Linux HPC 워크로드를 실행하는 자습서를 보려면 [Azure의 Linux 계산 노드에서 Microsoft HPC Pack을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md) 또는 [Azure의 Linux 계산 노드에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)을 참조하세요.
+* 지원되는 Linux 배포판, 데이터 이동, Linux 계산 노드를 사용하여 HPC Pack 클러스터에 작업을 제출하는 방법에 대한 자세한 내용은 [Azure의 HPC Pack 클러스터에서 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
+* 스크립트를 사용하여 클러스터를 만들고 Linux HPC 워크로드를 실행하는 자습서는 다음 항목을 참조하세요.
+    * [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+    * [Azure의 Linux 계산 노드에서 Microsoft HPC Pack을 사용하여 OpenFOAM 실행](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+    * [Azure의 Linux 계산 노드에서 Microsoft HPC Pack을 사용하여 STAR-CCM+ 실행](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
-* Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)를 참조하세요.
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

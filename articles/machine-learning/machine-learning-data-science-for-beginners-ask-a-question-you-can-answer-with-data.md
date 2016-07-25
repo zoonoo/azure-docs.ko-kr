@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터로 대답할 수 있는 질문하기 - 초급자를 위한 데이터 과학 | Microsoft Azure"
+   pageTitle="데이터로 대답할 수 있는 질문하기 - 질문 작성 | Microsoft Azure"
    description="초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다."
    keywords="질문 선택,데이터 과학 질문,질문 작성, 질문 작성,회귀 질문,분류 질문,정확한 질문"
    services="machine-learning"
@@ -23,13 +23,11 @@
 
 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-<div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-ask-a-question-you-can-answer-with-data"> <a title="Data science for beginners: Ask a question you can answer with data" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-ask-a-question-you-can-answer-with-data/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-ask-a-question-you-can-answer-with-data" data-caption="" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player/" data-expanding="false"> <img class="thumbnail" alt="Data science for beginners: Ask a question you can answer with data" src="https://sec.ch9.ms/ch9/fde7/9f858f2c-1472-4345-a8e2-be99535cfde7/DataScienceForBeginnersAskQuestionYouCanAnswerWit_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-28-2016</span> <span>04 min, 17 sec</span> </span> </span> </a> </div>
+> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 
 ## 비디오 내용: 데이터로 대답할 수 있는 질문하기
 
-비디오 내용: 데이터로 대답할 수 있는 질문하기
-
-“초급자를 위한 데이터 과학” 시리즈 중 3번째 비디오를 시작합니다.
+"초급자를 위한 데이터 과학" 시리즈 중 3번째 비디오를 시작합니다.
 
 여기에서는, 데이터로 답할 수 있는 질문을 작성하는 방법과 관련된 몇 가지 팁을 얻을 수 있습니다.
 
@@ -101,4 +99,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

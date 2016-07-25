@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="07/07/2016"
 	ms.author="huguesv"/>
 
 
@@ -26,16 +26,16 @@
 
 Azure에서 호스트된 SQL 데이터베이스를 사용하는 방법, SQL을 사용하도록 웹앱을 구성하는 방법 및 [Azure 앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 웹앱을 게시하는 방법을 알아봅니다.
 
-Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소, MySQL 및 SQL 데이터베이스 서비스를 사용하여 PTVS로 Azure 앱 서비스 웹앱을 개발하는 내용을 다루는 추가 문서에 대해서는 [Python 개발자 센터]를 참조하세요. 이 문서는 앱 서비스를 중점적으로 다루지만 포함된 단계는 [Azure 클라우드 서비스]를 개발할 때와 비슷합니다.
+Bottle, Flask 및 Django 웹 프레임워크, Azure 테이블 저장소, MySQL 및 SQL 데이터베이스 서비스를 사용하여 PTVS로 Azure 앱 서비스 웹앱을 개발하는 내용을 다루는 추가 문서에 대해서는 [Python 개발자 센터]를 참조하세요. 이 문서는 앱 서비스를 중점적으로 다루지만 포함된 단계는 [Azure 클라우드 서비스]를 개발할 때와 비슷합니다.
 
 ## 필수 조건
 
- - Visual Studio 2013 또는 2015
+ - Visual Studio 2015
+ - [Python 2.7 32비트]
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2015]
- - [Python 2.7 32비트]
- - Django 1.6 이하
+ - [Azure SDK Tools for VS 2015]
+ - Django 1.9 이상
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -47,7 +47,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  Visual Studio에서 **파일**, **새 프로젝트**를 선택합니다.
 
-1.  PTVS 샘플 VSIX의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다. **Polls Django Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
+1.  [Python Tools 2.2 for Visual Studio Samples VSIX]의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다. **Polls Django Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
 
   	![새 프로젝트 대화 상자](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
@@ -59,15 +59,9 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![가상 환경 추가 대화 상자](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
-1.  프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**, **Django Sync DB**를 선택합니다.
+1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**을 선택한 다음 **Django Migrate**를 선택합니다. 그런 다음 **Django Create Superuser**를 선택합니다.
 
-  	![Django 동기화 DB 명령](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
-
-1.  이렇게 하면 Django Management Console이 열립니다. 프롬프트에 따라 사용자를 만듭니다.
-
-    그러면 프로젝트 폴더에 sqlite 데이터베이스가 만들어집니다.
-
-  	![Django 관리 콘솔 창](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+1.  Django 관리 콘솔이 열리고 프로젝트 폴더에 sqlite 데이터베이스를 만듭니다. 프롬프트에 따라 사용자를 만듭니다.
 
 1.  <kbd>F5</kbd> 키를 눌러 응용프로그램이 작동하는지 확인합니다.
 
@@ -97,11 +91,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  탐색 창 맨 아래에 있는 **새로 만들기**를 클릭한 다음 **데이터 + 저장소** > **SQL 데이터베이스**를 클릭합니다.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
-
 1.  새 리소스 그룹을 만들어 새 SQL 데이터베이스를 구성하고 적절한 위치를 선택합니다.
-
-  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  SQL 데이터베이스를 만든 후 데이터베이스 블레이드에서 **Visual Studio에서 열기**를 클릭합니다.
 2.  **방화벽 구성**을 클릭합니다.
@@ -148,11 +138,9 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
   	![Python 패키지 설치 대화 상자](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**, **Django Sync DB**를 선택합니다.
+1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **Python**을 선택한 다음 **Django Migrate**를 선택합니다. 그런 다음 **Django Create Superuser**를 선택합니다.
 
     이렇게 하면 이전 섹션에서 만든 SQL 데이터베이스에 대한 테이블이 만들어집니다. 프롬프트에 따라 사용자를 만듭니다. 이 사용자가 첫 번째 섹션에서 만든 sqlite 데이터베이스의 사용자와 일치할 필요는 없습니다.
-
-  	![Django 관리 콘솔 창](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  `F5` 키를 눌러 응용 프로그램을 실행합니다. **Create Sample Polls**를 사용하여 만든 설문 조사와 투표를 통해 제출된 데이터는 SQL 데이터베이스에서 serialize됩니다.
 
@@ -163,7 +151,7 @@ Azure .NET SDK를 통해 Azure 앱 서비스 웹앱에 웹앱을 쉽게 배포�
 
 1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
+  	![웹 게시 대화 상자](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 
 1.  **Microsoft Azure 웹앱**을 클릭합니다.
 
@@ -175,8 +163,6 @@ Azure .NET SDK를 통해 Azure 앱 서비스 웹앱에 웹앱을 쉽게 배포�
 	-	**리소스 그룹**
 	-	**지역**
 	-	**데이터베이스 서버**를 **데이터베이스 없음**으로 그대로 설정합니다.
-
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  다른 모든 기본값을 그대로 적용하고 **게시**를 클릭합니다.
 
@@ -210,7 +196,6 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
@@ -220,4 +205,4 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 [Django 설명서]: https://www.djangoproject.com/
 [SQL 데이터베이스]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

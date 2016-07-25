@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/20/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
@@ -29,10 +29,10 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 ## 필수 조건
 
- - Visual Studio 2013 또는 2015
+ - Visual Studio 2015
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2015]
+ - [Azure SDK Tools for VS 2015]
  - [Python 2.7 32비트] 또는 [Python 3.4 32비트]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -45,7 +45,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  Visual Studio에서 **파일**, **새 프로젝트**를 선택합니다.
 
-1.  PTVS 샘플 VSIX의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다. **Polls Bottle Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
+1.  [Python Tools 2.2 for Visual Studio Samples VSIX]의 프로젝트 템플릿은 **Python**, **샘플**에서 사용할 수 있습니다. **Polls Bottle Web Project**를 선택하고 확인을 클릭하여 프로젝트를 만듭니다.
 
   	![새 프로젝트 대화 상자](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
 
@@ -69,14 +69,15 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. 포털의 왼쪽 위에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소 계정**을 클릭합니다. **만들기** 단추를 클릭하고 저장소 계정에 고유한 이름을 지정한 다음 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
+1. 포털의 왼쪽 위에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소 계정**을 클릭합니다. **만들기** 단추를 클릭하고 저장소 계정에 고유한 이름을 지정한 다음 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
-	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-  	저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
+  	![빠른 생성](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
-  	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
+	저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
 
-5. 저장소 계정 블레이드에서 **설정** 부분을 클릭합니다. 계정 이름 및 기본 키를 기록해 둡니다.
+1. 저장소 계정 블레이드에서 **액세스 키** 부분을 클릭합니다. 계정 이름 및 key1을 기록해 둡니다.
+
+  	![구성](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageKeys.png)
 
 	다음 섹션에서 프로젝트를 구성하려면 이 정보가 필요합니다.
 
@@ -110,17 +111,17 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 ## Azure 테이블 저장소 탐색
 
-Visual Studio에서 서버 탐색기를 사용하여 저장소 테이블을 쉽게 보고 편집할 수 있습니다. 이 섹션에서는 서버 탐색기를 사용하여 설문 조사 응용 프로그램 테이블의 내용을 확인합니다.
+Visual Studio에서 클라우드 탐색기를 사용하여 저장소 테이블을 쉽게 보고 편집할 수 있습니다. 이 섹션에서는 서버 탐색기를 사용하여 설문 조사 응용 프로그램 테이블의 내용을 확인합니다.
 
 > [AZURE.NOTE] 이를 위해서는 [Azure SDK for .NET]의 일부로 사용할 수 있는 Microsoft Azure 도구가 설치되어 있어야 합니다.
 
-1.  **서버 탐색기**를 엽니다. **Azure**, **저장소**, 저장소 계정 및 **테이블**을 차례로 확장합니다.
+1.  **클라우드 탐색기**를 엽니다. **저장소 계정**, 사용자의 저장소 계정 및 **테이블**을 차례로 확장합니다.
 
-  	<!-- ![Server Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png) -->
+  	![Cloud Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
 
 1.  **polls** 또는 **choices** 테이블을 두 번 클릭하여 문서 창에서 테이블 내용을 확인하고 add/remove/edit 엔터티를 확인할 수 있습니다.
 
-  	<!-- ![Table Query Results](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png) -->
+  	![테이블 쿼리 결과](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
 ## Azure 앱 서비스에 웹앱 게시
 
@@ -128,7 +129,7 @@ Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 �
 
 1.  **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png) -->
+  	![웹 게시 대화 상자](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
 
 1.  **Microsoft Azure 웹앱**을 클릭합니다.
 
@@ -141,8 +142,6 @@ Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 �
 	-	**지역**
 	-	**데이터베이스 서버**를 **데이터베이스 없음**으로 그대로 설정합니다.
 
-  	<!-- ![Create Web App on Microsoft Azure Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png) -->
-
 1.  다른 모든 기본값을 그대로 적용하고 **게시**를 클릭합니다.
 
 1.  웹 브라우저가 자동으로 게시된 웹앱으로 열립니다. 정보 페이지로 이동하면 **Azure 테이블 저장소** 리포지토리가 아니라 **메모리 내** 리포지토리를 사용한다는 것을 알 수 있습니다.
@@ -153,19 +152,15 @@ Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 �
 
 이 섹션에서는 웹앱 인스턴스에 대한 환경 변수를 구성합니다.
 
-1.  [Azure 포털]에서 **찾아보기** > **웹앱** > 사용자의 웹앱 이름을 클릭하여 웹앱 블레이드를 엽니다.
+1.  [Azure 포털]에서 **찾아보기** > **앱 서비스** > 사용자의 웹앱 이름을 클릭하여 웹앱 블레이드를 엽니다.
 
 1.  웹앱 블레이드에서 **모든 설정**을 클릭한 다음 **응용 프로그램 설정**을 클릭합니다.
 
-  	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
+1.  **앱 설정** 섹션으로 스크롤한 후 위의 **프로젝트 구성** 섹션에 설명된 대로 **REPOSITORY\_NAME**, **STORAGE\_NAME** 및 **STORAGE\_KEY** 값을 설정합니다.
 
-1.  **앱 설정** 섹션으로 스크롤한 후 **프로젝트 구성** 섹션에 설명된 대로 **REPOSITORY\_NAME**, **STORAGE\_NAME** 및 **STORAGE\_KEY** 값을 설정합니다.
+  	![앱 설정](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
-  	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
-
-1. **저장**을 클릭하고 **다시 시작**을 클릭한 후 **찾아보기**를 클릭합니다.
-
-  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
+1.  **Save**를 클릭합니다. 변경 내용이 적용되었다는 알림을 받은 후에 웹앱 주 블레이드에서 **찾아보기**를 클릭합니다.
 
 1.  **Azure 테이블 저장소** 리포지토리를 사용하여 예상한 대로 웹앱이 작동하는지 확인합니다.
 
@@ -202,7 +197,6 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
@@ -215,4 +209,4 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

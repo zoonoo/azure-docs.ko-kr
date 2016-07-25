@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="07/13/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache에서 데이터 가져오기 및 내보내기
@@ -137,7 +137,9 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 
 ### PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 가져오기/내보내기를 자동화할 수 있나요?
 
-이 기능은 미리 보기 기간에는 제공되지 않지만 곧 제공될 예정입니다.
+예, PowerShell 소개는 [Redis Cache를 가져오려면](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) 및 [Redis Cache를 내보내려면](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache)을 참조하세요.
+
+
 
 ### 가져오기/내보내기 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?
 
@@ -168,4 +170,4 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

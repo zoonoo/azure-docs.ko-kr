@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -132,7 +132,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
 
 - 셀은 공백으로 구분됨
 
-이제 열이나 행에서 숫자를 반복할 수 없다는 점에서 Sudoku 퍼즐을 작성하는 특정 방법이 있습니다. 적절히 구성된 HDInsight 클러스터에 대한 예제가 있습니다. 이 예는 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta**에 있으며, 다음을 포함합니다.
+열이나 행에서 숫자를 반복할 수 없다는 Sudoku 퍼즐을 작성하는 특정 방법이 있습니다. 적절히 구성된 HDInsight 클러스터에 대한 예제가 있습니다. 이 예는 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta**에 있으며, 다음을 포함합니다.
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -236,4 +236,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

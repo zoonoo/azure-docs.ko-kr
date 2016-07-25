@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Directions on Microsoft과 Azure Active Directory 통합
@@ -39,7 +39,7 @@
 
 ###Directions on Microsoft에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-directions-microsoft-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Directions on Microsoft** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성 ** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Directions on Microsoft** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 사용](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Single Sign-On 사용")
 
@@ -78,7 +78,7 @@
 
     ![Microsoft Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Microsoft Azure AD Singel Sign-On")
 
-3.  **앱 URL 구성** 페이지의 Sign On URL 텍스트 상자에 ****https://www.directionsonmicrosoft.com/user/login**을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 로그온 URL 텍스트 상자에 **https://www.directionsonmicrosoft.com/user/login**을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "앱 URL 구성")
 
@@ -86,11 +86,11 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Single Sign-On 구성")
 
-5.  메타데이터 파일을 Directions on Microsoft 지원팀으로 보냅니다.(**service@DirectionsOnMicrosoft.com*)) 페더레이션된 사이트 멤버 자격을 찾기 위해 Directions on Microsoft 지원팀을 활성화하려면 전자 메일에 회사 정보를 포함합니다.
+5.  메타데이터 파일을 Directions on Microsoft 지원팀으로 보냅니다(*service@DirectionsOnMicrosoft.com*). 페더레이션된 사이트 멤버 자격을 찾기 위해 Directions on Microsoft 지원팀을 활성화하려면 전자 메일에 회사 정보를 포함합니다.
 
-    >[AZURE.NOTE]Directions on Microsoft에 single sign-on은 Directions on Microsoft 지원팀에서 활성화되어야 합니다. Single sign-on가 활성화되면 알림을 받습니다.
+    >[AZURE.NOTE] Directions on Microsoft에 single sign-on은 Directions on Microsoft 지원팀에서 활성화되어야 합니다. Single sign-on가 활성화되면 알림을 받습니다.
 
-6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -102,9 +102,9 @@ Directions on Microsoft을 프로비전하는 사용자를 구성할 작업 항�
 
 ###Directions on Microsoft에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Directions on Microsoft ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Directions on Microsoft** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "사용자 할당")
 
@@ -112,4 +112,4 @@ Directions on Microsoft을 프로비전하는 사용자를 구성할 작업 항�
 
     ![예](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "예")
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

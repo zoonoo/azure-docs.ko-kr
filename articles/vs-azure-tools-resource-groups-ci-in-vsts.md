@@ -3,8 +3,8 @@
 	description="Visual Studio에서 Azure 리소스 그룹 배포 프로젝트를 사용하여 Visual Studio Team Services에서의 연속 통합을 설정하는 방법을 설명합니다."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="04/19/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Azure 리소스 그룹 배포 프로젝트를 사용하여 Visual Studio Team Services에서 연속 통합
 
@@ -63,7 +63,7 @@ VS Team Services에서 PowerShell 스크립트를 호출하려면 빌드 정의�
 
 1.	**Azure PowerShell** 빌드 단계를 선택하고 해당 값을 입력합니다.
 
-    1.	이미 VS Team Services에 추가된 Azure 서비스 끝점이 있는 경우 **Azure 구독** 드롭다운 목록 상자에서 구독을 선택하고 다음 섹션으로 건너뜁니다. 
+    1.	이미 VS Team Services에 추가된 Azure 서비스 끝점이 있는 경우 **Azure 구독** 드롭다운 목록 상자에서 구독을 선택하고 다음 섹션으로 건너뜁니다.
 
         VS Team Services에 Azure 서비스 끝점이 없으면 추가해야 합니다. 이 하위 섹션에서는 이 프로세스를 안내합니다. Azure 계정에서 Microsoft 계정(예: Hotmail)을 사용할 경우 다음 단계를 통해 서비스 주체 인증을 가져와야 합니다.
 
@@ -121,7 +121,7 @@ VS Team Services에서 PowerShell 스크립트를 호출하려면 빌드 정의�
 
     | 매개 변수 | 설명|
     |---|---|
-    | -ResourceGroupLocation | 리소스 그룹이 위치한 geo-location 값(예: **eastus** 또는 **'East US'**). 이름에 공백이 있을 경우 작은따옴표를 추가합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.| |
+    | -ResourceGroupLocation | 리소스 그룹이 위치한 geo-location 값(예: **eastus** 또는 **'East US'**). 이름에 공백이 있을 경우 작은따옴표를 추가합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/ko-KR/regions/)을 참조하세요.| |
     | -ResourceGroupName | 이 배포에 사용되는 리소스 그룹의 이름입니다.| |
     | -UploadArtifacts | 이 매개 변수가 있는 경우 로컬 시스템에서 Azure에 업로드해야 하는 아티팩트를 지정합니다. 템플릿 배포에서 PowerShell 스크립트를 사용하여 스테이징하려는 추가 아티펙트가 필요한 경우에만 이 스위치를 설정합니다(예: 구성 스크립트 또는 중첩된 템플릿). |
     | -StorageAccountName | 이 배포에 대한 스테이지 아티팩트에 사용되는 저장소 계정 이름. Azure에 아티팩트를 복사하는 경우에만 이 매개 변수가 필요합니다. 이 저장소 계정은 배포에서 자동으로 만들어지지 않으며 기존에 있어야 합니다.| |
@@ -160,4 +160,4 @@ Azure 리소스 관리자 및 Azure 리소스 그룹에 대한 자세한 내용�
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

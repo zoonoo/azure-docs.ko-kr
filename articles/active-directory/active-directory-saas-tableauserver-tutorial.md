@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Tableau Server를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 
 - Tableau Server에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Tableau Server에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -60,7 +60,7 @@ Tableau Server의 Azure AD 통합을 구성하려면 갤러리의 Tableau Server
 
 **갤러리에서 Tableau Server를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
  
 	![Active Directory][1]
 
@@ -189,7 +189,7 @@ Tableau Server 응용 프로그램은 특정 형식의 SAML 어설션이 필요�
 
 	b. **Single Sign-On에 SAML 사용** 확인란을 선택합니다.
 
-	c. Azure 관리 포털에서 다운로드한 페더레이션 메타데이터 파일을 찾은 다음 **SAML Idp 메타데이터 파일**에 업로드합니다.
+	c. Azure 클래식 포털에서 다운로드한 페더레이션 메타데이터 파일을 찾은 다음 **SAML Idp 메타데이터 파일**에 업로드합니다.
 
 	d. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL(예: http://tableau_server)입니다. http://localhost는 사용하지 않는 것이 좋습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/)은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 3단계에 표시된 대로 Azure AD **로그온 URL** 텍스트 상자에 붙여 넣습니다.
 
@@ -341,4 +341,4 @@ Tableau Server 응용 프로그램은 특정 형식의 SAML 어설션이 필요�
 [204]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -98,7 +98,8 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 | 영국 남부 2 | 영국 북부 |
 | 독일 중부 | 독일 북동부 |
 | 독일 북동부 | 독일 중부 |
-
+| 미국 서부 2 | 미국 중서부 |
+| 미국 중서부 | 미국 서부 2 |
 
 Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
  
@@ -116,4 +117,4 @@ Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https:
 - [Microsoft Azure 저장소 중복 옵션 및 읽기 액세스 지역 중복 저장소](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

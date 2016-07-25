@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="파트너 및 엔터프라이즈 통합 팩에 대해 알아보기 | Microsoft Azure 앱 서비스" 
+	pageTitle="파트너 및 엔터프라이즈 통합 팩에 대해 알아보기 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 파트너를 사용하는 방법 알아보기" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 파트너 및 엔터프라이즈 통합 팩에 대해 알아보기
@@ -53,14 +53,12 @@ Azure 포털에서 다음을 수행합니다.
 3. **파트너 업데이트** 타일에서 필요한 내용을 변경합니다.
 4. 변경 사항이 만족스러우면 **저장** 링크를 선택하거나 **취소** 링크를 선택하여 변경 내용을 삭제합니다. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
-
 ## 파트너 삭제 방법
 1. **파트너** 타일을 선택합니다.
 2. 파트너 블레이드가 열리면 편집할 파트너를 선택합니다.
 3. **삭제** 링크를 선택합니다. ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
-
 ## 다음 단계
 - [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 # FabricClient API로 작업하는 경우 일반적인 예외 및 오류
@@ -44,4 +44,4 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 |InvalidSubjectName|주체 이름이 올바르지 않습니다.|
 |InvalidAllowedCommonNameList|일반 이름 목록 문자열의 형식이 올바르지 않습니다. 쉼표로 구분된 목록이어야 합니다.|
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

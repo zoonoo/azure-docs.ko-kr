@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/22/2016" 
-	ms.author="bradyg"/>
+	ms.author="rachelap"/>
 
 # Swashbuckle 생성 API 정의 사용자 지정 
 
@@ -24,7 +24,7 @@
 이 문서에서는 기본 동작을 변경하려는 일반적인 시나리오를 처리하도록 Swashbuckle을 사용자 지정하는 방법을 설명합니다.
 
 * Swashbuckle는 컨트롤러 메서드의 오버 로드에 대한 중복 작업 식별자를 생성합니다.
-* Swashbuckle은 메서드에서 유효한 응답이 HTTP 200(정상)이라고 가정합니다. 
+* Swashbuckle은 메서드에서 유효한 응답이 HTTP 200(정상)이라고 가정합니다.
  
 ## 작업 식별자 생성 사용자 지정
 
@@ -46,7 +46,7 @@ Swashbuckle은 컨트롤러 이름과 메서드 이름을 연결하여 Swagger �
 
 다음 단계에서는 Visual Studio API Apps Preview 프로젝트 템플릿에 의해 프로젝트에 포함된 *SwaggerConfig.cs* 파일을 사용하여 Swashbuckle을 사용자 지정하는 방법을 보여 줍니다. 또한 API 앱으로 배포하도록 구성한 Web API 프로젝트에서 Swashbuckle을 사용자 지정할 수도 있습니다.
 
-1. 사용자 지정 `IOperationFilter` 구현 만들기 
+1. 사용자 지정 `IOperationFilter` 구현 만들기
 
 	`IOperationFilter` 인터페이스는 Swagger 메타데이터 프로세스의 다양한 측면을 사용자 지정하려는 Swashbuckle 사용자를 위해 확장성 지점을 제공합니다. 다음 코드는 operation-id-generation 동작을 변경하는 한 가지 방법을 보여 줍니다. 이 코드는 매개 변수 이름을 작업 ID 이름에 추가합니다.
 
@@ -134,7 +134,7 @@ Swashbuckle에서는 XML 주석이나 `SwaggerResponse` 특성을 사용하여 �
 
 Swashbuckle 버전이 5.1.5 이전인 경우 응답 코드를 지정하려면 이 메서드를 사용합니다.
 
-1. 먼저, HTTP 응답 코드를 지정할 메소드에 대해 XML 문서 주석을 추가합니다. 위에 표시된 샘플 웹 API 조치를 취하고 XML 문서를 적용하면 다음 예제와 마찬가지로 코드에서 반환됩니다. 
+1. 먼저, HTTP 응답 코드를 지정할 메소드에 대해 XML 문서 주석을 추가합니다. 위에 표시된 샘플 웹 API 조치를 취하고 XML 문서를 적용하면 다음 예제와 마찬가지로 코드에서 반환됩니다.
 
 		/// <summary>
 		/// Returns the specified contact.
@@ -162,7 +162,7 @@ Swashbuckle 버전이 5.1.5 이전인 경우 응답 코드를 지정하려면 �
 
 1. *SwaggerConfig.cs* 파일에 지침을 추가하여 Swashbuckle이 XML 문서 파일을 사용하도록 합니다.
 
-	* *SwaggerConfig.cs*를 열고 *SwaggerConfig* 클래스에 대한 메서드를 만들어 설명서 XML 파일의 경로를 지정합니다. 
+	* *SwaggerConfig.cs*를 열고 *SwaggerConfig* 클래스에 대한 메서드를 만들어 설명서 XML 파일의 경로를 지정합니다.
 
 			private static string GetXmlCommentsPath()
 			{
@@ -207,7 +207,7 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
 
 [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) 특성은 Swashbuckle 5.1.5 이상에서 사용할 수 있습니다. 프로젝트에 이전 버전이 있는 경우, 이 특성을 사용할 수 있도록 Swashbuckle NuGet 패키지를 업데이트하는 방법을 설명하여 이섹션을 시작합니다.
 
-1. **솔루션 탐색기**에서 웹 API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
+1. **솔루션 탐색기**에서 웹 API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
 
@@ -250,4 +250,4 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
 이 문서에서는 Swashbuckle이 작업 ID 및 유효한 응답 코드를 생성하는 방법을 사용자 지정하는 방법을 설명했습니다. 자세한 내용은 [GitHub의 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

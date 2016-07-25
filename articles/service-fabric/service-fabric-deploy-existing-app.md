@@ -25,8 +25,8 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 서비스 패브릭 클러스터에서 게스트 실행 파일을 실행하면 몇 가지 장점이 있습니다.
 
 - 고가용성. 서비스 패브릭에서 실행되는 응용 프로그램은 항상 바로 사용할 수 있습니다. 서비스 패브릭은 응용 프로그램의 한 인스턴스가 항상 실행되도록 보장합니다.
-- 상태 모니터링. 기본적으로 서비스 패브릭 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 발생할 경우 진단 정보를 제공합니다.   
-- 응용 프로그램 수명 주기 관리. 서비스 패브릭은 가동 중지 없이 업그레이드가 가능할 뿐 아니라 업그레이드하는 동안 문제가 발생하면 이전 버전으로 롤백할 수 있습니다.    
+- 상태 모니터링. 기본적으로 서비스 패브릭 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 발생할 경우 진단 정보를 제공합니다.
+- 응용 프로그램 수명 주기 관리. 서비스 패브릭은 가동 중지 없이 업그레이드가 가능할 뿐 아니라 업그레이드하는 동안 문제가 발생하면 이전 버전으로 롤백할 수 있습니다.
 - 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
 
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 기본 단계를 다룹니다.
@@ -52,12 +52,12 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -308,4 +308,4 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 - [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 - [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

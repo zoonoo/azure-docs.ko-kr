@@ -24,7 +24,10 @@ Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 �
 >  
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md)를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
 
-다음 샘플은 Azure 데이터 레이크 저장소 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+## 데이터 복사 마법사
+Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Data Lake Store 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
 
 
 ## 샘플: Azure Blob에서 Azure 데이터 레이크 저장소로 데이터 복사
@@ -78,7 +81,7 @@ Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 �
 5. (선택 사항) JSON에서 **accountName**, **subscriptionID** 및 **resourceGroupName**과 같은 선택적 매개 변수의 값을 지정하거나 이러한 속성을 JSON에서 삭제합니다.
 6. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
-> [AZURE.IMPORTANT] **권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포해야 합니다. 자세한 내용은 [Azure 데이터 레이크 저장소 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
+> [AZURE.IMPORTANT] **권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후에 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포해야 합니다. 자세한 내용은 [Azure Data Lake Store 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
 
 
 
@@ -423,7 +426,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 위와 같은 오류 메시지가 표시됩니다.
 
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
+이 오류를 방지/해결하려면 **토큰이 만료**될 때 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
 ### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
 
@@ -450,7 +453,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
         }
     }
 
-코드에 사용되는 데이터 팩터리 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
  
 
 ## Azure 데이터 레이크 데이터 집합 형식 속성
@@ -465,7 +468,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | fileName | Azure Data Lake 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.<br/><br/> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) 형식으로 표시됩니다. | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 partitionedBy 속성 활용 섹션을 참조하세요. | 아니요 |
 | format | **TextFormat**, **AvroFormat**, **JsonFormat** 및 **OrcFormat**과 같은 서식 유형이 지원됩니다. 이 중 하나로 서식에서 **type** 속성을 설정해야 합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat), [OrcFormat 지정](#specifying-orcformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다.| 아니요
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat** 형식인 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 활용
 위에서 설명한 것처럼 **partitionedBy** 섹션, 데이터 팩터리 매크로 및 시스템 변수를 사용하여 동적 folderPath 및 시계열 데이터와 파일 이름을 지정할 수 있습니다. 지정된 데이터 조각에 대한 시작 및 종료 시간을 나타내는 SliceStart 및 SliceEnd입니다.
@@ -526,10 +529,10 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
  
 **압축** 섹션에는 두 가지 속성이 있습니다.
   
-- **유형:** **GZIP**, **Deflate** 또는 **BZIP2**가 될 수 있는 압축 코덱  
-- **수준:** **최적** 또는 **가장 빠름**이 될 수 있는 압축 비율 
-	- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다. 
-	- **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다. 
+- **유형:** **GZIP**, **Deflate** 또는 **BZIP2**가 될 수 있는 압축 코덱
+- **수준:** **최적** 또는 **가장 빠름**이 될 수 있는 압축 비율
+	- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
+	- **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
 	
 	자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요.
 
@@ -537,9 +540,9 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 입력 데이터 집합 JSON에 압축 속성을 지정하는 경우 파이프라인은 원본에서 압축된 데이터를 읽을 수 있고 출력 데이터 집합 JSON 에서 속성을 지정하는 경우 복사 작업은 대상에 압축된 데이터를 작성할 수 있습니다. 다음은 몇 가지 샘플 시나리오입니다.
 
-- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의합니다. 
-- 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure 데이터 레이크 저장소에 압축된 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 출력 Azure 데이터 레이크 데이터 집합을 정의합니다.  
-- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure 데이터 레이크 저장소에 결과 데이터를 작성합니다. 이 경우 GZIP으로 설정된 압축 유형으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의하고 BZIP2로 설정된 압축 유형으로 출력 데이터 집합을 정의합니다.   
+- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의합니다.
+- 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure 데이터 레이크 저장소에 압축된 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 출력 Azure 데이터 레이크 데이터 집합을 정의합니다.
+- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure 데이터 레이크 저장소에 결과 데이터를 작성합니다. 이 경우 GZIP으로 설정된 압축 유형으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의하고 BZIP2로 설정된 압축 유형으로 출력 데이터 집합을 정의합니다.
 
 
 ## Azure 데이터 레이크 복사 작업 형식 속성  
@@ -559,7 +562,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 복사 동작을 지정합니다. | **PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
+| copyBehavior | 복사 동작을 지정합니다. | **PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -569,6 +572,6 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## 성능 및 튜닝  
-Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 이를 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

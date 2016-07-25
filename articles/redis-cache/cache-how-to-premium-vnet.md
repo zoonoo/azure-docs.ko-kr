@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -74,6 +74,7 @@ VNet을 사용하는 경우 Azure Redis Cache 인스턴스에 연결하려면 �
 -	[Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[표준 또는 기본 캐시에 VNet을 사용할 수 있나요?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 -	[일부 서브넷에서만 Redis Cache 생성이 실패하는 이유는 무엇인가요?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-	[VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 
 ## Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
@@ -96,7 +97,7 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 
 가상 네트워크에서 처음에 충족되지 않는 Azure Redis Cache에 대한 네트워크 연결 요구 사항이 있습니다. Azure Redis Cache를 가상 네트워크 내에서 사용하는 경우 제대로 작동되려면 다음 조건이 모두 충족되어야 합니다.
 
--  전세계 Azure 저장소 끝점에 아웃바운드 네트워크 연결. Azure Redis Cache 인스턴스와 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다. 다음 DNS 도메인에서 Azure 저장소 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*. 
+-  전세계 Azure 저장소 끝점에 아웃바운드 네트워크 연결. Azure Redis Cache 인스턴스와 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다. 다음 DNS 도메인에서 Azure 저장소 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.
 -  *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. SSL 기능을 지원하는 데 필요합니다.
 -  가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 끝점 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
 
@@ -111,6 +112,13 @@ VNet은 프리미엄 캐시에만 사용할 수 있습니다.
 ARM VNet에 Azure Redis Cache를 배포하는 경우 캐시가 다른 리소스를 포함하지 않는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 서브넷의 ARM VNet에 Azure Redis Cache를 배포하려고 하면 배포가 실패합니다. 새 Redis Cache를 만들려면 서브넷 내의 기존 리소스를 삭제해야 합니다.
 
 사용할 수 있는 충분한 IP 주소가 있으면, 클래식 VNet에 여러 유형의 리소스를 배포할 수 있습니다.
+
+### VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?
+
+캐시가 VNET의 일부인 경우 VNET에서 클라이언트만이 캐시에 액세스할 수 있으며 이 때 결과적으로 다음과 같은 캐시 관리 기능이 작동하지 않습니다.
+
+-	Redis 콘솔 - Redis 콘솔은 VNET의 일부가 아닌 VM에서 호스팅되는 redis-cli.exe 클라이언트를 사용하므로 캐시에 연결할 수 없습니다.
+
 
 ## Azure Redis Cache에서 Express 경로 사용
 
@@ -159,4 +167,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

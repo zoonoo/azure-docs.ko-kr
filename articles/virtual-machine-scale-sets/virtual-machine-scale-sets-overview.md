@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/12/2016"
 	ms.author="guybo"/>
 
 # 가상 컴퓨터 규모 집합 개요
@@ -25,7 +25,7 @@
 
 VM 규모 집합에 대한 자세한 정보는 이러한 비디오를 살펴보세요.
 
- - [Mark Russinovich의 Azure 규모 집합 설명](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+ - [Mark Russinovich의 Azure 규모 집합 설명](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 
  - [Guy Bowerman과 가상 컴퓨터 규모 집합](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -43,13 +43,13 @@ VM 규모 집합에 대한 예제 템플릿의 집합은 Azure 빠른 시작 템
 
 VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _용량_ 속성만 변경하고 템플릿을 다시 배포합니다. Azure 자동 크기 조정에서 지원되지 않는 사용자 지정 크기 조정(custom scale) 이벤트를 정의하려는 경우 이러한 단순성을 통해 사용자 지정 크기 조정 계층을 쉽게 작성할 수 있습니다.
 
-용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)에 예제가 나와 있습니다.
+용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)에 예제가 나와 있습니다.
 
 자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machine-scale-sets-windows-autoscale.md)을 참조하세요.
 
 ## VM 규모 집합 모니터링
 
-[Azure 리소스 탐색기](https://resources.azure.com)를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
+[Azure 포털](https://portal.azure.com)은 규모 집합을 표시하고 기본 속성을 제공할 뿐 아니라 집합에 VM 목록을 표시합니다. 자세한 내용은 [Azure 리소스 탐색기](https://resources.azure.com)를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
 
 	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
@@ -57,9 +57,9 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 이 섹션에서는 몇 가지 일반적인 VM 규모 집합 시나리오를 나열합니다. 높은 수준의 Azure 서비스(예: 배치, 서비스 패브릭, Azure 컨테이너 서비스)에서 이 시나리오를 사용할 예정입니다.
 
- - **RDP/SSH에서 VM 규모 집합 인스턴스** - VM 규모 집합은 VNET 내부에 생성되며, 규모 집합의 개별 VM에 공용 IP 주소가 할당되지 않습니다. 일반적으로 계산 그리드에 있는 상태 비저장 리소스에 IP 주소를 개별적으로 모두 할당하는 비용 및 관리 오버헤드를 원하지 않고, 부하 분산 장치 또는 독립 실행형 가상 컴퓨터와 같이 공용 IP 주소가 있는 리소스를 포함하여 VNET의 다른 리소스에서 VM에 쉽게 연결할 수 있기 때문에 이렇게 하는 것이 좋습니다.
+ - **RDP/SSH에서 VM 규모 집합 인스턴스** - VM 규모 집합은 VNET 내부에 생성되며, 규모 집합의 개별 VM에 공용 IP 주소가 할당되지 않습니다. 일반적으로 계산 그리드에 있는 모든 상태 비저장 리소스에 별도의 공용 IP 주소를 할당하는 비용 및 관리 오버헤드를 원하지 않고, 부하 분산 장치 또는 독립 실행형 가상 컴퓨터와 같이 공용 IP 주소가 있는 리소스를 포함하여 VNET의 다른 리소스에서 VM에 쉽게 연결할 수 있기 때문에 이렇게 하는 것이 좋습니다.
 
- - **NAT 규칙을 사용하여 VM에 연결** - 공용 IP 주소를 만들고, 부하 분산 장치에 할당하고, IP 주소의 포트를 VM 규모 집합에 포함된 VM의 포트에 매핑하는 인바운드 NAT 규칙을 정의할 수 있습니다.
+ - **NAT 규칙을 사용하여 VM에 연결** - 공용 IP 주소를 만들고, 부하 분산 장치에 할당하고, IP 주소의 포트를 VM 규모 집합에 포함된 VM의 포트에 매핑하는 인바운드 NAT 규칙을 정의할 수 있습니다. 예:
  
 	원본 | 원본 포트 | 대상 | 대상 포트
 	--- | --- | --- | ---
@@ -75,7 +75,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 	[이러한 방식의 예제에서 이 템플릿은 VM 규모 집합 기반 VM 클러스터를 관리하는 독립 실행형 마스터 VM으로 구성된 간단한 Mesos 클러스터를 만듭니다.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **VM 규모 집합 인스턴스에 대한 라운드 로빈 부하 분산** - "라운드 로빈" 방식을 사용하여 VM 계산 클러스터에 작업을 전달하려면, 그에 맞게 Azure 부하 분산 장치에 부하 분산 규칙을 구성합니다. 지정된 프로토콜, 간격, 요청 경로로 포트를 Ping하여 응용 프로그램이 실행되는지 확인하는 프로브를 정의할 수도 있습니다.
+ - **VM 규모 집합 인스턴스에 부하 분산** - "라운드 로빈" 방식을 사용하여 VM 계산 클러스터에 작업을 전달하려면, 그에 맞게 Azure Load Balancer에 부하 분산 규칙을 구성합니다. 지정된 프로토콜, 간격, 요청 경로로 포트를 Ping하여 응용 프로그램이 실행되는지 확인하는 프로브를 정의할 수 있습니다. 또한 Azure [응용 프로그램 게이트웨이](https://azure.microsoft.com/services/application-gateway/)는 보다 복잡한 부하 분산 시나리오와 함께 규모 집합을 지원합니다.
 
 	[IIS 웹 서버를 실행하는 VM으로 구성되는 VM 규모 집합을 만들고 부하 분산 장치를 사용하여 각 VM이 수신하는 부하를 분산하는 예제가 있습니다. 또한 HTTP 프로토콜을 사용하여 각 VM의 특정 URL을 ping합니다.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Microsoft.Network/loadBalancers 리소스 종류를 살펴보고 virtualMachineScaleSet의 networkProfile 및 extensionProfile을 살펴보세요.)
 
@@ -98,7 +98,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **Q.** VM 규모 집합에 포함할 수 있는 VM의 수는 몇 개입니까?
 
-**A.** 여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우 100개입니다. 사용자 지정 이미지는 미리 보기 동안 단일 저장소 계정으로 제한되므로 최대 40개까지(_overprovision_ 속성을 "false"로 설정한 경우, 기본값은 20) 사용할 수 있습니다.
+**A.** 여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우 100개입니다. 현재 사용자 지정 이미지는 단일 저장소 계정으로 제한되어 있으므로 최대 40개까지(_overprovision_ 속성을 "false"로 설정한 경우, 기본값은 20) 사용할 수 있습니다.
 
 **Q.** VM 규모 집합에 존재하는 다른 리소스 제한 사항은 무엇입니까?
 
@@ -149,10 +149,10 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **Q.** VM 규모 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있습니까?
 
-**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다([예: 확장 로그 모니터링](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
+**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다([예: 확장 로그 모니터링](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure VM 규모 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 찾을 수 있습니다.
 
 **Q.** VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
 
 **A.** 예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

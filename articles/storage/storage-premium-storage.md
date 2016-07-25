@@ -79,7 +79,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
-프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-when-using-premium-storage) 섹션의 테이블을 참조하세요.
+프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets) 섹션의 테이블을 참조하세요.
 
 ## 프리미엄 저장소 확장성 및 성능 목표
 
@@ -262,12 +262,12 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 	<td rowspan="2"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
 	<td>3.2.0-75.110+</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-KR-30GB</td>
 </tr>
 <tr>
 	<td>14.04+</td>
 	<td>3.13.0-44.73+</td>
-	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-KR-30GB</td>
 </tr>
 <tr>
 	<td><strong>Debian</strong></td>
@@ -351,7 +351,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 - 프리미엄 저장소 스냅숏
 - 아웃바운드 데이터 전송
 
-**프리미엄 저장소 디스크/Blob 크기**: 프리미엄 저장소 디스크/Blob에 대한 청구는 프로비전된 디스크/Blob 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-when-using-premium-storage) 섹션에 지정된 표에 따라 프로비전된 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 프리미엄 저장소 계정에 저장된 모든 개체는 지원되는 프로비전 크기 중 하나로 매핑하며 이에 따라 요금이 청구됩니다. 따라서 작은 Blob 저장에는 프리미엄 저장소 계정을 사용하지 마세요. 프로비전된 디스크/Blob에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
+**프리미엄 저장소 디스크/Blob 크기**: 프리미엄 저장소 디스크/Blob에 대한 청구는 프로비전된 디스크/Blob 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets) 섹션에 지정된 표에 따라 프로비전된 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 프리미엄 저장소 계정에 저장된 모든 개체는 지원되는 프로비전 크기 중 하나로 매핑하며 이에 따라 요금이 청구됩니다. 따라서 작은 Blob 저장에는 프리미엄 저장소 계정을 사용하지 마세요. 프로비전된 디스크/Blob에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
 
 **프리미엄 저장소 스냅숏**: 프리미엄 저장소의 스냅숏은 스냅숏이 사용한 추가 용량에 대해 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](http://msdn.microsoft.com/library/azure/hh488361.aspx)를 참조하세요.
 
@@ -480,7 +480,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 #### II. Azure CLI를 통해 DS 시리즈 가상 컴퓨터 만들기
 
 	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
+		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB" -u "myusername" -p "passwd@123"
 
 가상 컴퓨터에 대한 정보 표시
 
@@ -562,4 +562,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

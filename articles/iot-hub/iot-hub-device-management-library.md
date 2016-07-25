@@ -183,7 +183,7 @@ LWM2M 데이터 모델은 개체 및 리소스라는 개념을 도입합니다.
 | 패키지 | 쓰기 | 불투명 | | 이진 형식의 펌웨어 패키지.<br/>서비스 API에 매핑:<br/>**SystemPropertyNames.FirmwarePackage** |
 | PackageURI | 쓰기 | 문자열 | 0-255바이트 | 장치가 펌웨어 패키지를 다운로드할 수 있는 URI.<br/>서비스 API에 매핑: **SystemPropertyNames.FirmwarePackageUri** |
 | 업데이트 | 실행 | | | 패키지에 저장된 펌웨어 패키지를 사용하거나 패키지 URI에서 다운로드한 펌웨어를 사용하여 펌웨어 업데이트.<br/>서비스 API에 매핑:<br/>**ScheduleFirmwareUpdateAsync** |
-| 시스템 상태 | 읽기 | Integer | 1-3 | 펌웨어 업데이트 프로세스의 상태:<br/>**1**: 유휴 상태입니다. 이 프로세스는 펌웨어 패키지를 다운로드하기 전 또는 펌웨어 패키지를 적용한 후에 이루어질 수 있습니다.<br/>**2**: 펌웨어 패키지 다운로드.<br/>**3**: 펌웨어 패키지 다운로드됨.<br/> 서비스 API에 매핑: **SystemPropertyNames.FirmwareUpdateState** |
+| 시스템 상태 | 읽기 | Integer | 1-3 | 펌웨어 업데이트 프로세스의 상태:<br/>**1**: 유휴 상태. 이 프로세스는 펌웨어 패키지를 다운로드하기 전 또는 펌웨어 패키지를 적용한 후에 이루어질 수 있습니다.<br/>**2**: 펌웨어 패키지 다운로드.<br/>**3**: 펌웨어 패키지 다운로드됨.<br/> 서비스 API에 매핑: **SystemPropertyNames.FirmwareUpdateState** |
 | UpdateResult | 읽기 | Integer | 0-6 | 펌웨어 다운로드 또는 업데이트의 결과<br/>**0**: 기본값.<br/>**1**: 펌웨어 업데이트 성공.<br/>**2**: 새 펌웨어 패키지에 대한 저장소 부족.<br/>**3**: 펌웨어 패키지 다운로드 중에 메모리 부족.<br/>**4**: 펌웨어 패키지 다운로드 중에 연결이 끊김.<br/>**5**: 새 다운로드된 패키지에 대한 CRC 검사 실패.<br/>**6**: 지원되지 않는 펌웨어 패키지 유형.<br/>**7**: 잘못된 URI. 서비스 API에 매핑: **SystemPropertyNames.FirmwareUpdateResult** |
 | PkgName | 읽기 | 문자열 | 0-255바이트 | **패키지** 리소스가 참조한 펌웨어 패키지의 설명 이름<br/>서비스 API에 매핑:<br/>**SystemPropertyNames.FirmwarePackageName** |
 | PackageVersion | 읽기 | 문자열 | 0-255바이트 | **패키지** 리소스가 참조한 펌웨어 패키지의 버전<br/>서비스 API에 매핑:<br/>**SystemPropertyNames.FirmwarePackageVersion** |
@@ -204,6 +204,15 @@ LWM2M 데이터 모델은 개체 및 리소스라는 개념을 도입합니다.
 | 값 | 읽기 쓰기 | 문자열 | | 읽거나 업데이트할 구성 값을 고유하게 식별합니다. |
 | 적용 | 실행 | | | 구성 변경 내용을 장치에 적용합니다. |
 
+## 다음 단계
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -216,10 +225,14 @@ LWM2M 데이터 모델은 개체 및 리소스라는 개념을 도입합니다.
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

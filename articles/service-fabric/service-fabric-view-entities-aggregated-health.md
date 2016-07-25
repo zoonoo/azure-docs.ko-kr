@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # 서비스 패브릭 상태 보고서 보기
@@ -70,7 +70,7 @@ Azure 서비스 패브릭은 시스템 구성 요소와 watchdogs가 모니터�
 
 엔터티 상태에는 다음 정보가 포함되어 있습니다.
 
-- 엔터티의 집계된 성능 상태. 이것은 엔터티 상태 보고서, 자녀 성능 상태(해당되는 경우) 및 성능 정책을 기준으로 상태 저장소에 의해 컴퓨팅됩니다. [엔터티 상태 평가](service-fabric-health-introduction.md#entity-health-evaluation)에 대해 자세히 알아봅니다.  
+- 엔터티의 집계된 성능 상태. 이것은 엔터티 상태 보고서, 자녀 성능 상태(해당되는 경우) 및 성능 정책을 기준으로 상태 저장소에 의해 컴퓨팅됩니다. [엔터티 상태 평가](service-fabric-health-introduction.md#entity-health-evaluation)에 대해 자세히 알아봅니다.
 
 - 엔터티에 대한 상태 이벤트입니다.
 
@@ -642,7 +642,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ### PowerShell
 배포된 응용 프로그램 상태를 가져오기 위한 cmdlet은 [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 [Get ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)를 실행하고 배포된 응용 프로그램 자녀를 살펴봅니다.
 
-다음 cmdlet은 **\_Node\_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 상태를 가져옵니다.
+다음 cmdlet은 **_Node_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 상태를 가져옵니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
@@ -692,9 +692,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### PowerShell
-배포된 서비스 패키지 상태를 가져오는 cmdlet은 [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 [Get ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)를 실행하고 배포된 응용 프로그램을 살펴봅니다. 응용 프로그램에 어떤 서비스 패키지가 있는지 보려면 [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx) 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
+배포된 서비스 패키지 상태를 가져오는 cmdlet은 [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)를 실행하고 배포된 응용 프로그램을 살펴봅니다. 응용 프로그램에 어떤 서비스 패키지가 있는지 보려면 [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx) 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
 
-다음 cmdlet은 **\_Node\_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 **WordCountServicePkg** 서비스 패키지 상태를 가져옵니다. 엔터티에 성공적인 서비스 패키지 및 진입점 활성화와 성공적인 서비스 유형 등록을 위한 **System.Hosting** 보고서가 있습니다.
+다음 cmdlet은 **_Node_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 **WordCountServicePkg** 서비스 패키지 상태를 가져옵니다. 엔터티에 성공적인 서비스 패키지 및 진입점 활성화와 성공적인 서비스 유형 등록을 위한 **System.Hosting** 보고서가 있습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -1128,8 +1128,10 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
 
+[서비스 상태를 보고 및 확인하는 방법](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

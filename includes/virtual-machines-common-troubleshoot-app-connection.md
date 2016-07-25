@@ -1,4 +1,4 @@
-응용 프로그램이 예상되는 포트에서 실행 및 수신 대기 중이 아니거나 네트워킹 규칙이 응용 프로그램에 트래픽을 올바로 전달하지 않는 등 Azure VM(가상 컴퓨터)에서 실행 중인 응용 프로그램에 연결하는 데 문제가 발생할 수 있는 다양한 원인이 있습니다. 이 문서에서는 문제를 찾고 해결하는 체계적인 방법을 설명합니다.
+응용 프로그램이 예상되는 포트에서 실행 및 수신 대기 중이 아니거나, 수신 포트가 차단되었거나, 네트워킹 규칙이 응용 프로그램에 트래픽을 올바로 전달하지 않는 등 Azure VM(가상 컴퓨터)에서 실행 중인 응용 프로그램을 시작 또는 연결할 수 없는 다양한 원인이 있습니다. 이 문서에서는 문제를 찾고 해결하는 체계적인 방법을 설명합니다.
 
 RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 먼저 다음 문서 중 하나를 참조하세요.
 
@@ -29,7 +29,7 @@ RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 �
 
 Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문제 해결에 대한 4개의 주요 영역이 있습니다.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![응용 프로그램을 시작할 수 없는 문제 해결](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	Azure 가상 컴퓨터에서 실행되는 응용 프로그램
 	- 응용 프로그램 자체가 제대로 실행되나요?
@@ -46,7 +46,7 @@ Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문�
 
 응용 프로그램이 실행 중인 VM에서 해당 클라이언트 프로그램으로 응용 프로그램에 액세스합니다. 로컬 호스트 이름, 로컬 IP 주소 또는 루프백 주소(127.0.0.1)를 사용합니다.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![VM에서 직접 응용 프로그램 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 예를 들어 응용 프로그램이 웹 서버인 경우, VM에서 브라우저를 열고 해당 VM에서 호스트되는 웹 페이지에 액세스를 시도합니다.
 
@@ -63,7 +63,7 @@ Windows 및 Linux 기반 가상 컴퓨터 둘 다에서 **netstat -a** 명령을
 
 VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP 주소를 사용하여 다른 VM이지만 동일한 가상 네트워크에서 응용 프로그램에 액세스합니다. 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![다른 VM에서 응용 프로그램 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 예를 들어 응용 프로그램이 웹 서버인 경우, 동일한 가상 네트워크에 있는 다른 VM의 브라우저에서 웹 페이지 액세스를 시도하세요.
 
@@ -84,7 +84,7 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클라이언트 컴퓨터와 동일한 네트워크 상에 있지 않은 경우, 가상 네트워크 외부의 컴퓨터에서 응용 프로그램에 대한 액세스를 시도하세요.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![가상 네트워크 외부의 컴퓨터에서 응용 프로그램 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 예를 들면, 응용 프로그램이 웹 서버인 경우, 가상 네트워크에 있지 않은 컴퓨터에서 실행 중인 브라우져에서 웹페이지 액세스를 시도합니다.
 
@@ -94,7 +94,7 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 	- VM에 대한 끝점 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되는지 확인합니다.
 	- 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다.
 	- 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
-	
+
 - Resource Manager 배포 모델을 사용하여 만든 VM
 	- VM에 대한 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
 	- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다.
@@ -118,4 +118,4 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

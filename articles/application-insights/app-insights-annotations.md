@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
 # Application Insights의 릴리스 주석
@@ -40,7 +40,7 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
 
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인하고 응용 프로그램을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](app-insights-overview.md).)
-2. **설정**, **API 액세스**를 차례로 열어 **Application Insights ID**를 복사합니다.
+2. **API 액세스**를 차례로 열어 **Application Insights ID**를 복사합니다.
 
     ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 응용 프로그램 ID를 복사합니다.](./media/app-insights-annotations/20.png)
 
@@ -96,4 +96,4 @@ Application Insights 리소스에서 `applicationId` 및 `apiKey`를 가져옵�
 
 ![릴리스 주석 마커를 클릭합니다.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 데이터 로드
@@ -100,6 +100,19 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 3. Microsoft에 디스크를 배송합니다.
 4. Microsoft는 SQL 데이터 웨어하우스에 데이터를 로드합니다.
 
+## HDInsight에서 로드
+SQL 데이터 웨어하우스는 PolyBase 통해 HDInsight에서 데이터 로드를 지원합니다. 프로세스는 Azure Blob 저장소에서 데이터를 로드할 때와 같이 PolyBase를 사용하여 HDInsight에 연결하여 데이터를 로드합니다.
+
+### 1\. PolyBase 및 T-SQL 사용
+
+로드 프로세스 요약:
+
+2. PolyBase는 현재 UTF-16을 지원하지 않으므로 데이터를 UTF-8 형식으로 지정합니다.
+2. HDInsight로 데이터를 이동하고 ORC 또는 Parquet 형식으로 텍스트 파일에 저장합니다.
+3. SQL 데이터 웨어하우스의 외부 개체를 데이터의 위치 및 형식을 정의하도록 구성합니다.
+4. 새 데이터베이스 테이블에 병렬로 데이터를 로드하기 위해 T-SQL 명령을 실행합니다.
+
+자습서의 경우 [Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터 로드(PolyBase)][]를 참조하세요.
 
 ## 추천
 
@@ -124,7 +137,7 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 
 [샘플 데이터베이스 로드]: ./sql-data-warehouse-load-sample-databases.md
 [마이그레이션 개요]: ./sql-data-warehouse-overview-migrate.md
-[솔루션 파트너]: ./sql-data-warehouse-integrate-solution-partners.md
+[솔루션 파트너]: ./sql-data-warehouse-partner-business-intelligence.md
 [개발 개요]: ./sql-data-warehouse-overview-develop.md
 [통계]: ./sql-data-warehouse-tables-statistics.md
 
@@ -133,4 +146,4 @@ SQL Server에서 SQL 데이터 웨어하우스로 전체 데이터 마이그레�
 <!--Other Web references-->
 [가져오기/내보내기]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

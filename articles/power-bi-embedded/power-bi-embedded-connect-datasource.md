@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # 데이터 원본에 연결
@@ -25,8 +25,6 @@
 |가져오기 | DirectQuery
 |---|---
 |테이블, 열 *및 데이터*를 보고서의 데이터 집합으로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 집합을 다시 새로 고치거나 가져오거나 완료해야 합니다.|*테이블 및 열*만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다.
-
-다음 섹션에서는 **DirectQuery**를 사용할 경우의 이점 및 제한 사항을 설명합니다.
 
 ## DirectQuery 사용할 경우의 이점
 
@@ -48,11 +46,10 @@
 <a name="measures"/>
 ## DirectQuery 및 측정값
 
-기본 데이터 원본으로 전송되는 쿼리가 허용되는 성능을 유지하도록 하기 위해 측정값에 대한 제한 사항이 적용됩니다. **Power BI Desktop**을 사용할 때 고급 사용자는 **파일 > 옵션 및 설정 > 옵션**을 선택하여 이 제한 사항을 무시하도록 선택할 수 있습니다. **옵션** 대화 상자에서 **DirectQuery**를 선택한 다음 **DirectQuery 모드에서 무제한 측정값 허용** 옵션을 선택합니다. 이 옵션을 선택하면 측정값에 유효한 모든 DAX 식을 사용할 수 있습니다. 그러나 데이터를 가져올 때 성능이 뛰어난 일부 식이 **DirectQuery** 모드에서는 백 엔드 원본에 대한 쿼리 속도가 매우 느려질 수 있습니다. **Power BI Desktop**을 사용하는 방법에 대해 알아보려면 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요.
+기본 데이터 원본으로 전송되는 쿼리가 허용되는 성능을 유지하도록 하기 위해 측정값에 대한 제한 사항이 적용됩니다. **Power BI Desktop**을 사용할 때 고급 사용자는 **파일 > 옵션 및 설정 > 옵션**을 선택하여 이 제한 사항을 무시하도록 선택할 수 있습니다. **옵션** 대화 상자에서 **DirectQuery**를 선택한 다음 **DirectQuery 모드에서 무제한 측정값 허용** 옵션을 선택합니다. 이 옵션을 선택하면 측정값에 유효한 모든 DAX 식을 사용할 수 있습니다. 그러나 데이터를 가져올 때 성능이 뛰어난 일부 식이 **DirectQuery** 모드에서는 백 엔드 원본에 대한 쿼리 속도가 매우 느려질 수 있음을 사용자가 알고 있어야 합니다. **Power BI Desktop**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요.
 
 ## 참고 항목
-- [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
-- [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+- [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
+- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

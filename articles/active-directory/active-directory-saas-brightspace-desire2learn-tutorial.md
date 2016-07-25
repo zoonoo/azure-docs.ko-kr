@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Brightspace by Desire2Learn와 Azure Active Directory 통합
@@ -38,7 +38,7 @@
 
 ###Brightspace by Desire2Learn에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Brightspace by Desire2Learn** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Brightspace by Desire2Learn** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798959.png "Single Sign-On 구성")
 
@@ -81,7 +81,7 @@
 
     ![앱 URL 구성](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "앱 URL 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 **Brightspace by Desire2Learn**에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)
+    1.  **로그온 URL** 텍스트 상자에 사용자가 **Brightspace by Desire2Learn**에 로그인하는 데 사용하는 URL을 입력합니다(예: *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*).
     2.  **다음**를 클릭합니다.
 
 4.  **Brightspace by Desire2Learn에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터를 컴퓨터에 저장합니다.
@@ -90,10 +90,10 @@
 
 5.  다운로드 한 메타데이터 파일을 Brightspace by Desire2Learn 지원팀에 보냅니다.
 
-    >[AZURE.NOTE]Brightspace by Desire2Learn 지원팀은 실제 SSO 구성을 수행해야 합니다.
+    >[AZURE.NOTE] Brightspace by Desire2Learn 지원팀은 실제 SSO 구성을 수행해야 합니다.
     구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -101,7 +101,7 @@
 Azure AD 사용자가 Brightspace by Desire2Learn에 로그인하기 위해 Brightspace by Desire2Learn에 프로비전되어야 합니다.  
 Brightspace by Desire2Learn의 경우 Brightspace by Desire2Learn 지원팀에서 사용자 계정을 만들어야 합니다.
 
->[AZURE.NOTE]Brightspace by Desire2Learn에서 제공하는 다른 Brightspace by Desire2Learn 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
+>[AZURE.NOTE] Brightspace by Desire2Learn에서 제공하는 다른 Brightspace by Desire2Learn 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
 
 ##사용자 할당
 
@@ -109,9 +109,9 @@ Brightspace by Desire2Learn의 경우 Brightspace by Desire2Learn 지원팀에�
 
 ###Brightspace by Desire2Learn에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Brightspace by Desire2Learn ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Brightspace by Desire2Learn** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다. 
 
     ![사용자 할당](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798964.png "사용자 할당")
 
@@ -121,4 +121,4 @@ Brightspace by Desire2Learn의 경우 Brightspace by Desire2Learn 지원팀에�
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

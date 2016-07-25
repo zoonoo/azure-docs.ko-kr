@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 관리" 
-	description="PowerShell을 사용한 Azure SQL 데이터베이스 관리" 
+	description="PowerShell을 사용한 Azure SQL 데이터베이스 관리." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 관리
@@ -83,14 +83,14 @@
 
 [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) 명령을 사용하여 서버를 삭제할 수도 있습니다. 다음 예제에서는 server12 이라는 서버를 삭제 합니다.
 
+
+>[AZURE.NOTE]  삭제 작업이 비동기이며 다소 시간이 걸릴 수도 있으므로 작업 확인이 예를 들어, 동일한 이름으로 새로운 서버 만들기와 같이 서버가 완전히 삭제되는 것을 전제로 하는 추가 작업을 수행하기 전에 완료되어야 합니다.
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 다음과 같이 할 수 있습니다.
-
-- 이 명령을 PowerShell 스크립트 파일(*.ps1)으로 저장
-- Azure 클래식 포털의 자동화 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장 
 
 ## 다음 단계
 
@@ -106,4 +106,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->
