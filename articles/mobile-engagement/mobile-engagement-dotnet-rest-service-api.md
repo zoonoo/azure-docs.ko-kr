@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
-	ms.author="wesmc" />
+	ms.date="07/07/2016" 
+	ms.author="wesmc;ricksal" />
 
 #REST를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
 
@@ -49,7 +49,7 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
 
 ## 서비스 API 앱 만들기
 
-1. 먼저, 이 샘플에 사용할 인증 매개 변수 네 개가 필요합니다. 이러한 매개 변수는 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **Secret**입니다. 이러한 인증 매개 변수를 가져오려면 [인증](mobile-engagement-api-authentication.md#authentication) 자습서의 *일 회 설정(스크립트 사용)* 섹션에서 언급한 PowerShell 스크립트 접근 방식을 사용하는 것이 좋습니다. 
+1. 먼저, 이 샘플에 사용할 인증 매개 변수 네 개가 필요합니다. 이러한 매개 변수는 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **Secret**입니다. 이러한 인증 매개 변수를 가져오려면 [인증](mobile-engagement-api-authentication.md#authentication) 자습서의 *일 회 설정(스크립트 사용)* 섹션에서 언급한 PowerShell 스크립트 접근 방식을 사용하는 것이 좋습니다.
 
 2. 여기서는 간단한 Windows 콘솔 앱을 사용하여 새로운 알림 캠페인을 만들고 활성화하는 REST 서비스 API를 작업하는 방법을 시연하겠습니다. Visual Studio를 열고 새 **콘솔 응용 프로그램**을 만듭니다.
 
@@ -461,4 +461,4 @@ REST API를 직접 사용하지 않으려는 분들을 위해, 기본 설정 언
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

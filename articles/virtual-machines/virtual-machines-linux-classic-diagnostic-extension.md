@@ -23,19 +23,25 @@
 
 ## 소개
 
+(**참고**: Linux 진단 확장은 [Github](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic)의 오픈 소스이며 확장에 대한 대부분의 최신 정보가 Github에 가장 먼저 게시됩니다. [Github 페이지](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic)를 가장 먼저 확인하세요.)
+
 Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Linux VM을 모니터링할 수 있습니다. 제공되는 기능은 다음과 같습니다.
 
 - Linux VM에서 사용자의 저장소 테이블로 진단 및 syslog 정보를 포함하여 시스템 성능 정보를 수집하고 업로드합니다.
 - 사용자가 수집 및 업로드된 데이터 메트릭을 사용자 지정할 수 있도록 설정합니다.
 - 사용자가 지정된 저장소 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
 
-2\.0 버전에는 다음 데이터가 포함됩니다.
+최신 2.3 버전에는 다음 데이터가 포함됩니다.
 
 - 시스템, 보안 및 응용 프로그램 로그를 비롯한 모든 Linux Rsyslog 로그.
 - [System Center 플랫폼 간 솔루션 사이트](https://scx.codeplex.com/wikipage?title=xplatproviders)에 지정된 모든 시스템 데이터.
 - 사용자가 지정한 로그 파일.
 
 이 확장은 클래식 및 리소스 관리자 배포 모델 둘 다에서 작동합니다.
+
+### 확장의 최신 버전 및 이전 버전의 사용 중단
+
+확장의 최신 버전은 **2.3**이며, **모든 이전 버전(2.0, 2.1 및 2.2)은 곧 사용이 중단되고 게시되지 않을 예정입니다**. 자동 부 버전 업그레이드가 비활성화된 Linux 진단 확장을 설치한 경우 확장을 제거한 후 자동 부 버전 업그레이드를 활성화하여 다시 설치하는 것이 좋습니다. Azure XPLAT CLI 또는 Powershell을 통해 확장을 설치하는 경우 클래식(ASM) VM에서 버전으로 '2.*'를 지정하여 이 작업을 수행할 수 있습니다. ARM VM에서 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함하여 이 작업을 수행할 수 있습니다. 또한 새로 설치되는 확장에서 자동 부 버전 업그레이드 옵션이 켜져 있어야 합니다.
 
 
 ## 확장 사용
@@ -62,9 +68,9 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 ## Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정
 
 ### 시나리오 1. 기본 데이터 집합으로 확장을 사용하도록 설정
-버전 2.0 이후의 경우 수집되는 기본 데이터에는 다음이 포함됩니다.
+버전 2.3 이상의 경우 수집되는 기본 데이터에는 다음이 포함됩니다.
 
-- 모든 Rsyslog 정보(시스템, 보안 및 응용 프로그램 로그 포함)  
+- 모든 Rsyslog 정보(시스템, 보안 및 응용 프로그램 로그 포함)
 - 기본 시스템 데이터의 핵심 집합입니다. 전체 데이터 집합은 [System Center 플랫폼 간 솔루션 사이트](https://scx.codeplex.com/wikipage?title=xplatproviders)에 설명되어 있습니다. 추가 데이터를 사용하도록 설정하려는 경우 시나리오 2와 3의 단계를 계속 진행하세요.
 
 1단계. 다음과 같은 내용으로 PrivateConfig.json라는 파일을 만듭니다.
@@ -118,9 +124,10 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
+이 설정을 사용하면 `/var/log/mysql.err`에 기록된 모든 로그가 `/var/log/syslog`(또는 Linux 배포판에 따라 `/var/log/messages`)와 중복될 수 있습니다. 중복 로깅을 피하려면 rsyslog 구성에서 `local6` 기능 로깅을 제외하면 됩니다. Linux 배포판에 따라 다르지만 Ubuntu 14.04 시스템에서는 `/etc/rsyslog.d/50-default.conf` 파일을 수정해야 하며 `*.*;auth,authpriv.none -/var/log/syslog` 줄을 `*.*;auth,authpriv,local6.none -/var/log/syslog` 줄로 대체할 수 있습니다. 나중에는 이 작업이 Linux 진단 확장에서 자동으로 처리될 것입니다.
 
 ###   시나리오 4. 모든 로그 수집에서 확장 중지
-이 섹션에서는 로그 수집에서 확장을 중지하는 방법을 설명합니다. 이러한 재구성에도 모니터링 에이전트 프로세스는 계속 실행됩니다. 모니터링 에이전트 프로세스는 완전히 중지하려는 경우 확장을 사용하지 않도록 설정합니다. 확장을 사용하지 않도록 설정하는 명령은 **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**입니다.
+이 섹션에서는 로그 수집에서 확장을 중지하는 방법을 설명합니다. 이러한 재구성에도 모니터링 에이전트 프로세스는 계속 실행됩니다. 모니터링 에이전트 프로세스는 완전히 중지하려는 경우 확장을 사용하지 않도록 설정합니다. 확장을 사용하지 않도록 설정하는 명령은 **azure vm extension set --disable <vm\_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**입니다.
 
 1단계. 시나리오 1에서 설명한 내용으로 PrivateConfig.json이라는 파일을 만듭니다. 다음과 같은 내용으로 PublicConfig.json이라는 다른 파일을 만듭니다.
 
@@ -147,6 +154,6 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 (시나리오 2와 3에 설명된 대로) FileCfg 또는 perfCfg를 사용하도록 설정한다면, 기본이 아닌 데이터를 Visual Studio 서버 탐색기 및 Azure 저장소 탐색기를 사용하여 볼 수 있습니다.
 
 ## 알려진 문제
-- Linux 진단 확장 버전 2.0의 경우 Rsyslog 정보 및 고객이 지정한 로그 파일은 스크립팅을 통해서만 액세스할 수 있습니다.
+- Linux 진단 확장 버전 2.3의 경우 Rsyslog 정보 및 고객이 지정한 로그 파일은 스크립팅을 통해서만 액세스할 수 있습니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

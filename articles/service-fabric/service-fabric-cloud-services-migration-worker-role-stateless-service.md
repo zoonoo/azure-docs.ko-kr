@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
@@ -38,7 +38,7 @@
 
 작업자 역할과 마찬가지로 웹 역할도 상태 비저장 작업을 나타내므로 개념적으로 서비스 패브릭 상태 비저장 서비스에 매핑할 수 있습니다. 그러나 웹 역할과 달리 서비스 패브릭은 IIS를 지원하지 않습니다. 웹 역할의 웹 응용 프로그램을 상태 비저장 서비스에 마이그레이션하려면 자체 호스팅될 수 있고 ASP.NET Core 1과 같은 IIS 또는 System.Web에 의존하지 않는 웹 프레임워크로 이동이 필요합니다.
 
-****응용 프로그램** | **지원됨** | **마이그레이션 경로**
+**응용 프로그램** | **지원됨** | **마이그레이션 경로**
 --- | --- | ---
 ASP.NET 웹 양식 | 아니요 | ASP.NET Core 1 MVC로 변환
 ASP.NET MVC | 마이그레이션 사용 | ASP.NET Core 1로 업그레이드
@@ -160,7 +160,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -204,7 +204,7 @@ foreach (var settingChange in settingChanges)
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -277,4 +277,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

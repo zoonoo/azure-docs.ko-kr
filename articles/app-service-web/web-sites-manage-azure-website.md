@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/27/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
 
@@ -60,8 +60,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 ### 모니터링
 
 - Azure 포털을 통해 CPU 사용량, 클라이언트 요청 수 등의 [성능 메트릭을 추가](web-sites-monitor.md)할 수 있습니다.
-- 보다 자세한 정보를 확인하려면 New Relic을 사용하여 성능을 모니터링 및 관리합니다. [New Relic 응용 프로그램 성능 관리를 사용하여 Azure 앱 서비스에서의 .NET 웹 앱](store-new-relic-web-sites-dotnet-application-performance-management.md)을 참조하세요.
-- 트래픽에 맞게 [웹 앱 크기를 조정](web-sites-scale.md)합니다. 계층에 따라 VM의 수 및/또는 VM 인스턴스의 크기를 조정할 수 있습니다. 표준 및 프리미엄 계층에서는 자동 크기 조정도 설정할 수 있으므로, 고정된 일정 또는 부하에 따라 웹 앱 크기가 자동으로 조정됩니다.  
+- 트래픽에 맞게 [웹 앱 크기를 조정](web-sites-scale.md)합니다. 계층에 따라 VM의 수 및/또는 VM 인스턴스의 크기를 조정할 수 있습니다. 표준 및 프리미엄 계층에서는 자동 크기 조정도 설정할 수 있으므로, 고정된 일정 또는 부하에 따라 웹 앱 크기가 자동으로 조정됩니다.
  
 ### 백업
 
@@ -70,7 +69,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 ### 문제 해결
 
-- 문제 발생 시에는 클라우드의 진단 로그 및 라이브 디버깅 기능을 사용하여 [Visual Studio에서 문제를 해결](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)할 수 있습니다. 
+- 문제 발생 시에는 클라우드의 진단 로그 및 라이브 디버깅 기능을 사용하여 [Visual Studio에서 문제를 해결](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)할 수 있습니다.
 - Visual Studio 외에도 다양한 방식을 통해 진단 로그를 수집할 수 있습니다. [Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정](web-sites-enable-diagnostic-log.md)을 참조하세요.
 - Node.js 응용 프로그램의 경우, [Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법](web-sites-nodejs-debug.md)을 참조하세요.
 
@@ -87,7 +86,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 배포를 설정할 수 있습니다.
 
-- [TFVC(Team Foundation Version Control) 사용](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [TFVC(Team Foundation Version Control) 사용](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Git 사용](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
@@ -98,4 +97,4 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

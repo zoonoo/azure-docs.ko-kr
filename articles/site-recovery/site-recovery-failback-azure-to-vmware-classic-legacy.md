@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/06/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Azure Site Recovery를 사용하여 Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(failback)(레거시)
@@ -428,4 +428,4 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 
  
 
-<!----HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0713_2016-->

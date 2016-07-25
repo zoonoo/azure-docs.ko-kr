@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/18/2016"
+   ms.date="07/12/2016"
    ms.author="dugill;tomfitz" />
 
 
@@ -444,4 +444,4 @@ ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서�
 
 이와 같이 사용자는 이제 응용 프로그램을 사용하여 쉽게 Azure 구독을 연결 및 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

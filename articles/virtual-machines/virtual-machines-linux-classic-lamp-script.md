@@ -68,7 +68,7 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
 ### 스크립트 업로드
 
-스크립트를 *lamp\_install.sh*와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 컨테이너가 없으면 먼저 만들어야 합니다.
+스크립트를 *install\_lamp.sh*와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 컨테이너가 없으면 먼저 만들어야 합니다.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -83,7 +83,7 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-이전 명령은 *lamp-vm*이라는 VM에서 *lamp\_install.sh* 스크립트를 다운로드하고 실행합니다.
+이전 명령은 *lamp-vm*이라는 VM에 *install\_lamp.sh* 스크립트를 다운로드하여 실행합니다.
 
 앱은 웹 서버를 포함하므로 원격 VM에서 다음 명령을 사용하여 HTTP 수신 대기 포트를 열어야 합니다.
 
@@ -110,4 +110,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

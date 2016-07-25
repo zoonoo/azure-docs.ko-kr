@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/11/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 템플릿과 Azure CLI로 리소스 배포
@@ -175,4 +175,4 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 - 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 - 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

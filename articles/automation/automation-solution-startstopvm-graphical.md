@@ -12,17 +12,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Azure 자동화 시나리오 - 가상 컴퓨터 시작 및 중지
 
 Azure 자동화 시나리오는 기존 가상 컴퓨터를 시작하고 중지하는 Runbook을 포함합니다. 다음과 같은 경우에 이 시나리오를 사용할 수 있습니다.
 
-- 사용자의 환경에서 수정하지 않고 Runbook을 사용합니다. 
-- 사용자 지정 기능을 수행하도록 Runbook을 수정합니다.  
-- 전체 솔루션의 일부로 다른 Runbook에서 Runbook을 호출합니다. 
-- Runbook을 자습서로 사용하여 Runbook 작성 개념을 알아봅니다. 
+- 사용자의 환경에서 수정하지 않고 Runbook을 사용합니다.
+- 사용자 지정 기능을 수행하도록 Runbook을 수정합니다.
+- 전체 솔루션의 일부로 다른 Runbook에서 Runbook을 호출합니다.
+- Runbook을 자습서로 사용하여 Runbook 작성 개념을 알아봅니다.
 
 > [AZURE.SELECTOR]
 - [그래픽](automation-solution-startstopvm-graphical.md)
@@ -150,7 +150,7 @@ Runbook의 마지막 단계는 각 가상 컴퓨터에 대한 시작 또는 중�
 ## 다음 단계
 
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
-- [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
+- [Azure 자동화의 자식 runbook](automation-child-runbooks.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

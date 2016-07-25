@@ -1,6 +1,6 @@
 <properties
    pageTitle="Windows HPC 클러스터를 배포하기 위한 PowerShell 스크립트 | Microsoft Azure"
-   description="PowerShell 스크립트를 실행하여 Azure 인프라 서비스에 완전한 Windows HPC 클러스터 배포"
+   description="PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 Windows HPC Pack 클러스터 배포"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # HPC Pack IaaS 배포 스크립트를 사용하여 Windows HPC(고성능 컴퓨팅) 클러스터 만들기
 
-클라이언트 컴퓨터에 HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 인프라 서비스(IaaS)에서 완전한 Windows 워크로드용 HPC 클러스터를 배포합니다. Azure에서 Linux 워크로드용 HPC Pack 클러스터를 배포하려면 [HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC 클러스터 만들기](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 컴퓨터에 완전한 Windows 워크로드용 HPC 클러스터를 배포합니다. 클러스터는 Windows Server, Microsoft HPC 팩 및 지정한 추가 Windows 계산 리소스를 실행하는 Active Directory 가입 헤드 노드로 구성됩니다. Azure에서 Linux 워크로드용 HPC Pack 클러스터를 배포하려면 [HPC Pack IaaS 배포 스크립트를 사용하여 Linux HPC 클러스터 만들기](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 참조하세요. Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) 및 [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)를 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -26,7 +26,47 @@
 
 ## 예제 구성 파일
 
-### 예 1
+다음 예제에서 구독 이름과 계정 및 서비스 이름을 고유한 값으로 대체합니다.
+
+### 예제 1
+
+다음 구성 파일은 로컬 데이터베이스를 사용하는 1개 헤드 노드와 Windows Server 2012 R2 운영 체제를 실행하는 5개 계산 노드가 있는 HPC 팩 클러스터를 배포합니다. 모든 클라우드 서비스는 미국 서부 위치에서 직접 생성됩니다. 헤드 노드는 도메인 포리스트의 도메인 컨트롤러의 역할을 합니다.
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
+    <StorageAccount>mystorageaccount</StorageAccount>
+  </Subscription>
+  <Location>West US</Location>  
+  <VNet>
+    <VNetName>MyVNet</VNetName>
+    <SubnetName>Subnet-1</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpc.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>MyHeadNode</VMName>
+    <ServiceName>MyHPCService</ServiceName>
+    <VMSize>ExtraLarge</VMSize>
+  </HeadNode>
+  <ComputeNodes>
+    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
+    <ServiceName>MyHPCCNService</ServiceName>
+    <VMSize>Medium</VMSize>
+    <NodeCount>5</NodeCount>
+    <OSVersion>WindowsServer2012R2</OSVersion>
+  </ComputeNodes>
+</IaaSClusterConfig>
+```
+
+### 예 2
 
 다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스가 포함된 1개 헤드와 BGInfo VM 확장이 적용된 12개 계산 노드가 있습니다. 도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 컴퓨터 노드는 3개 클라우드 서비스와 3개 저장소 계정에 생성됩니다(즉, _MyHPCCNService01_ 및 _mycnstorage01_에서 _MyHPCCN-0001_ - _MyHPCCN-0005_, _MyHPCCNService02_ 및 _mycnstorage02_에서 _MyHPCCN-0006_ - _MyHPCCN0010_, _MyHPCCNService03_ 및 _mycnstorage03_에서 _MyHPCCN-0011_ - _MyHPCCN-0012_). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
 
@@ -90,7 +130,7 @@
 
 ```
 
-### 예 2
+### 예 3
 
 다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 1개 헤드 노드, 500GB 데이터 디스크가 포함된 1개 데이터베이스 서버, Windows Server 2012 R2 운영 체제를 실행하는 2개 broker 노드, Windows Server 2012 R2 운영 체제를 실행하는 5개 계산 노드가 포함되어 있습니다. 클라우드 서비스인 MyHPCCNService는 선호도 그룹 *MyIBAffinityGroup*에 만들어지며 기타 클라우드 서비스는 선호도 그룹 *MyAffinityGroup*에 만들어집니다. 헤드 노드에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용합니다.
 
@@ -144,43 +184,7 @@
 </IaaSClusterConfig>
 ```
 
-### 예 3
 
-다음 구성 파일은 로컬 데이터베이스를 사용하는 1개 헤드 노드와 Windows Server 2008 R2 운영 체제를 실행하는 5개 계산 노드가 있는 HPC 팩 클러스터를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 헤드 노드는 도메인 포리스트의 도메인 컨트롤러의 역할을 합니다.
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<IaaSClusterConfig>
-  <Subscription>
-    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
-    <StorageAccount>mystorageaccount</StorageAccount>
-  </Subscription>
-  <Location>East Asia</Location>  
-  <VNet>
-    <VNetName>MyVNet</VNetName>
-    <SubnetName>Subnet-1</SubnetName>
-  </VNet>
-  <Domain>
-    <DCOption>HeadNodeAsDC</DCOption>
-    <DomainFQDN>hpc.local</DomainFQDN>
-  </Domain>
-  <Database>
-    <DBOption>LocalDB</DBOption>
-  </Database>
-  <HeadNode>
-    <VMName>MyHeadNode</VMName>
-    <ServiceName>MyHPCService</ServiceName>
-    <VMSize>ExtraLarge</VMSize>
-  </HeadNode>
-  <ComputeNodes>
-    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
-    <ServiceName>MyHPCCNService</ServiceName>
-    <VMSize>Medium</VMSize>
-    <NodeCount>5</NodeCount>
-    <OSVersion>WindowsServer2008R2</OSVersion>
-  </ComputeNodes>
-</IaaSClusterConfig>
-```
 
 ### 예제 4
 
@@ -271,6 +275,6 @@
 
 * 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC Pack 클러스터의 계산 노드 관리](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)를 참조하세요.
 
-* Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예제는 [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) 및 [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)를 참조하세요.
+* 로컬 컴퓨터에서 클러스터에 작업 제출을 시작하려면 [온-프레미스 컴퓨터에서 Azure의 HPC 팩 클러스터로 HPC 작업 제출](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)을 참조합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

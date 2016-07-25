@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/11/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
@@ -132,6 +132,4 @@ Azure Service Fabric 클러스터의 일부를 비롯한 [클래식 및 Resource
 
 클라우드 서비스에서 실행 중인 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
 
-보안 센터 권장 사항인 [시스템 업데이트 적용](security-center-recommendations.md)에 따르면 누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. 클라우드 서비스에 있는 VM의 경우 권장 사항인 **OS 버전 업데이트**에 따라 OS를 최신 버전으로 업데이트하는 것이 좋습니다.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

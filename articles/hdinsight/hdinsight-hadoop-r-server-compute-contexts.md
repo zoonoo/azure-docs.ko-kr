@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/07/2016"
    ms.author="jeffstok"
 />
 
@@ -46,7 +46,7 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 2.	데이터가 로컬에 있고 XDF 형식인 경우 반복된 분석이 더 빠릅니다.
 3.	텍스트 데이터 원본에서 적은 양의 데이터를 스트리밍하는 것이 좋습니다. 데이터의 양이 클 경우 분석하기 전에 XDF로 변환합니다.
 4.	분석을 위해 에지 노드에 데이터를 복사하거나 스트리밍하는 경우 발생하는 오버헤드는 매우 많은 양의 데이터가 감당할 수 없게 됩니다.
-5.	데이터의 양이 매우 커지고 분산된 메모리에 더 이상 맞지 않게 될 때까지는 Hadoop의 분석에서 Spark가 Map Reduce보다 더 빠릅니다.
+5.	Hadoop의 분석의 경우 Spark가 Map Reduce보다 빠릅니다.
 
 이러한 원칙을 감안할 때 계산 컨텍스트 선택에 대한 몇 가지 일반적인 규칙은 다음과 같습니다.
 
@@ -61,7 +61,7 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 
 ### Hadoop Map Reduce
 
-- 분석할 데이터의 양이 매우 크고 Spark 성능이 저하되기 시작할 경우 Map Reduce를 통해 분석을 시도합니다.
+- 일반적으로 느려질 수 있기 때문에 Spark 계산 컨텍스트를 사용하여 대처할 수 없는 문제가 발생하는 경우에만 사용합니다.
 
 ## rxSetComputeContext의 인라인 도움말
 
@@ -81,4 +81,4 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

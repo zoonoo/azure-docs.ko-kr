@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/04/2016" 
+    ms.date="07/08/2016" 
     ms.author="hawong"/>
 
 # 일반적인 DocumentDB 사용 사례
@@ -33,7 +33,7 @@ Azure DocumentDB는 광범위한 응용 프로그램 및 사용 사례에 사용
 
 - DocumentDB는 기본적으로 고가용성 및 확장성을 위해 데이터를 분할합니다.
 - DocumentDB에는 낮은 대기 시간의 응답 시간(밀리초)을 지원하는 SSD 지원 저장소가 있습니다.
-- DocumentDB는 Eventual, Session 및 Bounded-Staleness와 같은 일관성 수준을 지원하므로 비용 대비 성능 비율이 낮습니다. 
+- DocumentDB는 Eventual, Session 및 Bounded-Staleness와 같은 일관성 수준을 지원하므로 비용 대비 성능 비율이 낮습니다.
 - DocumentDB에는 저장소 및 처리량을 독립적으로 측정하는 유연한 데이터 친화적인 가격 책정 모델이 있습니다.
 - DocumentDB의 예약된 처리량 모델을 사용하면 기본 하드웨어의 CPU/메모리/IOP 대신 읽기/쓰기 수로 예측할 수 있습니다.
 - DocumentDB는 일별 요청 수가 수십억 개에 이르는 대량 요청 볼륨으로 확장되도록 디자인되었습니다.
@@ -99,9 +99,9 @@ DocumentDB를 시작하기 위해 [계정](https://azure.microsoft.com/pricing/f
 - [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Halo 5에서 Azure DocumentDB를 사용하여 소셜 게임을 구현한 방식
 - [Cortana 분석 갤러리](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana 분석 갤러리 - Azure DocumentDB를 기반으로 하는 확장 가능한 커뮤니티 사이트
 - [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). 선도적인 통합자가 유연한 클라우드 기술을 사용하여 수분 내에 다국적 기업에 글로벌 통찰력을 제공합니다.
-- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). 뉴스에 인텔리전스를 추가하여 시민 참여를 위한 정보를 제공합니다. 
+- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). 뉴스에 인텔리전스를 추가하여 시민 참여를 위한 정보를 제공합니다.
 - [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). 전 세계에서 일관된 색을 유지하기 위해 주요 브랜드가 SGS에 의존합니다. 그리고 SGS는 Azure에 의존합니다.
-- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). 글로벌 리더인 Telenor는 클라우드를 사용하여 시작 속도로 이동합니다. 
+- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). 글로벌 리더인 Telenor는 클라우드를 사용하여 시작 속도로 이동합니다.
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

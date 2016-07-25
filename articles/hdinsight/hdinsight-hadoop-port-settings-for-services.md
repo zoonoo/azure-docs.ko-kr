@@ -42,7 +42,7 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | Ambari | 443 | HTTPS | Ambari 웹 UI. [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요. |
 | Ambari | 443 | HTTPS | Ambari REST API. [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요. |
 | WebHCat | 443 | HTTPS | HCatalog REST API. [Curl에서 Hive 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 Pig 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요. |
-| HiveServer2 | 443 | ODBC | ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver)을 참조하세요. |
+| HiveServer2 | 443 | ODBC | ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요. |
 | HiveServer2 | 443 | JDBC | JDBC를 사용하여 Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요. |
 
 다음은 특정 클러스터 유형에 대해 사용할 수 있습니다.
@@ -133,4 +133,4 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | Region 서버 | 모든 작업자 노드 | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | 클라이언트가 ZooKeeper 연결에 사용하는 포트 |
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

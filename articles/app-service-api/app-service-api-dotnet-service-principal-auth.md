@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스의 API 앱에 대한 서비스 주체 인증
 
@@ -415,4 +415,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](../app-service-web/web-sites-deploy.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

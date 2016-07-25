@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="엔터프라이즈 통합 팩에서 B2B 솔루션 만들기 | Microsoft Azure 앱 서비스" 
+	pageTitle="엔터프라이즈 통합 팩에서 B2B 솔루션 만들기 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩의 B2B 기능을 사용하여 데이터를 수신하는 방법에 대해 알아보기" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 엔터프라이즈 통합 팩의 B2B 기능을 사용하여 데이터를 수신하는 방법에 대해 알아보기#
@@ -75,4 +75,4 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 필요
 
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

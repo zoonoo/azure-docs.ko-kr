@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사
@@ -118,4 +118,4 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

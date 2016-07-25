@@ -46,10 +46,10 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
     	#begin
     	# Update with the name of your subscription.
-    	$SubscriptionName="YourSubscriptionName"
+    	$SubscriptionName = "YourSubscriptionName"
 
     	# Give a name to your new storage account. It must be lowercase!
-    	$StorageAccountName="yourstorageaccountname"
+    	$StorageAccountName = "yourstorageaccountname"
 
     	# Choose "West US" as an example.
     	$Location = "West US"
@@ -138,14 +138,14 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. Azure PowerShell 설치 및 설정에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이 가이드를 사용하기 전에 최신 Azure PowerShell 모듈을 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
-Azure PowerShell 콘솔, 표준 Windows PowerShell 콘솔 또는 Windows PowerShell ISE(통합 스크립팅 환경)에서 cmdlet을 실행할 수 있습니다. 예를 들어 **Azure PowerShell 콘솔**을 열려면 시작 메뉴로 이동하고, Microsoft Azure PowerShell을 입력하고, 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행을 클릭합니다. **Windows PowerShell ISE**를 열려면 시작 메뉴로 이동하여 관리 도구를 입력하고, 이 도구를 클릭하여 실행합니다. 관리 도구 창에서 Windows PowerShell ISE를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행을 클릭합니다.
+표준 Windows PowerShell 콘솔 또는 Windows PowerShell ISE(통합 스크립팅 환경)에서 cmdlet을 실행할 수 있습니다. 예를 들어, **Windows PowerShell ISE**를 열려면 시작 메뉴로 이동하여 관리 도구를 입력하고, 이 도구를 클릭하여 실행합니다. 관리 도구 창에서 Windows PowerShell ISE를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행을 클릭합니다.
 
 ## Azure에서 저장소 계정을 관리하는 방법
 
 ### 기본 Azure 구독을 설정하는 방법
 Azure PowerShell을 사용하여 Azure 저장소를 관리하려면 Azure Active Directory 인증 또는 인증서 기반 인증을 통해 Azure에서 클라이언트 환경을 인증해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 자습서를 참조하세요. 이 가이드에서는 Azure Active Directory 인증을 사용합니다.
 
-1.	Azure PowerShell 콘솔 또는 Windows PowerShell ISE에서 다음 명령을 입력하여 로컬 PowerShell 환경에 Azure 계정을 추가합니다.
+1.	Windows PowerShell ISE에서 다음 명령을 입력하여 로컬 PowerShell 환경에 Azure 계정을 추가합니다.
 
     `Add-AzureAccount`
 
@@ -177,7 +177,7 @@ Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구�
 
 1.	Get-AzureLocation cmdlet을 실행하여 사용 가능한 모든 데이터 센터 위치를 찾습니다.
 
-    `Get-AzureLocation | format-Table -Property Name, AvailableServices, StorageAccountTypes`
+    `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
 
 2.	이제 New-AzureStorageAccount cmdlet을 실행하여 새 저장소 계정을 만듭니다. 다음 예제는 "West US(미국 동부)" 데이터 센터에 새 저장소 계정을 만듭니다.
 
@@ -233,7 +233,7 @@ Azure 저장소 컨텍스트는 저장소 자격 증명을 캡슐화하는 Power
 
 저장소 연결 문자열을 구성하는 방법에 대한 자세한 내용은 [연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
 
-컴퓨터를 설정하고 Azure PowerShell을 사용하여 구독 및 저장소 계정을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보세요.
+이제 컴퓨터를 설정하고 Azure PowerShell을 사용하여 구독 및 저장소 계정을 관리하는 방법을 알아보았으니, 다음 섹션으로 이동하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보세요.
 
 ### Azure 저장소 키 검색 및 다시 생성 방법
 
@@ -265,7 +265,7 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. New-Azure
 > [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob을 업로드하는 방법
-Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 컨테이너에 Blob을 업로드하기 위해 [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) cmdlet을 사용할 수 있습니다. 기본적으로 이 명령은 로컬 파일을 블록 Blob에 업로드합니다. Blob의 종류를 지정하기 위해 -BlobType 매개 변수를 사용할 수 있습니다.
 
@@ -388,7 +388,7 @@ Blob의 스냅숏을 복사하여 Blob의 스냅숏을 복원할 수 있습니�
     #Copy the snapshot to another container.
     Start-AzureStorageBlobCopy –Context $Ctx -ICloudBlob $snap -DestBlob $DestBlobName -DestContainer $DestContainerName
 
-Azure PowerShell을 사용하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 테이블, 큐 및 파일을 관리하는 방법을 알아보세요.
+이제 Azure PowerShell을 사용하여 Azure Blob 및 Blob 스냅숏을 관리하는 방법을 알아보았으니, 다음 섹션으로 이동하여 테이블, 큐 및 파일을 관리하는 방법을 알아보세요.
 
 ## Azure 테이블 및 테이블 엔터티를 관리하는 방법
 Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 거대 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 섹션에서는 Azure 테이블 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx) 및 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)을 참조하세요.
@@ -481,7 +481,7 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
     $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -505,7 +505,7 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     $entities = $table.CloudTable.ExecuteQuery($query)
 
     #Display entity properties with the table format.
-    $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties[“ID”].Int32Value}} -AutoSize
+    $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties["ID"].Int32Value}} -AutoSize
 
 #### 테이블 엔터티를 삭제하는 방법
 파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 다음 예제에서는 가이드의 엔터티를 추가하는 방법 섹션에 지정된 스크립트 이미 실행한 것으로 가정합니다. 이 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet을 사용하여 앞서 만든 "Employees" 테이블을 검색합니다. 테이블이 있는 경우 이 예제는 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) 메서드를 호출하여 파티션 및 행 키 값을 기준으로 엔터티를 검색합니다. 그런 다음 엔터티를 삭제할 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) 메서드로 전달합니다.
@@ -523,11 +523,12 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
-       $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
-       $entity = $tableResult.Result;
+       $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
+       $entity = $tableResult.Result
     if ($entity -ne $null)
     {
-       #Delete the entity.$table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
+       #Delete the entity.
+       $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
     }
     }
 
@@ -751,4 +752,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

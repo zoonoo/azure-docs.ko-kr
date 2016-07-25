@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 
@@ -60,4 +60,4 @@
 ## 요약
 메타데이터 및 데이터 자산 검색에 대한 데이터 카탈로그의 크라우드소싱 모델을 사용하면 모든 카탈로그 사용자가 기여하고 검색할 수 있습니다. 데이터 카탈로그의 표준 버전은 특정 데이터 자산의 표시 및 사용을 제한하는 소유권 및 관리를 위한 기능을 제공합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

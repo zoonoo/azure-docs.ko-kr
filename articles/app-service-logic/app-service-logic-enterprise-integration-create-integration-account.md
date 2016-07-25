@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="통합 계정 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스" 
+	pageTitle="통합 계정 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="통합 계정, 엔터프라이즈 통합 팩 및 논리 앱에 대해 모두 알아보기" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 통합 계정 개요
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

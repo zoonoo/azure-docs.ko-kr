@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # 작업 모니터링 소개
 
 IoT Hub 작업 모니터링을 사용 하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. IoT Hub는 작업의 여러 범주의 이벤트를 추적하고 사용자는 IoT Hub 끝점으로 전송된 하나 이상의 범주의 이벤트를 선택하여 처리할 수 있습니다. 사용자는 데이터 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
-IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
+IoT Hub는 다음 다섯 가지 범주의 이벤트를 모니터링합니다.
 
 - 장치 ID 작업
 - 장치 원격 분석
 - 클라우드-장치 명령
 - 연결
+- 파일 업로드
 
 ## 작업 모니터링을 사용하는 방법
 
@@ -35,7 +36,7 @@ IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
 
     ![][1]
 
-3. 모니터링하고자 하는 모니터링 범주를 선택한 다음 **저장**을 클릭합니다. 이벤트는 **모니터링 설정**에 나열된 이벤트 허브-호환 끝점에서 읽어오는 데 사용할 수 있습니다. IoT Hub 끝점은 `messages/operationsmonitoringevents`라고 합니다.
+3. 모니터링하고자 하는 모니터링 범주를 선택한 다음 **저장**을 클릭합니다. 이벤트는 **모니터링 설정**에 나열된 이벤트 허브 호환 끝점에서 읽어오는 데 사용할 수 있습니다. IoT Hub 끝점은 `messages/operationsmonitoringevents`라고 합니다.
 
     ![][2]
 
@@ -143,11 +144,14 @@ IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
 
 ## 다음 단계
 
-지금까지 작업 모니터링의 개요를 살펴보았습니다. 자세한 내용을 보려면 다음 링크를 따라가십시오.
+이제 작업 모니터링의 개요를 살펴보았으므로 IoT Hub를 관리하는 방법에 대한 자세한 내용은 [IoT Hub에 대한 액세스 관리][lnk-itpro]를 참조하세요.
 
-- [IoT Hub 진단 메트릭][lnk-diagnostic-metrics]
-- [IoT Hub 크기 조정][lnk-scaling]
-- [IoT Hub 고가용성 및 재해 복구][lnk-dr]
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,4 +162,11 @@ IoT Hub는 다음 네 가지 범주의 이벤트를 모니터링합니다.
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

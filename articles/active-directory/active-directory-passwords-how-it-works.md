@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="작동 방법: Azure AD 암호 관리 | Microsoft Azure" 
-	description="사용자가 암호를 등록, 재설정 및 변경하는 위치, 관리자가 온-프레미스 Active Directory 암호의 관리를 구성, 보고 및 사용하도록 설정하는 위치를 포함하여 Azure AD 암호 관리의 다양 한 구성 요소에 대해 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="작동 방법: Azure AD 암호 관리 | Microsoft Azure"
+	description="사용자가 암호를 등록, 재설정 및 변경하는 위치, 관리자가 온-프레미스 Active Directory 암호의 관리를 구성, 보고 및 사용하도록 설정하는 위치를 포함하여 Azure AD 암호 관리의 다양 한 구성 요소에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # 암호 관리의 작동 원리
+
+> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+
 Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 구성 요소로 구성됩니다. 해당 구성 요소에 대한 자세한 내용을 보려면 각 링크를 클릭하세요.
 
 - [**암호 관리 구성 포털**](#password-management-configuration-portal) – 관리자가 [Azure 관리 포털](https://manage.windowsazure.com)에서 해당 디렉터리의 구성 탭으로 이동하여 해당 테넌트에서 암호를 관리하는 방법의 다양한 측면을 제어할 수 있습니다.
@@ -102,7 +105,7 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -121,4 +124,4 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -40,9 +40,9 @@
 
 ## 트랜잭션 복제 요구 사항
 
-트랜잭션 복제는 SQL Server 6.5부터 SQL Server에 내장 및 통합된 기술입니다. 대부분의 DBA가 경험한 적이 있는 매우 성숙하고 검증된 기술입니다. 이제 [SQL Server 2016 미리 보기](http://www.microsoft.com/server-cloud/products/sql-server-2016/)를 사용하여 Azure SQL 데이터베이스를 온-프레미스 게시의 [트랜잭션 복제 구독자](https://msdn.microsoft.com/library/mt589530.aspx)로 구성할 수 있습니다. Management Studio에서 설정하는 방법은 온-프레미스 서버에서 트랜잭션 복제 구독자를 설정하는 방법과 정확하게 일치합니다. 이 시나리오는 게시자 및 배포자가 다음 SQL Server 버전 중 하나일 때 지원됩니다.
+트랜잭션 복제는 SQL Server 6.5부터 SQL Server에 내장 및 통합된 기술입니다. 대부분의 DBA가 경험한 적이 있는 매우 성숙하고 검증된 기술입니다. 이제 [SQL Server 2016](https://www.microsoft.com/ko-KR/cloud-platform/sql-server)을 사용하여 Azure SQL 데이터베이스를 온-프레미스 게시의 [트랜잭션 복제 구독자](https://msdn.microsoft.com/library/mt589530.aspx)로 구성할 수 있습니다. Management Studio에서 설정하는 방법은 온-프레미스 서버에서 트랜잭션 복제 구독자를 설정하는 방법과 정확하게 일치합니다. 이 시나리오는 게시자 및 배포자가 다음 SQL Server 버전 중 하나일 때 지원됩니다.
 
- - SQL Server 2016 CTP3(미리 보기) 이상 
+ - SQL Server 2016 이상
  - SQL Server 2014 SP1 CU3 이상
  - SQL Server 2014 RTM CU10 이상
  - SQL Server 2012 SP2 CU8 이상
@@ -56,7 +56,7 @@
 
 - [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
 - [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
-- [SQL Server 2016 미리 보기](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [SQL Server 2016](https://www.microsoft.com/ko-KR/cloud-platform/sql-server)
 
 ## 추가 리소스
 
@@ -65,4 +65,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

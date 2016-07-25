@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Mobile Engagement REST API를 사용한 인증
 
@@ -40,7 +40,7 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 
 설치에 대한 최소 시간이 걸리지만 허용될 수 있는 기본값을 사용하는 PowerShell 스크립트를 사용하여 설치를 수행하려면 아래 일련의 지침을 따라야 합니다. 필요에 따라 Azure 포털에서 이를 직접 수행하기 위해 [수동 설치](mobile-engagement-api-authentication-manual.md)의 지침에 따르고 세밀하게 구성합니다.
 
-1. [여기](http://aka.ms/webpi-azps)에서 Azure PowerShell 최신 버전을 받습니다. 다운로드 지침에 대한 자세한 내용은 [링크](../powershell-install-configure.md)에서 확인할 수 있습니다.  
+1. [여기](http://aka.ms/webpi-azps)에서 Azure PowerShell 최신 버전을 받습니다. 다운로드 지침에 대한 자세한 내용은 [링크](../powershell-install-configure.md)에서 확인할 수 있습니다.
 
 2. Azure PowerShell을 설치하면 다음 명령을 사용하여 **Azure 모듈**을 설치하도록 합니다.
 
@@ -94,8 +94,8 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 
 1. 다음 매개 변수를 사용하여 API를 호출하고 TENANT\_ID, CLIENT\_ID 및 CLIENT\_SECRET을 대체해야 합니다.
 
-	- **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*인 **요청 URL**
-- *application/x-www-form-urlencoded*인 **HTTP 콘텐츠 형식 헤더**
+	- *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*인 **요청 URL**
+	- *application/x-www-form-urlencoded*인 **HTTP 콘텐츠 형식 헤더**
 	- *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*인 **HTTP 요청 본문**
 
 	다음은 요청 예제입니다.
@@ -141,13 +141,13 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
 	- **3** `{app-resource-name}`
-	- **4** 리소스 그룹 이름은 새로 만들지 않은 한 **MobileEngagement**입니다. 
+	- **4** 리소스 그룹 이름은 새로 만들지 않은 한 **MobileEngagement**입니다.
 
 	![Mobile Engagement API URI 매개 변수][2]
 
 >[AZURE.NOTE] <br/>
 >1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/>
->2. Azure 클래식 포털을 사용하여 앱을 만든 경우 응용 프로그램 이름과 다른 응용 프로그램 리소스 이름을 사용해야 합니다. Azure 포털에서 앱을 만든 경우 앱 이름을 사용해야 합니다(새 포털에서 만든 앱의 앱 이름과 응용 프로그램 리소스 이름은 차이가 없음).  
+>2. Azure 클래식 포털을 사용하여 앱을 만든 경우 응용 프로그램 이름과 다른 응용 프로그램 리소스 이름을 사용해야 합니다. Azure 포털에서 앱을 만든 경우 앱 이름을 사용해야 합니다(새 포털에서 만든 앱의 앱 이름과 응용 프로그램 리소스 이름은 차이가 없음).
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -155,4 +155,4 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

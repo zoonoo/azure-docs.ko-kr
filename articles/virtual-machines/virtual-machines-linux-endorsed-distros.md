@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="07/13/2016"
 	ms.author="szark"/>
 
 
@@ -37,14 +37,16 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 
 배포|버전|드라이버|에이전트
 ---|---|---|---
-OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
-[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 이상 |커널에 있음|소스 코드: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Debian by Credativ |Debian 7.9 이상, 8.2 이상|커널에 있음|패키지: "waagent"에서 리포지토리의 <p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
-Oracle Linux| 6\.4 이상, 7.0 이상|커널에 있음|패키지: "WALinuxAgent"에서 리포지토리의 <p><p>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-Red Hat Enterprise Linux |RHEL 6.7+, 7.1+|커널에 있음|패키지: "WALinuxAgent"에서 리포지토리의 <p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
-SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ 및 SAP 11.3+용 <p><p> SLES |커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |OpenSUSE 13.1 이상|커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04, 15.10 및 16.04|커널에 있음|패키지: "walinuxagent"에서 리포지토리의 <p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+OpenLogic의 CentOS | CentOS 6.3 이상, 7.0 이상 | CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음 | 패키지: "WALinuxAgent"의 [OpenLogic 리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/)에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) | 494\.4.0 이상 | 커널에 있음 | 소스 코드: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Debian | Debian 7.9 이상, 8.2 이상 | 커널에 있음 | 패키지: "waagent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+Oracle Linux | 6\.4 이상, 7.0 이상 | 커널에 있음 | 패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | 커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+SUSE Linux Enterprise | SLES 11 SP4, SLES 12+ 및 SAP 11.3+용 <p> SLES | 커널에 있음 | 패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE | openSUSE 13.2+ | 커널에 있음 | 패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04 및 16.04 | 커널에 있음 | 패키지: "walinuxagent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+
+
 ## 파트너
 
 ### OpenLogic
@@ -87,4 +89,4 @@ Canonical 엔지니어링과 개방형 커뮤니티 관리로 인해 고객에 �
 
 Canonical은 전 세계의 개발자 및 엔지니어링 센터와 함께 PC에서 서버 및 핸드헬드 장치에 이르는 업계에 Ubuntu 솔루션을 제공하기 위해 하드웨어 제조업체, 콘텐츠 공급자 및 소프트웨어 개발자와 유일하게 파트너 입장에 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

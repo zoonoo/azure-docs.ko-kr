@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/02/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # API 검색 및 코드 생성에 대한 앱 서비스 API 앱 메타데이터 
 
@@ -60,4 +60,4 @@ API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 
 
 API 앱과 함께 Azure API 관리를 사용하는 경우 Swagger 메타데이터를 사용하여 API를 API 관리로 가져올 수 있습니다. 자세한 내용은 [Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법](../api-management/api-management-howto-import-api.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

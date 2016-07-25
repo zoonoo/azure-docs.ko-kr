@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -48,7 +48,7 @@
 
 - **.NET Framework 4.0**
 
- .NET Framework 4.0은 [여기](http://go.microsoft.com/fwlink/?linkid=205836)에서 설치할 수 있습니다.
+ .NET Framework 4.0은 [여기](http://go.microsoft.com/fwlink/?linkid=205836)에서 설치합니다.
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
@@ -202,4 +202,4 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

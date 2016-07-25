@@ -39,4 +39,23 @@ Azure IoT 프로토콜 게이트웨이와 이를 IoT 솔루션의 일부로 사�
 * [GitHub에서 Azure IoT 프로토콜 게이트웨이 리포지토리](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Azure IoT 프로토콜 게이트웨이 개발자 가이드](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
+- [이벤트 허브와 비교][lnk-compare]
+- [크기 조정, HA 및 DR][lnk-scaling]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

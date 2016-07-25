@@ -174,11 +174,11 @@ azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장�
 
 | 작업 | 설명 |
 | --------- | ----------- |
-| GET /tables/\_tablename\_ | 테이블의 레코드 모두 가져오기 |
-| GET /tables/\_tablename\_/:id | 테이블의 특정 레코드 가져오기 |
-| POST /tables/\_tablename\_ | 테이블에 새 레코드 만들기 |
-| PATCH /tables/\_tablename\_/:id | 테이블의 기존 레코드 업데이트 |
-| DELETE /tables/\_tablename\_/:id | 테이블의 레코드 삭제 |
+| GET /tables/_tablename_ | 테이블의 레코드 모두 가져오기 |
+| GET /tables/_tablename_/:id | 테이블의 특정 레코드 가져오기 |
+| POST /tables/_tablename_ | 테이블에 새 레코드 만들기 |
+| PATCH /tables/_tablename_/:id | 테이블의 기존 레코드 업데이트 |
+| DELETE /tables/_tablename_/:id | 테이블의 레코드 삭제 |
 
 이 WebAPI는 [OData]를 지원하고 테이블 스키마를 확장하여 [오프라인 데이터 동기화]를 지원합니다.
 
@@ -433,7 +433,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 ### <a name="howto-tables-getidentity"></a>방법: 테이블을 사용하여 인증 클레임 사용
 
-인증이 설정될 때 요청되는 클레임을 여러 개 설정할 수 있습니다. 이러한 클레임은 `context.user` 개체를 통해 정상적으로 사용할 수 없습니다. 그러나 `context.user.getIdentity()` 메서드를 사용하여 검색할 수 있습니다. `getIdentity()` 메서드는 개체로 확인되는 프라미스를 반환합니다. 개체는 인증 방법(facebook, google, twitter, microsoftaccount 또는 aad)을 키로 사용합니다.
+인증이 설정될 때 요청되는 클레임을 여러 개 설정할 수 있습니다. 이러한 클레임은 `context.user` 개체를 통해 정상적으로 사용할 수 없습니다. 그러나 `context.user.getIdentity()` 메서드를 사용하여 검색할 수 있습니다. `getIdentity()` 메서드는 개체로 확인되는 Promise를 반환합니다. 개체는 인증 방법(facebook, google, twitter, microsoftaccount 또는 aad)을 키로 사용합니다.
 
 예를 들어 Microsoft 계정 인증을 설정하고 메일 주소 클레임을 요청하는 경우 레코드에 메일 주소를 다음으로 추가할 수 있습니다.
 
@@ -496,10 +496,10 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - *읽기* 는 테이블의 RESTful 가져오기 작업입니다.
-  - *삽입* 은 테이블의 RESTful POST 작업입니다.
-  - *업데이트* 는 테이블의 RESTful PATCH 작업입니다.
-  - *삭제* 는 테이블의 RESTful DELETE 작업입니다.
+  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
+  - *삽입*은 테이블의 RESTful POST 작업입니다.
+  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -629,7 +629,7 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 ## <a name="push">푸시 알림
 
-모바일 앱은 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure 알림 허브와 통합됩니다. 알림 허브를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](./notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
+모바일 앱은 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure 알림 허브와 통합됩니다. 알림 허브를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
 
 ### </a><a name="send-push"></a>방법: 푸시 알림 보내기
 
@@ -680,7 +680,7 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다.
 
-## <a name="CustomAPI"></a> 사용자 지정 API
+## <a name="CustomAPI"></a>사용자 지정 API
 
 ###  <a name="howto-customapi-basic"></a>방법: 단순 사용자 지정 API 정의
 
@@ -763,7 +763,7 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 
 ### <a name="howto-customapi-auth"></a>방법: 대용량 파일 업로드 처리
 
-Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코드합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
+Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코딩합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -818,7 +818,7 @@ Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 
     api.get.access = 'authenticated';
     module.exports = api;
 
-## <a name="Debugging"></a>디버깅, 쉬운 테이블 및 쉬운 API
+## <a name="Debugging"></a>디버깅, 쉬운 테이블 및 간편한 API
 
 ### <a name="howto-diagnostic-logs"></a>방법: Azure 모바일 앱의 디버깅, 진단 및 문제 해결
 
@@ -832,7 +832,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>방법: Azure 포털에서 테이블로 간편하게 작업
 
-포털에서 쉬운 테이블을 통해 포털에서 테이블을 만들고 작업할 수 있습니다. Visual Studio Online 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다.
+포털에서 쉬운 테이블을 통해 포털에서 테이블을 만들고 작업할 수 있습니다. 앱 서비스 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다.
 
 백 엔드 사이트 설정에서 **쉬운 테이블**을 클릭할 때 새 테이블을 추가하거나 또는 기존 테이블을 수정하거나 삭제할 수 있습니다. 테이블의 데이터를 볼 수 있습니다.
 
@@ -841,7 +841,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 다음 명령을 테이블에 대한 명령 모음에서 사용할 수 있습니다.
 
 + **사용 권한 변경** - 작업 테이블에서 읽기, 삽입, 업데이트 및 삭제에 대한 권한을 변경합니다. 옵션은 익명 액세스를 허용하거나 인증을 요구하거나 작업에 대한 모든 액세스를 사용할 수 없도록 합니다. table.json 프로젝트 코드 파일을 수정합니다.
-+ **스크립트 편집** - 테이블에 대한 스크립트 파일은 Visual Studio Team Services 편집기에서 열립니다.
++ **스크립트 편집** - 테이블에 대한 스크립트 파일은 앱 서비스 편집기에서 열립니다.
 + **스키마 관리** - 열을 추가 또는 삭제하거나 테이블 인덱스를 변경합니다.
 + **테이블 지우기** - 기존 테이블을 잘라서 모든 데이터 행을 삭제하지만 스키마를 그대로 둡니다.
 + **행 삭제** - 데이터의 개별 행을 삭제합니다.
@@ -849,21 +849,21 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 
 ###<a name="work-easy-apis"></a>방법: Azure 포털에서 API로 간편하게 작업
 
-포털에서 쉬운 API를 통해 포털에서 사용자 지정 API를 만들고 작업할 수 있습니다. Visual Studio Online 편집기를 사용하여 API 스크립트를 편집할 수도 있습니다.
+포털에서 쉬운 API를 통해 포털에서 사용자 지정 API를 만들고 작업할 수 있습니다. 앱 서비스 편집기를 사용하여 API 스크립트를 편집할 수도 있습니다.
 
 백 엔드 사이트 설정에서 **쉬운 API**를 클릭할 때 새 사용자 지정 API 끝점을 추가하거나 또는 기존 API 끝점을 수정하거나 삭제할 수 있습니다.
 
 ![쉬운 API 작업](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-포털에서 지정된 HTTP 동작에 대한 액세스 권한을 변경하거나 Visual Studio Team Services 편집기에서 API 스크립트 파일을 편집, 또는 스트리밍 로그를 볼 수 있습니다.
+포털에서 지정된 HTTP 작업에 대한 액세스 권한을 변경하거나 앱 서비스 편집기에서 API 스크립트 파일을 편집, 또는 스트리밍 로그를 볼 수 있습니다.
 
-###<a name="online-editor"></a>방법: Visual Studio Team Services에서 코드 편집
+###<a name="online-editor"></a>방법: 앱 서비스 편집기에서 코드 편집
 
-Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 Visual Studio Team Services에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
+Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 앱 서비스 편집기에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
 
-1. 모바일 앱 백 엔드 블레이드에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API** 중 하나를 클릭하고 테이블 또는 API를 클릭한 다음 **스크립트 편집**을 클릭합니다. 스크립트 파일은 Visual Studio Team Services 편집기에서 열립니다.
+1. 모바일 앱 백 엔드 블레이드에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API** 중 하나를 클릭하고 테이블 또는 API를 클릭한 다음 **스크립트 편집**을 클릭합니다. 스크립트 파일은 앱 서비스 편집기에서 열립니다.
 
-	![Visual Studio Team Services 코드 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![앱 서비스 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. 온라인 편집기에서 코드 파일의 내용을 변경합니다. 변경 내용은 입력할 때 자동으로 저장됩니다.
 
@@ -917,4 +917,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

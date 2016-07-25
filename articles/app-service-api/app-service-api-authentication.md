@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여
 
@@ -28,7 +28,7 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 * 들어오는 API 요청을 전처리합니다. 즉, 앱 서비스에서 지원하는 모든 언어 또는 프레임워크와 작동합니다.
 * 사용자 고유의 코드에서 얼마나 많은 인증이 작동하도록 할지에 대한 여러 옵션을 제공합니다.
-* 최종 사용자 및 서비스 계정 인증 모두에 대해 작동합니다. 
+* 최종 사용자 및 서비스 계정 인증 모두에 대해 작동합니다.
 * 여기서는 Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정의 5가지 ID 공급자를 지원합니다.
 * API 앱, 웹앱 및 모바일 앱에 대해서도 마찬가지로 작동합니다.
 
@@ -94,12 +94,12 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [앱 서비스 인증/권한 부여 확장](/blog/announcing-app-service-authentication-authorization/)
-* [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
+* [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.)
 
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [OAuth 2.0 시작](http://shop.oreilly.com/product/0636920021810.do "OAuth 2.0 시작") 
-* [OAuth2, OpenID Connect 및 JSON 웹 토큰(JWT) 소개 - PluralSight 코스](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [OAuth 2.0 시작](http://shop.oreilly.com/product/0636920021810.do "OAuth 2.0 시작")
+* [OAuth2, OpenID Connect 및 JSON 웹 토큰(JWT) 소개 - PluralSight 코스](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction)
 * [ASP.NET에서 여러 클라이언트를 위한 RESTful API 구축 및 보호 - PluralSight 코스](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -112,4 +112,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 시작 시리즈의 다음 자습서는 [앱 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

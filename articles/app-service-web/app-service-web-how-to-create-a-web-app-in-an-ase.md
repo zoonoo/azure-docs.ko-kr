@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 웹앱 만들기
@@ -30,7 +30,7 @@
 
 ## 웹앱 만들기
 
-1. [Azure 포털](https://portal.azure.com/)에서 **새로 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
+1. [Azure 포털](https://portal.azure.com/)에서 **새로 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다.
 
 	![][1]
 
@@ -44,7 +44,7 @@
 
 4. 앱 서비스 계획을 선택하거나 만듭니다.
 
-	*앱 서비스 계획*은 관리되는 웹앱 집합입니다. 가격 책정을 선택하면 개별 앱이 아니라 앱 서비스 계획에 청구되는 가격이 적용됩니다. 웹앱의 인스턴스 수를 늘리려면 앱 서비스 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다. 사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다. 자세한 내용은 [Azure 앱 서비스 계획 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
+	*앱 서비스 계획*은 관리되는 웹앱 집합입니다. 일반적으로 가격 책정을 선택하면 개별 앱이 아니라 앱 서비스 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 계산 인스턴스가 아니라 ASE에 할당된 계산 인스턴스에 대해 비용을 지불합니다. 웹앱의 인스턴스 수를 늘리려면 앱 서비스 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다. 사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다. 자세한 내용은 [Azure 앱 서비스 계획 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
 
 	계획 이름에서 설명한 위치를 확인하여 ASE의 앱 서비스 계획을 식별할 수 있습니다.
 
@@ -54,15 +54,9 @@
 
 5. 웹앱에 이름을 입력하고 **만들기**를 클릭합니다.
 
-	웹앱 이름은 Azure 앱 서비스에서 고유해야 합니다. 즉, "thisismywebapp"이라는 웹앱을 만든 경우 현재 Azure 앱 서비스에 "thisismywebapp"이라는 다른 웹앱이 있을 수 없습니다.
-
-	ASE에 있는 웹앱의 URL은 다음과 같습니다.
-
-	[*sitename*].[*앱 서비스 환경의 이름*].p.azurewebsites.net
-
-	다음 위치 대신
-
-	[*sitename*].azurewebsites.net
+	ASE에서 외부 VIP를 사용하는 경우 ASE의 앱 URL은 다음과 같습니다.[*사이트 이름*].azurewebsites.net 대신 [*사이트 이름*].[*앱 서비스 환경의 이름*].p.azurewebsites.net
+	
+	ASE에서 내부 VIP를 사용하는 경우 해당 ASE의 앱 URL은 다음과 같습니다. [*사이트 이름*].[*ASE 생성 중에 지정한 하위 도메인*]ASE를 만드는 동안 ASP를 선택하면 **이름** 아래에서 하위 도메인 업데이트가 표시됩니다.
 
 ## <a name="createplan"></a> 앱 서비스 계획 만들기
 
@@ -118,4 +112,4 @@ ASE에서 웹앱을 실행하고 앱 서비스 계획을 관리하기 위해 고
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

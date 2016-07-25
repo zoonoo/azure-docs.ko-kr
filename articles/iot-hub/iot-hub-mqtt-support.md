@@ -43,7 +43,7 @@ Java, Node.js, C 및 C#에 사용할 수 있는 MQTT 프로토콜을 지원하�
 
 장치가 장치 클라이언트 SDK를 사용할 수 없는 경우라도 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
 
-- **ClientId** 필드에 **deviceId**를 사용합니다. 
+- **ClientId** 필드에 **deviceId**를 사용합니다.
 - **Username** 필드에 `{iothubhostname}/{device_id}`를 사용합니다. 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다.
 
     예를 들어, IoT hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 `contoso.azure-devices.net/MyDevice01`이 포함되어야 합니다.
@@ -85,13 +85,24 @@ IoT Hub에서 메시지를 수신하려면 장치는 **항목 필터**로서 `de
 
 IoT 장치 SDK의 MQTT 지원에 대한 자세한 내용은 Azure IoT Hub 개발자 가이드에서 [MQTT 지원에 대한 참고 사항][lnk-mqtt-devguide]을 참조하세요.
 
-IoT Hub와 통신하는 장치 클라이언트 SDK를 사용하는 방법에 대한 자세한 내용은 [Azure IoT Hub 시작][lnk-iot-get-stated]을 참조하세요.
-
 MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]를 참조하세요.
+
+IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
+- [지원되는 장치][lnk-devices]
+- [추가 프로토콜 지원][lnk-protocols]
+- [이벤트 허브와 비교][lnk-compare]
+- [크기 조정, HA 및 DR][lnk-scaling]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
-[lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
@@ -101,4 +112,13 @@ MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]�
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

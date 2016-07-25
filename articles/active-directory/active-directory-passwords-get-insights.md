@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure" 
-	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure"
+	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # 암호 관리 보고서와 함께 Operational Insights를 얻는 방법
+
+> [AZURE.IMPORTANT] **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+
 이 섹션에서는 Azure Active Directory의 암호 관리 보고서를 사용하여 조직에서 사용자 암호 재설정을 사용하여 변경하는 방법을 볼 수 있는 방법을 설명합니다.
 
 - [**암호 관리 보고서 개요**](#overview-of-password-management-reports)
@@ -109,7 +112,7 @@
 열|허용되는 값과 해당 의미
 ---|---
 사용된 메서드|**대체 전자 메일** – 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일<p>**사무실 전화** – 인증하는 데 사용자가 사용한 사무실 전화<p>**휴대폰** - 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화<p>**보안 질문** – 인증하는 데 사용자가 사용한 보안 질문<p>**위의 조합(예: 대체 전자 메일 + 휴대폰)** – 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 메서드를 표시합니다.
-결과|**중단됨** – 사용자가 암호 재설정을 시작하지만 완료하지 않고 중간에서 중단됩니다.<p>**차단됨** - 사용자의 계정이 암호 재설정 페이지를 사용하거나 24시간 동안 너무 여러 번 단일 암호 재설정 게이트를 사용하여 암호를 재설정할 수 없습니다.<p>**취소됨** - 사용자가 암호 재설정을 시작했지만 취소 단추를 클릭하여 도중 세션을 취소했습니다.<p>**연결된 관리자** - 세션 중 사용자가 해결할 수 없는 문제가 생겨 사용자가 암호 재설정 작업을 완료하는 대신 “관리자에게 문의” 링크를 클릭했습니다.<p>**실패함** - 사용자가 기능을 사용하도록 구성되지 않았기 때문에 암호를 재설정할 수 없습니다(라이선스 없음, 누락된 인증 정보, 암호 관리 온-프레미스지만 쓰기 저장이 꺼져 있음).<p>**성공함** - 암호 재설정이 성공했습니다.
+결과|**중단됨** – 사용자가 암호 재설정을 시작하지만 완료하지 않고 중간에서 중단됩니다.<p>**차단됨** - 사용자의 계정이 암호 재설정 페이지를 사용하거나 24시간 동안 너무 여러 번 단일 암호 재설정 게이트를 사용하여 암호를 재설정할 수 없습니다.<p>**취소됨** - 사용자가 암호 재설정을 시작했지만 취소 단추를 클릭하여 도중 세션을 취소했습니다.<p>**연락한 관리자** - 세션 중 사용자가 해결할 수 없는 문제가 생겨 사용자가 암호 재설정 작업을 완료하는 대신 “관리자에게 문의” 링크를 클릭했습니다.<p>**실패함** - 사용자가 기능을 사용하도록 구성되지 않았기 때문에 암호를 재설정할 수 없습니다(라이선스 없음, 누락된 인증 정보, 암호 관리 온-프레미스지만 쓰기 저장이 꺼져 있음).<p>**성공함** - 암호가 재설정되었습니다.
 세부 정보|아래 테이블을 참조하세요.
 
 ### 세부 정보 열에 대해 허용되는 값
@@ -156,7 +159,7 @@
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -171,4 +174,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

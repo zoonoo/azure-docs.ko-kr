@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Reliable Actors 프레임워크의 다형성
@@ -35,7 +35,7 @@ Reliable Actors 프레임워크에서는 행위자 형식으로 구현될 인터
 public abstract class Shape : Actor, IShape
 {
     public abstract Task<int> GetVerticeCount();
-    
+
     public abstract Task<double> GetAreaAsync();
 }
 ```
@@ -75,12 +75,4 @@ public class Circle : Shape, ICircle
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-## 다음 단계
- - [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
- - [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
- - [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
- - [행위자 이벤트](service-fabric-reliable-actors-events.md)
- - [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
- - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

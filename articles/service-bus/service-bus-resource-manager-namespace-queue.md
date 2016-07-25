@@ -13,12 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 및 큐 만들기
 
-이 문서에서는 서비스 버스 네임스페이스 및 큐를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+이 문서에서는 서비스 버스 네임스페이스 및 큐를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
 
@@ -31,15 +31,13 @@
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 >
->최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 및 검색을 참조하세요.
+>최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 갤러리 및 검색을 방문하세요.
 
 ## 배포할 항목
 
 이 템플릿으로 큐가 있는 서비스 버스 네임스페이스를 배포합니다.
 
-큐는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다.
-
-[서비스 버스 큐에 대해 자세한 알아봅니다.](service-bus-queues-topics-subscriptions.md)
+[서비스 버스 큐](service-bus-queues-topics-subscriptions.md#queues)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -49,7 +47,7 @@
 
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters`라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
-템플릿에서 각 매개 변수에 대해 설명할 것입니다.
+템플릿은 다음 매개 변수를 정의합니다.
 
 ### serviceBusNamespaceName
 
@@ -142,9 +140,9 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
   [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
   [서비스 버스 네임스페이스 및 큐 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/
+  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

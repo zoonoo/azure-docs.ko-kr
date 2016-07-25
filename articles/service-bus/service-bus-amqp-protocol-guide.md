@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Azure 서비스 버스 및 이벤트 허브 프로토콜 가이드의 AMQP 1.0 | Microsoft Azure" 
     description="Azure 서비스 버스 및 이벤트 허브의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -235,6 +235,8 @@ API 수준의 "수신" 호출은 클라이언트가 서비스 버스로 보내�
 
 이 섹션에서는 현재 AMQP의 OASIS 기술 위원회에서 개발 중인 AMQP의 확장 초안에 기반하는 Azure 서비스 버스의 고급 기능을 설명합니다. Azure 서비스 버스는 이러한 초안의 최신 상태를 구현하고 해당 초안이 표준 상태에 도달될 때 도입된 변경 내용을 채택하게 됩니다.
 
+> [AZURE.NOTE] 서비스 버스 메시징 고급 작업은 요청/응답 패턴을 통해 지원됩니다. 이러한 작업의 세부 정보는 [서비스 버스의 AMQP 1.0: 요청/응답 기반 작업](https://msdn.microsoft.com/library/azure/mt727956.aspx) 문서에 설명되어 있습니다.
+
 ### AMQP 관리
 
 AMQP 관리 사양은 여기에서 논의할 첫 번째 확장 초안입니다. 이 사양은 AMQP 프로토콜 위에 계층화된 프로토콜 제스처 집합을 정의합니다. 이 제스처 집합은 AMQP를 통해 메시징 인프라와 관리 상호 작용을 수행할 수 있도록 합니다. 이 사양은 메시징 인프라 및 쿼리 작업 집합 내 엔터티 관리를 위한 *만들기*, *읽기*, *업데이트* 및 *삭제*와 같은 일반 작업을 정의합니다.
@@ -328,4 +330,4 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

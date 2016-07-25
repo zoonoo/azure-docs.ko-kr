@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 포털에서 저장소 메트릭 사용 | Microsoft Azure" 
-	description="Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭을 활성화하는 방법에 대해 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="robinsh" 
-	manager="carmonm" 
+<properties
+	pageTitle="Azure 포털에서 저장소 메트릭 사용 | Microsoft Azure"
+	description="Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭을 활성화하는 방법에 대해 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/09/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="robinsh"/>
 
 # Azure 저장소 메트릭 사용 및 메트릭 데이터 보기
@@ -30,7 +30,7 @@
 
 [Azure 포털](https://portal.azure.com)에서 메트릭을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-1. 저장소 계정으로 이동합니다. 
+1. 저장소 계정으로 이동합니다.
 1. **설정** 블레이드를 열고 **진단**을 선택합니다.
 1. **상태**가 **켜기**로 설정되어 있는지 확인합니다.
 1. 모니터링하려는 서비스에 대한 메트릭을 선택합니다.
@@ -71,7 +71,7 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    // Enable Storage Analytics logging and set retention policy to 10 days.
     ServiceProperties properties = new ServiceProperties();
     properties.Logging.LoggingOperations = LoggingOperations.All;
     properties.Logging.RetentionDays = 10;
@@ -92,7 +92,7 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
 
-    
+
 ## 저장소 메트릭 보기
 
 저장소 계정을 모니터링하도록 저장소 분석 메트릭을 구성하면 저장소 분석에서 저장소 계정의 알려진 테이블 집합에 메트릭을 기록합니다. [Azure 포털](https://portal.azure.com)에서 시간별 메트릭을 보도록 차트를 구성할 수 있습니다.
@@ -102,7 +102,16 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
 3. 차트에 표시되는 메트릭을 편집하려면 **편집** 링크를 클릭합니다. 개별 메트릭을 선택하거나 선택 취소하여 추가하거나 제거할 수 있습니다.
 4. 메트릭 편집을 마쳤으면 **저장**을 클릭합니다.
 
-장기 저장용 메트릭을 다운로드하거나 메트릭을 로컬에서 분석하려는 경우에는 테이블을 읽는 코드를 작성하거나 도구를 사용해야 합니다. 분석용으로는 분 메트릭을 다운로드해야 합니다. 저장소 계정의 모든 테이블을 나열해도 테이블은 표시되지 않지만 테이블 이름을 통해 직접 액세스할 수는 있습니다. 대부분의 타사 저장소 찾아보기 도구는 이러한 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다. 사용 가능한 도구의 목록은 [Microsoft Azure 저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) 블로그 게시물을 참조하세요.
+장기 저장용 메트릭을 다운로드하거나 메트릭을 로컬에서 분석하려는 경우에는 다음을 수행해야 합니다.
+
+- 이러한 테이블을 인식하고 있고 그것들을 보고 다운로드할 수 있도록 하는 도구를 사용합니다.
+- 사용자 지정 응용 프로그램 또는 스크립트를 작성하여 테이블을 읽고 저장합니다.
+
+대부분의 타사 저장소 찾아보기 도구는 이러한 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다. 사용 가능한 도구의 목록은 [Azure 저장소 탐색기](storage-explorers.md)를 참조하세요.
+
+> [AZURE.NOTE] [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/) 버전 0.8.0부터 이제 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
+
+프로그래밍 방식으로 분석 테이블에 액세스하기 위해서는 저장소 계정의 모든 테이블을 나열하면 분석 테이블은 표시되지 않음에 유의하십시오. 테이블 이름을 쿼리하려면 이름을 통해 직접 액세스하거나 .NET 클라이언트 라이브러리에서 [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx)를 사용할 수 있습니다.
 
 ### 시간 메트릭
 - $MetricsHourPrimaryTransactionsBlob
@@ -148,7 +157,7 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     // Convert the dates to the format used in the PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
-    
+
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
@@ -161,9 +170,9 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
     // because they are calculated fields in the MetricsEntity class.
     // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0
     select entity;
-    
+
     // Filter on "user" transactions after fetching the metrics from Table Storage.
     // (StartsWith is not supported using LINQ with Azure table storage)
     var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
@@ -171,7 +180,7 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     Console.WriteLine(resultString);
     }
     }
-    
+
     private static string MetricsString(MetricsEntity entity, OperationContext opContext)
     {
     var entityProperties = entity.WriteEntity(opContext);
@@ -181,7 +190,7 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
     string.Format("TransactionType: {0}, ", entity.TransactionType) +
     string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
     return entityString;
-    
+
     }
 
 
@@ -203,6 +212,5 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
 
 ## 다음 단계:
 [저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
- 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->
