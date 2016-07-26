@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/27/2016"
+	ms.date="07/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -138,6 +138,7 @@ ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성�
 
 항목 |  
 --------- | ---------
+모든 AD FS 문서 | [Azure AD Connect 및 페더레이션](active-directory-aadconnectfed-whatis.md)
 ADFS에 하위 도메인 구성 | [Azure AD로 페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 AD FS 팜 관리 | [Azure AD Connect를 사용한 AD FS 관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
 페더레이션 인증서를 수동으로 업데이트 | [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](active-directory-aadconnect-o365-certs.md)
@@ -161,4 +162,4 @@ Azure AD Connect Health를 사용하여 모니터링 | [Azure AD Connect Health]
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

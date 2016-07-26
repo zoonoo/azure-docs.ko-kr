@@ -11,7 +11,7 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="05/16/2016"
@@ -129,6 +129,8 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 ![][img-flowchart]
 
+> [AZURE.NOTE] AAD 테넌트에 대한 전역 관리자이고 구독에 대한 공동 관리자임을 확인한 후에 오류가 계속 표시되는 경우 계정 관리자를 통해 사용자를 제거하고 다음과 같은 순서로 필요한 사용 권한을 다시 할당합니다. 사용자를 전역 관리자로 추가한 다음 Azure 구독에 대한 공동 관리자로 추가합니다. 문제가 지속되면 [도움말 및 지원][lnk-help-support]에 문의하세요.
+
 **Azure 구독이 있는데 왜 이런 오류가 표시되나요?** *Azure 구독은 미리 구성된 솔루션을 만드는 데 필요합니다. 몇 분 안에 무료 평가판 계정을 만들 수 있습니다.*
 
 Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑의 유효성을 검사하고 드롭다운에 올바른 테넌트가 선택되어 있는지 확인하세요. 원하는 테넌트가 맞는다는 것을 확인했으면, 위의 다이어그램에 따라서 구독과 AAD 테넌트 매핑의 유효성을 검사합니다.
@@ -144,5 +146,6 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
+[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

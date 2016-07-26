@@ -88,13 +88,17 @@ Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고
 
 다음 운영 체제가 지원됩니다.
 
-- Windows 7(64 비트 버전에만 해당)
+- Windows 7(32비트 및 64비트)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2(64비트 전용)
 
-- Windows 8(64 비트 버전에만 해당)
+- Windows 8(32비트 및 64비트)
 
-- Windows Server 2012
+- Windows 8.1(32비트 및 64비트)
+
+- Windows Server 2012(64비트 전용)
+
+- Windows Server 2012 R2(64비트 전용)
 
 - Windows 10
 
@@ -279,4 +283,4 @@ VPN 게이트웨이에 대한 자세한 정보는 [VPN 게이트웨이 설명서
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->
