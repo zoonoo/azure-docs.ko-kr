@@ -161,7 +161,7 @@ Blob 저장소 계정에서는 저장소 계층에 따라 Blob 저장소에 새 
 
 8. 새 저장소 계정을 만들려는 구독을 선택합니다.
 
-9. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
+9. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 10. 저장소 계정에 대한 지역을 선택합니다.
 
@@ -340,4 +340,4 @@ Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 
 
 [저장소 계정 찾아보기 및 탐색](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

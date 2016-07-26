@@ -66,7 +66,7 @@
 
 6. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
-	리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
+	리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 7. **앱 서비스 계획/위치**을 선택하거나 새로 만듭니다.
 
@@ -225,4 +225,4 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

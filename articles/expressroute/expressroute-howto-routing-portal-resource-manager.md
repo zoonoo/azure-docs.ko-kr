@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 회로의 라우팅 만들기 및 수정
@@ -113,8 +113,8 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. 회로에 Azure 공용 피어링을 구성합니다. 다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
 
-	- 기본 링크에 대한 /30 서브넷입니다. 
-	- 보조 링크에 대한 /30 서브넷입니다. 
+	- 기본 링크에 대한 /30 서브넷입니다.
+	- 보조 링크에 대한 /30 서브넷입니다.
 	- 이 피어링 설정에 사용된 모든 IP 주소는 유효한 공용 IPv4 주소여야 합니다.
 	- 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
@@ -237,4 +237,4 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 -  가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

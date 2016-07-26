@@ -65,7 +65,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 5. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
-	리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
+	리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 5. **앱 서비스 계획/위치**을 선택하거나 새로 만듭니다.
 
@@ -128,4 +128,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

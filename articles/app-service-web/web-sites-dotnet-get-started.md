@@ -238,6 +238,6 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 * 완료되면 웹앱 및 관련된 모든 Azure 리소스를 포함하는 리소스 그룹을 삭제합니다.
 
-	Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](../resource-group-portal.md)를 참조하세요.
+	Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

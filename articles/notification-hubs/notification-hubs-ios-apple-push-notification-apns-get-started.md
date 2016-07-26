@@ -23,7 +23,7 @@
 
 ##개요
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
 
 이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다.
 
@@ -168,9 +168,11 @@
 
 ## (선택 사항) 앱에서 푸시 알림 보내기
 
+>[AZURE.IMPORTANT] 클라이언트 앱에서 알림을 보내는 이 예제는 학습 목적으로만 제공됩니다. 이를 위해서 `DefaultFullSharedAccessSignature`이 클라이언트 응용 프로그램에 표시되어야 하므로 사용자가 클라이언트에 무단으로 알림을 보내는 액세스 권한을 가질 수 있는 위험에 알림 허브가 노출됩니다.
+
 앱 내에서 푸시 알림을 보내려는 경우 REST 인터페이스를 사용하여 푸시 알림을 보내는 이 섹션의 예를 참조하세요.
 
-1. Xcode에서 `Main.storyboard`를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
+1. Xcode에서 `Main.storyboard`를 열고 개체 라이브러리에 다음 UI 구성 요소를 추가하여 사용자가 앱에 푸시 알림을 보낼 수 있습니다.
 
 	- 레이블 텍스트가 없는 레이블입니다. 알림을 보내는 오류 보고에 사용됩니다. **줄** 속성은 **0**으로 설정해야 하므로 오른쪽 및 왼쪽 여백과 보기의 위쪽에 크기가 자동으로 제한됩니다.
 	- **자리 표시자** 텍스트를 사용한 텍스트 필드가 **알림 메시지 입력**으로 설정됩니다. 아래와 같이 레이블 바로 아래에 있는 필드를 제한합니다. 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
@@ -247,7 +249,7 @@
 			}
 		}
 
-6. `ViewController.m`에서 `viewDidLoad` 메서드를 업데이트하여 뷰가 로드할 때 연결 문자열을 구문 분석합니다. 아래와 같이 인터페이스 구현에 유틸리티 메서드를 추가합니다.
+6. `ViewController.m`에서 `viewDidLoad` 메서드를 업데이트하여 뷰가 로드될 때 연결 문자열을 구문 분석합니다. 아래와 같이 인터페이스 구현에 유틸리티 메서드를 추가합니다.
 
 
 		- (void)viewDidLoad
@@ -274,7 +276,7 @@
 
 
 
-7. `ViewController.m`의 인터페이스 구현에 [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 **권한 부여** 헤더에 제공할 SaS 권한 부여 토큰을 생성하는 다음 코드를 추가합니다.
+7. `ViewController.m`에서 인터페이스 구현에 다음 코드를 추가하여 [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 **권한 부여** 헤더에 제공할 SaS 권한 부여 토큰을 생성합니다.
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -382,7 +384,7 @@
 		}
 
 
-9. `ViewController.m`에서 텍스트 필드에 대한 키보드 닫기를 지원하려면 다음 대리자 메서드를 추가합니다. 인터페이스 디자이너에서 텍스트 필드에서 뷰 컨트롤러 아이콘으로 Ctrl + 드래그하여 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
+9. `ViewController.m`에서 다음 대리자 메서드를 추가하여 텍스트 필드에 대한 키보드 닫기를 지원합니다. 인터페이스 디자이너에서 텍스트 필드에서 뷰 컨트롤러 아이콘으로 Ctrl + 드래그하여 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 
@@ -435,7 +437,7 @@
 11. 프로젝트를 빌드하고 오류가 없는지 확인 합니다.
 
 
-> [AZURE.NOTE] bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 **빌드 설정** -> **Bitcode 사용(ENABLE\_BITCODE)**을 **아니요**로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
+> [AZURE.NOTE] Bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 Xcode에서 **빌드 설정** -> **Bitcode 사용(ENABLE\_BITCODE)**을 **아니요**로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
 
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
 
@@ -459,7 +461,7 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 ##다음 단계
 
-이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 다음 학습 단계로 [.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림] 자습서를 권장합니다. 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 과정을 소개하는 자습서입니다.
+이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 학습할 다음 단계로 [.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림] 자습서를 권장합니다. 여기서는 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 과정을 소개합니다.
 
 또한 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기] 자습서로 이동할 수 있습니다.
 
@@ -505,4 +507,4 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

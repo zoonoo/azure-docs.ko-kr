@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Azure 키 자격 증명 모음 로깅 #
@@ -33,6 +33,8 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 >[AZURE.NOTE]  이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
 >
 >현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다.
+
+Operations Management Suite에서 Log Analytics를 사용하여 수집한 로그를 시각화할 수 있습니다. 자세한 내용은 [Log Analytics의 Azure 주요 자격 증명 모음(미리 보기) 솔루션](../log-analytics/log-analytics-azure-key-vault.md)을 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
@@ -66,7 +68,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 ## <a id="storage"></a>로그에 대한 새 저장소 계정 만들기 ##
 
-로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우의 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
+로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
 
 추가적인 관리 편이성을 위해 키 자격 증명 모음을 포함하는 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹은 **ContosoResourceGroup**이며 동아시아 위치를 계속해서 사용합니다. 이 값을 적절하게 사용자 고유 값으로 대체합니다.
 
@@ -75,16 +77,16 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 >[AZURE.NOTE]  기존 저장소 계정을 사용하려는 경우 사용자 키 자격 증명 모음과 동일한 구독을 사용해야 하고 클래식 배포 모델보다는 리소스 관리자 배포 모델을 사용해야 합니다.
 
-## <a id="identify"></a>로그에 대한 키 자격 증명 모음 식별 ##
+## <a id="identify"></a>로그에 대한 주요 자격 증명 모음 식별 ##
 
-시작 자습서에서 키 자격 증명 모음 이름은 **ContosoKeyVault**이었으므로 해당 이름을 계속해서 사용하고 **kv**라는 변수에 세부 정보를 저장합니다.
+시작 자습서에서 주요 자격 증명 모음 이름은 **ContosoKeyVault**이었으므로 해당 이름을 계속해서 사용하고 **kv**라는 변수에 세부 정보를 저장합니다.
 
 	$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
 ## <a id="enable"></a>로깅 사용 ##
 
-키 자격 증명 모음에 대한 로깅을 사용하려면 새 저장소 계정 및 키 자격 증명 모음용으로 만든 변수와 함께 Set-AzureRmDiagnosticSetting cmdlet을 사용합니다. **-Enabled** 플래그를 **$true**로 설정하고 범주를 AuditEvent(키 자격 증명 모음 로깅에 대한 유일한 범주)로 설정합니다.
+키 자격 증명 모음에 대한 로깅을 사용하려면 새 저장소 계정 및 키 자격 증명 모음용으로 만든 변수와 함께 Set-AzureRmDiagnosticSetting cmdlet을 사용합니다. **-Enabled** 플래그를 **$true**로 설정하고 범주를 AuditEvent(주요 자격 증명 모음 로깅에 대한 유일한 범주)로 설정합니다.
 
    
 	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -110,7 +112,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 ## <a id="access"></a>로그 액세스 ##
 
-키 자격 증명 모음 로그는 사용자가 제공한 저장소 계정의 **insights-logs-auditevent** 컨테이너에 저장됩니다. 이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
+주요 자격 증명 모음 로그는 사용자가 제공한 저장소 계정의 **insights-logs-auditevent** 컨테이너에 저장됩니다. 이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
 
@@ -127,7 +129,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
 이 출력에서 볼 수 있다면 Blob는 다음 명명 규칙을 따릅니다. **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
@@ -148,7 +150,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 	$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만들고 이 구조는 파일로 Blob을 다운로드하고 저장하는 데 사용됩니다.
+이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만들고 이 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
 
 선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
 
@@ -166,14 +168,14 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 이제 로그에 있는 것을 확인할 준비가 되었습니다. 진행하기 전에 알아야 할 Get-AzureRmDiagnosticSetting에 대한 두 개 이상의 매개 변수는 다음과 같습니다.
 
-- 키 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+- 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
  
-- 키 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+- 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
-## <a id="interpret"></a>키 자격 증명 모음 로그 해석 ##
+## <a id="interpret"></a>주요 자격 증명 모음 로그 해석 ##
 
-개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 다음은 `Get-AzureRmKeyVault -VaultName 'contosokeyvault'` 실행의 예제 로그 항목입니다.
+개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 다음은 `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`을 실행하는 예제 로그 항목입니다.
 
 	{
     	"records": 
@@ -221,11 +223,11 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 **operationName** 필드 값은 ObjectVerb 형식입니다. 예:
 
-- 모든 키 자격 증명 모음 작업은 `VaultGet`, `VaultCreate` 등의 'Vault`<action>`' 형식입니다.
+- 모든 주요 자격 증명 모음 작업은 `VaultGet`, `VaultCreate` 등의 'Vault`<action>`' 형식입니다.
 
-- 모든 키 작업은 `KeySign`, `KeyList` 등의 'Key`<action>`' 형식입니다.
+- 모든 주요 작업은 `KeySign`, `KeyList` 등의 'Key`<action>`' 형식입니다.
 
-- 모든 비밀 작업은 `SecretGet`, `SecretListVersions` 등의 'Secret`<action>`' 형식입니다.
+- 모든 암호 작업은 `SecretGet`, `SecretListVersions` 등의 'Secret`<action>`' 형식입니다.
 
 다음 표는 operationName 및 해당 REST API 명령을 나열합니다.
 
@@ -240,7 +242,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 | KeyCreate | [키 만들기](https://msdn.microsoft.com/ko-KR/library/azure/dn903634.aspx)|
 | KeyGet | [키에 대한 정보 가져오기](https://msdn.microsoft.com/ko-KR/library/azure/dn878080.aspx)|
 | KeyImport | [자격 증명 모음으로 키 가져오기](https://msdn.microsoft.com/ko-KR/library/azure/dn903626.aspx)|
-| KeyBackup | [키를 백업합니다](https://msdn.microsoft.com/ko-KR/library/azure/dn878058.aspx).|
+| KeyBackup | [키 백업](https://msdn.microsoft.com/ko-KR/library/azure/dn878058.aspx).|
 | KeyDelete | [키 삭제](https://msdn.microsoft.com/ko-KR/library/azure/dn903611.aspx)|
 | KeyRestore | [키 복원](https://msdn.microsoft.com/ko-KR/library/azure/dn878106.aspx)|
 | KeySign | [키로 서명](https://msdn.microsoft.com/ko-KR/library/azure/dn878096.aspx)|
@@ -272,4 +274,4 @@ Azure 주요 자격 증명 모음의 Azure PowerShell 1.0 cmdlet 목록은 [Azur
 
 Azure 주요 자격 증명 모음을 사용하는 키 회전 및 로그 감사에 대한 자습서는 [종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법](key-vault-key-rotation-log-monitoring.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

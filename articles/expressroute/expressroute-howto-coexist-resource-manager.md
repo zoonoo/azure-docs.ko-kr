@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Resource Manager 배포 모델에 대한 Express 경로 및 사이트 간 공존 연결 구성
@@ -34,7 +34,7 @@
 ## 제한 및 제한 사항
 
 - **통과 라우팅은 지원되지 않음:** 사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우트할 수 없습니다.
-- **강제 터널링은 사이트 간 VPN 게이트웨이에서 사용할 수 없음:** Express 경로를 통해 온-프레미스 네트워크에 인터넷 바인딩된 트래픽을 모두 다시 "강제"할 수 있습니다. 
+- **강제 터널링은 사이트 간 VPN 게이트웨이에서 사용할 수 없음:** Express 경로를 통해 온-프레미스 네트워크에 인터넷 바인딩된 트래픽을 모두 다시 "강제"할 수 있습니다.
 - **표준 또는 높은 성능 게이트웨이만:** Express 경로 게이트웨이 및 사이트 간 VPN 게이트웨이 모두에 표준 또는 높은 성능 게이트웨이를 사용해야 합니다. 게이트웨이 SKU에 대한 내용은 [게이트웨이 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 - **경로 기반 VPN 게이트웨이 전용:** 경로 기반 VPN 게이트웨이를 사용해야 합니다. 경로 기반 VPN 게이트웨이에 대한 정보는 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 - **정적 경로 요구 사항:** 로컬 네트워크가 Express 경로 및 사이트 간 VPN 모두에 연결된 경우 로컬 네트워크에서 정적 경로를 구성하여 사이트 간 VPN 연결을 공용 인터넷에 라우팅해야 합니다.
@@ -143,7 +143,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 >[AZURE.NOTE] 기존 게이트웨이를 삭제하면 이 구성에서 작업하는 동안 로컬 프레미스와 가상 네트워크의 연결이 끊어집니다.
 
-1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
+1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다.
 
 2. 기존 Express 경로 또는 사이트 간 VPN 게이트웨이를 삭제합니다.
 
@@ -169,7 +169,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 ## VPN 게이트웨이에 지점 및 사이트 간 구성을 추가하려면
 아래 단계에 따라 공존 설정에서 VPN 게이트웨이에 지점 및 사이트 간 구성을 추가할 수 있습니다.
 
-1. VPN 클라이언트 주소 풀을 추가합니다. 
+1. VPN 클라이언트 주소 풀을 추가합니다.
 
 		$azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
 		Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
@@ -194,4 +194,4 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

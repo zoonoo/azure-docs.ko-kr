@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
@@ -107,7 +107,7 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 
 	![정책 관리 대시보드](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## 다음 단계
+## 참고 항목
 이 문서에서는 Azure 보안 센터의 Power BI를 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) - Azure 보안 센터 채택을 계획하는 방법을 알아봅니다.
@@ -116,4 +116,4 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

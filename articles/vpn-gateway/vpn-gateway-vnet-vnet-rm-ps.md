@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/15/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성
@@ -58,27 +58,7 @@
 
 ### VNet-VNet FAQ
 
-- 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
-
-- 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
-
-- 크로스-프레미스 연결이 필요한 경우가 아니면 여러 Azure 가상 네트워크를 연결할 때 온-프레미스 VPN 게이트웨이는 필요하지 않습니다.
-
-- VNet 간 연결은 가상 네트워크 연결을 지원합니다. 그러나 가상 네트워크에 포함되어 있지 않은 가상 컴퓨터 또는 클라우드 서비스 연결은 지원하지 않습니다.
-
-- VNet 간 연결에는 RouteBased(이전에는 동적 라우팅으로 지칭) VPN 유형의 Azure VPN 게이트웨이가 필요합니다.
-
-- 가상 네트워크 연결을 다중 사이트 VPN과 함께 사용할 수 있으며 가상 네트워크 VPN 게이트웨이당 최대 10개(기본/표준 게이트웨이) 또는 30개(고성능 게이트웨이)의 VPN 터널을 다른 가상 네트워크 또는 온-프레미스 사이트에 연결할 수 있습니다.
-
-- 가상 네트워크 및 온-프레미스 로컬 네트워크 사이트의 주소 공간이 겹쳐서는 안 됩니다. 주소 공간이 겹치면 VNet 간 연결 만들기가 실패합니다.
-
-- 가상 네트워크 한 쌍 간의 중복 터널은 지원되지 않습니다.
-
-- 가상 네트워크의 모든 VPN 터널은 Azure VPN 게이트웨이의 사용 가능한 대역폭 및 Azure의 동일 VPN 게이트웨이 작동 시간 SLA를 공유합니다.
-
-- VNet 간 트래픽은 인터넷이 아닌 Microsoft 네트워크를 통해 전달됩니다.
-
-- 동일한 지역 내의 VNet 간 트래픽은 양방향 모두 무료입니다. 지역 VNet 간 송신 크로스 트래픽은 소스 지역을 기반으로 아웃바운드 VNet 간 데이터 전송 요금으로 청구됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/vpn-gateway/)를 참조하세요.
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 
 ## 어느 단계 집합을 사용해야 합니까?
@@ -524,11 +504,11 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 5. 연결 확인
 
-	이 단계를 완료한 후 [VNet 간 연결을 확인하는 방법](#Verify)에서 메서드를 사용하여 연결을 확인할 수 있습니다.
+	이 단계를 완료한 후 [VNet 간 연결을 확인하는 방법](#Verify)의 메서드를 사용하여 연결을 확인할 수 있습니다.
 
 ## 다음 단계
 
 - 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
-- BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요. 
+- BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

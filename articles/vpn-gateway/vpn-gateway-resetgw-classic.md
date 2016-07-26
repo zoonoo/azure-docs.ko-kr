@@ -40,7 +40,7 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 
 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 Azure VPN 게이트웨이를 재설정합니다.
  
-		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+			Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
 	 	Error          :
 	 	HttpStatusCode : OK
@@ -58,4 +58,4 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 	
 이 cmdlet에 대한 자세한 내용은 [PowerShell 참조](https://msdn.microsoft.com/library/azure/mt270366.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

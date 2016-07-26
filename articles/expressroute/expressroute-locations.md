@@ -142,6 +142,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|---|
 |**Alaska Communications**|Equinix|시애틀|
 |**[XO 통신](http://www.xo.com/)**|Equinix|실리콘밸리|
+|**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|싱가포르|
 
 ## Express 경로 시스템 통합업체
 
@@ -151,7 +152,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| 아시아, 유럽, 미국 |
 |**[Dotnet 솔루션](http://www.dotnetsolutions.co.uk/)**| 유럽 |
-|**[Equinix 전문 서비스](http://www.equinix.com/services/consulting/)**|US||
+|**[Equinix 전문 서비스](http://www.equinix.com/services/consulting/)**|US|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | 아시아 |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 |**[프로젝트 리더십](http://www.projectleadership.net/azure)** | US |
@@ -164,4 +165,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

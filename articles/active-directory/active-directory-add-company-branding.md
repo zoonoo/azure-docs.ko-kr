@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
@@ -42,7 +42,7 @@
 
 https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com와 같은 테넌트 특정 URL로 서비스를 이용할 경우 브랜드가 지정된 로그인 페이지만이 나타납니다.
 
-테넌트 특정 URL이 아닌 다른 URL(예: https://mail.office365.com))로 서비스를 이용할 경우 브랜드가 지정되지 않은 로그인 페이지가 나타납니다. 이 경우에 사용자 ID를 입력하거나 사용자 타일을 선택하면 브랜딩이 나타납니다.
+테넌트 특정 URL이 아닌 다른 URL(예: https://mail.office365.com)로 서비스를 이용할 경우 브랜드가 지정되지 않은 로그인 페이지가 나타납니다. 이 경우에 사용자 ID를 입력하거나 사용자 타일을 선택하면 브랜딩이 나타납니다.
 
 > [AZURE.NOTE]
 >
@@ -120,8 +120,8 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 
 다음과 같은 구성을 가정합니다.
 
-- 영어로 표시된 기본 배너 로고 및 로그인 페이지 텍스트 
-- 독일어에 대한 로그인 페이지 텍스트 
+- 영어로 표시된 기본 배너 로고 및 로그인 페이지 텍스트
+- 독일어에 대한 로그인 페이지 텍스트
 
 언어 기본 설정이 독일어인 경우 독일어 텍스트를 제외한 기본 배너 로고를 가져옵니다.
 
@@ -177,8 +177,8 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 
 **브랜딩이 적용되었는지 확인하려면**
 
-1. InPrivate 또는 Incognito 브라우저 세션을 엽니다. 
-2. https://outlook.com/contoso.com로 이동하여 contoso.com을 사용자 지정된 도메인으로 바꿉니다. 
+1. InPrivate 또는 Incognito 브라우저 세션을 엽니다.
+2. https://outlook.com/contoso.com로 이동하여 contoso.com을 사용자 지정된 도메인으로 바꿉니다.
 
 또한 contoso.onmicrosoft.com과 같이 표시되는 도메인으로도 작동합니다.
 
@@ -219,4 +219,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

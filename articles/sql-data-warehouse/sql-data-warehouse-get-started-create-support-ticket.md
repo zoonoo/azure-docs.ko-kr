@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/29/2016"
+   ms.date="07/18/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법
@@ -31,10 +31,14 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 3. 도움말 + 지원 블레이드에서 **지원 요청 만들기**를 클릭합니다.
 
     ![새 지원 요청](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    
+    <a name="request-quota-change"></a>
 
 4. **요청 유형**을 선택합니다.
 
     ![요청 유형](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    
+    >[AZURE.NOTE]  기본적으로 각 SQL server(예: myserver.database.windows.net)에는 **DTU 할당량**인 45,000이 있습니다. 이 할당량은 안전을 위한 제한일 뿐입니다. 지원 티켓을 만들고 *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다. DTU 요구 사항을 계산하려면 SQL 데이터 웨어하우스의 100 [DWU][] 각각이 750 DTU를 사용한다는 점을 고려해야 합니다. 따라서 기본 할당량인 45,000을 통해 최대 DW6000(45,000/750) 또는 보다 작은 DWU를 포함하는 그 이하의 데이터베이스를 만들 수 있습니다. 예를 들어 하나의 SQL Server에서 두 개의 DW6000을 호스트하려는 경우 DTU 할당량인 90,000을 요청해야 합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다.
 
 5. 보고하려는 문제가 있는 데이터베이스를 호스팅하는 **구독**을 선택합니다.
 
@@ -44,17 +48,15 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 
     ![리소스](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. **지원 계획**을 선택합니다.
+7. [Azure 지원 계획][]을 선택합니다.
 
-    - **청구 및 구독 관리 관련** 지원은 모든 지원 수준에서 제공됩니다.
-    - **중단-수정** 지원은 개발자, 표준, 전문가 직접 또는 프리미어 지원을 통해 제공됩니다. **고장 수리** 문제는 고객이 Azure를 사용하는 동안 고객에게 발생한 문제 중 Microsoft로 인해 문제가 발생했다는 합리적인 이유가 존재하는 문제를 의미합니다.
-    - **개발자 멘토링** 및 **자문 서비스**는 전문가 지원 및 프리미어 지원 수준에서 제공됩니다.
+    - **대금 청구, 할당량 및 구독 관리** 지원은 모든 지원 수준에서 제공됩니다.
+    - **고장 수리** 지원은 [개발자][], [표준][], [전문가 지원][] 또는 [프리미어][] 지원을 통해 제공됩니다. 고장 수리 문제는 고객이 Azure를 사용하는 동안 고객에게 발생한 문제 중 Microsoft로 인해 문제가 발생했다는 합리적인 이유가 존재하는 문제를 의미합니다.
+    - **개발자 멘토링** 및 **자문 서비스**는 [전문가 지원][] 및 [프리미어][] 지원 수준에서 제공됩니다.
     
-    범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][]을 참조하세요. Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][]를 참조하세요.
+    프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털][]에서 SQL 데이터 웨어하우스 관련 문제를 보고할 수도 있습니다. 범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][Azure support plan]을 참조하세요. Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][]를 참조하세요.
 
     ![지원 계획](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-
-    프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털][]에서 SQL 데이터 웨어하우스 관련 문제를 보고할 수도 있습니다.
 
 8. **문제 유형** 및 **범주**를 선택합니다.
 
@@ -81,12 +83,24 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 
 또한 [스택 오버플로][] 또는 [Azure SQL 데이터 웨어하우스 MSDN 포럼][]에서 SQL 데이터 웨어하우스 커뮤니티에 연결할 수 있습니다.
 
-<!-- External links -->
+<!--Image references--> 
+
+<!--Article references--> 
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
+<!--MSDN references--> 
+
+<!--Other web references--> 
 [Azure 포털]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [Azure 지원 계획]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[개발자]: https://azure.microsoft.com/support/plans/developer/
+[표준]: https://azure.microsoft.com/support/plans/standard/
+[전문가 지원]: https://azure.microsoft.com/support/plans/prodirect/
+[프리미어]: https://azure.microsoft.com/support/plans/premier/
 [Azure 지원 FAQ]: https://azure.microsoft.com/support/faq/
 [Microsoft 프리미어 온라인 포털]: https://premier.microsoft.com/
 [스택 오버플로]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

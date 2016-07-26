@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
@@ -122,4 +122,4 @@ Azure IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [Azure IoT H
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
