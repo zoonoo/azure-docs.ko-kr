@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Azure 주요 자격 증명 모음 시작 #
@@ -35,7 +35,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Microsoft Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-- Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx)을 참조하세요. 
+- Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx)을 참조하세요.
 - 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 
@@ -214,7 +214,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 ## <a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제 ##
 
-키 자격 증명 모음 및 이를 포함하는 키나 비밀이 더 이상 필요하지 않은 경우 [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) cmdlet을 사용하여 키 자격 증명 모음을 삭제할 수 있습니다.
+주요 자격 증명 모음 및 이를 포함하는 키나 암호가 더 이상 필요하지 않은 경우 [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) cmdlet을 사용하여 주요 자격 증명 모음을 삭제할 수 있습니다.
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -238,11 +238,11 @@ Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은
 
 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 후속 자습서는 [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
-키 자격 증명 모음이 사용되는 방식을 보려면 [Azure 키 자격 증명 모음 로깅](key-vault-logging.md)을 참조하세요.
+주요 자격 증명 모음이 사용되는 방식을 보려면 [Azure 주요 자격 증명 모음 로깅](key-vault-logging.md)을 참조하세요.
 
-Azure 키 자격 증명 모음에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
+Azure 주요 자격 증명 모음에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure 주요 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
  
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

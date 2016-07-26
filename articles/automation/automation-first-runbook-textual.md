@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 PowerShell 워크플로 Runbook
@@ -87,13 +87,13 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 7.	Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리면 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-output.png)
 8.	출력 창을 닫습니다.
 9.	**스트림**을 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 *Hello World*만 표시되어야 하지만 Runbook이 자세한 정보 표시 및 오류와 같은 Runbook 작업에 대한 다른 스트림에 쓰는 경우 해당 스트림이 표시될 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-streams.png)
-10.	MyFirstRunbook-Workflow 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
+10.	MyFirstRunbook 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
 11.	**작업**을 클릭하여 이 Runbook에 대한 작업 창을 엽니다. runbook으로 만든 모든 작업을 나열합니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.<br> ![작업](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12.	runbook을 시작했을 때 우리가 봤던 동일한 작업창을 열려면 이 작업을 클릭합니다. 이 기능을 사용하면 예전으로 돌아가 특정 runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
 ## 5 단계-Azure 리소스를 관리 인증 추가
 
-지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. 이 리소스를 관리하기 위해 **Add-AzureRmAccount** cmdlet을 사용합니다.
+지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. 이 리소스를 관리하기 위해 **Add-AzureRMAccount** cmdlet을 사용합니다.
 
 1.	MyFirstRunbook-Workflow 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	**Write-Output** 줄은 더 이상 필요하지 않으므로 삭제합니다.
@@ -101,12 +101,13 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 4.	자동화 실행 계정으로 인증을 처리할 다음 코드를 입력하거나 복사하여 붙여 넣습니다.
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
 
 5.	Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
-6.	**시작**을 클릭하여 테스트를 시작합니다. 일단 완료되면 계정에서 기본 정보를 표시하는 출력을 수신해야 합니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.	**시작**을 클릭하여 테스트를 시작합니다. 일단 완료되면 다음과 비슷한 출력을 수신하여 계정의 기본 정보를 표시해야 합니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## 6단계 - 가상 컴퓨터를 시작하기 위한 코드 추가
 
@@ -117,12 +118,11 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
- 
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.	Runbook을 저장하고 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 3.	**시작**을 클릭하여 테스트를 시작합니다. 완료되면, 가상 컴퓨터가 시작되었다는 것을 확인합니다.
@@ -141,7 +141,7 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -161,4 +161,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 -  Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 -  PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.JS](documentdb-nodejs-get-started.md)
 
-DocumentDB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라하면 노드 데이터베이스를 포함하여 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+Azure DocumentDB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라하면 노드 데이터베이스를 포함하여 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
 
@@ -621,4 +621,4 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -26,8 +26,8 @@ S2S(사이트 간) VPN 연결을 구성하려면 VPN 장치가 필요합니다. 
 
 - 정적 및 동적 라우팅에 대한 용어가 변경되었습니다. 두 용어를 모두 사용할 수 있습니다. 기능은 변경되지 않고 이름만 변경됩니다.
 	- 정적 라우팅 = 정책 기반
-	- 동적 라우팅 = 경로 기반 
-- 고성능 VPN 게이트웨이 및 경로 기반 VPN 게이트웨이에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN 게이트웨이와 호환되는 확인된 VPN 장치는 새 Azure 고성능 VPN 게이트웨이와도 호환됩니다. 
+	- 동적 라우팅 = 경로 기반
+- 고성능 VPN 게이트웨이 및 경로 기반 VPN 게이트웨이에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN 게이트웨이와 호환되는 확인된 VPN 장치는 새 Azure 고성능 VPN 게이트웨이와도 호환됩니다.
 
 
 ## 확인된 VPN 장치 
@@ -51,7 +51,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | Citrix | CloudBridge MPX 어플라이언스 또는 VPX 가상 어플라이언스 | 해당 없음 | [통합 지침](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 호환되지 않음 |
 | Dell SonicWALL | TZ 시리즈, NSA 시리즈, SuperMassive 시리즈 E-Class NSA 시리즈 | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | BIG-IP 시리즈 | 해당 없음 | [구성 지침](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 호환되지 않음 |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) |
+| Fortinet | FortiGate | FortiOS 5.0.7 | [구성 지침](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [구성 지침](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | IIJ(Internet Initiative Japan) | SEIL 시리즈 | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [구성 지침](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 호환되지 않음 |
 | Juniper | SRX | JunOS 10.2(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | J 시리즈 | JunOS 10.4r9(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -76,7 +76,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 **샘플을 편집하려면**
 
-1. 메모장을 사용하여 샘플을 엽니다. 
+1. 메모장을 사용하여 샘플을 엽니다.
 1. 모든 <*text*> 문자열을 검색하여 환경에 관련된 값으로 바꿉니다. < 및 >를 포함해야 합니다. 이름을 지정할 때 선택하는 이름은 고유해야 합니다. 명령이 작동하지 않는 경우 해당 장치 제조업체 설명서를 참조하세요.
 
 | **샘플 텍스트** | **변경** |
@@ -97,7 +97,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 ## IPsec 매개 변수
 
->[AZURE.NOTE] 아래 나열된 값이 Azure VPN 게이트웨이에서 지원되더라도 현재 Azure VPN 게이트웨이에서 특정 조합을 지정하거나 선택할 방법이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다.
+>[AZURE.NOTE] 아래 나열된 값이 Azure VPN 게이트웨이에서 지원되더라도 현재 Azure VPN 게이트웨이에서 특정 조합을 지정하거나 선택할 방법이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다. 또한 MSS를 1350에 고정해야 합니다.
 
 ### IKE 1단계 설정
 
@@ -118,10 +118,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | IKE 버전 | IKEv1 | IKEv2 |
 | 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
 | 2단계 SA(보안 연결) 수명(시간) | 3,600초 | 3,600초 |
-| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - |
-| IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 |
-| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) |
-| Dead Peer Detection | 지원되지 않음 | 지원됨 |
+| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - | | IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 | | PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) | | Dead Peer Detection | 지원되지 않음 | 지원됨 |
 
 ### 경로 기반 게이트웨이 IPsec SA(보안 연결) 제안
 
@@ -145,12 +142,11 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | 14 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP DES MD5 사용), 수명 없음 |
 | 15 | AH SHA1(ESP DES SHA1 사용), 수명 없음 | ESP SHA, 수명 없음 |
 | 16 | AH MD5(ESP DES MD5 사용), 수명 없음 | ESP MD5, 수명 없음 |
-| 17 | - | AH SHA, 수명 없음 |
-| 18 | - | AH MD5, 수명 없음 |
+| 17 | - | AH SHA, 수명 없음 | | 18 | - | AH MD5, 수명 없음 |
 
 
 - 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 
 - 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 표에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN 게이트웨이 설정을 사용하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

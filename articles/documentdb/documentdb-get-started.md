@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.JS](documentdb-nodejs-get-started.md)
 
-DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+Azure DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
 
@@ -98,7 +98,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
-**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<your endpoint URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<your key>*을 프로그램에 복사된 키로 바꿉니다.
+**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<끝점 URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<키>*를 프로그램에 복사된 키로 바꿉니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
@@ -116,7 +116,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-다음 코드를 추가하여 **기본** 메서드에서 비동기 작업을 실행합니다. **기본** 메서드가 예외를 catch하여 콘솔에 기록합니다.
+다음 코드를 추가하여 **Main** 메서드에서 비동기 작업을 실행합니다. **Main** 메서드가 예외를 catch하여 콘솔에 기록합니다.
 
 	static void Main(string[] args)
 	{
@@ -149,7 +149,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 ## 4단계: 데이터베이스 만들기
 데이터베이스 생성을 위한 코드를 추가하기 전에, 콘솔에 쓰기 위한 도우미 메서드를 추가합니다.
 
-**GetStartedDemo** 메서드 아래에 **WriteToConsoleAndPromptToContinue** 메서드를 복사하여 붙여넣습니다.
+**GetStartedDemo** 메서드에 **WriteToConsoleAndPromptToContinue** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -161,7 +161,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드를 사용하여 DocumentDB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
 
-**WriteToConsoleAndPromptToContinue** 메서드 아래에 **CreateDatabaseIfNotExists** 메서드를 복사하여 붙여넣습니다.
+**WriteToConsoleAndPromptToContinue** 메서드에 **CreateDatabaseIfNotExists** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -187,7 +187,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 			}
 	}
 
-클라이언트 생성 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. *FamilyDB*라는 데이터베이스가 생성됩니다.
+클라이언트 생성의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. *FamilyDB*라는 데이터베이스가 생성됩니다.
 
 	private async Task GetStartedDemo()
 	{
@@ -206,7 +206,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 **DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
 
-**CreateDatabaseIfNotExists** 메서드 아래에 **CreateDocumentCollectionIfNotExists** 메서드를 복사하여 붙여넣습니다.
+**CreateDatabaseIfNotExists** 메서드에 **CreateDocumentCollectionIfNotExists** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
@@ -242,7 +242,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 		}
 	}
 
-데이터베이스 생성 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. *FamilyCollection*이라는 문서 컬렉션이 생성됩니다.
+데이터베이스 생성의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. *FamilyCollection*이라는 문서 컬렉션이 생성됩니다.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -260,7 +260,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 먼저 이 샘플에서는 DocumentDB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어야 합니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 문서에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다. **GetStartedDemo** 메서드 다음에 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
 
-**WriteToConsoleAndPromptToContinue** 메서드 아래에 **가족**, **부모**, **자식**, **애완 동물** 및 **주소** 클래스를 복사하여 붙여 넣습니다.
+**WriteToConsoleAndPromptToContinue** 메서드에 **가족**, **부모**, **자식**, **애완 동물** 및 **주소** 클래스를 복사하여 붙여 넣습니다.
 
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
 	{
@@ -312,7 +312,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 		public string City { get; set; }
 	}
 
-**CreateDocumentCollectionIfNotExists** 메서드 아래에 **CreateFamilyDocumentIfNotExists** 메서드를 복사하여 붙여넣습니다.
+**CreateDocumentCollectionIfNotExists** 메서드에 **CreateFamilyDocumentIfNotExists** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -338,7 +338,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 그리고 Andersen Family와 Wakefield Family의 문서 하나씩 두 개의 문서를 삽입합니다.
 
-문서 컬렉션 생성 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
+문서 컬렉션 생성의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
 
 	await this.CreateDatabaseIfNotExists("FamilyDB");
 
@@ -420,7 +420,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드는 DocumentDB SQL 구문뿐 아니라 LINQ를 사용하는 다양한 쿼리를 보여 줍니다. 이러한 쿼리는 이전 단계에서 삽입한 문서에 대해 실행할 수 있습니다.
 
-**CreateFamilyDocumentIfNotExists** 메서드 아래에 **ExecuteSimpleQuery** 메서드를 복사하여 붙여넣습니다.
+**CreateFamilyDocumentIfNotExists** 메서드에 **ExecuteSimpleQuery** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -456,7 +456,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 			Console.ReadKey();
 	}
 
-두 번째 문서 생성 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
+두 번째 문서 생성의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -477,7 +477,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 
-**ExecuteSimpleQuery** 메서드 아래에 **ReplaceFamilyDocument** 메서드를 복사하여 붙여넣습니다.
+**ExecuteSimpleQuery** 메서드에 **ReplaceFamilyDocument** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
@@ -493,7 +493,7 @@ DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 		}
 	}
 
-쿼리 실행 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. 문서를 바꾼 후에, 변경된 문서를 표시하도록 같은 쿼리가 다시 실행됩니다.
+쿼리 실행의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다. 문서를 바꾼 후에, 변경된 문서를 표시하도록 같은 쿼리가 다시 실행됩니다.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -515,7 +515,7 @@ DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 
 DocumentDB는 JSON 문서 삭제를 지원합니다.
 
-**ReplaceFamilyDocument** 메서드 아래에 **DeleteFamilyDocument** 메서드를 복사하여 붙여넣습니다.
+**ReplaceFamilyDocument** 메서드에 **DeleteFamilyDocument** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
@@ -531,7 +531,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 		}
 	}
 
-두 번째 쿼리 실행 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
+두 번째 쿼리 실행의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
 
 	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
@@ -548,7 +548,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다.
 
-전체 데이터베이스와 모든 자식 리소스를 삭제하기 위해 문서 삭제 아래 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
+전체 데이터베이스와 모든 자식 리소스를 삭제하기 위해 문서 삭제의 **GetStartedDemo** 메서드에 다음 코드를 복사하여 붙여넣습니다.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -612,4 +612,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

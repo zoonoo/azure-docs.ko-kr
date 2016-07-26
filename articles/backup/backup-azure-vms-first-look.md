@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 백업으로 Azure에서 VM 보호 | Microsoft Azure"
+	pageTitle="먼저 보기: Azure 백업으로 Azure에서 VM 보호 | Microsoft Azure"
 	description="Azure 백업 서비스로 Azure VM을 보호합니다. 자습서에서는 Azure의 자격 증명 모음 만들기, VM 등록, 정책 만들기, VM 보호를 설명합니다."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # 소개: Azure 가상 컴퓨터 백업
 
 > [AZURE.SELECTOR]
-- [ARM VM 백업](backup-azure-vms-first-look-arm.md)
+- [Resource Manager VM 백업](backup-azure-vms-first-look-arm.md)
 - [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
 
-이 자습서에서는 Azure 가상 컴퓨터(VM)를 Azure에 백업하는 단계를 안내합니다. 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
+이 자습서에서는 Azure 가상 컴퓨터(VM)를 Azure의 백업 자격 증명 모음에 백업하는 단계를 안내합니다. 이 문서에서는 VM을 백업하기 위해 클래식 모델 또는 서비스 관리자 배포 모델을 설명합니다. 리소스 그룹에 속해 있는 복구 서비스 자격 증명 모음에 VM을 백업하려는 경우 Resource Manager VM 백업이라는 다른 탭을 참조하세요. 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
 - Azure 구독에서 VM을 만들었습니다.
 - VM은 Azure공용 IP 주소에 연결되어 있습니다. 자세한 내용은 [네트워크 연결](./backup-azure-vms-prepare.md#network-connectivity)을 참조하세요.
@@ -213,4 +213,4 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

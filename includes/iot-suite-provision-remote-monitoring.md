@@ -1,8 +1,6 @@
-## 미리 구성된 원격 모니터링 솔루션 프로비전
+## 솔루션 프로비전
 
 1.  Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그온한 다음 **+**를 클릭하여 새 솔루션을 만듭니다.
-
-    > [AZURE.NOTE] 솔루션을 프로비전하는 데 필요한 사용 권한에 문제가 있는 경우 [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions] 지침을 살펴보세요.
 
 2.  **원격 모니터링** 타일에서 **선택**을 클릭합니다.
 
@@ -26,10 +24,9 @@
 
 목록에는 없지만 솔루션에 대해 참조하고 싶은 세부 정보가 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 보내주세요.
 
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

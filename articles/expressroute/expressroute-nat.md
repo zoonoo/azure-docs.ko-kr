@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 NAT 요구 사항
@@ -52,7 +52,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 #### 네트워크에 보내는 Microsoft에서 생성된 트래픽
 
-- 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 끝점에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 시나리오의 일반적인 예는 Office 365에서 네트워크에 호스팅된 ADFS 서버에 대한 연결입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다. 
+- 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 끝점에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 시나리오의 일반적인 예는 Office 365에서 네트워크에 호스팅된 ADFS 서버에 대한 연결입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다.
 
 - Microsoft에서 네트워크 내의 IP 주소로 향하는 SNAT 트래픽이어야 합니다.
 
@@ -66,4 +66,4 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -54,7 +54,7 @@ Azure 포털을 사용하여 **작업 영역 컬렉션**을 빌드하는 단계�
 <a name="view-access-keys"/>
 ## Power BI API 액세스 키 보기
 
-Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부분 중 하나는 **선택키**입니다. API 요청을 인증하는 데 사용되는 **앱 토큰**을 생성하는 데 사용됩니다. **선택키**를 보려면 **설정 블레이드**에서 **선택키**를 클릭합니다. **앱 토큰**에 대한 자세한 내용은 [앱 토큰 흐름은 어떻게 작동하나요?](power-bi-embedded-app-token-flow.md)를 참조하세요.
+Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부분 중 하나는 **선택키**입니다. API 요청을 인증하는 데 사용되는 **앱 토큰**을 생성하는 데 사용됩니다. **선택키**를 보려면 **설정 블레이드**에서 **선택키**를 클릭합니다. **앱 토큰**에 대한 자세한 내용은 [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)를 참조하세요.
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,9 +98,7 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## 참고 항목
 - [샘플 시작](power-bi-embedded-get-started-sample.md)
-- [Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
