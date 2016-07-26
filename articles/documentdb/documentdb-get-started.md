@@ -602,7 +602,7 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 
 ## 다음 단계
 
-- 보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
+-   보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
 - DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
 -	[DocumentDB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 자세히 알아봅니다.
 -	[쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.

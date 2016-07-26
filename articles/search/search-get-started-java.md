@@ -117,7 +117,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 
 	![][7]
 
-6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전*입니다.
+6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전* 입니다.
 
 6. **마침**을 클릭합니다.
 

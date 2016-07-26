@@ -32,7 +32,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. **+ 새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
+2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
 
     ![생성](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
