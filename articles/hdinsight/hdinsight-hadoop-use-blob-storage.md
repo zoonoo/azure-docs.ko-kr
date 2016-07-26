@@ -27,11 +27,7 @@ Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 
 
 Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-> [AZURE.NOTE]	HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://* 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
-
-> HDInsight는 현재 블록 Blob만 지원합니다.
-
-> 대부분의 HDFS 명령(예를 들어, <b>ls</b>, <b>copyFromLocal</b> 및 <b>mkdir</b>)은 여전히 예상대로 작동합니다. <b>fschk</b> 및 <b>dfsadmin</b> 등 기본 HDFS 구현(DFS라고 함)에 특정된 명령만이 Azure Blob 저장소에서 다르게 동작합니다.
+> [AZURE.IMPORTANT] HDInsight는 블록 Blob만을 지원합니다. 페이지를 지원하거나 Blob를 추가하지 않습니다.
 
 HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 시작하기][hdinsight-get-started] 또는 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요.
 
@@ -49,6 +45,7 @@ HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 
 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] HDInsight 3.0 이전 버전에서 `wasb://` 대신에 `asv://`을 사용합니다.`asv://`을 HDInsight 클러스터 3.0 이상과 함께 사용하면 오류가 발생하므로 함께 사용하지 않습니다.
 
 Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 만들기 프로세스 중에 Azure 저장소 계정 및 해당 계정에서 오는 특정 Azure Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다.
 
@@ -83,7 +80,7 @@ HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이�
 
 특정 MapReduce 작업과 패키지는 Azure Blob 저장소에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. 실제로 HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 DFS를 사용합니다.
 
-
+> [AZURE.NOTE] 대부분의 HDFS 명령(예를 들어, <b>ls</b>, <b>copyFromLocal</b> 및 <b>mkdir</b>)은 여전히 예상대로 작동합니다. <b>fschk</b> 및 <b>dfsadmin</b> 등 기본 HDFS 구현(DFS라고 함)에 특정된 명령만이 Azure Blob 저장소에서 다르게 동작합니다.
 
 ## Blob 컨테이너 만들기
 
@@ -304,4 +301,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # 저장소 탐색기(미리 보기) 시작
@@ -166,7 +166,7 @@ Microsoft Azure 저장소 탐색기 프리뷰는 장소에 상관 없이 Windows
 
 ## SAS를 사용하여 서비스 연결
 
-섹션 [SAS를 사용하여 계정 연결](#attach-account-using-sas)은 Azure 구독 관리자가 저장소 계정에 대한 SAS를 생성(및 공유)하여 저장소 계정에 대한 임시 액세스를 부여할 수 있는 방법을 보여 줍니다. 마찬가지로, SAS는 저장소 계정 내에서 특정 서비스(Blob 컨테이너, 큐 또는 테이블)에 대해 생성될 수 있습니다.
+[SAS를 사용하여 저장소 계정 연결](#attach-storage-account-using-sas) 섹션에서는 Azure 구독 관리자가 저장소 계정에 대한 SAS를 생성(및 공유)하여 저장소 계정에 대한 임시 액세스를 부여할 수 있는 방법을 보여 줍니다. 마찬가지로, SAS는 저장소 계정 내에서 특정 서비스(Blob 컨테이너, 큐 또는 테이블)에 대해 생성될 수 있습니다.
 
 ### 공유하려는 서비스에 대한 SAS 생성
 
@@ -226,4 +226,4 @@ Microsoft Azure 저장소 탐색기 프리뷰는 장소에 상관 없이 Windows
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

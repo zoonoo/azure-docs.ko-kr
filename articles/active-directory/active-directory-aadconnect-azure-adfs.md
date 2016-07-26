@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# Azure에서 AD FS 
+# Azure에서 AD FS 배포 
 
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다. Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 같습니다.
 
@@ -259,11 +259,9 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	DMZ에 대한 HTTPS 통신을 허용합니다. | 인바운드 |
 |DenyAllFromDMZ| 이 규칙은 DMZ에서 내부 서브넷까지 모든 트래픽을 차단합니다. 규칙 AllowHTTPSFromDMZ는 HTTPS 통신 과정 및 이 규칙에 의해 차단되는 모든 항목을 관리합니다. | 인바운드 |
-|AllowHTTPSToDMZ| 이 규칙은 DMZ에 대한 HTTPS 통신을 허용합니다. | 아웃바운드 |
-|DenyDMZAll| HTTPS 제외한 DMZ에 대한 다른 모든 트래픽은 이 규칙에 의해 차단됩니다. | 아웃바운드 |
 |DenyInternetOutbound| 인터넷에 액세스할 수 없습니다. | 아웃바운드 |
 
-![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![INT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[comment]: <> (![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. DMZ 서브넷 보안**
 
@@ -271,13 +269,12 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| 가상 네트워크에서 HTTPS를 허용합니다. | 인바운드 |
 |AllowHTTPSInternet| 인터넷에서 DMZ까지 HTTPS를 허용합니다. | 인바운드|
-|DenyingressexceptHTTPS|	인터넷에서 HTTPS 이외의 항목을 차단합니다. | 인바운드 |
-|AllowOutToADFS| 내부 서브넷에 HTTPS를 허용합니다. | 아웃바운드 |
-|AllowHTTPSToInternet| 인터넷에 HTTPS를 허용합니다. | 아웃바운드 |
+|DenyingressexceptHTTPS| 인터넷에서 HTTPS 이외의 항목을 차단합니다. | 인바운드 |
 |DenyOutToInternet|	인터넷에 대한 HTTPS를 제외한 항목을 차단합니다. | 아웃바운드 |
 
-![EXT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![EXT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[comment]: <> (![EXT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![EXT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] 클라이언트 사용자 인증서 인증(X509 사용자 인증서를 사용하는 clientTLS 인증)이 필요한 경우 AD FS는 TCP 포트 49443를 인바운드 액세스에 사용하도록 설정해야 합니다.
 
 ###10\. AD FS 로그인 테스트
 
@@ -306,4 +303,4 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
