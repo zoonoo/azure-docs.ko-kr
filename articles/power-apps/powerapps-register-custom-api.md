@@ -100,9 +100,12 @@ Swagger 파일을 만들 때 .json 파일이 만들어집니다. 이 .json 파�
 
 	> [AZURE.NOTE] 현재 사용자 지정 API는 PowerApps 웹 포털에서만 사용할 수 있습니다. PowerApps 클라이언트에서는 사용할 수 없습니다.
 
-2. **연결**을 선택한 다음 **연결 추가**를 선택합니다. ![](./media/powerapps-register-custom-api/createnewconnection.png "사용자 지정 API 만들기")
+2. **연결**을 선택한 다음 **연결 추가**를 선택합니다.  
+	![](./media/powerapps-register-custom-api/createnewconnection.png "사용자 지정 API 만들기")  
 
-3. **사용자 지정 API 추가**를 선택합니다. ![](./media/powerapps-register-custom-api/connecttocustomapi.png "사용자 지정 API 만들기") .json 및 아이콘 파일을 포함하여 API의 속성을 추가합니다. 그런 후 **다음**을 선택합니다.
+3. **사용자 지정 API 추가**를 선택합니다.  
+	![](./media/powerapps-register-custom-api/connecttocustomapi.png "사용자 지정 API 만들기")  
+	json 및 아이콘 파일을 포함하여 API의 속성을 추가합니다. 그런 후 **다음**을 선택합니다.
 
 	|속성|설명|
 |---|---|
@@ -140,11 +143,14 @@ Swagger 파일을 만들 때 .json 파일이 만들어집니다. 이 .json 파�
 2. **논리 흐름 만들기**에서 **시작**을 선택합니다.
 3. 이 창에는 몇 가지 일반적인 시나리오를 사용하는 여러 논리 흐름 템플릿이 이미 만들어져 있습니다. 이러한 템플릿 중 하나를 사용하여 사용자 지정 API를 추가할 수 있습니다. 또는 **Create from blank(새로 만들기)**를 선택하여 처음부터 논리 흐름을 만들 수 있습니다.
 
-	사용자 지정 API를 추가하는 가장 빠른 방법은 **Create from blank(새로 만들기)**를 선택하는 것입니다. 그러면 다음 논리 흐름이 열립니다. ![](./media/powerapps-register-custom-api/createfromblank.png "논리 흐름의 시작")
+	사용자 지정 API를 추가하는 가장 빠른 방법은 **Create from blank(새로 만들기)**를 선택하는 것입니다. 그러면 다음 논리 흐름이 열립니다.  
+	![](./media/powerapps-register-custom-api/createfromblank.png "논리 흐름의 시작")   
 
-4. **되풀이**를 선택하고 실행 빈도를 1분으로 설정합니다. ![](./media/powerapps-register-custom-api/logicrecurrence.png "되풀이 선택")
+4. **되풀이**를 선택하고 실행 빈도를 1분으로 설정합니다.    
+	![](./media/powerapps-register-custom-api/logicrecurrence.png "되풀이 선택")  	
 
-5. + 기호(![](./media/powerapps-register-custom-api/flowplussign.png))를 선택하고 **작업 추가**를 선택합니다. 목록에 사용자 지정 API가 나열됩니다. ![](./media/powerapps-register-custom-api/logicflow.png "사용자 지정 API")
+5. + 기호(![](./media/powerapps-register-custom-api/flowplussign.png))를 선택하고 **작업 추가**를 선택합니다. 목록에 사용자 지정 API가 나열됩니다.  
+![](./media/powerapps-register-custom-api/logicflow.png "사용자 지정 API") 
 
 다음 단계는 API가 수행할 수 있는 작업에 의해 결정됩니다. 날씨 예제에서는 API가 현재 온도를 가져온 다음 Office 365를 사용하여 메일을 보냅니다.
 
@@ -157,10 +163,14 @@ Swagger 파일을 만들 때 .json 파일이 만들어집니다. 이 .json 파�
 
 > [AZURE.NOTE] 현재 사용자 지정 API는 PowerApps 웹 포털에서만 사용할 수 있습니다. PowerApps 클라이언트에서는 사용할 수 없습니다.
 
-1. PowerApps [웹 포털][9]에서 **새 PowerApp**을 선택합니다. ![](./media/powerapps-register-custom-api/newpowerapp.png "새 PowerApp 선택")
-2. 브라우저에 새 탭이 열립니다. 이 새 탭에서 빈 PowerApp이 자동으로 만들어집니다. **데이터에 연결**을 선택합니다. ![](./media/powerapps-register-custom-api/blankpowerapp.png "데이터에 대한 연결 선택")
-3. **콘텐츠** 탭에서 **데이터 원본**을 선택합니다. ![](./media/powerapps-register-custom-api/datasources.png "데이터에 대한 연결 선택")
-4. 새 화면에서 **내 연결** 아래 사용자 지정 API를 선택합니다. ![](./media/powerapps-register-custom-api/screencustomapi.png "사용자 지정 API 선택")
+1. PowerApps [웹 포털][9]에서 **새 PowerApp**을 선택합니다.  
+![](./media/powerapps-register-custom-api/newpowerapp.png "새 PowerApp 선택")  
+2. 브라우저에 새 탭이 열립니다. 이 새 탭에서 빈 PowerApp이 자동으로 만들어집니다. **데이터에 연결**을 선택합니다.  
+![](./media/powerapps-register-custom-api/blankpowerapp.png "데이터에 대한 연결 선택")  
+3. **콘텐츠** 탭에서 **데이터 원본**을 선택합니다.  
+![](./media/powerapps-register-custom-api/datasources.png "데이터에 대한 연결 선택")  
+4. 새 화면에서 **내 연결** 아래 사용자 지정 API를 선택합니다.  
+![](./media/powerapps-register-custom-api/screencustomapi.png "사용자 지정 API 선택")  
 5. **데이터 원본 추가**를 선택합니다.
 
 추가하면 기능 도구 모음, 텍스트 상자 등에서 사용자 지정 API를 사용할 수 있습니다. 예를 들어 기능 도구 모음에서 **MySampleWebAPI**를 입력하여 사용할 수 있는 기능을 볼 수 있습니다. [Office 365에서 데이터 표시][12]는 Office 365 API를 사용하는 예제입니다.
