@@ -27,7 +27,7 @@
 ## 노드 간 보안
 클러스터의 VM 또는 컴퓨터 간 통신을 보호합니다. 이렇게 하면 클러스터에 가입하도록 인증된 컴퓨터만 호스팅 응용 프로그램 및 클러스터의 서비스에 참여할 수 있습니다.
 
-	![노드-노드 통신의 다이어그램][Node-to-Node]
+![노드-노드 통신의 다이어그램][Node-to-Node]
 
 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대한 [인증서 보안](https://msdn.microsoft.com/library/ff649801.aspx) 또는 [Windows 보안](https://msdn.microsoft.com/library/ff649396.aspx)을 사용할 수 있습니다.
 ### 노드 간 인증서 보안

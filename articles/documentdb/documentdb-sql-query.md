@@ -864,7 +864,8 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	]
 
 
-###* 연산자 특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
+###* 연산자 
+특수 연산자 (*) 는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
