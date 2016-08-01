@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/15/2016"
 	ms.author="ryanwi"/>
 
 # PowerShell을 사용하여 응용 프로그램 수명 주기 자동화
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Azure 서비스 패브릭 테스트 용이성 cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

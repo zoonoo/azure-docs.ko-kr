@@ -11,15 +11,15 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #자습서: AnswerHub와 Azure Active Directory 통합
 
-이 자습서는 Azure 및 AnswerHub의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software)의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
--   AnswerHub Single Sign-on이 설정된 구독
+-   [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software) Single Sign-On이 설정된 구독
 
 이 자습서를 완료한 후 AnswerHub에 할당한 Azure AD 사용자가 AnswerHub 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
@@ -31,6 +31,7 @@
 4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-answerhub-tutorial/IC785165.png "시나리오")
+
 ##AnswerHub에 응용 프로그램 통합 사용
 
 이 섹션은 AnswerHub에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -62,6 +63,7 @@
 7.  결과 창에서 **AnswerHub**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
+
 ##Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 AnswerHub에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
@@ -85,6 +87,14 @@
     ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Single Sign-On 구성")
 
 5.  다른 웹 브라우저 창에서 AnswerHub 회사 사이트에 관리자로 로그인합니다.
+    >[AZURE.NOTE] AnswerHub 구성하는 데 도움이 필요하면 [AnswerHub 지원 팀](mailto:success@answerhub.com.)에 문의하세요.
+
+
+
+
+
+
+
 
 6.  **관리**로 이동합니다.
 
@@ -119,6 +129,7 @@
 13. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Single Sign-On 구성")
+
 ##사용자 프로비전 구성
 
 Azure AD 사용자가 AnswerHub에 로그인할 수 있도록 하려면 AnswerHub로 프로비전되어야 합니다. AnswerHub의 경우 프로비전은 수동 작업입니다.
@@ -157,4 +168,4 @@ Azure AD 사용자가 AnswerHub에 로그인할 수 있도록 하려면 AnswerHu
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

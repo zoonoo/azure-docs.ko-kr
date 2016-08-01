@@ -3,8 +3,8 @@
 	description="Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터의 복제를 자동화하는 방법에 대해 알아봅니다."
 	services="site-recovery"
 	documentationCenter=""
-	authors="csilauraa"
-	manager="jwhit"
+	authors="bsiva"
+	manager="abhiag"
 	editor="tysonn"/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="lauraa"/>
+	ms.date="07/12/2016"
+	ms.author="bsiva"/>
 
 # Powershell - 클래식을 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 
 > [AZURE.SELECTOR]
 - [Azure 포털](site-recovery-vmm-to-azure.md)
-- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
 
@@ -46,7 +46,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 ### Azure 필수 조건
 
-- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 - 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md).
 - 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#virtual-machines)을 준수하는지 확인해야 합니다.
 
@@ -60,7 +60,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 ### Hyper-V 필수 조건
 
 - 호스트 Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.
-- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 이렇게 하려면 서버 관리자 > 장애 조치(Failover) 클러스터 관리자에서 클러스터에 연결하여 **역할 구성**을 클릭하고 고가용성 마법사의 **역할 선택** 화면에서 **Hyper-V 복제본 브로커**를 선택합니다. 
+- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 이렇게 하려면 서버 관리자 > 장애 조치(Failover) 클러스터 관리자에서 클러스터에 연결하여 **역할 구성**을 클릭하고 고가용성 마법사의 **역할 선택** 화면에서 **Hyper-V 복제본 브로커**를 선택합니다.
 - 보호를 관리할 Hyper-V 호스트 서버 또는 클러스터가 모두 VMM 클라우드에 포함되어야 합니다.
 
 ### 네트워크 매핑 필수 조건
@@ -449,4 +449,4 @@ marsagentinstaller.exe /q /nu
 
 Azure Site Recovery PowerShell cmdlet에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx). </a>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

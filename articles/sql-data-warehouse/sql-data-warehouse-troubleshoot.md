@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 문제 해결
@@ -50,6 +50,7 @@
 
 | 문제 | 해결 방법 |
 | :----------------------------------| :---------------------------------------------- |
+| Msg 40847: 서버가 허용되는 데이터베이스 처리량 단위 할당량인 45000을 초과하므로 작업을 수행할 수 없습니다. | 만들려는 데이터베이스의 [DWU][]를 줄이거나 또는 [할당량 증가를 요청][]합니다.|
 | 공간 사용률 조사 | 시스템의 공간 사용률을 이해하려면 [테이블 크기][]를 참조하세요.|
 | 테이블 관리 도움말 | 테이블 관리에 대한 도움이 필요한 경우 [테이블 개요][Overview]를 참조하세요. 이 문서에는 [테이블 데이터 형식][Data types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition] 및 [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]과 같이 좀 더 자세한 항목으로 연결되는 링크가 포함되어 있습니다.|
 
@@ -71,6 +72,7 @@
 | MERGE 문이 지원되지 않음 | [MERGE 해결 방법][]을 참조하세요.|
 | 저장 프로시저 제한 사항 | 저장 프로시저의 몇 가지 제한을 이해하려면 [저장 프로시저 제한 사항][]을 참조하세요.|
 | UDF가 SELECT 문을 지원하지 않음 | 이 문제가 UDF의 현재 제한 사항입니다. 지원되는 구문에 대해서는 [CREATE FUNCTION][]을 참조하세요. |
+'<-LocComment: 페이지 찾을 수 없음 "저장 프로시저 제한 사항"이 끊어졌습니다. 문서 참조 내의 링크를 수정하려 시도했습니다 -->'
 
 ## 다음 단계
 
@@ -91,6 +93,8 @@
 [보안 개요]: ./sql-data-warehouse-overview-manage-security.md
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [SQL 데이터 웨어하우스 크기를 조정]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[할당량 증가를 요청]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [쿼리 모니터링 방법 알아보기]: ./sql-data-warehouse-manage-monitor.md
 [프로비전 지침]: ./sql-data-warehouse-get-started-provision.md
 [클라이언트 IP에 대한 서버 방화벽 액세스 구성]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
@@ -113,7 +117,7 @@
 [UPDATE 해결]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE 해결]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE 해결 방법]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[저장 프로시저 제한 사항]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[저장 프로시저 제한 사항]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Azure SQL 데이터 웨어하우스에 대한 인증]: ./sql-data-warehouse-authentication.md
 [PolyBase UTF-8 요구 사항 해결]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

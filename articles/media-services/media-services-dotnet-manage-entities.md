@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -28,16 +28,16 @@
 
 이 항목에서는 다음 미디어 서비스 관리 작업을 수행하는 방법을 보여 줍니다.
 
-- 자산 참조 가져오기 
-- 작업 참조 가져오기 
-- 모든 자산 나열 
-- 작업 및 자산 나열 
-- 모든 액세스 정책 나열 
+- 자산 참조 가져오기
+- 작업 참조 가져오기
+- 모든 자산 나열
+- 작업 및 자산 나열
+- 모든 액세스 정책 나열
 - 모든 로케이터 나열
 - 대용량 엔터티 컬렉션 열거
-- 자산 삭제 
-- 작업 삭제 
-- 액세스 정책 삭제 
+- 자산 삭제
+- 작업 삭제
+- 액세스 정책 삭제
 
 ##필수 조건 
 
@@ -381,4 +381,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Domo의 Azure AD 통합을 구성하려면 갤러리의 Domo를 관리되는 Saa
 
 **갤러리에서 Domo를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -100,19 +100,44 @@ Domo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Domo 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
+Domo 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램의 **"특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
+![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png)
 
 **Domo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **Domo** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+
+1. Azure 클래식 포털의 **Domo** 응용 프로그램 통합 페이지에 있는 상단 메뉴에서 **특성**을 클릭합니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_general_80.png)
+
+
+1. **SAML 토큰 특성** 대화 상자에서 아래 표의 각 행에 대해 다음 단계를 수행합니다.
+
+	| 특성 이름 | 특성 값 |
+	| --- | --- |    
+	| name | user.displayname |
+	| email | user.mail |
+
+	a. **사용자 특성 추가**를 클릭하여 **사용자 특성 추가** 대화 상자를 엽니다.
+
+	![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_general_81.png)
+
+	b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+
+    c. **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
+
+    d. **완료**를 클릭합니다.
+
+2. Azure 클래식 포털의 **Domo** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
 	![Single Sign-On 구성][6]
 
-2. **Domo에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+3. **Domo에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png)
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+4. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png)
 
@@ -121,7 +146,7 @@ Domo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     b. **다음**을 클릭합니다.
 
-4. **Domo에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
+5. **Domo에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-domo-tutorial/tutorial_domo_05.png)
 
@@ -130,14 +155,14 @@ Domo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 [support@domo.com](mailto: support@domo.com))으로 Domo 지원 팀에 문의합니다. 이때 다운로드한 인증서 파일을 첨부하고 **발급자 URL**, **SAML SSO URL** 및 **로그아웃 URL**을 제공합니다.
+6. 응용 프로그램에 대해 구성된 SSO를 가져오려면 [support@domo.com](mailto: support@domo.com)으로 Domo 지원 팀에 문의합니다. 이때 다운로드한 인증서 파일을 첨부하고 **발급자 URL**, **SAML SSO URL** 및 **로그아웃 URL**을 제공합니다.
 
 
-6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+7. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
 	![Azure AD Single Sign-On][10]
 
-7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+8. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
 
 	![Azure AD Single Sign-On][11]
 
@@ -269,4 +294,4 @@ Domo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-domo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-domo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

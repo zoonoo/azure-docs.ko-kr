@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
@@ -82,7 +82,7 @@ Azure VM의 디스크 유형에는 크게 세 가지가 있습니다.
 
 D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 드라이브는 SSD를 기반으로 합니다. 작업에 TempDB가 과도하게 사용될 경우(예: 임시 개체 또는 복잡한 조인) **D** 드라이브에 TempDB를 저장하면 TempDB 처리량은 더 높아지고 TempDB 대기 시간은 줄어들 수 있습니다.
 
-프리미엄 저장소를 지원하는 VM(D 시리즈, Dv2 시리즈 및 G 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 저장소를 지원하는 디스크에 TempDB 및/또는 버퍼 풀 확장을 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 이러한 컴퓨터 크기에서 역시 SSD 기반인 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 실현할 수 있습니다.
+프리미엄 저장소를 지원하는 VM(D 시리즈, Dv2 시리즈 및 G 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 저장소를 지원하는 디스크에 TempDB 및/또는 버퍼 풀 확장을 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 이러한 컴퓨터 크기에서 SSD 기반이기도 한, 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 실현할 수 있습니다.
 
 ### 데이터 디스크
 
@@ -148,4 +148,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

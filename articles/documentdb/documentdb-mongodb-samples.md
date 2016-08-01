@@ -20,7 +20,7 @@
 # MongoDB에 대한 DocumentDB 프로토콜 지원 예제
 이러한 예제를 사용하려면 다음을 수행해야 합니다.
 
-- MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정 [만들기](documentdb-create-mongodb-account.md)
+- MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정 [만들기](documentdb-create-mongodb-account.md)
 - MongoDB [연결 문자열](documentdb-connect-mongodb-account.md) 정보에 대한 프로토콜 지원을 사용하는 DocumentDB 계정 검색
 
 ## 샘플 ASP.NET MVC 작업 목록 응용 프로그램 시작
@@ -175,4 +175,4 @@
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

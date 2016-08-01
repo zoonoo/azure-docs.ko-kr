@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.workload="sqldb-bcdr"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # TRANSACT-SQL로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
@@ -163,6 +163,23 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 
 9. **실행**을 클릭하여 쿼리를 실행합니다.
 
+## 읽을 수 없는 보조를 읽을 수 있는 데이터베이스로 업그레이드
+
+2017년 4월, 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조로 자동으로 업그레이드됩니다. 지금 읽을 수 없는 보조 데이터베이스를 사용 중이고 읽을 수 있는 보조로 업그레이드 하려는 경우, 각 보조에 대해 다음 간단한 단계를 사용할 수 있습니다.
+
+> [AZURE.IMPORTANT] 읽을 수 없는 보조 데이터베이스를 읽을 수 있는 것으로 바로 업그레이드하는 셀프 서비스 메서드는 없습니다. 전용 보조를 삭제하면 주 데이터베이스는 새 보조 데이터베이스가 완전히 동기화될 때까지 보호되지 않은 상태로 유지됩니다. 프로그램의 SLA에서 주 데이터베이스가 항상 보호되어야 한다면 위의 업그레이드 단계를 적용하기 전에 다른 서버에 병렬 보조 데이터베이스를 만들어야 합니다. 주 데이터베이스는 각기 보조 데이터베이스를 4개까지 가질 수 있습니다.
+
+
+1. 먼저 *보조* 서버에 연결하고 읽을 수 없는 보조 데이터베이스를 삭제합니다.
+        
+        DROP DATABASE <MyNonReadableSecondaryDB>;
+
+2. 이제 *주* 서버에 연결하고 읽을 수 있는 새 보조 데이터베이스를 추가합니다.
+
+        ALTER DATABASE <MyDB>
+            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
+
+
 
 
 ## 다음 단계
@@ -170,4 +187,4 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 - 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 - 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

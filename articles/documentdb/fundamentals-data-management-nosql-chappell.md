@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure의 NoSQL 기술 이해 | Microsoft Azure" 
-	description="Azure NoSQL은 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다. DocumentDB와 테이블 저장소와 HBase와 HDInsight를 사용하는 경우 SQL 데이터베이스" 
+	description="Azure NoSQL은 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다. DocumentDB와 테이블 저장소와 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스" 
 	editor="cgronlun" 
 	manager="jhubbard" 
 	services="documentdb, storage, hdinsight" 
@@ -29,10 +29,10 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
  - 응용 프로그램에서 읽고 쓰는 운영 데이터와 BI(비즈니스 인텔리전스)를 제공하는 데 사용되는 관계형 데이터를 구분하여 요구 사항에 적합한 기술을 결정하도록 지원
  - 관계형 기술에 대한 간략한 검토
  - 각 Azure NoSQL 기술(DocumentDB, 테이블 저장소, HBase 및 HDInsight) 소개
- - NoSQL 기술과 Azure SQL 데이터베이스 비교 
- - DocumentDB를 사용 하는 경우 테이블 저장소를 사용 하는 경우 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스
+ - NoSQL 기술과 Azure SQL 데이터베이스 비교
+ - Azure DocumentDB와 테이블 저장소와 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

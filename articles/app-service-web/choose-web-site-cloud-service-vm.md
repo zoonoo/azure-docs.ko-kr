@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스, 가상 컴퓨터, 서비스 패브릭 및 클라우드 서비스 비교
@@ -26,9 +26,42 @@ Azure는 [Azure 앱 서비스][], [가상 컴퓨터][], [서비스 패브릭][] 
 
 서비스 패브릭은 새 앱을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 앱을 다시 작성하는 경우에 적합합니다. 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 대규모로 확장할 수 있습니다. 상태 저장 서비스를 통해 일관되고 안정적으로 앱 상태를 손쉽게 저장하고 서비스 패브릭은 서비스 분할, 크기 조정 및 가용성을 자동으로 관리합니다. 서비스 패브릭은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다. 앱 서비스에 비해 서비스 패브릭은 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스를 지원합니다. 서버로 원격으로 연결하거나 서버 시작 작업을 구성할 수 있습니다. 클라우드 서비스는 제어 수준과 사용 편이성에서 서비스 패브릭과 비슷하지만 이제는 레거시 서비스이므로 서비스 패브릭을 새로운 개발에 사용하는 것이 좋습니다.
 
-앱 서비스 또는 서비스 패브릭에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure 앱 서비스와 서비스 패브릭에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다.
+앱 서비스 또는 서비스 패브릭에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure 앱 서비스와 서비스 패브릭에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다. Azure 가상 컴퓨터는 IaaS(Infrastructure-as-a-Service)이지만 앱 서비스 및 서비스 패브릭은 PaaS(Platform-as-a-Service)입니다.
 
-##<a name="scenarios"></a>시나리오 및 권장 사항
+## <a name="features"></a>기능 비교
+
+다음 표에서는 최상의 옵션 선택에 도움이 되도록 앱 서비스, 클라우드 서비스, 가상 컴퓨터 및 서비스 패브릭의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure 서비스 수준 계약](/support/legal/sla/)을 참조하세요.
+
+기능|앱 서비스(웹앱)|클라우드 서비스(웹 역할)|가상 컴퓨터|서비스 패브릭|참고 사항
+---|---|---|---|---|---
+빠른 배포|X|||X|응용 프로그램이나 응용 프로그램 업데이트를 클라우드 서비스로 배포하거나 VM을 만들려면 최소한 몇 분이 걸리지만 응용 프로그램을 웹앱으로 배포하는 데는 몇 초밖에 걸리지 않습니다.
+다시 배포하지 않고 대규모 컴퓨터로 확장|X|||X|
+웹 서버 인스턴스는 콘텐츠와 구성을 공유하므로 확장 시 다시 배포하거나 다시 구성하지 않아도 됨|X|||X|
+여러 배포 환경(프로덕션 및 스테이징)|X|X||X|서비스 패브릭을 사용하면 앱에 대해 여러 환경을 유지하거나 여러 버전의 앱을 함께 배포할 수 있습니다.
+자동 OS 업데이트 관리|X|X|||자동 OS 업데이트는 향후 서비스 패브릭 릴리스에서 제공될 예정입니다.
+원활한 플랫폼 전환(32비트와 64비트 간을 쉽게 이동)|X|X|||
+GIT, FTP를 사용하여 코드 배포|X||X||
+웹 배포를 사용하여 코드 배포|X||X||클라우드 서비스에서는 웹 배포를 사용하여 개별 역할 인스턴스로 업데이트를 배포할 수 있습니다. 그러나 역할의 초기 배포에는 웹 배포를 사용할 수 없으며 업데이트에 웹 배포를 사용하는 경우에는 각 역할 인스턴스로 업데이트를 개별 배포해야 합니다. 프로덕션 환경의 클라우드 서비스 SLA를 충족하려면 여러 인스턴스가 필요합니다.
+WebMatrix 지원|X||X||
+서비스 버스, 저장소, SQL 데이터베이스 등의 서비스에 대한 액세스|X|X|X|X|
+다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트|X|X|X|X|
+다중 계층 아키텍처의 중간 계층 호스트|X|X|X|X|앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.
+통합된 MySQL-as-a-Service 지원|X|X|X||클라우드 서비스는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 Azure 포털 워크플로에는 포함되지 않습니다.
+ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원|X|X|X|X|서비스 패브릭에서는 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md)를 사용하여 웹 프런트 엔드를 만들거나 모든 유형의 응용 프로그램(Node.js, Java 등)을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 배포할 수 있습니다.
+다시 배포하지 않고 여러 인스턴스로 규모 확장|X|X|X|X|가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다.
+SSL 지원|X|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
+Visual Studio 통합|X|X|X|X|
+원격 디버깅|X|X|X||
+TFS를 사용하여 코드 배포|X|X|X|X|
+[Azure 가상 네트워크](/services/virtual-network/)를 사용한 네트워크 격리|X|X|X|X|[Azure 웹 사이트 가상 네트워크 통합](/blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요.
+[Azure 트래픽 관리자](/services/traffic-manager/) 지원|X|X|X|X|
+통합된 끝점 모니터링|X|X|X||
+서버에 대한 원격 데스크톱 액세스||X|X|X|
+사용자 지정 MSI 설치||X|X|X|서비스 패브릭을 사용하면 모든 실행 파일을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 호스트하거나 VM에 모든 응용 프로그램을 설치할 수 있습니다.
+시작 작업 정의/실행 기능||X|X|X|
+ETW 이벤트 수신 가능||X|X|X|
+
+## <a name="scenarios"></a>시나리오 및 권장 사항
 
 아래에는 몇 가지 일반적인 응용 프로그램 시나리오와 권장 사항 및 각 시나리오에 가장 적합한 Azure 웹 호스팅 옵션이 나와 있습니다.
 
@@ -130,43 +163,8 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 - 단일 인스턴스로 가용성에 대한 SLA를 달성하거나 여러 전용 컴퓨터로 규모를 확장할 수 있습니다.
 - 게시된 사이트를 사용하여 모바일 클라이언트를 비롯한 모든 HTTP 클라이언트에 REST API를 제공할 수 있습니다.
 
-##<a name="features"></a>기능 비교
-
-다음 표에서는 최상의 옵션 선택에 도움이 되도록 앱 서비스, 클라우드 서비스, 가상 컴퓨터 및 서비스 패브릭의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure 서비스 수준 계약](/support/legal/sla/)을 참조하세요.
-
-기능|앱 서비스(웹앱)|클라우드 서비스(웹 역할)|가상 컴퓨터|서비스 패브릭|참고 사항
----|---|---|---|---|---
-빠른 배포|X|||X|응용 프로그램이나 응용 프로그램 업데이트를 클라우드 서비스로 배포하거나 VM을 만들려면 최소한 몇 분이 걸리지만 응용 프로그램을 웹앱으로 배포하는 데는 몇 초밖에 걸리지 않습니다.
-다시 배포하지 않고 대규모 컴퓨터로 확장|X|||X|
-웹 서버 인스턴스는 콘텐츠와 구성을 공유하므로 확장 시 다시 배포하거나 다시 구성하지 않아도 됨|X|||X|
-여러 배포 환경(프로덕션 및 스테이징)|X|X||X|서비스 패브릭을 사용하면 앱에 대해 여러 환경을 유지하거나 여러 버전의 앱을 함께 배포할 수 있습니다.
-자동 OS 업데이트 관리|X|X|||자동 OS 업데이트는 향후 서비스 패브릭 릴리스에서 제공될 예정입니다.
-원활한 플랫폼 전환(32비트와 64비트 간을 쉽게 이동)|X|X|||
-GIT, FTP를 사용하여 코드 배포|X||X||
-웹 배포를 사용하여 코드 배포|X||X||클라우드 서비스에서는 웹 배포를 사용하여 개별 역할 인스턴스로 업데이트를 배포할 수 있습니다. 그러나 역할의 초기 배포에는 웹 배포를 사용할 수 없으며 업데이트에 웹 배포를 사용하는 경우에는 각 역할 인스턴스로 업데이트를 개별 배포해야 합니다. 프로덕션 환경의 클라우드 서비스 SLA를 충족하려면 여러 인스턴스가 필요합니다.
-WebMatrix 지원|X||X||
-서비스 버스, 저장소, SQL 데이터베이스 등의 서비스에 대한 액세스|X|X|X|X|
-다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트|X|X|X|X|
-다중 계층 아키텍처의 중간 계층 호스트|X|X|X|X|앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.
-통합된 MySQL-as-a-Service 지원|X|X|X||클라우드 서비스는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 Azure 포털 워크플로에는 포함되지 않습니다.
-ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원|X|X|X|X|서비스 패브릭에서는 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md)를 사용하여 웹 프런트 엔드를 만들거나 모든 유형의 응용 프로그램(Node.js, Java 등)을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 배포할 수 있습니다.
-다시 배포하지 않고 여러 인스턴스로 규모 확장|X|X|X|X|가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다.
-SSL 지원|X|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
-Visual Studio 통합|X|X|X|X|
-원격 디버깅|X|X|X||
-TFS를 사용하여 코드 배포|X|X|X|X|
-[Azure 가상 네트워크](/services/virtual-network/)를 사용한 네트워크 격리|X|X|X|X|[Azure 웹 사이트 가상 네트워크 통합](/blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요.
-[Azure 트래픽 관리자](/services/traffic-manager/) 지원|X|X|X|X|
-통합된 끝점 모니터링|X|X|X||
-서버에 대한 원격 데스크톱 액세스||X|X|X|
-사용자 지정 MSI 설치||X|X|X|서비스 패브릭을 사용하면 모든 실행 파일을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 호스트하거나 VM에 모든 응용 프로그램을 설치할 수 있습니다.
-시작 작업 정의/실행 기능||X|X|X|
-ETW 이벤트 수신 가능||X|X|X|
-
-
 > [AZURE.NOTE]
 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 Azure 앱 서비스에 단기 시작 앱을 무료로 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 
 ## <a id="nextsteps"></a> 다음 단계
 
@@ -179,22 +177,27 @@ ETW 이벤트 수신 가능||X|X|X|
 * [Azure 가상 컴퓨터](/documentation/services/virtual-machines/)
 * [서비스 패브릭](/documentation/services/service-fabric)
 
-  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Azure 앱 서비스]: /services/app-service/
-  [클라우드 서비스]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [서비스 패브릭]: /services/service-fabric
-  [ClearDB]: http://www.cleardb.com/
-  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/gallery/store/
-  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/develop/net/
-  [nodejs]: http://www.windowsazure.com/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/develop/php/
-  [Python]: http://www.windowsazure.com/develop/python/
-  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-  [저장소]: http://www.windowsazure.com/documentation/services/storage/
+<!-- URL List -->
 
-<!---HONumber=AcomDC_0608_2016-->
+[Azure 앱 서비스]: /services/app-service/
+[클라우드 서비스]: http://go.microsoft.com/fwlink/?LinkId=306052
+[가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
+[서비스 패브릭]: /services/service-fabric
+[ClearDB]: http://www.cleardb.com/
+[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+[azurestore]: http://www.windowsazure.com/gallery/store/
+[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+[dotnet]: http://www.windowsazure.com/develop/net/
+[nodejs]: http://www.windowsazure.com/develop/nodejs/
+[PHP]: http://www.windowsazure.com/develop/php/
+[Python]: http://www.windowsazure.com/develop/python/
+[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+[저장소]: http://www.windowsazure.com/documentation/services/storage/
+
+<!-- IMG List -->
+
+[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+
+<!---HONumber=AcomDC_0720_2016-->

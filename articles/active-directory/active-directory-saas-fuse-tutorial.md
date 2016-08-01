@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Fuse의 Azure AD 통합을 구성하려면 갤러리의 Fuse를 관리되는 Saa
 
 **갤러리에서 Fuse를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -137,7 +137,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     b. **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 복사합니다.
 
    
-5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 ****support@fusion-universal.com**을 통해 Fuse 지원 팀에 문의한 후 다운로드한 인증서 파일을 연결하고 **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 포함합니다.
+5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 **support@fusion-universal.com**을 통해 Fuse 지원 팀에 문의한 후 다운로드한 인증서 파일을 연결하고 **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 포함합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -278,4 +278,4 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

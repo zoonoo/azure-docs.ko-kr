@@ -18,7 +18,7 @@
 
 # Azure 포털을 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만드는 방법
 
-MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만들려면 다음을 수행해야 합니다.
+MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정을 만들려면 다음을 수행해야 합니다.
 
 - Azure 계정이 있어야 합니다. 없는 경우 [무료 Azure 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
@@ -78,4 +78,4 @@ MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만�
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

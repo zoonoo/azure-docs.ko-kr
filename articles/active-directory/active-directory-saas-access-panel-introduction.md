@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -130,7 +130,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 1. Azure 포털이나 액세스 패널의 오른쪽 위에 있는 사용자 메뉴를 클릭하고 "**Sign Out**"을 선택합니다. 이로써 Azure AD에서 로그아웃합니다.
 
-2. **http://myapps.microsoft.com** 에서 액세스 패널로 이동합니다.
+2. **http://myapps.microsoft.com**에서 액세스 패널로 이동합니다.
 
 3. 로그인 페이지에서 테스트하고자 하는 디렉터리의 계정에 대한 사용자 이름 및 암호를 입력합니다.
  
@@ -146,13 +146,13 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 ### 페더레이션 기반의 SSO로 구성된 Microsoft 및 타사 응용 프로그램
 
-관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Azure AD Single Sign-On*”으로 설정된 single sign-on 모드로 추가한 응용 프로그램입니다. 응용 프로그램에 대한 액세스가 관리자에 의해 명시적으로 부여된 경우 사용자는 이 응용 프로그램들만 볼 수 있습니다.
+관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Azure AD Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. 응용 프로그램에 대한 액세스가 관리자에 의해 명시적으로 부여된 경우 사용자는 이 응용 프로그램들만 볼 수 있습니다.
 
 사용자가 이 응용 프로그램에 대한 응용 프로그램 타일을 클릭한 경우 해당 응용 프로그램으로 리디렉션되고 자동 로그인됩니다.
 
 ### ID 프로비전 없는 암호 기반 SSO
 
-관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 single sign-on 모드로 추가한 응용 프로그램입니다. <br> 디렉터리의 모든 사용자가 이 모드에 구성된 모든 응용 프로그램을 볼 수 있습니다.
+관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. <br> 디렉터리의 모든 사용자가 이 모드에 구성된 모든 응용 프로그램을 볼 수 있습니다.
 
 처음에 사용자가 이 응용 프로그램 중의 하나인 응용 프로그램 타일을 클릭하면 Internet Explorer 또는 Chrome에 대한 암호 SSO 플러그인 설치가 요청되며 웹 브라우저를 재시작해야 할 수도 있습니다. 액세스 패널로 돌아와 응용 프로그램 타일을 다시 클릭하면 응용 프로그램에 대한 사용자 이름 및 암호 요청 메시지가 보입니다. 사용자 이름 및 암호를 입력하면 이 자격 증명은 Azure AD에 보안 저장되며 Azure AD에 있는 계정에 연결되고, 액세스 패널은 이 자격 증명을 사용하여 응용 프로그램에 사용자 로그인을 자동화합니다.
 
@@ -162,7 +162,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 ### ID 프로비전을 사용한 암호 기반 SSO
 
-관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 single sign-on 모드 및 ID 프로비전으로 추가한 응용 프로그램입니다.
+관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드 및 ID 프로비전으로 추가한 응용 프로그램입니다.
 
 처음에 사용자가 이 응용 프로그램 중의 하나인 응용 프로그램 타일을 클릭하면 Internet Explorer 또는 Chrome에 대한 암호 SSO 플러그인 설치가 요청되며 웹 브라우저를 재시작해야 할 수도 있습니다. 액세스 패널로 돌아와 응용 프로그램 타일을 다시 클릭하면 자동으로 응용 프로그램에 로그인됩니다.
 
@@ -185,4 +185,4 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

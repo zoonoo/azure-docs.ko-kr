@@ -1,13 +1,10 @@
 ### 필수 조건
 
-- [SQL Azure](https://www.microsoft.com/sql) 계정
+- Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+- [Azure SQL 데이터베이스](../articles/sql-database/sql-database-get-started.md)는 서버 이름, 데이터베이스 이름 및 사용자 이름/암호를 비롯한 해당 연결 정보를 포함합니다. 이 정보는 SQL 데이터베이스 연결 문자열에 포함됩니다. Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your\_username};Password={your\_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
+> [AZURE.NOTE] Azure SQL 데이터베이스를 만들 때 SQL에 포함된 샘플 데이터베이스도 만들 수 있습니다.
 
-논리 앱에서 SQL Azure 계정을 사용하려면 먼저 SQL Azure 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
+[Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database)에 대해 자세히 알아봅니다.
 
-SQL Azure 계정에 연결하도록 논리 앱에 권한을 부여하는 단계는 다음과 같습니다.
-1. 논리 앱 디자이너에서 SQL Azure에 대한 연결을 만들려면 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 *SQL Azure*를 입력합니다. 사용할 트리거 또는 동작을 선택합니다. ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sql/sql-1.png)
-2. 이전에 SQL Azure에 대한 연결을 만들지 않은 경우 SQL Azure 자격 증명을 제공하라는 메시지가 표시됩니다. 이러한 자격 증명을 사용하여 SQL Azure 계정의 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. SQL 연결 문자열 형식은 다음과 같습니다. **Server=tcp:[serverName].database.windows.net;Database=myDataBase; User ID=[LoginForDb]@[serverName];Password=myPassword;Trusted\_Connection=False; Encrypt=True;** ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sql/sql-2.png)
-3. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다. ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sql/sql-3.png)
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

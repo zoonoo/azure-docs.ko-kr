@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기
@@ -23,13 +23,13 @@
 
 이 문서의 단계를 수행하려면 약 20분이 걸립니다.
 
-> [AZURE.IMPORTANT] VM을 가용성 집합의 일부가 되도록 하려면 VM을 만들 때 해당 집합에 추가해야 합니다. 현재는 만든 이후에 가용성 집합에 VM을 추가하는 방법이 없습니다.
+> [AZURE.IMPORTANT] VM을 가용성 집합의 일부가 되도록 하려면 VM을 만들 때 해당 집합에 추가해야 합니다. 현재는 VM을 만든 이후에 가용성 집합에 추가하는 방법이 없습니다.
 
 ## 1단계: 템플릿 파일 만들기
 
-[Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 있는 정보를 사용하여 고유의 템플릿을 만들 수 있습니다. [Azure Quiskstarts 템플릿](https://azure.microsoft.com/documentation/templates/)으로 만든 고유의 템플릿을 배포할 수도 있습니다. 이 문서에 사용된 예는 [미국 서부에서 간단한 Windows VM 배포](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/)에 설명된 템플릿과 유사합니다.
+[Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 있는 정보를 사용하여 고유의 템플릿을 만들 수 있습니다. [Azure Quiskstarts 템플릿](https://azure.microsoft.com/documentation/templates/)으로 만든 고유의 템플릿을 배포할 수도 있습니다.
 
-1. 원하는 텍스트 편집기를 열고 JSON 정보를 *VirtualMachineTemplate.json*이라는 새 파일에 복사합니다.
+1. 원하는 텍스트 편집기를 열고 이 JSON 정보를 *VirtualMachineTemplate.json*이라는 새 파일에 복사합니다.
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -203,7 +203,7 @@
 
 템플릿에 정의된 리소스 매개 변수의 값을 지정하려면 값이 포함된 매개 변수 파일을 만들고 템플릿과 함께 리소스 관리자에 제출합니다.
 
-1. 텍스트 편집기에서 JSON 정보를 *Parameters.json*이라는 새 파일에 복사합니다.
+1. 텍스트 편집기에서 이 JSON 정보를 *Parameters.json*이라는 새 파일에 복사합니다.
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
@@ -216,7 +216,7 @@
           }
         }
 
-4. 매개 변수 파일을 저장합니다.
+2. 매개 변수 파일을 저장합니다.
 
 ## 3단계: Azure PowerShell 설치
 
@@ -228,7 +228,7 @@
 
 1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
 2. **$locName** 값을 목록의 위치(예: **미국 중부**)로 바꿉니다. 변수를 만듭니다.
 
@@ -247,15 +247,15 @@
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### 7단계: 템플릿 및 매개 변수를 사용하여 리소스 만들기
+### 5단계: 템플릿 및 매개 변수를 사용하여 리소스 만들기
 
-1. **$deployName** 값을 배포 이름으로 바꿉니다. **$templatePath** 값을 템플릿 파일의 경로 및 이름으로 바꿉니다. **$parameterFile** 값을 매개 변수 파일의 경로 및 이름으로 바꿉니다. 변수를 만듭니다. 
+1. **$deployName** 값을 배포 이름으로 바꿉니다. **$templatePath** 값을 템플릿 파일의 경로 및 이름으로 바꿉니다. **$parameterFile** 값을 매개 변수 파일의 경로 및 이름으로 바꿉니다. 변수를 만듭니다.
 
         $deployName="deployment name"
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. 템플릿을 배포합니다.
+2. 템플릿을 배포합니다.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
@@ -284,4 +284,4 @@
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

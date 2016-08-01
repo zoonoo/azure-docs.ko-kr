@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # 테이블 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET)
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## 개요
-이 문서에서는 Visual Studio의 **연결된 서비스 추가** 대화 상자를 사용하여 Azure 저장소 계정을 ASP.NET 프로젝트에서 생성하거나 참조한 후 Azure 테이블 저장소를 Visual Studio에서 사용하는 방법을 설명합니다. 이 문서에서는 테이블 만들기 및 삭제, 테이블 엔터티 작업 등 Azure 테이블에서 일반적인 작업을 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 [.Net용 Microsoft Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 사용합니다. Azure 테이블 저장소 사용에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)을 참조하세요.
+이 문서에서는 Visual Studio의 **연결된 서비스 추가** 대화 상자를 사용하여 Azure 저장소 계정을 ASP.NET 프로젝트에서 생성하거나 참조한 후 Azure 테이블 저장소를 Visual Studio에서 사용하는 방법을 설명합니다. 이 문서에서는 테이블 만들기 및 삭제, 테이블 엔터티 작업 등 Azure 테이블에서 일반적인 작업을 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)을 사용합니다. Azure 테이블 저장소를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
 Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
@@ -182,4 +184,4 @@ Azure 테이블을 만들려면 이전 코드에 **CreateIfNotExistsAsync()**에
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

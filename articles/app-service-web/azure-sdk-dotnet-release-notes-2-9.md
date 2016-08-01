@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.9 릴리스 정보
@@ -33,13 +33,13 @@
 
 이 업데이트는 다음 새로운 기능을 포함합니다.
 
-- 앱 서비스 프로비전 대화 상자의 "서비스" 탭에서 보조 앱 서비스에 대한 지원 
+- 앱 서비스 프로비전 대화 상자의 "서비스" 탭에서 보조 앱 서비스에 대한 지원
 
 ##Visual Studio 2015 업데이트 2용 Azure Data Lake 도구
  
 이 업데이트는 다음을 포함합니다.
 
-- Visual Studio용 **Azure Data Lake 도구**가 Azure SDK for .NET 릴리스에 병합됩니다. 이 도구는 Azure SDK를 설치할 때 자동으로 설치됩니다. 
+- Visual Studio용 **Azure Data Lake 도구**가 Azure SDK for .NET 릴리스에 병합됩니다. 이 도구는 Azure SDK를 설치할 때 자동으로 설치됩니다.
 
 	이 도구는 자주 업데이트되며 업데이트를 받으려면 [여기](http://aka.ms/datalaketool)로 이동하세요.
 
@@ -59,4 +59,4 @@ Visual Studio용 **HDInsight 도구**에서 Tez 그래프 표시 및 기타 언�
 
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

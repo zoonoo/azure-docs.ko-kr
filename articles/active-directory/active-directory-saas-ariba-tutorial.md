@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Ariba의 Azure AD 통합을 구성하려면 갤러리의 Ariba를 관리되는 S
 
 **갤러리에서 Ariba를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -122,7 +122,7 @@ Ariba에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 	![Single Sign-On 구성](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_04.png)
 
 
-    a. 로그인 URL 텍스트 상자에 **"https://<companyname>.sourcing.ariba.com"** 또는 **"https://<CompanyName>.supplier.ariba.com"**의 패턴을 사용하여 사용자가 Ariba 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+    a. 로그인 URL 텍스트 상자에 **“https://<회사 이름>.sourcing.ariba.com"** 또는 **"https://<회사 이름>.supplier.ariba.com”**의 패턴을 사용하여 사용자가 Ariba 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
     b. **다음**을 클릭합니다.
 
@@ -278,4 +278,4 @@ Ariba에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

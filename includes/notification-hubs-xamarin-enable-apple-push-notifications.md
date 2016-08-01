@@ -35,9 +35,9 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 2. 새 앱에 다음과 같은 세 개의 필드를 업데이트한 다음 **Continue**를 클릭합니다.
 
 	* **Name**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
-	
-	* **Bundle Identifier**: **Explicit App ID** 섹션에서 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **Bundle Identifier**를 입력합니다. 또한 앱용 XCode 또는 Xamarin 프로젝트에서 사용된 것과 일치해야 합니다.
-	 
+
+	* **Bundle Identifier**: **Explicit App ID** 섹션에서 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **Bundle Identifier**를 입력합니다. 또한 앱용 XCode, Xamarin 또는 Cordova 프로젝트에서 사용된 것과 일치해야 합니다.
+
 	* **Push Notifications**: **App Services** 섹션에서 **Push Notifications** 옵션을 선택합니다.
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -54,7 +54,7 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
    	"Add iOS Certificate" 도우미가 표시됩니다.
 
-    > [AZURE.NOTE]이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
+    > [AZURE.NOTE] 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
 
 7. **Choose File**을 클릭하고 푸시 인증서에 대한 CSR을 저장한 위치를 찾습니다. 그런 다음 **Generate**를 클릭합니다.
 
@@ -68,13 +68,13 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
+    > [AZURE.NOTE] 기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
 
 9. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다. 아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE]인증서의 이름은 다를 수 있지만 **Apple Development iOS Push Services:**가 앞에 옵니다.
+    > [AZURE.NOTE] 인증서의 이름은 다를 수 있지만 **Apple Development iOS Push Services:**가 앞에 옵니다.
 
 10. Keychain Access에서는 **Certificates** 범주에서 방금 만든 새 푸시 인증서를 마우스 오른쪽 단추로 클릭합니다. **Export**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **Save**을 클릭합니다.
 
@@ -110,4 +110,4 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0720_2016-->

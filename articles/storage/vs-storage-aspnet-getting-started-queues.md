@@ -18,6 +18,8 @@
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## 개요
 
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio에서 Azure 큐 저장소를 사용하는 방법을 설명합니다.
@@ -156,4 +158,4 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

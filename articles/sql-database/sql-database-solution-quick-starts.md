@@ -52,8 +52,12 @@ GitHub SQL Server 샘플 리포지토리의 [Saas에 대한 탄력적 풀 사용
 
 이 샘플은 사용자가 온라인 설문 조사를 만들 수 있도록 하는 설문 조사라는 다중 테넌트 웹 응용 프로그램입니다. 샘플은 등록, 인증, 권한 부여 및 앱 역할을 포함하는 다중 테넌트 응용 프로그램에서 사용자 ID를 관리할 때 몇 가지 주요 관심사를 보여 줍니다. 이 샘플을 실행하려면 [Tailspin 설문 조사 샘플 응용 프로그램을 실행하는 방법](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)을 참조하세요.
 
+## Contoso 클리닉 데모 응용 프로그램
+
+이 샘플에서는 Azure SQL DB (V12)의 보안 기능을 보여 줍니다. 이 샘플을 실행하려면 [Contoso 클리닉 데모 응용 프로그램](https://github.com/Microsoft/azure-sql-security-sample)을 참조합니다.
+
 ## 다음 단계
 
 [Azure SQL 데이터베이스 자습서 탐색](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

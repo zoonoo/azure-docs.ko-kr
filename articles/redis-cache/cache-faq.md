@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="07/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -21,8 +21,13 @@
 Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
 
 
+## 여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 
+질문이 여기에 나열되지 않으면 알려주세요. 답을 찾을 수 있도록 도와 드리겠습니다.
 
+-	FAQ의 끝에 있는 [Disqus 스레드](#comments)에 질문을 게시하면 Azure 캐시 팀 및 이 문서에 대한 다른 커뮤니티 구성원이 참여할 수 있습니다.
+-	[Azure 캐시 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
+-	[Azure 캐시 외부 피드백](mailto:azurecache@microsoft.com)에서 전자 메일을 보낼 수 있습니다.
 
 ## 계획 FAQ
 
@@ -198,10 +203,10 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 ## 프로덕션 FAQ
 
--	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+-	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-whko-KRing-common-redis-commands)
 -	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 -	[ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
--	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+-	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-whko-KRing-stackexchangeredis)
 
 
 <a name="cache-redis-commands"></a>
@@ -259,7 +264,7 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 이 설정을 구성하는 방법
 
--	ASP.NET에서 web.config의 `<processModel>` 구성 요소 아래에서 ["minIoThreads" 구성 설정][]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application\_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
+-	ASP.NET에서 web.config의 `<processModel>` 구성 요소에서 ["minIoThreads" 구성 설정][]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application\_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
 
 > **중요:** 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`을 사용합니다.
 
@@ -316,6 +321,8 @@ Redis Cache **설정** 블레이드의 **지원 + 문제 해결** 섹션에는 �
 
 시간 초과는 Redis와 통신하는 데 사용하는 클라이언트에서 발생합니다. 대부분의 경우 Redis 서버는 시간 초과되지 않습니다. Redis 서버에 명령이 전송될 때 명령은 큐에 배치되며 Redis 서버가 결국 명령을 선택하여 실행합니다. 그러나 이 프로세스 중에 클라이언트가 시간 초과될 수 있으며, 이 경우 호출 쪽에서 예외가 발생합니다. 시간 초과 문제 해결에 대한 자세한 내용은 [클라이언트 쪽 문제 해결](cache-how-to-troubleshoot.md#client-side-troubleshooting) 및 [StackExchange.Redis 시간 초과 예외](클라이언트 쪽 문제 해결)(cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions)를 참조하세요.
 
+'<-- Loc Comment: 끊어진 링크: [StackExchange.Redis 시간 제한 예외](클라이언트 쪽 문제 해결](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(클라이언트 쪽 문제 해결]"을 제거해야 합니다. -->'
+
 <a name="cache-disconnect"></a>
 ### 내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?
 
@@ -369,4 +376,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
