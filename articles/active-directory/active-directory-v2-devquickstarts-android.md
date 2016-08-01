@@ -148,12 +148,12 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-`oidc_scopes`의 `User.ReadBasic.All` 값을 사용하여 디렉터리에 있는 모든 사용자의 기본 프로필을 읽을 수 있습니다. [Microsoft Graph 권한 범위](https://graph.microsoft.io/docs/authorization/permission_scopes)에서 사용 가능한 모든 범위에 대해 알아볼 수 있습니다.
+`oidc_scopes`의 `User.Read` 값을 사용하여 로그인한 사용자의 기본 프로필을 읽을 수 있습니다. [Microsoft Graph 권한 범위](https://graph.microsoft.io/docs/authorization/permission_scopes)에서 사용 가능한 모든 범위에 대해 알아볼 수 있습니다.
 
 `openid` 또는 `offline_access`를 OpenID Connect의 범위로 구분해서 설명하는 내용을 보려면 [2\.0 프로토콜 - OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols-oauth-code.md)을 참조하세요.
 
@@ -196,4 +196,4 @@ OAuth2를 프로토콜로 사용하는 경우 이러한 끝점은 변경되어�
 
 [Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

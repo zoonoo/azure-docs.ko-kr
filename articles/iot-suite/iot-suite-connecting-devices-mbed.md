@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## mbed에서 C 샘플 솔루션 빌드 및 실행
+## C 샘플 솔루션 빌드 및 실행
 
 다음 지침은 [mbed 사용 가능 Freescale FRDM-K64F][lnk-mbed-home] 장치를 원격 모니터링 솔루션에 연결하기 위한 단계를 설명합니다.
 
-### 네트워크 및 데스크톱 컴퓨터에 장치 연결
+### 네트워크 및 데스크톱 컴퓨터에 mbed 장치 연결
 
 1. 이더넷 케이블을 사용하여 mbed 장치를 네트워크에 연결합니다. 이 단계는 샘플 응용 프로그램에서 인터넷에 액세스해야 하기 때문에 필요합니다.
 
@@ -36,7 +36,7 @@
 
 ### mbed 프로젝트 만들기 및 샘플 코드 가져오기
 
-1. 웹 브라우저에서 mbed.org [개발자 사이트](https://developer.mbed.org/)로 이동합니다. 아직 등록하지 않은 경우 새 계정(무료)을 만들 수 있는 옵션이 표시됩니다. 그렇지 않은 경우 계정 자격 증명으로 로그인합니다. 그런 다음 페이지의 오른쪽 위 모서리에서 **컴파일러**를 클릭합니다. 그러면 작업 영역 관리 인터페이스로 이동합니다.
+1. 웹 브라우저에서 mbed.org [개발자 사이트](https://developer.mbed.org/)로 이동합니다. 아직 등록하지 않은 경우 새 계정(무료)을 만들 수 있는 옵션이 표시됩니다. 그렇지 않은 경우 계정 자격 증명으로 로그인합니다. 그런 다음 페이지의 오른쪽 위 모서리에서 **컴파일러**를 클릭합니다. 그러면 *작업 영역* 인터페이스로 이동합니다.
 
 2. 사용 중인 하드웨어 플랫폼이 창의 오른쪽 위 모서리에 표시되는지 확인하거나 오른쪽 모서리에 있는 아이콘을 클릭하여 하드웨어 플랫폼을 선택합니다.
 
@@ -48,7 +48,7 @@
 
     ![][7]
 
-5. 다양한 라이브러리에서 가져온 해당 프로젝트를 가져오는 mbed 컴파일러 창에서 볼 수 있습니다. 일부는 Azure IoT 팀([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/))에서 제공 및 유지 관리되며 일부는 mbed 라이브러리 카탈로그에서 사용할 수 있는 타사 라이브러리입니다.
+5. mbed 컴파일러 창에서 이 프로젝트를 가져오면 다양한 라이브러리도 가져온다는 사실을 확인할 수 있습니다. 일부는 Azure IoT 팀([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/))에서 제공 및 유지 관리되며 일부는 mbed 라이브러리 카탈로그에서 사용할 수 있는 타사 라이브러리입니다.
 
     ![][8]
 
@@ -61,7 +61,7 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. 샘플 프로그램에서 IoT Hub에 연결할 수 있도록 [Device Id] 및 [Device Key]를 장치 데이터로 바꿉니다. IoT Hub 호스트 이름을 사용하여 [IoTHub 이름] 및 [IoTHub 접미사, 즉 azure-devices.net] 자리 표시자를 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 contoso.azure-devices.net인 경우 contoso **hubName**이고 나머지는 **hubSuffix**입니다.
+7. 샘플 프로그램에서 IoT Hub에 연결할 수 있도록 [Device Id] 및 [Device Key]를 장치 데이터로 바꿉니다. IoT Hub 호스트 이름을 사용하여 [IoTHub 이름] 및 [IoTHub 접미사, 즉 azure-devices.net] 자리 표시자를 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 **contoso**가 **hubName**이고 나머지는 **hubSuffix**입니다.
 
     ```
     static const char* deviceId = "mydevice";
@@ -116,7 +116,7 @@ DECLARE_MODEL(Thermostat,
 END_NAMESPACE(Contoso);
 ```
 
-모델 정의와 관련된 정의는 장치에서 응답하는 **SetTemperature** 및 **SetHumidity** 명령에 대한 정의입니다.
+장치에서 응답하는 **SetTemperature** 및 **SetHumidity** 명령에 대한 정의는 모델 정의와 관련됩니다.
 
 ```
 EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -143,13 +143,13 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 프로그램의 **주** 함수는 응용 프로그램이 IoT Hub 장치 클라이언트로 장치의 동작을 실행하기 시작할 때 **remote\_monitoring\_run** 함수를 호출합니다. 이 **remote\_monitoring\_run** 함수는 대부분 중첩된 함수 쌍으로 구성됩니다.
 
 - **platform\_init** 및 **platform\_deinit**는 플랫폼별 초기화 및 종료 작업을 수행합니다.
-- **serializer\_init** 및 **serializer\_deinit**는 직렬 변환기 라이브러리를 초기화 및 초기화 해제합니다.
+- **serializer\_init** 및 **serializer\_deinit**는 직렬 변환기 라이브러리를 초기화하고 초기화를 해제합니다.
 - **IoTHubClient\_Create** 및 **IoTHubClient\_Destroy**는 장치 자격 증명을 사용하여 IoT Hub에 연결하는 클라이언트 핸들 **iotHubClientHandle**을 만듭니다.
 
-**remote\_monitoring\_run** 함수의 주 섹션에서 프로그램은 **iotHubClientHandle** 핸들을 사용하여 다음 작업을 수행합니다.
+**remote\_monitoring\_run** 함수의 주 섹션에서 프로그램은 **iotHubClientHandle** 처리를 사용하여 다음 작업을 수행합니다.
 
 - Contoso 자동 온도 조절기 모델의 인스턴스를 만들고 두 가지 명령에 대한 메시지 콜백을 설정합니다.
-- 직렬 변환기 라이브러리를 사용하여 장치에서 지원하는 명령을 비롯해 장치 자체에 대한 정보를 IoT Hub로 보냅니다. Hub에서는 이 메시지를 받은 경우 대시보드의 장치 상태를 **보류 중**에서 **실행 중**으로 변경합니다.
+- 직렬 변환기 라이브러리를 사용하여 장치에서 지원하는 명령을 비롯해 장치 자체에 대한 정보를 IoT Hub로 보냅니다. 허브에서는 이 메시지를 받은 경우 대시보드의 장치 상태를 **보류 중**에서 **실행 중**으로 변경합니다.
 - 온도, 외부 온도 및 습도 값을 매초마다 IoT Hub로 보내는 **while** 루프를 시작합니다.
 
 참고로, 시작 시 IoT Hub로 전송되는 샘플 **장치 정보** 메시지는 다음과 같습니다.
@@ -220,4 +220,4 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

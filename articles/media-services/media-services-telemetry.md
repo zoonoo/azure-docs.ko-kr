@@ -54,8 +54,8 @@
 - **ResultCode**는 결과 코드를 가져옵니다.
 - **RequestCount**는 요청 수를 가져옵니다.
 - **BytesSent**는 전송된 바이트를 가져옵니다.
-- **BytesSent**는 서버 대기 시간을 가져옵니다.
-- **BytesSent**는 종단 간 요청 시간을 가져옵니다.
+- **ServerLatency**는 서버 대기 시간을 가져옵니다.
+- **EndToEndLatency**는 종단 간 요청 시간을 가져옵니다.
 
 ###스트리밍 끝점 쿼리 결과 예
 
@@ -235,4 +235,4 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

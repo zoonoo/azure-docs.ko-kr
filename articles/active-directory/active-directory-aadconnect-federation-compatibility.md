@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="billmath"/>
 
 # Azure AD 페더레이션 호환성 목록
@@ -36,6 +36,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 - [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
 - [PingFederate 6.11](#pingfederate-611)
 - [PingFederate 7.2](#pingfederate-72)
+- [PingFederate 8.x](#pingfederate-8.x)
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
@@ -116,6 +117,20 @@ PingFederate 7.2는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구�
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)를 참조하세요.
+
+## PingFederate 8.x 
+PingFederate 8.x는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+
+| 클라이언트 |지원 |예외|
+| --------- | --------- |--------- |
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
+
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 PingFederate 지침은 [여기](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)를 참조하세요.
 
 ## Centrify 
 Centrify는 온-프레미스 페더레이션 서버를 호스트할 필요 없이 Office 365에 대한 페더레이션된 Single Sign-On 환경을 제공합니다.
@@ -237,7 +252,7 @@ BIG-IP with Access Policy Manager(APM) BIG-IP 버전 11.3x – 11.6x는 널리 �
 
 BIG-IP Access Policy Manager에 대한 자세한 내용은 [BIG-IP Access Policy Manager](https://f5.com/products/modules/access-policy-manager)를 참조하세요.
 
-Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 BIG-IP Access Policy Manager 지침은 [여기](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)서 pdf를 다운로드하세요.
+Active Directory 사용자에게 Single Sign-On 환경을 제공하도록 이 STS를 구성하는 방법에 대한 BIG-IP Access Policy Manager 지침은 [여기](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)서 pdf 파일을 다운로드하세요.
 
 ## VMware Workspace Portal 버전 2.1 
 VMware Workspace Portal 버전 2.1은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
@@ -250,7 +265,7 @@ VMware Workspace Portal 버전 2.1은 널리 사용되는 WS Federation/WS-Trust
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
-VMware Workspace Portal 버전 2.1에 대한 자세한 내용은 [여기](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)서 pdf를 다운로드하세요.
+VMware Workspace Portal 버전 2.1에 대한 자세한 내용은 [여기](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)서 pdf 파일을 다운로드하세요.
 
 ## Sign&go 5.3 
 Sign&go 5.3은 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
@@ -323,4 +338,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

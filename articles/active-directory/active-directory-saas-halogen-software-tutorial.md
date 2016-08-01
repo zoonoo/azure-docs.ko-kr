@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 Halogen Software를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- Halogen Software에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- Halogen Software에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Halogen Software에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -43,7 +43,7 @@ Halogen Software와의 Azure AD 통합을 구성하려면 다음 항목이 필�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
@@ -51,7 +51,7 @@ Halogen Software와의 Azure AD 통합을 구성하려면 다음 항목이 필�
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Halogen Software 추가 
+1. 갤러리에서 Halogen Software 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -60,7 +60,7 @@ Halogen Software의 Azure AD 통합을 구성하려면 갤러리의 Halogen Soft
 
 **갤러리에서 Halogen Software를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -118,7 +118,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. ![앱 설정 구성][10]
  
-     a. **로그온 URL** 텍스트 상자에 **https://global.hgncloud.com/fabrikam/welcome.jsp* 패턴을 사용하여 사용자가 Halogen Software 응용 프로그램에 로그온하는 데 사용하는 URL을 입력합니다.
+     a. **로그온 URL** 텍스트 상자에 *https://global.hgncloud.com/fabrikam/welcome.jsp* 패턴을 사용하여 사용자가 Halogen Software 응용 프로그램에 로그온하는 데 사용하는 URL을 입력합니다.
 
      b. **다음**을 클릭합니다.
  
@@ -147,7 +147,7 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
     d. 구성을 테스트하려면 **테스트 실행**을 클릭합니다.
 
->[AZURE.NOTE]"*SAML 테스트가 완료되었습니다. 이 창을 닫으십시오.*" 메시지가 표시될 때까지 기다려야 합니다. 그런 다음 열려 있는 브라우저 창을 닫습니다. <br> **SAML 사용** 확인란은 테스트가 완료된 경우에만 사용하도록 설정됩니다.
+    > [AZURE.NOTE] "*SAML 테스트가 완료되었습니다. 이 창을 닫으십시오.*" 메시지가 표시될 때까지 기다려야 합니다. 그런 다음 열려 있는 브라우저 창을 닫습니다. **SAML 사용** 확인란은 테스트가 완료된 경우에만 사용하도록 설정됩니다.
 
     e. **SAML 사용**을 선택합니다.
     
@@ -321,4 +321,4 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

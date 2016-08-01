@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -44,7 +44,7 @@
 현재, 새 리소스 그룹 및 구독으로의 이동을 모두 지원하는 서비스는 다음과 같습니다.
 
 - API 관리
-- 앱 서비스 앱 - [앱 서비스 제한](#app-service-limitations) 참조
+- 앱 서비스 앱(웹앱) - [앱 서비스 제한](#app-service-limitations) 참조
 - 자동화
 - 배치
 - CDN
@@ -272,4 +272,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

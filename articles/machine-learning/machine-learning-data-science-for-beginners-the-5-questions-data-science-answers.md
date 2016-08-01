@@ -19,11 +19,21 @@
 
 # 초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 
-5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이 비디오 시리즈는 데이터 과학에 관심이 있거나, 데이터 과학을 수행하는 사람들과 함께 일하는 경우에 유용하며, 가장 기본적인 개념부터 시작하는 것이 좋습니다.
+5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이 비디오 시리즈는 데이터 과학에 관심이 있거나, 데이터 과학을 수행하는 사람들과 함께 일하는 경우에 유용하며, 기본적인 개념부터 시작하는 것이 좋습니다.
 
-시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+이 첫 번째 비디오는 데이터 과학이 대답할 수 있는 종류의 질문에 대한 것입니다. 데이터 과학은 숫자 또는 범주를 사용하여 질문에 대한 답변을 예측합니다. 시리즈를 최대한 활용하려면 순서대로 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
+
+## 시리즈의 다른 비디오
+
+*초급자를 위한 데이터 과학*은 총 25분 동안 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
+
+  * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
+  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
+  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4분 17초)*
+  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
+  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## 비디오 내용: 데이터 과학으로 답변할 수 있는 5가지 질문
 
@@ -136,19 +146,9 @@
 
 
 
-## 시리즈의 다른 비디오
-
-*초급자를 위한 데이터 과학*은 5개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
-
-  * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
-  * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-
 ## 다음 단계
 
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

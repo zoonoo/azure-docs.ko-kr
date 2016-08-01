@@ -19,7 +19,7 @@
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하는 방법
 
-표준 MongoDB 연결 문자열 URI 형식을 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하는 방법을 알아봅니다.
+표준 MongoDB 연결 문자열 URI 형식을 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정에 연결하는 방법을 알아봅니다.
 
 ## 계정의 연결 문자열 정보 가져오기
 
@@ -84,4 +84,4 @@ DocumentDB가 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

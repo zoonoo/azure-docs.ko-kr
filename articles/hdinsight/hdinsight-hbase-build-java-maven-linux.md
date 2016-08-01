@@ -22,7 +22,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 [Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Linux 기반 HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 
-> [AZURE.NOTE] 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Linux 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Windows 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)를 참조하세요.
 
 ##요구 사항
 
@@ -390,4 +390,4 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

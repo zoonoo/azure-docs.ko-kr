@@ -23,12 +23,13 @@
 - [포털](azure-portal/resource-group-portal.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-이 항목에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+이 항목에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
 현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
 
@@ -116,7 +117,7 @@
 
 2. 솔루션을 나타내는 JSON(JavaScript Object Notation)을 살펴보면서 템플릿 구문에 익숙해질 수 있습니다.
 
-단계별 지침은 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../resource-manager-export-template.md)를 참조하십시오.
+단계별 지침은 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../resource-manager-export-template.md)를 참조하세요.
 
 ## 리소스 그룹 또는 리소스 삭제
 
@@ -131,4 +132,4 @@
 - 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

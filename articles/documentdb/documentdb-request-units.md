@@ -202,7 +202,7 @@ ID로 음식 선택|~2.5 RU|1
 
 ##다음 단계
 
-Azure DocumentDB의 예약된 처리량에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
+Azure DocumentDB 데이터베이스의 예약된 처리량에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
  
 - [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
 - [DocumentDB 용량 관리](documentdb-manage.md)
@@ -220,4 +220,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

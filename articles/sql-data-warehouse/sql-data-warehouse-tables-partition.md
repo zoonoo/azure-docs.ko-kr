@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 분할
@@ -145,6 +145,8 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## 파티션 전환
+
+SQL 데이터 웨어하우스는 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE][] 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 이 경우가 아닌 경우 파티션 전환은 파티션 메타데이터가 동기화되지 않아 실패합니다.
 
@@ -372,6 +374,7 @@ DROP TABLE #partitions;
 
 <!-- MSDN Articles -->
 [분할된 테이블 및 인덱스]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/ko-KR/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [파티션 함수]: https://msdn.microsoft.com/library/ms187802.aspx
 [파티션 구성표]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -379,4 +382,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

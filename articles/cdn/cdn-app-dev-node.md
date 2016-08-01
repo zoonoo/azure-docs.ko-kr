@@ -2,7 +2,7 @@
 	pageTitle="Node.js용 Azure CDN SDK 시작하기 | Microsoft Azure"
 	description="Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 개발 시작
@@ -49,7 +49,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 패키지 설치가 완료된 후에 *package.json* 파일은 다음과 유사하게 표시됩니다(버전 번호가 달라질 수 있음).
 
-```
+``` json
 {
   "name": "cdn_node",
   "version": "1.0.0",
@@ -75,14 +75,14 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 1. 다음을 사용하여 위쪽에 있는 NPM 패키지에 "requires"를 추가합니다.
 
-	```
+	``` javascript
 	var msRestAzure = require('ms-rest-azure');
 	var cdnManagementClient = require('azure-arm-cdn');
 	```
 
 2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다. 다음을 추가합니다. **&lt;꺽쇠 괄호&gt;**를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
 
-	```
+	``` javascript
 	//Tenant app constants
 	const clientId = "<YOUR CLIENT ID>";
 	const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -96,7 +96,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 3. 다음으로 CDN 관리 클라이언트를 인스턴스화하고 자격 증명을 제공합니다.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
@@ -105,7 +105,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 	>[AZURE.IMPORTANT] 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요. 주의하여 개별 사용자 자격 증명을 보호하고 보안 상태를 유지합니다.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
 		tenantId, '<username>', '<password>', '<redirect URI>');
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
@@ -116,7 +116,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 4.  Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다. 적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
 
-	```
+	```javascript
 	//Collect command line parameters
 	var parms = process.argv.slice(2);
 
@@ -131,7 +131,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 5. 그래서 프로그램의 주요 부분을 살펴보고 여기서 전달된 매개 변수에 따라 다른 기능으로 갈라집니다.
 
-	```
+	```javascript
 	switch(parms[0].toLowerCase())
 	{
 		case "list":
@@ -158,7 +158,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 6.  프로그램의 여러 위치에서 매개 변수의 적합한 수를 전달하도록 하고 올바르지 않은 경우 도움말을 표시합니다. 작업을 수행할 함수를 만들어 보겠습니다.
 
-	```
+	```javascript
 	function requireParms(parmCount) {
 		if(parms.length < parmCount) {
 			usageHelp(parms[0].toLowerCase());
@@ -197,7 +197,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 7. 마지막으로 CDN 관리 클라이언트에서 사용하는 기능은 비동기이므로 작업이 완료되면 콜백할 메서드가 필요합니다. CDN 관리 클라이언트(있는 경우)의 출력을 표시하고 프로그램을 정상적으로 종료할 수 있는 파일을 만들어 보겠습니다.
 
-	```
+	```javascript
 	function callback(err, result, request, response) {
 		if (err) {
 			console.log(err);
@@ -215,7 +215,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 기존 프로필 및 끝점을 나열하는 코드부터 살펴 보겠습니다. 어떤 매개 변수가 어디에 위치하는지 알 수 있도록 예상되는 구문을 포함한 코드 주석을 제공합니다.
 
-```
+```javascript
 // list profiles
 // list endpoints <profile name>
 function cdnList(){
@@ -244,7 +244,7 @@ function cdnList(){
 
 다음으로 프로필 및 끝점을 만드는 함수를 작성합니다.
 
-```
+```javascript
 function cdnCreate() {
     requireParms(2);
     switch(parms[1].toLowerCase())
@@ -297,7 +297,7 @@ function cdnCreateEndpoint() {
 
 끝점을 만들었을 경우, 프로그램에서 흔히 수행하는 작업은 끝점의 콘텐츠를 삭제하는 것입니다.
 
-```
+```javascript
 // purge <profile name> <endpoint name> <path>
 function cdnPurge() {
     requireParms(4);
@@ -311,7 +311,7 @@ function cdnPurge() {
 
 포함된 마지막 함수는 끝점 및 프로필을 삭제합니다.
 
-```
+```javascript
 function cdnDelete() {
     requireParms(2);
     switch(parms[1].toLowerCase())
@@ -367,4 +367,4 @@ Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](http://azure.git
 
 Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](http://azure.github.io/azure-sdk-for-node/)를 봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

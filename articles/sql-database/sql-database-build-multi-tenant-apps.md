@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스에서 격리되고 효율적인 다중 테넌트 앱 빌드
@@ -49,9 +49,9 @@ Basic, Standard 및 Premium 풀은 광범위한 성능, 저장소 및 가격 옵
 
 **데이터베이스 간 쿼리 및 보고를 수행합니다.** [탄력적 데이터베이스 쿼리](sql-database-elastic-query-overview.md)를 통해 탄력적 풀의 데이터베이스 간에 쿼리 또는 보고를 실행하고 풀의 여러 데이터베이스에 저장된 원격 데이터를 한 번에 액세스할 수 있습니다.
 
-* * 데이터베이스 간 트랜잭션을 실행 합니다. * * [탄력적 데이터베이스 트랜잭션](sql-database-elastic-transactions-overview.md)을 통해 SQL 데이터베이스의 여러 데이터베이스에 걸쳐 있는 트랜잭션을 실행하고 작업을 수행할 수 있습니다(즉, 데이터베이스 간에 금융 거래를 처리하거나 한 데이터베이스 및 주문에서 인벤토리 업데이트).
+**데이터베이스 간 트랜잭션을 실행합니다.** [탄력적 데이터베이스 트랜잭션](sql-database-elastic-transactions-overview.md)을 통해 SQL 데이터베이스의 여러 데이터베이스에 걸쳐 있는 트랜잭션을 실행하고 작업을 수행할 수 있습니다(즉, 데이터베이스 간에 금융 거래를 처리하거나 한 데이터베이스 및 주문에서 인벤토리 업데이트).
 
-**여러 데이터베이스에서 동일한 작업을 실행합니다.** [탄력적 데이터베이스 작업](sql-database-elastic-jobs-overview.md)은 탄력적 풀의 각 데이터베이스 간에 인덱스 다시 작성 또는 스키마 업데이트 같은 관리 작업을 실행합니다.
+**여러 데이터베이스에 같은 작업을 실행합니다.** [탄력적 데이터베이스 작업](sql-database-elastic-jobs-overview.md)은 탄력적 풀의 각 데이터베이스 간에 인덱스 다시 작성 또는 스키마 업데이트 같은 관리 작업을 실행합니다.
 
 SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 페이지로 이동합니다. [확인해 보세요.](https://azure.microsoft.com/services/sql-database/)
 
@@ -65,4 +65,4 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
  
 [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

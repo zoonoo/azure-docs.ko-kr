@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/18/2016" 
 	ms.author="arramac"/>
 
 # Azure DocumentDB를 사용한 성능 및 규모 테스트
@@ -29,6 +29,8 @@
 - 클라이언트 응용 프로그램에서 Azure DocumentDB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
 
 코드를 시작하려면 [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드합니다.
+
+> [AZURE.NOTE] 이 응용 프로그램의 목표는 적은 수의 클라이언트 컴퓨터를 사용하여 DocumentDB에서 더 나은 성능의 추출하는 모범 사례를 제시하는 것입니다. 제한 없이 확장할 수 있는 서비스의 최대 용량을 보여 주려는 것은 아닙니다.
 
 ## 핵심 클라이언트 구성 옵션
 DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규모가 조정되는 신속하고 유연한 분산 데이터베이스입니다. DocumentDB를 사용하여 데이터베이스 계층의 규모를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 SDK 메서드 호출을 수행하는 것만큼 쉽습니다. 그러나 규모별로 테스트할 때는 네트워크 호출을 통해 DocumentDB에 액세스하는 것이 중요합니다. 성능 테스트 DocumentDB에 독립 실행형 클라이언트 응용 프로그램을 쓰는 경우 네트워크 대기 시간이 성능 측정에 미치는 영향을 방지하도록 적합하게 구성해야 합니다.
@@ -112,4 +114,4 @@ DocumentDB에서 최상의 종단 간 성능을 얻으려면 다음 클라이언
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

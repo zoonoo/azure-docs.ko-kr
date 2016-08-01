@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="07/18/2016"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 프로그래밍 모델 개요
@@ -45,4 +45,4 @@ Reliable Actors 자체는 Reliable Services에 구축된 응용 프로그램 프
 ## 다음 단계
 [Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-actors-introduction.md)[첫 번째 Reliable Actor 서비스 작성](service-fabric-reliable-actors-get-started.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

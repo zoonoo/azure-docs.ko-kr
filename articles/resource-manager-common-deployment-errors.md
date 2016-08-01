@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
@@ -24,17 +24,65 @@
 
 ## 잘못된 템플릿 또는 리소스
 
-리소스에서 템플릿 또는 속성이 잘못되었다는 오류를 수신하는 경우 템플릿에 누락된 문자가 있을 수 있습니다. 이 오류는 식을 따옴표로 묶는 템플릿 식을 사용할 때 쉽게 발생하므로 JSON에서 계속 유효성을 검사하고 편집기에서 오류를 감지하지 못할 수 있습니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 포함됩니다.
+템플릿을 배포할 때 다음이 발생할 수 있습니다.
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+리소스에서 템플릿 또는 속성이 잘못되었다는 오류를 수신하는 경우 템플릿에 구문 오류가 있을 수 있습니다. 이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 포함됩니다.
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 일치하는 모든 구문을 제공하지 않으면 템플릿에서 의도와 매우 다른 값을 생성합니다.
 
-템플릿에서 누락된 문자가 있는 위치에 따라 템플릿 또는 리소스가 잘못되었다는 오류를 수신합니다. 또한 배포 프로세스에서 템플릿 언어 식을 처리할 수 없다는 오류가 발생할 수 있습니다. 이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다.
+이러한 오류 유형을 수신하면 식 구문을 주의 깊게 검토합니다. [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 또는 [Visual Studio 코드](resource-manager-vs-code.md)와 같이 구문 오류에 대해 경고를 표시할 수 있는 JSON 편집기를 사용하는 것을 고려하세요.
 
-## 리소스 이름이 이미 존재하거나 다른 리소스에 이미 사용되었습니다.
+## 잘못된 세그먼트 길이
 
-일부 리소스, 가장 주목할 만한 저장소 계정, 데이터베이스 서버 및 웹사이트의 경우 Azure의 모든 고유한 리소스에 이름을 제공해야 합니다. 명명 규칙과 [uniqueString](resource-group-template-functions.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
+리소스 이름이 올바른 형식이 아닐 경우 다른 잘못된 템플릿 오류가 발생합니다.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+루트 수준 리소스는 리소스 종류에 포함된 세그먼트보다 이름에 포함된 세그먼트 수가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서 형식에는 2개의 세그먼트가 있고 이름에는 1개의 세그먼트가 있으므로 **유효한 이름**입니다.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+하지만 그 다음 예제의 경우 형식과 이름의 세그먼트 수가 같으므로 **유효한 이름이 아닙니다**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+자식 리소스의 경우 형식 및 이름의 세그먼트 수는 같아야 합니다. 자식의 전체 이름 및 형식은 부모 이름 및 형식을 포함하게 되고, 전체 이름은 여전히 전체 형식보다 하나 더 적은 세그먼트를 포함하게 되므로 문제가 없습니다.
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+리소스 공급자 간에 적용되는 Resource Manager 형식에서는 세그먼트를 제대로 파악하는 것이 특히 어려울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면 4개의 세그먼트가 있는 형식이 필요합니다. 따라서 이름은 다음과 같이 3개의 세그먼트를 포함합니다.
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+
+## 리소스 이름은 다른 리소스에서 이미 사용되었습니다.
+
+일부 리소스, 가장 주목할 만한 저장소 계정, 데이터베이스 서버 및 웹사이트의 경우 Azure의 모든 고유한 리소스에 이름을 제공해야 합니다. 고유한 이름을 제공하지 않으면 다음과 같은 오류가 나타날 수 있습니다.
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
+명명 규칙과 [uniqueString](resource-group-template-functions.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
@@ -143,7 +191,7 @@
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
-또는 PowerShell에서 **Get-AzureRmVMUsage** cmdlet을 사용할 수 있습니다.
+또는 PowerShell에서 **Get-AzureRmVMUsage** Cmdlet을 사용할 수 있습니다.
 
     Get-AzureRmVMUsage
 
@@ -177,7 +225,7 @@
 | 오류 | 문서 |
 | -------- | ----------- |
 | 사용자 지정 스크립트 확장 오류 | [Windows VM 확장 오류](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />또는<br />[Linux VM 확장 오류](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
-| OS 이미지 프로비전 오류 | [새 Windows VM 오류](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />또는<br />[New Linux VM 오류](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
+| OS 이미지 프로비전 오류 | [새 Windows VM 오류](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />또는<br />[새 Linux VM 오류](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
 | 할당 오류 | [Windows VM 할당 오류](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />또는<br />[Linux VM 할당 오류](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
 | 연결 시도 시 SSH(secure Shell) 오류 | [Linux VM에 대한 Secure Shell 연결](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
 | VM에서 실행 중인 응용 프로그램 연결 오류 | [Windows VM에서 실행 중인 응용 프로그램](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />또는<br />[Linux VM에서 실행 중인 응용 프로그램](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
@@ -213,4 +261,4 @@ Azure Resource Manager는 모든 공급자가 배포에서 성공적으로 반�
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

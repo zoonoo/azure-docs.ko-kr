@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
 # Azure Resource Manager 템플릿 생성 모범 사례
@@ -34,15 +34,15 @@
 
 데이터 액세스 끝점이 있는 모든 리소스 유형에 대해 고유한 리소스 이름을 제공해야 합니다. 고유 이름이 필요한 일반적인 유형은 다음과 같습니다.
 
-- 저장소
-- 웹앱
+- 저장소 계정
+- 웹 사이트
 - SQL Server
-- 키 자격 증명 모음
+- 주요 자격 증명 모음
 - Redis 캐시
-- 배치
+- 배치 계정
 - 트래픽 관리자
 - 검색 서비스
-- HDInsight
+- HDInsight 클러스터
 
 또한 저장소 계정 이름은 24자 이내의 소문자여야 하며 하이픈은 포함할 수 없습니다.
 
@@ -361,4 +361,4 @@ uniqueString 접두사가 있는 저장소 계정은 동일한 랙에서 클러�
 2. 저장소 계정 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 성능 및 확장성 검사 목록](./storage/storage-performance-checklist.md)을 참조하세요.
 3. 가상 네트워크에 대한 도움말을 보려면 [네트워킹 인프라 지침](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

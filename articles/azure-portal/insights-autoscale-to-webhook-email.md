@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Insights: 크기 자동 조정 작업을 사용하여 전자 메일 및 Webhook 경고 알림 보내기 | Microsoft Azure"
-	description="Azure Insight에서 크기 자동 조정 작업을 사용하여 웹 URL을 호출하거나 전자 메일을 보내는 방법에 대해 알아봅니다."
+	description="Azure Insight에서 크기 자동 조정 작업을 사용하여 웹 URL을 호출하거나 전자 메일을 보내는 방법에 대해 알아봅니다. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
 # 크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기
@@ -35,7 +35,41 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 ![배율 기준](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
 ## 가상 컴퓨터 크기 집합
-최신 ARM 기반 가상 컴퓨터(가상 컴퓨터 크기 집합)의 경우 REST API, PowerShell 및 CLI를 사용하여 알림 보내기를 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
+Resource Manager(가상 컴퓨터 크기 집합)로 만든 새 가상 컴퓨터의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다. REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션으로 알림 요소를 포함합니다.
+
+```
+"notifications": [
+      {
+        "operation": "Scale",
+        "email": {
+          "sendToSubscriptionAdministrator": false,
+          "sendToSubscriptionCoAdministrators": false,
+          "customEmails": [
+              "user1@mycompany.com",
+              "user2@mycompany.com"
+              ]
+        },
+        "webhooks": [
+          {
+            "serviceUri": "https://foo.webhook.example.com?token=abcd1234",
+            "properties": {
+              "optional_key1": "optional_value1",
+              "optional_key2": "optional_value2"
+            }
+          }
+        ]
+      }
+    ]
+```
+|필드 |필수?|	설명|
+|---|---|---|
+|operation |yes |값은 "Scale"이어야 합니다.|
+|sendToSubscriptionAdministrator |yes |값은 "true" 또는 "false"여야 합니다.|
+|sendToSubscriptionCoAdministrators |yes |값은 "true" 또는 "false"여야 합니다.|
+|customEmails |yes |값에 null 또는 전자 메일 문자열 배열을 사용할 수 있습니다.|
+|webhooks |yes |값은 null이거나 올바른 URI일 수 있습니다.|
+|serviceUri |yes |유효한 https URI|
+|properties |yes |값은 비어 있거나{} 키-값 쌍을 포함할 수 있습니다.|
 
 
 ## Webhook의 인증
@@ -80,17 +114,17 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 |operation|	yes |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다.|
 |context|	yes |크기 자동 조정 작업 컨텍스트입니다.|
 |timestamp|	yes |크기 자동 조정 작업이 트리거된 타임스탬프입니다.|
-|id |예|	크기 자동 조정 설정의 ARM(Azure Resource Manager) ID입니다.|
+|id |예|	자동 크기 조정 설정의 Resource Manager ID|
 |name |예|	크기 자동 조정 설정의 이름입니다.|
 |세부 정보|	예 |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다.|
 |subscriptionId|	예 |크기 조정 중인 대상 리소스의 구독 ID입니다.|
 |resourceGroupName|	예|	크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다.|
 |resourceName |예|	크기 조정 중인 대상 리소스의 이름입니다.|
 |resourceType |예|	다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - 클라우드 서비스 역할/"microsoft.compute/virtualmachinescalesets" - 가상 컴퓨터 크기 집합/"Microsoft.Web/serverfarms" - 웹 앱|
-|resourceId |예|크기 조정 중인 대상 리소스의 ARM ID입니다.|
+|resourceId |예|크기 조정 중인 대상 리소스의 Resource Manager ID|
 |portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다.|
 |oldCapacity|	예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다.|
 |newCapacity|	예 |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다.|
-|속성|	아니요|	선택 사항입니다. <Key  Value> 쌍의 집합(예: Dictionary <String  String>)입니다. 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다.|
+|속성|	아니요|	선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다.|
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -22,12 +22,34 @@
 
 ## HDInsight의 2016/07/07 릴리스 정보
 
+이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |
+|----|----------------------|----|------------|
+|3\.2 |3\.2.1000.0.7864996 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.1000.0.7864996 |2\.3 |2\.3.3.1-18 |
+|3\.4 |3\.4.1000.0.7861906 |2\.4 |2\.4.2.0 |
+
+이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.977.2413853 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.977.2413853 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.977.2413853 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.977.2413853 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.977.2413853 |2\.3 |2\.3.3.1-21 |
+
 이 릴리스에는 다음 업데이트가 포함되어 있습니다.
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | [IntelliJ용 HDInsight 도구](hdinsight-apache-spark-intellij-tool-plugin.md) | 이제 HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인은 IntelliJ용 Azure 도구 키트와 통합됩니다. Azure SDK v2.9.1, 최신 Java SDK를 지원하며 IntelliJ용 독립 실행형 HDInsight 플러그 인의 모든 기능이 포함됩니다.| 도구 | Spark| 해당 없음|
 | [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) | Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul>| 도구 | Spark| 해당 없음
+
+이 릴리스부터 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다. 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 컴퓨터)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다.
+
+>[AZURE.NOTE] 이러한 변경 내용은 이 릴리스 버전 이상인 새로 만든 클러스터에만 적용됩니다.
 
 ## HDInsight의 2016/06/06 릴리스 정보
 
@@ -43,7 +65,7 @@
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| HDInsight의 Spark가 일반 공급됨 | 이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구 사용자 지정된 Spark 커널이 있는 Jupyter 노트북은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul>| 부여 | Spark| 해당 없음|
+| HDInsight의 Spark가 일반 공급됨 | 이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구 사용자 지정된 Spark 커널이 있는 Jupyter Notebook은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul>| 부여 | Spark| 해당 없음|
 | IntelliJ용 HDInsight 도구 | HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 모든 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 원격으로 Spark 작업을 디버그할 수 있습니다.</li></ul>| 도구 | Spark| 해당 없음
 
 ## HDInsight의 2016/05/13 릴리스 정보
@@ -85,8 +107,8 @@
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | HDI 3.4에 대한 사용자 지정 Metastore 업그레이드 문제 | 다른 HDInsight 클러스터의 더 낮은 버전에서 이전에 사용한 사용자 지정 Metastore를 사용 하는 경우 클러스터 생성이 실패할 수 있습니다. 이렇게 되는 이유는 업그레이드 스크립트 오류 때문이었으며 지금은 해결됨| 클러스터 만들기 | 모두 | 해당 없음
 | Livy Crash 복구 | Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 | 안정성 | Linux에서의 Spark| 해당 없음
-| Jupyter 콘텐츠 HA | 클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서의 Spark| 해당 없음
-| Jupter 노트북에서 HiveContext 제거 | `%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서 Spark 클러스터| 해당 없음
+| Jupyter 콘텐츠 HA | 클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서의 Spark| 해당 없음
+| Jupter 노트북에서 HiveContext 제거 | `%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서 Spark 클러스터| 해당 없음
 | 이전 Spark 버전의 사용 중단 | 5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. | 부여 | Windows에서 Spark 클러스터 | 해당 없음
 
 ## HDInsight의 2016/03/29 릴리스 정보
@@ -111,7 +133,7 @@
 | HDInsight 프리미엄 | HDInsight는 현재 표준 및 프리미엄이라는 두 가지 범주로 제공됩니다. HDInsight 프리미엄은 현재 Preview 상태이며 Linux에서 Hadoop 및 Spark 클러스터에서만 사용할 수 있습니다. 자세한 내용은 [여기](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)를 참조하세요.| 부여 | Linux에서 Hadoop 및 Spark| 해당 없음
 | Microsoft R 서버 | HDInsight 프리미엄은 Linux의 Hadoop 및 Spark 클러스터에 포함할 수 있는 Microsoft R 서버를 제공합니다. 자세한 내용은 [HDInsight에서 R Server 개요](hdinsight-hadoop-r-server-overview.md)를 참조하세요.| 부여 | Linux에서 Hadoop 및 Spark| 해당 없음
 | Spark 1.6.0 | HDInsight 3.4 클러스터에 Spark 1.6.0이 포함됨| 부여 | Linux에서 Spark 클러스터| 해당 없음
-| Jupyter 노트북 기능 향상 | Spark 클러스터와 함께 사용할 수 있는 Jupyter 노트북은 이제 추가 Spark 커널을 제공합니다. 또한 %%magic의 사용, 자동 시각화 및 Python 시각화 라이브러리(예: (matplotlib)와 통합과 같은 향상된 기능도 포함합니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. | 부여 | Linux에서 Spark 클러스터 | 해당 없음
+| Jupyter 노트북 기능 향상 | Spark 클러스터와 함께 사용할 수 있는 Jupyter 노트북은 이제 추가 Spark 커널을 제공합니다. 또한 %%magic의 사용, 자동 시각화 및 Python 시각화 라이브러리(예: (matplotlib)와 통합과 같은 향상된 기능도 포함합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. | 부여 | Linux에서 Spark 클러스터 | 해당 없음
 
 ## HDInsight의 2016/03/22 릴리스 정보
 
@@ -1568,7 +1590,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
 
 
 ### 버그 수정
@@ -1610,4 +1632,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

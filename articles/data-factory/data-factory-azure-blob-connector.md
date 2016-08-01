@@ -20,10 +20,12 @@
 # Azure Data Factory를 사용하여 Azure Blob 간 데이터 이동
 이 문서에서는 다른 데이터 저장소에서 Blob 데이터를 소싱하여 Azure Blob 간에 데이터를 이동하기 위해 Azure Data Factory에서 복사 작업을 사용하는 방법을 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 데이터 이동 작업 문서를 작성합니다.
 
+> [AZURE.NOTE] 이 Azure Blob 커넥터는 현재 블록 Blob과의 복사 작업만 지원합니다. 또한 범용 Azure 저장소 및 핫/쿨 Blob 저장소를 모두 지원합니다.
+
 ## 데이터 복사 마법사
 Azure Blob 저장소 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
 
 ## 샘플: Azure Blob에서 Azure SQL로 데이터 복사
  
@@ -62,7 +64,7 @@ Azure Blob 저장소 간에 데이터를 복사하는 파이프라인을 만드�
 	  }
 	}
 
-Azure Data Factory는 **AzureStorage** 및 **AzureStorageSas**라는 두 가지 유형의 Azure 저장소 연결된 서비스를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
+Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
 
 **Azure Blob 입력 데이터 집합:**
 
@@ -234,7 +236,7 @@ Azure Data Factory는 **AzureStorage** 및 **AzureStorageSas**라는 두 가지 
 	  }
 	}
 
-Azure Data Factory는 **AzureStorage** 및 **AzureStorageSas**라는 두 가지 유형의 Azure 저장소 연결된 서비스를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
+Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서비스: **AzureStorage** 및 **AzureStorageSas**를 제공합니다. 첫 번째 것의 경우 계정 키를 포함하는 연결 문자열을 지정하고 이후 것의 경우 SAS(공유 액세스 서명) Uri를 지정합니다. 자세한 내용은 [연결된 서비스](#linked-services) 섹션을 참조하세요.
 
 
 **Azure SQL 입력 데이터 집합:**
@@ -473,6 +475,6 @@ false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## 성능 및 튜닝  
-Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 이를 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

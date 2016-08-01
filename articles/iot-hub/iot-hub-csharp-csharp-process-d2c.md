@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/29/2016"
+     ms.date="07/19/2016"
      ms.author="dobett"/>
 
 # 자습서: IoT Hub 장치-클라우드 메시지를 처리하는 방법
@@ -419,12 +419,10 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [Azure 서비스 버스 큐]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide.md#d2c
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
 [Azure 서비스 버스]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub로 시작]: iot-hub-csharp-csharp-getstarted.md
@@ -449,4 +447,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SharePoint Server 팜 만들기 | Microsoft Azure"
-	description="Azure 포털 마켓플레이스를 사용하여 새로운 기본 또는 고가용성 SharePoint Server 2013 팜을 빠르게 생성하기"
+	description="Azure에 새 SharePoint 2013 팜 또는 2016 SharePoint 팜을 신속하게 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # SharePoint 서버 팜 만들기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 모델입니다.
+
+## SharePoint 2013 팜
 
 Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
@@ -53,16 +57,20 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전용 가상 네트워크에 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
 
+## SharePoint 2016 팜
+
+다음 단일 서버 SharePoint 2016 팜을 빌드하는 방법에 대한 지침은 [이 항목](https://technet.microsoft.com/library/mt723354.aspx)을 참조합니다.
+
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
+
 ## SharePoint 팜 관리
 
 원격 데스크톱 연결을 통해 이러한 팜의 서버를 관리할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 로그온](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine)을 참조하세요.
 
 중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요.
 
-> [AZURE.NOTE] [SharePoint Server 2016 평가판 이미지](https://azure.microsoft.com/blog/test-sharepoint-server-2016/)를 사용하면, SharePoint Server 2016을 실행하는 가상 컴퓨터를 만들 수 있습니다.
-
 ## 다음 단계
 
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

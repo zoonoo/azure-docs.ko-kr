@@ -812,9 +812,9 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 
 - [MSDN에 있는 Azure Redis Cache cmdlet 설명서](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법에 대해 알아봅니다.
-- [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
+- [리소스 그룹을 사용하여 Azure 리소스 관리](../resource-group-template-deploy-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

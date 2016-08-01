@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # 서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## 개요
 Microsoft Visual Studio용 Azure 도구를 설치한 경우 Azure 저장소 계정에서 Blob, 큐, 테이블 데이터를 볼 수 있습니다. 서버 탐색기의 Azure 저장소 노드는 로컬 저장소 에뮬레이터 계정 및 다른 Azure 저장소 계정에 있는 데이터를 보여줍니다.
 
 Visual Studio에서 서버 탐색기를 보려면, 메뉴 모음에서 **보기**, **서버 탐색기**를 선택합니다. 저장소 노드는 연결된 Azure 구독/인증서 아래에 존재하는 모든 저장소 계정을 보여줍니다. 저장소 계정이 나타나지 않으면 [이 항목의 뒷부분에 나오는](#add-storage-accounts-by-using-server-explorer) 다음의 지침을 따라 추가할 수 있습니다.
@@ -314,4 +317,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)
@@ -24,7 +24,7 @@
 
 자동화된 백업에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-classic-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]  
 이 문서의 리소스 관리자 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업( 리소스 관리자)](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 ## 필수 조건
@@ -40,8 +40,6 @@
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
 
 **데이터베이스 구성**:
 
@@ -66,13 +64,16 @@
 |**암호**|암호 텍스트(없음)|암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다.|
 
 ## 포털에서 구성
+Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자동화된 백업을 구성할 수 있습니다.
 
-Azure 포털을 사용하여 클래식 배포 모델에서 새 SQL Server 2014 가상 컴퓨터를 만들 때 자동화된 백업을 구성할 수 있습니다.
+### 새 VM
+Azure 포털을 사용하여 클래식 배포 모델에서 새 SQL Server 2014 가상 컴퓨터를 만들 때 자동화된 백업을 구성합니다.
 
 다음 Azure 포털 스크린샷은 **옵션 구성**ㅣ**SQL 자동화된 백업**의 옵션을 보여줍니다.
 
 ![Azure 포털에서 SQL 자동 백업 구성](./media/virtual-machines-windows-classic-sql-automated-backup/IC778483.jpg)
 
+### 기존 VM
 기존 SQL Server 2014 가상 컴퓨터의 경우 가상 컴퓨터 속성의 **구성** 섹션에서 **자동 백업** 설정을 선택합니다. **자동화된 백업** 창에서 기능을 사용하도록 설정하고, 보존 기간을 설정하고, 저장소 계정을 선택하고, 암호화를 설정할 수 있습니다. 다음 스크린샷에 이 내용이 나와 있습니다.
 
 ![Azure 포털에서 자동화된 백업 구성](./media/virtual-machines-windows-classic-sql-automated-backup/IC792133.jpg)
@@ -117,4 +118,4 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016--->

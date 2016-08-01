@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DocumentDB 계정 제한 증가 요청 | Microsoft Azure"
-	description="허용되는 컬렉션, 저장 프로시저 및 쿼리 절 수와 같은 DocumentDB 제한의 조정을 요청하는 방법을 알아봅니다."
+	pageTitle="DocumentDB 계정 할당량 증가 요청 | Microsoft Azure"
+	description="문서 저장소 및 컬렉션당 처리량과 같은 DocumentDB 데이터베이스 할당량을 조정하도록 요청하는 방법을 알아봅니다."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정 제한 증가 요청
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)에는 일련의 기본 제한 및 할당량 적용이 있습니다. Azure 지원에 문의하여 여러 할당량을 조정할 수 있습니다. 이 문서에서는 계정 제한 증가를 요청하는 방법을 보여 줍니다.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)에는 Azure 지원에 문의하여 조정할 수 있는 일련의 기본 할당량이 있습니다. 이 문서에서는 할당량 증가를 요청하는 방법을 보여 줍니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
--	Azure 지원에 문의하여 조정할 수 있는 DocumentDB 계정 할당량은 무엇인가요?
+-	Azure 지원에 문의하여 조정할 수 있는 DocumentDB 데이터베이스 할당량은 무엇인가요?
 -	어떻게 DocumentDB 계정 할당량 조정을 요청할 수 있나요?
 
 ##<a id="Quotas"></a> DocumentDB 계정 할당량
@@ -63,4 +63,4 @@
 ##<a name="NextSteps"></a> 다음 단계
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

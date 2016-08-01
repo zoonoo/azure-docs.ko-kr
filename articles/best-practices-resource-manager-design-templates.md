@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Resource Manager 템플릿 모범 사례 | Microsoft Azure"
+	pageTitle="Resource Manager 템플릿의 패턴 | Microsoft Azure"
 	description="Azure 리소스 관리자 템플릿에 대한 설계 패턴 표시"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
-# Azure 리소스 관리자 템플릿 설계의 모범 사례
+# Azure Resource Manager 템플릿 설계의 패턴
 
 엔터프라이즈, 시스템 통합 업체(SI), 클라우드 서비스 업체(CSV), 및 오픈 소스 소프트웨어(OSS) 프로젝트 팀과의 작업에서 환경는, 워크로드 또는 배율 단위를 신속하게 배포해야 하는 경우가 빈번합니다. 이러한 배포는 지원되어야 하고 검증된 작업 방식을 따라야 하며 관련 정책을 준수해야 합니다. Azure 리소스 관리자 템플릿을 바탕으로 유연한 접근 방식을 사용하면 복잡한 토폴로지를 신속하고 일관되게 배포할 수 있고 그 후에는 코어 기능의 진화에 맞추어 간편하게 배포를 변경할 수 있고 이상값 시나리오나 고객에 대한 변형을 제공할 수 있습니다.
 
@@ -321,7 +321,7 @@ Redis를 사용하여 각각의 개별 노드를 설치한 후 모든 노드가 
 
 기본 템플릿은 템플릿 연결을 사용하여 공유 리소스 템플릿으로 연결하고 이를 통해 가상 네트워크가 수립됩니다.
 
-jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 *enabled* 값을 설정하면 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *\_enabled*를 접미사를 연결합니다.
+jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 *enabled* 값을 설정하면 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *\_enabled*를 접미사로 연결합니다.
 
 기본 템플릿은 티셔츠 크기에 대한 기본 템플릿 이름에 대한 접미사로 *large* 매개 변수 값을 적용한 후 *technology\_on\_os\_large.json*에 대한 템플릿 링크에 해당 값을 사용합니다.
 
@@ -382,4 +382,4 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 - Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

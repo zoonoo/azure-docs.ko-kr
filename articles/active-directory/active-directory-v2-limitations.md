@@ -56,6 +56,29 @@ On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권
 
 새로운 응용 프로그램 등록 포털에서 등록된 앱은 현재 제한된 redirect\_uri 값 집합으로 한정됩니다. 웹앱 및 서비스에 대한 redirect\_uri는 체계 또는 `https`로 시작해야 하는 반면, 다른 모든 플랫폼에 대한 redirect\_uri는 `urn:ietf:oauth:2.0:oob`라는 하드 코드된 값을 사용해야 합니다.
 
+## 리디렉션 URI에 대한 제한
+웹앱의 경우 redirect\_uri 값은 모두 단일 DNS 도메인을 공유해야 합니다. 예를 들어 redirect\_uris가 있는 웹앱은 등록할 수 없습니다.
+
+`https://login-east.contoso.com` `https://login-west.contoso.com`
+
+등록 시스템은 기존 redirect\_uri의 전체 DNS 이름을 편집하려는 redirect\_uri의 DNS 이름과 비교합니다. 새 redirect\_uri의 전체 DNS 이름이 기존 redirect\_uri의 DNS 이름과 정확히 일치하지 않거나 새 redirect\_uri의 전체 DNS 이름이 기존 redirect\_uri의 하위 도메인이 아닌 경우 추가하려는 요청이 실패합니다. 예를 들어 앱이 현재 redirect\_uri를 갖는 경우
+
+`https://login.contoso.com`
+
+DNS 이름과 정확히 일치하는 다음을 추가합니다.
+
+`https://login.contoso.com/new`
+
+또는 다음을 추가할 수 있습니다.
+
+`https://new.login.contoso.com`
+
+(login.contoso.com의 DNS 하위 도메인에 해당) redirect\_uris로 login-east.contoso.com 및 login-west.contoso.com을 갖는 앱을 원할 경우 다음 redirect\_uris를 순서대로 추가해야 합니다.
+
+`https://contoso.com` `https://login-east.contoso.com` `https://login-west.contoso.com`
+
+뒤의 두 개는 첫 번째 redirect\_uri의 하위 도메인이므로 추가할 수 있습니다. 이 제한은 향후 릴리스에서 제거될 예정입니다.
+
 새로운 응용 프로그램 등록 포털에서 앱을 등록하는 방법을 알아보려면 [이 문서](active-directory-v2-app-registration.md)를 참조하세요.
 
 ## 서비스 및 API에 대한 제한 사항
@@ -98,4 +121,4 @@ Azure Active Directory 서비스에서 사용할 수 있는 개발자 기능 집
 - Azure AD 사용자에 대한 그룹 클레임
 - 응용 프로그램 역할 및 역할 클레임
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

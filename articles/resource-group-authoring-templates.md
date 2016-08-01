@@ -13,29 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
 
-Azure Resource Manager 템플릿에서는 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 이 항목에서는 템플릿의 섹션에 대해 설명합니다.
+이 항목에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
-Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니다. 템플릿으로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+템플릿 작성에 대한 지침은 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요. 템플릿 작성에 대한 권장 사항은 [Azure Resource Manager 템플릿 생성 모범 사례](resource-manager-template-best-practices.md)를 참조하세요.
 
-템플릿 작성에 대한 지침은 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-
-## 템플릿 계획
-
-템플릿을 시작하기 전에 먼저 배포하려는 템플릿 및 템플릿 사용 방법을 이해해야 합니다. 특히 다음 사항을 고려해야 합니다.
-
-1. 배포해야 하는 리소스 형식
-2. 해당 리소스의 위치
-3. 리소스를 배포할 때 사용할 리소스 공급자 API 버전
-4. 해당 리소스 중에 다른 리소스 이후에 배포해야 하는 리소스가 있는지 여부
-5. 배포하는 동안 전달하려는 값 및 템플릿에서 직접 정의하려는 값
-6. 배포로부터 값을 반환해야 하는지 여부
-
-배포에 사용할 수 있는 리소스 형식, 해당 형식에 지원되는 지역, 각 형식에 대해 사용 가능한 API 버전을 알아보려면 [리소스 관리자 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
+JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수 있습니다. 템플릿으로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요. VS 코드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio 코드로 Azure Resource Manager 템플릿으로 작업](resource-manager-vs-code.md)을 참조하세요.
 
 템플릿의 크기는 1MB로, 각 매개 변수 파일의 크기는 64KG로 제한해야 합니다. 1MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개변수 값에 적용됩니다.
 
@@ -125,7 +112,7 @@ Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니�
 
 매개 변수를 선택적으로 지정하려면 defaultValue를 제공합니다(빈 문자열 가능).
 
-템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 매개 변수 이름을 지정하면(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 매개 변수 이름을 지정하면(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 >[AZURE.NOTE] 모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다.
 
@@ -377,4 +364,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

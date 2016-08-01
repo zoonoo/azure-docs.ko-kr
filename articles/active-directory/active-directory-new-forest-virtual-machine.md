@@ -2,10 +2,10 @@
 	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치 | Microsoft Azure"
 	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다."
 	services="active-directory, virtual-network"
-    keywords="active directory 가상 컴퓨터, active directory 포리스트 설치, azure active directory 비디오"
+    keywords="active directory 가상 컴퓨터, active directory 포리스트 설치, azure active directory 비디오 "
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 
@@ -136,4 +136,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

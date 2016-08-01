@@ -13,50 +13,14 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="juliako"/>
-
 
 # Azure 미디어 서비스 릴리스 정보
 
 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
 >[AZURE.NOTE] Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure 미디어 서비스 MSDN 포럼]에 게시해 주세요.
-
-- [현재 알려진 문제](#issues)
-- [REST API 버전 기록](#rest_version_history)
-- [2016년 7월 릴리스](#july_changes16)
-- [2016년 4월 릴리스](#apr_changes16)
-- [2016년 2월 릴리스](#feb_changes16)
-- [2016년 1월 릴리스](#jan_changes_16)
-- [2015년 12월 릴리스](#dec_changes_15)
-- [2015년 11월 릴리스](#nov_changes_15)
-- [2015년 10월 릴리스](#oct_changes_15)
-- [2015년 9월 릴리스](#september_changes_15)
-- [2015년 8월 릴리스](#august_changes_15)
-- [2015년 7월 릴리스](#july_changes_15)
-- [2015년 6월 릴리스](#june_changes_15)
-- [2015년 5월 릴리스](#may_changes_15)
-- [2015년 4월 릴리스](#april_changes_15)
-- [2015년 3월 릴리스](#march_changes_15)
-- [2015년 2월 릴리스](#february_changes_15)
-- [2015년 1월 릴리스](#january_changes_15)
-- [2014년 12월 릴리스](#december_changes_14)
-- [2014년 11월 릴리스](#november_changes_14)
-- [2014년 10월 릴리스](#october_changes_14)
-- [2014년 9월 릴리스](#september_changes_14)
-- [2014년 8월 릴리스](#august_changes_14)
-- [2014년 7월 릴리스](#july_changes_14)
-- [2014년 5월 릴리스](#may_changes_14)
-- [2014 년 4 월 릴리스](#april_changes_14)
-- [2014년 1월/2월 릴리스](#jan_feb_changes_14)
-- [2013년 12월 릴리스](#december_changes_13)
-- [2013년 11월 릴리스](#november_changes_13)
-- [2013년 8월 릴리스](#august_changes_13)
-- [2013년 6월 릴리스](#june_changes_13)
-- [2012년 12월 릴리스](#december_changes_12)
-- [2012년 11월 릴리스](#november_changes_12)
-- [2012년 6월 미리 보기 릴리스](#june_changes_12)
 
 
 ##<a id="issues"></a>현재 알려진 문제
@@ -70,13 +34,8 @@ REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.|REST API�
 Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.|미디어 서비스에서는 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.
 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.|자세한 내용은 [Azure 미디어 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx) 항목의 503 HTTP 상태 코드 설명을 참조하세요.
 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. | [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
-부드러운 스트리밍 매니페스트 버전에 대한 변경 내용|자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
-
-### <a id="dotnet_issues"></a>.NET용 미디어 서비스 SDK 관련 문제
-
-문제|설명
----|---
-SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로 Azure 캐싱에서 작동하지 않습니다.|SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.
+일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다.|자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
+Azure 미디어 서비스 .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure 캐싱에서 작동하지 않습니다.|SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.
 
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
@@ -98,7 +57,9 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 자세한 내용은 [이](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) 블로그를 참조하세요.
 
-알려진 문제를 확인하려면 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
+### 알려진 문제
+
+일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. 자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 
 ##<a id="apr_changes16"></a>2016년 4월 릴리스
 
@@ -685,4 +646,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

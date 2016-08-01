@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
 
-이 항목에서는 Microsoft Azure에서 호스트되는 인트라넷 SharePoint 팜을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
+
+이 항목에서는 Microsoft Azure에서 호스트되는 인트라넷 SharePoint 2013 또는 2016 팜을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
@@ -39,7 +41,7 @@
 
 1.	테스트용 하이브리드 클라우드 환경 설정
 2.	SQL Server 컴퓨터(SQL1) 구성
-3.	SharePoint Server(SP1) 구성
+3.	SharePoint 2013 또는 SharePoint 2016를 실행 하는 SharePoint 서버 (SP1)을 구성합니다.
 
 이 워크로드에는 Azure 구독이 필요합니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
@@ -75,7 +77,7 @@ SPFarmAdmin 계정 암호를 제공하라는 메시지가 나타나면 강력한
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_A4
+	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_D4
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SQL1-SQLDataDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name "Data" -DiskSizeInGB 100 -VhdUri $vhdURI  -CreateOption empty
@@ -133,7 +135,7 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 2.	**서버에 연결**에서 **연결**을 클릭합니다.
 3.	개체 탐색기 트리 창에서 **SQL1**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 4.	**서버 속성** 창에서 **데이터베이스 설정**을 클릭합니다.
-5.	**데이터베이스 기본 위치**를 찾아서 다음 값을 설정합니다. 
+5.	**데이터베이스 기본 위치**를 찾아서 다음 값을 설정합니다.
 	- **데이터**에 경로 **f:\\Data**를 입력합니다.
 	- **로그**에 경로 **f:\\Log**를 입력합니다.
 	- **백업**에 경로 **f:\\Backup**을 입력합니다.
@@ -152,7 +154,9 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph2.png)
 
-## 3단계: SharePoint 서버(SP1) 구성
+SharePoint 2013 또는 SharePoint 2016 서버 구성에 대해 적절한 3단계로 진행합니다.
+
+## 3단계: SharePoint 2013 서버(SP1) 구성
 
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SP1용 Azure 가상 컴퓨터를 만듭니다.
 
@@ -164,7 +168,7 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_A3
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2013 server." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
@@ -192,10 +196,10 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 다시 시작한 후 Azure 포털을 사용하여 CORP\\User1 계정 및 암호로 SP1에 연결합니다.
 
-그런 다음 새 SharePoint 팜 및 기본 팀 사이트에 맞게 SP1을 구성합니다.
+그런 다음 새 SharePoint 2013 팜 및 기본 팀 사이트에 맞게 SP1을 구성합니다.
 
 1.	시작 화면에서 **SharePoint 2013 제품**을 입력하고 **SharePoint 2013 제품 구성 마법사**를 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
-2.	SharePoint 제품 페이지에서 **다음**을 클릭합니다. 
+2.	SharePoint 제품 페이지에서 **다음**을 클릭합니다.
 3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예**를 클릭합니다.
 4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
 5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com**을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음**을 클릭합니다.
@@ -207,7 +211,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 11.	**SharePoint 팜 구성 방법을 선택하세요.**에서 **마법사 시작**을 클릭합니다.
 12.	SharePoint 팜 구성 페이지의 **서비스 계정**에서 **기존 관리 계정 사용**을 클릭합니다.
 13.	**서비스**에서 **상태 서비스** 옆의 상자를 제외하고 모든 확인란의 선택을 취소한 후 **다음**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다.
-14.	사이트 모음 만들기 페이지의 **제목 및 설명**에서 **제목**에 **Contoso Corporation**을 입력하고 URL **http://sp1**/을 지정한 다음 **확인**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다. 이 단계는 URL http://sp1에 팀 사이트를 만듭니다.
+14.	사이트 모음 만들기 페이지의 **제목 및 설명**에서 **제목**에 **Contoso Corporation**을 입력하고 URL**http://sp1**/을 지정한 다음 **확인**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다. 이 단계는 URL http://sp1에 팀 사이트를 만듭니다.
 15.	팜 구성 마법사를 완료합니다 페이지에서 **마침**을 클릭합니다. Internet Explorer 탭에 SharePoint 2013 중앙 관리 사이트가 표시됩니다.
 16.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
 17.	주소 표시줄에 **http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
@@ -216,10 +220,83 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
-하이브리드 클라우드 환경의 SharePoint 인트라넷 팜을 테스트할 준비가 완료되었습니다.
+하이브리드 클라우드 환경의 SharePoint 2013 인트라넷 팜을 테스트할 준비가 완료되었습니다.
+
+
+## 3단계: SharePoint 2016 서버(SP1) 구성
+
+먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SP1용 Azure 가상 컴퓨터를 만듭니다.
+
+	$rgName="<your resource group name>"
+	$locName="<the Azure location of your resource group>"
+	$saName="<your storage account name>"
+	
+	$vnet=Get-AzureRMVirtualNetwork -Name "TestVNET" -ResourceGroupName $rgName
+	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
+	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2016 server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2016 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SP1-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+다음으로, Azure 포털을 사용하여 로컬 관리자 계정의 자격 증명으로 SP1 가상 컴퓨터에 연결합니다.
+
+그런 다음 기본 연결 테스트에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+
+	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
+	ping dc2.corp.contoso.com
+
+Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 4개가 수신되어야 합니다.
+
+다음으로, Window Power Shell 프롬프트에서 이러한 명령을 사용하여 SP1을 CORP Active Directory 도메인에 가입합니다.
+
+	Add-Computer -DomainName corp.contoso.com
+	Restart-Computer
+
+**Add-Computer** 명령에 대한 도메인 계정 자격 증명을 제공하라는 메시지가 표시되면 CORP\\User1 계정을 사용합니다.
+
+다시 시작한 후 Azure 포털을 사용하여 CORP\\User1 계정 및 암호로 SP1에 연결합니다.
+
+그런 다음 새 SharePoint 2016 단일 서버 팜 및 기본 팀 사이트에 맞게 SP1을 구성합니다.
+
+1. 시작 화면에서 **SharePoint**를 입력하고 **SharePoint 2016 제품 구성 마법사**를 클릭합니다.
+2. SharePoint 제품 페이지에서 **다음**을 클릭합니다.
+3. **SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
+4. 서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
+5. 구성 데이터베이스 설정 지정 페이지에서 다음을 수행합니다.
+	- **데이터베이스 서버**에 **SQL1**을 입력합니다.
+	- **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력합니다.
+	- **암호**에 SPFarmAdmin 계정의 암호를 입력합니다.
+6. **다음**을 클릭합니다.
+7. 팜 보안 설정 지정 페이지에서 **P@ssphrase**을 두 번 입력하고 **다음**을 클릭합니다.
+8. 	서버 역할 지정 페이지의 **단일 서버 팜**에서, **단일 서버 팜**을 클릭하고 **다음**을 클릭합니다.
+9. SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
+10. SharePoint 제품 구성 마법사 완료 페이지가 표시됩니다. **다음**을 클릭합니다.
+11. SharePoint 제품 구성 페이지가 나타납니다. 구성 프로세스가 완료될 때까지 기다립니다.
+12. 구성 완료 페이지에서 **마침**을 클릭합니다. 새 관리 웹 사이트가 시작됩니다.
+13. 보다 나은 SharePoint 만들기 페이지에서 고객 환경 개선 프로그램에 참여하려면 선택 항목을 클릭한 다음 **확인**을 클릭합니다.
+14. Welcome 페이지에서 **마법사 시작**을 클릭합니다.
+15. 서비스 응용 프로그램 및 서비스 페이지의 **서비스 계정**에서 **기존 관리 계정 사용**을 클릭하고 **다음**을 클릭합니다. 다음 페이지를 표시하는 데 몇 분 정도 걸릴 수 있습니다.
+16. 사이트 모음 만들기 페이지에서 **제목**에 **Contoso**를 입력하고 **확인**을 클릭합니다.
+17. 팜 구성 마법사를 완료합니다 페이지에서 **마침**을 클릭합니다. SharePoint 중앙 관리 웹 페이지가 표시됩니다.
+18. CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
+19.	주소 표시줄에 **http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
+
+다음은 현재 구성입니다.
+
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
+ 
+하이브리드 클라우드 환경의 단일 서버 SharePoint 2016 인트라넷 팜을 테스트할 준비가 완료되었습니다.
+
 
 ## 다음 단계
 
-- SharePoint 팜을 [구성](https://technet.microsoft.com/library/ee836142.aspx)합니다.
+- SharePoint 2013 팜을 [구성](https://technet.microsoft.com/library/ee836142.aspx)합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
@@ -171,8 +171,8 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 
 ## 다음 단계
 
-- 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 정의하는 템플릿 생성을 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-- Resource Manager 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 정의하는 템플릿 생성을 연습하려면 [리소스 관리자 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
+- 리소스 관리자 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

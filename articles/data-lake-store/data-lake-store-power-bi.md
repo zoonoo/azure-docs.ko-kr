@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Power BI를 사용하여 Data Lake 저장소의 데이터 분석
@@ -89,7 +89,7 @@
 
 	![쿼리 편집](./media/data-lake-store-power-bi/load-edited-query.png "쿼리 편집")
 
-14. 쿼리가 업데이트되면, 시각화에 사용할 수 있는 새로운 필드가 **필드** 탭에 표시됩니다.
+14. 쿼리가 업데이트되면, 시각화에 사용할 수 있는 새로운 필드가 **Fields**(필드) 탭에 표시됩니다.
 
 	![업데이트된 필드](./media/data-lake-store-power-bi/updated-query-fields.png "업데이트된 필드")
 
@@ -113,16 +113,16 @@
 
 17. 원형 차트가 브라질의 도시 내 드라이버를 나타내도록 자동으로 업데이트됩니다.
 
-	![국가 내 드라이브](./media/data-lake-store-power-bi/driver-per-country.png "국가별 드라이버")
+	![국가 내 드라이버](./media/data-lake-store-power-bi/driver-per-country.png "국가별 드라이버")
 
 18. **파일** 메뉴에서 **저장**을 클릭하여 시각화를 Power BI Desktop 파일로 저장합니다.
 
 ## Power BI 서비스에 보고서 게시
 
-Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게시하여 다른 사람들과 공유할 수 있습니다. 수행하는 방법에 대한 지침은 [Power BI Desktop에서 게시](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)을 참조하세요.
+Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게시하여 다른 사람들과 공유할 수 있습니다. 수행하는 방법에 대한 지침은 [Power BI Desktop에서 게시](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)를 참조하세요.
 
 ## 참고 항목
 
 * [Data Lake 분석을 사용하여 Data Lake 저장소의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->
