@@ -161,7 +161,7 @@ CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
 ```
 SetupEntrypoint 요소는 서비스의 코드를 시작하기 전에 실행되어야 하는 실행 파일 또는 배치 파일을 지정하는 데 사용됩니다. 선택적 요소이므로 초기화/설치가 필수가 아닌 경우에는 포함되지 않아도 됩니다. SetupEntrypoint는 서비스를 다시 시작할 때마다 실행됩니다.
 
-SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구성에 여러 스크립트가 필요한 경우 설치/구성 스크립트를 배치 파일 하나에 번들로 묶여야 합니다. SetupEntryPoint 요소와 마찬가지로, SetupEntrypoint는 실행 파일, 배치 파일, PowerShell cmdlet 등 각종 파일을 실행할 수 있습니다. 위의 예에서 SetupEntrypoint는 코드 디렉터리의 `scripts` 하위 디렉터리에 있는 배치 파일(LaunchConfig.cmd)을 기반으로 합니다(WorkingFolder 요소가 코드로 설정되었다고 가정).
+SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구성에 여러 스크립트가 필요한 경우 설치/구성 스크립트를 배치 파일 하나에 번들로 묶여야 합니다. SetupEntrypoint는 실행 파일, 배치 파일, PowerShell cmdlet 등 각종 파일을 실행할 수 있습니다. 위의 예에서 SetupEntrypoint는 코드 디렉터리의 `scripts` 하위 디렉터리에 있는 배치 파일(LaunchConfig.cmd)을 기반으로 합니다(WorkingFolder 요소가 코드로 설정되었다고 가정).
 
 ### Entrypoint
 
@@ -308,4 +308,4 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 - [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 - [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

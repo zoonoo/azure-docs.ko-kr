@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
@@ -117,7 +117,9 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## 사용자 지정 역할 만들기
 사용자 지정 역할을 만들려면 `New-AzureRmRoleDefinition` 명령을 사용합니다.
 
-다음 예제에서는 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고, 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여하는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
+PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할](role-based-access-built-in-roles.md) 중 하나로 시작해야 합니다. 속성을 편집하고 원하는 Actions, notActions 또는 범위를 추가하고 변경 내용을 새 역할로 저장합니다.
+
+다음 예제에서는 역할 *Virtual Machine Contributor*로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
@@ -154,4 +156,4 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## 참고 항목
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

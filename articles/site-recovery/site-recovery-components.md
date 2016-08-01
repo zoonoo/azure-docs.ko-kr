@@ -99,7 +99,7 @@ Azure 포털 또는 Azure 클래식 포털(확장됨)에 VMware VM/물리적 서
 - Azure 포털 배포에 대한 요구 사항에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure.md#azure-prerequisites).
 - 클래식 포털에서 향상된 배포 요구 사항에 대해 [자세히 알아봅니다](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
 - Azure 포털에서 장애 복구에 대해 [자세히 알아봅니다](site-recovery-failback-azure-to-vmware.md).
-- [자세한 정보](site-recovery-failback-azure-to-vmware-classic.md)- Auzre 포털에서 장애 복구에 대해 클래식 포털에서 장애 복구에 대해 [자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
+- 클래식 포털에서 장애 복구에 대해 [자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
 ## Azure에 복제: VMM에서 관리하지 않는 Hyper-V VM
 

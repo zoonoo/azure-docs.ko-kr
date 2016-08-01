@@ -94,11 +94,6 @@ ADFS 오류 페이지를 사용자 인증서를 가져오는 방법에 대한 �
 Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램은 지원됩니다. 전자 메일 응용 프로그램에서 이 기능을 지원하는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
 
 
-### 제한 사항  
-
-클라이언트 인증서를 사용하는 페더레이션된 인증은 지원되지 않습니다.
-
-
 
 ## 시작 
 
@@ -272,4 +267,4 @@ Android 5.0(Lollipop) 이상의 응용 프로그램으로 인증서 인증을 �
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom**이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,15 +4,15 @@
 	keywords="탄력적 데이터베이스,SQL 데이터베이스"
 	services="sql-database"
 	documentationCenter=""
-	authors="srinia"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -52,6 +52,8 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 ## 탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한
 
 [AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL DB 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 이 리소스 공유 공정성을 가진 응용 프로그램은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스의 양에 추가됩니다.
 
 ## 탄력적 데이터베이스 풀 속성
 
@@ -104,4 +106,4 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

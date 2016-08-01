@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure에서 VM 백업 인프라 계획
@@ -79,7 +79,7 @@ Windows VM에서 Azure 백업은 VSS 전체 백업을 사용합니다([VSS 전�
 | 초기 백업 | 160Mbps |
 | 증분 백업(DR) | 640Mbps <br><br> 백업해야 하는 디스크에 분산된 변동이 많은 경우 이 처리량이 훨씬 감소할 수 있습니다. |
 
-### 총 VM 백업 시간
+## 총 VM 백업 시간
 대부분의 백업 시간은 데이터를 읽고 쓰는 데 사용되지만, VM을 백업하는 데 필요한 총 시간에는 다음과 같은 기타 작업도 포함됩니다.
 
 - [백업 확장 설치 또는 업데이트](backup-azure-vms.md#offline-vms)하는 데 필요한 시간
@@ -131,4 +131,4 @@ Azure 백업을 통해 백업된 Azure 가상 컴퓨터에는 [Azure 백업 가�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [VM 백업 문제 해결](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

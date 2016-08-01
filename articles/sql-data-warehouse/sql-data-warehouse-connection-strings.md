@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -27,10 +27,10 @@
 
 다음 응용 프로그램 프로토콜 중 하나를 사용하여 SQL 데이터 웨어하우스에 연결할 수 있습니다.
 
-- ADO.NET
-- ODBC
-- PHP
-- JDBC 
+- [ADO.NET][]
+- [ODBC][]
+- [PHP][]
+- [JDBC][]
 
 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 설정할 수 있습니다. Azure 포털에서 데이터베이스로 이동한 다음 *필수*에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
@@ -65,10 +65,14 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 <!--Image references-->
 
 <!--Azure.com references-->
-
-
+ [Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
+ 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

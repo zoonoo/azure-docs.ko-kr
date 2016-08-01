@@ -33,6 +33,10 @@
 - 네트워크의 두 컴퓨터 간에 가장 짧은 경로 파악.
 - 웹 페이지의 페이지 순위 계산.
 
+> [AZURE.WARNING] HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+>
+> Giraph와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
+
 ##스크립트가 수행하는 작업
 
 이 스크립트는 다음 작업을 수행합니다.
@@ -127,7 +131,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 	이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](http://giraph.apache.org/quick_start.html)을 참조하세요.
 
-5. 작업이 완료되면 결과가 \_\___wasb:///example/out/shotestpaths__ 폴더에 저장됩니다. 만든 파일은 __part-m-__으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 출력을 보려면 다음 명령을 사용합니다.
+5. 작업이 완료되면 결과가 __wasb:///example/out/shotestpaths__ 디렉터리에 저장됩니다. 만든 파일은 __part-m-\_\_으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 출력을 보려면 다음 명령을 사용합니다.
 
 		hadoop fs -text /example/output/shortestpaths/*
 
@@ -154,4 +158,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

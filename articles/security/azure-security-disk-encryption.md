@@ -34,9 +34,9 @@ Azure 디스크 암호화는 Windows 및 Linux IaaS 가상 컴퓨터 디스크�
 Azure 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원합니다.
 
 - 미리 암호화된 VHD 및 암호화 키에서 만든 새 IaaS VM에서 암호화 사용
-- Azure 갤러리 이비지에서 만든 새 IaaS VM에서 암호화 사용 
-- Azure에서 이미 실행 중인 기존 IaaS VM에서 암호화 사용 
-- Windows IaaS VM에서 암호화 사용 안 함  
+- Azure 갤러리 이비지에서 만든 새 IaaS VM에서 암호화 사용
+- Azure에서 이미 실행 중인 기존 IaaS VM에서 암호화 사용
+- Windows IaaS VM에서 암호화 사용 안 함
 
 솔루션은 Microsoft Azure에서 활성화된 경우 IaaS VM에 대해 다음을 지원합니다.
 
@@ -77,7 +77,7 @@ Azure IaaS VM에 대한 Azure 디스크 암호화를 사용하도록 설정하�
 
 - 고객 저장소에서 휴지 상태 부팅 볼륨을 보호하기 위해 OS 볼륨의 암호화
 
-	- Azure에서 이미 실행 중인 Linus IaaS VM에서 OS 볼륨의 암호화는 현재 지원되지 않습니다. Linux IaaS VM용 OS 볼륨의 암호화는 미리 암호화된 VHD 시나리오에 대해서만 지원됩니다.
+	- Azure에서 이미 실행 중인 Linux IaaS VM에서 OS 볼륨의 암호화는 현재 지원되지 않습니다. Linux IaaS VM용 OS 볼륨의 암호화는 미리 암호화된 VHD 시나리오에 대해서만 지원됩니다.
 	
 - 고객 저장소에서 휴지 상태 데이터 볼륨을 보호하기 위해 데이터 볼륨의 암호화
 
@@ -153,11 +153,11 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 **참고** -Azure 디스크 암호화는 키 자격 증명 모음 및 VM이 동일한 Azure 지역에 있어야 합니다. 별도 하위 지역에서 구성하면 Azure 디스크 암호화 기능의 사용에 오류가 발생합니다.
 
-- Azure 디스크 암호화 사용에 대해 Azure 키 자격 증명을 설정하고 구성하려면 이 문서의 *필수 조건* 섹션에서 **Azure 디스크 암호화 사용에 대한 Azure 키 자격 증명 설정 및 구성**을 참조하세요.
+- Azure 디스크 암호화 사용에 대해 Azure 주요 자격 증명을 설정하고 구성하려면 이 문서의 *필수 조건* 섹션에서 **Azure 디스크 암호화 사용에 대한 Azure 주요 자격 증명 설정 및 구성**을 참조하세요.
 
 - Azure 디스크 암호화 사용에 대해 Azure Active Directory의 Azure AD 응용 프로그램을 설정하고 구성하려면 이 문서의 *필수 조건* 섹션에서 **Azure Active Directory에서 Azure AD 응용 프로그램 설치**를 참조하세요.
 
-- Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책을 설정하고 구성하려면 이 문서의 *필수 조건* 섹션에서 **Azure AD 응용 프로그램에 대한 설정 키 자격 증명 모음 액세스 정책**을 참조하세요.
+- Azure AD 응용 프로그램에 대한 주요 자격 증명 모음 액세스 정책을 설정하고 구성하려면 이 문서의 *필수 조건* 섹션에서 **Azure AD 응용 프로그램에 대한 주요 자격 증명 모음 액세스 정책 설정**을 참조하세요.
 
 - 미리 암호화된 Windows VHD를 준비하려면 이 문서의 부록에서 **미리 암호화된 Windows VHD 준비** 섹션을 참조하세요.
 
@@ -169,21 +169,21 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 	- 유효한 암호 URL의 예:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 유효한 KRK KEK의 예:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화는 주요 자격 증명 모음 암호 및 KEK URL의 일부로 지정되는 포트 번호를 지원하지 않습니다. 지원되는 주요 자격 증명 모음 URL은 아래 예제를 참조하세요.
 
  	- 허용되지 않은 주요 자격 증명 모음 URL
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 허용되는 주요 자격 증명 모음 URL:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 끝점 구성 요구 사항을 충족해야 합니다.
 
@@ -195,7 +195,7 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 **참고:** 보안 정책이 Azure VM에서 인터넷에 액세스를 제한하는 경우 연결이 필요하고 특정 규칙을 구성하여 IP에 대한 아웃 바운드 연결을 허용하는 위의 URI를 해결할 수 있습니다.
 
-- Azure PowerShell SDK의 최신 버전을 사용하여 Azure 디스크 암호화를 구성합니다. 최신 버전의 [Azure PowerShell version 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) 이상을 다운로드합니다.
+- Azure PowerShell SDK의 최신 버전을 사용하여 Azure 디스크 암호화를 구성합니다. 최신 버전의 [Azure PowerShell 버전 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) 이상을 다운로드합니다.
 
 **참고:** Azure 디스크 암호화는 [Azure PowerShell SDK 버전 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016)에서 지원되지 않습니다. Azure PowerShell 1.1.0을 사용하는 경우 관련된 오류가 나타나면 [Azure PowerShell 1.1.0과 관련된 Azure 디스크 암호화 오류](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) 문서를 참고하세요.
 
@@ -207,7 +207,7 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 - Azure 디스크 암호화 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. VM이 가입된 도메인인 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 마십시오. "호환되는 TPM 없이 BitLocker 허용"을 위한 자세한 그룹 정책은 [이 문서](https://technet.microsoft.com/library/ee706521)를 참조하세요.
 
-- Azure AD 응용 프로그램을 만들고 새로운 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 설정하고 암호화를 활성화하는 Azure 디스크 암호화 필수 요소 PowerShell 스크립트는 [여기](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)에 있습니다.
+- Azure AD 응용 프로그램을 만들고 새로운 주요 자격 증명 모음을 만들거나 기존 주요 자격 증명 모음을 설정하고 암호화를 활성화하는 Azure 디스크 암호화 필수 요소 PowerShell 스크립트는 [여기](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)에 있습니다.
 
 ### Azure 디스크 암호화 사용을 위해 Azure 주요 자격 증명 모음 설정 및 구성
 
@@ -281,7 +281,7 @@ https://manage.windowsazure.com에서 Azure 서비스 관리 포털을 사용하
 ![Azure 디스크 암호화](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
-**참고:** 위의 작업 과정은 포털에서는 지원되지 않습니다.
+**참고:** 위의 작업 과정은 포털에서 지원되지 않습니다.
 
 ##### 기존 앱 사용
 
@@ -458,10 +458,10 @@ Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액
 CLI 명령을 사용하여 이 시나리오에 대한 디스크 암호화를 사용하도록 설정하려면 아래 단계를 따르세요.
 
 1. 주요 자격 증명 모음에 대한 액세스 정책을 설정합니다.
-	- 'EnabledForDiskEncryption' 플래그 설정: "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- ‘EnabledForDiskEncryption’ 플래그를 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. 기존/실행 중인 VM에서 암호화를 사용하도록 설정하려면 다음을 입력합니다. *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. 암호화 상태 가져오기: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+3. 암호화 상태를 가져옵니다. *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. 고객 암호화 VHD에서 새 VM에 암호화를 사용하도록 설정하려면 "azure vm create" 명령에 아래 매개 변수를 사용합니다.
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -483,7 +483,7 @@ Azure AD 클라이언트 ID를 사용하는 기존/실행 중인 VM 시나리오
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​주요 자격 증명 모음에 암호를 쓸 수 있는 권한이 있는 Azure AD 앱의 클라이언트 ID |
 | AADClientSecret | ​주요 자격 증명 모음에 암호를 쓸 수 있는 권한이 있는 Azure AD 앱의 클라이언트 암호 |
-| keyVaultName | BitLocker 키가 업로드될 주요 자격 증명 모음의 이름입니다. cmdlet(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>)을 사용하여 가져올 수 있습니다. Vaultname |
+| keyVaultName | BitLocker 키가 업로드될 주요 자격 증명 모음의 이름입니다. Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName> cmdlet을 사용하여 가져올 수 있습니다. Vaultname |
 | ​ keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운에서 “nokek”를 선택하면 이 옵션이 선택 사항입니다. UseExistingKek 드롭다운에서 “kek”를 선택하면 keyEncryptionKeyURL 값을 반드시 입력해야 합니다. |
 | ​volumeType | ​암호화 작업을 수행할 볼륨의 유형. 유효한 값은 "OS", "데이터", "모두"입니다. |
 | sequenceVersion | BitLocker 작업의 시퀀스 버전. 동일한 VM에서 디스크 암호화 작업이 수행될 때마다 이 버전 번호가 증가합니다. |
@@ -501,10 +501,10 @@ PS cmdlet을 사용하는 Azure 디스크 암호화를 사용하여 암호화를
 CLI 명령을 사용하여 Azure에서 기존/실행 중인 IaaS Windows VM에서 암호화를 사용하도록 설정하려면 아래 단계를 따르세요.
 
 1. 주요 자격 증명 모음에 대한 액세스 정책을 설정합니다.
-	- 'EnabledForDiskEncryption' 플래그 설정: "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- ‘EnabledForDiskEncryption’ 플래그를 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. 기존/실행 중인 VM에서 암호화를 사용하도록 설정하려면 다음을 입력합니다. *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. 암호화 상태 가져오기: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+3. 암호화 상태를 가져옵니다. *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
 4. 고객 암호화 VHD에서 새 VM에 암호화를 사용하도록 설정하려면 "azure vm create" 명령에 아래 매개 변수를 사용합니다.
 	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
 	- disk-encryption-key-url <disk-encryption-key-url>
@@ -522,7 +522,7 @@ Azure AD 클라이언트 ID를 사용하는 기존/실행 중인 VM 시나리오
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​주요 자격 증명 모음에 암호를 쓸 수 있는 권한이 있는 Azure AD 앱의 클라이언트 ID |
 | AADClientSecret | ​주요 자격 증명 모음에 암호를 쓸 수 있는 권한이 있는 Azure AD 앱의 클라이언트 암호 |
-| keyVaultName | BitLocker 키가 업로드될 주요 자격 증명 모음의 이름입니다. cmdlet(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>)을 사용하여 가져올 수 있습니다. Vaultname |
+| keyVaultName | BitLocker 키가 업로드될 주요 자격 증명 모음의 이름입니다. Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName> cmdlet을 사용하여 가져올 수 있습니다. Vaultname |
 | ​ keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운에서 “nokek”를 선택하면 이 옵션이 선택 사항입니다. UseExistingKek 드롭다운에서 “kek”를 선택하면 keyEncryptionKeyURL 값을 반드시 입력해야 합니다. |
 | ​volumeType | ​암호화 작업을 수행할 볼륨의 유형. 지원되는 유효한 값은 "데이터"입니다. Linux VM에서는 실행 중 Linux VM의 OS 볼륨에서 암호화 사용을 지원하지 않습니다. |
 | sequenceVersion | BitLocker 작업의 시퀀스 버전. 동일한 VM에서 디스크 암호화 작업이 수행될 때마다 이 버전 번호가 증가합니다. |
@@ -536,10 +536,10 @@ Azure AD 클라이언트 ID를 사용하는 기존/실행 중인 VM 시나리오
 [여기](../xplat-cli-install.md)에서 설치된 CLI 명령을 사용하여 고객 암호화 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. CLI 명령을 사용하여 Azure에서 기존/실행 중인 IaaS Linux VM에서 암호화를 사용하도록 설정하려면 아래 단계를 따르세요.
 
 1. 주요 자격 증명 모음에 대한 액세스 정책을 설정합니다.
-	- 'EnabledForDiskEncryption' 플래그 설정: "azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true"
-	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정: "azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]"
+	- ‘EnabledForDiskEncryption’ 플래그를 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Azure AD 앱이 KeyVault에 암호를 쓸 수 있는 권한을 설정합니다. “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. 기존/실행 중인 VM에서 암호화를 사용하도록 설정하려면 다음을 입력합니다. *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. 암호화 상태 가져오기: "azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json"
+3. 암호화 상태를 가져옵니다. “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
 4. 고객 암호화 VHD에서 새 VM에 암호화를 사용하도록 설정하려면 "azure vm create" 명령에 아래 매개 변수를 사용합니다.
 	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
 	- *disk-encryption-key-url <disk-encryption-key-url>*
@@ -598,7 +598,7 @@ Azure 디스크 암호화 ARM 템플릿 또는 PS cmdlet을 통해 실행 중인
 
 ##### PS cmdlet을 사용하는 Azure에서 기존/실행 중인 IaaS Windows에 암호화 사용
 
-PS cmdlet을 사용하지 않기 위해 [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) cmdlet에서 IaaS(infrastructure as a service) 가상 컴퓨터에서 암호화를 사용하지 않습니다. 이 cmdlet은 Windows 가상 컴퓨터에만 지원되고 Linux 가상 컴퓨터에는 지원되지 않습니다. 이 cmdlet은 가상 컴퓨터에서 확장을 설치하여 암호화를 사용하지 않습니다. 이름 매개 변수를 지정하지 않으면 "Windows VM용 AzureDiskEncryption" 기본 이름을 포함한 확장이 만들어집니다.
+PS cmdlet을 사용하지 않으려면 [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) cmdlet은 IaaS(infrastructure as a service) 가상 컴퓨터에서 암호화를 사용하지 않습니다. 이 cmdlet은 Windows 가상 컴퓨터에만 지원되고 Linux 가상 컴퓨터에는 지원되지 않습니다. 이 cmdlet은 가상 컴퓨터에서 확장을 설치하여 암호화를 사용하지 않습니다. 이름 매개 변수를 지정하지 않으면 "Windows VM용 AzureDiskEncryption" 기본 이름을 포함한 확장이 만들어집니다.
 
 **참고**: 이 cmdlet은 가상 컴퓨터를 다시 부팅합니다.
 
@@ -679,13 +679,14 @@ Windows Server 2008 R2에는 아래 명령을 사용합니다.
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint
     modprobe vfat >/dev/null 2>&1
+    modprobe ntfs >/dev/null 2>&1
     sleep 2
     OPENED=0
-    for SFS in /sys/block/sd*; do
-        DEV=`basename $SFS`
-        F=$SFS/${DEV}1/dev
+    cd /sys/block
+    for DEV in sd*; do
         echo "> Trying device: $DEV ..." >&2
-        mount /dev/${DEV}1 $MountPoint -t vfat -r >/dev/null
+        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null||
+        mount -t ntfs -r /dev/${DEV}1 $MountPoint >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
                 cat $MountPoint/$KeyFileName
                 umount $MountPoint 2>/dev/null
@@ -709,11 +710,19 @@ Windows Server 2008 R2에는 아래 명령을 사용합니다.
 
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
-3\. Windows에서 *azure\_crypt\_key.sh*를 편집 중이고 Linux에 복사하는 경우 잊지 말고 *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*를 실행하세요. 4. *update-initramfs -u -k all*을 실행하여 initramfs를 업데이트하고 keyscript가 적용되도록 합니다.
+3\. Windows에서 *azure\_crypt\_key.sh*를 편집 중이고 Linux에 복사하는 경우 잊지 말고 *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*를 실행하세요. 4. 줄을 추가하여 */etc/initramfs-tools/modules*을 편집합니다.
+
+    vfat
+    ntfs
+    nls_cp437
+    nls_utf8
+    nls_iso8859-1
+
+5\. *update-initramfs -u -k all*을 실행하여 initramfs를 업데이트하고 keyscript가 적용되도록 합니다.
 
 ##### openSUSE 13.2.
 
-1\. /etc/dracut.conf add\_drivers+="vfat nls\_cp437 nls\_iso8859-1"을 편집합니다.
+1\. /etc/dracut.conf add\_drivers+="vfat ntfs nls\_cp437 nls\_iso8859-1"을 편집합니다.
 
 2\. "/usr/lib/dracut/modules.d/90crypt/module-setup.sh" 파일의 끝에서 다음 줄을 주석 처리합니다.
 
@@ -737,9 +746,11 @@ Windows Server 2008 R2에는 아래 명령을 사용합니다.
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
        echo "> Trying device:$SFS..." >&2
-       mount ${SFS}1 $MountPoint -t vfat -r >&2
+       mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+       mount ${SFS}1 $MountPoint -t ntfs -r >&2
        if [ -f $MountPoint/$KeyFileName ]; then
           echo "> keyfile got..." >&2
           luksfile=$MountPoint/$KeyFileName
@@ -750,7 +761,7 @@ Windows Server 2008 R2에는 아래 명령을 사용합니다.
 5\."dracut –f -v"를 실행하여 initrd를 업데이트합니다.
 
 ##### CentOS 7
-1\./etc/dracut.conf add\_drivers+=" vfat nls\_cp437 nls\_iso8859-1"을 편집합니다.
+1\. /etc/dracut.conf add\_drivers+=" vfat ntfs nls\_cp437 nls\_iso8859-1"을 편집합니다.
 
 2\. "/usr/lib/dracut/modules.d/90crypt/module-setup.sh" 파일의 끝에서 다음 줄을 주석 처리합니다.
 
@@ -775,9 +786,11 @@ Windows Server 2008 R2에는 아래 명령을 사용합니다.
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
     echo "> Trying device:$SFS..." >&2
-    mount ${SFS}1 $MountPoint -t vfat -r >&2
+    mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+    mount ${SFS}1 $MountPoint -t ntfs -r >&2
     if [ -f $MountPoint/$KeyFileName ]; then
         echo "> keyfile got..." >&2
         luksfile=$MountPoint/$KeyFileName
@@ -845,4 +858,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

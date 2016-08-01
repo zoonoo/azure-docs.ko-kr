@@ -19,7 +19,7 @@
 
 # 논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림
 
-이 문서는 DocumentDB 커뮤니티 포럼 중 하나에 게시된 질문에서 가져온 것입니다. 질문은 **DocumentDB가 수정된 리소스에 대해 알림을 지원하는가**?였습니다.
+이 문서는 Azure DocumentDB 커뮤니티 포럼 중 하나에 게시된 질문에서 가져온 것입니다. 질문은 **DocumentDB가 수정된 리소스에 대해 알림을 지원하는가**?였습니다.
 
 여러 해 동안 BizTalk Server로 작업하면서 [WCF LOB 어댑터](https://msdn.microsoft.com/library/bb798128.aspx)를 사용할 때 매우 일반적인 시나리오입니다. 따라서 DocumentDB에서 새롭거나 수정된 문서에 대해 이 기능을 복제할 수 있는지 알아보기로 했습니다.
 
@@ -1156,4 +1156,4 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 
 DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

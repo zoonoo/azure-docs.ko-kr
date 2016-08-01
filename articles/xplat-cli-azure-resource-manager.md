@@ -23,6 +23,7 @@
 - [포털](azure-portal/resource-group-portal.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -227,7 +228,7 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 
 * **특정 배포에 대한 템플릿 다운로드** -- 리소스를 배포하는 데 사용된 실제 템플릿을 살펴보아야 하는 경우에 유용합니다. 이 템플릿에는 원래 배포에 대해 정의된 모든 매개 변수와 변수가 포함됩니다. 그러나 조직 내 다른 사람이 템플릿에 정의된 범위를 넘어서 리소스 그룹을 변경할 경우 이 템플릿은 리소스 그룹의 현재 상태를 나타내지 않습니다.
 
-    특정 배포에 사용한 템플릿ㅇ르 로컬 디렉터리에 다운로드하려면 `azure group deployment template download` 명령을 실행합니다.
+    특정 배포에 사용한 템플릿을 로컬 디렉터리에 다운로드하려면 `azure group deployment template download` 명령을 실행합니다.
 
         azure group deployment template download TestRG testRGDeploy ~/azure/templates/downloads/
  
@@ -238,4 +239,4 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 * Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 * Azure 포털에서 Azure Resource Manager 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

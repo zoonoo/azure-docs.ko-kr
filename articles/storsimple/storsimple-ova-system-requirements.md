@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 시스템 요구 사항
@@ -69,14 +69,22 @@
 | Internet Explorer | 최신 버전 | Internet Explorer 11로 테스트함 |
 | Google Chrome | 최신 버전 | Chrome 46으로 테스트함 |
 
-### 지원되는 SMB 버전
+### 지원되는 저장소 클라이언트 
 
-| **버전** |
+다음 소프트웨어 요구 사항은 StorSimple 가상 배열(iSCSI 서버로 구성됨)에 액세스하는 iSCSI 초기자에 대한 것입니다.
+
+| **지원되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다. StorSimple iSCSI 볼륨은 다음에 대해서만 지원합니다: <ul><li>Windows 기본 디스크의 단순 볼륨.</li><li>볼륨 포맷을 위한 Windows NTFS.</li>|
+
+다음 소프트웨어 요구 사항은 StorSimple 가상 배열(파일 서버로 구성됨)에 액세스하는 SMB 클리이언트에 대한 것입니다.
+
+| **SMB 버전** |
 |-------------|
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
-
+ 
 ## 네트워킹 요구 사항 
 
 다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
@@ -123,4 +131,4 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 -   [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

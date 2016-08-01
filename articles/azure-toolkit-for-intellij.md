@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # IntelliJ용 Azure 도구 키트
 
@@ -31,6 +31,13 @@ IntelliJ용 Azure 도구 키트는 IntelliJ 개발 환경에서 Azure 응용 프
 * [IntelliJ용 Azure 도구 키트의 새로운 기능]
 * [IntelliJ용 Azure 도구 키트 설치]
 * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
+
+## IntelliJ용 Azure 도구 키트 사용
+
+다음 문서는 IntelliJ용 Azure 도구 키트를 사용하여 Java 프로젝트에 Azure 기능을 추가하는 방법을 보여 줍니다.
+
+* [IntelliJ의 Azure에서 Java 웹앱 디버깅]
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][HDInsight Tools Plugin for IntelliJ]
 
 ## 참고 항목
 
@@ -61,4 +68,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 
-<!---HONumber=AcomDC_0706_2016-->
+[IntelliJ의 Azure에서 Java 웹앱 디버깅]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->

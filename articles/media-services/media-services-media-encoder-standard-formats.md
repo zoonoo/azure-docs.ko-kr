@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -88,7 +88,7 @@ MP3(MPEG-1 Audio Layer 3)|예
 Windows Media 오디오|예 
 WAV/PCM|예 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|예 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |예 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |예 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|예 
 AMR(Adaptive Multi-Rate)|예
 AES(SMPTE 331M 및 302M, AES3-2003) |아니요 
@@ -123,4 +123,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -167,7 +167,7 @@
 
 	![사용자 이름 및 암호 만들기][2]
 
-6. 확인 단추를 클릭합니다. 몇 분 안에 새 [리소스 그룹](../azure-portal/resource-group-portal.md)에 사용자를 위한 구성 요소가 생성됩니다. 새 리소스 그룹은 아래 나온 것처럼 시작 보드에 고정됩니다. 생성이 완료되면 탄력적 데이터베이스 작업(클라우드 서비스, SQL 데이터베이스, 서비스 버스, 저장소)이 그룹 내에 모두 생성됩니다.
+6. 확인 단추를 클릭합니다. 몇 분 안에 새 [리소스 그룹](../resource-group-overview.md)에 사용자를 위한 구성 요소가 생성됩니다. 새 리소스 그룹은 아래 나온 것처럼 시작 보드에 고정됩니다. 생성이 완료되면 탄력적 데이터베이스 작업(클라우드 서비스, SQL 데이터베이스, 서비스 버스, 저장소)이 그룹 내에 모두 생성됩니다.
 
 	![시작 보드 내의 리소스 그룹][3]
 
@@ -187,4 +187,4 @@
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -24,7 +24,7 @@
 
 자동화된 패치는 SQL Server를 실행하는 Azure 가상 컴퓨터에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이를 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]  
 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(클래식)](virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요.
 
 ## 필수 조건
@@ -61,18 +61,31 @@
 |**패치 범주**|중요|다운로드 및 설치할 업데이트의 범주입니다.|
 
 ## 포털에서 구성
+Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자동화된 패치를 구성할 수 있습니다.
 
-[Azure 포털](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409)을 사용하여 리소스 관리자 배포 모델에서 새 SQL Server 가상 컴퓨터를 만들 때 자동화된 패치를 구성할 수 있습니다.
+### 새 VM
+Azure 포털을 사용하여 리소스 관리자 배포 모델에서 새 SQL Server 가상 컴퓨터를 만들 때 자동화된 패치를 구성합니다.
 
 **SQL Server 설정** 블레이드에서 **자동화된 패치**를 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
 
-![Azure 포털에서 SQL 자동 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
+![Azure 포털에서 SQL 자동화된 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
-기존 SQL Server 가상 컴퓨터의 경우 자동화된 패치 설정을 구성하려면 PowerShell을 사용해야 합니다.
+### 기존 VM
+기존 SQL Server 가상 컴퓨터에 대한 해당 SQL Server 가상 컴퓨터를 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
 
->[AZURE.NOTE] 처음으로 자동화된 패치를 사용 설정하면 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 패치가 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+![기존 VM에 대한 SQL 자동 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
+
+**SQL Server 구성** 블레이드에서 자동화된 패치 섹션의 **편집** 단추를 클릭합니다.
+
+![기존 VM에 대한 SQL 자동 패치 구성](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
+
+완료되면 **SQL Server 구성** 블레이드 아래쪽의 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
+
+처음으로 자동화된 패치를 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 패치가 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+
+>[AZURE.NOTE] 또한 템플릿을 사용하여 자동화된 패치를 구성할 수 있습니다. 자세한 내용은 [자동화된 패치에 대한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)을 참조하세요.
 
 ## PowerShell을 사용하여 구성
 
@@ -105,4 +118,4 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016--->

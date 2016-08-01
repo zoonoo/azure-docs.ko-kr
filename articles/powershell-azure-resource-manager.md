@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
@@ -22,6 +22,7 @@
 - [포털](azure-portal/resource-group-portal.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
@@ -49,7 +50,7 @@ Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방�
   + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
   
   + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
-- Azure PowerShell 1.0 이 릴리즈에 대한 정보 및 설치하는 방법은 [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md)을 참조하세요.
+- Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md)을 참조하세요.
 
 이 자습서는 PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다.
 
@@ -95,7 +96,7 @@ Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로
 
 >[AZURE.NOTE] Resource Manager 모듈을 사용하려면 Add-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
 
-여러 구독이 있는 경우 **Set-AzureRmContext** cmdlet을 사용하여 배포에 사용할 구독 ID를 입력합니다.
+여러 구독이 있는 경우 **Set-AzureRmContext** Cmdlet을 사용하여 배포에 사용할 구독 ID를 입력합니다.
 
     Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
@@ -121,7 +122,7 @@ Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로
 
 ## 솔루션 배포
 
-이 항목에서는 템플릿을 만드는 방법을 보여 주거나 템플릿의 구조를 설명하지 않습니다. 해당 정보는 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md) 및 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)의 사전 정의된 [SQL 데이터베이스를 사용하는 웹앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) 템플릿을 배포할 것입니다.
+이 항목에서는 템플릿을 만드는 방법을 보여 주거나 템플릿의 구조를 설명하지 않습니다. 해당 정보는 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md) 및 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)의 사전 정의된 [SQL 데이터베이스를 사용하는 웹앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) 템플릿을 배포합니다.
 
 리소스 그룹이 있고 템플릿이 있으므로 이제 템플릿에 정의된 인프라를 리소스 그룹에 배포할 준비가 되었습니다. **New-AzureRmResourceGroupDeployment** Cmdlet을 사용하여 리소스를 배포합니다. 템플릿에서 여러 기본값을 지정하고 사용자는 그 값을 그대로 사용하면 되므로 이러한 매개 변수의 값을 지정할 필요가 없습니다. 기본 구문은 다음과 같습니다.
 
@@ -140,7 +141,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 접미사가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 명령이 실행되고 리소스가 만들어질 때 메시지를 반환합니다. 결국 배포 결과를 표시합니다.
 
@@ -188,7 +189,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 
 리소스 그룹을 만든 후 리소스 관리자 모듈에서 Cmdlet을 사용하여 리소스 그룹을 관리할 수 있습니다.
 
-- 구독에서 리소스 그룹을 가져오려면 **Get-AzureRmResourceGroup** cmdlet를 사용합니다.
+- 구독에서 리소스 그룹을 가져오려면 **Get-AzureRmResourceGroup** Cmdlet를 사용합니다.
 
 		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
 	
@@ -221,7 +222,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
         Tags              : {System.Collections.Hashtable}
         ...
 	        
-- 태그를 사용하여 구독의 리소스를 논리적으로 구성하고, **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** cmdlet으로 리소스를 검색할 수 있습니다.
+- 태그를 사용하여 구독의 리소스를 논리적으로 구성하고, **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** Cmdlet으로 리소스를 검색할 수 있습니다.
 
         Find-AzureRmResource -TagName displayName -TagValue Website
 
@@ -261,13 +262,13 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 
 ###리소스 그룹에서 템플릿 내보내기
 
-리소스 그룹에 대한 템플릿을 보려면 **Export-AzureRmResourceGroup** cmdlet을 실행합니다.
+리소스 그룹에 대한 템플릿을 보려면 **Export-AzureRmResourceGroup** Cmdlet을 실행합니다.
 
     Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
     
 ###배포에서 템플릿 다운로드
 
-특정 배포에 사용된 템플릿을 다운로드하려면 **Save-AzureRmResourceGroupDeploymentTemplate** cmdlet을 실행합니다.
+특정 배포에 사용된 템플릿을 다운로드하려면 **Save-AzureRmResourceGroupDeploymentTemplate** Cmdlet을 실행합니다.
 
     Save-AzureRmResourceGroupDeploymentTemplate -DeploymentName azuredeploy -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\azuredeploy.json
 
@@ -386,4 +387,4 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

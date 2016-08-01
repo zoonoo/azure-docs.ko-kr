@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="sedusch"/>
 
 # Azure의 Windows 가상 컴퓨터에서 SAP 사용
@@ -35,4 +35,4 @@ Microsoft는 Microsoft Azure 가상 컴퓨터와 함께 포괄적인 IaaS(Infras
 
 [지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

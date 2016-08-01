@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
@@ -131,11 +131,11 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  **요약**을 검토하고 **마침**을 클릭하여 가상 컴퓨터를 만듭니다.
+1.  **요약**을 검토하고 **마침**을 클릭하여 가상 컴퓨터를 만듭니다. 하지만 아직은 진행하지 마십시오-여전히 일부 CPU 코어와 두 번째 드라이브를 추가해야 합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에 선택된 호스트 시스템에서, **가상 컴퓨터** 목록 아래 있는 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
+1.  최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에 선택된 호스트 시스템에서, **가상 컴퓨터** 목록 아래 있는 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
@@ -156,7 +156,7 @@
 
 1.  새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 
-1.  **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Windows Server 2008 R2를 실행하는 경우에는 이 화면이 표시되지 않습니다.
+1.  **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다. Windows Server 2012 R2 또는 Windows Server 2008 R2를 실행하는 경우 이 화면이 표시되지 않습니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
@@ -267,4 +267,4 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

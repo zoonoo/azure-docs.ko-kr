@@ -36,7 +36,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - Azure 포털에는 Azure 백업 및 Azure Site Recovery 서비스가 단일 복구 서비스 자격 증명 모음으로 결합되어 있어서 단일 위치에서 BCDR(비즈니스 연속성 및 재해 복구)을 설정하고 관리할 수 있습니다. 통합 대시보드를 통해 온-프레미스 사이트와 Azure 공용 클라우드의 작업을 모니터링하고 관리할 수 있습니다.
 - CSP(클라우드 솔루션 공급자) 프로그램이 포함된 Azure 구독이 있는 사용자는 이제 Azure 포털에서 Site Recovery 작업을 관리할 수 있습니다.
 - Azure 포털의 Site Recovery는 ARM 저장소 계정에 컴퓨터를 복제할 수 있습니다. 장애 조치(Failover) 시 Site Recovery는 Azure에 ARM 기반 VM을 만듭니다.
-- Site Recovery는 클래식 저장소 계정에 복제하는 작업과 클래식 모델을 사용해 VM에 장애 조치하는 작업을 계속해서 지원합니다. 
+- Site Recovery는 클래식 저장소 계정에 복제하는 작업과 클래식 모델을 사용해 VM에 장애 조치하는 작업을 계속해서 지원합니다.
 
 
 이 문서를 읽은 후 하단의 Disqus 의견에 의견을 남겨 주세요. 기술 관련 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의하세요.
@@ -53,10 +53,10 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 ## 비즈니스 이점
 
-- Hyper-V VM 가상 컴퓨터에서 실행되는 비즈니스 워크로드 및 응용 프로그램에 오프사이트(Azure) 장애 조치(failover)를 제공합니다. 
+- Hyper-V VM 가상 컴퓨터에서 실행되는 비즈니스 워크로드 및 응용 프로그램에 오프사이트(Azure) 장애 조치(failover)를 제공합니다.
 - Azure Site Recovery를 사용해 VMM 서버가 없이도 Hyper-V VM을 복제합니다.
 - 복제, 장애 조치(failover), 복구 프로세스의 간단한 설정 및 관리를 위한 단일 복구 서비스를 제공합니다.
-- 온-프레미스 인프라에서 Azure로 손쉽게 장애 조치(failover)를 실행하고 Azure에서 온-프레미스 사이트로 장애 복구(failback)(복원)를 수행합니다. 
+- 온-프레미스 인프라에서 Azure로 손쉽게 장애 조치(failover)를 실행하고 Azure에서 온-프레미스 사이트로 장애 복구(failback)(복원)를 수행합니다.
 - 계층화된 응용 프로그램 워크로드가 함께 장애 조치(Failover)되도록 여러 컴퓨터로 복구 계획을 구성할 수 있습니다.
 
 ## 시나리오 아키텍처
@@ -88,7 +88,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 **필수 요소** | **세부 정보**
 --- | ---
 **Hyper-V**| 최신 업데이트의 Windows Server 2012 R2를 실행하고 Hyper-V 역할을 수행하는 하나 이상의 온-프레미스 서버.<br/><br/>Hyper-V 서버는 하나 이상의 가상 컴퓨터를 포함해야 합니다.<br/><br/>Hyper-V 서버는 직접 또는 프록시를 통해 인터넷이 연결되어 있어야 합니다.<br/><br/>Hyper-V 서버에는 [KB2961977](https://support.microsoft.com/ko-KR/kb/2961977 "KB2961977")에 언급된 수정이 적용되어 있어야 합니다.
-**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인해야 합니다. [Azure 데이터센트 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS (433) 프로토콜을 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 대한 IP 주소 범위를 허용하세요.
+**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다. [Azure 데이터센트 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS (433) 프로토콜을 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 대한 IP 주소 범위를 허용하세요.
 
 ## 보호된 컴퓨터 필수 조건
 
@@ -101,9 +101,9 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 배포를 준비하기 위해 다음을 수행해야 합니다.
 
-1. 장애 조치(failover) 후 Azure VM이 생성될 때 배치될 [Azure 네트워크를 설정합니다](#set-up-an-azure-network). 
+1. 장애 조치(failover) 후 Azure VM이 생성될 때 배치될 [Azure 네트워크를 설정](#set-up-an-azure-network)합니다.
 2. 복제 데이터를 저장할 [Azure 저장소 계정을 설정](#set-up-an-azure-storage-account)합니다.
-3. Hyper-V 호스트가 필요한 URL에 액세스할 수 있도록 [Hyper-v 호스트를 준비합니다](#prepare-the-hyper-v-hosts).
+3. Hyper-V 호스트가 필요한 URL에 액세스할 수 있도록 [Hyper-v 호스트를 준비](#prepare-the-hyper-v-hosts)합니다.
 
 ### Azure 네트워크 설정
 
@@ -132,7 +132,7 @@ Azure 네트워크 설정 이는 장애 조치(failover) 후 생성된 Azure VM�
 	![새 자격 증명 모음](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
-4. [새 리소스 그룹을 만들거나](../resource-group-portal.md#create-resource-group) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
+4. [새 리소스 그룹을 만들거나](../resource-group-template-deploy-portal.md) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
 4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **자격 증명 모음 만들기**를 클릭합니다.
 
 	![새 자격 증명 모음](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png)
@@ -168,7 +168,7 @@ Site Recovery 배포 방법을 선택하여 시작 환경을 시작합니다. �
 Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공급자와 Azure 복구 서비스 에이전트를 설치한 후 자격 증명 모음에 호스트를 등록합니다.
 
 
-1. **2단계: 인프라 준비** > **원본**을 클릭합니다. Hyper-V 호스트 또는 클러스터의 컨테이너로 새 Hyper-V 사이트를 추가하려면 **+Hyper-v 사이트**를 클릭합니다. 
+1. **2단계: 인프라 준비** > **원본**을 클릭합니다. Hyper-V 호스트 또는 클러스터의 컨테이너로 새 Hyper-V 사이트를 추가하려면 **+Hyper-v 사이트**를 클릭합니다.
 
 	![원본 설정](./media/site-recovery-hyper-v-site-to-azure/set-source1.png)
 
@@ -224,9 +224,9 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 
 			C:\ASR> setupdr.exe /i
 
-4. 자격 증명 모음 CD C:\\Program Files\\Microsoft Azure Site Recovery Provider\\ C:\\Program Files\\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>에서 서버를 등록하기 위한 명령을 실행합니다.
+4. 그런 다음 자격 증명 모음 CD C:\\Program Files\\Microsoft Azure Site Recovery Provider\\ C:\\Program Files\\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r /Friendlyname <서버의 친숙한 이름> /Credentials <자격 증명 파일의 경로>에서 서버를 등록하기 위한 명령을 실행합니다. 여기서:
 
-- **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
+- **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
 - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
 - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
 - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
@@ -314,9 +314,9 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 #### 네트워크 대역폭에 영향
 
 1. 레지스트리에서 **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Replication**으로 이동합니다.
-	- 복제 디스크의 대역폭 트래픽에 영향을 주려면 **UploadThreadsPerVM** 값을 수정하거나 없는 경우 키를 만듭니다. 
-	- Azure에서 장애 복구(failback) 트래픽에 대한 대역폭에 영향을 주려면 **DownloadThreadsPerVM** 값을 수정합니다. 
-2. 기본값은 4입니다. "과도하게 프로비전된" 네트워크에서는 이러한 레지스트리 키를 기본값에서 변경해야 합니다. 최대값은 32입니다. 트래픽을 모니터링하여 값을 최적화합니다. 
+	- 복제 디스크의 대역폭 트래픽에 영향을 주려면 **UploadThreadsPerVM** 값을 수정하거나 없는 경우 키를 만듭니다.
+	- Azure에서 장애 복구(failback) 트래픽에 대한 대역폭에 영향을 주려면 **DownloadThreadsPerVM** 값을 수정합니다.
+2. 기본값은 4입니다. "과도하게 프로비전된" 네트워크에서는 이러한 레지스트리 키를 기본값에서 변경해야 합니다. 최대값은 32입니다. 트래픽을 모니터링하여 값을 최적화합니다.
 
 ## 6단계: 복제 활성화
 
@@ -366,7 +366,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 		- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 		- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
-		- 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다. 	
+		- 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.
 		- VM에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)
@@ -382,11 +382,11 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 ### 테스트 장애 조치(failover) 준비
 
 - 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만드는 것이 좋습니다(Azure에서 새 네트워크를 만들 때의 기본 동작). 테스트 장애 조치(failover)에 대해 [자세히 알아보세요](site-recovery-failover.md#run-a-test-failover).
-- Azure에 장애 조치(failover)를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치해야 합니다. 부팅 속도가 빨라지고 문제 해결에 도움이 됩니다. [Linux](https://github.com/Azure/WALinuxAgent) 또는 [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) 에이전트를 설치합니다. 
+- Azure에 장애 조치(failover)를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치해야 합니다. 부팅 속도가 빨라지고 문제 해결에 도움이 됩니다. [Linux](https://github.com/Azure/WALinuxAgent) 또는 [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) 에이전트를 설치합니다.
 - 배포를 완전하게 테스트하려면 복제된 컴퓨터가 예상대로 작동할 수 있는 인프라가 필요합니다. Active Directory 및 DNS를 테스트하려면 DNS를 사용하여 도메인 컨트롤러로 가상 컴퓨터를 만들고 Azure Site Recovery를 사용하여 이 가상 컴퓨터를 Azure에 복제합니다. [Active Directory에 대한 테스트 장애 조치(failover) 고려 사항](site-recovery-active-directory.md#considerations-for-test-failover)에 대해 자세히 알아보세요.
 - 테스트 장애 조치(Failover) 대신 계획되지 않은 장애 조치(Failover)를 실행하려면 다음 사항에 주의하세요.
 
-	- 가능한 경우 계획되지 않은 장애 조치를 실행하기 전에 주 컴퓨터를 종료해야 합니다. 이렇게 하면 원본 및 복제본 컴퓨터가 동시에 실행되지 않아도 됩니다. 
+	- 가능한 경우 계획되지 않은 장애 조치를 실행하기 전에 주 컴퓨터를 종료해야 합니다. 이렇게 하면 원본 및 복제본 컴퓨터가 동시에 실행되지 않아도 됩니다.
 	- 계획되지 않은 장애 조치를 실행하면 주 컴퓨터에서 데이터 복제를 중지하므로 계획되지 않은 장애 조치가 시작된 후 모든 데이터 델타가 전송되지 않습니다. 또한 복구 계획에서 계획되지 않은 장애 조치(Failover)를 실행하면 오류가 발생하더라도 완료될 때까지 실행됩니다.
 	
 ### 장애 조치(Failover) 후 Azure VM에 연결할 준비
@@ -468,4 +468,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
@@ -41,7 +41,7 @@
 2.	RRAS1 구성
 3.	크로스-프레미스 Azure 가상 네트워크 만들기
 4.	사이트 간 VPN 연결 만들기
-5.	DC2 구성 
+5.	DC2 구성
 
 아직 Azure 구독이 없는 경우에는 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료 계정에 등록할 수 있습니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
@@ -118,7 +118,7 @@ Azure PowerShell 프롬프트를 시작합니다.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 동일한 구독을 사용합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 동일한 구독을 사용합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -223,7 +223,7 @@ RRAS1과 Azure VPN 게이트웨이 간의 연결을 설정하는 데 몇 분 정
 
 그런 다음 인터넷 위치에 대한 변환된 트래픽을 지원하도록 RRAS1을 구성합니다. RRAS1에서 다음을 수행합니다.
 
-1.	시작 화면에서 **rras**를 입력한 다음 **라우팅 및 원격 액세스**를 클릭합니다. 
+1.	시작 화면에서 **rras**를 입력한 다음 **라우팅 및 원격 액세스**를 클릭합니다.
 2.	콘솔 트리에서 서버 이름을 열고 **IPv4**를 클릭합니다.
 3.	**일반**을 마우스 오른쪽 단추로 클릭한 다음 **새 라우팅 프로토콜**을 클릭합니다.
 4.	**NAT**를 클릭한 다음 **확인**을 클릭합니다.
@@ -329,4 +329,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - 이 환경에서 [SharePoint 인트라넷 팜](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [웹 기반 LOB 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md)를 설정합니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

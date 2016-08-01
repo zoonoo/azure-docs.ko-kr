@@ -13,12 +13,12 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/18/2016" 
+ms.date="07/14/2016" 
 ms.author="eugenesh" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 이 API 버전에는 문서 추출 기능이 있는 Azure Blob 저장소 인덱서와 기타 향상된 기능이 추가되었습니다.
+> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. 이 API 버전에는 문서 추출 기능이 있는 Azure Blob 저장소 인덱서와 Azure 테이블 저장소 인덱서의 미리 보기 버전 및 기타 향상된 기능이 추가되었습니다. 또한 API는 Azure SQL 데이터베이스, Azure VM SQL Server 및 Azure DocumentDB용 인덱서를 비롯하여 일반 공급(GA) 인덱서도 지원합니다.
 
 ## 개요 ##
 
@@ -28,7 +28,7 @@ ms.author="eugenesh" />
 
 - 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
 - 예약에 따라 인덱스를 데이터 소스의 변경 사항과 동기화합니다. 일정은 인덱서 정의의 일부입니다.
-- 필요에 따라 요청 시 인덱스 업데이트를 호출합니다. 
+- 필요에 따라 요청 시 인덱스 업데이트를 호출합니다.
 
 **인덱서**는 인덱스를 정기적으로 업데이트하려는 경우에 유용합니다. 인라인 일정을 인덱서 정의의 일부로 설정하거나 [인덱서 실행](#RunIndexer)을 사용하여 요청 시 실행할 수 있습니다.
 
@@ -36,8 +36,8 @@ ms.author="eugenesh" />
 
 현재 지원되는 데이터 원본은 다음과 같습니다.
 
-- **Azure SQL 데이터베이스** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/)를 참조하세요. 
-- **Azure DocumentDB** 대상 연습은 [이 문서](../documentdb/documentdb-search-indexer)를 참조하세요. 
+- **Azure SQL 데이터베이스** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하세요.
+- **Azure DocumentDB** 대상 연습은 [이 문서](../documentdb/documentdb-search-indexer.md)를 참조하세요.
 - **Azure Blob 저장소** - PDF, Microsoft Office(DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP 및 일반 텍스트 파일(JSON 포함) 문서 형식을 포함합니다. 대상 연습은 [이 문서](search-howto-indexing-azure-blob-storage.md)를 참조하세요.
 	 
 향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에서 사용자 의견을 제공해 주시기 바랍니다.
@@ -85,21 +85,20 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 데이터 원본 이름은 소문자여야 하고 문자나 숫자로 시작되어야 합니다. 또한 슬래시나 마침표를 포함할 수 없으며 128자 미만이어야 합니다. 문자나 숫자로 시작하는 데이터 원본 이름의 뒤에는 원하는 모든 문자, 숫자, 대시(여러 대시를 연속적으로 포함할 수는 없음)를 사용할 수 있습니다. 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
-- `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
+- `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 관리 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="CreateDataSourceRequestSyntax"></a> **요청 본문 구문**
 
 요청 본문에는 데이터 원본 정의가 포함됩니다. 데이터 원본 정의에는 데이터 원본의 형식, 데이터를 읽는 데 필요한 자격 증명 그리고 선택적 데이터 변경/삭제 검색 정책이 들어 있으며, 이러한 정책은 정기적으로 예약되는 인덱서와 함께 사용할 때 데이터 원본에서 변경되거나 삭제된 데이터를 효율적으로 식별하는 데 사용됩니다.
-
 
 요청 페이로드 구조를 지정하는 구문은 다음과 같습니다. 이 항목에서 샘플 요청이 추가로 제공됩니다.
 
@@ -116,28 +115,28 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 요청에는 다음 속성이 포함됩니다.
 
 - `name`: 필수 사항입니다. 데이터 소스의 이름입니다. 데이터 원본 이름은 소문자, 숫자 또는 대시만 포함할 수 있고 대시로 시작하거나 끝날 수 없으며 128자로 제한됩니다.
-- `description`: 선택적 설명입니다. 
+- `description`: 선택적 설명입니다.
 - `type`: 필수 사항입니다. 다음과 같은 지원되는 데이터 원본 유형 중 하나여야 합니다.
 	- `azuresql` - Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
 	- `documentdb` - Azure DocumentDB
 	- `azureblob` - Azure Blob 저장소
 - `credentials`:
-	- 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다. 
+	- 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다.
 		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
-		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.  
-		- Azure Blob 저장소의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.  
+		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.
+		- Azure Blob 저장소의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.
 		
 - `container`, 필수: `name` 및 `query` 속성을 사용하여 인덱스에 데이터를 지정합니다:
 	- `name`, 필수:
 		- Azure SQL: 테이블 또는 뷰를 지정합니다. `[dbo].[mytable]`과 같은 스키마로 한정된 이름을 사용할 수 있습니다.
-		- DocumentDB: 컬렉션을 지정합니다. 
-		- Azure Blob 저장소: 저장소 컨테이너를 지정합니다. 
+		- DocumentDB: 컬렉션을 지정합니다.
+		- Azure Blob 저장소: 저장소 컨테이너를 지정합니다.
 	- `query`, 선택 사항:
-		- DocumentDB: Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.  
+		- DocumentDB: Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.
 		- Azure Blob 저장소: Blob 컨테이너 내에 가상 폴더를 지정할 수 있습니다. 예를 들어 Blob 경로 `mycontainer/documents/blob.pdf`, `documents`의 경우 가상 폴더로 사용할 수 있습니다.
 		- Azure SQL: 쿼리는 지원되지 않습니다. 이 기능이 필요하면 [이 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)에 응답해 주세요.
    
-- 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy` 속성은 아래 설명되어 있습니다.
+- 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy` 속성은 아래에서 설명합니다.
 
 <a name="DataChangeDetectionPolicies"></a> **데이터 변경 검색 정책**
 
@@ -147,8 +146,8 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 다음 기준을 충족하는 열이나 속성이 데이터 원본에 포함되어 있으면 이 정책을 사용합니다.
  
-- 모든 삽입 시 열의 값을 지정합니다. 
-- 항목에 대한 모든 업데이트는 열의 값도 변경합니다. 
+- 모든 삽입 시 열의 값을 지정합니다.
+- 항목에 대한 모든 업데이트는 열의 값도 변경합니다.
 - 각 변경 시에 열의 값이 증가합니다.
 - `WHERE [High Water Mark Column] > [Current High Water Mark Value]`와 같은 필터 절을 사용하는 쿼리를 효율적으로 실행할 수 있습니다.
 
@@ -169,7 +168,9 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 SQL 데이터베이스에서 [변경 내용 추적](https://msdn.microsoft.com/library/bb933875.aspx)을 지원하는 경우 SQL 통합 변경 내용 추적 정책을 사용하는 것이 좋습니다. 이 정책을 사용하면 변경 내용을 가장 효율적으로 추적할 수 있으며, 스키마에서 "soft delete" 열을 명시적으로 지정하지 않아도 Azure 검색에서 삭제된 행을 식별할 수 있습니다.
 
-통합 변경 내용 추적 기능은 다음 SQL Server 데이터베이스 버전부터 지원됩니다. - SQL Server 2008 R2(Azure VM에서 SQL Server를 사용하는 경우) - Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
+통합 변경 내용 추적은 다음 SQL Server 데이터베이스 버전부터 지원됩니다.
+- Azure VM SQL Server를 사용하는 경우 SQL Server 2008 R2.
+- Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
 
 SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다.
 
@@ -256,7 +257,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
     GET https://[service name].search.windows.net/datasources?api-version=[api-version]
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -295,7 +296,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
     GET https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -332,7 +333,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 
 > [AZURE.NOTE] 삭제하는 데이터 원본을 참조하는 인덱서가 있어도 삭제 작업은 진행됩니다. 그러나 이러한 인덱서는 다음에 실행할 때 오류 상태로 전환됩니다.
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -355,7 +356,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 > [AZURE.NOTE] 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -382,7 +383,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `"P[nD][T[nH][nM]]"`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
+- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `"P[nD][T[nH][nM]]"`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
 - `startTime`: 필수 사항입니다. 인덱서 실행을 시작해야 하는 UTC 날짜/시간입니다.
 
@@ -390,7 +391,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 인덱서는 필요에 따라 동작에 영향을 주는 여러 매개 변수를 지정할 수 있습니다. 모든 매개 변수는 선택 사항입니다.
 
-- `maxFailedItems`: 인덱서 실행을 실패한 것으로 간주하기 전까지 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다. 실패한 항목에 대한 정보는 [인덱서 상태 가져오기](#GetIndexerStatus) 작업에서 반환됩니다. 
+- `maxFailedItems`: 인덱서 실행을 실패한 것으로 간주하기 전까지 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다. 실패한 항목에 대한 정보는 [인덱서 상태 가져오기](#GetIndexerStatus) 작업에서 반환됩니다.
 
 - `maxFailedItemsPerBatch`: 인덱서 실행을 실패한 것으로 간주하기 전까지 각 일괄 처리에서 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다.
 
@@ -453,7 +454,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
     Content-Type: application/json
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -517,7 +518,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
     GET https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -547,7 +548,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 인덱서를 삭제하면 해당 시점에 진행 중이던 인덱서 실행은 완료될 때까지 실행되지만 추가 실행은 예약되지 않습니다. 없는 인덱서를 사용하려고 하면 HTTP 상태 코드 ‘404 찾을 수 없음’이 반환됩니다.
  
-`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -563,7 +564,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -580,7 +581,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
     api-key: [admin key]
 
 
-`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -622,7 +623,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 인덱서 상태는 다음 값 중 하나일 수 있습니다.
 
-- `running`: 인덱서가 정상적으로 실행되고 있음을 나타냅니다. 이 상태가 표시되더라도 일부 인덱서 실행은 실패할 수 있으므로 `lastResult` 속성도 확인하는 것이 좋습니다. 
+- `running`: 인덱서가 정상적으로 실행되고 있음을 나타냅니다. 이 상태가 표시되더라도 일부 인덱서 실행은 실패할 수 있으므로 `lastResult` 속성도 확인하는 것이 좋습니다.
 
 - `error`: 인덱서에서 오류가 발생하여 사용자가 직접 해결해야 함을 나타냅니다. 데이터 원본 자격 증명이 만료되었거나 대상 인덱스 또는 데이터 원본의 스키마가 잘못 변경된 경우를 예로 들 수 있습니다.
 
@@ -632,7 +633,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 인덱서 실행 결과에는 다음 속성이 포함됩니다.
 
-- `status`: 실행의 상태입니다. 자세한 내용은 아래의 [인덱서 실행 상태](#IndexerExecutionStatus)를 참조하세요. 
+- `status`: 실행의 상태입니다. 자세한 내용은 아래의 [인덱서 실행 상태](#IndexerExecutionStatus)를 참조하세요.
 
 - `errorMessage`: 실패한 실행에 대한 오류 메시지입니다.
 
@@ -672,7 +673,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
-`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
+`api-version`은 필수 사항입니다. 미리 보기 버전은 `2015-02-28-Preview`입니다.
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
@@ -797,4 +798,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

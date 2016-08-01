@@ -14,220 +14,318 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="07/18/2016"
    ms.author="mandia"/>
 
 # Azure Blob 저장소 커넥터 시작
-Azure Blob에 연결하여 파일 만들기, 파일 삭제 등 Blob 컨테이너의 파일을 관리합니다. Azure Blob 저장소 커넥터는 다음에서 사용할 수 있습니다.
+Azure Blob 저장소는 많은 양의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. Azure Blob 저장소에서 Blob 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
-- 논리 앱 
+- 새 프로젝트를 업로드하거나 최근에 업데이트된 파일을 가져와 워크플로를 작성합니다.
+- 파일 메타데이터 가져오기, 파일 삭제, 파일 복사 및 삭제를 위한 작업을 사용합니다. 예를 들어 도구가 Azure 웹 사이트에서 업데이트되면(트리거) Blob 저장소에서 파일을 업데이트합니다(작업).
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+이 항목에서는 논리 앱에서 Blob 저장소 커넥터를 사용하는 방법을 보여 주고 작업을 나열합니다.
 
-Azure Blob 저장소를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
 
-- Blob에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 파일 만들기, 파일 콘텐츠 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Blob의 파일에서 "긴급"을 검색한 다음 Office 365를 사용하여 "긴급"이 포함된 모든 파일을 메일로 보낼 수 있습니다. 
+먼저 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+>[AZURE.INCLUDE [시작에 필요한 항목](../../includes/connectors-create-api-azureblobstorage.md)]
 
-## 트리거 및 작업
-Azure Blob에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
-| 트리거 | 동작|
-| --- | --- |
-| 없음 | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더에 보관 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li></ul> |
+## Azure Blob 저장소에 연결
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 Dropbox 예제에서는 Dropbox 자격 증명을 입력하여 Dropbox에 대한 연결을 만듭니다.
 
-## Azure Blob에 대한 연결 만들기
+논리 앱에 이 커넥터를 추가하면 Blob 저장소 계정에 대한 연결을 만듭니다. 이 커넥터를 처음 추가할 때는 연결 정보를 묻는 메시지가 표시됩니다.
 
->[AZURE.INCLUDE [Azure Blob에 대한 연결을 만드는 단계](../../includes/connectors-create-api-azureblobstorage.md)]
+![](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-연결을 만든 후에 폴더 경로 또는 파일 이름 등의 Blob 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
->[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Blob 연결을 사용할 수 있습니다.
+#### 연결 만들기
+
+1. 저장소 계정 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
+
+	| 속성 | 세부 정보 |
+|---|---|
+| 연결 이름 * | 연결의 이름을 입력합니다. |
+| Azure 저장소 계정 이름 * | 저장소 계정 이름을 입력하세요. 저장소 계정 이름은 Azure 포털의 저장소 속성에 표시됩니다. |
+| Azure 저장소 계정 액세스 키 * | 저장소 계정 키를 입력합니다. 액세스 키는 Azure 포털의 저장소 속성에 표시됩니다. |
+
+	이러한 자격 증명을 사용하여 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
+
+	![Azure Blob 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/sample-connection.png)
+
+2. **만들기**를 선택합니다.
+
  
+## 트리거 사용
 
-## Swagger REST API 참조
-적용 버전: 1.0
+이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP Webhook 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
 
-### 파일 만들기
-Azure Blob 저장소에 파일을 업로드합니다. ```POST: /datasets/default/files```
+## 작업 사용
+	
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|쿼리| 없음 |Azure Blob 저장소에 파일을 업로드할 폴더 경로|
-|name|string|yes|쿼리|없음 |Azure Blob 저장소에 만들 파일의 이름|
-|body|string(binary) |yes|body|없음|Azure Blob 저장소에 업로드할 파일의 콘텐츠|
+1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
 
-#### 응답
+	![](./media/connectors-create-api-azureblobstorage/add-action.png)
+
+2. **작업 추가**를 선택합니다.
+
+3. 사용 가능한 모든 작업의 목록을 표시하려면 텍스트 상자에 "blob"을 입력합니다.
+
+	![](./media/connectors-create-api-azureblobstorage/actions.png)
+
+4. 이 예제에서는 **AzureBlob - 경로를 사용하여 파일 메타데이터 가져오기**를 선택합니다. 연결이 이미 있는 경우 **...** (선택 표시) 단추를 선택하여 파일을 선택합니다.
+
+	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+
+	연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-azureblobstorage.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다.
+
+	> [AZURE.NOTE] 이 예제에서는 파일의 메타 데이터를 가져옵니다. 메타데이터를 보려면 다른 커넥터를 사용하여 새 파일을 만드는 다른 작업을 추가합니다. 예를 들어 메타데이터에 따라 새 "test" 파일을 만드는 OneDrive 작업을 추가합니다.
+
+5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/)는 여러 저장소 계정을 관리하는 유용한 도구입니다.
+
+## 기술 세부 정보
+
+## 동작
+
+|작업|설명|
+|--- | ---|
+|[파일 메타데이터 가져오기](connectors-create-api-azureblobstorage.md#get-file-metadata)|이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.|
+|[파일 업데이트](connectors-create-api-azureblobstorage.md#update-file)|이 작업은 파일을 업데이트합니다.|
+|[파일 삭제](connectors-create-api-azureblobstorage.md#delete-file)|이 작업은 파일을 삭제합니다.|
+|[경로를 사용하여 파일 메타데이터 가져오기](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|이 작업은 경로를 사용하여 파일 메타데이터를 가져옵니다.|
+|[경로를 사용하여 파일 콘텐츠 가져오기](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|이 작업은 경로를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 콘텐츠 가져오기](connectors-create-api-azureblobstorage.md#get-file-content)|이 작업은 ID를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 만들기](connectors-create-api-azureblobstorage.md#create-file)|이 작업은 파일을 업로드합니다.|
+|[파일 복사](connectors-create-api-azureblobstorage.md#copy-file)|이 작업은 Azure Blob 저장소로 파일을 복사합니다.|
+|[폴더에 보관 추출](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).|
+
+### 작업 세부 정보
+
+이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 작업에 대한 특정 세부 정보를 참조하세요.
+
+#### 파일 메타데이터 가져오기
+이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|id*|파일|파일 선택|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+#### 파일 업데이트
+이 작업은 파일을 업데이트합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|id*|파일|파일 선택|
+|body*|파일 콘텐츠|업데이트할 파일의 콘텐츠|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+#### 파일 삭제
+이 작업은 파일을 삭제합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|id*|파일|파일 선택|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+없음
+
+
+#### 경로를 사용하여 파일 메타데이터 가져오기
+이 작업은 경로를 사용하여 파일 메타데이터를 가져옵니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|path*|파일 경로|파일 선택|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+#### 경로를 사용하여 파일 콘텐츠 가져오기
+이 작업은 경로를 사용하여 파일 콘텐츠를 가져옵니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|path*|파일 경로|파일 선택|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+없음
+
+
+#### 파일 콘텐츠 가져오기
+이 작업은 ID를 사용하여 파일 콘텐츠를 가져옵니다.
+
+|속성 이름| 데이터 형식|설명|
+| ---|---|---|
+|id*|string|파일 선택|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+없음
+
+
+#### 파일 만들기
+이 작업은 파일을 업로드합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|folderPath*|폴더 경로|폴더 선택|
+|name*|파일 이름|업로드할 파일의 이름|
+|body*|파일 콘텐츠|업로드할 파일의 콘텐츠|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 | 
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+#### 파일 복사
+이 작업은 Azure Blob 저장소로 파일을 복사합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|source*|원본 URL|원본 파일에 대한 URL 지정|
+|destination*|대상 파일 경로|대상 파일 이름을 포함한 대상 파일 경로 지정|
+|overwrite|덮어쓰기|기존 대상 파일을 덮어쓰시겠습니까(true/false)? |
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+#### 폴더에 보관 추출
+이 작업은 보관 파일을 FTP 서버의 폴더에 추출합니다(예: .zip).
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|source*|원본 보관 파일 경로|보관 파일 선택|
+|destination*|대상 폴더 경로|추출할 콘텐츠 선택|
+|overwrite|덮어쓰기|기존 대상 파일을 덮어쓰시겠습니까(true/false)?|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+BlobMetadata
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+## HTTP 응답
+
+다른 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 응답 및 해당 설명을 대략적으로 설명합니다.
+
 |이름|설명|
 |---|---|
 |200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
 |기본값|작업이 실패했습니다.|
-
-### 파일 복사
-Azure Blob 저장소에 파일을 복사합니다. ```POST: /datasets/default/copyFile```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|원본|string|yes|쿼리|없음 |원본 파일에 대한 URL|
-|destination|string|yes|쿼리| 없음|대상 파일 이름을 포함한 Azure Blob 저장소의 대상 파일 경로|
-|overwrite|부울|no|쿼리|없음 |'true'로 설정할 경우 대상 덮어쓰기|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 파일 삭제
-Azure Blob 저장소에서 파일을 삭제합니다. ```DELETE: /datasets/default/files/{id}```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|id|string|yes|path|없음 |Azure Blob 저장소에서 삭제할 파일의 고유 식별자|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 폴더에 보관 추출
-보관 파일(예:.zip)을 Azure Blob 저장소의 폴더에 추출합니다. ```POST: /datasets/default/ExtractFolderV2```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|원본|string|yes|쿼리| 없음|보관 파일의 경로|
-|destination|string|yes|쿼리|없음 |보관 콘텐츠를 추출할 Azure Blob 저장소의 경로|
-|overwrite|부울|no|쿼리|없음 |'true'로 설정할 경우 대상 파일 덮어쓰기|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 파일 콘텐츠 가져오기
-ID를 사용하여 Azure Blob 저장소에서 파일 콘텐츠를 검색합니다. ```GET: /datasets/default/files/{id}/content```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|id|string|yes|path|없음|파일의 고유 식별자|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 경로를 사용하여 파일 콘텐츠 가져오기
-경로를 사용하여 Azure Blob 저장소에서 파일 콘텐츠를 가져옵니다. ```GET: /datasets/default/GetFileContentByPath```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|path|string|yes|쿼리|없음 |Azure Blob 저장소의 파일에 대한 고유 경로|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 파일 메타데이터 가져오기
-파일 ID를 사용하여 Azure Blob 저장소에서 파일 메타데이터를 검색합니다. ```GET: /datasets/default/files/{id}```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|id|string|yes|path|없음 |파일의 고유 식별자|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 경로를 사용하여 파일 메타데이터 가져오기
-경로를 사용하여 Azure Blob 저장소에서 파일 메타데이터를 검색합니다. ```GET: /datasets/default/GetFileByPath```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|path|string|yes|쿼리|없음|Azure Blob 저장소의 파일에 대한 고유 경로|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-### 파일 업데이트
-Azure Blob 저장소의 파일을 업데이트합니다. ```PUT: /datasets/default/files/{id}```
-
-| 이름|데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|id|string|yes|path|없음 |Azure Blob 저장소에서 업데이트할 파일의 고유 식별자|
-|body|string(binary) |yes|body|없음 |Azure Blob 저장소에서 업데이트할 파일의 콘텐츠|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-## 개체 정의
-
-#### DataSetsMetadata
-
-|속성 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|tabular|정의되지 않음|no|
-|Blob|정의되지 않음|no|
-
-#### TabularDataSetsMetadata
-
-|속성 이름 | 데이터 형식 |필수|
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|속성 이름 | 데이터 형식 |필수|
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### BlobMetadata
-
-|속성 이름 | 데이터 형식 |필수|
-|---|---|---|
-|Id|string|no|
-|이름|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|크기|정수|no|
-|MediaType|string|no|
-|IsFolder|부울|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

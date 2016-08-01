@@ -66,9 +66,11 @@ Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응�
 
 Azure의 응용 프로그램이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 0.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 연결 시도가 허용되지 않는 경우, 요청은 Azure SQL Database 서버로 도달되지 않습니다.
 
+> [AZURE.IMPORTANT] 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
+
 Azure에서 두 가지 방법으로 연결을 설정할 수 있습니다.
 
-- [Microsoft Azure 포털](https://portal.azure.com/)에서 새 서버를 만들 때 **Azure 서비스가 서버에 액세스하도록 허용** 확인란을 선택합니다. **중요:** 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
+- [Microsoft Azure 포털](https://portal.azure.com/)에서 새 서버를 만들 때 **Azure 서비스가 서버에 액세스하도록 허용** 확인란을 선택합니다.
 
 - [클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=161793)에서 서버의 **구성** 탭에 있는 **허용되는 서비스** 섹션으로 이동하여 **Microsoft Azure 서비스**에 대해 **예**를 클릭합니다.
 
@@ -156,4 +158,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

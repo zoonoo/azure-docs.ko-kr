@@ -18,7 +18,7 @@
 
 # DocumentDB 계정 수퍼차지
 
-다음 단계를 수행하여 DocumentDB S1 계정에 대한 향상된 처리량을 활용합니다. 추가 비용 없이 250[RU/s](documentdb-request-units.md)에서 400RUs/ 이상으로 기존 S1 계정의 처리량을 늘릴 수 있습니다!
+다음 단계를 수행하여 Azure DocumentDB S1 계정에 대한 향상된 처리량을 활용합니다. 추가 비용 없이 250[RU/s](documentdb-request-units.md)에서 400RUs/ 이상으로 기존 S1 계정의 처리량을 늘릴 수 있습니다!
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
@@ -51,4 +51,4 @@
 
 더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 분할된 컬렉션을 만들려면 [컬렉션 만들기](documentdb-create-collection.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

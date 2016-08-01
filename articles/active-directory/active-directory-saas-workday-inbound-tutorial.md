@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="MarkusVi"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
+    ms.date="07/13/2016" 
     ms.author="markvi" />
 
 
@@ -27,7 +27,7 @@
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1. Workday에 응용 프로그램 통합 사용 
+1. Workday에 응용 프로그램 통합 사용
 
 
 2. 통합 시스템 사용자 만들기
@@ -53,9 +53,9 @@
   
 이 섹션에서는 Workday에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
 
-###Workday에 응용 프로그램 통합을 사용하도록 설정하려면
+### 단계:
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-workday-inbound-tutorial/IC700993.png "Active Directory")
 
@@ -84,11 +84,18 @@
 
 ## 통합 시스템 사용자 만들기
 
-1. **Workday Workbench**의 검색 상자에서 사용자 만들기를 입력하고 **통합 시스템 사용자 만들기**를 클릭합니다. <br><br> ![사용자 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "사용자 만들기")
+### 단계:
+
+
+1. **Workday Workbench**의 검색 상자에서 사용자 만들기를 입력하고 **통합 시스템 사용자 만들기**를 클릭합니다.
+
+	![사용자 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "사용자 만들기")
 
 
 
-2. 새 통합 시스템 사용자에 대한 사용자 이름과 암호를 입력하여 **통합 시스템 사용자 만들기** 작업을 완료합니다. 이 사용자는 프로그래밍 방식으로 로그인할 것이므로 다음 로그인할 때 새 암호 필요 옵션을 선택하지 않습니다. <br>사용자의 세션이 너무 빨리 시간 초과되지 않도록 세션 시간 초과 분을 기본값인 0으로 둡니다. <br><br> ![통합 시스템 사용자 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "통합 시스템 사용자 만들기")
+2. 새 통합 시스템 사용자에 대한 사용자 이름과 암호를 입력하여 **통합 시스템 사용자 만들기** 작업을 완료합니다. 이 사용자는 프로그래밍 방식으로 로그인할 것이므로 다음 로그인할 때 새 암호 필요 옵션을 선택하지 않습니다. 사용자의 세션이 너무 빨리 시간 초과되지 않도록 세션 시간 초과 분을 기본값인 0으로 둡니다.
+
+	![통합 시스템 사용자 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "통합 시스템 사용자 만들기")
  
 
 
@@ -98,24 +105,40 @@
 
 이 자습서에서 설명하는 시나리오의 경우 무제한 통합 시스템 보안 그룹을 만들고 사용자를 할당해야 합니다.
 
+### 단계:
 
-1. 검색 상자에 보안 그룹 만들기를 입력하고** 보안 그룹 만들기**를 클릭합니다. <br><br> ![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "보안 그룹 만들기")
+1. 검색 상자에 보안 그룹 만들기를 입력하고** 보안 그룹 만들기**를 클릭합니다.
+
+	![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "보안 그룹 만들기")
  
 
-2. 보안 그룹 만들기 작업을 완료합니다. 멤버를 명시적으로 추가할 보안 그룹을 만들려면 테넌트 보안 그룹의 유형에서 통합 시스템 보안 그룹 - 제한되지 않음을 선택합니다. <br><br> ![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "보안 그룹 만들기")
+2. 보안 그룹 만들기 작업을 완료합니다. 멤버를 명시적으로 추가할 보안 그룹을 만들려면 테넌트 보안 그룹의 유형에서 통합 시스템 보안 그룹 - 제한되지 않음을 선택합니다.
+
+	![보안 그룹 만들기](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "보안 그룹 만들기")
  
 
 
 
 ## 보안 그룹에 통합 시스템 사용자 할당
 
-1. 검색 상자에 보안 그룹 편집을 입력하고 **보안 그룹 편집**를 클릭합니다. <br><br> ![보안 그룹 편집](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "보안 그룹 편집")
+### 단계:
+
+
+1. 검색 상자에 보안 그룹 편집을 입력하고 **보안 그룹 편집**를 클릭합니다.
+
+	![보안 그룹 편집](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "보안 그룹 편집")
  
  
 
-2. 이름으로 새 통합 보안 그룹을 검색하고 선택합니다. <br><br> ![보안 그룹 편집](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "보안 그룹 편집") 보안 그룹 편집
+2. 이름으로 새 통합 보안 그룹을 검색하고 선택합니다.
 
-3. 새 보안 그룹에 새 통합 시스템 사용자를 추가합니다 <br><br> ![시스템 보안 그룹](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "시스템 보안 그룹")
+	![보안 그룹 편집](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "보안 그룹 편집")
+
+ 
+
+3. 새 보안 그룹에 새 통합 시스템 사용자 할당
+
+	![시스템 보안 그룹](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "시스템 보안 그룹")
 
 
 
@@ -133,23 +156,34 @@
 - 작업자 데이터: 현재 인력 관리 정보
 
 - 작업자 데이터: 작업자 프로필 직함
- 
-   
-
-1. 검색 상자에 도메인 보안 정책을 입력하고 기능 영역에 대한 보안 정책 링크를 클릭합니다. <br><br> ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "도메인 보안 정책")  
- 
-
-2. 시스템을 검색하여 **시스템** 기능 영역을 선택합니다. **확인**을 클릭합니다. <br><br> ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "도메인 보안 정책")
-
-
-3. 시스템 기능 영역에 대한 보안 정책 목록에서 보안 관리를 확장하고,도메인 보안 정책, 외부 계정 프로비저닝을 선택합니다. <br><br> ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "도메인 보안 정책")
-
-
-4. **사용 권한 편집**을 클릭한 다음, **사용 권한 편집** 대화 상자 페이지에서 **Get** 및 **Put** 통합 사용 권한이 있는 보안 그룹의 목록에 새 보안 그룹을 추가합니다. <br><br> ![편집 권한](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "편집 권한")
 
  
+### 단계:
 
-5. 1단계를 반복하여 기능 영역을 선택하는 화면으로 돌아간 다음, 이번에는 인력 관리를 검색하고 인력 관리 기능 영역을 선택한 다음 **확인**을 클릭합니다.<br><br> ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "도메인 보안 정책")
+1. 검색 상자에 도메인 보안 정책을 입력하고 기능 영역에 대한 보안 정책 링크를 클릭합니다.
+
+	![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "도메인 보안 정책")
+ 
+
+2. 시스템을 검색하여 **시스템** 기능 영역을 선택합니다. **확인**을 클릭합니다.
+
+	![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "도메인 보안 정책")
+
+
+3. 시스템 기능 영역에 대한 보안 정책 목록에서 보안 관리를 확장하고,도메인 보안 정책, 외부 계정 프로비저닝을 선택합니다.
+
+	![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "도메인 보안 정책")
+
+
+4. **사용 권한 편집**을 클릭한 다음, **사용 권한 편집** 대화 상자 페이지에서 **Get** 및 **Put** 통합 사용 권한이 있는 보안 그룹의 목록에 새 보안 그룹을 추가합니다.
+
+	![편집 권한](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "편집 권한")
+
+ 
+
+5. 1단계를 반복하여 기능 영역을 선택하는 화면으로 돌아간 다음, 이번에는 인력 관리를 검색하고 인력 관리 기능 영역을 선택한 다음 **확인**을 클릭합니다.
+
+	![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "도메인 보안 정책")
  
 
 6. 인력 관리 영역에 대한 보안 정책 목록에서 작업자 데이터: 인력 관리를 확장하고 다음과 같은 남은 각 보안 정책에 대해 위의 4단계를 반복합니다.
@@ -163,7 +197,7 @@
      - 작업자 데이터: 작업자 프로필 직함
 
 
-<br><br> ![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "도메인 보안 정책")
+	![도메인 보안 정책](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "도메인 보안 정책")
 
 
 
@@ -173,14 +207,21 @@
 
 ## 보안 정책 변경 사항 활성화
 
+### 단계:
 
-1. 검색 상자에 활성화를 입력하고 보류 중인 보안 정책 변경 내용 활성화 링크를 클릭합니다. <br><br> ![활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "활성화") 
+1. 검색 상자에 활성화를 입력하고 보류 중인 보안 정책 변경 내용 활성화 링크를 클릭합니다.
+
+	![활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "활성화")
  
 
-2. 감사 목적에 대한 메모를 입력하고 **확인**을 클릭하여 보류 중인 보안 정책 변경 내용의 활성화 작업을 시작합니다. <br><br> ![보류 중인 보안 활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "보류 중인 보안 활성화")
+2. 감사 목적에 대한 메모를 입력하고 **확인**을 클릭하여 보류 중인 보안 정책 변경 내용의 활성화 태스크를 시작합니다.
+
+	![보류 중인 보안 활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "보류 중인 보안 활성화")
  
 
-3. 다음 화면에서 Confirm이라는 레이블이 지정된 확인란을 선택하여 작업을 완료한 다음 **확인**을 클릭합니다. <br><br> ![보류 중인 보안 활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "보류 중인 보안 활성화")
+3. 다음 화면에서 Confirm이라는 레이블이 지정된 확인란을 선택하여 태스크를 완료한 다음 **확인**을 클릭합니다.
+
+	![보류 중인 보안 활성화](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "보류 중인 보안 활성화")
 
 
 
@@ -191,28 +232,36 @@
 이 섹션에서는 Workday에서 사람들을 가져오기 위해 Azure AD를 구성하는 방법을 설명합니다.
 
 
-### Azure AD에서 사용자 가져오기를 구성하려면 다음 단계를 수행합니다.
+### 단계:
 
 
 1. **Workday** 응용 프로그램 통합 페이지에서 **사용자 가져오기 구성**을 클릭하여 **프로비저닝 구성** 대화 상자를 엽니다.
 
 
-2\.**설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다. <br><br> ![설정 및 관리자 자격 증명](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "설정 및 관리자 자격 증명")
+2. **설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
+
+	![설정 및 관리자 자격 증명](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "설정 및 관리자 자격 증명")
  
-     2.1. In the Workday admin user name textbox, type the name of the user you have created in the Creating an integration system user section.
+	a. Workday 관리자 이름 텍스트 상자에 통합 시스템 사용자 만들기 섹션에서 만든 사용자의 이름을 입력합니다.
 
-     2.2. In the Workday admin password textbox, type the password of the user you have created in the Creating an integration system user section.
+    b. Workday 관리자 암호 텍스트 상자에 통합 시스템 사용자 만들기 섹션에서 만든 사용자의 암호를 입력합니다.
 
-     2.3. In the Workday tenant URL textbox, type the URL or your Workday tenant.
+    c. Workday 테넌트 URL 텍스트 상자에 Workday 테넌트의 URL을 입력합니다.
 
 
-3. **연결 테스트** 페이지에서 **테스트 시작**을 클릭하여 연결을 확인하고 **다음**을 클릭합니다. <br><br> ![연결 테스트](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "연결 테스트")  
+3. **연결 테스트** 페이지에서 **테스트 시작**을 클릭하여 연결을 확인하고 **다음**을 클릭합니다.
+
+	![연결 테스트](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "연결 테스트")
  
 
-4. **프로비저닝 옵션** 페이지에서 **다음**을 클릭합니다. <br><br> ![프로비저닝 옵션](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "프로비저닝 옵션")
+4. **프로비전 옵션** 페이지에서 **다음**을 클릭합니다.
+
+	![프로비저닝 옵션](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "프로비저닝 옵션")
 
 
-5. **프로비저닝 시작** 대화 상자에서 **완료**를 클릭합니다. <br><br> ![프로비저닝 시작](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "프로비저닝 시작")
+5. **프로비저닝 시작** 대화 상자에서 **완료**를 클릭합니다.
+
+	![프로비저닝 시작](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "프로비저닝 시작")
  
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.
@@ -224,4 +273,4 @@
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0720_2016-->

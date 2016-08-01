@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -120,7 +120,7 @@ CA PPM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **식별자** 텍스트 상자에 **https://ca.ondemand.saml.20.post.\<회사 이름>** 패턴을 사용하여 사용자가 CA PPM 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 	
-	b. **회신 URL** 텍스트 상자에서 **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer** 을 입력합니다.
+	b. **회신 URL** 텍스트 상자에서 **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**을 입력합니다.
 
 	c. **다음**을 클릭합니다.
  
@@ -268,4 +268,4 @@ CA PPM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [204]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

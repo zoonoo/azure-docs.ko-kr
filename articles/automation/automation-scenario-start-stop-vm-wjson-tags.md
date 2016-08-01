@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Azure 자동화 시나리오 - JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기
@@ -29,6 +29,7 @@
 
 이 시나리오에서는 기본적으로 지정된 형식의 JSON 문자열을 가져온 후 Schedule이라는 태그의 값으로 추가합니다. 그러면 Runbook은 모든 리소스 그룹 및 가상 컴퓨터를 나열하고, 위에 나열된 시나리오에 따라 각 VM에 대한 일정을 식별하고, 일정이 연결된 이러한 VM을 반복하면서 수행해야 하는 작업(중지, 종료 또는 무시)을 평가합니다.
 
+이러한 Runbook은 [Azure 실행 계정](../automation/automation-sec-configure-azure-runas-account.md)을 사용하여 인증합니다.
 
 ## 시나리오 가져오기
 
@@ -205,5 +206,6 @@ Runbook의 작업 타일을 선택하여 Azure 포털에서 **Test-ResourceSched
 -  Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 -  PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 -  Runbook 로깅 및 출력에 대한 자세한 내용은 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
+-  Azure 실행 계정 및 이 계정을 사용하여 Runbook을 인증하는 방법에 대한 자세한 내용은 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

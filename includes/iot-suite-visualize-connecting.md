@@ -14,7 +14,7 @@
 
 ## 장치에 명령 보내기
 
-원격 모니터링 솔루션의 대시보드에서는 장치에 명령을 보내도록 IoT Hub에 요청할 수 있습니다. 예를 들어, 원격 모니터링 솔루션에서 장치의 내부 온도를 설정하도록 명령을 보낼 수 있습니다.
+원격 모니터링 솔루션의 대시보드에서는 IoT Hub를 통해 장치에 명령을 보내도록 요청할 수 있습니다. 예를 들어, 원격 모니터링 솔루션에서 장치의 내부 온도를 설정하도록 명령을 보낼 수 있습니다.
 
 1. 원격 모니터링 솔루션 대시보드에서 왼쪽의 **장치**를 클릭하여 **장치 목록**으로 이동합니다.
 
@@ -41,6 +41,5 @@
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

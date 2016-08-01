@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
 # 상시 암호화 - 데이터베이스 암호화를 사용하여 SQL 데이터베이스의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
@@ -40,16 +40,14 @@
 - 데이터베이스 테이블을 만들고 일부 열을 암호화합니다.
 - 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 응용 프로그램을 만듭니다.
 
-> [AZURE.NOTE] Azure SQL 데이터베이스용 상시 암호화는 현재 미리 보기 상태입니다.
-
 
 ## 필수 조건
 
 이 자습서에는 다음이 필요합니다.
 
 - 시작하기 전에 Azure 계정 및 구독. 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
-- [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서)
+- [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상.
+- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 
@@ -322,7 +320,7 @@ SSMS는 쉽게 열 마스터 키(CMK), 열 암호화 키(CEK) 및 암호화된 �
         {
             int returnValue = 0;
 
-            string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
+            string sqlCmdText = @"INSERT INTO [dbo].[Patients] \([SSN], [FirstName], [LastName], [BirthDate])
          VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
@@ -536,7 +534,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 ## 다음 단계
 상시 암호화를 사용하는 데이터베이스를 만든 후에 다음을 수행할 수 있습니다.
 
-- 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다. 
+- 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다.
 - [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
 - [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
 - 다른 클라이언트 컴퓨터에 상시 암호화 인증서를 배포합니다.
@@ -550,4 +548,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 - [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

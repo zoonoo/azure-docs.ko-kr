@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -24,12 +24,9 @@
 - [포털](resource-group-create-service-principal-portal.md)
 
 
-리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 Active Directory 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 항목에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 현재 클래식 포털을 사용하여 새 Active Directory 응용 프로그램을 만든 후 Azure 포털로 전환하여 응용 프로그램에 역할을 할당해야 합니다.
+리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 항목에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 현재 클래식 포털을 사용하여 새 Active Directory 응용 프로그램을 만든 후 Azure 포털로 전환하여 응용 프로그램에 역할을 할당해야 합니다.
 
-Active Directory 응용 프로그램에 대한 다음과 같은 두 가지 인증 옵션을 사용할 수 있습니다.
-
-1. 응용 프로그램에 대한 ID 및 인증 키를 만들고 응용 프로그램을 실행할 때 해당 자격 증명을 제공합니다. 사용자 개입 없이 실행되는 자동화된 프로세스에 대해 이 옵션을 사용합니다.
-2. 사용자가 응용 프로그램을 통해 Azure에 로그인할 수 있도록 한 다음 해당 자격 증명을 사용하여 사용자 대신 리소스에 액세스합니다. 사용자가 실행하는 응용 프로그램에 대해 이 옵션을 사용합니다.
+> [AZURE.NOTE] 인증서를 사용하여 인증하려는 경우에 특히 [PowerShell](resource-group-authenticate-service-principal.md) 또는 [Azure CLI](resource-group-authenticate-service-principal-cli.md)를 통해 AD 응용 프로그램 및 서비스 주체를 더욱 쉽게 설정할 수 있습니다. 이 항목에는 인증서 사용 방법은 나오지 않습니다.
 
 Active Directory 개념에 대한 설명을 보려면 [응용 프로그램 개체 및 서비스 주체 개체](./active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](./active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
@@ -141,6 +138,8 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
 응용 프로그램이 자체 자격 증명으로 실행되는 경우 응용 프로그램을 역할에 할당해야 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정해야 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md)을 참조하세요.
 
+역할을 할당하려면 [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다.
+
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
 1. 응용 프로그램에 역할을 할당하려면 클래식 포털에서 [Azure 포털](https://portal.azure.com)로 전환하세요.
@@ -171,22 +170,39 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
 포털을 통해 역할에 사용자 및 응용 프로그램 할당에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal)를 참조하세요.
 
-## 코드에서 액세스 토큰 가져오기
+## 샘플 응용 프로그램
 
-Active Directory 응용 프로그램은 현재 리소스에 액세스하도록 구성되어 있습니다. 응용 프로그램에서 자격 증명을 제공하고 액세스 토큰을 받습니다. 리소스 액세스 요청에 대해 이 액세스 토큰을 사용합니다.
+다음 예제 응용 프로그램에서는 서비스 주체로 로그인하는 방법을 보여 줍니다.
 
-응용 프로그램에 프로그래밍 방식으로 로그인할 준비가 되었습니다.
+**.NET**
 
-- .NET 예제의 경우 [.NET용 Azure Resource Manager SDK](resource-manager-net-sdk.md)를 참조하세요.
-- Java 예제의 경우 [Java용 Azure Resource Manager SDK](resource-manager-java-sdk.md)를 참조하세요.
-- Python 예제의 경우 [Python에 대한 리소스 관리 인증](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html)을 참조하세요.
-- REST 예제의 경우 [리소스 관리자 REST API](resource-manager-rest-api.md)를 참조하세요.
+- [.NET에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [.NET을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
-리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
+**Java**
+
+- [리소스 사용 시작 - Azure Resource Manager 템플릿을 사용하여 배포 - Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [리소스 사용 시작 - 리소스 그룹 관리 - Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+
+**Python**
+
+- [Python에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Python을 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+
+**Node.JS**
+
+- [Node.js에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Node.js를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+
+**Ruby**
+
+- [Ruby에서 템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Ruby를 사용하여 Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 ## 다음 단계
 
 - 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

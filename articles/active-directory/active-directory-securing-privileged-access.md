@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="mwahl"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 
 # Azure AD에서 권한 있는 액세스 보안
 
-최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 관리하는 권한 있는 계정의 무결성에 따라 다릅니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다.
+최신 조직에서 비즈니스 자산 보호를 위해 중요한 첫 번째 단계는 권한 있는 액세스 보안입니다. 권한 있는 계정은 IT 시스템을 운영하고 관리하는 데 사용하는 계정입니다. 사이버 공격자는 조직의 데이터와 시스템에 대한 액세스 권한을 얻기 위해 이러한 계정을 대상으로 합니다. 권한 있는 액세스의 보안을 유지하려면 악의적인 사용자에게 노출되지 않도록 계정 및 시스템을 격리해야 합니다.
 
-확인된 악의적 사용자로부터 관리 액세스를 보호하려면 이러한 관리 계정 및 시스템을 위험으로부터 격리해야 합니다. 더 많은 사용자가 클라우드 서비스를 통해 권한 있는 액세스를 얻기 시작했습니다. 여기에는 Office365의 전역 관리자, Azure 구독 관리자 및 SaaS 앱 또는 VM에서 관리 액세스 권한이 있는 사용자가 포함됩니다.
+더 많은 사용자가 클라우드 서비스를 통해 권한 있는 액세스를 얻기 시작했습니다. 여기에는 Office365의 전역 관리자, Azure 구독 관리자 및 SaaS 앱 또는 VM에서 관리 액세스 권한이 있는 사용자가 포함됩니다.
 
 [권한 있는 액세스 보안](https://technet.microsoft.com/library/mt631194.aspx)에서 이 로드맵을 수행하는 것이 좋습니다.
 
@@ -63,11 +63,7 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 ![MFA를 사용하는 조건부 액세스 규칙 설정][4]
 
 
-## 역할 모델
-
-보안 위험을 줄이기 위해 역할 및 클라우드 서비스 관리 역할을 수용할 위임 모델을 검토하고 관리자 유용성을 주요 개념으로 통합해야 합니다. 이 모델은 Just-In-Time 기능을 활용합니다.
-
-## 다음 단계
+## 관련된 문서
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md) 사용
 - [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) 사용
@@ -75,7 +71,7 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 - [조건부 액세스 제어](active-directory-conditional-access.md) 사용
 
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안](http://aka.ms/securecustomer) 문서의 "고객 책임 및 로드맵" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](http://aka.ms/securecustomer) 문서의 "Customer responsibilities and roadmap(고객 책임 및 로드맵)" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -83,4 +79,4 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

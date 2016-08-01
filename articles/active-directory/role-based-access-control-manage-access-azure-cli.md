@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
@@ -44,7 +44,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ###	역할의 작업 나열
 역할의 작업을 나열하려면 다음을 사용합니다.
 
-    azure role show <role in quotes>
+    azure role show "<role name>"
 
 다음 예제에서는 *참가자* 및 *가상 컴퓨터 참가자* 역할의 작업을 보여 줍니다.
 
@@ -61,8 +61,15 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	사용자 그룹에 할당된 역할을 비롯해 사용자에 대한 역할 할당 나열
+특정 사용자에 대한 역할 할당을 나열하려면 다음을 사용합니다.
 
-다음 예제에는 사용자 *sameert@aaddemo.com*에 부여되는 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할뿐만 아니라 그룹에서 상속된 역할도 포함됩니다.
+	azure role assignment list --signInName <user email>
+
+또한 명령을 수정하여 그룹에서 상속하는 역할 할당을 확인할 수도 있습니다.
+
+	azure role assignment list --expandPrincipalGroups --signInName <user email>
+
+다음 예제에서는 사용자 *sameert@aaddemo.com*에게 부여되는 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할뿐만 아니라 그룹에서 상속된 역할도 포함됩니다.
 
 ![RBAC Azure 명령줄 - 사용자별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -74,7 +81,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ###	구독 범위에서 그룹에 역할 할당
 구독 범위에서 그룹에 역할을 할당하려면 다음을 사용합니다.
 
-	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 다음 예제에서는 *구독* 범위에서 *Christine Koch 팀*에 *읽기* 역할을 할당합니다.
 
@@ -83,7 +90,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ###	구독 범위에서 응용 프로그램에 역할 할당
 구독 범위에서 응용 프로그램에 역할을 할당하려면 다음을 사용합니다.
 
-    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 다음 예제에서는 선택한 구독에서 *Azure AD* 응용 프로그램에 *참가자* 역할을 부여합니다.
 
@@ -101,7 +108,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ###	리소스 범위에서 그룹에 역할 할당
 리소스 범위에서 그룹에 역할을 할당하려면 다음을 사용합니다.
 
-    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 다음 예제에서는 *서브넷*에서 *Azure AD* 그룹에 *가상 컴퓨터 참가자* 역할을 부여합니다.
 
@@ -110,14 +117,16 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ##	액세스 권한 제거
 역할 할당을 제거하려면 다음을 사용합니다.
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
 다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹의 *sammert@aaddemo.com*에서 *가상 컴퓨터 참가자* 역할 할당을 제거합니다. 그런 다음 구독의 그룹에서 역할 할당을 제거합니다.
 
 ![RBAC Azure 명령줄 - azure role assignment delete - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## 사용자 지정 역할 만들기
-사용자 지정 역할을 만들려면 `azure role create` 명령을 사용합니다.
+사용자 지정 역할을 만들려면 다음 명령을 사용합니다.
+
+	azure role create --inputfile <file path>
 
 다음 예제에서는 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고, 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여하는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 json 파일을 사용합니다.
 
@@ -127,7 +136,9 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 
 ## 사용자 지정 역할 수정
 
-사용자 지정 역할을 수정하려면 먼저 `azure role show` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 `azure role set`을 사용하여 수정한 역할 정의를 저장합니다.
+사용자 지정 역할을 수정하려면 먼저 `azure role show` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의 파일을 원하는 대로 변경합니다. 마지막으로 `azure role set`을 사용하여 수정한 역할 정의를 저장합니다.
+
+	azure role set --inputfile <file path>
 
 다음 예제에서는 *작업*에 Microsoft.Insights/diagnosticSettings/ *작업*을 추가하고 Virtual Machine Operator 사용자 지정 역할의 *AssignableScopes**에 *Azure 구독*을 추가합니다.
 
@@ -162,4 +173,4 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

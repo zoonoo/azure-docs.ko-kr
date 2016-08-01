@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
 
@@ -43,7 +43,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 -  [1단계: 로컬 웹 UI 설정을 완료하고 장치를 등록](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [2단계: 필요한 장치 설정 완료](#step-2-complete-the-required-device-setup)
 -  [3단계: 볼륨 추가](#step-3-add-a-volume)
--  [4단계: 볼륨 탑재, 초기화 및 포맷](#step-4-mount-initialize-and-format-a-volume)  
+-  [4단계: 볼륨 탑재, 초기화 및 포맷](#step-4-mount-initialize-and-format-a-volume)
 
 ## 1단계: 로컬 웹 UI 설정을 완료하고 장치를 등록 
 
@@ -87,16 +87,13 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     3. 이 장치를 도메인에 가입할지 지정합니다. 장치가 iSCSI 서버인 경우, 도메인 가입은 선택 사항입니다. iSCSI 서버를 도메인에 가입하지 않으려면, **적용**을 클릭하고 설정이 적용될 때까지 기다린 후에 다음 단계로 건너뜁니다.
 
-        장치를 도메인에 가입하려면 **도메인 이름**을 입력합니다(아래 참조).
+        장치를 도메인에 가입하려면 **도메인 이름**을 입력하고 **적용**을 클릭합니다.
 
-    4. **Apply**를 클릭합니다.
+        > [AZURE.NOTE] iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
 
     5. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 확인 아이콘![확인 아이콘](./media/storsimple-ova-deploy3-iscsi-setup/image15.png)을 클릭합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
 
         ![자격 증명](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
-        
-	   	> [AZURE.NOTE] iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
-	   
 
     6. **Apply**를 클릭합니다. 장치 설정이 적용되고 유효성 검사가 수행됩니다.
  
@@ -196,7 +193,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
         반면에 계층화된 볼륨은 씬 프로비전되며 매우 신속하게 만들 수 있습니다. 계층화된 볼륨을 만들 때 공간의 약 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 이것은 장치의 로컬 공간이 부족하면 계층화된 공유를 프로비전할 수 없다는 것을(10%를 사용할 수 없기 때문에) 의미합니다.
 
-    4. 볼륨의 프로비전된 용량을 지정합니다. 지정된 용량은 사용 가능한 용량보다 작아야 합니다. 계층화된 볼륨을 만드는 경우, 그 크기는 500GB~20TB 사이여야 합니다. 로컬로 고정된 볼륨의 경우, 볼륨 크기를 50GB~2TB 사이로 지정합니다. 사용 가능한 용량을 볼륨을 프로비전하는 가이드로 사용합니다. 사용 가능한 로컬 용량이 0GB이면, 로컬로 고정된 볼륨 또는 계층화된 볼륨을 프로비전할 수 없습니다.
+    4. 볼륨의 프로비전된 용량을 지정합니다. 지정된 용량은 사용 가능한 용량보다 작아야 합니다. 계층화된 볼륨을 만드는 경우, 그 크기는 500GB~5TB 사이여야 합니다. 로컬로 고정된 볼륨의 경우, 볼륨 크기를 50GB~500 GB 사이로 지정합니다. 사용 가능한 용량을 볼륨을 프로비전하는 가이드로 사용합니다. 사용 가능한 로컬 용량이 0GB이면, 로컬로 고정된 볼륨 또는 계층화된 볼륨을 프로비전할 수 없습니다.
 
         ![기본 설정](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
@@ -284,7 +281,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
 ## 다음 단계
 
-로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
+[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다](storsimple-ova-web-ui-admin.md).
 
 ## 부록 A: Windows Server 호스트의 IQN 가져오기
 
@@ -303,4 +300,4 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

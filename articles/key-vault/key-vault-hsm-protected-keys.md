@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 #Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -190,7 +190,7 @@ KeyVault-BYOK-Tools-India.zip
 
 - 이름이 **BYOK-KEK-pkg-**로 시작하는 KEK(키 교환 키) 패키지
 - 이름이 **BYOK-SecurityWorld-pkg-**로 시작하는 Security World 패키지
-- 이름이 v**erifykeypackage.py**인 python 스크립트
+- 이름이 v**erifykeypackage.py.**인 python 스크립트
 - 이름이 **KeyTransferRemote.exe**인 명령줄 실행 파일 및 관련 DLL
 - 이름이 **vcredist\_x64.exe**인 Visual C++ 재배포 가능 패키지
 
@@ -431,4 +431,4 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 자습서에서 **HSM(하드웨어 보안 모듈)을 사용하려는 경우**를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
