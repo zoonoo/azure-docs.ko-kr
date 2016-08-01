@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획
@@ -133,4 +133,4 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

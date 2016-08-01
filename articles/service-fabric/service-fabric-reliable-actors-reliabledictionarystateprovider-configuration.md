@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
 # Reliable Actors 구성--ReliableDictionaryActorStateProvider
@@ -38,7 +38,7 @@ ReliableDictionaryActorStateProvider의 구성에 영향을 주는 전역 설정
 |WriteBufferMemoryPoolMinimumInKB|킬로바이트|8388608|로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다.|
 |WriteBufferMemoryPoolMaximumInKB|킬로바이트|제한 없음|로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다.|
 |SharedLogId|GUID|""|서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services에 사용된 기본 공유 로그 파일을 식별하는 데 사용할 고유 GUID를 지정합니다. SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다.|
-|SharedLogPath|정규화된 경로 이름|""|서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
+|SharedLogPath|정규화된 경로 이름|""|서비스별 구성에서 SharedLogPath를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
 |SharedLogSizeInMB|메가바이트|8192|공유 로그에 대해 정적으로 할당할 디스크 공간(MB) 수를 지정합니다. 값은 2048 이상이어야 합니다.|
 
 ### 샘플 클러스터 매니페스트 섹션
@@ -75,7 +75,7 @@ SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 �
 
 |이름|단위|기본값|설명|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|초|0\.05|작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다.||
+|BatchAcknowledgementInterval|초|0\.015|작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다.||
 |ReplicatorEndpoint|해당 없음|기본값 없음--필수 매개 변수|주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)를 참조하세요. |
 |MaxReplicationMessageSize|바이트|50MB|단일 메시지에서 전송할 수 있는 복제 데이터의 최대 크기.|
 |MaxPrimaryReplicationQueueSize|작업의 수|8192|기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다.|
@@ -120,4 +120,4 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

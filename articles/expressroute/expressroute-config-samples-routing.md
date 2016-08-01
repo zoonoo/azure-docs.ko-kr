@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # 라우팅 설정 및 관리를 위한 라우터 구성 샘플
@@ -210,4 +210,4 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

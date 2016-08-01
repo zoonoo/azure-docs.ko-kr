@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## 개요
 
@@ -213,7 +215,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ### 여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
 
-여러 개의 메시지를 만들려면 다음 예제와 같이 출력 큐의 매개 변수 유형을 **ICollector<T>** 또는 **IAsyncCollector<T>**로 설정합니다.
+여러 메시지를 만들려면 **ICollector<T>** 또는 **IAsyncCollector<T>** 출력 큐에 대한 매개 변수 형식을 다음 예제와 같이 만듭니다.
 
 		public static void CreateQueueMessages(
 		    [QueueTrigger("inputqueue")] string queueMessage,
@@ -543,4 +545,4 @@ Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 
 
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

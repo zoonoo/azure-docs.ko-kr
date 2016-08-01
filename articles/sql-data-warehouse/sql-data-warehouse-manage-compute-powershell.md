@@ -34,7 +34,7 @@
 - 계산 일시 중지
 - 계산 다시 시작
 
-이에 대해 알아보려면 [계산 관리 개요]를 참조하세요.
+이에 대해 알아보려면 [계산 관리 개요][]를 참조하세요.
 
 
 ## 시작하기 전에
@@ -47,7 +47,7 @@
 
 시작하기:
 
-1. Azure PowerShell을 엽니다. 
+1. Azure PowerShell을 엽니다.
 2. PowerShell 프롬프트에서 다음 명령을 실행하여 Azure Resource Manager에 로그인하고 구독을 선택합니다.
 
     ```PowerShell
@@ -125,6 +125,7 @@ $resultDatabase
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [관리 개요]: ./sql-data-warehouse-overview-manage.md
 [Azure PowerShell 설치 및 구성하는 방법]: ./powershell-install-configure.md
+[계산 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ $resultDatabase
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

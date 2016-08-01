@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/19/2016"
    ms.author="jeffstok"
 />
 
@@ -80,23 +80,23 @@ HDInsight용 Premium 계층 제품에는 HDInsight(미리 보기) 클러스터�
 
 	공개/개인 키 쌍을 만들고 사용하려면 '공개 키'를 선택하고 다음을 수행합니다. 이러한 지침에서는 ssh-keygen을 포함한 Cygwin 또는 이와 동등한 프로그램이 설치되어 있다고 가정합니다.
 
-	- 랩톱 컴퓨터의 명령 프롬프트에서 공개/개인 키 쌍을 생성합니다.
+	-    랩톱 컴퓨터의 명령 프롬프트에서 공개/개인 키 쌍을 생성합니다.
 	  
-			````ssh-keygen -t rsa -b 2048 –f <private-key-filename>````
-
-    - 이렇게 하면 <private-key-filename>.pub이라는 이름으로 개인 키 파일 및 공개 키 파일이 만들어집니다(예: davec 및 davec.pub). HDI 클러스터 자격 증명을 할당할 때 공개 키 파일(*.pub)을 지정합니다.
-    
-	![자격 증명 블레이드](./media/hdinsight-getting-started-with-r/publickeyfile.png)
-
-	- 랩톱 컴퓨터의 개인 키 파일에 대한 사용 권한 변경
-    
-			````chmod 600 <private-key-filename>````
-
-	- 원격 로그인을 위해 SSH와 함께 개인 키 파일을 사용합니다.
-	
-			````ssh –i <private-key-filename> remoteuser@<hostname public ip>````
-
-	  클라이언트에서 R Server에 대한 Hadoop Spark 계산 컨텍스트의 정의의 일부로 사용합니다(온라인 RevoScaleR Hadoop Spark 시작 가이드의 Spark용 계산 컨텍스트 만들기 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조).
+		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+      
+    -    이렇게 하면 <private-key-filename>.pub이라는 이름으로 개인 키 파일 및 공개 키 파일이 만들어집니다(예: davec 및 davec.pub). HDI 클러스터 자격 증명을 할당할 때 공개 키 파일(*.pub)을 지정합니다.
+      
+		![자격 증명 블레이드](./media/hdinsight-getting-started-with-r/publickeyfile.png)
+      
+	-    랩톱 컴퓨터의 개인 키 파일에 대한 사용 권한 변경
+      
+			chmod 600 <private-key-filename>
+      
+	-    원격 로그인을 위해 SSH와 함께 개인 키 파일을 사용합니다.
+	  
+			ssh –i <private-key-filename> remoteuser@<hostname public ip>
+      
+	  클라이언트에서 R Server에 대한 Hadoop Spark 계산 컨텍스트의 정의의 일부로 사용합니다(온라인 [RevoScaleR Hadoop Spark 시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)의 [Spark용 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조).
 
 7. **데이터 원본**을 선택하여 클러스터의 데이터 원본을 선택합니다. __저장소 계정 선택__을 선택한 다음 계정을 선택하여 기존 저장소 계정을 선택하거나, __저장소 계정 선택__ 섹션에서 __새로 만들기__ 링크를 사용하여 새 계정을 만듭니다.
 
@@ -117,9 +117,12 @@ HDInsight용 Premium 계층 제품에는 HDInsight(미리 보기) 클러스터�
 	> [AZURE.NOTE] 필요한 경우 나중에 포털(클러스터-> 설정 -> 클러스터 크기 조정)을 통해 다시 클러스터의 크기를 조정하여 작업자 노드 수를 늘리거나 줄일 수 있습니다. 클러스터를 사용하지 않을 때 유휴 상태로 유지하거나 대규모 태스크의 요구에 맞게 용량을 추가하는 데 유용할 수 있습니다.
 
 	클러스터, 데이터 노드 및 에지 노드의 크기를 조정할 때 염두할 몇 가지 요인은 다음과 같습니다.
-
-	• Spark에서 분산된 R Server 분석의 성능은 데이터가 클 때 작업자 노드 수에 비례합니다. • R Server 분석의 성능은 분석 중인 데이터의 크기에 비례합니다. • 작은 데이터부터 중간 데이터의 경우 성능은 에지 노드에 대한 로컬 계산 컨텍스트에서 분석하는 경우 가장 뛰어납니다. 로컬 및 Spark 계산 컨텍스트가 최적화되는 시나리오에 대한 자세한 내용은 HDInsight에서 R Server에 대한 계산 컨텍스트 옵션을 참조하세요 • 에지 노드에 로그인하여 거기서 R Server를 실행할 경우 에지 노드의 메모리와 코어 수가 적절하게 조정되도록 ScaleR rx 함수를 제외한 모든 항목이 에지 노드에서 **로컬로** 실행됩니다. HDI의 R Server를 랩톱 컴퓨터의 원격 계산 컨텍스트로 사용할 경우에도 동일하게 적용됩니다.
-
+   
+    - Spark에서 분산된 R 서버 분석의 성능은 데이터가 클 경우 작업자 노드 수에 비례합니다.
+    - R 서버 분석의 성능은 분석 중인 데이터의 크기에 비례합니다. 예:
+        - 작은 데이터부터 보통 크기의 데이터의 경우 성능은 에지 노드의 로컬 계산 컨텍스트에서 분석할 때 가장 뛰어납니다. 로컬 및 Spark 계산 컨텍스트가 가장 잘 작동하는 시나리오에 대한 자세한 내용은 HDInsight에서 R Server에 대한 계산 컨텍스트 옵션을 참조하세요.<br>
+        - 에지 노드에 로그인하고 거기서 R 스크립트를 실행하는 경우 메모리와 에지 노드의 코어 수를 적절하게 조정하도록 에지 노드에서 ScaleR rx 함수를 제외한 모든 항목을 <strong>로컬로</strong> 실행합니다. HDI의 R Server를 랩톱 컴퓨터의 원격 계산 컨텍스트로 사용할 경우에도 동일하게 적용됩니다.
+    
     ![노드 가격 책정 계층 블레이드](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
     **선택** 단추를 사용하여 노드 가격 책정 구성을 저장합니다.
@@ -197,27 +200,31 @@ Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내�
 
 ## Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
 
-클러스터에 액세스하기 위한 공개/개인 키 쌍 사용과 관련하여 위의 섹션에서 데스크톱 또는 랩톱 컴퓨터 상에 실행되는 Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다(온라인 RevoScaleR Hadoop Spark 시작 가이드의 Spark용 계산 컨텍스트 만들기 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조). 이렇게 하려면 랩톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript와 같은 옵션을 지정해야 합니다. 예:
+클러스터에 액세스하기 위한 공개/개인 키 쌍 사용과 관련하여 위의 섹션에서 데스크톱 또는 랩톱 컴퓨터 상에 실행되는 Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다(온라인 [RevoScaleR Hadoop Spark 시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)의 [Spark용 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조). 이렇게 하려면 랩톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript와 같은 옵션을 지정해야 합니다. 예:
 
     
-        mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
-        mySshUsername  <- 'remoteuser'# HDI SSH username
-        mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
-    
-        myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-        myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
-    
-        mySparkCluster <- RxSpark(
-          hdfsShareDir = myhdfsShareDir,
-          shareDir = myShareDir,
-          sshUsername  = mySshUsername,
-          sshHostname  = mySshHostname,
-          sshSwitches  = mySshSwitches,
-          sshProfileScript = '/etc/profile',
-          nameNode = myNameNode,
-          port = myPort,
-          consoleOutput= TRUE
-        )
+    myNameNode <- "default"
+    myPort <- 0 
+ 
+    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+ 
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+ 
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
+
     
  
 ## 계산 컨텍스트 사용
@@ -402,6 +409,6 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 두 템플릿 모두 새 HDInsight 클러스터 및 연결된 저장소 계정을 만들며, Azure CLI, Azure PowerShell 또는 Azure 포털에서 사용할 수 있습니다.
 
-ARM 템플릿 사용에 대한 일반적인 내용은 [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+Azure Resource Manager 템플릿을 사용하는 일반적인 정보는 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -41,7 +41,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 
 ### 확장의 최신 버전 및 이전 버전의 사용 중단
 
-확장의 최신 버전은 **2.3**이며, **모든 이전 버전(2.0, 2.1 및 2.2)은 곧 사용이 중단되고 게시되지 않을 예정입니다**. 자동 부 버전 업그레이드가 비활성화된 Linux 진단 확장을 설치한 경우 확장을 제거한 후 자동 부 버전 업그레이드를 활성화하여 다시 설치하는 것이 좋습니다. Azure XPLAT CLI 또는 Powershell을 통해 확장을 설치하는 경우 클래식(ASM) VM에서 버전으로 '2.*'를 지정하여 이 작업을 수행할 수 있습니다. ARM VM에서 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함하여 이 작업을 수행할 수 있습니다. 또한 새로 설치되는 확장에서 자동 부 버전 업그레이드 옵션이 켜져 있어야 합니다.
+확장의 최신 버전은 **2.3**이며, **모든 이전 버전(2.0, 2.1 및 2.2)은 올해 말(2016)에 사용이 중단되고 게시되지 않을 예정입니다**. 자동 부 버전 업그레이드가 비활성화된 Linux 진단 확장을 설치한 경우 확장을 제거한 후 자동 부 버전 업그레이드를 활성화하여 다시 설치하는 것이 좋습니다. Azure XPLAT CLI 또는 Powershell을 통해 확장을 설치하는 경우 클래식(ASM) VM에서 버전으로 '2.*'를 지정하여 이 작업을 수행할 수 있습니다. ARM VM에서 VM 배포 템플릿에 '"autoUpgradeMinorVersion": true'를 포함하여 이 작업을 수행할 수 있습니다. 또한 새로 설치되는 확장에서 자동 부 버전 업그레이드 옵션이 켜져 있어야 합니다.
 
 
 ## 확장 사용
@@ -124,7 +124,7 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
-이 설정을 사용하면 `/var/log/mysql.err`에 기록된 모든 로그가 `/var/log/syslog`(또는 Linux 배포판에 따라 `/var/log/messages`)와 중복될 수 있습니다. 중복 로깅을 피하려면 rsyslog 구성에서 `local6` 기능 로깅을 제외하면 됩니다. Linux 배포판에 따라 다르지만 Ubuntu 14.04 시스템에서는 `/etc/rsyslog.d/50-default.conf` 파일을 수정해야 하며 `*.*;auth,authpriv.none -/var/log/syslog` 줄을 `*.*;auth,authpriv,local6.none -/var/log/syslog` 줄로 대체할 수 있습니다. 나중에는 이 작업이 Linux 진단 확장에서 자동으로 처리될 것입니다.
+2\.3 이전의 확장 버전에서 이 설정을 사용하면 `/var/log/mysql.err`에 기록된 모든 로그가 `/var/log/syslog`(또는 Linux 배포판에 따라 `/var/log/messages`)와 중복될 수 있습니다. 중복 로깅을 피하려면 rsyslog 구성에서 `local6` 기능 로깅을 제외하면 됩니다. Linux 배포판에 따라 다르지만 Ubuntu 14.04 시스템에서는 `/etc/rsyslog.d/50-default.conf` 파일을 수정해야 하며 `*.*;auth,authpriv.none -/var/log/syslog` 줄을 `*.*;auth,authpriv,local6.none -/var/log/syslog` 줄로 대체할 수 있습니다. 최신 핫픽스 릴리스 2.3 (2.3.9007) 릴리스에서 이 문제가 해결되므로 확장 버전 2.3을 가졌다면 이 문제는 발생하지 않아야 합니다. VM을 다시 시작한 후에도 여전히 그런 경우 문의하시면 최신 핫픽스 버전이 자동으로 설치되지 않는 원인을 해결해 드리겠습니다.
 
 ###   시나리오 4. 모든 로그 수집에서 확장 중지
 이 섹션에서는 로그 수집에서 확장을 중지하는 방법을 설명합니다. 이러한 재구성에도 모니터링 에이전트 프로세스는 계속 실행됩니다. 모니터링 에이전트 프로세스는 완전히 중지하려는 경우 확장을 사용하지 않도록 설정합니다. 확장을 사용하지 않도록 설정하는 명령은 **azure vm extension set --disable <vm\_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**입니다.
@@ -156,4 +156,4 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 ## 알려진 문제
 - Linux 진단 확장 버전 2.3의 경우 Rsyslog 정보 및 고객이 지정한 로그 파일은 스크립팅을 통해서만 액세스할 수 있습니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

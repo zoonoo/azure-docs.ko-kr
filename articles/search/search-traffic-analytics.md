@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
@@ -69,9 +69,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 ### 로그
 
-로그 Blob는 검색 서비스 트래픽 로그를 포함합니다.
-
-각 Blob는 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
+로그 Blob는 검색 서비스 트래픽 로그를 포함합니다. 각 Blob에는 로그 개체의 배열이 포함된 **레코드**라는 루트 개체 한 개가 있습니다. 각 Blob에는 같은 시간 동안 일어난 모든 작업에 대한 레코드가 있습니다.
 
 ####로그 스키마
 
@@ -98,12 +96,15 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 ### 메트릭
 
-메트릭 Blob에는 검색 서비스에 대한 집계 값이 포함됩니다. 각 파일은 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다.
+메트릭 Blob에는 검색 서비스에 대한 집계 값이 포함됩니다. 각 파일은 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다. 이 루트 개체에 데이터를 사용할 수는 1 분마다 메트릭이 포함되어 있습니다.
 
 사용 가능한 메트릭:
 
-- 대기 시간
-- SearchQueriesPerSecond
+- SearchLatency: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을 1분마다 집계합니다.
+- SearchQueriesPerSecond: 초당 수신된 검색 쿼리 수를 1분마다 집계합니다.
+- ThrottledSearchQueriesPercentage: 제한된 검색 쿼리의 비율을 1분마다 집계합니다.
+
+> [AZURE.IMPORTANT] 제한은 너무 많은 쿼리가 송신되어 서비스의 프로비전된 리소스 용량을 다 써버린 경우에 발생합니다. 서비스에 더 많은 복제본을 추가하는 것이 좋습니다.
 
 ####메트릭 스키마
 
@@ -118,6 +119,12 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 |total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
 |count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 |timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직|
+
+모든 메트릭은 1 분 간격으로 보고됩니다. 즉, 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
+
+SearchQueriesPerSecond metric의 경우, 최소값은 해당 분 동안 등록된 초당 검색 쿼리 수에 대한 가장 낮은 값이며, 최대값은 가장 높은 값입니다. 평균은 전체 분에 대한 집계입니다. 이 시나리오에 관한 생각: 1분 동안 부하가 매우 높은 1초가 있을 수 있습니다. 이 부하는 SearchQueriesPerSecond에 대한 최대값이며, 그 후 58초 동안 중간 부하 상태가 계속되다가 최소값인 쿼리 한 개만 있는 1초가 이어집니다.
+
+ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은 1분 동안 총 검색 쿼리 수에 기초한 제한된 검색 쿼리의 비율입니다.
 
 ## 데이터 분석
 
@@ -221,4 +228,4 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

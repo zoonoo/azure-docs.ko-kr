@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="05/08/2016"
+    ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Azure 테이블 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ##개요
 
@@ -197,4 +199,4 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

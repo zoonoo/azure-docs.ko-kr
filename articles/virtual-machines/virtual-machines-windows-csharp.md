@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # C를 사용하여 Azure 리소스 배포# 
@@ -75,8 +75,8 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
@@ -514,4 +514,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 - [C# 및 Resource Manager 템플릿을 사용하여 Azure 가상 컴퓨터 배포](virtual-machines-windows-csharp-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/16/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # SQL Server VM에 대한 SQL Server 에이전트 확장(클래식)
@@ -25,8 +25,7 @@
 
 관리 작업을 자동화하기 위해 Azure 가상 컴퓨터에서 SQL Server IaaS 에이전트 확장(SQLIaaSAgent)을 실행합니다. 이 항목에서는 설치, 상태 및 제거에 대한 지침뿐만 아니라 확장에 의해 지원되는 서비스의 개요를 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
-이 문서의 리소스 관리자 버전을 보려면 [SQL Server VM 리소스 관리자에 대한 SQL Server 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 이 문서의 리소스 관리자 버전을 보려면 [SQL Server VM 리소스 관리자에 대한 SQL Server 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 ## 지원되는 서비스
 
@@ -59,17 +58,19 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 
 **가상 컴퓨터 게스트 에이전트**:
 
-- BGInfo 확장은 새 Azure VM에 자동으로 설치됩니다.
+- VM 게스트 에이전트는 가상 컴퓨터에서 실행 중이어야 합니다. 새 Azure VM에 자동으로 설치되므로, 일반적으로 수동으로 수행해야 할 작업이 아닙니다.
 
 ## 설치
 
 SQL Server IaaS 에이전트 확장은 SQL Server 가상 컴퓨터 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다.
 
-OS 전용 Windows Server 가상 컴퓨터를 만드는 경우 **Set-AzureVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 수동으로 설치할 수 있습니다. 이 명령을 사용하여 자동화된 패치와 같은 에이전트 서비스 중 하나를 구성합니다. 에이전트가 설치되지 않은 경우 VM이 설치합니다. **Set-AzureVMSqlServerExtension** PowerShell 사용에 대한 지침은 이 문서의 [지원되는 서비스](#supported-services) 섹션에 있는 개별 항목을 참조하세요.
+OS 전용 Windows Server 가상 컴퓨터를 만드는 경우 **Set-AzureVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 수동으로 설치할 수 있습니다. 예를 들어 다음 명령은 OS 전용 Windows Server VM(클래식)에 확장을 설치한 후 "SQLIaaSExtension"이라고 이름을 지정합니다.
+
+	Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension --ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
 
 SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 확장을 업데이트한 후 가상 컴퓨터를 다시 시작해야 합니다.
 
->[AZURE.NOTE] VM에서 SQL Server IaaS 에이전트 확장을 수동으로 설치하는 경우 PowerShell 명령을 사용하여 해당 기능을 사용 및 관리해야 합니다. 이 시나리오에서 포털 인터페이스는 사용할 수 없습니다.
+>[AZURE.NOTE] Windows Server VM에서 SQL Server IaaS 에이전트 확장을 수동으로 설치하는 경우 PowerShell 명령을 사용하여 해당 기능을 사용 및 관리해야 합니다. 포털 인터페이스는 SQL Server 갤러리 이미지에만 사용할 수 있습니다.
 
 ## 상태
 
@@ -97,4 +98,4 @@ Azure 포털에서 가상 컴퓨터 속성의 **확장** 블레이드에서 줄�
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

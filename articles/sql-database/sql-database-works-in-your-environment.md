@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
 # 사용자 환경에서 작동하는 Azure SQL 데이터베이스
@@ -53,4 +53,4 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
  
 [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

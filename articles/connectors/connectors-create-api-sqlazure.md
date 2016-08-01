@@ -1,6 +1,6 @@
 <properties
-    pageTitle="논리 앱에 SQL Azure 커넥터 추가 | Microsoft Azure"
-    description="REST API 매개 변수를 사용하는 SQL Azure 커넥터 개요"
+    pageTitle="논리 앱에 Azure SQL 데이터베이스 커넥터 추가 | Microsoft Azure"
+    description="REST API 매개 변수를 사용하는 Azure SQL 데이터베이스 커넥터 개요"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -14,216 +14,239 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/19/2016"
+   ms.date="07/18/2016"
    ms.author="mandia"/>
 
 
-# SQL Azure 커넥터 시작
-Azure SQL 데이터베이스에 연결하여 행 삽입, 테이블 가져오기 등 테이블 및 행을 관리합니다.
+# Azure SQL 데이터베이스 커넥터 시작
+Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다. 다음도 참조하세요.
 
-Azure SQL 데이터베이스 커넥터는 다음에서 사용할 수 있습니다.
+- 고객 데이터베이스에 새 고객을 추가하거나 주문 데이터베이스에서 주문을 업데이트하여 워크플로를 작성합니다.
+- 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Azure SQL 데이터베이스에 행을 삽입합니다(작업).
 
-- 논리 앱(이 항목에 설명됨)
-- PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
+이 항목에서는 논리 앱에서 SQL 데이터베이스 커넥터를 사용하는 방법을 보여 주고 작업을 나열합니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
 
-Azure SQL 데이터베이스를 사용하여 다음과 같은 작업을 할 수 있습니다.
+논리 앱에 대해 자세히 알아보려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
-- Azure SQL 데이터베이스에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 행 가져오기, 행 삽입 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Azure SQL 데이터베이스에서 데이터 행을 가져와 Excel에 추가할 수 있습니다. 
+>[AZURE.INCLUDE [시작에 필요한 항목](../../includes/connectors-create-api-sqlazure.md)]
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+## Azure SQL 데이터베이스에 연결
 
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SQL 데이터베이스에 연결하려면 먼저 SQL 데이터베이스 *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SQL 데이터베이스에서 SQL 데이터베이스 자격 증명을 입력하여 연결을 만듭니다.
 
-## 트리거 및 작업
-SQL에는 다음 작업이 포함됩니다. 트리거는 없습니다.
+논리 앱에 이 커넥터를 추가하면 SQL 데이터베이스에 대한 연결을 만듭니다. 이 커넥터를 처음 추가할 때는 연결 정보를 묻는 메시지가 표시됩니다.
 
-트리거 | actions
---- | ---
-없음 | <ul><li>행 가져오기</li><li>행 가져오기</li><li>행 삽입</li><li>행 삭제</li><li>테이블 가져오기</li><li>행 업데이트</li></ul>
+![](./media/connectors-create-api-sqlazure/connection-details.png)
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+#### 연결 만들기
 
-## SQL에 대한 연결 만들기
+1. SQL 데이터베이스 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
 
->[AZURE.INCLUDE [SQL에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sqlazure.md)]
-
-
-연결을 만든 후에 테이블 이름 등의 SQL 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
-
->[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
-
-## Swagger REST API 참조
-적용 버전: 1.0
-
-### 행 가져오기 
-SQL 테이블에서 단일 행을 검색합니다. ```GET: /datasets/default/tables/{table}/items/{id}```
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|SQL 테이블의 이름|
-|id|string|yes|path|없음|검색할 행의 고유 식별자|
-
-#### 응답
-|이름|설명|
+	| 속성 | 세부 정보 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+| 게이트웨이를 통해 연결 | 선택 취소된 상태로 둡니다. 온-프레미스 SQL Server에 연결할 때 사용됩니다. |
+| 연결 이름 * | 연결의 이름을 입력합니다. | 
+| SQL Server 이름 * | 서버 이름을 입력합니다(예: *servername.database. windows.net*). 서버 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시되고 연결 문자열에도 표시됩니다. | 
+| SQL 데이터베이스 이름 * | SQL 데이터베이스에 지정한 이름을 입력합니다. 이 이름은 연결 문자열의 SQL 데이터베이스 속성, Initial Catalog=*yoursqldbname*에 표시됩니다. | 
+| 사용자 이름 * | SQL 데이터베이스를 만들 때 만든 사용자 이름을 입력합니다. 이 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시됩니다. | 
+| 암호 * | SQL 데이터베이스를 만들 때 만든 암호를 입력합니다. | 
+
+	이러한 자격 증명을 사용하여 SQL 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
+
+	![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/sample-connection.png)
+
+2. **만들기**를 선택합니다.
+
+## 트리거 사용
+
+이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP Webhook 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
+
+## 작업 사용
+	
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.
+
+1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
+
+	![](./media/connectors-create-api-sqlazure/add-action.png)
+
+2. **작업 추가**를 선택합니다.
+
+3. 텍스트 상자에 "sql"을 입력하여 사용 가능한 모든 작업의 목록을 표시합니다.
+
+	![](./media/connectors-create-api-sqlazure/sql-1.png)
+
+4. 이 예제에서는 **SQL Server - 행 가져오기**를 선택합니다. 연결이 이미 있는 경우 드롭다운 목록에서 **테이블 이름**을 선택하고 반환할 **행 ID**를 입력합니다.
+
+	![](./media/connectors-create-api-sqlazure/sample-table.png)
+
+	연결 정보를 묻는 메시지가 표시되면 연결을 만들기 위한 세부 정보를 입력합니다. 이 항목의 [연결 만들기](connectors-create-api-sqlazure.md#create-the-connection)에서는 이러한 속성에 대해 설명합니다.
+
+	> [AZURE.NOTE] 이 예제에서는 테이블의 행을 반환합니다. 이 행의 데이터를 보려면 테이블의 필드를 사용하여 파일을 만드는 다른 작업을 추가합니다. 예를 들어 FirstName 및 LastName 필드를 사용하여 클라우드 저장소 계정에 새 파일을 만드는 OneDrive 작업을 추가합니다.
+
+5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
 
-### 행 가져오기 
-SQL 테이블에서 행을 검색합니다. ```GET: /datasets/default/tables/{table}/items```
+## 기술 세부 정보
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|SQL 테이블의 이름|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+## 동작
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. SQL 데이터베이스 커넥터에는 다음 작업이 포함됩니다.
 
-#### 응답
-|이름|설명|
+|작업|설명|
+|--- | ---|
+|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|SQL의 저장 프로시저를 실행합니다.|
+|[GetRow](connectors-create-api-sqlazure.md#get-row)|SQL 테이블에서 단일 행을 검색합니다.|
+|[GetRows](connectors-create-api-sqlazure.md#get-rows)|SQL 테이블에서 행을 검색합니다.|
+|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|SQL 테이블에 새 행을 삽입합니다.|
+|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|SQL 테이블에서 행을 삭제합니다.|
+|[GetTables](connectors-create-api-sqlazure.md#get-tables)|SQL 데이터베이스에서 테이블을 검색합니다.|
+|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|SQL 테이블에서 기존 행을 업데이트합니다.|
+
+### 작업 세부 정보
+
+이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 작업에 대한 특정 세부 정보를 참조하세요.
+
+
+#### 저장 프로시저 실행
+SQL의 저장 프로시저를 실행합니다.
+
+| 속성 이름| 표시 이름 |설명|
+| ---|---|---|
+|procedure * | 프로시저 이름 | 실행할 저장 프로시저의 이름 |
+|parameters * | 입력 매개 변수 | 매개 변수는 동적이며 선택한 저장 프로시저를 기준으로 합니다. <br/><br/> 예를 들어 Adventure Works 샘플 데이터베이스를 사용하는 경우 *ufnGetCustomerInformation* 저장 프로시저를 선택합니다. **고객 ID** 입력 매개 변수가 표시됩니다. "6" 또는 다른 고객 ID 중 하나를 입력합니다. |
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+ProcedureResult: 저장 프로시저 실행 결과 전달
+
+| 속성 이름 | 데이터 형식 | 설명 |
+|---|---|---|
+|OutputParameters|object|출력 매개 변수 값 |
+|ReturnCode|정수|프로시저의 반환 코드 |
+|ResultSets|object| 결과 집합|
+
+
+#### 행 가져오기 
+SQL 테이블에서 단일 행을 검색합니다.
+
+| 속성 이름| 표시 이름 |설명|
+| ---|---|---|
+|table * | 테이블 이름 |SQL 테이블의 이름|
+|id * | 행 ID |검색할 행의 고유 식별자|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+항목
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|ItemInternalId|string|
 
 
-### 행 삽입 
-SQL 테이블에 새 행을 삽입합니다. ```POST: /datasets/default/tables/{table}/items```
+#### 행 가져오기 
+SQL 테이블에서 행을 검색합니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|SQL 테이블의 이름|
-|항목|ItemInternalId: string|yes|body|없음|SQL의 지정된 테이블에 삽입할 행|
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|테이블 이름|SQL 테이블의 이름|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+|$filter|필터 쿼리|항목의 수를 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
 
-#### 응답
-|이름|설명|
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+ItemsList
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|value|array|
 
 
-### 행 삭제 
-SQL 테이블에서 행을 삭제합니다. ```DELETE: /datasets/default/tables/{table}/items/{id}```
+#### 행 삽입 
+SQL 테이블에 새 행을 삽입합니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|SQL 테이블의 이름|
-|id|string|yes|path|없음|삭제할 행의 고유 식별자|
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|테이블 이름|SQL 테이블의 이름|
+|item*|행|SQL의 지정된 테이블에 삽입할 행|
 
-#### 응답
-|이름|설명|
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+항목
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|ItemInternalId|string|
 
 
-### 테이블 가져오기 
-SQL 데이터베이스에서 테이블을 검색합니다. ```GET: /datasets/default/tables```
+#### 행 삭제 
+SQL 테이블에서 행을 삭제합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|테이블 이름|SQL 테이블의 이름|
+|id*|행 ID|삭제할 행의 고유 식별자|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보
+없음
+
+#### 테이블 가져오기 
+SQL 데이터베이스에서 테이블을 검색합니다.
 
 이 호출에 대한 매개 변수는 없습니다.
 
-#### 응답
+##### 출력 세부 정보 
+TablesList
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|value|array|
+
+#### 행 업데이트 
+SQL 테이블에서 기존 행을 업데이트합니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|테이블 이름|SQL 테이블의 이름|
+|id*|행 ID|업데이트할 행의 고유 식별자|
+|item*|행|업데이트된 값을 가진 행|
+
+별표(*)는 속성이 필수 사항임을 의미합니다.
+
+##### 출력 세부 정보  
+항목
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|ItemInternalId|string|
+
+
+### HTTP 응답
+
+다른 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 응답 및 해당 설명을 대략적으로 설명합니다.
+
 |이름|설명|
 |---|---|
 |200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생|
 |기본값|작업이 실패했습니다.|
-
-
-### 행 업데이트 
-SQL 테이블에서 기존 행을 업데이트합니다. ```PATCH: /datasets/default/tables/{table}/items/{id}```
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|SQL 테이블의 이름|
-|id|string|yes|path|없음|업데이트할 행의 고유 식별자|
-|항목|ItemInternalId: string|yes|body|없음|업데이트된 값을 가진 행|
-
-#### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-## 개체 정의
-
-#### DataSetsMetadata
-
-|속성 이름 | 데이터 형식 | 필수 |
-|---|---|---|
-|tabular|정의되지 않음|no|
-|Blob|정의되지 않음|no|
-
-#### TabularDataSetsMetadata
-
-|속성 이름 | 데이터 형식 | 필수 |
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### TableMetadata
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|정의되지 않음|no|
-
-#### DataSetsList
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|value|array|no|
-
-#### DataSet
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|이름|string|no|
-|DisplayName|string|no|
-
-#### 테이블
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|이름|string|no|
-|DisplayName|string|no|
-
-#### 항목
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|ItemInternalId|string|no|
-
-#### ItemsList
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|value|array|no|
-
-#### TablesList
-
-|속성 이름 | 데이터 형식 |필수 |
-|---|---|---|
-|value|array|no|
 
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

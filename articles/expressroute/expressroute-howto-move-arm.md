@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/05/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr"/>
 
 
@@ -25,7 +25,7 @@
 - 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 - 계속 진행하기 전에 [클래식에서 리소스 관리자로 Express 경로 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 가능한 제한 및 제한 사항에 대해 완전히 파악해야 합니다.
 - 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 Azure Express 경로 회로를 이동하려는 경우 클래식 배포 모델로 완전히 구성되어 작동 가능한 회로가 있어야 합니다.
-- 리소스 관리자 배포 모델로 만든 리소스 그룹이 있는지 확인합니다.
+- 리소스 관리자 배포 모델에 만든 리소스 그룹이 있는지 확인합니다.
 
 ## 리소스 관리자 배포 모델로 Express 경로 회로 이동
 
@@ -126,4 +126,4 @@ Express 경로 회로의 세부 정보를 가져오려면 다음을 실행합니
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

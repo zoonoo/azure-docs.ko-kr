@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -41,7 +41,7 @@
 
 MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 성공적으로 완료되면 출력 자산을 얻게 됩니다. 출력 자산에는 사용하는 인코딩 기본 설정에 따라 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다.
 
-출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 다음과 같습니다. <asset_id>\_metadata.xml(예를 들어, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml). 여기서 <asset_id>은(는) 입력 자산의 AssetId 값입니다. 이 입력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에 설명됩니다.
+출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 다음과 같습니다. <asset\_id>\_metadata.xml(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml). 여기서 <asset\_id>는 입력 자산의 AssetId 값입니다. 이 입력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에 설명됩니다.
 
 출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 <source_file_name>\_manifest.xml 형식입니다(예: BigBuckBunny\_manifest.xml). 이 출력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에 설명됩니다.
 
@@ -58,7 +58,7 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 - 인코딩 작업을 만듭니다.
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 - "H264 여러 비트 전송률 720p" 기본 설정을 사용하도록 지정합니다. [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)서 모든 기본 설정을 확인할 수 있습니다. [이](https://msdn.microsoft.com/library/mt269962.aspx) 항목에서 이러한 기본 설정이 따라야 하는 스키마를 검사할 수도 있습니다.
-- 작업에 단일 인코딩을 추가합니다. 
+- 작업에 단일 인코딩을 추가합니다.
 - 인코딩할 입력 자산을 지정합니다.
 - 인코딩된 자산을 포함할 출력 자산을 만듭니다.
 - 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
@@ -150,4 +150,4 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 
 [.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

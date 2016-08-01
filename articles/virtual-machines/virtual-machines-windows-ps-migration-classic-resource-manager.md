@@ -32,7 +32,7 @@
 
 설치에 대한 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/)와 [WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps)가 있습니다. WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다.
 
-자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/)을 참조하세요.
+자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 3단계: 구독 설정 및 마이그레이션에 등록
 
@@ -94,16 +94,31 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 
 마이그레이션을 위해 클라우드 서비스의 가상 컴퓨터를 준비합니다. 두 가지 옵션 중 선택할 수 있습니다.
 
-VM을 플랫폼에서 만든 가상 네트워크에 마이그레이션하려면, 다음 명령을 사용합니다.
+1. VM을 플랫폼에서 만든 가상 네트워크에 마이그레이션하려면
 
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+	첫 번째 단계는 다음 명령을 사용하여 클라우드 서비스를 마이그레이션할 수 있는지 유효성 검사를 하는 것입니다.
 
-Resource Manager 배포 모델에서 기존 가상 네트워크로 마이그레이션하려면, 다음 명령을 사용합니다.
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+		$validate.ValidationMessages
 
-	$existingVnetRGName = "<Existing VNET's Resource Group Name>"
-	$vnetName = "<Virtual Network Name>"
-	$subnetName = "<Subnet name>"
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName 		-VirtualNetworkName $vnetName -SubnetName $subnetName
+	위의 명령은 마이그레이션을 막는 모든 경고 및 오류를 표시합니다. 유효성 검사가 성공적이라면 아래 준비 단계를 진행할 수 있습니다.
+
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+
+2. Resource Manager 배포 모델에서 기존 가상 네트워크로 마이그레이션하려면
+
+		$existingVnetRGName = "<Existing VNET's Resource Group Name>"
+		$vnetName = "<Virtual Network Name>"
+		$subnetName = "<Subnet name>"
+
+	첫 번째 단계는 다음 명령을 사용하여 클라우드 서비스를 마이그레이션할 수 있는지 유효성 검사를 하는 것입니다.
+
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+		$validate.ValidationMessages
+
+	위의 명령은 마이그레이션을 막는 모든 경고 및 오류를 표시합니다. 유효성 검사가 성공적이라면 아래 준비 단계를 진행할 수 있습니다.
+
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
 
 준비 작업이 완료되면, VM의 마이그레이션 상태를 쿼리하고 `Prepared` 상태인지 확인합니다.
 
@@ -117,15 +132,22 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
 
 준비된 구성이 양호하면 계속 진행하고 다음 명령을 사용하여 리소스를 커밋합니다.
 
-	Move-AzureService -Commit -ServiceName docmigtest1 -DeploymentName docmigtest1
+	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 
 ### 가상 네트워크에서 가상 컴퓨터 마이그레이션
 
-마이그레이션할 가상 네트워크를 선택합니다. 가상 네트워크에 웹/작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면, 유효성 검사 오류 메시지가 표시됩니다.
-
-다음 명령을 사용하여 마이그레이션을 위한 가상 네트워크를 준비합니다.
+마이그레이션할 가상 네트워크를 선택합니다.
 
 	$vnetName = "VNET-Name"
+
+>[AZURE.NOTE] 가상 네트워크에 웹/작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면, 유효성 검사 오류 메시지가 표시됩니다.
+
+첫 번째 단계는 다음 명령을 사용하여 가상 네트워크를 마이그레이션할 수 있는지 유효성 검사를 하는 것입니다.
+
+	Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+
+위의 명령은 마이그레이션을 막는 모든 경고 및 오류를 표시합니다. 유효성 검사가 성공적이라면 아래 준비 단계를 진행할 수 있습니다.
+	
 	Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 
 PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
@@ -159,4 +181,4 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대
 - [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

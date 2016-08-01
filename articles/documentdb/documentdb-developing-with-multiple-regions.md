@@ -18,7 +18,7 @@
    
 # 다중 지역 DocumentDB 계정으로 개발
 
-[전역 배포](documentdb-distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. DocumentDB 계정 구성, 현재 지역 가용성과 지정된 기본 설정 목록에 기초한 가장 최적 끝점은 쓰기 및 읽기 작업을 수행할 SDK가 선택합니다.
+[전역 배포](documentdb-distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. Azure DocumentDB 계정 구성, 현재 지역 가용성과 지정된 기본 설정 목록에 기초한 최적 끝점은 쓰기 및 읽기 작업을 수행할 SDK가 선택합니다.
 
 이 기본 설정 목록은 DocumentDB 클라이언트 SDK로 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 "PreferredLocations"라는 선택적 매개 변수를 수락합니다.
 
@@ -143,4 +143,4 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

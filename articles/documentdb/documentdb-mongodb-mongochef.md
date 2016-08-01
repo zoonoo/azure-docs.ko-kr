@@ -19,7 +19,7 @@
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
 
-MongoChef를 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하려면 다음을 수행해야 합니다.
+MongoChef를 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정에 연결하려면 다음을 수행해야 합니다.
 
 - [MongoChef](http://3t.io/mongochef) 다운로드 및 설치
 - MongoDB [연결 문자열](documentdb-connect-mongodb-account.md) 정보에 대한 프로토콜 지원을 사용하는 DocumentDB 계정이 필요합니다.
@@ -132,4 +132,4 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

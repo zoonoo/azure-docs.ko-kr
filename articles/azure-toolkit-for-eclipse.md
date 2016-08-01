@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
@@ -52,7 +52,9 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 * [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]
 * [대규모 배포]
+* [Eclipse의 Azure에서 Java 웹앱 디버깅]
 * [Eclipse에서 Azure 응용 프로그램 디버그]
+* [Eclipse용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][HDInsight Tools Plugin for Eclipse]
 
 ## 참고 항목
 
@@ -88,11 +90,13 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure 저장소 계정 목록]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Eclipse에서 Azure 응용 프로그램 디버그]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Eclipse의 Azure에서 Java 웹앱 디버깅]: ./app-service-web/app-service-web-debug-java-web-app-in-eclipse.md
 [대규모 배포]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 [세션 선호도 사용]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -102,4 +106,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

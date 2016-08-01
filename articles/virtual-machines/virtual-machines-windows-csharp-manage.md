@@ -69,12 +69,12 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 	    {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var result = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (result == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
-          return token;
+          return result;
         }
 	
     {client-id}를 Azure Active Directory의 식별자로 바꾸고 {client-secret}을 AD 응용 프로그램의 선택키로 바꾸고, {tenant-id}를 구독의 테넌트 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다. 선택키는 Azure 포털을 사용하여 찾을 수 있습니다.
@@ -432,4 +432,4 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 배포에 문제가 있는 경우 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

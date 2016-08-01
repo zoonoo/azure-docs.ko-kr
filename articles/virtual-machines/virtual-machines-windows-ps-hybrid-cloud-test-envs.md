@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="04/01/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Azure 하이브리드 클라우드 테스트 환경
@@ -50,4 +50,4 @@
 
 - Azure 인프라 서비스에서 사용자 지정 개발/테스트 또는 프로덕션 배포를 디자인하기 위한 [구현 지침](virtual-machines-linux-infrastructure-service-guidelines.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

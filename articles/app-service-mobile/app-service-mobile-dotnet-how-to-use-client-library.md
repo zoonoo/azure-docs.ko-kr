@@ -317,7 +317,7 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource]에 있습�
 
 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 원하는 결과가 아닌 경우에도 이전 업데이트를 덮어씁니다. *낙관적 동시성 제어*에서는 각 트랜잭션이 커밋할 수 있으므로 리소스 잠금을 사용하지 않는다고 가정합니다. 트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
 
-모바일 앱은 모바일 앱 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 모바일 앱은 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `\version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 응용 프로그램은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
+모바일 앱은 모바일 앱 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 모바일 앱은 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 응용 프로그램은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
 예를 들어 낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다.
 
@@ -331,9 +331,9 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource]에 있습�
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-		// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "version")]
-        public byte[] Version { set; get; }
+        public string Version { set; get; }
     }
 
 
@@ -497,7 +497,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 	
 	* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 	
-	* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+	* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
 	
 	각 플랫폼에 필요한 코드는 다음과 같습니다.
 	
@@ -966,4 +966,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

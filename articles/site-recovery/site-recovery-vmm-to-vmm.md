@@ -145,7 +145,7 @@ VMM 서버가 [필수 조건](#on-premises-prerequisites)을 준수하는지와 
 	![새 자격 증명 모음](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
-4. [새 리소스 그룹을 만들거나](../resource-group-portal.md#create-resource-group) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
+4. [새 리소스 그룹을 만들거나](../resource-group-template-deploy-portal.md) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
 4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **자격 증명 모음 만들기**를 클릭합니다.
 
 	![새 자격 증명 모음](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
@@ -259,13 +259,13 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
 매개 변수는 다음에 위치합니다.
 
- - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
+ - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
  - **/EncryptionEnabled** : VMM에서 Azure로 복제할 때만 사용되는 선택적 매개 변수입니다.
  - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
  - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
  - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.  
+ - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 ## 3단계: 대상 환경 설정
 
@@ -483,4 +483,4 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

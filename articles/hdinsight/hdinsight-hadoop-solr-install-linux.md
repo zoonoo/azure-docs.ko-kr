@@ -29,6 +29,10 @@
 
 [Apache Solr](http://lucene.apache.org/solr/features.html)은 데이터에 대한 강력한 전체 텍스트 검색을 가능하게 해주는 엔터프라이즈 검색 플랫폼입니다. Hadoop는 막대한 양의 데이터를 저장 및 관리할 수 있도록 해주고 Apache Solr은 이 데이터를 신속하게 검색할 수 있는 검색 기능을 제공합니다. 이 항목에서는 HDInsight 클러스터를 사용자 지정하여 Solr을 설치하는 방법에 대한 지침을 제공합니다.
 
+> [AZURE.WARNING] HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+>
+> Solr와 같은 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
+
 ## 스크립트가 수행하는 작업
 
 이 스크립트는 HDInsight 클러스터에서 다음을 변경합니다.
@@ -170,7 +174,7 @@ SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 �
     
     3. __hn0__으로 시작하는 항목을 선택합니다. 페이지가 열릴 때 호스트 이름이 위쪽에 표시됩니다. 호스트 이름의 형식은 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__입니다. 이는 Solr 대시보드에 연결할 때 사용해야 하는 호스트 이름입니다.
     
-1. 브라우저에서 \_\___http://HOSTNAME:8983/solr/#/__에 연결하며 여기에서 __HOSTNAME__은 이전 단계에서 결정한 이름입니다.
+1. 브라우저에서 __http://HOSTNAME:8983/solr/#/__에 연결하며 여기에서 __HOSTNAME\_\_은 이전 단계에서 결정한 이름입니다.
 
     이 요청은 HDInsight 클러스터에 대한 헤드 노드로 SSH 터널을 통해 라우팅해야 합니다. 다음과 유사한 결과가 표시됩니다.
 
@@ -307,4 +311,4 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 저장소 에뮬레이터 구성 및 사용
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## 개요
 Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 테이블 저장소를 시뮬레이션하는 유틸리티인 저장소 에뮬레이터를 포함합니다. Azure 저장소 서비스를 사용하는 클라우드 서비스를 구축하거나 저장소 서비스를 호출하는 외부 응용 프로그램을 작성하는 경우, 저장소 에뮬레이터에 대해 로컬로 코드를 테스트할 수 있습니다. Microsoft Visual Studio용 Azure Tools는 저장소 에뮬레이터의 관리를 Visual Studio로 통합합니다. 처음으로 Azure Tools가 저장소 에뮬레이터 데이터베이스를 초기화하고, Visual Studio에서 코드를 실행하거나 디버깅할 때 저장소 에뮬레이터 서비스를 시작하고, Azure 저장소 탐색기를 통해 저장소 에뮬레이터 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
 시스템 요구 사항 및 사용자 지정 구성 지침 포함에 대한 자세한 정보는 [개발 및 테스트용으로 Azure 저장소 에뮬레이터 사용](./storage/storage-use-emulator.md)을 참조하세요.
@@ -43,4 +46,4 @@ Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual S
 
 서버 탐색기에서 Azure 저장소 노드를 사용하면 데이터를 보고 저장소 에뮬레이터를 포함한 저장소 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 탐색 및 관리](https://msdn.microsoft.com/library/azure/ff683677.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

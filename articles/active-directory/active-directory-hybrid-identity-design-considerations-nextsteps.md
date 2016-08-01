@@ -3,8 +3,8 @@
 	description="하이브리드 ID 디자인 고려 사항 가이드를 읽은 후 개요 및 다음 단계"
 	documentationCenter=""
 	services="active-directory"
-	authors="yurid"
-	manager="stevenpo"
+	authors="billmath"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/25/2016"
-	ms.author="yurid"/>
+	ms.date="07/18/2016"
+	ms.author="billmath"/>
 
 #Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 장치 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.
@@ -45,4 +45,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

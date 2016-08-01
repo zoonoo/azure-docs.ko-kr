@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Azure Active Directory에서 사용자 지정 도메인 이름 관리
@@ -80,4 +80,4 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 
 -   [사용자 지정 도메인 이름 관리](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -31,6 +31,9 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 * FileBrowser (WASB 기본 컨테이너로 전달)
 * 작업 브라우저
 
+> [AZURE.WARNING] HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+>
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
 
 ## 스크립트 동작을 사용하여 Hue 설치
 
@@ -53,7 +56,7 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 	* __헤드__: 이 옵션을 선택합니다.
 	* __작업자__: 비워둡니다.
 	* __ZOOKEEPER__: 비워둡니다.
-	* __PARAMETERS__: 이 필드는 공백으로 둡니다.
+	* __PARAMETERS__: 비워둡니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
@@ -134,4 +137,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

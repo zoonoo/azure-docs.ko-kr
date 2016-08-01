@@ -23,6 +23,7 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [포털](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -83,7 +84,7 @@
              *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. 배포를 실행하기 전에 배포 설정의 유효성을 검사할 수 있습니다. **Test-AzureRmResourceGroupDeployment** cmdlet을 사용하면 실제 리소스를 만들기 전에 문제를 찾아낼 수 있습니다. 다음 예제는 배포의 유효성 검사 방법을 보여줍니다.
+4. 배포를 실행하기 전에 배포 설정의 유효성을 검사할 수 있습니다. **Test-AzureRmResourceGroupDeployment** Cmdlet을 사용하면 실제 리소스를 만들기 전에 문제를 찾아낼 수 있습니다. 다음 예제는 배포의 유효성 검사 방법을 보여줍니다.
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
@@ -125,7 +126,7 @@
         Mode              : Incremental
         ...
 
-     템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+     템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 6. 배포 오류 문제를 해결하는 데 도움이 될 수 있는 배포에 대한 추가 정보를 기록하려면 **DeploymentDebugLogLevel** 매개 변수를 사용합니다. 요청 콘텐츠와 응답 콘텐츠 중 하나 또는 둘 다가 배포 작업과 함께 기록되도록 지정할 수 있습니다.
 
@@ -189,4 +190,4 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 - 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 - 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

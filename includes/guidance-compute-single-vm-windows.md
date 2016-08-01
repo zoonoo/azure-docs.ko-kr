@@ -8,9 +8,9 @@ Azure에는 단일 VM에 대한 가동 시간 SLA가 없으므로 프로덕션 �
 
 Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부분이 많습니다. 계산, 네트워킹 및 저장소 요소가 있습니다.
 
-![IaaS: 단일 VM](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **리소스 그룹.** [_리소스 그룹_][resource-manager-overview]은 관련된 리소스를 보유하는 컨테이너입니다. 이 VM에 대한 리소스를 보유할 리소스 그룹을 만듭니다.
+- **리소스 그룹.** [리소스 그룹][resource-manager-overview]은 관련된 리소스를 보유하는 컨테이너입니다. 이 VM에 대한 리소스를 보유할 리소스 그룹을 만듭니다.
 
 - **VM**. 게시된 이미지 목록 또는 Azure Blob 저장소에 업로드된 VHD 파일에서 VM을 프로비전할 수 있습니다.
 
@@ -110,8 +110,6 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
   실수로 삭제하지 않도록 하려면 [리소스 잠금][resource-lock]을 사용하여 전체 리소스 그룹을 잠그거나 VM과 같은 개별 리소스를 잠급니다.
 
-
-
 ## 보안 고려 사항
 
 - [Azure 보안 센터][security-center]를 사용하여 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다. 보안 센터는 시스템 업데이트, 맬웨어 방지와 같은 잠재적인 보안 문제를 모니터링하고 배포의 보안 상태에 대한 종합적인 그림을 제공합니다.
@@ -137,7 +135,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure 디스크 암호화][disk-encryption]를 고려하세요.
 
-## 예제 배포 스크립트
+## 솔루션 구성 요소
 
 이전 다이어그램에 표시된 것처럼 다음 Windows 배치 스크립트는 단일 VM 인스턴스, 관련 네트워크 및 저장소 리소스를 배치하기 위해 [Azure CLI][azure-cli] 명령을 실행합니다.
 
@@ -253,6 +251,7 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
   --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
+
 ## 다음 단계
 
 [가상 컴퓨터에 대한 SLA][vm-sla]를 적용하려면 가용성 집합에서 두 개 이상의 인스턴스를 배포해야 합니다. 자세한 내용은 [Azure에서 여러 Windows VM 실행][multi-vm]을 참조하세요.
@@ -300,5 +299,6 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/ko-KR/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Azure VM의 일반적인 아키텍처"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,10 +19,10 @@
 
 # DocumentDB에 대한 기본 할당량
 
-다음 표에서는 DocumentDB 리소스의 기본 할당량에 대해 설명합니다.
+다음 테이블에서는 Azure DocumentDB 데이터베이스 리소스의 기본 할당량에 대해 설명합니다.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

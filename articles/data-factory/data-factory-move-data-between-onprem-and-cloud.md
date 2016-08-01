@@ -59,11 +59,11 @@
 ## 게이트웨이 만들기
 5. **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
-	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 6.	데이터 팩터리 편집기에서 도구 모음의 **...(말줄임표)**를 클릭한 다음 **새 데이터 케이트웨이**를 클릭합니다.
 
 	![도구 모음의 새 데이터 게이트웨이](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-2. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다. 	
+2. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다.
 
 	![게이트웨이 만들기 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -107,28 +107,28 @@
 
 	**진단** 탭에서 다음을 수행할 수도 있습니다.
 	
-		- Use *Test Connection** section to an on-premises data source using the gateway.
-		- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
-		- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
+	- 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 **연결 테스트** 섹션을 사용합니다.
+	- **로그 보기**를 클릭하여 이벤트 뷰어 창에서 데이터 관리 게이트웨이 로그를 확인합니다.
+	- **로그 보내기**를 클릭하여 지난 7일 간의 로그가 포함된 zip 파일을 Microsoft에 업로드하여 문제를 원활하게 해결할 수 있습니다.
 10. Azure 포털의 **구성** 블레이드, **새 데이터 게이트웨이** 블레이드에서 차례로 **확인**을 클릭합니다.
-6. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다. 이 항목을 클릭하면 연결된 JSON이 나타납니다. 
+6. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다. 이 항목을 클릭하면 연결된 JSON이 나타납니다.
 	
 
 ## 연결된 서비스 만들기 
 이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob 저장소를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### 온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
-1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다. 
+1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다.
 
-	![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
-3.	**JSON 편집기**에서 다음을 수행합니다. 
-	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.	
+	![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
+3.	**JSON 편집기**에서 다음을 수행합니다.
+	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.
 	2. Windows 인증을 사용하는 경우
-		1. **connectionString**에서 
+		1. **connectionString**에서
 			1. **Integrated Security**를 **true**로 설정합니다.
-			2. 데이터베이스 **server name**과 **database name**을 지정합니다. 
-			2. **User ID** 및 **Password**를 제거합니다. 
-		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.  
+			2. 데이터베이스 **server name**과 **database name**을 지정합니다.
+			2. **User ID** 및 **Password**를 제거합니다.
+		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -138,9 +138,9 @@
         		}
 
 	4. SQL 인증을 사용하는 경우
-		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.       
+		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.
 		2. 마지막 두 JSON 속성, 즉 **userName** 및 **password**를 JSON에서 제거합니다.
-		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다. 
+		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다.
 
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
@@ -190,8 +190,8 @@
 
 ### 입력 테이블 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **SQL Server 테이블**을 클릭합니다. 
-2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.    
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **SQL Server 테이블**을 클릭합니다.
+2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
 		{
 		  "name": "EmpOnPremSQLTable",
@@ -221,7 +221,7 @@
 	- **type**을 **SqlServerTable**로 설정합니다.
 	- **tablename**을 **emp**로 설정합니다.
 	- **linkedServiceName**을 **SqlServerLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
-	- Azure Data Factory의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
+	- Azure Data Factory의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.
 
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]를 참조하세요.
 
@@ -231,7 +231,7 @@
 ### 출력 테이블 만들기
 
 1.	**데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob 저장소**를 클릭합니다.
-2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다. 
+2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
 		{
 		  "name": "OutputBlobTable",
@@ -257,7 +257,7 @@
 	- **type**을 **AzureBlob**으로 설정합니다.
 	- **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
-	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
+	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
@@ -287,9 +287,9 @@
 
 1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
-	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	명령 모음에서 **새 파이프라인**을 클릭합니다. 단추가 표시되지 않는 경우 **...(줄임표)**를 클릭하여 명령 모음을 확장합니다.
-2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.   
+2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
 
 		{
@@ -340,7 +340,7 @@
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **변형** 섹션에서 **SqlSource**를 **원본 형식**으로 지정하고 **BlobSink**를 **싱크 형식**으로 지정합니다.
-	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+	- **SqlSource**의 sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.**
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
@@ -419,4 +419,4 @@
 - 데이터 관리 게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 - 일반적으로 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

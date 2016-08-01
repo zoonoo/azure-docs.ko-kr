@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # 서버 제거 및 보호 사용 안 함
@@ -44,12 +44,12 @@ Azure Site Recovery 포털의 **서버**에서 해당 서버를 삭제하여 자
 1. Azure 포털에서 VMM 서버 등록을 취소합니다.
 2. VMM 서버에서 정리 스크립트를 다운로드합니다.
 3. 기본(LocalMachine) 범위에 대한 실행 정책을 변경하려면 관리자 권한으로 실행 옵션으로 PowerShell을 엽니다.
-4. 스크립트의 지침을 따르세요. 
+4. 스크립트의 지침을 따르세요.
 
 제거 중인 서버의 클라우드와 쌍을 이루는 클라우드가 있는 VMM 서버:
 
 1. 정리 스크립트를 실행하고 2~4단계를 따릅니다.
-2. 등록된 VMM 서버에 대한 VMM ID를 지정합니다. 
+2. 등록된 VMM 서버에 대한 VMM ID를 지정합니다.
 3. 이 스크립트는 VMM 서버 및 클라우드 페어링 정보에 대한 등록 정보를 제거합니다.
 
 
@@ -59,7 +59,7 @@ Hyper-V 사이트의 Hyper-V 서버에 있는 가상 컴퓨터를 보호하기 �
 
 1. Hyper-V 서버에 있는 가상 컴퓨터에 보호 기능을 사용하지 않도록 설정합니다.
 2. Azure Site Recovery 포털의 **서버** 탭에서 서버 > 삭제를 선택합니다. 이 작업을 수행할 때 Azure에 서버를 연결할 필요는 없습니다.
-3. 서버에서 설정을 정리하고 자격 증명 모음에서 등록 취소하도록 다음 스크립트를 실행합니다. 
+3. 서버에서 설정을 정리하고 자격 증명 모음에서 등록 취소하도록 다음 스크립트를 실행합니다.
 
 	    pushd .
 	    try
@@ -220,4 +220,4 @@ VMware 가상 컴퓨터 또는 물리적 서버의 보호를 중지하려면 보
 	
 		![제거 옵션](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

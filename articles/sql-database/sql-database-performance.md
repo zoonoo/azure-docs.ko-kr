@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="07/19/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 성능 Insight
@@ -68,4 +68,4 @@ Azure SQL 데이터베이스는 인텔리전트 튜닝 작업 및 권장 사항�
 - [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md)
 - [탄력적 데이터베이스 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

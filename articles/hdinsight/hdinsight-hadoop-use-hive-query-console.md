@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="07/19/2016"
    ms.author="larryfr"/>
 
 # 쿼리 콘솔을 사용하여 Hive 쿼리 실행
@@ -36,7 +36,7 @@
 
 ##<a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
 
-1. 웹 브라우저를 열고 \_\___https://CLUSTERNAME.azurehdinsight.net__으로 이동합니다. 여기서 __CLUSTERNAME__은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
+1. 웹 브라우저를 열고 __https://CLUSTERNAME.azurehdinsight.net__으로 이동합니다. 여기서 __CLUSTERNAME\_\_은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
 
 
 2. 페이지 위쪽에 있는 링크 중 **Hive 편집기**를 선택합니다. HDInsight 클러스터에서 실행하려는 HiveQL 문을 입력하는 데 사용할 수 있는 양식이 표시됩니다.
@@ -128,4 +128,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

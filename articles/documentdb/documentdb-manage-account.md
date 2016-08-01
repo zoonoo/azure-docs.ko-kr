@@ -19,7 +19,7 @@
 
 # DocumentDB 계정을 관리하는 방법
 
-데이터의 글로벌 가용성에 대해 글로벌 일관성을 설정하고 여러 지역을 관리하는 방법을 알아봅니다. 또한, 키를 적용하고 Azure 포털에서 계정을 삭제하는 방법도 알아봅니다.
+Azure DocumentDB에서 데이터의 글로벌 가용성을 위해 글로벌 일관성을 설정하고 여러 지역을 관리하는 방법을 알아봅니다. 또한, 키를 적용하고 Azure 포털에서 계정을 삭제하는 방법도 알아봅니다.
 
 ## <a id="consistency"></a>DocumentDB 일관성 설정 관리
 
@@ -88,8 +88,7 @@ DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액�
 
 1. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 2. **DocumentDB 계정** 블레이드의 **필수** 모음에서 **키**를 클릭합니다.
-3. **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
-  ![Azure 포털에서 선택키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/copykeys.png)
+3. **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.![Azure 포털에서 선택키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/copykeys.png)
 
 ### 액세스 키 다시 생성
 
@@ -143,7 +142,7 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/en-us/regions/#services
-[offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/ko-KR/regions/#services
+[offers]: https://azure.microsoft.com/ko-KR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

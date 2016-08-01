@@ -44,4 +44,4 @@
 
 이러한 한도보다 더 많은 Vm이 있는 경우 여러 규모 집합을 배포해야 합니다. [방법에 대한 예를 보려면 템플릿을 참조하십시오.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

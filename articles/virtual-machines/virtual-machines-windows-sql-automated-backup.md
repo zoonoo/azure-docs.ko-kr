@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(리소스 관리자)
@@ -24,8 +24,7 @@
 
 자동화된 백업에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -33,15 +32,13 @@
 
 **운영 체제**:
 
--Windows Server 2012
+- Windows Server 2012
 - Windows Server 2012 R2
 
 **SQL Server 버전**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
 
 **데이터베이스 구성**:
 
@@ -66,7 +63,9 @@
 |**암호**|암호 텍스트(없음)|암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다.|
 
 ## 포털에서 구성
+Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자동화된 백업을 구성할 수 있습니다.
 
+### 새 VM
 Azure 포털을 사용하여 리소스 관리자 배포 모델에서 새 SQL Server 2014 가상 컴퓨터를 만들 때 자동화된 백업을 구성할 수 있습니다.
 
 **SQL Server 설정** 블레이드에서 **자동화된 백업**을 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 백업** 블레이드를 보여 줍니다.
@@ -75,9 +74,20 @@ Azure 포털을 사용하여 리소스 관리자 배포 모델에서 새 SQL Ser
 
 컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
-기존 SQL Server 가상 컴퓨터에 대한 자동화된 백업 설정을 구성하려면 PowerShell을 사용해야 합니다.
+### 기존 VM
+기존 SQL Server 가상 컴퓨터에 대한 해당 SQL Server 가상 컴퓨터를 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
 
->[AZURE.NOTE] 처음으로 자동화된 백업을 사용 설정하면 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 백업이 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+![기존 VM에 대한 SQL 자동화된 백업](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
+
+**SQL Server 구성** 블레이드에서 자동화된 백업 섹션의 **편집** 단추를 클릭합니다.
+
+![기존 VM에 대한 SQL 자동화된 백업 구성](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
+
+완료되면 **SQL Server 구성** 블레이드 아래쪽의 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
+
+처음으로 자동화된 백업을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 백업이 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+
+>[AZURE.NOTE] 또한 템플릿을 사용하여 자동화된 백업을 구성할 수 있습니다. 자세한 내용은 [자동화된 백업에 대한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)을 참조하세요.
 
 ## PowerShell을 사용하여 구성
 
@@ -117,4 +127,4 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

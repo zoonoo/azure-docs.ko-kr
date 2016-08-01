@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/26/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #자습서: Benefitsolver와 Azure Active Directory 통합
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure 클래식 포털의 **Benefitsolver** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Benefitsolver** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Single Sign-On 구성")
 
@@ -82,8 +82,9 @@
 
     ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
 
-    1.  **로그인 URL** 텍스트 상자에서 **http://azure.benefitsolver.com**을 입력합니다.
+    1.  **로그온 URL** 텍스트 상자에 **http://azure.benefitsolver.com**를 입력합니다.
     2.  **회신 URL** 텍스트 상자에서 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
+
 
     3.  **다음**을 클릭합니다.
 
@@ -135,7 +136,7 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Benefitsolver** 응용 프로그램 통합 페이지에서 **사용자 할당** 을 클릭합니다.
+2.  **Benefitsolver** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "사용자 할당")
 
@@ -145,4 +146,4 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

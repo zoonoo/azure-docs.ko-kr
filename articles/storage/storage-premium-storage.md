@@ -362,6 +362,9 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 - [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)
 - [가상 컴퓨터 가격](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
+## 백업
+Azure 백업을 사용하여 프리미엄 저장소를 사용하는 가상 컴퓨터를 백업할 수 있습니다. [자세한 내용](../backup/backup-azure-vms-first-look-arm.md).
+
 ## 빠른 시작
 
 ## 가상 컴퓨터 데이터 디스크에 대한 프리미엄 저장소 계정 만들기 및 사용
@@ -388,7 +391,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 	>  
 	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
 
-4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+4. 사용할 배포 모델을 **리소스 관리자** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
 5. 저장소 계정의 성능 계층을 **프리미엄**으로 지정합니다.
 
@@ -396,7 +399,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 
 7. 새 저장소 계정을 만들려는 구독을 선택합니다.
 
-8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
+8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 9. 저장소 계정에 대한 지리적 위치를 선택합니다. [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하여 선택한 위치에 프리미엄 저장소가 제공되는지 확인할 수 있습니다.
 
@@ -562,4 +565,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

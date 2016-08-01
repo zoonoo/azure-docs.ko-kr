@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱용 .NET 백엔드 서버 SDK 사용
@@ -97,7 +97,7 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-`MapApiControllers`는 `[MobileAppController]` 특성을 포함하는 컨트롤러만 매핑합니다.
+`MapApiControllers`는 `[MobileAppController]` 특성을 포함하는 컨트롤러만 매핑합니다. 다른 컨트롤러를 매핑하려면 [MapHttpAttributeRoutes] 메서드를 사용합니다.
 
 기능 확장 메서드 대부분을 포함할 수 있는 추가 NuGet 패키지를 통해 사용할 수 있으며 이를 아래 섹션에서 설명합니다.
 
@@ -134,7 +134,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. **MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
 
-- [Microsoft.Azure.Mobile.Server.Login] AppServiceLoginHandler.CreateToken() 메서드를 통해 사용자 지정 인증에 대한 미리 보기 지원을 제공합니다. 이는 정적 메서드이며 구성에서 사용하도록 설정할 필요는 없습니다.
+- [Microsoft.Azure.Mobile.Server.Login] AppServiceLoginHandler.CreateToken() 메서드를 통해 사용자 지정 인증에 대한 지원을 제공합니다. 이는 정적 메서드이며 구성에서 사용하도록 설정할 필요는 없습니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
 
@@ -190,7 +190,7 @@ PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니�
 
 ## 방법: 사용자 지정 API 컨트롤러 정의
 
-사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정합니다.
+사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
 
 1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 
@@ -250,6 +250,8 @@ PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니�
 사용자가 로그인해야 하는지 여부를 결정하려면 본인의 고유한 논리를 제공해야 합니다. 예를 들어 데이터베이스의 솔트되고 해시된 암호를 기준으로 검사할 수 있습니다. 다음 예제에서 `isValidAssertion()` 메서드는 이러한 검사를 담당하며 다른 곳에 정의됩니다.
 
 사용자 지정 인증은 새 ApiController를 만들고 아래와 같은 등록 및 로그인 작업을 노출하면 노출됩니다. 클라이언트는 사용자로부터 관련 정보를 수집하고 HTTPS POST 본문에 사용자 정보를 포함시켜 API에 제출하여 로그인을 시도할 수 있습니다. 서버가 어설션의 유효성을 검사하면 `AppServiceLoginHandler.CreateToken()` 메서드를 사용하여 토큰을 발급할 수 있습니다.
+
+이 ApiController는 클라이언트 로그인 요청을 실패하게 하는 `[MobileAppController]` 특성을 사용하지 **않아야** 합니다. `[MobileAppController]` 특성에는 요청 헤더 [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md)이 필요하며 이 헤더는 로그인 경로의 경우에는 클라이언트 SDK에서 보내지 **않습니다**.
 
 로그인 작업 예제는 다음과 같습니다.
 
@@ -477,5 +479,6 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

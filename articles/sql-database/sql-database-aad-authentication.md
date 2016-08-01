@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="07/18/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결
@@ -83,11 +83,11 @@ Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스�
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
 - SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure Active Directory 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 응용 프로그램(DAC 및 .bacpac)의 최신 버전에서는 Azure Active Directory 인증을 사용할 수 있지만 **sqlcmd.exe** 및 **bcp.exe**는 ODBC 공급자를 사용하기 때문에 연결할 수 없습니다.
 - Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
-- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/)은 Azure Active Directory 인증을 지원합니다.
+- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/ko-KR/download/details.aspx?id=11774)은 Azure Active Directory 인증을 지원합니다. 참고: [연결 속성을 설정할](https://msdn.microsoft.com/library/ms378988.aspx)합니다.
 - PolyBase는 Azure Active Directory 인증을 사용하여 인증할 수 없습니다.
 - SQL Server Management Studio는 SQL 데이터 웨어하우스에 대해 지원되지 않습니다. SQL Server Data Tools를 사용합니다.
 - BI 및 Excel 등, 일부 도구는 지원되지 않습니다.
-- 2단계 인증 또는 다른 형태의 대화형 인증은 지원되지 않습니다.
+- Multi-factor Authenticaion(MFA/2FA) 또는 다른 형태의 대화형 인증은 지원되지 않습니다.
 - Azure Active Directory 인증은 Azure 포털 **데이터베이스 가져오기** 및 **데이터베이스 내보내기** 블레이드로 SQL 데이터베이스에서 지원됩니다. Azure Active Directory 인증을 사용한 가져오기 및 내보내기도 PowerShell 명령에서 지원됩니다.
 
 
@@ -276,7 +276,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 	FROM EXTERNAL PROVIDER;
 
 
- *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 
@@ -366,4 +366,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

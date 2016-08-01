@@ -108,7 +108,7 @@ NXOAuth2Client 라이브러리는 시작하기 위해 일부 값을 필요로 �
 - `LoginViewController.m` 파일에 일부 값을 추가하여 인증 및 권한 부여에 대한 컨텍스트를 설정해 보겠습니다. 코드 다음에는 값에 대한 세부 정보가 나옵니다.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ NXOAuth2Client 라이브러리는 시작하기 위해 일부 값을 필요로 �
 
 코드에 대한 세부 정보를 살펴보겠습니다.
 
-첫 번째 문자열은 `scopes`에 대한 것입니다. `User.ReadBasic.All` 값을 사용하여 디렉터리에 있는 모든 사용자의 기본 프로필을 읽을 수 있습니다.
+첫 번째 문자열은 `scopes`에 대한 것입니다. `User.Read` 값을 사용하여 로그인한 사용자의 기본 프로필을 읽을 수 있습니다.
 
 [Microsoft Graph 권한 범위](https://graph.microsoft.io/docs/authorization/permission_scopes)에서 사용 가능한 모든 범위에 대해 알아볼 수 있습니다.
 
@@ -588,4 +588,4 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 
 [Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

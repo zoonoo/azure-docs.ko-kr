@@ -3,8 +3,8 @@
    description="VMware VM 및 물리적 서버를 Azure로 장애 조치한 후 온-프레미스 사이트로 장애 복구에 대해 알아봅니다." 
    services="site-recovery" 
    documentationCenter="" 
-   authors="rayne-wiselman" 
-   manager="jwhit" 
+   authors="ruturaj" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.workload="required" 
    ms.date="01/11/2015"
-   ms.author="raynew"/>
+   ms.author="ruturajd"/>
 
 # 온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
 
@@ -39,7 +39,7 @@
 
 프로세스 서버가 Azure에 있고 VPN 또는 Express 경로를 연결할 경우 이 아키텍처를 사용합니다.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 포트 및 장애 복구(failback) 아키텍처 다이어그램의 전체 목록을 보려면 아래 이미지를 참조하세요.
 
@@ -77,7 +77,7 @@ VMware VM을 장애 조치한 경우 온-프레미스에 아직 있는 경우 �
 - VMware VM 및 물리적 서버를 장애 복구하려면 VMware 환경이 필요합니다. 물리적 서버로 장애 복구는 지원되지 않습니다.
 - 장애 복구하려면 보호를 처음 설정할 때 Azure 네트워크를 만들어야 합니다. 장애 복구는 온-프레미스 사이트에 있는 Azure VM이 있는 Azure 네트워크에서 VPN 또는 Express 경로 연결이 필요합니다.
 - 장애 복구하려는 VM이 vCenter 서버를 통해 관리되는 경우 vCenter 서버의 VM 검색에 필요한 권한이 있는지 확인해야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-- 스냅숏이 VM에 있는 경우 다시 보호에 실패합니다. 스냅숏 또는 디스크를 삭제할 수 있습니다. 
+- 스냅숏이 VM에 있는 경우 다시 보호에 실패합니다. 스냅숏 또는 디스크를 삭제할 수 있습니다.
 - 장애 복구하려면 여러 구성 요소를 만들어야 합니다.
 	- **Azure에 프로세스 서버를 만듭니다**. 장애 복구 중에 만들고 계속 실행해야 하는 Azure VM입니다. 장애 복구를 완료한 후 컴퓨터를 삭제할 수 있습니다.
 	- **마스터 대상 서버 만들기**: 마스터 대상 서버는 장애 복구 데이터를 송수신합니다. 온-프레미스를 만든 관리 서버에는 기본적으로 설치된 마스터 대상 서버가 있습니다. 그러나 장애 복구 트래픽 볼륨에 따라 장애 복구에 대한 별도 마스터 대상 서버를 만들어야 할 수도 있습니다.
@@ -120,8 +120,8 @@ Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정�
 
 #### CentOS 6.6 설치
 
-1.	관리 서버 VM에 CentOS 6.6 최소 운영 체제를 설치합니다. DVD 드라이브에 ISO를 유지하고 시스템을 부팅합니다. 미디어 테스트를 건너뛰고 언어에서 영어(미국)을 선택하고 **기본 저장소 장치**를 선택하고 하드 드라이브에 중요한 데이터가 없는지 확인하고 **예**를 클릭하고 모든 데이터를 삭제합니다. 관리 서버의 호스트 이름을 입력하고 서버 네트워크 어댑터를 선택합니다. **편집 시스템** 대화 상자에서 **자동으로 연결**을 선택하고 고정 IP 주소, 네트워크 및 DNS 설정을 추가합니다. 표준 시간대 및 관리 서버에 액세스하기 위한 루트 암호를 지정합니다. 
-2.	설치 유형을 묻는 경우 파티션으로 **사용자 지정 레이아웃 만들기**를 선택합니다. **다음**을 클릭한 후 **무료**를 선택하고 만들기를 클릭합니다. **FS 유형:** **ext4**로 **/**, **/var/crash** 및 **/홈 파티션**을 만듭니다. **FS 유형: 스왑**으로 스왑 파티션을 만듭니다.
+1.	관리 서버 VM에 CentOS 6.6 최소 운영 체제를 설치합니다. DVD 드라이브에 ISO를 유지하고 시스템을 부팅합니다. 미디어 테스트를 건너뛰고 언어에서 영어(미국)을 선택하고 **기본 저장소 장치**를 선택하고 하드 드라이브에 중요한 데이터가 없는지 확인하고 **예**를 클릭하고 모든 데이터를 삭제합니다. 관리 서버의 호스트 이름을 입력하고 서버 네트워크 어댑터를 선택합니다. **편집 시스템** 대화 상자에서 **자동으로 연결**을 선택하고 고정 IP 주소, 네트워크 및 DNS 설정을 추가합니다. 표준 시간대 및 관리 서버에 액세스하기 위한 루트 암호를 지정합니다.
+2.	설치 유형을 묻는 경우 파티션으로 **사용자 지정 레이아웃 만들기**를 선택합니다. **다음**을 클릭한 후 **무료**를 선택하고 만들기를 클릭합니다. **FS 유형:** **ext4**로 **/**, **/var/crash** 및 **/home 파티션**을 만듭니다. **FS 유형: 스왑**으로 스왑 파티션을 만듭니다.
 3.	기존 장치가 발견되는 경우 경고 메시지가 표시됩니다. **포맷**을 클릭하여 파티션 설정으로 드라이브를 포맷합니다. **디스크에 변경 내용 쓰기**를 클릭하여 파티션 변경 내용을 적용합니다.
 4.	**부팅 로더 설치** > **다음**을 선택하여 루트 파티션에 부팅 로더를 설치합니다.
 5.	설치가 완료되면 **재부팅**을 클릭합니다.
@@ -131,7 +131,7 @@ Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정�
 
 1. 설치 후 VM에서 각 SCSI 하드 디스크에 대한 SCSI ID를 검색합니다. 이를 수행하려면 관리 서버 VM을 종료하고 VMware의 VM 속성에서 VM 항목 > **설정 편집** > **옵션**을 마우스 오른쪽 단추로 클릭합니다.
 2. **고급** > **일반 항목**을 선택하고 **구성 매개 변수**를 클릭합니다. 컴퓨터가 실행되는 경우 이 옵션은 비활성화됩니다. 활성화하려면 컴퓨터를 종료해야 합니다.
-3. **disk.EnableUUID** 행이 존재하는 경우 값이 **True**(대/소문자 구분)로 설정되었는지 확인합니다. 존재하는 경우 취소하고 부팅된 후 게스트 운영 체제 내에서 SCSI 명령을 테스트할 수 있습니다. 
+3. **disk.EnableUUID** 행이 존재하는 경우 값이 **True**(대/소문자 구분)로 설정되었는지 확인합니다. 존재하는 경우 취소하고 부팅된 후 게스트 운영 체제 내에서 SCSI 명령을 테스트할 수 있습니다.
 4.	행이 존재하지 않는 경우 **행 추가**를 클릭하고 **True** 값으로 추가합니다. 큰따옴표를 사용하지 마십시오.
 
 #### 추가 패키지 설치
@@ -139,22 +139,22 @@ Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정�
 몇 가지 추가 패키지를 다운로드 및 설치해야 합니다.
 
 1.	마스터 대상 서버가 인터넷에 연결되어 있는지 확인합니다.
-2.	이 명령을 실행하여 다운로드하고 CentOS 리포지토리에서 15개의 패키지를 설치합니다. **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**
+2.	이 명령을 실행하여 다운로드하고 CentOS 리포지토리에서 15개의 패키지를 설치합니다. **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
 3.	보호하려는 원본 컴퓨터가 루트 또는 부팅 장치에 대해 Linux wit Reiser 또는 XFS 파일 시스템을 실행하는 경우 다음과 같이 추가 패키지를 다운로드하고 설치해야 합니다.
 
 	- # cd /usr/local
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
-	- # wget [http://elrepo.org/linux/elrepo/el6/x86\_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
-	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-	- # wget [http://mirror.centos.org/centos/6.6/os/x86\_64/Packages/xfsprogs-3.1.1-16.el6.x86\_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
+	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
+	- # rpm –ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+	- # wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
 	- # rpm –ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 사용자 지정 변경 내용 적용
 
 설치 후 단계를 완료하고 패키지를 설치한 후 다음을 수행하여 사용자 지정 변경 내용을 적용합니다.
 
-1.	RHEL 6-64 통합 에이전트 바이너리를 VM에 복사합니다. 이 명령을 실행하여 바이너리: **tar –zxvf <file name>**를 untar합니다.
-2.	이 명령을 실행하여 사용 권한: # **# chmod 755 ./ApplyCustomChanges.sh**를 부여합니다.
+1.	RHEL 6-64 통합 에이전트 바이너리를 VM에 복사합니다. 이 명령을 실행하여 바이너리를 untar합니다: **tar-zxvf <파일 이름>**
+2.	이 명령을 실행하여 사용 권한을 부여합니다: **# chmod 755 ./ApplyCustomChanges.sh**
 3.	스크립트: **# ./ApplyCustomChanges.sh**를 실행합니다. 스크립트를 한 번만 실행해야 합니다. 스크립트가 성공적으로 실행된 후 서버를 다시 부팅합니다.
 
 
@@ -178,15 +178,15 @@ Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정�
 
 다시 보호한 후 VM은 해당 보호 그룹의 장애 복구 버전으로 이동되고 복구 계획이 있는 경우 Azure로 장애 조치에 대해 사용한 복구 계획에 자동으로 추가됩니다.
 
-1.	**복구 계획** 페이지에서 장애 복구(failback) 그룹을 포함하는 복구 계획을 선택하고 **장애 조치(failover)** > **계획되지 않은 장애 조치(failover)**를 클릭합니다.
-2.	**장애 조치(failover) 확인**에서 장애 조치(failover) 방향(Azure로)을 확인하고 장애 조치(failover)(최신)에 사용할 복구 지점을 선택합니다. 복제 속성을 구성할 때 **여러 VM**을 설정한 경우 최신 앱 또는 크래시 일관성 복구 지점으로 복구할 수 있습니다. 확인 표시를 클릭하여 장애 조치를 시작합니다.
+1.	**복구 계획** 페이지에서 장애 복구 그룹을 포함하는 복구 계획을 선택하고 **장애 조치** > **계획되지 않은 장애 조치**를 클릭합니다.
+2.	**장애 조치 확인**에서 장애 조치 방향을 확인하고 장애 조치(최신)에 사용할 복구 지점을 선택합니다. 복제 속성을 구성할 때 **여러 VM**을 설정한 경우 최신 앱 또는 크래시 일관성 복구 지점으로 복구할 수 있습니다. 확인 표시를 클릭하여 장애 조치를 시작합니다.
 3.	장애 조치 중 사이트 복구는 Azure VM을 종료합니다. 장애 복구가 예상대로 완료된 후 Azure VM이 예상대로 종료되었는지 확인할 수 있습니다.
 
 ### 온-프레미스 사이트 다시 보호
 
 장애 복구가 완료된 후 데이터는 온-프레미스 사이트로 다시 이동되지만 보호할 수 없습니다. Azure에 복제를 다시 시작하려면 다음을 수행합니다.
 
-1.	Site Recovery 포털 > **컴퓨터** 탭에서 장애 복구(failback)된 VM을 선택하고 **다시 보호**를 클릭합니다. 
+1.	사이트 복구 포털 > **컴퓨터** 탭에서 장애 복구된 VM을 선택하고 **다시 보호**를 클릭합니다.
 2.	Azure로 복제가 예상대로 작동하는지 확인한 후 Azure에서 장애 복구된 Azure VM(현재 실행되고 있지 않는)을 삭제할 수 있습니다.
 
 
@@ -204,4 +204,4 @@ VPN 연결 또는 Azure Express 경로를 통해 장애 복구할 수 있습니�
 - Express 경로는 원본 컴퓨터가 장애 조치되고 장애 조치가 발생한 후 Azure VM이 위치하는 Azure 가상 네트워크에 설치되어 있어야 합니다.
 - 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. Express 경로를 사용하려면 사이트 복구 복제에 대한 대상 데이터 센터로 Express 경로에 공용 피어링을 설정해야 합니다.
 
-<!-----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

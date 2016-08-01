@@ -2,7 +2,7 @@
 	pageTitle="CDN - 파일 압축 문제 해결"
 	description="CDN 파일 압축 관련 문제 해결"
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # CDN 파일 압축 문제 해결
@@ -79,7 +79,7 @@
 브라우저의 개발자 도구를 사용하여, 요청되는 지역에서 파일이 캐시되는지 응답 헤더를 확인합니다.
 
 - **Server** 응답 헤더를 확인합니다. 헤더에는 **Platform (POP/Server ID)** 형식이 포함되어야 합니다(아래 예제 참조).
-- **X-Cache** 응답 헤더를 확인합니다. 헤더는 **HIT**여야 합니다.  
+- **X-Cache** 응답 헤더를 확인합니다. 헤더는 **HIT**여야 합니다.
 
 ![CDN 응답 헤더](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@
 - 128바이트 초과.
 - 1MB 미만.
 
-<!---HONumber=AcomDC_0518_2016-->
+### 원본 서버의 요청에서 **Via** 헤더 확인
+
+**Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다. 기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다. 이 동작을 재정의하려면 다음 단계를 수행합니다.
+
+- **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](http://www.iis.net/configreference/system.webserver/httpcompression)
+
+<!---HONumber=AcomDC_0720_2016-->

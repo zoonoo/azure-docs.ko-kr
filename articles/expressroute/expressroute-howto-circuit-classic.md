@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr"/>
 
 # Express 경로 회로 만들기 및 수정
@@ -313,4 +313,4 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

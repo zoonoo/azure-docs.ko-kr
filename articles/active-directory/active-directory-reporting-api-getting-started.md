@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory Reporting API 시작
@@ -108,7 +108,7 @@ $ClientID, $ClientSecret, $tenantdomain을 위 섹션의 올바른 값으로 대
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/reports/auditEvents?api-version=beta&`$filter=eventTime gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -219,4 +219,4 @@ $ClientID, $ClientSecret, $tenantdomain을 위 섹션의 올바른 값으로 대
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Azure AD Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

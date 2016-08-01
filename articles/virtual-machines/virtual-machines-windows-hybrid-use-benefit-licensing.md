@@ -49,8 +49,7 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 PowerShell을 통해 Windows Server VM을 배포할 때는 `-LicenseType`에 대한 추가 매개 변수가 있습니다. Azure에 VHD를 업로드하고 나면 다음과 같이 `New-AzureRmVM`을 사용하여 새 VM을 만들고 라이선싱 유형을 지정합니다.
 
 ```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
-    -LicenseType Windows_Server
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
 아래 [PowerShell을 통해 Azure에서 VM을 배포하는 연습에 대한 자세한 내용을 읽어보거나](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) [리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기](./virtual-machines-windows-ps-create.md)의 다른 단계에 대한 더 자세한 지침을 읽어보세요.
@@ -151,7 +150,7 @@ VHD를 업로드하고, 적절하게 준비하고, 사용을 위해 VM에 연결
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 마지막으로, VM을 만들고 Azure 하이브리드 사용 혜택을 사용하기 위한 라이선싱 유형을 정의합니다.
@@ -166,4 +165,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 [리소스 관리자 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

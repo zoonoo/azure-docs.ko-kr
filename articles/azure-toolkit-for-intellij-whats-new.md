@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # IntelliJ용 Azure 도구 키트의 새로운 기능
 
@@ -32,7 +32,7 @@ IntelliJ용 Azure 도구 키트 - 2016년 6월 릴리스에는 다음과 같은 
 * **최신 Java JDK에 대한 지원**. 이제 최신 버전의 Java JDK가 IntelliJ용 Azure 도구 키트에서 지원됩니다.
 * **Azure SDK v2.9.1에 대한 지원**. 이제 Azure SDK 최신 버전은 IntelliJ용 Azure 도구 키트에 필요한 최소 구성 요소입니다.
 * **통합된 샘플**. 이제 IntelliJ용 Azure 도구 키트가 몇 가지 샘플 응용 프로그램을 갖추어 개발자가 사용할 수 있습니다.
-* **HDInsight 도구 통합**. 이제 Azure의 HDInsight 도구는 IntelliJ용 Azure 도구 키트와 함께 제공됩니다.
+* **HDInsight 도구 통합**. 이제 Azure의 HDInsight 도구는 IntelliJ용 Azure 도구 키트와 함께 제공됩니다. 자세한 내용은 [IntelliJ용 HDInsight 도구 플러그 인]을 참조하세요.
 * **Java 웹앱의 원격 디버깅**. 이제 IntelliJ용 Azure 도구 키트는 Azure 앱 서비스에서 Java 웹앱의 원격 디버깅을 지원합니다.
 
 ### 2016년 4월 12일
@@ -72,4 +72,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-<!---HONumber=AcomDC_0706_2016-->
+[IntelliJ용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->

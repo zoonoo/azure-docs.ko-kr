@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 SQL 데이터베이스에 대한 감사 사용
@@ -28,12 +28,11 @@
 
 ## 권장 사항 구현
 
-1. **권장 사항** 블레이드에서 **SQL 데이터베이스에 감사 활성화**를 선택합니다. 이렇게 하면 **SQL 데이터베이스에 감사 활성화** 블레이드가 열립니다. ![][1]
+1. **권장 사항** 블레이드에서 **SQL 데이터베이스에 감사 활성화**를 선택합니다. 이렇게 하면 **SQL 데이터베이스에 감사 활성화** 블레이드가 열립니다. ![SQL 데이터베이스에 감사 활성화][1]
 
-2. 감사를 사용하도록 설정할 SQL 데이터베이스를 선택합니다. 그러면 **감사 및 위협 감지** 블레이드가 열립니다. ![][2]
-3. **감사 및 위협 감지** 블레이드의 **감사**에서 **켜기**를 선택합니다. ![][3]
+2. 감사를 사용하도록 설정할 SQL 데이터베이스를 선택합니다. 그러면 **감사 및 위협 감지** 블레이드가 열립니다. ![감사 및 위협 감지][2]
+3. **감사 및 위협 감지** 블레이드의 **감사**에서 **켜기**를 선택합니다. ![감사 및 위협 감지 켜기][3]
 
-4. [SQL 데이터베이스 감사 시작](../sql-database/sql-database-auditing-get-started.md)의 단계에 따라 감사 로그를 저장할 저장소를 구성합니다. 데이터 컬렉션에 대한 구독의 저장소 계정은 기본 저장소 계정입니다.
 
 5. [SQL 데이터베이스 위협 감지 시작](../sql-database/sql-database-threat-detection-get-started.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
 
@@ -47,15 +46,15 @@
 
 - [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 - [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure 보안 센터 FAQ](security-center-faq.md) -- 서비스 사용에 관한 질문과 대답을 찾습니다.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보를 가져옵니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

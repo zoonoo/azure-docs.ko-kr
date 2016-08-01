@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="ricksal"/>
 
 # Android 앱에 인증 추가
@@ -68,4 +68,4 @@
 <!-- URLs. -->
 [모바일 앱 시작]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

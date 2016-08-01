@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ GaggleAMP를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 
 - GaggleAMP에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 GaggleAMP(Single Sign-on)에 자동으로 로그인하도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다. 
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ GaggleAMP의 Azure AD 통합을 구성하려면 갤러리의 GaggleAMP를 관리
 
 **갤러리에서 GaggleAMP를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -137,7 +137,7 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     b. **다음**을 클릭합니다.
 
 
-5. 다른 브라우저 인스턴스에서 SAML SSO 페이지로 이동하기 위해 Gaggle 지원 팀이 만들었습니다(예: **https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+5. 다른 브라우저 인스턴스에서 SAML SSO 페이지로 이동하기 위해 Gaggle 지원 팀이 만들었습니다(예: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
 6. **SAML SSO** 페이지에서 다음 단계를 수행합니다.
    
@@ -286,4 +286,4 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

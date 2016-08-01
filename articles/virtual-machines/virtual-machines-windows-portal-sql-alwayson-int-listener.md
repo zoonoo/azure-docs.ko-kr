@@ -252,7 +252,7 @@
 
 1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자동으로 연결합니다.
 
@@ -265,4 +265,4 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 - 내부 부하 분산 장치를 사용할 경우 동일한 가상 네트워크 내에서만 수신기에 액세스합니다.
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

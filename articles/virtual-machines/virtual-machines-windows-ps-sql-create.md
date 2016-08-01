@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth"/>
 
 # Azure PowerShell(리소스 관리자)을 사용하여 SQL Server 가상 컴퓨터 프로비전
@@ -310,4 +310,4 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 ## 다음 단계
 가상 컴퓨터가 만들어지면 RDP를 사용하여 가상 컴퓨터에 연결하고 연결을 설정할 수 있습니다. 자세한 내용은 [Azure(리소스 관리자)에서 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

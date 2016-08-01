@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/14/2016"
    ms.author="owend"/>
 
 # Power BI Embedded 시작 샘플
@@ -158,14 +158,13 @@ Report.cshtml: **Model.AccessToken** 및 **PowerBIReportFor**에 대한 람다 �
 
 ### Controller
 
-**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져올 **서명 키**에서 JWT(JSON Web Token)가 생성됩니다. **자격 증명**은 **PowerBIClient**의 인스턴스를 만드는 데 사용됩니다. **앱 토큰**에 대한 자세한 내용은 [앱 토큰 흐름은 어떻게 작동하나요?](#key-flow)를 참조하세요. **PowerBIClient**의 인스턴스가 있으면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
+**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져올 **서명 키**에서 JWT(JSON Web Token)가 생성됩니다. **자격 증명**은 **PowerBIClient**의 인스턴스를 만드는 데 사용됩니다. **PowerBIClient**의 인스턴스가 있으면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
 
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
+    private IPowerBIClient CreatePowerBIClient()
     {
-        var jwt = token.Generate(accessKey);
-        var credentials = new TokenCredentials(jwt, "AppToken");
+        var credentials = new TokenCredentials(accessKey, "AppKey");
         var client = new PowerBIClient(credentials)
         {
             BaseUri = new Uri(apiUrl)
@@ -178,8 +177,7 @@ ActionResult Reports()
 
     public ActionResult Reports()
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
 
@@ -197,12 +195,11 @@ Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
             var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, Guid.Parse(report.Id));
+            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
             var viewModel = new ReportViewModel
             {
@@ -237,6 +234,6 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ## 참고 항목
 
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
-- [Power BI Embedded의 앱 토큰 흐름 정보](power-bi-embedded-app-token-flow.md)
+- [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
