@@ -37,7 +37,8 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 크기 집합 | 예 | [크기 집합 REST](https://msdn.microsoft.com/library/azure/mt705635.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) | 
 | 서비스 패브릭 | 예 | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 가상 컴퓨터 | 예 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | - | - | - | | 원격 앱 | 아니요 | - | - | - | | 클라우드 서비스(클래식) | 제한됨(아래 참조) | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | - | - | - | | 원격 앱 | 아니요 | - | - | - |
+| 클라우드 서비스(클래식) | 제한됨(아래 참조) | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 

@@ -149,7 +149,7 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL 데이터베이스의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (다음 스크린샷은 Azure SQL 데이터베이스를 보여 주지만 동일한 개념이 Azure SQL 데이터 웨어하우스에 적용됩니다.)
 
 	![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 ** SQL 데이터 웨어하우스**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
+2. 왼쪽 배너에서 **SQL Server** 를 선택하고 **SQL Server** 또는 **SQL 데이터 웨어하우스** 를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정** 을 클릭합니다.
 
 	![ad 설정][9]
 3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
@@ -276,7 +276,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+ *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 

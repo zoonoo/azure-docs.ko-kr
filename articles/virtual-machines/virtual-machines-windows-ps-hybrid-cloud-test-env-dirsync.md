@@ -140,7 +140,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 그런 다음 DS1에서 Azure AD Connect 도구를 설치하고 구성합니다.
 
-1.	Internet Explorer를 열고 **https://www.microsoft.com/download/details.aspx?id=47594****를 주소 ** 표시줄에 입력한 뒤 ENTER를 누릅니다.
+1.	Internet Explorer를 열고 **https://www.microsoft.com/download/details.aspx?id=47594** **를 주소** 표시줄에 입력한 뒤 ENTER를 누릅니다.
 2.	Microsoft Azure AD Connect 설치 프로그램을 실행합니다.
 3.	데스크톱에서 **Azure AD Connect**을 두 번 클릭합니다.
 4.	**시작** 페이지에서 **I agree to the license terms and privacy notice(사용 약관 및 에 개인 정보 취급 방침에 동의)**를 선택하고 **계속**을 클릭합니다.
@@ -179,4 +179,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
 - 이 워크로드를 [프로덕션에서](http://technet.microsoft.com/library/dn635310.aspx) 배포합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0720_2016--->

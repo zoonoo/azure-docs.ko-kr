@@ -464,7 +464,7 @@ SSMS는 쉽게 열 마스터 키(CMK), 열 암호화 키(CEK) 및 암호화된 �
         {
             int returnValue = 0;
 
-            string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
+            string sqlCmdText = @"INSERT INTO [dbo].[Patients] \([SSN], [FirstName], [LastName], [BirthDate])
      VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);

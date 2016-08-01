@@ -234,7 +234,7 @@ ADO.NET에서 대량 복사에 대한 자세한 내용은 [SQL Server에서의 �
 	{
 	    connection.Open();
 	
-	    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+	    string insertCommand = "INSERT INTO [MyTable] \( mytext, num ) " +
 	        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
 	
 	    SqlCommand cmd = new SqlCommand(insertCommand, connection);
@@ -454,7 +454,7 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
 
 	ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
 	CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-	REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+	REFERENCES [dbo].[PurchaseOrder] \([OrderID])
 
 테이블 반환 매개 변수를 사용하려면 각 대상 테이블에 대해 하나의 사용자 정의 테이블 형식이 있어야 합니다.
 

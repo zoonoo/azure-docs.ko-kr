@@ -129,8 +129,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 DW500 SQL 데이터 웨어하우스의 경우 활성 워크로드 그룹이 다음과 같이 리소스 클래스에 매핑됩니다.
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
- |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도 |
 | :--------------- | :------------- | :--------------------:   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
@@ -260,13 +259,15 @@ Removed as these two are not confirmed / supported under SQLDW
 
 4. **리소스 클래스 증가:** 증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
 
-	```sql
+	```
+	sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
 	```
 
 5. **리소스 클래스 감소:** 워크로드 관리 역할에서 사용자를 제거하려면 다음 쿼리를 사용합니다.
 
-	```sql
+	```
+	sql
 	EXEC sp_droprolemember 'largerc', 'newperson';
 	```
 
@@ -276,7 +277,8 @@ Removed as these two are not confirmed / supported under SQLDW
 
 `sys.dm_pdw_exec_requests` DMV는 동시성 큐에 대기 중인 쿼리를 식별하는 데 사용할 수 있습니다.
 
-```sql
+```
+sql
 SELECT 	 r.[request_id]				 AS Request_ID
 	,r.[status]				 AS Request_Status
 	,r.[submit_time]			 AS Request_SubmitTime

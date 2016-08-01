@@ -72,7 +72,7 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![3 녹색](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL 데이터베이스** – Azure SQL 표준 지역에서 복제를 사용하면 쌍을 이루는 지역으로의 비동기 트랜잭션 복제를 구성할 수 있습니다. Premium 지리에서 복제를 사용하면 전 세계 모든 지역으로의 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에 대해 쌍을 이루는 지역에 이러한 리소스를 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL 데이터베이스의 지역에서 복제](./sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 
-![4 녹색](./media/best-practices-availability-paired-regions/4Green.png) **ARM(Azure 리소스 관리자) ** ARM은 본질적으로 지역 간 서비스 관리 구성 요소의 논리적 격리를 제공합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
+![4 녹색](./media/best-practices-availability-paired-regions/4Green.png) **ARM(Azure 리소스 관리자)** ARM은 본질적으로 지역 간 서비스 관리 구성 요소의 논리적 격리를 제공합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
 
 ## 쌍을 이루는 지역의 이점
 그림 2 참조

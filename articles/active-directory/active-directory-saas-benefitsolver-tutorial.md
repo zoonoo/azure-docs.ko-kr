@@ -83,7 +83,7 @@
     ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
 
     1.  **로그온 URL** 텍스트 상자에 **http://azure.benefitsolver.com**를 입력합니다.
-    2.  **회신 URL** 텍스트 상자에서 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
+	2.  **회신 URL** 텍스트 상자에서 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
 
 
     3.  **다음**을 클릭합니다.
