@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="07/12/2016"
 	ms.author="raynew" />
 
 # Site Recovery용 Hyper-V Capacity Planner 도구 실행
@@ -75,7 +75,7 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
 
-	- **netsh http show servicestate**를 실행하여 지정한 프로토콜/포트에 대해 수신기가 실행 중인지 확인합니다.  
+	- **netsh http show servicestate**를 실행하여 지정한 프로토콜/포트에 대해 수신기가 실행 중인지 확인합니다.
 4. 방화벽을 설정합니다. Hyper-V 설치 중에, 기본 포트(443의 HTTPS, 80의 Kerberos)에서 트래픽을 허용하는 방화벽 규칙이 생성됩니다. 이러한 규칙을 다음과 같이 활성화합니다.
 
 		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
@@ -139,10 +139,10 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 용량 계획을 마친 후에는 Site Recovery 배포를 시작할 수 있습니다.
 
-- [온-프레미스 VMM 사이트와 Azure 간 보호 설정](site-recovery-vmm-to-azure.md)
-- [온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정](site-recovery-hyper-v-site-to-azure.md)
-- [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
-- [SAN으로 2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-san.md)
-- [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
+- [VMM 클라우드의 Hyper-V VM을 Azure로 복제](site-recovery-vmm-to-azure.md)
+- [Hyper-V VM(VMM 없음)을 Azure로 복제](site-recovery-hyper-v-site-to-azure.md)
+- [VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
+- [SAN을 통해 VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-san.md)
+- [단일 VMM 서버에서 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0720_2016-->

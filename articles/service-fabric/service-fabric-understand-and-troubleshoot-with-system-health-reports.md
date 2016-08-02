@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # 시스템 상태 보고서를 사용하여 문제 해결
@@ -471,6 +471,65 @@ Visual Studio 2015 진단 이벤트: **fabric:/HelloWorldStatefulApplication**�
 - **SourceId**: System.Replicator
 - **Property**: 복제본의 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **SecondaryReplicationQueueStatus**
 
+### 느린 이름 지정 작업
+
+**System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) 또는 [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx)입니다. FabricClient 아래에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) 또는 [속성 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx) 아래입니다.
+
+> [AZURE.NOTE] 이름 지정 서비스는 클러스터의 위치에 서비스 이름을 확인하고 사용자가 서비스 이름 및 속성을 관리할 수 있도록 합니다. 서비스 패브릭 분할된 지속형 서비스입니다. 파티션 중 하나는 모든 시스템 패브릭 이름 및 서비스에 대한 메타데이터를 포함하는 기관 소유자를 나타냅니다. 서비스 패브릭 이름은 이름 소유자 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.
+
+이름 지정 작업이 예상보다 오래 걸리는 경우 작업은 *작업을 사용하는 이름 지정 서비스 파티션의 주 복제본*의 경고 보고서로 플래그 지정됩니다. 작업이 성공적으로 완료되면 경고는 해제됩니다. 오류와 함께 작업이 완료되면 상태 보고서는 오류에 대한 세부 정보를 포함합니다.
+
+- **SourceId**: System.NamingService
+- **속성**: 접두사 **Duration\_**으로 시작하고 느린 작업 및 작업이 적용되는 서비스 패브릭 이름을 식별합니다. 예를 들어 이름 fabric:/MyApp/MyService에서 서비스 만들기가 너무 오래 걸리는 경우 속성은 Duration\_AOCreateService.fabric:/MyApp/MyService입니다. AO는 이 이름 및 작업에 대한 이름 지정 파티션의 역할을 가리킵니다.
+- **다음 단계**: 명명 작업이 실패하는 이유를 확인합니다. 각 작업에는 다른 원인이 있을 수 있습니다. 예를 들어 응용 프로그램 호스트가 서비스 코드의 사용자 버그로 인해 노드에 충돌이 발생하기 때문에 서비스 삭제는 노드에서 중지될 수 있습니다.
+
+다음은 서비스 만들기 작업을 보여 줍니다. 작업이 구성된 기간보다 오래 걸렸습니다. AO는 다시 시도하고 NO로 작업을 보냅니다. NO에서 시간 제한이 있는 마지막 작업을 완료했습니다. 이 경우 동일한 복제본은 AO 및 NO 역할에 대해 주 복제본입니다.
+
+```powershell
+PartitionId           : 00000000-0000-0000-0000-000000001000
+ReplicaId             : 131064359253133577
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.NamingService', Property='Duration_AOCreateService.fabric:/MyApp/MyService', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 131064359308715535
+                        SentAt                : 4/29/2016 8:38:50 PM
+                        ReceivedAt            : 4/29/2016 8:39:08 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 4/29/2016 8:39:08 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_AOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064359526778775
+                        SentAt                : 4/29/2016 8:39:12 PM
+                        ReceivedAt            : 4/29/2016 8:39:38 PM
+                        TTL                   : 00:05:00
+                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_NOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064360657607311
+                        SentAt                : 4/29/2016 8:41:05 PM
+                        ReceivedAt            : 4/29/2016 8:41:08 PM
+                        TTL                   : 00:00:15
+                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+``` 
+
 ## DeployedApplication 시스템 상태 보고서
 **System.Hosting**은 배포된 엔터티에 대한 권한입니다.
 
@@ -602,8 +661,10 @@ HealthEvents          :
 ## 다음 단계
 [서비스 패브릭 상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
+[서비스 상태를 보고 및 확인하는 방법](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

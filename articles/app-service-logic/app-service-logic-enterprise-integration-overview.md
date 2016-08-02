@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="엔터프라이즈 통합 개요 | Microsoft Azure 앱 서비스" 
+	pageTitle="엔터프라이즈 통합 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합의 기능을 사용하여 논리 앱을 사용하는 비즈니스 프로세스 및 통합 시나리오 사용" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # 엔터프라이즈 통합 팩 개요
@@ -35,7 +35,7 @@ BizTalk Server 또는 Microsoft Azure BizTalk 서비스를 잘 알고 있다면 
 ## 엔터프라이즈 통합을 시작하는 방법
 **Azure 포털**의 논리 앱 설계자를 통해 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다.
 
-Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요는 다음과 같습니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요는 다음과 같습니다. ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## 몇 가지 일반적인 시나리오는 무엇인가요?
 
@@ -44,23 +44,21 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - EDI - 전자 데이터 교환
 - EAI - 엔터프라이즈 응용 프로그램 통합
 
-## 비용은 얼마인가요?
-가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
-
 ## 지금 시작하기 위해 필요한 항목은 다음과 같습니다.
 - 통합 계정을 사용하는 Azure 구독
 - 맵과 스키마를 만드는 Visual Studio 2015
 - [Visual Studio용 Microsoft Azure Logic Apps 엔터프라이즈 통합 도구 2015 2.0](https://aka.ms/vsmapsandschemas)
 
 ## 다음에 대해 자세히 알아봅니다.
-- [스키마](./app-service-logic-enterprise-integration-schemas.md "엔터프라이즈 통합 스키마에 대해 알아보기")
-- [맵](./app-service-logic-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")
-- [인증서](./app-service-logic-enterprise-integration-certificates.md "엔터프라이즈 통합 인증서에 대해 알아보기")
-- [파트너](./app-service-logic-enterprise-integration-partners.md "엔터프라이즈 통합 파트너에 대해 알아보기")
 - [규약](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
-- [통합 계정](./app-service-logic-enterprise-integration-accounts.md "통합 계정에 대해 알아보기")
 - [B2B(기업 간) 시나리오](./app-service-logic-enterprise-integration-b2b.md "B2B 기능으로 논리 앱을 만드는 방법 알아보기")
-- [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
+- [인증서](./app-service-logic-enterprise-integration-certificates.md "엔터프라이즈 통합 인증서에 대해 알아보기")
 - [플랫 파일 인코딩/디코딩](./app-service-logic-enterprise-integration-flatfile.md "플랫 파일 내용을 인코딩 및 디코딩하는 방법 알아보기")
+- [통합 계정](./app-service-logic-enterprise-integration-accounts.md "통합 계정에 대해 알아보기")
+- [맵](./app-service-logic-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")
+- [파트너](./app-service-logic-enterprise-integration-partners.md "엔터프라이즈 통합 파트너에 대해 알아보기")
+- [스키마](./app-service-logic-enterprise-integration-schemas.md "엔터프라이즈 통합 스키마에 대해 알아보기")
+- [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
+- [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

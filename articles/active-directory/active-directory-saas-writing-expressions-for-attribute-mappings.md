@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,11 +29,10 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 특성 매핑을 위한 식의 구문은 VBA(Visual Basic Applications) 함수를 연상시킵니다.
 
-- 전체 식은 과 같이 함수 조건으로 정의되며, 괄호 안에 인수 이름으로 구성됩니다: <br>
-*FunctionName(<<argument 1>>,<<argument N>>)*
+- 전체 식은 <br> *FunctionName(<<argument 1>>,<<argument N>>)*과 같이 함수 조건으로 정의되며, 괄호 안에 인수 이름으로 구성됩니다.
 
 
-- 서로 함수를 중첩할 수 있습니다. 예: <br>*FunctionOne(FunctionTwo(<<argument1>>))*
+- 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 
 
 - 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
@@ -104,7 +103,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 |이름| 필수/ 반복 | 형식 | 참고 사항 |
 |--- | ---                 | ---  | ---   |
 | **구분 기호** | 필수 | 문자열 | 문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1 … sourceN** | 필수, 시간 변수 | 문자열 | 함께 조인될 문자열 값 |
+| **source1 … sourceN** | 필수, 시간 변수 | 문자열 | 값이 함께 조인될 문자열입니다. |
 
 
 
@@ -316,4 +315,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 - [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

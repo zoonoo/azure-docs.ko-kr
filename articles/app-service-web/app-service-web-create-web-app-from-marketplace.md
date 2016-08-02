@@ -75,7 +75,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 1. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
-	리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리][ResourceGroups]를 참조하세요.
+	리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요.
 
 	![웹앱의 리소스 그룹 구성][ConfigResourceGroup]
 
@@ -153,7 +153,7 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [앱 서비스 체험]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure 포털]: https://portal.azure.com/
@@ -180,4 +180,4 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

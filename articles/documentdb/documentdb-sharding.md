@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
-# .NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법
+# DocumentDB에서 클라이언트 쪽 지원을 사용하여 데이터를 분할하는 방법
 
-Azure DocumentDB는 [대용량 저장소 및 처리량](documentdb-partition-data.md)까지 강화할 수 있는 컬렉션을 지원합니다. 그러나 분할 동작을 세밀하게 제어하는 데 도움이 되는 사용 사례가 있습니다. 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 컬렉션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
+Azure DocumentDB는 [컬렉션의 자동 분할](documentdb-partition-data.md)을 지원합니다. 그러나 분할 동작을 세밀하게 제어하는 데 도움이 되는 사용 사례가 있습니다. 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 컬렉션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
 
 이 문서에서는 .NET SDK의 클래스 및 인터페이스와 분할된 응용 프로그램을 개발하는 데 사용하는 방법을 살펴보겠습니다. Java, Node.js, Python 등 다른 SDK는 클라이언트 쪽 분할에 대해 비슷한 메서드 및 인터페이스를 지원합니다.
 
-## DocumentDB SDK를 사용한 분할
+## DocumentDB SDK를 사용한 클라이언트 쪽 분할
 
 분할을 자세히 살펴보기 전에 분할과 관련된 몇 가지 기본적인 DocumentDB 개념을 정리해 보겠습니다. 모든 Azure DocumentDB 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 컬렉션은 단일 파티션이거나 자체 분할될 수 있으며 다음과 같은 속성을 포함합니다.
 
@@ -32,7 +32,7 @@ Azure DocumentDB는 [대용량 저장소 및 처리량](documentdb-partition-dat
 
 [Azure DocumentDB SDK 1.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx)는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
 
->[AZURE.NOTE] [Server-side partitioning]REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 (documentdb-partition-data.md)에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
+>[AZURE.NOTE] [Server-side partitioning](documentdb-partition-data.md) REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
 
 예를 들어 .NET에서 각 PartitionResolver 클래스는 [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) 인터페이스의 구체적 구현으로, 3개의 메서드 [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) 및 [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx)가 있습니다. LINQ 쿼리 및 ReadFeed 반복기는 내부적으로 ResolveForRead 메서드를 사용하여 요청의 파티션 키와 일치하는 모든 컬렉션을 반복합니다. 마찬가지로, 만들기 작업은 ResolveForCreate 메서드를 사용하여 만들기를 해당 파티션으로 라우팅합니다. Replace, Delete 및 Read는 이미 해당 컬렉션에 대한 참조를 포함하는 문서를 사용하기 때문에 변경할 필요가 없습니다.
 
@@ -140,7 +140,7 @@ foreach (UserProfile activeUser in query)
 
 예, DocumentDB에서 [서버 쪽 분할](documentdb-partition-data.md)을 지원합니다. DocumentDB는 또한 보다 고급 사용 사례로 클라이언트 쪽 분할 해결 프로그램을 통해 클라이언트 쪽 분할을 지원합니다.
 
-** 서버 쪽 및 클라이언트 쪽 분할을 언제 사용해야 하나요?** 대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
+**서버 쪽 및 클라이언트 쪽 분할을 언제 사용해야 하나요?** 대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
 
 **내 파티션 구성표에 컬렉션을 추가하거나 제거하려면 어떻게 해야 하나요?**
 
@@ -164,4 +164,4 @@ foreach (UserProfile activeUser in query)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

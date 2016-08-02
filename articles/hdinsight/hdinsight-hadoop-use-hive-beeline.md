@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -55,25 +55,13 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 ##<a id="beeline"></a>Beeline 명령 사용
 
-1. 연결되면 다음을 사용하여 헤드 노드의 호스트 이름을 가져옵니다.
+1. 연결되면 다음을 사용하여 Beeline을 시작합니다.
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    Beeline 클라이언트를 시작하고 JDBC url에 연결합니다. 여기에서 HiveServer2가 클러스터의 두 헤드 노드에서 실행되기 때문에 `localhost`을 사용하고 헤드 노드 0에서 직접 Beeline를 실행합니다.
     
-    Beeline에서 HiveServer2에 연결할 때 나중에 사용하도록 반환된 호스트 이름을 저장합니다.
-    
-2. 다음 명령을 사용하여 Hive CLI를 시작합니다.
-
-        beeline
-
-2. `beeline>`라는 메시지에서 다음을 사용하여 HiveServer2 서비스에 연결합니다. __HOSTNAME__을 이전의 헤드 노드에 반환된 호스트 이름으로 바꿉니다.
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-        
-    이렇게 하면 Beeline이 지정된 __HOSTNAME__의 포트 __10001__에 연결되고 __HTTP__이 전송 방법이 됩니다. 연결을 인증하는 데 __관리자__ 계정을 사용합니다.
-
-    메시지가 표시되면 HDInsight 클러스터에 관리자(관리자) 계정에 암호를 입력합니다. 연결이 설정되면 프롬프트는 메시지는 다음으로 변경됩니다.
-    
-        jdbc:hive2://HOSTNAME:10001/>
+    명령이 완료되면 `jdbc:hive2://localhost:10001/>` 프롬프트가 표시됩니다.
 
 3. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 `!`은 생략될 수 있습니다. 예를 들어 `help`도 작동합니다.
 
@@ -176,13 +164,15 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     
     > [AZURE.NOTE] 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
     
-3. 파일을 저장하려면 __Ctrl__+___\_X__을 사용한 다음 __Y__ 및 마지막으로 __Enter__를 입력합니다.
+3. 파일을 저장하려면 __Ctrl__+___X_\_을 사용한 다음 __Y__ 및 마지막으로 __Enter\_\_를 입력합니다.
 
 4. Beeline을 사용하여 파일을 실행하려면 다음을 사용합니다. __HOSTNAME__을 헤드 노드에 가져온 이전 이름으로 바꾸고 __PASSWORD__를 관리자 계정의 암호로 바꿉니다.
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. **errorLogs** 테이블을 만들었는지 확인하려면 Beeline을 시작하고 HiveServer2에 연결한 후 다음 문을 사용하여 **errorLogs**에서 모든 행을 반환합니다.
+    > [AZURE.NOTE] `-i` 매개 변수는 Beeline을 시작하고 query.hql 파일의 문을 실행한 다음 `jdbc:hive2://localhost:10001/>` 프롬프트에서 Beeline에 유지됩니다. `-f` 매개 변수를 사용하여 파일을 실행할 수도 있으며, 이렇게 하면 파일이 처리된 후에 Bash를 반환합니다.
+
+5. **errorLogs** 테이블을 만들었는지 확인하려면 다음 문을 사용하여 **errorLogs**에서 모든 행을 반환합니다.
 
         SELECT * from errorLogs;
 
@@ -245,4 +235,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

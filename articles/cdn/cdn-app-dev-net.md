@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 개발 시작
@@ -58,7 +58,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 1. Program.cs 탭으로 돌아와서 위에 있는 `using` 지시문을 다음으로 교체합니다.
 
-	```
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using Microsoft.Azure.Management.Cdn;
@@ -71,7 +71,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 2. 메서드가 사용할 몇 가지 상수를 정의해야 합니다. `Main` 메서드 전에 `Program` 클래스에 다음 내용을 추가합니다. **&lt;꺽쇠 괄호&gt;**를 포함한 자리 표시자를 필요에 따라 고유 값으로 교체합니다.
 
-	```
+	```csharp
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -87,14 +87,14 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 3. 또한, 클래스 수준에서 다음 두 가지 변수를 정의합니다. 이 변수는 프로필과 끝점이 이미 존재하는지 확인할 때 사용할 것입니다.
 
-	```
+	```csharp
 	static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
 	```
 
 4.  `Main` 메서드를 다음과 같이 교체합니다.
 
-	```
+	```csharp
 	static void Main(string[] args)
 	{
 		//Get a token
@@ -130,7 +130,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 5. 일부 다른 메서드는 사용자에게 “Yes/No” 질문을 묻는 메시지를 표시합니다. 그 작업을 쉽게 수행할 수 있게 도와줄 다음 메서드를 추가합니다.
 
-	```
+	```csharp
 	private static bool PromptUser(string Question)
 	{
 		Console.Write(Question + " (Y/N): ");
@@ -158,7 +158,7 @@ Visual Studio 2015를 열고 **파일**, **새로 만들기**, **프로젝트...
 
 Azure CDN 관리 라이브러리를 사용하기 전에 서비스 주체를 인증하고 인증 토큰을 가져와야 합니다. 이 메서드는 ADAL을 사용하여 토큰을 검색합니다.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority); 
@@ -174,7 +174,7 @@ private static AuthenticationResult GetAccessToken()
 
 >[AZURE.IMPORTANT] 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority);
@@ -191,7 +191,7 @@ private static AuthenticationResult GetAccessToken()
 
 이제 CDN 작업을 수행할 준비가 되었습니다. 이 메서드는 가장 먼저 리소스 그룹에서 모든 프로필과 끝점의 목록을 작성합니다. 상수에서 정의된 프로필과 끝점 이름에 일치하는 항목이 발견되면, 나중에 중복을 만들지 않도록 메모해 둡니다.
 
-```
+```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
 	// List all the CDN profiles in this resource group
@@ -226,7 +226,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
 다음으로 프로필을 만들어 보겠습니다.
 
-```
+```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
 {
 	if (profileAlreadyExists)
@@ -245,7 +245,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 
 프로필을 만든 후에는 끝점을 만듭니다.
 
-```
+```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
 {
 	if (endpointAlreadyExists)
@@ -274,7 +274,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 끝점을 만들었을 경우, 프로그램에서 흔히 수행하는 작업은 끝점의 콘텐츠를 삭제하는 것입니다.
 
-```
+```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 {
 	if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
@@ -291,9 +291,9 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## CDN 프로필 및 끝점 삭제
 
-마지막으로 포함할 메서드는 끝점 및 프로필 삭제입니다.
+마지막 메서드는 끝점 및 프로필을 삭제합니다.
 
-```
+```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
 {
 	if(PromptUser(String.Format("Delete CDN endpoint {0} on profile {1}?", endpointName, profileName)))
@@ -337,4 +337,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 .NET용 Azure CDN 관리 라이브러리에 관한 추가 설명서는 [MSDN 참조](https://msdn.microsoft.com/library/mt657769.aspx)를 확인하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

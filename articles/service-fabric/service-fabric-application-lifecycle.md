@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 
@@ -100,7 +100,7 @@
 5. 클러스터에 새 노드가 추가되거나 기존 노드 클러스터에서 노드가 제거되면 서비스 패브릭이 실행 중인 응용 프로그램의 부하를 클러스터의 모든 노드로 분산하여 최적의 성능을 유지합니다.
 
 ## Remove
-1. *운영자*는 [**DeleteServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx) 또는 [**Delete Service** REST 작업](https://msdn.microsoft.com/library/azure/dn707687.aspx)을 사용하여 전체 응용 프로그램을 제거하지 않고 클러스터에서 실행 중인 특정 인스턴스를 삭제할 수 있습니다.  
+1. *운영자*는 [**DeleteServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx) 또는 [**Delete Service** REST 작업](https://msdn.microsoft.com/library/azure/dn707687.aspx)을 사용하여 전체 응용 프로그램을 제거하지 않고 클러스터에서 실행 중인 특정 인스턴스를 삭제할 수 있습니다.
 
 2. 또한 *운영자*는 [**DeleteApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx) 또는 [**Delete Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707651.aspx)을 사용하여 응용 프로그램 인스턴스 및 모든 서비스를 삭제할 수 있습니다.
 
@@ -121,4 +121,4 @@
 - [테스트 용이성 개요](service-fabric-testability-overview.md)
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

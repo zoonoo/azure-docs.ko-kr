@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/08/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -480,6 +480,9 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 - Privileged Identity Management
 - [HR 응용 프로그램 통합](active-directory-saas-workday-inbound-tutorial.md)
 - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
+- [iOS에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-ios.md)
+- [Android에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-android.md)
+ 
 
 
 
@@ -491,8 +494,7 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

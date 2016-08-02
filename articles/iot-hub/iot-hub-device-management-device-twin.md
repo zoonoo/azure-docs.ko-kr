@@ -54,7 +54,7 @@ Azure IoT Hub 장치 관리는 물리적 장치의 서비스 쪽 표시인 장�
 
 샘플을 시작하려면 **DeviceTwin.exe** 프로세스를 실행해야 합니다. 그러면 장치 쌍 및 물리적 장치에서 장치 속성을 읽습니다. 또한 물리적 장치에 대한 자이 속성도 변경합니다. 아래 단계에 따라 샘플을 시작하세요.
 
-1.  **azure-iot-sdks** 리포지토리를 복제한 루트 폴더에서 **azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더로 이동합니다.  
+1.  **azure-iot-sdks** 리포지토리를 복제한 루트 폴더에서 **azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더로 이동합니다.
 
 2.  `DeviceTwin.exe <IoT Hub Connection String>`을 실행합니다.
 
@@ -122,10 +122,17 @@ Set 메서드를 사용하는 대신 콜백을 구현할 수 있습니다. 이 �
 Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자습서를 차례로 실행해 볼 수 있습니다.
 
 - [쿼리를 사용하여 장치 쌍을 찾는 방법][lnk-tutorial-queries]
-
-- [장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법][lnk-dm-jobs]
-
+- [장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법][lnk-tutorial-jobs]
+- [IoT 게이트웨이 뒤에서 관리되는 장치 사용][lnk-dm-gateway]
+- [Azure IoT Hub 장치 관리 클라이언트 라이브러리 소개][lnk-library-c]
 - 장치 관리 클라이언트 라이브러리는 [Intel Edison 장치][lnk-edison]를 사용하여 종단 간 샘플을 제공합니다.
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
@@ -139,4 +146,15 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0622_2016-->
+
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

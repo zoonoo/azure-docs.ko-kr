@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics 문제 해결 - Application Insights의 강력한 검색 도구 | Microsoft Azure" 
-	description="Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다." 
+	description="Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
 
 
@@ -28,39 +28,44 @@
 * 현재, 쿼리 결과는 지난 주의 데이터로 제한됩니다.
 * 테스트 브라우저: Chrome, Edge 및 Internet Explorer 최신 버전.
 
-## "예기치 않은 오류"
+
+## 알려진 호환되지 않는 브라우저 확장
+
+* Ghostery
+
+확장을 사용하지 않도록 설정하거나 다른 브라우저를 사용합니다.
+
+
+##<a name="e-a"></a> "예기치 않은 오류"
 
 ![예기치 않은 오류 화면](./media/app-insights-analytics-troubleshooting/010.png)
 
 포털 런타임에 내부 오류 발생 – 처리되지 않은 예외.
 
-* 브라우저의 캐시를 삭제합니다. 
+* 브라우저의 캐시를 삭제합니다.
 
-## 403 ... 다시 로드하십시오.
+## <a name="e-b"></a>403 ... 다시 로드하세요.
 
 ![403 \... 다시 로드하십시오.](./media/app-insights-analytics-troubleshooting/020.png)
 
 인증 관련 오류 발생(인증 또는 액세스 토크 생성 시). 브라우저 설정을 변경해야 포털 복구가 가능할 수도 있습니다.
 
-* 브라우저에서 사용되는 타사 쿠키를 확인합니다. 
+* 브라우저에서 [타사 쿠키가 사용되도록 설정되어 있는지](#cookies) 확인합니다.
 
-    [타사 쿠키를 사용하지 않는 방법](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers)을 참조하세요. 하지만 타사 쿠키를 **활성화**해야 합니다.
 
-## 403\... 보안 영역 확인
+## <a name="authentication"></a>403... 보안 영역 확인
 
 ![403\... 보안 영역 확인](./media/app-insights-analytics-troubleshooting/030.png)
 
 인증 관련 오류 발생(인증 또는 액세스 토크 생성 시). 브라우저 설정을 변경해야 포털 복구가 가능할 수도 있습니다.
 
-1. 브라우저에서 사용되는 타사 쿠키를 확인합니다. 
-
-    [타사 쿠키를 사용하지 않는 방법](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers)을 참조하세요. 하지만 타사 쿠키를 **활성화**해야 합니다.
+1. 브라우저에서 [타사 쿠키가 사용되도록 설정되어 있는지](#cookies) 확인합니다.
 
 2. Analytics 포털을 여는 데 즐겨찾기, 책갈피, 타사 쿠키를 사용하였습니까? 링크를 저장할 때 사용한 자격 증명과 다른 것으로 로그인했습니까?
 
- 2. 비공개/시크릿 브라우저 창을 사용하세요(모든 해당 창을 닫은 후). 자격 증명을 입력해야 합니다.
+2. 비공개/시크릿 브라우저 창을 사용하세요(모든 해당 창을 닫은 후). 자격 증명을 입력해야 합니다.
 
- 2. 다른 (일반) 브라우저 창을 열고 [Azure](https://portal.azure.com)로 이동합니다. 로그아웃합니다. 링크를 열고 올바른 자격 증명으로 로그인합니다.
+2. 다른 (일반) 브라우저 창을 열고 [Azure](https://portal.azure.com)로 이동합니다. 로그아웃합니다. 링크를 열고 올바른 자격 증명으로 로그인합니다.
 
 2. Edge와 Internet Explorer 사용자는 신뢰하는 영역 설정이 지원되지 않을 때 이 오류가 발생할 수 있습니다.
 
@@ -75,14 +80,14 @@
     https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
-## 404 ... 리소스를 찾을 수 없음
+## <a name="e-d"></a>404 ... 리소스를 찾을 수 없음
 
 ![404 \... 리소스를 찾을 수 없음](./media/app-insights-analytics-troubleshooting/040.png)
 
 응용 프로그램 리소스가 Application Insights에서 삭제되어서 더는 사용할 수 없습니다. URL을 Analytics 페이지에 저장하면 이 오류가 발생합니다.
 
 
-## 403 ... 권한 없음
+## <a name="e-e"></a>403 ... 권한 없음
 
 ![403 \... 권한 없음](./media/app-insights-analytics-troubleshooting/050.png)
 
@@ -91,7 +96,7 @@ Analytics에서 이 응용 프로그램을 열 권한이 없습니다.
 * 다른 사람에게 링크를 받았습니까? [이 리소스 그룹의 독자 또는 참가자](app-insights-resources-roles-access-control.md)에 포함되어 있는지 확인합니다.
 * 다른 자격 증명으로 링크를 저장했습니까? [Azure 포털](https://portal.azure.com)을 열고 로그아웃한 다음, 다시 링크를 열고 올바른 자격 증명을 입력합니다.
 
-## 403 ... HTML5 저장소
+## <a name="html-storage"></a>403 ... HTML5 저장소
 
 포털에서는 HTML5 localStorage와 sessionStorage를 사용합니다.
 
@@ -101,7 +106,7 @@ Analytics에서 이 응용 프로그램을 열 권한이 없습니다.
 
 ![403 \... HTML5 저장소를 사용하려고 합니다.](./media/app-insights-analytics-troubleshooting/060.png)
 
-## 404 ... 구독을 찾을 수 없습니다.
+## <a name="e-g"></a>404 ... 구독을 찾을 수 없습니다.
 
 
 ![404 \... 구독을 찾을 수 없습니다.](./media/app-insights-analytics-troubleshooting/070.png)
@@ -110,7 +115,7 @@ URL이 올바르지 않습니다.
 
 * [Application Insights 포털](https://portal.azure.com)에서 앱 리소스를 엽니다. 그런 다음 Analytics 단추를 사용합니다.
 
-## 404 ... 페이지가 없습니다.
+## <a name="e-h"></a>404 ... 페이지가 없습니다.
 
 ![404 \... 페이지가 존재하지 않습니다.](./media/app-insights-analytics-troubleshooting/080.png)
 
@@ -118,10 +123,14 @@ URL이 올바르지 않습니다.
 
 * [Application Insights 포털](https://portal.azure.com)에서 앱 리소스를 엽니다. 그런 다음 Analytics 단추를 사용합니다.
 
-## 모든 작업이 실패하면    
+## <a name="cookies"></a>타사 쿠키 사용
 
-[지원 티켓](app-insights-get-dev-support.md)을 엽니다.
+  [타사 쿠키를 사용하지 않도록 설정하는 방법](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers)을 참조하세요. 하지만 타사 쿠키를 **사용하도록 설정**해야 합니다.
+
+## <a name="e-x"></a>모든 작업이 실패하면    
+
+[문의하세요](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

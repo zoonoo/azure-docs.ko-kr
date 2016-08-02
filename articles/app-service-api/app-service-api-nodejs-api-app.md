@@ -193,7 +193,7 @@
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음 **새 리소스 그룹 이름**에 "NodejsAPIAppGroup" 또는 선호하는 다른 이름을 입력합니다.
 
-	[리소스 그룹](../azure-portal/resource-group-portal.md)은 API 앱, 데이터베이스, VM과 같은 Azure 리소스의 컬렉션입니다. 이 자습서에서는 새 리소스 그룹을 만드는 것이 가장 좋습니다. 자습서에서 만든 모든 Azure 리소스를 한 번에 쉽게 삭제할 수 있기 때문입니다.
+	[리소스 그룹](../resource-group-overview.md)은 API 앱, 데이터베이스, VM과 같은 Azure 리소스의 컬렉션입니다. 이 자습서에서는 새 리소스 그룹을 만드는 것이 가장 좋습니다. 자습서에서 만든 모든 Azure 리소스를 한 번에 쉽게 삭제할 수 있기 때문입니다.
 
 4. **앱 서비스 계획/위치**를 클릭한 다음 **새로 만들기**를 클릭합니다.
 
@@ -312,4 +312,4 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 이제 API 앱을 만들고 거기에 Node.js API 코드를 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

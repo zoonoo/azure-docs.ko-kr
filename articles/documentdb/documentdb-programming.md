@@ -19,7 +19,7 @@
 
 # DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
-DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개발자가 기본적으로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성하는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다.
+Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해서 개발자가 기본적으로 JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성하는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다.
 
 먼저 Andrew Liu가 DocumentDB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다.
 
@@ -43,12 +43,12 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 -	**원자성 트랜잭션:** DocumentDB는 단일 저장 프로시저 또는 트리거 내에서 수행되는 데이터베이스 작업의 원자성을 보장합니다. 따라서 응용 프로그램이 관련 작업을 단일 배치로 결합하여 모두 성공하거나 모두 실패하도록 할 수 있습니다.
 
 -	**성능:** JSON은 본질적으로 Javascript 언어 형식 시스템에 매핑되고 DocumentDB의 기본 저장소 단위이기도 하므로 버퍼 풀에서 JSON 문서의 지연 구체화와 같은 많은 최적화를 수행할 수 있으며 요청 시 실행 코드에서 JSON 문서를 사용할 수 있습니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 추가 성능 이점이 있습니다.
-	-	일괄 처리 – 개발자가 삽입 등의 작업을 그룹화하여 대량 제출할 수 있습니다. 개별 트랜잭션을 만들기 위한 네트워크 트래픽 지연 비용 및 저장소 오버헤드가 크게 줄어듭니다. 
+	-	일괄 처리 – 개발자가 삽입 등의 작업을 그룹화하여 대량 제출할 수 있습니다. 개별 트랜잭션을 만들기 위한 네트워크 트래픽 지연 비용 및 저장소 오버헤드가 크게 줄어듭니다.
 	-	사전 컴파일 – DocumentDB는 각 호출의 JavaScript 컴파일 비용을 방지하기 위해 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사전 컴파일합니다. 절차적 논리의 바이트 코드 작성 오버헤드가 최소값으로 줄어듭니다.
-	-	시퀀싱 – 보조 저장소 작업을 하나 또는 많이 수행하는 파생 작업("트리거")이 필요한 작업이 많습니다. 원자성뿐 아니라 이 특성도 서버로 이동할 경우 성능이 향상됩니다. 
+	-	시퀀싱 – 보조 저장소 작업을 하나 또는 많이 수행하는 파생 작업("트리거")이 필요한 작업이 많습니다. 원자성뿐 아니라 이 특성도 서버로 이동할 경우 성능이 향상됩니다.
 -	**캡슐화:** 저장 프로시저를 사용하여 비즈니스 논리를 단일 장소에 그룹화할 수 있습니다. 다음 두 가지 장점이 있습니다.
-	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
-	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
+	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.
+	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.
 
 데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](documentdb-sdk-dotnet.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)를 통해 지원됩니다.
 
@@ -544,7 +544,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 
 조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 DocumentDB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
 
-* 간단한 연산자: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* 간단한 연산자: = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * 개체 리터럴을 포함하는 리터럴: {}
 * var, 반환
 
@@ -916,11 +916,11 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 - [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - [DocumentDB 스튜디오](https://github.com/mingaliu/DocumentDBStudio/releases)
-- [JSON](http://www.json.org/) 
+- [JSON](http://www.json.org/)
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-- [JavaScript – JSON 형식 시스템](http://www.json.org/js.html) 
-- [안전하고 이식 가능한 데이터베이스 확장성](http://dl.acm.org/citation.cfm?id=276339) 
-- [서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [JavaScript – JSON 형식 시스템](http://www.json.org/js.html)
+- [안전하고 이식 가능한 데이터베이스 확장성](http://dl.acm.org/citation.cfm?id=276339)
+- [서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
 - [Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
 
@@ -349,7 +349,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 3. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-4. 브라우저 창의 주소 표시줄에서 *trace.axd*를 URL에 추가한 후 Enter를 누릅니다(URL은 http://localhost:53370/trace.axd)와 유사함).
+4. 브라우저 창의 주소 표시줄에서 *trace.axd*를 URL에 추가한 후 Enter 키를 누릅니다(URL은 http://localhost:53370/trace.axd와 유사함).
 
 5. **응용 프로그램 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
@@ -616,9 +616,9 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 	![새 FTP 사용자 이름 및 암호](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****로그인할 때, 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다. 예를 들어, 사용자 이름으로 "myid"를 입력하고 사이트가 "myexample"인 경우, "myexample\\myid"로 로그인합니다.
+	**로그인할 때, 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다. 예를 들어, 사용자 이름으로 "myid"를 입력하고 사이트가 "myexample"인 경우, "myexample\\myid"로 로그인합니다.
 
-5. 새 브라우저 창에서, 사용자 웹앱에 대한 **웹앱** 블레이드의 **FTP 호스트 이름** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
+5. 새 브라우저 창에서, 사용자 웹앱에 대한 **웹앱** 블레이드의 **FTP 호스트 이름 ** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
 6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 웹 앱 이름 포함).
 
@@ -728,4 +728,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

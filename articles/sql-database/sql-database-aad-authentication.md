@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="07/18/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결
@@ -83,11 +83,11 @@ Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스�
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
 - SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure Active Directory 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 응용 프로그램(DAC 및 .bacpac)의 최신 버전에서는 Azure Active Directory 인증을 사용할 수 있지만 **sqlcmd.exe** 및 **bcp.exe**는 ODBC 공급자를 사용하기 때문에 연결할 수 없습니다.
 - Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
-- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/)은 Azure Active Directory 인증을 지원합니다.
+- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/ko-KR/download/details.aspx?id=11774)은 Azure Active Directory 인증을 지원합니다. 참고: [연결 속성을 설정할](https://msdn.microsoft.com/library/ms378988.aspx)합니다.
 - PolyBase는 Azure Active Directory 인증을 사용하여 인증할 수 없습니다.
 - SQL Server Management Studio는 SQL 데이터 웨어하우스에 대해 지원되지 않습니다. SQL Server Data Tools를 사용합니다.
 - BI 및 Excel 등, 일부 도구는 지원되지 않습니다.
-- 2단계 인증 또는 다른 형태의 대화형 인증은 지원되지 않습니다.
+- Multi-factor Authenticaion(MFA/2FA) 또는 다른 형태의 대화형 인증은 지원되지 않습니다.
 - Azure Active Directory 인증은 Azure 포털 **데이터베이스 가져오기** 및 **데이터베이스 내보내기** 블레이드로 SQL 데이터베이스에서 지원됩니다. Azure Active Directory 인증을 사용한 가져오기 및 내보내기도 PowerShell 명령에서 지원됩니다.
 
 
@@ -97,7 +97,6 @@ Azure Active Directory를 만들고 사용자 및 그룹으로 채웁니다. 다
 
 - 최초의 Azure AD 관리 도메인을 만듭니다.
 - 온-프레미스 Active Directory 도메인 서비스를 Azure Active Directory와 페더레이션합니다.
-- **서비스**, **끝점** 섹션에 있는 **AD FS** 도구를 사용하여 URL 경로 **/adfs/services/trust/13/windowstransport**에 대한 **WS-Trust 1.3**을 사용합니다.
 
 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
 
@@ -150,7 +149,7 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL 데이터베이스의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (다음 스크린샷은 Azure SQL 데이터베이스를 보여 주지만 동일한 개념이 Azure SQL 데이터 웨어하우스에 적용됩니다.)
 
 	![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**를 선택하고 **SQL Server** 또는 ** SQL 데이터 웨어하우스**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
+2. 왼쪽 배너에서 **SQL Server** 를 선택하고 **SQL Server** 또는 **SQL 데이터 웨어하우스** 를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정** 을 클릭합니다.
 
 	![ad 설정][9]
 3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
@@ -367,4 +366,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

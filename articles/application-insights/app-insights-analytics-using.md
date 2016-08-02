@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Azure" 
-	description="Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다." 
+	description="Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다. " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -12,10 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="awills"/>
-
-
+	ms.date="07/15/2016" 
+	ms.author="danha"/>
 
 
 # Application Insights에서 Analytics 사용
@@ -28,40 +26,89 @@
 
 Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
-![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics-using/001.png)
+![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)
 
 인라인 자습서에서 수행할 수 있는 몇 가지 작업을 확인할 수 있습니다.
 
 보다 광범위한 둘러보기는 [여기](app-insights-analytics-tour.md)서 제공됩니다.
 
-## 쿼리 작성
+## 원격 분석 쿼리
 
-왼쪽에 나열된 테이블 이름으로 시작되는 쿼리를 작성합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다.
-
+### 쿼리 작성
 
 ![](./media/app-insights-analytics-using/150.png)
 
-* 쿼리에 빈 줄을 넣으면 안 됩니다.
-* 쿼리에서는 단일 줄 바꿈을 사용할 수 있습니다.
-* 창에서 여러 쿼리를 빈 줄로 구분하여 작성할 수 있습니다.
-* 쿼리를 실행하려면 **쿼리 안이나 끝에 커서를 놓고** 이동을 클릭합니다.
+왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`를 사용합니다. 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
+
+[분석 언어 개요](app-insights-analytics-tour.md) 및 [언어 참조](app-insights-analytics-reference.md)를 참조하세요.
+
+### 쿼리 실행
+
+![쿼리 실행](./media/app-insights-analytics-using/130.png)
+
+1. 쿼리에서는 단일 줄 바꿈을 사용할 수 있습니다.
+2. 실행하려는 쿼리의 내부 또는 끝에 커서를 놓습니다.
+3. 이동을 클릭하여 쿼리를 실행합니다.
+4. 쿼리에 빈 줄을 넣으면 안 됩니다. 빈 줄로 구분하여 하나의 쿼리 탭에서 분리된 여러 개의 쿼리를 유지할 수 있습니다. 커서가 있는 쿼리만 실행됩니다.
+
+### 쿼리 저장
+
+![쿼리 저장](./media/app-insights-analytics-using/140.png)
+
+1. 현재 쿼리 파일을 저장합니다.
+2. 저장된 쿼리 파일을 엽니다.
+3. 새 쿼리 파일을 만듭니다.
 
 
-![](./media/app-insights-analytics-using/130.png)
+## 세부 정보 참조
 
-* 쿼리 창의 내용을 저장하고 불러올 수 있습니다.
+속성의 전체 목록을 보려면 결과의 행을 확장합니다. 구조화된 값이 있는 속성(예: 사용자 지정 차원 또는 예외에 나열된 스택)을 추가로 확장할 수 있습니다.
 
-![](./media/app-insights-analytics-using/140.png)
+![행 확장](./media/app-insights-analytics-using/070.png)
+
+ 
 
 ## 결과 정렬
 
-표시하려는 열을 선택할 수 있습니다. 항목을 확장하면 반환된 모든 열 값이 표시됩니다.
+쿼리에서 반환된 결과를 정렬하고, 필터링하고, 페이지를 매기고, 그룹화할 수 있습니다.
 
-![](./media/app-insights-analytics-using/030.png)
+> [AZURE.NOTE] 브라우저에서 정렬, 그룹화 및 필터링을 수행해도 쿼리가 다시 실행되지는 않습니다. 마지막 쿼리에서 반환된 결과만 다시 정렬됩니다.
+> 
+> 결과가 반환하기 전에 서버에서 이러한 작업을 수행하려면 [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) 및 [where](app-insights-analytics-reference.md#where-operator) 연산자를 사용하여 쿼리를 작성합니다.
 
-> [AZURE.NOTE] 웹 브라우저에서 사용할 수 있는 결과의 순서를 빠르게 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 그러므로 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 최상위 항목이나 최하위 항목을 표시하려면 [top](app-insights-analytics-reference.md#top-operator) 또는 [sort](app-insights-analytics-reference.md#sort-operator) 연산자를 사용해야 합니다.
+보려는 열을 선택하고, 열 머리글을 끌어 다시 정렬하고, 테두리를 끌어 열 크기를 조정합니다.
 
-그러나 서버에서 매우 큰 테이블을 다운로드하지 않도록 [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) 또는 [summarize](app-insights-analytics-reference.md#summarize-operator) 연산자를 사용하는 것이 좋습니다. 행의 수는 쿼리당 약 1만 개로 자동 제한됩니다.
+![열 정렬](./media/app-insights-analytics-using/030.png)
+
+### 항목 정렬 및 필터
+
+열의 제목을 클릭하여 결과를 정렬합니다. 다른 방법으로 정렬하려면 다시 클릭하고, 쿼리에서 반환된 원래 순서로 되돌리려면 세 번째로 클릭합니다.
+
+필터 아이콘을 사용하여 검색 범위를 좁힙니다.
+
+![열 정렬 및 필터링](./media/app-insights-analytics-using/040.png)
+
+
+
+### 항목 그룹화
+
+둘 이상의 열로 정렬하려면 그룹화를 사용합니다. 먼저 사용하도록 설정한 후 열 머리글을 테이블 위의 공간으로 끕니다.
+
+![그룹](./media/app-insights-analytics-using/060.png)
+
+
+
+### 일부 결과가 누락되었나요?
+
+포털에서 반환된 결과에 대해 약 10,000개의 행 제한이 있습니다. 이 제한을 초과하면 경고가 표시됩니다. 이런 경우 테이블의 결과를 정렬한다고 해서 항상 첫 번째 또는 마지막 실제 결과가 모두 표시되는 것은 아닙니다.
+
+이 제한에 도달하지 않도록 하는 것이 좋습니다. 다음과 같은 연산자를 사용합니다.
+
+* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator)
+* [take 100](app-insights-analytics-reference.md#take-operator)
+* [summarize](app-insights-analytics-reference.md#summarize-operator)
+
 
 
 ## 다이어그램
@@ -70,9 +117,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ![](./media/app-insights-analytics-using/230.png)
 
-적절한 유형의 열이 여러 개인 경우 x축과 y축 및 결과 정렬 기준으로 사용할 크기의 열을 선택할 수 있습니다.
-
-![](./media/app-insights-analytics-using/100.png)
+적합한 유형의 열이 여러 개인 경우 x축과 y축 및 결과 정렬 기준으로 사용할 크기의 열을 선택할 수 있습니다.
 
 기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-reference.md#render-directive)을 사용하여 다이어그램을 선택할 수 있습니다.
 
@@ -90,7 +135,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 3. Power BI Desktop 고급 쿼리 편집기에 M 언어 스크립트를 복사합니다.
  * 내보낸 파일을 엽니다.
- * Power BI Desktop에서 **데이터 가져오기 > 빈 쿼리 > 고급 편집기**를 선택하고 M 언어 스크립트를 붙여 넣습니다.
+ * Power BI Desktop에서 **데이터 가져오기 > 빈 쿼리 > 고급 편집기**를 선택하고 M 언어 스크립트를 붙여넣습니다.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -103,4 +148,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

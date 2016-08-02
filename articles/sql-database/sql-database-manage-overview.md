@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"/>
 
 # 개요: SQL 데이터베이스 관리 도구
@@ -46,4 +46,4 @@ PowerShell 같은 명령줄 도구를 사용하여 데이터베이스 및 탄력
 * [탄력적인 확장 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 단일 테넌트 모델 또는 다중 테넌트 모델에서 데이터베이스 관리
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

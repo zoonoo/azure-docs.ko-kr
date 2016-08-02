@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기
@@ -31,15 +31,13 @@
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 >
->최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 및 검색을 참조하세요.
+>최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 갤러리 및 검색을 방문하세요.
 
 ## 배포할 항목
 
 이 템플릿으로 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스를 배포합니다.
 
-이벤트 허브는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 처리 서비스입니다.
-
-[Azure 이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)에 대해 자세히 알아봅니다.
+[이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -49,7 +47,7 @@
 
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters`라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
-템플릿에서 각 매개 변수에 대해 설명할 것입니다.
+템플릿은 다음 매개 변수를 정의합니다.
 
 ### serviceBusNamespaceName
 
@@ -163,9 +161,9 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 - [서비스 버스 탐색기로 이벤트 허브 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
-  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/
+  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [서비스 버스 이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

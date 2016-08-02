@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Azure 기계 학습 작업 영역 관리
+
+>[AZURE.NOTE] 이 문서의 절차는 Azure 기계 학습 클래식 웹 서비스와 관련됩니다. 새 웹 서비스를 관리하는 방법에 대한 정보는 [새 기계 학습 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요.
+
 Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하면 다음을 수행할 수 있습니다.
 
 - 작업 영역이 사용되는 방식을 모니터링합니다
@@ -94,4 +97,4 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

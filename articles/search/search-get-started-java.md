@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="07/14/2016"
 	ms.author="evboyle"/>
 
 # Java에서 Azure 검색 시작
@@ -69,7 +69,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 
 ## 샘플 파일 다운로드
 
-1. Github의 [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197)로 이동합니다.
+1. Github의 [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)로 이동합니다.
 
 2. **Download ZIP**을 클릭하고 .zip 파일을 디스크에 저장한 다음 포함된 모든 파일을 추출합니다. 나중에 프로젝트를 쉽게 찾을 수 있도록 Java 작업 영역에 파일을 추출하는 것이 좋습니다.
 
@@ -117,7 +117,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 
 	![][7]
 
-6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전*입니다.
+6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전* 입니다.
 
 6. **마침**을 클릭합니다.
 
@@ -203,4 +203,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0720_2016-->

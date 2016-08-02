@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # Azure AD Connect Health 작업
@@ -52,11 +52,20 @@ ID 인프라가 정상이 아님을 나타내는 경고가 생성되면 전자 �
 
 #### Azure AD Connect Health Service에서 서버를 삭제하려면
 
+AD FS에 대한 Azure AD Connect Health 및 Azure AD Connect(Sync):
+
 1. 서버 목록 블레이드에서 제거할 서버 이름을 선택하여 서버 블레이드를 엽니다.
 2. 서버 블레이드의 작업 모음에서 "삭제" 단추를 클릭합니다.
 3. 확인 상자에 서버 이름을 입력하여 서버 삭제 작업을 확인합니다.
 4. "삭제" 단추를 클릭합니다.
 
+AD DS용 Azure AD Connect Health:
+
+1. 도메인 컨트롤러 대시보드를 엽니다.
+2. 제거할 도메인 컨트롤러를 선택합니다.
+3. 작업 모음에서 "선택한 항목 삭제" 단추를 클릭합니다.
+4. 서버 삭제 작업을 확인합니다.
+5. "삭제" 단추를 클릭합니다.
 
 ### Azure AD Connect Health Service에서 서비스 인스턴스 삭제
 
@@ -118,6 +127,7 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 6. 역할 할당이 완료되면 목록에서 사용자 및/또는 그룹이 표시됩니다.<br> ![Azure AD Connect Health RBAC 사용자 목록](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 이러한 단계는 할당된 역할에 맞춰 나열된 사용자 및 그룹 액세스에 따라 허용합니다.
+
 >[AZURE.NOTE]
 - 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 권리자 계정은 위의 목록에 표시되지 않습니다.
 - "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
@@ -140,7 +150,8 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
+* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

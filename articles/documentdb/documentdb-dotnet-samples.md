@@ -26,9 +26,9 @@
 - [Python 예제](documentdb-python-samples.md)
 - [Azure 코드 샘플 갤러리](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
-- 각 예제 C# 프로젝트 파일에서 작업에 연결합니다. 
+- 각 예제 C# 프로젝트 파일에서 작업에 연결합니다.
 - 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
 **필수 구성 요소**
@@ -36,7 +36,7 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 1. 이러한 NoSQL 예제를 사용하려면 Azure 계정이 필요합니다.
     - [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
    - [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
-2. 또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
+2. 또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다.
 
 > [AZURE.NOTE]
 각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 CreateDocumentCollectionAsync()에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
@@ -179,4 +179,4 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 [컬렉션 또는 문서에 권한 설정](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [사용자의 사용 권한 목록 가져오기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

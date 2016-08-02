@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # 이벤트 허브 API 개요
@@ -189,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

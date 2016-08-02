@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # 로컬 개발 클러스터 설정 문제 해결
@@ -92,10 +92,11 @@ Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나�
 
 솔루션에서 시작 프로젝트로 설정된 서비스 프로젝트가 없어야 합니다. 서비스 패브릭 응용프로그램 프로젝트만 시작 프로젝트로 설정되어야 합니다.
 
+>[AZURE.TIP] 설치를 수행할 때 로컬 클러스터가 비정상적으로 동작을 시작하는 경우 로컬 클러스터 관리자 시스템 트레이 응용 프로그램을 사용하여 다시 설정할 수 있습니다. 기존 클러스터를 제거하고 새로 설정합니다. 배포된 모든 응용 프로그램 및 연결된 데이터가 제거됩니다.
 
 ## 다음 단계
 
 - [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

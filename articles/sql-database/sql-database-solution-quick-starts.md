@@ -20,6 +20,10 @@
 
 이 문서에서는 Azure SQL 데이터베이스 솔루션 빠른 시작에 대해 대략적으로 설명합니다. 이러한 빠른 시작 설명서는 실제 시나리오를 기준으로 완전한 솔루션에서 SQL 데이터베이스를 사용하는 방법을 보여 줍니다. 특정 Azure SQL 데이터베이스 기능 사용을 보여 주는 간단한 단계별 자습서를 보려면 [Azure SQL 데이터베이스 자습서 탐색](sql-database-explore-tutorials.md)을 참조하세요.
 
+## WingTipTickets 데모 및 실습 교육
+
+[Azure SQL 데이터베이스 WingTipTickets](https://github.com/microsoft/wingtiptickets) 데모 및 실습 교육. 이러한 파일은 콘서트 티켓을 판매하는 데 사용되는 샘플 응용 프로그램에 기반한 Azure SQL 데이터베이스 및 Azure 검색을 보여주는 실습 교육으로 구성됩니다.
+
 ## 여러 풀에 걸친 리소스 사용 데이터 수집 및 모니터링
 
 이 솔루션 빠른 시작에서는 구독의 여러 풀에 걸쳐 Azure SQL 데이터베이스 리소스 사용량을 수집 및 모니터링하기 위한 솔루션을 제공합니다. 구독에 데이터베이스가 많은 경우 각 탄력적 풀을 개별적으로 모니터링하는 작업은 번거롭습니다. 이 문제를 해결하기 위해 리소스 사용량을 모니터링하고 분석하기 위해 여러 풀 및 해당 데이터베이스에서 리소스 사용 데이터를 수집하기 위해 SQL 데이터베이스 PowerShell cmdlet 및 T-SQL 쿼리를 결합할 수 있습니다.
@@ -48,8 +52,12 @@ GitHub SQL Server 샘플 리포지토리의 [Saas에 대한 탄력적 풀 사용
 
 이 샘플은 사용자가 온라인 설문 조사를 만들 수 있도록 하는 설문 조사라는 다중 테넌트 웹 응용 프로그램입니다. 샘플은 등록, 인증, 권한 부여 및 앱 역할을 포함하는 다중 테넌트 응용 프로그램에서 사용자 ID를 관리할 때 몇 가지 주요 관심사를 보여 줍니다. 이 샘플을 실행하려면 [Tailspin 설문 조사 샘플 응용 프로그램을 실행하는 방법](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)을 참조하세요.
 
+## Contoso 클리닉 데모 응용 프로그램
+
+이 샘플에서는 Azure SQL DB (V12)의 보안 기능을 보여 줍니다. 이 샘플을 실행하려면 [Contoso 클리닉 데모 응용 프로그램](https://github.com/Microsoft/azure-sql-security-sample)을 참조합니다.
+
 ## 다음 단계
 
 [Azure SQL 데이터베이스 자습서 탐색](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

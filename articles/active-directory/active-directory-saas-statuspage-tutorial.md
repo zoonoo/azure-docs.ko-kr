@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 StatusPage를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- StatusPage에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- StatusPage에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 StatusPage에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -43,7 +43,7 @@ StatusPage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
@@ -51,7 +51,7 @@ StatusPage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 StatusPage 추가 
+1. 갤러리에서 StatusPage 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -60,7 +60,7 @@ StatusPage의 Azure AD 통합을 구성하려면 갤러리의 StatusPage를 관�
 
 **갤러리에서 StatusPage를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -321,4 +321,4 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

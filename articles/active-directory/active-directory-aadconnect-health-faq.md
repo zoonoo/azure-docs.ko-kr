@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -35,7 +35,7 @@
 
 **Q: 개별 서버에 Azure AD Connect Health Agent를 설치하면 어떤 영향이 있나요?**
 
-ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 소비, 네트워크 대역폭 및 저장소에는 최소한의 영향만 미칩니다.
+ADFS 서버 또는 도메인 컨트롤러에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 소비, 네트워크 대역폭 및 저장소에는 최소한의 영향만 미칩니다.
 
 아래 숫자는 근사치입니다.
 
@@ -70,6 +70,13 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 아니요. 기본 인증에 필요한 임의 사용자 이름/암호 지정 메커니즘은 현재 지원되지 않습니다.
 
 
+**Q: AD DS용 Azure AD Connect Health에서 어떤 버전의 AD DS를 지원하나요?**
+
+다음 OS 버전에 설치된 AD DS의 모니터링이 지원됩니다.
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## 작업 관련 질문
 
@@ -104,6 +111,7 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
+* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

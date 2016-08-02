@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="cherylmc"/>
 
 # 클래식 포털을 사용하여 VNet에 지점 및 사이트 간 VPN 연결 구성
@@ -25,7 +25,7 @@
 
 지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 지점 및 사이트 간 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 뛰어난 솔루션입니다.
 
-지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
+지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [크로스-프레미스 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
 이 문서는 **클래식 배포 모드**(서비스 관리) 및 클래식 포털을 사용하여 만든 가상 네트워크에 대한 지점 및 사이트 간 VPN 게이트웨이 연결에 적용됩니다. Azure 포털에 대한 단계가 있는 경우 이 페이지에서 해당 문서로 연결합니다.
 
@@ -110,7 +110,7 @@ X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makece
 
 2. 다음 예제의 명령은 사용자의 컴퓨터에 있는 개인 인증서 저장소에 루트 인증서를 만들어 설치하고 나중에 Azure 클래식 포털에 업로드할 해당 *.cer* 파일도 만듭니다.
 
-3. .cer 파일을 보관할 디렉터리로 변경하고 다음 명령을 실행합니다. 여기서 *RootCertificateName* 은 인증서에서 사용할 이름입니다. 다음 예제를 변경하지 않고 실행하면 결과는 루트 인증서 및 해당 파일 *RootCertificateName.cer*입니다.
+3. .cer 파일을 보관할 디렉터리로 변경하고 다음 명령을 실행합니다. 여기서 *RootCertificateName* 은 인증서에서 사용할 이름입니다. 다음 예제를 변경하지 않고 실행하면 결과는 루트 인증서 및 해당 파일 *RootCertificateName.cer* 입니다.
 
 >[AZURE.NOTE] 클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
 
@@ -210,4 +210,4 @@ X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makece
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

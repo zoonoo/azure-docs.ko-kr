@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Azure SDK for .NET 정의
 
@@ -41,7 +41,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 - [Visual Studio용 Microsoft ASP.NET 및 웹 도구](#wte)
 - [Visual Studio용 Microsoft Azure Data Lake 도구](#datalake)
 
-###<a id="vwd"></a>Visual Studio Express for Web
+###<a id="vwd"></a>Visual Studio Community Edition 2015
 
 컴퓨터에 Visual Studio가 없는 경우 SDK에서 [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs)를 설치합니다.
 
@@ -191,4 +191,4 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](https://azure.microsoft.com/documentation/api/)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

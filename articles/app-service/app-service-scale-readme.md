@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/15/2016"
 	ms.author="byvinyal"/>
 
 # Azure 앱 서비스: 앱 서비스 응용 프로그램 크기 조정
@@ -38,4 +38,4 @@ Azure 앱 서비스에서 호스팅되는 응용 프로그램은 [대규모로 �
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

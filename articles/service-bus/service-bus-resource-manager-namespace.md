@@ -18,7 +18,7 @@
 
 # Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기
 
-이 문서에서는 표준/기본 SKU가 있는 서비스 버스 "Messaging" 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 표준/기본 SKU가 있는 **메시징** 형식의 서비스 버스 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
 
@@ -31,7 +31,7 @@
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 >
->최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 및 검색을 참조하세요.
+>최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 갤러리 및 검색을 방문하세요.
 
 ## 배포할 항목
 
@@ -45,7 +45,7 @@
 
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters`라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
-템플릿에서 각 매개 변수에 대해 설명할 것입니다.
+템플릿은 다음 매개 변수를 정의합니다.
 
 ### serviceBusNamespaceName
 
@@ -82,7 +82,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 추가 비용 없이 최대 1250만 개의 작업을 수행할 수 있는 매월 10달러의 표준 계층 기본 요금이 있습니다. 기본 계층은 백만 개 작업당 0.05달러가 듭니다.
 
-서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격 및 대금 청구][]를 참조하세요.
+서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격 책정 및 대금 청구][]를 참조하세요.
 
 ### serviceBusApiVersion
 
@@ -149,9 +149,9 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
   [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
   [서비스 버스 네임스페이스 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/
-  [서비스 버스 가격 및 대금 청구]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [서비스 버스 가격 책정 및 대금 청구]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Azure Data Lake 저장소의 보호
@@ -43,7 +43,10 @@
 
 ## 권한 부여 및 액세스 제어
 
-사용자가 Azure Data Lake 저장소에 액세스하도록 AAD에 의해 인증된 경우 권한 부여로 Data Lake 저장소에 대한 액세스 권한을 제어합니다. Data Lake 저장소는 계정 관련 및 데이터 관련 활동에 대한 권한 부여를 다음 방식으로 구분합니다. 데이터 관리의 계정 관리[role-based access control](../active-directory/role-based access control-what-is.md) (RBAC)는 계정 관리를 위해 Azure에서 제공되며 저장소의 데이터를 액세스하기 위해 POSIX ACL을 지원합니다.
+사용자가 Azure Data Lake 저장소에 액세스하도록 AAD에 의해 인증된 경우 권한 부여로 Data Lake 저장소에 대한 액세스 권한을 제어합니다. Data Lake Store는 다음과 같은 방식으로 계정 관련 작업과 데이터 관련 작업에 대한 권한 부여를 구분합니다.
+
+* 계정을 관리하기 위해 Azure에서 제공하는 RBAC([역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md))
+* 저장소에서 데이터에 액세스하기 위한 POSIX ACL
 
 ### 계정 관리를 위해 RBAC 사용
 
@@ -61,13 +64,13 @@
 | 참여자 | 역할 추가 및 제거를 제외한 모든 항목 | ACL에 의해 제어 | 참여자는 경고 만들기/관리, 배포 등 계정의 다른 측면을 관리할 수 있습니다. 참여자는 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 | 역할 추가 및 제거 | ACL에 의해 제어 | 사용자 액세스 관리자를 통해 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
 
-자세한 내용은 [사용자 또는 보안 그룹을 Azure Data Lake 저장소 계정에 할당](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts)을 참조하세요.
+자세한 내용은 [사용자 또는 보안 그룹을 Azure Data Lake Store 계정에 할당](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts)을 참조하세요.
 
 ### 파일 시스템 작업에 ACL 사용
 
-Azure Data Lake 저장소는 HDFS와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원하여 소유자, 소유 그룹 및 기타 사용자/그룹에 부여된 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 액세스 권한을 허용합니다. Data Lake 저장소 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더에서만 사용하도록 설정되므로 루트 폴더에 적용할 ACL을 모든 하위 폴더/파일에도 적용할 수 있습니다. 향후 릴리스에서는 모든 파일 또는 폴더에 ACL을 설정할 수 있게 됩니다.
+Azure Data Lake Store는 HDFS와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원하여 소유자, 소유 그룹 및 기타 사용자/그룹에 부여된 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 액세스 권한을 허용합니다. Data Lake 저장소 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더에서만 사용하도록 설정되므로 루트 폴더에 적용할 ACL을 모든 하위 폴더/파일에도 적용할 수 있습니다. 향후 릴리스에서는 모든 파일 또는 폴더에 ACL을 설정할 수 있게 됩니다.
 
-[보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 많은 사용자에 대해 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹으로 그룹화한 후 파일 및 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스의 일환으로 최대 9개의 항목만 추가할 수 있는 제한이 있으므로 사용자 지정 액세스를 제공할 때 유용합니다. AAD 보안 그룹을 사용하여 Data Lake 저장소에 저장된 데이터를 보호하는 것에 대한 자세한 내용은 [ACL로 사용자 또는 보안 그룹을 Azure Data Lake 저장소 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
+[보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 많은 사용자에 대해 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹으로 그룹화한 후 파일 및 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스의 일환으로 최대 9개의 항목만 추가할 수 있는 제한이 있으므로 사용자 지정 액세스를 제공할 때 유용합니다. AAD 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터를 보호하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
 ![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-security-overview/adl.acl.2.png "표준 및 사용자 지정 액세스 나열")
 
@@ -100,7 +103,7 @@ Azure Data Lake 저장소를 사용하면 데이터 저장소에 대한 액세�
 
 ### 진단 로그
 
-Azure 포털에서 데이터 액세스 감사 내역을 설정(**진단 설정**)하고 로그가 저장될 Azure Blob 저장소 계정을 제공할 수 있습니다.
+Azure 포털에서 데이터 액세스 감사 내역을 사용하도록 설정(**진단 설정**)하고 로그가 저장될 Azure Blob 저장소 계정을 제공할 수 있습니다.
 
 ![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 
@@ -110,7 +113,7 @@ Azure 포털에서 데이터 액세스 감사 내역을 설정(**진단 설정**
 
 엔터프라이즈 고객은 안전하고 사용하기 간편한 데이터 분석 클라우드 플랫폼을 요구합니다. Azure Data Lake 저장소는 Azure Active Direction 통합, ACL 기반 권한 부여, 네트워크 격리, 전송 중 및 미사용 데이터 암호화(향후 제공) 및 감사를 통해 ID 관리 및 인증으로 이러한 요구 사항을 해결하도록 설계되었습니다.
 
-Data Lake 저장소에 포함된 새로운 기능을 참조하려는 경우 [Uservoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에서 사용자 의견을 보내 주세요.
+Data Lake Store에 포함된 새로운 기능을 참조하려는 경우 [Uservoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내 주세요.
 
 ## 참고 항목
 
@@ -118,4 +121,4 @@ Data Lake 저장소에 포함된 새로운 기능을 참조하려는 경우 [Use
 - [Data Lake 저장소 시작](data-lake-store-get-started-portal.md)
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

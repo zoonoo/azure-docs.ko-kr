@@ -18,7 +18,7 @@
 	ms.author="annemill"/>
 
 # SQL 데이터베이스 개발 개요
-이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 고려해야 하는 기본적인 사항을 안내합니다.
+이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
 
 ## 언어 및 플랫폼
 다양한 프로그래밍 언어 및 플랫폼에 대한 코드 샘플을 사용할 수 있습니다. 다음에서 코드 샘플에 대한 링크를 찾을 수 있습니다.
@@ -59,8 +59,7 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 ## 탄력적인 확장을 사용한 데이터 분할
 탄력적 확장은 확장(및 축소) 프로세스를 간소화합니다.
 
-[Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴]
-* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 * [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 
@@ -68,4 +67,4 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,6 +19,34 @@
 # Azure 데이터 팩터리 - .NET API 변경 로그 
 이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)에서 Azure Data Factory용 최신 NuGet 패키지를 찾을 수 있습니다.
 
+## 버전 4.9.1
+_릴리스 날짜: 2016년 7월 5일_
+
+### 버그 수정
+
+- [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx)에 대한 WebApi 기반 인증이 더 이상 사용되지 않습니다.
+
+## 버전 4.9.0
+_릴리스 날짜: 2016년 6월 10일_
+
+### 기능 추가 사항
+
+- CopyActivity에 [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) 및 [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) 속성을 추가합니다. 기능에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
+
+
+### 버그 수정
+
+- [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx) 인스턴스를 사용하는 [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) 메서드의 오버로드를 지정합니다.
+- [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) 및 [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx)를 CopySink에 옵션으로 표시합니다.
+
+## 버전 4.8.0
+_릴리스 날짜: 2016년 5월 25일_
+
+### 기능 추가 사항
+- 복사 성능을 조정할 수 있도록 하기 위해 복사 작업 유형에 다음과 같은 옵션 속성이 추가되었습니다.
+	- [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+
 ## 버전 4.7.0
 릴리스 날짜: 2016-05-20
 
@@ -164,4 +192,4 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 
 - 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. 이를 지원하기 위해 [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 및 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName** 및 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

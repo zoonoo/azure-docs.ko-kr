@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,7 @@
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- 작업에 단일 인코딩을 추가합니다. 
+- 작업에 단일 인코딩을 추가합니다.
 - 인코딩할 입력 자산을 지정합니다.
 - 인코딩된 자산을 포함할 출력 자산을 만듭니다.
 - 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
@@ -382,4 +382,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

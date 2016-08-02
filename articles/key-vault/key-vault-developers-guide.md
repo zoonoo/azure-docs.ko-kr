@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Azure 키 자격 증명 모음 개발자 가이드
@@ -64,9 +64,9 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 
 다음 SDK는 주요 자격 증명 모음을 사용하는 작업에서 사용할 수 있습니다.
 
-|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
 |:--:|:--:|
-|[.NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK 설명서](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK 설명서](https://msdn.microsoft.com/library/mt430941.aspx)|[Node.js SDK 설명서](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK 패키지](https://azure.microsoft.com/documentation/api/)|[Node.js SDK 패키지](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -84,8 +84,9 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure 키 자격 증명 모음용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure 키 자격 증명 모음을 EKM(확장 가능 키 관리) 공급자로 활용하여 응용 프로그램 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 응용 프로그램에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [Windows 및 Linux IaaS VM에 대한 Azure 디스크 암호화로 주요 자격 증명 모음을 통합하는 방법](../azure-security-disk-encryption.md) - 이 디스크 암호화 솔루션은 Azure 주요 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
+- [종단 간 키 회전 및 감사를 사용하여 주요 자격 증명 모음을 설정하는 방법](key-vault-key-rotation-log-monitoring.md) - Azure 주요 자격 증명 모음을 사용하는 키 회전 및 감사를 설정하는 방법을 안내합니다.
 
-Azure에서 키 자격 증명 모음을 통합하고 사용하는 방법에 대한 작업별 지침은 [키 자격 증명 모음에 대한 Ryan Jones ARM 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
+Azure에서 주요 자격 증명 모음을 통합하고 사용하는 방법에 대한 작업별 지침은 [주요 자격 증명 모음에 대한 Ryan Jones ARM 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 
 ## 주요 자격 증명 모음과 통합됨
 
@@ -104,4 +105,4 @@ Azure에서 키 자격 증명 모음을 통합하고 사용하는 방법에 대�
 - [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
 - [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

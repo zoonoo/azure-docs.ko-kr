@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	/>
 
 <tags
@@ -90,4 +90,4 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -121,7 +121,18 @@
 
 ## 다음 단계
 
-Gateway SDK 사용 방법에 대한 자세한 내용은 GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk]를 참조하세요.
+게이트웨이 SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
+
+- [Gateway SDK를 사용하여 실제 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
+- [게이트웨이 장치 관리][lnk-manage-devices]
+- [Azure IoT Gateway SDK][lnk-gateway-sdk]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -130,4 +141,12 @@ Gateway SDK 사용 방법에 대한 자세한 내용은 GitHub에서 [Azure IoT 
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

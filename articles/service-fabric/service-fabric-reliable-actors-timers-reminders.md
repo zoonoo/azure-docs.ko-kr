@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 미리 알림이 트리거되면 Reliable Actors 런타임에서 행위자에 대해 `ReceiveReminderAsync` 메서드를 호출합니다. 행위자는 미리 알림을 여러 개 등록할 수 있으며 `ReceiveReminderAsync` 메서드는 이러한 미리 알림 중 하나가 트리거되면 언제든지 호출됩니다. 행위자는 `ReceiveReminderAsync` 메서드로 전달되는 미리 알림 이름을 사용하여 미리 알림이 트리거되었는지 알아낼 수 있습니다.
 
-행위자 런타임은 `ReceiveReminderAsync` 호출이 완료되면 행위자 상태를 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다. 미리 알림 콜백 완료 시 상태가 저장되지 않도록 지정하려면 `RegisterReminder` 메서드를 호출하여 미리 알림을 만들 때 `ActorReminderAttributes.ReadOnly` 플래그를 `attributes` 매개 변수에 설정할 수 있습니다.
+행위자 런타임은 `ReceiveReminderAsync` 호출이 완료되면 행위자의 상태를 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다.
 
 미리 알림을 등록 취소하려면 행위자가 아래 예제에 나온 대로 `UnregisterReminder` 메서드를 호출합니다.
 
@@ -125,4 +125,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
  - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

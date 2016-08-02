@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 미디어 검색으로 동작 검색"
+	pageTitle="Azure 미디어 분석으로 동작 검색 | Microsoft Azure"
 	description="Azure 미디어 동작 탐지기 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Azure 미디어 검색으로 동작 검색
@@ -28,29 +28,74 @@
 
 이 항목은 **Azure 미디어 동작 탐지기**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
+
 ##동작 검색기 입력 파일
 
 동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
+
+##작업 구성(기본 설정)
+
+**Azure 미디어 동작 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다.
+
+###매개 변수
+
+다음 매개 변수를 사용할 수 있습니다.
+
+이름|옵션|설명|기본값
+---|---|---|---
+sensitivityLevel|문자열:'low', 'medium', 'high'|동작이 보고되는 민감도 수준을 설정합니다. 가양성의 양을 조정할 때 이 값을 조정합니다.|'medium'
+frameSamplingValue|양의 정수|알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 번째 프레임마다 등을 의미합니다.|1
+detectLightChange|부울:'true', 'false'|결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다.|'False'
+mergeTimeThreshold|Xs-time: Hh:mm:ss<br/>예: 00:00:03|두 개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다.|00:00:00
+detectionZones|검색 영역 배열:<br/>- 검색 영역은 3개 이상 지점의 배열<br/>- 지점은 0부터 1까지의 x 및 y 좌표입니다.|사용할 다각형의 검색 영역 목록을 설명합니다.<br/>결과는 영역과 함께 ID로 보고되며 첫 번째 항목은 'id':0입니다.|전체 프레임에 걸쳐 있는 단일 영역입니다.
+
+###JSON 예제
+
+	
+	{
+	  'version': '1.0',
+	  'options': {
+	    'sensitivityLevel': 'medium',
+	    'frameSamplingValue': 1,
+	    'detectLightChange': 'False',
+	    "mergeTimeThreshold":
+	    '00:00:02',
+	    'detectionZones': [
+	      [
+	        {'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}
+	       ],
+	      [
+	        {'x': 0.3, 'y': 0.3},
+	        {'x': 0.55, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.55},
+	        {'x': 0.8, 'y': 0.8},
+	        {'x': 0.55, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.55}
+	      ]
+	    ]
+	  }
+	}
+
 
 ##동작 검색기 출력 파일
 
 동작 검색 작업은 동작 경고 및 동영상 내에서의 해당 범주를 설명하는 출력 자산으로 JSON 파일을 반환합니다. 파일에는 동영상에서 검색된 동작 시간 및 기간에 대한 정보가 포함됩니다.
 
-현재 동작 검색은 출력에서 ***유형 2***로 참조하는 일반 동작 범주만 지원합니다.
-
-X 및 Y 좌표와 크기는 0.0과 1.0 사이의 정규화된 부동을 사용하여 나열됩니다. 동작이 검색된 영역에 대한 경계 상자를 가져오려면 여기에 동영상 높이 및 너비 해상도를 곱합니다.
-
-각 출력은 조각으로 분할되며 동영상 내에서 데이터를 정의하는 간격으로 세분화됩니다. 조각 길이는 같지 않아도 되며 동작이 전혀 검색되지 않을 때에는 조각 길이가 길어질 수 있습니다.
-
 동작 탐지기 API는 고정된 배경의 동영상에 움직이는 개체가 있는 경우 표시기를 제공합니다. 동작 탐지기는 조명 및 그림자 변화와 같은 가양성을 줄이기 위해 학습됩니다. 현재 알고리즘의 한계로 야간 투시 동영상, 반투명 개체 및 작은 개체가 있습니다.
 
 ###<a id="output_elements"></a>출력 JSON 파일의 요소
+
+>[AZURE.NOTE]최신 릴리스에서는 출력 JSON 형식이 변경되었으며 일부 고객에게는 큰 변화로 나타날 수 있습니다.
 
 다음 표는 출력 JSON 파일의 요소에 대해 설명합니다.
 
 요소|설명
 ---|---
-버전|동영상 API의 버전을 나타냅니다.
+버전|동영상 API의 버전을 나타냅니다. 현재 버전은 2입니다.
 시간 간격|동영상의 초당 "틱"입니다.
 Offset|"틱" 단위의 타임스탬프에 대한 시간 오프셋입니다. 동영상 API 버전 1.0에서는 항상 0입니다. 향후 지원하는 시나리오에서는 이 값이 변경될 수 있습니다.
 프레임 속도|동영상의 초당 프레임 수입니다.
@@ -61,98 +106,56 @@ Offset|"틱" 단위의 타임스탬프에 대한 시간 오프셋입니다. 동�
 이벤트|각 이벤트 조각에는 해당 기간 내에 검색된 동작이 포함됩니다.
 형식|현재 버전에서 이 값은 일반 동작에 대해 항상 '2'입니다. 이 레이블은 향후 버전에서 동영상 API에 동작 분류에 대한 유연성을 제공합니다.
 RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다. 이 레이블은 향후 버전에서 동영상 API에 다양한 영역에서 동작을 찾는 유연성을 제공합니다.
-영역|동작에 관심이 있는 동영상 영역을 참조합니다. 동영상 API의 현재 버전에서는 영역을 지정할 수 없는 대신 동영상의 전체 화면이 동작 검색 영역이 됩니다. <br/>-ID는 영역을 나타냅니다. 이 버전에는 ID 0 하나밖에 없습니다. <br/>-사각형은 동작에 관심이 있는 영역의 모양을 나타냅니다. 이 버전에서는 항상 사각형입니다. <br/>-영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서 X, Y, 너비 및 높이는 항상 0, 0 및 1, 1로 고정됩니다. <br/>-조각: 메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. 이벤트가 없는 조각은 해당 시작 시간 및 기간 동안에 검색된 동작이 없음을 의미합니다.
+영역|동작에 관심이 있는 비디오의 영역을 참조하세요. <br/><br/>-"id"는 영역을 나타냅니다. 이 버전에는 ID 0 하나밖에 없습니다. <br/>-"type"은 동작에 관심이 있는 영역의 모양을 나타냅니다. 현재, "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/>
+조각|메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. 이벤트가 없는 조각은 해당 시작 시간 및 기간 동안에 검색된 동작이 없음을 의미합니다.
 대괄호|각 대괄호는 이벤트에서 하나의 간격을 나타냅니다. 해당 간격에 대한 빈 대괄호는 검색된 동작이 없음을 의미합니다.
- 
+위치|이벤트 아래의 이 새 항목은 동작이 발생한 위치를 나열합니다. 검색 영역보다 더 구체적입니다.
 
-##작업 구성(기본 설정)
-
-**Azure 미디어 동작 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 현재 Azure 미디어 동작 탐지기 구성 기본 설정에서 옵션을 설정할 수 없습니다. 다음은 제공해야 하는 최소 구성 기본 설정입니다.
-
-	{"version":"1.0"}
-
-##샘플 동영상 및 동작 탐지기 출력
-
-###실제 동작 예제
-
-[실제 동작 예제](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fd54876c6-89a5-41de-b1f4-f45b6e10a94f%2FGarage.ism%2Fmanifest)
-
-###JSON 출력
-
-	 {
-	 "version": "1.0",
-	 "timescale": 60000,
-	 "offset": 0,
-	 "framerate": 30,
-	 "width": 1920,
-	 "height": 1080,
-	 "regions": [
-	   {
-	     "id": 0,
-	     "type": "rectangle",
-	     "x": 0,
-	     "y": 0,
-	     "width": 1,
-	     "height": 1
-	   }
-	 ],
-	 "fragments": [
-	   {
-	     "start": 0,
-	     "duration": 68510
-	   },
-	   {
-	     "start": 68510,
-	     "duration": 969999,
-	     "interval": 969999,
-	     "events": [
-	       [
-	         {
-	           "type": 2,
-	           "regionId": 0
-	         }
-	       ]
-	     ]
-	   },
-	   {
-	     "start": 1038509,
-	     "duration": 41489
-	   }
-	 ]
-	}
-
-###가양성 예제
-
-[가양성 예제(조명 변화):](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Ffdc6656b-1c10-4f3f-aa7c-07ba073c1615%2FLivingRoomLight.ism%2Fmanifest&tech=flash)
-
-###JSON 출력
+다음은 JSON 출력 예입니다.
 
 	{
-	    "version": "1.0",
-	    "timescale": 30000,
-	    "offset": 0,
-	    "framerate": 29.97,
-	    "width": 1920,
-	    "height": 1080,
-	    "regions": [
+	  "version": 2,
+	  "timescale": 23976,
+	  "offset": 0,
+	  "framerate": 24,
+	  "width": 1280,
+	  "height": 720,
+	  "regions": [
 	    {
-	        "id": 0,
-	        "type": "rectangle",
-	        "x": 0,
-	        "y": 0,
-	        "width": 1,
-	        "height": 1
+	      "id": 0,
+	      "type": "polygon",
+	      "points": [{'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}]
 	    }
-	    ],
-	    "fragments": [
+	  ],
+	  "fragments": [
 	    {
-	        "start": 0,
-	        "duration": 320320
-	    }
-	    ]
-	}
-
-
+	      "start": 0,
+	      "duration": 226765
+	    },
+	    {
+	      "start": 226765,
+	      "duration": 47952,
+	      "interval": 999,
+	      "events": [
+	        [
+	          {
+	            "type": 2,
+	            "typeName": "motion",
+	            "locations": [
+	              {
+	                "x": 0.004184,
+	                "y": 0.007463,
+	                "width": 0.991667,
+	                "height": 0.985185
+	              }
+	            ],
+	            "regionId": 0
+	          }
+	        ],
+	
+	…
 ##제한 사항
 
 - 지원되는 입력 동영상 형식에는 MP4, MOV 및 WMV가 있습니다.
@@ -168,7 +171,31 @@ RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다
 1. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 동영상 동작 검색 작업을 만듭니다.
 					
 		{
-		    "version": "1.0"
+		  'Version': '1.0',
+		  'Options': {
+		    'SensitivityLevel': 'medium',
+		    'FrameSamplingValue': 1,
+		    'DetectLightChange': 'False',
+		    "MergeTimeThreshold":
+		    '00:00:02',
+		    'DetectionZones': [
+		      [
+		        {'x': 0, 'y': 0},
+		        {'x': 0.5, 'y': 0},
+		        {'x': 0, 'y': 1}
+		       ],
+		      [
+		        {'x': 0.3, 'y': 0.3},
+		        {'x': 0.55, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.55},
+		        {'x': 0.8, 'y': 0.8},
+		        {'x': 0.55, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.55}
+		      ]
+		    ]
+		  }
 		}
 
 1. 출력 JSON 파일을 다운로드합니다.
@@ -346,9 +373,10 @@ RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##관련 링크
+[Azure 미디어 서비스 동작 탐지기 블로그](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

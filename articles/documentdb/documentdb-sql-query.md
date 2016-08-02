@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB의 SQL 쿼리 및 SQL 구문
@@ -170,7 +170,7 @@ DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 따라서 DocumentDB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
 
--	스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다.
+-	스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다. 
 
 -	효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
 
@@ -864,8 +864,8 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	]
 
 
-###* 연산자
-특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
+###* 연산자 
+특수 연산자 (*) 는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
@@ -1052,7 +1052,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 ### 조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
-언어가 지원하는 구문은 <from\_source1> JOIN <from\_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
+언어가 지원하는 구문은 <from\_source1> JOIN <from\_source2> JOIN ... JOIN <from\_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
 
 다음 예제는 JOIN 절의 작동 방식을 보여 줍니다. 다음 예제에서는 소스의 각 문서와 빈 집합의 교차곱이 비어 있으므로 결과가 비어 있습니다.
 
@@ -1376,7 +1376,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>공간 함수</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID 및 ST_ISVALIDDETAILED</td>
 </tr>
-</table>
+</table>  
 
 현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다.
 
@@ -1482,7 +1482,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>지정된 식에서 입력 식의 탄젠트를 반환합니다.</td>
 </tr>
 
-</table>
+</table> 
 
 예를 들어 이제 다음과 같은 쿼리를 실행할 수 있습니다.
 
@@ -2378,4 +2378,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

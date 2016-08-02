@@ -1,5 +1,5 @@
 <properties
-	pageTitle="다른 Azure 제안으로 전환 | Microsoft Azure"
+	pageTitle="Azure 구독을 다른 제안으로 전환 | Microsoft Azure"
 	description="Azure 구독자가 다른 Azure 제안으로 전환할 수는 방법을 설명합니다."
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# 다른 Azure 제안으로 전환
+# Azure 구독을 다른 제안으로 전환
 
 서비스 가동 중지 시간 없이 기존 구독을 더 유리한 제안으로 전환할 수 있습니다. 다음과 같은 이유 중 하나로 제안을 전환할 수 있습니다.
 
@@ -75,4 +75,4 @@
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [12개월 선불 약정](https://azure.microsoft.com/offers/ms-azr-0026p/)으로
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [Visual Studio 구독자용 월별 Azure 크레딧 제안](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)으로
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

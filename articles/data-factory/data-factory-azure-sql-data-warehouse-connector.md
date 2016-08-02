@@ -464,7 +464,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer | 아니요(기본값: 10000) |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | 정수(행 수) | 아니요(기본값: 10000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: “00:30:00”(30분). | 아니요 | 
 | sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 쿼리 문입니다. | 아니요 |
 | allowPolyBase | BULKINSERT 메커니즘 대신 (해당하는 경우)PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드할지 여부를 나타냅니다. <br/><br/>이 때 원본 데이터 집합인 **TextFormat**으로 설정된 **서식**을 가진 **Azure Blob** 데이터 집합이 지원되고 다른 원본 유형에 대한 지원도 곧 제공됩니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. | True <br/>False(기본값) | 아니요 |  
@@ -496,7 +496,7 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}
@@ -654,4 +654,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

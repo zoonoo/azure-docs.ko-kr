@@ -18,7 +18,7 @@
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침 미리 보기
 
-오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 통해 DocumentDB와 통신할 수 있습니다. MongoDB에 대한 프로토콜 지원에서는 MongoDB 클라이언트 드라이버가 MongoDB 2.6 이상 서버 끝점과 통신하고 있다고 가정합니다. DocumentDB는 MongoDB [네트워크 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) 버전 2.6에 연결하여 지원합니다(프로토콜 버전 3.2는 거의 완벽하게 지원되지만 버전 3.2 MongoDB 셸 세션과 같은 특정 클라이언트 환경은 "'레거시' 모드로 저하되고" 있음을 나타낼 수 있습니다).
+오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 통해 Azure DocumentDB와 통신할 수 있습니다. MongoDB에 대한 프로토콜 지원에서는 MongoDB 클라이언트 드라이버가 MongoDB 2.6 이상 서버 끝점과 통신하고 있다고 가정합니다. DocumentDB는 MongoDB [네트워크 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) 버전 2.6에 연결하여 지원합니다(프로토콜 버전 3.2는 거의 완벽하게 지원되지만 버전 3.2 MongoDB 셸 세션과 같은 특정 클라이언트 환경은 "'레거시' 모드로 저하되고" 있음을 나타낼 수 있습니다).
 
 DocumentDB는 핵심 MongoDB API 함수가 데이터베이스를 쿼리할 뿐만 아니라 데이터를 만들고 읽고 업데이트하고 삭제(CRUD)할 수 있습니다. 공통 플랫폼, 프레임워크, 도구 및 응용 프로그램 패턴의 요구에 따라 구현된 기능의 우선 순위를 지정했습니다.
 
@@ -100,4 +100,4 @@ QueryPlan 캐시| | |-all-
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

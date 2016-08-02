@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # 온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
@@ -44,9 +44,10 @@ AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.
 
 다음 비디오는 AD FS에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
->[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [동기화에 대한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
+
 동기화에 대한 Azure AD Connect Health는 온-프레미스 Active Directory와 Azure Active Directory 간에 발생하는 동기화에 대한 정보를 모니터링하고 제공합니다. 동기화에 대한 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
 
 - Azure AD Connect 서버 즉, 동기화 엔진이 정상이 아닐 때 알아야 하는 경고 모니터링
@@ -58,37 +59,52 @@ AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.
 
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
+## [AD DS용 Azure AD Connect Health(미리 보기)](active-directory-aadconnect-health-adds.md)
+
+AD DS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에 설치된 도메인 컨트롤러에 대한 모니터링을 제공합니다. 쉽고 저렴한 비용 상태 에이전트 설치를 사용하면 클라우드에서 직접 온-프레미스 AD DS 환경을 모니터링할 수 있습니다. AD DS용 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
+
+- 도메인 컨트롤러가 중요한 경고에 대한 전자 메일 알림과 함께 비정상인 시기를 감지하는 경고 모니터링
+- 도메인 컨트롤러의 상태 및 작동 상태에 대한 빠른 보기를 제공하는 도메인 컨트롤러 대시보드
+- 오류가 감지되면 문제 해결 가이드에 대한 링크와 함께 최신 복제 정보를 사용하는 복제 상태 대시보드
+- 문제 해결 및 모니터링을 위해 필요한 인기 있는 성능 카운터의 성능 데이터 그래프에 대한 빠른 액세스
+
+다음 비디오는 AD DS용 Azure AD Connect Health의 개요를 제공합니다.
+
+>[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
 ## Azure AD Connect Health 시작
 Azure AD Connect Health를 시작하기가 매우 쉽습니다. 다음 단계를 따르세요.
 
-1. [Azure AD Premium 다운로드](active-directory-get-started-premium.md)하거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
+1. [Azure AD Premium을 다운로드](active-directory-get-started-premium.md)하거나 [평가판을 시작](https://azure.microsoft.com/trial/get-started-active-directory/)합니다.
 
 2. ID 서버에 [Azure AD Connect Health 에이전트를 다운로드하고 설치합니다](#download-and-install-azure-ad-connect-health-agent).
 
-3. [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)에서 Azure AD Connect Health 대시보드를 확인합니다.
+3. [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)에서 Azure AD Connect Health 대시보드를 봅니다.
 
 >[AZURE.NOTE]Azure AD Connect Health 대시보드에 데이터를 표시하려면 대상 서버에 Azure AD Connect Health Agent를 설치해야 합니다.
 
 ## Azure AD Connect Health 에이전트 다운로드 및 설치
 
-- Azure AD Connect Health [요구 사항](active-directory-aadconnect-health-agent-install.md#Requirements)을 참조하세요.
+- Azure AD Connect Health에 대한 [요구 사항](active-directory-aadconnect-health-agent-install.md#Requirements)을 참조하세요.
 
-- AD FS에 대한 Azure AD Connect Health를 사용하여 시작하려면 [AD FS에 대한 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)를 사용하여 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- AD FS용 Azure AD Connect Health를 사용하기 시작하려면 [AD FS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)에서 에이전트의 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-- 동기화에 대한 Azure AD Connect Health를 사용하여 시작하려면 [Azure AD Connect 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상). Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
+- 동기화를 위한 Azure AD Connect Health를 사용하기 시작하려면 [Azure AD Connect 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상). Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
 
+- AD DS용 Azure AD Connect Health를 사용하기 시작하려면 [AD DS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=820540)에서 에이전트의 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 ## Azure AD Connect Health 포털
 Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 사용 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth를 클릭하면 Azure AD Connect Health의 기본 블레이드로 이동합니다. 블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에서 빠른 시작, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 스크린샷 아래에는 이들 각각에 대해 간략한 설명이 있습니다. 에이전트를 배포한 후에 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스에 대해 자동으로 식별됩니다.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal2.png)
+![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal4.png)
 
 - **빠른 시작** – 이 항목을 선택하면 빠른 시작 블레이드가 열립니다. 여기에서 도구 가져오기를 선택하여 Azure AD Connect Health Agent를 다운로드하고, 설명서에 액세스하고, 피드백을 제공할 수 있습니다.
 
 - **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다. [여기](active-directory-aadconnect-health-adfs.md)에서 기능에 대해 자세히 알아보세요.
 
 - **Azure Active Directory Connect(동기화)** – Azure AD Connect Health가 현재 모니터링하는 Azure AD Connect 서버를 나타냅니다. 항목을 선택하면 Azure AD Connect 서버에 대한 정보와 함께 블레이드가 열립니다. [여기](active-directory-aadconnect-health-sync.md)에서 기능에 대해 자세히 알아보세요.
+ 
+- **Active Directory 도메인 서비스** – Azure AD Connect Health가 현재 모니터링하는 모든 AD FS 포리스트를 나타냅니다. 포리스트 중 하나를 선택하여 포리스트에 대한 정보가 포함된 블레이드가 열립니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [여기](active-directory-aadconnect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
 
 - **구성** – 여기에서는 다음 옵션을 켜거나 끌 수 있습니다.
 
@@ -103,7 +119,8 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
+* [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

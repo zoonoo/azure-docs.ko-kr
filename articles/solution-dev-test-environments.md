@@ -42,9 +42,9 @@ Azure 리소스 관리자 템플릿을 사용하여 어느 정도 경험을 빨�
 Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이용하는 모든 Azure 리소스를 정의합니다. Azure Preview 포털에서 직접 배포하거나 사용자의 응용 프로그램 코드를 사용하여 소스 제어 시스템에서 다운로드, 수정 및 저장할 수 있는 여러 템플릿이 이미 있습니다. 아래의 단계를 완료하여 기존 템플릿을 다운로드합니다.
 
 1. [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/) GitHub 리포지토리에서 기존 템플릿을 탐색합니다. 목록에 "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)" 폴더가 나타납니다. 많은 사용자 지정 응용 프로그램은 웹 응용 프로그램 및 SQL 데이터베이스를 포함하고 있으므로, 사용자가 템플릿 사용 방법을 이해할 수 있도록 이 템플릿을 이 문서의 나머지 부분에서 예제로 사용합니다. 이 템플릿으로 만들고 구성하는 모든 것을 완전하게 설명하는 것은 이 기사의 범위를 벗어나지만, 사용자의 조직에서 이 템플릿을 사용하여 실제 환경을 만들려는 경우 [SQL 데이터베이스를 사용하여 웹 앱 프로비전](app-service-web/app-service-web-arm-with-sql-database-provision.md) 문서를 읽고 완전히 이해하는 것이 좋습니다.
-2. 201-web-app-sql-database 폴더에서 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) 파일을 클릭하여 내용을 봅니다. 이 파일은 Azure 리소스 관리자 템플릿 파일입니다. 
-3. 보기 모드에서 "[원시](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)" 단추를 클릭합니다. 
-4. 마우스로 이 파일의 내용을 선택하고 "TestApp1-Template.json"이라는 이름의 파일로 컴퓨터에 저장합니다. 
+2. 201-web-app-sql-database 폴더에서 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) 파일을 클릭하여 내용을 봅니다. 이 파일은 Azure 리소스 관리자 템플릿 파일입니다.
+3. 보기 모드에서 "[원시](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)" 단추를 클릭합니다.
+4. 마우스로 이 파일의 내용을 선택하고 "TestApp1-Template.json"이라는 이름의 파일로 컴퓨터에 저장합니다.
 5. 템플릿 내용을 검토하여 다음을 확인합니다.
  - **리소스** 섹션: 이 섹션은 해당 템플릿에서 만든 Azure 리소스의 유형을 정의합니다. 다른 리소스 유형 중에서도 이 템플릿은 [Azure 웹 앱](app-service-web/app-service-web-overview.md) 및 [Azure SQL 데이터베이스](sql-database/sql-database-technical-overview.md) 리소스를 만듭니다. 가상 컴퓨터에서 웹 및 SQL Server를 실행 및 관리하려는 경우 "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)" 또는 "[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)" 템플릿을 사용할 수 있지만 이 글의 지침은 [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) 템플릿에 기초하고 있습니다.
  - **매개 변수** 섹션: 이 섹션에서는 각 리소스를 구성할 수 있는 매개 변수를 정의합니다. 서식 파일에 지정한 일부 매개 변수는 "defaultValue" 속성을 가지고 있는 반면, 다른 매개 변수는 이 속성을 가지고 있지 않습니다. 템플릿 사용하여 Azure 리소스를 배포할 때는 템플릿에서 지정한 defaultValue 속성을 갖고 있지 않은 모든 매개 변수에 값을 제공해야 합니다. DefaultValue 속성을 가지고 있는 매개 변수에 대해 값을 제공하지 않으면 템플릿의 defaultValue 매개 변수에 대해 지정된 값이 사용 됩니다.
@@ -55,14 +55,14 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
 각 환경에서 *동일한* Azure 리소스를 만들고자 할 수도 있고, 각 환경에서 리소스를 서로 *다르게* 구성하고자 할 수도 있습니다. 이 리소스는 매개 변수 파일 들어오는 장소입니다. 다음 단계를 통해 각 환경마다 고유 값을 포함하는 매개 변수 파일을 만듭니다.
 
-1. 201-web-app-sql-database 폴더에서 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json) 파일의 내용을 봅니다. 이 파일은 이전 섹션에서 저장한 템플릿 파일에 대한 매개 변수 파일입니다. 
-2. 보기 모드에서 "[원시](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.parameters.json)" 단추를 클릭합니다. 
+1. 201-web-app-sql-database 폴더에서 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json) 파일의 내용을 봅니다. 이 파일은 이전 섹션에서 저장한 템플릿 파일에 대한 매개 변수 파일입니다.
+2. 보기 모드에서 "[원시](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.parameters.json)" 단추를 클릭합니다.
 3. 마우스로 이 파일의 내용을 선택하고 다음과 같은 이름으로 컴퓨터의 서로 다른 파일 3개에 저장합니다.
  - TestApp1-Parameters-Development.json
  - TestApp1-Parameters-Test.json
  - TestApp1-Parameters-Pre-Production.json
 
-3. 텍스트나 JSON 편집기를 사용하여 3단계에서 만든 개발 환경 매개 변수 파일을 편집합니다. 아래 **매개 변수**의 오른쪽에 열거된 *값*으로 파일의 매개 변수 값 오른쪽의 값을 대체합니다. 
+3. 텍스트나 JSON 편집기를 사용하여 3단계에서 만든 개발 환경 매개 변수 파일을 편집합니다. 아래 **매개 변수**의 오른쪽에 열거된 *값*으로 파일의 매개 변수 값 오른쪽의 값을 대체합니다.
  - **siteName**: *TestApp1DevApp*
  - **hostingPlanName**: *TestApp1DevPlan*
  - **siteLocation**: *Central US*
@@ -75,9 +75,9 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 4. 텍스트나 JSON 편집기를 사용하여 3단계에서 만든 테스트 환경 매개 변수 파일을 편집합니다. 아래 **매개 변수**의 오른쪽에 열거된 *값*으로 파일의 매개 변수 값 오른쪽의 값을 대체합니다.
  - **siteName**: *TestApp1TestApp*
  - **hostingPlanName**: *TestApp1TestPla*n
- - **siteLocation**: *Central US*
+ - **siteLocation**: *미국 중부*
  - **serverName**: *testapp1testsrv*
- - **serverLocation**: *Central US*
+ - **serverLocation**: *미국 중부*
  - **administratorLogin**: *testapp1Admin*
  - **administratorLoginPassword**: *해당 암호로 대체*
  - **databaseName**: *testapp1testdb*
@@ -133,7 +133,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 환경 만들기
-모든 Azure 리소스는 [Azure 리소스 그룹](./azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](./active-directory/role-based-access-built-in-roles.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [지역](https://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 지역에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 지역을 선택합니다.
+모든 Azure 리소스는 [Azure 리소스 그룹](resource-group-overview.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](./active-directory/role-based-access-built-in-roles.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [지역](https://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 지역에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 지역을 선택합니다.
 
 다음 방법 중 하나를 사용하여 각 환경에 대한 리소스 그룹을 만듭니다. 모든 방법이 정확히 같은 결과를 달성합니다.
 
@@ -191,7 +191,7 @@ Windows, OS X 또는 Linux 컴퓨터에 CLI를 [설치했으며](xplat-cli-insta
 
 1. [Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md)(회사 또는 학교 계정)로 [Azure 포털](https://portal.azure.com)에 로그인합니다. 아래 그림처럼 새로 만들기-->관리-->리소스 그룹을 클릭하고 리소스 그룹 이름 상자에 "TestApp1-Development"를 입력한 다음 구독을 선택하고 리소스 그룹 위치 상자에서 "Central US"를 선택합니다. ![포털](./media/solution-dev-test-environments/rgcreate.png)
 2. 만들기 단추를 클릭하여 리소스 그룹을 만듭니다.
-3. 아래와 같이 찾아보기를 클릭하고 목록에서 리소스 그룹까지 아래쪽으로 스크롤하여 리소스 그룹을 클릭합니다. ![포털](./media/solution-dev-test-environments/rgbrowse.png) 
+3. 아래와 같이 찾아보기를 클릭하고 목록에서 리소스 그룹까지 아래쪽으로 스크롤하여 리소스 그룹을 클릭합니다. ![포털](./media/solution-dev-test-environments/rgbrowse.png)
 4. 리소스 그룹을 클릭하면 새 리소스 그룹이 리소스 그룹 블레이드에 표시됩니다. ![포털](./media/solution-dev-test-environments/rgview.png)
 5. 위의 TestApp1-Development 리소스 그룹과 동일한 방법으로 TestApp1-Test 및 TestApp1-Pre-Production 리소스 그룹을 만듭니다.
 
@@ -297,14 +297,14 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 [path]를 이전 
 ## 환경 유지 관리
 개발 과정 전체에 걸쳐 서로 다른 환경에서 Azure 리소스의 구성이 의도적으로 또는 실수로 일관성 없이 변경될 수 있습니다. 이 때문에 응용 프로그램 개발 주기에 불필요한 문제 해결을 야기할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)을 열어 환경을 변경합니다. 
-2. 위의 단계를 완료하는 데 사용한 것과 동일한 계정을 사용하여 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)을 열어 환경을 변경합니다.
+2. 위의 단계를 완료하는 데 사용한 것과 동일한 계정을 사용하여 로그인합니다.
 3. 아래 그림과 같이 찾아보기-->리소스 그룹을 클릭합니다(리소스 그룹을 보려면 아래로 스크롤해야 할 수 있음).![포털](./media/solution-dev-test-environments/rgbrowse.png)
-4. 위 그림에서 리소스 그룹을 클릭하면 리소스 그룹 블레이드와 앞의 단계에서 만든 3개의 리소스 그룹이 아래 그림처럼 나타납니다. TestApp1-Development 리소스 그룹을 클릭하면 이전 단계에서 완료한 TestApp1-Development 리소스 그룹 배포에서 템플릿으로 만든 리소스를 나열하는 블레이드가 나타납니다. TestApp1-Development 리소스 그룹 블레이드에서 TestApp1DevApp을 클릭한 다음 TestApp1DevApp 웹 앱 블레이드에서 삭제를 클릭하여 TestApp1DevApp 웹 앱 리소스를 삭제합니다. ![포털](./media/solution-dev-test-environments/portal2.png)
-5. 리소스를 삭제할지 여부에 관하여 묻는 포털 프롬프트가 표시될 때 "예"를 클릭합니다. TestApp1-Development 리소스 그룹 블레이드를 닫았다가 다시 열면 방금 삭제한 웹 앱이 이제 표시되지 않습니다. 리소스 그룹의 내용은 이제 예상과 다릅니다. 여러 리소스 그룹에서 여러 리소스를 삭제하거나 심지어 일부 리소스에 대한 구성 설정을 변경하여 좀더 실험해 볼 수 있습니다. Azure 포털을 사용하여 리소스 그룹에서 리소스를 삭제하는 대신 CLI에서 [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) 명령 또는 "azure resource delete" 명령을 사용하여 같은 작업을 달성할 수 있습니다.
+4. 위 그림에서 리소스 그룹을 클릭하면 리소스 그룹 블레이드와 앞의 단계에서 만든 3개의 리소스 그룹이 아래 그림처럼 나타납니다. TestApp1-Development 리소스 그룹을 클릭하면 이전 단계에서 완료한 TestApp1-Development 리소스 그룹 배포에서 템플릿으로 만든 리소스를 나열하는 블레이드가 나타납니다. TestApp1-Development 리소스 그룹 블레이드에서 TestApp1DevApp을 클릭한 다음 TestApp1DevApp 웹앱 블레이드에서 삭제를 클릭하여 TestApp1DevApp 웹앱 리소스를 삭제합니다. ![포털](./media/solution-dev-test-environments/portal2.png)
+5. 리소스를 삭제할지 여부에 관하여 묻는 포털 프롬프트가 표시될 때 "예"를 클릭합니다. TestApp1-Development 리소스 그룹 블레이드를 닫았다가 다시 열면 방금 삭제한 웹 앱이 이제 표시되지 않습니다. 리소스 그룹의 내용은 이제 예상과 다릅니다. 여러 리소스 그룹에서 여러 리소스를 삭제하거나 심지어 일부 리소스에 대한 구성 설정을 변경하여 좀더 실험해 볼 수 있습니다. Azure 포털을 사용하여 리소스 그룹에서 리소스를 삭제하는 대신 CLI에서 [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) 명령 또는 "azure resource delete" 명령을 사용하여 같은 태스크를 달성할 수 있습니다.
 6. 리소스 그룹에서 있게 될 모든 리소스와 구성을 가져오려면 적용되는 상태로 돌아가 [환경에 리소스 배포](#deploy-resources-to-environments)에서 사용한 것과 동일한 명령을 사용하여(단 "Deployment1"을 "Deployment2"로 대체) 리소스 그룹에 환경을 다시 배포합니다.
 7.  4단계 그림의 TestApp1-Development 블레이드 요약 섹션에서 보듯이, 이전 단계를 통해 포털에서 삭제한 웹 앱이 다시 표시됩니다. 다른 리소스를 삭제했어도 마찬가지입니다. 리소스의 구성을 변경한 경우 해당 값도 매개 변수 파일의 값으로 복원된 것을 확인할 수 있습니다. Azure 리소스 관리자 템플릿을 사용하여 환경을 배포하는 방법의 이점 중 하나는 환경을 언제든지 알려진 상태로 되돌려 쉽게 다시 배포할 수 있다는 것입니다.
-8. 아래 그림에서 "마지막 배포" 아래에 있는 텍스트를 클릭하면 리소스 그룹에 대한 배포 기록을 보여 주는 블레이드가 표시됩니다. 첫 번째 배포에 이름 "Deployment1"을 사용하고 두 번째 배포에 "Deployment2"를 사용했으므로 항목이 두 개입니다. 배포를 클릭하면 각 배포에 대한 결과 보여주는 블레이드가 표시됩니다.![포털](./media/solution-dev-test-environments/portal3.png)
+8. 아래 그림에서 "마지막 배포" 아래에 있는 텍스트를 클릭하면 리소스 그룹에 대한 배포 기록을 보여 주는 블레이드가 표시됩니다. 첫 번째 배포에 이름 "Deployment1"을 사용하고 두 번째 배포에 "Deployment2"를 사용했으므로 항목이 두 개입니다. 배포를 클릭하면 각 배포에 대한 결과를 보여 주는 블레이드가 표시됩니다.![포털](./media/solution-dev-test-environments/portal3.png)
 
 
 
@@ -343,7 +343,7 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 아래 명령을 
 
 ### Azure 포털
 
-1. Azure 포털에서 이전 단계에서와 같이 방법으로 리소스 그룹을 찾습니다. 
+1. Azure 포털에서 이전 단계에서와 같이 방법으로 리소스 그룹을 찾습니다.
 2. TestApp1-Development 리소스 그룹을 선택한 다음 TestApp1-Development 리소스 그룹 블레이드에서 삭제를 클릭합니다. 새 블레이드가 표시됩니다. 리소스 그룹 이름을 입력하고 삭제 단추를 클릭합니다. ![포털](./media/solution-dev-test-environments/rgdelete.png)
 3. TestApp1-Development 리소스 그룹과 동일한 방법으로 TestApp1-Test 및 TestApp1-Pre-Production 리소스 그룹을 삭제합니다.
 
@@ -362,4 +362,4 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 아래 명령을 
 - 각 환경에 대한 리소스 그룹 및/또는 개별 리소스에 [태그를 할당](resource-group-using-tags.md)합니다. 리소스 그룹에 "환경" 태그를 추가하고 해당 태그의 값을 사용자의 환경 이름과 일치하도록 설정합니다. 태그는 청구 또는 관리에 대한 리소스를 구성해야 하는 경우 특히 유용할 수 있습니다.
 - [Azure 포털](https://portal.azure.com)의 리소스 그룹 리소스에 대한 경고 및 청구를 모니터링합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

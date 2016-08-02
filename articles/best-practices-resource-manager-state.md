@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿에서 상태 공유
@@ -426,4 +426,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

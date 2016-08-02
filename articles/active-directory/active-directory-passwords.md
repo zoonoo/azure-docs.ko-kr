@@ -1,26 +1,26 @@
-<properties 
+<properties
 	pageTitle="Azure AD 암호 재설정 | Microsoft Azure"
-	description="암호 재설정, 변경, 암호 관리 보고 및 로컬 온-프레미스 Active Directory에 쓰기 저장을 포함한 Azure AD의 암호 관리 기능 설명." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+	description="암호 재설정, 변경, 암호 관리 보고 및 로컬 온-프레미스 Active Directory에 쓰기 저장을 포함한 Azure AD의 암호 관리 기능 설명."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
-	
+
 
 # 사용자와 관리자에 대한 Azure AD 암호 재설정
 
   >[AZURE.IMPORTANT] Azure 또는 O365 암호를 재설정하려고 하나요? 그렇다면 [이 섹션으로 건너뛰십시오](#users-how-to-manage-your-own-password).
-  
+
 셀프 서비스는 오랫동안 비용 절감 및 노동 절감 수단으로 전세계 IT 부서에서의 주요 목표가 되어 왔습니다. 실제로, 시장은 클라우드 또는 온-프레미스에서 온-프레미스 그룹, 암호 또는 사용자 프로필을 관리할 수 있는 제품으로 넘쳐납니다. Azure AD는 사용하기 가장 쉬운 방법 및 오늘날 가능한 가장 강력한 셀프서비스 기능을 제공하여 이들 제품과 차별을 두었습니다.
 
 **Azure AD 암호 관리**는 정의한 보안 정책을 준수하는 동안 언제, 언제 어디에서든 모든 장치에서 암호를 관리할 수 있는 기능들입니다.
@@ -63,7 +63,7 @@ Azure AD 암호 재설정을 사용하도록 설정하려는 관리자이거나 
 - **셀프 서비스 암호 변경** 기능을 사용하여 최종 사용자나 관리자는 관리자에게 전화를 하거나 지원 센터에 문의하지 않고 만료되거나 만료되지 않은 암호를 변경할 수 있습니다.
 - **셀프 서비스 암호 재설정** 기능을 사용하여 최종 사용자나 관리자는 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 자동으로 암호를 재설정할 수 있습니다. 셀프 서비스 암호 재설정 기능을 사용하려면 Azure AD Premium 또는 Basic이 필요합니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요.
 - **관리자가 시작한 암호 재설정** 기능을 사용하여 관리자는 [Azure 관리 포털](https://manage.windowsazure.com) 내에서 최종 사용자나 다른 관리자의 암호를 재설정할 수 있습니다.
-- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다. 
+- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다.
 - **암호 쓰기 저장** 기능을 사용하여 클라우드에서 온-프레미스 암호를 관리할 수 있으므로 위의 모든 시나리오에서 수행되거나 페더레이션 및 암호가 동기화된 사용자가 대신 수행할 수 있습니다. 암호 쓰기 저장 기능을 사용하려면 Azure AD Premium이 필요합니다. 자세한 내용은 Azure AD Premium 시작을 참조하세요.
 
 ### Azure AD 암호 재설정을 사용하는 이유
@@ -242,7 +242,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -252,4 +252,4 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 * [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

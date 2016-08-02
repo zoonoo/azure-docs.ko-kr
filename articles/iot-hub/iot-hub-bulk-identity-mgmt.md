@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # IoT Hub 장치 ID의 대량 관리
@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## 다음 단계
 
-이 문서에서는 IoT hub의 장치 identity 레지스트리에 대한 대량 작업을 수행하는 방법을 알아보았습니다. IoT Hub 기능 및 다른 IoT 시나리오는 다음 문서에서 계속해서 탐색할 수 있습니다.
+이 문서에서는 IoT hub의 장치 identity 레지스트리에 대한 대량 작업을 수행하는 방법을 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-- [프로그램 방식으로 IoT Hub 만들기](iot-hub-rm-template.md)
-- [IoT Hub 사용 현황 메트릭](iot-hub-metrics.md)
-- [IoT Hub 작업 모니터링](iot-hub-operations-monitoring.md)
+- [사용 현황 메트릭][lnk-metrics]
+- [작업 모니터링][lnk-monitor]
+- [IoT Hub에 대한 액세스 관리][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0720_2016-->

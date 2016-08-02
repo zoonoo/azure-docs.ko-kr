@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/14/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기
@@ -35,7 +35,7 @@
 
 ##필수 조건
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started)을 참조하세요.
 
 - 이 자습서에서는 위에서 언급한 활성 Azure 계정 외에도 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797) 최신 버전이 필요합니다.
 - Firebase Cloud Messaging에 Android 2.3 이상이 필요합니다.
@@ -158,7 +158,7 @@
 		public class NotificationSettings {
 		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
-		    public static String HubListenConnectionString = "<Your default listen connection string>";
+		    public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
 		}
 
 2. 위의 단계에 따라 `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이것으로 인스턴스 ID 수신기 서비스가 구현될 것입니다.
@@ -230,7 +230,7 @@
 		                regID = hub.register(FCM_token).getRegistrationId();
 		
 		                // If you want to use tags...
-		                // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/ko-KR/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 		
 		                resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -249,7 +249,7 @@
 		                regID = hub.register(FCM_token).getRegistrationId();
 		
 		                // If you want to use tags...
-		                // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // Refer to : https://azure.microsoft.com/ko-KR/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 		
 		                resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -462,6 +462,8 @@
 
 ## (선택 사항) 앱에서 바로 푸시 알림 보내기
 
+>[AZURE.IMPORTANT] 클라이언트 앱에서 알림을 보내는 이 예제는 학습 목적으로만 제공됩니다. 이를 위해서 `DefaultFullSharedAccessSignature`이 클라이언트 응용 프로그램에 표시되어야 하므로 사용자가 클라이언트에 무단으로 알림을 보내는 액세스 권한을 가질 수 있는 위험에 알림 허브가 노출됩니다.
+
 일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 응용 프로그램에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
 1. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
@@ -494,7 +496,7 @@
 
 	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 블레이드에서 **액세스 정책**을 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
 
-		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
 
 4. `MainActivity.java` 파일에서 `MainActivity` 클래스 위에 다음 `import` 문을 추가합니다.
 
@@ -646,7 +648,7 @@
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/ko-KR/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -712,7 +714,7 @@
 
 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
 
-사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기] 자습서를 참조하세요.
+사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기] 자습서를 확인하세요.
 
 알림 허브에 대한 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
 
@@ -725,10 +727,10 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[알림 허브 지침]: notification-hubs-push-notification-overview.md
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Azure 포털]: https://portal.azure.com
 [액세스 정책]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

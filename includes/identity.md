@@ -102,7 +102,7 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 프로세스는 사용자가 브라우저에서 응용 프로그램에 액세스를 시도하면서 시작됩니다. 응용 프로그램에서는 사용자가 선택하고 응용 프로그램이 신뢰하는 IdP로 사용자를 리디렉션합니다. 사용자가 해당 IdP에서 사용자 이름과 암호를 입력하여 사용자 본인을 인증(1단계)하고, IdP는 사용자 정보를 포함하는 토큰을 반환(2단계)합니다.
 
-그림과 같이 액세스 제어는 Google, Yahoo, Facebook, Microsoft(이전 Windows Live ID), 기타 OpenID 공급자 등 다양한 클라우드 기반 IdP를 지원합니다. 또한 Azure Active Directory와 AD FS와 페더레이션하여 Windows Server Active Directory를 사용하여 생성된 ID를 지원합니다. 목표는 클라우드나 온-프레미스에 상관없이 IdP가 발행하며 오늘날 일반적으로 사용되는 ID를 대부분 지원하는 것입니다.
+그림과 같이 액세스 제어는 Google, Yahoo, Facebook, Microsoft(이전 Windows Live ID), 기타 OpenID 공급자 등 다양한 클라우드 기반 IdP를 지원합니다. 또한 Azure Active Directory를 사용하고 AD FS, Windows Server Active Directory와 페더레이션하여 생성된 ID를 지원합니다. 목표는 클라우드나 온-프레미스에 상관없이 IdP가 발행하며 오늘날 일반적으로 사용되는 ID를 대부분 지원하는 것입니다.
 
 사용자가 선택한 IdP 토큰이 브라우저에 확인되면, 브라우저에서 이 토큰을 액세스 제어로 보냅니다(3단계). 액세스 제어는 해당 IdP가 발행한 토큰이 맞는지 확인한 후에 해당 응용 프로그램을 위해 정의된 규칙에 따라 새로운 토큰을 만듭니다. Azure Active Directory와 같이 액세스 제어는 다중 테넌트 서비스이지만, 테넌트는 고객 조직이라기보다 응용 프로그램입니다. 그림에서 보이는 것과 같이 각 응용 프로그램은 자체의 네임스페이스를 가질 수 있고 권한 부여 등의 다양한 규칙을 정의할 수 있습니다.
 
@@ -118,4 +118,4 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0720_2016-->

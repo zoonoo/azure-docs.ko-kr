@@ -1,1 +1,1 @@
-> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../articles/resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용을 설명하며 Microsoft는 새로운 배포에 대해 대신 사용하도록 권장합니다. 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업(클래식)](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
+> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다.  [리소스 관리자 및 클래식](../articles/resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용을 설명하며 Microsoft는 새로운 배포에 대해 대신 사용하도록 권장합니다

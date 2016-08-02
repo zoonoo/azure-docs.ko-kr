@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/21/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Azure 백업이란?
@@ -45,7 +45,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | 구성 요소 | Azure에 배포할 수 있나요? | 온-프레미스로 배포할 수 있나요? | 지원되는 대상 저장소|
 | --- | --- | --- | --- |
 | Azure 백업 에이전트 | <p>**예**</p> <p>Azure 백업 에이전트는 Azure에서 실행하는 모든 Windows Server VM에 배포될 수 있습니다.</p> | <p>**예**</p> <p>백업 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포될 수 있습니다.</p> | <p>Azure 백업 자격 증명 모음</p> |
-| System Center Data Protection Manager(DPM) | <p>**예**</p><p>[System Center DPM을 사용하여 Azure에서 워크로드를 보호하는 방법](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대한 자세한 내용을 알아봅니다.</p> | <p>**Yes**</p> <p>[데이터 센터에서 워크로드 및 VM을 보호하는 방법](https://technet.microsoft.com/library/hh758173.aspx)에 대해 자세히 알아봅니다.</p> | <p>로컬로 연결된 디스크,</p> <p>Azure 백업 자격 증명 모음,</p> <p>T테이프(온-프레미스만)</p> |
+| System Center Data Protection Manager(DPM) | <p>**예**</p><p>[System Center DPM을 사용하여 Azure에서 워크로드를 보호하는 방법](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대한 자세한 내용을 알아봅니다.</p> | <p>**예**</p> <p>[데이터 센터에서 워크로드 및 VM을 보호하는 방법](https://technet.microsoft.com/library/hh758173.aspx)에 대해 자세히 알아봅니다.</p> | <p>로컬로 연결된 디스크,</p> <p>Azure 백업 자격 증명 모음,</p> <p>T테이프(온-프레미스만)</p> |
 | Azure 백업 서버 | <p>**예**</p><p>[Azure 백업 서버를 사용하여 Azure에서 워크로드를 보호하는 방법](backup-azure-microsoft-azure-backup.md)에 대한 자세한 내용을 알아봅니다.</p> | <p>**예**</p> <p>[Azure 백업 서버를 사용하여 Azure에서 워크로드를 보호하는 방법](backup-azure-microsoft-azure-backup.md)에 대한 자세한 내용을 알아봅니다.</p> | <p>로컬로 연결된 디스크,</p> <p>Azure 백업 자격 증명 모음</p> |
 | Azure 백업(VM 확장) | <p>**예**</p><p>Azure 패브릭의 일부</p><p>[Azure IaaS(infrastructure as a service) 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> | <p>**아니요**</p> <p>System Center DPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다.</p> | <p>Azure 백업 자격 증명 모음</p> |
 
@@ -69,8 +69,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
-| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
-| Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
 
 ## ARM 및 Linux 지원
 
@@ -79,7 +78,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Azure 백업(MARS) 에이전트 | 예 | 아니요(Windows 기반 에이전트만) |
 | System Center Data Protection Manager | 예(게스트에서 에이전트) | Hyper-V만(Azure VM 아님) 파일 일치 백업만 가능 |
 | Azure 백업 서버(MABS) | 예(게스트에서 에이전트) | Hyper-V만(Azure VM 아님) 파일 일치 백업만 가능(DPM과 같음) |
-| Azure IaaS VM 백업 | 공개 미리 보기에서 | 공개 미리 보기에서 - 리소스 관리자 배포 모델의 Linux VM <br>(파일 시스템 수준 일관성)<br><br>클래식 배포 모델의 Linux VM에 대해 예 |
+| Azure IaaS VM 백업 | 예 | 예 |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -94,11 +93,11 @@ Azure 백업 서비스는 프리미엄 저장소 VM을 보호합니다.
 
 >[AZURE.NOTE] 준비 위치를 수정하거나 편집하지 마십시오.
 
-백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격](../storage/storage-premium-storage.md#pricing-and-billing)과 일치합니다.
+백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격 책정](../storage/storage-premium-storage.md#pricing-and-billing)과 일치합니다.
 
 ### 프리미엄 저장소 VM 복원
 
-프리미엄 저장소 VM 복구 지점을 프리미엄 저장소로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, 프리미엄 저장소 VM 복구 지점을 표준 저장소로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
+프리미엄 저장소 VM은 프리미엄 저장소 또는 기본 저장소 중 하나로 복원될 수 있습니다. 프리미엄 저장소 VM 복구 지점을 프리미엄 저장소로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, 프리미엄 저장소 VM 복구 지점을 표준 저장소로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
 
 ## 기능
 이러한 다섯 개의 테이블은 각 구성 요소에 백업 기능이 처리되는 방법을 요약합니다.
@@ -228,4 +227,4 @@ Azure 백업은 데이터를 온-프레미스 및 클라우드에 백업합니�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -26,9 +26,9 @@
 - [Python 예제](documentdb-python-samples.md)
 - [Azure 코드 샘플 갤러리](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
-- 각 Python 예제 프로젝트 파일에서 작업에 연결합니다. 
+- 각 Python 예제 프로젝트 파일에서 작업에 연결합니다.
 - 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
 **필수 구성 요소**
@@ -36,7 +36,7 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 1. 이러한 Python 예제를 사용하려면 Azure 계정이 필요합니다.
     - [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
    - [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
-2. 또한 [Python SDK](documentdb-sdk-python.md)가 필요합니다. 
+2. 또한 [Python SDK](documentdb-sdk-python.md)가 필요합니다.
 
     > [AZURE.NOTE] 각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 [document\_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html)에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
 
@@ -65,4 +65,4 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 [컬렉션의 성능 계층 변경](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) | [document\_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection)
 [컬렉션 삭제](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) | [document\_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

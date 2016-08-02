@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 복원(PowerShell)
@@ -28,9 +28,7 @@
 
 ## 시작하기 전에
 
-### SQL 데이터베이스의 DTU 용량을 확인합니다. 
-
-각 SQL 데이터 웨어하우스는 SQL Server 논리 서버에 의해 호스팅됩니다. 이 논리 서버는 DTU로 측정된 용량 제한을 가집니다. SQL 데이터 웨어하우스를 복원하기 전에 데이터베이스를 호스팅하는 SQL Server 논리 서버에 복원 중인 데이터베이스에 대한 충분한 DTU 용량이 있는지 확인하십시오. [DTU 할당량을 보고 늘리는 방법][]에 대한 자세한 내용은 이 블로그 게시물을 참조하세요.
+**DTU 용량을 확인합니다.** 각 SQL 데이터 웨어하우스는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에 의해 호스팅됩니다. SQL 데이터 웨어하우스를 복원하기 전에 SQL 서버에 복원 중인 데이터베이스에 대해 충분한 DTU 할당량이 남아 있는지 확인합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][]을 참조합니다.
 
 ### PowerShell 설치
 
@@ -157,6 +155,7 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 
 <!--Article references-->
 [Azure SQL 데이터베이스 무중단 업무 방식 개요]: sql-database-business-continuity.md
+[DTU 할당량 변경 요청]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [Azure PowerShell 설치 및 구성 방법]: powershell-install-configure.md
 [개요]: ./sql-data-warehouse-restore-database-overview.md
@@ -168,11 +167,8 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
-<!--Blog references-->
-[DTU 할당량을 보고 늘리는 방법]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
-
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -92,9 +92,9 @@
 
 |명령|설명|
 |-------|-----------|
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다.|
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS를 사용합니다.
-|[ALTER DATABASE (Azure SQL 데이터베이스)]https://msdn.microsoft.com/ko-KR/library/mt574871.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다.|
+|[ALTER DATABASE (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt574871.aspx)|기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다.|
+|[ALTER DATABASE (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt574871.aspx)|장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS를 사용합니다.
+|[ALTER DATABASE (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt574871.aspx)|SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다.|
 |[sys.geo\_replication\_links (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt575501.aspx)|Azure SQL 데이터베이스 논리 서버의 각 데이터베이스에 대한 모든 기존 복제 링크에 대한 정보를 반환합니다.|
 |[sys.dm\_geo\_replication\_link\_status (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt575504.aspx)|지정된 SQL 데이터베이스의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다.|
 |[sys.dm\_operation\_status (Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx)|복제 링크의 상태를 비롯한 모든 데이터베이스 작업에 대한 상태를 표시합니다.|
@@ -116,7 +116,7 @@
 
 |API|설명|
 |---|-----------|
-|[REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다.|
+|[데이터베이스 생성 또는 업데이트(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다.|
 |[데이터베이스 만들기 또는 업데이트 상태 가져오기](https://msdn.microsoft.com/library/azure/mt643934.aspx)|만들기 작업 동안 상태를 반환합니다.|
 |[보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|지역에서 복제 파트너 관계의 보조 데이터베이스를 새로운 주 데이터베이스로 승격합니다.|
 |[보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(Failover))](https://msdn.microsoft.com/library/azure/mt582027.aspx)|강제로 보조 데이터베이스로 장애 조치하고 보조 데이터베이스를 주 데이터베이스로 설정합니다.|
@@ -134,4 +134,4 @@
 - 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 - 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/13/2016"
 	ms.author="danlep"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결합니다.
@@ -23,9 +23,15 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 다음 두 가지 방법으로 Azure CLI에서 구독에 연결할 수 있습니다.
 
-* **회사 또는 학교 계정이나 Microsoft 계정 ID를 사용하여 Azure에 로그인** - Azure Active Directory를 통해 인증하려면 CLI 버전 0.9.10 이상에서 계정 ID 유형 중 하나와 함께 `azure login` 명령을 사용합니다. CLI(버전 0.9.9 이상)는 다단계 인증이 설정된 계정에 대해 웹 포털을 통한 대화형 인증도 지원합니다. 또한 `azure login` 명령을 사용하여 Azure Active Directory 응용 프로그램에 대해 서비스 사용자를 인증할 수 있습니다. 이는 자동화된 서비스를 실행하는 데 유용합니다. 지원되는 계정 ID로 로그인한 후에는 Azure Resource Manager 모드 또는 Azure 서비스 관리 모드 명령을 사용할 수 있습니다.
+* **회사 또는 학교 계정이나 Microsoft 계정 ID를 사용하여 Azure에 로그인** - Azure Active Directory를 통해 인증하려면 계정 ID 유형 중 하나와 함께 `azure login` 명령을 사용합니다. 새 Azure 배포를 만드는 대부분의 고객은 이 방법을 사용하는 것이 좋습니다. 특정 계정을 사용할 경우 `azure login` 명령에서는 웹 포털을 통해 대화형으로 로그인해야 합니다.
 
-* **게시 설정 파일 다운로드 및 사용** - 인증서를 로컬 컴퓨터에 설치합니다. 설치된 인증서를 통해, 구독 및 인증서가 유효한 기간 동안 관리 작업을 수행할 수 있습니다. 이 방법을 통해 Azure 서비스 관리 모드 명령을 사용할 수 있습니다.
+    또한 `azure login` 명령을 사용하여 Azure Active Directory 응용 프로그램에 대해 서비스 사용자를 인증할 수 있습니다. 이는 자동화된 서비스를 실행하는 데 유용합니다.
+    
+    지원되는 계정 ID로 로그인한 후에는 Azure Resource Manager 모드 또는 Azure 서비스 관리 모드 CLI 명령을 사용할 수 있습니다.
+
+* **게시 설정 파일 다운로드 및 사용** - 인증서를 로컬 컴퓨터에 설치합니다. 설치된 인증서를 통해, 구독 및 인증서가 유효한 기간 동안 관리 작업을 수행할 수 있습니다.
+
+    이 방법을 통해 Azure 서비스 관리 모드 CLI 명령을 사용할 수 있습니다.
 
 >[AZURE.NOTE] 0.9.10 이전 버전인 Azure CLI를 사용하는 경우 `azure login` 명령을 회사 또는 학교 계정에서만 사용할 수 있으며 Microsoft 계정 ID는 사용할 수 없습니다. 그러나 원하는 경우 [Microsoft 계정 ID에서 회사 또는 학교 ID를 만들 수 있습니다](virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
@@ -44,9 +50,9 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
 
-위에서 제공된 코드를 복사하고 브라우저를 열어 http://aka.ms/devicelogin으로 이동합니다. 코드를 입력하면 사용하려는 ID의 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 해당 프로세스가 완료되면 명령 셸이 로그인 프로세스를 완료합니다. 다음과 같이 표시될 수 있습니다.
+위에서 제공된 코드를 복사하고 브라우저를 열어 http://aka.ms/devicelogin으로 이동합니다(다른 페이지가 지정된 경우 다른 페이지로 이동). 코드를 입력하면 사용하려는 ID의 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 해당 프로세스가 완료되면 명령 셸이 로그인 프로세스를 완료합니다. 다음과 같이 표시될 수 있습니다.
 
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
@@ -78,7 +84,7 @@ Active Directory 응용 프로그램에 대한 서비스 사용자를 만들고 
 
 ## 게시 설정 파일 사용
 
-Azure 서비스 관리 모드 CLI 명령만 사용해야 하는 경우 게시 설정 파일을 사용하여 연결할 수 있습니다.
+Azure 서비스 관리 모드 CLI 명령만 사용해야 하는 경우(예를 들어 클래식 배포 모델에서 Azure VM을 배포하려는 경우) 게시 설정 파일을 사용하여 연결할 수 있습니다.
 
 * **계정에 대한 게시 설정 파일을 다운로드하려면** 다음 명령을 사용합니다(서비스 관리 모드에서만 사용 가능).
 
@@ -151,6 +157,6 @@ Azure CLI는 Azure 리소스로 작업하는 두 가지 명령 모드(명령 집
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
-* Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home)을 방문하세요.
+* Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurescripting)을 방문하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

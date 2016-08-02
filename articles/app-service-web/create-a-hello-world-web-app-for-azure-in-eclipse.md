@@ -52,7 +52,7 @@
 
 1. Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 콘텐츠는 다음 예제와 유사하게 표시됩니다.
 
-   `<body><b><% out.println("Hello World!"); %></b></body>`
+    `<body><b><% out.println("Hello World!"); %></b></body>`
 
 1. index.jsp를 저장합니다.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="07/19/2016"
    ms.author="seanmck"/>
 
 # 여러 환경에 대한 응용 프로그램 매개 변수 관리
@@ -127,11 +127,11 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 
 ## 다음 단계
 
-이 항목에서 설명하는 핵심 개념 중 일부에 대해 자세히 알아보려면 [서비스 패브릭 기술 개요](service-fabric-technical-overview.md)를 참조하세요. Visual Studio에서 사용할 수 있는 다른 앱 관리 기능에 대한 정보는 [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)를 참조하세요.
+이 토픽에서 설명하는 핵심 개념 중 일부에 대해 자세히 알아보려면 [서비스 패브릭 기술 개요](service-fabric-technical-overview.md)를 참조하세요. Visual Studio에서 사용할 수 있는 다른 앱 관리 기능에 대한 정보는 [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)를 참조하세요.
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

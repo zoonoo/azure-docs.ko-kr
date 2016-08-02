@@ -34,6 +34,8 @@ Hive를 사용하면 특정 문자로 구분되는 필드에 위치한 텍스트
 
 Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 UDF를 사용하는 예로, 다음을 참조하세요:
 
+* [Hive와 함께 Java 사용자 정의된 함수 사용](hdinsight-hadoop-hive-java-udf.md)
+
 * [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)
 
 * [HDInsight에서 Hive 및 Pig와 함께 C# 사용](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
@@ -212,4 +214,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

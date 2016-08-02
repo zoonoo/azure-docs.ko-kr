@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Azure 저장소 시작(Azure WebJob 프로젝트)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## 개요
 
@@ -145,7 +147,7 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 **Cloud
 
 ## 큐 방법 문서에서 다루는 관련 항목
 
-큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure 큐 저장소 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](vs-storage-webjobs-getting-started-queues.md)을 참조하세요
+큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure 큐 저장소 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](vs-storage-webjobs-getting-started-queues.md)을 참조하세요.
 
 
 
@@ -153,4 +155,4 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 **Cloud
 
 이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

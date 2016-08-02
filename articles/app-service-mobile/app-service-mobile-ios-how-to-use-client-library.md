@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드에 대한 .NET 서버 쪽 SDK에 대해 더 자세히 알아보려면 [.NET 백 엔드로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk)를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드에 대한 .NET 서버 쪽 SDK에 대해 더 자세히 알아보려면 [.NET 백 엔드로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ## 참조 설명서
 
@@ -792,4 +792,4 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

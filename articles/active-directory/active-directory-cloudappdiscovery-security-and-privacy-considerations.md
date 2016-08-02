@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="msStevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 # 클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
@@ -139,7 +139,7 @@ TLS가 제공하는 종단 간 보안 암호화 채널은 중요한 보안 및 �
 ### 알려진 문제 및 단점
 TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가지 경우가 있습니다.
 
-- EV(확장 유효성 검사) 인증서는 웹 브라우저의 주소 표시줄을 녹색으로 렌더링하여 신뢰할 수 있는 웹 사이트를 방문하고 있다는 시각적 근거가 됩니다. TLS 검사가 클라이언트에 발급한 인증서에 EV를 복제할 수 없으므로 EV 인증서를 사용하는 웹 사이트가 정상적으로 작동하지만 주소 표시줄이 녹색으로 표시되지 않습니다.  
+- EV(확장 유효성 검사) 인증서는 웹 브라우저의 주소 표시줄을 녹색으로 렌더링하여 신뢰할 수 있는 웹 사이트를 방문하고 있다는 시각적 근거가 됩니다. TLS 검사가 클라이언트에 발급한 인증서에 EV를 복제할 수 없으므로 EV 인증서를 사용하는 웹 사이트가 정상적으로 작동하지만 주소 표시줄이 녹색으로 표시되지 않습니다.
 
 - 공용 키 고정(인증서 고정이라고도 함)은 메시지 가로채기(man-in-the-middle) 공격 및 가짜 인증 기관으로부터 사용자를 보호하는 데 도움을 주기 위해 고안되었습니다. 고정된 사이트의 루트 인증서가 알려진 좋은 CA 중 하나와 일치하지 않으면 브라우저는 오류와 함께 연결을 거부합니다. 실제로 TLS 가로채기는 메시지 가로채기(man-in-the-middle) 공격이므로 이러한 연결은 실패합니다.
 
@@ -180,4 +180,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

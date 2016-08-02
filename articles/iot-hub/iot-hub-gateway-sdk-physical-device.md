@@ -426,7 +426,17 @@ HTTP 프로토콜을 사용하여 IoT Hub에 연결하는 장치의 기본 동�
 
 ## 다음 단계
 
-자세한 내용은 [Azure IoT 게이트웨이 SDK][lnk-sdk]를 참조하세요.
+게이트웨이 SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
+
+- [게이트웨이 장치 관리][lnk-manage-devices]
+- [Azure IoT Gateway SDK][lnk-gateway-sdk]
+
+IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
+
+- [솔루션 디자인][lnk-design]
+- [개발자 가이드][lnk-devguide]
+- [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
+- [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -441,4 +451,11 @@ HTTP 프로토콜을 사용하여 IoT Hub에 연결하는 장치의 기본 동�
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

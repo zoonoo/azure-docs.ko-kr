@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 저장소 관리
@@ -141,4 +141,4 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 - [Node.js용 Microsoft Azure SDK - Data Lake 분석 관리](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터 과학에 사용할 수 있게 데이터가 준비되었나요?(데이터 평가) - 초급자를 위한 데이터 과학 | Microsoft Azure"
+   pageTitle="데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 | Microsoft Azure"
    description="데이터 과학에 사용할 수 있게 데이터를 준비하기 위한 4가지 기준을 알아보세요. 초급자를 위한 데이터 과학 비디오 2에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다."
    keywords="데이터 평가,관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비 완료"
    services="machine-learning"
@@ -14,11 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# 초급자를 위한 데이터 과학 비디오 2: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+# 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+
+## 비디오 2: 초급자를 위한 데이터 과학 시리즈
 
 데이터를 평가하여 데이터가 데이터 과학의 기본 조건을 충족하는지 확인하는 방법을 알아봅니다.
 
@@ -26,9 +28,17 @@
 
 <div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-is-your-data-ready-for-data-science"> <a href="/en-us/documentation/videos/data-science-for-beginners-series-is-your-data-ready-for-data-science/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="Data science for beginners: Is your data ready for data science?" data-ch9="//channel9.msdn.com/Shows/SupervisionNotRequired/9/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-is-your-data-ready-for-data-science"> <img src="https://sec.ch9.ms/ch9/8c9a/aab9492b-4167-41f0-9b9f-4eab661e8c9a/DataScienceForBeginnersIsYourDataReadyForDataScie_960.jpg" alt="Data science for beginners: Is your data ready for data science?" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-27-2016</span> <span>04 min, 56 sec</span> </span> </span> </a> </div>
 
-## 비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+## 시리즈의 다른 비디오
 
-비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+*초급자를 위한 데이터 과학*은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
+
+  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5분 14초)*
+  * 비디오 2: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4분 17초)*
+  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
+  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
+
+## 비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 
 *초급자를 위한 데이터 과학* 시리즈의 두 번째 비디오인 "데이터 과학에 사용할 수 있게 데이터가 준비되었나요?"를 시작하겠습니다.
 
@@ -102,15 +112,6 @@
 Microsoft Azure 기계 학습의 *초급자를 위한 데이터 과학*에 포함된 다른 4가지 비디오도 확인해보세요.
 
 
-## 시리즈의 다른 비디오
-
-*초급자를 위한 데이터 과학*은 5개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
-
-  * 비디오 1: [데이터 과학으로 답변할 수 있는 5가지 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * 비디오 2: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
-  * 비디오 3: [데이터로 대답할 수 있는 질문하기](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * 비디오 4: [단순 모델을 사용하여 답변 예측](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## 다음 단계
@@ -118,4 +119,4 @@ Microsoft Azure 기계 학습의 *초급자를 위한 데이터 과학*에 포�
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

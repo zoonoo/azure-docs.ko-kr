@@ -62,8 +62,18 @@
 
 Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk-delete-aad-tennant]을 참조하세요.
 
+## 다음 단계
+
+미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
+
+- [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
+- [처음부터 IoT 보안을 고려][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[link-azuresublimits]: https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -72,4 +82,4 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

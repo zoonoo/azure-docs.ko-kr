@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="06/30/2016" 
+	ms.date="07/22/2016" 
 	ms.author="sdanie"/>
 
 # Redis Cache를 사용하여 웹앱을 만드는 방법
@@ -802,7 +802,9 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 ## 다음 단계
 
 -	[ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5로 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)에 대해 더 자세히 알아봅니다.
--	이 자습서에 사용되는 Entity Framework에 대한 [Code First 접근방식](https://msdn.microsoft.com/data/jj193542)에 대해 더 자세히 알아봅니다.
+-	앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)에서 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)를 참조하세요.
+	-	HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
+-	이 자습서에 사용되는 Entity Framework에 대한 [새 데이터베이스에 Code First](https://msdn.microsoft.com/data/jj193542) 접근방식에 대해 더 자세히 알아봅니다.
 -	[Azure 앱 서비스의 웹앱](../app-service-web/app-service-web-overview.md)에 더 자세히 알아봅니다.
 -	Azure 포털에서 캐시를 [모니터링](cache-how-to-monitor.md)하는 방법을 알아봅니다.
 
@@ -811,6 +813,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 	-	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
 	-	[프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)
 	-	프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
+
 
 
 <!-- IMAGES -->
@@ -846,4 +849,4 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

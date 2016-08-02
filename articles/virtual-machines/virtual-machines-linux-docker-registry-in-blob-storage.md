@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="04/19/2016" 
+  ms.date="07/11/2016" 
   ms.author="ahmetb" />
 
 # Azure에서 자신만의 개인 Docker 레지스트리 배포하기
@@ -100,4 +100,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -38,6 +38,7 @@
 * [iOS: 오프라인 동기화 사용]
 * [Xamarin iOS: 오프라인 동기화 사용]
 * [Xamarin Android: 오프라인 동기화 사용]
+* [Xamarin.Forms: 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: 오프라인 동기화 사용]
 
 ## 동기화 테이블 정의
@@ -104,4 +105,4 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 [Xamarin Android: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

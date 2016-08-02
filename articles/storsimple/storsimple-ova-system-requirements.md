@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 시스템 요구 사항
@@ -69,14 +69,22 @@
 | Internet Explorer | 최신 버전 | Internet Explorer 11로 테스트함 |
 | Google Chrome | 최신 버전 | Chrome 46으로 테스트함 |
 
-### 지원되는 SMB 버전
+### 지원되는 저장소 클라이언트 
 
-| **버전** |
+다음 소프트웨어 요구 사항은 StorSimple 가상 배열(iSCSI 서버로 구성됨)에 액세스하는 iSCSI 초기자에 대한 것입니다.
+
+| **지원되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다. StorSimple iSCSI 볼륨은 다음에 대해서만 지원합니다: <ul><li>Windows 기본 디스크의 단순 볼륨.</li><li>볼륨 포맷을 위한 Windows NTFS.</li>|
+
+다음 소프트웨어 요구 사항은 StorSimple 가상 배열(파일 서버로 구성됨)에 액세스하는 SMB 클리이언트에 대한 것입니다.
+
+| **SMB 버전** |
 |-------------|
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
-
+ 
 ## 네트워킹 요구 사항 
 
 다음 테이블에는 iSCSI, SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
@@ -93,6 +101,9 @@
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
+> [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+
+
 ### 방화벽 규칙에 대한 URL 패턴 
 
 네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. 가상 배열 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정, Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
@@ -101,7 +112,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 > [AZURE.NOTE] 
 > 
-> - 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
+> - 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다.
 > - 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
 
@@ -110,7 +121,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스|
 |`http://*.backup.windowsazure.com`|장치 등록|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |
-| `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 |
@@ -120,4 +131,4 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 -   [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

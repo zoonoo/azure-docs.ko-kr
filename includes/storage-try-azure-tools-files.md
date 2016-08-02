@@ -1,0 +1,5 @@
+> [AZURE.TIP] **Microsoft Azure 저장소 탐색기 시도**
+> 
+> [Microsoft Azure 저장소 탐색기(MASE)](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, OS X 및 Linux에서 Azure 저장소 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+
+<!---HONumber=AcomDC_0727_2016-->

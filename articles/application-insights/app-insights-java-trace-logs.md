@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Application Insights에서 Java 추적 로그 탐색
@@ -136,9 +136,9 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
 ## Application Insights 포털에서 추적 탐색
 
-이제 Application Insights에 추적을 전송하도록 프로젝트를 구성했으며 [진단 검색][diagnostic] 블레이드의 Application Insights 포털에서 이러한 추적을 보고 검색할 수 있습니다.
+이제 Application Insights에 추적을 전송하도록 프로젝트를 구성했으며 [검색][diagnostic] 블레이드의 Application Insights 포털에서 이러한 추적을 보고 검색할 수 있습니다.
 
-![Application Insights 포털에서 진단 검색을 엽니다.](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![Application Insights 포털에서 검색을 엽니다.](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## 다음 단계
 
@@ -151,4 +151,4 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

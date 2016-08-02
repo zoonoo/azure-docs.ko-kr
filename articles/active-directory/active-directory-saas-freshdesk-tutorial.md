@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #자습서: Freshdesk와 Azure Active Directory 통합
@@ -37,7 +37,7 @@
 
 ###Freshdesk에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-freshdesk-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Freshdesk** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Freshdesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Single Sign-On 구성")
 
@@ -76,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Freshdesk 로그인 URL** 텍스트 상자에 다음 패턴 "https://\<tenant-name>.Freshdesk.com"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Freshdesk 로그인 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Freshdesk.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "앱 URL 구성")
 
@@ -100,15 +100,15 @@
 
     1.  **SSO(Single Sign On)**의 경우 **On**을 선택합니다.
     2.  **SAML SSO**를 선택합니다.
-    3.  Azure 포털의 **Freshdesk에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SAML 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    4.  Azure 포털의 **Freshdesk에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    5.  내보낸 인증서에서 **지문** 값을 복사한 다음 **보안 인증서 지문** 텍스트 상자에 붙여 넣습니다.  
+    3.  Azure 클래식 포털의 **Freshdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SAML 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    4.  Azure 클래식 포털의 **Freshdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    5.  내보낸 인증서에서 **지문** 값을 복사한 다음 **보안 인증서 지문** 텍스트 상자에 붙여 넣습니다.
 
         >[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-    6.  **저장**을 클릭합니다.
+    6.  **Save**를 클릭합니다.
 
-9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -141,9 +141,9 @@ Azure AD 사용자가 Freshdesk에 로그인할 수 있도록 하려면 Freshdes
     4.  **에이전트 역할**을 선택한 다음 **할당**을 클릭합니다.
     5.  **Save**를 클릭합니다.
     
-        >[AZURE.NOTE]Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
+        >[AZURE.NOTE] Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
 
->[AZURE.NOTE]다른 Freshdesk 사용자 계정 생성 도구 또는 Freshdesk가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Freshdesk 사용자 계정 생성 도구 또는 Freshdesk가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -151,9 +151,9 @@ Azure AD 사용자가 Freshdesk에 로그인할 수 있도록 하려면 Freshdes
 
 ###Freshdesk에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Freshdesk ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Freshdesk** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "사용자 할당")
 
@@ -163,4 +163,4 @@ Azure AD 사용자가 Freshdesk에 로그인할 수 있도록 하려면 Freshdes
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

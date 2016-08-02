@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/15/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경 설명서
@@ -35,7 +35,8 @@
 * [앱 서비스 환경이란?](../app-service-web/app-service-app-service-environment-intro.md)
 * [앱 서비스 환경 만들기](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [앱 서비스 환경에서 앱 만들기](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [앱 서비스 환경 구성](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [앱 서비스 환경에서 내부 부하 분산 장치 생성 및 사용](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [앱 서비스 환경 구성](../app-service-web/app-service-web-configure-an-app-service-environment.md)
 * [앱 서비스 환경에서 앱 확장](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [네트워크 보안 및 아키텍처](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
@@ -59,4 +60,4 @@
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

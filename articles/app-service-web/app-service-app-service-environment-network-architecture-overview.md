@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경의 네트워크 아키텍처 개요
@@ -23,9 +23,11 @@
 
 ## 일반 네트워크 흐름 ##
  
-앱 서비스 환경에는 항상 공용 가상 IP 주소(VIP)가 있습니다. 모든 인바운드 트래픽은 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽을 포함한 해당 공용 VIP에 도착합니다. 공용 VIP에서 사용할 수 있는 특정 포트 (필수 및 선택적)의 전체 목록은 앱 서비스 환경의 [인바운드 트래픽 제어][controllinginboundtraffic]문서를 참조하세요.
+ASE(앱 서비스 환경)가 앱에 공용 VIP(가상 IP 주소)를 사용하는 경우 모든 인바운드 트래픽이 해당 공용 VIP에 도착합니다. 여기에는 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽이 포함됩니다. 공용 VIP에서 사용할 수 있는 특정 포트 (필수 및 선택적)의 전체 목록은 앱 서비스 환경의 [인바운드 트래픽 제어][controllinginboundtraffic]문서를 참조하세요.
 
-아래 다이어그램에서는 다양한 인바운드 및 아웃 바운드 네트워크 흐름에 대한 개요를 보여줍니다.
+또한 앱 서비스 환경은 ILB(내부 부하 분산 장치) 주소라고도 하는 가상 네트워크 내부 주소에만 바인딩되는 앱 실행을 지원합니다. ILB 지원 ASE에서 앱에 대한 HTTP 및 HTTPS 트래픽과 원격 디버깅 호출은 ILB 주소에 도착합니다. 가장 일반적인 ILB-ASE 구성에서는 FTP/FTPS 트래픽도 ILB 주소에 도착합니다. 그러나 Azure 관리 작업은 여전히 ILB 지원 ASE의 공용 VIP에 있는 포트 454/455로 이동합니다.
+
+아래 다이어그램은 앱이 공용 가상 IP 주소에 바인딩되는 앱 서비스 환경에 대한 다양한 인바운드 및 아웃바운드 네트워크 흐름을 대략적으로 보여 줍니다.
 
 ![일반 네트워크 흐름][GeneralNetworkFlows]
 
@@ -46,7 +48,7 @@
  
 ![아웃 바운드 IP 주소][OutboundIPAddress]
 
-이 주소는 앱 서비스 환경의 앱 생성 및 앱 주소상의 *nslookup* 수행을 통해 결정됩니다. 결과 IP 주소는 공용 VIP, 앱 서비스 환경의 아웃바운드 NAT 주소 둘 다 해당됩니다.
+앱 서비스 환경에서 앱을 만든 다음 앱 주소에 대해 *nslookup*을 수행하여 공용 VIP만 있는 ASE에 대해 이 주소를 확인할 수도 있습니다. 결과 IP 주소는 공용 VIP, 앱 서비스 환경의 아웃바운드 NAT 주소 둘 다 해당됩니다.
 
 끝점이 가상 네트워크 토폴리지 **내**에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다. 그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다. 앱은 다른 계산 리소스에 걸쳐 이동할 수 있고, 앱 서비스 환경의 사용 가능한 계산 리소스의 풀은 크기 조정 때문에 변경됩니다.
 
@@ -73,6 +75,8 @@
 다른 앱 서비스 환경 간의 호출이 "Internet" 호출로 처리되더라도, 두 앱 서비스 환경이 모두 동일한 Azure 지역에 있으면 네트워크 트래픽은 지역 Azure 네트워크에 그대로 유지되며 물리적으로 공용 인터넷을 통해 이동하지 않습니다. 결과적으로 첫 번째 앱 서비스 환경(아웃바운드 IP 주소는 192.23.1.2임)에서의 인바운드 호출을 허용하도록 두번째 앱 서비스 환경의 서브넷에서 네트워크 보안 그룹을 사용하여, 앱 서비스 환경 간의 보안 통신을 유지할 수 있습니다.
 
 ## 추가 링크 및 정보 ##
+앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
+
 앱 서비스 환경에서 사용된 인바운드 포트의 세부 정보 및 인바운드 트래픽 제어를 위한 네트워크 보안 그룹 사용은 [여기][controllinginboundtraffic]에서 사용 가능합니다.
 
 앱 서비스 환경에 아웃바운드 인터넷 액세스 권한을 부여하는 사용자 정의 경로 상용에 대한 자세한 세부 정보는 이 [문서][ExpressRoute]에서 사용 가능합니다.
@@ -89,4 +93,4 @@
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

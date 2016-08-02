@@ -25,12 +25,12 @@
 ## 보조 인증서 추가
 다른 인증서를 보조 인증서로 추가하려면 해당 인증서를 Azure 주요 자격 증명 모음에 업로드하고 클러스터의 VM에 배포해야 합니다. 자세한 내용은 [고객 관리 주요 자격 증명 모음에서 VM에 인증서 배포](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)를 참조하세요.
 
-1. [주요 자격 증명 모음에 X.509 인증서 업로드](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
+1. [주요 자격 증명 모음에 X.509 인증서 업로드](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. [Azure 포털](https://portal.azure.com/)에 로그인하고 이 인증서를 추가하려는 클러스터 리소스로 이동합니다.
 3. **설정**아래에서 인증서 설정을 클릭하고 보조 인증서 지문을 입력합니다.
 4. **Save**를 클릭합니다. 배포가 시작되고 해당 배포가 완료되면 주 또는 보조 인증서를 사용하여 클러스터에서 관리 작업을 수행할 수 있습니다.
 
-![포털의 인증서 지문 스크린 샷][SecurityConfigurations_02]
+![포털의 인증서 지문 스크린 샷][SecurityConfigurations\_02]
 
 ## 인증서 제거
 다음은 클러스터에서 사용하지 않도록 오래된 인증서를 제거하는 프로세스입니다.
@@ -49,4 +49,4 @@
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

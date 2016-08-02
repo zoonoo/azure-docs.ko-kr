@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Windows에서 C 샘플 솔루션 만들기
 
-다음 단계에서는 Visual Studio에서 C 프로그램을 사용하여 미리 구성된 원격 모니터링 솔루션과 통신하는 간단한 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다.
+다음 단계에서는 Visual Studio를 사용하여 미리 구성된 원격 모니터링 솔루션과 통신하는 C로 작성된 간단한 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다.
 
 Visual Studio 2015에서 시작 프로젝트를 만들고 IoT Hub 장치 클라이언트 NuGet 패키지를 추가합니다.
 
@@ -42,7 +42,13 @@ Visual Studio 2015에서 시작 프로젝트를 만들고 IoT Hub 장치 클라�
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-## 간단한 IoT Hub 장치의 동작을 지정하는 코드 추가
+6. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭하여 프로젝트의 **속성 페이지** 대화 상자를 엽니다. 자세한 내용은 [Visual C++ 프로젝트 속성 설정][lnk-c-project-properties]을 참조하세요.
+
+7. **링커** 폴더를 클릭한 다음 **입력** 속성 페이지를 클릭합니다.
+
+8. **crypt32.lib**를 **추가 종속성** 속성에 추가합니다. **확인**을 한 번 클릭한 다음 다시 **확인**을 클릭하여 프로젝트 속성 값을 저장합니다.
+
+## IoT Hub 장치의 동작 지정
 
 IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치에서 응답하는 IoT Hub의 명령을 지정하는 모델을 사용합니다.
 
@@ -54,9 +60,11 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
+    #include "azure_c_shared_utility/threadapi.h"
+    #include "azure_c_shared_utility/platform.h"
     ```
 
-2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 contoso로 바꿉니다.
+2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 **contoso**로 바꿉니다.
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -104,11 +112,11 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
     END_NAMESPACE(Contoso);
     ```
 
-## 장치의 동작을 구현하는 코드 추가
+## 장치의 동작 구현
 
-이제 모델에 정의된 동작을 구현하는 코드를 추가해야 합니다. 장치가 허브에서 명령을 받을 때 실행되는 함수 및 시뮬레이션된 원격 분석을 허브로 보내는 코드를 추가합니다.
+이제 모델에 정의된 동작을 구현하는 코드를 추가해야 합니다.
 
-1. 장치가 모델에 정의된 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
+1. 장치가 IoT Hub에서 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -358,10 +366,11 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
 
 6. **빌드**를 클릭한 다음 **솔루션 빌드**를 클릭하여 장치 응용 프로그램을 빌드합니다.
 
-7. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 클릭한 다음 **새 인스턴스 시작**을 클릭하여 샘플을 빌드하고 실행합니다. 응용 프로그램에서 샘플 원격 분석을 IoT Hub로 보낼 때 나타나는 메시지가 콘솔에 표시됩니다.
+7. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 클릭한 다음 **새 인스턴스 시작**을 클릭하여 샘플을 실행합니다. 응용 프로그램에서 샘플 원격 분석을 IoT Hub로 보내고 명령을 받을 때 나타나는 메시지가 콘솔에 표시됩니다.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
+
+<!---HONumber=AcomDC_0720_2016-->

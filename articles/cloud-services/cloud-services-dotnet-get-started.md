@@ -92,7 +92,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
-	클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터* 를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
+	클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *계산 에뮬레이터* 및 Azure *저장소 에뮬레이터*를 자동으로 호출합니다. 계산 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
 	클라우드 서비스 프로젝트를 처음 실행하면 에뮬레이터가 시작되는 데 1분 정도 걸립니다. 에뮬레이터 시작이 완료되면 기본 브라우저가 열려 응용 프로그램 홈페이지가 표시됩니다.
 
@@ -157,7 +157,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
 
 1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 **새로 만들기 > 데이터 서비스 > SQL 데이터베이스 > 빠른 생성**을 클릭합니다.
 
-1. **데이터베이스 이름** 상자에 *contosoads* 를 입력합니다.
+1. **데이터베이스 이름** 상자에 *contosoads*를 입력합니다.
 
 1. **서버** 드롭다운 목록에서 **새 SQL 데이터베이스 서버**를 선택합니다.
 
@@ -229,7 +229,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	편집용으로 파일을 열어 둡니다.
 
 2. [Azure 클래식 포털](http://manage.windowsazure.com)에서 왼쪽 창의 **SQL 데이터베이스**를 클릭하고 이 자습서에 대해 만든 데이터베이스를 클릭한 후 **대시보드** 탭을 클릭한 다음 **연결 문자열 표시**를 클릭합니다.
@@ -314,10 +314,10 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -399,7 +399,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#**에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.
 
-10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
 	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 대안에서는 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -442,7 +442,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Visual Studio 2015를 사용하는 경우 "v11.0"을 "MSSQLLocalDB"로 바꿉니다.
 
 2. 변경 내용을 저장합니다.
@@ -482,7 +482,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 3. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트에서 가져온 *Ad.cs* 및 *ContosoAdscontext.cs* 파일을 추가합니다.
 
 3. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
-	- *Global.asax.cs*  
+	- *Global.asax.cs*
 	- *Views\\Shared* 폴더: *\_Layout.cshtml*.
 	- *Views\\Home* 폴더: *Index.cshtml*.
 	- *Controllers* 폴더: *AdController.cs*
@@ -742,7 +742,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 
 Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드(`WorkerRole` 클래스에 있음)를 호출하고 `Run` 메서드를 호출합니다(`OnStart` 메서드가 완료되는 경우).
 
-`OnStart` 메서드는 *.cscfg* 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
+`OnStart` 메서드는 *.cscfg** 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
 
 ```csharp
 var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
@@ -868,5 +868,6 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [Azure 클라우드 서비스 1 부:](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
+* [클라우드 서비스 공급자 선택 방법](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

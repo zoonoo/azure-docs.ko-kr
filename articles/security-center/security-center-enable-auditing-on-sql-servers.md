@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 SQL 서버에 대한 감사 사용
@@ -28,10 +28,10 @@
 
 ## 권장 사항 구현
 
-1. **권장 사항** 블레이드에서 **SQL 서버에 감사 활성화**를 선택합니다. 이렇게 하면 **SQL 서버에 감사 활성화** 블레이드가 열립니다. ![][1]
+1. **권장 사항** 블레이드에서 **SQL 서버에 감사 활성화**를 선택합니다. 이렇게 하면 **SQL 서버에 감사 활성화** 블레이드가 열립니다. ![SQL Server 감사 활성화][1]
 
-2. 감사를 사용하도록 설정할 SQL 서버를 선택합니다. 그러면 **감사 설정** 블레이드가 열립니다. ![][2]
-3. **감사 설정** 블레이드의 **감사**에서 **켜기**를 선택합니다. ![][3]
+2. 감사를 사용하도록 설정할 SQL 서버를 선택합니다. 그러면 **감사 설정** 블레이드가 열립니다. ![감사 설정][2]
+3. **감사 설정** 블레이드의 **감사**에서 **켜기**를 선택합니다. ![감사 설정 켜기][3]
 
 4. [SQL 데이터베이스 감사 시작](../sql-database/sql-database-auditing-get-started.md)의 단계에 따라 감사 로그를 저장할 저장소를 구성합니다. 데이터 컬렉션에 대한 구독의 저장소 계정은 기본 저장소 계정입니다.
 
@@ -58,4 +58,4 @@
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

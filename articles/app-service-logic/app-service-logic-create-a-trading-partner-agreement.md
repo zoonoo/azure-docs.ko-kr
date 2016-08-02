@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@
 
 
 ## BizTalk X12
-- 관련 TPM API 앱 인스턴스에 정의된 X12 규약을 실행합니다. 
+- 관련 TPM API 앱 인스턴스에 정의된 X12 규약을 실행합니다.
 - 문제 해결을 위한 X12 처리/추적 정보를 표시합니다.
 - 관련 TPM API 앱 인스턴스의 X12 규약에 정의된 일괄 처리(시작 및 중지)의 상태 관리를 제공합니다.
 
@@ -79,4 +79,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!------HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

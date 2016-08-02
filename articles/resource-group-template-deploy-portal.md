@@ -23,13 +23,14 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [포털](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-이 항목에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
+이 항목에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여 줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
 현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
 
@@ -47,7 +48,7 @@
 
 리소스 그룹을 만들면 마켓플레이스에서 리소스 그룹으로 리소스를 배포할 수 있습니다. 마켓플레이스는 일반적인 시나리오에 사전 정의된 솔루션을 제공합니다.
 
-1. 배포를 시작하려면 **새로 만들기**와 배포할 리소스 형식을 선택합니다. 그런 다음 배포할 특정 버전의 리소스를 찾습니다.
+1. 배포를 시작하려면 **새로 만들기**와 배포할 리소스 종류를 선택합니다. 그런 다음 배포할 특정 버전의 리소스를 찾습니다.
 
     ![리소스 배포](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
@@ -123,4 +124,4 @@
 - 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->
