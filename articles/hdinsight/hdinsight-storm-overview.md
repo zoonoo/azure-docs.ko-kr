@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
@@ -206,6 +206,12 @@ Trident를 사용하는 경우에는 튜플 배치 처리를 기준으로 일괄
 
 이 작업의 예제는 [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) 예제를 참조하세요.
 
+##Storm에서 사용하는 로깅 유형은 무엇인가요?
+
+Storm은 Apache Log4j를 사용하여 정보를 기록합니다. 기본적으로 많은 양의 데이터를 기록하면 정보를 정렬하기가 어려울 수 있습니다. Storm 토폴로지의 일부로 로깅 구성 파일을 포함하여 로깅 동작을 제어할 수 있습니다.
+
+로깅을 구성하는 방법을 보여 주는 예제 토폴로지는 HDInsight에서 Storm에 대한 [Java 기반 WordCount](hdinsight-storm-develop-java-topology.md) 예제를 참조하세요.
+
 ##다음 단계
 
 HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자세히 알아봅니다.
@@ -219,4 +225,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

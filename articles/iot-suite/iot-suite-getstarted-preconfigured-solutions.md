@@ -91,7 +91,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 ## 시뮬레이션된 새 장치 추가
 
-미리 구성된 솔루션을 배포할 때 장치 목록에서 볼 수 있는 네 개의 샘플 장치를 자동으로 프로비전합니다. 이러한 장치는 Azure WebJob에서 실행되는 *시뮬레이션된 장치*입니다. 시뮬레이션된 장치를 사용하면 실제 물리적 장치를 배포하지 않고도 미리 구성된 솔루션을 쉽게 실험할 수 있습니다. 솔루션에 실제 장치를 연결하려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connecting-devices] 자습서를 참조하세요.
+미리 구성된 솔루션을 배포할 때 장치 목록에서 볼 수 있는 네 개의 샘플 장치를 자동으로 프로비전합니다. 이러한 장치는 Azure WebJob에서 실행되는 *시뮬레이션된 장치*입니다. 시뮬레이션된 장치를 사용하면 실제 물리적 장치를 배포하지 않고도 미리 구성된 솔루션을 쉽게 실험할 수 있습니다. 솔루션에 실제 장치를 연결하려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm] 자습서를 참조하세요.
 
 다음 단계에서는 솔루션에 새 시뮬레이션된 장치를 추가하는 방법을 보여 줍니다.
 
@@ -105,7 +105,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
     ![대시보드에서 새 장치 세부 정보 설정][img-addnew]
     
-    시뮬레이션된 새 장치를 만드는 것 외에, **사용자 지정 장치**를 만들도록 선택하면 물리적 장치를 추가할 수도 있습니다. 자세한 내용을 알아보려면 [미리 구성된 IoT Suite 원격 모니터링 솔루션에 장치 연결][lnk-connecting-devices]을 참조하세요.
+    시뮬레이션된 새 장치를 만드는 것 외에, **사용자 지정 장치**를 만들도록 선택하면 물리적 장치를 추가할 수도 있습니다. 자세한 내용을 알아보려면 [미리 구성된 IoT Suite 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm]을 참조하세요.
 
 4.  **나만의 장치 ID 정의**를 선택하고 **mydevice\_01**처럼 고유한 장치 ID 이름을 입력합니다.
 
@@ -207,10 +207,11 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 ## 다음 단계
 
-이제 미리 구성된 작업 솔루션을 구축했으므로 다음 연습으로 이동할 수 있습니다.
+미리 구성한 작업 솔루션을 배포했으므로 다음 문서를 참고하여 IoT Suite 시작을 계속할 수 있습니다.
 
--   [미리 구성된 솔루션 사용자 지정에 대한 지침][lnk-customize]
--   [예측 정비 사전 구성 솔루션 개요][lnk-predictive]
+- [미리 구성된 원격 모니터링 솔루션 연습][lnk-rm-walkthrough]
+- [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm]
+- [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -239,13 +240,13 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

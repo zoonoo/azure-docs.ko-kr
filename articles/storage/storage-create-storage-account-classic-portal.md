@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # Azure 저장소 계정 정보
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## 개요
 
@@ -37,9 +37,9 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 - 저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다.
 - 복제에 따라 한 번에 유지 관리되는 데이터의 복사본 수 및 위치가 결정됩니다.
 - 트랜잭션은 Azure 저장소에 대한 모든 읽기 및 쓰기 작업을 나타냅니다.
-- 데이터 송신은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.  
+- 데이터 송신은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
 
-[Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
+[Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 책정 정보를 제공합니다. [데이터 전송 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 책정 정보를 제공합니다.
 
 저장소 계정 용량 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
@@ -65,7 +65,7 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 	저장소 계정을 만들 때 선호도 그룹을 선택해야 합니다. 기존 계정을 선호도 그룹으로 이동할 수 없습니다. 선호도 그룹에 대한 자세한 내용은 아래의 [선호도 그룹과 서비스 공동 배치](#service-co-location-with-an-affinity-group)를 참조하세요.
 
-	>[AZURE.IMPORTANT] 구독할 수 있는 위치를 확인하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 호출하면 됩니다. PowerShell의 공급자를 나열하려면 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)을 호출합니다. .NET에서는 ProviderOperationsExtensions 클래스의 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 메서드를 사용합니다.
+	>[AZURE.IMPORTANT] 구독할 수 있는 위치를 확인하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 호출할 수 있습니다. PowerShell의 공급자를 나열하려면 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)을 호출합니다. .NET에서는 ProviderOperationsExtensions 클래스의 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 메서드를 사용합니다.
 	>
 	>또한 어떤 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
@@ -83,9 +83,9 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 ### 저장소 계정 끝점
 
-Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점* 을 구성합니다.
+Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점*을 구성합니다.
 
-예를 들어 저장소 계정의 이름이 *mystorageaccount* 일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
+예를 들어 저장소 계정의 이름이 *mystorageaccount*일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
 
 - Blob 서비스: http://*mystorageaccount*.blob.core.windows.net
 
@@ -97,7 +97,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 계정을 만든 다음에는 [Azure 클래식 포털](https://manage.windowsazure.com)의 저장소 대시보드에서 저장소 계정의 끝점을 확인할 수 있습니다.
 
-저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/ *mycontainer* / *myblob*
+저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
 사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요.
 
@@ -175,4 +175,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

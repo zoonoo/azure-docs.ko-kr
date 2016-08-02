@@ -34,7 +34,7 @@
 
 ## 시뮬레이션된 장치
 
-미리 구성된 솔루션에서 시뮬레이션된 장치가 냉각 장치(예: 건물 공조기 또는 시설 공기 처리 장치)를 나타냅니다. 미리 구성된 솔루션을 배포할 때 [Azure WebJob][lnk-webjobs]에서 실행되는 네 개의 시뮬레이션된 장치를 자동으로 프로비전합니다. 시뮬레이션된 장치를 사용하면 물리적 장치를 배포하지 않고도 솔루션의 동작을 쉽게 탐색할 수 있습니다. 실제 물리적 장치를 배포하려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connectyourdevice] 자습서를 참조하세요.
+미리 구성된 솔루션에서 시뮬레이션된 장치가 냉각 장치(예: 건물 공조기 또는 시설 공기 처리 장치)를 나타냅니다. 미리 구성된 솔루션을 배포할 때 [Azure WebJob][lnk-webjobs]에서 실행되는 네 개의 시뮬레이션된 장치를 자동으로 프로비전합니다. 시뮬레이션된 장치를 사용하면 물리적 장치를 배포하지 않고도 솔루션의 동작을 쉽게 탐색할 수 있습니다. 실제 물리적 장치를 배포하려면 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm] 자습서를 참조하세요.
 
 시뮬레이션된 장치는 각각 IoT Hub에 다음과 같은 메시지 유형을 보낼 수 있습니다.
 
@@ -218,12 +218,17 @@ GROUP BY
 - [IoT 도구 모음 - 내부 살펴보기 - 원격 모니터링](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT 도구 모음 - 원격 모니터링 - 라이브 및 시뮬레이션된 장치 추가](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
+다음 문서를 참조하여 IoT Suite 시작 작업을 계속할 수 있습니다.
+
+- [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-rm]
+- [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connectyourdevice]: iot-suite-connecting-devices.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

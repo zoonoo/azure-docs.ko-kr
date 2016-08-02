@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: iOS 응용 프로그램에서 Web API 호출 | Microsoft Azure"
-	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 iOS ‘할 일 목록’ 앱을 만드는 방법을 보여줍니다. iOS 앱 및 Web API는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
+	pageTitle="Azure Active Directory B2C: 다사 라이브러리를 사용하여 iOS 응용 프로그램에서 Web API 호출 | Microsoft Azure"
+	description="이 문서에서는 타사 라이브러리를 사용하는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 iOS ‘할 일 목록’ 앱을 만드는 방법을 보여 줍니다."
 	services="active-directory-b2c"
 	documentationCenter="ios"
 	authors="brandwe"
@@ -9,22 +9,23 @@
 
 <tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
 
-	ms.date="05/31/2016"
+	ms.date="07/26/2016"
 	ms.author="brandwe"/>
 
-# Azure AD B2C 미리 보기: iOS 응용 프로그램에서 Web API 호출하기
+# Azure AD B2C : 타사 라이브러리를 사용하여 iOS 응용 프로그램에서 Web API 호출
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계로 강력한 셀프 서비스 ID 관리 기능을 iOS 앱 및 Web API에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 iOS "할 일 목록" 앱을 만드는 방법을 보여줍니다. iOS 앱 및 Web API는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다.
+Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 이를 통해 개발자는 서비스와 통합하려는 모든 라이브러리를 활용할 수 있습니다. 개발자가 플랫폼을 다른 라이브러리와 함께 사용할 수 있도록 돕기 위해, 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습 몇 가지를 작성했습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749)을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	제대로 작동하려면 이 빠른 시작은 Azure AD B2C으로 보호되는 Web API가 필요합니다. .NET 및 NET.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 Node.js Web API 샘플이 구성되었다고 가정합니다. 자세한 내용은 [Node.js 샘플에 대한 Azure Active Directory Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조합니다.
+OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부분이 잘 이해되지 않을 수도 있습니다. [여기서 추천한 프로토콜에 관한 개요](active-directory-b2c-reference-protocols.md)를 간략히 살펴볼 것을 추천합니다.
 
 > [AZURE.NOTE]
-	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+    조건부 액세스 및 Intune 정책 관리 등과 같은 이런 표준의 식을 사용하는 플랫폼의 일부 기능은 수행하려면 오픈 소스인 Microsoft Azure ID 라이브러리를 사용해야 합니다.
+   
+일부 Azure Active Directory 시나리오 및 기능만 B2C 플랫폼에서 지원합니다. B2C 플랫폼 사용 여부를 결정하려면 [B2C 제한 사항](active-directory-b2c-limitations.md)을 참조하세요.
+
 
 ## Azure AD B2C 디렉터리 가져오기
 
@@ -34,578 +35,600 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 앱과 Web API는 모두 단일 **응용 프로그램 ID**에서 나타납니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
-- **회신 URL**로 `http://localhost:3000/auth/openid/return`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
-- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 이 시간은 나중에 필요합니다.
+- 응용 프로그램에서 **모바일 장치**를 포함합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 ID는 나중에도 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 등록, 로그인 및 Facebook을 사용하여 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 하나의 ID 환경: 결합된 로그인 및 등록을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 이 정책을 만들어야 합니다. 정책을 만들 때 다음을 확인합니다.
 
-- 등록 정책에서 **표시 이름** 및 등록 특성을 선택합니다.
+- 정책에서 **표시 이름** 및 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 나중에 필요합니다.
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 정책 이름이 나중에 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-세 가지 정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
+정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작합니다.
 
 ## 코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱을 다운로드](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)(/archive/master.zip)하거나 복제할 수 있습니다.
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
+git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-> [AZURE.NOTE] **이 자습서를 완료하려면 골격을 다운로드해야 합니다.** iOS에서 완벽하게 작동하는 응용 프로그램을 구현하는 것이 복잡하기 때문에 다음 자습서를 완료한 후에 실행될 UX 코드가 **골격**에 포함되어 있습니다. 개발자를 위한 시간 절약 측정입니다. UX 코드는 iOS 응용 프로그램에 B2C를 추가하는 방법 항목과 밀접한 관련이 없습니다.
+또는 완성된 코드를 다운로드하고 지금 바로 시작합습니다.
 
-완성된 앱도 [.zip 파일로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
+```
+git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
+```
 
-다음으로 CocoaPods를 사용하여 `podfile`을 로드합니다. 로드하려는 새 XCode 작업 영역을 만듭니다. CocoaPods가 없다면 [웹 사이트를 방문하여 설치하세요](https://cocoapods.org).
+## 타사 라이브러리 nxoauth2를 다운로드하고 작업 영역을 실행합니다.
+
+이 연습에서는 Mac OS X 및 iOS (Cocoa & Cocoa touch)에 대한 OAuth2 라이브러리인 GitHub에서 OAuth2Client를 사용합니다. 이 라이브러리는 OAuth2 사양의 초안 10에 기반을 둡니다. 네이티브 응용 프로그램 프로필을 구현하고 최종 사용자 권한 부여 끝점을 지원합니다. Microsoft ID 플랫폼과 통합하기 위해 필요한 것은 이것들이 전부입니다.
+
+### CocoaPods를 사용하여 프로젝트에 라이브러리 추가하기
+
+CocoaPods는 Xcode 프로젝트에 대한 종속성 관리자입니다. 위의 설치 단계를 자동으로 관리합니다.
+
+```
+$ vi Podfile
+```
+이 podfile에 다음을 추가합니다.
+
+```
+ platform :ios, '8.0'
+ 
+ target 'SampleforB2C' do
+ 
+ pod 'NXOAuth2Client'
+ 
+ end
+```
+
+이제 cocoapods를 사용하여 podfile를 로드합니다. 로드하려는 새 XCode 작업 영역을 만듭니다.
 
 ```
 $ pod install
 ...
-$ open Microsoft Tasks for Consumers.xcworkspace
-```
-
-## iOS 작업 응용 프로그램 구성
-
-iOS 태스크 앱이 Azure AD B2C와 통신하도록 하려면 몇 가지 공통 매개 변수를 제공해야 합니다. `Microsoft Tasks` 폴더에서 프로젝트의 루트에서 `settings.plist` 파일을 열고 `<dict>` 섹션의 값을 바꿉니다. 이러한 값은 앱 전체에서 사용됩니다.
+$ open SampleforB2C.xcworkspace
 
 ```
+
+## 프로젝트의 구조
+
+골격에 있는 프로젝트에 대한 다음 구조 설정이 있습니다.
+
+* 작업 창으로 **마스터 보기**
+* 선택한 작업과 관련된 데이터에 대한 **작업 추가 보기**
+* 사용자가 앱에 로그인하도록 하는 **로그인 보기**
+
+인증을 추가할 프로젝트에서 다양한 파일로 이동합니다. 시각적 코드와 같은 코드의 다른 부분은 Id와 밀접한 관련이 없으며 사용자에게 제공되지 않습니다.
+
+## 응용 프로그램에 대한 `settings.plist` 파일 만들기
+
+구성 값을 입력한 중앙 집중화된 위치가 있는 경우 응용 프로그램을 쉽게 구성할 수 있습니다. 또한 응용 프로그램에서 각 설정의 기능을 이해할 수 있습니다. *속성 목록*을 응용 프로그램에 이러한 값을 제공하는 방법으로 활용합니다.
+
+* 응용 프로그램 작업 영역의 `Supporting Files`에서 `settings.plist` 파일 만들기/열기
+
+* 다음 값을 입력합니다(곧 자세히 살펴봄).
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
-	<key>authority</key>
-	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
-	<key>clientId</key>
-	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-	<key>scopes</key>
-	<array>
-		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-	</array>
-	<key>additionalScopes</key>
-	<array>
-	</array>
-	<key>redirectUri</key>
+	<key>accountIdentifier</key>
+	<string>B2C_Acccount</string>
+	<key>clientID</key>
+	<string><client ID></string>
+	<key>clientSecret</key>
+	<string></string>
+	<key>authURL</key>
+	<string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/authorize?p=<policy name></string>
+	<key>loginURL</key>
+	<string>https://login.microsoftonline.com/<tenant name>/login</string>
+	<key>bhh</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
-	<key>taskWebAPI</key>
-	<string>http://localhost/tasks:3000</string>
-	<key>emailSignUpPolicyId</key>
-	<string><Enter your sign up policy name, e.g.g b2c_1_sign_up></string>
-	<key>faceBookSignInPolicyId</key>
-	<string><your sign in policy for FB></string>
-	<key>emailSignInPolicyId</key>
-	<string><Enter your sign in policy name, e.g. b2c_1_sign_in></string>
-	<key>fullScreen</key>
-	<false/>
-	<key>showClaims</key>
-	<true/>
+	<key>tokenURL</key>
+	<string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/token?p=<policy name></string>
+	<key>keychain</key>
+	<string>com.microsoft.azureactivedirectory.samples.graph.QuickStart</string>
+	<key>contentType</key>
+	<string>application/x-www-form-urlencoded</string>
+	<key>taskAPI</key>
+	<string>https://aadb2cplayground.azurewebsites.net</string>
 </dict>
 </plist>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+이것들을 자세히 설명해 보겠습니다.
 
-## 액세스 토큰을 가져오고 작업 API를 호출합니다.
 
-이 섹션은 Microsoft의 라이브러리 및 프레임워크를 사용하여 웹앱에서 OAuth 2.0 토큰 교환을 완료할 수 있는 방법을 설명합니다. 인증 코드 및 액세스 토큰에 익숙하지 않은 경우 [OAuth 2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)에서 자세히 알아볼 수 있습니다.
+`authURL`, `loginURL`, `bhh`, `tokenURL`의 경우 테넌트 이름을 입력해야 합니다. 사용자에게 할당된 B2C 테넌트의 이름입니다. 예를 들어 `kidventusb2c.onmicrosoft.com`입니다. 오픈 소스 Microsoft Azure Identity 라이브러리를 사용하는 경우 메타데이터 끝점을 사용하려면 이 데이터를 가져옵니다. 사용자를 위해 이러한 값을 추출하는 어려운 작업을 마쳤습니다.
 
-### 메서드를 사용하여 헤더 파일 만들기
+B2C 테넌트 이름에 대한 자세한 내용은 [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)을 살펴보세요.
 
-선택한 정책을 사용하여 토큰을 가져온 다음 태스크 서버를 호출하는 메서드가 필요합니다. 이제 이를 설정합니다.
+`keychain` 값은 NXOAuth2Client 라이브러리가 토큰을 저장하기 위해 키 집합을 만드는데 사용할 컨테이너입니다. 다양한 앱에서 SSO를 가져오려 한다면 각 응용 프로그램에서 동일한 키 집합을 지정하는 것은 물론 XCode 자격에서 그 키 집합의 사용을 요청할 수 있습니다. 이 내용은 Apple 설명서에서 다룹니다.
 
-XCode 프로젝트의 `/Microsoft Tasks`에서 `samplesWebAPIConnector.h`이라는 파일 만들기
+각 URL의 끝에 있는 `<policy name>`은 위에서 만든 정책을 배치한 위치입니다. 앱은 흐름에 따라 이러한 정책을 호출합니다.
 
-다음 코드를 추가하여 수행해야 하는 작업을 정의합니다.
+`taskAPI`은 작업을 추가하거나 기존 작업을 쿼리하기 위해 B2C 토큰으로 호출하는 REST 끝점입니다. 이 샘플에 적합하도록 설정되었습니다. 샘플을 작동시기키 위해 변경할 필요가 없습니다.
 
-```
+나머지 이런 값들은 라이브러리를 사용하여 값을 컨텍스트로 옮길 위치를 만드는 것이 필요합니다.
+
+이제 `settings.plist` 파일을 만들었으므로 읽을 코드가 필요합니다.
+
+## AppData 클래스를 설정하여 설정을 읽습니다.
+
+위에서 만든 `settngs.plist` 파일을 구문 분석하는 간단한 파일을 만들고 해당 설정을 나중에 클래스에 사용할 수 있도록 하겠습니다. 클래스가 요청할 때마다 데이터의 새 복사본을 만들지 않으려면 단일 항목 패턴을 사용하고 설정에 대한 요청이 만들어질 때마다 만든 동일한 인스턴스를 반환하기만 합니다.
+
+* `AppData.h` 파일을 만듭니다.
+
+```objc
 #import <Foundation/Foundation.h>
-#import "samplesTaskItem.h"
-#import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationContext.h"
 
-@interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
+@interface AppData : NSObject
 
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
+@property(strong) NSString *accountIdentifier;
+@property(strong) NSString *taskApiString;
+@property(strong) NSString *authURL;
+@property(strong) NSString *clientID;
+@property(strong) NSString *loginURL;
+@property(strong) NSString *bhh;
+@property(strong) NSString *keychain;
+@property(strong) NSString *tokenURL;
+@property(strong) NSString *clientSecret;
+@property(strong) NSString *contentType;
 
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) doPolicy:(samplesPolicyData*)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock;
-
-+(void) signOut;
++ (id)getInstance;
 
 @end
 ```
 
-`doPolicy` 메서드 뿐만 아니라 API에서 간단한 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업입니다. 이 메서드를 사용하여 원하는 정책으로 토큰을 가져올 수 있습니다.
+* `AppData.m` 파일을 만듭니다.
 
-두 개의 헤더 파일을 정의해야 합니다. 태스크 항목 및 정책 데이터를 확보합니다. 지금 만들어 보세요.
+```objc
+#import "AppData.h"
 
-다음 코드를 사용하여 `samplesTaskItem.h` 파일을 만듭니다.
+@implementation AppData
+
++ (id)getInstance {
+  static AppData *instance = nil;
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    instance = [[self alloc] init];
+
+    NSDictionary *dictionary = [NSDictionary
+        dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+                                         pathForResource:@"settings"
+                                                  ofType:@"plist"]];
+    instance.accountIdentifier = [dictionary objectForKey:@"accountIdentifier"];
+    instance.clientID = [dictionary objectForKey:@"clientID"];
+    instance.clientSecret = [dictionary objectForKey:@"clientSecret"];
+    instance.authURL = [dictionary objectForKey:@"authURL"];
+    instance.loginURL = [dictionary objectForKey:@"loginURL"];
+    instance.bhh = [dictionary objectForKey:@"bhh"];
+    instance.tokenURL = [dictionary objectForKey:@"tokenURL"];
+    instance.keychain = [dictionary objectForKey:@"keychain"];
+    instance.contentType = [dictionary objectForKey:@"contentType"];
+    instance.taskApiString = [dictionary objectForKey:@"taskAPI"];
+
+  });
+
+  return instance;
+}
+@end
+```
+
+이제 아래와 같이 클래스 중 하나에서 `  AppData *data = [AppData getInstance];`을 호출하여 쉽게 데이터를 가져올 수 있습니다.
+
+
+
+## AppDelegate에서 NXOAuth2Client 라이브러리 설정
+
+NXOAuthClient 라이브러리는 시작하기 위해 일부 값을 필요로 합니다. 완료되면 REST API를 호출하는 데 획득한 토큰을 사용할 수 있습니다. 응용 프로그램을 로드할 때마다 `AppDelegate`이 호출되리라는 것을 알고 있으므로 구성 값을 해당 파일에 두는 것이 좋습니다.
+* `AppDelegate.m` 파일을 엽니다.
+
+* 나중에 사용할 몇 가지 헤더 파일을 가져옵니다.
+
+```objc
+#import "NXOAuth2.h" // the Identity library we are using
+#import "AppData.h" // the class we just created we will use to load the settings of our application
+```
+
+* AppDelegate에 `setupOAuth2AccountStore` 메서드를 추가합니다.
+
+AccountStore를 만들고 방금 `settings.plist` 파일에서 읽은 데이터를 피드해야 합니다.
+
+이제 B2C 서비스와 관련하여 알아야 할 몇 가지 사항이 있습니다. 이를 통해 코드를 쉽게 이해할 수 있습니다.
+
+
+1. Azure AD B2C는 쿼리 매개 변수에서 제공한 대로 *정책*을 사용하여 요청을 처리합니다. 이렇게 하면 Azure Active Directory에서 응용 프로그램에 대해서만 독립된 서비스의 역할을 할 수 있습니다. 이러한 추가 쿼리 매개 변수를 제공하기 위해 사용자 지정 정책 매개 변수와 함께 `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` 메서드를 제공해야 합니다.
+
+2. Azure AD B2C는 OAuth2 서버와 거의 동일한 방식으로 범위를 사용합니다. 그러나 B2C를 사용하는 작업은 리소스에 액세스하는 작업만큼 많은 사용자를 인증하는 것이기 때문에 흐름이 제대로 작동하기 위해 일정 범위가 절대적으로 필요합니다. `openid` 범위입니다. Microsoft ID SDK는 `openid` 범위를 자동으로 제공하므로 SDK 구성에서 표시되지 않습니다. 타사 라이브러리를 사용하지만 이 범위를 지정해야 합니다.
+
+```objc
+- (void)setupOAuth2AccountStore {
+  AppData *data = [AppData getInstance]; // The singleton we use to get the settings
+
+  NSDictionary *customHeaders =
+      [NSDictionary dictionaryWithObject:@"application/x-www-form-urlencoded"
+                                  forKey:@"Content-Type"];
+
+  // Azure B2C needs
+  // kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters for
+  // sending policy to the server,
+  // therefore we use -setConfiguration:forAccountType:
+  NSDictionary *B2cConfigDict = @{
+    kNXOAuth2AccountStoreConfigurationClientID : data.clientID,
+    kNXOAuth2AccountStoreConfigurationSecret : data.clientSecret,
+    kNXOAuth2AccountStoreConfigurationScope :
+        [NSSet setWithObjects:@"openid", data.clientID, nil],
+    kNXOAuth2AccountStoreConfigurationAuthorizeURL :
+        [NSURL URLWithString:data.authURL],
+    kNXOAuth2AccountStoreConfigurationTokenURL :
+        [NSURL URLWithString:data.tokenURL],
+    kNXOAuth2AccountStoreConfigurationRedirectURL :
+        [NSURL URLWithString:data.bhh],
+    kNXOAuth2AccountStoreConfigurationCustomHeaderFields : customHeaders,
+    //      kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:customAuthenticationParameters
+  };
+
+  [[NXOAuth2AccountStore sharedStore] setConfiguration:B2cConfigDict
+                                        forAccountType:data.accountIdentifier];
+}
+```
+다음으로 `didFinishLaunchingWithOptions:` 메서드의 AppDelegate에서 호출하는지 확인합니다.
 
 ```
-#import <Foundation/Foundation.h>
+[self setupOAuth2AccountStore];
+```
 
-@interface samplesTaskItem : NSObject
 
-@property NSString *itemName;
-@property NSString *ownerName;
-@property BOOL completed;
-@property (readonly) NSDate *creationDate;
+## 인증 요청을 처리하는 데 사용하는 `LoginViewController` 클래스를 만듭니다.
+
+계정 로그인에 웹 보기를 사용합니다. 사용자에게 SMS 텍스트 메시지(구성된 경우)와 같은 추가 요소에 대한 메시지를 표시하거나 사용자에게 오류 메시지를 돌려줍니다. 여기서 웹 보기를 설정한 후에 Microsoft ID 서비스의 WebView에서 발생할 콜백을 처리할 코드를 작성합니다.
+
+* `LoginViewController.h` 클래스를 만듭니다.
+
+```objc
+@interface LoginViewController : UIViewController <UIWebViewDelegate>
+@property(weak, nonatomic) IBOutlet UIWebView *loginView; // Our webview that we will use to do authentication
+
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult; // Allows us to get a token after we've received an Access code.
+- (void)setupOAuth2AccountStore; // We will need to add to our OAuth2AccountStore we setup in our AppDelegate
+- (void)requestOAuth2Access; // This is where we invoke our webview.
+```
+
+이러한 방법은 각각 아래와 같이 만듭니다.
+
+> [AZURE.NOTE] 
+    `loginView`을 스토리 보드 내에 있는 실제 웹 보기에 바인딩하도록 합니다. 그렇지 않으면 인증할 때 팝업할 수 있는 웹 보기가 없을 수도 있습니다.
+
+* `LoginViewController.m` 클래스를 만듭니다.
+
+* 인증한 대로 상태를 가져오는 일부 변수를 추가합니다.
+
+```objc
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
+bool loginFlow = FALSE; 
+bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
+NSURL *authcode; \\ A placeholder for our auth code.
+```
+
+* 인증을 처리하는 WebView 메서드 재정의
+
+위에서 설명한 것처럼 사용자가 로그인할 필요가 있을 때 웹 보기에 원하는 동작을 지시할 필요가 있습니다. 단순히 아래 코드를 잘라내어 붙여넣습니다.
+
+```objc
+- (void)resolveUsingUIWebView:(NSURL *)URL {
+  // We get the auth token from a redirect so we need to handle that in the
+  // webview.
+
+  if (![NSThread isMainThread]) {
+    [self performSelectorOnMainThread:@selector(resolveUsingUIWebView:)
+                           withObject:URL
+                        waitUntilDone:YES];
+    return;
+  }
+
+  NSURLRequest *hostnameURLRequest =
+      [NSURLRequest requestWithURL:URL
+                       cachePolicy:NSURLRequestUseProtocolCachePolicy
+                   timeoutInterval:10.0f];
+  isRequestBusy = YES;
+  [self.loginView loadRequest:hostnameURLRequest];
+
+  NSLog(@"resolveUsingUIWebView ready (status: UNKNOWN, URL: %@)",
+        self.loginView.request.URL);
+}
+
+- (BOOL)webView:(UIWebView *)webView
+    shouldStartLoadWithRequest:(NSURLRequest *)request
+                navigationType:(UIWebViewNavigationType)navigationType {
+  AppData *data = [AppData getInstance];
+
+  NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL,
+        (long)navigationType);
+
+  // The webview is where all the communication happens. Slightly complicated.
+
+  myLoadedUrl = [webView.request mainDocumentURL];
+  NSLog(@"***Loaded url: %@", myLoadedUrl);
+
+  // if the UIWebView is showing our authorization URL or consent URL, show the
+  // UIWebView control
+  if ([request.URL.absoluteString rangeOfString:data.authURL
+                                        options:NSCaseInsensitiveSearch]
+          .location != NSNotFound) {
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.loginURL
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.bhh
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = YES;
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  } else {
+    self.loginView.hidden = NO;
+    // read the Location from the UIWebView, this is how Microsoft APIs is
+    // returning the
+    // authentication code and relation information. This is controlled by the
+    // redirect URL we chose to use from Microsoft APIs
+    // continue the OAuth2 flow
+    // [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  }
+
+  return YES;
+}
+
+```
+
+* OAuth2 요청의 결과를 처리할 코드를 작성합니다.
+
+WebView에서 반환되는 redirectURL를 처리할 코드가 필요합니다. 성공적이지 않았다면, 다시 시도합니다. 한편 라이브러리는 콘솔에서 보거나 비동기식으로 처리할 수 있는 오류를 제공합니다.
+
+```objc
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult {
+  // parse the response for success or failure
+  if (accessResult)
+  // if success, complete the OAuth2 flow by handling the redirect URL and
+  // obtaining a token
+  {
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
+  } else {
+    // start over
+    [self requestOAuth2Access];
+  }
+}
+```
+
+* 알림 팩터리를 설정합니다.
+
+위의 `AppDelegate`에서 수행한 것과 동일한 방법을 만들지만 이번에는 `NSNotification`를 추가하여 이 서비스에서 무엇이 발생하는지 알아봅니다. 토큰과 함께 무언가가 변경될 때 알려주도록 관찰자를 설정합니다. 일단 토큰을 가져오면 사용자를 `masterView`로 돌려보냅니다.
+
+
+
+```objc
+- (void)setupOAuth2AccountStore {
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                if (aNotification.userInfo) {
+                  // account added, we have access
+                  // we can now request protected data
+                  NSLog(@"Success!! We have an access token.");
+                  dispatch_async(dispatch_get_main_queue(), ^{
+
+                    MasterViewController *masterViewController =
+                        [self.storyboard
+                            instantiateViewControllerWithIdentifier:@"master"];
+                    [self.navigationController
+                        pushViewController:masterViewController
+                                  animated:YES];
+                  });
+                } else {
+                  // account removed, we lost access
+                }
+              }];
+
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreDidFailToRequestAccessNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                NSError *error = [aNotification.userInfo
+                    objectForKey:NXOAuth2AccountStoreErrorKey];
+                NSLog(@"Error!! %@", error.localizedDescription);
+              }];
+}
+
+```
+* 로그인을 기본으로 요청이 시작될 때마다 사용자를 처리하는 코드를 추가합니다.
+
+인증에 대한 요청이 있을 때마다 호출되는 메서드를 만들어 보겠습니다. 실제로 웹 보기를 만드는 메서드입니다.
+
+```objc
+- (void)requestOAuth2Access {
+  AppData *data = [AppData getInstance];
+
+  // in order to login to Mircosoft APIs using OAuth2 we must show an embedded
+  // browser (UIWebView)
+  [[NXOAuth2AccountStore sharedStore]
+           requestAccessToAccountWithType:data.accountIdentifier
+      withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+        // navigate to the URL returned by NXOAuth2Client
+
+        NSURLRequest *r = [NSURLRequest requestWithURL:preparedURL];
+        [self.loginView loadRequest:r];
+      }];
+}
+```
+
+* 마지막으로 `LoginViewController`이 로드될 때마다 위에서 작성한 이러한 모든 메서드를 호출하겠습니다. 이러한 메서드를 Apple이 제공한 `viewDidLoad` 메서드에 추가하여 이 작업을 수행합니다.
+
+```objc
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+
+  // OAuth2 Code
+
+  self.loginView.delegate = self;
+  [self requestOAuth2Access];
+  [self setupOAuth2AccountStore];
+  NSURLCache *URLCache =
+      [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                    diskCapacity:20 * 1024 * 1024
+                                        diskPath:nil];
+  [NSURLCache setSharedURLCache:URLCache];
+```
+
+이제 로그인하기 위해 응용 프로그램과 상호 작용하는 기본적인 방법을 만들었습니다. 로그인한 후에 받은 토큰을 사용해야 합니다. 이를 위해 이 라이브러리를 사용하여 REST API를 호출하는 도우미 코드를 만듭니다.
+
+
+## `GraphAPICaller` 클래스를 만들어서 REST API에 대한 요청을 처리합니다.
+
+앱을 로드할 때마다 로드된 구성이 있습니다. 이제 토큰이 있으면 작업을 수행해야 합니다.
+
+* `GraphAPICaller.h` 파일을 만듭니다.
+
+```objc
+@interface GraphAPICaller : NSObject <NSURLConnectionDataDelegate>
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock;
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *error))completionBlock;
 
 @end
 ```
 
-또한 `samplesPolicyData.h` 파일을 만들어 정책 데이터를 확보합니다.
+이 코드에서는 API에서 작업을 가져오는 메서드와 API에 작업을 추가하는 메서드 등 두 개의 메서드를 만드는 작업을 확인합니다.
 
-```
-#import <Foundation/Foundation.h>
+이제 인터페이스를 설정했으므로 실제 구현에 추가해 보겠습니다.
 
-@interface samplesPolicyData : NSObject
+* `GraphAPICaller.m file`을 만듭니다.
 
-@property (strong) NSString* policyName;
-@property (strong) NSString* policyID;
+```objc
+@implementation GraphAPICaller
 
-+(id) getInstance;
+// 
+// Gets the tasks from our REST endpoint we specified in settings
+//
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *))completionBlock
+
+{
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSMutableArray *Tasks = [[NSMutableArray alloc] init];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"GET"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:nil
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (!error) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          if ([dataReturned count] != 0) {
+
+            for (NSMutableDictionary *theTask in dataReturned) {
+
+              Task *t = [[Task alloc] init];
+              t.name = [theTask valueForKey:@"Text"];
+
+              [Tasks addObject:t];
+            }
+          }
+
+          completionBlock(Tasks, nil);
+        } else {
+          completionBlock(nil, error);
+        }
+
+      }];
+}
+
+// 
+// Adds a task from our REST endpoint we specified in settings
+//
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock {
+
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSDictionary *params = [self convertParamsToDictionary:task.name];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"POST"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:params
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (responseData) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          completionBlock(TRUE, nil);
+        } else {
+          completionBlock(FALSE, error);
+        }
+
+      }];
+}
+
++ (NSDictionary *)convertParamsToDictionary:(NSString *)task {
+  NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+  [dictionary setValue:task forKey:@"Text"];
+
+  return dictionary;
+}
 
 @end
-```
-### 태스크 및 정책 항목에 구현을 추가합니다.
-
-헤더 파일을 저장했으므로 샘플에 사용할 데이터를 저장하는 코드를 작성할 수 있습니다.
-
-다음 코드를 사용하여 `samplesPolicyData.m` 파일을 만듭니다.
-
-```
-#import <Foundation/Foundation.h>
-#import "samplesPolicyData.h"
-
-@implementation samplesPolicyData
-
-+(id) getInstance
-{
-    static samplesPolicyData *instance = nil;
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-        instance.policyName = [dictionary objectForKey:@"policyName"];
-        instance.policyID = [dictionary objectForKey:@"policyID"];
-
-
-    });
-
-    return instance;
-}
-
-
-@end
-```
-
-### iOS 용 ADAL로 호출하는 설치 코드 작성
-
-UI에 개체를 저장하는 빠른 코드가 이제 완료됩니다. 다음으로 `settings.plist`에 배치한 매개 변수를 사용하여 iOS용 ADAL(Active Directory 인증 라이브러리)에 액세스하는 코드를 작성해야 합니다. 액세스 토큰을 가져와서 이 태스크 서버에 제공합니다.
-
-이제 모든 작업이 `samplesWebAPIConnector.m`에서 수행됩니다.
-
-먼저 `samplesWebAPIConnector.h` 헤더 파일에서 작성한 `doPolicy()` 구현을 만듭니다.
-
-```
-+(void) doPolicy:(samplesPolicyData *)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
-
-        if (userInfo == nil)
-        {
-            completionBlock(nil, error);
-        }
-
-        else {
-
-            completionBlock(userInfo, nil);
-        }
-    }];
-
-}
-
-
-```
-
-이 메서드는 간단합니다. 만든 `samplesPolicyData` 개체, 상위 `ViewController` 및 콜백을 입력으로 사용합니다. 콜백을 자세히 살펴보겠습니다.
-
-- `completionBlock`은 `userInfo` 개체를 사용하여 반환되는 형식으로 `ADProfileInfo`를 갖습니다. `ADProfileInfo`는 클레임을 포함하여 서버에서 모든 응답을 확보하는 형식입니다.
-- 또한 `readApplicationSettings`입니다. `settings.plist`에서 제공한 데이터를 읽습니다.
-- 마지막으로 대량 `getClaimsWithPolicyClearingCache` 메서드가 있습니다. 작성해야 하는 iOS 용 ADAL에 대한 실제 호출입니다. 나중에 여기로 돌아옵니다.
-
-다음으로 대량 메서드 `getClaimsWithPolicyClearingCache`을 작성합니다. 고유한 섹션을 사용할 만큼 충분히 큽니다.
-
-### iOS 용 ADAL에 호출 만들기
-
-GitHub에서 골격을 다운로드한 후에 샘플 응용 프로그램에 도움이 되는 이러한 호출이 이미 준비되었음을 확인할 수 있습니다. `get(Claims|Token)With<verb>ClearningCache`의 패턴을 따릅니다. 목표 C 규칙을 사용하여 영어처럼 읽습니다. 예를 들어 "제공한 추가 매개 변수로 토큰을 가져오고 캐시를 지웁니다."는 `getTokenWithExtraParamsClearingCache()`입니다.
-
-"제공한 정책으로 클레임 및 토큰을 가져오고 캐시를 지우지 않습니다." 또는 `getClaimsWithPolicyClearingCache`이라고 작성합니다. 항상 ADAL에서 토큰을 다시 가져오므로 "클레임 및 토큰"을 메서드에서 지정할 필요가 없습니다. 그러나 클레임을 구문 분석하는 오버헤드 없이 토큰이 필요한 경우도 있으므로 골격에서 `getTokenWithPolicyClearingCache`라는 클레임 없이 메서드를 제공합니다.
-
-이제 이 코드를 작성합니다.
-
-```
-+(void) getClaimsWithPolicyClearingCache  : (BOOL) clearCache
-                           policy:(samplesPolicyData *)policy
-                           params:(NSDictionary*) params
-                           parent:(UIViewController*) parent
-                completionHandler:(void (^) (ADProfileInfo*, NSError*))completionBlock;
-{
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
-    authContext.parentController = parent;
-    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-
-    if(!data.correlationId ||
-       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
-    {
-        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
-    }
-
-    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
-    [authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-                           if (result.status != AD_SUCCEEDED)
-                           {
-                               completionBlock(nil, result.error);
-                           }                              else
-                              {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.profileInfo, nil);
-                              }
-                          }];
-}
-
-
-```
-
-첫 번째 부분은 친숙해 보여야 합니다.
-
-- `settings.plist`에서 제공하는 설정을 로드하고 `data`에 할당합니다.
-- `ADAuthenticationError`을 설치하며 이는 iOS용 ADAL에서 나온 오류를 처리합니다.
-- `authContext`을 만들며 이는 ADAL에 대한 호출을 설정합니다. 기관에 전달하여 작업을 시작합니다.
-- 상위 컨트롤러에 `authContext`을 참조로 제공하여 돌아갈 수 있도록 합니다.
-- `redirectURI`을 변환하며 이는 ADAL이 예상하는 NSURL 형식인 `settings.plist`의 문자열입니다.
-- `correlationId`을 설정합니다. 클라이언트에서 서버 및 반대로 호출을 수행할 수 있는 UUID입니다. 디버깅에 유용합니다.
-
-다음으로, ADAL에 대한 실제 호출로 가져옵니다. iOS용 ADAL을 이전에 사용했을 때 예상한 대로 호출이 변경되는 위치입니다.
-
-```
-[authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-```
-
-호출이 상당히 단순하다는 점을 알 수 있습니다.
-
-`scopes`: 로그인할 사용자에 대해 서버에서 요청하려는 서버에 전달하는 범위입니다. B2C 미리 보기에 `client_id`를 전달합니다. 그러나 나중에 범위를 읽도록 변경됩니다. 그런 다음이 문서를 업데이트할 계획입니다. `additionalScopes`: 응용 프로그램에 사용할 수 있는 추가 범위입니다. 나중에 사용될 것이라고 예상합니다. `clientId`: 포털에서 가져온 응용 프로그램 ID입니다. `redirectURI`: 토큰을 다시 게시하려는 리디렉션입니다. `identifier`: 캐시에서 토큰을 사용할 수 있는지 확인할 수 있도록 사용자를 식별하는 방법입니다. 항상 다른 토큰에 대한 서버의 요청을 방지합니다. `ADUserIdentifier`라는 형식에 전달되며 ID로 사용하려는 것을 지정할 수 있습니다. `username`을 사용해야 합니다. `promptBehavior`: 사용되지 않습니다. `AD_PROMPT_ALWAYS`이어야 합니다. `extraQueryParameters`: URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다. `policy`: 호출하는 정책입니다. 이 연습에 대한 중요한 부분입니다.
-
-`completionBlock`에서 `ADAuthenticationResult`를 전달하는 것을 확인할 수 있습니다. (호출이 성공적인 경우)사용자의 토큰 및 프로필 정보를 갖습니다.
-
-위 코드를 사용하여 제공하는 정책에 대한 토큰을 획득할 수 있습니다. 이 토큰을 사용하여 API를 호출할 수 있습니다.
-
-### 서버에 작업 호출 만들기
-
-토큰이 있으므로 승인을 위해 API에 제공해야 합니다.
-
-세 가지 메서드를 구현해야 합니다.
-
-```
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
-
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-```
-
-`getTasksList`는 서버에서 태스크를 나타내는 배열을 제공합니다. `addTask` 및 `deleteTask`는 후속 동작을 수행하고 성공하면 `true` 또는 `false`를 반환합니다.
-
-우선 `getTaskList`을 작성합니다.
-
-```
-
-+(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
-             parent:(UIViewController*) parent;
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-    [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
-                parent:parent
-     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-
-        if (error != nil)
-        {
-            completionBlock(nil, error);
-        }
-        else
-        {
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                if (error == nil && data != nil){
-
-                    NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-                    //each object is a key value pair
-                    NSDictionary *keyValuePairs;
-                    NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
-
-                    for(int i =0; i < tasks.count; i++)
-                    {
-                        keyValuePairs = [tasks objectAtIndex:i];
-
-                        samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"task"];
-
-                        [sampleTaskItems addObject:s];
-                    }
-
-                    completionBlock(sampleTaskItems, nil);
-                }
-                else
-                {
-                    completionBlock(nil, error);
-                }
-
-            }];
-        }
-    }];
-
-}
-
-```
-
-태스크 코드에 대한 설명은 이 연습의 범위를 벗어납니다. 하지만 흥미로운 점은 태스크 URL을 사용하는 `craftRequest` 메서드입니다. 이 메서드는 수신한 액세스 토큰을 사용하여 서버에 대한 요청을 만들기 위해 사용합니다. 지금 작성합니다.
-
-`samplesWebAPIConnector.m` 파일에 다음 코드를 추가합니다.
-
-```
-+(void) craftRequest : (NSString*)webApiUrlString
-               parent:(UIViewController*) parent
-    completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
-{
-    [self getClaimsWithPolicyClearingCache:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
-
-        if (accessToken == nil)
-        {
-            completionBlock(nil,error);
-        }
-        else
-        {
-            NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-
-            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-
-            [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-
-            completionBlock(request, nil);
-        }
-    }];
-}
-```
-
-웹 URI(Uniform Resource Identifier)가 필요하고 HTTP의 `Bearer` 헤더를 사용하여 토큰을 추가한 다음 사용자에게 반환합니다. `getTokenClearingCache` API를 호출합니다. 이상해 보이지만 단순히 호출을 사용하여 캐시에서 토큰을 가져오고 여전히 유효한지 확인합니다. (`getToken` 호출은 ADAL을 요청하여 이를 수행합니다.) 각 호출에 이 코드를 사용합니다. 다음으로 추가 작업 메서드를 확인합니다.
-
-`addTask`을 작성합니다.
-
-```
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"POST"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
-
-            NSLog(@"Request was: %@", request);
-            NSLog(@"Request body was: %@", myString);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-동일한 패턴을 따르지만 `convertTaskToDictionary`을 구현해야 하는 최종 메서드에 대해서 소개합니다. 배열을 사용하며 사전 개체로 만듭니다. 이 개체는 서버에 전달해야 하는 쿼리 매개 변수로 보다 쉽게 변경됩니다. 코드는 간단합니다.
-
-```
-// Here we have some conversation helpers that allow us to parse passed items into dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-
-    return dictionary;
-}
-
-```
-
-다음으로 `deleteTask`을 작성합니다.
-
-```
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"DELETE"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSLog(@"%@", request);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-### 로그아웃을 응용 프로그램에 추가합니다.
-
-마지막으로 응용 프로그램에 대한 로그아웃을 구현합니다. 이 작업은 간단합니다. `sampleWebApiConnector.m` 파일 내에서:
-
-```
-+(void) signOut
-{
-    [authContext.tokenCacheStore removeAll:nil];
-
-    NSHTTPCookie *cookie;
-
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies])
-    {
-        [storage deleteCookie:cookie];
-    }
-}
 ```
 
 ## 샘플 앱 실행
@@ -614,9 +637,6 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태스크가 API에 대해 사용자 단위로 저장됩니다.
 
-참조를 위해 전체 샘플은 [.zip 파일로 제공됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). 또한 GitHub에서 복제할 수 있습니다.
-
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## 다음 단계
 
@@ -626,4 +646,4 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 [B2C 앱을 위한 UX 사용자 지정]()
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

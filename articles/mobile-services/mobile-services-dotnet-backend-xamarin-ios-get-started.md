@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/16/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.iOS 앱 만들기](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)를 참조하세요.
@@ -132,4 +132,4 @@
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

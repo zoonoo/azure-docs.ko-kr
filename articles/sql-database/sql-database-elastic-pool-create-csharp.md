@@ -3,7 +3,7 @@
     description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # C&#x23;을 사용한 새 탄력적 데이터베이스 풀 만들기
 
@@ -24,13 +24,13 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법
+C#;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법
 
 일반적인 오류 코드는 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)를 참조하세요.
 
 아래 예제는 [.NET용 SQL 데이터베이스 라이브러리](https://msdn.microsoft.com/library/azure/mt349017.aspx)를 사용하므로 아직 설치되지 않은 경우 계속하기 전에 이 라이브러리를 설치해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 이 라이브러리를 설치할 수 있습니다.
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## 새 풀 만들기
 
@@ -74,7 +74,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 기존 데이터베이스를 풀으로 이동하려면 [데이터베이스를 탄력적 풀로 이동](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool)을 참조하세요.
 
-## 예제: C&#x23을 사용하여 풀 만들기
+## 예제: C&#x23;을 사용하여 풀 만들기
 
 이 예제에서는 새 Azure 리소스 그룹, 새 Azure SQL Server 인스턴스 및 새 탄력적 풀을 만듭니다.
  
@@ -82,7 +82,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 이 예제를 실행하려면 다음 라이브러리가 필요합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 콘솔 앱을 만들고 Program.cs의 내용을 다음으로 바꿉니다. 필요한 클라이언트 ID 및 관련 값을 가져오려면 [앱 등록 및 SQL 데이터베이스에 앱을 연결하는 데 필요한 클라이언트 값 가져오기](sql-database-client-id-keys.md)를 참조하세요. [Get AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet을 사용하여 subscriptionId에 대한 값을 검색합니다.
@@ -249,4 +249,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

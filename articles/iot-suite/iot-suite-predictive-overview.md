@@ -42,7 +42,7 @@ Fabrikam 항공기의 엔진에는 비행 중에 엔진 상태를 모니터링�
 
 미리 구성된 Azure IoT 예측 정비 솔루션은 이 템플릿으로부터 생성된 회귀 모델을 사용합니다. 템플릿은 사용자의 Azure 구독에 배포되어 있고 자동으로 생성된 API를 통해 노출됩니다. 이 솔루션은 4개(총 100개 중)의 엔진을 나타내는 테스트 데이터의 하위 집합과, 학습된 모델을 통해 정확한 결과를 제공하는 4개(총 21개 중)의 센서 데이터 스트림을 포함합니다.
 
-*[1] A. Saxena and K. Goebel(2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*[1] A. Saxena and K. Goebel(2008). "Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합", NASA Ames Prognostics Data Repository(http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## 다음 단계
 
@@ -58,4 +58,12 @@ Azure IoT가 예측 정비 시나리오를 가능하게 하는 방식에 대해 
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_0525_2016-->
+미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
+
+- [IoT Suite에 대한 질문과 대답][lnk-faq]
+- [처음부터 IoT 보안을 고려][lnk-security-groundup]
+
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -87,7 +87,7 @@ Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
->[AZURE.IMPORTANT] 경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][] \(영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
+>[AZURE.IMPORTANT] 경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
 
 SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변수를 생략합니다.
 
@@ -108,7 +108,7 @@ SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변
 	    }
 	}
 
-고급 연결 구성 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성 모델][] \(영문)을 참조하세요.
+고급 연결 구성 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성 모델][](영문)을 참조하세요.
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -191,10 +191,12 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 	-	[Azure Redis 세션 상태 공급자](cache-aspnet-session-state-provider.md)
 	-	[Azure Redis Cache ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
 -	캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. Azure 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
--	[StackExchange.Redis 캐시 클라이언트 설명서][] \(영문)를 확인하세요.
+-	[StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 확인하세요.
 	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][]를 참조하세요.
-	-	Redsmin과 같은 서비스와 함께 Azure Redis Cache를 사용할 수도 있습니다. 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][] \(영문)을 참조하세요.
--	[redis][] \(영문) 설명서를 참조하고 [redis 데이터 형식][] \(영문) 및 [Redis 데이터 형식에 대한 15분 소개][] \(영문)에 대해 읽어 보세요.
+-	Redsmin 및 Redis Desktop Manager와 같은 타사 서비스 및 도구와 함께 Azure Redis Cache를 사용할 수도 있습니다.
+	-	Redsmin에 대한 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][]을 참조하세요.
+	-	[RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)를 사용하여 GUI가 포함된 Azure Redis Cache의 데이터에 액세스하고 해당 데이터를 검사합니다.
+-	[redis][](영문) 설명서를 참조하고 [redis 데이터 형식][](영문) 및 [Redis 데이터 형식에 대한 15분 소개][](영문)에 대해 읽어 보세요.
 
 
 
@@ -284,4 +286,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

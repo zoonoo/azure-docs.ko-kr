@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/13/2016"
+	ms.date="07/22/2016"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터에서 SQL Server 시작
@@ -31,7 +31,7 @@
 
 엔터프라이즈 응용 프로그램과 같은 다른 작업을 Azure로 이동할 경우 성능 향상을 위해 Azure에 모든 종속 SQL Server 데이터베이스를 이동할 수도 있습니다. 하지만 Azure VM에서 SQL Server를 호스트하면 다른 이점도 제공합니다. 예를 들어 글로벌 서비스 및 재해 복구를 위해 여러 데이터 센터에 대한 액세스를 자동으로 가집니다. 시나리오 및 이점의 전체 목록은 [Azure VM 제품 페이지의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)를 참조하세요.
 
-> [AZURE.NOTE] Azure VM에서 SQL Server를 평가하고 Azure에서 [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md), [SQL 데이터 웨어하우스](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 및 [SQL Server 스트레치 데이터베이스](../sql -server-stretch-database/sql-server-stretch-database-overview.md)와 같은 다른 저장소 및 SQL 옵션을 검토합니다. 하나의 자세한 비교는 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하세요.
+> [AZURE.NOTE] Azure VM에서 SQL Server를 평가하고 Azure에서 [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md), [SQL 데이터 웨어하우스](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 및 [SQL Server 스트레치 데이터베이스](../sql -server-stretch-database/sql-server-stretch-database-overview.md)와 같은 다른 저장소 및 SQL 옵션을 검토합니다. 한 가지 자세한 비교는 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
 
 Azure VM에서 SQL Server를 실행하도록 결정한 후 첫 번째 결정 사항 중 하나는 SQL Server 라이선스 비용을 포함하는 VM 이미지를 사용할지 여부입니다. 또 다른 옵션은 BYOL(Bring Your Own License) 및 VM 자체에 대해서만 지불하는 것입니다. 다음 두 섹션에서는 이러한 옵션을 설명합니다.
 
@@ -78,7 +78,7 @@ SQL Server VM을 프로비전한 후 여러 가지 선택적 관리 작업이 �
 다른 고가용성 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ### 데이터 백업
-Azure VM은 [자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 이용할 수 있으며 정기적으로 Blob 저장소에 데이터베이스의 백업을 만듭니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server 백업 및 복원에 Azure 저장소 사용](../sql-database/storage-use-storage-sql-server-backup-restore.md)을 참조하세요. 모든 백업 및 복원 옵션에 대한 개요는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
+Azure VM은 [자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 이용할 수 있으며 정기적으로 Blob 저장소에 데이터베이스의 백업을 만듭니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server 백업 및 복원에 Azure 저장소 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)을 참조하세요. 모든 백업 및 복원 옵션에 대한 개요는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
 
 ### 업데이트 자동화
 Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automated-patching.md)를 사용하여 중요한 Windows 및 SQL Server를 자동으로 설치하는 유지 관리 창을 예약할 수 있습니다.
@@ -91,4 +91,4 @@ Azure 가상 컴퓨터의 SQL Server에 대한 [학습 경로를 탐색](https:/
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->
