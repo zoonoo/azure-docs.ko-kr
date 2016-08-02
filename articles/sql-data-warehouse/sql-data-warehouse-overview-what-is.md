@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@ Polybase는 친숙한 T-SQL 명령을 사용하여 다양한 원본에서 데이
 
 ## 다음 단계
 
-SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하게 [SQL 데이터 웨어하우스 만들기][] 및 [샘플 데이터 로드][]에 대해 알아봅니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.
+SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하게 [SQL 데이터 웨어하우스 만들기][] 및 [샘플 데이터 로드][]에 대해 알아봅니다. Azure을 처음 접하는 경우 새 용어를 발견하면 [Azure 용어집][]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL 데이터 웨어하우스 리소스를 살펴봅니다.
 
 - [블로그]
 - [기능 요청]
@@ -169,6 +169,7 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [SQL 데이터 웨어하우스 솔루션 파트너]: sql-data-warehouse-partner-business-intelligence.md
 [통합된 도구 개요]: sql-data-warehouse-overview-integrate.md
 [백업 및 복원 개요]: sql-data-warehouse-restore-database-overview.md
+[Azure 용어집]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -181,4 +182,4 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

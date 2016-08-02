@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -50,4 +50,4 @@ Azure 앱 서비스에서 다양한 서비스 "계층"을 사용할 수 있습�
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
  
 
-<!------HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

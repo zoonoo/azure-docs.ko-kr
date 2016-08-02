@@ -13,13 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터 문제 해결 가이드
 이 가이드는 Azure 보안 센터를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 보안 센터 문제를 해결해야 합니다.
-
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
 
 ## 문제 해결 가이드
 이 가이드에서는 보안 센터 관련 문제를 해결하는 방법을 설명합니다. 보안 센터에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음 사항을 확인할 수 있습니다.
@@ -82,4 +80,4 @@ Linux 시스템에 문제 해결 VM 에이전트를 설치할 때 확장이 /var
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

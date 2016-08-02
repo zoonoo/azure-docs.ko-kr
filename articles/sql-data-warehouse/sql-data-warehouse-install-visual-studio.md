@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/23/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL 데이터 웨어하우스용 Visual Studio 2015 및 SSDT 설치
 
-SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 Visual Studio 2015를 사용하는 것이 좋습니다. 이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013도 지원됩니다.
+SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 Visual Studio 2015를 사용하는 것이 좋습니다. 이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013 업데이트 5도 지원됩니다.
 
 SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된 프로시저 및 SQL 데이터 웨어하우스의 더 많은 개체 뿐만 아니라 쿼리 실행에 SQL Server 개체 탐색기를 사용할 수 있습니다.
 
@@ -56,4 +56,4 @@ Visual Studio 용 SSDT를 설치하려면 다음 이 단계를 수행하여 Visu
 [Visual Studio 설치]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT 다운로드]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

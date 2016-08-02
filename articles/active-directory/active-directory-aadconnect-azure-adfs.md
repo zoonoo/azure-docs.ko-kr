@@ -257,7 +257,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 |규칙|설명|흐름|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	DMZ에 대한 HTTPS 통신을 허용합니다. | 인바운드 |
+|AllowHTTPSFromDMZ| DMZ에서 HTTPS 통신을 허용합니다. | 인바운드 |
 |DenyAllFromDMZ| 이 규칙은 DMZ에서 내부 서브넷까지 모든 트래픽을 차단합니다. 규칙 AllowHTTPSFromDMZ는 HTTPS 통신 과정 및 이 규칙에 의해 차단되는 모든 항목을 관리합니다. | 인바운드 |
 |DenyInternetOutbound| 인터넷에 액세스할 수 없습니다. | 아웃바운드 |
 
@@ -303,4 +303,4 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

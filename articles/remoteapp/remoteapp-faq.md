@@ -4,7 +4,7 @@
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
-	manager="mbaldwin" 
+	manager="swadhwa" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
 Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 있을 경우 [RemoteApp 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp)을 방문하여 알아야 할 사항을 알려 주거나 아래에 의견을 남겨주세요.
+
+## 원하는 항목을 찾을 수 없나요? 답하지 않은 질문이 있나요?
+필요한 정보를 찾을 수 없는 경우 또는 여기서 다루지 않은 추가 질문이 있는 경우 [Azure RemoteApp 포럼](http://aka.ms/araforum)으로 이동하여 거기서 질문해 주세요. 여기에 더 많은 답을 추가할 수 있습니다.
 
 ## Azure RemoteApp이란? ##
 
@@ -114,4 +117,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

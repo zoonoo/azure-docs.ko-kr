@@ -142,7 +142,7 @@ Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러�
 **샘플**: 사용자가 선택한 언어로 신속하게 시작합니다.
 
 - [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *서비스 예정*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
 - [Node.JS](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
 - [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *서비스 예정*
@@ -165,10 +165,10 @@ Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러�
 - 템플릿 작성에 대한 안내는 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 - 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 - Resource Manager로 Visual Studio를 사용하는 방법에 대한 정보는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
-- Resource Manager와 함께 VS 코드를 사용하는 방법에 대한 정보는 [Visual Studio 코드로 Azure Resource Manager 템플릿으로 작업](resource-manager-vs-code.md)을 참조하세요.
+- Resource Manager와 함께 VS 코드를 사용하는 방법에 대한 정보는 [Visual Studio 코드에서 Azure Resource Manager 템플릿으로 작업](resource-manager-vs-code.md)을 참조하세요.
 
 이 개요에 대한 비디오 데모는 다음과 같습니다.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

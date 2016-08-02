@@ -111,7 +111,12 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 
 [IoT 도구 모음 - 내부 살펴보기 - 예측 유지 관리](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet 블로그 게시물은 미리 구성된 예측 유지 관리 솔루션에 대한 추가 정보를 제공합니다.
 
-  
+미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
+
+- [IoT Suite에 대한 질문과 대답][lnk-faq]
+- [처음부터 IoT 보안을 고려][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -125,5 +130,7 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

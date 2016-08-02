@@ -1,49 +1,42 @@
 <properties
 	pageTitle="논리 앱 만들기 | Microsoft Azure"
 	description="SaaS 서비스에 연결하는 논리 앱을 만드는 방법에 대해 알아보세요."
-	authors="stepsic-microsoft-com"
+	authors="jeffhollan"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/16/2016"
-	ms.author="stepsic"/>
+	ms.date="07/16/2016"
+	ms.author="jehollan"/>
 
 # SaaS 서비스에 연결하는 새 논리 앱 만들기
 
-| 빠른 참조 |
-| --------------- |
-| [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [논리 앱 커넥터 문서](../connectors/apis-list.md) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
-
-이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 사서함으로 전달할 수 있는 워크플로를 안내합니다.
+이 항목에서는 단 몇 분 안에 [Azure Logic Apps](app-service-logic-what-are-logic-apps.md)를 시작할 수 있는 방법을 보여 줍니다. 전자 메일에 흥미로운 트윗을 보낼 수 있는 간단한 워크플로를 안내합니다.
 
 이 시나리오를 사용하려면 다음이 필요합니다.
 
 - Azure 구독
 - Twitter 계정
-- Office 365 계정
+- Outlook.com 또는 호스팅된 Office 365 사서함
 
 ## 트윗으로 전자 메일을 보낼 새 논리 앱 만들기
 
-1. Azure 포털 대시보드에서 **마켓플레이스**를 선택합니다. 
-2. 모든 경우에서 '논리 앱'을 검색한 다음 **논리 앱(미리 보기)**를 선택합니다. 또한 **새로 만들기**, **웹 + 모바일**을 선택하고 **논리 앱(미리 보기)**를 선택할 수도 있습니다 
-3. 논리 앱의 이름을 입력하고 앱 서비스 계획을 선택한 다음 **만들기**를 선택합니다. 이 단계에서는 앱 서비스 계획이 있고 필요한 속성에 익숙하다는 것으로 가정하겠습니다. 그렇지 않은 경우에도 [Azure 앱 서비스 계획의 포괄 개요](azure-web-sites-web-hosting-plans-in-depth-overview.md)를 시작할 수 있습니다. 
+1. [Azure 포털 대시보드](https://portal.azure.com)에서 **새로 만들기**를 선택합니다.
+2. 검색 표시줄에서 '논리 앱'을 검색한 다음 **논리 앱**을 선택합니다. 또한 **새로 만들기**, **웹 + 모바일**을 선택하고 **논리 앱**을 선택할 수도 있습니다.
+3. 논리 앱의 이름을 입력하고 위치, 리소스 그룹을 선택한 다음 **만들기**를 선택합니다. **대시보드에 고정**을 선택하는 경우 논리 앱이 배포된 후에 자동으로 열립니다.
+4. 논리 앱을 처음으로 연 후에 시작하려는 템플릿에서 선택할 수 있습니다. 지금은 **빈 논리 앱**을 클릭하여 처음부터 구축합니다.
+1. 만들어야 하는 첫 번째 항목은 트리거입니다. 논리 앱을 시작하는 이벤트입니다. 트리거 검색 상자에서 **twitter**를 검색하고 선택합니다.
+7. 이제는 트리거할 검색 단어에 입력할 수 있습니다. **주파수** 및 **간격**은 논리 앱이 새 트윗을 확인(및 시간 범위 동안 모든 트윗을 반환)하는 빈도를 결정합니다. ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-4. 논리 앱을 처음 열 때 트리거가 필요합니다. 트리거 검색 상자에서 **twitter**를 검색하고 선택합니다.
-
-7. 이제 ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)에 대한 twitter를 검색하려는 키워드를 입력합니다.
-
-5. 더하기 기호를 선택한 다음 **동작 추가** 또는 **조건 추가**를 선택합니다. ![더하기](./media/app-service-logic-create-a-logic-app/plus.png)
-6. **동작 추가**를 선택하면, 사용 가능한 작업이 있는 모든 커넥터가 나열됩니다. 그런 다음 논리 앱에 추가할 커넥터 및 작업을 선택할 수 있습니다. 예를 들어, **Office 365 - 전자 메일 보내기**와 다른 Office 365 작업을 선택할 수 있습니다. ![동작](./media/app-service-logic-create-a-logic-app/actions.png)
+5. **새 단계** 단추를 선택한 다음 **작업 추가** 또는 **조건 추가**를 선택합니다.
+6. **동작 추가**를 선택하면 [사용 가능한 커넥터](../connectors/apis-list.md)에서 검색하여 작업을 선택할 수 있습니다. 예를 들어 **Outlook.com - 전자 메일 보내기**를 선택하여 outlook.com 주소에서 메일을 보낼 수 있습니다. ![동작](./media/app-service-logic-create-a-logic-app/actions.png)
 
 7. 이제 원하는 전자 메일에 대한 매개 변수를 입력해야 합니다. ![매개 변수](./media/app-service-logic-create-a-logic-app/parameters.png)
 
@@ -51,15 +44,19 @@
 
 ## 논리 앱 생성 후 관리
 
-이제 논리 앱이 실행됩니다. 예약된 워크플로가 실행될 때마다 특정 해시태그가 있는 트윗을 확인합니다. 일치하는 트윗을 찾으면 Dropbox에 넣습니다. 마지막으로, 앱을 비활성화하는 방법 또는 그 작동 방법을 살펴보겠습니다.
+이제 논리 앱이 실행됩니다. 정기적으로 입력한 검색 용어를 포함한 트윗을 확인합니다. 일치하는 트윗을 찾으면 전자 메일을 전송합니다. 마지막으로, 앱을 비활성화하는 방법 또는 그 작동 방법을 살펴보겠습니다.
+
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
 1. 화면의 왼쪽에서 **찾아보기**를 클릭하고 **논리 앱**을 선택합니다.
 
 2. 방금 만든 새 논리 앱을 클릭하여 현재 상태 및 일반 정보를 표시합니다.
 
-3. 새 논리 앱을 편집하려면 **트리거 및 동작**을 클릭합니다.
+3. 새 논리 앱을 편집하려면 **편집**을 클릭합니다.
 
 5. 앱을 끄려면 명령 모음에서 **사용 안 함**을 클릭합니다.
+
+1. 논리 앱이 실행되는 경우 모니터링할 실행 및 트리거 기록을 봅니다. 최신 데이터를 확인하려면 **새로 고침**을 클릭하면 됩니다.
 
 5분 이내에 클라우드에서 간단한 논리 앱이 실행되도록 설정할 수 있습니다. 논리 앱 기능을 사용하는 방법에 대한 자세한 내용은 [논리 앱 기능 사용]을 참조하세요. 논리 앱 정의 자체에 대해 알아보려면 [논리 응용 프로그램 정의 작성](app-service-logic-author-definitions.md)을 참조하세요.
 
@@ -67,4 +64,4 @@
 [Azure portal]: https://portal.azure.com
 [논리 앱 기능 사용]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->
