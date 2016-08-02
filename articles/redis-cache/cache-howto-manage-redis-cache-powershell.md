@@ -24,7 +24,7 @@
 
 이 항목에서는 Azure Redis Cache 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하고 액세스 키를 다시 생성하며 캐시에 대한 정보를 보는 방법을 보여줍니다. Azure Redis Cache PowerShell cmdlet의 전체 목록은 [Azure Redis Cache cmdlet](https://msdn.microsoft.com/library/azure/mt634513.aspx)을 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)].
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](#classic) 은 이 문서의 뒷부분에서 설명합니다.
 
 ## 필수 조건
 
