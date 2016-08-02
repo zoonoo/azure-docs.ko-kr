@@ -24,7 +24,7 @@
 ## 필수 조건
 
  - Visual Studio 2013 또는 2015
- - [Python Tools for Visual Studio][](PTVS)
+ - [Python Tools for Visual Studio][]\(PTVS)
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2015][]
  - [Python 2.7 32비트][] 또는 [Python 3.5 32비트][]
 
@@ -61,7 +61,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ## 클라우드 서비스에 Python 설치
 
->[AZURE.WARNING] (이 문서를 마지막으로 업데이트한 시간에)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
+>[AZURE.WARNING] \(이 문서를 마지막으로 업데이트한 시간에)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
 
 설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 작업](cloud-services-startup-tasks.md)을 정의합니다. 첫 번째 작업(**PrepPython.ps1**)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업(**PipInstaller.ps1**)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
 

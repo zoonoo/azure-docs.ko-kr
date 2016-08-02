@@ -43,7 +43,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 공용 BLOB 컨테이너에 있습니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
@@ -238,7 +238,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 
 **SSH 터널링 세션을 설정하려면**
 
-1. **PuTTY**를 엽니다.
+1. **PuTTY**를 엽니다.  
 2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
 
 	**Category**에서 **Connection**, **SSH**를 차례로 확장하고 **Auth**를 선택합니다. 마지막으로 **Browse**를 클릭하고 개인 키가 포함된 .ppk 파일을 선택합니다.
@@ -247,7 +247,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
 
 	- **호스트 이름**: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-	- **포트**: 22. 헤드 노드 0에서 SSH 포트는 22입니다.
+	- **포트**: 22. 헤드 노드 0에서 SSH 포트는 22입니다.  
 5. 대화 상자의 왼쪽에 있는 **카테고리** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **터널**을 클릭합니다.
 6. SSH 포트 전달을 제어하는 옵션 양식에 다음 정보를 제공합니다.
 
