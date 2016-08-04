@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # 5분 만에 Azure 저장소 시작 
@@ -28,7 +28,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 
 시작하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
-1. 응용 프로그램을 컴파일 및 빌드하려면 컴퓨터에 [Visual Studio](https://www.visualstudio.com/)가 설치되어 있어야 합니다. 
+1. 응용 프로그램을 컴파일 및 빌드하려면 컴퓨터에 [Visual Studio](https://www.visualstudio.com/)가 설치되어 있어야 합니다.
 
 2. 최신 버전의 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)를 설치합니다. SDK에는 Azure 빠른 시작 샘플 프로젝트, Azure 저장소 에뮬레이터 및 [.NET 용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)가 포함되어 있습니다.
 
@@ -90,7 +90,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 다음으로, Azure 저장소 에뮬레이터에서 샘플 응용 프로그램을 실행합니다.
 
 1.	**시작** 단추나 Windows 키를 누르고 *Microsoft Azure 저장소 에뮬레이터*를 검색하고 응용 프로그램을 시작합니다. 에뮬레이터가 시작되면 Windows 작업 표시줄 영역에 아이콘과 알림이 표시됩니다.
-2.	Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭합니다. 
+2.	Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭합니다.
 3.	**디버그** 메뉴에서 **F11** 키를 눌러 단계별로 솔루션을 실행하거나 **F5** 키를 눌러 솔루션을 처음부터 끝까지 실행합니다.
 
 ## 다음 단계
@@ -98,6 +98,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Microsoft Azure 저장소 소개](storage-introduction.md)
+* [Azure 저장소 탐색기 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
 * [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
 * [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
@@ -110,4 +111,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

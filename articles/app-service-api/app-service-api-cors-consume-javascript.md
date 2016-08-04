@@ -80,8 +80,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 �
 
 		angular.module('todoApp')
 		.factory('todoListSvc', ['$http', function ($http) {
-		    var apiEndpoint = "http://localhost:46439";
-		
+
 		    $http.defaults.useXDomain = true;
 		    delete $http.defaults.headers.common['X-Requested-With']; 
 		
@@ -138,7 +137,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 �
 
 	코드가 Azure에서 실행되면 이 값은 *Web.config* 파일에 있는 localhost URL을 재정의합니다.
 
-	설정값을 가져오는 코드는 *index.cshtml* 에 있습니다.
+	설정값을 가져오는 코드는 *index.cshtml*에 있습니다.
 
 		<script type="text/javascript">
 		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
@@ -285,4 +284,4 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱에 대한 자세한 내용은 [앱 서비스에서 인증 소개](../app-service/app-service-authentication-overview.md)를 참고하고 [API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md) 자습서로 이동합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

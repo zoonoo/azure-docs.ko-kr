@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="ggailey777"/>
 
 # 모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -153,7 +153,7 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* **[앱에 인증 추가]** ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.  
+* **[앱에 인증 추가]** ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * **[앱에 푸시 알림 추가](https://msdn.microsoft.com/magazine/dn879353.aspx)** 앱에 등록하고 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
@@ -176,4 +176,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

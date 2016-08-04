@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)
@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 이 연습에서는 sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다.
 
@@ -30,7 +30,7 @@
 
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
--  [sqlcmd.exe][]. 이를 다운로드하려면 [SQL Server용 Microsoft 명령줄 유틸리티 11][]을 참조하세요.
+-  [sqlcmd.exe][]. 다운로드하려면 [SQL Server Windows용 Microsoft ODBC 드라이버 11][]이 필요할 수도 있는 [SQL Server용 Microsoft 명령줄 유틸리티 11][]을 참조하세요.
 
 ## 1\. 연결
 
@@ -64,26 +64,27 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 다음 예제에서는 -Q 옵션을 사용하거나 sqlcmd에 SQL을 파이핑하여 배치 모드에서 쿼리를 실행하는 방법을 보여 줍니다.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## 다음 단계
 
-sqlcmd 옵션에 대해 모두 알아보려면 [sqlcmd 설명서][sqlcmd.exe]를 참조하세요.
-
-<!--Articles-->
-[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
-
-
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[SQL Server용 Microsoft 명령줄 유틸리티 11]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure portal]: https://portal.azure.com
+sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설명서][sqlcmd.exe]를 참조하세요.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[SQL Server Windows용 Microsoft ODBC 드라이버 11]: https://www.microsoft.com/download/details.aspx?id=36434
+[SQL Server용 Microsoft 명령줄 유틸리티 11]: http://go.microsoft.com/fwlink/?LinkId=321501
+[Azure portal]: https://portal.azure.com
+
+<!--Other Web references-->
+
+<!---HONumber=AcomDC_0727_2016-->

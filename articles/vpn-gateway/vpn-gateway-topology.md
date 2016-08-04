@@ -22,7 +22,7 @@
 
 각 토폴로지는 토폴로지를 사용할 수 있는 배포 모델을 나열한 테이블, 각 토폴로지를 구성하는 데 사용할 수 있는 배포 도구를 포함하며 문서를 사용할 수 있는 경우 문서에 직접 연결합니다. 테이블을 새 문서로 자주 업데이트하면 배포 도구를 사용할 수 있게 됩니다.
 
-VPN 게이트웨이를 만드는 데 사용할 지침은 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이를 만들고 구성합니다. 클래식 배포 모델 가상 네트워크에 리소스 관리자 VPN 게이트웨이를 만들 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 모델 이해](../resource-manager-deployment-model.md)를 참조하세요.
+만들려는 연결을 결정한 후에 VPN 게이트웨이를 만드는 데 사용할 지침은 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이를 만들고 구성합니다. 클래식 배포 모델 가상 네트워크에 리소스 관리자 VPN 게이트웨이를 만들 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 모델 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
 ## 사이트 간 및 다중 사이트
 
@@ -62,6 +62,28 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함) 및 Azure �
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
+## 지점 및 사이트 간
+
+지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 유용한 솔루션입니다.
+
+지점 및 사이트 간 연결은 SSTP를 통한 VPN 연결(보안 소켓 터널링 프로토콜)입니다. 지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다.
+
+**P2S 다이어그램**
+
+![지점 및 사이트 간 연결](./media/vpn-gateway-topology/point2site.png "지점 및 사이트 간")
+
+**사용 가능한 배포 모델 및 메서드**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+
+
+##Express 경로
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+
+
 
 ## 사이트 간 및 Express 경로 공존 연결
 
@@ -78,23 +100,11 @@ Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure를 비
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 
-## 지점 및 사이트 간
 
-지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 유용한 솔루션입니다.
-
-지점 및 사이트 간 연결은 SSTP를 통한 VPN 연결(보안 소켓 터널링 프로토콜)입니다. 지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다.
-
-**P2S 다이어그램**
-
-![지점 및 사이트 간 연결](./media/vpn-gateway-topology/point2site.png "지점 및 사이트 간")
-
-**사용 가능한 배포 모델 및 메서드**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## 다음 단계
 
-연결을 계획하고 설계하는 과정을 진행하기 전에 VPN 게이트웨이를 이해하기 위해 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) 문서에 있는 항목에 익숙해지려고 합니다.
+VPN 게이트웨이 설정을 이해하기 위해 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) 문서에 있는 항목에 익숙해지려고 합니다.
 
 
 
@@ -102,4 +112,4 @@ Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure를 비
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

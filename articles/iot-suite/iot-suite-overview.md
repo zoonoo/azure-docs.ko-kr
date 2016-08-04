@@ -53,14 +53,7 @@ IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시�
 
 ## 다음 단계
 
-지금까지 IoT Suite에서 수행할 수 있는 작업과 주요 구성 요소에 대해 간략히 살펴봤으므로 이제 다음을 수행할 수 있습니다.
-
-- IoT Suite에서 미리 구성된 솔루션에 대해 자세히 알아보려면 [Azure IoT 미리 구성된 솔루션이란?][lnk-what-are-preconfig]을 참조하세요.
-
-- 미리 구성된 솔루션 중 하나를 사용하여 시작하려면 [IoT 미리 구성한 솔루션 시작][lnk-preconfig-start]을 참조하세요.
-
-- Azure IoT Hub 서비스에 대한 자세한 내용을 보려면 [IoT Hub 설명서][lnk-iot-hub]를 참조하세요.
-
+IoT Suite에서 수행할 수 있는 작업 및 해당 주요 구성 요소의 개요를 알았으므로 IoT Suite에서 미리 구성된 솔루션에 대해 자세히 알아볼 수 있습니다. [미리 구성된 Azure IoT 솔루션이란?][lnk-what-are-preconfig]을 참조하세요.
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,7 +64,5 @@ IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시�
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,23 +1,23 @@
 <properties
-			pageTitle="Windows에서 Azure 파일 저장소 시작 | Microsoft Azure"
-    		description="Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
-            services="storage"
-            documentationCenter=".net"
-            authors="mine-msft"
-            manager="aungoo"
-            editor="tysonn" />
+	pageTitle="Windows에서 Azure 파일 저장소 시작 | Microsoft Azure"
+	description="Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
+	services="storage"
+	documentationCenter=".net"
+	authors="mine-msft"
+	manager="aungoo"
+	editor="tysonn" />
 
 <tags ms.service="storage"
-      ms.workload="storage"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="hero-article"
-	ms.date="06/09/2016"
-      ms.author="minet" />
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="07/26/2016"
+	ms.author="minet" />
 
 # Windows에서 Azure 파일 저장소 시작
 
-[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## 개요
 
@@ -65,7 +65,7 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 - 파일 공유에 대해 파일 업로드 및 다운로드
 - 각 파일 공유의 실제 사용량 모니터링
 - 공유 크기 할당량 조정
-- `net use` 명령을 가져와서 Windows 클라이언트에서 파일 공유를 마운트하는 데 사용 
+- `net use` 명령을 가져와서 Windows 클라이언트에서 파일 공유를 마운트하는 데 사용
 
 ### 파일 공유 만들기
 
@@ -195,7 +195,7 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 
 - 동일한 지역의 Azure 가상 컴퓨터(SMB 2.1에서도 지원됨)
 - 다른 지역의 Azure 가상 컴퓨터(SMB 3.0에만 해당)
-- 온-프레미스 클라이언트 응용 프로그램(SMB 3.0에만 해당) 
+- 온-프레미스 클라이언트 응용 프로그램(SMB 3.0에만 해당)
 
 클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조합니다.
 
@@ -251,8 +251,8 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 온-프레미스 클라이언트에서 파일 공유를 마운트하려면 먼저 다음 단계를 수행해야 합니다.
 
-- SMB 3.0을 지 원하는 Windows 버전을 설치합니다. Windows는 SMB 3.0 암호화를 활용하여 온-프레미스 클라이언트와 클라우드의 Azure 파일 공유 사이에 데이터를 안전하게 전송합니다. 
-- SMB 프로토콜에 필요하므로 로컬 네트워크에서 포트 445(TCP 아웃바운드)에 대한 인터넷 액세스를 엽니다. 
+- SMB 3.0을 지 원하는 Windows 버전을 설치합니다. Windows는 SMB 3.0 암호화를 활용하여 온-프레미스 클라이언트와 클라우드의 Azure 파일 공유 사이에 데이터를 안전하게 전송합니다.
+- SMB 프로토콜에 필요하므로 로컬 네트워크에서 포트 445(TCP 아웃바운드)에 대한 인터넷 액세스를 엽니다.
 
 > [AZURE.NOTE] 일부 인터넷 서비스 공급자는 포트 445를 차단할 수 있으므로 서비스 공급자에게 확인해야 할 수 있습니다.
 
@@ -582,7 +582,7 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
 
 ## 파일 저장소 FAQ
 
-1. **파일 저장소에서 Active Directory 기반 인증을 지원합니까?** 
+1. **파일 저장소에서 Active Directory 기반 인증을 지원합니까?**
 
 	우리는 현재 AD 기반 인증 또는 ACL을 지원하지 않지만 우리의 기능 요청 목록에 해당 기능을 포함합니다. 현재 Azure 저장소 계정 키는 파일 공유에 대한 인증을 제공합니다. REST API 또는 클라이언트 라이브러리를 통해 공유 액세스 서명(SAS)을 사용하여 해결 방법을 제공합니다. SAS를 사용하면 지정된 시간 간격에 대해 유효한 특정 권한을 가진 토큰을 생성할 수 있습니다. 예를 들어 지정된 파일에 대한 읽기 전용 액세스 권한을 가진 토큰을 생성할 수 있습니다. 이 토큰이 유효한 동안 이 토큰을 가진 누구나 해당 파일에 대한 읽기 전용 액세스 권한을 갖습니다.
 
@@ -663,8 +663,8 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 ### 블로그 게시물
 
 - [Azure 파일 저장소 일반적으로 사용 가능(영문)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

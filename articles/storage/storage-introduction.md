@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/08/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -138,7 +138,7 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
 
-- **LRS(로컬 중복 저장소)** 로컬 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 시설 내에서 3번 복제됩니다. LRS는 단일 시설의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.  
+- **LRS(로컬 중복 저장소)** 로컬 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 시설 내에서 3번 복제됩니다. LRS는 단일 시설의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.
   
 	LRS는 할인가로 제공됩니다. 최대의 영속성을 위해서는 아래에 설명된 대로 지역 중복 저장소를 사용하는 것이 좋습니다.
 
@@ -208,7 +208,9 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 
 ### 도구 및 유틸리티
 
-- [Azure SDK 및 도구](https://azure.microsoft.com/downloads/)
+- [Azure 저장소 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure 저장소 클라이언트 도구](storage-explorers.md)
+- [Azure SDK 및 도구](https://azure.microsoft.com/tools/)
 - [Azure 저장소 에뮬레이터](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [AzCopy 명령줄 유틸리티](http://aka.ms/downloadazcopy)
@@ -265,4 +267,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 - [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

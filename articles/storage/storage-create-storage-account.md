@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="07/26/2016"
 	ms.author="robinsh"/>
 
 
 # Azure 저장소 계정 정보
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## 개요
 
@@ -51,7 +51,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. Resource Manager 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell과 함께 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
+사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. Resource Manager 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell을 사용하여 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
 
 ## 저장소 계정 만들기
 
@@ -59,13 +59,13 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 2. 허브 메뉴에서 **새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 선택합니다.
 
-3. 저장소 계정의 이름을 입력합니다. 저장소 계정 이름이 Azure 저장소에서 개체를 처리하는 데 사용되는 방법에 대한 자세한 내용은 [저장소 계정 끝점](#storage-account-endpoints)을 참조하세요.
+3. 저장소 계정의 이름을 입력합니다. 저장소 계정 이름을 Azure 저장소에서 개체를 처리하는 데 사용하는 방법에 대한 자세한 내용은 [저장소 계정 끝점](#storage-account-endpoints)을 참조하세요.
 
 	> [AZURE.NOTE] 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 	>  
 	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
 
-4. 사용할 배포 모델을 **리소스 관리자** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
 	> [AZURE.NOTE] Blob 저장소 계정은 리소스 관리자 배포 모델을 사용해서만 만들 수 있습니다.
 
@@ -101,11 +101,11 @@ Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층�
 
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
 
-> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명* 을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 #### 저장소 액세스 키 보기 및 복사
 
-[Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **선택키** 클릭하여 계정 선택키를 보고, 복사하며 다시 생성합니다. 또한 **선택키** 블레이드는 응용 프로그램에서 사용하기 위해 복사할 수 있는 기본 및 보조 키를 사용하여 미리 구성된 연결 문자열을 포함합니다.
+[Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **선택키**를 클릭하여 계정 액세스 키를 보고, 복사하며 다시 생성합니다. 또한 **선택키** 블레이드는 응용 프로그램에서 사용하기 위해 복사할 수 있는 기본 및 보조 키를 사용하여 미리 구성된 연결 문자열을 포함합니다.
 
 #### 저장소 액세스 키 다시 생성
 
@@ -131,7 +131,7 @@ Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층�
 
 ## 저장소 계정 삭제
 
-더 이상 사용하지 않는 저장소 계정을 제거하려면 [Azure 포털](https://portal.azure.com)의 저장소 계정으로 이동하고 **삭제**를 클릭합니다. 저장소 계정 삭제는 계정의 모든 데이터를 포함한 전체 계정을 삭제합니다.
+더 이상 사용하지 않는 저장소 계정을 제거하려면 [Azure 포털](https://portal.azure.com)의 저장소 계정으로 이동하여 **삭제**를 클릭합니다. 저장소 계정 삭제는 계정의 모든 데이터를 포함한 전체 계정을 삭제합니다.
 
 > [AZURE.WARNING] 삭제된 저장소 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.
 
@@ -141,7 +141,7 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 
 저장소 계정이 클래식 배포 모델을 사용하는 경우 [Azure 포털](https://manage.windowsazure.com)에서 이러한 단계를 수행하여 가상 컴퓨터 디스크를 제거할 수 있습니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
+1. [클래식 Azure 포털](https://manage.windowsazure.com)로 이동합니다.
 2. 가상 컴퓨터 탭으로 이동합니다.
 3. 디스크 탭을 클릭합니다.
 4. 데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
@@ -157,4 +157,4 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

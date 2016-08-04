@@ -60,6 +60,7 @@ AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [AD DS용 Azure AD Connect Health(미리 보기)](active-directory-aadconnect-health-adds.md)
+
 AD DS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에 설치된 도메인 컨트롤러에 대한 모니터링을 제공합니다. 쉽고 저렴한 비용 상태 에이전트 설치를 사용하면 클라우드에서 직접 온-프레미스 AD DS 환경을 모니터링할 수 있습니다. AD DS용 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
 
 - 도메인 컨트롤러가 중요한 경고에 대한 전자 메일 알림과 함께 비정상인 시기를 감지하는 경고 모니터링
@@ -122,4 +123,4 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
