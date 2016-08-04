@@ -28,4 +28,4 @@
 
 클래식 배포에 대한 추가 문서는 [Azure의 오픈 소스 컴퓨팅 및 Linux](virtual-machines-linux-opensource-links.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

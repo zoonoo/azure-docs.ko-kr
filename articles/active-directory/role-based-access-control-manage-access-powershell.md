@@ -154,6 +154,7 @@ PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할]
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## 참고 항목
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0720_2016-->
