@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
@@ -23,7 +23,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -42,9 +42,9 @@
 
 ##요구 사항
 
-- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank") 를 다운로드하여 설치합니다.
+- [Sencha Touch]를 다운로드하여 설치합니다(http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank") 을 다운로드하여 설치합니다.
+- [Sencha Cmd Tool]을 다운로드하여 설치합니다(http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 - Ruby 및 SASS 보석
@@ -675,9 +675,9 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
-  3. 터미널에서 나열된 URL(예: http://localhost:1841))을 웹 브라우저에서 열고 앱을 시작합니다.
+  3. 터미널에서 나열된 URL(예: http://localhost:1841)을 웹 브라우저에서 열고 앱을 시작합니다.
 
-  4. 앱에서 "자습서 완료" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+  4. 앱에서 "Complete the tutorial" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
@@ -724,4 +724,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

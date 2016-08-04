@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -134,4 +134,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

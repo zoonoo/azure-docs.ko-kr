@@ -39,7 +39,7 @@ AAD의 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 
 
 **전역 관리자:** AAD 테넌트에는 여러 명의 전역 관리자가 있을 수 있습니다. AAD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다. 전역 관리자는 미리 구성된 솔루션을 프로비전할 수 있으며 자신의 AAD 테넌트 내부 응용 프로그램에 대해 **관리자** 역할이 할당됩니다. 하지만, 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 전역 사용자에게 부여되는 기본 역할은 **IMPLICIT READ ONLY**(암시적 읽기 전용)입니다. 전역 관리자는 [Azure 클래식 포털][lnk-classic-portal]을 사용하여 응용 프로그램에 대한 역할을 할당할 수 있습니다.
 
-**도메인 사용자/회원:** AAD 테넌트에는 여러 명의 도메인 사용자/회원이 있을 수 있습니다. 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 자신이 프로비전하는 응용 프로그램에 대해 부여되는 기본 권한은 **관리자**입니다. [azure-iot-solution][lnk-github-repo] 리포지토리의 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있지만, 역할을 할당할 권한이 없기 때문에 이들에게 부여되는 기본 권한은 **IMPLICIT READONLY**(암시적 읽기 전용)입니다. 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 이들에게는 해당 응용 프로그램에 대해 기본적으로 **IMPLICIT READONLY**(암시적 읽기 전용) 역할이 할당됩니다. 이들에게는 응용 프로그램에 대해 역할을 할당할 권한이 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 대해 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
+**도메인 사용자/회원:** AAD 테넌트에는 여러 명의 도메인 사용자/회원이 있을 수 있습니다. 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 자신이 프로비전하는 응용 프로그램에 대해 부여되는 기본 권한은 **관리자**입니다. [azure-iot-remote-monitoring][lnk-rm-github-repo] 또는 [azure-iot-predictive-maintenance][lnk-pm-github-repo] 리포지토리의 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있지만, 역할을 할당할 권한이 없기 때문에 이들에게 부여되는 기본 권한은 **IMPLICIT READONLY**(암시적 읽기 전용)입니다. 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 이들에게는 해당 응용 프로그램에 대해 기본적으로 **IMPLICIT READONLY**(암시적 읽기 전용) 역할이 할당됩니다. 이들에게는 응용 프로그램에 대해 역할을 할당할 권한이 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 대해 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
 
 **게스트 사용자/게스트:** AAD 테넌트에는 여러 명의 게스트 사용자/게스트가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 미리 구성된 솔루션을 프로비전할 수 없습니다.
 
@@ -135,10 +135,15 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑의 유효성을 검사하고 드롭다운에 올바른 테넌트가 선택되어 있는지 확인하세요. 원하는 테넌트가 맞는다는 것을 확인했으면, 위의 다이어그램에 따라서 구독과 AAD 테넌트 매핑의 유효성을 검사합니다.
 
+## 다음 단계
+
+IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용자 지정][lnk-customize]하는 방법을 참조하세요.
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -147,5 +152,6 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -399,9 +399,9 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 ##앱에 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 클래식 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+아래 화면과 같이 알림 허브의 **테스트 보내기** 단추를 사용하여 [Azure 포털](https://portal.azure.com/)에서 알림을 보내 앱의 알림 수신을 신속하게 테스트할 수 있습니다.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 푸시 알림은 일반적으로 호환 라이브러리를 사용하는 모바일 서비스 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다.
 
@@ -503,4 +503,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -162,6 +162,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
+* Application Insight 키를 시스템 속성으로 Azure 포털에서 동적으로 전달할 수 있습니다(-DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey). 정의된 속성이 없는 경우 Azure Appsetting에서 환경 변수(APPLICATION\_INSIGHTS\_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이렇게 하면 다른 환경에 다른 InstrumentationKey를 동적으로 관리할 수 있습니다.
 
 ### 계측 키를 설정하는 다른 방법
 
@@ -412,4 +413,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

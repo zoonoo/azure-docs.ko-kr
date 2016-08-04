@@ -13,15 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터 계획 및 작업 가이드
 이 가이드는 Azure 보안 센터의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
-
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
-
-[Azure 보안 센터 FAQ(질문과 대답)](security-center-faq.md)설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
 
 ## 계획 가이드
 이 가이드에서는 조직의 보안 요구 사항과 클라우드 관리 모델에 따라 보안 센터의 사용을 최적화하기 위해 따를 수 있는 일련의 단계 및 작업을 다룹니다. 보안 센터를 완벽하게 활용하려면 조직의 서로 다른 개인 또는 팀이 보안 개발 및 운영, 모니터링, 관리 및 사고 대응 요구에 맞게 서비스를 사용하는 방법에 대해 이해하는 것이 중요합니다. 보안 센터의 사용을 계획할 때 고려할 주요 영역은 다음과 같습니다.
@@ -33,6 +29,9 @@
 - 사고 대응
 
 다음 섹션에서는 요구 사항에 따라 이러한 각각의 영역을 계획하고 권장 사항을 적용하는 방법에 대해 학습합니다.
+
+> [AZURE.NOTE] [Azure 보안 센터 FAQ(질문과 대답)](security-center-faq.md)설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
+
 
 ## 보안 역할 및 액세스 제어
 조직의 규모와 구조에 따라, 여러 개인과 팀이 보안 센터를 통해 서로 다른 보안 관련 업무를 수행할 수 있습니다. 가상의 사용자와, 해당하는 역할 및 보안 책임의 예는 다음과 같습니다.
@@ -102,7 +101,7 @@ RBAC를 사용하여 보안 센터에 대한 액세스 제어를 계획할 때�
 
 구독 수준에서 실행된 정책은 아래 그림에서처럼 구독 내 모든 리소스 그룹에 자동으로 전파됩니다.
 
-![보안 정책](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2.png)
+![보안 정책](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
 위의 그림에서처럼 리소스 그룹의 보안 정책은 구독 수준에서 상속될 수 있습니다.
 
@@ -168,7 +167,7 @@ Azure 환경 규모와 저장소 계정을 사용하는 리소스에 따라 성�
 
 보안 센터 권장 사항의 최초 구성과 적용 후에는 보안 센터 운영 프로세스를 고려합니다.
 
-Azure 포털에서 보안 센터에 액세스하려면 **찾아보기**를 클릭하고 **필터**에 **보안 센터**를 입력합니다. 사용자에게 나타나는 보기는 이렇게 적용된 필터에 따라 다릅니다.
+Azure 포털에서 보안 센터에 액세스하려면 **찾아보기**를 클릭하고 **필터** 필드에 **보안 센터**를 입력합니다. 사용자에게 나타나는 보기는 이렇게 적용된 필터에 따라 다릅니다.
 
 Azure 보안 센터는 일반 작동 프로시저를 방해하지 않으면서 배포를 소극적으로 모니터링하고 사용자가 설정한 보안 정책에 따라 권장 사항을 제공합니다.
 
@@ -177,13 +176,13 @@ Azure 보안 센터 대시보드는 다음과 같이 두 주요 부분으로 나
 - 방지
 - 감지
 
-Azure 보안 센터에서 현재 Azure 환경에 대해 처음 데이터 수집을 사용하도록 설정할 때는 모든 권장 사항을 검토합니다. 이 작업은 **권장 사항** 블레이드에서 또는 리소스별(**가상 컴퓨터**, **네트워킹**, **SQL** 및 **응용 프로그램**)로 수행할 수 있습니다.
+Azure 보안 센터에서 현재 Azure 환경에 대해 처음 데이터 수집을 사용하도록 설정할 때는 모든 권장 사항을 검토해야 합니다. 이 작업은 **권장 사항** 블레이드에서 또는 리소스별(**가상 컴퓨터**, **네트워킹**, **SQL** 및 **응용 프로그램**)로 수행할 수 있습니다.
 
 모든 권장 사항을 해결한 후에는 해결된 모든 리소스에 대해 **방지** 섹션이 녹색이어야 합니다. 이 시점에서는 리소스 보안 상태와 권장 사항 타일에서의 변경 사항을 기준으로 조치를 취하면 되므로 지속적인 모니터링이 더 용이해집니다.
 
 **감지** 섹션은 더 대응적인 부분으로, 지금 발생 중이거나 과거에 발생하여 Azure 보안 센터 컨트롤과 타사 시스템에서 감지된 문제와 관련한 경고입니다. 보안 경고 타일은 매일 확인된 위협 감지의 수를 나타내는 막대 그래프와, 여러 심각도 카테고리(낮음, 중간, 높음) 간의 분포를 표시합니다. 보안 경고에 대한 자세한 내용은 [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 읽어보세요.
 
-> [AZURE.NOTE] Microsoft Power BI를 활용하여 Azure 보안 센터 데이터를 시각화화할 수 있습니다. [Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기](security-center-powerbi.md)를 읽어보세요.
+> [AZURE.NOTE] Microsoft Power BI를 활용하여 Azure 보안 센터 데이터를 시각화화할 수 있습니다. [Power BI로 Azure 보안 센터 데이터에서 정보 얻기](security-center-powerbi.md)를 읽어보세요.
 
 ### 새 또는 변경된 리소스 모니터링
 
@@ -191,10 +190,10 @@ Azure 보안 센터에서 현재 Azure 환경에 대해 처음 데이터 수집�
 
 Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자동으로 해당 리소스를 감지하고 보안을 모니터링하기 시작합니다. 또한 PaaS 웹 역할 및 작업자 역할이 포함됩니다. [보안 정책](security-center-policies.md)에서 데이터 수집을 사용하도록 설정한 경우 가상 컴퓨터에 대해 추가적인 모니터링 기능이 자동으로 적용됩니다.
 
-![주요 영역](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3.png)
+![주요 영역](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	가상 컴퓨터의 경우 **리소스 보안 상태** 타일에서 **가상 컴퓨터**를 클릭합니다. 데이터 수집을 사용하도록 설정하는 것과 관련한 문제나 관련 권장 사항은 **모니터링 권장 사항** 섹션에 표시됩니다.
-2.	새 리소스에 대한 보안 위협 여부나 해당하는 보안 위협은 **권장 사항**에서 확인합니다.
+2.	새 리소스에 대한 보안 위협이 있다면 무엇인지를 확인하기 위해 **권장 사항**을 봅니다.
 3.	새 VM이 환경에 추가되면 운영 체제만 최초로 설치되는 것이 매우 일반적입니다. 리소스 소유자는 이러한 VM에서 사용할 다른 앱을 배포하는 데 다소 시간이 걸릴 수 있습니다. 이상적으로는 이 워크로드의 최종 목적을 파악하고 있어야 합니다. 응용 프로그램 서버가 됩니까? 이 새 워크로드의 용도에 따라 적합한 **보안 정책**을 사용하도록 설정할 수 있습니다. 바로 이 워크플로의 세 번째 단계입니다.
 4.	새 리소스가 Azure 환경에 추가되면 **보안 경고** 타일에 새 경고가 표시될 수 있습니다. 항상 이 타일에 새 경고가 있는지 확인하고 보안 센터 권장 사항에 따라 조치를 취합니다.
 
@@ -226,9 +225,9 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 다음 예제에서는 미심쩍은 RDP 활동이 발생하고 있음을 보여줍니다.
 
-![의심되는 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5.png)
+![의심되는 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-여기에서 보듯이 이 블레이드는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 절차를 안내합니다. 일부 상황에서는 공격의 소스 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure 보안 센터 경고에 누락된 소스 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/)를 참고하세요.
+여기에서 보듯이 이 블레이드는 공격 발생 시간, 소스 호스트 이름, 대상 VM과 관련한 자세한 내용을 표시하며 권장 절차를 안내합니다. 일부 상황에서는 공격의 소스 정보가 비어 있을 수 있습니다. 이러한 동작 유형에 대한 자세한 내용은 [Azure 보안 센터 경고에 누락된 원본 정보](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/)를 참고하세요.
 
 
 ## 참고 항목
@@ -240,4 +239,4 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 - [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

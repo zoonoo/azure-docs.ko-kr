@@ -28,13 +28,13 @@
 
 Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 코드를 다운로드한 다음 특정 IoT 요구 사항에 맞도록 솔루션을 사용자 지정하고 확장할 수 있습니다.
 
-> [AZURE.NOTE] 미리 구성된 솔루션 중 하나를 배포하려면 [Microsoft Azure IoT Suite][lnk-azureiotsuite]를 방문합니다. [미리 구성된 IoT 솔루션 시작][lnk-preconf-get-started] 문서에서는 솔루션 중 하나를 배포 및 실행하는 방법에 대한 정보를 제공합니다.
+> [AZURE.NOTE] 미리 구성된 솔루션 중 하나를 배포하려면 [Microsoft Azure IoT Suite][lnk-azureiotsuite]를 방문합니다. [미리 구성된 IoT 솔루션 시작][lnk-getstarted-preconfigured] 문서에서는 솔루션 중 하나를 배포 및 실행하는 방법에 대한 정보를 제공합니다.
 
 다음 표에서 솔루션을 특정 IoT 기능에 매핑하는 방법을 보여 줍니다.
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 명령 및 제어 | 규칙 및 작업 | 예측 분석 |
 |------------------------|-----|-----|-----|-----|-----|
-| [원격 모니터링][lnk-preconf-get-started] | 예 | 예 | 예 | 예 | - |
+| [원격 모니터링][lnk-getstarted-preconfigured] | 예 | 예 | 예 | 예 | - | 
 | [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
 
 - *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
@@ -79,7 +79,7 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 미리 구성된 솔루션은 세 가지 [Azure 스트림 분석][lnk-asa](ASA) 작업을 사용하여 장치에서 원격 분석 스트림을 필터링합니다.
 
 
-- *DeviceInfo 작업* - 장치 등록 특정 메시지를 라우팅하는 이벤트 허브에 데이터를 출력하며 이는 장치를 처음 연결할 때 또는 **장치 상태 변경** 명령이나 솔루션 장치 레지스트리(DocumentDB 데이터베이스)에 대한 응답으로 전송됩니다. 
+- *DeviceInfo 작업* - 장치 등록 특정 메시지를 라우팅하는 이벤트 허브에 데이터를 출력하며 이는 장치를 처음 연결할 때 또는 **장치 상태 변경** 명령이나 솔루션 장치 레지스트리(DocumentDB 데이터베이스)에 대한 응답으로 전송됩니다.
 - *원격 분석 작업* - 콜드 저장소용 Azure Blob 저장소에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
 - *규칙 작업* - 규칙 임계값을 초과하는 값에 대해 원격 분석 스트림을 필터링하고 이벤트 허브에 대한 데이터를 출력합니다. 규칙이 실행되면 솔루션 포털 대시보드 보기는 이 이벤트를 경보 기록 테이블에 새 행으로 표시하고 솔루션 포털의 규칙 및 작업 보기에 정의된 설정에 따라 작업을 트리거합니다.
 
@@ -117,10 +117,7 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 
 IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT 서비스: 참조 아키텍처][lnk-refarch]를 참조하세요.
 
-이 리소스를 탐색하여 IoT 미리 구성된 솔루션에 대해 자세히 알아봅니다.
-
-- [미리 구성된 loT 솔루션 시작][lnk-preconf-get-started]
-- [예측 정비 사전 구성 솔루션 개요][lnk-predictive-maintenance]
+이제 미리 구성된 솔루션을 알 수 있으므로 미리 구성된 *원격 모니터링* 솔루션: [미리 구성된 솔루션 시작][lnk-getstarted-preconfigured]을 배포하여 시작할 수 있습니다.
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,12 +125,10 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->
