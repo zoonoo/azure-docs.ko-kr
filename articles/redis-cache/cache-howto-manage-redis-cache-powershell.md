@@ -817,6 +817,6 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!----HONumber=AcomDC_0720_2016-->
+<!-----HONumber=AcomDC_0720_2016-->
 
 
