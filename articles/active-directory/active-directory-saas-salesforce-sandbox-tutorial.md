@@ -202,7 +202,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Salesforce Sandbox **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Salesforce Sandbox**응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "사용자 할당")
 

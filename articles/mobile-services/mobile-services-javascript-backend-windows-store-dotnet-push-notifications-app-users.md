@@ -100,4 +100,5 @@
 [앱에 인증 추가]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [앱에 푸시 알림 추가]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
+[Azure 관리 포털]: https://manage.windowsazure.com/
 <!---HONumber=AcomDC_0727_2016-->

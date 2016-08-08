@@ -31,7 +31,8 @@ BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath�
 3. 디자이너에서 오른쪽 창은 흐름을 작성하는데 사용할 수 있는 API 앱을 나열합니다. "BizTalk XPath 추출기"를 찾습니다. 이를 선택하면 Xpath 추출기가 흐름에 추가되고 해당 인스턴스가 프로비전됩니다.
 4. 프로비전되면 디자이너에 BizTalk XPath 추출기 API 앱과 관련된 작업이 표시됩니다. ![BIzTalk XPath 추출기 작업 선택][1]
 
-5. "XPath를 사용하여 추출"을 선택합니다. "XPath를 사용하여 추출"은 지정된 입력 XML에서 입력 xpath 식을 평가합니다. ![BIzTalk XPath 추출기 입력][2]
+5. "XPath를 사용하여 추출"을 선택합니다. "XPath를 사용하여 추출"은 지정된 입력 XML에서 입력 xpath 식을 평가합니다. 
+![BIzTalk XPath 추출기 입력][2]
 
 	매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
