@@ -26,10 +26,14 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 - 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 - .NET용 Oracle 데이터 공급자입니다. 이 제품은 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 호스트 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149)은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
 
+	"XCopy 설치"를 선택하는 경우 readme.htm의 단계를 수행합니다. UI(XCopy UI가 아닌 UI)가 포함된 설치 관리자를 선택하는 것이 좋습니다.
+ 
+	공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 컴퓨터에서 데이터 관리 게이트웨이 호스트 서비스를 다시 시작합니다.
+
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
 
 ## 샘플: Oracle에서 Azure Blob로 데이터 복사
-이 샘플은 온-프레미스 Oracle 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+이 샘플은 온-프레미스 Oracle 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
@@ -123,7 +127,7 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -131,7 +135,7 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -139,7 +143,7 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -280,7 +284,7 @@ to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -288,7 +292,7 @@ to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -296,7 +300,7 @@ to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -343,7 +347,7 @@ to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **sink** 형식은 **OracleSink**로 설정됩니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **OracleSink**로 설정됩니다.
 
 	
 	{  
@@ -501,4 +505,4 @@ XML | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

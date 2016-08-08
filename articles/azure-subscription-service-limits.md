@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="07/26/2016"
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -239,11 +239,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### 스트림 분석 제한
-
-| 제한 식별자 | 제한 | 설명 |
-|----------------- | ------------|--------- |
-| 지역당 구독당 최대 스트리밍 단위 수 | 50 | 구독의 스트리밍 단위를 50을 초과하도록 요청하려면 [Microsoft 지원](https://support.microsoft.com/ko-KR)에 문의하세요. |
-| 스트리밍 단위의 최대 처리량 | 1MB/s* | SU당 최대 처리량은 시나리오에 따라 달라집니다. 실제 처리량은 더 낮을 수 있고 쿼리 복잡성 및 분할에 따라 달라질 수 있습니다. 자세한 내용은 [처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정](../articles/stream-analytics/stream-analytics-scale-jobs.md) 문서에서 찾을 수 있습니다. |
+[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory 제한
 
@@ -305,4 +301,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

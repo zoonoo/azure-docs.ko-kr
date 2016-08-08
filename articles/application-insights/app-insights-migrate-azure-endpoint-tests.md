@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 끝점에서 Application Insights 가용성 테스트로 마이그레이션" 
-	description="클래식 Azure 끝점 모니터링 테스트를 Application Insights 가용성 테스트로 이동했습니다. 2016년 4월 4일에 전환할 예정입니다."
+	description="클래식 Azure 끝점 모니터링 테스트를 Application Insights 가용성 테스트로 이동할 것입니다. 2016년 8월 22일부터 한 주 동안 전환할 예정입니다."
 	services="application-insights" 
     documentationCenter=""
 	authors="soubhagyadash" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
  
 # Azure 끝점 모니터링에서 Application Insights 가용성 테스트로 이동
 
-Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/)을 사용합니까? 2016년 4월 4일 새롭고 더욱 강력한 [가용성 테스트](app-insights-monitor-web-app-availability.md)로 교체할 예정입니다. 이미 새 테스트를 만들었지만 4월 4일까지 비활성화됩니다.
+Azure 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/)을 사용합니까? 2016년 8월 22일부터 한 주 동안 새롭고 더욱 강력한 [가용성 테스트](app-insights-monitor-web-app-availability.md)로 교체할 예정입니다. 이미 일부 새 테스트를 만들었지만 2016년 8월 22일까지는 사용할 수 없습니다.
 
 새 테스트를 편집하고 원하는 경우 스위치를 직접 수행할 수 있습니다. Default-ApplicationInsights-CentralUS 리소스 그룹의 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
@@ -28,10 +28,10 @@ Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/m
 
 [클래식 Azure 포털](https://manage.windowsazure.com)에서 이 테스트는 끝점 모니터링이라고 했습니다. 범위에서 제한적이었습니다. 새 가용성 테스트는 성능이 상당히 개선되었습니다.
 
-* 최대 10개의 Visual Studio 웹 테스트 또는 Application Insights 리소스당 ping 테스트. 
-* 웹 앱에 테스트 요청을 전송하기 위한 전세계 최대 16개의 위치. 테스트 성공 조건의 강화된 제어. 
+* 최대 10개의 Visual Studio 웹 테스트 또는 Application Insights 리소스당 ping 테스트.
+* 웹 앱에 테스트 요청을 전송하기 위한 전세계 최대 16개의 위치. 테스트 성공 조건의 강화된 제어.
 * Azure 웹 앱 외의 모든 웹 사이트 또는 서비스를 테스트합니다.
-* 테스트 재시도: 일시적인 네트워크 문제로 인한 가양성 경고를 줄입니다. 
+* 테스트 재시도: 일시적인 네트워크 문제로 인한 가양성 경고를 줄입니다.
 * Webhook은 경고에 대한 HTTP POST 알림을 받을 수 있습니다.
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/16-1test.png)
@@ -44,7 +44,7 @@ Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/m
 
 ## 따라서 내 끝점 테스트에 어떤 변동 사항이 있습니까?
 
-* 새 Application Insights 가용성 테스트에 끝점 모니터링 테스트를 복사했습니다. 2016년 3월 4일에 복사했으므로 그 이후에 만든 모든 끝점 테스트를 복사하지 않습니다.
+* 새 Application Insights 가용성 테스트에 끝점 모니터링 테스트를 복사했습니다.
 * 새 가용성 테스트는 현재 비활성화되었으며 이전 끝점 테스트는 여전히 실행 중입니다.
 * 경고 규칙은 마이그레이션되지 *않았습니다*. 새 테스트는 기본 규칙으로 초기에 설정되었습니다.
  * 두 개 이상의 위치에서 5분 내에 오류를 보고할 때 트리거합니다.
@@ -54,29 +54,29 @@ Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/m
 
 ## 수행하려면 무엇이 필요한가요?
 
-* 2016년 3월 4일 이후 레거시 테스트를 만든 경우(또는 어떤 이유로든 테스트 마이그레이션을 놓친 경우) 새 가용성 테스트는 [쉽게 설정할 수 있습니다](app-insights-monitor-web-app-availability.md).
+* 어떤 이유로 테스트 마이그레이션이 누락되더라도 새 가용성 테스트를 [쉽게 설정할 수 있습니다](app-insights-monitor-web-app-availability.md).
 
 ### 옵션 A: 아무 작업도 수행하지 않습니다. 우리에게 맡겨 둡니다.
 
-**4월 4일에** 다음을 수행합니다.
+**2016년 8월 22일부터 한 주 동안** 다음 작업을 수행합니다.
 
 * 이전의 끝점 테스트를 비활성화합니다.
 * 마이그레이션된 가용성 테스트를 활성화합니다.
 
 ### 옵션 B: 새 테스트를 관리 및/또는 활성화합니다.
 
-* 새 [Azure 포털](https://portal.azure.com)에서 새 가용성 테스트를 검토하고 편집합니다. 
+* 새 [Azure 포털](https://portal.azure.com)에서 새 가용성 테스트를 검토하고 편집합니다.
  * 트리거 조건 검토
  * 메일 받는 사람 검토
 * 새 테스트 활성화
-* [클래식 포털](https://manage.windowsazure.com)에서 이전의 끝점 테스트를 삭제합니다. 중복된 경고를 방지하고 웹 사이트에서 테스트 트래픽의 부하를 줄이려면 이를 수행하는 것이 좋습니다. 그렇지 않은 경우 2016년 4월 4일에 삭제합니다.
+* [클래식 포털](https://manage.windowsazure.com)에서 이전의 끝점 테스트를 삭제합니다. 중복된 경고를 방지하고 웹 사이트에서 테스트 트래픽의 부하를 줄이려면 이를 수행하는 것이 좋습니다. 그렇지 않은 경우 2016년 8월 22일에 삭제합니다.
 
 
 ### 옵션 C: 옵트아웃
 
 가용성 테스트를 사용하지 않으려는 경우 [Azure 포털](https://portal.azure.com)에서 삭제할 수 있습니다. 알림 전자 메일의 맨 아래에 구독 취소 링크가 있습니다.
 
-4월 4일에 이전 끝점 테스트도 삭제합니다.
+2016년 8월 22일에는 이전 끝점 테스트도 삭제합니다.
 
 ## 새 테스트를 편집하는 방법은 무엇입니까?
 
@@ -116,12 +116,12 @@ Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/m
 * 테스트할 끝점 URL.
 * 요청이 전송되는 지리적 위치.
 * 테스트 빈도는 5분 동안 유지됩니다.
-* 테스트 시간 제한은 30초 동안 유지됩니다. 
+* 테스트 시간 제한은 30초 동안 유지됩니다.
 
 마이그레이션되지 않습니다.
 
 * 경고 트리거 규칙. 하나의 위치에서 5분 내에 오류를 보고하는 경우 설정한 규칙은 트리거합니다.
-* 경고 받는 사람. 구독 소유자 및 공동 소유자에게 경고 메일이 전송됩니다. 
+* 경고 받는 사람. 구독 소유자 및 공동 소유자에게 경고 메일이 전송됩니다.
 
 ## 새 테스트를 찾는 방법은 무엇입니까?
 
@@ -137,4 +137,4 @@ Azure 웹 앱에 대한 [끝점 모니터링](https://blogs.msdn.microsoft.com/m
 
 여러분의 의견에 감사드립니다. [메일을 보내주세요](mailto:vsai@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

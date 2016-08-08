@@ -79,7 +79,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
     > [AZURE.NOTE] 전송으로 AMQP 대신 HTTP/1을 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. AMQP와 HTTP/1 지원 간의 차이점 및 IoT Hub 제한에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
 
-## 앱 백 엔드에서 클라우드-장치 메시지 보내기
+## 클라우드-장치 메시지 보내기
 
 이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [IoT Hub 시작] 자습서에서 추가된 장치의 장치 ID 및 [Azure portal]에서 찾을 수 있는 IoT Hub에 대한 연결 문자열이 필요합니다.
 
@@ -165,7 +165,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][img-simulated-device]
+    ![시뮬레이션된 장치 앱 실행][img-simulated-device]
 
 2. 명령 프롬프트의 send-c2d-messages 폴더에서 다음 명령을 실행하여 클라우드-장치 메시지를 보내고 피드백 승인을 대기합니다.
 
@@ -173,7 +173,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][img-send-command]
+    ![명령을 실행하여 c2d 메시지 보내기][img-send-command]
 
 ## 다음 단계
 
@@ -192,12 +192,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [IoT Hub 시작]: iot-hub-java-java-getstarted.md
 [IoT Hub 시작하기]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
@@ -205,4 +200,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

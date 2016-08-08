@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 릴리스 정보
@@ -149,4 +149,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

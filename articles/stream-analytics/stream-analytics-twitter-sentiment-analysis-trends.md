@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,9 +29,9 @@
 뉴스 미디어 웹 사이트는 독자와 직접적으로 관련이 있는 사이트 콘텐츠를 부각시켜 경쟁 우위를 확보하는 데 관심이 있습니다. 이러한 웹 사이트에서는 Twitter 데이터를 실시간으로 정서를 분석하여 독자와 관련된 항목에 대한 소셜 미디어 정보를 사용합니다. 특히 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 주요 토픽에 대한 트윗 볼륨 및 정서에 대한 실시간 분석이 필요합니다. 따라서 기본적으로 이 소셜 미디어 피드를 기반으로 하는 정서 분석 엔진이 필요합니다.
 
 ## 필수 조건
-1.	Twitter 계정 및 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+1.	Twitter 계정 및 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	Microsoft 다운로드 센터의 [TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-3.	선택 사항: twitter 클라이언트의 소스 코드([Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)) 
+3.	선택 사항: twitter 클라이언트의 소스 코드([Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient))
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -39,7 +39,7 @@
 
 아래 단계에 따라 이벤트 허브를 만듭니다.
 
-1.	Azure 포털에서 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 클릭하고 이름, 지역 및 새 네임스페이스 또는 기존 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.  
+1.	Azure 포털에서 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 클릭하고 이름, 지역 및 새 네임스페이스 또는 기존 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.
 2.	각 스트림 분석 작업이 단일 이벤트 허브 소비자 그룹에서 읽는 것이 가장 좋습니다. 소비자 그룹을 만드는 프로세스는 다음과 같습니다. 소비자 그룹을 만들려면 새로 만든 이벤트 허브로 이동하여 **소비자 그룹** 탭을 클릭한 다음 페이지 아래쪽에서 **만들기**를 클릭하고 소비자 그룹의 이름을 입력합니다.
 3.	이벤트 허브에 대한 액세스 권한을 부여하려면 공유 액세스 정책을 만들어야 합니다. 이벤트 허브의 **구성** 탭을 클릭합니다.
 4.	**공유 액세스 정책**에서 **관리** 권한을 사용하여 새 정책을 만듭니다.
@@ -57,11 +57,11 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 다음 단계에 따라 응용 프로그램을 설치합니다.
 
 1.	[TwitterClient 솔루션을 다운로드합니다.](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-2.	TwitterClient.exe.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
+2.	TwitterClient.exe.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.
 
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.  
+	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.
 3.	TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다. 앞에서 복사한 연결 문자열을 사용하면 이벤트 허브 연결 문자열과 이름이 모두 제공되어 이를 구분하고 올바른 필드에 각각 추가할 수 있습니다.
 4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 TwitterClient.exe.config에서 twitter\_keywords 값을 조정할 수 있습니다.
 5.	**TwitterClient.exe**를 실행하여 응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
@@ -236,4 +236,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

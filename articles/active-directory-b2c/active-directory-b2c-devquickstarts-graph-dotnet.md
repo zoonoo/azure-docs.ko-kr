@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: Graph API 사용 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Graph API 사용 | Microsoft Azure"
 	description="프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/25/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C 미리 보기: Graph API 사용
+# Azure AD B2C: Graph API 사용
 
 Azure Active Directory(Azure AD) B2C 테넌트는 매우 큰 경향이 있습니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주요 예제는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션해야 할 수 있습니다. 고유한 페이지에서 사용자 등록을 호스팅하고 백그라운드에서 Azure AD에 사용자 계정을 만들려할 수 있습니다. 이러한 형식의 태스크는 사용자 계정을 만들고 읽고 업데이트 및 삭제하는 기능이 필요합니다. Azure AD Graph API를 사용하여 이 태스크를 수행할 수 있습니다.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 있습니다.
 
@@ -38,7 +36,7 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 �
 B2C 테넌트가 있으므로 Azure AD PowerShell Cmdlet을 사용하여 서비스 응용 프로그램을 만들어야 합니다. 우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
 
 > [AZURE.NOTE]
-B2C 테넌트에서 Graph API를 사용하려면 PowerShell을 사용하여 전용 응용 프로그램을 등록해야 합니다. 이렇게 하려면 이 문서의 지침을 따릅니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다. 이는 조만간 제거될 Azure AD B2C 미리 보기의 제한 사항입니다. 이 경우에 이 문서를 업데이트할 예정입니다.
+B2C 테넌트에서 Graph API를 사용하려면 PowerShell을 사용하여 전용 응용 프로그램을 등록해야 합니다. 이렇게 하려면 이 문서의 지침을 따릅니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
 
 PowerShell 모듈을 설치한 후에 PowerShell을 열고 B2C 테넌트에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호를 묻는 메시지가 표시되면 B2C 테넌트 관리자 계정의 사용자 이름 및 암호를 입력합니다.
 
@@ -127,7 +125,7 @@ B2CGraphClient를 사용하려면 `cmd` Windows 명령 프롬프트를 열고 `D
 Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니다. `B2CGraphClient`은 오픈 소스 ADAL(Active Directory 인증 라이브러리)를 사용하여 액세스 토큰을 획득할 수 있도록 합니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다. 그러나 ADAL을 사용하여 토큰을 가져올 필요가 없습니다. HTTP 요청을 선별하여 토큰을 가져올 수도 있습니다.
 
 > [AZURE.NOTE]
-	이 코드 샘플은 ADAL v2, 즉 일반적으로 사용 가능한 ADAL 버전을 사용합니다. Azure AD B2C로 작동하는 미리 보기 버전인 ADAL v4을 사용하지 않습니다. Azure AD B2C 미리 보기의 경우 Graph API와 통신하는 데 ADAL v2를 사용해야 합니다. 시간이 지남에 따라 ADAL v4를 사용하여 Graph API 액세스를 제공할 것을 예상하므로 전체 Azure AD B2C 솔루션에서 ADAL의 두 버전을 사용할 필요가 없습니다.
+	이 코드 샘플에서는 Graph API와 통신하기 위해 ADAL v2를 사용합니다. Azure AD Graph API와 함께 사용할 수 있는 액세스 토큰을 가져오기 위해 ADAL v2 또는 v3를 사용해야 합니다.
 
 `B2CGraphClient`가 실행되면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL 인증 스캐폴딩을 설정합니다.
 
@@ -246,7 +244,7 @@ Content-Length: 338
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`과 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)에서 찾을 수 있습니다.
+`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`과 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity)에서 찾을 수 있습니다.
 
 이 POST 요청이 `B2CGraphClient.SendGraphPostRequest(...)`에서 생성되는 방법을 확인할 수 있습니다.
 
@@ -272,7 +270,7 @@ Content-Length: 37
 }
 ```
 
-JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하려고 합니다. `B2CGraphClient`를 사용하여 이러한 명령 중 하나를 실행할 수 있습니다.
+JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하려고 합니다. `B2CGraphClient`을 사용하여 이러한 명령 중 하나를 실행할 수 있습니다.
 
 ```
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -322,7 +320,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 많은 소비자 응용 프로그램은 특정 유형의 사용자 지정 사용자 프로필 정보를 저장해야 합니다. 이렇게 할 수 있는 한 가지 방법은 B2C 테넌트의 사용자 지정 특성을 정의하는 것입니다. 그런 다음 해당 특성을 사용자 개체의 다른 속성을 다룰 경우와 동일한 방식으로 다룰 수 있습니다. 특성을 업데이트 및 삭제하고 특성으로 쿼리하며 특성을 로그인 토큰에서 클레임으로 보낼 수 있습니다.
 
-B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 미리 보기 사용자 지정 특성 참조](active-directory-b2c-reference-custom-attr.md)를 참조하세요.
+B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 사용자 지정 특성 참조](active-directory-b2c-reference-custom-attr.md)를 참조하세요.
 
 `B2CGraphClient`를 사용하여 B2C 테넌트에 정의된 사용자 지정 특성을 볼 수 있습니다.
 
@@ -364,4 +362,4 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 미리 보�
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -61,18 +61,18 @@ Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
 샘플 데이터는 HDInsight가 Hadoop 클러스터의 기본 파일 시스템으로 사용하는 Azure Blob 저장소에 저장됩니다. HDInsight에서는 **wasb** 접두사를 사용하여 Blob 저장소에 저장된 파일에 액세스할 수 있습니다. 예를 들어 sample.log 파일에 액세스하려는 경우 다음 구문을 사용합니다.
 
-	wasb:///example/data/sample.log
+	wasbs:///example/data/sample.log
 
 WASB가 HDInsight의 기본 저장소이므로 Pig Latin에서 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE] 구문 **wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 **wasbs:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 
 ##<a id="job"></a>샘플 앱 정보
 
 다음 Pig Latin 작업은 HDInsight 클러스터의 기본 저장소에서 **sample.log** 파일을 로드합니다. 그런 다음 입력된 데이터에서 각 로그 수준이 발생한 횟수로 나타나는 일련의 변환을 수행합니다. 결과는 STDOUT에 버려집니다.
 
-	LOGS = LOAD 'wasb:///example/data/sample.log';
+	LOGS = LOAD 'wasbs:///example/data/sample.log';
 	LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 	FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 	GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -148,4 +148,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

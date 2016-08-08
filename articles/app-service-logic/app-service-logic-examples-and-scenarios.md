@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -72,4 +72,4 @@
 
 이 문서에 예제 및 시나리오를 추가할 예정입니다. 아래의 의견 섹션을 사용하여 여기에서 보고 싶은 예제 또는 시나리오를 알려주세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

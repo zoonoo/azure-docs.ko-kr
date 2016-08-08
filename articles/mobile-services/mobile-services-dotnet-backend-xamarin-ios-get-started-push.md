@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/24/2015"
+	ms.date="07/21/2016"
 	ms.author="lindydonna"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.iOS 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

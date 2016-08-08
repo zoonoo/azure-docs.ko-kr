@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="markgal"
+   manager="jimpark"
    editor=""/>
 
 <tags
@@ -30,6 +30,8 @@
 문제 해결을 시작하기 전에 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)를 다운로드하여 설치하는 것이 좋습니다. Microsoft는 다양한 문제를 해결하고, 기능을 추가하고, 성능을 향상시키기 위해 백업 에이전트를 자주 업데이트합니다.
 
 일반적인 구성 문제가 발생하지 않도록 [Azure 백업 서비스 - FAQ](backup-azure-backup-faq.md)를 검토하는 것이 좋습니다.
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 문제 해결 단계
 <a id="cause1"></a>
@@ -93,4 +95,4 @@ a. **UI에 전송되는 데이터 양에 대한 진행률이 표시됨** - 이 �
 
 b. **UI에 진행률이 표시되지 않음** - 이 경우 "C:\\Microsoft Azure Recovery Services Agent\\Temp"에 있는 로그를 열고 로그에서 "FileProvider::EndData" 항목을 확인합니다. 이 항목은 데이터 전송이 완료되었으며 카탈로그 작업이 발생함을 나타냅니다. 백업 작업을 취소하지 말고, 대신 카탈로그가 끝날 때까지 좀 더 기다리세요. 문제가 지속되면 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

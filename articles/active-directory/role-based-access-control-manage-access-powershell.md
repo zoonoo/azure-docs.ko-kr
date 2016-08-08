@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/14/2016"
+	ms.date="07/22/2016"
 	ms.author="kgremban"/>
 
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
@@ -35,35 +35,45 @@ PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니
 ## 역할 나열
 
 ### 사용 가능한 모든 역할 나열
-할당할 수 있는 RBAC 역할을 나열하고 액세스 권한을 부여하는 작업을 검사하려면 다음을 사용합니다.
+할당할 수 있는 RBAC 역할을 나열하고 액세스 권한을 부여하는 작업을 검사하려면 `Get-AzureRmRoleDefinition`을 사용합니다.
 
-		Get-AzureRmRoleDefinition
+```
+Get-AzureRmRoleDefinition | FT Name, Description
+```
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### 역할의 작업 나열
-특정 역할을 작업을 나열하려면 다음을 사용합니다.
+특정 역할을 작업을 나열하려면 `Get-AzureRmRoleDefinition <role name>`을 사용합니다.
 
-    Get-AzureRmRoleDefinition <role name>
+```
+Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
+
+(Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
+```
 
 ![RBAC PowerShell - 특정 역할에 대한 Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
 ## 액세스 권한이 있는 사용자 확인
-RBAC 액세스 할당을 나열하려면 다음을 사용합니다.
-
-    Get-AzureRmRoleAssignment
+RBAC 액세스 할당을 나열하려면 `Get-AzureRmRoleAssignment`를 사용합니다.
 
 ###	특정 범위의 역할 할당 나열
-지정된 구독, 리소스 그룹 또는 리소스에 대한 모든 액세스 할당을 확인할 수 있습니다. 예를 들어 리소스 그룹에 대한 모든 활성 할당을 확인하려면 다음을 사용합니다.
+지정된 구독, 리소스 그룹 또는 리소스에 대한 모든 액세스 할당을 확인할 수 있습니다. 예를 들어 리소스 그룹에 대한 모든 활성 할당을 확인하려면 `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`을 사용합니다.
 
-    Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
+```
+Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL DisplayName, RoleDefinitionName, Scope
+```
 
 ![RBAC PowerShell - 리소스 그룹에 대한 Get-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### 사용자에게 할당된 역할 나열
-소속 그룹에 할당된 역할을 포함하여 지정된 사용자에게 할당된 모든 역할을 나열하려면 다음을 사용합니다.
+소속 그룹에 할당된 역할을 포함하여 지정된 사용자에게 할당된 모든 역할을 나열하려면 `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`를 사용합니다.
 
-    Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups
+```
+Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
+
+Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
+```
 
 ![RBAC PowerShell - 사용자에 대한 Get-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
@@ -89,7 +99,7 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ### 구독 범위에서 응용 프로그램에 역할 할당
 구독 범위에서 응용 프로그램에 액세스 권한을 부여하려면 다음을 사용합니다.
 
-    New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name in quotes> -Scope <subscription id>
+    New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
@@ -121,6 +131,27 @@ PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할]
 
 다음 예제에서는 역할 *Virtual Machine Contributor*로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
+```
+$role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
+$role.Id = $null
+$role.Name = "Virtual Machine Operator"
+$role.Description = "Can monitor and restart virtual machines."
+$role.Actions.Clear()
+$role.Actions.Add("Microsoft.Storage/*/read")
+$role.Actions.Add("Microsoft.Network/*/read")
+$role.Actions.Add("Microsoft.Compute/*/read")
+$role.Actions.Add("Microsoft.Compute/virtualMachines/start/action")
+$role.Actions.Add("Microsoft.Compute/virtualMachines/restart/action")
+$role.Actions.Add("Microsoft.Authorization/*/read")
+$role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
+$role.Actions.Add("Microsoft.Insights/alertRules/*")
+$role.Actions.Add("Microsoft.Support/*")
+$role.AssignableScopes.Clear()
+$role.AssignableScopes.Add("/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e")
+$role.AssignableScopes.Add("/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624")
+New-AzureRmRoleDefinition -Role $role
+```
+
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ## 사용자 지정 역할 수정
@@ -128,9 +159,23 @@ PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할]
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할에 `Microsoft.Insights/diagnosticSettings/*` 작업을 추가합니다.
 
+```
+$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
+Set-AzureRmRoleDefinition -Role $role
+```
+
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
 다음 예제에서는 Virtual Machine Operator 사용자 지정 역할의 할당 가능한 범위에 Azure 구독을 추가합니다.
+
+```
+Get-AzureRmSubscription - SubscriptionName Production3
+
+$role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
+Set-AzureRmRoleDefinition -Role $role)
+```
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
@@ -140,12 +185,22 @@ PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할]
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 제거합니다.
 
+```
+Get-AzureRmRoleDefinition "Virtual Machine Operator"
+
+Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
+```
+
 ![RBAC PowerShell - Remove-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## 사용자 지정 역할 나열
 범위에서 할당할 수 있는 역할을 나열하려면 `Get-AzureRmRoleDefinition` 명령을 사용합니다.
 
 다음 예제에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
+
+```
+Get-AzureRmRoleDefinition | FT Name, IsCustom
+```
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
 
@@ -157,4 +212,4 @@ PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할]
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!-----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

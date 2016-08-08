@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/20/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,4 +90,4 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

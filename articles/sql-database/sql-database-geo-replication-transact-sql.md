@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-bcdr"
+    ms.workload="NA"
     ms.date="07/18/2016"
     ms.author="carlrab"/>
 
@@ -185,6 +185,6 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 ## 다음 단계
 
 - 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
-- 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity-scenarios.md)를 참조하세요.
+- 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

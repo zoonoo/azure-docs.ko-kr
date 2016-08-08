@@ -24,10 +24,10 @@
 | 언어 | 플랫폼 | 추가 리소스 | 다운로드 |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux, Mac | [.NET(C#)을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-dotnet-simple.md) | [다운로드](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
-| Java | Windows | [Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결합니다.](sql-database-develop-java-simple-windows.md) | [다운로드](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| Java | Windows, Linux, Mac | [Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결합니다.](sql-database-develop-java-simple-windows.md) | [다운로드](http://go.microsoft.com/fwlink/?LinkId=245496) |
 | PHP | Windows | [Windows에서 PHP를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-php-simple-windows.md) | [다운로드](https://www.microsoft.com/download/details.aspx?id=20098) |
 | Node.js | Windows, Linux, Mac | [Node.js를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-nodejs-simple.md) | [설치](https://msdn.microsoft.com/library/mt652094.aspx) |
 | Python | Windows, Linux, Mac | [Python을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-python-simple.md) | [설치](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple.md) | [설치](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

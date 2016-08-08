@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # ARM 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -294,4 +294,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         }
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

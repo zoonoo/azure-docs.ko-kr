@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 투명한 데이터 암호화 사용
@@ -22,7 +22,7 @@
 
 이러한 권장 지침은 Azure SQL 서비스에만 적용되며 가상 컴퓨터에서 실행되는 SQL은 포함하지 않습니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -35,7 +35,7 @@
 
   ![암호화 상태][4]
 
-## 다음 단계
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 "투명한 데이터 암호화 사용"을 구현하는 방법을 보여 주었습니다. SQL TDE에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -58,4 +58,4 @@
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

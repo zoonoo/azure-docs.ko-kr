@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -98,4 +98,4 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

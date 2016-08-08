@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 작업에서 입력 및 출력을 위한 로그인 자격 증명 회전
@@ -46,15 +46,15 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 ###이벤트 허브(영문)
 1.  Azure 관리 포털에서 서비스 버스 확장명으로 이동합니다. ![graphic6][graphic6]
 2.  작업에서 사용하는 서비스 버스 네임스페이스를 찾아 이동합니다. ![graphic7][graphic7]
-3.  작업이 서비스 버스 네임스페이스에서 공유 액세스 정책을 사용하는 경우 6단계로 이동합니다.  
+3.  작업이 서비스 버스 네임스페이스에서 공유 액세스 정책을 사용하는 경우 6단계로 이동합니다.
 4.  이벤트 허브 탭으로 이동합니다. ![graphic8][graphic8]
 5.  사용자 작업에서 사용되는 이벤트 허브를 찾아 이동합니다. ![graphic9][graphic9]
 6.  구성 탭으로 이동합니다. ![graphic10][graphic10]
 7.  정책 이름 드롭다운 목록에서 작업에서 사용되는 공유 액세스 정책을 찾습니다. ![graphic11][graphic11]
-8.  기본 키와 보조 키 사이에서 **작업에서 사용되지 않는 키를 선택합니다**.  
+8.  기본 키와 보조 키 사이에서 **작업에서 사용되지 않는 키를 선택합니다**.
 9.  히트 다시 생성: ![graphic12][graphic12]
 10. 새로 생성된 키를 복사합니다. ![graphic13][graphic13]
-11. 2부를 계속합니다.  
+11. 2부를 계속합니다.
 
 ###SQL 데이터베이스
 
@@ -66,13 +66,13 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 4.  데이터베이스 마스터 유형: ![graphic17][graphic17]
 5.  사용자 이름, 암호를 입력하고 로그를 클릭합니다. ![graphic18][graphic18]
 6.  새 쿼리를 클릭합니다. ![graphic19][graphic19]
-7.  <login_name>을 사용자 이름으로 교체하고 <enterStrongPasswordHere>를 새 암호로 교체하는`CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'` 다음 쿼리에 입력합니다.
+7.  <login\_name>을 사용자 이름으로 교체하고 <enterStrongPasswordHere>를 새 암호로 교체하는 다음 쿼리에 입력합니다. `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  실행을 클릭합니다. ![graphic20][graphic20]
 9.  2단계로 돌아가서 데이터베이스를 클릭합니다. ![graphic21][graphic21]
 10. 관리 명령을 클릭합니다. ![graphic22][graphic22]
 11. 사용자 이름, 암호를 입력하고 로그를 클릭합니다. ![graphic23][graphic23]
 12. 새 쿼리를 클릭합니다. ![graphic24][graphic24]
-13. 이 데이터베이스의 컨텍스트에서 이 로그인을 식별할 이름으로 <user_name>를 대체하고(예를 들어, <login_name>에 대해 동일한 값을 제공할 수 있음) 및 새 사용자 이름으로 <login_name>을 대체하는 다음 쿼리에 입력합니다. `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. 이 데이터베이스의 컨텍스트에서 이 로그인을 식별할 이름으로 <user\_name>을(를) 대체하고(예를 들어, <login\_name>에 대해 동일한 값을 제공할 수 있음) 및 새 사용자 이름으로 <login\_name>을(를) 대체하는 다음 쿼리에 입력합니다. `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. 실행을 클릭합니다. ![graphic25][graphic25]
 15. 이제 원래 사용자가 가졌던 동일한 역할과 권한을 새로운 사용자에게 제공해야 합니다.
 16. 2부를 계속합니다.
@@ -100,9 +100,9 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 4.	4부로 이동합니다.
 
 ###Power BI
-1.	권한 부여 갱신을 클릭합니다.  
+1.	권한 부여 갱신을 클릭합니다.
 * ![graphic35][graphic35]
-* 다음 확인 메시지가 나타납니다.  
+* 다음 확인 메시지가 나타납니다.
 * ![graphic36][graphic36]
 2.	저장 명령을 클릭하고 변경 내용 저장을 확인합니다. ![graphic37][graphic37]
 3.	변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.
@@ -111,14 +111,14 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 ###SQL 데이터베이스
 1.	사용자 이름 및 암호 필드를 찾아 새로 만든 자격 증명 집합을 붙여넣습니다. ![graphic38][graphic38]
 2.	저장 명령을 클릭하고 변경 내용 저장을 확인합니다. ![graphic39][graphic39]
-3.	변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.  
+3.	변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 성공적으로 통과했는지 확인합니다.
 4.	4부로 이동합니다.
 
 ##4부: 마지막 중지된 시간에서 해당 작업 시작
 1.	입/출력에서 다른 부분으로 이동합니다. ![graphic40][graphic40]
 2.	시작 명령을 클릭합니다. ![graphic41][graphic41]
 3.	마지막 중지 시간을 선택하고 확인을 클릭합니다. ![graphic42][graphic42]
-4.	5부로 이동합니다.  
+4.	5부로 이동합니다.
 
 ##5부: 이전 자격 증명 집합 제거
 이 부분은 다음 입력/출력에 적용할 수 있습니다.
@@ -134,8 +134,8 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 이제 사용되지 않은 키를 갱신하도록 이전에 작업에서 사용한 키에 대해 1부를 반복합니다.
 
 ###SQL 데이터베이스
-1.	1부 7단계의 쿼리 창으로 돌아가서 이전에 사용자가 사용한 사용자 이름으로 대체하는 <previous_login_name> 다음 쿼리에 입력합니다. `DROP LOGIN <previous_login_name>`  
-2.	실행을 클릭합니다. ![graphic43][graphic43]  
+1.	1부 7단계의 쿼리 창으로 돌아가서 이전에 사용자가 작업에 사용한 사용자 이름으로 <previous\_login\_name>을(를) 대체하는 `DROP LOGIN <previous_login_name>` 쿼리를 입력합니다.
+2.	실행을 클릭합니다. ![graphic43][graphic43]
 
 다음 확인 메시지가 나타나야 합니다.
 
@@ -198,4 +198,4 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

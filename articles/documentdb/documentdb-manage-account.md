@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정을 관리하는 방법
@@ -28,14 +28,11 @@ Azure DocumentDB에서 데이터의 글로벌 가용성을 위해 글로벌 일�
 ### DocumentDB 계정의 기본 일관성을 지정하려면
 
 1. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
-2. 계정 블레이드에서 **설정** 블레이드가 아직 열려 있지 않은 경우 **모든 설정**을 클릭합니다.
-![기본 일관성 세션][5]
+2. 계정 블레이드에서 **설정** 블레이드가 아직 열려 있지 않은 경우 **모든 설정**을 클릭합니다.![기본 일관성 세션][5]
 
-3. **모든 설정** 블레이드의 **기능**에서 **기본 일관성** 항목을 클릭합니다.
-    ![기본 일관성 세션][6]
-
-4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
-5. Azure 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
+3. **모든 설정** 블레이드의 **기능**에서 **기본 일관성** 항목을 클릭합니다.![기본 일관성 세션][6]
+4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
+5. Azure 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
 
 > [AZURE.NOTE] 기본 일관성 설정이 DocumentDB 계정에 적용되기 전에는 몇 분 정도 걸릴 수 있습니다.
 
@@ -144,7 +141,7 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/ko-KR/regions/#services
+[offers]: https://azure.microsoft.com/ko-KR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

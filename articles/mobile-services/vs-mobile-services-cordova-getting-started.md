@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # 모바일 서비스 시작(Cordova 프로젝트)
@@ -69,7 +69,7 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
             items = results.slice();
         });
 
-사용할 수 있는 쿼리의 추가 예제는 [query](http://msdn.microsoft.com/library/azure/jj613353.aspx) 개체를 참조하세요.
+사용할 수 있는 쿼리의 추가 예제는 [query](https://msdn.microsoft.com/library/azure/jj613353.aspx) 개체를 참조하세요.
 
 ##테이블 항목 업데이트
 
@@ -88,6 +88,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[모바일 서비스에 대한 자세한 정보](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

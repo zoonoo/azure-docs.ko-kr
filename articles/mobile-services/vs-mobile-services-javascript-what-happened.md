@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # 연결 Visual Studio 서비스를 사용하여 Azure 모바일 서비스를 추가하면 내 Javascript 프로젝트는 어떻게 되나요?
@@ -38,4 +38,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

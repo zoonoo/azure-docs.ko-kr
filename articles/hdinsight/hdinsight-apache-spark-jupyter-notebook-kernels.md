@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스�
 
 ## 커널은 어떻게 사용합니까? 
 
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -95,7 +95,7 @@ HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스�
 |-----------|---------------------------------|--------------|
 | -o | `-o <VARIABLE NAME>` | 이 매개 변수를 사용하여 %%local Python 컨텍스트에서 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 쿼리 결과를 유지할 수 있습니다. 데이터 프레임 변수 이름은 사용자가 지정한 변수 이름입니다. |
 | -q | `-q` | 이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화하지 않고 데이터 프레임으로 캡처하기만 하려면 `-q -o <VARIABLE>`을 사용합니다. 결과를 캡처하지 않고 시각화를 해제하려면(예: `CREATE TABLE` 문과 같은 부작용이 있는 SQL 쿼리 실행) `-o` 인수를 지정하지 않고 `-q`만 사용합니다. |
-| -m | `-m <METHOD>` | 여기서 **METHOD**는 **take** 또는 **sample**(기본값은 **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 표의 뒷부분에서 설명)로 지정된 결과 데이터 집합의 위쪽에서 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 표의 다음 행에 설명)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
+| -m | `-m <METHOD>` | 여기서 **METHOD**는 **take** 또는 **sample**(기본값은 **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 테이블의 뒷부분에서 설명)로 지정된 결과 데이터 집합의 위쪽에서 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 테이블의 다음 행에 설명)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
 | -r | `-r <FRACTION>` | 여기서 **FRACTION**은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 사용하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
 | -n | `-n <MAXROWS>` | **MAXROWS**는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS**로 제한합니다. **MAXROWS**가 **-1**과 같은 음수인 경우에는 결과 집합의 행 수가 제한되지 않습니다. |
 
@@ -128,7 +128,7 @@ Jupyter 노트북을 여는 경우 루트 수준에서 사용할 수 있는 두 
 
 ## Notebook이 저장되는 위치
 
-Jupyter Notebook은 클러스터와 연결된 저장소 계정의 **/HdiNotebooks** 폴더 아래에 저장됩니다. Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 WASB에서 액세스할 수 있습니다. 예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다. 반대의 경우도 마찬가지입니다, 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다. Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
+Jupyter Notebook은 클러스터와 연결된 저장소 계정의 **/HdiNotebooks** 폴더 아래에 저장됩니다. Jupyter 내에서 만든 Notebook, 텍스트 파일 및 폴더는 WASB에서 액세스할 수 있습니다. 예를 들어 Jupyter를 사용하여 **myfolder** 폴더와 **myfolder/mynotebook.ipynb** Notebook을 만든 경우 `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`에서 이 Notebook에 액세스할 수 있습니다. 반대의 경우도 마찬가지입니다, 즉, `/HdiNotebooks/mynotebook1.ipynb`에서 저장소 계정에 직접 Notebook을 업로드한 경우 Jupyter에서도 이 Notebook을 볼 수 있습니다. Notebook은 클러스터를 삭제한 후에도 저장소 계정에 유지됩니다.
 
 Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음과 같은 파일 관리 파일을 사용할 수 있습니다.
 
@@ -188,4 +188,4 @@ HDInsight Spark 클러스터에 대해 실행되는 Jupyter Notebook은 Google C
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,9 +8,9 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다. ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3162954**)를 입력하고 **검색**을 클릭합니다.
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **3179904**)를 입력하고 **검색**을 클릭합니다.
 
-    핫픽스 목록이 나타납니다(예: **StorSimple 8000 시리즈용 누적 소프트웨어 번들 업데이트 2.1**).
+    핫픽스 목록이 나타납니다(예: **StorSimple 8000 시리즈용 누적 소프트웨어 번들 업데이트 2.2**).
 
     ![카탈로그 검색](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
@@ -60,6 +60,8 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 6. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y**를 입력합니다.
 
+> [AZURE.IMPORTANT] 업데이트 2.2를 설치하는 경우 'all-hcsmdssoftwareudpate'가 붙은 이진 파일만 설치합니다. all-cismdsagentupdatebundle이 앞에 붙은 Ci 및 MDS 에이전트 업데이트를 설치하지 마십시오. 이렇게 하지 않으면 오류가 발생합니다.
+
 7. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다. 업데이트가 수동 컨트롤러에서 먼저 완료됩니다. 수동 컨트롤러가 업데이트되면 장애 조치(failover)된 다음 업데이트가 다른 컨트롤러에 적용됩니다. 두 컨트롤러가 모두 업데이트되면 업데이트가 완료됩니다.
 
     다음 샘플 출력에서는 진행 중인 업데이트를 보여줍니다. 업데이트가 진행 중이면 `RunInprogress`가 `True`입니다.
@@ -95,9 +97,9 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
     다음 버전이 표시되어야 합니다.
 
-    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `HcsSoftwareVersion: 6.3.9600.17708`
     - `CisAgentVersion: 1.0.9299.0`
-    - `MdsAgentVersion: 30.0.4698.16` 
+    - `MdsAgentVersion: 30.0.4698.16`
 
 	업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](storsimple-contact-microsoft-support.md)에 문의하세요.
 
@@ -239,4 +241,4 @@ KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
 
 1. 유지 관리 모드를 종료하면 컨트롤러가 다시 시작됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트가 설치되었는지 24시간 동안 포털에 표시되지 않을 수도 있습니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

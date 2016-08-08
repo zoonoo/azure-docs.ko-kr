@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="07/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -38,7 +38,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 .bacpac에서 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
-- Azure 구독. 
+- Azure 구독.
 - Azure SQL 데이터베이스 V12 서버. V12 서버가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
 - [Azure 저장소 계정(표준)](../storage/storage-create-storage-account.md) Blob 컨테이너에서 가져오려는 데이터베이스의 .bacpac 파일
 
@@ -65,7 +65,7 @@ SQL Server 블레이드를 엽니다.
     ![가격 책정 계층 선택][3]
 
 1.  BACPAC 파일에서 만들 데이터베이스에 대한 **데이터베이스 이름**을 입력합니다.
-2.  인증 유형을 선택한 후 서버에 대한 인증 정보를 제공합니다. 
+2.  인증 유형을 선택한 후 서버에 대한 인증 정보를 제공합니다.
 3.  **만들기**를 클릭하여 BACPAC에서 데이터베이스를 만듭니다.
 
     ![데이터베이스 만들기][4]
@@ -92,13 +92,7 @@ SQL Server 블레이드를 엽니다.
 
 ## 다음 단계
 
-- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
-
-
-
-## 추가 리소스
-
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
+- 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 
 
 <!--Image references-->
@@ -109,4 +103,4 @@ SQL Server 블레이드를 엽니다.
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

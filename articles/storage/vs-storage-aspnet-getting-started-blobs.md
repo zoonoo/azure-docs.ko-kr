@@ -18,7 +18,7 @@
 
 # Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## 개요
 
@@ -229,4 +229,4 @@ Blob을 삭제하려면 **Delete** 메서드를 사용합니다.
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

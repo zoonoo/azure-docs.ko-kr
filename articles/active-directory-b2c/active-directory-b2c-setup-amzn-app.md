@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: Amazon 구성 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Amazon 구성 | Microsoft Azure"
 	description="소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Amazon 계정으로 등록 및 로그인을 제공합니다."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -12,13 +12,11 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/27/2016"
+    ms.topic="article"
+    ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C 미리 보기: 고객에게 Amazon 계정으로 등록 및 로그인 제공
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: 고객에게 Amazon 계정으로 등록 및 로그인 제공
 
 ## Amazon 응용 프로그램 만들기
 
@@ -52,4 +50,4 @@ Azure Active Directory(Azure AD) B2C에서 Amazon을 ID 공급자로 사용하�
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Amazon 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
 7. **확인**, **만들기**를 차례로 클릭하여 Amazon 구성을 저장합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

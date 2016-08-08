@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 소스 제어에 모바일 서비스 프로젝트 코드 저장
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [.NET 백 엔드](mobile-services-dotnet-backend-store-code-source-control.md)
+- [JavaScript 백 엔드](mobile-services-store-scripts-source-control.md)
 
 이 항목에서는 Azure 모바일 서비스에서 제공하는 소스 제어를 사용하여 .NET 백 엔드 서비스 프로젝트를 저장하는 방법을 보여 줍니다. 프로젝트를 게시하려면 로컬 Git 리포지토리에서 프로덕션 모바일 서비스로 업로드하면 됩니다.
 
@@ -39,10 +39,10 @@
 
 1. 로컬 컴퓨터에 Git을 설치합니다.
 
-	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
+	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
 	> [AZURE.NOTE]
-	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -65,7 +65,7 @@
 
 ##<a name="deploy-scripts"></a>Git를 사용하여 프로젝트 게시
 
-1. Visual Studio 2013dptj .NET 백 엔드 모바일 서비스 프로젝트를 새로 만들거나 기존 프로젝트를 새 로컬 리포지토리로 이동합니다.  
+1. Visual Studio 2013dptj .NET 백 엔드 모바일 서비스 프로젝트를 새로 만들거나 기존 프로젝트를 새 로컬 리포지토리로 이동합니다.
 
 	간단히 테스트하기 위해 모바일 서비스 퀵 스타트 프로젝트를 다운로드하여 이 폴더에 저장합니다.
 
@@ -102,7 +102,8 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

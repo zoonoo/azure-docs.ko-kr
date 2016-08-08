@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/25/2016"
 	ms.author="mahender"/>
 
 # 기존 .NET Azure 모바일 서비스를 앱 서비스로 업그레이드
 
 앱 서비스 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [모바일 앱 정의]를 참조하세요.
 
-이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다.
+이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다. Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js 모바일 서비스 업그레이드](./app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure 앱 서비스로 업그레이드되면 모든 앱 서비스 기능에 액세스할 수 있고 모바일 서비스 가격 책정이 아닌 [앱 서비스 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -274,7 +274,7 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[앱 서비스 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

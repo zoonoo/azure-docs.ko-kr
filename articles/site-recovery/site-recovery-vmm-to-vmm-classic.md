@@ -18,6 +18,11 @@
 
 # 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 
+> [AZURE.SELECTOR]
+- [Azure 포털](site-recovery-vmm-to-vmm.md)
+- [클래식 포털](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
 ## 개요
@@ -40,10 +45,10 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 **필수 구성 요소** | **세부 정보**
 --- | ---
-**Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
+**Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/site-recovery/).
 **VMM** | 하나 이상의 VMM 서버가 필요합니다.<br/><br/>VMM 서버에서 최신 누적 업데이트를 포함하는 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/>단일 VMM 서버에 보호를 설정하려는 경우 서버에 두 개 이상의 클라우드를 구성해야 합니다.<br/><br/>두 VMM 서버에 보호를 배포하려는 경우 각 서버에 보호하려는 기본 VMM 서버에 하나 이상의 클라우드를 구성해야 하고 보호 및 복구에 사용하려는 보조 VMM 서버에 하나의 클라우드를 구성해야 합니다.<br/><br/>모든 VMM 클라우드에 Hyper-V 용량 프로필을 설정해야 합니다.<br/><br/>보호할 원본 클라우드에는 하나 이상의 VMM 호스트 그룹이 포함되어야 합니다.<br/><br/>Keith Mayer 블로그의 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.
-**Hyper-V** | 기본 및 보조 VMM 호스트 그룹에서 하나 이상의 Hyper-V 호스트 서버가 필요하고 각 Hyper-V 호스트 서버에 하나 이상의 가상 컴퓨터가 필요합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세히 알아봅니다](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
-**네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑에 대해 [자세히 알아봅니다](site-recovery-network-mapping.md).
+**Hyper-V** | 기본 및 보조 VMM 호스트 그룹에서 하나 이상의 Hyper-V 호스트 서버가 필요하고 각 Hyper-V 호스트 서버에 하나 이상의 가상 컴퓨터가 필요합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세한 정보](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)를 확인해 보세요.
+**네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑과 관련된 [자세한 정보](site-recovery-network-mapping.md)를 확인해 보세요.
 **저장소 매핑** | 기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장된 위치에 대해 더 제어하려면 저장소 매핑을 구성할 수 있습니다<br/><br/> 저장소 매핑을 구성하려면 배포를 시작하기 전에 원본 및 대상 VMM 서버에서 저장소 분류를 설정해야 합니다. [자세히 알아봅니다](site-recovery-storage-mapping.md).
 
 
@@ -154,13 +159,13 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 매개 변수는 다음에 위치합니다.
 
- - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
+ - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
  - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지 확인합니다.
  - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
  - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
  - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.  
+ - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 ## 4단계: 클라우드 보호 설정 구성
 
@@ -375,6 +380,6 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
  
 ## 다음 단계
 
-환경이 예상대로 작동 중인지 확인하기 위해 테스트 장애 조치(failover)를 실행한 후에 여러 유형의 [장애 조치(failover)에 대해 알아봅니다](site-recovery-failover.md).
+환경이 예상대로 작동 중인지 확인하기 위해 테스트 장애 조치(failover)를 실행한 후에 여러 형식의 장애 조치(failover)에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

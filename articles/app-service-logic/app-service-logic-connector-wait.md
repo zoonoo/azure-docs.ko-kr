@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,7 +30,7 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 
 ### 작업
 - 오른쪽 창에서 Wait 커넥터를 클릭합니다. ![작업 목록][1]
-- Wait 커넥터는 다음 두 동작을 지원합니다. 
+- Wait 커넥터는 다음 두 동작을 지원합니다.
 	- 지연
 	- 다음까지 지연
 	 
@@ -56,4 +56,4 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

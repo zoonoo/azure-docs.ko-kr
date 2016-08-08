@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"  
+	manager="femila"  
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="07/20/2016" 
 	ms.author="markvi"/>
 
 # 알려진 네트워크
@@ -21,11 +21,11 @@
 
 Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 디렉터리 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.
 
-"*여러 지역에서의 로그인*” 및 "*의심스러운 활동을 포함하는 IP 주소의 로그인*" 보고서에 조직이 실제로 소유하는 IP 주소가 잘못 플래깅될 수 있습니다.
+“*여러 지역에서의 로그인*” 및 “*의심스러운 활동을 포함하는 IP 주소의 로그인*” 보고서에 조직이 실제로 소유하는 IP 주소가 잘못 플래깅될 수 있습니다.
 
 예를 들어 다음과 같은 경우에 이러한 문제가 발생할 수 있습니다.
 
-- Boston 사무실의 사용자가 San Francisco의 데이터 센터에 원격으로 로그인하여 "여러 지역에서의 로그인" 보고서 트리거 
+- Boston 사무실의 사용자가 San Francisco의 데이터 센터에 원격으로 로그인하여 "여러 지역에서의 로그인" 보고서 트리거
 
 - 조직의 사용자가 잘못된 암호로 여러 번 로그온을 시도하여 “의심스러운 활동을 포함하는 IP 주소의 로그인” 보고서 트리거
 
@@ -56,4 +56,4 @@ Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 
 * [의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

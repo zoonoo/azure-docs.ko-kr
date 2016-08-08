@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 VM 에이전트 사용
 
-패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 가상 컴퓨터(VM)에 VM 에이전트가 설치되어 있어야 합니다. Azure 보안 센터에서 VM 에이전트가 필요한 VM을 확인하고 해당 VM에서 VM 에이전트를 사용하는 것이 좋습니다.
+[데이터 컬렉션을 사용하도록 설정](security-center-enable-data-collection.md)하려면 VM(가상 컴퓨터)에 VM 에이전트를 설치해야 합니다. Azure 보안 센터에서 VM 에이전트가 필요한 VM을 확인하고 해당 VM에서 VM 에이전트를 사용하는 것이 좋습니다.
 
 Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다.
 
@@ -47,4 +47,4 @@ Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으�
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

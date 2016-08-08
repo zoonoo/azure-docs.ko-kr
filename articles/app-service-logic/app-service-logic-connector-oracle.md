@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -120,4 +120,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

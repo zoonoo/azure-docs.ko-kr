@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # HDInsight에서 HBase 지역에서 복제 구성
@@ -248,7 +248,7 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 
 샘플 데이터 파일이 다음 URL의 공용 Azure Blob 컨테이너로 업로드되었습니다.
 
-		wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 파일 내용은 다음과 같습니다.
 
@@ -273,7 +273,7 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 
 4. 데이터를 업로드합니다.
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
@@ -314,4 +314,4 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

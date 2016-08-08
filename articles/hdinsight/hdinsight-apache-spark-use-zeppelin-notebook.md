@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -43,7 +43,7 @@ Apache Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppel
 
 ### Azure 포털 사용
 
-HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업을 실행하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal)을 참조하세요. 해당 문서의 지침을 약간 변경해야 합니다.
+Azure 포털을 사용하여 Zeppelin을 설치하는 스크립트 동작을 실행하는 방법은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal)을 참조하세요. 해당 문서의 지침을 약간 변경해야 합니다.
 
 * Zeppelin을 설치하기 위해 스크립트를 사용해야 합니다. HDInsight의 Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 다음 링크에서 사용 가능합니다.
 	* Spark 1.6.0 클러스터의 경우 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -211,11 +211,11 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![foxyproxy 선택 모드](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-이러한 단계를 따른 후에는 __internal.cloudapp.net__ 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
+이러한 단계를 따른 후에는 __hn0__ 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
 
 ## Zeppelin Notebook에 액세스
 
-SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Zeppelin Notebook에 액세스할 수 있습니다.
+SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Zeppelin Notebook에 액세스할 수 있습니다. 이 섹션에서는 %sql 및 %hive 문을 실행하는 방법을 알아봅니다.
 
 1. 웹 브라우저에서 다음 끝점을 엽니다.
 
@@ -235,12 +235,14 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin 노트북 상태")
 
+### SQL 문 실행
+
 4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	새 노트북에 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣습니다.
 
 		// Create an RDD using the default Spark context, sc
-		val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -297,6 +299,41 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 
 	![Zeppelin 인터프리터 다시 시작](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Zeppelin 인터프리터 다시 시작")
 
+### Hive 문 실행
+
+1. Zeppelin Notebook에서 **Interpreter** 단추를 클릭합니다.
+
+	![Hive 인터프리터 업데이트](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Hive 인터프리터 업데이트")
+
+2. **hive** 인터프리터에 대해 **edit**을 클릭합니다.
+
+	![Hive 인터프리터 업데이트](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Hive 인터프리터 업데이트")
+
+	다음 속성을 업데이트합니다.
+
+	* **default.password**를 HDInsight Spark 클러스터를 만드는 동안 관리자에 대해 지정한 암호로 설정합니다.
+	* **default.url**을 `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`로 설정합니다. **<spark\_cluster\_name>**을 Spark 클러스터의 이름으로 바꿉니다.
+	* **default.user**를 클러스터를 만들 때 지정한 관리자의 이름으로 설정합니다. 예: *admin*.
+
+3. **Save**를 클릭하고 Hive 인터프리터를 다시 시작하라는 메시지가 표시되면 **OK**를 클릭합니다.
+
+4. 새 Notebook을 만들고 다음 문을 실행하여 클러스터의 모든 hive 테이블을 나열합니다.
+
+		%hive
+		SHOW TABLES
+
+	기본적으로 HDInsight 클러스터에는 **hivesampletable**이라는 샘플 테이블이 있으므로 다음과 같은 출력이 표시됩니다.
+
+	![Hive 출력](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Hive 출력")
+
+5. 다음 문을 실행하여 테이블의 레코드를 나열합니다.
+
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
+
+	다음과 유사한 출력이 표시됩니다.
+
+	![Hive 출력](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Hive 출력")
 
 ## <a name="seealso"></a>참고 항목
 
@@ -350,4 +387,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

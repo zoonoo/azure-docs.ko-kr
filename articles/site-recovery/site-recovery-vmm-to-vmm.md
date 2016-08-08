@@ -21,10 +21,11 @@
 > [AZURE.SELECTOR]
 - [Azure 포털](site-recovery-vmm-to-vmm.md)
 - [클래식 포털](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 Azure Site Recovery에 오신 것을 환영합니다! Azure 포털을 통해 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 보조 사이트에 복제하려는 경우 이 문서를 사용하세요. 이 문서는 Azure 포털의 Azure Site Recovery를 사용하여 복제를 설정하는 방법을 설명합니다.
 
-> [AZURE.NOTE] Azure는 리소스를 만들고 작업하기 위한 두 가지 [배포 모델](../resource-manager-deployment-model.md)로 ARM(Azure Resource Manager)과 클래식을 제공합니다. 또한 Azure에는 두 가지 포털이 있는데, 하나는 클래식 배포 모델을 지원하는 Azure 클래식 포털이고 다른 하나는 두 가지 배포 모델을 모두 지원하는 Azure 포털입니다.
+> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 [배포 모델](../resource-manager-deployment-model.md)인 Azure Resource Manager 모델과 클래식 모델이 있습니다. 또한 Azure에는 두 가지 포털이 있는데, 하나는 클래식 배포 모델을 지원하는 Azure 클래식 포털이고 다른 하나는 두 가지 배포 모델을 모두 지원하는 Azure 포털입니다.
 
 
 Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
@@ -187,7 +188,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
 	![원본 설정](./media/site-recovery-vmm-to-vmm/set-source1.png)
 
-2. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 유형**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
+2. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 형식**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
 4. Azure Site Recovery 공급자 설치 파일을 다운로드합니다.
 5. 등록 키를 다운로드합니다. 설정을 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
@@ -282,12 +283,12 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
 	![네트워크](./media/site-recovery-vmm-to-vmm/gs-replication.png)
 
-2. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 원본 및 대상 유형은 **Hyper-V**여야 합니다.
+2. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 원본 및 대상 형식은 **Hyper-V**여야 합니다.
 3. **Hyper-V 호스트 버전**에서 호스트에서 실행되는 운영 체제를 선택합니다.
 
 	> [AZURE.NOTE] VMM 클라우드는 다른(지원) 버전의 Windows Server를 실행하는 Hyper-V 호스트를 포함할 수 있지만 복제 정책은 동일한 운영 체제를 실행하는 호스트에 적용됩니다. 호스트에서 두 개 이상의 운영 체제 버전이 실행되는 경우 별도의 복제 정책을 만듭니다.
 
-4. **인증 유형** 및 **인증 포트**에서 기본 및 복구 Hyper-V 호스트 서버 간에 트래픽을 인증하는 방법을 지정합니다. 작동하는 Kerberos 환경이 구성되어 있지 않으면 **인증서**를 선택합니다. Azure Site Recovery가 HTTPS 인증을 위한 인증서를 자동으로 구성합니다. 수동으로 수행할 작업은 없습니다. 기본적으로 Hyper-V 호스트 서버의 Windows 방화벽에서 포트 8083과 8084(인증서용)가 열립니다. **Kerberos**를 선택하면 호스트 서버의 상호 인증에 Kerberos 티켓이 사용됩니다. 이 설정은 Windows Server 2012 R2에서 실행 중인 Hyper-V 호스트 서버와만 관련이 있습니다.
+4. **인증 형식** 및 **인증 포트**에서 기본 및 복구 Hyper-V 호스트 서버 간에 트래픽을 인증하는 방법을 지정합니다. 작동하는 Kerberos 환경이 구성되어 있지 않으면 **인증서**를 선택합니다. Azure Site Recovery가 HTTPS 인증을 위한 인증서를 자동으로 구성합니다. 수동으로 수행할 작업은 없습니다. 기본적으로 Hyper-V 호스트 서버의 Windows 방화벽에서 포트 8083과 8084(인증서용)가 열립니다. **Kerberos**를 선택하면 호스트 서버의 상호 인증에 Kerberos 티켓이 사용됩니다. 이 설정은 Windows Server 2012 R2에서 실행 중인 Hyper-V 호스트 서버와만 관련이 있습니다.
 3. **복사 빈도**에서 초기 복제 후 델타 데이터를 복제할 빈도(30초 마다, 5분마다 또는 15분마다)를 지정합니다.
 4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 보호된 컴퓨터를 이 기간 내의 모든 지점으로 복구할 수 있습니다.
 6. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 빈도(1-12시간)를 지정합니다. Hyper-V는 두 가지 유형의 스냅숏, 즉 전체 가상 컴퓨터의 증분 스냅숏을 제공하는 표준 스냅숏과 가상 컴퓨터 내 응용 프로그램 데이터의 지정 시간 스냅숏을 만드는 응용 프로그램 일치 스냅숏을 사용합니다. 응용 프로그램 일치 스냅숏은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 스냅숏을 만들 때 응용 프로그램이 일관된 상태가 되도록 합니다. 응용 프로그램 일치 스냅숏을 사용하도록 설정하면 원본 가상 컴퓨터에서 실행되는 응용 프로그램의 성능에 영향을 줍니다. 구성하는 추가 복구 지점 수보다 작은 값을 설정해야 합니다.
@@ -393,7 +394,7 @@ Capacity Planner Hyper-V 복제본을 사용하여 실시간 델타 복제 정�
 
 	![가상 컴퓨터 보호 사용](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-설정 > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 가상 컴퓨터가 장애 조치(Failover)를 수행할 준비가 되어 있습니다.
+설정 > **작업** > **Site Recovery 작업**에서 **보호 사용** 동작의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 가상 컴퓨터가 장애 조치(Failover)를 수행할 준비가 되어 있습니다.
 
 
 >[AZURE.NOTE] 또한 VMM 콘솔에서 가상 컴퓨터에 대해 보호를 사용하도록 설정할 수 있습니다. 가상 컴퓨터 속성의 **Azure Site Recovery** 탭에 있는 도구 모음에서 **보호 사용**을 클릭합니다.
@@ -483,4 +484,4 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

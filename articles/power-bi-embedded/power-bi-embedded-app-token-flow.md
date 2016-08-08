@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/01/2016"
+   ms.date="07/26/2016"
    ms.author="owend"/>
 
 # Power BI Embedded에서 인증 및 권한 부여
@@ -36,7 +36,7 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 
 | 클레임 | 설명 |
 |--------------|------------|
-| **ver** | 앱 토큰의 버전으로 현재 버전은 1.0.0입니다. |
+| **ver** | 앱 토큰의 버전으로 현재 버전은 0.2.0입니다. |
 | **aud** | 토큰의 의도한 수신자입니다. Power BI Embedded의 경우 "https://analysis.windows.net/powerbi/api"를 사용합니다. |
 | **iss** | 토큰을 발급한 응용 프로그램을 나타내는 문자열입니다. |
 | **type** | 생성되는 앱 토큰의 유형입니다. 현재 지원되는 유일한 유형은 **embed**입니다. |
@@ -93,4 +93,4 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

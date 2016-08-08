@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: 셀프 서비스 암호 재설정 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: 셀프 서비스 암호 재설정 | Microsoft Azure"
 	description="Azure Active Directory B2C 미리 보기에서 소비자를 위해 셀프 서비스 암호 재설정을 설정하는 방법을 보여주는 항목"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 
-# Azure Active Directory B2C 미리 보기: 소비자를 위해 셀프 서비스 암호 재설정 설정
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: 소비자를 위해 셀프 서비스 암호 재설정 설정
 
 셀프 서비스 암호 재설정 기능을 사용하면 (로컬 계정에 등록된)소비자는 자체적으로 암호를 재설정할 수 있습니다. 특히 정기적으로 응용 프로그램을 사용하는 수 백만 명의 소비자가 있는 경우 지원 담당자의 부담을 크게 줄여줍니다. 현재 검증된 전자 메일 주소를 지원 복구 방법으로 사용하여 지원합니다. 추가 복구 방법을 나중에 추가합니다.(확인된 전화번호, 보안 질문 등)
 
@@ -43,4 +41,4 @@
 > [AZURE.NOTE]
 셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

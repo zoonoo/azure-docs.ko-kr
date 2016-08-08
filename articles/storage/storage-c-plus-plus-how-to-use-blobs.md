@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="07/25/2016"
     ms.author="dineshm"/>
 
 # C++에서 Blob 저장소를 사용하는 방법  
@@ -38,8 +38,8 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
--	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
--	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
+-	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
+-	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.
 
 		Install-Package wastorage
 
@@ -241,4 +241,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

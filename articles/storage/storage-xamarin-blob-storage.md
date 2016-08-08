@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/26/2016"
 	ms.author="micurd"/>
 
 # Xamarin에서 Blob 저장소를 사용하는 방법(미리 보기)
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## 개요
 
@@ -179,4 +179,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 - [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

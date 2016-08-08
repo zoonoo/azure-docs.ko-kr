@@ -18,7 +18,7 @@
 
 # Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## 개요
 
@@ -231,4 +231,4 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

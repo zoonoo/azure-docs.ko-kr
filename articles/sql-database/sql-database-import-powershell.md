@@ -116,15 +116,6 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 
 ## 다음 단계
 
-- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
+- 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 
-
-
-
-## 추가 리소스
-
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [재해 복구 연습](sql-database-disaster-recovery-drills.md)
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/29/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Maven을 사용하여 Windows 기반 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드
@@ -436,7 +436,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         $storage = GetStorage -clusterName $clusterName
         
         # The JAR
-        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
         
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -646,4 +646,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

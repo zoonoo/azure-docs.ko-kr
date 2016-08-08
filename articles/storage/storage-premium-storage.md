@@ -3,7 +3,7 @@
 	description="프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Azure DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM은 프리미엄 저장소를 지원합니다."
 	services="storage"
 	documentationCenter=""
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="prkhad"/>
+	ms.date="07/24/2016"
+	ms.author="aungoo-msft"/>
 
 
 # 프리미엄 저장소: Azure 가상 컴퓨터 작업용 고성능 저장소
@@ -565,4 +565,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

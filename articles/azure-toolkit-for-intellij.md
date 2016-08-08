@@ -69,6 +69,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 
 [IntelliJ의 Azure에서 Java 웹앱 디버깅]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
-[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

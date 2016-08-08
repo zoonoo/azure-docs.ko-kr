@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure"
 	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android ";할 일 목록"; 앱을 만드는 방법을 보여 줍니다. Android 앱 및 Web API는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
 	services="active-directory-b2c"
 	documentationCenter="android"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
-# Azure AD B2C 미리 보기: Android 응용 프로그램에서 Web API 호출
+# Azure AD B2C: Android 응용 프로그램에서 웹 API 호출
+
+> [AZURE.WARNING] 이 자습서에서는 특히 B2C에 대한 Android ADAL의 사용을 제거하기 위해 몇 가지 중요 업데이트가 필요합니다. Android 앱에서 Azure AD B2C 사용을 위한 새로운 지침을 다음 주에 게시하겠으니 그 때까지 보류하는 것이 좋습니다. 그러나 단지 시도해 보려는 것이라면 자유롭게 다음 문서를 계속 진행합니다.
+
+
 
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계로 강력한 셀프 서비스 ID 관리 기능을 Android 앱 및 Web API에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱 및 Web API는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 이 빠른 시작은 제대로 작동하기 위해 B2C와 Azure AD로 보호되는 Web API가 필요합니다. .NET 및 Node.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 Node.js Web API 샘플이 구성되었다고 가정합니다. 자세한 내용은 [Node.js 자습서용 Azure AD B2C Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조하세요.
 
@@ -40,7 +42,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 앱과 웹 API는 모두 하나의 논리 앱을 구성하기 때문에 단일 **응용 프로그램 ID**에서 나타납니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
+- 응용 프로그램에서 **웹앱**/**웹 API**를 포함합니다.
 - **회신 URL**로 `urn:ietf:wg:oauth:2.0:oob`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 이 시간은 나중에 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape)되어야 합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 ID는 나중에도 필요합니다.
@@ -975,4 +977,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [쿠키에 대해 자세히 알아봅니다](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

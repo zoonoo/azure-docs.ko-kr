@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@ Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필
 이 예에는 트리거할 필요가 있는 각 논리 앱에 대해 실행되는 함수가 있습니다. 먼저, HTTP 요청 트리거가 있는 논리 앱을 만듭니다. 이 함수는 큐 메시지를 수신할 때마다 끝점을 호출합니다.
 
 1. 새 논리 앱을 만들고 **수동 - HTTP 요청을 받은 경우** 트리거를 생성합니다. 또는, [jsonschema.net](http://jsonschema.net)과 같은 도구로 큐 메시지와 함께 사용할 JSON 스키마를 지정할 수 있습니다. 트리거에 스키마를 붙여넣습니다. 이는 디자이너가 데이터의 형태를 이해하고 워크플로에서 속성이 쉽게 흐를 수 있도록 도와줍니다.
-1. 큐 메시지를 수신한 후 실행하기를 원하는 추가 절차를 추가합니다. 예를 들어, Office 365로 이메일을 전송합니다.  
+1. 큐 메시지를 수신한 후 실행하기를 원하는 추가 절차를 추가합니다. 예를 들어, Office 365로 이메일을 전송합니다.
 1. 논리 앱을 저장하여 이 논리 앱에 트리거에 대한 콜백 URL을 생성합니다. URL은 트리거 카드에 표시됩니다.
 
 ![트리거 카드에 나타나는 콜백 URL][1]
@@ -66,4 +66,4 @@ Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

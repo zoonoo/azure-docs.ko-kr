@@ -94,12 +94,12 @@
 
 
 
-## 추가 리소스
+## 다음 단계   
 
-- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [지역에서 복제를 사용하여 비즈니스 연속성을 위한 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/services/sql-database/)
-- [재해 복구 연습](sql-database-disaster-recovery-drills.md)
+- 사전 및 사후 복구 단계를 포함하는 활성 지역 복제를 사용하고 재해 복구 훈련을 수행하여 재해 후에 복구하는 방법을 알아보려면 [재해 복구](sql-database-disaster-recovery.md)를 참조하세요.
+- 활성 지역 복제에 대한 Sasha Nosov 블로그 게시물에 대해서는 [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)을 참조하세요.
+- 활성 지역 복제를 사용하여 클라우드 응용 프로그램을 디자인하는 방법에 대한 자세한 내용은 [지역에서 복제를 사용하여 비즈니스 연속성을 위한 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
+- 탄력적 데이터베이스 풀에서 활성 지역 복제를 사용하는 방법에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+- 비즈니스 연속성을 대략적으로 이해하려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

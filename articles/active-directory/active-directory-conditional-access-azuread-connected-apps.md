@@ -1,10 +1,10 @@
 <properties
-	pageTitle="SaaS 앱에 대한 Azure 조건부 액세스 미리 보기| Microsoft Azure"
+	pageTitle="SaaS 앱에 대한 Azure 조건부 액세스 | Microsoft Azure"
 	description="Azure AD의 조건부 액세스를 사용하면 응용 프로그램별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. "
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
 # Azure AD 조건부 액세스 시작하기  
 
-SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액세스는 공개 미리 보기로 제공됩니다. 미리 보기를 사용하면 그룹, 위치 및 응용 프로그램 민감도를 기반으로 조건부 액세스를 구성할 수 있습니다.
+[SaaS](https://azure.microsoft.com/overview/what-is-saas/) 앱과 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액세스는 그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스를 구성할 수 있습니다.
 
 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 multi-factor authentication 규칙을 적용할 수 있습니다. 응용 프로그램 민감도를 기반으로 하는 조건부 액세스를 통해 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 제공하도록 응용 프로그램 마다 Multi-Factor Authentication (MFA) 액세스 규칙을 설정할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 
@@ -30,9 +30,6 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 * 페더레이션 또는 관리되는 Azure Active Directory 테넌트
 
 * 페더레이션된 테넌트가 해당 다단계 인증의 사용 요구
-
-## 이 미리 보기 릴리스의 알려진 문제
-이 미리 보기는 암호 Single Sign-On, 등록 및 개발된 LOB(기간 업무) 응용 프로그램 및 Azure AD 응용 프로그램 프록시를 사용하는 응용 프로그램인 사전 통합된 페더레이션 SaaS 응용 프로그램에 적용됩니다. 응용 프로그램이 여전히 추가로 사용되고 있습니다.
 
 ## 응용 프로그램별 액세스 규칙 구성
 
@@ -50,7 +47,7 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 
 ##액세스 규칙 이해
 
-이 섹션에서는 Azure 조건부 응용 프로그램 액세스 미리 보기에서 지원되는 액세스 규칙에 대해 자세히 설명합니다.
+이 섹션에서는 Azure 조건부 응용 프로그램 액세스에서 지원되는 액세스 규칙에 대해 자세히 설명합니다.
 
 ### 액세스 규칙이 적용되는 사용자 지정
 
@@ -58,13 +55,13 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 
 제외 옵션을 선택하고 하나 이상의 그룹을 지정하여 정책에서 보안 그룹을 명시적으로 제외할 수도 있습니다. 제외 목록에 있는 그룹의 구성원인 사용자는 액세스 규칙이 적용되는 그룹의 구성원인 경우에도 다단계 인증 요구 사항이 적용되지 않습니다. 아래 표시된 액세스 규칙의 경우 관리자 그룹의 모든 사용자가 응용 프로그램에 액세스할 때 다단계 인증을 사용해야 합니다.
 
-![MFA를 사용하는 조건부 액세스 규칙 설정](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
+![MFA를 사용하는 조건부 액세스 규칙 설정](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
 
 ## MFA를 사용하는 조건부 액세스 규칙
 사용자가 사용자별 다단계 인증 기능을 사용하여 구성된 경우 사용자에 대한 이 설정이 앱 다단계 인증 규칙과 결합됩니다. 즉, 사용자별 다단계 인증에 대해 구성된 사용자는 응용 프로그램 다단계 인증 규칙에서 제외된 경우에도 다단계 인증을 수행해야 합니다. 다단계 인증 및 사용자별 설정에 대해 자세히 알아보세요.
 
 ### 액세스 규칙 옵션
-현재 미리 보기에서는 다음 옵션을 지원합니다.
+다음과 같은 옵션이 지원됩니다.
 
 * **다단계 인증 요구**: 이 옵션을 사용하면 액세스 규칙이 적용되는 사용자가 정책이 적용되는 응용 프로그램에 액세스하기 전에 다단계 인증을 완료해야 합니다.
 
@@ -94,4 +91,4 @@ SaaS 앱 및 Azure AD 연결 앱에 대한 Azure Active Directory 조건부 액�
 - [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

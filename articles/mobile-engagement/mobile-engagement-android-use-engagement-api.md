@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/25/2016"
 	ms.author="piyushjo;ricksal" />
 
 #Android에서 Engagement API를 사용하는 방법
@@ -297,4 +297,4 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 			{"expiration":"2016-12-07","status":"premium"}
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

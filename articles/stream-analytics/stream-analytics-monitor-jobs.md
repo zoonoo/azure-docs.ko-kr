@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -63,7 +63,7 @@
     ```
     Get-AzureAccount
     ```
-4.	프로젝트의 원본 파일(Program.cs)에 다음 using 문을 추가합니다. 
+4.	프로젝트의 원본 파일(Program.cs)에 다음 using 문을 추가합니다.
 
     ```
         using System;
@@ -180,4 +180,4 @@ Azure 포털을 통해 또는 아래 코드를 통해 프로그래밍 방식으�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -249,7 +249,6 @@ CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트
 
 클라우드 서비스 패키지를 만들고 있으며 다음 작업을 수행하려고 합니다.
 
-* [로컬 저장소 리소스 구성](cloud-services-configure-local-storage-resources.md)
 * [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][remotedesktop]
 * [클라우드 서비스 프로젝트 배포][deploy]
 
@@ -267,4 +266,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

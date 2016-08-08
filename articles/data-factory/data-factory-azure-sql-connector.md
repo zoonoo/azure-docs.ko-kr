@@ -119,7 +119,7 @@
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -127,7 +127,7 @@
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -135,7 +135,7 @@
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -278,7 +278,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -286,7 +286,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -294,7 +294,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -628,4 +628,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

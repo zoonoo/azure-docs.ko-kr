@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -46,7 +46,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요. 
+* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요.
 * Xcode v7.0 이상 및 Xamarin Studio Community가 설치된 Mac입니다. [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx) 및 [Mac 사용자를 위한 설정, 설치 및 유효성 검사](https://msdn.microsoft.com/library/mt488770.aspx)(MSDN)를 참조하세요.
 * [모바일 서비스 시작] 자습서 완료
 
@@ -184,4 +184,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [일시 삭제]: mobile-services-using-soft-delete.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

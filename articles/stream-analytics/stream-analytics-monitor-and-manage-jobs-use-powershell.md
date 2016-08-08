@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@
 
 ## 스트림 분석에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
 
- - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.  
+ - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 Azure PowerShell 0.9.8:
 
@@ -472,4 +472,4 @@ Azure PowerShell 1.0.
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="kgremban"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="kgremban"/>
 
 
@@ -62,7 +62,19 @@
 
 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다. 이러한 명령을 사용하여 작업 문자열이 올바른지 확인하고 와일드카드 작업 문자열을 확장할 수 있습니다.
 
+```
+Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+
+Get-AzureRMProviderOperation Microsoft.Network/*
+```
+
 ![PowerShell 스크린샷 - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+```
+azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
+
+azure provider operations show "Microsoft.Network/*"
+```
 
 ![Azure CLI 스크린샷 - azure 공급자 작업 표시 "Microsoft.Compute/virtualMachines/*/action"](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
@@ -99,4 +111,4 @@
 	- [REST API](role-based-access-control-manage-access-rest.md)
 - [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

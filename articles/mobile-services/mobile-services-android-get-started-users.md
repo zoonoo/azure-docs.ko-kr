@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # 모바일 서비스 Android 앱에 인증 추가(JavaScript 백 엔드)
@@ -107,4 +107,4 @@
 [모바일 서비스 시작]: mobile-services-android-get-started.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

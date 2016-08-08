@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
 	description="Azure Active Directory B2C를 사용하여 등록, 로그인 및 암호 다시 설정을 포함하는 웹 응용 프로그램을 빌드하는 방법입니다."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C 미리 보기: ASP.NET 웹앱에서의 등록 및 로그인
+# Azure AD B2C: ASP.NET 웹앱에서의 등록 및 로그인
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 웹앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 암호 다시 설정을 포함하는 ASP.NET 웹앱을 만드는 방법을 설명합니다. 이 앱은 사용자 이름 또는 전자 메일을 사용하고 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인에 대한 지원을 포함합니다.
 
 이 자습서는 [등록 또는 로그인 정책](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy)을 사용하여 두 단추(등록용 단추 및 로그인용 단추)가 아닌 단일 단추로 사용자 등록 및 로그인을 모두 제공한다는 측면에서 [다른 .NET 웹 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)와 다릅니다. nutshell에서 등록 또는 로그인 정책을 사용하여 기존 계정(있는 경우)으로 로그인하거나 앱을 처음 사용하는 경우에는 새 계정을 만들 수 있습니다.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Azure AD B2C 디렉터리 가져오기
 
@@ -34,8 +32,8 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱/Web API**를 포함합니다.
-- `https://localhost:44316/`을 **리디렉션 URI**로 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
+- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
+- `https://localhost:44316/`을 **리디렉션 URI**으로 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 이 시간은 나중에 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -47,7 +45,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 - ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **전자 메일 등록**을 선택합니다.
 - 등록 및 로그인 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 각 정책의 **이름**을 복사합니다. 이러한 정책 이름이 나중에 필요합니다.
+- 각 정책을 만든 후에 **이름**을 복사합니다. 이러한 정책 이름이 나중에 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -55,7 +53,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ## 코드 다운로드 및 인증 구성
 
-이 샘플에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI)됩니다. 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
+이 샘플에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI)됩니다. 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI.git
@@ -73,7 +71,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
 Install-Package Microsoft.Owin.Host.SystemWeb
-Intsall-Package System.IdentityModel.Tokens.Jwt
+Install-Package System.IdentityModel.Tokens.Jwt
 ```
 
 다음으로 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력하고 아래 값을 고유한 값으로 바꿉니다. `ida:RedirectUri` 및 `ida:AadInstance` 값은 변경하지 않아도 됩니다.
@@ -96,7 +94,7 @@ Intsall-Package System.IdentityModel.Tokens.Jwt
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-다음으로 `Startup.cs`라는 프로젝트에 OWIN 시작 클래스를 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 선택한 다음 "OWIN"을 검색합니다. 클래스 선언을 `public partial class Startup`으로 변경합니다. 다른 파일에서 이 클래스의 일부를 구현했습니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(...)` 메서드를 호출합니다. 이 메서드에서 `ConfigureAuth(...)`를 호출하여 앱에 대한 인증을 설정합니다.
+다음으로 `Startup.cs`라는 프로젝트에 OWIN 시작 클래스를 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 선택한 다음 OWIN을 검색합니다. 클래스 선언을 `public partial class Startup`으로 변경합니다. 다른 파일에서 이 클래스의 일부를 구현했습니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(...)` 메서드를 호출합니다. 이 메서드에서 `ConfigureAuth(...)`를 호출하여 앱에 대한 인증을 설정합니다.
 
 ```C#
 // Startup.cs
@@ -117,11 +115,6 @@ public partial class Startup
 
 public partial class Startup
 {
-    // The ACR claim is used to indicate which policy was executed
-    public const string AcrClaimType = "http://schemas.microsoft.com/claims/authnclassreference";
-    public const string PolicyKey = "b2cpolicy";
-    public const string OIDCMetadataSuffix = "/.well-known/openid-configuration";
-
     // App config settings
     private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
     private static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
@@ -138,38 +131,50 @@ public partial class Startup
 
         app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-        OpenIdConnectAuthenticationOptions options = new OpenIdConnectAuthenticationOptions
+        // Configure OpenID Connect middleware for each policy
+        app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(PasswordResetPolicyId));
+        app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(SusiPolicyId));
+
+    }
+
+    private Task OnSecurityTokenValidated(SecurityTokenValidatedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
+    {
+        // If you wanted to keep some local state in the app (like a db of signed up users),
+        // you could use this notification to create the user record if it does not already
+        // exist.
+
+        return Task.FromResult(0);
+    }
+
+    private OpenIdConnectAuthenticationOptions CreateOptionsFromPolicy(string policy)
+    {
+        return new OpenIdConnectAuthenticationOptions
         {
+            // For each policy, give OWIN the policy-specific metadata address, and
+            // set the authentication type to the id of the policy
+            MetadataAddress = String.Format(aadInstance, tenant, policy),
+            AuthenticationType = policy,
+
             // These are standard OpenID Connect parameters, with values pulled from web.config
             ClientId = clientId,
             RedirectUri = redirectUri,
             PostLogoutRedirectUri = redirectUri,
             Notifications = new OpenIdConnectAuthenticationNotifications
-            { 
+            {
                 AuthenticationFailed = AuthenticationFailed,
-                RedirectToIdentityProvider = OnRedirectToIdentityProvider,
                 SecurityTokenValidated = OnSecurityTokenValidated,
             },
             Scope = "openid",
             ResponseType = "id_token",
 
-            // The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
-            // endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
-            ConfigurationManager = new PolicyConfigurationManager(
-                String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
-                new string[] { SusiPolicyId, PasswordResetPolicyId }),
-
             // This piece is optional - it is used for displaying the user's name in the navigation bar.
             TokenValidationParameters = new TokenValidationParameters
-            {  
+            {
                 NameClaimType = "name",
             },
         };
-
-        app.UseOpenIdConnectAuthentication(options);
-            
     }
-    
+}
 ...
 ```
 
@@ -186,41 +191,57 @@ public void Login()
     if (!Request.IsAuthenticated)
     {
         // To execute a policy, you simply need to trigger an OWIN challenge.
-        // You can indicate which policy to use by adding it to the AuthenticationProperties using the PolicyKey provided.
-
+        // You can indicate which policy to use by specifying the policy id as the AuthenticationType
         HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties (
-                new Dictionary<string, string> 
-                { 
-                    {Startup.PolicyKey, Startup.SusiPolicyId}
-                })
-            { 
-                RedirectUri = "/", 
-            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            new AuthenticationProperties() { RedirectUri = "/" }, Startup.SusiPolicyId);
     }
 }
 
 public void ResetPassword()
 {
-    HttpContext.GetOwinContext().Authentication.Challenge(
-        new AuthenticationProperties(
-            new Dictionary<string, string>
-            {
-                {Startup.PolicyKey, Startup.PasswordResetPolicyId}
-            })
-        {
-            RedirectUri = "/",
-        }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+    if (!Request.IsAuthenticated)
+    {
+        HttpContext.GetOwinContext().Authentication.Challenge(
+        new AuthenticationProperties() { RedirectUri = "/" }, Startup.PasswordResetPolicyId);
+    }
 }
 ```
 
-컨트롤러에서 사용자 지정 `PolicyAuthorize` 태그를 사용하여 사용자가 로그인하지 않은 경우 특정 정책이 실행되도록 할 수도 있습니다. `Controllers\HomeController.cs`를 열고 클레임 컨트롤러에 `[PolicyAuthorize]` 태그를 추가합니다. 샘플 정책을 자신의 등록 또는 로그인 정책으로 바꿉니다.
+등록 또는 로그인 정책 실행 동안 사용자에게 **암호를 잊으셨나요?** 링크를 클릭할 기회가 있습니다. 이 이벤트에서 Azure AD B2C는 앱에 암호 재설정 정책을 실행해야 함을 나타내는 특정 오류 메시지를 보냅니다. `Startup.Auth.cs`에서 `AuthenticationFailed` 알림을 사용하여 이 오류를 캡처할 수 있습니다.
+
+```C#
+// Used for avoiding yellow-screen-of-death TODO
+private Task AuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
+{
+    notification.HandleResponse();
+
+    if (notification.ProtocolMessage.ErrorDescription != null && notification.ProtocolMessage.ErrorDescription.Contains("AADB2C90118"))
+    {
+        // If the user clicked the reset password link, redirect to the reset password route
+        notification.Response.Redirect("/Account/ResetPassword");
+    }
+    else if (notification.Exception.Message == "access_denied")
+    {
+        // If the user canceled the sign in, redirect back to the home page
+        notification.Response.Redirect("/");
+    }
+    else
+    {
+        notification.Response.Redirect("/Home/Error?message=" + notification.Exception.Message);
+    }
+
+    return Task.FromResult(0);
+}
+```
+
+
+정책을 명시적으로 호출하는 것 외에도 사용자가 로그인하지 않은 경우 정책을 실행할 컨트롤러에서 `[Authorize]` 태그를 사용할 수 있습니다. `Controllers\HomeController.cs`를 열고 클레임 컨트롤러에 `[Authorize]` 태그를 추가합니다. OWIN는 `[Authorize]` 태그를 눌렀을 때 구성되는 마지막 정책을 선택합니다.
 
 ```C#
 // Controllers\HomeController.cs
 
-// You can use the PolicyAuthorize decorator to execute a certain policy if the user is not already signed into the app.
-[PolicyAuthorize(Policy = "b2c_1_susi")]
+// You can use the Authorize decorator to execute a certain policy if the user is not already signed into the app.
+[Authorize]
 public ActionResult Claims()
 {
   ...
@@ -233,35 +254,12 @@ public ActionResult Claims()
 
 public void Logout()
 {
-    // To sign out the user, you should issue an OpenIDConnect sign out request using the last policy that the user executed.
-    // This is as easy as looking up the current value of the ACR claim, adding it to the AuthenticationProperties, and making an OWIN SignOut call.
-
-    HttpContext.GetOwinContext().Authentication.SignOut(
-        new AuthenticationProperties(
-            new Dictionary<string, string> 
-            { 
-                {Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
-            }), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
-}
-```
-
-기본적으로 OWIN은 `AuthenticationProperties`에서 지정한 정책을 Azure AD로 보내지 않습니다. 하지만 `RedirectToIdentityProvider` 알림에서 OWIN이 생성한 요청을 편집할 수 있습니다. `App_Start\Startup.Auth.cs`에 있는 이 알림을 사용하여 정책의 메타데이터에서 각 정책에 올바른 끝점을 가져옵니다. 이렇게 하면 앱이 실행하려는 각 정책에 대해 Azure AD로 올바른 요청을 보냅니다.
-
-```C#
-// App_Start\Startup.Auth.cs
-
-private async Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
-{
-    PolicyConfigurationManager mgr = notification.Options.ConfigurationManager as PolicyConfigurationManager;
-    if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.LogoutRequest)
+    // To sign out the user, you should issue an OpenIDConnect sign out request.
+    if (Request.IsAuthenticated)
     {
-        OpenIdConnectConfiguration config = await mgr.GetConfigurationByPolicyAsync(CancellationToken.None, notification.OwinContext.Authentication.AuthenticationResponseRevoke.Properties.Dictionary[Startup.PolicyKey]);
-        notification.ProtocolMessage.IssuerAddress = config.EndSessionEndpoint;
-    }
-    else
-    {
-        OpenIdConnectConfiguration config = await mgr.GetConfigurationByPolicyAsync(CancellationToken.None, notification.OwinContext.Authentication.AuthenticationResponseChallenge.Properties.Dictionary[Startup.PolicyKey]);
-        notification.ProtocolMessage.IssuerAddress = config.AuthorizationEndpoint;
+        IEnumerable<AuthenticationDescription> authTypes = HttpContext.GetOwinContext().Authentication.GetAuthenticationTypes();
+        HttpContext.GetOwinContext().Authentication.SignOut(authTypes.Select(t => t.AuthenticationType).ToArray());
+        Request.GetOwinContext().Authentication.GetAuthenticationTypes();
     }
 }
 ```
@@ -274,7 +272,7 @@ OpenID Connect를 사용하여 사용자를 인증할 때 Azure AD는 **클레�
 ```C#
 // Controllers\HomeController.cs
 
-[PolicyAuthorize(Policy = "b2c_1_susi")]
+[Authorize]
 public ActionResult Claims()
 {
 	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
@@ -322,4 +320,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

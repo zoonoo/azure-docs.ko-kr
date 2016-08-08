@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 마찬가지로, 실행할 작업을 제공할 수도 있습니다.
 
 작업에 대한 입력은 다음과 같습니다.
-- **JavaScript 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다. 
+- **JavaScript 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다.
 - **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
 
 예를 들어, Office 365 트리거 **새 전자 메일**을 사용한다고 생각해 보세요. 다음 출력이 반환됩니다.
@@ -99,4 +99,4 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

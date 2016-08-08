@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가 
@@ -35,7 +35,7 @@
 
 3. 앱 디렉터리의 **server** 하위 폴더에서 다음 명령 파일 중 하나를 시작합니다.
 
-	+ **launch-windows**(Windows 컴퓨터) 
+	+ **launch-windows**(Windows 컴퓨터)
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
@@ -105,7 +105,7 @@
 
 	>[AZURE.IMPORTANT]PhoneGap 앱에서 프로젝트에 다음 플러그 인도 추가해야 합니다.
 	><ul><li><code>phonegap 플러그 인 추가 https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-	> <li><code>phonegap 플러그 인 추가 https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	><li><code>phonegap 플러그 인 추가 https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. 앱이 실행 중인 브라우저로 돌아가 페이지를 새로 고칩니다.
 
@@ -137,4 +137,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

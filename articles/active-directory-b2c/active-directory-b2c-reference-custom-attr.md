@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: 사용자 지정 특성 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: 사용자 지정 특성 | Microsoft Azure"
 	description="Azure Active Directory B2C에서 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집하는 방법"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-#  Azure Active Directory B2C 미리 보기: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+#  Azure Active Directory B2C: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
 
 Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, 도시, 우편 번호 등 기본 제공 정보(특성) 집합이 함께 제공됩니다. 그러나 모든 소비자 지향 응용 프로그램에는 소비자로부터 수집하려는 정보에 대한 고유한 요구 사항이 있습니다. Azure AD B2C를 사용하면 각 소비자 계정에 저장된 특성 집합을 확장할 수 있습니다. [Azure 포털](https://portal.azure.com/)에 사용자 지정 특성을 만들고 아래와 같이 등록 정책에서 사용합니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다.
 
@@ -51,6 +49,6 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 ## 참고 사항
 
 - 등록 정책과 함께 등록 또는 로그인 정책 및 프로필 편집 정책에서 사용자 지정 특성을 사용할 수도 있습니다.
-- 사용자 지정 특성의 알려진 제한 사항이 있습니다. **사용자 특성** 목록에 추가될 때가 아니라 정책에 사용하는 경우 처음으로 만들어집니다. 이 문제를 빨리 해결할 계획입니다.
+- 사용자 지정 특성의 알려진 제한 사항이 있습니다. **사용자 특성** 목록에 추가될 때가 아니라 정책에 사용하는 경우 처음으로 만들어집니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

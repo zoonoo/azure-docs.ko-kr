@@ -30,7 +30,7 @@
 - 활성 Azure 구독. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][lnk_free_trial]을 참조하세요.
 - [Node.js][lnk-node] 버전 0.12.x 이상
 
-Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자습서를 완료할 수 있습니다.
+Windows나 Linux 등의 Node.js를 설치할 수 있는 모든 운영 체제에서 이 자습서를 완료할 수 있습니다.
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -42,7 +42,7 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 
 3. Node.js를 설치했으면 [azure-iot-sdks][lnk-github-repo] 리포지토리의 최신 버전을 개발 컴퓨터에 복제합니다. 언제나 최신 라이브러리와 샘플 버전의 **마스터** 분기를 사용해야 합니다.
 
-4. [azure-iot-sdks][lnk-github-repo] 리포지토리의 로컬 사본의 node/device/samples 폴더에서 다음 두 개 파일을 개발 컴퓨터의 빈 폴더에 복사합니다.
+4. [azure-iot-sdks][lnk-github-repo] 리포지토리의 로컬 사본의 node/device/samples 폴더에서 다음 두 파일을 개발 컴퓨터의 빈 폴더에 복사합니다.
 
   - packages.json
   - remote\_monitoring.js
@@ -131,11 +131,11 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 
 ![대시보드에 RPM 추가][image3]
 
-> [AZURE.NOTE] 변경을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화합니다.
+> [AZURE.NOTE] 변경을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화해야 할 수 있습니다.
 
 ## 대시보드 디스플레이 사용자 지정
 
-**Device-Info** 메시지에는 장치가 IoT Hub에 전송하는 원격 분석 관련 메타데이터가 포함될 수 있습니다. 이 메타데이터는 장치가 전송하는 원격 분석 형식을 지정할 수 있습니다. remote\_monitoring.js 파일에서 **deviceMetaData** 값을 수정하고, 다음 코드 조각에 표시된 **Commands** 정의를 따르는 **Telemetry** 정의를 포함합니다(**Commands** 정의 뒤에 `,`를 추가합니다).
+**Device-Info** 메시지에는 장치가 IoT Hub에 전송 가능한 원격 분석 관련 메타데이터가 포함될 수 있습니다. 이 메타데이터는 장치가 전송하는 원격 분석 형식을 지정할 수 있습니다. remote\_monitoring.js 파일에서 **deviceMetaData** 값을 수정하고, 다음 코드 조각에 표시된 **Commands** 정의를 따르는 **Telemetry** 정의를 포함합니다(**Commands** 정의 뒤에 `,`를 추가합니다).
 
 ```
 'Commands': [{
@@ -168,7 +168,7 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 
 > [AZURE.NOTE] 원격 모니터링 솔루션은 대/소문자 구분을 하지 않는 일치를 사용하여 메타데이터 정의와 원격 분석 스트림의 데이터를 비교합니다.
 
-위와 같이 샘플에 **Telemetry** 정의를 추가하더라도 대시보드의 동작이 변경되지 않습니다. 그러나 메타데이터는 **DisplayName** 특성을 포함하여 대시보드 디스플레이를 사용자 지정할 수 있습니다. 다음과 같이 **Telemetry** 메타데이터를 업데이트합니다.
+위와 같이 샘플에 **Telemetry** 정의를 추가하더라도 대시보드의 동작이 변경되지 않습니다. 그러나 메타데이터는 **DisplayName** 특성을 포함하여 대시보드 디스플레이를 사용자 지정할 수도 있습니다. 다음과 같이 **Telemetry** 메타데이터를 업데이트합니다.
 
 ```
 'Telemetry': [
@@ -194,13 +194,13 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 
 ![차트 범례 사용자 지정][image4]
 
-> [AZURE.NOTE] 변경을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화합니다.
+> [AZURE.NOTE] 변경을 즉시 확인하려면 대시보드의 **장치** 페이지에서 Node.js 장치를 비활성화한 다음 활성화해야 할 수 있습니다.
 
 ## 원격 분석 형식 필터링
 
 기본적으로 대시보드 차트는 원격 분석 스트림의 모든 데이터 계열을 표시합니다. **Device-Info** 메타데이터를 사용하여 차트에서 특정 원격 분석 형식이 표시되지 않게 할 수 있습니다.
 
-차트가 온도와 습도 원격 분석만 표시하게 하려면 다음과 같이 **Device-Info** **Telemetry** 메타데이터에서 **ExternalTemperature**를 제거합니다.
+차트가 온도와 습도 원격 분석만 표시하게 하려면 다음과 같이 **Device-Info** **Telemetry** 메타데이터에서 **ExternalTemperature**를 생략합니다.
 
 ```
 'Telemetry': [
@@ -232,14 +232,13 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 
 ## 오류 처리
 
-데이터 스트림을 차트에 표시하려면 **Device-Info** 메타데이터의 **Type**이 원격 분석 값의 데이터 형식과 일치해야 합니다. 예를 들어, 메타데이터가 습도 데이터의 **형식**을 **정수**라고 정의했는데 원격 분석 스트림에서 **실수**가 발견된다면, 습도 원격 분석이 차트에 표시되지 않습니다. 그러나 **습도** 값은 여전히 저장되어 있고 백엔드 프로세싱에서 사용할 수 있습니다.
+데이터 스트림을 차트에 표시하려면 **Device-Info** 메타데이터의 **Type**이 원격 분석 값의 데이터 형식과 일치해야 합니다. 예를 들어, 메타데이터가 습도 데이터의 **형식**을 **정수**라고 정의했는데 원격 분석 스트림에서 **실수**가 발견된다면, 습도 원격 분석이 차트에 표시되지 않습니다. 그러나 **습도** 값은 여전히 저장되어 있고 모든 백엔드 프로세싱에서 사용할 수 있습니다.
 
 ## 다음 단계
 
-이제 미리 구성된 작업 솔루션을 구축했으므로 다음 연습으로 이동할 수 있습니다.
+지금까지 동적 원격 분석을 활용하는 방법을 살펴보았으므로 이제 미리 구성된 솔루션이 장치 정보를 활용하는 방법을 설명하는 [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]에 대해 살펴보겠습니다.
 
--   [미리 구성된 솔루션 사용자 지정에 대한 지침][lnk-customize]
--   [예측 정비 사전 구성 솔루션 개요][lnk-predictive]
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
@@ -248,10 +247,8 @@ Windows나 Linux 등의 Node.js가 설치된 모든 운영 체제에서 이 자�
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

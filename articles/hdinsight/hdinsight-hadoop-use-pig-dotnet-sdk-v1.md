@@ -112,7 +112,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 					var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
 		
 		            // The Pig Latin statements to run
-		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+		            string queryString = "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
 		                "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
 		                "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
@@ -162,4 +162,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

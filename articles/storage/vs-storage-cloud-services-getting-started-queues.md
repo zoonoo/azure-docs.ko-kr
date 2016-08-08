@@ -18,7 +18,7 @@
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## 개요
 
@@ -170,4 +170,4 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

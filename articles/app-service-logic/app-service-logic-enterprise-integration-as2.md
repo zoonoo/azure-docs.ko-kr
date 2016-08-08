@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -97,4 +97,4 @@
 이제 거의 완료되었습니다.
 9. 통합 계정 블레이드에서 **규약** 타일을 선택하면 새로 추가한 규약이 나열됩니다. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

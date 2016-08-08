@@ -1,7 +1,7 @@
-이 문서는 앱 서비스(웹앱, API 앱, 모바일 앱, 논리 앱)용입니다. 클라우드 서비스의 경우 <a href="/develop/net/common-tasks/custom-dns/">Azure에서 사용자 지정 도메인 이름 구성</a>을 참조하세요.
+이 문서는 Azure 앱 서비스(웹앱, API 앱, 모바일 앱, 논리 앱)용입니다. 클라우드 서비스의 경우 [Azure 클라우드 서비스에서 사용자 지정 도메인 이름 구성](../articles/cloud-services/cloud-services-custom-domain-name.md)을 참조하세요.
 
-> [AZURE.NOTE]**트래픽 관리자를 사용하여 웹앱에 트래픽 부하를 분산하는 방법에 대한 지침을 보려면** 이 문서의 맨 위에 있는 선택기를 사용하여 트래픽 관리자 관련 단계를 선택하세요.
+> [AZURE.NOTE]  [Azure 트래픽 관리자](https://azure.microsoft.com/services/traffic-manager/)에 의해 앱 부하가 분산된 경우 이 문서의 맨 위에 있는 선택기를 클릭하여 특정 절차를 수행합니다.
 >
-> **무료 웹앱에서는 사용자 지정 도메인 이름을 사용할 수 없습니다**. **공유**, **기본** 또는 **표준** 모드에 대해 웹앱을 구성할 수 있지만 구독의 결제 비용이 달라집니다. 자세한 내용은 <a href=/pricing/details/web-sites/">웹앱 가격 정보</a>를 참조하세요.
+> **무료 계층에 대해서는 사용자 지정 도메인 이름이 지원되지 않습니다**. [더 높은 가격 책정 계층으로 강화](../articles/app-service-web/web-sites-scale.md)해야 합니다 .이 경우 구독에 대해 청구되는 요금이 바뀔 수 있습니다. 자세한 내용은 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0727_2016-->

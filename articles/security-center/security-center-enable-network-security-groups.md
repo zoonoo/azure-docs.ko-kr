@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터의 네트워크 보안 그룹 활성화
@@ -23,7 +23,7 @@ Azure 보안 센터는 아직 활성화되지 않은 경우 NSG(네트워크 보
 NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워크 보안 그룹 활성화 및 가상 컴퓨터에서 네트워크 보안 그룹 활성화라는 두 가지 권장 사항을 제시합니다. NSG를 적용할 수준, 서브넷 또는 VM을 선택합니다.
 
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -40,7 +40,7 @@ NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워�
 
 새 NSG를 만드는 경우 [Azure 포털을 사용하여 NSG를 관리하는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)의 단계에 따라 NSG를 만들고 보안 규칙을 설정합니다.
 
-## 다음 단계
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 서브넷 또는 가상 컴퓨터에 대한 "네트워크 보안 그룹 활성화"를 구현하는 방법을 보여 주었습니다. NSG 활성화에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -63,4 +63,4 @@ NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워�
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

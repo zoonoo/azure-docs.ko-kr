@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Azure Active Directory 응용 프로그램 매니페스트 이해
@@ -104,7 +104,7 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 이제 매니페스트를 저장했으므로 위에 추가한 새 사용 권한에 대한 등록된 클라이언트 응용 프로그램을 제공할 수 있습니다. 하지만 이번에는 클라이언트 응용 프로그램의 매니페스트를 편집하는 대신 Azure 클래식 포털의 웹 UI를 사용할 수 있습니다.
 
 1. 먼저 새로운 API에 대한 액세스를 추가하려는 클라이언트 응용 프로그램의 "구성" 페이지로 이동하고 "응용 프로그램 추가" 단추를 클릭합니다.
-2. 그런 다음 테넌트의 등록된 리소스 응용 프로그램(API) 목록으로 보여집니다. 리소스 응용 프로그램의 이름 옆에 더하기/+ 기호를 클릭하여 선택합니다.  
+2. 그런 다음 테넌트의 등록된 리소스 응용 프로그램(API) 목록으로 보여집니다. 리소스 응용 프로그램의 이름 옆에 더하기/+ 기호를 클릭하여 선택합니다.
 3. 그런 다음 오른쪽 아래에 있는 확인 표시를 클릭합니다.
 4. 클라이언트 구성 페이지의 "응용 프로그램 추가" 섹션을 반환할 때 새 리소스 응용 프로그램이 목록에 표시됩니다. 해당 행의 오른쪽 위로 "위임된 권한" 섹션을 마우스 포인터로 가리키는 경우 드롭 다운 목록이 나타납니다. 목록을 클릭한 다음 클라이언트의 요청된 사용 권한 목록에 추가하기 위해 새 사용 권한을 선택합니다. 참고: 이 새 사용 권한은 "requiredResourceAccess" 컬렉션 속성에서 클라이언트 응용 프로그램의 ID 구성에 저장됩니다.
 
@@ -135,9 +135,9 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
@@ -147,4 +147,4 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

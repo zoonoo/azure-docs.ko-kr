@@ -2,7 +2,7 @@
 	pageTitle="DocumentDB의 성능 수준 | Microsoft Azure" 
 	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법을 알아봅니다." 
 	services="documentdb" 
-	authors="johnfmacintyre" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
-	ms.author="johnmac"/>
+	ms.date="07/27/2016" 
+	ms.author="mimig"/>
 
 # DocumentDB의 성능 수준
 
@@ -95,9 +95,9 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
 응용 프로그램은 큰 저장소 또는 처리량 요구 사항이 있지 않으면 적은 수의 컬렉션을 사용하는 것이 좋습니다. 새 컬렉션 작성을 위한 응용 프로그램 패턴을 잘 이해합니다. 응용 프로그램 외부에서 처리되는 관리 작업으로 컬렉션 생성을 예약하도록 선택할 수 있습니다. 마찬가지로 컬렉션에 대한 성능 수준을 조정하면 컬렉션에 대해 비용이 청구되는 시간 비율이 변경됩니다. 응용 프로그램에서 이를 동적으로 조정할 경우에는 컬렉션 성능 수준을 모니터링해야 합니다.
 
-## Azure 포털을 사용하여 성능 수준 변경
+## <a href="changing-performance-levels-using-the-azure-portal"></a>S1, S2, S3에서 사용자 정의 성능으로 변경
 
-Azure 포털은 컬렉션의 성능 수준을 관리할 때 사용할 수 있는 한 가지 옵션입니다. 미리 정의된 처리량 수준을 사용하여 Azure 포털에서 사용자 정의 처리량 수준으로 변경하려면 다음 단계를 수행합니다. 사용자 정의 처리량 수준을 사용하여 요구에 맞게 처리량을 조정할 수 있습니다. 그리고 S1 계정을 사용 중인 경우 단 몇 번의 클릭으로 기본 처리량을 250RU/s에서 400RU/s로 늘릴 수 있습니다.
+미리 정의된 처리량 수준을 사용하여 Azure 포털에서 사용자 정의 처리량 수준으로 변경하려면 다음 단계를 수행합니다. 사용자 정의 처리량 수준을 사용하여 요구에 맞게 처리량을 조정할 수 있습니다. 그리고 S1 계정을 사용 중인 경우 단 몇 번의 클릭으로 기본 처리량을 250RU/s에서 400RU/s로 늘릴 수 있습니다.
 
 미리 정의된 사용자 정의 처리량과 관련된 가격 책정 변경에 대한 자세한 내용은 블로그 게시물 [DocumentDB: 새 가격 책정 옵션 사용에 대해 알아야 하는 모든 항목](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)을 참조하세요.
 
@@ -162,6 +162,20 @@ offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN]
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
+## <a href="change-throughput"></a>컬렉션의 처리량 변경
+
+사용자 정의 성능을 이미 사용 중인 경우 다음을 수행하여 컬렉션의 처리량을 변경할 수 있습니다. S1, S2 또는 S3 성능 수준(미리 정의된 성능)에서 사용자 정의 성능으로 변경해야 할 경우 [S1, S2, S3에서 사용자 정의 성능으로 변경](#changing-performance-levels-using-the-azure-portal)을 참조하세요.
+
+1. 브라우저에서 [**Azure 포털**](https://portal.azure.com)로 이동합니다.
+2. **찾아보기** -> **DocumentDB 계정**을 클릭한 다음 수정할 DocumentDB 계정을 선택합니다.
+3. **DocumentDB 계정** 블레이드의 **데이터베이스** 렌즈에서 수정할 데이터베이스를 선택한 다음 **데이터베이스** 블레이드에서 수정할 컬렉션을 선택합니다.
+4. **컬렉션** 블레이드의 위쪽 막대에서 **설정**를 클릭합니다.
+5. **설정** 블레이드에서 **처리량(RU/s)** 상자의 값을 늘린 다음 **확인**을 클릭하여 변경 내용을 저장합니다. 블레이드 아래의 **가격 책정 요약**이 단일 영역에 있는 해당 컬렉션의 새로운 월별 예상 비용을 나타내도록 업데이트됩니다.
+
+    ![처리량 상자 및 가격 책정 요약이 강조 표시된 설정 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-throughput.png)
+ 
+처리량을 얼마나 높일지 잘 모를 경우 [필요한 처리량 예측](documentdb-request-units.md#estimating-throughput-needs) 및 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
+
 ## 다음 단계
 
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
@@ -179,4 +193,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

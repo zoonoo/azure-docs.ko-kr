@@ -18,7 +18,7 @@
 
 #Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례
 
-Azure IaaS 환경에 대한 모범 사례에서 토론의 종류를 구분하기 전에 소프트웨어 업데이트를 관리하는 시나리오의 정의를 이해해야 합니다. 아래 다이어그램은 여기에 도움이 됩니다.
+Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) 환경에 대한 모범 사례에서 토론의 종류를 구분하기 전에 소프트웨어 업데이트를 관리하는 시나리오의 정의를 이해해야 합니다. 아래 다이어그램은 여기에 도움이 됩니다.
 
 ![클라우드 모델 및 책임](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
@@ -118,4 +118,4 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴퓨터에 대한 소프트웨어 업데이트에 가장 적합한 옵션을 결정하도록 지원합니다. 기존 데이터 센터 및 Azure IaaS에서 소프트웨어 업데이트 모범 사례 간의 많은 공통점이 있습니다. 따라서 현재 소프트웨어 업데이트 정책을 평가하여 Azure VM을 포함하고 전체 소프트웨어 업데이트 프로세스의 이 문서에서 관련된 모범 사례를 포함하는 것이 좋습니다
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

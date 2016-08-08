@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@ Azure 포털에서 다음을 수행합니다.
 ## 다음 단계
 - [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

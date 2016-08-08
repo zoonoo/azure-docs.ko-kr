@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,12 +26,14 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 
 ## 에지 노드에 대한 계산 컨텍스트
 
-일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. ScaleR 함수를 호출하는 단계만이 예외입니다. ScaleR 호출은 ScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다. 에지 노드에서 R 스크립트를 실행하는 경우 계산 컨텍스트에 사용 가능한 값은 다음과 같은 로컬 순차('local'), 로컬 병렬('localpar'), Map Reduce 및 Spark입니다.
+일반적으로 에지 노드의 R 서버에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. ScaleR 함수를 호출하는 단계만이 예외입니다. ScaleR 호출은 ScaleR 계산 컨텍스트를 설정하는 방법에 따라 결정된 계산 환경에서 실행됩니다. 에지 노드에서 R 스크립트를 실행하는 경우 계산 컨텍스트에 사용 가능한 값은 로컬 순차('local'), 로컬 병렬('localpar'), Map Reduce 및 Spark입니다.
+
+'local' 및 'localpar' 옵션은 rxExec 호출 실행 방법에 따라서만 달라집니다. 이러한 두 옵션은 ScaleR numCoresToUse 옵션(예: rxOptions(numCoresToUse=6))을 사용하여 다르게 지정하지 않는 한, 사용 가능한 모든 코어에서 병렬 방식으로 다른 rx-function 호출을 실행합니다. 다음은 다양한 계산 컨텍스트 옵션을 요약해서 설명한 것입니다.
 
 | 계산 컨텍스트 | 설정 방법 | 실행 컨텍스트 |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| 로컬 순차 | rxSetComputeContext('local') | 가장자리 노드 서버에서 순차(비병렬) 실행 |
-| 로컬 병렬 | rxSetComputeContext('localpar') | 가장자리 노드 서버의 코어에서 병렬 처리 |
+| 로컬 순차 | rxSetComputeContext('local') | 직렬로 실행되는 rxExec 호출을 제외하고, 에지 노드 서버의 코어 간 병렬화된 실행 |
+| 로컬 병렬 | rxSetComputeContext('localpar') | 에지 노드 서버의 코어 간 병렬화된 실행 |
 | Spark | RxSpark() | HDI 클러스터의 노드에서 Spark를 통해 분산된 실행 병렬 처리 |
 | Map Reduce | RxHadoopMR() | HDI 클러스터의 노드에서 Map Reduce를 통해 분산된 실행 병렬 처리 |
 
@@ -50,10 +52,10 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 
 이러한 원칙을 감안할 때 계산 컨텍스트 선택에 대한 몇 가지 일반적인 규칙은 다음과 같습니다.
 
-### 로컬 병렬
+### Local
 
-- 분석할 데이터의 양이 작고 분석을 반복하지 않아도 되는 경우 분석 루틴에 직접 스트림하고 'localpar'을 사용합니다.
-- 분석할 데이터의 양이 작거나 중간 크기이고 분석을 반복해야 하는 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 'localpar'을 통해 분석합니다.
+- 분석할 데이터의 양이 작고 분석을 반복하지 않아도 되는 경우 분석 루틴에 직접 스트림하고 'local' 또는 'localpar'를 사용합니다.
+- 분석할 데이터의 양이 작거나 중간 크기이고 분석을 반복해야 하는 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 'local' 또는 'localpar'를 통해 분석합니다.
 
 ### Hadoop Spark
 
@@ -81,4 +83,4 @@ Azure HDInsight에서 Microsoft R 서버(미리 보기)는 R 기반 분석을 �
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

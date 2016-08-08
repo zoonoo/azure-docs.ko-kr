@@ -13,16 +13,17 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/19/2016"
+    ms.date="07/22/2016"
     ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
 
-Azure Active Directory와 모든 클라우드(SaaS) 응용 프로그램을 쉽게 통합할 수 있도록 하기 위해 필요한 구성 단계를 각각 보여주는 자습서의 컬렉션을 개발했습니다.
+Azure Active Directory와 모든 클라우드[(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램을 쉽게 통합할 수 있도록 하기 위해 필요한 구성 단계를 각각 보여주는 자습서의 컬렉션을 개발했습니다.
 
 Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 ##자습서 목록
+
 
 | 로고| 앱 이름 |
 | --- | --- |
@@ -110,6 +111,7 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Heroku.png)| [Heroku](https://go.microsoft.com/fwLink/?LinkID=733446&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_HighTail.png)| [Hightail](http://go.microsoft.com/fwlink/?LinkId=733463&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_HireVue.png)| [HireVue](https://go.microsoft.com/fwLink/?LinkID=807990&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.png)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.png)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.png)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
@@ -251,11 +253,9 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 
 
 
-
-
 ##관련 문서
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

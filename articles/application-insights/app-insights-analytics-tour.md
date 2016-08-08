@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -22,7 +22,11 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
- 
+
+* **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
+
+
 시작하기 위해 몇 가지 기본적인 쿼리를 연습해 보겠습니다.
 
 ## Application Insights 데이터에 연결
@@ -263,7 +267,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 `where` 연산자는 부울 식을 가져옵니다. 여기서 이에 관한 몇 가지 중요한 사항이 있습니다.
 
- * `and`, `or`: 부울 연산자
+ * `and`, `or`: 부울 연산자부울 연산자
  * `==`, `<>`: 같음 및 같지 않음
  * `=~`, `!=`: 대/소문자 구분 없는 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
@@ -470,6 +474,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 > 팁: Analytics 클라이언트에서 이러한 부분 사이에 공백 줄을 넣지 마세요. 이 부분을 모두 실행해야 합니다.
 
 
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
+
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

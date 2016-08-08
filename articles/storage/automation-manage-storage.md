@@ -25,7 +25,7 @@
 
 ## Azure 자동화 정의
 
-[Azure 자동화](https://azure.microsoft.com/services/automation/)는 프로세스 자동화를 통해 클라우드 관리를 간소화하기 위한 Azure 서비스입니다. Azure 자동화를 통해 장기 실행 작업, 수동 작업, 오류가 발생하기 쉬운 작업 및 빈번하게 반복되는 작업을 자동화하여 조직의 안정성, 효율성 및 가치 창출 시간을 향상시킬 수 있습니다.
+[Azure 자동화](https://azure.microsoft.com/services/automation/)는 프로세스 자동화를 통해 클라우드 관리를 간소화하기 위한 Azure 서비스입니다. Azure 자동화를 사용하여 장기 실행 작업, 수동 작업, 오류가 발생하기 쉬운 작업 및 빈번하게 반복되는 작업을 자동화하여 조직의 안정성 및 효율성을 높이고 가치 창출 시간을 단축할 수 있습니다.
 
 Azure 자동화는 조직이 성장함에 따라 요구를 충족하기 위해 크기가 조정되는 안정성과 가용성 높은 워크플로 실행 엔진을 제공합니다. Azure 자동화에서는 작업이 정확히 필요한 시간에 수행되도록 수동, 타사 시스템 또는 예약된 간격에 의해 프로세스를 시작할 수 있습니다.
 
@@ -50,4 +50,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 저장
 Azure 자동화 자습서 [Azure 자동화에서 Runbook 만들기 또는 가져오기](../automation/automation-creating-importing-runbook.md)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->
