@@ -114,9 +114,9 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
     
     b. Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
     
-    c. 디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 ID** 텍스트 상자에 **https://test.salesforce.com** 을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`
+    c. 디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 ID** 텍스트 상자에 **https://test.salesforce.com**을(를) 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`
     
-    d. 다운로드한 인증서를 업로드하려면 **찾아보기** 를 클릭합니다.
+    d. 다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     
     e. **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     
@@ -124,7 +124,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
     
     g. Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
     
-    h. Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    h. SFDC는 SAML 로그아웃을 지원하지 않습니다. 해결 방법으로 **ID 공급자 로그아웃 URL** 텍스트 상자에 'https://login.windows.net/common/wsfederation?wa=wsignout1.0'을 붙여 넣습니다.
     
     i **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP POST**를 선택합니다.
     
@@ -202,7 +202,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Salesforce Sandbox**응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Salesforce Sandbox **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "사용자 할당")
 
@@ -214,4 +214,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

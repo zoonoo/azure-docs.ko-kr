@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visual Studio 연결된 서비스를 사용하여 모바일 서비스를 추가한 후 내 .NET 프로젝트의 변경 내용 | Microsoft Azure"
-	description="연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Visual Studio .NET 프로젝트의 변경 내용에 대해 설명합니다."
+	description="연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Visual Studio .NET 프로젝트의 변경 내용에 대해 설명합니다. "
 	services="mobile-services"
 	documentationCenter=""
 	authors="mlhoop"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 내 Visual Studio .NET 프로젝트의 변경 내용
@@ -41,4 +41,4 @@ App.xaml.cs 파일에 선택한 모바일 서비스의 응용 프로그램 URL �
 
 [모바일 서비스에 대한 자세한 정보](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -20,7 +20,7 @@
 
 ##SaaS 앱을 위한 자동 사용자 프로비저닝이란?
 
-Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드(SaaS) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
 
 **다음은 이 기능을 어떻게 활용할 수 있는지에 대한 몇 가지 예입니다.**
 
@@ -116,4 +116,4 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 - [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

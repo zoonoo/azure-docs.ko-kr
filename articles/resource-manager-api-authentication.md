@@ -319,7 +319,7 @@ ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrgani
 
 ### 사용자 Azure AD에서 응용 프로그램 서비스 주체의 ObjectId 가져오기
 
-이제 응용 프로그램 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ServicePrincipalEntity) API를 쿼리하여 디렉터리에 있는 응용 프로그램의 서비스 주체의 개체 ID를 결정합니다.
+이제 응용 프로그램 전용 액세스 토큰을 사용하여 [Azure AD Graph 서비스 주체](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API를 쿼리하여 디렉터리에 있는 응용 프로그램의 서비스 주체의 개체 ID를 결정합니다.
 
 ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) 메서드가 이 호출을 구현합니다.
 
@@ -444,4 +444,4 @@ ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서�
 
 이와 같이 사용자는 이제 응용 프로그램을 사용하여 쉽게 Azure 구독을 연결 및 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

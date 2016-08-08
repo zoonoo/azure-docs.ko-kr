@@ -123,7 +123,7 @@ find | 대체
 
 ```json
     {
-      "apiVersion": "2014-04-01",
+      "apiVersion": "2014-06-01",
       "name": "Microsoft.ApplicationInsights.AzureWebSites",
       "type": "siteextensions",
       "dependsOn": [
@@ -321,4 +321,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

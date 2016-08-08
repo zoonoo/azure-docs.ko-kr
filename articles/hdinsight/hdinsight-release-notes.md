@@ -14,11 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/21/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/07/14 릴리스 정보
+
+이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |Ambari 빌드 |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.7932505 |2\.2 |2\.2.9.1-11 |2\.2.1.12-2 |
+|3\.3 |3\.3.1000.0.7932505 |2\.3 |2\.3.3.1-18 |2\.2.1.12-2 |
+|3\.4 |3\.4.1000.0.7933003 |2\.4 |2\.4.2.0 |2\.2.1.12-2 |
+
+이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.989.2441725 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.989.2441725 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.989.2441725 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.989.2441725 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.989.2441725 |2\.3 |2\.3.3.1-21 |
 
 ## HDInsight의 2016/07/07 릴리스 정보
 
@@ -1460,7 +1480,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 ###주요 변경 내용
 
-**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasb://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, "asv://" 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasb://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasb://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
+**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasbs://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, "asv://" 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasbs://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasbs://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
 
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
@@ -1590,7 +1610,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
 
 ### 버그 수정
@@ -1632,4 +1652,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

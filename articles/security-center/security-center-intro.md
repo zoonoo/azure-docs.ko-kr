@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 소개
 
 Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.
 
 ## Azure 보안 센터란?
  보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -150,7 +150,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -160,4 +160,4 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

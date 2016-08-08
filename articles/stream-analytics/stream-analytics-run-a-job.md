@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Azure 스트림 분석에서 스트리밍 작업을 실행 하는 방법
@@ -37,7 +37,7 @@
 
     ![Azure 포털 스트리밍 작업 시작 시간](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)
 
-3.	선택을 확인합니다. 작업 상태가 *시작 중* 으로 변경되었다가 작업이 시작되면 곧 *실행 중* 으로 변경됩니다. **알림 허브**에서 **시작** 작업의 진행률을 모니터링할 수 있습니다.
+3.	선택을 확인합니다. 작업 상태가 *시작 중*으로 변경되었다가 작업이 시작되면 곧 *실행 중*으로 변경됩니다. **알림 허브**에서 **시작** 작업의 진행률을 모니터링할 수 있습니다.
 
     ![스트림 작업 진행률](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

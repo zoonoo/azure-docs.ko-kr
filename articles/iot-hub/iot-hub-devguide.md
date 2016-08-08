@@ -270,7 +270,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람  | [클라우드-장치](#c2d) 메시지에 지정된 대상입니다. |
+| 받는 사람  
+ | [클라우드-장치](#c2d) 메시지에 지정된 대상입니다. |
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId | 일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -582,6 +583,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 - [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
 - [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 - [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+- [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 
 
@@ -634,5 +636,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

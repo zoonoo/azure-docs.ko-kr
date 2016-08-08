@@ -15,14 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="07/25/2016"
 	ms.author="genli"/>
 
 # Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법
 
 이 문서에서는 Azure 지원 티켓을 여는 데 필요한 정보를 제공합니다.
-
->[AZURE.NOTE]Azure 계정 관리자만 계정 센터에 액세스할 수 있는 권한이 있습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **도움말 + 지원**>**새 지원 요청**을 선택합니다.
 
@@ -44,4 +42,6 @@
  * [Azure 지원 웹 사이트](https://azure.microsoft.com/support/options/)에서 지원 티켓을 제출하려면 **지원 받기**를 클릭합니다.
  * [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원 티켓을 제출하려면 구독을 선택하고 **Microsoft 지원에 문의**를 클릭합니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+ >[AZURE.NOTE]Azure 계정 관리자만 계정 센터에 액세스할 수 있는 권한이 있습니다. 구독의 계정 관리자를 알아내는 방법에 대한 자세한 내용은 [질문과 대답](billing-subscription-transfer.md#faq)을 참조하세요.
+
+<!---HONumber=AcomDC_0727_2016-->

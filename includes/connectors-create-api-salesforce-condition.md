@@ -1,18 +1,12 @@
-This condition will evaluate the email address field of each new Salesforce lead. If the email address contains *amazon.com*, the condition result will be *True*.
+이 조건은 각각 새 Salesforce 잠재 고객의 전자 메일 주소 필드를 평가합니다. 전자 메일 주소에 *amazon.com*이 포함되는 경우 조건 결과는 *True*가 됩니다.
 
-1. Select **+ New step**.  
-![Salesforce condition image 1](./media/connectors-create-api-salesforce/condition-1.png)   
-- Select **Add a condition**.    
-![Salesforce condition image 2](./media/connectors-create-api-salesforce/condition-2.png)  
-- Select **Choose a value**.    
-![Salesforce condition image 3](./media/connectors-create-api-salesforce/condition-3.png)  
-- Select the *Email* token from the lead of the trigger.    
-![Salesforce condition image 4](./media/connectors-create-api-salesforce/condition-4.png)  
-- Select *Contains*.      
-![Salesforce condition image 5](./media/connectors-create-api-salesforce/condition-5.png)  
-- Select **Choose a value** at the bottom of the control.     
-![Salesforce condition image 6](./media/connectors-create-api-salesforce/condition-6.png)  
-- Enter *amazon.com* as the value you would like to evaluate the email address of the new lead for. If the email address contains *amazon.com*, the condition will evaluate to *True* and the other steps in your logic app can proceed.    
-![Salesforce condition image 7](./media/connectors-create-api-salesforce/condition-7.png)  
-- Save your logic apps.  
+1. **+ 새 단계**를 선택합니다. ![Salesforce 조건 이미지 1](./media/connectors-create-api-salesforce/condition-1.png)
+- **조건 추가**를 선택합니다. ![Salesforce 조건 이미지 2](./media/connectors-create-api-salesforce/condition-2.png)
+- **값 선택**을 선택합니다. ![Salesforce 조건 이미지 3](./media/connectors-create-api-salesforce/condition-3.png)
+- 트리거 잠재 고객에서 *전자 메일* 토큰을 선택합니다. ![Salesforce 조건 이미지 4](./media/connectors-create-api-salesforce/condition-4.png)
+- *포함*을 선택합니다. ![Salesforce 조건 이미지 5](./media/connectors-create-api-salesforce/condition-5.png)
+- 컨트롤 맨 아래의 **값 선택**을 선택합니다. ![Salesforce 조건 이미지 6](./media/connectors-create-api-salesforce/condition-6.png)
+- 새 잠재 고객의 전자 메일 주소를 평가하려는 값으로 *amazon.com*을 입력합니다. 전자 메일 주소에 *amazon.com*이 포함되면 조건은 *True*로 평가되고 논리 앱의 다른 단계가 계속 진행될 수 있습니다. ![Salesforce 조건 이미지 7](./media/connectors-create-api-salesforce/condition-7.png)
+- 논리 앱을 저장합니다.
 
+<!---HONumber=AcomDC_0727_2016-->

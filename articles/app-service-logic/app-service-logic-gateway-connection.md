@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,6 +24,9 @@
 
 * Azure에서 회사 또는 학교 전자 메일 주소를 사용하여 온-프레미스 데이터 게이트웨이를 계정(Azure Active Directory 기반 계정)으로 연결해야 합니다.
     * Microsoft 계정(예: @outlook.com, @live.com)을 사용하는 경우 [여기에 나오는 단계에 따라](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) Azure 계정으로 회사 또는 학교 전자 메일 주소를 만들 수 있습니다.
+
+> [AZURE.WARNING] 현재는 Power BI에 등록된 계정을 사용할 때만 온-프레미스 게이트웨이 설치가 완료되는 제한이 있습니다. 그 동안에는 설치를 성공적으로 완료하려면 "Power BI Free"에 계정을 등록하세요.
+
 * 온-프레미스 데이터 게이트웨이가 [로컬 컴퓨터에 설치](app-service-logic-gateway-install.md)되어 있어야 합니다.
 * 게이트웨이가 다른 Azure 온-프레미스 데이터 게이트웨이에 의해 요청되면 안 됩니다([아래 2단계의 생성에 따라 클레임 발생](#2-create-an-azure-on-premises-data-gateway-resource)). 단일 설치는 하나의 게이트웨이 리소스에만 연결될 수 있습니다.
 
@@ -67,4 +70,4 @@ Azure 구독이 온-프레미스 데이터 게이트웨이 인스턴스와 연�
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

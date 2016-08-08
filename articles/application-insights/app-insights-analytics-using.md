@@ -21,16 +21,16 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
+* **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
 
 ## Analytics 열기
 
-Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
-
-![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)
+Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다(![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)페이지 참조).
 
 인라인 자습서에서 수행할 수 있는 몇 가지 작업을 확인할 수 있습니다.
 
-보다 광범위한 둘러보기는 [여기](app-insights-analytics-tour.md)서 제공됩니다.
+[보다 광범위한 둘러보기는 여기](app-insights-analytics-tour.md)서 제공됩니다.
 
 ## 원격 분석 쿼리
 
@@ -38,7 +38,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ![](./media/app-insights-analytics-using/150.png)
 
-왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`를 사용합니다. 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
+왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다. 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
 
 [분석 언어 개요](app-insights-analytics-tour.md) 및 [언어 참조](app-insights-analytics-reference.md)를 참조하세요.
 
@@ -121,6 +121,8 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-reference.md#render-directive)을 사용하여 다이어그램을 선택할 수 있습니다.
 
+다이어그램을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭합니다. (가격 책정 계층에 대해서는 유료 앱만 사용할 수 있습니다.)
+
 ## Excel로 내보내기
 
 쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. 이렇게 하려면 **Excel로 내보내기**를 클릭합니다.
@@ -148,4 +150,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

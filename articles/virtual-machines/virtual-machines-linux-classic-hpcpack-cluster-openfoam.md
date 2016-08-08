@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="03/24/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFoam 실행
 
-이 문서에서는 Azure에서 OpenFoam을 실행하는 한 가지 방법을 설명합니다. 여기서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 Azure RDMA(원격 직접 메모리 액세스) 네트워크를 통해 연결하는 여러 Linux 계산 노드에서 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행합니다. Azure에서 OpenFoam을 실행하는 다른 옵션으로는 마켓플레이스에서 제공되는 완전히 구성된 상용 이미지 등이 있습니다.
+이 문서에서는 Azure 가상 컴퓨터에서 OpenFoam을 실행하는 한 가지 방법을 설명합니다. 여기서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 Azure RDMA(원격 직접 메모리 액세스) 네트워크를 통해 연결하는 여러 Linux 계산 노드에서 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행합니다. Azure에서 OpenFoam을 실행하는 다른 옵션으로는 마켓플레이스에서 제공되는 완전히 구성된 상용 이미지(예: UberCloud에서 제공하는 [CentOS 6의 OpenFoam 2.3](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/)) 및 [Azure 배치](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/)에서 실행되는 이미지가 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -26,25 +26,25 @@ OpenFOAM(오픈 필드 작업 및 조작에 대한)은 상업용 및 연구용 �
 
 Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
->[AZURE.NOTE] 이 문서는 Linux 시스템 관리 및 Linux HPC 클러스터에서 실행 중인 MPI 작업에 대해 잘 알고 있다고 가정합니다.
+>[AZURE.NOTE] 이 문서는 HPC 팩에서 Linux MPI 워크로드를 실행하는 방법을 설명하며, 사용자가 Linux 시스템 관리 및 Linux 클러스터에서 실행 중인 MPI 작업에 대해 잘 알고 있다고 가정합니다. 이 문서에 표시된 것과 다른 MPI 및 OpenFOAM 버전을 사용하는 경우 일부 설치 및 구성 단계를 수정해야 할 수도 있습니다.
 
 ## 필수 조건
 
-*   **A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 A8 크기 Windows Server 2012 R2 헤드 노드와 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다. 
+*   **A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 A8 크기 Windows Server 2012 R2 헤드 노드와 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다.
 
     **알아야 할 추가 사항**
 
-    *   현재 Azure의 Linux RDMA 네트워킹은 Azure 마켓플레이스에서 제공되는 SUSE Linux Enterprise Server 12 – 고성능 계산용으로 최적화된 이미지에서 만든 A8 또는 A9 크기 VM에서만 지원됩니다. 추가 고려 사항은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
+    *   현재, Azure의 Linux RDMA 네트워킹은 Azure 마켓플레이스 이미지에서 배포된 HPC용 SLES(SUSE Linux Enterprise Server) 12, HPC용 SLES 12(Premium), CentOS 기반 7.1 HPC 또는 CentOS 기반 6.5 HPC 배포판이 실행되는 A8 또는 A9 VM에서만 지원됩니다. 추가 고려 사항은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
 
     *   PowerShell 스크립트 배포 옵션을 사용하는 경우에는 단일 클라우드 서비스 내의 모든 Linux 계산 노드가 RDMA 네트워크 연결을 사용하도록 배포합니다.
 
     *   Linux 노드를 배포한 후 추가 관리 작업을 수행하도록 SSH로 연결해야 하는 경우 Azure 포털에서 각 Linux VM에 대한 SSH 연결 상세 정보를 찾습니다.
         
-*   **Intel MPI** - Azure의 Linux 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)(등록 필요)에서 제공되는 Intel MPI Library 5 런타임이 필요합니다. 이후 단계에서 Linux 계산 노트에 Intel MPI를 설치합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** - Azure의 SLES 12 HPC 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI Library 5 런타임을 설치해야 합니다. (Intel MPI 5는 CentOS 기반 HPC 이미지에 미리 설치되어 있습니다.) 이후 단계에서 필요한 경우 Linux 계산 노트에 Intel MPI를 설치합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 
-*   **OpenFOAM 소스 팩** - [OpenFOAM Foundation 사이트](http://www.openfoam.org/download/source.php)에서 Linux용 OpenFOAM 소스 팩 소프트웨어를 다운로드합니다. 이 문서는 OpenFOAM-2.3.1.tgz로 다운로드할 수 있는 소스 팩 버전 2.3.1을 기반으로 합니다. Linux 계산 노드에서 OpenFOAM의 압축을 풀고 컴파일하려면 이 문서의 뒷부분에 나오는 지침을 따릅니다.
+*   **OpenFOAM 소스 팩** - [OpenFOAM Foundation 사이트](http://openfoam.org/download/2-3-1-source/)에서 Linux용 OpenFOAM 소스 팩 소프트웨어를 다운로드합니다. 이 문서는 OpenFOAM-2.3.1.tgz로 다운로드할 수 있는 소스 팩 버전 2.3.1을 기반으로 합니다. Linux 계산 노드에서 OpenFOAM의 압축을 풀고 컴파일하려면 이 문서의 뒷부분에 나오는 지침을 따릅니다.
 
-*   **EnSight**(선택 사항) - OpenFOAM 시뮬레이션의 결과를 확인하려면 HPC Pack 클러스터의 헤드 노드에서 [EnSight](https://www.ceisoftware.com/download/) 시각화 및 분석 프로그램의 Windows 버전을 다운로드 및 설치합니다. 라이선스 및 다운로드 정보는 EnSight 사이트에 있습니다.
+*   **EnSight**(선택 사항) - OpenFOAM 시뮬레이션의 결과를 확인하려면 [EnSight](https://www.ceisoftware.com/download/) 시각화 및 분석 프로그램을 다운로드 및 설치합니다. 라이선스 및 다운로드 정보는 EnSight 사이트에 있습니다.
 
 
 ## 계산 노드 간 상호 트러스트 설정
@@ -108,7 +108,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
 첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /openfoam이라는 폴더를 만듭니다. 두 번째 명령은 dir\_mode 및 file\_mode 비트를 777로 설정하여 공유 폴더 //SUSE12RDMA-HN/OpenFOAM을 Linux 노드에 탑재합니다. 명령의 *username*과 *password*는 헤드 노드 사용자의 자격 증명이어야 합니다.
@@ -119,9 +119,9 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 RDMA 네트워크에 MPI 작업으로 OpenFOAM을 실행하려면 Intel MPI 라이브러리를 사용하여 OpenFOAM을 컴파일해야 합니다.
 
-먼저 여러 **clusrun** 명령을 실행하여 모든 Linux 노드에 Intel MPI 라이브러리 및 OpenFOAM을 설치합니다. 이전에 구성된 헤드 노드 공유를 사용하여 Linux 노드 간에 설치 파일을 공유합니다.
+먼저 여러 **clusrun** 명령을 실행하여 모든 Linux 노드에 Intel MPI 라이브러리 및 OpenFOAM을 설치합니다(아직 설치하지 않은 경우). 이전에 구성된 헤드 노드 공유를 사용하여 Linux 노드 간에 설치 파일을 공유합니다.
 
->[AZURE.IMPORTANT]이러한 설치 및 컴파일 단계는 예제로 제공되며, 이 단계를 수행하려면 종속 컴파일러 및 라이브러리를 올바르게 설치할 수 있도록 Linux 시스템 관리에 대해 어느 정도 알고 있어야 합니다. 사용 중인 Intel MPI 및 OpenFOAM에 맞게 특정 환경 변수 또는 기타 설정을 수정해야 할 수 있습니다. 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) 및 [OpenFOAM 소스 팩 설치](http://www.openfoam.org/download/source.php)를 참조하세요.
+>[AZURE.IMPORTANT]이러한 설치 및 컴파일 단계는 예제로 제공되며, 이 단계를 수행하려면 종속 컴파일러 및 라이브러리를 올바르게 설치할 수 있도록 Linux 시스템 관리에 대해 어느 정도 알고 있어야 합니다. 사용 중인 Intel MPI 및 OpenFOAM에 맞게 특정 환경 변수 또는 기타 설정을 수정해야 할 수 있습니다. 자세한 내용은 사용 환경에 맞는 [Linux 설치 가이드용 Intel MPI Library](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) 및 [OpenFOAM 소스 팩 설치](http://openfoam.org/download/2-3-1-source/)를 참조하세요.
 
 
 ### Intel MPI 설치
@@ -138,7 +138,7 @@ Intel MPI에 대해 다운로드된 설치 패키지(이 예제에서 l\_mpi\_p\
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  Intel MPI Library를 자동으로 설치하려면 silent.cfg 파일을 사용합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다. 이 파일을 공유 폴더 /openfoam에 넣습니다. silent.cfg 파일에 대한 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library - 자동 설치](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)를 참조하세요.
+2.  Intel MPI Library를 자동으로 설치하려면 silent.cfg 파일을 사용합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다. 이 파일을 공유 폴더 /openfoam에 넣습니다. silent.cfg 파일에 대한 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library - 자동 설치](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall)를 참조하세요.
 
     >[AZURE.TIP]silent.cfg 파일을 Linux 줄 끝(CR LF가 아닌 LF만)을 사용하여 텍스트 파일로 저장합니다. 이렇게 해야 Linux 노드에서 제대로 실행됩니다.
 
@@ -152,10 +152,10 @@ Intel MPI에 대해 다운로드된 설치 패키지(이 예제에서 l\_mpi\_p\
 
 테스트를 위해 각 Linux 노드에서 /etc/security/limits.conf에 다음 줄을 추가해야 합니다.
 
-```
-*               hard    memlock         unlimited
-*               soft    memlock         unlimited
-```
+
+    clusrun /nodegroup:LinuxNodes echo "*               hard    memlock         unlimited" `>`> /etc/security/limits.conf
+    clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
+
 
 limits.conf 파일을 업데이트한 후 Linux 노드를 다시 시작합니다. 예를 들어 다음 **clusrun** 명령을 사용합니다.
 
@@ -167,7 +167,7 @@ clusrun /nodegroup:LinuxNodes systemctl reboot
 
 ### OpenFOAM 컴파일 및 설치
 
-OpenFOAM 소스 팩에 대해 다운로드된 설치 패키지(이 예제에서 OpenFOAM-2.3.1.tgz)를 헤드 노드의 C:\\OpenFoam에 저장하여 Linux 노드가 /openfoam에서 이 파일에 액세스할 수 있도록 합니다. 그런 다음 **clusrun**을 실행하여 모든 Linux 노드의 OpenFOAM을 컴파일합니다.
+OpenFOAM 소스 팩에 대해 다운로드된 설치 패키지(이 예제에서 OpenFOAM-2.3.1.tgz)를 헤드 노드의 C:\\OpenFoam에 저장하여 Linux 노드가 /openfoam에서 이 파일에 액세스할 수 있도록 합니다. 그런 다음 **clusrun** 명령을 실행하여 모든 Linux 노드의 OpenFOAM을 컴파일합니다.
 
 
 1.  각 Linux 노드에서 폴더 /opt/OpenFOAM을 만들고 이 폴더에 소스 패키지를 복사하고 거기에 압축을 풉니다.
@@ -176,7 +176,7 @@ OpenFOAM 소스 팩에 대해 다운로드된 설치 패키지(이 예제에서 
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
     clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-2.3.1.tgz /opt/OpenFOAM/
-
+    
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
@@ -190,7 +190,7 @@ OpenFOAM 소스 팩에 대해 다운로드된 설치 패키지(이 예제에서 
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
     
-    필요한 경우 제대로 실행하는지 확인하도록 각 Linux 노드에 ssh를 사용하여 명령을 실행하는 것이 좋습니다.
+    필요한 경우 제대로 실행하는지 확인하도록 각 Linux 노드에 SSH를 사용하여 명령을 실행하는 것이 좋습니다.
 
 4.  다음 명령을 실행하여 OpenFOAM을 컴파일합니다. 컴파일 프로세스를 완료하는 데 시간이 걸리며 표준 출력으로 많은 양의 로그 정보를 생성하므로 **/interleaved** 옵션을 사용하여 출력 인터리브를 표시합니다.
 
@@ -293,11 +293,11 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         여기서,
 
-        * `<Number of nodes>`: 이 작업에 할당된 노드 수입니다.  
+        * `<Number of nodes>` - 이 작업에 할당된 노드 수입니다.
         
-        * `<Name of node_n_...>`: 이 작업에 할당된 각 노드의 이름입니다.
+        * `<Name of node_n_...>` - 이 작업에 할당된 각 노드의 이름입니다.
         
-        * `<Cores of node_n_...>`: 이 작업에 할당된 노드의 코어 수입니다.
+        * `<Cores of node_n_...>` - 이 작업에 할당된 노드의 코어 수입니다.
 
         예를 들어 작업에 실행할 노드가 2개 필요한 경우 $CCP\_NODES\_CORES는 다음과 유사합니다.
         
@@ -558,6 +558,7 @@ ENVIRONMENT_REG_MPI_ENV=no
 # Select yes to update ld.so.conf, valid values are: {yes, no}
 ENVIRONMENT_LD_SO_CONF=no
 
+
 ```
 
 ### 샘플 settings.sh 스크립트
@@ -654,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

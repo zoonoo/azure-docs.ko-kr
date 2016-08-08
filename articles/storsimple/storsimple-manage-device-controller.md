@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치 컨트롤러 관리
@@ -140,6 +140,8 @@ Azure 클래식 포털에서 장치 컨트롤러를 관리 하려면 다음 단�
 
 ## 장치를 공장 기본 설정으로 재설정
 
+> [AZURE.IMPORTANT] 장치를 공장 기본 설정으로 재설정해야 할 경우 Microsoft 지원 서비스에 문의합니다. 아래에 설명된 절차는 Microsoft 기술 지원 서비스에 따라서만 사용해야 합니다.
+
 이 절차는 StorSimple용 Windows PowerShell을 사용하여 Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하는 방법을 설명합니다. 장치를 다시 설정하면 기본적으로 전체 클러스터에서 모든 데이터 및 설정을 제거합니다.
 
 Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하려면 다음 단계를 수행합니다.
@@ -154,7 +156,7 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 	`Reset-HcsFactoryDefault`
 
-    대신 단일 컨트롤러를 다시 설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
+    대신 단일 컨트롤러를 재설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
 
     시스템을 여러 번 다시 부팅합니다. 재설정이 성공적으로 완료되면 알림이 표시됩니다. 시스템 모델에 따라 이 프로세스를 완료 하는 데 8100 장치로 45-60분이 걸리고 8600 장치로 60-90분이 걸릴 수 있습니다.
 
@@ -213,4 +215,4 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 - StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

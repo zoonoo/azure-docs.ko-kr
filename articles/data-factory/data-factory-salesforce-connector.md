@@ -215,9 +215,12 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | -------- | ----------- | -------------- | -------- |
 | 쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language) ](https://developer.salesforce.com/docs/atlas.ko-KR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 예: select * from MyTable\_\_c | 아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
-> [AZURE.IMPORTANT]  모든 사용자 지정 개체에 대해 API 이름에 "\_\_c" 부분이 필요합니다.<br> datetime 열에 where 절을 포함하는 쿼리를 지정하는 경우 SOQL을 사용합니다. 예: $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
+> [AZURE.IMPORTANT]  모든 사용자 지정 개체에 대해 API 이름에 "\_\_c" 부분이 필요합니다. <br><br> datetime 열에 where 절을 포함하는 쿼리를 지정하는 경우 SOQL 쿼리를 사용합니다. 예: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd) 또는 SQL 쿼리를 사용합니다. 예: $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Data Factory - Salesforce 연결 - API 이름](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Salesforce 보고서에서 데이터 검색
+{call "<report name>"}(예: "query": "{call "TestReport"}")(으)로 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있습니다.
 
 ## Salesforce 요청 제한
 Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이 있습니다. 자세한 내용은 [Salesforce API 요청 제한](http://resources.docs.salesforce.com/200/20/ko-KR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서에서 **API 요청 제한** 섹션을 참조하세요.
@@ -256,4 +259,4 @@ URL | 문자열
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

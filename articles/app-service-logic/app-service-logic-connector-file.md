@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -87,4 +87,4 @@ API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니
 [파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
 [하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

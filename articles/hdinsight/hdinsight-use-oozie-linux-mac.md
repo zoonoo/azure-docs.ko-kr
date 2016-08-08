@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 
@@ -64,7 +64,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 ##작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 **wasbs:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
 
 	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
@@ -114,7 +114,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 
 2. Ctrl-X를 눌러 편집기를 종료합니다. 메시지가 나타나면 **Y**를 선택하여 파일을 저장한 다음 **Enter** 키를 눌러 **useooziewf.hql** 파일 이름을 사용합니다.
 
-3. 다음 명령을 사용하여 **useooziewf.hql**을 **wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
+3. 다음 명령을 사용하여 **useooziewf.hql**을 **wasbs:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
 
 		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -195,7 +195,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 2. Ctrl-X를 사용한 다음 **Y**와 **Enter** 키를 사용하여 파일을 저장합니다.
 
-3. 다음 명령을 사용하여 **workflow.xml** 파일을 **wasb:///tutorials/useoozie/workflow.xml**에 복사합니다.
+3. 다음 명령을 사용하여 **workflow.xml** 파일을 **wasbs:///tutorials/useoozie/workflow.xml**에 복사합니다.
 
 		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
@@ -257,9 +257,9 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 	다음과 유사한 정보가 반환됩니다.
 
 		<name>fs.defaultFS</name>
-		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		<value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	다음 단계에서 사용되므로 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
+	다음 단계에서 사용되므로 **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
 
 2. 다음 명령을 사용하여 클러스터 헤드 노드의 FQDN을 가져옵니다. FQDN은 클러스터의 JobTracker 주소에 사용됩니다. 이 주소는 잠시 후 구성 파일에서 사용됩니다.
 
@@ -282,7 +282,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 		  <property>
 		    <name>nameNode</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 		  </property>
 
 		  <property>
@@ -302,7 +302,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 		  <property>
 		    <name>hiveScript</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
 		  </property>
 
 		  <property>
@@ -312,7 +312,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 		  <property>
 		    <name>hiveDataFolder</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
 		  </property>
 
 		  <property>
@@ -332,13 +332,13 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 		  <property>
 		    <name>oozie.wf.application.path</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		  </property>
 		</configuration>
 
-	* **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
+	* **wasbs://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
 
-	> [AZURE.WARNING] 컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasb:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
+	> [AZURE.WARNING] 컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasbs:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
 
 	* **JOBTRACKERADDRESS**를 이전에 받은 JobTracker/ResourceManager 주소로 바꿉니다.
 
@@ -392,7 +392,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		Job ID : 0000005-150622124850154-oozie-oozi-W
 		------------------------------------------------------------------------------------------------------------------------------------
 		Workflow Name : useooziewf
-		App Path      : wasb:///tutorials/useoozie
+		App Path      : wasbs:///tutorials/useoozie
 		Status        : PREP
 		Run           : 0
 		User          : USERNAME
@@ -530,7 +530,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
 
 		    <property>
 		      <name>workflowPath</name>
-		      <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		      <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		    </property>
 
 		**mycontainer** 및 **mystorageaccount** 값을 job.xml 파일의 다른 항목에서 사용되는 값으로 바꿉니다.
@@ -599,7 +599,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**원인**: **job.xml** 파일에 사용된 WASB 주소에 저장소 컨테이너 또는 저장소 계정 이름이 포함되어 있지 않습니다. WASB 주소 형식은 `wasb://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
+**원인**: **job.xml** 파일에 사용된 WASB 주소에 저장소 컨테이너 또는 저장소 계정 이름이 포함되어 있지 않습니다. WASB 주소 형식은 `wasbs://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
 
 **해결 방법**: 작업에서 사용하는 WASB 주소를 변경합니다.
 
@@ -695,4 +695,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

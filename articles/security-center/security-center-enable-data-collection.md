@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 보안 센터에서 데이터 수집 활성화 | Microsoft Azure"
-   description="Azure 보안 센터에서 데이터 수집을 활성화하는 방법을 알아봅니다."
+   description=" Azure 보안 센터에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 데이터 수집 활성화
 
 위협을 방지, 감지 및 대응하는 고객을 위해 Azure 보안 센터에서는 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 Azure 가상 컴퓨터에 대한 데이터를 수집하고 처리합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 보안 센터 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다([데이터 수집 비활성화](#disabling-data-collection)를 참조). 데이터 수집을 해제하면 보안 센터는 해당 구독에 대한 보안 정책에서 데이터 수집을 켜도록 권장합니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -60,7 +60,7 @@
 
 5.	위쪽 리본에서 **에이전트 삭제**를 선택하여 기존 가상 컴퓨터에서 에이전트를 삭제합니다.
 
-## 다음 단계
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 "데이터 수집 활성화"를 구현하는 방법을 보여 주었습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -80,4 +80,4 @@
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

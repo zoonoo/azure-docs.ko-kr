@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh;donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
@@ -165,9 +165,9 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
     | id(필수) | 문자열 | 원격 저장소의 기본 키(필수) |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
-    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | 
-	| ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | 
-	| ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
+    | ms\_createdAt | Date | (옵션) \_\_createdAt 시스템 속성에 매핑됩니다. |
+    | ms\_updatedAt | Date | (옵션) \_\_updatedAt 시스템 속성에 매핑됩니다. |
+    | ms\_version | 문자열 | (옵션) 충돌을 검색하는 데 사용되며 \_\_version에 매핑됩니다. |
 
 
 
@@ -277,4 +277,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

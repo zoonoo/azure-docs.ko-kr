@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -285,7 +285,7 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 
 ##<a name="caching-tokens"></a>방법: 인증 토큰 캐시
 
-[모바일 서비스 퀵 스타트] 프로젝트에서 토큰을 캐시하는 방법을 살펴보겠습니다. 다른 프로젝트에도 유사한 단계를 적용할 수 있습니다.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+[모바일 서비스 퀵 스타트] 프로젝트에서 토큰을 캐시하는 방법을 살펴보겠습니다. 다른 프로젝트에도 유사한 단계를 적용할 수 있습니다. [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ##<a name="errors"></a>방법: 오류 처리
 
@@ -340,4 +340,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

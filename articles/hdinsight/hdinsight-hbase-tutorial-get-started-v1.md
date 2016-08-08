@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -127,7 +127,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다. 자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
 
-샘플 데이터 파일은 공용 Blob 컨테이너, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -151,7 +151,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 3. 데이터 파일을 StoreFiles로 변환하고 Dimporttsv.bulk.output에서 지정된 상대 경에 저장하려면 다음 명령을 실행합니다.
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. /Example/data/storeDataFileOutput에서 HBase 테이블로 데이터를 업로드하려면 다음 명령을 실행합니다.
 
@@ -369,4 +369,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

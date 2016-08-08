@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -56,7 +56,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. 
+- **Azure PowerShell이 포함된 워크스테이션**.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
@@ -128,7 +128,7 @@ RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사�
 <table border = "1">
 <tr><th>워크플로 변수</th><th>설명</th></tr>
 <tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 버전 2.1 및 3.0에서 <strong>jobtrackerhost: 9010</strong>를 사용하세요.</td></tr>
-<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. 기본 파일 시스템 주소를 사용하세요. 예: <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. 기본 파일 시스템 주소를 사용하세요. 예: <i>wasbs://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본</strong>을 사용하세요.</td></tr>
 </table>
 
@@ -190,9 +190,9 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 	두 파일은 공용 Blob 컨테이너에 저장되어 있습니다.
 	
-	- HiveQL 스크립트(useoozie.hql)를 Azure 저장소에 복사합니다 (wasb:///tutorials/useoozie/useoozie.hql).
-	- workflow.xml를 wasb:///tutorials/useoozie/workflow.xml에 복사합니다.
-	- 데이터 파일(/example/data/sample.log)을 wasb:///tutorials/useoozie/data/sample.log에 복사합니다.
+	- HiveQL 스크립트(useoozie.hql)를 Azure storage에 복사합니다(wasbs:///tutorials/useoozie/useoozie.hql).
+	- workflow.xml를 wasbs:///tutorials/useoozie/workflow.xml에 복사합니다.
+	- 데이터 파일(/example/data/sample.log)을 wasbs:///tutorials/useoozie/data/sample.log에 복사합니다.
 	 
 6. Oozie 작업을 제출합니다.
 
@@ -448,7 +448,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 	
 	#region - submit Oozie job
 	
-	$storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+	$storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 	
 	$oozieJobName = $namePrefix + "OozieJob"
 	
@@ -680,4 +680,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

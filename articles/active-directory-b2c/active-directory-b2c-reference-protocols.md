@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기 | Microsoft Azure"
-	description="Azure Active Directory B2C 미리 보기에서 지원하는 프로토콜을 사용하여 앱을 직접 빌드하는 방법입니다."
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	description="Azure Active Directory B2C에서 지원하는 프로토콜을 사용하여 앱을 직접 빌드하는 방법입니다."
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C 미리 보기: 인증 프로토콜
+# Azure AD B2C: 인증 프로토콜
 
 Azure AD(Azure Active Directory) B2C는 두 개의 업계 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 identity-as-a-service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다. 이 가이드의 정보는 오픈 소스 라이브러리를 사용하지 않고 HTTP 요청을 직접 보내고 처리하여 코드를 작성하는 경우 유용합니다. 각 특정 프로토콜의 세부 정보를 자세히 살펴보기 전에 이 페이지를 참조하는 것이 좋습니다. Azure AD B2C에 대해 이미 잘 알고 있는 경우 [프로토콜 참조 가이드](#protocols)로 바로 이동할 수 있습니다.
 
 <!-- TODO: Need link to libraries above -->
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 ## 기본 사항
 Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com)의 B2C 디렉터리에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
-- 앱을 고유하게 식별하는 **응용 프로그램 ID**입니다.
-- 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**입니다.
+- 앱을 고유하게 식별하는 **응용 프로그램 ID**
+- 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**
 - 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [응용 프로그램을 등록하는 방법](active-directory-b2c-app-registration.md)을 참조하세요.
 
 앱을 등록하면 v2.0 끝점에 요청을 보내기 위해 Azure AD와 통신합니다.
@@ -65,9 +63,5 @@ Azure AD B2C에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 
 - [OAuth 2.0을 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-b2c-reference-oauth-code.md)
 - [OpenID Connect를 사용하여 웹앱 빌드](active-directory-b2c-reference-oidc.md)
-- OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 빌드(출시 예정)
-- OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 디먼 또는 서버 쪽 프로세스 빌드(출시 예정)
-- 사용자 이름 및 암호를 사용하여 OAuth 2.0 리소스 소유자 암호 자격 증명 흐름으로 토큰 가져오기(출시 예정)
-- 흐름 대신 OAuth 2.0을 사용하여 웹 API의 토큰 가져오기(출시 예정)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

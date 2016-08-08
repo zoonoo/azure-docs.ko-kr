@@ -106,9 +106,9 @@ Microsoft는 5가지의 SQL 제품을 제공합니다.
 - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
 - [Azure SQL 데이터 웨어하우스(미리 보기)](https://azure.microsoft.com/services/sql-data-warehouse/)
-- [분석 플랫폼 시스템(온-프레미스 어플라이언스)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
+- [분석 플랫폼 시스템(온-프레미스 어플라이언스)](https://www.microsoft.com/ko-KR/server-cloud/products/analytics-platform-system/)
 
-가상 컴퓨터 또는 SQL 데이터베이스의 SQL Server에 관심이 있다면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하여 둘 사이의 차이점에 대해 자세히 알아봅니다.
+가상 컴퓨터 또는 SQL 데이터베이스의 SQL Server에 관심이 있다면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하여 둘 사이의 차이점에 대해 자세히 알아봅니다.
 
 SQL이 최상의 옵션일 경우 [SQL Server](https://www.microsoft.com/server-cloud/products/)로 이동하여 Microsoft SQL 제품 및 서비스가 제공해야 하는 기능에 대해 자세히 알아봅니다.
 
@@ -126,8 +126,8 @@ SQL 및 NoSQL 제품을 자세히 알아볼 수 있도록 무료 이용에 초�
     - [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
     - [Azure 테이블 저장소](https://azure.microsoft.com/services/storage/)
 
-- [가상 컴퓨터의 SQL Server 2016 평가판](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/)을 스핀업하거나 [SQL Server 평가판](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016)을 다운로드할 수 있습니다.
+- [가상 컴퓨터의 SQL Server 2016 평가판](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/)을 스핀업하거나 [SQL Server 평가판](https://www.microsoft.com/ko-KR/evalcenter/evaluate-sql-server-2016)을 다운로드할 수 있습니다.
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

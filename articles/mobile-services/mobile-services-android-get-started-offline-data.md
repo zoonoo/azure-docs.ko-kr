@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Android 모바일 서비스 앱에 오프라인 데이터 동기화 추가
@@ -200,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]
 
-* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱] \(참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
+* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱](참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
 
 
 <!-- URLs. -->
@@ -224,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -161,7 +161,7 @@ Hadoop 명령을 사용하려면 먼저 다음 방법 중 하나를 사용하여
 
 HDInsight의 기본 파일 시스템은 Azure Blob 저장소에 있으므로 /example/datadavinci.txt는 실제로 Azure Blob 저장소에 있습니다. 파일이 다음과 같을 수도 있습니다.
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 또는
 
@@ -188,7 +188,7 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 더 자세한 정보를 얻을 지침을 보려면 [저장소 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성” 섹션을 참조하세요.
 
-1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 ___\_저장소 계정 이름__ 및 __저장소 계정 키__라는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 __추가__ 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
+1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 ___저장소 계정 이름_\_ 및 __저장소 계정 키__를 묻는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 __추가\_\_ 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
 
     HDinsight 클러스터에서 사용하는 저장소 계정에 대한 이름과 키를 입력한 다음 __저장 및 열기__를 선택합니다.
 
@@ -282,4 +282,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

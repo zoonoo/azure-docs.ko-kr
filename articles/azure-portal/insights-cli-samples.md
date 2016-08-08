@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="ashwink"/>
 
 # Azure Insights 플랫폼 간 CLI 빠른 시작 샘플
 
 이 문서에서는 Azure Insights 모니터링 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Insights에서는 클라우드 서비스, 가상 컴퓨터 및 웹앱의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
->[AZURE.NOTE] Azure Insights CLI에 대한 최신 버그 수정 중 일부는 아직 완료되지 않았습니다. 이 때문에 최신 기능 중 일부는 현재 Azure CLI 버전에서 아직 사용할 수 없습니다. 한편 [Azure XPLAT CLI tarball](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz)의 개발 분기에서 최신 tarball을 다운로드하여 수정 사항이 포함된 최신 Azure Insights CLI를 사용하고 [Microsoft Azure 크로스 플랫폼 명령줄 리포지토리](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository)의 지침을 따라 다운로드한 tarball을 사용하여 설치할 수 있습니다. Azure Insights는 곧 업데이트 될 때 Azure CLI에 대한 버그 수정 사항을 포함합니다. Azure CLI의 주요 분기에서 변경 내용을 사용할 수 있을 때 이 문서를 업데이트할 것입니다.
 
 ## 필수 조건
 
-아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요. Azure CLI를 잘 모르는 경우 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
+이미 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요. Azure CLI를 잘 모르는 경우 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 
 Windows의 경우 [Node.js 웹 사이트](https://nodejs.org/)에서 npm을 설치합니다. 설치를 완료한 후 관리자 권한으로 실행 권한으로 CMD.exe를 사용하여 npm이 설치된 폴더에서 다음을 실행합니다.
@@ -221,4 +220,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

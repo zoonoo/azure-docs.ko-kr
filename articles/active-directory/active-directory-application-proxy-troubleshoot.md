@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -27,6 +27,13 @@
 - 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터** > **관리** 아래에 있는 응용 프로그램 프록시 커넥터와 관련된 이벤트를 찾아보세요.
 - 필요한 경우 분석 및 디버깅 로그를 켜고 응용 프로그램 프록시 커넥터 세션 로그를 켜면 더 자세한 로그를 볼 수 있습니다.
 
+## 페이지가 제대로 렌더링되지 않습니다.
+
+특정 오류 메시지를 받지 못할 경우 응용 프로그램 렌더링 또는 기능이 제대로 이뤄지지 않는 문제가 여전히 있을 수 있습니다. 문서 경로를 게시했지만 응용 프로그램에 해당 경로 밖에 있는 콘텐츠가 필요한 경우에 이 문제가 발생할 수 있습니다.
+
+예를 들어, https://yourapp/app 경로를 게시하는 경우 응용 프로그램은 https://yourapp/media의 이미지를 호출하지만 렌더링하지는 않습니다. 모든 관련 콘텐츠를 포함해야 하는 가장 높은 수준의 경로를 사용하여 응용 프로그램을 게시하는지 확인합니다. 이 예는 http://yourapp/입니다.
+
+참조된 콘텐츠를 포함하도록 경로를 변경하지만, 여전히 사용자가 경로에서 더 깊은 링크로 이동하는 것이 필요한 경우, 블로그 게시물인 [Azure AD 액세스 패널과 Office 365 앱 시작 관리자에서 응용 프로그램 프록시 응용 프로그램에 대한 오른쪽 링크 설정](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)을 참조하세요.
 
 ## 일반 오류
 
@@ -37,7 +44,7 @@
 
 
 ## 커넥터 문제 해결
-커넥터 마법사 설치 중에 등록이 실패하는 경우 **Windows 로그** > **응용 프로그램** 아래에 있는 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행하여 실패 이유를 알아볼 수 있습니다.
+커넥터 마법사 설치 중에 등록이 실패하는 경우 Applications and Services Logs\\Microsoft\\AadApplicationProxy\\Connector\\Admin 아래에 있는 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행하여 실패 이유를 알아볼 수 있습니다.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
@@ -84,4 +91,4 @@
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

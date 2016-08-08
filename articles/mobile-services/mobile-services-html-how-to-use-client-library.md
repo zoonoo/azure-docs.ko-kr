@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
@@ -666,4 +666,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

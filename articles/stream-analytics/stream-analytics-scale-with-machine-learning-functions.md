@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -31,7 +31,7 @@
 
 스트림 분석 작업에 대한 기계 학습 함수를 구성할 때 두 가지 매개 변수를 고려해야 합니다. 하나는 기계 학습 함수 호출의 배치 크기이고, 다른 하나는 스트림 분석 작업에 프로비전된 스트리밍 단위(SU)입니다. 이러한 개매 변수의 적절한 값을 결정하려면 먼저 대기 시간과 처리량, 즉, 스트림 분석 작업의 대기 시간과 각 SU의 처리량을 결정해야 합니다. SU를 추가하면 작업 실행 비용이 증가하기는 하지만 언제나 SU를 작업에 추가하여 적절하게 분할된 스트림 분석 쿼리의 처리량을 높일 수 있습니다.
 
-따라서 스트림 분석 작업을 실행할 때 대기 시간 *허용 오차*를 결정하는 것이 중요합니다. Azure 기계 학습 서비스 요청의 실행 대기 시간이 길어지면 당연히 배치 크기가 커지고, 결과적으로 스트림 분석 작업의 대기 시간이 더욱 길어집니다. 반면, 배치 크기를 늘리면 스트림 분석 작업이 *같은 수*의 기계 학습 웹 서비스 요청으로 *더 많은 이벤트를 처리할 수 있습니다. 기계 학습 웹 서비스의 대기 시간이 배치 크기에 비례해서 거의 선형적으로 증가하는 경우가 종종 있기 때문에 주어진 상황에서 기계 학습 웹 서비스에 가장 경제적인 배치 크기를 고려해야 합니다. 웹 서비스 요청의 기본 배치 크기는 1000이며 [스트림 분석 REST API](https://msdn.microsoft.com/library/mt653706.aspx "스트림 분석 REST API") 또는 [스트림 분석용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md "스트림 분석용 PowerShell 클라이언트")를 사용하여 수정할 수 있습니다.
+따라서 스트림 분석 작업을 실행할 때 대기 시간 *허용 오차*를 결정하는 것이 중요합니다. Azure 기계 학습 서비스 요청의 실행 대기 시간이 길어지면 당연히 배치 크기가 커지고, 결과적으로 스트림 분석 작업의 대기 시간이 더욱 길어집니다. 반면, 배치 크기를 늘리면 스트림 분석 작업이 같은 수*의 기계 학습 웹 서비스 요청으로 *더 많은 이벤트*를 처리할 수 있습니다. 기계 학습 웹 서비스의 대기 시간이 배치 크기에 비례해서 거의 선형적으로 증가하는 경우가 종종 있기 때문에 주어진 상황에서 기계 학습 웹 서비스에 가장 경제적인 배치 크기를 고려해야 합니다. 웹 서비스 요청의 기본 배치 크기는 1000이며 [스트림 분석 REST API](https://msdn.microsoft.com/library/mt653706.aspx "스트림 분석 REST API") 또는 [스트림 분석용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md "스트림 분석용 PowerShell 클라이언트")를 사용하여 수정할 수 있습니다.
 
 배치 크기가 결정되면 함수가 초당 처리할 이벤트 수에 따라 SU(스트리밍 단위)의 양을 결정할 수 있습니다. 스트리밍 단위에 대한 자세한 내용은 [스트림 분석 크기 조정 작업](stream-analytics-scale-jobs.md#configuring-streaming-units) 문서를 참조하세요.
 
@@ -105,9 +105,9 @@
 
 함수는 아래와 같이 정의됩니다.
 
-**FUNCTION REQUESTS**: 함수 요청의 수.
+**FUNCTION REQUESTS**: 함수 요청의 수
 
-**FUNCTION EVENTS**: 함수 요청의 이벤트 수.
+**FUNCTION EVENTS**: 함수 요청의 이벤트 수
 
 **FAILED FUNCTION REQUESTS**: 실패한 함수 요청의 수.
 
@@ -130,4 +130,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

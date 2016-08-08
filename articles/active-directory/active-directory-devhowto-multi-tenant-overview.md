@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/05/2016"
+   ms.date="07/25/2016"
    ms.author="skwan;bryanla"/>
 
 # 다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure Active Directory (AD) 사용자를 로그인하는 방법
 소프트웨어를 서비스 응용 프로그램으로 많은 조직에 제공하는 경우, 어떠한 Azure AD 테넌트에서나 로그인을 허용하도록 응용 프로그램을 구성할 수 있습니다. Azure AD에서는 이를 두고 다중 테넌트 응용 프로그램을 만드는 것이라고 합니다. 모든 Azure AD 테넌트의 사용자는 응용 프로그램에 계정을 사용하기로 동의한 후 응용 프로그램에 로그인할 수 있습니다.
 
-자체 계정 시스템이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원받는 기존 응용 프로그램인 경우, 모든 테넌트로부터 Azure AD 로그인을 추가하려면 앱을 등록하고, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고, 응용 프로그램에 Microsoft 로그인 단추를 붙이는 것으로 간단히 끝납니다.
+자체 계정 시스템이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원받는 기존 응용 프로그램인 경우, 모든 테넌트로부터 Azure AD 로그인을 추가하려면 앱을 등록하고, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고, 응용 프로그램에 Microsoft 로그인 단추를 붙이는 것으로 간단히 끝납니다. 아래 단추를 클릭하여 응용 프로그램을 브랜딩하는 방법에 대해 자세히 알아보세요.
 
-![로그인 단추][AAD-Sign-In]
+[![로그인 단추][AAD-Sign-In]][AAD-App-Branding]로 바꿉니다.
+
 
 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 응용 프로그램을 빌드하는 것에 이미 익숙하다고 가정합니다. 잘 알지 못할 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]로 돌아가 빠른 시작 중 하나를 시도하십시오!
 
@@ -54,7 +55,11 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 그 경우 응용 프로그램에 대한 로그인 응답에는 사용자를 나타내는 토큰이 들어 있습니다. 응용 프로그램은 토큰에 든 발급자 값을 보고 사용자가 어떤 테넌트에서 오는지 알게 됩니다. 응답이 /Common 끝점에서 반환될 때, 토큰에 든 발급자 값이 사용자의 테넌트에 해당합니다. /common 끝점은 테넌트도 아니고 발급자도 아니며, 단지 멀티플렉서이라는 것을 인식하는 것이 중요합니다. /Common을 사용할 때, 응용 프로그램에서 토큰의 유효성을 검사하는 논리는 이 점을 고려하도록 업데이트되어야 합니다.
 
-이 점을 자세히 살펴보겠습니다.
+앞서 언급한 대로, 다중 테넌트 응용 프로그램은 Azure AD 응용 프로그램 브랜딩 지침에 따라 사용자에 대한 일관된 로그인 환경도 제공해야 합니다. 아래 단추를 클릭하여 응용 프로그램을 브랜딩하는 방법에 대해 자세히 알아보세요.
+
+[![로그인 단추][AAD-Sign-In]][AAD-App-Branding]로 바꿉니다.
+
+/공통된 끝점과 코드 구현 사용에 대해 자세히 알아보겠습니다.
 
 ## 여러 발급자 값을 처리하는 코드를 업데이트합니다.
 웹 응용 프로그램 및 웹 API는 Azure AD에서 토큰을 받아 유효성을 검사합니다.
@@ -90,9 +95,11 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 이제 다중 테넌트 응용 프로그램에 로그인하는 사용자를 위한 사용자 환경을 살펴보겠습니다.
 
 ## 사용자 및 관리자 동의 이해하기
-사용자가 Azure AD에서 응용 프로그램에 로그인하려면 응용 프로그램이 사용자의 테넌트에 나타나야 합니다. 이를 통해 조직은 사용자가 테넌트로부터 응용 프로그램에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다. 단일 테넌트 응용 프로그램의 경우 이 등록은 간답합니다. [Azure 클래식 포털][AZURE-classic-portal]에서 응용 프로그램을 등록할 때 이뤄집니다.
+사용자가 Azure AD에서 응용 프로그램에 로그인하려면 응용 프로그램이 사용자의 테넌트에 나타나야 합니다. 이를 통해 조직은 사용자가 테넌트로부터 응용 프로그램에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다. 단일 테넌트 응용 프로그램의 경우 이 등록은 간단합니다. [Azure 클래식 포털][AZURE-classic-portal]에서 응용 프로그램을 등록할 때 이뤄집니다.
 
 다중 테넌트 응용 프로그램의 경우, 응용 프로그램에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다. 다른 테넌트에서 사용자가 처음으로 응용 프로그램에 로그인할 때, Azure AD는 응용 프로그램에서 요청하는 사용 권한에 동의하는지 묻습니다. 동의한다면 *서비스 주체*라는 응용 프로그램의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 응용 프로그램에 기록하는 디렉토리에 만들어집니다. 응용 프로그램의 응용 프로그램 및 ServicePrincipal 개체와 서로 간의 관계에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조합니다.
+
+![단일 계층 앱에 동의][Consent-Single-Tier]
 
 이 동의 환경이 응용 프로그램에서 요청한 사용 권한에 따른 영향을 받습니다. Azure AD에서는 응용 프로그램 전용과 위임이란 두 유형의 사용 권한을 지원합니다.
 
@@ -110,7 +117,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 `prompt=admin_consent` 매개 변수는 또한 관리자 동의가 필요하지 않은 권한을 요청하지만, 테넌트 관리자가 응용 프로그램에 한 번 “로그인”하고, 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않는 환경을 제공하고자 하는 응용 프로그램에서 사용할 수 있습니다.
 
-응용 프로그램이 관리자 동의를 필요로 하고 관리자가 응용 프로그램에 로그인하지만 `prompt=admin_consent` 매개 변수는 전송되지 않는 경우, 관리자는 응용 프로그램에 성공적으로 로동의할 수 있지만 자신의 사용자 계정에 대해서만 동의하는 것입니다. 일반 사용자는 여전히 응용 프로그램에 로그인하여 동의할 수 없습니다. 다른 사용자들에게 액세스를 허용하기 전에 응용 프로그램을 탐색하는 기능을 테넌트 관리자에게 주고자 할 때 유용합니다.
+응용 프로그램이 관리자 동의를 필요로 하고 관리자가 응용 프로그램에 로그인하지만 `prompt=admin_consent` 매개 변수는 전송되지 않는 경우, 관리자는 응용 프로그램에 성공적으로 동의할 수 있지만 자신의 사용자 계정에 대해서만 동의하는 것입니다. 일반 사용자는 여전히 응용 프로그램에 로그인하여 동의할 수 없습니다. 다른 사용자들에게 액세스를 허용하기 전에 응용 프로그램을 탐색하는 기능을 테넌트 관리자에게 주고자 할 때 유용합니다.
 
 테넌트 관리자는 일반 사용자가 응용 프로그램에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능을 사용하지 않도록 설정한다면, 테넌트에 응용 프로그램을 설정할 때 항상 관리자 동의가 필요합니다. 일반 사용자 동의를 사용하지 않도록 설정한 응용 프로그램을 테스트하려면 구성 스위치를 [Azure 클래식 포털][AZURE-classic-portal]의 Azure AD 테넌트 구성 섹션에서 찾을 수 있습니다.
 
@@ -123,15 +130,21 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-이 속성을 리소스인 [응용 프로그램의 매니페스트][AAD-App-Manifest]를 통해 업데이트하며, 이 문서 뒷부분의 [관련 콘텐츠](#related-content) 섹션에 있는 웹 API 샘플을 호출하는 다중 계층 네이티브 클라이언트에서 보여줄 수 있습니다.
+이 속성을 리소스인 [응용 프로그램의 매니페스트][AAD-App-Manifest]를 통해 업데이트하며, 이 문서 뒷부분의 [관련 콘텐츠](#related-content) 섹션에 있는 웹 API 샘플을 호출하는 다중 계층 네이티브 클라이언트에서 보여줄 수 있습니다. 아래 다이어그램은 다중 계층 앱에 대한 동의의 개요를 제공합니다.
+
+![알려진 다중 계층 클라이언트 앱에 동의][Consent-Multi-Tier-Known-Client]
 
 응용 프로그램의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Office 365 Exchange Online API를 호출하는 네이티브 클라이언트 응용 프로그램을 구축하는 경우를 생각해 보겠습니다. 네이티브 응용 프로그램을 개발하고, 그 후 네이티브 응용 프로그램이 고객 테넌트에서 실행되도록 하려면, Exchange Online 서비스 주체가 있어야 합니다. 이 경우 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다. Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 예를 들어 이 문서에 설명된 메커니즘을 사용하여 동의를 하게 하는 웹 페이지와 같이 고객이 응용 프로그램을 고객 테넌트에 동의하는 방법을 제공해야 합니다. 서비스 주체가 테넌트에 만들어진 후 네이티브 응용 프로그램은 API에 대한 토큰을 가져올 수 있습니다.
+
+아래 다이어그램은 다른 테넌트에 등록된 다중 계층 앱에 대한 동의의 개요를 제공합니다.
+
+![다중 계층 다자 앱에 동의][Consent-Multi-Tier-Multi-Party]
 
 ### 동의 취소
 사용자와 관리자는 언제든지 응용 프로그램에 대한 동의를 해지할 수 있습니다.
 
-- 사용자는 자신의 [액세스 패널 응용 프로그램][AAD-Access-Panel] 목록에서 그것을 제거하여 개별 응용 프로그램에 대한 액세스를 해지힙니다.
-- 관리자는 [Azure 클래식 포털][AZURE-classic-portal]의 Azure AD 관리 섹션을 사용하여 Azure Ad에서 그것을 제거하여 응용 프로그램에 대한 액세스를 해지힙니다.
+- 사용자는 자신의 [액세스 패널 응용 프로그램][AAD-Access-Panel] 목록에서 그것을 제거하여 개별 응용 프로그램에 대한 액세스를 해지합니다.
+- 관리자는 [Azure 클래식 포털][AZURE-classic-portal]의 Azure AD 관리 섹션을 사용하여 Azure Ad에서 그것을 제거하여 응용 프로그램에 대한 액세스를 해지합니다.
 
 관리자가 테넌트의 모든 사용자에 대해 응용 프로그램에 동의하는 경우 사용자는 개별적으로 액세스를 해지할 수 없습니다. 관리자만이 액세스를 해지할 수 있으며 전체 응용 프로그램에 대해서만 해지할 수 있습니다.
 
@@ -144,6 +157,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 ## 관련 콘텐츠
 
 - [다중 테넌트 응용 프로그램 샘플][AAD-Samples-MT]
+- [응용 프로그램에 대한 브랜딩 지침][AAD-App-Branding]
 - [Azure AD 개발자 가이드][AAD-Dev-Guide]
 - [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
 - [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
@@ -153,14 +167,15 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 아래 DISQUS 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
-<!--Reference style links -->
+<!--Reference style links IN USE -->
 [AAD-Access-Panel]: https://myapps.microsoft.com
+[AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
+[AAD-Graph-Overview]: https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
@@ -170,9 +185,9 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
-
-
-
+[Consent-Single-Tier]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-single-tier.png
+[Consent-Multi-Tier-Known-Client]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-multi-tier-known-clients.png
+[Consent-Multi-Tier-Multi-Party]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-multi-tier-multi-party.png
 
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
@@ -181,9 +196,9 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#userentity
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
@@ -200,4 +215,4 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

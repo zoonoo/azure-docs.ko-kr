@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -100,4 +100,4 @@
 [앱에 인증 추가]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [앱에 푸시 알림 추가]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

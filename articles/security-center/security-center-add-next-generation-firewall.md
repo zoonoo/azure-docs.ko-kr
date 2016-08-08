@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 보안 센터에서 차세대 방화벽 추가 | Microsoft Azure"
-   description="이 문서에서는 Azure 보안 센터 권장 사항 **차세대 방화벽 추가**를 구현하는 방법을 보여 줍니다."
+   description="이 문서에서는 Azure 보안 센터 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여 줍니다."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 차세대 방화벽 추가
 
 Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -34,9 +34,19 @@ Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft �
 
 5. 파트너 솔루션에 대한 정보를 제공하는 **검사점** 블레이드가 열립니다. 정보 블레이드에서 **만들기**를 선택합니다. ![방화벽 정보 블레이드][5]
 
-6. **가상 컴퓨터 만들기** 블레이드가 열립니다. 여기서 NGFW를 실행하는 가상 컴퓨터를 스핀업하는 데 필요한 정보를 입력할 수 있습니다. 단계를 수행하고 필요한 NGFW 정보를 제공합니다. 적용하려면 확인을 선택합니다. ![NGFW를 실행하기 위해 가상 컴퓨터 만들기][6]
+6. **가상 컴퓨터 만들기** 블레이드가 열립니다. 여기서 NGFW를 실행하는 VM(가상 컴퓨터)을 스핀업하는 데 필요한 정보를 입력할 수 있습니다. 단계를 수행하고 필요한 NGFW 정보를 제공합니다. 적용하려면 확인을 선택합니다. ![NGFW를 실행하기 위해 가상 컴퓨터 만들기][6]
 
-## 다음 단계
+## NGFW를 통해서만 트래픽 라우팅
+
+**권장 사항** 블레이드로 돌아갑니다. 보안 센터를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 끝점이 있는 경우 보안 센터는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
+
+1. **권장 사항 블레이드**에서 **NGFW를 통해서만 트래픽 라우팅**을 선택합니다. ![NGFW를 통해서만 트래픽 라우팅][7]
+
+2. 트래픽을 라우팅할 수 있는 VM을 나열하는 **NGFW를 통해서만 트래픽 라우팅** 블레이드가 열립니다. 목록에서 VM을 선택합니다. ![VM 선택][8]
+
+3. 선택된 VM에 대한 블레이드가 열리고 관련 인바운드 규칙을 표시합니다. 설명은 가능한 다음 단계에 대한 자세한 내용을 제공합니다. **인바운드 규칙 편집**을 선택하여 인바운드 규칙 편집을 계속 진행합니다. NGFW로 연결된 인터넷 연결 끝점의 경우 **원본**이 **모두**로 설정되지 않아야 합니다. 인바운드 규칙의 속성에 대해 자세히 알아보려면 [NSG 규칙](../virtual-network/virtual-networks-nsg.md#nsg-rules)을 확인합니다. ![액세스를 제한하는 규칙 구성][9] ![인바운드 규칙 편집][10]
+
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 "차세대 방화벽 추가"를 구현하는 방법을 보여 주었습니다. NGFW 및 검사점 파트너 솔루션에 대해 자세히 알아보려면 다음을 참조하세요.
 
@@ -46,7 +56,7 @@ Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft �
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- 보안 정책을 구성하는 방법을 알아봅니다.
-- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
+- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) –- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기.
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 - [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
@@ -60,5 +70,9 @@ Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft �
 [4]: ./media/security-center-add-next-gen-firewall/select-next-gen-firewall.png
 [5]: ./media/security-center-add-next-gen-firewall/firewall-solution-info-blade.png
 [6]: ./media/security-center-add-next-gen-firewall/create-virtual-machine.png
+[7]: ./media/security-center-add-next-gen-firewall/route-traffic-through-ngfw.png
+[8]: ./media/security-center-add-next-gen-firewall/select-vm.png
+[9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
+[10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

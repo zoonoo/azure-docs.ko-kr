@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -29,7 +29,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 - **StorSimple에 대한 고가용성 요구 사항** - StorSimple 장치 및 호스트 컴퓨터에 대한 고가용성 요구 사항 및 모범 사례를 설명합니다.
 
 
-## 저장소 클라이언트에 대한 소프트웨어 요구 사항 
+## 저장소 클라이언트에 대한 소프트웨어 요구 사항
 
 다음 소프트웨어 요구 사항은 StorSimple 장치에 액세스하는 저장소 클라이언트에 대한 것입니다.
 
@@ -37,7 +37,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
 | VMWare ESX | 5\.5, 및 6.0 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다.
-| Linux RHEL/CentOS | 5 및 6 | Open iSCSI 초기자 버전 5 및 6과 함께 Linux iSCSI 클라이언트를 지원합니다. |
+| Linux RHEL/CentOS | 5, 6 및 7 | Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
 
@@ -49,10 +49,10 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 | --------------------------- | ---------------- | ------------- |
 | StorSimple 스냅숏 관리자 | Windows Server 2008R2 SP1, 2012, 2012R2 | Windows Server에서 StorSimple 스냅숏 관리자 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 응용 프로그램에 일관된 백업에 필요합니다.<br> StorSimple 스냅숏 관리자는 Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, Windows Server 2012에만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple 스냅숏 관리자를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple 스냅숏 관리자를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
 | SharePoint용 StorSimple 어댑터 | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>SharePoint용 StorSimple 어댑터는 SharePoint 2010 및 SharePoint 2013에만 지원됩니다.</li><li>RBS는 SQL Server Enterprise Edition, 2008 R2 또는 2012 버전을 필요로 합니다.</li></ul>|
- 
+
 ## StorSimple 장치에 대한 네트워킹 요구 사항
 
-StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드* 는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
+StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
 
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
 |------------------------|-----------|------------|----------|-------|
@@ -120,23 +120,18 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 업데이트 2는 몇 가지 네트워킹 관련 사항이 개선되었고 라우팅 메트릭이 변경되었습니다. 다음과 같이 동작을 설명할 수 있습니다.
 
-- 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다. 	
+- 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다.
 
 - 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
 
 
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
-	 
+
 	*Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
 
 	이 내용은 다음 예제를 통해 설명됩니다.
@@ -280,4 +275,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

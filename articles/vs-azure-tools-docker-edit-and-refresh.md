@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="07/22/2016"
    ms.author="allclark" />
 
 # 로컬 Docker 컨테이너에서 앱 디버깅
@@ -107,6 +107,7 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트 구성](./vs
 - [Visual Studio Code용 Docker 도구](http://aka.ms/dockertoolsforvscode) - 향후 제공될 더 많은 E2E 시나리오와 함께, docker 파일을 편집하기 위한 언어 서비스
 - [Windows 컨테이너 정보](http://aka.ms/containers)- Windows Server 및 Nano Server 정보
 - [Azure 컨테이너 서비스](https://azure.microsoft.com/services/container-service/) - [Azure 컨테이너 서비스 콘텐츠](http://aka.ms/AzureContainerService)
+-    Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Docker 작업](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)을 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
 ## 다양한 Docker 도구
 
@@ -124,4 +125,4 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트 구성](./vs
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

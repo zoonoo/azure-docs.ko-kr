@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@
 
 메트릭이 지정한 조건에 도달하면 경고를 트리거하도록 경고를 설정할 수 있습니다.
 
-예를 들어 "최근 15분간의 출력 이벤트가 100개 미만이면 메일 ID xyz@company.com”으로 메일 알림을 보냅니다."라고 설정합니다.
+예를 들어 "최근 15분간의 출력 이벤트가 100개 미만이면 메일 ID xyz@company.com으로 메일 알림을 보냅니다."라고 설정합니다.
 
 포털을 통해 메트릭에 대한 규칙을 설정하거나 [프로그래밍 방식](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)으로 작업 로그 데이터에 대한 규칙을 구성할 수 있습니다.
 
@@ -32,12 +32,12 @@
 
 Azure 관리 포털에서 알림을 설정하는 방법은 두 가지가 있습니다.
 
-1.	스트림 분석 작업의 **모니터** 탭  
-2.	관리 서비스의 작업 로그  
+1.	스트림 분석 작업의 **모니터** 탭
+2.	관리 서비스의 작업 로그
 
 ## 포털에서 작업의 모니터 탭을 통해 경고 설정
 
-1.	모니터 탭에서 메트릭을 선택하고 대시보드의 맨 아래에 있는 **규칙 추가** 단추를 클릭한 다음 규칙을 설정합니다.  
+1.	모니터 탭에서 메트릭을 선택하고 대시보드의 맨 아래에 있는 **규칙 추가** 단추를 클릭한 다음 규칙을 설정합니다.
 
     ![대시보드](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
@@ -51,8 +51,8 @@ Azure 관리 포털에서 알림을 설정하는 방법은 두 가지가 있습�
 
 ## 작업 로그를 통해 경고 설정
 
-1.	[Azure 클래식 포털](https://manage.windowsazure.com)에 관리 서비스의 **경고** 탭으로 이동합니다.  
-2.	**규칙 추가**를 클릭합니다.  
+1.	[Azure 클래식 포털](https://manage.windowsazure.com)에 관리 서비스의 **경고** 탭으로 이동합니다.
+2.	**규칙 추가**를 클릭합니다.
 
     ![조건](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
 
@@ -85,4 +85,4 @@ Azure 포털에서 경고를 구성에 대한 자세한 내용은 [경고 알림
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

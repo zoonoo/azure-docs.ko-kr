@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 모바일 서비스 개념
@@ -84,4 +84,4 @@
 - [오류 처리](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [바로 가기 키](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

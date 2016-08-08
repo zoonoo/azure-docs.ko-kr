@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 MailChimp 커넥터는 다음에서 사용할 수 있습니다.
 
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [흐름](http://flows.microsoft.com)  
+- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [흐름](http://flows.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -419,7 +419,7 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 |social\_card|정의되지 않음|아니요 |
 |report\_summary|정의되지 않음|아니요 |
 |delivery\_status|정의되지 않음|아니요 |
-|_\_links|array|No |
+|\_links|array|아니요 |
 
 
 
@@ -552,7 +552,7 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 |visibility|string|아니요 |
 |modules|array|아니요 |
 |stats|정의되지 않음|아니요 |
-|_\_links|array|No |
+|\_links|array|아니요 |
 
 
 
@@ -651,7 +651,7 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 |location|정의되지 않음|아니요 |
 |last\_note|정의되지 않음|아니요 |
 |list\_id|string|아니요 |
-|_\_links|array|No |
+|\_links|array|아니요 |
 
 
 
@@ -738,10 +738,10 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 |location|정의되지 않음|아니요 |
 |last\_note|정의되지 않음|아니요 |
 |list\_id|string|아니요 |
-|_\_links|array|No |
+|\_links|array|아니요 |
 
 
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

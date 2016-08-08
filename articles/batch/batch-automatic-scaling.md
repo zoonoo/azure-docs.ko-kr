@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="04/18/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
 
-자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 이 옵션을 사용하면 응용 프로그램에서 사용하는 계산 리소스의 양을 자동으로 조정하여 잠재적으로 시간 및 비용을 절감할 수 있습니다.
+자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 응용 프로그램에서 사용되는 계산 능력의 양을 자동으로 조정하여 시간과 비용을 잠재적으로 절약하고 작업의 작업 수요가 증가하면 노드를 추가하고 감소될 때 제거합니다.
 
 [배치 .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같이 정의한 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 배치는 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하고 풀의 계산 노드 수를 수식에 따라 구성 가능한 간격으로 조정합니다.
 
@@ -28,15 +28,15 @@
 
 자동 크기 조정 수식은 하나 이상의 문을 포함하고 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(배치 REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(배치 .NET)에 할당된 것으로 정의된 문자열 값입니다. 풀에 할당할 경우 배치 서비스는 처리할 다음 간격을 위해 풀에 계산 노드의 대상 수를 결정하는 수식을 사용합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
 
-배치 크기 자동 조정 "언어"를 사용할 때 자동 크기 조정 수식을 고려할 수 있습니다. 수식 문은 자유 형식이고 시스템 및 사용자가 정의한 변수 뿐만 아니라 상수를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
+배치 크기 자동 조정 "언어"를 사용할 때 자동 크기 조정 수식을 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(배치 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-수식은 일반적으로 이전 문에서 가져온 값에 대한 작업을 수행하는 여러 문을 포함합니다.
+수식은 일반적으로 이전 문에서 가져온 값에 대한 작업을 수행하는 여러 문을 포함합니다. 예를 들어 먼저 `variable1`에 대한 값을 구한 다음 `variable2`을(를) 채우는 함수로 전달합니다.
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
 수식에서 이러한 문으로 풀의 크기를 조정하는 계산 노드 수인 **전용 노드**의 **대상** 수에 도달하는 것이 목표입니다. 이 수는 현재 풀의 노드 수 보다 높거나, 낮거나 또는 동일할 수 있습니다. 배치는 특정 간격으로 풀의 자동 크기 조정 수식을 평가합니다([간격 자동 크기 조정](#automatic-scaling-interval)은 아래에서 설명함). 그런 다음 평가 시 자동 크기 조정 수식이 지정하는 수로 풀의 노드 대상 수를 조정합니다.
@@ -50,17 +50,19 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 문서의 다음 섹션은 변수, 연산자, 작업 및 함수를 포함하여 자동 크기 조정 수식을 구성하는 다양한 엔터티를 설명합니다. 배치 내의 다양한 계산 리소스 및 작업 메트릭을 가져오는 방법을 알아봅니다. 이러한 메트릭을 사용하여 리소스 사용량 및 작업 상태에 따라 풀의 노드 수를 적절하게 조정할 수 있습니다. 그런 다음 배치 REST 및 .NET API를 모두 사용하여 수식을 구성하고 풀에서 자동 크기 조정을 사용하는 방법을 알아봅니다. 몇 가지 예제 수식으로 마무리하겠습니다.
 
-> [AZURE.IMPORTANT] 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 계산 노드 수로 제한됩니다. 배치 서비스는 해당 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 번호에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.IMPORTANT] 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 코어 수(및 따라서 계산 노드)로 제한됩니다. 배치 서비스는 해당 코어 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 계산 노드 수에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
-## <a name="variables"></a>변수
+## 변수
 
-자동 크기 조정 수식에 시스템 정의 변수와 사용자 정의 변수 모두를 사용할 수 있습니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`가 사용자 정의 변수인 반면 `$TargetDedicated`는 시스템 정의 변수입니다. 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여줍니다.
+자동 크기 조정 수식에 **서비스 정의 변수**와 **사용자 정의 변수** 모두를 사용할 수 있습니다. 서비스 정의 변수는 배치 서비스에 기본 제공되고 일부는 읽기-쓰기이며 일부는 읽기 전용입니다. 사용자 정의 변수는 *사용자*가 정의한 변수입니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`이(가) 사용자 정의 변수인 반면 `$TargetDedicated`은(는) 서비스 정의 변수입니다.
 
-이러한 **시스템 정의 변수** 값을 *가져와서* *설정* 하여 풀의 계산 노드 개수를 관리합니다.
+아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여 줍니다.
+
+이러한 서비스 정의 변수 값을 **가져와서** **설정**하여 풀의 계산 노드 개수를 관리할 수 있습니다.
 
 <table>
   <tr>
-    <th>변수(읽고 쓰기)</th>
+    <th>읽기-쓰기<br/>서비스 정의 변수</th>
     <th>설명</th>
   </tr>
   <tr>
@@ -80,11 +82,11 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
    </tr>
 </table>
 
-이러한 **시스템 정의 변수**의 값을 *가져와서* 배치 서비스에서 메트릭을 기반으로 조정합니다.
+이러한 서비스 정의 변수의 값을 **가져와서** 배치 서비스에서 메트릭을 기반으로 조정할 수 있습니다.
 
 <table>
   <tr>
-    <th>변수(읽기 전용)</th>
+    <th>읽기 전용<br/>서비스 정의<br/>변수</th>
     <th>설명</th>
   </tr>
   <tr>
@@ -152,7 +154,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-> [AZURE.TIP] 위에 표시된 읽기 전용 시스템에 정의된 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체*입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
+> [AZURE.TIP] 위에 표시된 읽기 전용, 서비스 정의 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체*입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
 
 ## 형식
 
@@ -162,7 +164,8 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 - doubleVec
 - doubleVecList
 - string
-- timestamp -- 타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
+- timestamp--타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
+
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -171,6 +174,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 	- minute (00-59)
 	- second (00-59)
 - timeinterval
+
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
 	- TimeInterval\_Microsecond
@@ -188,22 +192,15 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 | 작업 | 지원되는 연산자 | 결과 형식 |
 | ------------------------------------- | --------------------- | ------------- |
-| 이중 *연산자* 이중 | +, -, *, / | 이중 |
-| 이중 *연산자* timeinterval | * | timeinterval |
-| doubleVec *연산자* 이중 | +, -, *, / | doubleVec |
-| doubleVec *연산자* doubleVec | +, -, *, / | doubleVec |
-| timeinterval *연산자* 이중 | *, / | timeinterval |
-| timeinterval *연산자* timeinterval | +, - | timeinterval |
-| timeinterval *연산자* 타임스탬프 | + | 타임스탬프 |
-| 타임스탬프 *연산자* timeinterval | + | 타임스탬프 |
-| 타임스탬프 *연산자* 타임스탬프 | - | timeinterval |
-| *연산자*이중 | -, ! | 이중 |
-| *연산자*timeinterval | - | timeinterval |
-| 이중 *연산자* 이중 | <, <=, ==, >=, >, != | 이중 |
-| 문자열 *연산자* 문자열 | <, <=, ==, >=, >, != | 이중 |
-| 타임스탬프 *연산자* 타임스탬프 | <, <=, ==, >=, >, != | 이중 |
-| timeinterval *연산자* timeinterval | <, <=, ==, >=, >, != | 이중 |
-| 이중 *연산자* 이중 |&&, &#124;&#124;      | 이중 |
+| double *operator* double | +, -, *, / | double |
+| double *operator* timeinterval | * | timeinterval |
+| doubleVec *operator* double | +, -, *, / | doubleVec |
+| doubleVec *operator* doubleVec | +, -, *, / | doubleVec |
+| timeinterval *operator* double | *, / | timeinterval |
+| timeinterval *operator* timeinterval | +, - | timeinterval |
+| timeinterval *operator* timestamp | + | timestamp |
+| timestamp *operator* timeinterval | + | timestamp |
+| timestamp *operator* timestamp | - | timeinterval | | *operator*double | -, ! | double | | *operator*timeinterval | - | timeinterval | | double *operator* double | <, <=, ==, >=, >, != | double | | string *operator* string | <, <=, ==, >=, >, != | double | | timestamp *operator* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operator* timeinterval | <, <=, ==, >=, >, != | double | | double *operator* double | &&, || | double |
 
 3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0이 **false**입니다.
 
@@ -233,7 +230,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | time(string dateTime="") | timestamp | 매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다.
 | val(doubleVec v, double i) | double | 시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다.
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -241,7 +238,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 ## <a name="getsampledata"></a>샘플 데이터 가져오기
 
-자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 위에 설명한 시스템에 정의된 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여줍니다.
+자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 위에 설명한 서비스에 정의 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여 줍니다.
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -310,7 +307,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 `runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
 
-샘플의 벡터를 수집했으면 `min()`, `max()` 및 `avg()`과 같은 함수를 사용하여 수집된 범위에서 의미있는 값을 파생할 수 있습니다.
+샘플의 벡터를 수집했으면 `min()`, `max()` 및 `avg()`과 같은 함수를 사용하여 수집된 범위에서 의미 있는 값을 파생할 수 있습니다.
 
 보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 *실패*에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플의 비율을 사용할 수 없는 경우 배치가 수식의 추가 평가를 중단하도록 지시하여 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
 
@@ -332,13 +329,13 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   <tr>
     <td><b>리소스</b></td>
     <td><p><b>리소스 메트릭</b>은 노드 수 뿐만 아니라 계산 노드의 CPU, 대역폭 및 메모리 사용량에 기반합니다.</p>
-		<p> 이러한 시스템 정의 변수는 노드 수에 기반하여 조정하는 데 유용합니다.</p>
+		<p> 이러한 서비스 정의 변수는 노드 수에 기반하여 조정하는 데 유용합니다.</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>이러한 시스템 정의 변수는 노드 리소스 사용량에 기반하여 조정하는 데 유용합니다.</p>
+    <p>이러한 서비스 정의 변수는 노드 리소스 사용량에 기반하여 조정하는 데 유용합니다.</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -353,7 +350,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p><b>태스크 메트릭</b>은 활성, 보류 중 및 완료됨과 같은 태스크 상태를 기반으로 합니다. 다음 시스템 정의 변수는 노드 작업 메트릭에 기반하여 풀 크기를 조정하는 데 유용합니다.</p>
+    <td><p><b>태스크 메트릭</b>은 활성, 보류 중 및 완료됨과 같은 태스크 상태를 기반으로 합니다. 다음 서비스 정의 변수는 노드 작업 메트릭에 기반하여 풀 크기를 조정하는 데 유용합니다.</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -403,7 +400,7 @@ $TargetDedicated = min(400, $TotalNodes)
 
 > [AZURE.IMPORTANT] 위의 방법 중 하나를 사용하여 자동 크기 조정 사용 풀을 만드는 경우 풀에 대한 *targetDedicated* 매개 변수는 지정되지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.
 
-다음 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 사용 풀([CloudPool][net_cloudpool]) 만들기를 보여 줍니다. 풀의 자동 크기 조정 수식은 월요일에 5의 대상 노드 수를 모든 다른 요일에 1의 대상 노드 수를 설정합니다. 또한 자동 크기 조정 간격을 30분으로 설정합니다.(아래에서 [자동 크기 조정 간격](#automatic-scaling-interval) 참조) 여기와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
+다음 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 사용 풀([CloudPool][net_cloudpool]) 만들기를 보여 줍니다. 풀의 자동 크기 조정 수식은 월요일에 5의 대상 노드 수를 모든 다른 요일에 1의 대상 노드 수를 설정합니다. 또한 자동 크기 조정 간격을 30분으로 설정합니다(아래에서 [자동 크기 조정 간격](#automatic-scaling-interval) 참조). 여기와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -415,7 +412,7 @@ pool.Commit();
 
 ### 자동 크기 조정 간격
 
-기본적으로 배치 서비스는 자동 크기 조정 수식에 따라 풀의 크기를 **15분** 마다 조정합니다. 그러나 다음 풀 속성을 사용하여 이 간격은 구성할 수 있습니다.
+기본적으로 배치 서비스는 자동 크기 조정 수식에 따라 풀의 크기를 **15분**마다 조정합니다. 그러나 다음 풀 속성을 사용하여 이 간격은 구성할 수 있습니다.
 
 - REST API--[autoScaleEvaluationInterval][rest_autoscaleinterval]
 - .NET API--[CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
@@ -433,7 +430,7 @@ pool.Commit();
 
 > [AZURE.NOTE] 풀을 만들 때 *targetDedicated* 매개 변수에 대해 값이 지정된 경우, 자동 크기 조정 수식이 평가될 때 이 값은 무시됩니다.
 
-이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
+이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여 줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -507,7 +504,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 
 ## <a name="examples"></a>예제 수식
 
-풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여주는 몇 가지 예를 살펴보겠습니다.
+풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여 주는 몇 가지 예를 살펴보겠습니다.
 
 ### 예제1: 시간 기반 조정
 
@@ -521,7 +518,7 @@ $IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
 $TargetDedicated=$IsWorkingWeekdayHour?20:10;
 ```
 
-이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20 개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
+이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
 
 ### 예제2: 작업 기반 조정
 
@@ -583,7 +580,7 @@ string formula = string.Format(@"
 
 - 초기 풀 크기를 4 노드로 설정합니다.
 - 풀의 수명 주기의 처음 10분 이내에는 풀 크기를 조정하지 않습니다.
-- 10 분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
+- 10분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
   - 두 값이 모두 0이면(마지막 60분 동안 실행 중이거나 활성화된 작업이 없었음을 나타냄) 풀 크기가 0입니다.
   - 값 중 하나가 0보다 큰 경우 변경되지 않습니다.
 
@@ -607,4 +604,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://msdn.microsoft.com/ko-KR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

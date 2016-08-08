@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # C++에서 테이블 저장소를 사용하는 방법
@@ -34,8 +34,8 @@
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
--	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
--	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 Enter 키를 누릅니다.  
+-	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
+-	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 Enter 키를 누릅니다.
 
 		Install-Package wastorage
 
@@ -167,10 +167,10 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 
 일괄 작업에 대해 유의할 사항은 다음과 같습니다.
 
--	최대 100개의 삽입, 삭제, 병합, 바꾸기, 삽입 또는 병합 및 삽입 또는 바꾸기 작업을 임의로 조합하여 단일 일괄 작업으로 수행할 수 있습니다.  
--	검색 작업이 일괄 작업의 유일한 작업이면 일괄 작업에 검색 작업이 포함될 수 있습니다.  
--	단일 일괄 작업의 모든 엔터티에 동일한 파티션 키가 있어야 합니다.  
--	일괄 작업은 4MB 데이터 페이로드로 제한됩니다.  
+-	최대 100개의 삽입, 삭제, 병합, 바꾸기, 삽입 또는 병합 및 삽입 또는 바꾸기 작업을 임의로 조합하여 단일 일괄 작업으로 수행할 수 있습니다.
+-	검색 작업이 일괄 작업의 유일한 작업이면 일괄 작업에 검색 작업이 포함될 수 있습니다.
+-	단일 일괄 작업의 모든 엔터티에 동일한 파티션 키가 있어야 합니다.
+-	일괄 작업은 4MB 데이터 페이로드로 제한됩니다.
 
 ## 파티션의 모든 엔터티 검색
 테이블에서 파티션의 모든 엔터티를 쿼리하려면 **table\_query** 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
@@ -414,4 +414,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

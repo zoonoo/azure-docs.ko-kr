@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -100,12 +100,12 @@ IntelliJ IDEA 용 HDInsight 도구 플러그 인은 IntelliJ용 Azure 도구 키
 			    val conf = new SparkConf().setAppName("MyClusterApp")
 			    val sc = new SparkContext(conf)
 
-			    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 			    //find the rows which have only one digit in the 7th column in the CSV
 				val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-			    rdd1.saveAsTextFile("wasb:///HVACOut")
+			    rdd1.saveAsTextFile("wasbs:///HVACOut")
 			  }
 
 			}
@@ -316,4 +316,4 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

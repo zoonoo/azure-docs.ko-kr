@@ -1,5 +1,5 @@
 <properties
-   pageTitle="논리 앱에서 HTTP Listener 및 커넥터 사용 | Microsoft Azure 앱 서비스"
+   pageTitle="논리 앱에서 HTTP Listener 및 커넥터 사용 | Microsoft Azure 앱 서비스 "
    description="HTTP Listener 및 HTTP 동작 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -89,4 +89,4 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

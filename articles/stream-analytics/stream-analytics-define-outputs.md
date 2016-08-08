@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/23/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 데이터 변환 출력을 분석 도구 및 데이터 저장소 옵션에 연결
@@ -173,7 +173,7 @@
 
 ### Power BI 계정 권한 부여
 
-1.	Azure 관리 포털에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.  
+1.	Azure 관리 포털에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.
 
     ![Power BI 사용자 권한 부여](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -318,4 +318,4 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

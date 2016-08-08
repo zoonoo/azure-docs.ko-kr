@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # SharePoint Online 커넥터 시작 
@@ -26,7 +26,7 @@ SharePoint 커넥터는 SharePoint에서 목록으로 작업하기 위한 방법
 SharePoint를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 * 논리 앱 빌드
-* PowerApps 빌드  
+* PowerApps 빌드
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -76,13 +76,13 @@ SharePoint 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이�
 
 논리 앱 디자이너에 있는 동안 다음 단계를 따라 SharePoint에 로그인하여 논리 앱에서 사용할 연결 **연결**을 만듭니다.
 
-1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.![SharePoint 구성][1]  
-2. **SharePoint Online - 파일을 만들 때**를 선택합니다.   
-3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]    
-4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.![SharePoint 구성][3]     
-5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다.![SharePoint 구성][4]  
-6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.   
-7. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.  
+1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다. ![SharePoint 구성][1]
+2. **SharePoint Online - 파일을 만들 때**를 선택합니다.
+3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]
+4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다. ![SharePoint 구성][3]
+5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다. ![SharePoint 구성][4]
+6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.
+7. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.
 
 >[AZURE.TIP] 다른 논리 앱, PowerApps 중 하나 또는 둘 다에서 이 연결을 사용할 수 있습니다.
 
@@ -695,10 +695,10 @@ TablesList에 대한 필수 속성:
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [파워 앱 만들기](../power-apps/powerapps-get-started-azure-portal.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

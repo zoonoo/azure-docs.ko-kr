@@ -9,17 +9,19 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/19/2016"
+   ms.date="07/26/2016"
    ms.author="mandia"/>
 
 # OneDrive 커넥터 시작
 
-OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다.
+
+OneDrive를 사용하여 다음과 같은 작업을 수행합니다.
 
 - OneDrive에서 파일을 저장하여 워크플로를 작성하거나 OneDrive의 기존 파일을 업데이트합니다.
 - 트리거를 사용하여 OneDrive 내에서 파일이 만들어지거나 업데이트될 때 워크플로를 시작합니다.
@@ -28,6 +30,8 @@ OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하
 이 항목에서는 논리 앱에서 OneDrive 커넥터를 사용하는 방법을 보여 주고 트리거 및 작업을 나열합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
+
+논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## OneDrive에 연결
 
@@ -39,13 +43,13 @@ OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하
 
 ## 트리거 사용
 
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. 원하는 간격 및 빈도로 서비스의 "폴링"을 트리거합니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
 1. 논리 앱에서 트리거 목록을 가져오려면 "onedrive"를 입력합니다.
 
 	![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
-2. **파일을 수정할 때**를 선택합니다. 연결이 이미 있는 경우 **...** (선택 표시) 단추를 선택하여 폴더를 선택합니다.
+2. **파일을 수정할 때**를 선택합니다. 연결이 이미 있는 경우 선택 표시 단추를 선택하여 폴더를 선택합니다.
 
 	![](./media/connectors-create-api-onedrive/sample-folder.png)
 
@@ -53,12 +57,16 @@ OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하
 
 	> [AZURE.NOTE] 이 예제에서는 선택한 폴더의 파일이 업데이트되면 논리 앱이 실행됩니다. 이 트리거의 결과를 보려면 전자 메일을 보내는 다른 작업을 추가합니다. 예를 들어 파일이 업데이트될 때 전자 메일을 보내는 Office 365 Outlook *전자 메일 보내기* 작업을 추가합니다.
 
-3. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
+3. **편집** 단추를 선택하고 **빈도** 및 **간격** 값을 설정합니다. 예를 들어 15분마다 폴링을 트리거하려면 **빈도**를 **분**으로, **간격**을 **15**로 설정합니다.
+
+	![](./media/connectors-create-api-onedrive/trigger-properties.png)
+
+4. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
 
 ## 작업 사용
 
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
 1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
 
@@ -404,6 +412,6 @@ BlobMetadata
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

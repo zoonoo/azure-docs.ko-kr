@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
@@ -51,7 +51,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 ## <a name="hdinsight-sample-wordcount"></a>단어 개수 - Java 
 
-MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 **wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
+MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 **wasbs:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
 
 [부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
 
@@ -70,9 +70,9 @@ Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Ja
 		
 		# Define the MapReduce job
 		$mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "wordcount" `
-									-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+									-Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
 		
 		# Submit the job and wait for job completion
 		$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
@@ -131,7 +131,7 @@ Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 �
 
 그동안 reducer는 프로세스의 [stdout][stdin-stdout-stderr]에서 줄 기반 출력을 수집합니다. 각 줄을 reducer의 출력으로 수집되는 키/값 쌍으로 변환합니다. 기본적으로 첫 번째 탭 문자까지 줄의 접두사는 키이고 줄의 나머지(탭 문자 제외)는 값입니다.
 
-Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트리밍][hadoop-streaming]\(영문)을 참조하세요.
+Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트리밍][hadoop-streaming](영문)을 참조하세요.
 
 **C# 스트리밍 단어 개수 작업을 제출하려면**
 
@@ -160,7 +160,7 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 - [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음으로 바꿉니다.
 
 		$mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
@@ -1000,4 +1000,4 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

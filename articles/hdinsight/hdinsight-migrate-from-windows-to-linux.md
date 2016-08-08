@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
@@ -79,7 +79,7 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
 6. SSH 세션에서 다음 명령을 사용하여 연결된 저장소 계정에서 새 기본 저장소 계정으로 파일을 복사합니다. CONTAINER와 ACCOUNT를 1단계의 PowerShell 스크립트에서 반환된 컨테이너 및 계정 정보로 바꿉니다. 데이터 경로를 데이터 파일 경로로 바꿉니다.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] 데이터를 포함하는 디렉터리 구조가 테스트 환경에 없는 경우 다음 명령을 사용하면 만들 수 있습니다.
 
@@ -240,9 +240,9 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 -   **이미 클러스터에 의해 사용되는 저장소에 스크립트가 있는 경우** SSH 세션에서 Linux 기반 클러스터까지 다음 명령을 사용하여 스크립트를 수정합니다.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##다음 단계
 
@@ -254,4 +254,4 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 -   [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

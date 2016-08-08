@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -76,7 +76,7 @@ Azure 포털에서 **+새로 만들기**를 선택하고 **웹 + 모바일**을 
 
 1. 갤러리에서 **BizTalk 변환 서비스**를 추가합니다.
 2. 들어오는 XML 메시지를 변환하도록 변환을 구성하려면 **변환** 작업을 이 API가 호출될 때 실행할 작업으로 선택합니다. ```triggers(‘httplistener’).outputs.Content```를 _inputXml_에 대한 값으로 선택합니다. 들어오는 데이터가 구성된 모든 변환과 일치하므로 *Map*은 선택적 매개 변수이며, 스키마와 일치하는 항목만 적용됩니다.
-3. 마지막으로, 변환은 유효성 검사에 성공한 경우에만 실행됩니다. 이 조건을 구성하려면 오른쪽 맨 위에 있는 기어 아이콘을 선택하고 _충족할 조건 추가_를 선택합니다. 조건을 ```equals(actions('xmlvalidator').status,'Succeeded')```로 설정합니다.  
+3. 마지막으로, 변환은 유효성 검사에 성공한 경우에만 실행됩니다. 이 조건을 구성하려면 오른쪽 맨 위에 있는 기어 아이콘을 선택하고 _충족할 조건 추가_를 선택합니다. 조건을 ```equals(actions('xmlvalidator').status,'Succeeded')```로 설정합니다.
 
 ![BizTalk 변환][4]
 
@@ -86,7 +86,7 @@ Azure 포털에서 **+새로 만들기**를 선택하고 **웹 + 모바일**을 
 
 1. 갤러리에서 **서비스 버스 커넥터**를 추가합니다. **이름**을 _Servicebus1_로 설정하고, **연결 문자열**을 서비스 버스 인스턴스에 대한 연결 문자열로 설정하고, **엔터티 이름**을 _큐_로 설정하고, **구독 이름**을 건너뜁니다.
 2. **메시지 보내기** 동작을 선택하고 동작의 **콘텐츠** 필드를 _actions('transformservice').outputs.OutputXml_로 설정합니다.
-3. **콘텐츠 형식** 필드를 *application/xml*로 설정합니다.  
+3. **콘텐츠 형식** 필드를 *application/xml*로 설정합니다.
 
 ![서비스 버스][5]
 
@@ -118,4 +118,4 @@ Azure 포털에서 **+새로 만들기**를 선택하고 **웹 + 모바일**을 
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

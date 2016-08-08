@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 복제(업데이트 2)
@@ -55,11 +55,11 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
   1. 대상 장치를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 장치를 선택하거나 다른 장치를 지정할 수 있습니다. 다른 클라우드 서비스 공급자와 연결 된 볼륨을 선택하는 경우 (Azure가 아님), 대상 장치에 대한 드롭다운 목록에는 물리적 장치만 표시 됩니다. 가상 장치에 다른 클라우드 서비스 공급자와 연결된 볼륨을 복제할 수 없습니다.
 
-        >[AZURE.NOTE] 복제에 필요한 용량은 대상 장치에서 사용 가능한 용량보다 작아야 합니다.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
     
-        >[AZURE.NOTE] 로컬로 고정된 볼륨을 복제하더라도 **다른 이름으로 볼륨 복제** 필드는 **계층화됨** 이 됩니다. 이 설정을 변경할 수 없습니다. 그러나 로컬로 고정된 복제된 볼륨도 필요한 경우 복제본을 성공적으로 만든 후 로컬로 고정된 볼륨으로 복제본을 변환할 수 있습니다. 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환에 대한 자세한 내용을 확인하려면 [볼륨 유형 변경](storsimple-manage-volumes-u2.md#change-the-volume-type)으로 이동하십시오.
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -90,9 +90,9 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 ## 임시 및 영구 클론 비교
 
-임시 및 영구 클론은 다른 장치에 복제하는 경우에만 생성됩니다. 백업 세트에서 다른 장치에 특정 볼륨을 복제할 수 있습니다. 이러한 방식으로 만들어진 복제본은 *임시* 복제본입니다. 임시 클론에는 원본 볼륨에 대한 참조가 있으며 로컬로 쓰는 동안 읽기위해 해당 볼륨을 사용합니다.
+임시 클론은 다른 장치에 복제하는 경우에만 생성됩니다. 백업 세트에서 StorSimple Manager에서 관리되는 다른 장치에 특정 볼륨을 복제할 수 있습니다. 임시 클론에는 원본 볼륨의 데이터에 대한 참조가 있으며 대상 장치에서 로컬로 읽고 쓰는 동안 해당 데이터를 사용합니다.
 
-임시 복제본의 클라우드 스냅숏을 수행한 후 결과 복제본은 *영구* 복제본이 됩니다. 영구 클론은 독립적이며 복제된 원본 볼륨에 대한 참조가 없습니다.
+임시 복제본의 클라우드 스냅숏을 수행한 후 결과 복제본은 *영구* 복제본이 됩니다. 이 과정에서 데이터 복사본이 클라우드에서 생성되고, 이 데이터를 복사하는 시간은 데이터의 크기 및 Azure 지연 시간에 따라 결정됩니다(Azure 간 복사). 이 프로세스는 며칠에서 몇 주까지 걸릴 수 있습니다. 임시 클론은 이러한 측면에서 영구 클론이 되며, 복제된 원본 볼륨 데이터에 대한 참조가 없습니다.
 
 ## 임시 및 영구 클론에 대한 시나리오
 
@@ -117,4 +117,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

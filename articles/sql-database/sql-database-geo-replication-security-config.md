@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/16/2016"
+	ms.date="07/16/2016"
 	ms.author="carlrab" />
 
 # 재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법
@@ -23,7 +23,7 @@
 
 ## 재해 복구에 대한 인증 요구 사항 개요
 
-이 항목은 [활성 지역 복제](sql-database-geo-replication-overview.md) 구성 및 제어에 대한 인증 요구 사항 및 보조 데이터베이스에 대한 사용자 액세스 설정이 필요한 단계를 설명합니다. 또한 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)을 사용한 후에 복구된 데이터베이스에 대한 액세스를 활성화하는 방법도 설명합니다. 복구 옵션에 대한 자세한 내용은 [중단 상태에서 Azure SQL 데이터베이스 복구](sql-database-disaster-recovery.md)를 참조하세요.
+이 항목은 [활성 지역 복제](sql-database-geo-replication-overview.md) 구성 및 제어에 대한 인증 요구 사항 및 보조 데이터베이스에 대한 사용자 액세스 설정이 필요한 단계를 설명합니다. 또한 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)을 사용한 후에 복구된 데이터베이스에 대한 액세스를 활성화하는 방법도 설명합니다. 복구 옵션에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 ## 포함된 사용자를 사용한 재해 복구
 
@@ -95,4 +95,4 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 
 ## 추가 리소스
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

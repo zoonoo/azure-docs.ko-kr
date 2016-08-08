@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -236,9 +236,9 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
 3. 다음 명령을 사용하여 hivesampletable에서 mobiledata 테이블로 데이터를 내보냅니다.
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Sqoop가 SQL 데이터베이스, 지연 테이블을 표함한 데이터베이스에 연결하고 wasb:///tutorials/flightdelays/output(이전에 hive 쿼리의 출력을 저장한 위치)에서 데이터를 지연 테이블로 내보내도록 합니다.
+	Sqoop가 SQL 데이터베이스, 지연 테이블을 표함한 데이터베이스에 연결하고 wasbs:///tutorials/flightdelays/output(이전에 hive 쿼리의 출력을 저장한 위치)에서 데이터를 지연 테이블로 내보내도록 합니다.
 
 4. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -291,4 +291,4 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

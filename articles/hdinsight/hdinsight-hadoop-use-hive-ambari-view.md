@@ -62,7 +62,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
 	이러한 문은 다음 작업을 수행합니다.
@@ -169,13 +169,13 @@ UDF를 Hive 뷰에 추가하면 __쿼리 편집기__의 맨 아래에 __udf 삽�
 예를 들어 다음 속성으로 UDF를 정의하는 경우:
 
 * 리소스 이름: myudfs
-* 리소스 경로: wasb:///myudfs.jar
+* 리소스 경로: wasbs:///myudfs.jar
 * UDF 이름: myawesomeudf
 * UDF 클래스 이름: com.myudfs.Awesome
 
 __udf 삽입__ 단추를 사용하면 해당 리소스에 대해 정의된 각 UDF에 대한 또 다른 드롭다운 목록과 함께 __myudfs__라는 항목이 표시됩니다. 이 경우에 __myawesomeudf__입니다. 이 항목을 선택하면 쿼리의 시작 부분에 다음을 추가합니다.
 
-    add jar wasb:///myudfs.jar;
+    add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
@@ -199,4 +199,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

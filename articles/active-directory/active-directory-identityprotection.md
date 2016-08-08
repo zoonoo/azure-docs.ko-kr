@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -33,11 +33,12 @@ Azure Active Directory ID 보호 미리 보기는 현재 **국가 또는 지역*
 
 Azure Active Directory ID 보호 미리 보기에는 페더레이션된 도메인과 관련된 다음과 같은 제한 사항이 있습니다.
 
-- 페더레이션된 도메인에 대해서는 보안 정책이 작동하지 않습니다.
+- 로그인 위험 보안 정책만 페더레이션된 도메인에 적용됩니다. 현재 사용자 위험 보안 정책은 페더레이션된 도메인에 적용되지 않습니다.
 
 - 위험 이벤트는 Azure Active Directory와 페더레이션되는 앱에 대해서만 검색됩니다.
 
-##시작하기
+
+##시작
 
 대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 공격자는 점점 더 효과적으로 제3자 침해를 활용하고 정교한 피싱 공격을 사용하고 있습니다. 일단 공격자가 더 낮은 권한을 가진 사용자 계정에 대한 액세스 권한을 얻게 되면 측면 이동을 통해 비교적 간단하게 중요한 회사 리소스에 대한 액세스 권한을 얻게 됩니다. 따라서 모든 ID를 보호하고 ID가 손상된 경우 사전에 손상된 ID가 악용되지 않도록 방지하는 것이 필수적입니다.
 
@@ -51,7 +52,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 
 **위험 이벤트 및 위험한 계정 검색:**
 
-- 기계 학습 및 경험적 접근 규칙을 사용하여 6가지 위험 이벤트 유형 검색 
+- 기계 학습 및 경험적 접근 규칙을 사용하여 6가지 위험 이벤트 유형 검색
 
 - 사용자 위험 수준 계산
 
@@ -97,8 +98,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 | 감염된 장치에서 로그인 | 감염 가능성이 있는 장치에서 로그인 |
 | 익명 IP 주소에서 로그인 | 알 수 없는 원본에서 로그인 |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |	의심스러운 작업이 있는 IP 주소에서 로그인 |
-| 알 수 없는 위치에서 로그인 | - | 
-| 잠금 이벤트(공개 미리 보기 상태 아님) | - |
+| 알 수 없는 위치에서 로그인 | - | | 잠금 이벤트(공개 미리 보기 상태 아님) | - |
 
 다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 관리 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
 
@@ -153,8 +153,8 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 사용자 위험 수준은 다음 입력을 사용하여 계산됩니다.
 
 - 사용자에 영향을 주는 활성 위험 이벤트
-- 이러한 이벤트의 위험 수준 
-- 수정 작업이 수행되었는지 여부 
+- 이러한 이벤트의 위험 수준
+- 수정 작업이 수행되었는지 여부
 
 <br> ![사용자 위험](./media/active-directory-identityprotection/86.png "사용자 위험") <br>
 
@@ -194,7 +194,7 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 사용자 위험 이벤트를 수정하려면 다음을 수행할 수 있습니다.
 
-- 보안 암호 재설정을 수행하여 수동으로 사용자 위험 이벤트 수정 
+- 보안 암호 재설정을 수행하여 수동으로 사용자 위험 이벤트 수정
 
 - 사용자 위험 보안 정책을 구성하여 자동으로 사용자 위험 이벤트 완화 또는 수정
 
@@ -258,7 +258,7 @@ Azure AD ID 보호를 사용하면 다음을 사용하여 위험에 플래그가
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 
-- [손상된 계정 복구 흐름](active-directory-identityprotection-flows.md#compromised-account-recovery)  
+- [손상된 계정 복구 흐름](active-directory-identityprotection-flows.md#compromised-account-recovery)
 
 - [손상된 계정 차단됨 흐름](active-directory-identityprotection-flows.md#compromised-account-blocked)
 
@@ -337,11 +337,11 @@ Azure AD ID 보호를 사용하면 다음을 사용하여 위험한 로그인을
 ID 보호 콘솔의 **위험 이벤트** 페이지에서는 모든 이벤트를 나열합니다.
 
 - 이 정책은 다음에 적용되었습니다.
-- 작업을 검토하고 작업이 적절한지 여부를 결정할 수 있습니다. 
+- 작업을 검토하고 작업이 적절한지 여부를 결정할 수 있습니다.
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 
-- [위험한 로그인 복구](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
+- [위험한 로그인 복구](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 - [위험한 로그인 차단됨](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
@@ -383,7 +383,7 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 
-- [Multi-Factor Authentication 등록 흐름](active-directory-identityprotection-flows.md#multi-factor-authentication-registration)  
+- [Multi-Factor Authentication 등록 흐름](active-directory-identityprotection-flows.md#multi-factor-authentication-registration)
 
 - [위험한 로그인 시 Multi-Factor Authentication 등록](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
@@ -411,4 +411,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
  - [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

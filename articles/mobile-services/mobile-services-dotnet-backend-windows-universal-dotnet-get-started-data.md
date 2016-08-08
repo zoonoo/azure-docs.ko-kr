@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 기존 앱에 모바일 서비스 추가
@@ -96,14 +96,11 @@
 
 이 자습서에서는 범용 Windows 앱 프로젝트가 모바일 서비스의 데이터를 사용하도록 설정하기 위한 기본 사항에 대해 설명했습니다. 다음으로 다른 항목 중 하나를 읽는 것이 좋습니다.
 
-* [인증 시작]
-   <br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작]
- <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [푸시 알림 시작] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 C# 방법 개념 참조](mobile-services-dotnet-how-to-use-client-library.md)
-  <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+* [모바일 서비스 C# 방법 개념 참조](mobile-services-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
 
 <!-- Images. -->
@@ -117,11 +114,11 @@
 [인증 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [푸시 알림 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[오프라인 데이터 동기화 시작]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

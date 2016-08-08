@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -32,7 +32,7 @@ Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공][special_
 Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing](영문)에서 자세한 내용을 볼 수 있습니다.
 
 ## <a id="Concepts"></a>개념
-Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다. 목록에 대해서는 [Twilio API 라이브러리][twilio_libraries](영문)를 참조하십시오. [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] 또는 [Ruby][azure_twilio_howto_ruby]에서 작성된 Azure 응용 프로그램에서 Twilio를 사용에 대해 추가 자습서를 사용할 수 있습니다.
+Twilio API는 응용 프로그램에 대한 음성 및 SMS 기능을 제공하는 RESTful API입니다. 클라이언트 라이브러리는 다양한 언어로 사용할 수 있습니다.
 
 Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입니다.
 
@@ -221,12 +221,4 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-
-[azure_twilio_howto_dotnet]: /twilio-dotnet-how-to-use-for-voice-sms.md
-[azure_twilio_howto_java]: /partner-twilio-java-how-to-use-voice-sms.md
-[azure_twilio_howto_node]: /partner-twilio-nodejs-how-to-use-voice-sms.md
-[azure_twilio_howto_ruby]: /partner-twilio-ruby-how-to-use-voice-sms.md
-[azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
-[azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

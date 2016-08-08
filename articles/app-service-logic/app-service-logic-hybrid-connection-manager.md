@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -46,12 +46,12 @@ Azure 포털에서 서비스 버스 루트 SAS 연결 문자열을 복사합니�
 
 ## 하이브리드 연결 관리자 설치
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 만든 커넥터를 선택합니다. 커넥터를 **찾아보기**를 선택하고 **API 앱**을 선택한 다음 커넥터 또는 API 앱을 선택합니다. <br/><br/> **하이브리드 연결**에서 설치는 **완료되지 않음**으로 표시됩니다. <br/> ![][2] 
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 만든 커넥터를 선택합니다. 커넥터를 **찾아보기**를 선택하고 **API 앱**을 선택한 다음 커넥터 또는 API 앱을 선택합니다. <br/><br/> **하이브리드 연결**에서 설치는 **완료되지 않음**으로 표시됩니다. <br/> ![][2]
 
 2. **하이브리드 연결**을 선택합니다. 이전에 입력한 서비스 버스 연결 문자열이 나열됩니다.
 3. **기본 구성 문자열**을 복사합니다.<br/> ![][PrimaryConfigString]
 
-4. **온-프레미스 하이브리드 연결 관리자**에서 하이브리드 연결 관리자를 다운로드하거나 포털에서 직접 설치할 수 있습니다. <br/><br/> 포털에서 직접 설치하려면 온-프레미스 IIS 서버로 이동하고 포털을 찾아 **다운로드 및 구성**을 선택합니다. <br/><br/> 하이브리드 연결 관리자를 다운로드하려면 온-프레미스 IIS 서버로 이동하고 **ClickOnce 응용 프로그램**으로 이동합니다. http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application) 설치가 자동으로 시작되므로 실행할 수 있습니다.
+4. **온-프레미스 하이브리드 연결 관리자**에서 하이브리드 연결 관리자를 다운로드하거나 포털에서 직접 설치할 수 있습니다. <br/><br/> 포털에서 직접 설치하려면 온-프레미스 IIS 서버로 이동하고 포털을 찾아 **다운로드 및 구성**을 선택합니다. <br/><br/> 하이브리드 연결 관리자를 다운로드하려면 온-프레미스 IIS 서버로 이동하고 **ClickOnce 응용 프로그램**으로 이동합니다(http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). 설치가 자동으로 시작되므로 실행할 수 있습니다.
 
 5. **수신기 설치** 창에서 3단계에서 붙여넣은 **기본 구성 문자열**을 입력하고 **설치**를 선택합니다.
 
@@ -84,19 +84,19 @@ TCP 포트 | 이유
 
 1. IIS 서버에서 IIS 웹 역할이 설치되고 모든 IIS 서비스가 시작되었는지 확인합니다.
 2. IIS 서버에서 하이브리드 연결 관리자가 설치되고 실행 중인지 확인합니다.
- - IIS 관리자(inetmgr)에서 ***MicrosoftAzureBizTalkHybridListener*** 웹 사이트가 나열되고 실행 중이어야 합니다. 
+ - IIS 관리자(inetmgr)에서 ***MicrosoftAzureBizTalkHybridListener*** 웹 사이트가 나열되고 실행 중이어야 합니다.
  - 이 웹사이트는 *NetworkService* 기본 제공 로컬 사용자 계정으로 실행되는 ***HybridListenerAppPool***을 사용합니다. 이 AppPool도 시작해야 합니다.
-3. IIS 서버에서 커넥터가 설치되고 실행 중인지 확인합니다. 
- - 앱 서비스 커넥터용으로 웹 사이트가 생성됩니다. 예를 들어 SQL 커넥터를 만든 경우 ***MicrosoftSqlConnector\_nnn*** 웹 사이트가 생성됩니다. IIS 관리자(inetmgr)에서 이 웹 사이트가 나열되고 시작되었는지 확인합니다. 
- - 이 웹 사이트는 ***HybridAppPoolnnn***라는 자체 IIS 응용 프로그램 풀을 사용합니다. 이 AppPool은 *NetworkService* 기본 제공 로컬 사용자 계정으로 실행됩니다. 이 웹 사이트와 AppPool을 모두 시작해야 합니다. 
+3. IIS 서버에서 커넥터가 설치되고 실행 중인지 확인합니다.
+ - 앱 서비스 커넥터용으로 웹 사이트가 생성됩니다. 예를 들어 SQL 커넥터를 만든 경우 ***MicrosoftSqlConnector\_nnn*** 웹 사이트가 생성됩니다. IIS 관리자(inetmgr)에서 이 웹 사이트가 나열되고 시작되었는지 확인합니다.
+ - 이 웹 사이트는 ***HybridAppPoolnnn***라는 자체 IIS 응용 프로그램 풀을 사용합니다. 이 AppPool은 *NetworkService* 기본 제공 로컬 사용자 계정으로 실행됩니다. 이 웹 사이트와 AppPool을 모두 시작해야 합니다.
  - 로컬 커넥터를 찾습니다. 예를 들어 커넥터 웹 사이트가 포트 6569를 사용하는 경우 http://localhost:6569로 이동합니다. 기본 문서가 구성되지 않았으므로 `HTTP Error 403.14 - Forbidden error`이 예상됩니다.
 4. 방화벽에서 이 항목에 나열된 TCP 포트가 열려있는지 확인합니다.
 5. 원본 또는 대상 시스템을 살펴봅니다.
  - 일부 온-프레미스 시스템에는 추가 종속 파일이 필요합니다. 예를 들어 온-프레미스 SAP에 연결하는 경우 일부 추가 SAP 파일이 IIS 서버에 설치되어야 합니다.
  - 로그인 계정을 사용하여 시스템 연결을 확인합니다. 예를 들어 SQL Server용 포트 1433처럼 시스템에서 사용하는 TCP 포트가 열려야 합니다. Azure 포털에 입력한 로그인 계정은 시스템에 액세스할 수 있어야 합니다.
-6. IIS 서버에서 모든 오류에 대한 이벤트 로그를 확인합니다. 
-7. 하이브리드 연결 관리자 정리 및 다시 설치 
- - IIS에서 커넥터 웹 사이트 및 해당 응용 프로그램 풀을 수동으로 삭제합니다. 
+6. IIS 서버에서 모든 오류에 대한 이벤트 로그를 확인합니다.
+7. 하이브리드 연결 관리자 정리 및 다시 설치
+ - IIS에서 커넥터 웹 사이트 및 해당 응용 프로그램 풀을 수동으로 삭제합니다.
  - 하이브리드 연결 관리자를 다시 실행하고 커넥터에 대한 올바른 **기본 구성 문자열**을 입력했는지 확인합니다.
 
 
@@ -140,4 +140,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

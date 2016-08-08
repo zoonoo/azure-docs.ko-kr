@@ -40,7 +40,7 @@
 	- Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
 	- 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 만들려면 지침을 따르고 `-GatewayType ExpressRoute`를 사용해야 합니다.
 
-최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 모든 Express 경로 회로는 같은 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
+최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 모든 가상 네트워크는 같은 지정학적 지역에 있어야 합니다. 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결하거나 다른 지역에 있는 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
 
 ## 동일한 구독에 있는 가상 네트워크를 회로에 연결
 
@@ -138,4 +138,4 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

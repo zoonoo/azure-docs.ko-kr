@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="07/21/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -27,7 +27,7 @@
 
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
-> [AZURE.NOTE] 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [다른 Azure 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 ## 리소스를 이동하기 전의 검사 목록
 
@@ -272,4 +272,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

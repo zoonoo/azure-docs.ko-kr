@@ -109,15 +109,9 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
 
+
 ## 다음 단계
 
-- [Azure SQL 데이터베이스 가져오기](sql-database-import-powershell.md)
+- Powershell을 사용하여 Azure SQL 데이터베이스를 가져오는 방법을 알아보려면 [PowerShell을 사용하여 BACPAC 가져오기](sql-database-import-powershell.md)를 참조하세요.
 
-
-## 추가 리소스
-
-- [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [재해 복구 연습](sql-database-disaster-recovery-drills.md)
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

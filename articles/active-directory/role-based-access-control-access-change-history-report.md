@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ## Azure CLI에서 보고서 만들기
 Azure 명령줄 인터페이스(CLI)에서 액세스 변경 기록 보고서를 만들려면 다음 명령을 사용합니다.
 ```
-azure authorization changelog
+azure role assignment changelog list
 ```
 
 ## 스프레드시트로 내보내기
@@ -67,4 +67,4 @@ azure authorization changelog
 - [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md) 시작
 - [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 작업
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

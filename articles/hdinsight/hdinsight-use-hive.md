@@ -68,21 +68,21 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 샘플 데이터는 HDInsight가 기본 파일 시스템으로 사용하는 Azure Blob 저장소에 저장됩니다. HDInsight에서는 **wasb** 접두사를 사용하여 Blob 저장소에 저장된 파일에 액세스할 수 있습니다. 예를 들어 sample.log 파일에 액세스하려는 경우 다음 구문을 사용합니다.
 
-	wasb:///example/data/sample.log
+	wasbs:///example/data/sample.log
 
 Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE] 구문 **wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 **wasbs:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 ##<a id="job"></a>샘플 작업: 구분된 데이터에 열을 투영
 
-다음 HiveQL 문은 **wasb:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
+다음 HiveQL 문은 **wasbs:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
 
     set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다:
@@ -214,4 +214,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

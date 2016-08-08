@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/25/2016"
 	ms.author="cynthn"/>
 
 
@@ -126,4 +126,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

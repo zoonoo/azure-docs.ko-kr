@@ -18,7 +18,7 @@
 
 # 큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET 5)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ##개요
 
@@ -168,4 +168,4 @@ ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

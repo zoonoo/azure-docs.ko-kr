@@ -18,7 +18,7 @@
 
 # Microsoft Azure 소개
 
-Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다. 이 문서의 목적은 사용자가 클라우드 컴퓨팅에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.
+Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다. 이 문서의 목적은 사용자가 [클라우드 컴퓨팅](https://azure.microsoft.com/overview/what-is-cloud-computing/)에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.
 
 **이 문서를 읽는 방법**
 
@@ -55,7 +55,7 @@ Azure에는 관리자가 대부분의 Azure 기능(일부 기능 제외)에 액�
 
 ![Azure 가상 컴퓨터 ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *그림: Azure 가상 컴퓨터에서 클라우드의 가상 컴퓨터 인스턴스를 완벽하게 관리할 수 있습니다.*
 
-표준 이미지 또는 사용자가 제공한 이미지를 사용하여 주문형 가상 컴퓨터를 만드는 기능은 매우 유용합니다. Azure 가상 컴퓨터에서는 일반적으로 IaaS(Infrastructure as a Service)로 알려진 이 방법을 제공합니다. 그림 2는 VM(가상 컴퓨터) 실행 방법과 VHD에서 가상 컴퓨터를 만드는 방법을 함께 보여 줍니다.
+표준 이미지 또는 사용자가 제공한 이미지를 사용하여 주문형 가상 컴퓨터를 만드는 기능은 매우 유용합니다. Azure 가상 컴퓨터에서는 일반적으로 [IaaS](https://azure.microsoft.com/overview/what-is-iaas/)(Infrastructure as a Service)로 알려진 이 방법을 제공합니다. 그림 2는 VM(가상 컴퓨터) 실행 방법과 VHD에서 가상 컴퓨터를 만드는 방법을 함께 보여 줍니다.
 
 VM을 작성하려면 사용할 VHD와 VM의 크기를 지정한 다음 VM을 실행한 시간만큼 결제합니다. VM이 실행되는 시간만 분 단위로 결제하지만 VHD 가용성을 유지하기 위한 최소 저장소 비용도 청구됩니다. Azure는 부팅하는 데 사용할 수 있는 운영 체제를 포함하고 있는 VHD(또는 "이미지")를 모아 놓은 갤러리를 제공합니다. 여기에는 Windows Server, Linux, SQL Server, Oracle 등 Microsoft와 파트너 옵션이 포함됩니다. 자유롭게 VHD와 이미지를 만들어 직접 업로드할 수 있습니다. 데이터만 포함하는 VHD를 업로드한 다음 실행 중인 VM에서 액세스할 수도 있습니다.
 
@@ -68,7 +68,7 @@ VHD를 어디에서 가져오더라도 VM을 실행하는 동안 지속적으로
 **가상 컴퓨터 시나리오**
 
 1.	**개발/테스트** - 이러한 VM을 사용하여 저렴한 비용으로 개발 및 테스트 플랫폼을 만들고 사용을 마치면 플랫폼을 종료할 수 있습니다. 또한 어떤 언어나 라이브러리를 사용해서도 응용 프로그램을 만들고 실행할 수 있습니다. 이러한 응용 프로그램은 Azure가 제공하는 모든 데이터 관리 옵션을 사용할 수 있으며, 하나 이상의 가상 컴퓨터에서 실행되는 SQL Server 또는 다른 DBMS를 사용할 수도 있습니다.
-2.	**Azure로 응용 프로그램 이동(들어올려서 옮기기)** - "들어올려서 옮기기"는 마치 지게차로 대형 물체를 이동하는 것처럼 응용 프로그램을 이동하는 것을 의미합니다. 로컬 데이터 센터에서 VHD를 "들어올려서" Azure로 "옮긴" 다음 그곳에서 실행합니다. 일반적으로 다른 시스템에 대한 종속성을 제거하기 위해 몇 가지 작업을 수행해야 합니다. 종속성이 너무 많은 경우 옵션 3을 선택할 수도 있습니다.  
+2.	**Azure로 응용 프로그램 이동(들어올려서 옮기기)** - "들어올려서 옮기기"는 마치 지게차로 대형 물체를 이동하는 것처럼 응용 프로그램을 이동하는 것을 의미합니다. 로컬 데이터 센터에서 VHD를 "들어올려서" Azure로 "옮긴" 다음 그곳에서 실행합니다. 일반적으로 다른 시스템에 대한 종속성을 제거하기 위해 몇 가지 작업을 수행해야 합니다. 종속성이 너무 많은 경우 옵션 3을 선택할 수도 있습니다.
 3.	**데이터 센터 확장** - SharePoint 또는 기타 응용 프로그램을 실행하는 온-프레미스 데이터 센터의 확장으로 Azure VM을 사용하는 것입니다. 이를 지원하기 위해 Azure VM에서 Active Directory를 실행하여 클라우드에 Windows 도메인을 만들 수 있습니다. Azure 가상 네트워크(나중에 설명)를 사용하여 로컬 네트워크와 Azure의 네트워크를 결합할 수 있습니다.
 
 
@@ -606,4 +606,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

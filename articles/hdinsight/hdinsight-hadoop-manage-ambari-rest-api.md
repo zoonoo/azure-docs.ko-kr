@@ -110,7 +110,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
 다음과 유사한 값을 반환하며 여기서 __CONTAINER__는 기본 컨테이너이고 __ACCOUNTNAME__은 Azure 저장소 계정 이름입니다.
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 그런 다음 [Azure CLI](../xplat-cli-install.md)로 이 정보를 사용하여 컨테이너에서 데이터를 업로드하거나 다운로드할 수 있습니다.
 
@@ -136,7 +136,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
         
     __ACCOUNTNAME__을 저장소 계정 이름으로 대체합니다. __ACCOUNTKEY__를 이전에 검색된 키로 대체합니다. __FILEPATH__는 업로드하려는 파일에 대한 경로이며 __BLOBPATH__는 컨테이너의 경로입니다.
 
-    예를 들어 wasb://example/data/filename.txt에서 HDInsight에 파일을 표시하려면 __BLOBPATH__는 `example/data/filename.txt`이(가) 됩니다.
+    예를 들어 wasbs://example/data/filename.txt에서 HDInsight에 파일을 표시하려면 __BLOBPATH__는 `example/data/filename.txt`이(가) 됩니다.
 
 ##예: Ambari 구성 업데이트
 
@@ -255,4 +255,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE] HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

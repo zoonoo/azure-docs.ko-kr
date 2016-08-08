@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Azure 앱 서비스에 연속 배포
@@ -52,7 +52,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 솔루션과 리포지토리를 다음과 같이 구성한 경우 Visual Studio 솔루션을 앱 서비스에 푸시하는 단계는 [이전 섹션](#overview)과 동일합니다.
 
--	Visual Studio 소스 제어 옵션을 사용하여 아래 이미지와 같은 `.gitignore` 파일을 생성하거나 이 [.gitignore 샘플](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)과 유사한 콘텐츠로 리포지토리 루트에 `.gitignore` 파일을 수동으로 추가합니다. 
+-	Visual Studio 소스 제어 옵션을 사용하여 아래 이미지와 같은 `.gitignore` 파일을 생성하거나 이 [.gitignore 샘플](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)과 유사한 콘텐츠로 리포지토리 루트에 `.gitignore` 파일을 수동으로 추가합니다.
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -72,6 +72,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 ## 추가 리소스
 
+* [연속 배포의 일반 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Azure용 PowerShell 사용 방법]
 * [Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법]
 * [Git 설명서]
@@ -79,7 +80,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-[Azure 앱 서비스]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[Azure 앱 서비스]: https://azure.microsoft.com/ko-KR/documentation/articles/app-service-changes-existing-services/
 [Azure 포털]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ko-KR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -92,4 +93,4 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 [VSTS 시작]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

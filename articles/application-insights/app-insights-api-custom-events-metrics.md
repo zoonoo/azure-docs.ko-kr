@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -240,7 +240,7 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-`message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
+
+메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
+
+`message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
+
+
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+이를 통해 [검색][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 
 ## 종속성을 추적합니다.
 
@@ -528,7 +542,7 @@ HTTP 요청과 연결되지 않은 이벤트를 모니터링하거나 요청 추
 
     } // When operation is disposed, telemetry item is sent.
 
-`StartOperation`에서는 작업 컨텍스트를 설정할 뿐 아니라 사용자가 지정하는 형식의 원격 분석 항목을 만든 후, 사용자가 작업을 삭제할 때나 `StopOperation`을 명시적으로 호출하는 경우에 전송합니다. 원격 분석 형식으로 `RequestTelemetry`를 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
+`StartOperation`에서는 작업 컨텍스트를 설정할 뿐 아니라 사용자가 지정하는 형식의 원격 분석 항목을 만든 후, 사용자가 작업을 삭제할 때나 `StopOperation`을(를) 명시적으로 호출하는 경우에 전송합니다. 원격 분석 형식으로 `RequestTelemetry`을(를) 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
 
 작업 컨텍스트는 중첩할 수 없습니다. 작업 컨텍스트가 이미 있는 경우 해당 ID가 StartOperation을 사용하여 만든 항목을 비롯한 모든 포함된 항목에 연결됩니다.
 
@@ -597,15 +611,15 @@ HTTP 요청과 연결되지 않은 이벤트를 모니터링하거나 요청 추
 
 **JavaScript 웹 클라이언트의 경우** [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
 
-표준 컬렉션 모듈의 데이터를 포함하여 **모든 원격 분석에 속성을 추가하려면** [`ITelemetryInitializer`를 구현합니다](app-insights-api-filtering-sampling.md#add-properties).
+표준 컬렉션 모듈의 데이터를 포함하여 **모든 원격 분석에 속성을 추가하려면** [`ITelemetryInitializer`을(를) 구현합니다](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## 원격 분석 샘플링, 필터링 및 처리 
 
 SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
-* `ITelemetryInitializer`를 구현하여 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예를 들어 다른 속성에서 계산된 값 또는 버전 번호를 추가합니다.
-* `ITelemetryProcesor`를 구현하면 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
+* `ITelemetryInitializer`을(를) 구현하여 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예를 들어 다른 속성에서 계산된 값 또는 버전 번호를 추가합니다.
+* `ITelemetryProcesor`을(를) 구현하면 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
 * [샘플링](app-insights-api-filtering-sampling.md#sampling)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 샘플링은 표시된 메트릭에 영향을 주지 않고 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하며 문제를 진단하는 기능에 영향을 주지 않습니다.
 
 [자세히 알아보기](app-insights-api-filtering-sampling.md)
@@ -690,7 +704,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 다양한 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config][config]에서 관련 줄을 제거해야 합니다.
 
@@ -778,4 +792,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

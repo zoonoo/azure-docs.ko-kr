@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/30/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 #  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
@@ -28,7 +28,7 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 ## 필수 조건
 
 * Microsoft Azure 계정
-* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
+* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.
 * Power BI에 대한 회사 또는 학교 계정
 
 ## Azure 스트림 분석 작업 만들기
@@ -98,11 +98,11 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 *	**작업 영역** – 데이터 집합을 만들려고 하는 Power BI 테넌트에서 작업 영역을 선택합니다.
 
->	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## 쿼리 작성
@@ -240,4 +240,4 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

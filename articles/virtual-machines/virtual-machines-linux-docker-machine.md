@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/22/2016"
 	ms.author="rasquill"/>
 
 # Azure 드라이버로 Docker Machine 사용
@@ -130,4 +130,6 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 
 관심이 있을 경우 Azure [Docker VM 확장](virtual-machines-linux-dockerextension.md)에서 Azure CLI 또는 Azure Resource Manager 템플릿을 사용하여 동일한 작업을 시도해 볼 수 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Docker 작업](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)을 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -29,13 +29,13 @@ Azure 데이터 팩터리의 [복사 작업](#copyactivity)에 의해 원본에�
 2.	입력 데이터 집합, 출력 데이터 집합 및 복사 작업의 구성을 기준으로 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환 수행
 3.	대상 데이터 저장소에 데이터 기록
 
-![클라우드-클라우드 복사](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
+![클라우드-클라우드 복사](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
 
 ## 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간 데이터 복사
 회사 방화벽 뒤의 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 안전하게 데이터를 이동하려면 하이브리드 데이터 이동 및 처리를 돕는 에이전트인 데이터 관리 게이트웨이를 온-프레미스 컴퓨터에 설치해야 합니다. 데이터 관리 게이트웨이는 데이터 저장소와 같은 컴퓨터에 설치하거나 데이터 저장소에 액세스할 수 있는 별도 컴퓨터에 설치할 수 있습니다. 이 시나리오에서는 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환이 데이터 관리 게이트웨이에 의해 수행됩니다. Azure 데이터 팩터리 서비스를 통해 이동하지 않는 서비스가 이러한 경우입니다. 데이터 관리 게이트웨이는 데이터를 대상 저장소에 직접 씁니다.
 
-![온-프레미스-클라우드 복사](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+![온-프레미스-클라우드 복사](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
 소개 및 연습은 [온-프레미스 및 클라우드 데이터 저장소 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하고 데이터 관리 게이트웨이에 대한 자세한 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
@@ -47,10 +47,7 @@ Azure 데이터 팩터리의 [복사 작업](#copyactivity)에 의해 원본에�
 
 | 원본| 싱크 |
 |:------- | :---- |
-| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[OData 원본](data-factory-odata-connector.md)</li><li>[웹 테이블(HTML의 테이블)](data-factory-web-table-connector.md)</li><li>[GE Historian 온-프레미스/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li><li>[Salesforce](data-factory-salesforce-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Hadoop HDFS(분산 파일 시스템) 온-프레미스/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Cassandra 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-cassandra-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB(아래 참고 참조)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
-
-
-> [AZURE.NOTE] 현재 온-프레미스/Azure IaaS 데이터 저장소와 Azure DocumentDB 간에 데이터를 복사하도록 지원되지 않습니다. 또한 Azure Document DB에 대한 전체 매트릭스도 곧 사용할 수 있습니다.
+| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[OData 원본](data-factory-odata-connector.md)</li><li>[웹 테이블(HTML의 테이블)](data-factory-web-table-connector.md)</li><li>[GE Historian 온-프레미스/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li><li>[Salesforce](data-factory-salesforce-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Hadoop HDFS(분산 파일 시스템) 온-프레미스/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Cassandra 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-cassandra-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 테이블](data-factory-azure-table-connector.md)</li><li>[Azure SQL 데이터베이스](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake 저장소](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 온-프레미스/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 **복사 작업**에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동해야 하는 경우 데이터 복사/이동에 대한 사용자 고유의 논리로 Data Factory의 **사용자 지정 작업**을 사용할 수 있습니다. 사용자 지정 작업을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](data-factory-use-custom-activities.md)을 참조하세요.
 
@@ -69,7 +66,7 @@ Azure 데이터 팩터리의 [복사 작업](#copyactivity)에 의해 원본에�
 
 원본 데이터 저장소 위치 | 대상 데이터 저장소 위치 | 데이터 이동은  
 -------------------------- | ------------------------------- | ----------------------------- 
-온-프레미스/Azure VM(IaaS) | 클라우드 | 온-프레미스 컴퓨터/Azure VM의 **데이터 관리 게이트웨이**에 의해 수행됩니다. 데이터는 클라우드의 서비스를 통해 이동하지 않습니다. <br/><br/>참고: 데이터 관리 게이트웨이는 데이터 원본과 같은 온-프레미스 컴퓨터/Azure VM 또는 두 데이터 저장소에 모두 연결할 수 있는 경우 다른 온-프레미스 컴퓨터/Azure VM에 있을 수 있습니다.
+온-프레미스/Azure VM(IaaS) | 클라우드 | 온-프레미스 컴퓨터/Azure VM의 **데이터 관리 게이트웨이**에 의해 수행됩니다. 데이터는 클라우드의 서비스를 통해 이동하지 않습니다. <br/><br/>참고: 데이터 관리 게이트웨이는 데이터 저장소와 같은 온-프레미스 컴퓨터/Azure VM에 있거나 두 데이터 저장소에 모두 연결할 수 있는 경우에는 다른 온-프레미스 컴퓨터/Azure VM에 있을 수 있습니다.
 클라우드 | 온-프레미스/Azure VM(IaaS) | 위와 동일합니다. 
 온-프레미스/Azure VM(IaaS) | 온-프레미스/Azure VM | **원본과 연결된 데이터 관리 게이트웨이**. 데이터는 클라우드의 서비스를 통해 이동하지 않습니다. 위의 참고를 참조하세요.   
 클라우드 | 클라우드 | **복사 작업을 구동하는 클라우드 서비스**. Azure 데이터 팩터리는 같은 지리의 싱크 위치에 가장 가까운 지역에서 이 서비스의 배포를 사용합니다. 매핑은 다음 테이블을 참조하세요. <br/><br/><table><tr><th>대상 데이터 저장소의 지역</th> <th>데이터 이동에 사용되는 지역</th></tr><tr><td>미국 동부</td><td>미국 동부</td></tr><tr><td>미국 동부 2</td><td>미국 동부 2</td><tr/><tr><td>미국 중부</td><td>미국 중부</td><tr/><tr><td>미국 서부</td><td>미국 서부</td></tr><tr><td>미국 중북부</td><td>미국 중북부</td></tr><tr><td>미국 중남부</td><td>미국 중남부</td></tr><tr><td>북유럽</td><td>북유럽</td></tr><tr><td>서유럽</td><td>서유럽</td></tr><tr><td>동남아시아</td><td>동남아시아</td></tr><tr><td>동아시아</td><td>동남아시아</td></tr><tr><td>일본 동부</td><td>일본 동부</td></tr><tr><td>일본 서부</td><td>일본 동부</td></tr><tr><td>브라질 남부</td><td>브라질 남부</td></tr><tr><td>오스트레일리아 동부</td><td>오스트레일리아 동부</td></tr><tr><td>오스트레일리아 남동부</td><td>오스트레일리아 남동부</td></tr></table>
@@ -90,7 +87,7 @@ Azure 데이터 팩터리의 [복사 작업](#copyactivity)에 의해 원본에�
 각 데이터 저장소 커넥터 문서에서 데이터 저장소용 .NET에 지정된 네이티브 형식 시스템에 대한 매핑을 찾을 수 있습니다. 테이블을 만드는 동안 적절한 형식을 결정하는 이러한 매핑을 사용할 수 있으므로 복사 작업 시 오른쪽 변환이 수행 됩니다.
 
 ### 다른 파일 형식으로 작업
-복사 작업은 파일 기반 저장소에 대해 이진, 텍스트, Avro, ORC 및 JSON 형식을 포함하여 다양한 파일 형식을 지원합니다. 복사 작업을 사용하여 한 형식에서 다른 형식으로 데이터를 변환할 수 있습니다. 예: 텍스트(CSV)에서 Avro로 변환 데이터가 구조화되지 않은 경우 [데이터 집합](data-factory-create-datasets.md)의 JSON 정의에서 **Structure** 속성을 생략할 수 있습니다.
+복사 작업은 파일 기반 저장소에 대해 이진(이미지, 문서, 음악 등), 텍스트, Avro, ORC 및 JSON 형식을 포함하여 다양한 파일 형식을 지원합니다. 그러나 텍스트, Avro, ORC, JSON 파일에서 구조화된 파일의 내부 콘텐츠만 읽을 수 있습니다. 복사 작업을 사용하여 한 형식에서 다른 형식으로 데이터를 변환할 수 있습니다. 예: 텍스트(CSV)에서 Avro로 변환 데이터가 구조화되지 않은 경우 [데이터 집합](data-factory-create-datasets.md)의 JSON 정의에서 **Structure** 속성을 생략할 수 있습니다.
 
 ### 복사 작업 속성
 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다. 반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다.
@@ -184,8 +181,8 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 ![사용자 지정 변수 사용](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
 ## 다음 단계
-- 일반적으로 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+- 일반적으로 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터로 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 - 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소에 데이터를 이동하는 방법에 대한 자세한 내용은 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
