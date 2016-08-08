@@ -150,7 +150,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
+[1]: ./media/security-center-intro/security-tile.PNG
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -160,4 +160,4 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->
