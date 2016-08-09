@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 백업을 사용하여 Resource Manager 배포 VM 보호 | Microsoft Azure"
-	description="Azure 백업 서비스를 사용하여 Resource Manager 배포 VM을 보호합니다. Resource Manager 배포 VM 및 프리미엄 저장소 VM의 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
+	pageTitle="소개: 복구 서비스 자격 증명 모음으로 Azure VM 보호 | Microsoft Azure"
+	description="복구 서비스 자격 증명 모음으로 Azure VM 보호. Resource Manager에 의해 배포된 VM, 클래식으로 배포된 VM 및 프리미엄 저장소 VM의 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,13 +18,13 @@
 	ms.author="markgal; jimpark"/>
 
 
-# 먼저 보기: Resource Manager 배포 VM을 복구 서비스 자격 증명 모음에 백업
+# 소개: 복구 서비스 자격 증명 모음으로 Azure VM 보호
 
 > [AZURE.SELECTOR]
-- [Resource Manager 배포 VM 백업](backup-azure-vms-first-look-arm.md)
-- [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
+- [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)
+- [소개: 백업 자격 증명으로 Azure VM 보호](backup-azure-vms-first-look.md)
 
-이 자습서에서는 복구 서비스 자격 증명 모음을 만들고 Azure 가상 컴퓨터(VM)를 백업하기 위한 단계를 안내합니다. 복구 서비스 자격 증명 모음이 보호하는 항목:
+이 자습서에서는 복구 서비스 자격 증명 모음을 만들고 Azure 가상 컴퓨터\(VM\)를 백업하기 위한 단계를 안내합니다. 복구 서비스 자격 증명 모음이 보호하는 항목:
 
 - Azure Resource Manager 배포 VM
 - 클래식 VM
@@ -68,9 +68,9 @@
 
     ![복구 서비스 자격 증명 모음 만들기 5단계](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
+4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2\~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
 
-5. **구독**을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
+5. **구독**을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본\(또는 제안된\) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
 
 6. **리소스 그룹**을 클릭하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 정보는 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
@@ -92,7 +92,7 @@
 
 1. 자격 증명 모음 대시보드 및 설정 블레이드를 열 자격 증명 모음을 선택합니다. **설정** 블레이드가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
 
-2. **설정** 블레이드에서 **백업 인프라** > **백업 구성**을 클릭하여 **백업 구성** 블레이드를 엽니다. **백업 구성** 블레이드에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+2. **설정** 블레이드에서 **백업 인프라** \> **백업 구성**을 클릭하여 **백업 구성** 블레이드를 엽니다. **백업 구성** 블레이드에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -155,7 +155,7 @@
 
 ## 3단계 - 초기 백업
 
-백업 정책이 가상 컴퓨터에 배포되었다고 해서 데이터가 백업된 것은 아닙니다. 기본적으로 첫 번째 예약된 백업(백업 정책에 정의된 대로)은 초기 백업입니다. 초기 백업이 발생할 때까지 **백업 작업** 블레이드에서 최신 백업 상태가 **경고(초기 백업 보류 중)**로 표시됩니다.
+백업 정책이 가상 컴퓨터에 배포되었다고 해서 데이터가 백업된 것은 아닙니다. 기본적으로 첫 번째 예약된 백업\(백업 정책에 정의된 대로\)은 초기 백업입니다. 초기 백업이 발생할 때까지 **백업 작업** 블레이드에서 최신 백업 상태가 **경고\(초기 백업 보류 중\)**로 표시됩니다.
 
 ![보류 중인 백업](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
@@ -193,7 +193,7 @@
 
 ## 가상 컴퓨터에 VM 에이전트 설치
 
-필요한 경우 이 정보가 제공됩니다. Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. 그러나 Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 설치해야 합니다. Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 사용자 지정 VM을 만드는 경우 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란을 선택해야 합니다](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+필요한 경우 이 정보가 제공됩니다. Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. 그러나 Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 설치해야 합니다. Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다\(아래 테이블 참조\). 사용자 지정 VM을 만드는 경우 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란을 선택해야 합니다](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md)에 대해 알아보세요.
 
@@ -219,4 +219,4 @@
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

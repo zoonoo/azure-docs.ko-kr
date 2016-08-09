@@ -1,6 +1,6 @@
 <properties
-	pageTitle="먼저 보기: Azure 백업으로 Azure에서 VM 보호 | Microsoft Azure"
-	description="Azure 백업 서비스로 Azure VM을 보호합니다. 자습서에서는 Azure의 자격 증명 모음 만들기, VM 등록, 정책 만들기, VM 보호를 설명합니다."
+	pageTitle="소개: 백업 자격 증명으로 Azure VM 보호 | Microsoft Azure"
+	description="백업 자격 증명으로 Azure VM 보호. 자습서에서는 Azure의 자격 증명 모음 만들기, VM 등록, 정책 만들기, VM 보호를 설명합니다."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/18/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # 소개: Azure 가상 컴퓨터 백업
 
 > [AZURE.SELECTOR]
-- [Resource Manager VM 백업](backup-azure-vms-first-look-arm.md)
-- [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
+- [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)
+- [소개: 백업 자격 증명으로 Azure VM 보호](backup-azure-vms-first-look.md)
 
-이 자습서에서는 Azure 가상 컴퓨터(VM)를 Azure의 백업 자격 증명 모음에 백업하는 단계를 안내합니다. 이 문서에서는 VM을 백업하기 위해 클래식 모델 또는 서비스 관리자 배포 모델을 설명합니다. 리소스 그룹에 속해 있는 복구 서비스 자격 증명 모음에 VM을 백업하려는 경우 Resource Manager VM 백업이라는 다른 탭을 참조하세요. 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
+이 자습서에서는 Azure 가상 컴퓨터\(VM\)를 Azure의 백업 자격 증명 모음에 백업하는 단계를 안내합니다. 이 문서에서는 VM을 백업하기 위해 클래식 모델 또는 서비스 관리자 배포 모델을 설명합니다. 리소스 그룹에 속해 있는 복구 서비스 자격 증명 모음에 VM을 백업하려는 경우 [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)를 참조하세요. 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
 - Azure 구독에서 VM을 만들었습니다.
 - VM은 Azure공용 IP 주소에 연결되어 있습니다. 자세한 내용은 [네트워크 연결](./backup-azure-vms-prepare.md#network-connectivity)을 참조하세요.
@@ -34,7 +34,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 
 ![VM 백업 프로세스의 상위 수준 보기](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 이 자습서는 Azure 클래식 포털에서 만들 수 있는 VM에서 사용하도록 준비되었습니다. Azure 백업 서비스는 IaaS V2 VM이라고도 하는 Azure Resource Manager(ARM) 기반 VM을 를 지원합니다. ARM VM 백업에 대한 자세한 내용은 [먼저 보기: ARM VM을 복구 서비스 자격 증명 모음에 백업](backup-azure-vms-first-look-arm.md)을 참조하세요.
+>[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 이 자습서는 Azure 클래식 포털에서 만들 수 있는 VM에서 사용하도록 준비되었습니다. Azure 백업 서비스는 리소스 관리자 기반 VM을 지원합니다. 복구 서비스 자격 증명 모음에 VM 백업에 대한 자세한 내용은 [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)합니다.
 
 
 
@@ -48,7 +48,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 
     ![새로 만들기 메뉴를 클릭합니다.](./media/backup-azure-vms-first-look/new-button.png)
 
-3. 빠른 생성 마법사에서 **데이터 서비스** > **복구 서비스** > **백업 자격 증명 모음** > **빠른 생성**을 클릭합니다.
+3. 빠른 생성 마법사에서 **데이터 서비스** \> **복구 서비스** \> **백업 자격 증명 모음** \> **빠른 생성**을 클릭합니다.
 
     ![백업 자격 증명 모음 만들기](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
@@ -82,7 +82,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소를 선택합니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. 지역 중복 및 로컬 중복 저장소 옵션에 대한 자세한 내용은 [Azure 저장소 복제 개요](../storage/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소를 선택합니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. 지역 중복 및 로컬 중복 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/storage-redundancy.md)를 참조하세요.
 
 자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 컴퓨터를 검색하고 등록합니다.
 
@@ -143,7 +143,7 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 
 
 ## 4단계 - 백업 정책 만들기
-초기 백업 작업을 트리거하기 전에, 백업 스냅숏을 생성하는 일정을 설정합니다. 백업 스냅숏을 생성하는 일정 및 스냅숏을 보존하는 기간이 백업 정책입니다. 보존 정보는 GFS(Grandfather-Father-Son) 백업 회전 체계를 기반으로 합니다.
+초기 백업 작업을 트리거하기 전에, 백업 스냅숏을 생성하는 일정을 설정합니다. 백업 스냅숏을 생성하는 일정 및 스냅숏을 보존하는 기간이 백업 정책입니다. 보존 정보는 GFS\(Grandfather-Father-Son\) 백업 회전 체계를 기반으로 합니다.
 
 1. Azure 클래식 포털의 **복구 서비스**에 있는 백업 저장소로 이동하여 **등록된 항목**을 클릭합니다.
 2. 드롭다운 메뉴에서 **Azure 가상 컴퓨터**를 선택합니다.
@@ -182,7 +182,7 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 
 ## 5단계 - 초기 백업
 
-가상 컴퓨터가 정책으로 보호되면 **보호된 항목** 탭에서 해당 관계를 볼 수 있습니다. 초기 백업이 발생할 때까지 **보호 상태**는 **보호됨 - (초기 백업 보류 중)**으로 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업*입니다.
+가상 컴퓨터가 정책으로 보호되면 **보호된 항목** 탭에서 해당 관계를 볼 수 있습니다. 초기 백업이 발생할 때까지 **보호 상태**는 **보호됨 - \(초기 백업 보류 중\)**으로 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업*입니다.
 
 ![보류 중인 백업](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
@@ -213,4 +213,4 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

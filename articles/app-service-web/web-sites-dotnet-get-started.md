@@ -65,9 +65,9 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 
 1. Visual Studio 2015를 엽니다.
 
-2. **파일 > 새로 만들기 > 프로젝트**를 클릭합니다.
+2. **파일 \> 새로 만들기 \> 프로젝트**를 클릭합니다.
 
-3. **새 프로젝트** 대화 상자에서 **Visual C# > 웹 > ASP.NET 웹 응용 프로그램**을 클릭합니다.
+3. **새 프로젝트** 대화 상자에서 **Visual C\# \> 웹 \> ASP.NET 웹 응용 프로그램**을 클릭합니다.
 
 3. **.NET Framework 4.5.2**가 대상 프레임워크로 선택되었는지 확인합니다.
 
@@ -199,7 +199,7 @@ Visual Studio 2013을 사용하려는 경우 [Visual Studio 2013용 최신 Azure
 
 	![Azure에서 실행되는 웹앱](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 > 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다. ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 \> 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다. ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## 문제 해결
 
@@ -231,7 +231,7 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 * 사용자 지정 도메인 이름 및 SSL 추가
 
-	SSL 및 사용자만의 도메인(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
+	SSL 및 사용자만의 도메인\(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용\)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 	* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
@@ -240,6 +240,6 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 	Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 
-*	앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)에서 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
+*	앱 서비스에서 ASP.NET 웹앱을 만드는 방법의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) 및 [Azure 앱 서비스에서 모바일 앱 만들기 및 배포](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

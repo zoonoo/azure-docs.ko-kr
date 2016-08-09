@@ -22,7 +22,7 @@
 ## 보안 정책이란?
 보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. 보안 센터에서 회사의 보안 요구 사항 및 응용 프로그램 유형 또는 각 구독의 데이터 민감도에 따라 Azure 구독 또는 리소스 그룹에 대한 정책을 정의합니다.
 
-예를 들어 개발 또는 테스트에 사용되는 리소스의 요구사항은 프로덕션 응용 프로그램에 사용되는 보안 요구 사항과 다릅니다. 마찬가지로 PII(Personally Identifiable Information) 같은 규제된 데이터를 가진 응용 프로그램에 대해서는 더 높은 수준의 보안이 필요할 수 있습니다. Azure 보안 센터에서 활성화한 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure 보안 센터 계획 및 운영 가이드](security-center-planning-and-operations-guide.md)를 참고하세요.
+예를 들어 개발 또는 테스트에 사용되는 리소스의 요구사항은 프로덕션 응용 프로그램에 사용되는 보안 요구 사항과 다릅니다. 마찬가지로 PII\(Personally Identifiable Information\) 같은 규제된 데이터를 가진 응용 프로그램에 대해서는 더 높은 수준의 보안이 필요할 수 있습니다. Azure 보안 센터에서 활성화한 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure 보안 센터 계획 및 운영 가이드](security-center-planning-and-operations-guide.md)를 참고하세요.
 
 ## 구독에 대한 보안 정책 설정
 
@@ -68,8 +68,8 @@
 | OS 취약성 | 매일 가상 컴퓨터를 공격에 취약할 수 있도록 하는 OS 구성을 분석하고 이러한 취약점을 해결하기 위해 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. |
 | Endpoint Protection | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 Endpoint Protection을 프로비전하도록 권장합니다. 모니터링되는 특정 구성. |
 | 디스크 암호화 | 모든 가상 컴퓨터에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다. 
-| 네트워크 보안 그룹 | 공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 NSG([네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md))를 구성하는 것이 좋습니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 NSG는 모든 가상 컴퓨터 네트워크 인터페이스에서 상속합니다. NSG가 구성되었는지 확인하는 것 외에도 이 옵션은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙이 있는지 식별합니다. |
-| 웹 응용 프로그램 방화벽 | [ILPIP(인스턴스 수준 공용 IP)](../virtual-network/virtual-networks-instance-level-public-ip.md)가 사용되고 연결된 NSG 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전하도록 권장합니다. VIP(부하 분산 IP)가 사용되고 연결된 부하 분산 및 인바운드 NAT 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우(자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/load-balancer-arm.md) 참조) |
+| 네트워크 보안 그룹 | 공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 NSG\([네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)\)를 구성하는 것이 좋습니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 NSG는 모든 가상 컴퓨터 네트워크 인터페이스에서 상속합니다. NSG가 구성되었는지 확인하는 것 외에도 이 옵션은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙이 있는지 식별합니다. |
+| 웹 응용 프로그램 방화벽 | [ILPIP\(인스턴스 수준 공용 IP\)](../virtual-network/virtual-networks-instance-level-public-ip.md)가 사용되고 연결된 NSG 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전하도록 권장합니다. VIP\(부하 분산 IP\)가 사용되고 연결된 부하 분산 및 인바운드 NAT 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우\(자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/load-balancer-arm.md) 참조\) |
 | 차세대 방화벽 | Azure에 기본 제공되는 네트워크 보안 그룹 외에도 네트워크 보호 기능을 확장합니다. 보안 센터는 차세대 방화벽을 권장하는 배포를 검색하고 가상 어플라이언스를 프로비전할 수 있도록 합니다. |
 | SQL 감사 | 규정 준수, 고급 감지 및 조사를 위해 Azure SQL Server 및 데이터베이스에 대한 액세스 감사를 활성화할 것을 권장합니다. |
 | SQL 투명한 데이터 암호화 | 데이터 위반이 있더라도 데이터를 읽을 수 없도록 Azure SQL 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일에 대해 휴지 상태의 암호화를 활성화할 것을 권장합니다. |
@@ -93,11 +93,11 @@
 
 이 문서에서는 Azure 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) - 디자인 고려 사항을 계획하고 이해하여 Azure 보안 센터를 채택하는 방법을 알아봅니다.
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법 알아보기
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
-- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
+- [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure 보안 센터를 채택하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

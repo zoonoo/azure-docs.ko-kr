@@ -1,7 +1,7 @@
 <properties
 	pageTitle="사용 가능한 커넥터 및 API 앱 목록 | Microsoft Azure 앱 서비스"
 	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="erikre"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/11/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 
 # 논리 앱에서 사용할 커넥터 및 API 앱 목록
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전은 [새 커넥터 목록](../connectors/apis-list.md)을 클릭합니다.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. Logic Apps GA\(일반 공급\) 버전의 경우 [새 커넥터 목록](../connectors/apis-list.md)을 참조합니다.
 
 논리 앱으로 사용하려는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱에 대해 알아봅니다.
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-> [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE] Azure 계정에 등록하기 전에 Logic Apps를 시작하려는 경우 [Logic Apps 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 코어 커넥터
 다음 표에는 코어 커넥터로 사용할 수 있는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
@@ -47,11 +47,11 @@
 ------------- | -------------
 [AS2 커넥터](app-service-logic-connector-as2.md) | AS2 전송 프로토콜을 사용하여 메시지를 수신하고 보낼 수 있습니다. 데이터는 안전하고 안정적으로 디지털 인증서 및 암호화를 사용하여 전송됩니다.
 [BizTalk EDIFACT](app-service-logic-connector-edifact.md) | 기업 간 통신에 EDIFACT 프로토콜을 사용하여 메시지를 수신하고 보냅니다.
-[BizTalk 플랫 파일 인코더](app-service-logic-flatfile-encoder.md) | 플랫 파일 데이터(예: excel 및 csv)와 XML 데이터 간의 상호 운용성을 제공합니다. 이 API 앱은 플랫 파일 인스턴스를 XML로 또는 그 반대로 변환할 수 있습니다.
+[BizTalk 플랫 파일 인코더](app-service-logic-flatfile-encoder.md) | 플랫 파일 데이터\(예: excel 및 csv\)와 XML 데이터 간의 상호 운용성을 제공합니다. 이 API 앱은 플랫 파일 인스턴스를 XML로 또는 그 반대로 변환할 수 있습니다.
 [BizTalk JSON 인코더](app-service-logic-connector-jsonencoder.md) | JSON 및 XML 데이터 간에 사용자 앱을 상호 운용하는 인코더 및 디코더. 이는 지정된 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
 [BizTalk 규칙](app-service-logic-use-biztalk-rules.md) | BizTalk 규칙을 사용하여 조직 내에서 비즈니스 논리를 정의하고 제어합니다. 비즈니스 정책은 관련된 응용 프로그램을 다시 컴파일하고 다시 배포하지 않고도 업데이트할 수 있습니다.
 [BizTalk 거래 업체 관리](app-service-logic-connector-tpm.md) | 파트너, 규약 및 규약에 사용되는 스키마 및 인증서를 사용하여 B2B 관계를 정의하고 유지합니다. 이러한 관계는 AS2, EDIFACT 및 X12 API 앱을 사용하여 적용됩니다.
-[BizTalk 변환 서비스](app-service-logic-transform-xml-documents.md) | 데이터를 한 형식에서 다른 형식으로 변환합니다. 또한 기존 맵(.trfm 파일)을 업로드하고, 원본과 대상 스키마 간 링크를 보고, 샘플 입력 XML 콘텐츠로 '테스트' 기능을 사용할 수 있습니다. 문자열 조작, 조건부 할당 등을 비롯하여 다양한 기본 제공 함수도 사용할 수 있습니다.
+[BizTalk 변환 서비스](app-service-logic-transform-xml-documents.md) | 데이터를 한 형식에서 다른 형식으로 변환합니다. 또한 기존 맵\(.trfm 파일\)을 업로드하고, 원본과 대상 스키마 간 링크를 보고, 샘플 입력 XML 콘텐츠로 '테스트' 기능을 사용할 수 있습니다. 문자열 조작, 조건부 할당 등을 비롯하여 다양한 기본 제공 함수도 사용할 수 있습니다.
 [BizTalk X12](app-service-logic-connector-x12.md) | 기업 간 통신에 X12 프로토콜을 사용하여 메시지를 수신하고 보냅니다.
 [BizTalk XML 유효성 검사기](app-service-logic-xml-validator.md) | 미리 정의된 XML 스키마와 비교하여 XML 데이터의 유효성을 검사합니다. 기존 스키마를 사용하거나 플랫 파일 인스턴스, JSON 인스턴스 또는 기존 커넥터에 따라 스키마를 생성할 수 있습니다.
 [BizTalk XPath 추출기](app-service-logic-xpath-extract.md) | 선택한 XPath에 따라 XML 콘텐츠에서 데이터를 조회 및 추출합니다.
@@ -62,7 +62,7 @@
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | 온-프레미스 SQL Server 또는 Azure SQL 데이터베이스에 연결합니다. SQL 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
 MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. 온-프레미스를 사용하는 경우 VPN 또는 Azure Express 경로를 사용할 수 있습니다. 커넥터에는 MQ용 Microsoft 클라이언트도 포함되어 있습니다.<br/><br/>트리거가 없습니다. 작업이 없습니다.<br/><br/>**참고** 현재는 논리 앱과 함께 사용할 수 없습니다.
 [Oracle 데이터베이스](app-service-logic-connector-oracle.md) | 온-프레미스 Oracle 데이터베이스에 연결하고 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
-[POP3](app-service-logic-connector-pop3.md)(Post Office Protocol)| POP3 서버에 연결하여 첨부 파일이 있는 이메일을 검색합니다.
+[POP3](app-service-logic-connector-pop3.md)\(Post Office Protocol\)| POP3 서버에 연결하여 첨부 파일이 있는 이메일을 검색합니다.
 [SAP](app-service-logic-connector-sap.md) | 온-프레미스 SAP 서버에 연결하고 RFC, BAPI 및 tRFC를 호출하며 IDOC를 보냅니다.
 
 ## 트리거로 사용되는 커넥터
@@ -80,4 +80,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 ## 커넥터 및 API 앱에 대한 자세한 내용
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

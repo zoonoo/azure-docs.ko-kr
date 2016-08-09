@@ -4,7 +4,7 @@
 	keywords="데이터베이스 모니터링, 클라우드 데이터베이스 성능"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -47,4 +47,4 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

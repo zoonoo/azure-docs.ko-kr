@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -50,4 +50,4 @@
 ## 다음 단계
 이제 이 SQL 데이터베이스 자습서를 완료하고 사용자 계정을 만들고 사용자 계정 dbo 권한을 부여했으므로 [SQL 데이터베이스 보안](sql-database-manage-logins.md)에 대해 자세히 알아볼 준비가 되었습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

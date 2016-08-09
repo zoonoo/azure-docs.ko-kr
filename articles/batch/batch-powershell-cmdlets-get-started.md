@@ -13,24 +13,24 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
-배치 계정을 관리하고 풀, 작업, 태스크 등의 배치 리소스 작업에 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다. Batch cmdlet에서는 배치 API, Azure 포털, Azure CLI(명령줄 인터페이스)에서 가능한 작업과 동일한 작업을 수행할 수 있습니다. 이 문서는 Azure PowerShell 버전 1.3.2 이상을 기반으로 합니다.
+Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure CLI\(명령줄 인터페이스\)에서 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다. 배치 계정을 관리하고 풀, 작업, 태스크 등의 배치 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다. 이 문서는 Azure PowerShell 버전 1.6.0의 cmdlet를 기반으로 합니다.
 
 배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)에서 확인하세요.
 
 
 ## 필수 조건
 
-* **Azure PowerShell** - Azure PowerShell 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 
+* **Azure PowerShell** - Azure PowerShell 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
    
-    * Azure 배치 cmdlet은 Azure Resource Manager 모듈에 탑재되므로 **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결해야 합니다. 
+    * Azure 배치 cmdlet은 Azure Resource Manager 모듈에 탑재되므로 **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결해야 합니다.
     
     * 서비스 업데이트 및 향상을 최대한 활용하기 위해서 Azure PowerShell을 자주 업데이트하는 것이 좋습니다.
     
-* **배치 공급자 네임스페이스(일회성 작업)에 등록** - 배치 계정을 사용하기 전에 배치 공급자 네임스페이스에 등록해야 합니다. 이 작업은 구독당 한 번만 수행하면 됩니다. 다음 cmdlet을 실행합니다.
+* **배치 공급자 네임스페이스\(일회성 작업\)에 등록** - 배치 계정을 사용하기 전에 배치 공급자 네임스페이스에 등록해야 합니다. 이 작업은 구독당 한 번만 수행하면 됩니다. 다음 cmdlet을 실행합니다.
 
         Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 
@@ -45,7 +45,7 @@
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-그런 다음, 리소스 그룹에 새 배치 계정을 만듭니다. <*account\_name*>의 계정 이름과 배치 서비스를 사용할 수 있는 위치를 지정합니다. 계정을 만드는 데는 몇 분 정도 걸릴 수 있습니다. 예:
+그런 다음, 리소스 그룹에 새 배치 계정을 만들어, \<*account\_name*\>의 계정 이름과 리소스 그룹의 위치와 이름을 지정합니다. 배치 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,14 +94,20 @@ BatchAccountContext 개체를 **BatchContext** 매개 변수를 사용하는 cmd
 ## 배치 리소스 만들기 및 수정
 **New-AzureBatchPool**, **New-AzureBatchJob** 및 **New-AzureBatchTask** 등의 cmdlet을 사용하여 배치 계정 아래 리소스를 만듭니다. 기존 리소스 속성을 업데이트하는 해당 **Get-** 및 **Set-** cmdlet과, 배치 계정에서 리소스를 제거하는 **Remove-** cmdlet이 있습니다.
 
+이러한 많은 cmdlet을 사용하는 경우 BatchContext 개체를 전달 하는 것 외에도, 다음 예제와 같이 상세한 리소스 설정을 포함하는 개체를 만들거나 전달해야 합니다. 추가 예제를 보려면 각 cmdlet에 대한 자세한 도움말을 참조하세요.
+
 ### 배치 풀 만들기
 
-예를 들어, 다음 cmdlet은 제품군 3(Windows Server 2012)의 최신 운영 체제 버전으로 이미징 처리한 소형 가상 컴퓨터를 사용하도록 구성된 새 배치 풀을 만듭니다. 대상 계산 노드 수는 자동 크기 조정 수식에 의해 결정됩니다. 이 경우 공식은 단순히 **$TargetDedicated=3**이며 풀의 계산 노드 수는 최대 3개입니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
+배치 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 컴퓨터 구성을 선택합니다\([배치 기능 개요](batch-api-basics.md#pool) 참조\). 계산 노드의 이미지를 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나 또는 Azure 마켓플레이스에서 지원되는 Linux 또는 Windows VM 이미지 중 하나를 통해 만들지 여부를 선택합니다.
+
+**New-AzureBatchPool**을 실행하는 경우, PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어, 다음 cmdlet는 제품군 3\(Windows Server 2012\)의 최신 운영 체제 버전을 통해 이미지를 만든 클라우드 서비스 구성에서 소규모 계산 노드로 새 배치 풀을 만듭니다. 여기서 **CloudServiceConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]현재 배치 PowerShell cmdlet은 계산 노드에 대한 클라우드 서비스 구성만을 지원합니다. 이것은 Windows Server 운영 체제의 Azure 게스트 OS 릴리스 중 하나를 선택하여 계산 노드에서 실행할 수 있도록 합니다. 배치 풀에 대한 다른 계산 노드 구성 옵션에는 배치 SDK 또는 Azure CLI를 사용합니다.
+새 풀의 계산 노드 대상 수는 자동 크기 조정 수식에 의해 결정됩니다. 이 경우 공식은 단순히 **$TargetDedicated=4**이며 풀의 계산 노드 수는 최대 4개입니다.
 
 ## 풀, 작업, 태스크 및 기타 상세 정보 쿼리
 
@@ -161,4 +167,4 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 
 * 항목의 수 및 쿼리에 대해 배치에 반환되는 정보의 유형을 줄이는 데 대한 자세한 내용은 [효율적인 배치 서비스 쿼리](batch-efficient-list-queries.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

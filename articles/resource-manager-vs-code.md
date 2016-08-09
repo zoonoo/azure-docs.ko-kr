@@ -27,7 +27,7 @@ VS Code가 아직 설치되지 않은 경우 [https://code.visualstudio.com/](ht
 VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다. 다음 단계는 Resource Manager JSON 템플릿에 대한 언어 지원을 다운로드하고 설치합니다.
 
 1. VS Code 시작
-2. 빠른 열기 열기(Ctrl+P)
+2. 빠른 열기 열기\(Ctrl+P\)
 3. 다음 명령을 실행합니다.
 
         ext install azurerm-vscode-tools
@@ -42,7 +42,7 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 
 1. [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) 리포지토리에서 파일의 내용을 클립보드에 복사합니다.
 2. VS Code 시작
-3. VS 코드에서 **파일** -> **기본 설정** -> **사용자 코드 조각** -> **JSON**을 탐색하거나 **기본 설정: 코드 조각**을 선택하기 위해 **F1**을 선택하고 **기본 설정**을 입력하여 JSON 코드 조각 파일을 열 수 있습니다.
+3. VS 코드에서 **파일** -\> **기본 설정** -\> **사용자 코드 조각** -\> **JSON**을 탐색하거나 **기본 설정: 코드 조각**을 선택하기 위해 **F1**을 선택하고 **기본 설정**을 입력하여 JSON 코드 조각 파일을 열 수 있습니다.
 
     ![기본 설정 코드 조각](./media/resource-manager-vs-code/preferences-snippets.png)
 
@@ -64,15 +64,15 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 
     ![파일 표시](./media/resource-manager-vs-code/show-files.png)
 
-2. 몇 가지 추가 리소스를 편집하고 추가할 수 있도록 template.json 파일을 엽니다. **"resources": [** 다음에 enter 키를 눌러서 새 줄을 시작합니다. **arm**을 입력하는 경우 옵션 목록이 제공됩니다. 이러한 옵션은 설치한 템플릿 코드 조각입니다. 다음과 같이 표시되어야 합니다.
+2. 몇 가지 추가 리소스를 편집하고 추가할 수 있도록 template.json 파일을 엽니다. **"resources": \[** 다음에 enter 키를 눌러서 새 줄을 시작합니다. **arm**을 입력하는 경우 옵션 목록이 제공됩니다. 이러한 옵션은 설치한 템플릿 코드 조각입니다. 다음과 같이 표시되어야 합니다.
 
     ![코드 조각 표시](./media/resource-manager-vs-code/type-snippets.png)
 
-3. 원하는 코드 조각을 선택합니다. 이 문서의 경우 **arm-ip**를 선택하여 새 공용 IP 주소를 만듭니다. 새로 만든 리소스의 닫는 괄호("}") 다음에 쉼표를 추가하여 템플릿 구문이 유효하도록 합니다.
+3. 원하는 코드 조각을 선택합니다. 이 문서의 경우 **arm-ip**를 선택하여 새 공용 IP 주소를 만듭니다. 새로 만든 리소스의 닫는 괄호\("}"\) 다음에 쉼표를 추가하여 템플릿 구문이 유효하도록 합니다.
 
      ![쉼표 추가](./media/resource-manager-vs-code/add-comma.png)
 
-4. VS Code에는 기본 제공 IntelliSense가 있습니다. 템프릿을 편집할 때 VS Code에서는 사용할 수 있는 값을 제안합니다. 예를 들어 변수 섹션을 템플릿에 추가하려면 **""**(두 개의 큰따옴표)를 추가하고 따옴표 사이에 **Ctrl+스페이스바**를 선택합니다. **변수**를 비롯한 옵션이 나타납니다.
+4. VS Code에는 기본 제공 IntelliSense가 있습니다. 템프릿을 편집할 때 VS Code에서는 사용할 수 있는 값을 제안합니다. 예를 들어 변수 섹션을 템플릿에 추가하려면 **""**\(두 개의 큰따옴표\)를 추가하고 따옴표 사이에 **Ctrl+스페이스바**를 선택합니다. **변수**를 비롯한 옵션이 나타납니다.
 
     ![변수 추가](./media/resource-manager-vs-code/add-variables.png)
 
@@ -134,5 +134,6 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 
 - 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 함수에 대해 알아보려면 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+- Visual Studio 코드를 사용한 작업의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Visual Studio Code를 사용한 클라우드 앱 빌드](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

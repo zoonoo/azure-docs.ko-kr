@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성
@@ -24,6 +24,8 @@
 - [PowerShell - Azure 리소스 관리자](vpn-gateway-vnet-vnet-rm-ps.md)
 
 이 문서에서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 가상 네트워크 간에 연결을 만드는 단계를 안내합니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **Azure 배포 모델 정보**
@@ -39,7 +41,7 @@
 
 ## VNet 간 연결 정보
 
-가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 매우 유사합니다. 두 연결 유형 모두 Azure VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 연결하는 VNet은 서로 다른 지역에 있을 수 있습니다. 또는 다른 구독에 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이렇게 하면 아래 다이어그램에 표시된 것처럼 크로스-프레미스 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
+가상 네트워크를 다른 가상 네트워크에 연결\(VNet-VNet\)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 매우 유사합니다. 두 연결 유형 모두 Azure VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 연결하는 VNet은 서로 다른 지역에 있을 수 있습니다. 또는 다른 구독에 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이렇게 하면 아래 다이어그램에 표시된 것처럼 크로스-프레미스 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
 
 ![연결 정보](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -109,8 +111,8 @@
 - 게이트웨이 이름: VNet1GW
 - 공용 IP: VNet1GWIP
 - VpnType: 경로 기반
-- 연결(1 대 4): VNet1 대 VNet4
-- 연결(1 대 5): VNet1 대 VNet5
+- 연결\(1 대 4\): VNet1 대 VNet4
+- 연결\(1 대 5\): VNet1 대 VNet5
 - 연결 유형: VNet 간
 
 
@@ -120,7 +122,7 @@
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - 프런트 엔드: 10.41.0.0/24
 - 백 엔드: 10.42.0.0/24
-- 게이트웨이 서브넷 = 10.42.255.0.0/27
+- 게이트웨이 서브넷: 10.42.255.0/27
 - 리소스 그룹: TestRG4
 - 위치: 미국 서부
 - DNS 서버: 8.8.8.8
@@ -209,7 +211,7 @@
 
 8. TestVNet1에 대한 게이트웨이 만들기
 
-	이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 30분 이상).
+	이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다\(완료되려면 30분 이상\).
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -298,7 +300,7 @@ TestVNet1를 구성한 후 단계를 반복하여 TestVNet4를 만듭니다. 아
 
 ### Azure 포털을 사용하여 연결을 확인하려면
 
-**가상 네트워크 게이트웨이** -> **게이트웨이 이름 클릭** -> **설정** -> **연결**로 이동하여 Azure 포털에서 VPN 연결을 확인할 수 있습니다. 연결의 이름의 선택하여 **연결** 블레이드에서 자세한 정보를 볼 수 있습니다.
+**가상 네트워크 게이트웨이** -\> **게이트웨이 이름 클릭** -\> **설정** -\> **연결**로 이동하여 Azure 포털에서 VPN 연결을 확인할 수 있습니다. 연결의 이름의 선택하여 **연결** 블레이드에서 자세한 정보를 볼 수 있습니다.
 
 
 ### PowerShell을 사용하여 연결을 확인하려면
@@ -307,7 +309,7 @@ TestVNet1를 구성한 후 단계를 반복하여 TestVNet4를 만듭니다. 아
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
-cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell 출력 예제에서는 연결 상태가 *연결됨*으로 표시되고 송/수신 바이트를 볼 수 있습니다.
+cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell 출력 예제에서 연결 상태가 *연결됨*으로 표시되고 송/수신 바이트를 볼 수 있습니다.
 
 
 
@@ -441,9 +443,9 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 ### 7단계 - 게이트웨이 연결
 
-이 예제에서는 게이트웨이가 다른 구독에 있기 때문에 이 단계를 [구독 1] 및 [구독 5]로 표시된 두 개의 PowerShell 세션으로 분할했습니다.
+이 예제에서는 게이트웨이가 다른 구독에 있기 때문에 이 단계를 \[구독 1\] 및 \[구독 5\]로 표시된 두 개의 PowerShell 세션으로 분할했습니다.
 
-1. **[구독 1]** 구독 1에 대한 가상 네트워크 게이트웨이 가져오기
+1. **\[구독 1\]** 구독 1에 대한 가상 네트워크 게이트웨이 가져오기
 
 	로그인하고 구독 1에 연결해야 합니다.
 
@@ -456,12 +458,12 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 	이 두 요소는 다음 예제 출력과 유사한 값을 갖게 됩니다.
 
-		PS D:> $vnet1gw.Name
+		PS D:\> $vnet1gw.Name
 		VNet1GW
-		PS D:> $vnet1gw.Id
+		PS D:\> $vnet1gw.Id
 		/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
 
-2. **[구독 5]** 구독 5에 대한 가상 네트워크 게이트웨이 가져오기
+2. **\[구독 5\]** 구독 5에 대한 가상 네트워크 게이트웨이 가져오기
 
 	로그인하고 구독 5에 연결해야 합니다.
 
@@ -479,7 +481,7 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 		PS C:\> $vnet5gw.Id
 		/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
 
-3. **[구독 1]** TestVNet1 대 TestVNet5 연결 만들기
+3. **\[구독 1\]** TestVNet1에서 TestVNet5에 연결 만들기
 
 	이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 여기서 차이점은 $vnet5gw가 다른 구독에 있기 때문에 직접 가져올 수 없다는 것입니다. 위의 단계에서 구독 1에서 전달한 값을 사용하여 새 PowerShell 개체를 만들어야 합니다. 이름, ID 및 공유 키를 사용자의 고유한 값으로 바꾸십시오. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.
 
@@ -491,7 +493,7 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 		$Connection15 = "VNet1toVNet5"
 		New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-4. **[구독 5]** TestVNet5 대 TestVNet1 연결 만들기
+4. **\[구독 5\]** TestVNet5에서 TestVNet1에 연결 만들기
 
 	이 단계는 TestVNet5에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 구독 1에서 가져온 값을 기반으로 PowerShell 개체를 만드는 동일한 과정이 여기에도 적용됩니다. 이 단계에서는 공유된 키가 일치해야 합니다.
 
@@ -511,4 +513,4 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 - 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->
