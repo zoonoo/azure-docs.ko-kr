@@ -32,6 +32,7 @@
 마법사의 용도 및 필수 조건을 검토합니다.
 
 중요한 필수 구성 요소는 다음과 같습니다.
+
 -   데이터베이스 설정을 변경하려면 관리자여야 합니다.
 -   Microsoft Azure 구독을 보유해야 합니다.
 -   SQL Server에서 원격 Azure 서버와 통신할 수 있어야 합니다.
@@ -47,13 +48,13 @@
 
 |열|설명|
 |----------|---------------|
-|(제목 없음)|선택한 테이블에서 스트레치를 사용하려면 이 열의 확인란을 선택합니다.|
+|\(제목 없음\)|선택한 테이블에서 스트레치를 사용하려면 이 열의 확인란을 선택합니다.|
 |**Name**|테이블의 열 이름을 지정합니다.|
-|(제목 없음)|이 칼럼의 기호는 스트레치에 대해 선택한 테이블 활성화를 방지하지 않는 경고를 나타낼 수 있습니다. 스트레치에 대해 선택한 테이블 활성화를 방지하는 차단 문제를 나타낼 수도 있습니다. 예를 들어 테이블이 지원되지 않는 데이터 형식을 사용하기 때문입니다. 기호 위에 마우스를 두면 도구 설명에 자세한 내용이 표시됩니다. 자세한 내용은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.|
+|\(제목 없음\)|이 칼럼의 기호는 스트레치에 대해 선택한 테이블 활성화를 방지하지 않는 경고를 나타낼 수 있습니다. 스트레치에 대해 선택한 테이블 활성화를 방지하는 차단 문제를 나타낼 수도 있습니다. 예를 들어 테이블이 지원되지 않는 데이터 형식을 사용하기 때문입니다. 기호 위에 마우스를 두면 도구 설명에 자세한 내용이 표시됩니다. 자세한 내용은 [스트레치 데이터베이스에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.|
 |**확대**|테이블이 스트레치에 대해 이미 사용하도록 설정되었는지 여부를 나타냅니다.|
-|**마이그레이션**|전체 테이블(**전체 테이블**)을 마이그레이션하거나 테이블의 기존 열에 필터를 지정할 수 있습니다. 다른 필터 함수를 사용하여 마이그레이션하려는 행을 선택하려는 경우 ALTER TABLE 문을 실행하여 마법사를 종료한 후 필터 함수를 지정합니다. 필터 함수에 대한 자세한 내용은 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요. 함수를 적용하는 방법에 대한 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
+|**마이그레이션**|전체 테이블\(**전체 테이블**\)을 마이그레이션하거나 테이블의 기존 열에 필터를 지정할 수 있습니다. 다른 필터 함수를 사용하여 마이그레이션하려는 행을 선택하려는 경우 ALTER TABLE 문을 실행하여 마법사를 종료한 후 필터 함수를 지정합니다. 필터 함수에 대한 자세한 내용은 [필터 함수를 사용하여 마이그레이션할 행 선택](sql-server-stretch-database-predicate-function.md)을 참조하세요. 함수를 적용하는 방법에 대한 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE\(Transact-SQL\)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
 |**행**|테이블의 행 수를 지정합니다.|
-|**크기(KB)**|테이블의 크기를 KB로 지정합니다.|
+|**크기\(KB\)**|테이블의 크기를 KB로 지정합니다.|
 
 ## <a name="Filter"></a>필요에 따라 행 필터 제공
 
@@ -101,7 +102,7 @@
 
 4.  기존 서버를 사용할지 또는 새 Azure 서버를 만들지 지정합니다.
 
-    SQL Server의 Active Directory가 Azure Active Directory와 페더레이션된 경우 선택적으로 SQL Server에 대해 페더레이션된 서비스 계정을 사용하여 원격 Azure 서버와 통신할 수 있습니다. 이 옵션을 위한 요구 사항에 대한 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)을 참조하세요.
+    SQL Server의 Active Directory가 Azure Active Directory와 페더레이션된 경우 선택적으로 SQL Server에 대해 페더레이션된 서비스 계정을 사용하여 원격 Azure 서버와 통신할 수 있습니다. 이 옵션을 위한 요구 사항에 대한 자세한 내용은 [ALTER DATABASE SET 옵션\(Transact-SQL\)](https://msdn.microsoft.com/library/bb522682.aspx)을 참조하세요.
 
 	-   **새 서버 만들기**
 
@@ -134,10 +135,10 @@
 
 ![스트레치 데이터베이스 마법사의 보안 자격 증명 페이지][StretchWizardImage6]
 
-데이터베이스 마스터 키에 대한 자세한 내용은 [CREATE MASTER KEY(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) 및 [데이터베이스 마스터 키](https://msdn.microsoft.com/library/aa337551.aspx)를 참조하세요. 마법사에서 만들어지는 자격 증명에 대한 자세한 내용은 [데이터베이스 범위 자격 증명 만들기(TRANSACT-SQL)](https://msdn.microsoft.com/library/mt270260.aspx)를 참조하세요.
+데이터베이스 마스터 키에 대한 자세한 내용은 [CREATE MASTER KEY\(TRANSACT-SQL\)](https://msdn.microsoft.com/library/ms174382.aspx) 및 [데이터베이스 마스터 키](https://msdn.microsoft.com/library/aa337551.aspx)를 참조하세요. 마법사에서 만들어지는 자격 증명에 대한 자세한 내용은 [데이터베이스 범위 자격 증명 만들기\(TRANSACT-SQL\)](https://msdn.microsoft.com/library/mt270260.aspx)를 참조하세요.
 
 ## <a name="Network"></a>IP 주소 선택
-서브넷 IP 주소 범위(권장) 또는 SQL Server의 공용 IP 주소를 사용하여 SQL Serve에서 원격 Azure 서버와 통신할 수 있도록 해주는 Azure 방화벽 규칙을 만듭니다.
+서브넷 IP 주소 범위\(권장\) 또는 SQL Server의 공용 IP 주소를 사용하여 SQL Serve에서 원격 Azure 서버와 통신할 수 있도록 해주는 Azure 방화벽 규칙을 만듭니다.
 
 이 페이지에서 제공하는 IP 주소 또는 주소는 SQL Server에서 시작된 들어오는 데이터, 쿼리 및 관리 작업을 허용하도록 Azure 서버에 지시하여 Azure 방화벽을 통과합니다. 마법사는 SQL Server의 방화벽 설정에서 아무 것도 변경하지 않습니다.
 
@@ -151,7 +152,7 @@
 ## <a name="Results"></a>결과
 결과를 검토합니다.
 
-데이터 마이그레이션의 상태를 모니터링하려면 [데이터 마이그레이션 모니터링 및 문제 해결(스트레치 데이터베이스)](sql-server-stretch-database-monitor.md)을 참조하세요.
+데이터 마이그레이션의 상태를 모니터링하려면 [데이터 마이그레이션 모니터링 및 문제 해결\(스트레치 데이터베이스\)](sql-server-stretch-database-monitor.md)을 참조하세요.
 
 ![스트레치 데이터베이스 마법사의 결과 페이지][StretchWizardImage9]
 
@@ -190,4 +191,4 @@
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소 개요
@@ -22,7 +22,7 @@ Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔
 
 > [AZURE.TIP] [데이터 레이크 저장소 학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)를 사용하여 Azure 데이터 레이크 저장소 서비스 탐색을 시작합니다.
 
-Azure 데이터 레이크 저장소는 WebHDFS 호환 REST API를 사용하여 Hadoop(HDInsight 클러스터에서 사용 가능)에서 액세스할 수 있습니다. 저장된 데이터에 대한 분석을 사용하도록 특별히 설계되었으며 데이터 분석 시나리오에 대한 성능을 위해 조정됩니다. 기본적으로 실제 엔터프라이즈 사용 사례에 필수적인 모든 엔터프라이즈급 기능-보안, 관리 효율성, 확장성, 안정성 및 가용성-을 포함합니다.
+Azure 데이터 레이크 저장소는 WebHDFS 호환 REST API를 사용하여 Hadoop\(HDInsight 클러스터에서 사용 가능\)에서 액세스할 수 있습니다. 저장된 데이터에 대한 분석을 사용하도록 특별히 설계되었으며 데이터 분석 시나리오에 대한 성능을 위해 조정됩니다. 기본적으로 실제 엔터프라이즈 사용 사례에 필수적인 모든 엔터프라이즈급 기능-보안, 관리 효율성, 확장성, 안정성 및 가용성-을 포함합니다.
 
 
 ![Azure 데이터 레이크](./media/data-lake-store-overview/data-lake-store-concept.png)
@@ -31,7 +31,7 @@ Azure 데이터 레이크의 주요 기능 중 일부는 다음과 같습니다.
 
 ### Hadoop용으로 작성
 
-Azure 데이터 레이크 저장소는 HDFS(Hadoop Distributed File System)와 호환되고 Hadoop 에코시스템과 함께 작동되는 Apache Hadoop 파일 시스템입니다. WebHDFS API를 사용하는 기존 HDInsight 응용 프로그램 또는 서비스는 데이터 레이크 저장소와 쉽게 통합할 수 있습니다. 데이터 레이크 저장소는 또한 응용 프로그램에 대한 WebHDFS 호환 REST 인터페이스를 노출합니다.
+Azure 데이터 레이크 저장소는 HDFS\(Hadoop Distributed File System\)와 호환되고 Hadoop 에코시스템과 함께 작동되는 Apache Hadoop 파일 시스템입니다. WebHDFS API를 사용하는 기존 HDInsight 응용 프로그램 또는 서비스는 데이터 레이크 저장소와 쉽게 통합할 수 있습니다. 데이터 레이크 저장소는 또한 응용 프로그램에 대한 WebHDFS 호환 REST 인터페이스를 노출합니다.
 
 데이터 레이크 저장소에 저장된 데이터는 MapReduce 또는 Hive와 같은 Hadoop 분석 프레임워크를 사용하여 쉽게 분석될 수 있습니다. Microsoft Azure HDInsight 클러스터는 데이터 레이크 저장소에 저장된 데이터에 직접 액세스하도록 프로비전되고 구성될 수 있습니다.
 
@@ -60,12 +60,12 @@ Azure 데이터 레이크 저장소는 사전 변환 없이 모든 데이터를 
 
 ## <a name="DataLakeStoreSecurity"></a>Azure 데이터 레이크 저장소의 데이터 보호
 
-Azure 데이터 레이크 저장소는 인증 및 액세스 제어 목록(ACL)을 위해 Azure Active Directory를 사용하여 데이터에 대한 액세스를 관리합니다.
+Azure 데이터 레이크 저장소는 인증 및 액세스 제어 목록\(ACL\)을 위해 Azure Active Directory를 사용하여 데이터에 대한 액세스를 관리합니다.
 
 | 기능 | 설명 |
 |-----------------------------------------|------------------------------------------|
-| 인증 | Azure 데이터 레이크 저장소는 Azure 데이터 레이크 저장소에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(AAD)와 통합합니다. 통합의 결과로 Azure 데이터 레이크는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Azure 데이터 레이크 저장소는 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. |
-| 액세스 제어 | Azure 데이터 레이크 저장소는 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. 현재 릴리스에서 권한은 데이터 레이크 수준에서 지정될 수 있으며 데이터 레이크의 모든 파일 및 폴더에 적용됩니다. 향후 업데이트에서 개별 파일 및 폴더에 지정되도록 권한을 허용하여 세분화된 액세스 제어를 활성화할 것입니다.|
+| 인증 | Azure 데이터 레이크 저장소는 Azure 데이터 레이크 저장소에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory\(AAD\)와 통합합니다. 통합의 결과로 Azure 데이터 레이크는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Azure 데이터 레이크 저장소는 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. |
+| 액세스 제어 | Azure 데이터 레이크 저장소는 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. 현재 릴리스에서 ACL는 루트 폴더, 하위 폴더뿐만 아니라 개별 파일에서 사용할 수 있습니다. 루트 폴더에 적용할 ACL는 모든 자식 폴더/파일에도 적용할 수 있습니다.|
 
 Data Lake 저장소의 데이터를 보호하는 방법에 대한 자세히 알아보려 합니다. 아래 링크를 따라갑니다.
 
@@ -80,11 +80,11 @@ Azure Data Lake 저장소는 Hadoop 에코시스템의 오픈 소스 구성 요�
 * 데이터 레이크 저장소를 다른 Azure 서비스와 사용하여 광범위한 시나리오를 활성화할 수 있는 방법을 이해하려면 [다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)을 참조하세요.
 * [Data Lake 저장소를 사용하는 시나리오](data-lake-store-data-scenarios.md)를 참조하여 데이터 수집, 데이터 처리, 데이터 다운로드 및 데이터 시각화와 같은 시나리오에서 Data Lake 저장소를 사용하는 방법을 알아봅니다.
 
-## Azure 데이터 레이크 저장소 파일 시스템이란?(adl://)?
+## Azure Data Lake Store 파일 시스템\(adl://\)이란 무엇입니까?
 
-Hadoop 환경에서 새 파일 시스템, AzureDataLakeFilesystem(adl://), (HDInsight 클러스터에서 사용 가능)을 통해 데이터 레이크 저장소에 액세스할 수 있습니다. adl://를 사용하는 응용 프로그램 및 서비스는 현재 WebHDFS에서 사용할 수 없는 추가 성능 최적화의 장점을 활용할 수 있습니다. 그 결과 데이터 레이크 저장소는 권장되는 옵션의 adl://를 사용하여 최상의 성능을 이용하거나 WebHDFS API를 계속해서 직접 사용하여 기존 코드를 유지하도록 유연성을 제공합니다. Azure HDInsight는 데이터 레이크 저장소에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
+Hadoop 환경에서 새로운 파일 시스템인 AzureDataLakeFilesystem\(adl://\)을 통해 Data Lake Store에 액세스할 수 있습니다\(HDInsight 클러스터에서 사용 가능\). adl://를 사용하는 응용 프로그램 및 서비스는 현재 WebHDFS에서 사용할 수 없는 추가 성능 최적화의 장점을 활용할 수 있습니다. 그 결과 데이터 레이크 저장소는 권장되는 옵션의 adl://를 사용하여 최상의 성능을 이용하거나 WebHDFS API를 계속해서 직접 사용하여 기존 코드를 유지하도록 유연성을 제공합니다. Azure HDInsight는 데이터 레이크 저장소에서 최상의 성능을 제공하도록 AzureDataLakeFilesystem을 완벽하게 활용합니다.
 
-`adl://<data_lake_store_name>.azuredatalakestore.net`을(를) 사용하여 데이터 레이크 저장소의 데이터에 액세스할 수 있습니다. 데이터 레이크 저장소의 데이터에 액세스하는 방법에 대한 자세한 내용은 [저장된 데이터의 속성 보기](data-lake-store-get-started-portal.md#properties)를 참조하세요.
+`adl://<data_lake_store_name>.azuredatalakestore.net`을\(를\) 사용하여 데이터 레이크 저장소의 데이터에 액세스할 수 있습니다. 데이터 레이크 저장소의 데이터에 액세스하는 방법에 대한 자세한 내용은 [저장된 데이터의 속성 보기](data-lake-store-get-started-portal.md#properties)를 참조하세요.
 
 ## Azure 데이터 레이크 저장소를 사용하여 어떻게 시작합니까?
 
@@ -105,9 +105,9 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 * [Data Lake 분석을 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n0s45up381a8)
 * [Azure HDInsight를 Azure Data Lake 저장소에 연결](https://mix.office.com/watch/l93xri2yhtp2)
 * [Hive 및 Pig를 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [DistCp(Hadoop 분산 복사)를 사용하여 Azure Data Lake 저장소 간에 데이터 복사](https://mix.office.com/watch/1liuojvdx6sie)
+* [DistCp\(Hadoop 분산 복사\)를 사용하여 Azure Data Lake 저장소 간에 데이터 복사](https://mix.office.com/watch/1liuojvdx6sie)
 * [Apache Sqoop을 사용하여 관계형 원본 및 Azure Data Lake 저장소 간에 데이터 이동](https://mix.office.com/watch/1butcdjxmu114)
 * [Azure 데이터 팩터리를 사용하여 Azure Data Lake 저장소에 대한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Azure Data Lake 저장소에서 데이터 보호](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

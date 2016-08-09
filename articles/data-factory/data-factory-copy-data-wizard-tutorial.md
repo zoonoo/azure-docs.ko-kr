@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/16/2016" 
+	ms.date="08/01/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -33,7 +33,7 @@
 
 1.	[Azure 포털](https://portal.azure.com)에 로그인한 후에 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
 
-	![새로 만들기->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
+	![새로 만들기-\>DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
 6. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
 	1. **ADFTutorialDataFactory**를 **이름**으로 입력합니다.
@@ -49,7 +49,7 @@
 7. **새 데이터 팩터리** 블레이드에서 **시작 보드에 추가**가 선택되어 있는지 확인합니다.
 8. **새 데이터 팩터리** 블레이드에서 **만들기**를 클릭합니다.
 
-	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고\(예: yournameADFTutorialDataFactory\) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 	 
 	![데이터 팩터리 이름을 사용할 수 없음](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
 	
@@ -64,10 +64,10 @@
 
 1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **복사 마법사**를 시작합니다.
 
-	> [AZURE.NOTE] 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소하고 (또는) 계속 사용하지 않습니다. 그리고 **login.microsoftonline.com**에 대한 예외를 만든 다음 마법사를 다시 시작해봅니다.
+	> [AZURE.NOTE] 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소하고 \(또는\) 계속 사용하지 않습니다. 그리고 **login.microsoftonline.com**에 대한 예외를 만든 다음 마법사를 다시 시작해봅니다.
 2. **속성** 페이지에서 다음을 수행합니다.
 	1. **작업 이름**에 **CopyFromBlobToAzureSql**을 입력합니다.
-	2. **설명**을 입력합니다(선택 사항).
+	2. **설명**을 입력합니다\(선택 사항\).
 	3. **시작 날짜 시간** 및 **종료 날짜 시간**을 적어둡니다. **종료 날짜 시간**을 **시작 날짜 시간**의 바로 다음 날짜로 변경합니다.
 	3. **다음**을 클릭합니다.
 
@@ -97,11 +97,11 @@
 	3. **서버 이름** 및 **데이터베이스**를 선택합니다.
 	4. **사용자 이름** 및 **암호**를 입력합니다.
 	5. **다음**을 클릭합니다.
-9. **테이블 매핑** 페이지에 있는 드롭다운 목록의 **대상** 필드에서 **emp**를 선택하고 **아래쪽 화살표**를 클릭하여(선택 사항) 스키마를 확인하고 데이터를 미리 봅니다.
+9. **테이블 매핑** 페이지에 있는 드롭다운 목록의 **대상** 필드에서 **emp**를 선택하고 **아래쪽 화살표**를 클릭하여\(선택 사항\) 스키마를 확인하고 데이터를 미리 봅니다.
 
 	![복사 도구 - 테이블 매핑](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. **스키마 매핑** 페이지에서 **다음**을 클릭합니다.
-11. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 이제 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 집합(입력 및 출력), 하나의 파이프라인이 생성될 것입니다.
+11. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 이제 데이터 팩터리\(복사 마법사를 실행한 위치\)에 두 개의 연결된 서비스, 두 개의 데이터 집합\(입력 및 출력\), 하나의 파이프라인이 생성될 것입니다.
 12. **배포 성공** 페이지에서 **복사 파이프라인을 모니터링하려면 여기를 클릭**을 클릭합니다.
 
 	![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
@@ -119,4 +119,4 @@
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

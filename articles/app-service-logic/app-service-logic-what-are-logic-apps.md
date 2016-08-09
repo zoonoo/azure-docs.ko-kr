@@ -4,7 +4,7 @@
 	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 #논리 앱이란 무엇인가요?
 
-논리 앱은 클라우드에서 확장 가능한 통합 및 워크플로를 단순화하고 구현하는 방법을 제공합니다. 모델에 비주얼 디자이너를 제공하고 프로세스를 워크플로로 알려진 일련의 단계로 자동화합니다. 서비스 및 프로토콜에 걸쳐 신속하게 통합하기 위해 클라우드 및 온-프레미스에 [많은 커넥터](../connectors/apis-list.md)가 있습니다. 논리 앱은 ('Dynamics CRM에 계정을 추가하는 경우'와 같이) 트리거로 시작하고 실행 후에 여러 조합 작업, 변환 및 조건 논리 실행을 시작할 수 있습니다.
+논리 앱은 클라우드에서 확장 가능한 통합 및 워크플로를 단순화하고 구현하는 방법을 제공합니다. 모델에 비주얼 디자이너를 제공하고 프로세스를 워크플로로 알려진 일련의 단계로 자동화합니다. 서비스 및 프로토콜에 걸쳐 신속하게 통합하기 위해 클라우드 및 온-프레미스에 [많은 커넥터](../connectors/apis-list.md)가 있습니다. 논리 앱은 \('Dynamics CRM에 계정을 추가하는 경우'와 같이\) 트리거로 시작하고 실행 후에 여러 조합 작업, 변환 및 조건 논리 실행을 시작할 수 있습니다.
 
 논리 앱을 사용하는 이점은 다음과 같습니다.
 
@@ -29,7 +29,7 @@
 - 온-프레미스 및 클라우드에 서로 다른 시스템 연결 및 동기화
 - 강력한 통합 지원을 통해 BizTalk Server, API 관리, Azure Functions 및 Azure 서비스 버스 구축
 
-논리 앱은 완전히 관리되는 iPaaS(integration Platform as a Service)로서 개발자가 호스팅, 확장성, 가용성 및 관리를 구축하는 방법에 대해 걱정하지 않도록 합니다. 논리 앱은 수요에 맞게 자동으로 강화됩니다.
+논리 앱은 완전히 관리되는 iPaaS\(integration Platform as a Service\)로서 개발자가 호스팅, 확장성, 가용성 및 관리를 구축하는 방법에 대해 걱정하지 않도록 합니다. 논리 앱은 수요에 맞게 자동으로 강화됩니다.
 
 ![흐름 앱 디자이너](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
@@ -82,4 +82,4 @@
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

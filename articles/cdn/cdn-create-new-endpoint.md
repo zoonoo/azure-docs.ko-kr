@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Azure CDN 사용"
+	 pageTitle="Azure CDN 사용 | Microsoft Azure"
 	 description="이 항목에서는 Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법을 설명합니다. 이 자습서는 새로운 CDN 프로필 및 끝점 생성을 안내합니다."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Azure CDN 사용  
@@ -51,7 +51,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<endpointname>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 
-4. **원본 형식** 드롭다운에서 원본 형식을 선택합니다. Azure 저장소 계정에 대해 **저장소**, Azure 클라우드 서비스에 대해 **클라우드 서비스**, Azure 웹앱에 대해 **웹앱**을 선택하고 기타 공개적으로 액세스할 수 있는 웹 서버 원본(Azure 또는 다른 곳에서 호스팅)에 대해 **사용자 지정 원본**을 선택합니다.
+4. **원본 형식** 드롭다운에서 원본 형식을 선택합니다. Azure 저장소 계정에 대해 **저장소**, Azure 클라우드 서비스에 대해 **클라우드 서비스**, Azure 웹앱에 대해 **웹앱**을 선택하고 기타 공개적으로 액세스할 수 있는 웹 서버 원본\(Azure 또는 다른 곳에서 호스팅\)에 대해 **사용자 지정 원본**을 선택합니다.
 
 	![CDN 원본 형식](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 		
@@ -63,16 +63,16 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 	> [AZURE.WARNING] Azure 저장소 및 웹앱 등 일부 유형의 원본은 해당 원본의 도메인과 일치하는 호스트 헤더가 필요합니다. 해당 도메인과 다른 호스트 헤더를 필요로 하는 원본이 아니면 기본값을 유지해야 합니다.
 
-8. **프로토콜** 및 **원본 포트**에 원본의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다.
+8. **프로토콜** 및 **원본 포트**에 원본의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는\(HTTP 또는 HTTPS\) 선택해야 합니다.
 	
-	> [AZURE.NOTE] **원본 포트**는 끝점이 원본에서 정보를 검색하는 데 사용하는 포트에만 영향을 줍니다. 끝점 자체는 **원본 포트**에 관계 없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에만 사용할 수 있습니다.
+	> [AZURE.NOTE] **원본 포트**는 끝점이 원본에서 정보를 검색하는 데 사용하는 포트에만 영향을 줍니다. 끝점 자체는 **원본 포트**에 관계 없이 기본 HTTP 및 HTTPS 포트\(80 및 443\)의 최종 클라이언트에만 사용할 수 있습니다.
 	>
-	> **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai의 Azure CDN 동작 상세 정보](cdn-akamai-behavior-details.md)를 참조하세요.
+	> **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](https://msdn.microsoft.com/library/mt757337.aspx)를 참조하세요.
 	>
 	> HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 제약 조건이 있습니다.
 	> 
 	> - CDN에서 제공된 SSL 인증서를 사용해야 합니다. 타사 인증서는 지원되지 않습니다.
-	> - CDN 제공 도메인(`<endpointname>.azureedge.net`)을 사용하여 HTTPS 콘텐츠에 액세스해야 합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME(사용자 지정 도메인 이름)에는 HTTPS 지원을 사용할 수 없습니다.
+	> - CDN 제공 도메인\(`<endpointname>.azureedge.net`\)을 사용하여 HTTPS 콘텐츠에 액세스해야 합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME\(사용자 지정 도메인 이름\)에는 HTTPS 지원을 사용할 수 없습니다.
 
 9. **추가** 단추를 클릭하여 새 끝점을 만듭니다.
 
@@ -97,4 +97,4 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->
