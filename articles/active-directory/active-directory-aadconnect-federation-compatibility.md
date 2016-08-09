@@ -339,4 +339,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
