@@ -1,11 +1,22 @@
 <properties pageTitle=".NET 포함 Azure 미디어 서비스 원격 분석 | Microsoft Azure" 
 	description="이 문서에서는 Azure 미디어 서비스 원격 분석을 사용하는 방법을 보여 줍니다." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/23/2016"   
+	ms.author="juliako"/>
 
 # .NET 포함 Azure 미디어 서비스 원격 분석
-
+ 
 ## 개요
 
 미디어 서비스 고객은 미디어 서비스 원격 분석/모니터링을 통해 서비스에 대한 메트릭 데이터에 액세스할 수 있습니다. 현재 버전에서는 "Channel" 및 "StreamingEndpoint" 엔터티에 대한 원격 분석 데이터를 지원합니다. 구성 요소 세분성 수준에서 원격 분석을 구성할 수 있습니다. "Normal" 및 "Verbose"라는 두 가지 세부 수준이 있습니다. 현재 버전은 "Normal"만 지원합니다.
@@ -37,55 +48,52 @@
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## 원격 분석 정보 사용
 
-## StreamingEndpoint 로그
+원격 분석은 미디어 서비스 계정에 대해 원격 분석을 구성할 때 지정된 저장소 계정의 Azure Storage 테이블에 기록됩니다. 원격 분석 시스템은 00:00 UTC 기반으로 각 날마다 별도의 테이블을 만듭니다. 예를 들어 "TelemetryMetrics20160321"에서 "20160321"은 테이블이 생성된 날짜입니다. 각 날짜에 대한 별도의 테이블이 있습니다.
 
-###사용 가능한 메트릭
+테이블에서 다음 메트릭 정보를 쿼리할 수 있습니다.
+
+### StreamingEndpoint 로그
 
 다음 StreamingEndPoint 메트릭을 쿼리할 수 있습니다.
 
-- **PartitionKey**는 레코드의 파티션 키를 가져옵니다.
-- **RowKey**는 레코드의 행 키를 가져옵니다.
-- **AccountId**는 미디어 서비스 계정 ID를 가져옵니다.
-- **AccountId**는 미디어 서비스 스트리밍 끝점 ID를 가져옵니다.
-- **ObservedTime**은 메트릭의 관찰된 시간을 가져옵니다.
-- **HostName**은 스트리밍 끝점 호스트 이름을 가져옵니다.
-- **StatusCode**는 상태 코드를 가져옵니다.
-- **ResultCode**는 결과 코드를 가져옵니다.
-- **RequestCount**는 요청 수를 가져옵니다.
-- **BytesSent**는 전송된 바이트를 가져옵니다.
-- **ServerLatency**는 서버 대기 시간을 가져옵니다.
-- **EndToEndLatency**는 종단 간 요청 시간을 가져옵니다.
-
-###스트리밍 끝점 쿼리 결과 예
-
-![스트리밍 끝점 쿼리](media/media-services-telemetry/media-services-telemetry01.png)
+속성|설명|샘플 값
+---|---|---
+**PartitionKey**|레코드의 파티션 키를 가져옵니다.|60b71b0f6a0e4d869eb0645c16d708e1\_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|레코드의 행 키를 가져옵니다.|00959\_00000
+**AccountId**|미디어 서비스 계정 ID를 가져옵니다.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|미디어 서비스 스트리밍 끝점 ID를 가져옵니다.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|메트릭의 관찰된 시간을 가져옵니다.|1/20/16 23:44:01
+**HostName**|스트리밍 끝점 호스트 이름을 가져옵니다.|builddemoserver.origin.mediaservices.windows.net
+**StatusCode**|상태 코드를 가져옵니다.|200
+**ResultCode**|결과 코드를 가져옵니다.|S\_OK
+**RequestCount**|결과 수를 가져옵니다.|3
+**BytesSent**|전송된 바이트를 가져옵니다.|2987358
+**ServerLatency**|서버 대기 시간(저장소 포함)을 가져옵니다.|129
+**EndToEndLatency**|종단 간 요청 시간을 가져옵니다.|250
 
 
-## 라이브 채널 하트비트
-
-###사용 가능한 메트릭
+### 라이브 채널 하트비트
 
 다음 라이브 채널 메트릭을 쿼리할 수 있습니다.
 
-- **PartitionKey**는 레코드의 파티션 키를 가져옵니다.
-- **RowKey**는 레코드의 행 키를 가져옵니다.
-- **AccountId**는 미디어 서비스 계정 ID를 가져옵니다.
-- **ChannelId**는 미디어 서비스 채널 ID를 가져옵니다.
-- **ObservedTime**은 메트릭의 관찰된 시간을 가져옵니다.
-- **CustomAttributes**는 사용자 지정 특성을 가져옵니다.
-- **TrackType**은 트랙 유형을 가져옵니다.
-- **TrackName**은 트랙 이름을 가져옵니다.
-- **Bitrate**는 비트 전송률을 가져옵니다.
-- **IncomingBitrate**는 들어오는 비트 전송률을 가져옵니다.
-- **OverlapCount**는 겹침 수를 가져옵니다.
-- **DiscontinuityCount**는 불연속성 수를 가져옵니다.
-- **LastTimestamp**는 마지막 타임스탬프를 가져옵니다.
+속성|설명|샘플 값
+---|---|---
+**PartitionKey**|레코드의 파티션 키를 가져옵니다.|60b71b0f6a0e4d869eb0645c16d708e1\_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|레코드의 행 키를 가져옵니다.|13872\_00005
+**AccountId**|미디어 서비스 계정 ID를 가져옵니다.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|미디어 서비스 채널 ID를 가져옵니다.|
+**ObservedTime**|메트릭의 관찰된 시간을 가져옵니다.|1/21/2016 20:08:49
+**CustomAttributes**|사용자 지정 특성을 가져옵니다.|
+**TrackType**|추적 형식을 가져옵니다.|video
+**TrackName**|추적 이름을 가져옵니다.|video
+**Bitrate**|비트 전송률을 가져옵니다.|785000
+**IncomingBitrate**|들어오는 비트 전송률을 가져옵니다.|784548
+**OverlapCount**|겹침 수를 가져옵니다.|0
+**DiscontinuityCount**|불연속성 수를 가져옵니다.|0
+**LastTimestamp**|마지막 타임스탬프를 가져옵니다.|1800488800
  
-###라이브 채널 쿼리 결과 예
-
-![스트리밍 끝점 쿼리](media/media-services-telemetry/media-services-telemetry01.png)
-
 ## StreamingEndpoint 메트릭 예
 		
 	using System;
@@ -125,8 +133,7 @@
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -138,6 +145,10 @@
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {
@@ -235,4 +246,4 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

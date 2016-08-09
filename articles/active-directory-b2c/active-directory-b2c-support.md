@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: 지원 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: 지원 | Microsoft Azure"
 	description="Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C 미리 보기: 파일 지원 요청
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: 파일 지원 요청
 
 다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
 
@@ -40,14 +38,14 @@
     - **문제점 유형**은 **기술**입니다.
 	- 적합한 **구독**을 선택합니다.
     - **서비스**는 **Active Directory**입니다.
-    - 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/support/plans/)에서 하나를 등록할 수 있습니다.
+    - 적합한 **지원 계획**을 선택합니다. 아직 선택하지 않은 경우 [여기](https://azure.microsoft.com/ko-KR/support/plans/)에서 하나를 등록할 수 있습니다.
 
     ![지원 - 기본 사항](./media/active-directory-b2c-support/support-basics.png)
 
 6. **문제** 블레이드에서 이러한 세부 정보를 사용하고 **다음**을 클릭합니다.
 
     - 적합한 **심각도** 수준을 선택합니다.
-    - **문제 유형**은 **B2C 미리 보기**입니다.
+    - **문제 유형**은 **B2C**입니다.
     - 적합한 **범주**를 선택합니다.
 	- **세부 정보** 필드에서 문제에 대해 설명합니다. B2C 테넌트 이름, 문제 설명, 오류 메시지, 상관 관계 ID(있는 경우) 등과 같은 세부 정보를 제공합니다.
     - **시간 프레임** 필드에서 문제가 발생한 날짜 및 시간(표준 시간대 포함)을 제공합니다.
@@ -55,7 +53,7 @@
 
     ![지원 - 문제](./media/active-directory-b2c-support/support-problem.png)
 
-7. **연락처 정보** 블레이드에서 연락처 정보를 추가합니다. **만들기**를 클릭합니다. *참고: 미리 보기가 제공되는 동안 Azure AD B2C는 영어만 지원합니다.*
+7. **연락처 정보** 블레이드에서 연락처 정보를 추가합니다. **만들기**를 클릭합니다.
 
     ![지원 - 연락처](./media/active-directory-b2c-support/support-contact.png)
 
@@ -70,4 +68,4 @@ B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

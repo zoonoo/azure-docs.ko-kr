@@ -207,22 +207,24 @@ Edison 보드를 플래싱해야 하는 파일은 이제 **~/edison-src/out/linu
 
 3. **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** 폴더에서 **iotdm-edison-sample.bb** 파일을 **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample** 폴더로 복사합니다.
 
-4. **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** 폴더에서 **iotdm\_edison\_sample.service** 파일을 **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** 폴더로 복사합니다.
+4. 파일 **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb**를 편집하고 `-Duse_http:BOOL=OFF`를 `-Duse_http:BOOL=ON`와 바꿉니다.
 
-5. **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** 파일을 편집하여 새 작성법에 대한 항목을 추가합니다. 파일 끝에 다음 줄을 추가합니다.
+5. **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** 폴더에서 **iotdm\_edison\_sample.service** 파일을 **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** 폴더로 복사합니다.
+
+6. **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** 파일을 편집하여 새 작성법에 대한 항목을 추가합니다. 파일 끝에 다음 줄을 추가합니다.
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. 게이트웨이 SDK 및 장치 관리 클라이언트가 일부 라이브러리를 공유하기 때문에 **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** 파일을 편집해야 합니다. 이 파일 끝에 다음 줄을 추가합니다. `<your user>`를 현재 사용자 이름으로 바꿔야 합니다.
+7. 게이트웨이 SDK 및 장치 관리 클라이언트가 일부 라이브러리를 공유하기 때문에 **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** 파일을 편집해야 합니다. 이 파일 끝에 다음 줄을 추가합니다. `<your user>`를 현재 사용자 이름으로 바꿔야 합니다.
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** 파일을 편집하고 다음 줄을 파일 끝에 추가하여 WiFi가 Edison 보드에서 자동으로 시작되도록 구성합니다. `<your wifi ssid>` 및 `<your wifi password>`을 WiFi 네트워크에 대한 올바른 값으로 바꿔야 합니다.
+8. **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** 파일을 편집하고 다음 줄을 파일 끝에 추가하여 WiFi가 Edison 보드에서 자동으로 시작되도록 구성합니다. `<your wifi ssid>` 및 `<your wifi password>`를 WiFi 네트워크에 대한 올바른 값으로 바꿔야 합니다.
     
     ```
     network={
@@ -235,7 +237,7 @@ Edison 보드를 플래싱해야 하는 파일은 이제 **~/edison-src/out/linu
     }
     ```
 
-8. 이제 게이트웨이 SDK 및 장치 관리 클라이언트를 포함하는 Edison 보드에 대한 이미지를 구축할 수 있습니다. **bitbake** 명령은 새 작성법을 빌드하고 이미지에 추가하기 때문에 이전보다 훨씬 더 빠르게 실행됩니다.
+9. 이제 게이트웨이 SDK 및 장치 관리 클라이언트를 포함하는 Edison 보드에 대한 이미지를 구축할 수 있습니다. **bitbake** 명령은 새 작성법을 빌드하고 이미지에 추가하기 때문에 이전보다 훨씬 더 빠르게 실행됩니다.
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,24 +245,24 @@ Edison 보드를 플래싱해야 하는 파일은 이제 **~/edison-src/out/linu
     bitbake edison-image
     ```
 
-9. 다음 명령을 실행하여 구축을 완료합니다.
+10. 다음 명령을 실행하여 구축을 완료합니다.
   
     ```
     cd ~/edison-src/
     ./meta-intel-edison/utils/flash/postBuild.sh ./out/linux64/build/
     ```
 
-Edison 보드를 플래싱해야 하는 파일은 이제 **~/edison-src/out/linux64/build/toFlash/** 폴더에 있습니다.
+이제 Edison 보드를 업데이트해야 하는 파일이 **~/edison-src/out/linux64/build/toFlash/** 폴더에 있습니다.
 
 ### 사용자 지정 이미지를 사용하여 Intel Edison 플래싱
 
 이제 IoT Hub 장치 관리 클라이언트 및 게이트웨이 소프트웨어를 모두 포함하는 사용자 지정 이미지를 사용하여 Edison 보드를 플래싱할 수 있습니다.
 
-USB 케이블을 사용하여 Edison 보드에 연결된 컴퓨터에 사용자 지정 이미지를 구축하는 데 사용한 Ubuntu 컴퓨터의 **toFlash** 폴더에서 파일을 복사합니다.
+USB 케이블을 사용하여 Edison 보드에 연결된 컴퓨터에 사용자 지정 이미지를 빌드하는 데 사용한 Ubuntu 컴퓨터의 **toFlash** 폴더에서 파일을 복사합니다.
 
-Windows 컴퓨터를 사용하여 USB 케이블로 Edison에 연결할 경우 **flashall.bat** 스크립트를 실행하여 Edison을 플래싱해야 합니다. Linux 컴퓨터를 사용하여 USB 케이블로 Edison에 연결할 경우 **flashall.bat** 스크립트를 실행하여 Edison을 플래싱해야 합니다.
+Windows 컴퓨터를 사용하여 USB 케이블로 Edison에 연결할 경우 **flashall.bat** 스크립트를 실행하여 Edison을 업데이트해야 합니다. Linux 컴퓨터를 사용하여 USB 케이블로 Edison에 연결할 경우 **flashall.bat** 스크립트를 실행하여 Edison을 업데이트해야 합니다.
 
-플래싱 프로세스가 완료되면 호스트 컴퓨터에서 [직렬 연결][lnk-serial-connection]을 사용하여 Edison에 연결하고 **루트**로 로그인합니다. Edison 보드가 이제 WiFi 네트워크에 연결되는지 확인해야 합니다.
+업데이트 프로세스가 완료되면 호스트 컴퓨터에서 [직렬 연결][lnk-serial-connection]을 사용하여 Edison에 연결하고 **루트**로 로그인합니다. Edison 보드가 이제 WiFi 네트워크에 연결되는지 확인해야 합니다.
 
 ### 샘플 실행
 
@@ -272,7 +274,7 @@ Edison 보드의 장치 관리 클라이언트를 구성하여 IoT Hub에 **GW-d
 reboot -h now
 ```
 
-Edison에 재부팅되면 장치 관리 및 게이트웨이 서비스가 모두 **확인** 상태로 시작하는지 확인합니다.
+Edison을 재부팅할 때, 장치 관리 및 게이트웨이 서비스가 모두 **확인** 상태로 시작하는지 확인합니다.
 
 ```
 [  OK  ] Started Daemon to receive the wpa_supplicant event.
@@ -343,7 +345,7 @@ IoT 장치 관리 서비스에서 요청한 Edison의 펌웨어 업데이트는 
 
 9. **GW-device** 장치를 선택하고 **장치 작업** 드롭다운에서 **펌웨어 업데이트**를 선택한 다음 **시작**을 클릭합니다.
 
-10. **패키지 URI** 필드에 **file:///home/root/edison.zip**을 입력하여 Edison 보드에 이전에 복사한 이미지 파일을 사용합니다. **전송**, **예** 및 **작업 기록** 링크를 차례로 클릭하여 실행 중인 새 부모 및 자식 작업을 확인합니다.
+10. **패키지 URI** 필드에 **file:///home/root/edison.zip**를 입력하여 Edison 보드에 이전에 복사한 이미지 파일을 사용합니다. **전송**, **예** 및 **작업 기록** 링크를 차례로 클릭하여 실행 중인 새 부모 및 자식 작업을 확인합니다.
 
     ![작업 기록 링크][img-history-link]
 
@@ -365,7 +367,7 @@ IoT 장치 관리 서비스에서 요청한 Edison의 펌웨어 업데이트는 
     ...
     ```
 
-12. Edison이 재부팅을 완료하면 장치 관리 샘플 UI에서 페이지를 새로 고쳐서 두 개의 펌웨어 업데이트 작업에 대한 작업 상태가 이제 **완료됨**인지 확인합니다.
+12. Edison을 재부팅하면 장치 관리 샘플 UI에서 페이지를 새로 고쳐서 이제 두 개의 펌웨어 업데이트 작업에 대한 작업 상태가 **완료됨**인지 확인합니다.
 
     ![작업 상태 완료][img-job-status]
 
@@ -423,4 +425,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

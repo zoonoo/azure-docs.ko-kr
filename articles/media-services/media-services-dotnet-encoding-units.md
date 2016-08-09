@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016"
+ 	ms.date="07/26/2016"
 	ms.author="juliako;milangada;gtrifonov"/>
 
 
@@ -35,11 +35,15 @@
 
 .NET SDK를 사용하여 예약 단위 유형 및 인코딩 예약 단위 수를 변경하려면 다음을 수행합니다.
 
-IEncodingReservedUnit encodingS1ReservedUnit = \_context.EncodingReservedUnits.FirstOrDefault(); encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1 encodingS1ReservedUnit.Update(); Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
-
-encodingS1ReservedUnit.CurrentReservedUnits = 2; encodingS1ReservedUnit.Update();
-
-Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+	encodingS1ReservedUnit.Update();
+	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+	
+	encodingS1ReservedUnit.CurrentReservedUnits = 2;
+	encodingS1ReservedUnit.Update();
+	
+	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ##지원 티켓 열기
 
@@ -77,4 +81,4 @@ Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.Curren
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

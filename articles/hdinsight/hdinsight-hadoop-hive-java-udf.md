@@ -136,7 +136,7 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 
 2. `jdbc:hive2://localhost:10001/>` 프롬프트가 표시되면 다음을 입력하여 Hive에 UDF를 추가하고 함수로 노출합니다.
 
-        ADD JAR wasb:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. UDF를 사용하여 검색한 값을 테이블에서 소문자 문자열로 변환합니다.
@@ -166,4 +166,4 @@ Hive로 작업하는 다른 방법은 [HDInsight와 함께 Hive 사용](hdinsigh
 
 Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

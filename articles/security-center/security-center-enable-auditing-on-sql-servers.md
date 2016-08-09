@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 SQL 서버에 대한 감사 사용
@@ -24,7 +24,7 @@
 
 이러한 권장 지침은 Azure SQL 서비스에만 적용되며 Azure 인프라 서비스(Azure laaS)의 가상 컴퓨터에서 실행되는 SQL Server는 포함하지 않습니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -37,7 +37,7 @@
 
 5. [SQL 데이터베이스 위협 감지 시작](../sql-database/sql-database-threat-detection-get-started.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
 
-## 다음 단계
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 "SQL 서버에 감사 사용"을 구현하는 방법을 보여 주었습니다. SQL 데이터베이스 보안 유지에 대해 자세히 알아보려면 다음을 참조하세요.
 
@@ -58,4 +58,4 @@
 [2]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

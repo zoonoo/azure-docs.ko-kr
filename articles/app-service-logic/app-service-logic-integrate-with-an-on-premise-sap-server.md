@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -49,7 +49,7 @@
 4. 마켓플레이스 블레이드에서 **API 앱**을 선택하고 검색 창에서 SAP를 검색합니다. ![SAP 커넥터 API 앱][2]
 5. Microsoft에서 게시한 **SAP 커넥터**를 선택합니다.
 6. SAP 커넥터 블레이드에서 **만들기**를 선택합니다.
-7. 열리는 새 블레이드에서 다음을 입력합니다.  
+7. 열리는 새 블레이드에서 다음을 입력합니다.
 	1. **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 	2. **구독** - 이 커넥터를 만들 구독을 선택합니다.
 	3. **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
@@ -124,4 +124,4 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

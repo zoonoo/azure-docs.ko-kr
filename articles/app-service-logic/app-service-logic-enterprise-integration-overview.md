@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
 - [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

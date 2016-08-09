@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -38,9 +38,9 @@ AS2 커넥터는 논리 앱에서 트리거 또는 동작으로 사용할 수 �
 
 요구 사항 | 설명
 --- | ---
-TPM API 앱 | AS2 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다. <br/><br/>**참고** TPM API 앱의 이름을 확인하세요. 
-Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)
-Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다. <br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage/storage-create-storage-account.md).
+TPM API 앱 | AS2 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다. <br/><br/>**참고** TPM API 앱의 이름을 알아야 합니다. 
+Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다. <br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)
+Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다. <br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 대한 연결 문자열을 복사합니다.<br/><br/>[Azure Storage 계정 정보](../storage/storage-create-storage-account.md)
 
 ## AS2 커넥터 만들기
 
@@ -104,7 +104,7 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 
 논리 앱에 대한 자세한 내용은 [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -122,4 +122,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 웹 응용 프로그램 방화벽 추가
 
 Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Microsoft 파트너의 WAF(웹 응용 프로그램 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -48,7 +48,7 @@ Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Micr
 
 이제 해당 WAF의 로그가 완전히 통합되었습니다. 보안 센터에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
 
-## 다음 단계
+## 참고 항목
 
 이 문서에서는 보안 센터 권장 사항 "웹 응용 프로그램 추가"를 구현하는 방법을 보여 주었습니다. 웹 응용 프로그램 방화벽 구성에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -71,4 +71,4 @@ Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Micr
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

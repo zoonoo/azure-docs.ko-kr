@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/30/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 #  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
@@ -28,7 +28,7 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 ## 필수 조건
 
 * Microsoft Azure 계정
-* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
+* 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.
 * Power BI에 대한 회사 또는 학교 계정
 
 ## Azure 스트림 분석 작업 만들기
@@ -240,4 +240,4 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

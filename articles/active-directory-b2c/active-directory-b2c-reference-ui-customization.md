@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: 사용자 인터페이스(UI) 사용자 지정 | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: 사용자 인터페이스(UI) 사용자 지정 | Microsoft Azure"
 	description="Azure Active Directory B2C에서 UI(사용자 인터페이스) 사용자 지정 기능의 항목"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,43 +13,65 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/25/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C 미리 보기: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
+# Azure Active Directory B2C: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
 
 사용자 환경은 소비자 지향 응용 프로그램에서 가장 중요합니다. 좋은 응용 프로그램과 훌륭한 응용 프로그램, 그저 활발한 소비자와 진정으로 참여하는 소비자 간의 차이점입니다. Azure AD(Azure Active Directory) B2C를 사용하면 픽셀을 완벽하게 제어하여 소비자 등록, 로그인(*아래 참고를 참조*), 프로필 편집 및 암호 재설정 페이지를 사용자 지정할 수 있습니다.
 
 > [AZURE.NOTE]
-현재 로컬 계정 로그인 페이지(및 해당 동반 암호 재설정 페이지) 및 확인 메일은 이 문서에서 설명하는 메커니즘이 아닌 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용해야만 사용자 지정할 수 있습니다.
+현재 로컬 계정 로그인 페이지, 해당 동반 암호 재설정 페이지 및 확인 메일은 이 문서에서 설명하는 메커니즘이 아닌 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용해야만 사용자 지정할 수 있습니다.
 
 이 문서에서는 다음에 대해 읽습니다.
 
 - 페이지 UI(사용자 인터페이스) 사용자 지정 기능
-- 샘플 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 테스트하는 데 도움이 되는 도우미 도구입니다.
+- 샘플 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 테스트하는 데 도움이 되는 도구입니다.
 - 페이지의 각 형식에서 코어 UI 요소입니다.
 - 이 기능을 실행할 때 모범 사례입니다.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 ## 페이지 UI 사용자 지정 기능
 
-페이지 UI 사용자 지정 기능을 사용하면 [정책](active-directory-b2c-reference-policies.md)을 구성하여 소비자 등록, 로그인 및 프로필 편집 페이지의 모양과 느낌을 사용자 지정할 수 있습니다. 소비자가 Azure AD B2C 서비스에 의해 제공된 응용 프로그램과 페이지 간에 이동하는 경우 일관된 환경을 유지합니다.
+페이지 UI 사용자 지정 기능을 사용하면 [정책](active-directory-b2c-reference-policies.md)을 구성하여 소비자 등록, 로그인, 암호 재설정 및 프로필 편집 페이지의 모양과 느낌을 사용자 지정할 수 있습니다. 소비자가 Azure AD B2C에 의해 제공된 응용 프로그램과 페이지 간에 이동하는 경우 원활한 환경을 유지합니다.
 
-UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서비스와 달리 Azure AD B2C는 페이지 UI 사용자 지정에 최신(및 간단한) 접근 방법을 사용합니다. 작동 방식은 다음과 같습니다. Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 [크로스-원본 자원 공유 (CORS)](http://www.w3.org/TR/cors/)을 호출하는 최신 방법을 사용하여 정책에서 지정한 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정할 수 있습니다. 코드는 Azure AD B2C의 UI 요소를 해당 URL에서 로드된 콘텐츠에 병합하고 소비자에게 페이지를 표시합니다. `<body>` 어딘가에 있는 `<div id="api"></div>` 요소(빈 요소이어야 함)를 사용하여 잘 구성된(Well-Formed) HTML5 콘텐츠를 만들기만 하면 됩니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 표시합니다. 허용된 CORS로 HTTPS 끝점에서 이 콘텐츠가 호스트되어야 합니다. 또한 Azure AD B2C UI 요소의 스타일을 완전히 만들 수 있습니다.
+UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서비스와 달리 Azure AD B2C는 페이지 UI 사용자 지정에 최신(및 간단한) 접근 방법을 사용합니다.
 
-## UI 사용자 지정 기능 사용해 보기
+작동 방식은 다음과 같습니다. Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 [크로스-원본 자원 공유 (CORS)](http://www.w3.org/TR/cors/)을 호출하는 최신 방법을 사용하여 정책에서 지정한 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정할 수 있습니다. 코드는 Azure AD B2C의 UI 요소를 해당 URL에서 로드된 콘텐츠에 병합하고 소비자에게 페이지를 표시합니다. 꼭 해야 할 일:
 
-Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 UI 사용자 지정 기능을 사용해 보는 경우를 위해 정적 콘텐츠를 업로드 및 구성하는 [간단한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 제공합니다.
+1. `<body>` 어딘가에 있는 `<div id="api"></div>` 요소(빈 요소이어야 함)를 사용하여 잘 구성된(Well-Formed) HTML5 콘텐츠를 만듭니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 표시합니다.
+2. (허용된 CORS로)HTTPS 끝점의 콘텐츠를 호스트합니다.
+3. Azure AD B2C가 삽입하는 UI 요소의 스타일을 만듭니다.
+
+## UI 사용자 지정 기능 테스트하기
+
+샘플 HTML 및 CSS 콘텐츠를 사용하여 UI 사용자 지정 기능을 시도해 보고자 할 경우 Azure Blob 저장소에 샘플 콘텐츠를 업로드 및 구성하는 [간단한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 제공합니다.
+
+> [AZURE.NOTE]
+웹 서버, CDN, AWS S3, 파일 공유 시스템 등 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 콘텐츠가 공개 사용 가능한 HTTPS 끝점(CORS 허용됨)에 호스트된다면 계속 진행하세요. Azure Blob 저장소를 설명 목적으로만 사용합니다.
+
+### 테스트를 위한 가장 기본적인 HTML 콘텐츠
+
+이 기능을 테스트하는 데 사용할 수 있는 가장 기본적인 HTML 콘텐츠는 아래와 같습니다. 앞서 제공된 동일한 도우미 도구를 사용 하여 이 콘텐츠를 Azure Blob 저장소에 업로드하고 구성합니다. 그런 다음 각 페이지의 양식화되지 않은 기본 단추 및 양식 필드가 표시되고 작동하는지 확인할 수 있습니다.
+
+```HTML
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>!Add your title here!</title>
+	</head>
+	<body>
+		<div id="api"></div>	<!-- IMP: This element is intentionally empty; don't enter anything here -->
+	</body>
+</html>
+
+```
 
 ## 페이지의 각 형식에서 코어 UI 요소
 
-다음 섹션에는 Azure AD B2C가 콘텐츠의 <div id="api"></div> 요소에 병합하는 HTML5 조각의 예가 있습니다. HTML 5 콘텐츠에 이러한 조각을 삽입하지 마십시오. 여기서는 설명의 목적으로만 표시됩니다. Azure AD B2C 서비스는 런타임에 삽입합니다. 사용자 고유의 스타일시트를 사용하여 이러한 UI 요소를 사용자 지정할 수 있습니다. 이러한 스타일시트는 <head> 조각에서 해당 페이지에 추가하는 기본 스타일시트를 재정의해야 합니다.
+다음 섹션에는 Azure AD B2C가 콘텐츠의 `<div id="api"></div>` 요소에 병합하는 HTML5 조각의 예가 있습니다. **HTML 5 콘텐츠에 이러한 조각을 삽입하지 마십시오.** Azure AD B2C 서비스는 런타임에 삽입합니다. 이러한 예제를 사용하여 사용자 고유의 스타일 시트를 디자인합니다.
 
-> [AZURE.IMPORTANT]
-	미리 보기를 하는 동안 여러분의 의견에서 학습하고 적용한 대로 변경할 정확한 UI 요소가 필요합니다. 항상 기본 페이지의 소스 코드에서 최신 업데이트를 검사합니다. 실제로 고려되는 첫 번째 변경 내용은 기본 스타일시트 제거입니다. 즉, 콘텐츠에서 이러한 UI 요소에 대한 사용자 고유의 스타일시트를 항상 제공해야 합니다.
-
-### ID 공급자 선택 페이지
+### "ID 공급자 선택 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 이 페이지는 등록 또는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자입니다.
 
@@ -77,7 +99,7 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 ```
 
-### 로컬 계정 등록 페이지
+### "로컬 계정 등록 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 이 페이지는 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정을 등록하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다.
 
@@ -194,11 +216,11 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 ```
 
-### 소셜 계정 등록 페이지
+### "소셜 계정 등록 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 이 페이지는 Facebook 또는 Google+와 같은 소셜 ID 공급자에서 기존 계정을 사용하여 등록하는 경우 소비자가 작성해야 하는 등록 양식을 포함합니다. 이 페이지는 암호 입력 필드를 제외하고 로컬 계정 등록 페이지와 유사합니다.(이전 섹션에 표시됨)
 
-### 통합 등록 또는 로그인 페이지
+### "통합 등록 또는 로그인 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 이 페이지는 Facebook 또는 Google+ 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록 및 로그인을 모두 다룹니다.
 
@@ -253,7 +275,7 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 ```
 
-### 다단계 인증 페이지
+### "Multi-Factor Authentication 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 이 페이지에서 등록 또는 로그인하는 동안 사용자가 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다.
 
@@ -299,7 +321,7 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 ```
 
-### 오류 페이지
+### "오류 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 
 ```HTML
 
@@ -321,6 +343,7 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 페이지 UI 사용자 지정 기능을 사용하려는 경우 다음 모범 사례를 검토합니다.
 
 - Azure AD B2C의 기본 콘텐츠를 복사하거나 수정하려고 하지 마세요. 처음부터 HTML5 콘텐츠를 작성하고 기본 콘텐츠를 참조로 사용하는 것이 가장 좋습니다.
+- 로그인, 등록 및 프로필 편집 정책에 의해 처리되는 모든 페이지(오류 페이지 제외)에서 사용자가 제공하는 스타일 시트는 <head> 조각에서 이들 페이지에 추가한 기본 스타일 시트를 재정의해야합니다. 등록 또는 로그인 및 암호 재설정 정책, 모든 정책의 오류 페이지에 의해 처리되는 모든 페이지에서 사용자는 모든 스타일을 직접 제공해야 합니다.
 - 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 대부분의 필요한 것을 즉시 사용할 수 있어야 합니다. 그렇지 않으면 [사용자 의견](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 새로운 기능을 요청합니다.
 - 지원되는 브라우저 버전:
 	- Internet Explorer 11
@@ -332,4 +355,4 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

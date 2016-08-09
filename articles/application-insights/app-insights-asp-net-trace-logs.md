@@ -12,12 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 .NET 추적 로그 탐색  
 
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Visual Studio Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
+
+
+
 
 > [AZURE.NOTE] 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터지만 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 직접 호출하는 것이 좋습니다.
 
@@ -26,7 +29,23 @@ ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.D
 
 프로젝트에서 선택한 로깅 프레임워크를 설치합니다. 그러면 app.config 또는 web.config에 항목이 생성됩니다.
 
-> System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가해야 합니다.
+System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가해야 합니다.
+
+```XML
+
+    <configuration>
+     <system.diagnostics>
+       <trace autoflush="false" indentsize="4">
+         <listeners>
+           <add name="myListener" 
+             type="System.Diagnostics.TextWriterTraceListener" 
+             initializeData="TextWriterOutput.log" />
+           <remove name="Default" />
+         </listeners>
+       </trace>
+     </system.diagnostics>
+   </configuration>
+```
 
 ## 로그를 수집하도록 Application Insights 구성
 
@@ -41,7 +60,7 @@ ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.D
 
 프로젝트 형식이 Application Insights 설치 관리자에서 지원되지 않는 경우(예: Windows 데스크톱 프로젝트) 이 방법을 사용합니다.
 
-1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다. 
+1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 3. "Application Insights" 검색
 
@@ -76,6 +95,15 @@ Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대한 필터링 또는 검색하는 데 사용할 수 있는 속성 값을 추가할 수 있습니다. 예:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+이를 통해 [검색][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 
 ## 로그 탐색
 
@@ -85,13 +113,13 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 ![Application Insights에서 검색 선택](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![진단 검색](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![검색](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 예를 들어 다음을 수행할 수 있습니다.
 
 * 특정 속성이 있는 로그 추적 또는 항목을 필터링합니다.
 * 특정 항목을 자세히 검사합니다.
-* 동일한 사용자 요청에 관련된, 다시 말해서 OperationId가 같은 다른 원격 분석을 찾습니다. 
+* 동일한 사용자 요청에 관련된, 다시 말해서 OperationId가 같은 다른 원격 분석을 찾습니다.
 * 이 페이지의 구성을 즐겨찾기로 저장합니다.
 
 > [AZURE.NOTE] **샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
@@ -100,7 +128,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 [ASP.NET의 실패 및 예외 진단][exceptions]
 
-[진단 검색에 대해 자세히 알아보세요][diagnostic].
+[검색에 대한 자세한 정보][diagnostic]
 
 
 
@@ -113,7 +141,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 ### 프로젝트 상황에 맞는 메뉴에 Application Insights 옵션이 없습니다.
 
 * Application Insights 도구가 이 개발 컴퓨터에 설치되어 있는지 확인합니다. Visual Studio 메뉴 도구, 확장 및 업데이트에서 Application Insights 도구를 찾습니다. 설치됨 탭에 없는 경우 온라인 탭을 열고 설치합니다.
-* Application Insights 도구에서 지원되지 않는 프로젝트 형식일 수 있습니다. [수동 설치](#manual-installation)를 사용하세요.
+* Application Insights 도구에서 지원되지 않는 프로젝트 형식일 수 있습니다. [수동 설치](#manual-installation)를 사용합니다.
 
 ### 구성 도구에 로그 어댑터 옵션이 없습니다.
 
@@ -153,11 +181,11 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[portal]: http://portal.azure.com/
+[exceptions]: app-insights-asp-net-exceptions.md
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

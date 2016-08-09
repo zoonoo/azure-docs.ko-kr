@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지를 개발합니다.
@@ -23,7 +23,7 @@ Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴�
 
 이 문서의 단계를 완료하면 HDInsight에서 Apache Storm에 배포할 수 있는 기본 토폴로지가 생깁니다.
 
-> [AZURE.NOTE]\: 이 토폴로지의 완료된 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
+> [AZURE.NOTE] 이 토폴로지의 완료된 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
 ##필수 조건
 
@@ -80,7 +80,10 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-	  <version>0.9.2-incubating</version>
+      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+           To find the version information for earlier HDInsight cluster
+           versions, see https://azure.microsoft.com/ko-KR/documentation/articles/hdinsight-component-versioning/ -->
+	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -96,9 +99,11 @@ Maven 플러그인을 사용하면 프로젝트를 컴파일하는 방법 또는
 	<build>
 	  <plugins>
 	  </plugins>
+      <resources>
+      </resources>
 	</build>
 
-이 섹션은 플러그 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다.
+이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. __pom.xml__ 파일에 대한 전체 참조는 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)을 참조하세요.
 
 ###플러그 인 추가
 
@@ -137,6 +142,20 @@ Apache MavenCompiler 플러그 인을 포함하고 원본 및 대상 버전을 1
         <target>1.7</target>
       </configuration>
     </plugin>
+
+###리소스 구성
+
+리소스 섹션을 사용하면 토폴로지에 구성 요소에 필요한 구성 파일과 같은 비코드 리소스를 포함할 수 있습니다. 이 예제에서는 **pom.xml** 파일의 `<resources>` 섹션 내에 다음을 추가합니다.
+
+    <resource>
+        <directory>${basedir}/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>log4j2.xml</include>
+        </includes>
+    </resource>
+
+그러면 프로젝트의 루트에 있는 리소스 디렉터리(`${basedir}`)가 리소스를 포함하는 위치로 추가되고 __log4j2.xml__이라는 파일이 포함됩니다. 이 파일은 토폴로지에서 기록하는 정보를 구성하는 데 사용됩니다.
 
 ##토폴로지 만들기
 
@@ -319,8 +338,15 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
 
+    // For logging
+    import org.apache.logging.log4j.Logger;
+    import org.apache.logging.log4j.LogManager;
+
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
+      //Create logger for this class
+      private static final Logger logger = LogManager.getLogger(WordCount.class);
+      
       //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
 
@@ -338,6 +364,8 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
           counts.put(word, count);
           //Emit the word and the current count
           collector.emit(new Values(word, count));
+          //Log information
+          logger.info("Emitting a count of " + count + " for word " + word);
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
@@ -349,7 +377,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 코드 주석을 읽어보면 각각의 Bolt가 어떻게 동작하는지 이해할 수 있습니다.
 
-###토폴로지 만들기
+###토폴로지 정의
 
 토폴로지는 spout 및 bolt를 그래프로 묶습니다. 이 그래프는 구성 요소 사이의 데이터 흐름 방식을 정의합니다. Storm이 클러스터 내에서 구성 요소의 인스턴스를 만들 대 사용하는 병렬 처리 힌트도 제공합니다.
 
@@ -391,7 +419,9 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
         //new configuration
         Config conf = new Config();
-        conf.setDebug(true);
+        //Set to false to disable debug information
+        // when running in production mode.
+        conf.setDebug(false);
 
         //If there are arguments, we are running on a cluster
         if (args != null && args.length > 0) {
@@ -419,6 +449,37 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 코드 주석을 읽어보면 토폴로지가 정의되고 클러스터로 제출되는 방식을 이해할 수 있습니다.
 
+###로깅 구성
+
+Storm은 Apache Log4j를 사용하여 정보를 기록합니다. 로깅을 구성하지 않으면 토폴로지는 읽기 어려울 수 있는 많은 진단 정보를 내보냅니다. 로깅되는 내용을 제어하려면 __resources__ 디렉터리에 __log4j2.xml__이라는 파일을 만듭니다. 다음을 파일 콘텐츠로 사용합니다.
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
+    </Configuration>
+
+이렇게 하면 이 예제 토폴로지의 구성 요소를 포함하는 __com.microsoft.example__ 클래스에 대한 새 로거가 구성됩니다. 수준은 이 로거에 대한 추적으로 설정되며, 이 토폴로지의 구성 요소에서 내보낸 모든 로깅 정보가 캡처됩니다. 이 프로젝트에 대한 코드를 다시 살펴보면 WordCount.java 파일만 로깅을 구현하며 각 단어의 개수를 기록합니다.
+
+`<Root level="error">` 섹션은 루트 수준의 로깅(모든 항목이 __com.microsoft.example__에 있지는 않음)을 오류 정보만 기록하도록 구성합니다.
+
+> [AZURE.IMPORTANT] 이렇게 하면 개발 환경에서 토폴로지를 테스트할 때 기록되는 정보가 크게 줄어들지만, 프로덕션의 클러스터에서 실행할 경우 생성되는 모든 디버그 정보가 제거되지는 않습니다. 해당 정보를 줄이려면 클러스터에 제출된 구성에서도 디버깅을 false로 설정해야 합니다. 예제는 이 문서의 WordCountTopology.java 코드를 참조하세요.
+
+Log4j에 대한 로깅 구성과 관련된 자세한 내용은 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)을 참조하세요.
+
+> [AZURE.NOTE] Storm 버전 0.10.0은 Log4j 2.x를 사용합니다. 이전 버전의 Storm은 로그 구성에 다른 형식을 사용하는 Log4j 1.x를 사용합니다. 이전 구성에 대한 자세한 내용은 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)을 참조하세요.
+
 ##로컬에서 토폴로지 테스트
 
 파일을 저장한 후 다음 명령을 사용하여 토폴로지를 로컬로 테스트할 수 있습니다.
@@ -427,29 +488,23 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 실행할 때 토폴로지가 시작 정보를 표시한 다음, 문장을 Spout에서 내보낸 다음 Bolt로 처리했기 때문에 아래와 유사한 줄을 표시하기 시작합니다.
 
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
-    15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
-    15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
-    15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-이 출력에서 볼 수 있듯이 다음과 같이 발행합니다.
-
-1. Spout가 "an apple a day keeps the doctor away"를 내보냅니다.
-
-2. Split bolt가 문장에서 개별 단어 내보내기를 시작합니다.
-
-3. Count bolt가 각각의 단어 및 내보낸 횟수를 내보내기 시작합니다.
-
-Count bolt가 내보낸 데이터를 보면 ‘apple’을 53번 내보낸 것을 알 수 있습니다. 동일한 문장을 계속해서 임의로 내보내고 횟수는 재설정되지 않기 때문에 토폴로지가 실행되는 동안 횟수는 계속해서 증가합니다.
+WordCount bolt가 내보낸 로깅을 보면 ‘apple’을 53번 내보낸 것을 알 수 있습니다. 동일한 문장을 계속해서 임의로 내보내고 횟수는 재설정되지 않기 때문에 토폴로지가 실행되는 동안 횟수는 계속해서 증가합니다.
 
 ##Trident
 
@@ -471,4 +526,4 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

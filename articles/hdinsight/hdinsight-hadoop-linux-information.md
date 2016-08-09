@@ -82,7 +82,7 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 * __2.2.4.9-1__: 이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기 나열된 번호와 다를 수 있습니다.
 * __current__: 이 디렉터리는 __2.2.4.9-1__ 디렉터리 아래의 디렉터리에 대한 링크를 포함하며 파일에 액세스할 때마다 버전 번호(변경될 수 있음)를 입력하지 않아도 됩니다.
 
-예제 데이터 및 JAR 파일은 HDFS(Hadoop Distributed File System) 또는 Azure Blob 저장소('/example' 또는 'wasb:///example')에서 찾을 수 있습니다.
+예제 데이터 및 JAR 파일은 HDFS(Hadoop Distributed File System) 또는 Azure Blob 저장소('/example' 또는 'wasbs:///example')에서 찾을 수 있습니다.
 
 ## HDFS, Azure Blob 저장소 및 저장소 모범 사례
 
@@ -98,11 +98,11 @@ HDInsight에 대한 기본 저장소가 된 이후 일반적으로 사용하기 
 
 	hadoop fs -ls /example/data
 
-일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **WASB://**를 명령 앞에 붙일 수 있습니다.
+일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **wasb://** 또는 **wasbs://**를 명령 앞에 붙일 수 있습니다.
 
-HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
+HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
 
-	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
+	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Blob 저장소는 어떤 클러스터를 사용하나요?
 
@@ -116,7 +116,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
     다음과 유사한 값을 반환하며 여기서 __CONTAINER__는 기본 컨테이너이고 __ACCOUNTNAME__은 Azure 저장소 계정 이름입니다.
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 1. 저장소 계정에 대한 리소스 그룹을 가져오고 [Azure CLI](../xplat-cli-install.md)를 사용합니다. 다음 명령에서 __ACCOUNTNAME__을 Ambari에서 검색한 저장소 계정 이름으로 대체합니다.
 
@@ -206,7 +206,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 	* __Storm UI__: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
 
-		1. 웹 브라우저에서 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+		1. 웹 브라우저에서 \_\_https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
 
 		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__ 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
@@ -218,7 +218,7 @@ HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참
 
 ## Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
-HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 프로그램을 수동으로 직접 설치하는 것은 좋지 않습니다. 대신 다음을 설치해야 하는 경우 [HDInsight 스크립트 작업](hdinsight-hadoop-customize-cluster.md)을 사용합니다.
+HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 프로그램을 수동으로 직접 설치하는 것은 좋지 않습니다. 대신 다음을 설치해야 하는 경우 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster.md)을 사용합니다.
 
 * Spark 또는 Hue와 같은 서비스 또는 웹 사이트입니다.
 * 클러스터의 여러 노드에 대해 구성 변경을 필요로 하는 구성 요소입니다. 예를 들어 필수 환경 변수, 로깅 디렉터리 만들기 또는 구성 파일 만들기입니다.
@@ -257,4 +257,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

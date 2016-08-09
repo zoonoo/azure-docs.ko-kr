@@ -18,7 +18,7 @@
 
 # Azure 테이블 저장소 및 Visual Studio 연결된 서비스를 시작하는 방법
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## 개요
 
@@ -191,4 +191,4 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -133,6 +133,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 - [개발자 가이드][lnk-devguide]
 - [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
 - [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal]
+- [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -148,5 +149,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

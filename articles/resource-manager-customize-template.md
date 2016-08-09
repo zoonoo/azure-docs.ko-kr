@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz"/>
 
 # 내보낸 Azure Resource Manager 템플릿 사용자 지정
@@ -128,7 +128,7 @@ template.json 템플릿은 모든 배포에 대해 동일한 주소 접두사와
           "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
         },
 
-3. 리소스 정의의 매개 변수와 변수를 사용하려면 **리소스** 섹션을 다음 정의로 바꿉니다. 리소스 속성에 할당된 값을 제외하고 리소스 정의에서 실제로 변경된 사항은 거의 없습니다. 속성은 내보낸 템플릿의 속성과 정확하게 동일합니다. 하드 코드된 값 대신 매개 변수 값에 속성을 할당하기만 하면 됩니다. 리소스 위치는 **resourceGroup().location** 식을 통한 리소스 그룹과 동일한 위치를 사용하도록 설정됩니다. 저장소 계정 이름에 대해 만든 변수는 **변수** 식을 통해 참조됩니다.
+3. 리소스 정의의 매개 변수와 변수를 사용하려면 **리소스** 섹션을 다음 정의로 바꿉니다. 리소스 속성에 할당된 값을 제외하고 리소스 정의에서 실제로 변경된 사항은 거의 없습니다. 속성은 내보낸 템플릿의 속성과 정확하게 동일합니다. 하드 코드된 값 대신 매개 변수 값에 속성을 할당하기만 하면 됩니다. 리소스 위치는 **resourceGroup\(\).location** 식을 통한 리소스 그룹과 동일한 위치를 사용하도록 설정됩니다. 저장소 계정 이름에 대해 만든 변수는 **변수** 식을 통해 참조됩니다.
 
         "resources": [
           {
@@ -191,7 +191,7 @@ parameters.json 파일의 내용을 아래 코드로 바꿉니다.
 
 ## 템플릿 배포
 
-Azure PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 사용자 지정된 템플릿과 매개 변수 파일을 배포할 수 있습니다. 필요할 경우 [Azure PowerShell](powershell-install-configure.md) 또는 [Azure CLI](xplat-cli-install.md)를 설치합니다. 원본 템플릿을 내보낼 때 템플릿과 함께 다운로드한 스크립트를 사용하거나 고유 스크립트를 작성하여 템플릿을 배포할 수 있습니다. 두 옵션은 이 문서에 나와 있습니다.
+Azure PowerShell 또는 Azure CLI\(명령줄 인터페이스\)를 사용하여 사용자 지정된 템플릿과 매개 변수 파일을 배포할 수 있습니다. 필요할 경우 [Azure PowerShell](powershell-install-configure.md) 또는 [Azure CLI](xplat-cli-install.md)를 설치합니다. 원본 템플릿을 내보낼 때 템플릿과 함께 다운로드한 스크립트를 사용하거나 고유 스크립트를 작성하여 템플릿을 배포할 수 있습니다. 두 옵션은 이 문서에 나와 있습니다.
 
 2. 사용자 고유 스크립트를 사용하여 배포하려면 다음 중 하나를 사용합니다.
 
@@ -214,7 +214,7 @@ Azure PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 사
 
         azure group deployment create -f {path-to-file}\azuredeploy.json -e {path-to-file}\parameters.json -g ExportGroup -n ExampleDeployment
 
-3. 내보낸 템플릿과 스크립트를 다운로드한 경우 **deploy.ps1** 파일(PowerShell) 또는 **deploy.sh** 파일(Azure CLI)을 검색합니다.
+3. 내보낸 템플릿과 스크립트를 다운로드한 경우 **deploy.ps1** 파일\(PowerShell\) 또는 **deploy.sh** 파일\(Azure CLI\)을 검색합니다.
 
      PowerShell의 경우 다음을 실행합니다.
 
@@ -233,4 +233,4 @@ Azure PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 사
 - Azure CLI를 통해 템플릿을 내보내는 방법은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 - 템플릿 구조를 정하는 방법은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

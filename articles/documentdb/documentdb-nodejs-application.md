@@ -50,7 +50,7 @@
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - [Node.js][] 버전 v0.10.29 이상
-- [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
+- [Express 생성기](http://www.expressjs.com/starter/generator.html)\(`npm install express-generator -g`를 통해 설치 가능\)
 - [Git][]
 
 ## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
@@ -100,7 +100,7 @@
 
 	![package.json 탭의 스크린샷](./media/documentdb-nodejs-application/image17.png)
 
-       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
+       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드\(및 나중에 Azure\)에 알려줍니다.
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
 
@@ -110,7 +110,7 @@
 
 1. 프로젝트 디렉터리에서 **models**라는 새 디렉터리를 만듭니다.
 2. **models** 디렉터리에서 **taskDao.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
-3. 동일한 **models** 디렉터리에서 **docdbUtils.js**라는 다른 새 파일을 만듭니다. 이 파일에는 응용 프로그램 전체에서 사용할 몇 가지 유용하고, 다시 사용할 수 있는 코드가 포함됩니다. 
+3. 동일한 **models** 디렉터리에서 **docdbUtils.js**라는 다른 새 파일을 만듭니다. 이 파일에는 응용 프로그램 전체에서 사용할 몇 가지 유용하고, 다시 사용할 수 있는 코드가 포함됩니다.
 4. 다음 코드를 **docdbUtils.js**에 복사합니다.
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -305,7 +305,7 @@
 
 ### 컨트롤러 만들기
 
-1. 프로젝트의 **routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만듭니다. 
+1. 프로젝트의 **routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만듭니다.
 2. 아래 코드를 **tasklist.js**에 추가합니다. 이 코드는 **tasklist.js**에서 사용되는 DocumentDBClient 및 async 모듈을 로드합니다. 또한 앞에서 정의한 **Task** 개체의 인스턴스가 전달되는 **TaskList** 함수도 정의되었습니다.
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -431,7 +431,7 @@
 
 
 
-6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다.
+6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고\(**config.js**에서 읽은 값 사용\), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다.
 
 7. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
  
@@ -439,7 +439,7 @@
 
 이제 사용자가 실제로 응용 프로그램을 조작할 수 있도록 사용자 인터페이스를 작성하겠습니다. 만든 Express 응용 프로그램은 **Jade**를 뷰 엔진으로 사용합니다. Jade에 대한 자세한 내용은 [http://jade-lang.com/](http://jade-lang.com/)을 참조하세요.
 
-1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다. 
+1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다.
 2. **views** 폴더에 있는 **layout.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
 	
 		doctype html
@@ -545,7 +545,7 @@
 
 ## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
 
-1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](../app-service-web/web-sites-publish-source-control.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 찾을 수 있습니다.
+1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure 앱 서비스에 로컬 Git 배포](../app-service-web/app-service-deploy-local-git.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 찾을 수 있습니다.
 
 2. Azure 웹 사이트를 git 원격으로 추가합니다.
 
@@ -570,4 +570,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0803_2016-->

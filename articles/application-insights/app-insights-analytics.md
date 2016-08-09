@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analytics - Application Insights의 강력한 검색 도구 | Microsoft Azure" 
-	description="Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다." 
+	description="Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,10 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 유용한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
+* **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
 
+## 분석의 쿼리
  
 일반적인 쿼리는 *원본* 테이블이며 그 뒤에 `|`(으)로 구분된 일련의 *연산자*가 있습니다.
 
@@ -81,4 +84,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

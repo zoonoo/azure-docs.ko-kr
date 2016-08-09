@@ -196,7 +196,7 @@ Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내�
     
     WASB 스타일 주소 지정을 사용할 수도 있습니다.
     
-        rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasbs:///")
 
 ## Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
 
@@ -411,4 +411,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 Azure Resource Manager 템플릿을 사용하는 일반적인 정보는 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

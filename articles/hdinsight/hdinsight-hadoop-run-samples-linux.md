@@ -99,9 +99,9 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    이 작업에 대한 입력은 **wasb:///example/data/gutenberg/davinci.txt**에서 읽습니다.
+    이 작업에 대한 입력은 **wasbs:///example/data/gutenberg/davinci.txt**에서 읽습니다.
 
-    이 예의 출력은 **wasb:///example/data/davinciwordcount**에 저장됩니다.
+    이 예의 출력은 **wasbs:///example/data/davinciwordcount**에 저장됩니다.
 
     > [AZURE.NOTE] Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount`는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
 
@@ -196,11 +196,11 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 데이터를 생성하고 정렬한 다음 출력의 유효성을 검사하려면 다음 단계를 사용합니다.
 
-1. HDInsight 클러스터의 기본 저장소(**wasb:///example/data/10GB-sort-input**)에 저장되는 10GB의 데이터를 생성합니다.
+1. HDInsight 클러스터의 기본 저장소(**wasbs:///example/data/10GB-sort-input**)에 저장되는 10GB의 데이터를 생성합니다.
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks`는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어**wasb:///example/data/10GB-sort-input**에 저장하도록 지시합니다.
+	`-Dmapred.map.tasks`는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어**wasbs:///example/data/10GB-sort-input**에 저장하도록 지시합니다.
 
 2. 다음 명령을 사용하여 데이터를 정렬합니다.
 
@@ -236,4 +236,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

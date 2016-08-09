@@ -2,7 +2,7 @@
 - Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 계정
 
-논리 앱에서 OneDrive 계정을 사용하려면 먼저 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
+논리 앱에서 OneDrive 계정을 사용하려면 먼저 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.
 
 다음 단계를 사용하여 OneDrive 계정에 연결하도록 논리 앱에 권한을 부여합니다.
 
@@ -14,4 +14,4 @@
 4. **예**를 선택하여 OneDrive 계정에 사용할 논리 앱에 권한을 부여합니다. ![](./media/connectors-create-api-onedrive/onedrive-4.png)
 5. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다. ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

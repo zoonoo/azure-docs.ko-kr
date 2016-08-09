@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,13 +53,13 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 - 출력의 일부로 커넥터는 Edifact 페이로드, 규약 ID 뿐 아니라 메시지가 일괄 처리되었는지 아닌지에 대한 정보도 반환합니다.
 
 ### 작업
-- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.
+- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.  
 ![작업 설정][7]
-- ->를 클릭합니다. 
+- ->를 클릭합니다.  
 ![작업 목록][8]
-- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다. 
+- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다.  
 ![입력 인코딩][9]
-- 동작에 대한 입력을 제공하고 구성합니다. 
+- 동작에 대한 입력을 제공하고 구성합니다.  
 ![구성된 인코딩][10]
 
 	매개 변수|형식|매개 변수에 대한 설명
@@ -100,4 +100,4 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

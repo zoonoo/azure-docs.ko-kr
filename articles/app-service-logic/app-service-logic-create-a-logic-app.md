@@ -4,7 +4,7 @@
 	authors="jeffhollan"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -33,7 +33,7 @@
 3. 논리 앱의 이름을 입력하고 위치, 리소스 그룹을 선택한 다음 **만들기**를 선택합니다. **대시보드에 고정**을 선택하는 경우 논리 앱이 배포된 후에 자동으로 열립니다.
 4. 논리 앱을 처음으로 연 후에 시작하려는 템플릿에서 선택할 수 있습니다. 지금은 **빈 논리 앱**을 클릭하여 처음부터 구축합니다.
 1. 만들어야 하는 첫 번째 항목은 트리거입니다. 논리 앱을 시작하는 이벤트입니다. 트리거 검색 상자에서 **twitter**를 검색하고 선택합니다.
-7. 이제는 트리거할 검색 단어에 입력할 수 있습니다. **주파수** 및 **간격**은 논리 앱이 새 트윗을 확인(및 시간 범위 동안 모든 트윗을 반환)하는 빈도를 결정합니다. ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)
+7. 이제는 트리거할 검색 단어에 입력할 수 있습니다. **주파수** 및 **간격**은 논리 앱이 새 트윗을 확인\(및 시간 범위 동안 모든 트윗을 반환\)하는 빈도를 결정합니다. ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
 5. **새 단계** 단추를 선택한 다음 **작업 추가** 또는 **조건 추가**를 선택합니다.
 6. **동작 추가**를 선택하면 [사용 가능한 커넥터](../connectors/apis-list.md)에서 검색하여 작업을 선택할 수 있습니다. 예를 들어 **Outlook.com - 전자 메일 보내기**를 선택하여 outlook.com 주소에서 메일을 보낼 수 있습니다. ![동작](./media/app-service-logic-create-a-logic-app/actions.png)
@@ -64,4 +64,4 @@
 [Azure portal]: https://portal.azure.com
 [논리 앱 기능 사용]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -89,14 +89,14 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 		$clusterName = "clustername"
 		# Giraph examples jar
-		$jarFile = "wasb:///example/jars/giraph-examples.jar"
+		$jarFile = "wasbs:///example/jars/giraph-examples.jar"
 		# Arguments for this job
 		$jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
 		                "-ca", "mapred.job.tracker=headnodehost:9010",
 		                "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-		                "-vip", "wasb:///example/data/tiny_graph.txt",
+		                "-vip", "wasbs:///example/data/tiny_graph.txt",
 		                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-		                "-op",  "wasb:///example/output/shortestpaths",
+		                "-op",  "wasbs:///example/output/shortestpaths",
 		                "-w", "2"
 		# Create the definition
 		$jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -115,7 +115,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 	위의 예제에서는**clustername**을 Giraph가 설치된 HDInsight 클러스터의 이름으로 바꿉니다.
 
-5. 결과를 확인합니다. 작업이 완료되면 결과가 \_\___wasb:///example/out/shotestpaths__ 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 __part-m-00001__ 및 __part-m-00002__입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
+5. 결과를 확인합니다. 작업이 완료되면 결과가 __wasbs:///example/out/shotestpaths__ 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 __part-m-00001__ 및 __part-m-00002\_\_입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -183,4 +183,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

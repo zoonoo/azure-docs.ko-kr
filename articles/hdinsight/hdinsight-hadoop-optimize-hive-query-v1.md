@@ -33,8 +33,8 @@
 
 - 프로 비전 시 Azure 포털, Azure PowerShell 또는 크로스 플랫폼 명령줄 인터페이스를 사용하여 작업자 노드의 수를 지정할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요. 다음 화면은 Azure 포털에서 작업자 노드 구성을 표시합니다.
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
-- 런타임 시, 다시 만들지 않고도 확장할 수도 있습니다. 다음과 같습니다. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
+- 런타임 시, 다시 만들지 않고도 확장할 수도 있습니다. 이 내용은 아래에 표시됩니다. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
 
 HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
@@ -42,7 +42,7 @@ HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보�
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/)는 MapReduce 엔진에 대한 대체 실행 엔진입니다.
 
-![tez\_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez\_1]
 
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
@@ -90,7 +90,7 @@ I/O 작업이 Hive 쿼리를 실행하기 위한 주요 성능 병목 상태입�
 
 Hive 분할은 원시 데이터를 자체 디렉터리가 있는 각 파티션이 있는 새 디렉터리로 재구성하여 구현됩니다. 여기서 파티션은 사용자가 정의합니다. 다음 다이어그램에서는 Hive 테이블을 *년*으로 분할에 대해 설명합니다. 각 연도로 새 디렉터리가 생성됩니다.
 
-![분할][image-hdi-optimize-hive-partitioning_1]
+![partitioning][image-hdi-optimize-hive-partitioning\_1]
 
 일부 분할 고려 사항:
 
@@ -122,7 +122,7 @@ Hive 분할은 원시 데이터를 자체 디렉터리가 있는 각 파티션�
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **동적 분할**은 하이브가 파티션을 자동으로 만들수 있음을 의미합니다. 스테이징 테이블에서 분할 테이블을 이미 만들었으므로, 아래와 같이 분할된 테이블에 데이터를 삽입하기만 하면 됩니다.
 
@@ -215,9 +215,6 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 - [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

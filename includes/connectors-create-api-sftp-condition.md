@@ -1,11 +1,8 @@
-1. Select **+ New step** to add the action.  
-- Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![SFTP condition image 1](./media/connectors-create-api-sftp/condition-1.png)    
-- Select **Choose a value** on the left. 
-![SFTP condition image 2](./media/connectors-create-api-sftp/condition-2.png)    
-- Select **File content** to indicate that you want to evaluate the file contents in the condition.      
-![SFTP condition image 3](./media/connectors-create-api-sftp/condition-3.png)   
-- Select *contains* from the list of operators.       
-![SFTP condition image 4](./media/connectors-create-api-sftp/condition-4.png)   
-- Select **Choose a value** on the right and enter *ExtractMeFirst*. In this example, ExtractMeFirst is a value that is expected to be in a file by persons who have access to the SFTP folder to indicate that it is an archive file that should be extracted.  
-![SFTP condition image 5](./media/connectors-create-api-sftp/condition-5.png)   
+1. **+ 새 단계**를 선택하여 동작을 추가합니다.
+- **동작 추가** 링크를 선택합니다. 수행할 동작을 검색할 수 있는 검색 상자가 열립니다. 이 예제에서는 SharePoint 동작을 사용합니다. ![SFTP 조건 이미지 1](./media/connectors-create-api-sftp/condition-1.png)
+- 왼쪽의 **값 선택**을 선택합니다. ![SFTP 조건 이미지 2](./media/connectors-create-api-sftp/condition-2.png)
+- **파일 콘텐츠**를 선택하여 조건의 파일 콘텐츠를 평가할 것임을 나타냅니다. ![SFTP 조건 이미지 3](./media/connectors-create-api-sftp/condition-3.png)
+- 연산자 목록에서 *포함*을 선택합니다. ![SFTP 조건 이미지 4](./media/connectors-create-api-sftp/condition-4.png)
+- 오른쪽에서 **값 선택**을 선택하고 *ExtractMeFirst*를 입력합니다. 이 예제에서 ExtractMeFirst는 압축을 풀어야 하는 보관 파일임을 나타내기 위해 SFTP 폴더에 대해 액세스 권한이 있는 사람이 파일에 있을 것으로 예상하는 값입니다. ![SFTP 조건 이미지 5](./media/connectors-create-api-sftp/condition-5.png)
+
+<!---HONumber=AcomDC_0727_2016-->

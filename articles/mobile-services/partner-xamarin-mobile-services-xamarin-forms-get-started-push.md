@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="03/18/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
@@ -856,4 +856,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Forms Azure 푸시 알림 시작 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -5,7 +5,7 @@
 	  keywords="Azure AD와 SaaS 앱 통합"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Azure Active Directory Single Sign-On과 SaaS 앱 통합  
@@ -72,4 +72,4 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

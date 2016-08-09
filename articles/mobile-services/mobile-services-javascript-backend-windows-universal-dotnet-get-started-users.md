@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # 유니버설 Windows 8.1 앱에 인증 추가
@@ -61,7 +61,7 @@
 
 ##참고 항목
 
-+ [향상된 사용자 기능](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> 서버 스크립트에서 **user.getIdentities()** 함수를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다. 
++ [향상된 사용자 기능](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/> 서버 스크립트에서 **user.getIdentities()** 함수를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다.
 
 + [모바일 서비스 .NET 방법 개념 참조] <br/>.NET 클라이언트에서 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
@@ -89,4 +89,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

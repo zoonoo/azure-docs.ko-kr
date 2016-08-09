@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -116,4 +116,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [구독자에게 브로드캐스트 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [사용자에게 플랫폼 간 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # 서비스 및 작업 로그를 사용하여 스트림 분석 작업 디버그
@@ -25,8 +25,8 @@
 
 작업 로그는 다음 두 가지 방법으로 액세스할 수 있습니다.
 
-- 스트림 분석 작업의 대시보드  
-- Azure 클래식 포털의 관리 서비스  
+- 스트림 분석 작업의 대시보드
+- Azure 클래식 포털의 관리 서비스
 
 ## 스트림 분석 작업의 대시보드
 
@@ -39,7 +39,7 @@
 Azure 클래식 포털에서 스트림 분석 및 기타 서비스에 대한 작업 로그를 수동으로 이동하는 방법:
 
 1.	[Azure 클래식 포털](https://manage.windowsazure.com)에서 **관리 서비스**를 클릭합니다.
-2.	**유형**으로 **스트림 분석**을 선택하고 **서비스 이름**으로 작업 이름을 선택합니다.  
+2.	**유형**으로 **스트림 분석**을 선택하고 **서비스 이름**으로 작업 이름을 선택합니다.
 
   ![스트림 분석 선택](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Azure 포털에서 메시지 수준을 필터링하여 **위험** 이벤트를 �
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

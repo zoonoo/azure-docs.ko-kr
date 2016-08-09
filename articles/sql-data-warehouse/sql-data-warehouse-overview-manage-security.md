@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="07/22/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -34,7 +34,7 @@
 
 연결 보안은 방화벽 규칙 및 연결 암호화를 사용하여 데이터베이스에 대 한 연결을 제한하고 보호하는 방법을 가리킵니다.
 
-방화벽 규칙은 서버와 데이터베이스에서 명시적으로 허용 목록에 없는 IP 주소로부터의 연결 시도를 거부하는 데 사용됩니다. 응용 프로그램 또는 클라이언트 컴퓨터의 공용 IP 주소에서 연결할 수 있도록 허용하려면 먼저 Azure 클래식 포털, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다. 서버 방화벽을 통해 허용되는 IP 주소 범위를 최대한 많이 제한하는 것이 좋습니다. 로컬 컴퓨터에서 Azure SQL 데이터 웨어하우스로 액세스하려면 네트워크의 방화벽과 로컬 컴퓨터가 TCP 포트 1433으로 나가는 통신을 허용하는지 확인합니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽][]을 참조하세요.
+방화벽 규칙은 서버와 데이터베이스에서 명시적으로 허용 목록에 없는 IP 주소로부터의 연결 시도를 거부하는 데 사용됩니다. 응용 프로그램 또는 클라이언트 컴퓨터의 공용 IP 주소에서 연결할 수 있도록 허용하려면 먼저 Azure 클래식 포털, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다. 서버 방화벽을 통해 허용되는 IP 주소 범위를 최대한 많이 제한하는 것이 좋습니다. 로컬 컴퓨터에서 Azure SQL 데이터 웨어하우스로 액세스하려면 네트워크의 방화벽과 로컬 컴퓨터가 TCP 포트 1433으로 나가는 통신을 허용하는지 확인합니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽][], [sp\_set\_firewall\_rule][] 및 [sp\_set\_database\_firewall\_rule][]을 참조하세요.
 
 연결 문자열에서 암호화 모드를 설정하여 SQL 데이터 웨어하우스에 대한 연결을 암호화할 수 있습니다. 연결에 암호화를 설정하는 구문은 프로토콜에 따라 다릅니다. 연결 문자열 설정 방법을 알아보려면 Azure 포털에서 사용자 데이터베이스로 이동합니다. *필수*에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
@@ -115,6 +115,8 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 방화벽]: https://msdn.microsoft.com/library/ee621782.aspx
+[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [데이터베이스 역할]: https://msdn.microsoft.com/library/ms189121.aspx
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/ee336235.aspx
 [권한]: https://msdn.microsoft.com/library/ms191291.aspx
@@ -125,4 +127,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ CBA를 사용하면 Exchange Online 계정을 다음에 연결할 때 Android �
 
 - 클라이언트 인증서를 발급하기 위해 인증 기관에 액세스합니다.
 
-- Azure Active Directory에서 해당 인증 기관이 구성되어 있어야 합니다. 시작 섹션에서 구성을 완료하는 방법에 대한 자세한 단계를 찾을 수 있습니다.
+- Azure Active Directory에서 해당 인증 기관이 구성되어 있어야 합니다. [시작](#getting-started) 섹션에서 구성을 완료하는 방법에 대한 자세한 단계를 찾을 수 있습니다.
 
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
 
@@ -61,17 +61,19 @@ CBA를 사용하면 Exchange Online 계정을 다음에 연결할 때 Android �
 
 | 앱 | 지원 |
 | ---                       | ---          |
-| OneDrive | 예 |
-| Outlook | 예 |
-| Word / Excel / PowerPoint | 예 |
-| 비즈니스용 Skype | 예 |
+| Word / Excel / PowerPoint | ![확인][1] |
+| OneNote | 서비스 예정 |
+| OneDrive | ![확인][1] |
+| Outlook | ![확인][1] |
+| Yammer | ![확인][1] |
+| 비즈니스용 Skype | ![확인][1] |
 
 
 ### 요구 사항  
 
 장치 OS 버전은 Android 5.0(Lollipop) 이상이어야 합니다.
 
-Office 모바일 응용 프로그램에서 CBA를 수행하도록 페더레이션 서버를 구성해야 합니다.
+페더레이션 서버가 구성되어야 합니다.
 
 
 Azure Active Directory에서 클라이언트 인증서를 해지하려면 ADFS 토큰에 다음 클레임이 있어야 합니다.
@@ -140,7 +142,7 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 
 2. Azure AD 모듈을 설치합니다. 버전 [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) 이상을 설치해야 합니다.
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. 대상 테넌트에 연결합니다.
 
@@ -267,4 +269,8 @@ Android 5.0(Lollipop) 이상의 응용 프로그램으로 인증서 인증을 �
 
 설정하는 날짜는 이후 날짜여야 합니다. 날짜가 이후 날짜가 아닌 경우 **StsRefreshTokensValidFrom** 속성이 설정되지 않은 것입니다. 날짜가 이후 날짜인 경우 **StsRefreshTokensValidFrom**이 현재 시간(Set-MsolUser 명령으로 지정된 날짜 아님)으로 설정됩니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
+
+<!---HONumber=AcomDC_0727_2016-->

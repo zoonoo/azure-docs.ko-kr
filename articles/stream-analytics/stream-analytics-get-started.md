@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok" />
 
 
@@ -36,7 +36,7 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 
 ## 필수 조건
 
-- Microsoft 다운로드 센터에서 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드합니다. 
+- Microsoft 다운로드 센터에서 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드합니다.
 - 선택 사항: [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)에서 가져온 이벤트 생성기 소스 코드
 
 ## Azure 이벤트 허브 입력 및 소비자 그룹 만들기
@@ -45,7 +45,7 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 
 이벤트 허브를 만들려면:
 
-1.	[Azure 포털](https://manage.windowsazure.com/)에서 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 차례대로 클릭합니다. 이름, 지역 및 기존 또는 새 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.  
+1.	[Azure 포털](https://manage.windowsazure.com/)에서 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 차례대로 클릭합니다. 이름, 지역 및 기존 또는 새 네임스페이스를 제공하여 새 이벤트 허브를 만듭니다.
 2.	각 스트림 분석 작업이 단일 이벤트 허브 소비자 그룹에서 읽는 것이 가장 좋습니다. 아래에서 소비자 그룹을 만드는 프로세스를 안내하고자 합니다. [소비자 그룹에 대해 자세히 알아볼](https://msdn.microsoft.com/library/azure/dn836025.aspx) 수 있습니다. 소비자 그룹을 만들려면 새로 만든 이벤트 허브로 이동하여 **소비자 그룹** 탭을 클릭한 다음 페이지 아래쪽에서 **만들기**를 클릭하고 소비자 그룹의 이름을 입력합니다.
 3.	이벤트 허브에 대한 액세스 권한을 부여하려면 공유 액세스 정책을 만들어야 합니다. 이벤트 허브의 **구성** 탭을 클릭합니다.
 4.	**공유 액세스 정책**에서 **관리** 권한을 사용하여 새 정책을 만듭니다.
@@ -65,7 +65,7 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 
 2.	**telcodatagen.exe.config**에서 Microsoft.ServiceBus.ConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
 
-    **참고**: Azure 포털에서 복사한 연결 문자열을 끝에 있는 연결 이름에 넣습니다. add key= 필드에서 ";EntityPath=<value>"을 제거해야 합니다.
+    **참고**: Azure 포털에서 복사한 연결 문자열을 끝에 있는 연결 이름에 넣습니다. add key= 필드에서 ";EntityPath=<value>"를 제거해야 합니다.
 
 3.	응용 프로그램을 시작합니다. 사용법은 다음과 같습니다.
 
@@ -265,4 +265,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

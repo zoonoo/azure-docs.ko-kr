@@ -1,6 +1,6 @@
 <properties
 pageTitle="Azure 검색 BLOB 인덱서를 사용하여 JSON BLOB 인덱싱"
-description="Azure 검색을 사용하여 JSON BLOB을 인덱싱하는 방법 알아보기"
+description="Azure 검색 BLOB 인덱서를 사용하여 JSON BLOB 인덱싱"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -12,10 +12,14 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/20/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Azure 검색 BLOB 인덱서를 사용하여 JSON BLOB 인덱싱 
+
+이 문서에서는 JSON이 포함된 blob에서 구조화된 콘텐츠를 추출하도록 Azure 검색 blob 인덱서를 구성하는 방법을 보여 줍니다.
+
+## 시나리오
 
 기본적으로 [Azure 검색 BLOB 인덱서](search-howto-indexing-azure-blob-storage.md)는 단일 텍스트 청크로 JSON BLOB을 구문 분석합니다. JSON 문서의 구조를 유지하려는 경우가 많습니다. 예를 들어 JSON 문서를 지정하고
 
@@ -27,25 +31,33 @@ ms.author="eugenesh" />
 	    }
 	}
 
-검색 인덱스에서 "text", "datePublished" 및 "tags" 필드로 구문 분석하려고 할 수 있습니다.
+"text", "datePublished" 및 "tags" 필드를 포함하는 Azure 검색 문서로 구문 분석하려고 할 수 있습니다.
 
-이 문서는 JSON 구문 분석에 대한 Azure 검색 BLOB 인덱서를 구성하는 방법을 보여 줍니다. 인덱싱 작업을 마쳤습니다.
+또는 Blob에 **JSON 개체 배열**이 포함되면 각 배열 요소를 별도의 Azure 검색 문서로 나타내려고 할 수 있습니다. 예를 들어 이 JSON이 있는 blob가 있다고 가정할 경우
+
+	[
+		{ "id" : "1", "text" : "example 1" },
+		{ "id" : "2", "text" : "example 2" },
+		{ "id" : "3", "text" : "example 3" }
+	]
+
+각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure 검색 인덱스를 채울 수 있습니다.
 
 > [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
 ## JSON 인덱싱 설정
 
-JSON BLOB을 인덱싱하려면 "JSON 구문 분석" 모드에서 BLOB 인덱서를 사용합니다. 인덱서 정의의 `parameters` 속성에서 `useJsonParser` 구성 설정을 사용하도록 설정합니다.
+JSON blob을 인덱싱하려면 `parsingMode` 구성 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함된 경우)로 설정합니다.
 
 	{
 	  "name" : "my-json-indexer",
 	  ... other indexer properties
-	  "parameters" : { "configuration" : { "useJsonParser" : true } }
+	  "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
 	}
 
 필요한 경우 **필드 매핑**을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택합니다. 아래에서 자세히 설명합니다.
 
-> [AZURE.IMPORTANT] JSON 구문 분석 모드를 사용하는 경우 Azure 검색은 데이터 원본의 모든 BLOB을 JSON으로 가정합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
+> [AZURE.IMPORTANT] `json` 또는 `jsonArray` 구문 분석 모드를 사용하는 경우 Azure 검색은 데이터 원본의 모든 BLOB을 JSON으로 가정합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 
 ## 필드 매핑을 사용하여 검색 문서 빌드 
 
@@ -61,7 +73,7 @@ JSON BLOB을 인덱싱하려면 "JSON 구문 분석" 모드에서 BLOB 인덱서
 	    }
 	}
 
-Edm.String 유형의 `text`, Edm.DateTimeOffset 유형의 `date` 및 Collection(Edm.String) 유형의 `tags` 필드가 있는 검색 인덱스가 있다고 가정해 보겠습니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
+Edm.String 형식의 `text`, Edm.DateTimeOffset 형식의 `date` 및 Collection(Edm.String) 형식의 `tags` 필드가 있는 검색 인덱스가 있다고 가정해 보겠습니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
 
 	"fieldMappings" : [ 
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -85,7 +97,28 @@ JSON 문서에 단순한 최상위 속성만 포함되는 경우 필드 매핑�
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-> [AZURE.NOTE] Azure 검색은 현재 하나의 JSON BLOB을 하나의 검색 문서로 구문 분석하는 작업만 지원합니다. BLOB에 다양한 검색 문서로 구문 분석하려는 JSON 배열이 포함되는 경우 이 작업을 먼저 처리할 수 있도록 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/13431384-parse-blob-containing-a-json-array-into-multiple-d)에 투표해 주세요.
+## 중첩된 JSON 배열 인덱싱
+
+JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 내에 중첩되어 있으면 어떻게 할까요? `documentRoot` 구성 속성을 사용하여 배열을 포함하는 속성을 선택할 수 있습니다. 예를 들어 blob은 다음과 같습니다.
+
+	{ 
+		"level1" : {
+			"level2" : [
+				{ "id" : "1", "text" : "Use the documentRoot property" }, 
+				{ "id" : "2", "text" : "to pluck the array you want to index" },
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
+			]
+		}
+	} 
+
+다음 구성을 사용하여 "level2" 속성에 포함된 배열을 인덱싱합니다.
+
+	{
+		"name" : "my-json-array-indexer",
+		... other indexer properties
+		"parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+	}
+
 
 ## 요청 예제
 
@@ -127,4 +160,4 @@ JSON 문서에 단순한 최상위 속성만 포함되는 경우 필드 매핑�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

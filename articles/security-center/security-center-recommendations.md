@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 보안 권장 사항 관리
@@ -66,13 +66,13 @@
 |권장 사항|설명|
 |-----|-----|
 |[구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md)|구독 또는 구독의 VM(가상 컴퓨터) 각각에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다.|
-|[OS 취약성 해결](security-center-resolve-mismatch-baseline-rules.md)|OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다.|
+|[OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)|OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다.|
 |[시스템 업데이트 적용](security-center-apply-system-updates.md)|누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다.|
 |[시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates)|시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다.|
 |[웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)|웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. WAF 어플라이언스(리소스 관리자 배포 모델을 사용하여 만듦)는 별도의 가상 네트워크에 배포해야 합니다. WAF 어플라이언스(클래식 배포 모델을 사용하여 만듦)는 네트워크 보안 그룹 사용으로 제한됩니다. 이러한 지원은 나중에 WAF 어플라이언스(클래식)의 완전 사용자 지정 배포로 확장됩니다.|
 |[응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection)|WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다.|
 |[차세대 방화벽 추가](security-center-add-next-generation-firewall.md)|보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하라는 권장 사항입니다.|
-|[NGFW를 통해서만 트래픽 라우팅](security-center-route-traffic-through-ngfw-only.md)|인바운드 트래픽이 NGFW를 통해 VM로 강제하도록 네트워크 보안 그룹(NSG) 규칙을 구성하는 것이 좋습니다.|
+|[NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|인바운드 트래픽이 NGFW를 통해 VM로 강제하도록 네트워크 보안 그룹(NSG) 규칙을 구성하는 것이 좋습니다.|
 |[Endpoint Protection 설치](security-center-install-endpoint-protection.md)|VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다.|
 |[Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)|끝점 보호 오류를 해결하는 것이 좋습니다.|
 |[서브넷 또는 가상 컴퓨터에서 네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md)|서브넷 또는 VM에서 NSG를 활성화하는 것이 좋습니다.|
@@ -115,4 +115,4 @@
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

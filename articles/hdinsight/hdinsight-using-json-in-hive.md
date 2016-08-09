@@ -56,7 +56,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
 	    ]
 	}
 
-이 파일은 wasb://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 원하는 경우 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+이 파일은 wasbs://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 원하는 경우 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
 이 자습서에서는 Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법은 [원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용 ](hdinsight-hadoop-use-hive-remote-desktop.md)을 참조하세요.
 
@@ -81,7 +81,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
 
 	SELECT * FROM StudentsOneLine
 
-원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
+원시 JSON 파일은 **wasbs://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
 
 *StudentsOneLine* Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 */json/students/* 경로에 저장합니다.
 
@@ -153,7 +153,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 	설치 완료 후 새 사용자 환경 변수를 추가합니다.
 
 	1. Windows 화면에서 **고급 시스템 설정 보기**를 엽니다.
-	2. **환경 변수**를 클릭합니다.  
+	2. **환경 변수**를 클릭합니다.
 	3. 새 **JAVA\_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\\Program Files\\Java\\jdk1.7.0\_55** 또는 JDK 설치 위치를 가리킵니다.
 
 	![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
@@ -260,4 +260,4 @@ JSON 문서의 성적 합계를 계산하려면
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

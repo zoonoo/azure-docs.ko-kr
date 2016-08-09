@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,7 @@
 
 ## Spark MLlib를 사용하여 기계 학습 응용 프로그램 빌드
 
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -85,7 +85,7 @@
 
 `sqlContext`를 사용하여 구조화된 데이터에 대해 변환을 수행할 수 있습니다. 첫 번째 작업으로 샘플 데이터(**Food\_Inspections1.csv**)를 Spark SQL *데이터 프레임*에 로드합니다.
 
-1. 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일의 모든 줄을 메모리에 구조화되지 않은 데이터로 가져와야 합니다. 그런 다음 Python의 CSV 라이브러리를 사용하여 각 줄을 개별적으로 구문 분석합니다. 
+1. 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일의 모든 줄을 메모리에 구조화되지 않은 데이터로 가져와야 합니다. 그런 다음 Python의 CSV 라이브러리를 사용하여 각 줄을 개별적으로 구문 분석합니다.
 
 
 		def csvParse(s):
@@ -96,7 +96,7 @@
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -222,11 +222,11 @@
 
 4. 아래는 검사에서 나올 수 있는 5가지 고유한 결과입니다.
 	
-	* 회사를 찾을 수 없음 
+	* 회사를 찾을 수 없음
 	* 불합격
 	* 합격
 	* 조건부 합격
-	* 폐업 
+	* 폐업
 
 	위반이 있을 때 음식 검사의 결과를 추측할 수 있는 모델을 개발해 보겠습니다. 로지스틱 회귀는 이진 분류 방법이므로 데이터를 **합격** 및 **불합격**의 두 가지 범주로 그룹화할 수 있습니다. "조건부 합격"도 합격이기 때문에 모델을 학습할 때 두 가지 결과를 동일한 것으로 간주해야 합니다. 나머지 결과("회사를 찾을 수 없음", "폐업")는 쓸모가 없으므로 학습 집합에서 제거할 것입니다. 이 두 범주는 결과의 극히 일부분에 불과하기 때문에 제거해도 상관 없습니다.
 
@@ -283,7 +283,7 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 1. 아래는 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만드는 코드 조각입니다. 이 조각은 데이터 프레임을 기반으로 임시 테이블 **Predictions**도 만듭니다.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -341,7 +341,7 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 이제 이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
 
-1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true\_positive*, *false\_positive*, *true\_negative* 및 *false\_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o` 사용)합니다. 
+1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true\_positive*, *false\_positive*, *true\_negative* 및 *false\_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o` 사용)합니다.
 
 		%%sql -q -o true_positive
 		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -420,4 +420,4 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

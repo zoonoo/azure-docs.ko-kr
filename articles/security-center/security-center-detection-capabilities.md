@@ -36,14 +36,14 @@ Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니�
 
 보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 수동 접근 방법을 사용하고 공격의 발전을 예측하여 식별할 수 없는 위협을 감지하도록 전체 클라우드 패브릭에 대한 이벤트를 평가하는 데 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 돌파구를 활용합니다. 이러한 보안 분석은 다음과 같습니다.
 
-- **통합된 위협 인텔리전스**: Microsoft 제품과 서비스, Microsoft DCU(Digital Crimes Unit), MSRC(Microsoft 보안 대응 센터) 및 외부 피드에서 글로벌 위협 인텔리전스를 활용하여 알려진 위험 인물을 찾습니다.
+- **통합된 위협 인텔리전스**: Microsoft 제품과 서비스, Microsoft DCU\(Digital Crimes Unit\), MSRC\(Microsoft 보안 대응 센터\) 및 외부 피드에서 글로벌 위협 인텔리전스를 활용하여 알려진 위험 인물을 찾습니다.
 - **동작 분석**: 알려진 패턴을 적용하여 악의적인 동작을 검색합니다.
 - **이상 감지**: 통계적 프로파일링을 사용하여 기록 기준을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
 
 > [AZURE.NOTE] 고급 검색은 Azure 보안 센터의 표준 계층에서 제공됩니다. 무료 90일 평가판을 사용할 수 있습니다. [보안 정책](security-center-policies.md)의 가격 책정 계층 선택에서 업그레이드할 수 있습니다. 가격 책정에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 방문하세요.
 
 ### 위협 인텔리전스
-Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 분석은 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU(Digital Crimes Unit) 및 MSRC(Microsoft 보안 대응 센터)와 같은 여러 소스에서 이동합니다. 또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure 보안 센터는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
+Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 분석은 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU\(Digital Crimes Unit\) 및 MSRC\(Microsoft 보안 대응 센터\)와 같은 여러 소스에서 이동합니다. 또한 연구원은 제 3자의 위협 인텔리전스 피드에 대해 주요 클라우드 서비스 공급자와 구독자 사이에서 공유되는 위협 인텔리전스 정보를 받습니다. Azure 보안 센터는 이 정보를 사용하여 알려진 부정 행위자의 위협을 경고할 수 있습니다. 일부 사례:
 
 - **악의적인 IP 주소에 대한 아웃바운드 통신**: 알려진 봇 넷 또는 다크넷 가능성에 대한 아웃바운드 트래픽은 리소스가 손상되었으며 공격자가 해당 시스템에 대해 명령을 실행하고 데이터 탈취를 시도하는 것을 나타냅니다. Azure 보안 센터는 Microsoft의 글로벌 위협 데이터베이스에 대해 네트워크 트래픽을 비교하고 악의적인 IP 주소에 대한 통신을 감지하면 경고를 보냅니다.
 
@@ -61,7 +61,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 
 
 ### 이상 감지
 
-Azure 보안 센터는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
+Azure 보안 센터는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석\(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정\)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
 
 - **인바운드 RDP/SSH 무차별 대입 공격**: 배포에는 매일 로그인 사용량이 많은 가상 컴퓨터 및 로그인이 거의 없는 기타 가상 컴퓨터가 있을 수 있습니다. Azure 보안 센터는 이러한 가상 컴퓨터에 대한 기준 로그인 활동을 결정하고 기계 학습을 사용하여 정상적인 로그인 활동이 아닌 것을 정의할 수 있습니다. 로그인 수 또는 로그인 시간 또는 로그인이 요청되는 위치 또는 다른 로그인 관련 특성이 기준과 크게 다른 경우 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
 
@@ -81,9 +81,9 @@ Azure 보안 센터는 위협 상황에서 변경 내용을 지속적으로 모�
 
 - [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-- [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

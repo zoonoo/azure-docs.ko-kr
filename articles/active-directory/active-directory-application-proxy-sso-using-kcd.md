@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
@@ -59,7 +59,7 @@ Active Directory에 응용 프로그램 프록시 커넥터 사용 권한을 부
 
 - 커넥터를 실행하는 서버 및 앱을 실행하는 서버가 도메인 가입 상태이고 동일한 도메인의 일부입니다. 도메인 가입에 대한 자세한 내용은 [컴퓨터를 도메인에 가입](https://technet.microsoft.com/library/dd807102.aspx)을 참조하세요.
 
-- 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 다음은 환경을 강화하는 보안에 영향을 받았을 수 있는 기본 설정입니다. 이에 관한 더 많은 도움은 [KB2009157](https://support.microsoft.com/en-us/kb/2009157)에 나옵니다.
+- 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 다음은 환경을 강화하는 보안에 영향을 받았을 수 있는 기본 설정입니다. 이에 관한 더 많은 도움은 [KB2009157](https://support.microsoft.com/ko-KR/kb/2009157)에 나옵니다.
 
 ### Active Directory 구성
 
@@ -97,7 +97,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 3. **속성**에서 **내부 인증 방법**을 **Windows 통합 인증**으로 설정합니다. ![고급 응용 프로그램 구성](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN**을 입력합니다. 이 예에서는 게시된 응용 프로그램에 대한 SPN이 http/lob.contoso.com입니다.
 
->[AZURE.IMPORTANT] Azure Active Directory 내의 UPN이 온-프레미스 Active Directory 내의 UPN와 동일해야 사전 인증이 작동합니다. Azure AD가 온-프레미스 AD와 동기화되었는지 확인합니다.
+>[AZURE.IMPORTANT] 온-프레미스 UPN과 Azure Active Directory의 UPN이 동일하지 않는 경우 사전 인증이 작동하려면 [위임된 로그인 ID](#delegated-login-identity)을 구성해야 합니다.
 
 | | |
 | --- | --- |
@@ -110,14 +110,17 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 
 ![비 Windows SSO 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### 부분 위임된 ID
-비 Windows 응용 프로그램은 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져옵니다(username@domain). UPN을 선호하는 대부분의 Windows 기반 시스템과 다르며 이는 더 명확하고 중복 크로스 도메인이 없습니다.
+### 위임된 로그인 ID
+위임된 로그인 ID를 사용하면 다른 두 개의 로그인 시나리오를 처리할 수 있습니다.
 
-이러한 이유로 응용 프로그램 프록시를 사용하면 어떤 ID가 응용 프로그램 단위 Kerberos 티켓에 표시할지 선택할 수 있습니다. 이러한 옵션 중 일부는 전자 메일 주소 형식 받아들이지 않는 시스템에 적합합니다.
+- 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져오는(username@domain) 비 Windows 응용 프로그램.
+- Azure AD의 UPN과 온-프레미스 Active Directory의 UPN이 다른 대체 로그인 구성.
+
+응용 프로그램 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 응용 프로그램별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설게되었습니다.
 
 ![위임된 로그인 ID 매개 변수 스크린샷](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-부분 ID를 사용하고 조직에서 이 ID가 모든 도메인 또는 포리스트에 대해 고유하지 않을 수 있다면 다른 두 가지 커넥터 그룹을 사용하여 해당 응용 프로그램을 두 번 게시할 수도 있습니다. 각 응용 프로그램에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
+위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 응용 프로그램을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 응용 프로그램에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
 
 
 ## 온-프레미스 및 클라우드 ID가 동일하지 않는 경우 SSO를 사용하여 작업
@@ -166,4 +169,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

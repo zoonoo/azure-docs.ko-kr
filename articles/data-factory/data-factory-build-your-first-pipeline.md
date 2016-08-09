@@ -17,30 +17,22 @@
 	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리 자습서: Hadoop 클러스터를 사용하여 데이터를 처리하는 데이터 파이프라인 구축 
+# 자습서: Hadoop 클러스터를 사용하여 데이터를 처리하는 첫 번째 파이프라인 빌드 
 > [AZURE.SELECTOR]
 - [자습서 개요](data-factory-build-your-first-pipeline.md)
 - [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
 이 자습서에서는 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다.
 
-> [AZURE.NOTE] 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
+이 문서에서는 자습서의 **개요** 및 자습서에 대한 **필수 구성 요소**를 충족하기 위한 단계별 지침을 제공합니다. 필수 구성 요소 단계를 완료한 후 Azure 포털의 Data Factory Editor, Visual Studio, Azure PowerShell 및 ARM 템플릿 중 하나를 사용하여 자습서를 수행합니다.
 
-## 자습서 개요
-이 자습서는 처음 데이터 팩터리를 실행하는 데 필요한 단계를 안내합니다. 출력 데이터를 생성하는 입력 데이터를 변환/처리하는 데이터 팩터리에서 파이프라인을 만듭니다.
-
-## 필수 구성 요소
-이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
-
-1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-
-2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+이 문서는 Azure Data Factory에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 개념적 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
 
 ## 이 자습서에서 다루는 내용	
-**Azure Data Factory**를 사용하면 데이터 **이동** 및 데이터 **처리** 작업을 데이터 기반 워크플로로 작성할 수 있습니다. HDInsight를 사용하여 월별 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드하는 방법을 알아봅니다.
+**Azure Data Factory**를 사용하면 데이터 **이동** 및 데이터 **처리** 작업을 데이터 기반 워크플로(데이터 파이프라인이라고도 함)로 작성할 수 있습니다. Azure HDInsight 클러스터를 사용하여 웹 로그를 변환 및 분석하고 매월 실행되도록 파이프라인을 예약하는 데이터 처리(또는 데이터 변환) 작업을 사용하여 첫 번째 데이터 파이프라인을 빌드하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 단계를 수행합니다.
 
@@ -68,6 +60,14 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 위에 표시된 샘플 줄에서 첫 번째 줄(2014-01-01)은 월=1 폴더의 000000\_0 파일에 기록됩니다. 마찬가지로 두 번째 줄은 월=2 폴더의 파일에 기록되고 세 번째 줄은 월=3 폴더의 파일에 기록됩니다.
 
+
+## 필수 구성 요소
+이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
+
+1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
+
+2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+
 ## 자습서에 대한 Azure 저장소에 파일 업로드
 자습서를 시작하기 전에 자습서에 필요한 파일을 Azure 저장소에 준비해야 합니다.
 
@@ -78,8 +78,8 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 ### HQL 스크립트 파일 만들기 
 
-1. **메모장**을 시작하고 다음의 HQL 스크립트를 붙여넣습니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다. 메뉴에서 **파일**을 클릭하고 **다른이름으로**를 선택합니다. 하드 드라이브의 **C:\\adfgetstarted** 폴더로 전환합니다. **형식으로 저장** 필드에서 **모든 파일 (*.*)**을 선택합니다. **파일 이름**에 **partitionweblogs.hql**을 입력합니다. 대화 상자의 아래쪽에서 **인코딩** 필드가 **ANSI**로 설정된 것을 확인합니다. 그렇지 않은 경우 **ANSI**로 설정합니다.
-	
+1. **메모장**을 시작하고 다음의 HQL 스크립트를 붙여넣습니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 테이블을 만듭니다. 메뉴에서 **파일**을 클릭하고 **다른이름으로**를 선택합니다. 하드 드라이브의 **C:\\adfgetstarted** 폴더로 전환합니다. **형식으로 저장** 필드에서 **모든 파일 (*.*)**을 선택합니다. **파일 이름**에 **partitionweblogs.hql**을 입력합니다. 대화 상자의 아래쪽에서 **인코딩** 필드가 **ANSI**로 설정된 것을 확인합니다. 그렇지 않은 경우 **ANSI**로 설정합니다.
+
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -159,6 +159,11 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 		  month(date)
 		FROM WebLogsRaw
 
+런타임에 Data Factory 파이프라인의 Hive 활동은 아래와 같이 inputtable 및 partitionedtable 매개 변수의 값을 전달합니다. 여기서 storageaccountname은 Azure 저장소 계정의 이름입니다.
+
+		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+ 
 ### 샘플 입력 파일 만들기
 메모장을 사용하여 **c:\\adfgetstarted**에 다음과 같은 내용으로 **input.log**라는 파일을 만듭니다.
 
@@ -186,7 +191,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 ### Azure Blob 저장소에 입력 파일 및 HQL 파일 업로드
 
-사용자가 원하는 아무 도구나 사용하여 이 작업을 수행할 수 있습니다(예: [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/), ClumsyLeaf Software CloudXPlorer). 이 섹션에서는 AzCopy 도구를 사용하는 지침을 제공합니다.
+이 섹션에서는 **AzCopy** 도구를 사용하여 Azure Blob 저장소에 파일을 복사하기 위한 지침을 제공합니다. 사용자가 원하는 아무 도구나 사용하여 이 작업을 수행할 수 있습니다(예: [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/), [ClumsyLeaf Software CloudXPlorer](http://clumsyleaf.com/products/cloudxplorer)).
 	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
@@ -215,12 +220,11 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
 
-이제 자습서를 시작할 준비가 되었습니다. 맨 위에 있는 탭 중 하나를 클릭하여 다음 중 하나를 사용하여 첫 번째 Azure Data Factory를 만듭니다.
+이제 자습서를 시작할 준비가 되었습니다. 맨 위에 있는 탭 중 하나를 클릭하여 첫 번째 Azure Data Factory를 만들거나 다음 링크 중 하나를 클릭합니다.
 
+- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
+- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-- Azure 포털(데이터 팩터리 편집기)
-- Azure PowerShell
-- Visual Studio
-- Azure 리소스 관리자 템플릿
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

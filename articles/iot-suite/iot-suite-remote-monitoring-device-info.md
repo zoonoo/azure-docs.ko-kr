@@ -260,9 +260,13 @@
 
 ## 다음 단계
 
-사용자 지정 장치에서 장치 정보 메시지를 보내는 방법에 대한 자세한 내용은 [미리 구성된 원격 모니터링 솔루션에 장치 연결][lnk-connect-custom]에서 참고할 수 있습니다.
+지금까지 미리 구성된 솔루션은 사용자 지정하는 방법을 살펴보았으므로 IoT Suite의 미리 구성된 솔루션이 제공하는 기능 및 기타 특징에 대해 살펴보겠습니다.
 
-미리 구성된 솔루션을 사용자 지정하는 방법에 대한 자세한 내용은 [미리 구성 된 솔루션 사용자 지정][lnk-customize]에서 참고할 수 있습니다.
+- [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
+- [IoT Suite에 대한 질문과 대답][lnk-faq]
+- [처음부터 IoT 보안을 고려][lnk-security-groundup]
+
+
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -273,10 +277,12 @@
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-connect-custom]: iot-suite-connecting-devices.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
-<!---HONumber=AcomDC_0720_2016-->
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -47,7 +47,7 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE] 위의 예제에서는 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `wasb:///example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
+    > [AZURE.NOTE] 위의 예제에서는 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `wasbs:///example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
 
 ##Pig와 함께 DataFu 사용
 
@@ -55,7 +55,7 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
 > [AZURE.IMPORTANT] Linux 기반 HDInsight 클러스터의 Pig에서 DataFu를 사용하는 경우 다음 Pig Latin 문을 사용하여 jar 파일을 먼저 등록해야 합니다.
 >
-> ```register wasb:///example/jars/datafu-1.2.0.jar```
+> ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
 > DataFu는 기본적으로 Windows 기반 HDInsight 클러스터에 등록됩니다.
 
@@ -107,4 +107,4 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

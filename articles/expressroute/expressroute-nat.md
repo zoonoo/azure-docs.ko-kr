@@ -23,13 +23,13 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
 
 ## Azure 공용 피어링에 대한 NAT 요구 사항
 
-Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 Azure에서 호스팅되는 모든 서비스에 연결할 수 있습니다. [Expess 경로 FAQ](expressroute-faqs.md)에 나열된 모든 서비스 및 Microsoft Azure에서 ISV가 호스팅하는 서비스를 포함합니다. 공용 피어링의 Microsoft Azure 서비스에 대한 연결은 항상 네트워크에서 Microsoft 네트워크로 시작됩니다. 공용 피어링에 대한 Microsoft Azure에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. 아래 그림은 위의 요구 사항을 충족하도록 어떻게 NAT을 설치할지에 대한 높은 수준의 그림을 제공합니다.
+Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 Azure에서 호스팅되는 모든 서비스에 연결할 수 있습니다. [Expess 경로 FAQ](expressroute-faqs.md)에 나열된 서비스와 Microsoft Azure에서 ISV가 호스팅하는 서비스를 포함합니다. 공용 피어링의 Microsoft Azure 서비스에 대한 연결은 항상 네트워크에서 Microsoft 네트워크로 시작됩니다. 공용 피어링에 대한 Microsoft Azure에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. 아래 그림은 위의 요구 사항을 충족하도록 어떻게 NAT을 설치할지에 대한 높은 수준의 그림을 제공합니다.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png)
 
 ### NAT IP 풀 및 경로 광고
 
-트래픽이 유효한 공용 IPv4 주소로 Azure 공용 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리(RIR) 또는 인터넷 라우팅 레지스트리(IRR)에 대한 IPv4 NAT 주소 풀에 관해 소유권의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [Express 경로 라우팅 요구 사항](expressroute-routing.md)을 참조합니다.
+트래픽이 유효한 공용 IPv4 주소로 Azure 공용 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리\(RIR\) 또는 인터넷 라우팅 레지스트리\(IRR\)에 대한 IPv4 NAT 주소 풀에 관해 소유권의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [Express 경로 라우팅 요구 사항](expressroute-routing.md)을 참조합니다.
  
 피어링을 통해 보급된 NAT IP 접두사의 길이에 대한 제한은 없습니다. NAT 풀을 모니터링하고 NAT 세션이 부족하지 않은지를 확인해야 합니다.
 
@@ -44,7 +44,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 #### Microsoft에 보내는 네트워크에서 생성된 트래픽
 
-- 트래픽이 유효한 공용 IPv4 주소로 Microsoft 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리(RIR) 또는 인터넷 라우팅 레지스트리(IRR)에 대한 IPv4 NAT 주소 풀에 관해 소유자의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [Express 경로 라우팅 요구 사항](expressroute-routing.md)을 참조합니다.
+- 트래픽이 유효한 공용 IPv4 주소로 Microsoft 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리\(RIR\) 또는 인터넷 라우팅 레지스트리\(IRR\)에 대한 IPv4 NAT 주소 풀에 관해 소유자의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [Express 경로 라우팅 요구 사항](expressroute-routing.md)을 참조합니다.
 
 - Azure 공용 피어링 설치 및 기타 Express 경로 회로에 사용되는 IP 주소는 BGP 세션을 통해 Microsoft에 보급하지 말아야 합니다. 피어링을 통해 보급된 NAT IP 접두사의 길이에 대한 제한은 없습니다.
 
@@ -66,4 +66,4 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

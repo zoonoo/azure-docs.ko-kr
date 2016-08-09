@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="micurd"/>
 
 # Azure 저장소의 데이터 이동
@@ -27,6 +27,8 @@
 Azure 저장소는 .NET, iOS, Java, Android, UWP(Universal Windows Platform), Xamarin, C++, Node.JS, PHP, Ruby 및 Python에 대한 풍부한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
 자세한 내용은 [Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+
+또한 Azure 내부/외부로 데이터를 복사할 때 고성능을 보장하도록 설계된 라이브러리인 [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement)도 제공됩니다. 자세한 내용은 데이터 이동 라이브러리 [설명서](https://github.com/Azure/azure-storage-net-data-movement)를 참조하세요.
 
 ## 신속하게 데이터 보기/상호 작용
 
@@ -48,13 +50,13 @@ AzCopy는 Azure 저장소의 데이터를 고속으로 복사하기 위해 설�
 
 Azure PowerShell은 Azure의 서비스를 관리하는 cmdlet을 제공하는 모듈입니다. 시스템 관리를 위해 특별히 설계된 작업 기반 명령줄 셸 및 스크립트 언어입니다.
 
-자세한 내용은 [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)을 참조하세요.
+자세한 내용은 [Azure Storage와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)을 참조하세요.
 
 ### Azure CLI
 
 Azure CLI는 Azure 서비스 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. Azure CLI는 Windows, OSX 및 Linux에서 사용할 수 있습니다.
 
-자세한 내용은 [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md)을 참조하세요.
+자세한 내용은 [Azure Storage에서 Azure CLI 사용](storage-azure-cli.md)을 참조하세요.
 
 ## 느린 네트워크를 통해 대량의 데이터 이동
 
@@ -80,4 +82,4 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 
 자세한 내용은 [Azure Site Recovery](../site-recovery/site-recovery-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

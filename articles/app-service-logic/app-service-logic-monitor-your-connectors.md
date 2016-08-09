@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -123,7 +123,7 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 
 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>
 [ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>
-[Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)<br/>
+[Microsoft Azure 포털에서 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)<br/>
 [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
 
 
@@ -137,4 +137,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

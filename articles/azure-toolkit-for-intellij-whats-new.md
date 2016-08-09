@@ -72,6 +72,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[IntelliJ용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[IntelliJ용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

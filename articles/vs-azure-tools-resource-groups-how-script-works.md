@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="07/26/2016"
 	ms.author="tomfitz" />
 
 # Azure 리소스 그룹 프로젝트 배포 스크립트 개요
@@ -257,6 +257,8 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 ## 다음 단계
 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하여 Azure 리소스 관리자에 대해 자세히 알아봅니다.
 
+Azure 리소스 그룹 프로젝트를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Azure 리소스 배포 및 관리](https://github.com/Microsoft/HealthClinic.biz/wiki/Deploy-and-manage-Azure-resources)를 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
+
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
 [2]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy3bc.png
@@ -264,4 +266,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

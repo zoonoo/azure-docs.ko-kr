@@ -79,7 +79,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## 앱 백 엔드에서 클라우드-장치 메시지 보내기
+## 클라우드-장치 메시지 보내기
 
 이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Windows 콘솔 응용 프로그램을 작성합니다.
 
@@ -198,4 +198,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

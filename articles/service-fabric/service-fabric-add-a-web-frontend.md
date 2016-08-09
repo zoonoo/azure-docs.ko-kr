@@ -1,5 +1,5 @@
 <properties
-   pageTitle="응용 프로그램에 대한 프런트 엔드 만들기 | Microsoft Azure"
+   pageTitle="ASP.NET Core를 사용하여 응용 프로그램에 대한 프런트 엔드 만들기 | Microsoft Azure"
    description="ServiceProxy를 통해 ASP.NET Core Web API 프로젝트 및 서비스 간 통신을 사용하여 서비스 패브릭 응용 프로그램을 웹에 노출합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="07/22/2016"
    ms.author="seanmck"/>
 
 
-# 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
+# ASP.NET Core를 사용하여 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
 
 기본적으로 Azure 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.
 
@@ -27,7 +27,7 @@
 
 ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 가벼운 크로스 플랫폼 웹 개발 프레임워크입니다. 기존 응용 프로그램에 ASP.NET Web API 프로젝트를 추가하겠습니다.
 
->[AZURE.NOTE] 이 자습서를 완료하려면 [.NET 코어 RC2를 설치][dotnetcore-install]해야 합니다.
+>[AZURE.NOTE] 이 자습서를 완료하려면 [.NET Core 1.0을 설치][dotnetcore-install]해야 합니다.
 
 1. 솔루션 탐색기에서 응용 프로그램 프로젝트 내의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 서비스 패브릭 서비스**를 선택합니다.
 
@@ -205,6 +205,9 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     브라우저를 주기적으로 새로 고쳐 카운터 값 업데이트를 확인하세요.
 
 
+>[AZURE.WARNING] 템플릿 Kestrel에 제공된 ASP.NET Core 웹 서버는 [현재 직접 인터넷 트래픽을 처리를 지원하지 않습니다](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). 프로덕션 시나리오의 경우 [API 관리][api-management-landing-page] 또는 다른 인터넷 게이트웨이 뒤에 ASP.NET Core 끝점을 호스트하는 것이 좋습니다. 서비스 패브릭은 IIS 내에서 배포하도록 지원되지 않습니다.
+
+
 ## 행위자의 경우는 어떨까요?
 
 이 자습서는 상태 저장 서비스와 통신하는 웹 프런트 엔드를 추가하는 방법에 초점을 맞추고 있습니다. 그러나 매우 비슷한 모델에 따라 행위자와 통신할 수 있습니다. 사실, 방법은 더 간단합니다.
@@ -240,5 +243,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/ko-KR/services/api-management/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

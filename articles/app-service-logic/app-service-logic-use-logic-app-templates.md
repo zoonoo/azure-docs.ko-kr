@@ -8,7 +8,7 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -46,4 +46,4 @@ Twitter, Yammer 및 메일과 같은 소셜 미디어 서비스와 통합하는 
 템플릿 중 하나를 선택한 후에 고유한 논리 앱을 생성했다면 배포를 완료합니다. 세부 단계는 [논리 앱 만들기](app-service-logic-create-a-logic-app.md)에 있습니다.
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

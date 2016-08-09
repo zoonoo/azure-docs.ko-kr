@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="07/27/2016"
    	ms.author="larryfr"/>
 
 #cURL 및 Azure REST API를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -362,7 +362,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 * __SubscriptionID__를 서비스 주체를 만들 때 받은 구독 ID로 바꿉니다.
 * __AccessToken__을 이전 단계에서 받은 액세스 토큰으로 바꿉니다.
-* __DataCenterLocation__을 리소스 그룹과 리소스를 만들려는 데이터 센터로 바꿉니다. 예를 들어 "미국 중남부"입니다. 
+* __DataCenterLocation__을 리소스 그룹과 리소스를 만들려는 데이터 센터로 바꿉니다. 예를 들어 "미국 중남부"입니다.
 * __ResourceGroupName__을 이 그룹에 사용하려는 이름으로 바꿉니다.
 
 ```
@@ -380,7 +380,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 
 다음을 사용하여 리소스 그룹에 클러스터 구성(템플릿 및 매개 변수 값)을 배포합니다.
 
-* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다. 
+* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다.
 * __ResourceGroupName__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
 * __DeploymentName__을 이 배포에 사용하려는 이름으로 바꿉니다.
 
@@ -403,7 +403,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 
 배포 상태를 확인하려면 다음을 사용합니다.
 
-* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다. 
+* __SubscriptionID__ 및 __AccessToken__을 이전에 사용한 값으로 바꿉니다.
 * __ResourceGroupName__을 이전 섹션에서 만든 리소스 그룹 이름으로 바꿉니다.
 
 ```
@@ -435,4 +435,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

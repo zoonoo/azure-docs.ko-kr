@@ -24,7 +24,7 @@
 [Azure Data Factory](../data-factory/data-factory-introduction.md)는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 이 문서에서는 Azure Data Factory를 사용하여 [Azure HDInsight 주문형 연결된 서비스](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 만들고 클러스터를 사용하여 Hive 작업을 실행하는 방법에 대해 알아봅니다. 다음은 대략적인 흐름입니다.
 
 1. 요청 시 HDInsight 클러스터를 만듭니다.
-2. Hive 작업을 실행하여 원본 Blob 저장소 계정에서 원시 웹 로그 데이터를 읽고, 데이터를 변환하며 출력을 대상 Blob 저장소 계정에 씁니다. 
+2. Hive 작업을 실행하여 원본 Blob 저장소 계정에서 원시 웹 로그 데이터를 읽고, 데이터를 변환하며 출력을 대상 Blob 저장소 계정에 씁니다.
 3. TTL(Time-to-Live) 설정에 따라 클러스터를 삭제합니다.
 
 데이터 팩터리 파이프라인에 정의된 Hive 작업은 미리 정의된 HiveQL 스크립트를 호출합니다. 스크립트는 Azure Blob 저장소에 저장된 원시 웹 로그 데이터를 참조하는 외부 테이블을 만든 다음 원시 데이터를 연도별 및 월별로 분할합니다.
@@ -47,14 +47,14 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 - HDInsight 클러스터 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 데이터 팩터리를 사용하여 클러스터가 요청 시 만들어집니다. 그리고 작업이 완료되면 클러스터가 자동으로 삭제됩니다. 따라서 작업 실행 시간 및 잠깐의 유휴 시간(TTL)에 대해서만 지불합니다.
 - 데이터 팩터리 파이프라인을 사용하여 워크플로를 만들 수 있습니다.
-- 재귀 작업을 예약할 수 있습니다.  
+- 재귀 작업을 예약할 수 있습니다.
 
 ##필수 조건:
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Azure CLI 또는 Azure PowerShell. 
+- Azure CLI 또는 Azure PowerShell.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -181,7 +181,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **리소스 그룹**을 클릭합니다.
-3. CLI 또는 PowerShell 스크립트에서 만든 리소스 그룹 이름을 두 번 클릭합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다. 
+3. CLI 또는 PowerShell 스크립트에서 만든 리소스 그룹 이름을 두 번 클릭합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다.
 4. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한 하나의 리소스가 나열됩니다. 이전에 지정한 이름의 저장소 계정입니다. 저장소 계정 이름을 클릭합니다.
 5. **Blob** 타일을 클릭합니다.
 6. **adfgetstarted** 컨테이너를 클릭합니다. **입력 데이터** 및 **스크립트**라는 두 폴더가 표시됩니다.
@@ -293,8 +293,8 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
                     "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                     "scriptLinkedService": "[variables('storageLinkedServiceName')]",
                     "defines": {
-                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                        "inputtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
                     }
                 },
                 "inputs": [
@@ -320,7 +320,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
     
 **데이터 팩터리를 만들려면**
 
-1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다. 
+1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -342,12 +342,12 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. 마지막 세션에서와 동일한 절차를 사용하여 Adfgetstarted 컨테이너의 포함을 확인합니다. **adfgetsarted** 외에도 두 개의 새 컨테이너가 있습니다.
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: HDInsight 클러스터에 대한 기본 컨테이너입니다. 기본 컨테이너 이름은 "adf>yourdatafactoryname>-linkedservicename-datetimestamp" 패턴을 따릅니다. 
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: HDInsight 클러스터에 대한 기본 컨테이너입니다. 기본 컨테이너 이름은 "adf>yourdatafactoryname>-linkedservicename-datetimestamp" 패턴을 따릅니다.
     - adfjobs: ADF 작업 로그에 대한 컨테이너입니다.
     
-    데이터 팩터리 출력은 ARM 템플릿에 구성된 대로 afgetstarted에 저장됩니다. 
+    데이터 팩터리 출력은 ARM 템플릿에 구성된 대로 afgetstarted에 저장됩니다.
 2. **adfgetstarted**를 클릭합니다.
-3. **partitioneddata**를 두 번 클릭합니다. 모든 웹 로그가 2014년에 지정되었으므로 **year=2014** 폴더가 표시됩니다. 
+3. **partitioneddata**를 두 번 클릭합니다. 모든 웹 로그가 2014년에 지정되었으므로 **year=2014** 폴더가 표시됩니다.
 
     ![Azure Data Factory HDInsight 주문형 hive 작업 파이프라인 출력](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
@@ -438,4 +438,4 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

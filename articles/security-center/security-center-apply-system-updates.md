@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터의 시스템 업데이트 적용
 
 Azure 보안 센터는 누락된 운영 체제 업데이트에 대해 매일 Windows 및 Linux 가상 컴퓨터(VM)를 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. 보안 센터는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 보안 센터는 시스템 업데이트 적용을 권장합니다.
 
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## 권장 사항 구현
 
@@ -40,7 +40,7 @@ Azure 보안 센터는 누락된 운영 체제 업데이트에 대해 매일 Win
 
 프로세스를 완료하려면 Azure에서 VM을 다시 시작합니다.
 
-## 다음 단계
+## 참고 항목
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -60,4 +60,4 @@ Azure 보안 센터는 누락된 운영 체제 업데이트에 대해 매일 Win
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

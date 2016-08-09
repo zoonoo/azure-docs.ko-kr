@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ Outlook.com 커넥터를 사용하면 메일, 일정 및 연락처를 관리할 
 
 Outlook.com 커넥터는 다음에서 사용할 수 있습니다.
 
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [흐름](http://flow.microsoft.com)  
+- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [흐름](http://flow.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -604,11 +604,14 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|예 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -636,11 +639,14 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|예 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -662,12 +668,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |Digest|array|예 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -775,12 +784,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -811,12 +823,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -914,4 +929,4 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

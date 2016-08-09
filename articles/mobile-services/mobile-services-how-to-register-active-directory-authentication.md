@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Azure Active Directory 계정 로그인 사용을 위한 앱 등록
@@ -70,4 +70,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

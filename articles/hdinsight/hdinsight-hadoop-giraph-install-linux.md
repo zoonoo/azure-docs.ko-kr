@@ -131,7 +131,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 	이 밖에 Giraph 샘플과 함께 사용된 기타 매개 변수에 대한 자세한 내용은 [Giraph 빠른 시작](http://giraph.apache.org/quick_start.html)을 참조하세요.
 
-5. 작업이 완료되면 결과가 __wasb:///example/out/shotestpaths__ 디렉터리에 저장됩니다. 만든 파일은 __part-m-\_\_으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 출력을 보려면 다음 명령을 사용합니다.
+5. 작업이 완료되면 결과가 __wasbs:///example/out/shotestpaths__ 디렉터리에 저장됩니다. 만든 파일은 __part-m-\_\_으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 출력을 보려면 다음 명령을 사용합니다.
 
 		hadoop fs -text /example/output/shortestpaths/*
 
@@ -158,4 +158,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

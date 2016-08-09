@@ -1,268 +1,284 @@
 <properties
-pageTitle="PowerApps 엔터프라이즈 및 논리 앱에 Salesforce 커넥터 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Salesforce 커넥터 개요"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="논리 앱에서 Salesforce 커넥터 사용 방법 알아보기 | Microsoft Azure"
+description="Azure 앱 서비스로 논리 앱을 만듭니다. Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/19/2016"
+ms.workload="integration"
+ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Salesforce 커넥터 시작 
-Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다. Salesforce 커넥터는 다음에서 사용할 수 있습니다.
+# Salesforce 커넥터 시작
 
-- 논리 앱 
-- PowerApps
+Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공합니다.
 
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-salesforce.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-salesforce.md)
+[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
 
-&nbsp;
+## Salesforce 커넥터에 연결
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.
 
-Salesforce를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+### Salesforce 커넥터에 대한 연결 만들기
 
-- Salesforce에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 개체를 만들거나 업데이트할 때 트리거를 사용합니다.
-- 개체 만들기, 개체 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Salesforce에서 새 개체가 만들어지면 Office 365를 사용하여 메일을 보낼 수 있습니다.
-- PowerApps 엔터프라이즈에 Salesforce 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
+>[AZURE.INCLUDE [Salesforce 커넥터에 대한 연결을 만드는 단계](../../includes/connectors-create-api-salesforce.md)]
 
-PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+## Salesforce 커넥터 트리거 사용
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-## 트리거 및 작업
-Salesforce API에는 다음 트리거 및 작업이 포함됩니다.
+>[AZURE.INCLUDE [Salesforce 트리거를 만드는 단계](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-| 트리거 | 동작|
-| --- | --- |
-|<ul><li>개체를 만들 때</li><li>개체를 수정할 때</li></ul> | <ul><li>개체 만들기</li><li>개체 가져오기</li><li>개체를 만들 때</li><li>개체를 수정할 때</li><li>개체 삭제</li><li>개체 가져오기</li><li>개체 유형 가져오기(SObjects)</li><li>개체 업데이트</li></ul>
+## 조건 추가 
+>[AZURE.INCLUDE [Salesforce 조건을 만드는 단계](../../includes/connectors-create-api-salesforce-condition.md)]
 
-모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+## Salesforce 커넥터 작업 사용
 
-## Salesforce에 대한 연결 만들기 
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-논리 앱에 이 커넥터를 추가할 때 Salesforce에 연결할 권한을 논리 앱에 부여해야 합니다.
+>[AZURE.INCLUDE [Salesforce 작업을 만드는 단계](../../includes/connectors-create-api-salesforce-action.md)]
 
->[AZURE.INCLUDE [Salesforce에 대한 연결을 만드는 단계](../../includes/connectors-create-api-salesforce.md)]
+## 기술 세부 정보
 
-연결을 만든 후에 테이블 이름 등의 Salesforce 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
 
->[AZURE.TIP] 다른 논리 앱에서 이와 동일한 연결을 사용할 수 있습니다.
+## Salesforce 커넥터 트리거
 
-## Swaggers REST API 참조
-적용 버전: 1.0
+Salesforce 커넥터에는 다음과 같은 트리거가 있습니다.
+
+|트리거 | 설명|
+|--- | ---|
+|[개체를 만들 때](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|이 작업은 개체를 만들 때 흐름을 트리거합니다.|
+|[개체를 수정할 때](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|이 작업은 개체를 수정할 때 흐름을 트리거합니다.|
 
 
-### 개체 만들기
-Salesforce 개체를 만듭니다. ```POST: /datasets/default/tables/{table}/items```
+## Salesforce 커넥터 작업
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|항목| |yes|body|없음|만들 Salesforce 개체|
+Salesforce 커넥터에는 다음과 같은 작업이 있습니다.
 
-### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+
+|작업|설명|
+|--- | ---|
+|[개체 가져오기](connectors-create-api-salesforceconnector.md#get-objects)|이 작업은 'Lead'와 같은 특정 개체 유형의 개체를 가져옵니다.|
+|[개체 만들기](connectors-create-api-salesforceconnector.md#create-object)|이 작업은 개체를 만듭니다.|
+|[개체 가져오기](connectors-create-api-salesforceconnector.md#get-object)|이 작업은 개체를 가져옵니다.|
+|[개체 삭제](connectors-create-api-salesforceconnector.md#delete-object)|이 작업은 개체를 삭제합니다.|
+|[개체 업데이트](connectors-create-api-salesforceconnector.md#update-object)|이 작업은 개체를 업데이트합니다.|
+|[개체 유형 가져오기](connectors-create-api-salesforceconnector.md#get-object-types)|이 작업은 사용 가능한 개체 유형을 나열합니다.|
+### 작업 세부 정보
+
+이 커넥터에 대한 작업 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
 
 
 
 ### 개체 가져오기
-Salesforce 개체를 검색합니다. ```GET: /datasets/default/tables/{table}/items/{id}```
+이 작업은 'Lead'와 같은 특정 개체 유형의 개체를 가져옵니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|id|string|yes|path|없음|검색할 Salesforce 개체의 고유 식별자|
 
-### 응답
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 Salesforce 개체 유형|
+|$filter|필터 쿼리|항목의 수를 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
 
-|이름|설명|
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
+
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|value|array|
+
+
+
+
+### 개체 만들기
+이 작업은 개체를 만듭니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 개체 유형|
+|item*|Object|만들 개체|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### 개체 가져오기
+이 작업은 개체를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 Salesforce 개체 유형|
+|id*|개체 ID|가져올 개체의 식별자|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|ItemInternalId|string|
+
 
 
 
 ### 개체 삭제
-Salesforce 개체를 삭제합니다. ```DELETE: /datasets/default/tables/{table}/items/{id}```
+이 작업은 개체를 삭제합니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|id|string|yes|path|없음|삭제할 Salesforce 개체의 고유 식별자|
 
-### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 개체 유형|
+|id*|개체 ID|삭제할 개체의 식별자|
+
+*는 필수 속성을 나타냅니다.
+
 
 
 
 ### 개체 업데이트
-Salesforce 개체를 업데이트합니다. ```PATCH: /datasets/default/tables/{table}/items/{id}```
+이 작업은 개체를 업데이트합니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|id|string|yes|path|없음|업데이트할 Salesforce 개체의 고유 식별자|
-|항목| |yes|body|없음|변경된 속성을 가진 Salesforce 개체|
 
-### 응답
-|이름|설명|
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 개체 유형|
+|id*|개체 ID|업데이트할 개체의 식별자|
+|item*|Object|변경된 속성을 가진 개체|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
+
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
+|ItemInternalId|string|
+
 
 
 
 ### 개체를 만들 때
-Salesforce에서 개체를 만들 때 흐름을 트리거합니다. ```GET: /datasets/default/tables/{table}/onnewitems```
+이 작업은 개체를 만들 때 흐름을 트리거합니다.
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
 
-### 응답
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 개체 유형|
+|$filter|필터 쿼리|항목의 수를 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|value|array|
+
+
+
+
+### 개체를 수정할 때
+이 작업은 개체를 수정할 때 흐름을 트리거합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|table*|개체 유형|'Lead' 등의 개체 유형|
+|$filter|필터 쿼리|항목의 수를 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|value|array|
+
+
+
+
+### 개체 유형 가져오기
+이 작업은 사용 가능한 개체 유형을 나열합니다.
+
+
+이 호출에 대한 매개 변수는 없습니다.
+
+#### 출력 세부 정보
+
+TablesList
+
+
+| 속성 이름 | 데이터 형식 | 
+|---|---|
+|value|array|
+
+
+
+## HTTP 응답
+
+위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
+
 |이름|설명|
 |---|---|
 |200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생.|
 |기본값|작업이 실패했습니다.|
 
 
 
-### 개체를 수정할 때 
-Salesforce에서 개체를 수정할 때 흐름을 트리거합니다. ```GET: /datasets/default/tables/{table}/onupdateditems```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|테이블|string|yes|path|없음|Salesforce SObject 형식(예: 'Lead')|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-
-### 응답
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-
-
-
-## 개체 정의 
-
-#### DataSetsMetadata
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|tabular|정의되지 않음|no|
-|Blob|정의되지 않음|no|
-
-
-#### TabularDataSetsMetadata
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|원본|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### TableMetadata
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|정의되지 않음|no|
-
-
-#### DataSetsList
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSet
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|이름|string|
-|DisplayName|string|no|
-
-
-#### 테이블
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|이름|string|no|
-|DisplayName|string|no|
-
-
-#### 항목
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### ItemsList
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|value|array|no|
-
-
-#### TablesList
-
-| 이름 | 데이터 형식 | 필수|
-|---|---|---|
-|value|array|no|
 
 
 ## 다음 단계
-
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[API 목록](apis-list.md)으로 돌아갑니다.
-
-
-[5]: https://developer.salesforce.com
-[6]: ./media/connectors-create-api-salesforce/salesforce-developer-homepage.png
-[7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
-[8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

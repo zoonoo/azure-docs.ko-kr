@@ -51,4 +51,4 @@
 
 - 데이터를 저장할 디스크를 연결합니다. 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 지침은 [클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

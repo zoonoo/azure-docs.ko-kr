@@ -19,7 +19,7 @@
 
 # Azure 앱 서비스 정의
 
-*앱 서비스*는 Microsoft Azure의 PaaS([platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service)) 제품입니다. 플랫폼 및 장치에 웹 및 모바일 앱을 만듭니다. SaaS 솔루션과 앱을 통합하고 온-프레미스 응용 프로그램을 사용하여 연결하고 비즈니스 프로세스를 자동화합니다. Azure는 공유 VM 리소스 또는 전용 VM을 선택하여 완전히 관리되는 VM(가상 컴퓨터)에서 앱을 실행합니다.
+*앱 서비스*는 Microsoft Azure의 PaaS\([platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service)\) 제품입니다. 플랫폼 및 장치에 웹 및 모바일 앱을 만듭니다. SaaS 솔루션과 앱을 통합하고 온-프레미스 응용 프로그램을 사용하여 연결하고 비즈니스 프로세스를 자동화합니다. Azure는 공유 VM 리소스 또는 전용 VM을 선택하여 완전히 관리되는 VM\(가상 컴퓨터\)에서 앱을 실행합니다.
 
 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure 모바일 서비스로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. 단일 통합 서비스인 앱 서비스를 통해 웹 사이트, 모바일 앱 백 엔드, RESTful API 및 비즈니스 프로세스 등 다양한 구성 요소를 단일 솔루션으로 작성할 수 있습니다.
 
@@ -33,11 +33,11 @@
 
 - **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [Windows PowerShell 및 기타 스크립트 또는 실행 파일](../app-service-web/web-sites-create-web-jobs.md)을 실행할 수도 있습니다.
 
-- **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](../powershell-install-configure.md) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 앱 서비스에서 앱을 관리합니다.
+- **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](../powershell-install-configure.md) 또는 [플랫폼 간 CLI\(명령줄 인터페이스\)](../xplat-cli-install.md)를 사용하여 앱 서비스에서 앱을 관리합니다.
  
 - **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](../app-service-web/web-sites-scale.md) 또는 [확장](../azure-portal/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)를 사용하면 고가용성이 보장됩니다.
 
-- **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook 및 Twitter) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure 가상 네트워크](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
+- **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템\(예: SAP, Siebel 및 Oracle\), SaaS 서비스\(예: Salesforce 및 Office 365\), 인기 있는 인터넷 서비스\(예: Facebook 및 Twitter\) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure 가상 네트워크](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 
 - **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
 
@@ -61,7 +61,7 @@
 
 ## 앱 서비스 계획
 
-[앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 앱에서 실행되는 계산 리소스의 종류를 지정합니다. 트래픽 부하가 가벼운 경우 공유 VM(가상 컴퓨터)을 사용할 수 있습니다. 대량 로드의 경우 전용 VM을 여러 가지 크기 중에서 선택할 수 있습니다. 여러 앱 서비스 앱은 동일한 계획을 공유할 수 있고 계획을 사용하여 규모를 확장하고 축소합니다.
+[앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 앱에서 실행되는 계산 리소스의 종류를 지정합니다. 트래픽 부하가 가벼운 경우 공유 VM\(가상 컴퓨터\)을 사용할 수 있습니다. 대량 로드의 경우 전용 VM을 여러 가지 크기 중에서 선택할 수 있습니다. 여러 앱 서비스 앱은 동일한 계획을 공유할 수 있고 계획을 사용하여 규모를 확장하고 축소합니다.
 
 확장성 및 네트워크 격리가 필요한 경우 [앱 서비스 환경](../app-service-web/app-service-app-service-environment-intro.md)에서 앱을 실행할 수 있습니다.
 
@@ -80,4 +80,4 @@
 * [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
 * [자습서: 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

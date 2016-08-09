@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석에서 JSON 출력에 대한 대상 Azure DocumentDB
@@ -54,12 +54,12 @@ DocumentDB를 스트림 분석의 출력으로 만들면 아래와 같은 정보
 
 ![documentdb 스트림 분석 출력 화면](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)
 
--   **출력 별칭** – ASA 쿼리에서 이 출력을 참조할 별칭입니다.  
--   **계정 이름** – DocumentDB 계정의 이름 또는 끝점 URI입니다.  
--   **계정 키** – DocumentDB 계정에 대한 공유 선택키입니다.  
--   **데이터베이스** – DocumentDB 데이터베이스 이름입니다.  
--   **컬렉션 이름 패턴** – 사용할 컬렉션에 대한 컬렉션 이름 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다. 다음은 유효한 샘플 입력입니다. 1) MyCollection – “MyCollection”이라는 컬렉션 하나가 있어야 합니다. 2) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  
--   **파티션 키** – 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
--   **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
+-   **출력 별칭** – ASA 쿼리에서 이 출력을 참조할 별칭입니다.
+-   **계정 이름** – DocumentDB 계정의 이름 또는 끝점 URI입니다.
+-   **계정 키** – DocumentDB 계정에 대한 공유 선택키입니다.
+-   **데이터베이스** – DocumentDB 데이터베이스 이름입니다.
+-   **컬렉션 이름 패턴** – 사용할 컬렉션에 대한 컬렉션 이름 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다. 다음은 유효한 샘플 입력입니다. 1) MyCollection – “MyCollection”이라는 컬렉션 하나가 있어야 합니다. 2) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.
+-   **파티션 키** – 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.
+-   **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

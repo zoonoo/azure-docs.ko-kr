@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
+   ms.workload="NA"
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -32,13 +32,13 @@ Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프�
 
 ## 지리적 중복
 
-백업 파일은 읽기 액세스 권한을 가진 지역 중복 저장소 계정(RA-GRS)에 저장되어 재해 복구에 대비한 가용성을 보장합니다. 다음에서는 읽기 액세스 권한을 가진 지역 중복 저장소 계정(RA-GRS)에 저장되어 재해 복구에 대비한 가용성을 보장하는 주간 및 일간 백업의 지역에서 복제를 보여 줍니다.
+백업 파일은 읽기 액세스 권한을 가진 지역 중복 저장소 계정(RA-GRS)에 저장되어 재해 복구에 대비한 가용성을 보장합니다. 이렇게 하면 백업 파일이 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)에 복제됩니다. 다음에서는 읽기 액세스 권한을 가진 지역 중복 저장소 계정(RA-GRS)에 저장되어 재해 복구에 대비한 가용성을 보장하는 주간 및 일간 백업의 지역에서 복제를 보여 줍니다.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
 ## 자동화된 백업 사용
 
-[보존 기간](sql-database-service-tiers.md) 동안 [서비스에서 시작한 백업의 데이터베이스를](sql-database-recovery-using-backups.md) 다음으로 복원할 수 있습니다.
+[보존 기간](sql-database-service-tiers.md) 동안 [자동화된 백업의 데이터베이스를](sql-database-recovery-using-backups.md) 다음으로 복원할 수 있습니다.
 
 - 보존 기간 내에 지정된 지점으로 복구된 동일한 논리 서버의 새 데이터베이스
 - 삭제된 데이터베이스에 대한 삭제 시간으로 복구된 동일한 논리 서버의 데이터베이스
@@ -62,4 +62,4 @@ Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프�
 - 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 - 비즈니스 연속성을 대략적으로 이해하려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

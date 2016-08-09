@@ -9,16 +9,18 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Azure Blob 저장소 커넥터 시작
 Azure Blob 저장소는 많은 양의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. Azure Blob 저장소에서 Blob 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
+
+Azure Blob 저장소를 사용하여 다음과 같은 작업을 수행합니다.
 
 - 새 프로젝트를 업로드하거나 최근에 업데이트된 파일을 가져와 워크플로를 작성합니다.
 - 파일 메타데이터 가져오기, 파일 삭제, 파일 복사 및 삭제를 위한 작업을 사용합니다. 예를 들어 도구가 Azure 웹 사이트에서 업데이트되면(트리거) Blob 저장소에서 파일을 업데이트합니다(작업).
@@ -27,40 +29,19 @@ Azure Blob 저장소는 많은 양의 구조화되지 않은 데이터를 저장
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
 
-먼저 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [시작에 필요한 항목](../../includes/connectors-create-api-azureblobstorage.md)]
-
+논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## Azure Blob 저장소에 연결
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 Dropbox 예제에서는 Dropbox 자격 증명을 입력하여 Dropbox에 대한 연결을 만듭니다.
-
-논리 앱에 이 커넥터를 추가하면 Blob 저장소 계정에 대한 연결을 만듭니다. 이 커넥터를 처음 추가할 때는 연결 정보를 묻는 메시지가 표시됩니다.
-
-![](./media/connectors-create-api-azureblobstorage/connection-details.png)
-
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만듭니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 저장소 계정에 연결하려면 먼저 Blob 저장소 *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 Azure 저장소를 사용하는 경우 저장소 계정에 대한 자격 증명을 입력하여 연결을 만듭니다.
 
 #### 연결 만들기
 
-1. 저장소 계정 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
-
-	| 속성 | 세부 정보 |
-|---|---|
-| 연결 이름 * | 연결의 이름을 입력합니다. |
-| Azure 저장소 계정 이름 * | 저장소 계정 이름을 입력하세요. 저장소 계정 이름은 Azure 포털의 저장소 속성에 표시됩니다. |
-| Azure 저장소 계정 액세스 키 * | 저장소 계정 키를 입력합니다. 액세스 키는 Azure 포털의 저장소 속성에 표시됩니다. |
-
-	이러한 자격 증명을 사용하여 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
-
-	![Azure Blob 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/sample-connection.png)
-
-2. **만들기**를 선택합니다.
-
+>[AZURE.INCLUDE [Azure Blob 저장소에 대한 연결 만들기](../../includes/connectors-create-api-azureblobstorage.md)]
  
 ## 트리거 사용
 
-이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP Webhook 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
+이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP 웹후크 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
 
 ## 작업 사용
 	
@@ -90,7 +71,7 @@ Azure Blob 저장소는 많은 양의 구조화되지 않은 데이터를 저장
 
 ## 기술 세부 정보
 
-## 동작
+## 저장소 Blob 작업
 
 |작업|설명|
 |--- | ---|
@@ -326,6 +307,6 @@ BlobMetadata
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
