@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 소스 제어에 모바일 서비스 프로젝트 코드 저장
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
-- [Javascript backend](mobile-services-store-scripts-source-control.md)
+- [.NET 백 엔드](mobile-services-dotnet-backend-store-code-source-control.md)
+- [JavaScript 백 엔드](mobile-services-store-scripts-source-control.md)
 
 이 항목에서는 Azure 모바일 서비스에서 제공하는 소스 제어를 사용하여 서버 스크립트를 저장하는 방법을 보여 줍니다. 스크립트 및 기타 JavaScript 백 엔드 코드 파일을 로컬 Git 리포지토리에서 프로덕션 모바일 서비스로 수준을 올릴 수 있습니다. 또한 여러 스크립트에서 필요할 수 있는 공유 코드를 정의하는 방법 및 package.json 파일을 사용하여 모바일 서비스에 Node.js 모듈을 추가하는 방법도 설명합니다.
 
@@ -39,10 +39,10 @@
 
 1. 로컬 컴퓨터에 Git을 설치합니다.
 
-	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
+	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
 	> [AZURE.NOTE]
-	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -136,8 +136,7 @@
 
 이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보세요.
 
-+ [모바일 서비스에서 서버 스크립트 작업]
-	<br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
++ [모바일 서비스에서 서버 스크립트 작업] <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -156,8 +155,8 @@
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [모바일 서비스에서 서버 스크립트 작업]: mobile-services-how-to-use-server-scripts.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

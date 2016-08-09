@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 템플릿 이미지에 있는 항목
@@ -21,8 +21,8 @@ Azure RemoteApp 구독에는 다음 세 개의 템플릿 이미지가 포함되�
 
 
 - Windows Server 2012
-- Microsoft Office 365 ProPlus(Office 365 구독 필요)
-- Microsoft Office 2013 Professional Plus(평가판 전용)
+- Microsoft Office 365 ProPlus\(Office 365 구독 필요\)
+- Microsoft Office 2013 Professional Plus\(평가판 전용\)
 
 > [AZURE.IMPORTANT]Azure RemoteApp 구독은 별도의 구독을 필요로 하는 Office 365 ProPlus 및 프로덕션 환경에서 사용할 수 없는 Office 2013을 제외하고 이미지의 소프트웨어에 대한 액세스 권한을 부여합니다. 이는 템플릿 이미지의 프로그램 또는 응용 프로그램을 사용자와 공유할 수 있다는 것을 의미합니다. 예를 들어 Windows Server 2012 R2 이미지를 사용하는 컬렉션을 만드는 경우 사용자가 RemoteApp을 통해 액세스할 수 있는 System Center Endpoint Protection을 게시할 수 있습니다.
 >
@@ -30,7 +30,7 @@ Azure RemoteApp 구독에는 다음 세 개의 템플릿 이미지가 포함되�
 
 각 이미지에 포함된 항목에 대한 내용도 읽어보세요.
 
-## Windows Server 2012 R2("바닐라 이미지")
+## Windows Server 2012 R2\("바닐라 이미지"\)
 이 이미지는 Microsoft Windows Server 2012 R2 Datacenter 운영 체제를 기반으로 하며 Azure RemoteApp 템플릿 이미지에 대한 요구 사항을 충족하기 위해 다음 역할과 기능이 설치되어 있습니다.
 
 
@@ -51,7 +51,7 @@ Azure RemoteApp 구독에는 다음 세 개의 템플릿 이미지가 포함되�
 - Microsoft Windows Media Player
 
 
-## Microsoft Office 365 ProPlus(구독 필요)
+## Microsoft Office 365 ProPlus\(구독 필요\)
 Office 365는 가장 많이 요청되는 응용 프로그램이므로 작업에 사용할 "사용자 지정" 이미지를 만들었습니다.
 
 이 이미지는 바닐라 이미지의 확장으로, Windows Server 2012 R2 이미지에 설명된 구성 요소 외에 Microsoft Office 365 ProPlus의 다음 구성 요소도 설치되어 있습니다.
@@ -61,7 +61,7 @@ Office 365는 가장 많이 요청되는 응용 프로그램이므로 작업에 
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- 비즈니스용 OneDrive\(동기화 에이전트는 Azure RemoteApp과 함께 사용하도록 지원되지 않음\)
 - Outlook
 - PowerPoint
 - Word
@@ -84,7 +84,7 @@ Office 365 ProPlus 계획이 있는 사용자만 Office 365 ProPlus 앱의 모�
 
 Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입해야 하는 경우 각각 해당 라이선스가 있습니다.
 
-## Microsoft Office 2013 Professional Plus(평가판 전용)
+## Microsoft Office 2013 Professional Plus\(평가판 전용\)
 무료 평가 기간 동안 Office 2013 이미지를 사용하여 서비스를 테스트할 수 있습니다.
 
 이 이미지는 바닐라 이미지의 확장으로, Windows Server 2012 R2 이미지에 설명된 구성 요소 외에 Microsoft Office 2013 Professional Plus의 다음 구성 요소도 설치되어 있습니다.
@@ -94,7 +94,7 @@ Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입�
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- 비즈니스용 OneDrive\(동기화 에이전트는 Azure RemoteApp과 함께 사용하도록 지원되지 않음\)
 - Outlook
 - PowerPoint
 - Project
@@ -104,4 +104,4 @@ Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입�
 
 > [AZURE.IMPORTANT]**법적 정보:** 이 이미지에는 Microsoft Office 라이선스를 포함하지 않으며 *프로덕션에 사용할 수 없습니다*. Office 2013 Professional Plus 이미지는 평가 용도로만 사용됩니다. 프로덕션에 대해 Azure RemoteApp에서 Office 앱을 사용하려는 경우 Office 365 ProPlus 이미지를 사용해야 합니다. 라이선스 Office에 대한 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

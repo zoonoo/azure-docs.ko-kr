@@ -3,7 +3,7 @@
 	description="Azure Resource Manager에서 사용할 WinRM 액세스를 설정하는 방법"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="rothja"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>

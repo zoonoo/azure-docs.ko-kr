@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="ricksal"/>
 
 
@@ -27,7 +27,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 + [주어진 테이블에 대한 삽입, 읽기, 업데이트 또는 삭제 작업][Table operations]
 + [예약된 작업][Job Scheduler]
-+ [사용자 지정 API에서 정의된 HTTP 메서드][Custom API anchor] 
++ [사용자 지정 API에서 정의된 HTTP 메서드][Custom API anchor]
 
 서버 스크립트에서 main 함수의 서명은 스크립트가 사용되는 위치의 컨텍스트에 따라 달라집니다. 일반 스크립트 코드를 스크립트 간에 공유되는 nodes.js 모듈로 정의할 수도 있습니다. 자세한 내용은 [소스 제어 및 공유 코드][Source control, shared code, and helper functions]를 참조하십시오.
 
@@ -64,10 +64,10 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 테이블 스크립트 함수는 항상 3개의 인수를 사용합니다.
 
-- 첫 번째 인수는 테이블 작업에 따라 달라집니다. 
+- 첫 번째 인수는 테이블 작업에 따라 달라집니다.
 
 	- 삽입 및 업데이트의 경우 작업의 영향을 받는 행의 JSON 표현인 **항목** 개체입니다. 이 개체를 사용하면 *item.Owner* 등의 이름으로 열 값에 액세스할 수 있습니다. 여기서 *Owner*는 JSON 표현의 이름 중 하나입니다.
-	- 삭제의 경우 삭제할 레코드의 ID입니다. 
+	- 삭제의 경우 삭제할 레코드의 ID입니다.
 	- 읽기의 경우 반환할 행 집합을 지정하는 [query 개체]입니다.
 
 - 두 번째 인수는 항상 요청을 제출한 사용자를 나타내는 [user 개체][User object]입니다.
@@ -336,7 +336,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 다음 방법 중 하나로 사용자 지정 API 끝점의 HTTP 메서드에 등록된 서버 스크립트를 정의할 수 있습니다.
 
-+ [Azure 클래식 포털]에서 사용자 지정 API 스크립트는 **API** 탭에서 생성 및 수정됩니다. 서버 스크립트 코드는 주어진 사용자 지정 API의 **스크립트** 탭에 있습니다. 다음은 `CompleteAll` 사용자 지정 API 끝점에 대한 POST 요청에서 호출되는 스크립트를 보여 줍니다. 
++ [Azure 클래식 포털]에서 사용자 지정 API 스크립트는 **API** 탭에서 생성 및 수정됩니다. 서버 스크립트 코드는 주어진 사용자 지정 API의 **스크립트** 탭에 있습니다. 다음은 `CompleteAll` 사용자 지정 API 끝점에 대한 POST 요청에서 호출되는 스크립트를 보여 줍니다.
 
 	![2][2]
 	
@@ -471,7 +471,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 + [방법: Node.js 모듈 로드]
 + [방법: 도우미 함수 사용]
 + [방법: 소스 제어를 사용하여 코드 공유]
-+ [방법: 앱 설정 작업] 
++ [방법: 앱 설정 작업]
 
 ###<a name="leverage-source-control"></a>공유 코드 활용 개요
 
@@ -479,15 +479,15 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 다음은 전역 **require** 함수를 사용하여 스크립트에서 활용할 수 있는 유용한 모듈 중 일부입니다.
 
-+ **azure**: Node.js용 Azure SDK의 기능을 노출합니다. 자세한 내용은 [Node.js용 Azure SDK]를 참조하세요. 
++ **azure**: Node.js용 Azure SDK의 기능을 노출합니다. 자세한 내용은 [Node.js용 Azure SDK]를 참조하세요.
 + **crypto**: OpenSSL의 암호화 기능을 제공합니다. 자세한 내용은 [Node.js 설명서][crypto API](영문)를 참조하십시오.
 + **path**: 파일 경로 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][path API](영문)를 참조하십시오.
 + **querystring**: 쿼리 문자열 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][querystring API](영문)를 참조하십시오.
 + **request**: Twitter, Facebook 등의 외부 REST 서비스에 HTTP 요청을 보냅니다. 자세한 내용은 [HTTP 요청 보내기]를 참조하십시오.
 + **sendgrid**: Azure의 Sendgrid 전자 메일 서비스를 사용하여 전자 메일을 보냅니다. 자세한 내용은 [SendGrid를 사용하여 모바일 서비스에서 전자 메일 보내기]를 참조하십시오.
 + **url**: URL을 구문 분석하고 확인하는 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][url API](영문)를 참조하십시오.
-+ **util**: 문자열 서식 지정, 개체 형식 검사 등의 다양한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][util API](영문)를 참조하십시오. 
-+ **zlib**: gzip, deflate 등의 압축 기능을 노출합니다. 자세한 내용은 [Node.js 설명서][zlib API](영문)를 참조하십시오. 
++ **util**: 문자열 서식 지정, 개체 형식 검사 등의 다양한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][util API](영문)를 참조하십시오.
++ **zlib**: gzip, deflate 등의 압축 기능을 노출합니다. 자세한 내용은 [Node.js 설명서][zlib API](영문)를 참조하십시오.
 
 ###<a name="modules-helper-functions"></a>방법: 모듈 활용
 
@@ -796,7 +796,7 @@ Stream|지원되지 않음
 + [방법: 동적 쿼리 실행]
 + [방법: 관계형 테이블 조인]
 + [방법: *원시* 결과를 반환하는 쿼리 실행]
-+ [방법: 데이터베이스 연결 액세스]	
++ [방법: 데이터베이스 연결 액세스]
 
 ####<a name="static-query"></a>방법: 정적 쿼리 실행
 
@@ -1056,4 +1056,4 @@ Stream|지원되지 않음
 [Azure 모바일 서비스에서 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0727_2016-->

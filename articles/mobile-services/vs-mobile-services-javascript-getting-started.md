@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visual Studio 연결된 서비스를 사용하여 모바일 서비스를 추가한 후 Javascript 모바일 앱 시작 | Microsoft Azure" 
+	pageTitle="Visual Studio 연결된 서비스를 사용하여 모바일 서비스를 추가한 후 Javascript 모바일 앱 시작 | Microsoft Azure " 
 	description="Visual Studio에서 JavaScript 프로젝트의 모바일 서비스를 시작하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Javascript 모바일 앱 시작
@@ -88,4 +88,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="07/21/2016"
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -32,7 +32,7 @@
 사용자를 인증하려면 먼저 AAD(Azure Active Directory)에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 모바일 서비스를 등록하고 그에 대한 사용 권한을 표시합니다. 두 번째로 iOS 앱을 등록하여 해당 사용 권한에 대한 액세스를 부여해야 합니다.
 
 
->[AZURE.NOTE]이 자습서는 모바일 서비스를 통해 iOS 앱의 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE] 이 자습서는 모바일 서비스를 통해 iOS 앱의 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 
 ##필수 조건
@@ -126,4 +126,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0727_2016-->

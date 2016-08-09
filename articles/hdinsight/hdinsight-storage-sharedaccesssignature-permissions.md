@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Azure 저장소 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
@@ -226,25 +226,25 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 1. 프롬프트에 다음을 입력합니다. __SASCONTAINER__를 SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. __SASACCOUNTNAME__을 SAS에 사용된 저장소 계정의 이름으로 바꿉니다.
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     그러면 컨테이너의 내용이 나열되며 여기에는 컨테이너 및 SAS를 만들 때 업로드한 파일도 포함됩니다.
     
 2. 다음을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계처럼 __SASCONTAINER__ 및 __SASACCOUNTNAME__을 바꿉니다. __FILENAME__을 이전 명령에 표시된 파일 이름으로 바꿉니다.
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     그러면 파일의 내용이 나열됩니다.
     
 3. 파일을 로컬 파일 시스템에 다운로드하려면 다음을 사용합니다.
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     그러면 파일이 __testfile.txt__라는 로컬 파일에 다운로드됩니다.
 
 4. 다음을 사용하여 로컬 파일을 SAS 저장소의 새 __testupload.txt__ 파일에 업로드합니다.
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     그러면 다음과 유사한 메시지가 표시됩니다.
     
@@ -252,7 +252,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
         
     저장소 위치가 읽기 + 목록 전용이므로 이 오류가 발생합니다. 다음을 사용하여 쓰기 가능한 클러스터의 기본 저장소에 데이터를 저장합니다.
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     이때 작업이 성공적으로 완료되어야 합니다.
     
@@ -290,4 +290,4 @@ __해결 방법__: 다음 조건을 충족하는 암호를 사용합니다.
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

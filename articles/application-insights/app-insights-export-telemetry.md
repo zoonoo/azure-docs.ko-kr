@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -24,7 +24,7 @@
 
 연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
 
-* 메트릭 또는 검색 블레이드 맨 위에 있는 [내보내기 단추](app-insights-metrics-explorer.md#export-to-excel)를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다. 
+* 메트릭 또는 검색 블레이드 맨 위에 있는 [내보내기 단추](app-insights-metrics-explorer.md#export-to-excel)를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다.
 * [분석](app-insights-analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공하고 또한 결과를 내보낼 수 있습니다.
 * [Power BI에서 데이터를 탐색](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 
@@ -111,7 +111,7 @@ Where
 
 ## <a name="format"></a> 데이터 형식
 
-* 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다.
+* 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약 30초 동안 처리된 원격 분석 데이터가 있습니다.
 * 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
 * 각 행은 서식이 지정되지 않은 JSON 파일입니다. 관찰만 하려는 경우 Visual Studio에서 열고 편집, 고급, 형식 파일을 선택합니다.
 
@@ -178,7 +178,7 @@ Where
 
 ## 질문과 대답
 
-* *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
+* *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*
  
     예, 수행할 수 있습니다. 블레이드 맨 위에서 [데이터 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 클릭합니다.
 
@@ -229,4 +229,4 @@ Where
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

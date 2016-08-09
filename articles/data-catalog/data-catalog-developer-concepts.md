@@ -4,7 +4,7 @@
    services="data-catalog"
    documentationCenter=""
    authors="spelluru"
-   manager=""
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/10/2016"
-   ms.author="spelluru"/>
+   ms.date="07/25/2016"
+   ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 개발자 개념
 
@@ -117,7 +117,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 루트 자산 형식은 카탈로그에 등록 될 수 있는 다양한 유형의 데이터 자산을 나타내는 자산 형식입니다. 각 루트 형식에는 뷰에 포함된 자산 및 주석을 설명하는 뷰가 정의되어 있습니다. 뷰 이름은 REST API를 사용하여 자산을 게시할 때, 해당하는 {view\_name} URL 세그먼트에 사용되어야 합니다.
 
-<table><tr><td><b>자산 유형(뷰 이름)</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>허용된 주석</b></td><td><b>설명</b></td></tr><tr><td>테이블 ("tables")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>스키마<p>ColumnDescription<p>ColumnTag<p> 전문가<p>미리 보기<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>설명서<p></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값("measures")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td></td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><td>KPI("kpis")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서</td><td></td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td></td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td></td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td></td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td>
+<table><tr><td><b>자산 유형(뷰 이름)</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>허용된 주석</b></td><td><b>설명</b></td></tr><tr><td>테이블 ("tables")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>스키마<p>ColumnDescription<p>ColumnTag<p> 전문가<p>미리 보기<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>설명서<p></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값("measures")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td></td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><td>KPI("kpis")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서</td><td></td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td></td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td></td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td></td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td>
 <tr><td>보고서("reports")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>assetCreatedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>문자열</td><td></td><td></td></tr><tr><td>컨테이너("containers")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL 데이터베이스, Azure Blob 컨테이너 또는 Analysis Services 모델과 같은 다른 자산의 컨테이너를 나타냅니다.</td></tr></table>
 
 ### 주석 형식
@@ -165,6 +165,10 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 <tr><td>ColumnsDataProfile("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>열</td></td><td>ColumnDataProfile[]</td><td>열 데이터 프로필의 배열입니다.</td></tr>
+
+<tr><td>ColumnDataClassification("columnDataClassifications")</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>이 분류가 참조하는 열의 이름입니다.</td></tr>
+<tr><td></td><td>분류</td><td>String</td><td>이 열에 있는 데이터의 분류입니다.</td></tr>
 
 <tr><td>설명서("documentation")</td><td></td><td></td><td>지정된 자산은 하나의 설명서에만 연결될 수 있습니다.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>콘텐츠의 mime 형식입니다.</td></tr>
@@ -278,10 +282,10 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 >
 > **소유자** 역할은 루트 항목에만 적용됩니다.
 >
-> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 항목을 누구나 업데이트할 수 있어야 한다면 항목을 처음 게시하는 경우**roles** 속성에서 **Contributor**를 <Everyone> 특수 보안 주체로 설정해야 합니다(아래 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. 예를 들어 **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 <Everyone>입니다. 예를 들어 **참여자**는 항목 또는 <Everyone>을 만든 사용자로만 설정할 수 있습니다.
+> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 누구나 항목을 업데이트할 수 있도록 하려면 항목을 처음 게시할 때 **역할** 속성에서 **참여자**를 <Everyone> 특수 보안 주체로 설정해야 합니다(아래 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. 예를 들어 **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 <Everyone>입니다. 예를 들어 **참여자**는 항목 또는 <Everyone>을 만든 사용자로만 설정할 수 있습니다.
 
 ###예
-**항목을 게시할 때 참여자를 <Everyone>으로 설정합니다.** 특수 보안 주체에는 <Everyone>의 objectId는 "00000000-0000-0000-0000-000000000201"입니다. **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+**항목을 게시할 때 참여자를 <Everyone>으로 설정합니다.** 특수 보안 주체 <Everyone>에는 objectId "00000000-0000-0000-0000-000000000201"이 있습니다. **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
   > [AZURE.NOTE] 일부 HTTP 클라이언트 구현은 302에 대한 응답으로 요청을 다시 보낼 수 있지만, 일반적으로 요청의 권한 부여 헤더를 제거합니다. ADC에 요청을 보내려면 권한 부여 헤더가 필요하기 때문에 ADC가 지정한 리디렉션 위치로 요청을 다시 보낼 때 권한 부여 헤더가 계속 제공되어야 합니다. 아래는 .NET HttpWebRequest 개체를 사용하여 이를 보여 주는 샘플 코드입니다.
 
@@ -300,11 +304,53 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 		]
 	}
 
-  **소유자를 할당하고 기존 루트 항목에 대한 표시를 제한** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30 { "roles": [ { "role": "Owner", "members": [ { "objectId": "c4159539-846a-45af-bdfb-58efd3772b43", "upn": "user1@contoso.com" }, { "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f", "upn": "user2@contoso.com" } ] } ], "permissions": [ { "principal": { "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a", "upn": "user3@contoso.com" }, "rights": [ { "right": "Read" } ] }, { "principal": { "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31", "upn": "user4@contoso.com" }, "rights": [ { "right": "Read" } ] } ] }
+  **소유자를 할당하고 기존 루트 항목에 대한 표시를 제한** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+
+	{
+		"roles": [
+			{
+				"role": "Owner",
+				"members": [
+					{
+						"objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+						"upn": "user1@contoso.com"
+					},
+					{
+						"objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+						"upn": "user2@contoso.com"
+					}
+				]
+			}
+		],
+		"permissions": [
+			{
+				"principal": {
+					"objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+					"upn": "user3@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			},
+			{
+				"principal": {
+					"objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+					"upn": "user4@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			}
+		]
+	}
 
 > [AZURE.NOTE] PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

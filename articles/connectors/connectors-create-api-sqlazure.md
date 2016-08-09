@@ -9,17 +9,19 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
 # Azure SQL 데이터베이스 커넥터 시작
-Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다. 다음도 참조하세요.
+Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를 관리하는 조직의 워크플로를 만듭니다.
+
+SQL 데이터베이스를 사용하여 다음과 같은 작업을 수행합니다.
 
 - 고객 데이터베이스에 새 고객을 추가하거나 주문 데이터베이스에서 주문을 업데이트하여 워크플로를 작성합니다.
 - 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Azure SQL 데이터베이스에 행을 삽입합니다(작업).
@@ -28,44 +30,23 @@ Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다.
 
-논리 앱에 대해 자세히 알아보려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
-
->[AZURE.INCLUDE [시작에 필요한 항목](../../includes/connectors-create-api-sqlazure.md)]
+논리 앱에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../app-service-logic/app-service-logic-what-are-logic-apps.md) 및 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## Azure SQL 데이터베이스에 연결
 
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SQL 데이터베이스에 연결하려면 먼저 SQL 데이터베이스 *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SQL 데이터베이스에서 SQL 데이터베이스 자격 증명을 입력하여 연결을 만듭니다.
-
-논리 앱에 이 커넥터를 추가하면 SQL 데이터베이스에 대한 연결을 만듭니다. 이 커넥터를 처음 추가할 때는 연결 정보를 묻는 메시지가 표시됩니다.
-
-![](./media/connectors-create-api-sqlazure/connection-details.png)
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만듭니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 SQL 데이터베이스에 연결하려면 먼저 SQL 데이터베이스 *연결*을 만듭니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 입력합니다. 따라서 SQL 데이터베이스에서 SQL 데이터베이스 자격 증명을 입력하여 연결을 만듭니다.
 
 #### 연결 만들기
 
-1. SQL 데이터베이스 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
-
-	| 속성 | 세부 정보 |
-|---|---|
-| 게이트웨이를 통해 연결 | 선택 취소된 상태로 둡니다. 온-프레미스 SQL Server에 연결할 때 사용됩니다. |
-| 연결 이름 * | 연결의 이름을 입력합니다. | 
-| SQL Server 이름 * | 서버 이름을 입력합니다(예: *servername.database. windows.net*). 서버 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시되고 연결 문자열에도 표시됩니다. | 
-| SQL 데이터베이스 이름 * | SQL 데이터베이스에 지정한 이름을 입력합니다. 이 이름은 연결 문자열의 SQL 데이터베이스 속성, Initial Catalog=*yoursqldbname*에 표시됩니다. | 
-| 사용자 이름 * | SQL 데이터베이스를 만들 때 만든 사용자 이름을 입력합니다. 이 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시됩니다. | 
-| 암호 * | SQL 데이터베이스를 만들 때 만든 암호를 입력합니다. | 
-
-	이러한 자격 증명을 사용하여 SQL 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
-
-	![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/sample-connection.png)
-
-2. **만들기**를 선택합니다.
+>[AZURE.INCLUDE [SQL Azure에 대한 연결 만들기](../../includes/connectors-create-api-sqlazure.md)]
 
 ## 트리거 사용
 
-이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP Webhook 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
+이 연결에는 트리거가 필요하지 않습니다. 다른 트리거(되풀이 트리거, HTTP 웹후크 트리거, 다른 커넥터와 함께 사용할 수 있는 트리거 포함)를 사용하여 논리 앱을 시작합니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)에서는 예제를 제공합니다.
 
 ## 작업 사용
 	
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
 1. 더하기 기호를 선택합니다. **작업 추가**, **조건 추가** 또는 **자세히** 옵션 등이 표시됩니다.
 
@@ -90,7 +71,7 @@ Azure SQL 데이터베이스 커넥터를 사용하여 테이블의 데이터를
 
 ## 기술 세부 정보
 
-## 동작
+## SQL 데이터베이스 작업
 작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. SQL 데이터베이스 커넥터에는 다음 작업이 포함됩니다.
 
 |작업|설명|
@@ -247,6 +228,6 @@ SQL 테이블에서 기존 행을 업데이트합니다.
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

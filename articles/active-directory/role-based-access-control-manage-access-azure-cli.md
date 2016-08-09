@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/14/2016"
+	ms.date="07/22/2016"
 	ms.author="kgremban"/>
 
 # Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
@@ -39,6 +39,10 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 
 다음 예제에서는 *사용 가능한 모든 역할*의 목록을 보여 줍니다.
 
+```
+azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+```
+
 ![RBAC Azure 명령줄 - azure role list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ###	역할의 작업 나열
@@ -47,6 +51,12 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
     azure role show "<role name>"
 
 다음 예제에서는 *참가자* 및 *가상 컴퓨터 참가자* 역할의 작업을 보여 줍니다.
+
+```
+azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
+
+azure role show "virtual machine contributor" --json | jq '.[] | .properties.permissions[0].actions'
+```
 
 ![RBAC Azure 명령줄 - azure role show - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
@@ -57,6 +67,10 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
     azure role assignment list --resource-group <resource group name>
 
 다음 예제에서는 *pharma-sales-projecforcast* 그룹에 있는 역할 할당을 보여 줍니다.
+
+```
+azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
@@ -70,6 +84,12 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
 다음 예제에서는 사용자 *sameert@aaddemo.com*에게 부여되는 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할뿐만 아니라 그룹에서 상속된 역할도 포함됩니다.
+
+```
+azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+
+azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![RBAC Azure 명령줄 - 사용자별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -85,6 +105,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 
 다음 예제에서는 *구독* 범위에서 *Christine Koch 팀*에 *읽기* 역할을 할당합니다.
 
+
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment create - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ###	구독 범위에서 응용 프로그램에 역할 할당
@@ -99,7 +120,7 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ###	리소스 그룹 범위에서 사용자에 역할 할당
 리소스 그룹 범위에서 사용자에 역할을 할당하려면 다음을 사용합니다.
 
-	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
 다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹 범위에서 사용자 *samert@aaddemo.com*에 *가상 컴퓨터 참가자* 역할을 부여합니다.
 
@@ -160,9 +181,17 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 
 다음 예제에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
 
+```
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+```
+
 ![RBAC Azure 명령줄 - azure role list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 *Production4* 구독에서 사용할 수 없습니다. 이 구독이 해당 역할의 **AssignableScopes**에 없기 때문입니다.
+
+```
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+```
 
 ![RBAC Azure 명령줄 - 사용자 지정 역할에 대한 azure role list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
@@ -173,4 +202,4 @@ Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니�
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

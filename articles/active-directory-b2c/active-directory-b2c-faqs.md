@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: FAQ | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: FAQs | Microsoft Azure"
 	description="Azure Active Directory B2C에 대해 자주 묻는 질문과 대답입니다."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C 미리 보기: FAQ
+# Azure Active Directory B2C FAQ
 
-이 페이지는 Azure AD(Azure Active Directory) B2C 미리 보기에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
 
 ### 기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
 
@@ -56,7 +54,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 
 ### 여러 Azure AD B2C 테넌트가 있습니다. Azure 포털에서 어떻게 관리할 수 있나요?
 
-각 Azure AD B2C 테넌트는 Azure 포털에 고유의 B2C 기능 블레이드가 있습니다. Azure 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는 방법을 알아보려면 [Azure AD B2C 미리 보기: 응용 프로그램 등록](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)을 참조하세요. Azure 포털에서 Azure AD B2C 디렉터리를 전환하면 대부분의 브라우저에서 B2C 기능 블레이드를 열어둘 수 없습니다.
+각 Azure AD B2C 테넌트는 Azure 포털에 고유의 B2C 기능 블레이드가 있습니다. Azure 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는 방법을 알아보려면 [Azure AD B2C: 응용 프로그램 등록](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)을 참조하세요. Azure 포털에서 Azure AD B2C 디렉터리를 전환하면 대부분의 브라우저에서 B2C 기능 블레이드를 열어둘 수 없습니다.
 
 ### Azure AD B2C에서 보낸 확인 메일(콘텐츠 및 "From:" 필드)을 어떻게 사용자 지정하나요?
 
@@ -68,7 +66,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 ### Azure AD B2C의 로컬 계정에 사용되는 암호 정책은 무엇인가요?
 
-로컬 계정에 대한 Azure AD B2C 암호 정책은 Azure AD 정책을 기반으로 합니다. Azure AD B2C는 “강력한" 암호 보안 수준을 사용하며 모든 암호가 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](https://msdn.microsoft.com/library/azure/jj943764.aspx)을 참조하세요.
+로컬 계정에 대한 Azure AD B2C 암호 정책은 Azure AD 정책을 기반으로 합니다. Azure AD B2C의 등록, 등록 또는 로그인, 및 암호 재설정 정책은 "강력한" 암호 강도를 사용하며 어떠한 암호도 만료되지 않습니다. 자세한 내용은 [Azure AD 암호 정책](https://msdn.microsoft.com/library/azure/jj943764.aspx)을 참조하세요.
 
 ### Azure AD Connect를 사용하여 온-프레미스 Active Directory에 저장된 소비자 ID를 Azure AD B2C에 마이그레이션할 수 있나요?
 
@@ -80,7 +78,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 ### Azure AD B2C가 SharePoint 온-프레미스 2016 또는 이전 버전과 함께 작동하나요?
 
-현재는 아닙니다. Azure AD B2C는 SharePoint 온-프레미스 요구에 따라 빌드된 포털 및 전자상거래 응용 프로그램의 SAML 1.1 토큰을 지원하지 않습니다. Azure AD B2C는 Sharepoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.
+현재는 아닙니다. Azure AD B2C는 SharePoint 온-프레미스 요구에 따라 빌드된 포털 및 전자상거래 응용 프로그램의 SAML 1.1 토큰을 지원하지 않습니다. Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.
 
 ### 외부 ID를 관리하려면 Azure AD B2C 또는 B2B를 사용해야 합니까?
 
@@ -107,10 +105,10 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 - 이제 [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독 관리자로 로그인합니다. (이것은 동일한 작업이거나 학교 계정 또는 Azure에 등록 하는데 사용한 동일한 Microsoft 계정입니다.)
 - 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
 - **사용자** 탭을 클릭합니다.
-- 각 사용자를 돌아가며 선택합니다.(현재 자신이 로그인한, 즉, 구독 관리자를 사용자에서 제외함) 페이지 맨 아래에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
+- 각 사용자를 돌아가며 선택합니다.(현재 자신이 로그인한, 즉, 구독 관리자를 사용자에서 제외함) 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - **응용 프로그램** 탭을 클릭합니다.
 - **표시** 드롭다운 필드에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
-- 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
+- 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지 맨 아래에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - Active Directory 확장으로 다시 이동하고 B2C 테넌트를 선택합니다.
 - 페이지 맨 아래에서 **삭제**를 클릭합니다. 화면의 지시에 따라 프로세스를 완료합니다.
 
@@ -122,12 +120,8 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 [Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)을 참조하세요.
 
-### 언제 Azure AD B2C를 일반적으로 사용할 수 있나요?
-
-이번에는 일반적으로 사용할 수 있는 날짜에 대한 정보를 제공할 수 없습니다.
-
 ## 자세한 정보
 
-또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
+또한 현재 [서비스 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

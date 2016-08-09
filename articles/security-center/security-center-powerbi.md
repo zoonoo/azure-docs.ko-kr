@@ -110,10 +110,10 @@ Power BI에서 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/group
 ## 참고 항목
 이 문서에서는 Azure 보안 센터의 Power BI를 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) - Azure 보안 센터 채택을 계획하는 방법을 알아봅니다.
-- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) - Azure 보안 센터에서 보안 설정을 구성하는 방법 알아보기
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
-- [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
+- [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — Azure 보안 센터 채택을 계획하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) — Azure 보안 센터에서 보안 설정을 구성하는 방법을 알아봅니다.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

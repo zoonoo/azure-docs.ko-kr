@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
 
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure 보안 센터에 관한 질문에 답변합니다.
-
-> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
 
 ## 일반적인 질문
 
@@ -114,7 +112,7 @@ Azure 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반
 ## 가상 컴퓨터
 
 ### 어떤 유형의 가상 컴퓨터가 지원되나요?
-Azure Service Fabric 클러스터의 일부를 비롯한 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 만들어진 VM(가상 컴퓨터)에 대해 보안 상태 모니터링 및 권장 사항을 사용할 수 있습니다.
+[클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 만들어진 VM(가상 컴퓨터)에 대해 보안 상태 모니터링 및 권장 사항을 사용할 수 있습니다.
 
 지원되는 Windows VM:
 
@@ -132,4 +130,4 @@ Azure Service Fabric 클러스터의 일부를 비롯한 [클래식 및 Resource
 
 클라우드 서비스에서 실행 중인 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

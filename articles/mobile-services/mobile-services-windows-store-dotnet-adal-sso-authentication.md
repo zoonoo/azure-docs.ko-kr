@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -214,4 +214,4 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

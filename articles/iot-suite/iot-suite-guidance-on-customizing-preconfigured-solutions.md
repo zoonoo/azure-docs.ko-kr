@@ -154,7 +154,15 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 ## 다음 단계
 
-IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https://azure.microsoft.com/develop/iot/)를 참조하여 링크 및 설명서를 찾을 수 있습니다.
+미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대한 자세한 내용은 다음을 참조하세요.
+
+- [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결][lnk-logicapp]
+- [원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용][lnk-dynamic]
+- [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]
+
+[lnk-logicapp]: iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
@@ -164,4 +172,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https:/
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

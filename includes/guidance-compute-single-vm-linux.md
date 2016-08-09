@@ -10,13 +10,13 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ![[0]][0]
 
-- **리소스 그룹.** [리소스 그룹][resource-manager-overview]은 관련된 리소스를 보유하는 컨테이너입니다. 이 VM에 대한 리소스를 보유할 리소스 그룹을 만듭니다.
+- **리소스 그룹.** [_리소스 그룹_][resource-manager-overview]은 관련된 리소스를 보유하는 컨테이너입니다. 이 VM에 대한 리소스를 보유할 리소스 그룹을 만듭니다.
 
 - **VM**. 게시된 이미지 목록 또는 Azure Blob 저장소에 업로드된 VHD 파일에서 VM을 프로비전할 수 있습니다.
 
-- **OS 디스크.** OS 디스크는 [Azure 저장소][azure-storage]에 저장된 VHD입니다. 즉, 호스트 컴퓨터가 중단되어도 유지됩니다. OS 디스크는 `/dev/sda1`입니다.
+- **OS 디스크.** OS 디스크는 [Azure storage][azure-storage]에 저장된 VHD입니다. 즉, 호스트 컴퓨터가 중단되어도 유지됩니다. OS 디스크는 `/dev/sda1`입니다.
 
-- **임시 디스크.** VM은 임시 디스크를 사용하여 만들어집니다. 이 디스크는 호스트 컴퓨터의 실제 드라이브에 저장됩니다. Azure 저장소에는 저장되지 _않으며_ 다시 부팅되는 동안에 그리고 다른 VM의 수명 주기 이벤트 동안에 사라질 수 있습니다. 페이지 또는 스왑 파일과 같은 임시 데이터에 대해서만 이 디스크를 사용합니다. 임시 디스크는 `/dev/sdb1`이며 `/mnt/resource` 또는 `/mnt`에 탑재됩니다.
+- **임시 디스크.** VM은 임시 디스크를 사용하여 만들어집니다. 이 디스크는 호스트 컴퓨터의 실제 드라이브에 저장됩니다. Azure storage에는 저장되지 _않으며_ 다시 부팅되는 동안에 그리고 다른 VM의 수명 주기 이벤트 동안에 사라질 수 있습니다. 페이지 또는 스왑 파일과 같은 임시 데이터에 대해서만 이 디스크를 사용합니다. 임시 디스크는 `/dev/sdb1`이며 `/mnt/resource` 또는 `/mnt`에 탑재됩니다.
 
 - **데이터 디스크.** [데이터 디스크][data-disk]는 응용 프로그램 데이터에 사용되는 영구 VHD입니다. 데이터 디스크는 OS 디스크와 같은 Azure 저장소에 저장됩니다.
 
@@ -24,7 +24,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - **공용 IP 주소.** 공용 IP 주소는 예를 들어 ssh를 통해 VM과 통신하는 데 필요합니다.
 
-- **네트워크 인터페이스(NIC)**. NIC를 통해 VM을 가상 네트워크와 통신하도록 할 수 있습니다.
+- **NIC(네트워크 인터페이스)**. NIC를 통해 VM을 가상 네트워크와 통신하도록 할 수 있습니다.
 
 - **NSG(네트워크 보안 그룹)**. [NSG][nsg]는 서브넷에 대한 네트워크 트래픽을 허용/거부하는 데 사용됩니다. NSG를 개별 NIC 또는 서브넷에 연결할 수 있습니다. 서브넷에 연결하는 경우 NSG 규칙이 해당 서브넷의 모든 VM에 적용됩니다.
  
@@ -46,7 +46,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ### 디스크 및 저장소 권장 사항
 
-- 최상의 디스크 I/O 성능을 위해서는 SSD(Solid State Drive)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량(즉, 데이터 전송 속도)도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다.
+- 최상의 디스크 I/O 성능을 위해서는 SSD(반도체 드라이브)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량(즉, 데이터 전송 속도)도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다.
 
 - 하나 이상의 데이터 디스크를 추가합니다. 새 VHD를 만들 때 형식은 지정되지 않습니다. 디스크를 포맷하려면 VM에 로그인합니다. 데이터 디스크는 `/dev/sdc`, `/dev/sdd` 등으로 표시됩니다. `lsblk`를 실행하여 디스크를 포함하는 블록 장치를 나열할 수 있습니다. 데이터 디스크를 사용하려면 새 파티션 및 파일 시스템을 만들고 디스크를 탑재합니다. 예:
 
@@ -70,6 +70,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - 최상의 성능을 위해 진단 로그를 저장할 별도의 저장소 계정을 만듭니다. 표준 LRS(로컬 중복 저장소) 계정은 진단 로그에 충분합니다.
 
+
 ### 네트워크 권장 사항
 
 - 이 공용 IP 주소는 동적 또는 정적일 수 있습니다. 기본값은 동적입니다.
@@ -92,9 +93,9 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - 앞서 설명한 것처럼 단일 VM에 대한 SLA는 없습니다. SLA를 가져오려면 가용성 집합에 여러 VM을 배포해야 합니다.
 
-- 사용자의 VM은 [계획된 유지 관리][planned-maintenance] 또는 [계획되지 않은 유지 관리][manage-vm-availability]의 영향을 받을 수 있습니다. [VM 다시 부팅 로그][reboot-logs]를 사용하여 VM 다시 부팅이 계획된 유지 관리로 발생했는지 여부를 결정할 수 있습니다.
+- 사용자의 VM은 [계획된 유지 관리][planned-maintenance] 또는 [계획되지 않은 유지 관리][manage-vm-availability]의 영향을 받을 수 있습니다. [VM 다시 부팅 로그][reboot-logs]를 사용하여 VM 다시 부팅이 계획된 유지 관리로 발생했는지를 결정할 수 있습니다.
 
-- VHD는 [Azure 저장소][azure-storage]에 의해 지원되며 내구성 및 가용성을 위해 복제됩니다.
+- VHD는 [Azure storage][azure-storage]에 의해 지원되며 내구성 및 가용성을 위해 복제됩니다.
 
 - 정상 작업 중 실수로 인한 데이터 손실(예: 사용자 오류 때문에 발생)을 막기 위해 [Blob 스냅숏][blob-snapshot] 또는 다른 도구를 사용하여 지정 시간 백업도 구현해야 합니다.
 
@@ -102,7 +103,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - **리소스 그룹.** 동일한 수명 주기를 공유하는 긴밀하게 결합된 리소스를 동일한 [리소스 그룹][resource-manager-overview]에 추가합니다. 리소스 그룹을 사용하여 리소스를 그룹 단위로 배포 및 모니터링하고, 리소스 그룹별로 비용을 청구할 수 있습니다. 리소스를 하나의 집합으로 삭제할 수도 있습니다. 이러한 기능은 테스트 배포에서 매우 유용합니다. 리소스에 의미 있는 이름을 지정합니다. 이렇게 하면 보다 쉽게 특정 리소스를 찾고 역할을 이해할 수 있습니다. [Azure 리소스에 대한 권장되는 명명 규칙][naming conventions]을 참조하세요.
 
-- **SSH**. Linux VM을 만들기 전에 2048비트 RSA 공개-개인 키 쌍을 생성합니다. VM을 만들 때 공개 키 파일을 사용합니다. 자세한 내용은 [Azure에서 Linux 및 Mac과 함께 SSH를 사용하는 방법][ssh-linux]을 참조하세요.
+- **ssh**. Linux VM을 만들기 전에 2048비트 RSA 공개-개인 키 쌍을 생성합니다. VM을 만들 때 공개 키 파일을 사용합니다. 자세한 내용은 [Azure에서 Linux 및 Mac과 함께 SSH를 사용하는 방법][ssh-linux]을 참조하세요.
 
 - **VM 진단.** 기본 상태 메트릭, 진단 인프라 로그 및 [부팅 진단][boot-diagnostics]을 모니터링 및 진단을 사용하도록 설정할 수 있습니다. 부팅 진단은 VM이 부팅할 수 없는 상태로 전환되는 경우 부팅 오류를 진단하는 데 도움이 될 수 있습니다. 자세한 내용은 [모니터링 및 진단 사용][enable-monitoring]을 참조하세요.
 
@@ -134,180 +135,208 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
     > [AZURE.NOTE] RBAC는 VM에 로그온한 사용자가 수행할 수 있는 작업을 제한하지 않습니다. 이러한 사용 권한은 게스트 OS의 계정 유형에 따라 결정됩니다.
 
-- [감사 로그][audit-logs]를 사용하여 프로비전 작업 및 기타 VM 이벤트를 확인합니다.
+- [감사 로그][audit-logs]를 사용하여 프로비전 동작 및 기타 VM 이벤트를 확인합니다.
 
 - OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure 디스크 암호화][disk-encryption]를 고려하세요.
 
 ## 솔루션 구성 요소
 
-<!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
+샘플 솔루션 스크립트인 [Deploy-ReferenceArchitecture.ps1][solution-script]을 이 문서에 설명된 권장 사항에 따라 아키텍처를 구현하는 데 사용할 수 있습니다. 이 스크립트는 [Azure Resource Manager][arm-templates] 템플릿을 사용합니다. 템플릿은 각각이 VNet 만들기 또는 NSG 구성 등의 특정 동작을 수행하는 기본 구성 요소 집합으로 사용할 수 있습니다. 스크립트의 목적은 템플릿 배포를 오케스트레이션하는 것입니다.
 
-이전 다이어그램에 표시된 것처럼 다음 Bash 스크립트는 단일 VM 인스턴스 및 관련 네트워크와 저장소 리소스를 배치하기 위해 [Azure CLI][azure-cli] 명령을 실행합니다.
+템플릿은 매개 변수화되며 해당 매개 변수는 별도의 JSON 파일에 포함됩니다. 이러한 파일의 매개 변수를 수정하여 사용자의 요구에 맞게 배포를 구성할 수 있습니다. 템플릿 자체를 수정할 필요는 없습니다. 매개 변수 파일에 있는 개체의 스키마는 변경하지 말아야 합니다.
 
-이 스크립트에서는 [Azure 리소스에 대한 권장되는 명명 규칙][naming conventions]에 설명된 명명 규칙이 사용됩니다.
+템플릿을 편집할 때는 [Azure 리소스에 대한 권장되는 명명 규칙][naming conventions]에 설명된 명명 규칙을 따르는 개체를 만듭니다.
 
-스크립트를 실행하려면
+스크립트는 다음 매개 변수 파일을 참조하여 VM 및 주변 인프라를 빌드합니다.
 
-1. 2048비트 RSA 인증 키를 생성합니다.
+- **[virtualNetwork.parameters.json][vnet-parameters]**. 이 파일은 이름, 주소 공간, 서브넷 및 필요한 모든 DNS 서버의 주소 등과 같은 VNet 설정을 정의합니다. 서브넷 주소는 VNet의 주소 공간에 포함되어야 합니다.
 
-        ssh-keygen -t rsa -b 2048
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "addressPrefixes": [
+            "172.17.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "app1-subnet",
+              "addressPrefix": "172.17.0.0/24"
+            }
+          ],
+          "dnsServers": [ ]
+        }
+      }
+	}
+	```
 
-2. Azure 구독 ID와 공개 키 파일의 이름을 매개 변수로 스크립트에 제공합니다.
+- **[networkSecurityGroup.parameters.json][nsg-parameters]**. 이 파일에는 NSG의 정의 및 NSG 규칙이 포함되어 있습니다. `virtualNetworkSettings` 블록의 `name` 매개 변수는 NSG가 연결된 VNet을 지정합니다. `networkSecurityGroupSettings` 블록의 `subnets` 매개 변수는 VNet에서 NSG 규칙을 적용하는 모든 서브넷을 식별합니다. 이러한 항목은 **virtualNetwork.parameters.json** 파일에 정의되어 있습니다.
 
-        ./azurecli-single-vm-sample.sh <subscription ID> ~/.ssh/id_rsa.pub
+	예제에 표시되는 보안 규칙을 사용하여 SSH 연결을 통해 VM에 연결할 수 있습니다. `securityRules` 배열에 항목을 더 추가하여 추가 포트를 열거나 특정 포트를 통해 액세스를 거부할 수 있습니다.
 
-3. 스크립트가 완료되면 ssh를 사용하여 VM에 로그인합니다. 개인 키를 사용하여 인증을 받습니다.
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "networkSecurityGroupSettings": {
+        "value": {
+          "name": "app1-nsg",
+          "subnets": [
+            "app1-subnet"
+          ],
+          "securityRules": [
+            {
+              "name": "default-allow-ssh",
+              "direction": "Inbound",
+              "priority": 1000,
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "access": "Allow",
+              "protocol": "Tcp"
+            }
+          ]
+        }
+      }
+	}
+	```
 
-        ssh testuser@<app>-vm1.<location>.cloudapp.azure.com -i ~/.ssh/id_rsa
+- **[virtualMachineParameters.json][vm-parameters]**. 이 파일은 VM의 이름 및 크기, 관리자의 보안 자격 증명, 만들 디스크 및 이러한 디스크를 저장할 저장소 계정을 포함하여 VM 자체에 대한 설정을 정의합니다.
 
-    여기서 `<app>`는 `APP_NAME` 스크립트 변수의 값이고 `<location>`은 `LOCATION` 변수의 값입니다.
+	`osType` 매개 변수를 `linux`로 설정했는지 확인합니다. `imageReference` 섹션에서 이미지도 지정해야 합니다. 아래 표시된 값은 RedHat Linux 7.2의 최신 빌드를 사용하여 VM을 만듭니다. 다음 Azure CLI 명령을 사용하여 지역에서 사용 가능한 모든 RedHat 이미지의 목록을 가져올 수 있습니다(이 예제에서는 westus 영역 사용).
 
-```bat
-#!/bin/bash
+	```powershell
+	azure vm image list westus redhat rhel
+	```
 
-############################################################################
-#script for generating infrastructure for single VM running linux          #
-# of user choice. It creates azure resource group, storage account for VM  #
-# vnet, subnets for VM, and NSG rule                                       #
-# tags for main variables used                                             #
-# ScriptCommandParameters                                                  #
-# ScriptVars                                                               #
-############################################################################
+	`nics` 섹션의 `subnetName` 매개 변수는 VM에 대한 서브넷을 지정합니다. 마찬가지로 `virtualNetworkSettings`의 `name` 매개 변수는 사용할 VNet을 식별합니다. 이러한 이름은 **virtualNetwork.parameters.json** 파일에 정의된 서브넷 및 VNet의 이름입니다.
 
-############################################################################
-# User defined functions for single VM script                              #
-# errhandle : handles errors via trap if any exception happens             #
-# in the cli execution or if the user interrupts with CTRL+C               #
-# allowing for fast interruption                                           #
-############################################################################
+	저장소 계정을 공유하거나 `buildingBlockSettings` 섹션에서 설정을 수정하여 자신의 저장소 계정을 사용하여 여러 VM을 만들 수 있습니다. 여러 VM을 만드는 경우 `availabilitySet` 섹션에서 사용하거나 만들 가용성 집합의 이름을 지정해야 합니다.
 
-# error handling or interruption via ctrl-c.
-# line number and error code of executed command is passed to errhandle function
+	```json
+	"parameters": {
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "app1",
+          "computerNamePrefix": "",
+          "size": "Standard_DS1",
+          "osType": "linux",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "true",
+              "subnetName": "app1-subnet",
+              "privateIPAllocationMethod": "dynamic",
+              "publicIPAllocationMethod": "dynamic",
+              "isPrimary": "true"
+            }
+          ],
+          "imageReference": {
+            "publisher": "RedHat",
+            "offer": "RHEL",
+            "sku": "7.2",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 2,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": ""
+          }
+        },
+        "metadata": {
+          "description": "Settings for Virtual Machines"
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "resourceGroup": "app1-dev-rg"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 1,
+          "vmStartIndex": 0
+        },
+        "metadata": {
+          "description": "Settings specific to the building block"
+        }
+      }
+	}
+	```
 
-trap 'errhandle $LINENO $?' SIGINT ERR
+## 배포
 
-errhandle()
-{
-  echo "Error or Interruption at line ${1} exit code ${2} "
-  exit ${2}
-}
+솔루션에서는 다음과 같은 필수 구성 요소를 가정합니다.
 
-###############################################################################
-############################## End of user defined functions ##################
-###############################################################################
+- 리소스 그룹을 만들 수 있는 기존 Azure 구독이 있습니다.
 
-# 2 paramaters are expected
-# public key file needs to be generated using ssh-keygen
+- Azure Powershell의 최신 빌드를 다운로드하고 설치했습니다. 지침은 [여기][azure-powershell-download]를 참조하세요.
 
-if [ $# -ne 2  ]
-then
-	echo  "Usage:  ${0}  subscription-id public-ssh-key-file"
-	exit
-fi
+솔루션을 배포하는 스크립트를 실행하려면
 
-if [ ! -f $2  ]
-then
-	echo "Public Key file ${2} does not exist. please generate it"
-	echo "ssh-keygen -t rsa -b 2048"
-	exit
-fi
+1. 로컬 컴퓨터의 편리한 폴더로 이동한 다음 두 개의 하위 폴더를 만듭니다.
 
-# Explicitly set the subscription to avoid confusion as to which subscription
-# is active/default
-# ScriptCommandParameters
-SUBSCRIPTION=$1
-PUBLICKEYFILE=$2
+	- 스크립트
 
-# ScriptVars
-LOCATION=eastus2
-APP_NAME=app1
-ENVIRONMENT=dev
-USERNAME=testuser
-VM_NAME="${APP_NAME}-vm1"
-RESOURCE_GROUP="${APP_NAME}-${ENVIRONMENT}-rg"
-IP_NAME="${APP_NAME}-pip"
-NIC_NAME="${VM_NAME}-1nic"
-NSG_NAME="${APP_NAME}-nsg"
-SUBNET_NAME="${APP_NAME}-subnet"
-VNET_NAME="${APP_NAME}-vnet"
-VHD_STORAGE="${VM_NAME//-}st1"
-DIAGNOSTICS_STORAGE="${VM_NAME//-}diag"
+	- 템플릿
 
-# Use the following command to get the list of URNs for RHEL, UBUNTU, and OPENSUSE:
-# RHEL
-# azure vm image list $LOCATION  redhat RHEL 7.2
-# UBUNTU
-# azure vm image list $LOCATION canonical ubuntuserver 14.04.3-LTS
-# SUSE
-# azure vm image $LOCATION  suse opensuse 13.2
+2. Templates 폴더에 Linux라는 다른 하위 폴더를 만듭니다.
 
-LINUX_BASE_IMAGE=redhat:rhel:7.2:7.2.20160302
+3. [Deploy-ReferenceArchitecture.ps1][solution-script] 파일을 Scripts 폴더에 다운로드합니다.
 
-# For a list of VM sizes see: 
-#   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
-# To see the VM sizes available in a region:
-# 	azure vm sizes --location <location>
-VM_SIZE=Standard_DS1
+4. 다음 파일을 Templates/Linux 폴더에 다운로드합니다.
 
-# Set up the postfix variables attached to most CLI commands
+	- [virtualNetwork.parameters.json][vnet-parameters]
 
-POSTFIX="--resource-group ${RESOURCE_GROUP} --subscription ${SUBSCRIPTION}"
+	- [networkSecurityGroup.parameters.json][nsg-parameters]
 
-azure config mode arm
+	- [virtualMachineParameters.json][vm-parameters]
 
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-#Create resources
+5. Scripts 폴더에서 Deploy-ReferenceArchitecture.ps1 파일을 편집하고 다음 줄을 변경하여 스크립트에서 만들어진 VM 및 리소스를 포함하기 위해 만들거나 사용해야 하는 리소스 그룹을 지정합니다.
 
-#Create the enclosing resource group
-azure group create --name $RESOURCE_GROUP --location $LOCATION --subscription $SUBSCRIPTION
+	```powershell
+	$resourceGroupName = "app1-dev-rg"
+	```
+6. 위의 솔루션 구성 요소 섹션에 설명된 대로 Templates/Linux 폴더의 각 JSON 파일을 편집하여 가상 네트워크, NSG 및 VM에 대한 매개 변수를 설정합니다.
 
-# Create the VNet
-azure network vnet create --address-prefixes 172.17.0.0/16 --name $VNET_NAME \
---location $LOCATION $POSTFIX
+	>[AZURE.NOTE] virtualMachineParameters.json 파일의 `virtualNetworkSettings` 섹션에서 `resourceGroup` 매개 변수를 Deploy-ReferenceArchitecture.ps1 스크립트 파일에 지정한 값과 동일하게 설정해야 합니다.
 
-#Create the network security group
-azure network nsg create --name $NSG_NAME --location $LOCATION $POSTFIX
+7. Azure PowerShell 창을 열고, Scripts 폴더로 이동한 후 다음 명령을 실행합니다.
 
-#Create the subnet
-azure network vnet subnet create --vnet-name $VNET_NAME --address-prefix  "172.17.0.0/24" \
---name $SUBNET_NAME --network-security-group-name $NSG_NAME $POSTFIX
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Linux
+	```
 
-#Create the public IP address (dynamic)
-azure network public-ip create --name $IP_NAME --domain-name-label $VM_NAME \
---location $LOCATION $POSTFIX
+	`<subscription id>`를 Azure 구독 ID로 바꿉니다.
 
-#Create the NIC
-azure network nic create --public-ip-name $IP_NAME --subnet-name $SUBNET_NAME \
---subnet-vnet-name $VNET_NAME --name $NIC_NAME --location $LOCATION $POSTFIX
+	`<location>`에 대해 `eastus` 또는 `westus`와 같은 Azure 지역을 지정합니다.
 
-#Create the storage account for the OS VHD
-azure storage account create --type PLRS --location $LOCATION $POSTFIX $VHD_STORAGE
-
-#Create the storage account for diagnostics logs
-azure storage account create --type LRS --location $LOCATION $POSTFIX $DIAGNOSTICS_STORAGE
-
-#Create the VM
-azure vm create --name $VM_NAME --os-type Linux --image-urn  $LINUX_BASE_IMAGE \
---vm-size $VM_SIZE --vnet-subnet-name $SUBNET_NAME --vnet-name $VNET_NAME \
---nic-name $NIC_NAME --storage-account-name $VHD_STORAGE \
---os-disk-vhd "${VM_NAME}-osdisk.vhd" --admin-username $USERNAME \
---ssh-publickey-file $PUBLICKEYFILE --boot-diagnostics-storage-uri \
-"https://${DIAGNOSTICS_STORAGE}.blob.core.windows.net/" --location $LOCATION $POSTFIX
-
-#Attach a data disk
-azure vm disk attach-new --vm-name $VM_NAME --size-in-gb 128 --vhd-name data1.vhd \
---storage-account-name $VHD_STORAGE $POSTFIX
-
-#Allow SSH
-azure network nsg rule create --nsg-name $NSG_NAME --direction Inbound --protocol Tcp \
---destination-port-range 22  --source-port-range "*"  --priority 100 --access Allow \
-SSHAllow $POSTFIX
-
-#Install patching extension
-PATCH_CONFIG='{"rebootAfterPatch":"RebootIfNeed","startTime":"3:00","dayOfWeek":"Sunday","category":"ImportantAndRecommended"}'
-azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTCExtensions \
---public-config $PATCH_CONFIG --vm-name $VM_NAME --version 2.0 $POSTFIX
-```
+8. 스크립트가 완료되면 Azure 포털을 사용하여 네트워크, NSG 및 VM이 제대로 만들어졌는지 확인합니다.
 
 ## 다음 단계
 
@@ -315,14 +344,13 @@ azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTC
 
 <!-- links -->
 
-[arm-templates]: ../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ko-KR/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ko-KR/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
@@ -341,20 +369,26 @@ azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTC
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ko-KR/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/ko-KR/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ko-KR/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ko-KR/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[0]: ./media/guidance-blueprints/compute-single-vm.png "Azure VM의 일반적인 아키텍처"
+[vm-sla]: https://azure.microsoft.com/ko-KR/support/legal/sla/virtual-machines/v1_0/
+[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualMachine.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Azure의 단일 Linux VM 아키텍처"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

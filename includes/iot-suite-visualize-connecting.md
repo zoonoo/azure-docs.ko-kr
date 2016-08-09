@@ -36,10 +36,13 @@
 
 [미리 구성된 솔루션 사용자 지정][lnk-customize] 문서에는 이 샘플을 확대하는 방법이 설명되어 있습니다. 가능한 확장에는 실제 센서 사용 및 추가적인 명령 구현이 포함됩니다.
 
+[azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]에 대해 자세히 살펴보겠습니다.
+
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

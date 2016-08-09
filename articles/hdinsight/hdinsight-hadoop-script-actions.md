@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # HDInsight용 스크립트 작업 스크립트 개발
@@ -96,7 +96,7 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 
 스크립트 작업은 Azure 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
 
-> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
 
 
 
@@ -174,7 +174,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 	HDInsight는 고가용성을 위해 한 헤드 노드는 활성 모드(HDInsight 서비스가 실행 중)이고 다른 헤드 노드는 대기 모드(HDInsight 서비스가 실행 중이지 않음)인 활성-수동 아키텍처를 사용합니다. 노드는 HDInsight 서비스가 중단되는 경우 활성 모드와 수동 모드를 전환합니다. 고가용성을 위해 두 헤드 노드에서 서비스를 설치하기 위해 스크립트 작업이 사용되는 경우, HDInsight 장애 조치(Failover) 메커니즘이 이러한 사용자가 설치한 서비스를 자동으로 장애 조치(Failover)할 수 없습니다. 그러므로 활성-수동 모드 또는 활성-수동 모드인 경우 가용성이 높을 것으로 예상되는 HDInsight 헤드 노드에 사용자가 설치한 서비스에는 고유한 장애 조치(Failover) 메커니즘이 있어야 합니다.
 
-	헤드 노드 역할이 *ClusterRoleCollection* 매개 변수(아래 [스크립트 작업을 실행하는 방법](#runScriptAction) 섹션에 설명됨)의 값으로 지정되면 HDInsight 스크립트 작업 명령은 두 헤드 노드에서 실행됩니다. 따라서 사용자 지정 스크립트를 설계할 때는 스크립트에서 이 설정을 인식하는지 확인해야 합니다. 두 헤드 노드 모두에서 동일한 서비스가 설치 및 시작되어 서로 경쟁하게 되는 문제가 발생해서는 안 됩니다. 또한 재이미징 동안 데이터가 손실되므로 스크립트 작업을 통해 설치된 소프트웨어는 이러한 이벤트에 대해 복원력이 있어야 합니다. 응용 프로그램은 여러 노드에 배포되는 고가용성 데이터와 작동하도록 설계되어야 합니다. 클러스터의 노드 중 1/5 정도가 동시에 재이미징될 수 있다는 점에 유의하세요.
+	헤드 노드 역할이 *ClusterRoleCollection* 매개 변수에 값으로 지정된 경우 두 헤드 노드 모두에서 HDInsight 스크립트 동작 명령이 실행됩니다. 따라서 사용자 지정 스크립트를 설계할 때는 스크립트에서 이 설정을 인식하는지 확인해야 합니다. 두 헤드 노드 모두에서 동일한 서비스가 설치 및 시작되어 서로 경쟁하게 되는 문제가 발생해서는 안 됩니다. 또한 재이미징 동안 데이터가 손실되므로 스크립트 작업을 통해 설치된 소프트웨어는 이러한 이벤트에 대해 복원력이 있어야 합니다. 응용 프로그램은 여러 노드에 배포되는 고가용성 데이터와 작동하도록 설계되어야 합니다. 클러스터의 노드 중 1/5 정도가 동시에 재이미징될 수 있다는 점에 유의하세요.
 
 
 - Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
@@ -206,7 +206,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 여러 매개 변수를 Add-AzureRmHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예:
 
-	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
 또는
 
@@ -245,39 +245,6 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 4. 임시 파일 폴더(예: $env:TEMP)를 사용하여 스크립트에서 사용되는 다운로드된 파일을 보관하고 스크립트가 실행된 후 이 파일을 정리합니다.
 5. D:\\ 또는 C:\\apps에만 사용자 지정 소프트웨어를 설치합니다. C: 드라이브의 다른 위치는 예약되어 있으므로 사용하면 안 됩니다. C: 드라이브에서 C:\\apps 외의 폴더에 파일을 설치하면 노드 재이미징 동안 설치에 실패할 수 있습니다.
 6. OS 수준 설정이나 Hadoop 서비스 구성 파일이 변경된 경우에는 HDInsight 서비스에서 스크립트에 설정된 환경 변수와 같은 OS 수준 설정을 선택할 수 있도록 해당 서비스를 다시 시작할 수 있습니다.
-
-
-
-## HDInsight Emulator를 사용하여 사용자 지정 스크립트 테스트
-
-HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 스크립트를 테스트하는 간단한 방법은 HDInsight Emulator에서 실행하는 것입니다. HDInsight Emulator를 로컬로 설치하거나 Azure IaaS(infrastructure as a service) Windows Server 2012 R2 VM 또는 로컬 컴퓨터에 설치하여 스크립트가 올바르게 작동하는지 확인할 수 있습니다. Windows Server 2012 R2 VM은 VHDInsight가 노드에 사용하는 VM과 동일합니다.
-
-이 섹션에서는 테스트 목적을 위해 로컬에서 HDInsight Emulator를 사용하는 절차를 설명하지만, VM 사용에 대한 절차와 비슷합니다.
-
-**HDInsight Emulator 설치** - 로컬에서 스크립트 작업을 실행하려면 HDInsight Emulator가 설치되어 있어야 합니다. HDInsight Emulator를 설치하는 방법에 대한 지침은 [HDInsight Emulator 시작](../hdinsight-get-started-emulator/)을 참조하세요.
-
-**Azure PowerShell에 대한 실행 정책 설정** - Azure PowerShell을 열고 다음 명령을 관리자 권한으로 실행하여 실행 정책을 *LocalMachine*으로 설정하고 *Unrestricted*가 되도록 설정합니다.
-
-	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
-
-스크립트가 서명되지 않았기 때문에 이 정책을 제한 없음으로 설정해야 합니다.
-
-로컬 대상에 실행하려는 **스크립트 작업을 다운로드**합니다. 다음 예제 스크립트는 아래 위치에서 다운로드할 수 있습니다.
-
-* **Spark**. https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
-* **R**. https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
-* **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
-* **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
-
-**스크립트 작업 실행** - 관리 모드에서 새 Azure PowerShell 창을 열고 저장한 로컬 위치에서 Spark 또는 R 설치 스크립트를 실행합니다.
-
-**사용 예** - Spark 및 R 클러스터를 사용할 때 필요한 데이터 파일이 HDInsight Emulator에 없을 수도 있습니다. 따라서 경로 데이터가 포함된 관련 .txt 파일을 HDFS에서 업로드한 다음 해당 경로를 사용하여 데이터에 액세스해야 할 수 있습니다. 예:
-
-	val file = sc.textFile("/example/data/gutenberg/davinci.txt")
-
-
-특정 Hadoop 서비스가 실행 중인지 검색하는 등과 같은 일부 경우에는 사용자 지정 스크립트가 실제로 HDInsight 구성 요소에 종속될 수 있습니다. 이 경우 실제 HDInsight 클러스터에 사용자 지정 스크립트를 배포하여 테스트해야 합니다.
-
 
 ## 사용자 지정 스크립트 디버그
 
@@ -344,13 +311,13 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 - [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
 - [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
+[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
+[powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

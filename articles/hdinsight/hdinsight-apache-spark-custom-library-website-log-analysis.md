@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Linux에서 Apache Spark 클러스터와 함께 사용자 지정 라이브러리를 사용하여 웹 사이트 로그 분석
@@ -36,7 +36,7 @@
 
 데이터를 하이브 테이블로 저장한 후에는 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용하여 하이브 테이블에 연결합니다.
 
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -62,7 +62,7 @@
 5. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**의 클러스터와 연결된 기본 저장소 계정의 데이터에 액세스할 수 있습니다.
 
 
-		logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+		logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 6. 샘플 로그 설정을 검색하여 이전 단계가 성공적으로 완료되었는지 확인합니다.
@@ -88,7 +88,7 @@
 	그러나 이 라이브러리는 `PYTHONPATH`에 있지 않으므로 `import iislogparser`와(과) 같은 import 문을 사용하여 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
 
 
-		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+		sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 9. `iislogparser`은(는) 로그 줄이 머리글 행인 경우 함수 `None`을(를) 반환하고 로그 줄을 발견하는 경우 `LogLine` 클래스의 인스턴스를 반환하는 함수 `parse_log_line`을(를) 제공합니다. `LogLine` 클래스를 사용하여 RDD에서 로그 줄만을 추출합니다.
@@ -119,7 +119,7 @@
 		numLines = logLines.count()
 		numErrors = errors.count()
 		print 'There are', numErrors, 'errors and', numLines, 'log entries'
-		errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+		errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
 	다음과 유사한 출력이 표시됩니다.
 
@@ -252,4 +252,4 @@
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

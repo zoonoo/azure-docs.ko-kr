@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="내 Cordova 프로젝트(Visual Studio 연결된 서비스)의 변경 내용 | Microsoft Azure" 
-	description="Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Azure Cordova 프로젝트의 변경 내용에 대해 설명합니다." 
+	description="Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Azure Cordova 프로젝트의 변경 내용에 대해 설명합니다. " 
 	services="mobile-services" 
 	documentationCenter="na" 
 	authors="mlhoop" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 내 Azure Cordova 프로젝트의 변경 내용
@@ -35,4 +35,4 @@
 
 [모바일 서비스에 대한 자세한 정보](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

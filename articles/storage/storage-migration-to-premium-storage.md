@@ -3,7 +3,7 @@
     description="Azure 프리미엄 저장소에 기존 가상 컴퓨터를 마이그레이션합니다. 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
+    authors="aungoo-msft"
     manager=""
     editor="tysonn"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="07/25/2016"
+    ms.author="aungoo-msft"/>
 
 
 # Azure 프리미엄 저장소로 마이그레이션
@@ -415,7 +415,7 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈, DSv2 시리즈 �
 
     # whether or not to copy the os disk, the default is only copy data disks
     [Parameter(Mandatory = $false)]
-    [String] $DataDiskOnly = $true,
+    [Bool] $DataDiskOnly = $true,
 
     # how frequently to report the copy status in sceconds
     [Parameter(Mandatory = $false)]
@@ -680,4 +680,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0727_2016-->

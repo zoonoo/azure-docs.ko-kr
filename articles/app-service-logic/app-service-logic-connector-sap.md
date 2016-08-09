@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -54,7 +54,7 @@
 
 ## 방금 만든 SAP 커넥터 API 앱 구성 ##
 
-찾아보기-> API 앱 -> <Name of the API App just created>을 통해 방금 만든 API 앱으로 이동하면 다음과 같은 동작이 표시됩니다. 하이브리드 연결이 아직 설정되지 않았으므로 설치가 완료되지 않습니다. ![][2]
+찾아보기-> API 앱 -> <방금 만든 API 앱의 이름>을 통해 방금 만든 API 앱으로 이동하면 다음과 같은 동작이 표시됩니다. 하이브리드 연결이 아직 설정되지 않았으므로 설치가 완료되지 않습니다. ![][2]
 
 SAP 커넥터는 *모든* SAP 끝점을 연결하는 데 하이브리드 연결이 필요합니다. 하이브리드 연결을 설정하려면 다음을 수행합니다.
 
@@ -63,7 +63,7 @@ SAP 커넥터는 *모든* SAP 끝점을 연결하는 데 하이브리드 연결�
 3. 시작된 설치 프로세스를 따르고 메시지가 표시되면 기본 연결 문자열을 제공합니다.
 4. 설치 프로세스가 완료되면 다음과 유사한 대화 상자가 표시됩니다. ![][3]
 
-More on [온-프레미스 SAP 서버와 통합](app-service-logic-integrate-with-an-on-premise-sap-server.md)에 대한 자세한 내용.
+[온-프레미스 SAP 서버와 통합](app-service-logic-integrate-with-an-on-premise-sap-server.md)에 대한 자세한 내용.
 
 이제 생성된 API 앱으로 다시 이동하면 하이브리드 연결 상태가 연결됨인 것을 확인할 수 있습니다. ![][4]
 
@@ -99,4 +99,4 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

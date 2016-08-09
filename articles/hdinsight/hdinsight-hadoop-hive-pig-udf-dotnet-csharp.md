@@ -139,7 +139,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. Hive 쿼리로 다음을 사용합니다.
 
-		add file wasb:///HiveCSharp.exe;
+		add file wasbs:///HiveCSharp.exe;
 
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		USING 'HiveCSharp.exe' AS
@@ -147,7 +147,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    `hivesampletable`에서 `clientid`, `devicemake`, 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel`, 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasb:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    `hivesampletable`에서 `clientid`, `devicemake`, 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel`, 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasbs:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출**을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -212,7 +212,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 3. .NET Framework 응용 프로그램을 사용하여 간단한 Pig 작업을 실행하려면 다음을 입력합니다.
 
 		DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
-		LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 		LOG = FILTER LOGS by LINE is not null;
 		DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
 		DUMP DETAILS;
@@ -241,4 +241,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

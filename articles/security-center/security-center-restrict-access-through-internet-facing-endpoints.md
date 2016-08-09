@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 인터넷 끝점을 x통한 액세스 제한
 
 Azure 보안 센터는 네트워크 보안 그룹(NSG)에 "임의" 원본 IP 주소에서 액세스할 수 있도록 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 끝점을 통한 액세스를 제한할 것을 권장 합니다. 공격자가 "임의"에 대한 열기 액세스를 사용하여 리소스에 액세스할 수 있습니다. 보안 센터는 실제로 액세스가 필요한 원본 IP 주소에 대한 액세스를 제한하도록 이러한 인바운드 규칙을 편집할 것을 권장합니다.
+
+이 권장 사항은 "어떤 항목도" 원본으로 사용할 수 있는 웹이 아닌 모든 포트에 대해 생성됩니다.
 
 > [AZURE.NOTE] 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
@@ -63,4 +65,4 @@ Azure 보안 센터는 네트워크 보안 그룹(NSG)에 "임의" 원본 IP 주
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

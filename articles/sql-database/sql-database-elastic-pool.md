@@ -92,11 +92,11 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 
 ### 특정 시점 복원
 
-특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다. [사용자 오류에서 Azure SQL 데이터베이스 복구](sql-database-user-error-recovery.md)를 참조하세요.
+특정 시점 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 특정 시점으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
 ### 지역 복원
 
-지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [중단 상태에서 Azure SQL 데이터베이스 복구](sql-database-disaster-recovery.md)를 참조하세요.
+지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)를 참조하세요.
 
 ### 활성 지역 복제
 
@@ -106,4 +106,4 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

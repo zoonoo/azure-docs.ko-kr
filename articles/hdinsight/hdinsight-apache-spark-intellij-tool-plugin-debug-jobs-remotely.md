@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -202,8 +202,8 @@
 		    val sc = new SparkContext(conf)
 		
 		    SparkSample.executeJob(sc,
-		                           "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-		                           "wasb:///HVACOut")
+		                           "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		                           "wasbs:///HVACOut")
 		  }
 		}
 
@@ -238,20 +238,20 @@
 		    val conf = new SparkConf().setAppName("SparkSample")
 		                              .setMaster("yarn-client")
 		                              .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
-		                              .set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
+		                              .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
 		                              .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
 		                              .set("spark.hadoop.validateOutputSpecs", "false")
 		    val sc = new SparkContext(conf)
 		
 		    SparkSample.executeJob(sc,
-		      "wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-		      "wasb:///HVACOut")
+		      "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		      "wasbs:///HVACOut")
 		  }
 		}
 
 	유의해야 할 몇 가지 중요한 사항은 다음과 같습니다.
 	
-	* `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`의 경우 Spark 어셈블리 JAR를 지정된 경로의 클러스터 저장소에서 사용할 수 있는지 확인합니다.
+	* `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`의 경우 Spark 어셈블리 JAR를 지정된 경로의 클러스터 저장소에서 사용할 수 있는지 확인합니다.
 	* `setJars`의 경우 아티팩트 jar를 만들 위치를 지정합니다. 일반적으로 `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`입니다.
 
 
@@ -346,4 +346,4 @@
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

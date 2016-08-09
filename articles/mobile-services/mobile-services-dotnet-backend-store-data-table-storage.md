@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드
@@ -103,7 +103,7 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
             return DomainManager.QueryAsync(options);
         }
 
-	SQL 데이터베이스와 달리 이 버전은 IQueryable<TEntity>을 반환하지 않으므로 결과가 쿼리에 바인딩될 수 있지만 추가로 쿼리로 작성되지 않습니다.
+	SQL 데이터베이스와 달리 이 버전은 IQueryable<TEntity>를 반환하지 않으므로 결과가 쿼리에 바인딩될 수 있지만 추가로 쿼리로 작성되지 않습니다.
 
 ## 클라이언트 앱 업데이트
 
@@ -156,4 +156,4 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

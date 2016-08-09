@@ -37,7 +37,7 @@
 | 사용자가 암호를 재설정하지 않고 AD 계정의 잠금을 해제할 수 있도록 하려면 어떻게 해야 하나요? | [설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | 사용자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? | [설정: 암호가 재설정된 경우 사용자에게 알림](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | 관리자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? | [설정: 관리자가 자신의 암호를 재설정하는 경우 다른 관리자에게 알림](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| 암호 재설정 모양과 느낌을 사용자 지정하려면 어떻게 해야 하나요? | [설정: 회사 이름, 브랜딩 및 로고 ](#password-managment-look-and-feel) |
+| 암호 재설정 모양과 느낌을 사용자 지정하려면 어떻게 해야 하나요? | [설정: 회사 이름, 브랜딩 및 로고 ](#password-management-look-and-feel) |
 
 
 ## 암호 관리의 모양 및 느낌
@@ -875,4 +875,4 @@
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

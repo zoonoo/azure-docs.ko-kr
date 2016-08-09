@@ -1,5 +1,5 @@
 <properties
- pageTitle="HPC 클러스터에서 계산 리소스 자동 크기 조정 | Microsoft Azure"
+ pageTitle="HPC 팩 클러스터 노드 자동 크기 조정 | Microsoft Azure"
  description="Azure에서 HPC 팩 클러스터 계산 노드 수를 자동으로 증가 및 축소"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # 클러스터 워크로드에 따라 Azure에서 HPC 팩 클러스터 리소스를 자동으로 증가 및 축소
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 클러스터의 현재 워크로드에 따라 코어 등과 같은 Azure 계산 리소스 수를 자동으로 증가 또는 축소하려는 방법이 필요합니다. 그러면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다. 이렇게 하려면 HPC 팩 클러스터 속성 **AutoGrowShrink**를 설정합니다. 또는 HPC 팩과 함께 설치된 **AzureAutoGrowShrink.ps1** HPC PowerShell 스크립트를 실행합니다.
+HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 클러스터의 현재 워크로드에 따라 노드 또는 코어 등과 같은 Azure 계산 리소스 수를 자동으로 증가 또는 축소하려는 방법이 필요합니다. 그러면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다. 이렇게 하려면 HPC 팩 클러스터 속성 **AutoGrowShrink**를 설정합니다. 또는 HPC 팩과 함께 설치된 **AzureAutoGrowShrink.ps1** HPC PowerShell 스크립트를 실행합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. 또한 현재 Windows Server 운영 체제를 실행하는 HPC 팩 계산 리소스만 자동으로 증가 및 축소할 수 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 또한 현재 Windows Server 운영 체제를 실행하는 HPC 팩 계산 리소스만 자동으로 증가 및 축소할 수 있습니다.
 
 ## AutoGrowShrink 클러스터 속성 설정
 
@@ -34,7 +34,7 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
 
 * **Azure에 헤드 노드를 가진 클러스터** - HPC 팩 IaaS 배포 스크립트를 사용하여 클러스터를 만드는 경우 클러스터 구성 파일의 AutoGrowShrink 옵션을 설정하여 **AutoGrowShrink** 클러스터 속성을 활성화합니다. 자세한 내용은 [스크립트 다운로드](https://www.microsoft.com/download/details.aspx?id=44949)와 함께 제공되는 문서를 참조하세요.
 
-    또는 다음 섹션에서 설명하는 HPC PowerShell 명령을 사용하여 클러스터를 배포한 후 **AutoGrowShrink** 클러스터 속성을 설정합니다. HPC PowerShell을 사용하여 이 작업을 수행하려면 먼저 다음 단계를 완료합니다.
+    또는 다음 섹션에서 설명하는 HPC PowerShell 명령을 사용하여 클러스터를 배포한 후 **AutoGrowShrink** 클러스터 속성을 사용하도록 설정합니다. 이를 준비하려면 먼저 다음 단계를 완료합니다.
     1. 헤드 노드 및 Azure 구독에서 Azure 관리 인증서를 구성합니다. 테스트 배포의 경우 HPC 팩이 헤드 노드에 설치하는 기본 Microsoft HPC Azure 자체 서명 인증서를 사용하고 이 인증서를 Azure 구독에 업로드할 수 있습니다. 옵션 및 단계는 [TechNet 라이브러리 지침](https://technet.microsoft.com/library/gg481759.aspx)을 참조하세요.
     2. 헤드 노드에서 **regedit**을 실행하고 HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo로 이동한 다음 새 문자열 값을 추가합니다. 값 이름을 “ThumbPrint”로 설정하고 값 데이터를 1단계의 인증서 지문으로 설정합니다.
 
@@ -90,7 +90,7 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
 
 ### MPI 예제
 
-기본적으로 HPC 팩은 MPI 작업에 대한 추가 노드를 1% 증가시킵니다(**ExtraNodesGrowRatio**가 1로 설정됨). 그 이유는 MPI 노드에 노드 여러 개가 필요할 수 있고 모든 노드가 준비되어야만 작업을 실행할 수 있기 때문입니다. Azure 노드를 시작할 때 경우에 따라 어떤 노드가 다른 노드보다 시작하기 위해 더 많은 시간이 필요하기 때문에 해당 노드가 준비가 될 때까지 다른 노드가 유휴 상태가 될 수 있습니다. HPC 팩은 추가 노드를 증가시켜 이 리소스 대기 시간을 줄이며 잠재적으로 비용을 절감합니다. MPI 작업에 대한 추가 노드의 비율을 증가시키려면(예를 들어 10%) 다음과 유사한 명령을 실행
+기본적으로 HPC 팩은 MPI 작업에 대한 추가 노드를 1% 증가시킵니다(**ExtraNodesGrowRatio**가 1로 설정됨). 그 이유는 MPI 노드에 노드 여러 개가 필요할 수 있고 모든 노드가 준비되어야만 작업을 실행할 수 있기 때문입니다. Azure 노드를 시작할 때 경우에 따라 어떤 노드가 다른 노드보다 시작하기 위해 더 많은 시간이 필요하기 때문에 해당 노드가 준비가 될 때까지 다른 노드가 유휴 상태가 될 수 있습니다. HPC 팩은 추가 노드를 증가시켜 이 리소스 대기 시간을 줄이며 잠재적으로 비용을 절감합니다. MPI 작업에 대한 추가 노드의 비율을 증가시키려면(예를 들어 10%) 다음과 유사한 명령을 실행합니다.
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
@@ -158,7 +158,7 @@ AzureAutoGrowShrink.ps1
 
 * **ArgFile** - 스크립트를 실행하기 위해 구성을 저장 및 업데이트하는 데 사용한 인수 파일의 이름입니다.
 
-* **LogFilePrefix** - 로그 파일의 접두사 이름. 경로를 지정할 수 있습니다. 기본적으로 로그는 현재 작업 디렉터리에 기록됩니다.
+* **LogFilePrefix** - 로그 파일의 접두사 이름입니다. 경로를 지정할 수 있습니다. 기본적으로 로그는 현재 작업 디렉터리에 기록됩니다.
 
 ### 예 1
 
@@ -179,4 +179,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

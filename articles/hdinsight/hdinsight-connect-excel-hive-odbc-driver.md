@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결
@@ -105,7 +105,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 	![연결 속성][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. **확인**을 클릭하여 연결 속성 대화 상자를 닫습니다.
-12. **확인**을 클릭하여 **데이터 가져오기** 대화 상자를 닫습니다.  
+12. **확인**을 클릭하여 **데이터 가져오기** 대화 상자를 닫습니다.
 13. 암호를 다시 입력한 후 **확인**을 클릭합니다. 데이터를 Excel로 가져올 때까지 몇 초 정도 걸립니다.
 
 ##다음 단계
@@ -131,4 +131,4 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

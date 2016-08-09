@@ -109,6 +109,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 - [샘플 UI를 사용하여 장치 관리 탐색][lnk-dmui]
 - [Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 - [Azure 포털을 사용하여 IoT Hub 관리][lnk-portal-manage]
+- [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -135,5 +136,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
 [lnk-sas-token]: iot-hub-sas-tokens.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

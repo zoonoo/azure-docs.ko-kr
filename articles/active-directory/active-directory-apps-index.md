@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/20/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
@@ -114,7 +114,7 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | :---: | --- |
 | Azure AD, Office365 및 Intune에 제공되는 조건부 액세스 기능 소개 | [조건부 액세스를 사용한 위험 관리](active-directory-conditional-access.md) |
 | 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 | [SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-application-proxy-conditional-access.md) |
-| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 | [Azure Active Directory 장치 등록의 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 자동 장치 등록을 사용하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />— [Windows 8.1 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows8-1.md)<br />— [Windows 7 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 | [Azure Active Directory 장치 등록의 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 자동 장치 등록을 사용하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />— [Windows 8.1 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Windows 7 장치용 단계](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Multi-Factor Authentication과 관련된 정책에 Android 버전의 Azure Authenticator 앱을 사용하는 방법 | [Android용 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
@@ -228,4 +228,4 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

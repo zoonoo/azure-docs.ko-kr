@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/13/2016" 
+	ms.date="07/21/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # 모바일 서비스 .NET 백 엔드 문제 해결
@@ -164,4 +164,4 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 <!-- Links -->
 [SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

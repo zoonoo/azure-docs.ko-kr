@@ -104,7 +104,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 모서리에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
 
-> [AZURE.NOTE] Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer**는 클러스터와 연결된 기본 컨테이너가 아닙니다.
+> [AZURE.NOTE] Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net`을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer**는 클러스터와 연결된 기본 컨테이너가 아닙니다.
 
 ## 중요 고려 사항
 
@@ -122,7 +122,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 	이는 알려진 문제 때문입니다. 두 번째 해결책으로, 활성 리소스 관리자 또한 헤드 노드0에서 실행되도록 Ambari를 수정합니다.
 
-5.	`wasb://`을 사용하여 HDInsight 클러스터가 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털이 HDFS가 제대로 있다고 하더라도(**파일 브라우저**로 마우스를 이동할 때처럼) WASB로 해석되어야 합니다.
+5.	`wasbs://`을 사용하여 HDInsight 클러스터가 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털이 HDFS가 제대로 있다고 하더라도(**파일 브라우저**로 마우스를 이동할 때처럼) WASB로 해석되어야 합니다.
 
 
 ## 다음 단계
@@ -137,4 +137,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

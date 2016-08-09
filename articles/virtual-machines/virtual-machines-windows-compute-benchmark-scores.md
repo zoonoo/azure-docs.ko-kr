@@ -68,4 +68,4 @@ Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu20
 
 * 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

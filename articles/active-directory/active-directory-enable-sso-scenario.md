@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="05/03/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Azure Active Directory로 응용 프로그램 관리
@@ -54,7 +54,7 @@
 
 Azure Active Directory는 Microsoft의 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
 
-- 클라우드 서비스로 IAM 사용 
+- 클라우드 서비스로 IAM 사용
 
 - 중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
 
@@ -135,4 +135,4 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

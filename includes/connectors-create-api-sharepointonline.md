@@ -1,22 +1,20 @@
 
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 
+**SharePoint Online**에 연결하려면 SharePoint Online에 ID(사용자 이름 및 암호, 스마트 카드 자격 증명 등)를 제공해야 합니다. 인증되면 논리 앱에서 SharePoint Online 커넥터를 계속 사용할 수 있습니다.
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the **connection** for use in your logic app:
+논리 앱 디자이너에 있는 동안 다음 단계를 따라 SharePoint에 로그인하여 논리 앱에서 사용할 **연결**을 만듭니다.
 
-1. Enter SharePoint in the search box and wait for the search to return all triggers and actions related to SharePoint Online:   
-![Configure SharePoint][1]  
-2. Select the **SharePoint Online - When a file is created** trigger  
-3. Select **Sign in to SharePoint Online**:   
-![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app. That's it, the connection has been created. Notice the message at the bottom that indicates that you are now connected to SharePoint.  
-![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
+1. 검색 상자에 SharePoint를 입력하고 SharePoint Online과 관련된 모든 트리거 및 동작이 반환될 때까지 기다립니다.![SharePoint 구성][1]
+2. **SharePoint Online - 파일을 만들 때** 트리거를 선택합니다.
+3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]
+4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.![SharePoint 구성][3]
+5. 인증이 완료되면 논리 앱으로 리디렉션됩니다. 이제 연결이 만들어졌습니다. 이제 SharePoint에 연결되었음을 나타내는 메시지가 맨 아래에 표시됩니다. ![SharePoint 구성][4]
+6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 
+[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
 [3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,7 +52,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 마찬가지로, 실행할 작업을 제공할 수도 있습니다.
 
 작업에 대한 입력은 다음과 같습니다.
-- **C# 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다. 
+- **C# 식** - 평가할 식. 모든 내용을 가져오려면 `return` 문을 포함해야 합니다.
 - **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 컨텍스트 개체입니다. 원하는 만큼 속성을 정의할 수 있지만 기본은 JObject `{ ... }`이어야 합니다. 개체는 키 이름을 통해 스크립트에서 참조할 수 있습니다(값은 이름에 해당하는 JToken으로 전달됩니다).
 - **라이브러리** - 스크립트를 컴파일할 때 포함할 .dll 파일의 선택적 배열. 배열에는 다음 구조를 사용하며 .dll에서 출력으로 Blob 저장소 커넥터 옆에서 가장 잘 작동합니다.
 
@@ -112,4 +112,4 @@ return YammerAttachments;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

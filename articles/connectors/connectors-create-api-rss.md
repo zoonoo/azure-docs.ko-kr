@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 RSS 커넥터는 다음에서 사용할 수 있습니다.
 
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps](http://powerapps.microsoft.com)  
-- [흐름](http://flows.microsoft.com)  
+- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps](http://powerapps.microsoft.com)
+- [흐름](http://flows.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -132,4 +132,4 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

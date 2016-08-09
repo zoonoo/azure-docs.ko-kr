@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article"
-	ms.date="07/20/2016"
+	ms.date="08/03/2016"
 	ms.author="adegeo"/>
 
 
@@ -24,7 +24,7 @@
 ## 필수 조건
 
  - Visual Studio 2013 또는 2015
- - [Python Tools for Visual Studio][]\(PTVS)
+ - [Python Tools for Visual Studio][]\(PTVS\)
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2015][]
  - [Python 2.7 32비트][] 또는 [Python 3.5 32비트][]
 
@@ -32,7 +32,7 @@
 
 ## Python 웹 및 작업자 역할 정의
 
-Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure 앱 서비스의 웹앱 기능][execution model-web sites], [Azure 가상 컴퓨터][execution model-vms] 및 [Azure 클라우드 서비스][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 클라우드 서비스는 *PaaS(Platform as a Service)*를 제공합니다. 클라우드 서비스 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
+Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure 앱 서비스의 웹앱 기능][execution model-web sites], [Azure 가상 컴퓨터][execution model-vms] 및 [Azure 클라우드 서비스][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 클라우드 서비스는 *PaaS\(Platform as a Service\)*를 제공합니다. 클라우드 서비스 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS\(인터넷 정보 서비스\) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
 자세한 내용은 [클라우드 서비스란?]을 참조하세요.
 
@@ -57,13 +57,13 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ![역할 추가 명령](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다. 예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C# 작업자 역할이 포함될 수 있습니다. 서비스 버스 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
+클라우드 서비스는 여러 언어로 구현된 역할을 포함할 수 있습니다. 예를 들어 Django로 구현된 Python 웹 역할과 Python 또는 C\# 작업자 역할이 포함될 수 있습니다. 서비스 버스 큐 또는 저장소 큐를 사용하면 역할 간에 쉽게 통신할 수 있습니다.
 
 ## 클라우드 서비스에 Python 설치
 
->[AZURE.WARNING] \(이 문서를 마지막으로 업데이트한 시간에)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
+>[AZURE.WARNING] \(이 문서를 마지막으로 업데이트한 시간에\)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
 
-설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 작업](cloud-services-startup-tasks.md)을 정의합니다. 첫 번째 작업(**PrepPython.ps1**)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업(**PipInstaller.ps1**)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
+설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 작업](cloud-services-startup-tasks.md)을 정의합니다. 첫 번째 작업\(**PrepPython.ps1**\)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업\(**PipInstaller.ps1**\)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
 
 아래의 스크립트는 Python 3.5를 대상으로 작성되었습니다. Python 2.x 버전을 사용하려는 경우 두 가지 시작 작업 및 런타임 작업에 **PYTHON2** 변수 파일을 **켜기**로 설정합니다. `<Variable name="PYTHON2" value="<mark>on</mark>" />`
 
@@ -248,18 +248,33 @@ $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
-if (-not $is_emulated){
+if (-not $is_emulated)
+{
 	Write-Host "Running worker.py$nl"
 
 	if ($is_python2) {
-        cd..
+		cd..
 		iex "$env:PYPATH\python.exe worker.py"
 	}
 	else {
 		cd..
 		iex "py worker.py"
 	}
-	
+}
+else
+{
+	Write-Host "Running (EMULATED) worker.py$nl"
+
+	# Customize to your local dev environment
+
+	if ($is_python2) {
+		cd..
+		iex "$env:PYPATH\python.exe worker.py"
+	}
+	else {
+		cd..
+		iex "py worker.py"
+	}
 }
 ```
 
@@ -348,4 +363,4 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [Python 2.7 32비트]: https://www.python.org/downloads/
 [Python 3.5 32비트]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

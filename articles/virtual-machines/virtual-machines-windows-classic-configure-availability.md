@@ -27,4 +27,4 @@
 
 클래식 배포에 대한 추가 문서는 [클래식 배포 모델의 Windows VM에 대한 기술 문서](virtual-machines-windows-index.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!-----HONumber=AcomDC_0713_2016-->

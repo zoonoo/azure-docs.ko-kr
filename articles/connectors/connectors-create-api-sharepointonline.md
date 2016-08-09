@@ -1,545 +1,113 @@
 <properties
-pageTitle="논리 앱 또는 파워 앱에서 SharePoint Online 커넥터 사용| Microsoft Azure"
-description="논리 앱 및 PowerApps에서 Azure 앱 서비스 SharePoint Online 커넥터 사용을 시작합니다."
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
+pageTitle="논리 앱에서 SharePoint Online 커넥터 사용 방법 알아보기 | Microsoft Azure"
+description="SharePoint Online 커넥터를 사용하여 논리 앱을 만들고 SharePoint에서 목록을 관리합니다."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
+ms.workload="integration"
+ms.date="07/19/2016"
 ms.author="deonhe"/>
 
-# SharePoint Online 커넥터 시작 
+# SharePoint Online 커넥터 시작
 
-SharePoint 커넥터는 SharePoint에서 목록으로 작업하기 위한 방법을 제공합니다.
+SharePoint Online 커넥터를 사용하여 SharePoint 목록을 관리합니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
+[커넥터](./apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.
 
-SharePoint를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+## SharePoint Online에 연결
 
-* 논리 앱 빌드
-* PowerApps 빌드  
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](./connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+### SharePoint Online에 대한 연결 만들기
 
-## 트리거 및 작업에 대한 정보
+>[AZURE.INCLUDE [SharePoint에 대한 연결을 만드는 단계](../../includes/connectors-create-api-sharepointonline.md)]
 
-SharePoint 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
+## SharePoint Online 트리거 사용
 
-SharePoint 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
 
-### SharePoint 작업
-다음 작업을 수행할 수 있습니다.
+>[AZURE.INCLUDE [SharePoint Online 트리거를 만드는 단계](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
-|작업|설명|
-|--- | ---|
-|GetFileMetadata|문서 라이브러리에서 파일 메타데이터를 가져옵니다.|
-|UpdateFile|문서 라이브러리에서 파일을 업데이트합니다.|
-|DeleteFile|문서 라이브러리에서 파일을 삭제합니다.|
-|GetFileMetadataByPath|문서 라이브러리에서 파일 메타데이터를 가져옵니다.|
-|GetFileContentByPath|문서 라이브러리에서 파일을 가져옵니다.|
-|GetFileContent|문서 라이브러리에서 파일을 가져옵니다.|
-|CreateFile|문서 라이브러리에서 파일을 업로드합니다.|
-|CopyFile|문서 라이브러리에서 파일을 복사합니다.|
-|ExtractFolderV2|문서 라이브러리에서 폴더를 추출합니다.|
-|PostItem|SharePoint 목록에서 새 항목을 만듭니다.|
-|GetItem|SharePoint 목록에서 단일 항목을 검색합니다.|
-|DeleteItem|SharePoint 목록에서 항목을 삭제합니다.|
-|PatchItem|SharePoint 목록에서 항목을 업데이트합니다.|
-### SharePoint 트리거
-다음 이벤트를 수신할 수 있습니다.
+## SharePoint Online 작업 사용
+
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+
+>[AZURE.INCLUDE [SharePoint Online 작업을 만드는 단계](../../includes/connectors-create-api-sharepointonline-action.md)]
+
+## 기술 세부 정보
+
+이 연결에서 지원하는 트리거, 작업 및 응답에 대한 세부 정보는 다음과 같습니다.
+
+## SharePoint Online 트리거
+
+SharePoint에는 다음과 같은 트리거가 있습니다.
 
 |트리거 | 설명|
 |--- | ---|
-|OnNewFile|SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.|
-|OnUpdatedFile|SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.|
-|GetOnNewItems|SharePoint 목록에서 새 항목을 만들 때 사용됩니다.|
-|GetOnUpdatedItems|SharePoint 목록에서 기존 항목을 수정할 때 사용됩니다.|
+|[파일을 만들 때](connectors-create-api-sharepointonline.md#when-a-file-is-created)|이 작업은 SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.|
+|[파일을 수정할 때](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|이 작업은 SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.|
+|[새 항목을 만든 경우](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|이 작업은 SharePoint 목록에서 새 항목을 만들 때 흐름을 트리거합니다.|
+|[기존 항목을 수정할 때](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|이 작업은 SharePoint 목록에서 기존 항목을 수정할 때 흐름을 트리거합니다.|
 
 
-## SharePoint에 대한 연결 만들기
-SharePoint 커넥터를 사용하려면 먼저 **연결**을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다.
+## SharePoint Online 작업
 
-|속성| 필수|설명|
+SharePoint에는 다음과 같은 작업이 있습니다.
+
+
+|작업|설명|
+|--- | ---|
+|[파일 메타데이터 가져오기](connectors-create-api-sharepointonline.md#get-file-metadata)|이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.|
+|[파일 업데이트](connectors-create-api-sharepointonline.md#update-file)|이 작업은 파일 콘텐츠를 업데이트합니다.|
+|[파일 삭제](connectors-create-api-sharepointonline.md#delete-file)|이 작업은 파일을 삭제합니다.|
+|[경로를 사용하여 파일 메타데이터 가져오기](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.|
+|[경로를 사용하여 파일 콘텐츠 가져오기](connectors-create-api-sharepointonline.md#get-file-content-using-path)|이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 콘텐츠 가져오기](connectors-create-api-sharepointonline.md#get-file-content)|이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.|
+|[파일 만들기](connectors-create-api-sharepointonline.md#create-file)|이 작업은 SharePoint 사이트에 파일을 업로드합니다.|
+|[파일 복사](connectors-create-api-sharepointonline.md#copy-file)|이 작업은 SharePoint 사이트에 파일을 복사합니다.|
+|[폴더 나열](connectors-create-api-sharepointonline.md#list-folder)|이 작업은 SharePoint 폴더에 포함된 파일을 가져옵니다.|
+|[루트 폴더 나열](connectors-create-api-sharepointonline.md#list-root-folder)|이 작업은 루트 SharePoint 폴더의 파일을 가져옵니다.|
+|[폴더 추출](connectors-create-api-sharepointonline.md#extract-folder)|이 작업은 보관 파일을 SharePoint 폴더로 추출합니다(예: .zip).|
+|[항목 가져오기](connectors-create-api-sharepointonline.md#get-items)|이 작업은 SharePoint 목록에서 항목을 가져옵니다.|
+|[항목 만들기](connectors-create-api-sharepointonline.md#create-item)|이 작업은 SharePoint 목록에서 새 항목을 만듭니다.|
+|[항목 가져오기](connectors-create-api-sharepointonline.md#get-item)|이 작업은 SharePoint 목록에서 ID로 단일 항목을 가져옵니다.|
+|[항목 삭제](connectors-create-api-sharepointonline.md#delete-item)|이 작업은 SharePoint 목록에서 항목을 삭제합니다.|
+|[항목 업데이트](connectors-create-api-sharepointonline.md#update-item)|이 작업은 SharePoint 목록에서 항목을 업데이트합니다.|
+|[엔터티 값 가져오기](connectors-create-api-sharepointonline.md#get-entity-values)|이 작업은 SharePoint 엔터티에서 가능한 값을 가져옵니다.|
+|[목로 가져오기](connectors-create-api-sharepointonline.md#get-lists)|이 작업은 사이트에서 SharePoint 목록을 가져옵니다.|
+### 작업 세부 정보
+
+이 커넥터에 대한 작업 및 트리거 세부 정보와 해당 응답은 다음과 같습니다.
+
+
+
+### 파일 메타데이터 가져오기
+이 작업은 파일 ID를 사용하여 파일 메타데이터를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
 | ---|---|---|
-|신뢰|예|SharePoint 자격 증명 제공|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|id*|파일 식별자|파일 선택|
 
-**SharePoint Online**에 연결하려면 SharePoint Online에 ID(사용자 이름 및 암호, 스마트 카드 자격 증명 등)를 제공해야 합니다. 인증되면 논리 앱에서 SharePoint Online 커넥터를 계속 사용할 수 있습니다.
+*는 필수 속성을 나타냅니다.
 
-논리 앱 디자이너에 있는 동안 다음 단계를 따라 SharePoint에 로그인하여 논리 앱에서 사용할 연결 **연결**을 만듭니다.
+#### 출력 세부 정보
 
-1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.![SharePoint 구성][1]  
-2. **SharePoint Online - 파일을 만들 때**를 선택합니다.   
-3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]    
-4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.![SharePoint 구성][3]     
-5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다.![SharePoint 구성][4]  
-6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.   
-7. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.  
+BlobMetadata
 
->[AZURE.TIP] 다른 논리 앱, PowerApps 중 하나 또는 둘 다에서 이 연결을 사용할 수 있습니다.
 
-## SharePoint REST API 참조
-#### 이 문서 적용 버전: 1.0
-
-
-### 문서 라이브러리에서 파일 메타데이터를 가져옵니다.
-**```GET: /datasets/{dataset}/files/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 업데이트합니다.
-**```PUT: /datasets/{dataset}/files/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
-|body| |yes|body|없음|파일의 콘텐츠|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 삭제합니다.
-**```DELETE: /datasets/{dataset}/files/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일 메타데이터를 가져옵니다.
-**```GET: /datasets/{dataset}/GetFileByPath```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|쿼리|없음|파일의 경로|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 가져옵니다.
-**```GET: /datasets/{dataset}/GetFileContentByPath```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|쿼리|없음|파일의 경로|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 가져옵니다.
-**```GET: /datasets/{dataset}/files/{id}/content```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|없음|파일의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 업로드합니다.
-**```POST: /datasets/{dataset}/files```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|folderPath|string|yes|쿼리|없음|파일에 대한 경로|
-|name|string|yes|쿼리|없음|파일의 이름|
-|body| |yes|body|없음|파일의 콘텐츠|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 파일을 복사합니다.
-**```POST: /datasets/{dataset}/copyFile```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|원본|string|yes|쿼리|없음|원본 파일에 대한 경로|
-|destination|string|yes|쿼리|없음|대상 파일에 대한 경로|
-|overwrite|부울|no|쿼리|false|기존 파일을 덮어쓸 것인지 여부|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
-**```GET: /datasets/{dataset}/triggers/onnewfile```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL|
-|folderId|string|yes|쿼리|없음|SharePoint 폴더의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-**```GET: /datasets/{dataset}/triggers/onupdatedfile```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL|
-|folderId|string|yes|쿼리|없음|SharePoint 폴더의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### 문서 라이브러리에서 폴더를 추출합니다.
-**```POST: /datasets/{dataset}/extractFolderV2```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL입니다. 예: http://contoso.sharepoint.com/sites/mysite|
-|원본|string|yes|쿼리|없음|원본 파일에 대한 경로|
-|destination|string|yes|쿼리|없음|대상 폴더에 대한 경로|
-|overwrite|부울|no|쿼리|false|기존 파일을 덮어쓸 것인지 여부|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 새 항목을 만들 때 사용됩니다.
-**```GET: /datasets/{dataset}/tables/{table}/onnewitems```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 기존 항목을 수정할 때 사용됩니다.
-**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|$skip|정수|no|쿼리|없음|건너뛸 항목의 수(기본값 = 0)|
-|$top|정수|no|쿼리|없음|검색할 항목의 최대 수(기본값 = 256)|
-|$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
-|$orderby|string|no|쿼리|없음|항목의 순서를 지정하는 ODATA orderBy 쿼리|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 새 항목을 만듭니다.
-**```POST: /datasets/{dataset}/tables/{table}/items```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|항목| |yes|body|없음|만들 항목|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 단일 항목을 검색합니다.
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|검색할 항목의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 항목을 삭제합니다.
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|삭제할 항목의 고유 식별자|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-### SharePoint 목록에서 항목을 업데이트합니다.
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
-
-
-
-| 이름| 데이터 형식|필수|위치|기본값|설명|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|없음|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
-|테이블|string|yes|path|없음|SharePoint 목록 이름|
-|id|정수|yes|path|없음|업데이트할 항목의 고유 식별자|
-|항목| |yes|body|없음|변경된 속성을 가진 항목|
-
-
-### 다음은 가능한 응답입니다.
-
-|이름|설명|
-|---|---|
-|200|확인|
-|기본값|작업이 실패했습니다.|
-------
-
-
-
-## 개체 정의: 
-
- **DataSetsMetadata**:
-
-DataSetsMetadata에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
-|---|---|
-|tabular|정의되지 않음|
-|Blob|정의되지 않음|
-
-
-
- **TabularDataSetsMetadata**:
-
-TabularDataSetsMetadata에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
-|---|---|
-|원본|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
-
-
-
- **BlobDataSetsMetadata**:
-
-BlobDataSetsMetadata에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
-|---|---|
-|원본|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **BlobMetadata**:
-
-BlobMetadata에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
-|---|---|
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
 |Id|string|
 |이름|string|
 |DisplayName|string|
@@ -553,152 +121,551 @@ BlobMetadata에 대한 필수 속성:
 
 
 
- **Object**:
 
-Object에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 파일 업데이트
+이 작업은 파일 콘텐츠를 업데이트합니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|id*|파일 식별자|파일 선택|
+|body*|File Content(파일 내용)|파일 콘텐츠|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+BlobMetadata
 
 
-| 이름 | 데이터 형식 |
-|---|---|
-
-
-
- **TableMetadata**:
-
-TableMetadata에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|정의되지 않음|
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
 
 
 
- **DataSetsList**:
 
-DataSetsList에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 파일 삭제
+이 작업은 파일을 삭제합니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|id*|파일 식별자|파일 선택|
+
+*는 필수 속성을 나타냅니다.
 
 
-| 이름 | 데이터 형식 |
+
+
+### 경로를 사용하여 파일 메타데이터 가져오기
+이 작업은 파일 경로를 사용하여 파일 메타데이터를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|path*|파일 경로|파일 선택|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 경로를 사용하여 파일 콘텐츠 가져오기
+이 작업은 파일 경로를 사용하여 파일 콘텐츠를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|path*|파일 경로|파일 선택|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+
+### 파일 콘텐츠 가져오기
+이 작업은 파일 ID를 사용하여 파일 콘텐츠를 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|id*|파일 식별자|파일 선택|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+
+### 파일 만들기
+이 작업은 SharePoint 사이트에 파일을 업로드합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|folderPath*|폴더 경로|파일 선택|
+|name*|파일 이름|파일의 이름|
+|body*|File Content(파일 내용)|파일 콘텐츠|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 파일 복사
+이 작업은 SharePoint 사이트에 파일을 복사합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|source*|원본 파일 경로|원본 파일에 대한 경로|
+|destination*|대상 파일 경로|대상 파일에 대한 경로|
+|overwrite|덮어쓰기 플래그|대상 파일을 덮어쓸지 여부(있는 경우)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 파일을 만들 때
+이 작업은 SharePoint 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL|
+|folderId*|폴더 ID|폴더 선택|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+
+### 파일을 수정할 때
+이 작업은 SharePoint 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL|
+|folderId*|폴더 ID|폴더 선택|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+
+### 폴더 나열
+이 작업은 SharePoint 폴더에 포함된 파일을 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|id*|파일 식별자|폴더의 고유 식별자|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 루트 폴더 나열
+이 작업은 루트 SharePoint 폴더의 파일을 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+
+*는 필수 속성을 나타냅니다.
+
+
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 폴더 추출
+이 작업은 보관 파일을 SharePoint 폴더로 추출합니다(예: .zip).
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite|)
+|source*|원본 파일 경로|원본 파일에 대한 경로|
+|destination*|대상 폴더 경로|대상 폴더에 대한 경로|
+|overwrite|덮어쓰기 플래그|대상 파일을 덮어쓸지 여부(있는 경우)|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+#### 출력 세부 정보
+
+BlobMetadata
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|---|
+|Id|string|
+|이름|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|크기|정수|
+|MediaType|string|
+|IsFolder|부울|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### 새 항목을 만든 경우
+이 작업은 SharePoint 목록에서 새 항목을 만들 때 흐름을 트리거합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
+
+
+| 속성 이름 | 데이터 형식 | 
 |---|---|
 |value|array|
 
 
 
- **DataSet**:
 
-DataSet에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 기존 항목을 수정할 때
+이 작업은 SharePoint 목록에서 기존 항목을 수정할 때 흐름을 트리거합니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
 
 
-| 이름 | 데이터 형식 |
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|이름|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **테이블**:
 
-Table에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 항목 가져오기
+이 작업은 SharePoint 목록에서 항목을 가져옵니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|$filter|필터 쿼리|반환된 항목을 제한할 ODATA 필터 쿼리|
+|$orderby|Order By|항목의 순서를 지정하는 ODATA orderBy 쿼리|
+|$skip|숫자 건너뛰며 세기|건너뛸 항목의 수(기본값 = 0)|
+|$top|최대 가져오기 수|검색할 항목의 최대 수(기본값 = 256)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+ItemsList
 
 
-| 이름 | 데이터 형식 |
+| 속성 이름 | 데이터 형식 |
 |---|---|
-|이름|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **항목**:
 
-Item에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 항목 만들기
+이 작업은 SharePoint 목록에서 새 항목을 만듭니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|item*|항목|만들 항목|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
 
 
-| 이름 | 데이터 형식 |
+| 속성 이름 | 데이터 형식 |
 |---|---|
 |ItemInternalId|string|
 
 
 
- **ItemsList**:
 
-ItemsList에 대한 필수 속성:
-
-
-필수 속성이 없습니다.
+### 항목 가져오기
+이 작업은 SharePoint 목록에서 ID로 단일 항목을 가져옵니다.
 
 
-**모든 속성**:
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|id*|Id|검색할 항목의 고유 식별자|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
 
 
-| 이름 | 데이터 형식 |
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### 항목 삭제
+이 작업은 SharePoint 목록에서 항목을 삭제합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|id*|Id|삭제할 항목의 고유 식별자|
+
+*는 필수 속성을 나타냅니다.
+
+
+
+
+### 항목 업데이트
+이 작업은 SharePoint 목록에서 항목을 업데이트합니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+|table*|목록 이름|SharePoint 목록 이름|
+|id*|Id|업데이트할 항목의 고유 식별자|
+|item*|항목|변경된 속성을 가진 항목|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+항목
+
+
+| 속성 이름 | 데이터 형식 |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### 엔터티 값 가져오기
+이 작업은 SharePoint 엔터티에서 가능한 값을 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|SharePoint 사이트 URL|SharePoint 사이트 URL|
+|table*|테이블 이름|테이블 이름|
+|id*|엔터티 ID|엔터티 ID|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+
+
+
+
+### 목로 가져오기
+이 작업은 사이트에서 SharePoint 목록을 가져옵니다.
+
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|dataset*|사이트 URL|SharePoint 사이트 URL(예: http://contoso.sharepoint.com/sites/mysite)|
+
+*는 필수 속성을 나타냅니다.
+
+#### 출력 세부 정보
+
+TablesList
+
+
+| 속성 이름 | 데이터 형식 |
 |---|---|
 |value|array|
 
 
 
- **TablesList**:
+## HTTP 응답
 
-TablesList에 대한 필수 속성:
+위의 작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
 
-
-필수 속성이 없습니다.
-
-
-**모든 속성**:
-
-
-| 이름 | 데이터 형식 |
+|이름|설명|
 |---|---|
-|value|array|
+|200|확인|
+|202|수락됨|
+|400|잘못된 요청|
+|401|권한 없음|
+|403|사용할 수 없음|
+|404|찾을 수 없음|
+|500|내부 서버 오류. 알 수 없는 오류 발생.|
+|기본값|작업이 실패했습니다.|
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [파워 앱 만들기](../power-apps/powerapps-get-started-azure-portal.md)
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

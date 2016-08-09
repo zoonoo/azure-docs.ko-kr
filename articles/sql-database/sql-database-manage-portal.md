@@ -35,7 +35,7 @@
 
 Azure 포털은 데이터베이스 블레이드 상단에 액세스 가능한 일반적인 데이터베이스 작업 집합을 제공합니다. 사용자는 데이터베이스를 이전 시점으로 복원하고, Visual Studio에서 데이터베이스를 열고, 데이터베이스를 새 서버로 복사하고, 데이터베이스를 Azure 저장소 계정으로 내보낼 수 있습니다.
 
-- [SQL 데이터베이스 복원](sql-database-user-error-recovery.md)
+- [SQL 데이터베이스 복원](sql-database-recovery-using-backups.md)
 - [Visual Studio에서 SQL 데이터베이스 열기](sql-database-connect-query.md)
 - [SQL 데이터베이스 내보내기](sql-database-export.md)
 
@@ -74,4 +74,4 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 트랜잭
 
 - [SQL 데이터베이스](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

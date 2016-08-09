@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # 명령줄 도구를 사용하여 모바일 서비스 자동화
@@ -187,4 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

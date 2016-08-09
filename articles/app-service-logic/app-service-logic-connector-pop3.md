@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -65,7 +65,7 @@ API 앱을 만들고 나면 이제 POP3 커넥터를 논리 앱에 대한 트리
 5.	이제 흐름에서 POP3 커넥터를 사용할 수 있습니다. "전자 메일 가져오기" 트리거를 선택하고 빈도 및 간격을 구성합니다. 흐름의 다른 작업에서 POP3 트리거에서 검색된 전자 메일을 사용할 수 있습니다.
 		 
 
-	![][5] 
+	![][5]
 	![][6]
 
 ## 커넥터의 추가 기능
@@ -86,4 +86,4 @@ API 앱을 만들고 나면 이제 POP3 커넥터를 논리 앱에 대한 트리
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

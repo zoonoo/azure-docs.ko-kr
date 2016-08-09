@@ -34,17 +34,17 @@ HDInsight의 Hadoop 클러스터를 만들 때 Azure 저장소 계정을 지정�
 2. **storage2**라는 추가 저장소 계정을 지정합니다.
 3. /share 디렉터리로 mycsv.csv 파일을 복사하고 해당 파일에 대한 분석을 수행합니다.
 
-````
-hadoop fs –mkdir /share
-hadoop fs –copyFromLocal myscsv.scv /share  
-````
+    ````
+    hadoop fs –mkdir /share
+    hadoop fs –copyFromLocal myscsv.scv /share  
+    ````
 
 3.	R 코드에서 이름 노드를 **default**로 설정하고 처리할 디렉터리 및 파일을 설정합니다.
 
-````
-myNameNode <- "default"
-myPort <- 0
-````
+    ````
+    myNameNode <- "default"
+    myPort <- 0
+    ````
 
   캐시의 위치:
 
@@ -66,13 +66,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-모든 디렉터리와 파일 참조는 저장소 계정 wasb://container1@storage1.blob.core.windows.net을 지정합니다. 이는 HDInsight 클러스터와 연결되는 **기본 저장소 계정**입니다.
+모든 디렉터리와 파일 참조는 저장소 계정 wasbs://container1@storage1.blob.core.windows.net을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 저장소 계정**입니다.
 
 **storage2**에 있는 **container2**의 /private 디렉터리에 있는 mySpecial.csv 파일을 처리한다고 가정합니다.
 
 R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지정합니다.
 
-    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
   캐시의 위치:
@@ -95,13 +95,13 @@ R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지�
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-모든 디렉터리와 파일 참조는 이제 저장소 계정 wasb://container2@storage2.blob.core.windows.net을 지정합니다. 지정한 **이름 노드**입니다.
+모든 디렉터리와 파일 참조는 이제 저장소 계정 wasbs://container2@storage2.blob.core.windows.net을 지정합니다. 지정한 **이름 노드**입니다.
 
 다음과 같이 **storage2**에서 /user/RevoShare/<SSH username> 디렉터리를 구성해야 합니다.
 
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 ## Azure Data Lake 저장소 사용
 
@@ -190,4 +190,4 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

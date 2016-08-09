@@ -2,7 +2,9 @@
 
 - Azure 가상 컴퓨터로 만든 가상 컴퓨터를 사용하여 클라우드에서 Windows Server Active Directory(일반적으로 간단히 AD라고 함)를 실행할 수 있습니다. 이 방법은 Azure를 사용하여 온-프레미스 데이터 센터를 클라우드로 확장할 때 적합합니다.
 
-- Azure Active Directory를 사용하면 사용자가 SaaS(Software as a Service)에서 Single Sign-On을 사용하도록 제공할 수 있습니다. 이 기술은 Microsoft Office 365에서 사용되며, Azure 또는 기타 클라우드 플랫폼에서 실행하는 응용 프로그램에서도 이 기술을 사용할 수 있습니다.
+
+- Azure Active Directory를 사용하면 사용자가 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램에서 Single Sign-On을 사용하도록 제공할 수 있습니다. 이 기술은 Microsoft Office 365에서 사용되며, Azure 또는 기타 클라우드 플랫폼에서 실행하는 응용 프로그램에서도 이 기술을 사용할 수 있습니다.
+
 
 - 클라우드 또는 온-프레미스에서 실행되는 응용 프로그램에서 Azure Active Directory 액세스 제어를 사용하면 Facebook, Google, Microsoft 등 다른 ID 공급자에게서 받은 ID를 사용하여 사용자가 로그인할 수 있게 할 수 있습니다.
 
@@ -118,4 +120,4 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

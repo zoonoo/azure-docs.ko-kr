@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -142,4 +142,4 @@
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

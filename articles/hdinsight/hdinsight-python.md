@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="06/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hive 및 Pig와 함께 Python 사용
@@ -41,7 +41,7 @@ Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습
 
 **Linux 기반 HDInsight**
 
-	add file wasb:///streaming.py;
+	add file wasbs:///streaming.py;
 
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'python streaming.py' AS
@@ -51,7 +51,7 @@ Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습
 
 **Windows 기반 HDInsight**
 
-	add file wasb:///streaming.py;
+	add file wasbs:///streaming.py;
 
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'D:\Python27\python.exe streaming.py' AS
@@ -107,8 +107,8 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 **GENERATE** 문을 통해 Python 스크립트를 Pig의 UDF로 사용할 수 있습니다. 예를 들어 다음 예제에서는 **jython.py** 파일에 저장된 Python 스크립트를 사용합니다.
 
-	Register 'wasb:///jython.py' using jython as myfuncs;
-    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+	Register 'wasbs:///jython.py' using jython as myfuncs;
+    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
     LOG = FILTER LOGS by LINE is not null;
     DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
     DUMP DETAILS;
@@ -185,7 +185,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 2. `hive>` 프롬프트에 다음을 입력합니다.
 
-		add file wasb:///streaming.py;
+		add file wasbs:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
 		  USING 'python streaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
@@ -206,8 +206,8 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 2. `grunt>` 프롬프트에 다음 문을 입력합니다.
 
-		Register wasb:///jython.py using jython as myfuncs;
-	    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+		Register wasbs:///jython.py using jython as myfuncs;
+	    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
 	    LOG = FILTER LOGS by LINE is not null;
 	    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
 	    DUMP DETAILS;
@@ -285,7 +285,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$HiveQuery = "add file wasb:///streaming.py;" +
+	$HiveQuery = "add file wasbs:///streaming.py;" +
 	             "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
 	               "USING 'D:\Python27\python.exe streaming.py' AS " +
 	               "(clientid string, phoneLabel string, phoneHash string) " +
@@ -352,8 +352,8 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$PigQuery = "Register wasb:///jython.py using jython as myfuncs;" +
-	            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
+	$PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
+	            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
 	            "LOG = FILTER LOGS by LINE is not null;" +
 	            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
 	            "DUMP DETAILS;"
@@ -444,4 +444,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

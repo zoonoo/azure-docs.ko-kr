@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
-   ms.author="erihur"/>
+   ms.date="07/21/2016"
+   ms.author="erihur;genli"/>
 
 
 # Microsoft Azure 청구서 이해
@@ -217,7 +217,7 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 일부 새 필드 및 csv 버전 2로 이름 변경 외에도 아래 필드에 데이터에 대한 표준화된 형식이 있을 것입니다.
 
-- **인스턴스 ID**: 인스턴스 ID 필드가 프로비전된 서비스에 대한 사용자 지정 식별자를 나타냅니다. 현재 리소스의 이름 또는 정규화된 리소스 ID인 인스턴스 ID가 표시되는 두 형식이 있습니다. Microsoft Azure 서비스는 표준화되고 정규화된 리소스 ID 형식으로 인스턴스 ID를 나타도록 전환하고 있습니다. _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. 서비스가 새 형식으로 전환하면 인스턴스 ID 데이터 필드가 단순한 리소스 이름에서 리소스 ID로 변경됨을 볼 수 있습니다. 리소스 ID는 [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)가 사용하는 형식으로 구독에서 리소스를 식별합니다.
+- **인스턴스 ID**: 인스턴스 ID 필드가 프로비전된 서비스에 대한 사용자 지정 식별자를 나타냅니다. 현재 리소스의 이름 또는 정규화된 리소스 ID인 인스턴스 ID가 표시되는 두 형식이 있습니다. Microsoft Azure 서비스는 표준화되고 정규화된 리소스 ID 형식으로 인스턴스 ID가 나타나도록 전환하고 있습니다. _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. 서비스가 새 형식으로 전환하면 인스턴스 ID 데이터 필드가 단순한 리소스 이름에서 리소스 ID로 변경됨을 볼 수 있습니다. 리소스 ID는 [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)가 사용하는 형식으로 구독에서 리소스를 식별합니다.
 
 ![InstanceId](./media/billing-understand-your-bill/instanceid.png)
 
@@ -225,7 +225,7 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **태그**:이 열은 사용자 특정 리소스 태그를 포함합니다. 청구 레코드를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어 서비스를 사용하는 부서는 비용을 배분하는데 태그를 사용할 수 있습니다. [태그를 사용하여 Azure 리소스 구성](./resource-group-using-tags.md)에 대한 자세한 내용을 알아봅니다. 태그를 내보내도록 지원하는 서비스는 다음과 같습니다.  
+- **태그**:이 열은 사용자 특정 리소스 태그를 포함합니다. 청구 레코드를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어 서비스를 사용하는 부서는 비용을 배분하는데 태그를 사용할 수 있습니다. [태그를 사용하여 Azure 리소스 구성](./resource-group-using-tags.md)에 대한 자세한 내용을 알아봅니다. 태그를 내보내도록 지원하는 서비스는 다음과 같습니다.
     - 가상 컴퓨터
     - 저장소 및
     - [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)를 사용하여 프로비전된 네트워킹 서비스
@@ -253,4 +253,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN 개요"
+	pageTitle="Azure CDN 개요 | Microsoft Azure"
 	description="Azure CDN(콘텐츠 배달 네트워크) 정의와 Blob 및 정적 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하는 데 사용하는 방법을 알아봅니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Azure CDN(콘텐츠 배달 네트워크) 개요
+# Azure CDN\(콘텐츠 배달 네트워크\) 개요
 
-> [AZURE.NOTE] 이 문서에서는 Azure CDN(콘텐츠 배달 네트워크)이 무엇이고 어떻게 작동하며 각 Azure CDN 제품의 기능은 무엇인지에 대해 설명합니다. 이 정보를 건너뛰고 CDN 끝점을 만드는 방법에 대한 자습서로 바로 이동하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 Azure CDN\(콘텐츠 배달 네트워크\)이 무엇이고 어떻게 작동하며 각 Azure CDN 제품의 기능은 무엇인지에 대해 설명합니다. 이 정보를 건너뛰고 CDN 끝점을 만드는 방법에 대한 자습서로 바로 이동하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
 
-Azure CDN(콘텐츠 배달 네트워크)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다.
+Azure CDN\(콘텐츠 배달 네트워크\)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다.
 
 CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음과 같습니다.
 
@@ -33,15 +33,15 @@ CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음
 
 ![CDN 개요](./media/cdn-overview/cdn-overview.png)
 
-1. 사용자(Alice)가 특수 도메인 이름(예: `<endpointname>.azureedge.net`)으로 URL을 사용하여 파일(자산이라고도 함)을 요청합니다. DNS는 최고 성능의 POP(상호 접속 위치) 위치로 요청을 라우팅합니다. 일반적으로 이것은 지리적으로 사용자에게 가장 가까운 POP입니다.
+1. 사용자\(Alice\)가 특수 도메인 이름\(예: `<endpointname>.azureedge.net`\)으로 URL을 사용하여 파일\(자산이라고도 함\)을 요청합니다. DNS는 최고 성능의 POP\(상호 접속 위치\) 위치로 요청을 라우팅합니다. 일반적으로 이것은 지리적으로 사용자에게 가장 가까운 POP입니다.
 
 2. POP의 에지 서버의 캐시에 파일이 없으면, 에지 서버는 원본에서 파일을 요청합니다. 원본은 Azure 웹앱, Azure 클라우드 서비스, Azure 저장소 계정 또는 공개적으로 액세스할 수 있는 웹 서버입니다.
 
-3. 원본은 파일의 TTL(Time-to-Live)을 설명하는 선택적인 HTTP 헤더를 포함하여, 파일을 에지 서버에 반환합니다.
+3. 원본은 파일의 TTL\(Time-to-Live\)을 설명하는 선택적인 HTTP 헤더를 포함하여, 파일을 에지 서버에 반환합니다.
 
-4. 에지 서버는 파일을 캐싱하고 원래 요청자(Alice)에게 파일을 반환합니다. 파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다. 원본이 TTL을 지정하지 않은 경우, 기본 TTL은 7일입니다.
+4. 에지 서버는 파일을 캐싱하고 원래 요청자\(Alice\)에게 파일을 반환합니다. 파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다. 원본이 TTL을 지정하지 않은 경우, 기본 TTL은 7일입니다.
 
-5. 추가적인 사용자(예: Bob)는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
+5. 추가적인 사용자\(예: Bob\)는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
 
 6. 파일의 TTL이 만료되지 않았으면, 에지 서버는 캐시로부터 파일을 반환합니다. 이렇게 하면 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능합니다.
 
@@ -82,4 +82,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

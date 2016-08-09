@@ -82,7 +82,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
     
 - **리소스 그룹 이름**
 
-	[ARM(Azure Resource Manager)](resource-group-overview.md)을 사용하면 Azure 리소스 그룹이라고 하는 그룹인 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
+	[ARM(Azure Resource Manager)](../resource-group-overview.md)을 사용하면 Azure 리소스 그룹이라고 하는 그룹인 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
 
 - **자격 증명**
 
@@ -96,7 +96,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 	원래 HDFS는 클러스터에 있는 많은 로컬 디스크를 사용합니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 대신 사용합니다. Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob 저장소에서 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다. Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-	구성 중에 Azure 저장소 계정과 해당 Azure 저장소 계정의 Azure Blob 저장소 컨테이너를 지정해야 합니다. 일부 생성 프로세스는 Azure 저장소 계정 및 Blob 저장소 컨테이너를 미리 만들어 두어야 합니다. Blob 저장소 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure 저장소 계정(연결된 저장소)을 지정할 수 있습니다. 또한 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob 컨테이너에 액세스할 수도 있습니다. 액세스 제한 자세한 내용은 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
+	구성 중에 Azure 저장소 계정과 해당 Azure 저장소 계정의 Azure Blob 저장소 컨테이너를 지정해야 합니다. 일부 생성 프로세스는 Azure 저장소 계정 및 Blob 저장소 컨테이너를 미리 만들어 두어야 합니다. Blob 저장소 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure 저장소 계정(연결된 저장소)을 지정할 수 있습니다. 또한 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob 컨테이너에 액세스할 수도 있습니다. 액세스 제한 자세한 내용은 [Azure 저장소 리소스에 대한 액세스 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
 
 	![HDInsight 저장소](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -110,7 +110,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 	보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-    Azure Blob 저장소 외에, [Azure Data Lake Store](data-lake-store-overview.md)를 HDInsight의 HBase 클러스터에 대한 기본 저장소 계정 및 4개의 전체 HDInsight 클러스터 유형에 대한 연결된 저장소로 사용할 수도 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+    Azure Blob 저장소 외에, [Azure Data Lake 저장소](../data-lake-store/data-lake-store-overview.md)를 HDInsight의 HBase 클러스터에 대한 기본 저장소 계정 및 4개의 전체 HDInsight 클러스터 형식에 대한 연결된 저장소로 사용할 수도 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
     
 - **위치(영역)**
 
@@ -173,7 +173,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
         |Standard\_D13\_v2 |8|56GB|8|임시(SSD) = 400GB |16|16x500|
         |Standard\_D14\_v2 |16|112GB|8|임시(SSD) = 800GB |32|32x500|    
  
-    이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.
+    이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-size.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.
     
 	> [AZURE.IMPORTANT] 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다. 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 가격 책정에 대한 자세한 내용은 [HDInsight 가격 정보](https://azure.microsoft.com/pricing/details/hdinsight/)를 참조하세요.
 
@@ -258,4 +258,4 @@ Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 템플릿](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

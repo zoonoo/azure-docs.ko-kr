@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정
@@ -76,8 +76,8 @@ Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 S
 
     - *데이터 IO 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
     - *로그 IO 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
-    - *저장소* 
-7. 서비스에 문제가 발생한 시기의 시간 창에서 메트릭을 조사합니다. 
+    - *저장소*
+7. 서비스에 문제가 발생한 시기의 시간 창에서 메트릭을 조사합니다.
 
     ![Azure 클래식 포털 - SQL 데이터베이스 메트릭][PortalSqlMetrics]
 
@@ -192,7 +192,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 - **페이징을 구현합니다.** 데이터베이스를 쿼리하면 일부 경우 대량의 레코드가 클라이언트에 반환될 수 있습니다. 작업 크기 및 지연 시간을 최소화하기 위해서는 페이징 구현을 고려해야 합니다.
 
     - 기본적으로 모바일 서비스는 모든 들어오는 쿼리를 페이지 크기 50으로 제한하며, 사용자는 최대 1,000개까지 레코드를 수동으로 요청할 수 있습니다. 자세한 내용은 [Windows 스토어](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) 및 [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging)에 대한 "페이지로 데이터 반환"을 참조하세요.
-    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 **쿼리 개체**에 대해 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드]를 사용할 수 있습니다.  
+    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 **쿼리 개체**에 대해 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드]를 사용할 수 있습니다.
 
 
 쿼리 계획 분석 방법을 포함하여 쿼리 디자인 향상에 대한 자세한 내용은 이 문서 아래에서 [고급 쿼리 디자인](#AdvancedQuery)을 참조하세요.
@@ -493,4 +493,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

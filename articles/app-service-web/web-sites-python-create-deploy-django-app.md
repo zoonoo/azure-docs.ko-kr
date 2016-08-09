@@ -22,7 +22,7 @@
 
 이 자습서에서는 [Azure 앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 Python을 실행하는 방법을 설명합니다. 웹앱은 제한된 무료 호스팅 및 신속한 배포 기능을 제공하며, Python을 사용할 수 있습니다! 앱이 증가하면 유료 호스팅으로 전환하여 다른 모든 Azure 서비스와 통합할 수도 있습니다.
 
-먼저 Django 웹 프레임워크([Flask](web-sites-python-create-deploy-flask-app.md) 및 [Bottle](web-sites-python-create-deploy-bottle-app.md)은 이 자습서의 다른 버전 참조)를 사용하여 응용 프로그램을 만듭니다. Azure 마켓플레이스에서 웹앱을 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다. 그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다. 이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
+먼저 Django 웹 프레임워크\([Flask](web-sites-python-create-deploy-flask-app.md) 및 [Bottle](web-sites-python-create-deploy-bottle-app.md)은 이 자습서의 다른 버전 참조\)를 사용하여 응용 프로그램을 만듭니다. Azure 마켓플레이스에서 웹앱을 만들고, Git 배포를 설치하고, 리포지토리를 로컬로 복제합니다. 그런 다음 응용 프로그램을 로컬로 실행하고, 변경한 다음, 이를 커밋하여 Azure에 푸시합니다. 이 자습서에서는 Windows 또는 Mac/Linux에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -33,19 +33,19 @@
 
 - Windows, Mac 또는 Linux
 - Python 2.7 또는 3.4
-- setuptools, pip, virtualenv(Python 2.7 전용)
+- setuptools, pip, virtualenv\(Python 2.7 전용\)
 - Git
-- [Python Tools for Visual Studio][](PTVS) - 참고: 선택 사항입니다.
+- [Python Tools for Visual Studio][]\(PTVS\) - 참고: 선택 사항입니다.
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
 ### Windows
 
-Python 2.7 또는 3.4(32비트)를 아직 설치하지 않은 경우 웹 플랫폼 설치 관리자를 사용하여 [Azure SDK for Python 2.7] 또는 [Azure SDK for Python 3.4]를 설치하는 것이 좋습니다. 그러면 32비트 버전의 Python, setuptools, pip, virtualenv 등(32비트 Python은 Azure 호스트 컴퓨터에 설치되는 버전)이 설치됩니다. 또는 [python.org]에서 Python을 다운로드할 수 있습니다.
+Python 2.7 또는 3.4\(32비트\)를 아직 설치하지 않은 경우 웹 플랫폼 설치 관리자를 사용하여 [Azure SDK for Python 2.7] 또는 [Azure SDK for Python 3.4]를 설치하는 것이 좋습니다. 그러면 32비트 버전의 Python, setuptools, pip, virtualenv 등\(32비트 Python은 Azure 호스트 컴퓨터에 설치되는 버전\)이 설치됩니다. 또는 [python.org]에서 Python을 다운로드할 수 있습니다.
 
 Git의 경우 [Windows용 Git] 또는 [Windows용 GitHub]를 설치하는 것이 좋습니다. Visual Studio를 사용하는 경우 통합 Git 지원을 사용할 수 있습니다.
 
-또한 [Python Tools 2.2 for Visual Studio]를 설치하는 것이 좋습니다. 이는 선택 사항이지만 [Visual Studio](무료 Visual Studio Community 2013 또는 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
+또한 [Python Tools 2.2 for Visual Studio]를 설치하는 것이 좋습니다. 이는 선택 사항이지만 [Visual Studio]\(무료 Visual Studio Community 2013 또는 Visual Studio Express 2013 for Web 포함\)가 있으면 Python IDE가 향상됩니다.
 
 ### Mac/Linux
 
@@ -59,14 +59,14 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Django**를 선택하고 **만들기**를 클릭합니다.
-5. 새 Django 앱을 구성(예: 새 앱 서비스 계획 만들기)하고 해당 앱의 새 리소스 그룹을 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
-6. [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다.
+5. 새 Django 앱을 구성\(예: 새 앱 서비스 계획 만들기\)하고 해당 앱의 새 리소스 그룹을 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
+6. [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다.
 
 ## 응용 프로그램 개요
 
 ### Git 리포지토리 콘텐츠
 
-다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다(다음 섹션에서 복제).
+다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다\(다음 섹션에서 복제\).
 
     \app\__init__.py
     \app\forms.py
@@ -87,7 +87,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
 
-응용 프로그램의 기본 소스. 마스터 레이아웃과 함께 3페이지(index, about, contact)로 구성됩니다. 정적 콘텐츠와 스크립트에는 bootstrap, jquery, modernizr 및 respond가 포함되어 있습니다.
+응용 프로그램의 기본 소스. 마스터 레이아웃과 함께 3페이지\(index, about, contact\)로 구성됩니다. 정적 콘텐츠와 스크립트에는 bootstrap, jquery, modernizr 및 respond가 포함되어 있습니다.
 
     \manage.py
 
@@ -95,7 +95,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
     \db.sqlite3
 
-기본 데이터베이스. 응용 프로그램을 실행하는 데 필요한 테이블이 포함되어 있지만 사용자는 포함되어 있지 않습니다(데이터베이스를 동기화하여 사용자를 만듦).
+기본 데이터베이스. 응용 프로그램을 실행하는 데 필요한 테이블이 포함되어 있지만 사용자는 포함되어 있지 않습니다\(데이터베이스를 동기화하여 사용자를 만듦\).
 
     \DjangoWebProject.pyproj
     \DjangoWebProject.sln
@@ -146,9 +146,9 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
-리포지토리의 루트에 포함된 솔루션 파일(.sln)을 엽니다.
+리포지토리의 루트에 포함된 솔루션 파일\(.sln\)을 엽니다.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-solution-django.png)
 
@@ -158,7 +158,7 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 
 - 환경 이름이 `env`인지 확인합니다.
 
-- 기본 해석기를 선택합니다. 웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱의 **응용 프로그램 설정** 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+- 기본 해석기를 선택합니다. 웹앱에 대해 선택\(runtime.txt 또는 Azure 포털에서 웹앱의 **응용 프로그램 설정** 블레이드를 통해\)된 Python의 동일한 버전을 사용해야 합니다.
 
 - 패키지를 다운로드하여 설치하는 옵션이 선택되어 있는지 확인합니다.
 
@@ -168,7 +168,7 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 
 ### superuser 만들기
 
-응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스\(사용하도록 설정하려는 경우\)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
 
 명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
 
@@ -223,7 +223,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -231,9 +231,9 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 가상 환경 만들기
 
-개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
+개발을 위해 새 가상 환경을 만듭니다\(리포지토리에 추가 안 함\). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
 
-웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+웹앱에 대해 선택\(runtime.txt 또는 Azure 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해\)된 Python의 동일한 버전을 사용해야 합니다.
 
 Python 2.7:
 
@@ -249,7 +249,7 @@ Python 3.4:
 
 ### superuser 만들기
 
-응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스\(사용하도록 설정하려는 경우\)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
 
 명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
 
@@ -312,7 +312,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -320,9 +320,9 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 가상 환경 만들기
 
-개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
+개발을 위해 새 가상 환경을 만듭니다\(리포지토리에 추가 안 함\). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
 
-웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+웹앱에 대해 선택\(runtime.txt 또는 Azure 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해\)된 Python의 동일한 버전을 사용해야 합니다.
 
 Python 2.7:
 
@@ -342,7 +342,7 @@ Python 3.4:
 
 ### superuser 만들기
 
-응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스(사용하도록 설정하려는 경우)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
+응용 프로그램에 포함된 데이터베이스에는 superuser가 정의되어 있지 않습니다. 응용 프로그램 또는 Django 관리 인터페이스\(사용하도록 설정하려는 경우\)에서 로그인 기능을 사용하려면 superuser를 만들어야 합니다.
 
 명령줄을 통해 프로젝트 폴더에서 다음을 실행합니다.
 
@@ -458,7 +458,7 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 실제로는 디버그 모드와 릴리스 모드 간의 전환 및 호스트 이름 가져오기를 처리하기 위해 보다 복잡한 작업을 수행할 수 있습니다.
 
-Azure 포털 **구성** 페이지의 **앱 설정** 섹션에서 환경 변수를 설정할 수 있습니다. 이는 소스에 표시하지 않으려는 값(연결 문자열, 암호 등)을 설정하거나, Azure와 로컬 컴퓨터 간에 다르게 설정하려는 경우에 유용할 수 있습니다. `settings.py`에서 `os.getenv`를 사용하여 환경 변수를 쿼리할 수 있습니다.
+Azure 포털 **구성** 페이지의 **앱 설정** 섹션에서 환경 변수를 설정할 수 있습니다. 이는 소스에 표시하지 않으려는 값\(연결 문자열, 암호 등\)을 설정하거나, Azure와 로컬 컴퓨터 간에 다르게 설정하려는 경우에 유용할 수 있습니다. `settings.py`에서 `os.getenv`를 사용하여 환경 변수를 쿼리할 수 있습니다.
 
 
 ## 데이터베이스 사용
@@ -474,7 +474,7 @@ Azure에서는 Django 응용 프로그램에서 쉽게 사용할 수 있는 데�
 
 모델을 빌드하기 시작했으면 일부 데이터로 데이터베이스를 채워야 합니다. 콘텐츠를 대화형으로 추가하고 편집하는 간편한 방법은 Django 관리 인터페이스를 사용하는 것입니다.
 
-관리 인터페이스의 코드는 응용 프로그램 소스에서 주석 처리되지만 쉽게 설정할 수 있도록 명확히 표시되어 있습니다('admin' 검색).
+관리 인터페이스의 코드는 응용 프로그램 소스에서 주석 처리되지만 쉽게 설정할 수 있도록 명확히 표시되어 있습니다\('admin' 검색\).
 
 사용하도록 설정한 후에는 데이터베이스를 동기화하고 응용 프로그램을 실행한 후 `/admin`으로 이동하세요.
 
@@ -516,4 +516,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Django 설명서]: https://www.djangoproject.com/
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0803_2016-->

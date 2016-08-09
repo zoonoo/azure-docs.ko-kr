@@ -30,7 +30,7 @@
 
 다음 대안 중 하나를 구현합니다.
 
-- 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 응용 프로그램 내에서 실행되는 코드에서 로컬 저장소 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) 메서드를 호출합니다. 로컬 저장소 리소스 설정에 대한 자세한 내용은 [로컬 저장소 리소스 구성](cloud-services-configure-local-storage-resources.md)을 참조하세요.
+- 로컬 저장소 리소스를 구성하고 TEMP 또는 TMP를 사용하는 대신 직접 액세스합니다. 응용 프로그램 내에서 실행되는 코드에서 로컬 저장소 리소스에 액세스하려면 [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) 메서드를 호출합니다.
 
 - 로컬 저장소 리소스를 구성하고 TEMP 및 TMP 디렉터리를 카리켜서 로컬 저장소 리소스의 경로를 가리키도록 합니다. 이 수정 작업은 [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) 메서드 내에서 수행되어야 합니다.
 
@@ -73,8 +73,8 @@ namespace WorkerRole1
 
 [Azure 웹 역할 ASP.NET 임시 폴더의 크기를 늘리는 방법](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)을 설명하는 블로그를 읽으세요.
 
-클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services)를 더 봅니다.
+클라우드 서비스에 대한 [문제해결 문서](/?tag=top-support-issue&product=cloud-services)를 더 봅니다.
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

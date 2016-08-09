@@ -25,13 +25,9 @@
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 DB2로가 아닌 DB2에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-> [AZURE.NOTE] 현재 이 DB2 커넥터는 LUW에 DB2를 지원합니다(Linux, UNIX, Windows). z/OS의 DB2 또는 AS/400의 DB2에서 데이터를 복사하려면 일반 ODBC 커넥터를 사용하고 게이트웨이 컴퓨터에 해당 ODBC 드라이버를 설치하는 것이 좋습니다. 예를 들어, AS/400의 DB2에서 데이터를 수집하려면 iSeries Access ODBC 드라이버를 사용하고 [ODBC 데이터 원본 온-프레미스/Azure IaaS](data-factory-odbc-connector.md)를 참조하여 복사 작업을 설정할 수 있습니다.
-
 ## 설치 
 
-DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [IBM DB2 데이터 서버 드라이버](http://go.microsoft.com/fwlink/p/?LinkID=274911)를 설치해야 합니다.
-
-추가 설치 단계가 필요한 Windows 8의 경우 IBM DB2 데이터 서버 드라이버를 설치에 대해 IBM에서 보고한 문제가 있습니다. Windows 8의 IBM DB2 데이터 서버 드라이버에 대한 자세한 내용은 [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434)를 참조하십시오.
+데이터 관리 게이트웨이 버전 2.1부터 게이트웨이에서 DB2 데이터베이스에 연결할 수 있도록 하기 위해 Azure Data Factory는 LUW(Linux, Unix, Windows)용 DB2, z/OS용 DB2 및 i(aka AS/400)용 DB2를 비롯한 DB2를 지원하는 기본 제공 드라이버(SQLAM 9/10/11)를 제공하므로 DB2에서 복사할 때 더 이상 드라이버를 수동으로 설치할 필요가 없습니다.
 
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
 
@@ -141,7 +137,7 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -149,7 +145,7 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -157,7 +153,7 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -326,4 +322,4 @@ Char | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

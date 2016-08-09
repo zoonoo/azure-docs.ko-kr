@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # JavaScript 및 Azure Active Directory를 사용하여 모바일 서비스에서 역할 기반 액세스 제어
@@ -32,7 +32,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 이 자습서에서는 AAD(Azure Active Directory)에 정의된 Sales 그룹에 대한 각 사용자의 멤버 자격을 확인하면서 역할 기반 액세스 제어에 대해 설명합니다. 액세스 확인은 Azure Active Directory에 대한 [Graph REST API]를 사용하여 .NET 모바일 서비스 백 엔드를 통해 수행됩니다. Sales 그룹에 속하는 사용자만 데이터 쿼리가 허용됩니다.
 
 
->[AZURE.NOTE]이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용하여 [앱에 인증 추가] 자습서를 먼저 완료해야 합니다. 이 자습서에서는 [앱에 인증 추가] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
+>[AZURE.NOTE] 이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용하여 [앱에 인증 추가] 자습서를 먼저 완료해야 합니다. 이 자습서에서는 [앱에 인증 추가] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
 
 ##필수 조건
 
@@ -179,12 +179,12 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 9. AuthorizeAadRole.cs에서 `AuthorizeAadRole` 클래스에 있는 `GetAADToken` 메서드를 업데이트합니다. 이 메서드는 ADAL에서 AAD에 액세스 토큰을 가져오는 데 모바일 서비스에 저장된 앱 설정을 사용합니다.
 
-    >[AZURE.NOTE].NET용 ADAL은 Active Directory에 대한 추가 네트워크 트래픽을 줄이기 위해 기본적으로는 메모리 내 토큰 캐시를 포함합니다. 하지만 고유한 캐시 구현을 작성하거나 완전히 캐싱을 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [.NET용 ADAL]을 참조하세요.
+    >[AZURE.NOTE] .NET용 ADAL은 Active Directory에 대한 추가 네트워크 트래픽을 줄이기 위해 기본적으로는 메모리 내 토큰 캐시를 포함합니다. 하지만 고유한 캐시 구현을 작성하거나 완전히 캐싱을 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [.NET용 ADAL]을 참조하세요.
 
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
         {
-            // Try to get the required AAD authentication app settings from the mobile service.  
+            // Try to get the required AAD authentication app settings from the mobile service.
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
                   services.Settings.TryGetValue("AAD_CLIENT_KEY", out clientkey) &
                   services.Settings.TryGetValue("AAD_TENANT_DOMAIN", out tenantdomain)))
@@ -245,7 +245,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 11. AuthorizeAadRole.cs에서 `AuthorizeAadRole` 클래스에 있는 `OnAuthorization` 메서드를 다음 코드로 업데이트합니다. 이 코드는 모바일 서비스로 호출되는 사용자가 AAD로 인증될 것을 기대합니다. 그런 다음 사용자의 AAD 개체 ID를 가져오고 역할에 해당하는 Active Directory 그룹의 멤버 자격을 확인합니다.
 
-    >[AZURE.NOTE]Active Directory 그룹을 이름별로 조회할 수 있습니다. 하지만 많은 경우에 모바일 서비스 앱 설정으로 그룹 ID를 저장하는 것이 더 낫습니다. 그룹 이름은 변경되기 쉽지만 ID는 동일하게 유지되기 때문입니다.
+    >[AZURE.NOTE] Active Directory 그룹을 이름별로 조회할 수 있습니다. 하지만 많은 경우에 모바일 서비스 앱 설정으로 그룹 ID를 저장하는 것이 더 낫습니다. 그룹 이름은 변경되기 쉽지만 ID는 동일하게 유지되기 때문입니다.
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -393,4 +393,4 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0727_2016-->

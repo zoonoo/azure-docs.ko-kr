@@ -95,4 +95,4 @@ Linux 숫자는 Ubuntu에서 [CoreMark](http://www.eembc.org/coremark/faq.php)�
 
 * Linux VM에서 CoreMark 스크립트를 실행 하려면 [CoreMark 스크립트 팩](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)을 다운로드합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

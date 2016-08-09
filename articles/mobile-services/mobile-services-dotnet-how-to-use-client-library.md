@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스에 관리되는 클라이언트 라이브러리를 사용하는 방법
@@ -158,7 +158,7 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
-수정된 다음 쿼리는 처음 세 개의 결과를 건너뛰고 그다음 세 개의 결과를 반환합니다. 그러면 페이지 크기가 세 개의 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
+수정된 다음 쿼리는 처음 세 개의 결과를 건너뛰고 그 다음 세 개의 결과를 반환합니다. 그러면 페이지 크기가 세 개의 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
 
 	// Define a filtered query that skips the top 3 items and returns the next 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -771,4 +771,4 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

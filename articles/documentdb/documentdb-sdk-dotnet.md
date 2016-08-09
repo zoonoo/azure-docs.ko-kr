@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/25/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -24,7 +24,7 @@
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
-##DocumentDB .NET SDK
+## DocumentDB .NET SDK
 
 <table>
 <tr><td>**다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -36,22 +36,19 @@
 
 ## 릴리스 정보
 
-### <a name="1.9.1"/>[1\.9.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.1)
-  - 병렬 쿼리, 파티션 간 최상위 쿼리 및 파티션 간 ORDER BY 쿼리에 SELECT VALUE에 대한 지원이 추가되었습니다.
-  - 파티션 간 최상위 쿼리 및 ORDER BY 쿼리의 성능이 향상되었습니다.
-  - 분할된 컬렉션에 대한 쿼리를 실행할 때 처리되지 않은 System.NotSupportedException을 수신하는지 확인하고 오류를 방지하기 위해 빌드 탭의 프로젝트 속성 창에서 "32비트 선호" 옵션의 선택을 취소하도록 오류 메시지를 업데이트했습니다.
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] 분할된 컬렉션을 쿼리할 때 System.NotSupportedException이 나타날 수 있습니다. 이 오류를 방지하려면 프로젝트 속성 창의 빌드 탭에서 "32비트 기본 사용" 옵션을 선택 취소합니다.
+
+  - 분할된 컬렉션에 대한 병렬 쿼리에 지원을 추가했습니다.
+  - 분할된 컬렉션에 대한 파티션 간 Order By 및 TOP 쿼리에 대한 지원을 추가했습니다.
   - DocumentDB Nuget 패키지에 대한 참조와 함께 DocumentDB 프로젝트를 참조할 때 필요한 DocumentDB.Spatial.Sql.dll 및 Microsoft.Azure.Documents.ServiceInterop.dll에 대한 누락된 참조를 수정했습니다.
   - LINQ에서 사용자 정의 함수를 사용할 때 여러 유형의 매개 변수를 사용하도록 기능을 수정했습니다.
-
-
-### <a name="1.9.0"/>[1\.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
-  - TCP와 직접 연결을 사용하여 성능을 향상하도록 .NET 클라이언트에 대한 기본 연결 모드를 ConnectionMode.Direct로 변경했습니다. ConnectionPolicy.ConnectionProtocol 속성을 사용하지 않게 되었고 DirectHttps 값을 ConnectionMode 열거형에 추가했습니다.
   - 쓰기 위치 대신 읽기 위치에 Upsert 호출을 전달하는 전역적으로 복제된 계정에 대한 버그를 수정했습니다.
-  - 누락된 IDocumentClient 인터페이스에 mediaStream 및 옵션을 매개 변수로 사용하는 UpsertAttachmentAsync 메서드, 옵션을 매개 변수로 사용하는 CreateAttachmentAsync 메서드 및 querySpec을 매개 변수로 사용하는 CreateOfferQuery 메서드를 비롯한 메서드를 추가했습니다.
+  - IDocumentClient 인터페이스에 누락된 다음 메서드를 추가했습니다.
+      - mediaStream 및 options를 매개 변수로 사용하는 UpsertAttachmentAsync 메서드
+      - options를 매개 변수로 사용하는 CreateAttachmentAsync 메서드
+      - querySpec을 매개 변수로 사용하는 CreateOfferQuery 메서드
   - IDocumentClient 인터페이스에 노출된 공용 클래스를 공개했습니다.
-  - 분할된 컬렉션에 대한 병렬 쿼리에 지원을 추가했습니다.
-  - 분할된 컬렉션에 대한 파티션 간 Order By 지원을 추가했습니다.
-  
 
 ### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - 다중 지역 데이터베이스 계정에 대한 지원이 추가되었습니다.
@@ -74,7 +71,7 @@
   - [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의 성능 수준](documentdb-performance-levels.md)이 구현되었습니다.
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-  - **[수정됨]** DocumentDB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 throw됩니다.
+  - **[수정됨]** DocumentDB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 확장 LINQ 지원입니다.
@@ -126,7 +123,7 @@
   
 		**NB: 가능한 새로운 변경** 
   
-    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다. 사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
+    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
@@ -158,26 +155,27 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.9.1](#1.9.1) | 2016년 7월 20일 |--- 
-| [1\.9.0](#1.9.0) | 2016년 7월 9일 |--- 
-| [1\.8.0](#1.8.0) | 2016년 6월 14일 |--- 
-| [1\.7.1](#1.7.1) | 2016년 5월 6일 |--- 
-| [1\.7.0](#1.7.0) | 2016년 4월 26일 |--- 
-| [1\.6.3](#1.6.3) | 2016년 4월 8일 |--- 
-| [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- 
-| [1\.5.3](#1.5.3) | 2016년 2월 19일 |--- 
-| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- 
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--- 
-| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--- 
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--- 
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--- 
-| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--- 
-| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--- 
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--- 
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- 
+| [1\.9.2](#1.9.2) | 2016년 7월 23일 |---
+| 1.9.1 | 사용되지 않음 |---
+| 1.9.0 | 사용되지 않음 |---
+| [1\.8.0](#1.8.0) | 2016년 6월 14일 |---
+| [1\.7.1](#1.7.1) | 2016년 5월 6일 |---
+| [1\.7.0](#1.7.0) | 2016년 4월 26일 |---
+| [1\.6.3](#1.6.3) | 2016년 4월 8일 |---
+| [1\.6.2](#1.6.2) | 2016년 3월 29일 |---
+| [1\.5.3](#1.5.3) | 2016년 2월 19일 |---
+| [1\.5.2](#1.5.2) | 2015년 12월 14일 |---
+| [1\.5.1](#1.5.1) | 2015년 11월 23일 |---
+| [1\.5.0](#1.5.0) | 2015년 10월 5일 |---
+| [1\.4.1](#1.4.1) | 2015년 8월 25일 |---
+| [1\.4.0](#1.4.0) | 2015년 8월 13일 |---
+| [1\.3.0](#1.3.0) | 2015년 8월 5일 |---
+| [1\.2.0](#1.2.0) | 2015년 7월 6일 |---
+| [1\.1.0](#1.1.0) | 2015년 4월 30일 |---
+| [1\.0.0](#1.0.0) | 2015년 4월 8일 |---
 | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
-| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 15일 | 2016년 2월 29일 
-| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
+| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
+| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
@@ -187,4 +185,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,10 +13,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/28/2016"
+ms.date="07/22/2016"
 ms.author="larryfr"/>
 
-#SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스
+#SSH 터널링을 사용하여 Ambari 웹 UI, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스
 
 Linux 기반 HDInsight 클러스터는 인터넷을 통해 Ambari 웹 UI에 대한 액세스를 제공하지만 일부 UI의 기능은 없습니다. 예를 들면 Ambari를 통해 노출되는 다른 서비스에 대한 웹 UI입니다. Ambari 웹 UI의 모든 기능의 경우 SSH 터널을 클러스터 헤드에 사용해야 합니다.
 
@@ -26,7 +26,6 @@ Ambari의 여러 메뉴는 클러스터에서 실행되는 다른 Hadoop 서비�
 
 다음은 SSH 터널 없이 액세스할 수 없는 Ambari 웹 UI가 사용하는 서비스입니다.
 
-* ResourceManager,
 * JobHistory,
 * NameNode,
 * Thread Stacks,
@@ -149,6 +148,13 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![foxyproxy 패턴](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
 
+    설정에 대해 다음 정보를 사용하여 다른 패턴을 추가합니다.
+
+    * __패턴 이름__ - headnode
+    * __URL 패턴__ - *headnodehost*
+
+    OK를 선택하여 이 패턴을 저장합니다.
+
 4. **OK**를 클릭하여 프록시를 추가하고 **Proxy Settings**를 닫습니다.
 
 5. FoxyProxy 대화 상자의 위쪽에서 **Select Mode**를 **Use proxies based on their pre-defined patterns and priorities**로 변경한 다음 **Close**를 클릭합니다.
@@ -165,13 +171,13 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
     
     > [AZURE.NOTE] http://headnodehost:8080 주소를 사용하여 클러스터에 연결하는 경우 터널을 통해 Ambari가 실행 중인 헤드 노드에 HTTP를 사용하여 직접 연결되고 통신은 SSH 터널을 사용하여 보안 설정됩니다. 터널을 사용하지 않고 인터넷을 통해 연결하는 경우 터널은 HTTPS를 사용하여 보안 설정됩니다. HTTPS를 사용하여 인터넷을 통해 연결하려면 https://CLUSTERNAME.azurehdinsight.net을 사용합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
-2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 YARN을 선택합니다.
+2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 HDFS를 선택합니다.
 
-	![선택한 YARN의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnservice.png)
+	![HDFS가 선택된 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
 
-3. YARN 서비스 정보가 표시되면 __빠른 링크__를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 __ResourceManager UI__를 선택합니다.
+3. HDFS 서비스 정보가 표시되면 __빠른 링크__를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 __NameNode UI__를 선택합니다.
 
-	![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
+	![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
 	> [AZURE.NOTE] 인터넷 연결이 느리거나 헤드 노드의 사용량이 많은 경우 __빠른 링크__를 선택하면 메뉴 대신에 대기 표시기가 나타납니다. 그럴 경우 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
     >
@@ -179,7 +185,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 4. 다음과 유사한 페이지가 표시됩니다.
 
-	![YARN ResourceManager UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
+	![NameNode UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
 	> [AZURE.NOTE] 이 페이지에 대한 URL은 \_\_http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
 
@@ -195,4 +201,4 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

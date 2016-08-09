@@ -3,7 +3,7 @@
    description="가상 컴퓨터 관리에서의 작업 자동화에 사용할 수 있는 명령에 대해 알아봅니다."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="rothja"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>

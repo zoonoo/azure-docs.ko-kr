@@ -475,7 +475,7 @@ Visual Studio 2015 진단 이벤트: **fabric:/HelloWorldStatefulApplication**�
 
 **System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) 또는 [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx)입니다. FabricClient 아래에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) 또는 [속성 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx) 아래입니다.
 
-> [AZURE.NOTE] 이름 지정 서비스는 클러스터의 위치에 서비스 이름을 확인하고 사용자가 서비스 이름 및 속성을 관리할 수 있도록 합니다. 서비스 패브릭 분할된 지속형 서비스입니다. 파티션 중 하나는 모든 시스템 패브릭 이름 및 서비스에 대한 메타데이터를 포함하는 기관 소유자를 나타냅니다. 서비스 패브릭 이름은 이름 소유자 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.
+> [AZURE.NOTE] 이름 지정 서비스는 클러스터의 위치에 서비스 이름을 확인하고 사용자가 서비스 이름 및 속성을 관리할 수 있도록 합니다. 서비스 패브릭 분할된 지속형 서비스입니다. 파티션 중 하나는 모든 서비스 패브릭 이름 및 서비스에 대한 메타데이터를 포함하는 기관 소유자를 나타냅니다. 서비스 패브릭 이름은 이름 소유자 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.
 
 이름 지정 작업이 예상보다 오래 걸리는 경우 작업은 *작업을 사용하는 이름 지정 서비스 파티션의 주 복제본*의 경고 보고서로 플래그 지정됩니다. 작업이 성공적으로 완료되면 경고는 해제됩니다. 오류와 함께 작업이 완료되면 상태 보고서는 오류에 대한 세부 정보를 포함합니다.
 
@@ -667,4 +667,4 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

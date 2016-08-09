@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -390,7 +390,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 7. __쿼리 콘솔__에서 __하이브 편집기__를 선택하고 기본 `select * from hivesampletable`을 다음으로 바꿉니다.
 
-        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
+        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
 
     __선택__을 클릭하여 쿼리를 실행합니다. EventHubReader에서 Azure 저장소(WASB)로 작성한 데이터에서 10개의 행을 반환합니다. 쿼리가 완료되면 다음과 유사한 데이터가 표시됩니다.
@@ -453,4 +453,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

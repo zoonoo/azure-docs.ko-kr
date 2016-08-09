@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 <tags
 	ms.service="active-directory"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/20/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -31,14 +31,14 @@
 
 암호의 수를 줄여서 사용자는 하나의 암호를 유지해야 합니다. 암호 동기화를 사용하면 다음을 수행할 수 있습니다.
 
-- 사용자의 생산성 향상 
-- helpdesk 관련 비용 감소  
+- 사용자의 생산성 향상
+- helpdesk 관련 비용 감소
 
 또한 [**AD FS로 페더레이션**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect)을 사용하도록 선택하는 경우 필요에 따라 AD FS 인프라가 실패할 경우 백업으로 암호 동기화 기능을 사용할 수 있습니다.
 
 암호 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 사용자 환경에서 암호 동기화를 사용하려면 다음이 필요합니다.
 
-- Azure AD Connect 설치  
+- Azure AD Connect 설치
 
 - 온-프레미스 AD 및 Azure Active Directory 간에 디렉터리 동기화 구성
 
@@ -129,8 +129,8 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 
 1. **%programfiles%\\Azure AD Sync\\Bin**으로 이동합니다.
 2. **miiserver.exe.config**를 엽니다.
-2. 파일의 끝에서 **구성/런타임 노드**로 이동합니다. 
-3. **<enforceFIPSPolicy enabled="false"/>** 노드를 추가합니다. 
+2. 파일의 끝에서 **구성/런타임 노드**로 이동합니다.
+3. **<enforceFIPSPolicy enabled="false"/>** 노드를 추가합니다.
 4. 변경 내용을 저장합니다.
 
 보안 및 FIPS에 대한 자세한 내용은 [AAD 암호 동기화, 암호화 및 FIPS 준수](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)를 참조하십시오.
@@ -201,4 +201,4 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

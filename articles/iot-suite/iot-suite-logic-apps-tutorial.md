@@ -161,12 +161,16 @@ _미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 
 
 ## 다음 단계
 
-이제 논리 앱을 사용하여 미리 구성된 솔루션을 비즈니스 프로세스에 연결했으며 [미리 구성된 솔루션 사용자 지정][lnk-customize] 또는 [물리적 장치를 솔루션에 추가하는 방법][lnk-connect]에 대해 자세히 알아볼 수 있습니다.
+지금까지 논리 앱을 사용하여 미리 구성된 솔루션을 비즈니스 프로세스에 연결했으므로 미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대해 자세히 알아보겠습니다.
+
+- [원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용][lnk-dynamic]
+- [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]
+
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [lnk-internetofthings]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-getstarted]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connect]: iot-suite-connecting-devices.md
 [lnk-azureportal]: https://portal.azure.com
 [lnk-logic-apps-actions]: ../connectors/apis-list.md
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
@@ -174,4 +178,4 @@ _미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

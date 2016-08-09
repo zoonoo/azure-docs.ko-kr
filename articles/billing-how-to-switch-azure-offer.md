@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 구독을 다른 제안으로 전환 | Microsoft Azure"
-	description="Azure 구독자가 다른 Azure 제안으로 전환할 수는 방법을 설명합니다."
+	description="Azure 구독을 변경하고 구독 관리 포털을 사용하여 다른 Azure 제안으로 전환하는 방법에 대해 알아봅니다."
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/21/2016"
 	ms.author="genli"/>
 
 # Azure 구독을 다른 제안으로 전환
@@ -24,12 +24,12 @@
 -	Azure 지출이 많은 경우 현금 약정 금액 제안으로 전환하여 할인을 받을 수 있습니다. Microsoft Azure 리소스 소비에 대한 통찰력을 얻는 방법을 보려면 [여기](billing-usage-rate-card-overview.md)를 클릭하세요.
 -	종량제 구독에 이미 등록한 후 MSDN 또는 BizSpark와 같은 멤버 자격 혜택을 활용하려는 경우
 
-## 구독을 다른 제안으로 전환하는 방법
+## 구독을 다른 제안으로 전환에 대한 가이드
 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	[Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-2.	양도할 구독을 선택합니다.
+2.	변경할 구독을 선택합니다.
 3.	**다른 제품으로 전환**을 클릭합니다.
 
 	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
@@ -48,7 +48,7 @@
 
 **지원하는 제안 변경 내용은 무엇인가요?**
 
-[전환할 수 있는 제안](#available-offers-you-can-switch-to)을 참조하세요.
+[전환할 수 있는 제안](#available-offers-you-can-switch-to) 목록을 참조하세요.
 
 **제안 전환이 내 서비스에 영향을 주나요?**
 
@@ -70,9 +70,11 @@
 
 ## 전환할 수 있는 제안
 
-현재 [계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원되는 경로는 다음과 같습니다. 이 문서는 옵션이 추가되는 대로 업데이트될 예정입니다. 다른 제품 변경 내용은 [지원에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)하세요.
+현재 [계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원되는 경로는 다음과 같습니다. 이 문서는 옵션이 추가되는 대로 업데이트될 예정입니다.
 
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [12개월 선불 약정](https://azure.microsoft.com/offers/ms-azr-0026p/)으로
 -	[종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)에서 [Visual Studio 구독자용 월별 Azure 크레딧 제안](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)으로
 
-<!---HONumber=AcomDC_0720_2016-->
+다른 제품 변경 내용은 [지원에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)하세요.
+
+<!---HONumber=AcomDC_0727_2016-->

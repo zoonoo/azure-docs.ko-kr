@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 인증
@@ -46,12 +46,12 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 
 > [AZURE.NOTE] SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 다시 참조하세요.
 
-연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE<your DB>**이 지원되지 않는다는 데 유의해야 합니다.
+연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE <your DB>**이(가) 지원되지 않는다는 데 유의해야 합니다.
 
 
 ## AAD(Azure Active Directory) 인증
 
-Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL 데이터 웨어하우스에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
+[Azure Active Directory][What is Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL 데이터 웨어하우스에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터 웨어하우스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
 
 ### 이점
 
@@ -89,8 +89,9 @@ Azure SQL 데이터베이스와 함께 사용하는 Azure Active Directory 인�
 Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][]를 참조하세요.
 
 <!-- Article references -->
-[SQL 데이터 웨어하우스에서 데이터베이스 보호]: sql-data-warehouse-overview-manage-security.md
-[Visual Studio로 쿼리]: sql-data-warehouse-query-visual-studio.md
-[Visual Studio를 사용하여 쿼리]: sql-data-warehouse-query-visual-studio.md
+[SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
+[Visual Studio로 쿼리]: ./sql-data-warehouse-query-visual-studio.md
+[Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

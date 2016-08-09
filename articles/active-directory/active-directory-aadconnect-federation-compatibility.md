@@ -22,7 +22,8 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 타사 페더레이션 솔루션에 투자한 조직의 경우 이 항목에는 해당 조직의 Windows Server Active Directory 사용자를 위해 아래 "Azure Active Directory 페더레이션 호환성 목록"의 타사 ID 공급자를 사용하여 Microsoft Online Services로 Single Sign-On을 구성하는 지침이 포함되어 있습니다.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
+[Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
 
 여기에 나열된 타사 ID 공급자를 가져오는 방법에 대한 내용은 Oxford Computer Group([idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com))에 문의하세요.
 
@@ -338,4 +339,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->

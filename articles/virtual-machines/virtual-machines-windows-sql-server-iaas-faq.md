@@ -31,7 +31,7 @@
 
 1. **SQL VM과 SQL 데이터베이스는 어떤 점이 다릅니까?**
 
-	개념적으로 Azure 가상 컴퓨터에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md)는 DaaS(Database-as-a-Service)를 제공합니다. SQL 데이터베이스에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/media/data-management-azure-sql-database-and-sql-server-iaas.md)을 참조하세요.
+	개념적으로 Azure 가상 컴퓨터에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md)는 DaaS(Database-as-a-Service)를 제공합니다. SQL 데이터베이스에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
 
 1. **온-프레미스 SQL Server 데이터베이스를 클라우드로 마이그레이션하려면 어떻게 해야 합니까?**
 
@@ -77,4 +77,4 @@ Azure 가상 컴퓨터의 SQL Server에 대한 개요는 [Azure VM은 SQL Server
 - [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Azure Active Directory와 응용 프로그램 통합
@@ -153,10 +153,10 @@ Azure AD의 동의 프레임워크는 클라이언트 응용프로그램이 등�
 ![해야 할 일 목록 권한이 표시됨](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### 응용프로그램 매니페스트에 대한 추가 정보
-응용 프로그램 매니페스트는 실제로 설명한 API 액세스 범위를 포함하여, Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 응용 프로그램 엔터티에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity)를 참조하세요. 여기에서 API에 대한 사용 권한을 지정하는 데 사용되는 응용프로그램 엔터티 멤버에 관한 전체 참조 정보를 찾아볼 수 있습니다.
+응용 프로그램 매니페스트는 실제로 설명한 API 액세스 범위를 포함하여, Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 응용 프로그램 엔터티에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 여기에서 API에 대한 사용 권한을 지정하는 데 사용되는 응용프로그램 엔터티 멤버에 관한 전체 참조 정보를 찾아볼 수 있습니다.
 
-- 웹 API에 대해 **응용 프로그램 사용 권한**을 정의하는 데 사용할 수 있는 [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) 엔터티의 컬렉션인 appRoles 멤버  
-- 웹 API에 대해 **위임된 사용 권한**을 정의하는 데 사용할 수 있는 [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) 엔터티의 컬렉션인 oauth2Permissions 멤버
+- 웹 API에 대해 **응용 프로그램 사용 권한**을 정의하는 데 사용할 수 있는 [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) 엔터티의 컬렉션인 appRoles 멤버
+- 웹 API에 대해 **위임된 사용 권한**을 정의하는 데 사용할 수 있는 [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) 엔터티의 컬렉션인 oauth2Permissions 멤버
 
 일반적인 응용 프로그램 매니페스트 개념에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
 
@@ -351,4 +351,4 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 - [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 확인하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->
