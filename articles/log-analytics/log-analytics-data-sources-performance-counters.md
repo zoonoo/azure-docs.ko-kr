@@ -86,8 +86,8 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 샘�
 | Type=Perf | 모든 성능 데이터 |
 | Type=Perf Computer="MyComputer" | 특정 컴퓨터의 모든 성능 데이터 |
 | Type=Perf CounterName="Current Disk Queue Length" | 특정 컴퓨터에 대한 모든 성능 데이터 |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total | measure Avg(Average) as AVGCPU by Computer | 모든 컴퓨터의 평균 CPU 사용률 |
-| Type=Perf (CounterName="% Processor Time") | measure max(Max) by Computer &#124; 모든 컴퓨터의 최대 CPU 사용률 |
+| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total &#124; measure Avg(Average) as AVGCPU by Computer | 모든 컴퓨터의 평균 CPU 사용률 |
+| Type=Perf (CounterName="% Processor Time") &#124; measure max(Max) by Computer &#124; 모든 컴퓨터의 최대 CPU 사용률 |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName | 지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
 | Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer | 모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
 | Type=Perf CounterName="% Processor Time" InstanceName="\_Total" &#124; measure avg(CounterValue) by Computer Interval 1HOUR | 모든 컴퓨터에 대한 시간당 CPU 사용률 평균 |

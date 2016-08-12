@@ -71,9 +71,9 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 |:--|:--|
 | Type=IISLog | 모든 IIS 로그 레코드 |
 | Type=IISLog EventLevelName=error | 심각도가 오류인 모든 Windows 이벤트 |
-| Type=W3CIISLog | Measure count() by cIP | 클라이언트 IP 주소별 IIS 로그 항목 수 |
-| Type=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | 호스트 www.contoso.com의 URL별 IIS 로그 항목 수 |
-| Type=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| 각 IIS 컴퓨터에서 받은 총 바이트 수 |
+| Type=W3CIISLog &#124; Measure count() by cIP | 클라이언트 IP 주소별 IIS 로그 항목 수 |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | 호스트 www.contoso.com의 URL별 IIS 로그 항목 수 |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| 각 IIS 컴퓨터에서 받은 총 바이트 수 |
 
 ## 다음 단계
 
