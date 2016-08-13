@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #자습서: 인바운드 동기화를 위한 Workday 구성
@@ -19,18 +19,18 @@
 
 이 자습서는 Workday에서 Microsoft Azure AD로 사람들을 가져오기 위해 Workday 및 Microsoft Azure AD에서 수행해야 하는 단계를 설명하기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
--   유효한 Azure 구독  
--   Workday 내의 테넌트  
+-   유효한 Azure 구독
+-   Workday 내의 테넌트
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1.  Workday에 응용 프로그램 통합 사용  
-2.  통합 시스템 사용자 만들기  
-3.  보안 그룹 만들기  
-4.  보안 그룹에 통합 시스템 사용자 할당  
-5.  보안 그룹 옵션 구성  
-6.  보안 정책 변경 사항 활성화  
-7.  Microsoft Azure AD에서 사용자 가져오기 구성  
+1.  Workday에 응용 프로그램 통합 사용
+2.  통합 시스템 사용자 만들기
+3.  보안 그룹 만들기
+4.  보안 그룹에 통합 시스템 사용자 할당
+5.  보안 그룹 옵션 구성
+6.  보안 정책 변경 사항 활성화
+7.  Microsoft Azure AD에서 사용자 가져오기 구성
 
 ##Workday에 응용 프로그램 통합 사용
 
@@ -38,7 +38,7 @@
 
 ###Workday에 응용 프로그램 통합을 사용하도록 설정하려면
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.    
+1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")
 
@@ -62,7 +62,7 @@
 
 ##통합 시스템 사용자 만들기
 
-1.  **Workday Workbench**의 검색 상자에서 **사용자 만들기**를 입력하고 **통합 시스템 사용자 만들기** 링크를 클릭합니다.     
+1.  **Workday Workbench**의 검색 상자에서 **사용자 만들기**를 입력하고 **통합 시스템 사용자 만들기** 링크를 클릭합니다.
 
 	![사용자 만들기](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "사용자 만들기")
 
@@ -74,7 +74,7 @@
 
 이 자습서에서 설명하는 시나리오의 경우 무제한 통합 시스템 보안 그룹을 만들고 사용자를 할당해야 합니다.
 
-1.  검색 상자에 보안 그룹 만들기를 입력하고 보안 그룹 만들기 링크를 클릭합니다.     
+1.  검색 상자에 보안 그룹 만들기를 입력하고 보안 그룹 만들기 링크를 클릭합니다.
 
 	![보안 그룹 만들기](./media/active-directory-saas-inbound-synchronization-tutorial/IC750981.png "보안 그룹 만들기")
 
@@ -84,7 +84,7 @@
 
 ##보안 그룹에 통합 시스템 사용자 할당
 
-1.  검색 상자에 보안 그룹 편집을 입력하고 **보안 그룹 편집** 링크를 클릭합니다.     
+1.  검색 상자에 보안 그룹 편집을 입력하고 **보안 그룹 편집** 링크를 클릭합니다.
 
 	![보안 그룹 편집](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "보안 그룹 편집")
 
@@ -100,15 +100,15 @@
 
 이 단계에서는 다음 도메인 보안 정책에 의해 보호되는 개체에 대한 Get 및 Put 작업을 위해 새 보안 그룹 사용 권한을 할당합니다.
 
--   외부 계정 프로비저닝  
--   작업자 데이터: 공용 작업자 보고서  
--   작업자 데이터: 모든 위치  
--   작업자 데이터: 현재 인력 관리 정보  
--   작업자 데이터: 작업자 프로필 직함  
+-   외부 계정 프로비저닝
+-   작업자 데이터: 공용 작업자 보고서
+-   작업자 데이터: 모든 위치
+-   작업자 데이터: 현재 인력 관리 정보
+-   작업자 데이터: 작업자 프로필 직함
 
 &nbsp;
 
-1.  검색 상자에 도메인 보안 정책을 입력하고 기능 영역에 대한 보안 정책 링크를 클릭합니다.     
+1.  검색 상자에 도메인 보안 정책을 입력하고 기능 영역에 대한 보안 정책 링크를 클릭합니다.
 
 	![도메인 보안 정책](./media/active-directory-saas-inbound-synchronization-tutorial/IC750986.png "도메인 보안 정책")
 
@@ -130,16 +130,16 @@
 
 6.  인력 관리 영역에 대한 보안 정책 목록에서 작업자 데이터: 인력 관리를 확장하고 다음과 같은 남은 각 보안 정책에 대해 위의 4단계를 반복합니다.
 
-	-   작업자 데이터: 공용 작업자 보고서  
-    -   작업자 데이터: 모든 위치  
-    -   작업자 데이터: 현재 인력 관리 정보  
-    -   작업자 데이터: 작업자 프로필 직함    
+	-   작업자 데이터: 공용 작업자 보고서
+    -   작업자 데이터: 모든 위치
+    -   작업자 데이터: 현재 인력 관리 정보
+    -   작업자 데이터: 작업자 프로필 직함
 
 	![도메인 보안 정책](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "도메인 보안 정책")
 
 ##보안 정책 변경 사항 활성화
 
-1.  검색 상자에 활성화를 입력하고 보류 중인 보안 정책 변경 내용 활성화 링크를 클릭합니다.    
+1.  검색 상자에 활성화를 입력하고 보류 중인 보안 정책 변경 내용 활성화 링크를 클릭합니다.
 
 	![활성화](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "활성화")
 
@@ -157,15 +157,15 @@
 
 ###Microsoft Azure AD에서 사용자 가져오기를 구성하려면 다음 단계를 수행합니다.
 
-1.  **Workday** 응용 프로그램 통합 페이지에서 **사용자 가져오기 구성**을 클릭하여 **프로비저닝 구성** 대화 상자를 엽니다.    
+1.  **Workday** 응용 프로그램 통합 페이지에서 **사용자 가져오기 구성**을 클릭하여 **프로비저닝 구성** 대화 상자를 엽니다.
 
 2.  **설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행하고 다음을 클릭합니다.
 
 	![설정 및 관리자 자격 증명](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "설정 및 관리자 자격 증명")
 
-	1.  **Workday 관리자 이름** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 이름을 입력합니다.    
-    2.  **Workday 관리자 암호** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 암호를 입력합니다.    
-    3.  **Workday 테넌트 URL** 텍스트 상자에 Workday 테넌트의 URL을 입력합니다.    
+	1.  **Workday 관리자 이름** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 이름을 입력합니다.
+    2.  **Workday 관리자 암호** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 암호를 입력합니다.
+    3.  **Workday 테넌트 URL** 텍스트 상자에 Workday 테넌트의 URL을 입력합니다.
 
 3.  **연결 테스트** 페이지에서 **테스트 시작**을 클릭하여 연결을 확인하고 **다음**을 클릭합니다.
 
@@ -181,4 +181,4 @@
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0810_2016-->
