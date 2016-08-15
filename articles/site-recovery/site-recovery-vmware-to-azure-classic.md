@@ -69,7 +69,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - **온-프레미스 관리 서버**: 사이트 복구 구성 요소를 실행하는 관리 서버:
 	- **구성 서버**: 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리합니다.
 	- **프로세스 서버**:복제 게이트웨이 역할을 합니다. 보호된 원본 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다. 또한 보호되는 컴퓨터에서 모바일 서비스의 푸시 설치를 처리하며 VMware VM의 자동 복구를 수행합니다.
-	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다. 또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
+	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다.
+	또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
 - **모바일 서비스**: 이 구성 요소는 Azure에 복제하고자 하는 각 컴퓨터(VMware VM 또는 물리적 서버)에 배포됩니다. 컴퓨터에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다.
 - **Azure**: 복제 및 장애 조치(Failover)를 처리하기 위해 어떤 Azure VM도 만들 필요가 없습니다. 사이트 복구 서비스가 데이터 관리를 처리하고 Azure 저장소로 데이터가 직접 복제됩니다. 복제된 Azure VM은 Azure로 장애 조치가 발생한 경우에만 자동으로 작동됩니다. 그러나 Azure에서 온-프레미스 사이트로 장애 복구(failback)하려는 경우 Azure VM이 프로세스 서버 역할을 하도록 설정해야 합니다.
 
@@ -86,7 +87,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 용량을 계획하는 경우 고려해야 할 항목은 다음과 같습니다.
 
 - **원본 환경**—용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
-- ** 관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
+- **관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
 - **원본에서 대상까지 네트워크 대역폭**-원본과 Azure 간 복제에 필요한 네트워크 대역폭 계획
 
 ### 원본 환경 고려 사항
@@ -324,7 +325,8 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 	![요약](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 
->[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
+>[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 
+설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd

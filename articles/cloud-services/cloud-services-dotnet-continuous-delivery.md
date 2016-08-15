@@ -28,7 +28,7 @@
 
 MSBuild를 사용하여 Azure 패키지를 만들려면 먼저 필요한 소프트웨어 및 도구를 빌드 서버에 설치해야 합니다.
 
-Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundation Build 서비스를 사용하여 빌드 서버를 관리하려면 [Team Foundation Build Service][](영문) 설명서의 지침을 따르세요.
+Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundation Build 서비스를 사용하여 빌드 서버를 관리하려면 [Team Foundation Build Service][]\(영문) 설명서의 지침을 따르세요.
 
 1.  빌드 서버에 MSBuild가 포함된 [.NET Framework 4.5.2][]를 설치합니다.
 2.  최신 [.NET용 Azure 작성 도구](https://azure.microsoft.com/develop/net/)를 설치합니다.
@@ -105,7 +105,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 이 섹션에서는 선택적 매개 변수를 사용하여 클라우드 앱 패키지 출력을 Azure에 게시할 Windows PowerShell 스크립트를 구성하는 방법에 대해 설명합니다. 이 스크립트는 사용자 지정 빌드 자동화의 빌드 단계 후에 호출할 수 있으며, Visual Studio TFS 팀 빌드의 프로세스 템플릿 워크플로 작업에서 호출할 수도 있습니다.
 
-1.  [Azure PowerShell cmdlet][](v0.6.1 이상)을 설치합니다. Cmdlet 설치 단계 중 스냅인으로 설치하도록 선택합니다. 이전 버전의 번호는 2.x.x로 지정되었지만 공식적으로 지원되는 이 버전이 CodePlex를 통해 제공된 이전 버전을 대체합니다.
+1.  [Azure PowerShell cmdlet][]\(v0.6.1 이상)을 설치합니다. Cmdlet 설치 단계 중 스냅인으로 설치하도록 선택합니다. 이전 버전의 번호는 2.x.x로 지정되었지만 공식적으로 지원되는 이 버전이 CodePlex를 통해 제공된 이전 버전을 대체합니다.
 
 2.  시작 메뉴나 시작 페이지를 사용하여 Azure PowerShell을 시작합니다. 이런 방식으로 시작하면 Azure PowerShell cmdlet이 로드됩니다.
 

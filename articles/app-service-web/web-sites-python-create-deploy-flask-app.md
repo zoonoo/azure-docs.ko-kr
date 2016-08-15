@@ -34,7 +34,7 @@
 - Python 2.7 또는 3.4
 - setuptools, pip, virtualenv(Python 2.7 전용)
 - Git
-- [Python Tools for Visual Studio][](PTVS) - 참고: 선택 사항입니다.
+- [Python Tools for Visual Studio][]\(PTVS) - 참고: 선택 사항입니다.
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 

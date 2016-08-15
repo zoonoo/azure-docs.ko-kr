@@ -22,18 +22,18 @@
 이 문서에서는 마켓플레이스 주문과 관련된 요금을 이해하는 방법을 개략적으로 설명합니다. 청구서를 검토할 때 다양한 가격 책정 유형(기본만, 사용량만, 기본 + 사용량)이 있음을 염두에 두어야 합니다. 사용자가 발주하는 마켓플레이스 주문마다 고유한 월별 청구 주기가 적용됩니다. 이에 대한 토픽은 아래에서 자세히 다루겠습니다.
 
 ## 마켓플레이스 청구서 검토
-[Azure 계정 포털](https://account.windowsazure.com/subscriptions/)에 로그인하면 현재와 과거의 청구서를 검토 및 다운로드할 수 있습니다.
+[Azure 계정 포털]( https://account.windowsazure.com/subscriptions/)에 로그인하면 현재와 과거의 청구서를 검토 및 다운로드할 수 있습니다.
 
 청구서를 보거나 다운로드하려면
 
 1. 조직 ID를 사용하여 Azure 계정 포털에 로그인합니다.
 2. **마켓플레이스**를 클릭합니다. 표시되는 목록은 해당 Azure 계정을 통해 발주된 마켓플레이스 주문의 전체 목록입니다. 주문이 부모 Azure 구독 이름 및 ID별로 그룹화된 것을 볼 수 있습니다.
 
-    ![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+	![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
 3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ](https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
 
-    ![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+	![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 요약 보기에는 각 주문에 대해 다음 정보가 있습니다.
 - 가격
@@ -59,11 +59,11 @@
 
 1. **지불 방법 변경**을 클릭합니다.
 
-    ![구독](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+	![구독](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. 원하는 지불 방법을 선택합니다. **지불 방법** 옵션을 사용하여 신용 카드를 선택할 수 있습니다. **새 지불 방법 추가** 옵션을 사용하여 새 신용 카드를 추가할 수 있습니다.
 
-    ![지불 방법 변경](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+	![지불 방법 변경](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## 주문 관리
 요약 개요 페이지에는 **주문 관리** 링크가 표시됩니다. 이 링크를 클릭하면 모든 마켓플레이스 주문을 보고, 서비스 상태를 보고, 지원을 요청할 수 있는 포털로 이동됩니다.
@@ -92,10 +92,10 @@
 
     청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
 
-    ![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+	![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
 2. 검토하려는 주문을 찾아서 **세부 정보**를 클릭하면 소계, 세금 및 총 요금이 포함된 요금 명세서를 볼 수 있습니다.
 
-    ![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+	![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
 <!---HONumber=AcomDC_0803_2016-->

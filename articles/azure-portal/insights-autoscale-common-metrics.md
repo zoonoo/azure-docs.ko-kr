@@ -55,29 +55,29 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 |\\Processor(\_Total)\\% Privileged Time |백분율|
 |\\Processor(\_Total)\\% User Time |백분율|
 |\\Processor Information(\_Total)\\Processor Frequency |개수|
-|\\System\\Processes|	개수|
-|\\Process(\_Total)\\Thread Count|	개수|
+|\\System\\Processes|개수|
+|\\Process(\_Total)\\Thread Count|개수|
 |\\Process(\_Total)\\Handle Count |개수|
 |\\Memory\\% Committed Bytes In Use |백분율|
-|\\Memory\\Available Bytes|	바이트|
+|\\Memory\\Available Bytes|바이트|
 |\\Memory\\Committed Bytes |바이트|
-|\\Memory\\Commit Limit|	바이트|
-|\\Memory\\Pool Paged Bytes|	바이트|
-|\\Memory\\Pool Nonpaged Bytes|	바이트|
-|\\PhysicalDisk(\_Total)\\% Disk Time|	백분율|
-|\\PhysicalDisk(\_Total)\\% Disk Read Time|	백분율|
-|\\PhysicalDisk(\_Total)\\% Disk Write Time|	백분율|
+|\\Memory\\Commit Limit|바이트|
+|\\Memory\\Pool Paged Bytes|바이트|
+|\\Memory\\Pool Nonpaged Bytes|바이트|
+|\\PhysicalDisk(\_Total)\\% Disk Time|백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Read Time|백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Write Time|백분율|
 |\\PhysicalDisk(\_Total)\\디스크 전송/초 |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Reads/sec |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Writes/sec |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Bytes/sec |초당 바이트 수|
 |\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec|	초당 바이트 수|
 |\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |초당 바이트 수|
-|\\PhysicalDisk(\_Total)\\Avg. 디스크 큐 길이|	개수|
-|\\PhysicalDisk(\_Total)\\Avg. 디스크 읽기 큐 길이|	개수|
+|\\PhysicalDisk(\_Total)\\Avg. 디스크 큐 길이|개수|
+|\\PhysicalDisk(\_Total)\\Avg. 디스크 읽기 큐 길이|개수|
 |\\PhysicalDisk(\_Total)\\Avg. 디스크 쓰기 큐 길이 |개수|
 |\\LogicalDisk(\_Total)\\% Free Space|	백분율|
-|\\LogicalDisk(\_Total)\\Free Megabytes|	개수|
+|\\LogicalDisk(\_Total)\\Free Megabytes|개수|
 
 
 

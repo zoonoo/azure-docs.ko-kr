@@ -42,7 +42,7 @@ SQL 데이터베이스에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABAS
 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
 
 ```
--- Calculates the size of the database.
+-- 데이터베이스의 크기를 계산합니다. 
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO

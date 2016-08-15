@@ -82,7 +82,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 	  <artifactId>storm-core</artifactId>
       <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
            To find the version information for earlier HDInsight cluster
-           versions, see https://azure.microsoft.com/ko-KR/documentation/articles/hdinsight-component-versioning/ -->
+           versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/ -->
 	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
