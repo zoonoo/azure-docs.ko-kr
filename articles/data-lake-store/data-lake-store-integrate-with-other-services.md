@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # 데이터 레이크 저장소와 다른 Azure 서비스 통합
@@ -82,6 +82,6 @@ Data Lake 저장소의 데이터를 Azure Data Catalog에 등록하여 조직 �
 
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 - [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-- [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)  
+- [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

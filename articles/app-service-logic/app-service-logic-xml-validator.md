@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure 앱 서비스의 논리 앱에서 BizTalk XML 유효성 검사기 사용 | Microsoft Azure"
    description="논리 앱에서 BizTalk XML 유효성 검사기를 사용하여 스키마 유효성 검사"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -64,4 +64,4 @@ Input Xml|string|유효성을 검사할 입력 Xml
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

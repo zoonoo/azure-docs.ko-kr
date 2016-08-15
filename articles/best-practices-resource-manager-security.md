@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -35,7 +35,7 @@ Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 �
       - 키를 배포하는 템플릿
       - 키에 대한 참조를 사용하여 VM을 배포하는 템플릿
       - 자격 증명 모음의 실제 키 자료 각 템플릿(및 작업)은 직무를 완전히 분리하기 위해 여러 RBAC 역할 하에 있도록 할 수 있습니다.
-- 배포 시 VM으로의 암호 로드는 Microsoft 데이터 센터 범위 내에서 Azure 패브릭 및 키 자격 증명 모음 간의 직접 채널을 통해 수행됩니다. 키가 키 자격 증명 모음에 들어가면 데이터 센터 외부에 있는 신뢰할 수 없는 채널을 통해서는 절대 '드러나지' 않습니다.  
+- 배포 시 VM으로의 암호 로드는 Microsoft 데이터 센터 범위 내에서 Azure 패브릭 및 키 자격 증명 모음 간의 직접 채널을 통해 수행됩니다. 키가 키 자격 증명 모음에 들어가면 데이터 센터 외부에 있는 신뢰할 수 없는 채널을 통해서는 절대 '드러나지' 않습니다.
 - 키 자격 증명 모음은 항상 지역 단위이므로 암호는 항상 VM에서 지역성(및 독립성)을 갖습니다. 전역 키 자격 증명 모음은 없습니다.
 
 ### 배포에서 키 분리
@@ -339,4 +339,4 @@ Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, �
 - 라우팅 및 IP 전달을 구성하려면 [템플릿을 사용하여 리소스 관리자에서 UDR(사용자 정의 경로) 만들기](./virtual-network/virtual-network-create-udr-arm-template.md)를 참조하세요.
 - 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

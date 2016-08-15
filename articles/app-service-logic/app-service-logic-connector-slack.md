@@ -4,7 +4,7 @@
 	authors="msftman" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -26,4 +26,4 @@
 - [이 새로운 커넥터에 대해 자세히 알아보기](../connectors/connectors-create-api-slack.md)
 - 새 논리 앱 스키마 버전 2015-08-01-preview에서 실행되는 모든 커넥터의 [전체 목록](../connectors/apis-list.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

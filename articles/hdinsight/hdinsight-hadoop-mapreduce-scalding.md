@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/18/2016"
+ ms.date="08/02/2016"
  ms.author="larryfr"/>
 
 # HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
@@ -209,7 +209,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
 4. 작업이 완료되면 다음을 사용하여 출력을 확인합니다.
 
-        hdfs dfs -text wasbs:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/*
 
     다음과 유사한 정보가 표시됩니다.
 
@@ -254,6 +254,8 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
         $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
         
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -343,4 +345,4 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

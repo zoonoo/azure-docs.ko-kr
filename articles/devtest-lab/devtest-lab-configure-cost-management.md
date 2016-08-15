@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # Monthly estimated cost trend(월간 예상 비용 추세)
@@ -48,7 +48,7 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
  
 금액은 다음 정수로 올림됩니다. 예:
 
-- 5\.01은 6으로 올림됩니다. 
+- 5\.01은 6으로 올림됩니다.
 - 5\.50은 6으로 올림됩니다.
 - 5\.99는 6으로 올림됩니다.
 
@@ -60,13 +60,18 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 - 사용자 할인
 - 사용자의 청구 통화. 현재는, 랩 비용이 USD 통화로만 표시됩니다.
 
+## 관련 블로그 게시물
+
+- [DevTest Labs에서 비용을 유지하기 하기 위한 두 가지 추가 항목](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
+- [비용 임계값을 사용하는 이유는 무엇일까요?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
+
 ## 다음 단계
 
 다음으로 수행해 볼 작업은 아래와 같습니다.
 
-- [랩 정책 정의](./devtest-lab-set-lab-policy.md) – 랩 및 그에 속한 VM이 사용되는 방식을 관리하는 데 사용되는 다양한 정책을 설정하는 방법을 알아봅니다. 
-- [사용자 지정 이미지 만들기](./devtest-lab-create-template.md) - VM을 만들 때는 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기준을 지정합니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
+- [랩 정책 정의](./devtest-lab-set-lab-policy.md) – 랩 및 해당 VM이 사용되는 방식을 관리하는 데 사용되는 다양한 정책을 설정하는 방법을 알아봅니다.
+- [사용자 지정 이미지 만들기](./devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기준을 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 - [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 - [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

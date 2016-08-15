@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - 쿼리 문자열이 포함된 요청의 캐싱 동작 제어"
-	description="CDN 쿼리 문자열 캐싱은 파일에 쿼리 문자열이 들어 있을 때 파일이 캐시되는 방법을 제어합니다."
+	pageTitle="쿼리 문자열이 포함된 요청의 Azure CDN 캐싱 동작 제어 | Microsoft Azure"
+	description="Azure CDN 쿼리 문자열 캐싱은 파일에 쿼리 문자열이 포함된 경우 파일이 캐시되는 방법을 제어합니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 #쿼리 문자열이 포함된 CDN 요청의 캐싱 동작 제어
@@ -56,4 +56,4 @@
 
 > [AZURE.IMPORTANT] 등록이 CDN 전체에 전파되기까지 시간이 걸리기 때문에, 설정 변경은 즉시 보이지 않을 수 있습니다. <b>Akamai의 Azure CDN</b> 프로필의 경우 일반적으로 1분 이내에 전파가 완료됩니다. <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

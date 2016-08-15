@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -464,4 +464,4 @@ HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API �
 ## 서비스 예정: 엔터프라이즈 통합 API
 현재는 관리된 버전의 엔터프라이즈 통합 API가 아직 없습니다(예: AS2). [로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)에 나와 있는 대로 곧 서비스 예정입니다. 그 동안은 위의 "이미 배포된 API 앱 사용"에 설명된 대로 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

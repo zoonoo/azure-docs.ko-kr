@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -138,4 +138,4 @@ Azure 포털 및 REST API에서 제공하는 위의 세부 정보 외에도 Azur
 - [논리 앱 배포 템플릿 만들기](app-service-logic-create-deploy-template.md)
 - [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

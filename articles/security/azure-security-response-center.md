@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Microsoft 보안 응답 센터
@@ -40,4 +40,4 @@ Microsoft 포상 프로그램은 독창적 악용 기법, 독창적 공격을 �
 
 MSRC에 대해 자세히 알아보려면 [MSRC 홈페이지](https://technet.microsoft.com/library/dn440717.aspx)를 방문하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

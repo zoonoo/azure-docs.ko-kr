@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩의 기능을 사용하여 Microsoft Azure 앱 서비스를 사용하는 비즈니스 프로세스 및 통합 시나리오 사용" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 - [맵에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-maps.md "엔터프라이즈 통합 맵에 대해 알아보기")
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

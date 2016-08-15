@@ -1,11 +1,11 @@
 <properties
 	pageTitle="내 Azure 구독 관리를 위해 로그인할 수 없음 | Microsoft Azure"
 	description="몇 가지 일반적인 Azure 구독 로그인 문제에 대한 문제 해결 정보를 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -54,4 +54,4 @@ Microsoft 계정은 사용하는 메일 주소이며 암호와 함께 사용하�
 
 IE InPrivate 브라우징 모드를 사용하고 다른 브라우저도 사용하여 캐시/쿠키를 삭제합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

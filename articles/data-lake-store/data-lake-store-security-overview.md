@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/18/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Azure Data Lake 저장소의 보호
@@ -68,7 +68,7 @@
 
 ### 파일 시스템 작업에 ACL 사용
 
-Azure Data Lake Store는 HDFS와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원하여 소유자, 소유 그룹 및 기타 사용자/그룹에 부여된 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 액세스 권한을 허용합니다. Data Lake 저장소 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더에서만 사용하도록 설정되므로 루트 폴더에 적용할 ACL을 모든 하위 폴더/파일에도 적용할 수 있습니다. 향후 릴리스에서는 모든 파일 또는 폴더에 ACL을 설정할 수 있게 됩니다.
+Azure Data Lake Store는 HDFS와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원하여 소유자, 소유 그룹 및 기타 사용자/그룹에 부여된 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 액세스 권한을 허용합니다. Data Lake Store 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더, 하위 폴더뿐만 아니라 개별 파일에서도 사용할 수 있습니다. 루트 폴더에 적용할 ACL는 모든 자식 폴더/파일에도 적용할 수 있습니다.
 
 [보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 많은 사용자에 대해 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹으로 그룹화한 후 파일 및 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스의 일환으로 최대 9개의 항목만 추가할 수 있는 제한이 있으므로 사용자 지정 액세스를 제공할 때 유용합니다. AAD 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터를 보호하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
@@ -109,6 +109,8 @@ Azure 포털에서 데이터 액세스 감사 내역을 사용하도록 설정(*
 
 진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
 
+Azure Data Lake Store와 함께 진단 로그를 사용하는 방법에 대한 자세한 내용은 [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)를 참조하세요.
+
 ## 요약
 
 엔터프라이즈 고객은 안전하고 사용하기 간편한 데이터 분석 클라우드 플랫폼을 요구합니다. Azure Data Lake 저장소는 Azure Active Direction 통합, ACL 기반 권한 부여, 네트워크 격리, 전송 중 및 미사용 데이터 암호화(향후 제공) 및 감사를 통해 ID 관리 및 인증으로 이러한 요구 사항을 해결하도록 설계되었습니다.
@@ -121,4 +123,4 @@ Data Lake Store에 포함된 새로운 기능을 참조하려는 경우 [Uservoi
 - [Data Lake 저장소 시작](data-lake-store-get-started-portal.md)
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

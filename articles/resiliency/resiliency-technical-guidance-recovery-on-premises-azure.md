@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Azure 복원력 기술 지침: 온-프레미스에서 Azure로 복구
 
@@ -105,4 +105,4 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [데이터 손상 및 실수로 인한 삭제로부터 복구](./resiliency-technical-guidance-recovery-data-corruption.md)입니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

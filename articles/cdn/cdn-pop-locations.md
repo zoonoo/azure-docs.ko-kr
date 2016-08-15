@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure CDN POP 위치"
+	pageTitle="Azure CDN POP 위치 | Microsoft Azure"
 	description="이 항목에서는 Azure CDN POP 위치를 나열합니다."
 	services="cdn"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/29/2016"
 	ms.author="casoper"/>
 
 
@@ -27,7 +27,7 @@
  
 | 지역 | Verizon | Akamai |
 |--------|---------|--------|
-| 북아메리카 | 애틀랜타, GA<br />필라델피아, PA<br />뉴욕, NY<br />마이애미, FL<br />워싱턴 DC<br />보스턴, MA<br />시카고, IL<br />덴버, CO<br />댈러스, TX<br />로스앤젤레스, CA<br />산호세, CA<br />시애틀, WA | **&#x2713;*** |
+| 북아메리카 | 애틀랜타, GA<br />필라델피아, PA<br />뉴욕, NY<br />마이애미, FL<br />워싱턴 DC<br />보스턴, MA<br />덴버, CO<br />시카고, IL<br />댈러스, TX<br />로스앤젤레스, CA<br />산호세, CA<br />시애틀, WA | **&#x2713;*** |
 | 남미 | 상파울루, 브라질<br />리우데자네이루, 브라질<br />키토, 에콰도르<br />바랑키야, 콜롬비아<br />메데인, 콜롬비아<br/>부에노스아이레스, 아르헨티나| **&#x2713;*** | 
 | 북유럽 및 동유럽| 코펜하겐, 덴마크<br />헬싱키, 핀란드<br />런던, 영국<br />스톡홀름, 스웨덴<br />바르샤바, 폴란드 | **&#x2713;*** |
 | 서유럽 | 암스테르담, 네덜란드<br />프랑크푸르트, 독일<br />파리, 프랑스<br />비엔나, 오스트리아 | **&#x2713;*** |
@@ -41,4 +41,4 @@
 ## 참고 항목
 * [Verizon 에지 서버 IP 범위에서 Azure CDN](https://msdn.microsoft.com/library/mt757330.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

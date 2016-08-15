@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
 
@@ -214,4 +214,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

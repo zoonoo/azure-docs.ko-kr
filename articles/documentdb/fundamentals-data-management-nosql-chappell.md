@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Microsoft Azure의 NoSQL 이해
@@ -35,4 +35,4 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

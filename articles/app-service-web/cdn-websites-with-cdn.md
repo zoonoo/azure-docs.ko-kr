@@ -23,7 +23,7 @@
 
 웹앱을 Azure CDN과 통합하면 다음과 같은 이점이 있습니다.
 
-- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 웹앱 [연속 배포](web-sites-publish-source-control.md) 프로세스의 일부로 통합
+- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 웹앱 [연속 배포](app-service-continuous-deployment.md) 프로세스의 일부로 통합
 - Azure 앱 서비스의 웹앱에서 jQuery 또는 부트스트랩 버전과 같은 NuGet 패키지를 쉽게 업그레이드
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
 - ASP.NET 묶음 및 축소를 Azure CDN과 통합
@@ -571,4 +571,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 - [Azure CDN과 클라우드 서비스 통합](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

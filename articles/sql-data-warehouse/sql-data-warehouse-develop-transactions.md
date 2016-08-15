@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 트랜잭션
@@ -56,19 +56,21 @@ SQL 데이터 웨어하우스는 ACID 트랜잭션을 구현합니다. 그러나
 ## 트랜잭션 상태
 SQL 데이터 웨어하우스는 XACT\_STATE() 함수를 사용하여 값 -2를 사용하는 실패한 트랜잭션을 보고합니다. 트랜잭션이 실패하고 롤백만 표시함을 의미합니다.
 
-> [AZURE.NOTE] XACT\_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 SELECT 1/0은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다. 또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 SQLDW에서는 이 경우가 아닙니다. SQLDW 트랜잭션 내부에서 오류가 발생 하는 경우 -2 상태를 자동으로 입력하며 SELECT 1/0 오류를 포함합니다. 따라서 XACT\_STATE()를 사용하는 지 알기 위해 해당 응용 프로그램 코드를 확인하는 것이 중요합니다.
+> [AZURE.NOTE] XACT\_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0`은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다. 또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 SQL 데이터 웨어하우스는 이를 허용하지 않습니다. SQL 데이터 웨어하우스의 트랜잭션 내부에서 오류가 발생하는 경우 자동으로 -2 상태가 되며, 해당 문이 롤백될 때까지 추가 select 문을 실행할 수 없습니다. 따라서 코드를 수정해야 할 수 있으므로 XACT\_STATE()가 사용되는지 알기 위해 해당 응용 프로그램 코드를 확인하는 것이 중요합니다.
 
-SQL Server에서 다음과 같은 코드 조각이 나타날 수 있습니다.
+예를 들어 SQL Server에서 다음과 같은 트랜잭션이 나타날 수 있습니다.
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,49 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-`SELECT` 문이 `ROLLBACK` 문 전에 실행됩니다. 또한 `@xact` 변수의 설정은 `SELECT`가 아닌 DECLARE를 사용합니다.
+이 코드를 위와 같이 두면 다음과 같은 오류 메시지가 발생합니다.
 
-SQL 데이터 웨어하우스에서 코드는 다음과 같아야 합니다.
+Msg 111233, Level 16, State 1, Line 1 111233, 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션은 DDL, DML 또는 SELECT 문 이전에 명시적으로 롤백되지 않았습니다.
+
+또한 ERROR\_* 함수의 출력도 제공되지 않습니다.
+
+SQL 데이터 웨어하우스에서는 이 코드를 약간 변경해야 합니다.
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,10 +130,18 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-`CATCH` 블록에서 오류 정보를 읽기 전에 트랜잭션의 롤백이 발생해야 합니다.
+이제 예상되는 동작이 진행됩니다. 트랜잭션의 오류가 관리되고 ERROR\_* 함수는 예상대로 값을 제공합니다.
+
+변경된 부분은 트랜잭션의 `ROLLBACK`이 `CATCH` 블록의 오류 정보를 읽기 전에 발생해야 한다는 것입니다.
 
 ## Error\_Line() 함수
 SQL 데이터 웨어하우스가 ERROR\_LINE() 함수를 구현하거나 지원하는 것 또한 주목할 가치가 있습니다. 이 코드에 있는 경우 SQL 데이터 웨어하우스와 호환되도록 제거해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 이 기능에 대한 자세한 내용은 [LABEL][] 문서를 참조하세요.
@@ -129,6 +161,8 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 - 분산된 트랜잭션이 없습니다
 - 중첩된 트랜잭션이 허용되지 않습니다.
 - 저장 점수를 사용할 수 없습니다.
+- 명명된 트랜잭션이 없습니다.
+- 표시된 트랜잭션이 없습니다.
 - 사용자 정의 트랜잭션 내에 `CREATE TABLE`과 같은 DDL 지원은 없습니다.
 
 ## 다음 단계
@@ -147,4 +181,4 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

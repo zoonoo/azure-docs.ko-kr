@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 구독을 등록, 구매, 업그레이드 또는 활성화하는 방법 | Microsoft Azure"
 	description="구입 및 Azure 구독에 등록하는 방법을 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

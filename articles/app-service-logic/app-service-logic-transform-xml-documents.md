@@ -4,7 +4,7 @@
 	authors="anuragdalmia" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -117,4 +117,4 @@ API 앱 통계 페이지에서 SQL, SAP 및 SharePoint와 같은 커넥터에 �
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

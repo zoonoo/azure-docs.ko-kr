@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까| Microsoft Azure"
 	description="Azure 구독에 미지불금액이 있는 경우 결제 방법에 대해 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@ Azure에서 지불 방식 변경에 대한 지침은 [Azure 구독 지불에 사
 
 > [AZURE.NOTE] Azure 구독이 사용하지 않도록 설정되면 이 문서의 [Azure 구독이 취소될 경우 어떻게 해야 하나요?](billing-subscription-become-disable.md) 단계를 사용하여 다시 사용하도록 설정할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

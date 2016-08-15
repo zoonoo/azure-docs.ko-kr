@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/01/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 지원 데이터베이스 복원
@@ -27,8 +27,7 @@
 ## SQL Server 데이터 복원
 하드웨어 오류 또는 손상으로부터 복구하려면 백업에서 스트레치 지원 SQL Server 데이터베이스를 복원합니다. 현재 사용하는 SQL Server 복원 메서드를 계속 사용할 수 있습니다. 자세한 내용은 [복원 및 복구 개요](https://msdn.microsoft.com/library/ms191253.aspx)를 참조하세요.
 
-SQL Server 데이터베이스를 복원한 후에는 저장 프로시저 **sys.sp\_rda\_reauthorize\_db**를 실행하여 스트레치 지원 SQL Server 데이터베이스와 원격 Azure 데이터베이스 간에 연결을 다시 설정해야 합니다. 자세한 내용은 [SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database)을 참조하세요.
-<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
+SQL Server 데이터베이스를 복원한 후에는 저장 프로시저 **sys.sp\_rda\_reauthorize\_db**를 실행하여 스트레치 지원 SQL Server 데이터베이스와 원격 Azure 데이터베이스 간에 연결을 다시 설정해야 합니다. 자세한 내용은 [SQL Server 데이터베이스와 원격 Azure 데이터베이스 간 연결 복원](#restore-the-connection-between-the-sql-server-database-and-the-remote-azure-database)을 참조하세요.
 
 ## 원격 Azure 데이터 복원
 
@@ -84,4 +83,4 @@ Azure 포털을 사용하여 Azure 데이터베이스를 삭제되었던 시점�
 
 [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

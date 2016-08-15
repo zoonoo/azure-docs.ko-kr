@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/30/2016"
 	ms.author="awills"/>
 
 # Application Insights 포털에서 탐색 및 대시보드
@@ -56,18 +56,24 @@
 [Microsoft Azure 포털](https://portal.azure.com)에 로그인한 후 가장 먼저 표시되는 것이 대시보드입니다. [Visual Studio Application Insights](app-insights-overview.md)의 원격 분석을 포함하여, 모든 Azure 리소스에서 가장 중요한 차트를 이곳에 한데 모을 수 있습니다.
  
 
-![사용자 지정 대시보드입니다.](./media/app-insights-dashboards/30.png)
+![사용자 지정 대시보드입니다.](./media/app-insights-dashboards/31.png)
 
-1. 언제든지 위쪽 모서리를 클릭하면 대시보드로 돌아갑니다.
-2. 데이터에 대한 자세한 정보를 보려면 대시보드에서 차트 또는 타일을 클릭합니다.
-3. 모든 리소스에 대한 완전한 보기는 탐색 모음을 사용합니다.
-4. 대시보드 도구 모음을 사용하여 대시보드를 편집하고 만들고 공유합니다.
+
+1. 대시보드 도구 모음을 사용하여 대시보드를 편집하고 만들고 공유합니다.
+2. 현재 대시보드도 돌아가거나 최근의 다른 뷰로 전환합니다.
+3. 대시보드를 전환합니다.
+4. 대시보드를 만들고 편집 및 공유합니다.
+5. 타일을 포인터로 가리킨 다음 그 위쪽 막대를 사용하여 타일을 이동, 사용자 지정, 또는 제거합니다.
 
 ## 대시보드 추가
 
 특히 흥미로운 블레이드나 차트를 보는 경우 그 사본을 대시보드에 고정할 수 있습니다. 이 경우 다음에 대시보드로 돌아가면 해당 블레이드나 차트가 표시됩니다.
 
 ![차트를 고정하려면 차트 위에 마우스를 놓고 헤더에서 "..."를 클릭합니다.](./media/app-insights-dashboards/33.png)
+
+1. 대시보드에 차트를 고정합니다. 차트의 복사본이 대시보드에 나타납니다.
+2. 전체 블레이드를 대시보드에 고정합니다 - 대시보드에서 클릭할 수 있는 타일로 나타납니다.
+3. 현재 대시보드 돌아가려면 왼쪽 위의 모퉁이를 클릭합니다. 그런 다음 현재 보기로 돌아가려면 드롭다운 메뉴를 사용할 수 있습니다.
 
 차트는 타일로 그룹화되고 타일은 둘 이상의 차트를 포함할 수 있습니다. 타일 전체를 대시보드에 고정합니다.
 
@@ -77,7 +83,7 @@
 
 ![차트를 편집하려면 차트를 마우스로 가리킵니다.](./media/app-insights-dashboards/36.png)
 
-1. 타일에 차트 추가 
+1. 타일에 차트 추가
 2. 메트릭, group-by 차원 및 차트의 스타일(테이블, 그래프)를 설정합니다.
 3. 타일의 차트에 대한 timespan과 필터 속성을 설정합니다. 차트의 시간 범위를 설정하거나 대시보드의 시간 범위에서 상속할 수 있습니다.
 4. 타일 제목을 설정합니다.
@@ -127,9 +133,9 @@
 * **속성** - 계측 키, 구독 및 리소스 ID입니다.
 * [가용성](app-insights-monitor-web-app-availability.md) -웹 테스트 구성 및 결과입니다.
 * [경고](app-insights-alerts.md) -메트릭 경고 구성입니다.
-* [연속 내보내기](app-insights-export-telemetry.md) - Azure 저장소에 대한 원격 분석 내보내기를 구성합니다.
+* [연속 내보내기](app-insights-export-telemetry.md) - Azure Storage에 대한 원격 분석 내보내기를 구성합니다.
 * [성능 테스트](app-insights-monitor-web-app-availability.md#performance-tests) -웹 사이트에 대한 종합 부하를 설정 합니다.
-* [할당량 및 가격](app-insights-pricing.md)과 [수집 샘플링](app-insights-sampling.md)입니다.
+* [할당량 및 가격 책정](app-insights-pricing.md)과 [수집 샘플링](app-insights-sampling.md)입니다.
 * **API 액세스** - 현재 [릴리스 주석](app-insights-annotations.md)을 작성하는 작업과 데이터 액세스 API에 사용됩니다.
 * [**작업 항목**](app-insights-diagnostic-search.md#create-work-item) - 작업 추적 시스템과 연결하여 원격 분석을 검사하는 동안 버그를 만들 수 있습니다.
 * [**사용자**](app-insights-resources-roles-access-control.md) - 앱 리소스에 액세스할 권한이 있는 사용자를 관리합니다.
@@ -146,4 +152,4 @@
 |[진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png)
 |[Analytics](app-insights-analytics.md)<br/>강력한 쿼리 언어| ![검색 예제](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

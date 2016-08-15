@@ -4,16 +4,16 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/02/2016"
 	ms.author="ashwink"/>
 
 # Azure Insights 자동 크기 조정 공용 메트릭
@@ -51,33 +51,33 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 |메트릭 이름|	단위|
 |---|---|
-|\\Processor(\_Total)\\% Processor Time |백분율|
+|\\Processor(\_Total)\\% 프로세서 시간 |백분율|
 |\\Processor(\_Total)\\% Privileged Time |백분율|
 |\\Processor(\_Total)\\% User Time |백분율|
 |\\Processor Information(\_Total)\\Processor Frequency |개수|
-|\\System\\Processes| 개수|
-|\\Process(\_Total)\\Thread Count| 개수|
+|\\System\\Processes|개수|
+|\\Process(\_Total)\\Thread Count|개수|
 |\\Process(\_Total)\\Handle Count |개수|
 |\\Memory\\% Committed Bytes In Use |백분율|
-|\\Memory\\Available Bytes| Bytes|
-|\\Memory\\Committed Bytes |Bytes|
-|\\Memory\\Commit Limit| Bytes|
-|\\Memory\\Pool Paged Bytes| Bytes|
-|\\Memory\\Pool Nonpaged Bytes| Bytes|
-|\\PhysicalDisk(\_Total)\\% Disk Time| 백분율|
-|\\PhysicalDisk(\_Total)\\% Disk Read Time| 백분율|
-|\\PhysicalDisk(\_Total)\\% Disk Write Time| 백분율|
-|\\PhysicalDisk(\_Total)\\Disk Transfers/sec |초당 개수|
+|\\Memory\\Available Bytes|바이트|
+|\\Memory\\Committed Bytes |바이트|
+|\\Memory\\Commit Limit|바이트|
+|\\Memory\\Pool Paged Bytes|바이트|
+|\\Memory\\Pool Nonpaged Bytes|바이트|
+|\\PhysicalDisk(\_Total)\\% Disk Time|백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Read Time|백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Write Time|백분율|
+|\\PhysicalDisk(\_Total)\\디스크 전송/초 |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Reads/sec |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Writes/sec |초당 개수|
 |\\PhysicalDisk(\_Total)\\Disk Bytes/sec |초당 바이트 수|
-|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| 초당 바이트 수|
+|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec|	초당 바이트 수|
 |\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |초당 바이트 수|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| 개수|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| 개수|
-|\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length | 개수|
-|\\PhysicalDisk(\_Total)\\%Free Space| 백분율|
-|\\PhysicalDisk(\_Total)\\Free Megabytes| 개수|
+|\\PhysicalDisk(\_Total)\\Avg. 디스크 큐 길이|개수|
+|\\PhysicalDisk(\_Total)\\Avg. 디스크 읽기 큐 길이|개수|
+|\\PhysicalDisk(\_Total)\\Avg. 디스크 쓰기 큐 길이 |개수|
+|\\LogicalDisk(\_Total)\\% Free Space|	백분율|
+|\\LogicalDisk(\_Total)\\Free Megabytes|개수|
 
 
 
@@ -171,7 +171,7 @@ Azure 포털의 **설정** 블레이드에서 이를 구성할 수 있습니다.
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
-```
+ ```
 
 ## 자주 사용되는 서비스 버스 메트릭
 
@@ -187,4 +187,4 @@ VM 규모 집합의 경우 *metricName*을 *ApproximateMessageCount*로 사용�
 
 >[AZURE.NOTE] 서비스 버스의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

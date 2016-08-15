@@ -226,7 +226,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 시퀀싱 | "간단", "백그라운드", "포그라운드" | 시작 작업 실행은 서비스를 시작하기 전에 성공해야 합니다.
 
 ### 클라우드 서비스
-클라우드 서비스에서 시작 진입점은 ServiceDefintion.csdef에서 역할별로 구성됩니다.
+클라우드 서비스에서 시작 진입점은 ServiceDefinition.csdef에서 역할별로 구성됩니다.
 
 ```xml
 
@@ -277,4 +277,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

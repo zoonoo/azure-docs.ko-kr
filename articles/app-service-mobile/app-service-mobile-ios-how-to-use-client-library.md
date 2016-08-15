@@ -540,7 +540,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
 	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
 	    ADAuthenticationError *error;
-	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
 	    authContext.parentController = parent;
 	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
 	    [authContext acquireTokenWithResource:resourceId
@@ -792,4 +792,4 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

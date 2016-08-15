@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Azure 등록 문제 해결 | Microsoft Azure"
 	description="Azure에 등록할 때 발생할 수 있는 문제의 공통 원인을 해결합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -81,4 +81,4 @@
 제안:
 - 이전에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 종량제 구독의 구입을 고려하세요. 사용자가 혜택 제품에 대한 자격이 있을 수도 있습니다. Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)에서 더 자세히 알아보십시오. 참고로 혜택 계획에 특정 필수 구성 요소가 필요합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

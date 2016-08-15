@@ -94,7 +94,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |푸시 스타일 API|**아니요**|**예**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) 및 **OnMessage sessions** .NET API|
 |수신 모드|**엿보기 및 임대(Peek & Lease)**|**엿보기 및 잠금(Peek & Lock)**<br/><br/>**수신 및 삭제**|
 |단독 액세스 모드|**임대 기반**|**잠금 기반**|
-|임대/잠금 기간|**30초(기본값)**<br/><br/>**7일(최대값)** ([UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있습니다.)|**60초(기본값)**<br/><br/> [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API를 사용하여 메시지 잠금을 갱신할 수 있습니다.|
+|임대/잠금 기간|**30초(기본값)**<br/><br/>**7일(최대값)**([UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있습니다.)|**60초(기본값)**<br/><br/> [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API를 사용하여 메시지 잠금을 갱신할 수 있습니다.|
 |임대/잠금 정밀도|**메시지 수준**<br/><br/>(각 메시지에 서로 다른 시간 제한 값을 지정할 수 있으며, 그 다음 [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API를 사용하여 메시지를 처리하는 동안 필요에 따라 이를 업데이트할 수 있음)|**큐 수준**<br/><br/>(각 큐에 모든 메시지에 적용되는 잠금 정밀도가 있지만 [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API를 사용하여 잠금을 갱신할 수 있음)|
 |일괄 수신|**예**<br/><br/>(메시지를 수신할 때 메시지 개수를 명시적으로 지정, 메시지 수 최대 32개)|**예**<br/><br/>(암시적으로 또는 트랜잭션 사용을 통해 명시적으로 프리페치 속성 사용)|
 |일괄 송신|**아니요**|**예**<br/><br/>(트랜잭션 또는 클라이언트 측 일괄 처리의 사용을 통해)|
@@ -179,7 +179,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |---|---|---|
 |최대 큐 크기|**200TB**<br/><br/>(단일 저장소 계정 용량으로 제한됨)|**1GB ~ 80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조)|
 |최대 메시지 크기|**64KB**<br/><br/>(**Base64** 인코딩을 사용하는 경우 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다.|**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB).<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라집니다.|
-|최대 메시지 TTL|**7일**|**무제한**|
+|최대 메시지 TTL|**7일**|**`TimeSpan.Max`**로 바꿉니다.|
 |최대 큐 수|**무제한**|**10,000개**<br/><br/>(서비스 네임스페이스별, 확장 가능)|
 |최대 동시 클라이언트 수|**무제한**|**무제한**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨)|
 
@@ -313,4 +313,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 [Azure 클래식 포털]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

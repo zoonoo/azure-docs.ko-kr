@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="10/28/2015"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트
@@ -141,4 +141,4 @@ Visual Studio Team Services 부하 테스트에는 Team Services 계정으로 �
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

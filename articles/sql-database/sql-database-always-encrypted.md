@@ -320,7 +320,7 @@ SSMS는 쉽게 열 마스터 키(CMK), 열 암호화 키(CEK) 및 암호화된 �
         {
             int returnValue = 0;
 
-            string sqlCmdText = @"INSERT INTO [dbo].[Patients] \([SSN], [FirstName], [LastName], [BirthDate])
+            string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
          VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
@@ -537,7 +537,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다.
 - [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
 - [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
-- 다른 클라이언트 컴퓨터에 상시 암호화 인증서를 배포합니다.
+- [다른 클라이언트 컴퓨터에 상시 암호화 인증서 배포](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1)(*응용 프로그램 및 사용자가 인증서를 사용할 수 있도록 지정* 섹션 참조).
 
 
 ## 관련 정보
@@ -548,4 +548,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 - [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

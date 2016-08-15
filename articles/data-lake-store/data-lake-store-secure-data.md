@@ -183,5 +183,6 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
+- [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

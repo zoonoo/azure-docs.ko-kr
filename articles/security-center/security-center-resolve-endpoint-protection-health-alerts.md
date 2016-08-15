@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 Endpoint Protection 상태 경고 해결
@@ -48,4 +48,4 @@ Azure 보안 센터는 검색된 Endpoint Protection 상태 경고를 해결할 
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 모범 사례
@@ -80,7 +80,7 @@ columnstore 테이블은 일반적으로 테이블당 100개 이상의 행이 �
 
 columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 더 빨리 실행됩니다.
 
-참고 항목: [테이블 인덱스][], [Columnstore 인덱스 가이드][]
+참고 항목: [테이블 인덱스][], [Columnstore 인덱스 가이드][], [columnstore 인덱스 다시 빌드][]
 
 ## 더 큰 리소스 클래스를 사용하여 쿼리 성능 향상
 SQL 데이터 웨어하우스는 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 사용합니다. 기본적으로 모든 사용자가 배포당 100MB의 메모리를 부여하는 소형 리소스 클래스에 할당됩니다. 항상 60개의 배포가 있고 각 배포에는 최소 100MB가 부여되므로 시스템 전체에서 총 메모리 할당량은 6,000MB이거나 6GB가 약간 못됩니다. 큰 조인 또는 클러스터형 columnstore 테이블에 로드와 같은 특정 쿼리는 큰 메모리를 할당하는 것이 도움이 됩니다. 순수 검색과 같은 일부 쿼리에는 어떤 이점도 보이지 않습니다. 한편 더 큰 리소스 클래스를 활용하면 동시성에 영향을 주므로 모든 사용자를 큰 리소스 클래스로 이동하기 전에 이를 고려하려고 합니다.
@@ -100,7 +100,7 @@ SQL 데이터 웨어하우스에는 쿼리 실행을 모니터링하는 데 사�
 ## 기타 리소스
 또한 일반적인 문제 및 해결 방법에 대해서는 [문제 해결][] 문서를 참조하세요.
 
-이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL 데이터 웨어하우스 문서를 검색해보세요. [Azure SQL 데이터 웨어하우스 MSDN 포럼][]은 다른 사용자 및 SQL 데이터 웨어하우스 제품 그룹에 질문을 할 수 있는 장소로 마련되었습니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다. Stack Overflow에 질문하는 것을 선호하는 경우 [Azure SQL 데이터 웨어하우스 Stack Overflow 포럼][]도 제공합니다.
+이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL 데이터 웨어하우스 문서를 검색해보세요. [Azure SQL 데이터 웨어하우스 MSDN 포럼][]은 다른 사용자 및 SQL 데이터 웨어하우스 제품 그룹에 질문할 수 있는 장소로 마련되었습니다. Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다. 스택 오버플로에 질문하는 것을 선호하는 경우 [Azure SQL 데이터 웨어하우스 스택 오버플로 포럼][]도 제공합니다.
 
 마지막으로 [Azure SQL 데이터 웨어하우스 피드백][] 페이지를 사용하여 기능을 요청합니다. 요청을 추가하거나 다른 요청에 투표를 하면 기능의 순위를 지정하는 데 도움이 됩니다.
 
@@ -115,6 +115,7 @@ SQL 데이터 웨어하우스에는 쿼리 실행을 모니터링하는 데 사�
 [테이블 배포]: ./sql-data-warehouse-tables-distribute.md
 [테이블 인덱스]: ./sql-data-warehouse-tables-index.md
 [Columnstore 인덱스 품질 저하 원인]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[columnstore 인덱스 다시 빌드]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [테이블 분할]: ./sql-data-warehouse-tables-partition.md
 [테이블 통계 관리]: ./sql-data-warehouse-tables-statistics.md
 [임시 테이블]: ./sql-data-warehouse-tables-temporary.md
@@ -156,7 +157,7 @@ SQL 데이터 웨어하우스에는 쿼리 실행을 모니터링하는 데 사�
 [테이블 배포 선택]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [Azure SQL 데이터 웨어하우스 피드백]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Azure SQL 데이터 웨어하우스 Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Azure SQL 데이터 웨어하우스 스택 오버플로 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL 데이터 웨어하우스 로딩 패턴 및 전략]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

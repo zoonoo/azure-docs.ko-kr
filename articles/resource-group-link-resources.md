@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/01/2016" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 리소스 연결
@@ -73,4 +73,4 @@ properties 요소는 두 번째 리소스에 대한 식별자를 포함합니다
 - 태그를 사용하여 리소스를 구성할 수도 있습니다. 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 - 템플릿을 만들고 배포할 리소스를 정의하는 방법에 대한 설명을 보려면 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

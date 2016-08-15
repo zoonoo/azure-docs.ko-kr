@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱 | Microsoft Azure" 
+	pageTitle="논리 앱에서 B2B 커넥터 및 API 앱 | Microsoft Azure" 
 	description="EDI, EDIFACT, AS2 및 TPM 커넥터(마이크로 서비스 아키텍처)를 만들고 구성하는 방법을 알아봅니다." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="erikre" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱
+# B2B 커넥터 및 API 앱
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
-Microsoft Azure 앱 서비스(또는 줄여서 앱 서비스)에는 통합 환경에 중요한 여러 BizTalk API 앱이 포함되어 있습니다. 이러한 API 앱은 BizTalk Server 내에서 사용되는 개념과 도구를 기반으로 하지만 이제 Azure 앱 서비스의 일부로 사용할 수 있습니다.
+논리 앱에는 통합 환경에 중요한 여러 BizTalk API 앱이 포함됩니다. 이러한 API 앱은 BizTalk Server 내에서 사용되는 개념과 도구를 기반으로 하지만 이제 논리 앱의 일부로 사용할 수 있습니다.
 
 이러한 API 앱의 한 가지 범주는 B2B(기업 간) API 앱입니다. 이러한 B2B API 앱을 사용하면 파트너 추가, 규약 만들기와 EDI, AS2 및 EDIFACT를 사용하여 온-프레미스에서 수행하는 모든 작업을 쉽게 수행할 수 있습니다.
 
@@ -194,7 +194,7 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 4. **확인**을 선택하여 변경 내용을 저장합니다.
 
->[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려면 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 추가 B2B 리소스
 
@@ -209,4 +209,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

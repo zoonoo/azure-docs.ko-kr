@@ -74,8 +74,7 @@ Azure 앱 서비스에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네
 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]: xplat-cli-install.md
 [Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

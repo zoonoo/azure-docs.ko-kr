@@ -3,7 +3,7 @@
 	description="이 항목에서는 데이터베이스 복원 또는 장애 조치(failover) 후 보안을 관리하기 위한 보안 고려 사항에 대해 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -95,4 +95,4 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 
 ## 추가 리소스
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="07/27/2016" 
     ms.author="jeedes" />
 
 #자습서: Cherwell와 Azure Active Directory 통합
@@ -62,6 +62,8 @@
 7.  결과 창에서 **Cherwell**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 ##Single Sign-On 구성
 
+	![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
+
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Cherwell에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
@@ -78,17 +80,21 @@
 
     ![앱 URL 구성](./media/active-directory-saas-cherwell-tutorial/IC798992.png "앱 URL 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://pictdev.cherwellondemand.com/cherwellclient*)
-    2.  **다음**를 클릭합니다.
+    a. **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://\<company name>.cherwellondemand.com/cherwellclient*)
+
+    b. **다음**를 클릭합니다.
 
 4.  **Cherwell의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Single Sign-On 구성")
 
-    1.  **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 로컬로 저장합니다.
-    2.  **ID 공급자 URL**을 복사합니다.
-    3.  **Single Sign-On 서비스 URL**을 복사합니다.
-    4.  **다음**을 클릭합니다.
+    a. **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 로컬로 저장합니다.
+
+    b. **ID 공급자 URL**을 복사합니다.
+
+    c. **Single Sign-On 서비스 URL**을 복사합니다.
+
+    d. **다음**을 클릭합니다.
 
 5.  다운로드한 인증서, **ID 공급자 URL** 및 **Single Sign-On 서비스 URL**을 Cherwell 지원팀에 제출합니다.
 
@@ -98,6 +104,7 @@
 6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Single Sign-On 구성")
+
 ##사용자 프로비전 구성
 
 Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell로 프로비전되어야 합니다.  
@@ -123,4 +130,4 @@ Cherwell의 경우 사용자 계정을 Cherwell 지원 팀에서 작성해야 �
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

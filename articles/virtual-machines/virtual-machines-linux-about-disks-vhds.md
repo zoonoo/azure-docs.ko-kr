@@ -25,10 +25,13 @@
 
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
 
+## 문제 해결
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+
 ## 다음 단계
 
 -  [디스크를 연결](virtual-machines-linux-attach-disk-portal.md)하여 VM에 다른 저장소를 추가합니다.
 -  중복성을 위해 [소프트웨어 RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
 -  추가 VM을 신속하게 배포할 수 있도록 [Linux 가상 컴퓨터를 캡처](virtual-machines-linux-classic-capture-image.md)합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

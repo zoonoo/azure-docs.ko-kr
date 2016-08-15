@@ -37,6 +37,7 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] Python이 아닌 Scala를 사용하여 종단 간 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure에서 Spark와 함께 Scala를 사용하는 데이터 과학](machine-learning-data-science-process-scala-walkthrough.md)을 참조하세요.
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -114,24 +115,24 @@ Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드�
 PySpark를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook에 대한 몇 가지 예가 들어 있는 디렉터리를 표시합니다. 이 Spark 항목 모음에 대한 코드 예제가 있는 Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에 제공됩니다.
 
 
-Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 단추를 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. PySpark Notebook은 다음 URL에서 사용할 수 있습니다.
+Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 버튼을 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. PySpark Notebook은 다음 URL에서 사용할 수 있습니다.
 
 1.	[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
 2.	[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
 3.	[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
 
-**업로드** 단추를 다시 사용하여 Jupyter 파일 목록에서 파일 이름을 확인합니다. 이 **업로드** 단추를 클릭합니다. 이제 Notebook을 가져왔습니다. 이 단계를 반복하여 이 연습에서 다음과 같은 Notebook을 업로드합니다.
+**업로드** 버튼을 다시 사용하여 Jupyter 파일 목록에서 파일 이름을 확인합니다. 이 **업로드** 버튼을 클릭합니다. 이제 Notebook을 가져왔습니다. 이 단계를 반복하여 이 연습에서 다음과 같은 Notebook을 업로드합니다.
 
-> [AZURE.TIP] 브라우저에서 아래 링크를 마우스 오른쪽 단추로 클릭하고 **링크 복사**를 선택하면 Jupyter 업로드 파일 탐색기 대화 상자에 붙여 넣을 수 있는 github 원시 콘텐츠 URL을 가져올 수 있습니다.
+> [AZURE.TIP] 브라우저에서 아래 링크를 마우스 오른쪽 단추로 클릭하고 **링크 복사**를 선택하면 Jupyter 업로드 파일 탐색기 대화 상자에 붙여넣을 수 있는 github 원시 콘텐츠 URL을 가져올 수 있습니다.
 
 이제 다음을 수행할 수 있습니다.
 
 - Notebook을 클릭하여 코드 확인
-- **SHIFT-ENTER**를 눌러 각 셀 실행
+- **Shift+Enter**를 눌러 각 셀 실행
 - **셀** -> **실행**을 클릭하여 전체 Notebook 실행
 - 쿼리의 자동 시각화 사용
 
-> [AZURE.TIP] PySpark 커널은 SQL(HiveQL) 쿼리의 출력을 자동으로 시각화합니다. Notebook의 **형식** 메뉴 단추를 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있는 옵션이 제공됩니다.
+> [AZURE.TIP] PySpark 커널은 SQL(HiveQL) 쿼리의 출력을 자동으로 시각화합니다. Notebook의 **형식** 메뉴 버튼을 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있는 옵션이 제공됩니다.
 
 ![일반적인 접근 방식에 대한 로지스틱 회귀 분석 ROC 곡선](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
@@ -145,4 +146,4 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

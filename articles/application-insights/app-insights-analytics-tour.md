@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -148,8 +148,10 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+적절한 형식에 대한 [캐스트](app-insights-analytics-reference.md#casts)를 사용해야 합니다.
 
 ## 사용자 지정 속성 및 측정
 
@@ -173,7 +175,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -267,7 +269,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 `where` 연산자는 부울 식을 가져옵니다. 여기서 이에 관한 몇 가지 중요한 사항이 있습니다.
 
- * `and`, `or`: 부울 연산자부울 연산자
+ * `and`, `or`: 부울 연산자
  * `==`, `<>`: 같음 및 같지 않음
  * `=~`, `!=`: 대/소문자 구분 없는 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
@@ -479,4 +481,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

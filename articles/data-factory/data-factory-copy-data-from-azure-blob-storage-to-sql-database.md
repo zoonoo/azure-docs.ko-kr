@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/27/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # 데이터 팩터리를 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터 복사 
@@ -116,4 +116,4 @@ Azure Data Factory의 복사 작업에 대한 자세한 내용은 [데이터 이
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

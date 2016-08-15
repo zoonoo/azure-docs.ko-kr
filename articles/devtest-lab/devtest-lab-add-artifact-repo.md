@@ -117,4 +117,8 @@
     3. 저장된 **개인 액세스 토큰**을 아티팩트 리포지토리에 입력합니다.
     4. **저장**을 선택합니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+## 관련 블로그 게시물
+- [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [ Azure DevTest Lab에서 ARM 템플릿을 사용하여 기존 AD 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+<!---HONumber=AcomDC_0803_2016-->

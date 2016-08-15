@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Azure 구독에 대한 지불 방법을 확인하고 결제하는 방법 | Microsoft Azure"
 	description="Azure 구독에 대한 지불 방법을 확인하고 결제하는 방법을 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -44,4 +45,4 @@
 
 결제를 송장으로 처리한다면, 송장 밑에 나열된 장소에 결제 금액을 보냅니다. 도움이 필요하면 [Microsoft 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

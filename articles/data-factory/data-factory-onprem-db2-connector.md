@@ -29,7 +29,7 @@
 
 데이터 관리 게이트웨이 버전 2.1부터 게이트웨이에서 DB2 데이터베이스에 연결할 수 있도록 하기 위해 Azure Data Factory는 LUW(Linux, Unix, Windows)용 DB2, z/OS용 DB2 및 i(aka AS/400)용 DB2를 비롯한 DB2를 지원하는 기본 제공 드라이버(SQLAM 9/10/11)를 제공하므로 DB2에서 복사할 때 더 이상 드라이버를 수동으로 설치할 필요가 없습니다.
 
-> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
 
 
 ## 샘플: DB2에서 Azure Blob로 데이터 복사
@@ -322,4 +322,4 @@ Char | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

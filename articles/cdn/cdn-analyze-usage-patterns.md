@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN 사용 패턴 분석"
+	pageTitle="Azure CDN 사용 패턴 분석 | Microsoft Azure"
 	description="다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다. 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPv4/IPv6 데이터"
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# CDN 사용 패턴 분석
+# Azure CDN 사용 패턴 분석
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@
 - 캐시 상태
 - 캐시 적중률
 - 전송되는 IPv4/IPv6 데이터
+
+## 고급 HTTP 보고서 액세스
+
+1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
+
+	![CDN 프로필 블레이드 관리 단추](./media/cdn-reports/cdn-manage-btn.png)
+
+	CDN 관리 포털이 열립니다.
+
+2. **분석** 탭을 마우스로 가리킨 후 **핵심 보고서** 플라이아웃을 마우스로 가리킵니다. 메뉴에서 원하는 보고서를 클릭합니다.
+
+	![CDN 관리 포털 - 핵심 보고서 메뉴](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## 대역폭
 
@@ -122,7 +135,7 @@
 - 헤더에 캐시하지 않도록 표시된 자산에 대한 요청 예를 들어 Cache-Control: private, Cache-Control: no-cache 또는 Pragma: no-cache 헤더는 자산이 캐시되지 않도록 합니다.
 - 부분적으로 캐시된 콘텐츠에 대한 바이트 범위 요청.
 
-수식은 (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100입니다.
+수식은 (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100입니다.
 
 - 날짜 범위를 선택하여 오늘/이번 주/이번 달 등의 데이터를 보거나 사용자 지정 날짜를 입력한 다음 "이동"을 클릭하여 선택 항목이 업데이트되었는지 확인합니다.
 - "이동" 옆에 있는 Excel 시트 아이콘을 클릭하여 데이터를 내보내고 다운로드할 수 있습니다.
@@ -144,4 +157,4 @@
 
 보고서는 최근 18개월 내에서만 생성할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

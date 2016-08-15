@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN 끝점 제거"
+	pageTitle="Azure CDN 끝점 제거 | Microsoft Azure"
 	description="CDN 끝점에서 캐시된 콘텐츠를 모두 제거하는 방법을 알아봅니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 끝점 제거
@@ -62,4 +62,4 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 - [Azure CDN 끝점에 자산 미리 로드](cdn-preload-endpoint.md)
 - [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

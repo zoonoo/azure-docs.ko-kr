@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -87,4 +87,4 @@ API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니
 [파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
 [하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

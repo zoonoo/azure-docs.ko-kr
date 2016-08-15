@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# DocumentDB SQL 참고 자료 PDF
+# DocumentDB SQL 쿼리 참고 자료 PDF
 
 **DocumentDB SQL 쿼리 참고 자료**를 사용하면 일반적인 데이터베이스 쿼리, 키워드, 기본 제공 함수 및 연산자를 쉽게 인쇄할 수 있는 PDF 참조 시트로 표시하여 DocumentDB 데이터에 대한 쿼리를 신속하게 작성할 수 있습니다.
 
@@ -31,7 +31,7 @@ SQL 쿼리 참고 자료를 다운로드하고 신속하게 참조하여 쿼리�
 
 ![DocumentDB SQL 쿼리 참고 자료: DocumentDB에서 지원하는 SQL 구문에 대한 빠른 참조 PDF - SQL 참고 자료, SQL 참고 자료 PDF, SQL 빠른 참조][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## SQL 쿼리 작성에 대한 추가 도움말
@@ -39,4 +39,8 @@ SQL 쿼리 참고 자료를 다운로드하고 신속하게 참조하여 쿼리�
 - DocumentDB에서 사용 가능한 쿼리 옵션에 대한 설명은 [DocumentDB 쿼리](documentdb-sql-query.md)를 참조하세요.
 - 관련 참조 문서는 [DocumentDB SQL 쿼리 언어](https://msdn.microsoft.com/library/azure/dn782250.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+## 릴리스 정보
+
+2016년 7월 29일 업데이트에는 TOP가 포함되었습니다.
+
+<!---HONumber=AcomDC_0803_2016-->

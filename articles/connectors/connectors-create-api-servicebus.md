@@ -1,7 +1,7 @@
 <properties
 pageTitle="논리 앱에서 Azure 서비스 버스 커넥터 사용 방법 알아보기 | Microsoft Azure"
 description="Azure 앱 서비스로 논리 앱을 만듭니다. Azure 서비스 버스에 연결하여 메시지를 보내고 받습니다. 큐에 보내기, 항목에 보내기, 큐에서 수신, 구독에서 수신 등의 작업을 수행할 수 있습니다."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Azure 서비스 버스 커넥터 시작
@@ -77,8 +77,28 @@ Azure 서비스 버스에는 다음과 같은 작업이 있습니다.
 
 |속성 이름| 표시 이름|설명|
 | ---|---|---|
-|message*|Message|보낼 메시지|
+|ContentData*|Content|메시지의 콘텐츠|
+|ContentType|콘텐츠 형식|메시지 콘텐츠의 콘텐츠 형식|
+|속성|속성|각 조정된 속성의 키-값 쌍|
 |entityName*|큐/항목 이름|큐 또는 항목의 이름입니다.|
+
+이 고급 매개 변수를 사용할 수도 있습니다.
+
+|속성 이름| 표시 이름|설명|
+| ---|---|---|
+|MessageId|메시지 ID|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
+|받는 사람  
+|받는 사람  
+|주소로 보내기|
+|ReplyTo|회신|회신할 큐의 주소|
+|ReplyToSessionId|세션 ID에 회신|회신할 세션의 식별자|
+|레이블|레이블|응용 프로그램 특정 레이블|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|큐에 메시지가 추가될 때 날짜 및 시간(UTC)|
+|SessionId|세션 ID|세션의 식별자|
+|CorrelationId|상관관계 ID|상관 관계의 식별자|
+|TimeToLive|TTL(Time to live)|메시지가 유효한 기간(틱)입니다. 이 기간은 메시지를 서비스 버스로 보낼 때부터 시작됩니다.|
+
+
 
 *는 필수 속성을 나타냅니다.
 
@@ -93,6 +113,7 @@ Azure 서비스 버스에는 다음과 같은 작업이 있습니다.
 | ---|---|---|
 |queueName*|큐 이름|큐의 이름|
 
+
 *는 필수 속성을 나타냅니다.
 
 #### 출력 세부 정보
@@ -104,7 +125,6 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 |---|---|---|
 |ContentData|string|메시지의 콘텐츠|
 |ContentType|string|메시지 콘텐츠의 콘텐츠 형식|
-|ContentTransferEncoding|string|메시지 콘텐츠의 콘텐츠 전송 인코딩("none"|"base64")|
 |속성|object|각 조정된 속성의 키-값 쌍|
 |MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
 |받는 사람  
@@ -129,6 +149,7 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 |topicName*|항목 이름|항목의 이름|
 |subscriptionName*|항목 구독 이름|항목 구독의 이름|
 
+
 *는 필수 속성을 나타냅니다.
 
 #### 출력 세부 정보
@@ -140,7 +161,6 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 |---|---|---|
 |ContentData|string|메시지의 콘텐츠|
 |ContentType|string|메시지 콘텐츠의 콘텐츠 형식|
-|ContentTransferEncoding|string|메시지 콘텐츠의 콘텐츠 전송 인코딩("none"|"base64")|
 |속성|object|각 조정된 속성의 키-값 쌍|
 |MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
 |받는 사람  
@@ -173,4 +193,4 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

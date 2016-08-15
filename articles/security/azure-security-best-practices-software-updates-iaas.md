@@ -13,18 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
-#Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례
+# Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례
 
-Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) 환경에 대한 모범 사례에서 토론의 종류를 구분하기 전에 소프트웨어 업데이트를 관리하는 시나리오의 정의를 이해해야 합니다. 아래 다이어그램은 여기에 도움이 됩니다.
+Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) 환경에 대한 모범 사례에서 토론의 종류를 구분하기 전에 소프트웨어 업데이트 및 책임을 관리하는 시나리오의 정의를 이해해야 합니다. 아래 다이어그램은 이러한 경계를 이해하는 데 도움이 됩니다.
 
-![클라우드 모델 및 책임](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
+![클라우드 모델 및 책임](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-전체 인프라가 위치된 온-프레미스인 기존 데이터 센터 모델에서 운영 체제, 응용 프로그램, 네트워크 장치(라우터, 스위치 등) 및 하드웨어(펌웨어)에 대한 업데이트를 관리하는 모든 책임이 있습니다. IaaS 시나리오에서 여전히 운영 체제 및 응용 프로그램에 대한 업데이트를 관리해야 합니다. 그러나 운영 체제 및 응용 프로그램 아래에서 전체 인프라는 Microsoft에서 관리됩니다. 이러한 모든 모델에서 고객은 여전히 데이터의 소유자이며 끝점 수준에서 데이터를 보호할 책임이 있습니다.
+맨 왼쪽에 있는 열에는 조직이 고려해야 하는 7가지 책임(다음 섹션에 정의되어 있음)이 나와 있습니다. 이러한 모든 책임은 컴퓨팅 환경의 보안 및 개인 정보와 관련이 있습니다.
+ 
+데이터 분류 및 책임, 클라이언트 및 끝점 보호는 고객의 영역에서만 발생하는 책임이며, 물리적 책임, 호스트 및 네트워크 책임은 PaaS 및 SaaS 모델의 클라우드 서비스 공급자 영역에서 발생합니다.
 
-PaaS 시나리오에서 운영 체제의 업데이트 관리가 Microsoft의 책임이기 때문에 소프트웨어 업데이트에 대한 책임은 더 적습니다. SaaS 시나리오에서 전체 스택에 대한 소프트웨어 업데이트는 Microsoft에 책임이 있습니다.
+나머지 책임은 고객 및 클라우드 서비스 공급자 간에 공유됩니다. 일부 책임의 경우 CSP 및 고객이 해당 영역의 감사를 비롯한 책임 업무를 함께 관리하고 운영해야 합니다. 예를 들어 Azure Active Directory 서비스를 사용할 때 ID 및 액세스 관리를 고려해 보세요. 다단계 인증과 같은 서비스의 구성은 고객의 책임이지만 효과적인 작동을 보장하는 것은 Microsoft Azure의 책임입니다.
+
+> [AZURE.NOTE] 클라우드의 공유 책임에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조하세요.
 
 아래 다이어그램에 표시된 것처럼 온-프레미스 리소스와 통신하는 Azure IaaS VM을 사용하는 하이브리드 시나리오에서 이러한 동일한 원칙이 적용됩니다.
 
@@ -118,4 +122,4 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴퓨터에 대한 소프트웨어 업데이트에 가장 적합한 옵션을 결정하도록 지원합니다. 기존 데이터 센터 및 Azure IaaS에서 소프트웨어 업데이트 모범 사례 간의 많은 공통점이 있습니다. 따라서 현재 소프트웨어 업데이트 정책을 평가하여 Azure VM을 포함하고 전체 소프트웨어 업데이트 프로세스의 이 문서에서 관련된 모범 사례를 포함하는 것이 좋습니다
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

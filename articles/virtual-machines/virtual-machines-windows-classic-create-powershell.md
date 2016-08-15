@@ -101,6 +101,8 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure
 
 D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
+>[AZURE.NOTE] Software Assurance가 적용되는 기업 계약이 체결되어 있고 Windows Server [하이브리드 사용 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 활용하려는 경우 **New-AzureVMConfig**에 **-LicenseType** 매개 변수를 추가하고 일반적인 사용 사례에 대해 **Windows\_Server** 값을 제공합니다. 업로드한 이미지를 사용하고 있는지 확인합니다. 하이브리드 사용 혜택으로 갤러리의 표준 이미지를 사용할 수는 없습니다.
+
 독립 실행형 Windows 컴퓨터의 경우, 선택적으로 로컬 관리자 계정 및 암호를 지정합니다.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
@@ -260,4 +262,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 127GB보다 큰 OS 디스크가 필요한 경우 [OS 드라이브를 확장](virtual-machines-windows-expand-os-disk.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

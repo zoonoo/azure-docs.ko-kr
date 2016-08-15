@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 구독을 취소하는 방법 | Microsoft Azure"
 	description="Azure 구독을 취소하는 방법을 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@
 4. **예, 구독을 취소합니다**를 선택합니다. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png)을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="08/01/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Azure 리소스 탐색기를 사용하여 리소스 보기 및 수정
@@ -34,7 +34,7 @@
 
 여기에서 리소스 인스턴스로 드릴다운할 수 있습니다. 아래의 스크린샷에는 트리 보기의 `sltest` SQL Server 인스턴스가 나와 있습니다. 오른쪽에서는 해당 리소스에 사용할 수 있는 REST API 요청에 대한 정보를 볼 수 있습니다. 리소스의 노드로 이동하면 리소스 탐색기에서 해당 리소스에 대한 정보를 검색하는 GET 요청을 자동으로 실행합니다. URL 아래의 큰 텍스트 영역에 API의 응답이 표시됩니다.
 
-ARM 템플릿에 익숙해지면 본문 내용에도 익숙해지기 시작합니다. 응답의 **properties** 섹션은 템플릿의 **properties** 섹션에서 제공할 수 있는 값과 일치합니다.
+Resource Manager 템플릿에 익숙해지면 본문 내용에도 익숙해지기 시작합니다. 응답의 **properties** 섹션은 템플릿의 **properties** 섹션에서 제공할 수 있는 값과 일치합니다.
 
 ![SQL Server](./media/resource-manager-resource-explorer/are-03-sqlserver-with-response.png)
 
@@ -70,8 +70,8 @@ ARM 템플릿에 익숙해지면 본문 내용에도 익숙해지기 시작합�
 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure Resource Manager에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 
 ## 요약
-Resource Manager는 ARM으로 작업할 때 매우 유용한 도구가 될 수 있습니다. PowerShell을 사용하여 쿼리하고 변경할 방법을 찾는 것이 좋습니다. REST API로 작업하는 경우 코드 작성을 시작하기 전에 API 호출을 시작하고 신속하게 테스트하는 것이 좋습니다. 또한 ARM 템플릿을 작성할 경우 리소스 계층을 이해하고 구성을 배치할 위치를 찾는 데 유용할 수 있습니다. 포털에서 변경한 다음 리소스 탐색기에서 해당 항목을 찾을 수 있습니다.
+리소스 탐색기는 Resource Manager로 작업할 때 매우 유용한 도구가 될 수 있습니다. PowerShell을 사용하여 쿼리하고 변경할 방법을 찾는 것이 좋습니다. REST API로 작업하는 경우 코드 작성을 시작하기 전에 API 호출을 시작하고 신속하게 테스트하는 것이 좋습니다. 또한 템플릿을 작성할 경우 리소스 계층을 이해하고 구성을 배치할 위치를 찾는 데 유용할 수 있습니다. 포털에서 변경한 다음 리소스 탐색기에서 해당 항목을 찾을 수 있습니다.
 
 자세한 내용은 [Scott Hanselman 및 David Ebbo의 Channel 9 비디오](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

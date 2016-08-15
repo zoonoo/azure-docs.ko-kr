@@ -5,7 +5,7 @@
 	keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/02/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 알림 
@@ -57,6 +57,6 @@ Azure AD ID 보호가 계정이 손상되었다고 식별하는 경우 사용자
 
 ## 참고 항목
 
-- [Azure Active Directory ID 보호](active-directory-identityprotection.md) 
+- [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

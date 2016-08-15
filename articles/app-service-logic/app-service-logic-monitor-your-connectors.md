@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 커넥터 및 API 앱 관리 및 모니터링 | Microsoft Azure"
-	description="Azure 앱 서비스에서 커넥터 및 API 앱의 성능 보기, 마이크로 서비스 아키텍처"
+	description="논리 앱에서 커넥터 및 API 앱의 성능 보기, 마이크로 서비스 아키텍처"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # 기본 제공 API 앱 및 커넥터 관리 및 모니터
@@ -110,14 +110,14 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 - **API 정의**선택하여 특정 API 앱에 대해 자동으로 만들어진 Swagger 파일을 엽니다.
 - **종속성**을 선택하여 API 앱이 요구하는 파일을 볼 수 있습니다. 예를 들어, SAP 커넥터를 사용하는 경우 일부 추가 파일을 온-프레미스 하이브리드 연결 관리자에서 설치 합니다. 이러한 종속성은 API 앱 블레이드에서 보여 줍니다.
 
-> [AZURE.IMPORTANT] API 앱 속성을 열면 **Essentials** 아래에 새 블레이드를 여는 **호스트** 및 **게이트웨이** 링크가 있습니다.
+>[AZURE.IMPORTANT] API 앱 속성을 열면 **Essentials** 아래에 새 블레이드를 여는 **호스트** 및 **게이트웨이** 링크가 있습니다.
 >
 > ![][host]
 >
-> 이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다.
+>이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다. <br/><br/>
 
 
->[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 수명이 짧은 스타터 논리 앱을 앱 서비스에서 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 수명이 짧은 스타터 논리 앱을 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
 
 ## 자세히 알아보기
 
@@ -137,4 +137,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@
 
 1. **복원 인스턴스 선택** 화면에서 가상 컴퓨터를 복원할 위치에 대한 세부 정보를 지정합니다.
 
-  - 가상 컴퓨터 이름 지정: 가상 컴퓨터 이름은 주어진 클라우드 서비스 내에서 고유해야 합니다. 기본 VM 덮어쓰기를 지원하지 않습니다. 
+  - 가상 컴퓨터 이름 지정: 가상 컴퓨터 이름은 주어진 클라우드 서비스 내에서 고유해야 합니다. 기본 VM 덮어쓰기를 지원하지 않습니다.
   - VM에 대한 클라우드 서비스 선택: VM을 만들기 위한 필수 항목입니다. 기존 클라우드 서비스를 사용하거나 새 클라우드 서비스 만들기를 선택할 수 있습니다.
 
         클라우드 서비스 이름이 무엇이든 간에 전체적으로 고유한 것이어야 합니다. 일반적으로 클라우드 서비스 이름은 [cloudservice].cloudapp.net과 같은 형태의 공용 URL과 관련이 있습니다. Azure는 새로운 클라우드 서비스를 만들 때 이미 사용된 이름을 허용하지 않습니다. 새로운 클라우드 서비스를 만들기로 한 경우 가상 컴퓨터와 동일한 이름이 부여됩니다. 이 경우 선택된 VM 이름은 관련된 클라우드 서비스에 적용할 수 있는 고유한 것이어야 합니다.
@@ -102,6 +102,9 @@
 
 가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)해야 할 수도 있습니다.
 
+## 복원 후 단계
+Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/virtual-machines-linux-classic-reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
+
 ## 복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 클라우드 서비스에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 클라우드 서비스에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.
 
@@ -119,7 +122,7 @@ Azure 포털에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
 Azure에 DSRM 모드가 없으면 문제가 됩니다. 따라서 이러한 VM을 복원하기 위해 Azure 포털을 사용할 수 없습니다. 지원되는 유일한 복원 메커니즘은 PowerShell을 사용하는 디스크 기반 복원입니다.
 
->[AZURE.WARNING] 다중 DC 환경의 도메인 컨트롤러 VM의 경우 복원에 Azure 포털을 사용하지 마세요. PowerShell 기반 복원만 지원됩니다.
+>[AZURE.WARNING]다중 DC 환경의 도메인 컨트롤러 VM의 경우 복원에 Azure 포털을 사용하지 마세요. PowerShell 기반 복원만 지원됩니다.
 
 [USN 롤백 문제](https://technet.microsoft.com/library/dd363553) 및 수정을 위한 제안 전략에 대해 알아보세요.
 
@@ -155,4 +158,4 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,8 +3,8 @@
   description="Azure 백업 서버를 사용하여 워크로드를 백업하도록 환경을 적절히 준비합니다."
   services="backup"
   documentationCenter=""
-  authors="trinadhk"
-  manager="shreeshd"
+  authors="PVRK"
+  manager="shivamg"
   editor=""
   keywords="azure 백업 서버; 백업 자격 증명 모음"/>
 
@@ -277,4 +277,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

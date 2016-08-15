@@ -189,7 +189,7 @@ ID로 음식 선택|~2.5 RU|1
 
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다. 가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 
-##예약된 처리량 제한 초과
+##<a id="RequestRateTooLarge"></a> 예약된 처리량 제한 초과
 요청 단위 소비는 초당 비율로 평가된다고 했습니다. 컬렉션에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
 
 	HTTP Status 429
@@ -220,4 +220,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

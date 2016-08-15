@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Azure 앱 서비스의 논리 앱에서 B2B 메시지 추적 | Microsoft Azure" 
    description="이 항목에서는 B2B 처리 추적에 대해 설명합니다." 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -47,4 +47,4 @@ X12 API 앱 인스턴스를 만들면 해당 인스턴스를 찾아서 **추적*
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

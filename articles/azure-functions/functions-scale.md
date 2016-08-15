@@ -3,7 +3,7 @@
    description="Azure Functions에서 이벤트 기반 워크로드의 수요를 충족하도록 크기를 조정하는 방식을 이해합니다."
    services="functions"
    documentationCenter="na"
-   authors="eduardolaureano"
+   authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
@@ -15,8 +15,8 @@
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="edlaure"/>
+   ms.date="08/03/2016"
+   ms.author="dariagrigoriu"/>
 
 # Azure Functions 크기 조정 방법
 
@@ -47,4 +47,4 @@ Azure Functions에 익숙하지 않다면 해당 기능을 더 잘 이해할 수
 
 [AZURE.INCLUDE [동적 서비스 계획](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

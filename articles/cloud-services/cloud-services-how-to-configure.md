@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
 
 
@@ -86,4 +86,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * [Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용](cloud-services-role-enable-remote-desktop.md)
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

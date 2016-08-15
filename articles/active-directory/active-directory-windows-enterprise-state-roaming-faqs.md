@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/21/2016"
 	ms.author="femila"/>
 
 # 설정 및 데이터 로밍 FAQ
@@ -67,19 +67,20 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 1. 먼저, 각 Azure AD 테넌트에 대한 GUID가 필요합니다. Azure 클래식 포털을 열고 Azure AD 테넌트를 선택합니다. 테넌트에 대한 GUID는 브라우저 주소 표시줄의 URL에 있으며 다음과 같습니다. `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. GUID를 가져온 후에는 다음 레지스트리 키를 추가해야 합니다. **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\SettingSync\\WinMSIPC<tenant ID GUID>** <**tenant ID GUID**> 키에서 **AllowedRMSServerUrl**이라는 이름의 새로운 다중 문자열 값(REG-MULTI-SZ)과 해당 데이터를 만들고, 장치가 액세스하는 다른 Azure 테넌트의 라이선싱 배포 지점을 지정합니다.
-3. **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl **및 **LicenseingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
+3. **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicenseingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 
 
 ## 기존 Windows 데스크톱 응용 프로그램의 로밍 설정에 대한 옵션은 무엇인가요?
 로밍은 유니버설 Windows 앱에서만 작동합니다. 기존 Windows 데스크톱 응용 프로그램에서 로밍을 활성화할 수 있는 두 가지 옵션이 있습니다.
 
 - [데스크톱 브리지](http://aka.ms/desktopbridge)를 사용하면 유니버설 Windows 플랫폼에 기존 Windows 데스크톱 앱을 쉽게 가져올 수 있습니다. 이때 Azure AD 앱 데이터 로밍을 활용하려면 최소한의 코드 변경 작업이 필요합니다. 데스크톱 브리지는 앱 ID를 사용하여 앱을 제공하며 이는 기존 데스크톱 앱에 앱 데이터 로밍을 사용하는 데 필요합니다.
-- [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx)를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization 패키지를 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다. 
+- [UE-V(사용자 경험 가상화)](https://technet.microsoft.com/library/dn458947.aspx)를 사용하면 기존 Windows 데스크톱 앱에 대한 사용자 지정 설정 템플릿을 만들 수 있고 Win32 앱에 대해서만 로밍을 사용할 수 있습니다. 이 옵션은 앱의 코드를 변경하기 위해 앱 개발자가 필요하지 않습니다. UE-V는 Microsoft Desktop Optimization 패키지를 구매한 고객에 대한 온-프레미스 Active Directory 로밍으로 제한됩니다.
 
 관리자는 [UE-V 그룹 정책](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)을 통해 Windows OS 설정 및 유니버설 앱 데이터의 로밍을 사용하지 않도록 설정하여 Windows 데스크톱 앱 데이터를 로밍하도록 UEV를 구성할 수 있습니다.
 
 - "Windows 설정 로밍" 그룹 정책 사용 안 함
 - "Windows 앱 동기화 안 함" 그룹 정책 사용하도록 설정
+- 응용 프로그램 섹션에서 "IE" 로밍 사용 안 함
 
 앞으로 Microsoft는 UE-V를 Windows와 긴밀하게 통합하고 Azure AD 클라우드를 통해 설정을 로밍할 수 있도록 UE-V를 확장하는 방법을 연구할 것입니다.
 
@@ -96,15 +97,15 @@ Microsoft는 고객 데이터를 보호하기 위해 최선을 다하고 있습�
 Windows 10에는 개별 응용 프로그램의 로밍을 비활성화하는 MDM 또는 그룹 정책 설정이 없습니다. 테넌트 관리자는 관리되는 장치의 모든 앱에 대해 앱 데이터 동기화를 비활성화할 수 있지만 앱당 또는 앱 내부 수준에서 더욱 정교하게 제어하는 방법은 없습니다.
 
 ## 개별 사용자가 로밍을 활성화/비활성화하려면 어떻게 해야 하나요?
-**설정** 앱에서 **계정** ->** 설정 동기화**로 이동합니다. 이 페이지에서 설정 로밍에 사용되는 계정을 확인할 수 있으며, 개별 설정 그룹의 로밍을 활성화 또는 비활성화할 수 있습니다.
+**설정** 앱에서 **계정** -> **설정 동기화**로 이동합니다. 이 페이지에서 설정 로밍에 사용되는 계정을 확인할 수 있으며, 개별 설정 그룹의 로밍을 활성화 또는 비활성화할 수 있습니다.
 
 ##현재 Microsoft는 Windows 10 로밍 활성화에 대해 무엇을 권장합니까?
 Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 로밍을 포함하여 몇 가지 설정 로밍 솔루션을 제공하고 있습니다. Microsoft에서는 이후 버전의 Windows에서도 엔터프라이즈 상태 로밍에 투자하기 위해 최선을 다하고 있습니다. 조직에서 데이터를 클라우드로 이동할 준비가 덜 되었거나 불편하게 생각하는 경우에는 기본 로밍 기술로 UE-V를 사용하시기를 권장합니다. 조직에서 기존 Windows 데스크톱 응용 프로그램에 대한 로밍 지원이 필요하지만 클라우드로 이동하고 싶은 경우 Microsoft에서는 엔터프라이즈 상태 로밍과 UE-V를 모두 사용하시기를 권장합니다. UE-V와 엔터프라이즈 상태 로밍이 매우 비슷한 기술이지만 상호 배타적인 관계는 아니며 현재는 조직이 사용자에게 필요한 로밍 서비스를 제공할 수 있도록 서로를 보완해 주는 관계에 있습니다.
 
 엔터프라이즈 상태 로밍과 UE-V를 모두 사용할 경우 다음 규칙이 적용됩니다.
 
-- 엔터프라이즈 상태 로밍은 장치의 기본 로밍 에이전트입니다. UE-V는 “Win32 갭”을 보완하기 위해 사용됩니다. 
-- Windows 설정 및 최신 UWP 앱 데이터는 이미 엔터프라이즈 상태 로밍을 통해 다루었으므로 UE-V 그룹 정책을 사용하여 비활성화해야 합니다. 
+- 엔터프라이즈 상태 로밍은 장치의 기본 로밍 에이전트입니다. UE-V는 “Win32 갭”을 보완하기 위해 사용됩니다.
+- Windows 설정 및 최신 UWP 앱 데이터는 이미 엔터프라이즈 상태 로밍을 통해 다루었으므로 UE-V 그룹 정책을 사용하여 비활성화해야 합니다.
 
 ##엔터프라이즈 상태 로밍은 VDI(가상 데스크톱 인프라)를 어떻게 지원하나요?
 엔터프라이즈 상태 로밍은 서버 SKU가 아닌 Windows 10 클라이언트 SKU에 대해서만 지원됩니다. 클라이언트 VM이 가상 컴퓨터에 대한 하이퍼바이저 컴퓨터와 최종 사용자 원격 컴퓨터에서 호스팅되는 경우 사용자의 데이터가 로밍됩니다. 여러 사용자가 전체 데스크톱 환경을 위해 서버에 동일한 OS 및 사용자 원격 컴퓨터를 공유하는 경우 로밍은 작동되거나 작동되지 않을 수 있습니다. 두 번째 세션 기반 시나리오는 공식적으로 지원되지 않습니다.
@@ -116,11 +117,12 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 ## 알려진 문제
 
 - 스마트 카드 또는 가상 스마트 카드로 Windows에 로그인하면 설정 동기화가 중지됩니다. 스마트 카드 또는 가상 스마트 카드를 사용하여 장치에 로그인하려고 하면 동기화가 중지됩니다. 이 문제는 추후에 있을 Windows 10 업데이트에서 해결될 것입니다.
-- IE 즐겨찾기 동기화는 이전 버전 Windows 10을 작성하기 위해 작동하지 않습니다. 작업에 동기화된 IE 즐겨찾기용 Windows 10에 대한 5월 누적 업데이트가 필요합니다(10.0.10586.318 빌드 이상).
-- 특정 조건에서 엔터프라이즈 상태 로밍은 Multi-Factor Authentication(MFA)가 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 
-    - Azure AD 포털에서 [Azure MFA](multi-factor-authentication.md)를 필요로 하도록 사용자를 구성한 경우 사용자는 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 MFA 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하는 해당 Windows 10 장치에 로그인하여 동기화될 수 있습니다. 
+- IE 즐겨찾기 동기화는 이전 버전 Windows 10을 작성하기 위해 작동하지 않습니다. 작업에 동기화된 IE 즐겨찾기용 Windows 10에 대한 7월 누적 업데이트가 필요합니다(10586.494 빌드 이상).
+- 특정 조건에서 엔터프라이즈 상태 로밍은 Multi-Factor Authentication(MFA)가 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다.
+    - Azure AD 포털에서 [Azure MFA](multi-factor-authentication.md)를 필요로 하도록 사용자를 구성한 경우 사용자는 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 MFA 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하는 해당 Windows 10 장치에 로그인하여 동기화될 수 있습니다.
     - 관리자가 AD FS MFA 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료되는 경우 동기화는 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그오프하고 로그인하도록 합니다.
-
+   
+- 컴퓨터가 Azure AD 장치에 자동 등록되어 도메인에 가입된 경우 오랜 시간 동안 오프사이트 상태이면 동기화 실패가 발생할 수 있고 도메인 인증을 완료할 수 없습니다. 이 문제를 해결하려면 동기화를 다시 시작할 수 있도록 컴퓨터를 회사 네트워크에 연결합니다.
 
 
 ## 관련된 항목
@@ -129,4 +131,4 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 - [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->
