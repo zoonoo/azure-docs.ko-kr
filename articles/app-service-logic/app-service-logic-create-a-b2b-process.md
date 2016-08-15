@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Azure 앱 서비스에서 B2B 프로세스 만들기 | Microsoft Azure" 
    description="B2B 프로세스를 만드는 방법에 대한 개요" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -70,4 +70,4 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

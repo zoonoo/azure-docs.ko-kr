@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # 클라우드 서비스를 구성하는 방법
 
@@ -56,7 +53,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 - 디스크 쓰기
 - 네트워크 입력
 - 네트워크 출력
-- CPU 비율 
+- CPU 비율
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md) 구성
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

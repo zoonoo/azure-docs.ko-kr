@@ -219,10 +219,8 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
 
 [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-[Rob의 그룹 블로그](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad)에서 Microsoft 프로그램 관리자 Rob de Jong의 자세한 안내가 제공됩니다.
-
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

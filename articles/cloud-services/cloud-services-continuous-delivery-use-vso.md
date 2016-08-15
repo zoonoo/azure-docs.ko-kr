@@ -32,11 +32,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 ## 2: 소스 제어에 프로젝트 체크 인
 
-1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다.
-이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다.
-프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다.
-메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
-웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md)
+1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md)
 
 	> [AZURE.NOTE] Visual Studio Team Services는 현재 Visual Studio 웹 응용 프로그램의 CI 배포만 지원합니다. 웹 사이트 프로젝트는 범위를 벗어납니다.
 
@@ -268,7 +264,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 	![][50]
 
 ## 다음 단계
-Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git에서 코드를 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure 앱 서비스에 GIT를 사용하여 연속 배포](../app-service-web/web-sites-publish-source-control.md). Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
+Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git로 코드 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure 앱 서비스에 연속 배포](../app-service-web/app-service-continuous-deployment.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,4 +317,4 @@ Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

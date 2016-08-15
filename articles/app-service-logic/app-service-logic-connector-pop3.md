@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 POP3 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="POP3 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -65,8 +65,7 @@ API 앱을 만들고 나면 이제 POP3 커넥터를 논리 앱에 대한 트리
 5.	이제 흐름에서 POP3 커넥터를 사용할 수 있습니다. "전자 메일 가져오기" 트리거를 선택하고 빈도 및 간격을 구성합니다. 흐름의 다른 작업에서 POP3 트리거에서 검색된 전자 메일을 사용할 수 있습니다.
 		 
 
-	![][5]
-	![][6]
+	![][5] ![][6]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
@@ -86,4 +85,4 @@ API 앱을 만들고 나면 이제 POP3 커넥터를 논리 앱에 대한 트리
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

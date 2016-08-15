@@ -1,12 +1,12 @@
 <properties
 	pageTitle="단일 Azure AD 테넌트를 Office 365 및 Azure 구독 전체에서 공유 | Microsoft Azure"
 	description="Office 365 Azure AD 테넌트 및 그 사용자를 Azure 구독과 공유하는 방법 및 그 반대로 공유하는 방법에 대해 알아봅니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -147,4 +147,4 @@ Office 365 및 Azure는 Azure Active Directory(AAD) 서비스를 사용하여 �
 ##다음 단계
 과거에 Azure 및 Office 365 구독을 모두 별도로 획득하고 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 하려는 관련된 시나리오가 있습니다. 이 작업을 수행하는 방법을 알아보려면 [Azure 구독과 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

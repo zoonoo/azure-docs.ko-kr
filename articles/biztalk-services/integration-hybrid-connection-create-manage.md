@@ -21,12 +21,20 @@
 
 
 ## 단계의 개요
-1. 개인 네트워크에 있는 온-프레미스 리소스의 호스트 이름 또는 IP 주소를 입력하여 하이브리드 연결을 만듭니다.
+1. 개인 네트워크에 있는 온-프레미스 리소스의 **호스트 이름** 또는 **FQDN**를 입력하여 하이브리드 연결을 만듭니다.
 2. 하이브리드 연결에 Azure 웹앱 또는 Azure 모바일 앱을 연결합니다.
 3. 온-프레미스 리소스에 하이브리드 연결 관리자를 설치하고 특정 하이브리드 연결에 연결합니다. Azure 포털은 한 번 클릭으로 설치하고 연결할 수 있도록 합니다.
 4. 하이브리드 연결을 관리하고 연결 키를 관리합니다.
 
 이 항목에서는 이러한 단계를 나열합니다.
+
+> [AZURE.IMPORTANT] 하이브리드 연결 끝점을 IP 주소로 설정할 수 있습니다. IP 주소를 사용하는 경우 클라이언트에 따라 온-프레미스 리소스에 도달하지 못할 수 있습니다. 하이브리드 연결은 DNS 조회를 수행하는 클라이언트에 따라 달라집니다. 대부분의 경우에는 __클라이언트__ 는 응용 프로그램 코드입니다. 클라이언트가 DNS 조회를 수행하지 않는 경우(도메인 이름(x.x.x.x)인 것처럼 보이면 IP 주소를 확인하지 않음), 하이브리드 연결을 통해 트래픽을 보내지 않습니다.
+>
+> 예를 들어, **10.4.5.6**(의사 코드)을 온-프레미스 호스트로 정의합니다.
+> 
+> **다음 시나리오는 다음과 같은 경우 적용됩니다**.`Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> 
+> **다음 시나리오는 다음과 같은 경우 적용되지 않습니다**.`Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 
 
 ## <a name="CreateHybridConnection"></a>하이브리드 연결 만들기
@@ -48,7 +56,7 @@
 	속성 | 설명
 --- | ---
 이름 | 하이브리드 연결 이름은 고유해야 하며 BizTalk 서비스와 같은 이름일 수 없습니다. 어떤 이름을 입력해도 괜찮지만 용도에 맞는 구체적인 이름을 입력하는 것이 좋습니다. 예제는 <br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*를 포함합니다.
-호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예제는 <br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10을 포함합니다.
+호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예제는 <br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>을 포함합니다. IPv4 주소를 사용하는 경우 클라이언트 또는 응용 프로그램 코드가 IP 주소를 확인하지 못할 수 있습니다. 이 항목의 맨 위에 있는 요한 사항을 참조하세요.
 포트 | 온-프레미스 리소스의 포트 번호를 입력합니다. 예를들어, 웹앱을 사용하는 경우 포트 80 또는 443을 입력합니다. SQL Server를 사용하는 경우 포트 1433을 입력합니다.
 
 5. 설정을 완료하려면 확인 표시를 선택합니다.
@@ -152,4 +160,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

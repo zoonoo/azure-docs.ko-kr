@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터의 시스템 업데이트 적용
@@ -60,4 +60,4 @@ Azure 보안 센터는 누락된 운영 체제 업데이트에 대해 매일 Win
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -70,7 +70,7 @@ azure vm reset-access -g <resource group> <vm name> -u <username> -p <new passwo
 SSH 키 인증을 사용하는 경우 지정된 사용자의 SSH 키를 다시 설정할 수 있습니다.
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g <resource group> -n <vm name> -u <username> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 #### VM 액세스 확장
@@ -134,4 +134,4 @@ Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제�
 
 - 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](virtual-machines-linux-classic-reset-access.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

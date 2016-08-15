@@ -25,7 +25,7 @@
 > [AZURE.NOTE] 
 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템에서 통신하는 데 다른 이진 파일을 설치할 필요가 없습니다.
 > 
-> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
 
 ## Linux 파일 공유 
 
@@ -574,4 +574,4 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

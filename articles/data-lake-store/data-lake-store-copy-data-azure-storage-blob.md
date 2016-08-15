@@ -18,6 +18,10 @@
 
 # Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사
 
+> [AZURE.SELECTOR]
+- [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
+- [AdlCopy 사용](data-lake-store-copy-data-azure-storage-blob.md)
+
 Azure Data Lake Store는 다음 원본에서 데이터를 복사하는 [AdlCopy](http://aka.ms/downloadadlcopy)라는 명령줄 도구를 제공합니다.
 
 * Azure 저장소 Blob에서 Data Lake Store로 데이터 레이크 저장소에서 Azure 저장소 Blob으로 데이터를 복사하는 데 AdlCopy를 사용할 수 없습니다.
@@ -169,4 +173,4 @@ Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake 
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

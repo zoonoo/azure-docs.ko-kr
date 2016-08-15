@@ -1,12 +1,12 @@
 <properties
 	pageTitle="등록 시 신용 카드 또는 직불 카드 거부 | Microsoft Azure"
 	description="신용 카드 또는 직불 카드 거부와 같은 Microsoft Azure 등록 문제의 일반적인 원인을 논의합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="신용 카드 거부, 직불 카드 거부, 신용 카드가 거부됨, 신용 카드가 인식되지 않음"/>
 
 <tags
@@ -41,4 +41,4 @@ Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 
 
 청구서를 설정하는 프로세스를 시작하려면 [Azure 청구 - 청구 방법](https://azure.microsoft.com/pricing/invoicing/)에서 자세한 내용을 확인하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

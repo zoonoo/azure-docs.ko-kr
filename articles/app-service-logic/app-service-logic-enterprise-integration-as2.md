@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="엔터프라이즈 통합 팩에 AS2 규약을 만드는 방법 알아보기" 
 	description="엔터프라이즈 통합 팩에 AS2 규약을 만드는 방법 알아보기 | Microsoft Azure 앱 서비스" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -97,4 +97,4 @@
 이제 거의 완료되었습니다.
 9. 통합 계정 블레이드에서 **규약** 타일을 선택하면 새로 추가한 규약이 나열됩니다. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 
+
+> [AZURE.NOTE] 이 백서는 2015년에 마지막으로 업데이트되었으며 [데이터의 글로벌 배포](documentdb-distribute-data-globally.md) 및 [분할된 컬렉션](documentdb-partition-data.md) 등의 DocumentDB의 업데이트용 계정이 아직 업데이트되지 않았습니다. DocumentDB에 대한 최신 소개는 [DocumentDB 소개: NoSQL JSON 데이터베이스](documentdb-introduction.md)를 참조하세요.
 
 DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십니까? JSON 데이터가 Azure DocumentDB에 저장되고 액세스되는 방법에 대해 알아 보시겠습니까? 그렇다면 David chappell이 작성한 이 소개 백서는 시작할 때 참조하기 좋습니다. 데이터 구조의 변경 내용을 손 쉽게 처리할 수 있도록 스키마 무료 JSON 데이터가 제공하는 유연성을 어떻게 활용할 수 있는지 설명합니다.
 
@@ -31,4 +33,4 @@ DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십
 **PDF다운로드:** [ DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

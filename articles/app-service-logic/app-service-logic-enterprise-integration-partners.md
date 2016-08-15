@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="파트너 및 엔터프라이즈 통합 팩에 대해 알아보기 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 파트너를 사용하는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ Azure 포털에서 다음을 수행합니다.
 ## 다음 단계
 - [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

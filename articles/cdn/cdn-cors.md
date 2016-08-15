@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CORS에서 Azure CDN 사용"
+	pageTitle="CORS에서 Azure CDN 사용 | Microsoft Azure"
 	description="CORS(크로스-원본 자원 공유)와 함께 CDN(콘텐츠 배달 네트워크)을 사용하는 방법을 알아봅니다."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # CORS에서 Azure CDN 사용     
@@ -23,7 +23,7 @@
 CORS(크로스 원본 자원 공유)는 특정 도메인에서 실행되는 웹 응용 프로그램이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 사이트 간 스크립팅 공격 가능성을 줄이기 위해 모든 최신 웹 브라우저는 [동일 원본 정책](http://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다. 이 경우 웹 페이지는 다른 도메인의 API를 호출할 수 없습니다. CORS는 한 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다.
  
 ## 작동 방법
-1.	브라우저는 **Origin** HTTP 헤더를 사용하여 OPTIONS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공하는 도메인입니다. https://www.contoso.com의 페이지가 fabrikam.com 도메인의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다. 
+1.	브라우저는 **Origin** HTTP 헤더를 사용하여 OPTIONS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공하는 도메인입니다. https://www.contoso.com의 페이지가 fabrikam.com 도메인의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다.
     
     `Origin: https://www.contoso.com`
  
@@ -81,4 +81,4 @@ Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*
 
 Azure CDN 표준 프로필에서 와일드카드 원본을 사용하지 않고 여러 원본에 대해 허용되는 유일한 메커니즘은 [쿼리 문자열 캐싱](cdn-query-string.md)을 사용하는 것입니다. CDN 끝점에 대해 쿼리 문자열 설정을 사용하도록 지정하고 허용된 각 도메인의 요청에 대해 고유한 쿼리 문자열을 사용해야 합니다. 이렇게 하면 CDN은 고유한 각 쿼리 문자열에 대해 별도의 개체를 캐싱합니다. 그렇지만 이 방법은 동일한 파일의 여러 복사본이 CDN에 캐시되므로 이상적이지 않습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

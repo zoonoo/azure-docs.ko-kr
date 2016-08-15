@@ -1,7 +1,7 @@
 <properties
    pageTitle="Microsoft Azure 앱 서비스에서 DB2 커넥터 사용 | Microsoft Azure"
    description="논리 앱 트리거 및 동작을 통해 DB2 커넥터를 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -271,4 +271,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="호출 가능 끝점인 논리 앱"
    description="트리거 끝점을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ content-type이 `application/json`이면 요청 내에서 속성을 참조할 �
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="이 페이지는 Azure SQL 데이터베이스의 일반 제한 사항 일부와 상호 운용성 및 지원 영역을 설명합니다."
    services="sql-database"
    documentationCenter="na"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar" />
 <tags
@@ -63,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

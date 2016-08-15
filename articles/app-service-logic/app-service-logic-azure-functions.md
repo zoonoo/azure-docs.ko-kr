@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱과 함께 Azure Functions 사용 | Microsoft Azure"
    description="논리 앱과 함께 Azure Functions를 사용하는 방법 확인"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -70,4 +70,4 @@ function start(req, res){
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

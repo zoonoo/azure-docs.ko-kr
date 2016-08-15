@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [드라이버](sql-data-warehouse-connection-strings.md)
 
 
-다음 응용 프로그램 프로토콜 중 하나를 사용하여 SQL 데이터 웨어하우스에 연결할 수 있습니다.
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 설정할 수 있습니다. Azure 포털에서 데이터베이스로 이동한 다음 *필수*에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
+[ADO.NET][], [ODBC][], [PHP][] 및 [JDBC][]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL 데이터 웨어하우스에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다. Azure 포털을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 ## 샘플 ADO.NET 연결 문자열
 
@@ -58,6 +51,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] 짧은 시간 동안 사용 불가 이후에 연결이 계속 유지될 수 있도록 하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.
+
 ## 다음 단계
 
 Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][]를 참조하세요.
@@ -75,4 +70,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

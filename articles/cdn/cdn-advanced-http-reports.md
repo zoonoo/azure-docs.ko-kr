@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - 고급 HTTP 보고서"
+	pageTitle="Azure CDN 고급 HTTP 보고서 | Microsoft Azure"
 	description="Microsoft Azure CDN에서 고급 HTTP 보고서입니다. 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN에서 고급 HTTP 보고서
@@ -33,6 +33,8 @@
 	CDN 관리 포털이 열립니다.
 
 2. **분석** 탭을 마우스로 가리킨 후 **고급 HTTP 보고서** 플라이아웃을 마우스로 가리킵니다. **HTTP 큰 플랫폼**을 클릭합니다.
+
+	![CDN 관리 포털 - 고급 보고서 메뉴](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	보고서 옵션이 표시됩니다.
 
@@ -196,4 +198,4 @@
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 * [에지 성능 분석](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

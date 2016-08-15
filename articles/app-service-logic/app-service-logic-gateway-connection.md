@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 온-프레미스 데이터 게이트웨이 연결 | Microsoft Azure"
    description="논리 앱에서 온-프레미스 데이터 게이트웨이에 대한 연결을 작성하는 방법에 대한 정보입니다."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -70,4 +70,4 @@ Azure 구독이 온-프레미스 데이터 게이트웨이 인스턴스와 연�
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

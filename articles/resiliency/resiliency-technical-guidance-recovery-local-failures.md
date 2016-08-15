@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Azure 복원력 기술 지침 - Azure의 로컬 오류로부터 복구
 
@@ -223,4 +223,4 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 
 이 문서는 [Azure 복원 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="07/29/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -28,6 +28,40 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 -	FAQ의 끝에 있는 [Disqus 스레드](#comments)에 질문을 게시하면 Azure 캐시 팀 및 이 문서에 대한 다른 커뮤니티 구성원이 참여할 수 있습니다.
 -	[Azure 캐시 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
 -	[Azure 캐시 외부 피드백](mailto:azurecache@microsoft.com)에서 전자 메일을 보낼 수도 있습니다.
+
+## Azure Redis Cache 기본 사항
+
+이 섹션의 FAQ에서는 Azure Redis Cache의 기본 사항 일부에 대해 설명합니다.
+
+-    [Azure Redis Cache란?](#what-is-azure-redis-cache)
+-    [Azure Redis Cache를 시작하려면 어떻게 하나요?](#how-can-i-get-started-with-azure-redis-cache)
+
+다음 FAQ는 Azure Redis Cache에 대한 기본 개념 및 질문을 소개하고 다른 FAQ 섹션 중 하나에 대한 답변을 제공합니다.
+
+-	[어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](#what-redis-cache-offering-and-size-should-i-use)
+-	[어떤 Redis Cache 클라이언트를 사용할 수 있나요?](#what-redis-cache-clients-can-i-use)
+-	[Azure Redis Cache에 대한 로컬 에뮬레이터가 있나요?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+
+
+### Azure Redis Cache란?
+
+Azure Redis Cache는 인기 있는 오픈 소스 [Redis Cache](http://redis.io)를 기반으로 하며, Microsoft에서 관리하여 Azure에 있는 모든 응용 프로그램에서 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
+
+
+### Azure Redis Cache를 시작하려면 어떻게 하나요?
+
+몇 가지 방법으로 Azure Redis Cache를 시작할 수 있습니다.
+
+-    [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md) 및 [Python](cache-python-get-started.md)에 대해 사용할 수 있는 자습서 중 하나를 확인해볼 수 있습니다.
+-    [Microsoft Azure Redis Cache를 사용하여 고성능 앱을 빌드하는 방법](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)을 참조할 수도 있습니다.
+-    Redis 사용 방법을 확인하려면 사용 중인 프로젝트의 개발 언어와 일치하는 클라이언트용 클라이언트 설명서를 확인해 보세요. Azure Redis Cache를 사용할 수 있는 많은 Redis 클라이언트가 있습니다. Redis 클라이언트 목록에 대해서는 [http://redis.io/clients](http://redis.io/clients)를 참조하세요.
+
+
+Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
+
+-    [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
+-    [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 ## 계획 FAQ
 
@@ -135,7 +169,7 @@ ConnectTimeout|연결 작업의 시간 제한(ms)입니다.| 아래 지침을 �
 
 ### 어떤 Redis Cache 클라이언트를 사용할 수 있나요?
 
-Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](http://redis.io/clients)를 참조하세요. 여러 언어 지원 및 클라이언트를 포괄하는 자습서에 대해서는 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고 문서 맨 위에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
+Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](http://redis.io/clients)를 참조하세요. 여러 언어 지원 및 클라이언트를 포괄하는 자습서에 대해서는 [Azure Redis Cache 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고 문서 맨 위에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -181,9 +215,9 @@ Azure Redis Cache에 대한 로컬 에뮬레이터는 없지만 다음 예제와
 <a name="cache-reference"></a>
 ### 다른 일부 Azure 서비스와 달리 Azure Redis Cache에는 왜 MSDN 클래스 라이브러리 참조가 없나요?
 
-Microsoft Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기준으로 하며, 여러 프로그래밍 언어에 대해 사용할 수 있는 다양한 [Redis 클라이언트](http://redis.io/clients)에서 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](http://redis.io/commands)을 사용하여 Redis Cache 인스턴스를 호출하는 자체 API가 있습니다.
+Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 기준으로 하며, 여러 프로그래밍 언어에 대해 사용할 수 있는 다양한 [Redis 클라이언트](http://redis.io/clients)로 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](http://redis.io/commands)을 사용하여 Redis Cache 인스턴스를 호출하는 자체 API가 있습니다.
 
-클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다. 이러한 자습서에 액세스하려면 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고 문서 맨 위에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
+클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다. 이러한 자습서에 액세스하려면 [Azure Redis Cache 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고 문서 맨 위에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
 
 
 ## 보안 FAQ
@@ -376,4 +410,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

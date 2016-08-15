@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Azure 구독과 Office 365 테넌트 사용 | Microsoft Azure"
 	description="연결할 Azure 구독에 Office 365 디렉터리(테넌트)를 추가하는 방법을 알아봅니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -145,4 +145,4 @@ Azure 구독과 Office 365 테넌트를 연결하려면 다음 단계를 따릅�
 ## 다음 단계
 이미 Office 365 구독이 있고 Azure 구독에 대해 준비되어 있지만, 기존 Office 365 사용자 계정을 Azure 구독에 사용하려는 관련 시나리오가 있습니다. 또는, Azure 구독자인데 기존 Azure Active Directory의 사용자에 대한 Office 365 구독을 원합니다. 이러한 작업을 수행하는 방법을 알아보려면 [기존 Office 365 계정을 Azure 구독에 사용하거나 그 반대로 사용하는 경우](billing-use-existing-office-365-account-azure-subscription.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

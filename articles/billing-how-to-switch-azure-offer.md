@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="n/a"
+	editor=""
 	tags="billing,top-support-issue"/>
 
 <tags
@@ -77,4 +77,4 @@
 
 다른 제품 변경 내용은 [지원에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

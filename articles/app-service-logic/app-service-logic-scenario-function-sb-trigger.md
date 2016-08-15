@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 시나리오: Azure Functions 서비스 버스 트리거 만들기 | Microsoft Azure"
    description="Azure Functions로 논리 앱에 대한 서비스 버스 트리거 만들기"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@ Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

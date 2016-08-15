@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/04/2016"
+    ms.date="08/03/2016"
     ms.author="monicar"/>
 
 
@@ -146,8 +146,8 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 
 ###**참고 항목**  
 - [Azure 시작](https://azure.microsoft.com/get-started/)
-- [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  
+- [클라우드 리소스 센터](https://azure.microsoft.com/resources/)
 - [비즈니스 응용 프로그램을 위한 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [데이터 센터의 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/) 
+- [데이터 센터의 Azure](https://azure.microsoft.com/overview/business-apps-on-azure/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

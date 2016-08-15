@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법 | Microsoft Azure"
 	description="Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법에 대해 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -51,4 +51,4 @@
 3. 페이지의 오른쪽에서 **결제 방법 변경**을 선택합니다.
 4. **결제 방법 선택** 페이지에서 신용 카드 옆에 있는 드롭다운 화살표를 선택하고 사용할 신용 카드를 선택한 다음 ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png)을 선택하여 창을 닫습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

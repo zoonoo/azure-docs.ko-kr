@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 Azure 기계 학습 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="Azure 기계 학습 커넥터를 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@ Azure ML 커넥터는 배치 실행(BES) 작업을 실행하기 위한 다음 �
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

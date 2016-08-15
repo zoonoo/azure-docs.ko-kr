@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Azure 클라우드 서비스의 지속적인 전송
@@ -28,7 +28,7 @@
 
 MSBuild를 사용하여 Azure 패키지를 만들려면 먼저 필요한 소프트웨어 및 도구를 빌드 서버에 설치해야 합니다.
 
-Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundation Build 서비스를 사용하여 빌드 서버를 관리하려면 [Team Foundation Build Service][]\(영문) 설명서의 지침을 따르세요.
+Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundation Build 서비스를 사용하여 빌드 서버를 관리하려면 [Team Foundation Build Service][](영문) 설명서의 지침을 따르세요.
 
 1.  빌드 서버에 MSBuild가 포함된 [.NET Framework 4.5.2][]를 설치합니다.
 2.  최신 [.NET용 Azure 작성 도구](https://azure.microsoft.com/develop/net/)를 설치합니다.
@@ -44,7 +44,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
 1.  Visual Studio가 빌드 서버에 설치되어 있는 경우 Windows의 **Visual Studio 도구** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아서 클릭합니다.
 
-    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
+    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -58,7 +58,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
     선택적으로 프로젝트 이름을 MSBuild 매개 변수로 지정할 수 있습니다. 지정하지 않으면 현재 디렉터리가 사용됩니다. MSBuild 명령줄 옵션에 대한 자세한 내용은 [MSBuild 명령줄 참조](1)를 참조하세요.
 
-4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin\\*Configuration*\\app.publish\\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
+4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin\*Configuration*\\app.publish\\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -69,7 +69,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하여 /p:PublishDir=*Directory*\\ 옵션으로 경로를 설정합니다.
+6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하는 /p:PublishDir=*Directory*\\ 옵션을 사용하여 경로를 설정합니다.
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
@@ -83,7 +83,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하거나 **빌드** 페이지를 선택하고 **새 빌드 정의**를 선택합니다.
 
-    ![][0]
+    ![새 빌드 정의 옵션][0]
 
 2.  **트리거** 탭을 선택하고 패키지를 빌드하려는 경우에 원하는 조건을 지정합니다. 예를 들어 소스 제어 체크 인이 발생할 때마다 패키지를 빌드하려면 **연속 통합**을 지정합니다.
 
@@ -95,7 +95,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 6.  **MSBuild Arguments**를 선택하고 위의 2단계에서 설명한 대로 적절한 MSBuild 명령줄 인수를 설정합니다. 예를 들어 패키지를 빌드하고 패키지 파일을 \\\myserver\\drops\\ 위치에 복사하려면 **/t:Publish /p:PublishDir=\\\myserver\\drops\**를 입력합니다.
 
-    ![][2]
+    ![MSBuild 인수][2]
 
     **참고:** 파일을 공용 공유 위치에 복사하면 개발 컴퓨터에서 패키지를 수동으로 배포하기가 더 쉽습니다.
 
@@ -123,7 +123,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     그러면 구독에 대한 정보가 표시됩니다. 모든 정보가 올바른지 확인합니다.
 
-4.  이 문서의 끝에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
+4.  이 문서의 끝에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
 
 5.  스크립트의 매개 변수 섹션을 검토합니다. 기본값을 추가하거나 수정합니다. 이러한 값은 명시적 매개 변수를 전달하여 언제든지 재정의할 수 있습니다.
 
@@ -204,7 +204,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![인수 목록][3]
 
     해당 XAML은 다음과 같이 표시됩니다.
 
@@ -256,7 +256,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
         -   PublishScriptFilePath, 문자열 유형
 
-            ![][4]
+            ![새 변수][4]
 
     4.  TFS 2012 이하를 사용하고 있으면 새 시퀀스의 시작 부분에 ConvertWorkspaceItem 작업을 추가합니다. TFS 2013 이상을 사용하고 있으면 새 시퀀스의 시작 부분에 GetLocalPath 작업을 추가합니다. ConvertWorkspaceItem의 경우 다음과 같이 속성을 설정합니다. Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. GetLocalPath 작업의 경우 IncomingPath 속성을 'PublishScriptLocation'으로 설정하고 Result를 'PublishScriptFilePath'로 설정합니다. 이 작업은 TFS 서버 위치(해당되는 경우)의 게시 스크립트 경로를 표준 로컬 디스크 경로로 변환합니다.
 
@@ -284,7 +284,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     게시 워크플로 작업의 최종 결과는 디자이너에 다음과 같이 표시됩니다.
 
-    ![][5]
+    ![워크플로 작업][5]
 
     게시 워크플로 작업의 최종 결과는 XAML로 다음과 같이 표시됩니다.
 
@@ -343,7 +343,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![매개 변수 속성 값][6]
 
 10. 변경 내용을 빌드 정의에 저장합니다.
 
@@ -573,4 +573,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

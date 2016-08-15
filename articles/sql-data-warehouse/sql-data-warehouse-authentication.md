@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/23/2016"
+   ms.date="07/29/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 인증
@@ -37,11 +37,9 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 - 암호
 - 기본 데이터베이스(옵션)
 
-참고로 사용자는 SQL 인증을 사용하여 인증해야 합니다. 현재 현재할 수 있는 인증은 지원되지 않습니다.
-
 기본적으로 사용자의 연결은 사용자의 사용자 데이터베이스가 아닌 마스터 데이터베이스에 연결합니다. 사용자의 사용자 데이터베이스에 연결하려면 다음과 같은 두 가지 작업 중 하나를 수행하도록 선택할 수 있습니다.
 
-1. SSDT의 SQL Server 개체 탐색기에서 서버를 등록할 때 또는 응용 프로그램 연결 문자열에 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
+1. SSDT, SSMS 또는 응용 프로그램 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
 2. SSDT에서 세션을 만들기 전에 먼저 사용자 데이터베이스를 강조 표시합니다.
 
 > [AZURE.NOTE] SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 다시 참조하세요.
@@ -78,7 +76,7 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기
 6. Azure AD ID를 사용하여 데이터 웨어하우스에 연결합니다.
 
-Azure SQL 데이터베이스와 함께 사용하는 Azure Active Directory 인증과 Azure SQL 데이터 웨어하우스와 함께 사용하는 Azure Active Directory 인증의 주요 차이점은 SQL 데이터 웨어하우스에 연결하기 위해서는 SQL Server Management Studio 대신 SQL Server Data Tools를 사용해야 한다는 점입니다. SQL 데이터 웨어하우스는 Visual Studio 2015용 SQL Server Data Tools의 2016년 4월 버전 이상을 필요로 합니다(버전 14.0.60311.1). 현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
+현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
   
 ### 세부 정보 찾기
 - 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md) 항목의 자세한 단계를 따릅니다.
@@ -94,4 +92,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

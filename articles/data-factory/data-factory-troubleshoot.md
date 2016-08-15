@@ -47,7 +47,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 - 포털의 동일한 블레이드에 표시된 **수동 설치** 링크를 사용하여 설치 파일을 다운로드하고 수동으로 실행합니다. 설치에 성공하면 데이터 관리 게이트웨이 구성 대화 상자가 표시됩니다. 포털 화면에서 **키**를 복사하고 구성 관리자에서 이 키를 사용하여 게이트웨이를 서비스에 등록합니다.
 
 ### 문제: 온-프레미스 SQL Server에 연결하지 못함 
-게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 자세한 내용은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**를 시작하고 **문제 해결** 탭을 사용하여 게이트웨이 컴퓨터에서 SQL Server에 대한 연결을 테스트합니다. 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
  
 
 ### 문제: 입력 조각이 무기한 대기 상태임
@@ -85,7 +85,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 오류를 해결하려면 입력 테이블의 JSON 정의에 **external** 속성과 **externalData** 섹션을 추가하고 테이블을 다시 만듭니다.
 
 ### 문제: 하이브리드 복사 작업 실패
-데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소에 대해 복사 작업을 수행할 때 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
 
 ### 문제: 주문형 HDInsight 프로비전 실패
 HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blob 저장소를 가리키는 linkedServiceName을 지정해야 합니다. Data Factory 서비스는 이 저장소를 사용하여 주문형 HDInsight 클러스터에 대한 모든 로그 및 지원 파일을 저장합니다. 경우에 따라 다음 오류와 함께 주문형 HDInsight 클러스터 프로비전이 실패할 수 있습니다.
@@ -143,4 +143,4 @@ HDInsightOnDemand 형식의 연결된 서비스를 사용하는 경우 Azure Blo
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

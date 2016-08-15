@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="경고 알림 받기" 
-	description="경고 규칙 조건이 충족되면 알려줍니다." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="Azure 서비스에 대한 경고 알림 받기 | Microsoft Azure"
+	description="경고 규칙 조건이 충족되면 알려줍니다."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # 경고 알림 받기
@@ -62,6 +62,5 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * 클라우드에서 코드가 어떻게 수행되고 있는지 정확하게 알고 싶은 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 경우를 알아봅니다.
- 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="EDIFACT와 엔터프라이즈 통합 | Microsoft Azure" 
 	description="EDIFACT 규약을 사용하여 논리 앱을 만드는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan" 
 	manager="erikre" 
@@ -178,4 +178,4 @@ EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계�
 ## 자세한 정보
 - [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -95,7 +95,7 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
 응용 프로그램은 큰 저장소 또는 처리량 요구 사항이 있지 않으면 적은 수의 컬렉션을 사용하는 것이 좋습니다. 새 컬렉션 작성을 위한 응용 프로그램 패턴을 잘 이해합니다. 응용 프로그램 외부에서 처리되는 관리 작업으로 컬렉션 생성을 예약하도록 선택할 수 있습니다. 마찬가지로 컬렉션에 대한 성능 수준을 조정하면 컬렉션에 대해 비용이 청구되는 시간 비율이 변경됩니다. 응용 프로그램에서 이를 동적으로 조정할 경우에는 컬렉션 성능 수준을 모니터링해야 합니다.
 
-## <a href="changing-performance-levels-using-the-azure-portal"></a>S1, S2, S3에서 사용자 정의 성능으로 변경
+## <a id="changing-performance-levels-using-the-azure-portal"></a>S1, S2, S3에서 사용자 정의 성능으로 변경
 
 미리 정의된 처리량 수준을 사용하여 Azure 포털에서 사용자 정의 처리량 수준으로 변경하려면 다음 단계를 수행합니다. 사용자 정의 처리량 수준을 사용하여 요구에 맞게 처리량을 조정할 수 있습니다. 그리고 S1 계정을 사용 중인 경우 단 몇 번의 클릭으로 기본 처리량을 250RU/s에서 400RU/s로 늘릴 수 있습니다.
 
@@ -162,7 +162,7 @@ offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN]
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a href="change-throughput"></a>컬렉션의 처리량 변경
+## <a id="change-throughput"></a>컬렉션의 처리량 변경
 
 사용자 정의 성능을 이미 사용 중인 경우 다음을 수행하여 컬렉션의 처리량을 변경할 수 있습니다. S1, S2 또는 S3 성능 수준(미리 정의된 성능)에서 사용자 정의 성능으로 변경해야 할 경우 [S1, S2, S3에서 사용자 정의 성능으로 변경](#changing-performance-levels-using-the-azure-portal)을 참조하세요.
 
@@ -193,4 +193,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

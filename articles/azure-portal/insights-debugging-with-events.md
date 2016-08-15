@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="이벤트 및 감사 로그 보기" 
-	description="Azure 구독에서 발생한 이벤트를 모두 확인하는 방법을 알아봅니다." 
-	authors="HaniKN-MSFT" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="이벤트 및 감사 로그 보기"
+	description="Azure 구독에서 발생한 이벤트를 모두 확인하는 방법을 알아봅니다."
+	authors="HaniKN-MSFT"
+	manager="kamrani"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/28/2015"
 	ms.author="hanikn"/>
 
 # 이벤트 및 감사 로그 보기
@@ -26,17 +26,17 @@
 2. **찾아보기**를 클릭하고 **감사 로그**를 선택합니다. ![찾아보기 허브](./media/insights-debugging-with-events/Insights_Browse.png)
 3. 지난 7일간 구독에 영향을 준 이벤트를 모두 보여 주는 블레이드가 열립니다. 맨 위에는 수준별 데이터를 보여 주는 차트가 있고, 그 아래에는 전체 로그 목록이 있습니다. ![모든 이벤트](./media/insights-debugging-with-events/Insights_AllEvents.png)
 
->[AZURE.NOTE]Azure 포털에서는 지정된 구독에 대한 최근 500개 이벤트만 볼 수 있습니다.
+>[AZURE.NOTE] Azure 포털에서는 지정된 구독에 대한 최근 500개 이벤트만 볼 수 있습니다.
 
 4. 로그 항목을 클릭하면 해당 항목을 구성하는 이벤트를 확인할 수 있습니다. 예를 들어 리소스 그룹에 항목을 배포할 때 다양한 리소스가 생성되거나 수정될 수 있습니다. 각 항목에 대해 다음을 확인할 수 있습니다.
-    * 이벤트 **수준** - 예를 들어 추적할 사항(**Informational**)이거나, 문제가 발생한 경우 알아야 할 사항일 수 있습니다(**Error**). 
+    * 이벤트 **수준** - 예를 들어 추적할 사항(**Informational**)이거나, 문제가 발생한 경우 알아야 할 사항일 수 있습니다(**Error**).
     * **상태** - 최종 상태는 일반적으로 **Succeeded** 또는 **Failed**지만, 장기 실행 작업의 경우 **Accepted**일 수도 있습니다.
     * 이벤트가 발생한 *시기*
     * 작업을 수행한 *사용자*(있는 경우). 일부 작업은 사용자가 아니라 백 엔드 서비스에 의해 수행되므로 **호출자**가 없습니다.
     * 이벤트의 **상관 관계 ID** - 이 작업 집합의 고유 식별자입니다.
 
 5. 여기서 세부 정보 블레이드로 이동하여 이벤트의 세부 정보를 확인할 수 있습니다.
-   
+
     ![리소스 그룹](./media/insights-debugging-with-events/Insights_EventDetails.png)
 
     **실패** 이벤트의 경우 이 페이지에는 일반적으로 디버깅 목적의 유용한 세부 정보가 포함된 **하위 상태** 및 **속성** 섹션이 있습니다.
@@ -70,6 +70,6 @@
 
 * 이벤트가 발생할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
-* [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.  
+* [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0803_2016-->

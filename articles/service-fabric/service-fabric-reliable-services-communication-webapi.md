@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/06/2016"
+   ms.date="07/29/2016"
    ms.author="vturecek"/>
 
 # 시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스
 
-Azure 서비스 패브릭은 서비스를 사용자, 그리고 다른 서비스와 통신하는 방법을 결정할 때 도움이 됩니다. 이 자습서에서는 서비스 패브릭의 Reliable Services API에서 자체 호스팅되는 OWIN(Open Web Interface for .NET)과 ASP.NET Web API를 사용하여 서비스 통신을 구현하는 방법을 중점적으로 살펴봅니다. Reliable Services 플러그형 통신 API를 자세히 알아봅니다. 또한 단계별 예제에서 Web API 사용하여 사용자 지정 통신 수신기를 설정하는 방법을 보여줍니다.
+Azure 서비스 패브릭은 서비스를 사용자, 그리고 다른 서비스와 통신하는 방법을 결정할 때 도움이 됩니다. 이 자습서에서는 서비스 패브릭의 Reliable Services API에서 자체 호스팅되는 OWIN(Open Web Interface for .NET)과 ASP.NET Web API를 사용하여 서비스 통신을 구현하는 방법을 중점적으로 살펴봅니다. Reliable Services 플러그형 통신 API를 자세히 알아봅니다. 또한 단계별 예제에서 Web API 사용하여 사용자 지정 통신 수신기를 설정하는 방법을 보여 줍니다.
 
 
 ## 서비스 패브릭에서 Web API 소개
@@ -92,7 +92,7 @@ namespace WebService.Controllers
 
 ```
 
-그런 다음, 프로젝트 루트에 Startup 클래스를 추가하여 라우팅, 포맷터 및 기타 구성 설치 프로그램을 등록합니다. 이것은 Web API가 *호스트*에 플러그인하는 위치이며 나중에 다시 살펴보겠습니다.
+그런 다음, 프로젝트 루트에 Startup 클래스를 추가하여 라우팅, 포맷터 및 기타 구성 설치 프로그램을 등록합니다. 이것은 Web API가 *host*에 플러그인하는 위치이기도 합니다. 이 부분은 나중에 다시 살펴보겠습니다.
 
 **Startup.cs**
 
@@ -362,17 +362,17 @@ OpenAsync는 이를 염두에 두고 웹 서버를 시작하고 수신 대기 �
 
     try
     {
-        this.eventSource.ServiceMessage(this.serviceContext, "Starting web server on " + this.listeningAddress);
+        this.eventSource.Message("Starting web server on " + this.listeningAddress);
 
         this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-        this.eventSource.ServiceMessage(this.serviceContext, "Listening on " + this.publishAddress);
+        this.eventSource.Message("Listening on " + this.publishAddress);
 
         return Task.FromResult(this.publishAddress);
     }
     catch (Exception ex)
     {
-        this.eventSource.ServiceMessage(this.serviceContext, "Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+        this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
 
         this.StopWebServer();
 
@@ -384,7 +384,7 @@ OpenAsync는 이를 염두에 두고 웹 서버를 시작하고 수신 대기 �
 
 이는 생성자의 OwinCommunicationListener에 전달된 시작 클래스를 참조합니다. 이 시작 인스턴스는 웹 서버에서 Web API 응용 프로그램을 부트스트랩하는 데 사용됩니다.
 
-나중에 응용 프로그램을 실행하여 웹 서버가 성공적으로 시작되었음을 확인하면 진단 이벤트 창에 `ServiceEventSource.Current.ServiceMessage()` 줄이 표시됩니다.
+나중에 응용 프로그램을 실행하여 웹 서버가 성공적으로 시작되었음을 확인하면 진단 이벤트 창에 `ServiceEventSource.Current.Message()` 줄이 표시됩니다.
 
 ## CloseAsync 및 Abort 구현
 
@@ -393,7 +393,7 @@ OpenAsync는 이를 염두에 두고 웹 서버를 시작하고 수신 대기 �
 ```csharp
 public Task CloseAsync(CancellationToken cancellationToken)
 {
-    this.eventSource.ServiceMessage(this.serviceContext, "Closing web server on endpoint {0}", this.endpointName);
+    this.eventSource.Message("Closing web server on endpoint {0}", this.endpointName);
             
     this.StopWebServer();
 
@@ -402,7 +402,7 @@ public Task CloseAsync(CancellationToken cancellationToken)
 
 public void Abort()
 {
-    this.eventSource.ServiceMessage(this.serviceContext, "Aborting web server on endpoint {0}", this.endpointName);
+    this.eventSource.Message("Aborting web server on endpoint {0}", this.endpointName);
     
     this.StopWebServer();
 }
@@ -441,7 +441,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 충족되는 위치입니다. 호스트(OwinCommunicationListener)에는 *응용 프로그램*(시작을 통한 Web API)의 인스턴스가 지정됩니다. 그런 다음 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
+Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 충족되는 위치입니다. 호스트(OwinCommunicationListener)에는 Startup 클래스를 통해 *응용 프로그램*(Web API)의 인스턴스가 지정됩니다. 그런 다음 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
 
 ## 모든 요소 결합
 
@@ -496,51 +496,49 @@ namespace WebService
 {
     internal class OwinCommunicationListener : ICommunicationListener
     {
-    private readonly ServiceEventSource eventSource;
-    private readonly Action<IAppBuilder> startup;
-    private readonly ServiceContext serviceContext;
-    private readonly string endpointName;
-    private readonly string appRoot;
+        private readonly ServiceEventSource eventSource;
+        private readonly Action<IAppBuilder> startup;
+        private readonly ServiceContext serviceContext;
+        private readonly string endpointName;
+        private readonly string appRoot;
 
-    private IDisposable webApp;
-    private string publishAddress;
-    private string listeningAddress;
+        private IDisposable webApp;
+        private string publishAddress;
+        private string listeningAddress;
 
-    public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName)
-        : this(startup, serviceContext, eventSource, endpointName, null)
-    {
-    }
-
-    public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName, string appRoot)
-    {
-        if (startup == null)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName)
+            : this(startup, serviceContext, eventSource, endpointName, null)
         {
-            throw new ArgumentNullException(nameof(startup));
         }
 
-        if (serviceContext == null)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName, string appRoot)
         {
-            throw new ArgumentNullException(nameof(serviceContext));
+            if (startup == null)
+            {
+                throw new ArgumentNullException(nameof(startup));
+            }
+
+            if (serviceContext == null)
+            {
+                throw new ArgumentNullException(nameof(serviceContext));
+            }
+
+            if (endpointName == null)
+            {
+                throw new ArgumentNullException(nameof(endpointName));
+            }
+
+            if (eventSource == null)
+            {
+                throw new ArgumentNullException(nameof(eventSource));
+            }
+
+            this.startup = startup;
+            this.serviceContext = serviceContext;
+            this.endpointName = endpointName;
+            this.eventSource = eventSource;
+            this.appRoot = appRoot;
         }
-
-        if (endpointName == null)
-        {
-            throw new ArgumentNullException(nameof(endpointName));
-        }
-
-        if (eventSource == null)
-        {
-            throw new ArgumentNullException(nameof(eventSource));
-        }
-
-        this.startup = startup;
-        this.serviceContext = serviceContext;
-        this.endpointName = endpointName;
-        this.eventSource = eventSource;
-        this.appRoot = appRoot;
-    }
-
-        public bool ListenOnSecondary { get; set; }
 
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
@@ -580,31 +578,31 @@ namespace WebService
                 throw new InvalidOperationException();
             }
 
-    this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    try
-    {
-        this.eventSource.ServiceMessage(this.serviceContext, "Starting web server on " + this.listeningAddress);
+            try
+            {
+                this.eventSource.Message("Starting web server on " + this.listeningAddress);
 
-        this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
+                this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-        this.eventSource.ServiceMessage(this.serviceContext, "Listening on " + this.publishAddress);
+                this.eventSource.Message("Listening on " + this.publishAddress);
 
-        return Task.FromResult(this.publishAddress);
-    }
-    catch (Exception ex)
-    {
-        this.eventSource.ServiceMessage(this.serviceContext, "Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+                return Task.FromResult(this.publishAddress);
+            }
+            catch (Exception ex)
+            {
+                this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
 
-        this.StopWebServer();
+                this.StopWebServer();
 
-        throw;
-    }
-}
+                throw;
+            }
+        }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
-            this.eventSource.ServiceMessage(this.serviceContext, "Closing web server on endpoint {0}", this.endpointName);
+            this.eventSource.Message("Closing web server on endpoint {0}", this.endpointName);
 
             this.StopWebServer();
 
@@ -613,7 +611,7 @@ namespace WebService
 
         public void Abort()
         {
-            this.eventSource.ServiceMessage(this.serviceContext, "Aborting web server on endpoint {0}", this.endpointName);
+            this.eventSource.Message("Aborting web server on endpoint {0}", this.endpointName);
 
             this.StopWebServer();
         }
@@ -634,7 +632,6 @@ namespace WebService
         }
     }
 }
-
 ```
 
 이제 모든 항목을 결합하면 프로젝트는 Reliable Services API 진입점 및 OWIN 호스트가 있는 일반적인 Web API 응용 프로그램과 유사해야 합니다.
@@ -687,4 +684,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure 앱 서비스의 논리 앱에서 VETR을 사용하여 EAI 논리 앱 만들기 | Microsoft Azure"
    description="BizTalk XML 서비스의 유효성 검사, 인코드 및 변환 기능 "
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -118,4 +118,4 @@ Azure 포털에서 **+새로 만들기**를 선택하고 **웹 + 모바일**을 
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

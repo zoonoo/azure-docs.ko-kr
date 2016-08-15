@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 QuickBooks 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="QuickBooks 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -144,4 +144,4 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

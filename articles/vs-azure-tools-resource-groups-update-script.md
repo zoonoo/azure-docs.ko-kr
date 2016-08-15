@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz" />
 
 # Azure 리소스 그룹 프로젝트 PowerShell 스크립트 업데이트
@@ -215,4 +215,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

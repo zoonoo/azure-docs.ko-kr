@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -91,4 +91,4 @@ Webhook 트리거가 삭제되는 경우(논리 앱 전체 또는 webhook 트리
 
 웹후크 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -47,12 +47,31 @@
        }
      }
 
-위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다.
+위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다. 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
-템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
+대부분의 시나리오에서 고객은 스크립트 URL 및 매개 변수를 비공개로 유지하려고 합니다. 이를 위해 보호된 설정으로 전송된 저장소 계정 이름 및 키를 사용해야만 액세스할 수 있도록 스크립트 URL을 비공개로 유지하면 됩니다. 또한 스크립트 매개 변수도 Windows 사용자 지정 스크립트 확장용 버전 1.7 이상을 사용하여 보호된 설정으로 제공할 수 있습니다.
+
+## 보호된 설정을 사용하는 Windows VM에 대한 템플릿 예제
+
+        {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
+        "settings": {
+        "fileUris": [
+        "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+        ]
+        },
+        "protectedSettings": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
+        "storageAccountName": "yourStorageAccountName",
+        "storageAccountKey": "yourStorageAccountKey"
+        }
+        }
+최신 버전의 사용자 지정 스크립트 확장 스키마에 대한 자세한 내용은 [여기](virtual-machines-windows-extensions-configuration-samples.md)에서 설명서를 참조하세요.
 
 사용자 지정 스크립트 확장을 사용하여 VM에서 응용 프로그램을 구성하는 전체 샘플은 아래 예제를 참조하세요.
 
 * [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
 description="Azure 앱 서비스로 논리 앱을 만듭니다. SMTP에 연결하여 전자 메일을 보냅니다."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -132,4 +132,4 @@ SMTP에는 다음 작업이 포함됩니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
 	description="이 항목은 응용 프로그램에 적합한 서비스 계층을 결정하는 데 도움이 되는 지침과 Azure SQL 데이터베이스를 최대한 활용할 수 있도록 응용 프로그램을 튜닝하는 방법에 대한 권장 사항을 제공합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="" />
 
@@ -246,14 +246,14 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
-		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
-		    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
+		    avg(avg_data_io_percent) AS 'Average Physical Data IO Utilization In Percent',
+		    max(avg_data_io_percent) AS 'Maximum Physical Data IO Utilization In Percent',
 		    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
 		    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
-		    avg(active_session_count) AS 'Average # of Sessions',
-		    max(active_session_count) AS 'Maximum # of Sessions',
-		    avg(active_worker_count) AS 'Average # of Workers',
-		    max(active_worker_count) AS 'Maximum # of Workers'
+		    avg(max_session_percent) AS 'Average % of Sessions',
+		    max(max_session_percent) AS 'Maximum % of Sessions',
+		    avg(max_worker_percent) AS 'Average % of Workers',
+		    max(max_worker_percent) AS 'Maximum % of Workers'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -266,7 +266,7 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -283,7 +283,7 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -507,4 +507,4 @@ Azure SQL 데이터베이스 내에서 사용되는 확장형 아키텍처에서
 
 Azure SQL 데이터베이스의 서비스 계층을 사용하면 클라우드에 구축할 수 있는 응용 프로그램 유형이 더욱 다양해집니다. 자세한 응용 프로그램 튜닝과 결합하면 응용 프로그램에 강력하고 예측 가능한 성능을 얻을 수 있습니다. 이 문서는 데이터베이스의 리소스 사용을 최적화하여 한 가지 성능 수준에 맞추기 위한 기법을 간단히 설명했습니다. 튜닝은 클라우드 모델에서 지속적으로 활용하는 방식이며, 관리자는 서비스 계층 및 해당 성능 수준에 따라 성능을 극대화하는 동시에 Microsoft Azure 플랫폼에서 비용을 최고화할 수 있습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

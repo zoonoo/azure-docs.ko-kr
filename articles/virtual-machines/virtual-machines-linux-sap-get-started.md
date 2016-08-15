@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # Linux VM(가상 컴퓨터)에서 SAP 사용
@@ -331,4 +331,4 @@ Microsoft Azure 가상 컴퓨터 서비스와 함께 Microsoft는 포괄적인 I
 
 [이 가이드는 여기서 확인할 수 있습니다.][dbms-guide]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

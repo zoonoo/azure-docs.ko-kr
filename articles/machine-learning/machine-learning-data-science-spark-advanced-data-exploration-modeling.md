@@ -22,8 +22,8 @@
 
 이 연습에서는 HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 NYC Taxi Trip 및 요금 2013 데이터 집합 샘플에서 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다. 처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)의 단계를 종단 간 안내합니다. 프로세스는 Azure 저장소 Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다.
 
-- **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
-- **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
+- **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다.
+- **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다.
 
 또한 모델링 단계는 각 모델 유형을 학습, 평가 및 저장하는 방법을 보여주는 코드를 포함합니다. 이 항목에서는 [Spark로 데이터 탐색 및 모델링](machine-learning-data-science-spark-data-exploration-modeling.md) 항목과 일부 동일한 측면을 다루지만 그중에서도 "고급" 항목을 다루고 교차 유효성 검사와 하이퍼 매개 변수 비우기도 함께 사용하여 정확한 분류 및 회귀 모델을 최적으로 학습합니다.
 
@@ -35,7 +35,7 @@
 
 사용하는 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
 
-- [SGD로 선형 회귀](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD)는 SGD(Stochastic Gradient Descent) 메서드를 사용하는 선형 회귀 모델이며 최적화 및 기능에 대해 크기를 조정하여 결재된 팁 금액을 예측합니다. 
+- [SGD로 선형 회귀](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD)는 SGD(Stochastic Gradient Descent) 메서드를 사용하는 선형 회귀 모델이며 최적화 및 기능에 대해 크기를 조정하여 결재된 팁 금액을 예측합니다.
 - [LBFGS로 로지스틱 회귀 분석](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) 또는 "로짓" 회귀는 종속 변수가 데이터 분류를 수행하는 범주인 경우 사용할 수 있는 회귀 모델입니다. LBFGS는 제한된 양의 컴퓨터 메모리를 사용하여 BFGS(Broyden–Fletcher–Goldfarb–Shanno) 알고리즘을 비슷하게 만들고 기계 학습에서 널리 사용되는 준 뉴턴 최적화 알고리즘입니다.
 - [임의 포리스트](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests)는 결정 트리의 결합체입니다. 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 회귀 및 분류에 사용되며 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장하고 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀에 대한 매우 성공적인 기계 학습 모델 중 하나입니다.
 - [GBT](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts)(그라데이션 승격 트리)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBT는 회귀 및 분류에 사용되며 범주 기능을 처리하고 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
@@ -108,7 +108,7 @@ datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 Jupyter Notebook에 제공되는 PySpark 커널에는 미리 설정된 컨텍스트가 있으므로 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 즉, Spark 또는 Hive 컨텍스트를 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
 
-- sc - Spark용 
+- sc - Spark용
 - sqlContext - Hive용
 
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
@@ -117,14 +117,14 @@ PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하
 - **%%sql -o <variable name>** sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
  
 
-Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호출되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter Notebook의 커널 및 제공되는 %%(예: %%local)로 호출할 수 있는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
 
 ## 공용 blob에서 데이터 수집: 
 
 이 섹션은 모델링할 데이터 샘플을 수집하는 데 필요한 일련의 작업에 대한 코드를 포함합니다. Taxi Trip 및 요금 파일(.tsv 파일로 저장됨)의 조인된 0.1% 샘플을 읽고 데이터를 포맷하고 정리하며 메모리에서 데이터 프레임을 만들고 캐시한 다음 SQL 컨텍스트에 임시 테이블로 등록합니다.
 
-데이터 과학 프로세스의 첫 번째 단계는 외부 원본 또는 시스템에서 분석할 데이터를 수집하며 데이터 탐색 및 모델링 환경에 상주합니다. 이 환경은 이 연습에서 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
+데이터 과학 프로세스의 첫 번째 단계는 외부 소스 또는 데이터 탐색 및 모델링 환경에 있는 시스템에서 분석할 데이터를 수집하는 것입니다. 이 환경은 이 연습에서 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
 
 - 모델링할 데이터 샘플 수집
 - 입력 데이터 집합 읽기(.tsv 파일로 저장됨)
@@ -250,7 +250,7 @@ Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호
 
 ![승객 수에 따른 여정 빈도](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
-Notebook의 **형식** 메뉴 단추를 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있습니다. 막대 그리기는 다음과 같습니다.
+Notebook의 **형식** 메뉴 버튼을 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있습니다. 막대 그리기는 다음과 같습니다.
 
 
 ### 승객 수 및 요금 금액에 따라 팁 금액이 어떻게 달라지는지와 팁 금액에 대한 히스토그램을 그립니다.
@@ -578,7 +578,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 이 섹션에서는 Taxi Trip에 팁을 지불했는지 여부를 예측하는 이진 분류 작업에 대한 세 개의 모델을 사용하는 방법을 보여줍니다. 제공된 모델은 다음과 같습니다.
 
-- 로지스틱 회귀 
+- 로지스틱 회귀
 - 임의 포리스트
 - 그라데이션 향상 트리
 
@@ -590,8 +590,8 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 매개 변수 비우기를 사용하여 CV(교차 유효성 검사)를 수행하는 두 가지 방법을 보여 줍니다.
 
-1. MLlib의 모든 알고리즘과 알고리즘 내의 모든 매개 변수 집합에 적용할 수 있는 **제네릭** 사용자 지정 코드 사용 
-1. **pySpark CrossValidator 파이프라인 함수** 사용 CrossValidator는 경험에 따르면 편리하기는 하지만 Spark 1.5.0에 대한 몇 가지 제한 사항이 있습니다. 
+1. MLlib의 모든 알고리즘과 알고리즘 내의 모든 매개 변수 집합에 적용할 수 있는 **제네릭** 사용자 지정 코드 사용
+1. **pySpark CrossValidator 파이프라인 함수** 사용 CrossValidator는 경험에 따르면 편리하기는 하지만 Spark 1.5.0에 대한 몇 가지 제한 사항이 있습니다.
 
 	- 파이프라인 모델은 향후 사용을 위해 저장되거나 유지될 수 없습니다.
 	- 모델의 모든 매개 변수에 사용할 수 없습니다.
@@ -600,7 +600,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 ### 이진 분류에 대한 로지스틱 회귀 분석 알고리즘과 함께 사용되는 일반적인 교차 유효성 검사 및 하이퍼 매개 변수 비우기
 
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지 여부를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm)로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다. MLlib 내의 모든 학습 알고리즘에 적용할 수 있는 사용자 지정 코드로 구현된 CV(교차 유효성 검사) 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습합니다.
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm)로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다. MLlib 내의 모든 학습 알고리즘에 적용할 수 있는 사용자 지정 코드로 구현된 CV(교차 유효성 검사) 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습합니다.
 
 >[AZURE.NOTE] 이 사용자 지정 CV 코드를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -830,7 +830,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
 
 ### 로지스틱 회귀(탄력적 회귀) 모델과 함께 MLlib의 CrossValidator 파이프라인 함수 사용
 
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지 여부를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm)로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다. 매개 변수 비우기와 함께 CV에 대한 MLlib CrossValidator 파이프라인 함수로 구현되는 CV(교차 유효성 검사) 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습합니다.
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 집합에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm)로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다. 매개 변수 비우기와 함께 CV에 대한 MLlib CrossValidator 파이프라인 함수로 구현되는 CV(교차 유효성 검사) 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습합니다.
 
 
 >[AZURE.NOTE] 이 MLlib CV 코드를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -1037,7 +1037,7 @@ Area under ROC = 0.985336538462
 
 1. 하나의 매개 변수 집합이 있는 **모델 교육** 데이터
 2. 메트릭이 있는 테스트 데이터 집합에서 **모델 평가**
-3. 나중에 사용할 Blob의 **모델 저장**   
+3. 나중에 사용할 Blob의 **모델 저장**
 
 
 >AZURE 참고: 교차 유효성 검사는 로지스틱 회귀 모델에 대한 세부 정보에 표시되므로 이 섹션의 3가지 회귀 모델에 사용되지 않습니다. 선형 회귀에 대한 탄력적 net과 함께 CV를 사용하는 방법을 보여 주는 예제를 이 항목의 부록에 제공합니다.
@@ -1164,7 +1164,7 @@ R-sqr = 0.733445485802
 
 이 섹션의 코드에서는 NYC Taxi Trip 데이터에서 팁 금액을 예측하는 그라데이션 향상 트리 모델을 학습하고 평가하며 저장하는 방법을 보여줍니다.
 
-****학습 및 평가**
+**학습 및 평가**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1464,7 +1464,7 @@ R-sqr = 0.740751197012
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다.** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여 넣어야 합니다.
+**소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다. ** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여넣어야 합니다.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1478,17 +1478,17 @@ PythonRDD[122] at RDD at PythonRDD.scala:43
 
 **출력**
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-05-0316\_47\_30.096528"
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0316_47\_30.096528"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-05-0316\_51\_28.433670"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0316_51\_28.433670"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-05-0316\_50\_17.454440"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0316_50\_17.454440"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-05-0316\_51\_57.331730"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0316_51\_57.331730"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-05-0316\_50\_40.138809"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0316_50\_40.138809"
 
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-05-0316\_52\_18.827237"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52\_18.827237"
 
 ## 다음 작업
 
@@ -1496,4 +1496,4 @@ Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점�
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](machine-learning-data-science-spark-model-consumption.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

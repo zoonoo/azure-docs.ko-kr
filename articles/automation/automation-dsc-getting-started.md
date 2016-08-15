@@ -211,6 +211,7 @@ Azure 자동화 DSC가 관리되는 노드에 대한 일관성 검사를 수행�
     ![보고서 블레이드의 스크린샷](./media/automation-dsc-getting-started/NodeReport.png)
 
 개별 보고서에 대한 블레이드에서 해당 일관성 검사에 대한 다음과 같은 상태 정보를 확인할 수 있습니다.
+
 - 보고서 상태 — 노드의 "준수" 여부, 구성 "실패" 또는 노드는 "비준수"입니다.(노드가 **applyandmonitor** 모드에 있는 경우 및 컴퓨터는 원하는 상태에 있지 않습니다.)
 - 일관성 검사에 대한 시작 시간.
 - 일관성 검사에 대한 총 런타임.
@@ -266,4 +267,4 @@ Azure 자동화 DSC에 의해 노드를 더 이상 관리하지 않으려는 경
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

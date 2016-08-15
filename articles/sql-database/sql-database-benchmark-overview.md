@@ -3,7 +3,7 @@
 	description="이 항목은 Azure SQL 데이터베이스의 성능 측정에 사용된 Azure SQL 데이터베이스 벤치마크에 대해 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -130,4 +130,4 @@ Azure SQL 데이터베이스 벤치마크는 사용 가능한 다양한 서비�
 
 [단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

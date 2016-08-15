@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SaaS 커넥터 및 API 앱의 OAUTH 보안 | Azure"
 	description="Azure 앱 서비스에서 커넥터 및 API 앱의 OAUTH 보안 알아보기, 마이크로 서비스 아키텍처, saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -51,4 +51,4 @@ Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자�
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

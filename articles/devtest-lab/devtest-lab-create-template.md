@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # VHD 파일에서 DevTest Lab 사용자 지정 이미지 만들기
@@ -56,7 +56,7 @@
 
 1. **OS 구성** 탭에서 **Windows** 또는 **Linux**를 선택합니다.
 
-1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep* 의 실행 여부를 지정합니다.
+1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep*의 실행 여부를 지정합니다.
 
 1. **확인**을 탭하여 **OS 구성** 블레이드를 닫습니다.
 
@@ -74,8 +74,13 @@
 
 1. 다음 블레이드는 Azure 구독에 VHD 파일을 업로드하는 PowerShell 스크립트를 수정하고 실행하기 위한 지침을 표시합니다. **참고:** 이 프로세스는 VHD 파일 크기 및 연결 속도에 따라 시간이 오래 걸릴 수 있습니다.
 
+## 관련 블로그 게시물
+
+- [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Azure DevTest Labs 간의 사용자 지정 이미지 복사](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+
 ##다음 단계
 
 VM을 만들 때 사용할 사용자 지정 이미지를 추가했으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
    pageTitle="AS2 커넥터 메시지 보관 | Microsoft Azure 앱 서비스" 
    description="Azure 앱 서비스에서 AS2 커넥터 메시지를 보관 또는 저장하는 방법" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="dwrede" 
@@ -42,4 +42,4 @@ AS2 커넥터 API 앱 인스턴스를 찾아 ‘추적'을 클릭합니다. 필�
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

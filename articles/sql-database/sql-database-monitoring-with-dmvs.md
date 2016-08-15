@@ -3,7 +3,7 @@
    description="동적 관리 뷰를 사용하여 Microsoft Azure SQL 데이터베이스를 모니터링하여 일반적인 성능 문제를 감지 및 진단하는 방법에 대해 알아봅니다."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""
    tags=""/>
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

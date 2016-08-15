@@ -196,7 +196,7 @@ Azure Data Factory 및 다른 클라우드 서비스와 게이트웨이이의 �
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | TCP의 서비스 버스 릴레이에 대한 수신기(액세스 제어 토큰 획득에 443 필요) | 
-| *.servicebus.windows.net | 9350-9354 | TCP의 선택적 서비스 버스 릴레이 | 
+| *.servicebus.windows.net | 9350-9354, 5671 | TCP의 선택적 서비스 버스 릴레이 | 
 | *.core.windows.net | 443 | HTTPS | 
 | *.clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |
@@ -426,4 +426,4 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 ## 다음 단계
 - 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

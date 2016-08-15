@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/22/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -98,7 +98,7 @@ ADFS 오류 페이지를 다음으로 업데이트하는 것이 가장 좋습니
 ### Exchange ActiveSync 클라이언트 지원 
 
 
-iOS 9 이상의 특정 Exchange ActiveSync 응용 프로그램은 지원됩니다. 전자 메일 응용 프로그램에서 이 기능을 지원하는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
+iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 다른 모든 Exchange ActiveSync 응용 프로그램에 대하여, 이 기능이 지원되는지 확인하려면 응용 프로그램 개발자에게 문의하세요.
 
 
 
@@ -278,4 +278,4 @@ iOS 9 이상의 네이티브 메일 응용 프로그램으로 인증서 인증�
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

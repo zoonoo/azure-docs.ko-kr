@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # 랩에 소유자 및 사용자 추가
 
-> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [DevTest Lab에서 보안을 설정하는 방법](/documentation/videos/how-to-set-security-in-your-devtest-lab)
+> [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
 ## 개요
 DevTest Lab 액세스는 Azure 역할 기반 액세스 제어(RBAC)를 통해 제어됩니다. 자세한 내용을 보려면 [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 [RBAC(역할 기반 액세스 제어)](https://azure.microsoft.com/search/?q=role%20based%20access%20control)를 검색하세요.
@@ -37,7 +37,7 @@ VM이 만들어지면 이를 만든 사용자는 생성된 VM의 **소유자** �
 
 ## 랩에 소유자 추가
 
-권한이 Azure의 부모 범위에서 자식 범위로 전파되는 방식으로 인해 랩이 포함된 Azure 구독의 소유자는 자동으로 해당 랩의 소유자가 됩니다. 뿐만 아니라 랩 사용자가 만든 모든 VM 및 다른 리소스와 DevTest 랩 서비스의 소유자가 됩니다. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩의 블레이드를 통해 랩에 추가 소유자를 추가할 수 있지만 DevTest 랩 서비스가 구독에 만든 일부 리소스에 대한 모든 권한을 갖지 않기 때문에 해당 관리 범주는 구독 소유자보다 더 세부적입니다.
+권한이 Azure의 부모 범위에서 자식 범위로 전파되는 방식으로 인해 랩이 포함된 Azure 구독의 소유자는 자동으로 해당 랩의 소유자가 됩니다. 뿐만 아니라 랩 사용자가 만든 모든 VM 및 다른 리소스와 DevTest 랩 서비스의 소유자가 됩니다. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩의 블레이드를 통해 랩에 추가 소유자를 추가할 수 있지만 DevTest Lab 서비스가 구독에 만든 일부 리소스에 대한 모든 권한을 갖지 않기 때문에 해당 관리 범주는 구독 소유자보다 더 세부적입니다.
 
 이미 랩을 만들었거나 새 랩을 만드는 Azure 구독에 소유자를 추가하려면 다음 단계를 수행합니다.
 
@@ -103,4 +103,4 @@ VM이 만들어지면 이를 만든 사용자는 생성된 VM의 **소유자** �
 
 1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Logic Apps 오류 진단 | Microsoft Azure"
    description="Logic Apps이 실패하는 경우를 파악하는 일반적인 방법을 알아보기"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -84,4 +84,4 @@ Azure 포털에서는 각 단계에서 각 논리 앱을 진단하는 여러 가
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

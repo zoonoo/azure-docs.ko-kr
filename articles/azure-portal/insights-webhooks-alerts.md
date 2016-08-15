@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Azure 경고를 구성하여 다른 시스템에 보내는 방법"
+	pageTitle="Azure 경고를 구성하여 다른 시스템에 보내는 방법 | Microsoft Azure"
 	description="Azure 경고를 다른 비Azure 시스템으로 경로를 전환합니다."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -33,8 +33,8 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
 
 인증은 두 형식일 수 있습니다.
 
-1. **토큰 기반 인증** - **https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*와 같은 토큰 ID를 사용하여 Webhook URI를 저장하는 경우입니다.
-2.	**기본 인증** - 사용자 ID 및 암호를 사용하여 Webhook URI를 **https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*로 저장하는 경우입니다.
+1. **토큰 기반 인증** - *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*와 같은 토큰 ID를 사용하여 Webhook URI를 저장하는 경우입니다.
+2.	**기본 인증** - 사용자 ID 및 암호를 사용하여 Webhook URI를 *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*로 저장하는 경우입니다.
 
 ## 페이로드 스키마
 
@@ -100,7 +100,7 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
 |resourceId |Y | |해당 리소스를 고유하게 식별하는 리소스 ID URI|
 |resourceRegion |Y | |영향을 받는 리소스의 지역/위치|
 |portalLink |Y | |리소스 요약 페이지에 Azure 포털 직접 링크|
-|properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 <Key  Value> 쌍의 집합입니다.(즉, 사전<String  String>) 속성 필드는 선택 사항입니다. 워크플로에 기반한 사용자 지정 UI 또는 논리 앱에서 페이로드를 통해 전달될 수 있는 키/값을 입력할 수 있습니다. 사용자 지정 속성을 Webhook에 다시 전달할 대체 방법은 Webhook URI 자체를 통하는 것입니다.(쿼리 매개 변수로)|
+|properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 <키, 값> 쌍(즉, 사전<문자열, 문자열>)의 집합입니다. 속성 필드는 선택 사항입니다. 워크플로에 기반한 사용자 지정 UI 또는 논리 앱에서 페이로드를 통해 전달될 수 있는 키/값을 입력할 수 있습니다. 사용자 지정 속성을 Webhook에 다시 전달할 대체 방법은 Webhook URI 자체를 통하는 것입니다.(쿼리 매개 변수로)|
 
 
 >[AZURE.NOTE] 포털을 통해 속성 필드를 사용할 수 없습니다. Insights SDK의 향후 릴리스에서 경고 API를 통해 속성을 설정할 수 있습니다.
@@ -123,4 +123,4 @@ Azure 경고를 사용하여 다른 서비스에 메시지를 보냅니다. 다�
 
 [논리 앱을 사용하여 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

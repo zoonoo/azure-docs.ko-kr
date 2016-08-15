@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터의 네트워크 보안 그룹 활성화
@@ -63,4 +63,4 @@ NSG를 활성화하지 않은 경우 보안 센터는 서브넷에서 네트워�
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

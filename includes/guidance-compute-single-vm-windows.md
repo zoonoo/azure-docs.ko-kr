@@ -48,6 +48,8 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - 최상의 디스크 I/O 성능을 위해서는 SSD(반도체 드라이브)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량(즉, 데이터 전송 속도)도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다.
 
+- 저장소 계정 하나가 1~20개의 VM을 지원할 수 있습니다.
+
 - 하나 이상의 데이터 디스크를 추가합니다. 새 VHD를 만들 때 형식은 지정되지 않습니다. 디스크를 포맷하려면 VM에 로그인합니다.
 
 - 데이터 디스크 수가 많은 경우 저장소 계정의 총 I/O 제한에 주의해야 합니다. 자세한 내용은 [가상 컴퓨터 디스크 제한][vm-disk-limits]을 참조하세요.
@@ -80,7 +82,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 - 사용자의 VM은 [계획된 유지 관리][planned-maintenance] 또는 [계획되지 않은 유지 관리][manage-vm-availability]의 영향을 받을 수 있습니다. [VM 다시 부팅 로그][reboot-logs]를 사용하여 VM 다시 부팅이 계획된 유지 관리로 발생했는지를 결정할 수 있습니다.
 
-- VHD는 [Azure storage][azure-storage]에 의해 지원되며 내구성 및 가용성을 위해 복제됩니다.
+- VHD는 [Azure Storage][azure-storage]에 의해 지원되며 내구성 및 가용성을 위해 복제됩니다.
 
 - 정상 작업 중 실수로 인한 데이터 손실(예: 사용자 오류 때문에 발생)을 막기 위해 [Blob 스냅숏][blob-snapshot] 또는 다른 도구를 사용하여 지정 시간 백업도 구현해야 합니다.
 
@@ -104,7 +106,7 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
     azure vm deallocate <resource-group> <vm-name>
     ```
 
-    Azure 포털의 **중지** 단추 또한 VM 할당을 취소합니다. 그러나 로그인한 상태에서 OS를 통해 종료하면 VM은 중지되지만 할당 취소되지 _않으므로_ 비용이 계속 청구됩니다.
+    Azure 포털의 **중지** 버튼 또한 VM 할당을 취소합니다. 그러나 로그인한 상태에서 OS를 통해 종료하면 VM은 중지되지만 할당 취소되지 _않으므로_ 비용이 계속 청구됩니다.
 
 - **VM 삭제.** VM을 삭제하는 경우 VHD는 삭제되지 않습니다. 즉, 데이터 손실 없이 안전하게 VM을 삭제할 수 있습니다. 그러나 저장소에 대한 비용은 계속 청구됩니다. VHD를 삭제하려면 [Blob 저장소][blob-storage]에서 파일을 삭제합니다.
 
@@ -149,23 +151,24 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 - **[virtualNetwork.parameters.json][vnet-parameters]**. 이 파일은 이름, 주소 공간, 서브넷 및 필요한 모든 DNS 서버의 주소 등과 같은 VNet 설정을 정의합니다. 서브넷 주소는 VNet의 주소 공간에 포함되어야 합니다.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "addressPrefixes": [
-            "172.17.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-subnet",
-              "addressPrefix": "172.17.0.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg",
+        "addressPrefixes": [
+          "172.17.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-subnet",
+            "addressPrefix": "172.17.0.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
-	}
+    }
+  }
 	```
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. 이 파일에는 NSG의 정의 및 NSG 규칙이 포함되어 있습니다. `virtualNetworkSettings` 블록의 `name` 매개 변수는 NSG가 연결된 VNet을 지정합니다. `networkSecurityGroupSettings` 블록의 `subnets` 매개 변수는 VNet에서 NSG 규칙을 적용하는 모든 서브넷을 식별합니다. 이러한 항목은 **virtualNetwork.parameters.json** 파일에 정의되어 있습니다.
@@ -173,17 +176,19 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 	예제에 표시되는 기본 보안 규칙을 사용하여 RDP(원격 데스크톱) 연결을 통해 VM에 연결할 수 있습니다. `securityRules` 배열에 항목을 더 추가하여 추가 포트를 열거나 특정 포트를 통해 액세스를 거부할 수 있습니다.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
       },
-      "networkSecurityGroupSettings": {
-        "value": {
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "networkSecurityGroupSettings": {
+      "value": [
+        {
           "name": "app1-nsg",
           "subnets": [
             "app1-subnet"
@@ -202,8 +207,9 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
             }
           ]
         }
-      }
-	}
+      ]
+    }
+  }
 	```
 
 - **[virtualMachineParameters.json][vm-parameters]**. 이 파일은 VM의 이름 및 크기, 관리자의 보안 자격 증명, 만들 디스크 및 이러한 디스크를 저장할 저장소 계정을 포함하여 VM 자체에 대한 설정을 정의합니다.
@@ -214,76 +220,77 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
-	`nics` 섹션의 `subnetName` 매개 변수는 VM에 대한 서브넷을 지정합니다. 마찬가지로 `virtualNetworkSettings`의 `name` 매개 변수는 사용할 VNet을 식별합니다. 이러한 이름은 **virtualNetwork.parameters.json** 파일에 정의된 서브넷 및 VNet의 이름입니다.
+	`nics` 섹션의 `subnetName` 매개 변수가 VM에 대한 서브넷을 지정합니다. 마찬가지로 `virtualNetworkSettings`의 `name` 매개 변수는 사용할 VNet을 식별합니다. 이러한 항목은 **virtualNetwork.parameters.json** 파일에 정의된 서브넷 및 VNet의 이름입니다.
 
 	저장소 계정을 공유하거나 `buildingBlockSettings` 섹션에서 설정을 수정하여 자신의 저장소 계정을 사용하여 여러 VM을 만들 수 있습니다. 여러 VM을 만드는 경우 `availabilitySet` 섹션에서 사용하거나 만들 가용성 집합의 이름을 지정해야 합니다.
 
 	```json
-	"parameters": {
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "app1",
-          "computerNamePrefix": "",
-          "size": "Standard_DS1",
-          "osType": "windows",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osAuthenticationType": "password",
-          "nics": [
-            {
-              "isPublic": "true",
-              "subnetName": "app1-subnet",
-              "privateIPAllocationMethod": "dynamic",
-              "publicIPAllocationMethod": "dynamic",
-              "isPrimary": "true"
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "dataDisks": {
-            "count": 2,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": ""
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "app1",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "osType": "windows",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "sshPublicKey": "",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "app1-subnet",
+            "privateIPAllocationMethod": "dynamic",
+            "publicIPAllocationMethod": "dynamic",
+            "isPrimary": "true"
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 2,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
           }
         },
-        "metadata": {
-          "description": "Settings for Virtual Machines"
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": ""
         }
       },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "resourceGroup": "app1-dev-rg"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 1,
-          "vmStartIndex": 0
-        },
-        "metadata": {
-          "description": "Settings specific to the building block"
-        }
+      "metadata": {
+        "description": "Settings for Virtual Machines"
       }
-	}
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
+      },
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 0
+      },
+      "metadata": {
+        "description": "Settings specific to the building block"
+      }
+    }
+  }
 	```
 
 ## 배포
@@ -389,4 +396,4 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Azure의 단일 Windows VM 아키텍처"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

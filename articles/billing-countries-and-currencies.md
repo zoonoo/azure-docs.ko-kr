@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -171,4 +171,4 @@
 | 잠비아 | USD |
 | 짐바브웨 | USD |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

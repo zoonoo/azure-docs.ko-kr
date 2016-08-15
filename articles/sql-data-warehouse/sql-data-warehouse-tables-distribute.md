@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 배포
@@ -187,7 +187,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## 다음 단계
 
-테이블 디자인에 대한 자세한 내용은 [배포][], [인덱스][], [파티션][], [데이터 형식][], [통계][] 및 [임시 테이블][Temporary] 문서를 참조하세요. 모범 사례의 개요에 대해서는 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
+테이블 디자인에 대한 자세한 내용은 [배포][], [인덱스][], [파티션][], [데이터 형식][], [통계][] 및 [임시 테이블][Temporary] 문서를 참조하세요.
+
+모범 사례의 개요에 대해서는 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
 
 
 <!--Image references-->
@@ -311,4 +313,4 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="자습서: Azure BizTalk 서비스를 사용하여 EDIFACT 송장 처리 | Microsoft Azure BizTalk 서비스"
    description="Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -313,4 +313,4 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

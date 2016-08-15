@@ -40,7 +40,7 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 1. https://manage.windowsazure.com에서 클래식 포털을 열고 필요한 경우 자격 증명을 입력합니다.
 2. 화면의 왼쪽 아래에서 **새로 만들기** 단추를 클릭하고 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭하고 **로컬 네트워크 추가**를 클릭합니다.
 3. **로컬 네트워크 세부 정보 지정** 창에서 연결할 ARM VNet의 이름을 입력하고 오른쪽 아래에서 화살표 단추를 클릭합니다.
-3. 주소 공간에서 **시작 IP** 텍스트 상자에 연결할 ARM VNet에 대 한 네트워크 접두사를 입력합니다. 
+3. 주소 공간에서 **시작 IP** 텍스트 상자에 연결할 ARM VNet에 대 한 네트워크 접두사를 입력합니다.
 4. **CIDR(주소 수)** 드롭다운에서 연결할 ARM VNet에서 사용되는 CIDR 블록의 네트워크 부분에 사용되는 비트 수를 선택합니다.
 5. **VPN 장치 IP 주소(선택 사항)**에 유효한 공용 IP 주소를 입력합니다. 나중에 이 IP 주소를 변경합니다. 그런 다음 화면의 오른쪽 아래에 있는 확인 표시 단추를 클릭합니다. 아래 그림에서는 이 페이지에 대한 샘플 설정을 보여 줍니다.
 
@@ -64,7 +64,7 @@ ARM VNet에 대한 VPN 게이트웨이를 만들려면 아래 지침을 따르�
 
 3. 아래 명령을 실행하여 게이트웨이의 공용 IP 주소를 만듭니다.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ ARM VNet에 대한 VPN 게이트웨이를 만들려면 아래 지침을 따르�
 
 5. 아래 명령을 실행하여 게이트웨이에 대한 IP 구성 개체를 만듭니다. 게이트웨이 서브넷의 ID를 확인합니다. 이 서브넷이 VNet에 있어야 합니다.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] *SubnetId* 및 *PublicIpAddressId* 매개 변수는 각각 서브넷 및 IP 주소 개체에서 id 속성이 전달되어야 합니다. 간단한 문자열을 사용할 수 없습니다.
 	
 5. 아래 명령을 실행하여 ARM VNet 게이트웨이를 만듭니다.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. VPN 게이트웨이를 만든 후 아래 명령을 실행하여 해당 공용 IP 주소를 검색합니다. IP 주소를 복사합니다. 클래식 VNet에 대한 로컬 네트워크를 구성하는 데 필요합니다.
@@ -118,4 +119,4 @@ ARM VNet에 대한 VPN 게이트웨이를 만들려면 아래 지침을 따르�
 - [ARM에 대한 NRP(네트워크 리소스 공급자)](resource-groups-networking.md)에 대해 자세히 알아봅니다.
 - [S2S VPN을 사용하여 클래식 VNet을 ARM VNet에 연결하는 종단 간 솔루션](virtual-networks-arm-asm-s2s.md)을 만듭니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->
