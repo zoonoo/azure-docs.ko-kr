@@ -23,7 +23,7 @@ Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니�
 
 **Azure 또는 Office 365** - Azure 또는 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium을 구입하는 방법 - 기존 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) 또는 [Azure Active Directory Premium을 구입하는 방법 - 새로운 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
 
-**Enterprise Mobility Suite** - Enterprise Mobility Suite는 조직이 Active Directory Premium, Azure Rights Management, Microsoft Intune을 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility Suite](https://www.microsoft.com/ko-KR/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요. 무료 30일 평가판을 얻으려면 [여기](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)를 클릭합니다.
+**Enterprise Mobility + Security** - Enterprise Mobility + Security(이전의 Enterprise Mobility Suite)는 조직이 Active Directory Premium, Azure Rights Management, Microsoft Intune 서비스를 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility + Security](https://www.microsoft.com/ko-KR/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요. 무료 30일 평가판을 얻으려면 [여기](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)를 클릭합니다.
 
 
 **Microsoft 볼륨 라이선스** - Azure Active Directory Premium은 [Microsoft 기업 계약](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/ko-KR/licensing/licensing-programs/open-license.aspx)(5–250개 라이선스) 프로그램을 통해 사용할 수 있습니다.
@@ -32,7 +32,7 @@ Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니�
 이 항목에서는 볼륨 라이선스 프로그램을 통해 구입한 Azure Active Directory Premium을 시작하는 방법을 보여 줍니다. 아직 다른 버전의 Azure Active Directory에 익숙하지 않은 경우 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.
 
 > [AZURE.NOTE]
-Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
+중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 
 
@@ -45,7 +45,7 @@ Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 �
 
 ## 2단계: 라이선스 계획 활성화
 
-Microsoft의 엔터프라이즈 볼륨 라이선싱 프로그램을 통해 라이선스 계획을 처음으로 구입하셨나요? 이 경우 구입을 완료하면 확인 전자 메일을 받습니다. 첫 번째 라이선스 계획을 활성화하려면 이 전자 메일이 필요합니다.
+Microsoft의 엔터프라이즈 볼륨 라이선스 프로그램을 통해 라이선스 계획을 처음으로 구입하셨나요? 이 경우 구입을 완료하면 확인 전자 메일을 받습니다. 첫 번째 라이선스 계획을 활성화하려면 이 전자 메일이 필요합니다.
 
 향후 이 디렉터리를 구입하면, 라이선스가 동일한 디렉터리에서 자동으로 활성화됩니다.
 
@@ -62,13 +62,13 @@ Microsoft의 엔터프라이즈 볼륨 라이선싱 프로그램을 통해 라�
 
     - 기존 테넌트가 있으면 **로그인**을 클릭하여 기존 관리자 계정으로 로그인합니다. 반드시 라이선스가 활성화된 디렉터리에서 전역 관리자 자격 증명으로 로그인해야 합니다.
 
-    - 라이선싱 계획을 사용하기 위해 Azure Active Directory 테넌트를 만들려는 경우에는 **등록**을 클릭하고 **계정 프로필 만들기** 대화 상자를 엽니다.
+    - 라이선싱 계획을 사용하기 위해 새 Azure Active Directory 테넌트를 만들려는 경우에는 **등록**을 클릭하고 **계정 프로필 만들기** 대화 상자를 엽니다.
 
         ![계정 프로필 만들기][2]
 
 완료한 후에는 테넌트에 대한 라이선스 계획의 활성화에 대한 확인으로 다음과 같은 대화 상자가 표시됩니다.
 
-![확인 페이지][3]
+![확인][3]
 
 ## 3단계: Azure Active Directory 액세스 활성화
 
@@ -91,7 +91,7 @@ Microsoft의 엔터프라이즈 볼륨 라이선싱 프로그램을 통해 라�
 
 **Azure Active Directory 액세스를 활성화하려면 다음 단계를 수행합니다.**
 
-1. **환영 전자 메일**에서 **로그인**을 클릭합니다. 
+1. **환영 전자 메일**에서 **로그인**을 클릭합니다.
     
     ![환영 전자 메일][4]
 
@@ -160,4 +160,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

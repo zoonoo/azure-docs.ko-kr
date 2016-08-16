@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/29/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 # Azure Multi-Factor Auth 공급자 시작
 Multi-Factor Authentication은 기본적으로 Azure Active Directory 및 Office 365 사용자가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 [고급 기능](multi-factor-authentication-whats-next.md)을 활용하려는 경우 Azure MFA의 전체 버전을 구입해야 합니다.
 
-> [AZURE.NOTE]  Azure Multi-factor Authentication 공급자는 정식 버전의 Azure MFA에서 제공하는 기능을 활용하는 데 사용됩니다. **Azure MFA, Azure AD Premium 또는 EMS을 통해 라이선스를 갖고 있지 않은** 사용자를 위한 기능입니다. Azure MFA, Azure AD Premium 및 EMS는 기본적으로 Azure MFA의 전체 버전을 포함합니다. 라이선스를 보유하는 경우 Multi-Factor Authentication 공급자가 필요하지 않습니다.
+> [AZURE.NOTE]  Azure Multi-factor Authentication 공급자는 정식 버전의 Azure MFA에서 제공하는 기능을 활용하는 데 사용됩니다. **Azure MFA, Azure AD Premium 또는 EMS을 통해 라이선스를 갖고 있지 않은** 사용자를 위한 기능입니다. Azure MFA, Azure AD Premium 및 EMS는 기본적으로 Azure MFA의 전체 버전을 포함합니다. 라이선스를 보유한 경우 Multi-Factor Auth 공급자가 필요하지 않습니다.
 
 SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니다.
 
@@ -49,4 +49,4 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
 		- Azure AD Connect, AAD Sync 또는 DirSync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우 필요하지 않습니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 **Multi-Factor Authentication 공급자를 성공적으로 만들었습니다**라는 메시지가 표시됩니다. **확인**을 클릭합니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

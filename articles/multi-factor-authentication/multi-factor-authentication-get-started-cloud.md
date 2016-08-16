@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication 시작
@@ -48,9 +48,9 @@
 4.  위쪽에서 **사용자**를 클릭합니다.
 5.  페이지의 아래쪽에서 **Multi-Factor Auth 관**리를 클릭합니다. ![디렉터리 클릭](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  그러면 새 브라우저 탭이 열립니다. 다단계 인증을 사용하도록 설정할 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수 있습니다. 상태가 **사용 안 함**인지 확인합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7.  이름 옆의 상자에 **확인 표시**를 합니다.
+7.  이름 옆의 상자에 **확인**을 표시합니다.
 7.  오른쪽에서 **사용**을 클릭합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/user1.png)
-8.  **다단계 인증 사용**을 클릭합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+8.  **Multi-Factor Auth**을 클릭합니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/enable2.png)
 9.  사용자의 상태가 **사용 안 함**에서 **사용**으로 변경됩니다. ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/user.png)
 10.  사용자를 사용하도록 설정하면 전자 메일을 통해 알리는 것이 좋습니다. 또한 잠그지 않으려면 비 브라우저 앱을 사용할 수 있는 방법을 알려야 합니다.
 
@@ -90,4 +90,4 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
 ## 다음 단계
 클라우드에서 Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. [Azure Multi-Factor Authentication 구성]을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발 | Azure"
-   description="Visual Studio용 데이터 레이크 도구를 설치하는 방법과 U-SQL 스크립트를 개발하고 테스트하는 방법을 알아봅니다."
+   description="Visual Studio용 데이터 레이크 도구를 설치하는 방법과 U-SQL 스크립트를 개발하고 테스트하는 방법을 알아봅니다. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
@@ -30,13 +30,13 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 - **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio "15"는 현재 지원되지 않으며 개발 중입니다.**
 - **Microsoft Azure SDK for .NET 버전 2.7.1 이상**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
-- **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)**
+- **[Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)**.
 
     Visual Studio용 Data Lake 도구가 설치되면 "Azure" 노드의 서버 탐색기에서 "Data Lake 분석" 노드가 표시됩니다(Ctrl+Alt+S를 눌러 서버 탐색기를 열 수 있음).
 
 - **[Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴봅니다.**
 
-	- [Azure 데이터 레이크 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
+	- [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     사용자 편의를 위해 데이터 레이크 분석 서비스를 만들고 원본 데이터 파일을 업로드하기 위한 PowerShell 샘플 스크립트는 [자습서 준비를 위한 Appx-A PowerShell 샘플](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial)에서 찾을 수 있습니다.
@@ -60,8 +60,8 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 **종속 Azure 데이터 레이크 계정에 파일 업로드하기**
 
-1. **서버 탐색기**에서 **Azure**를 확장하고 **데이터 레이크 분석**, 데이터 레이크 분석 계정, **저장소 계정**을 차례로 확장합니다. 데이터 레이크 저장소 계정, 연결된 데이터 레이크 저장소 계정, 연결된 Azure 저장소 계정이 표시됩니다. 기본 데이터 레이크 계정의 레이블은 “기본 저장소 계정”입니다.
-2. 기본 데이터 레이크 저장소 계정을 마우스 오른쪽 단추로 클릭한 후 **탐색기**를 클릭합니다. Visual Studio 탐색기용 데이터 레이크 도구 창이 열립니다. 왼쪽에 트리 보기가 오른쪽에 콘텐츠 보기가 표시됩니다.
+1. **서버 탐색기**에서 **Azure**를 확장하고 **Data Lake Analytics**, Data Lake Analytics, **저장소 계정**을 차례로 확장합니다. 데이터 레이크 저장소 계정, 연결된 데이터 레이크 저장소 계정, 연결된 Azure 저장소 계정이 표시됩니다. 기본 데이터 레이크 계정의 레이블은 “기본 저장소 계정”입니다.
+2. 기본 Data Lake 저장소 계정을 마우스 오른쪽 단추로 클릭한 후 **탐색기**를 클릭합니다. Visual Studio 탐색기용 데이터 레이크 도구 창이 열립니다. 왼쪽에 트리 보기가 오른쪽에 콘텐츠 보기가 표시됩니다.
 3. 파일을 업로드할 폴더로 이동합니다.
 4. 빈 공간을 마우스 오른쪽 단추를 클릭한 후 **업로드**를 클릭합니다.
 
@@ -132,19 +132,19 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     - **열 *확장**
 
-        \*의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
-    	![데이터 레이크 visual studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 이동하고 아래쪽 화살표를 클릭합니다.
+    	![Data Lake Visual Studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
 
 	- **자동 형식**
 
-		사용자는 편집->고급 아래에서 코드 구조를 기반으로 범위 스크립트의 들여쓰기를 변경할 수 있습니다.
+		사용자는 편집->고급에서 코드 구조를 기반으로 U-SQL 스크립트의 들여쓰기를 변경할 수 있습니다.
 
-		- 문서 서식(Ctrl+E, D) : 문서 전체의 서식을 지정합니다.   
-		- 선택 영역 서식(Ctrl+K, Ctrl+F): 선택 영역의 서식을 지정합니다. 선택한 내용이 없으면 이 바로 가기는 커서가 위치한 줄의 서식을 지정합니다.  
+		- 문서 서식(Ctrl+E, D) : 문서 전체의 서식을 지정합니다.
+		- 선택 영역 서식(Ctrl+K, Ctrl+F): 선택 영역의 서식을 지정합니다. 선택한 내용이 없으면 이 바로 가기는 커서가 위치한 줄의 서식을 지정합니다.
 
-		모든 서식 설정 규칙은 도구->옵션->텍스트 편집기->SIP->서식 아래에서 구성할 수 있습니다.  
+		모든 서식 설정 규칙은 도구->옵션->텍스트 편집기->SIP->서식 아래에서 구성할 수 있습니다.
 	- **스마트 들여쓰기**
 
 		Visual Studio용 데이터 레이크 도구는 스크립트를 작성하는 동안 식을 자동으로 들여 쓸 수 있습니다. 이 기능은 기본적으로 사용하지 않도록 설정되어 있으며 사용자가 U-SQL->옵션 및 설정 ->스위치->스마트 들여쓰기 사용 확인란을 선택하여 사용하도록 설정해야 합니다.
@@ -163,7 +163,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     자세한 내용은 [U-SQL 카탈로그 사용](data-lake-analytics-use-u-sql-catalog.md)을 참조하세요.
 
-5. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **빌드 스크립트**를 클릭합니다. 출력 창에서 결과를 확인합니다.
+5. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **빌드 스크립트**를 클릭합니다. 출력 창에서 결과를 확인합니다.
 6. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **스크립트 제출**을 클릭합니다. 선택적으로 Script.usql 창에서 **제출**을 클릭할 수도 있습니다. 이전 스크린샷을 참조하세요. 고급 옵션을 사용하여 제출하려면 제출 단추 옆의 아래쪽 화살표를 클릭합니다.
 7. **작업 이름**을 지정하고 **분석 계정**을 확인한 후 **제출**을 클릭합니다. 제출이 완료되면 Visual Studio용 데이터 레이크 도구 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
 
@@ -173,8 +173,8 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 	![U-SQL Visual Studio 데이터 레이크 분석 작업 성능 그래프](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-	* 작업 요약. 현재 작업에 대한 요약 정보(예: 상태, 진행, 실행 시간, 런타임 이름, 제출자 등)를 표시합니다.   
-	* 작업 세부 정보 제공된 작업에 대한 스크립트, 리소스, 꼭짓점 실행 보기를 비롯한 세부 정보입니다.
+	* 작업 요약. 현재 작업에 대한 요약 정보(예: 상태, 진행, 실행 시간, 런타임 이름, 제출자 등)를 표시합니다.
+	* 작업 세부 정보. 제공된 작업에 대한 스크립트, 리소스, 꼭짓점 실행 보기를 비롯한 세부 정보입니다.
 	* 작업 그래프 진행, 데이터 읽기, 데이터 쓰기, 실행 시간, 노드당 평균 실행 시간, 입력 처리량, 출력 처리량 같은 작업 정보를 시각화하도록 4개의 그래프가 제공됩니다.
 	* 메타데이터 작업 모든 메타데이터 작업을 표시합니다.
 	* 상태 내역
@@ -188,7 +188,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 **작업 출력 보기**
 
-1. **서버 탐색기**에서 **Azure**, **데이터 레이크 분석**, 사용자의 데이터 레이크 분석 계정, **저장소 계정**을 차례로 확장하고 기본 데이터 레이크 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
+1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, 사용자의 Data Lake Analytics 계정, **저장소 계정**을 차례로 확장하고 기본 Data Lake 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
 2.  **output**을 두 번 클릭하여 폴더를 엽니다.
 3.  **SearchLog-From-adltools.csv** 파일을 두 번 클릭합니다.
 
@@ -246,7 +246,7 @@ U-SQL 스크립트 개발에 대한 지침은 [U-SQL 스크립트 개발](#devel
 
 ![로컬에서 U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
-스크립트를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **Run Local Plan**(로컬 계획 실행)을 클릭하거나 **CTRL+F5** 키를 눌러서 로컬 실행을 트리거합니다.
+스크립트를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **로컬 계획 실행**을 클릭하거나 **CTRL+F5** 키를 눌러서 로컬 실행을 트리거합니다.
 
 ### 로컬 실행에 어셈블리 사용
 
@@ -273,7 +273,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	C# 코드에 중단점을 설정합니다.
-4.	**F5** 키를 눌러서 C# dll을 로컬에서 참조하는 스크립트를 디버그합니다.  
+4.	**F5** 키를 눌러서 C# dll을 로컬에서 참조하는 스크립트를 디버그합니다.
 
 ##참고 항목
 
@@ -292,7 +292,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 
 ##자습서 준비를 위한 Appx-A PowerShell 샘플
 
-다음 PowerShell 스크립트는 Azure Data Lake 분석 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
+다음 PowerShell 스크립트는 Azure Data Lake Analytics 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
@@ -362,4 +362,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

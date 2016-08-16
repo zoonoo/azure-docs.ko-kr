@@ -4,7 +4,7 @@
 	keywords="응용 프로그램 개발, 데이터베이스 자습서, python flask, python 웹 응용 프로그램, python 웹 개발, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
 
@@ -43,11 +43,11 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]().(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성되었습니다. 
-- [GitHub](http://microsoft.github.io/PTVS/)에서 Python Tools for Visual Studio. 이 자습서에서는 Python Tools for VS 2015를 사용합니다. 
-- [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Azure Python SDK for Visual Studio 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
-- [python.org][2]에서 Python 2.7. Python 2.7.11을 사용했습니다. 
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]()(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성되었습니다.
+- [GitHub](http://microsoft.github.io/PTVS/)에서 Visual Studio용 Python 도구. 이 자습서에서는 Python Tools for VS 2015를 사용합니다.
+- [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Visual Studio용 Azure Python SDK 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
+- [python.org][2]에서 Python 2.7. Python 2.7.11을 사용했습니다.
 
 > [AZURE.IMPORTANT] 처음으로 Python 2.7을 설치하는 경우 사용자 지정 Python 2.7.11 화면에서 **경로에 python.exe 추가**를 선택하도록 합니다.
 > 
@@ -77,7 +77,7 @@
 
 	![왼쪽에서 Python이 강조 표시되고, 가운데에서 Python Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
 
-4. **Python Tools for Visual Studio** 창에서 **가상 환경에 설치**를 클릭합니다.
+4. **Visual Studio용 Python 도구** 창에서 **가상 환경에 설치**를 클릭합니다.
 
 	![데이터베이스 자습서의 스크린샷 - Python Tools for Visual Studio 창](./media/documentdb-python-application/image10.png)
 
@@ -133,7 +133,7 @@
 
 이제 새 파일을 추가하고 다른 사용자를 업데이트하여 투표 응용 프로그램을 만들어 보겠습니다.
 
-1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. **빈 Python 파일**을 선택하고 파일 이름을 **forms.py**로 지정합니다.  
+1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. **빈 Python 파일**을 선택하고 파일 이름을 **forms.py**로 지정합니다.
 2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
 
 ```python
@@ -150,7 +150,7 @@ class VoteForm(Form):
 
 ### 필요한 가져오기를 views.py에 추가합니다.
 
-1. 솔루션 탐색기에서 **자습서** 폴더를 확장하고 **views.py** 파일을 엽니다. 
+1. 솔루션 탐색기에서 **자습서** 폴더를 확장하고 **views.py** 파일을 엽니다.
 2. **views.py** 파일 맨 위에 다음 import 문을 추가하고 파일을 저장합니다. 이렇게 하면 DocumentDB의 PythonSDK 및 Flask 패키지를 가져옵니다.
 
 	```python
@@ -202,7 +202,7 @@ def create():
 > [AZURE.TIP] **CreateCollection** 메서드는 선택적 **RequestOptions**를 세 번째 매개 변수로 사용합니다. 컬렉션에 대한 제품 유형을 지정하는 데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제품 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
 
-### 데이터베이스, 컬렉션 및 문서를 읽고 폼 제출
+### 데이터베이스, 컬렉션, 문서 및 제출 폼 참고
 
 - **views.py**에서 파일의 끝에 다음 코드를 추가합니다. 이 코드는 데이터베이스, 컬렉션 및 문서를 읽고 폼을 설정합니다. **views.py**의 기존 코드를 삭제하지 마세요. 단순히 끝 부분에 추가합니다.
 
@@ -256,8 +256,8 @@ def vote():
 
 ### HTML 파일 만들기
 
-1. 솔루션 탐색기의 **자습서** 폴더에서 **템플릿** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 
-2. **HTML 페이지**를 선택한 다음 이름 상자에 **create.html**을 입력합니다. 
+1. 솔루션 탐색기의 **자습서** 폴더에서 **템플릿** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다.
+2. **HTML 페이지**를 선택한 다음 이름 상자에 **create.html**을 입력합니다.
 3. 1단계 및 2단계를 반복하여 results.html 및 vote.html과 같은 추가 HTML 파일을 만듭니다.
 4. `<body>` 요소의 **create.html**에 다음 코드를 추가합니다. 이 코드는 새 데이터베이스, 컬렉션 및 문서를 만들었다는 메시지를 표시합니다.
 
@@ -324,7 +324,7 @@ def vote():
 
 ### 구성 파일 추가 및 \_\_init\_\_.py 변경
 
-1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 차례로 클릭한 다음 **빈 Python 파일**을 선택하고 파일의 이름을 **config.py**로 지정합니다. 이 구성 파일은 Flask의 폼에 필요합니다. 이 파일을 사용하여 비밀 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
+1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 및 **새 항목**을 차례로 클릭한 다음 **빈 Python 파일**을 선택하고 파일의 이름을 **config.py**로 지정합니다. 이 구성 파일은 Flask의 폼에 필요합니다. 이 파일을 사용하여 암호 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
 
 2. Config.py에 다음 코드를 추가하고 다음 단계에서 **DOCUMENTDB\_HOST** 및 **DOCUMENTDB\_KEY**의 값을 변경해야 합니다.
 
@@ -342,7 +342,7 @@ def vote():
 
 3. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하여 **키** 블레이드를 탐색하고 사용할 계정 이름을 두 번 클릭한 다음 **Essentials** 영역에서 **키** 단추를 클릭합니다. **키** 블레이드에서 **URI** 값을 복사하고 **DOCUMENTDB\_HOST** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
 4. 다시 Azure 포털의 **키** 블레이드에서 **기본 키** 또는 **보조 키** 값을 복사하고 **DOCUMENTDB\_KEY** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
-5. **\_\_init\_\_.py** 파일에 다음 줄을 추가합니다. 
+5. **\_\_init\_\_.py** 파일에 다음 줄을 추가합니다.
 
         app.config.from_object('config')
 
@@ -385,7 +385,7 @@ def vote():
 
 이제 완료된 응용 프로그램이 DocumentDB에 대해 올바르게 작동하므로 Azure 웹 사이트에 배포하겠습니다.
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않도록 확인) **게시**를 선택합니다.  
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않도록 확인) **게시**를 선택합니다.
 
  	![강조 표시된 게시 옵션을 사용하여 솔루션 탐색기에서 선택된 자습서의 스크린샷](./media/documentdb-python-application/image20.png)
 
@@ -433,4 +433,4 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

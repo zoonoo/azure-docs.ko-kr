@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="08/02/2016"
+	ms.author="curtand"/>
 
 # Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가
 
-사용자를 추가하여 디렉터리를 채웁니다. 이 문서에서는 Azure Active Directory에 있는 다른 디렉터리의 사용자를 추가하거나 파트너 회사의 사용자를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가 및 Microsoft 계정이 있는 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
+이 문서에서는 Azure Active Directory에 있는 다른 디렉터리의 사용자를 추가하거나 파트너 회사의 사용자를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가 및 Microsoft 계정이 있는 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
 
 ## 사용자 추가
 
@@ -28,10 +28,10 @@
 
 3. **사용자** 탭을 선택한 다음 명령 모음에서 **사용자 추가**를 선택합니다.
 
-4. **이 사용자에 대해 알리기** 페이지의 **사용자 형식**에 다음 중 하나를 선택합니다.
+4. **이 사용자에 대해 알리기** 페이지의 **사용자 형식**에서 다음 중 하나를 선택합니다.
 
 	- **다른 Azure AD 디렉터리의 사용자** – 다른 Azure AD 디렉터리가 원본인 사용자 계정을 사용자 디렉터리에 추가합니다. 또한 사용자는 해당 디렉터리의 멤버인 경우에만 또 다른 디렉터리의 사용자를 선택할 수 있습니다.
-	- **파트너 회사의 사용자** - 파트너 회사 사용자를 디렉터리에 초대하고 권한을 부여하려면([Azure Active Directory B2B 공동 작업 참조](active-directory-b2b-what-is-azure-ad-b2b.md)) [전자 메일 주소를 지정하는 CSV 파일을 업로드](active-directory-b2b-references-csv-file-format.md)해야 합니다.
+	- **파트너 회사의 사용자** - 파트너 회사 사용자를 디렉터리에 초대하고 권한 부여([Azure Active Directory B2B 공동 작업 참조](active-directory-b2b-what-is-azure-ad-b2b.md)). [전자 메일 주소를 지정하는 CSV 파일을 업로드](active-directory-b2b-references-csv-file-format.md)해야 합니다.
 
 6. 사용자 **프로필** 페이지에 이름과 성, 별명 및 **역할 목록**의 사용자 역할을 입력합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. 사용자에 대해 **Multi-Factor Authentication 사용** 여부를 지정합니다.
 
@@ -84,4 +84,4 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

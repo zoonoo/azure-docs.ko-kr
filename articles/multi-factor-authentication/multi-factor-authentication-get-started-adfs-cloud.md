@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
@@ -71,7 +71,7 @@
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
-13. **마침**을 클릭합니다.
+13. **Finish**를 클릭합니다.
 14. **Apply**를 클릭합니다.
 15. **Ok**를 클릭합니다.
 16. AD FS 관리를 닫습니다.
@@ -93,4 +93,4 @@
 
 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->
