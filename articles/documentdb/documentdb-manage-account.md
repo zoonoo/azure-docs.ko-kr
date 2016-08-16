@@ -144,4 +144,4 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 [azureregions]: https://azure.microsoft.com/ko-KR/regions/#services
 [offers]: https://azure.microsoft.com/ko-KR/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0727_2016---->
