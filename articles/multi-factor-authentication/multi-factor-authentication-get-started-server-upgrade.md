@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -49,7 +49,7 @@ PhoneFactor Agent v5.x 및 이전 버전을 Azure Multi-Factor Authentication �
 
 <li>Multi-Factor Authentication 서버를 설치합니다. 이전 PhoneFactor Agent 설치의 레지스트리에서 설치 경로가 선택되므로 동일한 위치(예: C:\\Program Files\\PhoneFactor)에 설치되어야 합니다. 새 설치는 다른 기본 경로(예: C:\\Program Files\\multi-factor Authentication Server)를 갖게 됩니다. 이전 PhoneFactor Agent에 의해 남아 있는 데이터 파일은 설치 중에 업그레이드되므로 새 Multi-Factor Authentication 서버를 설치한 후에도 사용자 및 설정이 해당 위치에 그대로 남아 있습니다.
 
-<li>Multi-factor Authentication 서버의 정품 인증을 받으라는 메시지가 표시되면 진행하고 올바른 복제 그룹에 할당되었는지 확인합니다.
+<li>Multi-Factor Authentication 서버의 정품 인증을 받으라는 메시지가 표시되면 진행하고 올바른 복제 그룹에 할당되었는지 확인합니다.
 
 <li>웹 서비스 SDK를 이전에 설치한 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 웹 서비스 SDK를 설치합니다. 기본 가상 디렉터리 이름은 이제 "PhoneFactorWebServiceSdk" 대신 "MultiFactorAuthWebServiceSdk"가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 응용 프로그램의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
 
@@ -69,4 +69,4 @@ PhoneFactor Agent v5.x 및 이전 버전을 Azure Multi-Factor Authentication �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

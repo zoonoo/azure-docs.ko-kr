@@ -2,7 +2,9 @@ VNet 피어링은 Azure 백본 네트워크를 통해 동일한 지역에 있는
 
 VNet 피어링은 공개 미리 보기 상태이며 아래 명령을 사용하여 등록해야 사용할 수 있습니다.
 
-> [AZURE.NOTE] Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network –force
+    Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

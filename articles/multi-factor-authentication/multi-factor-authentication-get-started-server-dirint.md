@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure MFA 서버와 Active Directory 간의 디렉터리 통합
@@ -60,7 +60,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 옵션이 있습니다
 - **사용자 필터** - 디렉터리 검색을 수행할 때 사용자 레코드를 한정하는 데 사용할 필터 조건을 지정합니다. Active Directory 및 ADAM의 경우 (& (objectClass=user)(objectCategory=person))이 일반적으로 사용됩니다. 다른 LDAP 디렉터리의 경우 (objectClass = inetOrgPerson) 또는 이와 유사한 유형이 디렉터리 스키마에 따라 사용되어야 합니다. <br>참고: 비워 둔 경우 (&(objectCategory=person)(objectClass=user))가 기본적으로 사용됩니다.
 
 ## 특성
-필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다. 이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값은 디렉터리 스키마에서 정의된 특성의 이름이어야 합니다. 자세한 내용은 아래 표를 참조하세요.
+필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다. 이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값은 디렉터리 스키마에서 정의된 특성의 이름이어야 합니다. 자세한 내용은 아래 테이블을 참조하세요.
 
 ![특성](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
@@ -137,4 +137,4 @@ LDAP를 사용하도록 구성하고 LDAP 디렉터리가 DirSync 컨트롤을 �
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

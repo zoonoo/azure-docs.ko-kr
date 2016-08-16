@@ -98,15 +98,16 @@ Application Insights 도구 모음 단추 또는 Application Insights 검색 창
 
 ![추세](./media/app-insights-visual-studio/51.png)
 
+[추세 자세히 알아보기](app-insights-visual-studio-trends.md).
 
 ## 다음 작업
 
 ||
 |---|---
-|**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual Studio](./media/app-insights-asp-net/64.png)
+|**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual studio](./media/app-insights-asp-net/64.png)
 |**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

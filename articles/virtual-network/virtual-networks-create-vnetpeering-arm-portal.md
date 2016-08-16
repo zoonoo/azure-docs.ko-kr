@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
 # Azure 포털을 사용하여 가상 네트워크 피어링 만들기
 
@@ -28,7 +28,7 @@
 Azure 포털을 사용하여 위의 시나리오에 따라 VNet 피어링을 만들려면 다음 단계를 수행합니다.
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. VNET 피어링을 설정하려면 두 개의 VNet 간에 각 방향에 하나씩 두 개의 링크를 만들어야 합니다. 먼저 VNET1-VNet2에 VNET 피어링 링크를 만들 수 있습니다. 포털에서 **찾아보기** \> **가상 네트워크 선택**을 클릭합니다.
+2. VNET 피어링을 설정하려면 두 개의 VNet 간에 각 방향에 하나씩 두 개의 링크를 만들어야 합니다. 먼저 VNET1-VNet2에 VNET 피어링 링크를 만들 수 있습니다. 포털에서 **찾아보기** > **가상 네트워크 선택**을 클릭합니다.
 
 	![Azure 포털에서 VNet 피어링 만들기](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 
@@ -77,33 +77,33 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. 이 예제에서는 각각의 구독에 두 개의 구독, A 및 B와 권한 있는 두 명의 사용자, 사용자A 및 사용자B를 사용합니다.
-2. 포털에서 찾아보기를 클릭하고 가상 네트워크를 선택합니다. VNET을 클릭하고 추가를 클릭합니다.
+3. 포털에서 찾아보기를 클릭하고 가상 네트워크를 선택합니다. VNET을 클릭하고 추가를 클릭합니다.
 
     ![시나리오 2 찾아보기](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. 액세스 추가 블레이드에서 역할 선택을 클릭하고 네트워크 참가자를 선택하며 사용자 추가를 클릭하고 사용자B 로그인 이름을 입력한 다음 확인을 클릭합니다.
+4. 액세스 추가 블레이드에서 역할 선택을 클릭하고 네트워크 참가자를 선택하며 사용자 추가를 클릭하고 사용자B 로그인 이름을 입력한 다음 확인을 클릭합니다.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-   이는 요구 사항이 아니며 요청이 일치하면 사용자가 해당하는 Vnet에 대한 피어링 요청을 개별적으로 요구하는 경우에도 피어링을 설정할 수 있습니다. 다른 VNet의 권한 있는 사용자를 로컬 VNet의 사용자로 추가하면 포털에서 설치하기가 수월해집니다.
+    이는 요구 사항이 아니며 요청이 일치하면 사용자가 해당하는 Vnet에 대한 피어링 요청을 개별적으로 요구하는 경우에도 피어링을 설정할 수 있습니다. 다른 VNet의 권한 있는 사용자를 로컬 VNet의 사용자로 추가하면 포털에서 설치하기가 수월해집니다.
 
-4. 그런 다음 구독B에 대한 권한 있는 사용자인 사용자B로 Azure 포털에 로그인합니다. 위의 단계를 수행하여 사용자A를 네트워크 참가자로 추가합니다.
+5. 그런 다음 구독B에 대한 권한 있는 사용자인 사용자B로 Azure 포털에 로그인합니다. 위의 단계를 수행하여 사용자A를 네트워크 참가자로 추가합니다.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
     참고: 브라우저에서 두 사용자 세션에 로그오프하고 로그온하여 권한 부여가 성공적으로 사용되었는지 확인할 수 있습니다.
 
-5. 포털에 사용자A로 로그인하고 VNET3 블레이드로 이동하여 피어링을 클릭한 다음 ‘내 리소스 ID를 알고 있습니다” 확인란을 선택하고 아래 서식에서 VNET5에 대한 리소스 ID를 입력합니다.
+6. 포털에 사용자A로 로그인하고 VNET3 블레이드로 이동하여 피어링을 클릭한 다음 ‘내 리소스 ID를 알고 있습니다” 확인란을 선택하고 아래 서식에서 VNET5에 대한 리소스 ID를 입력합니다.
 
-    /subscriptions/\<Subscription- ID\>/resourceGroups/\<ResourceGroupName\>/providers/Microsoft.Network/VirtualNetwork/\<VNET name\>
+    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
 
     ![리소스 ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-6. 포털에 사용자B로 로그인하고 위의 단계에 따라 VNET5에서 VNet3에 피어링 링크를 만듭니다.
+7. 포털에 사용자B로 로그인하고 위의 단계에 따라 VNET5에서 VNet3에 피어링 링크를 만듭니다.
 
     ![리소스 ID 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-7. 피어링을 설정하면 VNet3의 가상 컴퓨터는 VNet5의 모든 가상 컴퓨터와 통신할 수 있어야 합니다.
+8. 피어링을 설정하면 VNet3의 가상 컴퓨터는 VNet5의 모든 가상 컴퓨터와 통신할 수 있어야 합니다.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -115,7 +115,7 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
     ![기본 피어링](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
-3. 피어링을 설정하면 이 [문서](virtual-network-create-udr-arm-ps.md)를 참조하고 UDR\(사용자 정의 경로\)를 정의하여 그 기능을 사용하는 가상 어플라이언스를 통해 VNet1 트래픽을 리디렉션할 수 있습니다. 경로에 다음 홉 주소를 지정하면 피어링된 VNet HubVNet에서 가상 어플라이언스의 IP 주소를 설정할 수 있습니다.
+3. 피어링을 설정하면 이 [문서](virtual-network-create-udr-arm-ps.md)를 참조하고 UDR(사용자 정의 경로)를 정의하여 그 기능을 사용하는 가상 어플라이언스를 통해 VNet1 트래픽을 리디렉션할 수 있습니다. 경로에 다음 홉 주소를 지정하면 피어링된 VNet HubVNet에서 가상 어플라이언스의 IP 주소를 설정할 수 있습니다.
 
 ## VNet 피어링 제거
 
@@ -130,4 +130,4 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
 4. 이 상태에서는 피어링 링크 상태가 시작됨으로 변경될 때까지 링크를 다시 만들 수 없습니다. VNET 피어링을 다시 만들기 전에 링크를 모두 제거하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

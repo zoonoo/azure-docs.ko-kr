@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # MFA 서버 모바일 앱 웹 서비스 시작
@@ -51,9 +51,9 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 ## 모바일 앱 웹 서비스 설치
 모바일 앱 웹 서비스를 설치하기 전에 다음을 고려해야 합니다.
 
-- Azure Multi-Factor Authentication 사용자 포털이 인터넷 연결 서버에 이미 설치되어 있는 경우 사용자 이름, 암호 및 웹 서비스 SDK에 대한 URL을 사용자 포털의 web.config 파일에서 복사할 수 있습니다. 
+- Azure Multi-Factor Authentication 사용자 포털이 인터넷 연결 서버에 이미 설치되어 있는 경우 사용자 이름, 암호 및 웹 서비스 SDK에 대한 URL을 사용자 포털의 web.config 파일에서 복사할 수 있습니다.
 - 인터넷 연결 웹 서버에서 웹 브라우저를 열고 web.config 파일에 입력된 웹 서비스 SDK의 URL로 이동하는 것이 좋습니다. 브라우저가 웹 서비스로 성공적으로 이동될 수 있으면 자격 증명을 묻는 메시지가 표시됩니다. web.config 파일에 입력된 사용자 이름 및 암호를 파일에 표시된 그대로 입력합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
-- 역방향 프록시 또는 방화벽이 모바일 앱 웹 서비스 웹 서버를 차단하고 있으며 SSL 오프로드를 수행하는 경우 모바일 앱 웹 서비스 web.config 파일을 편집하고 <appSettings> 섹션에 다음 키를 추가하여 모바일 앱 웹 서비스가 https 대신 http를 사용하도록 할 수 있습니다. 그러나 모바일 앱에서 방화벽/역방향 프록시 사이에 SSL은 여전히 필요합니다. <add key="SSL_REQUIRED" value="false"/> 
+- 역방향 프록시 또는 방화벽이 모바일 앱 웹 서비스 웹 서버를 차단하고 있으며 SSL 오프로드를 수행하는 경우 모바일 앱 웹 서비스 web.config 파일을 편집하고 <appSettings> 섹션에 다음 키를 추가하여 모바일 앱 웹 서비스가 https 대신 http를 사용하도록 할 수 있습니다. 그러나 모바일 앱에서 방화벽/역방향 프록시 사이에 SSL은 여전히 필요합니다. <add key="SSL\_REQUIRED" value="false"/>
 
 ### 모바일 앱 웹 서비스를 설치하려면
 
@@ -83,11 +83,11 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 2. 사용자가 모바일 앱을 활성화할 수 있도록 허용 확인란을 선택합니다.
 3. 사용자 등록 허용 확인란을 선택합니다.
 4. 모바일 앱 아이콘을 클릭합니다.
-5. Azure Multi-Factor AuthenticationMobileAppWebServiceSetup을 설치할 때 만든 가상 디렉터리에서 사용할 URL을 입력합니다. 제공된 공간에 계정 이름을 입력할 수 있습니다. 이 회사 이름은 모바일 응용 프로그램에 표시됩니다. 이 필드를 비워두면 Azure 관리 포털에서 만들어진 Multi-Factor Auth 공급자의 이름이 표시됩니다. 
+5. Azure Multi-Factor AuthenticationMobileAppWebServiceSetup을 설치할 때 만든 가상 디렉터리에서 사용할 URL을 입력합니다. 제공된 공간에 계정 이름을 입력할 수 있습니다. 이 회사 이름은 모바일 응용 프로그램에 표시됩니다. 이 필드를 비워두면 Azure 관리 포털에서 만들어진 Multi-Factor Auth 공급자의 이름이 표시됩니다.
 
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

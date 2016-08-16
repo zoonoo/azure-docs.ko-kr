@@ -34,7 +34,7 @@
 - **Azure 계정**: [Azure 무료 평가판][] 또는 [MSDN Azure 크레딧][]을 방문하여 계정을 만듭니다.
 - **Azure SQL Server**: 자세한 내용은 [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기][]를 참조하세요.
 
-> [AZURE.NOTE] 새 SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다. 가격에 대한 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.
+> [AZURE.NOTE] SQL 데이터 웨어하우스를 만들면 새로운 유료 서비스가 발생할 수 있습니다. 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.
 
 ## SQL 데이터 웨어하우스 만들기
 
@@ -48,21 +48,21 @@
 
     ![데이터베이스 만들기](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **서버**: 먼저 서버를 선택하는 것이 좋습니다. 기존 서버를 선택하거나 [새로 만들 수](./sql-data-warehouse-get-started-new-server.md) 있습니다.
+	- **서버**: 먼저 서버를 선택하는 것이 좋습니다.
 
-	- **데이터베이스 이름**: SQL 데이터 웨어하우스를 참조하는 데 사용할 이름입니다. 서버에 대해 고유해야 합니다.
+	- **데이터베이스 이름**: SQL 데이터 웨어하우스를 참조하는 데 사용되는 이름입니다. 서버에 대해 고유해야 합니다.
 	
-    - **성능**: 400 [DWU][DWU]로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 설명서의 [확장](./sql-data-warehouse-manage-compute-overview.md) 또는 [가격 책정 페이지][SQL Data Warehouse pricing]를 참조하세요.
+    - **성능**: 400 [DWU][DWU]로 시작하는 것이 좋습니다. 슬라이더를 왼쪽이나 오른쪽으로 이동하여 데이터 웨어하우스의 성능을 조정하거나, 만든 후에 확장 또는 축소할 수 있습니다. DWU에 대한 자세한 내용은 [확장](./sql-data-warehouse-manage-compute-overview.md) 또는 [가격 책정 페이지][SQL Data Warehouse pricing]에서 설명서를 참조하세요.
 
     - **구독**: SQL 데이터 웨어하우스가 청구될 [구독]을 선택합니다.
 
     - **리소스 그룹**: [리소스 그룹][Resource group]은 컨테이너로, Azure 리소스의 컬렉션을 관리할 수 있도록 디자인되었습니다. [리소스 그룹](../resource-group-overview.md)에 대해 알아봅니다.
 
-    - **원본 선택**: **원본 선택** > **샘플**을 클릭합니다. 현재는 한 개의 예제 데이터베이스만 사용 가능하므로 샘플을 선택하면 Azure에서 **샘플 선택** 옵션이 AdventureWorksDW로 자동으로 채워집니다.
+    - **원본 선택**: **원본 선택** > **샘플**을 클릭합니다. Azure에서는 AdventureWorksDW를 사용하여 **선택 샘플** 옵션을 자동으로 채웁니다.
 
 4. **만들기**를 클릭하여 SQL 데이터 웨어하우스를 만듭니다.
 
-5. 몇 분 정도 지나면 SQL 데이터 웨어하우스가 준비됩니다. 완료하면 [Azure 포털](https://portal.azure.com)로 돌아가야 합니다. 생성 시 사용한 리소스 그룹 또는 SQL 데이터베이스 아래 나열된, 대시보드에서 SQL 데이터 웨어하우스를 찾을 수 있습니다.
+5. 몇 분 정도 기다립니다. 데이터 웨어하우스가 준비되면 [Azure 포털](https://portal.azure.com)로 돌아가야 합니다. 생성 시 사용한 리소스 그룹 또는 SQL 데이터베이스 아래 나열된, 대시보드에서 SQL 데이터 웨어하우스를 찾을 수 있습니다.
 
     ![포털 보기](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -84,8 +84,8 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
-[모범 사례]: ./sql-data-warehouse-best-practices.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[모범 사례]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [구독]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 
@@ -99,4 +99,4 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

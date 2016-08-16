@@ -4,7 +4,7 @@
 	keywords="응용 프로그램 개발, 데이터베이스 자습서, node.js 알아보기, node.js 자습서, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
 
@@ -50,7 +50,7 @@
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - [Node.js][] 버전 v0.10.29 이상
-- [Express 생성기](http://www.expressjs.com/starter/generator.html)\(`npm install express-generator -g`를 통해 설치 가능\)
+- [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 - [Git][]
 
 ## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
@@ -100,7 +100,7 @@
 
 	![package.json 탭의 스크린샷](./media/documentdb-nodejs-application/image17.png)
 
-       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드\(및 나중에 Azure\)에 알려줍니다.
+       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
 
@@ -431,7 +431,7 @@
 
 
 
-6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고\(**config.js**에서 읽은 값 사용\), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다.
+6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다.
 
 7. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
  
@@ -570,4 +570,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
