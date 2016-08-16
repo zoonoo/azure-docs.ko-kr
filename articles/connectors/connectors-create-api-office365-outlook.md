@@ -172,16 +172,10 @@ ReceiveMessage: 전자 메일 메시지 받기
 | 속성 이름 | 데이터 형식 | 설명 |
 |---|---|---|
 |원본|string|원본|
-|받는 사람  
-|string|받는 사람  
-|
-|제목  
-|string|제목  
-|
+|받는 사람|string|받는 사람|
+|제목|string|제목|
 |본문|string|본문|
-|중요도  
-|string|중요도  
-|
+|중요도|string|중요도|
 |HasAttachment|부울|첨부 파일 포함|
 |Id|string|메시지 ID|
 |IsRead|부울|읽음|
@@ -264,11 +258,9 @@ ReceiveMessage: 전자 메일 메시지 받기
 |속성 이름| 표시 이름|설명|
 | ---|---|---|
 |folderPath|폴더 경로|검색할 전자 메일 폴더(기본값: 받은 편지함)|
-|to|받는 사람  
-|받는 사람 전자 메일 주소|
+|to|받는 사람|받는 사람 전자 메일 주소|
 |from|원본|보낸 사람 주소|
-|중요도|중요도  
-|전자 메일의 중요도(높음, 보통, 낮음) (기본값: 보통)|
+|중요도|중요도|전자 메일의 중요도(높음, 보통, 낮음) (기본값: 보통)|
 |fetchOnlyWithAttachment|첨부 파일 있음|첨부 파일이 있는 전자 메일만 검색|
 |includeAttachments|첨부 파일 포함|첨부 파일 포함|
 |subjectFilter|제목 필터|제목에서 찾을 문자열|
@@ -383,8 +375,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |끝|string|이벤트의 종료 시간입니다.|
 |EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
 |HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
-|중요도  
-|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
 |IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
 |IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
 |IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
@@ -398,8 +389,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
 |시작|string|이벤트의 시간입니다.|
 |StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
-|제목  
-|string|이벤트 제목입니다.|
+|제목|string|이벤트 제목입니다.|
 |형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
 |WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 
@@ -430,8 +420,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |끝|string|이벤트의 종료 시간입니다.|
 |EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
 |HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
-|중요도  
-|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
 |IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
 |IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
 |IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
@@ -445,8 +434,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
 |시작|string|이벤트의 시간입니다.|
 |StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
-|제목  
-|string|이벤트 제목입니다.|
+|제목|string|이벤트 제목입니다.|
 |형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
 |WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 
@@ -492,8 +480,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |끝|string|이벤트의 종료 시간입니다.|
 |EndTimeZone|string|모임 종료 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: '태평양 표준시').|
 |HasAttachments|부울|이벤트에 첨부 파일이 있으면 true로 설정합니다.|
-|중요도  
-|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
+|중요도|string|이벤트의 중요도(낮음, 보통, 높음)입니다.|
 |IsAllDay|부울|이벤트가 하루 종일 진행되는 경우 true로 설정합니다.|
 |IsCancelled|부울|이벤트가 취소된 경우 true로 설정합니다.|
 |IsOrganizer|부울|메시지 보낸 사람이 이끌이인 경우 true로 설정합니다.|
@@ -507,8 +494,7 @@ CalendarEvent: 커넥터별 일정 이벤트 모델 클래스입니다.
 |ShowAs|string|사용 가능 또는 사용 중으로 표시합니다.|
 |시작|string|이벤트의 시간입니다.|
 |StartTimeZone|string|모임 시작 시간의 시간대를 지정합니다. 이 값은 Windows에 정의된 대로여야 합니다(예: "태평양 표준시").|
-|제목  
-|string|이벤트 제목입니다.|
+|제목|string|이벤트 제목입니다.|
 |형식|string|이벤트 유형: Single Instance, Occurrence, Exception 또는 Series Master.|
 |WebLink|string|이벤트와 연결된 메시지 미리 보기입니다.|
 

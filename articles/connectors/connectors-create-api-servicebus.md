@@ -87,9 +87,7 @@ Azure 서비스 버스에는 다음과 같은 작업이 있습니다.
 |속성 이름| 표시 이름|설명|
 | ---|---|---|
 |MessageId|메시지 ID|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람  
-|받는 사람  
-|주소로 보내기|
+|받는 사람|받는 사람|주소로 보내기|
 |ReplyTo|회신|회신할 큐의 주소|
 |ReplyToSessionId|세션 ID에 회신|회신할 세션의 식별자|
 |레이블|레이블|응용 프로그램 특정 레이블|
@@ -127,8 +125,7 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 |ContentType|string|메시지 콘텐츠의 콘텐츠 형식|
 |속성|object|각 조정된 속성의 키-값 쌍|
 |MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람  
-|string|주소로 보내기|
+|받는 사람|string|주소로 보내기|
 |ReplyTo|string|회신할 큐의 주소|
 |ReplyToSessionId|string|회신할 세션의 식별자|
 |레이블|string|응용 프로그램 특정 레이블|
@@ -163,8 +160,7 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 |ContentType|string|메시지 콘텐츠의 콘텐츠 형식|
 |속성|object|각 조정된 속성의 키-값 쌍|
 |MessageId|string|서비스 버스에서 중복 메시지를 식별하는 데 사용할 수 있는 사용자 정의 값입니다(설정된 경우).|
-|받는 사람  
-|string|주소로 보내기|
+|받는 사람|string|주소로 보내기|
 |ReplyTo|string|회신할 큐의 주소|
 |ReplyToSessionId|string|회신할 세션의 식별자|
 |레이블|string|응용 프로그램 특정 레이블|
