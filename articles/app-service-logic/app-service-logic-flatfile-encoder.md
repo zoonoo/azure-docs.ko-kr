@@ -1,7 +1,7 @@
 <properties 
    pageTitle="논리 앱에서 BizTalk 플랫 파일 인코더 사용 | Microsoft Azure" 
    description="BizTalk 플랫 파일 인코더 API 앱 또는 커넥터" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -86,4 +86,4 @@ Input Xml|string|입력 Xml 내용
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

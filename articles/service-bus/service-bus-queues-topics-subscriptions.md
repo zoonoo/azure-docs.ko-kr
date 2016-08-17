@@ -77,13 +77,13 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 받은 메시지에 대해 [중단](https://msdn.microsoft.com/library/azure/hh181837.aspx) 메서드를 호출할 수 있습니다.([완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 메서드 대신 ) 그러면 서비스 버스에서 메시지의 잠금을 해제하므로 동일한 소비나 다른 경쟁적 소비자에게서 메시지를 다시 받을 수 있습니다. 두 번째로 잠금과 연결된 시간 제한도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 잠금 해제하여 다시 받을 수 있게 합니다(기본적으로 [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) 작업 수행).
 
-응용 프로그램이 메시지를 처리한 후 [완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 **MessageId** 속성에 따라 얻을 수 있는 중복을 검색하려면 응용 프로그램에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. *정확히 한번* 처리로 알려집니다.
+응용 프로그램이 메시지를 처리한 후 [완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 * 한 번*처리라고 합니다. 즉, 각 메시지가 최소 한 번 처리됩니다. 그러나 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 시나리오가 중복 처리를 허용하지 않는 경우 메시지의 **MessageId** 속성에 따라 얻을 수 있는 중복을 검색하려면 응용 프로그램에 추가 논리가 필요하며 이는 전달 시도를 걸쳐 일관성을 유지합니다. *정확히 한번* 처리로 알려집니다.
 
-큐에서 메시지를 만들기 및 주고 받는 방법에 대한 자세한 내용 및 작업 예제는 [서비스 버스 조정된 메시징 .NET 자습서](service-bus-brokered-tutorial-dotnet.md)를 참조하세요.
+큐에서 메시지를 만들기 및 주고받는 방법에 대한 자세한 내용 및 작업 예제는 [서비스 버스 조정된 메시징 .NET 자습서](service-bus-brokered-tutorial-dotnet.md)를 참조하세요.
 
 ## 항목 및 구독
 
-각 메시지가 단일 소비자에 의해 처리되는 큐와 반대로, *토픽*과 *구독*은 *게시/구독* 패턴을 사용하여 일 대 다 형태의 통신을 제공합니다. 많은 수혜자 수를 조정할 수 있도록 각 게시된 메시지를 토픽에 등록된 각 구독에서 사용할 수 있게 합니다. 메시지를 토픽에 보내고 구독 단위로 설정할 수 있는 필터 규칙에 따라 하나 이상의 연결된 구독에 전달합니다. 구독은 추가 필터를 사용하여 수신하려는 메시지를 제한할 수 있습니다. 메시지는 큐로 전송된 것과 동일한 방식으로 항목에 전송되지만 메시지는 항목에서 직접 수신되지 않습니다. 대신 구독에서 수신합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 메시지는 큐에서 수신하는 방식과 동일하게 구독에서 수신됩니다.
+각 메시지가 단일 소비자에 의해 처리되는 큐와 반대로, *항목*과 *구독*은 *게시/구독* 패턴을 사용하여 일 대 다형태의 통신을 제공합니다. 많은 수혜자 수를 조정할 수 있도록 각 게시된 메시지를 토픽에 등록된 각 구독에서 사용할 수 있게 합니다. 메시지를 토픽에 보내고 구독 단위로 설정할 수 있는 필터 규칙에 따라 하나 이상의 연결된 구독에 전달합니다. 구독은 추가 필터를 사용하여 수신하려는 메시지를 제한할 수 있습니다. 메시지는 큐로 전송된 것과 동일한 방식으로 항목에 전송되지만 메시지는 항목에서 직접 수신되지 않습니다. 대신 구독에서 수신합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 메시지는 큐에서 수신하는 방식과 동일하게 구독에서 수신됩니다.
 
 비교를 통해 큐의 메시지 보내기 기능은 항목에 직접 매핑하고 해당 메시지 받기 기능은 구독에 매핑합니다. 무엇보다도 즉, 구독은 큐와 관련하여 경쟁적 소비자, 임시 분리, 부하 평준화 및 부하 분산 등 이 섹션 앞 부분에서 설명한 동일한 패턴을 지원합니다.
 
@@ -154,7 +154,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 구독 필터가 준비된 경우 `StoreName` 속성이 `Store1`로 설정된 메시지만 `Dashboard` 구독에 대해 가상 큐에 복사됩니다.
 
-가능한 필터 값에 대한 자세한 내용은 [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) 및 [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx) 클래스에 대한 설명서를 참조하세요. 또한 [조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) 및 [토픽 필터](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) 샘플을 참조하세요.
+가능한 필터 값에 대한 자세한 내용은 [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) 및 [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx) 클래스에 대한 설명서를 참조하세요. 또한 [조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) 및 [항목 필터](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) 샘플을 참조하세요.
 
 ## 이벤트 허브(영문)
 
@@ -174,4 +174,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [토픽 필터 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [조정된 메시징: 고급 필터 샘플](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

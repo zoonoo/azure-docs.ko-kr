@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -49,4 +49,4 @@ SQL 데이터베이스와 관련된 질문에 대한 올바른 답변과 첫 번
 * [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 * [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

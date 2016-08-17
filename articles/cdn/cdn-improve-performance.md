@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - 파일을 압축하여 성능 향상"
-	description="파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시킬 수 있습니다."
+	pageTitle="Azure CDN에서 파일을 압축하여 성능 향상 | Microsoft Azure"
+	description="Azure CDN에서 파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시키는 방법을 알아봅니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # 파일을 압축하여 성능 향상
@@ -126,4 +126,4 @@
 ## 참고 항목
 - [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

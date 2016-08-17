@@ -53,7 +53,7 @@
 
 Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하기 위해 이 계정을 사용합니다.
 
-1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소**를 클릭합니다. 저장소 계정에 고유한 이름을 지정하고 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
@@ -478,7 +478,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 이 섹션의 단계는 Azure 명령줄 도구를 사용하여 앱 서비스에서 새 웹앱을 만든 다음 Git을 사용하여 응용프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
-> [AZURE.NOTE] 이러한 단계는 [Azure 포털](https://portal.azure.com)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
+> [AZURE.NOTE] 이러한 단계는 [Azure 포털](https://portal.azure.com/)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 >
 > 처음으로 만든 웹앱인 경우 Azure 포털을 사용하여 이 응용프로그램을 배포해야 합니다.
 
@@ -601,7 +601,6 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 <!-- URLs -->
 
 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -613,7 +612,6 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [MongoDB가 있는 Node.js 웹앱]: web-sites-nodejs-store-data-mongodb.md
 [Azure CLI]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -637,4 +635,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

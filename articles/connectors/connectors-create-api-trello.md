@@ -1,7 +1,7 @@
 <properties
 pageTitle="Trello | Microsoft Azure"
 description="Azure 앱 서비스로 논리 앱을 만듭니다. Trello는 회사 및 집에서 모든 프로젝트를 통해 큐브 뷰를 제공합니다. 쉽고 무료로 유연하며 시각적인 방법으로 프로젝트를 관리하고 무엇이든 구성할 수 있습니다. Trello에 연결하여 보드, 목록 및 카드 관리"
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -610,4 +610,4 @@ ID별로 목록 가져오기: ID별로 목록 가져오기
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

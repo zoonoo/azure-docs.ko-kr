@@ -56,7 +56,7 @@ Degreed의 Azure AD 통합을 구성하려면 갤러리의 Degreed를 관리되�
 
 **갤러리에서 Degreed를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@ Degreed에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 	![Single Sign-On 구성](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    a. 로그온 URL 텍스트 상자에 **“https://<회사 이름>.degreed.com”** 패턴을 사용하여 사용자가 Degreed 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+    a. 로그온 URL 텍스트 상자에 다음 패턴을 사용하여 사용자가 Degreed 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. `https://degreed.com/?orgsso=<company code>`
 
     b. **다음**을 클릭합니다.
 
@@ -271,4 +271,4 @@ Degreed에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

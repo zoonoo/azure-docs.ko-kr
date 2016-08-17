@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
@@ -213,7 +213,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![개발자 포털][api-management-developer-portal-api-menu]
 
-**GET Resource**을 클릭한 다음 **사용해 보세요**를 클릭합니다.
+**GET Resource**를 클릭한 다음 **사용해 보세요**를 클릭합니다.
 
 ![콘솔 시작][api-management-open-console]
 
@@ -294,4 +294,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

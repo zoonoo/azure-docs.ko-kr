@@ -21,14 +21,14 @@
 # Azure 가상 컴퓨터 백업
 
 > [AZURE.SELECTOR]
-- [ARM VM을 Azure에 백업](backup-azure-arm-vms.md)
-- [Azure 가상 컴퓨터 백업](backup-azure-vms.md)
+- [복구 서비스 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md)
+- [백업 자격 증명 모음에 VM 백업](backup-azure-vms.md)
 
-이 문서는 Azure VM(가상 컴퓨터)을 백업하는 방법에 대한 절차를 제공합니다.
-
-우선 Azure 가상 컴퓨터를 백업하기 전에 몇 가지 주의 사항이 있습니다. 아직 수행하지 않은 경우 먼저 VM 백업용 환경을 준비하기 위한 [필수 구성 요소](backup-azure-vms-prepare.md)를 완료합니다.
+이 문서는 클래식 배포 Azure VM(가상 컴퓨터)을 백업 자격 증명 모음에 백업하기 위한 절차를 제공합니다. Azure 가상 컴퓨터를 백업하기 전에 몇 가지 처리해야 하는 작업이 있습니다. 아직 수행하지 않은 경우 먼저 VM 백업용 환경을 준비하기 위한 [필수 구성 요소](backup-azure-vms-prepare.md)를 완료합니다.
 
 자세한 내용은 [Azure에서 VM 백업 인프라 계획](backup-azure-vms-introduction.md) 및 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)에 대한 문서를 참조하세요.
+
+>[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 백업 자격 증명 모음은 클래식 배포 VM만 보호할 수 있습니다. 백업 자격 증명 모음을 사용하여 Resource Manager 배포 VM을 보호할 수 없습니다. 복구 서비스 자격 증명 모음을 사용하는 방법에 대한 자세한 내용은 [복구 서비스 자격 증명 모음에 VM 백업](backup-azure-arm-vms.md)을 참조하세요.
 
 Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
@@ -59,8 +59,9 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. 페이지 맨 아래에서 **검색**을 클릭합니다.
-    ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
+6. 페이지 맨 아래에서 **검색**을 클릭합니다.  
+
+	![검색 단추](./media/backup-azure-vms/discover-button-only.png)
 
     검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분이 걸릴 수 있습니다. 화면 맨 아래에 있는 알림은 프로세스가 실행되고 있다는 것을 알려줍니다.
 
@@ -81,7 +82,9 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지의 맨 아래에서 **등록**을 클릭합니다. ![등록 단추](./media/backup-azure-vms/register-button-only.png)
+3. 페이지의 맨 아래에서 **등록**을 클릭합니다.  
+
+	![등록 단추](./media/backup-azure-vms/register-button-only.png)
 
 4. **등록 항목** 바로 가기 메뉴에서 등록하려는 가상 컴퓨터를 선택합니다. 동일한 이름을 가진 가상 컴퓨터가 두 개 이상 있는 경우 클라우드 서비스를 사용하여 가상 컴퓨터를 구분합니다.
 
@@ -151,7 +154,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
     ![보호 작업 구성](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## 초기 백업
-가상 컴퓨터가 정책으로 보호되면, 이는 *보호됨 - (초기 백업 보류 중)* 상태로 **보호된 항목** 탭 아래에 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업* 입니다.
+가상 컴퓨터가 정책으로 보호되면, 이는 *보호됨 - (초기 백업 보류 중)* 상태로 **보호된 항목** 탭 아래에 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업*입니다.
 
 보호를 구성한 후에 즉시 초기 백업을 트리거하려면.
 
@@ -165,7 +168,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
 >[AZURE.NOTE] 백업 작업 동안 Azure Backup 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기 작업을 플러시하고 일관된 스냅숏을 만듭니다.
 
-초기 백업이 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 상태가 *보호됨* 으로 표시됩니다.
+초기 백업이 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 상태가 *보호됨*으로 표시됩니다.
 
 ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -184,4 +187,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

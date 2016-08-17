@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 SQL 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="SQL 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -155,4 +155,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

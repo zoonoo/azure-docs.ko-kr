@@ -3,7 +3,7 @@
 ## 다중 및 단일 인스턴스 VM
 Azure에서 VM을 실행하는 여러 고객의 경우 VM에 대한 계획된 유지 관리 시간을 예약할 수 있어야 합니다. 계획된 유지 관리가 진행되는 동안 15분 정도 가동이 중지되기 때문입니다. 가용성 집합을 활용하여 프로비전된 VM이 계획된 유지 관리를 받는 시간을 제어할 수 있습니다.
 
-Azure에서 실행되는 VM에 대한 두 가지 구성이 가능합니다. VM은 다중 인스턴스 또는 단일 인스턴스로 구성됩니다. VM이 가용성 집합에 있으면 해당 VM은 다중 인스턴스로 구성된 것입니다. 단일 VM도 가용성 집합에 배포할 수 있으며 다중 인스턴스도 취급됩니다. VM이 가용성 집합에 없으면 해당 VM은 단일 인스턴스로 구성된 것입니다. 가용성 집합에 대한 자세한 내용은 [Microsoft 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
+Azure에서 실행되는 VM에 대한 두 가지 구성이 가능합니다. VM은 다중 인스턴스 또는 단일 인스턴스로 구성됩니다. VM이 가용성 집합에 있으면 해당 VM은 다중 인스턴스로 구성된 것입니다. 단일 VM도 가용성 집합에 배포할 수 있으며 다중 인스턴스도 취급됩니다. VM이 가용성 집합에 없으면 해당 VM은 단일 인스턴스로 구성된 것입니다. 가용성 집합에 대한 자세한 내용은 [Windows 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
 
 단일 인스턴스 및 다중 인스턴스 VM의 계획된 유지 관리는 따로 발생합니다. VM을 단일 인스턴스로 다시 구성하거나(다중 인스턴스인 경우) 다중 인스턴스로 다시 구성하여(단일 인스턴스인 경우) VM이 계획된 유지 관리를 받는 시간을 제어할 수 있습니다. Azure VM의 계획된 유지 관리에 대한 자세한 내용은 [Azure Linux 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md) 또는 [Microsoft Azure 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md)를 참조하세요.
 
@@ -16,7 +16,7 @@ Azure에서 실행되는 VM에 대한 두 가지 구성이 가능합니다. VM�
 
 3.	클래식 포털의 가용성 집합에서 VM을 제거할 수 있습니다.
    
-    1.	클래식 포털에서 VM을 클릭한 다음 "구성"을 선택합니다. 
+    1.	클래식 포털에서 VM을 클릭한 다음 "구성"을 선택합니다.
 
     2.	"설정"에서 VM이 있는 가용성 집합을 확인할 수 있습니다.
 
@@ -43,7 +43,7 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 
 단계별 과정
 
-1.	단일 인스턴스 구성의 VM에 대한 계획된 유지 관리가 실행되기 7일 전에 사용자에게 전자 메일이 전송됩니다. 업데이트되는 단일 인스턴스 VM의 구독 ID 및 이름이 전자 메일 본문에 포함됩니다. 
+1.	단일 인스턴스 구성의 VM에 대한 계획된 유지 관리가 실행되기 7일 전에 사용자에게 전자 메일이 전송됩니다. 업데이트되는 단일 인스턴스 VM의 구독 ID 및 이름이 전자 메일 본문에 포함됩니다.
 
 2.	이 7일 동안 VM을 같은 지역의 가용성 집합으로 이동하여 단일 인스턴스 VM을 이동하는 방법으로 인스턴스가 다시 부팅되는 시간을 선택할 수 있습니다. 이렇게 구성을 변경하면 가상 컴퓨터가 다시 부팅됩니다. 유지 관리가 목표인 한 물리적 호스트에서 유지 관리가 목표가 아닌 다른 물리적 호스트로 가상 컴퓨터가 이동되기 때문입니다.
 
@@ -64,3 +64,5 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+
+<!---HONumber=AcomDC_0803_2016-->

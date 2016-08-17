@@ -1,7 +1,7 @@
 <properties
 	pageTitle="논리 앱에 OneDrive 커넥터 추가 | Microsoft Azure"
 	description="REST API 매개 변수를 사용하는 OneDrive 커넥터 개요"
-	services="app-servicelogic"    
+	services="logic-apps"    
 	documentationCenter=""     
 	authors="MandiOhlinger"    
 	manager="erikre"    
@@ -414,4 +414,4 @@ BlobMetadata
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

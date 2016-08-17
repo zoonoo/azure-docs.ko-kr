@@ -3,7 +3,7 @@
 	description="PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
+	authors="saurabhsensharma"
 	manager="shivamg"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli"/>
+	ms.author="markgal;jimpark;nkolli;trinadhk"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -80,16 +80,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
-| /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
-| /ph | 프록시 호스트 주소 | - |
-| /po | 프록시 호스트 포트 번호 | - |
-| /pu | 프록시 호스트 사용자 이름 | - |
-| /pw | 프록시 암호 | - |
+| /q | 무인 설치 | - | | /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Opt-in to Microsoft Update | - | | /nu | 설치 완료 후 업데이트 확인 안 함 | - | | /d | Microsoft Azure 복구 서비스 에이전트 제거 | - | | /ph | 프록시 호스트 주소 | - | | /po | 프록시 호스트 포트 번호 | - | | /pu | 프록시 호스트 사용자 이름 | - | | /pw | 프록시 암호 | - |
 
 
 ## Azure 백업 서비스 등록
@@ -599,4 +590,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Windows 서버 백업](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

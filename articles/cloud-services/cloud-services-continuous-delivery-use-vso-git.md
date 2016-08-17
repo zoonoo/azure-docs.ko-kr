@@ -23,8 +23,7 @@ Visual Studio Team Services 팀 프로젝트를 사용하여 소스 코드용 Gi
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다.
-> [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -225,7 +224,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 ## 다음 단계
 
-Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Team Services에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 GIT을 사용한 지속적인 배포](../app-service-web/web-sites-publish-source-control.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
+Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Team Services에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에 지속적인 배포](../app-service-web/app-service-continuous-deployment.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +272,4 @@ Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

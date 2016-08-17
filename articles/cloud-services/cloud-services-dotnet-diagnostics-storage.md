@@ -1,19 +1,19 @@
 <properties
-  pageTitle="Azure 저장소에서 진단 데이터 저장 및 보기 | Microsoft Azure"
-  description="Azure 저장소로 Azure 진단 데이터를 가져오고 보기"
-  services="cloud-services"
-  documentationCenter=".net"
-  authors="rboucher"
-  manager="jwhit"
-  editor="tysonn" />
+	pageTitle="Azure 저장소에서 진단 데이터 저장 및 보기 | Microsoft Azure"
+	description="Azure 저장소로 Azure 진단 데이터를 가져오고 보기"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor="tysonn" />
 <tags
-  ms.service="cloud-services"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="na"
-  ms.date="02/20/2016"
-  ms.author="robb" />
+	ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/01/2016"
+	ms.author="robb" />
 
 # Azure 저장소에서 진단 데이터 저장 및 보기
 
@@ -85,7 +85,7 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 
 - Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure 저장소 노드를 사용하여 Azure 저장소 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 저장소 에뮬레이터 계정 및 Azure용으로 만든 저장소 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 탐색 및 관리](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)를 참조하세요.
 
-- [Neudesic 제공 Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)는 Azure 응용 프로그램의 로그를 포함한 Azure 저장소 프로젝트의 데이터 검사 및 변경을 위한 유용한 그래픽 사용자 인터페이스 도구입니다.
+- [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, OSX 및 Linux에서 Azure Storage 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다.
 
 - [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction)에는 Azure에서 실행되는 응용 프로그램으로 수집된 진단 데이터를 보고 다운로드하고 관리할 수 있는 Azure 진단 관리자가 있습니다.
 
@@ -94,4 +94,4 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 
 [Azure 진단으로 클라우드 서비스 응용 프로그램의 흐름 추적](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0803_2016-->

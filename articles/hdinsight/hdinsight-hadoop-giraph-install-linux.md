@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/02/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
@@ -105,15 +105,11 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 3. 다음을 사용하여 HDInsight 클러스터에 대한 주 저장소로 데이터를 저장합니다.
 
-		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
+		hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
 
-3. 다음을 사용하여 클러스터 헤드 노드의 정규화 된 도메인 이름(Fully Qualified Domain Name. FQDN)을 가져옵니다.
+4. 다음 명령을 사용하여 SimpleShortestPathsComputation 예제를 실행합니다.
 
-        hostname -f
-        
-4. 다음 명령을 사용하여 SimpleShortestPathsComputation 예제를 실행합니다. 이전 단계에서 반환 된 FQDN으로 __HEADNODE__를 대체합니다.
-
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+		 yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	이 명령에 사용되는 매개 변수를 다음 테이블에서 설명합니다.
 
@@ -122,7 +118,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | 예를 포함하는 jar 파일입니다. |
 	| `org.apache.giraph.GiraphRunner` | 예를 시작하는 데 사용되는 클래스입니다. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | 실행할 예제입니다. 이 경우 그래프에서 ID 1과 다른 모든 ID 사이의 최단 경로를 계산합니다. |
-	| `-ca mapred.job.tracker=HEADNODE:9010` | 클러스터에 대한 헤드 노드입니다. |
+	| `-ca mapred.job.tracker=headnodehost:9010` | 클러스터에 대한 헤드 노드입니다. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | 입력 데이터에 사용할 입력 형식입니다. |
 	| `-vip /example/data/tiny_graph.txt` | 입력 데이터 파일입니다. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | 출력 형식입니다. 이 경우 일반 텍스트인 ID 및 값입니다. |
@@ -133,7 +129,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 5. 작업이 완료되면 결과가 __wasbs:///example/out/shotestpaths__ 디렉터리에 저장됩니다. 만든 파일은 __part-m-\_\_으로 시작하고 첫 번째, 두 번째 파일 등을 나타내는 숫자로 끝납니다. 출력을 보려면 다음 명령을 사용합니다.
 
-		hadoop fs -text /example/output/shortestpaths/*
+		hdfs dfs -text /example/output/shortestpaths/*
 
 	출력은 다음과 유사합니다.
 
@@ -158,4 +154,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

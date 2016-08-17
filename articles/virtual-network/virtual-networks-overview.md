@@ -3,7 +3,7 @@
    description="Azure의 가상 네트워크(VNet)에 대해 자세히 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 가상 네트워크 개요
 
@@ -95,4 +95,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [NSG](virtual-networks-nsg.md)에 대해 알아보기.
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 설치 온-프레미스 데이터 게이트웨이 | Microsoft Azure"
    description="논리 앱에서 사용하기 위해 온-프레미스 데이터 게이트웨이를 설치하는 방법에 대한 정보입니다."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ TcpTestSucceeded       : True
 - [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 - [논리 앱 커넥터](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="논리 앱 한도 및 구성 | Microsoft Azure"
 	description="논리 앱에 사용 가능한 서비스 한도 및 구성 값에 대한 개요입니다."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"
@@ -134,4 +134,4 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694)
 - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

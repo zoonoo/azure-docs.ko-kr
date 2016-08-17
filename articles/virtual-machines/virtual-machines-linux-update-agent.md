@@ -27,6 +27,7 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+<br>
 
 > [AZURE.NOTE] Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 PuTTY 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md)을 참조하세요.
 
@@ -40,9 +41,11 @@ Ubuntu의 경우 다음을 입력하면 됩니다.
 
     #sudo yum install waagent
 
-Oracle Linux의 경우 `Addons` 리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6\_addons]** 또는 **[ol7\_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경하도록 선택합니다.
+
+Oracle Linux의 경우 `Addons` 리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6\_addons]** 또는 **[ol7\_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경하도록 선택합니다.
 
 그런 다음 최신 버전의 Azure Linux 에이전트를 설치하려면 다음을 입력합니다.
+
 
     #sudo yum install WALinuxAgent
 
@@ -50,11 +53,21 @@ Oracle Linux의 경우 `Addons` 리포지토리가 사용하도록 설정되었�
 
 Oracle Linux 6 가상 컴퓨터의 경우:
 
-  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+    [ol6_addons]
+    name=Add-Ons for Oracle Linux $releasever ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+    gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+    gpgcheck=1
+    enabled=1
 
 Oracle Linux 7 가상 컴퓨터의 경우:
 
-  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+    [ol7_addons]
+    name=Oracle Linux $releasever Add ons ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+    gpgcheck=1
+    enabled=0
 
 그런 다음 입력합니다.
 
@@ -146,4 +159,4 @@ Azure Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확�
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0803_2016-->

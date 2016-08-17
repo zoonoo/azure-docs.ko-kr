@@ -132,7 +132,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 
 1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하십시오.
 
-2. 배포 사용자 이름 및 암호를 기록하여 백 엔드 사이트에 대한 Git 리포지토리를 사용하는 [웹앱 리포지토리 사용](../app-service-web/web-sites-publish-source-control.md#Step4)의 단계를 수행합니다.
+2. 배포 사용자 이름 및 암호를 기록하여 백 엔드 사이트에 대한 Git 리포지토리를 사용하는 [앱 서비스 앱 리포지토리 사용](../app-service-web/web-sites-deploy-local-git.md#Step3)의 단계를 수행합니다.
 
 3. 모바일 앱 백 엔드에 대한 블레이드에서 **Git 복제 URL** 설정을 적어 둡니다.
 
@@ -425,9 +425,9 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다
 
-  - *익명* 은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
-  - *인증됨* 은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
-  - *사용 안 함* 은 이 테이블이 현재 사용되지 않음을 나타냅니다.
+  - *익명*은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
+  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
+  - *사용 안 함*은 이 테이블이 현재 사용되지 않음을 나타냅니다.
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
@@ -680,7 +680,7 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다.
 
-## <a name="CustomAPI"></a>사용자 지정 API
+## <a name="CustomAPI"></a> 사용자 지정 API
 
 ###  <a name="howto-customapi-basic"></a>방법: 단순 사용자 지정 API 정의
 
@@ -917,4 +917,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

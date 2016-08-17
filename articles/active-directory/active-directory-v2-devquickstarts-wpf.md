@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Azure AD v2.0 .NET 네이티브 앱 | Microsoft Azure"
-	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET 네이티브 앱을 빌드하는 방법입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Azure Active Directory v2.0 .NET 네이티브 앱 | Microsoft Azure"
+description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET 네이티브 앱을 빌드하는 방법입니다."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Windows 데스크톱 앱에 로그인 추가
 
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 데스크톱 앱에 빠르게 추가할 수 있습니다. 또한 앱이 백 엔드 웹 API 그리고 [Microsoft Graph](https://graph.microsoft.io) 및 [Office 365 통합 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 중 일부와 안전하게 통신할 수 있도록 합니다.
 
-> [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> [AZURE.NOTE] v2.0 끝점에서는 일부 Azure AD(Active Directory) 시나리오 및 기능만 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
 [장치에서 실행되는 .NET 네이티브 앱](active-directory-v2-flows.md#mobile-and-native-apps)의 경우 Azure AD는 Microsoft Identity 인증 라이브러리 또는 MSAL을 제공합니다. MSAL의 유일한 용도는 앱이 쉽게 웹 서비스 호출을 위한 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 여기서는 다음과 같은 작업을 수행하는 .NET WPF To-Do List 앱을 빌드하겠습니다.
 
--	[OAuth 2.0 인증 프로토콜](active-directory-v2-protocols.md#oauth2-authorization-code-flow)을 사용하여 사용자를 로그인하고 액세스 토큰을 가져옵니다.
--	OAuth 2.0으로 보안된 백 엔드 To-Do List 웹 서비스를 안전하게 호출합니다.
--	사용자를 로그아웃합니다.
+- [OAuth 2.0 인증 프로토콜](active-directory-v2-protocols.md#oauth2-authorization-code-flow)을 사용하여 사용자를 로그인하고 액세스 토큰을 가져옵니다.
+- OAuth 2.0으로 보안된 백 엔드 To-Do List 웹 서비스를 안전하게 호출합니다.
+- 사용자가 로그아웃합니다.
 
 ## 샘플 코드 다운로드
 
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 전체 앱은 이 자습서 마지막 부분에서도 제공됩니다.
 
@@ -247,9 +246,10 @@ MSAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 이제 좀 더 고급 항목으로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
-- [V2.0 끝점을 사용하여 TodoListService Web API 보안 유지 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [v2.0 끝점을 사용하여 TodoListService Web API 보안 유지](active-directory-v2-devquickstarts-dotnet-api.md)
 
 추가 리소스는 다음을 확인해보세요.
+
 - [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "msal" 태그 >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ MSAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

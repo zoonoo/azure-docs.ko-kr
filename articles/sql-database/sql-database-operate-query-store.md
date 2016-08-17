@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -53,7 +53,7 @@ Azure의 쿼리 저장소는 제한된 리소스(CPU, 메모리, 디스크 I/O, 
 
 Azure SQL 데이터베이스는 수집된 데이터를 사용하여:
 
-- ***다수의 데이터베이스에 대한 사용 패턴을 파악하여 기능 안정성과 품질을 개선합니다.*** 쿼리 저장소는 Azure SQL 데이터베이스가 업데이트될 때마다 개선됩니다. 
+- ***다수의 데이터베이스에 대한 사용 패턴을 파악하여 기능 안정성과 품질을 개선합니다.*** 쿼리 저장소는 Azure SQL 데이터베이스가 업데이트될 때마다 개선됩니다.
 - ***쿼리 저장소에 의해 유발되는 문제를 해결하거나 완화합니다.*** Azure SQL 데이터베이스는 고객 워크로드에 상당한 영향을 미치는 문제를 감지하고 짧은 대기 시간(한 시간 미만) 내에 완화시킬 수 있습니다. 쿼리 저장소를 일시적으로 ***OFF***로 설정하고 문제를 처리하는 것이 가장 일반적입니다.
 
 때때로, 쿼리 저장소 업데이트는 내부 및 드물게 외부(고객이 보는) 구성에 적용되는 기본 설정을 변경합니다. 결과적으로 Azure SQL 데이터베이스의 쿼리 저장소 사용자 환경은 Azure 플랫폼에 의해 수행되는 자동 작업으로 인해 온-프레미스 환경마다 다를 수 있습니다.
@@ -93,7 +93,7 @@ Azure SQL 데이터베이스는 수집된 데이터를 사용하여:
 
 자세한 내용은 다음 문서를 확인하세요.
 
-- [데이터베이스에 대한 블랙박스](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [데이터베이스에 대한 블랙박스](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
 - [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
 
@@ -101,4 +101,4 @@ Azure SQL 데이터베이스는 수집된 데이터를 사용하여:
 
 - [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

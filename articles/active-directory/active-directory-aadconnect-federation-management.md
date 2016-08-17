@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정 | Microsoft Azure"
 	description="Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 Powershell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다."
+	keywords="AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자."
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -13,18 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/01/2016"
 	ms.author="anandy"/>
 
 # Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 
 이 문서에서는 Azure AD Connect 및 AD FS 팜 전체 구성에 필요할 수 있는 기타 일반적인 AD FS 작업을 사용하여 수행할 수 있는 다양한 AD FS(Active Directory Federation Services) 관련 작업에 대해 자세히 설명합니다.
 
+| 항목 | 포함된 내용 |
+|:------|:-------------|
+|**AD FS 관리**|
+|[트러스트 복구](#repairthetrust)| O365를 사용하여 페더레이션 트러스트 복구. |
+|[새 AD FS 서버 추가](#addadfsserver) | 추가 AD FS 서버를 사용하여 AD FS 팜 확장|
+|[새 AD FS 웹 응용 프로그램 프록시 서버 추가](#addwapserver) | 추가 WAP 서버를 사용하여 AD FS 팜 확장|
+|[새 페더레이션된 도메인 추가](#addfeddomain)| 페더레이션된 도메인을 추가합니다.|
+| **AD FS 사용자 지정**|
+|[사용자 지정 회사 로고 또는 일러스트레이션 추가](#customlogo)| 회사 로고와 일러스트레이션을 사용하여 AD FS 로그인 페이지를 사용자 지정합니다. |
+|[로그인 설명 추가](#addsignindescription) | 로그인 페이지 설명을 추가합니다. |
+|[AD FS 클레임 규칙 수정](#modclaims) | 다양한 페더레이션 시나리오에 대한 AD FS 클레임을 수정합니다. |
+
 ## AD FS 관리
 
 Azure AD Connect는 Azure AD Connect 마법사를 사용하여 최소한의 사용자의 개입만으로 수행할 수 있는 다양한 AD FS 관련 작업을 제공합니다. 마법사를 실행하여 Azure AD Connect 설치를 완료한 후 다시 마법사를 실행하여 추가 작업을 수행할 수 있습니다.
 
-### 트러스트 복구
+### 트러스트 복구 <a name=repairthetrust></a>
 
 Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적절한 조치를 취하여 트러스트를 복구할 수 있습니다. 다음 단계에 따라 Azure AD 및 AD FS 트러스트를 복구합니다.
 
@@ -52,7 +65,7 @@ Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적�
 
 >[AZURE.NOTE] Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. 타사 인증서는 Azure AD Connect에서 복구할 수 없습니다.
 
-### 새 AD FS 서버 추가
+### 새 AD FS 서버 추가 <a name=addadfsserver></a>
 
 > [AZURE.NOTE] Azure AD Connect는 AD FS 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
@@ -84,7 +97,7 @@ Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적�
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### 새 AD FS 웹 응용 프로그램 프록시 서버 추가
+### 새 AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect는 웹 응용 프로그램 프록시 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
@@ -118,7 +131,7 @@ Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적�
 
 ![](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### 새 페더레이션된 도메인 추가
+### 새 페더레이션된 도메인 추가 <a name=addfeddomain></a>
 
 Azure AD Connect를 사용하면 Azure AD와 페더레이션될 새 도메인을 쉽게 추가할 수 있습니다. Azure AD Connect는 페더레이션에 대한 새 도메인을 추가할 뿐 아니라 Azure AD와 페더레이션된 여러 도메인이 있는 경우 발급자를 올바르게 반영하기 위해 클레임 규칙을 수정합니다.
 
@@ -148,7 +161,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 새 도메인을
 
 다음 섹션에서는 AD FS 로그인 페이지를 사용자 지정하는 데 수행해야 할 수 있는 일반적인 작업 중 일부를 수행할 수 있는 방법에 대해 자세히 설명합니다.
 
-### 사용자 지정 회사 로고 또는 일러스트레이션 추가
+### 사용자 지정 회사 로고 또는 일러스트레이션 추가 <a name=customlogo></a>
 
 로그인 페이지에 표시되는 회사의 로고를 변경하려면 다음 PowerShell Windows PowerShell cmdlet 및 구문을 사용합니다.
 
@@ -159,13 +172,13 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 새 도메인을
 > [AZURE.NOTE] TargetName 매개 변수는 필수입니다. AD FS와 함께 제공되는 기본 테마의 이름은 default입니다.
  
 
-### 로그인 설명 추가
+### 로그인 설명 추가 <a name=addsignindescription></a>
 
 로그인 페이지에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell PowerShell cmdlet 및 구문을 사용합니다.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### AD FS 클레임 규칙 수정
+### AD FS 클레임 규칙 수정 <a name=modclaims></a>
 
 AD FS는 클레임을 발급하는 사용자 지정 규칙을 지정하는 옵션을 제공합니다. 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [여기](https://technet.microsoft.com/library/dd807118.aspx) 문서에서 확인할 수 있습니다.
 
@@ -239,4 +252,4 @@ c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
 
 [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

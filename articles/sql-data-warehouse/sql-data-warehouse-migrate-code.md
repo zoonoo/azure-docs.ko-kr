@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/02/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
@@ -80,7 +80,7 @@ CTE(공용 테이블 식)는 SQL 데이터 웨어하우스에서 부분적으로
 
 재귀 CTE는 SQL 데이터 웨어하우스에서 지원되지 않습니다. 재귀 CTE의 마이그레이션은 완료될 수는 있으나 가장 좋은 프로세스는 여러 단계로 분할하는 것입니다. 재귀 중간 쿼리를 반복할 때 일반적으로 루프를 사용하여 임시 테이블을 채울 수 있습니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화][] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
 
-## 시스템 함수
+## 지원되지 않는 시스템 함수
 
 지원하지 않는 일부 시스템 함수도 있습니다. 일반적으로 데이터 웨어하우징에서 사용될 수 있는 일부 기본 함수는 다음과 같습니다.
 
@@ -91,21 +91,29 @@ CTE(공용 테이블 식)는 SQL 데이터 웨어하우스에서 부분적으로
 - ROWCOUNT\_BIG
 - ERROR\_LINE()
 
-다시 이러한 많은 문제를 해결할 수 있습니다.
+이러한 문제 중 일부는 해결될 수 있습니다.
 
-예를 들어, 아래의 코드는 @@ROWCOUNT 정보를 검색하는 대체 솔루션입니다.
+## @@ROWCOUNT 해결 방법
+
+@@ROWCOUNT에 대한 지원 부족 문제를 해결하려면 sys.dm\_pdw\_request\_steps에서 마지막 행 수를 검색한 후 DML 문 다음에 `EXEC LastRowCount`를 실행하는 저장 절차를 만듭니다.
 
 ```sql
-SELECT  SUM(row_count) AS row_count
-FROM    sys.dm_pdw_sql_requests
-WHERE   row_count <> -1
-AND     request_id IN
-                    (   SELECT TOP 1    request_id
-                        FROM            sys.dm_pdw_exec_requests
-                        WHERE           session_id = SESSION_ID()
-                        AND             resource_class IS NOT NULL
-                        ORDER BY end_time DESC
-                    )
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
@@ -134,4 +142,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

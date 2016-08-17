@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 Office 365 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="Office 365 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -131,4 +131,4 @@ Office 365 계정에 연결하여 메일을 보내거나 받고 일정 및 연�
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

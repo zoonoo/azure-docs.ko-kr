@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 POP3 커넥터 사용 | Microsoft Azure 앱 서비스"
    description="POP3 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -86,4 +86,4 @@ API 앱을 만들고 나면 이제 POP3 커넥터를 논리 앱에 대한 트리
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,8 +3,8 @@
 	description="Azure 백업 서비스를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업
@@ -174,4 +174,4 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 
 • [Azure 백업 FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

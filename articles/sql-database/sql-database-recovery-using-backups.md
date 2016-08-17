@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # 자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
@@ -65,7 +65,7 @@ SQL 데이터베이스는 [SQL 데이터베이스 자동화된 백업](sql-datab
 
 > [AZURE.IMPORTANT] Azure SQL 데이터베이스 서버 인스턴스를 삭제하면 모든 해당 데이터베이스도 삭제되고 복구할 수 없습니다. 현재는 삭제된 서버 복원에 대한 지원이 제공되지 않습니다.
 
-복원된 데이터베이스에 대해 동일한 데이터베이스 이름이나 새 데이터베이스 이름을 사용할 수 있습니다. [Azure 포털](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
+복원된 데이터베이스에 대해 동일한 데이터베이스 이름이나 새 데이터베이스 이름을 사용할 수 있습니다. [Azure 포털](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) 또는 [REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
 
 > [AZURE.SELECTOR]
 - [삭제된 데이터베이스 복원: Azure 포털](sql-database-restore-deleted-database-portal.md)
@@ -73,7 +73,7 @@ SQL 데이터베이스는 [SQL 데이터베이스 자동화된 백업](sql-datab
 
 ## 지역 복원
 
-지역 복원 기능을 사용하면 가장 최근의 지리적 복제 [자동 매일 백업](sql-database-automated-backups.md)에서 Azure 지역에 있는 모든 서버의 SQL 데이터베이스를 복원합니다. 지리적 복원은 지역 중복 백업을 해당 원본으로 사용하고 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용될 수 있습니다. [Azure 포털](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) 또는 [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
+지역 복원 기능을 사용하면 가장 최근의 지리적 복제 [자동 매일 백업](sql-database-automated-backups.md)에서 Azure 지역에 있는 모든 서버의 SQL 데이터베이스를 복원합니다. 지리적 복원은 지역 중복 백업을 해당 원본으로 사용하고 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용될 수 있습니다. [Azure 포털](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) 또는 [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용할 수 있습니다.
 
 > [AZURE.SELECTOR]
 - [지리적 복원: Azure 포털](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@ SQL 데이터베이스는 [SQL 데이터베이스 자동화된 백업](sql-datab
 
 |API|설명|
 |---|-----------|
-|[REST(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|데이터베이스를 복원합니다.|
+|[REST(createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|데이터베이스를 복원합니다.|
 |[데이터베이스 만들기 또는 업데이트 상태 가져오기](https://msdn.microsoft.com/library/azure/mt643934.aspx)|복원 작업 동안 상태를 반환합니다.|
 ||||
 
@@ -122,4 +122,4 @@ SQL 데이터베이스는 [SQL 데이터베이스 자동화된 백업](sql-datab
 - 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 - 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

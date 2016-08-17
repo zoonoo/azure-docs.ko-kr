@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="엔터프라이즈 통합 팩에서 인증서 사용 | Microsoft Azure 앱 서비스" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 인증서를 사용하는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -73,4 +73,4 @@ Azure 포털에 로그인한 후에 통합 계정에 개인 인증서를 업로�
 - [B2B 기능을 사용하여 논리 앱 만들기](./app-service-logic-enterprise-integration-b2b.md)
 - [주요 자격 증명 모음에 대해 자세히 알아보기](../key-vault/key-vault-get-started.md "주요 자격 증명 모음에 대해 알아보기")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

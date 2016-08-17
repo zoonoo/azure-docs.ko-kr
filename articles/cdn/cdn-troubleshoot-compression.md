@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN - 파일 압축 문제 해결"
-	description="CDN 파일 압축 관련 문제 해결"
+	pageTitle="Azure CDN에서 파일 압축 문제 해결 | Microsoft Azure"
+	description="Azure CDN 파일 압축과 관련된 문제를 해결합니다."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # CDN 파일 압축 문제 해결
@@ -99,4 +99,4 @@
 - **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

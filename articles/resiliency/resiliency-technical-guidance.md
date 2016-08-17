@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Azure 복원력 기술 지침
 
@@ -61,4 +61,4 @@
 
 이 문서는 Azure 복원력을 위한 기술 지침에 집중된 시리즈의 일부입니다. 이 시리즈의 다른 문서를 읽고 싶다면 [로컬 오류로부터 복구](resiliency-technical-guidance-recovery-local-failures.md)부터 시작합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

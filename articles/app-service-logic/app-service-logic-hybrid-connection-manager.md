@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="하이브리드 연결 관리자 사용 | Microsoft Azure 앱 서비스" 
-	description="하이브리드 연결 관리자를 설치 및 구성하고 Azure 앱 서비스에서 온-프레미스 커넥터에 연결" 
+	pageTitle="하이브리드 연결 관리자 사용 | Microsoft Azure" 
+	description="논리 앱에서 하이브리드 연결 관리자를 설치 및 구성하고 온-프레미스 커넥터에 연결합니다." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# 하이브리드 연결 관리자를 사용하여 Azure 앱 서비스에서 온-프레미스 커넥터에 연결
+# 하이브리드 연결 관리자를 사용하여 온-프레미스 커넥터에 연결
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 논리 앱 GA(일반 공급)은 온-프레미스 연결에 게이트웨이를 사용합니다. 새 [게이트웨이](app-service-logic-gateway-connection.md) 및 [논리 앱 GA](https://azure.microsoft.com/documentation/services/logic-apps/)에 대해 자세히 알아봅니다.
 
-온-프레미스 시스템을 사용하기 위해 Azure 앱 서비스가 하이브리드 연결 관리자를 사용합니다. 일부 커넥터는 SQL Server, SAP, SharePoint 등의 온-프레미스 시스템에 연결할 수 있습니다.
+온-프레미스 시스템을 사용하기 위해 논리 앱은 하이브리드 연결 관리자를 사용합니다. 일부 커넥터는 SQL Server, SAP, SharePoint 등의 온-프레미스 시스템에 연결할 수 있습니다.
 
 하이브리드 연결 관리자(HCM)는 방화벽 뒤의 네트워크 내에서 IIS 서버에 설치된 원클릭 설치 관리자입니다. Azure 서비스 버스 릴레이를 사용하여 HCM이 Azure의 커넥터로 온-프레미스 시스템을 인증합니다.
 
@@ -87,7 +87,7 @@ TCP 포트 | 이유
  - IIS 관리자(inetmgr)에서 ***MicrosoftAzureBizTalkHybridListener*** 웹 사이트가 나열되고 실행 중이어야 합니다.
  - 이 웹사이트는 *NetworkService* 기본 제공 로컬 사용자 계정으로 실행되는 ***HybridListenerAppPool***을 사용합니다. 이 AppPool도 시작해야 합니다.
 3. IIS 서버에서 커넥터가 설치되고 실행 중인지 확인합니다.
- - 앱 서비스 커넥터용으로 웹 사이트가 생성됩니다. 예를 들어 SQL 커넥터를 만든 경우 ***MicrosoftSqlConnector\_nnn*** 웹 사이트가 생성됩니다. IIS 관리자(inetmgr)에서 이 웹 사이트가 나열되고 시작되었는지 확인합니다.
+ - 커넥터에 대한 웹 사이트가 생성됩니다. 예를 들어 SQL 커넥터를 만든 경우 ***MicrosoftSqlConnector\_nnn*** 웹 사이트가 생성됩니다. IIS 관리자(inetmgr)에서 이 웹 사이트가 나열되고 시작되었는지 확인합니다.
  - 이 웹 사이트는 ***HybridAppPoolnnn***라는 자체 IIS 응용 프로그램 풀을 사용합니다. 이 AppPool은 *NetworkService* 기본 제공 로컬 사용자 계정으로 실행됩니다. 이 웹 사이트와 AppPool을 모두 시작해야 합니다.
  - 로컬 커넥터를 찾습니다. 예를 들어 커넥터 웹 사이트가 포트 6569를 사용하는 경우 http://localhost:6569로 이동합니다. 기본 문서가 구성되지 않았으므로 `HTTP Error 403.14 - Forbidden error`이 예상됩니다.
 4. 방화벽에서 이 항목에 나열된 TCP 포트가 열려있는지 확인합니다.
@@ -140,4 +140,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

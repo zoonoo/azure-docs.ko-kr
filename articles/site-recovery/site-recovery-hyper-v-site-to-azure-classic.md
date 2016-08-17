@@ -42,7 +42,7 @@
 
 ## Azure 필수 조건
 
-- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 - 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md). 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 - 기본 사이트에서 장애 조치(failover) 시 Azure 가상 컴퓨터가 네트워크에 연결되도록 하기 위해서는 Azure 가상 네트워크가 필요합니다.
 
@@ -64,11 +64,11 @@ Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recov
 - 항상 최신 버전의 공급자 및 에이전트를 실행하는 것이 좋습니다. 이에 대한 내용은 사이트 복구 포털에서 제공됩니다.
 - 자격 증명 모음의 모든 Hyper-V 서버는 동일한 버전의 공급자 및 에이전트를 포함해야 합니다.
 - 서버에서 실행되는 공급자는 인터넷을 통해 사이트 복구에 연결됩니다. 현재 Hyper-V 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행할 수 있습니다. 사용하려는 프록시 서버가 Azure 연결을 위해 이러한 URL에 액세스할 수 있는지 확인해야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	
 - 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
@@ -90,7 +90,7 @@ Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recov
 
 4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 
-5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 하위 지역을 확인하려면 [Azure Site Recovery 가격 정보](pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
+5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 하위 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
 
 6. **자격 증명 모음 만들기**를 클릭합니다.
 
@@ -138,25 +138,19 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 8. 설치가 완료되면 설정을 계속 진행하여 자격 증명 모음에 서버를 등록합니다.
 
-	![설치 완료](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.png)
-
-
-9. **인터넷 연결** 페이지에서 공급자가 Azure Site Recovery에 연결하는 방법을 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 **기본 시스템 프록시 설정 사용**을 선택합니다. 값을 지정 하지 않으면 기본 설정이 사용됩니다.
-
-	![인터넷 설정](./media/site-recovery-hyper-v-site-to-azure-classic/provider4.png)
-
 9. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
 
-	![서버 등록](./media/site-recovery-hyper-v-site-to-azure-classic/select-key.png)
+	![서버 등록](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 
+10. **인터넷 연결** 페이지에서 공급자가 Azure Site Recovery에 연결하는 방법을 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 **기본 시스템 프록시 설정 사용**을 선택합니다. 값을 지정 하지 않으면 기본 설정이 사용됩니다.
+
+	![인터넷 설정](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
 
 11. 서버를 자격 증명 모음에 등록하는 등록이 시작됩니다.
 
-	![서버 등록](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.png)
+	![서버 등록](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 
 11. 등록이 완료되면 Azure Site Recovery에서 Hyper-V 서버의 메타데이터를 가져오고 서버가 자격 증명 모음의 **서버** 페이지에 있는 **Hyper-V 사이트** 탭에 표시됩니다.
-
-	![서버 등록](./media/site-recovery-hyper-v-site-to-azure-classic/provider6.png)
 
 
 ### 명령줄에서 공급자 설치
@@ -235,7 +229,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터* virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
@@ -245,7 +239,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 			- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 			- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
-			- 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다. 	
+			- 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.
 		- **Azure 네트워크**: 가상 컴퓨터가 장애 조치되는 네트워크를 지정합니다. 가상 컴퓨터에 여러 네트워크가 있는 경우 모든 어댑터는 동일한 Azure 네트워크에 연결되어야 합니다.
 		- **서브넷** 가상 컴퓨터에서 각 네트워크 어댑터에 대해 장애 조치 후 컴퓨터가 연결되는 Azure 네트워크의 서브넷을 선택합니다.
 		- **대상 IP 주소**: 원본 가상 컴퓨터의 네트워크 어댑터를 고정 IP 주소를 사용하도록 구성하는 경우, 대상 가상 컴퓨터의 IP 주소를 지정하여 장애 조치 후 컴퓨터가 동일한 IP 주소를 갖도록 할 수 있습니다. IP 주소를 지정하지 않으면 사용 가능한 임의의 주소가 장애 조치 시 할당됩니다. 사용 중인 주소를 지정하는 경우 장애 조치가 실패합니다.
@@ -275,7 +269,7 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
->[AZURE.NOTE] Azure에 장애 조치를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치하도록 합니다. 더 빨리 부팅하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있으며 Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
+>[AZURE.NOTE] Azure에 장애 조치를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치하도록 합니다. 더 빨리 부팅하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있습니다. Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
 
 1. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
 2. **테스트 장애 조치 확인** 페이지에서 **없음** 또는 특정 Azure 네트워크를 선택합니다. **없음**을 선택하면 테스트 장애 조치에서 가상 컴퓨터가 Azure로 올바르게 복제되었는지 확인하지만 복제 네트워크 구성은 확인하지 않습니다.
@@ -287,7 +281,7 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 5. 장애 조치(Failover) 후에는 Azure 포털에서 가상 컴퓨터 테스트 복제본을 확인할 수 있습니다. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다.
 
 	1. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
-    2. 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다. 가상 컴퓨터에서 RDP 끝점을 추가해야 합니다. 이를 위해서 [Azure 자동화 runbook](site-recovery-runbook-automation.md)을 활용할 수 있습니다.
+    2. 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다. 가상 컴퓨터에서 RDP 끝점을 추가해야 합니다. 이를 위해서 [Azure 자동화 Runbook](site-recovery-runbook-automation.md)을 활용할 수 있습니다.
     3. 장애 조치(Failover)는 원격 데스크톱을 사용하여 Azure에서 가상 컴퓨터에 연결하기 위해 공용 IP 주소를 사용하는 경우, 공용 주소를 사용하여 가상 컴퓨터에 연결하지 않는 도메인 정책이 없어야 합니다.
 
 6. 테스트가 완료되면 다음을 수행합니다.
@@ -305,4 +299,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

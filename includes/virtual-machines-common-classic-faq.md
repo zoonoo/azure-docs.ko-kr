@@ -3,6 +3,14 @@
 
 이 문서에서는 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 사용자의 일부 일반적인 질문을 해결합니다.
 
+## 클래식 배포 모델에서 만든 내 VM을 새 Resource Manager 모델에 마이그레이션할 수 있나요?
+
+예. 마이그레이션 방법에 대한 지침은 다음은 참조하세요.
+
+- [Azure PowerShell을 사용하여 클래식에서 Azure Resource manager로 마이그레이션](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+
+- [Azure CLI를 사용하여 클래식에서 Azure Resource manager로 마이그레이션](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+
 ## Azure VM에서 무엇을 실행할 수 있습니까?
 
 모든 구독자는 Azure 가상 컴퓨터에서 서버 소프트웨어를 실행할 수 있습니다. 최신 버전의 Windows Server뿐만 아니라 다양한 Linux 배포를 실행할 수 있습니다. 지원 세부 사항은, 다음을 참조하세요:
@@ -53,7 +61,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 
 Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
-- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
+- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 
@@ -139,6 +147,8 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md)를 참조하세요.
 
+
+
 ## 추가 리소스
 
 [Azure 가상 컴퓨터 정보](../articles/virtual-machines/virtual-machines-linux-about.md)
@@ -146,3 +156,5 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 [Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0803_2016-->

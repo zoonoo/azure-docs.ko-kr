@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - 404 상태를 반환하는 CDN 끝점 문제 해결"
-	description="CDN 끝점으로 404 응답 코드 문제를 해결합니다."
+	pageTitle="404 상태를 반환하는 Azure CDN 끝점 문제 해결 | Microsoft Azure"
+	description="Azure CDN 끝점에서 404 응답 코드 문제를 해결합니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # 404 상태를 반환하는 CDN 끝점 문제 해결
@@ -67,7 +67,7 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 하지만 앞에서 테스트한 원본 파일의 URL이 `http://www.contoso.com:8080/file.txt`라고 가정해 봅시다. 호스트 이름 세그먼트의 끝부분에 있는 `:8080`에 주목하세요. 브라우저에 `8080` 포트를 사용하여 `www.contoso.com`의 웹 서버에 연결하라고 지시하는 것이므로 **HTTP 포트** 필드에 8080을 입력해야 합니다. 이러한 포트 설정은 끝점이 원본에서 정보를 검색할 때 사용하는 포트에만 영향을 줍니다.
 
-> [AZURE.NOTE] **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai의 Azure CDN 동작 상세 정보](cdn-akamai-behavior-details.md)를 참조하세요.
+> [AZURE.NOTE] **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai 허용된 원본 포트의 Azure CDN](https://msdn.microsoft.com/library/mt757337.aspx)을 참조하세요.
   
 ### 끝점 설정 검사
 
@@ -97,4 +97,4 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 
 그러나 원본의 모든 경로에 CDN을 사용하지 않으려면 어떻게 해야 할까요? `publicblob` 경로만 노출하려 한다고 가정해 봅시다. **원본 경로** 필드에 */publicblob*를 입력하면 끝점이 원본에 대해 만들어지는 모든 요청 앞에 */publicblob*를 삽입하게 됩니다. 다시 말해서 `https://cdndocdemo.azureedge.net/publicblob/lorem.txt`에 대한 요청이 이제 URL의 요청 부분인 `/publicblob/lorem.txt`를 가져와서 앞부분에 `/publicblob`를 추가합니다. 이것은 원본의 `/publicblob/publicblob/lorem.txt`에 대한 요청이 됩니다. 해당 경로가 실제 파일을 확인하지 못하면 원본이 404 상태를 반환합니다. 이 예에서 lorem.txt를 검색하는 올바른 URL은 `https://cdndocdemo.azureedge.net/lorem.txt`입니다. 이 예에서는 */publicblob* 경로를 전혀 포함하지 않았습니다. 왜냐하면 URL의 요청 부분이 `/lorem.txt`인데 끝점이 `/publicblob`를 추가하면 `/publicblob/lorem.txt`가 되어, 원본에 전달되는 요청이 되기 때문입니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/02/2016" 
 	ms.author="stbaro"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포
@@ -73,7 +73,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 7.  배포가 완료되면 리소스 그룹 블레이드가 열립니다. ![리소스 그룹 블레이드의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)
 
-8.  응용 프로그램을 사용하려면 웹앱 URL로 이동하기만 하면 됩니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net)). 다음과 같은 웹 응용 프로그램이 표시됩니다.
+8.  응용 프로그램을 사용하려면 웹앱 URL로 이동하기만 하면 됩니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net). 다음과 같은 웹 응용 프로그램이 표시됩니다.
 
 	![샘플 Todo 응용 프로그램](./media/documentdb-create-documentdb-website/image2.png)
 
@@ -141,4 +141,4 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -434,7 +434,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 * 작업 시간 제한: 탄력적 데이터베이스 작업에 의해 작업이 취소되기 전의 총 시간입니다.
 * 초기 재시도 간격: 첫 번째 재시도 전에 대기할 간격입니다.
 * 최대 재시도 간격: 사용할 재시도 간격의 최대값입니다.
-* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다. (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2) 수식이 사용됩니다. 
+* 재시도 간격 백오프 계수: 재시도 사이의 다음 간격을 계산하는 데 사용되는 계수입니다. (초기 재시도 간격) * Math.pow((계수 백오프 간격), (재시도 횟수) - 2) 수식이 사용됩니다.
 * 최대 시도 횟수: 작업 내에서 수행할 최대 재시도 횟수입니다.
 
 기본 실행 정책은 다음 값을 사용합니다.
@@ -521,7 +521,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 
 특정 사용자 지정 컬렉션에 데이터베이스를 추가하려면 [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx) cmdlet을 사용합니다.
 
-	$serverName = "{Database Server Name}"
+	$databaseServerName = "{Database Server Name}"
 	$databaseName = "{Database Name}"
 	$customCollectionName = "{Custom Database Collection Name}"
 	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
@@ -680,4 +680,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

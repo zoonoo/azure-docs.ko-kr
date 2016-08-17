@@ -21,7 +21,7 @@
 
 이 자습서에서는, [agile 소프트웨어 개발](https://en.wikipedia.org/wiki/Agile_software_development)을 지원하는 [Azure 앱 서비스](/services/app-service/)를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다. 여기서는 사용자가 [Azure에서 복잡한 응용 프로그램 배포](app-service-deploy-complex-application-predictably.md)방법을 이미 알고 있다고 가정합니다.
 
-Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure 앱 서비스를 [지속적인 게시](web-sites-publish-source-control.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure 리소스 관리자](../resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
+Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure 앱 서비스를 [지속적인 게시](app-service-continuous-deployment.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure 리소스 관리자](../resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
 
 다음 표는 Agile 개발과 연관된 요구 사항의 최종 목록과, Azure 서비스가 이것들을 어떻게 사용 가능하게 만드는지 나타냅니다.
 
@@ -77,7 +77,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 >[AZURE.NOTE] 이 자습서에서 사용되는 스크립트는 사용자의 GitHub 저장소에서 자동적으로 구성되어 지속적으로 게시됩니다. 이것은 Azure에 이미 저장되어있는 GitHub 자격 증명이 요구되며, 그렇지 않으면 웹앱에 대한 소스 제어 설정 구성을 시도할 때 스크립트 배포는 실패합니다.
 >
->Azure에서 GitHub 자격 증명을 저장하려면 [Azure 포털](https://portal.azure.com/)에서 웹앱을 생성하고 [GitHub 배포를 구성](web-sites-publish-source-control.md#Step7)하세요. 이 작업은 한 번만 필요합니다.
+>Azure에서 GitHub 자격 증명을 저장하려면 [Azure 포털](https://portal.azure.com/)에서 웹앱을 생성하고 [GitHub 배포를 구성](app-service-continuous-deployment.md)하세요. 이 작업은 한 번만 필요합니다.
 
 일반적인 DevOps 시나리오에서, 사용자는 Azure에서 실시간으로 실행되는 응용 프로그램을 갖게 되며, 지속적인 게시를 통해 원하는 부분을 변경할 수 있습니다. 이 시나리오에서는 개발, 테스트 및 프로덕션 환경에 배포하는 데 사용하는 템플릿을 사용할 수 있습니다. 이 섹션에서는 설정 합니다.
 
@@ -282,4 +282,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

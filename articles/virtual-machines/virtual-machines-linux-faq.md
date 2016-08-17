@@ -48,7 +48,7 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 ## 기존 Azure VM을 복사 또는 복제할 수 있나요?
 
-예. 자세한 내용은 [리소스 관리자 배포 모델에서 Linux 가상 컴퓨터의 복사본을 만드는 방법](virtual-machines-linux-specialized-image.md)을 참조하세요.
+예. 자세한 내용은 [리소스 관리자 배포 모델에서 Linux 가상 컴퓨터의 복사본을 만드는 방법](virtual-machines-linux-copy-vm.md)을 참조하세요.
 
 ## Azure Resource Manager를 통해 캐나다 중부 및 캐나다 동부 지역이 보이지 않는 이유가 무엇인가요?
 
@@ -58,4 +58,4 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 아니요. 현재는 만들 때만 이 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -119,7 +119,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 	![Single Sign-On 구성](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_04.png)
 
-    a. **식별자 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://sso.everbridge.net/{<company name>}`
+    a. **식별자** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://sso.everbridge.net/{<company name>}`
 
 	b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://manager.everbridge.net/saml/SSO/{<company name>}/alias/defaultAlias`
 
@@ -289,4 +289,4 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-everbridge-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

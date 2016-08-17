@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="04/07/2016"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시
@@ -107,4 +107,4 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

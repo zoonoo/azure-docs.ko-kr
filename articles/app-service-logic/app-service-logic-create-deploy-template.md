@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 배포 템플릿 만들기 | Microsoft Azure"
    description="논리 앱 배포 템플릿을 만들고 릴리스 관리에 사용하는 방법 알아보기"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@ PowerShell을 설치한 후 다음 명령을 사용하여 템플릿을 생성합
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

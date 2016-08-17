@@ -66,8 +66,8 @@ Windows 이벤트 레코드는 **Event** 형식이며, 다음 표의 속성이 �
 |:--|:--|
 | Type=Event | 모든 Windows 이벤트 |
 | Type=Event EventLevelName=error | 심각도가 오류인 모든 Windows 이벤트 |
-| Type=Event | Measure count() by Source | 원본별 Windows 이벤트 수 |
-| Type=Event EventLevelName=error | Measure count() by Source | 원본별 Windows 오류 이벤트 수 |
+| Type=Event &#124; Measure count() by Source | 원본별 Windows 이벤트 수 |
+| Type=Event EventLevelName=error &#124; Measure count() by Source | 원본별 Windows 오류 이벤트 수 |
 
 ## 다음 단계
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -657,7 +657,13 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `String PCase(string)`
 
-**예제:** `PCase("TEsT")` "TEST"를 반환합니다.
+**설명**
+
+- 이 기능은 현재 머리글자어와 같이 전체적으로 대문자인 단어를 변경할 적절한 대/소문자 구분을 제공하지 않습니다.
+
+**예제:** `PCase("TEsT")` "Test"를 반환합니다.
+
+`PCase(LCase("TEST"))` "Test"를 반환합니다.
 
 ----------
 ### RandomNum
@@ -757,7 +763,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str RTrim(str value)`
 
-**예제:** `RTrim(" Test ")` "TEST"를 반환합니다.
+**예제:** `RTrim(" Test ")` "Test"를 반환합니다.
 
 ----------
 ### 분할
@@ -818,7 +824,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
-**예제:** `Trim(" Test ")` "TEST"를 반환합니다.
+**예제:** `Trim(" Test ")` "Test"를 반환합니다.
 
 `Trim([proxyAddresses])` proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
@@ -859,4 +865,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

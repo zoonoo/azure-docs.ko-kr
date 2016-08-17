@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/03/2016"
    ms.author="kipandya"/>
    
    
@@ -54,9 +54,7 @@ DocumentDB는 P99에서 읽기 대기 시간이 10ms 미만이고 쓰기 대기 
 
 ## 글로벌 배포 활성화 
 
-하나 또는 그 이상의 Azure 지역을 DocumentDB 데이터베이스 계정과 연결하여 데이터의 로컬 배포 또는 글로벌 배포를 선택할 수 있습니다. 언제든 데이터베이스 계정에 지역을 추가/삭제하여 데이터를 글로벌 배포하거나 단일 지역에 국한할 수 있습니다. 다중 지역 할당을 지원하는 DocumentDB 데이터베이스 계정은 ‘DocumentDB – 다중 지역 데이터베이스 계정’을 선택하면 Azure 마켓플레이스에서 만들 수 있습니다.
-
-
+하나 또는 그 이상의 Azure 지역을 DocumentDB 데이터베이스 계정과 연결하여 데이터의 로컬 배포 또는 글로벌 배포를 선택할 수 있습니다. 언제든지 데이터베이스 계정에 지역을 추가하거나 제거할 수 있습니다.
 
 ## 다음 단계
 
@@ -81,12 +79,12 @@ DocumentDB는 P99에서 읽기 대기 시간이 10ms 미만이고 쓰기 대기 
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
 [throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/ko-KR/documentation/articles/documentdb-automation-resource-manager-cli/
+[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/ko-KR/regions/#services
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

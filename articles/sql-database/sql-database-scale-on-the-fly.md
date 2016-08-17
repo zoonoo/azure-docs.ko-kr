@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -54,4 +54,4 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
  
 [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

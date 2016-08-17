@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL 데이터 웨어하우스 용량 제한
@@ -29,6 +29,7 @@
 | 데이터베이스 연결 | 열린 동시 세션 | 1024<br/><br/>최대 1,024개의 활성 연결을 지원하며 각각에서 동시에 요청을 SQL 데이터 웨어하우스 데이터베이스에 제출할 수 있습니다. 실제로 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다.|
 | 데이터베이스 연결 | 준비된 문에 대한 최대 메모리 | 20MB |
 | [워크로드 관리][] | 최대 동시 쿼리 수 | 32<br/><br/> 기본적으로 SQL 데이터 웨어하우스는 최대 32개의 동시 쿼리를 실행하고 나머지 쿼리를 큐에 넣습니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당된 경우 동시성 수준을 줄일 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다.|
+| [Tempdb][] | Tempdb의 최대 크기 | DW100당 399GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
 
 
 ## 데이터베이스 개체
@@ -104,10 +105,11 @@
 [DWU(데이터 웨어하우스 단위)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [SQL 데이터 웨어하우스 참조 개요]: ./sql-data-warehouse-overview-reference.md
 [워크로드 관리]: ./sql-data-warehouse-develop-concurrency.md
+[Tempdb]: ./sql-data-warehouse-tables-temporary.md
 
 <!--MSDN references-->
 [8KB를 초과하는 행-오버플로 데이터]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE(Azure SQL 데이터 웨어하우스)]: https://msdn.microsoft.com/library/mt203953.aspx
 [내부 오류: 식 서비스 제한에 도달했습니다]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

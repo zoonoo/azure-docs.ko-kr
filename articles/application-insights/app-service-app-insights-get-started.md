@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="03/31/2016" 
 	ms.author="awills"/>
  
 # Visual Studio Application Insights
@@ -25,7 +25,7 @@ NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 
 
 Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수행할 수 있습니다.
 
-* [사용 패턴을 분석][knowUsers]은 사용자에게 응용 프로그램을 지속적이고 보다 낫게 향상을 이해시킵니다. 
+* [사용 패턴을 분석][knowUsers]은 사용자에게 응용 프로그램을 지속적이고 보다 낫게 향상을 이해시킵니다.
  * 페이지 보기 수, 신규 및 복귀 사용자, 지리적 위치, 플랫폼 및 기타 핵심 사용량 통계
  * 각 기능의 성공을 평가하는 사용 현황 경로를 추적합니다.
 * 성능 문제를 [감지, 심사 및 진단][detect]하여 대부분의 사용자가 인식하기 전에 해결합니다.
@@ -69,7 +69,7 @@ Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱�
 
 SDK에는 사용자, 세션 및 성능을 계산하는 모듈을 비롯하여 원격 분석을 수집하는 여러 모듈이 있습니다. 또한 포털에 원격 분석 데이터를 보내도록 사용자 지정 코드를 작성할 수도 있습니다. 사용자 지정 원격 분석은 사용자 스토리를 추적할 때 특히 유용합니다. 단추 클릭, 특정 목표 달성, 사용자 실수 등의 이벤트를 계산할 수 있습니다.
 
-ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
+ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
 
 * 웹앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
 * 종속 모듈에 대한 호출을 추적합니다.
@@ -112,7 +112,7 @@ Visual Studio를 사용하지 않거나 프로젝트에서 이러한 옵션을 �
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * 제안:
- * [사용자 음성](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 
 
 ## 비디오
@@ -144,4 +144,4 @@ Visual Studio를 사용하지 않거나 프로젝트에서 이러한 옵션을 �
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0810_2016-->

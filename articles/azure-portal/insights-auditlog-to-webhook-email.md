@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기 | Microsoft Azure"
-	description="Insights에서 서비스 감사 로그 항목을 사용하여 웹 URL을 호출하거나 메일 알림을 보내는 방법을 알아봅니다."
+	description="Insights에서 서비스 감사 로그 항목을 사용하여 웹 URL을 호출하거나 메일 알림을 보내는 방법을 알아봅니다. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -102,7 +102,7 @@ Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 A
 |timestamp|	이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프|
 |resourceId |해당 리소스를 고유하게 식별하는 리소스 ID URI|
 |resourceGroupName|영향을 받는 리소스의 리소스-그룹-이름|
-|properties |이벤트에 대한 세부 정보를 포함하는 <Key  Value> 쌍의 집합(즉, 사전<String  String>)|
+|properties |이벤트에 대한 세부 정보를 포함하는 <키, 값> 쌍(즉, 사전<문자열, 문자열>)의 집합|
 |event|이벤트에 대한 메타데이터가 포함된 요소|
 |권한 부여|이벤트의 RBAC 속성을 캡처합니다. 여기는 일반적으로 "action", "role" 및 "scope"가 포함됩니다.|
 |카테고리 | 이벤트의 범주. 지원되는 값: Administrative, Alert, Security, ServiceHealth, Recommendation|
@@ -119,4 +119,4 @@ Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 A
 |status|작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved|
 |subStatus|	일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값: OK(HTTP 상태 코드: 200), Created(HTTP 상태 코드: 201), Accepted(HTTP 상태 코드: 202), No Content(HTTP 상태 코드: 204), Bad Request(HTTP 상태 코드: 400), Not Found(HTTP 상태 코드: 404), Conflict(HTTP 상태 코드: 409), Internal Server Error(HTTP 상태 코드: 500), Service Unavailable(HTTP 상태 코드:503), Gateway Timeout(HTTP 상태 코드: 504)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

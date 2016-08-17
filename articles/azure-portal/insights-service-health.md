@@ -1,14 +1,14 @@
 <properties
-	pageTitle="서비스 상태 추적"
-	description="Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다."
+	pageTitle="Azure insights를 사용하여 서비스 상태 추적 | Microsoft Azure"
+	description="Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다. "
 	authors="stepsic-microsoft-com"
 	manager="kamrani"
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,15 +26,13 @@ Azure는 서비스 중단 또는 성능 저하가 있을 때마다 이 사실을
 
 2. **홈**에서 **서비스 상태** ![홈](./media/insights-service-health/Insights_Home.png)라는 타일이 표시됩니다.
 
-3. 이 타일을 클릭하면 Azure에서 모든 지역 목록이 표시됩니다. 원하는 지역을 클릭하면 해당 지역에 대한 서비스 상태 기록을 볼 수 있습니다.
-![홈](./media/insights-service-health/Insights_Regions.png)
+3. 이 타일을 클릭하면 Azure에서 모든 지역 목록이 표시됩니다. 원하는 지역을 클릭하면 해당 지역에 대한 서비스 상태 기록을 볼 수 있습니다. ![홈](./media/insights-service-health/Insights_Regions.png)
 
 4. 또한 테이블에서 해당 항목을 클릭하여 개별 인시던트에 대한 세부 사항을 볼 수 있습니다.
 
 ## 전체 서비스 상태 로그 찾아보기
 
-2. **찾아보기**를 클릭하고 **감사 로그**를 선택합니다.
-![찾아보기 허브](./media/insights-service-health/Insights_Browse.png)
+2. **찾아보기**를 클릭하고 **감사 로그**를 선택합니다. ![찾아보기 허브](./media/insights-service-health/Insights_Browse.png)
 
 3. 지난 7일간 구독에 영향을 준 이벤트를 모두 보여 주는 블레이드가 열립니다. 이 목록에 서비스 상태 항목이 나타나지만 이 목록은 길기 때문에 검색이 어려울 수도 있습니다.
 
@@ -54,4 +52,4 @@ Azure는 서비스 중단 또는 성능 저하가 있을 때마다 이 사실을
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

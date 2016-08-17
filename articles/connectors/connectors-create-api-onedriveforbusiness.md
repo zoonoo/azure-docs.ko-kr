@@ -1,7 +1,7 @@
 <properties
 pageTitle="비즈니스용 OneDrive | Microsoft Azure"
 description="Azure 앱 서비스로 논리 앱을 만듭니다. 비즈니스용 OneDrive에 연결하여 파일을 관리합니다. 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -366,4 +366,4 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

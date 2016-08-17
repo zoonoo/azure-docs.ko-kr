@@ -12,15 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="08/10/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-웹 응용 프로그램을 배포한 후 가용성 및 응답성을 모니터링하도록 웹 테스트를 설정할 수 있습니다. Application Insights는 전 세계에서 정기적으로 웹 요청을 보내 응용 프로그램이 느리게 응답하거나 전혀 응답하지 않을 경우 알려줄 수 있습니다.
+웹 응용 프로그램을 호스트에 배포한 후 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md)는 전 세계에서 정기적으로 웹 요청을 보내 응용 프로그램이 느리게 응답하거나 전혀 응답하지 않을 경우 알려줄 수 있습니다.
 
 ![웹 테스트의 예](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -38,9 +35,9 @@
 
 ### <a name="create"></a>1. 새 리소스를 만드나요?
 
-이 응용 프로그램에 대한 [Application Insights 리소스를 설정시작했고][start] 동일한 위치에서 가용성 데이터를 확인하려는 경우 이 단계를 건너뜁니다.
+이 응용 프로그램에 대한 [Application Insights 리소스를 이미 설정][start]했고 동일한 위치에서 가용성 데이터를 확인하려는 경우 이 단계를 건너뜁니다.
 
-[Microsoft Azure](http://azure.com)에 등록하고 [Azure 포털](https://portal.azure.com)로 이동한 후 새 Application Insights 리소스를 만듭니다.
+[Microsoft Azure](http://azure.com)에 등록하고 [Azure 포털](https://portal.azure.com)로 이동한 후 Application Insights 리소스를 만듭니다.
 
 ![새로 만들기 > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -55,21 +52,21 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 - **URL**은 공용 인터넷에서 볼 수 있어야 합니다. 여기에는 쿼리 문자열이 포함될 수 있으므로 데이터베이스 사용을 연습해 볼 수 있습니다. URL이 리디렉션으로 확인되면 최대 10개의 리디렉션을 따릅니다.
 - **종속 요청 구문 분석**: 페이지의 이미지, 스크립트, 스타일 파일 및 기타 리소스는 테스트의 일부로 요청됩니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다.
 - **다시 시도 사용**: 테스트에 실패하면 잠시 후에 다시 시도합니다. 연속 된 세 번의 시도가 실패하는 경우에 실패가 보고됩니다. 후속 테스트는 일반적인 테스트 빈도로 수행됩니다. 다음 성공까지 다시 시도는 일시적으로 중단됩니다. 이 규칙은 각 테스트 위치에서 독립적으로 적용됩니다. (이 설정을 권장합니다. 평균 실패의 약 80%는 다시 시도에서 사라집니다.)
-- **테스트 빈도**: 각 테스트 위치에서 테스트를 실행하는 빈도를 설정합니다. 5분에 5번의 테스트를 하는 빈도로 사이트를 평균 1분 마다 테스트합니다.
+- **테스트 빈도**: 각 테스트 위치에서 테스트를 실행하는 빈도를 설정합니다. 5분에 5번의 테스트를 하는 빈도로 사이트를 평균 1분마다 테스트합니다.
 - **테스트 위치**는 서버가 URL로 웹 요청을 보내는 곳입니다. 웹 사이트의 문제와 네트워크 문제를 구분할 수 있도록 한 가지 이상을 선택합니다. 최대 16 개의 위치를 선택할 수 있습니다.
 
 - **성공 조건**:
 
-    **테스트 시간 제한**: 느린 응답에 대한 알림을 받으려면 감소시킵니다. 해당 기간 내에 사이트에서 응답을 받지 못한 경우 테스트는 실패로 계산됩니다. **종속 요청 구문 분석**을 선택한 경우 모든 이미지, 스타일 파일, 스크립트 및 다른 종속된 리소스도 해당 기간 내에 받아야 합니다.
+    **테스트 시간 제한**: 느린 응답에 대한 알림을 받으려면 이 값을 감소시킵니다. 해당 기간 내에 사이트에서 응답을 받지 못한 경우 테스트는 실패로 계산됩니다. **종속 요청 구문 분석**을 선택한 경우 모든 이미지, 스타일 파일, 스크립트 및 다른 종속된 리소스도 해당 기간 내에 받아야 합니다.
 
     **HTTP 응답**: 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.
 
-    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 이 문자열이 모든 응답에 나타나는지 테스트할 것입니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다.
+    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 이 문자열이 모든 응답에 나타나는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다.
 
 
 - **경고**는 기본적으로 5분 동안 세 곳에서 오류가 발생하는 경우 사용자에게 전송됩니다. 한 곳에서 발생한 오류는 사이트의 문제가 아니라 네트워크에 문제가 있을 가능성이 높습니다. 그러나 다소 민감하게 작동하도록 임계값을 변경할 수 있으며 메일이 보내지는 주소도 변경할 수 있습니다.
 
-    경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)을 설정할 수 있습니다. 그러나 현재 쿼리 매개 변수는 속성으로 전달되지 않습니다.
+    경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)를 설정할 수 있습니다. 그러나 현재 쿼리 매개 변수는 속성으로 전달되지 않습니다.
 
 #### 더 많은 URL 테스트
 
@@ -82,7 +79,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-기간의 보다 자세한 정보를 보려면 위의 요약 차트에서 아무 막대나 클릭합니다.
+기간의 보다 자세한 정보를 보려면 요약 차트에서 아무 막대나 클릭합니다.
 
 이 차트들은 이 응용 프로그램의 웹테스트에 대해나 결과들의 합입니다.
 
@@ -104,7 +101,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-해당 테스트의 결과를 보여줍니다.
+해당 테스트의 결과 창이 열립니다.
 
 ![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -141,7 +138,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 1. 웹 성능 테스트 프로젝트를 만듭니다.
 
-    ![Visual Studio에서 웹 성능 및 부하 테스트 템플릿으로 새 프로젝트를 만듭니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Visual Studio에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. .webtest 파일을 열고 기록을 시작합니다.
 
@@ -193,15 +190,15 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 ![매개 변수를 가진 웹 테스트입니다.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
 
-테스트를 실행하면 EndTime이 항상 현재 시간이 되고 StartTime은 15 분이 됩니다.
+테스트를 실행하면 EndTime이 항상 현재 시간이 되고 StartTime은 15분이 됩니다.
 
-웹 테스트 플러그 인을 사용하여 이 작업을 수행할 수 있습니다.
+웹 테스트 플러그 인을 사용하여 시간을 매개 변수화할 수 있습니다.
 
 1. 원하는 각 가변 매개 변수 값에 대한 웹 테스트 플러그 인을 추가합니다. 웹 테스트 도구 모음에서 **웹 테스트 플러그 인 추가**를 선택합니다.
 
     ![웹 테스트 플러그인 추가를 선택하고 형식을 선택합니다.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    이 예에서는 날짜 시간 플러그인의 두 인스턴스를 사용하겠습니다. 한 인스턴스는 "15 분 전"이고 다른 하나는 "지금은"입니다.
+    이 예에서는 날짜 시간 플러그인의 두 인스턴스를 사용하겠습니다. 한 인스턴스는 "15분 전"이고 다른 하나는 "지금"입니다.
 
 2. 각 플러그인의 속성을 엽니다. 이름을 지정하고 현재 시간을 사용하도록 설정합니다. 둘 중 하나에 대해 Add Minutes = -15를 설정합니다.
 
@@ -220,8 +217,8 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 모든 경우에 테스트하기 위해 계정을 만들어야 합니다. 가능하면 읽기 전용으로 해당 권한을 제한합니다.
 
 * 간단한 사용자 이름 및 암호: 일반적인 방법으로 웹 테스트를 기록합니다. 우선 쿠키를 삭제합니다.
-* SAML 인증 이를 위해 웹 테스트에 사용할 수 있는 SAML 플러그 인을 사용할 수 있습니다.
-* 클라이언트 암호: 앱에 클라이언트 암호를 포함하는 로그인 경로가 있는 경우 이를 사용합니다. Azure Active Directory가 지원합니다.
+* SAML 인증. 웹 테스트에 사용할 수 있는 SAML 플러그 인을 사용할 수 있습니다.
+* 클라이언트 암호: 앱에 클라이언트 암호를 포함하는 로그인 경로가 있는 경우 해당 경로를 사용합니다. Azure Active Directory는 클라이언트 암호 로그인을 제공합니다.
 * 예를 들어 Microsoft 또는 Google 계정으로 로그인하여 인증을 엽니다. OAuth를 사용하는 많은 앱은 클라이언트 암호 대체를 제공하므로 첫 번째 방법은 해당 항목을 조사하는 것입니다. 테스트가 OAuth를 사용하여 로그인하는 경우 일반적인 방법은 다음과 같습니다.
  * Fiddler와 같은 도구를 사용하여 웹 브라우저, 인증 사이트 및 응용 프로그램 간의 트래픽을 검사합니다.
  * 다른 컴퓨터 또는 브라우저를 사용하거나 긴 간격으로 두 개 이상의 로그인을 수행합니다(토큰이 만료되도록 허용).
@@ -244,7 +241,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 개요 블레이드에서 **설정**, **성능 테스트**를 엽니다. 테스트를 만들 경우 Visual Studio Team Services 계정에 연결하거나 만들어야 합니다.
 
-테스트가 완료되면 응답 시간 및 성공율이 표시됩니다.
+테스트가 완료되면 응답 시간 및 성공률이 표시됩니다.
 
 
 ## 자동화
@@ -260,7 +257,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 * *HTTPS가 지원됩니까?*
 
-    현재 SSL 3.0과 TLS 1.0을 지원합니다.
+    TLS 1.1 및 TLS 1.2를 지원합니다.
 
 * *"웹 테스트" 및 "가용성 테스트" 간의 차이가 있나요?*
 
@@ -312,4 +309,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

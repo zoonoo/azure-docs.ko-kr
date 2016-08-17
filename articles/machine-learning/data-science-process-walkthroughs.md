@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2016" 
+	ms.date="08/03/2016" 
 	ms.author="bradsev" />
 
 
@@ -36,8 +36,11 @@
 [실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md) 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합 중 하나에서 데이터를 저장, 탐색, 기능 엔지니어링 및 다운 샘플링하는 종단 간 시나리오를 보여 줍니다.
 
 
-## Azure HDInsight에서 Spark 사용
+## Azure에서 Spark와 함께 Python을 사용하는 데이터 과학
 [Azure HDInsight에서 Spark를 사용하는 데이터 과학](machine-learning-data-science-spark-overview.md) 연습에서는 [Azure HDInsight Spark 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 NYC Taxi Trips 및 요금 데이터 집합에서 데이터를 저장, 탐색 및 기능 엔지니어링합니다.
+
+## Azure에서 Spark를 사용하는 데이터 과학
+[Azure에서 Spark와 함께 Scala를 사용하는 데이터 과학](machine-learning-data-science-process-scala-walkthrough.md) 연습에서는 Azure HDInsight Spark 클러스터에서 Spark 확장성 있는 기계 학습 라이브러리(MLlib) 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 보여 줍니다. [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링, 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다.
 
 
 ## Azure Data Lake 저장소 및 분석 사용
@@ -49,4 +52,8 @@
 ## SQL Server R 서비스와 함께 T-SQL 사용
 [SQL 개발자를 위한 데이터베이스 내 고급 분석](https://msdn.microsoft.com/library/mt683480.aspx) 연습은 R 솔루션을 작동시키는 SQL Server R 서비스를 사용하여 Transact-SQL과 함께 고급 분석 솔루션을 구축하는 실습 경험을 SQL 프로그래머에게 제공합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+## 다음 작업
+
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
+
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="파트너 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 파트너를 사용하는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -65,4 +65,4 @@
 ## 다음 단계
 - [AS2 규약 만들기](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

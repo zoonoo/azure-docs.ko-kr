@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/22/2016"
+ ms.date="08/02/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
@@ -39,4 +39,4 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

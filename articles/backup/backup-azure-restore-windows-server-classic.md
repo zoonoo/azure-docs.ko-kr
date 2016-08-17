@@ -3,8 +3,8 @@
    description="Windows 서버 또는 Windows 클라이언트에서 복원하는 방법을 알아보세요."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/09/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # 클래식 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
@@ -123,4 +123,4 @@
 - [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 - [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="앱 서비스 API 앱 트리거 | Microsoft Azure" 
 	description="Azure 앱 서비스의 API 앱에서 트리거 구현 방법" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
@@ -342,4 +342,4 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
     }
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

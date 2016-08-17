@@ -3,7 +3,7 @@
    description="동적 관리 뷰를 사용하여 Microsoft Azure SQL 데이터베이스를 모니터링하여 일반적인 성능 문제를 감지 및 진단하는 방법에 대해 알아봅니다."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""
    tags=""/>
@@ -42,7 +42,7 @@ SQL 데이터베이스에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABAS
 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
 
 ```
--- Calculates the size of the database.
+-- 데이터베이스의 크기를 계산합니다. 
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

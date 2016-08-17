@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Powershell을 사용하여 Windows Server 이미지 만들기 및 업로드 | Microsoft Azure"
+	pageTitle="Powershell을 사용하여 VM 이미지 만들기 및 업로드 | Microsoft Azure"
 	description="클래식 배포 모델 및 Azure Powershell을 사용하여 일반화된 Windows Server 이미지(VHD)를 만들고 업로드하는 방법에 대해 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -104,4 +104,4 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 이제 업로드한 이미지를 사용하여 [사용자 지정 VM을 만들 수 있습니다](virtual-machines-windows-classic-createportal.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Azure Data Catalog에 Data Lake 저장소의 데이터 등록
@@ -94,4 +94,4 @@
 * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 * [Data Lake 저장소를 다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 # AD FS 2.0과 함께 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지
 
@@ -31,10 +31,10 @@
 2. 양식 기반 탭을 클릭합니다.
 3. 추가... 단추를 클릭합니다.
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
-4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 Auto-Configure Form-Based Website(양식 기반 웹 사이트 자동 구성) 대화 상자 내에서 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 확인을 클릭합니다.
+4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 확인을 클릭합니다.
 5. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 다단계 인증을 사용하려는 경우 Require Azure Multi-Factor Authentication user match(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다. 이 기능에 대한 자세한 내용은 도움말 파일을 참조하세요.
 6. 페이지 변수를 자동으로 검색할 수 없는 경우 Auto-Configure Form-Based Website(양식 기반 웹 사이트 자동 구성) 대화 상자에서 Specify Manually…(수동으로 지정...) 단추를 클릭합니다.
-7. Add Form-Based Website(양식 기반 웹 사이트 추가) 대화 상자에서 Submit URL(URL 제출) 필드에 ADFS 로그인 페이지의 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다. URL 제출에 대한 자세한 내용은 도움말 파일을 참조하세요.
+7. 양식 기반 웹 사이트 추가 대화 상자에서 URL 제출 필드에 ADFS 로그인 페이지의 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 응용 프로그램 이름을 입력합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다. URL 제출에 대한 자세한 내용은 도움말 파일을 참조하세요.
 8. 요청 형식을 "POST 또는 GET"으로 설정합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 웹 브라우저에서 로그인 페이지로 이동해야 할 경우 해당 페이지를 마우스 오른쪽 단추로 클릭하고 "소스 보기"를 선택하여 로그인 페이지 내에서 입력 상자의 이름을 찾습니다.
 10. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 다단계 인증을 사용하려는 경우 Require Azure Multi-Factor Authentication user match(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
@@ -95,4 +95,4 @@ AD FS 프록시가 사용되지 않을 때 AD FS 보안을 유지하려면 AD FS
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

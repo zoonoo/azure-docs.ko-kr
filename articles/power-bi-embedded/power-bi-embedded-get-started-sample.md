@@ -100,7 +100,7 @@ Checking import state... Succeeded
 
 **Microsoft Power BI Embedded** 샘플 코드는 다음과 같이 구분됩니다. 각 섹션에는 샘플 코드를 쉽게 찾을 수 있도록 PowerBI-embedded.sln 솔루션에 파일 이름이 포함되어 있습니다.
 
-> [AZURE.NOTE] 이 섹션에서는 코드가 작성된 방법을 보여 주는 샘플 코드에 대해 요약합니다. GA(일반 공급)를 진행하면서 샘플 설명을 확장할 예정입니다. 전체 샘플을 보려면 Visual Studio에서 PowerBI-embedded.sln을 로드하세요.
+> [AZURE.NOTE] 이 섹션에서는 코드가 작성된 방법을 보여 주는 샘플 코드에 대해 요약합니다. 전체 샘플을 보려면 Visual Studio에서 PowerBI-embedded.sln을 로드하세요.
 
 ### 모델
 이 샘플에는 **ReportsViewModel** 및 **ReportViewModel**이 있습니다.
@@ -120,6 +120,15 @@ Checking import state... Succeeded
 
         public string AccessToken { get; set; }
     }
+
+### 연결 문자열
+연결 문자열은 다음 형식이어야 합니다.
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+일반적인 서버 및 데이터베이스 특성을 사용할 수 없습니다. 예: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### 보기
 **보기**를 통해 여러 Power BI **보고서** 및 하나의 Power BI **보고서** 표시를 관리합니다.
@@ -158,7 +167,7 @@ Report.cshtml: **Model.AccessToken** 및 **PowerBIReportFor**에 대한 람다 �
 
 ### Controller
 
-**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져올 **서명 키**에서 JWT(JSON Web Token)가 생성됩니다. **자격 증명**은 **PowerBIClient**의 인스턴스를 만드는 데 사용됩니다. **PowerBIClient**의 인스턴스가 있으면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
+**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져올 **서명 키**에서 JWT(JSON 웹 토큰)가 생성됩니다. **자격 증명**은 **PowerBIClient**의 인스턴스를 만드는 데 사용됩니다. **PowerBIClient**의 인스턴스가 있으면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
 
 CreatePowerBIClient()
 
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

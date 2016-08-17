@@ -26,7 +26,7 @@
 
 - 사이트 전체를 배포하기 전에 업데이트에서 기능 버그를 검색하거나 성능 병목 지점을 정확히 짚어봅니다.
 - 베타 앱에서 사용성 메트릭을 측정하여 변경된 "통제된 테스트 항공편"을 수행합니다.
-- 오류가 발생하는 경우 새 업데이트까지 점차적으로 규모를 확장하고 현재 버전에 정상적으로 돌아옵니다. 
+- 오류가 발생하는 경우 새 업데이트까지 점차적으로 규모를 확장하고 현재 버전에 정상적으로 돌아옵니다.
 - 여러 배포 슬롯에 [A/B 테스트](https://en.wikipedia.org/wiki/A/B_testing) 또는 [다변량 테스트](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing)를 실행하여 앱의 비즈니스 결과를 최적화합니다.
 
 ### 웹앱에서 트래픽 라우팅을 사용하는 데 대한 요구 사항
@@ -39,7 +39,7 @@
 
 모든 TiP 시나리오의 기본 수준에서 비프로덕션 배포 슬롯에 미리 정의된 비율의 라이브 트래픽을 라우팅합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
->[AZURE.NOTE] 여기에서 단계는 [비-프로덕션 배포 슬롯](web-sites-staged-publishing.md) 및 웹앱 콘텐츠가 이미 [배포](web-sites-publish-source-control.md)되었기를 원합니다.
+>[AZURE.NOTE] 여기에서 단계는 [비-프로덕션 배포 슬롯](web-sites-staged-publishing.md) 및 웹앱 콘텐츠가 이미 [배포](web-sites-deploy.md)되었기를 원합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 웹앱의 블레이드에서 **설정** > **트래픽 라우팅**을 클릭합니다. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
@@ -86,4 +86,4 @@
 -   [Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발](app-service-agile-software-development.md)
 -	[웹 앱에서 DevOps 환경을 효과적으로 사용하기](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Azure 복원력 기술 지침: 데이터 손상 또는 삭제 실수로부터 복구
 
@@ -91,4 +91,4 @@ Azure의 백업 및 복원 기능에 대한 자세한 내용은 [저장소, 백�
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 복원력, 재해 복구 및 고가용성 리소스에 대해 더 알아보려는 경우 Azure 복원력 기술 지침 [추가 리소스](./resiliency-technical-guidance.md#additional-resources)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

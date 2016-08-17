@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="엔터프라이즈 통합 팩에서 XML 유효성 검사 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="유효성 검사가 엔터프라이즈 통합 팩 및 논리 앱에서 작동하는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -40,4 +40,4 @@
 
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

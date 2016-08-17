@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기
 
-> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [사용자 지정 아티팩트를 작성하는 방법](/documentation/videos/how-to-author-custom-artifacts)
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## 개요
 VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위해 **아티팩트**가 사용됩니다. 아티팩트는 Git 리포지토리의 폴더에 저장되어 있는 아티팩트 정의 파일 및 다른 스크립트 파일로 구성됩니다. 아티팩트 정의 파일은 VM에 설치하려는 아티팩트를 지정하는 데 사용할 수 있는 JSON과 식으로 구성됩니다. 예를 들어 아티팩트의 이름, 실행할 명령, 명령이 실행되는 경우 사용할 수 있는 매개 변수를 정의할 수 있습니다. 이름으로 아티팩트 정의 파일 내의 다른 스크립트 파일을 참조할 수 있습니다.
@@ -120,8 +120,12 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 1. 랩에 아티팩트 리포지토리 추가 - [랩에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 문서를 참조하세요.
 
+## 관련 블로그 게시물
+- [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [ Azure DevTest Lab에서 ARM 템플릿을 사용하여 기존 AD 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
 ## 다음 단계
 
 - [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

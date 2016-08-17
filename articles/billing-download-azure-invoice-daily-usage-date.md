@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드 하는 방법 | Microsoft Azure"
 	description="Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드 하는 방법을 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -33,4 +33,4 @@ Azure 계정 관리자는 Azure 계정 센터에서 현재 청구서를 볼 수 
 6. **송장 다운로드**를 선택하여 마지막 청구서의 복사본을 볼 수 있습니다. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. **사용량 다운로드**를 선택하여 일간 사용 데이터를 CSV 파일로 다운로드 할 수 있습니다.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
