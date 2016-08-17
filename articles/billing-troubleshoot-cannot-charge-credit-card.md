@@ -1,11 +1,11 @@
 <properties
 	pageTitle="내 서비스가 중단될 수도 있다는 메일을 받음 | Microsoft Azure"
 	description="신용 카드로 구독을 결제할 수 없는 문제를 해결하는 방법에 대해 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택
 
 티켓 열기에 대해 도움이 필요한 경우 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

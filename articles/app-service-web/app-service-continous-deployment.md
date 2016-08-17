@@ -18,7 +18,7 @@
     
 # Azure 앱 서비스에 연속 배포
 
-이 자습서는 [Azure 앱 서비스] 앱의 연속 개발 워크플로를 구성하는 방법을 보여줍니다. BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 앱 서비스 통합을 통해 Azure가 이러한 서비스 중 하나에 게시한 프로젝트에서 최신 업데이트를 가져오는 연속 배포 워크플로를 활성화합니다. 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다.
+이 자습서에서는 [Azure 앱 서비스] 앱에 대한 연속 배포 워크플로를 구성하는 방법을 보여 줍니다. BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 앱 서비스 통합을 통해 Azure가 이러한 서비스 중 하나에 게시한 프로젝트에서 최신 업데이트를 가져오는 연속 배포 워크플로를 활성화합니다. 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다.
 
 ## <a name="overview"></a>연속 배포 활성화
 
@@ -28,7 +28,7 @@
 
 2. [Azure 포털]의 앱 블레이드에서 **설정 > 배포 원본**을 클릭합니다. **소스 선택**을 클릭한 다음 예를 들어 **GitHub**를 클릭합니다.
 
-	![](./media/app-service-continous-deployment/cd_options.png)
+	![](./media/app-service-continuous-deployment/cd_options.png)
 	
     > [AZURE.NOTE] 앱 서비스 배포를 위한 VSTS 계정을 구성하려면 이 [자습서](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)를 참조하세요.
     
@@ -36,11 +36,11 @@
 
 4. **배포 원본** 블레이드에서 배포할 프로젝트 및 분기를 선택합니다. 완료되면 **확인**을 클릭합니다.
   
-	![](./media/app-service-continous-deployment/github_option.png)
+	![](./media/app-service-continuous-deployment/github_option.png)
 
 	> [AZURE.NOTE] GitHub 또는 BitBucket에서 지속적으로 배포할 수 있도록 하면 공용 및 개인 프로젝트가 둘 다 표시됩니다.
 
-    앱 서비스는 선택한 저장소와의 연결을 만들고 지정한 분기에서 파일을 가져오고 앱 서비스 앱에 대한 리포지토리의 복제본을 유지합니다. Azure 포털에서 VSTS 연속 배포를 구성할 때 통합은 모든 `git push`(으)로 빌드 및 배포 작업을 자동화하는 앱 서비스 [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)을 사용합니다. VSTS에서 연속 배포를 별도로 설정할 필요가 없습니다. 이 프로세스를 완료한 후 앱 블레이드의 **배포** 섹션은 배치가 성공했음을 나타내는 **활성 배포** 메시지를 표시합니다.
+    앱 서비스는 선택한 저장소와의 연결을 만들고 지정한 분기에서 파일을 가져오고 앱 서비스 앱에 대한 리포지토리의 복제본을 유지합니다. Azure 포털에서 VSTS 연속 배포를 구성할 때 통합은 앱 서비스 [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)을 사용하며 여기서는 모든 `git push`를 포함한 빌드 및 배포 작업을 자동화합니다. VSTS에서 연속 배포를 별도로 설정할 필요가 없습니다. 이 프로세스를 완료한 후 앱 블레이드의 **배포** 섹션은 배치가 성공했음을 나타내는 **활성 배포** 메시지를 표시합니다.
 
 5. 앱이 성공적으로 배포되었는지 확인하려면 Azure 포털에서 앱의 블레이드 맨 위에 있는 **URL**을 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 -	Visual Studio 소스 제어 옵션을 사용하여 아래 이미지와 같은 `.gitignore` 파일을 생성하거나 이 [.gitignore 샘플](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)과 유사한 콘텐츠로 리포지토리 루트에 `.gitignore` 파일을 수동으로 추가합니다.
 
-    ![](./media/app-service-continous-deployment/VS_source_control.png)
+    ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
 -	전체 솔루션의 디렉터리 트리를 리포지토리에 추가하고 .sln 파일을 리포지토리 루트에 둡니다.
 
@@ -66,7 +66,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 1. [Azure 포털]의 앱 블레이드에서 **설정 > 배포 원본**을 클릭합니다. 그런 다음 **배포** 블레이드에서 **연결 끊기**를 클릭합니다.
 
-    ![](./media/app-service-continous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 
 2. 확인 메시지에서 **예**를 누른 후, 다른 소스로부터 게시를 설정하려면 앱의 블레이드로 돌아가 **설정 > 배포 원본**을 클릭합니다.
 
@@ -80,7 +80,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-[Azure 앱 서비스]: https://azure.microsoft.com/ko-KR/documentation/articles/app-service-changes-existing-services/
+[Azure 앱 서비스]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure 포털]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ko-KR/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -93,4 +93,4 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 [VSTS 시작]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

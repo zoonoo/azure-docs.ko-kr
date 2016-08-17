@@ -86,11 +86,14 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-테이블에 비클러스터형 인덱스 테이블을 추가하려는 경우 WITH 절에서 CLUSTERED INDEX를 지정하면 됩니다.
+테이블에 비클러스터형 인덱스를 추가하려면 다음 구문을 사용하면 됩니다.
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
+
+> [AZURE.NOTE] 비클러스터형 인덱스는 기본적으로 CREATE INDEX가 사용될 때 만들어집니다. 또한 비클러스터형 인덱스는 행 저장소 테이블(HEAP 또는 CLUSTERED INDEX)에서만 허용됩니다. 현재 CLUSTERED COLUMNSTORE INDEX 위에 있는 클러스터형 인덱스는 허용되지 않습니다.
+
 
 ## 클러스터형 columnstore 인덱스 최적화
 
@@ -232,7 +235,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### 2단계: 더 높은 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그온하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-또는 인덱스를 다시 작성하는 대신 [CTAS][]를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 [CTAS][]가 [ALTER INDEX][]보다 빠릅니다. 더 작은 볼륨의 데이터에서는 [ALTER INDEX][]를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. CTAS로 인덱스를 다시 작성하는 방법에 대한 자세한 내용은 아래의 **CTAS 및 파티션 전환을 사용하여 인덱스 다시 작성**을 참조하세요.
+또는 인덱스를 다시 빌드하는 대신 [CTAS][]를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 [CTAS][]가 [ALTER INDEX][]보다 빠릅니다. 더 작은 볼륨의 데이터에서는 [ALTER INDEX][]를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. CTAS로 인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 아래의 **CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드**을 참조하세요.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -254,7 +257,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다. 인덱스 다시 작성에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][]의 ALTER INDEX REBUILD 섹션과 [ALTER INDEX][] 구문 항목을 참조하세요.
+SQL 데이터 웨어하우스에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다. 인덱스 다시 빌드에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음][]의 ALTER INDEX REBUILD 섹션과 [ALTER INDEX][] 구문 항목을 참조하세요.
  
 ### 3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
 세그먼트 품질이 저하된 테이블을 식별하는 쿼리를 다시 실행하고 세그먼트 품질이 향상되었는지 확인합니다. 세그먼트 품질이 개선되지 않은 경우 테이블의 행이 아주 넓은 것일 수 있습니다. 인덱스를 다시 작성할 때 더 높은 리소스 클래스 또는 DWU를 사용하는 것이 좋습니다. 더 높은 메모리가 필요한 경우
@@ -338,4 +341,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

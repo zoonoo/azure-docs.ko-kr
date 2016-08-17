@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 Azure 리소스 관리자 템플릿을 사용하여 논리 앱 만들기 | Microsoft Azure" 
 	description="Azure 리소스 관리자 템플릿을 사용하여 워크플로를 정의하기 위한 빈 논리 앱을 배포합니다." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@ Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사�
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

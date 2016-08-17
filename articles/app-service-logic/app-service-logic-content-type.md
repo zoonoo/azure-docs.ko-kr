@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 콘텐츠 형식 처리 | Microsoft Azure"
    description="논리 앱이 디자인 타임 및 런타임에 콘텐츠 형식을 처리하는 방법을 이해합니다."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -93,4 +93,4 @@ CustomerName=Frank&Address=123+Avenue
 
 여기서 `$content`는 모든 데이터를 보존하하기 위해 base64 문자열로 인코딩된 페이로드입니다. 현재 양식 데이터에 대한 네이티브 함수가 없으므로 `@string(body('formdataAction'))`과 같은 함수를 통해 데이터에 수동으로 액세스하여 워크플로 내에서 이 데이터를 계속 사용할 수 있습니다. 나가는 요청에도 `application/x-www-url-formencoded` content-type 헤더를 포함하기 위해 `@body('formdataAction')`과 같이 캐스팅 없이 작업 본문에 이를 추가할 수 있습니다. 그러나 이러한 방식은 본문이 `body` 입력의 유일한 매개 변수인 경우에만 작동합니다. `application/json` 요청 내에서 `@body('formdataAction')`을 수행하려고 할 경우 인코딩된 암호를 전송하게 되므로 런타임 오류가 발생합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

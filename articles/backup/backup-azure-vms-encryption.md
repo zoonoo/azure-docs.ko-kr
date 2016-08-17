@@ -3,8 +3,8 @@
    description="Azure 백업이 IaaS VM 백업 과정에서 BitLocker 또는 dmcrypt을 사용하여 암호화된 데이터를 처리하는 방법을 알아봅니다. 이 문서는 암호화된 데이터를 다루는 경우 백업 및 복원 환경의 차이에 대비할 수 있도록 합니다."
    services="backup"
    documentationCenter=""
-   authors="markgalioto"
-   manager="cfreeman"
+   authors="pallavijoshi"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="07/01/2016"
-   ms.author="markgal; jimpark"/>
+   ms.author="markgal; jimpark; trinadhk"/>
 
 # VM을 백업하는 동안 암호화된 디스크 처리
 
@@ -71,4 +71,4 @@ Azure의 VM 데이터를 암호화하려는 엔터프라이즈가 사용할만�
 - [배포 가이드 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [SecureVM 배포 및 사용 - 비디오](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

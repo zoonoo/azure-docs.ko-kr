@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="엔터프라이즈 통합 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합의 기능을 사용하여 논리 앱을 사용하는 비즈니스 프로세스 및 통합 시나리오 사용" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
 - [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

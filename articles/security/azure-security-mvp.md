@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Azure 보안 MVP 프로그램
@@ -28,4 +28,4 @@ Microsoft Azure에서 Azure 보안에 특별한 전문성을 갖춘 커뮤니티
 
 Azure 보안 전문가입니까? 전문가인 사람을 알고 계십니까? 그렇다면 오늘 [자신이나 다른 사용자를 추천](https://mvp.microsoft.com/Nomination/nominate-an-mvp)하여 Azure 보안 MVP가 되도록 하십시오!
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

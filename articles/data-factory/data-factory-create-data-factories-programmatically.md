@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -24,7 +24,7 @@
 
 ## 필수 조건
 
-- Visual Studio 2012 또는 2013
+- Visual Studio 2012, 2013 또는 2015
 - [Azure .NET SDK][azure-developer-center] 다운로드 및 설치
 - Azure Data Factory용 NuGet 패키지 다운로드 및 설치. 지침은 연습에 있습니다.
 
@@ -43,19 +43,23 @@
 3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 하나씩 실행합니다.</b>
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이는 도우미 메서드 **GetAuthorizationHeader**에서 사용됩니다.
 
-	**SubscriptionId**와 **ActiveDirectoryTenantId**의 값을 Azure 구독 및 테넌트 ID로 바꿉니다. Azure PowerShell에서 **Get-AzureAccount**를 실행하여 이러한 값을 가져올 수 있습니다(먼저 Add-AzureAccount를 사용하여 로그인해야 할 수 있음).
+	**AdfClientId**, **RedirectUri**, **SubscriptionId** 및 **ActiveDirectoryTenantId**의 값을 고유한 값으로 바꿉니다.
+
+	Login-AzureRmAccount를 사용하여 로그인한 후에 Azure PowerShell에서 **Get-AzureAccount -Format-List**를 실행하여 구독 ID 및 테넌트 ID 값을 가져올 수 있습니다(먼저 Add-AzureAccount를 사용하여 로그인해야 할 수 있음).
+
+	Azure 포털에서 AD 응용 프로그램에 대한 클라이언트 ID를 가져오고 URI를 리디렉션할 수 있습니다.
  
 		<appSettings>
-		    <!--CSM Prod related values-->
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		    <!--Make sure to write your own tenenat id and subscription ID here-->
+
+		    <!-- Replace the following values with your own -->
+		    <add key="AdfClientId" value="Your AD application ID" />
+		    <add key="RedirectUri" value="Your AD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -380,9 +384,52 @@
 18. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인합니다.
 
 
+## 팝업 대화 상자 없이 로그인 
+위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
 
-> [AZURE.NOTE] 위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
+### 예
 
+아래와 같이 GetAuthorizationHeaderNoPopup 메서드를 만듭니다.
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+
+**Main** 함수에서 **GetAuthorizationHeader** 호출을 **GetAuthorizationHeaderNoPopup**에 대한 호출로 바꿉니다.
+
+        TokenCloudCredentials aadTokenCredentials =
+            new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeaderNoPopup());
+
+서비스 주체인 Active Directory 응용 프로그램을 만든 다음 데이터 팩터리 참가자 역할에 할당할 수 있는 방법은 다음과 같습니다.
+
+1. AD 응용 프로그램을 만듭니다.
+
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
+
+2. AD 서비스 주체를 만듭니다.
+
+		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+3. 데이터 팩터리 참가자 역할에 서비스 주체를 추가합니다.
+
+		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+
+4. 응용 프로그램 ID를 가져옵니다.
+
+		$azureAdApplication
+
+
+응용 프로그램 ID 및 암호(클라이언트 암호)을 기록해 두고 위의 코드에서 사용합니다.
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
@@ -393,4 +440,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

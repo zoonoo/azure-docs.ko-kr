@@ -24,7 +24,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Git. [여기](http://www.git-scm.com/downloads)에서 설치 이진 파일을 다운로드할 수 있습니다.  
+- Git. [여기](http://www.git-scm.com/downloads)에서 설치 이진 파일을 다운로드할 수 있습니다.
 - Git에 대한 기본 지식.
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)할 수 있습니다.
 
@@ -46,7 +46,7 @@
 
 앱 서비스는 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다.
 
-1. 리포지토리에 콘텐츠가 이미 포함된 경우 이 항목을 건너뛰고 아래의 항목 2로 이동합니다. 리포지토리에 콘텐츠가 포함되어 있지 않은 경우 다음과 같이 정적 .html 파일로 채웁니다. 
+1. 리포지토리에 콘텐츠가 이미 포함된 경우 이 항목을 건너뛰고 아래의 항목 2로 이동합니다. 리포지토리에 콘텐츠가 포함되어 있지 않은 경우 다음과 같이 정적 .html 파일로 채웁니다.
 
     - 텍스트 편집기를 사용하여 Git 리포지토리의 루트에 **index.html**이라는 새 파일을 만듭니다.
     - index.html 파일 내용으로 *Hello Git!* 텍스트를 추가하고 저장합니다.
@@ -166,7 +166,7 @@
 
 * [Git 설명서](http://git-scm.com/documentation)
 * [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
-* [Azure 앱 서비스에 연속 배포](app-service-continous-deployment.md)
+* [Azure 앱 서비스에 연속 배포](app-service-continuous-deployment.md)
 * [Azure용 PowerShell 사용 방법](../powershell-install-configure.md)
 * [Azure 명령줄 인터페이스를 사용하는 방법](../xplat-cli-install.md)
 
@@ -180,4 +180,4 @@
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

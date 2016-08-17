@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 호환성, SQL Azure 마이그레이션 마법사, SSDT"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,7 +37,7 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
 
 ## Visual Studio용 SQL Server Data Tools를 사용하여 호환성 문제 검색
    
-1.	Visual Studio에서 **SQL Server 개체 탐색기**를 엽니다. **SQL Server 추가**를 사용하여 마이그레이션할 데이터베이스가 포함된 SQL Server 인스턴스에 연결합니다. 탐색기에서 데이터베이스를 찾아 마우스 오른쪽 단추로 클릭하고 **새 프로젝트 만들기…**를 선택합니다.     
+1.	Visual Studio에서 **SQL Server 개체 탐색기**를 엽니다. **SQL Server 추가**를 사용하여 마이그레이션할 데이터베이스가 포함된 SQL Server 인스턴스에 연결합니다. 탐색기에서 데이터베이스를 찾아 마우스 오른쪽 단추로 클릭하고 **새 프로젝트 만들기…**를 선택합니다.
     
 	![새 프로젝트](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
    
@@ -63,18 +63,19 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
     
 ## Visual Studio용 SQL Server Data Tools를 사용하여 호환성 문제 해결        
   
-1.	스크립트를 두 번 클릭하여 쿼리 창에서 스크립트를 열고 주석 처리한 다음 실행합니다. ![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)    
+1.	스크립트를 두 번 클릭하여 쿼리 창에서 스크립트를 열고 주석 처리한 다음 실행합니다. ![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)
 
-2.	오류가 남지 않을 때까지 비호환성을 포함하는 각 스크립트에 이 프로세스를 반복합니다. ![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)
-3.	데이터베이스에 오류가 없으면 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택하여 빌드한 후 원본 데이터베이스의 복사본(적어도 처음에는 복사본을 사용하기를 권장)에 데이터베이스를 게시합니다.     
- - 원본 SQL Server 버전(SQL Server 2014 이전)에 따라 게시하기 전에 배포가 가능하도록 프로젝트의 대상 플랫폼을 다시 설정해야 할 수 있습니다.     
- - 기존 SQL Server 데이터베이스를 마이그레이션하는 경우 상위 SQL Server 버전으로 데이터베이스를 처음 마이그레이션하는 경우를 제외하고 원본 SQL Server에서 지원되지 않는 기능을 프로젝트에 가져오면 안 됩니다.     
+2.	오류가 남지 않을 때까지 비호환성을 포함하는 각 스크립트에 이 프로세스를 반복합니다. ![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)  
+ 
+3.	데이터베이스에 오류가 없으면 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택하여 빌드한 후 원본 데이터베이스의 복사본(적어도 처음에는 복사본을 사용하기를 권장)에 데이터베이스를 게시합니다.
+ - 원본 SQL Server 버전(SQL Server 2014 이전)에 따라 게시하기 전에 배포가 가능하도록 프로젝트의 대상 플랫폼을 다시 설정해야 할 수 있습니다.
+ - 기존 SQL Server 데이터베이스를 마이그레이션하는 경우 상위 SQL Server 버전으로 데이터베이스를 처음 마이그레이션하는 경우를 제외하고 원본 SQL Server에서 지원되지 않는 기능을 프로젝트에 가져오면 안 됩니다.
 
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)    
     
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)    
     
-4.	마법사에서 어떤 변경 사항이 있는지 이해하려면 SQL Server 개체 탐색기에서 원본 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **데이터 비교**를 클릭하여 원본 데이터베이스에 프로젝트를 비교합니다. 데이터베이스의 Azure SQL V12 버전을 선택하고 **마침**을 클릭합니다.    
+4.	마법사에서 어떤 변경 사항이 있는지 이해하려면 SQL Server 개체 탐색기에서 원본 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **데이터 비교**를 클릭하여 원본 데이터베이스에 프로젝트를 비교합니다. 데이터베이스의 Azure SQL V12 버전을 선택하고 **마침**을 클릭합니다.
     
 	![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
     
@@ -97,4 +98,4 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

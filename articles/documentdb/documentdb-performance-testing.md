@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Azure DocumentDB를 사용한 성능 및 규모 테스트
@@ -25,27 +25,15 @@
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
 - Azure DocumentDB의 성능 테스트를 위한 샘플 .NET 클라이언트 응용 프로그램은 어디에서 찾을 수 있나요?
-- Azure DocumentDB에 수행된 요청에 대한 종단 간 성능에 영향을 주는 핵심 요인은 무엇인가요?
 - 클라이언트 응용 프로그램에서 Azure DocumentDB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
 
 코드를 시작하려면 [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드합니다.
 
 > [AZURE.NOTE] 이 응용 프로그램의 목표는 적은 수의 클라이언트 컴퓨터를 사용하여 DocumentDB에서 더 나은 성능의 추출하는 모범 사례를 제시하는 것입니다. 제한 없이 확장할 수 있는 서비스의 최대 용량을 보여 주려는 것은 아닙니다.
 
-## 핵심 클라이언트 구성 옵션
-DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규모가 조정되는 신속하고 유연한 분산 데이터베이스입니다. DocumentDB를 사용하여 데이터베이스 계층의 규모를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 SDK 메서드 호출을 수행하는 것만큼 쉽습니다. 그러나 규모별로 테스트할 때는 네트워크 호출을 통해 DocumentDB에 액세스하는 것이 중요합니다. 성능 테스트 DocumentDB에 독립 실행형 클라이언트 응용 프로그램을 쓰는 경우 네트워크 대기 시간이 성능 측정에 미치는 영향을 방지하도록 적합하게 구성해야 합니다.
+DocumentDB의 성능 향상을 위해 클라이언트 쪽 구성 옵션이 필요한 경우 [DocumentDB 성능 팁](documentdb-performance-tips.md)을 참조하세요.
 
-DocumentDB에서 최상의 종단 간 성능을 얻으려면 다음 클라이언트 구성 옵션을 고려합니다.
-
-- **스레드/태스크 수 늘리기**: DocumentDB에 대한 호출이 네트워크를 통해 수행되므로 클라이언트 응용 프로그램이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [태스크 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 DocumentDB에 대해 약 100개의 읽기 또는 쓰기 태스크를 만드세요.
-- **동일한 Azure 지역 내에서 테스트**: 가능한 경우 동일한 Azure 지역에 배포된 가상 컴퓨터 또는 앱 서비스에서 테스트합니다. 개략적인 비교를 위해 동일한 지역 내의 DocumentDB 호출이 1-2ms 내에 완료되지만 미국 서부와 동부 해안 사이의 대기 시간이 50ms보다 큽니다.
-- **호스트당 System.Net MaxConnections 늘리기**: DocumentDB 요청이 기본적으로 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 사용할 수 있도록 더 높은 값(100-1000)으로 설정해야 할 수 있습니다. .NET에서는 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)입니다.
-- **서버 쪽 GC 켜기**: 경우에 따라 가비지 수집의 빈도를 줄이는 것이 도움이 될 수 있습니다. .NET에서는 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx)를 true로 설정합니다.
-- **직접 연결 사용**: 최고의 성능을 위해 [직접 연결](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx)을 사용합니다.
-- **RetryAfter 간격으로 백오프 구현**: 성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 이렇게 하면 재시도 간 기간을 최소화할 수 있습니다. [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
-- **클라이언트 워크로드 규모 확장**: 높은 처리량 수준에서 테스트하는 경우(>50,000 RU/s) 컴퓨터의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 응용 프로그램은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 응용 프로그램을 확장하여 DocumentDB 계정을 계속 추가할 수 있습니다.
-
-## 시작
+## 성능 테스트 응용 프로그램 실행
 가장 빠른 시작 방법은 아래 단계에 설명된 대로 아래의 .NET 샘플을 컴파일하고 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
 
 **1단계:** [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하거나 Github 리포지토리를 분기합니다.
@@ -104,14 +92,15 @@ DocumentDB에서 최상의 종단 간 성능을 얻으려면 다음 클라이언
 
 실행 중인 앱이 있는 경우 다양한 [인덱싱 정책](documentdb-indexing-policies.md) 및 [일관성 수준](documentdb-consistency-levels.md)을 시도하면서 처리량 및 대기 시간에 미치는 영향을 이해할 수 있습니다. 소스 코드를 검토하고 자체 테스트 제품군 또는 프로덕션 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
 
-## 요약
-이 문서에서는 .NET 콘솔 앱과 검토된 키 구성 옵션을 사용하여 DocumentDB로 성능 및 규모 테스트를 수행하여 Azure DocumentDB에서 최상의 성능을 얻는 방법을 살펴보았습니다. DocumentDB 사용에 대한 자세한 내용은 아래 링크를 참조하세요.
+## 다음 단계
+이 문서에서는 .NET 콘솔 앱을 사용하여 DocumentDB를 사용하여 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. DocumentDB 사용에 대한 자세한 내용은 아래 링크를 참조하세요.
 
 * [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [DocumentDB 성능 향상을 위한 클라이언트 구성 옵션](documentdb-performance-tips.md)
 * [DocumentDB에서 서버 쪽 분할`](documentdb-partition-data.md)
 * [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

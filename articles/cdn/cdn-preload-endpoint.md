@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN 끝점에 자산 미리 로드"
+	pageTitle="Azure CDN 끝점에 자산 미리 로드 | Microsoft Azure"
 	description="CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 끝점에 자산 미리 로드
@@ -60,4 +60,4 @@
 - [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 - [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

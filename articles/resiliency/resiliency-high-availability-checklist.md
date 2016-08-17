@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 #고가용성 검사 목록
@@ -79,4 +79,4 @@ __CDN을 사용하지 않으면 어떻게 되나요?__ CDN을 사용하지 않�
 ##다음 단계:
 응용 프로그램이 높은 가용성을 갖도록 디자인하는 방법에 대해 알아보려면 [Microsoft Azure에 구축된 응용 프로그램에 대한 고가용성](resiliency-high-availability-azure-applications.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

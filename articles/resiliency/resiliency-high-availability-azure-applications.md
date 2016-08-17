@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성
 
@@ -143,4 +143,4 @@ Azure 응용 프로그램의 가용성 향상을 위해 느슨하게 결합된 �
 
 이 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](./resiliency-disaster-recovery-high-availability-azure-applications.md)에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](./resiliency-disaster-recovery-azure-applications.md)입니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

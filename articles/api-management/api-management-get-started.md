@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -59,7 +59,7 @@ Azure API 관리를 통해 원하는 백 엔드를 사용하고 해당 백 엔�
 
 ## <a name="create-service-instance"> </a>API 관리 인스턴스 만들기
 
->[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하십시오.
 
 API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure 클래식 포털][]에 로그인하고 **새로 만들기**, **앱 서비스**, **API 관리**, **만들기**를 클릭합니다.
 
@@ -105,7 +105,7 @@ API는 Azure 클래식 포털을 통해 액세스할 수 있는 게시자 포털
 
 다음 단계를 수행하여 계산기 API를 구성합니다.
 
-1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 **http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger** 라디오 단추를 클릭합니다.
+1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger**** 라디오 단추를 클릭합니다.
 2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
 3. **제품(선택 사항)** 상자를 클릭하고 **Starter**를 선택합니다.
 4. **저장**을 클릭하여 API를 가져옵니다.
@@ -188,7 +188,7 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 
 -	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
 
-[Azure 무료 평가판]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
@@ -245,4 +245,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

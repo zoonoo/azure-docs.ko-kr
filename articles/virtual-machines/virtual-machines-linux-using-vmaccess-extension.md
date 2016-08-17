@@ -97,7 +97,7 @@ VMAccess를 사용하면 Linux VM에 있는 디스크에 fsck를 실행할 수 �
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -120,7 +120,7 @@ Linux VM의 루트에 대한 액세스 권한을 잃어버린 경우 VMAccess �
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -139,7 +139,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -163,7 +163,7 @@ VMAccess는 로그인하고 sudo 또는 루트 계정을 사용하지 않고 Lin
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -181,7 +181,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -203,9 +203,9 @@ SSHD 구성을 재설정하려면 이 VMAccess 스크립트를 사용합니다.
 다음을 사용하여 VMAccess 스크립트를 실행합니다.
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

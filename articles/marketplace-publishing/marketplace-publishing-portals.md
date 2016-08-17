@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="07/27/2016"
    ms.author="hascipio" />
 
 
 # 필요한 포털
 제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure 포털이 나와 있습니다.
 ## 개발자 센터
-[http://dev.windows.com](http://dev.windows.com/registration?accountprogram=azure)
+[http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 ### 설명
 Microsoft 개발자 센터 계정 만들기는 일회성 작업입니다. 계정 만들기를 시작하기 전에 회사에 개발자 센터 계정이 아직 없는지 확인해야 합니다. 프로세스 중에 은행 계좌 정보, 세금 정보 및 회사 주소 정보를 수집합니다.
 
-> [AZURE.NOTE]무료 제품(또는 사용자 라이선스 필요 제품)만 게시하는 경우에는 세금 및 은행 정보를 요구하지 않습니다.
+> [AZURE.NOTE] 무료 제품(또는 사용자 라이선스 필요 제품)만 게시하는 경우에는 세금 및 은행 정보를 요구하지 않습니다.
 
 ### 사용되는 ID/계정
-이상적으로 메일 그룹 또는 보안 그룹(예: azurepublishing@*partnercompany*.com))입니다. 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
+이상적으로 메일 그룹 또는 보안 그룹(예: azurepublishing@*partnercompany*.com)입니다. 메일 그룹이나 보안 그룹은 **반드시** Microsoft 계정으로 등록되어야 합니다.
 
-> [AZURE.TIP]개인 계정도 사용되지만 개인에 대한 종속성을 제거하는 메일 그룹이나 보안 그룹을 사용하는 것이 좋습니다.
+> [AZURE.TIP] 개인 계정도 사용되지만 개인에 대한 종속성을 제거하는 메일 그룹이나 보안 그룹을 사용하는 것이 좋습니다.
 
 ## 게시 포털
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
@@ -50,4 +50,4 @@ Azure 마켓플레이스에서 스테이징 및 게시된 제품을 볼 수 있�
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0803_2016-->

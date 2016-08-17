@@ -34,7 +34,7 @@
 - Python 2.7 또는 3.4
 - setuptools, pip, virtualenv(Python 2.7 전용)
 - Git
-- [Python Tools for Visual Studio][](PTVS) - 참고: 선택 사항입니다.
+- [Python Tools for Visual Studio][]\(PTVS) - 참고: 선택 사항입니다.
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
@@ -55,12 +55,12 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 앱을 만드는 첫 번째 단계는 [Azure 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
 
-1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다. 
+1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **웹 + 모바일**을 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Flask**를 선택한 다음 **만들기**를 클릭합니다.
 5. 새 Flask 앱을 구성(예: 새 앱 서비스 계획 만들기)하고 해당 앱의 새 리소스 그룹을 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
-6. [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다.
+6. [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)의 지침에 따라 새로 만든 웹앱에 대한 Git 게시를 구성합니다.
 
 
 ## 응용 프로그램 개요
@@ -134,7 +134,7 @@ Python 가상 환경. 호환되는 가상 환경이 앱에 없는 경우 배포 
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
 리포지토리의 루트에 포함된 솔루션 파일(.sln)을 엽니다.
 
@@ -201,7 +201,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -280,7 +280,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -401,4 +401,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Flask 설명서]: http://flask.pocoo.org/
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0803_2016-->

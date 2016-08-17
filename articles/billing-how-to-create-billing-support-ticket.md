@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법 | Microsoft Azure"
 	description="Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법을 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@
 
  >[AZURE.NOTE]Azure 계정 관리자만 계정 센터에 액세스할 수 있는 권한이 있습니다. 구독의 계정 관리자를 알아내는 방법에 대한 자세한 내용은 [질문과 대답](billing-subscription-transfer.md#faq)을 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

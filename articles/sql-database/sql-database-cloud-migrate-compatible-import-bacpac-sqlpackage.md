@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, BACPAC 파일 가져오기, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@
 1. 명령 프롬프트를 열고 sqlpackage.exe 명령줄 유틸리티가 들어 있는 디렉터리를 변경합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다.
 2. 사용자 환경에 대해 다음 인수를 사용하여 다음 sqlpackage.exe 명령을 실행하세요.
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:< server\_name > /tdn:< database\_name > /tu:< user\_name > /tp:< password > /sf:< source\_file >
 
 	| 인수 | 설명 |
 	|---|---|
-	| < server_name > | 대상 서버 이름 |
-	| < database_name > | 대상 데이터베이스 이름 |
-	| < user_name > | 대상 서버의 사용자 이름 |
+	| < server\_name > | 대상 서버 이름 |
+	| < database\_name > | 대상 데이터베이스 이름 |
+	| < user\_name > | 대상 서버의 사용자 이름 |
 	| < password > | 사용자 암호 |
-	| < source_file > | 가져올 BACPAC 파일의 파일 이름 및 위치 |
+	| < source\_file > | 가져올 BACPAC 파일의 파일 이름 및 위치 |
 
 	![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -60,4 +60,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

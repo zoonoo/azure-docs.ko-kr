@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
-# 리소스 관리자 템플릿 연습
+# Resource Manager 템플릿 연습
 
 템플릿 작성 시 첫 번째 질문 중 하나는 “어떻게 시작할까?"입니다. 빈 템플릿으로 시작하여 [템플릿 작성 문서](resource-group-authoring-templates.md#template-format)에 설명된 기본 구조에 따라, 리소스 및 적절한 매개 변수와 변수를 추가할 수 있습니다. [빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates)를 살펴보고, 만들려는 시나리오와 유사한 시나리오를 찾는 것이 좋은 대안이 될 수 있습니다. 몇 가지 템플릿을 병합하거나 기존 템플릿을 자신의 시나리오에 어울리게 편집할 수 있습니다.
 
@@ -54,7 +54,7 @@
 이 파일을 **azuredeploy.json**으로 저장합니다.(템플릿 이름은 원하는 대로 지정할 수 있지만 json 파일이어야 합니다.)
 
 ## 저장소 계정 만들기
-**resources** 섹션에서 다음과 같이 저장소 계정을 정의하는 개체를 추가합니다.
+**리소스** 섹션에서 다음과 같이 저장소 계정을 정의하는 개체를 추가합니다.
 
 ```json
 "resources": [
@@ -72,7 +72,7 @@
 
 이러한 속성 및 값은 어디에서 가져올지 궁금할 수 있습니다. **type**, **name**, **apiVersion** 및 **location** 속성은 모든 리소스 유형에서 사용 가능한 표준 요소입니다. [리소스](resource-group-authoring-templates.md#resources)에서 공통 요소에 대해 학습할 수 있습니다. **name**은 배포 중에 전달하는 매개 변수 값으로 설정하고 **location**은 리소스 그룹에 의해 사용되는 위치로 설정합니다. **type** 및 **apiVersion**을 결정하는 방법은 아래 섹션에서 살펴보겠습니다.
 
-**properties** 섹션에는 특정 리소스 유형에 고유한 모든 속성을 포함합니다. 이 섹션에서 지정한 값은 해당 리소스 유형을 만들기 위한 REST API의 PUT 작업과 정확히 일치합니다. 저장소 계정을 만들 때 **accountType**을 제공해야 합니다. [저장소 계정 만들기를 위한 REST API](https://msdn.microsoft.com/library/azure/mt163564.aspx)를 보면 REST 작업의 properties 섹션에도 **accountType** 속성이 포함되며 허용되는 값이 문서화되어 있습니다. 이 예에서는 계정 유형이 **Standard\_LRS**로 설정되지만 다른 값을 지정하거나 사용자가 매개 변수로 계정 유형을 전달하도록 지정할 수 있습니다.
+**properties** 섹션에는 특정 리소스 유형에 고유한 모든 속성을 포함합니다. 이 섹션에서 지정한 값은 해당 리소스 유형을 만들기 위한 REST API의 PUT 작업과 정확히 일치합니다. 저장소 계정을 만들 때 **accountType**을 제공해야 합니다. [저장소 계정 만들기를 위한 REST API](https://msdn.microsoft.com/library/azure/mt163564.aspx)를 보면 REST 작업의 속성 섹션에도 **accountType** 속성이 포함되며 허용되는 값이 문서화되어 있습니다. 이 예에서는 계정 유형이 **Standard\_LRS**로 설정되지만 다른 값을 지정하거나 사용자가 매개 변수로 계정 유형을 전달하도록 지정할 수 있습니다.
 
 이제 **매개 변수** 섹션으로 돌아가서, 저장소 계정의 이름을 정의하는 방법을 알아보세요. 매개 변수 사용에 대한 자세한 내용은 [매개 변수](resource-group-authoring-templates.md#parameters)를 참조하세요.
 
@@ -579,4 +579,4 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 - 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 - 템플릿 배포에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

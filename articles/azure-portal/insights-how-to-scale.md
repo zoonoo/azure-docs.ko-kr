@@ -1,14 +1,14 @@
 <properties
-	pageTitle="수동 또는 자동으로 인스턴스 개수 조정"
+	pageTitle="수동 또는 자동으로 인스턴스 개수 조정 | Microsoft Azure"
 	description="Azure에서 서비스 크기를 조정하는 방법을 알아봅니다."
 	authors="stepsic-microsoft-com"
 	manager="ronmart"
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -28,11 +28,9 @@
 
 1. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**를 클릭한 다음 크기를 조정할 리소스(예: **앱 서비스 계획**)로 이동합니다.
 
-2. **작업**의 **크기 조정** 타일에 크기 조정 상태가 표시됩니다. 수동으로 크기 조정하는 경우 **Off**이고, 한 개 이상의 성능 메트릭을 기준으로 크기를 조정하는 경우 **On**입니다.
-![크기 조정 타일](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. **작업**의 **크기 조정** 타일에 크기 조정 상태가 표시됩니다. 수동으로 크기 조정하는 경우 **Off**이고, 한 개 이상의 성능 메트릭을 기준으로 크기를 조정하는 경우 **On**입니다. ![크기 조정 타일](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. 타일을 클릭하면 **크기 조정** 블레이드로 이동합니다. 크기 조정 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다.
-![크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+3. 타일을 클릭하면 **크기 조정** 블레이드로 이동합니다. 크기 조정 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다. ![크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
 
 >[AZURE.NOTE] 자동 크기 조정에 의해 수행되는 작업만 이 차트에 표시됩니다. 인스턴스 개수를 수동으로 조정하는 경우 이 차트에 변경 내용이 반영되지 않습니다.
 
@@ -59,13 +57,11 @@
 
 ### 규칙 추가 또는 변경
 
-1. **크기 조정 기준** 드롭다운에서 **일정 및 성능 규칙**을 선택합니다.
-![성능 규칙](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. **크기 조정 기준** 드롭다운에서 **일정 및 성능 규칙**을 선택합니다. ![성능 규칙](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. 이전에 자동 크기 조정을 사용한 경우 사용된 정확한 규칙의 뷰가 표시됩니다.
 
-3. 다른 메트릭을 기준으로 크기를 조정하려면 **규칙 추가** 행을 클릭합니다. 기존 행 중 하나를 클릭하여 이전에 사용한 메트릭에서 크기 조정 기준으로 사용하려는 메트릭으로 변경할 수도 있습니다.
-![규칙 추가](./media/insights-how-to-scale/Insights_AddRule.png)
+3. 다른 메트릭을 기준으로 크기를 조정하려면 **규칙 추가** 행을 클릭합니다. 기존 행 중 하나를 클릭하여 이전에 사용한 메트릭에서 크기 조정 기준으로 사용하려는 메트릭으로 변경할 수도 있습니다. ![규칙 추가](./media/insights-how-to-scale/Insights_AddRule.png)
 
 4. 이제 크기 조정 기준으로 사용하려는 메트릭을 선택해야 합니다. 메트릭을 선택할 때는 다음 몇 가지 사항을 고려해야 합니다.
     * 메트릭을 가져오는 *리소스*. 일반적으로 크기를 조정할 리소스와 동일합니다. 그러나 저장소 큐의 깊이를 기준으로 크기를 조정하는 경우 리소스는 크기 조정 기준으로 사용하려는 큐에 있습니다.
@@ -109,13 +105,11 @@
 
 2. 예를 들어 주중에 적용되는 프로필을 설정하려면 **요일** 드롭다운에서 **토요일** 및 **일요일**을 선택 취소합니다.
 
-3. 낮 시간 동안 적용되는 프로필을 설정하려면 **시작 시간**을 시작할 시간으로 설정합니다.
-![기본 되풀이](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+3. 낮 시간 동안 적용되는 프로필을 설정하려면 **시작 시간**을 시작할 시간으로 설정합니다. ![기본 되풀이](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. **확인**을 클릭합니다.
 
-5. 다음에는 다른 시간에 적용할 프로필을 추가해야 합니다. **프로필 추가** 행을 클릭합니다.
-![근무 외 시간](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+5. 다음에는 다른 시간에 적용할 프로필을 추가해야 합니다. **프로필 추가** 행을 클릭합니다. ![근무 외 시간](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. 두 번째 새 프로필에 이름을 지정합니다. 예를 들어 **근무 외 시간**으로 지정할 수 있습니다.
 
@@ -127,8 +121,7 @@
 
 9. **확인**을 클릭합니다.
 
-10. 이제 두 번째 프로필 중에 적용할 규칙을 추가해야 합니다. **규칙 추가**를 클릭한 다음 기본 프로필과 동일한 규칙을 구성할 수 있습니다.
-![근무 외 시간에 규칙 추가](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+10. 이제 두 번째 프로필 중에 적용할 규칙을 추가해야 합니다. **규칙 추가**를 클릭한 다음 기본 프로필과 동일한 규칙을 구성할 수 있습니다. ![근무 외 시간에 규칙 추가](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. 규모 확장 및 규모 감축에 대한 규칙을 모두 만들어야 합니다. 그렇지 않으면 프로필 중에 인스턴스 개수가 증가(또는 감소)하기만 합니다.
 
@@ -143,4 +136,4 @@
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0803_2016-->

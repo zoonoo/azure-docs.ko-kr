@@ -3,7 +3,7 @@
 	description="Azure 백업 서비스를 사용하여 DPM 서버를 백업하는 방법 소개"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
+	authors="Nkolli1"
 	manager="shreeshd"
 	editor=""
 	keywords="System Center Data Protection Manager, 데이터 보호 관리자, dpm 백업"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark"/>
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # DPM을 통해 Azure에서 워크로드 백업 준비
 
@@ -96,4 +96,4 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 
 >[AZURE.NOTE] System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="07/27/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱에 사용자 지정 도메인 이름 매핑
@@ -40,12 +40,12 @@
 [Azure DNS](https://azure.microsoft.com/services/dns/) 또는 타사 공급자로부터 사용자 지정 도메인을 이미 구입한 경우 세 가지 주요 단계에 따라 사용자 지정 도메인을 앱에 매핑합니다.
 
 1. [*(레코드만)* 앱의 IP 주소를 가져옵니다](#vip).
+2. [도메인을 앱에 매핑하는 DNS 레코드를 만듭니다](#createdns).
+    - **어디에서**: 도메인 등록 기관의 고유한 관리 도구(예: Azure DNS, GoDaddy 등).
+    - **왜**: 도메인 등록 기관에서 Azure 앱에 대해 원하는 사용자 지정 도메인을 확인하는 방법을 알도록 합니다.
 1. [Azure 앱에 대해 사용자 지정 도메인 이름을 사용](#enable)합니다.
     - **어디에서**: [Azure 포털](https://portal.azure.com).
     - **왜**: 앱에서 사용자 지정 도메인 이름에 대한 요청에 응답하는 방법을 알도록 합니다.
-2. [도메인을 Azure 앱에 매핑하는 DNS 레코드를 만듭니다](#dns).
-    - **어디에서**: 도메인 등록 기관의 고유한 관리 도구(예: Azure DNS, www.godaddy.com 등).
-    - **왜**: 도메인 등록 기관에서 Azure 앱에 대해 원하는 사용자 지정 도메인을 확인하는 방법을 알도록 합니다.
 3. [DNS 전파를 확인합니다](#verify).
 
 ### 매핑할 수 있는 도메인 형식
@@ -67,18 +67,25 @@ CNAME의 장점은 IP 주소 변경 간에도 유지된다는 점입니다. 앱�
 
 이 자습서는 A 레코드 및 CNAME 레코드를 사용하는 단계를 보여 줍니다.
 
+>[AZURE.IMPORTANT] 루트 도메인에 대한 CNAME 레코드를 만들지 마세요(즉, "루트 레코드"). 자세한 내용은 [루트 도메인에서 CNAME 레코드를 사용할 수 없는 이유](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)를 참조하세요. 루트 도메인을 Azure 앱에 매핑하려면 대신 A 레코드를 사용하세요.
+
 <a name="vip"></a>
-## 1단계. *(레코드만)* 앱의 IP 주소 가져오기
+## 1단계. *(A 레코드만)* 앱의 IP 주소 가져오기
 A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면 Azure 앱의 IP 주소가 필요합니다. 그렇지 않고 CNAME 레코드를 사용하여 매핑하는 경우 이 단계를 건너뛰고 다음 섹션으로 이동합니다.
 
 1.	[Azure 포털](https://portal.azure.com)에 로그인합니다.
+
 2.	왼쪽 메뉴에서 **앱 서비스**를 클릭합니다.
+
 4.	앱을 클릭한 후 **설정** > **사용자 지정 도메인 및 SSL** > **외부 도메인 가져오기**를 클릭합니다.
-5.	**도메인 이름**에 사용자 지정 도메인 이름을 입력합니다.
+
 6.  나중에 사용하기 위해 IP 주소를 기록해 둡니다.
+
+    ![A 레코드로 사용자 지정 도메인 이름 매핑: Azure 앱 서비스 앱의 IP 주소 가져오기](./media/web-sites-custom-domain-name/virtual-ip-address.png)
+
 7.  이 포털 블레이드를 열어 둡니다. DNS 레코드를 만든 후에 여기로 다시 돌아옵니다.
 
-<a name="dns"></a>
+<a name="createdns"></a>
 ## 2단계. DNS 레코드 만들기
 
 도메인 등록 기관에 로그인하고 해당 도구를 사용하여 A 레코드 또는 CNAME 레코드를 추가합니다. 각 등록 기관의 UI는 약간 다르므로 공급자의 설명서를 참조해야 합니다. 하지만 다음은 몇 가지 일반적인 지침입니다.
@@ -99,23 +106,23 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN 예</th>
-    <th>호스트/이름/호스트 이름</th>
+    <th>호스트</th>
     <th>값</th>
   </tr>
   <tr>
     <td>contoso.com(루트)</td>
     <td>@</td>
-    <td>[1단계]의 IP 주소()</td>
+    <td><a href="#vip">1단계</a>의 IP 주소</td>
   </tr>
   <tr>
     <td>www.contoso.com(하위)</td>
     <td>www</td>
-    <td>[1단계]의 IP 주소()</td>
+    <td><a href="#vip">1단계</a>의 IP 주소</td>
   </tr>
   <tr>
     <td>*.contoso.com(와일드 카드)</td>
     <td>*</td>
-    <td>[1단계]의 IP 주소()</td>
+    <td><a href="#vip">1단계</a>의 IP 주소</td>
   </tr>
 </table>
 
@@ -124,8 +131,8 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN 예</th>
-    <th>호스트/이름/호스트 이름</th>
-    <th>값</th>
+    <th>CNAME 호스트</th>
+    <th>CNAME 값</th>
   </tr>
   <tr>
     <td>contoso.com(루트)</td>
@@ -149,18 +156,15 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
 
 Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사용하는 경우 A 레코드로 수행하는 것처럼 추가 CNAME 레코드가 필요하지 않습니다.
 
+>[AZURE.IMPORTANT] 루트 도메인에 대한 CNAME 레코드를 만들지 마세요(즉, "루트 레코드"). 자세한 내용은 [루트 도메인에서 CNAME 레코드를 사용할 수 없는 이유](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)를 참조하세요. 루트 도메인을 Azure 앱에 매핑하려면 대신 [A 레코드](#a)를 사용하세요.
+
 사용자의 CNAME 레코드는 다음과 같이 구성되어야 합니다(@는 일반적으로 루트 도메인으로 표시됨).
 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN 예</th>
-    <th>호스트/이름/호스트 이름</th>
-    <th>값</th>
-  </tr>
-  <tr>
-    <td>contoso.com(루트)</td>
-    <td>@</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    <th>CNAME 호스트</th>
+    <th>CNAME 값</th>
   </tr>
   <tr>
     <td>www.contoso.com(하위)</td>
@@ -174,19 +178,22 @@ Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사�
   </tr>
 </table>
 
-
->[AZURE.NOTE] Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md)를 참조하세요.
-
 <a name="enable"></a>
 ## 3단계. 앱에 대해 사용자 지정 도메인 이름 사용
 
 Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1단계](#vip) 참조) 사용자 지정 도메인의 정규화된 도메인 이름(FQDN)을 목록에 추가해야 합니다.
 
-1.	Azure 포털의 **외부 도메인 가져오기** 블레이드로 다시 이동합니다.
+1.	로그인하지 않은 경우 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+
+2.	Azure 포털의 왼쪽 메뉴에서 **앱 서비스**를 클릭합니다.
+
+4.	앱을 클릭한 후 **설정** > **사용자 지정 도메인 및 SSL** > **외부 도메인 가져오기**를 클릭합니다.
 
 2.	사용자 지정 도메인의 FQDN을 목록에 추가합니다(예: **www.contoso.com**).
 
-    >[AZURE.NOTE] Azure에서는 여기서 사용할 도메인 이름을 확인하려고 시도하므로 [2단계](#dns)에서 DNS 레코드를 만들었던 동일한 도메인 이름인지 확인해야 합니다. 맞는 경우
+    ![Azure 앱에 사용자 지정 도메인 이름 매핑: 도메인 이름 목록에 추가](./media/web-sites-custom-domain-name/add-custom-domain.png)
+
+    >[AZURE.NOTE] Azure에서는 여기서 사용할 도메인 이름을 확인하려고 시도하므로 [2단계](#createdns)에서 DNS 레코드를 만들었던 동일한 도메인 이름인지 확인해야 합니다. 맞는 경우
 
 6.  **Save**를 클릭합니다.
 
@@ -197,25 +204,18 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 
 구성 단계를 완료하고 나면 DNS 공급자에 따라 변경 내용이 적용되는 데 다소 시간이 걸릴 수 있습니다. [http://digwebinterface.com/](http://digwebinterface.com/)을 사용하여 예상대로 DNS 적용이 작동하는지 확인할 수 있습니다. 사이트를 찾은 후 텍스트 상자에 호스트 이름을 지정하고 **Dig**를 클릭합니다. 최근 변경 내용이 적용되었는지 확인하려면 결과를 확인합니다.
 
-![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+![Azure 앱에 사용자 지정 도메인 이름 매핑: DNS 전파 확인](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
 > [AZURE.NOTE] DNS 항목이 적용되는 데는 최대 48시간이 걸릴 수 있습니다(더 걸리는 경우도 있음). 모든 항목이 올바르게 구성된 경우 성공적으로 적용될 때까지 기다려야 합니다.
 
 ## 다음 단계
 
-자세한 내용은 [Azure DNS 시작](../dns/dns-getstarted-create-dnszone.md) 및 [Azure DNS로 도메인 위임](../dns/dns-domain-delegation.md)을 참조하세요.
+[Azure DNS 시작](../dns/dns-getstarted-create-dnszone.md) [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md) [Azure DNS로 도메인 위임](../dns/dns-domain-delegation.md)
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
-<!-- Anchors. -->
-[Overview]: #overview
-[DNS record types]: #dns-record-types
-[Find the virtual IP address]: #find-the-virtual-ip-address
-[Create the DNS records]: #create-the-dns-records
-[Enable the domain name on your web app]: #enable-the-domain-name-on-your-web-app
-
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

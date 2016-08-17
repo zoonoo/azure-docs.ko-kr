@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - 에지 성능 분석"
+	pageTitle="Azure CDN에서 에지 성능 분석 | Microsoft Azure"
 	description="Microsoft Azure CDN에서 에지 노드 성능을 분석합니다. 에지 성능 분석은 CDN에 대한 세분화된 정보 트래픽과 대역폭 사용을 제공합니다."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN에서 에지 노드 성능 분석
@@ -192,4 +192,4 @@ HTTP 응답 코드 | 에지 서버에 의해 HTTP 클라이언트에 전달된 H
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

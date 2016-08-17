@@ -3,8 +3,8 @@
    description="이 페이지는 Express 경로 회로에 라우팅을 구성하고 관리하는 자세한 요구 사항을 제공합니다."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # Express 경로 라우팅 요구 사항  
@@ -35,10 +35,10 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
  - 라우팅 인터페이스에 하나의 /29 서브넷 또는 두 개의 /30 서브넷을 예약해야 합니다.
  - 라우팅에 사용되는 서브넷은 개인 IP 주소 또는 공용 IP 주소 모두 가능합니다.
  - 서브넷은 Microsoft 클라우드에서 사용하기 위해 고객이 예약한 범위와 충돌하지 않아야 합니다.
- - /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다. 
+ - /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다.
 	 - 첫 번째 /30 서브넷 은 기본 링크에 사용하고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
 	 - 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
-	 - [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.  
+	 - [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
 
 #### 개인 피어링에 대한 예제
 
@@ -55,8 +55,8 @@ a.b.c.d/29는 a.b.c.d/30 및 a.b.c.d+4/30으로 분할되고 프로비전 API를
 
 BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합니다. Microsoft은 라우팅 인터넷 레지스트리 및 인터넷 라우팅 레지스트리를 통해 IP 주소의 소유권을 확인할 수 있어야 합니다.
 
-- 고유한 /29 서브넷 또는 두 가지 /30 서브넷을 사용하여 Express 경로 회로 당 각 피어링에 BGP를 설정해야 합니다.(하나 이상이 있는 경우) 
-- /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다. 
+- 고유한 /29 서브넷 또는 두 개의 /30 서브넷을 사용하여 Express 경로 회로 당(하나 이상이 있는 경우) 각 피어링에 BGP를 설정해야 합니다.
+- /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다.
 	- 첫 번째 /30 서브넷 은 기본 링크에 사용하고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
 	- 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
 	- [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
@@ -99,7 +99,7 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
  다른 Azure 서비스 및 인프라 서비스에 연결을 사용하려면 다음 항목 중 하나가 준비되었는지 확인해야 합니다.
 
  - Azure 공용 피어링은 트래픽을 공용 끝점에 라우팅할 수 있도록 설정됩니다.
- - 사용자 정의 라우팅을 사용하여 인터넷 연결을 요구하는 모든 서브넷에 인터넷 연결을 허용하게 할 수 있습니다.
+ - 사용자 정의 라우팅을 사용하여 인터넷 연결이 필요한 모든 서브넷에 인터넷 연결을 허용할 수 있습니다.
 
 **참고:** 기본 경로 광고는 Windows 및 다른 VM 라이선스 정품 인증을 중단합니다. [여기](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)서 지침을 수행하여 이 문제를 해결합니다.
 
@@ -124,6 +124,8 @@ Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호
 | | 미국 동부 | 12076:51004 |
 | | 미국 동부 2 | 12076:51005 |
 | | 미국 서부 | 12076:51006 |
+| | 미국 서부 2 | 12076:51022 |
+| | 미국 중서부 | 12076:51023 |
 | | 미국 중북부 | 12076:51007 |
 | | 미국 중남부 | 12076:51008 |
 | | 미국 중부 | 12076:51009 |
@@ -170,7 +172,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 - Express 경로 연결을 구성합니다.
 
 	- [클래식 배포 모델용 Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure Resource Manager를 사용하여 Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
-	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
-	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 리소스 관리자 VNet 연결](expressroute-howto-linkvnet-arm.md)
+	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [Resource Manager 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
+	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 Resource Manager VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

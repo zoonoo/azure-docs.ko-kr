@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱 루프, 범위 및 분리 | Microsoft Azure"
    description="논리 앱 루프, 범위 및 분리 개념"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

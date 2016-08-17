@@ -68,7 +68,7 @@
 
 5. 슬롯의 블레이드에서 앱 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 Live App이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
 
-배포 슬롯을 만든 후 콘텐츠가 없습니다. 다른 리포지토리 분기 또는 아예 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 슬롯의 구성을 변경할 수도 있습니다. 게시 프로필을 사용하거나 콘텐츠 업데이트를 위해 배포 슬롯에 연결된 배포 자격 증명을 사용합니다. 예를 들어 [git를 사용하여 이 슬롯에 게시](web-sites-publish-source-control.md)할 수 있습니다.
+배포 슬롯을 만든 후 콘텐츠가 없습니다. 다른 리포지토리 분기 또는 아예 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 슬롯의 구성을 변경할 수도 있습니다. 게시 프로필을 사용하거나 콘텐츠 업데이트를 위해 배포 슬롯에 연결된 배포 자격 증명을 사용합니다. 예를 들어 [git를 사용하여 이 슬롯에 게시](app-service-deploy-local-git.md)할 수 있습니다.
 
 <a name="AboutConfiguration"></a>
 ## 배포 슬롯의 구성 ##
@@ -100,7 +100,7 @@
 
 >[AZURE.IMPORTANT] 배포 슬롯에서 프로덕션으로 웹 앱을 교환하기 전에 특정 슬롯이 아닌 모든 설정이 해당 교환 대상에서 원하는 대로 정확히 구성되어야 합니다.
 
-1. 배포 슬롯을 교환하려면 웹앱의 명령 모음 또는 배포 슬롯의 명령 모음에서 **교환** 단추를 클릭합니다. 교환 원본 및 교환 대상이 제대로 설정되어야 합니다. 일반적으로 교환 대상은 프로덕션 슬롯입니다.  
+1. 배포 슬롯을 교환하려면 웹앱의 명령 모음 또는 배포 슬롯의 명령 모음에서 **교환** 단추를 클릭합니다. 교환 원본 및 교환 대상이 제대로 설정되어야 합니다. 일반적으로 교환 대상은 프로덕션 슬롯입니다.
 
 	![교환 단추][SwapButtonBar]
 
@@ -114,7 +114,7 @@
 
 슬롯에 대한 자동 교환 구성은 쉽습니다. 다음 단계를 따르세요.
 
-1. **배포 슬롯** 블레이드에서 비 프로덕션 슬롯을 선택하고 해당 슬롯의 블레이드에 대해 **모든 설정**을 클릭합니다.  
+1. **배포 슬롯** 블레이드에서 비 프로덕션 슬롯을 선택하고 해당 슬롯의 블레이드에 대해 **모든 설정**을 클릭합니다.
 
 	![][Autoswap1]
 
@@ -162,7 +162,7 @@
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure 앱 서비스에서 웹 앱 배포 슬롯을 관리하는 기능도 지원합니다.
 
-- Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.  
+- Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 ----------
 
@@ -283,4 +283,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0803_2016-->

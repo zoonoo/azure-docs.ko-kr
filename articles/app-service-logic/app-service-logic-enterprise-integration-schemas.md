@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="스키마 및 엔터프라이즈 통합 팩 개요 | Microsoft Azure 앱 서비스 | Microsoft Azure" 
 	description="엔터프라이즈 통합 팩 및 논리 앱에서 스키마를 사용하는 방법 알아보기" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # 스키마 및 엔터프라이즈 통합 팩에 대해 알아보기  
@@ -30,7 +30,7 @@ Azure 포털에서 다음을 수행합니다.
 5. 열린 스키마 블레이드에서 **추가** 단추를 선택합니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. 스키마의 **이름**을 입력한 다음 스키마 파일을 업로드하고 **스키마** 텍스트 상자의 오른쪽에 있는 폴더 아이콘을 선택합니다. 업로드 프로세스가 완료되면 **확인** 단추를 선택합니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. *벨* 알림 아이콘을 선택하여 스키마 업로드 프로세스의 진행률을 확인합니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. **스키마** 타일을 선택합니다. 타일을 새로 고쳐서 증가된 스키마 수를 확인해야 합니다. 새 스키마를 반영하는 작업이 성공적으로 추가되었습니다. **스키마** 타일을 선택한 후에 새로 추가된 파트너가 오른쪽에 있는 스키마 블레이드에 표시됩니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. **스키마** 타일을 선택합니다. 타일을 새로 고쳐서 증가된 스키마 수를 확인해야 합니다. 새 스키마를 반영하는 작업이 성공적으로 추가되었습니다. **스키마** 타일을 선택한 후에 새로 추가된 스키마가 오른쪽에 있는 스키마 블레이드에 표시됩니다. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## 스키마 사용 방법
@@ -57,4 +57,4 @@ Azure 포털에서 다음을 수행합니다.
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

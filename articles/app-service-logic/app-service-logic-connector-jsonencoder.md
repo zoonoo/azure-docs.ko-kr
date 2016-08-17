@@ -1,7 +1,7 @@
 <properties
    pageTitle="논리 앱에서 BizTalk JSON 인코더 사용 | Microsoft Azure 앱 서비스 "
    description="BizTalk JSON 인코더 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -72,4 +72,4 @@ Input Xml|object|입력 Xml 내용
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

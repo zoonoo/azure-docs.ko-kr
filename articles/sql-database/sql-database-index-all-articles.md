@@ -189,8 +189,8 @@
 | --: | :-- | :-- |
 | 90 | [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md) | Azure SQL 데이터베이스를 이전 지정 시간으로 롤백하거나 지리적 영역(최대 35일)의 새 데이터베이스에 데이터베이스를 복사할 수 있도록 하는 SQL 데이터베이스 기본 제공 백업에 대해 알아봅니다. |
 | 91 | [Azure SQL 데이터베이스의 비즈니스 연속성](sql-database-business-continuity.md) | Azure SQL 데이터베이스에서 클라우드 무중단 업무 방식 및 데이터베이스 복구를 지원하고 중요 업무용 클라우드 응용 프로그램을 계속해서 실행할 수 있도록 하는 방법을 알아봅니다. |
-| 92 | [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-business-continuity-application-upgrade.md) | 이 섹션에서는 응용 프로그램을 업그레이드하는 동안 가동 중지 시간을 방지하기 위한 지침을 제공합니다. |
-| 93 | [Azure SQL 데이터베이스의 비즈니스 연속성 시나리오](sql-database-business-continuity-scenarios.md) | Azure SQL 데이터베이스 비즈니스 연속성 시나리오 |
+| 92 | [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-manage-application-rolling-upgrade.md) | 이 문서에서는 응용 프로그램을 업그레이드하는 동안 가동 중지 시간을 방지하기 위한 지침을 제공합니다. |
+| 93 | [Azure SQL 데이터베이스의 비즈니스 연속성 시나리오](sql-database-business-continuity.md) | Azure SQL 데이터베이스 비즈니스 연속성 시나리오 |
 | 94 | [Azure SQL 데이터베이스 백업에서 단일 테이블을 복원하는 방법](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Azure SQL 데이터베이스 백업에서 단일 테이블을 복원하는 방법을 알아봅니다. |
 | 95 | [SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Azure SQL 데이터베이스의 앱 데이터 백업에 대한 지역에서 복제를 사용하여 무중단 업무 방식 계획에 대한 클라우드 재해 복구 솔루션을 디자인하는 방법을 알아봅니다. |
 | 96 | [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md) | Azure SQL 데이터베이스 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다. |
@@ -205,7 +205,7 @@
 | 105 | [Azure 포털을 사용하여 삭제된 Azure SQL 데이터베이스 복원](sql-database-restore-deleted-database-portal.md) | 삭제된 Azure SQL 데이터베이스를 복원합니다(Azure 포털). |
 | 106 | [PowerShell을 사용하여 삭제된 Azure SQL 데이터베이스 복원](sql-database-restore-deleted-database-powershell.md) | 삭제된 Azure SQL 데이터베이스를 복원합니다(PowerShell). |
 | 107 | [이전 시점으로 데이터베이스 복원, 삭제된 데이터베이스 복원 또는 데이터 센터 가동 중단에서 복구](sql-database-troubleshoot-backup-and-restore.md) | Azure SQL 데이터베이스에서 백업 및 복제본을 사용하여 오류 및 가동 중단으로부터 클라우드 데이터베이스를 복원하는 방법에 대해 알아보세요. |
-| 108 | [오류에서 Azure SQL 데이터베이스 복구](sql-database-user-error-recovery.md) | Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다. |
+| 108 | [오류에서 Azure SQL 데이터베이스 복구](sql-database-business-continuity.md) | Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다. |
 | 109 | [SQL Server 백업 및 복원에 Azure 저장소 사용](storage-use-storage-sql-server-backup-restore.md) | Azure 저장소에 SQL Server를 백업하는 방법에 알아봅니다. Azure 저장소에 SQL 데이터베이스를 백업할 때의 이점에 대해 설명합니다. |
 
 
@@ -396,4 +396,4 @@ This bullet link is improperly disallowed by publishing automation due to presen
 - [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
 -->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

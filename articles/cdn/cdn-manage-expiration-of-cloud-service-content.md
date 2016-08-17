@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="05/11/2016"
+ ms.date="07/28/2016"
  ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법
@@ -25,15 +25,17 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 다음 XML은 최대 보존 기간을 3일로 지정하는 **clientCache** 설정 예제를 보여 줍니다.
 
-	<configuration>
-	  <system.webServer>
-	        <staticContent>
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
-	        </staticContent>
-	  </system.webServer>
-	</configuration>
+```xml
+<configuration>
+	<system.webServer>
+		<staticContent>
+			<clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>
+```
 
-**UseMaxAge**를 지정하면 **CacheControlMaxAge** 특성에 지정된 값에 따라 Cache-Control: max-age=<nnn> 헤더가 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위의 형식은 <days>.<hours>:<min>:<sec>입니다. **clientCache** 노드에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)(영문)를 참조하세요.
+**UseMaxAge**를 지정하면 **CacheControlMaxAge** 특성에 지정된 값에 따라 Cache-Control: max-age=<nnn> 헤더가 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위의 형식은 <days>.<hours>:<min>:<sec>입니다. **clientCache** 노드에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.
 
 응용 프로그램에서 반환된 콘텐츠(예: .aspx 페이지)의 경우 **HttpResponse.Cache** 속성을 설정하여 프로그래밍 방식으로 CDN 캐싱 동작을 설정할 수 있습니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.
 
@@ -41,13 +43,15 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 예를 들어 1시간 동안의 콘텐츠를 캐시하려면 다음을 추가합니다.
 
-            // Set the caching parameters.
-            Response.Cache.SetExpires(DateTime.Now.AddHours(1));
-            Response.Cache.SetCacheability(HttpCacheability.Public);
-            Response.Cache.SetLastModified(DateTime.Now);
+```csharp
+// Set the caching parameters.
+Response.Cache.SetExpires(DateTime.Now.AddHours(1));
+Response.Cache.SetCacheability(HttpCacheability.Public);
+Response.Cache.SetLastModified(DateTime.Now);
+```
 
 ##참고 항목
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

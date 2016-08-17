@@ -103,7 +103,7 @@ Azure에 파일을 복사하는 작업에는 몇 가지 간단한 단계가 포�
 ###<a name="vsts"></a>클라우드 기반 소스 제어 서비스에서 연속 배포하는 방법
 [Azure 포털](https://portal.azure.com)에서 GitHub, Bitbucket, Visual Studio Team Services에서 연속 배포를 구성할 수 있습니다.
 
-* [Azure 앱 서비스에 연속 배포](app-service-continous-deployment.md)
+* [Azure 앱 서비스에 연속 배포](app-service-continuous-deployment.md).
 
 ## <a name="localgitdeployment"></a>로컬 Git에서 배포
 개발 팀이 Git를 기반으로 하는 온-프레미스 로컬 SCM(소스 코드 관리) 서비스를 사용할 경우 이 서비스를 앱 서비스에 대한 배포 소스로 구성할 수 있습니다.
@@ -234,4 +234,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 앱 서비스 배포에 
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

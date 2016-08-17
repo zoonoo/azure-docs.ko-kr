@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Microsoft Azure 데이터 레이크 분석 개요 | Azure" 
-   description="데이터 레이크 분석은 Azure 빅 데이터 계산 서비스로, 이를 통해 위치 및 크기에 관계없이 클라우드의 데이터에서 얻은 통찰력을 통해 데이터를 비즈니스 운영에 사용할 수 있습니다. 데이터 레이크 분석을 사용하면 가장 간단하고 확장성이 뛰어나면서도 가장 경제적인 방법으로 이 작업을 수행할 수 있습니다." 
+   description="데이터 레이크 분석은 Azure 빅 데이터 계산 서비스로, 이를 통해 위치 및 크기에 관계없이 클라우드의 데이터에서 얻은 통찰력을 통해 데이터를 비즈니스 운영에 사용할 수 있습니다. 데이터 레이크 분석을 사용하면 가장 간단하고 확장성이 뛰어나면서도 가장 경제적인 방법으로 이 작업을 수행할 수 있습니다. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -25,7 +25,7 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
 
 ## 주요 기능
 
-- **동적 크기 조정** 
+- **동적 크기 조정**
 
     데이터 레이크 분석은 클라우드 규모 및 성능에 맞게 처음부터 새롭게 설계되었습니다. 이 서비스를 통해 리소스를 동적으로 프로비전하고 테라바이트 또는 심지어 엑사바이트 단위의 데이터도 분석할 수 있습니다. 작업이 완료되면 리소스가 자동으로 사용 해제되며, 사용한 처리량에 대해서만 지불하면 됩니다. 저장된 데이터 크기 또는 사용된 계산량을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 따라서 대용량 데이터 집합을 처리하고 저장하는 방법 대신 비즈니스 논리에만 집중할 수 있습니다.
 
@@ -67,6 +67,7 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
     - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
     - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
 
 - 종단간 자습서
     - [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +78,4 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [기능 요청 제출](http://aka.ms/adlafeedback)
     - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

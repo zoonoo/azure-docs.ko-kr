@@ -1,10 +1,10 @@
 
 <properties
-   pageTitle="Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기 | Microsoft Azure"
+   pageTitle="Azure Resource Manager 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기 | Microsoft Azure"
    description="이 페이지에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 게이트웨이 만들기
@@ -22,13 +22,14 @@
 Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이의 응용 프로그램 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드 등이 있습니다.
 
 > [AZURE.SELECTOR]
-- [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
+- [Azure 포털](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
-GitHub에서 기존 Azure 리소스 관리자 템플릿을 다운로드한 후 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 방법에 알아봅니다.
+GitHub에서 기존 Azure Resource Manager 템플릿을 다운로드한 후 수정하고 GitHub, PowerShell 및 Azure CLI에서 템플릿을 배포하는 방법에 알아봅니다.
 
 변경하지 않고 GitHub에서 직접 Azure 리소스 관리자 템플릿을 배포하는 경우 GitHub에서 템플릿 배포로 건너뜁니다.
 
@@ -42,7 +43,7 @@ GitHub에서 기존 Azure 리소스 관리자 템플릿을 다운로드한 후 �
 - CIDR 블록으로 10.0.0.0/28을 사용하는 Appgatewaysubnet이라고 하는 서브넷을 만듭니다.
 - 트래픽을 부하 분산하려는 웹 서버에 대해 이전에 구성된 백 엔드 IP 2개를 설정합니다. 이 템플릿 예제에서 백 엔드 IP는 10.0.1.10 및 10.0.1.11이 됩니다.
 
->[AZURE.NOTE] 이 템플릿에 대한 매개 변수입니다. 템플릿을 사용자 지정하려면 규칙, 수신기 및 azuredeploy.json을 여는 SSL을 변경할 수 있습니다.
+>[AZURE.NOTE] 이러한 설정은 이 템플릿에 대한 매개 변수입니다. 템플릿을 사용자 지정하려면 규칙, 수신기 및 azuredeploy.json을 여는 SSL을 변경할 수 있습니다.
 
 
 
@@ -58,7 +59,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 2. **azuredeploy.json**을 클릭하고 **RAW**를 클릭합니다.
 3. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 4. Azure 리소스 관리자 템플릿에 익숙한 경우 7단계로 건너뜁니다.
-5. 방금 저장한 파일을 열고 줄 5에 있는 **parameters** 아래의 내용을 확인합니다. Azure 리소스 관리자 템플릿 매개 변수는 배포하는 동안 채울 수 있는 값에 대한 자리 표시자를 제공합니다.
+5. 저장한 파일을 열고 줄 5에 있는 **parameters** 아래의 내용을 확인합니다. Azure 리소스 관리자 템플릿 매개 변수는 배포하는 동안 채울 수 있는 값에 대한 자리 표시자를 제공합니다.
 
 	| 매개 변수 | 설명 |
 	|---|---|
@@ -84,7 +85,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 7. [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create)로 이동합니다.
 8. **azuredeploy-paremeters.json**을 클릭하고 **RAW**를 클릭합니다.
 9. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
-10. 방금 저장한 파일을 열고 매개 변수 값을 편집합니다. 아래의 값을 사용하여 이 시나리오에 설명된 응용 프로그램 게이트웨이를 배포합니다.
+10. 저장한 파일을 열고 매개 변수 값을 편집합니다. 다음 값을 사용하여 이 시나리오에 설명된 응용 프로그램 게이트웨이를 배포합니다.
 
 		{
 		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -116,7 +117,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 
 ## PowerShell을 사용하여 Azure 리소스 관리자 템플릿 배포
 
-Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 ### 1단계
 
@@ -143,7 +144,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 ### 4단계
 
 
-필요한 경우 **New-AzureResourceGroup** cmdlet을 사용하여 새 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
+필요한 경우 **New-AzureResourceGroup** cmdlet을 사용하여 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
 
 	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -160,7 +161,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-**New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다.
+**New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 위에서 다운로드한 후 수정한 이전의 템플릿 및 매개 변수 파일을 사용하여 새 가상 네트워크를 배포합니다.
 
 		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -191,54 +192,62 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
-2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
+### 1단계
 
-		azure config mode arm
+Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+### 2단계
+
+아래와 같이 **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
+
+	azure config mode arm
 
 다음은 위의 명령에 대해 예상된 출력입니다.
 
-		info:	New mode is arm
+	info:	New mode is arm
 
-3. 필요한 경우 아래와 같이 **azure group create** 명령을 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
+### 3단계
 
-		azure group create -n appgatewayRG -l eastus
+필요한 경우 아래와 같이 **azure group create** 명령을 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
-**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
+	azure group create -n appgatewayRG -l eastus
+
+**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
 
 **-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
 
-4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+### 4단계
 
-		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+**azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+
+	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
 다음은 위의 명령에 대해 예상된 출력입니다.
 
-		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-		info:    Executing command group deployment create
-		+ Initializing template configurations and parameters
-		+ Creating a deployment
-		info:    Created template deployment "TestAppgatewayDeployment"
-		+ Waiting for deployment to complete
-		data:    DeploymentName     : TestAppgatewayDeployment
-		data:    ResourceGroupName  : appgatewayRG
-		data:    ProvisioningState  : Succeeded
-		data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-		data:    Mode               : Incremental
-		data:    Name               Type    Value
-		data:    -----------------  ------  --------------
-		data:    location           String  East US
-		data:    addressPrefix      String  10.0.0.0/16
-		data:    subnetPrefix       String  10.0.0.0/24
-		data:    skuName            String  Standard_Small
-		data:    capacity           Int     2
-		data:    backendIpAddress1  String  10.0.1.10
-		data:    backendIpAddress2  String  10.0.1.11
-		info:    group deployment create command OK
+	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+	info:    Executing command group deployment create
+	+ Initializing template configurations and parameters
+	+ Creating a deployment
+	info:    Created template deployment "TestAppgatewayDeployment"
+	+ Waiting for deployment to complete
+	data:    DeploymentName     : TestAppgatewayDeployment
+	data:    ResourceGroupName  : appgatewayRG
+	data:    ProvisioningState  : Succeeded
+	data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
+	data:    Mode               : Incremental
+	data:    Name               Type    Value
+	data:    -----------------  ------  --------------
+	data:    location           String  East US
+	data:    addressPrefix      String  10.0.0.0/16
+	data:    subnetPrefix       String  10.0.0.0/24
+	data:    skuName            String  Standard_Small
+	data:    capacity           Int     2
+	data:    backendIpAddress1  String  10.0.1.10
+	data:    backendIpAddress2  String  10.0.1.11
+	info:    group deployment create command OK
 
-**-g(또는 --resource-group)**. 새 가상 네트워크가 만들어지는 리소스 그룹의 이름입니다.
+**-g (or --resource-group)**. 새 가상 네트워크가 만들어지는 리소스 그룹의 이름입니다.
 
-**-f (or --template-file)**. Azure 리소스 관리자 템플릿 파일에 대한 경로입니다.
+**-f(또는 --template-file)**. Azure 리소스 관리자 템플릿 파일에 대한 경로입니다.
 
 **-e(또는 --parameters-file)**. Azure 리소스 관리자 매개 변수 파일에 대한 경로입니다.
 
@@ -284,4 +293,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

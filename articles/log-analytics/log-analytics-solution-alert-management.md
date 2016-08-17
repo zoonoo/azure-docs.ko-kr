@@ -120,11 +120,11 @@ Log Analytics로 전송됩니다.
 |:--|:--|
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR | 지난 24 시간 동안 발생한 중요한 알림 |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR | 지난 24 시간 동안 발생한 중요한 경고 |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR | measure count() as Count by SourceDisplayName | 지난 24 시간 동안 발생한 활성 경고를 가진 소스 |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName | 지난 24 시간 동안 발생한 활성 경고를 가진 소스 |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed | 지난 24 시간 동안 발생했고 여전히 활성화되어 있는 중요 경고 |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed | 지난 24 시간 발생했고 지금은 해결된 경고 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | measure count() as Count by AlertSeverity | 지난 1 일 동안 발생했고 심각도별로 그룹화된 경고 |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | sort RepeatCount desc | 지난 1 일 동안 발생했고 반복 횟수 값별로 정렬된 경고 |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity | 지난 1 일 동안 발생했고 심각도별로 그룹화된 경고 |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc | 지난 1 일 동안 발생했고 반복 횟수 값별로 정렬된 경고 |
 
 ## 다음 단계
 

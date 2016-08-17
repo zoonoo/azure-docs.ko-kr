@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 자동화 DSC에서 구성을 컴파일 | Microsoft Azure" 
-   description="필요한 상태 구성(DSC) 구성을 컴파일하는 두 가지 방법의 개요: Azure 포털에서와 Windows PowerShell을 사용하는 방법입니다." 
+   description="필요한 상태 구성(DSC) 구성을 컴파일하는 두 가지 방법의 개요: Azure 포털에서와 Windows PowerShell을 사용하는 방법입니다. " 
    services="automation" 
    documentationCenter="na" 
    authors="coreyp-at-msft" 
@@ -189,7 +189,7 @@ Azure 자동화에서 DSC 구성은 **Get-AutomationPSCredential**을 사용하�
 
 자격 증명을 노드 구성(MOF 구성 문서)에서 안전하게 유지하려면 노드 구성 MOF 파일에 자격 증명을 암호화해야 합니다. Azure 자동화는 이 한 단계를 추가로 수행하고 전체 MOF 파일을 암호화합니다. 그러나 현재 PowerShell DSC가 노드 구성 MOF을 생성하는 동안 자격 증명을 일반 텍스트로 출력해도 되는지 알아야 합니다. PowerShell DSC은 Azure 자동화가 컴파일 작업을 통해 생성된 후에 전체 MOF 파일을 암호화한다는 것을 모르기 때문입니다.
 
-PowerShell DSC가 생성된 노드 구성 MOF에서 <a href="#configurationdata">**ConfigurationData**</a>를 사용하여 자격 증명을 일반 텍스트로 출력해도 되는지 알 수 있습니다. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 **ConfigurationData**를 통해 `PSDscAllowPlainTextPassword = $true`을 전달해야 합니다.
+PowerShell DSC가 <a href="#configurationdata">**ConfigurationData**</a>를 사용하여 생성된 노드 구성 MOF에서 자격 증명을 일반 텍스트로 출력해도 되는지 알 수 있습니다. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 **ConfigurationData**를 통해 `PSDscAllowPlainTextPassword = $true`을 전달해야 합니다.
 
 다음 예제에서는 자동화 자격 증명 자산을 사용하는 DSC 구성을 보여줍니다.
 
@@ -228,4 +228,4 @@ PowerShell로 위의 DSC 구성을 컴파일할 수 있습니다. 아래 PowerSh
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -255,7 +255,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 
 자세한 내용은 [알림 허브] 설명서를 검토합니다.
 
-> [AZURE.TIP] "[Azure 포털]"의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
 
 ### <a name="legacy-push"></a>레거시 푸시 설정
 
@@ -287,17 +287,17 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 | 모바일 쇼 _이름_ | 사이트 쇼 _이름_ |
 | 모바일 재시작 _이름_ | 사이트 재시작 _이름_ |
 | 모바일 재배포 _이름_ | 사이트 배포 재배포 _commitId_ _이름_ |
-| 모바일 키 집합 _이름_ _형식_ _값_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 키 집합 _이름_ _형식_ _값_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=_값_ _이름_ |
 | 모바일 구성 목록 _이름_ | 사이트 appsetting 목록 _이름_ |
 | 모바일 구성 가져오기 _이름_ _키_ | 사이트 appsetting 쇼 _키_ _이름_ |
-| 모바일 구성 설정 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 구성 설정 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=_값_ _이름_ |
 | 모바일 도메인 목록 _이름_ | 사이트 도메인 목록 _이름_ |
 | 모바일 도메인 추가 _이름_ _도메인_ | 사이트 도메인 추가 _도메인_ _이름_ |
 | 모바일 도메인 삭제 _이름_ | 사이트 도메인 삭제 _도메인_ _이름_ |
 | 모바일 크기 조정 쇼 _이름_ | 사이트 쇼 _이름_ |
 | 모바일 크기 조정 변경 _이름_ | 사이트 크기 조정 모드 _모드_ _이름_ <br /> 사이트 크기 조정 인스턴스 _인스턴스_ _이름_ |
 | 모바일 appsetting 목록 _이름_ | 사이트 appsetting 목록 _이름_ |
-| 모바일 appsetting 추가 _이름_ _키_ _값_ | 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 appsetting 추가 _이름_ _키_ _값_ | 사이트 appsetting 추가 _키_=_값_ _이름_ |
 | 모바일 appsetting 삭제 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ |
 | 모바일 appsetting 쇼 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ |
 
@@ -390,7 +390,7 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [Azure 포털]: https://portal.azure.com
 [Azure 지역]: https://azure.microsoft.com/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
-[지속적으로 배포]: ../app-service-web/web-sites-publish-source-control.md
+[지속적으로 배포]: ../app-service-web/app-service-continuous-deployment.md
 [혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
@@ -409,4 +409,4 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->
