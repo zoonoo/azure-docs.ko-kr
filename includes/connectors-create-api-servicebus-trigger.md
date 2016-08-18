@@ -1,10 +1,13 @@
 이 예제에서는 새 항목이 서비스 버스 큐로 이동될 때 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 사용하여 논리 앱 워크플로를 시작하는 방법을 보여 줍니다.
 
->[AZURE.NOTE]서비스 버스에 대한 *연결*을 아직 만들지 않은 경우 서비스 버스 연결 문자열을 사용하여 서명하라는 메시지가 표시됩니다.
+>[AZURE.NOTE]서비스 버스에 대한 *연결* 을 아직 만들지 않은 경우 서비스 버스 연결 문자열을 사용하여 서명하라는 메시지가 표시됩니다.
 
-1. 논리 앱 디자이너에서 검색 상자에 *서비스 버스*를 입력한 후 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 선택합니다. ![서비스 버스 트리거 이미지 1](./media/connectors-create-api-servicebus/trigger-1.png)
-- **큐에 메시지가 수신될 때** 컨트롤이 표시됩니다. ![서비스 버스 트리거 이미지 2](./media/connectors-create-api-servicebus/trigger-2.png)
-- 트리거가 모니터링할 서비스 버스 큐의 이름을 입력합니다. ![서비스 버스 트리거 이미지 3](./media/connectors-create-api-servicebus/trigger-3.png)
+1. 논리 앱 디자이너에서 검색 상자에 *서비스 버스* 를 입력한 후 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 선택합니다.  
+![서비스 버스 트리거 이미지 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- **큐에 메시지가 수신될 때** 컨트롤이 표시됩니다.  
+![서비스 버스 트리거 이미지 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- 트리거가 모니터링할 서비스 버스 큐의 이름을 입력합니다.  
+![서비스 버스 트리거 이미지 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
 이제, 논리 앱은 선택한 큐에 새 항목이 수신될 때 워크플로의 다른 트리거 및 동작의 실행을 시작하는 트리거로 구성되었습니다.
 

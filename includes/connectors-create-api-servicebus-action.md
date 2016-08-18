@@ -2,14 +2,18 @@
 
 다음 단계에 따라 메시지 보내기 동작을 만듭니다.
 
-1. **+ 새 단계**를 선택하여 동작을 추가합니다.
-- **동작 추가** 링크를 선택합니다. 수행할 동작을 검색할 수 있는 검색 상자가 열립니다. 이 예제에서는 서비스 버스 동작을 사용합니다. ![서비스 버스 동작 이미지 1](./media/connectors-create-api-servicebus/action-1.png)
-- *서비스 버스*를 입력하여 서비스 버스와 관련된 동작을 검색합니다.
-- 수행할 동작으로 **서비스 버스 - 메시지 보내기**를 선택합니다. ![서비스 버스 동작 이미지 2](./media/connectors-create-api-servicebus/action-2.png)
-- 메시지에 대한 콘텐츠를 입력합니다. 이것은 필수입니다.
-- 메시지가 전송될 큐 또는 토픽 이름을 입력합니다. 역시 필수입니다.
-- 필요에 따라 메시지에 대한 기타 세부 정보를 제공할 수 있습니다. ![서비스 버스 동작 이미지 3](./media/connectors-create-api-servicebus/action-3.png)
-- 워크플로에 대한 변경 내용을 저장합니다. ![서비스 버스 동작 이미지 4](./media/connectors-create-api-servicebus/action-4.png)
+1. **+ 새 단계**를 선택하여 동작을 추가합니다.  
+- **동작 추가** 링크를 선택합니다. 수행할 동작을 검색할 수 있는 검색 상자가 열립니다. 이 예제에서는 서비스 버스 동작을 사용합니다.  
+![서비스 버스 동작 이미지 1](./media/connectors-create-api-servicebus/action-1.png)  
+- *서비스 버스* 를 입력하여 서비스 버스와 관련된 동작을 검색합니다.  
+- 수행할 동작으로 **서비스 버스 - 메시지 보내기**를 선택합니다.  
+![서비스 버스 동작 이미지 2](./media/connectors-create-api-servicebus/action-2.png)  
+- 메시지에 대한 콘텐츠를 입력합니다. 이것은 필수입니다.  
+- 메시지가 전송될 큐 또는 토픽 이름을 입력합니다. 역시 필수입니다.  
+- 필요에 따라 메시지에 대한 기타 세부 정보를 제공할 수 있습니다.   
+![서비스 버스 동작 이미지 3](./media/connectors-create-api-servicebus/action-3.png)   
+- 워크플로에 대한 변경 내용을 저장합니다.       
+![서비스 버스 동작 이미지 4](./media/connectors-create-api-servicebus/action-4.png)      
   
   
 
