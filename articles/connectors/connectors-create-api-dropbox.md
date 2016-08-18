@@ -37,9 +37,11 @@ Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로�
 
 이 예제에서는 **파일을 만들 때** 트리거를 사용합니다. 이 트리거가 발생하면 **경로를 사용하여 파일 콘텐츠 가져오기** Dropbox 작업을 호출합니다.
 
-1. 논리 앱 디자이너의 검색 상자에 *dropbox*를 입력한 후 **Dropbox - 파일을 만들 때** 트리거를 선택합니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
+1. 논리 앱 디자이너의 검색 상자에 *dropbox*를 입력한 후 **Dropbox - 파일을 만들 때** 트리거를 선택합니다.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. 파일 생성을 추적할 폴더를 선택합니다. ...(빨간색 상자에 표시)를 선택하고 트리거의 입력을 선택할 폴더를 찾습니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+2. 파일 생성을 추적할 폴더를 선택합니다. ...(빨간색 상자에 표시)를 선택하고 트리거의 입력을 선택할 폴더를 찾습니다.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
 ## Dropbox 작업 사용
 
@@ -47,15 +49,21 @@ Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로�
 
 이제 트리거가 추가되었고 다음 단계에 따라 새 파일의 콘텐츠를 가져올 작업을 추가합니다.
 
-1. **+ 새 단계**를 선택하여 새 파일을 만들 때 수행할 작업을 추가합니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+1. **+ 새 단계**를 선택하여 새 파일을 만들 때 수행할 작업을 추가합니다.  
+ 
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-2. **작업 추가**를 선택합니다. 수행할 작업을 검색할 수 있는 검색 상자가 열립니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+2. **작업 추가**를 선택합니다. 수행할 작업을 검색할 수 있는 검색 상자가 열립니다.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
 3. *dropbox*를 입력하여 Dropbox와 관련된 작업을 검색합니다.
 
-4. 선택한 Dropbox 폴더에서 새 파일이 생성될 때 수행할 작업으로 **Dropbox - 경로를 사용하여 파일 콘텐츠 가져오기**를 선택합니다. 작업 제어 블록이 열립니다. 논리 앱에 Dropbox 계정에 액세스하기 위한 권한을 아직 부여하지 않았으면 이러한 권한을 부여하라는 메시지가 표시됩니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
+4. 선택한 Dropbox 폴더에서 새 파일이 생성될 때 수행할 작업으로 **Dropbox - 경로를 사용하여 파일 콘텐츠 가져오기**를 선택합니다. 작업 제어 블록이 열립니다. 논리 앱에 Dropbox 계정에 액세스하기 위한 권한을 아직 부여하지 않았으면 이러한 권한을 부여하라는 메시지가 표시됩니다.  
 
-5. ...(**파일 경로** 컨트롤의 오른쪽에 있음)를 선택하고 사용할 파일 경로를 찾습니다. 또는 **파일 경로** 토큰을 사용하여 빠르게 논리 앱을 만들 수 있습니다. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+5. ...(**파일 경로** 컨트롤의 오른쪽에 있음)를 선택하고 사용할 파일 경로를 찾습니다. 또는 **파일 경로** 토큰을 사용하여 빠르게 논리 앱을 만들 수 있습니다.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
 6. 작업을 저장하고 Dropbox에 새 파일을 만들어 워크플로를 활성화합니다.
 
