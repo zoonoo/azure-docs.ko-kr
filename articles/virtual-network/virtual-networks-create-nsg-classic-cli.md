@@ -109,7 +109,7 @@
 	- **-f(또는 --source-address-prefix)**. CIDR 또는 기본 태그를 사용하는 원본 주소 접두사입니다.
 	- **-o(또는 --source-port-range)**. 원본 포트 또는 포트 범위입니다.
 	- **-e(또는 --destination-address-prefix)**. CIDR 또는 기본 태그를 사용하는 대상 주소 접두사입니다.
-	- **-u(또는 --destination-port-range)**. 대상 포트 또는 포트 범위입니다.
+	- **-u(또는 --destination-port-range)**. 대상 포트 또는 포트 범위입니다.	
 
 5. **`azure network nsg rule create`** 명령을 실행하여 인터넷에서 포트 80(HTTP)에 대한 액세스를 허용하는 규칙을 만듭니다.
 
@@ -134,7 +134,7 @@
 
 6. **`azure network nsg subnet add`** 명령을 실행하여 NSG를 프런트 엔드 서브넷에 연결합니다.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
 
 	예상 출력:
 
@@ -228,7 +228,7 @@
 
 6. **`azure network nsg subnet add`** 명령을 실행하여 NSG를 백 엔드 서브넷에 연결합니다.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
 
 	예상 출력:
 

@@ -64,7 +64,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
-기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 토픽에 나와 있습니다.
+기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 항목에 나와 있습니다.
 
 ### 로그 저장 방법
 모든 로그는 $logs 컨테이너의 블록 Blob에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 작성됩니다. $logs 컨테이너는와 같은 저장소 계정의 Blob 네임스페이스에 있습니다. `http://<accountname>.blob.core.windows.net/$logs` 저장소 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다.

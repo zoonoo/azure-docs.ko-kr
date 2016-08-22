@@ -2,9 +2,12 @@
 
 >[AZURE.NOTE]서비스 버스에 대한 연결을 아직 만들지 않은 경우 서비스 버스 연결 문자열을 사용하여 로그인하라는 메시지가 표시됩니다.
 
-1. 논리 앱 디자이너에서 검색 상자에 **서비스 버스**를 입력합니다. 그런 다음 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 선택합니다. ![서비스 버스 트리거 이미지 1](./media/connectors-create-api-servicebus/trigger-1.png)
-- **큐에 메시지가 수신될 때** 대화 상자가 표시됩니다. ![서비스 버스 트리거 이미지 2](./media/connectors-create-api-servicebus/trigger-2.png)
-- 트리거가 모니터링할 서비스 버스 큐의 이름을 입력합니다. ![서비스 버스 트리거 이미지 3](./media/connectors-create-api-servicebus/trigger-3.png)
+1. 논리 앱 디자이너에서 검색 상자에 *서비스 버스* 를 입력한 후 **서비스 버스 - 큐에 메시지가 수신될 때** 트리거를 선택합니다.  
+![서비스 버스 트리거 이미지 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- **큐에 메시지가 수신될 때** 컨트롤이 표시됩니다.  
+![서비스 버스 트리거 이미지 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- 트리거가 모니터링할 서비스 버스 큐의 이름을 입력합니다.  
+![서비스 버스 트리거 이미지 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
 이 시점에서 논리 앱은 트리거로 구성되었습니다. 선택한 큐에 새 항목이 수신될 때 트리거는 워크플로의 다른 트리거 및 작업을 실행하기 시작합니다.
 

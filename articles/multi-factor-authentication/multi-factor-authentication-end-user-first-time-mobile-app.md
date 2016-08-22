@@ -54,7 +54,7 @@
 - 완료를 클릭합니다.
 
 
-## 수동으로 계정 추가
+<h2 id="kokr">수동으로 계정 추가</h2>
 계정을 수동으로 추가하려는 경우 수동으로 계정 입력 단추를 선택합니다.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
