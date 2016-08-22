@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Azure Mobile Engagement용 Android SDK 통합
@@ -52,20 +52,10 @@
 
 ## 릴리스 정보
 
-### 4\.2.2(2016/05/17)
+### 4\.2.3 (08/10/2016)
 
-- 안정성 향상
-
-### 4\.2.1(2016/05/10)
-
-- 보안: 웹 보기 로컬 파일 액세스를 비활성화합니다.
-- 보안: 사용되지 않고 보호되지 않는 `PreferenceActivity` 클래스를 확장하는 `EngagementPreferenceActivity` 클래스를 제거합니다.
-- 보안: 도달률 활동에서 현재 `exported="false"`을(를) 사용하도록 문서화되어 있으며 이 플래그는 이전 SDK 버전에서 사용할 수 있습니다.
-
-### 4\.2.0(2016/03/11)
-
-- SDK는 이제 MIT에 따라 사용이 허가됩니다.
-- SDK 초기화 시에 사용자 지정 장치 식별자를 지정할 수 있습니다.
+ - 더 이상 WIFI 잠금은 없습니다.
+ - Init 이전에 getDeviceId를 호출할 경우 교착 상태를 해결합니다.(4.2.0에 유입된 버그)
 
 모든 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-android-release-notes.md)를 참조하세요.
 
@@ -73,4 +63,4 @@
 
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 [업그레이드 절차](mobile-engagement-android-upgrade-procedure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

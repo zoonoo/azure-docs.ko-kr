@@ -1,6 +1,6 @@
 <properties
-	pageTitle="리소스 관리자에서 Windows VM 캡처 | Microsoft Azure"
-	description="Resource Manager 배포 모델을 사용하여 만든, Windows 기반 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법을 알아봅니다."
+	pageTitle="Azure VM에서 VM 이미지 만들기 | Microsoft Azure"
+	description="Resource Manager 배포 모델에서 만든 기존 Azure VM에서 일반화된 VM 이미지를 만드는 방법을 알아봅니다"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/04/2016"
 	ms.author="cynthn"/>
 
-# 리소스 관리자 배포 모델에서 Windows 가상 컴퓨터를 캡처하는 방법
+# 기존 Azure VM에서 VM 이미지를 만드는 방법
 
 
-이 문서에서는 Azure PowerShell을 사용하여 Windows가 실행되는 Azure VM(가상 컴퓨터)을 캡처하여 다른 가상 컴퓨터를 만들 때 사용하는 방법을 보여 줍니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. Windows VM을 만드는 데 필요한 가상 네트워크 리소스가 포함되지 않으므로 이미지를 사용하는 다른 가상 컴퓨터를 만들기 전에 설정해야 합니다. 이 이미지도 [일반화된 Windows 이미지](https://technet.microsoft.com/library/hh824938.aspx)가 되도록 준비됩니다.
-
+이 문서에서는 Azure PowerShell을 사용하여 기존 Azure VM의 일반화된 이미지를 만드는 방법을 보여 줍니다. 그런 다음 이미지를 사용하여 다른 VM을 만들 수 있습니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 이미지를 사용하여 VM을 만들 때 해당 리소스를 설정해야 하므로 이미지는 가상 네트워크 리소스를 포함하지 않습니다. 이 프로세스에서는 [일반화된 Windows 이미지](https://technet.microsoft.com/library/hh824938.aspx)를 만듭니다.
 
 
 ## 필수 조건
 
-이 단계는 리소스 관리자 배포 모델에서 Azure 가상 컴퓨터를 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. 아직 수행하지 않은 경우 [리소스 관리자 및 PowerShell을 사용하여 Windows VM을 만드는 방법](virtual-machines-windows-ps-create.md)을 참조하세요. [Azure 포털](https://portal.azure.com)을 사용하면 쉽게 Windows 가상 컴퓨터를 만들 수 있습니다. [Azure 포털에서 Windows 가상 컴퓨터를 만드는 방법](virtual-machines-windows-hero-tutorial.md)을 참조하세요.
+- 이러한 단계에서는 이미지를 만드는 데 사용할 Resource Manager 배포 모델에 Azure 가상 컴퓨터가 이미 있다고 가정합니다. VM 이름 및 리소스 그룹의 이름이 필요합니다. PowerShell cmdlet `Get-AzureRmResourceGroup`을 입력하여 구독에서 리소스 그룹의 목록을 가져올 수 있습니다. `Get-AzureRMVM`를 입력하여 구독에 VM의 목록을 가져올 수 있습니다.
 
+- Azure PowerShell 버전 1.0.x을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-## 이미지 캡처를 위한 VM 준비
+## 원본 VM을 준비합니다. 
 
-이 섹션에서는 Windows 가상 컴퓨터를 일반화하는 방법을 보여 줍니다. 다른 정보 사이에 있는 모든 개인 계정 정보를 제거합니다. 이 VM 이미지를 사용하여 빠르게 유사한 가상 컴퓨터를 배포하려고 할 때 일반적으로 이 작업을 수행합니다.
+이 섹션에서는 이미지로 사용할 수 있도록 Windows 가상 컴퓨터를 일반화하는 방법을 보여 줍니다.
 
-> [AZURE.WARNING] 가상 컴퓨터가 일반화된 후에는 모든 사용자 계정이 제거되므로 RDP를 통해 기록할 수 없습니다. 이는 취소할 수 없는 변경입니다.
+> [AZURE.WARNING] VM을 일반화하면 프로세스가 모든 사용자 계정을 제거하기 때문에 RDP를 통해 로그인할 수 없습니다. 변경 내용은 되돌릴 수 없습니다.
 
 1. Windows 가상 컴퓨터에 로그인합니다. [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **연결**을 통해 이동합니다.
 
@@ -53,137 +53,133 @@
 
    Sysprep은 가상 컴퓨터를 종료합니다. Azure 포털에서 상태가 **중지됨**으로 변경됩니다.
 
-</br>
-## VM 캡처
 
-Azure PowerShell 또는 새 Azure Resource Manager 탐색기 도구를 사용하여 일반화된 Windows VM을 캡처할 수 있습니다. 이 섹션에서는 두 가지 모두에 대한 단계를 보여줍니다.
-
-### PowerShell 사용
-
-이 문서에서는 Azure PowerShell 버전 1.0.x를 설치했다고 가정합니다. 새 리소스 관리자 기능은 이전 PowerShell 버전에 추가되지 않으므로 이 버전을 사용하는 것이 좋습니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+## Azure PowerShell에 로그인합니다.
 
 1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.
 
 		Login-AzureRmAccount
 
-	이 명령에서는 Azure 자격 증명을 입력하기 위한 팝업 창이 열립니다.
+	Azure 계정 자격 증명을 입력하기 위한 팝업 창이 열립니다.
 
-2. 기본적으로 선택된 구독 ID가 작업하려는 ID와 다른 경우 다음 중 하나를 사용하여 올바른 구독을 설정합니다.
+2. 사용 가능한 구독에 대한 구독을 ID를 가져옵니다.
 
-		Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Get-AzureRmSubscription
 
-	또는
+3. 구독 ID를 사용하여 올바른 구독을 설정합니다.
 
-		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 
-	`Get-AzureRmSubscription` 명령을 사용하면 Azure 계정이 가진 구독을 찾을 수 있습니다.
 
-3. 이제 이 명령을 사용하여 가상 컴퓨터에서 사용되는 리소스의 할당을 취소해야 합니다.
+## VM의 할당을 취소하고 상태를 일반화됨으로 설정합니다.		
 
-		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
+1. VM 리소스 할당을 취소합니다.
 
-	Azure 포털의 VM에 대한 *상태*가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경된 것을 확인할 수 있습니다.
+		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
-	>[AZURE.TIP] 다음을 사용하여 PowerShell에서 가상 컴퓨터의 상태를 찾을 수도 있습니다. </br> `$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br> `$vm.Statuses`</br> **DisplayStatus** 필드는 Azure 포털에 표시된 **상태**에 해당합니다.
+	Azure 포털의 VM에 대한 *상태*가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경됩니다.
 
-4. 다음에는 가상 컴퓨터의 상태를 **일반화됨**으로 설정해야 합니다. 이를 수행해야 하는 이유는 위의 일반화 단계(`sysprep`)는 Azure가 이해할 수 있는 방식으로 수행하지 않기 때문입니다.
+2. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다.
 
-		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
+		Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
 
-	>[AZURE.NOTE] 위에 설정된 일반화된 상태는 포털에 표시되지 않습니다. 그러나 위의 팁에서 설명한 것처럼 Get-AzureRmVM 명령을 사용하여 이를 확인할 수 있습니다.
+3. VM의 상태를 확인합니다. VM에 대한 **OSState/일반화됨** 섹션은 **DisplayStatus**를 **VM 일반화됨**으로 설정해야 합니다.
+		
+		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status
+		$vm.Statuses
 
-5. 이 명령을 사용하여 가상 컴퓨터 이미지를 대상 저장소 컨테이너에 캡처합니다.
+		
+## 이미지 만들기 
+
+1. 이 명령을 사용하여 가상 컴퓨터 이미지를 대상 저장소 컨테이너에 복사합니다. 이미지는 원래 가상 컴퓨터와 동일한 저장소 계정에 만들어집니다. `-Path` 변수는 JSON 템플릿의 복사본을 로컬로 저장합니다. `-DestinationContainerName` 변수는 이미지를 유지할 컨테이너의 이름입니다. 컨테이너가 없으면 컨테이너가 만들어집니다.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	`-Path` 변수는 선택 사항입니다. 로컬로 JSON 템플릿을 저장하는 데 사용할 수 있습니다. `-DestinationContainerName` 변수는 이미지를 유지할 컨테이너의 이름입니다. 저장된 이미지의 URL은 `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다. 원래 가상 컴퓨터와 동일한 저장소 계정에 만들어집니다.
+	JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. 이미지의 전체 경로에 대한 **resources** > **storageProfile** > **osDisk** > **image** > **uri** 섹션으로 이동합니다. 이미지의 URL은 `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`과 같습니다.
+	
+	포털에서 URI를 확인할 수도 있습니다. 이미지는 저장소 계정에서 **시스템**라는 Blob에 복사됩니다.
 
-	>[AZURE.NOTE] 이미지의 위치를 찾으려면 로컬 JSON 파일 템플릿을 엽니다. 이미지의 전체 경로에 대한 **resources** > **storageProfile** > **osDisk** > **image** > **uri** 섹션으로 이동합니다. 포털에서도 URI를 확인할 수 있으며 이는 저장소 계정의 **시스템**이라는 Blob에 복사됩니다.
+2. 이미지에 대한 경로에 변수를 만듭니다.
 
-
-### Azure 리소스 탐색기(미리 보기) 사용
-
-[Azure 리소스 탐색기(미리 보기)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/)는 리소스 관리자 배포 모델에서 만들어진 Azure 리소스를 관리하는 데 사용할 수 있는 새 도구입니다. 이 도구를 사용하면 쉽게
-
-- Azure 리소스 관리 API를 검색하고,
-- API 설명서를 가져오고,
-- Azure 구독에서 직접 API를 호출할 수 있습니다.
-
-이 강력한 도구로 수행할 수 있는 모든 작업을 알아보려면 [David Ebbo와 함께 하는 Azure Resource Manager 탐색기](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo) 비디오를 보세요.
-
-PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 컴퓨터를 캡처할 수 있습니다.
-
-1. [리소스 탐색기 웹 사이트](https://resources.azure.com/)를 열고 Azure 계정에 로그인합니다.
-
-2. 도구의 맨 위 오른쪽에서 **읽기/쓰기**를 선택하여 _PUT_ 및 _POST_ 작업을 허용합니다. 이는 기본적으로 **읽기 전용**으로 설정되어 있기 때문에 기본적으로 _GET_ 작업만 수행할 수 있습니다.
-
-	![리소스 탐색기 읽기/쓰기](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
-
-3. 그런 다음 Windows 가상 컴퓨터를 찾습니다. 도구의 맨 위에 있는 *검색 상자*에 이름을 입력하거나 왼쪽의 메뉴에서 **구독** > *Azure 구독* > **resourceGroups** > *리소스 그룹* > **공급자** > **Microsoft.Compute** > **virtualMachines** > *Windows 가상 컴퓨터*를 통해 이동할 수 있습니다. 왼쪽 탐색의 가상 컴퓨터를 클릭하면 도구의 오른쪽에 해당 템플릿이 표시됩니다.
-
-4. 템플릿 페이지의 맨 위 오른쪽에 이 가상 컴퓨터에 사용할 수 있는 다양한 작업에 대한 탭이 표시됩니다. **동작(POST/DELETE)**에 대한 탭을 클릭합니다.
-
-	![리소스 탐색기 작업 메뉴](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
-
-	- 가상 컴퓨터에서 수행할 수 있는 모든 동작 목록이 표시됩니다.
-
-		![리소스 탐색기 작업 항목](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
-
-5. **할당 취소**에 대한 실행 단추를 클릭하여 가상 컴퓨터의 할당을 취소합니다. VM의 상태가 **중지됨**에서 **중지됨(할당 취소됨)**으로 변경됩니다.
-
-6. **일반화**를 위한 실행 단추를 클릭하여 가상 컴퓨터를 일반화된 것으로 표시합니다. 왼쪽의 가상 컴퓨터 이름에서 **InstanceView** 메뉴를 클릭하고 오른쪽의 **상태** 섹션으로 이동하여 상태 변경 내용을 확인할 수 있습니다.
-
-7. **캡처** 실행 단추 아래에서 이미지를 캡처하기 위한 값을 설정할 수 있습니다. 채워진 값은 다음과 같이 보일 수 있습니다.
-
-	![리소스 탐색기 캡처](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
-
-	**캡처** 실행 단추를 클릭하여 가상 컴퓨터 이미지를 캡처합니다. 그러면 JSON 템플릿 파일뿐만 아니라 이미지의 새 VHD가 만들어집니다.
-
-8. 템플릿뿐만 아니라 새 이미지 VHD에 액세스하려면 저장소 리소스를 관리하기 위한 Azure 도구인 [Azure 저장소 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다. 설치 관리자가 컴퓨터에 로컬로 Azure 저장소 탐색기를 설치합니다.
-
-	- 저장소 탐색기를 열고 Azure 구독에 로그인합니다. 구독에 사용할 수 있는 모든 저장소 계정이 표시됩니다.
-
-	- 위의 단계에서 캡처한 가상 컴퓨터의 저장소 계정이 왼쪽에 표시됩니다. 그 아래의 **시스템** 메뉴를 두 번 클릭합니다. 오른쪽에 **시스템** 폴더의 내용이 표시됩니다.
-
-		![저장소 탐색기 시스템](./media/virtual-machines-windows-capture-image/StorageExplorer1.png)
-
-	- **Microsoft.Compute**와 모든 이미지 폴더를 보여 주는 **이미지**를 차례로 두 번 클릭합니다. 리소스 탐색기에서 이미지를 캡처하는 동안 **destinationContainerName** 변수를 위해 입력한 폴더 이름을 두 번 클릭합니다. VHD와 JSON 템플릿 파일이 모두 표시됩니다.
-
-	- 여기에서 URL을 찾거나 VHD/템플릿을 마우스 오른쪽 단추로 클릭하여 다운로드할 수 있습니다.
-
-		![저장소 탐색기 템플릿](./media/virtual-machines-windows-capture-image/StorageExplorer2.png)
+		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
 
 
-## 캡처한 이미지에서 새 VM 만들기
+## 가상 네트워크 만들기
 
-이제 캡처된 이미지를 사용하여 새 Windows VM을 만들 수 있습니다. 이 단계는 위의 단계에서 캡처된 Azure PowerShell 및 VM 이미지를 사용하여 새 가상 네트워크에서 VM을 만드는 방법을 보여 줍니다.
+[가상 네트워크](../virtual-network/virtual-networks-overview.md)의 VNet 및 서브넷을 만듭니다.
+		
 
->[AZURE.NOTE] VM 이미지는 실제로 만들어지는 가상 컴퓨터와 동일한 저장소 계정에 있어야 합니다.
+1. 변수 값을 사용자의 정보로 바꿉니다. 서브넷에 대한 주소 접두사를 CIDR 형식으로 제공합니다. 변수 및 서브넷을 만듭니다.
 
-### 네트워크 리소스 만들기
+    	$rgName = "<resourceGroup>"
+		$location = "<location>"
+        $subnetName = "<subNetName>"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+        
+2. **$vnetName** 값을 가상 네트워크의 이름으로 바꿉니다. 가상 네트워크에 대한 주소 접두사를 CIDR 형식으로 제공합니다. 서브넷으로 변수 및 가상 네트워크를 만듭니다.
 
-다음 샘플 PowerShell 스크립트를 사용하여 가상 네트워크와 새 VM에 대한 NIC를 설정합니다. **$** 기호로 표시되는 변수에 대한 값을 응용 프로그램에 적절하게 사용합니다.
+        $vnetName = "<vnetName>"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        
+            
+## 공용 IP 주소 및 네트워크 인터페이스 만들기
 
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
+1. **$ipName** 값을 공용 IP 주소의 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
 
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
+        $ipName = "<ipName>"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        
+2. **$nicName** 값을 네트워크 인터페이스의 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
 
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nicName = "<nicName>"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### 새 VM 만들기
 
-다음 PowerShell 스크립트는 가상 컴퓨터 구성을 설정하고 캡처된 VM 이미지를 새 설치에 대한 원본으로 사용하는 방법을 보여 줍니다. </br>
+## VM 만들기
 
-	#Enter a new user name and password in the pop-up for the following
+다음 PowerShell 스크립트는 가상 컴퓨터 구성을 설정하고 업로드된 VM 이미지를 새 설치에 대한 소스로 사용하는 방법을 보여 줍니다.
+
+>[AZURE.NOTE] VM은 원래 VHD 파일과 동일한 저장소 계정에 있어야 합니다.
+
+</br>
+
+	
+	
+	
+	#Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
 	$cred = Get-Credential
+	
+	# Name of the storage account 
+	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
+	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
+	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
+	$osDiskName = "<osDiskName>"
+	
+	# Assign a SKU name
+	# Valid values for -SkuName are: **Standard_LRS** - locally redundant storage, **Standard_ZRS** - zone redundant storage, **Standard_GRS** - geo redundant storage, **Standard_RAGRS** - read access geo redundant storage, **Premium_LRS** - premium locally redundant storage. 
+	$skuName = "<skuName>"
+	
+	# Create a new storage account for the VM
+	New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $storageAccName -Location $location -SkuName $skuName -Kind "Storage"
 
-	#Get the storage account where the captured image is stored
+	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
 	#Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+	#Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
+	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
 	#Set the Windows operating system configuration and add the NIC
 	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
@@ -191,16 +187,18 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 	#Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
-	#Configure the OS disk to be created from image (-CreateOption fromImage) and give the URL of the captured image VHD for the -SourceImageUri parameter.
-	#We found this URL in the local JSON template in the previous sections.
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfCapturedImageVhd -Windows
+	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
+	#You set this variable when you uploaded the VHD
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-새로 만든 VM은 [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터**에 표시되며 다음의 PowerShell명령을 사용해도 표시할 수 있습니다.
+
+
+완료되면 새로 만든 VM은 [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터**에 표시되며 다음 PowerShell 명령을 사용해도 표시할 수 있습니다.
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -210,4 +208,4 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

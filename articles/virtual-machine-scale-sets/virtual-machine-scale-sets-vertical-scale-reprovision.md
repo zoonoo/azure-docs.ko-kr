@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/03/2016"
 	ms.author="guybo"/>
 
 # 가상 컴퓨터 규모 집합을 사용하여 수직 자동 규모 조정
@@ -37,21 +37,14 @@ VM 규모 집합에서 메트릭 기반 경고를 바탕으로 수직 규모 조
 3. Webhook을 Runbook에 추가합니다.
 4. Webhook 알림을 사용하여 VM 규모 집합에 경고를 추가합니다.
 
-> [AZURE.NOTE] 수직 자동 규모 조정은 특정 범위의 VM 규모 이내에서만 수행할 수 있습니다. 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
+> [AZURE.NOTE] 수직 자동 규모 조정은 특정 범위의 VM 규모 이내에서만 수행할 수 있습니다. 서로 크기를 조정하도록 결정하기 전에 각 크기의 사양을 비교합니다(값이 큰 경우에도 VM 크기가 더 크지 않을 수 있음). 다음 규모 쌍 범위로 규모 조정하도록 선택할 수 있습니다.
 
->| VM 규모 조정 쌍 | |
+>| VM 크기 조정 쌍 | |
 |---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| Standard\_D1 | Standard\_D4 |
-| Standard\_D11 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
+| Standard\_A0 | Standard\_A11 |
+| Standard\_D1 | Standard\_D14 |
+| Standard\_DS1 | Standard\_DS14 |
+| Standard\_D1v2 | Standard\_D15v2 |
 | Standard\_G1 | Standard\_G5 |
 | Standard\_GS1 | Standard\_GS5 |
 
@@ -85,7 +78,7 @@ Runbook을 가져온 후 VM 규모 집합에서 경고에 의해 트리거될 �
 
 ## VM 규모 집합에 경고 추가
 
-다음은 VM 규모 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다: [Azure Insights 자동 규모 조정 공용 메트릭](../azure-portal/insights-autoscale-common-metrics.md).
+다음은 VM 규모 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. [Azure Insights 자동 규모 조정 공용 메트릭](../azure-portal/insights-autoscale-common-metrics.md) 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다.
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -127,4 +120,4 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0810_2016-->

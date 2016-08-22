@@ -5,7 +5,7 @@
    description="Azure 응용 프로그램 게이트웨이의 모니터링 기능에 대해 알아봅니다."
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -17,7 +17,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="gwallace" />
 
 # 응용 프로그램 게이트웨이 상태 모니터링 개요
 
@@ -55,16 +55,16 @@ Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 �
 
 |프로브 속성| 설명|
 |---|---|
-| 이름 | 프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| Name | 프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 | 프로브를 보내는 데 사용하는 프로토콜입니다. HTTP만 유효한 프로토콜입니다. |
 | 호스트 | 프로브에 보낼 호스트 이름입니다. |
-| Path | 프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 <protocol>://<host>:<port><path>으로 보내집니다. |
+| Path | 프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 <protocol>://<host>:<port><path>에 보내집니다. |
 | 간격 | 프로브 간격(초). 연속된 두 프로브 사이의 시간 간격입니다.|
 | 시간 제한 | 프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시됩니다. |
 | 비정상 임계값 | 프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
 ## 다음 단계
 
-응용 프로그램 게이트웨이 상태 모니터링에 대해 학습한 후 Azure 리소스 관리자용 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md) 또는 Azure 클래식 배포 모델용 [사용자 지정 상태 프로브](application-gateway-create-probe-classic-ps.md)를 구성할 수 있습니다.
+응용 프로그램 게이트웨이 상태 모니터링에 대해 학습한 후 Azure Resource Manager용 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md) 또는 Azure 클래식 배포 모델용 [사용자 지정 상태 프로브](application-gateway-create-probe-classic-ps.md)를 구성할 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0810_2016-->

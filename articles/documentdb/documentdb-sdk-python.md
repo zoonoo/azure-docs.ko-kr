@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB Python SDK | Microsoft Azure" 
-	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Python SDK의 각 버전 간의 변경 내용을 포함하는 Python SDK에 대한 모든 것을 알아봅니다." 
+	pageTitle="DocumentDB Python API 및 SDK | Microsoft Azure" 
+	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Python SDK의 각 버전 간의 변경 내용을 포함하는 Python API 및 SDK에 대한 모든 것을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,23 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB API 및 SDK
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST (영문)](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Python SDK
+## DocumentDB Python API 및 SDK
 
 <table>
-<tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**기고**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**SDK 설치 지침**</td><td>[Python SDK 설치 지침](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK에 참여해 보세요.**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr>
 <tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
@@ -83,30 +86,14 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
 
-
-> [AZURE.WARNING]**1.0.0** 이전 버전의 Python에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> [AZURE.WARNING]
+**1.0.0** 이전 버전의 Python에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
 
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 2016년 6월 7일 |---
-| [1\.8.0](#1.8.0) | 2016년 6월 14일 |---
-| [1\.7.0](#1.7.0) | 2016년 4월 26일 |---
-| [1\.6.1](#1.6.1) | 2016년 4월 8일 |---
-| [1\.6.0](#1.6.0) | 2016년 3월 29일 |---
-| [1\.5.0](#1.5.0) | 2015년 1월 3일 |---
-| [1\.4.2](#1.4.2) | 2015년 10월 6일 |---
-| [1\.4.1](#1.4.1) | 2015년 8월 6일 |---
-| [1\.2.0](#1.2.0) | 2015년 8월 6일 |---
-| [1\.1.0](#1.1.0) | 2015년 7월 9일 |---
-| [1\.0.1](#1.0.1) | 2015년 5월 25일 |---
- | [1\.0.0](#1.0.0) | 2015년 4월 7일 |---
-  | 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일
-  | 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일
-  | 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일
-  | 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일
-  | 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.9.0](#1.9.0) | 2016년 6월 7일 |--- | [1\.8.0](#1.8.0) | 2016년 6월 14일 |--- | [1\.7.0](#1.7.0) | 2016년 4월 26일 |--- | [1\.6.1](#1.6.1) | 2016년 4월 8일 |--- | [1\.6.0](#1.6.0) | 2016년 3월 29일 |--- | [1\.5.0](#1.5.0) | 2015년 1월 3일 |--- | [1\.4.2](#1.4.2) | 2015년 10월 6일 |--- | [1\.4.1](#1.4.1) | 2015년 8월 6일 |--- | [1\.2.0](#1.2.0) | 2015년 8월 6일 |--- | [1\.1.0](#1.1.0) | 2015년 7월 9일 |--- | [1\.0.1](#1.0.1) | 2015년 5월 25일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 7일 |--- | 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 | 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일 | 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 | 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 | 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -115,4 +102,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

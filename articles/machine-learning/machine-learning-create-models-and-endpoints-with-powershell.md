@@ -26,7 +26,7 @@ ms.author="garye;haining"/>
 
 이것은 가장 좋은 방법일 수 있지만 Azure 기계 학습에서 각각 고유한 위치를 나타내는 1,000번의 학습 실험을 만들고 싶지는 않습니다. 각 실험은 학습 데이터 집합을 제외하고 모두 동일한 구성 요소를 포함하므로 부담스러울 뿐만 아니라 매우 비효율적입니다.
 
-다행히 [Azure 기계 학습 재학습 API](machine-learning-retrain-models-programmatically.md)를 사용하고 [Azure 기계 학습 PowerShell](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
+다행히 [Azure 기계 학습 재학습 API](machine-learning-retrain-models-programmatically.md)를 사용하고 [Azure 기계 학습 PowerShell](machine-learning-powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
 
 > [AZURE.NOTE] 샘플 실행 속도를 빠르게 하려면 위치 수를 1,000개에서 10개로 줄입니다. 하지만 동일한 원리와 절차가 1,000개의 위치에 적용됩니다. 유일한 차이점은 1,000개 데이터 집합에서 학습하려는 경우 다음 PowerShell 스크립트를 병렬로 실행하는 것을 생각할 수 있습니다. 이 작업을 수행하는 방법은 이 문서의 범위를 벗어나는 내용이지만 인터넷에서 PowerShell 다중 스레딩의 예제를 찾을 수 있습니다.
 
@@ -161,4 +161,4 @@ Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountN
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

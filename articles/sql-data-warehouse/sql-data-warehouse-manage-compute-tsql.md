@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(T-SQL)
@@ -45,7 +45,7 @@
 
 1. Visual Studio 2015에서 SQL Server 개체 탐색기를 엽니다.
 2. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. sys.database\_service\_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다. 
+2. sys.database\_service\_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
 
 ```
 SELECT
@@ -67,7 +67,7 @@ DWU를 변경하려면
 
 
 1. 논리적 SQL 데이터베이스 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE][] TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다. 
+2. [ALTER DATABASE][] TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -97,4 +97,4 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

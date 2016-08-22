@@ -3,7 +3,7 @@
    description="이름 확인을 위해 Azure 가상 컴퓨터, 웹 및 작업자 역할에 대한 호스트 이름을 보고 변경하는 방법"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="joaoma" />
+   ms.author="jdial" />
 
 # 호스트 이름 보기 및 수정
 
@@ -47,7 +47,7 @@ Azure 포털의 서비스 **구성** 블레이드에서 배포된 서비스의 �
 
 REST 클라이언트에서 다음 지침을 따릅니다.
 
-1. Azure 포털에 연결하기 위한 클라이언트 인증서가 있는지 확인합니다. 클라이언트 인증서를 가져오려면 [방법: 게시 설정과 구독 정보 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850.aspx)를 참조하세요. 
+1. Azure 포털에 연결하기 위한 클라이언트 인증서가 있는지 확인합니다. 클라이언트 인증서를 가져오려면 [방법: 게시 설정과 구독 정보 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850.aspx)를 참조하세요.
 
 1. 값이 2013-11-01인 x-ms-version 헤더 항목을 설정합니다.
 
@@ -71,4 +71,4 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 [네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

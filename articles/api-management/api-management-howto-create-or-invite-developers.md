@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 사용자 계정을 관리하는 방법
@@ -82,7 +82,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ## <a name="next-steps"> </a>다음 단계
 
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][]\(영문)을 참조하세요.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][](영문)을 참조하세요.
 
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
@@ -95,7 +95,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -110,4 +110,4 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

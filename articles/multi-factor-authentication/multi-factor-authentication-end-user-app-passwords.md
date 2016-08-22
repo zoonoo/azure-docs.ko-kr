@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -44,11 +44,11 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 
 다단계 인증을 사용하는 방법|설명
 :------------- | :------------- | 
-<a href="#Office">Office 365에서 사용</a> | Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
-<a href="#vai">잘 모름</a>|[https://myapps.microsoft.com](https://myapps.microsoft.com)을 통해 앱 암호를 만들 수 있습니다.
-<a href="#Microsoft">Microsoft Azure에서 사용</a> | Azure 포털을 통해 앱 암호를 만들 수 있습니다.
+[Office 365에서 사용](#creating-and-deleting-app-passwords-with-office-365)| Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
+[잘 모름](#creating-and-deleting-app-passwords-with-myapps-portal)|[https://myapps.microsoft.com](https://myapps.microsoft.com)을 통해 앱 암호를 만들 수 있습니다.
+[Microsoft Azure에서 사용](#create-app-passwords-in-the-azure-portal)| Azure 포털을 통해 앱 암호를 만들 수 있습니다.
 
-<h2 id="Office">Office 365에서 사용</h2> 
+## Office 365에서 앱 암호 만들기 및 삭제 
 
 Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
@@ -81,12 +81,12 @@ Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 �
 9. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Microsoft">Microsoft Azure에서 사용</h2>
+## Myapps 포털에서 앱 암호 만들기 및 삭제
 Multi-Factor Authentication을 사용하는 방법을 잘 모르는 경우 myapps 포털을 통해 항상 앱 암호를 만들고 삭제할 수 있습니다.
 
 ### Myapps 포털을 사용하여 앱 암호를 만들려면
 
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.	
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 2. 위쪽에서 프로필을 선택합니다.
 3. 추가 보안 인증을 선택합니다. ![클라우드](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. 설정을 변경할 수 있는 페이지로 이동합니다. ![설정](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -97,7 +97,7 @@ Multi-Factor Authentication을 사용하는 방법을 잘 모르는 경우 myapp
 
 ### Myapps 포털을 사용하여 앱 암호를 삭제하려면
 
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.	
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 2. 위쪽에서 프로필을 선택합니다.
 3. 추가 보안 인증을 선택합니다. ![클라우드](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. 설정을 변경할 수 있는 페이지로 이동합니다. ![설정](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -107,7 +107,7 @@ Multi-Factor Authentication을 사용하는 방법을 잘 모르는 경우 myapp
 8. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="vai">Azure 포털에서 앱 암호 만들기</h2>
+## Azure 포털에서 앱 암호 만들기
 
 Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 암호를 만들 수 있습니다.
 
@@ -129,4 +129,4 @@ Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 �
 5. **예**를 클릭하여 삭제를 확인합니다.
 6. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

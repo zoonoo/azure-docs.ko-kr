@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Microsoft Azure에서 서비스 메트릭 모니터링 | Microsoft Azure"
 	description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-    documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # 서비스 메트릭 모니터링
 
@@ -59,7 +59,7 @@
 
 할당량이 있는 리소스에 대한 블레이드에서 사용 할당량을 확인할 수도 있습니다.
 
-![사용 현황](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+![사용](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
 메트릭과 마찬가지로, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 사용 할당량의 전체 집합에 액세스할 수 있습니다.
 
@@ -72,4 +72,4 @@
 * [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="선호도 그룹에서 지역 VNet으로 마이그레이션하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법
 
@@ -41,9 +41,9 @@
 	
 	네트워크 구성 파일에서 값을 고유한 값으로 바꿔 다음 줄을 편집합니다.
 
-	**이전 값:** \<VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG"\>
+	**이전 값:** <VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
 
-	**새 값:** \<VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부"\>
+	**새 값:** <VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
 
 1. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](virtual-networks-using-network-configuration-file.md).
 
@@ -66,4 +66,4 @@
 VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 새 VM 배포에 대해 사용 가능한 VM 크기의 집합을 제한할 수 있지만 배포된 모든 기존 VM은 VM이 배포되는 배율 단위에서 사용 가능한 VM 크기의 집합으로 이미 제한되어 있습니다. 이 때문에 선호도 그룹에서 VM을 제거해도 아무런 효과가 없습니다.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

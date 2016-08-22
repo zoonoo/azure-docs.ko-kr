@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 진단 개요"
+	pageTitle="Azure 진단 개요 | Microsoft Azure"
 	description="클라우드 서비스, 가상 컴퓨터 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용"
 	services="multiple"
 	documentationCenter=".net"
@@ -81,4 +81,4 @@ Azure 진단 확장은 이 데이터를 Azure 저장소 계정에 전송하거�
 - [Azure 진단 정보를 Application Insights에 라우트](./azure-diagnostics-configure-applicationinsights.md)하는 방법을 알아봅니다.
 - 진단을 시작하거나 Azure 저장소 테이블에서 데이터를 찾는 데 문제가 있는 경우 [Azure 진단 문제 해결](./azure-diagnostics-troubleshooting.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

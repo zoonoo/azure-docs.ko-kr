@@ -3,7 +3,7 @@
    description="Azure 가상 네트워크(VNet) FAQ"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 가상 네트워크 FAQ
 
@@ -23,4 +23,4 @@
 
 가상 네트워크 VPN에 대한 최신 FAQ는 [VPN 게이트웨이 FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

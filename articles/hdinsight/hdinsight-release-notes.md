@@ -14,11 +14,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/03/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/08/01 릴리스 정보
+
+이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |Ambari 빌드 |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.8028416 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
+|3\.3 |3\.3.1000.0.8028416 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
+|3\.4 |3\.4.1000.0.8053402 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+
+이 릴리스와 함께 배포된 Windows 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+|HDI |HDI 클러스터 버전 |HDP |HDP 빌드 |
+|----|----------------------|----|--------------|
+|2\.1 |2\.1.10.1005.2488842 |1\.3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.1005.2488842 |2\.0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.1005.2488842 |2\.1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.1005.2488842 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.1005.2488842 |2\.3 |2\.3.3.1-25 |
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| HDInsight 3.4 클러스터에 대한 변경 내용 | 성능 향상을 위해 다음과 같은 hive 구성에 대한 기본값이 변경되었습니다. <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul>| 부여 | 모두| 해당 없음|
+| 이 릴리스에서 다음 수정 사항이 포함됨 | HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933| 부여 | 모두| 해당 없음
 
 ## HDInsight의 2016/07/14 릴리스 정보
 
@@ -247,7 +274,7 @@
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| 모든 HDInsight 클러스터의 업데이트된 HDInsight 버전 및 HDInsight 3.2 클러스터의 HDP 버전(Windows 및 Linux) | 이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 | 서비스 | 모두| 해당 없음
+| 모든 HDInsight 클러스터의 업데이트된 HDInsight 버전 및 HDInsight 3.2 클러스터의 HDP 버전(Windows 및 Linux) | 이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 | 부여 | 모두| 해당 없음
 
 
 ## HDInsight의 2015/10/27 릴리스 정보
@@ -265,7 +292,7 @@
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨(Windows 및 Linux) | 이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 | 서비스 | 모두| 해당 없음
+| 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨(Windows 및 Linux) | 이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 | 부여 | 모두| 해당 없음
 | 대문자 클러스터를 사용하여 Windows Spark 클러스터에 대한 Jupyter 수정됨 | 대문자로 지정한 DNS 이름을 가진 클러스터는 원본 요청 검사로 인해 Jupyter Notebook에 문제가 있었습니다. 수정 사항은 Jupyter의 구성에 대한 DNS 이름을 소문자로 변경하는 것이었습니다. | 부여 | HDInsight Spark(Windows)| 해당 없음
 
 
@@ -431,7 +458,7 @@
 
 <tr>
 <td>HDInsight 3.2용 최신 Azure Java SDK 2.2로 이동합니다.</td>
-<td>WASB 드라이버에서 사용된 Java용 Azure SDK의 최신 버전으로 이동했습니다. 최신 SDK에는 몇가지 수정 사항이 있으며 릴리스 정보는 https://github.com/Azure/azure-storage-java/blob/master/ChangeLog.txt에서 제공됩니다.</td>
+<td>WASB 드라이버에서 사용된 Java용 Azure SDK의 최신 버전으로 이동했습니다. 최신 SDK에는 몇 가지 수정 사항이 있으며 릴리스 정보는 https://github.com/Azure/azure-storage-java/blob/master/ChangeLog.txt에서 제공됩니다.</td>
 <td>Hadoop 코어</td>
 <td>모두</td>
 <td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP-11959</a></td>
@@ -506,7 +533,7 @@
 <tr>
 <td>다양한 버그 수정</td>
 <td>이 릴리스는 클러스터 프로비전과 관련된 버그를 해결합니다.</td>
-<td>서비스</td>
+<td>부여</td>
 <td>모든 클러스터 형식</td>
 <td>해당 없음</td>
 </tr>
@@ -891,7 +918,7 @@
 <tr>
 <td>Linux의 HDInsight(미리 보기)</td>
 <td>Ubuntu Linux에서 실행되는 클러스터를 배포할 수 있습니다. 자세한 내용은 Linux에서 HDInsight 시작을 참조하세요.</td>
-<td>서비스</td>
+<td>부여</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
 </tr>
@@ -899,7 +926,7 @@
 <tr>
 <td>Storm 일반 공급</td>
 <td>Apache Storm 클러스터가 일반 공급됩니다. 자세한 내용은 HDInsight에서 Storm 사용 시작을 참조하세요.</td>
-<td>서비스</td>
+<td>부여</td>
 <td>Storm</td>
 <td>해당 없음</td>
 </tr>
@@ -915,7 +942,7 @@
 <tr>
 <td>클러스터 크기 조정</td>
 <td>HDInsight 클러스터를 삭제하거나 다시 만들지 않고도 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다. 현재는 Hadoop 쿼리 및 Apache Storm 클러스터에만 이 기능이 있지만 Apache HBase 클러스터 유형에도 곧 이 기능이 제공될 예정입니다. 자세한 내용은 Ambari를 사용하여 HDInsight 관리를 참조하세요.</td>
-<td>서비스</td>
+<td>부여</td>
 <td>Hadoop, Storm</td>
 <td>해당 없음</td>
 </tr>
@@ -931,7 +958,7 @@
 <tr>
 <td>DocumentDB용 Hadoop 커넥터</td>
 <td>DocumentDB용 Hadoop 커넥터를 사용하면 여러 DocumentDB 컬렉션 또는 데이터베이스 계정에 걸쳐 저장된 스키마 없는 JSON 문서에 대해 복잡한 집계, 분석 및 조작을 수행할 수 있습니다. 자세한 내용 및 자습서는 DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행을 참조하세요.</td>
-<td>서비스</td>
+<td>부여</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
 </tr>
@@ -1486,7 +1513,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
 
  **HDInsight 1.6(HDP 1.1)** <table border="1">
-<tr><th>이름</th><th>값</th></tr>
+<tr><th>Name</th><th>값</th></tr>
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
 <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
@@ -1499,7 +1526,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 </table><br>
 
  **HDInsight 3.1 및 3.0(HDP 2.1 및 2.0)** <table border="1">
-<tr><th>이름</th><th>값</th></tr>
+<tr><th>Name</th><th>값</th></tr>
 <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
@@ -1610,7 +1637,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
 
 ### 버그 수정
@@ -1652,4 +1679,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

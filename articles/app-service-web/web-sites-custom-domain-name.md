@@ -63,7 +63,7 @@ Azure 앱 서비스를 사용하면 다음 범주의 사용자 지정 도메인�
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) - 사용자 지정 도메인 이름을 Azure 앱의 가상 IP 주소로 직접 매핑합니다.
 - [CNAME](https://en.wikipedia.org/wiki/CNAME_record) - 사용자 지정 도메인 이름을 앱의 Azure 도메인 이름 **&lt;*appname*>.azurewebsites.net**으로 매핑합니다.
 
-CNAME의 장점은 IP 주소 변경 간에도 유지된다는 점입니다. 앱을 삭제하고 다시 만들거나 높은 가격 책정 계층에서 **공유** 계층으로 다시 변경하는 경우 앱의 가상 IP 주소가 변경될 수 있습니다. 이러한 변경을 통해 CNAME 레코드는 여전히 유효한 반면 A 레코드는 업데이트되어야 합니다.
+CNAME의 장점은 IP 주소 변경 간에도 유지된다는 점입니다. 앱을 삭제하고 다시 만들거나 높은 가격 책정 계층에서 **공유** 계층으로 다시 변경하는 경우 앱의 가상 IP 주소가 변경될 수 있습니다. 이러한 변경 과정에서 CNAME 레코드는 여전히 유효하지만 A 레코드는 업데이트해야 합니다.
 
 이 자습서는 A 레코드 및 CNAME 레코드를 사용하는 단계를 보여 줍니다.
 
@@ -79,7 +79,7 @@ A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면
 
 4.	앱을 클릭한 후 **설정** > **사용자 지정 도메인 및 SSL** > **외부 도메인 가져오기**를 클릭합니다.
 
-6.  나중에 사용하기 위해 IP 주소를 기록해 둡니다.
+6.  IP 주소를 기록해 둡니다.
 
     ![A 레코드로 사용자 지정 도메인 이름 매핑: Azure 앱 서비스 앱의 IP 주소 가져오기](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -90,8 +90,8 @@ A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면
 
 도메인 등록 기관에 로그인하고 해당 도구를 사용하여 A 레코드 또는 CNAME 레코드를 추가합니다. 각 등록 기관의 UI는 약간 다르므로 공급자의 설명서를 참조해야 합니다. 하지만 다음은 몇 가지 일반적인 지침입니다.
 
-1.	DNS 레코드를 관리하기 위한 페이지를 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 종종 링크는 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 찾을 수 있습니다.
-2.	DNS 레코드를 추가하거나 편집할 수 있는 링크를 찾습니다. 이 링크는 **영역 파일**, **DNS 레코드** 또는 **고급** 구성 링크로 나열될 수 있습니다.
+1.	DNS 레코드를 관리하기 위한 페이지를 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 링크를 찾을 수 있습니다.
+2.	DNS 레코드를 추가하거나 편집할 수 있는 링크를 찾습니다. 이 링크는 **영역 파일**, **DNS 레코드** 또는 **고급** 구성 링크일 수 있습니다.
 3.  레코드를 만들고 변경 내용을 저장합니다.
     - [A 레코드에 대한 지침이 여기에 나와 있습니다](#a).
     - [CNAME 레코드에 대한 지침이 여기에 나와 있습니다](#cname).
@@ -101,7 +101,7 @@ A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면
 
 A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 A 레코드와 CNAME 레코드를 둘 다 만들어야 합니다. A 레코드는 DNS 확인 자체를 위한 것이고 CNAME 레코드는 Azure에서 사용자가 사용자 지정 도메인 이름을 소유했는지 확인하기 위한 것입니다.
 
-사용자의 A 레코드는 다음과 같이 구성되어야 합니다(@는 일반적으로 루트 도메인으로 표시됨).
+다음과 같이 A 레코드를 구성합니다(@는 일반적으로 루트 도메인을 나타냄).
  
 <table cellspacing="0" border="1">
   <tr>
@@ -126,7 +126,7 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
   </tr>
 </table>
 
-추가 CNAME 레코드는 awverify.&lt;*subdomain*>.&lt;*rootdomain*>에서 awverify.&lt;*subdomain*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 아래 예제를 참조하세요.
+추가 CNAME 레코드는 awverify.&lt;*subdomain*>.&lt;*rootdomain*>에서 awverify.&lt;*subdomain*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 다음과 같이 CNAME 레코드를 구성합니다.
 
 <table cellspacing="0" border="1">
   <tr>
@@ -142,7 +142,7 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
   <tr>
     <td>www.contoso.com(하위)</td>
     <td>awverify.www</td>
-    <td>awverify.www.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com(와일드 카드)</td>
@@ -158,7 +158,7 @@ Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사�
 
 >[AZURE.IMPORTANT] 루트 도메인에 대한 CNAME 레코드를 만들지 마세요(즉, "루트 레코드"). 자세한 내용은 [루트 도메인에서 CNAME 레코드를 사용할 수 없는 이유](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)를 참조하세요. 루트 도메인을 Azure 앱에 매핑하려면 대신 [A 레코드](#a)를 사용하세요.
 
-사용자의 CNAME 레코드는 다음과 같이 구성되어야 합니다(@는 일반적으로 루트 도메인으로 표시됨).
+다음과 같이 CNAME 레코드를 구성합니다(@는 일반적으로 루트 도메인을 나타냄).
 
 <table cellspacing="0" border="1">
   <tr>
@@ -193,11 +193,11 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 
     ![Azure 앱에 사용자 지정 도메인 이름 매핑: 도메인 이름 목록에 추가](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
-    >[AZURE.NOTE] Azure에서는 여기서 사용할 도메인 이름을 확인하려고 시도하므로 [2단계](#createdns)에서 DNS 레코드를 만들었던 동일한 도메인 이름인지 확인해야 합니다. 맞는 경우
+    >[AZURE.NOTE] Azure에서 여기에 사용된 도메인 이름을 확인합니다. [2단계](#createdns)에서 DNS 레코드를 만든 것과 동일한 도메인 이름인지 확인합니다.
 
 6.  **Save**를 클릭합니다.
 
-7.  새 사용자 지정 도메인 이름이 성공적으로 구성되면 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 이제 실행 중인 앱과 사용자 지정 도메인 이름이 표시됩니다.
+7.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 이제 실행 중인 앱과 사용자 지정 도메인 이름이 표시됩니다.
 
 <a name="verify"></a>
 ## DNS 적용 확인
@@ -209,13 +209,14 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 > [AZURE.NOTE] DNS 항목이 적용되는 데는 최대 48시간이 걸릴 수 있습니다(더 걸리는 경우도 있음). 모든 항목이 올바르게 구성된 경우 성공적으로 적용될 때까지 기다려야 합니다.
 
 ## 다음 단계
+[Azure에서 SSL 인증서를 구입](web-sites-purchase-ssl-web-site.md)하거나 [다른 곳에서 SSL 인증서를 사용](web-sites-configure-ssl-certificate.md)하여 HTTPS로 사용자 지정 도메인 이름의 보안을 유지하는 방법을 알아봅니다.
+
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [Azure DNS 시작](../dns/dns-getstarted-create-dnszone.md) [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md) [Azure DNS로 도메인 위임](../dns/dns-domain-delegation.md)
-
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

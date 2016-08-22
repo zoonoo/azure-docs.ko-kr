@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # 클라우드 서비스를 업데이트하는 방법
@@ -180,6 +180,6 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 > [AZURE.NOTE] Azure는 업그레이드 도메인에 인스턴스가 할당되는 방식을 제어합니다. 어떤 도메인에 어떤 인스턴스를 할당할지를 지정하는 것은 불가능합니다.
 
 ## 다음 단계
-[클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)<br> [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)<br> [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)<br>
+[클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md) [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md) [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

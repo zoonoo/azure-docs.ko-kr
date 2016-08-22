@@ -28,6 +28,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
+
 ##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -55,7 +57,7 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    `https://login.windows.net`을 위 테이블의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
+    `https://login.windows.net`을 위 표의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
 
     일부 인증 공급자에서는 적절한 모바일 장치에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다. 예를 들어 Android 장치에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
 
@@ -109,4 +111,4 @@ SDK 사용 방법을 알아봅니다.
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

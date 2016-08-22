@@ -20,8 +20,8 @@
 #Azure 앱 서비스에 대한 SSL 인증서 구입 및 구성
 
 > [AZURE.SELECTOR]
-- [웹앱용 SSL 인증서 구입](web-sites-purchase-ssl-web-site.md)
-- [사용자 지정 도메인에 대한 SSL을 사용하도록 설정](web-sites-configure-ssl-certificate.md)
+- [Azure에서 SSL 인증서 구입](web-sites-purchase-ssl-web-site.md)
+- [다른 곳에서 SSL 인증서 사용](web-sites-configure-ssl-certificate.md)
 
 기본적으로 **[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나 *[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다. 이 문서에서는 간단한 3단계로 **[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구입 및 구성하는 방법을 설명합니다.
 
@@ -84,7 +84,7 @@ SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니�
  
 2. 인증서 속성 블레이드 안에서 **"인증서 구성"**을 클릭하고 **"1단계 저장"**을 클릭하여 이 인증서를 Azure 주요 자격 증명 모음에 저장합니다.
 
-3.	**"키 자격 증명 모음 상태"** 블레이드에서 **"키 자격 증명 모음 리포지토리"** 를 클릭하여 이 인증서를 저장할 기존 키 자격 증명 모음을 선택하거나 **"새 키 자격 증명 모음 만들기"** 로 동일한 구독 및 리소스 그룹 내에 새 키 자격 증명 모음을 만듭니다.
+3.	**"키 자격 증명 모음 상태"** 블레이드에서 **"키 자격 증명 모음 리포지토리"**를 클릭하여 이 인증서를 저장할 기존 키 자격 증명 모음을 선택하거나 ** "새 키 자격 증명 모음 만들기"**로 동일한 구독 및 리소스 그룹 내에 새 키 자격 증명 모음을 만듭니다.
  
     ![새 KV 만들기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
@@ -208,4 +208,4 @@ SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니�
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -104,7 +104,7 @@ Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 A
 |resourceGroupName|영향을 받는 리소스의 리소스-그룹-이름|
 |properties |이벤트에 대한 세부 정보를 포함하는 <키, 값> 쌍(즉, 사전<문자열, 문자열>)의 집합|
 |event|이벤트에 대한 메타데이터가 포함된 요소|
-|권한 부여|이벤트의 RBAC 속성을 캡처합니다. 여기는 일반적으로 "action", "role" 및 "scope"가 포함됩니다.|
+|authorization|이벤트의 RBAC 속성을 캡처합니다. 여기는 일반적으로 "action", "role" 및 "scope"가 포함됩니다.|
 |카테고리 | 이벤트의 범주. 지원되는 값: Administrative, Alert, Security, ServiceHealth, Recommendation|
 |caller|가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소. 특정 시스템 호출의 경우 null일 수 있습니다.|
 |CorrelationId|	일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 동일한 correlationId를 공유합니다.|
@@ -119,4 +119,4 @@ Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 A
 |status|작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved|
 |subStatus|	일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값: OK(HTTP 상태 코드: 200), Created(HTTP 상태 코드: 201), Accepted(HTTP 상태 코드: 202), No Content(HTTP 상태 코드: 204), Bad Request(HTTP 상태 코드: 400), Not Found(HTTP 상태 코드: 404), Conflict(HTTP 상태 코드: 409), Internal Server Error(HTTP 상태 코드: 500), Service Unavailable(HTTP 상태 코드:503), Gateway Timeout(HTTP 상태 코드: 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

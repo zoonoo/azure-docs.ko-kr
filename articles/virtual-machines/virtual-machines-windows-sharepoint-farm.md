@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/08/2016"
 	ms.author="josephd"/>
 
 # SharePoint 서버 팜 만들기
@@ -23,7 +23,7 @@
 
 ## SharePoint 2013 팜
 
-Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
+Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경에 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013을 조직의 협력 솔루션으로 평가하는 경우 상당한 시간을 절약할 수 있습니다.
 
 > [AZURE.NOTE] Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다. 이 항목은 **SharePoint 2013 비 HA 팜** 및 **SharePoint 2013 HA 팜** 항목으로 대체되었습니다.
 
@@ -38,13 +38,13 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 1. [여기](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)를 클릭합니다.
 2. **배포**를 클릭합니다.
 3. **SharePoint 2013 비 HA 팜** 창에서 **만들기**를 클릭합니다.
-4. **SharePoint 2013 비 HA 팜** 창의 7단계에서 설정을 지정한 다음 **만들기**를 클릭합니다.
+4. **SharePoint 2013 비 HA 팜** 창의 단계에서 설정을 지정한 다음 **만들기**를 클릭합니다.
 
 고가용성 SharePoint 팜은 다음과 같은 구성으로 9개의 가상 컴퓨터로 구성됩니다.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server Always On을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
+이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server AlwaysOn 가용성 그룹을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
 
 고가용성(9-서버) SharePoint 팜을 만들려면:
 
@@ -59,7 +59,7 @@ Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전�
 
 ## SharePoint 2016 팜
 
-다음 단일 서버 SharePoint 2016 팜을 빌드하는 방법에 대한 지침은 [이 항목](https://technet.microsoft.com/library/mt723354.aspx)을 참조합니다.
+다음 단일 서버 SharePoint 2016 팜을 빌드하는 방법에 대한 지침은 [이 문서](https://technet.microsoft.com/library/mt723354.aspx)를 참조하세요.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
@@ -67,10 +67,10 @@ Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전�
 
 원격 데스크톱 연결을 통해 이러한 팜의 서버를 관리할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 로그온](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine)을 참조하세요.
 
-중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요.
+중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요.
 
 ## 다음 단계
 
-- Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
+- Azure 인프라 서비스에서 추가 [SharePoint 구성](https://technet.microsoft.com/library/dn635309.aspx)을 검색합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

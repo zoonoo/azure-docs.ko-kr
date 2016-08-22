@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 #Azure 저장소 보안 가이드
@@ -516,9 +516,9 @@ GetBlob에 대한 항목과 인증 방법에 관심이 있으므로 operation-ty
 
     1\.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 
-3.  Blob이 개인이고 액세스하는 데 저장소 키가 사용됩니다. 이 경우 request-status는 “**Success**”이고 authorization-type은 “**authenticated**”입니다.
+3.  Blob이 개인이고 액세스하는 데 저장소 키가 사용됩니다. 이 경우 request-status는 “**성공**”이고 authorization-type은 “**인증됨**”입니다.
 
-    1\.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+    1\.0;2015-11-16T18:32:24.3174537Z;GetBlob;**성공**;206;59;22;**인증됨**;mystorage…
 
 Microsoft Message Analyzer를 사용하여 이러한 로그를 보고 및 분석할 수 있습니다. 여기에는 검색 및 필터링 기능이 포함되어 있습니다. 예를 들어 GetBlob의 인스턴스를 검색하여 예상대로 사용되고 있는지 알아볼 수 있습니다. 즉, 누군가가 사용자의 저장소 계정에 부적절하게 액세스하고 있지 않은지 확인할 수 있습니다.
 
@@ -538,7 +538,7 @@ Microsoft Message Analyzer를 사용하여 이러한 로그를 보고 및 분석
 
 -   [Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결](storage-e2e-troubleshooting.md)
 
-	이 문서에서는 저장소 분석 사용과 관련된 문제 해결 방법과 Microsoft Message Analyzer 사용 방법을 보여 줍니다.
+	이 문서에서는 저장소 분석 사용과 관련된 문제 해결 방법과 Microsoft 메시지 분석기 사용 방법을 보여 줍니다.
 
 -   [Microsoft Message Analyzer 운영 가이드](https://technet.microsoft.com/library/jj649776.aspx)
 
@@ -634,4 +634,4 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 
 	이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

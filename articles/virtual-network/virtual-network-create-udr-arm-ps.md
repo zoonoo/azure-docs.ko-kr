@@ -3,7 +3,7 @@
    description="PowerShell을 사용하여 리소스 관리자에서 라우팅을 제어하고 가상 어플라이언스를 사용하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #PowerShell을 사용하여 리소스 관리자에서 UDR(사용자 정의 경로) 만들기
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 UDR을 만들](virtual-network-create-udr-classic-ps.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 UDR을 만들](virtual-network-create-udr-classic-ps.md) 수도 있습니다.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -62,7 +62,7 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	예상된 출력:
+	예상 출력:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -133,7 +133,7 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	예상된 출력:
+	예상 출력:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -192,7 +192,7 @@
 		$nicfw1.EnableIPForwarding = 1
 		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
-	예상된 출력:
+	예상 출력:
 
 		Name                 : NICFW1
 		ResourceGroupName    : TestRG
@@ -236,4 +236,4 @@
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

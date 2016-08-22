@@ -99,4 +99,4 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

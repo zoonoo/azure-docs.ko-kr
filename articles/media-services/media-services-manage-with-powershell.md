@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/09/2016"
 	ms.author="juliako"/>
 
 
@@ -24,96 +24,477 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-
 > [AZURE.NOTE] Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##개요 
 
-이 문서에서는 PowerShell cmdlet를 사용하여 Azure 미디어 서비스 계정을 관리하는 방법을 보여줍니다.
+이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 ** Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
 
+## 버전
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+**ApiVersion**: "2015-10-01"
+               
 
-##Microsoft Azure PowerShell Cmdlet 설치
+## New-AzureRmMediaService
 
-최신 Azure PowerShell cmdlet를 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+미디어 서비스를 만듭니다.
 
-##Azure 구독 선택
+### 구문
 
-PowerShell cmdlet를 설치 및 구성하면 작업하려는 구독에서 지정해야 합니다.
+매개 변수 집합: StorageAccountIdParamSet
 
-사용 가능한 구독 목록을 가져오려면 다음 cmdlet를 실행합니다.
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-	PS C:\> Get-AzureSubscription
+매개 변수 집합: StorageAccountsParamSet
 
-그리고 다음 수행하여 하나를 선택합니다.
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+### 매개 변수
 
- 
-##저장소 계정 이름 가져오기
+**-ResourceGroupName &lt;String&gt;**
 
-Azure 미디어 서비스는 Azure 저장소를 사용하여 미디어 콘텐츠를 저장합니다. 새 미디어 서비스 계정을 만들 때 저장소 계정과 연결해야 합니다. 저장소 계정은 미디어 서비스 계정에 사용하려고 하는 계정과 동일한 구독에 속해야 합니다.
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
 
-이 예에서는 기존 저장소 계정이 사용됩니다. [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) cmdlet는 현재 구독에서 저장소 계정을 가져옵니다. 미디어 계정과 연결하려는 저장소 계정의 이름(StorageAccountName)을 가져옵니다.
+Aliases | 없음
+---|---
+Required? | true
+Position? | 0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
 
-	StorageAccountDescription : 
-	AffinityGroup             :
-	Location                  : East US
-	GeoReplicationEnabled     : True
-	GeoPrimaryLocation        : East US
-	GeoSecondaryLocation      : West US
-	Label                     : storagetest001
-	StorageAccountStatus      : Created
-	StatusOfPrimary           : Available
-	StatusOfSecondary         : Available
-	Endpoints                 : {https://storagetest001.blob.core.windows.net/,
-	                            https://storagetest001.queue.core.windows.net/,
-	                            https://storagetest001.table.core.windows.net/}
-	AccountType               : Standard_GRS
-	StorageAccountName        : storatetest001
-	OperationDescription      : Get-AzureStorageAccount
-	OperationId               : e919dd56-7691-96db-8b3c-2ceee891ae5d
-	OperationStatus           : Succeeded
+**-AccountName &lt;String&gt;**
 
-##새 미디어 서비스 계정 만들기
+미디어 서비스의 이름을 지정합니다.
 
-새 Azure 미디어 서비스 계정을 만들려면 미디어 서비스 계정 이름을 제공하는 [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) cmdlet, 만들어질 데이터 센터 위치 및 저장소 계정 이름을 사용합니다.
+Aliases |Name
+---|---
+Required? |true
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
 
+**-Location &lt;String&gt;**
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+미디어 서비스의 리소스 위치를 지정합니다.
 
-##미디어 서비스 계정 가져오기
+Aliases |없음
+---|---
+Required? |true
+Position? |2
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
 
-하나 이상의 미디어 서비스 계정을 만들면 [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)를 사용하여 정보를 나열할 수 있습니다.
+**-StorageAccountId &lt;String&gt;**
 
-	
-	PS C:\> Get-AzureMediaServicesAccount
-	
-	AccountId		Name				State
-	---------       ----       			 -----
-	xxxxxxxxxx      amstestaccount001   Active
+미디어 서비스와 연결된 기본 저장소 계정을 지정합니다.
 
-이름 매개 변수를 제공하여 계정 키를 포함하는 보다 자세한 정보를 가져옵니다.
+- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
 
-##미디어 서비스 액세스 키 다시 생성
+Aliases |없음
+---|---
+Required? |true
+Position? |3
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+매개 변수 집합 이름 |StorageAccountIdParamSet
+Accept Wildcard Characters?|false
 
-미디어 서비스 기본 또는 보조 선택키를 업데이트하려는 경우 [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx)를 사용합니다. 계정 이름을 제공하고 다시 생성하려는 키(기본 또는 보조)를 지정해야 합니다.
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
 
-PowerShell이 확인 질문을 하지 않기를 원하는 경우 -Force 스위치를 지정합니다.
+미디어 서비스와 연결된 저장소 계정을 지정합니다.
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
 
-##미디어 서비스 계정 제거
+- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
 
-Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx)를 사용합니다.
+- 단 하나의 저장소 계정 만을 기본으로 지정할 수 있습니다.
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+Aliases |없음
+---|---
+Required? |true
+Position? |3
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+매개 변수 집합 이름 |StorageAccountsParamSet
+Accept Wildcard Characters? |false
 
+**-Tags &lt;Hashtable&gt;**
 
-##미디어 서비스 학습 경로
+미디어 서비스와 연결된 태그의 해시 테이블을 지정합니다.
+
+- 예: @{"tag1"="value1";" tag2"=: value2"}
+
+Aliases |없음
+---|---
+Required? |false
+Position? |named
+기본값 |없음
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Set-AzureRmMediaService
+
+미디어 서비스를 만듭니다.
+
+### 구문
+
+	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |Name
+---|---
+Required? |True
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |False
+
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+
+미디어 서비스와 연결된 저장소 계정을 지정합니다.
+
+- (리소스 관리자 API로 만든) 새 저장소 계정 만 지원함.
+
+- 저장소 계정이 존재하며 미디어 서비스와 동일한 위치에 있어야 합니다.
+
+- 단 하나의 저장소 계정 만을 기본으로 지정할 수 있습니다.
+
+Aliases |없음
+---|---
+Required? |false
+Position? |named
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+매개 변수 집합 이름 |StorageAccountsParamSet
+Accept Wildcard Characters? |false
+
+**-Tags &lt;Hashtable&gt;**
+
+이 미디어 서비스와 연결된 태그의 해시 테이블을 지정합니다.
+
+- 미디어 서비스와 연결된 태그가 고객이 지정한 값으로 대체됩니다.
+
+Aliases |없음
+---|---
+Required? |False
+Position? |named
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Remove-AzureRmMediaService
+
+미디어 서비스를 제거합니다.
+
+### 구문
+
+	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |2
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |False
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Get-AzureRmMediaService
+
+지정된 이름으로 리소스 그룹 또는 미디어 서비스에 있는 모든 미디어 서비스를 가져옵니다.
+
+### 구문
+
+ParameterSet: ResourceGroupParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+
+ParameterSet: AccountNameParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+매개 변수 집합 이름 |ResourceGroupParameterSet, AccountNameParameterSet
+Accept wildcard characters? false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+매개 변수 집합 이름 |AccountNameParameterSet
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Get-AzureRmMediaServiceKeys
+
+미디어 서비스의 키를 가져옵니다.
+
+### 구문
+
+	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Set-AzureRmMediaServiceKey
+
+미디어 서비스의 기본 또는 보조 키를 다시 생성합니다.
+
+### 구문
+
+	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-KeyType &lt;KeyType&gt;**
+
+미디어 서비스의 키 유형을 지정합니다.
+
+- 기본 또는 보조
+
+Aliases |없음
+---|---
+Required? |true
+Position? |2
+기본값 |없음
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## Sync-AzureRmMediaServiceStorageKeys
+
+미디어 서비스와 연결된 저장소 계정에 대한 저장소 계정 키를 동기화합니다.
+
+### 구문
+
+	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+
+### 매개 변수
+
+**-ResourceGroupName &lt;String&gt;**
+
+이 미디어 서비스가 속하는 리소스 그룹의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |0
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+미디어 서비스의 이름을 지정합니다.
+
+Aliases |없음
+---|---
+Required? |true
+Position? |1
+기본값 |없음
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-StorageAccountId &lt;String&gt;**
+
+미디어 서비스와 연결된 저장소 계정을 지정합니다.
+
+Aliases |Id
+---|---
+Required? |true
+Position? |2
+기본값 |없음
+Accept Pipeline Input? | true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, 및 -WarningVariable.
+
+### 입력
+
+입력 형식은 cmdlet으로 파이프할 수 있는 개체의 형식입니다.
+
+### 출력
+
+출력 형식은 cmdlet이 내보내는 개체의 형식입니다.
+
+## 다음 단계 
+
+미디어 서비스 학습 경로를 확인하세요.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -123,4 +504,4 @@ Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesA
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # Azure 모바일 앱 Node.js SDK를 사용하는 방법
@@ -126,11 +126,22 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 
 10. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000에서 제공됨) Azure에 게시합니다.
 
+### <a name="create-node-backend-portal"></a>방법: Azure 포털을 사용하여 Node.js 백 엔드 만들기
+
+[Azure 포털]에서 바로 새 모바일 앱 백 엔드를 만들 수 있습니다.
+
+아래 단계를 수행하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 새 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+_시작_ 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **Node.js**를 선택합니다. **이렇게 하면 모든 사이트 콘텐츠를 덮어쓴다는 것을 인정합니다.**라는 상자를 선택하고 **TodoItem 테이블 만들기**를 클릭합니다.
+
+
 ### <a name="download-quickstart"></a>방법: Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드
 
 포털 **빠른 시작** 블레이드를 사용하여 새 Node.js 모바일 앱 백 엔드를 만들 때 새 Node.js 프로젝트가 생성되어 사이트에 배포됩니다. 테이블 및 API를 추가하고 포털에서 Node.js 백 엔드에 대한 코드 파일을 편집할 수 있습니다. 또한 백 엔드 프로젝트를 다운로드하기 위해 다양한 배포 도구 중 하나를 사용할 수 있으므로 테이블 및 API를 추가하거나 수정한 다음 프로젝트를 다시 게시할 수 있습니다. 자세한 내용은 [Azure 앱 서비스 배포 가이드]를 참조하세요. 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
-1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하십시오.
+1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하세요.
 
 2. 배포 사용자 이름 및 암호를 기록하여 백 엔드 사이트에 대한 Git 리포지토리를 사용하는 [앱 서비스 앱 리포지토리 사용](../app-service-web/web-sites-deploy-local-git.md#Step3)의 단계를 수행합니다.
 
@@ -917,4 +928,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

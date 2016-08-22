@@ -3,7 +3,7 @@
  description="Azure IoT Hub 장치 관리(DM) 클라이언트 라이브러리"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Azure IoT Hub 장치 관리(DM) 클라이언트 라이브러리 소개
 
@@ -161,8 +161,8 @@ LWM2M 데이터 모델은 개체 및 리소스라는 개념을 도입합니다.
 | 리소스 이름 | 리소스에 허용되는 원격 작업 | 형식 | 범위 및 단위 | 설명 |
 |-----------------|--------------------------------------|---------|-----------------|-------------|
 | 제조업체 | 읽기 | 문자열 | | 제조업체 이름 |
-| ModelNumber | 읽기 | 문자열 | | 모델 ID(제조업체가 지정한 문자열) |
-| DeviceType | 읽기 | 문자열 | | 장치의 유형(제조업체가 지정한 문자열)<br/>참고: 이 유형은 서버 쪽 API **SystemPropertyNames.DeviceDescription**에 매핑됨 |
+| ModelNumber | 읽기 | String | | 모델 ID(제조업체가 지정한 문자열) |
+| DeviceType | 읽기 | String | | 장치의 유형(제조업체가 지정한 문자열)<br/>참고: 이 유형은 서버 쪽 API **SystemPropertyNames.DeviceDescription**에 매핑됨 |
 | SerialNumber | 읽기 | 문자열 | | 장치의 일련 번호 |
 | FirmwareVersion | 읽기 | 문자열 | | 장치의 현재 펌웨어 버전 |
 | HardwareVersion | 읽기 | 문자열 | | 장치의 현재 하드웨어 버전입니다. |
@@ -200,7 +200,7 @@ LWM2M 데이터 모델은 개체 및 리소스라는 개념을 도입합니다.
 
 | 리소스 이름 | 작업 | 형식 | 범위 및 단위 | 설명 |
 |---------------|------------|--------|-----------------|-------------|
-| 이름 | 읽기 쓰기 | 문자열 | | 읽거나 업데이트할 장치 구성의 이름을 고유하게 식별합니다. |
+| Name | 읽기 쓰기 | 문자열 | | 읽거나 업데이트할 장치 구성의 이름을 고유하게 식별합니다. |
 | 값 | 읽기 쓰기 | 문자열 | | 읽거나 업데이트할 구성 값을 고유하게 식별합니다. |
 | 적용 | 실행 | | | 구성 변경 내용을 장치에 적용합니다. |
 
@@ -235,4 +235,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

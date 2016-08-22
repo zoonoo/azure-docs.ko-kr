@@ -29,7 +29,7 @@
 
 서버 SDK에 대한 참조 설명서는 [Azure 모바일 앱 .NET 참조](https://msdn.microsoft.com/library/azure/dn961176.aspx)를 참조하세요.
 
-## <a name="create-app"></a>방법: 모바일 응용 프로그램에 대한 .NET 백 엔드 만들기
+## <a name="create-app"></a>방법: .NET 모바일 앱 백 엔드 만들기
 
 새 프로젝트를 시작하는 경우 [Azure 포털]과 Visual Studio 중 하나를 사용하여 앱 서비스 응용 프로그램을 만들 수 있습니다. 이 섹션에서 다음 중 하나를 사용하여 간단한 ToDo List API를 호스팅하는 새 모바일 응용 프로그램 백 엔드를 만들 수 있습니다. 이 작업을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
 
@@ -37,9 +37,11 @@
 
 ### Azure 포털을 사용하여 .NET 백 엔드 만들기
 
-바로 [Azure 포털]에서 새 모바일 응용 프로그램을 만들 수 있습니다. 아래 단계를 수행하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 새 클라이언트 및 서버를 함께 만들 수 있습니다.
+[Azure 포털]에서 바로 새 모바일 앱 백 엔드를 만들 수 있습니다.
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+아래 단계를 수행하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 새 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다. 이 자습서에서는 Node.js 백 엔드만 만들 수 있습니다.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 _시작_ 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**을 선택합니다. **다운로드**를 클릭하고 로컬 컴퓨터에 압축된 프로젝트 파일을 풀고 Visual Studio에서 솔루션을 엽니다.
 
@@ -479,4 +481,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

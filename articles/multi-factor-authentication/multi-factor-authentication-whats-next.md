@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
 
 다음 문서는 준비하고 실행 중인 Multi-Factor Authentication을 관리하는데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 버전의 Multi-Factor Authentication에서 이러한 모든 기능을 사용할 수 없다는 점에 주의하십시오.
 
-아래의 기능 중 일부에 대한 구성은 Azure Multi-Factor Authentication 관리 포털에서 찾을 수 있습니다. 이 포털에 액세스할 수 있는 두 가지 방법은 Azure 포털을 통해 완료됩니다. 첫 번째는 사용량 기반 MFA를 사용하는 경우 Multi-Factor Auth 공급자를 관리하여 수행합니다. 두 번째는 MFA 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
+아래의 기능 중 일부에 대한 구성은 Azure Multi-Factor Authentication 관리 포털에서 찾을 수 있습니다. 이 포털에 액세스할 수 있는 두 가지 방법은 Azure 포털을 통해 완료됩니다. 첫 번째는 사용량 기반 MFA를 사용하는 경우 Multi-Factor Auth 공급자를 관리하여 수행합니다. 두 번째는 MFA 서비스 설정을 통해 수행합니다. 두 번째 옵션을 사용하려면 다단계 인증 공급자나 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
 
 Azure Multi-Factor Auth 공급자를 통해 MFA 관리 포털에 액세스하려면 관리자 권한으로 Azure 포털에 로그인하고 Active Directory 옵션을 선택합니다. **Multi-Factor Auth 공급자** 탭을 클릭한 다음 디렉터리를 선택하고 아래쪽에서 **관리** 단추를 클릭합니다.
 
@@ -362,8 +362,8 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 :------------- | :------------- | 
 [휴대폰에 전화 걸기](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 인증 휴대폰으로 자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다.
 [휴대폰에 문자 메시지 전송](multi-factor-authentication-end-user-first-time-mobile-phone.md)|확인 코드를 포함하는 문자 메시지를 사용자에게 보냅니다. 사용자는 확인 코드로 문자 메시지에 응답하거나 또는 로그인 인터페이스에 확인 코드를 입력하도록 요구됩니다.
-[모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Azure Authenticator 앱은 [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 제공됩니다.|
-[모바일 앱의 확인 코드](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 이 확인 코드를 사용자 이름 및 암호와 함께 입력하여 두 번째 형식의 인증을 제공할 수 있습니다.</li><br><p> [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
+[모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Azure Authenticator 앱은 [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 제공됩니다.|
+[모바일 앱의 확인 코드](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 이 확인 코드를 사용자 이름 및 암호와 함께 입력하여 두 번째 형식의 인증을 제공할 수 있습니다.</li><br><p> [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
 
 ### 인증 방법을 활성화/비활성화하는 방법
 
@@ -376,4 +376,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

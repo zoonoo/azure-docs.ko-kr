@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 스케줄러
@@ -60,6 +60,13 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 스케줄러 구성은 Azure AD에 저장됩니다. 스테이징 서버가 있는 경우 주 서버를 변경하면 스테이징 서버에도 영향을 줍니다(IsStagingModeEnabled 제외).
 
+### CustomizedSyncCycleInterval
+구문: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d -일, HH - 시간, mm - 분, ss - 초
+
+예: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` 3시간마다 실행되도록 스케줄러를 변경합니다.
+
+예: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` 매일 실행되도록 스케줄러를 변경합니다.
+
 ## 스케줄러 시작
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 종류를 실행해야 합니다.
 
@@ -69,7 +76,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 - 모든 커넥터에서 델타 동기화
 - 모든 커넥터에서 내보내기
 
-즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있으므로 수동으로 주기를 실행해야 합니다. 수동으로 주기를 실행해야 하는 경우 PowerShell에서 `Start-ADSyncSyncCycle -PolicyType Delta`을(를) 실행합니다.
+즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있으므로 수동으로 주기를 실행해야 합니다. 수동으로 주기를 실행해야 하는 경우 PowerShell에서 `Start-ADSyncSyncCycle -PolicyType Delta`를 실행합니다.
 
 **전체 동기화 주기** 다음 구성 변경 사항 중 하나를 수행한 경우 전체 동기화 주기(초기화라고도 함)를 실행해야 합니다.
 
@@ -83,7 +90,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 - 모든 커넥터에서 전체 동기화
 - 모든 커넥터에서 내보내기
 
-전체 동기화 주기를 시작하려면 PowerShell 프롬프트에서 `Start-ADSyncSyncCycle -PolicyType Initial`을(를) 실행합니다. 전체 동기화 주기가 시작됩니다.
+전체 동기화 주기를 시작하려면 PowerShell 프롬프트에서 `Start-ADSyncSyncCycle -PolicyType Initial`을 실행합니다. 전체 동기화 주기가 시작됩니다.
 
 ## 스케줄러 중지
 스케줄러가 현재 동기화 주기를 실행 중인 경우 중지해야 합니다. 예를 들어 설치 마법사를 시작하는 경우 이 오류가 발생합니다.
@@ -92,7 +99,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 동기화 주기를 실행 중일 때 구성을 변경할 수 없습니다. 스케줄러에서 프로세스를 완료할 때까지 기다릴 수 있지만 이를 중지하여 즉시 변경할 수도 있습니다. 현재 주기를 중지해도 나쁜 영향을 주지 않으며 아직 처리되지 않은 모든 변경 사항은 다음 실행 시 처리됩니다.
 
-1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을(를) 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
+1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
 2. 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
     - 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
@@ -144,4 +151,4 @@ Get-ADSyncConnectorRunStatus
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

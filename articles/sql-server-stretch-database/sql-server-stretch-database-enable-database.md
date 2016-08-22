@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정
@@ -23,6 +23,8 @@
 스트레치 데이터베이스에 대해 데이터베이스를 사용하도록 설정하지 않은 경우 개별 테이블에 대해 **작업 | 스트레치 | 사용**을 선택하면 마법사에서 스트레치 데이터베이스에 대해 데이터베이스를 구성하고 사용자가 프로세스의 일부로 테이블을 선택할 수 있도록 합니다. [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)의 단계 대신 이 항목의 단계를 따르세요.
 
 데이터베이스 또는 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 db\_owner 권한이 필요합니다. 또한 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 CONTROL DATABASE 권한이 필요합니다.
+
+ >   [AZURE.NOTE] 나중에 스트레치 데이터베이스를 비활성화하는 경우 테이블 또는 데이터베이스에 대해 확장 데이터베이스를 사용하지 않도록 설정하면 원격 개체를 삭제하지 않습니다. 원격 테이블 또는 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 개체를 수동으로 삭제할 때까지 계속해서 Azure 비용이 발생합니다.
 
 ## 시작하기 전에
 
@@ -50,7 +52,7 @@ GO
 RECONFIGURE;
 GO
 ```
-자세한 내용은 [원격 데이터 보관 서버 구성 옵션 구성](https://msdn.microsoft.com/library/mt143175.aspx) 및 [sp\_configure(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188787.aspx)를 참조하세요.
+자세한 내용은 [원격 데이터 보관 서버 구성 옵션 구성](https://msdn.microsoft.com/library/mt143175.aspx) 및 [sp\_configure(Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx)를 참조하세요.
 
 ## <a name="Wizard"></a>마법사를 사용하여 데이터베이스에서 스트레치 데이터베이스를 사용하도록 설정
 입력해야 하는 정보 및 선택해야 하는 항목을 포함하여 스트레치에 데이터베이스 사용 마법사에 대한 자세한 내용은 [스트레치에 데이터베이스 사용 마법사를 실행하여 시작](sql-server-stretch-database-wizard.md)을 참조하세요.
@@ -78,7 +80,7 @@ GO
 	GO
     ```
 
-    데이터베이스 마스터 키에 대한 자세한 내용은 [CREATE MASTER KEY(Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) 및 [데이터베이스 마스터 키](https://msdn.microsoft.com/library/aa337551.aspx)를 참조하세요.
+    데이터베이스 마스터 키에 대한 자세한 내용은 [마스터 키 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) 및 [데이터베이스 마스터 키](https://msdn.microsoft.com/library/aa337551.aspx)를 참조하세요.
 
 4.  스트레치 데이터베이스에 대해 데이터베이스를 구성하는 경우 온-프레미스 SQL Server와 원격 Azure 서버 간의 통신에 사용할 스트레치 데이터베이스의 자격 증명을 제공해야 합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
@@ -125,9 +127,9 @@ GO
     ```
 
 ## 다음 단계
--   [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md) - 추가 테이블 사용
+-   [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)하여 추가 테이블을 사용하도록 설정합니다.
 
--   [스트레치 데이터베이스 모니터링](sql-server-stretch-database-monitor.md) - 데이터 마이그레이션 상태 확인
+-   [스트레치 데이터베이스를 모니터링](sql-server-stretch-database-monitor.md)하여 데이터 마이그레이션 상태를 확인합니다.
 
 -   [스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)
 
@@ -143,4 +145,4 @@ GO
 
 [FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

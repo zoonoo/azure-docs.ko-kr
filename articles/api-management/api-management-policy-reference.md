@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
@@ -46,16 +46,16 @@
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
 	-	[클라이언트 인증서 사용 인증][] - 클라이언트 인증서를 사용하여 백 엔드 서비스를 인증합니다.
--	[캐싱 정책][] 
+-	[캐싱 정책][]
 	-	[캐시에서 가져오기][] - 캐시 조회를 수행하여 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다.
 	-	[캐시에 저장][] - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.
 	-	[캐시에서 값 가져오기](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - 키로 캐시된 항목을 검색합니다.
 	-	[값을 캐시에 저장](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - 키로 캐시에 항목을 저장합니다.
--	[도메인 간 정책][] 
+-	[도메인 간 정책][]
 	-	[도메인 간 호출 허용][] - API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 합니다.
 	-	[CORS][] - CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
 	-	[JSONP][] - 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
--	[변환 정책][] 
+-	[변환 정책][]
 	-	[XML로 JSON 변환][] - 요청 또는 응답 본문을 JSON에서 XML로 변환합니다.
 	-	[JSON으로 XML 변환][] - 요청 또는 응답 본문을 XML에서 JSON으로 변환합니다.
 	-	[본문 문자열 찾기 및 바꾸기][] - 요청 또는 응답 하위 문자열을 찾아 다른 하위 문자열로 바꿉니다.
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

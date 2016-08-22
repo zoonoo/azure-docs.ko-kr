@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/18/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 #Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
@@ -43,6 +43,6 @@
 - [Microsoft System Center Configuration Manager 팀 블로그](http://blogs.technet.com/b/configmgrteam/)
 
 ## 참고 항목
-[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
+[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

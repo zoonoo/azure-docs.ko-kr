@@ -66,7 +66,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
 
-2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
 ## 자습서에 대한 Azure 저장소에 파일 업로드
 자습서를 시작하기 전에 자습서에 필요한 파일을 Azure 저장소에 준비해야 합니다.
@@ -227,4 +227,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

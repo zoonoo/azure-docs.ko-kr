@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB Node.js SDK | Microsoft Azure" 
-	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Node.js SDK의 각 버전 간의 변경 내용을 포함한 Node.js SDK에 대해 모두 알아봅니다." 
+	pageTitle="DocumentDB Node.js API 및 SDK | Microsoft Azure" 
+	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Node.js SDK의 각 버전 간의 변경 내용을 포함한 Node.js API 및 SDK에 대해 모두 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,25 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB API 및 SDK
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST (영문)](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Node.js SDK
+##DocumentDB Node.js API 및 SDK
 
 <table>
-<tr><td>**다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**기고**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**설명서**</td><td>[Node.js SDK 참조 설명서](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**샘플**</td><td>[Node.js 코드 샘플](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**시작**</td><td>[Node.js SDK 시작](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**API 설명서**</td><td>[Node.js API 참조 설명서](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**SDK 설치 지침**</td><td>[설치 지침](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**SDK에 참여해 보세요.**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**샘플**</td><td>[Node.js 코드 샘플](documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**시작 자습서**</td><td>[Node.js SDK 시작](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[DocumentDB를 사용하여 Node.js 웹 응용 프로그램 빌드](documentdb-nodejs-application.md)</td></tr>
 <tr><td>**현재 지원되는 플랫폼**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -125,7 +129,7 @@
 
 - readConflicts, readConflictAsync 및 queryConflicts를 추가하여 충돌을 쿼리하는 기능을 구현했습니다.
 - API 설명서가 업데이트되었습니다.
-- 문제 [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync 오류  
+- 문제 [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync 오류
 
 ### <a name="1.0.0"/>1.0.0</a>
 
@@ -145,32 +149,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 2016년 7월 7일 |---
-| [1\.8.0](#1.8.0) | 2016년 6월 14일 |---
-| [1\.7.0](#1.7.0) | 2016년 4월 26일 |---
-| [1\.6.0](#1.6.0) | 2016년 3월 29일 |---
-| [1\.5.6](#1.5.6) | 2016년 3월 8일 |---
-| [1\.5.5](#1.5.5) | 2016년 2월 2일 |---
-| [1\.5.4](#1.5.4) | 2016년 2월 1일 |---
-| [1\.5.2](#1.5.2) | 2016년 1월 26일 |---
-| [1\.5.2](#1.5.2) | 2016년 1월 22일 |---
-| [1\.5.1](#1.5.1) | 2016년 1월 4일 |---
-| [1\.5.0](#1.5.0) | 2015년 12월 31일 |---
-| [1\.4.0](#1.4.0) | 2015년 10월 6일 |---
-| [1\.3.0](#1.3.0) | 2015년 10월 6일 |--- 
-|[1\.2.2](#1.2.2) | 2015년 9월 10일 |---
-| [1\.2.1](#1.2.1) | 2015년 8월 15일 |---
-| [1\.2.0](#1.2.0) | 2015년 8월 5일 |---
-|[1\.1.0](#1.1.0) | 2015년 7월 9일 |---
-| [1\.0.3](#1.0.3) | 2015년 6월 4일 |---
-| [1\.0.2](#1.0.2) | 2015년 5월 23일 |--- 
-|[1\.0.1](#1.0.1) | 2015년 5월 15일 |---
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |---
-| 0.9.4-시험판 | 2015년 4월 6일 | 2016년 2월 29일
-| 0.9.3-시험판 | 2015년 1월 14일 | 2016년 2월 29일
-| 0.9.2-시험판 | 2014년 12월 18일 | 2016년 2월 29일
-| 0.9.1-시험판 | 2014년 8월 22일 | 2016년 2월 29일
-| 0.9.0-시험판 | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.9.0](#1.9.0) | 2016년 7월 7일 |--- | [1\.8.0](#1.8.0) | 2016년 6월 14일 |--- | [1\.7.0](#1.7.0) | 2016년 4월 26일 |--- | [1\.6.0](#1.6.0) | 2016년 3월 29일 |--- | [1\.5.6](#1.5.6) | 2016년 3월 8일 |--- | [1\.5.5](#1.5.5) | 2016년 2월 2일 |--- | [1\.5.4](#1.5.4) | 2016년 2월 1일 |--- | [1\.5.2](#1.5.2) | 2016년 1월 26일 |--- | [1\.5.2](#1.5.2) | 2016년 1월 22일 |--- | [1\.5.1](#1.5.1) | 2016년 1월 4일 |--- | [1\.5.0](#1.5.0) | 2015년 12월 31일 |--- | [1\.4.0](#1.4.0) | 2015년 10월 6일 |--- | [1\.3.0](#1.3.0) | 2015년 10월 6일 |--- | [1\.2.2](#1.2.2) | 2015년 9월 10일 |--- | [1\.2.1](#1.2.1) | 2015년 8월 15일 |--- | [1\.2.0](#1.2.0) | 2015년 8월 5일 |--- | [1\.1.0](#1.1.0) | 2015년 7월 9일 |--- | [1\.0.3](#1.0.3) | 2015년 6월 4일 |--- | [1\.0.2](#1.0.2) | 2015년 5월 23일 |--- | [1\.0.1](#1.0.1) | 2015년 5월 15일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- | 0.9.4-시험판 | 2015년 4월 6일 | 2016년 2월 29일 | 0.9.3-시험판 | 2015년 1월 14일 | 2016년 2월 29일 | 0.9.2-시험판 | 2014년 12월 18일 | 2016년 2월 29일 | 0.9.1-시험판 | 2014년 8월 22일 | 2016년 2월 29일 | 0.9.0-시험판 | 2014년 8월 21일 | 2016년 2월 29일
 
 
 ## FAQ
@@ -180,4 +159,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/08/2016"
    ms.author="cherylmc" />
 
 # 가상 네트워크를 Express 경로 회로에 연결합니다.
@@ -44,7 +44,7 @@
 
 	- 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. [VPN 게이트웨이](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 만들려면 지침을 따르세요(1-5단계만 수행).
 
-최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 모든 Express 경로 회로는 같은 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
+최대 10개의 가상 네트워크를 표준 Express 경로 회로에 연결할 수 있습니다. 표준 Express 경로 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로의 지역 외부에서 가상 네트워크를 연결하거나 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
 
 ## 동일한 구독에 있는 가상 네트워크를 회로에 연결
 
@@ -80,4 +80,4 @@
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

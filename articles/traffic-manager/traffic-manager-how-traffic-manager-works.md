@@ -131,4 +131,4 @@ DNS 표준은 CNAME이 동일한 형식의 다른 DNS 레코드와 함께 존재
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

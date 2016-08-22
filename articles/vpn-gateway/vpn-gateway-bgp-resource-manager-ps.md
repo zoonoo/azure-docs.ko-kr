@@ -191,9 +191,9 @@ TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. TestVNet1용 A
 
 #### 2\. TestVNet1 및 Site5 간 연결 만들기
 
-이 단계에서는 TestVNet1에서 Site5까지 연결을 만듭니다. 이 연결에 BGP를 사용하려면 "-EnableBGP True"를 지정해야 합니다. 앞에서 설명한 대로 동일한 Azure VPN 게이트웨이에 대해 BGP와 비BGP를 모두 연결할 수 있습니다. 연결 속성에서 BGP를 사용하도록 설정할 수 없으면 BGP 매개 변수가 두 게이트웨이에 이미 구성된 경우에도 Azure가 이 연결에 대해 BGP를 사용하도록 설정하지 않습니다.
+이 단계에서는 TestVNet1에서 Site5까지 연결을 만듭니다. 이 연결에 BGP를 사용하려면 "-EnableBGP $True"를 지정해야 합니다. 앞에서 설명한 대로 동일한 Azure VPN 게이트웨이에 대해 BGP와 비BGP를 모두 연결할 수 있습니다. 연결 속성에서 BGP를 사용하도록 설정할 수 없으면 BGP 매개 변수가 두 게이트웨이에 이미 구성된 경우에도 Azure가 이 연결에 대해 BGP를 사용하도록 설정하지 않습니다.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 
 
 아래 예제에서 이 연습을 위해 온-프레미스 VPN 장치의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
@@ -220,7 +220,7 @@ TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. TestVNet1용 A
 
 새 가상 네트워크 TestVNet2의 IP 주소 공간이 VNet 범위와 겹치지 않는지 확인해야 합니다.
 
-이 예제에서 가상 네트워크는 동일한 구독에 속합니다. 다른 구독 간에 VNet 간 연결을 설정할 수 있습니다. 자세한 내용은 [VNet 간 연결 구성](./vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. BGP를 사용하도록 연결을 만들 때 "-EnableBgp True"를 추가해야 합니다.
+이 예제에서 가상 네트워크는 동일한 구독에 속합니다. 다른 구독 간에 VNet 간 연결을 설정할 수 있습니다. 자세한 내용은 [VNet 간 연결 구성](./vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. BGP를 사용하는 연결을 만들 때 "-EnableBgp $True"를 추가해야 합니다.
 
 #### 1\. 변수 선언
 
@@ -284,9 +284,9 @@ AS 번호를 사용하여 VPN 게이트웨이를 만듭니다. Azure VPN 게이�
 
 이 단계에서는 TestVNet1에서 TestVNet2까지 및 TestVNet2에서 TestVNet1까지의 연결을 만듭니다.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
 >[AZURE.IMPORTANT] 두 연결 모두에 대해 BGP를 사용하도록 설정해야 합니다.
 
@@ -300,4 +300,4 @@ AS 번호를 사용하여 VPN 게이트웨이를 만듭니다. Azure VPN 게이�
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

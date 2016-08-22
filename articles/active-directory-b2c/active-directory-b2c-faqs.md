@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="08/09/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C FAQ
@@ -58,7 +58,22 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 
 ### Azure AD B2C에서 보낸 확인 메일(콘텐츠 및 "From:" 필드)을 어떻게 사용자 지정하나요?
 
-[회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정합니다. "From:" 필드는 지원을 통해 변경할 수 있습니다.
+[회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
+
+- **배너 로고**: 오른쪽 아래에 표시됩니다.
+- **배경색**: 맨 위에 표시됩니다.
+
+	![사용자 지정된 확인 전자 메일의 스크린샷](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+
+전자 메일 서명에는 B2C 테넌트를 처음 만들 때 제공한 B2C 테넌트의 이름이 포함됩니다. 다음 지침을 사용하여 이름을 변경할 수 있습니다.
+
+- [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독 관리자로 로그인합니다.
+- B2C 테넌트로 이동합니다.
+- **구성** 탭을 클릭합니다.
+- **디렉터리 속성** 섹션에서 **이름** 필드를 변경합니다.
+- 페이지 맨 아래에서 **저장**을 클릭합니다.
+
+현재 전자 메일의 "받는 사람:" 필드를 변경할 방법은 없습니다. 이 기능 및 확인 전자 메일의 본문을 완전히 사용자 지정하는 기능에 관심이 있는 경우 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails)에서 이 기능에 투표하세요.
 
 ### 데이터베이스에서 Azure AD B2C로 기존 사용자 이름, 암호 및 프로필을 어떻게 마이그레이션할 수 있나요?
 
@@ -108,7 +123,7 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 - 각 사용자를 돌아가며 선택합니다.(현재 자신이 로그인한, 즉, 구독 관리자를 사용자에서 제외함) 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - **응용 프로그램** 탭을 클릭합니다.
 - **표시** 드롭다운 필드에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
-- 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지 맨 아래에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
+- 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
 - Active Directory 확장으로 다시 이동하고 B2C 테넌트를 선택합니다.
 - 페이지 맨 아래에서 **삭제**를 클릭합니다. 화면의 지시에 따라 프로세스를 완료합니다.
 
@@ -124,4 +139,4 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 또한 현재 [서비스 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

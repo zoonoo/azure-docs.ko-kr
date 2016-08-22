@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # 디렉터리 동기화 요구 사항 결정
@@ -34,7 +34,7 @@
   - 그렇다면 사용자에게 ID의 가상 디렉터리/통합이 있습니까?
 - 동기화하려는 다른 디렉터리 온-프레미스(예: LDAP 디렉터리, HR 데이터베이스 등)가 있습니까?
   - GALSync를 수행할 것입니까?
-  - 조직에서 UPN의 현재 상태는 무엇입니까? 
+  - 조직에서 UPN의 현재 상태는 무엇입니까?
   - 사용자가 인증하는 다른 디렉터리가 있습니까?
   - 회사는 Microsoft Exchange를 사용합니까?
     - 하이브리드 Exchange를 배포할 계획입니까?
@@ -68,4 +68,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

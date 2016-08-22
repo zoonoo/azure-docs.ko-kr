@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016"
+	ms.date="08/10/2016"
 	ms.author="adegeo"/>
 
 
@@ -164,4 +164,4 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0810_2016-->

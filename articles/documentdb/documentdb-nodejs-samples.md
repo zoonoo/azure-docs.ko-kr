@@ -3,7 +3,7 @@
 	description="NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 NoSQL Node.js 예제를 찾습니다." 
 	keywords="node.js 예제"
 	services="documentdb" 
-	authors="aliuy" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="nodejs"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/18/2016" 
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 
 # DocumentDB Node.js 예제
@@ -120,4 +120,4 @@ Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 
 DocumentDB에서 데이터 파티션에 대한 자세한 내용은 [DocumentDB에서 데이터 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

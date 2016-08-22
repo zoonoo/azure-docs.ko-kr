@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # 분석에 대한 참조
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-> [AZURE.NOTE] 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 [시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo) 합니다.
+> [AZURE.NOTE] [Test drive Analytics on our simulated data]앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 (https://analytics.applicationinsights.io/demo)입니다.
 
 ## 인덱스
 
@@ -105,7 +105,7 @@ set 절은 쿼리 기간에 대한 옵션을 설정합니다. 쿼리 옵션은 �
     set OptionName [= OptionValue] ; query
 
 
-|이름 | true로 설정된 경우 영향
+|Name | true로 설정된 경우 영향
 |---|---
 |querytrace| 쿼리에 의해 생성된 디버그 추적 수준이 증가합니다. 
 |noexecute| 쿼리의 실제 실행을 사용하지 않도록 설정합니다(쿼리 계획 단계만 실행). 
@@ -1684,17 +1684,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기 |
-| / | 나누기 |
-| % | 모듈로 |
-||
-|`<` |보다 작음 
-|`<=`|작거나 같음 
-|`>` |보다 큼 
-|`>=`|크거나 같음 
-|`<>`|같지 않음 
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
 ### abs
@@ -2124,21 +2114,23 @@ h"hello"
 `!~`|같지 않음 |아니요| `"aBc" !~ "xyz"`
 `has`|오른쪽(RHS)이 왼쪽(LHS)의 전체 항임|아니요| `"North America" has "america"`
 `!has`|RHS가 LHS의 전체 항이 아님|아니요|`"North America" !has "amer"` 
-`hasprefix`|RHS는 LHS의 용어 접두사임|아니요|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS는 LHS의 용어 접두사가 아님|아니요|`"North America" !hasprefix "mer"`
-`contains` | RHS가 LHS의 하위 시퀀스로 발생|아니요| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS가 LHS에 있는 항의 접두사임|아니요|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS가 LHS에 있는 항의 접두사가 아님|아니요|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS가 LHS에 있는 항의 접미사임|아니요|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS가 LHS에 있는 항의 접미사가 아님|아니요|`"North America" !hassuffix "mer"`
+`contains` | RHS가 LHS의 하위 문자열로 발생함|아니요| `"FabriKam" contains "BRik"`
 `!contains`| RHS가 LHS에서 발생하지 않음|아니요| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS가 LHS의 하위 시퀀스로 발생|예| `"FabriKam" contains "Kam"`
+`containscs` | RHS가 LHS의 하위 문자열로 발생함|예| `"FabriKam" contains "Kam"`
 `!containscs`| RHS가 LHS에서 발생하지 않음|예| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS가 LHS의 초기 하위 시퀀스임|아니요|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS가 LHS의 초기 하위 시퀀스가 아님|아니요|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS가 LHS의 종료 하위 시퀀스임|아니요|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS가 LHS의 종료 하위 시퀀스가 아님|아니요|`"Fabrikam" !endswith "ka"`
+`startswith`|RHS가 LHS의 초기 하위 문자열임|아니요|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS가 LHS의 초기 하위 문자열이 아님|아니요|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS가 LHS의 종료 하위 문자열임|아니요|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS가 LHS의 종료 하위 문자열이 아님|아니요|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS가 RHS에 대한 일치 항목을 포함|예| `"Fabrikam" matches regex "b.*k"`
 `in`|요소와 같음|예|`"abc" in ("123", "345", "abc")`
 `!in`|요소와 같지 않음|예|`"bc" !in ("123", "345", "abc")`
 
-전체 어휘 용어의 존재를 시험하는 경우 `has` 또는 `in`을(를) 사용합니다. 즉, 기호 또는 필드 시작 또는 끝에 경계가 지어진 영숫자 단어입니다. `has`은(는) `contains`, `startswith` 또는 `endswith`보다 빠르게 수행합니다. 이러한 쿼리의 첫 번째 쿼리가 더 빠르게 실행됩니다.
+전체 어휘 용어의 존재를 시험하는 경우 `has` 또는 `in`을 사용합니다. 즉, 기호 또는 필드 시작 또는 끝에 경계가 지어진 영숫자 단어입니다. `has`는 `contains`, `startswith` 또는 `endswith`보다 빠르게 수행합니다. 이러한 쿼리의 첫 번째 쿼리가 더 빠르게 실행됩니다.
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -2207,7 +2199,7 @@ h"hello"
 
 **예**
 
-예제 문자열 `Trace`에서 `Duration`에 대한 정의를 검색합니다. 일치 항목은 `real`(으)로 변환된 다음, 시간 상수(`1s`)를 곱하여 `Duration`이(가) `timespan` 형식이 됩니다. 이 예제에서 이는 123.45초와 같음:
+예제 문자열 `Trace`에서 `Duration`에 대한 정의를 검색합니다. 일치 항목은 `real`로 변환된 다음, 시간 상수(`1s`)를 곱하여 `Duration`이 `timespan` 형식이 됩니다. 이 예제에서 이는 123.45초와 같음:
 
 ```AIQL
 ...
@@ -2215,7 +2207,7 @@ h"hello"
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
 ```
 
-이 예제는 `substring(Text, 2, 4)`와(과) 같습니다.
+이 예제는 `substring(Text, 2, 4)`과 같습니다.
 
 ```AIQL
 extract("^.{2,2}(.{4,4})", 1, Text)
@@ -2271,7 +2263,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 **인수**
 
 * *regex:* *text*를 검색할 [정규식](https://github.com/google/re2/wiki/Syntax)입니다. '('괄호')'에 캡처 그룹을 포함할 수 있습니다.
-* *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`을(를) 사용하는 식입니다.
+* *rewrite:* *matchingRegex*에 의해 수행된 모든 일치에 대한 대체 정규식입니다. 전체 일치를 참조하려면 `\0`, 첫 번째 캡처 그룹을 참조하려면 `\1`, 이후 캡처 그룹을 참조하려면 `\2`를 사용하는 식입니다.
 * *text:* 문자열입니다.
 
 **반환**
@@ -2466,7 +2458,7 @@ substring("ABCD", 0, 2)       // AB
       "rawStack":"string"
     }}
 
-참고로 `indexer`은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
+참고로 `indexer`는 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
 
     details[0].parsedStack[2].level
     details[0].message
@@ -2500,8 +2492,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| == *value*<br/>`where City in ('London', 'Paris', 'Rome')`인 *array*의 요소가 있으면 True
-| *value* `!in` *array*| == *value*인 *array*의 요소가 없으면 True
+| *value* `in` *array*| *value*<br/>`where City in ('London', 'Paris', 'Rome')`인 *array*의 요소가 있으면 True
+| *value* `!in` *array*| *value*인 *array*의 요소가 없으면 True
 |[`arraylength(`array`)`](#arraylength)| 배열이 아니면 Null
 |[`extractjson(`path,object`)`](#extractjson)|path를 사용하여 object를 탐색합니다.
 |[`parsejson(`source`)`](#parsejson)| JSON 개체를 동적 개체로 변환합니다.
@@ -2514,7 +2506,7 @@ T
 ### let 절의 동적 개체
 
 
-[Let 절](#let-clause)은 동적 값을 문자열로 저장하므로 이 두 절은 동일하며 둘 다 사용하기 전에 `parsejson` 또는 `todynamic`이(가) 필요합니다.
+[Let 절](#let-clause)은 동적 값을 문자열로 저장하므로 이 두 절은 동일하며 둘 다 사용하기 전에 `parsejson` 또는 `todynamic`이 필요합니다.
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2587,9 +2579,9 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **성능 팁**
 
-* `extractjson()`을(를) 사용하기 전에 where 절을 적용합니다.
+* `extractjson()`을 사용하기 전에 where 절을 적용합니다.
 * 정규식 일치 사용은 [extract](#extract)를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
-* JSON에서 둘 이상의 값을 추출해야 하는 경우 `parsejson()`을(를) 사용합니다.
+* JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()`을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
 
 ### JSON Path 식
@@ -2608,7 +2600,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 ### parsejson
 
-`string`을(를) [JSON 값](http://json.org/)으로 해석하고 값을 `dynamic`(으)로 반환합니다. JSON 복합 개체의 요소를 두 개 이상 추출해야 하는 경우 `extractjson()`을(를) 사용하는 것이 좋습니다.
+`string`을 [JSON 값](http://json.org/)으로 해석하고 값을 `dynamic`으로 반환합니다. JSON 복합 개체의 요소를 둘 이상 추출해야 하는 경우 `extractjson()`을 사용하는 것이 좋습니다.
 
 **구문**
 
@@ -2624,7 +2616,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **예제**
 
-다음 예제에서 `context_custom_metrics`이(가) `string`인 경우 다음과 유사합니다.
+다음 예제에서 `context_custom_metrics`가 `string`인 경우 다음과 유사합니다.
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
@@ -2657,7 +2649,7 @@ T
 
 **예**
 
-다음 예제는 `[1, 4, 7]`을(를) 반환합니다.
+다음 예제는 `[1, 4, 7]`을 반환합니다.
 
 ```AIQL
 range(1, 8, 3)
@@ -2722,4 +2714,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

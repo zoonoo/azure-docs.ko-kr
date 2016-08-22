@@ -3,7 +3,7 @@
    description="VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # VNet(가상 네트워크)에서 사용하는 DNS 서버 관리
 
@@ -57,12 +57,4 @@
 
 1. 가상 네트워크에 있는 가상 컴퓨터에서 새로운 DNS 설정을 가져올 수 있도록 하려면 해당 가상 컴퓨터를 다시 시작합니다.
 
-## 다음 단계
-
-[VNet(가상 네트워크) 속성을 관리하는 방법](../virtual-networks-settings)
-
-[가상 네트워크에서 공용 IP 주소를 사용하는 방법](../virtual-networks-public-ip-within-vnet)
-
-[VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

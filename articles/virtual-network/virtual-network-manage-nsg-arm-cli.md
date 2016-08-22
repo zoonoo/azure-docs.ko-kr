@@ -3,7 +3,7 @@
    description="리소스 관리자에서 Azure CLI를 사용하여 NSG를 관리하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure CLI를 사용하여 NSG 관리
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -39,7 +39,7 @@
 
 	azure network nsg list --resource-group RG-NSG
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nsg list
 	+ Getting the network security groups
@@ -55,7 +55,7 @@
 
 	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
 
-예상된 출력:
+예상 출력:
 	
 	info:    Executing command network nsg show
 	+ Looking up the network security group "NSG-FrontEnd"
@@ -120,7 +120,7 @@
 		--priority 102 \
 		--direction Inbound		
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nsg rule create
 	+ Looking up the network security rule "allow-https"
@@ -150,7 +150,7 @@
 		--name allow-https \
 		--source-address-prefix Internet
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nsg rule set
 	+ Looking up the network security group "NSG-FrontEnd"
@@ -201,7 +201,7 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 		--name TestNICWeb1 \
 		--network-security-group-name NSG-FrontEnd
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nic set
 	+ Looking up the network interface "TestNICWeb1"
@@ -270,7 +270,7 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 		--name FrontEnd \
 		--network-security-group-id ""
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "FrontEnd"
@@ -298,7 +298,7 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 >[AZURE.NOTE] **NSG-FrontEnd** NSG가 **TestVNet** 가상 네트워크와 동일한 리소스 그룹에 있는 경우 위의 명령이 작동합니다. NSG가 다른 리소스 그룹에 있으면 대신 **--network-security-group-id** 매개 변수를 사용하고 NSG에 대한 전체 ID를 제공해야 합니다. **azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json**을 실행하고 **ID** 속성을 찾아서 ID를 검색할 수 있습니다.
 
-예상된 출력:
+예상 출력:
 
 		info:    Executing command network vnet subnet set
 		+ Looking up the subnet "FrontEnd"
@@ -322,13 +322,13 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 리소스에 연결되지 않은 경우 NSG를 삭제할 수 있습니다. NSG를 삭제하려면 다음 단계를 수행합니다.
 
 1. NSG에 연결된 리소스를 확인하려면 [NSG 연결 보기](#View-NSGs-associations)에서처럼 `azure network nsg show`을 실행합니다.
-2. NSG가 NIC에 연결된 경우 각 NIC에 대한 [NIC에서 NSG 분리](#Dissociate-an-NSG-from-a-NIC)에서처럼 `azure network nic set`을 실행합니다. 
+2. NSG가 NIC에 연결된 경우 각 NIC에 대한 [NIC에서 NSG 분리](#Dissociate-an-NSG-from-a-NIC)에서처럼 `azure network nic set`을 실행합니다.
 3. NSG가 서브넷에 연결된 경우 각 서브넷에 대한 [서브넷에서 NSG 분리](#Dissociate-an-NSG-from-a-subnet)에서처럼 `azure network vnet subnet set`을 실행합니다.
 4. NSG를 삭제하려면 아래와 같이 `azure network nsg delete` 명령을 실행합니다.
 
 		azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg delete
 		+ Looking up the network security group "NSG-FrontEnd"
@@ -339,4 +339,4 @@ NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 
 
 - NSG에 대한 [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

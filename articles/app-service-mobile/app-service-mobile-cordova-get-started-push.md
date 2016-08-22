@@ -44,6 +44,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
+
 ##푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
@@ -124,7 +126,7 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 		      ios: { alert: 'true', badge: 'true', sound: 'true' },
 		      wns: {}
 		  });
-		
+
 		// Handle the registration event.
 		pushRegistration.on('registration', function (data) {
 		  // Get the native platform of the device.
@@ -151,11 +153,11 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 		      });
 		  }
 		});
-		
+
 		pushRegistration.on('notification', function (data, d2) {
 		  alert('Push Received: ' + data.message);
 		});
-		
+
 		pushRegistration.on('error', handleError);
 		}
 
@@ -170,6 +172,8 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 처음에는 Google Android 플랫폼을 대상으로 하므로 Google Cloud Messaging을 사용하도록 설정해야 합니다. 마찬가지로 Microsoft Windows 장치를 대상으로 하는 경우 WNS 지원을 사용하도록 설정합니다.
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
 
 ####<a name="configure-backend"></a>GCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
 
@@ -260,9 +264,11 @@ IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단�
 
 [AZURE.INCLUDE [알림 허브 Xamarin이 Apple 푸시 알림 사용](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
+
 ####푸시 알림을 전송하도록 Azure 구성
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -303,6 +309,8 @@ Apple 개발자 계정에서 만든 앱 ID가 config.xml의 위젯 요소 ID와 
 Visual Studio에서 저장소 옵션을 사용하려면 솔루션 플랫폼 목록에서 Windows 대상(예: **Windows-x64** 또는 **Windows-x86**)을 선택합니다(푸시 알림에 대해 **Windows-AnyCPU** 선택 안 함).
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
+
+[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push)
 
 ####WNS에 대한 알림 허브 구성
 
@@ -376,4 +384,4 @@ SDK 사용 방법을 알아봅니다.
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

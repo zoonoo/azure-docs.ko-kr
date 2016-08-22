@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication과 함께 연락 방법으로 모바일 앱 사용
@@ -31,7 +31,7 @@
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - 알림 또는 일회용 암호 중 하나를 선택하고 설정을 클릭합니다.
-- Azure Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 <a href="#kokr">수동으로 계정 추가</a> 를 참조하세요.
+- Azure Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 [수동으로 계정 추가](#adding-an-account-manually)를 참조하세요.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -54,7 +54,7 @@
 - 완료를 클릭합니다.
 
 
-<h2 id="kokr">수동으로 계정 추가</h2>
+## 수동으로 계정 추가
 계정을 수동으로 추가하려는 경우 수동으로 계정 입력 단추를 선택합니다.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]"작업 계정 추가"가 표시되는 경우 작업 공간 연결을 위한 것으로, Multi-Factor Authentication을 위한 것이 아닙니다. 무시해도 됩니다.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

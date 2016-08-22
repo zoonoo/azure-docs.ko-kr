@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 소개 | Microsoft Azure"
+	pageTitle="Microsoft Azure 소개 | Microsoft Azure"
 	description="Microsoft Azure를 처음 사용하나요? 이 제품이 제공하는 서비스에 대한 기본적인 개요와 유용하게 사용되는 예제를 확인하시기 바랍니다."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
+	authors="rboucher"
+	manager=""
 	editor=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 # Microsoft Azure 소개
 
-Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다. 이 문서의 목적은 사용자가 [클라우드 컴퓨팅](https://azure.microsoft.com/overview/what-is-cloud-computing/)에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.
+Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫폼입니다. 이 문서의 목적은 사용자가 클라우드 컴퓨팅에 관한 지식 없이도 Azure의 기본 개념을 이해할 수 있도록 기반을 제공하는 것입니다.
 
 **이 문서를 읽는 방법**
 
@@ -55,7 +55,7 @@ Azure에는 관리자가 대부분의 Azure 기능(일부 기능 제외)에 액�
 
 ![Azure 가상 컴퓨터 ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *그림: Azure 가상 컴퓨터에서 클라우드의 가상 컴퓨터 인스턴스를 완벽하게 관리할 수 있습니다.*
 
-표준 이미지 또는 사용자가 제공한 이미지를 사용하여 주문형 가상 컴퓨터를 만드는 기능은 매우 유용합니다. Azure 가상 컴퓨터에서는 일반적으로 [IaaS](https://azure.microsoft.com/overview/what-is-iaas/)(Infrastructure as a Service)로 알려진 이 방법을 제공합니다. 그림 2는 VM(가상 컴퓨터) 실행 방법과 VHD에서 가상 컴퓨터를 만드는 방법을 함께 보여 줍니다.
+표준 이미지 또는 사용자가 제공한 이미지를 사용하여 주문형 가상 컴퓨터를 만드는 기능은 매우 유용합니다. Azure 가상 컴퓨터에서는 일반적으로 IaaS(Infrastructure as a Service)로 알려진 이 방법을 제공합니다. 그림 2에서는 VM(가상 컴퓨터) 실행 방법과 VHD에서 가상 컴퓨터를 만드는 방법을 함께 보여 줍니다.
 
 VM을 작성하려면 사용할 VHD와 VM의 크기를 지정한 다음 VM을 실행한 시간만큼 결제합니다. VM이 실행되는 시간만 분 단위로 결제하지만 VHD 가용성을 유지하기 위한 최소 저장소 비용도 청구됩니다. Azure는 부팅하는 데 사용할 수 있는 운영 체제를 포함하고 있는 VHD(또는 "이미지")를 모아 놓은 갤러리를 제공합니다. 여기에는 Windows Server, Linux, SQL Server, Oracle 등 Microsoft와 파트너 옵션이 포함됩니다. 자유롭게 VHD와 이미지를 만들어 직접 업로드할 수 있습니다. 데이터만 포함하는 VHD를 업로드한 다음 실행 중인 VM에서 액세스할 수도 있습니다.
 
@@ -202,7 +202,7 @@ Blob 저장소는 다른 많은 Azure 기능(가상 컴퓨터 포함)에 사용�
 ### 가상 네트워크
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
-*그림: 가상 네트워크는 클라우드에서 개인 네트워크를 제공하므로, 프레미스 간 연결에서 VPN 연결을 설정한 경우 여러 서비스가 서로 통신하거나 온-프레미스 리소스와 통신할 수 있습니다.*
+*그림: 가상 네트워크는 클라우드에서 개인 네트워크를 제공하므로 VPN 프레미스 간 연결을 설정한 경우 여러 서비스가 서로 통신하거나 온-프레미스 리소스와 통신할 수 있습니다.*
 
 
 공개 클라우드를 유용하게 사용하는 방법 중 하나는 클라우드를 데이터 센터의 확장으로 생각하는 것입니다.
@@ -402,7 +402,7 @@ Azure 사이트 복구(이전의 Hyper-V 복구 관리자)를 사용하면 사�
 
 이 기능은 서비스의 상태를 지속적으로 모니터하여 기본 데이터 센터에서 사이트 중단 시 순차적인 서비스 복구를 자동화합니다. 가상 컴퓨터를 오케스트레이션된 방식으로 가져오므로 다계층 작업을 위해서도 서비스를 빠르게 복원할 수 있습니다.
 
-사이트 복구는 Hyper-V 복제본, System Center, SQL Server AlwaysOn 등의 기존 기술에서도 작동합니다. 자세한 내용은 [Azure 사이트 복구 개요](site-recovery/site-recovery-overview.md)를 확인합니다.
+사이트 복구는 Hyper-V 복제본, System Center, SQL Server Always On 등의 기존 기술에서도 작동합니다. 자세한 내용은 [Azure 사이트 복구 개요](site-recovery/site-recovery-overview.md)를 확인합니다.
 
 ### Azure 백업
 ![Azure 백업](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -430,7 +430,7 @@ Windows Server 또는 System Center를 이미 사용하는 경우 Azure 백업�
 
 큐는 간단한 아이디어입니다. 응용 프로그램이 어떤 메시지를 큐에 보내면 다른 응용 프로그램이 그 메시지를 읽습니다. 응용 프로그램에 이처럼 단순한 서비스만 필요하다면 Azure 큐가 가장 적합한 선택이 될 것입니다.
 
-시간 경과에 따라 Azure가 증가하는 방식으로 인해 Azure 저장소 큐 및 서비스 버스 큐는 유사한 큐 서비스를 제공합니다. 둘 중 하나를 사용하려는 이유는 기술 문서인 [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)에 나와 있습니다. 많은 시나리오에서 두 가지 서비스가 모두 작동합니다.
+시간 경과에 따라 Azure가 증가하는 방식으로 인해 Azure 저장소 큐 및 서비스 버스 큐는 유사한 큐 서비스를 제공합니다. 서비스 간의 비교 내용은 기술 문서인 [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure 큐 및 서비스 버스 큐 - 비교 및 대조")에서 다루었습니다. 많은 시나리오에서 두 가지 서비스가 모두 작동합니다.
 
 **큐 시나리오**
 
@@ -599,11 +599,11 @@ SaaS(Software as a Service)의 인기로 응용 프로그램 개발 방법이 �
 SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램입니다. 이 응용 프로그램은 안정적인 배달 및 통계와 같은 추가 기능을 제공합니다. 이러한 인프라를 직접 빌드하는 대신 이 응용 프로그램 및 관련 서비스를 구매할 수 있습니다.
 
 
-## 시작
+## 시작하기
 
 이제 Azure의 전체적인 모습에 대해 배워 보았습니다. 다음 단계에서는 첫 Azure 응용 프로그램을 작성해 보겠습니다. 사용할 언어를 선택한 후 [적절한 SDK로](/downloads/) 시작해 보세요. 클라우드 컴퓨팅은 새로운 표준입니다. 지금 시작하세요.
 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

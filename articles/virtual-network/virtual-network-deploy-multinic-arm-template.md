@@ -3,7 +3,7 @@
    description="리소스 관리자에서 템플릿을 사용하여 여러 NIC VM을 배포하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 템플릿을 사용하여 다중 NIC VM 배포
 
@@ -231,7 +231,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
 
-	예상된 출력:
+	예상 출력:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
@@ -275,7 +275,7 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command group create
 		+ Getting resource group IaaSStory-Backend
@@ -292,4 +292,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

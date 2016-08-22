@@ -664,4 +664,4 @@ _그림 6. 분석 및 저장소 요구 사항에 따라 데이터 분할_
 - [경고 알림 받기](./azure-portal/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

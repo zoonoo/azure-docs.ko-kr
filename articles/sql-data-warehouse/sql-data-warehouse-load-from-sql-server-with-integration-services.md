@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 # SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(SSIS)
@@ -61,8 +61,8 @@ SSIS(SQL Server Integration Services)는 SQL 데이터 웨어하우스에 연결
 ## 1단계: 새 Integration Services 프로젝트 만들기
 
 1. Visual Studio 2015를 실행합니다.
-2. **파일** 메뉴에서 **새로 만들기 | 프로젝트**를 선택합니다.
-3. **설치됨 | 템플릿 | 비즈니스 인텔리전스 | Integration Services** 프로젝트 형식으로 이동합니다.
+2. **파일** 메뉴에서 **새로 만들기 선택| Project**.
+3. **설치됨으로 이동| Templates | Business Intelligence | Integration Services** project types.
 4. **Integration Services 프로젝트**를 선택합니다. **이름** 및 **위치** 값을 입력한 다음 **확인**을 선택합니다.
 
 Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성됩니다. 그런 다음 Visual Studio의 프로젝트에 새 SSIS 패키지(Package.dtsx)의 디자이너가 열립니다. 다음과 같은 화면 영역이 나타납니다.
@@ -75,7 +75,7 @@ Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성
 
 ## 2단계: 기본 데이터 흐름 만들기
 
-1. 도구 상자의 데이터 흐름 작업을 (**제어 흐름** 탭의) 디자인 화면으로 끌어 놓습니다.
+1. 도구 상자의 데이터 흐름 작업을 (**제어 흐름** 탭의) 디자인 화면 중심으로 끌어 놓습니다.
 
     ![][02]
 
@@ -224,4 +224,4 @@ Visual Studio가 열리고 새 SSIS(Integration Services) 프로젝트가 생성
 [Visual Studio Community]: https://www.visualstudio.com/ko-KR/products/visual-studio-community-vs.aspx
 [AdventureWorks 2014 예제 데이터베이스]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

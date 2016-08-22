@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 FAQ
@@ -150,4 +150,4 @@ API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-man
 
 GIT 자격 증명 관리자를 사용하거나 Visual Studio를 통해 리포지토리를 복제하려고 하면 암호 길이를 127자로만 제한하여 생성된 암호가 잘리는 Windows 자격 증명 대화 상자의 알려진 문제가 발생한 것일 수 있습니다. 암호 길이를 줄이는 작업 중입니다. 현재는 복제하는 데 GIT Bash를 사용하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

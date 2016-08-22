@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -84,9 +84,7 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 작업 |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| 예 | 예 | 예 | - | 작업 필요 없음. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 | 아니요 | - | 15일 이내 | 즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| 아니요 | - | - | 30일 이내 | 즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 | 예 | 예 | - | 작업 필요 없음. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. | | 예 | 아니요 | - | 15일 이내 | 즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. | | 아니요 | - | - | 30일 이내 | 즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 [-] 중요하지 않습니다.
 
@@ -163,4 +161,4 @@ Azure AD Connect를 사용하여 AD FS 팜/Azure AD 트러스트를 구성했다
 
 자세한 내용은 [트러스트 복구](./active-directory-aadconnect-federation-management.md#repairing-the-trust)를 참조합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

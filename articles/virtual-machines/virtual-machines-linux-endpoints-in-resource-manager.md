@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # 리소스 관리자의 클래식 끝점
@@ -22,9 +22,9 @@
 ## 다음 단계
 다음 문서에서 여기에 설명된 기술에 대한 자세한 내용과 네트워크 보안 그룹을 사용하기 위한 빠른 시작 가이드를 읽어볼 수 있습니다.
 
-- [빠른 시작-Azure CLI를 사용하여 네트워크 보안 그룹 및 ACL 규칙 만들기](virtual-machines-linux-nsg-quickstart.md)  
-- [Azure Resource Manager 개요](../resource-group-overview.md)  
-- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)  
-- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md) 
+- [빠른 시작-Azure CLI를 사용하여 네트워크 보안 그룹 및 ACL 규칙 만들기](virtual-machines-linux-nsg-quickstart.md)
+- [Azure Resource Manager 개요](../resource-group-overview.md)
+- [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
+- [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

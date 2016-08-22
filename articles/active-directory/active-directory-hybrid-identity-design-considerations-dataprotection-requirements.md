@@ -3,7 +3,7 @@
 	description="하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 식별합니다."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 #강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 
@@ -69,7 +69,7 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 규정, 법률 및 규정 준수 요구 사항은 회사가 속해 있는 업계에 따라 달라집니다. 강력하게 규제된 업계에 있는 회사는 규정 준수 문제와 관련된 ID 관리 문제를 해결해야 합니다. SOX(Sarbanes-Oxley), HIPAA(Health Insurance Portability and Accountability Act), GLBA(Gramm-Leach-Bliley Act) 및 PCI DSS(Payment Card Industry Data Security Standard)와 같은 규정은 ID 및 액세스에 관해 매우 엄격합니다. 회사가 도입하는 하이브리드 ID 솔루션에는 하나 이상의 이러한 규정 요구 사항을 충족하는 핵심 기능이 있어야 합니다. 이 영역의 경우 다음 질문을 묻는지를 확인합니다.
 
 - 하이브리드 ID 솔루션은 비즈니스에 대한 규정 요구 사항을 준수합니까?
-- 하이브리드 ID 솔루션에는 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니다? 
+- 하이브리드 ID 솔루션에는 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니다?
  
 >[AZURE.NOTE]
 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
@@ -81,4 +81,4 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

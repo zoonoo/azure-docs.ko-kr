@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@ Expensify와 Azure AD의 통합을 구성하려면 갤러리의 Expensify를 관
 
 **갤러리에서 Expensify를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -218,9 +218,7 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### Expensify 테스트 사용자 만들기
 
-이 섹션에서는 Expensify에서 Britta Simon이라는 사용자를 만듭니다. Expensify는 기본적으로 사용하도록 설정된 Just-In-Time 프로비전을 지원합니다.
-
-이 섹션에 작업 항목이 없습니다. Expensify에 액세스할 때 사용자가 아직 존재하지 않는 경우 새 사용자가 만들어집니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
+이 섹션에서는 Expensify에서 Britta Simon이라는 사용자를 만듭니다. Expensify 플랫폼에서 사용자를 추가하려면 Expensify 지원 팀에 문의하세요.
 
 > [AZURE.NOTE] 수동으로 사용자를 만들어야 하는 경우 Expensify 지원 팀에 문의해야 합니다.
 
@@ -283,4 +281,4 @@ Expensify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-expensify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

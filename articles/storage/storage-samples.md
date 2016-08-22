@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="06/01/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram" />
 
 # Azure 저장소 샘플
@@ -90,4 +90,4 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 - [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)
 - [C++ 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -240,7 +240,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]
@@ -557,4 +557,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 - [크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-autoscale-to-webhook-email.md)와 [Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-auditlog-to-webhook-email.md)에서 알림 기능에 관해 알아봅니다.
 - 가상 컴퓨터 크기 집합의 자동 크기 조정 기능을 실행하도록 LAMP 스택을 설정하는 [Ubuntu/Apache/PHP 앱을 실행하는 VM 크기 집합 자동 크기 조정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 템플릿을 확인합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/26/2016"
+	ms.date="08/08/2016"
 	ms.author="markvi"/>
 
 
@@ -61,7 +61,7 @@ Azure Active Directory의 조건부 액세스 제어 기능은 클라우드 및 
 
 - **차단**: 사용자 위치와 같은 조건 하에서 액세스를 적용할 수 있습니다. 예를 들어, 사용자가 신뢰할 수 있는 네트워크에 있지 않은 경우 액세스를 차단합니다.
 
-- **등록/호환 장치**: 장치 수준에서 모바일 장치 관리(MDM)에 등록 및 호환 장치만 액세스를 허용하는 정책을 설정할 수 있습니다. Microsoft Intune을 사용하여 장치 등록과 호환성을 검사합니다. 그런 다음 장치 수준 조건부 액세스는 MDM 정책을 준수하는 장치만 액세스할 수 있도록 합니다.
+- **호환 장치**: 장치 수준에서 도메인에 가입된 컴퓨터 또는 MDM(모바일 장치 관리)에 등록되고 규정을 준수하는 모바일 장치만 액세스를 허용하는 정책을 설정할 수 있습니다. Microsoft Intune은 장치에 대한 규정 준수를 확인한 다음 응용 프로그램 액세스 중에 적용하도록 이를 Azure Active Directory에 다시 보고하는 데 사용됩니다.
  
 
 ## 응용 프로그램
@@ -69,20 +69,49 @@ Azure Active Directory의 조건부 액세스 제어 기능은 클라우드 및 
 - 이러한 정책을 사용하여 설정할 수 있는 액세스 수준은 클라우드 또는 온-프레미스의 응용 프로그램 및 서비스에 적용할 수 있습니다. 정책은 웹 사이트 또는 서비스에 직접 적용됩니다. 그런 다음 브라우저 액세스뿐만 아니라 서비스에 액세스하는 응용 프로그램에 대해 정책이 적용됩니다. 적용할 수 있는 서비스 정책 목록은 여기에서 찾을 수 있습니다.
 
 
+## 장치 기반 조건부 액세스
+
+Azure AD에 등록되고 특정 조건을 충족하는 장치에서 응용 프로그램에 액세스하는 것을 제한할 수도 있습니다. 이는 다음과 같은 장치에서 이러한 리소스에 액세스하는 유효한 사용자로부터 조직의 리소스를 보호하는 데 유용합니다.
+
+- 알 수 없는/관리되지 않는 장치
+- 조직에서 정의한 보안 정책을 준수하지 않는 장치
+
+다음 요구 사항에 따라 정책을 설정할 수 있습니다.
+
+- **도메인 가입 장치** - 온-프레미스 Active Directory 도메인에 가입되고 Azure AD에 등록된 장치에 대한 액세스를 제한하는 정책을 설정할 수 있습니다. 이 정책은 Azure AD에 등록되고 온-프레미스 Active Directory 도메인에 속해 있는 Windows 데스크톱, 랩톱 또는 엔터프라이즈 태블릿에 적용됩니다. 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 설정하는 방법에 대한 자세한 내용은 [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+
+- **호환 장치** - 관리 시스템에 의해 디렉터리에 **준수**로 표시된 장치에 대한 액세스를 제한하는 정책을 설정할 수 있습니다. 이 정책을 설정하면 장치에서 파일 암호화를 적용하는 등 보안 정책을 준수하는 장치만 액세스가 허용됩니다. 이 정책을 사용하여 다음 장치에서의 액세스를 제한할 수 있습니다.
+
+    - 하이브리드 구성에서 배포된 System Center Configuration Manager 2016에 의해 관리되는 **Windows 도메인 가입 장치**
+
+    - Microsoft Intune 또는 지원되는 타사 MDM(모바일 장치 관리) 시스템에 의해 관리되는 **Windows 10 Mobile 회사 또는 개인 장치**
+
+    - Microsoft Intune에 의해 관리되는 **iOS 및 Android 장치**
+
+
+장치 기반 CA 정책에 의해 보호되는 응용 프로그램에 액세스하는 사용자는 이 정책을 준수하는 장치에서 이 작업을 수행해야 합니다. 정책을 준수하지 않는 장치에서는 액세스가 거부됩니다.
+
+Azure AD에서 장치 기반 CA 정책을 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory 연결 응용 프로그램의 액세스 제어를 위한 장치 기반 조건부 액세스 정책을 구성하는 방법](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
+
+## Azure Active Directory 조건부 액세스에 대한 문서 색인
   
-## 조건부 액세스 - 콘텐츠 맵  
 다음 콘텐츠 맵에는 현재 배포에서 조건부 액세스를 사용하도록 설정하는 방법을 알아보기 위해 참조해야 하는 문서가 나열되어 있습니다.
 
 
 ### MFA 및 위치 정책
 
 - [그룹, 위치 및 MFA 정책에 따라 Azure AD 연결 앱에 조건부 액세스 시작하기](active-directory-conditional-access-azuread-connected-apps.md)
+
 - [지원되는 응용 프로그램 종류](active-directory-conditional-access-supported-apps.md)
 
 
 ### 장치 정책
 
-[Microsoft Intune을 요구하는 데이터 보호 지원](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+- [Azure Active Directory 연결 응용 프로그램의 액세스 제어를 위한 장치 기반 조건부 액세스 정책을 설정하는 방법](active-directory-conditional-access-policy-connected-applications.md)
+
+- [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Microsoft Intune을 요구하는 데이터 보호 지원](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 
 ### 로그인 위험을 기반으로 리소스 보호
@@ -94,4 +123,4 @@ Azure Active Directory의 조건부 액세스 제어 기능은 클라우드 및 
 - [조건부 액세스 FAQ](active-directory-conditional-faqs.md)
 - [기술 참조](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

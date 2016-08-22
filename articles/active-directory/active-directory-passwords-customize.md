@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # 해당 조직의 요구에 맞게 사용자 지정 암호 관리
@@ -851,7 +851,7 @@
                   <li class="unordered">
 												예로 설정된 경우, 사용자 또는 관리자가 자신의 암호를 다시 설정할 때마다 자신이 암호를 다시 설정했다는 알림을 받게 됩니다.<br><br></li>
                   <li class="unordered">
-												이 알림은 자신의 암호를 재설정한 사용자의 기본 및 대체(또는 인증) 전자 메일 주소로 전자 메일을 통해 전송됩니다.<br><br></li>
+												이 알림은 자신의 암호를 재설정한 사용자의 사용자 계정 이름 및 대체(또는 인증) 전자 메일 주소로 전자 메일을 통해 전송됩니다.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -875,4 +875,4 @@
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

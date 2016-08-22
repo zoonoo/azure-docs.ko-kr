@@ -48,7 +48,7 @@ StartPartitionDataLossAsync()를 호출하여 서비스 패브릭 서비스 파�
 
 Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 State 속성이 Completed가 될 때까지 GetProgress API가 반복해서 호출됩니다. 모든 [FabricTransientException][fte] 및 OperationCanceledException이 다시 시도됩니다. 이 명령이 최종 상태(Completed, Faulted 또는 Cancelled)에 도달하면 반환된 진행 중인 개체의 Result 속성은 추가 정보를 제공합니다. 상태가 Completed이면 Result.SelectedPartition.PartitionId는 선택한 파티션 ID를 포함합니다. Result.Exception은 null이 됩니다. 상태가 Faulted인 경우 Result.Exception에는 오류 주입 및 분석 서비스 기능에서 해당 명령이 실패한 이유가 포함됩니다. Result.SelectedPartition.PartitionId는 선택한 파티션 ID가 됩니다. 상황에 따라 파티션을 선택할 만큼 명령이 충분히 진행되지 않았을 수 있습니다. 그런 경우에 PartitionId는 0이 됩니다. 상태가 Cancelled인 경우 Result.Exception은 null이 됩니다. Faulted 사례와 같이, Result.SelectedPartition.PartitionId는 선택된 파티션 ID를 가지고 있지만 명령이 그럴 수 있을 정도로 충분히 진행되지 않은 경우 0이 됩니다. 아래 샘플을 참조하세요.
 
-아래 샘플 코드에서는 명령을 시작한 후 진행 상태를 확인하고 특정 파티션을 다시 시작하는 방법을 보여 줍니다.
+아래 샘플 코드에서는 명령을 시작한 후 진행 상태를 확인하고 특정 파티션에서 데이터 손실을 일으키는 방법을 보여 줍니다.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@ Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 Stat
 
 명령이 최종 상태에 도달하면 해당 메타데이터는 특정 시간 동안 오류 주입 및 분석 서비스에 남아 있다가 공간 절약을 위해 제거됩니다. 명령이 제거된 후 명령의 operationId를 사용하여 "GetProgress"가 호출되면 ErrorCode인 KeyNotFound를 사용하여 FabricException을 반환합니다.
 
-[dl]: https://msdn.microsoft.com/ko-KR/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/ko-KR/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/ko-KR/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/ko-KR/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/ko-KR/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/ko-KR/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/ko-KR/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/ko-KR/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/ko-KR/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->
