@@ -1,3 +1,4 @@
+
 <properties
    pageTitle="Azure CLI를 사용하여 완전한 Linux 환경 만들기 | Microsoft Azure"
    description="Azure CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
@@ -1275,4 +1276,4 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

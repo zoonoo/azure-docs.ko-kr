@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/02/2016"
+	ms.date="08/03/2016"
 	ms.author="marsma"/>
 
 # 배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리
@@ -34,22 +34,23 @@
 
 ## 배치 계정 만들기 및 삭제
 
-위의 설명대로 배치 관리 API의 주요 기능은 Azure 지역 내에서 배치 계정을 만들고 삭제하는 것입니다. 이를 위해 [BatchManagementClient.Accounts.CreateAsync][net_create], [DeleteAsync][net_delete] 또는 해당 동기 항목을 사용합니다.
+위의 설명대로 배치 관리 API의 주요 기능은 Azure 지역 내에서 배치 계정을 만들고 삭제하는 것입니다. 이를 위해 [BatchManagementClient.Account.CreateAsync][net_create], [DeleteAsync][net_delete] 또는 해당 동기 항목을 사용합니다.
 
 다음 코드 조각은 계정을 만들고 배치 서비스에서 새로 만든 계정을 가져온 후 삭제합니다. 이 코드와 이 문서의 다른 코드 조각에서 `batchManagementClient`는 [BatchManagementClient][net_mgmt_client]의 완전히 초기화된 인스턴스입니다.
 
 ```csharp
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
-AccountResource account = getResponse.Resource;
+AccountResource account = await batchManagementClient.Account.GetAsync(
+	"MyResourceGroup",
+	"mynewaccount");
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
 > [AZURE.NOTE] 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 응용 프로그램에는 관리할 배치 계정을 소유하는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 아래 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
@@ -60,15 +61,21 @@ await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name
 
 ```csharp
 // Get and print the primary and secondary keys
-BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "mybatchaccount");
-Console.WriteLine("Primary key:   {0}", accountKeys.PrimaryKey);
-Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
+BatchAccountListKeyResult accountKeys =
+	await batchManagementClient.Account.ListKeysAsync(
+		"MyResourceGroup",
+		"mybatchaccount");
+Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
+Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
-BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
-	"MyResourceGroup",
-	"mybatchaccount",
-	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
+BatchAccountRegenerateKeyResponse newKeys =
+	await batchManagementClient.Account.RegenerateKeyAsync(
+		"MyResourceGroup",
+		"mybatchaccount",
+		new BatchAccountRegenerateKeyParameters() {
+			KeyName = AccountKeyType.Primary
+			});
 ```
 
 > [AZURE.TIP] 관리 응용 프로그램에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [ListKeysAsync][net_list_keys]를 사용하여 관리하려는 배치 계정에 대한 계정 키를 가져옵니다. 그런 다음 [BatchClient][net_batch_client]를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials][net_sharedkeycred] 클래스를 초기화할 때 이 키를 사용합니다.
@@ -81,13 +88,16 @@ Azure 구독 및 배치와 같은 개별 Azure 서비스는 모두 포함되는 
 
 지역에 배치 계정을 만들기 전에 Azure 구독에서 해당 지역에 계정을 추가할 수 있는지 여부를 확인할 수 있습니다.
 
-아래 코드 조각에서 먼저 [BatchManagementClient.Accounts.ListAsync][net_mgmt_listaccounts]를 사용하여 구독 내에서 모든 배치 계정의 컬렉션을 가져옵니다. 이 컬렉션을 가져온 후 대상 영역의 계정 수를 결정합니다. 그런 다음 [BatchManagementClient.Subscriptions][net_mgmt_subscriptions]를 사용하여 배치 계정 할당량을 가져오고 해당 지역에서 얼마나 많은 계정(있는 경우)을 만들 수 있는지 결정합니다.
+아래 코드 조각에서 먼저 [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts]를 사용하여 구독 내에서 모든 배치 계정의 컬렉션을 가져옵니다. 이 컬렉션을 가져온 후 대상 영역의 계정 수를 결정합니다. 그런 다음 [BatchManagementClient.Subscriptions][net_mgmt_subscriptions]를 사용하여 배치 계정 할당량을 가져오고 해당 지역에서 얼마나 많은 계정(있는 경우)을 만들 수 있는지 결정합니다.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
-BatchAccountListResponse listResponse = await batchManagementClient.Accounts.ListAsync(new AccountListParameters());
+BatchAccountListResponse listResponse =
+		await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
-Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}", creds.SubscriptionId, accounts.Count);
+Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
+	creds.SubscriptionId,
+	accounts.Count);
 
 // Get a count of all accounts within the target region
 string region = "westus";
@@ -110,7 +120,8 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 
 ```csharp
 // First obtain the Batch account
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
+BatchAccountGetResponse getResponse =
+	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
@@ -141,11 +152,11 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 합니다. **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있으며, 실제 끝점일 필요는 없습니다.
 
-응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Windows Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
+응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Microsoft Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
 
 ![Azure 포털의 응용 프로그램 권한][2]
 
-> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Windows Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Windows Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
+> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Microsoft Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Microsoft Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
 
 위의 설명대로 응용 프로그램을 추가했으면 응용 프로그램의 리디렉션 URI 및 클라이언트 ID를 사용하여 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트에서 `Program.cs`를 업데이트합니다. 응용 프로그램의 **구성** 탭에서 이러한 값을 찾을 수 있습니다.
 
@@ -202,4 +213,4 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

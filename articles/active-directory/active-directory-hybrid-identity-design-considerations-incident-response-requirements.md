@@ -1,10 +1,10 @@
 
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 인시던트 대응 요구 사항 확인 | Microsoft Azure Requirements"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 인시던트 대응 요구 사항 확인 | Microsoft Azure Requirements "
 	description="IT에서 활용할 수 있는 하이브리드 ID 솔루션에 대한 모니터링 및 보고 기능을 확인하여 잠재적인 위협을 식별하고 완화하는 작업을 수행합니다."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # 하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
 
@@ -52,7 +52,7 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 
 - 필요한 경우 회사가 네트워크 액세스에서 사용자를 블록하는 정책이 준비되어 있습니까?
  - 그렇다면 현재 솔루션이 채택하려는 하이브리드 ID 관리 시스템과 통합됩니까?
-- 회사가 격리된 사용자에 대해 조건부 액세스를 적용해야 합니까? 
+- 회사가 격리된 사용자에 대해 조건부 액세스를 적용해야 합니까?
  
 >[AZURE.NOTE]
 각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
@@ -63,4 +63,4 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

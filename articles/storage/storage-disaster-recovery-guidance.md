@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -81,4 +81,4 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 
 -   파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

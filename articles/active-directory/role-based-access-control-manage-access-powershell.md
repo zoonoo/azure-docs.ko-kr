@@ -24,7 +24,7 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Azure 포털 및 Azure 리소스 관리 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure 리소스 관리 API를 사용하여 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
@@ -67,7 +67,7 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 ![RBAC PowerShell - 리소스 그룹에 대한 Get-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### 사용자에게 할당된 역할 나열
-소속 그룹에 할당된 역할을 포함하여 지정된 사용자에게 할당된 모든 역할을 나열하려면 `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`를 사용합니다.
+지정된 사용자에게 할당된 역할 및 사용자가 속한 그룹에 할당된 역할을 모두 나열하려면 `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`를 사용합니다.
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
@@ -86,7 +86,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ### 개체 ID 검색
 역할을 할당하려면 개체(사용자, 그룹 또는 응용 프로그램)와 범위 둘 다를 식별해야 합니다.
 
-구독 ID를 모르는 경우 Azure 포털의 **구독** 블레이드에서 확인할 수 있습니다. 또는 MSDN에서 [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx)을 통해 구독 ID를 쿼리하는 방법을 알아봅니다.
+구독 ID를 모르는 경우 Azure 포털의 **구독** 블레이드에서 확인할 수 있습니다. 구독 ID를 쿼리하는 방법을 알아보려면 MSDN에서 [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx)을 참조하세요.
 
 Azure AD 그룹에 대한 개체 ID를 가져오려면 다음을 사용합니다.
 
@@ -127,9 +127,9 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ## 사용자 지정 역할 만들기
 사용자 지정 역할을 만들려면 `New-AzureRmRoleDefinition` 명령을 사용합니다.
 
-PowerShell에서 사용자 지정 역할을 만들 경우 [기본 제공 역할](role-based-access-built-in-roles.md) 중 하나로 시작해야 합니다. 속성을 편집하고 원하는 Actions, notActions 또는 범위를 추가하고 변경 내용을 새 역할로 저장합니다.
+PowerShell을 사용하여 사용자 지정 역할을 만드는 경우 [기본 제공 역할](role-based-access-built-in-roles.md) 중 하나로 시작해야 합니다. 속성을 편집하여 원하는 *Actions*, *notActions* 또는 *scopes*를 추가한 다음 변경 내용을 새 역할로 저장합니다.
 
-다음 예제에서는 역할 *Virtual Machine Contributor*로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
+다음 예제에서는 *Virtual Machine Contributor* 역할로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
@@ -167,7 +167,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-다음 예제에서는 Virtual Machine Operator 사용자 지정 역할의 할당 가능한 범위에 Azure 구독을 추가합니다.
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할의 할당 가능한 범위에 Azure 구독을 추가합니다.
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -209,7 +209,6 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## 참고 항목
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

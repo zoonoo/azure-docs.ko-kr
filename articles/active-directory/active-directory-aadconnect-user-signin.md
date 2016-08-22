@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -107,7 +107,7 @@ Azure AD 디렉터리의 사용자 지정 도메인 상태와 UPN 접미사가 �
 ###### Express 설정/암호 동기화
 | 시스템 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
 |:-------------:|:----------------------------------------|
-| 추가되지 않음 | 이 경우에 contoso.com에 대한 사용자 지정 도메인은 Azure AD 디렉터리에서 추가되지 않습니다. 접미사 @contoso.com이 포함된 UPN 온-프레미스를 가진 사용자는 해당 온-프레미스 UPN을 사용하여 Azure에 로그인할 수 없습니다. 대신 기본 Azure AD 디렉터리에 대한 접미사를 추가하여 Azure AD에서 제공한 새 UPN을 사용해야 합니다. 예를 들어 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 사용자를 동기화하는 경우 온-프레미스 사용자 user@contoso.com은 지정된 user@azurecontoso.onmicrosoft.com|의 UPN입니다
+| 추가되지 않음 | 이 경우에 contoso.com에 대한 사용자 지정 도메인은 Azure AD 디렉터리에서 추가되지 않습니다. 접미사 @contoso.com이 포함된 UPN 온-프레미스를 가진 사용자는 해당 온-프레미스 UPN을 사용하여 Azure에 로그인할 수 없습니다. 대신 기본 Azure AD 디렉터리에 대한 접미사를 추가하여 Azure AD에서 제공한 새 UPN을 사용해야 합니다. 예를 들어 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 사용자를 동기화하는 경우 온-프레미스 사용자 user@contoso.com은 지정된 user@azurecontoso.onmicrosoft.com의 UPN입니다.|
 | 확인되지 않음 | 이 경우에 Azure AD 디렉터리에 추가된 사용자 지정 도메인 contoso.com이 있지만 아직 확인되지 않습니다. 도메인을 확인하지 않고 사용자를 동기화하는 경우 사용자는 '추가되지 않음' 시나리오처럼 Azure AD에 의해 할당된 새 UPN입니다.|
 | Verified | 이 경우에 UPN 접미사에 대한 Azure AD에서 추가되고 확인횐 사용자 지정 도메인 contoso.com이 있습니다. 사용자는 Azure AD와 동기화된 후에 해당 온-프레미스 사용자 계정 이름(예: user@contoso.com)을 사용하여 Azure에 로그인할 수 있습니다.|
 
@@ -118,7 +118,7 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 | 시스템 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
 |:-------------:|:----------------------------------------|
-| 추가되지 않음 | 이 경우에 Azure AD Connect는 Azure AD 디렉터리에서 UPN 접미사 contoso.com에 일치하는 사용자 지정 도메인을 찾을 수 없습니다. 사용자가 user@contoso.com.|과 같은 해당 온-프레미스 UPN로 AD FS를 사용하여 로그인해야 하는 경우 사용자 지정 도메인 contoso.com을 추가해야 합니다.
+| 추가되지 않음 | 이 경우에 Azure AD Connect는 Azure AD 디렉터리에서 UPN 접미사 contoso.com에 일치하는 사용자 지정 도메인을 찾을 수 없습니다. 사용자가 user@contoso.com.과 같은 해당 온-프레미스 UPN으로 AD FS를 사용하여 로그인해야 하는 경우 사용자 지정 도메인 contoso.com을 추가해야 합니다.|
 | 확인되지 않음 | 이 경우에 Azure AD Connect는 이후 단계에서 도메인을 확인하는 방법에 대한 적절한 정보를 메시지로 표시합니다.|
 | Verified | 이 경우에 추가 작업 없이 구성을 진행할 수 있습니다.|  
 
@@ -136,11 +136,11 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 ![Azure에 연결](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
->[AZURE.NOTE] 임시 스위치를 암호 동기화로 만드는 경우 **사용자 계정 변환하지 않음**을 확인합니다. 옵션에서 확인하지 않은 경우 페더레이션된 디렉터리에 각 사용자가 변환되고 다음을 사용할 수 있습니다.
+>[AZURE.NOTE] 임시 스위치를 암호 동기화로 만드는 경우 **사용자 계정 변환하지 않음**을 확인합니다. 옵션에서 확인하지 않은 경우 각 사용자가 페더레이션된 사용자로 변환되고 몇 시간이 걸릴 수 있습니다.
   
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
 [Azure AD Connect: 설계 개념](active-directory-aadconnect-design-concepts.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

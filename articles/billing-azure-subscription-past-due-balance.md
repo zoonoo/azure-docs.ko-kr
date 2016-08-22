@@ -43,6 +43,6 @@ Azure에서 지불 방식 변경에 대한 지침은 [Azure 구독 지불에 사
 
 **시나리오 3**: 계정 관리자가 회사를 그만두거나 역할 변경의 이유로 고지서를 받지 못한 경우에는 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 문제를 해결할 수 있습니다.
 
-> [AZURE.NOTE] Azure 구독이 사용하지 않도록 설정되면 이 문서의 [Azure 구독이 취소될 경우 어떻게 해야 하나요?](billing-subscription-become-disable.md) 단계를 사용하여 다시 사용하도록 설정할 수 있습니다.
+> [AZURE.NOTE] Azure 구독이 사용하지 않도록 설정되면 이 문서의 [Azure 구독을 사용하지 않도록 설정할 경우 어떻게 해야 하나요?](billing-subscription-become-disable.md) 단계를 사용하여 다시 사용하도록 설정할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

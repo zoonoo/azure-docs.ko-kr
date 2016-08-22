@@ -3,7 +3,7 @@
    description="공용 IP 주소를 사용하도록 가상 네트워크를 구성하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # VNet(가상 네트워크)의 공용 IP 주소 공간
 
@@ -45,6 +45,6 @@ VNet(가상 네트워크)는 공용 및 개인(RFC 1918 주소 블록) IP 주소
 
 ## 다음 단계
 
-[VNet에서 사용하는 DNS 서버를 관리하는 방법](../virtual-networks-manage-dns-in-vnet)
+[VNet에서 사용하는 DNS 서버를 관리하는 방법](virtual-networks-manage-dns-in-vnet.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

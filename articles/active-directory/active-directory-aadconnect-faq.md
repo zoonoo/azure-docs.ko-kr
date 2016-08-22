@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -24,6 +24,10 @@
 **Q: Azure AD Connect를 무인 설치하는 방법이 있나요?** 설치 마법사를 사용하여 Azure AD Connect 설치만 지원됩니다. 무인 및 자동 설치는 지원되지 않습니다.
 
 **Q: 하나의 도메인에 연결할 수 없는 포리스트가 있습니다. Azure AD Connect를 설치하려면 어떻게 하나요?** 2016년 2월 빌드에서 지원됩니다.
+
+**Q: AD DS 상태 에이전트는 서버 코어에서 작동하나요?** 예. 에이전트를 설치한 후 다음 PowerShell commandlet을 사용하여 등록 프로세스를 완료할 수 있습니다.
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
 ## 네트워크
 **Q: 방화벽, 네트워크 장치 또는 네트워크에서 열려 있는 상태로 유지할 수 있는 최대 시간 연결을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 기간 내 클라이언트 쪽 시간 제한 임계값은 얼마나 길어야 합니까?** 모든 네트워킹 소프트웨어, 물리적 장치 또는 열린 상태로 둘 수 있는 최대 시간 연결을 제한하는 다른 것은 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 적어도 5분(300초)의 임계값을 사용해야 합니다. 이는 이전에 릴리스된 모든 Microsoft ID 동기화 도구에 적용됩니다.
@@ -68,4 +72,4 @@
 
 - Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

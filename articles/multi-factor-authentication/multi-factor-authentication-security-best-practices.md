@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
@@ -23,7 +23,7 @@
 ## 클라우드에서 Azure Multi-Factor Authentication에 대한 모범 사례
 모든 사용자에게 Multi-Factor Authentication을 제공하고 Azure Multi-Factor Authentication이 제공하는 확장 기능을 이용하려면 모든 사용자에 대해 Azure Multi-Factor Authentication을 사용하도록 설정해야 합니다. 이 작업은 다음 중 하나를 사용하여 수행합니다.
 
-- Azure AD Premium 또는 Enterprise Mobility Suite 
+- Azure AD Premium 또는 Enterprise Mobility Suite
 - Multi-Factor Auth 공급자
 
 ### Azure AD Premium/Enterprise Mobility Suite
@@ -44,7 +44,7 @@ Multi-factor Authentication을 설정할 때 고려해야 할 사항:
 
 Azure AD Premium 또는 Enterprise Mobility Suite가 없는 경우 클라우드에서 Azure MFA를 채택하기 위한 첫 번째 권장 단계는 MFA Auth 공급자를 만드는 것입니다. MFA는 기본적으로 Azure Active Directory를 가지고 있는 글로벌 관리자가 사용할 수 있지만, 조직을 위해 MFA를 배포하는 경우 Multi-Factor Authentication 기능을 모든 사용자로 확장해야 하며 Multi-Factor Authentication Auth 공급자가 필요합니다. Auth 공급자를 선택하는 경우 디렉터리를 선택하고 다음 사항을 고려해야 합니다.
 
-- Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않습니다. 
+- Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않습니다.
 - 다단계 인증을 모든 사용자에게 확장하고 전역 관리자가 관리 포털, 사용자 지정 인사말, 보고서 등의 기능을 활용할 수 있게 하려면 Multi-Factor Auth 공급자를 Azure AD 디렉터리에 연결해야 합니다.
 - DirSync 또는 AAD Sync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리만 사용하는 경우에는 DirSync 또는 AAD 동기화가 필요하지 않습니다.
 - Azure AD Premium 또는 Enterprise Mobility Suite가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하기만 하면 사용자에 대한 MFA를 켤 수 있습니다.
@@ -62,14 +62,14 @@ Azure AD Premium 또는 Enterprise Mobility Suite가 없는 경우 클라우드�
 
 사용자의 대부분은 암호만 사용하여 인증하는 데 익숙하므로 회사가 이 프로세스에 관하여 모든 사용자에게 인식하게 하는 것이 중요합니다. 이렇게 인식하면 사용자가 MFA와 관련된 경미한 문제에 대해 지원 센터에 전화할 가능성을 줄일 수 있습니다. 그러나 MFA를 일시적으로 비활성화가 필요한 시나리오도 있습니다. 그러한 시나리오를 처리하는 방법에 대해 이해하려면 아래 지침을 따르십시오.
 
-- 모바일 앱 또는 전화에서 알림 또는 전화 통화를 받지 않았고 이 때문에 사용자가 로그인하지 못하는 시나리오를 처리할 수 있도록 기술 지원 요원을 교육해야 합니다. 기술 지원 요원은 사용자가 Multi-Factor Authentication을 "바이패스"하여 1회 인증할 수 있도록 일회성 바이패스 옵션을 사용하도록 설정할 수 있습니다. 바이패스는 임시적이며 지정된 시간(초) 이후 만료됩니다. 
+- 모바일 앱 또는 전화에서 알림 또는 전화 통화를 받지 않았고 이 때문에 사용자가 로그인하지 못하는 시나리오를 처리할 수 있도록 기술 지원 요원을 교육해야 합니다. 기술 지원 요원은 사용자가 Multi-Factor Authentication을 "바이패스"하여 1회 인증할 수 있도록 일회성 바이패스 옵션을 사용하도록 설정할 수 있습니다. 바이패스는 임시적이며 지정된 시간(초) 이후 만료됩니다.
 - 필요하면 Azure MFA의 신뢰할 수 있는 IP 기능을 활용할 수 있습니다. 이 기능을 사용하여 관리되는 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있습니다. 기능은 Azure AD Premium, Enterprise Mobility Suite 또는 Azure Multi-Factor Authentication 라이선스가 있는 Azure AD 테넌트에서 사용할 수 있습니다.
 
 
 ## Azure Multi-Factor Authentication 온-프레미스에 대한 모범 사례
 회사가 자체 인프라를 이용하여 MFA를 사용하도록 결정한 경우 Azure Multi-Factor Authentication 서버 온-프레미스를 배포해야 합니다. MFA 서버 구성 요소는 아래 다이어그램에 나와 있습니다.
 
-![Multi-Factor Auth 공급자](./media/multi-factor-authentication-security-best-practices/server.png) * 기본적으로 설치하지 않음** 설치하지만 기본적으로 사용하지 않음
+![Multi-Factor Auth 공급자](./media/multi-factor-authentication-security-best-practices/server.png) *기본적으로 설치하지 않음** 설치하지만 기본적으로 사용하지 않음
 
 
 Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액세스하는 클라우드 리소스 및 온-프레미스 리소스를 보호할 수 있습니다. 그러나 이 기능은 페더레이션을 사용해서만 수행할 수 있습니다. 즉, AD FS를 보유하고 이를 Azure AD 테넌트와 페더레이션해야 합니다. Multi-factor Authentication 서버를 설정할 때 고려해야 할 사항:
@@ -94,7 +94,7 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - 페더레이션된(SSO) 사용자의 경우 암호는 조직 ID에 저장됩니다. 사용자가 회사를 떠나는 경우 해당 정보는 실시간으로 DirSync를 사용하는 조직 ID에 유입되어야 합니다. 계정 사용 안 함/삭제 설정은 동기화에 최대 3시간이 걸리며 Azure AD에서 앱 암호의 사용 안 함/삭제가 지연됩니다.
 - 앱 암호를 사용할 경우 온-프레미스 클라이언트 액세스 제어 설정은 적용되지 않습니다.
 - 온-프레미스 인증 로깅 / 감사 기능은 앱 암호에 사용할 수 없습니다
-- 추가 최종 사용자 교육이 Microsoft Lync 2013 클라이언트에 필요합니다. 
+- 추가 최종 사용자 교육이 Microsoft Lync 2013 클라이언트에 필요합니다.
 - 특정 고급 아키텍처 디자인은 클라이언트와 Multi-Factor Authentication을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
 - 기본적으로 사용자는 앱 암호를 생성할 수 없으며, 회사가 이를 필요로 하거나 사용자가 어떤 시나리오에서 앱 암호를 생성할 수 있도록 해야 하는 경우 사용자가 앱 암호를 생성하여 브라우저용이 아닌 응용 프로그램에 로그인할 수 있음 옵션을 선택해야 합니다.
 
@@ -121,4 +121,4 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - [Azure Multi-Factor Authentication의 환경 설정](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/16/2016" 
+    ms.date="08/05/2016" 
     ms.author="jeedes" />
 
 #자습서: Igloo Software와 Azure Active Directory 통합
@@ -76,7 +76,7 @@
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Microsoft Azure AD Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Igloo Software 로그인 URL** 텍스트 상자에 다음 패턴 "**https://company.igloocommunities.com/?signin*"을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Igloo Software 로그인 URL** 텍스트 상자에 다음 패턴 "*https://company.igloocommunities.com/?signin*"을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "앱 URL 구성")
 
@@ -133,7 +133,7 @@
 12. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-igloo-software-tutorial/IC783973.png "Single Sign-On 구성")
-##사용자 프로비저닝 구성
+##사용자 프로비전 구성
   
 Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 없습니다. 할당된 사용자가 액세스 패널을 사용하여 Igloo Software에 로그인을 시도하면 Igloo Software는 사용자가 존재하는지 확인합니다. 사용할 수 있는 사용자 계정이 없으면 자동으로 Igloo Software에서 계정을 만듭니다.
 ##사용자 할당
@@ -152,6 +152,6 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 
     ![예](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

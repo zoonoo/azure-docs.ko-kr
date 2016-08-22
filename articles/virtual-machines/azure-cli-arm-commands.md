@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
 # 리소스 관리자 모드에서 Azure CLI 명령
 
-이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다.
+이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
@@ -36,12 +36,6 @@
 	azure config mode arm
 
 >[AZURE.NOTE] Azure 리소스 관리자 모드 및 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
-
-## 명령적 접근법 및 선언적 접근법
-
-Azure CLI의 리소스 관리자 모드는 [Azure 서비스 관리 모드](../virtual-machines-command-line-tools.md)와 마찬가지로 명령줄에서 명령을 통해 리소스를 만들 수 있는 명령을 제공합니다. 예를 들어 `azure group create <groupname> <location>`을 입력하는 경우 Azure에 리소스 그룹을 만들도록 요청하는 것이고, `azure group deployment create <resourcegroup> <deploymentname>`은 Azure에 원하는 개수의 항목 배포를 만들고 그룹에 배치하도록 명령하는 것입니다. 각 리소스 유형에는 명령적 명령이 있으므로 이러한 명령을 함께 연쇄하여 매우 복잡한 배포를 만들 수 있습니다.
-
-그러나 리소스 그룹을 설명하는 리소스 그룹 _템플릿_을 사용하는 것은 거의 모든 용도의 거의 모든 개수의 리소스에 대한 복잡한 배포를 자동화할 수 있는 훨씬 더 강력한 선언적 접근법입니다. 템플릿을 사용할 때 유일한 명령적 명령은 하나를 배포하는 것입니다. 템플릿, 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure 리소스 그룹 개요](../resource-group-overview.md)를 참조하십시오.
 
 
 ## Azure account: 계정 정보 관리
@@ -326,7 +320,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 **가상 네트워크를 관리하는 명령**
 
 	network vnet create [options] <resource-group> <name> <location>
-새 가상 네트워크를 만드는 데 사용됩니다. 다음 예제에서는 미국 서부 지역의 myresourcegroup 리소스 그룹에 대한 newvnet이라는 가상 네트워크를 만듭니다.
+새 가상 네트워크를 만듭니다. 다음 예제에서는 미국 서부 지역의 myresourcegroup 리소스 그룹에 대한 newvnet이라는 가상 네트워크를 만듭니다.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1590,7 +1584,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 ## azure provider: 리소스 공급자 등록을 관리하는 명령
 
-**ARM에 현재 등록된 공급자 나열**
+**Resource Manager에 현재 등록된 공급자 나열**
 
 	provider list [options]
 
@@ -1872,4 +1866,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

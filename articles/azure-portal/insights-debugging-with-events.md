@@ -1,20 +1,20 @@
 <properties
 	pageTitle="이벤트 및 감사 로그 보기"
 	description="Azure 구독에서 발생한 이벤트를 모두 확인하는 방법을 알아봅니다."
-	authors="HaniKN-MSFT"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="hanikn"/>
+	ms.author="robb"/>
 
 # 이벤트 및 감사 로그 보기
 
@@ -47,7 +47,7 @@
 
 이 명령을 클릭하면 새 블레이드가 열립니다.
 
-![필터](./media/insights-debugging-with-events/Insights_EventFilter.png)
+![Filter](./media/insights-debugging-with-events/Insights_EventFilter.png)
 
 필터에는 다음 네 가지 유형이 있습니다.
 
@@ -72,4 +72,4 @@
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="PowerShell을 사용하여 ACL을 관리하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법
 
@@ -95,4 +95,4 @@ Azure PowerShell cmdlet을 사용하여 네트워크 ACL(액세스 제어 목록
 
 [네트워크 ACL(액세스 제어 목록)이란?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

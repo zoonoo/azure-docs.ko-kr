@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
-	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET SDK에 대한 모든 것을 알아봅니다." 
+	pageTitle="DocumentDB .NET API 및 SDK | Microsoft Azure" 
+	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET API 및 SDK에 대한 모든 것을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB API 및 SDK 
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST (영문)](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-## DocumentDB .NET SDK
+## DocumentDB .NET API 및 SDK
 
 <table>
-<tr><td>**다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-<tr><td>**설명서**</td><td>[.NET SDK 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**샘플**</td><td>[.NET 코드 샘플] (https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**샘플**</td><td>[.NET 코드 샘플](documentdb-dotnet-samples.md)</td></tr>
 <tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[DocumentDB를 사용한 웹 응용 프로그램 개발](documentdb-dotnet-application.md)</td></tr>
 <tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
@@ -121,9 +124,9 @@
   - OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   - Order By를 지원하기 위한 IndexingPolicy
   
-		**NB: 가능한 새로운 변경** 
+		**NB: Possible breaking change** 
   
-    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
@@ -155,28 +158,19 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.9.2](#1.9.2) | 2016년 7월 23일 |---
-| 1.9.1 | 사용되지 않음 |---
-| 1.9.0 | 사용되지 않음 |---
-| [1\.8.0](#1.8.0) | 2016년 6월 14일 |---
-| [1\.7.1](#1.7.1) | 2016년 5월 6일 |---
-| [1\.7.0](#1.7.0) | 2016년 4월 26일 |---
-| [1\.6.3](#1.6.3) | 2016년 4월 8일 |---
-| [1\.6.2](#1.6.2) | 2016년 3월 29일 |---
-| [1\.5.3](#1.5.3) | 2016년 2월 19일 |---
-| [1\.5.2](#1.5.2) | 2015년 12월 14일 |---
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |---
-| [1\.5.0](#1.5.0) | 2015년 10월 5일 |---
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |---
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |---
-| [1\.3.0](#1.3.0) | 2015년 8월 5일 |---
-| [1\.2.0](#1.2.0) | 2015년 7월 6일 |---
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |---
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |---
+| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--
+| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--
+| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--
+| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--
+| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--
+| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--
+| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--
+| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--
+| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--
 | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
-| [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
+| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
+| [0\.9.0-prelease](#0.9.x-preview) | 2014년 4월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -185,4 +179,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

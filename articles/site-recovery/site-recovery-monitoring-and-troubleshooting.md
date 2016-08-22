@@ -18,7 +18,7 @@
 	
 # 가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결
 
-이 모니터링 및 문제 해결 가이드를 사용하면 복제 상태를 추적하고 Azure 사이트 복구에 대 한 문제해결 기술에 대해 배울 수 있습니다.
+이 모니터링 및 문제 해결 가이드를 사용하면 복제 상태를 추적하고 Azure Site Recovery에 대 한 문제해결 기술에 대해 배울 수 있습니다.
 
 ## 구성 요소 이해
 
@@ -29,13 +29,13 @@
 
 ### 온-프레미스 사이트 간 복제를 위한 VMM 사이트 배포
 
-두 개의 온-프레미스 위치 간 DR 설정의 일부로, Azure 사이트 복구 공급자를 다운로드하고 VMM 서버에 설치해야 합니다. 공급자는 Azure 포털에서 트리거된 모든 작업이 보호 사용, 장애 조치의 일부로서 기본측 가상 컴퓨터의 종료와 같은 온-프레미스 작업으로 변환되도록 보장하기 위해 인터넷 연결이 필요합니다.
+두 개의 온-프레미스 위치 간 DR 설정의 일부로, Azure Site Recovery 공급자를 다운로드하고 VMM 서버에 설치해야 합니다. 공급자는 Azure 포털에서 트리거된 모든 작업이 보호 사용, 장애 조치의 일부로서 기본측 가상 컴퓨터의 종료와 같은 온-프레미스 작업으로 변환되도록 보장하기 위해 인터넷 연결이 필요합니다.
 
 ![온-프레미스 사이트 간 복제를 위한 VMM 사이트 배포](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### 온-프레미스와 Azure 간 복제를 위한 VMM 사이트 배포
 
-온-프레미스 및 Azure 간 DR 설정의 일부로 각 Hyper-v 호스트에 설치해야 하는 Azure 복구 서비스 에이전트와 함께 Azure 사이트 복구 공급자를 다운로드하여 VMM 서버에 설치해야 합니다. 자세한 내용은 [Azure 보호에 대한 사이트 이해](./site-recovery-understanding-site-to-azure-protection.md)를 참조하세요.
+온-프레미스 및 Azure 간 DR 설정의 일부로 각 Hyper-v 호스트에 설치해야 하는 Azure 복구 서비스 에이전트와 함께 Azure Site Recovery 공급자를 다운로드하여 VMM 서버에 설치해야 합니다. 자세한 내용은 [Azure 보호에 대한 사이트 이해](./site-recovery-understanding-site-to-azure-protection.md)를 참조하세요.
 
 ![온-프레미스와 Azure 간 복제를 위한 VMM 사이트 배포](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
@@ -133,7 +133,7 @@ VMM 사이트 보호에 대해서는 [지원 진단 플랫폼(SDP) 도구를 사
 
 Hyper-V 사이트 보호의 경우에는 [도구](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)를 다운로드하고 Hyper-V 호스트에서 실행하여 로그를 수집합니다.
 
-VMware/실제 시나리오의 경우에는 [VMware 및 실제 사이트 보호를 위한 Azure 사이트 복구 로그 수집](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)을 참조하여 필요한 로그를 수집합니다.
+VMware/실제 시나리오의 경우에는 [VMware 및 실제 사이트 보호를 위한 Azure Site Recovery 로그 수집](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)을 참조하여 필요한 로그를 수집합니다.
 
 도구는 **%LocalAppData%\\ElevatedDiagnostics**에서 임의로 이름이 지정된 하위 폴더 아래에 로그를 로컬로 수집합니다.
 
@@ -192,7 +192,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 -   [가상 컴퓨터에 대역 외 작업이 발생하고 장애 조치(failover)를 커밋하지 못했습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   테스트 장애 조치(Failover)
     -   [테스트 장애 조치(Failover)가 진행 중이므로 장애 조치(Failover)를 시작할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
--   <span style="color:green;">새로 만들기</span> 컴퓨터가 속한 가상 컴퓨터 또는 서브넷과 연결된 네트워크 보안 그룹의 구성 설정으로 인해 'PreFailoverWorkflow 작업 WaitForScriptExecutionTask 시간이 초과되었습니다.'로 장애 조치의 시간이 초과되었습니다. 자세한 내용은 ['PreFailoverWorkflow 작업 WaitForScriptExecutionTask 시간이 초과되었습니다.'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery)를 참조합니다.
+-   <span style="color:green;">새로 만들기</span> 컴퓨터가 속한 가상 컴퓨터 또는 서브넷과 연결된 네트워크 보안 그룹의 구성 설정으로 인해 'PreFailoverWorkflow 작업 WaitForScriptExecutionTaskTimeout'으로 장애 조치의 시간이 초과되었습니다. 자세한 내용은 ['PreFailoverWorkflow 작업 WaitForScriptExecutionTaskTimeout'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery)을 참조하세요.
 
 
 ### 구성 서버, 프로세스 서버, 마스터 대상
@@ -202,4 +202,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 -   많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. [문제 해결 문서를 사용하여 VM에 RDP를 연결합니다.](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

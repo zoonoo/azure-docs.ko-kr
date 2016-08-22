@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/03/2016"
     ms.author="dineshm"/>
 
 # C++에서 큐 저장소를 사용하는 방법  
@@ -58,7 +58,7 @@ Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 �
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure 저장소 에뮬레이터** 입력을 시작하고 응용 프로그램 목록에서 **Microsoft Azure 저장소 에뮬레이터**를 선택합니다.
+Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure 저장소 에뮬레이터** 입력을 시작하고 응용 프로그램 목록에서 **Microsoft Azure 저장소 에뮬레이터**를 선택합니다.
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
@@ -236,4 +236,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

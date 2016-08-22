@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어) 관리 | Microsoft Azure"
-	description="Azure 명령줄 인터페이스에서 역할 및 역할 작업을 나열하고, 구독 및 응용 프로그램 범위에 역할을 할당하여 RBAC(역할 기반 액세스)를 관리하는 방법을 알아봅니다."
+	description="Azure 명령줄 인터페이스에서 역할 및 역할 작업을 나열하고, 구독 및 응용 프로그램 범위에 역할을 할당하여 RBAC(역할 기반 액세스 제어)를 관리하는 방법을 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -23,9 +23,9 @@
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
-Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager API를 사용하여 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
-Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
+Azure CLI(명령줄 인터페이스)를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 - Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
 - Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)으로 이동합니다.
@@ -74,8 +74,8 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
-###	사용자 그룹에 할당된 역할을 비롯해 사용자에 대한 역할 할당 나열
-특정 사용자에 대한 역할 할당을 나열하려면 다음을 사용합니다.
+###	사용자에 대한 역할 할당 목록
+특정 사용자에 대한 역할 할당 및 사용자 그룹에 할당된 할당을 나열하려면 다음을 사용합니다.
 
 	azure role assignment list --signInName <user email>
 
@@ -83,7 +83,7 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-다음 예제에서는 사용자 *sameert@aaddemo.com*에게 부여되는 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할뿐만 아니라 그룹에서 상속된 역할도 포함됩니다.
+다음 예제에서는 사용자 *sameert@aaddemo.com*에 부여된 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할 및 그룹에서 상속된 역할이 포함됩니다.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -140,16 +140,16 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
     azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹의 *sammert@aaddemo.com*에서 *가상 컴퓨터 참가자* 역할 할당을 제거합니다. 그런 다음 구독의 그룹에서 역할 할당을 제거합니다.
+다음 예제에서는 *Pharma-Sales-ProjectForcast* 리소스 그룹의 사용자 *sammert@aaddemo.com*에서 *가상 컴퓨터 참가자* 역할 할당을 제거합니다. 그런 다음 구독의 그룹에서 역할 할당을 제거합니다.
 
 ![RBAC Azure 명령줄 - azure role assignment delete - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## 사용자 지정 역할 만들기
-사용자 지정 역할을 만들려면 다음 명령을 사용합니다.
+사용자 지정 역할을 만들려면 다음을 사용합니다.
 
 	azure role create --inputfile <file path>
 
-다음 예제에서는 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고, 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여하는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 json 파일을 사용합니다.
+다음 예제에서는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 JSON 파일을 사용합니다.
 
 ![JSON - 사용자 지정 역할 정의 - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
@@ -161,7 +161,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
 	azure role set --inputfile <file path>
 
-다음 예제에서는 *작업*에 Microsoft.Insights/diagnosticSettings/ *작업*을 추가하고 Virtual Machine Operator 사용자 지정 역할의 *AssignableScopes**에 *Azure 구독*을 추가합니다.
+다음 예제에서는 **작업**에 *Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 Virtual Machine Operator 사용자 지정 역할의 **AssignableScopes**에 Azure 구독을 추가합니다.
 
 ![JSON - 사용자 지정 역할 수정 정의 - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -202,4 +202,4 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

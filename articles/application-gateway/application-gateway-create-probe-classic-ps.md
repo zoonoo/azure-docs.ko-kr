@@ -3,7 +3,7 @@
    description="클래식 배포 모델에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -14,11 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이(클래식)에 대한 사용자 지정 프로브 만들기
 
+> [AZURE.SELECTOR]
+- [Azure 포털](application-gateway-create-probe-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
@@ -27,7 +33,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## 새 응용 프로그램 게이트웨이 만들기
+## 응용 프로그램 게이트웨이 만들기
 
 응용 프로그램 게이트웨이를 만들려면
 
@@ -37,9 +43,9 @@
 
 ### 응용 프로그램 게이트웨이 리소스 만들기
 
-게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 지점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
+게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
-다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 새 응용 프로그램 게이트웨이를 만듭니다.
+다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -160,8 +166,8 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 구성 매개 변수:
 
-- **Name** - 사용자 지정 프로브에 대한 참조 이름.
-- **Protocol** - 사용되는 프로토콜(가능한 값은 HTTP 또는 HTTPS).
+- **Name** - 사용자 지정 프로브에 대한 참조 이름
+- **Protocol** - 사용되는 프로토콜(가능한 값은 HTTP 또는 HTTPS)
 - **Host** 및 **Path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
 - **Interval** - 프로브 간격 확인(초)을 구성합니다.
 - **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
@@ -195,7 +201,7 @@ get-AzureApplicationGatewayConfig를 사용하여 XML 파일을 가져옵니다.
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
 
-XML의 backendHttpSettings 섹션에서 아래 예제에 표시된 대로 프로브 이름을 추가합니다.
+XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로브 이름을 추가합니다.
 
         <BackendHttpSettings>
             <Name>setting1</Name>
@@ -222,4 +228,4 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

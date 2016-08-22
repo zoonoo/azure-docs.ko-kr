@@ -3,7 +3,7 @@
    description="Azure CLI를 사용하여 클래식 모드에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure CLI에서 NSG(클래식)를 만드는 방법
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-cli.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-cli.md) 수도 있습니다.
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -38,7 +38,7 @@
 
 		azure config mode asm
 
-	예상된 출력:
+	예상 출력:
 
 		info:    New mode is asm
 
@@ -46,7 +46,7 @@
 
 		azure network nsg create -l uswest -n NSG-FrontEnd
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg create
 		info:    Creating a network security group "NSG-FrontEnd"
@@ -81,7 +81,7 @@
 
 		azure network nsg rule create -a NSG-FrontEnd -n rdp-rule -c Allow -p Tcp -r Inbound -y 100 -f Internet -o * -e * -u 3389
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg rule create
 		info:    Looking up the network security group "NSG-FrontEnd"
@@ -109,7 +109,7 @@
 	- **-f(또는 --source-address-prefix)**. CIDR 또는 기본 태그를 사용하는 원본 주소 접두사입니다.
 	- **-o(또는 --source-port-range)**. 원본 포트 또는 포트 범위입니다.
 	- **-e(또는 --destination-address-prefix)**. CIDR 또는 기본 태그를 사용하는 대상 주소 접두사입니다.
-	- **-u(또는 --destination-port-range)**. 대상 포트 또는 포트 범위입니다.
+	- **-u(또는 --destination-port-range)**. 대상 포트 또는 포트 범위입니다.	
 
 5. **`azure network nsg rule create`** 명령을 실행하여 인터넷에서 포트 80(HTTP)에 대한 액세스를 허용하는 규칙을 만듭니다.
 
@@ -134,9 +134,9 @@
 
 6. **`azure network nsg subnet add`** 명령을 실행하여 NSG를 프런트 엔드 서브넷에 연결합니다.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg subnet add
 		info:    Looking up the network security group "NSG-FrontEnd"
@@ -152,7 +152,7 @@
 
 		azure network nsg create -l uswest -n NSG-BackEnd
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg create
 		info:    Creating a network security group "NSG-BackEnd"
@@ -187,7 +187,7 @@
 
 		azure network nsg rule create -a NSG-BackEnd -n sql-rule -c Allow -p Tcp -r Inbound -y 100 -f 192.168.1.0/24 -o * -e * -u 1433
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg rule create
 		info:    Looking up the network security group "NSG-BackEnd"
@@ -228,9 +228,9 @@
 
 6. **`azure network nsg subnet add`** 명령을 실행하여 NSG를 백 엔드 서브넷에 연결합니다.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nsg subnet add
 		info:    Looking up the network security group "NSG-BackEndX"
@@ -239,4 +239,4 @@
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

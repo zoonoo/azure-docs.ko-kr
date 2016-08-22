@@ -1,7 +1,6 @@
 ### 필수 조건
 
-- [ServiceBus](https://azure.microsoft.com/services/service-bus/) 계정
-
+[서비스 버스](https://azure.microsoft.com/services/service-bus/) 계정이 있어야 합니다.
 
 논리 앱에서 Azure 서비스 버스 계정을 사용하려면 먼저 서비스 버스 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
 
@@ -19,4 +18,4 @@
 3. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
     ![서비스 버스 연결 이미지 3](./media/connectors-create-api-servicebus/servicebus-3.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

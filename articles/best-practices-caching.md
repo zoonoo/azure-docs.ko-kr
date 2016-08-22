@@ -210,7 +210,7 @@ Azure Redis Cache는 가용성, 확장성 및 보안을 제공하는 고성능 �
 
 ### Redis의 기능
 
- Redis는 간단한 캐시 서버 이상입니다. 여러 일반적인 시나리오를 지원하는 광범위한 명령 집합과 함께 분산된 메모리 내 데이터베이스를 제공합니다. 이러한 내용은 이 문서의 뒷부분, Redis 캐싱 사용 섹션에 설명되어 있습니다. 이 섹션에는 Redis에서 제공하는 주요 기능 중 일부가 요약되어 있습니다.
+ Redis는 간단한 캐시 서버 이상입니다. 여러 일반적인 시나리오를 지원하는 광범위한 명령 집합과 함께 분산된 메모리 내 데이터베이스를 제공합니다. 이러한 내용은 이 문서의 뒷부분, Redis 캐싱 사용 섹션에 설명되어 있습니다. 이 섹션은 Redis를 제공하는 주요 기능 중 일부를 요약합니다.
 
 ### 메모리 내 데이터베이스인 Redis
 
@@ -897,11 +897,12 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - 여러 구독자가 동일한 채널을 구독할 수 있고 해당 채널에 게시된 메시지를 받을 수 있습니다.
 - 구독자는 구독한 후 게시된 메시지를 단지 수신합니다. 채널은 버퍼링되지 않으며 메시지가 게시되면 Redis 인프라가 각 구독자에게 메시지를 푸시한 다음 제거합니다.
 - 기본적으로 구독자는 보낸 순서대로 메시지를 수신합니다. 메시지 및 많은 구독자와 게시자 다수를 포함한 매우 활발 시스템에서 메시지의 보장된 순차적인 배달은 시스템의 성능을 저하시킬 수 있습니다. 각 메시지가 독립적이며 순서가 중요하지 않은 경우 응답성을 향상시킬 수 있는 Redis 시스템에서 동시 처리를 설정할 수 있습니다. 구독자가 False에 사용하는 연결의 PreserveAsyncOrder를 설정하여 StackExchange 클라이언트에서 이를 달성할 수 있습니다.
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  redisHostConnection.PreserveAsyncOrder = false;
-  ISubscriber subscriber = redisHostConnection.GetSubscriber();
-  ```
+
+```csharp
+ConnectionMultiplexer redisHostConnection = ...;
+redisHostConnection.PreserveAsyncOrder = false;
+ISubscriber subscriber = redisHostConnection.GetSubscriber();
+```
 
 ## 관련 패턴 및 지침
 
@@ -934,4 +935,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis 리포지토리의 [Redis에서 트랜잭션](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 페이지.
 - Microsoft 웹 사이트의 [데이터 분할 가이드](http://msdn.microsoft.com/library/dn589795.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

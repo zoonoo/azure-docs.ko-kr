@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="08/10/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -51,13 +51,6 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 ##일반 기능 비교
 
 > [AZURE.NOTE] 이 데이터의 다른 보기는 [Azure Active Directory 기능](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx)을 참조하세요.
-
-| | Azure AD Free | Azure AD Basic | Azure AD Premium |
-| ---                      | :-:           | :-:            | :-:              |
-| 일반 기능 | ![확인][12] | ![확인][12] | ![확인][12] |
-| Basic 기능 | | ![확인][12] | ![확인][12] |
-| Premium 기능 | | | ![확인][12] |
-
 
 
 
@@ -497,4 +490,4 @@ Azure AD는 Free, Basic 및 Premium 버전의 일반 기능 외에도 미리 보
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

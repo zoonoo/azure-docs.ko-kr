@@ -1,20 +1,20 @@
 <properties
 	pageTitle="수동 또는 자동으로 인스턴스 개수 조정 | Microsoft Azure"
 	description="Azure에서 서비스 크기를 조정하는 방법을 알아봅니다."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # 수동 또는 자동으로 인스턴스 개수 조정
 
@@ -68,7 +68,7 @@
     * *메트릭 이름* 자체
     * 메트릭의 *시간 집계*. *기간* 동안 데이터가 결합된 방식입니다.
 
-5. 메트릭을 선택한 후 메트릭에 대한 임계값과 연산자를 선택합니다. 예를 들어 **80%** **보다 큼**이라고 설정할 수 있습니다.
+5. 메트릭을 선택한 후 메트릭에 대한 임계값과 연산자를 선택합니다. 예를 들어 **80%** **보다 큼** 이라고 설정할 수 있습니다.
 
 6. 그런 다음 수행할 작업을 선택합니다. 다음과 같은 몇 가지 유형의 작업이 있습니다.
     * 증가 또는 감소(개수) - **값**으로 정의한 개수의 인스턴스를 추가하거나 제거합니다.
@@ -136,4 +136,4 @@
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

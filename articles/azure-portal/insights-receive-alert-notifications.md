@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Azure 서비스에 대한 경고 알림 받기 | Microsoft Azure"
 	description="경고 규칙 조건이 충족되면 알려줍니다."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # 경고 알림 받기
 
@@ -32,13 +32,19 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 2. **작업** 렌즈에서 **경고 규칙** 타일을 클릭합니다.
 
-3. **경고 추가** 명령을 클릭합니다. ![경고 추가](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. **경고 추가** 명령을 클릭합니다.
+
+	![경고 추가](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. 경고 규칙의 이름을 지정하고 알림 전자 메일에 표시되는 설명을 선택할 수 있습니다.
 
-5. **메트릭**을 선택하면 메트릭에 대한 조건 및 임계값을 선택할 수 있습니다. 이 값은 Azure에서 경고 활동을 모니터링하고 표시하는 데 사용하는 기간입니다. ![조건 및 임계값](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. **메트릭**을 선택하면 메트릭에 대한 조건 및 임계값을 선택할 수 있습니다. 이 값은 Azure에서 경고 활동을 모니터링하고 표시하는 데 사용하는 기간입니다.
 
-6. 또한 **이벤트**를 선택하고 특정 이벤트가 발생할 때 알림을 받을 수도 있습니다. ![이벤트](./media/insights-receive-alert-notifications/Insights_Events.png)
+	![조건 및 임계값](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+
+6. 또한 **이벤트**를 선택하고 특정 이벤트가 발생할 때 알림을 받을 수도 있습니다.
+
+	![이벤트](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. 마지막으로, 담당 관리자에게 전자 메일 알림을 보낼 수도 있습니다.
 
@@ -63,4 +69,4 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 경우를 알아봅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

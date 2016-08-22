@@ -3,7 +3,7 @@
    description="클래식 배포 모델에서 PowerShell을 사용하여 VNet에서 라우팅을 제어하는 방법 알아보기"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #PowerShell을 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
@@ -23,9 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-이 문서에서는 클래식 배포 모델에 대해 설명합니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 클래식 배포 모델에 대해 설명합니다.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -110,4 +108,4 @@ FW1 VM에 IP 전달을 사용하도록 설정하려면 다음 단계를 수행�
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

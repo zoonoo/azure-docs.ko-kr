@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/05/2016" 
 	ms.author="stbaro"/>
 
 #DocumentDB에서 데이터 모델링#
@@ -122,7 +122,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 		
 	Post document:
 	{
-		"id": 1,
+		"id": "1",
 		"name": "What's new in the coolest Cloud",
 		"summary": "A blog post by someone real famous",
 		"recentComments": [
@@ -134,7 +134,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 	Comment documents:
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 4, "author": "anon", "comment": "more goodness"},
 			{"id": 5, "author": "bob", "comment": "tails from the field"},
@@ -143,7 +143,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 		]
 	},
 	{
-		"postId": 1
+		"postId": "1"
 		"comments": [
 			{"id": 100, "author": "anon", "comment": "yet more"},
 			...
@@ -198,7 +198,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 	
     Stock documents:
     {
-        "id": 1,
+        "id": "1",
         "symbol": "zaza",
         "open": 1,
         "high": 2,
@@ -208,7 +208,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
         "pe": 5.89
     },
     {
-        "id": 2,
+        "id": "2",
         "symbol": "xcxc",
         "open": 89,
         "high": 93.24,
@@ -249,13 +249,13 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 	}
 
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
+	{"id": "1", "name": "DocumentDB 101" }
+	{"id": "2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "3", "name": "Taking over the world one JSON doc at a time" }
 	...
-	{"id": 100, "name": "Learn about Azure DocumentDB" }
+	{"id": "100", "name": "Learn about Azure DocumentDB" }
 	...
-	{"id": 1000, "name": "Deep Dive in to DocumentDB" }
+	{"id": "1000", "name": "Deep Dive in to DocumentDB" }
 
 발행자당 책 수가 작고 제한적으로 증가할 경우, 책 참조를 해당 발행자 문서에 저장해도 좋을 수 있습니다. 하지만 발행자당 책 수가 제한적이지 않으면, 이 데이터 모델의 경우 위의 발행자 문서 예제와 같이 배열이 변하기 쉽고 계속 증가할 수 있습니다.
 
@@ -268,13 +268,13 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 	}
 	
 	Book documents: 
-	{"id": 1,"name": "DocumentDB 101", "pub-id": "mspress"}
-	{"id": 2,"name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
-	{"id": 3,"name": "Taking over the world one JSON doc at a time"}
+	{"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
+	{"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
+	{"id": "3","name": "Taking over the world one JSON doc at a time"}
 	...
-	{"id": 100,"name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
+	{"id": "100","name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
 	...
-	{"id": 1000,"name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
+	{"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
 
 위 예제에서는 발행자 문서에 바인딩되지 않은 컬렉션을 배치했습니다. 그리고 각 책 문서에서 발행자에 대한 참조만 두었습니다.
 
@@ -286,35 +286,35 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 여기에서도 문서를 사용해서 동일한 방식을 따르고 다음과 비슷하게 보이는 데이터 모델을 만들고 싶을 수도 있습니다.
 
 	Author documents: 
-	{"id": 1, "name": "Thomas Andersen" }
-	{"id": 2, "name": "William Wakefield" }
+	{"id": "a1", "name": "Thomas Andersen" }
+	{"id": "a2", "name": "William Wakefield" }
 	
 	Book documents:
-	{"id": 1, "name": "DocumentDB 101" }
-	{"id": 2, "name": "DocumentDB for RDBMS Users" }
-	{"id": 3, "name": "Taking over the world one JSON doc at a time" }
-	{"id": 4, "name": "Learn about Azure DocumentDB" }
-	{"id": 5, "name": "Deep Dive in to DocumentDB" }
+	{"id": "b1", "name": "DocumentDB 101" }
+	{"id": "b2", "name": "DocumentDB for RDBMS Users" }
+	{"id": "b3", "name": "Taking over the world one JSON doc at a time" }
+	{"id": "b4", "name": "Learn about Azure DocumentDB" }
+	{"id": "b5", "name": "Deep Dive in to DocumentDB" }
 	
 	Joining documents: 
-	{"authorId": 1, "bookId": 1 }
-	{"authorId": 2, "bookId": 1 }
-	{"authorId": 1, "bookId": 2 }
-	{"authorId": 1, "bookId": 3 }
+	{"authorId": "a1", "bookId": "b1" }
+	{"authorId": "a2", "bookId": "b1" }
+	{"authorId": "a1", "bookId": "b2" }
+	{"authorId": "a1", "bookId": "b3" }
 
 이러한 모델도 작동은 가능합니다. 하지만 특정 저자와 해당 저자의 책을 로드하거나 특정 책과 해당 책의 저자를 로드하려면 항상 데이터베이스에 대해 2개 이상의 추가 쿼리를 실행해야 할 것입니다. 조인 문서에 대해 쿼리를 한 번 수행하고 조인되는 실제 문서를 인출하기 위해 또 다른 쿼리를 수행해야 합니다.
 
 이 조인 테이블이 수행하는 작업이 두 가지 데이터를 하나로 묶는 작업뿐이라면 이를 완전히 삭제할 수도 있을 것입니다. 다음을 고려해보세요.
 
 	Author documents:
-	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
-	{"id": 2, "name": "William Wakefield", "books": [1, 4]}
+	{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+	{"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 	
 	Book documents: 
-	{"id": 1, "name": "DocumentDB 101", "authors": [1, 2]}
-	{"id": 2, "name": "DocumentDB for RDBMS Users", "authors": [1]}
-	{"id": 3, "name": "Learn about Azure DocumentDB", "authors": [1]}
-	{"id": 4, "name": "Deep Dive in to DocumentDB", "authors": [2]}
+	{"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
+	{"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
+	{"id": "b3", "name": "Learn about Azure DocumentDB", "authors": ["a1"]}
+	{"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
 
 특정 저자가 있으면, 그가 작성한 책이 무엇인지 즉시 알 수 있고, 반대로, 로드된 책 문서가 있으면, 해당 저자의 ID를 알 수 있습니다. 이렇게 하면 조인 테이블에 대한 중간 쿼리를 절약해서 응용 프로그램에서 수행해야 하는 서버 라운드 트립 수를 줄일 수 있습니다.
 
@@ -329,11 +329,11 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 	Author documents: 
 	{
-	    "id": 1,
+	    "id": "a1",
 	    "firstName": "Thomas",
 	    "lastName": "Andersen",		
 	    "countOfBooks": 3,
-	 	"books": [1, 2, 3],
+	 	"books": ["b1", "b2", "b3"],
 		"images": [
 			{"thumbnail": "http://....png"}
 			{"profile": "http://....png"}
@@ -341,11 +341,11 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 		]
 	},
 	{
-	    "id": 2,
+	    "id": "a2",
 	    "firstName": "William",
 	    "lastName": "Wakefield",
 	    "countOfBooks": 1,
-		"books": [1, 4, 5],
+		"books": ["b1", "b4", "b5"],
 		"images": [
 			{"thumbnail": "http://....png"}
 		]
@@ -353,18 +353,18 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 	
 	Book documents:
 	{
-		"id": 1,
+		"id": "b1",
 		"name": "DocumentDB 101",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-			{"id": 2, "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
 		]
 	},
 	{
-		"id": 2,
+		"id": "b2",
 		"name": "DocumentDB for RDBMS Users",
 		"authors": [
-			{"id": 1, "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+			{"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
 		]
 	}
 
@@ -393,4 +393,4 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

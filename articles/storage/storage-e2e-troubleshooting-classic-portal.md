@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="08/03/2016" 
 	ms.author="robinsh"/>
 
 # Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 
@@ -32,13 +32,13 @@
 Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
 - **Azure 저장소 분석**. [Azure 저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
-	- **저장소 메트릭**은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요. 
+	- **저장소 메트릭**은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
 	- **저장소 로깅**은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](http://msdn.microsoft.com/library/azure/hh343259.aspx)을 참조하세요.
 
 > [AZURE.NOTE] 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다.
 
-- **Azure 클래식 포털**. [Azure 클래식 포털](https://manage.windowsazure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다. 
+- **Azure 클래식 포털**. [Azure 클래식 포털](https://manage.windowsazure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
 	
 	Azure 클래식 포털에서 모니터링 구성에 대한 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요.
 
@@ -66,12 +66,12 @@ Azure 저장소 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기�
 
 Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대한 읽기 작업이 실패할 때 발생합니다.
 
-- 이 요청 이전에 다른 클라이언트가 컨테이너 또는 Blob을 삭제한 경우에 발생합니다. 
+- 이 요청 이전에 다른 클라이언트가 컨테이너 또는 Blob을 삭제한 경우에 발생합니다.
 - 컨테이너 또는 Blob이 있는지를 확인한 이후 컨테이너 또는 Blob을 생성한 API 호출을 사용하는 경우에 발생합니다. CreateIfNotExists API가 컨테이너 또는 Blob이 있는지 확인하기 위해 첫 번째 HEAD 호출을 실행합니다. 그런 다음 컨테이너 또는 Blob이 존재하지 않는 경우 404 오류가 반환되고 컨테이너 또는 Blob을 작성하기 위한 두 번째 PUT 호출이 실행됩니다.
 
 **상태 코드 409(충돌) 예제**
 
-- 해당 이름을 가진 컨테이너 또는 Blob이 있는지 먼저 확인하지 않고 만들기 API를 사용하여 새로운 컨테이너 또는 Blob을 생성하는 경우 발생합니다. 
+- 해당 이름을 가진 컨테이너 또는 Blob이 있는지 먼저 확인하지 않고 만들기 API를 사용하여 새로운 컨테이너 또는 Blob을 생성하는 경우 발생합니다.
 - 컨테이너를 삭제하는데 이 삭제 작업이 완료되기 전에 같은 이름의 새 컨테이너를 생성하려고 시도하는 경우에 발생합니다.
 - 컨테이너 또는 Blob에서 임대를 지정하는데 임대가 이미 존재하는 경우에 발생합니다.
  
@@ -85,7 +85,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 이 자습서에서는 Message Analyzer를 사용하여 세 가지 유형의 로그 파일로 작업할 수 있지만, 다음과 같이 해당 로그 중 하나를 선택하여 사용할 수 있습니다.
 
 - **서버 로그**, Azure 저장소 로깅을 사용하도록 설정한 경우 생성됩니다. 서버 로그에는 Blob, 큐, 테이블, 파일 등의 Azure 저장소 서비스 중 하나에 대해 호출된 각 작업에 관한 데이터가 포함됩니다. 서버 로그는 요청 및 응답에 대한 기타 세부 정보뿐만 아니라 어떤 작업이 호출되었는지와 어떤 상태 코드가 반환되었는지도 나타냅니다.
-- **.NET 클라이언트 로그**, .NET 응용 프로그램 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다. 
+- **.NET 클라이언트 로그**, .NET 응용 프로그램 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 - **HTTP 네트워크 추적 로그**, Azure 저장소에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### 서버 쪽 로깅 및 메트릭 구성
@@ -144,14 +144,14 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 1. [Fiddler](http://www.telerik.com/download/fiddler)를 설치합니다.
 2. Fiddler를 시작합니다.
-2. **Tools(도구) | Fiddler Options(Fiddler 옵션)**를 선택합니다.
+2. **도구를 선택합니다.| Fiddler Options**.
 3. Options(옵션) 대화 상자에서 아래와 같이 **Capture HTTPS CONNECTs(HTTPS 연결 캡처)** 및 **Decrypt HTTPS Traffic(HTTPS 트래픽 해독)**이 모두 선택되어 있는지 확인합니다.
 
 ![Fiddler 옵션 구성](./media/storage-e2e-troubleshooting-classic-portal/fiddler-options-1.png)
 
 자습서의 경우 먼저 Message Analyzer에서 네트워크 추적을 수집 및 저장한 후 분석 세션을 생성하여 추적 및 로그를 분석합니다. Message Analyzer에서 네트워크 추적을 수집하려면 다음을 수행합니다.
 
-1. Message Analyzer에서 **File(파일) | Quick Trace(빠른 추적) | Unencrypted HTTPS(암호화되지 않은 HTTPS)**를 선택합니다.
+1. 메시지 분석기에서 **파일을 선택합니다.| Quick Trace | Unencrypted HTTPS**.
 2. 추적이 즉시 시작됩니다. **Stop(중지)**을 선택하여 추적을 중지한 후 저장소 트래픽만 추적하도록 구성할 수 있습니다.
 3. **Edit(편집)**를 선택하여 추적 세션을 편집할 수 있습니다.
 4. **Microsoft-Pef-WebProxy** ETW 공급자의 오른쪽에 있는 **Configure(구성)** 링크를 선택합니다.
@@ -208,7 +208,7 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 1. Microsoft 다운로드 센터에서 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 설치 관리자를 실행합니다.
 2. Message Analyzer를 시작합니다.
-3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure 저장소**에 필터링합니다. 아래 그림에 표시된 대로 Azure 저장소 자산이 표시됩니다.
+3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure Storage**에 필터링합니다. 아래 그림에 표시된 대로 Azure 저장소 자산이 표시됩니다.
 4. **Sync All Displayed Items(표시된 모든 항목 동기화)**를 클릭하여 Azure 저장소 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다.
 	- **Azure Storage Color Rules(Azure 저장소 색 규칙):** Azure 저장소 색 규칙을 통해 색상, 텍스트 및 글꼴 스타일을 사용하여 추적에 특정 정보를 포함하는 메시지를 강조 표시하는 특수 필터를 정의할 수 있습니다.
 	- **Azure 저장소 차트:** Azure 저장소 차트는 서버 로그 데이터를 그래프로 표시하는 미리 정의된 차트입니다. 이번에 Azure 저장소 차트를 사용하려면 서버 로그를 분석 격자로 로드하기만 하면 됩니다.
@@ -225,8 +225,8 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 Microsoft Message Analyzer에서 분석을 위해 저장된 모든 로그 파일(서버 쪽, 클라이언트 쪽 및 네트워크)을 단일 세션으로 가져올 수 있습니다.
 
-1. Microsoft Message Analyzer에서 **File(파일)** 메뉴의 **New Session(새 세션)**을 클릭한 후 **Blank Session(빈 세션)**을 클릭합니다. **New Session(새 세션)** 대화 상자에서 분석 세션의 이름을 입력합니다. **Session Details(세션 정보)** 패널에서 **Files(파일)** 단추를 클릭합니다. 
-1. Message Analyzer에서 생성한 네트워크 추적 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 웹 추적 세션의 .matp 파일을 저장한 위치를 찾아 .matp 파일을 선택하고 **Open(열기)**을 클릭합니다. 
+1. Microsoft Message Analyzer에서 **File(파일)** 메뉴의 **New Session(새 세션)**을 클릭한 후 **Blank Session(빈 세션)**을 클릭합니다. **New Session(새 세션)** 대화 상자에서 분석 세션의 이름을 입력합니다. **Session Details(세션 정보)** 패널에서 **Files(파일)** 단추를 클릭합니다.
+1. Message Analyzer에서 생성한 네트워크 추적 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 웹 추적 세션의 .matp 파일을 저장한 위치를 찾아 .matp 파일을 선택하고 **Open(열기)**을 클릭합니다.
 1. 서버 쪽 로그 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 서버 쪽 로그를 다운로드한 위치를 찾아 분석하려는 시간 범위의 로그 파일을 선택하고 **Open(열기)**을 클릭합니다. 그런 다음 **Session Details(세션 정보)** 패널에서 각 서버 쪽 로그 파일의 **Text Log Configuration(텍스트 로그 구성)** 드롭다운을 **AzureStorageLog**로 설정하여 Microsoft Message Analyzer가 로그 파일을 올바르게 구문 분석할 수 있도록 합니다.
 1. 클라이언트 쪽 로그 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 클라이언트 쪽 로그를 저장한 위치를 찾아 분석할 로그 파일을 선택하고 **Open(열기)**을 클릭합니다. 그런 다음 **Session Details(세션 정보)** 패널에서 각 클라이언트 쪽 로그 파일의 **Text Log Configuration(텍스트 로그 구성)** 드롭다운을 **AzureStorageClientDotNetV4**로 설정하여 Microsoft Message Analyzer가 로그 파일을 올바르게 구문 분석할 수 있도록 합니다.
 1. **New Session(새 세션)** 대화 상자에서 **Start(시작)**를 클릭하여 로그 데이터를 로드하고 구문 분석합니다. Message Analyzer 분석 그리드에 로그 데이터가 표시됩니다.
@@ -325,8 +325,8 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 
 이제, 이 클라이언트 요청 ID를 클라이언트 로그 데이터와 상호 연결하여 오류가 발생했을 때 클라이언트가 수행한 작업을 알아보겠습니다. 다음과 같이 이 세션의 새 분석 그리드 보기를 표시하여 두 번째 탭에서 열리는 클라이언트 로그 데이터를 볼 수 있습니다.
 
-1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **Copy('ClientRequestId' 복사)**를 선택하여 이 작업을 수행할 수 있습니다. 
-1. 도구 모음 리본에서 **New Viewer(새 뷰어)**를 선택한 후 **Analysis Grid(분석 그리드)**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다. 
+1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **Copy('ClientRequestId' 복사)**를 선택하여 이 작업을 수행할 수 있습니다.
+1. 도구 모음 리본에서 **New Viewer(새 뷰어)**를 선택한 후 **Analysis Grid(분석 그리드)**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다.
 2. 도구 모음 리본에서 **View Layout(보기 레이아웃)**을 선택한 후 **Azure Storage(Azure 저장소)** 섹션 아래의 **All .NET Client Columns(모든 .NET 클라이언트 열)**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여 줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
 3. 그런 다음 클라이언트 요청 ID의 클라이언트 로그를 검색합니다. 도구 모음 리본에서 **Find Messages(메시지 찾기)**를 선택한 후 **Find(찾기)** 필드에서 클라이언트 요청 ID에 대한 사용자 지정 필터를 지정합니다. 이 필터에 다음 구문을 사용하여 고유의 클라이언트 요청 ID를 지정합니다.
 
@@ -349,18 +349,18 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
 | PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | 모두 |
+| PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 |
+| HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 |
+| HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 |
+| 404(모두) | *StatusCode == 404 | 모두 |
+| SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 |
+| HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 |
+| 409(모두) | *StatusCode == 409 | 모두 |
+| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
+| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
+| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 및 #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
+| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
 ## 다음 단계
@@ -375,4 +375,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
  
  
 
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

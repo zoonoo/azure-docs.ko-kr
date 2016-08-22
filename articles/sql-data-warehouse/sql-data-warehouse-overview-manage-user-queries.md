@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링
@@ -34,18 +34,18 @@
 
 ## 다음 단계
 
-관리에 대한 추가 팁을 보려면 [관리 개요][]를 참조하세요.
+관리에 대한 추가 팁을 보려면 [관리][] 개요를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[장기 실행 쿼리 찾기]: ./sql-data-warehouse-manage-monitor.md
-[동시성 및 워크로드 관리]: ./sql-data-warehouse-develop-concurrency.md
-[관리 개요]: ./sql-data-warehouse-overview-manage.md
+[장기 실행 쿼리 찾기]: sql-data-warehouse-manage-monitor.md
+[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md
+[관리]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

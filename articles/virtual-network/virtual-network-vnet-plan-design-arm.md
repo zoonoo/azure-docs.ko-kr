@@ -3,7 +3,7 @@
    description="격리, 연결 및 위치 요구 사항을 기반으로 Azure에서 가상 네트워크를 계획 및 디자인하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/08/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure 가상 네트워크 계획 및 디자인
 
@@ -28,9 +28,9 @@
 아래 계획 질문에 응답하기 전에 다음을 고려합니다.
 
 - Azure에서 만드는 모든 항목은 하나 이상의 리소스로 구성됩니다. 가상 컴퓨터(VM)는 리소스이며 VM에 사용되는 NIC(네트워크 어댑터 인터페이스)는 리소스이며 NIC에 사용된 공용 IP 주소는 리소스이며 NIC가 연결되는 VNet은 리소스입니다.
-- [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 또한 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 VNet에만 연결할 수 있습니다. 
+- [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 또한 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 VNet에만 연결할 수 있습니다.
 - Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)를 사용하여 VNet을 서로 연결할 수 있습니다. 이러한 방식으로 VNet을 하위 지역 및 구독 간으로도 연결할 수 있습니다.
-- Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다. 
+- Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
 - [리소스 그룹](../resource-group-overview.md#resource-groups)에서 다양한 리소스를 함께 그룹화하여 리소스를 단위로 보다 쉽게 관리할 수 있습니다. 리소스 그룹은 해당 리소스가 동일한 구독에 속하기만 하면 여러 하위 지역의 리소스를 포함할 수 있습니다.
 
 ### 요구 사항 정의
@@ -81,7 +81,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 ### 제한
 
-솔루션을 디자인하기 전에 [Azure의 네트워킹 서비스와 관련된 제한 사항](../azure-subscription-service-limits#networking-limits)을 모두 확인해야 합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
+솔루션을 디자인하기 전에 [Azure의 네트워킹 서비스와 관련된 제한 사항](../azure-subscription-service-limits.md#networking-limits)을 모두 확인해야 합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
 
 ### 역할 기반 액세스 제어(RBAC)
 
@@ -100,8 +100,8 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 다음과 같은 시나리오에서는 여러 VNet을 만드는 것이 좋습니다.
 
 - **서로 다른 Azure 위치에 배치되어야 하는 VM**. Azure에서 VNet은 지역적입니다. 여러 위치에 걸쳐 있지 않습니다. 따라서 안에서 VM을 호스트할 각 Azure 위치에 대해 하나 이상의 VNet이 필요합니다.
-- **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다. 
-- **플랫폼 제한 피하기**. [제한](#Limits) 섹션에서 볼 수 있듯이 단일 VNet에 2048개 이상의 VM을 포함할 수 없습니다. 
+- **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다.
+- **플랫폼 제한 피하기**. [제한](#Limits) 섹션에서 볼 수 있듯이 단일 VNet에 2048개 이상의 VM을 포함할 수 없습니다.
 
 위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
 
@@ -121,7 +121,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 
 다음과 같은 시나리오에서는 VNet에 여러 서브넷이 있는 것이 좋습니다.
 
-- **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다. 
+- **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다.
 - **보안**. 서브넷을 사용하여 다중 계층 구조의 워크로드에 대해 VM 그룹을 서로 구분하고 해당 서브넷에 대해 서로 다른 [NSG(네트워크 보안 그룹)](virtual-networks-nsg.md#subnets)를 적용할 수 있습니다.
 - **하이브리드 연결**. VPN 게이트웨이 및 Express 경로 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-cross-premises-options.md)하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
 - **가상 어플라이언스**. Azure VNet에서 방화벽, WAN 가속기 또는 VPN 게이트웨이 같은 가상 어플라이언스를 사용할 수 있습니다. 이렇게 하려면 해당 어플라이언스로 [트래픽을 라우팅](virtual-networks-udr-overview.md)하고 자체의 서브넷에서 이를 격리해야 합니다.
@@ -263,6 +263,6 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 - 시나리오를 기반으로 [가상 네트워크를 배포](virtual-networks-create-vnet-arm-template-click.md)합니다.
 - IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
 - [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md)에 대해 알아봅니다.
-- [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md)에 대해 알아봅니다.  
+- [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

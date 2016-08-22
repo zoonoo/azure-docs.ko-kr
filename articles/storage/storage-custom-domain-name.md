@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,9 @@
 
 ## 개요
 
-Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 저장소의 기본 끝점은 https://<*mystorageaccount*>.blob.core.windows.net입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
+Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 저장소의 기본 끝점은 `<storage-account-name>.blob.core.windows.net`입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
+
+>[AZURE.IMPORTANT] Azure Storage는 아직 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 이 기능에 관심을 가진 고객을 위해 향후 릴리스에서 사용할 수 있도록 할 예정입니다.
 
 저장소 계정의 Blob 끝점으로 사용자 지정 도메인을 가리키는 방법은 두 가지입니다. 가장 간단한 방법은 사용자 지정 도메인 및 하위 도메인을 Blob 끝점에 매핑하는 CNAME 레코드를 만드는 것입니다. CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS 기능입니다. 이 경우에 원본 도메인은 사용자 지정 도메인 및 하위 도메인이며, 하위 도메인은 항상 필요합니다. 대상 도메인은 Blob 서비스 끝점입니다.
 
@@ -113,7 +115,7 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 사용자 지정 도메인의 등록을 취소하려면 다음 단계를 따르세요.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다. 
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 
 2. 탐색 창에서 **저장소**를 클릭합니다.
 
@@ -128,4 +130,4 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 -   [사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

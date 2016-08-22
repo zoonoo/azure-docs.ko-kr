@@ -3,7 +3,7 @@
    description="리소스 관리자에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,10 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Azure 리소스 관리자에 대해 PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
+
+> [AZURE.SELECTOR]
+- [Azure 포털](application-gateway-create-probe-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -119,10 +126,10 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 
 사용되는 매개 변수:
 
-- **-Interval** - 프로브 간격 확인(초)를 구성합니다.
-- **-Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
-- **-호스트 이름 및 -경로** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
-- **-UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
+- **Interval** - 프로브 간격 확인(초)을 구성합니다.
+- **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
+- **-Hostname 및 -path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
+- **UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
 <BR>
 
@@ -238,4 +245,4 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

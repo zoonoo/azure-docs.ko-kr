@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 문제를 해결하는 방법
@@ -47,7 +47,7 @@
 
 #### 측정 
 
-1.	사용 가능한 메모리를 초과하지 않는지 확인하기 위해 컴퓨터에서의 메모리 사용량을 모니터링합니다. 
+1.	사용 가능한 메모리를 초과하지 않는지 확인하기 위해 컴퓨터에서의 메모리 사용량을 모니터링합니다.
 2.	`Page Faults/Sec` 성능 카운터를 모니터링합니다. 대부분의 시스템은 정상 작동을 하는 중에도 약간의 페이지 폴트가 있으므로 시간 제한에 해당하는 이 페이지 폴트 성능 카운터에서의 급증을 확인합니다.
 
 #### 해결 방법
@@ -164,8 +164,8 @@ Azure 포털을 통해 또는 연결된 성능 카운터를 통해 시스템 전
 
 서버 쪽의 메모리 부족은 요청 처리를 지연시킬 수 있는 온갖 종류의 성능 문제를 일으킵니다. 메모리가 부족해지면 시스템은 일반적으로 데이터를 실제 메모리로부터 디스크에 있는 가상 메모리로 페이지합니다. 이 *페이지 폴트*가 시스템이 크게 느려진 원인입니다. 이 메모리 부족의 몇 가지 가능한 원인은 다음과 같습니다.
 
-1.	캐시를 데이터로 최대 용량까지 채웠습니다. 
-2.	Redis가 높은 메모리 조각화를 보입니다-큰 개체 저장이 원인이 되어 일어나는 경우가 가장 많습니다.(Redis 작은 개체에 대해 최적화됩니다-상세한 내용은 [redis를 위한 이상적인 값 크기 범위는 무엇입니까? 100KB는 너무 큽니다?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)게시물을 참조하세요) 
+1.	캐시를 데이터로 최대 용량까지 채웠습니다.
+2.	Redis가 높은 메모리 조각화를 보입니다-큰 개체 저장이 원인이 되어 일어나는 경우가 가장 많습니다.(Redis 작은 개체에 대해 최적화됩니다-상세한 내용은 [redis를 위한 이상적인 값 크기 범위는 무엇입니까? 100KB는 너무 큽니다?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)게시물을 참조하세요)
 
 #### 측정
 
@@ -264,7 +264,7 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
 4. 서버나 클라이언트에 걸린 대역폭 제한에 묶인 요청이 있다면, 완료하는 데 더 많은 시간이 걸려 시간 초과의 원인이 됩니다. 시간 초과가 서버의 네트워크 대역폭 때문인지 보려면 [서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)를 참조하세요. 시간 초과가 클라이언트 네트워크 대역폭 때문인지 보려면 [클라이언트 쪽 대역폭 초과](#client-side-bandwidth-exceeded)를 참조하세요.
 
 6. CPU가 서버 또는 클라이언트에 바인딩됩니까?
-	-	CPU가 클라이언트에 바인딩되어 요청이 `synctimeout` 간격 내에 처리될 수가 없게 되어 시간 초과가 일어나는지 확인합니다. 더 큰 클라이언트 크기로 이동하거나 부하를 분산한다면 이것을 제어하는데 도움이 됩니다. 
+	-	CPU가 클라이언트에 바인딩되어 요청이 `synctimeout` 간격 내에 처리될 수가 없게 되어 시간 초과가 일어나는지 확인합니다. 더 큰 클라이언트 크기로 이동하거나 부하를 분산한다면 이것을 제어하는데 도움이 됩니다.
 	-	서버에서 CPU가 서버에 바인딩되는지 `CPU` [캐시 성능 메트릭](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 모니터링하여 확인합니다. Redis가 CPU에 바인딩된 동안 들어오는 요청은 시간 초과를 초래할 수 있습니다. 이 문제를 해결하기 위해 부하를 프리미엄 캐시에서 여러 분할된 데이터베이스로 분산하거나 더 큰 크기나 가격 책정 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [서버 쪽 대역폭 초과](#server-side-bandwidth-exceeded)를 참조합니다.
 
 7. 서버에서 처리하는데 시간이 오래 걸리는 명령이 있습니까? Redis 서버에서 처리하는 데 시간이 오래 걸리는 장기 실행 명령은 시간 초과의 원인이 될 수 있습니다. 장기 실행 명령의 몇 가지 예로 다수의 키 작동을 요하는 `mget`, `keys *` 또는 형편없게 짜여진 lua 스크립트 등이 있습니다. 예상보다 오래 걸리는 요청이 있는지 확인하기 위해 Redis cli 클라이언트를 사용 하여 Azure Redis Cache 인스턴스에 연결하거나 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 [SlowLog](http://redis.io/commands/slowlog) 명령을 실행할 수 있습니다. Redis 서버와 StackExchange.Redis는 작은 수의 큰 요청보다 많은 수의 작은 요청을 위해 최적화되어 있습니다. 데이터를 더 작은 청크로 분할한다면 다음을 향상시킵니다.
@@ -280,18 +280,7 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
 11. `RedisSessionStateprovider`을 사용하는 경우, 재시도 시간 제한을 올바르게 설정했는지 확인합니다.`retrytimeoutInMilliseconds`는 `operationTimeoutinMilliseonds`보다 높아야 합니다. 그렇지 않으면 재시도가 발생하지 않습니다. 다음 예제에서 `retrytimeoutInMilliseconds`가 3000으로 설정됩니다. 자세한 내용은 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [세션 상태 공급자와 출력 캐시 공급자의 구성 매개 변수를 사용하는 방법](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)을 참조하세요.
 
 
-	<add
-	  name="AFRedisCacheSessionStateProvider"
-	  type="Microsoft.Web.Redis.RedisSessionStateProvider"
-	  host="enbwcache.redis.cache.windows.net"
-	  port="6380"
-	  accessKey="…"
-	  ssl="true"
-	  databaseId="0"
-	  applicationName="AFRedisCacheSessionState"
-	  connectionTimeoutInMilliseconds = "5000"
-	  operationTimeoutInMilliseconds = "1000"
-	  retryTimeoutInMilliseconds="3000" />
+	<add name="AFRedisCacheSessionStateProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="enbwcache.redis.cache.windows.net" port="6380" accessKey="…" ssl="true" databaseId="0" applicationName="AFRedisCacheSessionState" connectionTimeoutInMilliseconds = "5000" operationTimeoutInMilliseconds = "1000" retryTimeoutInMilliseconds="3000" />
 
 
 12. `Used Memory RSS`와 `Used Memory`을 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여Azure Redis Cache 서버에서의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory`가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화 (내부 또는 외부)가 심함을 의미합니다. `Used Memory RSS`이 `Used Memory`보다 작다면, 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방법을 제어하지 않기 때문에 높은 `Used Memory RSS`은 흔히 메모리 사용량에서 스파이크의 결과로 나타납니다. Redis가 메모리를 놓아주면, 메모리는 할당자에게 돌아가고, 할당자는 메모리를 시스템에 돌려주거나 그러지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory`값과 메모리 소비량 사이에 차이가 있을 수 있습니다. Redis가 메모리를 사용되고 사용하고 놓아줬지만 시스템으로 돌려지지 않았습니다. 메모리 문제를 완화하려면 다음 방법들을 수행할 수 있습니다.
@@ -308,4 +297,4 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
 -	[어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
 -	[Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

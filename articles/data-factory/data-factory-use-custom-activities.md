@@ -620,7 +620,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 	- **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
 	- 사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
-	- 사용자 지정 활동의 linkedServiceName 속성은 **HDInsightLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure HDInsight 클러스터에서 실행해야 함을 알려줍니다.
+	- 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
 	- **isPaused** 속성은 기본적으로 **false**로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
 	- **start** 시간과 **end** 시간은 **5**시간 차이이며 조각은 매시간 생성되므로 파이프라인에 의해 5조각이 생성됩니다.
 
@@ -894,4 +894,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

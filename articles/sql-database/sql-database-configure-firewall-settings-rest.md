@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="06/15/2016"
+	ms.date="08/09/2016"
 	ms.author="sstein"/>
 
 
@@ -35,33 +35,34 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 
 ## REST API를 통해 서버 수준 방화벽 규칙 관리
-1. 관리 인증된 REST API를 통해 방화벽 규칙 관리하기. 더 자세한 정보는 관리인증 서비스 관리 요청을 참조합니다.
+1. 관리 인증된 REST API를 통해 방화벽 규칙 관리하기. 자세한 내용은 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](../resource-manager-api-authentication.md)를 참조하세요.
 2. REST API를 사용하여 서버 수준 규칙을 생성, 업데이트, 삭제 할 수 있습니다.
 
-	서버 수준 방화벽 규칙을 생성하거나 업데이트 하려면 다음을 사용하여 POST 메서드를 실행합니다.
+	서버 수준 방화벽 규칙을 생성하거나 업데이트 하려면 다음을 사용하여 PUT 메서드를 실행합니다.
  
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 	
 	요청 본문
 
-		<ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
-		  <Name>ContosoFirewallRule</Name>
-		  <StartIPAddress>192.168.1.4</StartIPAddress>
-		  <EndIPAddress>192.168.1.10</EndIPAddress>
-		</ServiceResource>
+		{
+         "properties": { 
+            "startIpAddress": "{start-ip-address}", 
+            "endIpAddress": "{end-ip-address}
+            }
+        } 
  
 
 	서버 수준 방화벽 규칙을 삭제하려면 다음을 사용하여 DELETE 메서드를 실행합니다.
 	 
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
+		https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/firewallRules/{rule-name}?api-version={api-version}
 
 
-## 서비스 관리 REST API를 사용하여 방화벽 규칙 관리
+## REST API를 사용하여 방화벽 규칙 관리
 
-* [방화벽 규칙 만들기](https://msdn.microsoft.com/library/azure/dn505712.aspx)
-* [방화벽 규칙 삭제](https://msdn.microsoft.com/library/azure/dn505706.aspx)
-* [방화벽 규칙 가져오기](https://msdn.microsoft.com/library/azure/dn505698.aspx)
-* [방화벽 규칙 나열](https://msdn.microsoft.com/library/azure/dn505715.aspx)
+* [방화벽 규칙 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt445501.aspx)
+* [방화벽 규칙 삭제](https://msdn.microsoft.com/library/azure/mt445502.aspx)
+* [방화벽 규칙 가져오기](https://msdn.microsoft.com/library/azure/mt445503.aspx)
+* [모든 방화벽 규칙 나열](https://msdn.microsoft.com/library/azure/mt604478.aspx)
  
 ## 다음 단계
 
@@ -87,4 +88,4 @@ Transact-SQL을 사용하여 서버 수준 및 데이터베이스 수준 방화�
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

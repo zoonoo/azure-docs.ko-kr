@@ -23,8 +23,7 @@
 
 VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및 신뢰할 수 있는 타사 게시자가 작성하는 기능입니다. VM 확장의 개요는 [Azure VM 확장 및 기능](virtual-machines-windows-extensions-features.md)을 참조하세요.
 
-링크: [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-windows-classic-extensions-customscript.md)하는 방법을 알아봅니다.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-machines-windows-extensions-customscript.md)하는 방법을 알아봅니다.
 
 ## 사용자 지정 스크립트 확장 개요
 
@@ -33,7 +32,7 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 
 ### 사용자 지정 스크립트 확장을 실행하기 위한 필수 조건
 
 1. <a href="http://azure.microsoft.com/downloads" target="_blank">여기</a>서 Azure PowerShell cmdlet 버전 0.8.0 이상을 설치합니다.
-2. 기존 VM에서 스크립트를 실행하는 경우 VM에서 VM 에이전트를 사용할 수 있는지 확인합니다. 사용할 수 없는 경우 이 <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">문서</a>의 지침에 따라 설치합니다. (Azure 갤러리에서 VM을 프로비전하면 VM 에이전트가 기본적으로 사용 설정되므로 직접 사용하도록 설정하지 않아도 됩니다.)
+2. 기존 VM에서 스크립트를 실행하는 경우 VM에서 VM 에이전트를 사용할 수 있는지 확인합니다. 설치되지 않은 경우 [여기](virtual-machines-windows-classic-agents-and-extensions.md)의 단계를 따라서 VM 에이전트르 설치합니다.포털에서 VM이 만들어진 경우 기본적으로 VM 에이전트가 설치됩니다.
 3. VM에서 실행할 스크립트를 Azure 저장소에 업로드합니다. 단일 컨테이너 또는 여러 저장소 컨테이너의 스크립트를 업로드할 수 있습니다.
 4. 확장을 통해 시작되는 엔트리 스크립트가 다른 스크립트를 시작하는 방식으로 스크립트를 작성해야 합니다.
 
@@ -91,4 +90,4 @@ Azure 리소스 관리자 템플릿으로 사용자 지정 스크립트 확장�
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

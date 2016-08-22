@@ -3,7 +3,7 @@
    description="PowerShell을 사용하여 클래식 모드에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # PowerShell에서 NSG(클래식)를 만드는 방법
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-ps.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-arm-ps.md) 수도 있습니다.
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -210,4 +210,4 @@
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

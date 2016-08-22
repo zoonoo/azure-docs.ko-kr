@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기 | Microsoft Azure"
-    description="Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기"
+    pageTitle="Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기 | Microsoft Azure"
+    description="Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -16,9 +16,9 @@
     ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
-# Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기
+# Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기
 
-이 문서에서는 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+이 문서에서는 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
 
@@ -35,7 +35,7 @@
 
 ## 배포할 항목
 
-이 템플릿으로 이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스를 배포합니다.
+이 템플릿으로 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 배포합니다.
 
 [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다.
 
@@ -49,32 +49,32 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 템플릿은 다음 매개 변수를 정의합니다.
 
-### serviceBusNamespaceName
+### eventHubNamespaceName
 
-만들 서비스 버스 네임스페이스 이름입니다.
+만들 이벤트 허브 네임스페이스의 이름입니다.
 
 ```
-"serviceBusNamespaceName": {
+"eventHubNamespaceName": {
 "type": "string"
 }
 ```
 
-### serviceBusEventHubName
+### eventHubName
 
-서비스 버스 네임스페이스에서 만든 이벤트 허브의 이름입니다.
+이벤트 허브 네임스페이스에서 만든 이벤트 허브의 이름입니다.
 
 ```
-"serviceBusEventHubName": {
+"eventHubName": {
 "type": "string"
 }
 ```
 
-### serviceBusConsumerGroupName
+### eventHubConsumerGroupName
 
 서비스 버스 네임스페이스에서 이벤트 허브에 대해 만든 소비자 그룹의 이름입니다.
 
 ```
-"serviceBusConsumerGroupName": {
+"eventHubConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -97,8 +97,8 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 "resources": [
         {
             "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
+            "name": "[parameters('eventHubNamespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
             "kind": "EventHub",
             "sku": {
@@ -108,21 +108,21 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
             "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('serviceBusEventHubName')]",
+                    "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
                     ],
                     "properties": {
-                        "path": "[parameters('serviceBusEventHubName')]"
+                        "path": "[parameters('eventHubName')]"
                     },
                     "resources": [
                         {
                             "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('serviceBusConsumerGroupName')]",
+                            "name": "[parameters('eventHubConsumerGroupName')]",
                             "type": "ConsumerGroups",
                             "dependsOn": [
-                                "[parameters('serviceBusEventHubName')]"
+                                "[parameters('eventHubName')]"
                             ],
                             "properties": {
                             }
@@ -166,4 +166,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [서비스 버스 이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # 클래식 배포 모델의 Windows VM에 대한 기술 문서
 
 
-클래식 배포 모델에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
+클래식 배포 모델에서 Windows 기반 Azure 가상 컴퓨터를 만들고 관리하는 데 필요한 모든 설명서를 찾아보세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -89,8 +89,6 @@
 ## 관리
 
 [Azure PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-classic-manage-psh.md)
-
-[Azure 명령줄 인터페이스를 사용한 VM 작업에 해당하는 리소스 관리자 및 서비스 관리 명령](virtual-machines-windows-cli-manage.md)
 	
 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@
 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## 참조
 [서비스 관리 모드의 Azure CLI 명령](../virtual-machines-command-line-tools.md)
 
@@ -178,7 +179,6 @@
 [서비스 관리 .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Azure 서비스 관리 PowerShell cmdlet 참조 문서](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
 
 ## 문제 해결
 
@@ -192,4 +192,4 @@
 
 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -122,7 +122,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## 대기 중인 쿼리 모니터링
 
-리소스를 대기하고 있으므로 쿼리가 진행되고 있지 않음을 확인할 경우 다음 쿼리를 실행하면 쿼리가 대기 중인 모든 리소스가 표시됩니다. Repe
+리소스를 대기하고 있으므로 쿼리가 진행되고 있지 않음을 확인할 경우 다음 쿼리를 실행하면 쿼리가 대기 중인 모든 리소스가 표시됩니다.
 
 ```sql
 -- Find queries 
@@ -167,4 +167,4 @@ DMV(Dynamic Management Views)에 대한 자세한 내용은 [시스템 뷰][]를
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

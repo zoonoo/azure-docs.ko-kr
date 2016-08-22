@@ -90,6 +90,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 | 포함 | "contains" : "&lt;value&gt;"|
 | 내용 | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
 ### 필드
 
@@ -131,7 +132,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 | 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 지원되는 리소스 형식: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | 지원되는 리소스 종류: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -468,4 +469,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

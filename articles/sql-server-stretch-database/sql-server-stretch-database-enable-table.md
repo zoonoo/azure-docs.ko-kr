@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정
@@ -28,6 +28,8 @@
 
 **사용 권한**. 데이터베이스 또는 테이블에 대해 스트레치 데이터베이스를 사용하도록 설정하려면 db\_owner 권한이 필요합니다. 테이블에서 스트레치 데이터베이스를 사용하도록 설정하려면 테이블에 대한 ALTER 권한이 있어야 합니다.
 
+ >   [AZURE.NOTE] 나중에 스트레치 데이터베이스를 비활성화하는 경우 테이블 또는 데이터베이스에 대해 확장 데이터베이스를 사용하지 않도록 설정하면 원격 개체를 삭제하지 않습니다. 원격 테이블 또는 원격 데이터베이스를 삭제하려면 Azure 관리 포털을 사용하여 삭제해야 합니다. 원격 개체를 수동으로 삭제할 때까지 계속해서 Azure 비용이 발생합니다.
+ 
 ## <a name="EnableWizardTable"></a>마법사를 사용하여 테이블에서 스트레치 데이터베이스를 사용하도록 설정
 **마법사 시작**
 
@@ -133,4 +135,4 @@ GO
 
 [CREATE TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
@@ -50,4 +50,4 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

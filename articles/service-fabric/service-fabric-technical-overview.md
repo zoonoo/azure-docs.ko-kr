@@ -90,4 +90,4 @@
 - [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

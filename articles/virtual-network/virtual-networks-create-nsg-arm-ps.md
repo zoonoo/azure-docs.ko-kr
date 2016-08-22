@@ -3,7 +3,7 @@
    description="PowerShell을 사용하여 Azure 리소스 관리자에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # PowerShell을 사용하여 리소스 관리자에서 NSG를 만드는 방법
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md) 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md) 수도 있습니다.
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -136,7 +136,7 @@
 		}
 
 ## 백 엔드 서브넷에 대한 NSG를 만드는 방법
-위의 시나리오에 따라 *NSG-BackEnd* 라는 NSG를 만들려면 다음 단계를 따르세요.
+위의 시나리오에 따라 *NSG-BackEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
 
 1. 프런트 엔드 서브넷에서 포트 1433(SQL Server에서 사용되는 기본 포트)에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
@@ -182,4 +182,4 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

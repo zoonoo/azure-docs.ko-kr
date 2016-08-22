@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,27 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="markgal;trinadhk;jimpark" />
 
 
 # PowerShell을 사용하여 Azure VM의 배포 및 백업 관리
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [리소스 관리자](backup-azure-vms-automation.md)
 - [클래식](backup-azure-vms-classic-automation.md)
 
-이 문서에서는 Azure IaaS VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여줍니다.
+이 문서에서는 Azure VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여 줍니다. Azure에는 리소스를 만들고 작업하기 위한 Resouce Manager 및 클래식이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## 개념
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Azure 백업 설명서에 [Azure IaaS VM 백업이 소개](backup-azure-vms-introduction.md)되어 있습니다.
+이 문서에서는 가상 컴퓨터를 백업하는 데 사용되는 PowerShell cmdlet 관련 정보를 제공합니다. Azure VM을 보호하는 방법에 대한 소개 정보는 [Azure에서 VM 백업 인프라 계획](backup-azure-vms-introduction.md)을 참조하세요.
 
-> [AZURE.WARNING] 시작하기 전에 먼저 Azure 백업 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 솔루션의 [제한](backup-azure-vms-prepare.md#limitations)에 관한 기본 사항을 다루었는지 확인합니다.
+> [AZURE.NOTE] 시작하기 전에 먼저 Azure 백업 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 백업 솔루션의 [제한](backup-azure-vms-prepare.md#limitations)을 읽어 보세요.
 
-PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시작하는 위치를 이해하는 데 필요합니다.
+PowerShell을 효과적으로 사용하려면 개체의 계층 구조와 시작하는 위치를 이해해야 합니다.
 
 ![개체 계층 구조](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
 
@@ -346,4 +345,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 Windows Server를 보호하기 위한 PowerShell 문서, [Windows Server에 대한 백업 배포 및 관리](./backup-client-automation-classic.md)를 확인하세요. DPM 백업을 관리하기 위한 PowerShell 문서, [DPM에 대한 백업 배포 및 관리](./backup-dpm-automation-classic.md)도 있습니다. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

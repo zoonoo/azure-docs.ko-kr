@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -64,9 +64,9 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure 저장소
 
 암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
-> [AZURE.WARNING] blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이타가 유지되는지 확인하세요. 이 메타 데이터 없이 새 메타 데이터를 업로드 하는 경우에는 래핑된 CEK, IV 및 기타 메타 데이터가 손실 되고 blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
+> [AZURE.WARNING] blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이타가 유지되는지 확인하세요. 이 메타데이터 없이 새 메타데이터를 업로드하는 경우 래핑된 CEK, IV 및 기타 메타데이터가 손실되고 Blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
 
-전체 BLOB의 콘텐츠 검색을 포함하는 암호화 BLOB 다운로드는 **DownloadTo***/**BlobReadStream** 편리한 메서드를 사용하세요. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+암호화 Blob를 다운로드하는 작업은 **DownloadTo***/**BlobReadStream** 편리한 메서드를 사용하여 전체 Blob의 콘텐츠를 검색하는 작업을 포함합니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
 암호화된 BLOB 내에서 임의의 범위를 다운로드할 경우(**DownloadRange*** 메서드) 요청된 범위를 성공적으로 암호를 해독하는 데 사용되는 소량의 추가 데이터를 얻기 위해 사용자가 제공하는 범위가 조정됩니다.
 
@@ -93,7 +93,7 @@ Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure 저장소
 1. 사용자는 암호화할 속성을 지정합니다.
 2. 클라이언트 라이브러리는 모든 엔터티에 대해 16바이트의 임의 IV(Initialization Vector)와 함께 32바이트의 임의 CEK(콘텐츠 암호화 키)를 생성하고 속성당 새 IV를 파생하여 암호화해야 하는 개별적인 속성에 대해 봉투(envelope) 암호화를 수행합니다. 암호화된 속성은 이진 데이터로 저장됩니다.
 3. 래핑된 CEK 및 일부 추가 암호화 메타 데이터는 다음 추가 예약 된 두 가지 속성으로 저장 됩니다. 첫 번째 예약 된 속성 (\_ClientEncryptionMetadata1)은 IV, 버전, 래핑된 키의 정보를 담고 있는 문자열 속성입니다. 또 다른 예약된 속성(\_ClientEncryptionMetadata2)은 암호화된 속성에 대한 정보를 담고 있는 이진 속성입니다. 이 두 번째 속성(\_ClientEncryptionMetadata2)의 정보는 자체적으로 암호화됩니다.
-4. 이 추가적인 예약 속성이 암호화에 필요하기 때문에 사용자들은 252가지 사용자 지정 속성 대신 250가지를 갖게 됩니다. 엔터티의 총 크기는 1MB 미만 이어야 합니다.
+4. 이 추가적인 예약 속성이 암호화에 필요하기 때문에 사용자들은 252가지 사용자 지정 속성 대신 250가지를 갖게 됩니다. 엔터티의 총 크기는 1MB 미만이어야 합니다.
 
 문자열 속성만 암호화 할 수 있다는 것을 참고하세요. 다른 유형의 속성이 암호화 된 경우, 문자열로 변환합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.
 
@@ -247,8 +247,8 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 ## 다음 단계
 
 - [자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
-- [.NET용 Azure 저장소 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage) 다운로드
-- Azure 주요 자격 증명 모음 NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드  
-- [Azure 주요 자격 증명 모음 설명서](../key-vault/key-vault-whatis.md) 방문
+- [.NET용 Azure Storage 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage) 다운로드
+- Azure 주요 자격 증명 모음 NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드
+- [Azure 주요 자격 증명 모음 설명서](../key-vault/key-vault-whatis.md) 참조
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

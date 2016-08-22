@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
@@ -117,7 +117,7 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 -	API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
 	-	[로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
 	-	[log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링](api-management-log-to-eventhub-sample.md)	
+	-	[Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링](api-management-log-to-eventhub-sample.md)
 
 ## 연습 동영상 시청
 
@@ -133,4 +133,4 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->
