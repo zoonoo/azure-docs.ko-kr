@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Azure 보안 서비스 및 기술
@@ -70,4 +70,4 @@
 - [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
 - [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

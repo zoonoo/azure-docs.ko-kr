@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/25/2016"
-	ms.author="v-darmi"/>
+	ms.date="08/09/2016"
+	ms.author="darrmi"/>
 
 # Azure API 관리의 사용자 지정 캐싱
 Azure API 관리 서비스에서는 리소스 URL을 키로 사용하는 [HTTP 응답 캐싱](api-management-howto-cache.md)에 대한 기본 제공 지원을 포함합니다. `vary-by` 속성을 사용하여 요청 헤더에서 키를 수정할 수 있습니다. 전체 HTTP 응답(즉, 표현)을 캐싱하는 데 유용하지만 때때로 표현의 일부를 캐싱하는 데 유용합니다. 새 [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) 및 [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) 정책은 임의의 정책 정의 내에서 데이터를 저장하고 검색하는 기능을 제공합니다. 이제 외부 서비스에서 나오는 응답을 캐시할 수 있기 때문에 이 기능은 이전에 도입된 [보내기 요청](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 정책에 값을 추가합니다.
@@ -245,4 +245,4 @@ API의 여러 다른 구현 버전이 한 번에 지원되는 것이 일반적�
 ## 다음 단계
 사용자를 위해 이러한 정책을 사용하는 다른 시나리오 또는 달성하려 하지만 현재 사용할 수 있다고 생각하지 않는 시나리오가 있다면 이 항목에 대한 Disqus 스레드에 의견을 보내 주십시오.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="05/03/2016"
+      ms.date="08/03/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # 일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
@@ -72,7 +72,7 @@
 
 ![inprivate][4]
 
-**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com))으로 로그인합니다**.
+**2. 회사 또는 학교 계정(즉, AzureStore@yourcompany.com)으로 로그인합니다**.
 
 ![signin][5]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

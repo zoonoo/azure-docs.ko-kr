@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # 사이버 보안에 대한 Microsoft 서비스
@@ -37,4 +37,4 @@ Microsoft 서비스에서 제공하는 서비스에 대한 자세한 정보를 �
 
 Microsoft 서비스 보안 컨설팅 서비스에 대해 [자세히 알아봅니다](https://aka.ms/cyberserv).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

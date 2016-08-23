@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/17/2016"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -25,9 +25,9 @@
 
 ![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
 
-Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원합니다.
+Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-필요한 사항:
+다음 작업을 수행해야 합니다.
 
 * Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상
 * [Microsoft Azure](https://azure.microsoft.com/) 구독. ([무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
@@ -38,13 +38,10 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 ## 1\. Application Insights 계측 키 가져오기
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 새 Application Insights 리소스를 만듭니다.
-
-    ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
-3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
+2. Application Insights 리소스 만들기 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
 
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
-4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 곧바로 붙여넣어야 합니다.
+4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
 
@@ -106,18 +103,18 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 
 수동으로 SDK 추가:
 
-1. [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)를 다운로드합니다.
+1. [Java용 Application Insights SDK](https://aka.ms/aijavasdk)를 다운로드합니다.
 2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
 
 ### 질문...
 
 * *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
 
- * `applicationinsights-core`는 최소한의 API를 제공합니다. 항상 필요합니다.
- * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
+ * `applicationinsights-core`는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
+ * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
- * 최신 버전의 [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
+ * 최신 버전의 [Java용 Application Insights SDK](https://aka.ms/qqkaq6)를 다운로드하여 이전 버전을 대체합니다.
  * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
 
@@ -161,8 +158,8 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
-* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
-* Application Insight 키를 시스템 속성으로 Azure 포털에서 동적으로 전달할 수 있습니다(-DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey). 정의된 속성이 없는 경우 Azure Appsetting에서 환경 변수(APPLICATION\_INSIGHTS\_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이렇게 하면 다른 환경에 다른 InstrumentationKey를 동적으로 관리할 수 있습니다.
+* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이 식별자를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
+* Application Insights 키를 시스템 속성으로 Azure 포털에서 동적으로 전달할 수 있습니다(-DAPPLICATION\_INSIGHTS\_IKEY=your\_ikey). 정의된 속성이 없는 경우 Azure 앱 설정에서 환경 변수(APPLICATION\_INSIGHTS\_IKEY)를 확인합니다. 두 속성이 모두 정의되지 않은 경우 ApplicationInsights.xml에서 기본 InstrumentationKey를 사용됩니다. 이 시퀀스를 사용하면 다양한 환경에 대한 여러 InstrumentationKeys를 동적으로 관리할 수 있습니다.
 
 ### 계측 키를 설정하는 다른 방법
 
@@ -196,7 +193,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### MVC 3.1 이상을 사용하는 경우
+#### Spring Web MVC 3.1 이상을 사용하는 경우
 
 Application Insights 패키지를 포함하도록 이러한 요소 편집:
 
@@ -241,7 +238,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
+> Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 
 
 ### 인스턴스 데이터 
@@ -276,13 +273,13 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
+    (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
 ## 예외 및 요청 실패
 
 처리되지 않은 예외는 자동으로 수집됩니다.
 
-![아래로 스크롤하여 실패 타일을 클릭합니다.](./media/app-insights-java-get-started/21-exceptions.png)
+![설정 열기, 오류](./media/app-insights-java-get-started/21-exceptions.png)
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
@@ -297,7 +294,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## 성능 카운터
 
-**서버** 타일을 클릭하면 다양한 성능 카운터가 표시됩니다.
+**설정**, **서버**를 열고 다양한 성능 카운터를 확인합니다.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -367,7 +364,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## 로그 추적 캡처
 
-Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레임 워크에서 분리 및 분할할 수 있습니다. HTTP 요청 및 기타 원격 분석과 로그를 연관지을 수 있습니다. [방법을 알아봅니다][javalogs].
+Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레임워크에서 로그를 분리 및 분할할 수 있습니다. HTTP 요청 및 기타 원격 분석과 로그를 연관지을 수 있습니다. [방법을 알아봅니다][javalogs].
 
 ## 사용자 고유의 원격 분석 전송
 
@@ -379,17 +376,15 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 
 ## 가용성 웹 테스트
 
-Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정][availability]하려면 아래로 스크롤하여 가용성을 클릭합니다.
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정하려면][availability] 웹 테스트를 클릭합니다.
 
-![아래로 스크롤하여 가용성 다음 웹 추가 테스트를 클릭합니다.](./media/app-insights-java-get-started/31-config-web-test.png)
+![웹 테스트 클릭한 다음 웹 테스트 추가](./media/app-insights-java-get-started/31-config-web-test.png)
 
 사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
 
 ![웹 테스트의 예](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
-
-
 
 
 
@@ -413,4 +408,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

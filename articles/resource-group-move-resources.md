@@ -54,6 +54,7 @@
 - DocumentDB
 - HDInsight 클러스터
 - 키 자격 증명 모음
+- 미디어 서비스
 - 모바일 고객 관리
 - 알림 허브
 - Operational Insights
@@ -272,4 +273,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

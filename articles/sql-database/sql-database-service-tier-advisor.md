@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/09/2016"
+   ms.date="08/08/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 가격 책정 계층 권장 사항
 
- 기존 Azure SQL 데이터베이스의 작업을 실행하는 데 가장 적합한 서비스 계층과 성능 수준을 추천하는 가격 책정 계층 권장 사항이 제공됩니다.
+ 가격 책정 계층 권장 사항은 기존 Azure SQL 데이터베이스의 워크로드 실행에 가장 적합한 서비스 계층과 성능 수준을 추천합니다.
 
 > [AZURE.NOTE] 가격 책정 계층 권장 사항은 Web 및 Business 데이터베이스와 탄력적 데이터베이스 풀에 대해서만 제공되며 [Azure 포털](https://portal.azure.com/)에서만 사용할 수 있습니다.
 
@@ -96,4 +96,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

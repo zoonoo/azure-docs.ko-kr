@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows 유니버설 앱용 Azure Mobile Engagement 시작"
+	pageTitle="Windows 유니버설 앱 Azure Mobile Engagement 시작"
 	description="Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
 	documentationCenter="windows"
@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="piyushjo" />
+	ms.date="08/12/2016"
+	ms.author="piyushjo;ricksal" />
 
 # Windows 유니버설 앱용 Azure Mobile Engagement 시작
 
 [AZURE.INCLUDE [영웅 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
+이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 
 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
 
-이 자습서를 사용하려면 다음이 필요합니다.
+## 필수 조건
 
-+ Visual Studio 2013
-+ [MicrosoftAzure.MobileEngagement] Nuget 패키지
+[AZURE.INCLUDE [선행 조건](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started)을 참조하세요.
 
-##<a id="setup-azme"></a>Windows 유니버설 앱용 Mobile Engagement 설정
+## Windows 유니버설 앱용 Mobile Engagement 설정
 
 [AZURE.INCLUDE [포털에서 Mobile Engagement 앱 만들기](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -40,17 +38,17 @@
 
 여기서는 통합을 시연하기 위해 Visual Studio를 사용하여 기본적인 앱을 만듭니다.
 
-###새 Windows 유니버설 앱 프로젝트 만들기
+###Windows 유니버설 앱 프로젝트 만들기
 
 다음 단계에서는 Visual Studio 2015를 사용한다고 가정하지만 이전 버전의 Visual Studio에서도 단계는 유사합니다.
 
 1. Visual Studio를 시작하고 **홈** 화면에서 **새 프로젝트**를 선택합니다.
 
-2. 팝업에서 **Windows 8** -> **유니버설** -> **비어 있는 앱(유니버설 Windows 8.1)**을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+2. 팝업에서 **Windows** -> **유니버설** -> **비어 있는 앱(유니버설 Windows)**을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
 
     ![][1]
 
-이제 Azure Mobile Engagement SDK를 통합할 새 Windows 유니버설 앱 프로젝트가 만들어졌습니다.
+이제 다음에 Azure Mobile Engagement SDK를 통합할 Windows 유니버설 앱 프로젝트가 만들어졌습니다.
 
 ###Mobile Engagement 백 엔드에 앱 연결
 
@@ -66,7 +64,7 @@
 
 	![][3]
 
-	>[AZURE.TIP] 앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 그러면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
+	>[AZURE.TIP] 앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 두 개의 앱을 가지면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
 
 4. 파일 `App.xaml.cs`에서:
 
@@ -74,7 +72,7 @@
 
 			using Microsoft.Azure.Engagement;
 
-	b. Engagement 초기화 및 설정 전용 메서드 추가:
+	b. Engagement를 초기화하는 메서드 추가:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -109,7 +107,7 @@
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. **MainPage**의 기본 클래스를 **Page**에서 **EngagementPageOverlay**로 바꿉니다.
+2. **MainPage**의 기본 클래스를 **Page**에서 **EngagementPageOverlay**로 변경합니다.
 
 		class MainPage : EngagementPageOverlay
 
@@ -120,7 +118,7 @@
 		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 	b. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
-	
+
 > [AZURE.IMPORTANT] 페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
@@ -148,12 +146,12 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 		   EngagementReach.Instance.Init(e);
 		}
 
-알림 메시지를 보내기 위한 설정이 완료되었습니다. 이제 이 기본 통합을 제대로 수행했는지 확인합니다.
+알림을 보낼 준비가 되었습니다. 그런 다음 이 기본 통합을 제대로 수행했는지 확인합니다.
 
 ###알림을 보내도록 Mobile Engagement 액세스 권한 부여
 
 1. 웹 브라우저에서 [Windows 스토어 개발자 센터]를 열어 로그인하고 필요한 경우 계정을 만드십시오.
-2. 오른쪽 위 모서리에 있는 **대시보드**를 클릭한 다음 왼쪽 패널 메뉴에서 **새 앱 만들기**를 클릭합니다. 
+2. 오른쪽 위 모서리에 있는 **대시보드**를 클릭한 다음 왼쪽 패널 메뉴에서 **새 앱 만들기**를 클릭합니다.
 
 	![][9]
 
@@ -169,24 +167,22 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 	![][12]
 
-5. 푸시 자격 증명 섹션으로 이동하게 됩니다. **앱 설정** 섹션에 있는지 확인한 다음 **패키지 SID** 및 **클라이언트 암호**를 복사합니다.
+5. 푸시 자격 증명 섹션으로 이동합니다. **앱 설정** 섹션에 있는지 확인한 다음 **패키지 SID** 및 **클라이언트 암호**를 복사합니다.
 
 	![][13]
 
-6. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다. 그런 다음 **편집** 단추를 클릭하여 아래와 같이 **패키지 SID(보안 식별자)** 및 **비밀 키**를 입력합니다.
+6. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다. 그런 다음 **편집** 단추를 클릭하여 다음과 같이 **패키지 SID(보안 식별자)** 및 **비밀 키**를 입력합니다.
 
 	![][6]
 
-8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. 이렇게 하려면 Visual Studio에서 **앱과 스토어 연결**을 클릭해야 합니다.
-
-	![][7]
+8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. Visual Studio의 **스토어에 앱 연결**을 클릭합니다. ![][7]
 
 ##<a id="send"></a>앱에 알림 보내기
 
 [AZURE.INCLUDE [Windows 푸시 캠페인 만들기](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다.
-앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
+앱이 실행 중인 경우 앱 내 알림이 표시됩니다. 그렇지 않고 앱이 닫힌 경우 알림 메시지가 표시됩니다. 
+앱 내 알림이 표시되지만 알림 메시지가 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 일시 중단되었는지 확인합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며, 앱 내 알림으로 표시되어 있는 동안에는 알림 메시지가 표시되지 않습니다.
 
 ![][8]
 
@@ -210,4 +206,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

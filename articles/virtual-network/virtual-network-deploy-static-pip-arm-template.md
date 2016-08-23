@@ -3,7 +3,7 @@
    description="리소스 관리자에서 템플릿을 사용하여 고정 공용 IP를 사용하는 VM을 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -107,7 +107,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
-	예상된 출력:
+	예상 출력:
 
 		ResourceGroupName : PIPTEST
 		Location          : westus
@@ -121,7 +121,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
 		    -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
 
-	예상된 출력:
+	예상 출력:
 
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
@@ -184,4 +184,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

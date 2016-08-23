@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="08/08/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
@@ -24,7 +24,7 @@
 
 ## Azure PowerShell Cmdlet 시작
 
-1. Windows PowerShell을 엽니다. 
+1. Windows PowerShell을 엽니다.
 2. PowerShell 프롬프트에서 다음 명령을 실행하여 Azure Resource Manager에 로그인하고 구독을 선택합니다.
 
     ```PowerShell
@@ -74,7 +74,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 - [Get-AzureRmSqlDatabaseRestorePoints][]
 - [New-AzureRmSqlDatabase][]
 - [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
+- [Restore-AzureRmSqlDatabase][]
 - [Resume-AzureRmSqlDatabase][]
 - [Select-AzureRmSubscription][]
 - [Set-AzureRmSqlDatabase][]
@@ -114,4 +114,4 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Other Web references-->
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

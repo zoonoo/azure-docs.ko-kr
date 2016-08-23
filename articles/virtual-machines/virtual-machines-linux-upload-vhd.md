@@ -201,7 +201,7 @@ Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON 
           }
 ```
 
-[사용자 지정 이미지에서 VM을 만드는 데 이 기존 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용할 수 있거나 [고유한 Azure Resource Manager 템플릿 만들기](../resource-group-authoring templates.md)에 관해 알아봅니다.
+[사용자 지정 이미지에서 VM을 만드는 데 이 기존 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용할 수 있거나 [고유한 Azure Resource Manager 템플릿 만들기](../resource-group-authoring-templates.md)에 관해 알아봅니다.
 
 템플릿을 구성했다면 `azure group deployment create` 명령을 사용하여 VM을 만듭니다. `--template-uri` 매개 변수를 사용하여 JSON 템플릿의 URI를 지정합니다.
 
@@ -221,4 +221,4 @@ azure group deployment create --resource-group TestTemplateRG
 ## 다음 단계
 사용자 지정 가상 디스크를 준비하고 업로드한 후 [리소스 관리자 및 템플릿 사용하기](../resource-group-overview.md)에 관해 자세히 알아 볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md)를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md)를 해야 합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

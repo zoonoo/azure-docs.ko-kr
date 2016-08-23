@@ -3,7 +3,7 @@
    description="VM 및 역할 인스턴스를 다른 서브넷으로 이동하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법
 
@@ -53,4 +53,4 @@ VM에 대한 고정 내부 개인 IP를 지정한 경우 먼저 해당 설정을
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

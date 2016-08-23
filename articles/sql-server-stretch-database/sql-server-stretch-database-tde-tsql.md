@@ -19,7 +19,7 @@
 # Azure에서 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-server-stretch-database-encryption-tde.md)
-- [TSQL](sql-server-stretch-database-encryption-tde-tsql.md)
+- [TSQL](sql-server-stretch-database-tde-tsql.md)
 
 TDE(투명한 데이터 암호화)는 응용 프로그램에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

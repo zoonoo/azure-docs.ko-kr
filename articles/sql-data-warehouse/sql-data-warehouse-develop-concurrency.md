@@ -164,9 +164,8 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 ### DW500의 리소스 클래스와 중요도 관계
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
- |
-| :------------- | :------------- | :--------------------: | :--------- |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도 |
+| :------------- | :------------- | :---------------------   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
 | largerc | SloDWGroupC03 | 8 | 중간 |
@@ -292,7 +291,7 @@ Removed as these two are not confirmed / supported under SQLDW
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **리소스 클래스 증가:** 증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
+4. **리소스 클래스 증가:** 더 높은 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
@@ -429,4 +428,4 @@ FROM	sys.dm_pdw_wait_stats w;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

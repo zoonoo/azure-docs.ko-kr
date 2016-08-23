@@ -3,7 +3,7 @@
 	description="하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 정의한 비즈니스 요구 사항을 충족합니다."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # 하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
@@ -155,4 +155,4 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 ## 참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

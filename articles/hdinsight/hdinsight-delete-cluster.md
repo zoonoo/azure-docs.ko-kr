@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/20/2016"
+ms.date="08/09/2016"
 ms.author="larryfr"/>
 
 #HDInsight 클러스터를 삭제하는 방법
@@ -48,4 +48,4 @@ __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
     
 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

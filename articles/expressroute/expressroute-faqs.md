@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -118,7 +118,7 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 예. 최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다.
 
 ### 가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 Express 경로 회로에 연결할 수 있나요?
-예. 단일 Express 경로 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. Express 경로 프리미엄 기능을 사용하여이 한도를 늘릴 수 있습니다.
+예. 단일 Express 경로 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. Express 경로 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다.
 
 자세한 내용은 [여러 구독에서 Express 경로 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
 
@@ -180,25 +180,14 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
  - 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
  - Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
- - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서에서 만든 VNet을 연결할 수 있습니다.
+ - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다.
  - Office 365 서비스 및 CRM Online에 대한 연결
 
 ### Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?
-아래 표에서 Express 경로 회로에 연결할 수 있는 Vnet의 수에 대해 늘어난 수를 제공합니다. 기본 제한은 10입니다.
+아래 표는 Express 경로 한도 및 Express 경로 회로당 VNet의 수를 보여 줍니다.
 
-**회로에 대한 제한**
 
-| **회로 크기** | **기본 설치를 위한 VNet 링크 개수** | **Express 경로 프리미엄과의 VNet 링크 수** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50Mbps | 10 | 10 |
-| 100Mbps | 10 | 20 |
-| 200Mbps | 10 | 25 |
-| 500Mbps | 10 | 40 |
-| 1Gbps | 10 | 50 |
-| 2Gbps | 10 | 60 |
-| 5Gbps | 10 | 75 |
-| 10Gbps | 10 | 100 |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### Express 경로 프리미엄을 사용하려면 어떻게 하나요?
@@ -251,4 +240,4 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 ### Express 경로 연결을 통해 Dynamics AX Online에 액세스할 수 있나요?
 아니요, 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

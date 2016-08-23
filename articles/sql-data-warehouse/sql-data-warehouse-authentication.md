@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/29/2016"
+   ms.date="08/04/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 인증
@@ -63,7 +63,6 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 - Azure Active Directory 인증에서는 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 - Azure Active Directory는 SQL 데이터 웨어하우스에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
 
-> [AZURE.IMPORTANT] Azure Active Directory 인증은 미리 보기 기능으로, 사용권 계약(예: 기업 계약, Microsoft Azure 계약 또는 Microsoft 온라인 구독 계약)의 미리 보기 약관과 해당하는 [Microsoft Azure 미리 보기 추가 사용 특약](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
 
 ### 구성 단계
 
@@ -79,7 +78,7 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
   
 ### 세부 정보 찾기
-- 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md) 항목의 자세한 단계를 따릅니다.
+- 자세한 단계를 완료합니다. Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스를 구성하고 Azure Active Directory 인증을 사용하는 자세한 단계는 거의 동일합니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 연결](../sql-database/sql-database-aad-authentication.md) 토픽의 자세한 단계를 따릅니다.
 - 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](https://msdn.microsoft.com/library/mt667986.aspx)을 참조하세요.
 
 ## 다음 단계
@@ -92,4 +91,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

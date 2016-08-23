@@ -124,8 +124,8 @@ Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호
 | | 미국 동부 | 12076:51004 |
 | | 미국 동부 2 | 12076:51005 |
 | | 미국 서부 | 12076:51006 |
-| | 미국 서부 2 | 12076:51022 |
-| | 미국 중서부 | 12076:51023 |
+| | 미국 서부 2 | 12076:51026 |
+| | 미국 중서부 | 12076:51027 |
 | | 미국 중북부 | 12076:51007 |
 | | 미국 중남부 | 12076:51008 |
 | | 미국 중부 | 12076:51009 |
@@ -175,4 +175,4 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [Resource Manager 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
 	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 Resource Manager VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

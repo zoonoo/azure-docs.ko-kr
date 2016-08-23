@@ -3,7 +3,7 @@
    description="이 페이지에서는 내부 부하 분산된 끝점이 있는 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags 
@@ -12,14 +12,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="04/05/2016"
+   ms.author="gwallace"/>
 
 # 내부 부하 분산 장치 (ILB)를 사용하여 응용 프로그램 게이트웨이 만들기
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-ilb.md)
-- [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
+- [Azure 클래식 단계](application-gateway-ilb.md)
+- [리소스 관리자 Powershell 단계](application-gateway-ilb-arm.md)
 
 
 응용 프로그램 게이트웨이는 인터넷 연결 가상 IP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 응용 프로그램의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층이 포함된 서비스/계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL 종료가 필요합니다. 이 문서는 ILB와 응용 프로그램 게이트웨이 구성 단계를 안내합니다.
@@ -79,10 +79,10 @@
  
 값은 다음과 같습니다.
 
-- **백엔드 서버 풀:** 백엔드 서버 IP 주소의 목록입니다. 나열 된 IP 주소는 VNet 서브넷에 속해야 하거나 또는 공용 IP/VIP 이어야 합니다. 
+- **백엔드 서버 풀:** 백엔드 서버 IP 주소의 목록입니다. 나열 된 IP 주소는 VNet 서브넷에 속해야 하거나 또는 공용 IP/VIP 이어야 합니다.
 - **백엔드 서버 풀 설정:**프로토콜, 포트와 같은 모든 풀 설정 및 쿠키는 선호도 기반으로 합니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
 - **프런트엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에서 열린 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백엔드 서버 중의 하나가 리디렉트됩니다.
-- **수신기:** 수신기는 프런트엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL을 구성하는 작업에 오프로드하는 경우)을 가집니다. 
+- **수신기:** 수신기는 프런트엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL을 구성하는 작업에 오프로드하는 경우)을 가집니다.
 - **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재는 *기본*규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 구성 개체를 만들거나, 구성 XML 파일을 사용하여 구성을 생성할 수 있습니다. 구성 XML 파일을 사용하여 구성을 생성하려면 아래 샘플을 사용합니다.
@@ -92,7 +92,7 @@
 다음 사항에 유의하세요.
 
 
-- *FrontendIPConfigurations* 요소는 ILB를 사용하여 응용 프로그램 게이트웨이를 구성하는 것에 대한 ILB 세부 정보를 설명합니다. 
+- *FrontendIPConfigurations* 요소는 ILB를 사용하여 응용 프로그램 게이트웨이를 구성하는 것에 대한 ILB 세부 정보를 설명합니다.
 
 - 프런트 엔드 IP *형식*은 '개인'으로 설정되어야 합니다.
 
@@ -174,7 +174,7 @@
 게이트웨이가 구성되면, `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
 
 
-**참고:** `Start-AzureApplicationGateway` cmdlet은 완료되는 데 최대 15-20분까지 걸릴 수 있습니다.
+> [AZURE.NOTE] `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다.
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -188,7 +188,7 @@
 
 `Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *Start-AzureApplicationGateway*가 이전 단계에서 성공한 경우, 상태가 *실행 중*이어야 하고, Vip와 DNS 이름은 유효한 항목이어야 합니다. 이 출력 다음 샘플에서는 첫 줄에 cmdlet을 보여줍니다. 이 샘플에는 gatway 실행되고 트래픽을 받을 준비가 됩니다.
 
-**참고:** 응용 프로그램 게이트웨이는 이 예에서 구성된 ILB 끝점인 10.0.0.10에서 트래픽을 허용하도록 구성됩니다.
+> [AZURE.NOTE] 응용 프로그램 게이트웨이는 이 예에서 구성된 ILB 끝점인 10.0.0.10에서 트래픽을 허용하도록 구성됩니다.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -212,4 +212,4 @@
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

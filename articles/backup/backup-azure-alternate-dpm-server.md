@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/08/2016"
 	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # 백업 저장소의 다른 DPM 서버에서 데이터 복구
@@ -103,4 +103,4 @@
 ## 다음 단계:
 [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

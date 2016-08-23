@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="08/10/2016" 
 	ms.author="sdanie"/>
 
 # Azure PowerShell을 사용하여 Azure Redis Cache 관리
@@ -34,7 +34,7 @@ Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-먼저 다음 명령을 사용하여 Azure에 로그온해야 합니다.
+먼저 다음 명령을 사용하여 Azure에 로그인해야 합니다.
 
 	Login-AzureRmAccount
 
@@ -50,7 +50,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 필요합니다.
 
-- Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 또는 4.0인지를 확인합니다. 호환되는 버전을 설치하려면 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
+- Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 또는 4.0인지를 확인합니다. 호환 버전을 설치하려면 [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)을 참조하세요.
 
 이 자습서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다.
 
@@ -106,12 +106,12 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 
 | 매개 변수 | 설명 | 기본값 |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| 이름 | 캐시의 이름 | |
+| Name | 캐시의 이름 | |
 | 위치 | 캐시의 위치 | |
 | ResourceGroupName | 캐시를 만들 리소스 그룹 이름 | |
 | 크기 | 캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB | 1GB |
 | ShardCount | 클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU | 캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 | Standard |
+| SKU | 캐시의 SKU를 지정합니다. 유효한 값: 기본, 표준, 프리미엄 | 표준 |
 | RedisConfiguration | Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
 | EnableNonSslPort | 비 SSL 포트를 사용하는지 여부를 나타냅니다. | False |
 | MaxMemoryPolicy | 이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
@@ -301,7 +301,7 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-`Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzureRmRedisCache`를 사용할 수 있습니다.
+`Size`, `Sku`, `EnableNonSslPort`의 속성과 `RedisConfiguration` 값을 업데이트하는 데 `Set-AzureRmRedisCache` cmdlet을 사용할 수 있습니다.
 
 다음 명령은 myCache라는 Redis Cache에 대한 maxmemory-policy를 업데이트합니다.
 
@@ -312,7 +312,7 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 
 `Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Redis Cache 인스턴스 크기를 조정하는 데 `Set-AzureRmRedisCache`를 사용할 수 있습니다.
 
->[AZURE.NOTE]PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 제한 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
+>[AZURE.NOTE]PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 한도 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 >
 >-	높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
 >    -    **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
@@ -757,55 +757,6 @@ Redis Cache를 삭제하려면 [Remove-AzureRmRedisCache](https://msdn.microsoft
 	    -Force
 	
 
-
-<a name="classic"></a>
-### PowerShell 클래식 배포 모델로 Azure Redis Cache 인스턴스 관리
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 이 문서의 시작 부분에서 설명된 [Resource Manager 모델을 사용하여 이러한 단계를 수행](cache-howto-manage-redis-cache-powershell.md)하는 방법을 알아봅니다.
-
-다음 스크립트는 클래식 배포 모델을 사용하여 Azure Redis Cache를 만들고 업데이트 및 삭제하는 방법을 보여 줍니다.
-		
-		$VerbosePreference = "Continue"
-
-    	# Create a new cache with date string to make name unique.
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
-		$location = "West US"
-		$resourceGroupName = "Default-Web-WestUS"
-		
-		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-		
-		# Wait until the Cache service is provisioned.
-		
-		for ($i = 0; $i -le 60; $i++)
-		{
-		    Start-Sleep -s 30
-		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
-		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
-		    {
-		        break
-		    }
-		    If($i -eq 60)
-		    {
-		        exit
-		    }
-		}
-		
-		# Update the access keys.
-		
-		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
-		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
-		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
-		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-		
-		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
-		# Set the memory policy to Least Recently Used.
-		
-		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
-		
-		# Delete the cache.
-		
-		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
-
 ## 다음 단계
 
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
@@ -817,6 +768,4 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!-----HONumber=AcomDC_0720_2016-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

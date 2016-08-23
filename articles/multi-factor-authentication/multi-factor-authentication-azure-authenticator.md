@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -77,7 +77,7 @@ QR 코드가 있으면 앱을 시작합니다. +를 클릭합니다.
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- 바코드를 스캔합니다. 
+- 바코드를 스캔합니다.
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
@@ -147,7 +147,7 @@ Microsoft 계정 등 비 Azure 계정을 수동으로 추가하려는 경우, �
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/msaccount.png)
 
-- 계정 아래에 있는 코드를 입력하고(이 경우 875 756) 받은 암호 키를 페이지의 상자에 입력하여 프로세스를 완료하고 클릭합니다.  
+- 계정 아래에 있는 코드를 입력하고(이 경우 875 756) 받은 암호 키를 페이지의 상자에 입력하여 프로세스를 완료하고 클릭합니다.
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
@@ -168,4 +168,4 @@ Azure Authenticator 앱에서 개별 계정을 제거하려면 간단히 계정�
 
 ![계정 제거](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

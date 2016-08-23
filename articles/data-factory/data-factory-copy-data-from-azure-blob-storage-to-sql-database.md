@@ -27,7 +27,7 @@
 
 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 
-복사 작업이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
+복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 > [AZURE.NOTE] 데이터 팩터리 서비스에 대한 자세한 개요는 [Azure Data Factory 소개][data-factory-introduction] 문서를 참조하세요.
 
@@ -45,9 +45,9 @@
 1. [Azure 포털][azure-portal]에 로그인합니다.
 2. 왼쪽의 **찾아보기** 허브를 클릭하고 **저장소 계정**을 선택합니다.
 3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
-4. **저장소** 블레이드에서 **키** 타일을 클릭합니다.
-5. **키 관리** 블레이드에서 **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
-6. 이전 단계를 반복하여 **기본 액세스 키**를 복사하거나 적어둡니다.
+4. **설정** 아래에 있는 **액세스 키** 링크를 선택합니다.
+5.  **저장소 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
+6. 이전 단계를 반복하여 복사하거나 **key1**을 적어둡니다.
 7. **X**를 클릭하여 모든 블레이드를 닫습니다.
 
 ## SQL server, 데이터베이스, 사용자 이름 수집
@@ -116,4 +116,4 @@ Azure Data Factory의 복사 작업에 대한 자세한 내용은 [데이터 이
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

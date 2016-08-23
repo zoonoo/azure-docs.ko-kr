@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/24/2016"
- ms.author="stevehob"/>
+ ms.date="08/17/2016"
+ ms.author="araguila"/>
 
 # 예측 정비 사전 구성 솔루션 개요
 
@@ -40,7 +40,7 @@ Fabrikam 항공기의 엔진에는 비행 중에 엔진 상태를 모니터링�
 
 솔루션은 템플릿으로 사용할 수 있는 기존의 Azure 기계 학습을 활용하여 IoT Suite 서비스를 통해 수집되는 장치 원격 분석에서 작동하는 이러한 기능을 보여줍니다. Microsoft는 항공기 엔진의 [회귀 모델][lnk_regression_model]을 구축하고 해당 모델을 사용하는 방법에 대한 전체 템플릿, 데이터<sup>[1]</sup>, 단계별 지침을 게시하였습니다.
 
-미리 구성된 Azure IoT 예측 정비 솔루션은 이 템플릿으로부터 생성된 회귀 모델을 사용합니다. 템플릿은 사용자의 Azure 구독에 배포되어 있고 자동으로 생성된 API를 통해 노출됩니다. 이 솔루션은 4개(총 100개 중)의 엔진을 나타내는 테스트 데이터의 하위 집합과, 학습된 모델을 통해 정확한 결과를 제공하는 4개(총 21개 중)의 센서 데이터 스트림을 포함합니다.
+미리 구성된 Azure IoT 예측 정비 솔루션은 이 템플릿에서 생성된 회귀 모델을 사용합니다. 템플릿은 사용자의 Azure 구독에 배포되어 있고 자동으로 생성된 API를 통해 노출됩니다. 이 솔루션은 4개(총 100개 중)의 엔진을 나타내는 테스트 데이터의 하위 집합과, 학습된 모델을 통해 정확한 결과를 제공하는 4개(총 21개 중)의 센서 데이터 스트림을 포함합니다.
 
 *[1] A. Saxena and K. Goebel(2008). "Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합", NASA Ames Prognostics Data Repository(http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -66,4 +66,4 @@ Azure IoT가 예측 정비 시나리오를 가능하게 하는 방식에 대해 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

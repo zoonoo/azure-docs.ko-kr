@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드
@@ -57,7 +57,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> 2단계: Visual Studio 솔루션 설치
+## <a id="SetupVS"></a>2단계: Visual Studio 솔루션 설치
 
 1. 컴퓨터에서 **Visual Studio 2015**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
@@ -69,7 +69,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)에서 이 자습서의 완성된 코드 프로젝트를 찾을 수 있습니다.
 
-##<a id="Connect"></a>3단계: DocumentDB 계정에 연결
+## <a id="Connect"></a>3단계: DocumentDB 계정에 연결
 
 먼저 Program.cs에서 C# 응용 프로그램의 시작 부분에 다음 참조를 추가합니다.
 
@@ -96,9 +96,9 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 다음으로 [Azure 포털](https://portal.azure.com)로 이동하여 URI 및 기본 키를 검색합니다. DocumentDB URI 및 기본 키는 응용 프로그램에서 연결할 곳을 이해하고 DocumentDB에서 응용 프로그램 연결을 신뢰하는 데 필요합니다.
 
-Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
+Azure 포털에서 1단계의 DocumentDB 계정으로 이동한 다음 **키**를 클릭합니다.
 
-**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<끝점 URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<키>*를 프로그램에 복사된 키로 바꿉니다.
+URI를 복사하고 *<끝점 URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<키>*를 프로그램에 복사된 키로 바꿉니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
@@ -200,7 +200,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 축하합니다. DocumentDB 데이터베이스가 성공적으로 생성되었습니다.
 
-##<a id="CreateColl"></a>5단계: 컬렉션 만들기  
+## <a id="CreateColl"></a>5단계: 컬렉션 만들기  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync**는 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 
@@ -255,7 +255,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 축하합니다. DocumentDB 문서 컬렉션이 성공적으로 생성됩니다.
 
-##<a id="CreateDoc"></a>6단계: JSON 문서 만들기
+## <a id="CreateDoc"></a>6단계: JSON 문서 만들기
 **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
 먼저 이 샘플에서는 DocumentDB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어야 합니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 문서에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다. **GetStartedDemo** 메서드 다음에 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
@@ -443,7 +443,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -562,7 +562,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 축하합니다. DocumentDB 데이터베이스가 성공적으로 삭제되었습니다.
 
-##<a id="Run"></a>11단계: C# 콘솔 응용 프로그램 모두 함께 실행!
+##<a id="Run"></a>11단계: C# 콘솔 응용 프로그램 모두 함께 실행
 
 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다.
 
@@ -602,7 +602,7 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 
 ## 다음 단계
 
--   보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
+- 보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
 - DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
 -	[DocumentDB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 자세히 알아봅니다.
 -	[쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
@@ -612,4 +612,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

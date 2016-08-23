@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Azure RemoteApp 컬렉션의 개별 사용자에게 응용 프로그램 게시(미리 보기)
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 이 문서에서는 Azure RemoteApp 컬렉션의 개별 사용자에게 응용 프로그램을 게시하는 방법을 설명합니다. Azure RemoteApp의 새로운 기능은 현재 "비공개 미리 보기" 상태이며 평가 목적으로 선택된 초기 채택자만이 사용할 수 있습니다.
 
@@ -102,4 +105,4 @@ AclLevel 속성은 다음 값을 가질 수 있습니다.
 ## 미리 보기 기능을 시도해 본 적이 있나요?
 미리 보기에 아직 참여하지 않은 경우 이 [설문 조사](http://www.instant.ly/s/AY83p)를 사용하여 액세스를 요청하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

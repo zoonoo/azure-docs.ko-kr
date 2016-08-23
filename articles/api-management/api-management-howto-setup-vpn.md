@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="antonba"/>
 
 # Azure API 관리에서 VPN 연결을 설정하는 방법
@@ -82,4 +82,4 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

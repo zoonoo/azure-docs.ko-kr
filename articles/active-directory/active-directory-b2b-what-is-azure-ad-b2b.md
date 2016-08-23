@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
-   manager="cliffdi"
+   manager="femila"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="05/09/2016"
-   ms.author="viviali"/>
+   ms.date="08/09/2016"
+   ms.author="femila"/>
 
 # Azure AD B2B 공동 작업 미리 보기: 간단하고 안전한 클라우드 파트너 통합
 
@@ -23,9 +23,10 @@
 
 - **간단함**: 각 파트너 사용자는 기존의 Azure AD 계정 또는 초대 수락 중 쉽게 만든 계정을 사용합니다. 앱 액세스 패널을 통해 이 사용자에게 선택한 회사 앱 또는 응용 프로그램 집합에 대한 직접 액세스를 제공할 수 있습니다.
 
-- **안전함**: 관리자는 Azure AD 디렉터리를 통해 회사 앱에 대한 모든 액세스를 제어합니다. 공동 작업이 종료되면 파트너 사용자가 Azure AD에서 제거되고 앱에 대한 해당 액세스는 즉시 취소됩니다. 또한 파트너 사용자가 파트너 조직을 떠나는 경우에도 액세스가 자동으로 상실됩니다.
+- **안전함**: 관리자는 Azure AD 디렉터리를 통해 회사 앱에 대한 모든 액세스를 제어합니다. 공동 작업이 종료되면 파트너 사용자가
+- Azure AD에서 제거될 수 있으며 앱에 대한 해당 액세스가 즉시 취소됩니다. 또한 파트너 사용자가 파트너 조직을 떠나는 경우에도 액세스가 자동으로 상실됩니다.
 
-- **무료**: Azure AD B2B 공동 작업은 Azure AD에서 제공하는 무료 기능입니다. 회사 앱에 대한 액세스가 필요한 파트너 회사는 **Azure AD가 없어도 됩니다.** Azure AD B2B 공동 작업은 이러한 파트너가 앱에 즉시 액세스할 수 있도록 간단한 사용자 등록 환경을 제공합니다.
+- **원활함**: 회사 앱에 대한 액세스가 필요한 파트너 회사는 **Azure AD가 없어도 됩니다.** Azure AD B2B 공동 작업은 이러한 파트너가 앱에 즉시 액세스할 수 있도록 간단한 사용자 등록 환경을 제공합니다.
 
 Azure AD B2B 공동 작업을 실행하면서 [공개 미리 보기를 알리는 블로그 게시물](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) 및 [심층 분석 동영상](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo)을 확인해 보세요.
 
@@ -42,4 +43,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

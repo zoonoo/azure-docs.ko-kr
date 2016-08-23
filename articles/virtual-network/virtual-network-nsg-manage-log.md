@@ -3,7 +3,7 @@
    description="NSG에 대한 카운터, 이벤트 및 작업 로깅을 사용하도록 설정하는 방법에 대해 알아보기"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #NSG(네트워크 보안 그룹)에 대한 로그 분석
 
@@ -118,4 +118,4 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 - [Power BI를 사용하여 Azure 감사 로그 시각화](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) 블로그 게시물.
 - [Power BI 등에서 Azure 감사 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) 블로그 게시물.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

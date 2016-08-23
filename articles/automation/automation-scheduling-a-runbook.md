@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화에서 Runbook 예약"
+   pageTitle="Azure 자동화에서 Runbook 예약 | Microsoft Azure"
    description="특정 시간 또는 되풀이 일정에 따라 Runbook을 자동으로 시작할 수 있도록 Azure 자동화에서 일정을 만드는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="08/05/2016"
    ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 예약
@@ -32,7 +32,7 @@ Azure 포털, 클래식 포털에서 또는 Windows PowerShell을 사용하여 r
 1. **자산** 탭을 선택합니다.
 1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
 1. **일정 추가**를 클릭합니다.
-1. **이름**을 입력하고 선택적으로 새 일정에 대한 **설명**을 입력합니다.일정은 **한 번**, **매시간** 또는 **매일** 실행됩니다.
+1. **이름**을 입력하고 선택적으로 새 일정에 대한 **설명**을 입력합니다.일정은 **한 번**, **매시간**, **매일**, **매주** 또는 **매월** 실행됩니다.
 1. **시작 시간**을 지정하고 선택한 일정 유형에 따라 다른 옵션을 지정합니다.
 
 ### Azure 포털에서 새 일정을 만들려면
@@ -151,4 +151,4 @@ Azure 클래식 포털의 일정에 대한 일정 세부 정보 페이지에서 
 - 일정으로 작업하는 방법에 대해 자세히 알아보려면 [Azure 자동화의 일정 자산](http://msdn.microsoft.com/library/azure/dn940016.aspx)을 참조하세요.
 - Azure 자동화에서 Runbook을 시작하려면 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

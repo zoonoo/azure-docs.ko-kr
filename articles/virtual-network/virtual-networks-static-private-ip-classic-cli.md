@@ -3,7 +3,7 @@
    description="정적 개인 IP(DIP) 및 CLI를 사용하여 클래식 모드에서 관리 방법 이해"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure CLI에서 정적 개인 IP 주소(클래식)를 설정하는 방법
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-arm-cli.md)할 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 클래식 배포 모델에 대해 설명합니다. [리소스 관리자 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-arm-cli.md)할 수도 있습니다.
 
 아래 샘플 Azure CLI 명령에는 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-classic-cli.md)에 설명된 테스트 환경을 구축합니다.
 
@@ -35,7 +35,7 @@
 
 		azure service create TestService --location uscentral
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command service create
 		info:    Creating cloud service
@@ -46,7 +46,7 @@
 
 		azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command vm create
 		warn:    --vm-size has not been specified. Defaulting to "Small".
@@ -63,19 +63,19 @@
 
 	- **-l(또는 --location)**. VM을 만들 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
 	- **-n(또는 --vm-name)**. 만들 VM의 이름입니다.
-	- **-w(또는 --virtual-network-name)**. VM이 만들어지는 VNet의 이름입니다. 
+	- **-w(또는 --virtual-network-name)**. VM이 만들어지는 VNet의 이름입니다.
 	- **-S(또는 --static-ip)**. VM에 대한 정적 개인 IP 주소입니다.
 	- **TestService**. VM이 만들어지는 클라우드 서비스의 이름입니다.
 	- **bd507d3a70934695bc2128e3e5a255ba\_\_RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
 	- **adminuser**. Windows VM에 대한 로컬 관리자입니다.
-	- ****AdminP@ssw0rd**. Windows VM에 대한 로컬 관리자 암호입니다.
+	- **AdminP@ssw0rd**. Windows VM에 대한 로컬 관리자 암호입니다.
 
 ## VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 Azure CLI 명령을 실행하고 *Network StaticIP*에 대한 값을 확인합니다.
 
 	azure vm static-ip show DNS01
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command vm static-ip show
 	info:    Getting virtual machines
@@ -87,7 +87,7 @@
 	
 	azure vm static-ip remove DNS01
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command vm static-ip remove
 	info:    Getting virtual machines
@@ -100,7 +100,7 @@
 
 	azure vm static-ip set DNS01 192.168.1.101
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command vm static-ip set
 	info:    Getting virtual machines
@@ -115,4 +115,4 @@
 - [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

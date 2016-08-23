@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure VM에 원격 데스크톱 연결 문제 해결 | Microsoft Azure"
 	description="Windows VM에 대한 원격 데스크톱 연결 문제를 해결합니다. 빠른 마이그레이션 단계, 오류 메시지별 도움말, 자세한 네트워크 문제 해결을 가져옵니다."
-	keywords="원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연결할 수 없습니다,원격 데스크톱 문제 해결"
+	keywords="원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연결할 수 없습니다,원격 데스크톱 문제 해결,Azure VM에 연결할 수 없습니다,Azure VM에 RDP할 수 없습니다"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -26,13 +26,28 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 
 <a id="quickfixrdp"></a>
 
+## 빠른 문제 해결 단계
+각 문제 해결 단계 후 VM에 다시 연결을 시도합니다.
+
+1. Azure 포털 또는 Azure PowerShell을 사용하여 원격 액세스를 다시 설정합니다.
+2. VM을 다시 시작합니다.
+3. VM을 다시 배포합니다.
+4. 네트워크 보안 그룹/클라우드 서비스 끝점 규칙을 확인합니다.
+5. Azure 포털 또는 Azure PowerShell에서 VM 콘솔 로그를 검토합니다.
+6. Azure 포털에서 VM 리소스 상태를 확인합니다.
+7. VM 암호를 다시 설정합니다.
+
+자세한 단계가 필요한 경우 계속 읽으면 Resource Manager와 클래식 배포 모델에 대한 설명을 찾을 수 있습니다.
+
+
+<a id="fix-common-remote-desktop-errors"></a>
 ## 리소스 관리자 배포 모델을 사용하여 만든 VM 문제 해결
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다.
 
 > [AZURE.TIP] 포털에서 '연결' 단추가 회색으로 표시되고 [Express 경로](../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)에서 확인할 수 있습니다.
 
-- PowerShell을 사용하여 원격 액세스를 다시 설정합니다.
+1. PowerShell을 사용하여 원격 액세스를 다시 설정합니다.
 	- 아직 작업 전이면 [최신 Azure PowerShell을 설치하고 구성](../powershell-install-configure.md)합니다.
 
 	- 다음 PowerShell 명령 중 하나를 사용하여 RDP 연결을 다시 설정합니다. `myRG`, `myVM`, `myVMAccessExtension` 및 위치를 설치에 관련된 값으로 대체합니다.
@@ -50,53 +65,53 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] 앞의 예제에서 `myVMAccessExtension` 또는 `MyVMAccess`는 프로세스의 일부로 설치되는 새 확장에 지정한 이름입니다. 종종 단순히 VM의 이름으로 설정됩니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 그런 다음 출력의 'Extensions' 섹션을 확인합니다. VM에는 하나의 VMAccessAgent만 존재할 수 있으므로 `Set-AzureRmVMExtension`을 사용하는 경우 `-ForceReRun` 매개 변수도 추가해야 합니다. 이렇게 하면 에이전트가 다시 등록됩니다.
+	> [AZURE.NOTE] 앞의 예제에서 `myVMAccessExtension` 또는 `MyVMAccess`는 프로세스의 일부로 설치되는 새 확장에 지정한 이름입니다. 종종 VM의 이름으로 설정됩니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 그런 다음 출력의 'Extensions' 섹션을 확인합니다. VM에는 하나의 VMAccessAgent만 존재할 수 있으므로 `Set-AzureRmVMExtension`을 사용하는 경우 `-ForceReRun` 매개 변수도 추가하여 에이전트를 다시 등록해야 합니다.
 
-- 다른 시작 문제를 해결하기 위해 VM을 다시 시작합니다. **찾아보기** > **가상 컴퓨터** > *VM* > **다시 시작**을 선택합니다.
+2. 다른 시작 문제를 해결하기 위해 VM을 다시 시작합니다. **찾아보기** > **가상 컴퓨터** > *VM* > **다시 시작**을 선택합니다.
 
-- [새 Azure 노드에 VM을 다시 배포](virtual-machines-windows-redeploy-to-new-node.md)합니다.
+3. [새 Azure 노드에 VM을 다시 배포](virtual-machines-windows-redeploy-to-new-node.md)합니다.
 
 	이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 컴퓨터와 연결된 동적 IP 주소가 업데이트됩니다.
 	
-- [네트워크 보안 그룹 규칙](../virtual-network/virtual-networks-nsg.md)이 RDP 트래픽을 허용하는지 확인합니다(TCP 포트 3389).
+4. [네트워크 보안 그룹 규칙](../virtual-network/virtual-networks-nsg.md)이 RDP 트래픽을 허용하는지 확인합니다(TCP 포트 3389).
 
-- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **지원 + 문제 해결** > **진단 부팅**을 선택합니다.
+5. 부팅 문제를 해결하기 위해 VM의 콘솔 로그 또는 스크린샷을 검토합니다. **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **지원 + 문제 해결** > **진단 부팅**을 선택합니다.
 
-- [VM 암호를 재설정](virtual-machines-windows-reset-rdp.md)합니다.
+6. [VM 암호를 다시 설정](virtual-machines-windows-reset-rdp.md)합니다.
 
-- RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](virtual-machines-windows-detailed-troubleshoot-rdp.md)를 읽어볼 수 있습니다.
+RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](virtual-machines-windows-detailed-troubleshoot-rdp.md)를 읽어볼 수 있습니다.
 
 
 ## 클래식 배포 모델을 사용하여 만든 VM 문제 해결
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다.
 
-- [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 초기화합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **원격 액세스 다시 설정**을 선택합니다.
+1. [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 초기화합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **원격 액세스 다시 설정**을 선택합니다.
 
-- 다른 시작 문제를 해결하기 위해 VM을 다시 시작합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **다시 시작**을 선택합니다.
+2. 다른 시작 문제를 해결하기 위해 VM을 다시 시작합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **다시 시작**을 선택합니다.
 
-- [새 Azure 노드에 VM을 다시 배포](virtual-machines-windows-redeploy-to-new-node.md)합니다.
+3. [새 Azure 노드에 VM을 다시 배포](virtual-machines-windows-redeploy-to-new-node.md)합니다.
 
 	이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 컴퓨터와 연결된 동적 IP 주소가 업데이트됩니다.
 	
-- [클라우드 서비스 끝점이 RDP 트래픽을 허용](../cloud-services/cloud-services-role-enable-remote-desktop.md)하는지 확인합니다.
+4. [클라우드 서비스 끝점이 RDP 트래픽을 허용](../cloud-services/cloud-services-role-enable-remote-desktop.md)하는지 확인합니다.
 
-- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **설정** > **진단 부팅**을 선택합니다.
+5. 부팅 문제를 해결하기 위해 VM의 콘솔 로그 또는 스크린샷을 검토합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **설정** > **진단 부팅**을 선택합니다.
 
-- VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **설정** > **상태 검사**를 선택합니다.
+6. VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다. **찾아보기** > **가상 컴퓨터(클래식)** > *VM* > **설정** > **상태 검사**를 선택합니다.
 
-- [VM 암호를 재설정](virtual-machines-windows-reset-rdp.md)합니다.
+7. [VM 암호를 다시 설정](virtual-machines-windows-reset-rdp.md)합니다.
 
-- RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](virtual-machines-windows-detailed-troubleshoot-rdp.md)를 읽어볼 수 있습니다.
+RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](virtual-machines-windows-detailed-troubleshoot-rdp.md)를 읽어볼 수 있습니다.
 
 
 ## 특정한 원격 데스크톱 연결 오류 문제 해결
 
-RDP를 통해 VM에 연결하려고 할 때 특정 오류가 나타날 수 있습니다. 다음은 가장 일반적으로 표시되는 오류 메시지입니다.
+RDP를 통해 VM에 연결하려고 할 때 특정 오류가 나타날 수 있습니다. 다음은 가장 일반적인 오류 메시지입니다.
 
 - [라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](#rdplicense).
 
-- [원격 데스크톱에서 컴퓨터 "name"을 찾을 수 없습니다](#rdpname).
+- [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다](#rdpname).
 
 - [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
 
@@ -109,7 +124,7 @@ RDP를 통해 VM에 연결하려고 할 때 특정 오류가 나타날 수 있�
 
 원인: 원격 데스크톱 서버 역할에 대한 120일 라이선스 유예 기간이 만료되었고 라이선스를 설치해야 합니다.
 
-대안으로 포털에서 RDP 파일의 로컬 복사본을 저장하고 PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다. 다음과 같이 하면 해당 연결에만 라이선스를 사용할 수 없게 됩니다.
+대안으로 포털에서 RDP 파일의 로컬 복사본을 저장하고 PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다. 다음과 같이 해당 연결에만 라이선스를 사용할 수 없게 됩니다.
 
 		mstsc <File name>.RDP /admin
 
@@ -195,4 +210,4 @@ VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 �
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

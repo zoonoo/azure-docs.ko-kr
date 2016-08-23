@@ -1,5 +1,5 @@
 <properties
- pageTitle="Windows에서 A8 - A11 인스턴스 정보 | Microsoft Azure"
+ pageTitle="A8, A9, A10, A11 VM 크기 및 Windows 정보 | Microsoft Azure"
  description="Windows VM 및 클라우드 서비스에 대한 Azure A8, A9, A10 및 A11 계산 집약적 크기 사용에 관한 배경 정보와 고려사항을 얻습니다."
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/26/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # A8, A9, A10 및 A11 계산 집약적 인스턴스 정보
@@ -28,7 +28,7 @@ ms.service="virtual-machines-windows"
 
 단일 클라우드 서비스, 가용성 집합, 또는 Azure 배치 풀 내에서 A8 및 A9 인스턴스는 인스턴스 간 통신을 위한 Microsoft Network Direct 인터페이스를 사용하는 Windows MPI 응용 프로그램을 실행하도록 Azure의 RDMA 네트워크에 액세스할 수 있습니다.
 
-A8 또는 A9 인스턴스의 Windows 가상 컴퓨터, 클라우드 서비스, 및 Azure 배치 풀에서 RDMA 네트워크에 액세스하기 위한 MPI 응용 프로그램의 필수 요소는 다음 테이블을 참조하세요. 전형적인 배포 시나리오는 [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) 및 [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행](../batch/batch-mpi.md)을 참조하세요.
+다음은 A8 또는 A9 인스턴스의 Windows 가상 컴퓨터, 클라우드 서비스, 및 Azure 배치 풀에서 RDMA 네트워크에 액세스하기 위한 MPI 응용 프로그램의 필수 요소입니다. 전형적인 배포 시나리오는 [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) 및 [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행](../batch/batch-mpi.md)을 참조하세요.
 
 
 필수 요소 | 가상 컴퓨터 | 클라우드 서비스 또는 배치 풀 
@@ -58,4 +58,4 @@ Windows Server에서 HPC 팩을 사용하여 계산 집약적 인스턴스를 �
 
 * A8 및 A9 인스턴스를 사용하여 Azure 배치에서 MPI 응용 프로그램 실행에 대한 자세한 내용은 [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행](../batch/batch-mpi.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

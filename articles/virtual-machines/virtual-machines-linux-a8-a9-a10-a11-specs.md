@@ -1,5 +1,5 @@
 <properties
- pageTitle="A8 - A11 인스턴스 및 Linux 정보 | Microsoft Azure"
+ pageTitle="Linux를 사용한 A8, A9, A10, A11 VM 크기 정보 | Microsoft Azure"
  description="Linux VM을 위한 Azure A8, A9, A10 및 A11 계산 집약적 크기 사용에 관한 배경 정보와 고려사항을 얻습니다."
  services="virtual-machines-linux"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # A8, A9, A10 및 A11 계산 집약적 인스턴스 정보 
@@ -32,7 +32,7 @@ ms.service="virtual-machines-linux"
 
 * **MPI** - Intel MPI Library 5
 
-    >[AZURE.NOTE] Intel MPI 5.1.3.181은 마켓플레이스에 있는 CentOS 기반 HPC 이미지에 이미 설치되었습니다. SLES 12 HPC VM에서 Intel MPI를 사용하려면 별도로 설치해야 합니다.
+    >[AZURE.NOTE] Intel MPI 5.1은 마켓플레이스에 있는 CentOS 기반 HPC 이미지에 이미 설치되었습니다. SLES 12 HPC VM에서 Intel MPI를 사용하려면 별도로 설치해야 합니다.
 
 현재 RDMA를 지원하는 SLES 12 HPC 및 Azure 마켓플레이스의 CentOS HPC 이미지를 배포하는 경우에만 Azure Linux RDMA 드라이버가 설치됩니다. 배포한 다른 Linux VM에 드라이버를 설치할 수 없습니다.
 
@@ -114,4 +114,4 @@ done
 
 * Linux에서 RDMA를 사용하여 A8 및 A9 인스턴스를 배포하고 사용하려면 [MPI 응용 프로그램을 실행하기 위해 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

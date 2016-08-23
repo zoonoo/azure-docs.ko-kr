@@ -22,6 +22,7 @@
 - [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 Visual Studio 2013을 사용하여 다음을 수행합니다.
@@ -34,11 +35,11 @@
 ## 필수 조건
 
 1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 읽고 진행하기 전에 필수 구성 요소 단계를 완료**해야** 합니다.
-2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재는 이렇게 제한됩니다. 요구 사항이 변경되는 즉시 사용자에게 알려줍니다.
+2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재 제한 사항입니다.
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 	- Visual Studio 2013 또는 Visual Studio 2015
 	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
-	- [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -\> **확장 및 업데이트** -\> **온라인** -\> **Visual Studio 갤러리** -\> **Visual Studio용 Microsoft Azure Data Factory 도구** -\> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다.
+	- Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다.
  
 
 
@@ -59,7 +60,7 @@
 
 ### Azure 저장소 연결된 서비스 만들기
 
-4. 솔루션 탐색기에서 **Linked Services**\(연결된 서비스\) 노드를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
+4. 솔루션 탐색기에서 **Linked Services**(연결된 서비스) 노드를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 5. **새 항목 추가** 대화 상자의 목록에서 **Azure 저장소 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다.
 
 	![새 연결된 서비스](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
@@ -74,7 +75,7 @@
 
 5. **솔루션 탐색기**에서 다시 **연결된 서비스** 노드를 마우스 오른쪽 단추로 다시 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 6. 이번에는 **Azure SQL 연결된 서비스**를 선택하고 **추가**를 클릭합니다.
-7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server의 이름, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
 8.  **AzureSqlLinkedService1.json** 파일을 저장합니다.
 
 
@@ -213,7 +214,7 @@
 	2. **이름**에 **VSTutorialFactory**를 입력합니다.
 	
 		> [AZURE.NOTE]  
-		Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 데이터 팩터리의 이름에 대한 오류를 받은 경우 데이터 팩터리의 이름\(예: yournameVSTutorialFactory\)을 변경하고 다시 게시하도록 시도합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+		Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 데이터 팩터리의 이름에 대한 오류를 받은 경우 데이터 팩터리의 이름(예: yournameVSTutorialFactory)을 변경하고 다시 게시하도록 시도합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 		
 	3. **구독** 필드에서 올바른 구독을 선택합니다.
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다.
@@ -243,7 +244,7 @@
 
 1.	Azure **Data Factory**를 만들었습니다.
 2.	**연결된 서비스**를 만들었습니다.
-	1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다.
+	1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage** 연결된 서비스입니다.
 	2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다.
 3.	파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합**을 만들었습니다.
 4.	원본으로 **BlobSource**와 **복사 작업**을 사용하고 싱크로 **SqlSink**를 사용하여 **파이프라인**을 만들었습니다.
@@ -269,8 +270,8 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 | :---- | :---- |
 | [데이터 이동 활동](data-factory-data-movement-activities.md) | 이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
-| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

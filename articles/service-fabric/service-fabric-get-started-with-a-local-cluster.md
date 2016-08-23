@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # 로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
@@ -39,7 +39,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-    클러스터 설치는 몇 분 정도 걸립니다. 설치가 완료된 후 다음과 같은 출력이 표시되어야 합니다.
+    클러스터 설치는 몇 분 정도 걸립니다. 설치가 완료된 후 다음과 같은 출력이 표시됩니다.
 
     ![클러스터 설정 출력][cluster-setup-success]
 
@@ -66,7 +66,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     cd c:\ServiceFabric\
     ```
 
-4. 만든 위치에 [WordCount 응용 프로그램을 다운로드](http://aka.ms/servicefabric-wordcountapp)합니다. 참고: Microsoft Edge 브라우저는 *.zip*으로 확장된 파일을 저장합니다. 파일 확장명을 *.sfpkg*로 변경해야 합니다.
+4. 만든 위치에 [WordCount 응용 프로그램을 다운로드](http://aka.ms/servicefabric-wordcountapp)합니다. 참고: Microsoft Edge 브라우저는 *.zip*으로 확장된 파일을 저장합니다. 파일 확장명을 *.sfpkg*로 변경합니다.
 
 5. 로컬 클러스터에 연결합니다.
 
@@ -74,7 +74,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. 이름 및 응용 프로그램 패키지에 대한 경로를 제공하여 새 응용 프로그램을 만들려면 SDK의 배포 명령을 호출합니다.
+6. 이름 및 응용 프로그램 패키지에 대한 경로와 함께 SDK의 배포 명령을 사용하여 새 응용 프로그램을 만듭니다.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,7 +84,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
     ![로컬 클러스터에 응용 프로그램 배포][deploy-app-to-local-cluster]
 
-7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 같은 결과가 표시됩니다.
 
     ![배포된 응용 프로그램 UI][deployed-app-ui]
 
@@ -101,7 +101,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     Get-ServiceFabricApplication
     ```
 
-    WordCount 앱만 배포했다고 가정하면 다음과 같은 메시지를 확인합니다.
+    WordCount 앱만 배포했다고 가정하면 다음과 같은 메시지가 표시됩니다.
 
     ![PowerShell에 배포된 모든 응용 프로그램 쿼리][ps-getsfapp]
 
@@ -144,7 +144,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
-    업그레이드를 시작하는 대로 다음과 유사한 PowerShell의 출력이 표시되어야 합니다.
+    업그레이드가 시작되면 다음과 유사한 PowerShell의 출력이 표시됩니다.
 
     ![PowerShell에서 업그레이드 진행률][ps-appupgradeprogress]
 
@@ -154,7 +154,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
     각 도메인을 통해 업그레이드가 진행될 때 응용 프로그램이 제대로 작동되도록 상태 검사를 수행합니다.
 
-4. fabric:/WordCount 응용 프로그램에 포함된 서비스의 집합에 대 한 이전 쿼리를 다시 실행하는 경우 WordCountService의 버전을 변경하는 동안 WordCountWebService 버전은 변경되지 않았습니다.
+4. fabric:/WordCount 응용 프로그램에 있는 서비스의 집합에 대한 이전 쿼리를 다시 실행하는 경우 WordCountService의 버전이 변경되지만 WordCountWebService 버전은 변경되지 않습니다.
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
@@ -170,7 +170,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
 ## 정리
 
-마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 응용 프로그램은 제거될 때까지 백그라운드에서 계속 실행됩니다. 앱의 특성에 따라서, 앱을 실행하면 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 이것을 관리하는 옵션이 몇 가지 있습니다.
+마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 응용 프로그램은 제거될 때까지 백그라운드에서 계속 실행됩니다. 앱의 특성에 따라서, 앱을 실행하면 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 응용 프로그램과 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
 1. 개별 응용 프로그램 및 모든 데이터를 제거하려면 다음을 실행합니다.
 
@@ -178,11 +178,11 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
 
-    또는 왼쪽 창에서 응용 프로그램 목록 보기에 있는 컨텍스트 메뉴 또는 **작업** 메뉴를 통해 Service Fabric Explorer에서 **응용 프로그램 삭제** 작업을 사용합니다.
+    또는 Service Fabric Explorer의 **작업** 메뉴 또는 왼쪽 창의 응용 프로그램 목록 보기에 있는 상황에 맞는 메뉴에서 응용 프로그램을 제거합니다.
 
     ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfe-delete-application]
 
-2. 클러스터에서 응용 프로그램을 삭제한 후에 WordCount 응용 프로그램 형식의 버전 1.0.0 및 2.0.0의 등록을 취소할 수 있습니다. 코드와 구성을 포함하여 클러스터 이미지 저장소에서 응용 프로그램 패키지를 제거합니다.
+2. 클러스터에서 응용 프로그램을 삭제한 후에 WordCount 응용 프로그램 형식의 버전 1.0.0 및 2.0.0의 등록을 취소할 수 있습니다. 삭제하면 클러스터 이미지 저장소에서 코드와 구성을 포함한 응용 프로그램 패키지를 제거합니다.
 
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -193,12 +193,12 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
 3. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
 
-4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에 사용합니다.
+4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 로컬 클러스트를 제거합니다.
 
 ## 다음 단계
 - 미리 작성된 응용 프로그램을 배포하고 업그레이드했으니 [Visual Studio에서 응용 프로그램 빌드](service-fabric-create-your-first-application-in-visual-studio.md)를 수행해 보겠습니다.
 - 이 문서의 로컬 클러스터에 수행된 작업은 모두 [Azure 클러스터](service-fabric-cluster-creation-via-portal.md)에서도 수행할 수 있습니다.
-- 이 문서에서 수행하는 업그레이드는 매우 기본적이었습니다. 서비스 패브릭 업그레이드의 성능과 유연성에 대해 자세히 알아보려면 [업그레이드 설명서](service-fabric-application-upgrade.md)를 참조하세요.
+- 이 문서에서 수행된 업그레이드는 기본이었습니다. 서비스 패브릭 업그레이드의 성능과 유연성에 대해 자세히 알아보려면 [업그레이드 설명서](service-fabric-application-upgrade.md)를 참조하세요.
 
 <!-- Images -->
 
@@ -218,4 +218,4 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

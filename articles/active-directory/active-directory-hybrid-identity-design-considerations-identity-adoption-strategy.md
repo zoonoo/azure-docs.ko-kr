@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -37,7 +37,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 - **클라우드 ID**: 클라우드에만 존재하는 ID입니다. Azure AD의 경우 특히 Azure AD 디렉터리에 위치합니다.
 - **동기화됨**: 온-프레미스 및 클라우드에 존재하는 ID입니다. Azure AD Connect를 사용하여 기존 Azure AD 계정으로 이러한 사용자를 만들거나 조인합니다. 사용자의 암호 해시는 온-프레미스 환경에서 암호 해시라고 하는 클라우드로 동기화됩니다. 동기화를 사용할 때 중요한 점은 사용자가 온-프레미스 환경에서 사용 불가능해지면 해당 계정 상태를 Azure AD에 표시하는 데 최대 3시간이 걸릴 수 있다는 것입니다. 동기화 시간 간격 때문입니다.
-- **페더레이션됨**: 이러한 ID는 온-프레미스 및 클라우드에 위치합니다. Azure AD Connect를 사용하여 기존 Azure AD 계정으로 이러한 사용자를 만들거나 조인합니다.  
+- **페더레이션됨**: 이러한 ID는 온-프레미스 및 클라우드에 위치합니다. Azure AD Connect를 사용하여 기존 Azure AD 계정으로 이러한 사용자를 만들거나 조인합니다.
  
 >[AZURE.NOTE]
 동기화 옵션에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.
@@ -73,10 +73,10 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | Exchange ActiveSync | 자격 증명 확인 | Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
 | 모바일 앱 | 자격 증명 확인 | 자격 증명 확인 |
 
-타사 IdP가 있거나 Azure AD의 페더레이션을 제공하는 IdP를 사용하도록 작업1에서 결정한 경우 지원되는 다음의 기능에 주의해야 합니다.
-- SP Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 응용 프로그램에 인증을 지원할 수 있습니다.
+타사 IdP가 있거나 Azure AD의 페더레이션을 제공하는 IdP를 사용하도록 작업1에서 결정한 경우 지원되는 다음 기능에 주의해야 합니다.
+- SP-Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 응용 프로그램에 인증을 지원할 수 있습니다.
 - OWA, SPO 등에 대한 인증을 용이하게 하는 수동 인증을 지원합니다.
-- Exchange Online 클라이언트는 SAML 2.0 향상된 클라이언트 프로필(ECP)을 통해 지원될 수 있습니다
+- Exchange Online 클라이언트는 SAML 2.0 ECP(향상된 클라이언트 프로필)를 통해 지원될 수 있습니다.
 
 또한 어떤 기능을 사용할 수 없는지 알고 있어야 합니다.
 
@@ -153,8 +153,8 @@ Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 
 다음은 지원되지 않으며 구현으로 선택되지 않는다는 사실에 유의해야 합니다.
 
 - 여러 Azure AD Connect Sync 서버가 상호 배타적인 개체 집합을 동기화하도록 구성되었다고 해도 동일한 Azure AD 디렉터리에 대한 연결은 지원되지 않습니다
-- 동일한 사용자를 여러 Azure AD 디렉터리에 동기화하는 것은 지원되지 않습니다. 
-- 또한 하나의 Azure AD에 있는 사용자가 다른 Azure AD Directory 내의 연락처로 표시되도록 구성하는 것도 지원되지 않습니다. 
+- 동일한 사용자를 여러 Azure AD 디렉터리에 동기화하는 것은 지원되지 않습니다.
+- 또한 하나의 Azure AD에 있는 사용자가 다른 Azure AD Directory 내의 연락처로 표시되도록 구성하는 것도 지원되지 않습니다.
 - 또한 Azure AD Connect Sync를 여러 Azure AD 디렉터리에 연결되도록 수정하는 것도 지원되지 않습니다.
 - Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간에 일반적이고 통합된 GAL을 구축하기 위한 시도로 다른 Azure AD Directory에서 데이터를 읽도록 Azure AD Connect Sync의 구성을 변경하는 것은 지원되지 않습니다. 또한 Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것도 지원되지 않습니다.
 
@@ -200,4 +200,4 @@ Multi-Factor 설계 옵션:
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

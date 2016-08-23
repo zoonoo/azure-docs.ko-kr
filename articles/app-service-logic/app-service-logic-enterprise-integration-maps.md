@@ -27,6 +27,9 @@
 ## 맵을 사용하는 이유
 날짜에 YYYMMDD 형식을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 그러나 조직에서 날짜를 MMDDYYY 형식으로 저장합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 맵을 사용하여 YYYMMDD 날짜 형식을 MMDDYYY로 *변환*할 수 있습니다.
 
+## 맵을 만드는 방법
+Visual Studio 2015용 [엔터프라이즈 통합 팩](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")을 통해 Biztalk 통합 프로젝트를 만들 수 있습니다. 통합 맵 파일을 만들면 두 개의 XML 스키마 파일 간에 항목을 시각적으로 매핑할 수 있습니다. 이 프로젝트를 빌드한 후 XSLT 문서가 출력됩니다.
+
 ## 맵 업로드 방법
 Azure 포털에서 다음을 수행합니다.
 1. **찾아보기**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
@@ -58,4 +61,4 @@ Azure 포털에서 다음을 수행합니다.
 - [규약에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
 - [변환에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아보기")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

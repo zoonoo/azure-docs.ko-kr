@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 샘플
@@ -96,7 +96,7 @@
 	3. 데이터 팩터리를 만들려는 위치에 **Azure 구독**을 선택합니다.
 	4. 데이터 팩터리의 **리소스 그룹**을 선택합니다.
 	5. **지역**에서 **미국 서부**, **미국 동부** 또는 **북유럽**을 선택합니다.
-	6. **다음**을 클릭합니다.
+	6. **Next**를 클릭합니다.
 9. **데이터 저장소 구성** 페이지에서 기존 **Azure SQL 데이터베이스** 및 **Azure 저장소 계정**을 지정 (또는) 새로 만들고 다음을 클릭합니다.
 10. **계산 구성** 페이지에서 기본값을 선택하고 **다음**을 클릭합니다.
 11. **요약** 페이지에서 모든 설정을 검토하고 **다음**을 클릭합니다.
@@ -117,4 +117,4 @@
 
 Visual Studio를 사용하여 Data Factory 엔터티를 작성하고 Azure에 게시하는 방법에 대한 자세한 내용은 [첫 번째 데이터 팩터리(Visual Studio) 빌드](data-factory-build-your-first-pipeline-using-vs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

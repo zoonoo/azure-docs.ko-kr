@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Linux 데이터 과학 가상 컴퓨터 프로비전 
-
 
 Linux 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습을 하는 데 흔히 사용되는 도구 모음으로 사전 설치 및 구성된 Azure VM(가상 컴퓨터) 이미지입니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
 
@@ -31,16 +30,16 @@ Linux 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습을
     - [CNTK(Computational Network Toolkit)](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): 빠르고 정확하게 향상된 트리 구현을 제공하는 도구
-    - [Rattle](http://rattle.togaware.com/)(R Analytical Tool To Learn Easily): GUI 기반의 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구 
+    - [Rattle](http://rattle.togaware.com/)(R Analytical Tool To Learn Easily): GUI 기반의 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구
 - Java, Python, node.js, Ruby, PHP의 Azure SDK
 - Azure 기계 학습 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 - 개발 도구 및 편집기(Eclipse, Emacs, gedit, vi)
 
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
-- 데이터 찾기, 로드 및 전처리 
-- 모델 빌드 및 테스트 
-- 지능형 응용 프로그램에서 사용하기 위해 모델 배포 
+- 데이터 찾기, 로드 및 전처리
+- 모델 빌드 및 테스트
+- 지능형 응용 프로그램에서 사용하기 위해 모델 배포
 
 이러한 작업을 완료하기 위해 다양한 도구를 사용하는 데이터 과학자에게는 흔한 일입니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 소비되는 시간이 상당히 걸릴 수 있습니다.
 
@@ -65,12 +64,13 @@ Linux 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 �
 2.	 마법사로 이동하려면 아래에 있는 **만들기** 단추를 클릭합니다.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 다음 섹션에서는 Microsoft 데이터 과학 가상 컴퓨터를 만드는 데 사용되는 마법사의 각 **5단계**(위의 그림 오른쪽에 열거됨)에 **입력**을 제공합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
 
+
   **a. 기본 사항**:
 
    - **이름**: 만들려는 데이터 과학 서버 이름
    - **사용자 이름**: 첫 번째 계정 로그인 ID
    - **암호**: 첫 번째 계정 암호(암호 대신 SSH 공개 키 사용 가능)
-   - **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다. 참고: 이 구독에서 리소스 만들기 권한이 있어야 합니다. 
+   - **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다. 참고: 이 구독에서 리소스 만들기 권한이 있어야 합니다.
    - **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    - **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다.
 
@@ -90,7 +90,7 @@ Linux 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 �
 
   **e. 구입**:
 
-   - **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
+   - **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다.
 
 
 프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
@@ -106,33 +106,18 @@ VM이 만들어지면 텍스트 셸 인터페이스의 3단계 기본 사항 섹
 
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음을 수행해야 합니다.
 
-1. [여기](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 클라이언트 플랫폼용 X2Go 클라이언트를 다운로드 및 설치합니다.    
-2. X2Go 클라이언트를 실행하고 "*새 세션*"을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다. 
+1. [여기](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 클라이언트 플랫폼용 X2Go 클라이언트를 다운로드 및 설치합니다.
+2. X2Go 클라이언트를 실행하고 "*새 세션*"을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
     * **세션 탭**:
         - **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
         - **로그인**: Linux VM의 로그인 사용자 이름입니다.
         - **SSH 포트**: 기본값 22를 그대로 사용합니다.
         - **세션 유형**: 값을 XFCE로 변경합니다. 참고: 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
-    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다. 
-    * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다. 
+    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
+    * **공유 폴더**: 클라이언트 컴퓨터의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 컴퓨터 디렉터리를 추가합니다.
 
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인한 경우 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에서 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘을 볼 수 있습니다.
 
-## Jupyter Notebook 서버에 강력한 암호를 만드는 방법 
-
-컴퓨터에 설치된 Jupyter Notebook에 대한 사용자 고유의 강력한 암호를 만들려면 데이터 과학 가상 컴퓨터의 명령 프롬프트에서 다음 명령을 실행합니다.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-메시지가 나타나면 강력한 암호를 입력합니다.
-
-출력에 "sha1:xxxxxx" 형식의 암호 해시가 표시됩니다. 이 암호 해시를 복사하여 매개 변수 이름 ***c.NotebookApp.password***가 포함된 **/usr/local/etc/jupyter/jupyter\_notebook\_config.py**의 notebook 구성 파일에서 기존 해시를 바꿉니다. 이 파일을 **루트 사용자**로 편집해야 합니다.
-
-따옴표 안에 있는 기존 해시 값만 바꿔야 합니다. 따옴표와 매개 변수 값에 대한 ***sha1:*** 접두사는 유지해야 합니다.
-
-마지막으로 /etc/init.d/jupyter 폴더에 설치된 Jupyter 서비스를 중지한 후 다시 시작해야 합니다.
-
->[AZURE.NOTE] jupyter를 다시 시작한 후 새 암호가 허용되지 않거나 jupyter를 중지하는 데 문제가 발생하면 가상 컴퓨터를 다시 시작합니다.
 
 ## Linux 데이터 과학 가상 컴퓨터에 설치된 도구
 
@@ -163,12 +148,19 @@ Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
 python 대화형 세션을 호출하려면 셸에 ***python***을 입력합니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 ***spyder*** 명령을 입력하여 Python IDE를 시작할 수 있습니다.
 
-### Jupyter 노트북
-Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook도 제공됩니다. Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널로 미리 구성되었습니다. Notebook 서버에 액세스하려면 브라우저를 시작하는 "Jupyter Notebook이라는 바탕 화면 아이콘이 있습니다. SSH 또는 X2go 클라이언트를 통해 VM을 사용하는 경우 [https://localhost:9999/](https://localhost:9999/)를 방문하여 Jupyter Notebook 서버에 액세스할 수도 있습니다.
+### Jupyter 노트북 
+
+Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook도 제공됩니다. Jupyter Notebook은 JupyterHub을 통해 액세스합니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다.
+
+Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널로 미리 구성되었습니다. Notebook 서버에 액세스하려면 브라우저를 시작하는 "Jupyter Notebook이라는 바탕 화면 아이콘이 있습니다. SSH 또는 X2go 클라이언트를 통해 VM을 사용하는 경우 [https://localhost:8000/](https://localhost:8000/)를 방문하여 Jupyter Notebook 서버에 액세스할 수도 있습니다.
 
 >[AZURE.NOTE] 인증서 경고가 나타나는 경우 계속 진행하세요.
 
-모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. "https://<VM DNS 이름 또는 IP 주소>:9999/"만 입력하면 됩니다. 몇 가지 샘플 Notebook을 Python 및 R에 각각 패키징했습니다. 이전에 만든 암호를 사용하여 Jupyter Notebook에 인증한 후에 Notebook 홈페이지에서 샘플에 대한 링크를 볼 수 있습니다. "새로 만들기"를 선택하고 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. "새로 만들기" 단추가 보이지 않으면 왼쪽 위에서 Jupyter 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
+모든 호스트에서 Jupyter Notebook 서버에 액세스할 수 있습니다. "https://<VM DNS 이름 또는 IP 주소>:8000/"만 입력하면 됩니다.
+
+>[AZURE.NOTE] VM이 프로비전될 때 포트 8000이 방화벽에 기본적으로 열립니다.
+
+몇 가지 샘플 Notebook을 Python 및 R에 각각 패키징했습니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 Jupyter Notebook에 인증한 후에 Notebook 홈페이지에서 샘플에 대한 링크를 볼 수 있습니다. "새로 만들기"를 선택하고 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. "새로 만들기" 단추가 보이지 않으면 왼쪽 위에서 Jupyter 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
 
 
 ### IDE 및 편집기 
@@ -216,12 +208,12 @@ Microsoft SQL Server용 ODBC 드라이버 패키지는 두 가지 명령줄 도�
 
 Python 및 R에는 데이터베이스에 액세스하는 데 사용할 수 있는 라이브러리가 있습니다.
 
-- R에서 **RODBC** 패키지 또는 **dplyr** 패키지를 사용하면 데이터베이스 서버에서 SQL 문을 쿼리 또는 실행할 수 있습니다. 
-- Python에서 **pyodbc** 라이브러리는 ODBC를 사용한 데이터베이스 액세스를 기본 계층으로 제공합니다.  
+- R에서 **RODBC** 패키지 또는 **dplyr** 패키지를 사용하면 데이터베이스 서버에서 SQL 문을 쿼리 또는 실행할 수 있습니다.
+- Python에서 **pyodbc** 라이브러리는 ODBC를 사용한 데이터베이스 액세스를 기본 계층으로 제공합니다.
 
 **Postgres**에 액세스하려면
 
-- Python에서: **psycopg2** 라이브러리를 사용합니다. 
+- Python에서: **psycopg2** 라이브러리를 사용합니다.
 - R에서: **RPostgreSQL** 패키지를 사용합니다.
 
 
@@ -229,13 +221,10 @@ Python 및 R에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 - **Azure 명령줄 인터페이스**: Azure CLI(명령줄 인터페이스)를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려면 ***azure help***를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](../virtual-machines-command-line-tools.md)를 참조하세요.
-- **Microsoft Azure 저장소 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장된 개체를 통해 이동하고 Azure Blob에서 데이터를 업로드/다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 저장소 탐색기에 액세스할 수 있습니다. ***StorageExplorer***를 입력하여 셸 프롬프트에서 저장소 탐색기를 호출합니다. X2go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다. 
+- **Microsoft Azure Storage 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장된 개체를 통해 이동하고 Azure Blob에서 데이터를 업로드/다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 저장소 탐색기에 액세스할 수 있습니다. ***StorageExplorer***를 입력하여 셸 프롬프트에서 저장소 탐색기를 호출합니다. X2go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 - **Azure 라이브러리**: 설치되어 사용할 수 있는 일부 라이브러리는 다음과 같습니다.
-
 - **Python**: Python에 설치된 Azure 관련 라이브러리는 ***azure***, ***azureml***, ***pydocumentdb***, ***pyodbc***입니다. 처음 세 개의 라이브러리를 사용하면 Azure 저장소 서비스, Azure 기계 학습 및 Azure DocumentDB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 Microsoft ODBC Driver for SQL Server와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 Microsoft SQL Server, Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스에 액세스할 수 있습니다. 나열된 라이브러리를 모두 보려면 ***pip list***를 입력하세요. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
-
 - **R**: 설치된 R에서 Azure 관련 라이브러리는 ***AzureML*** 및 ***RODBC***입니다.
-
 - **Java**: VM의 ***/dsvm/sdk/AzureSDKJava*** 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure 저장소 및 관리 API, DocumentDB 및 SQL Server용 JDBC 드라이버입니다.
 
 미리 설치된 Firefox 브라우저에서 [Azure 포털](https://portal.azure.com)에 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
@@ -248,8 +237,8 @@ Azure 기계 학습 스튜디오에 로그인하면 기계 학습 알고리즘�
 
 VM의 R 또는 Python에서 모델을 빌드한 다음 프로덕션 환경에서 Azure ML에 배포할 수 있습니다. R 및 Python에는 이 기능을 위한 라이브러리가 설치되어 있습니다.
 
-- R의 라이브러리를 ***AzureML***이라고 합니다. 
-- Python에서는 ***azureml***이라고 합니다. 
+- R의 라이브러리를 ***AzureML***이라고 합니다.
+- Python에서는 ***azureml***이라고 합니다.
 
 R 및 Python의 모델을 Azure ML에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일](machine-learning-data-science-vm-do-ten-things.md)의 *R 또는 Python을 사용하여 모델을 구축하고 Azure 기계 학습을 사용하여 운영* 섹션을 참조하세요.
  
@@ -263,7 +252,7 @@ VM에는 로컬에서 미리 컴파일되고 미리 설치된 몇 가지 ML 도�
 * **Vowpal Wabbit** - 속성 온라인 학습 알고리즘입니다.
 * **xgboost** - 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
 * **Python** - Anaconda Python에는 Scikit-learn 등의 라이브러리가 있는 ML 알고리즘이 번들로 제공됩니다. pip 설치를 실행하여 다른 라이브러리를 설치할 수 있습니다.
-* **R** - R에 대해 ML 기능의 풍부한 라이브러리를 사용할 수 있습니다. 미리 설치된 일부 라이브러리는 lm, glm, randomForest, rpart입니다. 다른 라이브러리를 설치하려면 다음을 실행합니다. 
+* **R** - R에 대해 ML 기능의 풍부한 라이브러리를 사용할 수 있습니다. 미리 설치된 일부 라이브러리는 lm, glm, randomForest, rpart입니다. 다른 라이브러리를 설치하려면 다음을 실행합니다.
 
 		install.packages(<lib name>)
 
@@ -340,8 +329,8 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션에 있어야 �
 2. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. 예를 클릭하여 예제를 로드합니다.
 3. 모델 탭을 클릭합니다.
 4. 실행을 클릭하여 의사 결정 트리를 빌드합니다.
-5. 그리기를 클릭하여 의사 결정 트리를 표시합니다. 
-6. 포리스트 라디오 단추를 클릭하고 실행을 클릭하여 임의 포리스트를 빌드합니다. 
+5. 그리기를 클릭하여 의사 결정 트리를 표시합니다.
+6. 포리스트 라디오 단추를 클릭하고 실행을 클릭하여 임의 포리스트를 빌드합니다.
 7. 평가 탭을 클릭합니다.
 8. 위험 라디오 단추를 클릭하고 실행을 클릭하여 두 개의 위험(누적) 성능 그림을 표시합니다.
 9. 로그 탭을 클릭하여 위의 작업을 위한 R 코드 생성을 표시합니다(참고: 현재 Rattle 릴리스에 버그가 있습니다. 로그 텍스트의 '이 로그 내보내기...' 앞에 '#'을 삽입하세요.).
@@ -353,8 +342,8 @@ Rattle 및 R을 종료합니다. 이제 생성된 R 스크립트를 수정하거
 ## 다음 단계
 학습 및 탐색을 계속하려면 다음 단계는 다음과 같습니다.
 
-* 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터의 셸에서 *dsvm-more-info*를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
+* 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터의 셸에서 *dsvm-more-info*를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.
 * 체계적으로 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
-* Cortana 분석 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하세요. 
+* Cortana 분석 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

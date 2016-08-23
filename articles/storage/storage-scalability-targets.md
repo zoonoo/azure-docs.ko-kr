@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="07/18/2016"
+   ms.date="08/03/2016"
    ms.author="robinsh" />
 
 # Azure 저장소 확장성 및 성능 목표
@@ -83,4 +83,4 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 - [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

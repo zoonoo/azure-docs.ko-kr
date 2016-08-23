@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # 서비스 패브릭 서비스의 가용성
@@ -50,4 +50,4 @@ Azure 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 
 
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

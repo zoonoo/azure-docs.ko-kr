@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 TargetProcess를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- TargetProcess에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- TargetProcess에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 TargetProcess에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -43,7 +43,7 @@ TargetProcess와 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
@@ -51,7 +51,7 @@ TargetProcess와 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 TargetProcess 추가 
+1. 갤러리에서 TargetProcess 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -60,7 +60,7 @@ TargetProcess의 Azure AD 통합을 구성하려면 갤러리의 TargetProcess�
 
 **갤러리에서 TargetProcess를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -124,9 +124,9 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 	![Single Sign-On 구성](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    a. **로그온 URL** 텍스트 상자에 사용자가 TargetProcess 응용 프로그램에 로그인하는 데 사용하는 URL(예: **https://fabrikam.TargetProcess.com/*))을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 사용자가 TargetProcess 응용 프로그램에 로그인하는 데 사용하는 URL(예: *https://fabrikam.TargetProcess.com/*)을 입력합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
  
  
 4. **TargetProcess에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -135,7 +135,7 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 1. TargetProcess 응용 프로그램에 관리자 권한으로 로그온합니다.
@@ -302,4 +302,4 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

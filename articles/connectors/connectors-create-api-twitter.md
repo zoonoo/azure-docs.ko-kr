@@ -42,8 +42,10 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 이 예에서는 #Seattle을 검색하는 데 **새 트윗이 게시될 때** 트리거를 사용하고 #Seattle이 있는 경우 트윗의 텍스트로 Dropbox의 파일을 업데이트하는 방법을 보여 줍니다. 엔터프라이즈 예에서는 회사 이름을 검색하고 SQL 데이터베이스를 트윗의 텍스트로 업데이트할 수 있습니다.
 
-1. 논리 앱 디자이너의 검색 상자에 *twitter*를 입력한 후 **Twitter - 새 트윗이 게시될 때** 트리거를 선택합니다. ![Twitter 트리거 이미지 1](./media/connectors-create-api-twitter/trigger-1.png)
-- **검색 텍스트** 컨트롤에 *#Seattle*을 입력합니다. ![Twitter 트리거 이미지 2](./media/connectors-create-api-twitter/trigger-2.png)
+1. 논리 앱 디자이너의 검색 상자에 *twitter*를 입력한 후 **Twitter - 새 트윗이 게시될 때** 트리거를 선택합니다.  
+![Twitter 트리거 이미지 1](./media/connectors-create-api-twitter/trigger-1.png)  
+- **검색 텍스트** 컨트롤에 *#Seattle*을 입력합니다.  
+![Twitter 트리거 이미지 2](./media/connectors-create-api-twitter/trigger-2.png)  
 
 이제, 논리 앱은 워크플로의 다른 트리거 및 작업의 실행을 시작하는 트리거로 구성되었습니다.
 
@@ -52,14 +54,24 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 ## 조건 추가
 50명 이상의 사용자가 있는 사용자의 트윗에만 관심이 있는 경우 먼저 팔로워 수를 확인하는 조건을 논리 앱에 추가해야 합니다.
 
-1. **+ 새 단계**를 선택하여 새 트윗에 #Seattle이 있을 때 수행할 작업을 추가합니다. ![Twitter 작업 이미지 1](../../includes/media/connectors-create-api-twitter/action-1.png)
-- **조건 추가** 링크를 선택합니다. ![Twitter 조건 이미지 1](../../includes/media/connectors-create-api-twitter/condition-1.png) 그러면 *같음*, *보다 작음*, *보다 큼*, *포함* 등과 같은 조건을 확인할 수 있는 **조건** 컨트롤이 열립니다. ![Twitter 조건 이미지 2](../../includes/media/connectors-create-api-twitter/condition-2.png)
-- **값 선택** 컨트롤을 선택합니다. 이 컨트롤에서는 조건이 true 또는 false로 평가될 값으로 이전 작업 또는 트리거 중 하나 이상의 속성을 선택할 수 있습니다. ![Twitter 조건 이미지 3](../../includes/media/connectors-create-api-twitter/condition-3.png)
-- **...**를 선택하여 속성 목록을 확장하면 사용 가능한 모든 속성을 볼 수 있습니다. ![Twitter 조건 이미지 4](../../includes/media/connectors-create-api-twitter/condition-4.png)
-- **팔로워 수** 속성을 선택합니다. ![Twitter 조건 이미지 5](../../includes/media/connectors-create-api-twitter/condition-5.png)
-- 이제 팔로워 수 속성이 값 컨트롤에 있는 것을 확인합니다. ![Twitter 조건 이미지 6](../../includes/media/connectors-create-api-twitter/condition-6.png)
-- 연산자 목록에서 **보다 큼**을 선택합니다. ![Twitter 조건 이미지 7](../../includes/media/connectors-create-api-twitter/condition-7.png)
-- *보다 큼* 연산자의 피연산자로 50을 입력합니다. 이제 조건이 추가됩니다. 위의 메뉴에서 **저장** 링크를 사용하여 작업을 저장합니다. ![Twitter 조건 이미지 8](../../includes/media/connectors-create-api-twitter/condition-8.png)
+1. **+ 새 단계**를 선택하여 새 트윗에 #Seattle이 있을 때 수행할 작업을 추가합니다.  
+![Twitter 작업 이미지 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- **조건 추가** 링크를 선택합니다.  
+![Twitter 조건 이미지 1](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+그러면 *같음*, *보다 작음*, *보다 큼*, *포함* 등과 같은 조건을 확인할 수 있는 **조건** 컨트롤이 열립니다.  
+![Twitter 조건 이미지 2](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- **값 선택** 컨트롤을 선택합니다. 이 컨트롤에서는 조건이 true 또는 false로 평가될 값으로 이전 작업 또는 트리거 중 하나 이상의 속성을 선택할 수 있습니다.  
+![Twitter 조건 이미지 3](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- **...**를 선택하여 속성 목록을 확장하면 사용 가능한 모든 속성을 볼 수 있습니다.  
+![Twitter 조건 이미지 4](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- **팔로워 수** 속성을 선택합니다.  
+![Twitter 조건 이미지 5](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- 이제 팔로워 수 속성이 값 컨트롤에 있는 것을 확인합니다.  
+![Twitter 조건 이미지 6](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- 연산자 목록에서 **보다 큼**을 선택합니다.  
+![Twitter 조건 이미지 7](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- *보다 큼* 연산자의 피연산자로 50을 입력합니다. 이제 조건이 추가됩니다. 위의 메뉴에서 **저장** 링크를 사용하여 작업을 저장합니다.  
+![Twitter 조건 이미지 8](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
 ## Twitter 작업 사용
 
@@ -69,12 +81,16 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 다음 단계에서는 50명 이상의 팔로워가 있는 사용자가 게시한 각 트윗의 일부 속성을 사용하여 트윗을 게시하는 Twitter 작업을 추가합니다.
 
-1. **작업 추가**를 선택합니다. 그러면 다른 작업 및 트리거를 검색할 수 있는 검색 컨트롤이 열립니다. ![Twitter 조건 이미지 9](../../includes/media/connectors-create-api-twitter/condition-9.png)
-- 검색 상자에 *twitter*를 입력한 후 **Twitter - 트윗 게시** 작업을 선택합니다. 그러면 트윗에 대해 게시되는 모든 세부 사항을 입력할 **트윗 게시** 컨트롤이 열립니다. ![Twitter 작업 이미지 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)
-- **트윗 텍스트** 컨트롤을 선택합니다. 이제 논리 앱에서 이전 작업 및 트리거의 모든 출력이 표시됩니다. 이러한 항목 중 어떤 것이나 선택하여 새 트윗의 일부 트윗 텍스트로 사용할 수 있습니다. ![Twitter 작업 이미지 2](../../includes/media/connectors-create-api-twitter/action-2.png)
+1. **작업 추가**를 선택합니다. 그러면 다른 작업 및 트리거를 검색할 수 있는 검색 컨트롤이 열립니다.  
+![Twitter 조건 이미지 9](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- 검색 상자에 *twitter*를 입력한 후 **Twitter - 트윗 게시** 작업을 선택합니다. 그러면 트윗에 대해 게시되는 모든 세부 사항을 입력할 **트윗 게시** 컨트롤이 열립니다.  
+![Twitter 작업 이미지 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- **트윗 텍스트** 컨트롤을 선택합니다. 이제 논리 앱에서 이전 작업 및 트리거의 모든 출력이 표시됩니다. 이러한 항목 중 어떤 것이나 선택하여 새 트윗의 일부 트윗 텍스트로 사용할 수 있습니다.  
+![Twitter 작업 이미지 2](../../includes/media/connectors-create-api-twitter/action-2.png)  
 - **사용자 이름**을 선택합니다.
 - 트윗 텍스트 컨트롤에 *says:(님의 말:)*를 선택합니다. 사용자 이름 바로 뒤에 나오도록 합니다.
-- *트윗 텍스트*를 선택합니다. ![Twitter 작업 이미지 3](../../includes/media/connectors-create-api-twitter/action-3.png)
+- *트윗 텍스트*를 선택합니다.  
+![Twitter 작업 이미지 3](../../includes/media/connectors-create-api-twitter/action-3.png)  
 - 작업 내용을 저장하고 #Seattle 해시 태그로 트윗을 보내 워크플로를 활성화합니다.
 
 ## 기술 세부 정보

@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Microsoft 보안 센터
 
-Azure.com의 Azure 보안 정보 사이트에서는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공하기 위해 노력하고 있지만, Microsoft 보안 센터는 서비스를 실행하는 Azure 플랫폼이 안전하다고 안심하는 데 필요한 정보를 제공합니다.
+Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.
 
 Azure에 응용 프로그램 및 데이터를 위탁할 때 다음과 같은 의문 사항이 있다는 것을 압니다. 어디에 있나요? 액세스할 수 있는 사용자는 누구인가요? Microsoft는 보호하기 위해 무엇을 하고 있나요? Microsoft가 말하는 대로 하고 있는지 어떻게 확인할 수 있나요?
 
 이러한 질문에 대한 답변은 다음고 같습니다. 데이터이기 때문에 액세스 권한이 있는 사용자를 결정하고 Microsoft과 협력하여 위치를 결정합니다. 데이터를 보호하기 위해 최신 보안 기술과 세계 최고의 암호화를 사용합니다. Microsoft의 규정 준수는 독립적으로 감사를 받고 있으며 고객 데이터에 대한 법적 요구를 처리하는 방법에서 코드 보안까지 많은 수준에서 투명합니다.
 
-Microsoft 보안 센터에서 확인할 수 내용을 소개합니다.
+Microsoft 보안 센터에서 확인할 수 있는 내용은 다음과 같습니다.
 
 - [보안](https://aka.ms/tcsecurity) – 모든 Microsoft 클라우드 서비스의 보안이 유지되는 방법을 배웁니다.
 - [개인 정보](https://aka.ms/tcprivacy) – Microsoft가 Microsoft 클라우드에서 데이터의 개인 정보를 보장하는 방법을 이해합니다.
@@ -37,4 +37,4 @@ Microsoft 보안 센터에서 확인할 수 내용을 소개합니다.
 
 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)에는 Microsoft 클라우드의 보안을 유지하기 위해 Microsoft에서 하고 있는 일을 이해하는 데 필요한 사항이 있습니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

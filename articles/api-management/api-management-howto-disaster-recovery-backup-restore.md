@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -97,7 +97,7 @@ Azure Active Directory 응용 프로그램의 **구성** 탭의 **리디렉션 U
 
 값이 지정되면 코드 예제에서는 다음 예와 유사한 토큰을 반환해야 합니다.
 
-![신뢰][api-management-arm-token]
+![위임][api-management-arm-token]
 
 다음 섹션에서 설명하는 백업 및 복원 작업을 호출하기 전에, REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
@@ -131,8 +131,8 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 **참고**:
 
 - 요청 본문에 지정된 **Container**가 **있어야 합니다**.
-* 백업이 진행 중인 동안에는 SKU 업그레이드/다운그레이드, 도메인 이름 변경 등의 **서비스 관리 작업을 수행하면 안 됩니다**. 
-* 백업 복원은 생성 시점부터 **7일 동안만 보장**됩니다. 
+* 백업이 진행 중인 동안에는 SKU 업그레이드/다운그레이드, 도메인 이름 변경 등의 **서비스 관리 작업을 수행하면 안 됩니다**.
+* 백업 복원은 생성 시점부터 **7일 동안만 보장**됩니다.
 * 분석 보고서를 만드는 데 사용되는 **사용 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API 관리 REST API][]를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
 * 서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API 관리 서비스에 대한 중요 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 * 백업 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에 포함되지 않아 손실될 수 있습니다**.
@@ -169,7 +169,7 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 ## 다음 단계
 백업/복원 프로세스의 서로 다른 두 연습에 대한 다음 Microsoft 블로그를 체크아웃합니다.
 
--	[Azure API 관리 계정 복제](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+-	[Azure API 관리 계정 복제](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 	-	이 문서를 작성 하는 데 도움을 주신 Gisela에게 감사드립니다.
 -	[Azure API 관리: 백업 및 복원 구성](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	Stuart에서 구체화된 접근 방식은 공식 지침과 일치하지 않지만 매우 흥미롭습니다.
@@ -191,4 +191,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -17,7 +17,7 @@
 
 # Express 경로 파트너 및 피어링 위치
 
-이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI\(시스템 통합업체\)에 대한 정보를 제공합니다.
+이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
 ## <a name="partners"></a>Express 경로 연결 공급자
 
@@ -31,8 +31,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|---|
 |**북아메리카**|미국 동부, 미국 서부, 미국 동부 2, 중앙 미국, 미국 중남부, 미국 중북부, 캐나다 중부, 캐나다 동부|애틀랜타, 시카고, 댈러스, 라스베이거스+, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올+, 퀘벡 시티+, 토론토|
 |**남미**|브라질 남부|상파울루|
-|**유럽**|북유럽, 서유럽|암스테르담, 더블린, 런던, 뉴포트\(웨일스\)+, 파리|
-|**아시아**|동아시아, 동남 아시아|홍콩, 싱가포르|
+|**유럽**|북유럽, 서유럽|암스테르담, 더블린, 런던, 뉴포트(웨일스)+, 파리|
+|**아시아**|동아시아, 동남 아시아|홍콩 특별행정구, 싱가포르|
 |**일본**|일본 서부, 일본 동부|오사카, 도쿄|
 |**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|멜버른, 시드니|
 |**인도**|인도 서부, 인도 중부, 인도 남부|첸나이, 뭄바이|
@@ -68,8 +68,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **더블린** | Colt |
 | **홍콩** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **런던** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
-| **라스베이거스** | Level 3 Communications+, Megaport+
-| **로스앤젤레스** | CoreSite, Equinix, Megaport, Zayo Group |
+| **라스베이거스** | Level 3 Communications+, Megaport
+| **로스앤젤레스** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **멜버른** | Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **뉴욕** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix + |
@@ -156,4 +156,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

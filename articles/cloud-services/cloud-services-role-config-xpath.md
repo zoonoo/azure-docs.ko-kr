@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
+ms.date="08/10/2016" 
 ms.author="adegeo"/>
 
 # XPath를 사용하여 역할 구성 설정을 환경 변수로 노출
@@ -189,4 +189,4 @@ ms.author="adegeo"/>
 
 역할에 대해 [원격 데스크톱](cloud-services-role-enable-remote-desktop.md)을 사용하도록 설정합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

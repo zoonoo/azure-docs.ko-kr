@@ -3,7 +3,7 @@
    description="리소스 관리자에서 템플릿을 사용하여 여러 NIC VM을 배포하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # 템플릿을 사용하여 다중 NIC VM 배포
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
 
 ## 필수 조건
 
@@ -37,7 +37,7 @@
 2. 서식 파일 페이지에서 **Parent resource group(부모 리소스 그룹)** 오른쪽에 있는 **Azure에 배포**를 클릭합니다.
 3. 필요한 경우 매개 변수 값을 변경한 다음 Azure Preview 포털의 단계에 따라 리소스 그룹을 배포합니다.
 
-> [AZURE.IMPORTANT] 저장소 계정 이름이 고유한지 확인합니다. Azure에서 중복된 저장소 계정 이름을 사용할 수 없습니다.
+> [AZURE.IMPORTANT]저장소 계정 이름이 고유한지 확인합니다. Azure에서 중복된 저장소 계정 이름을 사용할 수 없습니다.
 
 ## 배포 템플릿 이해
 
@@ -229,20 +229,20 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
-	예상된 출력:
+	예상 출력:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
+		Tags              : 
+		Permissions       : 
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-
-		Resources         :
+		                    
+		Resources         : 
 		                    Name                 Type                                 Location
 		                    ===================  ===================================  ========
 		                    ASDB                 Microsoft.Compute/availabilitySets   westus  
@@ -253,7 +253,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		                    NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
 		                    NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
 		                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-
+		                    
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Azure CLI를 사용하여 템플릿 배포
@@ -275,7 +275,7 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command group create
 		+ Getting resource group IaaSStory-Backend
@@ -292,4 +292,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

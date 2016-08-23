@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB Java SDK | Microsoft Azure" 
-	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Java SDK의 각 버전 간의 변경 내용을 포함하는 Java SDK에 대한 모든 것을 알아봅니다." 
+	pageTitle="DocumentDB Java API 및 SDK | Microsoft Azure" 
+	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Java SDK의 각 버전 간의 변경 내용을 포함하는 Java API 및 SDK에 대한 모든 것을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB API 및 SDK
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.JS](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST (영문)](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Java SDK
+## DocumentDB Java API 및 SDK
 
 <table>
-<tr><td>**다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**기고**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**설명서**</td><td>[Java SDK 참조 설명서](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**SDK 다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**API 설명서**</td><td>[Java API 참조 설명서] (http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**SDK에 참여해 보세요.**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 <tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-application.md)</td></tr>
 <tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -85,24 +87,19 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
 
-> [AZURE.WARNING]**1.0.0** 이전 버전의 Java에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> [AZURE.WARNING]
+**1.0.0** 이전 버전의 Java에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
 
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.8.1](#1.8.1) | 2016년 6월 30일 |---
-| [1\.8.0](#1.8.0) | 2016년 6월 14일 |---
-| [1\.7.1](#1.7.1) | 2016년 4월 30일 |---
-| [1\.7.0](#1.7.0) | 2016년 4월 27일 |---
-| [1\.6.0](#1.6.0) | 2016년 3월 29일 |---
-| [1\.5.1](#1.5.1) | 2015년 12월 31일 |---
 | [1\.5.0](#1.5.0) | 2015년 12월 4일 |---
 | [1\.4.0](#1.4.0) | 2015년 10월 5일 |---
 | [1\.3.0](#1.3.0) | 2015년 10월 5일 |---
 | [1\.2.0](#1.2.0) | 2015년 8월 5일 |---
 | [1\.1.0](#1.1.0) | 2015년 7월 9일 |---
-| [1\.0.1](#1.0.1) | 2015년 5월 12일 |---
+| [1\.0.1](#1.0.1) | 2015년 3월 15일 |---
 | [1\.0.0](#1.0.0) | 2015년 4월 7일 |---
 | 0.9.5-prelease | 2015년 3월 9일 | 2016년 2월 29일
 | 0.9.4-prelease | 2015년 2월 17일 | 2016년 2월 29일
@@ -118,4 +115,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

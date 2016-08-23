@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # 클라우드 서비스를 업데이트하는 방법
@@ -132,7 +132,7 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
 진행 중인 업데이트 롤백에는 배포에 대해 다음과 같은 효과가 있습니다.
 
 -   이러한 인스턴스는 서비스의 대상 버전을 이미 실행 중이기 때문에 새 버전으로 업데이트 또는 업그레이드되지 않은 모든 역할 인스턴스는 업데이트되거나 업그레이드되지 않습니다.
--   서비스 패키지(*.cspkg) 파일 또는 서비스 구성(*.cscfg) 파일(또는 두 파일)의 새 버전으로 업데이트 또는 업그레이드된 모든 역할 인스턴스는 해당 파일의 업그레이드 전 버전으로 되돌려집니다.
+-   서비스 패키지(\*.cspkg) 파일 또는 서비스 구성(\*.cscfg) 파일(또는 두 파일)의 새 버전으로 업데이트 또는 업그레이드된 모든 역할 인스턴스는 해당 파일의 업그레이드 전 버전으로 되돌려집니다.
 
 다음과 같은 기능으로 이 기능이 제공됩니다.
 
@@ -180,6 +180,6 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 > [AZURE.NOTE] Azure는 업그레이드 도메인에 인스턴스가 할당되는 방식을 제어합니다. 어떤 도메인에 어떤 인스턴스를 할당할지를 지정하는 것은 불가능합니다.
 
 ## 다음 단계
-[클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)<br> [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)<br> [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)<br>
+[클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md) [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md) [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

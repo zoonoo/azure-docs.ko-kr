@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
@@ -64,7 +64,7 @@
 4. 위쪽에서 사용자를 클릭합니다.
 5. 페이지의 아래쪽에서 Multi-Factor Auth 관리를 클릭합니다. Multi-Factor Auth 페이지를 엽니다.
 6. 관리하려는 사용자를 찾고 이름 옆에 있는 확인란을 선택합니다. 위쪽에서 보기를 변경해야 할 수 있습니다.
-7. 이렇게 하면 오른쪽에 **사용자 설정 관리** 링크가 표시됩니다. 이 단추를 클릭하십시오. 
+7. 이렇게 하면 오른쪽에 **사용자 설정 관리** 링크가 표시됩니다. 이 단추를 클릭하십시오.
 8. **선택한 사용자에 의해 생성된 모든 기존 앱 암호 삭제**에 체크 표시합니다.![앱 암호 삭제](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
 10. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
@@ -86,4 +86,4 @@
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

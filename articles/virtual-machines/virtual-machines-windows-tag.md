@@ -43,7 +43,7 @@ PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azur
 
 PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명령을 사용할 수 있습니다. PowerShell을 통해 태그를 업데이트하는 경우 태그가 전체적으로 업데이트됩니다. 따라서 이미 태그가 있는 리소스에 하나의 태그를 추가하는 경우 리소스에 배치하려는 모든 태그를 포함해야 합니다. 다음은 PowerShell Cmdlet을 통해 리소스에 태그를 더 추가하는 방법의 예입니다.
 
-첫 번째 cmdlet은 `Get-AzureRmResource` 및 `Tags` 함수를 사용하여 *MyTestVM*에 배치된 모든 태그를 *tags* 변수에 설정합니다.
+첫 번째 cmdlet은 `Get-AzureRmResource` 및 `Tags` 속성을 사용하여 *MyTestVM*에 배치된 모든 태그를 *$tags* 변수로 설정합니다.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -62,11 +62,11 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
         Value		Production
         Name		Environment
 
-세 번째 명령은 *tags* 변수에 태그를 더 추가합니다. **+=**을 사용하여 *tags* 목록에 새로운 키/값 쌍을 추가합니다.
+세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다. **+=**을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-네 번째 명령은 *tags* 변수에 정의된 모든 태그를 지정된 리소스에 설정합니다. 이 경우 MyTestVM입니다.
+네 번째 명령은 *$tags* 변수에 정의된 모든 태그를 지정된 리소스로 설정합니다. 이 경우 MyTestVM입니다.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
@@ -103,4 +103,4 @@ PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 정보 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

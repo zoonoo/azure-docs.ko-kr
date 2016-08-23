@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 복제
@@ -65,7 +65,7 @@ GRS(지역 중복 저장소)는 대부분의 응용 프로그램에 대해 권�
 
 GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기본 지역으로 커미트되며, 여기서 세 번 복제됩니다. 그런 다음 업데이트는 두 번째 지역에 복제하며 별도 오류 도메인 및 업그레이드 도메인에 걸쳐 세 번 복제됩니다.
 
-> [AZURE.NOTE] GRS를 사용하여 데이터 쓰기 요청이 보조 지역에 비동기적으로 복제 됩니다. GRS에 대한 옵션은 기본 지역에 대해 작성된 요청의 대기 시간에 영향을 주지 않는다는 점이 중요합니다. 그러나 비동기 복제는 지연과 관련되므로, 지역 재해가 발생한 경우 기본 지역에서 데이터를 복구할 수 없는 것처럼 아직 보조 지역으로 복제되지 않은 변경 내용이 손실 될 수 있습니다.
+> [AZURE.NOTE] GRS를 사용하여 데이터 쓰기 요청이 보조 지역에 비동기적으로 복제 됩니다. GRS에 대한 옵션은 기본 지역에 대해 작성된 요청의 대기 시간에 영향을 주지 않는다는 점이 중요합니다. 그러나 비동기 복제는 지연이 발생하므로 지역 재해가 발생한 경우 주 지역에서 데이터를 복구할 수 없다면 아직 보조 지역으로 복제되지 않은 변경 내용이 손실될 수 있습니다.
  
 저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 기본 지역에 따라 결정되며 변경할 수 없습니다. 다음 표에서는 기본 및 보조 지역 쌍을 보여 줍니다.
 
@@ -117,4 +117,4 @@ Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https:
 - [Microsoft Azure 저장소 중복 옵션 및 읽기 액세스 지역 중복 저장소](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -163,4 +163,4 @@ SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스
 - [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)
 - [Azure 저장소 탐색기](storage-explorers.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

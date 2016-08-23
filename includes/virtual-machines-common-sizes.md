@@ -127,7 +127,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_D12\_v2 |4|28GB|4|임시(SSD) = 200GB |8|8x500| 높음 |
 |Standard\_D13\_v2 |8|56GB|8|임시(SSD) = 400GB |16|16x500| 높음 |
 |Standard\_D14\_v2 |16|112GB|8|임시(SSD) = 800GB |32|32x500| 극히 높음 |
-|Standard\_D15\_v2 |20|140GB|10|임시(SSD) = 1TB |40|40x500| 극히 높음 |
+|Standard\_D15\_v2 |20|140GB|8|임시(SSD) = 1TB |40|40x500| 극히 높음 |
 
 
 ## DS 시리즈*
@@ -159,7 +159,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_DS12\_v2 |4|28|4|로컬 SSD 디스크 = 56GB |8|144| 12,800 초당 192MB | 높음 |
 |Standard\_DS13\_v2 |8|56|8|로컬 SSD 디스크 = 112GB |16|288| 25,600 초당 384MB | 높음 |
 |Standard\_DS14\_v2 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 51,200 초당 768MB | 극히 높음 |
-|Standard\_DS15\_v2 |20|140GB|10|로컬 SSD 디스크 = 280GB |40| 720|64,000 초당 960MB | 극히 높음 |
+|Standard\_DS15\_v2 |20|140GB|8|로컬 SSD 디스크 = 280GB |40| 720|64,000 초당 960MB | 극히 높음 |
 
 
 *DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
@@ -219,7 +219,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_GS4|16|224|8|로컬 SSD 디스크 = 448GB |32|2112| 40,000 초당 1,000MB | 극히 높음 |
 |Standard\_GS5|32|448|8|로컬 SSD 디스크 = 896GB |64|4224| 80,000 초당 2,000MB | 극히 높음 |
 
-## N 시리즈
+## N-시리즈(미리 보기)
 
 NC 및 NV 크기를 GPU 사용 인스턴스라고도 합니다. 다양한 시나리오 및 사용 사례에 대해 최적화된 NVIDIA GPU 카드를 포함하는 특수한 가상 컴퓨터입니다. NV 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 활용하는 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화되고 설계되었습니다. NC 크기는 계산 집약적 및 네트워크 집약적 응용 프로그램, CUDA를 비롯한 알고리즘, OpenCL 기반 응용 프로그램 및 시뮬레이션에 좀 더 최적화되어 있습니다.
 
@@ -230,9 +230,9 @@ NV 인스턴스는 고객이 자체 데이터 또는 시뮬레이션을 시각�
 
 | 크기 | 코어 수 | GPU | 메모리 | 디스크 |
 |------|-------|----------------|--------|-------------|
-| NV6 | 6 | NVIDIA M60 1개 | 56GB | 380GB SSD |
-| NV12 | 12 | NVIDIA M60 2개 | 112GB | 680GB SSD |
-| NV24 | 24 | NVIDIA M60 4개 | 224GB | 1440GB SSD | 
+| Standard\_NV6 | 6 | NVIDIA M60 1개 | 56GB | 380GB SSD |
+| Standard\_NV12 | 12 | NVIDIA M60 2개 | 112GB | 680GB SSD |
+| Standard\_NV24 | 24 | NVIDIA M60 4개 | 224GB | 1440GB SSD | 
 
 
 
@@ -243,9 +243,9 @@ NC 인스턴스는 NVIDIA Tesla K80을 통해 구동됩니다. 이제 에너지 
 
 | 크기 | 코어 수 | GPU | 메모리 | 디스크 |
 |------|-------|----------------|--------|-------------|
-| NC6 | 6 | NVIDIA K80 1개 | 56GB | 380GB SSD |
-| NC12 | 12 | NVIDIA K80 2개 | 112GB | 680GB SSD |
-| NC24 | 24 | NVIDIA K80 4개 | 224GB | 1440GB SSD |
+| Standard\_NC6 | 6 | NVIDIA K80 1개 | 56GB | 380GB SSD |
+| Standard\_NC12 | 12 | NVIDIA K80 2개 | 112GB | 680GB SSD |
+| Standard\_NC24 | 24 | NVIDIA K80 4개 | 224GB | 1440GB SSD |
 
 ## 참고: CLI 및 Powershell을 사용하는 Standard A0 - A4 
 
@@ -264,4 +264,4 @@ NC 인스턴스는 NVIDIA Tesla K80을 통해 구동됩니다. 이제 에너지 
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
 - HPC(고성능 컴퓨팅)와 같은 워크로드에 대해서는 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)에 대해 자세히 알아보세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
