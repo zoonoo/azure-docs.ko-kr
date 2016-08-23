@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # 포트 및 끝점 열기
-서브넷 또는 VM(가상 컴퓨터) 네트워크 인터페이스에서 선택한 포트에 트래픽을 허용하는 네트워크 필터를 만들어 Azure에서 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 네트워크 보안 그룹에 배치하고 트래픽을 수신하는 리소스에 연결합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다.
+서브넷 또는 VM(가상 컴퓨터) 네트워크 인터페이스에서 선택한 포트에 트래픽을 허용하는 네트워크 필터를 만들어 Azure에서 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다.
 
 ## 빠른 명령
 네트워크 보안 그룹 및 규칙을 만들려면 Resource Manager 모드(`azure config mode arm`)에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다.
@@ -28,7 +28,7 @@
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
 ```
 
-웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가합니다(SSH 액세스 또는 데이터베이스 연결 등의 자체 시나리오에 맞게 조정 가능).
+웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가합니다(또는 SSH 액세스 또는 데이터베이스 연결 등의 자체 시나리오에 맞게 조정).
 
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -48,7 +48,7 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 ```
 
 ## 네트워크 보안 그룹에 대한 자세한 정보
-여기서 빠른 명령을 사용하면 VM으로 트래픽이 이동되도록 할 수 있습니다. 네트워크 보안 그룹은 리소스에 대한 액세스를 제어하는 다양한 기능과 세분성을 제공합니다. [여기서 네트워크 보안 그룹 및 ACL 규칙 만들기](../virtual-network/virtual-networks-create-nsg-arm-cli.md)에 대해 자세히 읽어보세요.
+여기서 빠른 명령을 사용하면 VM으로 트래픽이 이동되도록 할 수 있습니다. 네트워크 보안 그룹은 리소스에 대한 액세스를 제어하는 많은 기능과 세분성을 제공합니다. [여기서 네트워크 보안 그룹 및 ACL 규칙 만들기](../virtual-network/virtual-networks-create-nsg-arm-cli.md)에 대해 자세히 읽어보세요.
 
 네트워크 보안 그룹 및 ACL 규칙을 Azure Resouce Manager 템플릿의 일부로 정의할 수도 있습니다. [템플릿을 사용하여 네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-template.md)에 대해 자세히 읽어보세요.
 
@@ -61,4 +61,4 @@ azure network vnet subnet set --resource-group TestRG --name TestSubnet --networ
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -3,7 +3,7 @@
    description="Azure 리소스 관리자에서 공용 및 개인 IP 주소 지정 방법에 대해 알아보기"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager" />
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure의 IP 주소
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 두 가지 유형의 IP 주소를 사용할 수 있습니다.
@@ -37,7 +37,7 @@ Azure 리소스 관리자에서 [공용 IP](resource-groups-networking.md#public
 - 응용 프로그램 게이트웨이
 
 ### 할당 방법
-IP 주소는 *동적* 또는 *정적* 의 두 가지 방법으로 *공용* IP 리소스에 할당됩니다. 기본 할당 방법은 IP 주소를 만들 때 할당하지 **않는** *동적* 방법입니다. 대신, 연결된 리소스(예: VM 또는 부하 분산 장치)를 시작하거나 만들 때 공용 IP 주소가 할당됩니다. 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다. 이렇게 하면 리소스를 중지하고 시작할 때 IP 주소가 변경됩니다.
+IP 주소는 *동적* 또는 *정적*의 두 가지 방법으로 *공용* IP 리소스에 할당됩니다. 기본 할당 방법은 IP 주소를 만들 때 할당하지 **않는** *동적* 방법입니다. 대신, 연결된 리소스(예: VM 또는 부하 분산 장치)를 시작하거나 만들 때 공용 IP 주소가 할당됩니다. 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다. 이렇게 하면 리소스를 중지하고 시작할 때 IP 주소가 변경됩니다.
 
 연결된 리소스의 IP 주소를 동일하게 유지하려면 할당 방법을 명시적으로 *static*으로 설정하면 됩니다. 이 경우 IP 주소가 즉시 할당됩니다. 리소스를 삭제하거나 할당 방법을 *dynamic*으로 변경하는 경우에만 해제됩니다.
 
@@ -136,4 +136,4 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 �
 - [템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-template.md)
 - [Azure 포털을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

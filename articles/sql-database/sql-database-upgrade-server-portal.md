@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있습니다.
+SQL 데이터베이스 V12가 최신 버전이므로 기존 서버를 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있습니다.
 
 - SQL Server와의 호환성 증가
 - 향상된 프리미엄 성능과 새로운 성능 수준
@@ -53,10 +53,12 @@ V12로 업그레이드한 후에는 서비스가 새 서버의 워크로드를 �
 
 ## 업그레이드 시작
 
-1. [Azure 포털](https://portal.azure.com/)에서 **모두 찾아보기** > **SQL Server**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 **찾아보기** > **SQL Server**를 선택한 후 업그레이드할 v2.0 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
 2. **최신 SQL 데이터베이스 업데이트**를 선택한 다음 **이 서버 업그레이드**를 선택합니다.
 
       ![서버 업그레이드][1]
+
+3. 서버를 최신 SQL 데이터베이스 업데이트로 업그레이드하는 작업은 영구적이며 되돌릴 수 없습니다. 업그레이드를 확인하려면 서버의 이름을 입력하고 **확인**을 클릭합니다.
 
 ## 모든 Web 및 Business 데이터베이스 업그레이드
 
@@ -117,7 +119,7 @@ V12로 업그레이드한 후에는 서비스가 새 서버의 워크로드를 �
 개별 데이터베이스를 모니터링하는 것 외에, [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
-**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
+**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -167,4 +169,4 @@ V12로 업그레이드한 후에는 서비스가 새 서버의 워크로드를 �
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

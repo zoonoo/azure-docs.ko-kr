@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # 서비스 패브릭 응용 프로그램 크기 조정
@@ -60,4 +60,4 @@ Azure 서비스 패브릭을 사용하면 클러스터의 모든 노드에서 �
 
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

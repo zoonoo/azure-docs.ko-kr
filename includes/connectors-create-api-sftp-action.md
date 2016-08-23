@@ -10,14 +10,21 @@
 
 앞에서 정의한 조건이 *True*인 경우 파일의 압축을 푸는 동작을 추가해 보겠습니다.
 
-1. **동작 추가**를 선택합니다.![SFTP 동작 조건 이미지 6](./media/connectors-create-api-sftp/condition-6.png)
-- **SFTP - 폴더 압축 풀기** 동작을 선택합니다. ![SFTP 동작 조건 이미지 7](./media/connectors-create-api-sftp/condition-7.png)
-- **원본 보관 파일 경로**를 선택합니다. ![SFTP 동작 조건 이미지 9](./media/connectors-create-api-sftp/condition-9.png)
-- **파일 경로** 토큰을 선택합니다. 이것은 트리거가 원본 보관 파일 경로로 찾은 파일의 경로를 사용할 것임을 나타냅니다. ![SFTP 동작 조건 이미지 10](./media/connectors-create-api-sftp/condition-10.png)
-- **대상 폴더 경로**를 선택합니다. ![SFTP 동작 조건 이미지 11](./media/connectors-create-api-sftp/condition-11.png)
+1. **동작 추가**를 선택합니다.  
+![SFTP 동작 조건 이미지 6](./media/connectors-create-api-sftp/condition-6.png)  
+- **SFTP - 폴더 압축 풀기** 동작을 선택합니다.  
+![SFTP 동작 조건 이미지 7](./media/connectors-create-api-sftp/condition-7.png)  
+- **원본 보관 파일 경로**를 선택합니다.  
+![SFTP 동작 조건 이미지 9](./media/connectors-create-api-sftp/condition-9.png)  
+- **파일 경로** 토큰을 선택합니다. 이것은 트리거가 원본 보관 파일 경로로 찾은 파일의 경로를 사용할 것임을 나타냅니다.  
+![SFTP 동작 조건 이미지 10](./media/connectors-create-api-sftp/condition-10.png)  
+- **대상 폴더 경로**를 선택합니다.  
+![SFTP 동작 조건 이미지 11](./media/connectors-create-api-sftp/condition-11.png)  
 - **파일 경로** 토큰을 선택합니다. 이것은 트리거가 압축을 푼 파일의 대상 경로로 찾은 파일의 경로를 사용할 것임을 나타냅니다.
-- **대상 폴더 경로** 컨트롤에 *\\ExtractedFile*을 입력합니다. 대상 폴더 경로 컨트롤에서 파일 경로 토큰을 선택한 바로 다음에 이 작업을 수행합니다. ![SFTP 동작 조건 이미지 12](./media/connectors-create-api-sftp/condition-12.png)
-- **덮어쓰기?* 컨트롤에 *True*를 입력하여 압축을 푼 파일과 이름이 같은 경우 기존 파일을 덮어써야 함을 나타냅니다. ![SFTP 동작 조건 이미지 13](./media/connectors-create-api-sftp/condition-13.png)
+- **대상 폴더 경로** 컨트롤에 *\\ExtractedFile*을 입력합니다. 대상 폴더 경로 컨트롤에서 파일 경로 토큰을 선택한 바로 다음에 이 작업을 수행합니다.  
+![SFTP 동작 조건 이미지 12](./media/connectors-create-api-sftp/condition-12.png)  
+- **덮어쓰기?* 컨트롤에 *True*를 입력하여 압축을 푼 파일과 이름이 같은 경우 기존 파일을 덮어써야 함을 나타냅니다.  
+![SFTP 동작 조건 이미지 13](./media/connectors-create-api-sftp/condition-13.png)  
 - 워크플로에 대한 변경 내용을 저장합니다.
 
 <!---HONumber=AcomDC_0727_2016-->

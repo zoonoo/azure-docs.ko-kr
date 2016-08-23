@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="08/10/2016"
    ms.author="cherylmc" />
 
 # 클래식 배포 모델을 사용하여 강제 터널링 구성
 
 > [AZURE.SELECTOR]
-- [PowerShell - 서비스 관리](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - 클래식](vpn-gateway-about-forced-tunneling.md)
 - [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다.
@@ -34,7 +34,7 @@
 
 **강제 터널링에 대한 배포 모델 및 도구**
 
-두 배포 모델에서 다양한 도구를 사용하여 강제 터널링 연결을 구성할 수 있습니다. 자세한 내용은 아래 표를 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
+클래식 배포 모델 및 Resource Manager 배포 모델 모두에 대한 강제 터널링 연결을 구성할 수 있습니다. 자세한 내용은 다음 테이블을 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
 
 [AZURE.INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
@@ -65,9 +65,9 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ## 구성 개요
 
-아래 예제에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 force되거나 리디렉션됩니다.
+다음 예에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 force되거나 리디렉션됩니다.
 
-이를 통해 필요한 다중 계층 서비스 아키텍처를 계속 사용하면서 Azure의 가상 컴퓨터 또는 클라우드 서비스에서 인터넷 액세스를 제한하고 검사할 수 있습니다. 가상 네트워크에 인터넷 연결 작업이 없는 경우 강제 터널링을 전체 가상 네트워크에 적용할 수 있는 옵션이 있습니다.
+이를 통해 필요한 다중 계층 서비스 아키텍처를 계속 사용하면서 Azure의 가상 컴퓨터 또는 클라우드 서비스에서 인터넷 액세스를 제한하고 검사할 수 있습니다. 가상 네트워크에 인터넷 연결 작업이 없는 경우 강제 터널링을 전체 가상 네트워크에 적용할 수도 있습니다.
 
 
 ![강제 터널링](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
@@ -87,7 +87,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ## 강제 터널링 구성
 
-아래의 절차에 따라 가상 네트워크에 대한 강제 터널링을 지정할 수 있습니다. 구성 단계는 아래의 가상 네트워크 netcfg(네트워크 구성 파일) 예제에 해당합니다.
+다음 절차에 따라 가상 네트워크에 대한 강제 터널링을 지정할 수 있습니다. 구성 단계는 VNet 네트워크 구성 파일에 해당합니다.
 
 
 
@@ -129,7 +129,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 이 예제에서 가상 네트워크 "MultiTier-VNet"에는 3개의 서브넷(*프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷)과 함께 4개의 프레미스 간 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있습니다.
 
-절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 중간 계층 및 백 엔드 서브넷을 구성하여 강제 터널링을 사용합니다.
+단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 중간 계층 및 백 엔드 서브넷을 구성하여 강제 터널링을 사용합니다.
 
 
 1. 라우팅 테이블을 만듭니다. 경로 테이블을 만들려면 다음 cmdlet을 사용합니다.
@@ -138,13 +138,13 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 2. 라우팅 테이블에 기본 경로를 추가합니다.
 
-	아래 cmdlet 예제는 기본 경로를 1단계에서 생성된 라우팅 테이블에 추가합니다. 경로만 지원되는 경우는 "VPNGateway" 다음 홉에 대한 "0.0.0.0/0"의 대상 접두사입니다.
+	다음 예제는 기본 경로를 1단계에서 생성된 라우팅 테이블에 추가합니다. 경로만 지원되는 경우는 "VPNGateway" 다음 홉에 대한 "0.0.0.0/0"의 대상 접두사입니다.
  
 		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. 서브넷에 라우팅 테이블을 연결합니다.
 
-	라우팅 테이블을 만들고 경로를 추가한 후 아래 cmdlet을 사용하여 경로 테이블을 VNet 서브넷에 추가하거나 연결합니다. 아래 샘플은 경로 테이블 "MyRouteTable"을 VNet 다중 계층-VNet의 중간 계층 및 백 엔드 서브넷에 추가합니다.
+	라우팅 테이블을 만들고 경로를 추가한 후 다음 예제를 사용하여 경로 테이블을 VNet 서브넷에 추가하거나 연결합니다. 예제는 경로 테이블 "MyRouteTable"을 VNet MultiTier-VNet의 중간 계층 및 백 엔드 서브넷에 추가합니다.
 
 		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
@@ -183,4 +183,4 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

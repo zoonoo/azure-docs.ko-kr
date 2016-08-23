@@ -4,7 +4,7 @@
 	description="각 수명 주기 단계에 사용할 수 있는 옵션에 따라 하이브리드 ID 관리 작업을 정의하는 데 도움이 됩니다."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="femila"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 
 # 하이브리드 ID 수명 주기 채택 전략 결정
@@ -95,4 +95,4 @@ ID 동기화 프로세스
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

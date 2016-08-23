@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -64,7 +64,7 @@ Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다
 
 1. [Azure 포털](https://portal.azure.com/)(http://portal.azure.com/)을 통해 로그인합니다.
 
-2. **모두*찾아보기** > **SQL 데이터베이스**를 클릭합니다. 블레이드는 데이터베이스에 대한 해당 검색을 엽니다.
+2. *모두 *찾아보기*** > **SQL 데이터베이스**를 클릭합니다. 블레이드는 데이터베이스에 대한 해당 검색을 엽니다.
 
 3. 위쪽의 텍스트 상자 시작에서 **AdventureWorksLT** 데이터베이스의 이름을 입력하기 시작합니다.
 
@@ -82,7 +82,7 @@ Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다
 
 9. Visual Studio를 설치한 후에 **Visual Studio에서 열기** 블레이드에서 **Visual Studio에서 열기** 단추를 클릭합니다. Visual Studio를 엽니다.
 
-10. 해당 **SQL Server 개체 탐색기** 창의 혜택을 위해 Visual Studio가 대화 상자에서 연결 문자열 필드를 입력하도록 요청합니다.
+10. Visual Studio가 대화 상자의 연결 문자열 필드에 입력하라는 메시지를 표시합니다.
  - **Windows 인증**이 아니라 **SQL 서버 인증**을 선택합니다.
  - **AdventureWorksLT** 데이터베이스를 지정해야 합니다.(대화 상자의 **옵션** > **연결 속성**)
 
@@ -121,4 +121,4 @@ Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

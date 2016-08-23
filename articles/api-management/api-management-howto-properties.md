@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -26,7 +26,7 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 
 | 특성 | 형식 | 설명 |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| 이름 | string | 속성의 이름입니다. 문자, 숫자, 마침표, 대시 및 밑줄 문자만 포함할 수 있습니다. |
+| Name | string | 속성의 이름입니다. 문자, 숫자, 마침표, 대시 및 밑줄 문자만 포함할 수 있습니다. |
 | 값 | string | 속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
 | Secret | 부울 | 값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다. |
 | 태그 | 문자열의 배열 | 제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
@@ -37,7 +37,7 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 
 속성 값은 리터럴 문자열 및 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 포함할 수 있습니다. 다음 표에서는 위의 세 가지 샘플 속성 및 해당 특성을 보여 줍니다. `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
-| 이름 | 값 | Secret | 태그 |
+| Name | 값 | Secret | 태그 |
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader | TrackingId | False | Contoso |
 | ContosoHeaderValue | •••••••••••••••••••••• | True | Contoso |
@@ -123,7 +123,7 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 
 태그 값으로 속성 목록을 필터링하려면 **태그로 필터링** 텍스트 상자에 하나 이상의 태그를 입력합니다. 모든 속성을 표시하려면 **태그로 필터링** 텍스트 상자를 지우고 Enter 키를 누릅니다.
 
-![필터][api-management-properties-filter]
+![Filter][api-management-properties-filter]
 
 ## 다음 단계
 
@@ -149,4 +149,4 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

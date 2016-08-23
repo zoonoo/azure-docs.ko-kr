@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure SQL 데이터베이스 쿼리 성능 Insight" 
+   pageTitle="Azure SQL 데이터베이스 Query Performance Insight" 
    description="쿼리 성능 모니터링은 Azure SQL 데이터베이스에 대한 대부분의 CPU 사용 쿼리를 식별합니다." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/05/2016"
+   ms.date="08/09/2016"
    ms.author="sstein"/>
 
-# Azure SQL 데이터베이스 쿼리 성능 Insight
+# Azure SQL 데이터베이스 Query Performance Insight
 
 
-관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. 쿼리 성능 Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
+관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
 - 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다.
 - 최상위 CPU 사용 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
@@ -27,22 +27,22 @@
 
 ## 필수 조건
 
-- 쿼리 성능 Insight는 Azure SQL 데이터베이스 V12에서만 제공됩니다.
-- Query Performance Insight를 위해서는 데이터베이스에 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)가 실행 중이어야 합니다. 포털에서 쿼리 저장소가 아직 실행되지 않은 경우 설정하라는 메시지가 표시됩니다.
+- Query Performance Insight는 Azure SQL 데이터베이스 V12에서만 제공됩니다.
+- Query Performance Insight를 위해서는 데이터베이스에 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)가 실행 중이어야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
 
  
 ## 권한
 
-쿼리 성능 Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다.
+Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다.
 
 - 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
 - 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
 
 
 
-## 쿼리 성능 Insight 사용
+## Query Performance Insight 사용
 
-쿼리 성능 Insight는 쉽게 사용할 수 있습니다.
+Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 - 최상위 리소스 사용 쿼리의 목록을 검토합니다.
 - 해당하는 세부 정보를 보려면 개별 쿼리를 선택합니다.
@@ -51,7 +51,7 @@
 
     ![성능 대시보드](./media/sql-database-query-performance/performance.png)
 
-> [AZURE.NOTE] 쿼리 성능 Insight를 제공하는 SQL 데이터베이스용 쿼리 저장소로 데이터를 캡처하는데 몇 시간이 필요합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였던 경우 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 실행하지 않는 경우 언제든지 쿼리 저장소를 활성화할 수 있습니다.
+> [AZURE.NOTE] Query Performance Insight를 제공하는 SQL 데이터베이스용 쿼리 저장소로 데이터를 캡처하는데 몇 시간이 필요합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였던 경우 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 쿼리 저장소가 실행되지 않는 경우 언제든지 활성화할 수 있습니다.
 
 
 
@@ -59,13 +59,13 @@
 
 [포털](http://portal.azure.com)에서 다음을 수행합니다.
 
-1. SQL 데이터베이스를 찾고 **모든 설정** > **성능** > **쿼리**를 클릭합니다.
+1. SQL 데이터베이스를 찾고 **설정** > **성능** > **쿼리**를 클릭합니다.
 
-    ![쿼리 성능 Insight][1]
+    ![Query Performance Insight][1]
 
     최상위 쿼리 뷰가 열리고 최상위 CPU 사용 쿼리가 나열됩니다.
 
-1. 차트 주위를 클릭하여 세부 정보를 확인합니다.<br>위쪽 줄에는 데이터베이스에 대한 전체 DTU%가 표시되고 막대에는 선택한 기간 중에 선택한 쿼리에서 사용된 CPU%가 표시됩니다. 예를 들어 **지난주**를 선택하면 각 막대는 1일을 나타냅니다.
+1. 자세한 내용을 보려면 차트 주위를 클릭합니다.<br>맨 윗줄에 데이터베이스에 대한 전체 DTU%가 표시됩니다. 막대는 선택한 간격 동안 선택된 쿼리에서 사용한 CPU%를 나타냅니다(예를 들어 **지난 주**가 선택된 경우 각 바는 하루를 나타냄).
 
     ![최상위 쿼리][2]
 
@@ -110,7 +110,7 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시�
 - "이 데이터베이스의 쿼리 저장소가 읽기 전용 모드이므로 Performance Insight 데이터를 수집하지 않습니다."
 - "쿼리 저장소 매개 변수가 Query Performance Insight에 대해 최적으로 설정되지 않았습니다."
 
-이러한 메시지는 일반적으로 쿼리 저장소가 새 데이터를 수집할 수 없을 때 표시됩니다. 이 문제를 해결하려면 두 가지 옵션이 있습니다.
+이러한 메시지는 일반적으로 쿼리 저장소가 새 데이터를 수집할 수 없을 때 표시됩니다. 이러한 문제를 해결하려는 경우 두 가지 옵션이 있습니다.
 
 -	쿼리 저장소의 보존 및 캡처 정책 변경
 -	쿼리 저장소 크기 늘리기
@@ -121,11 +121,11 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시�
 보존 정책에는 다음과 같은 두 종류가 있습니다.
 
 - 크기 기반 - AUTO로 설정된 경우 최대 크기에 가까워지면 데이터를 자동으로 지웁니다.
-- 시간 기반 - 기본적으로 30일로 설정됩니다. 즉, 쿼리 저장소의 공간이 부족해지면 30일이 지난 쿼리 정보를 삭제합니다.
+- 시간 기반 - 쿼리 저장소의 공간이 부족하면 30일의 기본 설정보다 오래된 쿼리 정보를 삭제합니다.
 
 캡처 정책은 다음과 같이 설정할 수 있습니다.
 
-- **모두** – 모든 쿼리를 캡처합니다. 기본 옵션입니다.
+- **모두** – 모든 쿼리를 캡처합니다. **모두**가 기본 옵션입니다.
 - **자동** – 컴파일 및 실행 기간이 중요하지 않고 사용 빈도가 적은 쿼리가 무시됩니다. 실행 횟수, 컴파일 및 런타임 기간에 대한 임계값을 내부적으로 결정합니다.
 - **없음** – 쿼리 저장소가 새 쿼리를 캡처하는 것을 중지합니다.
 	
@@ -140,26 +140,26 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시�
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-쿼리 저장소의 크기를 늘립니다. 이는 데이터베이스에 연결하고 다음 쿼리를 실행하여 수행할 수 있습니다.
+데이터베이스에 연결하고 다음 쿼리를 실행하여 쿼리 저장소의 크기를 증가시킵니다.
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-쿼리 저장소를 지웁니다. 그러면 쿼리 저장소의 모든 현재 정보가 삭제됩니다.
+쿼리 저장소를 지웁니다. 쿼리 저장소에 있는 모든 현재 정보를 삭제합니다.
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## 요약
 
-쿼리 성능 Insight를 통해 쿼리 작업의 영향 및 데이터베이스 리소스 사용의 관계를 이해할 수 있습니다. 이 기능을 사용하여 최상위 사용 쿼리를 확인하고 문제가 되기 전에 해결할 쿼리를 쉽게 식별할 수 있습니다.
+Query Performance Insight를 통해 쿼리 작업의 영향 및 데이터베이스 리소스 사용의 관계를 이해할 수 있습니다. 이 기능을 사용하여 최상위 사용 쿼리를 확인하고 문제가 되기 전에 해결할 쿼리를 쉽게 식별할 수 있습니다.
 
 
 
 
 ## 다음 단계
 
-SQL 데이터베이스의 성능 향상을 위한 추가 권장 사항은 **쿼리 성능 Insight** 블레이드의 [SQL 데이터베이스 관리자](sql-database-advisor.md)를 클릭하여 확인합니다.
+SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 **Query Performance Insight** 블레이드의 [데이터베이스 관리자](sql-database-advisor.md)를 클릭하여 확인합니다.
 
 ![성능 관리자](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ SQL 데이터베이스의 성능 향상을 위한 추가 권장 사항은 **쿼�
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

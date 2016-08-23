@@ -22,6 +22,7 @@
 - [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 
@@ -41,9 +42,9 @@
 ## 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
-1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
+1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래 모서리에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
 
-	![새로 만들기-\>DataFactory][image-data-factory-new-datafactory-menu]
+	![새로 만들기->DataFactory][image-data-factory-new-datafactory-menu]
 
 6. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
 	1. **ADFTutorialDataFactory**를 **이름**으로 입력합니다.
@@ -59,7 +60,7 @@
 7. **새 데이터 팩터리** 블레이드에서 **시작 보드에 추가**가 선택되어 있는지 확인합니다.
 8. **새 데이터 팩터리** 블레이드에서 **만들기**를 클릭합니다.
 
-	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고\(예: yournameADFTutorialDataFactory\) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 	 
 	![데이터 팩터리 이름을 사용할 수 없음][image-data-factory-name-not-available]
 	
@@ -75,7 +76,7 @@
 ## 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다.
 
-이 단계에서는 **AzureStorageLinkedService** 및 **AzureSqlLinkedService** 등 두 개의 연결된 서비스를 만듭니다. AzureStorageLinkedService 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 **ADFTutorialDataFactory**에 연결합니다. 이 자습서 뒷부분에서는 AzureStorageLinkedService의 Blob 컨테이너에서 AzureSqlLinkedService의 SQL 테이블로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 **AzureStorageLinkedService** 및 **AzureSqlLinkedService** 등 두 개의 연결된 서비스를 만듭니다. AzureStorageLinkedService 연결된 서비스는 Azure Storage 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 **ADFTutorialDataFactory**에 연결합니다. 이 자습서 뒷부분에서는 AzureStorageLinkedService의 Blob 컨테이너에서 AzureSqlLinkedService의 SQL 테이블로 데이터를 복사하는 파이프라인을 만듭니다.
 
 ### Azure 저장소 계정에 대한 연결된 서비스 만들기
 1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
@@ -83,7 +84,7 @@
 	![작성 및 배포 타일][image-author-deploy-tile]
 
 	 
-5. **편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure 저장소**를 선택합니다. 오른쪽 창에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
+5. **편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Storage**를 선택합니다. 오른쪽 창에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
 
 	![편집기 새 데이터 저장소 단추][image-editor-newdatastore-button]
     
@@ -107,10 +108,10 @@
    
 
 ## 데이터 집합 만들기
-이전 단계에서는 연결된 서비스 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService 및 AzureSqlLinkedService로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 두 개의 데이터 팩터리 테이블인 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다.
+이전 단계에서는 연결된 서비스 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure Storage 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService 및 AzureSqlLinkedService로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 두 개의 데이터 팩터리 테이블인 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다.
 
 ### 입력 데이터 집합 만들기 
-테이블은 사각형 데이터 집합이고 스키마가 있습니다. 이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure 저장소의 Blob 컨테이너를 가리키는 **EmpBlobTable**이라는 테이블을 만듭니다.
+테이블은 사각형 데이터 집합이고 스키마가 있습니다. 이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **EmpBlobTable**이라는 테이블을 만듭니다.
 
 1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Blob 테이블**을 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 조각으로 바꿉니다.
@@ -153,15 +154,15 @@
 	- **linkedServiceName**을 **AzureStorageLinkedService**로 설정합니다. 이 연결된 서비스는 2단계에서 만들었습니다.
 	- **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 또한 폴더 내의 Blob 이름을 지정할 수도 있습니다. Blob 이름을 지정하지 않으므로 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.
 	- format **type**을 **TextFormat**으로 설정합니다.
-	- 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표\(**columnDelimiter**\)로 구분되어 있습니다.
-	- **availability**를 **hourly**로 설정하므로\(**frequency**를 **hour**로 설정하고 **interval**을 **1**로 설정함\), 데이터 팩터리 서비스가 지정한 Blob 컨테이너\(**adftutorial**\)의 루트 폴더에서 입력 데이터를 1시간마다 찾습니다.
+	- 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.
+	- **가용성**을 **매시간**으로 설정하므로(**빈도**를 **시간**으로 설정하고 **간격**을 **1**로 설정함), 데이터 팩터리 서비스에서 사용자가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 매시간마다 찾게 됩니다.
 	
 
-	**입력** **테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더\(**folderPath**\)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
+	**입력** **테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
  
-	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt\(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt\).
+	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
-	**SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 설정하려면, **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart\(처리 중인 조각의 시작 시간\)의 Year, Month 및 Day를 사용하고 fileName은 SliceStart의 Hour를 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
+	**SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 설정하려면, **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -212,10 +213,10 @@
      다음 사항에 유의하세요.
 	
 	* dataset **type**을 **AzureSQLTable**로 설정합니다.
-	* **linkedServiceName**을 **AzureSqlLinkedService**\(2단계에서 만든 연결된 서비스\)로 설정합니다.
+	* **linkedServiceName**을 **AzureSqlLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	* **tablename**을 **emp**로 설정합니다.
 	* 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
-	* **availability**는 **hourly**\(**frequency**는 **hour**로, **interval**은 **1**로 설정\)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+	* **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 
 3. 도구 모음에서 **배포**를 클릭하여 **EmpSQLTable** 테이블을 만들고 배포합니다.
@@ -224,7 +225,7 @@
 ## 파이프라인 만들기
 이 단계에서는 **EmpTableFromBlob**을 입력으로 사용하고 **EmpSQLTable**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
 
-1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... \(줄임표\)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
+1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... (줄임표)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
 
 	![편집기 새 파이프라인 단추][image-editor-newpipeline-button]
  
@@ -280,7 +281,7 @@
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2015-02-03"은 "2015-02-03T00:00:00Z"과 동일합니다.
 	
-	start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)\(영문\)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
+	start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
 	**end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다.
 	
@@ -303,8 +304,8 @@
 
 	![다이어그램 뷰][image-data-factory-get-started-diagram-blade]
 
-	확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 테이블 위치 지정, 계보 정보 표시\(선택한 항목의 업스트림 및 다운스트림 항목 강조 표시\)를 수행할 수 있습니다. 개체\(입출력 테이블 또는 파이프라인\)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
-3. 다이어그램 뷰에서 **ADFTutorialPipeline**을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭합니다. 작업에 대한 입력 및 출력 데이터 집합과 함께 파이프라인의 작업이 표시됩니다. 이 자습서에서는 파이프라인\(복사 작업\)에 EmpTableBlob을 입력 데이터 집합으로, EmpSQLTable을 출력 데이터 집합으로 사용하는 작업 하나밖에 없습니다.
+	확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 테이블 위치 지정, 계보 정보 표시(선택한 항목의 업스트림 및 다운스트림 항목 강조 표시)를 수행할 수 있습니다. 개체(입출력 테이블 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
+3. 다이어그램 뷰에서 **ADFTutorialPipeline**을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭합니다. 작업에 대한 입력 및 출력 데이터 집합과 함께 파이프라인의 작업이 표시됩니다. 이 자습서에서는 파이프라인(복사 작업)에 EmpTableBlob을 입력 데이터 집합으로, EmpSQLTable을 출력 데이터 집합으로 사용하는 작업 하나밖에 없습니다.
 
 	![파이프라인 열기](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
 
@@ -314,9 +315,10 @@
 ## 파이프라인 모니터링
 이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.
 
-1. 아직 열지 않은 경우 [Azure 포털\(Preview\)][azure-portal]로 이동합니다.
+1. 아직 열지 않은 경우 [Azure 포털(Preview)][azure-portal]로 이동합니다.
 2. **ADFTutorialDataFactory**에 대한 블레이드가 열려 있지 않으면 **시작 보드**에서 **ADFTutorialDataFactory**를 클릭하여 엽니다.
-3. 만든 테이블과 파이프라인의 개수 및 이름이 이 블레이드에 표시됩니다.
+3. 만든 테이블과 파이프라인의 개수 및 이름이
+4. 이 블레이드에 표시됩니다.
 
 	![이름이 지정된 홈페이지][image-data-factory-get-started-home-page-pipeline-tables]
 
@@ -324,17 +326,17 @@
 5. **데이터 집합** 블레이드에서 **EmpTableFromBlob**을 클릭합니다. 이 테이블은 **ADFTutorialPipeline**의 입력 테이블입니다.
 
 	![EmpTableFromBlob이 선택된 데이터 집합][image-data-factory-get-started-datasets-emptable-selected]
-5. **emp.txt** 파일이 항상 Blob 컨테이너 **adftutorial\\input**에 있으므로 현재 시간까지의 데이터 조각이 이미 생성되어 **Ready** 상태에 있습니다. 맨 아래의 **Recently failed slices\(최근에 실패한 조각\)** 섹션에 표시되는 조각이 없는지 확인합니다.
+5. **emp.txt** 파일이 항상 Blob 컨테이너 **adftutorial\\input**에 있으므로 현재 시간까지의 데이터 조각이 이미 생성되어 **Ready** 상태에 있습니다. 맨 아래의 **Recently failed slices(최근에 실패한 조각)** 섹션에 표시되는 조각이 없는지 확인합니다.
 
-	**Recently updated slices\(최근에 업데이트된 조각\)** 및 **Recently failed slices\(최근에 실패한 조각\)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
+	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
     
 
 	-  **Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
-	-  실행\(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등\)으로 인해 조각 상태가 변경됩니다.
+	-  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
  
-	목록의 제목 또는 **...\(줄임표\)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
+	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
 	
-	조각 시작/종료 시간을 기준으로 정렬된 데이터 조각을 보려면 **데이터 조각\(조각 시간별\)** 타일을 클릭합니다.
+	조각 시작/종료 시간을 기준으로 정렬된 데이터 조각을 보려면 **데이터 조각(조각 시간별)** 타일을 클릭합니다.
 
 	![조각 시간별 데이터 조각][DataSlicesBySliceTime]
 
@@ -349,8 +351,8 @@
 
 	![테이블 블레이드][image-data-factory-get-started-table-blade]
  
-7. 현재 시간까지의 데이터 조각이 이미 생성되어 **Ready** 상태입니다. 맨 아래의 **Problem slices\(문제 조각\)** 섹션에 표시되는 조각이 없습니다.
-8. **…\(줄임표\)**를 클릭하여 조각을 모두 표시합니다.
+7. 현재 시간까지의 데이터 조각이 이미 생성되어 **Ready** 상태입니다. 맨 아래의 **Problem slices(문제 조각)** 섹션에 표시되는 조각이 없습니다.
+8. **…(줄임표)**를 클릭하여 조각을 모두 표시합니다.
 
 	![데이터 조각 블레이드][image-data-factory-get-started-dataslices-blade]
 
@@ -358,15 +360,15 @@
 
 	![데이터 조각 블레이드][image-data-factory-get-started-dataslice-blade]
   
-	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready\(준비되지 않은 업스트림 조각\)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
+	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
 
-11. **데이터 조각** 블레이드의 맨 아래 목록에 모든 작업 실행이 표시됩니다. **작업 실행**을 클릭하여 **ACTIVITY RUN DETAILS\(작업 실행 세부 정보\)** 블레이드를 표시합니다.
+11. **데이터 조각** 블레이드의 맨 아래 목록에 모든 작업 실행이 표시됩니다. **작업 실행**을 클릭하여 **ACTIVITY RUN DETAILS(작업 실행 세부 정보)** 블레이드를 표시합니다.
 
 	![작업 실행 세부 정보][image-data-factory-get-started-activity-run-details]
 
 	
 12. **X**를 클릭하여 모든 블레이드를 닫아 **ADFTutorialDataFactory**의 홈 블레이드로 돌아옵니다.
-14. \(선택 사항\) **ADFTutorialDataFactory**의 홈 페이지에서 **파이프라인**을 클릭하고 **파이프라인** 블레이드에서 **ADFTutorialPipeline**을 클릭한 다음 입력 테이블\(**Consumed**\) 또는 출력 테이블\(**Produced**\)을 드릴스루합니다.
+14. (선택 사항) **ADFTutorialDataFactory**의 홈 페이지에서 **파이프라인**을 클릭하고 **파이프라인** 블레이드에서 **ADFTutorialPipeline**을 클릭한 다음 입력 테이블(**Consumed**) 또는 출력 테이블(**Produced**)을 드릴스루합니다.
 15. **SQL Server Management Studio**를 시작하고 Azure SQL 데이터베이스에 연결한 다음 데이터베이스의 **emp** 테이블에 행이 삽입되었는지 확인합니다.
 
 	![SQL 쿼리 결과][image-data-factory-get-started-sql-query-results]
@@ -377,7 +379,7 @@
 
 1.	Azure **Data Factory**를 만들었습니다.
 2.	**연결된 서비스**를 만들었습니다.
-	1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다.
+	1. 입력 데이터를 보유하는 Azure Storage 계정을 연결하는 **Azure Storage** 연결된 서비스입니다.
 	2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다.
 3.	파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합**을 만들었습니다.
 4.	원본으로 **BlobSource**와 **복사 작업**을 사용하고 싱크로 **SqlSink**를 사용하여 **파이프라인**을 만들었습니다.
@@ -388,8 +390,8 @@
 | :---- | :---- |
 | [데이터 이동 활동](data-factory-data-movement-activities.md) | 이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
-| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
 <!--Link references-->
@@ -464,4 +466,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

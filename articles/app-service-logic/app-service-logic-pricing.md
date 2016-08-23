@@ -48,7 +48,7 @@ Azure Logic Apps을 사용하면 클라우드에서 통합 워크플로의 크�
 
 앱 서비스 계획 및 일일 허용된 작업 실행:
 
-| |무료/공유/기본|Standard|Premium|
+| |무료/공유/기본|표준|Premium|
 |---|---|---|---|
 |일일 작업 실행| 200|10000|50,000|
 
@@ -71,7 +71,7 @@ $appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" 
 $logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
 
 $sku = @{
-    "name" = $appservicePlan.Name;
+    "name" = $appservicePlan.Sku.tier;
     "plan" = @{
       "id" = $appserviceplan.ResourceId;
       "type" = "Microsoft.Web/ServerFarms";
@@ -103,4 +103,4 @@ $updatedLA = Set-AzureRmResource -ResourceId $logicapp.ResourceId -Properties $u
 [whatis]: app-service-logic-what-are-logic-apps.md
 [create]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

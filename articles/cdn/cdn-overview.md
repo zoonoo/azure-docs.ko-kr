@@ -64,7 +64,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | [빠른 삭제](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [자산 미리 로드](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [핵심 분석](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [REST API를 통한 관리](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) 또는 [PowerShell](./cdn-manage-powershell.md)을 통한 관리. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
 | [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [실시간 통계](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -75,7 +75,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 
 CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참조하세요.
 
-기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
+기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 끝점을 관리할 수 있습니다.
 
 작동 중인 CDN 작업을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참조하세요.
 
@@ -83,4 +83,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

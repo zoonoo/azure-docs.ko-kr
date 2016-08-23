@@ -26,7 +26,7 @@
 
 >[AZURE.NOTE] 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 >
->-    [이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-event-hub.md)
+>-    [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](service-bus-resource-manager-namespace-event-hub.md)
 >-    [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
@@ -154,4 +154,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

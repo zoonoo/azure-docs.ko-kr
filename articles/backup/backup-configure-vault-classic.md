@@ -3,8 +3,8 @@
 	description="백업 자격 증명 모음을 만들고, 자격 증명을 다운로드하고, 백업 에이전트를 설치하고, 파일 및 폴더의 초기 백업을 완료하여 Windows 서버 또는 클라이언트를 Azure에 백업합니다."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="백업 자격 증명 모음, Windows 서버 백업, Windows 백업"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
 
@@ -226,4 +226,4 @@ VM 또는 다른 워크로드를 백업하는 방법에 대한 자세한 내용�
 - [Microsoft Azure 백업 서버를 통해 Azure에 워크로드 백업](backup-azure-microsoft-azure-backup.md)
 - [DPM을 통해 Azure에 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

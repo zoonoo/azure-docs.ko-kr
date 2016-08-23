@@ -41,7 +41,7 @@
 
 > [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## EIP\(엔터프라이즈 통합 팩\) 커넥터
+## EIP(엔터프라이즈 통합 팩) 커넥터
 EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 대한 논리 앱을 만듭니다.
  
 |EIP 커넥터 ||||
@@ -102,8 +102,8 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "엔터프라이즈 통합 X12에 대해 알아봅니다."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
 [httpdoc]: ./connectors-native-http.md "HTTP를 호출하는 HTTP 커넥터."
 [http~requestdoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
@@ -183,4 +183,4 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

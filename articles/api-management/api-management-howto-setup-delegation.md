@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="antonba"/>
 
 # 사용자 등록 및 제품 구독을 위임하는 방법
@@ -36,7 +36,7 @@
 
 ![위임 페이지][api-management-delegation-signin-up]
 
-* 특수한 위임 끝점의 URL을 결정하고 **위임 끝점 URL** 필드에 이 URL을 입력합니다. 
+* 특수한 위임 끝점의 URL을 결정하고 **위임 끝점 URL** 필드에 이 URL을 입력합니다.
 
 * **위임 인증 키** 필드에서 요청이 Azure API 관리에서 들어오는지 확인하기 위해 사용자에게 제공된 서명을 계산하는 데 사용되는 암호를 입력합니다. **생성** 단추를 클릭하여 API 관리가 임의로 사용자를 위해 키를 생성하도록 할 수 있습니다.
 
@@ -178,4 +178,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

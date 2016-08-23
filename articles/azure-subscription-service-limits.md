@@ -44,7 +44,7 @@
 - [앱 서비스](#app-service-limits)
 - [Application Insights](#application-insights-limits)
 - [자동화](#automation-limits)
-- [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
+- [Azure Redis 캐시 (영문) ](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [백업](#backup-limits)
 - [배치](#batch-limits)
@@ -180,7 +180,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](./documentdb/documentdb-increase-limits.md).
+별표 (*) 가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](./documentdb/documentdb-increase-limits.md).
 
 ### 모바일 참여 제한
 
@@ -192,8 +192,8 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
 
 - *무료* 다중 테넌트 서비스는 다른 Azure 구독자와 공유되며 평가 및 소규모 개발 프로젝트용으로 사용하기 위한 것입니다.
-- *기본*은 프로덕션 작업 전용 컴퓨팅 리소스를 더 작은 규모로, 높은 가용성의 쿼리 작업에 대한 복제본을 3개까지 제공합니다.
-- *표준(S1, S2, S3, S3 고밀도)*은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 특정 시나리오에 대한 리소스 구성을 선택할 수 있습니다.
+- *기본* 은 프로덕션 작업 전용 컴퓨팅 리소스를 더 작은 규모로, 높은 가용성의 쿼리 작업에 대한 복제본을 3개까지 제공합니다.
+- *표준 (S1, S2, S3, S3 고밀도)* 은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 특정 시나리오에 대한 리소스 구성을 선택할 수 있습니다.
 
 **구독당 제한**
 
@@ -303,4 +303,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->

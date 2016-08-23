@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
@@ -416,4 +416,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [첫 번째 API 관리]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

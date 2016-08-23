@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="08/03/2016" 
 	ms.author="robinsh"/>
 
 # 저장소 메트릭 설정 및 메트릭 데이터 보기
@@ -47,7 +47,7 @@ Azure 클래식 포털에서는 현재 저장소 계정에서 분 메트릭을 �
 
 - MetricsType - 사용 가능한 값은 Hour 및 Minute입니다.
 
-- ServiceType - 사용 가능한 값은 Blob, Queue, Table입니다.
+- ServiceType: 사용 가능한 값은 Blob, Queue, Table입니다.
 
 - MetricsLevel 사용 가능한 값은 None(Azure 클래식 포털에서 해제를 선택하는 경우와 같음), Service(Azure 클래식 포털에서 최소를 선택하는 경우와 같음), ServiceAndApi(Azure 클래식 포털에서 자세한 정보 표시를 선택하는 경우와 같음)입니다.
 
@@ -212,4 +212,4 @@ Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사�
 [저장소 분석 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

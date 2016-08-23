@@ -7,7 +7,7 @@
    ms.tgt_pltfrm=""
    ms.workload="infrastructure"
    ms.date="05/12/2015"
-   ms.author="josephd" />
+   ms.author="rasquill" />
 
 ## PowerShell 설정
 
@@ -71,11 +71,11 @@ Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로�
 	CurrentStorageAccountName : 
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 Azure 구독을 설정할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 Azure 구독을 설정할 수 있습니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](powershell-install-configure.md#Connect)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

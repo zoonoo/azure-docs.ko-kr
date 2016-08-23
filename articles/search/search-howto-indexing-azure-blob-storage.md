@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/12/2016"
+ms.date="08/08/2016"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
@@ -21,23 +21,41 @@ ms.author="eugenesh" />
 
 > [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
+## 지원되는 문서 형식
+
+BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
+
+- PDF
+- Microsoft Office 형식: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG(Outlook 전자 메일)
+- HTML
+- XML
+- ZIP
+- EML
+- 일반 텍스트 파일
+- JSON(자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
+- CSV (자세한 내용은 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 참조)
+
 ## BLOB 인덱싱 설정
 
 Azure Blob 저장소 인덱서를 설정 및 구성하려면 [이 문서](https://msdn.microsoft.com/library/azure/dn946891.aspx)에 설명된 대로 Azure 검색 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. 향후에는 BLOB 인덱싱에 대한 지원이 Azure 검색 .NET SDK 및 Azure 포털에 추가될 예정입니다.
 
-데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 소스는 독립 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
+인덱서를 설정하려면, 데이터 원본 만들기, 인덱스 만들기, 인덱서 구성의 세 단계를 수행합니다.
 
-인덱서는 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다.
+### 1단계: 데이터 소스 만들기
 
-BLOB 인덱서를 설정하려면 다음을 수행합니다.
+데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 데이터 원본을 동일한 구독의 여러 인덱서에서 사용할 수 있습니다.
 
-1. Azure 저장소 계정에서 컨테이너(및 필요에 따라, 해당 컨테이너의 폴더)를 참조하는 `azureblob` 형식의 데이터 원본을 만듭니다.
-	- 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다. Azure 포털에서 연결 문자열을 가져올 수 있습니다. 이를 위해 원하는 저장소 계정 블레이드/키로 이동하고 "기본 연결 문자열" 또는 "보조 연결 문자열" 값을 사용합니다.
-	- 컨테이너 이름을 지정합니다. 필요에 따라 `query` 매개 변수를 사용하여 폴더를 포함할 수도 있습니다.
-2. 검색 가능한 `content` 필드로 검색 인덱스를 만듭니다.
-3. 대상 인덱스에 데이터 원본을 연결하여 인덱서를 만듭니다.
+데이터 원본에는 BLOB 인덱싱을 위한 다음과 같은 필수 속성이 있어야 합니다.
 
-### 데이터 원본 만들기
+- **이름**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
+
+- **형식**은 `azureblob`여야 합니다.
+
+- **자격 증명**은 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 제공합니다. Azure 포털에서 연결 문자열을 가져올 수 있습니다. 이를 위해 원하는 저장소 계정 블레이드 > **설정** > **키** 로 이동하고 "기본 연결 문자열" 또는 "보조 연결 문자열" 값을 사용합니다. 연결 문자열이 저장소 계정에 바인딩되어 있으므로 연결 문자열을 지정하는 것은 데이터를 제공하는 저장소 계정을 암시적으로 밝히는 것과 같습니다.
+
+- **컨테이너**는 저장소 계정에 있는 컨테이너를 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **쿼리** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
+
+다음 예제에서는 데이터 원본 정의을 설명합니다.
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -47,12 +65,16 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 	    "name" : "blob-datasource",
 	    "type" : "azureblob",
 	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 	}   
 
 데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](search-api-indexers-2015-02-28-preview.md#create-data-source)를 참조하세요.
 
-### 인덱스 만들기 
+### 2단계: 인덱스 만들기 
+
+인덱스는 문서의 필드, 특성, 및 검색 경험을 형성하는 기타 항목을 지정합니다.
+
+BLOB 인덱싱에 대해 인덱스에 BLOB을 저장하기 위한 검색 가능한 `content` 필드가 있는지 확인합니다.
 
 	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
 	Content-Type: application/json
@@ -68,9 +90,9 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 
 인덱스 만들기 API에 대한 자세한 내용은 [인덱스 만들기](https://msdn.microsoft.com/library/dn798941.aspx) 참조
 
-### 인덱서 만들기 
+### 3단계: 인덱서 만들기 
 
-마지막으로 데이터 원본과 대상 인덱스를 참조하는 인덱서를 만듭니다. 예:
+인덱서는 데이터 새로 고침을 자동화할 수 있게 데이터 원본을 대상 검색 인덱스에 연결하고 일정 정보를 제공합니다. 인덱스 및 데이터 원본이 만들어지면 데이터 원본 및 대상 인덱스를 참조하는 인덱서를 만드는 것은 비교적 간단합니다. 예:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -87,19 +109,6 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](search-api-indexers-2015-02-28-preview.md#create-indexer)를 확인하세요.
 
-
-## 지원되는 문서 형식
-
-BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
-
-- PDF
-- Microsoft Office 형식: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG(Outlook 전자 메일)
-- HTML
-- XML
-- ZIP
-- EML
-- 일반 텍스트 파일
-- JSON(자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
 
 ## 문서 추출 프로세스
 
@@ -294,4 +303,4 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

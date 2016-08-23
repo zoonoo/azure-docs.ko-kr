@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오
@@ -43,4 +43,4 @@ Azure Multi-factor Authentication은 Juniper/Pulse Secure SSL VPN 로그인 및 
 [Juniper/Pulse Secure SSL VPN 및 LDAP를 위한 Azure MFA 구성](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Juniper/Pulse Secure SSL VPN 어플라이언스 및 LDAP를 사용하는 Azure MFA의 원활한 통합|
 [Juniper/Pulse Secure SSL VPN 및 RADIUS를 위한 Azure MFA 구성](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Juniper/Pulse Secure SSL VPN 어플라이언스 및 RADIUS를 사용하는 Azure MFA의 원활한 통합
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

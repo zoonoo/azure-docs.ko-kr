@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # REST를 사용하여 앱 서비스 앱 백업 및 복원
 
@@ -33,7 +33,7 @@ REST 요청을 보내려면 앱의 **이름**, **리소스 그룹** 및 **구독
 
 <a name="backup-restore-rest-api"></a>
 ## REST API 백업 및 복원
-이제 REST API를 사용하여 앱을 백업 및 복원하는 몇 가지 예를 살펴보겠습니다. 각 예제에는 URL 및 HTTP 요청 본문이 들어 있을 것입니다. 샘플 URL에 {subscription-id}처럼 중괄호로 묶인 자리 표시자가 들어 있을 것입니다. 이러한 자리 표시자에 앱의 해당 정보를 입력해야 합니다. 예제 URL에 표시되는 각 자리 표시자에 대한 다음 설명을 참조하세요.
+이제 REST API를 사용하여 앱을 백업 및 복원하는 몇 가지 예를 살펴보겠습니다. 각 예제에는 URL 및 HTTP 요청 본문이 포함되어 있습니다. 샘플 URL에는 {subscription-id}처럼 중괄호로 묶인 자리 표시자가 포함되어 있습니다. 이러한 자리 표시자를 앱의 해당 정보로 바꿉니다. 예제 URL에 표시되는 각 자리 표시자에 대한 다음 설명을 참조하세요.
 
 * subscription-id – 앱이 포함된 Azure 구독의 ID
 * resource-group-name – 앱이 포함된 리소스 그룹의 이름
@@ -48,7 +48,7 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 
 다음은 예제 웹 사이트를 사용한 URL의 모습입니다. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-요청 본문에 JSON 개체를 넣어서 백업을 저장하는 데 사용할 저장소 계정을 지정해야 합니다. JSON 개체에 **storageAccountUrl**이라는 속성이 있어야 합니다. 이 속성에는 백업 Blob를 보관할 Azure 저장소 컨테이너에 대한 쓰기 액세스 권한을 부여하는 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)이 있습니다. 데이터베이스를 백업하려면 백업할 데이터베이스의 이름, 유형 및 연결 문자열이 들어 있는 목록을 제공해야 합니다.
+요청 본문에 JSON 개체를 넣어서 백업을 저장하는 데 사용할 저장소 계정을 제공합니다. JSON 개체에 **storageAccountUrl**이라는 속성이 있어야 합니다. 이 속성에는 백업 Blob를 보관할 Azure Storage 컨테이너에 대한 쓰기 액세스 권한을 부여하는 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)이 있습니다. 데이터베이스를 백업하려면 백업할 데이터베이스의 이름, 유형 및 연결 문자열이 들어 있는 목록을 제공해야 합니다.
 
 ```
 {
@@ -229,9 +229,9 @@ Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하
 }
 ```
 
->[AZURE.NOTE] 보안을 위해 특정 백업에 대한 GET 요청을 보낼 때 백업과 연결된 SAS URL이 반환되지 않습니다. 백업과 연결된 SAS URL을 보고 싶으면 위와 동일한 URL에 POST 요청을 보내고 요청 본문에 빈 JSON 개체를 넣으세요. 서버의 응답에 SAS URL을 포함하여 해당 백업의 모든 정보가 들어 있을 것입니다.
+>[AZURE.NOTE] 보안을 위해 특정 백업에 대한 GET 요청을 보낼 때 백업과 연결된 SAS URL이 반환되지 않습니다. 백업과 연결된 SAS URL을 보고 싶으면 위와 동일한 URL에 POST 요청을 보내고 요청 본문에 빈 JSON 개체를 포함합니다. 서버의 응답에 SAS URL을 포함하여 해당 백업의 모든 정보가 들어 있을 것입니다.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

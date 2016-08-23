@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하는 SQL Azure
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 또한 고객이 Azure RemoteApp을 사용하여 클라우드에서 Windows 응용 프로그램을 호스트하도록 선택할 경우 전체 클라우드 배포에 대해 SQL server와 같은 데이터를 클라우드로 마이그레이션하려 합니다. 그러면 Azure RemoteApp을 사용하여 어디서나 언제든지 장치에서 액세스할 수 있는 전체 클라우드 호스팅 솔루션이 가능합니다. 이 프로세스를 지원하기 위한 지침과 링크 및 참조는 다음과 같습니다.
 
@@ -27,7 +30,7 @@
 ## Azure RemoteApp 구성
 Azure RemoteApp에서 Windows 응용 프로그램을 호스트합니다. 다음은 단계별로 매우 높은 수준입니다.
 
-1.     [Azure RemoteApp 템플릿 VM](remoteapp-imageoptions.md) 만들기
+1.     [Azure RemoteApp 템플릿 VM](remoteapp-imageoptions.md)을 만듭니다.
 2.     VM에 필요한 응용 프로그램을 설치합니다.
 3.     응용 프로그램을 구성하므로 SQL DB에 연결하고 작동하는지 확인합니다.
 4.     VM Sysprep 및 종료 Azure와 함께 사용하기 위해 이미지 형식으로 캡처합니다. **참고:** 응용 프로그램이 sysprep 프로세스를 통해 DB 연결 정보를 유지할 수 있도록 해야 합니다. 응용 프로그램이 DB 연결 정보를 유지할 수 없는 경우 연결 문자열을 지정할 수 있는 방법을 확인하도록 응용 프로그램의 공급 업체가 참여하길 바랄 수 있습니다.
@@ -50,4 +53,4 @@ Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연�
 - Azure RemoteApp에서 호스팅되는 클라이언트 앱은 부하가 높습니다. Premium 청구와 같은 다른 요금제를 선택하면 성능이 향상됩니다. 응용 프로그램이 소비하는 리소스를 모니터링하는 다른 방법은 다음과 같습니다. 활성 세션 동안 SAS 화면을 시작하고 작업 관리자를 선택하며 앱에 대한 리소스 사용률을 관찰하는 ctrl-alt-end 키 시퀀스를 수행합니다.
 - SQL Server은 부하가 많거나 최적화되지 않습니다. 문제 해결에 대한 SQL 지침을 따릅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

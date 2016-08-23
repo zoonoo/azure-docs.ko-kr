@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
@@ -261,4 +261,4 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

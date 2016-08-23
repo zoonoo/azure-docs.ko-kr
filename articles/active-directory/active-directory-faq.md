@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="08/16/2016"
 	ms.author="markusvi"/>
 
 # Azure Active Directory FAQ
@@ -139,7 +139,7 @@ Azure Active Directory는 ID, 액세스 관리 및 보안의 모든 측면에 �
 자세한 내용은 다음을 참조하세요.
 
 - [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)
-- [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md) 
+- [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 
 
 ---
@@ -202,4 +202,4 @@ Azure Active Directory는 ID, 액세스 관리 및 보안의 모든 측면에 �
 
 ---
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

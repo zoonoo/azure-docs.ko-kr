@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication의 사용자 상태
 
 Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
 
-시스템 상태 | 설명 |영향 받는 비브라우저 앱| 참고 
+시스템 상태 | 설명 |영향 받는 비브라우저 앱| 참고 사항 
 :-------------: | :-------------: |:-------------: |:-------------: |
 사용 안 함 | 다단계 인증에 등록되지 않은 새 사용자에 대한 기본 상태입니다.|아니요|사용자는 Multi-Factor Authentication을 사용하고 있지 않습니다.
 사용 |사용자가 다단계 인증에 등록되었습니다.|아니요. 등록 프로세스가 완료될 때까지 계속 작업합니다.|사용자가 활성화되었지만 등록 프로세스를 완료하지 않았습니다. 다음 로그인 시 프로세스를 완료하라는 메시지가 표시됩니다.
@@ -63,4 +63,4 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 8.  확인 메시지가 표시됩니다. **예**를 클릭합니다. ![사용자 사용 안 함 설정](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  그러면 성공 메시지가 표시됩니다. **닫기**를 클릭합니다. ![사용자 사용 안 함 설정](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(REST)
@@ -100,4 +100,4 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

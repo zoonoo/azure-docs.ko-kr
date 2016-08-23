@@ -47,7 +47,6 @@
 | 10 | get-started-create-support-ticket | [SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법](sql-data-warehouse-get-started-create-support-ticket.md) | Azure SQL 데이터 웨어하우스에서 지원 티켓을 만드는 방법 |
 | 11 | get-started-load-with-azure-data-factory | [Azure Data Factory를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요. |
 | 12 | get-started-load-with-polybase | [SQL 데이터 웨어하우스에서 PolyBase를 사용하여 데이터 로드](sql-data-warehouse-get-started-load-with-polybase.md) | PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다. |
-| 13 | get-started-new-server | [새로운 논리 서버 만들기](sql-data-warehouse-get-started-new-server.md) | Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
 | 14 | get-started-provision | [Azure SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md) | Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다. |
 | 15 | get-started-provision-powershell | [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision-powershell.md) | Powershell을 사용하여 SQL 데이터 웨어하우스 만들기 |
 | 16 | get-started-visualize-with-power-bi | [Power BI를 사용하여 데이터 시각화](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Power BI로 SQL 데이터 웨어하우스 데이터 시각화 |
@@ -120,7 +119,7 @@
 
 
 
-## 부하
+## 로드
 
 | &nbsp; | Url-Id | 제목 | 설명 |
 | --: | :-- | :-- | :-- |
@@ -193,4 +192,4 @@
 | 86 | service-capacity-limits | [SQL 데이터 웨어하우스 용량 제한](sql-data-warehouse-service-capacity-limits.md) | SQL 데이터 웨어하우스의 연결, 데이터베이스, 테이블 및 쿼리에 대한 최대값입니다. |
 | 87 | 문제 해결 | [Azure SQL 데이터 웨어하우스 문제 해결](sql-data-warehouse-troubleshoot.md) | Azure SQL 데이터 웨어하우스 문제 해결 |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

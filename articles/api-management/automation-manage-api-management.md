@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/09/2016"
 	ms.author="csand"/>
 
 
@@ -44,4 +44,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure API �
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

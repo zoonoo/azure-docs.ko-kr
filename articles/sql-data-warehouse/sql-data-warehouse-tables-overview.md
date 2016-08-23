@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="08/04/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL 데이터 웨어하우스의 테이블 개요
@@ -67,7 +67,7 @@ SQL 데이터 웨어하우스에는 다른 데이터베이스에서 제공하는
 
 | 지원되지 않는 기능 |
 | --- |
-|[Identity 속성][]\([대체 키 해결 방법 할당][])|
+|[Identity 속성][] \([대체 키 해결 방법 할당][])|
 |기본 키, 외래 키, 고유 및 검사 [테이블 제약 조건][]|
 |[고유 인덱스][]|
 |[계산된 열][]|
@@ -103,6 +103,7 @@ SELECT
 , nt.[name]                                                            AS  [node_table_name]
 , ROW_NUMBER() OVER(PARTITION BY nt.[name] ORDER BY (SELECT NULL))     AS  [node_table_name_seq]
 , tp.[distribution_policy_desc]                                        AS  [distribution_policy_name]
+, c.[name]                                                             AS  [distribution_column]
 , nt.[distribution_id]                                                 AS  [distribution_id]
 , i.[type]                                                             AS  [index_type]
 , i.[type_desc]                                                        AS  [index_type_desc]
@@ -122,18 +123,32 @@ SELECT
  - ([in_row_data_page_count] 
          + [row_overflow_used_page_count]+[lob_used_page_count])       AS  [index_space_page_count]
 , nps.[row_count]                                                      AS  [row_count]
-from sys.schemas s
-join sys.tables t                                         ON s.[schema_id] = t.[schema_id]
-join sys.indexes i                                        ON  t.[object_id]  = i.[object_id]
-                                                          AND i.[index_id]   <= 1
-join sys.pdw_table_distribution_properties tp             ON t.[object_id]   = tp.[object_id]
-join sys.pdw_table_mappings tm                            ON t.[object_id]   = tm.[object_id]
-join sys.pdw_nodes_tables nt                              ON tm.[physical_name]  = nt.[name]
-join sys.dm_pdw_nodes pn                                  ON  nt.[pdw_node_id]  = pn.[pdw_node_id]
-join sys.pdw_distributions di                             ON  nt.[distribution_id]  = di.[distribution_id]
-join sys.dm_pdw_nodes_db_partition_stats nps              ON nt.[object_id]   = nps.[object_id]
-                                                          AND nt.[pdw_node_id]  = nps.[pdw_node_id]
-                                                          AND nt.[distribution_id] = nps.[distribution_id]
+from 
+    sys.schemas s
+INNER JOIN sys.tables t
+    ON s.[schema_id] = t.[schema_id]
+INNER JOIN sys.indexes i
+    ON  t.[object_id] = i.[object_id]
+    AND i.[index_id] <= 1
+INNER JOIN sys.pdw_table_distribution_properties tp
+    ON t.[object_id] = tp.[object_id]
+INNER JOIN sys.pdw_table_mappings tm
+    ON t.[object_id] = tm.[object_id]
+INNER JOIN sys.pdw_nodes_tables nt
+    ON tm.[physical_name] = nt.[name]
+INNER JOIN sys.dm_pdw_nodes pn
+    ON  nt.[pdw_node_id] = pn.[pdw_node_id]
+INNER JOIN sys.pdw_distributions di
+    ON  nt.[distribution_id] = di.[distribution_id]
+INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
+    ON nt.[object_id] = nps.[object_id]
+    AND nt.[pdw_node_id] = nps.[pdw_node_id]
+    AND nt.[distribution_id] = nps.[distribution_id]
+LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
+    ON t.[object_id] = cdp.[object_id]
+LEFT OUTER JOIN sys.columns c
+    ON cdp.[object_id] = c.[object_id]
+    AND cdp.[column_id] = c.[column_id]
 )
 , size
 AS
@@ -147,6 +162,7 @@ SELECT
 ,  [node_table_name]
 ,  [node_table_name_seq]
 ,  [distribution_policy_name]
+,  [distribution_column]
 ,  [distribution_id]
 ,  [index_type]
 ,  [index_type_desc]
@@ -184,35 +200,35 @@ FROM size
 ;
 ```
 
-`dbo.vTableSizes`를 만든 후에는 유용한 여러 다른 쿼리에 사용할 수 있습니다.
-
-### 데이터베이스 공간 요약
-
-```sql
-SELECT
-	database_name
-,	SUM(row_count)				as total_row_count
-,	SUM(reserved_space_MB)		as total_reserved_space_MB
-,	SUM(data_space_MB)			as total_data_space_MB
-,	SUM(index_space_MB)			as total_index_space_MB
-,	SUM(unused_space_MB)		as total_unused_space_MB
-FROM dbo.vTableSizes
-GROUP BY database_name
-;
-```
-
 ### 테이블 공간 요약
+
+이 쿼리는 테이블에 의해 행 및 공간을 반환합니다. 가장 큰 테이블이 어느 테이블인지 그리고 해당 테이블이 라운드 로빈인지 또는 해시 분산인지를 확인하는 것이 좋은 쿼리입니다. 해시 분산 테이블의 경우 배포 열도 보여 줍니다. 대부분의 경우 가장 큰 테이블은 클러스터된 columnstore 인덱스로 배포된 해시여야 합니다.
 
 ```sql
 SELECT 
-     two_part_name
-,    SUM(row_count)                as table_row_count
-,    SUM(reserved_space_GB)        as table_reserved_space_GB
-,    SUM(data_space_GB)            as table_data_space_GB
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+,    COUNT(distinct partition_nmbr) as nbr_partitions
+,    SUM(row_count)                 as table_row_count
+,    SUM(reserved_space_GB)         as table_reserved_space_GB
+,    SUM(data_space_GB)             as table_data_space_GB
 ,    SUM(index_space_GB)            as table_index_space_GB
-,    SUM(unused_space_GB)        as table_unused_space_GB
-FROM dbo.vTableSizes
-GROUP BY two_part_name
+,    SUM(unused_space_GB)           as table_unused_space_GB
+FROM 
+    dbo.vTableSizes
+GROUP BY 
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+ORDER BY
+    table_reserved_space_GB desc
 ;
 ```
 
@@ -224,8 +240,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY distribution_policy_name
 ;
@@ -239,8 +255,8 @@ SELECT
 ,    SUM(row_count)                as table_type_row_count
 ,    SUM(reserved_space_GB)        as table_type_reserved_space_GB
 ,    SUM(data_space_GB)            as table_type_data_space_GB
-,    SUM(index_space_GB)            as table_type_index_space_GB
-,    SUM(unused_space_GB)        as table_type_unused_space_GB
+,    SUM(index_space_GB)           as table_type_index_space_GB
+,    SUM(unused_space_GB)          as table_type_unused_space_GB
 FROM dbo.vTableSizes
 GROUP BY index_type_desc
 ;
@@ -254,8 +270,8 @@ SELECT
 ,    SUM(row_count)                as total_node_distribution_row_count
 ,    SUM(reserved_space_MB)        as total_node_distribution_reserved_space_MB
 ,    SUM(data_space_MB)            as total_node_distribution_data_space_MB
-,    SUM(index_space_MB)            as total_node_distribution_index_space_MB
-,    SUM(unused_space_MB)        as total_node_distribution_unused_space_MB
+,    SUM(index_space_MB)           as total_node_distribution_index_space_MB
+,    SUM(unused_space_MB)          as total_node_distribution_unused_space_MB
 FROM dbo.vTableSizes
 GROUP BY     distribution_id
 ORDER BY    distribution_id
@@ -302,4 +318,4 @@ ORDER BY    distribution_id
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

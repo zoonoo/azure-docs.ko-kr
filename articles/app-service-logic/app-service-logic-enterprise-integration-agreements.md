@@ -30,7 +30,7 @@
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)(출시 예정)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## 규약을 사용하는 이유
 규약을 사용하는 일반적인 이점은 다음과 같습니다.
@@ -65,4 +65,4 @@
 ## 다음 단계
 - [AS2 규약 만들기](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

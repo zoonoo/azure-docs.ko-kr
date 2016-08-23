@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Apache Cordova 앱 만들기
@@ -33,7 +33,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Visual Studio Community 2015] 이상이 설치된 PC
-* [Visual Studio Tools for Apache Cordova].
+* [Visual Studio Tools for Apache Cordova]
 * [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
 Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할 수도 있습니다. 이 옵션은 Mac 컴퓨터에서 자습서를 완료하는 경우 유용합니다. 명령줄을 사용하여 Apache Cordova 클라이언트 응용 프로그램을 컴파일하는 작업은 이 자습서에서 다루지 않습니다.
@@ -75,7 +75,7 @@ SDK 사용 방법을 알아봅니다.
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
+[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [인증을 추가]: app-service-mobile-cordova-get-started-users.md
 [푸시 알림을 추가]: app-service-mobile-cordova-get-started-push.md
 [인증]: app-service-mobile-auth.md
@@ -84,4 +84,4 @@ SDK 사용 방법을 알아봅니다.
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

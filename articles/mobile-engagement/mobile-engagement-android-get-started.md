@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement 시작"
+	pageTitle="Android 앱 Azure Mobile Engagement 시작"
 	description="Android 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
 	documentationCenter="android"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/12/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android 앱용 Azure Mobile Engagement 시작
@@ -28,7 +28,7 @@
 
 [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)도 필요합니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started)을 참조하세요.
 
 ## Android 앱용 Mobile Engagement 설정
 
@@ -36,17 +36,17 @@
 
 ## Mobile Engagement 백 엔드에 앱 연결
 
-이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 완벽한 통합 설명서는[ Mobile Engagement Android SDK 통합](mobile-engagement-android-sdk-overview.md)에서 찾아볼 수 있습니다.
+이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 통합을 시연하기 위해 Android Studio로 기본 앱을 만듭니다.
 
-이제 Android Studio로 기본 앱을 만들어 통합을 보여 주겠습니다.
+전체 통합 설명서는 [Mobile Engagement Android SDK 통합](mobile-engagement-android-sdk-overview.md)에서 찾아볼 수 있습니다.
 
-### 새 Android 프로젝트 만들기
+### Android 프로젝트 만들기
 
 1. **Android Studio**를 시작하고 팝업에서 **Start a new Android Studio project**를 선택합니다.
 
     ![][1]
 
-2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 사용하므로 입력한 내용을 적어둡니다. **다음**을 클릭합니다.
+2. 앱 이름 및 회사 도메인을 제공합니다. 나중에 필요하기 때문에 입력한 내용을 적어둡니다. **Next**를 클릭합니다.
 
     ![][2]
 
@@ -56,7 +56,7 @@
 
     ![][3]
 
-4. 이 앱에 대한 유일한 화면인 **Blank Activity**를 여기서 선택하고 **다음**을 클릭합니다.
+4. 이 앱에 대한 유일한 화면인 **빈 활동**을 여기서 선택하고 **다음**을 클릭합니다.
 
     ![][4]
 
@@ -64,11 +64,11 @@
 
     ![][5]
 
-그러면 이제 Android Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
+이제 Android Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
 
 ### 프로젝트에 SDK 라이브러리 포함
 
-1. [Mobile Engagement Android SDK]를 다운로드합니다.
+1. [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)를 다운로드합니다.
 2. 보관 파일을 컴퓨터의 폴더로 추출합니다.
 3. 이 SDK의 최신 버전에 대한 .jar 라이브러리를 확인하고 클립보드로 복사합니다.
 
@@ -78,7 +78,7 @@
 
 	  ![][7]
 
-5. 프로젝트를 동기화하여 라이브러리를 로드합니다.
+5. 라이브러리를 로드하려면 프로젝트를 동기화합니다.
 
 	  ![][8]
 
@@ -99,7 +99,7 @@
 
 	  ![][9]
 
-4. `setConnectionString` 매개 변수에서 해당 문자열을 붙여넣어 아래와 같이 제공된 예제를 바꿉니다.
+4. 이를 `setConnectionString` 매개 변수에 붙여 넣어 다음 코드에 표시된 전체 문자열을 대체합니다.
 
 		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
@@ -114,7 +114,7 @@
 		<uses-permission android:name="android.permission.VIBRATE" />
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. `<application>` 태그와 `</application>` 태그 사이에 다음을 추가하여 에이전트 서비스를 선언합니다.
+2. 에이전트 서비스를 선언하려면 `<application>` 태그와 `</application>` 태그 사이에 이 코드를 추가합니다.
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -122,7 +122,7 @@
  			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. 방금 붙여넣은 코드의 레이블에서 `"<Your application name>"`을 바꿉니다. 이는 사용자가 장치에서 실행 중인 서비스를 확인할 수 있는 **설정** 메뉴에 표시됩니다. 예를 들어 해당 레이블에 "서비스"라는 단어를 추가할 수 있습니다.
+3. 붙여 넣은 코드에서 레이블의 `"<Your application name>"`을(를) 대체합니다. 레이블은 장치에서 실행 중인 서비스를 볼 수 있는 **설정** 메뉴에 표시됩니다. 예를 들어 해당 레이블에 "서비스"라는 단어를 추가할 수 있습니다.
 
 ### Mobile Engagement에 화면 보내기
 
@@ -135,11 +135,11 @@
 > [AZURE.NOTE] 기본 클래스가 *활동*이 아닌 경우 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)에서 다른 클래스에서 상속하는 방법을 참조하세요.
 
 
-간단한 샘플 시나리오에 대해 다음 줄을 주석 처리해야 합니다.(제외)
+간단한 샘플 시나리오에 대해 다음 줄을 주석 처리합니다.
 
     // setSupportActionBar(toolbar);
 
-이를 유지하려면 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)를 확인하세요.
+앱에서 `ActionBar`을(를) 유지하려는 경우 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)를 참조하세요.
 
 ## 실시간 모니터링과 앱 연결
 
@@ -147,7 +147,7 @@
 
 ## 푸시 알림 및 앱 내 메시징 사용
 
-Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다. 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
+캠페인 도중 Mobile Engagement에서는 사용자와 상호 작용하고 푸시 알림 및 앱 내 메시징을 통해 사용자에게 알릴 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다. 다음 섹션에서는 이를 수신하도록 앱을 설정합니다.
 
 ### 프로젝트에 SDK 리소스 복사
 
@@ -182,4 +182,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

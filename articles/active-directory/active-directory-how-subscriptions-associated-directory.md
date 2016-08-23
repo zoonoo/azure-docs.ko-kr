@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 # Azure 구독과 Azure Active Directory의 연관 관계
@@ -58,7 +58,7 @@ Azure 클래식 포털에 로그인하려면 msmith@hotmail.com에 Azure 구독�
 ## 구독 및 디렉터리를 관리하는 방법
 Azure 구독의 관리 역할은 Azure 구독에 연결된 리소스를 관리합니다. 이러한 역할 및 구독 관리 모범 사례는 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)에서 다룹니다.
 
-등록할 때 기본적으로 서비스 관리자 역할이 할당됩니다. 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 서비스 관리자와 공동 관리자는 Microsoft 계정이거나 Azure 구독이 연결된 디렉터리의 회사 또는 학교 계정일 수 있습니다.
+등록할 때 기본적으로 서비스 관리자 역할이 할당됩니다. 다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 서비스 관리자와 공동 관리자는 Azure 구독이 연결된 디렉터리의 Microsoft 계정이거나 회사 또는 학교 계정일 수 있습니다.
 
 Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합을 가지고 있습니다. 예를 들어 디렉터리의 전역 관리자는 디렉터리에 사용자 및 그룹을 추가하거나 사용자에 대해 다단계 인증을 요구할 수 있습니다. 디렉터리를 만든 사용자는 전역 관리자 역할에 할당되어 다른 사용자에게 관리자 역할을 할당할 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 
 하지만 여기서 중요한 것은 Azure 구독 관리자와 Azure AD 디렉터리 관리자는 서로 다른 개념이라는 점입니다. Azure 구독 관리자는 Azure에서 리소스를 관리할 수 있으며 Azure 클래식 포털이 Azure 리소스이므로 Azure 클래식 포털에서 Active Directory 확장을 볼 수 있습니다. 디렉터리 관리자는 디렉터리에서 속성을 관리할 수 있습니다.
 
-역할을 모두 담당할 수 있지만 그럴 필요는 없습니다. 사용자는 디렉터리 전역 관리자 역할에 할당될 수 있지만 Azure 구독의 공동 관리자 또는 서비스 관리자로 할당될 수는 없습니다. 구독의 관리자가 아니어도 사용자는 Azure 클래식 포털에 로그인할 수 없습니다. 하지만 Azure AD PowerShell 또는 Office 365 관리 센터와 같은 다른 도구를 사용하여 디렉터리 관리 작업을 수행할 수 있습니다.
+역할을 모두 담당할 수 있지만 그럴 필요는 없습니다. 사용자는 디렉터리 전역 관리자 역할에 할당될 수 있지만 Azure 구독의 공동 관리자 또는 서비스 관리자로 할당될 수는 없습니다. 구독의 관리자가 아니어도 이 사용자는 Azure 클래식 포털에 로그인할 수 없습니다. 하지만 Azure AD PowerShell 또는 Office 365 관리 센터와 같은 다른 도구를 사용하여 디렉터리 관리 작업을 수행할 수 있습니다.
 
 ## 현재 사용자 계정으로 디렉터리를 관리할 수 없는 이유
 
@@ -76,7 +76,7 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 
 ## Microsoft 계정을 사용하여 만든 Azure 구독을 회사 또는 학교 계정을 사용하여 관리
 
-[조직으로 Azure에 등록](sign-up-organization.md)하고 회사 또는 학교 계정을 사용하여 Azure에서 리소스를 관리하는 것이 가장 좋습니다. 회사 또는 학교 계정은 발급한 조직이 중앙에서 관리하고, Microsoft 계정보다 많은 기능을 갖고 있으며, Azure AD에서 직접 인증하므로 선호됩니다. 동일한 계정은 기업 및 조직에 제공된 Office 365 또는 Microsoft Intune 등의 다른 Microsoft 온라인 서비스에 대한 액세스를 제공합니다. 이러한 다른 속성을 사용하는 계정이 이미 있는 경우 Azure로 동일한 계정을 사용하려는 경우가 많습니다. 또한 Azure 구독을 신뢰하는 속성을 지원하는 Active Directory 인스턴스도 갖게 됩니다.
+[조직으로 Azure에 등록](sign-up-organization.md)하고 회사 또는 학교 계정을 사용하여 Azure에서 리소스를 관리하는 것이 가장 좋습니다. 회사 또는 학교 계정은 발급한 조직이 중앙에서 관리하고, Microsoft 계정보다 많은 기능을 갖고 있으며, Azure AD에서 직접 인증하므로 선호됩니다. 동일한 계정은 기업 및 조직에 제공된 Office 365 또는 Microsoft Intune 등의 다른 Microsoft 온라인 서비스에 대한 액세스를 제공합니다. 이러한 다른 속성을 사용하는 계정이 이미 있는 경우 Azure로 동일한 계정을 사용하려는 경우가 많습니다. 또한 Azure 구독을 신뢰하는 해당 속성을 지원하는 Active Directory 인스턴스도 갖게 됩니다.
 
 회사 또는 학교 계정은 Microsoft 계정보다 많은 방법으로 관리할 수도 있습니다. 예를 들어 관리자는 회사 또는 학교 계정의 암호를 재설정하거나 계정에 대한 다단계 인증을 요구할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 
 ![][3]
 
-이름이 같은 사용자 계정이 있으며, 하나는 Azure AD에 있고 다른 하나는 소비자 Microsoft 계정 시스템에 있습니다. 사용하려는 Azure 구독과 연결된 계정을 선택해야 합니다. 이 사용자에 대한 구독이 없다는 오류가 발생하면 잘못 선택한 것입니다. 로그아웃하고 다시 시도하세요. 로그인을 방해할 수 있는 오류에 대한 자세한 내용은 ["계정과 연결된 구독을 찾지 못했습니다" 오류 문제 해결](https://social.msdn.microsoft.com/Forums/ko-KR/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)을 참조하세요.
+이름이 같은 사용자 계정이 있으며, 하나는 Azure AD에 있고 다른 하나는 소비자 Microsoft 계정 시스템에 있습니다. 사용하려는 Azure 구독과 연결된 계정을 선택해야 합니다. 이 사용자에 대한 구독이 없다는 오류가 발생하면 옵션을 잘못 선택한 것입니다. 로그아웃하고 다시 시도하세요. 로그인을 방해할 수 있는 오류에 대한 자세한 내용은 ["계정과 연결된 구독을 찾지 못했습니다" 오류 문제 해결](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)을 참조하세요.
 
 ## Azure에서 Office 365 구독의 디렉터리 관리
 
@@ -110,7 +110,7 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
 1. Microsoft 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
 
-2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리** > **사용자 지정 만들기**를 클릭합니다.
+2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리 ** > **사용자 지정 만들기**를 클릭합니다.
 
 3. **기존 디렉터리 사용**을 클릭하고 **지금 로그아웃할 준비가 되었습니다**를 선택하고 확인 표시를 클릭하여 작업을 완료합니다.
 
@@ -139,4 +139,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

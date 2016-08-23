@@ -3,7 +3,7 @@
    description="정적 IP(DIP) 및 CLI를 사용하여 ARM 모드에서 관리 방법 이해"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Azure CLI에서 정적 개인 IP 주소를 설정하는 방법
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -38,7 +38,7 @@
 
 		azure config mode arm
 
-	예상된 출력:
+	예상 출력:
 
 		info:    New mode is arm
 
@@ -46,7 +46,7 @@
 
 		azure network public-ip create -g TestRG -n TestPIP -l centralus
 	
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network public-ip create
 		+ Looking up the public ip "TestPIP"
@@ -69,7 +69,7 @@
 
 		azure network nic create -g TestRG -n TestNIC -l centralus -a 192.168.1.101 -m TestVNet -k FrontEnd
 
-	예상된 출력:
+	예상 출력:
 
 		+ Looking up the network interface "TestNIC"
 		+ Looking up the subnet "FrontEnd"
@@ -98,7 +98,7 @@
 
 		azure vm create -g TestRG -n DNS01 -l centralus -y Windows -f TestNIC -i TestPIP -F TestVNet -j FrontEnd -o vnetstorage -q bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 -u adminuser -p AdminP@ssw0rd
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command vm create
 		+ Looking up the VM "DNS01"
@@ -130,7 +130,7 @@
 
 	azure vm show -g TestRG -n DNS01
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command vm show
 	+ Looking up the VM "DNS01"
@@ -185,7 +185,7 @@
 
 		azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nic create
 		+ Looking up the network interface "TestNIC2"
@@ -211,7 +211,7 @@
 
 		azure vm set -g TestRG -n DNS01 -N TestNIC2
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command vm set
 		+ Looking up the VM "DNS01"
@@ -223,7 +223,7 @@
 
 		azure network nic delete -g TestRG -n TestNIC --quiet
 
-	예상된 출력:
+	예상 출력:
 
 		info:    Executing command network nic delete
 		+ Looking up the network interface "TestNIC"
@@ -235,7 +235,7 @@
 
 	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nic set
 	+ Looking up the network interface "TestNIC2"
@@ -264,4 +264,4 @@
 - [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

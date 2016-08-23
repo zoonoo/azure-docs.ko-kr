@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2016" 
+	ms.date="08/08/2016" 
 	ms.author="naziml"/>
 
 # 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
@@ -37,9 +37,9 @@
 
 > { "location": "My Web App Location", "properties": { "clientCertEnabled": true } }
 
-
 웹앱이 어떤 곳(예: 미국 중부 북쪽 또는 미국 서부 등)에 위치하든 “위치" 값을 변경해야 합니다.
 
+> **참고:** Powershell에서 ARMClient를 실행하는 경우 역 틱(`)을 사용하여 JSON 파일에 대한 @ 기호를 이스케이프해야 합니다.
 
 ## 웹앱에서 클라이언트 인증서에 액세스 ##
 ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱을 구성한 경우 **HttpRequest.ClientCertificate** 속성을 통해 인증서를 사용할 수 있습니다. 다른 응용 프로그램 스택의 경우 "X-ARR-ClientCert" 요청 헤더의 Base64로 인코딩된 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다. 응용 프로그램은 이 값으로부터 인증서를 생성하고, 응용 프로그램에서 인증 및 권한 부여 목적으로 사용할 수 있습니다.
@@ -182,4 +182,4 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
         }
     }
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0810_2016-->

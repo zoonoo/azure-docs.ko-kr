@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -145,14 +145,14 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 1. [Fiddler](http://www.telerik.com/download/fiddler)를 설치합니다.
 2. Fiddler를 시작합니다.
-2. **Tools(도구) | Fiddler Options(Fiddler 옵션)**를 선택합니다.
+2. **도구를 선택합니다.| Fiddler Options**.
 3. Options(옵션) 대화 상자에서 아래와 같이 **Capture HTTPS CONNECTs(HTTPS 연결 캡처)** 및 **Decrypt HTTPS Traffic(HTTPS 트래픽 해독)**이 모두 선택되어 있는지 확인합니다.
 
 ![Fiddler 옵션 구성](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 자습서의 경우 먼저 Message Analyzer에서 네트워크 추적을 수집 및 저장한 후 분석 세션을 생성하여 추적 및 로그를 분석합니다. Message Analyzer에서 네트워크 추적을 수집하려면 다음을 수행합니다.
 
-1. Message Analyzer에서 **File(파일) | Quick Trace(빠른 추적) | Unencrypted HTTPS(암호화되지 않은 HTTPS)**를 선택합니다.
+1. 메시지 분석기에서 **파일을 선택합니다.| Quick Trace | Unencrypted HTTPS**.
 2. 추적이 즉시 시작됩니다. **Stop(중지)**을 선택하여 추적을 중지한 후 저장소 트래픽만 추적하도록 구성할 수 있습니다.
 3. **Edit(편집)**를 선택하여 추적 세션을 편집할 수 있습니다.
 4. **Microsoft-Pef-WebProxy** ETW 공급자의 오른쪽에 있는 **Configure(구성)** 링크를 선택합니다.
@@ -201,7 +201,7 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 1. Microsoft 다운로드 센터에서 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 설치 관리자를 실행합니다.
 2. Message Analyzer를 시작합니다.
-3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure 저장소**에 필터링합니다. 아래 그림에 표시된 대로 Azure 저장소 자산이 표시됩니다.
+3. **도구** 메뉴에서 **자산 관리자**를 선택합니다. **자산 관리자** 대화 상자에서 **다운로드**를 선택한 다음 **Azure Storage**에 필터링합니다. 아래 그림에 표시된 대로 Azure 저장소 자산이 표시됩니다.
 4. **Sync All Displayed Items(표시된 모든 항목 동기화)**를 클릭하여 Azure 저장소 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다.
 	- **Azure Storage Color Rules(Azure 저장소 색 규칙):** Azure 저장소 색 규칙을 통해 색상, 텍스트 및 글꼴 스타일을 사용하여 추적에 특정 정보를 포함하는 메시지를 강조 표시하는 특수 필터를 정의할 수 있습니다.
 	- **Azure 저장소 차트:** Azure 저장소 차트는 서버 로그 데이터를 그래프로 표시하는 미리 정의된 차트입니다. 이번에 Azure 저장소 차트를 사용하려면 서버 로그를 분석 격자로 로드하기만 하면 됩니다.
@@ -340,20 +340,20 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 조사하려면... | 필터 식 사용... | 식을 로그(클라이언트, 서버, 네트워크, 모두)에 적용 |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
-| PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 네트워크 |
+| PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | 모두 |
+| PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 |
 | HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 |
 | HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 |
 | 404(모두) | *StatusCode == 404 | 모두 |
 | SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 |
 | HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 |
-| 409 (모두) | *StatusCode == 409 | 모두 |
-| 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
-| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
-| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
-| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
+| 409(모두) | *StatusCode == 409 | 모두 |
+| PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
+| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) 및 (AzureStorageLog.RequestPacketSize <1460) 및 (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
+| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 및 #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
+| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
 ## 다음 단계
@@ -366,4 +366,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

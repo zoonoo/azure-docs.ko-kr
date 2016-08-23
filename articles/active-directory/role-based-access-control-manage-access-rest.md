@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter="na"
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/04/2016"
 	ms.author="kgremban"/>
 
 # REST API를 사용하여 역할 기반 액세스 제어 관리
@@ -24,7 +24,6 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
-
 
 ## 모든 역할 할당 나열
 
@@ -40,26 +39,19 @@ Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제�
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+2. *{api-version}*을 2015-07-01로 바꿉니다.
 
-*{filter}*를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다. 다음과 같은 조건을 지원합니다.
+3. *{filter}*를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
-
-| 조건 | *{Filter}* | Replace |
-|-----------|------------|---------|
-| 하위 범위에서는 역할 할당을 포함시키지 않고 지정된 범위에 대해서만 역할 할당을 나열하려면 | `atScope()` | |
-| 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당을 나열하려면 | `principalId%20eq%20'{objectId}'` | *{objectId}*를 사용자, 그룹 또는 서비스 사용자의 Azure AD objectId로 바꿉니다. 예: `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| 사용자가 멤버인 그룹에 할당된 역할 할당을 포함하여 특정 사용자에 대해서만 역할 할당을 나열하려면 | `assignedTo('{objectId}')` | *{objectId}*를 사용자의 Azure AD objectId로 바꿉니다. 예: `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
-
-
+  - 하위 범위에서는 역할 할당을 포함시키지 않고 지정된 범위에 대해서만 역할 할당 나열: `atScope()`
+  - 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당 나열: `principalId%20eq%20'{objectId of user, group, or service principal}'`
+  - 그룹에서 상속된 역할 할당을 포함하여 특정 사용자에 대한 역할 할당 나열 | `assignedTo('{objectId of user}')`
 
 ### 응답
 
@@ -102,17 +94,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-assignment-id}*를 역할 할당의 GUID 식별자로 바꿉니다.
+2. *{role-assignment-id}*를 역할 할당의 GUID 식별자로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 ### 응답
 
@@ -150,17 +140,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 할당을 만들려는 범위로 바꿉니다. 부모 범위에서 역할 할당을 만들 때 모든 자식 범위는 같은 역할 할당을 상속합니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 할당을 만들려는 범위로 바꿉니다. 부모 범위에서 역할 할당을 만들 때 모든 자식 범위는 같은 역할 할당을 상속합니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-assignment-id}*를 새 GUID로 바꿉니다. 이는 새 역할 할당의 GUID 식별자로 사용됩니다.
+2. *{role-assignment-id}*를 새 역할 할당의 GUID 식별자가 되는 새 GUID로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 요청 본문에 대해 다음과 같은 형식으로 값을 제공합니다.
 
@@ -176,8 +164,8 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 |------------------|----------|--------|-------------|
-| roleDefinitionId | 예 | String | 할당할 역할의 식별자입니다. 식별자의 형식은 `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}`입니다. |
-| principalId | 예 | 문자열 | 역할을 할당할 Azure AD 보안 주체(사용자, 그룹 또는 서비스 사용자)의 objectId입니다. |
+| roleDefinitionId | 예 | 문자열 | 역할의 식별자입니다. 식별자의 형식은 `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}`입니다. |
+| principalId | 예 | String | 역할을 할당할 Azure AD 보안 주체(사용자, 그룹 또는 서비스 사용자)의 objectId입니다. |
 
 ### 응답
 
@@ -205,7 +193,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 지정된 범위에서 역할 할당을 삭제합니다.
 
-역할 할당을 삭제하려면 `Microsoft.Authorization/roleAssignments/delete`작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+역할 할당을 삭제하려면 `Microsoft.Authorization/roleAssignments/delete` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 *소유자* 및 *사용자 액세스 관리자*에게만 이러한 작업의 권한이 부여됩니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
 
 ### 요청
 
@@ -215,17 +203,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 할당을 만들려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 할당을 만들려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-assignment-id}*를 역할 할당 id GUID로 바꿉니다.
+2. *{role-assignment-id}*를 역할 할당 id GUID로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 ### 응답
 
@@ -263,24 +249,18 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+2. *{api-version}*을 2015-07-01로 바꿉니다.
 
-*{filter}*를 역할 목록을 필터링하기 위해 적용할 조건으로 바꿉니다. 다음과 같은 조건을 지원합니다.
+3. *{filter}*를 역할 목록을 필터링하기 위해 적용할 조건으로 바꿉니다.
 
-| 조건 | *{Filter}* | Replace |
-|-----------|------------|---------|
-| 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할을 나열하려면 | `atScopeAndBelow()` | |
-| 정확한 표시 이름을 사용하여 역할을 검색하려면 | `roleName%20eq%20'{role-display-name}'` | *{role-display-name}*을 역할의 정확한 표시 이름의 URL 인코딩 형식으로 바꿉니다. 예: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
-
-
+  - 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할 나열: `atScopeAndBelow()`
+  - 정확한 표시 이름을 사용하여 역할 검색: `roleName%20eq%20'{role-display-name}'` 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예를 들면 `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'`와 같습니다. |
 
 ### 응답
 
@@ -345,7 +325,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 ## 역할에 대한 정보 가져오기
 
-역할 정의 식별자에서 지정한 단일 역할에 대한 정보를 가져옵니다. 해당 표시 이름을 사용하여 단일 역할에 대한 정보를 가져오려면 모든 역할 및 roleName 필터 나열을 참조하세요.
+역할 정의 식별자에서 지정한 단일 역할에 대한 정보를 가져옵니다. 해당 표시 이름을 사용하여 단일 역할에 대한 정보를 가져오려면 [모든 역할 나열](role-based-access-control-manage-access-rest.md#list-all-roles)을 참조하세요.
 
 역할에 대한 정보를 가져오려면 `Microsoft.Authorization/roleDefinitions/read` 작업에 대한 액세스 권한이 있어야 합니다. 모든 기본 제공 역할에는 이 작업에 대한 액세스 권한이 부여되어 있습니다. Azure 리소스에 대한 액세스 관리 및 역할 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
 
@@ -357,15 +337,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-definition-id}*를 역할 정의의 GUID 식별자로 바꿉니다. *{api-version}*을 2015-07-01로 바꿉니다.
+2. *{role-definition-id}*를 역할 정의의 GUID 식별자로 바꿉니다.
+
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 ### 응답
 
@@ -441,17 +421,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제는 서로 다른 수준에 대한 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제는 서로 다른 수준에 대한 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-definition-id}*를 새 GUID로 바꿉니다. 이는 새 사용자 지정 역할 할당의 GUID 식별자로 사용됩니다.
+2. *{role-definition-id}*를 새 사용자 지정 역할의 GUID 식별자가 되는 새 GUID로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 요청 본문에 대해 다음과 같은 형식으로 값을 제공합니다.
 
@@ -488,13 +466,13 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 |--------------|----------|------|-------------|
-| name | 예 | String | 사용자 지정 역할의 GUID 식별자입니다. |
-| properties.roleName | 예 | String | 사용자 지정 역할의 표시 이름입니다. 최대 128자입니다. |
-| properties.description | 아니요 | String | 사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
-| properties.type | 예 | String | 이를 "CustomRole"로 설정합니다. |
-| properties.permissions.actions | 예 | String | 사용자 지정 역할이 액세스 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.permissions.notActions | 아니요 | String | 사용자 지정 역할이 액세스 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.assignableScopes | 예 | 문자열 | 사용자 지정 역할이 액세스 관리에 사용될 수 있는 범위의 배열입니다. |
+| name | 예 | 문자열 | 사용자 지정 역할의 GUID 식별자입니다. |
+| properties.roleName | 예 | 문자열 | 사용자 지정 역할의 표시 이름입니다. 최대 128자입니다. |
+| properties.description | 아니요 | 문자열 | 사용자 지정 역할에 대한 설명입니다. 최대 1024자입니다. |
+| properties.type | 예 | String | "CustomRole"로 설정합니다. |
+| properties.permissions.actions | 예 | 문자열 | 사용자 지정 역할이 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.permissions.notActions | 아니요 | 문자열 | 사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.assignableScopes | 예 | 문자열 | 사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
 ### 응답
 
@@ -551,17 +529,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-definition-id}*를 업데이트할 사용자 지정 역할의 GUID 식별자로 바꿉니다.
+2. *{role-definition-id}*를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 요청 본문에 대해 다음과 같은 형식으로 값을 제공합니다.
 
@@ -598,13 +574,13 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 |--------------|----------|------|-------------|
-| name | 예 | String | 업데이트할 사용자 지정 역할의 GUID 식별자입니다. |
-| properties.roleName | 예 | String | 업데이트된 사용자 지정 역할의 표시 이름입니다. |
-| properties.description | 아니요 | 문자열 | 업데이트된 사용자 지정 역할의 설명입니다. |
-| properties.type | 예 | String | 이를 "CustomRole"로 설정합니다. |
+| name | 예 | String | 사용자 지정 역할의 GUID 식별자입니다. |
+| properties.roleName | 예 | 문자열 | 업데이트된 사용자 지정 역할의 표시 이름입니다. |
+| properties.description | 아니요 | String | 업데이트된 사용자 지정 역할의 설명입니다. |
+| properties.type | 예 | String | "CustomRole"로 설정합니다. |
 | properties.permissions.actions | 예 | 문자열 | 업데이트된 사용자 지정 역할이 액세스 권한을 부여하는 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.permissions.notActions | 아니요 | 문자열 | 업데이트된 사용자 지정 역할이 액세스 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
-| properties.assignableScopes | 예 | String | 업데이트된 사용자 지정 역할이 액세스 관리에 사용될 수 있는 범위의 배열입니다. |
+| properties.permissions.notActions | 아니요 | String | 업데이트된 사용자 지정 역할이 권한을 부여하는 작업에서 제외할 작업을 지정하는 동작 문자열의 배열입니다. |
+| properties.assignableScopes | 예 | 문자열 | 업데이트된 사용자 지정 역할을 사용할 수 있는 범위의 배열입니다. |
 
 ### 응답
 
@@ -661,17 +637,15 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*를 역할 정의를 삭제하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+1. *{scope}*를 역할 정의를 삭제하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
-| Level | *{Scope}* |
-|-------|-----------|
-| 구독 | /subscriptions/{subscription-id} |
-| 리소스 그룹 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
-| 리소스 | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+  - 구독: /subscriptions/{subscription-id}
+  - 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
+  - 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
 
-*{role-definition-id}*를 삭제할 사용자 지정 역할의 GUID 역할 정의 ID로 바꿉니다.
+2. *{role-definition-id}*를 사용자 지정 역할의 GUID 역할 정의 ID로 바꿉니다.
 
-*{api-version}*을 2015-07-01로 바꿉니다.
+3. *{api-version}*을 2015-07-01로 바꿉니다.
 
 ### 응답
 
@@ -714,4 +688,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 ```
 
-<!---HONumber=AcomDC_0518_2016-->
+
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
+<!---HONumber=AcomDC_0810_2016-->

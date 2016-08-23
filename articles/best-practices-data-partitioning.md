@@ -564,4 +564,4 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 [Azure 검색이란?]: search/search-what-is-azure-search.md
 [Azure SQL 데이터베이스 정의]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

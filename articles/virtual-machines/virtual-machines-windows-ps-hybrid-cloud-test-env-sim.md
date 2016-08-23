@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/08/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
 
-이 문서에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
+이 문서에서는 두 개의 Azure 가상 네트워크를 사용하여 Microsoft Azure에서 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
-하이브리드 클라우드 프로덕션 환경을 시뮬레이션하며, 다음으로 구성됩니다.
+하이브리드 클라우드 프로덕션 환경을 시뮬레이션하고 다음으로 구성됩니다.
 
 - Azure 가상 네트워크(TestLab 가상 네트워크)에서 호스트되는 시뮬레이션 및 간소화된 온-프레미스 네트워크
 - Azure에서 호스트되는 시뮬레이션된 크로스-프레미스 가상 네트워크(TestVNET)
@@ -42,17 +42,17 @@
 3.	VNet 간 VPN 연결 만들기
 4.	DC2 구성
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+이 구성에는 Azure 구독이 필요합니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
->[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. Azure VPN 게이트웨이는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 비용을 최소화하려면 테스트 환경을 만들고 가능한 한 신속하게 필요한 테스트 및 데모를 수행합니다.
+>[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 MSDN 또는 유료 구독에 대해 청구됩니다. Azure VPN 게이트웨이는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 비용을 최소화하려면 테스트 환경을 만들고 가능한 한 신속하게 필요한 테스트 및 데모를 수행합니다.
 
 ## 1단계: TestLab 가상 네트워크 구성
 
-[테스트 환경 기본 구성](virtual-machines-windows-test-config-env.md)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
+[기본 구성 테스트 환경](https://technet.microsoft.com/library/mt771177.aspx) 항목에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
 
 다음으로 Azure PowerShell 프롬프트를 시작합니다.
 
-> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다.
 
 계정에 로그인합니다.
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.micr
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 동일한 구독을 사용합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+Azure 구독을 설정합니다. 1단계에서 기본 구성을 빌드하는 데 사용했던 동일한 구독을 사용합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -86,9 +86,9 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 	$gwipconfig=New-AzureRmVirtualNetworkGatewayIpConfig -Name TestLab_GWConfig -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 	New-AzureRmVirtualNetworkGateway -Name TestLab_GW -ResourceGroupName $rgName -Location $locName -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-새 게이트웨이를 완료하는 데 20분 이상 걸릴 수 있습니다.
+새 게이트웨이를 만드는 데 20분 이상 걸릴 수 있습니다.
 
-로컬 컴퓨터의 Azure 포털에서 CORP\\User1 자격 증명을 사용하여 DC1에 연결합니다. 컴퓨터 및 사용자가 해당 로컬 도메인 컨트롤러를 사용하여 인증할 수 있도록 CORP 도메인을 구성하려면 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+로컬 컴퓨터의 Azure 포털에서 CORP\\User1 자격 증명을 사용하여 DC1에 연결합니다. 컴퓨터 및 사용자가 해당 로컬 도메인 컨트롤러를 사용하여 인증할 수 있도록 CORP 도메인을 구성하려면 DC1에서 관리자 수준 Windows PowerShell 명령 프롬프트의 다음 명령을 실행합니다.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -103,7 +103,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 
 먼저 TestVNET 가상 네트워크를 만들고 네트워크 보안 그룹으로 보호합니다.
 
-	$rgName="<name of your resource group that you used for your TestLab virtual network>"
+	$rgName="<name of the resource group that you used for your TestLab virtual network>"
 	$locName="<Azure location name where you placed the TestLab virtual network, such as West US>"
 	$locShortName="<Azure location name from $locName in all lowercase letters with spaces removed. Example:  westus>"
 	$testSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "TestSubnet" -AddressPrefix 192.168.0.0/24
@@ -131,7 +131,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 
 먼저 네트워크 또는 보안 관리자에서 임의로 암호화된 강력한 32자의 미리 공유한 키를 얻습니다. 또는 [IPsec 미리 공유한 키에 대한 임의 문자열 만들기](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)에서 정보를 사용하여 미리 공유한 키를 얻습니다.
 
-그리고 나서 다음 명령을 사용하여 사이트 간 VPN 연결을 만듭니다. 이를 완료하려면 다소 시간이 걸릴 수 있습니다.
+그리고 나서 다음 명령을 사용하여 VNet 간 VPN 연결을 만듭니다. 이를 완료하려면 다소 시간이 걸릴 수 있습니다.
 
 	$sharedKey="<pre-shared key value>"
 	$gwTestLab=Get-AzureRmVirtualNetworkGateway -Name TestLab_GW -ResourceGroupName $rgName
@@ -139,7 +139,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 	New-AzureRmVirtualNetworkGatewayConnection -Name TestLab_to_TestVNET -ResourceGroupName $rgName -VirtualNetworkGateway1 $gwTestLab -VirtualNetworkGateway2 $gwTestVNET -Location $locName -ConnectionType Vnet2Vnet -SharedKey $sharedKey
 	New-AzureRmVirtualNetworkGatewayConnection -Name TestVNET_to_TestLab -ResourceGroupName $rgName -VirtualNetworkGateway1 $gwTestVNET -VirtualNetworkGateway2 $gwTestLab -Location $locName -ConnectionType Vnet2Vnet -SharedKey $sharedKey
 
-잠시 후에 연결이 설정됩니다. 현재 Azure 리소스 관리자를 사용하여 만든 게이트웨이 및 연결은 Azure 포털에 표시되지 않습니다.
+잠시 후에 연결이 설정됩니다.
 
 다음은 현재 구성입니다.
 
@@ -147,11 +147,11 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
  
 ## 4단계: DC2 구성
 
-먼저 DC2용 Azure 가상 컴퓨터를 만듭니다. 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+먼저 DC2에 가상 컴퓨터를 만듭니다. 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
-	$saName="<your storage account name for the base configuration>"
+	$saName="<the storage account name for the base configuration>"
 	$vnet=Get-AzureRMVirtualNetwork -Name TestVNET -ResourceGroupName $rgName
 	$pip=New-AzureRMPublicIpAddress -Name DC2-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name DC2-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.0.4
@@ -167,16 +167,16 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC2-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-그런 다음 Azure 포털에서 새 DC2 가상 컴퓨터에 로그온합니다.
+다음으로 Azure 포털에서 새 DC2 가상 컴퓨터에 연결합니다.
 
 그런 다음 기본 연결 테스트에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. DC2의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-Ping 명령을 실행한 경우 IP 주소 10.0.0.4에서 성공적인 회신 4개가 수신되어야 합니다. 이는 Vnet 간 연결의 트래픽에 대한 테스트입니다.
+Ping 명령을 실행한 경우 IP 주소 10.0.0.4에서 성공적인 회신 4개가 수신되어야 합니다. 이는 VNet 간 연결의 트래픽에 대한 테스트입니다.
 
-그런 다음 추가 데이터 디스크를 드라이브 문자가 F:인 새 볼륨으로 추가합니다.
+다음으로 DC2에서 추가 데이터 디스크를 드라이브 문자가 F:인 새 볼륨으로 추가합니다.
 
 1.	Server Manager의 왼쪽 창에서 **파일 및 저장소 서비스**를 클릭한 다음 **디스크**를 클릭합니다.
 2.	내용 창의 **디스크** 그룹에서 **디스크 2**(**파티션**이 **알 수 없음**으로 설정됨)를 클릭합니다.
@@ -211,6 +211,6 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 ## 다음 단계
 
-- 이 환경에서 [SharePoint 인트라넷 팜](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [웹 기반 LOB 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md)를 설정합니다.
+- 이 환경에서 [웹 기반 LOB(기간 업무) 응용 프로그램](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)을 설정합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

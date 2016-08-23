@@ -39,9 +39,14 @@ FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리
 
 이 예제에서는 파일이 FTP 서버에 추가되거나 수정될 때 **FTP - 파일을 추가하거나 수정할 때** 트리거를 사용하여 논리 앱 워크플로를 시작하는 방법을 보여 줍니다. 엔터프라이즈 예에서는 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 FTP 폴더를 모니터링할 수 있습니다. 그런 다음 **파일 콘텐츠 가져오기**와 같은 FTP 커넥터 작업을 사용하여 추가 처리할 주문 및 주문 데이터베이스에 있는 저장소의 콘텐츠를 가져올 수 있습니다.
 
-1. 논리 앱 디자이너의 검색 상자에 *ftp*를 입력한 후 **FTP - 파일을 추가하거나 수정할 때** 트리거를 선택합니다. ![FTP 트리거 이미지 1](./media/connectors-create-api-ftp/ftp-trigger-1.png) **파일을 추가하거나 수정할 때** 컨트롤이 열립니다. ![FTP 트리거 이미지 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)
-- 컨트롤의 오른쪽에 있는 **...**를 선택합니다. 이렇게 하면 폴더 선택 컨트롤이 열립니다. ![FTP 트리거 이미지 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)
-- **>**(오른쪽 화살표)를 선택하고 새 파일 또는 수정된 파일을 모니터링할 폴더를 탐색하여 찾습니다. 해당 폴더를 선택하면 이제 폴더가 **폴더** 컨트롤에 표시됩니다. ![FTP 트리거 이미지 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)
+1. 논리 앱 디자이너의 검색 상자에 *ftp*를 입력한 후 **FTP - 파일을 추가하거나 수정할 때** 트리거를 선택합니다.  
+![FTP 트리거 이미지 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+**파일을 추가하거나 수정할 때** 컨트롤이 열립니다.  
+![FTP 트리거 이미지 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- 컨트롤의 오른쪽에 있는 **...**를 선택합니다. 이렇게 하면 폴더 선택 컨트롤이 열립니다.  
+![FTP 트리거 이미지 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- **>**(오른쪽 화살표)를 선택하고 새 파일 또는 수정된 파일을 모니터링할 폴더를 탐색하여 찾습니다. 해당 폴더를 선택하면 이제 폴더가 **폴더** 컨트롤에 표시됩니다.  
+![FTP 트리거 이미지 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
 이제, 논리 앱은 파일이 특정 FTP 폴더에서 수정되거나 만들어질 때 워크플로의 다른 트리거 및 작업의 실행을 시작하는 트리거로 구성되었습니다.
@@ -57,12 +62,18 @@ FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리
 이제 트리거를 추가했으므로 다음 단계에 따라 트리거가 찾은 새 파일 또는 수정된 파일의 콘텐츠를 가져올 작업을 추가합니다.
 
 1. **+ 새 단계**를 선택하여 FTP 서버에서 파일의 콘텐츠를 가져올 작업을 추가합니다.
-- **작업 추가** 링크를 선택합니다. ![FTP 작업 이미지 1](./media/connectors-create-api-ftp/ftp-action-1.png)
+- **작업 추가** 링크를 선택합니다.  
+![FTP 작업 이미지 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 - *FTP*를 입력하여 FTP와 관련된 모든 작업을 검색합니다.
-- FTP 폴더에서 새 파일 또는 수정된 파일을 찾을 때 수행할 작업으로 **FTP - 파일 콘텐츠 가져오기**를 선택합니다. ![FTP 작업 이미지 2](./media/connectors-create-api-ftp/ftp-action-2.png) **파일 콘텐츠 가져오기** 컨트롤이 열립니다. **참고**: 논리 앱에 FTP 서버 계정에 액세스하기 위한 권한을 아직 부여하지 않았으면 이러한 권한을 부여하라는 메시지가 표시됩니다. ![FTP 작업 이미지 3](./media/connectors-create-api-ftp/ftp-action-3.png)
+- FTP 폴더에서 새 파일 또는 수정된 파일을 찾을 때 수행할 작업으로 **FTP - 파일 콘텐츠 가져오기**를 선택합니다.  
+![FTP 작업 이미지 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+**파일 콘텐츠 가져오기** 컨트롤이 열립니다. **참고**: 논리 앱에 FTP 서버 계정에 액세스하기 위한 권한을 아직 부여하지 않았으면 이러한 권한을 부여하라는 메시지가 표시됩니다.  
+![FTP 작업 이미지 3](./media/connectors-create-api-ftp/ftp-action-3.png)  
 - **파일** 컨트롤(**FILE*** 아래에 흰색 영역)을 선택합니다. 여기에서 FTP 서버에서 찾은 새 파일 또는 수정된 파일의 다양한 속성을 사용할 수 있습니다.
-- **파일 콘텐츠** 옵션을 선택합니다. ![FTP 작업 이미지 4](./media/connectors-create-api-ftp/ftp-action-4.png)
--  컨트롤이 업데이트되고 **FTP - 파일 콘텐츠 가져오기** 작업에서 FTP 서버에 있는 새 파일 또는 수정된 파일의 *파일 콘텐츠*를 가져오는 것이 표시됩니다. ![FTP 작업 이미지 5](./media/connectors-create-api-ftp/ftp-action-5.png)
+- **파일 콘텐츠** 옵션을 선택합니다.  
+![FTP 작업 이미지 4](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  컨트롤이 업데이트되고 **FTP - 파일 콘텐츠 가져오기** 작업에서 FTP 서버에 있는 새 파일 또는 수정된 파일의 *파일 콘텐츠*를 가져오는 것이 표시됩니다.  
+![FTP 작업 이미지 5](./media/connectors-create-api-ftp/ftp-action-5.png)       
 - 작업을 저장한 후 파일을 FTP 폴더에 추가하여 워크플로를 테스트합니다.
 
 이제 FTP 서버에서 폴더를 모니터링하고 FTP 서버에서 새 파일 또는 수정된 파일을 찾으면 워크플로를 시작하는 트리거로 논리 앱이 구성되었습니다.

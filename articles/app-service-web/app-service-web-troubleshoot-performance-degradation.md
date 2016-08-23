@@ -1,4 +1,13 @@
-<properties pageTitle="앱 서비스의 느린 웹앱 성능 | Microsoft Azure" description="이 문서에서는 Azure 앱 서비스의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="웹앱 성능, 느린 앱, 앱이 느림"/>
+<properties
+	pageTitle="앱 서비스에서 느린 웹앱 성능 | Microsoft Azure"
+	description="이 문서에서는 Azure 앱 서비스의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="웹앱 성능, 느린 앱, 앱 느림"/>
 
 <tags
 	ms.service="app-service-web"
@@ -178,4 +187,4 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

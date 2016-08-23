@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 ## Storm 클러스터 만들기
 
-이 섹션에서는 Azure ARM 템플릿을 사용하여 HDInsight 버전 3.2 클러스터(Storm 버전 0.9.3)를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 HDInsight 버전 3.2 클러스터(Storm 버전 0.9.3)를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.         
+1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    템플릿은 공용 Blob 컨테이너에 있습니다. *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
 2. 매개 변수 블레이드에서 다음을 입력합니다.
 
@@ -93,9 +93,9 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE] 파일 이름의 `0.9.3.2.2.4.9-1` 부분은 HDinsight가 새 버전의 Storm으로 업데이트되면 변경될 수 있습니다.
+	> [AZURE.NOTE] HDInsight가 새 버전의 Storm으로 업데이트되면 파일 이름의 `0.10.0.2.4.2.4-5` 부분이 변경될 수 있습니다.
 
     'Wordcount'라는 친숙한 이름으로 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
 
@@ -192,4 +192,4 @@ Java 기반 토폴로지를 개발하는 데 익숙하고 기존 토폴로지를
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
@@ -39,7 +39,7 @@
 
 ## Visual Studio를 사용하여 데이터베이스 만들기
 
-Visual Studio를 처음 접하는 경우 [Visual Studio로 SQL 데이터 웨어하우스에 연결][] 문서를 참조하세요. 시작하려면 Visual Studio에서 SQL Server 개체 탐색기를 열고 SQL 데이터 웨어하우스 데이터베이스를 호스팅할 서버에 연결합니다. 연결한 후에는 **마스터** 데이터베이스에 대해 다음 SQL 명령을 실행하여 SQL 데이터 웨어하우스를 만들 수 있습니다. 이 명령은 서비스 목표 DW400이 있는 MySqlDwDb 데이터베이스를 만들고 데이터베이스가 최대 10TB까지 증대될 수 있게 허용합니다.
+Visual Studio를 처음 접하는 경우 [Azure SQL 데이터 웨어하우스 쿼리(Visual Studio)][] 문서를 참조하세요. 시작하려면 Visual Studio에서 SQL Server 개체 탐색기를 열고 SQL 데이터 웨어하우스 데이터베이스를 호스팅할 서버에 연결합니다. 연결한 후에는 **마스터** 데이터베이스에 대해 다음 SQL 명령을 실행하여 SQL 데이터 웨어하우스를 만들 수 있습니다. 이 명령은 서비스 목표 DW400이 있는 MySqlDwDb 데이터베이스를 만들고 데이터베이스가 최대 10TB까지 증대될 수 있게 허용합니다.
 
 ```sql
 CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
@@ -61,17 +61,17 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
-[Visual Studio로 SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-get-started-connect.md
-[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[개발]: ./sql-data-warehouse-overview-develop.md
-[로드]: ./sql-data-warehouse-overview-load.md
-[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
+[Azure SQL 데이터 웨어하우스 쿼리(Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[마이그레이션]: sql-data-warehouse-overview-migrate.md
+[개발]: sql-data-warehouse-overview-develop.md
+[로드]: sql-data-warehouse-overview-load.md
+[샘플 데이터를 로드]: sql-data-warehouse-load-sample-databases.md
 [Azure 포털을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [PowerShell을 사용하여 Azure SQL 데이터베이스 논리 서버 만들기]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [리소스 그룹을 만드는 방법]: ../resource-group-template-deploy-portal.md#create-resource-group
-[Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
@@ -83,4 +83,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Government 개요" 
-   description="이 문서에서는 연방, 주 및 지방 정부 기관과 그 파트너에 적용되는 규정 준수를 지원하는 데 사용되는 Azure Government 클라우드 기능과 신뢰할 수 있는 디자인 및 보안에 대한 개요를 제공합니다." 
+   pageTitle="Azure Government 개요 | Microsoft Azure" 
+   description="이 문서에서는 연방, 주 및 지방 정부 기관과 그 파트너에 적용되는 규정 준수를 지원하는 데 사용되는 Azure Government 클라우드 기능과 신뢰할 수 있는 디자인 및 보안에 대한 개요를 제공합니다. " 
    services="Azure-Government" 
    documentationCenter="" 
    authors="joharve2" 
@@ -117,4 +117,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

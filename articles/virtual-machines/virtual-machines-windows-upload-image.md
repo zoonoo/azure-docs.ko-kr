@@ -103,7 +103,7 @@ Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.tech
 
 2. 리소스 그룹을 만들려면 다음 명령을 사용합니다.
 
-		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 
 3. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet을 사용하여 이 저장소 그룹에 저장소 계정을 만듭니다.
 
@@ -170,7 +170,7 @@ Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.tech
 2. **$vnetName** 값을 가상 네트워크의 이름으로 바꿉니다. 가상 네트워크에 대한 주소 접두사를 CIDR 형식으로 제공합니다. 서브넷으로 변수 및 가상 네트워크를 만듭니다.
 
         $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
             
 ## 공용 IP 주소 및 네트워크 인터페이스 만들기
@@ -180,12 +180,12 @@ Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.tech
 1. **$ipName** 값을 공용 IP 주소의 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
 
         $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
         
 2. **$nicName** 값을 네트워크 인터페이스의 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
 
         $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 		
 
@@ -252,4 +252,4 @@ Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.tech
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

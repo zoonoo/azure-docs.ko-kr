@@ -34,7 +34,7 @@
 
 - [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)
 - [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
-- [테스트용 하이브리드 클라우드 환경 설정](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
+- [테스트용 하이브리드 클라우드 환경 설정](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
 ## 추가 리소스
@@ -42,4 +42,4 @@
 - [조직으로 Azure 등록](sign-up-organization.md)
 - [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure의 응용 프로그램 아키텍처 | Microsoft Azure"
-   description="이 문서는 Azure에서 응용 프로그램 및 서비스 아키텍처를 이해하고 디자인 및 구현으로 보안을 손쉽게 통합하는 데 도움이 됩니다."
+   description=" 이 문서는 Azure에서 응용 프로그램 및 서비스 아키텍처를 이해하고 디자인 및 구현으로 보안을 손쉽게 통합하는 데 도움이 됩니다. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/09/2016"
    ms.author="terrylan"/>
 
 # Azure 상의 응용 프로그램 아키텍처
 
-Microsoft Azure의 클라우드 기반 솔루션의 보안을 유지하기 위해 견고한 아키텍처 기초가 중요합니다. 설계자, 디자이너 및 구현자는 모두 응용 프로그램 및 서비스 아키텍처의 풍부한 지식을 활용합니다. 이러한 기본 지식은 모든 클라우드 기반 솔루션의 구성 요소를 이해하고 디자인 및 구현의 모든 측면으로 보안을 손쉽게 통합하는 데 도움이 됩니다.
+Microsoft Azure에서 클라우드 기반 솔루션의 보안을 유지하려면 견고한 아키텍처 기초가 중요합니다. 설계자, 디자이너 및 구현자는 모두 응용 프로그램 및 서비스 아키텍처의 풍부한 지식을 활용합니다. 이러한 기본 지식은 모든 클라우드 기반 솔루션의 구성 요소를 이해하고 디자인 및 구현의 모든 측면으로 보안을 손쉽게 통합하는 데 도움이 됩니다.
 
 다음을 통해 아키텍처 조사 및 디자인을 돕습니다.
 
@@ -48,7 +48,7 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 
 ## 3D 청사진 Visio 템플릿
 
-[Microsoft 아키텍처 청사진](http://aka.ms/azblueprints)의 3D 버전은 타사 도구에서 처음 만들었습니다. 새로운 Visio 2013(및 이상) 템플릿은 [EDX.ORG에 분산된 Microsoft 아키텍처 인증 과정](../architecture-overview.md#microsoft-architecture-certification-course)의 일부로 2015년 4월 5일 제공되었습니다.
+[Microsoft 아키텍처 청사진](http://aka.ms/azblueprints)의 3D 버전은 타사 도구에서 처음 만들었습니다. 새로운 Visio 2013(및 이상) 템플릿은 [EDX.ORG에 분산된 Microsoft 아키텍처 인증 과정](../architecture-overview.md#microsoft-architecture-certification-course)의 일부로 2015년 8월 5일 제공되었습니다.
 
 이 템플릿을 과정 외부에서도 사용할 있습니다.
 
@@ -56,4 +56,4 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 - [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate) 다운로드
 - [클라우드 및 엔터프라이즈 기호](../architecture-overview.md#drawing-symbol-and-icon-sets)를 다운로드하여 3D 템플릿과 함께 사용
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

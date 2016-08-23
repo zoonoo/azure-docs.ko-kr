@@ -13,19 +13,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # 3분 내로 장치에서 Azure RemoteApp 사용해 보기
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+
 장치에서 Azure RemoteApp을 볼까요? Microsoft 계정으로 액세스되어 있는 한 10분 동안 데모 배포에 액세스할 수 있습니다. Office 및 몇몇 다른 응용 프로그램을 사용할 수 있습니다. 3분 이내에 사용자의 Azure RemoteApp 환경을 시험 사용해 볼 수 있는 훌륭한 방법입니다.
 
 관심이 있나요?
 
 1. [http://remoteapp.azure.com](http://remoteapp.azure.com)으로 이동하세요.
-2. 오른쪽 위 모퉁이에서 **클라이언트 설치**를 클릭합니다.  
+2. 오른쪽 위 모퉁이에서 **클라이언트 설치**를 클릭합니다.
 3. 시스템은 자동으로 장치를 검색하고 장치에 대한 클라이언트로 이동합니다. 클라이언트를 설치합니다.
 4. [http://remoteapp.azure.com](http://remoteapp.azure.com)으로 다시 이동하고 Microsoft 계정으로 로그인합니다.
 
@@ -35,4 +38,4 @@
 
 >[AZURE.NOTE] 데모 사용에 대해서는 제어된 환경이기 때문에 게시된 데모 응용 프로그램에서 외부 인터넷 액세스를 설정하지 않았습니다. 이 때문에 OneDrive와 같은 서비스에 액세스할 수 없습니다. 또한, 클립보드 공유(복사 및 붙여넣기) 및 USB와 프린터 리디렉션은 비활성화됩니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->
