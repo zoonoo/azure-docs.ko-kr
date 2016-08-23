@@ -82,7 +82,7 @@ Azure 포털에 배포를 고정하도록 선택한 경우 배포 상태를 볼 
 
 ## Azure CLI를 사용하여 서비스 만들기
 
-명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 설치 및 구성해야 합니다.
+명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 [설치](../xplat-cli-install.md) 및 [구성](../xplat-cli-connect.md)해야 합니다.
 
 DC/OS 또는 Docker Swarm 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
@@ -195,4 +195,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 - [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 - [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

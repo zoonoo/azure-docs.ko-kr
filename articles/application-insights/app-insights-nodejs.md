@@ -54,7 +54,7 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 ## <a name="sdk"></a>응용 프로그램에 SDK 설치
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## 사용 현황
@@ -224,4 +224,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

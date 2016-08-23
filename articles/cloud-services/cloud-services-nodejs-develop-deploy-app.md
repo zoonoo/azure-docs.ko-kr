@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Azure 클라우드 서비스에서 Node.js 응용 프로그램 빌드 및 배포
@@ -169,7 +169,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 	![Remove-AzureService 명령의 상태][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] 서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한 자세한 내용은 [Azure 구독에서 저장소 계정을 삭제하는 방법](영문)을 참조하세요.
+	> [AZURE.NOTE] 서비스를 삭제해도 서비스가 처음 게시될 때 만들어진 저장소 계정은 삭제되지 않으므로 사용된 저장소에 대해 계속 요금이 청구됩니다. 저장소 계정 삭제에 대한 자세한 내용은 [Azure 구독에서 저장소 계정을 삭제하는 방법](영문)을 참조하십시오.
 
 ## 다음 단계
 
@@ -180,7 +180,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [간단한 웹앱 사용]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
 [Azure Powershell]: ../powershell-install-configure.md
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/ko-KR/download/details.aspx?id=48178
+[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell을 연결]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [Azure 구독에서 저장소 계정을 삭제하는 방법]: ../storage/how-to-manage-a-storage-account.md
@@ -198,4 +198,4 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

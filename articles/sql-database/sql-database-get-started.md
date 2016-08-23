@@ -24,18 +24,20 @@
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-get-started.md)
-- [C\#](sql-database-get-started-csharp.md)
+- [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
 이 자습서에서는 Azure 포털을 다음에 사용하는 방법에 대해 알아봅니다.
 
-- SQL 데이터베이스 논리 서버를 만들어서 SQL 데이터베이스 호스팅
+- SQL 데이터베이스를 호스팅하기 위해 SQL 데이터베이스 논리 서버를 만듭니다.
 - 샘플 데이터 또는 SQL 데이터베이스 백업의 데이터로 데이터가 없는 SQL 데이터베이스를 만듭니다.
 - 단일 IP 주소 또는 IP 주소의 범위에 서버 수준 방화벽 규칙을 만듭니다.
 
-이러한 링크를 사용하여 [C\#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하는 이러한 동일한 태스크를 수행합니다.
+이러한 링크를 사용하여 [C#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하는 이러한 동일한 태스크를 수행합니다.
 
 [AZURE.INCLUDE [로그인](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [SQL 데이터베이스 논리 서버 만들기](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -61,4 +63,4 @@
 
 [SQL 데이터베이스 정의](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

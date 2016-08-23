@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Xamarin.Forms 앱 만들기
@@ -180,4 +180,4 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

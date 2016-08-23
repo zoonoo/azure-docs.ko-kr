@@ -12,18 +12,18 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # 이벤트 허브 프로그래밍 가이드
 
-이 항목은 Azure.NET SDK를 사용하여 Azure 이벤트 허브와 함께 프로그래밍하는 것을 설명합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-overview.md)를 참조하세요.
+이 항목은 Azure.NET SDK를 사용하여 Azure 이벤트 허브와 함께 프로그래밍하는 방법을 설명합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-overview.md)를 참조하세요.
 
 ## 이벤트 게시자
 
 이벤트 허브로 이벤트를 전송은 HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 수행됩니다. 처리되는 특정 시나리오에 따라 어떤 것을 언제 사용할지를 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
 
-이벤트 허브는 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 만들어지고 관리됩니다. .NET가 관리한 API를 사용하는 경우 이벤트 허브에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 및 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스입니다. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스는 이벤트를 나타내며 이벤트 허브로 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 개체가 이벤트 허브를 통과하는 경우 여기에 다른 속성을 추가합니다.
+[NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 이벤트 허브를 만들고 관리합니다. .NET가 관리한 API를 사용하는 경우 이벤트 허브에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 및 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스입니다. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스는 이벤트를 나타내며 이벤트 허브로 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 개체가 이벤트 허브를 통과하는 경우 여기에 다른 속성을 추가합니다.
 
 ## 시작
 
@@ -185,4 +185,4 @@ while(receive)
 - [이벤트 허브 코드 샘플](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!-----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

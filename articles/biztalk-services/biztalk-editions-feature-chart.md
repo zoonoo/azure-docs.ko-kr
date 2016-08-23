@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -54,7 +54,7 @@ Azure BizTalk 서비스는 여러 버전을 제공합니다. 이 문서를 사�
         <th>Free(Preview)</th>
         <th>Developer</th>
         <th>Basic</th>
-        <th>Standard</th>
+        <th>표준</th>
         <th>Premium</th>
 </tr>
 
@@ -218,7 +218,7 @@ BizTalk 서비스는 클라우드에서 통합 솔루션을 구축하는 데 진
 
 Azure 가상 컴퓨터의 BizTalk Server는 IaaS(Infrastructure-as-a-Service) 아키텍처를 제공합니다. 가상 컴퓨터를 만들고 온-프레미스 환경과 똑같이 구성하여 코드를 변경하지 않고도 클라우드에서 기존 응용 프로그램을 더 쉽게 실행할 수 있습니다. IaaS를 사용하여 가상 컴퓨터를 구성하고 관리하고(예: 소프트웨어 설치 및 OS 패치) 응용 프로그램의 고가용성을 구성해야 합니다.
 
-인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk 서비스를 사용하세요. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 응용 프로그램을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure 가상 컴퓨터에서 BizTalk Server를 사용하세요.
+인프라 관리 노력을 최소화하는 새로운 통합 솔루션을 구축하려면 BizTalk 서비스를 사용하세요. 기존 BizTalk 솔루션을 마이그레이션하거나 BizTalk Server 응용 프로그램을 개발하고 테스트하기 위해 주문형 환경을 찾으려면 Azure 가상 컴퓨터에서 BizTalk Server를 사용하십시오.
 
 #### BizTalk 어댑터 서비스와 하이브리드 연결 간의 차이점은 무엇입니까?
 BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. BizTalk 어댑터 서비스에서는 BizTalk Adapter Pack을 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 하이브리드 연결은 Azure 앱 서비스 및 Azure 모바일 서비스의 웹앱 기능과 같은 Azure 응용 프로그램을 온-프레미스 리소스에 연결할 수 있는 간단하고 편리한 방법을 제공합니다.
@@ -259,4 +259,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="IoT 장치에서 데이터를 처리하도록 Azure 스트림 분석 시작 | Stream Analytics"
 	description="스트림 분석 및 실시간 데이터 처리와 IoT 센서 태그 및 데이터 스트림"
+    keywords="IoT 솔루션, IoT 시작"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"
 />
 
@@ -25,7 +26,7 @@
 ## 필수 조건
 
 -   [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
--   샘플 쿼리 및 데이터 파일은 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)에서 다운로드 가능
+-   샘플 쿼리 및 데이터 파일은 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 다운로드 가능
 
 ## 시나리오
 
@@ -75,7 +76,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 ![보관 작업 쿼리](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-이제 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)에서 샘플 데이터 파일을 컴퓨터의 위치로 다운로드합니다. **PassThrough.txt** 파일에서 쿼리를 복사 및 붙여넣기합니다. 아래 테스트 단추를 클릭하고 다운로드한 위치에서 **HelloWorldASA-InputStream.json**이라는 이름의 데이터 파일을 선택합니다.
+이제 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)에서 샘플 데이터 파일을 컴퓨터의 위치로 다운로드합니다. **PassThrough.txt** 파일에서 쿼리를 복사 및 붙여넣기합니다. 아래 테스트 단추를 클릭하고 다운로드한 위치에서 **HelloWorldASA-InputStream.json**이라는 이름의 데이터 파일을 선택합니다.
 
 ![스트림 분석에서 테스트 단추](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -119,4 +120,4 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 
 이 자습서의 목적은 다른 스트림 분석 쿼리 언어 쿼리를 작성하고 브라우저에서 결과를 확인하는 방법을 보여 주는 것입니다. 그러나 이 과정은 시작일 뿐입니다. 스트림 분석으로 수행할 수 있는 작업은 훨씬 많습니다. 스트림 분석은 다양한 입력 및 출력을 지원하고 Azure 기계 학습에서 함수를 사용하여 데이터 스트림을 분석하는 강력한 도구로 만들 수 있습니다. [학습 맵](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)을 사용하여 스트림 분석에 대해 보다 자세히 알아보고 쿼리 작성에 대한 자세한 내용은 [일반적인 쿼리 패턴](./stream-analytics-stream-analytics-query-patterns.md)에 대한 문서를 참고합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

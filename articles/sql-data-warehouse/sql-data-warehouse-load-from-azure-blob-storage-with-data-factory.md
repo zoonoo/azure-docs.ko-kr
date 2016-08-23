@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스로 데이터 로드(Azure Data Factory)
@@ -205,14 +205,14 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 자세한 내용은 다음을 확인하여 시작합니다.
 
 - [Azure Data Factory 학습 경로][].
-- [Azure SQL 데이터 웨어하우스 커넥터][]. Azure SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리를 사용하기 위한 핵심 참조 항목입니다.
+- [Azure SQL 데이터 웨어하우스 커넥터][]. Azure SQL 데이터 웨어하우스와 함께 Azure Data Factory를 사용하기 위한 핵심 참조 항목입니다.
 
 
-이러한 항목은 Azure 데이터 팩터리에 대한 자세한 정보를 제공합니다. Azure SQL 데이터베이스 또는 HDinsight를 설명하지만 해당 정보는 Azure SQL 데이터 웨어하우스에도 적용됩니다.
+이러한 항목은 Azure Data Factory에 대한 자세한 정보를 제공합니다. Azure SQL 데이터베이스 또는 HDinsight를 설명하지만 해당 정보는 Azure SQL 데이터 웨어하우스에도 적용됩니다.
 
 - [자습서: Azure Data Factory 시작][] Azure Data Factory를 사용하여 데이터를 처리하기 위한 핵심 자습서입니다. 이 자습서에서 HDInsight를 사용하여 월별 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드합니다. 이 자습서에는 복사 작업이 없습니다.
 - [자습서: Azure 저장소 BLOB에서 Azure SQL 데이터베이스로 데이터 복사][] 이 자습서에서는 Azure 저장소 Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 Azure 데이터 팩터리에 만듭니다.
-- [실제 시나리오 자습서][]. Azure 데이터 팩터리 사용에 대한 자세한 자습서입니다.
+
 
 <!--Image references-->
 
@@ -228,8 +228,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[실제 시나리오 자습서]: ../data-factory/data-factory-tutorial.md
-[자습서: Azure 저장소 BLOB에서 Azure SQL 데이터베이스로 데이터 복사]: ../data-factory/data-factory-get-started
+[자습서: Azure 저장소 BLOB에서 Azure SQL 데이터베이스로 데이터 복사]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [자습서: Azure Data Factory 시작]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
@@ -239,4 +238,4 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 [Azure 포털]: https://portal.azure.com
 [샘플 데이터를 다운로드합니다]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

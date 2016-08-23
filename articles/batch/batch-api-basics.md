@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # 개발자를 위한 배치 기능 개요
@@ -28,9 +28,9 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 
 병렬 워크로드를 처리하기 위해 배치 서비스를 사용하는 대부분의 응용 프로그램 및 서비스에서는 다음과 같은 높은 수준의 워크플로를 일반적으로 사용합니다.
 
-1. [Azure 저장소][azure_storage] 계정을 처리하려는 **데이터 파일**을 업로드합니다. 배치는 Azure Blob 저장소에 액세스하기 위한 기본 제공 지원을 포함하고 태스크가 실행될 경우 이러한 파일을 [계산 노드](#compute-node)로 다운로드합니다.
+1. [Azure 저장소][azure_storage] 계정으로 처리하려는 **데이터 파일**을 업로드합니다. 배치는 Azure Blob 저장소에 액세스하기 위한 기본 제공 지원을 포함하고 태스크는 실행 시 이러한 파일을 [계산 노드](#compute-node)로 다운로드할 수 있습니다.
 
-2. 태스크가 실행하는 **응용 프로그램 파일**을 업로드합니다. 이러한 파일은 이진 파일 또는 스크립트와 해당 종속성일 수 있으며 작업의 태스크로 실행됩니다. 작업하면 저장소 계정에서 다음 파일을 다운로드할 수 있습니다. 또는 응용 프로그램 관리 및 배포를 위한 [응용 프로그램 패키지](#application-packages) 배치 기능을 사용할 수 있습니다.
+2. 태스크가 실행할 **응용 프로그램 파일**을 업로드합니다. 이러한 파일은 이진 파일 또는 스크립트와 해당 종속성일 수 있으며 작업의 태스크로 실행됩니다. 작업하면 저장소 계정에서 다음 파일을 다운로드할 수 있습니다. 또는 응용 프로그램 관리 및 배포를 위한 [응용 프로그램 패키지](#application-packages) 배치 기능을 사용할 수 있습니다.
 
 3. 계산 노드 [풀](#pool)을 만듭니다. 풀을 만들 경우 풀, 크기 및 운영 체제에 대한 계산 노드 수를 지정합니다. 작업의 각 태스크를 실행할 경우 풀의 노드 중 하나에서 실행하도록 할당합니다.
 
@@ -67,7 +67,7 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 
 ## 계정
 
-배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 필요합니다. [Azure 포털에서 Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
+배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 모두 필요합니다. [Azure 포털에서 Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
 
 ## 계산 노드
 
@@ -81,13 +81,13 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 - 액세스를 제어하도록 구성된 **방화벽** 설정
 - Windows(원격 데스크톱 프로토콜 (RDP))와 Linux(SSH (보안 셸)) 노드 모두에 대한 [원격 액세스](#connecting-to-compute-nodes)
 
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
+> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
 ## 풀
 
 풀은 응용 프로그램이 실행되는 노드 컬렉션입니다. 사용자가 풀을 만들 수도 있고, 완료할 작업을 지정한 경우에는 배치 서비스에서 자동으로 풀을 만듭니다. 응용 프로그램의 리소스 요구 사항을 충족하는 풀을 만들고 관리할 수 있습니다. 풀은 풀이 생성된 배치 계정을 통해서만 사용할 수 있습니다. 하나의 배치 계정에는 둘 이상의 풀이 있을 수 있습니다.
 
-Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배치 풀은 대규모 할당, 응용 프로그램, 데이터 설치, 상태 모니터링 및 풀 내의 유연한 계산 노드 수 조정([크기 조정](#scaling-compute-resources)) 기능을 제공합니다.
+Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배치 풀은 대규모 할당, 응용 프로그램 설치, 데이터 배포 및 상태 모니터링 및 풀 내의 유연한 계산 노드 수 조정([크기 조정](#scaling-compute-resources)) 기능을 제공합니다.
 
 풀에 추가된 모든 노드에는 고유 이름 및 IP 주소가 할당됩니다. 노드가 풀에서 제거되면 운영 체제 또는 파일에 적용된 모든 변경 내용이 손실되며, 해당 이름 및 IP 주소가 나중에 사용할 수 있도록 해제됩니다. 노드가 풀에서 제거되면 수명이 끝납니다.
 
@@ -109,7 +109,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 	**클라우드 서비스 구성** 계산 노드 크기는 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. 배치는 `ExtraSmall`을 제외한 모든 클라우드 서비스 크기를 지원합니다.
 
-	**가상 컴퓨터 구성** 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-windows-sizes.md)(Windows)에 나열되어 있습니다. 배치는 `STANDARD_A0`를 제외한 모든 Azure VM 크기 및 프리미엄 저장소를 사용하도록 지원합니다(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈).
+	**가상 컴퓨터 구성** 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-windows-sizes.md)(Windows)에 나열되어 있습니다. 배치는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.
 
 	노드 크기를 선택할 때 계산 노드에서 실행할 응용 프로그램의 특성 및 요구 사항과 응용 프로그램을 고려해야 합니다. 일반적으로 한 번에 하나의 태스크가 노드에서 실행되는 것으로 가정하여 노드 크기를 선택합니다. 응용 프로그램이 다중 스레드되었는지 여부 및 응용 프로그램에서 소비하는 메모리 양과 같은 측면을 고려하여 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줍니다. 여러 태스크가 있고 따라서 여러 응용 프로그램 인스턴스가 [동시에 실행](batch-parallel-node-tasks.md)되는 경우 일반적으로 더 큰 노드를 선택합니다. 자세한 내용은 다음 "태스크 예약 정책" 섹션을 참조하세요.
 
@@ -173,7 +173,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 ## 작업
 
-태스크는 작업과 연결되는 계산의 단위입니다. 노드에서 실행됩니다. 태스크는 실행을 위해 노드에 할당되거나, 노드를 사용할 수 있을 때까지 큐에 대기됩니다. 간단히 말해 태스크는 계산 노드에서 하나 이상의 프로그램이나 스크립트를 실행하여 수행해야 하는 작업을 수행합니다.
+태스크는 작업과 연결되는 계산의 단위입니다. 노드에서 실행됩니다. 태스크는 실행을 위해 노드에 할당되거나, 노드를 사용할 수 있을 때까지 큐에 대기됩니다. 간단히 말해 태스크는 계산 노드에서 하나 이상의 프로그램이나 스크립트를 실행하여 완료해야 하는 작업을 수행합니다.
 
 태스크를 만들 때 다음을 지정할 수 있습니다.
 
@@ -335,7 +335,7 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 [자동 크기 조정](batch-automatic-scaling.md)으로 배치 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다.
 
-[자동 크기 조정 수식](batch-automatic-scaling.md#automatic-scaling-formulas)을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. 배치 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
+[자동 크기 조정 수식](batch-automatic-scaling.md#automatic-scaling-formulas)을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. 배치 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정 설정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
 
 예를 들어 작업에서는 실행될 많은 태스크를 제출해야 합니다. 현재 큐에 대기된 태스크 수 및 작업에서 이러한 태스크의 완료율에 따라 풀의 노드 수를 조정하는 크기 조정 수식을 풀에 할당할 수 있습니다. 배치 서비스는 수식을 정기적으로 계산하고 워크로드 및 다른 수식 설정에 따라 풀 크기를 조정합니다(큐에 대기 중인 태스크가 많은 경우 노드를 추가함, 큐에 대기하거나 실행 중인 태스크가 없는 경우 노드를 제거함).
 
@@ -432,6 +432,11 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 - [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 배치 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
 
+- 배치 솔루션을 개발하는 동안 사용할 [Batch Explorer][github_batchexplorer] 샘플 프로젝트를 다운로드하여 빌드합니다. Batch Explorer를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
+  - 배치 계정 내에서 풀, 작업 및 태스크 모니터링 및 조작
+  - 노드에서 `stdout.txt`, `stderr.txt` 및 기타 파일 다운로드
+  - 노드에서 사용자를 만들고 원격 로그인을 위한 RDP 파일 다운로드
+
 - [Linux 계산 노드의 풀을 만드는](batch-linux-nodes.md) 방법을 알아봅니다.
 
 - MSDN에서 [Azure 배치 포럼][batch_forum]을 방문하세요. 포럼에서는 배치를 배우는지 아니면 배치를 사용하는 전문가인지를 질문합니다.
@@ -439,12 +444,12 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
@@ -487,4 +492,4 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

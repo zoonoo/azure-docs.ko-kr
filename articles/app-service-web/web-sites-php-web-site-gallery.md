@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 WordPress 웹앱 만들기
@@ -37,7 +37,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 이 자습서에서 배포하는 WordPress 사이트는 데이터베이스에 MySQL을 사용합니다. 대신 데이터베이스에 SQL 데이터베이스를 사용하려는 경우 [프로젝트 Nami](http://projectnami.org/)를 참조하세요. **프로젝트 Nami**는 마켓플레이스를 통해서도 제공됩니다.
 
 > [AZURE.NOTE]
-이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
@@ -61,7 +61,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 	웹앱의 URL이 {name}.azurewebsites.net이기 때문에 이 이름은 azurewebsites.net 도메인에서 고유해야 합니다. 입력한 이름이 고유하지 않으면 빨간색 느낌표가 텍스트 상자에 나타납니다.
 
-8. 구독이 둘 이상 있는 경우 사용하려는 구독을 하나 선택합니다.
+8. 구독이 둘 이상 있는 경우 사용하려는 구독을 선택합니다.
 
 5. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
@@ -128,4 +128,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

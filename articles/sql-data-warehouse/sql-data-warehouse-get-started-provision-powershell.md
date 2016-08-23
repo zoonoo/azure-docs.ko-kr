@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -80,7 +80,7 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-load-with-bcp.md
-[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[샘플 데이터를 로드]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlet 및 REST API]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
@@ -101,4 +101,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->
