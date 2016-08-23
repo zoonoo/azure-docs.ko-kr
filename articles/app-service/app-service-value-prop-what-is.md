@@ -25,7 +25,7 @@
 
 다음 4분 비디오에서는 앱 서비스와 이전 Azure 제품의 연결점 및 새로운 기능에 대한 간략한 설명을 제공합니다.
 
-+[AZURE.VIDEO app-service-history-lesson] 
+\+[AZURE.VIDEO app-service-history-lesson] 
 
 ## 앱 서비스를 사용하는 이유는 무엇인가요?
 
@@ -80,4 +80,4 @@
 * [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
 * [자습서: 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0803_2016-->
