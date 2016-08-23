@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory Premium 시작하기
@@ -23,10 +23,10 @@ Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니�
 
 **Azure 또는 Office 365** - Azure 또는 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium을 구입하는 방법 - 기존 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) 또는 [Azure Active Directory Premium을 구입하는 방법 - 새로운 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.
 
-**Enterprise Mobility + Security** - Enterprise Mobility + Security(이전의 Enterprise Mobility Suite)는 조직이 Active Directory Premium, Azure Rights Management, Microsoft Intune 서비스를 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility + Security](https://www.microsoft.com/ko-KR/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요. 무료 30일 평가판을 얻으려면 [여기](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)를 클릭합니다.
+**Enterprise Mobility + Security** - Enterprise Mobility + Security(이전의 Enterprise Mobility Suite)는 조직이 Active Directory Premium, Azure Rights Management, Microsoft Intune 서비스를 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요. 무료 30일 평가판을 얻으려면 [여기](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)를 클릭합니다.
 
 
-**Microsoft 볼륨 라이선스** - Azure Active Directory Premium은 [Microsoft 기업 계약](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/ko-KR/licensing/licensing-programs/open-license.aspx)(5–250개 라이선스) 프로그램을 통해 사용할 수 있습니다.
+**Microsoft 볼륨 라이선스** - Azure Active Directory Premium은 [Microsoft 기업 계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)(5–250개 라이선스) 프로그램을 통해 사용할 수 있습니다.
 
 
 이 항목에서는 볼륨 라이선스 프로그램을 통해 구입한 Azure Active Directory Premium을 시작하는 방법을 보여 줍니다. 아직 다른 버전의 Azure Active Directory에 익숙하지 않은 경우 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.
@@ -39,7 +39,7 @@ Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니�
 
 ## 1단계: Active Directory Premium 등록
 
-등록하려면 [볼륨 라이선스를 통해 구입하는 방법](http://www.microsoft.com/ko-KR/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
+등록하려면 [볼륨 라이선스를 통해 구입하는 방법](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
 
 
 
@@ -107,7 +107,7 @@ Microsoft의 엔터프라이즈 볼륨 라이선스 프로그램을 통해 라�
 
 ![Azure 기능][7]
 
-이미 이전에 사용할 때부터 Azure에 대한 액세스 권한이 있었을 수 있습니다. 또한 추가 Azure 구독을 활성화하여 액세스 권한을 Azure Active Directory에서 전체 Azure 액세스로 업그레이드할 수도 있습니다. 이 경우 Azure 클래식 포털에 더 많은 기능이 있습니다.
+이미 이전에 사용할 때부터 Azure에 대한 액세스 권한이 있었을 수 있습니다. 또한 추가 Azure 구독을 활성화하여 액세스 권한을 Azure Active Directory에서 전체 Azure로 업그레이드할 수도 있습니다. 이 경우 Azure 클래식 포털에 더 많은 기능이 있습니다.
 
 ![Azure 기능][8]
 
@@ -160,4 +160,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
+	ms.date="08/16/2016"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -36,7 +36,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
     npm install redis
 
-이 자습서에서는 [node\_redis](https://github.com/mranney/node_redis)를 사용하지만 [http://redis.io/clients](http://redis.io/clients)에 나열된 모든 Node.js 클라이언트를 사용할 수 있습니다.
+이 자습서에서는 [node\_redis](https://github.com/mranney/node_redis)를 사용합니다. 다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](http://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
 
 ## Azure에 Redis 캐시 만들기
 
@@ -46,17 +46,21 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## SSL을 사용하여 안전하게 캐시에 연결
 
-## 비 SSL 끝점 사용
+[node\_redis](https://github.com/mranney/node_redis)의 최신 빌드는 SSL을 사용하여 Azure Redis Cache에 연결을 지원합니다. 다음 예제에서는 6380 SSL 끝점을 사용하여 Azure Redis Cache에 연결하는 방법을 보여줍니다. 이전의 [호스트 이름 및 액세스 키를 검색](#retrieve-the-host-name-and-access-keys) 섹션에서 설명된 대로 `<name>`을(를) 캐시의 이름으로 `<key>`을(를) 기본 또는 보조 키로 교체합니다.
 
-일부 Redis 클라이언트는 SSL을 지원하지 않으며 기본적으로 [새 Azure Redis Cache 인스턴스에 대해 비 SSL 포트는 사용되지 않습니다](cache-configure.md#access-ports). 이 문서 작성 당시 [node\_redis](https://github.com/mranney/node_redis) 클라이언트는 SSL을 지원하지 않습니다.
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+	 var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## 캐시에 항목 추가 및 검색
 
-	  var redis = require("redis");
+다음 예제에서는 Azure Redis Cache 인스턴스에 연결하여 캐시의 항목을 저장하고 검색하는 방법을 보여줍니다. [node\_redis](https://github.com/mranney/node_redis) 클라이언트가 포함된 Redis 사용에 관한 더 많은 예는 [http://redis.js.org/](http://redis.js.org/)를 참조하세요.
+
+	 var redis = require("redis");
 	
 	  // Add your cache name and access key.
 	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -80,4 +84,4 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 - 캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다.
 - 공식 [Redis 설명서](http://redis.io/documentation)를 읽어보세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

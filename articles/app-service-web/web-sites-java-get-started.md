@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Java 웹앱 만들기
@@ -44,7 +44,7 @@
 	
 	* Java 응용 프로그램은 앱 서비스에서 직접 제공하지 않거나 갤러리에서 지원되지 않는 Tomcat 또는 Jetty의 버전이 필요합니다.
 	* Java 응용 프로그램은 HTTP 요청을 취하며 기존 웹 컨테이너에 WAR로 배포하지 않습니다.
-	* 사용자가 직접 처음부터 웹 컨테이너를 구성하려고 합니다. 
+	* 사용자가 직접 처음부터 웹 컨테이너를 구성하려고 합니다.
 	* 앱 서비스에서 지원하지 않는 Java 버전을 사용하고 사용자가 직접 업로드하려고 합니다.
 
 	이러한 경우 Azure 포털을 사용하여 앱을 만든 다음 적절한 런타임 파일을 수동으로 제공할 수 있습니다. 이 경우 파일은 앱 서비스 계획에 대한 저장소 공간 할당량에 대해 계산됩니다. 자세한 내용은 [Azure에 사용자 지정 Java 웹앱 업로드]를 참조하세요.
@@ -192,4 +192,4 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 [tomcat]: ./media/web-sites-java-get-started/tomcat.png
 [jetty]: ./media/web-sites-java-get-started/jetty.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

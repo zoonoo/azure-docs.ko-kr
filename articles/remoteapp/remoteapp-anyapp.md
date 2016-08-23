@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 어디서든 모든 장치에서 Azure RemoteApp을 사용하여 지금 바로 Windows 응용 프로그램을 실행할 수 있습니다. 응용 프로그램이 10년 전에 작성된 사용자 지정 응용 프로그램 또는 Office 앱이든지 상관없이 사용자는 더 이상 해당 응용 프로그램을 사용하기 위해 특정 운영 체제(예: Windows XP)에 묶일 필요가 없습니다.
 
@@ -121,4 +124,4 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 <!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

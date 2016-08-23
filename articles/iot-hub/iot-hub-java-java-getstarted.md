@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/23/2016"
+     ms.date="08/11/2016"
      ms.author="dobett"/>
 
 # Java용 Azure IoT Hub 시작
@@ -38,17 +38,17 @@
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-마지막 단계로 **기본 키** 값을 적어둔 다음 IoT Hub 블레이드에서 **설정**을 클릭한 다음 **설정** 블레이드에서 **메시징**을 클릭합니다. **메시징** 블레이드에서 **이벤트 허브 호환 이름** 및 **이벤트 허브 호환 끝점**을 기록해 둡니다. **read-d2c-messages** 응용 프로그램을 만들 때 이러한 값이 필요합니다.
+마지막 단계로 **기본 키** 값을 적어둔 다음 **메시징**을 클릭합니다. **메시징** 블레이드에서 **이벤트 허브 호환 이름** 및 **이벤트 허브 호환 끝점**을 기록해 둡니다. **read-d2c-messages** 응용 프로그램을 만들 때 이러한 값이 필요합니다.
 
 ![][6]
 
-이제 IoT Hub를 만들었고 이 자습서의 나머지 부분을 완료해야 할 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, 이벤트 허브 호환 이름 및 이벤트 허브 호환 끝점이 있습니다.
+이제 IoT Hub를 만들었고 이 자습서를 완료하는 데 필요한 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, 이벤트 허브 호환 이름 및 이벤트 허브 호환 끝점이 있습니다.
 
 ## 장치 ID 만들기
 
 이 섹션에서는 IoT Hub의 ID 레지스트리에서 새 장치 ID를 만드는 Java 콘솔 앱을 작성합니다. 장치 ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **장치 ID 레지스트리** 섹션을 참조하세요. 이 콘솔 응용 프로그램을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
-1. iot-java-get-started라는 새로운 빈 폴더를 만듭니다. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-get-started 폴더에 **create-device-identity**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+1. iot-java-get-started라는 새로운 빈 폴더를 만듭니다. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-get-started 폴더에 **create-device-identity**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -89,7 +89,7 @@
     
     ```
     
-8. **main** 메서드의 서명을 수정하여 아래의 예외를 포함합니다.
+8. **main** 메서드의 서명을 수정하여 다음과 같은 예외를 포함합니다.
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
@@ -138,7 +138,7 @@
 
 > [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
 
-1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **read-d2c-messages**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **read-d2c-messages**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -240,9 +240,9 @@
     }
     ```
 
-    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서는 현재 메시지 집합을 볼 수 있어 유용하지만 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지 처리 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
+    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서는 현재 메시지 집합을 볼 수 있어 유용합니다. 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지 처리 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
 
-9. **main** 메서드의 서명을 수정하여 아래의 예외를 포함합니다.
+9. **main** 메서드의 서명을 수정하여 다음과 같은 예외를 포함합니다.
 
     ```
     public static void main( String[] args ) throws IOException
@@ -281,7 +281,7 @@
 
 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
 
-1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -495,4 +495,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

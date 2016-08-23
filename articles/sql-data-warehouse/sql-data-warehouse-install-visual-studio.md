@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL 데이터 웨어하우스용 Visual Studio 2015 및 SSDT 설치
@@ -49,11 +49,11 @@ Visual Studio 용 SSDT를 설치하려면 다음 이 단계를 수행하여 Visu
 <!--Image references-->
 
 <!--Articles-->
-[연결]: ./sql-data-warehouse-get-started-connect.md
+[연결]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Visual Studio 2015 다운로드]: https://www.visualstudio.com/downloads/
 [Visual Studio 설치]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT 다운로드]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

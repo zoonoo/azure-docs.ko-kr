@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga" />
 
 #Xamarin.Android 앱 만들기
@@ -34,7 +34,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
 
 * Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요.
  
@@ -72,7 +72,7 @@
 
 * [앱에 인증 추가](app-service-mobile-xamarin-android-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-android-get-started-push.md) 앱에 푸시 알림을 추가하는 방법을 알아봅니다.
-* [Azure 모바일 앱에 대한 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다. 
+* [Azure 모바일 앱에 대한 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다.
 
 
 <!-- Images. -->
@@ -86,4 +86,4 @@
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

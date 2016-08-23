@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -151,7 +151,7 @@ Visual Studio에서 BizTalk 서비스를 배포할 때 이 액세스 제어 네�
 
 액세스 제어 서비스 ID는 응용 프로그램이나 클라이언트가 액세스 제어를 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
 
-> [AZURE.IMPORTANT] BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다.<br/><br/>*지정한 자격 증명으로 액세스 제어 관리 서비스 계정에 연결할 수 없습니다.*
+> [AZURE.IMPORTANT] BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*지정한 자격 증명으로 액세스 제어 관리 서비스 계정에 연결할 수 없습니다*
 
 [ACS 네임스페이스 관리](https://msdn.microsoft.com/library/azure/hh674478.aspx)에는 일부 지침 및 권장 사항이 나열되어 있습니다.
 
@@ -165,11 +165,11 @@ Visual Studio에서 BizTalk 서비스를 배포할 때 이 액세스 제어 네�
 </tr>
 <tr>
 <td>Azure 구독</td>
-<td>구독은 Azure 포털에 로그인할 수 있는 사용자를 결정합니다. 계정 소유자는 <a HREF="https://account.windowsazure.com/Subscriptions">Azure 구독</a>에서 구독을 만듭니다. 
+<td>구독은 Azure 포털에 로그인할 수 있는 사용자를 결정합니다. 계정 소유자는 <a HREF="https://account.windowsazure.com/Subscriptions">Azure 구독</a>에서 구독을 만듭니다.
 <br/><br/>
 Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사용자가 관리할 수 있습니다. 예를 들어 Azure 계정 소유자는 <em>BizTalkServiceSubscription</em>이라는 구독을 만들고, 회사 내의 BizTalk 관리자(예: ContosoBTSAdmins@live.com)에게 이 구독에 대한 액세스를 제공합니다. 이 시나리오에서 BizTalk 관리자는 Azure 포털에 로그인하고 구독의 모든 호스팅 서비스(Azure BizTalk 서비스 포함)에 대해 전체 관리자 권한을 가집니다. BizTalk 관리자는 Azure 계정 소유자가 아니므로 대금 청구 정보에 대한 액세스 권한이 없습니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure 포털에서 구독 및 저장소 계정 관리</a>에 자세한 내용이 나와 있습니다.
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Azure 포털에서 구독 및 저장소 계정 관리</a>에 자세한 내용이 나와 있습니다.
 </td>
 </tr>
 <tr>
@@ -271,4 +271,4 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

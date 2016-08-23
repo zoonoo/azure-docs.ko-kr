@@ -21,7 +21,7 @@
 
     ![새 IoT Hub 상태][3]
 
-5. IoT Hub가 성공적으로 만들어지면 포털에서 IoT Hub에 대한 새 타일을 클릭하여 새 IoT Hub에 대한 블레이드를 엽니다. **호스트 이름**을 기록해둔 다음 **키** 아이콘을 클릭합니다.
+5. IoT Hub가 성공적으로 만들어지면 포털에서 IoT Hub에 대한 새 타일을 클릭하여 새 IoT Hub에 대한 블레이드를 엽니다. **호스트 이름**을 기록해둔 다음 **공유 액세스 정책**을 클릭합니다.
 
     ![새 IoT Hub 블레이드][4]
 
@@ -43,4 +43,4 @@
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Azure RemoteApp의 라이선스 작동 방식
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 이제 Azure RemoteApp 서비스를 설정하고 템플릿을 만들었으며 사용자에게 앱을 게시할 준비가 되었습니다. 하지만 마지막으로 확인해야 할 사항이 있습니다. 바로 라이선스입니다. RemoteApp 및 RemoteApp을 통해 공유하는 앱에 대해 라이선스는 어떻게 작동하나요?
 
@@ -35,4 +37,4 @@ Azure RemoteApp과 함께 제공된 Office 365 템플릿 이미지를 사용하�
 
 클라우드 컬렉션의 CAL 또는 볼륨 라이선스 계약은 사용할 수 없습니다. 볼륨 라이선스 계약을 사용하여 하이브리드 컬렉션의 응용 프로그램을 활성화할 *수 있습니다*(Office 제외). 볼륨 라이선스 미디어에서 해당 템플릿 이미지에 설치하면 됩니다. 응용 프로그램 공급업체의 정보에 따라 원격 데스크톱 환경에 라이선스를 설치하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

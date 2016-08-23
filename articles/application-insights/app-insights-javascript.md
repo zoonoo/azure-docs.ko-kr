@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # 웹 페이지용 Application Insights
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 Visual Studio Application Insights를 추가하면 페이지 로드 및 AJAX 호출, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 수의 타이밍을 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 또한 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다.
+웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 Visual Studio Application Insights를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션을 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 또한 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다.
 
 Application Insights와 다른 웹 페이지를 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](app-insights-java-get-started.md) 또는 [ASP.NET](app-insights-asp-net.md)인 경우, 서버 및 클라이언트의 원격 분석을 통합할 수 있습니다.
 
@@ -29,7 +29,7 @@ Application Insights와 다른 웹 페이지를 사용할 수 있습니다. 간�
 
 ## 웹 페이지용 Application Insights 설치
 
-이미 있을 수 있습니다. 앱이 새로운 ASP.NET 프로젝트이고 새 프로젝트 대화 상자 Visual Studio에 Application Insights를 추가하도록 선택한 경우, 스크립트를 추가한 다음 모든 설정을 완료합니다.
+먼저 웹 페이지에 Application Insights를 추가해야 하나요? 이미 추가했을 수 있습니다. Visual Studio의 새 프로젝트 대화 상자에서 웹앱에 Application Insights를 추가하도록 선택한 경우 스크립트는 추가되었습니다. 이 경우에 더 이상 수행할 필요가 없습니다.
 
 그렇지 않은 경우 다음과 같이 코드 조각을 웹 페이지에 추가해야 합니다.
 
@@ -71,7 +71,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ## 자세한 구성
 
-몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)을 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어 페이지 보기당 보고된 Ajax 호출 수를 사용하지 않거나 제한하거나(트래픽 감소), 일괄 처리하지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시키는 디버그 모드를 설정할 수 있습니다.
+몇 가지 [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)을 설정할 수 있지만 대부분의 경우에서 설정할 필요가 없습니다. 예를 들어, 트래픽을 줄이기 위해 페이지 보기 당 보고된 Ajax 호출 수를 사용하지 않도록 설정하거나 제한할 수 있습니다. 또는 디버그 모드를 설정하여 배치되지 않고 파이프라인을 통해 원격 분석을 빠르게 이동시킬 수 있습니다.
 
 이러한 매개 변수를 설정하려면 코드 조각에서 이 줄을 찾고 쉼표로 구분하여 항목을 추가합니다.
 
@@ -205,17 +205,17 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 
 보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다. 세부 정보 페이지에서 더 자세한 정보를 보려면 "..."를 클릭합니다.
 
-> [AZURE.NOTE] [검색](app-insights-diagnostic-search.md)을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않지만 "Abou*"는 일치합니다. 또한 검색 용어는 와일드로 시작할 수 없습니다. 예를 들어 "*bou"로 검색해도 "About"는 검색되지 않습니다.
+> [AZURE.NOTE] [검색](app-insights-diagnostic-search.md)을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
 
-> [진단 검색에 대해 자세히 알아보기](app-insights-diagnostic-search.md)
+또한 강력한 [분석 쿼리 언어](app-insights-analytics-tour.md)를 사용하여 페이지 보기를 검색할 수 있습니다.
 
 ### 페이지 보기 속성
 
-* **페이지 보기 기간** 
+* **페이지 보기 기간**
 
  * 기본적으로 클라이언트 요청에서 전체 로드로 페이지를 로드하는 데 걸리는 시간(보조 파일을 포함하지만 Ajax 호출과 같은 비동기 작업은 제외)입니다.
  * [페이지 구성](#detailed-configuration)에서 `overridePageViewDuration`을 설정한 경우 첫 번째 `trackPageView` 실행에 대한 클라이언트 요청 간 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다.
- * `overridePageViewDuration`을 설정하고 `trackPageView()` 호출에서 기간 인수가 제공된 경우 인수 값이 대신 사용됩니다. 
+ * `overridePageViewDuration`을 설정하고 `trackPageView()` 호출에서 기간 인수가 제공된 경우 인수 값이 대신 사용됩니다.
 
 
 ## 사용자 지정 페이지 수
@@ -249,4 +249,4 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

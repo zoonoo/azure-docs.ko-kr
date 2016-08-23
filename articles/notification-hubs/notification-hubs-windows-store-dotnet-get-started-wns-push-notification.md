@@ -43,7 +43,7 @@
 
 + [유니버설 Windows 앱 개발 도구 설치](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 
-+ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
++ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
 
 + 활성 Windows 스토어 계정
 
@@ -102,7 +102,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p><b>Notification Services</b> 옵션 및 <b>Windows(WNS)</b> 옵션을 선택합니다. 그런 다음 <b>보안 키</b> 필드에 <b>응용 프로그램 암호</b> 암호를 입력합니다. 이전 섹션의 WNS에서 얻은 <b>패키지 SID</b> 값을 입력한 다음 <b>저장</b>을 클릭합니다.</p>
 </li>
 </ol>
@@ -200,7 +200,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
 
    	![][13]
 
-	그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
+	새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
 
 2. Visual Studio에서 **도구**를 클릭하고 **NuGet 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 
@@ -275,4 +275,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

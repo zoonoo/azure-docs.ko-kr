@@ -17,7 +17,7 @@
 
 # Express 경로 파트너 및 피어링 위치
 
-이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI\(시스템 통합업체\)에 대한 정보를 제공합니다.
+이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
 ## <a name="partners"></a>Express 경로 연결 공급자
 
@@ -31,7 +31,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|---|
 |**북아메리카**|미국 동부, 미국 서부, 미국 동부 2, 중앙 미국, 미국 중남부, 미국 중북부, 캐나다 중부, 캐나다 동부|애틀랜타, 시카고, 댈러스, 라스베이거스+, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올+, 퀘벡 시티+, 토론토|
 |**남미**|브라질 남부|상파울루|
-|**유럽**|북유럽, 서유럽|암스테르담, 더블린, 런던, 뉴포트\(웨일스\)+, 파리|
+|**유럽**|북유럽, 서유럽|암스테르담, 더블린, 런던, 뉴포트(웨일스)+, 파리|
 |**아시아**|동아시아, 동남 아시아|홍콩, 싱가포르|
 |**일본**|일본 서부, 일본 동부|오사카, 도쿄|
 |**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|멜버른, 시드니|
@@ -79,10 +79,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Interxion** | 지원됨 | 지원됨 | 암스테르담, 런던, 파리 |
 | **Jisc** | 서비스 예정 | 서비스 예정 | 런던+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원됨 | 암스테르담, 시카고, 댈러스, 라스베이거스+, 런던, 시애틀, 실리콘밸리, 워싱턴 DC |
-| **Megaport** | 지원됨 | 지원됨 | 댈러스, 홍콩, 라스베이거스+, 로스앤젤레스, 멜버른, 뉴욕, 시애틀, 싱가포르, 시드니, 워싱턴 DC |
+| **Megaport** | 지원됨 | 지원됨 | 댈러스, 홍콩, 라스베이거스, 로스앤젤레스, 멜버른, 뉴욕, 시애틀, 싱가포르, 시드니, 워싱턴 DC |
 | **MTN** | 지원됨 | 지원됨 | 런던 |
 | **NEXTDC** | 지원됨 | 지원됨 | 멜버른, 시드니 |
-| **NTT Communications** | 지원됨 | 지원됨 | 런던, 오사카, 도쿄 |
+| **NTT Communications** | 지원됨 | 지원됨 | 런던, 로스앤젤레스, 오사카, 도쿄 |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **PCCW Global Limited** | 지원됨 | 지원됨 | 홍콩 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 지원됨 | 지원됨 | 싱가포르 |
@@ -106,7 +106,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 시카고, 워싱턴 DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 지원됨 | 시카고, 댈라스+, 뉴욕, 워싱턴 DC |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 서비스 예정 | 시카고, 뉴욕+, 워싱턴 DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원됨 | 시카고, 뉴욕+, 워싱턴 DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원됨 | 시카고, 댈라스+, 뉴욕, 워싱턴 DC |
 
 #### 중국
@@ -171,4 +171,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

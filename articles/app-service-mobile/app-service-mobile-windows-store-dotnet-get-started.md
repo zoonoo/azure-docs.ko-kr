@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 앱 서비스 모바일 앱에서 UWP(범용 Windows 플랫폼) 앱 만들기 | Microsoft Azure"
+	pageTitle="모바일 앱에서 사용하는 UWP(유니버설 Windows 플랫폼) 만들기 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 C#, Visual Basic 또는 JavaScript로 UWP(범용 Windows 플랫폼) 앱 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Windows 앱 만들기
@@ -91,4 +91,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

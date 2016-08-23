@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 
@@ -60,4 +60,4 @@ RADIUS 클라이언트를 구성하려면 지침을 따르십시오.
 - 위의 구성된 동일한 공유 암호를 사용합니다.
 - 사용자의 자격 증명의 유효성을 검사하고, multi-factor authentication을 수행하고, 자신의 응답을 수신한 다음 RADIUS 액세스 요청에 응답할 시간이 있도록 30-60 초 사이로 RADIUS 제한 시간을 구성합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

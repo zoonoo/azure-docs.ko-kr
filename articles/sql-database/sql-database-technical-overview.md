@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # SQL 데이터베이스 정의 SQL 데이터베이스 소개
@@ -59,4 +59,4 @@ SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스
 - C#, Java, Node.js, PHP, Python 또는 Ruby에 첫 번째 앱 빌드: [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 - [Azure SQL 데이터베이스 서비스에 대한 모든 토픽](sql-database-index-all-articles.md)에 대한 제목 및 설명 인덱스를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->
