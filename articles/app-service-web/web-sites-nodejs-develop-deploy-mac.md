@@ -112,7 +112,7 @@
 
 이 섹션에서는 [nodejs.org]에서 'Hello World' 예제의 조금 변형된 버전이 포함된 **server.js** 파일을 만듭니다. 코드는 Azure 웹앱에서 실행되는 경우 수신할 포트로 process.env.PORT를 추가합니다.
 
-1. *helloworld*라는 디렉터리를 만듭니다.
+1. *helloworld* 라는 디렉터리를 만듭니다.
 
 2. 텍스트 편집기를 사용하여 *helloworld* 디렉터리에 **server.js**라는 새 파일을 만듭니다.
 
