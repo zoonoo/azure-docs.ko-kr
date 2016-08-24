@@ -44,7 +44,7 @@
 - [앱 서비스](#app-service-limits)
 - [Application Insights](#application-insights-limits)
 - [자동화](#automation-limits)
-- [Azure Redis 캐시 (영문) ](#azure-redis-cache-limits)
+- [Azure Redis 캐시](#azure-redis-cache-limits) (영문)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [백업](#backup-limits)
 - [배치](#batch-limits)
