@@ -37,13 +37,17 @@ SMTP에 연결하여 전자 메일을 보냅니다.
 
 이 예제에서는 SMTP가 자체 트리거를 포함하지 않으므로 **Salesforce - 개체를 만들 때** 트리거를 사용합니다. 이 트리거는 Salesforce에서 새 개체를 만들 때 활성화됩니다. 예제에서는 Salesforce에서 새 잠재 고객이 생성될 때마다 새 잠재 고객이 생성되었다는 알림과 함께 SMTP 커넥터를 통해 *메일 보내기* 작업이 발생하도록 설정합니다.
 
-1. 논리 앱 디자이너에서 검색 상자에 *salesforce*를 입력한 후 **Salesforce - 개체를 만들 때** 트리거를 선택합니다. ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)
+1. 논리 앱 디자이너에서 검색 상자에 *salesforce*를 입력한 후 **Salesforce - 개체를 만들 때** 트리거를 선택합니다.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. **개체를 만들 때** 컨트롤이 표시됩니다. ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)
+2. **개체를 만들 때** 컨트롤이 표시됩니다.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. **개체 형식**을 선택하고 개체 목록에서 *Lead*를 선택합니다. 이 단계에서는 Salesforce에서 새 잠재 고객을 만들 때마다 논리 앱에 알리는 트리거를 만들고 있음을 지정합니다. ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)
+3. **개체 형식**을 선택하고 개체 목록에서 *Lead*를 선택합니다. 이 단계에서는 Salesforce에서 새 잠재 고객을 만들 때마다 논리 앱에 알리는 트리거를 만들고 있음을 지정합니다.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. 트리거를 만들었습니다. ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)
+4. 트리거를 만들었습니다.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## SMTP 작업 사용
 
@@ -51,15 +55,19 @@ SMTP에 연결하여 전자 메일을 보냅니다.
 
 이제 트리거가 추가되었고 다음 단계에 따라 Salesforce에 새 잠재 고객이 생성될 대 발생할 SMTP 작업을 추가합니다.
 
-1. **+ 새 단계**를 선택하여 새 잠재 고객이 생성될 때 수행할 작업을 추가합니다. ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)
+1. **+ 새 단계**를 선택하여 새 잠재 고객이 생성될 때 수행할 작업을 추가합니다.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. **작업 추가**를 선택합니다. 수행할 작업을 검색할 수 있는 검색 상자가 열립니다. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)
+2. **작업 추가**를 선택합니다. 수행할 작업을 검색할 수 있는 검색 상자가 열립니다.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
 3. *smtp*를 입력하여 SMTP와 관련된 작업을 검색합니다.
 
-4. 새 잠재 고객이 생성될 때 수행할 작업으로 **SMTP - 전자 메일 보내기**를 선택합니다. 작업 제어 블록이 열립니다. 아직 수행하지 않은 경우 디자이너 블록에서 smtp 연결을 설정해야 합니다. ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)
+4. 새 잠재 고객이 생성될 때 수행할 작업으로 **SMTP - 전자 메일 보내기**를 선택합니다. 작업 제어 블록이 열립니다. 아직 수행하지 않은 경우 디자이너 블록에서 smtp 연결을 설정해야 합니다.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
-5. **SMTP - 전자 메일 보내기** 블록에 원하는 전자 메일 정보를 입력합니다. ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)
+5. **SMTP - 전자 메일 보내기** 블록에 원하는 전자 메일 정보를 입력합니다.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
 6. 워크플로를 활성화하려면 작업을 저장합니다.
 
