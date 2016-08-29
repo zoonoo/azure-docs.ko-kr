@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
@@ -93,7 +93,7 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Article references-->
 [Azure PowerShell 설치 및 구성 방법]: ./powershell-install-configure.md
 [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision-powershell.md
-[데이터베이스 복원]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[데이터베이스 복원]: ./sql-data-warehouse-restore-database-powershell.md
 [REST를 사용하여 확장성 관리]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
@@ -114,4 +114,4 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 <!--Other Web references-->
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

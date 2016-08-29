@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/16/2016"
+   ms.date="08/09/2016"
    ms.author="karolz@microsoft.com"/>
 
 # 서비스 패브릭 응용 프로그램 추적 저장소로 ElasticSearch 사용
 ## 소개
-이 문서에서는 [Azure 서비스 패브릭](https://azure.microsoft.com/documentation/services/service-fabric/) 응용 프로그램이 프로그램 추적 저장소, 인덱싱 및 검색을 위해 **Elasticsearch** 및 **Kibana**를 사용할 수 있는 방법에 대해 설명합니다. [Elasticsearch](https://www.elastic.co/guide/index.html)는 이 작업에 적합한 공개 소스, 분산 및 확장 가능한 실시간 검색 및 분석 엔진이며 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 컴퓨터에 설치할 수 있습니다. Elasticsearch는 **ETW(Windows용 이벤트 추적)**와 같은 기술을 사용하여 생성된 *구조화된* 추적을 매우 효율적으로 처리할 수 있습니다.
+이 문서에서는 [Azure 서비스 패브릭](https://azure.microsoft.com/documentation/services/service-fabric/) 응용 프로그램이 프로그램 추적 저장소, 인덱싱 및 검색을 위해 **Elasticsearch** 및 **Kibana**를 사용할 수 있는 방법에 대해 설명합니다. [Elasticsearch](https://www.elastic.co/guide/index.html)는 이 작업에 적합한 공개 소스, 분산 및 확장 가능한 실시간 검색 및 분석 엔진이며 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 컴퓨터에 설치할 수 있습니다. Elasticsearch는 **ETW(Windows용 이벤트 추적)**와 같은 기술을 사용하여 생성된 *구조화된* 추적을 효율적으로 처리할 수 있습니다.
 
-ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 사용됩니다. 이는 서비스 패브릭 응용 프로그램에서 응용 프로그램의 진단 정보를 얻는 데에도 권장되는 방법입니다. 이렇게 하면 런타임 제공 및 응용 프로그램 제공 추적 사이의 상관 관계를 허용하고 문제를 보다 쉽게 해결할 수 있습니다. Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 기본적으로 ETW 추적을 내보내는 로깅 API(.NET **EventSource** 클래스 기반)가 포함됩니다. ETW를 사용한 서비스 패브릭 응용 프로그램 추적에 대한 일반적인 개요는 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
+ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 사용됩니다. 이는 서비스 패브릭 응용 프로그램에서 응용 프로그램의 진단 정보를 얻는 데에도 권장되는 방법입니다. 동일한 메커니즘을 사용하면 런타임 제공 및 응용 프로그램 제공 추적 사이의 상관관계를 허용하고 문제를 보다 쉽게 해결할 수 있습니다. Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 기본적으로 ETW 추적을 내보내는 로깅 API(.NET **EventSource** 클래스 기반)가 포함됩니다. ETW를 사용한 서비스 패브릭 응용 프로그램 추적에 대한 일반적인 개요는 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
 
-ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) ElasticSearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
+Elasticsearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) Elasticsearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
 
-+ **In Process 추적 캡처** 
++ **In Process 추적 캡처**
 응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(Elasticsearch).
 
-+ **Out of Process 추적 캡처** 
++ **Out of Process 추적 캡처**
 별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
 
 아래에서 Azure에 Elasticsearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 Elasticsearch에 데이터를 전송하도록 서비스 패브릭 서비스를 구성하는 방법을 설명합니다.
@@ -54,9 +54,9 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 *"C:\\Program Files\\Git"* 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
+    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 **"C:\\Program Files\\Git"** 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
 
-4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 통해) Elastic Search 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet을 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
+4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet를 통해) Elastic Search 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet를 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
 
 5. 아직 수행하지 않은 경우 현재 디렉터리를 ES-MultiNode 폴더로 변경합니다.
 
@@ -92,14 +92,14 @@ CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-reg
 스크립트 실행에서 오류가 발생하고 잘못된 템플릿 매개 변수 값으로 오류가 발생한 것을 결정하는 경우 매개 변수 파일을 수정하고 다른 리소스 그룹 이름으로 스크립트를 다시 실행합니다. 동일한 리소스 그룹 이름을 다시 사용하고 `-RemoveExistingResourceGroup` 매개 변수를 스크립트 호출에 추가하여 스크립트에서 이전 것을 정리할 수 있습니다.
 
 ### CreateElasticSearchCluster 스크립트 실행 결과
-`CreateElasticSearchCluster` 스크립트를 실행한 후 다음과 같은 주요 아티팩트가 생성됩니다. 명확한 설명을 위해 `dnsNameForLoadBalancerIP` 매개 변수의 값에 대해 "myBigCluster"를 사용했고 클러스터를 만든 지역을 미국 서부라고 가정합니다.
+`CreateElasticSearchCluster` 스크립트를 실행한 후 다음과 같은 주요 아티팩트가 생성됩니다. 이 예제에서는 `dnsNameForLoadBalancerIP` 매개 변수의 값에 대해 "myBigCluster"를 사용했고 클러스터를 만든 지역을 미국 서부라고 가정합니다.
 
 |아티팩트|이름, 위치 및 설명|
 |----------------------------------|----------------------------------|
-|원격 관리를 위한 SSH 키 |myBigCluster.key 파일(CreateElasticSearchCluster가 실행된 디렉터리에 있음). <br /><br />클러스터의 데이터 노드에 관리자 노드를 연결하는 데(관리자 노드를 통해) 사용할 수 있는 키입니다.|
+|원격 관리를 위한 SSH 키 |myBigCluster.key 파일(CreateElasticSearchCluster가 실행된 디렉터리에 있음). <br /><br />이 키 파일을 클러스터의 데이터 노드에 관리자 노드를 연결하는 데(관리자 노드를 통해) 사용할 수 있습니다.|
 |관리 노드 |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />원격 Elasticsearch 클러스터 관리를 위한 외부 SSH 연결을 허용하는 유일한 전용 VM입니다. 모든 Elasticsearch 클러스터 노드와 동일한 가상 네트워크에서 실행되지만 Elasticsearch 서비스를 실행하지 않습니다.|
 |데이터 노드 |myBigCluster1 … myBigCluster*N* <br /><br />Elasticsearch 및 Kibana 서비스를 실행하는 데이터 노드입니다. 각 노드에 SSH를 통해 연결할 수 있지만 관리자 노드를 통해서만 연결할 수 있습니다.|
-|Elasticsearch 클러스터 |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />위는 Elasticsearch 클러스터에 대한 기본 끝점입니다(/es 접미사). 기본 HTTP 인증으로 보호됩니다. 자격 증명은 ES-MultiNode 템플릿의 esUserName/esPassword 매개 변수로 지정됩니다. 클러스터에는 기본 클러스터 관리를 위해 설치된(http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) 헤드 플러그 인도 있습니다.|
+|Elasticsearch 클러스터 |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />Elasticsearch 클러스터에 대한 기본 끝점입니다(/es 접미사). 기본 HTTP 인증으로 보호됩니다. 자격 증명은 ES-MultiNode 템플릿의 esUserName/esPassword 매개 변수로 지정됩니다. 클러스터에는 기본 클러스터 관리를 위해 설치된(http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) 헤드 플러그 인도 있습니다.|
 |Kibana 서비스 |http://myBigCluster.westus.cloudapp.azure.com <br /><br />만든 Elasticsearch 클러스터에 데이터가 표시되도록 Kibana 서비스가 설정되었습니다. 클러스터 자체와 동일한 인증 자격 증명으로 보호됩니다.|
 
 ## In-proces와 out-of-process 추적 캡처 비교
@@ -127,7 +127,7 @@ CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-reg
 
     * 응용 프로그램/서비스 프로세스 내에서 실행되는 진단 하위 시스템은 컨텍스트 정보와 함께 추적을 쉽게 보강할 수 있습니다.
 
-    * Out of Process 방식에서 ETW(Windows용 이벤트 추적)와 같은 일부 프로세스간 통신 메커니즘을 통해 에이전트에 데이터를 보내야 합니다. 추가 제한 사항이 적용될 수 있습니다.
+    * Out of Process 방식에서 ETW(Windows용 이벤트 추적)와 같은 일부 프로세스간 통신 메커니즘을 통해 에이전트에 데이터를 보내야 합니다. 이 메커니즘에 따라 추가 제한 사항이 적용될 수 있습니다.
 
 다음은 **out-of-process 추적 캡처**의 장점입니다.
 
@@ -139,9 +139,9 @@ CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-reg
 
     * 플랫폼 공급업체(예: Microsoft Azure 진단 에이전트)에서 개발한 에이전트는 엄격한 테스트 및 강화를 받습니다.
 
-    * In Process 추적 캡처로 응용 프로그램 프로세스의 진단 데이터 전송 작업이 응용 프로그램 주요 작업을 방해하거나 타이밍 또는 성능 문제가 발생하지 않도록 처리되어야 합니다. 독립적으로 실행 중인 에이전트는 이러한 문제가 발생할 가능성이 적고 일반적으로 시스템에 해당 영향을 제한하도록 특별히 설계되었습니다.
+    * In Process 추적 캡처로 응용 프로그램 프로세스의 진단 데이터 전송 작업이 응용 프로그램 주요 작업을 방해하거나 타이밍 또는 성능 문제가 발생하지 않도록 처리되어야 합니다. 독립적으로 실행 중인 에이전트는 이러한 문제가 발생할 가능성이 작고 시스템에 해당 영향을 제한하도록 특별히 설계되었습니다.
 
-물론 두 가지 접근법을 결합하여 양쪽의 이점을 누릴 수도 있습니다. 실제로 많은 응용 프로그램에는 이 방법이 최적의 솔루션일 수 있습니다.
+두 가지 접근법을 결합하여 양쪽의 이점을 누릴 수도 있습니다. 실제로 많은 응용 프로그램에는 이 방법이 최적의 솔루션일 수 있습니다.
 
 여기에서 **Microsoft.Diagnostic.Listeners 라이브러리** 및 In Process 추적 캡처를 사용하여 서비스 패브릭 응용 프로그램에서 Elasticsearch 클러스터에 데이터를 보냅니다.
 
@@ -158,12 +158,12 @@ Microsoft.Diagnostic.Listeners 라이브러리는 PartyCluster 샘플 서비스 
 
     ![Microsoft.Diagnostics.EventListeners 및 Microsoft.Diagnostics.EventListeners.Fabric 라이브러리에 대한 프로젝트 참조][1]
 
-### 서비스 패브릭 일반 공급 릴리스 및 Microsoft.Diagnostics.Tracing NuGet 패키지
-서비스 패브릭 일반 공급 릴리스(2.0.135, 2016년 3월 31일 출시)를 사용하여 빌드한 응용 프로그램은 **.NET Framework 4.5.2**를 대상으로 합니다. 이는 GA 릴리스 시 Azure에서 지원하는 가장 높은 버전의 .NET Framework입니다. 아쉽게도 이 버전의 프레임워크는 Microsoft.Diagnostics.Listeners 라이브러리에서 필요한 특정 EventListener API가 부족합니다. EventSource(패브릭 응용 프로그램에서 API 로깅의 기본을 형성하는 구성 요소) 및 EventListener는 강력하게 결합되므로 Microsoft.Diagnostics.Listeners 라이브러리를 사용하는 모든 프로젝트는 EventSource의 대체 구현을 사용해야 합니다. 이 버전은 Microsoft에서 작성한 **Microsoft.Diagnostics.Tracing NuGet 패키지**에서 제공됩니다. 패키지는 프레임워크에 포함된 이전 버전인 EventSource와 완벽하게 호환되므로 참조된 네임스페이스 변경 이외의 다른 코드 변경이 필요하지 않습니다.
+### 서비스 패브릭 일반 공급 릴리스 및 Microsoft.Diagnostics.Tracing Nuget 패키지
+서비스 패브릭 일반 공급 릴리스(2.0.135, 2016년 3월 31일 출시)를 사용하여 빌드한 응용 프로그램은 **.NET Framework 4.5.2**를 대상으로 합니다. 이 버전은 GA 릴리스 시 Azure에서 지원하는 가장 높은 버전의 .NET Framework입니다. 아쉽게도 이 버전의 프레임워크는 Microsoft.Diagnostics.Listeners 라이브러리에서 필요한 특정 EventListener API가 부족합니다. EventSource(패브릭 응용 프로그램에서 API 로깅의 기본을 형성하는 구성 요소) 및 EventListener는 강력하게 결합되므로 Microsoft.Diagnostics.Listeners 라이브러리를 사용하는 모든 프로젝트는 EventSource의 대체 구현을 사용해야 합니다. 이 구현은 Microsoft에서 작성한 **Microsoft.Diagnostics.Tracing Nuget 패키지**에서 제공됩니다. 패키지는 프레임워크에 포함된 이전 버전인 EventSource와 완벽하게 호환되므로 참조된 네임스페이스 변경 이외의 다른 코드 변경이 필요하지 않습니다.
 
 EventSource 클래스의 Microsoft.Diagnostics.Tracing 구현을 사용하여 시작하려면 Elasticsearch에 데이터를 보내야 하는 각 서비스 프로젝트에 대해 이 단계를 따릅니다.
 
-1. 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+1. 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다.
 
 2. nuget.org 패키지 원본으로 전환하고(선택되지 않은 경우) "**Microsoft.Diagnostics.Tracing**"을 검색합니다.
 
@@ -243,10 +243,10 @@ Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-`serviceUri`, `userName` 및 `password`의 값은 Elasticsearch 클러스터 끝점 주소, Elasticsearch 사용자 이름 및 암호에 각각 해당됩니다. `indexNamePrefix`는 Elasticsearch 인덱스에 대한 접두사입니다. Microsoft.Diagnostics.Listeners 라이브러리는 매일 해당 데이터에 대한 새 인덱스를 만듭니다.
+`serviceUri`, `userName` 및 `password` 매개 변수의 값은 Elasticsearch 클러스터 끝점 주소, Elasticsearch 사용자 이름 및 암호에 각각 해당됩니다. `indexNamePrefix`는 Elasticsearch 인덱스에 대한 접두사입니다. Microsoft.Diagnostics.Listeners 라이브러리는 매일 해당 데이터에 대한 새 인덱스를 만듭니다.
 
 ### 확인
-이것으로 끝입니다. 이제 서비스가 실행될 때마다 구성에 지정된 Elasticsearch 서비스에 추적을 보내기 시작합니다. 이를 확인하기 위해서는 대상 Elasticsearch에 연결된 Kibana UI를 열고(예제에서 페이지 주소는 http://myBigCluster.westus.cloudapp.azure.com/) `ElasticSearchListener` 인스턴스에 대해 선택한 이름 접두사가 있는 인덱스가 실제로 데이터로 만들어지고 채워졌는지 확인합니다.
+이것으로 끝입니다. 이제 서비스가 실행될 때마다 구성에 지정된 Elasticsearch 서비스에 추적을 보내기 시작합니다. 대상 Elasticsearch 인스턴스와 연결된 Kibana UI를 열어 이 작업을 확인할 수 있습니다. 이 예제에서는 페이지 주소가 http://myBigCluster.westus.cloudapp.azure.com/입니다. `ElasticSearchListener` 인스턴스에 대해 선택한 이름 접두사를 포함하는 인덱스가 실제로 만들어졌으며 데이터로 채워졌는지 확인합니다.
 
 ![PartyCluster 응용 프로그램 이벤트를 보여 주는 Kibana][2]
 
@@ -257,4 +257,4 @@ Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

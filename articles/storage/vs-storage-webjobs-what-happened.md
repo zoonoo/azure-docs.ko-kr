@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # 내 WebJob 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
@@ -36,4 +36,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

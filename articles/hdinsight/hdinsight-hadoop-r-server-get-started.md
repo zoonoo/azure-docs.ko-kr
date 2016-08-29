@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/19/2016"
+   ms.date="08/17/2016"
    ms.author="jeffstok"
 />
 
@@ -360,7 +360,7 @@ R Server를 사용하면 손쉽게 기존 R 코드를 가져와 `rxExec`를 통�
 
 ## R 패키지 설치
 
-SSH를 통해 가장자리 노드에 연결했을 때 가장자리 노드에 추가 R 패키지를 설치하려는 경우 R 콘솔 내에서 직접 `install.packages()`를 사용할 수 있습니다. 그러나 클러스터의 작업자 노드에 R 패키지를 설치해야 하는 경우에는 스크립트 작업을 사용해야 합니다.
+SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키지를 설치하려면 R 콘솔 내에서 직접 `install.packages()`를 사용할 수 있습니다. 그러나 클러스터의 작업자 노드에 R 패키지를 설치해야 하는 경우에는 스크립트 작업을 사용해야 합니다.
 
 스크립트 작업은 HDInsight 클러스터에 대한 구성을 변경하거나 추가 소프트웨어를 설치하는 데 사용되는 Bash 스크립트입니다. 여기서는 추가 R 패키지를 설치하는 데 사용됩니다. 스크립트 작업을 사용하여 추가 패키지를 설치하려면 다음 단계를 사용하세요.
 
@@ -374,17 +374,18 @@ SSH를 통해 가장자리 노드에 연결했을 때 가장자리 노드에 추
 
 3. __스크립트 작업 제출__ 블레이드에서 다음 정보를 입력합니다.
 
-    * __이름__: 이 스크립트를 식별하는 데 사용할 이름
-    * __Bash 스크립트 URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
-    * __헤드__: __선택 취소__
-    * __작업자__: __선택__
-    * __Zookeeper__: __선택 취소__
-    * __매개 변수__: 설치할 R 패키지 예: `bitops stringr arules`
-    * __이 스크립트 유지...__: __선택__
+* __이름__: 이 스크립트를 식별하는 데 사용할 이름
+* __Bash 스크립트 URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+* __헤드__: __선택 취소__
+* __작업자__: __선택__
+* __Zookeeper__: __선택 취소__
+* __매개 변수__: 설치할 R 패키지 예: `bitops stringr arules`
     
-    > [AZURE.IMPORTANT] R 패키지를 설치하기 위해 시스템 라이브러리를 추가해야 하는 경우 여기에서 사용된 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치할 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
-    >
-    >스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+    > [AZURE.NOTE] 기본적으로 모든 R 패키지는 설치된 R Server의 버전과 일치하는 Microsoft MRAN 리포지토리의 스냅숏에서 설치됩니다. 그러나 최신 버전의 패키지를 설치하면 호환되지 않을 위험이 있는 경우 `useCRAN`을 패키지 목록의 첫 번째 요소(예: `useCRAN bitops, stringr, arules`)로 지정하여 수행할 수 있습니다.
+    
+* __이 스크립트 유지...__: __선택__해야 합니다.
+    
+    > [AZURE.IMPORTANT] 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 가장 인기 있는 상위 100개 R 패키지에서 필요한 종속성을 미리 설치했습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에서 사용된 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치할 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다. 스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
     
     ![스크립트 작업 추가](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
@@ -411,4 +412,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 Azure Resource Manager 템플릿을 사용하는 일반적인 정보는 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

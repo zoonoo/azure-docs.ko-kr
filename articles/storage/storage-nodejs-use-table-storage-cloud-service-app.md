@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # 저장소를 사용하는 Node.js 웹 응용 프로그램
@@ -74,7 +74,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	이 명령의 출력은 다음과 유사하게 표시됩니다.
+	이 명령의 출력은 다음과 유사합니다.
 
 		node-uuid@1.4.1 node_modules\node-uuid
 
@@ -403,4 +403,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
  
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

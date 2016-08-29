@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -137,7 +137,7 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-KR") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "en-US") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -168,7 +168,7 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 
 (user.extensionAttribute15 -eq "Marketing")
 
-사용자 지정 특성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되고 "user.extension\_[GUID]\_\_[Attribute]" 형식입니다. 여기서 [GUID]는 AAD에서 특성을 만든 응용 프로그램에 대한 AAD의 고유한 식별자이고 [Attribute]는 만들어진 특성 이름입니다. 사용자 지정 특성을 사용하는 규칙의 예는 다음과 같습니다.
+사용자 지정 특성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되고 "user.extension_[GUID]\__[Attribute]" 형식입니다. 여기서 [GUID]는 AAD에서 특성을 만든 응용 프로그램에 대한 AAD의 고유한 식별자이고 [Attribute]는 만들어진 특성 이름입니다. 사용자 지정 특성을 사용하는 규칙의 예는 다음과 같습니다.
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -196,17 +196,34 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
 
 
+## 특성을 사용하여 장치 개체에 대한 규칙을 만들려면
+
+또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
+
+| 속성 | 허용되는 값 | 사용 현황 |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName | 임의의 문자열 값 | (device.displayName -eq "Rob Iphone”) |
+| deviceOSType | 임의의 문자열 값 | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | 임의의 문자열 값 | (device.OSVersion -eq "9.1") |
+| isDirSynced | true false null | (device.isDirSynced -eq "true") |
+| isManaged | true false null | (device.isManaged -eq "false") |
+| isCompliant | true false null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.
+
+
 ## 추가 정보
-이러한 문서는 Azure Active Directory에 추가 정보를 제공합니다.
+이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [그룹의 동적 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-* [그룹 설정을 구성하는 Azure Active Directory cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [그룹 설정을 구성하는 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

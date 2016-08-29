@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
 # ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트
 
 
-이 항목은 Azure SQL 데이터베이스 V12 가 ADO.NET 4.5 이상을 사용하는 클라이언트의 연결 동작에 가져오는 변경 내용에 대해 설명합니다.
+이 항목은 Azure SQL 데이터베이스 V12가 ADO.NET 4.5 이상을 사용하는 클라이언트의 연결 동작에 가져오는 변경 내용에 대해 설명합니다.
 
 
 ## SQL 데이터베이스의 V11: 포트 1433
@@ -120,4 +120,4 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 
 - [방법: SQL 데이터베이스에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

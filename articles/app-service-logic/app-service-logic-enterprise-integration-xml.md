@@ -26,8 +26,12 @@
 - [플랫 파일 인코딩 및 플랫 파일 디코딩](./app-service-logic-enterprise-integration-flatfile.md "플랫 파일 인코딩/디코딩에 대해 알아보기") - 플랫 파일 인코딩/디코딩은 플랫 파일을 인코딩하거나 디코딩하는 기능을 제공합니다.
 - [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - 메시지를 보완하고 메시지에서 특정 속성을 추출하는 기능을 제공합니다. 그런 후에는 추출된 속성을 사용하여 메시지를 대상 또는 중간 끝점으로 라우팅할 수 있습니다.
 
+## 직접 체험해 보기
+
+체험해 보세요. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline)를 클릭하여 논리 앱의 XML 기능을 사용하여 완벽하게 작동하는 논리 앱을 배포합니다.
+
 ## 자세한 정보
 
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

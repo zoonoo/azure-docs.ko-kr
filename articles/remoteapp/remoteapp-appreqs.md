@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # 앱 요구 사항
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+
 Azure RemoteApp은 Windows Server 2012 R2 이미지로 스트리밍 32비트 또는 64비트 Windows 기반 응용 프로그램을 지원합니다. 대부분 기존 32비트 또는 64비트 Windows 기반 응용 프로그램은 Azure RemoteApp(원격 데스크톱 서비스 또는 이전의 터미널 서비스) 환경에서 "있는 그대로" 실행됩니다. 그러나 실행과 잘 실행되고 있는 것 사이에는 차이가 있습니다. 일부 응용 프로그램은 제대로 작동되고 잘 수행되고 있지만 일부는 그렇지 않습니다. 다음 정보는 원격 데스크톱 서비스 환경에서의 응용 프로그램 개발 및 호환성을 위한 테스트에 대한 지침을 제공합니다.
 
 팁: Microsoft는 작동하는 앱의 예를 만들고 있습니다. RemoteApp에서 Microsoft Access, QuickBooks, 및 App-v를 사용하여 설명하는 새 항목을 볼 수 있습니다.
@@ -28,7 +32,7 @@ Azure RemoteApp은 Windows Server 2012 R2 이미지로 스트리밍 32비트 또
 
 1.	[Windows 데스크톱 앱에 대한 인증 요구 사항](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx)을 모두 충족하고 [원격 데스크톱 서비스 프로그래밍 지침](https://msdn.microsoft.com/library/aa383490.aspx)을 준수하는 응용 프로그램은 RemoteApp과 완전히 호환됩니다.
 2.	응용 프로그램은 손실 될 수 있는 이미지나 RemoteApp 인스턴스에 로컬로 데이터를 저장 해서는 안됩니다. RemoteApp 컬렉션을 만든 후 인스턴스는 복제 및 상태 비저장 상태이며 응용 프로그램만을 포함해야 합니다. 사용자의 프로필 내 또는 외부 소스에 데이터를 저장합니다.
-3.	사용자 지정 이미지는 손실 될 수 있는 데이터를 포함하지 않아야 합니다.  
+3.	사용자 지정 이미지는 손실 될 수 있는 데이터를 포함하지 않아야 합니다.
 
 ## 앱 테스트
 응용 프로그램을 테스트하려면 다음 단계를 사용합니다.
@@ -55,4 +59,4 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 - 다중 사용자, 다중 프로세서 환경을 위해 응용 프로그램 [스레드 사용량](https://msdn.microsoft.com/library/aa383520.aspx)을 조정하여 균형을 맞추어야 합니다.
 - 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx)하도록 하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

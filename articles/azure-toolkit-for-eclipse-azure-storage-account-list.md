@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -74,7 +74,7 @@ Azure 저장소 계정은 JDK, 응용 프로그램 서버, 임의 구성 요소�
 1. **Storage Accounts** 대화 상자에서 편집할 저장소 계정을 클릭한 후 **Remove**를 클릭합니다.
 2. 저장소 계정을 제거한다는 메시지가 표시되면 **OK**를 클릭합니다.
 
->[AZURE.NOTE] **Storage Accounts** 대화 상자를 통해 저장소 계정을 제거하면, 계정은 Eclipse 내에서 볼 수 있는 저장소 계정 목록에서만 제거됩니다. Azure 구독에서 저장소 계정이 제거되는 것은 아닙니다. 아울러 Eclipse에서 구독 세부 정보를 다시 로드한 후에 저장소 계정이 다시 표시될 수 있습니다.
+>[AZURE.NOTE] **Storage Accounts** 대화 상자를 통해 저장소 계정을 제거하면, 계정은 Eclipse 내에서 볼 수 있는 저장소 계정 목록에서만 제거됩니다. Azure 구독에서 저장소 계정을 제거하는 것은 아닙니다. 아울러 Eclipse에서 구독 세부 정보를 다시 로드한 후에 저장소 계정이 다시 표시될 수 있습니다.
 
 ## 참고 항목 ##
 
@@ -100,4 +100,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

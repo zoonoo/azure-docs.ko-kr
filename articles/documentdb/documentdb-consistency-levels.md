@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # DocumentDB의 일관성 수준
@@ -87,15 +87,12 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
 
 2. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
-3. 계정 블레이드에서 **모든 설정** 블레이드가 아직 열려 있지 않은 경우 맨 위 명령 모음에서 **설정** 아이콘을 클릭합니다.
+3. 계정 블레이드에서 **기본 일관성**을 클릭합니다.
 
-4. **모든 설정** 블레이드의 **기능**에서 **기본 일관성** 항목을 클릭합니다.
+
+4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **확인**을 클릭합니다.
 
 	![설정 아이콘 및 기본 일관성 항목이 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **확인**을 클릭합니다.
-
-	![일관성 수준 및 확인 단추가 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## 쿼리에 대한 일관성 수준
 
@@ -122,4 +119,4 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

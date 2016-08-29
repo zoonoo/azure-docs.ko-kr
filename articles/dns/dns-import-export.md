@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
@@ -193,4 +193,4 @@ DNS 영역을 가져오는 Azure CLI 명령 형식은 다음과 같습니다.<BR
 
 		azure network dns zone export myresourcegroup contoso.com contoso.com.txt
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

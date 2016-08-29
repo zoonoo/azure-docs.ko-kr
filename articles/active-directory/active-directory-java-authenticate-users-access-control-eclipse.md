@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
 # Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
@@ -169,7 +169,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 
     ![ACS용 JSP 파일 추가 예제][add_jsp_file_acs]
 
-    **다음**을 클릭합니다.
+    **Next**를 클릭합니다.
 
 4. **Select JSP Template** 대화 상자에서 **New JSP File (html)**을 선택하고 **Finish**를 클릭합니다.
 5. index.jsp 파일이 Eclipse에서 열리면 텍스트에 추가하여 기존 `<body>` 요소 내에 **Hello ACS World!**를 표시합니다. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
@@ -240,7 +240,7 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
 
 13. **Finish**를 클릭하여 **Edit Library** 대화 상자를 닫습니다.
 14. **OK**를 클릭하여 **Properties for MyACSHelloWorld** 대화 상자를 닫습니다.
-15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기**(영문) 항목의 [To deploy your application to Azure](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다.
+15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문) 항목의 **To deploy your application to Azure** 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다.
 
 웹 응용 프로그램이 배포된 후 열려 있는 모든 브라우저 세션을 닫고 웹 응용 프로그램을 실행하고 나면 Windows Live ID 자격 증명을 사용하여 로그인하라는 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램의 반환 URL로 이동되어야 합니다.
 
@@ -249,7 +249,7 @@ ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제�
 
 ## <a name="next_steps"></a>다음 단계
 
-ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Markup Language)의 예제는 [Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법][](영문)을 참조하세요. ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][](영문)을 참조하세요.
+ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Markup Language)의 예제는 [Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법][]\(영문)을 참조하세요. ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][]\(영문)을 참조하세요.
 
 또한 이 예제에서는 **Embed the certificate in the WAR file** 옵션을 사용했습니다. 이 옵션을 사용하면 인증서를 더 간단하게 배포할 수 있습니다. 대신 서명 인증서를 WAR 파일과 별도로 유지하려면 다음 방법을 사용하면 됩니다.
 
@@ -310,4 +310,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

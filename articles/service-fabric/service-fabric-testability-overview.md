@@ -120,4 +120,4 @@ PowerShell을 사용하려면 서비스 패브릭 SDK를 설치해야 합니다.
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

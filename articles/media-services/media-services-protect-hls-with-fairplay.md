@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍" 
-	description="이 항목에서는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법을 보여 주고 개요를 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다." 
+	description="이 항목에서는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/15/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍 
@@ -24,15 +24,11 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 - **Apple FairPlay** - 개별 비디오 및 오디오 샘플이 **AES-128 CBC** 모드로 암호화됩니다. **FairPlay 스트리밍**(FPS)은 장치 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 통해 FPS를 지원합니다.
 
-	>[AZURE.NOTE]
-	AMS를 사용하여 FairPlay로 암호화된 된 HLS를 전달하는 기능은 현재 미리 보기로 제공됩니다.
-
-
 다음 이미지는 "FairPlay 동적 암호화" 워크플로를 보여 줍니다.
 
 ![FairPlay로 보호](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
-이 항목에는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화하는 방법을 보여 줍니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
+이 항목에는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화하는 방법을 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
 
 	
 ## 요구 사항 및 고려 사항
@@ -42,12 +38,12 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 	- Azure 계정. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
 	- 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
 	- [Apple Development Program](https://developer.apple.com/)에 등록합니다.
-	- Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. Azure 미디어 서비스로 KSM(Key Security Module)을 이미 구현했고 최종 FPS 패키지를 요청하고 있음을 요청에 명시하세요. 최종 FPS 패키지에는 FairPlay를 구성하는 데 사용할 인증서를 생성하고 ASK를 가져오기 위한 지침이 포함됩니다.
+	- Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. Azure 미디어 서비스로 KSM(키 보안 모듈)을 이미 구현했고 최종 FPS 패키지를 요청하고 있음을 요청에 명시하세요. 최종 FPS 패키지에는 FairPlay를 구성하는 데 사용할 인증서를 생성하고 ASK를 가져오기 위한 지침이 포함됩니다.
 
 	- Azure 미디어 서비스 .NET SDK 버전 **3.6.0** 이상.
 
 - AMS 키 배달 쪽에서 다음을 설정해야 합니다.
-	- **AC(응용 프로그램 인증서)** - 개인 키가 포함된 .pfx 파일입니다. 이 파일은 고객이 생성하며 해당 고객의 암호로 암호화됩니다.
+	- **AC(앱 인증서)** - 개인 키가 포함된 .pfx 파일입니다. 이 파일은 고객이 생성하며 해당 고객의 암호로 암호화됩니다.
 		
 	 	고객은 키 배달 정책을 구성할 때 이 암호와 base64 형식의 .pfx를 제공해야 합니다.
 
@@ -65,16 +61,16 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 		
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
-	- **응용 프로그램 인증서 암호** - .pfx 파일을 만들기 위한 고객 암호입니다.
-	- **응용 프로그램 인증서 암호 ID** - 고객은 다른 AMS 키를 업로드할 때와 유사한 방법으로 **ContentKeyType.FairPlayPfxPassword** 열거형 값을 사용하여 암호를 업로드해야 합니다. 그 결과로 AMS ID가 제공되며, 키 배달 정책 옵션 내에서 이를 사용해야 합니다.
-	- **iv** - 16 바이트 임의 값이 자산 배달 정책의 iv와 일치해야 합니다. 고객은 IV를 생성하여 두 곳, 즉 자산 배달 정책 및 키 배달 정책 옵션에 두어야 합니다.
-	- **ASK** - Apple 개발자 포털을 사용하여 인증서를 생성하는 경우 ASK(Application Secret Key)가 제공됩니다. 각 개발 팀에 고유한 ASK가 제공됩니다. ASK 복사본을 저장하여 안전한 장소에 보관하세요. 나중에 ASK를 Azure 미디어 서비스의 FairPlayAsk로 구성해야 합니다.
+	- **앱 인증서 암호** - .pfx 파일을 만들기 위한 고객 암호입니다.
+	- **앱 인증서 암호 ID** - 고객은 다른 AMS 키를 업로드할 때와 유사한 방법으로 **ContentKeyType.FairPlayPfxPassword** 열거형 값을 사용하여 암호를 업로드해야 합니다. 그 결과로 AMS ID가 제공되며, 키 배달 정책 옵션 내에서 이를 사용해야 합니다.
+	- **iv** - 16바이트 임의 값이 자산 배달 정책의 iv와 일치해야 합니다. 고객은 IV를 생성하여 두 곳, 즉 자산 배달 정책 및 키 배달 정책 옵션에 두어야 합니다.
+	- **ASK** - Apple 개발자 포털을 사용하여 인증서를 생성하는 경우 ASK(응용 프로그램 암호 키)가 제공됩니다. 각 개발 팀에 고유한 ASK가 제공됩니다. ASK 복사본을 저장하여 안전한 장소에 보관하세요. 나중에 ASK를 Azure 미디어 서비스의 FairPlayAsk로 구성해야 합니다.
 	-  **ASK ID** - 고객이 ASk를 AMS에 업로드할 때 가져옵니다. 고객은 **ContentKeyType.FairPlayASk** 열거형 값을 사용하여 ASk를 업로드해야 합니다. 결과적으로 AMS ID가 반환되고 이 ID는 키 배달 정책 옵션을 설정할 때 사용해야 합니다.
 
 - FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
- 	- **AC(응용 프로그램 인증서)** - 일부 페이로드를 암호화하기 위해 OS에서 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 이는 플레이어에 필요하기 때문에 AMS에서 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용하여 암호를 해독합니다.
+ 	- **AC(앱 인증서)** - 일부 페이로드를 암호화하기 위해 OS에서 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 이는 플레이어에 필요하기 때문에 AMS에서 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용하여 암호를 해독합니다.
 
-- FairPlay 암호화 스트림을 재생하려면 먼저 실제 ASK를 가져온 다음 실제 인증서를 생성해야 합니다. 이 프로세스는 다음 세 부분을 만듭니다.
+- FairPlay 암호화 스트림을 재생하려면 먼저 실제 ASK를 가져온 다음 실제 인증서를 생성해야 합니다. 해당 프로세스에서는 다음 세 가지 부분을 만듭니다.
 
 	-  .der,
 	-  .pfx 및
@@ -94,7 +90,7 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 	- 배달 방법(이 예제의 경우 FairPlay)
 	- FairPlay 정책 옵션 구성. FairPlay를 구성하는 방법에 대한 자세한 내용은 아래 샘플의 ConfigureFairPlayPolicyOptions() 메서드를 참조하세요.
 	
-		>[AZURE.NOTE] 대부분의 경우 하나의 인증서 및 ASK 집합만 포함하게 되므로 FairPlay 정책 옵션을 한 번만 구성하려고 합니다.
+		>[AZURE.NOTE] 일반적으로 하나의 인증서 및 ASK 집합만 포함하게 되므로 FairPlay 정책 옵션을 한 번만 구성하려고 합니다.
 	- 제한 사항(열기 또는 토큰)
 	- 클라이언트에 키가 배달되는 방식을 정의하는 키 배달 유형에 특정한 정보
 	
@@ -113,7 +109,7 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 ##플레이어/클라이언트 앱별 FairPlay 키 배달 사용
 
-고객은 iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay 콘텐츠를 재생하려면 고객이 라이선스 교환 프로토콜을 구현해야 합니다. 라이선스 교환 프로토콜은 Apple에서 지정하지 않으며 키 배달 요청을 전송하는 방법은 각 앱에서 결정합니다. AMS FairPlay 키 배달 서비스에서는 SPC가 다음 형식의 www-form-url 인코딩된 게시 메시지로 도착해야 합니다.
+고객은 iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay 콘텐츠를 재생하려면 고객이 라이선스 교환 프로토콜을 구현해야 합니다. Apple에서는 라이선스 교환 프로토콜을 지정하지 않습니다. 키 배달 요청을 전송하는 방법은 앱마다 다릅니다. AMS FairPlay 키 배달 서비스에서는 SPC가 다음 형식의 www-form-url 인코딩된 게시 메시지로 도착해야 합니다.
 
 	spc=<Base64 encoded SPC>
 
@@ -128,7 +124,7 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 	PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
-1. 새 콘솔 프로젝트를 만듭니다.
+1. 콘솔 프로젝트를 만듭니다.
 1. 설치하려면 NuGet을 사용하고 Azure 미디어 서비스 .NET SDK를 추가합니다.
 2. 추가 참조를 추가합니다. System.Configuration.
 2. 계정 이름 및 키 정보가 들어 있는 구성 파일을 추가합니다.
@@ -554,4 +550,4 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

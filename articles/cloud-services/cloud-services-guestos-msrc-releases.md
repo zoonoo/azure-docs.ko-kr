@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="07/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>
 
 # Azure 게스트 OS 
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## 게스트 OS 8월 
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Internet Explorer용 누적 보안 업데이트 | 4\.35, 3.42, 2.54 | 2016년 8월 9일 |
+| MS16-097 | [3177393] | Microsoft 그래픽 구성 요소용 보안 업데이트 | 4\.35, 3.42, 2.54 | 2016년 8월 9일 |
+| MS16-098 | [3178466] | Windows 커널 모드 드라이버용 보안 업데이트 | 4\.35, 3.42, 2.54 | 2016년 8월 9일 |
+| MS16-100 | [3179577] | 보안 부팅용 보안 업데이트 | 4\.35, 3.42 | 2016년 8월 9일 |
+| MS16-101 | [3178465] | Windows 인증 방법에 대한 보안 업데이트 | 4\.35, 3.42, 2.54 | 2016년 8월 9일 |
+| MS16-102 | [3182248] | Microsoft Windows PDF 라이브러리용 보안 업데이트 | 4\.35, 3.42 | 2016년 8월 9일 |
+| MS16-077 다시 릴리스 | [3165191] | 웹 프록시 자동 검색(WPAD)에 대한 보안 업데이트 | 4\.35, 3.42, 2.54 | 2016년 8월 9일 |
+| | [3172605] | Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2016년 7월 업데이트 롤업 | 2\.54 | 2016년 8월 9일 |
+| | [3172615] | Windows Server 2012용 2016년 7월 업데이트 롤업 | 3\.42 | 2016년 8월 9일 |
+| | [3172614] | Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 7월 업데이트 롤업 | 4\.35 | 2016년 8월 9일 |
 
 ## 게스트 OS 7월 
 
@@ -299,7 +314,7 @@
 | MS15-014 | [3004361][3004361] | SMB의 취약점으로 인한 보안 기능 우회 | 4\.17, 3.24, 2.36 | 해당 없음 |
 | MS15-015 | [3031432][3031432] | Microsoft Windows의 취약성으로 인한 권한 상승 | 4\.17, 3.24, 2.36 | 해당 없음 |
 | MS15-016 | [3029944][3029944] | Microsoft 그래픽 구성의 취약성으로 인한 정보 공개 | 4\.17, 3.24, 2.36 | 해당 없음 |
-| 해당 없음 | [3004375][3004375] | Windows 명령줄 감사 개선 업데이트<p/>**참고**: 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있습니다. | 4\.17, 3.24, 2.36 | 해당 없음 |
+| 해당 없음 | [3004375][3004375] | Windows 명령줄 감사 개선 업데이트<p/>**참고**: 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있음 | 4\.17, 3.24, 2.36 | 해당 없음 |
  
 
 ## 게스트 OS 1월
@@ -334,6 +349,17 @@
 | 해당 없음 | [2999802][2999802] | 점선 대신 실선이 Windows에서 인쇄됨 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 
+
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
 
 [3169991]: http://support.microsoft.com/kb/3169991
 [3170005]: http://support.microsoft.com/kb/3170005
@@ -496,7 +522,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/ko-KR/kb/3042553/
+[3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -576,4 +602,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

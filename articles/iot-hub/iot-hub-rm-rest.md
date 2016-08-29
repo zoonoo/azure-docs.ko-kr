@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # 자습서: C# 프로그램 및 REST API를 사용하여 IoT Hub 만들기
@@ -36,7 +36,7 @@
 
 ## Visual Studio 프로젝트 준비
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 새로 만듭니다. 프로젝트 이름을 **CreateIoTHubREST**로 지정합니다.
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **CreateIoTHubREST**로 지정합니다.
 
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 
@@ -58,14 +58,13 @@
     using Microsoft.Rest;
     using System.Linq;
     using System.Threading;
-    using Newtonsoft.Json;
     ```
     
-7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **IoT Hub name**은 만들려는 IoT Hub의 이름(예: **MyIoTHub**)입니다(이 이름은 전역적으로 고유해야 하므로 사용자의 이름 또는 이니셜을 포함해야 함). **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
+7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **IoT Hub 이름**은 만들려는 IoT Hub의 이름(예: **MyIoTHub**)입니다(이 이름은 전역적으로 고유해야 하므로 사용자의 이름 또는 이니셜을 포함해야 함). **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
     
@@ -77,7 +76,7 @@
 
 ## REST API를 사용하여 IoT Hub 만들기
 
-[IoT Hub REST API][lnk-rest-api]를 사용하여 리소스 그룹에 새 IoT Hub를 만듭니다. 또한 REST API를 사용하여 기존 IoT Hub를 변경할 수 있습니다.
+[IoT Hub REST API][lnk-rest-api]를 사용하여 리소스 그룹에 IoT Hub를 만듭니다. 또한 REST API를 사용하여 기존 IoT Hub를 변경할 수 있습니다.
 
 1. Program.cs에 다음 메서드를 추가합니다.
     
@@ -138,7 +137,7 @@
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{"Status":"Running"}");
+    } while (body == "{"status":"Running"}");
     ```
 
 6. **CreateIoTHub** 메서드의 끝에 다음 코드를 추가하여 만든 IoT Hub의 키를 검색하고 콘솔에 인쇄합니다.
@@ -167,7 +166,7 @@
 
 4. [포털][lnk-azure-portal]을 방문하여 리소스 목록을 보거나 **Get AzureRmResource** PowerShell cmdlet을 사용하여 응용 프로그램이 새 IoT Hub를 추가했는지 확인할 수 있습니다.
 
-> [AZURE.NOTE] 이 예제 응용 프로그램은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [포털][lnk-azure-portal] 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
+> [AZURE.NOTE] 이 예제 응용 프로그램은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 작업이 완료되면 [포털][lnk-azure-portal]을 통해 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
 
 ## 다음 단계
 
@@ -203,4 +202,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

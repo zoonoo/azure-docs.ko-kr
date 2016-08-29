@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/10/2016"
 	ms.author="kgremban"/>
 
 
@@ -23,7 +23,7 @@ Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니�
 
 1. 사용자가 클라우드에 로그인합니다.
 2. 모든 보안 유효성 검사는 클라우드에서 발생합니다(사전 인증).
-3. 요청이 온-프레미스 응용 프로그램에 보내지면 응용 프로그램 프록시 커넥터는 사용자를 가장하므로 백 엔드 응용 프로그램은 해당 요청을 도메인에 가입된 장치에서 온 일반 사용자로 간주합니다.
+3. 요청이 온-프레미스 응용 프로그램에 보내지면 응용 프로그램 프록시 커넥터는 사용자를 가장합니다. 백 엔드 응용 프로그램은 이를 도메인에 가입된 장치에서 보내는 일반 사용자로 생각합니다.
 
 ![응용 프로그램 프록시를 통해 최종 사용자에서 회사 네트워크에 액세스하는 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -57,9 +57,9 @@ Active Directory에 응용 프로그램 프록시 커넥터 사용 권한을 부
 
 - 모든 앱에는 서비스 주체 이름을 있습니다.
 
-- 커넥터를 실행하는 서버 및 앱을 실행하는 서버가 도메인 가입 상태이고 동일한 도메인의 일부입니다. 도메인 가입에 대한 자세한 내용은 [컴퓨터를 도메인에 가입](https://technet.microsoft.com/library/dd807102.aspx)을 참조하세요.
+- 커넥터를 실행하는 서버 및 앱을 실행하는 서버가 도메인 가입 상태이고 동일한 도메인 또는 신뢰하는 도메인의 일부입니다. 도메인 가입에 대한 자세한 내용은 [컴퓨터를 도메인에 가입](https://technet.microsoft.com/library/dd807102.aspx)을 참조하세요.
 
-- 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 다음은 환경을 강화하는 보안에 영향을 받았을 수 있는 기본 설정입니다. 이에 관한 더 많은 도움은 [KB2009157](https://support.microsoft.com/ko-KR/kb/2009157)에 나옵니다.
+- 커넥터를 실행하는 서버는 사용자에 대한 TokenGroupsGlobalAndUniversal 읽기 권한이 있습니다. 다음은 환경을 강화하는 보안에 영향을 받았을 수 있는 기본 설정입니다. 이에 관한 더 많은 도움은 [KB2009157](https://support.microsoft.com/en-us/kb/2009157)에 나옵니다.
 
 ### Active Directory 구성
 
@@ -116,7 +116,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 - 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져오는(username@domain) 비 Windows 응용 프로그램.
 - Azure AD의 UPN과 온-프레미스 Active Directory의 UPN이 다른 대체 로그인 구성.
 
-응용 프로그램 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 응용 프로그램별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설게되었습니다.
+응용 프로그램 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 응용 프로그램별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설계되었습니다.
 
 ![위임된 로그인 ID 매개 변수 스크린샷](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
@@ -169,4 +169,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

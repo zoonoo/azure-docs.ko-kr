@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Azure Active Directory와 Zscaler One 통합
@@ -19,7 +19,7 @@
 이 자습서에서는 Azure와 Zscaler One의 통합을 보여줍니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
--   ZScaler One Single Sign-On이 설정된 구독  
+-   ZScaler One Single Sign-On이 설정된 구독
 
 이 자습서를 완료하면 ZScaler One에 할당한 Azure AD 사용자가 ZScaler One 회사 사이트 (로그온을 시작한 서비스 공급자)에서, 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
 
@@ -29,7 +29,7 @@
 2.  Single Sign-On 구성
 3.  프록시 설정 구성
 4.  사용자 프로비전 구성
-5.  사용자 할당  
+5.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-zscaler-one-tutorial/IC800214.png "시나리오")
 
@@ -39,7 +39,7 @@
 
 ###ZScaler One에 응용 프로그램 통합을 사용하려면 다음 단계를 수행합니다.
 
-1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.  
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory](./media/active-directory-saas-zscaler-one-tutorial/IC700993.png "Active Directory")
 
@@ -103,24 +103,24 @@
 
 	![인증](./media/active-directory-saas-zscaler-one-tutorial/IC800208.png "인증")
 
-	1.  **SAML Single Sign-On을 사용하여 인증**을 선택합니다.  
-	2.  **SAML Single Sign-On 매개 변수 구성**을 클릭합니다.  
+	1.  **SAML Single Sign-On을 사용하여 인증**을 선택합니다.
+	2.  **SAML Single Sign-On 매개 변수 구성**을 클릭합니다.
 
 9.  **SAML Single Sign-On 매개 변수 구성**대화 상자 페이지에서 다음 단계를 수행하고 **완료**를 클릭합니다.
 
 	![SSO(Single sign-on)](./media/active-directory-saas-zscaler-one-tutorial/IC800209.png "SSO(Single sign-on)")
 
-	1.  Azure 클래식 포털의 **ZScaler One에서 Single Sign-On 구성** 대화 상자에서 **인증 요청 URL** 값을 복사해서 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여넣습니다.  
-	2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.  
-	3.  **Zscaler pem**을 클릭하여 다운로드한 인증서를 업로드합니다.  
-	4.  **SAML 자동 프로비전 사용**을 선택합니다.  
+	1.  Azure 클래식 포털의 **ZScaler One에서 Single Sign-On 구성** 대화 상자에서 **인증 요청 URL** 값을 복사해서 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여 넣습니다.
+	2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
+	3.  **Zscaler pem**을 클릭하여 다운로드한 인증서를 업로드합니다.
+	4.  **SAML 자동 프로비전 사용**을 선택합니다.
 
 10. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
 	![관리](./media/active-directory-saas-zscaler-one-tutorial/IC800210.png "관리")
 
-	1.  **Save**를 클릭합니다.  
-	2.  **지금 활성화**를 클릭합니다.  
+	1.  **Save**를 클릭합니다.
+	2.  **지금 활성화**를 클릭합니다.
 
 11. Azure 클래식 포털의 **ZScaler One에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭합니다.
 
@@ -130,7 +130,7 @@
 
 ###Internet Explorer에서 프록시 설정을 구성하려면
 
-1.  **Internet Explorer**를 시작합니다.  
+1.  **Internet Explorer**를 시작합니다.
 
 2.  **도구** 메뉴에서 **인터넷 옵션**을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.
 
@@ -146,11 +146,11 @@
 
 	![프록시 서버](./media/active-directory-saas-zscaler-one-tutorial/IC769494.png "프록시 서버")
 
-	1.  사용자 LAN의 프록시 서버 사용을 선택합니다.  
-	2.  주소 텍스트 상자에 **gateway.zscalerone.net**을 입력합니다.  
-	3.  포트 텍스트 상자에 **80**을 입력합니다.  
-	4.  **로컬 주소의 바이패스 프록시 서버**를 선택합니다.  
-	5.  **확인**을 클릭하여 **LAN(Local Area Network) 설정** 대화 상자를 닫습니다.  
+	1.  사용자 LAN의 프록시 서버 사용을 선택합니다.
+	2.  주소 텍스트 상자에 **gateway.zscalerone.net**을 입력합니다.
+	3.  포트 텍스트 상자에 **80**을 입력합니다.
+	4.  **로컬 주소의 바이패스 프록시 서버**를 선택합니다.
+	5.  **확인**을 클릭하여 **LAN(Local Area Network) 설정** 대화 상자를 닫습니다.
 
 6.  **확인**을 클릭하여 **인터넷 옵션** 대화 상자를 닫습니다.
 
@@ -158,9 +158,9 @@
 
 Azure AD 사용자가 ZScaler One에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler one로 프로비전되어야 합니다. ZScaler One의 경우, 수동으로 프로비전 합니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
-1.  **Zscaler One** 테넌트에 로그인합니다.  
+1.  **Zscaler One** 테넌트에 로그인합니다.
 
 2.  **관리**를 클릭합니다.
 
@@ -178,8 +178,8 @@ Azure AD 사용자가 ZScaler One에 로그인할 수 있도록 하려면 사용
 
 	![사용자 추가](./media/active-directory-saas-zscaler-one-tutorial/IC781038.png "사용자 추가")
 
-	1.  **사용자ID**, **사용자 표시 이름**, **암호**, **암호 확인**을 입력하고, 프로비전하고자 하는 유효한 AAD 계정의 **그룹** 및 **부서**를 선택합니다.  
-	2.  **Save**를 클릭합니다.  
+	1.  **사용자ID**, **사용자 표시 이름**, **암호**, **암호 확인**을 입력하고, 프로비전하고자 하는 유효한 AAD 계정의 **그룹** 및 **부서**를 선택합니다.
+	2.  **Save**를 클릭합니다.
 
 >[AZURE.NOTE]다른 ZScaler One 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
@@ -189,7 +189,7 @@ Azure AD 사용자가 ZScaler One에 로그인할 수 있도록 하려면 사용
 
 ###ZScaler One에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.  
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **ZScaler One** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭하세요.
 
@@ -199,6 +199,6 @@ Azure AD 사용자가 ZScaler One에 로그인할 수 있도록 하려면 사용
 
 	![예](./media/active-directory-saas-zscaler-one-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

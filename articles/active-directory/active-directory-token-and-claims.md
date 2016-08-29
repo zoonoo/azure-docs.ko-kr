@@ -46,7 +46,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### id\_token의 클레임
 
-| JWT 클레임 | 이름 | 설명 |
+| JWT 클레임 | Name | 설명 |
 |-----------|------|-------------|
 | `appid`| 응용 프로그램 UI | 토큰을 사용하여 리소스에 액세스하는 응용 프로그램을 식별합니다. 응용 프로그램은 자체적으로 작동할 수도 있고 사용자를 대신하여 작동할 수도 있습니다. 응용 프로그램 ID는 일반적으로 응용 프로그램 개체를 나타내지만 Azure AD의 서비스 사용자 개체를 나타낼 수도 있습니다. <br><br> **JWT 값 예제**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud`| 대상 | 토큰의 의도한 수신자입니다. 토큰을 받는 응용 프로그램에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. <br><br> **SAML 값 예제**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT 값 예제**: <br> `"aud":"https://contoso.com"` |
@@ -109,6 +109,20 @@ id\_token은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
 `alg` 클레임은 토큰 서명에 사용된 알고리즘을 나타내고 `x5t` 클레임은 토큰 서명에 사용된 특정 공개 키를 나타냅니다.
 
 특정 시점에 Azure AD는 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 id\_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
+
+다음 위치에 있는 OpenID Connect 메타데이터 문서를 사용하여 서명 유효성 검사에 필요한 서명 키 데이터를 얻을 수 있습니다.
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] 브라우저에서 이 URL을 사용해 보세요!
+
+이 메타데이터 문서는 OpenID Connect 인증을 수행하는 데 필요한 다양한 끝점의 위치 등 여러 유용한 정보를 포함하는 JSON 개체입니다.
+
+토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. `jwks_uri`에 있는 JSON 문서는 해당 특정 시점에 사용 중인 공개 키 정보를 모두 포함합니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.
+
+서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
 
 #### 클레임 유효성 검사
 
@@ -275,4 +289,4 @@ id\_token은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

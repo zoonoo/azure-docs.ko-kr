@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ HPE SaaS의 Azure AD 통합을 구성하려면 갤러리의 HPE SaaS를 관리�
 
 **갤러리에서 HPE SaaS를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -91,7 +91,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[HPE SaaS 테스트 사용자 만들기](#creating-a-hpesaas-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 HPE SaaS에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
@@ -119,7 +119,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에 사용자가 HPE SaaS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. **"https://login.saas.hpe.com/msg"** 고객은 응용 프로그램 특정 URL로 이를 변경할 수도 있습니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 4. **HPE SaaS의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -128,7 +128,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 HPE SaaS 지원 팀에 다운로드한 메타데이터 파일을 첨부하여 메일을 보냅니다. 그러면 SSO 통합에 대해 구성할 수 있습니다.
@@ -173,7 +173,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -187,7 +187,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -269,4 +269,4 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

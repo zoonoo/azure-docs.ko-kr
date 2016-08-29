@@ -36,7 +36,7 @@ PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 �
 
 
 ## .NET SDK
-SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 지역에 자동으로 가져옵니다.
+SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기와 쓰기를 현재 쓰기 하위 지역에 자동으로 가져옵니다.
 
 .NET SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수는 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations라는 속성이 있습니다. 이 속성은 컬렉션 `<string>` 형식이며 지역 이름 목록을 포함합니다. 문자열 값은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정되고 첫 글자와 마지막 글자 앞/뒤에 공백이 없습니다.
 
@@ -141,8 +141,8 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 - [DocumentDB로 데이터를 글로벌 배포](documentdb-distribute-data-globally.md)
 - [일관성 수준](documentdb-consistency-levels.md)
 - [여러 지역에 처리량을 적용하는 방법](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Azure 포털을 사용하여 지역 추가](documentdb-manage-account.md#addregion)
+- [Azure 포털을 사용하여 지역 추가](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

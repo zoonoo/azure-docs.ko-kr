@@ -64,4 +64,6 @@
 
 [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+[Azure SQL Server 스트레치 데이터베이스 서비스에 대한 모든 토픽](sql-server-stretch-database-index-all-articles.md)
+
+<!---HONumber=AcomDC_0817_2016-->

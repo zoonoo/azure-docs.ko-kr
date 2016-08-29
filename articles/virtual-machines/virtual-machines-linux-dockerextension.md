@@ -35,7 +35,7 @@ Azure Resource Manager를 사용하여 작업 환경의 전체 구조를 정의�
 
 ## Docker VM 확장을 사용하여 템플릿 배포:
 
-기존의 빠른 시작 템플릿을 사용하여 Docker VM 확장이 설치된 Ubuntu VM을 배포하는 방법을 살펴보겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다.
+기존의 빠른 시작 템플릿을 사용하여 Docker VM 확장이 설치된 Ubuntu VM을 배포하는 방법을 살펴보겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. Resource Manager 모드에서 [최신 Azure CLI](../xplat-cli-install.md)가 필요합니다(`azure config mode arm`).
 
 Azure CLI를 사용하여 템플릿을 배포하면서 새 리소스 그룹(이 경우는 `myDockerResourceGroup`)의 이름과 템플릿 URI를 지정합니다.
 
@@ -127,7 +127,7 @@ Docker Compose를 사용하여 Docker 데몬 TCP 포트, 보안을 구성하거�
 }
 ```
 
-Resource Manager 템플릿 사용에 대한 단계별 설명은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하십시오.
+Resource Manager 템플릿 사용에 대한 단계별 설명은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
 ## 다음 단계
 
@@ -135,7 +135,7 @@ Resource Manager 템플릿 사용에 대한 단계별 설명은 [Azure Resource 
 
 1. [Azure 드라이버로 Docker Machine 사용](./virtual-machines-linux-docker-machine.md)
 2. [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](./virtual-machines-linux-classic-cli-use-docker.md)
-3. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md).
+3. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md)
 3. [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

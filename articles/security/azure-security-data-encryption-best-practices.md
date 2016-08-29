@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yuridio"/>
 
 #Azure 데이터 보안 및 암호화 모범 사례
@@ -90,7 +90,7 @@ Azure 디스크 암호화에 대한 자세한 내용은 [Windows 및 Linux IaaS 
 
 산업 암호화 솔루션은 비밀 키를 사용하여 데이터를 암호화합니다. 따라서 이러한 키를 안전하게 보관해야 합니다. 키 관리는 데이터 보호의 필수 요소입니다. 왜냐하면 키는 데이터 암호화에 사용되는 비밀 키를 저장하는 데 활용되기 때문입니다.
 
-Azure 디스크 암호화는 [Azure 주요](https://azure.microsoft.com/services/key-vault/) 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다. Azure 키 자격 증명 모음을 사용하여 키 및 정책 사용을 감사해야 합니다.
+Azure Disk Encryption은 [Azure 주요 자격 증명 모음](https://azure.microsoft.com/services/key-vault/)과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure storage에서 암호화되도록 보장합니다. Azure 키 자격 증명 모음을 사용하여 키 및 정책 사용을 감사해야 합니다.
 
 데이터 암호화에 사용된 비밀 키를 보호하는 적절한 보안 컨트롤이 없으면 여러 가지 위험에 노출됩니다. 공격자가 비밀 키에 대한 액세스 권한을 획득하면 데이터를 해독하여 잠재적으로 기밀 정보에 액세스할 수 있게 됩니다.
 
@@ -163,4 +163,4 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 
 Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](https://technet.microsoft.com/library/jj585016.aspx) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

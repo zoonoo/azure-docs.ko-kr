@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Azure Identity Management 및 액세스 제어 보안 모범 사례
@@ -135,4 +135,4 @@ SaaS 앱의 인증 시나리오에 대한 자세한 내용은 [Azure AD에 대�
 
 자신의 ID 시스템을 적극적으로 모니터링하지 않는 조직은 사용자 자격 증명이 손상될 위험에 직면합니다. 이러한 자격 증명을 사용하여 의심스러운 활동이 일어나고 있다는 것을 알아야 이 유형의 위협을 완화시킬 수 있습니다. Azure ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

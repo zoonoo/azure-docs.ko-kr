@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp으로 Office 365 구독을 사용하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp에서 기존 Office 365 구독을 사용하여 클라우드에서 오피스 앱을 공유할 수 있는 것을 아십니까? 구독의 대부분을 만들도록 하는 Office 365에 대한 문서의 링크를 포함하는 Office 365 + Azure RemoteApp 옵션에 대한 내용을 읽습니다.
 
@@ -29,7 +32,7 @@ Azure RemoteApp에서 기존 Office 365 구독을 사용하여 클라우드에�
 
 예! 사실상, Office 365 구독의 사용은 Office 응용 프로그램을 Azure RemoteApp로 전환하는 유일한 방법입니다.
 
-(참고: 사용자의 Azure RemoteApp 배포가 호스팅 파트너에 의해 제공되는 경우 해당 파트너는 [서비스 공급자 라이선스 계약](http://www.microsoft.com/ko-KR/Licensing/licensing-programs/spla-program.aspx)을 기반으로 Office 사용권을 제공할 수 있습니다.)
+(참고: 사용자의 Azure RemoteApp 배포가 호스팅 파트너에 의해 제공되는 경우 해당 파트너는 [서비스 공급자 라이선스 계약](http://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx)을 기반으로 Office 사용권을 제공할 수 있습니다.)
 
 
 Office 365 구독의 가장 큰 장점은 Azure 클라우드를 포함하여 다양한 플랫폼과 환경에 동일한 사용자 라이선스를 사용하도록 한다는 점입니다. Azure RemoteApp에서 Office 응용 프로그램을 사용하는 경우 추가 라이선스를 구입하거나 어떤 특별한 방식으로 기존 라이선스를 구성할 필요가 없습니다. [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx)를 포함하는 Office 365 구독만 필요합니다.
@@ -97,7 +100,7 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 
 컬렉션에서 이미지를 업데이트하는 데 많은 이유가 있습니다. 다음에 몇몇 이유가 있습니다.
 
-- 최신 Windows 업데이트 받기 
+- 최신 Windows 업데이트 받기
 - 최신 Office 365 ProPlus 응용 프로그램 업데이트 받기
 - 사용자 지정 앱 업데이트
 - 이미지 자체에 대한 기타 구성 설정 변경
@@ -123,4 +126,4 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 - [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(동영상)
 - [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

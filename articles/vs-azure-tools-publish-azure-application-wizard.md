@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Azure 응용 프로그램 게시 마법사
@@ -43,7 +43,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 ### 구독을 선택하려면
 
-1. 처음으로 마법사를 사용하기 전에 로그인해야 합니다. **로그인** 링크를 선택합니다. 메시지가 표시되면 Azure 포털에 로그인하고 Azure 사용자 이름 및 암호를 제공합니다. 
+1. 처음으로 마법사를 사용하기 전에 로그인해야 합니다. **로그인** 링크를 선택합니다. 메시지가 표시되면 Azure 포털에 로그인하고 Azure 사용자 이름 및 암호를 제공합니다.
 
     ![다음은 게시 마법사 화면 중 하나입니다.](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
@@ -57,7 +57,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. **다음** 단추를 선택하여 계속합니다. 
+1. **다음** 단추를 선택하여 계속합니다.
 
     구독에 모든 클라우드 서비스가 없는 경우, 프로젝트를 호스팅하는 클라우드 서비스를 Azure에서 만들어야 합니다. **클라우드 서비스 및 저장소 계정 만들기** 대화 상자가 나타납니다.
 
@@ -139,4 +139,4 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 [클라우드 서비스의 성능 테스트](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

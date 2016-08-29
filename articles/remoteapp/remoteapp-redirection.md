@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp에서 리디렉션 사용
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 장치 리디렉션을 사용하면 사용자가 로컬 컴퓨터, 휴대폰 또는 태블릿에 연결된 장치를 통해 원격 앱을 조작할 수 있습니다. 예를 들어 Azure RemoteApp을 통해 Skype를 제공하는 경우 사용자가 Skype를 사용하려면 PC에 카메라가 설치되어 있어야 합니다. 프린터, 스피커, 모니터 및 USB로 연결된 다양한 주변 장치의 경우도 마찬가지입니다.
 
@@ -102,6 +105,6 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 5. **컴퓨터 구성\\정책\\관리 템플릿\\Windows 구성 요소\\원격 데스크톱 서비스\\원격 데스크톱 연결 클라이언트\\RemoteFX USB 장치 리디렉션**을 엽니다.
 6. **이 컴퓨터에서 지원되는 기타 RemoteFX USB 장치의 RDP 리디렉션 허용**을 두 번 클릭합니다.
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
-8. **확인**을 클릭합니다.  
+8. **확인**을 클릭합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

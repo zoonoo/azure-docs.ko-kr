@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # 고유한 암호를 업데이트하는 방법
 회사 또는 학교 계정 암호를 관리하는 방법을 잘 모를 경우 잘 찾아 오셨습니다. 암호 변경, 암호 재설정 또는 암호 재설정을 위한 등록과 같은 일반적인 단계를 수행하는 방법을 알아보려면 아래를 읽어보세요.
 
-* [**암호 재설정을 위해 등록하는 방법**](#how-to-register-for-password-reset)
+* [**계정에 대한 액세스를 손실하지 마세요!**](#how-to-register-for-password-reset)
 * [**Office 365에서 암호를 변경하는 방법**](#how-to-change-your-password-from-o365)
 * [**액세스 패널에서 암호를 변경하는 방법**](#how-to-change-your-password-from-the-access-panel)
 * [**암호를 재설정하는 방법**](#how-to-reset-your-password)
 * [**사용자 계정의 잠금을 해제하는 방법**](#how-to-unlock-your-account)
 * [**일반적인 문제 및 해결 방법**](#common-problems-and-their-solutions)
 
-## 암호 재설정을 위해 등록하는 방법
+## 계정에 대한 액세스를 손실하지 마세요!
 
 > [AZURE.IMPORTANT]
 **왜 이것이 표시되나요?** 링크를 따라 여기에 왔다면 관리자는 사용자에게 암호 재설정을 위해 등록하여 앱에 대한 액세스 권한을 얻도록 요구하기 때문에 이것을 보게 될 수도 있습니다. 보안 질문을 설정하거나, 전화 또는 전자 메일 정보를 요청받을 수도 있습니다. 걱정하지 마세요. 이 정보를 스팸 발송에 사용하지 않을 것이며, 단지 사용자 계정을 더 안전하게 지키기 위한 용도로만 사용할 것입니다. 여기에 제시된 단계는 목표에 도달하는 데 도움이 됩니다.
@@ -261,4 +261,4 @@ Office 365에서 회사 또는 학교 계정 암호를 변경하려면 아래 �
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -25,7 +25,7 @@
 
 DNS 클라이언트를 사용하려면 **Azure DNS 관리 라이브러리** NuGet 패키지를 설치하고 프로젝트에 DNS 관리 네임스페이스를 추가해야 합니다.
  
-1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다. 
+1. **Visual Studio**에서 프로젝트 또는 새 프로젝트를 엽니다.
 
 2. **도구** **>** **NuGet 패키지 관리자** **>** **패키지 관리자 콘솔**로 이동합니다.
 
@@ -113,4 +113,4 @@ DNS 레코드는 레코드 집합으로 관리됩니다. 레코드 집합은 영
 
 [Visual Studio SDK 샘플 프로젝트](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

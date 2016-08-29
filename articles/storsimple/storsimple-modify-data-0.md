@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
@@ -73,8 +73,8 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 ## 다음 단계
 
-- DATA 0 이외의 네트워크 인터페이스를 구성하려면 [Azure 클래식 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 
+- DATA 0 이외의 네트워크 인터페이스를 구성하려면 [Azure 클래식 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다.
 
 - 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
@@ -270,7 +270,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 응용 프로그램을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
 
-##응용 프로그램의 변경 내용 게시
+##응용 프로그램에 변경 내용 게시
 
 응용 프로그램의 변경 내용을 게시하려면 다음 단계를 따르십시오.
 
@@ -298,4 +298,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

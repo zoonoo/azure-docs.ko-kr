@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+
 Office 365 구독이 있는 경우 Office 365 서비스에 액세스하는 데 사용되는 사용자 이름 및 암호를 저장하는 Azure Active Directory가 있습니다. 예를 들어 사용자가 Office 365 ProPlus를 활성화하면 라이선스를 확인하기 위해 Azure AD에 대해 인증이 수행됩니다. 대부분의 고객은 Azure RemoteApp과 동일한 디렉터리를 사용하기를 원합니다.
 
 Azure RemoteApp을 배포하는 경우 대부분 다른 Azure AD와 연결된 Azure 구독을 사용할 가능성이 높습니다. Office 365 디렉터리를 사용하려면 Azure 구독을 이 디렉터리로 이동해야 합니다.
@@ -45,4 +49,4 @@ Azure 구독의 현지 디렉터리를 1단계에서 작업한 Office 365 디렉
 
 이제 Azure RemoteApp 구독이 Office 365 Azure AD와 연결되었습니다. Azure RemoteApp에서 기존 Office 365 사용자 계정을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

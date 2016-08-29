@@ -57,7 +57,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 </SinksConfig>
 ```
 
-이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스로 설정됩니다(서비스 버스 네임스페이스 + “/” + 이벤트 허브 이름).
+이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스로 설정됩니다: 이벤트 허브 네임스페이스 + “/” + 이벤트 허브 이름.
 
 이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.
 
@@ -74,7 +74,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 </PrivateConfig>
 ```
 
-`SharedAccessKeyName` 값은 **서비스 버스/이벤트 허브** 네임스페이스에서 정의된 SAS(공유 액세스 서명) 키 및 정책과 일치해야 합니다. [Azure 포털](https://manage.windowsazure.com)의 이벤트 허브 대시보드로 이동하고 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: "SendRule")을 설정합니다. 또한 **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 값이 작동 중인 경우 변경할 필요가 없습니다. 이 예제에서는 값을 비워 둡니다. 이는 다운스트림 자산이 값을 설정한다는 의미입니다. 예를 들어 *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름 및 키를 설정합니다.
+`SharedAccessKeyName` 값은 **이벤트 허브** 네임스페이스에서 정의된 SAS(공유 액세스 서명) 키 및 정책과 일치해야 합니다. [Azure 포털](https://manage.windowsazure.com)의 이벤트 허브 대시보드로 이동하고 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: "SendRule")을 설정합니다. 또한 **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 값이 작동 중인 경우 변경할 필요가 없습니다. 이 예제에서는 값을 비워 둡니다. 이는 다운스트림 자산이 값을 설정한다는 의미입니다. 예를 들어 *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름 및 키를 설정합니다.
 
 > [AZURE.WARNING] 이벤트 허브 SAS 키는 *.wadcfgx* 파일에 일반 텍스트로 저장되어 있습니다. 이 키는 때로 소스 코드 제어에서 발견되거나 빌드 서버에서 자산으로 사용할 수 있는 경우가 있으므로 적절하게 보호해야 합니다. 악의적인 사용자가 SAS 키를 이벤트 허브에 작성하기만 하고 수신하거나 관리하지 않을 수 있으므로 여기서 *보내기 전용* 권한으로 사용하는 것이 좋습니다.
 
@@ -319,4 +319,4 @@ namespace EventHubListener
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

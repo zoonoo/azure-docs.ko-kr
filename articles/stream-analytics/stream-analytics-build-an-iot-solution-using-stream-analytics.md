@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="스트림 분석을 사용하여 IOT 솔루션 구축 | Microsoft Azure" 
 	description="요금 창구 시나리오의 스트림 분석 iot 솔루션 시작하기 자습서"
-	keywords=""
+	keywords="iot 솔루션, 창 함수"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -42,7 +42,7 @@
 -   [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 -   컴퓨터에 대한 관리자 권한
 -   Microsoft 다운로드 센터에서 [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip)을 다운로드합니다.
--   선택 사항: [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)의 TollApp 이벤트 생성기에 대한 소스 코드
+-   선택 사항: [GitHub](https://aka.ms/azure-stream-analytics-toll-source)의 TollApp 이벤트 생성기에 대한 소스 코드
 
 ## 시나리오 소개 - "안녕, 통행료!"
 
@@ -58,8 +58,8 @@
 ### 진입 데이터 스트림
 
 진입 데이터 스트림에는 요금소로 들어가는 자동차에 대한 정보가 포함됩니다.
-  
-  
+
+
 | TollId | EntryTime | LicensePlate | 시스템 상태 | 계정을 | 모델 | VehicleType | VehicleWeight | Toll | 태그 |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1 | 2014-09-10 12:01:00.000 | JNB 7001 | NY | Honda | CRV | 1 | 0 | 7 | |
@@ -68,11 +68,11 @@
 | 2 | 2014-09-10 12:03:00.000 | XYZ 1003 | CT | Toyota | Corolla | 1 | 0 | 4 | |
 | 1 | 2014-09-10 12:03:00.000 | 1007 BNJ | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |
 | 2 | 2014-09-10 12:05:00.000 | CDE 1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |
-  
+
 
 다음은 열에 대한 간단한 설명입니다.
-  
-  
+
+
 | TollId | 요금 창구를 고유하게 식별하는 요금 창구 ID |
 |--------------|----------------------------------------------------------------|
 | EntryTime | 요금 창구에 차량이 진입하는 날짜 및 시간(UTC) |
@@ -89,8 +89,8 @@
 ### 데이터 스트림 종료
 
 진출 데이터 스트림에는 요금소를 떠나는 차량에 대한 정보가 포함됩니다.
-  
-  
+
+
 | **TollId** | **ExitTime** | **LicensePlate** |
 |------------|------------------------------|------------------|
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB 7001 |
@@ -101,8 +101,8 @@
 | 2 | 2014-09-10T12:07:00.0000000Z | CDE 1007 |
 
 다음은 열에 대한 간단한 설명입니다.
-  
-  
+
+
 | 열 | 설명 |
 |--------------|-----------------------------------------------------------------|
 | TollId | 요금 창구를 고유하게 식별하는 요금 창구 ID |
@@ -112,8 +112,8 @@
 ### 화물 차량 등록 데이터
 
 화물 차량 등록 데이터베이스의 정적 스냅숏을 사용합니다.
-  
-  
+
+
 | LicensePlate | RegistrationId | 만료됨 |
 |--------------|----------------|---------|
 | SVT 6023 | 285429838 | 1 |
@@ -121,11 +121,11 @@
 | BAC 1005 | 876133137 | 1 |
 | RIV 8632 | 992711956 | 0 |
 | SNY 7188 | 592133890 | 0 |
-| ELH 9896 | 678427724 | 1 |                      
+| ELH 9896 | 678427724 | 1 |
 
 다음은 열에 대한 간단한 설명입니다.
-  
-  
+
+
 | 열 | 설명 |
 |--------------|-----------------------------------------------------------------|
 | LicensePlate | 차량 번호판 번호 |
@@ -246,22 +246,22 @@ Visual Studio에서 Azure 데이터베이스(대상)에 연결합니다.
 6) TollDataDB를 데이터베이스로 선택합니다.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-    
+
 7) 확인을 클릭합니다.
 
 8) 서버 탐색기를 엽니다.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-  
+
 9) TollDataDB 데이터베이스에서 만들어진 4개의 테이블을 봅니다.
-  
+
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
-  
+
 ## 이벤트 생성기 - TollApp 샘플 프로젝트
 
 PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 이벤트 보내기를 자동으로 시작합니다. 추가 단계를 수행할 필요가 없습니다.
 
-그러나 구현 세부 정보에 관심이 있는 경우 GitHub [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp)에서 TollApp 응용 프로그램의 원본 코드를 찾을 수 있습니다.
+그러나 구현 세부 정보에 관심이 있는 경우 GitHub [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source)에서 TollApp 응용 프로그램의 원본 코드를 찾을 수 있습니다.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -376,9 +376,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 이 질문에 대답하는 Azure 스트림 분석 쿼리를 살펴보겠습니다.
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream TIMESTAMP BY EntryTime GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 여기에서 볼 수 있는 것처럼 Azure 스트림 분석은 쿼리에서 시간과 관련된 부분을 지정하기 위해 추가로 몇 가지의 확장을 가진 SQL 유사 쿼리 언어를 사용합니다.
 
@@ -418,11 +416,7 @@ Azure 관리 포털을 열고 만든 Azure 스트림 분석 작업으로 이동�
 
 이를 위해 EntryTime이 포함된 스트림과 ExitTime이 포함된 스트림을 조인해야 합니다. TollId 및 LicencePlate 열의 스트림을 조인하려고 합니다. JOIN 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 임시 해석 폭을 지정해야 합니다. DATEDIFF 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. DATEDIFF 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 계산합니다. SELECT 문에서 DATEDIFF를 사용할 때 JOIN 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes FROM EntryStream TIMESTAMP BY EntryTime JOIN ExitStream TIMESTAMP BY ExitTime ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate) AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 이 쿼리를 테스트하려면 작업의 쿼리 탭에서 쿼리를 업데이트합니다.
 
@@ -442,11 +436,7 @@ Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 �
 
 화물 차량이 요금 회사에 등록된 경우 검사받기 위해 정차하지 않고 요금 창구를 통과할 수 있습니다. 화물 차량 등록 조회 테이블을 사용하여 등록 기간이 만료된 모든 화물 차량을 식별할 수 있습니다.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId FROM EntryStream TIMESTAMP BY EntryTime JOIN Registration ON EntryStream.LicensePlate = Registration.LicensePlate WHERE Registration.Expired = '1'
 
 참조 데이터를 사용하여 쿼리를 테스트하려면 5단계에서 수행한 것처럼 참조 데이터에 대한 입력 원본이 정의되어 있어야 합니다.
 
@@ -485,9 +475,7 @@ Visual Studio 서버 탐색기를 열고 TollDataRefJoin 테이블을 마우스 
 
 Azure 스트림 분석은 탄력적으로 크기를 조정하여 높은 부하의 데이터를 처리할 수 있도록 디자인되었습니다. Azure 스트림 분석 쿼리에서 **PARTITION BY** 절을 사용하면 이 단계에서 확장하는 시스템을 알 수 있습니다. PartitionId는 입력(이벤트 허브)의 파티션 ID와 일치하는 시스템에서 추가한 특수 열입니다.
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 현재 작업을 중지하고 쿼리 탭에서 쿼리를 업데이트하고 크기 조정 탭을 엽니다.
 
@@ -535,4 +523,4 @@ PowerShell 창에서 ".\\Cleanup.ps1"을 입력합니다. 그러면 자습서에
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

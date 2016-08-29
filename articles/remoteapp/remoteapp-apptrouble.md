@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 #Azure RemoteApp 문제 해결 - 응용 프로그램 시작 및 연결 실패 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp에 호스트되는 응용 프로그램은 몇 가지 이유로 시작에 실패할 수 있습니다. 이 문서에서는 다양한 이유와 사용자가 응용 프로그램을 시작하려고 할 때 나타날 수 있는 오류 메시지에 대해 설명합니다. 또한 연결 실패에 대해서도 설명합니다. 그러나 Azure RemoteApp 클라이언트에 로그인할 때 발생하는 문제에 대해서는 이 문서에서 설명하지 않습니다.
 
@@ -51,4 +54,4 @@ Azure RemoteApp에 호스트되는 응용 프로그램은 몇 가지 이유로 �
 
 ![일반 Azure RemoteApp 메시지](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

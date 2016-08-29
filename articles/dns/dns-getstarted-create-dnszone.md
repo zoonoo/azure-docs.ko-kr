@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 DNS 영역 만들기
@@ -115,11 +115,11 @@ DNS 영역은 `New-AzureRmDnsZone` cmdlet을 사용하여 생성됩니다. 태�
 
 DNS 영역을 만들면 다음과 같은 DNS 레코드도 생성됩니다.
 
-- *Start of Authority*(SOA) 레코드. 각 DNS 영역의 루트에 있습니다.
+- *권한 시작*(SOA) 레코드입니다. 각 DNS 영역의 루트에 있습니다.
 
 - 권한이 있는 NS(이름 서버) 레코드. 영역을 호스트하는 이름 서버를 보여 줍니다. Azure DNS는 이름 서버 풀을 사용하므로 Azure DNS의 각 영역에 다른 이름 서버가 할당될 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
-이러한 레코드를 보려면 `Get-AzureRmDnsRecordSet`를 사용합니다.
+이러한 레코드를 보려면 다음을 사용 `Get-AzureRmDnsRecordSet`:
 
 	Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
@@ -143,7 +143,7 @@ DNS 영역을 만들면 다음과 같은 DNS 레코드도 생성됩니다.
 	Tags              : {}
 
 
-DNS 영역의 *루트*에 있는 레코드 집합은 레코드 집합 이름으로 **@**를 사용합니다.
+DNS 영역의 루트(또는 *apex*)에 있는 레코드 집합은 레코드 집합 이름으로 **@**를 사용합니다.
 
 
 ## 테스트
@@ -174,4 +174,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

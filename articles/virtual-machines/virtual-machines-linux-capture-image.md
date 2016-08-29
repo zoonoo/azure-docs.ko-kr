@@ -20,13 +20,13 @@
 
 # Linux 가상 컴퓨터를 캡처하여 리소스 관리자 템플릿으로 사용하는 방법
 
-Azure CLI(명령줄 인터페이스)를 통해 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하고 일반화하여 다른 가상 컴퓨터를 만드는 Azure Resource Manager 템플릿으로 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 데이터 디스크가 지정됩니다. Azure 리소스 관리자 VM을 만들 때 필요한 가상 네트워크 리소스는 포함되지 않으므로, 대부분의 경우 템플릿을 사용하는 다른 가상 컴퓨터를 만들기 전에 별도로 설정해야 합니다.
+Azure CLI(명령줄 인터페이스)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 캡처하고 일반화할 수 있습니다. 또한 이를 Azure Resource Manager 템플릿으로 사용하여 다른 가상 컴퓨터를 만들 수 있습니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 데이터 디스크가 지정됩니다. Azure Resource Manager VM을 만드는 데 필요한 가상 네트워크 리소스는 포함되지 않습니다. 따라서 이 템플릿을 사용하는 다른 가상 컴퓨터를 만들기 전에 이러한 항목을 별도로 설정해야 합니다.
 
 >[AZURE.TIP]사용자 지정 Linux VM 이미지를 만들어 Azure에 업로드하여 이미지에서 VM을 만들 수 있도록 하는 데 관심이 있다면 [사용자 지정 디스크 이미지에서 VM 업로드 및 만들기](virtual-machines-linux-upload-vhd.md)를 참조합니다.
 
 ## 시작하기 전에
 
-이 단계는 Azure 리소스 관리자 배포 모델에서 Azure 가상 컴퓨터를 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. Azure CLI를 통한 방법을 포함하여 여러 가지 방법으로 이를 수행할 수 있습니다. 아직 완료되지 않았으면, Azure 리소스 관리자 모드에서 Azure CLI를 사용하는 관련 지침을 참고하세요.
+이 단계는 리소스 관리자 배포 모델에서 Azure VM을 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. Azure CLI를 통한 방법을 포함하여 여러 가지 방법으로 VM을 설정할 수 있습니다. 아직 완료되지 않았으면, Azure 리소스 관리자 모드에서 Azure CLI를 사용하는 관련 지침을 참고하세요.
 
 - [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
@@ -76,7 +76,7 @@ VM이 프로비전되고 실행되면 [데이터 디스크를 연결하고 탑�
 
 8. 다음 명령을 사용하여 VM을 일반화합니다.
 
-	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. 이제 다음 명령을 사용하여 이미지와 로컬 파일 템플릿을 캡처합니다.
 
@@ -87,7 +87,7 @@ VM이 프로비전되고 실행되면 [데이터 디스크를 연결하고 탑�
 >[AZURE.TIP] 이미지의 위치를 찾으려면 JSON 파일 템플릿을 엽니다. **storageProfile**에서 **시스템** 컨테이너에 있는 **이미지**의 **uri**를 찾습니다. 예를 들어, OS 디스크 이미지의 uri는 `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-vhd-name-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다.
 
 ## 캡처한 이미지에서 새 VM 만들기
-템플릿과 이미지를 사용하여 새 Linux VM을 만듭니다. 이 단계는 `azure vm capture` 명령을 사용하여 만든 Azure CLI 및 JSON 파일 템플릿을 사용하여 새 가상 네트워크에 VM을 만드는 방법을 보여줍니다.
+템플릿과 이미지를 사용하여 Linux VM을 만듭니다. 이 단계는 `azure vm capture` 명령을 사용하여 만든 Azure CLI 및 JSON 파일 템플릿을 사용하여 새 가상 네트워크에 VM을 만드는 방법을 보여줍니다.
 
 ### 네트워크 리소스 만들기
 
@@ -107,7 +107,7 @@ VM이 프로비전되고 실행되면 [데이터 디스크를 연결하고 탑�
 
 	azure network nic show <your-new-resource-group-name> <your-nic-name>
 
-출력된 **Id**는 아래와 유사한 문자열입니다.
+출력된 **Id**는 다음과 유사한 문자열입니다.
 
 	/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<your-new-resource-group-name>/providers/Microsoft.Network/networkInterfaces/<your-nic-name>
 
@@ -172,20 +172,20 @@ VM이 프로비전되고 실행되면 [데이터 디스크를 연결하고 탑�
 
 * VM 이미지가 VM의 VHD를 호스팅하는 계정과 동일한 저장소 계정에 있어야 합니다.
 * 템플릿 JSON 파일을 복사하고 각 VM의 VHD의 **uri**에 고유한 값을 입력합니다.
-* 새 NIC를 동일한 가상 네트워크 또는 다른 가상 네트워크에 만듭니다.
+* NIC를 동일한 가상 네트워크 또는 다른 가상 네트워크에 만듭니다.
 * 수정된 템플릿 JSON 파일을 사용하여, 가상 네트워크를 설정한 리소스 그룹에 배포를 만듭니다.
 
-이미지에서 VM을 만들 때 네트워크에서 자동으로 설정되도록 하려면 GitHub의 [101-vm-from-user-image 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용합니다. 이 템플릿은 사용자 지정 이미지에서 VM을 만들고 필요한 가상 네트워크, 공용 IP 주소, NIC 리소스를 만듭니다. Azure 포털에서 템플릿 사용에 대한 안내는 [ARM 템플릿을 사용하여 사용자 지정 이미지에서 가상 컴퓨터 만드는 방법](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)을 참조하십시오.
+이미지에서 VM을 만들 때 네트워크에서 자동으로 설정되도록 하려면 GitHub의 [101-vm-from-user-image 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용합니다. 이 템플릿은 사용자 지정 이미지에서 VM을 만들고 필요한 가상 네트워크, 공용 IP 주소, NIC 리소스를 만듭니다. Azure 포털에서 템플릿 사용에 대한 안내는 [Resource Manager 템플릿을 사용하여 사용자 지정 이미지에서 가상 컴퓨터 만드는 방법](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)을 참조하십시오.
 
 ## azure vm create 명령 사용
 
-리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **-Q**(**--image-urn**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 _명령문_으로 VM을 만들 수 있습니다. 새 VM에 대한 OS .vhd 파일 위치를 지정하는 **-d**(**--os-dist-vhd**) 매개 변수도 전달합니다. 이는 이미지 VHD 파일이 저장된 저장소 계정의 VHD 컨테이너에 있어야 합니다. 이 명령은 새 VM에 대한 VHD를 자동으로 VHD 컨테이너에 복사합니다.
+리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **-Q**(**--image-urn**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 _명령문_으로 VM을 만들 수 있습니다. 이 방법을 사용하는 경우 새 VM에 대한 OS .vhd 파일 위치를 지정하는 **-d**(**--os-dist-vhd**) 매개 변수도 전달합니다. 이는 이미지 VHD 파일이 저장된 저장소 계정의 VHD 컨테이너에 있어야 합니다. 이 명령은 새 VM에 대한 VHD를 자동으로 VHD 컨테이너에 복사합니다.
 
 이미지에 **azure vm create**을 실행하기 전에 다음을 수행합니다.
 
-1.	새 리소스 그룹을 만들거나 배포를 위한 기존 리소스 그룹을 확인합니다.
+1.	리소스 그룹을 만들거나 배포를 위한 기존 리소스 그룹을 확인합니다.
 
-2.	새 VM에 대한 NIC 리소스와 공용 IP 주소 리소스를 만듭니다. CLI를 사용하여 가상 네트워크, 공용 IP 주소, NIC를 만드는 단계는 이 문서의 앞쪽을 참조하세요.(**azure vm create** 명령이 새 NIC를 만들 수 있지만 가상 네트워크와 서브넷을 위해 매개 변수를 추가로 전달해야 합니다.)
+2.	새 VM에 대한 NIC 리소스와 공용 IP 주소 리소스를 만듭니다. CLI를 사용하여 가상 네트워크, 공용 IP 주소, NIC를 만드는 단계는 이 문서의 앞쪽을 참조하세요.(**azure vm create** 명령이 NIC를 만들 수 있지만 가상 네트워크와 서브넷을 위해 매개 변수를 추가로 전달해야 합니다.)
 
 
 그런 다음 새 OS VHD 파일 및 기존 이미지에 URI를 전달하는 다음과 유사한 명령을 실행합니다.
@@ -198,4 +198,4 @@ VM이 프로비전되고 실행되면 [데이터 디스크를 연결하고 탑�
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

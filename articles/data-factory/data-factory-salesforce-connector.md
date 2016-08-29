@@ -29,7 +29,7 @@
 ## 데이터 복사 마법사
 Salesforce의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Salesforce에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 ## 샘플: Salesforce에서 Azure Blob으로 데이터 복사
 이 샘플은 1시간마다 Salesforce의 데이터를 Azure Blob으로 복사합니다. 이 예제에 사용된 JSON 속성은 예제 다음에 나오는 섹션에서 설명합니다. Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores) 문서에 나열한 싱크로 직접 데이터를 복사할 수 있습니다.
@@ -190,7 +190,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | type | 형식 속성은 **Salesforce**로 설정되어야 합니다. | 예 |
 | username |사용자 계정의 사용자 이름을 지정합니다. | 예 |
 | password | 사용자 계정으로 password를 지정합니다. | 예 |
-| securityToken | 사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조하세요. 일반적으로 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.ko-KR.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. | 예 |
+| securityToken | 사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조하세요. 일반적으로 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. | 예 |
 
 ## Salesforce 데이터 집합 속성
 
@@ -215,9 +215,9 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| 쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.ko-KR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 예: select * from MyTable\_\_c | 아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
+| 쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예: select * from MyTable\_\_c | 아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
-> [AZURE.IMPORTANT] 모든 사용자 지정 개체에 대해 API 이름에 "\_\_c" 부분이 필요합니다.<br> DateTime 열에 **where** 절을 포함하는 쿼리를 지정하는 경우 SOQL을 사용합니다. 예: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
+> [AZURE.IMPORTANT] 모든 사용자 지정 개체에 대해 API 이름에 "\_\_c" 부분이 필요합니다. <br> DateTime 열에 **where** 절을 포함하는 쿼리를 지정하는 경우 SOQL을 사용합니다. 예: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Data Factory - Salesforce 연결 - API 이름](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -225,7 +225,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 {call "<report name>"}(예: "query": "{call "TestReport"}")(으)로 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있습니다.
 
 ## Salesforce 요청 제한
-Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이 있습니다. 자세한 내용은 [Salesforce API 요청 제한](http://resources.docs.salesforce.com/200/20/ko-KR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서에서 "API 요청 제한" 섹션을 참조하세요.
+Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이 있습니다. 자세한 내용은 [Salesforce API 요청 한도](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서에서 "API 요청 한도" 섹션을 참조하세요.
 
 동시 요청 수가 이 제한을 초과하면 제한이 발생하며 임의 오류가 표시됩니다. 총 요청 수가 이 제한을 초과하면 Salesforce 계정은 24시간 동안 차단됩니다. 두 시나리오 모두에서 "REQUEST\_LIMIT\_EXCEEDED" 오류가 나타날 수도 있습니다.
 
@@ -261,4 +261,4 @@ URL | 문자열
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

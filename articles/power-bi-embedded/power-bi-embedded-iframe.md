@@ -1,215 +1,454 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded - IFrame을 사용하여 Power BI 보고서 포함"
-   description="Microsoft Power BI Embedded - 보고서를 앱에 통합하기 위한 필수 코드, Power BI Embedded 앱 토큰으로 인증하는 방법, 보고서를 가져오는 방법"
+   pageTitle="REST에서 Power BI Embedded를 사용하는 방법 | Microsoft Azure"
+   description="REST에서 Power BI Embedded를 사용하는 방법 알아보기 "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="tsmatsuz"
    manager="NA"
    editor=""
    tags=""/>
 <tags
    ms.service="power-bi-embedded"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/19/2016"
+   ms.date="08/02/2016"
    ms.author="owend"/>
 
-# IFrame을 사용하여 Power BI 보고서 포함
-이 문서는 **Power BI Embedded** REST API, 앱 토큰, IFrame, 일부 JavaScript를 사용하여 앱에 보고서를 통합 또는 포함하기 위한 필수 코드에 대해 설명합니다.
+# REST에서 Power BI Embedded를 사용하는 방법
 
-[Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)에서 **작업 공간 컬렉션**을 구성하여 보고서 내용에 대해 하나 이상의 **작업 공간**을 보유하는 방법을 배웁니다. 그런 다음 [Microsoft Power BI Embedded 샘플 시작](power-bi-embedded-get-started-sample.md)에서 **작업 공간**으로 보고서를 가져옵니다.
 
-이 문서에서는 앱에 보고서를 포함하는 단계를 안내합니다. 이 문서를 따르려면 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe) 샘플을 다운로드해야 합니다. 이 샘플은 보고서를 통합하는 데 필요한 필수 C# 및 JavaScript 코드를 설명하기 위한 간단한 ASP.NET 웹 형식의 앱입니다. MVC() 디자인 패턴을 사용하여 보고서를 통합하는 고급 샘플은 GitHub에서 [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)을 참조하세요.
+## Power BI Embedded: 정의 및 용도
+Power BI Embedded의 개요는 공식적인 [Power BI Embedded 사이트](https://azure.microsoft.com/services/power-bi-embedded/)에 설명되어 있으나 REST에서 사용하는 방법을 자세히 살펴보기 전에 간단히 확인해보겠습니다.
 
-보고서를 통합하는 단계는 다음과 같습니다.
+실제로를 상당히 간단합니다. 종종 ISV에서는 자체 응용 프로그램에서 [Power BI](https://powerbi.microsoft.com)의 동적 데이터 시각화를 UI 구성 요소로 사용하려고 합니다.
 
-- 1단계: [작업 공간에 보고서를 가져옵니다](#GetReport). 이 단계에서는 앱 토큰 흐름을 사용하여 [보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx) REST 작업을 호출하는 액세스 토큰을 가져옵니다. **보고서 가져오기** 목록에서 보고서를 가져오면 **IFrame** 요소를 사용하여 앱에 보고서를 포함합니다.
-- 2단계: [앱에 보고서를 포함합니다](#EmbedReport). 이 단계에서는 보고서에 대해 포함 토큰, 일부 JavaScript, IFrame을 사용하여 보고서를 웹앱에 통합 또는 포함합니다.
+그렇지만 아시다시피 Power BI 보고서 또는 타일을 웹 페이지에 포함하는 작업은 **Power BI API**를 사용하여 Power BI Embedded Azure 서비스 없이도 이미 가능합니다. 동일한 조직에서 보고서를 공유하려는 경우 Azure AD 인증에 보고서를 포함할 수 있습니다. 보고서를 보려는 사용자는 자신의 Azure AD 계정을 사용하여 로그인해야 합니다. 모든 사용자(외부 사용자 포함)와 보고서를 공유하려는 경우 익명 액세스를 사용하여 간단히 포함할 수 있습니다.
 
-샘플을 실행하려는 경우 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe) 샘플을 다운로드하고 Web.Config 설정을 구성합니다.
+하지만 아시다시피 이 간단한 포함 솔루션은 ISV 응용 프로그램의 요구를 충족하지 않습니다. 대부분의 ISV 응용 프로그램은 반드시 자체 조직의 사용자가 아닌 자신의 고객에게 데이터를 전달해야 합니다. 예를 들어 회사 A와 B 둘 다에게 서비스를 제공하는 경우 회사 A의 사용자에게는 자신의 회사 A의 데이터만 보입니다. 즉, 이러한 전달을 위해서는 다중 테넌트가 필요합니다.
 
-- **AccessKey**: **AccessKey**는 보고서를 가져오고 보고서를 포함하는 데 사용하는 JWT(JSON Web Token)를 생성하는 데 사용합니다.
-- **작업 영역 컬렉션 이름**: 작업 영역을 식별합니다.
-- **작업 영역 ID**: 작업 영역에 대한 고유 ID
+ISV 응용 프로그램은 자체 인증 방법(예: 폼 인증, 기본 인증 등)을 제공할 수도 있습니다. 그러면 포함 솔루션은 이러한 기존 인증 방법과 공동으로 안전하게 작동될 수 있습니다. 또한 사용자들이 Power BI 구독을 추가로 구입하거나 라이선스가 없는 상태로 해당 ISV 응용 프로그램을 사용할 수 있도록 해야 합니다.
 
-Azure 포털에서 선택키, 작업 영역 컬렉션 이름 및 작업 영역 ID를 가져오는 방법을 알아보려면 [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)을 참조하세요.
+ **Power BI Embedded**는 정확하게 이러한 종류의 ISV 시나리오를 위한 것입니다. 지금까지 방법을 간단히 살펴보았으므로 좀 더 자세한 부분을 확인해 보겠습니다.
 
-<a name="GetReport"/>
-## 작업 공간에 보고서 가져오기
+.NET(C#) 또는 Node.js SDK를 사용하여 Power BI Embedded로 응용 프로그램을 손쉽게 빌드할 수 있습니다. 그러나 이 문서에서는 SDK 없이 Power BI의 HTTP 흐름(AuthN 포함)에 대해 설명하려고 합니다. 이 흐름을 이해하면 **프로그래밍 언어를 사용하지 않고** 응용 프로그램을 빌드할 수 있으며 Power BI Embedded의 기본 사항을 깊이 있게 이해할 수 있게 됩니다.
 
-앱에 보고서를 통합하려면 보고서 **ID**와 **embedUrl**이 필요합니다. 이 항목을 가져오려면 [보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx) REST 작업을 호출하고 JSON 목록에서 보고서를 선택합니다.
+## Power BI 작업 영역 컬렉션 만들기 및 선택키 가져오기(프로비전)
+Power BI Embedded는 Azure 서비스 중 하나입니다. Azure 포털을 사용하는 ISV에게만 사용 요금이 부과되고(시간당 사용자 세션), 보고서를 보는 사용자에게는 요금이 부과되지 않고 Azure 구독조차 필요하지 않습니다. 응용 프로그램 개발을 시작하기 전에 Azure 포털을 사용하여 **Power BI 작업 영역 컬렉션**을 만들어야 합니다.
 
-### 보고서 가져오기 JSON 응답
+Power BI Embedded의 각 작업 영역은 각 고객의 작업 영역(테넌트)이며, 각 작업 영역 컬렉션에 여러 작업 영역을 추가할 수 있습니다. 동일한 선택키가 각 작업 영역 컬렉션에서 사용됩니다. 실제로 작업 영역 컬렉션은 Power BI Embedded에 대한 보안 경계입니다.
+
+![](media\power-bi-embedded-iframe\create-workspace.png)
+
+작업 영역 컬렉션을 다 만들면 Azure 포털에서 선택키를 복사합니다.
+
+![](media\power-bi-embedded-iframe\copy-access-key.png)
+
+> [AZURE.NOTE] 또한 작업 영역 컬렉션을 프로비전하고 REST API를 통해 선택키를 가져올 수 있습니다. 자세한 내용은 [Power BI 리소스 공급자 API](https://msdn.microsoft.com/library/azure/mt712306.aspx)를 참조하세요.
+
+## Power BI Desktop으로 .pbix 파일 만들기
+다음으로 포함할 데이터 연결 및 보고서를 만들어야 합니다. 이 작업의 경우 프로그래밍 또는 코드는 없습니다. Power BI Desktop만 사용합니다. 이 문서에서 Power BI Desktop을 사용하는 자세한 방법을 다루지는 않습니다. 이에 대한 추가 도움말이 필요한 경우 [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)을 참조하세요. 예제에서는 [소매점 분석 샘플](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/)을 사용하게 됩니다.
+
+![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+
+## Power BI 작업 영역 만들기
+
+이제 프로비전 작업이 모두 완료되었으므로 REST API를 통해 작업 영역 컬렉션에서 고객의 작업 영역을 만들어 보겠습니다. 다음 HTTP POST 요청(REST)은 기존 작업 영역 컬렉션에 새 작업 영역을 만듭니다. 이 예제에서 작업 영역 컬렉션 이름은 **mypbiapp**입니다. 앞서 복사한 선택키를 **AppKey**로 설정합니다. 이 과정은 매우 간단한 인증입니다.
+
+**HTTP 요청**
+
 ```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP 응답 **
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+Location: https://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces
+RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
+
 {
-  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/$metadata#workspaces/$entity",
+  "workspaceId": "32960a09-6366-4208-a8bb-9e0678cdbb9d",
+  "workspaceCollectionName": "mypbiapp"
+}
+```
+
+반환된 **workspaceId**는 후속 API 호출에 사용됩니다. 응용 프로그램은 이 값을 유지해야 합니다.
+
+## 작업 영역으로 .pbix 파일 가져오기
+각 작업 영역은 데이터 집합(데이터 원본 설정 포함) 및 보고서가 있는 단일 Power BI Desktop 파일을 호스트할 수 있습니다. 아래 코드에 표시된 대로 .pbix 파일을 작업 영역으로 가져올 수 있습니다. 여기에서 볼 수 있듯이 http에서 MIME 다중 파트를 사용하여 .pbix 파일의 이진 내용을 업로드할 수 있습니다.
+
+URI 조각 **32960a09-6366-4208-a8bb-9e0678cdbb9d**는 workspaceId이고 쿼리 매개 변수 **datasetDisplayName**은 만들 데이터 집합 이름입니다. 만든 데이터 집합에서 가져온 데이터, 데이터 원본에 대한 포인터 등의 모든 데이터 관련 아티팩트는 .pbix 파일에 포함됩니다.
+
+```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports?datasetDisplayName=mydataset01
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: multipart/form-data; boundary="A300testx"
+
+--A300testx
+Content-Disposition: form-data
+
+{the content (binary) of .pbix file}
+--A300testx--
+```
+
+이 가져오기 작업은 잠시 동안 실행될 수 있습니다. 완료되면 응용 프로그램은 가져오기 ID를 사용하여 작업 상태를 요청할 수 있습니다. 이 예제에서 가져오기 ID는 **4eec64dd-533b-47c3-a72c-6508ad854659**입니다.
+
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/json; charset=utf-8
+Location: https://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659?tenantId=myorg
+RequestId: 658bd6b4-b68d-4ec3-8818-2a94266dc220
+
+{"id":"4eec64dd-533b-47c3-a72c-6508ad854659"}
+```
+
+다음은 이 가져오기 ID를 사용하여 상태를 요청합니다.
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659
+Authorization: AppKey MpaUgrTv5e...
+```
+
+작업이 완료되지 않으면 HTTP 응답은 다음과 같을 수 있습니다.
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+RequestId: 614a13a5-4de7-43e8-83c9-9cd225535136
+
+{
+  "id": "4eec64dd-533b-47c3-a72c-6508ad854659",
+  "importState": "Publishing",
+  "createdDateTime": "2016-07-19T07:36:06.227",
+  "updatedDateTime": "2016-07-19T07:36:06.227",
+  "name": "mydataset01"
+}
+```
+
+작업이 완료되면 HTTP 응답은 다음과 같을 수 있습니다.
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
+
+{
+  "id": "4eec64dd-533b-47c3-a72c-6508ad854659",
+  "importState": "Succeeded",
+  "createdDateTime": "2016-07-19T07:36:06.227",
+  "updatedDateTime": "2016-07-19T07:36:06.227",
+  "reports": [
     {
-      "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
-    },{
-      "id":"1d7cff58-…-380610e263a9","name":"Sample Report 2","webUrl":"https://embedded.powerbi.com/reports/1d7cff58-...-380610e263a9","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=1d7cff58-...-380610e263a9"
+      "id": "2027efc6-a308-4632-a775-b9a9186f087c",
+      "name": "mydataset01",
+      "webUrl": "https://app.powerbi.com/reports/2027efc6-a308-4632-a775-b9a9186f087c",
+      "embedUrl": "https://app.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "458e0451-7215-4029-80b3-9627bf3417b0",
+      "name": "mydataset01",
+      "tables": [
+      ],
+      "webUrl": "https://app.powerbi.com/datasets/458e0451-7215-4029-80b3-9627bf3417b0"
+    }
+  ],
+  "name": "mydataset01"
+}
+```
+
+## 데이터 원본 연결(및 데이터의 다중 테넌트)
+.pbix 파일의 거의 모든 아티팩트를 작업 영역으로 가져오지만 데이터 원본에 대한 자격 증명은 가져오지 않습니다. 결과적으로 **DirectQuery 모드**를 사용할 경우 포함된 보고서가 올바르게 표시될 수 없습니다. 하지만 **가져오기 모드**를 사용할 때는 기존에 가져온 데이터를 사용하여 보고서를 볼 수 있습니다. 이 경우 REST 호출을 통해 다음 단계를 사용하여 자격 증명을 설정해야 합니다.
+
+먼저 게이트웨이 데이터 원본을 가져와야 합니다. 데이터 집합 **ID**는 이전에 반환된 ID입니다.
+
+**HTTP 요청**
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.GetBoundGatewayDatasources
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP 응답 **
+
+```
+GET HTTP/1.1 200 OK
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
+
+{
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/$metadata#gatewayDatasources",
+  "value": [
+    {
+      "id": "5f7ee2e7-4851-44a1-8b75-3eb01309d0ea",
+      "gatewayId": "ca17e77f-1b51-429b-b059-6b3e3e9685d1",
+      "datasourceType": "Sql",
+      "connectionDetails": "{"server":"testserver.database.windows.net","database":"testdb01"}"
     }
   ]
 }
-
 ```
 
-[보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx) REST 작업을 호출하려면 앱 토큰을 사용합니다. 앱 토큰 흐름에 대한 자세한 내용은 [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)를 참조하세요. 다음 코드는 JSON 보고서 목록을 가져오는 방법에 대해 설명합니다.
+반환된 게이트웨이 ID와 데이터 원본 ID를 사용하여(반환된 결과의 이전 **gatewayId** 및 **id** 참조) 이 데이터 원본의 자격 증명을 다음과 같이 변경할 수 있습니다.
+
+**HTTP 요청**
 
 ```
-protected void getReportsButton_Click(object sender, EventArgs e)
+PATCH https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/gateways/ca17e77f-1b51-429b-b059-6b3e3e9685d1/datasources/5f7ee2e7-4851-44a1-8b75-3eb01309d0ea
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: application/json; charset=utf-8
+
 {
-    //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+  "credentialType": "Basic",
+  "basicCredentials": {
+    "username": "demouser",
+    "password": "P@ssw0rd"
+  }
+}
+```
 
-    //Configure reports request
-    System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
-    request.Method = "GET";
-    request.ContentLength = 0;
+**HTTP 응답 **
 
-    //Set the WebRequest header to AppToken, and jwt
-    //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
+```
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
+```
 
-    //Get reports response from request.GetResponse()
-    using (var response = request.GetResponse() as System.Net.HttpWebResponse)
+프로덕션 환경에서 REST API를 사용하여 작업 영역마다 다른 연결 문자열을 설정할 수도 있습니다(즉, 고객별로 데이터베이스를 분리할 수 있음).
+
+다음에서는 REST를 통해 데이터 원본의 연결 문자열을 변경합니다.
+
+```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.SetAllConnections
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: application/json; charset=utf-8
+
+{
+  "connectionString": "data source=testserver02.database.windows.net;initial catalog=testdb02;persist security info=True;encrypt=True;trustservercertificate=False"
+}
+```
+
+또는 Power BI Embedded에서 행 수준 보안을 사용하고 한 보고서에서 각 사용자의 데이터를 구분할 수 있습니다. 결과적으로 .pbix(UI 등)는 동일하지만 데이터 원본은 다른 각 고객 보고서를 프로비전할 수 있습니다.
+
+> [AZURE.NOTE] **DirectQuery 모드** 대신 **가져오기 모드**를 사용하는 경우 API를 통해 모델을 새로 고칠 수 없습니다. 또한 Power BI 게이트웨이 통한 온-프레미스 데이터 원본은 아직 Power BI Embedded에서 지원되지 않습니다. 그러나 [Power BI 블로그](https://powerbi.microsoft.com/blog/)에서 새로운 기능 및 앞으로 제공될 기능을 확인하는 것도 유용할 것입니다.
+
+## 웹 페이지의 인증 및 보고서 호스트(포함)
+
+이전 REST API에서는 선택키 **AppKey** 자체를 권한 부여 헤더로 사용할 수 있습니다. 이러한 호출은 백 엔드 서버 쪽에서 처리될 수 있으므로 안전합니다.
+
+그러나 웹 페이지에 보고서를 포함할 경우 이러한 종류의 보안 정보는 JavaScript를 사용하여 처리됩니다(프런트 엔드). 그런 다음 권한 부여 헤더 값을 보호해야 합니다. 악의적인 사용자나 악의적인 코드가 선택키를 찾으면 이 키를 사용하여 모든 작업을 호출할 수 있습니다.
+
+따라서 웹 페이지에 보고서를 포함할 경우 선택키 **AppKey** 대신 계산된 토큰을 사용해야 합니다. 응용 프로그램은 클레임 및 계산된 디지털 서명으로 구성된 OAuth JWT(JSON 웹 토큰)를 만들어야 합니다. 아래와 같이 이 OAuth JWT는 점으로 구분된 인코딩된 문자열 토큰입니다.
+
+![](media\power-bi-embedded-iframe\oauth-jwt.png)
+
+먼저 나중에 서명되는 입력 값을 준비해야 합니다. 이 값은 다음 json의 base64 url 인코딩(rfc4648) 문자열이며, 점(.) 문자로 구분됩니다. 나중에 보고서 ID를 가져오는 방법이 설명될 것입니다.
+
+> [AZURE.NOTE] Power BI Embedded에서 RLS(행 수준 보안)를 사용하려는 경우 클레임에 **사용자 이름** 및 **역할**도 지정해야 합니다.
+
+```
+{
+  "typ":"JWT",
+  "alg":"HS256"
+}
+```
+
+```
+{
+  "wid":"{workspace id}",
+  "rid":"{report id}",
+  "wcn":"{workspace collection name}",
+  "iss":"PowerBISDK",
+  "ver":"0.2.0",
+  "aud":"https://analysis.windows.net/powerbi/api",
+  "nbf":{start time of token expiration},
+  "exp":{end time of token expiration}
+}
+```
+
+다음으로, SHA256 알고리즘에 따라 base64로 인코딩된 HMAC(서명) 문자열을 만들어야 합니다. 이 서명된 입력 값은 이전 문자열입니다.
+
+마지막으로, 점(.) 문자를 사용하여 입력 값 및 서명 문자열을 결합해야 합니다. 완료된 문자열은 보고서 포함을 위한 앱 토큰입니다. 악의적인 사용자가 앱 토큰을 발견해도 원래 선택키를 가져올 수는 없습니다. 이 앱 토큰은 신속하게 만료됩니다.
+
+이러한 단계에 대한 PHP 예제는 다음과 같습니다.
+
+```
+<?php
+// 1. power bi access key
+$accesskey = "MpaUgrTv5e...";
+
+// 2. construct input value
+$token1 = "{" .
+  ""typ":"JWT"," .
+  ""alg":"HS256"" .
+  "}";
+$token2 = "{" .
+  ""wid":"32960a09-6366-4208-a8bb-9e0678cdbb9d"," . // workspace id
+  ""rid":"2027efc6-a308-4632-a775-b9a9186f087c"," . // report id
+  ""wcn":"mypbiapp"," . // workspace collection name
+  ""iss":"PowerBISDK"," .
+  ""ver":"0.2.0"," .
+  ""aud":"https://analysis.windows.net/powerbi/api"," .
+  ""nbf":" . date("U") . "," .
+  ""exp":" . date("U" , strtotime("+1 hour")) .
+  "}";
+$inputval = rfc4648_base64_encode($token1) .
+  "." .
+  rfc4648_base64_encode($token2);
+
+// 3. get encoded signature
+$hash = hash_hmac("sha256",
+	$inputval,
+	$accesskey,
+	true);
+$sig = rfc4648_base64_encode($hash);
+
+// 4. show result (which is the apptoken)
+$apptoken = $inputval . "." . $sig;
+echo($apptoken);
+
+// helper functions
+function rfc4648_base64_encode($arg) {
+  $res = $arg;
+  $res = base64_encode($res);
+  $res = str_replace("/", "_", $res);
+  $res = str_replace("+", "-", $res);
+  $res = rtrim($res, "=");
+  return $res;
+}
+?>
+```
+
+## 마지막으로 웹 페이지에 보고서를 포함합니다.
+
+보고서를 포함하기 위해 다음 REST API를 사용하여 포함 URL과 보고서 **ID**를 가져와야 합니다.
+
+**HTTP 요청**
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/reports
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP 응답 **
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
+
+{
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/$metadata#reports",
+  "value": [
     {
-        //Get reader from response stream
-        using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
-        {
-            //Deserialize JSON string into PBIReports
-            PBIReports PBIReports = JsonConvert.DeserializeObject<PBIReports>(reader.ReadToEnd());
-
-            //Clear Textbox
-            tb_reportsResult.Text = string.Empty;
-
-            //Get each report
-            foreach (PBIReport rpt in PBIReports.value)
-            {
-                tb_reportsResult.Text += String.Format("{0}\t{1}\t{2}\n", rpt.id, rpt.name, rpt.embedUrl);
-            }
-        }
+      "id": "2027efc6-a308-4632-a775-b9a9186f087c",
+      "name": "mydataset01",
+      "webUrl": "https://app.powerbi.com/reports/2027efc6-a308-4632-a775-b9a9186f087c",
+      "embedUrl": "https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c",
+      "isFromPbix": false
     }
-}
-
-```
-
-<a name="EmbedReport"/>
-## 앱에 보고서 포함
-
-앱에 보고서를 포함하려면 보고서에 대한 포함 토큰이 필요합니다. 이 토큰은 Power BI Embedded REST 작업을 호출하는 데 사용하는 앱 토큰과 유사하지만 REST 리소스가 아닌 보고서 리소스에 대해 생성됩니다. 다음은 보고서의 앱 토큰을 가져오는 코드입니다.
-
-<a name="EmbedReportToken"/>
-### 보고서의 앱 토큰 가져오기
-
-```
-protected void getReportAppTokenButton_Click(object sender, EventArgs e)
-{
-    //Get an embed token for a report.
-    var token = PowerBIToken.CreateReportEmbedToken(workspaceName, workspaceId, getReportAppTokenTextBox.Text);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = token.Generate(accessKey);
-
-    //Set textbox to JWT string. The JavaScript embed code uses the embed jwt for a report.
-    reportAppTokenTextbox.Text = jwt;
+  ]
 }
 ```
 
-<a name="EmbedReportJS"/>
-### 앱에 보고서 포함
+이전 앱 토큰을 사용하여 웹앱에 보고서를 포함할 수 있습니다. 다음 샘플 코드를 보면 첫 번째 부분은 이전 예제와 동일합니다. 이 샘플의 두 번째 부분에서는 iframe의 **embedUrl**(이전 결과 참조)를 표시하고 앱 토큰을 iframe에 게시합니다.
 
-앱에 **Power BI** 보고서를 포함하려면 IFrame 및 일부 JavaScript 코드를 사용합니다. 다음은 보고서를 포함하기 위한 예제 IFrame 및 JavaScript 코드입니다. 보고서를 포함하기 위한 모든 샘플 코드를 보려면 GitHub에서 [IFrame을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe)을 참조하세요.
-
-![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
-
+> [AZURE.NOTE] 보고서 ID 값을 원하는 값으로 변경해야 합니다. 또한 콘텐츠 관리 시스템의 버그로 인해 코드 샘플의 iframe 태그는 문자 그대로 읽힙니다. 이 샘플 코드를 복사하여 붙여넣는 경우 태그에서 대문자 텍스트를 제거합니다.
 
 ```
-window.onload = function () {
-    // Client side click to embed a selected report.
-    var el = document.getElementById("bEmbedReportAction");
-    if (el.addEventListener) {
-        el.addEventListener("click", updateEmbedReport, false);
-    } else {
-        el.attachEvent('onclick', updateEmbedReport);
+    <?php
+    // 1. power bi access key
+    $accesskey = "MpaUgrTv5e...";
+
+    // 2. construct input value
+    $token1 = "{" .
+      ""typ":"JWT"," .
+      ""alg":"HS256"" .
+      "}";
+    $token2 = "{" .
+      ""wid":"32960a09-6366-4208-a8bb-9e0678cdbb9d"," . // workspace id
+      ""rid":"2027efc6-a308-4632-a775-b9a9186f087c"," . // report id
+      ""wcn":"mypbiapp"," . // workspace collection name
+      ""iss":"PowerBISDK"," .
+      ""ver":"0.2.0"," .
+      ""aud":"https://analysis.windows.net/powerbi/api"," .
+      ""nbf":" . date("U") . "," .
+      ""exp":" . date("U" , strtotime("+1 hour")) .
+      "}";
+    $inputval = rfc4648_base64_encode($token1) .
+      "." .
+      rfc4648_base64_encode($token2);
+
+    // 3. get encoded signature value
+    $hash = hash_hmac("sha256",
+    	$inputval,
+    	$accesskey,
+    	true);
+    $sig = rfc4648_base64_encode($hash);
+
+    // 4. get apptoken
+    $apptoken = $inputval . "." . $sig;
+
+    // helper functions
+    function rfc4648_base64_encode($arg) {
+      $res = $arg;
+      $res = base64_encode($res);
+      $res = str_replace("/", "_", $res);
+      $res = str_replace("+", "-", $res);
+      $res = rtrim($res, "=");
+      return $res;
     }
-
-};
-
-// Update embed report
-function updateEmbedReport() {
-    // Check if the embed url was selected
-    var embedUrl = document.getElementById('tb_EmbedURL').value;
-
-    // To load a report do the following:
-    // 1: Set the url
-    // 2: Add a onload handler to submit the auth token
-    var iframe = document.getElementById('iFrameEmbedReport');
-    iframe.src = embedUrl;
-    iframe.onload = postActionLoadReport;
-}
-
-// Post the auth token to the iFrame.
-function postActionLoadReport() {
-
-    // Get the app token.
-    accessToken = document.getElementById('MainContent_reportAppTokenTextbox').value;
-
-    // Construct the push message structure
-    var m = { action: "loadReport", accessToken: accessToken };
-    message = JSON.stringify(m);
-
-    // Push the message.
-    iframe = document.getElementById('iFrameEmbedReport');
-    iframe.contentWindow.postMessage(message, "*");
-}
-```
-앱에 보고서를 포함한 후에 보고서를 필터링할 수 있습니다. 다음 섹션에서는 URL 구문을 사용하여 보고서를 필터링하는 방법을 보여 줍니다.
-
-## 보고서 필터링
-
-URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이를 위해 지정된 필터와 함께 iFrame src url에 쿼리 문자열 매개 변수를 추가합니다. **값으로 필터링**하고 **필터 창을 숨길** 수 있습니다.
-
-
-**값으로 필터링**
-
-값으로 필터링하려면 다음과 같이 **eq** 연산자로 **$filter** 쿼리 구문을 사용합니다.
-
-```
-https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-...-ee9655d54a4a&
-$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Test page</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <button id="btnView">View Report !</button>
+      <div id="divView">
+        <**REMOVE THIS CAPPED TEXT IF COPIED** iframe id="ifrTile" width="100%" height="400"></iframe>
+      </div>
+      <script>
+        (function () {
+          document.getElementById('btnView').onclick = function() {
+            var iframe = document.getElementById('ifrTile');
+            iframe.src = 'https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c';
+            iframe.onload = function() {
+              var msgJson = {
+                action: "loadReport",
+                accessToken: "<?=$apptoken?>",
+                height: 500,
+                width: 722
+              };
+              var msgTxt = JSON.stringify(msgJson);
+              iframe.contentWindow.postMessage(msgTxt, "*");
+            };
+          };
+        }());
+      </script>
+    </body>
 ```
 
-예를 들어 저장소 체인이 'Lindseys'인 부분을 필터링할 수 있습니다. URL의 필터 일부는 다음과 같습니다.
+결과는 다음과 같습니다.
 
-```
-$filter=Store/Chain%20eq%20'Lindseys'
-```
+![](media\power-bi-embedded-iframe\view-report.png)
 
-> [AZURE.NOTE] {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.
+이번에는 Power BI Embedded에 iframe의 보고서만 표시됩니다. 그렇지만 [Power BI 블로그]()를 잘 확인해 보세요. 향후 개선된 기능에서는 정보를 가져올 수 있을 뿐만 아니라 iframe으로 정보를 보낼 수 있도록 하는 새 클라이언트 쪽 API가 사용될 수 있을 것입니다. 기대해 보세요.
 
-**필터 창 숨기기**
-
-**필터 창**을 숨기려면 보고서 다음과 같이 쿼리 문자열에 **filterPaneEnabled**를 추가합니다.
-
-```
-&filterPaneEnabled=false
-```
-
-## 추가 리소스
-
-이 문서에서는 앱에 **Power BI** 보고서를 통합하기 위한 코드를 소개했습니다. GitHub에서 이러한 추가 샘플을 확인해야 합니다.
-
-- [IFrame 샘플을 사용하여 보고서 통합](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## 참고 항목
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+- [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

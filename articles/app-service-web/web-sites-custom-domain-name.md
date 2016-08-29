@@ -197,7 +197,7 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 
 6.  **Save**를 클릭합니다.
 
-7.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 이제 실행 중인 앱과 사용자 지정 도메인 이름이 표시됩니다.
+7.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 브라우저에 Azure 앱이 열리면 사용자 지정 도메인 이름이 올바르게 구성된 것입니다.
 
 <a name="verify"></a>
 ## DNS 적용 확인
@@ -219,4 +219,4 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

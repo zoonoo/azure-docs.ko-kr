@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -105,11 +105,13 @@ Azure AD에서 장치 기반 CA 정책을 구성하는 방법에 대한 자세�
 - [지원되는 응용 프로그램 종류](active-directory-conditional-access-supported-apps.md)
 
 
-### 장치 정책
+### 장치 기반 조건부 액세스
 
 - [Azure Active Directory 연결 응용 프로그램의 액세스 제어를 위한 장치 기반 조건부 액세스 정책을 설정하는 방법](active-directory-conditional-access-policy-connected-applications.md)
 
 - [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Azure AD 장치 기반 조건부 액세스 보호된 응용 프로그램에 액세스할 때 사용자 수정](active-directory-conditional-access-device-remediation.md)
 
 - [Microsoft Intune을 요구하는 데이터 보호 지원](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
@@ -123,4 +125,4 @@ Azure AD에서 장치 기반 CA 정책을 구성하는 방법에 대한 자세�
 - [조건부 액세스 FAQ](active-directory-conditional-faqs.md)
 - [기술 참조](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

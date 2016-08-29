@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # 이벤트 허브 API 개요
@@ -23,7 +23,7 @@
 
 ## 관리 API
 
-다음 관리 작업을 수행하려면 서비스 버스 네임스페이스에 대한 **관리** 권한이 있어야 합니다.
+다음 관리 작업을 수행하려면 이벤트 허브 네임스페이스에 대한 **관리** 권한이 있어야 합니다.
 
 ### 생성
 
@@ -189,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

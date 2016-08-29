@@ -14,23 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# Microsoft Azure 리소스 소비에 대한 통찰력 얻기 
+# Microsoft Azure 리소스 소비에 대한 통찰력 얻기
 
 고객 및 파트너는 Azure 비용을 정확하게 예측하고 관리하는 기능이 필요합니다. Capex에서 Opex 모델로 이동하는 동안 쇼백 및 요금 환불을 수행하는 기능이 필요할 뿐만 아니라 특히 큰 클라우드 배포를 위한 모드 정확도 및 청구를 제공합니다.
 
 이 문서에서 논의된 Azure 리소스 사용량 및 속도 카드 API는 Azure 리소스의 소비에 대한 새로운 통찰력을 가능하게 하여 이러한 요구를 설명합니다.
 
-## Azure 리소스 사용량 및 RateCard API 소개 
+## Azure 리소스 사용량 및 RateCard API 소개
 
 Azure 리소스 사용량 및 RateCard API는 Azure 리소스 관리자가 노출한 API의 제품군의 일부로서 리소스 제공자로 구현됩니다.
 
 ### Azure 리소스 사용량 API(미리 보기)
 고객 및 파트너는 Azure 리소스 사용량 API를 사용하여 예상된 Azure 사용량 데이터를 가져올 수 있습니다. 기능은 다음과 같습니다.
-	
-- **Azure 역할 기반 액세스 제어** -고객 및 파트너는 [Azure Preview 포털](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](powershell-install-configure.md)을 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 구독의 사용 현황 데이터에 액세스를 가져오도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 판독기, 소유자 또는 참가자 역할에 추가되어야 합니다.
+
+- **Azure 역할 기반 액세스 제어** -고객 및 파트너는 [Azure 포털](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](powershell-install-configure.md)을 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 구독의 사용 현황 데이터에 액세스를 가져오도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 판독기, 소유자 또는 참가자 역할에 추가되어야 합니다.
 
 - **매시간 또는 매일 집계** -호출자는 Azure 사용 데이터를 매시간 버킷 또는 매일 버킷으로 할지 지정할 수 있습니다. 기본값은 매일입니다.
 
@@ -43,8 +43,8 @@ Azure 리소스 사용량 및 RateCard API는 Azure 리소스 관리자가 노�
 ### Azure 리소스 RateCard API(미리 보기)
 고객 및 파트너는 Azure 리소스 RateCard API를 사용하여 각 예상 가격 정보와 함께 사용 가능한 Azure 리소스의 목록을 가져옵니다. 기능은 다음과 같습니다.
 
-- **Azure 역할 기반 액세스 제어** -고객 및 파트너는 [Azure Preview 포털](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](powershell-install-configure.md)를 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 RateCard 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 판독기, 소유자 또는 참가자 역할에 추가되어야 합니다.
-	
+- **Azure 역할 기반 액세스 제어** -고객 및 파트너는 [Azure 포털](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](powershell-install-configure.md)를 통해 액세스 정책을 구성하여 사용자 또는 응용 프로그램이 RateCard 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 판독기, 소유자 또는 참가자 역할에 추가되어야 합니다.
+
 - **종량제, MSDN, 금액 약정 및 금액 크레딧 제공(EA은 지원되지 않음)** - 이 API는 Azure 제공 수준 환율 정보 및 구독 수준을 제공합니다. API의 호출자는 제안 정보를 전달하여 리소스 세부 정보 및 속도를 가져와야 합니다. EA는 등록 당 사용자 지정된 속도를 제공하기 때문에 이번에는 EA 속도를 제공할 수 없습니다.
 
 ## 시나리오
@@ -79,4 +79,4 @@ Azure 리소스 사용량 및 RateCard API는 Azure 리소스 관리자가 노�
 + Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
 + 클라우드 지출을 이해하는 데 필요한 도구 모음에 대한 추가 정보는 Gartner 문서 [IT 재무 관리(ITFM) 도구에 대한 시장 가이드](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)를 참조하십시오.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

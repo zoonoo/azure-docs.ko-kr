@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 
 <tags 
     ms.service="active-directory" 
@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/19/2016" 
+    ms.date="08/12/2016" 
     ms.author="jeedes" />
 
 
@@ -33,7 +33,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 1.  Salesforce Sandbox에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
 3.  도메인 사용
-4.  사용자 프로비저닝 구성
+4.  사용자 프로비전 구성
 5.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769571.png "시나리오")
@@ -151,7 +151,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
     ![내 도메인](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "내 도메인")
   
 도메인이 구성되면 바로 사용자가 Salesforce 샌드박스에 로그인하는 도메인 URL을 사용해야 합니다. URL의 값을 가져오려면 이전 섹션에서 만든 SSO 프로필을 클릭합니다.
-##사용자 프로비저닝 구성
+##사용자 프로비전 구성
   
 이 섹션은 Salesforce Sandbox에 Active Directory 사용자 계정을 사용자 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
@@ -177,7 +177,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 7.  Azure 클래식 포털의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
 
-    ![사용자 프로비저닝 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "사용자 프로비저닝 구성")
+    ![사용자 프로비전 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "사용자 프로비전 구성")
 
 8.  **Salesforce Sandbox 자격 증명을 입력하여 자동 사용자 프로비저닝 사용** 페이지에서 다음 구성 설정을 제공합니다.
 
@@ -214,4 +214,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->
