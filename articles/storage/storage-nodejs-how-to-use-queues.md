@@ -304,7 +304,7 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+-   [Azure 저장소 팀 블로그][]\(영문)를 방문하세요.
 -   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

@@ -203,7 +203,7 @@ Runbook이 정상적으로 완료되지 않고 작업 요약이 **일시 중단*
 
 ## Service Management Automation과의 관계
 
-[SMA(Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해주는 WAP(Windows Azure 팩)의 구성 요소입니다. Azure 자동화와 달리 SMA에는 Microsoft Azure 팩 관리 포털과 Runbook 및 SMA 구성을 유지할 데이터베이스를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
+[SMA(Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx)는 Azure 자동화에서 지원하는 것과 동일한 Runbook을 로컬 데이터 센터에서 실행할 수 있도록 해주는 WAP(Microsoft Azure 팩)의 구성 요소입니다. Azure 자동화와 달리 SMA에는 Microsoft Azure 팩 관리 포털과 Runbook 및 SMA 구성을 유지할 데이터베이스를 포함하는 로컬 설치가 필요합니다. Azure 자동화는 클라우드에서 이러한 서비스를 제공하기 때문에 로컬 환경에서 Hybrid Runbook Worker를 유지 관리하기만 하면 됩니다.
 
 기존 SMA 사용자는 [Hybrid Runbook Worker용 Runbook 만들기](#creating-runbooks-for-hybrid-runbook-worker)에 설명된 대로 리소스에 대한 자체 인증을 수행할 경우 Runbook을 Azure 자동화로 이동하여 변경 없이 Hybrid Runbook Worker에서 사용할 수 있습니다. SMA의 Runbook은 Runbook에 대한 인증을 제공할 수 있는 작업자 서버에서 서비스 계정의 컨텍스트로 실행됩니다.
 

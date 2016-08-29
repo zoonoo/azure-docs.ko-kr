@@ -184,7 +184,7 @@ Azure Access Control Services Filter는 CTP(Community Technology Preview)입니�
 
 ## 다음 단계
 
-ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][](영문)을 참조하세요.
+ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][]\(영문)을 참조하세요.
 
 [Prerequisites]: #pre
 [Modify the JSP file to display SAML]: #modify_jsp

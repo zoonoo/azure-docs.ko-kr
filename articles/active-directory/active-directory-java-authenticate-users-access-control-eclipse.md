@@ -249,7 +249,7 @@ ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제�
 
 ## <a name="next_steps"></a>다음 단계
 
-ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Markup Language)의 예제는 [Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법][](영문)을 참조하세요. ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][](영문)을 참조하세요.
+ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Markup Language)의 예제는 [Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법][]\(영문)을 참조하세요. ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하려면 [액세스 제어 서비스 2.0][]\(영문)을 참조하세요.
 
 또한 이 예제에서는 **Embed the certificate in the WAR file** 옵션을 사용했습니다. 이 옵션을 사용하면 인증서를 더 간단하게 배포할 수 있습니다. 대신 서명 인증서를 WAR 파일과 별도로 유지하려면 다음 방법을 사용하면 됩니다.
 

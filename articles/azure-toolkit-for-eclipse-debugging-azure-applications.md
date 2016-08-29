@@ -53,7 +53,8 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 1. **OK**를 클릭하여 **Properties for WorkerRole1 Debugging** 대화 상자를 닫습니다.
 1. index.jsp에서 설정된 중단점이 없는 경우 다음과 같이 설정합니다.
     1. Eclipse의 프로젝트 탐색기 내에서 **MyHelloWorld**를 확장하고 **WebContent**를 확장하고 **index.jsp**를 두 번 클릭합니다.
-    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다. ![][ic551537]
+    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다.  
+    ![][ic551537]
 1. Eclipse 메뉴 내에서 **Run**을 클릭한 다음 **Debug Configurations**를 클릭합니다.
 1. **Debug Configurations** 대화 상자에서 왼쪽 창의 **Remote Java Application**을 확장하고 **Azure Cloud (WorkerRole1)**를 선택한 다음 **Debug**를 클릭합니다.
 1. 브라우저 내에서 *&lt;guid&gt;*에 대한 DNS 이름에서 GUID 대체하는 스테이징된 응용 프로그램, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**를 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **예**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
@@ -94,7 +95,8 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 1. **OK**를 클릭하여 **Properties for WorkerRole1 Debugging** 대화 상자를 닫습니다.
 1. index.jsp에서 중단점 설정:
     1. Eclipse의 프로젝트 탐색기 내에서 **MyHelloWorld**를 확장하고 **WebContent**를 확장하고 **index.jsp**를 두 번 클릭합니다.
-    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다. ![][ic551537]
+    1. index.jsp 내에서 Java 코드 왼쪽의 파란색 막대에서 마우스 오른쪽 단추로 클릭하고 다음에 표시된 것처럼 **Toggle Breakpoints**를 클릭합니다.
+    ![][ic551537]
 
        Java 코드 왼쪽의 파란색 막대 안에 중단점 아이콘이 보이면 중단점이 설정된 것입니다.
 1. Azure 도구 모음에서 **Run in Azure Emulator** 단추를 클릭하여 계산 에뮬레이터에서 응용 프로그램을 시작합니다.

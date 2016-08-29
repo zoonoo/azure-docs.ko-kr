@@ -428,7 +428,7 @@ API 앱에서 로그 응답 메시지입니다.
 
 DocumentDB의 모든 문서에는 고유한 ID가 있어야 합니다. `PatientId`를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub에서] 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다(https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic 앱 예외 관리 API/컨트롤러/ErrorController.cs).
+[GitHub에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic 앱 예외 관리 API/컨트롤러/ErrorController.cs) 오류 컨트롤러 API의 소스 코드를 볼 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 

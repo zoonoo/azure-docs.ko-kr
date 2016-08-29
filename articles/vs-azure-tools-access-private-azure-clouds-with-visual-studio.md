@@ -41,6 +41,6 @@
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[방법: 게시 설정 및 구독 정보를 다운로드 및 가져오기] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
+[방법: 게시 설정 및 구독 정보를 다운로드 및 가져오기](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

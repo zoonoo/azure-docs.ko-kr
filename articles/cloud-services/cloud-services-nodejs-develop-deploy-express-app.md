@@ -104,7 +104,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다. �
 
     ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-    Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][](영문)을 참조하세요.
+    Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][]\(영문)을 참조하세요.
 
 2.  **in Azure**를 추가하여 텍스트의 마지막 줄을 수정합니다.
 

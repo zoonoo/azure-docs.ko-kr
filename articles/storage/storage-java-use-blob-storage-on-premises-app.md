@@ -26,7 +26,7 @@
 
 - JDK(Java Developer Kit) 버전 1.6 이상이 설치되어 있어야 합니다.
 - Azure SDK가 설치되어 있어야 합니다.
-- Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드](java-download-azure-sdk.md)를 참조하세요.
+- Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드](../../articles/java-download-azure-sdk.md)를 참조하세요.
 - Azure 저장소 계정이 설정되어 있어야 합니다. 이 문서의 코드에서는 저장소 계정의 계정 이름 및 계정 키를 사용합니다. 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)을, 계정 키 검색에 대한 자세한 내용은 [저장소 계정 키 보기 및 복사](storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
 
 - 이름을 지정한 로컬 이미지 파일을 만들어 c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.

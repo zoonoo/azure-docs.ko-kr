@@ -96,7 +96,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
   
-Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCenter로 프로비전되어야 합니다. EmpCenter의 경우 사용자 계정을 EmpCenter 지원 팀에서 작성해야 합니다.
+Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCenter로 프로비전되어야 합니다.
+EmpCenter의 경우 사용자 계정을 EmpCenter 지원 팀에서 작성해야 합니다.
 
 >[AZURE.NOTE] EmpCenter에서 제공하는 다른 EmpCenter 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정를 프로비전합니다.
 
@@ -108,7 +109,7 @@ Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCente
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **EmpCenter** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **EmpCenter** 응용 프로그램 통합 페이지에서 **사용자 할당** 을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-empcenter-tutorial/IC802924.png "사용자 할당")
 
