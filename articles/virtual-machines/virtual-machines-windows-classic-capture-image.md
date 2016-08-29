@@ -32,6 +32,7 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 
 - [이미지에서 가상 컴퓨터 만들기](virtual-machines-windows-classic-createportal.md)
 - [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)
+- 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 > [AZURE.WARNING] 이 프로세스는 캡처된 후 원래의 가상 컴퓨터를 삭제합니다.
 
@@ -90,4 +91,4 @@ Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

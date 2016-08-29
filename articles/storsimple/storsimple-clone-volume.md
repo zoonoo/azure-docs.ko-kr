@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 복제
@@ -45,7 +45,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
   1. 대상 장치를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 장치를 선택하거나 다른 장치를 지정할 수 있습니다. 다른 클라우드 서비스 공급자와 연결 된 볼륨을 선택하는 경우 (Azure가 아님), 대상 장치에 대한 드롭다운 목록에는 물리적 장치만 표시 됩니다. 가상 장치에 다른 클라우드 서비스 공급자와 연결된 볼륨을 복제할 수 없습니다.
 
-        >  [AZURE.NOTE] 복제에 필요한 용량은 대상 장치에서 사용 가능한 용량보다 작아야 합니다.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
   3. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
 
@@ -96,4 +96,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

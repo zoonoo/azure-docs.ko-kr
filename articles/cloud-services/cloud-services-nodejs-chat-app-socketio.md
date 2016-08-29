@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
@@ -53,7 +53,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
 
-	다음과 같은 응답이 표시됩니다.
+	You will see the following response:
 
 	![new-azureservice 및 add-azurenodeworkerrolecmdlets의 출력](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
@@ -170,4 +170,4 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
   
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

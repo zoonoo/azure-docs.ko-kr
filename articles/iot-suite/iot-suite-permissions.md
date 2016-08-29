@@ -14,14 +14,14 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/16/2016"
+  ms.date="08/10/2016"
   ms.author="araguila"/>
   
 # azureiotsuite.com 사이트에 대한 사용 권한
 
 ## 로그인 후 진행되는 작업
 
-[azureiotsuite.com][lnk-azureiotsuite]에 처음 로그인하면, 사이트에서는 현재 선택된 Azure Active Directory(AAD) 테넌트 및 Azure 구독을 기반으로 사용자가 소유하는 권한 수준을 판단합니다.
+[azureiotsuite.com][lnk-azureiotsuite]에 처음 로그인하면, 사이트에서는 현재 선택된 AAD(Azure Active Directory) 테넌트 및 Azure 구독을 기반으로 사용자가 가진 사용 권한 수준을 결정합니다.
 
 1.  우선, 로그인 사용자 이름 옆에 표시되는 테넌트 목록을 채우기 위해서 Azure로부터 사용자가 속하는 AAD 테넌트를 알아냅니다. 이 때 사이트는 테넌트에 대한 사용자 토큰을 한 번에 하나만 가져올 수 있습니다. 결과적으로 오른쪽 상단 모서리의 드롭다운을 사용하여 다른 테넌트로 전환하면, 사이트는 이 테넌트에 대한 토큰을 가져오기 위해서 해당 테넌트로 사용자를 다시 로그인합니다.
 
@@ -154,4 +154,4 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

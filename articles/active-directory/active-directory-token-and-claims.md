@@ -46,7 +46,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### id\_token의 클레임
 
-| JWT 클레임 | 이름 | 설명 |
+| JWT 클레임 | Name | 설명 |
 |-----------|------|-------------|
 | `appid`| 응용 프로그램 UI | 토큰을 사용하여 리소스에 액세스하는 응용 프로그램을 식별합니다. 응용 프로그램은 자체적으로 작동할 수도 있고 사용자를 대신하여 작동할 수도 있습니다. 응용 프로그램 ID는 일반적으로 응용 프로그램 개체를 나타내지만 Azure AD의 서비스 사용자 개체를 나타낼 수도 있습니다. <br><br> **JWT 값 예제**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud`| 대상 | 토큰의 의도한 수신자입니다. 토큰을 받는 응용 프로그램에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. <br><br> **SAML 값 예제**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT 값 예제**: <br> `"aud":"https://contoso.com"` |
@@ -64,7 +64,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `oid` | 개체 ID | Azure AD 개체의 고유 식별자를 포함합니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. Azure AD에 대한 쿼리의 개체를 식별할 개체 ID를 사용하세요. <br><br> **SAML 값 예제**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` | 역할 | 주체가 그룹 멤버 자격을 통해 직간접적으로 부여받은 모든 응용 프로그램 역할을 나타내며 역할 기반 액세스 제어를 적용하는 데 사용됩니다. 응용 프로그램 역할은 응용 프로그램 매니페스트의 `appRoles` 속성을 통해 응용 프로그램별로 정의됩니다. 각 응용 프로그램 역할의 `value` 속성은 역할 클레임에 표시되는 값입니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **JWT 값 예제**: <br> `“roles”: ["Admin", … ]` |
 | `scp` | 범위 | 클라이언트 응용 프로그램에 부여된 권한을 가장함을 나타냅니다. 기본 권한은 `user_impersonation`입니다. 보안 리소스의 소유자는 Azure AD에서 추가 값을 등록할 수 있습니다. <br><br> **JWT 값 예제**: <br> `"scp": "user_impersonation"`|
-| `sub` |제목 | 응용 프로그램 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation`은 클레임이 아닙니다. 토큰의 주체는 확인하는 방법을 설명합니다. `Bearer`는 주체가 토큰의 소유로 확인됨을 나타냅니다. <br><br> **SAML 값 예제**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **JWT 값 예제**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"`|
+| `sub` |제목  
+| 응용 프로그램 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation`은 클레임이 아닙니다. 토큰의 주체는 확인하는 방법을 설명합니다. `Bearer`는 주체가 토큰의 소유로 확인됨을 나타냅니다. <br><br> **SAML 값 예제**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **JWT 값 예제**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"`|
 | `tid` | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트를 식별하는 변경할 수 없고 다시 사용할 수 없는 식별자입니다. 이 값을 사용하여 다중 테넌트 응용 프로그램의 테넌트별 디렉터리 리소스에 액세스할 수 있습니다. 예를 들어 이 값을 사용하여 Graph API 호출의 테넌트를 식별할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"`|
 | `nbf`, `exp`|토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대 5분까지 여유 시간을 제공할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **JWT 값 예제**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn`| 사용자 계정 이름 | 사용자 계정의 사용자 이름을 저장합니다.<br><br> **JWT 값 예제**: <br> `"upn": frankm@contoso.com`|
@@ -109,6 +110,20 @@ id\_token은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
 `alg` 클레임은 토큰 서명에 사용된 알고리즘을 나타내고 `x5t` 클레임은 토큰 서명에 사용된 특정 공개 키를 나타냅니다.
 
 특정 시점에 Azure AD는 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 id\_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
+
+다음 위치에 있는 OpenID Connect 메타데이터 문서를 사용하여 서명 유효성 검사에 필요한 서명 키 데이터를 얻을 수 있습니다.
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] 브라우저에서 이 URL을 사용해 보세요!
+
+이 메타데이터 문서는 OpenID Connect 인증을 수행하는 데 필요한 다양한 끝점의 위치 등 여러 유용한 정보를 포함하는 JSON 개체입니다.
+
+토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. `jwks_uri`에 있는 JSON 문서는 해당 특정 시점에 사용 중인 공개 키 정보를 모두 포함합니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.
+
+서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
 
 #### 클레임 유효성 검사
 
@@ -275,4 +290,4 @@ id\_token은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -32,6 +32,11 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
 
+## 데이터 복사 마법사
+Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Oracle 데이터베이스와 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+
 ## 샘플: Oracle에서 Azure Blob로 데이터 복사
 이 샘플은 온-프레미스 Oracle 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
@@ -227,9 +232,9 @@ to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 
 
 1.	[OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
-3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4.	[OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
-5.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 소스로, [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties)를 싱크로 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+4.	[OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+5.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 소스로, [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties)를 싱크로 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Blob에서 온-프레미스 Oracle 데이터베이스의 테이블로 매시간 데이터를 복사합니다. 아래 샘플에 사용되는 다양한 속성에 대한 자세한 내용은 샘플 다음에 나오는 섹션의 다양한 속성에 대한 문서를 참조하세요.
 
@@ -436,7 +441,7 @@ oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습�
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: 00:30:00(30분). | 아니요
+writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | timespan<br/><br/> 예: “00:30:00”(30분). | 아니요
 writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | 정수(행 수)| 아니요(기본값: 10000)  
 sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. | 쿼리 문입니다. | 아니요
 sliceIdentifierColumnName | 복사 작업에 대해 사용자가 지정한 열 이름으로 자동 생성된 조각 식별자로 채워집니다. 다시 실행하면 특정 조각의 데이터가 정리됩니다. | binary(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요
@@ -481,7 +486,7 @@ XML | String
 
 ## 문제 해결 팁
 
-**문제:** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
+**문제: ** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
 
 **가능한 원인**
 
@@ -505,4 +510,4 @@ XML | String
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

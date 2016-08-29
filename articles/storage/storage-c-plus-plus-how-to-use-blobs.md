@@ -18,7 +18,7 @@
 
 # C++에서 Blob 저장소를 사용하는 방법  
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## 개요
 
@@ -241,4 +241,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -32,7 +32,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 - Data Lake Analytics 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-analytics-get-started-portal.md#signup)을 참조하세요.
 - **Azure Data Lake Analytics 계정**. [Azure 포털을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 지침을 따릅니다.
 
-## Data Lake Analytics 계정에 대한 진단 로깅 사용
+## 로깅 사용
 
 1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -52,7 +52,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 
 진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
 
-## Data Lake Analytics 계정에 대한 진단 로그 보기
+## 로그 보기
 
 두 가지 방법으로 Data Lake Analytics 계정에 대한 로그 데이터를 볼 수 있습니다.
 
@@ -108,7 +108,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## 로그 데이터의 구조 이해
+## 로그 구조
 
 감사 로그 및 요청 로그는 JSON 형식입니다. 이 섹션에서는 요청 로그 및 감사 로그에 대한 JSON의 구조를 살펴봅니다.
 
@@ -149,7 +149,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 | Name | 형식 | 설명 |
 |-----------------|--------|--------------------------------------------------------------------------------|
 | 실시간 | 문자열 | 로그의 타임스탬프(UTC) |
-| resourceId | 문자열 | 작업이 수행되는 리소스의 ID |
+| resourceId | String | 작업이 수행되는 리소스의 ID |
 | 카테고리 | 문자열 | 로그 범주 예를 들어 **요청** |
 | operationName | String | 기록된 작업의 이름 예를 들어 GetAggregatedJobHistory |
 | resultType | 문자열 | 작업의 상태, 예를 들어 200 |
@@ -225,13 +225,13 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ 및 __Parallelism__은 작업에 대한 정보를 제공하고 작업이 시작 또는 완료된 경우에 값을 포함합니다. 예를 들어 __operationName__이 __JobSubmitted__를 표시한 후 __SubmitTime__은 값을 포함합니다.
 
-## 로그 데이터를 처리하는 샘플
+## 로그 데이터 처리
 
 Azure Data Lake Analytics에서는 로그 데이터를 처리하고 분석하는 방법에 대한 샘플을 제공합니다. [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)에서 샘플을 찾을 수 있습니다.
 
 
-## 참고 항목
+## 다음 단계
 
 - [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

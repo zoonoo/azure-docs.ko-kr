@@ -23,9 +23,14 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
+
 이 항목에서는 Linux와 Mac에서 **ssh-keygen** 및 **openssl**을 사용하여 **ssh-rsa** 형식 및 **.pem** 형식 파일을 만들어서 Linux 기반의 Azure VM과 안전하게 통신하는 방법을 설명합니다. 신규 배포에서 *ssh-rsa* 유형 공개 키 파일 또는 문자열(배포 클라이언트에 따라)을 취하는 경우에는 리소스 관리자 배포 모델을 사용하여 Linux 기반 Azure 가상 컴퓨터를 만드는 것이 좋습니다. 현재 [Azure 포털](https://portal.azure.com)에서는 클래식 또는 리소스 관리자 배포에 **ssh-rsa** 형식 문자열만 허용합니다.
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Azure에서 Linux VM과 안전하게 통신할 수 있도록 이러한 파일 유형을 만들어서 Windows 컴퓨터에 사용하는 방법은 [Windows에서 SSH 키 사용](virtual-machines-linux-ssh-from-windows.md)을 참조하세요.
+
+> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
+
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Azure에서 Linux VM과 안전하게 통신할 수 있도록 이러한 파일 유형을 만들어서 Windows 컴퓨터에 사용하는 방법은 [Windows에서 SSH 키 사용](virtual-machines-linux-ssh-from-windows.md)을 참조하세요.
 
 ## 어떤 파일이 필요합니까?
 
@@ -34,7 +39,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
 1. **ssh-rsa** 키는 배포 모델과 관계없이 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
-2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다. 
+2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다.
 
 ## SSH와 함께 사용할 키 생성
 
@@ -42,7 +47,7 @@ SSH 키가 이미 있는 경우 Azure VM을 만들 때 공개 키 파일을 전�
 
 파일을 만들어야 하는 경우:
 
-1. **ssh-keygen** 및 **openssl** 구현이 최신 상태인지 확인합니다. 이는 플랫폼에 따라 다릅니다. 
+1. **ssh-keygen** 및 **openssl** 구현이 최신 상태인지 확인합니다. 이는 플랫폼에 따라 다릅니다.
 
 	- Mac의 경우 [Apple 제품 보안 웹 사이트](https://support.apple.com/HT201222)를 방문하여 필요에 따라 적절한 업데이트를 선택합니다.
 	- Ubuntu, Debian, Mint 등과 같은 Debian 기반 Linux 배포의 경우:
@@ -140,11 +145,11 @@ SSH 키가 이미 있는 경우 Azure VM을 만들 때 공개 키 파일을 전�
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ko-KR-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-en-us-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ko-KR-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-en-us-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -181,11 +186,11 @@ VM 이름과 함께 `azure vm show` 명령을 사용하여 VM 및 클래식 배�
 	data:    IPAddress "100.116.160.154"
 	data:    InstanceStatus "ReadyRole"
 	data:    InstanceSize "Small"
-	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ko-KR-30GB"
+	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
 	data:    OSDisk hostCaching "ReadWrite"
 	data:    OSDisk name "testpemasm-testpemasm-0-201510102050230517"
 	data:    OSDisk mediaLink "https://portalvhds4blttsxgjj1rf.blob.core.windows.net/vhd-store/testpemasm-2747c9c432b043ff.vhd"
-	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ko-KR-30GB"
+	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
 	data:    OSDisk operatingSystem "Linux"
 	data:    OSDisk iOType "Standard"
 	data:    ReservedIPName ""
@@ -293,4 +298,4 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
  
 VM에 연결했으니, 선택한 배포를 계속 사용할 수 있도록 업데이트해야 합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

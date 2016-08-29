@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="ericor" />
 
 
 
 # Azure RemoteApp에 대한 사용자 지정 이미지 업로드
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 사용자 지정 템플릿 이미지를 만들거나 변경 내용으로 업데이트했으므로, Azure RemoteApp 이미지 라이브러리에 해당 이미지를 업로드해야 합니다. 다음 단계를 사용합니다.
 
@@ -51,4 +54,4 @@
 - 스크립트를 변경하지 않아야 하며, 유효성 검사는 사용자 편의를 위한 것입니다.
 - 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

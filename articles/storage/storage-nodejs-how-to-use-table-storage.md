@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 # Node.js에서 Azure 테이블 저장소를 사용하는 방법
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## 개요
 
-이 항목에서는 Node.js 응용 프로그램의 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여줍니다.
+이 항목에서는 Node.js 응용 프로그램의 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
 
 이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -116,7 +115,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 **PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
 
-다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 유형으로 정의됩니다. 형식 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
+다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 유형으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
 	var task = {
 	  PartitionKey: {'_':'hometasks'},
@@ -167,7 +166,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 * **insertOrMergeEntity** - 새 속성 값을 기존 항목에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
-다음 예제에서는 **replaceEntity**를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
+다음 예제에서는 **replaceEntity**를 사용하여 엔터티를 업데이트하는 방법을 설명합니다.
 
 	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
 	  if(!error) {
@@ -276,7 +275,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null* 이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
+성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null*을 사용합니다.
 
 ### 엔터티 속성 하위 집합 쿼리
 
@@ -418,7 +417,7 @@ ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구
 	  }
 	});
 
-ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예제에서는 'user2'에 대해 새 SAS를 만듭니다.
+ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
 
 	tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
@@ -442,4 +441,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 테이블 서비스를 사용하여 Node.js 웹앱]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

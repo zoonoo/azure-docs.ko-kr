@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="xueshzha"/>
+	ms.date="08/17/2016" 
+	ms.author="yijichen"/>
 
 #예측 - ETS + STL  
 
@@ -137,4 +137,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

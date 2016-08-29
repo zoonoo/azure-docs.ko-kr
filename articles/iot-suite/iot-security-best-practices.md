@@ -29,7 +29,7 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 미리 구성된 IoT Suite 솔루션의 몇 가지 다른 기능 및 기능을 탐색할 수 있습니다.
 
 - [예측 정비 사전 구성 솔루션 개요][lnk-predictive-overview]
-- [IoT Suite에 대한 질문과 대답][lnk-faq]
+- [Azure IoT Suite에 대한 질문과 대답][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +37,4 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

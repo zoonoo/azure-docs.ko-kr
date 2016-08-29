@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp의 VNET에 대한 크기 정보
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 VNET(가상 네트워크)에서 Azure RemoteApp을 사용할 경우 RemoteApp에서는 서브넷 내의 IP 주소를 사용합니다. RemoteApp 서비스의 크기에 따라 서브넷에 RemoteApp 가상 컴퓨터에 사용할 수 있는 IP 주소가 충분한지 확인해야 합니다. 이 크기 조정 지침은 컬렉션 내에서 RemoteApp이 가상 컴퓨터를 위 또는 아래로 동적으로 회전하는 방법을 완벽하게 나타내지는 않지만, 서브넷 범위를 예측하는 데 도움이 됩니다. 이는 RemoteApp 서비스가 VNET 내에 배치된 경우 RemoteApp을 제거하지 않고는 서브넷 크기를 늘릴 수 없으므로 특히 중요합니다.
 
@@ -29,4 +32,4 @@ VNET(가상 네트워크)에서 Azure RemoteApp을 사용할 경우 RemoteApp에
 - [개인 VNET에서 Azure VNET으로 마이그레이션](remoteapp-migratevnet.md)
 - [Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

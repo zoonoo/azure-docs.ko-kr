@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 # Apache Cordova 앱에 푸시 알림 추가
@@ -230,7 +230,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치](https://taco.visualstudio.com/ko-KR/docs/run-app-apache/#HAXM)하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
+	더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM)하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
 
 	**앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가한 다음 표시되는 메시지에 따라 장치에 기존 Google 계정을 추가합니다(새 계정을 만드는 것보다 기존 계정을 사용하는 것이 좋음).
 
@@ -246,15 +246,15 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 ####Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
-Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드](http://taco.visualstudio.com/ko-KR/docs/ios-guide/)의 단계에 따라 remotebuild 에이전트를 설치하고 실행합니다.
+Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드](http://taco.visualstudio.com/en-us/docs/ios-guide/)의 단계에 따라 remotebuild 에이전트를 설치하고 실행합니다.
 
-IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS를 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행](http://taco.visualstudio.com/ko-KR/docs/build_ios_cloud/)을 참조하세요.
+IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS를 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행](http://taco.visualstudio.com/en-us/docs/build_ios_cloud/)을 참조하세요.
 
 ####앱 ID로 사용할 ID 찾기
 
 푸시 알림을 위해 앱을 등록하기 전에 Cordova 앱에서 config.xml을 열고, 위젯 요소에서 `id` 특성 값을 찾은 후 나중에 사용할 수 있도록 복사합니다. 다음 XML에서 ID는 `io.cordova.myapp7777777`입니다.
 
-		<widget defaultlocale="ko-KR" id="io.cordova.myapp7777777"
+		<widget defaultlocale="en-US" id="io.cordova.myapp7777777"
   		version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
 			xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
@@ -268,7 +268,7 @@ IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단�
 
 ####푸시 알림을 전송하도록 Azure 구성
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -378,10 +378,10 @@ SDK 사용 방법을 알아봅니다.
 [phonegap-plugin-push 설치 설명서]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
+[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [알림 허브]: ../notification-hubs/notification-hubs-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

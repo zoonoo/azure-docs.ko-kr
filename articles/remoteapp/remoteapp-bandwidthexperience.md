@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp - 네트워크 대역폭과 환경 품질을 함께 작동하는 방식은 무엇인가요?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp에 필요한 [전체 네트워크 대역폭](remoteapp-bandwidth.md)을 확인할 때 다음 요소를 염두에 두어야 합니다. 이러한 요소는 모두 전반적인 사용자 환경에 영향을 주는 동적 시스템의 일부입니다.
 
@@ -35,4 +38,4 @@ Azure RemoteApp에 필요한 [전체 네트워크 대역폭](remoteapp-bandwidth
 
 - [Azure RemoteApp 네트워크 대역폭 - 일반적인 지침(자체 테스트를 수행할 수 없는 경우)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

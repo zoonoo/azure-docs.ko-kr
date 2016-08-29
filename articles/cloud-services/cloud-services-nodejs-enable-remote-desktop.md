@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Azure에서 원격 데스크톱 사용
@@ -73,7 +73,7 @@
 
     ![Windows 보안 프롬프트][5]
 
-4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계]\[1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
+4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계][1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
 
     ![사용자 이름/암호 프롬프트][6]
 
@@ -95,7 +95,7 @@
 
 ## 추가 리소스
 
-- [Azure에서 역할 인스턴스 원격 액세스] 
+- [Azure에서 역할 인스턴스 원격 액세스]
 - [Azure 역할과 함께 원격 데스크톱 사용]
 - [Node.js 개발자 센터](/develop/nodejs/)
 
@@ -115,4 +115,4 @@
 [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

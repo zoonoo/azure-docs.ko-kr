@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="08/12/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -96,7 +96,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 이 테이블에서 다음과 같은 결론을 내릴 수 있습니다.
 
--	동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다. 예를 들어 6GB 캐시의 경우 C3의 처리량 49K에 비해 P1의 처리량은 140K RPS입니다.
+-	동일한 크기의 캐시 처리량은 표준 계층과 비교할 때 프리미엄 계층에서 더 높습니다. 예를 들어 6GB 캐시를 사용할 경우 C3의 처리량 49K에 비해 P1의 처리량은 140K RPS입니다.
 -	Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10개의 분할된 데이터베이스에 P4 클러스터를 만드는 경우 가능한 처리량은 250K * 10 = 초당 250만 요청 수입니다.
 -	큰 크기의 키에 대한 처리량이 표준 계층에 비해 프리미엄 계층에서 더 높습니다.
 
@@ -145,10 +145,10 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
 ConfigurationOptions|설명|권장 사항
 ---|---|---
 AbortOnConnectFail|true로 설정하면 네트워크 오류가 발생한 후 연결이 다시 연결되지 않습니다.|false로 설정하여 StackExchange.Redis가 자동으로 다시 연결하도록 합니다.
-ConnectRetry|초기 연결 중에 연결 시도를 반복할 횟수입니다.| 아래 지침을 참조하세요. |
-ConnectTimeout|연결 작업의 시간 제한(ms)입니다.| 아래 지침을 참조하세요. |
+ConnectRetry|초기 연결 중에 연결 시도를 반복할 횟수입니다.| 지침은 다음 사항을 참조하세요. |
+ConnectTimeout|연결 작업의 시간 제한(ms)입니다.| 지침은 다음 사항을 참조하세요. |
 
-대부분의 경우 클라이언트의 기본값으로 충분합니다. 작업에 따라 옵션을 미세 조정할 수 있습니다.
+대부분의 경우 클라이언트의 기본값으로 충분합니다. 워크로드에 따라 옵션을 미세 조정할 수 있습니다.
 
 -	**다시 시도**
 	-	ConnectRetry 및 ConnectTimeout에 대한 일반적인 지침은 빠른 오류 및 다시 시도입니다. 이 값은 클라이언트가 Redis 명령을 실행하고 응답을 수신하는 데 걸리는 평균 시간 및 작업에 따라 달라집니다.
@@ -203,7 +203,7 @@ Azure Redis Cache에 대한 로컬 에뮬레이터는 없지만 다음 예제와
 
 [Azure Redis Cache에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)에 나열된 명령을 제외하고, [Redis 명령](http://redis.io/commands#)에 나열된 모든 명령을 사용할 수 있습니다. Redis 명령을 실행하는 옵션은 여러 가지가 있습니다.
 
--	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. Azure 포털에서 Redis 명령을 안전하게 실행하는 방법을 제공합니다.
+-	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. 이 방법은 Azure 포털에서 Redis 명령을 안전하게 실행하는 방법입니다.
 -	Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
 -	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)를 다운로드합니다.
 -	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
@@ -237,17 +237,47 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 ## 프로덕션 FAQ
 
--	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-whko-KRing-common-redis-commands)
+-	[프로덕션 모범 사례에는 어떤 것이 있나요?](#what-are-some-production-best-practices)
+-	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 -	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 -	[ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
--	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-whko-KRing-stackexchangeredis)
+-	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 
+### 프로덕션 모범 사례에는 어떤 것이 있나요?
+
+-	[StackExchange.Redis 모범 사례](#stackexchangeredis-best-practices)
+-	[구성 및 개념](#configuration-and-concepts)
+-	[성능 테스트](#performance-testing)
+
+#### StackExchange.Redis 모범 사례
+
+-	`AbortConnect`를 false로 설정하고 ConnectionMultiplexer가 자동으로 다시 연결되도록 합니다. [자세한 내용을 보려면 여기를 참조하세요](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+-	ConnectionMultiplexer를 다시 사용합니다. 요청마다 새로 만들지 마세요. [여기에 표시된](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) `Lazy<ConnectionMultiplexer>` 패턴을 사용하는 것이 좋습니다.
+-	Redis는 더 작은 값에서 가장 잘 작동하므로 더 큰 데이터를 여러 개의 키로 분할하는 것을 고려합니다. [이 Redis 토론](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)에서 100KB는 "큰" 것으로 간주합니다. 큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)를 읽어보세요.
+-	시간 초과를 방지하도록 [ThreadPool 설정](#important-details-about-threadpool-growth)을 구성합니다.
+-	기본 connectTimeout인 5초 이상을 사용합니다. 이렇게 하면 네트워크 문제가 발생할 경우 StackExchange.Redis에서 연결을 다시 설정할 충분한 시간을 얻게 됩니다.
+-	실행 중인 다른 작업을 관련된 성능 비용을 고려해야 합니다. 예를 들어 `KEYS` 명령은 O(n) 작업이므로 피해야 합니다. [redis.io 사이트](http://redis.io/commands/)에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
+
+#### 구성 및 개념
+
+-	프로덕션 시스템에 대해 표준 또는 프리미엄 계층을 사용합니다. 기본 계층은 데이터 복제 및 SLA가 없는 단일 노드 시스템입니다. 또한 C1 이상의 캐시를 사용합니다. C0 캐시는 실제로 간단한 개발/테스트 시나리오에 대한 것입니다.
+-	Redis는 **메모리 내** 데이터 저장소입니다. 데이터 손실이 발생할 수 있는 시나리오에 대해서는 [이 문서](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)를 읽어보세요.
+-	[패치 및 장애 조치(failover)로 인한](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md) 연결 문제를 처리할 수 있도록 시스템을 개발하세요.
+
+#### 성능 테스트
+
+-	자체 성능 테스트를 작성하기 전에 먼저 `redis-benchmark.exe`를 사용하여 가능한 처리량을 확인하세요. redis 벤치마크에서는 SSL을 지원하지 않으므로 테스트를 실행하기 전에 [Azure 포털을 통해 비 SSL 포트를 사용하도록 설정](cache-configure.md#access-ports)해야 합니다. 예를 들어 [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)를 참조하세요.
+-	테스트에 사용되는 클라이언트 VM은 Redis 캐시 인스턴스와 동일한 지역에 있어야 합니다.
+-	더 나은 하드웨어를 유지하고 최상의 결과를 제공하므로 클라이언트에 대해 Dv2 VM 시리즈를 사용하는 것이 좋습니다.
+-	선택하는 클라이언트 VM에는 적어도 테스트 중인 캐시만큼의 계산 및 대역폭 성능이 필요합니다.
+-	Windows에서 작업하는 경우 클라이언트 컴퓨터에서 VRSS를 사용하도록 설정합니다. [자세한 내용을 보려면 여기를 참조하세요](https://technet.microsoft.com/library/dn383582.aspx).
+-	프리미엄 계층 Redis 인스턴스는 CPU 및 네트워크 둘 다에 대해 더 나은 하드웨어에서 실행되므로 더 나은 네트워크 대기 시간 및 처리량을 제공합니다.
 
 <a name="cache-redis-commands"></a>
 ### 일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?
 
 -	완료하는 데 시간이 오래 걸리는 특정 Redis 명령은 명령의 영향을 알고 있는 경우에만 실행해야 합니다.
--	예를 들어 [KEYS](http://redis.io/commands/keys) 명령은 키 수에 따라 반환되는 데 시간이 오래 걸릴 수 있으므로 프로덕션에서 실행하지 마세요. Redis는 단일 스레드 서버이며 한 번에 하나씩 명령을 처리합니다. KEYS 후에 실행된 다른 명령이 있는 경우 Redis가 KEYS 명령을 처리할 때까지 처리되지 않습니다.
+	-	예를 들어 [KEYS](http://redis.io/commands/keys) 명령은 키 수에 따라 반환되는 데 시간이 오래 걸릴 수 있으므로 프로덕션에서 실행하지 마세요. Redis는 단일 스레드 서버이며 한 번에 하나씩 명령을 처리합니다. KEYS 후에 실행된 다른 명령이 있는 경우 Redis가 KEYS 명령을 처리할 때까지 처리되지 않습니다. [redis.io 사이트](http://redis.io/commands/)에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
 -	키 크기 - 작은 키/값을 사용해야 하나요, 아니면 큰 키/값을 사용해야 하나요? 일반적으로 시나리오에 따라 다릅니다. 시나리오에서 큰 키가 필요한 경우 ConnectionTimeout 및 다시 시도 값과 다시 시도 논리를 조정할 수 있습니다. Redis 서버 관점에서는 값이 작을수록 더 나은 성능이 관찰됩니다.
 -	Redis에서 큰 값을 저장할 수 없다는 의미는 아닙니다. 다음과 같은 고려 사항에 주의해야 합니다. 대기 시간이 더 길어집니다. 큰 데이터 집합 1개와 작은 데이터 집합 1개가 있는 경우, 이전의 [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#cache-configuration) 섹션에 설명된 대로 각각 다른 시간 제한 및 다시 시도 값으로 구성된 여러 개의 ConnectionMultiplexer 인스턴스를 사용할 수 있습니다.
 
@@ -263,6 +293,15 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 -	부하로 인해 높은 메모리 조각화가 발생하는 경우 큰 캐시 크기로 확장해야 합니다.
 -	Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
+redis-benchmark.exe를 사용하는 예는 다음과 같습니다. 정확한 결과를 위해 캐시가 있는 동일한 지역에 있는 VM에서 이 명령을 실행합니다.
+
+-	1K 페이로드를 사용하여 파이프라인 SET 요청 테스트
+
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
+	
+-	1K 페이로드를 사용하여 파이프라인 GET 요청 테스트 참고: 먼저 위에 표시된 SET 테스트를 실행하여 캐시 채우기
+	
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
 
 <a name="threadpool"></a>
 ### ThreadPool 증가에 대한 중요한 세부 정보
@@ -300,7 +339,7 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 -	ASP.NET에서 web.config의 `<processModel>` 구성 요소에서 ["minIoThreads" 구성 설정][]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application\_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
 
-> **중요:** 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`을 사용합니다.
+> **중요:** 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`를 사용합니다.
 
 -	ASP.NET 외부에서 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API를 사용합니다.
 
@@ -343,7 +382,7 @@ Redis Cache **설정** 블레이드의 **지원 + 문제 해결** 섹션에는 �
 
 ### 내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?
 
-동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 여부를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../azure-portal/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 아닌지를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../azure-portal/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
 ### 다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?
 
@@ -353,9 +392,8 @@ Redis Cache **설정** 블레이드의 **지원 + 문제 해결** 섹션에는 �
 <a name="cache-timeouts"></a>
 ### 왜 시간 초과가 표시되나요?
 
-시간 초과는 Redis와 통신하는 데 사용하는 클라이언트에서 발생합니다. 대부분의 경우 Redis 서버는 시간 초과되지 않습니다. Redis 서버에 명령이 전송될 때 명령은 큐에 배치되며 Redis 서버가 결국 명령을 선택하여 실행합니다. 그러나 이 프로세스 중에 클라이언트가 시간 초과될 수 있으며, 이 경우 호출 쪽에서 예외가 발생합니다. 시간 초과 문제 해결에 대한 자세한 내용은 [클라이언트 쪽 문제 해결](cache-how-to-troubleshoot.md#client-side-troubleshooting) 및 [StackExchange.Redis 시간 초과 예외](클라이언트 쪽 문제 해결)(cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions)를 참조하세요.
+시간 초과는 Redis와 통신하는 데 사용하는 클라이언트에서 발생합니다. 대부분의 경우 Redis 서버는 시간 초과되지 않습니다. Redis 서버에 명령이 전송될 때 명령은 큐에 배치되며 Redis 서버가 결국 명령을 선택하여 실행합니다. 그러나 이 프로세스 중에 클라이언트가 시간 초과될 수 있으며, 이 경우 호출 쪽에서 예외가 발생합니다. 시간 초과 문제를 해결하는 방법에 대한 자세한 내용은 [클라이언트 쪽 문제 해결](cache-how-to-troubleshoot.md#client-side-troubleshooting) 및 [StackExchange.Redis 시간 초과 예외](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions)를 참조하세요.
 
-'<-- Loc Comment: 끊어진 링크: [StackExchange.Redis 시간 제한 예외](클라이언트 쪽 문제 해결](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(클라이언트 쪽 문제 해결]"을 제거해야 합니다. -->'
 
 <a name="cache-disconnect"></a>
 ### 내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?
@@ -410,4 +448,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

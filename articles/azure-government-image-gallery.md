@@ -2,6 +2,7 @@
    pageTitle="Azure Government 이미지 갤러리 | Microsoft Azure"
    description="이 문서에서는 Azure Government 이미지 갤러리 및 포함된 이미지에 대한 개요를 제공합니다."
    services="Azure-Government"
+   cloud="gov"
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
@@ -141,4 +142,4 @@ Visual Studio|Windows Server 2012 R2의 Azure SDK 2.9가 있는 Visual Studio En
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

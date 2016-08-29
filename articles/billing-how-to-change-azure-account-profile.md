@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # 연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법
@@ -61,4 +61,4 @@ Azure에서 중요한 메일이 누락되었나요? 프로필에서 다른 연�
 
 새 Azure 청구 경고 미리 보기 기능에 등록하는 경우 계정 관리자 메일 주소를 변경했는지 여부에 상관없이 지정한 주소로 Azure 청구 경고 메일이 수신됩니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

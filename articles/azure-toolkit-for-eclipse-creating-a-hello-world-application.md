@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -29,10 +29,10 @@
 ## 필수 조건 ##
 
 * JDK(Java 개발자 키트), v 1.7 이상
-* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/> 에서 다운로드할 수 있습니다.
+* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server, Jetty 또는 IBM® WebSphere® Application Server Liberty Core)
-* Azure 구독. <http://azure.microsoft.com/pricing/purchase-options/> 에서 구입할 수 있습니다.
-* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][] 를 참조하세요.
+* Azure 구독. <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있습니다.
+* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][]를 참조하세요.
 
 ## Hello World 응용 프로그램을 만들려면 ##
 
@@ -42,10 +42,7 @@
 *  이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다. ![][ic589576]
 * **마침**을 클릭합니다.
 * Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
-* **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다.  
-
-	![][ic659262]
-
+* **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다. ![][ic659262]
 * **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라 **새 JSP 파일(html)**을 선택하고 **완료**를 클릭합니다.
 * Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
 ```
@@ -60,19 +57,14 @@
 Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바로 가기를 사용하여 Azure 클라우드에서 직접 체험할 수 있습니다.
 
 1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld**를 클릭합니다.
-1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다 
-
-	![][publishDropdownButton]
-
-1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다.
-
-	![][ic789598]
+1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다 ![][publishDropdownButton]
+1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다. ![][ic789598]
 
     이 바로 가기 방식을 사용하면 기본값과 다른 특정 서버 또는 JDK를 구성할 필요 없이 Azure에서 응용 프로그램을 테스트하는 빠르고 쉬운 방법이 가능합니다. 기본값에 만족할 경우 **확인**을 클릭하여 다음 단계를 계속할 수 있습니다. 그러나 응용 프로그램에 사용할 JDK 또는 응용 프로그램 서버를 변경하려는 경우 나중에 사용자를 위해 자동으로 만들어진 Azure 배포 프로젝트를 편집하여 수행하거나 지금 **취소**를 클릭하고 이 자습서의 **Azure 배포 프로젝트 섹션 정보**를 읽을 수 있습니다.
 1. **Azure에 게시** 대화 상자에서:
     1. 아직 **구독** 목록에서 선택할 구독이 없는 경우 다음이 단계를 수행하여 구독 정보를 가져옵니다.
         1. **게시 설정 파일에서 가져오기**를 클릭합니다.
-        1. **구독 정보 가져오기** 대화 상자에서 **게시-설정 파일 다운로드**를 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. 로컬 컴퓨터에 저장합니다.
+        1. **Import Subscription Information** 대화 상자에서 **Download PUBLISH-SETTINGS File**을 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. 로컬 컴퓨터에 저장합니다.
         1. **구독 정보 가져오기** 대화 상자에서 **찾아보기** 단추를 클릭하고 이전 단계에서 로컬에 저장해 놓은 게시 설정 파일을 선택한 다음 **열기**를 클릭합니다. 화면은 다음과 유사해야 합니다. ![][ic644267]
         1. **확인**을 클릭합니다.
     1. **구독**의 경우 배포에 사용하려는 구독을 선택합니다.
@@ -102,13 +94,13 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
 
 또한 먼저 빈 Azure 배포 프로젝트를 직접 만들고 응용 프로그램을 추가하여 이 자습서를 시작했습니다. 긴 과정이지만 처음부터 초기 구성을 강하게 제어할 수 있습니다.
 
-새 Azure 배포 프로젝트를 처음부터 새로 만들려면 **새 Azure 배포 프로젝트** 단추 ![][ic710876] 를 클릭합니다.
+새 Azure 배포 프로젝트를 처음부터 새로 만들려면 **새 Azure 배포 프로젝트** 단추 ![][ic710876]를 클릭합니다.
 
 기존의 Azure 배포 프로젝트로 작업하거나 처음부터 새로 만드는지에 관계 없이 JDK 또는 응용 프로그램 서버와 같은 해당 구성 설정 및 구성 요소를 동일하게 언제든지 쉽게 변경할 수 있습니다.
 
 기존 Azure 배포 프로젝트의 JDK, 응용 프로그램 서버 또는 응용 프로그램 목록을 변경하려면 :
 
-1. 프로젝트 탐색기에서 프로젝트 노드 확장(예: **MyHelloWorld_onAzure**)
+1. 프로젝트 탐색기에서 프로젝트 노드 확장(예: **MyHelloWorld\_onAzure**)
 2. 마우스 오른쪽 단추로 **WorkerRole1** 클릭
 3. 상황에 맞는 메뉴에서 **Azure** 하위 메뉴 확장
 4. **서버 구성** 클릭
@@ -121,7 +113,7 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
 
 이전에 암시적으로 설명한 단계에 따라 Azure에 응용 프로그램을 게시하여 새 Azure 배포 프로젝트를 만든 경우 JDK 및 응용 프로그램 서버는 로컬 에뮬레이션이 아닌 클라우드에 대해 구성됩니다. 로컬 에뮬레이터에서 프로젝트를 테스트할 준비를 하려면 다음 단계를 따릅니다.
 
-1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld_onAzure**를 클릭합니다.
+1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld\_onAzure**를 클릭합니다.
 1. 마우스 오른쪽 단추로 **WorkerRole1**를 클릭합니다.
 1. 상황에 맞는 메뉴에서 **Azure** 하위 메뉴를 확장합니다.
 1. **서버 구성**을 클릭합니다.
@@ -136,17 +128,17 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
 1. 계산 에뮬레이터 UI의 출력을 검사하여 프로젝트에 문제가 있는지 확인합니다. 배포 콘텐츠에 따라 응용 프로그램이 계산 에뮬레이터 내에서 완전히 시작되려면 일 분 정도 걸릴 수 있습니다.
 1. 브라우저를 시작하고 URL `http://localhost:8080/MyHelloWorld`을 주소로 사용합니다.(URL의 `MyHelloWorld` 부분은 대/소문자 구분함) MyHelloWorld 응용 프로그램(index.jsp의 출력)을 확인하면 다음 이미지와 비슷해야 합니다. ![][ic589579]
 
-계산 에뮬레이터에서 실행되는 응용 프로그램을 중지할 준비가 되면 Eclipse 도구 모음에서 **Azure 에뮬레이터 다시 설정** 단추 ![][ic710880] 를 클릭합니다.
+계산 에뮬레이터에서 실행되는 응용 프로그램을 중지할 준비가 되면 Eclipse 도구 모음에서 **Azure 에뮬레이터 다시 설정** 단추 ![][ic710880]를 클릭합니다.
 
 ## 배포를 삭제하려면 ##
 
-Eclipse용 Azure 도구 모음 내에서 배포를 삭제하려면 Eclipse의 프로젝트 탐색기에서 **MyHelloWorld_onAzure**을 선택하고 Eclipse 프로젝트 탐색기가 현재 창에 포커스를 맞춘 다음 **게시 취소** 단추 ![][ic710883]을 Eclipse 도구 모음에서 클릭해야 합니다. (Eclipse의 프로젝트 탐색기에서 마우스 오른쪽 단추로 **MyHelloWorld\_onAzure**를 클릭하고 **Azure**를 클릭한 다음 **Azure 클라우드에서 배포 취소**를 클릭하여 동일한 작업을 수행할 수 있습니다.) **Azure 프로젝트 게시 취소** 대화 상자가 표시됩니다.
+Eclipse용 Azure 도구 모음 내에서 배포를 삭제하려면 Eclipse의 프로젝트 탐색기에서 **MyHelloWorld\_onAzure**을 선택하고 Eclipse 프로젝트 탐색기가 현재 창에 포커스를 맞춘 다음 **게시 취소** 단추 ![][ic710883]을 Eclipse 도구 모음에서 클릭해야 합니다. (Eclipse의 프로젝트 탐색기에서 마우스 오른쪽 단추로 **MyHelloWorld\_onAzure**를 클릭하고 **Azure**를 클릭한 다음 **Azure 클라우드에서 배포 취소**를 클릭하여 동일한 작업을 수행할 수 있습니다.) **Azure 프로젝트 게시 취소** 대화 상자가 표시됩니다.
 
 ![][ic719491]
 
 배포를 포함하는 구독 및 클라우드 서비스를 선택하고 삭제하려는 배포를 선택한 다음 **게시 취소**를 클릭합니다.
 
-(배포를 삭제하기 위해 도구 키트를 사용하는 대신 Azure 관리 포털의 **클라우드 서비스** 섹션을 사용할 수 있습니다. 배포로 이동하고 선택한 다음 **삭제** 단추를 클릭합니다. 배포를 중지한 다음 삭제합니다. 배포를 중지하지만 삭제하지 않으려는 경우 **삭제** 단추 대신 **중지** 를 클릭하지만 위에서 언급한 대로 배포를 삭제하지 않으면 중지된 경우에도 배포에 청구 가능한 요금이 계속 발생합니다.)
+(배포를 삭제하기 위해 도구 키트를 사용하는 대신 Azure 관리 포털의 **클라우드 서비스** 섹션을 사용할 수 있습니다. 배포로 이동하고 선택한 다음 **삭제** 단추를 클릭합니다. 배포를 중지한 다음 삭제합니다. 배포를 중지하지만 삭제하지 않으려는 경우 **삭제** 단추 대신 **중지**를 클릭하지만 위에서 언급한 대로 배포를 삭제하지 않으면 중지된 경우에도 배포에 청구 가능한 요금이 계속 발생합니다.)
 
 ## 참고 항목 ##
 
@@ -188,4 +180,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

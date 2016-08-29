@@ -5,7 +5,7 @@
 	keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Azure AD ID 보호를 사용하는 로그인 환경
@@ -59,7 +59,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 관리자는 다음을 수행할 수 있습니다.
 
-- 사용자가 해당 계정에 추가 보안 확인을 설정해야 하는 정책을 설정합니다. 
+- 사용자가 해당 계정에 추가 보안 확인을 설정해야 하는 정책을 설정합니다.
 - 등록하기 전에 사용자에게 유예 기간을 제공하려는 경우 최대 30일 동안 Multi-Factor Authentication 등록을 건너뛸 수 있습니다.
 
 **다단계 인증 등록에 세 가지 단계가 있습니다.**
@@ -120,7 +120,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 <br> ![재구성](./media/active-directory-identityprotection-flows/101.png "재구성") <br>
 
-2.	사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. Multi-Factor Authentication에 사용자를 등록하는 경우 손상되지 않도록 자체 복구할 수 있습니다. 해당 전화 번호에 보안 코드를 왕복해야 합니다. 
+2.	사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. Multi-Factor Authentication에 사용자를 등록하는 경우 손상되지 않도록 자체 복구할 수 있습니다. 해당 전화 번호에 보안 코드를 왕복해야 합니다.
 
 <br> ![재구성](./media/active-directory-identityprotection-flows/110.png "재구성") <br>
 
@@ -156,6 +156,6 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 ## 참고 항목
 
-- [Azure Active Directory ID 보호](active-directory-identityprotection.md) 
+- [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

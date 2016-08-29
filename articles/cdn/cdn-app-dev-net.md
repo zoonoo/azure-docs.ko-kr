@@ -22,7 +22,7 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
 
-[.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 응용 프로그램을 살펴볼 것입니다. 이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
+[.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 응용 프로그램을 살펴봅니다. 이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
 
 이 자습서를 완료하려면 Visual Studio 2015가 필요합니다. [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)는 무료로 다운로드할 수 있습니다.
 
@@ -287,7 +287,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] 위 예제에서 `/*` 문자열은 끝점 경로의 루트에 있는 모든 것을 삭제하겠다는 의미를 나타냅니다. 이는 Azure 포털의 "삭제" 대화 상자에서 **모두 삭제**에 표시하는 것과 같습니다. `CreateCdnProfile` 메서드에서는 `Sku = new Sku(SkuName.StandardVerizon)` 코드를 사용하여 **Verizon에서 Azure CDN** 프로필을 만들었으므로, 이 작업이 성공적으로 수행될 것입니다. 그러나 **Akamai에서 Azure CDN** 프로필은 **모두 삭제**를 지원하지 않습니다. 이 자습서에서 Akamai 프로필을 사용했다면 삭제할 구체적 경로가 필요했을 것입니다.
+>[AZURE.NOTE] 위 예제에서 `/*` 문자열은 끝점 경로의 루트에 있는 모든 것을 삭제하겠다는 의미를 나타냅니다. 이는 Azure 포털의 "제거" 대화 상자에서 **모두 제거**에 표시하는 것과 같습니다. `CreateCdnProfile` 메서드에서는 `Sku = new Sku(SkuName.StandardVerizon)` 코드를 사용하여 **Verizon에서 Azure CDN** 프로필을 만들었으므로, 이 작업이 성공적으로 수행될 것입니다. 그러나 **Akamai에서 Azure CDN** 프로필은 **모두 삭제**를 지원하지 않습니다. 이 자습서에서 Akamai 프로필을 사용했다면 삭제할 구체적 경로가 필요했을 것입니다.
 
 ## CDN 프로필 및 끝점 삭제
 
@@ -337,4 +337,6 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 .NET용 Azure CDN 관리 라이브러리에 관한 추가 설명서는 [MSDN 참조](https://msdn.microsoft.com/library/mt657769.aspx)를 확인하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+[PowerShell](./cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
+
+<!---HONumber=AcomDC_0817_2016-->

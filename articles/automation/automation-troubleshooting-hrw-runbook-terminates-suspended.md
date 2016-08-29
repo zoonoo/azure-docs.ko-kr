@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte" />
 
 # Hybrid Runbook Worker: Runbook 작업이 일시 중단됨 상태로 종료됨
@@ -33,7 +33,7 @@ Runbook 실행에 실패하고 “프로세스가 예기치 않게 중지되어�
 오류의 잠재적 원인에는 몇 가지가 있습니다.
 
   1. Hybrid Worker가 프록시 또는 방화벽 뒤에 있습니다.
-  2. Hybrid Worker가 실행되는 컴퓨터가 최소 하드웨어 [요구 사항](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements)에 미치지 못합니다. 
+  2. Hybrid Worker가 실행되는 컴퓨터가 최소 하드웨어 [요구 사항](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements)에 미치지 못합니다.
   3. 로컬 리소스를 사용하여 Runbook을 인증할 수 없습니다.
 
 
@@ -57,9 +57,9 @@ Hybrid Runbook Worker가 실행되는 컴퓨터는 이 기능을 호스트하도
 
 ### 해결 방법
 
-**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.*라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Runbook 권한](automation-hybrid-runbook-worker#runbook-permissions)을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.
+**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.*라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Runbook 권한](automation-hybrid-runbook-worker.md#runbook-permissions)을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

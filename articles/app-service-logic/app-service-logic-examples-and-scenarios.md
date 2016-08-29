@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
+   ms.date="08/11/2016"
    ms.author="jehollan"/>
 
 # 논리 앱 예제 및 일반적인 시나리오
 
 이 문서는 논리 앱을 사용하여 비즈니스 프로세스를 자동화할 수 있는 방법을 이해할 수 있도록 일반적인 시나리오 및 예제를 자세히 설명합니다.
 
-## 트리거 및 작업
+## 사용자 지정 트리거 및 동작
 
-몇 가지 방법으로 다른 앱에서 논리 앱을 트리거할 수 있습니다. 다음은 이러한 방법 중 일부입니다.
+몇 가지 방법으로 다른 앱에서 논리 앱을 트리거할 수 있습니다. 몇 가지 일반적인 예는 다음과 같습니다.
 
 - [사용자 지정 트리거 또는 작업 만들기](app-service-logic-create-api-app.md)
 - [장기 실행 작업](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@
 ### 시나리오
 
 - [요청 동기 응답](app-service-logic-http-endpoint.md)
+- [SMS로 요청 응답](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## 오류 처리 및 로깅
 
+- [예외 및 오류 처리](app-service-logic-exception-handling.md)
 - [Azure 경고 및 진단 구성](app-service-logic-monitor-your-logic-apps.md)
 
 ### 시나리오
@@ -77,4 +79,4 @@
 
 이 문서에 예제 및 시나리오를 추가할 예정입니다. 아래의 의견 섹션을 사용하여 여기에서 보고 싶은 예제 또는 시나리오를 알려주세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

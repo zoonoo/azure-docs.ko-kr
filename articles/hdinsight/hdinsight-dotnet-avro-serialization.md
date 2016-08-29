@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
 # Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
 
-이 항목에서는 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리</a>를 사용하여 개체 및 기타 데이터 구조를 메모리, 데이터베이스 또는 파일에 보관하기 위해 바이트의 스트림으로 직렬화하는 방법과 역직렬화하여 원본 개체를 복구하는 방법을 보여 줍니다.
+이 항목에서는 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리</a>를 사용하여 개체 및 기타 데이터 구조를 메모리, 데이터베이스 또는 파일에 보관하기 위해 스트림으로 직렬화하는 방법과 역직렬화하여 원본 개체를 복구하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
@@ -92,7 +92,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
 ## 샘플
-이 항목에 제공되는 6개 예는 Microsoft Avro 라이브러리에서 지원되는 다양한 시나리오를 보여 줍니다. Microsoft Avro 라이브러리는 어떤 스트림에서도 작동하도록 디자인되었습니다. 이러한 예에서는 간편성과 일관성을 위해 데이터가 파일 스트림이나 데이터베이스가 아닌 메모리 스트림을 사용하여 처리됩니다. 프로덕션 환경에서 수행하는 방법은 정확한 시나리오 요구 사항, 데이터 소스와 볼륨, 성능 제약 조건 및 기타 요인에 따라 좌우됩니다.
+이 항목에 제공되는 여섯 가지 예제는 Microsoft Avro 라이브러리에서 지원되는 다양한 시나리오를 보여 줍니다. Microsoft Avro 라이브러리는 어떤 스트림에서도 작동하도록 디자인되었습니다. 이러한 예에서는 간편성과 일관성을 위해 데이터가 파일 스트림이나 데이터베이스가 아닌 메모리 스트림을 사용하여 처리됩니다. 프로덕션 환경에서 수행하는 방법은 정확한 시나리오 요구 사항, 데이터 소스와 볼륨, 성능 제약 조건 및 기타 요인에 따라 좌우됩니다.
 
 처음 2개 예는 리플렉션과 제네릭 레코드를 사용하여 데이터를 메모리 스트림 버퍼로 직렬화 및 역직렬화하는 방법을 보여 줍니다. 이 두 가지 경우의 스키마는 판독기와 기록기 간에 공유되는 것으로 간주됩니다.
 
@@ -108,10 +108,10 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
  * <a href="#Scenario1">**리플렉션을 사용한 직렬화**</a> - 직렬화할 형식에 대한 JSON 스키마는 데이터 계약 특성에서 자동으로 빌드됩니다.
  * <a href="#Scenario2">**제네릭 레코드로 직렬화**</a> - JSON 스키마는 리플렉션에 사용할 수 있는 .NET 형식이 없을 때 레코드에 명시적으로 지정됩니다.
- * <a href="#Scenario3">**리플렉션과 함께 개체 컨테이너 파일을 사용하여 직렬화**</a> - JSON 스키마는 자동으로 빌드되고 Avro 개체 컨테이너 파일을 사용하여 직렬화된 데이터와 함께 공유됩니다.
+ * <a href="#Scenario3">**리플렉션과 함께 개체 컨테이너 파일을 사용하여 직렬화**</a> - JSON 스키마는 자동으로 빌드되고 Avro 개체 컨테이너 파일을 통해 직렬화된 데이터와 함께 공유됩니다.
  * <a href="#Scenario4">**제네릭 레코드와 함께 개체 컨테이너 파일을 사용하여 직렬화**</a> - JSON 스키마는 직렬화되기 전에 명시적으로 지정되고 Avro 개체 컨테이너 파일을 통해 데이터와 함께 공유됩니다.
- * <a href="#Scenario5">**사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용하여 직렬화**</a> - 이 예에서는 Deflate 데이터 압축 코덱의 .NET 구현을 사용자 지정하여 Avro 개체 컨테이너 파일을 만드는 방법을 보여 줍니다.
- * <a href="#Scenario6">**Avro를 사용하여 Microsoft Azure HDInsight 서비스용 데이터 업로드**</a> - 이 예에서는 Avro 직렬화가 HDInsight 서비스와 상호 작용하는 방법을 보여줍니다. 이 예를 실행하려면 활성 Azure 구독 및 Azure HDInsight 클러스터에 대한 액세스 권한이 필요합니다.
+ * <a href="#Scenario5">**사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용하여 직렬화**</a> - 이 예에서는 수축 데이터 압축 코덱의 .NET 구현을 사용자 지정하여 Avro 개체 컨테이너 파일을 만드는 방법을 보여 줍니다.
+ * <a href="#Scenario6">**Avro를 사용하여 Microsoft Azure HDInsight 서비스에 대한 데이터 업로드**</a> - 이 예에서는 Avro 직렬화가 HDInsight 서비스와 상호 작용하는 방법을 보여 줍니다. 이 예를 실행하려면 활성 Azure 구독 및 Azure HDInsight 클러스터에 대한 액세스 권한이 필요합니다.
 
 ###<a name="Scenario1"></a>샘플 1: 리플렉션을 사용한 직렬화
 
@@ -1383,7 +1383,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 이 샘플을 사용하려면 다음 필수 조건이 필요합니다.
 
 * 활성 Microsoft Azure 구독 및 해당 구독 ID입니다.
-* 해당 개인 키가 포함된 구독을 위한 관리 인증서입니다. 인증서는 샘플을 실행하는 데 사용되는 컴퓨터에 있는 현재 사용자 개인 저장소에 설치해야 합니다.
+* 해당 개인 키가 포함된 구독에 대한 관리 인증서입니다. 인증서는 샘플을 실행하는 데 사용되는 컴퓨터에 있는 현재 사용자 개인 저장소에 설치해야 합니다.
 * 활성 HDInsight 클러스터입니다.
 * 해당 주 또는 보조 액세스 키와 함께 이전 필수 조건에서 HDInsight 클러스터에 연결된 Azure 저장소 계정입니다.
 
@@ -1403,4 +1403,4 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

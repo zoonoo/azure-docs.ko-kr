@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -61,7 +61,7 @@ SQL 데이터베이스에서 아직 지원되지 않는 작은 집합의 기능�
 
 > [AZURE.IMPORTANT] **2016년 6월**부터, Azure SQL 데이터베이스 V12에서 *새로* 만드는 데이터베이스는 호환성 수준이 130에서 시작되며, 이것은 Microsoft SQL Server 2016 GA와 일치합니다.
 > 
-> 물론, 원한다면 `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`을 사용할 수 있습니다.
+> 원한다면 `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`을 사용할 수 있습니다.
 > 
 > 2016년 6월 이전에 만든 데이터베이스의 호환성 수준은 기본값의 변경에 따라 변경되지 않습니다. V11에서 V12로 업그레이드하더라도 데이터베이스 수준은 변경되지 않습니다.
 
@@ -99,7 +99,7 @@ SQL 데이터베이스 V12의 포트에 대한 자세한 내용을 보려면 [�
 ## 클라우드 SaaS 공급 업체에 대한 향상된 지원
 
 
-V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의 공용 미리 보기 및 새 표준 성능 수준 S3을 릴리스했습니다. 클라우드 SaaS 공급 업체를 위해 특별히 설계된 솔루션입니다. 탄력적 데이터베이스 풀로 다음을 수행할 수 있습니다.
+V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의 공용 미리 보기 및 새 표준 성능 수준 S3을 릴리스했습니다. 탄력적 데이터베이스 풀은 클라우드 SaaS 공급업체를 위해 설계된 솔루션입니다. 탄력적 데이터베이스 풀로 다음을 수행할 수 있습니다.
 
 
 - 많은 수의 데이터베이스에 대한 비용을 절감하는 데이터베이스 간에 DTU를 공유합니다.
@@ -125,7 +125,7 @@ V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의
 ## 복구가 필요한 경우 증가되는 비즈니스 연속성
 
 
-V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (ERTs)를 제공합니다.
+V12는 대폭 개선된 RPO(복구 지점 목표) 및 ERT(예상 복구 시간)를 제공합니다.
 
 
 | 비즈니스 연속성 기능 | 이전 버전 | V12 |
@@ -183,4 +183,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

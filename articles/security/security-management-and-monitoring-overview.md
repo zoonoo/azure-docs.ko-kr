@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 보안 관리 및 모니터링 개요 | Microsoft Azure"
-   description="Azure는 Azure 클라우드 서비스 및 가상 컴퓨터 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다."
+   description=" Azure는 Azure 클라우드 서비스 및 가상 컴퓨터 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 관리 및 모니터링 개요
@@ -63,7 +63,7 @@ SEP(Symantec End Point Protection)도 Azure에서 지원됩니다. 포털 통합
 자세한 정보:
 
 - [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Azure 클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)
+- [Azure 클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md)
 - [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [Azure 가상 컴퓨터에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
@@ -134,4 +134,4 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

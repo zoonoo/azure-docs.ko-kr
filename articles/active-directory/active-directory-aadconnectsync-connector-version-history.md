@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 동기화: 커넥터 버전 릴리스 내역 | Microsoft Azure"
+   pageTitle="커넥터 버전 릴리스 내역 | Microsoft Azure"
    description="이 항목에서는 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)에 대한 커넥터의 모든 버전을 보여 줍니다."
    services="active-directory"
    documentationCenter=""
@@ -13,13 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="andkjell"/>
 
-# Azure AD Connect 동기화: 커넥터 버전 릴리스 기록
+# 커넥터 버전 릴리스 내역
 FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터는 자주 업데이트됩니다.
 
-이 문서는 릴리스된 버전을 추적하고 최신 버전으로 업데이트해야 하는지 여부를 파악할 수 있도록 도와줍니다.
+>[AZURE.NOTE]
+이 항목은 FIM 및 MIM에만 있습니다. 이러한 커넥터는 Azure AD Connect에서 지원되지 않습니다.
+
+이 항목은 출시된 커넥터의 모든 버전을 나열합니다.
 
 관련 링크:
 
@@ -43,7 +46,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
     - 개체 수준 오류가 동기화 엔진으로 다시 반환될 수 있도록 csEntryChangeResult 작업 및 setImportErrorCode 작업을 업데이트했습니다.
     - 새 개체 수준 오류 기능을 사용하도록 SAP6 및 SAP6User 템플릿을 업데이트했습니다.
 - Lotus Domino 커넥터:
-    - 내보낼 때 주소록당 하나의 인증자가 있어야 합니다. 이제 관리를 쉽게 수행할 수 있도록 모든 인증자에 대해 동일한 암호를 사용할 수 있습니다.
+    - 내보내는 경우 주소록당 하나의 인증자가 있어야 합니다. 이제 관리를 쉽게 수행할 수 있도록 모든 인증자에 대해 동일한 암호를 사용할 수 있습니다.
 
 **수정된 문제:**
 
@@ -67,7 +70,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 - [KB3044896](https://support.microsoft.com/kb/3044896) - 1.0.0549, 2015년 3월
 - [KB3031009](https://support.microsoft.com/kb/3031009) - 1.0.0534, 2015년 1월
 - [KB3008177](https://support.microsoft.com/kb/3008177) - 1.0.0419, 2014년 9월
-- [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, 2014 년 3월
+- [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, 2014년 3월
 
 **WebServices**
 
@@ -82,7 +85,7 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 - [KB3096533](https://support.microsoft.com/kb/3096533) - 1.0.0597, 2015년 9월
 - [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, 2015년 3월
 - [KB2977286](https://support.microsoft.com/kb/2977286) - 5.3.0712, 2014년 8월
-- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014년 2월  
+- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003, 2014년 2월
 - [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013년 10월
 - [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, 2013년 8월
 
@@ -91,4 +94,4 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

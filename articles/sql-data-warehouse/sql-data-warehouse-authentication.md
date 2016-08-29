@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/15/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 인증
@@ -24,7 +24,7 @@
 - [인증](sql-data-warehouse-authentication.md)
 - [드라이버](sql-data-warehouse-connection-strings.md)
 
-SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다.
+SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.
 
 보안에 대한 자세한 내용과 데이터 웨어하우스에 대한 연결을 설정하는 방법은 [SQL 데이터 웨어하우스에서 데이터베이스 보호][]를 참조하세요.
 
@@ -39,10 +39,10 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 
 기본적으로 사용자의 연결은 사용자의 사용자 데이터베이스가 아닌 마스터 데이터베이스에 연결합니다. 사용자의 사용자 데이터베이스에 연결하려면 다음과 같은 두 가지 작업 중 하나를 수행하도록 선택할 수 있습니다.
 
-1. SSDT, SSMS 또는 응용 프로그램 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
-2. SSDT에서 세션을 만들기 전에 먼저 사용자 데이터베이스를 강조 표시합니다.
+- SSDT, SSMS 또는 응용 프로그램 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
+- SSDT에서 세션을 만들기 전에 먼저 사용자 데이터베이스를 강조 표시합니다.
 
-> [AZURE.NOTE] SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 다시 참조하세요.
+> [AZURE.NOTE] SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [Visual Studio로 쿼리][] 문서를 참조하세요.
 
 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE <your DB>**이(가) 지원되지 않는다는 데 유의해야 합니다.
 
@@ -62,6 +62,7 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 - Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 - Azure Active Directory 인증에서는 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 - Azure Active Directory는 SQL 데이터 웨어하우스에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
+- Azure Active Directory 인증이 구성된 경우 SQL Server Management Studio는 Active Directory 유니버설 인증을 통해 Multi-Factor Authentication을 지원합니다. Multi-Factor Authentication에 대한 설명을 보려면 [SQL 데이터베이스 및 SQL 데이터 웨어하우스를 사용한 Azure AD MFA에 대한 SSMS 지원](../sql-database/sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
 
 ### 구성 단계
@@ -91,4 +92,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [Visual Studio를 사용하여 쿼리]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

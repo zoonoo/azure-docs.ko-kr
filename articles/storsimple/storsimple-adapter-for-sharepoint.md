@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="07/11/2016"
    ms.author="v-sharos" />
 
 # SharePoint용 StorSimple 어댑터 설치 및 구성
@@ -39,7 +39,7 @@ RBS는 SharePoint용 StorSimple 어댑터와 같은 RBS 공급자를 사용하�
 
 RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합니다.
 
-- 별도 서버로 BLOB 콘텐츠를 이동하여 SQL Server에 쿼리 로드를 줄일 수 있고 이는 SQL Server 응답성을 향상시킬 수 있습니다. 
+- 별도 서버로 BLOB 콘텐츠를 이동하여 SQL Server에 쿼리 로드를 줄일 수 있고 이는 SQL Server 응답성을 향상시킬 수 있습니다.
 
 - Azure StorSimple는 중복 제거 및 압축을 사용하여 데이터 크기를 줄입니다.
 
@@ -59,7 +59,7 @@ SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Serve
 
 RBS를 구성하기 전에 다음을 검토합니다.
 
-- 콘텐츠의 총 크기가(콘텐츠 데이터베이스에 모든 연결되고 구체화된 BLOB의 크기를 더한 크기) SharePoint에서 지원하는 RBS 크기 제한을 초과하지 않도록 합니다. 이 제한은 200GB입니다. 
+- 콘텐츠의 총 크기가(콘텐츠 데이터베이스에 모든 연결되고 구체화된 BLOB의 크기를 더한 크기) SharePoint에서 지원하는 RBS 크기 제한을 초과하지 않도록 합니다. 이 제한은 200GB입니다.
 
     **콘텐츠 데이터베이스 및 BLOB 크기를 측정하려면**
 
@@ -85,7 +85,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
     기존의 SQL Server 마이그레이션 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 장치로 이동합니다. 데이터베이스에서 모든 BLOB 콘텐츠 RBS를 통해 파일 공유로 이동한 후에 데이터베이스를 이동합니다. 콘텐츠 데이터베이스를 StorSimple 장치로 이동하기로 선택한 경우 기본 볼륨인 장치에서 콘텐츠 데이터베이스 저장소를 구성하는 것이 좋습니다.
 
-- Microsoft Azure StorSimple에서 StorSimple 장치에 로컬로 저장된 해당 콘텐츠가 Microsoft Azure 클라우드 저장소에 계층화되지 않았음을 보장할 방법은 없습니다. 콘텐츠 데이터베이스가 StorSimple 장치에 남아 있고 Microsoft Azure로 이동하지 않은 것을 확인하려면(SharePoint 트랜잭션 응답 시간에 부정적인 영향일 수 있음) StorSimple 장치에서 다른 워크로드를 이해하고 관리하는 것이 중요합니다. 장치가 SharePoint 콘텐츠 데이터베이스 워크로드 및 SharePoint 파일 공유 워크로드를 이미 호스팅하고 있는 경우 데이터 쓰기의 비율이 높은 워크로드를 호스팅하는 데 StorSimple 장치를 구성하지 않는 것이 좋습니다.
+- Microsoft Azure StorSimple에서 계층화된 볼륨을 사용하는 경우 StorSimple 장치에 로컬로 저장된 해당 콘텐츠가 Microsoft Azure 클라우드 저장소에 계층화되지 않았음을 보장할 방법은 없습니다. 따라서 SharePoint RBS와 함께 로컬로 고정된 StorSimple 볼륨을 사용하는 것이 좋습니다. 이렇게 하면 모든 Blob 콘텐츠가 StorSimple 장치에 로컬로 유지되고 Microsoft Azure로 이동되지 않습니다.
 
 - StorSimple 장치에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 SQL Server 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다.
 
@@ -103,7 +103,7 @@ SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 장치, Sha
 
 SharePoint용 StorSimple 어댑터는 다음 하드웨어 및 소프트웨어와 함께 작동합니다.
 
-- 지원되는 운영 체제 – Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2 
+- 지원되는 운영 체제 – Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2
 
 - 지원되는 SharePoint 버전 – SharePoint Server 2010 또는 SharePoint Server 2013
 
@@ -141,7 +141,7 @@ StorSimple 스냅숏 관리자를 사용하여 BLOB 및 데이터베이스 데�
 
 SharePoint 서버 팜이 올바르게 구성되어있는지 다음과 같이 확인합니다.
 
-- SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다. 
+- SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다.
 
 - 팜에 등록된 모든 SharePoint WFE와 응용 프로그램 서버는 실행 중이며 SharePoint용 StorSimple 어댑터를 설치하는 서버에서 ping을 실행할 수 있습니다.
 
@@ -276,7 +276,7 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 
     ![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
-3. **다음**을 클릭합니다. 다음 페이지가 나타납니다.
+3. **Next**를 클릭합니다. 다음 페이지가 나타납니다.
 
     ![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
@@ -306,6 +306,6 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
+[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

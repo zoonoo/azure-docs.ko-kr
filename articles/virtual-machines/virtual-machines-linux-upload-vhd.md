@@ -1,6 +1,6 @@
 <properties
 	pageTitle="사용자 지정 Linux 이미지 만들기 및 업로드 | Microsoft Azure"
-	description="리소스 관리자 배포 모델을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다."
+	description="Resource Manager 배포 모델을 사용하여 사용자 지정 Linux 이미지로 Azure에 VHD(가상 하드 디스크)를 만들고 업로드합니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -17,9 +17,9 @@
 	ms.date="07/15/2016"
 	ms.author="iainfou"/>
 
-# 사용자 지정 디스크 이미지에서 VM 업로드 및 만들기
+# 사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기
 
-이 문서에서는 리소스 관리자 배포 모델을 사용하여 가상 하드 디스크 (VHD)를 업로드하고 이 사용자 지정 이미지에서 VM을 만드는 방법을 보여 줍니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
+이 문서에서는 Resource Manager 배포 모델을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 이미지에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
 
 ## 빠른 명령
 [Azure CLI](../xplat-cli-install.md)에 로그인하여 리소스 관리자 모드(`azure config mode arm`)를 사용하는지 확인합니다.
@@ -50,21 +50,21 @@ azure storage container create --account-name testuploadedstorage \
 	--account-key <key1> --container vm-images
 ```
 
-마지막으로, 방금 만든 컨테이너에 VHD를 업로드합니다.
+마지막으로, 만든 컨테이너에 VHD를 업로드합니다.
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
 	--account-key <key1> --container vm-images /path/to/disk/yourdisk.vhd
 ```
 
-이제 [Resource Manager 템플릿을 사용하거나](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) 다음과 같이 디스크에 URI을 지정하여 CLI를 통해 업로드된 가상 디스크에서 VM을 만들 수 있습니다.
+이제 [Resource Manager 템플릿을 사용하여](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) 업로드된 가상 디스크에서 VM을 만들 수 있습니다. 또한 다음과 같이 디스크에 대한 URI를 지정하여 CLI를 사용할 수도 있습니다.
 
 ```bash
 azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd
 ```
 
-대상 저장소 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키 등과 같은 `azure vm create` 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI 리소스 관리자 매개변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아볼 수 있습니다.
+대상 저장소 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 `azure vm create` 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아볼 수 있습니다.
 
 
 ## 자세한 단계
@@ -72,10 +72,10 @@ azure vm create TestVM -l "WestUS" --resource-group TestRG \
 
 
 ## 요구 사항
-위의 단계를 완료하려면 다음이 필요합니다.
+다음 단계를 완료하려면 다음이 필요합니다.
 
 - **.vhd 파일에 설치된 Linux 운영 체제** - 가상 디스크에 VHD 형식으로 [Azure 보증 Linux 배포판](virtual-machines-linux-endorsed-distros.md)(또는 [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md) 참조)을 설치합니다. VM과 VHD를 만드는 도구는 여러 가지가 있습니다.
-	- [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](http://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요하댜면 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
+	- [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 또는 [KVM](http://www.linux-kvm.org/page/RunningKVM)을 설치 및 구성하고 VHD를 이미지 형식으로 사용하도록 주의합니다. 필요한 경우 `qemu-img convert`를 사용하여 [이미지를 변환](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)할 수 있습니다.
 	- 또한 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 또는 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx)에서 Hyper-v를 사용할 수 있습니다.
 
 > [AZURE.NOTE] 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요하다면 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 또는 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet을 사용하여 VHDX 디스크를 VHD로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go)와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
@@ -111,9 +111,9 @@ azure group create TestRG --location "WestUS"
 ```
 
 ## 저장소 계정 만들기
-VM은 저장소 계정 내에서 페이지 blob으로 저장됩니다. [여기서 Azure Blob 저장소](../storage/storage-introduction.md#blob-storage)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지 및 VM에 대한 저장소 계정을 만들어야 합니다. 사용자 지정 디스크 이미지에서 만든 모든 VM는 그 이미지와 동일한 저장소 계정에 있어야 합니다.
+VM은 저장소 계정 내에서 페이지 blob으로 저장됩니다. [여기서 Azure Blob 저장소](../storage/storage-introduction.md#blob-storage)에 대해 자세히 알아 봅니다. 사용자 지정 디스크 이미지 및 VM에 대한 저장소 계정을 만듭니다. 사용자 지정 디스크 이미지에서 만든 모든 VM는 그 이미지와 동일한 저장소 계정에 있어야 합니다.
 
-방금 만든 리소스 그룹 내에 저장소 계정 만들기.
+만든 리소스 그룹 내에 저장소 계정을 만듭니다.
 
 ```bash
 azure storage account create testuploadedstorage --resource-group TestRG \
@@ -123,7 +123,7 @@ azure storage account create testuploadedstorage --resource-group TestRG \
 ## 저장소 계정 키 나열
 Azure는 각 저장소 계정에 대해 두 개의 512 비트 선택키를 생성합니다. 이러한 선택키는 쓰기 작업을 수행할 때와 같이 저장소 계정에 인증할 때에 사용됩니다. [여기서 저장소에 대한 액세스 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)에 대해 자세히 알아 봅니다. `azure storage account keys list` 명령을 사용하여 선택키를 볼 수 있습니다.
 
-방금 만든 저장소 계정에 대한 선택키 보기.
+만든 저장소 계정에 대한 선택키를 봅니다.
 
 ```bash
 azure storage account keys list testuploadedstorage --resource-group TestRG
@@ -144,7 +144,7 @@ info:    storage account keys list command OK
 다음 단계에서 저장소 계정과 상호 작용하는 데 사용할 수 있도록 `key1`을 기록해 둡니다.
 
 ## 저장소 컨테이너 만들기
-로컬 파일 시스템을 논리적으로 구성하기 위해 서로 다른 디렉토리를 만드는 것과 같은 방식으로 가상 디스크 및 디스크 이미지를 구성하기 위해 저장소 계정 내에 컨테이너를 만듭니다. 저장소 계정에 포함할 수 있는 컨테이너의 수에는 제한이 없습니다.
+로컬 파일 시스템을 논리적으로 구성하기 위해 서로 다른 디렉터리를 만드는 것과 같은 방식으로 가상 디스크 및 이미지를 구성하기 위해 저장소 계정 내에 컨테이너를 만듭니다. 저장소 계정에 포함할 수 있는 컨테이너의 수에는 제한이 없습니다.
 
 이전 단계에서 얻은 선택키를 지정하여 새 컨테이너를 만듭니다.
 
@@ -154,9 +154,9 @@ azure storage container create --account-name testuploadedstorage \
 ```
 
 ## VHD를 업로드 합니다.
-이제 사용자 지정 디스크 이미지를 실제로 업로드할 수 있습니다. VM이 사용하는 모든 가상 디스크를 통해 사용자 지정 디스크 이미지를 페이지 blob으로 업로드하고 저장합니다.
+이제 사용자 지정 디스크 이미지를 실제로 업로드할 수 있습니다. VM이 사용하는 모든 가상 디스크를 통해 사용자 지정 디스크 이미지를 페이지 Blob으로 업로드하고 저장합니다.
 
-선택키 및 이전 단계에서 만든 컨테이너를 지정한 후, 로컬 컴퓨터에 있는 사용자 지정 디스크 이미지의 경로를 지정해야 합니다.
+선택키 및 이전 단계에서 만든 컨테이너를 지정한 후, 로컬 컴퓨터에 있는 사용자 지정 디스크 이미지의 경로를 지정합니다.
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
@@ -164,11 +164,11 @@ azure storage blob upload --blobtype page --account-name testuploadedstorage \
 ```
 
 ## 사용자 지정 이미지에서 VM 만들기
-사용자 지정 디스크 이미지에서 VM을 만들 때 URI를 디스크 이미지에 지정해야 하며 대상 저장소 계정이 사용자 지정 디스크 이미지를 저장한 곳과 일치하는지 확인해야 합니다. Azure CLI 또는 리소스 관리자 JSON 템플릿을 사용하여 VM을 만들 수 있습니다.
+사용자 지정 디스크 이미지에서 VM을 만들 때 디스크 이미지에 대한 URI를 지정합니다. 대상 저장소 계정이 사용자 지정 디스크 이미지가 저장된 저장소 계정과 일치하는지 확인합니다. Azure CLI 또는 Resource Manager JSON 템플릿을 사용하여 VM을 만들 수 있습니다.
 
 
 ### Azure CLI를 사용하여 VM 만들기
-`azure vm create` 명령을 사용하여 `--image-urn` (또는 단순히 `-Q`) 매개 변수가 사용자 지정 디스크 이미지를 가리키도록 지정합니다. `--storage-account-name` (또는 `-o`)가 사용자 지정 디스크 이미지가 저장된 저장소 계정와 일치하는지 확인합니다. VM을 저장하기 위해 같은 컨테이너를 사용자 지정 디스크 이미지로 사용할 필요는 없습니다. 다만 사용자 지정 디스크 이미지를 업로드 하기 전에 이전 단계들과 동일한 방법으로 추가 컨테이너를 만들어야 합니다.
+`azure vm create` 명령을 사용하여 `--image-urn` (또는 단순히 `-Q`) 매개 변수가 사용자 지정 디스크 이미지를 가리키도록 지정합니다. `--storage-account-name` (또는 `-o`)가 사용자 지정 디스크 이미지가 저장된 저장소 계정와 일치하는지 확인합니다. 사용자 지정 디스크 이미지와 같은 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크 이미지를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
 
 사용자 지정 디스크 이미지에서 VM 만들기
 
@@ -178,10 +178,10 @@ azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-o testuploadedstorage
 ```
 
-가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키 등과 같은 `azure vm create` 명령이 필요로 하는 모든 추가 매개 변수를 여전히 지정하거나 프롬프트에 응답해야 합니다. [사용 가능한 CLI 리소스 관리자 매개변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아봅니다.
+또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 `azure vm create` 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아봅니다.
 
 ### JSON 템플릿을 사용하여 VM 만들기
-Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 계산 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [리소스 관리자 및 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
+Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 계산 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [Resource Manager 및 템플릿 사용](../resource-group-overview.md)에 대해 자세히 알아봅니다.
 
 템플릿의 `Microsoft.Compute/virtualMachines` 공급자 내에 VM에 대한 구성 세부 정보를 포함하는 `storageProfile` 노드가 있게 될 것입니다. 편집할 두 가지 주요 매개 변수는 사용자 지정 디스크 이미지와 새 VM의 가상 디스크를 가리키는 `image`과 `vhd` URI입니다. 다음은 사용자 지정 디스크 이미지 사용에 대한 JSON의 예입니다.
 
@@ -219,6 +219,6 @@ azure group deployment create --resource-group TestTemplateRG
 
 
 ## 다음 단계
-사용자 지정 가상 디스크를 준비하고 업로드한 후 [리소스 관리자 및 템플릿 사용하기](../resource-group-overview.md)에 관해 자세히 알아 볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md)를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md)를 해야 합니다.
+사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md)를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md)를 해야 합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

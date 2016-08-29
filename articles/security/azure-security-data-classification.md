@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Azure에 대한 데이터 분류
@@ -239,4 +239,4 @@ DLP 기술은 키워드 일치, 사전 일치, 정규식 평가 및 기타 콘�
 - [Azure 보안 팀 블로그](http://blogs.msdn.com/b/azuresecurity/)
 - [Microsoft 보안 응답 센터](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

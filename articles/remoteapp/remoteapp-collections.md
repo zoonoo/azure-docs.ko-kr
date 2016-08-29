@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/20/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp에 필요한 컬렉션의 종류는 무엇입니까?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp를 사용하면 어떠한 장치의 사용자와도 앱 및 리소스를 공유할 수 있습니다. 앱 및 리소스를 포함할 컬렉션을 만든 다음 해당 컬렉션을 사용자와 공유하면 됩니다. 서로 다른 네트워크 및 인증 옵션을 사용하는 두 가지 컬렉션 옵션이 있습니다. 어느 옵션이 사용자에게 적합합니까?
 
@@ -35,7 +38,7 @@ Azure RemoteApp 컬렉션을 최대한 활용하는 데 필요한 여러 가지 
 
 ## 클라우드 컬렉션
 - 신속하게 만들기 - 컬렉션이 신속하게 프로비전되므로 앱이 사용자에게 더 빨리 다가갑니다.
-- 자신의 앱을 가져오거나 우리의 앱을 공유합니다. 사용자 지정 이미지(Azure VM에서 만들어진) 또는 구독에 포함된 이미지 중 하나를 사용할 수 있습니다.
+- 자신의 앱을 가져오거나 우리의 앱을 공유합니다. 사용자 지정 이미지(Azure VM에서 빌드된) 또는 구독에 포함된 이미지 중 하나를 사용할 수 있습니다.
 - 사용자의 컬렉션과 온-프레미스 도메인 사이의 연결을 구성하지 않아도 됩니다.
 - 하지만 선택적으로 자기만의 Azure VNET를 사용하여 데이터 공유를 위해 온-프레미스 환경에 대한 액세스를 제공하거나 Windows 이외의 인증을 SQL Server 같은 리소스에 사용할 수 있습니다(데이터베이스 인증을 사용하여).
 
@@ -91,4 +94,4 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 
 [클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

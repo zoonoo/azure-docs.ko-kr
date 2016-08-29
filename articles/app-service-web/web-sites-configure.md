@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 웹 앱 구성 #
 
-이 주제에서는 [Azure 포털]을 사용하여 웹 앱을 구성하는 방법을 설명합니다.
+이 항목에서는 [Azure 포털]을 사용하여 웹앱을 구성하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -188,4 +188,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

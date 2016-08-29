@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Azure Mobile Engagement Android SDK에 대한 위치 보고
@@ -33,41 +33,41 @@
 
 ### 지연 영역 위치 보고
 
-지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고는 배터리에 거의 영향을 미치지 않습니다.
+지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고 형식은 배터리에 미미한 영향을 미칩니다.
 
-보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산 하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다.
+보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다.
 
-지연 영역 위치 보고를 사용하도록 설정하려면 이 절차의 앞에서 설명한 구성을 사용하여 수행할 수 있습니다.
+이 절차의 앞에서 설명한 구성을 사용하여 지연 영역 위치 보고를 사용하도록 설정할 수 있습니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setLazyAreaLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-또한 아직 없는 경우 다음 권한도 추가해야 합니다.
+위치 권한도 지정해야 합니다. 다음 코드에서는 ``COARSE`` 권한을 사용합니다.
 
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
+앱에서 필요한 경우 대신 ``ACCESS_FINE_LOCATION``을 사용할 수 있습니다.
 
 ### 실시간 위치 보고
 
-실시간 위치 보고를 통해 장치와 연결된 위도와 경도를 보고할 수 있습니다. 기본적으로 이 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용하고, 보고는 응용 프로그램이 포그라운드로 실행될 때(즉, 세션 중)만 활성화됩니다.
+실시간 위치 보고를 통해 장치와 연결된 위도와 경도를 보고할 수 있습니다. 기본적으로 이러한 형식의 위치 보고에서는 셀 ID 또는 WIFI를 기반으로 하는 네트워크 위치만 사용합니다. 이 보고 기능은 응용 프로그램이 포그라운드로 실행되는 경우(예: 세션 중)에만 활성 상태입니다.
 
 실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 <Reach-Audience-geofencing> 사용을 허용하는 것입니다.
 
-실시간 위치 보고를 활성화하려면 시작 관리자 활동에서 Engagement 연결 문자열을 설정하는 위치에 코드 행을 추가합니다. 결과는 다음과 같습니다.
+실시간 위치 보고를 활성화하려면 시작 관리자 활동에서 Engagement 연결 문자열을 설정하는 위치에 코드 행을 추가합니다. 결과는 다음과 같이 표시됩니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-또한 아직 없는 경우 다음 권한도 추가해야 합니다.
+		You also need to specify a location permission. This code uses ``COARSE`` permission:
 
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
+		If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
 #### GPS 기반 보고
 
@@ -85,7 +85,7 @@
 
 #### 백그라운드 보고
 
-기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(즉, 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 이 구성 개체를 사용합니다.
+기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(예: 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 이 구성 개체를 사용합니다.
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -95,7 +95,7 @@
 
 > [AZURE.NOTE] 응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
 
-백그라운드 위치 보고는 사용자가 해당 장치를 재부팅하는 경우 중지됩니다. 다음을 추가하면 부팅 시 자동으로 다시 시작하도록 설정할 수 있습니다.
+사용자가 장치를 다시 부팅하는 경우 백그라운드 위치 보고가 중지됩니다. 부팅 시에 자동으로 다시 시작되도록 하려면 다음 코드를 추가합니다.
 
 	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
 		   android:exported="false">
@@ -114,14 +114,14 @@ Android M부터는 일부 권한이 런타임 시 관리되며 사용자 승인�
 
 Android API Level 23을 대상으로 하는 경우 새 앱 설치에 대해서는 기본적으로 런타임 권한이 해제됩니다. 그렇지 않으면 기본적으로 활성화됩니다.
 
-사용자는 장치 설정 메뉴에서 이러한 권한을 설정/해제할 수 있습니다. 시스템 메뉴에서 권한을 해제하면 응용 프로그램의 백그라운드 프로세스가 중단되며 이것은 시스템 동작으로 백그라운드로 푸시 알림을 받는 기능에는 영향을 주지 않습니다.
+장치 설정 메뉴에서 이러한 권한을 설정/해제할 수 있습니다. 시스템 메뉴에서 권한을 해제하면 응용 프로그램의 백그라운드 프로세스가 중단되며 이것은 시스템 동작으로 백그라운드로 푸시 알림을 받는 기능에는 영향을 주지 않습니다.
 
 Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 필요한 권한은 다음과 같습니다.
 
 - `ACCESS_COARSE_LOCATION`
 - `ACCESS_FINE_LOCATION`
 
-표준 시스템 대화 상자를 사용하여 사용자로부터 권한을 요청해야 합니다. 사용자가 승인하면 ``EngagementAgent``에 알려 실시간으로 변경 내용을 고려하도록 해야 합니다. 그렇지 않으면 사용자가 다음에 응용 프로그램을 시작할 때 변경 내용이 처리됩니다.
+표준 시스템 대화 상자를 사용하여 사용자로부터 권한을 요청합니다. 사용자가 승인하는 경우 ``EngagementAgent``에 실시간으로 변경을 고려할 것을 지시합니다. 그렇지 않으면 다음에 사용자가 응용 프로그램을 시작할 때 변경 내용이 처리됩니다.
 
 다음은 사용 권한을 요청하고 ``EngagementAgent``에 긍정적인 경우 결과를 전달하는 응용 프로그램의 활동에 사용할 코드 샘플입니다.
 
@@ -141,7 +141,7 @@ Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 �
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
       {
         /*
-         * Request location permission, but this won't explain why it is needed to the user.
+         * Request location permission, but this doesn't explain why it is needed to the user.
          * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
          * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
          */
@@ -159,4 +159,4 @@ Mobile Engagement 위치 보고의 컨텍스트에서 런타임 시 승인이 �
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

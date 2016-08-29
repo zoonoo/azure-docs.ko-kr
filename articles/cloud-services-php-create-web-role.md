@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 #PHP 웹 및 작업자 역할을 만드는 방법
@@ -28,7 +28,7 @@ Azure는 응용 프로그램을 실행하기 위한 세 가지 계산 모델인 
 
 이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 계산 호스팅 옵션](./cloud-services/cloud-services-choose-me.md)을 참조하세요.
 
-## PHP용 Azure SDK 다운로드
+## PHP용 Azure SDK 다운로드(영문)
 
 [PHP용 Azure SDK]는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
@@ -82,7 +82,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 `php.ini` 설정 수정 및 확장 사용을 포함하여 위 단계에 따라 설치된 PHP 런타임의 구성을 완전히 제어할 수 있습니다.
 
-기본 제공 PHP 런타임을 사용자 지정하려면 다음 단계를 따르세요.
+기본 제공 PHP 런타임을 사용자 지정하려면 다음 단계를 따르십시오.
 
 1. `php`라는 이름의 새 폴더를 웹 역할의 `bin` 디렉터리에 추가합니다. 작업자 역할의 경우 역할의 루트 디렉터리에 추가합니다.
 2. `php` 폴더에 `ext`라는 다른 폴더를 만듭니다. 사용하도록 설정할 `.dll` 확장 파일(예: `php_mongo.dll`)을 이 폴더에 넣습니다.
@@ -211,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # 클라우드 탐색기를 사용하여 Azure 리소스 관리
@@ -21,7 +21,7 @@
 
 클라우드 탐색기는 Visual Studio IDE 내에서 Azure 리소스를 보다 쉽고 빠르게 찾아보고 관리할 수 있도록 설계되었습니다. 예를 들어, [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 브라우저에서 웹앱을 열거나, 디버거를 연결하거나 Blob 컨테이너의 속성을 볼 수 있으며 Blob 컨테이너 편집기에서 열 수 있습니다.
 
-[Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서와 마찬가지로 Azure Resource Manager 스택에 클라우드 탐색기가 빌드됩니다. Azure 리소스 그룹과 같은 리소스 및 논리 앱과 API 앱과 같은 Azure 서비스를 이해하고 [역할 기반 액세스 제어](../role-based-access-control-configure/)(RBAC)를 지원합니다. 추가되거나 변경된 Azure 리소스를 보려면 클라우드 탐색기 도구 모음에서 **새로고침** 단추를 선택합니다.
+[Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서와 마찬가지로 Azure Resource Manager 스택에 클라우드 탐색기가 빌드됩니다. Azure 리소스 그룹과 같은 리소스 및 논리 앱과 API 앱과 같은 Azure 서비스를 이해하고 [역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)(RBAC)를 지원합니다. 추가되거나 변경된 Azure 리소스를 보려면 클라우드 탐색기 도구 모음에서 **새로고침** 단추를 선택합니다.
 
 클라우드 탐색기는 Azure SDK용 Visual Studio Tools 2.7의 일부로 설치됩니다.
 
@@ -95,4 +95,4 @@ Azure 계정 구독에서 특정 이름의 리소스를 찾으려면, 클라우�
 
 검색 상자에 문자를 입력하면 해당 문자와 일치하는 리소스만 리소스 트리에 나타납니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

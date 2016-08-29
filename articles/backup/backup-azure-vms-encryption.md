@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # VM을 백업하는 동안 암호화된 디스크 처리
 
-Azure의 VM 데이터를 암호화하려는 기업은 Windows의 경우 [Azure 디스크 암호화](../azure-security-disk-encryption.md) 또는 Bitlocker를 사용하고 Linux 컴퓨터의 경우 dmcrypt를 사용합니다.
+Azure의 VM 데이터를 암호화하려는 기업은 Windows의 경우 [Azure 디스크 암호화](../security/azure-security-disk-encryption.md) 또는 Bitlocker를 사용하고 Linux 컴퓨터의 경우 dmcrypt를 사용합니다.
 
 > [AZURE.NOTE]  Azure 백업에서는 ADE(Azure 디스크 암호화)를 사용하여 암호화된 VM의 백업 및 복원을 지원합니다. <br>
 1. 이는 VM이 BEK 및 KEK를 사용하여 암호화된 경우 PowerShell을 통해 지원됩니다. <br>
@@ -77,4 +77,4 @@ Azure의 VM 데이터를 암호화하려는 기업은 Windows의 경우 [Azure �
 - [배포 가이드 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [SecureVM 배포 및 사용 - 비디오](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

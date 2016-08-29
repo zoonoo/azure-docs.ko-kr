@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="웹앱에 대한 사용자 지정 DNS 레코드 만들기 | Microsoft Azure" 
+   pageTitle="웹앱에 대한 사용자 지정 DNS 레코드 만들기 | Microsoft Azure " 
    description="Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만드는 방법입니다." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # 사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
@@ -31,8 +31,8 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 
 시작하기 전에, 먼저 Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임해야 합니다.
  
-1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다. 
-2. DNS를 Azure DNS로 위임하려면 [DNS domain delegation](dns-domain-delegation.md)(DNS 도메인 위임)의 단계를 수행합니다. 
+1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다.
+2. DNS를 Azure DNS로 위임하려면 [DNS domain delegation](dns-domain-delegation.md)(DNS 도메인 위임)의 단계를 수행합니다.
 
 영역을 만들어서 Azure DNS에 위임한 후에는, 사용자 지정 도메인에 대한 레코드를 만들 수 있습니다.
 
@@ -179,4 +179,4 @@ CNAME 레코드 집합을 만든 후에는 웹앱을 가리키는 별칭 값을 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp에서 USB 장치를 리디렉션하려면 어떻게 합니까?
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 장치 리디렉션을 통해 사용자가 자신의 컴퓨터나 Azure RemoteApp의 앱과 태블릿에 연결된 USB 장치를 사용할 수 있습니다. 예를 들어 Azure RemoteApp을 통해 Skype를 공유한 경우 사용자가 자신의 장치 카메라를 사용할 수 있어야 합니다.
 
@@ -62,7 +65,7 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 이 방법의 가장 어려운 부분은 USB 장치 인스턴스 ID를 찾는 것입니다. 컴퓨터 및 특정 USB 장치에 액세스해야 합니다. 그러고 나서 다음 단계를 수행합니다.
 
-1. [Remote Desktop 세션에서 내 장치와 리소스를 어떻게 사용할 수 있습니까?](http://windows.microsoft.com/ko-KR/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)에서 설명한 대로 원격 데스크톱 세션에서 장치 리디렉션을 사용하도록 설정합니다.
+1. [Remote Desktop 세션에서 내 장치와 리소스를 어떻게 사용할 수 있습니까?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)에서 설명한 대로 원격 데스크톱 세션에서 장치 리디렉션을 사용하도록 설정합니다.
 2. 원격 데스크톱 연결을 열고 **옵션 표시**를 클릭합니다.
 3. **다른 이름으로 저장**을 클릭하여 현재 연결 설정을 RDP 파일에 저장합니다. ![설정을 RDP 파일로 저장](./media/remoteapp-usbredir/ra-saveasrdp.png)
 4. 파일 이름과 위치, 예를 들어 “MyConnection.rdp” 및 “This PC\\Documents”를 선택하고 파일을 저장합니다.
@@ -77,4 +80,4 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

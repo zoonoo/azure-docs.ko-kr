@@ -3,7 +3,7 @@
 	description="이 문서는 PowerShell 스크립트를 사용하여 단일 클래식 가상 컴퓨터를 Azure Resource Manager에 복제하는 방법을 보여줍니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -112,7 +112,7 @@ cmdlet은 classVM을 복제하고, 저장소, 네트워크 및 계산 리소스 
 4.  `<ServiceName>-<VMName>-setextensions<optional timestamp>.json`: 가상 컴퓨터 에이전트 확장 설정을 위해 실행되는 PowerShell cmdlet 집합입니다.
 4.  `<ServiceName>-<VMName>-copydisks<optional timestamp>.json`: CopyDisks 옵션이 지정된 경우, 디스크 BLOB 복사를 위해 실행되는 PowerShell cmdlet 집합입니다.
 
--Deploy 플래그가 설정되면, 파일을 생성한 후에, cmdlet이 <ServiceName>-<VMName>-setup.json 템플릿을 배포하고, DiskAction 매개 변수가 CopyDisks로 설정되어 있으면 원본 가상 컴퓨터 디스크 BLOB를 복사한 다음, 매개 변수에 대한 <ServiceName>-<VMName>-parameters.json 파일을 사용하여 <ServiceName>-<VMName>-deploy.json 템플릿을 배포합니다. 가상 컴퓨터 배포가 완료되고 나서, 명령적 스크립트(가상 컴퓨터 에이전트 확장에 대해) 또는 디스크 복사를 위한 스크립트가 있으면, 실행됩니다.
+-Deploy 플래그가 설정되면, 파일을 생성한 후에, cmdlet이 <ServiceName>-<VMName>-setup.json 템플릿을 배포하고, DiskAction 매개 변수가 CopyDisks로 설정되어 있으면 원본 가상 컴퓨터 디스크 Blob을 복사한 다음, 매개 변수에 대한 <ServiceName>-<VMName>-parameters.json 파일을 사용하여 <ServiceName>-<VMName>-deploy.json 템플릿을 배포합니다. 가상 컴퓨터 배포가 완료되고 나서, 명령적 스크립트(가상 컴퓨터 에이전트 확장에 대해) 또는 디스크 복사를 위한 스크립트가 있으면, 실행됩니다.
 
 ### 네트워크 세부 정보
 cmdlet은 클래식 네트워크 설정을 Resource Manager에 복제하기 위한 것이 아닙니다. 가상 컴퓨터 자체를 복제하기에 가장 편리한 방식으로 네트워킹 설비를 활용합니다. 다른 조건에서 발생하는 상황은 다음과 같습니다.
@@ -150,7 +150,7 @@ cmdlet은 클래식 네트워크 설정을 Resource Manager에 복제하기 위�
 
 **다음은 복제 스크립트의 범위에 포함되지 않습니다.**
 
- 1. 실행 중인 가상 컴퓨터 중지 
+ 1. 실행 중인 가상 컴퓨터 중지
  2. 데이터/디스크 변경
  3. 실행 중인 VM 복제
  4. 복잡한 시나리오에서 여러 VM을 힘들이지 않고 재빨리 복제
@@ -185,4 +185,4 @@ _Add-AzureSMVmToRM_ cmdlet은 다음 테스트 사례를 사용하여 유효성�
 ## 참고 사항
 1. 여러 개의 VM이 짧은 간격으로 번갈아 복제되면, DNS 캐시 새로 고침 시간으로 인해 공용 IP 주소에 대해 DNS 이름 충돌이 발생할 수 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="명명된 인증 자격 증명 설정 | Microsoft Azure"
-   description="Visual Studio가 사용할 수 있는 자격 증명을 제공하여 Azure에 대한 요청을 인증하고 응용 프로그램을 Visual Studio에서 Azure로 게시하거나 기존 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다."
+   description="Visual Studio가 사용할 수 있는 자격 증명을 제공하여 Azure에 대한 요청을 인증하고 응용 프로그램을 Visual Studio에서 Azure로 게시하거나 기존 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다. "
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # 명명된 인증 자격 증명 설정
 
 Visual Studio에서 Azure에 응용 프로그램을 게시하거나 기존 클라우드 서비스를 모니터링하려면 Visual Studio에서 Azure에 대한 요청을 인증하는 데 사용할 수 있는 자격 증명을 제공해야 합니다. 이러한 자격 증명을 제공하기 위해 로그인 할 수 있는 Visual Studio의 여러 위치 사항이 있습니다. 예를 들어 서버 탐색기에서 **Azure** 노드에 대한 바로 가기 메뉴를 열고 **Azure에 연결**을 선택할 수 있습니다. 로그인 할 때 Azure 계정에 연결된 구독 정보를 Visual Studio에서 사용할 수 있으며 아무 작업도 수행할 필요가 없습니다.
 
-또한 Azure 도구는 구독 파일(.publishsettings 파일)을 사용하 여 자격 증명을 제공하는 이전 방법을 지원합니다. 이 항목에서는 Azure SDK 2.2에서 여전히 지원되는 이 메서드를 설명합니다.
+또한 Azure 도구는 구독 파일(.publishsettings 파일)을 사용하여 자격 증명을 제공하는 이전 방법을 지원합니다. 이 항목에서는 Azure SDK 2.2에서 여전히 지원되는 이 메서드를 설명합니다.
 
 Azure에 인증하려면 다음 항목이 필요합니다.
 
@@ -71,4 +71,4 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
     1. 방금 만든 .cer 파일의 전체 경로를 붙여넣은 다음 지정한 암호를 입력합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

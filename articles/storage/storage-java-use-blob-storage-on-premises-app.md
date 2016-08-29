@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="rmcmurray"/>
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
@@ -295,7 +295,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
 이 예제 코드는 로컬 이미지 파일을 Azure 저장소에 업로드할 뿐만 아니라 브라우저에서 열어 업로드된 이미지를 볼 수 있는 namedindex.html 로컬 파일도 만듭니다.
 
-코드에 계정 이름 및 계정 키가 포함되어 있으므로 소스 코드가 안전한지 확인하세요.
+코드에 계정 이름 및 계정 키가 포함되어 있으므로 소스 코드가 안전한지 확인하십시오.
 
 ## 컨테이너를 삭제하려면
 
@@ -359,4 +359,4 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 - [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

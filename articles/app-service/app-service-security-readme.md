@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="08/16/2015"
 	ms.author="naziml"/>
 
 # Azure 앱 서비스 보안
@@ -22,6 +22,6 @@ Azure 앱 서비스는 고객에게 안전한 플랫폼을 제공하기 위해 �
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure 앱 서비스는 Azure 클라우드 서비스 및 가상 컴퓨터에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](../azure-security-antimalware.md)를 참조하세요.
+Azure 앱 서비스는 Azure 클라우드 서비스 및 가상 컴퓨터에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](../security/azure-security-antimalware.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="07/06/2016"
+  ms.date="08/17/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -58,7 +58,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 *Yoichi Kawasaki 작성*
 
-fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플러그 인입니다.
+fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플러그 인입니다.
 
 [Github](https://github.com/yokawasa/fluent-plugin-documentdb) 및 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb)에서 확인하세요.
 
@@ -76,7 +76,7 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 - [**Notifications for new or changed DocumentDB resources using Logic Apps(논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림)**](documentdb-change-notification.md) - *Howard Edidin 작성*
 
-- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb(fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그 수집)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
+- [**fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그인 수집**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
 
 - [**DocumentDB revisited Part 1/2 – The theory(DocumentDB 재고 파트 1/2 - 이론)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *Peter Mannerhult 작성*
 
@@ -120,7 +120,9 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Capital City .NET 사용자 그룹](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, FL | 2016년 9월 1일 | 해당 없음 |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu와 Tara Jana | 애틀랜타, GA | 2016년 9월 26-30일 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | 뉴욕, NY | 2016년 9월 26-29일 | [#StrataConf](https://twitter.com/strataconf) |
 
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
@@ -161,7 +163,7 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 | [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | 리스본, 포르투갈 | 2015년 6월 15일 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [SQL Saturday #417 - 스리랑카 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415) | Mihail Mateev | 콜롬보, 스리랑카 | 2015년 6월 6일 | 해당 없음 |
-| [모임:시애틀 확장성 모임](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | 시애틀, WA | 2015년 5월 27일 | 해당 없음 |
+| [모임: 시애틀 확장성 모임](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | 시애틀, WA | 2015년 5월 27일 | 해당 없음 |
 | [SQL Saturday #377 - 키예프 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) | Mihail Mateev | 키예프, 우크라이나 | 2015년 5월 23일 | 해당 없음 |
 | [데이터베이스 월](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | 뉴욕, NY | 2015년 5월 19일 | [Azure DocumentDB: 대규모 확장 가능한 다중 테넌트 문서 데이터베이스 서비스](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [모임: 런던 SQL Server 사용자 그룹](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | 런던, 영국 | 2015년 5월 19일 | 해당 없음 |
@@ -208,7 +210,7 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 학습 파트너 | 설명 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ko-KR/training-courses/developing-solutions-with-azure-documentdb-10554)로 바꿉니다. | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ko-KR/training-courses/developing-solutions-with-azure-documentdb-10554)는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)로 바꿉니다. | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction)로 바꿉니다. | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)는 Azure 교육을 제공하는 핵심 Microsoft 파트너입니다. MSDN 구독자의 경우 구독 혜택을 사용하여 Microsoft Azure 교육을 이용할 수 있습니다. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)로 바꿉니다. | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)는 Microsoft Azure에 대한 세부 기술 교육을 제공합니다. 현장에서 이뤄지는 강사 주도형 교육 또는 업계에서 인정받고 있는 전문 강사로 구성된 원격 강의를 받아 보세요. |
 
@@ -229,7 +231,7 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 
 ![팀](./media/documentdb-community/documentdb-team.png)
 
-기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까? [DocumentDB 엔지니어링 팀과 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.[@DocumentDB](https://twitter.com/DocumentDB)로 [메일](mailto:askdocdb@microsoft.com)을 보내거나 트윗을 보내주세요.
+기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까? [DocumentDB 엔지니어링 팀에 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다. 또한 [전자 메일](mailto:askdocdb@microsoft.com)을 보내거나 [@DocumentDB](https://twitter.com/DocumentDB)에 트윗할 수 있습니다.
 
 ## 공개 소스 프로젝트
 
@@ -249,7 +251,7 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 | ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
 | 설명서 | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) | [설명서 웹 사이트](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
+| 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
 
 ## DocumentDB 마법사
 
@@ -266,4 +268,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

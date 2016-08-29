@@ -12,18 +12,18 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/28/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Azure 검색을 사용하여 Azure 테이블 저장소 인덱싱
 
 이 문서에서는 Azure 검색을 사용하여 Azure 테이블 저장소에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다. 새로운 Azure 검색 테이블 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
 
-> [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. .NET SDK의 **2015-02-28-Preview** 버전 및 2.0-preview 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
 ## Azure 테이블 인덱싱 설정
 
-Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https://msdn.microsoft.com/library/azure/dn946891.aspx)에 설명된 대로 Azure 검색 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. 향후에는 테이블 인덱싱에 대한 지원이 Azure 검색 .NET SDK 및 Azure 포털에 추가될 예정입니다.
+Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https://msdn.microsoft.com/library/azure/dn946891.aspx)에 설명된 대로 Azure 검색 REST API를 사용하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다. .NET SDK의 [버전 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)도 사용할 수 있습니다. 향후에는 테이블 인덱싱에 대한 지원이 Azure 포털에 추가될 예정입니다.
 
 데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다.
 
@@ -36,7 +36,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
 	- 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다.
 	- `container.name` 매개 변수를 사용하여 테이블 이름을 지정합니다.
 	- 필요에 따라 `container.query` 매개 변수를 사용하여 쿼리를 지정합니다. 가능한 경우 최상의 성능을 위해 PartitionKey에서 필터를 사용합니다. 다른 쿼리를 사용하면 전체 테이블이 검색되므로 테이블이 큰 경우 성능이 저하될 수 있습니다.
-2. 인덱싱하려는 테이블의 열에 해당하는 스키마로 검색 인덱스를 만듭니다. 
+2. 인덱싱하려는 테이블의 열에 해당하는 스키마로 검색 인덱스를 만듭니다.
 3. 검색 인덱스에 데이터 원본을 연결하여 인덱서를 만듭니다.
 
 ### 데이터 원본 만들기
@@ -68,7 +68,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
   		]
 	}
 
-인덱스 만들기 API에 대한 자세한 내용은 [인덱스 만들기](https://msdn.microsoft.com/library/dn798941.aspx)를 참조하세요.
+인덱스 만들기 API에 대한 자세한 내용은 [인덱스 만들기](https://msdn.microsoft.com/library/dn798941.aspx) 참조
 
 ### 인덱서 만들기 
 
@@ -91,7 +91,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
 
 ## 다른 필드 이름 처리
 
-기존 인덱스의 필드 이름이 테이블의 속성 이름과 달라지는 경우가 종종 있습니다. **필드 매핑**을 사용하여 테이블의 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 필드 매핑에 대해 자세히 알아 보려면 [데이터 원본 및 검색 인덱스의 차이를 극복하는 Azure 검색 인덱서 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+기존 인덱스의 필드 이름이 테이블의 속성 이름과 달라지는 경우가 종종 있습니다. **필드 매핑**을 사용하여 테이블의 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 필드 매핑에 대해 자세히 알아보려면 [데이터 원본 및 검색 인덱스의 차이를 극복하는 Azure 검색 인덱서 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
 
 ## 문서 키 처리
 
@@ -124,4 +124,4 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 자동화의 자식 runbook
-
 
 다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure 자동화의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.
 
@@ -35,7 +34,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 서로를 호출할 수 있는 형식:
 
-- [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)및 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 기반임).
+- [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 기반임).
 - [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)및 그래픽 PowerShell 워크플로 Runbook은 인라인으로 서로를 호출할 수 있습니다(둘 다 PowerShell 워크플로 기반임).
 - PowerShell 형식과 PowerShell 워크플로 형식은 인라인으로 서로를 호출할 수 없으므로 Start-AzureRmAutomationRunbook을 사용해야 합니다.
 	
@@ -94,4 +93,4 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 컬렉션에 사용자를 추가하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 먼저 사용자에게 컬렉션에 대한 액세스 권한을 부여해야 사용자가 Azure RemoteApp에서 앱을 보고 사용할 수 있습니다. 이 작업은 간단합니다. **사용자 액세스** 탭에서 사용자의 계정 정보를 입력하고 확인 표시를 클릭하면 됩니다.
 
@@ -52,4 +55,4 @@ RemoteApp에 대한 Active Directory 구성에 대한 [자세한 내용](remotea
 ## Office 365 ProPlus 사용자 계정 정보
 컬렉션에서 Office 365 ProPlus 템플릿 이미지를 사용하는 경우 *또는* Office 365를 사용하는 사용자 지정 이미지를 만든 경우 Office 365 구독이 있는 Azure Active Directory 사용자만 구독의 기본 도메인에 대해 추가할 수 있습니다. 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->
