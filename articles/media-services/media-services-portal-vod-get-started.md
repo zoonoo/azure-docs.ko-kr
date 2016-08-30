@@ -230,4 +230,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-----HONumber=AcomDC_0824_2016-->

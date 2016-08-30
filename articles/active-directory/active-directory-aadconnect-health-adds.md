@@ -60,4 +60,4 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!-----HONumber=AcomDC_0720_2016-->

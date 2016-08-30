@@ -90,4 +90,4 @@
 
 별도 네트워크 또는 다른 위치에 응용 프로그램이 있는 경우 다른 커넥터 그룹을 사용하여 커넥터를 논리 단위로 구성할 수 있습니다. [응용 프로그램 프록시 커넥터 작업](active-directory-application-proxy-connectors.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->
