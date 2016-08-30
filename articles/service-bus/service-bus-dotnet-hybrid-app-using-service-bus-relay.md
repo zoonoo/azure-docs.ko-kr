@@ -67,43 +67,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 
 Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
-1.  [Azure 클래식 포털][]에 로그인합니다.
-
-2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
-
-3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
-
-    ![][5]
-
-4.  **새 네임스페이스 추가** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![][6]
-
-5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
-
-    > [AZURE.IMPORTANT] 응용 프로그램을 배포하도록 선택할 지역과 *같은 지역*을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
-
-6.	대화 상자의 다른 필드는 기본값으로 그대로 두고 '확인' 확인 표시를 클릭합니다. 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
-
-만든 네임스페이스가 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
-
-## 네임스페이스에 대한 기본 관리 자격 증명 얻기
-
-새 네임스페이스에 대해 메시징 엔터티를 만드는 것과 같은 관리 작업을 수행하려면 네임스페이스에 대한 자격 증명을 얻어야 합니다.
-
-1.  주 창에서 이전 단계에서 만든 네임스페이스를 클릭합니다.
-
-2.  페이지 맨 아래에 있는 **연결 정보**를 클릭합니다.
-
-3.  **Access 연결 정보** 창에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다.
-
-	![][45]
-
-4.  연결 문자열을 복사하여 이 자습서의 뒷부분에서 사용할 곳에 붙여 넣습니다.
-
-5. 동일한 포털 페이지에서 페이지 맨 위에 있는 **구성** 탭을 클릭합니다.
-
-6. **RootManageSharedAccessKey** 정책에 대한 기본 키를 클립보드로 복사하거나 메모장에 붙여 넣습니다. 이 자습서의 뒷부분에서 이 값을 사용하게 됩니다.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## 온-프레미스 서버 만들기
 
@@ -252,7 +216,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
       </behaviors>
     </system.serviceModel>
     ```
-14. 계속 App.config의 **&lt;appSettings&gt;** 요소에서 연결 문자열 값을 포털에서 이전에 얻은 연결 문자열로 바꿉니다. 
+14. 계속해서 App.config의 **&lt;appSettings&gt;** 요소에서 연결 문자열 값을 포털에서 이전에 얻은 연결 문자열로 바꿉니다.
 
 	```
 	<appSettings>
@@ -478,7 +442,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ## 로컬로 프로젝트 실행
 
-응용 프로그램을 로컬로 테스트하려면 Visual Studio에서 **F5** 키를 누릅니다. 온-프레미스 서버(**ProductsServer**)가 먼저 시작된 후 브라우저 창에서 **ProductsPortal** 응용 프로그램이 시작됩니다. 이제 제품 서비스 온-프레미스 시스템에서 검색된 제품 재고 목록 데이터가 표시됩니다.
+응용 프로그램을 로컬로 테스트하려면 Visual Studio에서 **F5** 키를 누릅니다. 온-프레미스 서버(**ProductsServer**)가 먼저 시작된 후 브라우저 창에서 **ProductsPortal** 응용 프로그램이 시작되어야 합니다. 이제 제품 서비스 온-프레미스 시스템에서 검색된 제품 재고 목록 데이터가 표시됩니다.
 
 ![][10]
 
@@ -503,7 +467,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 3. 왼쪽 열에서 **웹**을 클릭합니다.
 
-5. **시작 작업** 섹션에서 **시작 URL** 단추를 클릭하고 텍스트 상자에 이전에 배포한 웹앱의 URL을 입력합니다(예: `http://productsportal1234567890.azurewebsites.net/`).
+5. **작업 시작** 섹션에서 **시작 URL** 단추를 클릭하고 텍스트 상자에 이전에 배포한 웹앱의 URL을 입력합니다(예: `http://productsportal1234567890.azurewebsites.net/`).
 
 	![][27]
 
@@ -513,7 +477,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ## 응용 프로그램 실행
 
-2.  F5를 눌러 응용 프로그램을 빌드 및 실행합니다. 온-프레미스 서버(**ProductsServer** 콘솔 응용 프로그램)가 먼저 시작된 후에 아래 스크린샷과 같이 **ProductsPortal** 응용 프로그램이 브라우저 창에서 시작되어야 합니다. 다시, 제품 재고에 제품 서비스 온-프레미스 시스템에서 검색된 데이터가 나열되며 해당 데이터가 웹앱에 표시됩니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다. 
+2.  F5를 눌러 응용 프로그램을 빌드 및 실행합니다. 온-프레미스 서버(**ProductsServer** 콘솔 응용 프로그램)가 먼저 시작된 후에 아래 스크린샷과 같이 **ProductsPortal** 응용 프로그램이 브라우저 창에서 시작되어야 합니다. 다시, 제품 재고에 제품 서비스 온-프레미스 시스템에서 검색된 데이터가 나열되며 해당 데이터가 웹앱에 표시됩니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
 
     ![][1]
 
@@ -527,10 +491,10 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ## 다음 단계  
 
-서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하세요.
+서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [Azure 서비스 버스][sbwacom]  
-* [서비스 버스 큐를 사용하는 방법][sbwacomqhowto]  
+* [Azure 서비스 버스][sbwacom]
+* [서비스 버스 큐를 사용하는 방법][sbwacomqhowto]
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -538,11 +502,6 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
   [도구 및 SDK 가져오기]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Azure 클래식 포털]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -564,10 +523,9 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

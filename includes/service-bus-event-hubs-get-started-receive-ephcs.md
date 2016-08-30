@@ -2,7 +2,7 @@
 
 [EventProcessorHost][]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost][]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost][]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][] 샘플에서는 여러 수신기에서 [EventProcessorHost][]를 사용하는 방법을 보여 줍니다.
 
-[EventProcessorHost][]를 사용하려면 [Azure 저장소 계정][]이 있어야 합니다.
+[EventProcessorHost][]를 사용하려면 [Azure Storage 계정][]이 있어야 합니다.
 
 1. [Azure 클래식 포털][]에 로그온한 다음 화면 맨 아래에서 **새로 만들기**를 클릭합니다.
 
@@ -26,7 +26,7 @@
 
     ![][13]
 
-	그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
+	Visual Studio는 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성을 다운로드, 설치 및 추가합니다.
 
 7. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다.
 
@@ -115,14 +115,14 @@
     }
 	```
 
-> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][] (영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
 
 <!-- Links -->
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브 프로그래밍 가이드]: event-hubs-programming-guide.md
 [확장된 이벤트 처리]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure 저장소 계정]: ../storage/storage-create-storage-account.md
+[Azure Storage 계정]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
@@ -134,3 +134,4 @@
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
+<!---HONumber=AcomDC_0824_2016-->

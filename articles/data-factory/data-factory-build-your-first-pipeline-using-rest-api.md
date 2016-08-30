@@ -52,6 +52,7 @@
 curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] 이름은 전역적으로 고유해야 하므로 고유한 이름을 지정하기 위해 ADFCopyTutorialDF를 접두사/접미사로 지정할 수 있습니다.
 
 	{  
 	    "name": "FirstDataFactoryREST",  
@@ -98,7 +99,7 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 다음 사항에 유의하세요.
 
-- 데이터 팩터리는 위의 JSON으로 사용자에 대해 **Windows 기반** HDInsight 클러스터를 만듭니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
+- 데이터 팩터리는 위의 JSON으로 사용자에게 **Windows 기반** HDInsight 클러스터를 만들어 줍니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 - 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터**를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
 - HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 
@@ -253,6 +254,8 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
 
+	여기(ADFCopyTutorialDF)에서 지정한 데이터 팩터리의 이름이 **datafactory.json**에서 지정한 이름과 일치하는지 확인합니다.
+
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. **Invoke-Command**를 사용하여 명령을 실행합니다.
 
@@ -263,7 +266,10 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 다음 사항에 유의하세요.
  
-- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다**라는 오류가 발생한 경우 JSON 파일 및 위 명령에서 이름(예: yournameFirstDataFactoryREST)을 변경합니다. 이 자습서의 단계를 수행하는 동안 **FirstDataFactoryREST** 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음을 수행합니다.
+	1. **datafactory.json** 파일에서 이름(예: yournameFirstDataFactoryREST)을 변경합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 FirstDataFactoryREST를 새 이름으로 바꾸고 명령을 실행합니다.
+	3. REST API를 호출하는 다음 두 명령을 실행하여 데이터 팩터리를 만들고 작업의 결과를 인쇄합니다.
 - 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 - 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 - "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
@@ -378,9 +384,9 @@ Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** �
 ## 요약 
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.
 
-1.	Azure **Data Factory**를 만들었습니다.
+1.	Azure **데이터 팩터리**를 만들었습니다.
 2.	두 개의 **연결된 서비스**를 만들었습니다.
-	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure Storage** 연결된 서비스입니다.
+	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure 저장소** 연결된 서비스입니다.
 	2.	주문형 HDInsight Hadoop 클러스터를 데이터 팩터리에 연결하는 **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
 3.	파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다.
 4.	**HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.
@@ -399,4 +405,4 @@ Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** �
 | [Azure 포털 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) | 이 문서는 Azure 포털 블레이드를 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

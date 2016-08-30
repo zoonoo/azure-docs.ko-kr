@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET SDK를 사용한 주문형 콘텐츠 제공 시작"
+	pageTitle=".NET을 사용한 주문형 콘텐츠 제공 시작 | Azure"
 	description="이 자습서에서는 .NET을 사용한 Azure 미디어 서비스로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="07/18/2016"
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 
@@ -43,7 +43,7 @@
 5.  미디어 서비스 계정에 연결합니다.
 6.  새 자산을 만들고 비디오 파일을 업로드합니다.
 7.  원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-8.  자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기  
+8.  자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
 9.  콘텐츠를 재생하여 테스트합니다.
 
 ## 필수 조건
@@ -78,7 +78,7 @@
 
 6. 양식 맨 아래에 있는 **빠른 생성**을 클릭합니다.
 
-창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
+창 아래쪽에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
 계정이 성공적으로 만들어지면 상태가 **활성**으로 변경됩니다.
 
@@ -453,4 +453,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-unity-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Unity Android 배포용 Azure Mobile Engagement 시작
 
 [AZURE.INCLUDE [영웅 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-이 토픽에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 Android 장치에 배포할 때 Unity 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 클래식 Unity Roll a Ball 자습서를 시작 지점으로 사용합니다. 아래 자습서에서 소개하는 Mobile Engagement 통합을 진행하기 전에 이 [자습서](mobile-engagement-unity-roll-a-ball.md)의 단계를 따라야 합니다.
+이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용법을 이해하고 Android 장치에 배포할 때 Unity 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 클래식 Unity Roll a Ball 자습서를 시작 지점으로 사용합니다. 아래 자습서에서 소개하는 Mobile Engagement 통합을 진행하기 전에 이 [자습서](mobile-engagement-unity-roll-a-ball.md)의 단계를 따라야 합니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@
 
 ###Unity 패키지 가져오기
 
-1. [Mobile Engagement Unity 패키지](https://aka.ms/azmeunitysdk)를 다운로드하고 이를 로컬 컴퓨터에 저장합니다. 
+1. [Mobile Engagement Unity 패키지](https://aka.ms/azmeunitysdk)를 다운로드하고 이를 로컬 컴퓨터에 저장합니다.
 
 2. **자산 -> 패키지 가져오기 -> 사용자 지정 패키지**로 이동하고 위의 단계에서 다운로드한 패키지를 선택합니다.
 
@@ -54,7 +54,7 @@
 
 ###EngagementConfiguration 업데이트
 
-1. SDK 폴더에서 **EngagementConfiguration** 스크립트 파일을 열고 **ANDROID\_CONNECTION\_STRING**을 Azure 포털에서 이전에 가져온 연결 문자열로 업데이트합니다.  
+1. SDK 폴더에서 **EngagementConfiguration** 스크립트 파일을 열고 **ANDROID\_CONNECTION\_STRING**을 Azure 포털에서 이전에 가져온 연결 문자열로 업데이트합니다.
 
 	![][73]
 
@@ -68,7 +68,7 @@
 
 ###기본 추적을 위한 앱 구성
 
-1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 엽니다. 
+1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 엽니다.
 
 2. 다음 using 문을 추가합니다.
 
@@ -82,7 +82,7 @@
 ###앱 배포 및 실행
 이 Unity 앱을 장치에 배포하려고 시도하기 전에 Android SDK가 컴퓨터에 설치되어 있는지 확인합니다.
 
-1. Android 장치를 컴퓨터에 연결합니다. 
+1. Android 장치를 컴퓨터에 연결합니다.
 
 2. **파일 -> 빌드 설정**을 엽니다.
 
@@ -116,7 +116,7 @@
 
 ###EngagementConfiguration 업데이트
 
-1. SDK 폴더에서 **EngagementConfiguration** 스크립트 파일을 열고 **ANDROID\_GOOGLE\_NUMBER**를 Google Cloud Developer 포털에서 이전에 가져온 **Google Project Number**로 업데이트합니다. 이 문자열 값은 큰따옴표로 묶어야 합니다. 
+1. SDK 폴더에서 **EngagementConfiguration** 스크립트 파일을 열고 **ANDROID\_GOOGLE\_NUMBER**를 Google Cloud Developer 포털에서 이전에 가져온 **Google Project Number**로 업데이트합니다. 이 문자열 값은 큰따옴표로 묶어야 합니다.
 
 	![][75]
 
@@ -128,7 +128,7 @@
 
 ###알림을 받도록 앱 구성
 
-1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 엽니다. 
+1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 엽니다.
 
 2. 다음을 `Start()` 메서드에 추가합니다.
 
@@ -151,4 +151,4 @@
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

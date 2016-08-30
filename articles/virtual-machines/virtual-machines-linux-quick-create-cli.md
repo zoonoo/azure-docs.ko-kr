@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
 
-이 문서에서는 Azure CLI의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라로 VM을 배포합니다(Linux bash 셸에 대한 가장 빠른 방법으로 생각할 수 있습니다). 이 문서에는 Azure 계정([무료 평가판 가져오기](https://azure.microsoft.com/pricing/free-trial/))과, 리소스 관리자 모드(`azure config mode arm`)의 [Azure CLI](../xplat-cli-install.md) 로그인(`azure login`)이 필요합니다. [Azure 포털](virtual-machines-linux-quick-create-portal.md)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.
+이 문서에서는 Azure CLI의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라로 VM을 배포합니다. 이 문서에는 Azure 계정([무료 평가판 가져오기](https://azure.microsoft.com/pricing/free-trial/))과, Resource Manager 모드(`azure config mode arm`)의 [Azure CLI](../xplat-cli-install.md) 로그인(`azure login`)이 필요합니다. [Azure 포털](virtual-machines-linux-quick-create-portal.md)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.
 
 ## 빠른 명령 요약
 
@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Linux VM 배포
 
-다음은 위와 동일한 명령을 사용하지만, RedHat Enteprise Linux 7.2 VM을 만들기 위해 RHEL 별칭을 사용하여, 각 프롬프트와 함께 나타나는 출력을 살펴보겠습니다
+이제 명령하는 과정을 안내하고 RedHat Enterprise Linux 7.2를 사용하는 각 단계를 설명하겠습니다.
 
 ## ImageURN 별칭 사용
 
@@ -46,14 +46,13 @@ Azure CLI `quick-create` 명령에는 가장 일반적인 운영 체제 배포�
 | Debian | credativ | Debian | 8 | 최신 |
 | openSUSE | SUSE | openSUSE | 13\.2 | 최신 |
 | RHEL | Redhat | RHEL | 7\.2 | 최신 |
-| SLES | SLES | SLES | 12-SP1 | 최신 |
 | UbuntuLTS | Canonical | UbuntuServer | 14\.04.4-LTS | 최신 |
 
 
 
-**ImageURN** 옵션(`-Q`)의 경우 `RHEL`을 사용하여 RedHat Enterprise Linux 7.2 VM을 배포합니다. (이러한 7개의 별칭은 Azure에 사용할 수 있는 OS 중 극히 일부만을 나타냅니다. 마켓플레이스에서 [이미지를 검색](virtual-machines-linux-cli-ps-findimage.md)하여 더 많은 이미지를 찾거나, [자신만의 사용자 지정 이미지를 업로드](virtual-machines-linux-create-upload-generic.md)할 수 있습니다.)
+**ImageURN** 옵션(`-Q`)의 경우 `RHEL`을 사용하여 RedHat Enterprise Linux 7.2 VM을 배포합니다. 이러한 `quick-create` 별칭은 Azure에서 사용할 수 있는 OS의 작은 부분을 나타냅니다. [이미지를 검색](virtual-machines-linux-cli-ps-findimage.md)하여 마켓플레이스에서 이미지를 찾거나 [고유의 사용자 지정 이미지 업로드](virtual-machines-linux-create-upload-generic.md)를 사용할 수 있습니다.
 
-다음 명령 연습에서 프롬프트를 사용자 환경의 값으로 바꿉니다. 여기서는 "example" 값을 사용합니다.
+다음 명령 연습에서 프롬프트를 고유한 환경의 값으로 바꿉니다.
 
 프롬프트에 따라 고유한 이름을 입력합니다.
 
@@ -147,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-이제 위의 출력에 나열된 기본 SSH 포트 22 및 정규화된 도메인 이름(FQDN)에서 VM에 SSH할 수 있습니다. (나열된 IP 주소도 사용할 수 있습니다.)
+출력에 나열된 포트 22 및 공용 IP 주소에 있는 VM에 SSH합니다. (나열된 FQDN을 사용할 수도 있습니다.)
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -165,12 +164,10 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## 다음 단계
 
-`azure vm quick-create`은(는) Bash 셸에 로그인하고 작업할 수 있도록 VM을 신속하게 배포하는 방법입니다. `vm quick-create` 사용 시 복잡한 환경에서 추가적인 혜택은 없습니다. 아래 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 배포합니다.
+`azure vm quick-create`은(는) Bash 셸에 로그인하고 작업할 수 있도록 VM을 신속하게 배포하는 방법입니다. `vm quick-create` 사용 시 복잡한 환경에서 추가적인 혜택은 없습니다. 이러한 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 배포합니다.
 
-- [Azure 리소스 관리자 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md)
+- [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md)
 - [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-create-cli-complete.md)
 - [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-이러한 문서로 Azure 인프라뿐만 아니라 독점 및 오픈 소스 인프라 배포, 구성 및 오케스트레이션 도구 작성을 시작합니다.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

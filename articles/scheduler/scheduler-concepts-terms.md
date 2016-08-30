@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 + 엔터티 계층 구조
@@ -39,7 +39,7 @@
 
 ## 작업 유형
 
-HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서비스 버스 큐 작업 및 서비스 버스 항목 작업 등 여러 가지 유형의 작업이 있습니다. HTTP 작업은 기존 작업 부하 또는 서비스의 끝점을 사용하는 경우에 이상적입니다. 저장소 큐 작업을 사용하여 저장소 큐에 메시지를 게시할 수 있으므로 저장소 큐를 사용하는 워크로드에 이상적입니다. 마찬가지로, 서비스 버스 작업은 서비스 버스 큐와 토픽을 사용하는 작업에 적합합니다.
+HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서비스 버스 큐 작업 및 서비스 버스 항목 작업 등 여러 가지 유형의 작업이 있습니다. HTTP 작업은 기존 작업 부하 또는 서비스의 끝점을 사용하는 경우에 이상적입니다. 저장소 큐 작업을 사용하여 저장소 큐에 메시지를 게시할 수 있으므로 저장소 큐를 사용하는 워크로드에 이상적입니다. 마찬가지로, 서비스 버스 작업은 서비스 버스 큐와 토픽을 사용하는 워크로드에 적합합니다.
 
 ## "Job" 엔터티 세부 정보
 
@@ -129,7 +129,7 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 
 ## action 및 errorAction
 
-"action"은 각각의 발생 시 호출되는 동작이며 서비스 호출 유형을 설명합니다. 동작은 제공된 일정에 따라 실행되는 것입니다. 스케줄러는 HTTP, 저장소 큐, 서비스 버스 항목 또는 서비스 버스 큐 동작을 지원합니다.
+"action"은 각각의 발생 시 호출되는 동작이며 서비스 호출 유형을 설명합니다. 동작은 제공된 일정에 따라 실행되는 것입니다. 스케줄러는 HTTP, 저장소 큐, 서비스 버스 항목 또는 서비스 버스 큐 작업을 지원합니다.
 
 위 예의 동작은 HTTP 동작입니다. 다음은 저장소 큐 동작의 예입니다.
 
@@ -145,7 +145,7 @@ HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서�
 			},
 	}
 
-다음은 서비스 버스 항목 동작의 예입니다.
+다음은 서비스 버스 항목 작업의 예입니다.
 
   "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
@@ -214,4 +214,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -42,7 +42,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 - [Express 경로](../expressroute/expressroute-introduction.md) - Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md) 및 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
-프레미스 간 연결에 대한 자세한 내용은 [보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
+연결에 대한 자세한 내용은 [VPN 게이트웨이 연결 다이어그램](vpn-gateway-topology.md)을 참조하세요.
 
 ### 사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
@@ -51,8 +51,6 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 **지점 및 사이트 간** 연결을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 컴퓨터 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
 게이트웨이에 경로 기반 VPN 유형을 사용하여 사이트 간 연결을 만들 경우 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다. 경로 기반 VPN 유형은 클래식 배포 모델에서 동적 게이트웨이라고 합니다.
-
-자세한 내용은 [가상 네트워크에 대한 보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
 ### Express 경로란?
 
@@ -283,4 +281,4 @@ VPN 게이트웨이에 대한 자세한 정보는 [VPN 게이트웨이 설명서
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

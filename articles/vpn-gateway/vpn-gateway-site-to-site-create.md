@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="08/23/2016"
    ms.author="cherylmc"/>
 
 # Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -27,21 +27,16 @@
 
 이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 클래식 배포 모델에 적용되고 Azure 클래식 포털을 사용합니다. 현재는 Azure 포털을 사용하여 클래식 배포 모델에 대한 종단 간 사이트 간 구성을 만들 수 없습니다.
 
+![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
 
-**Azure 배포 모델 정보**
+
+### 사이트 간 연결에 대한 배포 모델 및 도구
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## 연결 다이어그램
- 
-![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
-
-**사이트 간 연결에 대한 배포 모델 및 도구**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Vnet끼리 서로 연결하지만 온-프레미스 위치에는 연결하지 않을 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 다른 유형의 연결 구성을 찾으려는 경우 [VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md) 문서를 참조하세요.
-
+Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
  
 ## 시작하기 전에
 
@@ -49,7 +44,7 @@ Vnet끼리 서로 연결하지만 온-프레미스 위치에는 연결하지 않
 
 - 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 
--  VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+- VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
@@ -85,8 +80,8 @@ Vnet끼리 서로 연결하지만 온-프레미스 위치에는 연결하지 않
 
 - 	**이름**: 로컬(온-프레미스) 네트워크 사이트를 호출할 이름입니다.
 - 	**VPN 장치 IP 주소**: Azure에 연결하는 데 사용할 온-프레미스 VPN 장치의 공용 IPv4 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.
-- 	**주소 공간**: 시작 IP 및 CIDR(주소 수)를 포함합니다. 여기서 가상 네트워크 게이트웨이를 통해 로컬 온-프레미스 위치로 보낼 주소 범위를 지정합니다. 대상 IP 주소가 여기서 지정한 범위 내에 포함되는 경우 가상 네트워크 게이트웨이를 통해 라우팅됩니다.
-- 	**주소 공간 추가**: 가상 네트워크 게이트웨이를 통해 여러 주소 범위를 보낼 경우 여기서 각 추가 주소 범위를 지정합니다. 나중에 **로컬 네트워크** 페이지에서 범위를 추가하거나 제거할 수 있습니다.
+- 	**주소 공간**: 시작 IP 및 CIDR(주소 수)를 포함합니다. 가상 네트워크 게이트웨이를 통해 로컬 온-프레미스 위치로 보낼 주소 범위를 지정합니다. 대상 IP 주소가 여기서 지정한 범위 내에 포함되는 경우 가상 네트워크 게이트웨이를 통해 라우팅됩니다.
+- 	**주소 공간 추가**: 가상 네트워크 게이트웨이를 통해 여러 주소 범위를 보낼 경우 각 추가 주소 범위를 지정합니다. 나중에 **로컬 네트워크** 페이지에서 범위를 추가하거나 제거할 수 있습니다.
 
 ## 가상 네트워크 주소 공간 페이지
 
@@ -106,10 +101,10 @@ Vnet끼리 서로 연결하지만 온-프레미스 위치에는 연결하지 않
 
 ## 가상 네트워크 게이트웨이 구성
 
-다음으로, 안전한 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성하겠습니다. [Azure 클래식 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
+보안 사이트 간 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성합니다. [Azure 클래식 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
 ## 다음 단계
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

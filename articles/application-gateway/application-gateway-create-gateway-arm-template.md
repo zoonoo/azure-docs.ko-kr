@@ -121,7 +121,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 ### 1단계
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -129,7 +129,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 계정에 대한 구독을 확인합니다.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
 
@@ -138,7 +138,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 사용할 Azure 구독을 선택합니다. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4단계
@@ -146,7 +146,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 필요한 경우 **New-AzureResourceGroup** cmdlet을 사용하여 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
 
-	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -163,29 +163,29 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 **New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 위에서 다운로드한 후 수정한 이전의 템플릿 및 매개 변수 파일을 사용하여 새 가상 네트워크를 배포합니다.
 
-		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+ 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 명령줄에 의해 생성된 출력은 다음과 같습니다.
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+	DeploymentName    : testappgatewaydeployment
+	ResourceGroupName : appgatewayRG
+	ProvisioningState : Succeeded
+	Timestamp         : 9/19/2015 1:49:41 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+				Name             Type                       Value
+				===============  =========================  ==========
+				location         String                     East US
+				addressPrefix    String                     10.0.0.0/16
+				subnetPrefix     String                     10.0.0.0/24
+				skuName          String                     Standard_Small
+				capacity         Int                        2
+				backendIpAddress1  String                     10.0.1.10
+				backendIpAddress2  String                     10.0.1.11
 
-		Outputs           :
+	Outputs           :
 
 
 ## Azure CLI를 사용하여 Azure 리소스 관리자 템플릿 배포
@@ -211,9 +211,9 @@ Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-c
 
 	azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
+**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
 
-**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
 
 ### 4단계
 
@@ -293,4 +293,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

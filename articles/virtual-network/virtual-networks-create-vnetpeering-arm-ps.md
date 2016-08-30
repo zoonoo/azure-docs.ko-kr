@@ -3,7 +3,7 @@
    description="Resource Manager에서 Azure 포털을 사용하여 가상 네트워크를 만드는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -201,4 +201,4 @@ PowerShell을 사용하여 구독에 VNet 피어링을 만들려면 다음 단�
 
 2. VNet 피어링에서 하나의 링크만을 제거하면 피어링 링크 상태는 연결이 끊깁니다. 이 상태에서는 피어링 링크 상태가 시작됨으로 변경될 때까지 링크를 다시 만들 수 없습니다. VNet 피어링을 다시 만들기 전에 링크를 모두 제거하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

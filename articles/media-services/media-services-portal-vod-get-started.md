@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="08/18/2016"
 	ms.author="juliako"/>
 
 
-# Azure 포털을 사용하여 주문형 콘텐츠 제공 시작
+# Azure 포털을 사용한 주문형 콘텐츠 제공 시작
+
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스(AMS) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
@@ -37,9 +39,9 @@ Azure 포털에서 Azure 미디어 서비스는 현재 미리 보기 상태입�
 
 ## Azure 미디어 서비스 계정 만들기
 
-이 섹션의 단계에서는 새 AMS 계정을 만드는 방법을 보여 줍니다.
+이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.
 
-1. [Azure 포털](https://portal.azure.com/)에서 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **+새로 만들기** > **미디어 + CDN** > **미디어 서비스**를 클릭합니다.
 
 	![미디어 서비스 만들기](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -52,7 +54,7 @@ Azure 포털에서 Azure 미디어 서비스는 현재 미리 보기 상태입�
 	2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
 	
 	2. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다. 리소스 그룹은 동일한 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](resource-group-overview.md#resource-groups)(영문)를 참조하십시오.
-	3. **위치**에서 미디어 서비스 계정에 대한 메타데이터 레코드 및 미디어를 저장하는 데 사용할 지리적 지역을 선택합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 미디어 서비스 지역만 드롭다운 목록 상자에 표시됩니다.
+	3. **위치**에서 미디어 서비스 계정에 대한 메타데이터 레코드 및 미디어를 저장하는 데 사용한 지리적 지역을 선택합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 미디어 서비스 지역만 드롭다운 목록 상자에 표시됩니다.
 	
 	3. **저장소 계정**에서 미디어 서비스 계정의 미디어 콘텐츠가 포함된 Blob 저장소를 제공할 저장소 계정을 선택합니다. 미디어 서비스 계정과 동일한 지역의 기존 저장소 계정을 선택하거나 새 저장소 계정을 만들 수 있습니다. 동일한 지역에 새 저장소 계정이 생성됩니다. 저장소 계정 이름에 대한 규칙은 미디어 서비스 계정의 경우와 같습니다.
 
@@ -132,7 +134,6 @@ Azure 미디어 서비스를 사용하여 비디오를 스트림하려면 소스
 	업로드가 시작되고 파일 이름 아래에 진행 상태가 표시됩니다.
 
 업로드가 완료되면 **자산** 창에 새 자산이 나열됩니다.
-
 
 ## 자산 인코딩
 
@@ -219,7 +220,7 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 - 비디오가 게시된 것을 확인합니다.
-- 이 *미디어 플레이어*가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 URL 복사를 클릭하고 다른 플레이어를 사용합니다. 예를 들어 [Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
+- 이 **미디어 플레이어**가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 URL 복사를 클릭하고 다른 플레이어를 사용합니다. 예를 들어 [Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
 
 ##다음 단계: 미디어 서비스 학습 경로
 
@@ -229,4 +230,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

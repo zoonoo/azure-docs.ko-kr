@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Azure VPN 게이트웨이 재설정
 
 
-이 문서에서는 PowerShell cmdlet을 사용하여 Azure VPN 게이트웨이를 재설정하는 과정을 안내합니다. 다음 지침은 클래식 배포 모델에 적용됩니다. 리소스 관리자 배포 모델을 사용하여 만든 가상 네트워크에 대한 VPN 게이트웨이를 재설정하기 위한 cmdlet 또는 REST API는 아직 제공되지 않습니다. 현재 작업 중입니다. Azure 포털에서 가상 네트워크를 확인하여 클래식 배포 모델을 사용하여 VPN 게이트웨이를 만들었는지 알 수 있습니다. 클래식 배포 모델을 사용하여 만든 가상 네트워크는 Azure 포털의 가상 네트워크(클래식) 부분에 표시됩니다.
+이 문서에서는 PowerShell cmdlet을 사용하여 Azure VPN 게이트웨이를 다시 설정하는 과정을 안내합니다. 다음 지침은 클래식 배포 모델에 적용됩니다. 현재 Resource Manager 배포 모델에서 만든 가상 네트워크 게이트웨이를 다시 설정할 수 없습니다.
 
 Azure VPN 게이트웨이 재설정은 하나 이상의 S2S VPN 터널에서 크로스-프레미스 VPN 연결을 잃는 경우 유용합니다. 이 상황에서 온-프레미스 VPN 장치는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. *Reset-AzureVNetGateway* cmdlet을 사용하는 경우 게이트웨이를 다시 부팅한 후 크로스-프레미스 구성을 다시 적용합니다. 게이트웨이는 기존의 공용 IP 주소를 유지합니다. 즉, Azure VPN 게이트웨이에 대한 새 공용 IP 주소로 VPN 라우터 구성을 업데이트할 필요가 없습니다.
 
@@ -36,11 +36,11 @@ Azure VPN 게이트웨이 재설정은 하나 이상의 S2S VPN 터널에서 크
 
 ## PowerShell을 사용하여 VPN 게이트웨이 재설정
 
-Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-AzureVNetGateway* 입니다. 각 Azure VPN 게이트웨이는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 구성됩니다. 명령이 실행되면 Azure VPN 게이트웨이의 현재 활성 인스턴스가 즉시 재부팅됩니다. 활성 인스턴스(재부팅)에서 대기 인스턴스로 장애 조치(Failover) 중에 잠깐의 간격이 있습니다. 이 간격은 1분 미만이어야 합니다.
+Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-AzureVNetGateway*입니다. 각 Azure VPN 게이트웨이는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 구성됩니다. 명령이 실행되면 Azure VPN 게이트웨이의 현재 활성 인스턴스가 즉시 재부팅됩니다. 활성 인스턴스(재부팅)에서 대기 인스턴스로 장애 조치(Failover) 중에 잠깐의 간격이 있습니다. 이 간격은 1분 미만이어야 합니다.
 
-다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 Azure VPN 게이트웨이를 재설정합니다.
+다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 Azure VPN 게이트웨이를 다시 설정합니다.
  
-			Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
 	 	Error          :
 	 	HttpStatusCode : OK
@@ -58,4 +58,4 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 	
 이 cmdlet에 대한 자세한 내용은 [PowerShell 참조](https://msdn.microsoft.com/library/azure/mt270366.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->
