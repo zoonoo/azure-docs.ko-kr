@@ -23,9 +23,9 @@
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-이제 *www.contoso.com*으로 요청되는 모든 트래픽이 *contoso.trafficmanager.net*으로 이동됩니다.
+이제 *www.contoso.com* 으로 요청되는 모든 트래픽이 *contoso.trafficmanager.net* 으로 이동됩니다.
 
->[AZURE.IMPORTANT] *contoso.com*과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
+>[AZURE.IMPORTANT] *contoso.com* 과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
 
 ## 다음 단계
 

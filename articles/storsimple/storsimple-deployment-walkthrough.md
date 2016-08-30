@@ -146,7 +146,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | | | |
 | **NTP** | NTP 서버가 입력되는 즉시 시간 동기화를 트리거합니다. `time.windows.com` 또는 공용 시간 서버를 입력할 때 UDP 포트 123이 열려 있는지 확인합니다. | [이 스크립트를 다운로드하고 사용합니다](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
+| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
 | | 트래픽이 프록시를 통해 라우팅할 수 있습니까? | 장치의 프록시 구성 후 DNS 유효성 검사, NTP 확인 또는 HTTP 검사를 실행합니다. 트래픽이 프록시 또는 다른 곳에서 차단된 경우 명확한 그림을 제공합니다. |
 | | | |
 | **등록** | 아웃바운드 TCP 포트 443, 80, 9354가 열려 있는지 확인합니다. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection cmdlet에 대한 자세한 내용](https://technet.microsoft.com/library/dn372891.aspx) |

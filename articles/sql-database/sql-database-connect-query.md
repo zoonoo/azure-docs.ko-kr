@@ -37,7 +37,7 @@ Visual Studio를 사용하여 SQL 데이터베이스에 연결하려면 다음�
 - 연결할 SQL 데이터베이스. 이 문서에서는 **AdventureWorks** 샘플 데이터베이스를 사용합니다. AdventureWorks 샘플 데이터베이스를 다운로드하려면 [데모 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 
-- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료*로 제공합니다.
+- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료* 로 제공합니다.
  - [Visual Studio Community, 다운로드](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [무료 Visual Studio에 대한 더 많은 옵션](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
 

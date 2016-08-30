@@ -31,7 +31,7 @@
 ###필수 조건
 
 -   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
--   [Azure Java 개발자 센터][](영문)에서 설치할 수 있는 Java용 Azure 라이브러리
+-   [Azure Java 개발자 센터][] \(영문)에서 설치할 수 있는 Java용 Azure 라이브러리
 
 ##방법: Java에서 미디어 서비스 사용
 
@@ -266,7 +266,7 @@
 
 ##추가 리소스
 
-미디어 서비스 Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][](영문)를 참조하세요.
+미디어 서비스 Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][]\(영문)를 참조하세요.
 
 <!-- URLs. -->
 
