@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace"/>
 
 
@@ -43,10 +43,9 @@ Azure 응용 프로그램 게이트웨이는 인터넷 연결 VIP 또는 ILB(내
 
 
 
-## 새 응용 프로그램 게이트웨이 만들기
+## 응용 프로그램 게이트웨이 만들기
 
-Azure Classic 및 Azure Resource Manager 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다. 
-Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 응용 프로그램 게이트웨이 리소스를 만드는 데 사용됩니다.
+Azure Classic 및 Azure Resource Manager 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다. Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 응용 프로그램 게이트웨이 리소스를 만드는 데 사용됩니다.
 
 
 다음은 응용 프로그램 게이트웨이를 만드는 데 필요한 단계입니다.
@@ -59,17 +58,17 @@ Resource Manager를 사용하면 응용 프로그램 게이트웨이를 만드�
 
 ## 리소스 관리자에 대한 리소스 그룹 만들기
 
-Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell](../powershell-azure-resource-manager.md) 사용을 참조하세요.
 
 ### 1단계
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 ### 2단계
 
 계정에 대한 구독을 확인합니다.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
 
@@ -78,7 +77,7 @@ Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환�
 사용할 Azure 구독을 선택합니다. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4단계
@@ -109,7 +108,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 3단계
 
-	$subnet=$vnet.subnets[0]
+	$subnet = $vnet.subnets[0]
 
 다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
 
@@ -238,4 +237,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

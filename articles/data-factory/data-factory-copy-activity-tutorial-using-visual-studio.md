@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기" 
+	pageTitle="자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Azure" 
 	description="이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,19 +23,22 @@
 - [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 Visual Studio 2013을 사용하여 다음을 수행합니다.
 
 1. 2개의 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlinkedService1**를 만듭니다. AzureStorageLinkedService1은 Azure 저장소를 연결하고 AzureSqlLinkedService1은 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryVS**에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.
-2. 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 만듭니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 데이터 구조, 데이터 가용성 등의 기타 속성도 지정합니다.
+2. 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 만듭니다. EmpTableFromBlob의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. EmpSQLTable의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다. 구조, 가용성 등의 기타 속성도 지정합니다.
 3. ADFTutorialDataFactoryVS에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다. 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 4. 데이터 팩터리를 만들고 연결된 서비스, 테이블 및 파이프라인을 배포합니다.
 
 ## 필수 조건
 
-1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 읽고 진행하기 전에 필수 구성 요소 단계를 완료**해야** 합니다.
-2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재 제한 사항입니다.
+1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 자세히 읽습니다.
+	
+	> [AZURE.IMPORTANT] 계속하기 전에 필수 구성 요소를 완료합니다.
+2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다.
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 	- Visual Studio 2013 또는 Visual Studio 2015
 	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
@@ -54,7 +57,7 @@
 	![솔루션 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)
 
 ## 연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다.
+연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 Azure Storage, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다.
 
 이 단계에서는 2개의 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만듭니다. AzureStorageLinkedService1 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결합니다.
 
@@ -80,7 +83,7 @@
 
 
 ## 데이터 집합 만들기
-이전 단계에서는 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **EmpTableFromBlob** 및 **EmpSQLTable** 등 2개의 데이터 팩터리 테이블을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다.
+이전 단계에서는 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **EmpTableFromBlob** 및 **EmpSQLTable** 등 2개의 데이터 팩터리 테이블을 정의합니다. EmpTableFromBlob의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. EmpSQLTable의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다.
 
 ### 입력 데이터 집합 만들기
 
@@ -235,7 +238,7 @@
 		데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 	
 			Get-AzureRmResourceProvider
-	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 그러면 공급자가 자동으로 등록됩니다.
+	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 - 	데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 - 	데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 
@@ -270,8 +273,8 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 | :---- | :---- |
 | [데이터 이동 활동](data-factory-data-movement-activities.md) | 이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
-| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure Data Factory에서 파이프라인 및 작업을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -39,39 +39,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 네임�
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 클래식 포털][]에 로그온합니다.
-
-2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
-
-3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  **새 네임스페이스 추가** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
-
-	> [AZURE.IMPORTANT] 응용 프로그램을 배포하도록 선택할 지역과 *같은 지역*을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
-
-6.	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준** 계층) 확인 표시를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-	그런 다음 만든 네임스페이스가 포털에 표시되고 활성화하려면 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
-
-## 네임스페이스에 대한 기본 관리 자격 증명 얻기
-
-새 네임스페이스에 대해 릴레이 연결 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 SAS(공유 액세스 서명) 권한 부여 규칙을 구성해야 합니다. SAS에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세스 서명 인증][]을 참조하세요.
-
-1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  표시된 목록에서 방금 만든 네임스페이스의 이름을 두 번 클릭합니다. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  페이지 맨 위에 있는 **구성** 탭을 클릭합니다.
-
-4.  서비스 버스 네임스페이스를 프로비전하면 기본적으로 **KeyName**이 **RootManageSharedAccessKey**로 설정된 **SharedAccessAuthorizationRule**이 생성됩니다. 이 페이지에는 해당 키와 기본 규칙에 대한 기본 키 및 보조 키가 표시됩니다.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
@@ -267,9 +235,8 @@ using (var ch = cf.CreateChannel())
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 - [Azure 샘플][]에서 서비스 버스 샘플을 다운로드하거나 [서비스 버스 샘플 개요][]를 참조하세요.
 
-  [Azure 클래식 포털]: http://manage.windowsazure.com
-  [서비스 버스를 사용한 공유 액세스 서명 인증]: service-bus-shared-access-signature-authentication.md
+  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [서비스 버스 샘플 개요]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

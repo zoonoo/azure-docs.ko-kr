@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="krisragh"/>
 
 #iOS 앱 만들기
@@ -24,13 +24,8 @@
 
 이 자습서는 [Azure 모바일 앱](app-service-mobile-value-prop.md), 클라우드 백 엔드 서비스를 iOS 앱에 추가하는 방법을 보여줍니다. 우선 새 모바일 백 엔드를 만듭니다. 그 다음, 간단한 _Todo list_ iOS 앱을 사용하여 Azure에 데이터를 저장합니다.
 
-## 필수 조건
+이 자습서를 완료하려면 Mac과 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
 
-이 자습서를 완료하려면 다음이 필요합니다.
-
-* [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-* [Visual Studio Community 2013] 이상이 설치된 PC
-* Xcode 7.3 이상이 설치된 Mac
 
 ## 단계 I: 새 Azure 모바일 앱 백 엔드 만들기
 
@@ -52,4 +47,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

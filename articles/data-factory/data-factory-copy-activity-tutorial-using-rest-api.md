@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기" 
+	pageTitle="자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Azure" 
 	description="이 자습서에서는 REST API를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,6 +23,7 @@
 - [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 REST API를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
@@ -57,7 +58,7 @@
 
 			New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-		리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 그대로 유지(N)할지를 지정합니다.
+		리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 유지(N)할지를 지정합니다.
 
 		이 자습서의 일부 단계에서는 ADFTutorialResourceGroup이라는 리소스 그룹을 사용한다고 가정합니다. 다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹의 이름을 사용해야 합니다.
   
@@ -142,7 +143,7 @@ JSON 정의는 **AzureBlobInput**이라는 데이터 집합을 정의하며 이�
 - **folderPath**는 **adftutorial** 컨테이너로 설정되고 **fileName**은 **emp.txt**로 설정됩니다.
 - format **type**을 **TextFormat**으로 설정합니다.
 - 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.
-- **가용성**을 **매시간**으로 설정하므로(빈도를 시간으로 설정하고 간격을 1로 설정함), 데이터 팩터리 서비스에서 사용자가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 매시간마다 찾게 됩니다.
+- **가용성**은 **매시간**으로 설정됩니다(빈도는 시간으로, 간격은 1로 설정됨). 따라서 데이터 팩터리는 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다.
 
 입력 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob는 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
 
@@ -196,7 +197,7 @@ JSON 정의는 **AzureSqlOutput**이라는 데이터 집합을 정의하며 이�
 - dataset **type**을 **AzureSQLTable**로 설정합니다.
 - **linkedServiceName**을 **AzureSqlLinkedService**로 설정합니다.
 - **tablename**을 **emp**로 설정합니다.
-- 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
+- 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
 - **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 ### pipeline.json
@@ -238,8 +239,8 @@ JSON 정의는 **AzureSqlOutput**이라는 데이터 집합을 정의하며 이�
 	        }
 	      }
 	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
+	    "start": "2016-08-12T00:00:00Z",
+	    "end": "2016-08-13T00:00:00Z"
 	  }
 	}
 
@@ -256,7 +257,7 @@ start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki
 
 **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다.
 
-위의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
+예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 	
 > [AZURE.NOTE] 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline)을 참조하세요.
 
@@ -285,7 +286,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 ## 데이터 팩터리 만들기
 
-이 단계에서는 **ADFCopyTutorialDF**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 제품 출력 데이터로 변환하는 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다.
+이 단계에서는 **ADFCopyTutorialDF**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 복사 작업은 원본에서 대상 데이터 저장소로 데이터를 복사합니다. HDInsight Hive 작업은 Hive 스크립트를 실행하여 입력 데이터를 제품 출력 데이터로 변환합니다. 다음 명령을 실행하여 데이터 팩터리를 만듭니다.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
 
@@ -320,7 +321,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 			Get-AzureRmResourceProvider
 	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 
-파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 데이터 저장소에 원본 및 대상 데이터 저장소를 연결하는 연결된 서비스를 만들고 연결된 데이터 저장소에서 데이터를 나타내는 입력 및 출력 데이터 집합을 정의한 다음 이러한 데이터 집합을 사용하는 작업을 통해 파이프라인을 만듭니다.
+파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 연결된 서비스를 만들어서 원본 및 대상 데이터 저장소를 데이터 저장소에 연결합니다. 그런 입력 및 출력 데이터 집합을 정의하여 다음 연결된 데이터 저장소에 데이터를 나타냅니다. 마지막으로 이러한 데이터 집합을 사용하는 작업이 있는 파이프라인을 만듭니다.
 
 ## 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 데이터 팩터리 파이프라인에 대한 입력 데이터를 포함하거나 출력 데이터를 저장하는 Azure Storage, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다. 계산 서비스는 입력 데이터를 처리하고 출력 데이터를 생성하는 서비스입니다.
@@ -357,7 +358,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 이전 단계에서는 연결된 서비스 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure Storage 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFCopyTutorialDF**에 연결했습니다. 이 단계에서는 다음 단계에서 만들 파이프라인에 있는 복사 작업의 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다.
 
-이 자습서의 입력 데이터 집합은 AzureStorageLinkedService가 가리키는 Azure Storage의 Blob 컨테이너를 참조하고 출력 데이터 집합은 AzureSqlLinkedService가 가리키는 Azure SQL 데이터베이스의 SQL 테이블을 참조합니다.
+이 자습서의 입력 데이터 집합은 AzureStorageLinkedService가 가리키는 Azure Storage에서 Blob 컨테이너를 참조합니다. 출력 데이터 집합은 AzureSqlLinkedService가 가리키는 Azure SQL 데이터베이스에서 SQL 테이블을 참조합니다.
 
 ### 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스 준비
 다음 단계를 수행하여 이 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.
@@ -390,7 +391,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 	SQL Server 2014가 컴퓨터에 설치된 경우: [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다.
 
-	Visual Studio 2013이 컴퓨터에 설치된 경우: Azure 포털([http://portal.azure.com](http://portal.sazure.com))에서 왼쪽의 **찾아보기** 허브를 클릭하고, **SQL Server**를 클릭한 다음 데이터베이스를 선택하고, 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
+	클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 [이 문서](../sql-database/sql-database-configure-firewall-settings.md)를 참조하세요.
 		
 ### 입력 데이터 집합 만들기 
 이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **AzureBlobInput**이라는 데이터 집합을 만듭니다. 이 Blob 컨테이너(**adftutorial**)는 **emp.txt** 파일에 입력 데이터를 포함합니다.
@@ -406,7 +407,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results
 
 ### 출력 데이터 집합 만들기
-이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **AzureSqlOutput**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
+이 단계에서는 **AzureSqlOutput**이라는 출력 테이블을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL 데이터베이스에서 SQL 테이블(**emp**)을 가리킵니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
  
@@ -492,4 +493,4 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

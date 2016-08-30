@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="04/04/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Cordova/Phonegap용 Azure Mobile Engagement 시작
 
-[AZURE.INCLUDE [Hero 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+[AZURE.INCLUDE [영웅 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Cordova에서 개발된 모바일 응용 프로그램의 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
 
 이 자습서에서는 Mac을 사용하여 빈 Cordova 앱을 만들고 Mobile Engagement SDK를 통합합니다. 기본 분석 데이터를 수집하고 iOS용 APNS(Apple 푸시 알림 시스템) 및 Android용 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받습니다. 테스트를 위해 iOS 또는 Android 장치에 이 앱을 배포합니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)을 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -48,7 +48,7 @@
 
 ###새 Cordova 프로젝트 만들기
 
-1. Mac 컴퓨터에서 *Terminal* 창을 시작하고 기본 템플릿에서 새 Cordova 프로젝트를 만들 다음을 입력합니다. iOS 앱을 배포하는 데 사용할 최종 게시 프로필이 앱 ID로 'com.mycompany.myapp'을 사용하는지 확인합니다. 
+1. Mac 컴퓨터에서 *Terminal* 창을 시작하고 기본 템플릿에서 새 Cordova 프로젝트를 만들 다음을 입력합니다. iOS 앱을 배포하는 데 사용할 최종 게시 프로필이 앱 ID로 'com.mycompany.myapp'을 사용하는지 확인합니다.
 
 		$ cordova create azme-cordova com.mycompany.myapp
 		$ cd azme-cordova
@@ -167,7 +167,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 **[iOS]**
 
-1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\\platforms\\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다. 
+1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\\platforms\\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다.
 	
 2. 방금 Mobile Engagement 포털에 업로드한 인증서가 포함된 프로비저닝 프로필이 있는 계정과 Cordova 앱을 만들 때 제공한 것과 일치하는 앱 ID를 사용하여 Cordova 앱을 빌드하고 iOS 장치에 배포합니다. XCode의 **Resources*-info.plist** 파일에서 *번들 식별자*가 일치하는지 확인할 수 있습니다.
 
@@ -191,20 +191,20 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 3. 입력을 제공하여 캠페인을 만듭니다.**[Android]**
 	
-	- 캠페인에 **이름**을 제공합니다. 
+	- 캠페인에 **이름**을 제공합니다.
 	- **전달 형식**을 *시스템 알림* *단순*으로 선택합니다.
 	- **전달 시간**을 *"언제든지"*로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
-	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다. 
+	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다.
 
 	![][11]
 
 4. 입력을 제공하여 캠페인을 만듭니다.**[iOS]**
 
-	- 캠페인에 **이름**을 제공합니다. 
+	- 캠페인에 **이름**을 제공합니다.
 	- **배달 시간**을 *"앱 외부에서만"*으로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
-	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다. 
+	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다.
  
 	![][12]
 
@@ -212,7 +212,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 	![][8]
 
-6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME\_REDIRECT\_URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: **myapp://test*).
+6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME\_REDIRECT\_URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: *myapp://test*).
 
 7. 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 이제 다시 아래로 스크롤하고 **만들기** 단추를 클릭하여 캠페인을 저장합니다.
 
@@ -237,4 +237,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

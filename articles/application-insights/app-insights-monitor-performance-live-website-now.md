@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="08/24/2016"
 	ms.author="awills"/>
 
 
@@ -20,7 +20,7 @@
 
 *Application Insights는 미리 보기 상태입니다.*
 
-코드를 수정하거나 다시 배포할 필요 없이 Visual Studio Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버로 호스팅되는 경우 상태 모니터를 설치합니다. 또는 앱이 Azure 웹앱이거나 Azure VM에서 실행되는 경우 Application Insights 확장을 설치할 수 있습니다. \([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure 클라우드 서비스](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.\)
+코드를 수정하거나 다시 배포할 필요 없이 Visual Studio Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버로 호스팅되는 경우 상태 모니터를 설치합니다. 또는 앱이 Azure 웹앱이거나 Azure VM에서 실행되는 경우 Application Insights 확장을 설치할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure 클라우드 서비스](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.)
 
 ![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -93,7 +93,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
     ![Application Insights 추가 ASP.NET 형식을 선택합니다.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
      
-2. 이제 Azure 웹앱의 컨트롤 블레이드를 열고 **도구 \> 성능 모니터링**을 열고 Application Insights 확장을 추가합니다.
+2. 이제 Azure 웹앱의 컨트롤 블레이드를 열고 **도구 > 성능 모니터링**을 열고 Application Insights 확장을 추가합니다.
 
     ![웹앱에서 도구, 확장, 추가, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
 
@@ -129,7 +129,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
 ## 성능 카운터 
 
-\(Azure 웹앱용이 아님\) 개요 블레이드에서 서버를 클릭하여 CPU 선점 및 메모리 사용과 같은 서버 성능 카운터의 차트를 확인합니다.
+(Azure 웹앱용이 아님) 개요 블레이드에서 서버를 클릭하여 CPU 선점 및 메모리 사용과 같은 서버 성능 카운터의 차트를 확인합니다.
 
 다수의 서버 인스턴스가 있는 경우 차트를 편집하여 역할 인스턴스별로 그룹화하는 것이 좋습니다.
 
@@ -142,7 +142,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
 ![서버 예외 차트를 클릭합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
-특정 예외로 드릴다운\(지난 7일부터\)하고 스택 추적 및 컨텍스트 데이터를 가져올 수 있습니다.
+특정 예외로 드릴다운(지난 7일부터)하고 스택 추적 및 컨텍스트 데이터를 가져올 수 있습니다.
 
 ## 샘플링
 
@@ -159,7 +159,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
   * 사이트를 사용하여 일부 데이터를 생성합니다.
   * 데이터가 들어올 때까지 몇 분 정도 기다린 다음 **새로 고침**을 클릭합니다.
-  * 진단 검색\(검색 타일\)을 열어 개별 이벤트를 봅니다. 이벤트는 집계 데이터가 차트에 표시되기 전에 진단 검색에 종종 표시됩니다.
+  * 진단 검색(검색 타일)을 열어 개별 이벤트를 봅니다. 이벤트는 집계 데이터가 차트에 표시되기 전에 진단 검색에 종종 표시됩니다.
   * 상태 모니터를 열고 왼쪽 창에서 응용 프로그램을 선택합니다. "구성 알림" 섹션에 이 응용 프로그램에 대한 진단 메시지가 있는지 확인합니다.
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
@@ -184,7 +184,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 클라이언트 쪽 Windows 7, 8, 8.1에서, 역시 .NET Framework 4.0, 4.5 포함
 
-IIS 지원: IIS 7, 7.5, 8, 8.5\(IIS 필요\)
+IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
 ## PowerShell을 사용한 자동화
 
@@ -198,15 +198,15 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
-* `-Name` \(선택 사항\) 웹앱의 이름입니다.
-* 이 IIS 서버에서 각 웹앱\(또는 명명된 앱\)에 대한 상태를 모니터링하여 Application Insights를 표시합니다.
+* `-Name` (선택 사항) 웹앱의 이름입니다.
+* 이 IIS 서버에서 각 웹앱(또는 명명된 앱)에 대한 상태를 모니터링하여 Application Insights를 표시합니다.
 
-* 각 앱에 대해 `ApplicationInsightsApplication`을\(를\) 반환합니다.
+* 각 앱에 대해 `ApplicationInsightsApplication`을(를) 반환합니다.
  * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고 런타임 시 계측했습니다.
- * `SdkState==Disabled`: 앱이 Application insights에 대해 계측되지 않습니다. 앱을 계측하지 않았거나 상태 모니터 도구 또는 `Stop-ApplicationInsightsMonitoring`을\(를\) 사용하여 런타임 모니터링이 비활성화되었습니다.
+ * `SdkState==Disabled`: 앱이 Application insights에 대해 계측되지 않습니다. 앱을 계측하지 않았거나 상태 모니터 도구 또는 `Stop-ApplicationInsightsMonitoring`을(를) 사용하여 런타임 모니터링이 비활성화되었습니다.
  * `SdkState==EnabledByCodeInstrumentation`: 소스 코드에 SDK를 추가하여 앱을 계측했습니다. 해당 SDK은 업데이트되거나 중지될 수 없습니다.
- * `SdkVersion`은\(는\) 이 앱을 모니터링하는 데 사용하는 버전을 나타냅니다.
- * `LatestAvailableSdkVersion`은\(는\) NuGet 갤러리에서 현재 사용할 수 있는 버전을 나타냅니다. 앱을 이 버전으로 업그레이드하려면 `Update-ApplicationInsightsMonitoring`을\(를\) 사용합니다.
+ * `SdkVersion`은(는) 이 앱을 모니터링하는 데 사용하는 버전을 나타냅니다.
+ * `LatestAvailableSdkVersion`은(는) NuGet 갤러리에서 현재 사용할 수 있는 버전을 나타냅니다. 앱을 이 버전으로 업그레이드하려면 `Update-ApplicationInsightsMonitoring`을(를) 사용합니다.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
@@ -221,7 +221,7 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 
     최신 버전을 다운로드하려면 Update-ApplicationInsightsVersion을 사용합니다.
 
-* 성공 시 `ApplicationInsightsApplication`을\(를\) 반환합니다. 실패한 경우 stderr에 대한 추적을 기록합니다.
+* 성공 시 `ApplicationInsightsApplication`을(를) 반환합니다. 실패한 경우 stderr에 대한 추적을 기록합니다.
 
     
           Name                      : Default Web Site/WebApp1
@@ -236,17 +236,17 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 * `-Name` IIS에서 앱의 이름
 * `-All` `SdkState==EnabledAfterDeployment`인 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다.
 
-* 지정된 앱의 모니터링을 중지하고 계측을 제거합니다. 실행 시 상태 모니터링 도구 또는 Start-ApplicationInsightsApplication을 사용하여 계측된 앱에서 작동합니다. \(`SdkState==EnabledAfterDeployment`\)
+* 지정된 앱의 모니터링을 중지하고 계측을 제거합니다. 실행 시 상태 모니터링 도구 또는 Start-ApplicationInsightsApplication을 사용하여 계측된 앱에서 작동합니다. (`SdkState==EnabledAfterDeployment`)
 
 * ApplicationInsightsApplication을 반환합니다.
 
-`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`\]
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: IIS에서 웹앱의 이름
-* `-InstrumentationKey`\(옵션\) 이를 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
+* `-InstrumentationKey`(옵션) 이를 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
 * 이 cmdlet은:
- * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. \(`SdkState==EnabledAfterDeployment`인 경우에만 작동\)
- * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. \(`SdkState != Disabled`인 경우 작동\)
+ * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
+ * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. (`SdkState != Disabled`인 경우 작동)
 
 `Update-ApplicationInsightsVersion`
 
@@ -300,4 +300,4 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

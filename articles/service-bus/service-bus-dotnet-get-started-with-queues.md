@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # 서비스 버스 큐 시작
@@ -54,7 +54,7 @@
 
 ## 3\. 큐에 메시지 보내기
 
-큐에 메시지를 보내기 위해 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
+큐에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
 ### 콘솔 응용 프로그램 만들기
 
@@ -111,13 +111,13 @@
     }
     ```
   
-3. 프로그램을 실행하고 Azure 클래식 포털을 확인합니다. **큐 길이** 값은 이제 1이어야 합니다.
+3. 프로그램을 실행하고 Azure 포털을 확인합니다. 네임스페이스 **개요** 블레이드에서 큐의 이름을 클릭합니다. **활성 메시지 수** 값이 1이어야 합니다.
     
-      ![큐 길이][queue-length-send]
+      ![메시지 수][queue-message]
     
 ## 4\. 큐에서 메시지 받기
 
-1. 새 콘솔 응용 프로그램을 만들고 위의 응용 프로그램 보내기와 유사하게 서비스 버스 NuGet 패키지에 참조를 추가합니다.
+1. 새 콘솔 응용 프로그램을 만들고 이전의 응용 프로그램 보내기와 유사하게 서비스 버스 NuGet 패키지에 참조를 추가합니다.
 
 2. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
   
@@ -173,7 +173,7 @@
   
 4. 프로그램을 실행하고 포털을 확인합니다. **큐 길이** 값은 이제 0이어야 합니다.
 
-    ![큐 길이][queue-length-receive]
+    ![큐 길이][queue-message-receive]
   
 축하합니다. 이제 큐를 만들고 메시지를 보내고 메시지를 받았습니다.
 
@@ -184,12 +184,12 @@ Azure 서비스 버스 메시징의 더 많은 고급 기능 중 일부를 보�
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

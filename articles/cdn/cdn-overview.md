@@ -68,6 +68,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
 | [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [실시간 통계](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [실시간 경고](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Azure CDN에서 참조하려는 기능이 있나요? [피드백 보내기](https://feedback.azure.com/forums/169397-cdn)
 
@@ -83,4 +84,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->
