@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
@@ -45,7 +45,7 @@
 
 ##쿼리 샘플 데이터
 
-SQL 데이터 웨어하우스로 샘플 데이터를 로드하고 나면, 몇 가지 쿼리를 신속하게 실행할 수 있습니다. 쿼리를 실행하려면 [연결][] 문서의 설명대로, Visual Studio 및 SSDT를 사용하여 Azure SQL DW에 새로 만든 Adventure Works 데이터베이스에 연결합니다.
+SQL 데이터 웨어하우스로 샘플 데이터를 로드하고 나면, 몇 가지 쿼리를 신속하게 실행할 수 있습니다. 쿼리를 실행하려면 [Visual Studio를 사용하여 쿼리][] 문서의 설명대로, Visual Studio 및 SSDT를 사용하여 Azure SQL DW에 새로 만든 Adventure Works 데이터베이스에 연결합니다.
 
 직원의 모든 정보를 가져오는 간단한 select 문의 예입니다.
 
@@ -80,15 +80,15 @@ SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[개발]: ./sql-data-warehouse-overview-develop.md
-[로드]: ./sql-data-warehouse-overview-load.md
-[연결]: ./sql-data-warehouse-get-started-connect.md
-[코드 마이그레이션]: ./sql-data-warehouse-migrate-code.md
-[bcp를 설치]: ./sql-data-warehouse-load-with-bcp.md
-[sqlcmd를 설치]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[마이그레이션]: sql-data-warehouse-overview-migrate.md
+[개발]: sql-data-warehouse-overview-develop.md
+[로드]: sql-data-warehouse-overview-load.md
+[Visual Studio를 사용하여 쿼리]: sql-data-warehouse-query-visual-studio.md
+[코드 마이그레이션]: sql-data-warehouse-migrate-code.md
+[bcp를 설치]: sql-data-warehouse-load-with-bcp.md
+[sqlcmd를 설치]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

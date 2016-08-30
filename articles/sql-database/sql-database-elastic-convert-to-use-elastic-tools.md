@@ -3,7 +3,7 @@
    description="분할된 데이터베이스 맵 관리자를 만들어 탄력적 데이터베이스 도구를 사용하기 위해 분할된 데이터베이스 변환"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # 확장하기 위해 기존 데이터베이스 마이그레이션
 
@@ -25,7 +25,7 @@ Azure SQL 데이터베이스 데이터베이스 도구(예: [탄력적 데이터
 
 1. [분할된 데이터베이스 맵 관리자 데이터베이스](sql-database-elastic-scale-shard-map-management.md)를 준비합니다.
 2. 분할된 데이터베이스 맵을 만듭니다.
-3. 개별 분할된 데이터베이스를 준비합니다.  
+3. 개별 분할된 데이터베이스를 준비합니다.
 2. 분할된 데이터베이스 맵에 매핑을 추가합니다.
 
 이러한 기술은 [.NET Framework 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL DB - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
@@ -62,7 +62,7 @@ ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 
 
 만들 분할된 데이터베이스 맵의 종류를 선택해야 합니다. 데이터베이스 아키텍처에 따라 선택합니다.
 
-1. 데이터베이스당 단일 테넌트(용어는 [용어집](sql-database-elastic-scale-glossary.md) 참조.) 
+1. 데이터베이스당 단일 테넌트(용어는 [용어집](sql-database-elastic-scale-glossary.md) 참조.)
 2. 데이터베이스당 다중 테넌트(두 가지 형식):
 	3. 목록 매핑
 	4. 범위 매핑
@@ -187,4 +187,4 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

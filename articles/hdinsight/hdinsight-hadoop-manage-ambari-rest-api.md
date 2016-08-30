@@ -23,8 +23,6 @@
 
 Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는데 사용됩니다. 이 문서에서 클러스터 노드의 완전히 정규화된 도메인 이름 찾기 또는 클러스터에서 사용되는 기본 저장소 계정 찾기와 같은 일반적인 작업을 수행하여 Ambari REST API를 통한 작업의 기본 사항을 설명합니다.
 
-> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터의 경우 모니터링 기능의 하위 집합만 Ambari REST API를 통해 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
-
 ##필수 조건
 
 * [cURL](http://curl.haxx.se/): cURL은 명령줄에서 REST API와 함께 작동하도록 사용할 수 있는 크로스 플랫폼 유틸리티입니다. 이 문서에서 Ambari REST API와 통신하는데 사용됩니다.
@@ -35,7 +33,7 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 
 ##<a id="whatis"></a>Ambari 정의
 
-[Apache Ambari](http://ambari.apache.org)에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
+[Apache Ambari](http://ambari.apache.org)에서는 Hadoop 클러스터를 프로비전, 관리 및 모니터링하는 데 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
 Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
@@ -162,7 +160,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
             "version" : 1
         }
 
-    이 목록에서 구성 요소의 이름(예: __spark\_thrift\_sparkconf__ 및 __tag__ 값)을 복사해야 합니다.
+    이 목록에서 구성 요소의 이름(예: __spark\_thrift\_sparkconf__) 및 __tag__ 값을 복사해야 합니다.
     
 2. 다음 명령을 사용하여 구성 요소 및 태그의 구성을 검색합니다. __spark-thrift-sparkconf__ 및 __INITIAL__을 구성을 검색할 구성 요소 및 태그로 바꿉니다.
 
@@ -172,8 +170,8 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
     
     * 문자열 "version" 및 날짜를 포함하는 고유 값을 만듭니다. 이 값은 __newtag__에 저장됩니다.
     * 필요한 새 구성의 루트 문서를 만듭니다.
-    * .items 배열의 내용을 가져와 __desired\_config__ 요소 아래에 추가합니다.
-    * __href__, __version__ 및 __Config__ 요소를 삭제합니다. 이러한 요소는 새 구성을 제출하는 데 필요 없기 때문입니다.
+    * .items 배열의 내용을 가져와서 __desired\_config__ 요소 아래에 추가합니다.
+    * __href__, __version__ 및 __Config__ 요소는 새 구성을 제출하는 데 필요하지 않으므로 삭제합니다.
     * 새 __tag__ 요소를 추가하고 해당 값을 __version#################__으로 설정합니다. 여기서 숫자 부분은 현재 날짜를 기준으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
     
     마지막으로 데이터가 __newconfig.json__ 문서에 저장됩니다. 문서 구조는 다음과 유사하게 표시됩니다.
@@ -255,4 +253,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE] HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

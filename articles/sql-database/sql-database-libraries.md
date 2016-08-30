@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/17/2016"
 	ms.author="pehteh"/>
 
 # SQL 데이터베이스 및 SQL Server용 연결 라이브러리
@@ -30,4 +30,4 @@
 | Python | Windows, Linux, Mac | [Python을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-python-simple.md) | [설치](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple.md) | [설치](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

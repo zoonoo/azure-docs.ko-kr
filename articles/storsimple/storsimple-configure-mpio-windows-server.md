@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 다중 경로 I/O 구성
@@ -101,7 +101,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 9. **속성**을 클릭합니다. **속성** 대화 상자에서 **세션 추가**를 클릭합니다.
 10. **대상에 연결** 대화 상자에서 **다중 경로 사용** 확인란을 선택합니다. **고급**을 클릭합니다.
-11. **고급 설정** 대화 상자에서:										
+11. **고급 설정** 대화 상자에서:
 	-  **로컬 어댑터** 드롭다운 목록에서 Microsoft iSCSI 초기자를 선택합니다.
 	-  **초기자 IP** 드롭다운 목록에서 호스트에 해당하는 IP 주소를 선택합니다. 이 경우에 해당 장치의 두 네트워크 인터페이스를 호스트의 단일 네트워크 인터페이스에 연결합니다. 따라서이 인터페이스는 첫 번째 세션에 제공된 것과 동일합니다.
 	-  **대상 포털 IP** 드롭다운 목록에서 해당 장치에서 사용할 수 있는 두 번째 데이터 인터페이스의 IP 주소를 선택합니다.
@@ -173,4 +173,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

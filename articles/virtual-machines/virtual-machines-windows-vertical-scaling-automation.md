@@ -3,7 +3,7 @@
 	description="Azure 자동화를 사용하여 모니터링 경고에 대한 응답으로 Windows 가상 컴퓨터를 수직으로 확장하는 방법"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -88,4 +88,4 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 
 ![가상 컴퓨터 2에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

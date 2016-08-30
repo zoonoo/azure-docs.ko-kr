@@ -319,7 +319,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 >[AZURE.NOTE] 처음으로 SQL Server 설치 프로그램을 실행하면 더 많은 설치 파일이 다운로드될 수 있으며 가상 컴퓨터를 재부팅하고 SQL Server 설치를 다시 시작해야 할 수도 있습니다.
 >
->Microsoft Azure 가상 컴퓨터에서 선택된 이미지를 반복적으로 사용자 지정해야 하는 경우 사용자 고유의 SQL Server 이미지를 생성하는 것이 좋습니다. Analysis Services SysPrep 기능은 SQL Server 2012 SP1 CU2에서 사용하도록 설정되어 있습니다. 자세한 내용은 [SysPrep을 사용하여 SQL Server 설치에 대한 고려 사항](https://msdn.microsoft.com/library/ee210754.aspx)을 참조하세요.
+>Microsoft Azure 가상 컴퓨터에서 선택된 이미지를 반복적으로 사용자 지정해야 하는 경우 사용자 고유의 SQL Server 이미지를 생성하는 것이 좋습니다. Analysis Services SysPrep 기능은 SQL Server 2012 SP1 CU2에서 사용하도록 설정되어 있습니다. 자세한 내용은 [SysPrep을 사용하여 SQL Server 설치에 대한 고려 사항](https://msdn.microsoft.com/library/ee210754.aspx) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 ### Analysis Services 테이블 형식 모드를 설치하려면
 
@@ -436,4 +436,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

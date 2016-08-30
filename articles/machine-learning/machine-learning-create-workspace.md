@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
 # Azure 기계 학습 작업 영역 만들기 및 공유
 
-이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
+이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용하는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -72,9 +72,9 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 ## <a name="subscriptionvsworkspace"></a>Azure 구독 관리자 및 작업 영역 소유자의 권한
 
-다음은 Azure 구독 관리자와 작업 영역 소유자 간의 차이를 명확히 보여주는 표입니다.
+다음은 Azure 구독 관리자와 작업 영역 소유자 간의 차이를 명확히 보여주는 테이블입니다.
 
-| actions | Azure 구독 관리자 | 작업 영역 소유자 |
+| 작업 | Azure 구독 관리자 | 작업 영역 소유자 |
 | --------------			|:------------------------:| :----------------:|
 | [Microsoft Azure 클래식 포털] 액세스| 예 | 아니요 |
 | 새 작업 영역 만들기 | 예 | 아니요 |
@@ -106,4 +106,4 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 [기계 학습 스튜디오]: https://studio.azureml.net/
 [Microsoft Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

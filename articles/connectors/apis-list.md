@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # 커넥터 목록
 
-이러한 서비스를 호출하는 워크플로를 빌드하기 위해 이러한 커넥터를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다.
+워크플로를 신속하게 구축하는 방법에 대해 알아보려면 커넥터를 선택합니다.
 
 ## 표준 커넥터
 
@@ -46,17 +46,18 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
  
 |EIP 커넥터 ||||
 |-----------|-----------|-----------|-----------|
-|[![API 아이콘][as2icon]<br/>**AS2</br>인코딩/디코딩**][as2doc]|[![API 아이콘][x12icon]<br/>**X12</br>인코딩/디코딩**][x12Doc]|[![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc]|[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc]|
-|[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc]|[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc]|||
+|[![API 아이콘][xmlvalidateicon]<br/>**XML <br/>유효성 검사**][xmlvalidatedoc]|[![API 아이콘][xmltransformicon]<br/>**XML<br/> 변환**][xmltransformdoc]|[![API 아이콘][flatfileicon]<br/>**플랫 파일</br>인코딩**][flatfiledoc]|[![API 아이콘][flatfiledecodeicon]<br/>**플랫 파일</br>디코딩**][flatfiledecodedoc]|
+|[![API 아이콘][as2icon]<br/>**AS2</br>디코딩**][as2decode]|[![API 아이콘][as2icon]<br/>**AS2</br>인코딩**][as2encode]|[![API 아이콘][x12icon]<br/>**X12</br>디코딩**][x12decode]|[![API 아이콘][x12icon]<br/>**X12</br>인코딩**][x12encode]|
+|[![API 아이콘][x12icon]<br/>**EDIFACT</br>디코딩**][EDIFACTdecode]|[![API 아이콘][x12icon]<br/>**EDIFACT</br>인코딩**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### 커넥터는 트리거가 될 수 있습니다.
-몇몇 커넥터는 특정 이벤트가 발생할 때 앱에 알릴 수 있는 트리거를 제공합니다. 예를 들어 FTP 커넥터에는 OnUpdatedFile 트리거가 있습니다. 이 트리거를 수신 대기하고 트리거가 발생될 때마다 작업을 수행하는 Logic Apps, PowerApp 또는 Flow를 빌드할 수 있습니다.
+몇몇 커넥터는 특정 이벤트가 발생할 때 앱에 알릴 수 있는 트리거를 제공합니다. 예를 들어 FTP 커넥터에는 OnUpdatedFile 트리거가 있습니다. 이 트리거를 수신 대기하고 트리거가 발생될 때마다 작업을 수행하는 논리 앱, PowerApp 또는 흐름을 빌드할 수 있습니다.
 
 트리거에는 두 가지 유형이 있습니다.
 
 * 폴링 트리거: 이 트리거는 지정된 빈도로 서비스를 폴링하여 새 데이터를 확인합니다. 새 데이터를 사용할 수 있으면 앱의 새 인스턴스가 해당 데이터를 입력으로 사용하여 실행됩니다. 동일한 데이터가 여러 번 사용되지 않도록 트리거는 읽어서 앱으로 전달된 데이터를 정리합니다.
-* 밀어넣기 트리거: 이 트리거는 끝점에서 데이터를 수신 대기하거나 발생하는 이벤트를 수신 대기합니다. 그런 다음 앱의 새 인스턴스를 트리거합니다. Twitter 커넥터가 한 예입니다.
+* 트리거 푸시: 이 트리거는 끝점에서 데이터 또는 발생하는 이벤트를 수신 대기한 다음 앱의 새 인스턴스를 트리거합니다. Twitter 커넥터가 한 예입니다.
 
 ### 커넥터는 작업이 될 수 있습니다.
 커넥터를 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
@@ -105,6 +106,12 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "엔터프라이즈 통합 XML 유효성 검사에 대해 알아봅니다."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 변환에 대해 알아봅니다."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "엔터프라이즈 통합 AS2 디코딩에 대해 알아봅니다."
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "엔터프라이즈 통합 AS2 인코딩에 대해 알아봅니다."
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "엔터프라이즈 통합 X12 디코딩에 대해 알아봅니다."
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "엔터프라이즈 통합 X12 인코딩에 대해 알아봅니다."
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
 [httpdoc]: ./connectors-native-http.md "HTTP를 호출하는 HTTP 커넥터."
 [http~requestdoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
 [http~responsedoc]: ./connectors-native-reqres.md "요청 및 응답 작업."
@@ -183,4 +190,4 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

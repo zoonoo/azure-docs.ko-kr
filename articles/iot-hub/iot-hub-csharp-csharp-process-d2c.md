@@ -336,7 +336,7 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 샘플은 [블�
 
 2. 솔루션 탐색기에서 **ProcessD2CInteractiveMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. **NuGet 패키지 관리자** 창이 표시됩니다.
 
-3. **WindowsAzure.Service Bus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
+3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
 4. **Program.cs** 파일의 맨 위에 다음 **using** 문을 추가합니다.
 
@@ -447,4 +447,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

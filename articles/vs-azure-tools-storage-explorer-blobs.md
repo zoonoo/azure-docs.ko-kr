@@ -1,7 +1,7 @@
 <properties
 	pageTitle="저장소 탐색기(미리 보기)를 사용하여 Azure Blob 저장소 리소스 관리 | Microsoft Azure"
 	description="저장소 탐색기(미리 보기)를 사용하여 Azure Blob 컨테이너 및 Blobs 관리"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/14/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # 저장소 탐색기(미리 보기)를 사용하여 Blob 저장소 리소스 관리
@@ -277,4 +277,4 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -22,7 +22,7 @@
 이 자습서에서는 Workrite와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. Workrite를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 
-- Workrite에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- Workrite에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Workrite에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -42,13 +42,13 @@ Workrite와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Workrite 추가 
+1. 갤러리에서 Workrite 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -57,7 +57,7 @@ Workrite의 Azure AD 통합을 구성하려면 갤러리의 Workrite를 관리�
 
 **갤러리에서 Workrite를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
  
 	![Active Directory][1]
 
@@ -92,7 +92,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[Workrite 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Workrite에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
@@ -115,11 +115,11 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 	
 	![Azure AD Single Sign-On][8]
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 Workrite 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
+     a. **로그온 URL** 텍스트 상자에 사용자가 Workrite 사이트에 로그인하는 데 사용하는 URL을 입력합니다(예: *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
 
      > [AZURE.NOTE] 로그인 URL 값을 모를 경우 Workrite 지원([support@workrite.co.uk](mailto:support@workrite.co.uk))에 문의합니다.
 
-     b. **다음**을 클릭합니다.
+     b. **Next**를 클릭합니다.
  
 4. **Workrite의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
@@ -129,7 +129,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     b. Workrite 지원 팀([support@workrite.co.uk](mailto:support@workrite.co.uk))에 문의하여 다운로드한 인증서, **발급자 URL**(엔터티 ID), **Single Sign-On 서비스 URL**, **Single Sign-Out URL**을 제공하고 Workrite 앱의 SSO를 설정합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -172,7 +172,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -245,7 +245,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
 
-	![사용자 할당][203] 
+	![사용자 할당][203]
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
 2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
@@ -294,4 +294,4 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Azure 코드 최적화
@@ -121,7 +121,7 @@ SubscriptionClient sc = listenMF.CreateSubscriptionClient(topicPath, subscriptio
 BrokeredMessage receivedMessage = sc.Receive();
 ```
 
-자세한 내용은 다음 항목을 참조하십시오.
+자세한 내용은 다음 항목을 참조하세요.
 
 - 개요를 보려면 [서비스 버스를 사용한 공유 액세스 서명 인증](https://msdn.microsoft.com/library/dn170477.aspx)을 참조하세요.
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Azure 앱 최적화 및 문제 해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

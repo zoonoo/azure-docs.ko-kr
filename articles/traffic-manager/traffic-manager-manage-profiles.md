@@ -3,7 +3,7 @@
    description="이 문서에서는 Azure 트래픽 관리자 프로필의 기록을 만들고, 사용 또는 사용하지 않도록 설정하고 삭제 및 표시할 수 있습니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure 트래픽 관리자 프로필 관리
 
@@ -32,7 +32,7 @@ Azure 클래식 포털의 빠른 생성에서 트래픽 관리자 프로필을 �
 4. **구독을 선택합니다.** 적절한 Azure 구독을 선택합니다. 각 프로필은 단일 구독과 연결됩니다. 하나의 구독만 있는 경우 이 옵션이 표시되지 않습니다.
 5. **트래픽 라우팅 방법을 선택합니다.** **트래픽 라우팅 정책**에서 트래픽 라우팅 방법을 선택합니다. 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)를 참조하세요.
 6. **“만들기”를 클릭하여 새 프로필을 만듭니다**. 프로필 구성이 완료되면 Azure 클래식 포털에 있는 트래픽 관리자 창에서 프로필을 찾을 수 있습니다.
-7. **Azure 클래식 포털에서 끝점, 모니터링 및 추가 설정을 구성합니다.** 빠른 생성을 사용하면 기본 설정만 구성할 수 있기 때문에 원하는 구성을 완료하려면 끝점 목록 및 끝점 장애 조치 순서와 같은 추가 설정을 구성해야 합니다. 
+7. **Azure 클래식 포털에서 끝점, 모니터링 및 추가 설정을 구성합니다.** 빠른 생성을 사용하면 기본 설정만 구성할 수 있기 때문에 원하는 구성을 완료하려면 끝점 목록 및 끝점 장애 조치 순서와 같은 추가 설정을 구성해야 합니다.
 
 
 ## 프로필 사용 안 함, 사용 또는 삭제
@@ -85,4 +85,4 @@ Azure 클래식 포털의 관리 서비스에서 트래픽 관리자 프로필�
 
 [트래픽 관리자 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

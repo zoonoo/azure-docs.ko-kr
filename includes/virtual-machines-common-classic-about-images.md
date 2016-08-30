@@ -10,6 +10,6 @@
 
 Azure에서 *VM 이미지* 및 *OS 이미지*의 두 가지 이미지 형식을 사용할 수 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 컴퓨터에 연결된 모든 디스크가 포함됩니다. 이미지의 최신 형식입니다. VM 이미지가 도입되기 전에는 Azure에서 이미지에 일반화된 운영 체제만 포함할 수 있었고 추가 디스크가 없었습니다. 일반화된 운영 체제만 포함된 VM 이미지는 기본적으로 이미지의 원래 형식인 OS 이미지와 같습니다.
 
-Azure의 가상 컴퓨터나 다른 곳에서 실행 중이지만 복사하여 업로드한 가상 컴퓨터를 기반으로 직접 이미지를 만들 수도 있습니다. 이미지를 사용하여 둘 이상의 가상 컴퓨터를 만들려는 경우에는 일반화를 통해 이미지로 사용할 준비를 해야 합니다. Windows Server 이미지를 만들려면 .vhd 파일을 업로드 하기 전에 서버에서 Sysprep 명령을 실행합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://go.microsoft.com/fwlink/p/?LinkId=392030)를 참조하세요. 소프트웨어 배포에 따라 Linux 이미지를 만들려면 Azure Linux 에이전트를 실행해야 함은 물론 배포에 관련된 명령 집합을 실행 해야 합니다.
+Azure의 가상 컴퓨터나 다른 곳에서 실행 중이지만 복사하여 업로드한 가상 컴퓨터를 기반으로 직접 이미지를 만들 수도 있습니다. 이미지를 사용하여 둘 이상의 가상 컴퓨터를 만들려는 경우에는 일반화를 통해 이미지로 사용할 준비를 해야 합니다. Windows Server 이미지를 만들려면 .vhd 파일을 업로드 하기 전에 서버에서 Sysprep 명령을 실행합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://go.microsoft.com/fwlink/p/?LinkId=392030) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. 소프트웨어 배포에 따라 Linux 이미지를 만들려면 Azure Linux 에이전트를 실행해야 함은 물론 배포에 관련된 명령 집합을 실행 해야 합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

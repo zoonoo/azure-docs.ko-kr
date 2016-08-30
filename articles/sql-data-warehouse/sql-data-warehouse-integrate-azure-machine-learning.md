@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
@@ -120,8 +120,6 @@ FROM dbo.DimProduct;
 
 ## 다음 단계
 
-통합 개요는 [SQL 데이터 웨어하우스 통합 개요][]를 참조하세요.
-
 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
 
 <!--Image references-->
@@ -137,7 +135,6 @@ FROM dbo.DimProduct;
 <!--Article references-->
 
 [SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration.md
 [실험 만들기 자습서]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Azure에서 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/Home
@@ -149,4 +146,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

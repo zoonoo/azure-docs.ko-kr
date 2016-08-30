@@ -12,7 +12,7 @@
 
 	![][8]
 
-	그러면 <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure 서비스 버스 라이브러리 NuGet 패키지</a>가 다운로드 및 설치되고 해당 참조가 추가됩니다.
+	Visual Studio는 [Azure 서비스 버스 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조를 다운로드, 설치 및 추가합니다.
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
@@ -69,3 +69,5 @@
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+
+<!---HONumber=AcomDC_0824_2016-->

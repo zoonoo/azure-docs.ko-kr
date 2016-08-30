@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Azure 포털에서 DNS 영역 만들기
@@ -78,7 +78,7 @@ DNS 영역을 만들면 다음 레코드도 생성됩니다.
 
 Azure 포털에서 레코드를 볼 수 있습니다.
 
-1. **DNS 영역** 블레이드에서 **모든 설정**을 클릭하여 DNS 영역에 대한 **설정 블레이드**를 엽니다. 
+1. **DNS 영역** 블레이드에서 **모든 설정**을 클릭하여 DNS 영역에 대한 **설정 블레이드**를 엽니다.
 
 	![영역](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -126,4 +126,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-portal.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -115,4 +115,4 @@ Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/m
 - [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-----HONumber=AcomDC_0817_2016-->

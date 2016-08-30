@@ -103,7 +103,7 @@ Azure 자동화는 Azure PowerShell을 사용하여 구독에 연결하고 해�
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-powershell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](../powershell-install-configure.md)를 참조하세요.
+PowerShell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](../powershell-install-configure.md)를 참조하세요.
 
 다음으로, 장애 조치 후 프런트엔드 가상 컴퓨터에 끝점을 추가할 수 있는 Azure 자동화에서 runbook을 만듭니다.
 
@@ -266,8 +266,7 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 
 스크립트가 준비되면 앞서 만든 복구 계획에 이를 추가할 수 있습니다.
 
-1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다.
-![](media/site-recovery-runbook-automation/15.png)
+1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  스크립트 이름을 지정합니다. 복구 계획 내에 표시하기 위한 이 스크립트의 이름입니다.
 
@@ -309,4 +308,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
 [Azure 자동화 스크립트 샘플](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Azure 자동화 스크립트 샘플")
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

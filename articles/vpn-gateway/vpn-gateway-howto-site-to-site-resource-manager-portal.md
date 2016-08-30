@@ -1,6 +1,6 @@
 <properties
    pageTitle=" Azure Resource Manager 및 Azure 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
-   description="이 문서에서는 리소스 관리자 모델을 사용하여 VNet을 만들고 S2S VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 과정을 안내합니다."
+   description="Resource Manager 모델을 사용하여 VNet을 만들고 S2S VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 방법입니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 # Azure 포털 및 Azure Resource Manager를 사용하여 사이트 간 VPN 연결로 VNet 만들기
@@ -25,23 +25,19 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 아래 단계에서 VNet을 만들고 게이트웨이 서브넷, 게이트웨이, 로컬 사이트 및 연결을 추가합니다. 또한 VPN 장치를 구성해야 합니다.
+이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다.
+
+![다이어그램](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
-**Azure 배포 모델 정보**
+### 사이트 간 연결에 대한 배포 모델 및 도구
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## 연결 다이어그램
-
-![사이트 간](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-**사이트 간 연결에 대한 배포 모델 및 도구**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. 다른 유형의 연결 구성을 찾으려는 경우 [VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md) 문서를 참조하세요.
+VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
 ## 시작하기 전에
 
@@ -60,7 +56,7 @@ Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경
 
 - VNet 이름: TestVNet1
 - 주소 공간: 10.11.0.0/16 및 10.12.0.0/16
-- 서브넷: 
+- 서브넷:
 	- 프런트 엔드: 10.11.0.0/24
 	- 백 엔드: 10.12.0.0/24
 	- 게이트웨이 서브넷 = 10.12.255.0/27
@@ -79,7 +75,7 @@ Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경
 
 ## 1\. 가상 네트워크 만들기 
 
-이미 가상 네트워크를 만든 경우 설정이 VPN 게이트웨이 디자인과 호환되는지를 확인하고 다른 네트워크와 겹칠 수 있는 모든 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었는지 확인했다면 [DNS 서버 지정](#dns) 섹션의 단계를 시작할 수 있습니다.
+VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었다면 [DNS 서버 지정](#dns) 섹션의 단계를 시작할 수 있습니다.
 
 ### 가상 네트워크를 만들려면
 
@@ -93,7 +89,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 ## <a name="dns"></a>3. DNS 서버 지정
 
-연습으로 이 구성을 만드는 경우 DNS 서버를 지정할 때 이 [값](#values)을 참조합니다.
+연습으로 이 구성을 만드는 경우 DNS 서버를 지정할 때 이러한 [값](#values)을 참조합니다.
 
 ### DNS 서버를 지정하려면
 
@@ -103,9 +99,9 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 가상 네트워크를 게이트웨이에 연결하기 전에 먼저 연결하려는 가상 네트워크에 대한 게이트웨이 서브넷을 만들어야 합니다. 만들 게이트웨이 서브넷의 이름을 *GatewaySubnet*으로 지정하지 않으면 제대로 작동하지 않습니다.
 
-일부 구성에 대한 게이트웨이 서브넷 접두사는 풀에 필요한 IP 주소 수에 맞게 /28 이상의 서브넷이 필요합니다. 즉, 게이트웨이 서브넷 접두사는 /28, /27, /26 등이어야 합니다. 앞으로 가능한 구성 추가에 맞추기 위해 여기에 더 큰 서브넷을 만들려고 할 수 있습니다.
+일부 구성에 대한 게이트웨이 서브넷 접두사는 풀에 필요한 IP 주소 수에 맞게 /28 이상의 서브넷이 필요합니다. 즉, 게이트웨이 서브넷 접두사는 /28, /27, /26 등이어야 합니다. 앞으로 추가 가능한 구성에 맞게 여기에 더 큰 서브넷을 만들려고 할 수 있습니다.
 
-연습으로 이 구성을 만드는 경우 게이트웨이 서브넷을 만들 때 이 [값](#values)을 참조합니다.
+연습으로 이 구성을 만드는 경우 게이트웨이 서브넷을 만들 때 이러한 [값](#values)을 참조합니다.
 
 ### 게이트웨이 서브넷을 만들려면
 
@@ -115,7 +111,7 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 ## 5\. 가상 네트워크 게이트웨이 만들기
 
-연습으로 이 구성을 만드는 경우 게이트웨이를 만들 때 이 [값](#values)을 참조합니다.
+연습으로 이 구성을 만드는 경우 게이트웨이를 만들 때 이러한 [값](#values)을 참조합니다.
 
 ### 가상 네트워크 게이트웨이를 만들려면
 
@@ -137,9 +133,9 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 ## 8\. 사이트 간 VPN 연결 만들기
 
-가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다.
+가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만듭니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다.
 
-이 섹션을 시작하기 전에 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 다 만들었는지 확인합니다. 연습으로 이 구성을 만드는 경우 연결을 만들 때 이 [값](#values)을 참조합니다.
+이 섹션을 시작하기 전에 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 다 만들었는지 확인합니다. 연습으로 이 구성을 만드는 경우 연결을 만들 때 이러한 [값](#values)을 참조합니다.
 
 ### VPN 연결을 만들려면
 
@@ -158,4 +154,4 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

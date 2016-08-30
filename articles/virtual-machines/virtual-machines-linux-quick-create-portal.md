@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
@@ -24,8 +24,6 @@
 > [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
 
 이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Linux 가상 컴퓨터를 빠르게 만드는 방법을 보여 줍니다. 유일한 요구 사항은 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 및 [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md)입니다.
-
-> [AZURE.NOTE] VM에 대한 액세스를 보호하기 위해 암호를 사용하도록 선택한 경우 암호는 12자보다 커야 하며 하나 이상의 대문자, 소문자, 특수 문자 및 숫자가 있어야 합니다.
 
 
 1. Azure 계정 ID를 사용하여 Azure 포털에 로그인하고 왼쪽 위에서 **+ 새로 만들기**를 클릭합니다.
@@ -40,8 +38,8 @@
     - VM의 이름
     - 관리 사용자의 사용자 이름
     - 인증 유형이 **SSH 공개 키**로 설정됨
-    - 문자열로 SSH 공개 키(기본적으로 `~/.ssh/` 디렉터리에서)
-    - 리소스 그룹 이름(새 배포 그룹 만들기) 또는 기존 그룹 선택
+    - 문자열로 SSH 공개 키(`~/.ssh/` 디렉터리에서)
+    - 새 리소스 그룹 이름 또는 기존 항목 선택
 
     계속하려면 **확인**을 클릭하고 VM 크기를 선택합니다. 다음과 같이 표시됩니다.
 
@@ -75,12 +73,10 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## 다음 단계
 
-이제 Linux VM을 신속하게 만들었으므로 테스트 또는 데모를 위해 사용합니다. 아래 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 만들 수 있습니다.
+이제 Linux VM을 신속하게 만들었으므로 테스트 또는 데모를 위해 사용합니다. 이러한 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 만들 수 있습니다.
 
 - [템플릿을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-cli-deploy-templates.md)
 - [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Azure CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-create-cli-complete.md)
 
-이러한 문서로 Azure 인프라뿐만 아니라 독점 및 오픈 소스 인프라 배포, 구성 및 오케스트레이션 도구 작성을 시작합니다.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

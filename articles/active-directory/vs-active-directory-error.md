@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # 인증 검색 중 오류 발생
@@ -49,9 +49,9 @@ MVC 프로젝트에서 이 마법사는 이전에 마법사를 사용한 결과�
 
 마지막으로, 이 마법사에서는 이전 버전의 Visual Studio를 사용하여 구성된 인증 코드의 버전을 감지하려고 합니다. 이 오류가 발생한 경우에는 프로젝트에 호환되지 않는 인증 코드가 있음을 의미합니다. 마법사에서는 이전 버전의 Visual Studio에서 다음과 같은 인증 유형을 감지합니다.
 
-* Windows 인증 
-* 개별 사용자 계정 
-* 조직 계정 
+* Windows 인증
+* 개별 사용자 계정
+* 조직 계정
  
 
 MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자의 **web.config** 파일에서 `authentication` 요소를 찾습니다.
@@ -96,4 +96,4 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
 
 자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

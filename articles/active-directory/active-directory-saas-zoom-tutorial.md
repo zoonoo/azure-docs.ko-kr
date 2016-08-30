@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Azure Active Directory와 Zoom 통합
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784697.png "Single Sign-On 구성")
 
-3.  **Zoom 로그인 URL** 텍스트 상자의 **앱 URL 구성**에서 "**http://company.zoom.us*" 패턴을 사용하여 URL을 입력한 후, **다음**을 클릭합니다.
+3.  **Zoom 로그인 URL** 텍스트 상자의 **앱 URL 구성**에서 "*http://company.zoom.us*" 패턴을 사용하여 URL을 입력한 후, **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-zoom-tutorial/IC784698.png "앱 URL 구성")
 
@@ -98,15 +98,15 @@
 
     ![SSO(Single sign-on)](./media/active-directory-saas-zoom-tutorial/IC784701.png "SSO(Single sign-on)")
 
-    1.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하여, **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    2.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서**Single Sign-Out 서비스 URL** 값을 복사하여 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    3.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
+    1.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하여, **로그인 페이지 URL** 텍스트 상자에 붙여 넣습니다.
+    2.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서**Single Sign-Out 서비스 URL** 값을 복사하여 **로그아웃 페이지 URL** 텍스트 상자에 붙여 넣습니다.
+    3.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
         >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     4.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
-    5.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
-    6.  **저장**을 클릭합니다.
+    5.  Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여 넣습니다.
+    6.  **Save**를 클릭합니다.
 
 9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
@@ -116,7 +116,7 @@
   
 Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler로 프로비전되어야 합니다 Zoom의 경우, 수동으로 프로비전합니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  관리자 권한으로 **Zoom** 회사 사이트로 로그인합니다.
 
@@ -144,7 +144,7 @@ Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Zoom **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Zoom** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-zoom-tutorial/IC784705.png "사용자 할당")
 
@@ -152,6 +152,6 @@ Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계
 
     ![예](./media/active-directory-saas-zoom-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

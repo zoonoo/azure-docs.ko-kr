@@ -185,4 +185,4 @@ ServiceBusMessage: 이 개체는 서비스 버스 메시지의 콘텐츠 및 속
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

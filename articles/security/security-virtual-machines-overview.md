@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Azure 가상 컴퓨터 보안 개요
@@ -66,7 +66,7 @@ Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 
 
 자세한 정보: 가상 컴퓨터를 보호하는 맬웨어 방지 소프트웨어에 대해 자세히 알아보려면 다음을 참조하세요.
 
-- [Azure 클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)
+- [Azure 클라우드 서비스 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md)
 - [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
@@ -157,4 +157,4 @@ Azure 가상 컴퓨터는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 - [Microsoft 보안 센터: 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [신뢰할 수 있는 클라우드: Microsoft Azure 보안, 개인 정보 보호 정책 및 규정 준수](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

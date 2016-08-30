@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # RemoteApp VNET에서 Azure VNET으로 하이브리드 컬렉션을 마이그레이션하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 기쁘게도 RemoteApp별 VNET(가상 네트워크)을 만드는 대신 기존 Azure VNET에 하이브리드 RemoteApp 컬렉션을 직접 배포하도록 허용했습니다. 이렇게 하면 최신 VNET 기능(예: Express 경로)을 활용하고 하이브리드 컬렉션에서 해당 VNET에 배포된 다른 Azure 서비스 및 가상 컴퓨터에 네트워크로 직접 액세스할 수 있습니다. 따라서 VNET 간 구성보다 성능이 더 우수하고 더 쉽게 설정할 수 있습니다.
 
@@ -49,4 +52,4 @@
 
 궁금한 사항이 있거나 특별한 지원이 필요한 경우 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)으로 메일을 보내세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

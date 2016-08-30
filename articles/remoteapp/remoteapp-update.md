@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/05/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp에서 컬렉션 업데이트
 
-때로 Azure RemoteApp 컬렉션의 앱이나 이미지를 업데이트해야 하는 경우가 있습니다. 클라우드든 하이브리드 컬렉션이든 Azure RemoteApp 구독에 포함된 이미지 중 하나를 사용한다면 모든 업데이트는 Azure RemoteApp 자체에서 처리되므로 신경 쓸 필요가 없습니다.
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+
+때로 Azure RemoteApp 컬렉션의 앱이나 이미지를 업데이트해야 하는 경우가 있습니다. Azure RemoteApp 구독에 포함된 이미지(클라우드 또는 하이브리드 컬렉션) 중 하나를 사용한다면 모든 업데이트는 Azure RemoteApp 자체에서 처리되므로 신경 쓸 필요가 없습니다.
 
 하지만 처음부터 새로 만들었거나 기존 이미지를 수정하여 만든 사용자 지정 이미지를 사용할 경우, 이미지와 앱을 유지 관리하는 것은 사용자의 책임입니다. 이미지 또는 이미지 안의 앱을 업데이트해야 하는 경우 업데이트된 새 버전의 이미지를 만든 다음 컬렉션의 기존 이미지를 업데이트된 이 새 이미지로 바꿔야 합니다.
 
@@ -34,4 +37,4 @@
 
 1. 확인 표시를 클릭하여 업데이트를 시작합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

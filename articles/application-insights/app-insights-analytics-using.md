@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/26/2016" 
 	ms.author="danha"/>
 
 
@@ -26,7 +26,9 @@
 
 ## Analytics 열기
 
-Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다(![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)페이지 참조).
+Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
+
+![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-using/001.png)
 
 인라인 자습서에서 수행할 수 있는 몇 가지 작업을 확인할 수 있습니다.
 
@@ -36,9 +38,9 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다(![p
 
 ### 쿼리 작성
 
-![](./media/app-insights-analytics-using/150.png)
+![스키마 표시](./media/app-insights-analytics-using/150.png)
 
-왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다. 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
+왼쪽에 나열된 테이블의 이름(또는 [range](app-insights-analytics-reference.md#range-operator) 또는 [union](app-insights-analytics-reference.md#union-operator) 연산자)으로 시작합니다. [연산자](app-insights-analytics-reference.md#queries-and-operators) 파이프라인을 만들려면 `|`을(를) 사용합니다. IntelliSense에 사용할 수 있는 연산자 및 식 요소 일부를 지정하라는 메시지가 표시됩니다.
 
 [분석 언어 개요](app-insights-analytics-tour.md) 및 [언어 참조](app-insights-analytics-reference.md)를 참조하세요.
 
@@ -115,13 +117,44 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다(![p
 
 원하는 다이어그램의 유형을 선택합니다.
 
-![](./media/app-insights-analytics-using/230.png)
+![다이어그램 유형 선택](./media/app-insights-analytics-using/230.png)
 
 적합한 유형의 열이 여러 개인 경우 x축과 y축 및 결과 정렬 기준으로 사용할 크기의 열을 선택할 수 있습니다.
 
 기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-reference.md#render-directive)을 사용하여 다이어그램을 선택할 수 있습니다.
 
-다이어그램을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭합니다. (가격 책정 계층에 대해서는 유료 앱만 사용할 수 있습니다.)
+## 대시보드에 고정
+
+다이어그램을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭합니다. (이 기능을 설정하려면 [앱의 가격 패키지를 업그레이드](app-insights-pricing.md)해야 할 수 있습니다.)
+
+![핀 클릭](./media/app-insights-analytics-using/pin-01.png)
+
+즉, 웹 서비스의 성능 또는 사용 현황을 모니터링하기 위해 대시보드를 함께 사용하는 경우 매우 복잡한 분석을 기타 메트릭과 함께 포함할 수 있습니다.
+
+#### 대시보드 새로 고침
+
+약 30분마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
+
+#### 자동 단순화
+
+일부 경우 차트를 대시보드에 고정할 때 특정 단순화가 적용됩니다.
+
+수많은 불연속 막대(일반적으로 가로 막대형 차트)를 표시하는 차트를 고정할 경우 덜 채워진 막대가 하나의 "기타" 막대로 자동으로 그룹화됩니다. 예를 들어 다음 쿼리는
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+분석에서 다음과 같이 표시됩니다.
+
+
+![길게 늘어지는 차트](./media/app-insights-analytics-using/pin-07.png)
+
+하지만 대시보드에 이를 고정하면 다음과 같이 표시됩니다.
+
+
+![제한된 막대가 있는 차트](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Excel로 내보내기
 
@@ -150,4 +183,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다(![p
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="cynthn"/>
 
 # Linux 가상 컴퓨터에 대한 질문과 대답 
 
 
-이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 대한 일반적인 사용자 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows 가상 컴퓨터에 대한 질문과 대답](virtual-machines-windows-faq.md)을 참조하세요.
+이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows 가상 컴퓨터에 대한 질문과 대답](virtual-machines-windows-faq.md)을 참조하세요.
 
 ## Azure VM에서 무엇을 실행할 수 있습니까?
 
@@ -44,7 +44,7 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 ## 임시 디스크(/dev/sdb1)를 데이터 저장에 사용할 수 있나요?
 
-임시 디스크 (/dev/sdb1)를 데이터 저장에 사용하지 마세요. 해당 드라이브는 임시 저장소일 뿐이므로 복구할 수 없는 데이터가 손실될 위험이 있습니다.
+임시 디스크(/dev/sdb1)를 데이터 저장에 사용하지 마세요. 해당 드라이브는 임시 저장소일 뿐이므로 복구할 수 없는 데이터가 손실될 위험이 있습니다.
 
 ## 기존 Azure VM을 복사 또는 복제할 수 있나요?
 
@@ -56,6 +56,6 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 ## VM을 만든 후에 NIC를 추가할 수 있나요?
 
-아니요. 현재는 만들 때만 이 작업을 수행할 수 있습니다.
+아니요. NIC를 추가하는 작업은 생성 시에만 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

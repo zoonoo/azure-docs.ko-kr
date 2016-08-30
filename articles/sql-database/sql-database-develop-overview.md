@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 # SQL 데이터베이스 개발 개요
@@ -42,7 +42,7 @@ Azure SQL 데이터베이스는 액세스를 제한하고, 데이터를 보호�
 * 추가 정보: [SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md)
 
 ## 복원력
-SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하면, 코드는 호출을 다시 시도해야 합니다. 여러 클라이언트가 재시도를 동시에 수행하여 SQL 데이터베이스가 불필요하게 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다.
+SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하면, 코드는 호출을 다시 시도해야 합니다. 여러 클라이언트가 재시도를 동시에 수행하여 SQL 데이터베이스가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다.
 
 * 코드 샘플: 재시도 논리를 설명하는 코드 샘플을 보려면 [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)에서 원하는 언어의 샘플을 참조하세요.
 * 추가 정보: [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
@@ -67,4 +67,4 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)을 탐색합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

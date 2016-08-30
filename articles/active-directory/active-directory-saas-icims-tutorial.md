@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ ICIMS의 Azure AD 통합을 구성하려면 갤러리의 ICIMS를 관리되는 S
 
 **갤러리에서 ICIMS를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -91,9 +91,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[ICIMS 테스트 사용자 만들기](#creating-a-icims-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ICIMS에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -119,7 +119,7 @@ ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. 로그온 URL 텍스트 상자에 다음 패턴을 사용하여 사용자가 ICIMS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. `https://<tenant name>.icims.com`
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 4. **ICIMS의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -128,7 +128,7 @@ ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 ICIMS 지원 팀에 다운로드한 메타데이터 파일을 첨부하여 메일을 보냅니다. 또한 SSO 통합을 위해 구성할 수 있도록 발급자 URL, SAML SSO URL 및 로그아웃 URL을 제공하세요.
@@ -173,7 +173,7 @@ ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -187,7 +187,7 @@ ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -268,4 +268,4 @@ ICIMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [204]: ./media/active-directory-saas-icims-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-icims-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

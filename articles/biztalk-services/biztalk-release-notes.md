@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/15/2016"
 	ms.author="deonhe"/>
 
 # Azure BizTalk 서비스에 대한 릴리스 정보
@@ -55,7 +55,7 @@ Visual Studio 솔루션의 BizTalk 서비스 프로젝트에서 다음과 같은
 * BizTalk 서비스 프로젝트에 사용자 지정 바인딩/동작 DLL에 대한 참조가 있습니다.
 
 Visual Studio에서 솔루션을 성공적으로 '빌드'합니다. 그런 다음 솔루션을 '다시 빌드'하거나 '정리'합니다. 그 후에 한 번 더 다시 빌드 또는 정리하면 다음과 같은 오류가 발생합니다.  
-  파일 <Path to DLL>을(를) "bin\\Debug\\FileName.dll"에 복사할 수 없습니다. 'bin\\Debug\\FileName.dll' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
+파일 <DLL 경로>를 “bin\\Debug\\FileName.dll”에 복사할 수 없습니다. 'bin\\Debug\\FileName.dll' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
 
 #### 해결 방법
 * [Visual Studio 2012 업데이트 3](https://www.microsoft.com/download/details.aspx?id=39305)이 설치된 경우 다음 두 가지 옵션이 있습니다.
@@ -98,8 +98,8 @@ AS2 메시지의 첨부 파일의 송신 및 수신은 지원되지 않습니다
 
 * 솔루션 탐색기에서 .bcs 파일을 다시 엽니다.
 연결된 .bridgeconfig 파일에 지정된 새 이름이 있는 반면, 디자인 화면의 엔터티 이름은 여전이 이전 이름인 것을 확인할 수 있습니다. 브리지 구성 요소를 두 번 클릭하여 브리지 구성을 열려고 하면 다음 오류가 발생합니다.  
-  '<old name>' 엔터티의 연결된 파일 '<old name>.bridgeconfig'가 없습니다.  
-이 시나리오가 발생하지 않도록 하려면 BizTalk 서비스 프로젝트에서 엔터티 이름을 변경한 후 변경 내용을 저장해야 합니다.  
+'<이전 이름>' 엔터티의 연결된 파일 '<이전 이름>.bridgeconfig'가 없습니다.  
+이 시나리오가 발생하지 않도록 하려면 BizTalk 서비스 프로젝트에서 엔터티 이름을 변경한 후 변경 내용을 저장해야 합니다.
 ### Visual Studio 프로젝트에서 아티팩트가 제외되어도 BizTalk 서비스 프로젝트가 성공적으로 빌드됩니다.
 BizTalk 서비스 프로젝트에 아티팩트(예를 들어 XSD 파일)를 추가하고 해당 아티팩트를 브리지 구성에 포함(예를 들어 요청 메시지 형식으로 지정)한 후 Visual Studio 프로젝트에서 제외하는 시나리오를 고려해 보세요. 이러한 경우 프로젝트를 빌드하면 삭제된 아티팩트가 Visual Studio 프로젝트에 포함된 것과 동일한 위치의 디스크에 제공되는 한 오류가 발생하지 않습니다.
 ### BizTalk 서비스 프로젝트는 브리지를 구성하는 동안 스키마 가용성을 확인하지 않습니다.
@@ -110,7 +110,7 @@ BizTalk 서비스 프로젝트에서 프로젝트에 추가된 스키마가 다�
 BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어댑터 작업을 위한 사용자 정의 데이터 형식을 활용할 수 있습니다. 사용자 정의 데이터 형식을 사용하는 경우 파일을 드라이브:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\ 또는 BizTalk 어댑터 서비스를 호스팅하는 서버의 전역 어셈블리 캐시(GAC)에 복사합니다. 그러지 않으면 클라이언트에서 다음과 같은 오류가 발생할 수 있습니다.
 ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
-  <faultstring xml:lang="ko-KR">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
+  <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
     <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
@@ -177,7 +177,7 @@ WCF를 사용하여 브리지에 전송되는 메시지가 확장되지 않습�
 ### 업그레이드: BizTalk 서비스 SDK를 업그레이드한 후 도구 상자에 이전 브리지 아이콘이 표시됨
 브리지를 나타내는 이전 아이콘이 있던 BizTalk 서비스 SDK의 이전 버전을 업그레이드한 후 도구 상자에 브리지에 대한 이전 아이콘이 계속 표시됩니다. 그러나 BizTalk 서비스 프로젝트 디자이너 화면에 브리지를 추가하면 화면에 새 아이콘이 표시됩니다.
 
-**해결 방법**. <system drive>:\\Users<user>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0에서 .tbd 파일을 삭제하여 이 문제를 해결할 수 있습니다.
+**해결 방법**. <시스템 드라이브>:\\Users<user>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0 아래에서 .tbd 파일을 삭제하여 이 문제를 해결할 수 있습니다.
 
 ### 업그레이드: 미리 보기에서 GA(일반 공급)로 BizTalk 포털 업데이트 시 EDI 기능을 사용할 수 없다는 오류가 표시될 수 있음
 BizTalk 서비스가 미리 보기에서 GA로 업그레이드되는 동안 BizTalk 서비스 포털에 로그인하면 포털에 다음과 같은 오류가 발생할 수 있습니다.
@@ -195,4 +195,4 @@ BizTalk 서비스 미리 보기 구독에 배포된 XML 브리지가 있는 시�
 
 [BizTalk 서비스](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

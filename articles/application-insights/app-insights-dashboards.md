@@ -77,6 +77,10 @@
 
 차트는 타일로 그룹화되고 타일은 둘 이상의 차트를 포함할 수 있습니다. 타일 전체를 대시보드에 고정합니다.
 
+### 분석 차트
+
+[분석 차트](app-insights-analytics-using.md#pin-to-dashboard)를 [공유](#share-dashboards-with-your-team) 대시보드에 고정할 수도 있습니다. 그러면 임의 쿼리의 차트를 표준 메트릭과 함께 추가할 수 있습니다.
+
 ## 대시보드에서 타일을 조정합니다.
 
 타일이 대시보드에 있으면, 조정할 수 있습니다.
@@ -111,10 +115,9 @@
 
 대시보드를 만들면 다른 사용자와 공유할 수 있습니다.
 
-
 ![대시보드 헤더에서 공유를 클릭합니다.](./media/app-insights-dashboards/41.png)
 
-[역할 및 액세스 제어](app-insights-resources-roles-access-control.md)에 대해 알아봅니다.
+[역할 및 액세스 제어](app-insights-resources-roles-access-control.md)에 대해 알아보세요.
 
 ## 설정
 
@@ -122,7 +125,7 @@
 
 * **감사 로그** - 앱 리소스에서 수행된 경고와 작업을 검토합니다.
 * [새 지원 요청](app-insights-get-dev-support.md) - Azure 도움말 옵션입니다. Application Insights에서는 창 오른쪽 위에 있는 웃는 단추를 사용하여 도움말을 가져올 수 있습니다.
-* [응용 프로그램 맵](app-insights-dependencies.md#application-map) -종속성 정보에서 파생된, 응용 프로그램의 구성 요소를 표시하는 활성 맵입니다.
+* [응용 프로그램 맵](app-insights-dependencies.md#application-map) - 종속성 정보에서 파생된, 응용 프로그램의 구성 요소를 표시하는 활성 맵입니다.
 * [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream) -새로운 릴리스를 모니터링하기 위해, 약 1초마다 제공되는 주요 메트릭입니다.
 * **오류** - 오류가 발생한 요청, 종속성 호출, 예외입니다. [편집 가능한 메트릭 블레이드](app-insights-metrics-explorer.md)입니다.
 * **성능** - 응답 시간, 종속성 응답 시간입니다. [편집 가능한 메트릭 블레이드](app-insights-metrics-explorer.md)입니다.
@@ -150,6 +153,6 @@
 |---|---
 |[메트릭 탐색기](app-insights-metrics-explorer.md)<br/>필터 및 세그먼트 메트릭|![검색 예제](./media/app-insights-dashboards/64.png)
 |[진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>강력한 쿼리 언어| ![검색 예제](./media/app-insights-dashboards/63.png)
+|[분석](app-insights-analytics.md)<br/>강력한 쿼리 언어| ![검색 예제](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

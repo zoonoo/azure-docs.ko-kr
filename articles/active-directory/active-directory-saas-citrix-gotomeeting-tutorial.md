@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Citrix GoToMeeting과 Azure Active Directory 통합  
@@ -134,11 +134,11 @@ Azure에 적용합니다.
 
 1.  Azure 클래식 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
 
-    ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비저닝 구성")
+    ![사용자 프로비전 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비전 구성")
 
 2.  **설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행합니다.
 
-    ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "사용자 프로비전 구성")
+    ![사용자 프로비전 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "사용자 프로비전 구성")
 
 	a. **Citrix GoToMeeting 관리자 사용자 이름** 텍스트 상자에서 관리자의 사용자 이름을 입력합니다.
 
@@ -146,7 +146,7 @@ Azure에 적용합니다.
 	b. **Citrix GoToMeeting 관리자 암호** 텍스트 상자에서 관리자의 암호입니다.
 
     
-	c. **다음**을 클릭합니다.
+	c. **Next**를 클릭합니다.
 
 3.  **확인** 페이지에서 확인 표시를 클릭하여 구성을 저장합니다.
 
@@ -183,4 +183,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

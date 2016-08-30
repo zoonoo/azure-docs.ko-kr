@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -60,7 +60,7 @@ BizTalk 서비스는 Microsoft Azure 계산 인스턴스(웹 또는 작업자 �
 
 1. EDI 메시지가 거래 파트너인 Fabrikam에서 수신됩니다. 거래 파트너로부터 EDI 메시지를 수신하는 경우 BizTalk 서비스는 FTP, SFTP, AS2 및 HTTP/S.와 같은 전송 프로토콜 지원합니다.
 
-2. 거래 파트너 규약 수신측 처리는 EDI 메시지를 XML 형식으로 역어셈블합니다. 역어셈블된 EDI 메시지 (XML 형식)을 서비스 버스 릴레이 끝점, 서비스 버스 항목, 서비스 버스 큐 또는 BizTalk 서비스 브리지와 같은 서비스 버스 끝점으로 라우팅할 수 있습니다.
+2. 거래 파트너 규약 수신측 처리는 EDI 메시지를 XML 형식으로 역어셈블합니다. 역어셈블된 EDI 메시지 (XML 형식)을 서비스 버스 릴레이 끝점, 서비스 버스 토픽, 서비스 버스 큐 또는 BizTalk 서비스 브리지와 같은 서비스 버스 끝점으로 라우팅할 수 있습니다.
 
 3. 그런 다음 역어셈블된 XML 메시지는 추가 사용자 지정 처리를 위해 끝점에서 수신 할 수 있습니다. 이러한 끝점은 예를 들어 Windows WF (Workflow) 또는 Windows Communication Foundation (WCF) 서비스에서 해당 메시지를 추가 처리하기 위해 온-프레미스 구성 요소별 또는 Microsoft Azure 계산 인스턴스로 처리할 수 있습니다.
 
@@ -78,7 +78,7 @@ BizTalk Server EDI에서 파이프라인은 응용 프로그램에서 필요에 
 
 사용자 지정 코드 및/또는 거래 업체 규약이 메시지를 수신하기 전 또는 규약이 메시지를 처리하고 서비스 버스 끝점으로 라우팅 후 메시징 큐 및 항목 서비스 버스를 사용하여 게시/구독 흐름을 삽입할 수 있습니다.
 
-메시지 흐름 패턴에 대해서는 이 항목의 **시나리오/메시지 흐름**을 참조하세요.
+메시지 흐름 패턴에 대해서는 이 토픽의 **시나리오/메시지 흐름**을 참조하세요.
 
 ## 규약
 
@@ -112,7 +112,7 @@ Microsoft Azure BizTalk 서비스는 BizTalk 서비스 변환 BizTalk Server 맵
 
 BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레이션해야 하는 경우 Microsoft Azure는 BizTalk Server 오케스트레이션 실행을 지원하지 않으므로 오케스트레이션은 다시 작성해야 합니다. 오케스트레이션 기능은 Windows Workflow Foundation 4.0 (WF4) 서비스에서 다시 작성할 수 있습니다. 현재 BizTalk Server 오케스트레이션에서 WF4로 마이그레이션이 없으므로, 오케스트레이션 기능은 완전히 다시 작성해야 합니다. 다음은 Windows 워크플로에 대한 몇가지 리소스입니다.
 
-- [*WCF 워크플로 서비스를 서비스 버스 큐 및 항목과 통합하는 방법*](https://msdn.microsoft.com/library/azure/hh709041.aspx): Paolo salvatori 작성 
+- [*WCF 워크플로 서비스를 서비스 버스 큐 및 항목과 통합하는 방법*](https://msdn.microsoft.com/library/azure/hh709041.aspx) Paolo salvatori 작성.
 
 - 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](http://go.microsoft.com/fwlink/p/?LinkId=237314).
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Azure CLI를 통해 배포 작업 보기
@@ -41,7 +41,7 @@ Azure에 리소스를 배포할 때 오류가 발생하는 경우 실행된 배�
 
         azure group log show ExampleGroup --last-deployment
 
-2. **azure group log show** 명령은 많은 정보를 반환할 수 있습니다. 문제 해결을 위해 일반적으로 실패한 작업에 초점을 둡니다. 다음 스크립트는 **--json** 옵션 및 [jq](https://stedolan.github.io/jq/) JSON 유틸리티를 사용하여 배포 오류에 대한 로그를 검색합니다.
+2. **azure group log show** 명령은 많은 정보를 반환합니다. 문제 해결을 위해 일반적으로 실패한 작업에 초점을 둡니다. 다음 스크립트는 **--json** 옵션 및 [jq](https://stedolan.github.io/jq/) JSON 유틸리티를 사용하여 배포 오류에 대한 로그를 검색합니다.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -123,4 +123,4 @@ Azure에 리소스를 배포할 때 오류가 발생하는 경우 실행된 배�
 - 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
 - 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # 스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법
 
-기존 논리 앱을 새 스키마로 이동하려면 다음을 수행합니다.  
-1. Azure 포털에서 논리 앱을 엽니다.  
+기존 논리 앱을 새 스키마로 이동하려면 다음을 수행합니다.
+1. Azure 포털에서 논리 앱을 엽니다.
 2. 스키마 업데이트를 클릭합니다.
 
- ![API 아이콘][step1]   
+![API 아이콘][step1]
+
 스키마 업데이트 페이지에서 새 스키마의 개선 사항에 대한 세부 정보를 제공하는 문서에 대한 링크를 표시하여 제공합니다.
- ![API 아이콘][step2]
+
+![API 아이콘][step2]
 
 >[AZURE.NOTE] **스키마 업데이트**를 선택하면 마이그레이션 단계를 자동으로 실행하고 코드 출력을 제공합니다. 정의를 업데이트하기 위해 이 기능을 사용할 수 있지만 아래의 **모범 사례** 섹션에 설명된 것처럼 좋은 코딩 방법을 따르도록 합니다.
 
@@ -44,4 +46,4 @@
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0824_2016-->

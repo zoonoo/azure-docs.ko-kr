@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 템플릿과 Azure CLI로 리소스 배포
@@ -53,7 +53,7 @@
 
 이전에 리소스 관리자에서 Azure CLI를 사용하지 않은 경우 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-1. Azure 계정에 로그인합니다. 자격 증명을 제공하면 로그인 결과가 반환됩니다.
+1. Azure 계정에 로그인 자격 증명을 제공하면 로그인 결과가 반환됩니다.
 
         azure login
   
@@ -70,7 +70,7 @@
    
         info:     New mode is arm
 
-4. 기본 리소스 그룹이 없는 경우 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
+4. 기본 리소스 그룹이 없는 경우 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
 
         azure group create -n ExampleResourceGroup -l "West US"
    
@@ -90,11 +90,11 @@
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. 리소스 그룹에 대한 새 배포를 만들려면 다음 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다.
+5. 리소스 그룹에 리소스를 배포하려면 다음 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다.
    
      매개 변수 값을 제공하는 옵션에는 다음 세 가지 옵션이 있습니다.
 
-     1. 인라인 매개 변수 및 로컬 템플릿을 사용합니다. 각 매개 변수는 `"ParameterName": { "value": "ParameterValue" }` 형식을 사용합니다. 다음 예제에서는 이스케이프 문자를 사용한 매개 변수를 보여줍니다.
+     1. 인라인 매개 변수 및 로컬 템플릿을 사용합니다. 각 매개 변수는 `"ParameterName": { "value": "ParameterValue" }` 형식을 사용합니다. 다음 예제에서는 이스케이프 문자를 사용한 매개 변수를 보여 줍니다.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -132,11 +132,11 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 
 다음 단계에서는 템플릿용 저장소 계정을 설정합니다.
 
-1. 새 리소스 그룹을 만듭니다.
+1. 리소스 그룹을 만듭니다.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. 새 저장소 계정을 만듭니다. 저장소 계정 이름은 Azure에 1개뿐이어야 하므로 해당 계정에 고유한 이름을 입력합니다.
+2. 저장소 계정을 만듭니다. 저장소 계정 이름은 Azure에 1개뿐이어야 하므로 해당 계정에 고유한 이름을 입력합니다.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
@@ -145,7 +145,7 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. 새 컨테이너를 만듭니다. 권한은 **Off**로 설정합니다. 즉, 이 컨테이너는 소유자만 액세스할 수 있습니다.
+4. 컨테이너를 만듭니다. 권한은 **Off**로 설정합니다. 즉, 이 컨테이너는 소유자만 액세스할 수 있습니다.
 
         azure storage container create --container templates -p Off 
         
@@ -176,4 +176,4 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 - 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 - 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

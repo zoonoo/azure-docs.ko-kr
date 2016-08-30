@@ -6,14 +6,14 @@
 	 authors="ganganarayanan"
 	 manager="scotthit"
 	 editor=""/>
-	 
+
 <tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/24/2016"
+	 ms.date="07/25/2016"
 	 ms.author="gangan"/>
 
 # Azure 지원 요청을 만드는 방법
@@ -85,4 +85,4 @@ Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사�
 ## 자세한 정보
 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -24,10 +24,11 @@
 - [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API 사용](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 이 자습서에서는 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다.
 
-이 문서에서는 자습서의 **개요** 및 자습서에 대한 **필수 구성 요소**를 충족하기 위한 단계별 지침을 제공합니다. 필수 구성 요소 단계를 완료한 후 Azure 포털의 Data Factory Editor, Visual Studio, Azure PowerShell 및 ARM 템플릿 중 하나를 사용하여 자습서를 수행합니다.
+이 문서에서는 자습서의 **개요** 및 자습서에 대한 **필수 구성 요소**를 충족하기 위한 단계별 지침을 제공합니다. 필수 구성 요소 단계를 완료한 후 Azure 포털의 Data Factory Editor, Visual Studio, Azure PowerShell 및 Azure Resource Manager 템플릿 중 하나를 사용하여 자습서를 수행합니다.
 
 이 문서는 Azure Data Factory에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 개념적 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
 
@@ -66,7 +67,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
 
-2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
+2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 
 ## 자습서에 대한 Azure 저장소에 파일 업로드
 자습서를 시작하기 전에 자습서에 필요한 파일을 Azure 저장소에 준비해야 합니다.
@@ -191,7 +192,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 ### Azure Blob 저장소에 입력 파일 및 HQL 파일 업로드
 
-이 섹션에서는 **AzCopy** 도구를 사용하여 Azure Blob 저장소에 파일을 복사하기 위한 지침을 제공합니다. 사용자가 원하는 아무 도구나 사용하여 이 작업을 수행할 수 있습니다(예: [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/), [ClumsyLeaf Software CloudXPlorer](http://clumsyleaf.com/products/cloudxplorer)).
+이 섹션에서는 **AzCopy** 도구를 사용하여 Azure Blob 저장소에 파일을 복사하기 위한 지침을 제공합니다. 사용자가 원하는 아무 도구나 사용하여 이 작업을 수행할 수 있습니다(예: [Microsoft Azure Storage 탐색기](http://storageexplorer.com/), [ClumsyLeaf Software CloudXPlorer](http://clumsyleaf.com/products/cloudxplorer)).
 	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
@@ -227,4 +228,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

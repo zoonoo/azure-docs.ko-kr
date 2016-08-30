@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD 장치 기반 조건부 액세스 보호된 응용 프로그램에 액세스할 때 사용자 수정 | Microsoft Azure"
+	pageTitle="문제 해결: 여기에서 가져올 수 없습니다 | Microsoft Azure"
 	description="이 항목에서는 시작하려는 응용 프로그램에 대한 액세스 권한을 얻기 위해 수행할 수 있는 수정 단계가 있는지 확인할 수 있습니다."
 	services="active-directory"
 	keywords="장치 기반 조건부 액세스, 장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# Azure AD 장치 기반 조건부 액세스 보호된 응용 프로그램에 액세스할 때 사용자 수정
+# 문제 해결: 여기에서 가져올 수 없습니다
 
 Office 365 SharePoint Online과 같은 응용 프로그램에 액세스할 때 액세스 거부 페이지를 받았습니다. 이제 어떻게 해야 하나요?
 
@@ -172,4 +172,4 @@ Android 휴대폰 또는 태블릿에 대한 지침을 다시 확인합니다.
 
 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

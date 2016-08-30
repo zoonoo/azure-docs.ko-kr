@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/15/2016"
 	ms.author="magoedte;csand"/>
 
 #Azure 자동화를 사용하여 Azure RemoteApp 관리
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure RemoteApp 관리를 간소화하는 방법을 소개합니다.
 
@@ -40,4 +43,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure Remote
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md) 참조
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

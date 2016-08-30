@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/15/2016"
 	ms.author="deonhe"/>
 
 # BizTalk 서비스의 관리 및 개발 작업 목록  
@@ -45,4 +45,4 @@ Microsoft Azure BizTalk 서비스로 작업할 때 고려해야 할 몇 가지 �
 ## 기타 리소스  
 [원본, 대상 및 브리지 메시징 끝점 추가](https://msdn.microsoft.com/library/azure/hh689877.aspx) [메시지 맵 및 변환 학습 및 만들기](https://msdn.microsoft.com/library/azure/hh689905.aspx) [BAS(BizTalk 어댑터 서비스) 사용](https://msdn.microsoft.com/library/azure/hh689889.aspx) [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

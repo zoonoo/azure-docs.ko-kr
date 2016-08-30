@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp에서 Azure Active Directory 테넌트 변경
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp은 Azure AD(Azure Active Directory)를 사용하여 사용자 액세스를 허용합니다. Azure RemoteApp에서 사용할 수 있는 유일한 Azure AD 테넌트는 Azure 구독과 연결된 것입니다. 포털의 **설정** 페이지에서 연결된 구독을 볼 수 있습니다. **구독** 탭에서 **디렉터리** 열을 확인합니다.
 
@@ -47,4 +50,4 @@ Azure RemoteApp은 Azure AD(Azure Active Directory)를 사용하여 사용자 �
 
 이제 새 Azure AD 테넌트를 사용하여 Azure 구독에 대한 액세스를 제어하고 Azure RemoteApp에서 사용자 액세스를 구성할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

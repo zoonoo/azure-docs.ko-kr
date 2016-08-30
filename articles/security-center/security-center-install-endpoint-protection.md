@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 Endpoint Protection 설치
@@ -32,7 +32,7 @@ Azure 보안 센터에서는 맬웨어 방지 기능을 아직 사용하지 않�
 
 4. 맬웨어 방지 솔루션에 대한 추가 정보가 표시됩니다. **만들기**를 선택합니다. ![맬웨어 방지 솔루션 만들기][4]
 
-5. **확장 추가** 블레이드에서 필요한 구성 설정을 입력하고 **확인**을 선택합니다. 구성 설정에 대한 자세한 내용은 [기본 및 사용자 지정 맬웨어 방지 구성](../azure-security-antimalware.md#default-and-custom-antimalware-configuration)을 참조하세요.
+5. **확장 추가** 블레이드에서 필요한 구성 설정을 입력하고 **확인**을 선택합니다. 구성 설정에 대한 자세한 내용은 [기본 및 사용자 지정 맬웨어 방지 구성](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration)을 참조하세요.
 
 이제 선택한 VM에서 [Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)이 활성화됩니다.
 
@@ -58,4 +58,4 @@ Azure 보안 센터에서는 맬웨어 방지 기능을 아직 사용하지 않�
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

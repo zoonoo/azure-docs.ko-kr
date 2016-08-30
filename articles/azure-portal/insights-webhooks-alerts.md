@@ -64,7 +64,7 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -72,8 +72,6 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
               }
 }
 ```
-
->[AZURE.NOTE] 다음 새로 고침에서 이벤트에 경고에 대 한 지원을 추가합니다.(“conditionType” : “Event”)
 
 
 | 필드 | 필수? | 값의 고정된 집합? | 참고 |
@@ -123,4 +121,4 @@ Azure 경고를 사용하여 다른 서비스에 메시지를 보냅니다. 다�
 
 [논리 앱을 사용하여 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

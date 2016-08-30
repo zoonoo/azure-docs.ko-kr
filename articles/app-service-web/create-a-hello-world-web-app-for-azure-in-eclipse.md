@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Eclipse에서 Azure용 Hello World 웹앱 만들기
@@ -75,7 +75,7 @@
     ![][04]
    
     참고: Azure 계정이 여러 개 있으면 로그인 프로세스 중에 일부 메시지가 동일한 것이더라도 두 번 이상 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
-1. Azure 계정에 성공적으로 로그인하면 **Manage Subscriptions**(구독 관리) 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **Close**(닫기)를 클릭합니다.
+1. Azure 계정에 성공적으로 로그인하면 **구독 관리** 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **닫기**를 클릭합니다.
 
     ![][05]
    
@@ -196,7 +196,7 @@
 
 ## 다음 단계
 
-자세한 내용은 다음 링크를 참조하세요.
+자세한 내용은 다음 링크를 참조하십시오.
 
 * [Java 개발자 센터](/develop/java/).
 * [웹앱 개요](app-service-web-overview.md)
@@ -226,4 +226,4 @@
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 [14]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!-----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

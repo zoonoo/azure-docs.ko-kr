@@ -25,6 +25,7 @@
 |가져오기 | DirectQuery
 |---|---
 |테이블, 열 *및 데이터*를 보고서의 데이터 집합으로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 집합을 다시 새로 고치거나 가져오거나 완료해야 합니다.|*테이블 및 열*만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다.
+Power BI Embedded를 사용하면 클라우드 데이터 원본에서 DirectQuery를 사용할 수 있지만, 현재 온-프레미스 데이터 원본에서는 사용할 수 없습니다.
 
 ## DirectQuery 사용할 경우의 이점
 
@@ -52,4 +53,4 @@
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

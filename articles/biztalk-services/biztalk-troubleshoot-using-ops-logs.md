@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -27,7 +27,7 @@
 ## BizTalk 서비스 작업 로그 보기
 1. Azure 클래식 포털에서 **관리 서비스**를 선택한 다음 **작업 로그** 탭을 선택합니다.
 2. 구독, 날짜 범위, 서비스 종류(예: BizTalk 서비스), 서비스 이름 또는 상태(작업 상태, 예: 성공, 실패)와 같은 다양한 매개 변수를 기준으로 로그를 필터링할 수 있습니다.
-3. 확인 표시를 선택하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련된 작업을 보여 줍니다. ![작업 로그 보기][ViewLogs] 
+3. 확인 표시를 선택하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련된 작업을 보여 줍니다. ![작업 로그 보기][ViewLogs]
 4. 특정 작업에 대한 자세한 내용을 보려면 아래쪽의 작업 표시줄에서 **세부 정보**를 클릭합니다.
 
 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 보존 기간이 지난 BizTalk 서비스의 백업�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

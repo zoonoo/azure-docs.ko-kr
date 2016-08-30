@@ -52,4 +52,4 @@ Azure AD Privileged Identity Management를 사용하기 전에 응용 프로그�
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->

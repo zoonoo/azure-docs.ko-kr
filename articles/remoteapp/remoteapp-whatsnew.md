@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp의 새로운 기능
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
+
 Azure RemoteApp의 이점 중 하나는 항상 개선하기 위해 노력한다는 것입니다. 개선 시, 여기에서 해당 변경 내용을 발표합니다.
 
 ## 향후 업데이트
-Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 것을 아십니까? Azure RemoteApp의 변경 내용뿐 아니라 RDS 사용 방법에 대한 기타 정보를 확인할 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 블로그](https://blogs.msdn.microsoft.com/rds/)를 참조하세요. 예를 들어 2주 전에는 [Azure RemoteApp 및 Azure AD를 사용하여 그대로 워크로드 이동](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/)에 대한 항목을 게시했습니다.
+Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 것을 아십니까? Azure RemoteApp의 변경 내용뿐 아니라 RDS 사용 방법에 대한 기타 정보를 확인할 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 블로그](https://blogs.msdn.microsoft.com/rds/)를 참조하세요. 예를 들어 몇 주 전에는 [Azure RemoteApp 및 Azure AD를 사용하여 그대로 워크로드 이동](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/)에 대한 항목을 게시했습니다.
  
 ## 2015년 9월
 - Microsoft Office 365 템플릿과 갤러리 이미지에 추가된 Infopath입니다. Infopath를 공유하려면 최신 이미지로 컬렉션을 업데이트해야 합니다.
@@ -38,7 +41,7 @@ Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 �
 8월에 발생한 큰 변화 중 주목해야 할 부분은 다음과 같습니다.
 
 - 이제 클라우드 컬렉션으로 Azure VNET을 사용할 수 있습니다. 새로운 단계에 대한 [클라우드 만들기 지침](remoteapp-create-cloud-deployment.md)을 확인하세요.
-- Windows RemoteApp 클라이언트의 경우 앱을 **시작** 메뉴에 추가할 수 있게 되었습니다. 응용 프로그램 목록에 앱이표시되고 해당 앱을 Windows의 **시작** 메뉴에 고정할 수 있습니다.
+- Windows RemoteApp 클라이언트의 경우 앱을 **시작** 메뉴에 추가할 수 있게 되었습니다. 응용 프로그램 목록에 앱이 표시되고 해당 앱을 Windows의 **시작** 메뉴에 고정할 수 있습니다.
 - 새 이미지를 Azure VM 갤러리(Microsoft Office 365 ProPlus가 있는 Windows 서버 원격 데스크톱 세션 호스트)에 추가했습니다.
 - 모달 창을 사용하는 앱이 중단되지 않도록 Mac 클라이언트를 수정했습니다.
 - Azure RemoteApp으로 [Office 365 ProPlus 구독](remoteapp-officesubscription.md)을 사용하는 방법에 대해 문서화했습니다.
@@ -69,7 +72,7 @@ Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 �
 
 ## 2015년 5월
 
-이 항목을 처음 만든 이후로 다양한 추가 기능(및 개월)이 생겨났으므로 이 목록은 약간 다를 수 있으며 기간은 3월 초에서5월까지입니다. 이러한 새 기능을 확인해 보십시오.
+이 항목을 처음 만든 이후로 다양한 추가 기능(및 개월)이 생겨났으므로 이 목록은 약간 다를 수 있으며 기간은 3월 초에서 5월까지입니다. 이러한 새 기능을 확인해 보십시오.
 
 - 모든 것이 자동화되어 Azure RemoteApp에 [Azure PowerShell 모듈의 cmdlet](remoteapp-tutorial-arawithpowershell.md)가 있습니다.
 - [Azure 가상 컴퓨터에서 Azure RemoteApp 이미지를 만듭니다](remoteapp-image-on-azurevm.md) 사용자 지정 이미지를 Azure에 훨씬 더 빨리 업로드합니다.
@@ -87,4 +90,4 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 ### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

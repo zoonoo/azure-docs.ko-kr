@@ -1,5 +1,5 @@
 <properties
-	pageTitle="내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용 | Microsoft Azure"
+	pageTitle="내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용 | Microsoft Azure "
 	description="Visual Studio 연결된 서비스를 사용하여 Azure AD에 연결할 때 MVC 프로젝트의 변경 내용을 설명합니다."
 	services="active-directory"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # 내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
@@ -171,4 +171,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

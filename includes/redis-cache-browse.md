@@ -11,3 +11,5 @@
 **설정** 또는 **모든 설정**을 클릭하여 캐시를 보고 구성할 수 있습니다.
 
 ![Redis 캐시 모든 설정](media/redis-cache-browse/redis-cache-blade.png)
+
+<!---HONumber=AcomDC_0817_2016-->

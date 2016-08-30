@@ -84,9 +84,9 @@
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라지고 왼쪽의 트리 보기에 **AzureStorageLinkedService**가 표시됩니다.
+   연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라지고 왼쪽의 트리 보기에 **AzureStorageLinkedService**가 표시됩니다.  
 
-	![메뉴의 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+![메뉴의 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Azure HDInsight 연결된 서비스 만들기
@@ -348,4 +348,4 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
   
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-------HONumber=AcomDC_0817_2016-->

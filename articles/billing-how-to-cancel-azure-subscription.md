@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Azure 구독을 취소하는 방법
@@ -30,4 +30,4 @@
 4. **예, 구독을 취소합니다**를 선택합니다. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png)을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

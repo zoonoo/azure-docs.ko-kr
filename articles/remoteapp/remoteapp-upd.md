@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 저장합니다. 이 사용자 데이터는 사용자 프로필 디스크(UPD)라고 하는 사용자별 컬렉션 디스크에 저장됩니다. 디스크는 사용자를 따르며 사용자가 로그인한 위치와 관계 없이 일관된 환경을 보장합니다.
 
@@ -31,7 +34,7 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 
 ## 관리자는 데이터를 어떻게 얻을 수 있습니까?
 
-사용자 중 하나에 대 한 데이터에 액세스해야 하는 경우(재해 복구 또는 사용자가 회사를 떠날 경우), [Azure RemoteApp](mailto:remoteappforum@microsoft.com)에 컬렉션 및 사용자 ID에 대한 구독 정보를 제공합니다. Azure RemoteApp 팀에서 VHD의 URL을 제공합니다. 해당 VHD를 다운로드하고 필요한 문서 또는 파일을 검색합니다. VHD는 50GB이므로 다운로드하는 데 다소 시간이 걸립니다.
+사용자 중 하나에 대한 데이터에 액세스해야 하는 경우(재해 복구 또는 사용자가 회사를 떠날 경우), Azure 지원에 컬렉션 및 사용자 ID에 대한 구독 정보를 제공합니다. Azure RemoteApp 팀에서 VHD의 URL을 제공합니다. 해당 VHD를 다운로드하고 필요한 문서 또는 파일을 검색합니다. VHD는 50GB이므로 다운로드하는 데 다소 시간이 걸립니다.
 
 
 ## 데이터를 백업했습니까?
@@ -155,4 +158,4 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 이렇게 하면 New-PSDrive cmdlet에서 -Credential 매개 변수를 건너뛸 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

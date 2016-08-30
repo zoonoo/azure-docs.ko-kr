@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp 이미지 만들기
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp에서는 이미지를 사용하여 사용자와 공유할 앱을 보관합니다. (이미지를 가져와서 VM을 만드는 데 사용합니다. 사용자가 Azure RemoteApp에 로그인 할 때 여기에 액세스합니다.) 선택한 응용 프로그램을 포함하는 클라우드 또는 하이브리드 Azure RemoteApp 컬렉션을 만들려면 먼저 설치된 응용 프로그램을 포함하는 이미지를 만듭니다. 그런 다음 해당 이미지를 사용하는 컬렉션을 만들고 컬렉션에 사용자를 할당한 후 해당 사용자에게 앱을 게시합니다.
 
@@ -31,4 +34,4 @@ Azure RemoteApp에서는 이미지를 사용하여 사용자와 공유할 앱을
 
 이미지를 가져오는 위치 또는 만드는 방법에 관계없이 앱이 RemoteApp에서 올바르게 작동하려면 [앱 요구 사항](remoteapp-appreqs.md)을 이해해야 합니다. 다음 단계에서는 [클라우드](remoteapp-create-cloud-deployment.md) 또는 [하이브리드](remoteapp-create-hybrid-deployment.md) 컬렉션을 만듭니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -73,7 +73,7 @@ DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 
 
 ![Marathon 기본 페이지 UI--컨테이너 배포 상태](media/dcos/dcos7.png)
 
-DC/OS 앱 UI (http://localhost/)으로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
+DC/OS 웹 UI(http://localhost/)로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
 
 ![DC/OS 웹 UI--클러스터에서 실행 중인 작업](media/dcos/dcos8.png)
 
@@ -97,4 +97,8 @@ DC/OS 앱 UI (http://localhost/)으로 다시 전환하면 이 경우 Docker로 
 
 - [DC/OS 및 Marathon API 작업](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Mesos와 함께 Azure Container Service에 대해 자세히 알아보기
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

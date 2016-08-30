@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
@@ -424,7 +424,7 @@ VM에 로그인하고 다음을 수행합니다.
 8 노드 클러스터의 경우 아래와 유사한 표시가 나타나야 합니다.
 
 <table>
-<tr><th>상태</th></th>주소	</th><th>부하	</th><th>토큰	</th><th>소유 비율 </th><th>호스트 ID	</th><th>랙</th></tr>
+<tr><th>가동 상태</th></th>주소	</th><th>로드	</th><th>토큰	</th><th>소유 비율 </th><th>호스트 ID	</th><th>랙</th></tr>
 <tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38.0%	</td><td>Guid(제거됨)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68.9%	</td><td>Guid(제거됨)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid(제거됨)</td><td>rack2</td></tr>
@@ -469,7 +469,7 @@ Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용�
 
 <table>
 <tr><th>특성 이름    </th><th>값	</th><th>설명</th></tr>
-<tr><td>이름	</td><td>vnet-cass-east-us</td><td></td></tr>	
+<tr><td>Name	</td><td>vnet-cass-east-us</td><td></td></tr>	
 <tr><td>지역	</td><td>미국 동부</td><td></td></tr>	
 <tr><td>DNS 서버		</td><td></td><td>DNS 서버를 사용하지 않으므로 이 특성을 무시합니다.</td></tr>
 <tr><td>지점 및 사이트 간 VPN 구성</td><td></td><td>		이 특성을 무시합니다.</td></tr>
@@ -705,4 +705,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com)
 - [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

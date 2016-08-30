@@ -3,7 +3,7 @@
 	description="Azure Resource Manager Linux 가상 컴퓨터에 정책을 적용하는 방법"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -106,4 +106,4 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 
 * [정책 만들기](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

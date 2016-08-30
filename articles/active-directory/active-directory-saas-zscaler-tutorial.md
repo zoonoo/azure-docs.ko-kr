@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Azure Active Directory와 Zscaler 통합
@@ -75,7 +75,7 @@
 
 2.  **ZScaler에 대한 사용자 로그온 방법을 선택하십시오** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택한 후, **다음**을 클릭하세요.
 
-    ![Single sign on 구성](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Single sign on 구성")
+    ![Single Sign On 구성](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Single sign on 구성")
 
 3.  **Zscaler Sign In URL** 텍스트 상자의 **앱 URL 구성**페이지에서 Zscaler에서 얻은 로그인 URL을 입력한 후, **다음**을 클릭합니다.
 
@@ -113,7 +113,7 @@
 
     1.  **사용자가 인증 요청을 위해 보낸 SAML 포털의 URL** 텍스트 상자에서 Azure 클래식 포털의 **인증 요청 URL** 필드 값을 복사합니다.
     2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
-    3.  **SSL 공용 인증서** 필드에서 Azure 클래식 포털에서 다운로드한 인증서를 업로드 합니다.
+    3.  **SSL 공용 인증서** 필드에서 Azure 클래식 포털에서 다운로드한 인증서를 업로드합니다.
     4.  **SAML 자동 프로비전 사용**을 선택합니다.
 
 10. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
@@ -159,7 +159,7 @@
   
 Azure AD 사용자가 ZScaler에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler로 프로비전되어야 합니다. Zscaler의 경우, 수동으로 프로비전합니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  **Zscaler** 테넌트에 로그인 합니다.
 
@@ -200,6 +200,6 @@ Azure AD 사용자가 ZScaler에 로그인할 수 있도록 하려면 사용자 
 
     ![예](./media/active-directory-saas-zscaler-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

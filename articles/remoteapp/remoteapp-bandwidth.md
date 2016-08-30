@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp 네트워크 대역폭 사용량 예측 
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure 클라우드에서 실행 중인 응용 프로그램과 사용자 간에 통신합니다. 이 문서에서는 네트워크 사용량을 계산하고 잠재적으로 Azure RemoteApp 사용자당 네트워크 대역폭 사용량을 평가하는 데 사용할 수 있는 몇 가지 기본 지침을 제공합니다.
 
@@ -39,4 +42,4 @@ Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure �
 
 동일한 네트워크에서 하나의 사용자가 다른 사용자에게 미칠 수 있는 영향도 고려하지 않았습니다. 예를 들어 하나의 사용자가 100MB/s 네트워크에서 4K 비디오를 사용하는 경우 같은 네트워크의 다른 사용자가 이와 동일한 작업을 수행하는 데 상당한 영향을 받을 수 있습니다. 시스템 성능에 대한 일반적이거나 포괄적인 접근 방식을 제공하기 위해 동시 사용의 영향을 확인하는 것이 점점 어려워지고 있습니다. 현재로서는 기본 프로토콜 기술이 사용 가능한 네트워크 대역폭 사용을 최적화하지만 이 기술에는 제한 사항이 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

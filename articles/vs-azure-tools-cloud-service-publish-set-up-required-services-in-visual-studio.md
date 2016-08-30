@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비
@@ -38,7 +38,7 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
     ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-1. 로그인 하지 않은 경우 Azure 구독과 연결된 Microsoft 계정 또는 조직 계정에 대한 사용자 이름 및 암호를 사용하여 로그인 합니다.
+1. 로그인하지 않은 경우 Azure 구독과 연결된 Microsoft 계정 또는 조직 계정에 대한 사용자 이름 및 암호를 사용하여 로그인합니다.
 
 1. **다음** 단추를 선택하여 **설정** 페이지로 이동합니다.
 
@@ -153,4 +153,4 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
 Visual Studio에서 Azure에 앱을 게시하는 방법에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

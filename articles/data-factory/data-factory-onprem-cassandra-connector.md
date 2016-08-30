@@ -33,14 +33,15 @@ Azure Data Factory 서비스에서 온-프레미스 Cassandra 데이터베이스
 ## 데이터 복사 마법사
 Cassandra 데이터베이스의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Cassandra 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+
 
 ## 샘플: Cassandra에서 Blob으로 데이터 복사
 샘플은 1시간마다 Cassandra 데이터베이스의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다. Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다.
 
-- [OnPremisesCassandra](#onpremisescassandra-linked-service-properties) 형식의 연결된 서비스
+- [OnPremisesCassandra](#onpremisescassandra-linked-service-properties) 형식의 연결된 서비스입니다.
 - [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
-- [CassandraTable](#cassandratable-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+- [CassandraTable](#cassandratable-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 - [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 - [CassandraSource](#cassandrasource-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
@@ -186,7 +187,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- | 
-| type | type 속성은 **OnPremisesCassandra**로 설정되어야 합니다. | 예 |
+| type | type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** | 예 |
 | host | Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. | 예 | 
 | 포트 | Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. | 아니요. 기본값: 9042 |
 | authenticationType | Basic 또는 Anonymous | 예 |
@@ -203,8 +204,8 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| keyspace | Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. | 예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
-| tableName | Cassandra 데이터베이스에 있는 테이블의 이름입니다. | 예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
+| keyspace | Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. | 예(**CassandraSource**의 **쿼리**가 정의되지 않은 경우). |
+| tableName | Cassandra 데이터베이스에 있는 테이블의 이름입니다. | 예(**CassandraSource**의 **쿼리**가 정의되지 않은 경우). |
 
 
 ## CassandraSource 형식 속성
@@ -312,4 +313,4 @@ pk\_int | StringSet\_value
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

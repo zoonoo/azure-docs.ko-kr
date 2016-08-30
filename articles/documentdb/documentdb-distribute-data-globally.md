@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/15/2016"
    ms.author="kipandya"/>
    
    
@@ -21,12 +21,12 @@
 
 > [AZURE.NOTE] DocumentDB 데이터베이스의 전역 배포는 일반적으로 사용 가능하며, 새로 만든 DocumentDB 계정에 대해 자동으로 사용되도록 설정됩니다. 현재, 모든 기존 계정에 대해 전역 배포를 사용하도록 설정하기 위해 작업 중이지만 계정에 대해 전역 배포를 일시적으로 사용하도록 설정하려면 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. Microsoft에서 처리해 드리겠습니다.
 
-Azure DocumentDB는 전 세계의 사용자에게 매우 반응성이 높은 경험을 제공하는 인터넷 규모 응용 프로그램과 전 세계에 배포된 수많은 기기로 구성된 사물 인터넷(IoT) 응용 프로그램의 필요에 맞추어 설계되었습니다. 이러한 데이터베이스 시스템은 잘 정의된 데이터 일관성과 가용성 보증으로 여러 개의 지역에서 응용 프로그램 데이터에 짧은 대기 시간으로 액세스해야 하는 과제를 해결해야 합니다. 글로벌 배포된 데이터베이스 시스템인 DocumentDB는 일관성, 가용성, 성능을 알맞은 보증으로 명확히 절충하는, 완전 관리형 다중 지역 데이터베이스 계정을 제공함으로써 데이터의 글로벌 배포를 단순화합니다. DocumentDB 데이터베이스 계정은 가용성이 높고, 대기 시간(ms)이 한 자리이며, 여러 개의 [잘 정의된 일관성 수준][consistency]과 멀티호밍(multi-homing) API를 사용한 투명한 지역 장애 조치(failover), 전 세계적으로 처리량과 저장소를 탄력적으로 확대하는 기능을 제공합니다.
+Azure DocumentDB는 전 세계의 사용자에게 매우 반응성이 높은 경험을 제공하는 인터넷 규모 응용 프로그램과 전 세계에 배포된 수많은 기기로 구성된 사물 인터넷(IoT) 응용 프로그램의 필요에 맞추어 설계되었습니다. 이러한 데이터베이스 시스템은 잘 정의된 데이터 일관성과 가용성 보증으로 여러 개의 지역에서 응용 프로그램 데이터에 짧은 대기 시간으로 액세스해야 하는 과제를 해결해야 합니다. 글로벌 배포된 데이터베이스 시스템인 DocumentDB는 일관성, 가용성, 성능을 알맞은 보증으로 명확히 절충하는, 완전 관리형 다중 지역 데이터베이스 계정을 제공함으로써 데이터의 글로벌 배포를 단순화합니다. DocumentDB 데이터베이스 계정은 가용성이 높고, 대기 시간(ms)이 한 자리이며, 여러 개의 [잘 정의된 일관성 수준][consistency]과 멀티 호밍(multi-homing) API를 사용한 투명한 지역 장애 조치(failover), 전 세계적으로 처리량과 저장소를 탄력적으로 확대하는 기능을 제공합니다.
 
   
 ## 다중 지역 계정 구성
 
-Azure 포털을 사용하여 DocumentDB 계정을 전 세계적인 규모로 구성하는 작업을 1분 이내에 완료할 수 있습니다. 여러 개의 지원되는 잘 정의된 일관성 수준에서 적절한 일관성 수준을 선택하고, 임의의 Azure 지역과 데이터베이스 계정을 연결하기만 하면 됩니다. DocumentDB 일관성 수준은 특정 일관성 보증과 성능 간을 명확히 절충합니다.
+[Azure 포털](documentdb-portal-global-replication.md)을 사용하여 DocumentDB 계정을 전 세계적인 규모로 구성하는 작업을 1분 이내에 완료할 수 있습니다. 여러 개의 지원되는 잘 정의된 일관성 수준에서 적절한 일관성 수준을 선택하고, 임의의 Azure 지역과 데이터베이스 계정을 연결하기만 하면 됩니다. DocumentDB 일관성 수준은 특정 일관성 보증과 성능 간을 명확히 절충합니다.
 
 ![DocumentDB는 선택 가능한 여러 개의 잘 정의된(관대한) 일관성 모델을 제공합니다.][1]
 
@@ -54,7 +54,7 @@ DocumentDB는 P99에서 읽기 대기 시간이 10ms 미만이고 쓰기 대기 
 
 ## 글로벌 배포 활성화 
 
-하나 또는 그 이상의 Azure 지역을 DocumentDB 데이터베이스 계정과 연결하여 데이터의 로컬 배포 또는 글로벌 배포를 선택할 수 있습니다. 언제든지 데이터베이스 계정에 지역을 추가하거나 제거할 수 있습니다.
+하나 또는 그 이상의 Azure 지역을 DocumentDB 데이터베이스 계정과 연결하여 데이터의 로컬 배포 또는 글로벌 배포를 선택할 수 있습니다. 언제든지 데이터베이스 계정에 지역을 추가하거나 제거할 수 있습니다. 포털을 사용하여 글로벌 배포를 사용 하려면 [Azure 포털을 사용하여 DocumentDB 전역 데이터베이스 복제를 수행하는 방법](documentdb-portal-global-replication.md)을 찾모하세요. 전역 배포를 프로그램 방식으로 사용하려면 [다중 하위 지역 DocumentDB 계정을 사용하여 개발](documentdb-developing-with-multiple-regions.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -70,21 +70,20 @@ DocumentDB는 P99에서 읽기 대기 시간이 10ms 미만이고 쓰기 대기 
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
-[developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
-[createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
-[manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
-[manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
-[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[throughputandstorage]: documentdb-manage.md
+[arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/regions/#services
+[serviceregions]: https://azure.microsoft.com/en-us/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-[sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
+[sqlqueries]: documentdb-sql-query.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

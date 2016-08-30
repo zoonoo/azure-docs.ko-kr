@@ -82,10 +82,10 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 ---------- | ------------
 계산 | 연결되지 않은 가상 컴퓨터 디스크
 계산 | 가상 컴퓨터 이미지
-네트워크 | 연결되지 않고 예약된 IP(VM에 연결되지 않은 경우) VM에 연결되어 있고 예약된 IP는 지원됩니다.
-네트워크 | 연결되지 않은 네트워크 보안 그룹(가상 네트워크 또는 네트워크 인터페이스에 연결되지 않은 경우). 가상 네트워크에서 참조되는 NSG는 지원됩니다.
 네트워크 | 끝점 ACL.
-네트워크 | 가상 네트워크 게이트웨이(사이트 간, Azure Express 경로, 지점 및 사이트 간)
+네트워크 | 가상 네트워크 게이트웨이(사이트 간, Azure Express 경로, 응용 프로그램 게이트웨이, 지점 및 사이트 간)
+네트워크 | VNet 피어링을 사용하는 가상 네트워크 (VNet을 AMR으로, 다시 피어로 마이그레이션) [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)에 대해 자세히 알아봅니다.
+네트워크 | 트래픽 관리자 프로필
 
 ### 지원되지 않는 구성
 
@@ -167,7 +167,7 @@ Microsoft Dynamics Lifecycle Services | Dynamics Lifecycle Services에서 관리
 
 유효성 검사를 마친 후 마이그레이션을 커밋할 수 있습니다. 리소스는 클래식에 더 이상 표시되지 않으며 Resource Manager 배포 모델에서만 사용할 수 있습니다. 즉, 새 포털에서는 마이그레이션된 리소스만 관리할 수 있습니다.
 
->[AZURE.NOTE] 이 작업은 멱등원 작업입니다. 실패할 경우 이 작업을 몇 번 더 시도하는 것이 좋습니다. 계속 실패할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그를 사용하여 포럼 게시물을 작성할 수 있습니다.
+>[AZURE.NOTE] 이 작업은 멱등원 작업입니다. 실패할 경우 이 작업을 몇 번 더 시도하는 것이 좋습니다. 계속 실패할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그를 사용하여 포럼 게시물을 작성할 수 있습니다.
 
 ## 질문과 대답
 
@@ -193,7 +193,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **커밋 작업이 실패한 경우 마이그레이션을 롤백할 수 있나요?**
 
-커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그로 포럼 게시물을 작성할 수 있습니다.
+커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그로 포럼 게시물을 작성할 수 있습니다.
 
 **Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요?**
 
@@ -217,7 +217,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **문제를 보고하려면 어떻게 해야 하나요?**
 
-키워드 ClassicIaaSMigration을 사용하여 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=WAVirtualMachinesforWindows)에 마이그레이션에 대한 문제와 질문을 게시하세요. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
+키워드 ClassicIaaSMigration을 사용하여 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)에 마이그레이션에 대한 문제와 질문을 게시하세요. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
 
 **마이그레이션 중 플랫폼이 선택한 리소스 이름이 마음에 들지 않으면 어떻게 하나요?**
 
@@ -235,4 +235,4 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 - [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->
