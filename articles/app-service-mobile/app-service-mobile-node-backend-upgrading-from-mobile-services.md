@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="adrianha"/>
 
 # 기존 Node.js Azure 모바일 서비스를 앱 서비스로 업그레이드
@@ -100,7 +100,7 @@ ZIP 형식의 스크립트를 다운로드합니다. 로컬 컴퓨터에 새 디
 
 1. [Azure 포털]에서 로그인합니다.
 
-2. **+ 새로 만들기** > **웹 + 모바일** > **모바일 앱**을 클릭한 다음 모바일 앱 백 엔드에 대한 이름을 제공합니다.
+2. **+ 새로 만들기** > **웹 + 모바일** > **모바일 앱**을 클릭한 다음 모바일 앱 백엔드에 대한 이름을 제공합니다.
 
 3. **리소스 그룹**에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다(앱과 같은 이름을 사용하여).
  
@@ -162,24 +162,24 @@ Azure 모바일 앱을 사용하면 서비스 내에서 Azure Active Directory, 
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /ko-KR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /ko-KR/documentation/services/scheduler/
+[Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [인증 개념]: ../app-service/app-service-authentication-overview.md
 [인증 빠른 시작]: app-service-mobile-auth.md
 
 [Azure 포털]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/ko-KR/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
@@ -187,8 +187,8 @@ Azure 모바일 앱을 사용하면 서비스 내에서 Azure Active Directory, 
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/ko-KR/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

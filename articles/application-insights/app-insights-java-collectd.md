@@ -40,12 +40,12 @@ Unix 시스템 성능 메트릭을[Application Insights](app-insights-overview.m
 사용자 Unix 서버 컴퓨터:
 
 1. [collectd](http://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
-2. [Application Insights collectd 기록기 플러그 인](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)을 다운로드합니다. 버전 번호를 메모합니다.
+2. [Application Insights collectd 기록기 플러그 인](https://aka.ms/aijavasdk)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 3. 편집`/etc/collectd/collectd.conf`:
  * [Java 플러그인](https://collectd.org/wiki/index.php/Plugin:Java)사용하도록 설정 합니다.
  * 다음 JAR을 포함하는 java.class.path에 대한 JVMArg를 업데이트합니다. 다운로드 한 것과 일치하는 버전 번호를 업데이트합니다.
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * 리소스에서 계측 키를 사용하여 이 코드 조각을 추가합니다.
 
 ```
@@ -71,7 +71,7 @@ Unix 시스템 성능 메트릭을[Application Insights](app-insights-overview.m
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
 특정 플로그인 또는 데이터 소스의 데이터를 제외하려면:
 
-* 구성 파일을 편집합니다. 
+* 구성 파일을 편집합니다.
 * `<Plugin ApplicationInsightsWriter>`에서 다음과 같은 지시문 줄을 추가 합니다.
 
 지시문 | 결과
@@ -143,4 +143,4 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -368,7 +368,7 @@ SensorTag 장치의 MAC 주소와 IoT Hub에 추가된 **SensorTag\_01** 장치�
 
 ## 클라우드-장치 메시지 보내기
 
-또한 BLE 모듈은 Azure IoT Hub에서 장치로 명령을 보내도록 지원합니다. [Azure IoT Hub 장치 탐색기](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [IoT Hub 탐색기]https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer)를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다. 예를 들어 Texas Instruments SensorTag 장치를 사용하는 경우 다음 JSON 메시지를 IoT Hub에서 장치에 보낼 수 있습니다.
+또한 BLE 모듈은 Azure IoT Hub에서 장치로 명령을 보내도록 지원합니다. [Azure IoT Hub 장치 탐색기](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [IoT Hub 탐색기](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer)를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다. 예를 들어 Texas Instruments SensorTag 장치를 사용하는 경우 다음 JSON 메시지를 IoT Hub에서 장치에 보낼 수 있습니다.
 
 - 모든 표시등 및 버저 다시 설정(해제)
 
@@ -458,4 +458,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,15 +15,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# 첫 번째 Azure Function 만들기
+#첫 번째 Azure Function 만들기
 
 ##개요
 Azure 기능은 기타 Azure 서비스, SaaS 제품 및 온-프레미스 시스템에서 발생하는 이벤트로 트리거되는 코드를 구현하는 기능과 함께 기존 Azure 응용 프로그램 플랫폼을 확장하는 이벤트 기반의 주문형 계산 환경입니다. Azure 기능으로 응용 프로그램은 요구에 따라 확장하고 사용한 리소스에 대해서만 비용을 지불합니다. Azure Functions를 통해 다양한 프로그래밍 언어로 구현된 예약되거나 트리거된 코드 단위를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
-이 항목에서는 Azure Functions 포털에서 HTTP 트리거에서 호출되는 간단한 "hello world" Node.js 함수를 만들기 위해 Azure Functions 빠른 시작을 사용하는 방법을 보여 줍니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
+이 항목에서는 Azure Functions 포털에서 Azure Functions 빠른 시작을 사용하여 HTTP 트리거에서 호출되는 간단한 "hello world" Node.js 함수를 만드는 방법을 보여 줍니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
 
 ## 비디오 보기
 
@@ -59,9 +59,9 @@ Azure Functions 빠른 시작에는 함수 코드가 포함되어 새 함수를 
 
 + [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-+ [Azure Functions를 확장하는 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다. 
-+ [Azure 앱 서비스 정의](../app-service/app-service-value-prop-what-is.md) Azure Functions는 배포, 환경 변수 및 진단과 같은 핵심 기능을 위해 Azure 앱 서비스 플랫폼을 활용합니다. 
++ [Azure Functions를 확장하는 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.
++ [Azure 앱 서비스 정의](../app-service/app-service-value-prop-what-is.md) Azure Functions는 배포, 환경 변수 및 진단과 같은 핵심 기능을 위해 Azure 앱 서비스 플랫폼을 활용합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

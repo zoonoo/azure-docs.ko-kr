@@ -44,7 +44,7 @@
 - [앱 서비스](#app-service-limits)
 - [Application Insights](#application-insights-limits)
 - [자동화](#automation-limits)
-- [Azure Redis 캐시 (영문) ](#azure-redis-cache-limits)
+- [Azure Redis 캐시](#azure-redis-cache-limits) (영문)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [백업](#backup-limits)
 - [배치](#batch-limits)
@@ -303,4 +303,5 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0803_2016-->
+

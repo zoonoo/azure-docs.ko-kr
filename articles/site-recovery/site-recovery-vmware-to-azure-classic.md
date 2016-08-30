@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/12/2016"
 	ms.author="raynew"/>
 
 # Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제
@@ -62,6 +62,20 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - 온-프레미스 인프라에서 Azure로 손쉽게 장애 조치(Failover)를 실행하고 Azure에서 온-프레미스 사이트의 VMware VM 서버로 장애 복구(failback)(복원)를 수행합니다.
 - 여러 컴퓨터에 계층화된 응용 프로그램 워크로드를 함께 그룹화하는 복구 계획을 구현합니다. 이러한 계획을 장애 조치(Failover)할 수 있으며 사이트 복구는 동일한 워크로드를 실행하는 컴퓨터를 일관적 데이터 지점으로 함께 복구할 수 있도록 여러 VM 일관성을 제공합니다.
 
+
+## 지원되는 운영 체제
+
+### Windows(64비트만 해당)
+- Windows Server 2008 R2 SP1+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### Linux(64비트만 해당)
+- Red Hat Enterprise Linux 6.7, 7.1, 7.2
+- CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
+- Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5
+- SUSE Linux Enterprise Server 11 SP3
+
 ## 시나리오 아키텍처
 
 시나리오 구성 요소:
@@ -69,8 +83,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - **온-프레미스 관리 서버**: 사이트 복구 구성 요소를 실행하는 관리 서버:
 	- **구성 서버**: 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리합니다.
 	- **프로세스 서버**:복제 게이트웨이 역할을 합니다. 보호된 원본 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다. 또한 보호되는 컴퓨터에서 모바일 서비스의 푸시 설치를 처리하며 VMware VM의 자동 복구를 수행합니다.
-	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다.
-	또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
+	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다. 또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
 - **모바일 서비스**: 이 구성 요소는 Azure에 복제하고자 하는 각 컴퓨터(VMware VM 또는 물리적 서버)에 배포됩니다. 컴퓨터에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다.
 - **Azure**: 복제 및 장애 조치(Failover)를 처리하기 위해 어떤 Azure VM도 만들 필요가 없습니다. 사이트 복구 서비스가 데이터 관리를 처리하고 Azure 저장소로 데이터가 직접 복제됩니다. 복제된 Azure VM은 Azure로 장애 조치가 발생한 경우에만 자동으로 작동됩니다. 그러나 Azure에서 온-프레미스 사이트로 장애 복구(failback)하려는 경우 Azure VM이 프로세스 서버 역할을 하도록 설정해야 합니다.
 
@@ -189,8 +202,8 @@ Azure Site Recovery에서 복제에 사용되는 대역폭을 늘리려면 레�
 **필수 요소** | **세부 정보**
 --- | ---
 **Azure 계정**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
-**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 Site Recovery와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정에 대한 복제는 현재 지원되지 않으며 사용하면 안 됩니다.<br/><br/> 리소스 그룹 간에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동은 지원하지 않습니다. [Azure 저장소](../storage/storage-introduction.md)를 참조하세요.<br/><br/>
-**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 Site Recovery 자격 증명 모음과 같은 하위 지역에 있어야 합니다.<br/><br/>Azure로 장애 조치(failover) 후 장애 복구(failback)하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다.
+**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정에 대한 복제는 현재 지원되지 않으며 사용하면 안 됩니다.<br/><br/> 리소스 그룹 간에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동은 지원하지 않습니다. [Azure storage](../storage/storage-introduction.md)를 참조하세요.<br/><br/>
+**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 같은 하위 지역에 있어야 합니다.<br/><br/>Azure로 장애 조치(failover) 후 장애 복구(failback)하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다.
 
 
 ### 온-프레미스 필수 조건
@@ -325,8 +338,7 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 	![요약](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 
->[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 
-설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
+>[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
@@ -557,7 +569,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 - VMware VM은 15분마다 검색되며 검색 후 사이트 복구에 표시될 때까지 최대 15분이 소요될 수 있습니다.
 - 사이트 복구에서 가상 컴퓨터의 환경 변경 사항(예: VMware 도구 설치)이 업데이트되는 데 최대 15분이 소요될 수 있습니다.
 - **구성 서버** 탭에서 vCenter Server/ESXi 호스트에 대한 **마지막 연락** 필드에서 VMware VM이 마지막으로 검색된 시간을 확인할 수 있습니다.
-- 이미 보호 그룹이 생성된 다음 vCenter Server 또는 ESXi 호스트를 추가할 경우 Azure Site Recovery 포털이 새로 고쳐지고 가상 컴퓨터가 **보호 그룹에 컴퓨터 추가** 대화 상자에 나열될 때까지 15분을 초과할 수도 있습니다.
+- 보호 그룹을 이미 만든 다음 vCenter Server 또는 ESXi 호스트를 추가할 경우 Azure Site Recovery 포털이 새로 고쳐지고 가상 컴퓨터가 **보호 그룹에 컴퓨터 추가** 대화 상자에 나열될 때까지 15분을 초과할 수도 있습니다.
 - 보호 그룹에 컴퓨터를 추가한 다음 예약된 검색을 기다리지 않고 즉시 계속하려면 구성 서버를 강조 표시하고(클릭하지 마세요) **새로 고침** 단추를 클릭합니다.
 
 또한 다음 사항에 유의하세요.
@@ -653,7 +665,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 
 - 장애 조치(Failover) 후에 Azure에서 복제본 가상 컴퓨터에 연결하려면 원본 컴퓨터에서 원격 데스크톱 연결을 사용하도록 설정하고 나서 장애 조치를 실행하고 방화벽을 통한 RDP 연결을 허용합니다. 또한 장애 조치 후 Azure 가상 컴퓨터의 공용 끝점에서 RDP를 허용해야 합니다. [모범 사례](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)에 따라 장애 조치(failover) 후 해당 RDP가 작동하는지 확인해야 합니다.
 
->[AZURE.NOTE] Azure에 장애 조치(failover)를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치해야 합니다. 더 빨리 부팅하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있으며 Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
+>[AZURE.NOTE] Azure에 장애 조치(failover)를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치해야 합니다. 더 빨리 부팅하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있습니다. Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
 
 ### 테스트 장애 조치(Failover) 실행
 
@@ -784,4 +796,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

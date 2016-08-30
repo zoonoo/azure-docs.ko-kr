@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java에서 Azure 미디어 서비스를 사용하는 방법" 
+	pageTitle="Java를 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure" 
 	description="Azure 미디어 서비스를 사용하여 리소스 인코딩, 암호화, 스트리밍 등의 일반적인 작업을 수행하는 방법에 대해 설명합니다." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#Java에서 미디어 서비스 사용 방법
+# Java를 사용한 주문형 콘텐츠 제공 시작
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -31,7 +31,7 @@
 ###필수 조건
 
 -   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
--   [Azure Java 개발자 센터][](영문)에서 설치할 수 있는 Java용 Azure 라이브러리
+-   [Azure Java 개발자 센터][] \(영문)에서 설치할 수 있는 Java용 Azure 라이브러리
 
 ##방법: Java에서 미디어 서비스 사용
 
@@ -39,7 +39,7 @@
 
 이 코드를 사용하려면 미디어 서비스 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
 
-`clientId` 및 `clientSecret` 변수를 원하는 값으로 바꿉니다. 또한 이 코드는 로컬에 저장된 파일을 사용합니다. 사용할 자체 파일을 제공해야 합니다.
+'clientId' 및 'clientSecret' 변수의 값을 바꿉니다. 또한 이 코드는 로컬에 저장된 파일을 사용합니다. 사용할 자체 파일을 제공해야 합니다.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -266,7 +266,7 @@
 
 ##추가 리소스
 
-미디어 서비스 Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][](영문)를 참조하세요.
+미디어 서비스 Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][]\(영문)를 참조하세요.
 
 <!-- URLs. -->
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

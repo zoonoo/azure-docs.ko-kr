@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="08/17/2016"
    ms.author="tiandert; bwren" />
 
 # Azure 자동화 시나리오 - AWS 가상 컴퓨터 프로비전 
@@ -33,7 +33,7 @@ Microsoft의 VM 프로비전 Runbook은 AWS PowerShell 모듈을 활용하여 �
 2. Azure 로그인 페이지가 열리고 인증되면 Azure 포털로 이동하여 다음 블레이드가 표시됩니다.<br> ![모듈 가져오기 블레이드](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 
 3. **리소스 그룹** 드롭다운 목록 및 매개 변수 블레이드에서 리소스 그룹을 선택하고 다음 정보를 제공합니다.
-   * **새 또는 기존 자동화 계정(문자열)** 드롭다운 목록에서 **기존**을 선택합니다.  
+   * **새 또는 기존 자동화 계정(문자열)** 드롭다운 목록에서 **기존**을 선택합니다.
    * **자동화 계정 이름(문자열)** 상자에 AWS 구독에 대한 자격 증명을 포함하는 자동화 계정의 정확한 이름을 입력합니다. 예를 들어 **AWSAutomation**이라는 전용 계정을 만들었으면 해당 이름을 상자에 입력합니다.
    * **자동화 계정 위치** 드롭다운 목록에서 해당 지역을 선택합니다.
 
@@ -56,7 +56,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
    Save-Script -Name New-AwsVM -Path <path>
    ```
 <br>
-2. Azure 포털에서 자동화 계정을 열고 **Runbook** 타일을 클릭합니다.  
+2. Azure 포털에서 자동화 계정을 열고 **Runbook** 타일을 클릭합니다.
 3. **Runbook** 블레이드에서 **Runbook 추가**를 선택합니다.
 4. **Runbook 추가** 블레이드에서 **빨리 만들기**(새 Runbook 만들기)를 선택합니다.
 5. **Runbook** 속성 블레이드에서 Runbook의 이름 상자에 이름을 입력하고 **Runbook 유형** 드롭다운 목록에서 **PowerShell**을 선택하고 **만들기**를 클릭합니다.<br> ![모듈 가져오기 블레이드](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
@@ -65,7 +65,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
     >[AZURE.NOTE] 예제 PowerShell 스크립트 작업을 할 때는 다음 사항에 주의하세요.
     >
     > - Runbook에는 많은 기본 매개 변수 값이 포함되어 있습니다. 모든 기본 값을 평가하고 필요한 경우 업데이트하세요.
-    > - AWS 자격 증명을 **AWScred**와 다른 이름의 자격 증명 자산으로 저장한 경우 이에 맞게 스크립트의 57번째 줄을 업데이트해야 합니다.  
+    > - AWS 자격 증명을 **AWScred**와 다른 이름의 자격 증명 자산으로 저장한 경우 이에 맞게 스크립트의 57번째 줄을 업데이트해야 합니다.
     > - PowerShell에서 AWS CLI 명령을 사용하여 작업할 때 특히 이 예제 Runbook에서는 AWS 영역을 지정해야 합니다. 그러지 않으면 cmdlet이 실패합니다. 자세한 내용은 PowerShell용 AWS 도구 설명서의 AWS 항목 [AWS 영역 지정](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html)을 참조하세요. <br>
 7. AWS 구독에서 이미지 이름 목록을 검색하려면 PowerShell ISE를 시작하고 AWS PowerShell 모듈을 가져옵니다. ISE 환경의 **Get-AutomationPSCredential**을 **AWScred = Get-credential**로 바꿔서 AWS에 대해 인증합니다. 자격 증명을 요청하는 메시지가 표시되면 암호로 **액세스 키 ID** 및 **보안 액세스 키**를 입력하면 됩니다. 아래 예제를 참조하세요.
 
@@ -82,7 +82,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 		Set-DefaultAWSRegion -Region $AwsRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
-다음과 같은 출력이 반환됩니다. <br> ![AWS 이미지 가져오기](./media/automation-scenario-aws-deployment/powershell-ise-output.png)  
+   다음과 같은 출력이 반환됩니다. <br> ![AWS 이미지 가져오기](./media/automation-scenario-aws-deployment/powershell-ise-output.png)
 8. 이미지 이름 중 하나를 복사하여 Runbook에서 **$InstanceType**으로 참조되는 자동화 변수에 붙여넣습니다. 이 예제에서는 무료 AWS 계층화된 구독을 사용하므로 Runbook 예제에 대해 **t2.micro**를 사용합니다.
 9. Runbook을 저장하고 **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 
@@ -90,7 +90,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 ### AWS VM Runbook 테스트
 Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-   -  AWS에 대해 인증하기 위한 **AWScred**라는 이름의 자산을 만들거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.  
+   -  AWS에 대해 인증하기 위한 **AWScred**라는 이름의 자산을 만들거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.
    -  Azure 자동화에서 AWS PowerShell 모듈을 가져왔습니다.
    -  새 Runbook을 만든 후 매개 변수 값을 확인하고 필요한 경우 업데이트했습니다.
    -  Runbook **로깅 및 추적** 설정 아래에서 **상세 레코드 기록** 및 **진행률 레코드 기록**(옵션)을 **사용**으로 설정했습니다.<br> ![Runbook 로깅 및 추적](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
@@ -107,4 +107,4 @@ Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합�
 -	Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 -	PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

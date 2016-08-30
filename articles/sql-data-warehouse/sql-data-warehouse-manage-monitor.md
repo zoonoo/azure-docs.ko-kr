@@ -147,7 +147,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다. 쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## 다음 단계
-DMV(Dynamic Management Views)에 대한 자세한 내용은 [시스템 뷰][]를 참조하세요. SQL 데이터 웨어하우스 관리에 대한 팁은 [관리 개요][]를 참조하세요. 모범 사례는 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
+DMV(Dynamic Management Views)에 대한 자세한 내용은 [시스템 뷰][]를 참조하세요.  
+SQL 데이터 웨어하우스 관리에 대한 팁은 [관리 개요][]를 참조하세요.  
+모범 사례는 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
 
 <!--Image references-->
 

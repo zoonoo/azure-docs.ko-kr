@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 8100 장치 개봉, 랙 탑재, 케이블 연결
@@ -291,4 +291,4 @@ StorSimple 장치는 올바른 작동을 위해 랙을 탑재해야 합니다.
 
 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

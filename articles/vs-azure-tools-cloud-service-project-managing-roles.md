@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 클라우드 서비스 프로젝트에서 역할 관리
@@ -31,9 +31,9 @@ Azure 클라우드 서비스 프로젝트를 만든 후 새 역할을 추가하�
 
 ## 클라우드 서비스에서 역할을 추가 및 제거
 
-클라우드 서비스 프로젝트에서 역할을 제거 하지만 나중에 프로젝트에 역할을 추가 하려면 기본 끝점 및 진단 정보 등의역할 선언과 기본 특성이 추가 됩니다. 어떠한 참조 또는 레퍼런스도 ServiceDefinition.csdef 파일 또는 ServiceConfiguration.cscfg 파일에 추가 되지 않습니다. 이 정보를 추가하려면 이러한 파일에 수동으로 다시 추가해야 합니다.
+클라우드 서비스 프로젝트에서 역할을 제거하지만 나중에 프로젝트에 역할을 추가하려면 기본 끝점 및 진단 정보 등의 역할 선언과 기본 특성이 추가됩니다. 어떠한 참조 또는 레퍼런스도 ServiceDefinition.csdef 파일 또는 ServiceConfiguration.cscfg 파일에 추가되지 않습니다. 이 정보를 추가하려면 이러한 파일에 수동으로 다시 추가해야 합니다.
 
-예를 들어, 웹 서비스 역할을 제거하고 이 솔루션에 다시 이 역할을 추가하도록 나중에 결정할 수 있습니다. 이 작업을 수행 하는 경우 오류가 발생합니다. 이 오류를 방지하려면 다음 XML에 표시된 `<LocalResources>` 요소를 ServiceDefinition.csdef 파일에 다시 추가해야 합니다. 프로젝트에 다시 추가한 웹 서비스 역할의 이름을 **<LocalStorage>** 요소에 대한 이름 특성의 일부로 사용합니다. 이 예제에서 웹 서비스 역할의 이름은 **WCFServiceWebRole1**입니다.
+예를 들어, 웹 서비스 역할을 제거하고 이 솔루션에 다시 이 역할을 추가하도록 나중에 결정할 수 있습니다. 이 작업을 수행하는 경우 오류가 발생합니다. 이 오류를 방지하려면 다음 XML에 표시된 `<LocalResources>` 요소를 ServiceDefinition.csdef 파일에 다시 추가해야 합니다. 프로젝트에 다시 추가한 웹 서비스 역할의 이름을 **<LocalStorage>** 요소에 대한 이름 특성의 일부로 사용합니다. 이 예제에서 웹 서비스 역할의 이름은 **WCFServiceWebRole1**입니다.
 
 	<WebRole name="WCFServiceWebRole1">
 	    <Sites>
@@ -58,4 +58,4 @@ Azure 클라우드 서비스 프로젝트를 만든 후 새 역할을 추가하�
 
 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성](vs-azure-tools-configure-roles-for-cloud-service.md)을 읽고 Visual Studio에서 역할을 구성하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

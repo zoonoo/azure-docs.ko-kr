@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="02/19/2016"
+   ms.date="08/16/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # 클라우드 크루저 및 Microsoft Azure 청구 API 통합
@@ -54,7 +54,7 @@ RateCard API는 Azure에서 환율 정보를 제공합니다. 적절한 자격 �
 
 클라우드 크루저 워크북은 RateCard API에서 정보를 수집하고 처리하는 자동화된 방법을 제공합니다. ETL(추출-변환-로드) 워크북을 사용하면 클라우드 크루저 데이터베이스에서 데이터를 수집, 변환 및 게시하도록 구성할 수 있습니다.
 
-각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 다음 두 개의 스크린샷은, 기존 워크북에서 새 *컬렉션*을 만들고 RateCard API에서 *컬렉션*에 대한 정보를 가져오는 것을 보여줍니다.
+각 워크북은 하나 또는 여러 컬렉션을 가질 수 있습니다. 이를 사용하여 사용 데이터를 보완하거나 보강할 다른 소스에서 정보를 상호 연결할 수 있습니다. 다음 두 개의 스크린샷은, 기존 워크북에서 새 *컬렉션*을 만들고 RateCard API에서 *컬렉션*에 대한 정보를 가져오는 방법을 보여 줍니다.
 
 ![그림 1-새 컬렉션 만들기][1]
 
@@ -237,4 +237,4 @@ _UsageAPI_ 시트에서 사용량 API의 정보를 추출하여 처리하고, _P
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "그림 13 - 태그 정보에 대한 새 필드 만들기"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "그림 14 - 조회 정보로 계정 구조 채우기"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

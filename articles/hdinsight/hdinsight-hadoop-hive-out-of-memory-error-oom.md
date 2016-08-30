@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="05/18/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Azure HDInsight의 Hadoop에서 Hive 메모리 설정으로 OOM(메모리 부족) 오류 수정
 
@@ -122,4 +122,4 @@ D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 �
 
 OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

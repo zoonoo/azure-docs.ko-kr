@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -31,7 +31,7 @@
 ## 필수 조건
 1.	Twitter 계정 및 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	Microsoft 다운로드 센터의 [TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
-3.	선택 사항: twitter 클라이언트의 소스 코드([Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient))
+3.	선택 사항: twitter 클라이언트의 소스 코드([Github](https://aka.ms/azure-stream-analytics-twitterclient))
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -224,7 +224,7 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 ![소셜 미디어 분석: Power BI 대시보드에 정서 분석(의견 마이닝) 출력을 스트림 분석합니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -236,4 +236,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

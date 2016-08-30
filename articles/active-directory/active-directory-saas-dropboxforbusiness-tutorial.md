@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Dropbox for Business와 Azure Active Directory 통합
@@ -104,7 +104,7 @@
 
 	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Single Sign-On 구성")
 
-	f. Azure 클래식 포털의 **DropBox for business 로그인** URL 텍스트 상자에 URL을 붙여넣습니다.
+	f. Azure 클래식 포털의 **DropBox for business 로그인** URL 텍스트 상자에 URL을 붙여 넣습니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Single Sign-On 구성")
 
@@ -121,18 +121,18 @@
 
 	a. **필수**를 클릭합니다.
 
-	b. Azure 클래식 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여넣습니다.
+	b. Azure 클래식 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여 넣습니다.
 
 
 	c. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
-	> [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+	> [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
 	d. **인증서 선택** 단추를 클릭한 다음 **base-64로 인코드된 인증서 파일**을 업로드합니다.
 
 
-	e. **변경 내용 저장** 단추를 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
+	e. **”변경 내용 저장”** 단추를 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -141,7 +141,7 @@
 
 
 
-##사용자 프로비저닝 구성
+##사용자 프로비전 구성
   
 이 섹션에서는 Dropbox for Business에 Active Directory 사용자 계정을 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명합니다.
 
@@ -203,8 +203,8 @@
 ![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "사용자 할당")
 
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
@@ -214,4 +214,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

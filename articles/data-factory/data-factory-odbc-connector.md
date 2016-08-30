@@ -31,13 +31,19 @@
 
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshoot-gateway-issues)을 참조하세요.
 
+## 데이터 복사 마법사
+ODBC 원본에서 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 ODBC 원본에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+
+
 ## 샘플: ODBC 데이터 저장소에서 Azure Blob로 데이터 복사
 
-이 샘플은 ODBC에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+이 샘플은 ODBC에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
  
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
-1.	[OnPremisesOdbc](#odbc-linked-service-properties) 형식의 연결된 서비스
+1.	[OnPremisesOdbc](#odbc-linked-service-properties) 형식의 연결된 서비스입니다.
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
 3.	[RelationalTable](#odbc-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
@@ -223,7 +229,7 @@
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- | 
-| type | 형식 속성은 **OnPremisesOdbc**로 설정되어야 합니다. | 예 |
+| type | 형식 속성은 다음으로 설정해야 함: **OnPremisesOdbc** | 예 |
 | connectionString | 선택적 암호화된 자격 증명 뿐만 아니라 연결 문자열의 비 액세스 자격 증명 부분입니다. 아래 예제를 참조하세요. | 예
 | 자격 증명 | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | 아니요
 | authenticationType | ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. | 예 | 
@@ -320,7 +326,7 @@
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식 매핑](https://msdn.microsoft.com/library/cc668763.aspx) 항목에서 설명된 대로 ODBC 데이터 형식은 .NET 형식에 매핑됩니다.
+ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식 매핑](https://msdn.microsoft.com/library/cc668763.aspx) 토픽에서 설명된 대로 ODBC 데이터 형식은 .NET 형식에 매핑됩니다.
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
@@ -368,4 +374,4 @@ Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 게�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

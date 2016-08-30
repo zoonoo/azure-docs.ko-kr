@@ -2,6 +2,7 @@
 	pageTitle="Azure Government 개발자 가이드" 
 	description="Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다." 
 	services="" 
+	cloud="gov"
 	documentationCenter="" 
 	authors="Joharve2" 
 	manager="Chrisnie" 
@@ -92,8 +93,8 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 일반|*.windows.net|*.usgovcloudapi.net
 코어|*.core.windows.net|*.core.usgovcloudapi.net
 계산|*.cloudapp.net|*.usgovcloudapp.net
-Blob 저장소|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
-Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Blob 저장소|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
+큐 저장소|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 테이블 저장소|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 서비스 관리|management.core.windows.net|management.core.usgovcloudapi.net
 SQL 데이터베이스|*.database.windows.net|*.database.usgovcloudapi.net
@@ -129,4 +130,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="08/16/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Azure SQL 데이터 웨어하우스의 데이터베이스 관리
@@ -46,7 +46,7 @@ Visual Studio의 [SSDT(SQL Server Data Tools)][]를 사용하여 데이터베이
 
 SSDT에는 SQL 데이터 웨어하우스 데이터베이스에 대해 스크립트를 시각화, 연결 및 실행할 수 있게 해주는 SQL 서버 탐색기가 포함됩니다. SQL 데이터 웨어하우스에 빠르게 연결하려면 Azure 클래식 포털에서 데이터베이스 세부 정보를 볼 때 명령 모음에서 **Visual Studio에서 열기** 단추를 클릭하기만 하면 됩니다.
 
-Visual Studio에서 SSDT를 시작하려면 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결][]을 참조하세요.
+Visual Studio에서 SSDT를 시작하려면 [Visual Studio로 Azure SQL 데이터 웨어하우스 쿼리][]를 참조하세요.
 
 ### 명령줄 도구
 명령줄은 워크로드 자동화에 적합합니다. PowerShell 및 sqlcmd는 프로세스를 자동화하는 데 적합한 두 가지 방법입니다. 이들 도구는 필수 작업을 스크립트 및 자동화할 수 있는 프로덕션 환경에서 많은 수의 논리 서버를 관리하고 리소스 변경 사항을 배포할 때 권장합니다.
@@ -100,7 +100,7 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 [SQL 데이터 웨어하우스 만들기(Azure 포털)]: sql-data-warehouse-get-started-provision.md
 [데이터베이스 만들기(PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
-[Visual Studio로 Azure SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-get-started-connect.md
+[Visual Studio로 Azure SQL 데이터 웨어하우스 쿼리]: sql-data-warehouse-query-visual-studio.md
 [sqlcmd를 사용하여 연결 및 쿼리]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [개발 개요]: sql-data-warehouse-overview-develop.md
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
@@ -118,4 +118,4 @@ DWU 확장에 대한 자세한 내용은 [성능 조정][]을 참조하세요.
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

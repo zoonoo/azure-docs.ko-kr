@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/28/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 디스크 드라이브 교체
@@ -35,7 +35,7 @@
 
 #### 조작 방지 잠금을 해제하려면
 
-1. 핸들의 입구와 해당 소켓에 잠금 키(Microsoft에서 제공한 "조작 방지" T10 드라이버)를 조심해서 삽입합니다. 
+1. 핸들의 입구와 해당 소켓에 잠금 키(Microsoft에서 제공한 "조작 방지" T10 드라이버)를 조심해서 삽입합니다.
 
     >[AZURE.NOTE] 조작 방지 잠금이 활성화되면 입구에 빨간색 표시기가 표시됩니다.
 
@@ -124,4 +124,4 @@ StorSimple 장치에서 드라이브 오류가 발생하고 드라이브를 꺼�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

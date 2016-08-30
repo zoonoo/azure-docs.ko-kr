@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. 데이터를 새 테이블에 로드합니다.
 
-Azure blob 저장소에서 데이터를 로드하여 데이터베이스 내부의 테이블에 저장하려면 [CREATE TABLE AS SELECT][] \(CTAS) T-SQL 문을 사용합니다. CTAS와 함께 로드하면 방금 생성한 강력한 형식의 외부 테이블을 사용할 수 있습니다. 새 테이블에 데이터를 로드하려면 테이블당 하나의 [CTAS][] 문을 사용하세요.
+Azure Blob 저장소에서 데이터를 로드하여 데이터베이스 내부의 테이블에 저장하려면 [CREATE TABLE AS SELECT (Transact-SQL)][] 문을 사용합니다. CTAS와 함께 로드하면 방금 생성한 강력한 형식의 외부 테이블을 사용할 수 있습니다. 새 테이블에 데이터를 로드하려면 테이블당 하나의 [CTAS][] 문을 사용하세요.
 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -351,17 +351,18 @@ SQL 데이터 웨어하우스를 탐색해 보십시오.
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[columnstore 인덱스 관리]: ./sql-data-warehouse-tables-index.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[label]: ./sql-data-warehouse-develop-label.md
+[SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
+[columnstore 인덱스 관리]: sql-data-warehouse-tables-index.md
+[통계]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/ko-KR/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/ko-KR/library/dn935026.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
@@ -369,4 +370,4 @@ SQL 데이터 웨어하우스를 탐색해 보십시오.
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [전체 Contoso 소매 데이터 웨어하우스 로드하기]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

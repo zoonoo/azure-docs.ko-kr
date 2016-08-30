@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp 내부/외부로 데이터를 마이그레이션하는 방법
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 [사용자 데이터](remoteapp-upd.md)를 Azure RemoteApp 내부/외부로 전송하기 위해 여러 다양한 도구 및 방법을 사용할 수 있습니다. 몇 가지 방법은 다음과 같습니다.
 
@@ -55,4 +58,4 @@ RemoteApp에서 비즈니스용 OneDrive 동기화 에이전트를 사용하도�
 
 [드라이브 리디렉션](remoteapp-redirection.md)을 사용하도록 설정했으면 사용자에 대해 매핑된 드라이브를 이미 만들었을 것입니다. 이 경우 리디렉션된 드라이브에 파일을 zip으로 압축한 다음 로컬 PC에 저장할 수 있습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

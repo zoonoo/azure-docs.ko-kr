@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Visual Studio에서 웹 응용 프로그램용 가상 컴퓨터 만들기
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

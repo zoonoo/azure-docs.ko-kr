@@ -95,7 +95,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-: ./media/api-management-howto-create-or-invite-developers/.png
+[]: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 디자인 결정 및 코딩 기술
@@ -52,7 +52,7 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 
 <!--Article references-->
 [동시성]: ./sql-data-warehouse-develop-concurrency.md
-[연결]: ./sql-data-warehouse-develop-connections.md
+[연결]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [동적 SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
 [옵션으로 그룹화]: ./sql-data-warehouse-develop-group-by-options.md
@@ -75,4 +75,4 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

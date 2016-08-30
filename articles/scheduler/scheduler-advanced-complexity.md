@@ -145,36 +145,36 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 |**예제**|**설명**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|매일 오전 5시에 실행합니다. Azure 스케줄러는 "hours"의 각 값을 "minutes"의 각 값과 1:1로 짝을 맞춰 작업이 실행될 모든 시간의 목록을 만듭니다.|
-|<code>{"minutes":[15],"hours":[5]}</code>|매일 오전 5시 15분에 실행|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|매일 오전 5시 15분과 오후 5시 15분에 실행|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|매일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
+|<code>{"minutes":[15], "hours":[5]}</code>|매일 오전 5시 15분에 실행|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|매일 오전 5시 15분과 오후 5시 15분에 실행|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|매일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
 |<code>{"minutes":[0,15,30,45]}</code>|15분마다 실행|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|1시간마다 실행 이 작업은 매시간 실행됩니다. 분은 _startTime_이 지정된 경우 이를 통해 제어되며, 지정되지 않은 경우 생성 시간으로 제어됩니다. 예를 들어 시작 시간 또는 생성 시간(둘 중 해당하는 것)이 오후 12:25라면 작업은 00:25, 01:25, 02:25, …, 23:25에 실행됩니다. 이 일정은 작업의 _frequency_가 "hour"이고 _interval_은 1이며 _schedule_이 없는 것과 동일합니다. 차이점은 이 일정의 _frequency_와 _interval_을 다르게 하여 다른 작업을 만들 수 있다는 점입니다. 예를 들어 _frequency_가 "month"라면 _frequency_가 "day"일 때와 달리 일정은 한 달에 한 번만 실행됩니다.|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|1시간마다 실행 이 작업은 매시간 실행됩니다. 분은 _startTime_이 지정된 경우 이를 통해 제어되며, 지정되지 않은 경우 생성 시간으로 제어됩니다. 예를 들어 시작 시간 또는 생성 시간(둘 중 해당하는 것)이 오후 12:25라면 작업은 00:25, 01:25, 02:25, …, 23:25에 실행됩니다. 이 일정은 작업의 _frequency_가 "hour"이고 _interval_은 1이며 _schedule_이 없는 것과 동일합니다. 차이점은 이 일정의 _frequency_와 _interval_을 다르게 하여 다른 작업을 만들 수 있다는 점입니다. 예를 들어 _frequency_가 "month"라면 _frequency_가 "day"일 때와 달리 일정은 한 달에 한 번만 실행됩니다.|
 |<code>{minutes:[0]}</code>|매시간 정각에 실행합니다. 이 작업은 매시간, 정각(예: 오전 12시, 1시, 2시 등)에만 실행됩니다. 이는 frequency가 “hour”, startTime이 0분인 작업과 동일합니다. 하지만 frequency가 “day”, “week” 또는 “month”라면 각각 하루에 한 번, 일주일에 한 번, 한 달에 한 번만 실행됩니다.|
 |<code>{"minutes":[15]}</code>|매시간 15분에 실행됩니다. 오전 0시 15분, 1시 15분, 2시 15분 등으로 시작하여 오후 10시 15분, 11시 15분에 완료됩니다.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|매주 토요일 오후 5시에 실행|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시에 실행|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시 15분과 5시 45분에 실행|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시와 오후 5시에 실행|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|월요일부터 금요일까지 15분마다 실행|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|월요일부터 금요일까지 오전 9시에서 오후 4시 45분 사이에 15분마다 실행|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|매주 토요일 오후 5시에 실행|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시에 실행|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오후 5시 15분과 5시 45분에 실행|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시와 오후 5시에 실행|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|매주 월요일, 수요일, 금요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|월요일부터 금요일까지 15분마다 실행|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|월요일부터 금요일까지 오전 9시에서 오후 4시 45분 사이에 15분마다 실행|
 |<code>{"weekDays":["sunday"]}</code>|일요일 시작 시간에 실행|
 |<code>{"weekDays":["tuesday", "thursday"]}</code>|화요일과 목요일 시작 시간에 실행|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|매월 28일 오전 6시에 실행(빈도가 month라고 가정)|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|월의 마지막 날짜 오전 6시에 실행합니다. 월의 마지막 날짜에 작업을 실행하려면 28, 29, 30 또는 31 대신 -1을 사용하십시오.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|매월 1일과 말일의 오전 6시에 실행|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|매월 28일 오전 6시에 실행(빈도가 month라고 가정)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|월의 마지막 날짜 오전 6시에 실행합니다. 월의 마지막 날짜에 작업을 실행하려면 28, 29, 30 또는 31 대신 -1을 사용하십시오.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|매월 1일과 말일의 오전 6시에 실행|
 |<code>{monthDays":[1,-1]}</code>|매월 1일과 말일의 시작 시간에 실행|
 |<code>{monthDays":[1,14]}</code>|매월 1일과 14일의 시작 시간에 실행|
 |<code>{monthDays":[2]}</code>|매월 2일 시작 시간에 실행|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|매월 첫 번째 금요일 오전 5시에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|매월 첫 번째 금요일 시작 시간에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|매월 끝에서 세 번째 금요일 시작 시간에 실행|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 오전 5시 15분에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 시작 시간에 실행|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|매월 5번째 금요일 시작 시간에 실행됩니다. 5번째 금요일에만 실행되도록 설정되었으므로 5번째 금요일이 없는 달에는 실행되지 않습니다. 매월 마지막 금요일에 실행되도록 하려면 occurrence로 5대신 -1을 사용하면 됩니다.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|매월 마지막 금요일에 15분마다 실행|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|매월 첫 번째 금요일 오전 5시에 실행|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|매월 첫 번째 금요일 시작 시간에 실행|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|매월 끝에서 세 번째 금요일 시작 시간에 실행|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 오전 5시 15분에 실행|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|매월 첫 번째와 마지막 금요일 시작 시간에 실행|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|매월 5번째 금요일 시작 시간에 실행됩니다. 5번째 금요일에만 실행되도록 설정되었으므로 5번째 금요일이 없는 달에는 실행되지 않습니다. 매월 마지막 금요일에 실행되도록 하려면 occurrence로 5대신 -1을 사용하면 됩니다.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|매월 마지막 금요일에 15분마다 실행|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
 
 ## 참고 항목
 
@@ -197,4 +197,4 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

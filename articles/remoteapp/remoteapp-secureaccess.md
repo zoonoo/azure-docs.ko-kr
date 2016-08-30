@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp 등에 대한 액세스 보호
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 이 문서에서는 관리자가 Azure RemoteApp을 통해 최종 사용자를 시작하고 SQL 데이터베이스 또는 다른 응용 프로그램 백 엔드와 같은 보안 리소스로 끝나는 보안 액세스 채널을 설치할 수 있는 방법에 대해 간략하게 소개하겠습니다. 조건을 충족하는 인증된 사용자만이 원격 응용 프로그램에 액세스할 수 있도록 하고 안전한 백 엔드만이 다른 위치가 아닌 제어된 Azure RemoteApp 환경에서 액세스할 수 있도록 하는 것이 목표입니다.
 
@@ -110,4 +113,4 @@ Azure RemoteApp으로 VNet을 구성해야 하고 컬렉션의 만들기 과정�
 ## 전체 솔루션
 아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다. ![Azure RemoteApp 보호](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택했고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 생성합니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다. "2단계"에서 제어하는 VNet/VPN 구성을 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

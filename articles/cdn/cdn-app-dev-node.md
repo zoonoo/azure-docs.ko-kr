@@ -22,7 +22,7 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
 
-[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴볼 것입니다. 이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
+[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴봅니다. 이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
 이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다. 원하는 텍스트 편집기를 사용하여 Node.js 응용 프로그램을 만들 수 있습니다. 이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.
 
@@ -38,7 +38,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 	
 	npm init
 	
-그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다. **진입점**의 경우 이 자습서에서는 *app.js*를 사용합니다. 아래 예제에서는 다른 선택 항목을 볼 수 있습니다.
+그런 다음 프로젝트를 초기화하는 일련의 질문이 나타납니다. **진입점**의 경우 이 자습서에서는 *app.js*를 사용합니다. 다음 예제에서 다른 선택 항목을 볼 수 있습니다.
 
 ![NPM init 출력](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -47,7 +47,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-패키지 설치가 완료된 후에 *package.json* 파일은 다음과 유사하게 표시됩니다(버전 번호가 달라질 수 있음).
+패키지 설치가 완료된 후에 *package.json* 파일은 이 예제와 유사하게 표시됨(버전 번호가 달라질 수 있음):
 
 ``` json
 {
@@ -103,7 +103,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 	
 	개별 사용자 인증을 사용한다면 다음 두 줄은 약간 다르게 표시됩니다.
 
-	>[AZURE.IMPORTANT] 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요. 주의하여 개별 사용자 자격 증명을 보호하고 보안 상태를 유지합니다.
+	>[AZURE.IMPORTANT] 서비스 주체가 아닌 개별 사용자 인증을 사용할 경우에만 다음 코드 샘플을 사용하세요. 개별 사용자 자격 증명을 보호하고 보안 상태를 유지하도록 주의합니다.
 
 	``` javascript
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
@@ -117,7 +117,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 4.  Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다. 적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -213,7 +213,7 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 ## CDN 프로필 및 끝점 목록화하기
 
-기존 프로필 및 끝점을 나열하는 코드부터 살펴 보겠습니다. 어떤 매개 변수가 어디에 위치하는지 알 수 있도록 예상되는 구문을 포함한 코드 주석을 제공합니다.
+기존 프로필 및 끝점을 나열하는 코드부터 살펴 보겠습니다. 나의 코드 주석이 각 매개 변수가 이동할 위치를 알 수 있도록 예상되는 구문을 제공합니다.
 
 ```javascript
 // list profiles
@@ -367,4 +367,6 @@ Node.js용 Azure CDN SDK에 대한 참조를 보려면 [참조](http://azure.git
 
 Node.js용 Azure SDK에 대한 추가 설명서를 찾으려면 [전체 참조](http://azure.github.io/azure-sdk-for-node/)를 봅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+[PowerShell](./cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
+
+<!---HONumber=AcomDC_0817_2016-->

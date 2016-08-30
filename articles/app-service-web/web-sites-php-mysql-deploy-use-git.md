@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
-#Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
+# Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
 
 이 자습서에서는 PHP-MySQL 웹앱을 만들고 Git를 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
 
@@ -31,7 +31,7 @@
 
 ![Azure PHP 웹 사이트][running-app]
 
-##개발 환경 설정
+## 개발 환경 설정
 
 이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
 
@@ -75,7 +75,7 @@
 	![게시 자격 증명 만들기][credentials]
 
 
-##원격 MySQL 연결 정보 가져오기
+## 원격 MySQL 연결 정보 가져오기
 
 웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르십시오.
 
@@ -91,7 +91,7 @@
 
     ![참고 속성][note-properties]
 
-##로컬에서 앱 빌드 및 테스트
+## 로컬에서 앱 빌드 및 테스트
 
 웹 앱을 만들었으므로 로컬에서 응용 프로그램을 개발하여 테스트 후 배포할 수 있습니다.
 
@@ -209,12 +209,12 @@
 이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
-##응용 프로그램 게시
+## 앱 게시
 
 앱을 로컬에서 테스트한 후 Git를 사용하여 웹 앱에 게시할 수 있습니다. 로컬 Git 리포지토리를 초기화하고 응용 프로그램을 게시하겠습니다.
 
-
-> [AZURE.NOTE]이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
+> [AZURE.NOTE]
+이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
 
 1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 Azure 포털의 웹앱 속성으로 이동합니다.
 
@@ -236,7 +236,7 @@
 
 앱을 게시한 후 변경을 시작하고 Git를 사용하여 변경 내용을 게시할 수 있습니다.
 
-##앱의 변경 내용 게시
+## 앱의 변경 내용 게시
 
 앱에 변경 내용을 게시하려면 다음 단계를 따르세요.
 
@@ -319,4 +319,4 @@
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

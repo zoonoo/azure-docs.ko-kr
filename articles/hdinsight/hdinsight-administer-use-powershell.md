@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -103,7 +103,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
 	Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-	![HDinsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
@@ -172,7 +172,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 ##리소스 그룹 찾기
 
-ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합니다. 리소스 그룹을 찾으려면:
+Resource Manager 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합니다. 리소스 그룹을 찾으려면:
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

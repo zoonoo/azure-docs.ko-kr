@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -72,7 +72,7 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 
 	메시지가 표시되면 구독하려는 사용자 이름 및 암호를 입력합니다.
 
-3. 다음 명령을 사용하여 구독하려는 저장소 계정을 나열합니다:
+3. 다음 명령을 사용하여 구독하려는 저장소 계정을 나열합니다.
 
 		azure storage account list
 
@@ -175,12 +175,16 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 | 클라이언트 | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
+| [HDInsight 용 Microsoft Visual Studio Tools](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
 | [Azure 저장소 탐색기](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [클라우드 저장소 스튜디오 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure 탐색기](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
-| [Zudio](https://zudio.co/) | ✔ | ✔ | ✔ |
 | [Cyberduck](https://cyberduck.io/) | | ✔ | ✔ |
+
+###HDInsight 용 Visual Studio Tools
+
+자세한 내용은 [연결된 리소스 탐색](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)을 참조하세요.
 
 ###<a id="storageexplorer"></a>Azure 저장소 탐색기
 
@@ -282,4 +286,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

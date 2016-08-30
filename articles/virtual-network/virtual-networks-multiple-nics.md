@@ -25,7 +25,7 @@ Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 
 
 위의 그림에서는 각각 다른 서브넷에 연결된 3개의 NIC를 사용하여 VM을 보여줍니다.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - 인터넷 연결 VIP(클래식 배포)는 "기본" NIC에서만 지원됩니다. 기본 NIC의 IP에 하나의 VIP만 있습니다.
 - 현재 LPIP(인스턴스 수준 공용 IP) 주소(클래식 배포)는 다중 NIC VM에 대해 지원되지 않습니다.
@@ -265,4 +265,4 @@ Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용�
 - [리소스 관리자 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-arm-template.md) 배포
 - [클래식 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-classic-ps.md) 배포
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

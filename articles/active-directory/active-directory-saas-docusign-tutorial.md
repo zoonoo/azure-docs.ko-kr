@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
-# 자습서: DocuSign와 Azure Active Directory 통합
+# 자습서: DocuSign과 Azure Active Directory 통합
 
 이 자습서는 Azure 및 DocuSign의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -93,16 +93,16 @@
 
 3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
 
-	![Single Sign-On 구성][9]
+	![Single Sign-On 구성][61]
 
-	a. **로그인 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 Docusign 테넌트의 URL을 입력합니다. 프로덕션 환경을 위한 URL 패턴은 다음과 같습니다. **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"** 데모 환경을 위한 URL 패턴은 다음과 같습니다. **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2/login/sp/<IDPID>"**
+	a. **로그온 URL** 텍스트 상자에 `https://account.docusign.com/*`를 입력합니다.
 
-	b. **식별자** 텍스트 상자에서 다음과 같은 패턴을 사용하여 Docusign 발급자의 URL을 입력합니다. 프로덕션 환경을 위한 URL 패턴은 다음과 같습니다. **"https://account.docusign.com/organizations/<ORGANIZATIONID>/saml2"** 데모 환경을 위한 이 URL 패턴은 다음과 같습니다. **"https://account-d.docusign.com/organizations/<ORGANIZATIONID>/saml2"**
+	b. **식별자** 텍스트 상자에 `https://account.docusign.com/*`를 입력합니다.
+   
+	c. **Next**를 클릭합니다.
 
-	c. **다음**을 클릭합니다.
 
-
-    > [AZURE.TIP] 테넌트에 대한 앱 URL이 무엇인지 모르는 경우 [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com)을 통해 Docusign에 연결하여 테넌트에 SP에서 시작한 SSO URL을 가져옵니다.
+    > [AZURE.TIP] 로그온 URL 및 식별자 값은 자리 표시자입니다. 사용자 환경에 대한 실제 값을 검색하는 방법에 대한 지침은 이 항목의 뒷부분에서 설명합니다.
  
 
 4. **DocuSign에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
@@ -117,65 +117,75 @@
 
 	![Single Sign-On 구성][51]
 
-7. 이제 오른쪽 창에서 **CLAIM DOMAIN**을 클릭합니다.
+7. 오른쪽 창에서 **도메인 클레임**을 클릭합니다.
 
 	![Single Sign-On 구성][52]
 
-8. 팝업 창에서 회사 도메인 이름을 입력하고 클레임을 클릭합니다. 도메인을 확인하고 상태가 활성으로 표시되는지 확인합니다.
+8. **도메인 클레임** 대화 상자의 **도메인 이름** 텍스트 상자에 회사 도메인을 입력한 다음 **클레임**을 클릭합니다. 도메인을 확인하고 상태가 활성인지 확인합니다.
 
 	![Single Sign-On 구성][53]
 
-9. 왼쪽 탐색 메뉴에서 **ID 공급자**를 클릭합니다.
+9. 왼쪽 메뉴에서 **ID 공급자**를 클릭합니다.
 
 	![Single Sign-On 구성][54]
 
-10. 오른쪽 창에서 ADD IDENTITY PROVIDER(ID 공급자 추가)를 클릭합니다. 그러면 SSO 설정 페이지가 열립니다.
+10. 오른쪽 창에서 **ID 공급자 추가**를 클릭합니다.
 	
 	![Single Sign-On 구성][55]
 
-11. ID 공급자 설정 섹션에서 다음 작업을 수행합니다.
-
-	a. 구성에 고유한 이름을 지정합니다. 단어 사이에 공백을 사용하지 마세요.
-
-	b. **ID 공급자 발급자** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사에서 나온 **발급자 URL** 값을 저장합니다.
-
-	c. **ID 공급자 로그인 URL** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사에서 나온 **원격 로그인 URL** 값을 저장합니다.
-
-	d. **ID 공급자 로그아웃 URL** 텍스트 상자에 Azure AD 응용 프로그램 구성 마법사에서 나온 **원격 로그아웃 URL** 값을 저장합니다.
-
-	e. **Sign AuthN 요청** 확인란을 확인합니다.
-
-	f. **AuthN 요청 보내기:** 옵션이 **POST**에 설정되었는지 확인합니다.
-
-	g. **로그아웃 요청 보내기:** 옵션이 **POST**에 설정되었는지 확인합니다.
+11. **ID 공급자 설정** 페이지에서 다음 단계를 수행합니다.
 
 	![Single Sign-On 구성][56]
 
-12. **사용자 지정 특성 매핑** 섹션에서 Azure AD 클레임을 사용하여 매핑하려는 필드를 선택합니다. 예: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값으로 매핑한 **emailaddress** 클레임을 사용해 왔습니다. 이는 Azure Ad의 전자 메일 클레임에 대한 기본 클레임 이름입니다.
 
-	> [AZURE.NOTE] 적절한 사용자 식별자를 사용하여 Azure AD에서 Docusign 사용자 매핑으로 사용자를 매핑합니다. 적절한 필드를 선택하고 조직 설정에 따라 적절한 값을 입력합니다.
+	a. **이름** 텍스트 상자에 구성할 고유한 이름을 입력합니다. 공백을 사용하지 마십시오.
+
+	b. Azure 클래식 포털에서 발급자 URL을 복사한 다음 **ID 공급자 발급자** 텍스트 상자에 붙여 넣습니다.
+
+	c. Azure 클래식 포털에서 **원격 로그인 URL**을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+
+	d. Azure 클래식 포털에서 **원격 로그아웃 URL**을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+
+	e. **Sign AuthN 요청**을 선택합니다.
+
+	f. **AuthN 요청 보내기**로 **POST**를 선택합니다.
+
+	g. **로그아웃 요청 보내기**로 **POST**를 선택합니다.
+
+
+12. **사용자 지정 특성 매핑** 섹션에서 Azure AD 클레임을 사용하여 매핑하려는 필드를 선택합니다. 이 예에서는 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값으로 **emailaddress** 클레임이 매핑됩니다. 이는 Azure Ad의 전자 메일 클레임에 대한 기본 클레임 이름입니다.
+
+	> [AZURE.NOTE] 적절한 **사용자 식별자**를 사용하여 Azure AD에서 Docusign 사용자 매핑으로 사용자를 매핑합니다. 적절한 필드를 선택하고 조직 설정에 따라 적절한 값을 입력합니다.
 
 	![Single Sign-On 구성][57]
 
-13. **ID 공급자 인증서** 섹션에서 **인증서 추가** 단추를 클릭하고 Azure AD 응용 프로그램 구성 마법사에서 다운로드한 인증서를 업로드합니다.
+13. **ID 공급자 인증서** 섹션에서 **인증서 추가**를 클릭하고 Azure AD 클래식 포털에서 다운로드한 인증서를 업로드합니다.
 
 	![Single Sign-On 구성][58]
 
-14. 이제 **저장** 단추를 클릭하여 모든 설정을 저장합니다.
+14. **Save**를 클릭합니다.
 
-15. **ID 공급자** 섹션에서 **작업** 단추를 클릭하고 **끝점**을 클릭합니다.
+15. **ID 공급자** 섹션에서 **작업**을 클릭한 다음 **끝점**을 클릭합니다.
 
 	![Single Sign-On 구성][59]
 
-16. **SAML 2.0 끝점 보기** 섹션에서 다음 단계를 수행합니다.
 
-	a. **서비스 공급자 발급자 URL**을 복사하여 Azure AD 구성 마법사의 **식별자** 텍스트 상자에 붙여넣습니다.
 
-	b. **서비스 공급자 로그인 URL**을 복사하여 Azure AD 구성 마법사의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+10. Azure 클래식 포털에서 **앱 설정 구성** 페이지로 이동합니다.
+
+16. **DocuSign 관리자 포털**의 **SAML 2.0 끝점 보기** 섹션에서 다음 단계를 수행합니다.
 
 	![Single Sign-On 구성][60]
 
+	a. **서비스 공급자 발급자 URL**을 복사한 다음 Azure 클래식 포털의 **식별자** 텍스트 상자에 붙여 넣습니다.
+
+	b. **서비스 공급자 로그인 URL**을 복사한 다음 Azure 클래식 포털의 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
+
 	c. **닫기**를 클릭합니다.
+
+
+10. Azure 클래식 포털에서 **다음**을 클릭합니다.
+
 
 15. Azure 클래식 포털에서 **Single Sign-On 구성 확인**을 선택하고 **다음**을 클릭합니다.
 
@@ -287,5 +297,6 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 [58]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_26.png
 [59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
+[61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

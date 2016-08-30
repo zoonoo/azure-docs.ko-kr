@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 
@@ -190,4 +190,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

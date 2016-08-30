@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치 배포
@@ -116,7 +116,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
-- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
+- 사용자의 Microsoft Azure 구독을 StorSimple Manager 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
 
 - PuTTY와 같은 터미널 에뮬레이션 소프트웨어에 액세스할 수 있습니다.
 
@@ -135,7 +135,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 시작하기 전에 다음 사항을 확인합니다.
 
 - [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)에서 설명한 대로 데이터 센터 방화벽에서 포트가 열려 있어 iSCSI 및 클라우드 트래픽을 허용합니다.
-- 데이터 센터의 장치를 외부 네트워크에 연결할 수 있습니다. 다음 [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) cmdlet(아래 정리됨)을 실행하여 외부 네트워크에 대한 연결의 유효성을 검사합니다. Azure에 연결되어 있고 StorSimple 장치를 배포할 컴퓨터(데이터 센터 네트워크 내)에서 이 유효성 검사를 수행합니다.  
+- 데이터 센터의 장치를 외부 네트워크에 연결할 수 있습니다. 다음 [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) cmdlet(아래 정리됨)을 실행하여 외부 네트워크에 대한 연결의 유효성을 검사합니다. Azure에 연결되어 있고 StorSimple 장치를 배포할 컴퓨터(데이터 센터 네트워크 내)에서 이 유효성 검사를 수행합니다.
 
 | 이 매개 변수의 경우... | 유효성을 검사하려면... | 다음 명령/cmdlet을 실행합니다. |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -167,8 +167,7 @@ StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계
 
 > [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요.
-> 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
+> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
 
@@ -251,7 +250,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 StorSimpl
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
 
-## 장치 직렬 콘솔 연결에 PuTTY 사용
+## PuTTY를 사용하여 장치 직렬 콘솔에 연결
 
 StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 에뮬레이션 소프트웨어를 사용해야 합니다. 직렬 콘솔을 통해 직접 또는 원격 컴퓨터에서 텔넷 세션을 열어 장치에 액세스할 때 PuTTY를 사용할 수 있습니다.
 
@@ -264,7 +263,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 > [AZURE.NOTE] 데이터 0 이외의 네트워크 인터페이스에 구성된 게이트웨이의 경우 업데이트를 설치하기 전에 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하지 않도록 설정해야 합니다. **장치 > 구성**으로 이동하고 데이터 2 및 데이터 3 인터페이스를 사용하지 않도록 설정합니다. 장치를 업데이트한 후에 해당 인터페이스를 다시 사용하도록 설정해야 합니다.
 
 #### 장치를 업데이트하려면
-1.	장치 **빠른 시작** 페이지에서 **장치**를 클릭합니다. 물리적 장치를 선택하고 **유지 관리**를 클릭한 다음 **업데이트 검색**을 클릭합니다.  
+1.	장치 **빠른 시작** 페이지에서 **장치**를 클릭합니다. 물리적 장치를 선택하고 **유지 관리**를 클릭한 다음 **업데이트 검색**을 클릭합니다.
 2.	사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 업데이트를 사용할 수 있는 경우 **업데이트 검색**이 **업데이트 설치**로 변경됩니다. **업데이트 설치**를 클릭합니다. 업데이트를 설치하기 전에 데이터 2 및 데이터 3을 사용하지 않도록 설정하라는 메시지가 표시될 수 있습니다. 해당 네트워크 인터페이스를 사용하지 않도록 설정해야 합니다. 그렇지 않으면 업데이트가 실패할 수 있습니다.
 3.	업데이트 작업이 만들어집니다. **작업**으로 이동하여 업데이트 상태를 모니터링합니다.
 
@@ -294,4 +293,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

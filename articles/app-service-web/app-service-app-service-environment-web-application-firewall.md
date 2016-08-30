@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="08/17/2016" 
 	ms.author="naziml"/>
 
 # 앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성
@@ -32,10 +32,10 @@
 앱 서비스 환경을 구성하려면 해당 제목의 [설명서](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 앱 서비스 환경을 만들면 [웹앱](app-service-web-overview.md), [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 및 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md)을 다음에 섹션에서 구성할 WAF로 모두 보호 받는 환경에서 만들 수 있습니다.
 
 ## Barracuda WAF 클라우드 서비스를 구성합니다. ##
-Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://techlib.barracuda.com/WAF/AzureDeploy)가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
+Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure)가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
 ### 클라우드 서비스에 끝점 추가 ###
-클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/)을 사용하여 아래의 그림처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
+클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/)을 사용하여 아래의 이미지처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
 
 ![끝점 구성][ConfigureEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Azure에서 원격 데스크톱 사용
@@ -95,7 +95,7 @@
 
 ## 추가 리소스
 
-- [Azure에서 역할 인스턴스 원격 액세스] 
+- [Azure에서 역할 인스턴스 원격 액세스]
 - [Azure 역할과 함께 원격 데스크톱 사용]
 - [Node.js 개발자 센터](/develop/nodejs/)
 
@@ -115,4 +115,4 @@
 [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016---->

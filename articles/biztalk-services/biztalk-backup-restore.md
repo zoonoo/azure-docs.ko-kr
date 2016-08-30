@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
 # BizTalk 서비스: 백업 및 복원
 
-Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 항목에서는 Azure 클래식 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
+Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 토픽에서는 Azure 클래식 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
 
 [BizTalk 서비스 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584)를 사용하여 BizTalk 서비스를 백업할 수도 있습니다.
 
@@ -57,7 +57,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 #### <a name="backupnow"></a>주문형 백업
 1. Azure 클래식 포털에서 **BizTalk 서비스**를 선택한 후 백업할 BizTalk 서비스를 선택합니다.
 2. **대시보드** 탭에서 페이지 맨 아래에 있는 **백업**을 선택합니다.
-3. 백업 이름을 입력합니다. 예를 들어 *myBizTalkService*BU*Date*를 입력합니다.
+3. 백업 이름을 입력합니다. 예를 들어 *myBizTalkService*BU*날짜*를 입력합니다.
 4. Blob 저장소 계정을 선택한 후 확인 표시를 선택하여 백업을 시작합니다.
 
 백업이 완료되면 입력한 백업 이름의 컨테이너가 저장소 계정에 만들어집니다. 이 컨테이너에는 BizTalk 서비스 백업 구성이 포함됩니다.
@@ -65,7 +65,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 #### <a name="backupschedule"></a>백업 예약
 
 1. Azure 클래식 포털에서 **BizTalk 서비스**를 선택하고 백업을 예약할 BizTalk 서비스 이름을 선택한 후 **구성** 탭을 선택합니다.
-2. **백업 상태**를 **자동**으로 설정합니다. 
+2. **백업 상태**를 **자동**으로 설정합니다.
 3. 백업을 저장할 **저장소 계정**을 선택하고 백업을 만들 **빈도** 및 백업을 유지할 기간(**보존 기간(일)**)를 입력합니다.
 
 	![][AutomaticBU]
@@ -235,4 +235,4 @@ Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk �
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

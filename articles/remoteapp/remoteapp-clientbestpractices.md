@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp 클라이언트 모범 사례
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 다음 정보는 Azure RemoteApp 클라이언트를 사용하는 데 도움이 됩니다.
 
@@ -26,4 +29,4 @@
 
 - 일정 기간 동안 비활성 상태이면 RemoteApp에서 자동으로 로그오프됩니다. 데이터 손실을 방지하려면 서비스 사용을 마쳤을 때 응용 프로그램을 닫는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -44,7 +44,7 @@ BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 클래식 �
         <th>중지</th>
         <th>다시 시작</th>
         <th>일시 중단</th>
-        <th>계속</th>
+        <th>다시 시작</th>
         <th>삭제</th>
 </tr>
 <tr>
@@ -173,7 +173,7 @@ BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 클래식 �
 </tr>
 <tr bgcolor="FAF9F9">
         <th> </th>
-        <th>크기 조정</th>
+        <th>확장</th>
         <th>구성 업데이트</th>
         <th>백업</th>
 </tr>
@@ -267,4 +267,4 @@ BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 클래식 �
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

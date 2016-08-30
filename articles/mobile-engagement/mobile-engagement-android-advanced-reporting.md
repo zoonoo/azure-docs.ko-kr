@@ -13,27 +13,30 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Android에서 Engagement를 사용한 보고 옵션
+# Android에서 Engagement를 사용한 고급 보고
 
 > [AZURE.SELECTOR]
+- [유니버설 Windows](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-advanced-reporting.md)
 
-이 항목에서는 Android 응용 프로그램에서 추가 보고 시나리오를 설명합니다. 이러한 옵션은 [시작](mobile-engagement-android-get-started.md) 자습서에서 만든 앱에 적용하도록 선택할 수 있습니다.
+이 항목에서는 Android 응용 프로그램에서 추가 보고 시나리오를 설명합니다. 이러한 옵션은 [시작](mobile-engagement-android-get-started.md) 자습서에서 만든 앱에 적용할 수 있습니다.
 
 ## 필수 조건
 
 [AZURE.INCLUDE [선행 조건](../../includes/mobile-engagement-android-prereqs.md)]
 
-완료한 자습서는 의도적으로 직접적이고 간소화했으나 선택할 수 있는 다양한 옵션이 있습니다.
+완료한 자습서는 의도적으로 직접적이고 간소화했으나 선택할 수 있는 고급 옵션이 있습니다.
 
 ## `Activity` 클래스 수정
 
-[시작 자습서](mobile-engagement-android-get-started.md)에서는 `*Activity` 하위 클래스가 해당 `Engagement*Activity` 클래스에서 상속하는 설정만 지정했습니다(예: 레거시 작업이 `ListActivity`를 확장하는 경우 `EngagementListActivity`를 확장하도록 함).
+[시작 자습서](mobile-engagement-android-get-started.md)에서는 `*Activity` 하위 클래스가 해당 `Engagement*Activity` 클래스에서 상속하는 설정만 지정했습니다. 예를 들어 레거시 작업이 `ListActivity`를 확장하는 경우 `EngagementListActivity`를 확장하도록 합니다.
 
-> [AZURE.IMPORTANT] `EngagementListActivity` 또는 `EngagementExpandableListActivity`을(를) 사용할 경우 `super.onCreate(...);`을(를) 호출하기 전에 `requestWindowFeature(...);`을(를) 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
+> [AZURE.IMPORTANT] `EngagementListActivity` 또는 `EngagementExpandableListActivity`를 사용할 경우 `super.onCreate(...);`를 호출하기 전에 `requestWindowFeature(...);`를 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
 
 이러한 클래스는 `src` 폴더에서 찾을 수 있으며 프로젝트에 복사할 수 있습니다. 또한 클래스는 **JavaDoc**에도 있습니다.
 
@@ -41,7 +44,7 @@
 
 `Activity` 클래스를 오버로드할 수 없거나 오버로드하지 않으려는 경우 `EngagementAgent`의 메서드를 직접 호출하여 작업을 시작하고 종료할 수 있습니다.
 
-> [AZURE.IMPORTANT] Android SDK는 응용 프로그램이 닫힐 때에도 `endActivity()` 메서드를 호출하지 않습니다(Android에서 응용 프로그램은 실제로 닫히지 않음). 따라서 *모든* 작업의 `onResume` 콜백에서는 `startActivity()` 메서드를, *모든* 작업의 `onPause()` 콜백에서는 `endActivity()` 메서드를 호출하는 것이 *상당히* 좋습니다. 이것이 세션이 손실되지 않도록 하는 유일한 방법입니다. 세션이 손실되는 경우 Engagement 서비스의 Engagement 백 엔드에 대한 연결이 끊기지 않습니다(세션이 보류 중인 한 서비스가 연결된 상태를 유지하므로).
+> [AZURE.IMPORTANT] Android SDK는 응용 프로그램이 닫힐 때에도 `endActivity()` 메서드를 호출하지 않습니다(Android에서 응용 프로그램은 닫히지 않음). 따라서 *모든* 작업의 `onResume` 콜백에서는 `startActivity()` 메서드를, *모든* 작업의 `onPause()` 콜백에서는 `endActivity()` 메서드를 호출하는 것이 *상당히* 좋습니다. 이것이 세션이 손실되지 않도록 하는 유일한 방법입니다. 세션이 손실되는 경우 세션이 보류 중인 한 서비스가 연결된 상태를 유지하므로 Engagement 서비스의 Engagement 백 엔드에 대한 연결이 끊기지 않습니다.
 
 다음은 예제입니다.
 
@@ -63,13 +66,13 @@
 	  }
 	}
 
-이 예제는 `EngagementActivity` 클래스 및 해당 변형과 매우 비슷합니다. 해당 소스 코드는 `src` 폴더에 있습니다.
+이 예제는 `EngagementActivity` 클래스 및 해당 변형과 비슷합니다. 해당 소스 코드는 `src` 폴더에 있습니다.
 
 ## Application.onCreate() 사용
 
 `Application.onCreate()` 및 기타 응용 프로그램 콜백에 배치하는 코드는 Engagement 서비스를 비롯하여 모든 응용 프로그램 프로세스에서 실행됩니다. 이로 인해 Engagement 프로세스, 중복 브로드캐스트 수신기 또는 서비스에서의 불필요한 메모리 할당 및 스레드와 같은 원치 않는 부작용이 발생할 수 있습니다.
 
-`Application.onCreate()`을 재정의하는 경우 `Application.onCreate()` 함수의 시작 부분에 다음 코드 조각을 추가하는 것이 좋습니다.
+`Application.onCreate()`를 재정의하는 경우 `Application.onCreate()` 함수의 시작 부분에 다음 코드 조각을 추가하는 것이 좋습니다.
 
 	 public void onCreate()
 	 {
@@ -98,4 +101,4 @@ ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래�
 	<methods>;
  	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

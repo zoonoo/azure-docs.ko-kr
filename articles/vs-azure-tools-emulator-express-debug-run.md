@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -54,4 +54,4 @@ Emulator Express를 사용하려면 다음과 같은 몇 가지 제한 사항을
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/10/2016"
    ms.author="jgao"/>
 
 # Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Hadoop 클러스터 만들기
@@ -97,7 +97,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
 
-컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 ARM 템플릿을 업데이트해야 합니다.
+컨테이너 이름은 *adfgetstarted*입니다. 그대로 유지합니다. 그렇지 않으면 Resource Manager 템플릿을 업데이트해야 합니다.
 
 이 CLI 스크립트에 대해 도움이 필요한 경우 [Azure 저장소에서 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
 
@@ -189,9 +189,9 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
  
 ## 데이터 팩터리 만들기
 
-저장소 계정, 입력 데이터 및 HiveQL 스크립트가 준비되었으면 Azure Data Factory를 만들 준비가 된 것입니다. 데이터 팩터리는 여러 가지 방법으로 만들 수 있습니다. 이 자습서에서는 Azure 포털을 사용하여 사용자 지정 ARM 템플릿을 호출합니다. 또한 [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) 및 [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell)에서 ARM 템플릿을 호출할 수도 있습니다. 기타 데이터 팩터리 만들기 방법은 [자습서: 첫 번째 데이터 팩터리 빌드](../data-factory/data-factory-build-your-first-pipeline.md)를 참조하세요.
+저장소 계정, 입력 데이터 및 HiveQL 스크립트가 준비되었으면 Azure Data Factory를 만들 준비가 된 것입니다. 데이터 팩터리는 여러 가지 방법으로 만들 수 있습니다. 이 자습서에서는 Azure 포털을 사용하여 사용자 지정 Resource Manager 템플릿을 호출합니다. 또한 [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) 및 [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell)에서 Resource Manager 템플릿을 호출할 수도 있습니다. 기타 데이터 팩터리 만들기 방법은 [자습서: 첫 번째 데이터 팩터리 빌드](../data-factory/data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-최상위 수준 ARM 템플릿은 다음을 포함합니다.
+최상위 수준 Resource Manager 템플릿은 다음을 포함합니다.
 
     {
         "contentVersion": "1.0.0.0",
@@ -320,7 +320,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
     
 **데이터 팩터리를 만들려면**
 
-1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다.
+1. Azure에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -334,7 +334,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
     ![Azure Data Factory HDInsight 주문형 hive 작업 파이프라인 다이어그램](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
     
-    이름은 ARM 템플릿에 정의됩니다.
+    이름은 Resource Manager 템플릿에 정의됩니다.
 9. **AzureBlobOutput**을 두 번 클릭합니다.
 10. **최근 업데이트된 조각**에 하나의 조각이 표시됩니다. 상태가 **진행 중**이면 **준비**로 변경될 때까지 기다립니다.
 
@@ -345,7 +345,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
     - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: HDInsight 클러스터에 대한 기본 컨테이너입니다. 기본 컨테이너 이름은 "adf>yourdatafactoryname>-linkedservicename-datetimestamp" 패턴을 따릅니다.
     - adfjobs: ADF 작업 로그에 대한 컨테이너입니다.
     
-    데이터 팩터리 출력은 ARM 템플릿에 구성된 대로 afgetstarted에 저장됩니다.
+    데이터 팩터리 출력은 Resource Manager 템플릿에 구성된 대로 afgetstarted에 저장됩니다.
 2. **adfgetstarted**를 클릭합니다.
 3. **partitioneddata**를 두 번 클릭합니다. 모든 웹 로그가 2014년에 지정되었으므로 **year=2014** 폴더가 표시됩니다.
 
@@ -365,14 +365,14 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **리소스 그룹**을 클릭합니다.
-3. CLI 또는 PowerShell 스크립트에서 만든 리소스 그룹 이름을 두 번 클릭합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다. 리소스 그룹이 새 블레이드에 열립니다.
+3. CLI 또는 PowerShell 스크립트에서 만든 리소스 그룹 이름을 두 번 클릭합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다. 새 블레이드에서 리소스 그룹을 엽니다.
 4. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한 기본 저장소 계정과 데이터 팩터리가 나열됩니다.
 5. 블레이드 맨 위에서 **삭제**를 클릭합니다. 이렇게 하면 저장소 계정 및 저장소 계정에 저장된 데이터도 삭제됩니다.
 6. 리소스 그룹 이름을 입력하고 **삭제**를 클릭합니다.
 
 리소스 그룹을 삭제할 때 저장소 계정을 삭제하지 않으려는 경우 기본 저장소 계정에서 비즈니스 데이터를 구분하여 다음 아키텍처 디자인을 고려할 수 있습니다. 이 경우 비즈니스 데이터가 있는 저장소 계정에 대해 하나의 리소스 그룹을 포함하고 기본 저장소 계정 및 데이터 팩터리에 대해 다른 리소스 그룹을 포함합니다. 두 번째 리소스 그룹을 삭제할 경우 비즈니스 데이터 저장소 계정에 영향을 주지 않습니다. 이렇게 하려면 다음을 수행합니다.
 
-- 다음을 ARM 템플릿에서 Microsoft.DataFactory/datafactories 리소스와 함께 최상위 수준 리소스 그룹에 추가합니다. 그러면 새 저장소 계정이 만들어집니다.
+- 다음을 Resource Manager 템플릿에서 Microsoft.DataFactory/datafactories 리소스와 함께 최상위 수준 리소스 그룹에 추가합니다. 그러면 새 저장소 계정이 만들어집니다.
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -438,4 +438,4 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

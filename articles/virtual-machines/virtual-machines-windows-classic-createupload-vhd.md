@@ -28,11 +28,11 @@
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-1. **Azure 구독** - 계정이 없는 경우 [무료로 Azure 계정을 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=A261C142F).
+- **Azure 구독** - 계정이 없는 경우 [무료로 Azure 계정을 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-2. **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다.
 
-3. **.VHD 파일** - .vhd 파일에 저장되고 가상 컴퓨터에 연결된 지원되는 Windows 운영 체제
+- **.VHD 파일** - .vhd 파일에 저장되고 가상 컴퓨터에 연결된 지원되는 Windows 운영 체제 VHD에서 실행 중인 서버 역할이 sysprep에서 지원되는지도 확인해야 합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 > [AZURE.IMPORTANT] VHDX 형식은 Microsoft Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. 자세한 내용은 이 [블로그 게시물](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)을 참조하세요.
 
@@ -104,4 +104,4 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 이제 업로드한 이미지를 사용하여 [사용자 지정 VM을 만들 수 있습니다](virtual-machines-windows-classic-createportal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

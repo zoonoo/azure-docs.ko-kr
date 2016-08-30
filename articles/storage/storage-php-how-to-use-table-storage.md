@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # PHP에서 테이블 저장소를 사용하는 방법
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## 개요
 
@@ -250,7 +250,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ## 파티션의 엔터티 하위 집합 검색
 
-이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 다음 예제에서는 필터를 사용하여 특정 `Location`과 지정한 날짜보다 작은 `DueDate`를 갖는 모든 엔터티를 검색하는 방법을 보여 줍니다.
+이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 다음 예제에서는 필터를 사용하여 특정 `Location`과 지정한 날짜보다 작은 `DueDate`를 갖는 모든 엔터티를 검색하는 방법을 설명합니다.
 
 	require_once 'vendor/autoload.php';
 
@@ -478,4 +478,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

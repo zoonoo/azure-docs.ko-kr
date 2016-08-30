@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 이 자습서에서는 QuickHelp와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. QuickHelp를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- QuickHelp에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- QuickHelp에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 QuickHelp에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -41,13 +41,13 @@ QuickHelp와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 QuickHelp 추가 
+1. 갤러리에서 QuickHelp 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -56,7 +56,7 @@ QuickHelp의 Azure AD 통합을 구성하려면 갤러리의 QuickHelp를 관리
 
 **갤러리에서 QuickHelp를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -114,11 +114,11 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 	![앱 설정 구성][8]
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그온하는 데 사용하는 URL(예: *https://quickhelp.com/bsiazure/*))을 입력합니다.
+     a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그온하는 데 사용하는 URL(예: *https://quickhelp.com/bsiazure/*)을 입력합니다.
 
      > [AZURE.NOTE] 로그인 URL 값을 모를 경우 QuickHelp 지원에 문의합니다.
 
-     b. **다음**을 클릭합니다.
+     b. **Next**를 클릭합니다.
 
  
 4. **QuickHelp에서 Single Sign-On 구성** 페이지에서 다음을 수행합니다. **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.
@@ -202,7 +202,7 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -316,4 +316,4 @@ QuickHelp는 Just-In-Time 프로비전을 지원합니다. 즉, 필요한 경우
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

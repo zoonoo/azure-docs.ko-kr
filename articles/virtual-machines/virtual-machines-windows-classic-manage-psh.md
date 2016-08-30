@@ -3,7 +3,7 @@
    description="가상 컴퓨터 관리에서의 작업 자동화에 사용할 수 있는 명령에 대해 알아봅니다."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="rothja"
+   authors="singhkays"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
@@ -95,4 +95,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

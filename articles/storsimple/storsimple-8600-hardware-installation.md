@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 8600 장치 개봉, 랙 탑재, 케이블 연결
@@ -302,4 +302,4 @@ H, I | 호스트(예: 파일 서버)
 
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

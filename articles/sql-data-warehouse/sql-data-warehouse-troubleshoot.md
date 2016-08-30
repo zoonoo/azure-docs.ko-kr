@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 문제 해결
@@ -98,7 +98,7 @@
 [쿼리 모니터링 방법 알아보기]: ./sql-data-warehouse-manage-monitor.md
 [프로비전 지침]: ./sql-data-warehouse-get-started-provision.md
 [클라이언트 IP에 대한 서버 방화벽 액세스 구성]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 또는 2015]: ./sql-data-warehouse-get-started-connect.md
+[Visual Studio 2013 또는 2015]: ./sql-data-warehouse-query-visual-studio.md
 [SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 [테이블 크기]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [지원되지 않는 테이블 기능]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -130,9 +130,9 @@
 [블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureSQLDataWarehouse
+[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

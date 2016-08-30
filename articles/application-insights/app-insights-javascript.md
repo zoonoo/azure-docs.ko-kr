@@ -57,7 +57,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![앱 개요 블레이드에서 빠른 시작, 내 웹 페이지를 모니터링할 코드 가져오기를 선택합니다. 스크립트를 복사합니다.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-추적하려는 모든 페이지의 `<head>` 태그 바로 앞의 이 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
+추적하려는 모든 페이지의 `</head>` 태그 바로 앞의 이 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
 
 * ASP.NET MVC 프로젝트에서는 `View\Shared\_Layout.cshtml`에 추가합니다.
 * SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](app-insights-sharepoint.md)를 엽니다.
@@ -249,4 +249,4 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

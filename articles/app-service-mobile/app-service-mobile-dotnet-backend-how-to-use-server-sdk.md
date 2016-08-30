@@ -465,7 +465,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
 			ValidAudiences = new[] { ConfigurationManager.AppSettings["authAudience"] },
 			ValidIssuers = new[] { ConfigurationManager.AppSettings["authIssuer"] },
-			TokenHandler = config.GetMobileAppTokenHandler()
+			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
 위의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 _authAudience_ 및 _authIssuer_ 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 _authSigningKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 이 값을 가져오려면 [Azure 포털] 내에서 앱으로 이동하고 **도구**를 클릭합니다. 그런 다음 **Kudu**, **이동**을 차례로 클릭합니다. 그러면 사이트에 대한 Kudu 관리 끝점으로 이동됩니다. **환경**을 클릭하고 _WEBSITE\_AUTH\_SIGNING\_KEY_ 아래에서 값을 찾습니다. 이 값은 로컬 앱 구성에서 _authSigningKey_에 대해 사용해야 하는 값입니다.
@@ -481,4 +481,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

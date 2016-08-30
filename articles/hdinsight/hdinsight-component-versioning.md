@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -87,15 +87,15 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
 * 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 클래식 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
-HDInsight 버전|HDP 버전|고가용성|릴리스 날짜|Azure 포털에서 사용 가능 여부|지원 만료 날짜|사용 중단 날짜
----|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|예|2016/03/29|예||
-HDI 3.3|HDP 2.3|예|12/02/2015|예||
-HDI 3.2|HDP 2.2|예|2/18/2015|예||
-HDI 3.1|HDP 2.1|예|6/24/2014|예||
-HDI 3.0|HDP 2.0|예|2014/02/11|예|2014/09/17|2015/06/30
-HDI 2.1|HDP 1.3|예|2013/10/28|예|2014/05/12|2015/05/31
-HDI 1.6|HDP 1.1|아니요|2013/10/28|예|2014/04/26|2015/05/31
+HDInsight 버전|HDP 버전|VM OS|고가용성|릴리스 날짜|Azure 포털에서 사용 가능 여부|지원 만료 날짜|사용 중단 날짜
+---|---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|예|2016/03/29|예||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS 또는 Windows Server 2012R2|예|12/02/2015|예||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS 또는 Windows Server 2012R2|예|2/18/2015|예||
+HDI 3.1|HDP 2.1|Windows Server 2012R2|예|6/24/2014|예||
+HDI 3.0|HDP 2.0|Windows Server 2012R2|예|2014/02/11|예|2014/09/17|2015/06/30
+HDI 2.1|HDP 1.3|Windows Server 2012R2|예|2013/10/28|예|2014/05/12|2015/05/31
+HDI 1.6|HDP 1.1||아니요|2013/10/28|예|2014/04/26|2015/05/31
 
 **기본이 아닌 클러스터의 배포**
 
@@ -156,4 +156,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

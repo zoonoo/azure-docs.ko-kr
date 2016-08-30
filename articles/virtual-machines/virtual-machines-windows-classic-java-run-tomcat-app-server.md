@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
@@ -146,4 +146,4 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 [NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

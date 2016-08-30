@@ -303,4 +303,4 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->

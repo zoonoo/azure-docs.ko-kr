@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Azure AD + Azure RemoteApp에 대한 Active Directory 요구 사항
 
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 
 Azure RemoteApp 하이브리드 컬렉션 또는 AD Connect를 사용하여 페더레이션하려는 클라우드 컬렉션의 경우 다음을 수행해야 합니다.
@@ -45,4 +47,4 @@ Azure AD에서 UPN 도메인 접미사를 설정한 후 Azure RemoteApp에 로�
 
 RemoteApp 컬렉션을 만들 때 이러한 두 개체가 필요하므로 이 단계를 먼저 수행해야 합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

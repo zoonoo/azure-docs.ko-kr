@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/22/2016"
 	ms.author="marsma"/>
 
 # Azure 배치의 기본 사항
@@ -71,8 +71,8 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 | **Batch REST** | [MSDN][batch_rest] | 해당 없음 | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **배치 Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **배치 Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **배치 Java**(미리 보기) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
+| **Batch Java**(미리 보기) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
 
 ### 배치 리소스 관리
 
@@ -126,7 +126,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 지금까지 배치 서비스의 고급 개요를 살펴보았습니다. 이제 서비스를 좀더 자세히 살펴보고 계산 집약적인 병렬 워크로드를 처리하기 위해 사용하는 방법을 알아봅니다.
 
-- 워크로드를 처리하기 위해 배치에서 제공하는 API 기능에 대한 심층 정보를 자세히 알아보려면 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 참고하세요. 배치를 사용하려는 사용자에게 중요한 문서입니다.
+- 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 배치 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 배치 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
 
 - [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)에서는 일반적인 배치 워크플로를 사용하여 간단한 워크로드를 실행하는 데 C# 및 배치 .NET 라이브러리를 사용하는 방법을 알아봅니다. 이 문서는 배치 서비스 사용 방법을 학습하는 과정의 첫 단계입니다. 또한 [Python 버전](batch-python-tutorial.md) 자습서도 있습니다.
 
@@ -161,4 +161,4 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

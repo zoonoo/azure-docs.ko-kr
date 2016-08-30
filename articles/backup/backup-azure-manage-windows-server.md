@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 백업 자격 증명 모음 및 서버 관리 | Microsoft Azure"
-	description="이 자습서를 사용하여 Azure 백업 저장소 및 서버를 관리하는 방법을 알아봅니다."
+	pageTitle="Azure 복구 서비스 자격 증명 모음 및 서버 관리 | Microsoft Azure"
+	description="이 자습서를 사용하여 Azure 복구 서비스 자격 증명 모음 및 서버를 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,73 +13,148 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
-	ms.author="jimpark;markgal"/>
+	ms.date="07/19/2016"
+	ms.author="jimpark; markgal"/>
 
 
-# Azure 백업 자격 증명 모음 및 서버 관리
-이 문서에서는 관리 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
+# Windows 컴퓨터용 Azure 복구 서비스 자격 증명 모음 및 서버 모니터링 및 관리
 
->[AZURE.NOTE] 이 문서에서는 클래식 배포 모델에서 작업하는 절차를 제공합니다.
+> [AZURE.SELECTOR]
+- [리소스 관리자](backup-azure-manage-windows-server.md)
+- [클래식](backup-azure-manage-windows-server-classic.md)
+
+이 문서에서는 Azure 관리 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 ## 관리 포털 작업
-1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 
-2. **복구 서비스**를 클릭한 후 백업 저장소의 이름을 클릭하여 빠른 시작 페이지를 표시합니다.
+### 복구 서비스 자격 증명 모음 액세스
 
-    ![Azure 백업 관리 탭](./media/backup-azure-manage-windows-server/rs-left-nav.png)
+1. Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-빠른 시작 페이지의 위쪽에 있는 옵션을 선택하여 사용 가능한 관리 작업을 볼 수 있습니다.
+2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **복구 서비스**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **복구 서비스 자격 증명 모음**을 클릭합니다.
 
-![Azure 백업 관리 탭](./media/backup-azure-manage-windows-server/qs-page.png)
+    ![복구 서비스 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-windows-server/browse-to-rs-vaults.png) <br/>
 
-### 대시보드
-**대시보드**를 선택하여 서버의 사용 개요를 확인합니다. **사용 개요**에는 다음 정보가 포함됩니다.
+2. 목록에서 보려는 자격 증명 모음의 이름을 선택하여 복구 서비스 자격 증명 모음 대시보드 블레이드를 엽니다.
 
-- 클라우드에 등록된 Windows Server 수
-- 클라우드에서 보호되는 Azure 가상 컴퓨터 수
-- Azure에서 사용된 총 저장소
-- 최근 작업의 상태
+    ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-dashboard.png) <br/>
 
-대시보드 아래쪽에서 수행할 수 있는 작업은 다음과 같습니다.
+## 작업 및 경고 모니터링
+다음 정보가 표시되는 복구 서비스 자격 증명 모음 대시보드에서 작업 및 경고를 모니터링합니다.
 
-- **인증서 관리** - 서버를 등록하는 데 인증서가 사용된 경우 이 옵션을 통해 인증서를 업데이트합니다. 저장소 자격 증명을 사용하는 경우에는 **인증서 관리**를 사용해서는 안 됩니다.
-- **삭제** - 현재 백업 저장소를 삭제합니다. 백업 자격 증명 모음이 더 이상 사용되지 않는 경우 삭제하여 저장소 공간을 확보할 수 있습니다. **삭제**는 등록된 모든 서버가 저장소에서 삭제된 후에만 사용할 수 있습니다.
+- 백업 경고 세부 정보
+- 파일 및 폴더, 그리고 클라우드에 보호되는 Azure 가상 컴퓨터
+- Azure에서 사용되는 총 저장소
+- 백업 작업 상태
+
+![백업 대시보드 작업](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
+
+이러한 각 타일의 정보를 클릭하면 관련 작업을 관리하는 연결된 블레이드가 열립니다.
+
+대시보드의 맨 위에서:
+
+- 사용할 수 있는 백업 작업에 대한 액세스를 제공하는 설정입니다.
+- 백업 - 새 파일 및 폴더(또는 Azure VM)을 복구 서비스 자격 증명 모음에 백업할 수 있습니다.
+- 삭제 - 복구 서비스 자격 증명 모음이 더 이상 사용할 수 없는 경우 삭제하여 저장소 공간을 확보할 수 있습니다. 삭제는 등록된 모든 보호된 서버가 자격 증명 모음에서 삭제된 후에만 사용할 수 있습니다.
 
 ![백업 대시보드 작업](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
-## 등록된 항목
-**등록된 항목**을 선택하여 이 저장소에 등록된 서버의 이름을 표시합니다.
+## 백업 경고 관리
+**백업 경고** 타일을 클릭하여 **백업 경고** 블레이드를 열고 경고를 관리합니다.
 
-![등록된 항목](./media/backup-azure-manage-windows-server/registered-items.png)
+![백업 경고](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
-**형식** 필터는 기본적으로 Azure 가상 컴퓨터로 설정됩니다. 이 자격 증명 모음에 등록된 서버의 이름을 확인하려면 드롭다운 메뉴에서 **Windows server**를 선택합니다.
+백업 경고 타일은 다음 사항의 수를 표시합니다.
 
-여기서 다음 작업을 수행할 수 있습니다.
+- 지난 24 시간 동안 확인되지 않은 중요한 경고
+- 지난 24 시간 동안 확인되지 않은 경고
 
-- **다시 등록 허용** - 서버에 이 옵션이 선택된 경우 온-프레미스 Microsoft Azure 백업 에이전트에서 **등록 마법사**를 사용하여 백업 저장소에 서버를 다시 등록할 수 있습니다. 인증서 오류로 인해 또는 서버를 다시 빌드해야 한 경우 다시 등록해야 할 수도 있습니다.
-- **삭제** - 백업 저장소에서 서버를 삭제합니다. 서버와 관련해서 저장된 모든 데이터가 즉시 삭제됩니다.
+이 링크를 각각 클릭하면 **백업 경고** 블레이드로 이동하며 이 경고의 필터링된 보기(중요 또는 경고)가 표시됩니다.
 
-    ![등록된 항목](./media/backup-azure-manage-windows-server/registered-items-tasks.png)
+백업 경고 블레이드에서 다음을 수행합니다.
 
-## 보호된 항목
-**보호된 항목**을 선택하여 서버에서 백업된 항목을 표시합니다.
+- 경고와 함께 포함할 적절한 정보를 선택합니다.
 
-![보호된 항목](./media/backup-azure-manage-windows-server/protected-items.png)
+    ![열 선택](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 
-## 구성
+- 심각도, 상태 및 시작/종료 시간에 대한 경고를 필터링합니다.
 
-**구성** 탭에서 적절한 저장소 중복 옵션을 선택할 수 있습니다. 저장소 중복 옵션을 선택하기에 가장 좋은 시기는 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전입니다.
+    ![경고 필터링](./media/backup-azure-manage-windows-server/filter-alerts.png)
 
->[AZURE.WARNING] 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
+- 심각도, 빈도 및 받는 사람에 대한 알림을 구성하며 경고를 켜거나 끕니다.
 
-![구성](./media/backup-azure-manage-windows-server/configure.png)
+    ![경고 필터링](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-[저장소 중복](../storage/storage-redundancy.md)에 대한 자세한 내용은 이 문서를 참조하세요.
+**경보별**을 **알림** 빈도로 선택한 경우 전자 메일 그룹화 또는 축소가 발생하지 않습니다. 모든 경고에 대해 알림 1개가 발생합니다. 이것이 기본 설정이며 확인 전자 메일도 즉시 전송됩니다.
+
+**시간별 요약**을 **알림** 빈도로 선택하면 지난 한 시간 동안 생성되어 확인되지 않은 새 경고가 있음을 알려 주는 전자 메일 한 개가 사용자에게 전송됩니다. 한 시간이 끝날 때 확인 전자 메일이 전송됩니다.
+
+다음 심각도 수준의 경고를 보낼 수 있습니다.
+
+- 중요
+- 경고
+- 정보
+
+작업 세부 정보 블레이드의 **비활성화** 단추로 경고를 비활성화할 수 있습니다. 비활성화를 클릭하면 확인 참고 사항을 제공할 수 있습니다.
+
+**열 선택** 단추를 사용하여 경고의 일부로 나타낼 열을 선택합니다.
+
+>[AZURE.NOTE] **설정** 블레이드에서 **모니터링 및 보고서 > 경고 및 이벤트 > 백업 경고**를 선택한 다음 **필터** 또는 **알림 구성**을 클릭하여 백업 경고를 관리합니다.
+
+## 백업 항목 관리
+온-프레미스 백업 관리는 이제 관리 포털에서 사용할 수 있습니다. 대시보드의 백업 섹션에서 **백업 항목** 타일은 자격 증명 모음에 보호된 백업 항목 수를 표시합니다.
+
+백업 항목 타일에서 **파일-폴더** 타일을 클릭합니다.
+
+![백업 항목 타일](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+
+백업 항목 블레이드가 열리고 필터가 나열된 각 특정 백업 항목을 볼 수 있는 파일-폴더로 설정됩니다.
+
+![백업 항목](./media/backup-azure-manage-windows-server/backup-item-list.png)
+
+목록에서 특정 백업 항목을 클릭하면 해당 항목에 대한 필수 세부 정보를 볼 수 있습니다.
+
+>[AZURE.NOTE] **설정** 블레이드에서 **보호된 항목 > 백업 항목**을 선택하고 드롭다운 메뉴에서 **파일-폴더**를 선택하여 파일 및 폴더를 관리합니다.
+
+![설정에서 항목 백업](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
+
+## 백업 작업 관리
+온-프레미스(온-프레미스 서버가 Azure에 백업하는 경우)와 Azure 백업 둘 다에 대한 백업 작업을 대시보드에서 볼 수 있습니다.
+
+대시보드의 백업 섹션에서 백업 작업 타일에 작업 수를 표시합니다.
+
+- 진행 중
+- 지난 24시간 동안 실패한 작업.
+
+백업 작업을 관리하려면 **백업 작업** 타일을 클릭하여 백업 작업 블레이드를 엽니다.
+
+![설정에서 항목 백업](./media/backup-azure-manage-windows-server/backup-jobs.png)
+
+페이지 맨 위의 **열 선택** 단추로 백업 작업 블레이드에 사용할 수 있는 정보를 수정합니다.
+
+**필터** 단추를 사용하여 파일과 폴더 및 Azure 가상 컴퓨터 백업 중에서 선택합니다.
+
+백업 파일 및 폴더가 보이지 않으면 페이지 맨 위의 **필터** 단추를 클릭하고 항목 유형 메뉴에서 **파일 및 폴더**를 선택합니다.
+
+>[AZURE.NOTE] **설정** 블레이드에서 **모니터링 및 보고서 > 작업 > 백업 작업**을 선택한 다음 드롭다운 메뉴에서 **파일-폴더**를 선택하여 백업 작업을 관리합니다.
+
+## 백업 사용 모니터링
+대시보드의 백업 섹션에서 백업 사용 타일이 Azure에서 사용한 저장소를 보여줍니다. 다음에 대한 저장소 사용량이 제공됩니다.
+- 자격 증명 모음과 연결된 클라우드 LRS 저장소 사용량
+- 자격 증명 모음과 연결된 클라우드 GRS 저장소 사용량
+
+## 프로덕션 서버
+프로덕션 서버를 관리하려면 **설정**을 클릭합니다. 관리 아래에서 **백업 인프라 > 프로덕션 서버**를 클릭합니다.
+
+프로덕션 서버 블레이드에 모든 사용 가능한 프로덕션 서버의 목록이 표시됩니다. 목록에서 서버를 클릭하면 서버 세부 정보가 열립니다.
+
+![보호된 항목](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 ## Microsoft Azure 백업 에이전트 작업
 
-### 콘솔
+## 백업 에이전트 열기
 
 **Microsoft Azure 백업 에이전트**를 엽니다(*Microsoft Azure 백업*에 대한 컴퓨터를 검색하여 찾을 수 있음).
 
@@ -96,7 +171,7 @@
 
 >[AZURE.NOTE] **데이터를 복구**하려면 [Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원](backup-azure-restore-windows-server.md)을 참조하세요.
 
-### 기존 백업 수정
+## 기존 백업 수정
 
 1. Microsoft Azure 백업 에이전트에서 **백업 예약**을 클릭합니다.
 
@@ -122,7 +197,7 @@
 
     >[AZURE.NOTE] 백업 일정을 지정하는 방법은 [문서](backup-azure-backup-cloud-as-tape.md)에 자세히 설명되어 있습니다.
 
-6. 백업 복사본에 대한 **보존 정책**을 선택하고 **다음**을 클릭합니다.
+6. 백업 복사본에 대한 **재방문 주기 정책**을 선택하고 **다음**을 클릭합니다.
 
     ![Windows Server 백업에 대한 항목](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
 
@@ -132,7 +207,7 @@
 
     보호를 수정한 후 **작업** 탭으로 이동해 변경 내용이 백업 작업에 반영되는지 확인하여 백업이 올바르게 트리거되는지 확인할 수 있습니다.
 
-### 네트워크 제한 사용  
+## 네트워크 제한 사용  
 Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 사용되는 방식을 제어할 수 있는 제한 탭을 제공합니다. 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 데이터 전송 제한은 백업 및 복원 작업에 적용됩니다.
 
 제한을 사용하려면
@@ -149,7 +224,7 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 
 4. **확인**을 클릭합니다.
 
-## 제외 설정
+## 제외 설정 관리
 
 1. **Microsoft Azure 백업 에이전트**를 엽니다(*Microsoft Azure 백업*에 대한 컴퓨터를 검색하여 찾을 수 있음).
 
@@ -193,9 +268,22 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 
     ![Windows Server 백업 예약](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
+## 질문과 대답
+**Q1. 백업 작업 상태가 Azure 백업 에이전트에서 완료된 것으로 표시되는데, 포털에 즉시 반영되지 않는 이유는 무엇인가요? **
+
+A1. 백업 작업 상태가 Azure 백업 에이전트와 Azure 포털에 반영될 때까지 최대 15분이 지연됩니다.
+
+**Q.2 백업 작업이 실패하는 경우, 경고가 발생할 때까지 얼마나 걸리나요?**
+
+A.2 경고는 Azure 백업 실패 후 5 분 이내에 발생합니다.
+
+**Q3. 알림이 구성된 경우 전자 메일이 전송되지 않는 경우가 있나요?**
+
+A3. 알림이 매시간 구성되고 알림이 발생하고 한 시간 이내에 확인되면 전자 메일이 전송되지 않습니다.
+
 ## 다음 단계
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # 보안 아키텍처 개요
@@ -26,4 +26,4 @@
 - [Microsoft Azure의 응용 프로그램 아키텍처](security-application-architecture-on-azure.md)
 - [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

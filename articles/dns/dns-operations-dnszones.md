@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 DNS 영역을 관리하는 방법
@@ -94,4 +94,4 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

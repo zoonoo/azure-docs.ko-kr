@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 
 # BizTalk 서비스: 제한
 
-Azure BizTalk 서비스는 메모리 사용량과 동시 메시지 처리 수의 두 가지 조건에 따라 서비스 제한을 구현합니다. 이 항목에서는 조정 임계값을 나열하고 조정 조건이 발생할 때의 런타임 동작을 설명합니다.
+Azure BizTalk 서비스는 메모리 사용량과 동시 메시지 처리 수의 두 가지 조건에 따라 서비스 제한을 구현합니다. 이 항목에서는 제한 임계값을 나열하고 제한 조건이 발생할 때의 런타임 동작을 설명합니다.
 
 ## 제한 임계값
 
@@ -70,4 +70,4 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

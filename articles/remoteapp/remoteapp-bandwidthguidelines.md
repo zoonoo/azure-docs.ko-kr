@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
     
 # Azure RemoteApp 네트워크 대역폭 - 일반적인 지침(자체 테스트를 수행할 수 없는 경우)
+
+> [AZURE.IMPORTANT]
+Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
 Azure RemoteApp에 대한 [네트워크 대역폭 테스트](remoteapp-bandwidthtests.md)를 실행할 시간 또는 능력이 없는 경우 사용자당 네트워크 대역폭을 예측하는 데 도움이 될 수 있는 일반적인 지침이 있습니다.
 
@@ -43,4 +46,4 @@ Azure RemoteApp은 100MB LAN에서 가장 효율적으로 작동합니다. 10MB/
 
 - [Azure RemoteApp - 몇 가지 일반적인 시나리오로 네트워크 대역폭 사용량 테스트](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->
