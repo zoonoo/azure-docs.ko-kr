@@ -70,4 +70,4 @@ Azure 포털 이외의 도구에서 Azure RBAC 명령을 사용하여 역할을 
 - [RBAC 기본 제공 역할](role-based-access-built-in-roles.md) 참조
 - [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 정의
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->

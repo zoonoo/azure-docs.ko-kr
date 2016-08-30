@@ -114,4 +114,4 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!-----HONumber=AcomDC_0720_2016-->
