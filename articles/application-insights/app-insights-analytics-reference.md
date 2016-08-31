@@ -19,7 +19,7 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-> [AZURE.NOTE] [Test drive Analytics on our simulated data]앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 (https://analytics.applicationinsights.io/demo)입니다.
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 입니다.
 
 ## 인덱스
 
