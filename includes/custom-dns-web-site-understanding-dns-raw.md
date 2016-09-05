@@ -34,7 +34,7 @@ CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특
 
 * **특정 하위 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net**에 **&lt;sub-domain>**의 DNS 이름을 만듭니다. 예를 들어 A 레코드가 **blogs.contoso.com**에 대한 레코드인 경우 **blogs**입니다.
 
-* **와일드카드 하위 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net**에 *****의 DNS TXT 레코드를 만듭니다.
+* **와일드카드 하위 도메인용** - **&lt;yourwebappname&gt;.azurewebsites.net** 에 *****의 DNS TXT 레코드를 만듭니다.
 
 이 TXT 레코드로 사용하려는 도메인을 소유하고 있는지를 확인할 수 있습니다. 또한 이 레코드는 웹앱의 가상 IP 주소를 가리키는 A 레코드를 만듭니다.
 

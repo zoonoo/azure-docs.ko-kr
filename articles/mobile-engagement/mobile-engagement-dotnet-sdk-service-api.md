@@ -47,7 +47,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations

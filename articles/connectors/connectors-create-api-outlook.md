@@ -598,14 +598,11 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목  
-|string|예 |
+|제목 |string|예 |
 |본문|string|예 |
-|중요도  
-|string|아니요 |
+|중요도 |string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람  
-|string|예 |
+|받는 사람 |string|예 |
 
 
 
@@ -633,14 +630,11 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목  
-|string|예 |
+|제목 |string|예 |
 |본문|string|예 |
-|중요도  
-|string|아니요 |
+|중요도|string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람  
-|string|예 |
+|받는 사람 |string|예 |
 
 
 
@@ -662,15 +656,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목  
-|string|예 |
+|제목|string|예 |
 |본문|string|아니요 |
-|중요도  
-|string|아니요 |
+|중요도 |string|아니요 |
 |Digest|array|예 |
 |첨부 파일|array|아니요 |
-|받는 사람  
-|string|예 |
+|받는 사람 |string|예 |
 
 
 
@@ -778,15 +769,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목  
-|string|예 |
+|제목 |string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도  
-|string|아니요 |
+|중요도 |string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람  
-|string|예 |
+|받는 사람 |string|예 |
 
 
 
@@ -817,15 +805,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목  
-|string|예 |
+|제목 |string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도  
-|string|아니요 |
+|중요도 |string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람  
-|string|예 |
+|받는 사람 |string|예 |
 
 
 

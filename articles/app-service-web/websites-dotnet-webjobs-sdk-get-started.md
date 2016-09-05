@@ -79,11 +79,13 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 1. Visual Studio에서 **서버 탐색기** 창을 엽니다.
 
-2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 연결**을 클릭합니다. ![Azure에 연결](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 연결**을 클릭합니다.
+![Azure에 연결](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Azure 자격 증명을 사용하여 로그인합니다.
 
-5. Azure 노드 아래에서 **저장소**를 마우스 오른쪽 단추로 클릭하고 **저장소 계정 만들기**를 클릭합니다. ![저장소 계정 만들기](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Azure 노드 아래에서 **저장소**를 마우스 오른쪽 단추로 클릭하고 **저장소 계정 만들기**를 클릭합니다.
+![저장소 계정 만들기](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. **저장소 계정 만들기** 대화 상자에서 저장소 계정의 이름을 입력합니다.
 
