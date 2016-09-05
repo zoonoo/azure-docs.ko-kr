@@ -76,7 +76,7 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 
 경로 테이블에 두 개의 동일한 접두사가 있을 경우 경로 "source" 특성을 기준으로 하는 기본 설정 순서는 다음과 같습니다.
 
-1.	<blank> = 테이블에 수동으로 추가된 사용자 정의 경로
+1.	"VirtualAppliance" = 테이블에 수동으로 추가된 사용자 정의 경로
 2.	"VPNGateway" = 동적 네트워크 프로토콜에서 추가한 동적 경로(하이브리드 네트워크와 함께 사용할 경우 BGP). 이러한 경로는 동적 프로토콜에서 피어 네트워크의 변경 사항을 자동으로 반영하면서 시간에 따라 바뀔 수 있습니다.
 3.	"Default" = 위의 경로 테이블에 나와 있는 시스템 경로, 로컬 VNet, 정적 항목.
 
@@ -941,4 +941,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

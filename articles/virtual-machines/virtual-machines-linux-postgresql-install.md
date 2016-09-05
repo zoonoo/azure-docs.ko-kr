@@ -34,7 +34,7 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.
 
-PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
@@ -255,4 +255,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 대한 자세한 정보 얻기
 Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대해 자세히 알아보려면 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

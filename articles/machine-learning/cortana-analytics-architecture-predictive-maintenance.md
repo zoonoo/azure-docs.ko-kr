@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 # 항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿의 아키텍처
@@ -26,4 +26,4 @@
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

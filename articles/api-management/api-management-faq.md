@@ -38,6 +38,7 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	[ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇인가요?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[API 관리는 Express 경로와 함께 작동하나요?](#does-api-management-work-with-express-route)
 
 
 ### API 관리 팀에 질문하려면 어떻게 해야 합니까?
@@ -150,4 +151,8 @@ API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-man
 
 GIT 자격 증명 관리자를 사용하거나 Visual Studio를 통해 리포지토리를 복제하려고 하면 암호 길이를 127자로만 제한하여 생성된 암호가 잘리는 Windows 자격 증명 대화 상자의 알려진 문제가 발생한 것일 수 있습니다. 암호 길이를 줄이는 작업 중입니다. 현재는 복제하는 데 GIT Bash를 사용하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+### API 관리는 Express 경로와 함께 작동하나요?
+
+예!
+
+<!---HONumber=AcomDC_0824_2016-->

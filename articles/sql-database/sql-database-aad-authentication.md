@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/17/2016"
+   ms.date="08/24/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결
@@ -29,7 +29,7 @@ Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사�
 - Azure Active Directory 인증에서는 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 - Azure Active Directory는 SQL 데이터베이스에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
 - Azure Active Directory 인증은 도메인 동기화 없이 로컬 Azure Active Directory에 대해 ADFS(도메인 페더레이션) 또는 기본 사용자/암호 인증을 지원합니다.
-- Azure Active Directory는 MFA(Multi-Factor Authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 제공하는 강력한 인증을 포함합니다.
+- Azure Active Directory는 MFA(Multi-Factor Authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL 데이터베이스 및 SQL 데이터 웨어하우스를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
 구성 단계에는 Azure Active Directory 인증의 구성 및 사용을 위한 다음 절차가 포함됩니다.
 
@@ -85,9 +85,10 @@ Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스�
 - SQL Server에 대한 Azure Active Directory 관리자만 Azure Active Directory 계정을 사용하여 Azure SQL Server 또는 Azure SQL 데이터 웨어하우스에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure Active Directory 사용자를 구성할 수 있습니다.
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.
 - SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure Active Directory 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 응용 프로그램(DAC 및 .bacpac)의 최신 버전에서는 Azure Active Directory 인증을 사용할 수 있습니다.
-- [ODBC 버전 13.1](https://www.microsoft.com/download/details.aspx?id=53339)은 Azure Active Directory 인증을 지원하지만 `sqlcmd.exe` 및 `bcp.exe`은 구형 ODBC 공급자를 사용하기 때문에 Azure Active Directory 인증을 사용하여 연결할 수 없습니다.
+- [ODBC 버전 13.1](https://www.microsoft.com/download/details.aspx?id=53339)은 Azure Active Directory 인증을 지원하지만 `bcp.exe`는 구형 ODBC 공급자를 사용하기 때문에 Azure Active Directory 인증을 사용하여 연결할 수 없습니다.
+- `sqlcmd`는 [다운로드 센터](http://go.microsoft.com/fwlink/?LinkID=825643)에서 사용할 수 있는 버전 13.1부터 Azure Active Directory 인증을 지원합니다.
 - Visual Studio 2015용 SQL Server Data Tools는 Data Tools의 2016년 4월 버전 이상이 필요합니다(버전 14.0.60311.1). 현재 Azure Active Directory 사용자는 SSDT 개체 탐색기에 표시되지 않습니다. 해결 방법으로 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)에서 사용자를 봅니다.
-- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/en-us/download/details.aspx?id=11774)은 Azure Active Directory 인증을 지원합니다. 또한 [연결 속성 설정](https://msdn.microsoft.com/library/ms378988.aspx)을 참조하세요.
+- [SQL Server용 Microsoft JDBC 드라이버 6.0](https://www.microsoft.com/ko-KR/download/details.aspx?id=11774)은 Azure Active Directory 인증을 지원합니다. 또한 [연결 속성 설정](https://msdn.microsoft.com/library/ms378988.aspx)을 참조하세요.
 - PolyBase는 Azure Active Directory 인증을 사용하여 인증할 수 없습니다.
 - BI 및 Excel 등, 일부 도구는 지원되지 않습니다.
 - Azure Active Directory 인증은 Azure 포털 **데이터베이스 가져오기** 및 **데이터베이스 내보내기** 블레이드로 SQL 데이터베이스에서 지원됩니다. Azure Active Directory 인증을 사용한 가져오기 및 내보내기도 PowerShell 명령에서 지원됩니다.
@@ -164,7 +165,7 @@ Azure Active Directory와 함깨 Geo-Replication을 사용할 때 Azure Active D
 
 PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 실행해야 합니다.
+Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 실행합니다.
 
 - Add-AzureRmAccount
 - Select-AzureRmSubscription
@@ -233,7 +234,7 @@ REST API를 사용하여 Azure Active Directory 관리자를 프로비전할 수
 
 Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들 데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
-> [AZURE.NOTE] 포털을 사용하여 데이터베이스 사용자(관리자 제외)를 만들 수 없으며 RBAC 역할은 SQL Server, SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 전파되지 않습니다. Azure RBAC 역할은 Azure 리소스 관리에 사용되며 데이터베이스 사용 권한에는 적용되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결 권한을 부여하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
+> [AZURE.NOTE] 데이터베이스 사용자(관리자 예외)는 포털을 사용하여 만들 수 없습니다. RBAC 역할은 SQL Server, SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 전파되지 않습니다. Azure RBAC 역할은 Azure 리소스 관리에 사용되며 데이터베이스 사용 권한에는 적용되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결 권한을 부여하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
 
 ### SQL Server Management Studio 또는 SQL Server Data Tools를 사용하여 사용자 데이터베이스 또는 데이터 웨어하우스에 연결
 
@@ -265,13 +266,13 @@ Azure와 페더레이션되지 않은 도메인으로부터 자격 증명을 사
 
 ### 사용자 데이터베이스에서 Azure AD 포함 데이터베이스 사용자 만들기
 
-Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 만들려면 **ALTER ANY USER** 이상의 권한이 있는 사용자인 Azure AD ID를 통해 데이터베이스에 연결합니다(앞의 절차에서 설명). 그런 다음 아래 TRANSACT-SQL 구문을 사용합니다.
+Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 만들려면 **ALTER ANY USER** 이상의 권한이 있는 사용자인 Azure AD ID를 통해 데이터베이스에 연결합니다. 그런 다음 아래 TRANSACT-SQL 구문을 사용합니다.
 
 	CREATE USER <Azure_AD_principal_name>
 	FROM EXTERNAL PROVIDER;
 
 
- *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 
@@ -306,7 +307,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 
 ### 7\.1. 통합(Windows) 인증을 사용하는 연결
 
-통합 Windows 인증을 사용하려면 도메인의 Active Directory가 Azure Active Directory와 페더레이션되어 있어야 하며 데이터베이스에 연결하는 클라이언트 응용 프로그램(또는 서비스)이 사용자의 도메인 자격 증명을 통해 도메인에 연결된 컴퓨터에서 실행 중이어야 합니다.
+Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure Active Directory와 페더레이션해야 합니다. 데이터베이스에 연결되는 클라이언트 응용 프로그램(또는 서비스)은 사용자의 도메인 자격 증명으로 도메인에 가입된 컴퓨터에서 실행되어야 합니다.
 
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 데이터베이스 연결 문자열의 인증 키워드가 Active Directory 통합으로 설정되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
@@ -318,7 +319,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 연결 문자열 키워드 ``Integrated Security=True``는 Azure SQL 데이터베이스 연결에 지원되지 않습니다.
 
 ### 7\.2. Azure AD 사용자 이름 및 암호로 연결
-통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 인증 키워드가 Active Directory 암호로 설정되어 있고 연결 문자열에 사용자 ID/UID 및 암호/PWS 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
+통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 인증 키워드가 Active Directory 암호로 설정되어 있어야 합니다. 연결 문자열에는 사용자 ID/UID 및 암호/PWD 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
 	string ConnectionString =
 	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
@@ -333,7 +334,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 
 1. Azure Active Directory에 응용 프로그램을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다.
 2. 응용 프로그램을 나타내는 데이터베이스 사용자를 만듭니다(이전 6단계에서 완료).
-3. 응용 프로그램을 실행할 클라이언트 컴퓨터에서 인증서를 만듭니다.
+3. 응용 프로그램을 실행하는 클라이언트 컴퓨터에서 인증서를 만듭니다.
 4. 인증서를 응용 프로그램의 키로 추가합니다.
 
 샘플 연결 문자열:
@@ -346,6 +347,14 @@ conn.Open();
 ```
 
 자세한 내용은 [SQL Server 보안 블로그](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)를 참조하세요.
+
+### sqlcmd를 사용하여 연결  
+다음 문은 [다운로드 센터](http://go.microsoft.com/fwlink/?LinkID=825643)에서 사용할 수 있는 sqlcmd 버전 13.1을 사용하여 연결합니다.
+
+```
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
+```
 
 ## 참고 항목
 
@@ -372,4 +381,4 @@ conn.Open();
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

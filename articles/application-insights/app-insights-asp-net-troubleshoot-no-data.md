@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # 데이터 없음 문제 해결 - .NET용 Application Insights
@@ -21,14 +21,18 @@
 
 *Application Insights에서 내 앱이 생성하는 이벤트의 일부만 표시됩니다.*
 
-* 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](app-insights-sampling.md) 때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다. 
+* 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](app-insights-sampling.md) 때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다.
 * 그렇지 않은 경우 요금제의 [데이터 속도 제한](app-insights-pricing.md#limits-summary)에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
 
-## 상태 모니터 문제
+## 내 서버에서 데이터 없음
+
+*웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
+
+* 아마도 방화벽 문제일 것입니다. [Application Insights에 대한 방화벽 예외를 설정하여 데이터를 전송합니다](app-insights-ip-addresses.md).
 
 기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](app-insights-monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
 
-[상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting)을 참조하세요. 가장 일반적인 문제는 방화벽 포트입니다.
+* [상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting)을 참조하세요.
 
 
 ## <a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
@@ -53,10 +57,10 @@
 
 해결 방법:
 
-+ 올바른 Azure 계정의 로그인 자격 증명을 입력했는지 확인하세요. 
++ 올바른 Azure 계정의 로그인 자격 증명을 입력했는지 확인하세요.
 + 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
 + [Application Insights를 기존 프로젝트에 추가](app-insights-asp-net.md): 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
-+ 여전히 작동하지 않는 경우 [수동 절차](app-insights-asp-net-manual.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다. 
++ 여전히 작동하지 않는 경우 [수동 절차](app-insights-asp-net-manual.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다.
 
 ## <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 
@@ -85,7 +89,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
 * Visual Studio가 2013 업데이트 3 이상 버전인지 확인하세요.
 * **도구**, **확장 및 업데이트**를 차례로 선택하고 **Application Insights Tools**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트**를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
-* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결하세요.
+* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
 
 
 명령이 보이지 않으면 프로젝트가 Application Insights 도구에서 바로 지원되지 않는 유형입니다. 원격 분석을 보려면 [Azure 포털](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 응용 프로그램을 선택합니다.
@@ -98,7 +102,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
 기본 브라우저에서 마지막으로 사용한 Microsoft 로그인이 [이 앱에 Application Insights를 추가할 때 만들어진 리소스](app-insights-asp-net.md)에 대한 액세스 권한을 갖고 있지 않습니다. 가능한 원인은 두 가지입니다.
 
-* Microsoft 계정이 여러 개 있습니다. 예를 들어 회사용 Microsoft 계정과 개인용 Microsoft 계정이 있습니다. 기본 브라우저에서 마지막으로 사용한 로그인이 [프로젝트에 Application Insights를 추가](app-insights-asp-net.md)할 수 있는 액세스 권한을 가진 계정이 아닌 다른 계정의 로그인입니다. 
+* Microsoft 계정이 여러 개 있습니다. 예를 들어 회사용 Microsoft 계정과 개인용 Microsoft 계정이 있습니다. 기본 브라우저에서 마지막으로 사용한 로그인이 [프로젝트에 Application Insights를 추가](app-insights-asp-net.md)할 수 있는 액세스 권한을 가진 계정이 아닌 다른 계정의 로그인입니다.
 
  * 해결 방법: 브라우저 창 오른쪽 상단에서 본인의 이름을 클릭하고 로그아웃합니다. 액세스 권한이 있는 계정으로 로그인합니다. 그런 다음 왼쪽의 탐색 모음에서 Application Insights를 클릭하고 앱을 선택합니다.
 
@@ -115,7 +119,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 가능한 원인:
 
 * 응용 프로그램의 Application Insights 리소스가 삭제되었습니다.
-* 프로젝트 파일을 업데이트하지 않고 계측 키를 바로 편집하여 ApplicationInsights.config에서 계측 키가 설정되었거나 변경되었습니다. 
+* 프로젝트 파일을 업데이트하지 않고 계측 키를 바로 편집하여 ApplicationInsights.config에서 계측 키가 설정되었거나 변경되었습니다.
 
 ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치를 제어합니다. 프로젝트 파일의 줄은 Visual Studio에서 명령을 사용할 때 열리는 리소스를 제어합니다.
 
@@ -141,7 +145,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 *앱을 실행한 다음 Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
-+ Visual Studio의 디버그 모드에서 응용 프로그램을 실행합니다(F5). 응용 프로그램을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다. 
++ Visual Studio의 디버그 모드에서 응용 프로그램을 실행합니다(F5). 응용 프로그램을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다.
 
     ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)
 
@@ -190,12 +194,12 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 ## 데이터를 보는 데 중지되었습니다.
 
 * [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 
 ## 기대한 모든 데이터가 표시되지 않는 경우
 
-응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다.
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다.
 
 이 기능을 비활성화할 수는 있지만 그러지 않는 것이 좋습니다. 샘플링은 진단을 목적으로 관련 원격 분석이 올바르게 전송되도록 설계되었습니다.
 
@@ -211,4 +215,4 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

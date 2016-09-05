@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Azure 복원력 기술 지침: 지역 전체의 서비스 중단으로부터 복구
@@ -102,11 +102,11 @@ Azure SQL 데이터베이스는 지역 복원 및 활성 지역 복제와 같은
 
 ####지역 복원
 
-[지리적 복원](../sql-database/sql-database-recovery-using-backups.md#geo-restore)은 기본, 표준 및 프리미엄 데이터베이스에서도 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 특정 시점 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 주 지역의 저장소 중단에 영향을 받지 않습니다. 자세한 내용은 [중단으로부터 복구](../sql-database/sql-database-disaster-recovery.md)를 참조하세요.
+[지리적 복원](../sql-database/sql-database-recovery-using-backups.md#geo-restore)은 기본, 표준 및 프리미엄 데이터베이스에서도 사용할 수 있습니다. 이 기능은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. 특정 시점 복원과 유사하게, 지역 복원은 지역 중복 Azure 저장소의 데이터베이스 백업을 사용합니다. 지역에서 복제된 백업 복사본에서 복원하기 때문에 주 지역의 저장소 중단에 영향을 받지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](../sql-database/sql-database-disaster-recovery.md)를 참조하세요.
 
 ####활성 지역 복제
 
-[활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. 자세한 내용은 [지역에서 복제 구성](../sql-database/sql-database-geo-replication-portal.md) 및 [보조 데이터베이스로 장애 조치(failover)](../sql-database/sql-database-geo-replication-failover-portal.md)를 참조하세요. 가동 중단 없는 응용 프로그램 및 응용 프로그램 업그레이드를 설계하고 구현하는 방법에 대한 자세한 내용은 [활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-manage-application-rolling-upgrade.md)를 참조하세요.
+[활성 지역 복제](../sql-database/sql-database-geo-replication-overview.md)는 모든 데이터베이스 계층에서 사용할 수 있습니다. 이 기능은 지역 복원이 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램을 위해 설계되었습니다. 활성 지역 복제를 사용하여 서로 다른 지역의 서버에 최대 4개의 읽기 가능한 보조 복제본을 만들 수 있습니다. 보조 복제본으로 장애 조치를 시작할 수 있습니다. 또한 활성 지역 복제는 응용 프로그램 업그레이드 또는 재배치 시나리오뿐 아니라 읽기 전용 작업에 대한 부하 분산을 지원하는 데에도 사용할 수 있습니다. 자세한 내용은 [지역에서 복제 구성](../sql-database/sql-database-geo-replication-portal.md) 및 [보조 데이터베이스로 장애 조치(failover)](../sql-database/sql-database-geo-replication-failover-portal.md)를 참조하세요. 가동 중단 없는 응용 프로그램 및 응용 프로그램 업그레이드를 설계하고 구현하는 방법에 대한 자세한 내용은 [SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계](../sql-database/sql-database-manage-application-rolling-upgrade.md)를 참조하세요.
 
 ###가상 컴퓨터의 SQL Server
 
@@ -120,7 +120,7 @@ Azure 가상 컴퓨터에서 실행 중에 SQL Server 2012(또는 이상)에 대
 
 ###서비스 버스
 
-Azure 서비스 버스는 Azure 지역에 확장되지 않은 고유한 네임스페이스를 사용합니다. 따라서 첫 번째 요구 사항은 대체 지역에서 필요한 서비스 버스 네임스페이스를 설치하는 것입니다. 그러나 대기 중인 메시지의 지속성에 대한 고려 사항도 있습니다. Azure 지역에 메시지를 복제하기 위한 몇 가지 전략이 있습니다. 이러한 복제 전략 및 다른 재해 복구 전략에 대한 세부 정보는 [서비스 버스 중단 및 재해로부터 응용 프로그램을 격리하는 모범 사례](../service-bus/service-bus-outages-disasters.md)를 참조하세요. 다른 가용성 고려 사항은 [서비스 버스(가용성)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus)을 참조하세요.
+Azure 서비스 버스는 Azure 지역에 확장되지 않은 고유한 네임스페이스를 사용합니다. 따라서 첫 번째 요구 사항은 대체 지역에서 필요한 서비스 버스 네임스페이스를 설치하는 것입니다. 그러나 대기 중인 메시지의 지속성에 대한 고려 사항도 있습니다. Azure 지역에 메시지를 복제하기 위한 몇 가지 전략이 있습니다. 이러한 복제 전략 및 다른 재해 복구 전략에 대한 세부 정보는 [서비스 버스 중단 및 재해로부터 응용 프로그램을 격리하는 모범 사례](../service-bus/service-bus-outages-disasters.md)를 참조하세요. 다른 가용성 고려 사항은 [서비스 버스(가용성)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services)을 참조하세요.
 
 ###웹앱
 
@@ -132,7 +132,7 @@ Azure 웹앱을 보조 Azure 지역에 마이그레이션하려면 게시에 사
 
 ###HDInsight
 
-HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저장됩니다. HDInsight은 MapReduce 작업을 처리하는 Hadoop 클러스터가 분석 중인 데이터를 포함하는 저장소 계정과 동일한 지역에 배치되도록 해야 합니다. Azure 저장소에 사용할 수 있는 지역에서 복제 기능이 제공되면 어떤 이유로든 주 지역을 사용할 수 없는 경우 데이터를 복제하는 보조 지역의 데이터에 액세스할 수 있습니다. 데이터가 복제되고 처리를 계속하는 지역에 새로운 Hadoop 클러스터를 만들 수 있습니다. 다른 가용성 고려 사항은 [HDInsight(가용성)](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight)을 참조하세요.
+HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저장됩니다. HDInsight은 MapReduce 작업을 처리하는 Hadoop 클러스터가 분석 중인 데이터를 포함하는 저장소 계정과 동일한 지역에 배치되도록 해야 합니다. Azure 저장소에 사용할 수 있는 지역에서 복제 기능이 제공되면 어떤 이유로든 주 지역을 사용할 수 없는 경우 데이터를 복제하는 보조 지역의 데이터에 액세스할 수 있습니다. 데이터가 복제되고 처리를 계속하는 지역에 새로운 Hadoop 클러스터를 만들 수 있습니다. 다른 가용성 고려 사항은 [HDInsight(가용성)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services)을 참조하세요.
 
 ###SQL 보고
 
@@ -149,69 +149,81 @@ Azure 미디어 서비스에는 인코딩 및 스트리밍을 위한 다른 복�
 ##재해 복구를 위한 검사 목록
 
 ##클라우드 서비스 검사 목록
-  1. 이 문서의 [클라우드 서비스](#cloud-services) 섹션을 검토합니다.
+
+  1. 이 문서의 클라우드 서비스 섹션을 검토합니다.
   2. 지역 간 재해 복구 전략을 만듭니다.
   3. 대체 지역에서 용량 예약의 장단점을 이해합니다.
   4. Azure 트래픽 관리자와 같은 트래픽 라우팅 도구를 사용합니다.
 
 ##가상 컴퓨터 검사 목록
-  1. 이 문서의 [가상 컴퓨터](#virtual-machines) 섹션을 검토합니다.
+
+  1. 이 문서의 가상 컴퓨터 섹션을 검토합니다.
   2. [Azure 백업](https://azure.microsoft.com/services/backup/)을 사용하여 지역에 걸쳐 응용 프로그램에 일관된 백업을 만듭니다.
 
 ##저장소 검사 목록
-  1. 이 문서의 [저장소](#storage) 섹션을 검토합니다.
+
+  1. 이 문서의 저장소 섹션을 검토합니다.
   2. 저장소 리소스의 지역에서 복제를 해제하지 않습니다.
   3. 장애 조치 시 지역에서 복제에 대한 대체 지역을 이해합니다.
   4. 사용자 제어 장애 조치 전략에 대한 사용자 지정 백업 전략을 만듭니다.
 
 ##SQL 데이터베이스 검사 목록
-  1. 이 문서의 [SQL 데이터베이스](#sql-database) 섹션을 검토합니다.
+
+  1. 이 문서의 SQL 데이터베이스 섹션을 검토합니다.
   2. [지역 복원](../sql-database/sql-database-recovery-using-backups.md#geo-restore) 또는 [지역에서 복제](../sql-database/sql-database-geo-replication-overview.md)를 적절하게 사용합니다.
 
 ##가상 컴퓨터 검사 목록의 SQL Server
-  1. 이 문서의 [가상 컴퓨터에서 SQL Server](#sql-server-on-virtual-machines) 섹션을 검토합니다.
+
+  1. 이 문서의 가상 컴퓨터에서 SQL Server 섹션을 검토합니다.
   2. 지역 간 AlwaysOn 가용성 그룹 또는 데이터베이스 미러링을 사용합니다.
   3. 또는 백업 사용 및 Blob 저장소에 복원합니다.
 
 ##서비스 버스 검사 목록
-  1. 이 문서의 [서비스 버스](#service-bus) 섹션을 검토합니다.
+
+  1. 이 문서의 서비스 버스 섹션을 검토합니다.
   2. 대체 지역에서 서비스 버스 네임스페이스를 구성합니다.
   3. 지역에 걸쳐 메시지에 대한 사용자 지정 복제 전략을 고려합니다.
 
 ##웹앱 검사 목록
-  1. 이 문서의 [웹앱](#web-apps) 섹션을 검토합니다.
+
+  1. 이 문서의 웹앱 섹션을 검토합니다.
   2. 주 지역 외부에서 웹 사이트 백업을 유지 관리합니다.
   3. 가동 중단이 부분적인 경우 FTP로 현재 사이트 검색을 시도합니다.
   4. 대체 지역에서 기존 또는 새 웹 사이트에 웹 사이트를 배포할 계획입니다.
   5. 응용 프로그램 및 DNS CNAME 레코드 모두에 대한 구성을 변경할 계획입니다.
 
 ##모바일 서비스 검사 목록
-  1. 이 문서의 [모바일 서비스](#mobile-services) 섹션을 검토합니다.
+
+  1. 이 문서의 모바일 서비스 섹션을 검토합니다.
   2. 대체 지역에서 백업 모바일 서비스를 만듭니다.
   3. 연결된 Azure SQL 데이터베이스의 백업을 관리하여 장애 조치 중에 복원합니다.
   4. Azure 명령줄 도구를 사용하여 모바일 서비스를 이동합니다.
 
 ##HDInsight 검사 목록
-  1. 이 문서의 [HDInsight](#hdinsight) 섹션을 검토합니다.
+
+  1. 이 문서의 HDInsight 섹션을 검토합니다.
   2. 복제된 데이터를 사용하여 지역에서 새로운 Hadoop 클러스터를 만듭니다.
 
 ##SQL 보고 검사 목록
-  1. 이 문서의 [SQL 보고](#sql-reporting) 섹션을 검토합니다.
+
+  1. 이 문서의 SQL 보고 섹션을 검토합니다.
   2. 다른 지역에 대체 SQL 보고 인스턴스를 유지 관리합니다.
   3. 별도 계획을 유지 관리하여 해당 지역에 대상을 복제합니다.
 
 ##미디어 서비스 검사 목록
-  1. 이 문서의 [미디어 서비스](#media-services) 섹션을 검토합니다.
+
+  1. 이 문서의 미디어 서비스 섹션을 검토합니다.
   2. 대체 지역에서 미디어 서비스 계정을 만듭니다.
   3. 두 지역에서 동일한 콘텐츠를 인코딩하여 스트리밍 장애 조치를 지원합니다.
-  4. 가동 중단 시 대체 지역에 인코딩 작업을 제출합니다.
+  4. 서비스 중단 시 대체 지역에 인코딩 작업을 제출합니다.
 
 ##가상 네트워크 검사 목록
-  1. 이 문서의 [가상 네트워크](#virtual-network) 섹션을 검토합니다.
+
+  1. 이 문서의 가상 네트워크 섹션을 검토합니다.
   2. 가상 네트워크 설정을 사용하여 다른 지역에 다시 만듭니다.
 
 ##다음 단계
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서에서는 [데이터 온-프레미스 데이터 센터에서 Azure에 복구](./resiliency-technical-guidance-recovery-on-premises-azure.md)에 대해 자세히 알아 봅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

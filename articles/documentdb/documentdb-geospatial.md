@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/16/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
     
 # Azure DocumentDB에서 지리 공간 데이터 작업
@@ -276,6 +276,8 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 
 /*(모든 경로)에 대한 공간 인덱스를 포함하는 인덱싱 정책을 지정하는 경우 효율적인 공간 쿼리(ST\_WITHIN 및 ST\_DISTANCE)를 위해 컬렉션 내에 있는 모든 점이 인덱싱됩니다. 공간 인덱스에는 전체 자릿수 값이 없으며 항상 기본 전체 자릿수 값을 사용합니다.
 
+>[AZURE.NOTE] DocumentDB는 점, 다각형(비공개 미리 보기) 및 LineStrings(비공개 미리 보기)의 자동 인덱싱을 지원합니다. 미리 보기에 대한 액세스를 위해서는 전자 메일 askdocdb@microsoft.com을 보내거나 Azure 지원을 통해 문의하세요.
+
 다음 JSON 조각은 공간 인덱싱이 사용되는 인덱싱 정책을 보여 줍니다. 즉, 공간 쿼리를 위해 문서 내에 있는 모든 GeoJSON 점을 인덱싱합니다. Azure 포털을 사용하여 인덱싱 정책을 수정하는 경우 인덱싱 정책에 대해 다음과 같은 JSON을 지정하여 컬렉션에서 공간 인덱싱을 사용하도록 설정할 수 있습니다.
 
 **공간 인덱싱이 사용되는 컬렉션 인덱싱 정책 JSON**
@@ -346,4 +348,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

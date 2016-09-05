@@ -14,18 +14,13 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # MailChimp 커넥터 시작
 
+MailChimp는 비즈니스에서 마케팅 전자 메일, 자동화된 메시지 및 대상 캠페인 전송을 비롯한 전자 메일 마케팅 작업을 관리하고 자동화할 수 있는 SaaS 서비스입니다.
 
-
-MailChimp 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flows.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -61,7 +56,7 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 
 |속성| 필수|설명|
 | ---|---|---|
-|신뢰|예|MailChimp 자격 증명 제공|
+|위임|예|MailChimp 자격 증명 제공|
 
 >[AZURE.INCLUDE [MailChimp에 대한 연결을 만드는 단계](../../includes/connectors-create-api-mailchimp.md)]
 
@@ -75,13 +70,13 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 
 ```POST: /campaigns```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |newCampaignRequest| |yes|body|없음|새 캠페인 요청 매개 변수가 있는 본문에 보낼 Json 개체|
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |400|잘못된 요청|
@@ -97,7 +92,7 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 
 ```POST: /lists```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |newListRequest| |yes|body|없음|새 캠페인 요청 매개 변수가 있는 본문에 보낼 Json 개체|
 
@@ -744,4 +739,4 @@ MailChimp로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

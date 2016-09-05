@@ -12,15 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # 회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태
+
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-아래의 그림 및 해당 단계는 종단 간 프로비전된 Express 경로 회로를 보유하기 위해 수행해야 하는 작업을 표시합니다.
+다음 그림 및 해당 단계는 종단 간 프로비전된 Express 경로 회로를 보유하기 위해 수행해야 하는 작업을 표시합니다.
 
 1. PowerShell을 사용하여 Express 경로 회로를 구성합니다. 자세한 세부 사항은 [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 문서의 지침을 수행합니다.
 
@@ -36,7 +37,8 @@
 	
 	>[AZURE.IMPORTANT] 인터넷에 사용하는 것 이외에 별도 프록시/Edge를 사용하여 Microsoft에 연결해야 합니다. Express 경로 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. 가상 네트워크를 Express 경로 회로에 연결 - 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 지침을 수행하여 회로에 [VNet을 연결](expressroute-howto-linkvnet-arm.md)합니다. 이러한 VNet은 Express 경로 회로로써 동일한 Azure 구독에 있거나 다른 구독에 있을 수 있습니다.
 
@@ -46,7 +48,7 @@
 각 Express 경로 회로에는 두 가지 상태가 있습니다.
 
 - 서비스 공급자 프로비전 상태
-- 상태
+- 가동 상태
 
 상태는 Microsoft의 프로비전 상태를 나타냅니다. 이 속성은 다음 상태 중 하나일 수 있습니다. *사용*, *사용 중*, 또는 *해제 중*. Express 경로 회로는 사용할 수 있도록 사용 상태에 있어야 합니다.
 
@@ -58,7 +60,7 @@
 
 #### 생성 시
 
-PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 아래에 설명된 상태의 Express 경로 회로를 확인합니다.
+PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -66,7 +68,7 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 아�
 
 #### 연결 공급자가 회로를 프로비전하는 과정인 경우
 
-연결 공급자에 서비스 키를 전달하고 프로비전 프로세스를 시작하는 즉시 아래에 설명된 상태의 Express 경로 회로를 봅니다.
+연결 공급자에 서비스 키를 전달하고 프로비전 프로세스를 시작하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -74,7 +76,7 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 아�
 
 #### 연결 공급자가 프로세스를 프로비전하기를 완료한 경우
 
-연결 공급자가 프로비전 프로세스를 완료하는 즉시 아래에 설명된 상태의 Express 경로 회로를 봅니다.
+연결 공급자가 프로비전 프로세스를 완료하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
@@ -83,7 +85,7 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 아�
 
 #### Microsoft 쪽에서 먼저 프로비전 해제를 시작한 경우
 
-PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 아래에 설명된 상태의 Express 경로 회로를 확인합니다.
+PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
@@ -92,7 +94,7 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 �
 
 #### 서비스 공급자 쪽에서 먼저 프로비전 해제를 시작한 경우
 
-서비스 공급자를 요청하여 먼저 Express 경로 회로의 프로비전을 해제한 경우 서비스 공급자가 프로비전 프로세스를 해제하도록 완료한 후에 아래에 설명된 상태로 설정한 회로를 봅니다.
+서비스 공급자를 요청하여 먼저 Express 경로 회로의 프로비전을 해제한 경우 서비스 공급자가 프로비전 프로세스를 해제하도록 완료한 후에 다음 상태로 설정한 회로를 봅니다.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
@@ -120,4 +122,4 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 	- [라우팅 구성](expressroute-howto-routing-arm.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

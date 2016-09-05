@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Azure 관리자 역할을 추가 또는 변경하는 방법
@@ -29,13 +29,15 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 > [AZURE.NOTE] Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
 ## 구독에 대한 관리자를 추가하는 방법
 
 **Azure 포털**
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 허브 메뉴에서 선택 **구독** > *관리자가 액세스할 구독*을 선택합니다.
+2. 허브 메뉴에서 **구독** > *관리자가 액세스할 구독*을 선택합니다.
 
 	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
@@ -114,4 +116,6 @@ Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독의 �
 
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](./active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

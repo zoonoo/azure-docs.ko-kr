@@ -36,7 +36,7 @@ Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 �
 >[AZURE.WARNING] 주의가 필요합니다! 이러한 형식의 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다.
 
 ### 제한 사항
-관리 인증서는 구독당 100개로 제한됩니다. 특정 서비스 관리자 사용자 ID에서는 모든 구독에 대해 관리 인증서가 100개로 제한되기도 합니다. 계정 관리자의 사용자 ID가 이미 관리 인증서 100개를 추가하는 데 사용되었으나 인증서가 더 필요한 경우 공동 관리자를 추가하여 인증서를 더 추가할 수 있습니다.
+관리 인증서는 구독당 100개로 제한됩니다. 특정 서비스 관리자의 사용자 ID에서 모든 구독에 대한 관리 인증서가 100개로 제한되기도 합니다. 계정 관리자의 사용자 ID가 이미 관리 인증서 100개를 추가하는 데 사용되었으나 인증서가 더 필요한 경우 공동 관리자를 추가하여 인증서를 더 추가할 수 있습니다.
 
 100개가 넘는 인증서를 추가하기 전에 기존 인증서를 다시 사용할 수 있는지 확인해보세요. 공동 관리자를 사용하면 인증서 관리 프로세스에 불필요한 복잡성이 가중될 수 있습니다.
 
@@ -81,7 +81,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate) 수 있습니다.
 
 ### Linux
-[이](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.
+[이](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.
 
 ## 다음 단계
 
@@ -91,4 +91,4 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 >[AZURE.NOTE] Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

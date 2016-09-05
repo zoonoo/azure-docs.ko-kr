@@ -72,20 +72,20 @@ WMF 4.0을 사용하여 Windows 컴퓨터에 대해 DSC를 사용하려는 경�
 끝났습니다. 이제 OMS 자동화 DSC를 사용하여 모바일 서비스의 설치를 자동화하는 데 필요한 이진 파일이 준비되었습니다.
 
 ### 암호
-다음으로, 이 압축된 폴더를 배치할 위치를 결정해야 합니다. 필자의 경우 나중에 Azure에서 저장소 계정을 사용하고 에이전트가 프로세스의 일부로 관리 서버에 등록하도록 설치 프로그램을 위해 필요한 암호도 이 계정에 저장하는 것을 보여 줍니다.
+다음으로, 이 압축된 폴더를 배치할 위치를 결정해야 합니다. 나중에 표시되는 것처럼 Azure 저장소 계정을 사용하여 설치에 필요한 암호를 저장할 수 있으므로, 에이전트는 해당 프로세스의 일부로 관리 서버에 등록합니다.
 
 관리 서버를 배포할 때 얻은 암호를 passphrase.txt에 텍스트 파일로 저장할 수 있습니다.
 
-필자는 zip 폴더와 암호를 모두 Azure Storage 계정의 전용 컨테이너에 배치했습니다.
+zip 폴더와 암호를 모두 Azure 저장소 계정의 전용 컨테이너에 배치합니다.
 
 ![폴더 위치](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
 이 파일들을 네트워크 내의 공유 폴더에 보관할 수도 있습니다. 나중에 실제로 사용할 DSC 리소스에 대한 액세스 권한이 있고 설치 프로그램과 암호를 가져올 수 있는지 확인하기만 하면 됩니다.
 
 ## 2단계 - DSC 구성 만들기
-필자의 설정은 WMF 5.0에 따라 달라지므로 컴퓨터가 OMS 자동화 DSC를 통해 구성을 적용하려면 WMF 5.0이 있어야 합니다.
+설정은 WMF 5.0에 따라 달라지므로 컴퓨터가 OMS 자동화 DSC를 통해 구성을 적용하려면 WMF 5.0이 있어야 합니다.
 
-다음과 같은 DSC 구성을 필자의 환경에 사용합니다.
+다음 예제 DSC 구성이 환경에 사용됩니다.
 
 ```powershell
 configuration ASRMobilityService {
@@ -146,7 +146,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -192,15 +192,15 @@ configuration ASRMobilityService {
 - 패키지 ‘AzureAgent’는 권장되는 Azure VM 에이전트를 Azure에서 실행하는 모든 VM에 설치하며, 또한 확장 파일을 VM 사후 장애 조치에 추가할 수 있도록 합니다.
 - 서비스 리소스는 관련 모바일 서비스 및 Azure 서비스가 항상 실행하도록 합니다.
 
-필자는 구성을 내 컴퓨터의 폴더에 **ASRMobilityService**로 저장했습니다.
+구성을 **ASRMobilityService**로 저장합니다.
 
 (에이전트가 역시 올바른 암호를 사용하여 올바르게 연결되도록 구성의 CSIP를 실제 관리 서버가 반영되도록 바꿉니다.)
 
 ## 3단계 – OMS 자동화 DSC에 업로드
 
-우리가 만든 DSC 구성은 필요한 DSC 리소스 모듈(xPSDesiredStateConfiguration)을 가져오므로 DSC 구성을 업로드하기 전에 OMS 자동화에서 해당 모듈을 가져와야 합니다.
+만든 DSC 구성은 필요한 DSC 리소스 모듈(xPSDesiredStateConfiguration)을 가져오므로 DSC 구성을 업로드하기 전에 OMS 자동화에서 해당 모듈을 가져와야 합니다.
 
-자동화 계정에 로그인하고 AssetsàModules로 이동한 다음 갤러리 찾아보기를 클릭합니다.
+자동화 계정에 로그인하고 자산 > 모듈로 이동한 다음 갤러리 찾아보기를 클릭합니다.
 
 여기서 모듈을 검색하고 계정으로 가져올 수 있습니다.
 
@@ -215,7 +215,7 @@ PowerShell에서 Azure 구독에 로그온하고 cmdlet를 사용자 환경이 �
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-먼저 필자는 다음 cmdlet을 사용하여 구성을 OMS 자동화 DSC에 업로드하려고 합니다.
+먼저 다음 cmdlet을 사용하여 구성을 OMS 자동화 DSC에 업로드합니다.
 
 ```powershell
 $ImportArgs = @{
@@ -226,36 +226,36 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-다음으로, 노드를 구성에 등록하기 시작할 수 있도록 OMS 자동화 DSC의 구성을 컴파일해야 합니다.
+다음으로, 노드를 구성에 등록할 수 있도록 OMS 자동화 DSC의 구성을 컴파일해야 합니다.
 
 ### OMS 자동화 DSC의 구성 컴파일
 
-우리는 다음 cmdlet을 실행하여 이 목적을 달성합니다.
+다음 cmdlet을 실행하여 이 목적을 달성합니다.
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-우리는 기본적으로 구성을 호스트된 DSC 풀 서비스에 배포하고 있으므로 이 작업에 몇 분 정도 걸릴 수 있습니다.
+기본적으로 구성을 호스트된 DSC 풀 서비스에 배포하고 있으므로 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 이 작업이 완료되면 PowerShell(Get-AzureRmAutomationDscCompilationJob)을 사용하여 작업 정보를 검색하거나 portal.azure.com을 사용할 수 있습니다.
 
 ![작업 검색](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-이제 DSC 구성을 OMS 자동화 DSC에 게시하고 업로드했습니다.
+이제 DSC 구성이 OMS 자동화 DSC에 게시되고 업로드됩니다.
 
 ## 4단계 – OMS 자동화 DSC에 컴퓨터 탑재
 *이 시나리오를 완료하기 위한 사전 요구 사항 중 하나는 Windows 컴퓨터를 WMF의 최신 버전으로 업데이트하는 것입니다. 이 URL을 따라 플랫폼에 맞는 버전을 다운로드하여 설치할 수 있습니다. https://www.microsoft.com/download/details.aspx?id=50395*
 
-이제 우리의 노드에 적용할 DSC에 대한 metaconfig를 만듭니다. 이 작업에 성공하려면 Azure에서 선택한 자동화 계정에 대한 끝점 URL과 기본 키를 검색해야 합니다.
+이제 노드에 적용할 DSC에 대한 metaconfig를 만듭니다. 이 작업에 성공하려면 Azure에서 선택한 자동화 계정에 대한 끝점 URL과 기본 키를 검색해야 합니다.
 
 이러한 값은 자동화 계정 ‘모든 설정' 블레이드에서 ‘Keys’ 아래에 있을 수 있습니다.
 
 ![키 값](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-필자의 환경에는 OMS Site Recovery로 보호하려는 Windows Server 2012 R2 물리적 서버가 있습니다.
+이 예제에는 OMS Site Recovery로 보호하려는 Windows Server 2012 R2 물리적 서버가 있습니다.
 
-레지스트리에 보류 중인 파일 이름 바꾸기 작업이 남아 있으면 보류 중인 다시 부팅 때문에 설치를 완료할 수 없으므로, 서버를 자동화 DSC 끝점에 연결하기 시작하기 전에 그러한 작업이 있는지 확인하는 것이 좋습니다.
+레지스트리에 보류 중인 파일 이름 바꾸기 작업이 남아 있으면 보류 중인 다시 부팅 때문에 설치를 완료할 수 없으므로, 서버를 자동화 DSC 끝점에 연결하기 전에 그러한 작업이 있는지 확인하는 것이 좋습니다.
 
 ### 레지스트리에서 보류 중인 파일 이름 바꾸기 작업 확인
 
@@ -266,7 +266,7 @@ Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Sel
 ```
 레지스트리가 비어 있으면 계속 진행해도 좋습니다. 그렇지 않은 경우 유지 관리 기간 동안 서버를 다시 부팅하여 이 상황을 해소해야 합니다.
 
-구성을 서버에 적용하기 위해 필자는 PowerShell ISE를 시작하고 다음 스크립트를 실행합니다. 이 스크립트는 기본적으로 로컬 구성 관리자 엔진에 대해 OMS 자동화 DSC에 등록하고 특정 구성(ASRMobilityService.localhost)을 검색하도록 지시하는 DSC 로컬 구성입니다.
+구성을 서버에 적용하기 위해 PowerShell ISE를 시작하고 다음 스크립트를 실행합니다. 이 스크립트는 기본적으로 로컬 구성 관리자 엔진에 대해 OMS 자동화 DSC에 등록하고 특정 구성(ASRMobilityService.localhost)을 검색하도록 지시하는 DSC 로컬 구성입니다.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -313,11 +313,11 @@ Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 
 ![노드 등록](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-portal.azure.com으로 돌아가면 새로 등록한 노드가 이제 포털에 나타난 것을 확인할 수 있습니다.
+portal.azure.com으로 돌아가면 새로 등록한 노드가 포털에 나타난 것을 확인할 수 있습니다.
 
 ![노드 등록](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-서버에서 다음 PowerShell cmdlet을 실행하여 올바르게 등록되었는지 확인합니다.
+서버에서 다음 PowerShell cmdlet을 실행하여 올바르게 등록되었는지 확인할 수 있습니다.
 
 ```powershell
 Get-DscLocalConfigurationManager
@@ -335,7 +335,7 @@ Get-DscConfigurationStatus
 
 또한 모바일 서비스 설정에는 ‘<SystemDrive>\\ProgramData\\ASRSetupLogs’에서 확인할 수 있는 자체의 로그가 있습니다.
 
-이것으로 끝입니다. – 우리는 이제 Site Recovery를 사용하여 보호하려는 우리의 컴퓨터에 모바일 서비스를 배포하고 등록했으며 DSC를 기반으로 필요한 서비스가 언제나 실행되도록 할 수 있습니다.
+이것으로 끝입니다. 이제 Site Recovery를 사용하여 보호하려는 컴퓨터에 모바일 서비스를 배포하고 등록했으며 DSC를 기반으로 필요한 서비스가 언제나 실행되도록 할 수 있습니다.
 
 ![노드 등록](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
@@ -345,11 +345,11 @@ Get-DscConfigurationStatus
 
 컴퓨터가 인터넷에 연결되어 있지 않은 경우에도 여전히 DSC를 기반으로 보호하려는 워크로드에 모바일 서비스를 배포하고 구성할 수 있습니다.
 
-기본적으로 클라이언트가 DSC 끝점에 등록된 후 구성을 가져올 위치인 OMS 자동화 DSC에서 얻는 것과 같은 기능을 제공하는 환경에서 DSC 풀 서버를 인스턴스화할 수 있습니다. 그러나 푸시를 사용하는 또 다른 옵션이 있으며, 이 경우 로컬 컴퓨터에서 또는 원격으로 DSC 구성을 자신의 컴퓨터에 수동으로 푸시합니다.
+기본적으로 클라이언트가 DSC 끝점에 등록된 후 구성을 가져올 위치인 OMS 자동화 DSC에서 얻는 것과 같은 기능을 제공하는 환경에서 DSC 풀 서버를 인스턴스화할 수 있습니다. 그러나 푸시를 사용하는 또 다른 옵션이 있는 경우 로컬 컴퓨터에서 또는 원격으로 DSC 구성을 컴퓨터에 푸시합니다.
 
-참고로 이 예제에서는 컴퓨터 이름에 대한 매개 변수를 추가했고 원격 파일은 이제 보호하려는 컴퓨터에서 액세스할 수 있어야 하는 원격 공유 위치에 있으며, 스크립트의 끝에서 구성을 적용한 다음 DSC 구성을 대상 컴퓨터에 적용하기 시작합니다.
+참고로 이 예제에는 컴퓨터 이름으로 추가한 매개 변수가 있습니다. 또한 보호하려는 컴퓨터에서 액세스 가능한 원격 공유에 원격 파일을 배치하고, 스크립트의 끝에서 구성을 적용한 다음 DSC 구성을 대상 컴퓨터에 적용합니다.
 
-### 전제 조건
+### 필수 조건
 
 · xPSDesiredStateConfiguration PowerShell 모듈 설치
 
@@ -434,7 +434,7 @@ configuration ASRMobilityService {
         Package AzureAgent {
             Path = 'C:\Temp\AzureVmAgent.msi'
             Ensure = 'Present'
-            Name = 'Microsoft Azure VM Agent - 2.7.1198.735'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
             ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
             DependsOn = '[Package]Install'
@@ -517,4 +517,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 모바일 서비스 에이전트를 배포한 후 가상 컴퓨터에 대해 [복제본 활성화](site-recovery-vmware-to-azure.md#step-6-replicate-applications)를 계속할 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

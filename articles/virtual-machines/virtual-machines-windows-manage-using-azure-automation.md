@@ -4,7 +4,7 @@
 	services="virtual-machines-windows, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -45,4 +45,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 가상
 - [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
 - [Azure 자동화 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

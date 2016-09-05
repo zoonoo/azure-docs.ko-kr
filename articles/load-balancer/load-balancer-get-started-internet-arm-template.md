@@ -3,7 +3,7 @@
    description="ARM 템플릿을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # ARM 템플릿을 사용하여 인터넷 연결 부하 분산 장치 구성 시작
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포 모델을 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포 모델을 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -57,7 +57,7 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 
 		info:    New mode is arm
 
-3. 브라우저에서 ****https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json**으로 이동하고 json 파일의 내용을 복사하여 컴퓨터에 새 파일로 붙여넣습니다. 이 시나리오의 경우 아래 값을 **c:\\lb\\azuredeploy.parameters.json**이라는 파일로 복사합니다.
+3. 브라우저에서 **https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json**으로 이동하고 json 파일의 내용을 복사하여 컴퓨터에 새 파일로 붙여넣습니다. 이 시나리오의 경우 아래 값을 **c:\\lb\\azuredeploy.parameters.json**이라는 파일로 복사합니다.
 4. 위에서 다운로드하여 수정한 템플릿과 매개 변수 파일로 **azure group deployment create** cmdlet을 실행하여 새 부하 분산 장치를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
@@ -70,4 +70,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

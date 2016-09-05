@@ -20,7 +20,7 @@ Azure의 IP 주소는 두 범주 즉, 동적 IP 및 예약된 IP로 나뉩니다
 
 IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니다. 예약된 IP는 VIP로만 사용할 수 있으므로 리소스가 종료 또는 할당 취소된 때에도 클라우드 서비스의 IP 주소가 동일하게 유지됩니다. 또한 VIP로 사용하는 기존의 동적 IP를 예약된 IP 주소로 변환할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](virtual-network-ip-addresses-overview-arm.md)하는 방법을 알아봅니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 배포 모델](virtual-network-ip-addresses-overview-arm.md)을 사용하여 고정 공용 IP 주소를 예약하는 방법을 알아봅니다.
 
 Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어떻게 작동하는지 이해해야 합니다.
 
@@ -130,4 +130,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [ILPIP(인스턴스 수준 공용 IP) 주소](virtual-networks-instance-level-public-ip.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

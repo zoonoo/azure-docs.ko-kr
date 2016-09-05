@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - 주요 기능
@@ -22,19 +22,19 @@
 
 ## **일반**
 
-- **모든 주요 플랫폼에 대한 SDK 찾기** iOS, Android, 유니버설 Windows, Windows Phone Silverlight, Kindle, Cordova 등 모든 주요 플랫폼에 대해 사용 가능한 SDK. 선택한 플랫폼에서 시작하는 데 유용한 설명서와 간편한 SDK 통합을 제공합니다. 
+- **모든 주요 플랫폼에 대한 SDK 찾기** iOS, Android, 유니버설 Windows, Windows Phone Silverlight, Kindle, Cordova 등 모든 주요 플랫폼에 대해 사용 가능한 SDK. 선택한 플랫폼에서 시작하는 데 유용한 설명서와 간편한 SDK 통합을 제공합니다.
 
 - **별도의 SaaS 포털** Azure 관리 포털을 통하지 않고 마케팅 팀에 쉽게 액세스할 수 있습니다.
 
-- **오픈 REST API의 가용성** 오픈 플랫폼 API를 사용하여 CRM/CMS/IT 시스템으로 통합 및 자동화하기 위해 Mobile Engagement와 쉽게 통합 및 자동화할 수 있도록 해주는 API를 사용하는 .NET SDK와 오픈 REST API를 제공합니다. 자세한 내용은 [여기]\(mobile-engagement-api-authentication.md)를 참조하세요.
+- **오픈 REST API의 가용성** 오픈 플랫폼 API를 사용하여 CRM/CMS/IT 시스템으로 통합 및 자동화하기 위해 Mobile Engagement와 쉽게 통합 및 자동화할 수 있도록 해주는 API를 사용하는 .NET SDK와 오픈 REST API를 제공합니다. 자세한 내용은 [여기](mobile-engagement-api-authentication.md)를 참조하세요.
 
-- **Power BI 커넥터 사용 가능** 또한 키 분석 차트를 Power BI 대시보드로 끌어올 수 있습니다. 이 [가이드](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)를 참조하세요.
+- **Power BI 커넥터 사용 가능** 또한 키 분석 차트를 Power BI 대시보드로 끌어올 수 있습니다. 이 [가이드](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-azure-mobile/)를 참조하세요.
 
 - **보안 및 개인 정보 보증** Azure 제품군의 일부인 Azure Mobile Engagement는 클라우드 서비스에 대해 예상되는 보안 및 개인 정보에 관한 모든 표준 모범 사례를 따릅니다.
 
 ## **실행 가능한 분석**
 
-- **실시간으로 데이터 모니터링** 세션, 이벤트, 오류 및 충돌을 모두 실시간으로 보여 주는 Monitor 모듈을 사용하여 실시간 분석을 추적할 수 있습니다. 기본 개념을 이해하기 위해 이 [문서](mobile-engagement-concepts.md)를 살펴보겠습니다. 
+- **실시간으로 데이터 모니터링** 세션, 이벤트, 오류 및 충돌을 모두 실시간으로 보여 주는 Monitor 모듈을 사용하여 실시간 분석을 추적할 수 있습니다. 기본 개념을 이해하기 위해 이 [문서](mobile-engagement-concepts.md)를 살펴보겠습니다.
 
 	![][1]
 
@@ -164,4 +164,4 @@
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

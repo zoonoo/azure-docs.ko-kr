@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 포털을 사용하여 Azure 리소스 관리 | Microsoft Azure" 
-	description="Azure 포털 및 Azure 리소스 관리자를 사용하여 리소스를 관리합니다. 리소스를 모니터링하는 대시보드와 타일을 사용하는 방법을 보여줍니다." 
+	description="Azure 포털 및 Azure 리소스 관리자를 사용하여 리소스를 관리합니다. 대시보드를 사용하여 리소스를 모니터링하는 방법을 보여줍니다." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,23 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="tomfitz"/>
-
 
 # 포털을 통해 Azure 리소스 관리
 
 > [AZURE.SELECTOR]
-- [포털](azure-portal/resource-group-portal.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Azure PowerShell](../powershell-azure-resource-manager.md)
+- [Azure CLI](../xplat-cli-azure-resource-manager.md)
+- [포털](resource-group-portal.md)
+- [REST API](../resource-manager-rest-api.md)
 
-이 항목에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
+이 토픽에서는 [Azure Resource Manager](../resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 관리하는 방법을 보여 줍니다. 포털을 통해 리소스를 배포하는 방법을 알아보려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
+
+현재 일부 서비스에서만 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [클래식 포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [Azure 포털 가용성 차트](https://azure.microsoft.com/features/azure-portal/availability/)를 참조하세요.
 
 ## 리소스 그룹 관리
 
@@ -75,23 +72,11 @@
 
 ## 리소스 모니터링
 
-리소스를 선택하면 리소스 종류를 모니터링하기 위한 기본 그래프 및 표가 리소스 블레이드에 표시됩니다. 표시된 그래프 및 표를 변경하여 해당 리소스를 모니터링하는 방법을 사용자 지정할 수 있습니다.
+리소스를 선택하면 리소스 종류를 모니터링하기 위한 기본 그래프 및 표가 리소스 블레이드에 표시됩니다.
 
-1. 리소스 블레이드 내에서 요약 아래에 **섹션 추가**를 선택하면 더 많은 그래프와 표를 추가합니다.
+1. 리소스를 선택하고 **모니터링** 섹션을 살펴봅니다. 이 섹션에는 리소스 유형과 관련된 그래프가 포함되어 있습니다. 다음은 저장소 계정의 기본 모니터링 데이터를 보여주는 이미지입니다.
 
-    ![섹션 추가](./media/resource-group-portal/add-section.png)
-
-1. 타일 갤러리에서 블레이드에 표시하려는 정보를 선택합니다. 편집기는 리소스 종류별로 타일을 필터링합니다. 다른 리소스를 선택하면 사용 가능한 타일도 변경됩니다.
-
-    ![섹션 추가](./media/resource-group-portal/tile-gallery.png)
-
-1. 필요한 타일을 사용 가능한 공간으로 끕니다.
-
-    ![타일 끌기](./media/resource-group-portal/drag-tile.png)
-
-1. 포털 맨 위에서 **완료**를 선택하면 새 보기가 블레이드에 포함됩니다.
-
-    ![타일 표시](./media/resource-group-portal/show-lens.png)
+    ![모니터링 표시](./media/resource-group-portal/show-monitoring.png)
 
 1. 섹션 위에 줄임표(...)를 선택하여 대시보드에 블레이드의 한 섹션을 고정할 수 있습니다. 블레이드의 섹션 크기를 사용자 지정하거나 완전히 제거할 수도 있습니다. 다음 이미지는 CPU 및 메모리 섹션을 고정, 사용자 지정 또는 제거하는 방법을 보여 줍니다.
 
@@ -101,11 +86,23 @@
 
     ![대시보드 보기](./media/resource-group-portal/view-startboard.png)
 
-1. 리소스를 모니터링 및 관리하기 위해 여러 대시보드를 만들고 해당 대시보드를 조직의 다른 사람과 공유할 수도 있습니다. **새 대시보드**를 선택합니다.
+1. 포털을 통해 모니터링하는 데이터를 완전히 사용자 지정하려면 기본 대시보드로 이동한 후 **새 대시보드**를 선택합니다.
 
     ![dashboard](./media/resource-group-portal/dashboard.png)
 
-     대시보드를 사용하는 방법을 알아보려면 [Microsoft Azure 포털에서 사용자 지정 대시보드 빌드](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) 비디오를 시청하세요. 게시된 대시보드에 대한 액세스를 공유하는 방법을 알아보려면 [Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조하세요.
+1. 새 대시보드의 이름을 지정하고 타일을 대시보드로 끌어 놓습니다. 타일은 다양한 옵션을 통해 필터링됩니다.
+
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+
+     대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 사용자 지정 대시보드 빌드](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) 비디오를 시청하세요. 게시된 대시보드에 대한 액세스를 공유하는 방법을 알아보려면 [Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조하세요.
+
+## 리소스 관리
+
+리소스에 대한 블레이드에는 리소스 관리 옵션이 표시됩니다. 포털에는 해당 리소스 유형의 관리 옵션이 있습니다. 리소스 블레이드 상단과 왼쪽에는 관리 명령이 표시됩니다.
+
+![리소스 관리](./media/resource-group-portal/manage-resources.png)
+
+이러한 옵션에서 가상 컴퓨터를 시작 및 중지하거나 가상 컴퓨터의 속성을 다시 구성하는 등의 작업을 수행할 수 있습니다.
 
 ## 리소스 이동
 
@@ -119,9 +116,9 @@
 
 ## 구독 및 비용 보기
 
-모든 리소스에 대한 롤업 비용 및 구독에 대한 정보를 볼 수 있습니다. **구독** 및 표시할 구독을 선택합니다. 선택할 구독이 하나만 있을 수 있습니다.
+모든 리소스에 대한 롤업 비용 및 구독에 대한 정보를 볼 수 있습니다. **구독**을 선택한 다음 보고 싶은 구독을 선택합니다. 선택할 구독이 하나만 있을 수 있습니다.
 
-![(구독당)](./media/resource-group-portal/select-subscription.png)
+![subscription](./media/resource-group-portal/select-subscription.png)
 
 구독 블레이드 내에 진행 속도가 표시됩니다.
 
@@ -154,4 +151,4 @@
 - 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 - 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -32,7 +32,7 @@ Azure DocumentDB는 [컬렉션의 자동 분할](documentdb-partition-data.md)�
 
 [Azure DocumentDB SDK 1.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx)는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
 
->[AZURE.NOTE] [Server-side partitioning](documentdb-partition-data.md) REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
+>[AZURE.NOTE] [Server-side partitioning]REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 (documentdb-partition-data.md)에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
 
 예를 들어 .NET에서 각 PartitionResolver 클래스는 [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) 인터페이스의 구체적 구현으로, 3개의 메서드 [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) 및 [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx)가 있습니다. LINQ 쿼리 및 ReadFeed 반복기는 내부적으로 ResolveForRead 메서드를 사용하여 요청의 파티션 키와 일치하는 모든 컬렉션을 반복합니다. 마찬가지로, 만들기 작업은 ResolveForCreate 메서드를 사용하여 만들기를 해당 파티션으로 라우팅합니다. Replace, Delete 및 Read는 이미 해당 컬렉션에 대한 참조를 포함하는 문서를 사용하기 때문에 변경할 필요가 없습니다.
 
@@ -164,4 +164,4 @@ foreach (UserProfile activeUser in query)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

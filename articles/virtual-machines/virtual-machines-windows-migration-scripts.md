@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -185,4 +185,4 @@ _Add-AzureSMVmToRM_ cmdlet은 다음 테스트 사례를 사용하여 유효성�
 ## 참고 사항
 1. 여러 개의 VM이 짧은 간격으로 번갈아 복제되면, DNS 캐시 새로 고침 시간으로 인해 공용 IP 주소에 대해 DNS 이름 충돌이 발생할 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

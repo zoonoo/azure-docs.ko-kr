@@ -100,7 +100,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 용량을 계획하는 경우 고려해야 할 항목은 다음과 같습니다.
 
 - **원본 환경**—용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
-- **관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
+- ** 관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
 - **원본에서 대상까지 네트워크 대역폭**-원본과 Azure 간 복제에 필요한 네트워크 대역폭 계획
 
 ### 원본 환경 고려 사항
@@ -529,6 +529,14 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 - /PassphraseFilePath: 필수. 구성 서버의 암호를 지정합니다.
 - /LogFilePath: 필수. 로그 설치 파일 위치 지정
 
+#### 모바일 서비스 수동 제거
+
+제어판에서 프로그램 추가/제거를 사용하거나 명령줄을 사용하여 모바일 서비스를 제거할 수 있습니다.
+
+명령줄을 사용하여 모바일 서비스를 제거하는 명령은 다음과 같습니다.
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 #### 관리 서버의 IP 주소 수정
 
 마법사를 실행한 후 다음과 같이 관리 서버의 IP 주소를 수정할 수 있습니다.
@@ -796,4 +804,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

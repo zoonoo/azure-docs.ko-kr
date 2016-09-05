@@ -14,18 +14,11 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # RSS 커넥터 시작
-
-
-
-RSS 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flows.microsoft.com)
+RSS는 블로그 항목 및 뉴스 헤드라인처럼 자주 업데이트되는 콘텐츠를 게시하는 데 사용되는 인기 있는 웹 배포 형식입니다. 많은 콘텐츠 게시자는 사용자가 구독할 수 있는 RSS 피드를 제공합니다. RSS 커넥터를 사용하여 피드 정보를 검색하고 RSS 피드에 새 항목이 게시될 때 흐름을 트리거합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -71,7 +64,7 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |202|수락됨|
@@ -88,13 +81,13 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 
 ```GET: /ListFeedItems```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |feedUrl|string|yes|쿼리|없음|피드 URL|
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |202|수락됨|
@@ -132,4 +125,4 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -23,12 +23,6 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [포털](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 이 항목에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여 줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
@@ -56,15 +50,15 @@
 
     ![마켓플레이스 검색](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. 선택한 리소스 유형에 따라 배포 전 설정할 관련 속성 모음이 있습니다. 리소스 유형에 따라 달라지므로 해당 옵션은 여기에 표시되지 않습니다. 모든 유형에 대해 대상 리소스 그룹을 선택해야 합니다. 다음 이미지는 새 웹 앱을 만들고 이를 방금 만든 리소스 그룹에 배포하는 방법을 보여 줍니다.
+3. 선택한 리소스 유형에 따라 배포 전 설정할 관련 속성 모음이 있습니다. 리소스 유형에 따라 달라지므로 해당 옵션은 여기에 표시되지 않습니다. 모든 유형에 대해 대상 리소스 그룹을 선택해야 합니다. 다음 이미지는 웹앱을 만들고 앞에서 만든 리소스 그룹에 배포하는 방법을 보여 줍니다.
 
     ![리소스 그룹 만들기](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    또는 리소스를 배포할 때 새 리소스 그룹을 만들도록 결정할 수 있습니다. **새로 만들기**를 선택하고 리소스 그룹에 이름을 지정합니다.
+    또는 리소스를 배포할 때 리소스 그룹을 만들도록 결정할 수 있습니다. **새로 만들기**를 선택하고 리소스 그룹에 이름을 지정합니다.
 
     ![새 리소스 그룹 만들기](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. 배포가 시작됩니다. 몇 분 정도 걸릴 수 있습니다. 배포가 완료되면 알림이 표시됩니다.
+4. 배포가 시작됩니다. 배포에 몇 분 정도 걸릴 수 있습니다. 배포가 완료되면 알림이 표시됩니다.
 
     ![알림 보기](./media/resource-group-template-deploy-portal/view-notification.png)
 
@@ -124,4 +118,4 @@
 - 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # 기존 Office 365 계정을 Azure 구독에 사용하거나 그 반대로 사용하는 경우
 시나리오: 이미 Office 365 구독이 있고 Azure 구독에 대해 준비되어 있지만, 기존 Office 365 사용자 계정을 Azure 구독에 사용하고 싶습니다. 또는, Azure 구독자인데 기존 Azure Active Directory의 사용자에 대한 Office 365 구독을 원합니다. 이 문서는 두 가지 모두를 쉽게 수행하는 방법을 보여줍니다.
 
 > [AZURE.NOTE] 이 문서는 기업 계약(EA) 고객에게는 적용되지 않습니다.
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 빠른 지침
 
@@ -124,7 +126,7 @@ Office 365를 구독하려면, 다음 단계를 수행하세요.
 	![Azure 포털 기본 AD 사용자](./media/billing-use-existing-office-365-account-azure-subscription/17-azure-portal-default-ad-users.png)
 
 4. 사용자를 클릭합니다. 이 예제에서는 Kelley Wall입니다.
-5. **조직 내 역할** 필드에 주목합니다.
+5. **조직 역할** 필드에 주목합니다.
 
 	![Azure 포털 사용자 ID](./media/billing-use-existing-office-365-account-azure-subscription/18-azure-portal-user-identity.png)
 
@@ -142,9 +144,11 @@ Office 365 및 Azure는 Azure Active Directory(AAD) 서비스를 사용하여 �
 **참고:**
 
 - Azure 구독은 디렉터리 내 개별 사용자가 소유합니다.
-- Office 365 구독은 디렉터리 자체에 의해 소유됩니다. 디렉터리 내 사용자는 필수 권한이 있으면, 이러한 구독을 조정할 수 있습니다.
+- Office 365 구독은 디렉터리 자체에 의해 소유됩니다. 디렉터리 내 사용자에게 필수 사용 권한이 있으면 이러한 구독으로 작업할 수 있습니다.
 
 ##다음 단계
-과거에 Azure 및 Office 365 구독을 모두 별도로 획득하고 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 하려는 관련된 시나리오가 있습니다. 이 작업을 수행하는 방법을 알아보려면 [Azure 구독과 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
+과거에 Azure 및 Office 365 구독을 모두 별도로 획득하고 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 하려는 관련된 시나리오가 있습니다. 이 태스크를 수행하는 방법을 알아보려면 [Azure 구독과 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

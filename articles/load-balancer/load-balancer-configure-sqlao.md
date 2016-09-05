@@ -3,7 +3,7 @@
    description="SQL Always On에서 작동하도록 부하 분산 장치를 구성하며, PowerShell을 활용하여 SQL 구현에 대한 부하 분산 장치를 만드는 방법입니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # SQL Always On에 대해 부하 분산 장치 구성
 
@@ -68,4 +68,4 @@ SQL AlwaysOn을 만드는 방법에 대한 자세한 내용은 [포털 갤러리
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

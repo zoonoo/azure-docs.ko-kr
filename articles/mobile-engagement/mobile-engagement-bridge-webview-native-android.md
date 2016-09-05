@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Android WebView와 네이티브 Mobile Engagement Android SDK 브리지
@@ -24,7 +24,7 @@
 
 일부 모바일 앱은 앱 자체가 네이티브 Android 개발을 사용하여 개발되지만 화면의 일부 또는 전부가 Android WebView 내에서 렌더링되는 하이브리드 앱으로 설계됩니다. 이러한 앱 내에서 Mobile Engagement Android SDK를 계속 사용할 수 있으며, 해당 작업 방법이 이 자습서에 설명되어 있습니다. 아래 샘플 코드는 Android 설명서([여기](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript))를 기반으로 합니다. Android 설명서에서는 하이브리드 앱의 Webview에서 Android SDK를 통해 파이프하는 동안 이벤트, 작업, 오류 및 앱 정보에 대한 추적 요청을 시작할 수 있도록 이 문서화된 접근 방식을 사용하여 Mobile Engagement Android SDK의 자주 사용되는 메서드에 대해 동일한 기능을 구현하는 방법을 설명합니다.
 
-1. 먼저 [시작 자습서](mobile-engagement-android-get-started.md)에 따라 Mobile Engagement Android SDK를 하이브리드 앱에 통합해야 합니다. 그러면 `OnCreate` 메서드가 다음과 같이 표시됩니다.  
+1. 먼저 [시작 자습서](mobile-engagement-android-get-started.md)에 따라 Mobile Engagement Android SDK를 하이브리드 앱에 통합해야 합니다. 그러면 `OnCreate` 메서드가 다음과 같이 표시됩니다.
     
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -200,10 +200,10 @@
 
 8. 위 HTML 파일에 대해 유의할 사항은 다음과 같습니다.
 
-	- 	이 파일은 이벤트, 작업, 오류, 앱 정보의 이름으로 사용할 데이터를 제공할 수 있는 입력 상자 집합을 포함합니다. 입력 상자 옆의 단추를 클릭하면 이 호출을 Mobile Engagement Android SDK로 전달하기 위해 브리지 파일에서 메서드를 호출하는 Javascript가 호출됩니다. 
-	- 	작업 방법을 보여 주기 위해 이벤트, 작업 및 오류의 몇 가지 정적 추가 정보에 대한 태그를 지정합니다. 이 추가 정보는 JSON 문자열로 전송됩니다. `WebAppInterface` 파일에서 구문 분석되어 Android `Bundle`에 배치된 후 전송되는 이벤트, 작업 및 오류와 함께 전달됩니다. 
-	- 	Mobile Engagement 작업은 입력 상자에 지정한 이름으로 시작되며, 10초간 실행된 후 종료됩니다. 
-	- 	Mobile Engagement 앱 정보 또는 태그는 입력 상자에 태그 값으로 입력한 값 및 정적 키로 'customer\_name'과 함께 전달됩니다. 
+	- 	이 파일은 이벤트, 작업, 오류, 앱 정보의 이름으로 사용할 데이터를 제공할 수 있는 입력 상자 집합을 포함합니다. 입력 상자 옆의 단추를 클릭하면 이 호출을 Mobile Engagement Android SDK로 전달하기 위해 브리지 파일에서 메서드를 호출하는 Javascript가 호출됩니다.
+	- 	작업 방법을 보여 주기 위해 이벤트, 작업 및 오류의 몇 가지 정적 추가 정보에 대한 태그를 지정합니다. 이 추가 정보는 JSON 문자열로 전송됩니다. `WebAppInterface` 파일에서 구문 분석되어 Android `Bundle`에 배치된 후 전송되는 이벤트, 작업 및 오류와 함께 전달됩니다.
+	- 	Mobile Engagement 작업은 입력 상자에 지정한 이름으로 시작되며, 10초간 실행된 후 종료됩니다.
+	- 	Mobile Engagement 앱 정보 또는 태그는 입력 상자에 태그 값으로 입력한 값 및 정적 키로 'customer\_name'과 함께 전달됩니다.
  
 9. 앱을 실행하면 다음이 표시됩니다. 이제 다음과 같은 테스트 이벤트의 이름을 제공하고 아래의 **Send**를 클릭합니다.
 
@@ -217,4 +217,4 @@
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

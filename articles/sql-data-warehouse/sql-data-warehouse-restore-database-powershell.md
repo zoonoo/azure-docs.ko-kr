@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스 복원을 위한 PowerShell 작업."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 복원(PowerShell)
 
@@ -171,4 +171,4 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

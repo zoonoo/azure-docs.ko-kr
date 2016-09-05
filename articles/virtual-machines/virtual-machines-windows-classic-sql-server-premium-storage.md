@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth"/>
 
 # 가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용
@@ -149,7 +149,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)를 참조하세요.
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard\_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -355,7 +355,7 @@ Always On 가용성 그룹 사용 여부에 따라 SQL Server 배포 관련 고�
 - **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 프리미엄 저장소 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 응용 프로그램에 액세스하는 경우 새 SQL Server를 참조하도록 응용 프로그램을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
 - **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 프리미엄 저장소 계정으로 복사합니다. VM이 온라인 상태가 되면 응용 프로그램은 이전과 같이 서버 호스트를 참조합니다. 기존 디스크의 크기는 성능 특성에 영향을 알아두어야 합니다. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 프리미엄 저장소 VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
 
-> [AZURE.NOTE] VHD 디스크를 복사할 때는 크기를 고려해야 합니다. 즉, 디스크는 크기에 따라 각기 다른 프리미엄 저장소 디스크 유형에 속하며 해당하는 디스크 성능 사양이 결정됩니다. Azure에서는 디스크 크기를 가장 가까운 크기로 반올림하므로 400GB 디스크의 경우 P20으로 반올림됩니다. OS VHD의 기존 IO 요구 사항에 따라서는 해당 디스크를 프리미엄 저장소 계정으로 마이그레이션하지 않아도 될 수 있습니다.
+> [AZURE.NOTE] VHD 디스크를 복사할 때는 크기를 고려해야 합니다. 즉, 디스크는 크기에 따라 각기 다른 프리미엄 저장소 디스크 형식에 속하며 해당하는 디스크 성능 사양이 결정됩니다. Azure에서는 디스크 크기를 가장 가까운 크기로 반올림하므로 400GB 디스크의 경우 P20으로 반올림됩니다. OS VHD의 기존 IO 요구 사항에 따라서는 해당 디스크를 프리미엄 저장소 계정으로 마이그레이션하지 않아도 될 수 있습니다.
 
 외부에서 SQL Server에 액세스하는 경우에는 클라우드 서비스 VIP가 변경됩니다. 끝점, ACL 및 DNS 설정도 업데이트해야 합니다.
 
@@ -642,7 +642,7 @@ Azure에서 Always On을 배포할 때는 다른 단계를 수행하여 수신�
 
 ![Appendix5][15]
 
-아래 코드는 VNN 설정을 덤프하여 자동으로 설정합니다. 단, VNN을 오프라인으로 설정했다가 다시 온라인으로 설정해야 변경 내용이 적용됩니다. 이와 같이 수신기를 오프라인으로 설정하면 클라이언트 연결이 귾어집니다.
+아래 코드는 VNN 설정을 덤프하여 자동으로 설정합니다. 단, VNN을 오프라인으로 설정했다가 다시 온라인으로 설정해야 변경 내용이 적용됩니다. 이와 같이 수신기를 오프라인으로 설정하면 클라이언트 연결이 끊어집니다.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -1104,11 +1104,11 @@ SQL Server가 2개뿐이며 이러한 SQL Server를 새 클라우드 서비스�
 
 IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 14단계를 참조하세요.
 
-1. 현재 IP 주소 리소스의 경우 가능한 소유자를 ‘기존 주 SQL Server’로 변경합니다(아래 예제에서는 ‘dansqlams4’).
+1. 현재 IP 주소 리소스의 경우 가능한 소유자를 '기존 주 SQL Server'로 변경합니다(아래 예제에서는 'dansqlams4').
 
 	![Appendix13][23]
 
-1. 새 IP 주소 리소스의 경우 가능한 소유자를 ‘마이그레이션된 보조 SQL Server’로 변경합니다(아래 예제에서는 ‘dansqlams5’).
+1. 새 IP 주소 리소스의 경우 가능한 소유자를 '마이그레이션된 보조 SQL Server'로 변경합니다(아래 예제에서는 'dansqlams5').
 
 	![Appendix14][24]
 
@@ -1148,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

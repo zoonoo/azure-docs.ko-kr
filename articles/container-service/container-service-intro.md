@@ -22,7 +22,9 @@
 
 Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Azure 컨테이너 서비스는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 응용 프로그램을 배포하고 관리할 수 있습니다.
 
-<br /> ![Azure 컨테이너 서비스는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster.png) <br /><br />
+
+![Azure 컨테이너 서비스는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster.png)
+
 
 Azure 컨테이너 서비스는 Docker 컨테이너 형식을 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 이러한 응용 프로그램을 수천 내지 수만 개의 컨테이너로 확장할 수 있도록 선택한 Marathon 및 DC/OS 또는 Docker Swarm을 지원합니다.
 
@@ -36,7 +38,7 @@ Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 �
 Azure 컨테이너 서비스를 사용하여 Docker 클러스터 만들기
 -------------------------------------------------------
 
-Azure 컨테이너 서비스 사용을 시작하려면 Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) 또는 [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos))을 사용하거나 [CLI](/documentation/articles/xplat-cli-install/)를 사용하여 포털을 통해 Azure 컨테이너 서비스 클러스터를 배포합니다('Azure 컨테이너 서비스' 검색). 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure 컨테이너 서비스 클러스터 배포에 대한 자세한 내용은 [Azure 컨테이너 서비스 클러스터 배포](container-service-deployment.md)를 참조하세요.
+Azure Container Service 사용을 시작하려면 Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) 또는 [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos))을 사용하거나 [CLI](/documentation/articles/xplat-cli-install/)를 사용하여 포털을 통해 Azure Container Service 클러스터를 배포합니다('Azure Container Service' 검색). 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure Container Service 클러스터 배포에 대한 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
 
 응용 프로그램 배포
 ------------------------
@@ -96,12 +98,12 @@ Swarm 클러스터의 컨테이너를 관리하기 위해 지원된 도구를 �
 비디오
 ------
 
-Azure 컨테이너 서비스 시작:
+Azure Container Service 시작(101):
 
-> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
+> [AZURE.VIDEO azure-container-service-101]
 
-Azure 컨테이너 서비스를 사용하여 응용 프로그램 빌드
+Azure Container Service를 사용하여 응용 프로그램 빌드(빌드 2016)
 
-> [https://channel9.msdn.com/Events/Build/2016/B822]
+> [AZURE.VIDEO build-2016-building-applications-using-the-azure-container-service]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Azure 마이그레이션 마법사를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
@@ -27,7 +27,7 @@
 
 ## SQL Azure 마이그레이션 마법사 사용
 
-[SQL Azure 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) CodePlex 도구를 사용하여 호환되지 않는 원본 데이터베이스에서 T-SQL 스크립트를 생성하면 마법사가 이 스크립트를 SQL 데이터베이스와 호환되도록 변환합니다. 그런 다음 Azure 데이터베이스에 연결하여 스크립트를 실행합니다. 이 도구는 또한 추적 파일을 분석하여 호환성 문제를 확인합니다. 스크립트는 스키마만 사용하여 생성하거나 BCP 형식의 데이터를 포함할 수 있습니다. 단계별 참고 자료를 포함한 추가 설명서는 [SQL Azure 마이그레이션 마법사](http://sqlazuremw.codeplex.com/)의 CodePlex에서 사용할 수 있습니다.
+[SQL Azure 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) CodePlex 도구를 사용하여 호환되지 않는 원본 데이터베이스에서 T-SQL 스크립트를 생성합니다. 그러면 이 스크립트는 SQL 데이터베이스와 호환되도록 마법사에 의해 변환됩니다. 그런 후에는 Azure SQL 데이터베이스에 연결하여 스크립트를 실행합니다. 이 도구는 또한 추적 파일을 분석하여 호환성 문제를 확인합니다. 스크립트는 스키마만 사용하여 생성하거나 BCP 형식의 데이터를 포함할 수 있습니다. 단계별 참고 자료를 포함한 추가 설명서는 [SQL Azure 마이그레이션 마법사](http://sqlazuremw.codeplex.com/)의 CodePlex에서 사용할 수 있습니다.
 
  ![SAMW 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
@@ -45,4 +45,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

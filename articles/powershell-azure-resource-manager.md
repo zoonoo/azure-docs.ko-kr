@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
-
-> [AZURE.SELECTOR]
-- [포털](azure-portal/resource-group-portal.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [노드](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 
 Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방식으로 접근합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 관리 및 배포합니다.
 
@@ -122,7 +111,7 @@ Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로
 
 ## 솔루션 배포
 
-이 항목에서는 템플릿을 만드는 방법을 보여 주거나 템플릿의 구조를 설명하지 않습니다. 해당 정보는 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md) 및 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)의 사전 정의된 [SQL 데이터베이스를 사용하는 웹앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) 템플릿을 배포합니다.
+이 토픽에서는 템플릿을 만드는 방법을 보여 주거나 템플릿의 구조를 설명하지 않습니다. 해당 정보는 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md) 및 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)의 사전 정의된 [SQL 데이터베이스를 사용하는 웹앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) 템플릿을 배포합니다.
 
 리소스 그룹이 있고 템플릿이 있으므로 이제 템플릿에 정의된 인프라를 리소스 그룹에 배포할 준비가 되었습니다. **New-AzureRmResourceGroupDeployment** Cmdlet을 사용하여 리소스를 배포합니다. 템플릿에서 여러 기본값을 지정하고 사용자는 그 값을 그대로 사용하면 되므로 이러한 매개 변수의 값을 지정할 필요가 없습니다. 기본 구문은 다음과 같습니다.
 
@@ -387,4 +376,4 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

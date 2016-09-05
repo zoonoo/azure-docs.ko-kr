@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 사용자 쿼리 모니터링
@@ -48,4 +48,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,8 +1,8 @@
 <properties
- pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법 | Microsoft Azure"
+ pageTitle="Azure CDN에서 Azure Storage Blob 콘텐츠의 만료 관리 | Microsoft Azure"
  description="Azure CDN 캐싱의 Blob에 대한 TTL(Time-To-Live)을 제어하기 위한 옵션에 대해 알아봅니다."
  services="cdn"
- documentationCenter=".NET"
+ documentationCenter=""
  authors="camsoper"
  manager="erikre"
  editor=""/>
@@ -10,92 +10,102 @@
  ms.service="cdn"
  ms.workload="media"
  ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
+ ms.devlang="multiple"
  ms.topic="article"
- ms.date="07/28/2016"
+ ms.date="08/24/2016"
  ms.author="casoper"/>
 
 
-#Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법  
+# Azure CDN에서 Azure Storage Blob 콘텐츠의 만료 관리
 
-Azure CDN 캐싱이 가장 도움이 되는 Blob은 TTL(Time-To-Live) 기간 중 자주 액세스되는 Blob입니다. Blob은 TTL 기간 동안 캐시에 유지되고 해당 기간이 경과된 후 Blob 서비스에 의해 새로 고쳐집니다. 그런 다음 프로세스가 반복됩니다.
+[Azure Storage](../storage/storage-introduction.md)에서 [Blob 서비스](../storage/storage-introduction.md#blob-storage)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다. TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다. TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)에 의해 결정됩니다.
 
-TTL을 제어하는 두 가지 옵션이 있습니다.
+>[AZURE.TIP] Blob에 TTL을 설정하지 않을 수 있습니다. 이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
+>
+>Blob 및 다른 파일에 대한 액세스 속도를 가속하기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN 개요](./cdn-overview.md)를 참조하세요.
+>
+>Azure Storage Blob 서비스에 대한 자세한 내용은 [Blob 서비스 개념](https://msdn.microsoft.com/library/dd179376.aspx)을 참조하세요.
 
-1.	캐시 값을 설정하지 않으므로 기본 TTL인 7일을 사용합니다.
-2.	**Put Blob**, **Put Block List** 또는 **Set Blob Properties** 요청의 *x-ms-blob-cache-control* 속성을 명시적으로 설정하거나 Azure Managed Library를 사용하여 [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다. 이 속성을 설정하면 Blob에 대한 *Cache-Control* 헤더의 값이 설정됩니다. 헤더 또는 속성의 값은 적절한 값(초)을 지정해야 합니다. 예를 들어 최대 캐싱 기간을 1년으로 설정하려면 요청 헤더를 `x-ms-blob-cache-control: public, max-age=31556926`으로 지정할 수 있습니다. 캐싱 헤더 설정에 대한 자세한 내용은 [HTTP/1.1 사양](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)을 참조하세요.
+이 자습서에서는 Azure Storage에서 Blob에 TTL을 설정할 수 있는 여러 가지 방법을 보여 줍니다.
 
-CDN을 통해 캐싱하려는 콘텐츠는 Azure 저장소 계정에 공개적으로 액세스할 수 있는 Blob로 저장해야 합니다. Azure Blob 서비스에 대한 자세한 내용은 [Blob 서비스 개념](https://msdn.microsoft.com/library/dd179376.aspx)을 참조하세요.
+## Azure PowerShell
 
-Blob 서비스에서 콘텐츠를 사용할 수 있는 몇 가지 방법이 있습니다.
+[Azure PowerShell](../powershell-install-configure.md)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzureStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다.
 
--	[.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)에서 제공된 관리되는 API 사용
--	타사 저장소 관리 도구 사용
--	[Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 사용
+```powershell
+# Create a storage context
+$context = New-AzureStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
 
-다음 코드 예제는 Azure 저장소 클라이언트 라이브러리를 사용하여 컨테이너를 만들고, 공용 액세스를 위해 사용 권한을 설정하고, 컨테이너 내에 Blob을 만드는 콘솔 응용 프로그램입니다. 또한 Blob의 Cache-Control 헤더를 설정하여 원하는 새로 고침 간격을 명시적으로 지정합니다.
+# Get a reference to the blob
+$blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
-위에 표시된 대로 CDN을 사용하도록 설정한 경우 만든 Blob이 CDN에 의해 캐시됩니다. 고유한 저장소 계정과 액세스 키를 사용하여 계정 자격 증명을 지정해야 합니다.
+# Set the CacheControl property to expire in 1 hour (3600 seconds)
+$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+
+# Send the update to the cloud
+$blob.ICloudBlob.SetProperties()
+```
+
+>[AZURE.TIP] PowerShell을 사용하여 [CDN 프로필 및 끝점을 관리](./cdn-manage-powershell.md)할 수도 있습니다.
+
+## .NET용 Azure 저장소 클라이언트 라이브러리
+
+.NET을 사용하여 Blob의 TTL을 설정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다.
 
 ```csharp
-using System;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.StorageClient;
-
-namespace BlobsInCDN
+class Program
 {
-	class Program
+	const string connectionString = "<storage connection string>";
+	static void Main()
 	{
-		static void Main(string[] args)
-		{
-			//Specify storage credentials.
-			StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
-				"<your storage account key>");
+		// Retrieve storage account information from connection string
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+		
+		// Create a blob client for interacting with the blob service.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		
+		// Create a reference to the container
+		CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
 
-			//Create a reference to your storage account, passing in your credentials.
-			CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
+		// Create a reference to the blob
+		CloudBlob blob = container.GetBlobReference("<blob name>");
 
-			//Create a new client object, which will provide access to Blob service resources.
-			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		// Set the CacheControl property to expire in 1 hour (3600 seconds)
+		blob.Properties.CacheControl = "public, max-age=3600";
 
-			//Create a new container.
-			CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
-			container.CreateIfNotExist();
-
-			//Specify that the container is publicly accessible.
-			BlobContainerPermissions containerAccess = new BlobContainerPermissions();
-			containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
-			container.SetPermissions(containerAccess);
-
-			//Create a new blob and write some text to it.
-			CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
-			blob.UploadText("This is a test blob.");
-
-			//Set the Cache-Control header on the blob to specify your desired refresh interval.
-			blob.SetCacheControl("public, max-age=31536000");
-		}
-	}
-
-	public static class BlobExtensions
-	{
-		//A convenience method to set the Cache-Control header.
-		public static void SetCacheControl(this CloudBlob blob, string value)
-		{
-			blob.Properties.CacheControl = value;
-			blob.SetProperties();
-		}
+		// Update the blob's properties in the cloud
+		blob.SetProperties();
 	}
 }
 ```
 
-CDN 특정 URL을 통해 Blob을 사용할 수 있는지 테스트합니다. 위에 표시된 Blob의 경우 URL이 다음과 유사합니다.
+>[AZURE.TIP] [.NET용 Azure Blob 저장소 샘플](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)에서 사용할 수 있는 추가 .NET 코드 샘플이 있습니다.
 
-	http://<endpoint>.azureedge.net/cdncontent/testblob.txt  
+## 다른 방법
 
-원하는 경우 **wget** 또는 Fiddler와 같은 도구를 사용하여 요청과 응답의 세부 정보를 검사할 수 있습니다.
+- [Azure 명령줄 인터페이스](../xplat-cli-install.md)
 
-##참고 항목
+	Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다. 이 예제에서는 TTL을 1시간(3600초)으로 설정합니다.
 
-[Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-cloud-service-content.md)
+	```text
+	azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
+	```
 
-<!---HONumber=AcomDC_0803_2016-->
+- [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+
+	[Blob 배치](https://msdn.microsoft.com/ko-KR/library/azure/dd179451.aspx), [블록 목록](https://msdn.microsoft.com/ko-KR/library/azure/dd179467.aspx), 또는 [Blob 속성 설정](https://msdn.microsoft.com/library/azure/ee691966.aspx) 요청에 *x-ms-blob-cache-control* 속성을 명시적으로 설정합니다.
+
+- 타사 저장소 관리 도구
+
+	일부 타사 Azure Storage 관리 도구를 사용하면 Blob에 *CacheControl* 속성을 설정할 수 있습니다.
+
+## *캐시 제어* 헤더 테스트
+
+Blob의 TTL을 쉽게 확인할 수 있습니다. 브라우저 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 Blob에 *캐시 제어* 응답 헤더가 포함되어 있는지 테스트합니다. **wget**, [Postman](https://www.getpostman.com/) 또는 [Fiddler](http://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
+
+## 다음 단계
+
+- [*캐시 제어* 헤더에 대해 참고하기](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+- [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](./cdn-manage-expiration-of-cloud-service-content.md)
+
+<!---HONumber=AcomDC_0824_2016-->

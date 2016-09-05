@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # AS2 커넥터 시작 및 논리 앱에 추가
@@ -29,7 +29,7 @@ AS2 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 
 
 AS2 커넥터는 논리 앱에서 트리거 또는 동작으로 사용할 수 있으며 JSON 및 XML 형식의 데이터를 지원합니다. AS2 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같습니다.
 
-트리거 | 동작
+트리거 | 작업
 --- | ---
 수신 및 디코딩 | 인코딩 및 보내기
 
@@ -91,11 +91,11 @@ AS2 페이로드가 https://{Host URL}/decode에 대한 POST로 사용되는 경
 
 	매개 변수 | 형식 | 설명
 --- | --- | ---
-Payload | object| 인코딩한 후 구성된 끝점에 게시하기 위한 페이로드 콘텐츠입니다. 페이로드는 JSON 개체로 제공해야 합니다.
-AS2 From | string | AS2 메시지를 보낸 사람의 AS2 ID입니다. 이 매개 변수는 메시지를 보내기 위한 적절한 계약을 조회하는 데 사용됩니다.
-AS2 To | string | AS2 메시지를 받는 사람의 AS2 ID입니다. 이 매개 변수는 메시지를 보내기 위한 적절한 계약을 조회하는 데 사용됩니다.
+페이로드 | object| 인코딩한 후 구성된 끝점에 게시하기 위한 페이로드 콘텐츠입니다. 페이로드는 JSON 개체로 제공해야 합니다.
+AS2 보낸 사람 | string | AS2 메시지를 보낸 사람의 AS2 ID입니다. 이 매개 변수는 메시지를 보내기 위한 적절한 계약을 조회하는 데 사용됩니다.
+AS2 받는 사람 | string | AS2 메시지를 받는 사람의 AS2 ID입니다. 이 매개 변수는 메시지를 보내기 위한 적절한 계약을 조회하는 데 사용됩니다.
 Partner URL | string | 메시지를 보내야 하는 파트너의 끝점입니다.
-Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지를 결정합니다.
+Enable Archiving | 부울 | 아웃바운드 메시지를 보관해야 하는지를 결정합니다.
 
 작업이 성공적으로 완료되면 HTTP 200 응답 코드를 반환합니다.
 
@@ -122,4 +122,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

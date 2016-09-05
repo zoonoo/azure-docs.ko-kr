@@ -53,9 +53,9 @@
 	![사용자 지정 가상 컴퓨터 만들기 성공](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##다음 단계##
-가상 컴퓨터가 만들어진 후에는 자동으로 시작됩니다. 포털에서 상태가 실행 중으로 표시되면 가상 컴퓨터에 로그인할 수 있습니다. 지침을 확인하려면 다음 문서 중 하나를 참조하세요.
+가상 컴퓨터가 만들어진 후에는 자동으로 시작됩니다. 포털에서 상태가 실행 중으로 표시되면 가상 컴퓨터에 로그인할 수 있습니다. 지침을 확인하려면 다음 문서 중 하나를 참조하십시오.
 
-- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

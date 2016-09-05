@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #RBAC: 기본 제공 역할
@@ -22,7 +22,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 
 ## Azure의 역할
 
-아래 표에서 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
+다음 테이블은 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
 
 >[AZURE.NOTE] Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 가능한 cmdlets `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`을(를) 사요ㅛㅇ합니다.
 
@@ -42,7 +42,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [NewRelic APM 계정 참여자](#new-relic-apm-account-contributor) | New Relic 응용 프로그램 성능 관리 계정 및 응용 프로그램을 관리할 수 있음 |
 | [소유자](#owner) | 액세스를 제외한 모든 것을 관리할 수 있음 |
 | [판독기](#reader) | 모든 항목을 볼 수 있지만 변경할 수는 없음 |
-| [Redis 캐시 참여자](#redis-cache-contributor]) | Redis 캐시를 관리할 수 있음 |
+| [Redis 캐시 참여자](#redis-cache-contributor) | Redis 캐시를 관리할 수 있음 |
 | [스케줄러 작업 컬렉션 참여자](#scheduler-job-collections-contributor) | 스케줄러 작업 컬렉션을 관리할 수 있음 |
 | [검색 서비스 참여자](#search-service-contributor) | 검색 서비스를 관리할 수 있음 |
 | [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 컴퓨터를 관리할 수 있음 |
@@ -147,8 +147,8 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |  
 | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
-| Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 
 ### 데이터 팩터리 참여자
 데이터 팩터리를 관리할 수 있음
@@ -255,12 +255,12 @@ New Relic 응용 프로그램 성능 관리 계정 및 응용 프로그램을 �
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
 
-### 판독기
+### 리더
 모든 항목을 볼 수 있지만 변경할 수는 없음
 
 | **actions** ||
 | ------- | ------ |
-| **/read | 암호를 제외한 모든 유형의 리소스 읽기 |
+| */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 
 ### Redis 캐시 참여자
 Redis 캐시를 관리할 수 있음
@@ -284,7 +284,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Scheduler/jobcollections/* | 스케줄러 작업 컬렉션 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Scheduler/jobcollections/* | 스케줄러 작업 컬렉션 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 검색 서비스 참여자
@@ -296,7 +297,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Search/searchServices/* | 검색 서비스 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Search/searchServices/* | 검색 서비스 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 보안 관리자
@@ -311,7 +313,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Security/* | 보안 구성 요소 및 정책 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Security/* | 보안 구성 요소 및 정책 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### SQL DB 참여자
@@ -323,7 +326,8 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Sql/servers/databases/* | SQL 데이터베이스 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Sql/servers/databases/* | SQL 데이터베이스 만들기 및 관리 |
 | Microsoft.Sql/servers/read | SQL Server 읽기 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
@@ -331,6 +335,7 @@ Redis 캐시를 관리할 수 있음
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingSettings/* | 감사 설정을 편집할 수 없음 |
+| Microsoft.Sql/servers/databases/auditRecords/read | 감사 레코드를 읽을 수 없음 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | 연결 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 데이터 마스킹 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 보안 경고 정책을 편집할 수 없음 |
@@ -345,10 +350,12 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책 만들기 및 관리 |
 | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정 만들기 및 관리 |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책 만들기 및 관리 |
 | Microsoft.Sql/servers/databases/auditingSettings/* | SQL 서버 데이터베이스 감사 설정 만들기 및 관리 |
+| Microsoft.Sql/servers/databases/auditRecords/read | 감사 레코드 읽기 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL 서버 데이터베이스 연결 정책 만들기 및 관리 |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL 서버 데이터베이스 데이터 마스킹 정책 만들기 및 관리 |
 | Microsoft.Sql/servers/databases/read | SQL 데이터베이스 읽기 |
@@ -370,7 +377,8 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Sql/servers/* | SQL 서버 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Sql/servers/* | SQL 서버 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 | **NotActions** ||
@@ -379,6 +387,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingSettings/* | SQL 서버 데이터베이스 감사 설정을 편집할 수 없음 |
+| Microsoft.Sql/servers/databases/auditRecords/read | 감사 레코드를 읽을 수 없음 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL 서버 데이터베이스 연결 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL 서버 데이터베이스 데이터 마스킹 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL 서버 데이터베이스 보안 경고 정책을 편집할 수 없음 |
@@ -395,7 +404,8 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 저장소 계정 참여자
 저장소 계정을 관리할 수 있지만 액세스할 수 없습니다.
@@ -407,7 +417,8 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Insights/diagnosticSettings/* | 진단 설정 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Storage/storageAccounts/* | 저장소 계정 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Storage/storageAccounts/* | 저장소 계정 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 사용자 액세스 관리자
@@ -415,7 +426,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 | 
+| */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 | Microsoft.Authorization/* | 권한 부여 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
@@ -439,7 +450,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 가상 컴퓨터 참여자
 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음
@@ -455,7 +467,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 네트워크 응용 프로그램 게이트웨이 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀 연결 |
 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 부하 분산 장치 인바운드 NAT 풀 연결 |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT ules 연결 |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT 규칙 연결 |
 | Microsoft.Network/loadBalancers/read | 부하 분산 장치 읽기 |
 | Microsoft.Network/locations/* | 네트워크 위치 만들기 및 관리 |
 | Microsoft.Network/networkInterfaces/* | 네트워크 인터페이스 만들기 및 관리 |
@@ -467,7 +479,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크 서브넷 연결 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Storage/storageAccounts/listKeys/action | 저장소 계정 키 나열 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Storage/storageAccounts/listKeys/action | 저장소 계정 키 나열 |
 | Microsoft.Storage/storageAccounts/read | 저장소 계정 읽기 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
@@ -481,7 +494,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 웹 계획 참여자
 웹 계획을 관리할 수 있음
@@ -492,7 +506,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 | Microsoft.Web/serverFarms/* | 서버 팜 만들기 및 관리 |
 
 ### 웹 사이트 참여자
@@ -505,7 +520,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Insights/components/* | Insights 구성 요소 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |  
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 | Microsoft.Web/certificates/* | 웹 사이트 인증서 만들기 및 관리 |
 | Microsoft.Web/listSitesAssignedToHostName/read | 호스트 이름에 할당된 사이트 읽기 |
 | Microsoft.Web/serverFarms/join/action | 서버 팜 연결 |
@@ -518,4 +534,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 - [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

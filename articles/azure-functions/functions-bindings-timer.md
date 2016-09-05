@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Azure Functions 타이머 트리거
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 타이머 트리거를 구성하는 방법을 설명합니다. 타이머 트리거는 일정에 따라, 한 번만 또는 반복해서 함수를 호출합니다.
 
@@ -26,7 +28,7 @@
 
 ## 타이머 트리거에 대한 function.json
 
-*function.json* 파일은 예약 식을 제공합니다.
+*function.json* 파일은 일정 식을 제공합니다. 예를 들어 다음 일정은 매 분마다 함수를 실행합니다.
 
 ```json
 {
@@ -46,9 +48,11 @@
 
 ## 일정 식의 서식
 
-일정 식은 {초} {분} {시간} {일} {월} {요일}과 같은 6개의 필드를 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. 온라인에서 찾은 cron 식 문서는 대부분 {두 번째} 필드를 생략하므로 해당 필드 중 하나를 복사하면 추가 필드에 대해 조정해야 합니다.
+일정 식은 6개의 필드 `{second} {minute} {hour} {day} {month} {day of the week}`을(를) 포함하는 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다.
 
-다음은 몇 가지 일정 식의 예입니다.
+온라인에서 찾은 cron 식은 대부분 {두 번째} 필드를 생략하므로 해당 필드 중 하나를 복사하면 추가 필드에 대해 조정해야 합니다.
+
+다음은 몇 가지 다른 일정 식의 예입니다.
 
 5분마다 한 번씩 트리거하려면:
 
@@ -56,10 +60,34 @@
 "schedule": "0 */5 * * * *"
 ```
 
+1시간마다 맨 위에 한 번씩 트리거하려면:
+
+```json
+"schedule": "0 0 * * * *",
+```
+
 2시간마다 한 번씩 트리거하려면:
 
 ```json
 "schedule": "0 0 */2 * * *",
+```
+
+오전 9시에서 오후 5시까지 1시간마다 한 번씩 트리거하려면:
+
+```json
+"schedule": "0 0 9-17 * * *",
+```
+
+매일 오전 9시 30분에 트리거하려면:
+
+```json
+"schedule": "0 30 9 * * *",
+```
+
+월요일부터 금요일까지 오전 9시 30분에 트리거하려면:
+
+```json
+"schedule": "0 30 9 * * 1-5",
 ```
 
 ## 타이머 트리거 C# 코드 예제
@@ -77,4 +105,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

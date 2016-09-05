@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="08/19/2016"
    ms.author="masnider"/>
 
 # 응용 프로그램 그룹 소개
@@ -158,7 +158,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes
 -	동일한 응용 프로그램의 두 서비스가 항상 나란히 배치될 수 있도록 응용 프로그램 용량을 사용하지 마십시오. 이는 서비스 간 선호도 관계를 사용하여 수행할 수 있으며 선호도는 실제로 함께 배치되어야 하는 서비스로만 제한될 수 있습니다.
 
 ## 다음 단계
-- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 리소스 관리자 구성에 대한 항목을 확인하세요.
+- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 Resource Manager 구성에 대한 항목을 확인하세요.
 - 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
 - 처음부터 시작 및 [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
 - 메트릭이 일반적으로 작동하는 방식에 대한 자세한 내용은 [서비스 패브릭 부하 메트릭](service-fabric-cluster-resource-manager-metrics.md)을 읽어 보세요.
@@ -168,4 +168,4 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes
 [Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

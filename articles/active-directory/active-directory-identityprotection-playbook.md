@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 플레이 북 
@@ -43,7 +43,7 @@
 **익명 IP에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
 1.	[Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)를 다운로드합니다.
-2.	Tor 브라우저를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.   
+2.	Tor 브라우저를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 3.	**익명 IP 주소에서 로그인** 보고서에 표시하려는 계정의 자격 증명을 입력합니다.
 
 로그인이 5분 이내에 ID 보호 대시보드에 나타납니다.
@@ -63,7 +63,7 @@ Azure Active Directory ID 보호:
 
 **익숙하지 않은 위치에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
-1.	적어도 14일의 로그인 기록이 있는 계정을 선택합니다. 
+1.	적어도 14일의 로그인 기록이 있는 계정을 선택합니다.
 
 2.	다음 중 하나를 수행합니다.
 	
@@ -78,7 +78,7 @@ Azure Active Directory ID 보호:
 
 **비정상적 위치로 불가능한 이동을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
-1.	표준 브라우저를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.  
+1.	표준 브라우저를 사용하여 [https://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
 
 2.	불가능한 이동 위험 이벤트를 생성하려는 계정의 자격 증명을 입력합니다.
 
@@ -96,7 +96,7 @@ Azure Active Directory ID 보호:
 
 -	Azure AD [Multi-Factor Authentication이란?](../multi-factor-authentication/multi-factor-authentication.md)
 -	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
--	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+-	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md).
 
 
 
@@ -146,17 +146,17 @@ Azure Active Directory ID 보호:
 
 4.	**포털 설정** 블레이드의 **보안 규칙**에서 **로그인 위험**을 클릭합니다.
 
-5.	**로그인 위험 **블레이드의 **규칙 사용**에서 **켜기**를 선택합니다.
+5.	**로그인 위험** 블레이드의 **규칙 사용**에서 **켜기**를 선택합니다.
 
 7.	다음 옵션 중 하나를 선택합니다.
 
     a. 차단하려면 **로그인 차단**에서 **보통**을 선택합니다.
 
-    b. 보안 암호 변경을 적용하려면 **다단계 인증 요구**에서 **보통**을 선택합니다.
+    b. 보안 암호 변경을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
 
 8.	차단하려면 로그인 차단에서 보통을 선택합니다.
 
-9.	다단계 인증을 적용하려면 **다단계 인증 요구**에서 **보통**을 선택합니다.
+9.	Multi-Factor Authentication을 적용하려면 **Multi-Factor Authentication 요구**에서 **보통**을 선택합니다.
 
 10.	**Save**를 클릭합니다.
 
@@ -169,4 +169,4 @@ Azure Active Directory ID 보호:
 
  - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

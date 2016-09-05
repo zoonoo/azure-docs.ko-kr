@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="na"
    authors="mikewasson"
-   manager="roshar"
+   manager="timlt"
    editor=""
    tags=""/>
 
@@ -26,7 +26,7 @@ VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하�
 
 이 문서에서는 [Azure CLI][azure-cli]를 사용하여 Linux VM의 크기를 조정하는 방법을 보여 줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델.
 
 
 ## Linux VM 크기 조정 
@@ -70,8 +70,8 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
 <!-- links -->
    
 [azure-cli]: ../xplat-cli-install.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ko-KR/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md
 [vm-sizes]: virtual-machines-linux-sizes.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/24/2016"
 	ms.author="daleche"/>
 
 
 # Azure SQL 데이터베이스 백업에서 단일 테이블을 복원하는 방법
 
-SQL 데이터베이스의 일부 데이터를 실수로 변경했지만 이제 영향을 받는 단일 테이블을 복구하려는 상황에 처할 수 있습니다. 이 문서에서는 선택한 성능 계층에 따라 Azure SQL 데이터베이스에서 [자동으로 수행되는 백업](sql-database-automated-backups.md) 중 하나에서 데이터베이스의 단일 테이블을 복원하는 방법을 설명합니다.
+SQL 데이터베이스의 일부 데이터를 실수로 변경했지만 이제 영향을 받는 단일 테이블을 복구하려는 상황에 처할 수 있습니다. 이 문서에서는 SQL 데이터베이스 [자동 백업](sql-database-automated-backups.md) 중 하나에서 데이터베이스의 단일 테이블을 복원하는 방법을 설명합니다.
 
 ## 준비 단계: 테이블 이름 바꾸기 및 데이터베이스의 복사본 복원
 1. 복원된 복사본으로 대체하려는 Azure SQL 데이터베이스의 테이블을 식별합니다. Microsoft SQL Management Studio를 사용하여 테이블 이름을 바꿉니다. 예를 들어 테이블의 이름을 &lt;table name&gt;\_old로 바꿉니다.
 
 	**참고** 차단되지 않으려면 이름을 바꾸는 테이블에서 실행 중인 작업이 없어야 합니다. 문제가 발생하면 유지 관리 기간 동안 이 절차를 수행해야 합니다.
 
-2. 복구하려는 시점에 데이터베이스의 백업을 복원합니다. 이렇게 하려면 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)의 단계를 참조하세요.
+2. [지정 지점 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 단계를 사용하여 복구하려는 시점으로 데이터베이스의 백업을 복원합니다.
 
 	**참고**:
 	- 복원된 데이터베이스의 이름은 **Adventureworks2012\_2016-01-01T22-12Z**와 같은 DBName+TimeStamp 형식입니다. 이 단계는 서버에서 기존 데이터베이스 이름을 덮어쓰지 않습니다. 이것은 안전 조치이며 현재 데이터베이스를 삭제하고 프로덕션 사용을 위해 복원된 데이터베이스의 이름을 변경하기 전에 사용자가 복원된 데이터베이스를 확인하려는 용도로 제공됩니다.
@@ -71,4 +71,4 @@ SQL 데이터베이스의 일부 데이터를 실수로 변경했지만 이제 �
 
 [SQL 데이터베이스 자동 백업](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

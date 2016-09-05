@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 리소스 그룹에서 포함할 수 없습니다. 따라서 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -88,7 +88,7 @@
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] 위의 첫 번째 명령은 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 및 [문자열 조작](http://tldp.org/LDP/abs/html/string-manipulation.html)(구체적으로 말하면, 하위 문자열 제거)을 사용합니다.
+	>[AZURE.TIP] 위의 첫 번째 명령은 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 및 [문자열 조작](http://tldp.org/LDP/abs/html/string-manipulation.html)(구체적으로 말하면, 하위 문자열 제거)을 사용합니다.
 
 4. `NSG-RemoteAccess` NSG의 ID를 검색합니다. 이 단계를 수행해야 하는 이유는 이 NSG에 연결할 NIC이 다른 리소스 그룹에 속해 있기 때문입니다.
 
@@ -330,4 +330,4 @@
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="리소스 관리자로 작업 감사 | Microsoft Azure"
-	description="리소스 관리자에서 감사 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure 포털, PowerShell, Azure CLI 및 REST를 보여 줍니다."
+	description="리소스 관리자에서 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure 포털, PowerShell, Azure CLI 및 REST를 보여 줍니다."
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="08/22/2016"
 	ms.author="tomfitz"/>
 
 # 리소스 관리자로 작업 감사
 
-감사 로그를 통해 다음 사항을 확인할 수 있습니다.
+활동 로그를 통해 다음 사항을 확인할 수 있습니다.
 
 - 구독의 리소스에서 수행된 작업
 - 작업을 시작한 사람(백 엔드 서비스에 의해 시작된 작업이라도 사용자를 호출자로 반환하지 않음)
@@ -28,39 +28,35 @@
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-이 토픽에서는 감사 작업에 중점을 둡니다. 감사 로그를 사용하여 배포 문제를 해결하는 방법에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
+이 토픽에서는 감사 작업에 중점을 둡니다. 활동 로그를 사용하여 배포 문제를 해결하는 방법에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 
-Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .NET 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 통해 감사 로그에서 정보를 검색할 수 있습니다.
+포털, PowerShell, Azure CLI, Insights REST API 또는 [Insights .NET 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 통해 활동 로그에서 정보를 검색할 수 있습니다.
 
-## 포털을 통해 감사 로그 보기
+## 포털을 통해 활동 로그 보기
 
-1. 포털을 통해 감사 로그를 보려면 **찾아보기**, **감사 로그**를 차례로 선택합니다.
+1. 포털을 통해 활동 로그를 보려면 **더 많은 서비스**, **활동 로그**를 선택합니다.
 
-    ![감사 로그 선택](./media/resource-group-audit/select-audit-logs.png)
+    ![활동 로그 선택](./media/resource-group-audit/select-audit-logs.png)
 
-2. **감사 로그** 블레이드에서 구독의 모든 리소스 그룹에 대한 최근 작업의 요약을 볼 수 있습니다. 여기에는 그래픽으로 나타낸 작업의 시간/상태와 작업 목록이 포함되어 있습니다.
+2. **활동 로그** 블레이드에서 구독의 모든 리소스 그룹에 대한 최근 작업의 요약을 볼 수 있습니다. 여기에는 최근 작업 목록이 포함됩니다.
 
     ![작업 표시](./media/resource-group-audit/audit-summary.png)
 
-3. 감사 로그 블레이드에 표시되는 작업을 필터링하여 특정 유형의 작업을 조회할 수 있습니다. 블레이드 맨 위에서 **필터**를 선택합니다.
-
-    ![로그 필터링](./media/resource-group-audit/filter-logs.png)
-
-4. **필터** 블레이드에서, 표시되는 작업 수를 제한하는 여러 다른 조건을 선택할 수 있습니다. 예를 들어 지난 주에 특정 사용자가 수행한 모든 작업을 볼 수 있습니다.
+3. 여러 조건을 선택하여 표시되는 작업의 수를 제한할 수 있습니다. 예를 들어 다음 이미지는 지난 달에 특정 사용자 또는 응용 프로그램이 수행한 작업을 표시하도록 변경된 **시간 간격** 및 **이벤트를 시작한 사람** 필드를 보여줍니다.
 
     ![필터 옵션 설정](./media/resource-group-audit/set-filter.png)
 
-로그 감사 보기를 업데이트하면 지정된 조건을 충족하는 작업만 표시됩니다. 이러한 설정은 다음 번에 감사 로그를 볼 때도 그대로 유지되므로 작업 보기를 넓히려면 이러한 값을 변경해야 할 수 있습니다.
+4. 쿼리 결과를 확인하려면 **적용**을 선택합니다.
 
-또한 해당 리소스 블레이드에서 감사 로그를 선택하여 특정 리소스에 대해 자동으로 필터링할 수 있습니다. 포털에서 감사할 리소스를 선택한 다음 **감사 로그**를 선택합니다.
+5. 나중에 쿼리를 다시 실행해야 하는 경우 **저장**을 선택하고 쿼리 이름을 지정합니다.
 
-![리소스 감사](./media/resource-group-audit/audit-by-resource.png)
+    ![쿼리 저장](./media/resource-group-audit/save-query.png)
 
-선택한 리소스에 의해 지난 주의 감사 로그가 자동으로 필터링됩니다.
+6. 특정 리소스 또는 리소스 그룹에 대해 자동으로 필터링하려면 해당 리소스 블레이드에서 **활동 로그**를 선택합니다. 활동 로그는 선택한 리소스에 의해 자동으로 필터링됩니다.
 
-![리소스로 필터링](./media/resource-group-audit/filtered-by-resource.png)
+    ![리소스로 필터링](./media/resource-group-audit/filtered-by-resource.png)
 
-## PowerShell을 통해 감사 로그 보기
+## PowerShell을 통해 활동 로그 보기
 
 1. 로그 항목을 검색하려면 **Get-AzureRmLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 및 종료 시간을 지정하지 않으면 지난 시간에 대한 항목이 반환됩니다. 예를 들어 지난 1시간 동안 리소스 그룹에 대해 수행된 작업을 검색하려면 다음 명령을 실행합니다.
 
@@ -100,7 +96,7 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 
         Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-## Azure CLI를 통해 감사 로그 보기
+## Azure CLI를 통해 활동 로그 보기
 
 1. 로그 항목을 검색하려면 **Azure 그룹 로그 표시** 명령을 실행합니다.
 
@@ -116,13 +112,13 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 
 ## REST API를 통해 감사 로그 보기
 
-감사 로그로 작업하기 위한 REST 작업은 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)의 일부입니다. 감사 로그 이벤트를 검색하려면 [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx)을 참조하세요.
+활동 로그로 작업하기 위한 REST 작업은 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)의 일부입니다. 활동 로그 이벤트를 검색하려면 [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx)을 참조하세요.
 
 ## 다음 단계
 
-- Power BI와 함께 Azure 감사 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 감사 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
+- Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
 - 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 배포 문제를 해결하는 명령에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

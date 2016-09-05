@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Xamarin.Forms 앱에서 Azure 저장소에 연결
@@ -36,7 +36,7 @@ Azure 모바일 앱 클라이언트 및 서버 SDK는 /tables 끝점에 대해 C
 
 ## 저장소 계정 만들기
 
-1. [Azure 저장소 계정 만들기] 자습서에 따라 저장소 계정을 만듭니다. 
+1. [Azure 저장소 계정 만들기] 자습서에 따라 저장소 계정을 만듭니다.
 
 2. Azure 포털에서 새로 만든 저장소 계정으로 이동하고 **키** 아이콘을 클릭합니다. **기본 연결 문자열**을 복사합니다.
 
@@ -622,7 +622,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
 ###<a name="update-windows"></a>Windows 프로젝트 업데이트
 
-1. Visual Studio 확장 [Windows 8.1용 SQLite](http://go.microsoft.com/fwlink/?LinkID=716919)를 설치합니다. 자세한 내용은 [Windows 앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 자습서를 참조하세요. 
+1. Visual Studio 확장 [Windows 8.1용 SQLite](http://go.microsoft.com/fwlink/?LinkID=716919)를 설치합니다. 자세한 내용은 [Windows 앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) 자습서를 참조하세요.
 
 2. **Package.appxmanifest**를 편집하고 **웹캠** 기능을 확인합니다.
 
@@ -705,7 +705,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
 - `MobileServiceFile`은 `IMobileServiceTable` 또는 `IMobileServiceSyncTable`을 사용하여 각각 온라인 또는 오프라인 모드에서 사용될 수 있습니다. 오프라인 시나리오에서 업로드는 앱이 `PushFileChangesAsync`를 호출할 때 발생합니다. 이로 인해 오프라인 작업 큐를 처리할 수 있습니다. 각 파일 작업의 경우 Azure 모바일 클라이언트 SDK는 `IFileSyncHandler` 인스턴스에서 `GetDataSource` 메서드를 호출하여 업로드할 파일 콘텐츠를 검색합니다.
 
-- 항목의 파일을 검색하기 위해 '`IMobileServiceTable<T>` 또는 IMobileServiceSyncTable<T>의 `GetFilesAsync` 메서드' 인스턴스를 호출합니다. 이 메서드는 제공된 데이터 항목과 연결된 파일의 목록을 반환합니다. (참고: 해당 작업은 *로컬* 작업이며 마지막으로 동기화되는 경우 개체의 상태를 기준으로 파일을 반환합니다. 서버에서 업데이트된 파일 목록을 얻으려면 동기화 작업을 먼저 시작해야 합니다.)
+- 항목의 파일을 검색하기 위해 '`IMobileServiceTable<T>`의 `GetFilesAsync` 메서드 또는 IMobileServiceSyncTable<T>' 인스턴스를 호출합니다. 이 메서드는 제공된 데이터 항목과 연결된 파일의 목록을 반환합니다. (참고: 해당 작업은 *로컬* 작업이며 마지막으로 동기화되는 경우 개체의 상태를 기준으로 파일을 반환합니다. 서버에서 업데이트된 파일 목록을 얻으려면 동기화 작업을 먼저 시작해야 합니다.)
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
@@ -721,7 +721,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
     이 요구 사항에 대한 이유는 일부 모바일 클라이언트가 이미 로컬 저장소에 레코드를 가지고 있기 때문입니다. 이러한 클라이언트가 증분 끌어오기를 수행하는 경우 이 레코드는 반환되지 않고 클라이언트는 새로 연결된 파일에 대해 쿼리하지 않습니다. 이 문제를 방지하려면 Azure 모바일 클라이언트 SDK를 사용하지 않는 Blob 저장소를 수행할 때 레코드 타임스탬프를 업데이트하는 것이 좋습니다.
 
-- 클라이언트 프로젝트는 [Xamarin.Forms DependencyService] 패턴을 사용하여 런타임 시 오른쪽 플랫폼 관련 클래스를 로드합니다. 이 샘플에서는 각 플랫폼 특정 프로젝트에서 구현을 통해 인터페이스 `IPlatform`을 정의했습니다.
+- 클라이언트 프로젝트는 [Xamarin.Forms DependencyService] 패턴을 사용하여 런타임 시 올바른 플랫폼 관련 클래스를 로드합니다. 이 샘플에서는 각 플랫폼 특정 프로젝트에서 구현을 통해 인터페이스 `IPlatform`을 정의했습니다.
 
 <!-- URLs. -->
 
@@ -734,4 +734,4 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 [공유 액세스 서명 이해]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Azure 저장소 계정 만들기]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

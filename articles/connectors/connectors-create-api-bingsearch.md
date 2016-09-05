@@ -1,5 +1,5 @@
 <properties
-    pageTitle="PowerApps 또는 논리 앱에 Bing 검색 커넥터 추가 | Microsoft Azure"
+    pageTitle="Bing 검색 커넥터 논리 앱 추가 | Microsoft Azure"
     description="REST API 매개 변수를 사용하는 Bing 검색 커넥터 개요"
     services=""
     suite=""
@@ -15,34 +15,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Bing 검색 커넥터 시작 
-Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색 커넥터를 다음에서 사용할 수 있습니다.
+Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- 논리 앱 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-bingsearch.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-bingsearch.md)
-
-
-Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
-
-- 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
+- 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
 - 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
-- PowerApps 엔터프라이즈에 Bing 검색 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
-
-PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 Bing 검색에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
-트리거 | actions
+트리거 | 작업
 --- | ---
 없음 | <ul><li>웹 검색</li><li>비디오 검색</li><li>이미지 검색</li><li>뉴스 검색</li><li>관련 검색</li><li>맞춤법 검색</li><li>모두 검색</li></ul>
 
@@ -67,7 +54,7 @@ Bing 검색에서 웹 사이트를 검색합니다. ```GET: /Web```
 |webFileType|string|no|쿼리|없음 |검색 범위를 좁힐 파일 형식(예: 'DOC')|
 
 #### 응답
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -76,7 +63,7 @@ Bing 검색에서 웹 사이트를 검색합니다. ```GET: /Web```
 ### 비디오 검색 
 Bing 검색에서 비디오를 검색합니다. ```GET: /Video```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
 |maxResult|정수|no|쿼리| 없음|반환할 결과의 최대 수|
@@ -89,7 +76,7 @@ Bing 검색에서 비디오를 검색합니다. ```GET: /Video```
 |videoSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
 
 #### 응답
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -98,7 +85,7 @@ Bing 검색에서 비디오를 검색합니다. ```GET: /Video```
 ### 이미지 검색    
 Bing 검색에서 이미지를 검색합니다. ```GET: /Image```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |쿼리|string|yes|쿼리|없음 |검색할 텍스트(예: 'xbox')|
 |maxResult|정수|no|쿼리|없음 |반환할 결과의 최대 수|
@@ -110,7 +97,7 @@ Bing 검색에서 이미지를 검색합니다. ```GET: /Image```
 |imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>예: 'Size:Small+Aspect:Square'|
 
 #### 응답
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -153,7 +140,7 @@ Bing 검색에서 뉴스 결과를 검색합니다. ```GET: /News```
 |latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
 
 #### 응답
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -298,4 +285,4 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,7 +3,7 @@
    description="성능 저하 상태를으로 표시할 때 트래픽 관리자 프로필 문제를 해결하는 방법입니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure 트래픽 관리자의 성능 저하 상태 문제 해결
 
@@ -80,4 +80,4 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

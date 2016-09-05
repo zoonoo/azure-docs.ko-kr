@@ -80,6 +80,7 @@ Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Expres
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
+        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName = MyRG"
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
@@ -125,11 +126,16 @@ Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Expres
 
 회로 사용자는 회로 소유자로부터 권한 부여 키를 받아야 하며 피어 ID가 필요합니다. 권한 부여 키는 GUID입니다.
 
+피어 ID는 다음 명령에서 확인할 수 있습니다.
+
+	Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+
 #### 연결 권한 부여 사용
 
 회로 사용자는 다음 cmdlet을 실행하여 링크 권한 부여를 사용할 수 있습니다.
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
+	$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### 연결 권한 부여 해제
@@ -140,4 +146,4 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

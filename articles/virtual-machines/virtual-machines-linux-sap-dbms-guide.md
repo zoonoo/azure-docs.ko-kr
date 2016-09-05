@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -289,7 +289,6 @@
 [virtual-networks-udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
 [vpn-gateway-about-vpn-devices]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [vpn-gateway-create-site-to-site-rm-powershell]: ../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]: ../vpn-gateway/vpn-gateway-cross-premises-options.md
 [vpn-gateway-site-to-site-create]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]: ../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]: ../xplat-cli-install.md
@@ -317,7 +316,7 @@
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 배경에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: 예를 들어 SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
 * 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 Express 경로 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 '클라우드 전용' 배포라고도 합니다. 이 방법으로 배포된 가상 컴퓨터는 인터넷과 Azure의 VM에 할당된 공용 인터넷 끝점을 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
-* 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 Express 경로 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이][vpn-gateway-cross-premises-options] 문서 및 [이 내용][vpn-gateway-site-to-site-create]을 참조하세요.
+* 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 Express 경로 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이][vpn-gateway-site-to-site-create] 문서를 참조하세요.
 
 > [AZURE.NOTE] 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure 가상 컴퓨터가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 배경을 Azure로 배포하는 데 프레미스 간 구성이 지원됩니다. Azure에서 전체 SAP 배경을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS에 속해야 합니다. 이전 버전의 문서에서 하이브리드-IT 시나리오에 대해 설명했습니다. '하이브리드'란 온-프레미스와 Azure 간에 프레미스 간 연결을 사용한다는 사실을 기반으로 합니다. 이 경우 '하이브리드'는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
 
@@ -330,7 +329,7 @@
 * [Azure VM(가상 컴퓨터)에서 SAP NetWeaver - 배포 가이드][deployment-guide]
 * [Azure VM(가상 컴퓨터)에서 SAP NetWeaver – DBMS 배포 가이드(이 문서)][dbms-guide]
 
-다음 SAP Note는 Azure의 SAP 항목과 관련이 있습니다.
+다음 SAP 정보는 Azure의 SAP 항목과 관련이 있습니다.
 
 | Note 번호 | 제목
 |------------|--------
@@ -366,7 +365,7 @@ Microsoft Azure 아키텍처 및 Microsoft Azure 가상 컴퓨터 배포와 작�
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS 배포의 구조
 이 챕터를 진행하려면 [배포 가이드][deployment-guide]의 [이][deployment-guide-3] 챕터에 설명된 내용을 이해해야 합니다. 이 챕터를 읽기 전에 다양한 VM 시리즈와 그 차이점 및 Azure 표준과 프리미엄 저장소의 차이점에 대한 정보를 이해해야 합니다.
 
-2015년 3월까지 운영 체제를 포함한 Azure VHD 크기가 127GB로 제한되었습니다. 2015년 3월 이 제한이 없어졌습니다(자세한 내용은 <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/> 참조). 이후 운영 체제를 포함하는 VHD는 다른 모든 VHD와 같은 크기를 가질 수 있습니다. 그렇지만 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 구분되는 배포 구조를 사용하는 것이 더 좋습니다. 따라서 Azure 가상 컴퓨터에서 실행 중인 SAP 시스템에 운영 체제와 함께 기본 VM(또는 VHD), DBMS(데이터베이스 관리 시스템) 실행 파일 및 SAP 실행 파일이 설치되어 있어야 합니다. DBMS 데이터 및 로그 파일은 Azure 저장소(표준 또는 프리미엄 저장소)에서 별도의 VHD 파일에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다.
+2015년 3월까지 운영 체제를 포함한 Azure VHD 크기가 127GB로 제한되었습니다. 2015년 3월, 이 제한이 없어졌습니다(자세한 내용은 <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/> 참조). 이후 운영 체제를 포함하는 VHD는 다른 모든 VHD와 같은 크기를 가질 수 있습니다. 그렇지만 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 구분되는 배포 구조를 사용하는 것이 더 좋습니다. 따라서 Azure 가상 컴퓨터에서 실행 중인 SAP 시스템에 운영 체제와 함께 기본 VM(또는 VHD), DBMS(데이터베이스 관리 시스템) 실행 파일 및 SAP 실행 파일이 설치되어 있어야 합니다. DBMS 데이터 및 로그 파일은 Azure 저장소(표준 또는 프리미엄 저장소)에서 별도의 VHD 파일에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다.
 
 Azure 표준 저장소를 활용하는지 또는 프리미엄 저장소를 활용하는지(예: DS 시리즈 또는 GS 시리즈 VM 사용)에 따라 [여기][virtual-machines-sizes]에서 설명하는 Azure의 할당량이 달라집니다. Azure VHD를 계획할 때 다음에 대한 최적의 할당량 균형을 찾아야 합니다.
 
@@ -459,7 +458,7 @@ Azure 프리미엄 저장소와 함께 사용할 수 있는 VM 시리즈 활용�
 
 기본 Azure 저장소는 각 VHD를 3개 이상의 저장소 노드에 복제하므로 간단한 RAID 0 스트라이프를 사용할 수 있습니다. RAID5 또는 RAID1을 구현할 필요가 없습니다.
 
-### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure 저장소
+### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage
 Microsoft Azure 저장소는 최소 3개의 개별 저장소 노드에 기본 VM(OS 포함) 및 VHD 또는 BLOB을 저장합니다. 저장소 계정을 만들 때는 다음과 같은 보호를 선택할 수 있습니다.
 
 ![Azure 저장소 계정에 대해 지역에서 복제 사용][dbms-guide-figure-100]
@@ -537,8 +536,7 @@ VM을 롤아웃하려는 경우 다음과 같이 구성해야 합니다.
 DBMS 배포의 고가용성 구성을 생성하려는 경우(사용된 개별 DBMS HA 기능과 별개로) DBMS VM에 대해 다음을 수행해야 합니다.
 
 * 동일한 Azure 가상 네트워크에 VM을 추가합니다(<https://azure.microsoft.com/documentation/services/virtual-network/>).
-* HA 구성의 VM은 동일한 서브넷에 있어야 합니다. 클라우드 전용 배포에서 서로 다른 서브넷 간의 이름 확인은 불가능하며 IP 확인만 가능합니다. 프레미스 간 배포에 대한 Express 경로 또는 사이트 간 연결을 사용하여 하나 이상의 서브넷이 있는 네트워크가 이미 구성되어 있습니다. 이름 확인은 온-프레미스 AD 정책 및 네트워크 인프라에 따라 수행됩니다.
-[설명]: <> (ARM에서 여전히 True인 경우 MSSedusch TODO 테스트)
+* HA 구성의 VM은 동일한 서브넷에 있어야 합니다. 클라우드 전용 배포에서 서로 다른 서브넷 간의 이름 확인은 불가능하며 IP 확인만 가능합니다. 프레미스 간 배포에 대한 Express 경로 또는 사이트 간 연결을 사용하여 하나 이상의 서브넷이 있는 네트워크가 이미 구성되어 있습니다. 이름 확인은 온-프레미스 AD 정책 및 네트워크 인프라에 따라 수행됩니다. [설명]: <>(ARM에서 여전히 True인 경우 MSSedusch TODO 테스트)
 
 #### IP 주소
 복구 가능한 방법으로 HA 구성을 위한 VM을 설정하는 것이 좋습니다. IP 주소를 사용하여 HA 구성 내에서 HA 파트너를 확인하는 것은 Azure에서 고정 IP 주소를 사용하지 않는 한 안정적이지 않습니다. Azure에는 두 가지 "종료" 개념이 있습니다.
@@ -574,7 +572,7 @@ Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server �
 * **가상 컴퓨터 SLA**: Azure에서 실행 중인 가상 컴퓨터용 SLA는 <https://azure.microsoft.com/support/legal/sla/>에 있습니다.
 * **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure 가상 컴퓨터에서 SQL Server 2008 R2 이상 버전을 지원합니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893)을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. SQL Server 2012 및 2014에서는 IaaS 시나리오(Azure 저장소에 대한 직접 백업 등)와 더 밀접하게 통합되어 확장되었습니다. 따라서 이 문서는 SQL Server 2012 및 2014와 Azure용 최신 패치 수준으로 제한됩니다.
 * **SQL 기능 지원**: 대부분의 SQL Server 기능이 Microsoft Azure 가상 컴퓨터에서 지원되지만 몇 가지 예외가 있습니다. **공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터링은 지원되지 않습니다**. 데이터베이스 미러링, AlwaysOn 가용성 그룹, 복제, 로그 전달 및 Service Broker와 같은 분산 기술은 단일 Azure 지역 내에서 지원됩니다. <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에서 설명한 대로 다른 Azure 지역 간 SQL Server AlwaysOn도 항상 지원됩니다. 자세한 내용은 [지원 설명](https://support.microsoft.com/kb/956893)을 참조하세요. AlwaysOn 구성을 배포하는 방법에 대한 예가 [이][virtual-machines-workload-template-sql-alwayson] 문서에 나와 있습니다. 또한 [여기][virtual-machines-sql-server-infrastructure-services]에 설명된 모범 사례도 참조하세요.
-* **SQL 성능**: Microsoft Azure에서 호스트되는 가상 컴퓨터는 다른 공용 클라우드 가상화 서비스에 비해 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이][virtual-machines-sql-server-performance-best-practices] 문서를 확인해 보세요.
+* **SQL 성능**: Microsoft Azure에서 호스트되는 가상 컴퓨터는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이][virtual-machines-sql-server-performance-best-practices] 문서를 확인해 보세요.
 * **Azure 마켓플레이스에서 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure 마켓플레이스의 이미지를 사용하는 것입니다. Azure 마켓플레이스에는 SQL Server를 포함한 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 응용 프로그램에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure 마켓플레이스에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요.
 * 자세한 내용은 [가격 책정 정보](https://azure.microsoft.com/pricing/)를 확인하세요. [SQL Server 2012 라이선스 가이드](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) 및 [SQL Server 2014 라이선스 가이드](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)도 중요한 리소스입니다.
  
@@ -616,15 +614,14 @@ Azure에 업로드하기 전에 데이터베이스 압축을 수행하는 이유
 SQL Server 2014에서는 VHD '래퍼' 없이 Azure Blob 저장소에 직접 데이터베이스 파일을 저장할 수 있습니다. 특히 표준 Azure 저장소 또는 더 작은 VM 유형을 사용할 경우 일부 더 작은 VM 유형에 탑재할 수 있는 VHD 수를 제한하여 IOPS 제한을 극복할 수 있습니다. 이 방법은 사용자 데이터베이스에는 적용되지만 SQL Server의 시스템 데이터베이스에는 사용할 수 없습니다. SQL Server의 데이터 및 로그 파일에도 사용할 수 있습니다. VHD로 '래핑'하지 않고 이 방법으로 SAP SQL Server 데이터베이스를 배포하려는 경우 다음 사항에 유의하세요.
 
 * 사용된 저장소 계정이 SQL Server가 실행 중인 VM을 배포하는 데 사용된 것과 동일한 Azure 지역에 있어야 합니다.
-* 앞 부분에서 설명한 여러 Azure 저장소 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure 저장소 계정의 제한에 대한 I/O 작업 수를 의미합니다.
-[설명]: <> (MSSedusch TODO 하지만 네트워크 대역폭을 사용하고 저장소 대역폭을 사용하지 않습니다. 그렇죠?)
+* 앞 부분에서 설명한 여러 Azure 저장소 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure 저장소 계정의 제한에 대한 I/O 작업 수를 의미합니다. [설명]: <> (MSSedusch TODO 하지만 네트워크 대역폭을 사용하고 저장소 대역폭을 사용하지 않습니다. 그렇죠?)
 
 이 배포 형식에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn385720.aspx>를 참조하세요.
  
 SQL Server 데이터 파일을 Azure 프리미엄 저장소에 직접 저장하려면 최소 <https://support.microsoft.com/kb/3063054>에서 설명한 SQL Server 2014 패치 릴리스가 필요합니다. Azure 표준 저장소에 SQL Server 데이터 파일을 저장하는 작업은 SQL Server 2014의 릴리스 버전에서 사용할 수 있습니다. 그러나 해당 패치에는 SQL Server 데이터 파일 및 백업을 위한 Azure Blob 저장소의 직접 사용을 더 안정적으로 만드는 수정 사항과 다른 시리즈의 수정 사항이 포함되어 있습니다. 따라서 일반적으로 이러한 패치를 사용하는 것이 좋습니다.
 
 ### SQL Server 2014 버퍼 풀 확장
-SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되었습니다. 이 기능은 메모리에 저장된 SQL Server의 버퍼 풀과 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 확장합니다. 따라서 '메모리 내'에서 더 큰 데이터 작업 집합을 유지할 수 있습니다. Azure 표준 저장소 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. 따라서 뛰어난 IOPS 및 처리량을 갖는 VM 유형의 로컬 D:\\ 드라이브를 활용할 경우 Azure 저장소에 대한 IOPS 부하를 줄이고 쿼리 응답 시간을 크게 향상시킬 수 있습니다. 이 이점은 프리미엄 저장소를 사용하지 않는 경우에 특히 적용됩니다. 프리미엄 저장소와 계산 노드에서 프리미엄 Azure 읽기 캐시를 사용하는 경우 데이터 파일에 대해 권장된 것처럼 큰 차이가 없습니다. 그 이유는 두 캐시(SQL Server 버퍼 풀 확장 및 프리미엄 저장소 읽기 캐시)가 계산 노드의 로컬 디스크를 사용하기 때문입니다. 이 기능에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn133176.aspx> 문서를 참조 하세요.
+SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되었습니다. 이 기능은 메모리에 저장된 SQL Server의 버퍼 풀과 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 확장합니다. 따라서 '메모리 내'에서 더 큰 데이터 작업 집합을 유지할 수 있습니다. Azure 표준 저장소 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. 따라서 뛰어난 IOPS 및 처리량을 갖는 VM 유형의 로컬 D:\\ 드라이브를 활용할 경우 Azure 저장소에 대한 IOPS 부하를 줄이고 쿼리 응답 시간을 크게 향상시킬 수 있습니다. 이 이점은 프리미엄 저장소를 사용하지 않는 경우에 특히 적용됩니다. 프리미엄 저장소와 계산 노드에서 프리미엄 Azure 읽기 캐시를 사용하는 경우 데이터 파일에 대해 권장된 것처럼 큰 차이가 없습니다. 그 이유는 두 캐시(SQL Server 버퍼 풀 확장 및 프리미엄 저장소 읽기 캐시)가 계산 노드의 로컬 디스크를 사용하기 때문입니다. 이 기능에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn133176.aspx> 문서를 참조하세요.
 
 ### SQL Server에 대한 백업/복구 고려 사항
 Azure에 SQL Server를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SQL Server에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure 저장소에는 이제 세 개의 이미지가 있으므로 저장소 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 예를 들어 백업을 복구하여 2계층 SAP 구성을 동일한 시스템의 3계층 시스템 설정으로 전송할 수 있습니다.
@@ -758,26 +755,14 @@ AlwaysOn은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688] �
 
 * 가용성 그룹 수신기는 Windows Server 2012 또는 Windows Server 2012 R2를 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되고 있는지 확인해야 합니다.
 * Windows Server 2008 R2의 경우 이 패치가 없고 연결 문자열에서 장애 조치(failover) 파트너를 지정하여 데이터베이스 미러링과 같은 방법으로 AlwaysOn을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908] 참조).
-* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\\host 파일을 유지 관리해야 합니다. 두 VM이 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않게 하려면 AlwaysOn 구성에서 이러한 VM의 네트워크 인터페이스에 대해 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명합니다.)
-[설명]: <> (이전 블로그)
-[설명]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\\host 파일을 유지 관리해야 합니다. 두 VM이 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않게 하려면 AlwaysOn 구성에서 이러한 VM의 네트워크 인터페이스에 대해 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명합니다.) [설명]: <> (이전 블로그) [설명]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * 현재 기능의 Azure는 클러스터가 만들어진 노드와 동일한 IP 주소를 클러스터 이름에 할당하므로 클러스터에 특정 IP 주소를 할당해야 하는 WSFC 클러스터를 구성할 때는 특별한 단계가 필요합니다. 즉, 클러스터에 다른 IP 주소를 할당하기 위해서는 수동 단계를 수행해야 합니다.
 * 가용성 그룹 수신기는 가용성 그룹의 기본 및 보조 복제본을 실행 중인 VM에 할당된 TCP/IP 끝점을 사용하여 Azure에서 만들어집니다.
 * 이러한 끝점은 ACL로 보호해야 할 수 있습니다.
 
-[설명]: <> (TODO 이전 블로그)
-[설명]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.)
-[설명]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
-[설명]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.)
-[설명]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.)
-[설명]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>)
-[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)
-[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[설명]: <> (TODO 이전 블로그) [설명]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.) [설명]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) [설명]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.) [설명]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.) [설명]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]).
-[설명]: <> (TODO 이전 블로그)
-[설명]: <> (이러한 시나리오의 SQL Server AlwaysOn 가용성 그룹의 설정은 여기 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에 설명되어 있습니다.)
+여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]). [설명]: <> (TODO 이전 블로그) [설명]: <> (이러한 시나리오의 SQL Server AlwaysOn 가용성 그룹의 설정은 여기 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에 설명되어 있습니다.)
 
 #### Azure의 SQL Server 고가용성 요약
 Azure 저장소가 콘텐츠를 보호하는 경우 상시 대기 이미지를 고집할 이유가 줄어듭니다. 즉, 고가용성 시나리오는 다음과 같은 경우에 대해서만 방지해야 합니다.
@@ -823,7 +808,7 @@ Microsoft Azure에서 호스트되는 가상 컴퓨터는 다른 공용 클라�
 이 문서의 처음 네 챕터에서 설명한 것처럼 SAP 응용 프로그램과 함께 SAP ASE를 배포할 때는 Azure 저장소 사용, SAP VM 또는 SAP 모니터링 배포와 관련된 설명 및 권장 사항이 적용됩니다.
 
 ### SAP ASE 버전 지원 
-SAP는 현재 SAP ASE 버전 16.0을 SAP Business Suite 제품과 함께 사용하도록 지원합니다. SAP Business Suite 제품과 함께 사용할 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 SAP Service Marketplace <https://support.sap.com/swdc>를 통해서만 제공됩니다.
+SAP는 현재 SAP ASE 버전 16.0을 SAP Business Suite 제품과 함께 사용하도록 지원합니다. SAP Business Suite 제품과 함께 사용할 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 <https://support.sap.com/swdc>에서 SAP Service Marketplace를 통해서만 제공됩니다.
 
 온-프레미스 설치와 마찬가지로 Sybase 웹 사이트에서 직접 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 업데이트를 다운로드하지 마세요. 온-프레미스 및 Azure 가상 컴퓨터에서 SAP Business Suite 제품을 사용하도록 지원되는 패치에 대한 자세한 내용은 다음 SAP Note를 참조하세요.
 
@@ -971,7 +956,7 @@ SAP 크기 조정 정보 및 SAP 인증 VM SKU 목록은 SAP Note [1928533]을 �
 * [1941500]
 
 ### SAP ASE 버전 지원 
-SAP는 현재 SAP ASE 버전 16.0을 SAP Business Suite 제품과 함께 사용하도록 지원합니다. SAP Business Suite 제품과 함께 사용할 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 SAP Service Marketplace <https://support.sap.com/swdc>를 통해서만 제공됩니다.
+SAP는 현재 SAP ASE 버전 16.0을 SAP Business Suite 제품과 함께 사용하도록 지원합니다. SAP Business Suite 제품과 함께 사용할 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 <https://support.sap.com/swdc>에서 SAP Service Marketplace를 통해서만 제공됩니다.
 
 온-프레미스 설치와 마찬가지로 Sybase 웹 사이트에서 직접 SAP ASE 서버 또는 JDBC 및 ODBC 드라이버에 대한 업데이트를 다운로드하지 마세요. 온-프레미스 및 Azure 가상 컴퓨터에서 SAP Business Suite 제품을 사용하도록 지원되는 패치에 대한 자세한 내용은 다음 SAP Note를 참조하세요.
 
@@ -1116,14 +1101,14 @@ Oracle에서의 SAP Business Suite 실행에 대한 일반 정보는 SCN <https:
 ### Azure VM의 SAP 설치에 대한 Oracle 구성 지침
 
 #### 저장소 구성
-NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 VHD 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 VHD는 Azure VM에 탑재되며 Azure 페이지 BLOB 저장소(<https://msdn.microsoft.com/library/azure/ee691964.aspx>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유:
+NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 VHD 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 VHD는 Azure VM에 탑재되며 Azure 페이지 Blob 저장소(<https://msdn.microsoft.com/library/azure/ee691964.aspx>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유:
  
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
  
 Oracle 데이터베이스 파일에 대해 지원되지 **않습니다**.
 
-Azure 페이지 BLOB 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [VM 및 VHD용 캐싱][dbms-guide-2.1] 및 [Microsoft Azure 저장소][dbms-guide-2.3] 챕터의 설명이 Oracle Database를 사용한 배포에도 적용됩니다.
+Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [VM 및 VHD용 캐싱][dbms-guide-2.1] 및 [Microsoft Azure Storage][dbms-guide-2.3] 챕터의 설명이 Oracle Database를 사용한 배포에도 적용됩니다.
 
 이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 형식과 해당 할당량 목록은 [여기][virtual-machines-sizes]에서 찾을 수 있습니다.
 
@@ -1137,8 +1122,7 @@ Azure 페이지 BLOB 저장소 기반의 Azure VHD를 사용하는 경우 이 �
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 표준 Windows Server 운영 체제 및 Hyper-V와 동일한 방법으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서의 복원이 지원됩니다.
 
 #### 고가용성
-[설명]: <> (ASM 참조 링크)
-높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 자세한 내용은 [이][virtual-machines-windows-classic-configure-oracle-data-guard] 설명서에서 찾을 수 있습니다.
+[설명]: <> (ASM 참조 링크) 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 자세한 내용은 [이][virtual-machines-windows-classic-configure-oracle-data-guard] 설명서에서 찾을 수 있습니다.
 
 #### 기타
 Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항목은 모두 이 문서의 처음 세 챕터에서 Oracle Database와 VM 배포에 대해 설명한 대로 적용됩니다.
@@ -1146,7 +1130,7 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항
 ## Windows의 SAP MaxDB 데이터베이스에 대한 고유 정보
 
 ### SAP MaxDB 버전 지원
-SAP는 현재 SAP MaxDB 버전 7.9를 Azure의 SAP NetWeaver 기반 제품에 사용하도록 지원합니다. SAP NetWeaver 기반 제품과 함께 사용할 SAP MaxDB 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 SAP Service Marketplace <https://support.sap.com/swdc>를 통해서만 제공됩니다. SAP MaxDB에서의 SAP NetWeaver 실행에 대한 일반 정보는 <https://scn.sap.com/community/maxdb>에서 찾을 수 있습니다.
+SAP는 현재 SAP MaxDB 버전 7.9를 Azure의 SAP NetWeaver 기반 제품에 사용하도록 지원합니다. SAP NetWeaver 기반 제품과 함께 사용할 SAP MaxDB 서버 또는 JDBC 및 ODBC 드라이버에 대한 모든 업데이트는 <https://support.sap.com/swdc>에서 SAP Service Marketplace를 통해서만 제공됩니다. SAP MaxDB에서의 SAP NetWeaver 실행에 대한 일반 정보는 <https://scn.sap.com/community/maxdb>에서 찾을 수 있습니다.
 
 ### SAP MaxDB DBMS에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure에서 지원되는 SAP MaxDB DBMS용 Microsoft Windows 버전을 찾으려면 다음을 참조하세요.
@@ -1315,12 +1299,12 @@ Microsoft Azure 가상 컴퓨터 서비스에서 LUW용 IBM DB2의 SAP는 DB2 �
 ### Azure VM의 SAP 설치에 대한 Linux, UNIX 및 Windows용 IBM DB2 구성 지침
 
 #### 저장소 구성
-모든 데이터베이스 파일은 VHD 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 VHD는 Azure VM에 탑재되며 Azure 페이지 BLOB 저장소(<https://msdn.microsoft.com/library/azure/ee691964.aspx>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다**.
+모든 데이터베이스 파일은 VHD 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 VHD는 Azure VM에 탑재되며 Azure 페이지 Blob 저장소(<https://msdn.microsoft.com/library/azure/ee691964.aspx>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다**.
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
  
-Azure 페이지 BLOB 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [RDBMS 배포 구조][dbms-guide-2] 챕터의 설명이 LUW용 IBM DB2 데이터베이스를 사용한 배포에도 적용됩니다.
+Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [RDBMS 배포 구조][dbms-guide-2] 챕터의 설명이 LUW용 IBM DB2 데이터베이스를 사용한 배포에도 적용됩니다.
 
 이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 형식과 해당 할당량 목록은 [여기][virtual-machines-sizes]에서 찾을 수 있습니다.
 
@@ -1358,4 +1342,4 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항
 
 또한 [Azure의 SAP용 일반 SQL Server 요약][dbms-guide-5.8] 챕터를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

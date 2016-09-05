@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터 웨어하우스 솔루션 파트너 | Microsoft Azure"
-   description="SQL 데이터 웨어하우스와 작동하는 솔루션을 제공하는 타사 파트너의 목록"
+   pageTitle="SQL 데이터 웨어하우스 데이터 관리 파트너 | Microsoft Azure"
+   description="SQL 데이터 웨어하우스를 지원하는 솔루션을 제공하는 타사 데이터 관리 파트너 목록"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 데이터 관리 파트너
 
-종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 다음은 SQL 데이터 웨어하우스에 대한 데이터 관리 도구를 가진 여러 파트너 회사의 목록입니다.
+종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL 데이터 웨어하우스를 지원하는 데이터 관리 도구 및 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
 
 ## 데이터 관리 파트너
 
@@ -28,7 +28,7 @@
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD는 정확한 데이터 모델을 만들고, 데이터 중복을 최소화하고, 생산성을 향상시키고, 표준을 준수하는 데 필요한 도구를 제공합니다. 광범위한 사용자 환경을 기반으로 개발된 UI를 사용하여, 모델러는 DB 모델에서 쉽고 편리하게 작업할 수 있습니다. 프롬프트 기능 향상 및 업데이트를 통해 지속적으로 MicroERD의 새로운 기능과 향상된 기능을 즐길 수 있습니다. | [웹 사이트][inbrein_website]<br>[데이터시트][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] | [![inbrein 비디오](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE)로 바꿉니다.|
 | ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian 카탈로그는 메타데이터를 저장하고 관리하여 데이터 관리의 주요 문제점을 해결하는 데 도움이 됩니다. 또한 다양한 도구 및 기술 집합에서 메타데이터를 관리하고 게시하기 위한 솔루션으로 메타데이터 관리, 데이터 관리 및 자산 관리 소프트웨어 솔루션을 제공합니다. | [마켓플레이스][infolibrarian_marketplace]<br>[웹 사이트][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] | [![Infolibrarian 비디오](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4)로 바꿉니다. |
 | ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction은 모든 통신 채널 및 터치 포인트에서 고객과 지속적으로 대화를 나눌 수 있도록 지원합니다. 단일 운영 제어 지점에서 옴니채널 마케팅의 전체 수명 주기를 쉽게 관리할 수 있습니다. | [마켓플레이스][redpoint_it_marketplace]<br>[웹 사이트][redpoint_it_website]<br>[보도 자료][redpoint_press]<br>[데이터시트][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![redpoint dm 비디오](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582)로 바꿉니다. |
-| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management를 사용하여 마케터는 자신의 모든 데이터를 활용하여 크로스 채널 고객 계약을 추진하면서 구조적 및 비구조적 데이터 관리를 수행합니다. Microsoft Azure SQL 데이터 웨어하우스를 활용하여, RedPoint 사용자는 오늘날의 모든 채널 사용 고객과 의견을 교환하는 데 필요한 하이퍼-개인 설정 및 컨텍스트 상호작용을 제공하도록 모든 구조적 또는 비구조적 데이터의 값을 최대화할 수 있습니다. 끌어서 놓기 인터페이스를 사용하면 데이터 관리 프로세스를 쉽게 설계하여 실행할 수 있습니다. | [마켓플레이스][redpoint_dm_marketplace]<br>[웹 사이트][redpoint_dm_website]<br>[보도 자료][redpoint_press]<br>[데이터시트][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![redpoint dm 비디오](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581)로 바꿉니다. |
+| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management를 사용하여 마케터는 자신의 모든 데이터를 적용하여 크로스 채널 고객 계약을 추진하면서 구조적 및 비구조적 데이터 관리를 수행합니다. Azure SQL 데이터 웨어하우스를 활용하여, RedPoint 사용자는 오늘날의 모든 채널 사용 고객과 의견을 교환하는 데 필요한 하이퍼-개인 설정 및 컨텍스트 상호작용을 제공하도록 모든 구조적 및 비구조적 데이터의 값을 최대화할 수 있습니다. 끌어서 놓기 인터페이스를 사용하면 데이터 관리 프로세스를 쉽게 설계하여 실행할 수 있습니다. | [마켓플레이스][redpoint_dm_marketplace]<br>[웹 사이트][redpoint_dm_website]<br>[보도 자료][redpoint_press]<br>[데이터시트][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![redpoint dm 비디오](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581)로 바꿉니다. |
 | ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor는 가장 관련성이 큰 Azure SQL 데이터 웨어하우스 성능 메트릭의 실시간 및 기록 보기를 제공하여 고객이 성능 추세를 알 수 있고 더 자세한 심층 분석 및 문제해결에 대한 정보를 쉽게 액세스할 수 있습니다. Performance Advisor는 시간 또는 날짜 범위의 모든 지점에 대한 성능 데이터를 볼 수 있습니다. | [마켓플레이스][sql_sentry_marketplace]<br>[웹 사이트][sql_sentry_website]<br>[보도 자료][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## 다음 단계
@@ -97,4 +97,4 @@
 
 <!--Video links-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

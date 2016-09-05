@@ -6,7 +6,7 @@
 
      ![이름/값 쌍이 있는 태그 리소스](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. 포털에서 태그 분류를 보려면 **찾아보기** 및 **태그**를 선택합니다.
+1. 포털에서 태그 분류를 보려면 **서비스 더 보기** 및 **태그**를 선택합니다.
 
      ![찾아보기 허브를 통해 태그 찾기](./media/resource-manager-tag-resources/browse-tags.png)
 
@@ -22,4 +22,4 @@
 
      ![시작 보드에 태그 고정](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

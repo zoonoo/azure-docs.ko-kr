@@ -15,10 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="08/19/2016"
 	ms.author="genli"/>
 
 # Azure를 등록, 구매, 업그레이드 또는 활성화하는 방법
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 Azure는 비즈니스 요구 사항에 맞고 Azure를 사용하여 시작하도록 다양한 제품을 제공합니다. 다루는 내용, 혜택 및 국가/지역별로 가용성에 대한 각 제품의 세부 정보가 있는 모든 활성 제품의 완전한 목록은 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 방문하세요.
 
@@ -58,12 +60,12 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 4. **전화로 확인** 섹션에서 확인 프로세스를 완료하기 위해 제공할 수 있는 인증 코드를 받을 전화번호를 제공해야 합니다.
 
-    문자 메시지 또는 음성 통화를 통해 확인 코드를 수신하도록 선택할 수 있습니다. **텍스트 메시지 보내기** 또는 **전화**를 선택하여 고릅니다. 첫 번째 상자에서 국가에 국제 전화 코드를 선택하고 두 번째 상자에 전화번호를 입력합니다. 인증 코드를 받으면 세 번째 상자에 입력한 후 **코드 확인** 단추를 선택합니다. [자세한 내용은 이 항목을 참조하세요](billing-troubleshoot-azure-sign-up-issues.md#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
+    문자 메시지 또는 음성 통화를 통해 확인 코드를 수신하도록 선택할 수 있습니다. **텍스트 메시지 보내기** 또는 **전화**를 선택하여 고릅니다. 첫 번째 상자에서 국가에 국제 전화 코드를 선택하고 두 번째 상자에 전화번호를 입력합니다. 인증 코드를 받으면 세 번째 상자에 입력한 후 **코드 확인** 단추를 선택합니다. [자세한 내용은 이 문서를 참조하세요](billing-troubleshoot-azure-sign-up-issues.md#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
 
     >[AZURE.NOTE] VOIP 전화 번호를 휴대폰 인증 프로세스에 사용할 수 없습니다.
- 
+
     ![전화를 확인하려면 올바른 전화 번호를 입력합니다.](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
-    
+
     문자 메시지 또는 전화를 받지 못한 경우 다른 전화 번호를 사용하거나 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 도움을 받으세요.
 
 5. **카드로 확인** 섹션에서 유효한 신용 카드의 세부 정보를 입력합니다. 이 정보는 사용자의 신원을 확인하기 위해 수집됩니다.
@@ -72,12 +74,12 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
     ![카드에서 확인할 수 있습니다.](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)
 
-6. 구독 규약, 제품 세부 정보 및 개인정보 취급 방침에 동의하는 경우 **계약** 섹션에서 확인란을 선택합니다. 그런 다음 **등록**을 선택합니다. 규약 양식은 국가에 따라 다를 수 있습니다.
+6. 구독 규약, 제품 세부 정보 및 개인정보 취급 방침에 동의하는 경우 **규약** 섹션에서 확인란을 선택합니다. 그런 다음 **등록**을 선택합니다. 규약 양식은 국가에 따라 다를 수 있습니다.
 
     ![규약의 영어 버전입니다. 규약 양식은 국가에 따라 다를 수 있습니다.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
- 
+
     구독을 설정하는 데 몇 분 정도 걸릴 수 있습니다. 15분 이내에 구독 설정이 완료되지 않으면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요.
- 
+
     > [AZURE.NOTE] 오류 메시지가 표시될 경우 문제 해결을 위해 메시지의 단계를 따르세요. 일반적인 오류 메시지는 다음과 같습니다.
 
     > **죄송합니다. 작업을 완료할 수 없습니다. 나중에 다시 시도하거나 웹 페이지를 다시 로드하세요.**
@@ -85,7 +87,7 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
     > 이 경우, 다른 브라우저를 사용하여 등록 프로세스를 완료하십시오. 문제가 계속 발생하면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 도움을 요청하세요.
 
 7. 구독이 준비되어 시작하려면 **내 서비스 관리 시작**을 선택하세요.
- 
+
     ![Azure 구독에 오신 것을 환영합니다.](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 ### 추가 리소스
@@ -119,4 +121,6 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@
 ## 필수 조건
 
 * R 서버가 설치된 Azure HDInsight 클러스터. 자세한 내용은 [HDInsight 클러스터에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
-* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다. 
+* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다.
 
 
 ## 사용자 지정 스크립트를 사용하여 클러스터에 RStudio 설치
@@ -36,29 +36,29 @@
 1. 클러스터의 에지 노드를 식별합니다. R 서버가 설치된 HDInsight 클러스터의 경우 헤드 노드와 에지 노드에 대한 명명 규칙은 다음과 같습니다.
 
 	* 헤드 노드 - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* 에지 노드 - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
+	* 에지 노드 - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
 
-3. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다.
+2. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다.
  
 	* Linux 클라이언트에서 연결하려면 [Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조하세요.
 	* Windows 클라이언트에서 연결하려면 [PuTTY를 사용하여 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조하세요.
 
-2. 연결이 완료되면 클러스터의 루트 사용자가 됩니다. SSH 세션에서 다음 명령을 사용합니다.
+3. 연결이 완료되면 클러스터의 루트 사용자가 됩니다. SSH 세션에서 다음 명령을 사용합니다.
 
 		sudo su -
 
-3. 사용자 지정 스크립트를 다운로드하여 RStudio를 설치합니다. 다음 명령을 사용합니다.
+4. 사용자 지정 스크립트를 다운로드하여 RStudio를 설치합니다. 다음 명령을 사용합니다.
 
 		wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
 
-4. 사용자 지정 스크립트 파일에 대한 권한을 변경하고 스크립트를 실행합니다. 다음 명령을 사용합니다.
+5. 사용자 지정 스크립트 파일에 대한 권한을 변경하고 스크립트를 실행합니다. 다음 명령을 사용합니다.
 
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
 
-5. R 서버가 설치된 HDInsight 클러스터를 만드는 동안 SSH 암호를 사용한 경우 이 단계를 건너뛰고 다음 단계로 진행할 수 있습니다. 그렇지 않고 SSH 키를 사용하여 클러스터를 만든 경우 SSH 사용자에 대한 암호를 설정해야 합니다. RStudio에 연결할 때 이 암호가 필요합니다. 다음 명령을 실행합니다. **현재 Kerberos 암호**를 묻는 메시지가 표시되면 **Enter** 키를 누르면 됩니다.
+6. R 서버가 설치된 HDInsight 클러스터를 만드는 동안 SSH 암호를 사용한 경우 이 단계를 건너뛰고 다음 단계로 진행할 수 있습니다. 그렇지 않고 SSH 키를 사용하여 클러스터를 만든 경우 SSH 사용자에 대한 암호를 설정해야 합니다. RStudio에 연결할 때 이 암호가 필요합니다. 다음 명령을 실행합니다. **현재 Kerberos 암호**를 묻는 메시지가 표시되면 **Enter** 키를 누르면 됩니다. `USERNAME`을(를) HDInsight 클러스터에 대한 SSH 사용자로 교체해야 합니다.
 
-		passwd remoteuser
+		passwd USERNAME
 		Current Kerberos password:
 		New password:
 		Retype new password:
@@ -71,13 +71,13 @@
 
 	SSH 세션을 종료합니다.
 
-6. HDInsight 클러스터에서 `localhost:8787`을 클라이언트 컴퓨터에 매핑하여 클러스터에 대한 SSH 터널을 만듭니다. 새 브라우저 세션을 열기 전에 SSH 터널을 만들어야 합니다.
+7. HDInsight 클러스터에서 `localhost:8787`을 클라이언트 컴퓨터에 매핑하여 클러스터에 대한 SSH 터널을 만듭니다. 새 브라우저 세션을 열기 전에 SSH 터널을 만들어야 합니다.
 
 	* Linux 클라이언트 또는 Windows 클라이언트([Cygwin](http://www.redhat.com/services/custom/cygwin/) 사용)에서 터미널 세션을 열고 다음 명령을 사용합니다.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
-		**USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
+		**USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다. `-i id_rsa_key`을(를) 추가하여 암호 대신 SSH 키를 사용할 수도 있습니다.
 
 	* Windows 클라이언트에서 SSH 터널 PuTTY를 만듭니다.
 
@@ -93,15 +93,15 @@
 		4. **Add**를 클릭하여 설정을 추가한 다음 **Open**을 클릭하여 SSH 연결을 엽니다.
 		5. 메시지가 표시되면 서버에 로그인합니다. 이 SSH 세션을 설정하고 터널을 사용하도록 설정합니다.
 
-7. 웹 브라우저를 열고 터널에 대해 입력한 포트에 따라 다음 URL을 입력합니다.
+8. 웹 브라우저를 열고 터널에 대해 입력한 포트에 따라 다음 URL을 입력합니다.
 
 		http://localhost:8787/ 
 
-8. 클러스터에 연결할 SSH 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. 클러스터를 만드는 동안 SSH 키를 사용한 경우 위 5단계에서 만든 암호를 입력해야 합니다.
+9. 클러스터에 연결할 SSH 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. 클러스터를 만드는 동안 SSH 키를 사용한 경우 위 5단계에서 만든 암호를 입력해야 합니다.
 
 	![R 스튜디오에 연결](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "SSH 터널 만들기")
 
-9. RStudio 설치의 성공 여부를 테스트하려면 클러스터에서 R 기반 MapReduce 및 Spark 작업을 실행하는 테스트 스크립트를 실행하면 됩니다. SSH 콘솔로 돌아가 다음 명령을 입력하여 RStudio에서 실행할 테스트 스크립트를 다운로드합니다.
+10. RStudio 설치의 성공 여부를 테스트하려면 클러스터에서 R 기반 MapReduce 및 Spark 작업을 실행하는 테스트 스크립트를 실행하면 됩니다. SSH 콘솔로 돌아가 다음 명령을 입력하여 RStudio에서 실행할 테스트 스크립트를 다운로드합니다.
 
 	* R이 설치된 Hadoop 클러스터를 만든 경우 다음 명령을 사용합니다.
 		
@@ -111,9 +111,11 @@
 
 			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-10. RStudio에 다운로드한 테스트 스크립트가 표시됩니다. 파일을 두 번 클릭하여 열고 파일의 내용을 선택한 다음 **Run**을 클릭합니다. **Console** 창에 출력이 표시됩니다.
+11. RStudio에 다운로드한 테스트 스크립트가 표시됩니다. 파일을 두 번 클릭하여 열고 파일의 내용을 선택한 다음 **Run**을 클릭합니다. **Console** 창에 출력이 표시됩니다.
  
 	![설치 테스트](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "설치 테스트")
+
+또 다른 옵션은 `source(testhdi.r)` 또는 `source(testhdi_spark.r)`을(를) 입력하여 스크립트를 실행하는 것입니다.
 
 ## 참고 항목
 
@@ -124,4 +126,4 @@
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

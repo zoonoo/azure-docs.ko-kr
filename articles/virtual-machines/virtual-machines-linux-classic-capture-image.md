@@ -33,7 +33,7 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 
 ## 가상 컴퓨터 캡처
 
-1. 선택한 SSH 클라이언트를 사용하여 [가상 컴퓨터에 연결](virtual-machines-linux-classic-log-on.md)합니다.
+1. 선택한 SSH 클라이언트를 사용하여 [가상 컴퓨터에 연결](virtual-machines-linux-mac-create-ssh-keys.md)합니다.
 
 2. SSH 창에서 다음 명령을 입력합니다. `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
 
@@ -95,4 +95,4 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Linux 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

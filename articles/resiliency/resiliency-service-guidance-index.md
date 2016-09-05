@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 # Microsoft Azure 서비스 복원력 지침
@@ -38,4 +38,4 @@ Microsoft Azure는 필요할 때 리소스를 제공하도록 설계되었습니
 ##다음 단계
 시스템 및 솔루션에 대해 더 중점을 둔 지침을 찾고 있다면 [Microsoft Azure에서 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](https://aka.ms/drtechguide)을 참고하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

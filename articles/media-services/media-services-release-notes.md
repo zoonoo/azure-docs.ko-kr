@@ -30,12 +30,13 @@
 문제|설명
 ---|---
 REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.|REST API를 사용하여 미디어 서비스 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다.
-%20과 같이 이스케이프 문자가 포함된 파일 이름으로 자산을 인코딩하면 "MediaProcessor: 파일을 찾을 수 없습니다."라는 메시지와 함께 작업에 실패합니다.|자산에 추가된 후 인코딩되는 파일 이름에는 영숫자와 공백만 사용할 수 있습니다. 이 문제는 이후 업데이트에서 수정될 예정입니다.
+퍼센트 인코딩은 허용되지 않습니다.|미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.|미디어 서비스에서는 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.
 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.|자세한 내용은 [Azure 미디어 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx) 항목의 503 HTTP 상태 코드 설명을 참조하세요.
 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. | [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다.|자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 Azure 미디어 서비스 .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure 캐싱에서 작동하지 않습니다.|SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.
+메시지 문자열 "Stage: DownloadFile. Code: System.NullReferenceException"으로 인코딩 작업이 실패합니다.|일반적인 인코딩 워크플로는 입력 자산에 입력 비디오 파일을 업로드하고 해당 입력 자산을 추가로 수정하지 않고 해당 입력 자산에 대한 하나 이상의 인코딩 작업을 제출하는 것입니다. 그러나 입력 자산을 수정하는 경우(예: 자산 내에서 파일 추가/삭제/이름 바꾸기) 후속 작업은 DownloadFile 오류로 실패할 수 있습니다. 해결 방법은 입력 자산을 삭제하고 입력 파일을 새 자산에 다시 업로드하는 것입니다. 
 
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
@@ -328,7 +329,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 	* 사용자 지정 호스트 이름(예: sports.contoso.com)을 미디어 서비스 StreamingEndpont 호스트 이름(예: amstest.streaming.mediaservices.windows.net)에 매핑되는 다른 CName을 만들어야 합니다.
 
 
-	자세한 내용은 **StreamingEndpoint** 항목의 [CustomHostNames] 속성을 참조하세요.
+	자세한 내용은 [StreamingEndpoint] 항목의 **CustomHostNames** 속성을 참조하세요.
 
 ### <a id="sept_14_preview_changes"></a>공개 미리 보기 릴리스에 포함된 새 기능/시나리오
 
@@ -620,7 +621,6 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [콘텐츠 배달]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
-[CustomHostNames]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Azure 미디어 서비스 라이브 스트리밍 사용]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [AES-128 동적 암호화 및 키 전달 서비스 사용]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [PlayReady 동적 암호화 및 License Delivery 서비스 사용]: http://msdn.microsoft.com/library/azure/dn783467.aspx
@@ -646,4 +646,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

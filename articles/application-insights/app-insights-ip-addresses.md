@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights에 사용된 IP 주소 | Microsoft Azure"
-	description="정적 주소 목록" 
+	description="Application Insights에 필요한 서버 방화벽 예외" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Application Insights에 사용된 IP 주소
 
-[Visual Studio Application Insights](app-insights-overview.md) 서비스에서는 알려고 하는 IP 주소 수를 사용합니다. 예를 들어 방화벽 뒤에 실행되는 앱을 모니터링하는 경우가 해당합니다.
+[Visual Studio Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
 
 > [AZURE.NOTE] 이러한 주소는 정적이지만 경우에 따라 변경해야 할 수 있습니다.
 
@@ -46,11 +46,11 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 이 목록은 수시로 변경될 수 있습니다.
 
-## Availability
+## 가용성 테스트
 
-[가용성 웹 테스트](app-insights-monitor-web-app-availability.md)가 실행되는 주소 목록입니다.
+[가용성 웹 테스트](app-insights-monitor-web-app-availability.md)가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
 
-포트 80(http) 및 443(https)을 엽니다.
+이 주소에서 들어오는 트래픽에 대한 포트 80(http) 및 443(https)을 엽니다.
 
 ```
 
@@ -184,4 +184,4 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

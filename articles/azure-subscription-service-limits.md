@@ -10,12 +10,12 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/18/2016"
 	ms.author="btardif"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -30,7 +30,7 @@
 
 이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
-아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure 리소스 관리자** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
+아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure Resource Manager** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
 > [AZURE.NOTE] Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. 코어 할당량을 한 예로 살펴보겠습니다. 코어를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 코어를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 코어 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 서유럽 지역에서 응용 프로그램을 실행하려면 30개의 코어를 사용해야 하는 경우, 확실하게 서유럽에서 30개의 코어를 요청해야 합니다. 하지만 다른 지역에는 코어 할당량 증가가 없고 서유럽만 30개의 코어 할당량이 있게 됩니다.
 <!-- -->
@@ -44,7 +44,7 @@
 - [앱 서비스](#app-service-limits)
 - [Application Insights](#application-insights-limits)
 - [자동화](#automation-limits)
-- [Azure Redis 캐시](#azure-redis-cache-limits) (영문)
+- [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [백업](#backup-limits)
 - [배치](#batch-limits)
@@ -84,7 +84,7 @@
 #### 구독 제한
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### 구독 제한 - Azure 리소스 관리자
+#### 구독 제한 - Azure Resource Manager
 
 Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다음과 같은 제한이 적용됩니다. Azure 리소스 관리자에서 변경되지 않는 제한은 아래에 나열되지 않습니다. 이러한 제한에 대해서는 이전 테이블을 참조하세요.
 
@@ -180,7 +180,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-별표 (*) 가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](./documentdb/documentdb-increase-limits.md).
+별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](./documentdb/documentdb-increase-limits.md).
 
 ### 모바일 참여 제한
 
@@ -192,8 +192,8 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
 
 - *무료* 다중 테넌트 서비스는 다른 Azure 구독자와 공유되며 평가 및 소규모 개발 프로젝트용으로 사용하기 위한 것입니다.
-- *기본* 은 프로덕션 작업 전용 컴퓨팅 리소스를 더 작은 규모로, 높은 가용성의 쿼리 작업에 대한 복제본을 3개까지 제공합니다.
-- *표준 (S1, S2, S3, S3 고밀도)* 은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 특정 시나리오에 대한 리소스 구성을 선택할 수 있습니다.
+- *기본*은 높은 가용성의 쿼리 작업에 대한 최대 3개의 복제본과 함께 프로덕션 워크로드 전용 컴퓨팅 리소스를 더 작은 규모로 제공합니다.
+- *표준(S1, S2, S3, S3 고밀도)*은 더 큰 프로덕션 작업용입니다. 표준 계층 내에는 여러 수준이 있으므로 특정 시나리오에 대한 리소스 구성을 선택할 수 있습니다.
 
 **구독당 제한**
 
@@ -303,5 +303,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
-
+<!---HONumber=AcomDC_0824_2016-->

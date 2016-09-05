@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/26/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Azure AD - 공용 미리 보기에서 관리 단위 관리
@@ -37,4 +37,4 @@ Azure Active Directory Premium을 사용할 수 있는 경우에만 관리 단�
 ## 다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

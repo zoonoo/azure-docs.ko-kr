@@ -99,7 +99,7 @@
 
 	JSON 파일 템플릿에서 이미지의 URL을 얻을 수 있습니다. 이미지의 전체 경로에 대한 **resources** > **storageProfile** > **osDisk** > **image** > **uri** 섹션으로 이동합니다. 이미지의 URL은 `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`과 같습니다.
 	
-	포털에서 URI를 확인할 수도 있습니다. 이미지는 저장소 계정에서 **시스템**라는 Blob에 복사됩니다.
+	포털에서 URI를 확인할 수도 있습니다. 이미지는 저장소 계정에서 **시스템**라는 컨테이너에 복사됩니다.
 
 2. 이미지에 대한 경로에 변수를 만듭니다.
 
@@ -210,4 +210,4 @@
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

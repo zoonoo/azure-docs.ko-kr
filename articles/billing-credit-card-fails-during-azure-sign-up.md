@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Azure에 등록하려고 할 때 내 신용 카드 또는 직불 카드가 거부됨
@@ -23,7 +23,7 @@
 
 실제로 유효한 신용 카드나 직불 카드를 사용하고 있으면 해당 카드가 활성 상태인지, 보안 정책으로 인해 은행에서 온라인 거래를 차단하지 않는지 확인해야 합니다.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 신용/직불 카드 정보가 정확하고 완전합니까?
 - 사용 중인 신용 또는 직불 카드가, 선택한 국가의 드롭다운 목록에 있어야 합니다. 목록에 없다면, 사용자의 국가에서 사용할 수 있는 옵션이 아닙니다.
@@ -32,7 +32,7 @@
 - 입력한 CVV 코드는 신용/직불 카드 앞면 또는 뒷면에 표시된 코드와 정확히 일치해야 합니다.
 
 ## Azure 무료 평가판을 활성화하려고 합니까?
-Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 번으로 제한됩니다. 이전에 이 신용 카드로 무료 평가판을 활성화했거나 과거에 이 신용 카드와 연결된 Azure 구독이 있었던 경우 시스템에서 무료 평가판 활성화를 허용하지 않습니다. 대신 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에 나열되어 있는 그 밖의 Azure 플랜 중 하나를 사용하세요.
+Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 번으로 제한됩니다. 이전에 이 신용 카드로 무료 평가판을 활성화했거나 과거에 이 신용 카드와 연결된 Azure 구독이 있었던 경우 시스템에서 무료 평가판 활성화를 허용하지 않습니다. 대신 [Microsoft Azure 제품 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에 나열되어 있는 기타 Azure 플랜 중 하나를 사용하세요.
 
 ## 신용 카드 또는 직불 카드 외에 다른 지불 옵션이 필요합니까?
 수표, 속달 수표(overnight checks), 전신 송금 같은 청구서 지불 방식을 통해 Azure 구독 비용을 지불할 수도 있습니다.
@@ -41,4 +41,6 @@ Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 
 
 청구서를 설정하는 프로세스를 시작하려면 [Azure 청구 - 청구 방법](https://azure.microsoft.com/pricing/invoicing/)에서 자세한 내용을 확인하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

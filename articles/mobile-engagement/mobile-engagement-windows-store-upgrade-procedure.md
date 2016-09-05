@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Windows 유니버설 앱 SDK 업그레이드 절차
@@ -37,7 +37,7 @@
 
 새 버전의 SDK로 업그레이드하는 동안 리소스의 오버레이 폴더에서 기존 파일을 보관할 것인지 보관하지 않을 것인지 여부를 선택할 수 있습니다.
 
-* 이전 오버레이가 작동 중이거나 `WebView` 요소를 수동으로 통합하는 경우 기존 파일을 보관하도록 결정하여 계속 작동하도록 할 수 있습니다. 
+* 이전 오버레이가 작동 중이거나 `WebView` 요소를 수동으로 통합하는 경우 기존 파일을 보관하도록 결정하여 계속 작동하도록 할 수 있습니다.
 * 새 오버레이로 업데이트하려는 경우 리소스의 전체 `overlay` 폴더를 SDK 패키지의 새 폴더로 바꿉니다(UWP 앱: 업그레이드 후 새 오버레이 폴더를 %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources에서 가져올 수 있음).
 
 > [AZURE.WARNING] 새 오버레이를 사용하면 이전 버전에서 설정한 모든 사용자 지정을 덮어씁니다.
@@ -300,7 +300,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 ### 항목 이름 변경
 
-이름에 *capptain* 이 포함된 모든 항목은 이름에 *engagement* 를 포함하도록 지정됩니다. 마찬가지로 *Capptain* 은 *Engagement* 로 지정됩니다.
+이름에 *capptain*이 포함된 모든 항목은 이름에 *engagement*를 포함하도록 지정됩니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
 
 일반적으로 사용되는 Capptain 항목의 예제:
 
@@ -314,4 +314,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

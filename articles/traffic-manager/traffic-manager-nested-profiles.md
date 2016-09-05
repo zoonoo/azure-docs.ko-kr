@@ -3,7 +3,7 @@
    description="이 문서에서는 Azure 트래픽 관리자의 ‘중첩 프로필’ 기능에 대해 설명합니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # 중첩 트래픽 관리자 프로필
 
@@ -161,4 +161,4 @@
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

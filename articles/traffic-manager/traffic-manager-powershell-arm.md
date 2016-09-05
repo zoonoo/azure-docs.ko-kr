@@ -1,9 +1,9 @@
 <properties
-   pageTitle="트래픽 관리자에 대한 Azure Resource Manager 지원 | Microsoft Azure"
+   pageTitle="트래픽 관리자에 대한 Azure Resource Manager 지원 | Microsoft Azure "
    description="ARM(Azure Resource Manager)과 함께 트래픽 관리자용 powershell 사용"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Azure 트래픽 관리자에 대한 Azure Resource Manager 지원
 ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다.
@@ -66,7 +66,7 @@ Azure 계정에 로그인
 
 	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
-사용 가능한 구독 목록을 보려면 ‘Get-AzureRmSubscription’ cmdlet을 사용합니다.
+사용 가능한 구독 목록을 보려면 'Get-AzureRmSubscription' cmdlet을 사용합니다.
 
 ### 4단계
 
@@ -309,4 +309,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

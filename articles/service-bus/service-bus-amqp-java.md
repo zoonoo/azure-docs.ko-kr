@@ -67,7 +67,7 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 
 여기서 `[jndi\_name]` 및 `[ConnectionURL]`은(는) 다음과 같은 의미가 있습니다.
 
-| 이름 | 의미 | | | | |
+| Name | 의미 | | | | |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|
 | `[jndi\_name]` | 연결 팩터리의 논리적 이름입니다. 이 이름은 JNDI `IntialContext.lookup()` 메서드를 사용하여 Java 응용 프로그램에서 확인됩니다. | | | | |
 | `[ConnectionURL]` | AMQP 브로커에 필요한 정보를 JMS 라이브러리에 제공하는 URL입니다. | | | | |
@@ -82,11 +82,11 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | 이름 | 의미 | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | [Azure 클래식 포털][]에서 얻은 서비스 버스 네임스페이스입니다. | | | | |
-| `[username]` | [Azure 클래식 포털][]에서 얻은 서비스 버스 발급자 이름입니다. | | | | |
-| `[password]` | [Azure 클래식 포털][]에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다. | | | | |
+| `[namespace]` | [Azure 포털][]에서 얻은 서비스 버스 네임스페이스입니다. | | | | |
+| `[username]` | [Azure 포털][]에서 얻은 서비스 버스 발급자 이름입니다. | | | | |
+| `[password]` | [Azure 포털][]에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다. | | | | |
 
-> [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
+> [AZURE.NOTE] 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
 예를 들어 포털에서 얻은 정보가 다음과 같다고 가정합니다.
 
@@ -179,7 +179,7 @@ JMS 사양은 이러한 예외를 처리하도록 API 메서드 및 응용 프�
 -   **connection.setExceptionListener**를 사용하여 JMS 연결로 **ExceptionListener**를 등록합니다. 이렇게 하면 클라이언트에게 문제를 비동기적으로 알려줍니다. 이 알림은 메시지를 사용하는 연결은 연결 실패를 알 수 있는 다른 방법이 없으므로 특히 중요합니다. 기본 AMQP 연결, 세션 또는 링크에 문제가 있을 경우 **ExceptionListener**가 호출됩니다. 이 경우 응용 프로그램은 **JMS 연결**, **세션**, **MessageProducer** 및 **MessageConsumer** 개체를 처음부터 다시 만들어야 합니다.
 
 -   메시지가 **MessageProducer**에서 서비스 버스 엔터티로 성공적으로 전송되었는지 확인하려면 응용 프로그램이 **qpid.sync\_publish** 시스템 속성 집합으로 구성되었는지 확인합니다. 응용 프로그램을 시작할 때 명령줄에서 설정된 **-Dqpid.sync\_publish=true** Java VM 옵션으로 프로그램을 시작하여 실행할 수 있습니다. 이 옵션 설정은 서비스 버스에서 메시지 수락했다는 확인을 수신할 때까지 전송 호출로부터 반환되지 않도록 라이브러리를 구성합니다. 전송 작업 중에 문제가 발생하는 경우 **JMSException**이 발생합니다. 다음 두 가지 가능한 원인이 있습니다.
-	1. 서비스 버스가 전송되는 특정 메시지를 거부하는 방식으로 인해 문제가 발생한 경우 **MessageRejectedException** 예외가 발생합니다. 이 오류는 일시적이거나 메시지의 문제로 인해 발생됩니다. 일부 백오프 논리로 작업을 다시 시도하는 것이 좋습니다. 문제가 지속되면 메시지는 로컬로 로그온한 오류와 함께 중단되어야 합니다. 이 경우 **JMS 연결**, **세션** 또는 **MessageProducer** 개체를 다시 만들 필요가 없습니다. 
+	1. 서비스 버스가 전송되는 특정 메시지를 거부하는 방식으로 인해 문제가 발생한 경우 **MessageRejectedException** 예외가 발생합니다. 이 오류는 일시적이거나 메시지의 문제로 인해 발생됩니다. 일부 백오프 논리로 작업을 다시 시도하는 것이 좋습니다. 문제가 지속되면 메시지는 로컬로 로그온한 오류와 함께 중단되어야 합니다. 이 경우 **JMS 연결**, **세션** 또는 **MessageProducer** 개체를 다시 만들 필요가 없습니다.
 	2. 서비스 버스가 AMQP 링크를 닫는 것으로 인해 문제가 발생한 경우 **InvalidDestinationException** 예외가 발생합니다. 이는 일시적인 문제 또는 삭제되는 메시지 엔터티로 인한 문제일 수 있습니다. 두 경우 모두 **JMS 연결**, **세션** 및 **MessageProducer** 개체를 다시 만들어야 합니다. 오류 상태가 일시적이었다면 이 작업은 결국 성공적으로 수행될 것입니다. 엔터티가 삭제된 경우 오류가 영구적이 됩니다.
 
 ## .NET과 JMS 간의 메시징
@@ -360,27 +360,9 @@ while (propertyNames.hasMoreElements())
 
 다음 표는 .NET 속성 형식을 JMS 속성 형식으로 매핑하는 방법을 보여 줍니다.
 
-| .NET 속성 형식 | JMS 속성 형식 | 참고 |
+| .NET 속성 형식 | JMS 속성 형식 | 참고 사항 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 표준 헤더
 
@@ -388,34 +370,15 @@ while (propertyNames.hasMoreElements())
 
 #### JMS에서 서비스 버스 .NET API
 
-| JMS | 서비스 버스 .NET | 참고 |
+| JMS | 서비스 버스 .NET | 참고 사항 |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | 현재 사용할 수 없음 | 서비스 버스는 지정된 것과 관계 없이 지속적 메시지만 지원합니다(예: DeliveryMode.PERSISTENT). |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | 기본적으로 JMSMessageID는 AMQP 메시지에서 이진 형식으로 인코딩됩니다. 이진 메시지 ID를 받으면 .NET 클라이언트 라이브러리는 바이트의 유니코드 값 기반 문자열 표현으로 변환합니다. JMS 라이브러리를 전환하여 문자열 메시지 ID를 사용하려면 "binary-messageid=false" 문자열을 JNDI ConnectionURL의 쿼리 매개 변수에 추가합니다. 예: “amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”. |
-| JMSPriority | 현재 사용 불가능 | 서비스 버스는 메시지 우선 순위를 제공하지 않습니다. |
-| JMSRedelivered | 현재 사용 불가능 | - |
-| JMSReplyTo | Message. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
-| JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | 현재 사용할 수 없음 | 서비스 버스는 지정된 것과 관계 없이 지속적 메시지만 지원합니다(예: DeliveryMode.PERSISTENT). | | JMSDestination | Message.To | - | | JMSExpiration | Message. TimeToLive | Conversion | | JMSMessageID | Message.MessageID | 기본적으로 JMSMessageID는 AMQP 메시지에서 이진 형식으로 인코딩됩니다. 이진 메시지 ID를 받으면 .NET 클라이언트 라이브러리는 바이트의 유니코드 값 기반 문자열 표현으로 변환합니다. JMS 라이브러리를 전환하여 문자열 메시지 ID를 사용하려면 "binary-messageid=false" 문자열을 JNDI ConnectionURL의 쿼리 매개 변수에 추가합니다. 예: “amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”. | | JMSPriority | 현재 사용 불가능 | 서비스 버스는 메시지 우선 순위를 제공하지 않습니다. | | JMSRedelivered | 현재 사용 불가능 | - | | JMSReplyTo | Message. ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties[“jms-type”] | - |
 
 #### 서비스 버스 .NET API에서 JMS
 
-| 서비스 버스 .NET | JMS | 참고 |
+| 서비스 버스 .NET | JMS | 참고 사항 |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | 현재 사용 불가능 |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | n/a | 현재 사용 불가능 |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/a | 현재 사용 불가능 |
-| ScheduledEnqueueTimeUtc | n/a | 현재 사용 불가능 |
-| SessionId | n/a | 현재 사용 불가능 |
-| TimeToLive | JMSExpiration | Conversion |
-| To | JMSDestination | - |
+| ContentType | - | 현재 사용 불가능 | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | n/a | 현재 사용 불가능 | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/a | 현재 사용 불가능 | | ScheduledEnqueueTimeUtc | n/a | 현재 사용 불가능 | | SessionId | n/a | 현재 사용 불가능 | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
 
 ## 지원되지 않는 기능 및 제한
 
@@ -444,6 +407,6 @@ while (propertyNames.hasMoreElements())
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
-[Azure 클래식 포털]: http://manage.windowsazure.com
+[Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

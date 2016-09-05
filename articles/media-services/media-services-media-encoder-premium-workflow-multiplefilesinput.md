@@ -152,7 +152,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 
 ### 클립 목록 XML 사용자 지정
-구성 문자열 XML에서 **sourceTranscode**를 사용하여 워크플로에서 런타임에 클립 목록 XML을 지정할 수 있습니다. 이를 위해서는 클립 목록 XML 핀을 워크플로에서 미디어 원본 구성 요소에 연결해야 합니다.
+구성 문자열 XML에서 **transcodeSource**를 사용하여 워크플로에서 런타임에 클립 목록 XML을 지정할 수 있습니다. 이를 위해서는 클립 목록 XML 핀을 워크플로에서 미디어 원본 구성 요소에 연결해야 합니다.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -432,4 +432,4 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

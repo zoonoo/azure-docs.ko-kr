@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #GCM과 Mobile Engagement를 통합하는 방법
@@ -82,4 +82,4 @@ Mobile Engagement에 GCM API 키에 대한 액세스 권한을 부여하려면 [
 
 [Google Play SDK]: https://developers.google.com/cloud-messaging/android/start
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0824_2016-->

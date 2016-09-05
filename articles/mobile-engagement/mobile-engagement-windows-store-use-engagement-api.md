@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Windows 유니버설에서 Engagement API를 사용하는 방법
@@ -160,7 +160,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 ##오류 보고
 
-오류에는 다음의 세 가지 유형이 있습니다.
+세 가지 유형의 오류가 있습니다.
 
 -   독립 실행형 오류
 -   세션 오류
@@ -236,7 +236,7 @@ Engagement의 자동 **충돌** 보고를 **사용 안 함**으로 설정한 경
 
 #### 예
 
-이 방법을 사용하면 고유한 UnhandledExceptionEventArgs 처리기를 구현할 수 있습니다. 예를들어 다음과 같이 `App.xaml.cs` 파일의 `Current_UnhandledException` 메서드를 추가합니다.
+이 방법을 사용하면 고유한 UnhandledExceptionEventArgs 처리기를 구현할 수 있습니다. 예를 들어 다음과 같이 `App.xaml.cs` 파일의 `Current_UnhandledException` 메서드를 추가합니다.
 
 			// In your App.xaml.cs file
 			
@@ -329,7 +329,7 @@ extras는 호출당 **1024**자로 제한됩니다.
 
 SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로그램 관련 정보를 수동으로 보고할 수 있습니다.
 
-이러한 정보는 증분 방식으로 보낼 수 있습니다. 그러면 특정 장치에 대해 지정한 키의 최신 값만 보관됩니다. 이벤트 extras와 마찬가지로 Dictionary<object, object>를 사용하여 정보를 연결합니다.
+이 데이터를 증분 방식으로 보낼 수 있습니다. 그러면 특정 장치에 대해 지정한 키의 최신 값만 보관됩니다. 이벤트 extras와 마찬가지로 Dictionary<object, object>를 사용하여 데이터를 연결합니다.
 
 ### 예
 
@@ -368,4 +368,4 @@ SDK는 IDE 콘솔에서 테스트 로그를 생성하도록 구성될 수 있습
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

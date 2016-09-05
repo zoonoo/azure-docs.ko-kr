@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # 사용 시작 및 최종 사용자에게 도달하는 푸시 관리 방법
@@ -21,7 +21,7 @@
 SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 사용하기 시작하여 응용 프로그램의 사용자에게 푸시 알림을 할 수 있습니다.
 
 ## 첫 번째 푸시 알림 캠페인 수행
--    Reach가 SDK와 함께 앱에 통합되었는지 확인합니다. 
+-    Reach가 SDK와 함께 앱에 통합되었는지 확인합니다.
 -    응용 프로그램을 선택합니다.
  
 ![First1][1]
@@ -112,7 +112,7 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 "앱 외부에서만" 배달 모드는 응용 프로그램이 닫힌 경우 푸시 알림을 제공합니다. 이 모드가 표준 푸시 알림입니다. "앱 외부에서만"을 선택한 경우 응용 프로그램이 빌드되고 있는 플랫폼(APNS 또는 GCM)의 인증서를 이미 제공했어야 합니다.
 
 ### 참고 항목
--  [Apple 푸시 알림 서비스 - 인증서](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - 인증서](http://developer.android.com/google/gcm/index.html) 
+-  [Apple 푸시 알림 서비스 - 인증서](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - 인증서](http://developer.android.com/google/gcm/index.html)
 
 ### "앱 내에서만" 배달 모드
 ![Differentiate3][17]
@@ -127,7 +127,7 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 ![Shedule1][18]
 
 3월 21일인데, 3월 22일 자정에 발표를 계획한 알림이 있습니다. 이 경우 푸시를 수행하기 위해 인터페이스 앞에 대기하고 있지 않아도 됩니다! 정확한 시간에 알림이 전송되도록 미리 계획할 수 있습니다.
--    "없음" 확인란의 선택을 취소하고 시작 시간을 선택합니다. 
+-    "없음" 확인란의 선택을 취소하고 시작 시간을 선택합니다.
 -    푸시 캠페인을 시작할 날짜 및 시간을 선택합니다.
 
 ### 캠페인 종료 계획
@@ -297,4 +297,4 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

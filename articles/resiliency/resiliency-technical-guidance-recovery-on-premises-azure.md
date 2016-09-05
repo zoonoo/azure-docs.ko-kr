@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Azure 복원력 기술 지침: 온-프레미스에서 Azure로 복구
@@ -79,22 +79,23 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 ###네트워킹
 
-  1. 이 문서의 [네트워킹](#networking) 섹션을 검토합니다.
+  1. 이 문서의 네트워킹 섹션을 검토합니다.
   2. 가상 네트워크를 사용하여 온-프레미스를 클라우드로 안전하게 연결합니다.
 
 ###계산
 
-  1. 이 문서의 [계산](#compute) 섹션을 검토합니다.
+  1. 이 문서의 계산 섹션을 검토합니다.
   2. Hyper-V와 Azure 간에 VM을 재배치합니다.
 
 ###저장소
-  1. 이 문서의 [저장소](#storage) 섹션을 검토합니다.
+
+  1. 이 문서의 저장소 섹션을 검토합니다.
   2. 클라우드 저장소를 사용하기 위해 StorSimple 서비스를 활용합니다.
   3. Azure 백업 서비스를 사용합니다.
 
 ###데이터베이스
 
-  1. 이 문서의 [데이터베이스](#database) 섹션을 검토합니다.
+  1. 이 문서의 데이터베이스 섹션을 검토합니다.
   2. Azure VM에서 SQL Server를 백업으로 사용하도록 고려합니다.
   3. AlwaysOn 가용성 그룹을 설정합니다.
   4. 인증서 기반 데이터베이스 미러링을 구성합니다.
@@ -105,4 +106,4 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [데이터 손상 및 실수로 인한 삭제로부터 복구](./resiliency-technical-guidance-recovery-data-corruption.md)입니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

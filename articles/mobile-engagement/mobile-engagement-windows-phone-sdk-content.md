@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 	
 #Windows Phone Silverlight SDK 콘텐츠
@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

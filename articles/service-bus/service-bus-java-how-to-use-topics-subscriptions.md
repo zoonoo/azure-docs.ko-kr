@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="sethm"/>
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][]\(영문)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
+이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
 
 ## 서비스 버스 토픽 및 구독 정의
 
@@ -40,33 +40,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 네임스페이스를 만들려면
 
-1.  [Azure 클래식 포털][]에 로그온합니다.
-
-2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
-
-3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![][0]
-
-4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![][2]
-
-5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
-
-	중요: 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
-
-6. 	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준 계층**) 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
-
-## 네임스페이스에 대한 기본 관리 자격 증명 얻기
-
-새 네임스페이스에 대해 토픽 또는 구독 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. 포털에서 이러한 자격 증명을 가져올 수 있습니다.
-
-### 포털에서 관리 자격 증명을 가져오려면
-
-1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![][0]
-
-2.  표시된 목록에서 방금 만든 네임스페이스를 클릭합니다. ![][3]
-
-3.  **구성**을 클릭하여 네임스페이스에 대한 공유 액세스 정책을 확인합니다. ![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
-
-4.  기본 키를 적어 두거나 클립보드에 복사해 둡니다.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -134,7 +108,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 ### 필터를 사용하여 구독 만들기
 
-토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다.
+토픽으로 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 만들 수도 있습니다.
 
 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter][]입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하십시오.
 
@@ -151,7 +125,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ru
 service.deleteRule("TestTopic", "HighMessages", "$Default");
 ```
 
-마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 [SqlFilter][] 개체를 사용하여 `LowMessages`(이)라는 구독을 만듭니다.
+마찬가지로, 다음 예제에서는 **MessageNumber** 속성이 3보다 작거나 같은 메시지만 선택하는 [SqlFilter][] 개체를 사용하여 `LowMessages`(이)라는 구독을 만듭니다.
 
 ```
 // Create a "LowMessages" filtered subscription
@@ -194,7 +168,7 @@ service.sendTopicMessage("TestTopic", message);
 
 ## 구독에서 메시지를 받는 방법
 
-구독에서 메시지를 받으려면 **ServiceBusContract** 개체를 사용하십시오. 받은 메시지는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
+구독에서 메시지를 받으려면 **ServiceBusContract** 개체를 사용하세요. 받은 메시지는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
 
 **ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 메시지에 대한 읽기 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
@@ -284,7 +258,7 @@ service.deleteTopic("TestTopic");
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
   [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure 클래식 포털]: http://manage.windowsazure.com/
+  [Azure classic portal]: http://manage.windowsazure.com/
   [서비스 버스 큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
@@ -294,4 +268,4 @@ service.deleteTopic("TestTopic");
   [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

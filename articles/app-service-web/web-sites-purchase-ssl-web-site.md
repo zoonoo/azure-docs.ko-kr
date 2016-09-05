@@ -84,7 +84,7 @@ SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니�
  
 2. 인증서 속성 블레이드 안에서 **"인증서 구성"**을 클릭하고 **"1단계 저장"**을 클릭하여 이 인증서를 Azure 주요 자격 증명 모음에 저장합니다.
 
-3.	** "키 자격 증명 모음 상태" ** 블레이드에서 ** "키 자격 증명 모음 리포지토리" ** 를 클릭하여 이 인증서를 저장할 기존 키 자격 증명 모음을 선택하거나 ** "새 키 자격 증명 모음 만들기" ** 로 동일한 구독 및 리소스 그룹 내에 새 키 자격 증명 모음을 만듭니다.
+3.	**"키 자격 증명 모음 상태"** 블레이드에서 **"키 자격 증명 모음 리포지토리"**를 클릭하여 이 인증서를 저장할 기존 키 자격 증명 모음을 선택하거나 ** "새 키 자격 증명 모음 만들기"**로 동일한 구독 및 리소스 그룹 내에 새 키 자격 증명 모음을 만듭니다.
  
     ![새 KV 만들기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
@@ -159,26 +159,27 @@ SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니�
 1.	브라우저에서 **[Azure 포털](https://portal.azure.com/)**을 엽니다.
 2.	페이지의 왼쪽에서 **앱 서비스** 옵션을 클릭합니다.
 3.	이 인증서를 할당하려는 앱의 이름을 클릭합니다.
-4.	**설정**에서 **사용자 지정 도메인 및 SSL**을 클릭합니다.
-5.	**인증서 섹션**에서 **인증서 가져오기**를 클릭하고 방금 구입한 인증서를 선택합니다.
+4.	**설정**에서 **SSL 인증서**를 클릭합니다.
+5.	**앱 서비스 인증서 가져오기**를 클릭하고 방금 구입한 인증서를 선택합니다.
 
-    ![인증서 가져오기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
+    ![인증서 가져오기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. **SSL 설정** 탭의 **ssl 바인딩** 섹션에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
+6. **ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭합니다.
+7. **ssl bindings** 블레이드에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
 
-    ![SSL 바인딩 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
+    ![SSL 바인딩 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
        • IP 기반 SSL은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다. • SNI 기반 SSL은 SSL 및 TLS(**[전송 계층 보안](http://en.wikipedia.org/wiki/Transport_Layer_Security)**)에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 **[서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)** 문서를 참조하세요.
        
-7. *Save*를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
+7. **바인딩 추가**를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
 
 
 
 **IP 기반 SSL**을 선택했으며 사용자 지정 도메인이 A 레코드를 사용하여 구성된 경우 다음과 같은 추가 단계를 수행해야 합니다.
 
-* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. 이 IP 주소는 앱의 **대시보드** 페이지에 있는 **간략 상태** 섹션에서 확인할 수 있습니다. **가상 IP 주소**로 나열됩니다.
+* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**로 나열됩니다.
     
-    ![IP SSL 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
+    ![IP SSL 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
     이 IP 주소는 이전에 도메인에 대한 A 레코드를 구성하는 데 사용된 가상 IP 주소와 다릅니다. SNI 기반 SSL을 사용하도록 구성되었거나 SSL을 사용하도록 구성되지 않은 경우에는 이 항목에 대한 주소가 표시되지 않습니다.
     
@@ -208,4 +209,4 @@ SSL 인증서 만들기는 어디서나 1-10분 정도 소요될 수 있습니�
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

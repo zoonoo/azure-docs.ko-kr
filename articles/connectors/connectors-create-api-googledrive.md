@@ -1,5 +1,5 @@
 <properties
-    pageTitle="PowerApps 또는 논리 앱에 Google 드라이브 커넥터 추가 | Microsoft Azure"
+    pageTitle="논리 앱에 Google 드라이브 커넥터 추가 | Microsoft Azure"
     description="REST API 매개 변수를 사용하는 Google 드라이브 커넥터 개요"
     services=""
     suite=""
@@ -15,26 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Google 드라이브 커넥터 시작
-Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다. Google 드라이브 커넥터는 다음에서 사용할 수 있습니다.
+Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다. Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- 논리 앱 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-googledrive.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-googledrive.md)
-
-Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
-
-- 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
+- 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
 - 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
-- PowerApps 엔터프라이즈에 Google 드라이브 커넥터를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
-
-PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -42,7 +30,7 @@ PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면
 ## 트리거 및 작업
 Google 드라이브에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
-트리거 | actions
+트리거 | 작업
 --- | ---
 없음 | <ul><li>파일 만들기</li><li>행 삽입</li><li>파일 복사</li><li>파일 삭제</li><li>행 삭제</li><li>폴더에 보관 추출</li><li>ID를 사용하여 파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>ID를 사용하여 파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>행 가져오기</li><li>파일 업데이트</li><li>행 업데이트</li></ul>
 
@@ -66,7 +54,7 @@ Google 드라이브에는 다음 작업이 포함됩니다. 트리거는 없습�
 ### 파일 만들기    
 Google 드라이브에 파일을 업로드합니다. ```POST: /datasets/default/files```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |folderPath|string|yes|쿼리|없음 |Google 드라이브에 파일을 업로드할 폴더 경로|
 |name|string|yes|쿼리|없음 |Google 드라이브에 만들 파일의 이름|
@@ -98,14 +86,14 @@ Google 시트에 행을 삽입합니다. ```POST: /datasets/{dataset}/tables/{ta
 ### 파일 복사    
 Google 드라이브에 파일을 복사합니다. ```POST: /datasets/default/copyFile```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |원본|string|yes|쿼리| 없음|원본 파일에 대한 URL|
 |destination|string|yes|쿼리|없음 |대상 파일 이름을 포함한 Google 드라이브의 대상 파일 경로|
 |overwrite|부울|no|쿼리|없음 |'true'로 설정할 경우 대상 덮어쓰기|
 
 #### 응답
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -188,7 +176,7 @@ ID를 사용하여 Google 드라이브에서 파일 콘텐츠를 검색합니다
 ### ID를 사용하여 파일 메타데이터 가져오기    
 ID를 사용하여 Google 드라이브에서 메타데이터를 검색합니다. ```GET: /datasets/default/files/{id}```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |id|string|yes|path|없음 |Google 드라이브 파일의 고유 식별자|
 
@@ -202,7 +190,7 @@ ID를 사용하여 Google 드라이브에서 메타데이터를 검색합니다.
 ### 경로를 사용하여 파일 메타데이터 가져오기    
 경로를 사용하여 Google 드라이브에서 메타데이터를 검색합니다. ```GET: /datasets/default/GetFileByPath```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |path|string|yes|쿼리|없음 |Google 드라이브에서 파일의 경로|
 
@@ -322,7 +310,7 @@ Google 시트의 행을 업데이트합니다. ```PATCH: /datasets/{dataset}/tab
 
 |속성 이름 | 데이터 형식 |필수|
 |---|---|---|
-|이름|string|no|
+|Name|string|no|
 |DisplayName|string|no|
 
 #### 항목
@@ -355,4 +343,4 @@ Google 시트의 행을 업데이트합니다. ```PATCH: /datasets/{dataset}/tab
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

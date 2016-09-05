@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작 | Microsoft Azure"
+   pageTitle="Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작 | Microsoft Azure "
    description="Azure 리소스 관리자에 대한 부하 분산 장치 규칙, NAT 규칙 및 프로브를 만드는 방법을 알아봅니다. 부하 분산 장치 리소스를 만드는 종단 간 프로세스를 보여 주는 단계별 지침입니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
 
@@ -281,4 +281,4 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

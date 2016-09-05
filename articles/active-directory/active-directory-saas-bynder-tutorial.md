@@ -47,12 +47,12 @@ Bynder와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 
 ## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
+이 자습서는 테스트 환경에서 Microsoft Azure AD Single Sign-On을 테스트하는 데 도움을 주기 위해 제공되었습니다.
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Bynder 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+2. Microsoft Azure AD Single Sign-on 구성 및 테스트
 
 
 ## 갤러리에서 Bynder 추가
@@ -86,32 +86,32 @@ Bynder의 Azure AD 통합을 구성하려면 갤러리의 Bynder를 관리되는
 
 	![갤러리에서 앱 선택](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
 
-##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+##  Microsoft Azure AD Single Sign-on 구성 및 테스트
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Bynder에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Bynder 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Bynder의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Bynder의 **Username** 값으로 할당하여 설정합니다.
 
-Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Bynder에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Microsoft Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Microsoft Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Bynder 테스트 사용자 만들기](#creating-a-bynder-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Bynder에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Microsoft Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### Azure AD Single Sign-On 구성
+### Microsoft Azure AD Single Sign-On 구성
 
-이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Bynder 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 클래식 포털에서 Microsoft Azure AD Single Sign-On을 사용하도록 설정하고 Bynder 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-**Bynder에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**Bynder에서 Microsoft Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
 1. 클래식 포털의 **Bynder** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
 	 
 	![Single Sign-On 구성][6]
 
-2. **Bynder에 대한 사용자 로그인 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2. **Bynder에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
     
 	![Single Sign-On 구성](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_03.png)
 
@@ -141,7 +141,7 @@ Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 6. 응용 프로그램에 대해 SSO를 구성하려면 Bynder 지원 팀에 문의하세요. 다운로드한 메타데이터 파일을 첨부하고 Bynder 팀에서 SSO를 설정할 수 있게 공유하세요.
 
@@ -184,7 +184,7 @@ Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
     
@@ -198,7 +198,7 @@ Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
     
@@ -253,7 +253,7 @@ Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
+이 섹션은 액세스 패널을 사용하여 Microsoft Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
  
 액세스 패널에서 Bynder 타일을 클릭하면 Bynder 응용 프로그램에 자동으로 로그온됩니다.
 
@@ -283,4 +283,4 @@ Bynder에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [204]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

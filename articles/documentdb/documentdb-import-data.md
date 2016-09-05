@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/23/2016"
 	ms.author="anhoh"/>
 
 # 데이터베이스 마이그레이션 도구로 DocumentDB에 데이터 가져오기
@@ -490,4 +490,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 - DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

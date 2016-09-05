@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Windows 앱에 대해 오프라인 동기화 사용
@@ -129,7 +129,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	응용 프로그램이 인증 또한 사용하는 경우 로그인에 실패할 수 있습니다. 장치에서 wifi 및 celluar 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
+	응용 프로그램이 인증 또한 사용하는 경우 로그인에 실패할 수 있습니다. 장치에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 
 2. **F5**를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
  
@@ -162,14 +162,11 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 모바일 서비스의 오프라인 기능을 지원하려면 [IMobileServiceSyncTable] 인터페이스를 사용하고 로컬 SQLite 데이터베이스에서 [MobileServiceClient.SyncContext][synccontext]를 초기화했습니다. 오프라인의 경우 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하는 반면 작업은 로컬 저장소에 발생합니다. 다음 메서드는 서버와 로컬 저장소를 동기화하는 데 사용됩니다.
 
-*  **[PushAsync]**  
-   이 메서드가 [IMobileServicesSyncContext]의 멤버이기 때문에 모든 테이블의 변경 사항을 백 엔드에 푸시합니다. 로컬 변경 내용이 포함된 레코드만이 서버에 전송됩니다.
+*  **[PushAsync]** 이 메서드가 [IMobileServicesSyncContext]의 멤버이기 때문에 모든 테이블의 변경 사항을 백 엔드에 푸시합니다. 로컬 변경 내용이 포함된 레코드만이 서버에 전송됩니다.
 
-* **[PullAsync]**   
-   끌어오기는 [IMobileServiceSyncTable]에서 시작됩니다. 테이블에 추적된 변경 내용이 있는 경우 암시적 푸시가 실행되어 관계와 함께 로컬 저장소의 모든 테이블이 일관성을 유지하는지 확인합니다. *pushOtherTables*은 다른 컨텍스트에서 테이블이 암시적 푸시에 푸시되는지를 제어합니다. *query* 매개 변수는 [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] 또는 OData 쿼리 문자열을 사용하여 반환된 데이터를 필터링합니다. *queryId* 매개 변수를 사용하여 증분 동기화를 정의할 수 있습니다. 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.
+* **[PullAsync]** 끌어오기는 [IMobileServiceSyncTable]에서 시작됩니다. 테이블에 추적된 변경 내용이 있는 경우 암시적 푸시가 실행되어 관계와 함께 로컬 저장소의 모든 테이블이 일관성을 유지하는지 확인합니다. *pushOtherTables*은 다른 컨텍스트에서 테이블이 암시적 푸시에 푸시되는지를 제어합니다. *query* 매개 변수는 [IMobileServiceTableQuery&lt;U&gt;][IMobileServiceTableQuery] 또는 OData 쿼리 문자열을 사용하여 반환된 데이터를 필터링합니다. *queryId* 매개 변수를 사용하여 증분 동기화를 정의할 수 있습니다. 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.
 
-* **[PurgeAsync]**  
-   앱은 주기적으로 이 메서드를 호출하여 로컬 저장소에서 오래된 데이터를 삭제해야 합니다. 아직 동기화되지 않은 변경 내용을 삭제해야 하는 경우 *force* 매개 변수를 사용합니다.
+* **[PurgeAsync]** 앱은 주기적으로 이 메서드를 호출하여 로컬 저장소에서 오래된 데이터를 삭제해야 합니다. 아직 동기화되지 않은 변경 내용을 삭제해야 하는 경우 *force* 매개 변수를 사용합니다.
 
 이 개념에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.
 
@@ -214,4 +211,4 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 [클라우드 커버: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

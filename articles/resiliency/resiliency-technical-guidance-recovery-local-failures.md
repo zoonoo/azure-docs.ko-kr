@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Azure 복원력 기술 지침 - Azure의 로컬 오류로부터 복구
@@ -160,23 +160,23 @@ Azure를 기반으로 하는 응용 프로그램은 플랫폼 기능을 활용�
 
 ###서비스 버스
 
-Azure 서비스 버스의 일시적 중단을 줄이려면 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다. 일시적으로 대체 로컬 저장소 메커니즘을 사용하여 서비스 버스 큐에 추가할 수 없는 메시지를 저장합니다. 응용 프로그램은 서비스가 복원된 후에 일시적으로 저장된 메시지를 처리하는 방법을 결정할 수 있습니다. 자세한 내용은 [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](../service-bus/service-bus-performance-improvements.md) 및 [서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus)를 참조하세요.
+Azure 서비스 버스의 일시적 중단을 줄이려면 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다. 일시적으로 대체 로컬 저장소 메커니즘을 사용하여 서비스 버스 큐에 추가할 수 없는 메시지를 저장합니다. 응용 프로그램은 서비스가 복원된 후에 일시적으로 저장된 메시지를 처리하는 방법을 결정할 수 있습니다. 자세한 내용은 [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](../service-bus/service-bus-performance-improvements.md) 및 [서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
 
 ###모바일 서비스
 
 Azure 모바일 서비스에 대한 두 가지의 가용성 고려 사항이 있습니다. 첫째, 모바일 서비스에 연결된 SQL 데이터베이스를 정기적으로 백업합니다. 둘째, 모바일 서비스 스크립트를 백업합니다. 자세한 내용은 [재해가 발생한 경우 모바일 서비스 복구](../mobile-services/mobile-services-disaster-recovery.md)를 참조하세요.
 
-모바일 서비스가 임시 중단 상태인 경우 일시적으로 대체 Azure 데이터 센터를 사용해야 합니다. 자세한 내용은 [모바일 서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services)를 참조하세요.
+모바일 서비스가 임시 중단 상태인 경우 일시적으로 대체 Azure 데이터 센터를 사용해야 합니다. 자세한 내용은 [모바일 서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
 
 ###HDInsight
 
-Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저장됩니다. Azure 저장소는 Blob 저장소에 고가용성 및 내구성 속성을 지정합니다. Hadoop MapReduce 작업과 연결된 다중 노드는 HDInsight에서 필요할 경우 프로비전되는 일시적인 HDFS(Hadoop 분산 파일 시스템)에서 처리됩니다. 또한 MapReduce 작업의 결과가 기본적으로 Azure Blob 저장소에 저장되므로 처리된 데이터는 Hadoop 클러스터의 프로비전을 해제한 후에 내구성 있고 항상 사용 가능한 상태로 유지합니다. 자세한 내용은 [HDInsight(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight)를 참조하세요.
+Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소에 저장됩니다. Azure 저장소는 Blob 저장소에 고가용성 및 내구성 속성을 지정합니다. Hadoop MapReduce 작업과 연결된 다중 노드는 HDInsight에서 필요할 경우 프로비전되는 일시적인 HDFS(Hadoop 분산 파일 시스템)에서 처리됩니다. 또한 MapReduce 작업의 결과가 기본적으로 Azure Blob 저장소에 저장되므로 처리된 데이터는 Hadoop 클러스터의 프로비전을 해제한 후에 내구성 있고 항상 사용 가능한 상태로 유지합니다. 자세한 내용은 [HDInsight(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
 
 ##로컬 오류의 검사 목록
 
 ###클라우드 서비스
 
-  1. 이 문서의 [클라우드 서비스](#cloud-services) 섹션을 검토합니다.
+  1. 이 문서의 클라우드 서비스 섹션을 검토합니다.
   2. 각 역할에 두 개 이상의 인스턴스를 구성합니다.
   3. 역할 인스턴스가 아니라 내구성 저장소에서 상태를 유지합니다.
   4. StatusCheck 이벤트를 올바르게 처리합니다.
@@ -187,40 +187,40 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 
 ###가상 컴퓨터
 
-  1. 이 문서의 [가상 컴퓨터](#virtual-machines) 섹션을 검토합니다.
+  1. 이 문서의 가상 컴퓨터 섹션을 검토합니다.
   2. 영구 저장소에 D 드라이브를 사용하지 않습니다.
   3. 가용성 집합에 서비스 계층의 컴퓨터를 그룹화합니다.
   4. 부하 분산 및 선택적 프로브를 구성합니다.
 
 ###저장소
 
-  1. 이 문서의 [저장소](#storage) 섹션을 검토합니다.
+  1. 이 문서의 저장소 섹션을 검토합니다.
   2. 데이터 또는 대역폭이 할당량을 초과하는 경우 여러 저장소 계정을 사용합니다.
 
 ###SQL 데이터베이스
 
-  1. 이 문서의 [SQL 데이터베이스](#sql-database) 섹션을 검토합니다.
+  1. 이 문서의 SQL 데이터베이스 섹션을 검토합니다.
   2. 재시도 정책을 구현하여 임시 오류를 처리합니다.
   3. 분할을 규모 확장 전략으로 사용합니다.
 
 ###가상 컴퓨터의 SQL Server
 
-  1. 이 문서의 [가상 컴퓨터에서 SQL Server](#sql-server-on-virtual-machines) 섹션을 검토합니다.
+  1. 이 문서의 가상 컴퓨터에서 SQL Server 섹션을 검토합니다.
   2. 가상 컴퓨터에 대한 이전의 권장 사항을 수행합니다.
   3. AlwaysOn과 같은 SQL Server 고가용성 기능을 사용합니다.
 
 ###서비스 버스
 
-  1. 이 문서의 [서비스 버스](#service-bus) 섹션을 검토합니다.
+  1. 이 문서의 서비스 버스 섹션을 검토합니다.
   2. 백업으로 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다.
 
 ###HDInsight
 
-  1. 이 문서의 [HDInsight](#hdinsight) 섹션을 검토합니다.
+  1. 이 문서의 HDInsight 섹션을 검토합니다.
   2. 로컬 오류에 필요한 추가 가용성 단계가 없습니다.
 
 ##다음 단계
 
-이 문서는 [Azure 복원 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
+이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

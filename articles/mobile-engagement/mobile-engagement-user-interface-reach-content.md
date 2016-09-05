@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법
@@ -35,7 +35,7 @@
 -    웹 알림: 사용자가 웹 뷰를 확인하도록 하는 알림입니다.
 
 ### 참고 항목
-- [도달률 - 방법 - 알림][Link 3] 
+- [도달률 - 방법 - 알림][Link 3]
 
 ### 웹 뷰 알림 정보
 여기서 입력하는 JavaScript 코드 또는 HTML 코드에서 나타나는 "{deviceid}" 패턴은 자동으로 알림을 표시하는 장치의 식별자로 바뀝니다. 따라서 백오피스에서 호스트되는 외부 웹 서비스에서 Azure Mobile Engagement 장치 식별자를 쉽게 검색할 수 있습니다. 기본적으로 제공되는 작업 및 종료 단추를 포함하지 않고 전체 화면 웹 뷰를 만들려는 경우 웹 뷰 알림의 JavaScript 코드에서 다음 함수를 사용하면 됩니다.
@@ -50,52 +50,52 @@
 
 - **Android + iOS 작업**
     - 웹 페이지 열기
-    - http://[web-site-domain\] 
+    - http://[web-site-domain\]
     - 예:http://www.azure.com
     - 메일 보내기
-    - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
-    - 예: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - mailto:[메일 수신자]?subject=[제목]&body=[메시지]
+    - 예:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - 문자 메시지 보내기
-    - sms:[전화 번호] 
+    - sms:[전화 번호]
     - 예: sms:2125551212
     - 특정 번호로 전화 걸기
-    - tel:[전화 번호] 
+    - tel:[전화 번호]
     - 예: tel:2125551212
 - **Android 전용 작업**
     - PlayStore에서 응용 프로그램 다운로드
-    - market://details?id=[app 패키지] 
+    - market://details?id=[app 패키지]
     - 예:market://details?id=com.microsoft.office.word
     - 지리적 위치에 따른 검색 시작
-    - geo:0,0?q=[검색 쿼리] 
+    - geo:0,0?q=[검색 쿼리]
     - 예: geo:0,0?q=starbucks,paris
 - **iOS 전용 작업**
     - 앱 스토어에서 응용 프로그램 다운로드
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
     - 예:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 작업
     - 웹 페이지 열기
-    - http://[web-site-domain\] 
+    - http://[web-site-domain\]
     - 예:http://www.azure.com
     - 메일 보내기
-    - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
-    - 예: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - mailto:[메일 수신자]?subject=[제목]&body=[메시지]
+    - 예:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - 문자 메시지 보내기(Skype 스토어 앱 필요)
-    - sms:[전화 번호] 
+    - sms:[전화 번호]
     - 예: sms:2125551212
     - 특정 번호로 전화 걸기(Skype 스토어 앱 필요)
-    - tel:[전화 번호] 
+    - tel:[전화 번호]
     - 예: tel:2125551212
     - PlayStore에서 응용 프로그램 다운로드
-    - ms-windows-store:PDP?PFN=[앱 패키지 ID] 
+    - ms-windows-store:PDP?PFN=[앱 패키지 ID]
     - 예: ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Bing 지도 검색 수행
-    - bingmaps:?q=[검색 쿼리] 
+    - bingmaps:?q=[검색 쿼리]
     - 예: bingmaps:?q=starbucks,paris
     - 사용자 지정 체계 사용
-    - [사용자 지정 체계]://[사용자 지정 체계 매개 변수] 
+    - [사용자 지정 체계]://[사용자 지정 체계 매개 변수]
     - 예:myCustomProtocol://myCustomParams
     - 패키지 데이터 사용(확장명 읽기를 위한 스토어 앱 필요)
-    - [폴더] [데이터].[확장명] 
+    - [폴더] [데이터].[확장명]
     - 예: myfolderdata.txt
  
 ### 추적 URL 작성
@@ -230,4 +230,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

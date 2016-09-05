@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="07/21/2016"
+   ms.date="08/17/2016"
    ms.author="genli"/>
 
 # Azure 구독의 소유권 양도
@@ -29,6 +29,8 @@
 이제 종량제, MSDN, Action Pack 또는 BizSpark 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 구독을 운영하고 있는 국가와 관계없이 소유하고 있는 종량제, MSDN, Action Pack 또는 BizSpark 구독의 계정 관리자를 변경할 수 있습니다. 이제 이러한 구독 유형에 대해서도 Azure 마켓플레이스 구매에 대한 양도를 지원합니다.
 
 > [AZURE.NOTE]  구독을 다른 제품으로 변경하려면 [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)에서 자세한 내용을 참조하세요.
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 > 소유권 양도를 수행하려면 계정 관리자여야 합니다. 구독의 계정 관리자를 알아내는 방법에 대한 자세한 내용은 [질문과 대답](#faq)을 참조하세요.
 
@@ -74,7 +76,7 @@
 
 -   **구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?**
 
-    서비스에 영향은 없습니다. 이는 현재 계정 관리자 하에서 구독을 효과적으로 취소하고 받는 사람의 계정 하에서 새 계정을 만들어 새 구독과 기본 Azure 서비스를 연결합니다. 구독 ID는 동일합니다.
+    서비스에 영향은 없습니다. 이는 현재 계정 관리자 하에서 구독을 효과적으로 취소하고, 받는 사람의 계정 하에서 새 계정을 만들어 새 구독과 기본 Azure 서비스를 연결합니다. 구독 ID는 동일합니다.
 
 -   **이 메커니즘을 어떻게 사용하여 구독 디렉터리를 변경하나요?** - Azure 구독은 계정 관리자가 속한 디렉터리에 생성됩니다. 따라서 디렉터리를 변경하려면 구독을 대상 디렉터리의 사용자 계정으로 전달하면 됩니다. 해당 사용자가 전달을 수락하는 절차를 완료하면 구독이 자동으로 대상 디렉터리로 이동합니다.
 
@@ -131,4 +133,6 @@
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

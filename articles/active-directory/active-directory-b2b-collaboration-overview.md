@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/09/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B 공동 작업
@@ -58,4 +58,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서를 찾아봅니다.
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

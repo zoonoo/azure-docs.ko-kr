@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="johnkem"/>
 
 # Azure 진단 로그 개요
@@ -26,11 +26,12 @@
 
 - 감사 또는 수동 검사를 위해 **저장소 계정**에 저장합니다. **진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [**이벤트 허브**로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
+- [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)를 사용하여 분석
 
 ## 진단 설정
 진단 설정을 사용하여 비-계산 리소스에 대한 진단 로그를 구성합니다. 리소스 제어를 위한 **진단 설정**:
 
-- 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS).
+- 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS Log Analytics).
 - 보낼 로그 범주.
 - 저장소 계정에 각 로그 범주를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
 
@@ -107,5 +108,6 @@ Insights REST API를 사용하여 진단 설정을 변경하려면 [이 문서](
 ## 다음 단계
 - [**이벤트 허브**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Insights REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+- [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/16/2016"
+    ms.date="08/23/2016"
     ms.author="curtand"/>
 
 # Microsoft Azure Active Directory 라이선스란?
@@ -41,13 +41,13 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또�
 
 일반적으로 Azure AD 구독 정보는 Azure 클래식 포털을 통해 특정 디렉터리에 대한 라이선스 탭에서 관리됩니다. Azure AD Premium 이외의 Azure AD 구독은 Office 포털에 표시되지 않습니다.
 
-> [AZURE.IMPORTANT] Enterprise Mobility Suite 구독 뿐만 아니라 Azure AD Premium 및 Basic도 프로비저닝된 디렉터리/테넌트로 제한됩니다. 구독은 디렉터리 간에 분할하거나 다른 디렉터리의 사용자에게 자격을 부여하는 데 사용될 수 없습니다. 구독을 디렉터리 간에 이동하는 것은 가능하지만 지원 티켓을 제출하거나, 직접 구매의 경우 취소 후 다시 구매해야 합니다.
+> [AZURE.IMPORTANT] Enterprise Mobility Suite 구독뿐만 아니라 Azure AD Premium 및 Basic도 프로비전된 해당 디렉터리/테넌트로 제한됩니다. 구독은 디렉터리 간에 분할되거나 다른 디렉터리의 사용자에게 자격을 부여하는 데 사용될 수 없습니다. 구독을 디렉터리 간에 이동하는 것은 가능하지만 지원 티켓을 제출하거나, 직접 구매의 경우 취소 후 다시 구매해야 합니다.
 
-> 볼륨 라이선싱을 통해 Azure AD 또는 Enterprise Mobility Suite를 구입하는 경우 계약에 다른 Microsoft Online 서비스(예: Office 365)가 포함되어 있으면 자동으로 구독 활성화가 발생합니다.
+> 볼륨 라이선싱을 통해 Azure AD 또는 Enterprise Mobility Suite를 구입하는 경우 규약에 다른 Microsoft Online 서비스(예: Office 365)가 포함되어 있으면 자동으로 구독 활성화가 발생합니다.
 
 유료 Azure AD 기능은 광범위한 디렉터리로 확장됩니다. 예를 들면 다음과 같습니다.
-- 응용 프로그램에 대한 그룹 기반 할당은 관리 중인 특정 응용 프로그램에서 사용하도록 설정됩니다.
-- 고급 및 셀프 서비스 그룹 관리 기능은 디렉터리 구성에서 또는 특정 그룹 내에서 사용할 수 있습니다.
+- 응용 프로그램에 대한 그룹 기반 할당은 관리하는 특정 응용 프로그램에서 활성화됩니다.
+- 고급 및 셀프 서비스 그룹 관리 기능은 디렉터리 구성 또는 특정 그룹 내에서 사용할 수 있습니다.
 - 프리미엄 보안 보고서는 보고 탭에 있습니다.
 - 클라우드 응용 프로그램 검색은 ID 아래에 Azure 포털에 표시됩니다.
 
@@ -140,4 +140,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->
