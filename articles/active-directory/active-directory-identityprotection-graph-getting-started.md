@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory ID 보호 및 Microsoft Graph 시작
@@ -23,7 +23,7 @@ Microsoft Graph는 Microsoft의 통합된 API 끝점이며 [Azure Active Directo
 
 Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 세 가지 단계가 있습니다.
 
-1. 클라이언트 암호와 응용 프로그램을 추가합니다. 
+1. 클라이언트 암호와 응용 프로그램을 추가합니다.
 
 2. 이 암호와 다른 몇 가지 정보를 사용하여 Microsoft Graph에 인증하면 인증 토큰을 받게됩니다.
 
@@ -39,7 +39,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 세 가지 �
 ## 클라이언트 암호와 응용 프로그램을 추가합니다.
 
 
-1. 관리자 권한으로 Azure 클래식 포털에 [로그인](https://manage.windowsazure.com)합니다. 
+1. 관리자 권한으로 Azure 클래식 포털에 [로그인](https://manage.windowsazure.com)합니다.
 
 1. 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
@@ -91,7 +91,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 세 가지 �
 ## API를 사용하도록 응용 프로그램에 권한 부여
 
 
-1. 응용 프로그램 페이지의 위쪽에 있는 메뉴에서 **구성**을 클릭합니다. 
+1. 응용 프로그램 페이지의 위쪽에 있는 메뉴에서 **구성**을 클릭합니다.
 
 	![응용 프로그램 만들기](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -223,4 +223,4 @@ Microsoft Graph 및 Graph API를 사용하여 응용 프로그램을 구축하�
 
 - [Azure AD ID 보호 서비스 루트](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

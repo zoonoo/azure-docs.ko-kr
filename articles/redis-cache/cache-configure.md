@@ -12,12 +12,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/25/2016"
+	ms.date="08/18/2016"
 	ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
 
-이 항목에서는 Azure Redis 캐시 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis 캐시 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
+이 항목에서는 Azure Redis Cache 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
 
 >[AZURE.NOTE] 프리미엄 캐시 기능 사용 및 구성에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
@@ -35,9 +35,7 @@ Azure Redis Cache는 **설정** 블레이드에 다음 설정을 제공합니다
 -	[일반 설정](#general-settings)
 	-	[속성](#properties)
 	-	[액세스 키](#access-keys)
-	-	[액세스 포트](#access-ports)
-	-	[Maxmemory 정책](#maxmemory-policy-and-maxmemory-reserved)
-	-	[고급 설정(keyspace 알림)](#keyspace-notifications-advanced-settings)
+	-	[고급 설정](#advanced-settings)
 	-	[Redis 캐시 관리자](#redis-cache-advisor)
 -	[크기 조정 설정](#scale-settings)
 	-	[가격 책정 계층](#pricing-tier)
@@ -76,9 +74,7 @@ Azure Redis Cache는 **설정** 블레이드에 다음 설정을 제공합니다
 
 -	[속성](#properties)
 -	[액세스 키](#access-keys)
--	[액세스 포트](#access-ports)
--	[Maxmemory 정책](#maxmemory-policy-and-maxmemory-reserved)
--	[고급 설정(keyspace 알림)](#keyspace-notifications-advanced-settings)
+-	[고급 설정](#advanced-settings)
 -	[Redis 캐시 관리자](#redis-cache-advisor)
 
 ### 속성
@@ -93,15 +89,29 @@ Azure Redis Cache는 **설정** 블레이드에 다음 설정을 제공합니다
 
 ![Redis 캐시 액세스 키](./media/cache-configure/redis-cache-manage-keys.png)
 
+
+
+
+
+
+### 고급 설정
+
+다음 설정은 **고급 설정** 블레이드에 구성됩니다.
+
+-	[액세스 포트](#access-ports)
+-	[Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+-	[Keyspace 알림(고급 설정)](#keyspace-notifications-advanced-settings)
+
+
 ### 액세스 포트
 
-비 SSL 액세스는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하려면 **액세스 포트** 블레이드를 클릭하고 **아니요**를 클릭합니다.
+비 SSL 액세스는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하려면 **고급 설정 블레이드**의 **SSL을 통해서만 액세스 허용**에 **아니요**를 클릭한 다음 **저장**을 클릭합니다.
 
 ![Redis 캐시 액세스 포트](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy 및 maxmemory-reserved
 
-**Maxmemory 정책**을 클릭하여 캐시에 대한 메모리 정책을 구성할 수 있습니다. **maxmemory-policy** 설정은 캐시에 대한 제거 정책을, **maxmemory-reserved** 설정은 비 캐시 프로세스를 위해 예약되는 메모리를 구성합니다.
+**고급 설정** 블레이드에서 **Maxmemory 정책** 및 **maxmemory-reserved** 설정은 캐시에 대한 메모리 정책을 구성합니다. **maxmemory-policy** 설정은 캐시에 대한 제거 정책을, **maxmemory-reserved** 설정은 비 캐시 프로세스를 위해 예약되는 메모리를 구성합니다.
 
 ![Redis 캐시 Maxmemory 정책](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -122,7 +132,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ### Keyspace 알림(고급 설정)
 
-**고급 설정**을 클릭하여 Redis keyspace 알림을 구성할 수 있습니다. Keyspace 알림을 사용하면 특정 이벤트가 발생할 때 클라이언트에서 알림을 받을 수 있습니다.
+Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. Keyspace 알림을 사용하면 특정 이벤트가 발생할 때 클라이언트에서 알림을 받을 수 있습니다.
 
 ![Redis 캐시 고급 설정](./media/cache-configure/redis-cache-advanced-settings.png)
 
@@ -160,7 +170,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ## 크기 조정 설정
 
-**규모** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
+**크기 조정** 섹션의 설정을 사용하여 캐시에 대한 다음 설정에 액세스하고 해당 설정을 구성할 수 있습니다.
 
 ![네트워크](./media/cache-configure/redis-cache-scale.png)
 
@@ -244,7 +254,7 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
+하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할된 데이터 베이스를 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
 >[AZURE.IMPORTANT] 다시 부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 다시 부팅](cache-administration.md#reboot)을 참조하세요.
 
@@ -266,13 +276,13 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 ![진단](./media/cache-configure/redis-cache-diagnostics.png)
 
-**진단**을 클릭하여 캐시 진단 정보 저장에 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#enable-cache-diagnostics)할 수 있습니다.
+**진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#enable-cache-diagnostics)할 수 있습니다.
 
 ![Redis 캐시 진단](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
 캐시에 대한 [메트릭 보기](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts)를 하려면 **Redis 메트릭**을, 그리고 [경고 규칙 설정](cache-how-to-monitor.md#operations-and-alerts)을 하려면 **경고 규칙**을 클릭합니다.
 
-Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)을 참조하세요.
+Azure Redis Cache 진단에 관한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)을 참조하세요.
 
 
 ## 네트워크 설정
@@ -307,7 +317,7 @@ Azure Redis 캐시 진단에 관한 자세한 내용은 [Azure Redis Cache를 �
 
 |설정|기본값|설명|
 |---|---|---|
-|데이터베이스|16|데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 사용할 수 있습니다. 여기서 dbid는 `0`에서 `databases - 1` 사이의 숫자입니다.|
+|데이터베이스|16|데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 dbid는 `0`에서 `databases - 1` 사이의 숫자입니다.|
 |maxclients|가격 책정 계층에 따라 달라집니다.<sup>2</sup>|이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 보내고 모든 새 연결을 닫습니다.|
 |maxmemory-policy|volatile-lru|Maxmemory 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis 캐시를 사용할 때의 기본 설정은 volatile-lru로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 Azure 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.|
 |maxmemory-samples|3|LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘은 아니지만 대략적인(메모리 절약을 위해) 알고리즘이므로, 확인할 샘플도 선택할 수 있습니다. 기본 Redis를 예로 들면 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다.|
@@ -399,4 +409,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

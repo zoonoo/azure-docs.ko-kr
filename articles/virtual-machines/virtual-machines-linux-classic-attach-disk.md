@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="iainfou"/>
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
@@ -58,7 +58,7 @@
 			data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
 			info:    vm disk list command OK
 
-	이 내용을 동일한 샘플 가상 컴퓨터에 대한 `lsscsi` 출력과 비교합니다.
+	이 데이터를 동일한 샘플 가상 컴퓨터에 대한 `lsscsi` 출력과 비교합니다.
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -68,7 +68,7 @@
 
 	각 행의 튜플에 있는 마지막 숫자는 _lun_입니다. 자세한 내용은 `man lsscsi`를 참조하세요.
 
-3. 프롬프트에서 다음 명령을 입력하여 새 장치를 만듭니다.
+3. 프롬프트에서 다음 명령을 입력하여 장치를 만듭니다.
 
 		$sudo fdisk /dev/sdc
 
@@ -76,9 +76,9 @@
 4. 프롬프트가 표시되면 **n**을 입력하여 새 파티션을 만듭니다.
 
 
-	![새 장치 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![장치 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
-5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 눌러 실린더에 대한 기본값을 적용합니다. 일부 시스템에서 실린더 대신 첫 번째 및 마지막 섹터의 기본값이 표시될 수 있습니다. 이러한 기본값을 수락하도록 선택할 수 있습니다.
+5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 지정합니다. **1**을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 입력하여 실린더에 대한 기본값을 적용합니다. 일부 시스템에서 실린더 대신 첫 번째 및 마지막 섹터의 기본값이 표시될 수 있습니다. 이러한 기본값을 수락하도록 선택할 수 있습니다.
 
 
 	![파티션 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
@@ -122,11 +122,11 @@
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
 
-	다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. 이렇게 하면 운영 체제에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 장치 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
+	다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. UUID를 사용하면 운영 체제에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 장치 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
 
 		# sudo -i blkid
 
-	출력은 다음과 유사합니다.
+	다음과 유사하게 출력됩니다.
 
 		/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
 		/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
@@ -161,9 +161,9 @@
 >[AZURE.NOTE] 이후에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 이런 경우가 자주 발생하면 대부분의 배포에서 디스크가 부팅 시 탑재되지 않더라도 시스템이 부팅되도록 하는 `nofail` 및/또는 `nobootwait` fstab 옵션을 제공합니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 
 ### Azure에서 Linux에 대한 TRIM/UNMAP 지원
-일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이것은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 이렇게 하면 비용을 절감할 수 있습니다.
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이러한 작업은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 페이지를 삭제하여 비용을 절감할 수 있습니다.
 
-Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하십시오.
+Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
 - `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
 
@@ -196,6 +196,6 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
-[Logon]: virtual-machines-linux-classic-log-on.md
+[Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

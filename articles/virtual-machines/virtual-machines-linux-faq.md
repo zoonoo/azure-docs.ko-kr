@@ -37,7 +37,7 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 ## 나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 
-가상 컴퓨터 로그온 하려면 SSH(Secure Shell)를 사용하여 원격 연결을 설정해야 합니다. [Windows에서](virtual-machines-linux-ssh-from-windows.md) 또는 [Linux 및 Mac에서](virtual-machines-linux-ssh-from-linux.md) 연결하는 방법은 지침을 참조하세요. 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
+가상 컴퓨터 로그온 하려면 SSH(Secure Shell)를 사용하여 원격 연결을 설정해야 합니다. [Windows에서](virtual-machines-linux-ssh-from-windows.md) 또는 [Linux 및 Mac에서](virtual-machines-linux-mac-create-ssh-keys.md) 연결하는 방법은 지침을 참조하세요. 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 
 문제가 있는 경우 [SSH(Secure Shell) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md)을 확인하세요.
@@ -58,4 +58,4 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 아니요. NIC를 추가하는 작업은 생성 시에만 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

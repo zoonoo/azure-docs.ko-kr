@@ -4,7 +4,7 @@
 	documentationCenter=""
 	description="PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하는 방법에 대해 알아봅니다."
 	authors="sbtron"
-	manager=""
+ 	manager="timlt"
 	editor=""/>
 
 <tags
@@ -201,4 +201,4 @@ cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식
 - 문제 해결을 위한 Azure 진단 기능 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
 - [진단 구성 스키마](https://msdn.microsoft.com/library/azure/mt634524.aspx)는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

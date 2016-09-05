@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 EBOD 컨트롤러 교체
@@ -89,7 +89,7 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
 
     ![전원에 4U 장치를 케이블로 연결](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **그림 4** 케이블 다시 연결
+    **그림 4**. 케이블 다시 연결
 
     |레이블|설명|
     |:----|:----------|
@@ -107,4 +107,4 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

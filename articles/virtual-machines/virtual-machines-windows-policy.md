@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -106,4 +106,4 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 
 * [정책 만들기](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

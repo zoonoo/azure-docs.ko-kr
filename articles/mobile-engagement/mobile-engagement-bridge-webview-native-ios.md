@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #iOS WebView와 네이티브 Mobile Engagement iOS SDK 브리지
@@ -26,12 +26,12 @@
 
 다음 두 가지 접근 방식이 있지만 둘 다 문서화되지 않았습니다.
 
-- 첫 번째 방식은 웹 보기에 `UIWebViewDelegate`를 등록하는 것과 관련된 이 [링크](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip)에 설명되어 있으며, Javascript에서 수행된 위치 변경을 catch하고 즉시 취소합니다. 
-- 두 번째 방식은 첫 번째보다 명확한 접근 방식인 이 [WWDC 2013 세션](https://developer.apple.com/videos/play/wwdc2013/615)을 기반으로 합니다. 이 가이드에서는 이 방식을 따릅니다. 이 접근 방식은 iOS7 이상에서만 작동합니다. 
+- 첫 번째 방식은 웹 보기에 `UIWebViewDelegate`를 등록하는 것과 관련된 이 [링크](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip)에 설명되어 있으며, Javascript에서 수행된 위치 변경을 catch하고 즉시 취소합니다.
+- 두 번째 방식은 첫 번째보다 명확한 접근 방식인 이 [WWDC 2013 세션](https://developer.apple.com/videos/play/wwdc2013/615)을 기반으로 합니다. 이 가이드에서는 이 방식을 따릅니다. 이 접근 방식은 iOS7 이상에서만 작동합니다.
 
 iOS 브리지 샘플에 대해 아래 단계를 따릅니다.
 
-1. 먼저 [시작 자습서](mobile-engagement-ios-get-started.md)에 따라 Mobile Engagement iOS SDK를 하이브리드 앱에 통합해야 합니다. 필요에 따라 WebView에서 트리거할 때 SDK 메서드를 볼 수 있도록 다음과 같이 테스트 로깅을 사용할 수도 있습니다. 
+1. 먼저 [시작 자습서](mobile-engagement-ios-get-started.md)에 따라 Mobile Engagement iOS SDK를 하이브리드 앱에 통합해야 합니다. 필요에 따라 WebView에서 트리거할 때 SDK 메서드를 볼 수 있도록 다음과 같이 테스트 로깅을 사용할 수도 있습니다.
     
 		- (BOOL)application:(UIApplication ​*)application didFinishLaunchingWithOptions:(NSDictionary *​)launchOptions {
 		   ....
@@ -162,8 +162,8 @@ iOS 브리지 샘플에 대해 아래 단계를 따릅니다.
 
 6. **ViewController.m** 파일에 대해 유의할 사항은 다음과 같습니다.
 
-	- `loadWebView` 메서드에서 다음에 코드를 검토할 **LocalPage.html**이라는 로컬 HTML 파일을 로드합니다. 
-	- `webViewDidFinishLoad` 메서드에서 `JsContext`를 가져와 래퍼 클래스와 연결합니다. 그러면 WebView에서 **EngagementJs** 핸들을 사용하여 래퍼 SDK 메서드를 호출할 수 있습니다. 
+	- `loadWebView` 메서드에서 다음에 코드를 검토할 **LocalPage.html**이라는 로컬 HTML 파일을 로드합니다.
+	- `webViewDidFinishLoad` 메서드에서 `JsContext`를 가져와 래퍼 클래스와 연결합니다. 그러면 WebView에서 **EngagementJs** 핸들을 사용하여 래퍼 SDK 메서드를 호출할 수 있습니다.
 
 7. 다음 코드를 사용하여 **LocalPage.html** 파일을 만듭니다.
 
@@ -254,10 +254,10 @@ iOS 브리지 샘플에 대해 아래 단계를 따릅니다.
 
 8. 위 HTML 파일에 대해 유의할 사항은 다음과 같습니다.
 
-	- 	이 파일은 이벤트, 작업, 오류, 앱 정보의 이름으로 사용할 데이터를 제공할 수 있는 입력 상자 집합을 포함합니다. 입력 상자 옆의 단추를 클릭하면 이 호출을 Mobile Engagement iOS SDK로 전달하기 위해 브리지 파일에서 메서드를 호출하는 Javascript가 호출됩니다. 
-	- 	작업 방법을 보여 주기 위해 이벤트, 작업 및 오류의 몇 가지 정적 추가 정보에 대한 태그를 지정합니다. 이 추가 정보는 JSON 문자열로 전송됩니다. `EngagementJsExports.m` 파일에서 구문 분석되어 전송되는 이벤트, 작업 및 오류와 함께 전달됩니다. 
-	- 	Mobile Engagement 작업은 입력 상자에 지정한 이름으로 시작되며, 10초간 실행된 후 종료됩니다. 
-	- 	Mobile Engagement 앱 정보 또는 태그는 입력 상자에 태그 값으로 입력한 값 및 정적 키로 'customer\_name'과 함께 전달됩니다. 
+	- 	이 파일은 이벤트, 작업, 오류, 앱 정보의 이름으로 사용할 데이터를 제공할 수 있는 입력 상자 집합을 포함합니다. 입력 상자 옆의 단추를 클릭하면 이 호출을 Mobile Engagement iOS SDK로 전달하기 위해 브리지 파일에서 메서드를 호출하는 Javascript가 호출됩니다.
+	- 	작업 방법을 보여 주기 위해 이벤트, 작업 및 오류의 몇 가지 정적 추가 정보에 대한 태그를 지정합니다. 이 추가 정보는 JSON 문자열로 전송됩니다. `EngagementJsExports.m` 파일에서 구문 분석되어 전송되는 이벤트, 작업 및 오류와 함께 전달됩니다.
+	- 	Mobile Engagement 작업은 입력 상자에 지정한 이름으로 시작되며, 10초간 실행된 후 종료됩니다.
+	- 	Mobile Engagement 앱 정보 또는 태그는 입력 상자에 태그 값으로 입력한 값 및 정적 키로 'customer\_name'과 함께 전달됩니다.
  
 9. 앱을 실행하면 다음이 표시됩니다. 이제 다음과 같은 테스트 이벤트의 이름을 제공하고 옆에 있는 **Send**를 클릭합니다.
 
@@ -271,4 +271,4 @@ iOS 브리지 샘플에 대해 아래 단계를 따릅니다.
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

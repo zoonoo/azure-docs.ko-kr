@@ -15,28 +15,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Azure 필요한 상태 구성 확장 처리기 소개 #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다. 예를 들어 VMAccess 확장은 관리자의 암호를 다시 설정하는 데 사용할 수 있고 사용자 지정 스크립트 확장은 VM에서 스크립트를 실행하는 데 사용할 수 있습니다.
+Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비스의 일부입니다. VM 확장은 VM 기능을 확장하고 다양한 VM 관리 작업을 단순화하는 소프트웨어 구성 요소입니다. 예를 들어 VMAccess 확장은 관리자의 암호를 다시 설정하는 데 사용될 수 있고 사용자 지정 확장은 VM에서 스크립트를 실행하는 데 사용할 수 있습니다.
 
 이 문서에서는 Azure PowerShell SDK의 일부로 Azure VM에 대한 PowerShell DSC(필요한 상태 구성) 확장을 소개합니다. 새로운 cmdlet을 사용하여 PowerShell DSC 확장을 사용하는 Azure VM에 PowerShell DSC 구성을 업로드하고 적용할 수 있습니다. PowerShell DSC 확장은 VM에서 받은 DSC 구성을 적용하도록 PowerShell DSC에 호출됩니다. 또한 이 기능은 Azure 포털을 통해 사용할 수 있습니다.
 
 ## 필수 조건 ##
 **로컬 컴퓨터** Azure VM 확장과 상호 작용하려면 Azure 포털 또는 Azure PowerShell SDK를 사용해야 합니다.
 
-**게스트 에이전트** DSC 구성으로 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 또는 5.0를 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 DSC 확장 버전 기록에 있습니다.
+**게스트 에이전트** DSC 구성으로 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 또는 5.0를 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/)에 있습니다.
 
 ## 용어 및 개념 ##
 이 가이드에서는 다음과 같은 개념에 익숙합니다.
 
 구성 - DSC 구성 문서.
 
-노드 - DSC 구성에 대한 대상. 이 문서에서 "노드"는 Azure VM을 참조합니다.
+노드 - DSC 구성에 대한 대상. 이 문서에서 "노드"는 Azure VM을 나타냅니다.
 
 구성 데이터 - 구성에 대한 환경 데이터를 포함하는 .psd1 파일
 
@@ -54,29 +54,29 @@ WMF를 설치하려면 다시 부팅해야 합니다. 다시 부팅한 후에 �
 
 ## PowerShell cmdlet ##
 
-PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 패키징하고 게시하며 모니터링할 수 있습니다. 나열된 다음 cmdlet은 ASM 모듈이지만 "Azure"는 ARM 모델을 사용하는 "AzureRm"으로 바꿀 수 있습니다. 예를 들어 `Publish-AzureVMDscConfiguration`은 ASM을 사용하며 여기서 `Publish-AzureRmVMDscConfiguration`는 ARM을 사용합니다.
+PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 패키징하고 게시하며 모니터링할 수 있습니다. 나열된 다음 cmdlet은 ASM 모듈이지만 "Azure"는 ARM 모델을 사용하는 "AzureRm"으로 바꿀 수 있습니다. 예를 들어 `Publish-AzureVMDscConfiguration`은 ASM을 사용하며 `Publish-AzureRmVMDscConfiguration`은 ARM을 사용합니다.
 
-`Publish-AzureVMDscConfiguration`은 구성 파일을 받고 종속 DSC 리소스를 검색하며 구성 및 구성을 적용하는 데 필요한 DSC 리소스를 포함하는 .zip 파일을 만듭니다. 또는 `-ConfigurationArchivePath` 매개 변수를 사용하여 패키지를 로컬로 만들 수 있습니다. 그렇지 않으면 Azure Blob 저장소에 .zip 파일을 게시하고 SAS 토큰으로 보호합니다.
+`Publish-AzureVMDscConfiguration`은 구성 파일을 받고 종속 DSC 리소스를 검색하며 구성 및 구성을 적용하는 데 필요한 DSC 리소스를 포함하는 .zip 파일을 만듭니다. 또는 `-ConfigurationArchivePath` 매개 변수를 사용하여 패키지를 로컬로 만들 수도 있습니다. 그렇지 않으면 Azure Blob 저장소에 .zip 파일을 게시하고 SAS 토큰으로 보호합니다.
 
 이 cmdlet에서 만든 .zip 파일은 보관 폴더의 루트에서 .ps1 구성 스크립트를 포함합니다. 리소스에는 보관 폴더에 위치한 모듈 폴더가 있습니다.
 
-`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입하며 이는 `Update-AzureVM`를 사용하여 Azure VM에 적용될 수 있습니다.
+`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입하며 이는 `Update-AzureVM`을 사용하여 Azure VM에 적용될 수 있습니다.
 
 `Get-AzureVMDscExtension`은 특정 VM의 DSC 확장 상태를 검색합니다.
 
-`Get-AzureVMDscExtensionStatus`은 VM 또는 VM 그룹에서 DSC 확장 처리기에 의해 적용되는 DSC 구성의 상태를 검색합니다.
+`Get-AzureVMDscExtensionStatus`는 DSC 확장 처리기에 의해 적용되는 DSC 구성의 상태를 검색합니다. 이 작업을 단일 VM 또는 VM 그룹에 대해 수행할 수 있습니다.
 
-`Remove-AzureVMDscExtension`은 지정된 가상 컴퓨터에서 확장 처리기를 제거합니다. 이 방법은 구성을 제거하거나 WMF를 제거하거나 가상 컴퓨터에 적용된 설정을 변경하지 **않습니다**. 확장 처리기를 제거합니다.
+`Remove-AzureVMDscExtension`은 지정된 가상 컴퓨터에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 가상 컴퓨터에 적용된 설정을 변경하지 **않습니다**. 확장 처리기를 제거합니다.
 
 **ASM 및 ARM cmdlet의 주요 차이점**
 
 - ARM cmdlet은 동기입니다. ASM cmdlet은 비동기입니다.
 - ResourceGroupName, VMName, ArchiveStorageAccountName, 버전, 위치는 모두 새 필수 매개 변수입니다.
-- ArchiveResourceGroupName는 ARM에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 컴퓨터를 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이를 지정할 수 있습니다.
+- ArchiveResourceGroupName는 ARM에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 컴퓨터를 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
 - ConfigurationArchive는 ARM에서 ArchiveBlobName이라고 합니다.
 - ContainerName은 ARM에서 ArchiveContainerName이라고 합니다.
 - StorageEndpointSuffix는 ARM에서 ArchiveStorageEndpointSuffix라고 합니다.
-- AutoUpdate 스위치가 ARM에 추가되어 확장 처리기를 사용할 수 있는 경우 최신 버전으로 자동으로 업데이트할 수 있습니다. 새 버전의 WMF가 릴리스될 때 VM이 다시 시작될 가능성이 있습니다. 
+- AutoUpdate 스위치가 ARM에 추가되어 확장 처리기를 사용할 수 있는 경우 최신 버전으로 자동으로 업데이트할 수 있습니다. 이 매개 변수를 사용하면 새 버전의 WMF가 릴리스될 때 VM이 다시 시작될 가능성이 있습니다.
 
 
 ## Azure 포털 기능 ##
@@ -88,7 +88,7 @@ PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 
  
 **구성의 모듈 정규화된 이름**: .ps1 파일에는 여러 개의 구성 함수가 있을 수 있습니다. 예를 들어 ''에 이어서 구성 .ps1 스크립트의 이름 및 구성 함수의 이름을 입력합니다. 예를 들어 .ps1 스크립트 이름이 "configuration.ps1"이고 구성이 "IisInstall"이면 `configuration.ps1\IisInstall`을 입력합니다.
 
-**구성 인수**: 구성 함수가 인수를 사용하는 경우 `argumentName1=value1,argumentName2=value2` 형식에서 여기에 입력합니다. PowerShell cmdlet 또는 ARM 템플릿을 통해 구성 인수를 수락하는 방법과는 다른 서식입니다.
+**구성 인수**: 구성 함수가 인수를 사용하는 경우 `argumentName1=value1,argumentName2=value2` 형식에서 여기에 입력합니다. PowerShell cmdlet 또는 Resource Manager 템플릿을 통해 구성 인수를 수락하는 방법과는 다른 서식입니다.
 
 ## 시작 ##
 
@@ -144,4 +144,4 @@ PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 
 
 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

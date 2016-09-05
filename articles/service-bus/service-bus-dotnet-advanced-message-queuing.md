@@ -26,7 +26,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 효율성과 안정성이 뛰어�
 
 ## 서비스 버스 시작
 
-이 문서에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 네임스페이스와 큐를 만들 수 있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
+이 문서에서는 사용자가 "queue1"이라는 큐가 포함된 서비스 버스 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure 포털][]을 사용하여 네임스페이스와 큐를 만들 수 있습니다. 서비스 버스 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
 ## 서비스 버스 SDK 다운로드
 
@@ -63,7 +63,7 @@ AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 �
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-여기서 `[namespace]` 및 `[SAS key]`은(는) [Azure 클래식 포털][]에서 가져옵니다. 자세한 내용은 [서비스 버스 큐를 사용하는 방법][]을 참조하십시오.
+여기서 `[namespace]` 및 `[SAS key]`은(는) [Azure 포털][]에서 가져옵니다. 자세한 내용은 [서비스 버스 큐를 사용하는 방법][]을 참조하십시오.
 
 AMQP를 사용하면 연결 문자열이 `;TransportType=Amqp`로 추가됩니다. 이는 AMQP 1.0을 사용하여 서비스 버스에 연결하도록 클라이언트 라이브러리에 알려줍니다.
 
@@ -291,23 +291,6 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-## 지원되지 않는 기능 및 제한
-
-.NET 서비스 버스 API의 다음 기능은 현재 AMQP 사용 시 지원되지 않습니다.
-
-* 트랜잭션
-* 전송 대상을 통해 보내기
-* 메시지 시퀀스 번호로 받기
-* 메시지 및 세션 탐색
-* 세션 상태
-* 일괄 처리 기반 API
-* 확장된 받기
-* 구독 규칙의 런타임 조작
-* 세션 잠금 갱신
-* 몇 가지 사소한 동작의 차이
-
-자세한 내용은 [서비스 버스 AMQP 개요](service-bus-amqp-dotnet.md)를 참조하세요. 이 문서에는 지원되지 않는 API의 자세한 목록이 포함되어 있습니다.
-
 ## 요약
 
 이 문서에서는 AMQP 1.0과 서비스 버스 .NET API를 사용하여 .NET 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법에 대해 설명했습니다.
@@ -322,6 +305,6 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
 * [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](service-bus-java-how-to-use-jms-api-amqp.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
  
-[Azure 클래식 포털]: https://manage.windowsazure.com
+[Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

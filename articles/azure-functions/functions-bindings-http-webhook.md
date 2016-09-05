@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Azure Functions HTTP 및 WebHook 바인딩
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 HTTP와 WebHook 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
@@ -32,15 +34,15 @@ HTTP 요청에 대한 속성:
 
 - `name`: 요청 개체(또는 Node.js 함수의 경우 요청 본문)에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `type`: *httpTrigger*로 설정되어 있어야 합니다.
-- `direction`: *in*으로 설정해야 합니다. 
-- `webHookType`: WebHook 트리거의 경우 유효한 값은 *github*, *slack* 및 *genericJson*입니다. WebHook이 아닌 HTTP 트리거의 경우 이 속성을 빈 문자열로 설정합니다. WebHook에 대한 자세한 내용은 [WebHook 트리거](#webhook-triggers) 섹션을 참조하세요.
+- `direction`: *in*으로 설정해야 합니다.
+- `webHookType`: WebHook 트리거의 경우 유효한 값은 *github*, *slack* 및 *genericJson*입니다. WebHook이 아닌 HTTP 트리거의 경우 이 속성을 빈 문자열로 설정합니다. WebHook에 대한 자세한 내용은 다음 [WebHook 트리거](#webhook-triggers) 섹션을 참조하세요.
 - `authLevel`: WebHook 트리거에 적용되지 않습니다. "함수"가 API 키를 요구하도록 설정하거나 "익명"이 API 키 요구 사항을 삭제하도록 설정하거나 "관리자"가 마스터 API 키를 요구하도록 설정합니다. 자세한 내용은 아래 [API 키](#apikeys)를 참조하세요.
 
 HTTP 응답에 대한 속성:
 
 - `name`: 응답 개체에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `type`: *http*로 설정해야 합니다.
-- `direction`: *out*으로 설정해야 합니다. 
+- `direction`: *out*으로 설정해야 합니다.
  
 예제 *function.json*:
 
@@ -201,4 +203,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/23/2016"
 	ms.author="anhoh"/>
 
 # 데이터베이스 마이그레이션 도구로 DocumentDB에 데이터 가져오기
@@ -138,11 +138,24 @@ SQL 원본 가져오기 옵션을 사용하면 개별 SQL Server 데이터베이
 
 Address.AddressType 및 Address.Location.StateProvinceName과 같은 별칭을 확인합니다. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 Address 및 Address.Location 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
-
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
+ 
 SQL Server에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
-	#Import records from SQL which match a query
+	#Import records from SQL which match a query	
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
 	#Import records from sql which match a query and create hierarchical relationships
@@ -160,7 +173,18 @@ SQL 원본과 마찬가지로, 중첩 구분 기호 속성을 사용하여 가�
 
 DomainInfo.Domain\_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 가져오기 도구는 CSV 파일의 따옴표가 없는 값에 대한 형식 정보를 유추하려고 합니다(따옴표로 묶인 값은 항상 문자열로 처리됨). 숫자, 날짜/시간, 부울 순서로 형식이 식별됩니다.
 
@@ -490,4 +514,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 - DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

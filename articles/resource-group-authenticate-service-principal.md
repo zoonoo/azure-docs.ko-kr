@@ -23,9 +23,9 @@
 - [Azure CLI](resource-group-authenticate-service-principal-cli.md)
 - [포털](resource-group-create-service-principal-portal.md)
 
-리소스에 액세스해야 하는 응용 프로그램이나 스크립트가 있는 경우 이 프로세스를 사용자의 자격 증명에 따라 실행하지 않으려고 할 수 있습니다. 해당 사용자가 프로세스에 할당하려고 하는 권한과 다른 권한을 가질 수 있으며 사용자의 역할 책임도 달라질 수 있기 때문입니다. 대신 인증 자격 증명 및 역할 할당을 포함하는 응용 프로그램에 대한 ID를 만들 수 있습니다. 응용 프로그램은 실행될 때마다 이 ID로 로그인합니다. 이 항목에서는 [Azure PowerShell](powershell-install-configure.md)을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
+리소스에 액세스해야 하는 응용 프로그램이나 스크립트가 있는 경우 이 프로세스를 사용자의 자격 증명에 따라 실행하지 않으려고 할 수 있습니다. 해당 사용자가 프로세스에 할당하려고 하는 권한과 다른 권한을 가질 수 있으며 사용자의 역할 책임도 달라질 수 있기 때문입니다. 대신 인증 자격 증명 및 역할 할당을 포함하는 응용 프로그램에 대한 ID를 만들 수 있습니다. 응용 프로그램은 실행될 때마다 이 ID로 로그인합니다. 이 토픽에서는 [Azure PowerShell](powershell-install-configure.md)을 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하는 데 필요한 모든 항목을 설정하는 방법을 보여 줍니다.
 
-이 문서에서는 AD(Active Directory) 응용 프로그램 및 서비스 주체라는 두 개체를 만듭니다. AD 응용 프로그램에는 자격 증명(응용 프로그램 ID 및 암호 또는 인증서)이 포함되어 있습니다. 서비스 주체에는 역할 할당이 포함되어 있습니다. AD 응용 프로그램에서 많은 서비스 주체를 만들 수 있습니다. 이 항목에서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다. 많은 조직에서 응용 프로그램을 실행해야 하는 경우 다중 테넌트 응용 프로그램을 만들 수도 있습니다. 일반적으로 SaaS(software-as-a-service) 응용 프로그램에 대해 다중 테넌트 응용 프로그램을 사용합니다. 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
+이 문서에서는 AD(Active Directory) 응용 프로그램 및 서비스 주체라는 두 개체를 만듭니다. AD 응용 프로그램에는 자격 증명(응용 프로그램 ID 및 암호 또는 인증서)이 포함되어 있습니다. 서비스 주체에는 역할 할당이 포함되어 있습니다. AD 응용 프로그램에서 많은 서비스 주체를 만들 수 있습니다. 이 토픽에서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다. 많은 조직에서 응용 프로그램을 실행해야 하는 경우 다중 테넌트 응용 프로그램을 만들 수도 있습니다. 일반적으로 SaaS(software-as-a-service) 응용 프로그램에 대해 다중 테넌트 응용 프로그램을 사용합니다. 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 
 Active Directory를 사용할 때 이해해야 할 여러 가지 개념이 있습니다. 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](./active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](./active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
@@ -84,11 +84,11 @@ AD 응용 프로그램을 설정한 다음 다른 프로그래밍 프레임워�
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-3. 서비스 주체에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 주체에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. 역할을 할당하려면 [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다.
+3. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 주체에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. 역할을 할당하려면 [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다.
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-이것으로 끝입니다. AD 응용 프로그램 및 서비스 주체가 설정되었습니다. 다음 섹션에서는 PowerShell을 통해 자격 증명으로 로그인하는 방법을 보여 줍니다. 그러나 코드 응용 프로그램에서 자격 증명을 사용하려는 경우 이 항목을 계속 진행할 필요가 없습니다. [샘플 응용 프로그램](#sample-applications)으로 이동하여 응용 프로그램 ID 및 암호를 사용하여 로그인하는 예제를 참조할 수 있습니다.
+이것으로 끝입니다. AD 응용 프로그램 및 서비스 주체가 설정되었습니다. 다음 섹션에서는 PowerShell을 통해 자격 증명으로 로그인하는 방법을 보여 줍니다. 그러나 코드 응용 프로그램에서 자격 증명을 사용하려는 경우 이 토픽을 계속 진행할 필요가 없습니다. [샘플 응용 프로그램](#sample-applications)으로 이동하여 응용 프로그램 ID 및 암호를 사용하여 로그인하는 예제를 참조할 수 있습니다.
 
 ### PowerShell을 통해 자격 증명 제공
 
@@ -149,7 +149,7 @@ AD 응용 프로그램을 설정한 다음 다른 프로그래밍 프레임워�
 
 4. 디렉터리에서 응용 프로그램을 만듭니다.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
         
     새 응용 프로그램 개체를 검사합니다.
 
@@ -171,7 +171,7 @@ AD 응용 프로그램을 설정한 다음 다른 프로그래밍 프레임워�
 
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-6. 서비스 주체에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 주체에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. 역할을 할당하려면 [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다.
+6. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 주체에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. 역할을 할당하려면 [소유자](./active-directory/role-based-access-built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) 역할을 통해 부여된 `Microsoft.Authorization/*/Write` 액세스 권한이 있어야 합니다.
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
@@ -228,4 +228,4 @@ AD 응용 프로그램을 설정한 다음 다른 프로그래밍 프레임워�
   
 - 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

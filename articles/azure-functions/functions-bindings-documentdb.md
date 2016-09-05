@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Azure Functions DocumentDB 바인딩
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Azure DocumentDB 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
@@ -89,8 +91,8 @@ function.json 파일은 다음 속성을 제공합니다.
 - `databaseName`: 새 문서를 만들 컬렉션을 포함하는 데이터베이스입니다.
 - `collectionName`: 새 문서를 만들 컬렉션입니다.
 - `createIfNotExists`: 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
-- `connection`: 이 문자열은 DocumentDB 계정에 대한 끝점에 설정된 **응용 프로그램 설정**이어야 합니다. **통합** 탭에서 계정을 선택하는 경우 `yourAccount_DOCUMENTDB` 형식을 사용하는 이름으로 새 앱 설정이 만들어집니다. 앱 설정을 수동으로 만들어야 하는 경우 실제 연결 문자열은 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;` 형식을 사용해야 합니다. 
-- `direction`: *out*으로 설정해야 합니다. 
+- `connection`: 이 문자열은 DocumentDB 계정에 대한 끝점에 설정된 **응용 프로그램 설정**이어야 합니다. **통합** 탭에서 계정을 선택하는 경우 `yourAccount_DOCUMENTDB` 형식을 사용하는 이름으로 새 앱 설정이 만들어집니다. 앱 설정을 수동으로 만들어야 하는 경우 실제 연결 문자열은 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;` 형식을 사용해야 합니다.
+- `direction`: *"out"*으로 설정해야 합니다.
  
 예제 function.json:
 
@@ -189,4 +191,4 @@ function.json 파일은 다음 속성을 제공합니다.
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -22,7 +22,7 @@
 
 ## Azure 포털을 통해 모니터링 사용/사용 안 함
  
-1분 동안 인스턴스에 대한 데이터를 제공하는 Azure VM을 모니터링을 사용하도록 설정할 수 있습니다(저장소 변경 적용). 그러면 포털 그래프 또는 API를 통해 VM에 대한 자세한 진단 데이터를 사용할 수 있습니다. 기본적으로 Azure 포털에서 모니터링이 사용되도록 설정되어 있지만 아래 설명에 따라 해제할 수 있습니다. VM이 실행 중이거나 중지된 상태일 때 모니터링을 사용하도록 설정할 수 있습니다.
+1분 동안 인스턴스에 대한 데이터를 제공하는 Azure VM의 모니터링을 사용하도록 설정할 수 있습니다(저장소 변경 적용). 그러면 포털 그래프 또는 API를 통해 VM에 대한 자세한 진단 데이터를 사용할 수 있습니다. 기본적으로 Azure 포털에서 모니터링이 사용되도록 설정되어 있지만 아래 설명에 따라 해제할 수 있습니다. VM이 실행 중이거나 중지된 상태일 때 모니터링을 사용하도록 설정할 수 있습니다.
 
 - **[https://portal.azure.com](https://portal.azure.com)**에서 Azure 포털을 엽니다.
 
@@ -52,10 +52,10 @@ Azure VM에 대한 모니터링을 사용하도록 설정하려면
 
 [Azure.Note] 사용 가능한 경우 버전 2.0에서 이후 버전으로 변경할 수 있습니다.
 
-모니터링 메트릭 구성 및 샘플에 대한 자세한 내용은 **[Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링](virtual-machines-linux-diagnostic-extension/) 문서를 참조하세요.
+모니터링 메트릭 구성 및 샘플에 대한 자세한 내용은 **[Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링](virtual-machines-linux-classic-diagnostic-extension.md) 문서를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

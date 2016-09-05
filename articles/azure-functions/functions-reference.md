@@ -24,23 +24,10 @@ Azure Functions는 사용하는 언어나 바인딩에 관계없이, 몇 가지 
 
 이 문서에서는 [Azure Functions 개요](functions-overview.md)를 이미 읽었고 [트리거, 바인딩, JobHost 런타임 같은 WebJobs SDK 개념](../app-service-web/websites-dotnet-webjobs-sdk.md)에 익숙하다고 가정합니다. Azure Functions는 WebJobs SDK를 기반으로 합니다.
 
-## 함수
 
-*함수*는 Azure Functions의 기본 개념입니다. 사용자는 원하는 언어로 함수 코드를 작성하고 코드 파일과 구성 파일을 같은 폴더에 저장합니다. 구성은 JSON 형식이고 파일 이름은 `function.json`입니다. 다양한 언어가 지원되며, 각각의 언어는 각 언어에 적합하게 최적화된 약간 다른 환경을 갖습니다. 샘플 폴더 구조:
+## 함수 코드
 
-```
-mynodefunction
-| - function.json
-| - index.js
-| - node_modules
-| | - ... packages ...
-| - package.json
-mycsharpfunction
-| - function.json
-| - run.csx
-```
-
-## function.json 및 bindings
+*함수*는 Azure Functions의 기본 개념입니다. 사용자는 원하는 언어로 함수 코드를 작성하고 코드 파일과 구성 파일을 같은 폴더에 저장합니다. 구성은 JSON 형식이고 파일 이름은 `function.json`입니다. 다양한 언어가 지원되며, 각각의 언어는 각 언어에 적합하게 최적화된 약간 다른 환경을 갖습니다.
 
 `function.json` 파일은 바인딩을 포함한 함수에 해당하는 구성을 포함합니다. 런타임은 이 파일을 읽어서 트리거를 해제할 이벤트, 함수를 호출할 때 포함할 데이터, 함수 자체로부터 전달된 데이터를 보낼 곳을 결정합니다.
 
@@ -69,39 +56,25 @@ mycsharpfunction
 |`direction`|'in', 'out'| 함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다.
 | `name` | string | 함수 내의 바인딩 데이터에 사용될 이름입니다. C#의 경우에는 인수 이름이며 JavaScript의 경우 키/값 목록의 키입니다.
 
+## 함수 앱
+
+함수 앱은 Azure 앱 서비스에서 함께 관리되는 하나 이상의 개별 함수 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 연속 배포 및 런타임 버전을 공유합니다. 여러 언어로 작성된 함수는 동일한 함수 앱을 공유할 수 있습니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다.
+
 ## 런타임(스크립트 호스트 및 웹 호스트)
 
-런타임(스크립트 호스트라고도 함)은 이벤트 수신을 대기하고, 데이터를 모아서 보내고, 최종적으로 코드를 실행하는 기초를 이루는 WebJobs SDK 호스트입니다.
+런타임 또는 스크립트 호스트는 이벤트 수신을 대기하고, 데이터를 모아서 보내고, 최종적으로 코드를 실행하는 기초를 이루는 WebJobs SDK 호스트입니다.
 
 HTTP 트리거를 지원하기 위해 프로덕션 시나리오에서 스크립트 호스트 앞쪽에 위치하도록 설계된 웹 호스트도 있습니다. 이것은 스크립트 호스트를 웹 호스트에서 관리하는 프런트 엔드 트래픽과 격리시키는 데 도움이 됩니다.
 
 ## 폴더 구조
 
-스크립트 호스트가 구성 파일 및 하나 이상의 함수를 포함하는 폴더를 가리킵니다.
-
-```
-parentFolder (for example, wwwroot in a function app)
- | - host.json
- | - mynodefunction
- | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
- | | - function.json
- | | - run.csx
-```
-
-*host.json* 파일은 스크립트 호스트에 해당하는 구성을 포함하며 parent 폴더에 위치합니다. 사용 가능한 설정에 대한 정보는, WebJobs.Script 리포지토리 wiki에서 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
-
-각 함수에는 코드 파일, *function.json*, 기타 종속성을 포함하는 폴더가 있습니다.
+[AZURE.INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. 배포 시 패키지 설치 또는 코드 transpilation 수행을 위하여 지속적인 통합 및 배포 같은 기존 툴 또는 사용자 지정 배포 스크립트를 사용할 수 있습니다.
 
 ## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 
-Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면, 다른 배포 방법을 사용해야 합니다.
+Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
 함수 앱은 앱 서비스를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 모두 함수 앱에도 사용할 수 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다.
 
@@ -117,7 +90,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 5. 아직 활성화되지 않은 경우 **켜고** **이동**을 클릭합니다.
 
-	Visual Studio Online이 로드된 후에, *wwwroot* 하위의 함수 폴더와 *host.json* 파일을 볼 수 있습니다.
+	Visual Studio Online이 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다.
 
 6. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
 
@@ -137,9 +110,13 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 2. 함수 앱 사이트에 연결되면, 업데이트된 *host.json* 파일을 `/site/wwwroot`에 복사하거나 함수 파일을 `/site/wwwroot/<function_name>`에 복사합니다.
 
+#### 연속 배포를 사용하려면
+
+[Azure Functions에 대한 연속 배포](functions-continuous-deployment.md) 항목의 지침을 따릅니다.
+
 ## 병렬 실행
 
-복수의 트리거 이벤트가 단일 스레드 함수 런타임이 해당 이벤트를 처리할 수 있는 속도보다 빨리 발생하면 런타임은 병렬 모드로 함수를 여러 번 호출할 수 있습니다. 함수 앱이 [동적 서비스 계획](functions-scale.md#dynamic-service-plan)을 사용하는 경우에, 함수 앱은 동시 인스턴스를 10개까지 자동으로 확장할 수 있습니다. 앱이 동적 서비스 계획으로 실행되건 일반 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)으로 실행되건, 함수 앱의 각 인스턴스는 여러 스레드를 사용하여 병렬로 동시 함수 호출을 처리할 수 있습니다. 각 함수 앱 인스턴스에서 동시 함수 호출의 최대 수는 함수 앱의 메모리 크기에 따라 달라집니다.
+복수의 트리거 이벤트가 단일 스레드 함수 런타임이 해당 이벤트를 처리할 수 있는 속도보다 빨리 발생하면 런타임은 병렬 모드로 함수를 여러 번 호출할 수 있습니다. 함수 앱이 [동적 서비스 계획](functions-scale.md#dynamic-service-plan)을 사용하는 경우에, 함수 앱은 자동으로 확장할 수 있습니다. 앱이 동적 서비스 계획으로 실행되건 일반 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)으로 실행되건, 함수 앱의 각 인스턴스는 여러 스레드를 사용하여 병렬로 동시 함수 호출을 처리할 수 있습니다. 각 함수 앱 인스턴스에서 동시 함수 호출의 최대 수는 함수 앱의 메모리 크기에 따라 달라집니다.
 
 ## Azure Functions 펄스  
 
@@ -174,4 +151,4 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

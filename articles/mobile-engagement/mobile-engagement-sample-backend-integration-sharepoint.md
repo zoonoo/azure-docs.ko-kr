@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - API 통합
@@ -86,7 +86,7 @@
         }
 
 ## Mobile Engagement 통합
-1.  처리해야 할 항목을 찾고 나서 목록 항목에서 공지를 만드는 데 필요한 정보를 추출하고 `CreateAzMECampaign`을 호출하여 공지를 만들고 나서 `ActivateAzMECampaign`을 호출하여 공지를 활성화합니다. 이들 호출은 Mobile Engagement 백 엔드를 호출하는 필수 REST API 호출입니다. 
+1.  처리해야 할 항목을 찾고 나서 목록 항목에서 공지를 만드는 데 필요한 정보를 추출하고 `CreateAzMECampaign`을 호출하여 공지를 만들고 나서 `ActivateAzMECampaign`을 호출하여 공지를 활성화합니다. 이들 호출은 Mobile Engagement 백 엔드를 호출하는 필수 REST API 호출입니다.
 
 2.  Mobile Engagement REST API에는 Azure 포털에서 가져오는 `ApplicationId` 및 `ApiKey`로 구성된 **기본 인증 체계 권한 부여 HTTP 헤더**가 필요합니다. **api keys** 섹션의 키를 사용하고 **sdk keys** 섹션의 키를 사용하지 *않는지* 확인하세요.
 
@@ -207,4 +207,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

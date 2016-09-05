@@ -14,30 +14,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Facebook 커넥터 시작
-Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 수행합니다. Facebook 커넥터는 다음에서 사용할 수 있습니다.
-
-- 논리 앱(이 항목에 설명됨)
-- PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
+Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 수행합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 
 Facebook을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- Facebook에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
+- Facebook에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
 - 새 게시를 수신할 때 트리거를 사용합니다.
-- 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 타임라인에 새 게시물이 있는 경우 해당 게시물을 가져와서 Twitter 피드에 푸시할 수 있습니다. 
+- 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 타임라인에 새 게시물이 있는 경우 해당 게시물을 가져와서 Twitter 피드에 푸시할 수 있습니다.
+
+
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 
-| 트리거 | 동작|
+| 트리거 | 작업|
 | --- | --- |
 | <ul><li>내 타임라인에 새 게시물이 있는 경우</li></ul> |<ul><li>내 타임라인에서 피드 가져오기</li><li>내 타임라인에 게시</li><li>내 타임라인에 새 게시물이 있는 경우</li><li>페이지 피드 가져오기</li><li>사용자 타임라인 가져오기</li><li>페이지에 게시</li></ul>
 
@@ -47,7 +46,7 @@ Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 논리 앱에 이 커넥터를 추가할 때 Facebook에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Facebook 계정으로 로그인
-2. **권한 부여**를 선택하고 논리 앱에서 Facebook에 연결하고 사용할 수 있도록 허용합니다. 
+2. **권한 부여**를 선택하고 논리 앱에서 Facebook에 연결하고 사용할 수 있도록 허용합니다.
 
 >[AZURE.INCLUDE [Facebook에 대한 연결을 만드는 단계](../../includes/connectors-create-api-facebook.md)]
 
@@ -147,7 +146,7 @@ Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 ### 페이지에 게시
 로그인한 사용자로 Facebook 페이지에 메시지를 게시합니다. ```POST: /{pageId}/feed```
 
-| 이름|데이터 형식|필수|위치|기본값|설명|
+| Name|데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |pageId|string|yes|path|없음 |게시할 페이지의 ID입니다.|
 |post|다양함 |yes|body|없음 |게시할 새 메시지입니다.|
@@ -434,6 +433,6 @@ Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

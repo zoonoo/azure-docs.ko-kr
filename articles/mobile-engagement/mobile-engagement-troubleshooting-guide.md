@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/26/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - 문제 해결 가이드
@@ -121,4 +121,4 @@
 	- 모바일 고객 관리 SDK 버전(예: Android SDK v2.1.0)
 	- 정확한 오류 메시지 및 시나리오가 있는 오류 세부 정보
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

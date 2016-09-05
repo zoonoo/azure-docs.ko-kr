@@ -1,6 +1,6 @@
 <properties
 	pageTitle="랩에 소유자 및 사용자 추가 | Microsoft Azure"
-	description="구독에 없는 사용자를 Azure DevTest Lab에 안전하게 추가하기"
+	description="구독에 없는 사용자를 Azure DevTest Labs에 안전하게 추가하기"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/23/2016"
 	ms.author="tarcher"/>
 
 # 랩에 소유자 및 사용자 추가
@@ -47,7 +47,7 @@ VM이 만들어지면 이를 만든 사용자는 생성된 VM의 **소유자** �
 
 	![구독 링크](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. 랩을 포함시킬 구독을 탭합니다.
+1. 랩을 포함시킬 구독을 선택합니다.
 
 1. **액세스** 아이콘을 탭합니다.
 
@@ -103,4 +103,4 @@ VM이 만들어지면 이를 만든 사용자는 생성된 VM의 **소유자** �
 
 1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

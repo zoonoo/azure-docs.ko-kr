@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/24/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 자동 업그레이드
@@ -39,7 +39,7 @@
 
 `Set-ADSyncAutoUpgrade`로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단** 상태를 설정합니다.
 
-자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 올바르게 작동하도록 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명하는 대로 **Azure AD Connect Health**용 프록시 서버에서 URL을 열었는지 확인합니다.
+자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명하는 대로 **Azure AD Connect Health**용 프록시 서버에서 URL을 열었는지 확인합니다.
 
 **Synchronization Service Manager** UI가 서버에서 실행되고 있는 경우에는 UI를 닫을 때까지 업그레이드가 일시 중단됩니다.
 
@@ -50,16 +50,18 @@ Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음
 
 뭔가 잘못되었다고 생각되면 우선 `Get-ADSyncAutoUpgrade`를 실행하여 자동 업그레이드가 사용하도록 설정되어 있는지 확인합니다.
 
-이벤트 뷰어를 시작하고 **응용 프로그램** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 Id 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)을 테스트합니다.
 
-이제 자동 업그레이드 상태와 관련된 이벤트 로그가 표시됩니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **응용 프로그램** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 Id 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+
+이제 자동 업그레이드 상태와 관련된 이벤트 로그를 볼 수 있습니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
 
 결과 코드의 상태 개요 앞에는 접두사가 붙습니다.
 
 결과 코드 접두사 | 설명
 --- | ---
 성공 | 설치가 성공적으로 업그레이드되었습니다.
-UpgradeAborted | 일시적인 현상으로 업그레이드가 중지되었습니다. 이후에 다시 시도하면 업그레이드될 것입니다.
+UpgradeAborted | 일시적인 현상으로 업그레이드가 중지되었습니다. 다시 시도하면 나중에 업그레이드됩니다.
 UpgradeNotSupported | 시스템이 자동으로 업그레이드되지 않도록 차단하는 구성이 시스템에 있습니다. 상태가 변경되었는지 다시 시도하겠지만 시스템을 수동으로 업그레이드해야 할 것으로 보입니다.
 
 가장 일반적인 메시지 목록은 다음과 같습니다. 전부가 나열된 것은 아니지만 결과 메시지를 통해 문제점이 무엇인지 파악할 수 있습니다.
@@ -92,4 +94,4 @@ UpgradeNotSupportedUserWritebackEnabled | [사용자 쓰기 저장](active-direc
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

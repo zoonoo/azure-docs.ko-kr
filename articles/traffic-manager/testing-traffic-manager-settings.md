@@ -3,8 +3,8 @@
    description="이 문서는 트래픽 관리자 설정을 테스트 하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # 트래픽 관리자 설정 테스트
 
@@ -59,4 +59,4 @@
 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md) [트래픽 관리자](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

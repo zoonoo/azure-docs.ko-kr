@@ -90,7 +90,8 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 
 ## 다음 단계
 
+- [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)라는 알림 받기
 - [고급 HTTP 보고서](cdn-advanced-http-reports.md)의 심층적 분석
 - [사용 패턴](cdn-analyze-usage-patterns.md) 분석
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

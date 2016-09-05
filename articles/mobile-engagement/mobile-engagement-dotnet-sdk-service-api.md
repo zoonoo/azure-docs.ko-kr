@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #.NET SDK를 사용하여 Azure Mobile Engagement 서비스 API에 액세스
@@ -24,11 +24,11 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
 
 이 샘플에서는 .NET SDK를 사용하기 위해 일련의 단계를 수행합니다.
 
-1. 먼저 [여기](mobile-engagement-api-authentication.md#authentication) 설명된 대로 Azure Active Directory를 사용하여 API에 대한 인증을 설정해야 합니다. 마지막 단계에서는 유효한 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **암호**가 필요합니다. 
+1. 먼저 [여기](mobile-engagement-api-authentication.md#authentication) 설명된 대로 Azure Active Directory를 사용하여 API에 대한 인증을 설정해야 합니다. 마지막 단계에서는 유효한 **SubscriptionId**, **TenantId**, **ApplicationId** 및 **암호**가 필요합니다.
 
 2. 간단한 Windows 콘솔 앱을 사용하여 알림 캠페인을 만드는 시나리오에서 .NET SDK를 사용하는 작업을 보여 줍니다. 따라서 Visual Studio를 열고 **콘솔 응용 프로그램**을 만듭니다.
 
-3. 다음으로 [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/) Nuget 갤러리에서 **Microsoft Azure Engagement 관리 라이브러리**로 사용할 수 있는 .NET SDK를 다운로드 해야 합니다. Visual Studio에서 Nuget을 설치하는 경우 패키지를 검색하는 동안 **시험판 포함** 옵션을 선택했는지 확인해야 합니다.
+3. 다음으로 [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/) Nuget 갤러리에서 **Microsoft Azure Engagement 관리 라이브러리**로 사용할 수 있는 .NET SDK를 다운로드해야 합니다. Visual Studio에서 Nuget을 설치하는 경우 패키지를 검색하는 동안 **시험판 포함** 옵션을 선택했는지 확인해야 합니다.
 
 	![][1]
 
@@ -47,7 +47,7 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations
@@ -122,4 +122,4 @@ C# 래퍼를 사용하여 이러한 API와 상호 작용할 수 있는 유사한
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

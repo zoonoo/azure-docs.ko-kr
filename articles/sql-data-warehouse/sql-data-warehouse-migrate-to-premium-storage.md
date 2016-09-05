@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # 프리미엄 저장소 세부 정보로 마이그레이션
@@ -91,13 +91,13 @@ SQL 데이터 웨어하우스는 최근에 도입된 [큰 성능 예측 가능�
 | 일본 동부 | 2016년 8월 10일 | 2016년 8월 24일 |
 | 일본 서부 | 아직 결정되지 않음 | 아직 결정되지 않음 |
 | 미국 중북부 | 아직 결정되지 않음 | 아직 결정되지 않음 |
-| 북유럽 | 2016년 8월 10일 | 2016년 8월 24일 |
+| 북유럽 | 2016년 8월 10일 | 2016년 8월 31일 |
 | 미국 중남부 | 2016년 6월 23일 | 2016년 7월 2일 |
 | 동남아시아 | 2016년 6월 23일 | 2016년 7월 1일 |
 | 서유럽 | 2016년 6월 23일 | 2016년 7월 8일 |
-| 미국 중서부 | 2016년 8월 14일 | 2016년 8월 28일 |
+| 미국 중서부 | 2016년 8월 14일 | 2016년 8월 31일 |
 | 미국 서부 | 2016년 6월 23일 | 2016년 7월 7일 |
-| 미국 서부2 | 2016년 8월 14일 | 2016년 8월 28일 |
+| 미국 서부2 | 2016년 8월 14일 | 2016년 8월 31일 |
 
 ## 프리미엄 저장소로 자체 마이그레이션
 가동 중지가 발생하는 시간을 제어하려는 경우 아래 단계를 사용하여 표준 저장소의 기존 데이터 웨어하우스를 프리미엄 저장소로 마이그레이션할 수 있습니다. 자체 마이그레이션하도록 선택하는 경우 충돌을 야기하는 자동 마이그레이션의 모든 위험을 방지하도록 해당 지역에서 자동 마이그레이션이 시작하기 전에 자체 마이그레이션을 완료해야 합니다([자동 마이그레이션 일정][] 참조).
@@ -147,42 +147,19 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 -- 1단계: 인덱스 다시 작성을 제어하기 위한 테이블 만들기
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- 2단계: 인덱스 다시 작성을 실행합니다. 스크립트가 실패하는 경우 아래 명령을 다시 실행하여 마지막 중단했던 지점에서 다시 시작할 수 있음
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -3단계: 1단계에서 만든 테이블 정리
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 데이터 웨어하우스에 문제가 발생하는 경우 [지원 티켓을 만들고][] 가능한 원인으로 "프리미엄 저장소로 마이그레이션"을 참조하세요.
 
@@ -204,7 +181,7 @@ go
 
 
 <!--Other Web references-->
-[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions 알림 허브 출력 바인딩
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Azure 알림 허브 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
@@ -35,7 +37,7 @@ function.json 파일은 다음 속성을 제공합니다.
 - `tagExpression`: 태그 식을 사용하면 알림을 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 장치에 배달하도록 지정할 수 있습니다. 자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요.
 - `hubName`: Azure 포털에서 알림 허브 리소스의 이름입니다.
 - `connection`: 이 연결 문자열은 알림 허브에 대한 *DefaultFullSharedAccessSignature*값으로 설정된 **응용 프로그램 설정** 연결 문자열이어야 합니다.
-- `direction`: *out*으로 설정해야 합니다. 
+- `direction`: *"out"*으로 설정해야 합니다.
  
 예제 function.json:
 
@@ -155,4 +157,4 @@ project.json 파일을 업로드하는 자세한 내용은 [project.json 파일 
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

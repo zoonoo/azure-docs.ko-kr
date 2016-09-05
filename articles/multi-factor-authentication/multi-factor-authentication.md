@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -47,8 +47,8 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 :-------------: | :-------------: | :-------------: | :-------------: |
 **용이성**|**확장성**|**항상 보호**|**안정성**
 
-- **용이성** -Azure Multi-Factor Authentication은 간단하게 설정하고 사용할 수 있습니다. Azure Multi-Factor Authentication과 함께 제공되는 추가 보호를 사용하면 자신의 장치를 관리하고 대부분의 경우 간단한 몇 번 클릭으로 설치할 수 있습니다.
-- **확장성** -Azure Multi-Factor Authentication은 클라우드의 강력한 클라우드의 기능을 이용하며 온-프레미스 AD와 사용자 지정 앱을 통합합니다. 이러한 보호는 고용량 업무상 중요 한 시나리오에도 확장됩니다.
+- **용이성** - Azure Multi-Factor Authentication은 간단하게 설정하고 사용할 수 있습니다. Azure Multi-Factor Authentication과 함께 제공되는 추가 보호를 사용하면 자신의 장치를 관리하고 대부분의 경우 간단한 몇 번 클릭으로 설치할 수 있습니다.
+- **확장성** - Azure Multi-Factor Authentication은 클라우드의 강력한 클라우드의 기능을 이용하며 온-프레미스 AD와 사용자 지정 앱을 통합합니다. 이러한 보호는 고용량 업무상 중요 한 시나리오에도 확장됩니다.
 - **항상 보호** -Azure Multi-Factor Authentication은 가장 높은 업계 표준을 사용하여 강력한 인증을 제공합니다.
 - **안정성** -Azure Multi-Factor Authentication의 99.9%의 가용성을 보장합니다. Multi-Factor Authentication에 대한 인증 요청을 수신하거나 처리할 수 없는 경우 서비스는 사용할 수 없는 것으로 간주됩니다.
 
@@ -73,7 +73,7 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 - 모바일 앱 확인 코드
 - 타사 OATH 토큰
 
-작동 방법에 대한 추가 정보는 다음 비디오를 참조하십시오.
+작동 방법에 대한 추가 정보는 다음 비디오를 참조하세요.
 
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
@@ -84,8 +84,8 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 ------------- | ------------- |
 전화 통화 | 우물 정자를 눌러 로그인을 확인하도록 요청하는 통화가 사용자의 스마트폰으로 갑니다. 이것으로 확인 프로세스가 완료됩니다. 이 옵션은 구성 가능하고 지정한 코드로 변경할 수 있습니다.
 문자 메시지 | 6자리 코드가 있는 문자 메시지가 사용자의 스마트폰으로 전송됩니다. 확인 프로세스를 완료하려면 이 코드를 입력합니다.
-모바일 앱 알림 | 모바일 앱에서 확인을 선택하여 확인을 완료하라는 확인 요청이 사용자의 스마트폰에 전송됩니다. 기본 확인 방법으로 앱 알림을 선택한 경우 전송됩니다. 로그인하지 않았을 때 이 알림을 수신하는 경우 사기 행위로 보고하도록 선택할 수 있습니다.
-모바일 앱을 통한 확인 코드 | 사용자의 스마트폰에서 실행되고 있는 모바일 앱으로 확인 코드가 전송됩니다. 기본 확인 방법으로 확인 코드를 선택한 경우 전송됩니다.
+모바일 앱 알림 | 모바일 앱에서 확인을 선택하여 확인을 완료하라는 확인 요청이 사용자의 스마트폰에 전송됩니다. 기본 확인 방법으로 앱 알림을 선택한 경우 전송됩니다. 로그인하지 않았을 때 이 알림을 수신하는 경우 사기 행위로 보고하도록 선택할 수 있습니다.</li><br><p> [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
+모바일 앱을 통한 확인 코드 | 사용자의 스마트폰에서 실행되고 있는 모바일 앱으로 확인 코드가 전송됩니다. 기본 확인 방법으로 확인 코드를 선택한 경우 전송됩니다.</li><br><p> [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 
 ## Azure Multi-Factor Authentication의 사용 가능한 버전
@@ -134,8 +134,8 @@ Office 365 사용자와 Azure 관리자에게만 제공되는 기능 대신 Azur
 Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.
 
 
-- **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
-- **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
+- **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 Multi-Factor Authentication을 사용하려는 기업에 적합합니다.
+- **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 Multi-Factor Authentication을 사용하려는 기업에 적합합니다.
 
 Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선택 가능한 확인 방법을 제공합니다. 즉, 다단계 인증을 사용할 때 사용자에게 제공할 방법을 선택할 수 있다는 것을 의미합니다. 이 기능은 현재 다단계 인증의 클라우드 버전에 대한 공개 미리 보기 상태입니다. 자세한 내용은 [선택 가능한 확인 방법](multi-factor-authentication-whats-next.md#selectable-verification-methods)을 참조하세요.
 
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

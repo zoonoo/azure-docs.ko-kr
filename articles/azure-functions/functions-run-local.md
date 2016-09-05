@@ -4,7 +4,7 @@
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
 # Visual Studio에서 Azure Functions 코딩 및 테스트하는 방법
 
@@ -222,4 +222,4 @@ Visual Studio가 실행되는 동안 수행된 환경 변수 변경은 자동으
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

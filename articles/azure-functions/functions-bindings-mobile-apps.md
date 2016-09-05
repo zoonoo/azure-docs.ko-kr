@@ -20,6 +20,8 @@
 
 # Azure Functions 모바일 앱 바인딩
 
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+
 이 문서에서는 Azure Functions에서 Azure 모바일 앱 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
@@ -34,7 +36,7 @@ Azure 앱 서비스 모바일 앱을 사용하면 테이블 끝점 데이터를 
 
 함수 앱에서 이 URL을 환경 변수로 설정하려면
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **앱 서비스 설정으로 이동**을 클릭합니다. 
+1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **앱 서비스 설정으로 이동**을 클릭합니다.
 
 	![함수 앱 설정 블레이드](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
@@ -44,7 +46,7 @@ Azure 앱 서비스 모바일 앱을 사용하면 테이블 끝점 데이터를 
 
 이제 바인딩에서 이 새 환경 변수를 *연결* 필드로 설정할 수 있습니다.
 
-## <a id="mobiletablesapikey"></a> API 키를 사용하여 모바일 앱 테이블 끝점에 대한 액세스 보호
+## <a id="mobiletablesapikey"></a> API 키를 사용하여 모바일 앱 테이블 끝점에 대한 액세스 보호.
 
 Azure Functions에서, 모바일 테이블 바인딩을 사용하면 API 키를 지정할 수 있으며 이는 함수 이외의 앱에서 원치 않는 액세스를 방지하는 데 사용될 수 있는 공유 암호입니다. 모바일 앱은 API 키 인증에 기본으로 제공되는 지원이 없습니다. 그러나 [API 키를 구현하는 Azure 앱 서비스 모바일 앱 백 엔드](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)의 예제를 수행하여 Node.js 백 엔드 모바일 앱에 API 키를 구현할 수 있습니다. [.NET 백 엔드 모바일 앱](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key)에서 API 키를 유사하게 구현할 수 있습니다.
 
@@ -167,4 +169,4 @@ function.json 파일은 다음 속성을 지원합니다.
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/06/2016"
+ms.date="08/23/2016"
 ms.author="larryfr"/>
 
 #HDInsight에서 pig와 함께 DataFu 사용
@@ -30,7 +30,9 @@ DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 
 
 ##Linux 기반 HDInsight에 DataFu 설치
 
-> [AZURE.NOTE] DataFu는 Windows 기반 HDInsight 클러스터에 미리 설치됩니다. Windows 기반 클러스터를 사용하는 경우 이 섹션을 건너뛰세요.
+> [AZURE.NOTE] DataFu는 Linux 기반 클러스터 버전 3.3 이상 및 Windows 기반 클러스터에 설치됩니다. 3.3 이전 버전의 Linux 기반 클러스터에 설치되지 않습니다.
+>
+> Linux 기반 클러스터 버전 3.3 이상 또는 Windows 기반 클러스터를 사용하는 경우 이 섹션을 건너뛸 수 있습니다.
 
 Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니다. 다음 단계를 따라 DataFu를 HDInsight 클러스터에 추가합니다.
 
@@ -107,4 +109,4 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

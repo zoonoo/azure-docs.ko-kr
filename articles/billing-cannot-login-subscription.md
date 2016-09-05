@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # 내 Azure 구독 관리를 위해 로그인할 수 없음
 
-> [AZURE.NOTE] 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 [Azure 지원 사이트](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)에 Azure 지원 인시던트를 제출할 수도 있습니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하여 문제를 신속하게 해결하세요.
 
 이 문서는 로그인 문제의 몇 가지 일반적인 원인을 해결하는 데 도움이 됩니다.
 
@@ -54,4 +54,6 @@ Microsoft 계정은 사용하는 메일 주소이며 암호와 함께 사용하�
 
 IE InPrivate 브라우징 모드를 사용하고 다른 브라우저도 사용하여 캐시/쿠키를 삭제합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

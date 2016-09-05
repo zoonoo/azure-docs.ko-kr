@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 컨트롤러 모듈 교체
@@ -148,7 +148,7 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
 
     2. 장치가 완전히 종료될 때까지 기다립니다. 장치 뒷면의 모든 LED가 꺼집니다.
 
-2. 데이터 포트에 연결된 모든 네트워크 케이블을 뺍니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 뺍니다.
+2. 데이터 포트에 연결된 모든 네트워크 케이블을 뺍니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 제거합니다.
 
 3. StorSimple 장치에서 두 컨트롤러를 모두 꺼냅니다. 자세한 내용은 [컨트롤러 제거](#remove-a-controller)를 참조하세요.
 
@@ -156,7 +156,7 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
 
 5. 컨트롤러 교체 논리가 백그라운드에서 진행되는 동안 케이블을 다시 연결합니다. 교체 전에 연결된 것과 동일한 방식으로 모든 케이블을 연결해야 합니다. [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)의 장치를 케이블로 연결 섹션에서 모델에 대한 자세한 지침을 참조하세요.
 
-6. StorSimple 장치를 켭니다. 8600 모델을 사용하는 경우
+6. StorSimple 장치를 켭니다. 8600 모델을 사용하는 경우:
 
     1. EBOD 엔클로저가 먼저 켜지는지 확인합니다.
 
@@ -266,4 +266,4 @@ Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

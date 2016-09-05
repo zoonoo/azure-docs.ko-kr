@@ -204,7 +204,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] 위의 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **partitionweblogs.hql** 파일을 복사합니다.
+		> [AZURE.NOTE] 위의 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **input.log** 파일을 복사합니다.
 	
 	5. 파일이 성공적으로 업로드되면 AzCopy에서 다음과 비슷한 출력이 표시됩니다.
 	
@@ -228,4 +228,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

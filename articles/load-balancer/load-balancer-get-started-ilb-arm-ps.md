@@ -3,7 +3,7 @@
    description="리소스 관리자에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # PowerShell을 사용하여 내부 부하 분산 장치 만들기 시작
 
@@ -191,7 +191,7 @@ LB-Nic2-BE라는 두 번째 네트워크 인터페이스 만들기:
 
 	$backendnic1
 
-예상된 출력:
+예상 출력:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -316,4 +316,4 @@ Remove-AzureRmLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

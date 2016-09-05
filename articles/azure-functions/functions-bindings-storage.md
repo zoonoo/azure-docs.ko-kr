@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Azure 저장소에 대한 Azure Functions 트리거 및 바인딩
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Azure 저장소 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다.
 
@@ -30,13 +32,13 @@
 
 *function.json* 파일은 다음 속성을 지정합니다.
 
-- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. 
+- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `queueName`: 폴링할 큐의 이름입니다. 큐 명명 규칙은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
 - `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
 - `type`: *queueTrigger*로 설정해야 합니다.
-- `direction`: *in*으로 설정해야 합니다. 
+- `direction`: *in*으로 설정해야 합니다.
 
-저장소 큐 트리거에 대한 *function.json* 예제
+저장소 큐 트리거에 대한 *function.json* 예제:
 
 ```json
 {
@@ -58,9 +60,9 @@
 큐 메시지를 다음 중 원하는 형식으로 역직렬화할 수 있습니다.
 
 * 개체(JSON의)
-* 문자열
-* 바이트 배열 
-* `CloudQueueMessage`(C#) 
+* String
+* 바이트 배열
+* `CloudQueueMessage`(C#)
 
 #### 큐 트리거 메타데이터
 
@@ -114,13 +116,13 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 *function.json* 파일은 다음 속성을 지정합니다.
 
-- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. 
+- `name`: 큐 또는 큐 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `queueName`: 큐의 이름입니다. 큐 명명 규칙은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
 - `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
 - `type`: *queue*로 설정해야 합니다.
-- `direction`: *out*으로 설정해야 합니다. 
+- `direction`: *out*으로 설정해야 합니다.
 
-큐 트리거를 사용하고 큐 메시지를 쓰는 저장소 큐 출력 바인딩에 대한 *function.json* 예제
+큐 트리거를 사용하고 큐 메시지를 쓰는 저장소 큐 출력 바인딩에 대한 *function.json* 예제:
 
 ```json
 {
@@ -150,8 +152,8 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 * 개체(C#의 경우 `out T`, 함수가 종료될 때 매개 변수가 null인 경우 null 개체가 포함된 메시지 생성)
 * 문자열(C#의 경우 `out string`, 함수가 종료될 때 매개 변수 값이 null이 아닌 경우 큐 메시지 생성)
-* 바이트 배열(C#의 경우 `out byte[]`, 문자열처럼 작동) 
-* `out CloudQueueMessage`(C#, 문자열처럼 작동) 
+* 바이트 배열(C#의 경우 `out byte[]`, 문자열처럼 작동)
+* `out CloudQueueMessage`(C#, 문자열처럼 작동)
 
 C#의 경우 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
 
@@ -182,7 +184,7 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 *function.json* 파일은 다음 속성을 지정합니다.
 
-- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다. 
+- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `path`: 모니터링할 컨테이너를 지정하는 경로 및 선택적으로 Blob 이름 패턴입니다.
 - `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 트리거는 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
 - `type`: *blobTrigger*로 설정해야 합니다.
@@ -210,7 +212,7 @@ samples-workitems 컨테이너에 추가된 Blob을 감시하는 저장소 Blob 
 BLOB을 Node 또는 C# 함수에서 다음 중 원하는 형식으로 역직렬화할 수 있습니다.
 
 * 개체(JSON의)
-* 문자열
+* String
 
 C# 함수에서 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
@@ -223,7 +225,7 @@ C# 함수에서 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)에 의해 deserialize된 다른 유형 
+* [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)에 의해 deserialize된 다른 유형
 
 #### Blob 트리거 C# 코드 예제
 
@@ -294,7 +296,7 @@ Blob 트리거 함수가 일시적인 오류로 인해 실패할 경우 SDK에�
 
 #### 큰 컨테이너에 대한 Blob 폴링
 
-트리거가 모니터링하는 Blob 컨테이너가 10,000개 이상의 Blob를 포함하는 경우 함수 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob를 확인합니다. 이 프로세스는 실시간으로 처리되지 않으므로 Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그를 만들기 위해 "최선"](https://msdn.microsoft.com/library/azure/hh343262.aspx)을 다하고 있지만 모든 이벤트를 캡처하는 것을 보장하지는 않습니다. 경우에 따라 로그가 누락될 수 있습니다. 응용 프로그램에서 큰 컨테이너에 대한 Blob 트리거의 속도 및 안정성 제한 사항이 적합하지 않을 경우, Blob를 만들 때 큐 메시지를 만들고 Blob를 처리하는 Blob 트리거 대신 큐 트리거를 사용하는 것이 좋습니다.
+트리거가 모니터링하는 Blob 컨테이너가 10,000개 이상의 Blob를 포함하는 경우 함수 런타임은 로그 파일을 스캔하여 새롭거나 변경된 Blob를 확인합니다. 이 프로세스는 실시간으로 처리되지 않으므로 Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그를 만들기 위해 “최선”](https://msdn.microsoft.com/library/azure/hh343262.aspx)을 다하고 있지만 모든 이벤트를 캡처하는 것을 보장하지는 않습니다. 경우에 따라 로그가 누락될 수 있습니다. 응용 프로그램에서 큰 컨테이너에 대한 Blob 트리거의 속도 및 안정성 제한 사항이 적합하지 않을 경우, Blob를 만들 때 큐 메시지를 만들고 Blob를 처리하는 Blob 트리거 대신 큐 트리거를 사용하는 것이 좋습니다.
  
 ## <a id="storageblobbindings"></a> Azure 저장소 Blob 입력 및 출력 바인딩
 
@@ -302,11 +304,11 @@ Blob 트리거 함수가 일시적인 오류로 인해 실패할 경우 SDK에�
 
 *function.json* 파일은 다음 속성을 지정합니다.
 
-- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다. 
+- `name`: Blob에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `path`: Blob을 읽어오거나 Blob을 기록할 컨테이너를 지정하는 경로이며, 선택적으로 Blob 이름 패턴입니다.
 - `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 바인딩은 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
 - `type`: *Blob*으로 설정해야 합니다.
-- `direction`: *in* 또는 *out*으로 설정합니다. 
+- `direction`: *in* 또는 *out*으로 설정합니다.
 
 저장소 Blob 입력 또는 출력 바인딩에 대한 *function.json* 예제로 큐 트리거를 사용하여 Blob을 복사합니다.
 
@@ -353,8 +355,8 @@ C# 함수에서 다음 형식으로 바인딩할 수 있습니다.
 * `Stream`
 * `CloudBlobStream`(출력에만 해당)
 * `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `CloudBlockBlob`
+* `CloudPageBlob`
 
 #### Blob 출력 C# 코드 예제
 
@@ -374,14 +376,14 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 *function.json*은 다음 속성을 지정합니다.
 
-- `name`: 테이블 바인딩에 대한 함수 코드에 사용되는 변수 이름입니다. 
+- `name`: 테이블 바인딩에 대한 함수 코드에 사용되는 변수 이름입니다.
 - `tableName`: 테이블의 이름입니다.
-- `partitionKey` 및 `rowKey` - 함께 사용되어 C# 또는 노드 함수에서 단일 엔터티를 읽거나 노드 함수에서 단일 엔터티를 작성합니다.
-- `take` - 노드 함수에서 테이블 입력에 대해 읽는 행의 최대 수입니다.
-- `filter` - 노드 함수에서 테이블 입력에 대한 OData 필터 식입니다.
+- `partitionKey` 및 `rowKey`: 함께 사용되어 C# 또는 노드 함수에서 단일 엔터티를 읽거나 노드 함수에서 단일 엔터티를 작성합니다.
+- `take`: 노드 함수에서 테이블 입력에 대해 읽는 행의 최대 수입니다.
+- `filter`: 노드 함수에서 테이블 입력에 대한 OData 필터 식입니다.
 - `connection`: 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. `connection`을 비워두면, 바인딩은 AzureWebJobsStorage 앱 설정에 의해 지정되는 함수 앱에 대한 기본 저장소 연결 문자열로 작동합니다.
 - `type`: *table*로 설정해야 합니다.
-- `direction`: *in* 또는 *out*으로 설정합니다. 
+- `direction`: *in* 또는 *out*으로 설정합니다.
 
 다음 예제 *function.json*은 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. JSON은 하드 코드된 파티션 키 값을 제공하고 행 키를 큐 메시지에서 가져온 것으로 지정합니다.
 
@@ -605,4 +607,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

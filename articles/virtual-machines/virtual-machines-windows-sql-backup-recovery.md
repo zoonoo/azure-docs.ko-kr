@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-resource-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
@@ -43,9 +43,9 @@ Azure 가상 컴퓨터에 SQL Server 인스턴스가 실행 중이면, 데이터
 
 - 백업 파일을 Azure에 바로 저장할 수 있습니다. 자세한 내용은 다양한 버전의 SQL Server에 대한 지침을 제공하는 다음 섹션을 참조하세요.
 
-## SQL Server 2016 Release Candidate
+## SQL Server 2016
 
-Microsoft SQL Server 2016 Release Candidate(RC3)은 SQL Server 2014의 [Azure BLOB를 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
+Microsoft SQL Server 2016은 SQL Server 2014의 [Azure Blob를 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
 
 | 2016의 향상된 기능 | 세부 정보 |
 |---------------------|-------------------------------|
@@ -63,7 +63,7 @@ SQL Server 2014에는 다음과 같은 향상된 기능이 포함되어 있습�
 
  - *URL에 대한 SQL Server 백업*이 이제 SQL Server Management Studio에서 지원됩니다. 이제 백업이나 복원 작업 또는 SQL Server Management Studio의 유지 관리 계획 마법사를 사용할 때 Azure에 백업하는 옵션을 사용할 수 있습니다. 자세한 내용은 [URL에 대한 SQL Server 백업](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)을 참조하세요.
  - *Azure에 대한 SQL Server 관리되는 백업*에는 자동화된 백업 관리를 사용할 수 있는 새로운 기능이 있습니다. 이 기능은 Azure 컴퓨터에서 실행되는 SQL Server 2014 인스턴스에 대한 백업 관리를 자동화하는 데 특히 유용합니다. 자세한 내용은 [Microsoft Azure로의 SQL Server 관리되는 백업](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)을 참조하세요.
- - *자동화된 백업*은 Azure에서 SQL Server VM에 대해 모든 기존 및 새로운 데이터베이스에서 *Azure에 대한 SQL Server 관리되는 백업*을 자동으로 사용할 수 있게 해주는 추가적인 자동화 기능을 제공합니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
+ - *자동화된 백업*은 Azure에서 SQL Server VM에 대해 모든 기존 및 새로운 데이터베이스에서 *Azure에 대한 SQL Server 관리되는 백업*을 자동으로 사용할 수 있게 해주는 추가적인 자동화 기능을 제공합니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
  - Azure에 대한 모든 SQL Server 2014 백업 옵션의 개요는 [Microsoft Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)을 참조하세요.
 
 1. **암호화**: SQL Server 2014는 백업을 만들 때 데이터를 암호화하는 기능을 지원합니다. 이 기능은 다양한 암호화 알고리즘과 인증서 또는 비대칭 키의 사용을 지원합니다. 자세한 내용은 [백업 암호화](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx)를 참조하세요.
@@ -92,4 +92,4 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure Resource Mana
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-windows-sql-server-iaas-overview.md)를 검토하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

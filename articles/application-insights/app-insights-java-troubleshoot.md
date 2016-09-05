@@ -33,7 +33,7 @@
 * 잠시 기다린 후 새로 고침을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 새로 고침 간격은 차트의 시간 범위에 따라 달라집니다.
 * ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)에 계측 키가 정의되어 있는지 확인합니다.
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
-* 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
+* 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. [방화벽 예외의 전체 목록](app-insights-ip-addresses.md)을 참조하세요.
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
 * ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)의 루트 노드 아래에 `<SDKLogger />` 요소를 추가하여 IDE 콘솔 창에 기록을 켜고 앞에 [Error]가 붙은 항목을 확인합니다.
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다.”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
@@ -44,11 +44,11 @@
 #### 데이터를 보는 데 중지되었습니다.
 
 * [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 #### 기대한 모든 데이터가 표시되지 않는 경우
 
-* 할당량 및 가격 책정 블레이드를 열고 [샘플링](app-insights-sampling.md)을 사용하는지 여부를 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다. 
+* 할당량 및 가격 책정 블레이드를 열고 [샘플링](app-insights-sampling.md)이 작동하는지 여부를 확인합니다. (100% 전송이란 샘플링을 사용하지 않는다는 의미입니다.) Application Insights 서비스는 앱에서 도착하는 원격 분석의 일부만 허용하도록 설정할 수 있습니다. 이렇게 하면 원격 분석의 월간 할당량 내로 유지하는 데 도움이 됩니다.
 
 ## 사용 현황 데이터 없음
 
@@ -140,4 +140,4 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

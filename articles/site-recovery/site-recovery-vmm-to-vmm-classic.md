@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="raynew"/>
 
 # 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
@@ -47,7 +47,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 --- | ---
 **Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/site-recovery/).
 **VMM** | 하나 이상의 VMM 서버가 필요합니다.<br/><br/>VMM 서버에서 최신 누적 업데이트를 포함하는 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/>단일 VMM 서버에 보호를 설정하려는 경우 서버에 두 개 이상의 클라우드를 구성해야 합니다.<br/><br/>두 VMM 서버에 보호를 배포하려는 경우 각 서버에 보호하려는 기본 VMM 서버에 하나 이상의 클라우드를 구성해야 하고 보호 및 복구에 사용하려는 보조 VMM 서버에 하나의 클라우드를 구성해야 합니다.<br/><br/>모든 VMM 클라우드에 Hyper-V 용량 프로필을 설정해야 합니다.<br/><br/>보호할 원본 클라우드에는 하나 이상의 VMM 호스트 그룹이 포함되어야 합니다.<br/><br/>Keith Mayer 블로그의 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.
-**Hyper-V** | 기본 및 보조 VMM 호스트 그룹에서 하나 이상의 Hyper-V 호스트 서버가 필요하고 각 Hyper-V 호스트 서버에 하나 이상의 가상 컴퓨터가 필요합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세한 정보](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)를 확인해 보세요.
+**Hyper-V** | 기본 및 보조 VMM 호스트 그룹에서 하나 이상의 Hyper-V 호스트 서버가 필요하고 각 Hyper-V 호스트 서버에 하나 이상의 가상 컴퓨터가 필요합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 broker가 자동으로 만들어지지 않습니다. 클러스터 broker를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세한 정보](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)를 확인해 보세요.
 **네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑과 관련된 [자세한 정보](site-recovery-network-mapping.md)를 확인해 보세요.
 **저장소 매핑** | 기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장된 위치에 대해 더 제어하려면 저장소 매핑을 구성할 수 있습니다<br/><br/> 저장소 매핑을 구성하려면 배포를 시작하기 전에 원본 및 대상 VMM 서버에서 저장소 분류를 설정해야 합니다. [자세히 알아봅니다](site-recovery-storage-mapping.md).
 
@@ -132,9 +132,9 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 11.  자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
 12.  **클라우드 메타데이터 동기화**에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
 
-13.  **다음**을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 **VMM 서버** 탭에 표시됩니다.
- 	
-	![마지막 페이지](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+13.  **다음**을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **VMM 서버** > **서버**에 표시됩니다.
+
+	![서버](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### 명령줄 설치
 
@@ -158,13 +158,13 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 매개 변수는 다음에 위치합니다.
 
- - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
- - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지 확인합니다.
- - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
- - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
- - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
+ - **/Credentials**: 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
+ - **/FriendlyName**: Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
+ - **/EncryptionEnabled**: Azure에서 미사용 중인 가상 컴퓨터를 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지 확인합니다.
+ - **/proxyAddress**: 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
+ - **/proxyport**: 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
+ - **/proxyUsername**: (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
+ - **/proxyPassword**: (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 ## 4단계: 클라우드 보호 설정 구성
 
@@ -363,7 +363,7 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 **기능: 장애 조치(Failover) - 계획됨, 계획되지 않음, 테스트**
 
-- **수행하는 작업:** 이 기능은 VMM 관리되는 데이터 센터 간의 가상 컴퓨터 장애 조치(failover)에 도움이 됩니다. 장애 조치(Failover) 작업은 서비스 포털에서 사용자가 트리거합니다. 장애 조치(Failover)의 가능한 이유로 계획되지 않은 이벤트(예: 자연 재해), 계획된 이벤트(예: 데이터 센터 부하 분산), 테스트 장애 조치(Failover)(예: 복구 계획 예행 연습) 등이 있습니다.
+- **수행하는 작업:** 이 기능은 VMM 관리되는 데이터 센터 간의 가상 컴퓨터 장애 조치(failover)에 도움이 됩니다. 장애 조치(Failover) 작업은 서비스 포털에서 사용자가 트리거합니다. 장애 조치(Failover)의 가능한 이유로 계획되지 않은 이벤트(예: 자연재해), 계획된 이벤트(예: 데이터 센터 부하 분산), 테스트 장애 조치(Failover)(예: 복구 계획 예행연습) 등이 있습니다.
 
 VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 VMM 인터페이스를 통해 Hyper-V 호스트에서 장애 조치(Failover) 작업을 실행합니다. 일반적으로 서로 다른 "복구" 데이터 센터에서 실행되는 Hyper-V 호스트 간의 실제 가상 컴퓨터 장애 조치(Failover)는 Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제 기술을 통해 처리됩니다. 장애 조치(Failover)가 완료되면 "복구" 데이터 센터의 VMM 서버에 설치된 공급자가 성공 정보를 서비스로 보냅니다.
 
@@ -376,9 +376,9 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
 	- VMM 서버의 클라우드 이름 - 클라우드 이름은 아래에 설명된 서비스 클라우드 연결/연결 해제 기능을 사용할 때 필요합니다. 기본 데이터 센터의 클라우드를 복구 데이터 센터의 다른 클라우드와 연결하는 경우 복구 데이터 센터의 모든 클라우드 이름이 제공됩니다.
 
 - **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 이 서비스를 사용하지 마세요.
- 
+
 ## 다음 단계
 
 환경이 예상대로 작동 중인지 확인하기 위해 테스트 장애 조치(failover)를 실행한 후에 여러 형식의 장애 조치(failover)에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

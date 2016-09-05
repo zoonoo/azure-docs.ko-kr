@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.
 
 	![모바일 서비스](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. **구성 서버 세부 정보**에서 구성 서버의 IP 주소 및 통합 설치 프로그램을 실행했을 때 생성된 암호를 지정합니다. 구성 서버에서 다음을 실행하여 암호를 검색할 수 있습니다. **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n**.
+3. **구성 서버 세부 정보**에서 구성 서버의 IP 주소 및 통합 설치 프로그램을 실행했을 때 생성된 암호를 지정합니다. 구성 서버에서 다음을 실행하여 암호를 검색할 수 있습니다. **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –v**.
 
 	![모바일 서비스](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -580,6 +580,14 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 - /InstallLocation: 필수. 서비스를 설치할 위치를 지정합니다.
 - /PassphraseFilePath: 필수. 구성 서버 암호입니다.
 - /LogFilePath: 필수. 로그 설치 파일 위치입니다.
+
+#### 모바일 서비스 수동 제거
+
+제어판에서 프로그램 추가/제거를 사용하거나 명령줄을 사용하여 모바일 서비스를 제거할 수 있습니다.
+
+명령줄을 사용하여 모바일 서비스를 제거하는 명령은 다음과 같습니다.
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Linux 서버에 수동으로 설치:
@@ -851,4 +859,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

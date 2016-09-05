@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Facebook 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
@@ -22,7 +22,7 @@
 
 이 항목에서는 Facebook을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
-이 토픽의 절차를 완료하려면 검증된 전자 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하세요.
+이 토픽의 절차를 완료하려면 검증된 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하세요.
 
 ## <a name="register"> </a>Facebook을 사용하여 응용 프로그램 등록
 
@@ -48,7 +48,7 @@
 
 ## <a name="secrets"> </a>응용 프로그램에 Facebook 정보 추가
 
-1. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정** > **인증 / 권한 부여**를 클릭하고 **앱 서비스 인증**이 **켜져** 있는지 확인합니다.
+1. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정** > **인증 / 권한 부여**를 클릭하고 **앱 서비스 인증**이 **켜기**인지 확인합니다.
 
 2. **Facebook**을 클릭하고 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 필요한 경우 응용 프로그램에 필요한 모든 범위를 사용하도록 설정한 다음 **확인**을 클릭합니다.
 
@@ -75,4 +75,4 @@
 [Get started with authentication]: /ko-KR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

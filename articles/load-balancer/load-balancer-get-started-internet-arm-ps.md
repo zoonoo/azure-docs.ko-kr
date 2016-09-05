@@ -3,7 +3,7 @@
    description="PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -183,7 +183,7 @@ NIC를 확인합니다.
 
 	$backendnic1
 
-예상된 출력:
+예상 출력:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -308,4 +308,4 @@ Set-AzureLoadBalancer를 사용하여 새 구성 저장
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

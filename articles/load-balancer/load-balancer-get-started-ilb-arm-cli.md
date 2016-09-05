@@ -1,25 +1,25 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 Azure CLI를 사용하여 내부 부하 분산 장치 만들기 | Microsoft Azure"
    description="리소스 관리자에서 Azure CLI를 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure CLI를 사용하여 내부 부하 분산 장치 만들기 시작
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](load-balancer-get-started-ilb-classic-cli.md).
 
@@ -29,7 +29,7 @@
 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 
-- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 개인 IP 주소를 구성합니다. 
+- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 개인 IP 주소를 구성합니다.
 
 - 백 엔드 주소 풀 - 부하 분산 장치의 트래픽을 받는 NIC(네트워크 인터페이스)를 포함합니다.
 
@@ -51,19 +51,19 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 		azure config mode arm
 
-	예상된 출력:
+	예상 출력:
 
 		info:    New mode is arm
 
-## 내부 부하 분산 장치 만들기 단계별 지침 
+## 내부 부하 분산 장치 만들기 단계별 지침
 
 다음 단계에서는 위의 시나리오를 기반으로 내부 부하 분산 장치를 만듭니다.
 
-### 1단계 
+### 1단계
 
 아직 최신 버전의 [Azure 명령줄 인터페이스](https://azure.microsoft.com/downloads/)를 다운로드하지 않았으면 다운로드합니다.
 
-### 2단계 
+### 2단계
 
 설치한 후에 사용자의 계정을 인증합니다.
 
@@ -84,30 +84,30 @@ Azure 리소스 관리자의 모든 리소스는 리소스 그룹에 연결됩�
 	azure group create <resource group name> <location>
 
 
-## 내부 부하 분산 장치 집합을 만듭니다. 
+## 내부 부하 분산 장치 집합을 만듭니다.
 
 
-### 1단계 
+### 1단계
 
 `azure network lb create`를 사용하여 내부 부하 분산 장치를 만듭니다. 다음 시나리오에서 nrprg라는 이름의 리소스 그룹이 미국 동부 지역에 만들어집니다.
- 	
+
 	azure network lb create -n nrprg -l westus
 
 >[AZURE.NOTE] 가상 네트워크 및 가상 네트워크 서브넷 같은 내부 부하 분산 장치의 모든 리소스는 동일한 리소스 그룹 및 동일한 지역에 속해야 합니다.
 
 
-### 2단계 
+### 2단계
 
 내부 부하 분산 장치의 프런트 엔드 IP 주소를 만듭니다. 사용되는 IP 주소는 가상 네트워크의 서브넷 범위 안에 있어야 합니다.
 
-	
+
 	azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
 
 사용된 매개 변수:
 
 **-g** – 리소스 그룹 **-l** – 내부 부하 분산 장치 집합의 이름 **-n** – 프런트 엔드 IP의 이름 **-a** – 서브넷 범위 안의 개인 IP 주소 **-e** – 서브넷 이름 **-m** – 가상 네트워크 이름
 
-### 3단계 
+### 3단계
 
 백 엔드 주소 풀을 만듭니다.
 
@@ -135,14 +135,14 @@ Azure 리소스 관리자의 모든 리소스는 리소스 그룹에 연결됩�
 인바운드 NAT 규칙을 만듭니다. 인바운드 NAT 규칙은 특정 가상 컴퓨터 인스턴스로 이동할 부하 분산 장치에 끝점을 만드는 데 사용됩니다. 위의 예제에 따라, 원격 데스크톱 액세스를 위해 2개의 NAT 규칙을 만듭니다.
 
 	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule1 -p TCP -f 5432 -b 3389
-	
+
 	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule2 -p TCP -f 5433 -b 3389
 
 사용된 매개 변수:
 
 **-g** - 리소스 그룹 **-l** - 내부 부하 분산 장치 집합의 이름 **-n** - 인바운드 NAT 규칙의 이름 **-p** – 규칙에 사용되는 프로토콜 **-f** - 부하 분산 장치 프런트 엔드의 들어오는 네트워크 트래픽을 수신 대기하는 포트 **-b** - 백 엔드 주소 풀의 네트워크 트래픽을 수신하는 포트
 
-### 5단계 
+### 5단계
 
 부하 분산 장치에 대한 상태 프로브를 만듭니다. 상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 컴퓨터 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다.
 
@@ -156,23 +156,23 @@ Azure 리소스 관리자의 모든 리소스는 리소스 그룹에 연결됩�
 
 NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규칙 및 프로브에 연결해야 합니다.
 
-### 1단계 
+### 1단계
 
 *lb-nic1-be*라는 NIC를 만들고 *rdp1* NAT 규칙 및 *beilb* 백 엔드 주소 풀과 연결합니다.
-	
+
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
 매개 변수:
 
 - **-g** - 리소스 그룹 이름
 - **-n** - NIC 리소스 이름
-- **-subnet-name** - 서브넷 이름 
+- **-subnet-name** - 서브넷 이름
 - **-서브넷-vnet-이름--subnet-vnet-name** -가상 네트워크 이름
-- **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID 
-- **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
+- **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID
+- **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>으로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
 
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nic create
 	+ Looking up the network interface "lb-nic1-be"
@@ -204,7 +204,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
-### 3단계 
+### 3단계
 
 *DB1*이라는 VM(가상 컴퓨터)을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
@@ -218,12 +218,12 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 	azure vm create --resource-group nrprg --name DB2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
-## 부하 분산 장치 삭제 
+## 부하 분산 장치 삭제
 
 
 부하 분산 장치를 제거하려면 다음 명령을 사용합니다.
 
-	azure network lb delete -g nrprg -n ilbset 
+	azure network lb delete -g nrprg -n ilbset
 
 여기서 **nrprg**는 리소스 그룹이고 **ilbset**은 내부 부하 분산 장치 이름입니다
 
@@ -234,4 +234,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

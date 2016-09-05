@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(리소스 관리자)
@@ -22,9 +22,9 @@
 - [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
 - [클래식](virtual-machines-windows-classic-sql-automated-patching.md)
 
-자동화된 패치는 SQL Server를 실행하는 Azure 가상 컴퓨터에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이를 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
+자동화된 패치는 SQL Server를 실행하는 Azure 가상 컴퓨터에 대한 유지 관리 기간을 설정합니다. 이 유지 관리 기간 동안만 자동화된 업데이트를 설치할 수 있습니다. SQL Server의 경우 이러한 제한을 통해 시스템 업데이트 및 관련 재시작 작업이 데이터베이스에 대해 가장 적절한 시간에 수행되도록 할 수 있습니다. 자동화된 패치는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치클래식](virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치클래식](virtual-machines-windows-classic-sql-automated-patching.md) 를 참조하세요.
 
 ## 필수 조건
 
@@ -63,7 +63,7 @@
 Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자동화된 패치를 구성할 수 있습니다.
 
 ### 새 VM
-Azure 포털을 사용하여 리소스 관리자 배포 모델에서 새 SQL Server 가상 컴퓨터를 만들 때 자동화된 패치를 구성합니다.
+Azure 포털을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 가상 컴퓨터를 만들 때 자동화된 패치를 구성합니다.
 
 **SQL Server 설정** 블레이드에서 **자동화된 패치**를 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
 
@@ -105,7 +105,7 @@ SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 
 |**DayOfWeek**|매주 목요일마다 패치가 설치됩니다.|
 |**MaintenanceWindowStartingHour**|오전 11시에 업데이트를 시작합니다.|
 |**MaintenanceWindowsDuration**|120분 이내에 패치를 설치해야 합니다. 시작 시간을 기준으로 오후 1시까지 완료해야 합니다.|
-|**PatchCategory**|이 매개 변수에 대해서는 "중요" 설정만 가능합니다.|
+|**PatchCategory**|이 매개 변수에 대해서는 **중요** 설정만 가능합니다.|
 
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
@@ -117,4 +117,4 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!----HONumber=AcomDC_0720_2016--->
+<!----HONumber=AcomDC_0824_2016-->

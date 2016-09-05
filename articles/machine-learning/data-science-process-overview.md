@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="팀 데이터 과학 프로세스란 무엇인가요? | Microsoft Azure" 
-	description="팀 데이터 과학 프로세스는 고급 분석을 활용하는 지능형 응용 프로그램을 구축하기 위한 체계적인 방법입니다." 
-	services="machine-learning" 
-	documentationCenter="" 
+<properties
+	pageTitle="팀 데이터 과학 프로세스란 무엇인가요? | Microsoft Azure"
+	description="팀 데이터 과학 프로세스는 고급 분석을 활용하는 지능형 응용 프로그램을 구축하기 위한 체계적인 방법입니다."
+	keywords="데이터 과학 프로세스, 데이터 과학 팀"
+	services="machine-learning"
+	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/17/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/17/2016"
 	ms.author="bradsev;gopitk" />
 
 
@@ -26,9 +27,9 @@ TDSP(팀 데이터 과학 프로세스)는 데이터 과학자 팀이 응용 프
 - **방법론**: 문제를 정의하고, 관련 데이터를 분석하고, 예측 모델을 빌드 및 평가한 다음 엔터프라이즈 응용 프로그램에서 이러한 모델을 배포하는 방법에 대한 지침을 제공하는 개발 수명 주기를 정의하는 일련의 단계에 대해 간단히 설명합니다.
 - **리소스**: 데이터 과학 활동을 위한 환경 설정 및 신기술 적용을 위한 실질적인 지침을 간소화하는 데이터 과학 VM과 같은 도구 및 기술입니다.
 
-TDSP의 개발 수명 주기는 다음과 같습니다.
+TDSP(Team Data Science Process)의 개발 수명 주기는 다음과 같습니다.
 
-![TDSP-poster](./media/data-science-process-overview/TDSP-poster-simplified.png)
+![다이어그램: 팀에 대한 데이터 과학 프로세스](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
 
 
 프로세스는 **반복적**입니다. 즉, 새로운 기능과 기존 기능 또는 모델의 구체화된 기능에 대한 이해가 변화해 가며 순서에서 이전에 완료한 단계를 다시 작업해야 합니다. 조직의 기존 개발 및 프로젝트 계획 프로세스는 TDSP에서 정의한 단계 순서에서 작동하도록 **쉽게 개조**됩니다.
@@ -36,7 +37,7 @@ TDSP의 개발 수명 주기는 다음과 같습니다.
 프로세스의 단계는 [TDSP 학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)에 다이어그램 및 링크가 제공되어 있으며 아래에 설명되어 있습니다.
 
 
-## 계획 및 준비 단계 
+## 계획 및 준비 단계
 
 ## P1. 비즈니스 및 기술 계획
 
@@ -56,24 +57,24 @@ TDSP의 개발 수명 주기는 다음과 같습니다.
 
 ## 분석 단계:  
 
-## 1\. 데이터 플랫폼에 데이터 수집 
+## 1\. 데이터 플랫폼에 데이터 수집
 
 첫 단계는 엔터프라이즈 내부 또는 외부와 같은 여러 출처의 관련 데이터를, 해당 데이터를 처리할 수 있는 분석 환경으로 가져오는 것입니다. 원본 데이터의 **형식**은 대상에서 필요한 형식과 다를 수 있습니다. 따라서 수집 도구에서 데이터 변환을 어느 정도 수행해야 할 수 있습니다. 옵션에 대해서는 [분석용 저장소 환경에 데이터 로드](machine-learning-data-science-ingest-data.md)를 참조하세요.
 
 초기 데이터 수집 외에도 많은 지능형 응용 프로그램은 진행 중인 학습 프로세스의 일부로 데이터를 정기적으로 새로 고쳐야 합니다. **데이터 파이프라인** 또는 워크플로를 설정하여 이 작업을 수행할 수 있습니다. 이는 솔루션을 배포하는 지능형 응용 프로그램에 사용되는 분석 모델의 재생성과 재평가를 포함하는 프로세스의 반복적 부분입니다. 예를 들어 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md)을 참조하세요.
 
 
-## 2\. 데이터를 살펴보고 시각화 
+## 2\. 데이터를 살펴보고 시각화
 
 다음 단계는 **요약 통계**, 관계 등을 조사하고 **시각화** 등과 같은 기법을 사용하여 데이터를 더 깊이 이해하는 것입니다. 또한 **데이터 품질**과, 값 누락, 데이터 형식 불일치, 일관되지 않은 데이터 관계 등의 무결성 문제도 이 단계에서 처리됩니다. 전처리 변환을 사용하여 원시 데이터를 정리해야 추가 분석 및 모델링을 수행할 수 있습니다. 관련 설명은 [향상된 기계 학습에 대한 데이터를 준비하는 작업](machine-learning-data-science-prepare-data.md)을 참조하세요.
 
 
-## 3\. 기능을 생성하고 선택 
+## 3\. 기능을 생성하고 선택
 
 데이터 과학자는 영역 전문가와 협력하여 데이터 집합의 두드러진 속성을 수집하는 기능을 식별해야 하며 이 기능을 사용하면 계획 중에 식별된 주요 비즈니스 변수를 가장 잘 예측할 수 있습니다. 이러한 새 기능은 기존 데이터에서 파생될 수도 있고 추가 데이터를 수집해야 할 수도 있습니다. 이 프로세스를 **기능 엔지니어링**이라 하며 효과적인 예측 분석 시스템을 만드는 주요 단계 중 하나입니다. 이 단계에서 도메인 전문지식과 데이터 탐색 단계에서 얻은 통찰력을 창의적으로 결합해야 합니다. 지침에 대해서는 [팀 데이터 과학 프로세스의 기능 엔지니어링](machine-learning-data-science-create-features.md)을 참조하세요.
 
 
-## 4\. ML 모델을 만들고 학습 수행 
+## 4\. ML 모델을 만들고 학습 수행
 
 데이터 과학자는 정리되고 기능화한 데이터를 사용하여 계획 단계에서 정의한 비즈니스 요구 사항에 의해 식별된 주요 변수를 예측하는 분석 모델을 만듭니다. 기계 학습 시스템은 광범위한 사례에 적용할 수 있는 여러 **모델링 알고리즘**을 지원합니다. 지침에 대해서는 [팀 Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
 
@@ -99,4 +100,4 @@ TDSP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않�
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 항목에 미리 보기 설명과 함께 나열됩니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

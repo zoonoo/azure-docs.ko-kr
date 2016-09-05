@@ -1,26 +1,26 @@
 
-<properties 
+<properties
    pageTitle="내부 부하 분산 장치 개요 | Microsoft Azure"
    description="내부 부하 분산 장치 및 해당 기능에 대한 개요입니다. Azure에 대한 부하 분산 장치의 작동 방식 및 내부 끝점을 구성하는 가능한 시나리오입니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # 내부 부하 분산 장치 개요
 
 ILB(내부 부하 분산 장치)는 Azure에서 제공되는 현재 인터넷 연결 부하 분산 장치보다 향상된 보안 기능입니다. 클라우드 서비스 내부에 있거나 VPN을 통해 Azure 인프라에 액세스하여 ILB에 연결하는 리소스만 ILB에 액세스할 수 있습니다.
-			
+
 인프라는 접근성을 제한하고 클라우드 서비스 또는 가상 네트워크에 대한 부하 분산 가상 IP 주소 간에 트러스트 경계를 만들며 직접 인터넷 끝점에 노출되지 않습니다. 이렇게 하면 내부 기간 업무 응용 프로그램을 Azure에서 실행하고 클라우드 내 또는 온-프레미스에서 액세스할 수 있습니다.
 
 ## 내부 부하 분산 장치에 대한 시나리오
@@ -40,7 +40,7 @@ ILB를 통해 다음과 같은 새로운 유형의 부하 분산을 사용할 �
 기존 Azure 부하 분산은 인터넷 기반 컴퓨터와 클라우드 서비스의 가상 컴퓨터 간 부하 분산만 제공합니다. ILB를 통해 Azure에서 가상 컴퓨터를 호스트하는 새로운 기능을 사용할 수 있습니다.
 
 - 백 엔드 계층이 인터넷에 연결되어 있지 않지만 인터넷 연결 계층에서 전송된 트래픽에 대한 부하 분산을 요구하는 인터넷 연결 다중 계층 응용 프로그램
-- 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이도 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하를 분산합니다. 트래픽 부하가 분산되는 컴퓨터 집합에 온-프레미스 서버 포함 
+- 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이도 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하를 분산합니다. 트래픽 부하가 분산되는 컴퓨터 집합에 온-프레미스 서버 포함
 - 다음 섹션에서는 이러한 구성을 자세히 설명합니다.
 
 ## 인터넷 연결 다중 계층 응용 프로그램
@@ -90,6 +90,4 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

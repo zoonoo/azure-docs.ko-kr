@@ -21,7 +21,7 @@ description="Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure�
 
 > [AZURE.SELECTOR]
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
-- [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
+- [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 이 항목에서는 **ssh-rsa** 및 **.pem** 형식의 공용 및 개인 키 파일을 Windows에 만들고 사용하여 **ssh** 명령으로 Azure에 Linux VM을 연결할 방법에 대해 설명합니다. **.pem** 파일이 이미 만들어져 있는 경우 해당 파일을 사용하여 Linux VM(**ssh**를 사용하여 연결)을 만듭니다. 일부 다른 명령은 **SSH** 프로토콜 및 키 파일을 사용하여 작업을 안전하게 수행하며 특히 **scp** 또는 [안전한 복사](https://en.wikipedia.org/wiki/Secure_copy)는 **SSH** 연결을 지원하는 컴퓨터에서 파일을 안전하게 복사할 수 있습니다.
@@ -142,13 +142,13 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 
 6. **열기**를 클릭합니다. 다음과 같은 프롬프트가 표시됩니다.
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
 
 7. **확인**을 클릭합니다.
 
 8. 아래 스크린샷에서 강조 표시된 **개인 키 저장**을 클릭합니다.
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
 
 9. 파일을 PPK로 저장합니다.
 
@@ -159,13 +159,13 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 2.	putty.exe를 실행합니다.
 3.	관리 포털의 IP를 사용하여 호스트 이름을 입력합니다.
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-linux/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
 4.	**열기**를 선택하기 전에 연결 > SSH > 인증 탭을 클릭하여 키를 선택합니다. 내용을 입력할 필드는 아래 스크린샷을 참조하세요.
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

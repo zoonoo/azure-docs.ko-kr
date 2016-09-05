@@ -3,7 +3,7 @@
    description="부하 분산 장치 TCP 유휴 시간 제한 구성"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # 부하 분산 장치에 대한 TCP 유휴 시간 제한 설정을 변경하는 방법
 
@@ -166,4 +166,4 @@ Azure SDK for .NET 2.4를 사용하여 클라우드 서비스를 업데이트할
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

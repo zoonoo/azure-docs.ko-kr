@@ -66,7 +66,7 @@
 
 [Azure 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines-windows-planned-maintenance.md)
 
-[Azure 인프라 서비스 구현 지침](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Azure 인프라 서비스 구현 지침](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [가상 컴퓨터에 대한 가용성 집합 만들기](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@
 
 [Azure PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-classic-manage-psh.md)
 	
-[새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[새 VNet에 클래식 VNet 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [가상 컴퓨터 에이전트 및 확장 정보](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@
 
 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

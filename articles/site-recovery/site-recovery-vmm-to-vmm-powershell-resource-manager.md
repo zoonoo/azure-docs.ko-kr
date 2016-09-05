@@ -214,7 +214,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 2. 아래 명령은 원본 VMM 서버 및 대상 VMM 서버에 대한 사이트 복구 네트워크를 가져옵니다.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## 6단계: 가상 컴퓨터에 대한 보호 사용
+## 6단계: 저장소 매핑 구성
+
+1. 아래 명령으로 저장소 분류의 목록을 $storageclassifications 변수로 가져옵니다.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. 아래 명령으로 원본 분류를 $SourceClassificaion 변수로 가져오고, 대상 분류를 $TargetClassification 변수로 가져옵니다.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] 원본 및 대상 분류는 배열의 임의 요소일 수 있습니다. $storageclassifications 배열에서 원본 및 대상 분류의 인덱스를 알아보려면 아래 명령의 출력을 참조하세요.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. 아래 cmdlet은 원본 분류와 대상 분류 간에 매핑을 만듭니다.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## 7단계: 가상 컴퓨터의 보호 활성화
 
 서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다.
 
@@ -331,4 +354,4 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 Azure Resource Manager PowerShell cmdlet와 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

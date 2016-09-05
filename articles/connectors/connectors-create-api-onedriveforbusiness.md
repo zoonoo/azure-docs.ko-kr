@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # 비즈니스용 OneDrive 커넥터 시작
 
-
-
-비즈니스용 OneDrive 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flows.microsoft.com)
+비즈니스용 OneDrive에 연결하여 파일을 관리합니다. 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -67,7 +61,7 @@ ms.author="deonhe"/>
 
 |속성| 필수|설명|
 | ---|---|---|
-|신뢰|예|비즈니스용 OneDrive 자격 증명 제공|
+|위임|예|비즈니스용 OneDrive 자격 증명 제공|
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 
 >[AZURE.INCLUDE [비즈니스용 OneDrive에 대한 연결을 만드는 단계](../../includes/connectors-create-api-onedriveforbusiness.md)]
@@ -82,7 +76,7 @@ ID를 사용하여 파일 메타데이터 가져오기: ID를 사용하여 비�
 
 ```GET: /datasets/default/files/{id}```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |id|string|yes|path|없음|파일 지정|
 
@@ -99,7 +93,7 @@ ID를 사용하여 파일 메타데이터 가져오기: ID를 사용하여 비�
 
 ```PUT: /datasets/default/files/{id}```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |id|string|yes|path|없음|업데이트할 파일 지정|
 |body| |yes|body|없음|비즈니스용 OneDrive에서 업데이트할 파일의 콘텐츠|
@@ -134,7 +128,7 @@ ID를 사용하여 파일 메타데이터 가져오기: ID를 사용하여 비�
 
 ```GET: /datasets/default/GetFileByPath```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |path|string|yes|쿼리|없음|비즈니스용 OneDrive의 파일에 대한 고유 경로|
 
@@ -151,7 +145,7 @@ ID를 사용하여 파일 메타데이터 가져오기: ID를 사용하여 비�
 
 ```GET: /datasets/default/GetFileContentByPath```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |path|string|yes|쿼리|없음|비즈니스용 OneDrive의 파일에 대한 고유 경로|
 
@@ -168,7 +162,7 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 
 ```GET: /datasets/default/files/{id}/content```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |id|string|yes|path|없음|파일 지정|
 
@@ -193,7 +187,7 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -240,7 +234,7 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 
 ```GET: /datasets/default/triggers/onupdatedfile```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |folderId|string|yes|쿼리|없음|폴더 지정|
 
@@ -277,7 +271,7 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 이 호출에 대한 매개 변수는 없습니다.
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -288,7 +282,7 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 
 ```POST: /datasets/default/extractFolderV2```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |원본|string|yes|쿼리|없음|보관 파일의 경로|
 |destination|string|yes|쿼리|없음|보관 콘텐츠를 추출할 비즈니스용 OneDrive의 경로|
@@ -366,4 +360,4 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

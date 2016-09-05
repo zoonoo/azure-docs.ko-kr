@@ -166,12 +166,21 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Azure 포털의 **설정** 블레이드에서 이를 구성할 수 있습니다. VM 규모 집합의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 저장소 큐 ID를 *metricResourceUri*로 전달하도록 ARM 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
+예를 들어 클래식 저장소 계정을 사용하면 자동 크기 조정 설정 metricTrigger는 다음을 포함합니다.
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+(클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## 자주 사용되는 서비스 버스 메트릭
 
@@ -187,4 +196,4 @@ VM 규모 집합의 경우 *metricName*을 *ApproximateMessageCount*로 사용�
 
 >[AZURE.NOTE] 서비스 버스의 경우 리소스 그룹 개념이 없지만 Azure Resource Manager가 지역마다 기본 리소스 그룹을 만듭니다. 리소스 그룹은 일반적으로 'Default-ServiceBus-[region]' 형식입니다. 예를 들어 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' 등입니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

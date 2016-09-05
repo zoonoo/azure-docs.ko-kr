@@ -6,10 +6,11 @@ Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 �
 **이러한 알려진 기능 외에** Azure에서는 *새로운* 기능을 통해 더 큰 Docker의 혜택을 제공합니다.
 
 - [수많은](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [다양한](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) 방법들로 컨테이너용 Docker 호스트를 상황에 맞게 생성
+- [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)는 **marathon** 및 **swarm** 같은 orchestrator를 사용하여 컨테이너 호스트의 클러스터를 만듭니다.
 - [Azure 리소스 관리자](../articles/resource-group-overview.md) 및 [리소스 그룹 템플릿](../articles/resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
-Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 곧 출시될 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
+Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 현재 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
 
 이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [컨테이너 작업 도구](#tools-for-working-with-containers)에서 확인할 수 있습니다.
 
@@ -23,7 +24,7 @@ Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 
 
 정말 멋진 기능이라 할 수 있습니다.
 
-Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 컨테이너와 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 최적화된 가상 컴퓨터에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows 컨테이너를 사용하려면 [Windows 컨테이너 Azure 빠른 시작](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup)을 참조하세요.
+Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 최적화된 가상 컴퓨터에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows 컨테이너를 사용하려면 [Windows 컨테이너 Azure 빠른 시작](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup)을 참조하세요.
 
 이것도 아주 멋진 일입니다.
 
@@ -39,7 +40,7 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 
 ## 컨테이너의 이점
 
-컨테이너는 다양한 작업에서 유용하지만 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)나 [Azure 서비스 패브릭](../articles/service-fabric/service-fabric-overview.md)과 마찬가지로 단일 서비스 및 [마이크로 서비스] 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
+컨테이너는 다양한 작업에서 유용하지만 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)나 [Azure 서비스 패브릭](../articles/service-fabric/service-fabric-overview.md)과 마찬가지로 단일 서비스 및 마이크로 서비스 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
 
 특히 Azure와 같은 공용 클라우드 환경에서는 VM이 필요할 때 언제 어디서나 가져다 쓸 수 있기 때문에 더욱 그 진가를 발합니다. 격리, 신속한 배포, 오케스트레이션 도구를 쉽게 가져와 사용할 수 있을 뿐만 아니라 더욱 효율적으로 응용 프로그램 인프라를 결정할 수 있습니다.
 
@@ -53,7 +54,7 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 
 컨테이너 기술이 모두에게 유용하다는 것은 자명하지만 특히 더 혜택을 볼 수 있는 사람들이 있습니다. Docker 컨테이너의 예를 들어 보겠습니다. 여기에서 Docker에 대해 깊게 논의하지 않더라도(자세한 내용은 [Docker란?](https://www.docker.com/whatisdocker/) 또는 [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)를 참고) Docker 및 Docker 환경은 개발자와 IT 전문가 모두에게 큰 이점을 제공합니다.
 
-개발자가 Docker 컨테이너를 빠르게 받아들인 이유는 무엇보다도 Linux 컨테이너를 쉽게 사용할 수 있기 때문입니다.
+개발자가 Docker 컨테이너를 빠르게 받아들인 이유는 무엇보다도 Linux 및 Windows 컨테이너를 쉽게 사용할 수 있기 때문입니다.
 
 - 간단한 증분 명령을 사용하여 배포하기 쉬운 고정 이미지를 생성할 수 있고 이 이미지들을 Docker 파일을 이용해 자동으로 구축할 수 있습니다
 - 이 이미지들은 간단한 [Git](https://git-scm.com/) 스타일의 푸시 앤 풀 명령을 사용하여 [공개](https://registry.hub.docker.com/) 또는 [비공개 Docker 레지스트리](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)에 쉽게 공유할 수 있습니다.
@@ -97,7 +98,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 이 시점에서 설계자, 개발자, 또는 IT 운영 전문가라면 "이걸 다 자동화할 수 있다니 진정한 DCaaS(Data-Center-As-A-Service)야!"라고 할지도 모르겠습니다.
 
-맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](../articles/virtual-machines/virtual-machines-windows-ps-create.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
+맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
 이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. ([Azure에서 이러한 도구를 사용하는 방법](#tools-for-working-with-containers)에 대한 몇 가지 링크는 여기에서 확인하실 수 있습니다.)
 
@@ -109,14 +110,13 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 - [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 - [Azure PowerShell 모듈](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
-
 ### 전체 Azure VM 및 컨테이너 그룹의 배포 및 관리
 
 몇몇 인기 시스템에서는 전체 Azure VM 그룹을 배포하고 거기에 Docker 또는 기타 Linux 컨테이너 호스트 시스템을 자동화 가능한 그룹으로 설치할 수 있습니다. 바로 가기 링크는 아래의 [컨테이너 및 도구](#containers-and-vm-technologies) 섹션에서 확인하시기 바랍니다. 이러한 작업이 가능한 시스템은 성능 수준 면에서 다양하며 여기에 소개된 목록이 전부가 아닙니다. 또한 이 시스템들은 사용자의 기술과 시나리오에 따라 유용할 수도, 유용하지 않을 수도 있습니다.
 
 Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-machines/virtual-machines-linux-docker-machine.md))와 로드 밸런싱 Docker 컨테이너 클러스터 관리 도구([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md))가 있습니다. 또한 [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)이 [`docker-compose`](https://docs.docker.com/compose/)를 위한 기본 지원에 포함되기 때문에 구성된 응용 프로그램 컨테이너를 여러 컨테이너에 배포할 수 있습니다.
 
-[Mesosphere의 DCOS(데이터 센터 운영체제)](http://docs.mesosphere.com/install/azurecluster/)도 사용해 볼만 합니다. DCOS는 "분산형 시스템 커널"인 공개 소스 [Mesos](http://mesos.apache.org/)에 기반하여 데이터 센터를 주소 지정이 가능한 단일 서비스로 사용할 수 있습니다. DCOS에는 [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) 등의 여러 중요한 시스템에 기본 제공되는 패키지뿐만 아니라 [Marathon](https://mesosphere.github.io/marathon/)(컨테이너 제어 시스템) 및 [Chronos](https://mesos.github.io/chronos/)(분산형 스케줄러) 같은 기본 제공 서비스가 있습니다. Mesos는 Twitter, AirBnb, 기타 큰 웹 비즈니스의 경험을 바탕으로 탄생했습니다.
+[Mesosphere의 DCOS(데이터 센터 운영체제)](http://docs.mesosphere.com/install/azurecluster/)도 사용해 볼만 합니다. DCOS는 "분산형 시스템 커널"인 공개 소스 [Mesos](http://mesos.apache.org/)에 기반하여 데이터 센터를 주소 지정이 가능한 단일 서비스로 사용할 수 있습니다. DCOS에는 [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) 등의 여러 중요한 시스템에 기본 제공되는 패키지뿐만 아니라 [Marathon](https://mesosphere.github.io/marathon/)(컨테이너 제어 시스템) 및 [Chronos](https://mesos.github.io/chronos/)(분산형 스케줄러) 같은 기본 제공 서비스가 있습니다. Mesos는 Twitter, AirBnb, 기타 큰 웹 비즈니스의 경험을 바탕으로 탄생했습니다. **swarm**을 오케스트레이션 엔진으로 사용할 수도 있습니다.
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) 역시 Google의 경험에 기반하여 탄생한 VM 및 컨테이너 그룹 관리용 공개 소스 시스템입니다. [kubernetes는 Weave와 함께 사용하여 네트워킹 지원](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)에 사용할 수도 있습니다.
 
@@ -208,7 +208,7 @@ Linux 배포 도구 및 Azure 예시:
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
-[마이크로 서비스]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

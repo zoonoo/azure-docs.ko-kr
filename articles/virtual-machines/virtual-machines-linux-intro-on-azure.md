@@ -28,7 +28,7 @@ Azure 클래식 포털을 사용하여 Linux 가상 컴퓨터를 만들 때, 사
 
 
  - [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md) 참조
- - [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md) 참조
+ - [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md) 참조
 
 
 ## `sudo`를 사용하여 Superuser 권한 얻기
@@ -98,4 +98,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

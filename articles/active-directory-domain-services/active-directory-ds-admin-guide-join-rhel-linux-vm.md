@@ -71,7 +71,7 @@ Azure 포털을 사용하여 RHEL 7 가상 컴퓨터를 프로비전하려면 �
 ## 새로 프로비전된 Linux 가상 컴퓨터에 원격으로 연결
 RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작업은 가상 컴퓨터에 원격으로 연결하는 것입니다.
 
-**RHEL 7.2 가상 컴퓨터에 연결** 문서 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-classic-log-on.md)의 지침을 따릅니다.
+**RHEL 7.2 가상 컴퓨터에 연결** [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 문서의 지침을 따릅니다.
 
 아래 나머지 단계에서는 RHEL 가상 컴퓨터에 연결하기 위한 SSH 클라이언트로 PuTTY를 사용한다고 가정합니다. 자세한 내용은 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 참조하세요.
 
@@ -173,8 +173,8 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 
 
 ## 자세한 정보
-- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Kerberos 설치](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows 통합 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

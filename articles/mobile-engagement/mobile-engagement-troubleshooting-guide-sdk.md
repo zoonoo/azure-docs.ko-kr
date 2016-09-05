@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # SDK 통합 문제에 대한 문제 해결 가이드
@@ -31,8 +31,8 @@
 
 ### 원인
 
-- Azure Mobile Engagement SDK를 사용하여 해결해야 하는 대부분의 문제는 UI 데이터 수집 오류, 푸시 오류, 고급 기능 오류, API 오류, 응용 프로그램 작동 중단, 명백한 서비스 중단과 같은 응용 프로그램의 오류를 통해 검색됩니다.  
-- Azure Mobile Engagement의 특정 기능이 앱에서 한 번도 정상적으로 작동한 적이 없다면 통합을 완료해야 합니다. 
+- Azure Mobile Engagement SDK를 사용하여 해결해야 하는 대부분의 문제는 UI 데이터 수집 오류, 푸시 오류, 고급 기능 오류, API 오류, 응용 프로그램 작동 중단, 명백한 서비스 중단과 같은 응용 프로그램의 오류를 통해 검색됩니다.
+- Azure Mobile Engagement의 특정 기능이 앱에서 한 번도 정상적으로 작동한 적이 없다면 통합을 완료해야 합니다.
 - Azure Mobile Engagement의 특정 기능이 작동하다가 중지되는 경우에는 Azure Mobile Engagement SDK를 사용하여 최신 버전으로 업그레이드해야 할 수 있습니다. Azure Mobile Engagement에서 지원하는 각 플랫폼(Android, iOS, Windows, Windows Phone)에 대해 다른 버전의 Azure Mobile Engagement SDK가 제공됩니다.
 
 #### SDK 통합
@@ -47,7 +47,7 @@
 
 **참고 항목:**
 
-- [SDK 설명서 - 통합 가이드][Link 5] 
+- [SDK 설명서 - 통합 가이드][Link 5]
 - [문제 해결 가이드 - 푸시][Link 23]
 
 #### SDK 업그레이드
@@ -57,7 +57,7 @@
 
 **참고 항목:**
 
-- [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [SDK 설명서 - 릴리스 정보](http://go.microsoft.com/fwlink/?LinkId= 525554)
 - [SDK 설명서 - 업그레이드 가이드](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### 기타 SDK 관련 문제
@@ -77,7 +77,7 @@
 ### 원인
 
 - Azure Mobile Engagement의 고급 코딩 문제는 대부분 Azure Mobile Engagement와 직접적인 관련이 없는 플랫폼별 코드를 잘못 작성하는 경우 발생합니다. 이 경우에는 Android, iOS, 웹, Windows, Windows Phone 등 개발을 진행 중인 플랫폼과 관련된 설명서 및 Azure Mobile Engagement 설명서를 모두 확인해야 합니다.
-- "범주"를 잘못 구성하면 알림에서 앱 내부나 외부의 다른 위치로 연결하지 못하게 됩니다(Android에만 해당). 
+- "범주"를 잘못 구성하면 알림에서 앱 내부나 외부의 다른 위치로 연결하지 못하게 됩니다(Android에만 해당).
 - iOS 코드에서 "UIKit.framework"를 "optional"로 설정하지 않으면 "기호를 찾을 수 없음" 오류가 표시되거나 이전 버전의 iOS 장치 작동이 중단됩니다(iOS에만 해당).
 - 인증서가 잘못되었거나 인증서의 개발 버전 또는 프로덕션 버전을 잘못 사용하면 푸시 문제가 발생합니다(iOS에만 해당).
 - Android 및 iOS에서 시스템 센터가 앱 외부 푸시에 대해 작동하는 방식 등 Azure Mobile Engagement에서 제어할 수 없는 플랫폼의 기본적인 제한이 있습니다.
@@ -85,7 +85,7 @@
 
 ### 참고 항목
 
- - [문제 해결 가이드 - 푸시][Link 23] 
+ - [문제 해결 가이드 - 푸시][Link 23]
  - [SDK 설명서 - 릴리스 정보][Link 5]
  - [SDK 설명서 - 업그레이드 가이드][Link 5]
 
@@ -112,7 +112,7 @@
 
 ### 원인
 
-- 앱 스토어에서는 특정 기능이 사용하도록 설정된 앱을 차단할 수 있습니다. 예를 들어 Apple 스토어에서는 앱에서 IDFV 사용을 금지하며, GooglePlay 스토어에서는 앱 간의 응용 프로그램 정보 공유를 금지합니다. 
+- 앱 스토어에서는 특정 기능이 사용하도록 설정된 앱을 차단할 수 있습니다. 예를 들어 Apple 스토어에서는 앱에서 IDFV 사용을 금지하며, GooglePlay 스토어에서는 앱 간의 응용 프로그램 정보 공유를 금지합니다.
 - 스토어에 앱을 업로드하는 데 문제가 있으면 최신 버전 SDK 및 사용 중인 플랫폼의 릴리스 정보를 확인하세요.
 
 <!--Link references-->
@@ -147,4 +147,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

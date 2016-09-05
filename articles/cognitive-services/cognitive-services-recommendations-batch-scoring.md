@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/17/2016"
 	ms.author="luisca"/>
 
 # 배치의 권장 사항 가져오기
@@ -198,4 +198,4 @@ API의 요청 본문은 입력, 출력 및 오류 파일이 저장되어야 하�
 -	한 번에 구독당 하나의 배치 작업만을 호출할 수 있습니다.
 -	배치 작업 입력 파일은 2MB 이상일 수 없습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

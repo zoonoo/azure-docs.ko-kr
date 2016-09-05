@@ -47,12 +47,12 @@ Predictix Assortment Planning과 Azure AD 통합을 구성하려면 다음 항�
 
 
 ## 시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에서는 테스트 환경에서 Microsoft Azure AD Single Sign-On을 테스트합니다.
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Predictix Assortment Planning 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+2. Microsoft Azure AD Single Sign-on 구성 및 테스트
 
 
 ## 갤러리에서 Predictix Assortment Planning 추가
@@ -86,33 +86,33 @@ Azure AD로 Predictix Assortment Planning 통합을 구성하려면 갤러리의
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
 
 
-##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+##  Microsoft Azure AD Single Sign-on 구성 및 테스트
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Predictix Assortment Planning에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Predictix Assortment Planning 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Predictix Assortment Planning의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Predictix Assortment Planning의 **Username** 값으로 할당하여 설정합니다.
 
-Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Predictix Assortment Planning에서 Microsoft Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Microsoft Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Microsoft Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Predictix Assortment Planning 테스트 사용자 만들기](#creating-a-predictix-price-reporting-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Predictix Assortment Planning에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Microsoft Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### Azure AD Single Sign-On 구성
+### Microsoft Azure AD Single Sign-On 구성
 
-이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Predictix Assortment Planning 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 클래식 포털에서 Microsoft Azure AD Single Sign-On을 사용하도록 설정하고 Predictix Assortment Planning 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 
-**Predictix Assortment Planning에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**Predictix Assortment Planning에서 Microsoft Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
 1. 클래식 포털의 **Predictix Assortment Planning** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 	 
 	![Single Sign-On 구성][6]
 
-2. **Predictix Assortment Planning에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+2. **Predictix Assortment Planning에 대한 사용자 로그온 방법 선택** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png)
 
@@ -130,7 +130,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Predictix Assortment Planning 지원 팀에 문의하고 다음을 제공하세요.
@@ -180,7 +180,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
 
@@ -192,7 +192,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -242,7 +242,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 
 ### Single Sign-On 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 액세스 패널을 사용하여 Microsoft Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Predictix Assortment Planning 타일을 클릭하면 Predictix Assortment Planning 응용 프로그램에 자동으로 로그온됩니다.
 
@@ -271,4 +271,4 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하고 테�
 [204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

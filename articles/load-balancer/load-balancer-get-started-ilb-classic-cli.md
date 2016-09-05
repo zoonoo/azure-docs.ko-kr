@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="클래식 배포 모델에서 Azure CLI를 사용하여 내부 부하 분산 장치 만들기 | Microsoft Azure"
    description="Azure CLI를 사용하여 클래식 배포 모델에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure CLI를 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -48,12 +48,12 @@
 
 		azure config mode asm
 
-	예상된 출력:
+	예상 출력:
 
 		info:    New mode is asm
 
 
-## 끝점과 부하 분산 장치 집합 만들기 
+## 끝점과 부하 분산 장치 집합 만들기
 
 시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 컴퓨터 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 컴퓨터는 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
 
@@ -62,7 +62,7 @@
 이는 일반적인 시나리오로, 백 엔드의 SQL 가상 컴퓨터는 데이터베이스 서버가 공용 IP 주소를 사용하여 직접 노출되지 않는다는 것을 보장하기 위해 내부 부하 분산 장치를 사용합니다.
 
 
-### 1단계 
+### 1단계
 
 `azure network service internal-load-balancer add`를 사용하여 내부 부하 분산 장치 집합을 만듭니다.
 
@@ -73,7 +73,7 @@
 **-r** - 클라우드 서비스 이름<BR> **-n** - 내부 부하 분산 장치 이름<BR> **-t** - 서브넷 이름(내부 부하 분산 장치에 추가할 가상 컴퓨터의 동일한 서브넷)<BR> **-a** - (선택 사항) 고정 개인 IP 주소 추가<BR>
 
 자세한 내용은 `azure service internal-load-balancer --help`를 확인하세요.
- 
+
 `azure service internal-load-balancer list` *클라우드 서비스 이름* 명령을 사용하여 내부 부하 분산 장치 속성을 확인할 수 있습니다.
 
 다음은 출력의 예입니다.
@@ -87,7 +87,7 @@
 	info:    service internal-load-balancer list command OK
 
 
-## 2단계 
+## 2단계
 
 첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 컴퓨터 및 프로브 포트를 내부 부하 분산 장치 집합에 연결합니다.
 
@@ -98,11 +98,11 @@
 **-k** - 로컬 가상 컴퓨터 포트<BR> **-t** - 프로브 포트<BR> **-r** - 프로브 프로토콜<BR> **-e** - 프로브 간격(초)<BR> **-f** - 시간 제한 간격(초) <BR> **-i** - 내부 부하 분산 장치 이름 <BR>
 
 
-## 3단계 
+## 3단계
 
 `azure vm show` *가상 컴퓨터 이름*을 사용하여 부하 분산 장치 구성 확인
 
-	azure vm show DB1 
+	azure vm show DB1
 
 다음과 같이 출력됩니다.
 
@@ -132,7 +132,7 @@
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@
 
 `azure vm endpoint create`을 사용하여 특정 가상 컴퓨터의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## 부하 분산 장치에서 가상 컴퓨터 제거
@@ -179,4 +179,4 @@
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

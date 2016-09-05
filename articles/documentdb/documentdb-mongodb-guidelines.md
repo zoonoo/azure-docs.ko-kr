@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침 미리 보기
@@ -65,14 +65,14 @@ MongoDB 프로토콜에 Azure 포털 환경을 사용한 계정은 표준 Docume
 Replace|ReplaceOne| |
 삭제|DeleteOne | |
  |DeleteMany| | 
- |Remove| | 
+ |제거| | 
 BulkWrite| |bulkWrite()| 
 비교|-all-| | 
 논리|-all-| | 
 요소 쿼리| |-all-| 
-평가|$mod|$regex, $text, $where| 
+평가|$mod, $regex |$text, $where| 
 GeoSpatial|2dsphere, 2d, polygon|기타 등등| 
-Array|$all, $size|$elemMatch| 
+Array|$all, $size, $elemMatch|| 
 비트| |-all-| 
 주석|-all-| | 
 프로젝션| |-all-| 
@@ -100,4 +100,4 @@ QueryPlan 캐시| | |-all-
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="golive"/>
 
 # 사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
@@ -74,6 +74,8 @@ VM 등록에 대한 세부 정보(PowerShell DSC VM 확장 사용)는 이 [Azure
 Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러리가 계측됩니다. 원하는 리소스로 이동한 다음 "Azure 자동화에 배포" 단추를 클릭합니다.
 
 ![PowerShell 갤러리 예](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+
+Azure 포털에 최근에 추가된 또 다른 방법을 사용하면 새 모듈을 당겨오거나 기존 모듈을 업데이트할 수 있습니다. 자동화 계정 리소스, 자산 타일 및 모듈 타일을 차례로 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리에서 모듈의 목록을 보고 세부 정보로 드릴다운하고 궁극적으로 자동화 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
 
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서의 예상 폴더 구조와 다소 차이가 있습니다. 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure 자동화에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
@@ -167,7 +169,7 @@ New-ConfigurationScript.ps1:
 
 ## 6단계: 모든 항목 요약
 
-각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다. 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Team Services의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 자세한 내용은 [이 문서](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)가 제공합니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks)는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
+각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다. 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Team Services의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 자세한 내용은 [이 문서](https://www.visualstudio.com/ko-KR/docs/alm-devops-feature-index#continuous-delivery)가 제공합니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks)는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
 ## 참고 사항
 
@@ -185,4 +187,4 @@ New-ConfigurationScript.ps1:
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

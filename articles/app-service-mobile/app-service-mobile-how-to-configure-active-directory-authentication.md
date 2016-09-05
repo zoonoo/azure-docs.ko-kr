@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
@@ -101,7 +101,7 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 
 4. 응용 프로그램 추가 마법사에서 응용 프로그램의 **이름**을 입력하고 **네이티브 클라이언트 응용 프로그램** 유형을 클릭합니다. 계속하려면 클릭합니다.
 
-5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 _/.auth/login/done_ 끝점을 입력합니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다. Windows 응용 프로그램을 만드는 경우 URI로 [패키지 SID](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
+5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 _/.auth/login/done_ 끝점을 입력합니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다. Windows 응용 프로그램을 만드는 경우 URI로 [패키지 SID](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
 
 6. 네이티브 응용 프로그램이 추가되면 **구성** 탭을 클릭합니다. **클라이언트 ID**를 찾고 이 값을 기록해 둡니다.
 
@@ -130,4 +130,4 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [alternative method]: #advanced
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

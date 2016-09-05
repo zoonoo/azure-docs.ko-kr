@@ -10,23 +10,23 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="08/18/2016"
 	ms.author="vikdesai"/>
 
 # Microsoft Azure 구독에 대한 청구 경고 설정
 
 Azure 구독에 매월 지출하는 금액이 걱정되시나요? Azure 구독의 계정 관리자인 경우 Azure 청구 경고 서비스를 사용하여 Azure 계정에 대한 청구 활동을 모니터링하고 관리하는 데 도움이 되는 사용자 지정된 청구 경고를 만들 수 있습니다.
 
-이 서비스는 미리 보기 서비스이므로 먼저 등록해야 합니다. Azure 계정 관리 포털의 <a href="https://account.windowsazure.com/PreviewFeatures">미리 보기 기능 페이지</a>를 방문하세요.
+이 서비스는 미리 보기 서비스이므로 먼저 등록해야 합니다. Azure 계정 관리 포털에서 [미리 보기 기능 페이지](https://account.windowsazure.com/PreviewFeatures)를 방문하여 이 기능을 사용하도록 합니다.
 
 ## 경고 임계값 및 메일 받는 사람 설정
 
-구독에 대해 청구 서비스가 설정되었다는 메일 확인을 받은 후에 계정 포털의 <a href="https://account.windowsazure.com/Subscriptions">구독 페이지</a>를 방문합니다. 모니터링할 구독을 클릭한 다음 **경고**를 클릭합니다.
+구독에 대해 청구 서비스가 설정되었다는 메일 확인을 받은 후에 계정 포털의 [구독 페이지](https://account.windowsazure.com/Subscriptions)를 방문합니다. 모니터링할 구독을 클릭한 다음 **경고**를 클릭합니다.
 
 ![][Image1]
 
@@ -48,4 +48,4 @@ Azure는 모든 메일 주소를 지원하지만 해당 메일 주소가 작동�
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/18/2016"
    ms.author="gwallace"/>
 
 # URL 경로 기반 라우팅 개요
@@ -58,9 +58,9 @@ UrlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
 	}
 	
 
->[AZURE.NOTE] PathPattern: 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 *는 / 다음의 끝에 올 수 있습니다. 경로 검사기에 제공하는 문자열은 ? 또는 #으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다.
+>[AZURE.NOTE] PathPattern: 이 설정은 일치하는 경로 패턴의 목록입니다. 각각은 /로 시작해야 하고 "*"는 / 다음의 끝에 올 수 있습니다. 경로 검사기에 제공하는 문자열은 ? 또는 #으로 시작하는 텍스트는 포함하지 않습니다. 이러한 문자는 허용되지 않습니다.
 
-자세한 내용은 [URL 기반 라우팅을 사용하는 ARM 템플릿](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)을 참조하세요.
+자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)을 참조하세요.
 
 ## PathBasedRouting 규칙
 
@@ -84,6 +84,6 @@ PathBasedRouting 형식의 RequestRoutingRule은 수신기를 urlPathMap에 바�
 	
 ## 다음 단계 
 
-URL 기반 콘텐츠 라우팅을 알아본 후에는 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-arm-ps.md)로 이동하여 URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
+URL 기반 콘텐츠 라우팅을 알아본 후에는 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-portal.md)로 이동하여 URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

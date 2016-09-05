@@ -3,7 +3,7 @@
    description="Azure CLI를 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure CLI를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -35,7 +35,7 @@
 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성해야 합니다.
 
-- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다. 
+- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
 
 - 백 엔드 주소 풀 - 부하 분산 장치의 네트워크 트래픽을 받는 가상 컴퓨터에 대한 NIC(네트워크 인터페이스)를 포함합니다.
 
@@ -55,7 +55,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 		azure config mode arm
 
-	예상된 출력:
+	예상 출력:
 
 		info:    New mode is arm
 
@@ -78,7 +78,7 @@ DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com* 인 프런트 엔드 I
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT] 부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com* 입니다.
+>[AZURE.IMPORTANT]부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com* 입니다.
 
 ## 부하 분산 장치 만들기
 
@@ -123,9 +123,9 @@ NAT 규칙을 만듭니다.
 매개 변수:
 
 - **-g** - 리소스 그룹 이름
-- **-l** - 부하 분산 장치 이름 
+- **-l** - 부하 분산 장치 이름
 - **-n** - nat 규칙, 프로브 또는 lb 규칙 여부의 리소스 이름
-- **-p** -프로토콜(TCP 또는 UDP일 수 있음)  
+- **-p** -프로토콜(TCP 또는 UDP일 수 있음)
 - **-f** 사용될 프런트 엔드 포트(프로브 명령은 -f를 사용하여 프로브 경로를 정의합니다.)
 - **-b** - 사용될 백 엔드 포트
 
@@ -151,7 +151,7 @@ NAT 규칙을 만듭니다.
 
 	azure network lb show nrprg nrplb
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network lb show
 	+ Looking up the load balancer "nrplb"
@@ -226,13 +226,13 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 - **-g** - 리소스 그룹 이름
 - **-n** - NIC 리소스 이름
-- **-subnet-name** - 서브넷 이름 
+- **-subnet-name** - 서브넷 이름
 - **-서브넷-vnet-이름--subnet-vnet-name** -가상 네트워크 이름
-- **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID 
-- **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
+- **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID
+- **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>으로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
 
 
-예상된 출력:
+예상 출력:
 
 	info:    Executing command network nic create
 	+ Looking up the network interface "lb-nic1-be"
@@ -328,4 +328,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

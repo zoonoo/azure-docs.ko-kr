@@ -3,7 +3,7 @@
    description="이 문서는 트래픽 관리자에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/25/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # 트래픽 관리자 트래픽 라우팅 방법
 
@@ -126,4 +126,4 @@ Azure 트래픽 관리자는 최종 사용자가 다양한 서비스 끝점으�
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->
