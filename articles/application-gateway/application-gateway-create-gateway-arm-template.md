@@ -210,9 +210,9 @@ Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-c
 
 	azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
+**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
 
-**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
 
 ### 4단계
 
