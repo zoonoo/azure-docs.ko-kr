@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # 개요: HDInsight Linux에서 Apache Spark
@@ -135,4 +135,4 @@ HDInsight Linux에서 Spark 클러스터를 만드는 작업부터 시작합니�
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

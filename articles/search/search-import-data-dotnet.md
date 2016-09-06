@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="08/15/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # .NET SDK를 사용하여 Azure 검색에 데이터 업로드
@@ -53,7 +53,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 --- | --- | --- | ---
 `Upload` | `Upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. | 키, 더하기 정의하려는 기타 필드 | 기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다.
 `Merge` | 기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. | 키, 더하기 정의하려는 기타 필드 | 문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `DataType.Collection(DataType.String)` 형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다.
-`MergeOrUpload` | 이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `Merge`와 비슷하게 작동합니다. 문서가 없는 경우 새 문서가 있는 `Upload`와 비슷하게 작동합니다. | 키, 더하기 정의하려는 기타 필드 | - 
+`MergeOrUpload` | 이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `Merge`와 비슷하게 작동합니다. 문서가 없는 경우 새 문서가 있는 `Upload`와 비슷하게 작동합니다. | 키, 더하기 정의하려는 기타 필드 | -
 `Delete` | 지정된 문서를 인덱스에서 제거합니다. | 키만 해당 | 키 필드 이외에 지정한 필드는 무시됩니다. 문서에서 개별 필드를 제거하려는 경우 대신 `Merge`를 사용하고 필드를 명시적으로 Null로 설정합니다.
 
 다음 섹션에서 보여준 것처럼 다양한 정적 메서드인 `IndexBatch` 및 `IndexAction` 클래스와 함께 사용하려는 동작을 지정할 수 있습니다.
@@ -205,4 +205,4 @@ public partial class Hotel
 ## 다음
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

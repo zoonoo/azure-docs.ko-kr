@@ -60,7 +60,7 @@
 5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
 
 		static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. **Program** 클래스에 다음 메서드를 추가합니다.
 
@@ -282,4 +282,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

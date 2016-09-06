@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/31/2016"
 	ms.author="rachelap"/>
 
 # Azure 앱 서비스에서 Java API 앱 빌드 및 배포
@@ -338,4 +338,4 @@ Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개�
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -162,7 +162,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
   * 진단 검색(검색 타일)을 열어 개별 이벤트를 봅니다. 이벤트는 집계 데이터가 차트에 표시되기 전에 진단 검색에 종종 표시됩니다.
   * 상태 모니터를 열고 왼쪽 창에서 응용 프로그램을 선택합니다. "구성 알림" 섹션에 이 응용 프로그램에 대한 진단 메시지가 있는지 확인합니다.
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![성능 블레이드를 열어 요청, 응답 시간, 종속성 및 기타 데이터를 확인합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * 서버 방화벽이 위에 나열된 포트에서 나가는 트래픽을 허용하는지 확인합니다.
   * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
@@ -300,4 +300,4 @@ PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니�
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

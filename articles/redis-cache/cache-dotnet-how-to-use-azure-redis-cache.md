@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="06/09/2016" 
+	ms.date="08/25/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -196,7 +196,7 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 -	Redsmin 및 Redis Desktop Manager와 같은 타사 서비스 및 도구와 함께 Azure Redis Cache를 사용할 수도 있습니다.
 	-	Redsmin에 대한 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][]을 참조하세요.
 	-	[RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)를 사용하여 GUI가 포함된 Azure Redis Cache의 데이터에 액세스하고 해당 데이터를 검사합니다.
--	[red]is][(영문) 설명서를 참조하고 [redis 데이터 형식][]\(영문) 및 [Redis 데이터 형식에 대한 15분 소개][]\(영문)에 대해 읽어 보세요.
+-	[redis][]\(영문) 설명서를 참조하고 [redis 데이터 형식][]\(영문) 및 [Redis 데이터 형식에 대한 15분 소개][]\(영문)에 대해 읽어 보세요.
 
 
 
@@ -286,4 +286,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/11/2016" 
+	ms.date="08/25/2016" 
 	ms.author="anhoh"/>
 
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: DocumentDB를 통한 웹 응용 프로그램 개발
@@ -208,7 +208,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 	- **뷰 이름** 상자에 ***Index***를 입력합니다.
 	- **템플릿** 상자에서 ***List***를 선택합니다.
 	- **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
-	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
+	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
 	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
 	
 	![뷰 추가 대화 상자를 보여주는 스크린샷](./media/documentdb-dotnet-application/image18.png)
@@ -239,7 +239,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 	- **뷰 이름** 상자에 ***Edit*** 를 입력합니다.
 	- **템플릿** 상자에서 ***Edit*** 를 선택합니다.
 	- **모델 클래스** 상자에서 ***Item (todo.Models)*** 을 선택합니다.
-	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
+	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
 	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml*** 을 입력합니다.
 	- **추가** 를 클릭합니다.
 
@@ -405,7 +405,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **Home** 대신 **Item**을 컨트롤러로 사용하고 사용자 **인덱스**를 뷰로 사용하라고 지시합니다.
 
-이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **Views**\**Item**\**Index** 뷰로 반환합니다.
+이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController** 를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **Views**\**Item**\**Index** 뷰로 반환합니다.
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.
 
@@ -591,4 +591,4 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0831_2016-->

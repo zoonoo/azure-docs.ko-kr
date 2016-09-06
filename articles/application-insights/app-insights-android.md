@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Android 앱에 대한 분석"
+    pageTitle="Android 앱에 대한 분석 | Microsoft Azure"
     description="Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="06/20/2016"
+	ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Android 앱에 대한 분석
@@ -30,8 +30,16 @@ Microsoft는 장치 devOps에 대해 클라이언트측 분석을 위한 [Hockey
 
 앱에 서버측이 있으면, [Application Insights](app-insights-overview.md)를 사용하여 [ASP.NET](app-insights-asp-net.md) 또는 [J2EE](app-insights-java-get-started.md)에서 앱의 웹 서버측을 모니터링합니다.
 
-> [AZURE.NOTE] HockeyApp SDK에서 보낸 원격 분석과 함께 [Application Insights 분석](app-insights-analytics.md) 및 [연속 내보내기](app-insights-export-telemetry.md)를 곧 사용할 수 있게 됩니다.
->
-> [이 변경 내용에 대한 자세한 정보입니다.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0622_2016-->
+## HockeyApp 데이터에 대한 분석, 내보내기 및 API 액세스 
+
+Application Insights에서 [HockeyApp 브리지 설정](app-insights-hockeyapp-bridge-app.md). 다음을 수행할 수 있습니다.
+
+* 원격 분석에 강력한 [분석](app-insights-analytics.md) 쿼리 언어 사용.
+* Azure Blob 저장소에 [원격 분석 내보내기](app-insights-export-telemetry.md).
+
+## 다음 단계
+
+* [Android용 HockeyApp 시작](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+
+<!---HONumber=AcomDC_0831_2016-->

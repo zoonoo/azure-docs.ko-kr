@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
@@ -32,7 +32,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |**북아메리카**|미국 동부, 미국 서부, 미국 동부 2, 중앙 미국, 미국 중남부, 미국 중북부, 캐나다 중부, 캐나다 동부|애틀랜타, 시카고, 댈러스, 라스베이거스+, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올+, 퀘벡 시티+, 토론토|
 |**남미**|브라질 남부|상파울루|
 |**유럽**|북유럽, 서유럽|암스테르담, 더블린, 런던, 뉴포트(웨일스)+, 파리|
-|**아시아**|동아시아, 동남 아시아|홍콩, 싱가포르|
+|**아시아**|동아시아, 동남 아시아|홍콩 특별행정구, 싱가포르|
 |**일본**|일본 서부, 일본 동부|오사카, 도쿄|
 |**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|멜버른, 시드니|
 |**인도**|인도 서부, 인도 중부, 인도 남부|첸나이, 뭄바이|
@@ -76,7 +76,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | 지원됨 | 지원됨 | 오사카, 도쿄 |
 | **[InterCloud](https://www.intercloud.com/)** | 지원됨 | 지원됨 | 암스테르담, 런던, 싱가포르, 워싱턴 DC |
 | **Internet Solutions - 클라우드 연결** | 지원됨 | 지원됨 | 암스테르담, 런던 |
-| **Interxion** | 지원됨 | 지원됨 | 암스테르담, 런던, 파리 |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** | 지원됨 | 지원됨 | 암스테르담, 런던, 파리 |
 | **Jisc** | 서비스 예정 | 서비스 예정 | 런던+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원됨 | 암스테르담, 시카고, 댈러스, 라스베이거스+, 런던, 시애틀, 실리콘밸리, 워싱턴 DC |
 | **Megaport** | 지원됨 | 지원됨 | 댈러스, 홍콩, 라스베이거스, 로스앤젤레스, 멜버른, 뉴욕, 시애틀, 싱가포르, 시드니, 워싱턴 DC |
@@ -89,7 +89,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Softbank** | 지원됨 | 지원됨 | 오사카, 도쿄 | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 지원됨 | 암스테르담, 첸나이, 홍콩, 런던, 뭄바이, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 지원됨 | 지원됨 | 암스테르담, 런던 |
-| **Telefonica** | 서비스 예정 | 서비스 예정 | 상파울루+ |
+| **Telefonica** | 지원됨 | 서비스 예정 | 상파울루 |
 | **Telenor** | 지원됨 | 지원됨 | 암스테르담, 런던 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 서비스 예정 | 멜버른, 시드니 |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
@@ -133,7 +133,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 	- [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
+	- [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
 	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 	- [Cologix](http://www.cologix.com/)
@@ -171,4 +171,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

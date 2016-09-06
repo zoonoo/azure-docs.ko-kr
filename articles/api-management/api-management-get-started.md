@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -105,7 +105,7 @@ API는 Azure 클래식 포털을 통해 액세스할 수 있는 게시자 포털
 
 다음 단계를 수행하여 계산기 API를 구성합니다.
 
-1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger**** 라디오 단추를 클릭합니다.
+1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger** 라디오 단추를 클릭합니다.
 2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
 3. **제품(선택 사항)** 상자를 클릭하고 **Starter**를 선택합니다.
 4. **저장**을 클릭하여 API를 가져옵니다.
@@ -186,7 +186,7 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 
 ## <a name="next-steps"> </a>다음 단계
 
--	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
+- [비율 제한으로 API를 보호](api-management-howto-product-with-rules.md)하는 방법 알아보기.
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[고급 API 구성 시작]: api-management-get-started-advanced.md
 [API 관리 가격]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
@@ -245,4 +244,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

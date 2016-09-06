@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -26,6 +26,8 @@
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 통해 명령줄 인터페이스를 사용하여 Liux 기반 HDInsight 클러스터에 대한 작업을 원격으로 수행할 수 있습니다. 이 문서에서는 PuTTY SSH 클라이언트를 사용하여 Windows 기반 클라이언트에서 HDInsight에 연결하는 방법을 설명합니다.
 
 > [AZURE.NOTE] 이 문서의 단계에서는 Windows 기반 클라이언트를 사용한다고 가정합니다. Linux, Unix 또는 OS X 클라이언트를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+>
+> Windows 10에서 [Windows에서 Ubuntu의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서의 단계를 사용할 수 있습니다.
 
 ##필수 조건
 
@@ -35,7 +37,7 @@
 
 또는
 
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md)
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -235,4 +237,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->
