@@ -1,9 +1,9 @@
-1.	온라인 [Microsoft Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2.	점프 모음에서 **새로 만들기**를 클릭하고 **데이터+저장소**를 클릭한 다음 **Azure DocumentDB**를 클릭합니다.
+1.	[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2.	점프 모음에서 **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
 
-	![새로 만들기 단추, 만들기 블레이드의 데이터+저장소, 데이터+저장소 블레이드의 Azure DocumentDB가 강조 표시된, 데이터베이스를 만들기 위한 Azure 포털의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+	![더 많은 서비스와 DocumentDB(NoSQL)를 강조 표시한 Azure 포털의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. **새 DocumentDB 계정** 블레이드에서 DocumentDB 계정에 대한 구성을 원하는 대로 지정합니다.
+3. **새 계정** 블레이드에서 DocumentDB 계정에 대한 구성을 원하는 대로 지정합니다.
 
 	![새 DocumentDB 블레이드의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -18,8 +18,7 @@
 	
     - 나중에 만들 사용자 계정 및 리소스에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.
 
-4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. 배포 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. 
-	![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. 배포 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. ![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	그렇지 않은 경우 알림 허브에서 진행률을 모니터링할 수 있습니다.
 
@@ -27,7 +26,7 @@
 
 	![DocumentDB 계정을 만들어 리소스 그룹에 배포했음을 보여주는 알림 허브의 스크린샷 - 온라인 데이터베이스 작성자 알림](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	DocumentDB 계정이 생성되면 온라인 포털에서 기본 설정으로 사용할 수 있습니다. DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다. 메뉴에서 **기본 일관성**을 클릭하여 기본 일관성 설정을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/azure-portal/resource-group-portal.md)을 참조하세요.
+5.	DocumentDB 계정이 생성되면 기본 설정으로 사용할 수 있습니다. DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다. 리소스 메뉴에서 **기본 일관성**을 클릭하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/azure-portal/resource-group-portal.md)을 참조하세요.
 
     ![리소스 그룹 블레이드의 스크린샷 - 응용 프로그램 개발 시작](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
@@ -37,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

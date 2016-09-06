@@ -25,7 +25,7 @@
 
 ## 1단계: Azure PowerShell 설치
 
-최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
         
 ## 2단계: 리소스 그룹 만들기
 
@@ -104,12 +104,12 @@
 
 가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
-1. **$ipName** 값을 공용 IP 주소 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
+1. **$ipName** 값을 공용 IP 주소의 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
 
         $ipName = "myIPaddress1"
         $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
         
-2. **$nicName** 값을 네트워크 인터페이스 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
+2. **$nicName** 값을 네트워크 인터페이스의 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
 
         $nicName = "mynic1"
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
@@ -122,7 +122,7 @@
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    암호의 길이는 12-123자여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자가 있어야 합니다.
+    암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 더 자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
         
 2. **$vmName** 값을 가상 컴퓨터 이름으로 바꿉니다. 변수 및 가상 컴퓨터 구성을 만듭니다.
 
@@ -170,6 +170,6 @@
 
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
-- [리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
+- [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -26,6 +26,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 	| **backendaddress2** | 두 번째 웹 서버의 IP 주소 |
 
 
->[AZURE.IMPORTANT] GitHub에서 유지 관리되는 Azure 리소스 관리자 템플릿은 시간이 지나면서 달라질 수 있습니다. 템플릿을 사용하기 전에 확인합니다.
+	>[AZURE.IMPORTANT] GitHub에서 유지 관리되는 Azure 리소스 관리자 템플릿은 시간이 지나면서 달라질 수 있습니다. 템플릿을 사용하기 전에 확인합니다.
 
 6. **resources** 아래의 내용을 확인하고 다음을 검토합니다.
 
@@ -147,8 +148,6 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 필요한 경우 **New-AzureResourceGroup** cmdlet을 사용하여 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

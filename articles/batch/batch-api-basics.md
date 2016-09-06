@@ -67,7 +67,7 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 
 ## 계정
 
-배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 모두 필요합니다. [Azure 포털에서 Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
+배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 모두 필요합니다. [Azure 포털을 사용하여 Azure 배치 계정을 만들](batch-account-create-portal.md) 수 있습니다.
 
 ## 계산 노드
 
@@ -518,4 +518,4 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

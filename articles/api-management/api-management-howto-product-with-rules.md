@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
@@ -46,13 +46,13 @@
 
 **제목** 상자에 **무료 평가판**을 입력합니다.
 
-**설명** 상자에 **구독자는 분당 10회, 1주일에 최대 200회의 호출을 실행할 수 있습니다. 그 이후에는 액세스가 거부됩니다.** 를 입력합니다.
+**설명** 상자에 **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.**를 입력합니다.
 
 API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기 전에 먼저 보호된 제품을 구독할 수 있어야 합니다. 개방된 제품은 구독하지 않고 사용할 수 있습니다. 구독이 필요한 보호된 제품을 만들기 위해 **구독 필요**가 선택되었는지 확인하세요. 기본 설정입니다.
 
-관리자가 이 제품에 대한 구독 시도를 검토하고 허용하거나 거부하도록 하려면 **구독 승인 필요**를 선택합니다. 확인란을 선택하지 않으면 구독 시도가 자동으로 승인됩니다. 이 예제에서는 승인이 자동으로 승인되므로 이 확인란을 선택하지 마세요.
+관리자가 이 제품에 대한 구독 시도를 검토하고 허용하거나 거부하도록 하려면 **구독 승인 필요**를 선택합니다. 확인란을 선택하지 않으면 구독 시도가 자동으로 승인됩니다. 이 예제에서는 승인이 자동으로 승인되므로 이 확인란을 선택하지 않습니다.
 
-개발자 계정으로 새 제품을 여러 번 구독할 수 있도록 하려면 **여러 동시 구독 허용** 확인란을 선택합니다. 이 자습서는 여러 동시 구독을 활용하지 않으므로 해당 항목을 선택하지 마세요.
+개발자 계정으로 새 제품을 여러 번 구독할 수 있도록 하려면 **여러 동시 구독 허용** 확인란을 선택합니다. 이 자습서는 여러 동시 구독을 활용하지 않으므로 해당 항목을 선택하지 않습니다.
 
 모든 값을 입력한 후에는 **저장**을 클릭하여 제품을 만듭니다.
 
@@ -195,7 +195,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![구독 추가][api-management-add-subscription]
 
->[AZURE.NOTE] 이 자습서에서는 무료 평가판 제품에 대해 여러 동시 구독을 사용하도록 설정하지 않았습니다. 사용하도록 설정한 경우 다음 예제처럼 구독의 이름을 묻는 메시지가 표시됩니다.
+>[AZURE.NOTE] 이 자습서에서는 무료 평가판 제품에 대해 여러 동시 구독을 사용하도록 설정하지 않습니다. 사용하도록 설정한 경우 다음 예제처럼 구독의 이름을 묻는 메시지가 표시됩니다.
 
 ![구독 추가][api-management-add-subscription-multiple]
 
@@ -237,7 +237,6 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ## <a name="next-steps"> </a>다음 단계
 
--	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
 -	다음 비디오에서 속도 제한 및 할당량을 설정하는 데모를 보세요.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -289,9 +288,8 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[고급 API 구성 시작]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

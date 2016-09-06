@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터에서 SQL Server 시작 | Microsoft Azure"
-	description="Azure 가상 컴퓨터를 사용하여 온-프레미스 SQL Server 데이터베이스 작업을 클라우드로 이동합니다. 미리 구성된 SQLVM 이미지로 빠르게 시작합니다."
+	pageTitle="Azure 가상 컴퓨터에서 SQL Server 개요 | Microsoft Azure"
+	description="Azure 가상 컴퓨터에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
@@ -14,13 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
+	ms.date="08/29/2016"
 	ms.author="jroth"/>
 
-# Azure 가상 컴퓨터에서 SQL Server 시작
+# Azure 가상 컴퓨터에서 SQL Server 개요
 
-이 항목에서는 Azure 가상 컴퓨터에서 SQL Server를 실행하기 위한 옵션을 설명하고 시작하는 데 필요한 지침 및 리소스를 제공합니다.
+이 항목에서는 [포털 이미지에 대한 링크](#option-1-deploy-a-sql-vm-per-minute-licensing) 및 [일반적인 작업](#manage-your-sql-vm)의 개요와 함께 Azure 가상 컴퓨터에 SQL Server를 실행하는 옵션을 설명합니다.
 
+>[AZURE.NOTE] SQL Server에 이미 익숙하고 SQL Server VM을 배포하는 방법을 참조하려는 경우 [Azure 포털에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+
+## 개요
 온-프레미스 SQL Server 작업을 클라우드로 이동하려는 데이터베이스 관리자일 수도 있습니다. 또는 Azure 응용 프로그램에 대한 SQL Server의 관계형 데이터베이스 기능을 고려하는 개발자일 수도 있습니다. Azure 가상 컴퓨터에서 SQL Server 작업을 실행하는 이점은 무엇입니까? 다음 개요 비디오는 이점을 설명하고 기술적 개요를 제공합니다.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
@@ -78,10 +81,10 @@ SQL Server VM을 프로비전한 후 여러 가지 선택적 관리 작업이 �
 다른 고가용성 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ### 데이터 백업
-Azure VM은 [자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 이용할 수 있으며 정기적으로 Blob 저장소에 데이터베이스의 백업을 만듭니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server 백업 및 복원에 Azure 저장소 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)을 참조하세요. 모든 백업 및 복원 옵션에 대한 개요는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
+Azure VM은 [자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 이용할 수 있으며 정기적으로 Blob 저장소에 데이터베이스의 백업을 만듭니다. 수동으로 이 기술을 사용할 수 있습니다. 자세한 내용은 [SQL Server 백업 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)을 참조하세요. 모든 백업 및 복원 옵션에 대한 개요는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
 
 ### 업데이트 자동화
-Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automated-patching.md)를 사용하여 중요한 Windows 및 SQL Server를 자동으로 설치하는 유지 관리 창을 예약할 수 있습니다.
+Azure VM은 [자동화된 패치](virtual-machines-windows-sql-automated-patching.md)를 사용하여 중요한 Windows 및 SQL Server 업데이트를 자동으로 설치하는 유지 관리 창을 예약할 수 있습니다.
 
 ### CEIP(사용자 환경 개선 프로그램)
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 프로비전한 후 CEIP를 사용하지 않도록 설정하려는 경우가 아니면 관리 작업이 아닙니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다.
@@ -91,4 +94,4 @@ Azure 가상 컴퓨터의 SQL Server에 대한 [학습 경로를 탐색](https:/
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

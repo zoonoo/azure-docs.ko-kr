@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/18/2016"
+    ms.date="08/25/2016"
     ms.author="anhoh"/>
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
@@ -433,4 +433,4 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

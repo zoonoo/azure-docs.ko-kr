@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/07/2016"
+	ms.date="08/29/2016"
 	ms.author="cynthn"/>
 
 # Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기
@@ -37,7 +37,7 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 	![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. **Windows Server 2012 R2 Datacenter** 페이지의 **배포 모델 선택**에서 **리소스 관리자**를 선택했는지 확인합니다. **만들기**를 클릭합니다.
+3. **Windows Server 2012 R2 Datacenter** 블레이드의 **배포 모델 선택**에서 **Resource Manager**를 선택했는지 확인합니다. **만들기**를 클릭합니다.
 
 	![VM에 선택할 배포 모델을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -49,25 +49,25 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 2. **사용자 이름**을 입력하고 VM에서 로컬 계정을 만드는 데 사용할 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다.
 
-	암호의 길이는 12-123자 사이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자가 있어야 합니다.
+	암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 더 자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
 
 
 3. 기존 [리소스 그룹](../resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. **미국 서부**와 같은 Azure 데이터 센터 **위치**를 입력합니다.
 
 4. 완료되면 **확인**을 클릭하여 다음 섹션을 진행합니다.
 
-	![Azure VM을 구성하기 위한 기본 사항 블레이드에서 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
+	![Azure VM을 구성하기 위한 **기본 사항** 블레이드에서 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
 	
 5. VM [크기](virtual-machines-windows-sizes.md)를 선택하고 **선택**을 클릭하여 진행합니다.
 
 	![선택할 수 있는 Azure VM 크기를 보여 주는 크기 블레이드의 스크린샷](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-6. **설정** 블레이드에서 저장소 및 네트워킹 옵션을 변경할 수 있습니다. 첫 번째 가상 컴퓨터의 경우 일반적으로 기본 설정을 적용할 수 있습니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 유형** 아래에서 **프리미엄(SSD)**을 선택해 볼 수 있습니다. 변경 작업이 완료되면 **확인**을 클릭합니다.
+6. **설정** 블레이드에서 저장소 및 네트워킹 옵션을 변경할 수 있습니다. 이 자습서에서는 기본 설정을 적용합니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 유형** 아래에서 **프리미엄(SSD)**을 선택해 볼 수 있습니다. 변경 작업이 완료되면 **확인**을 클릭합니다.
 
 	![Azure VM에 대한 선택적 기능을 구성할 수 있는 설정 블레이드의 스크린샷](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
-7. **요약**을 클릭하여 선택 사항을 검토합니다. 완료되면 **확인**을 클릭합니다.
+7. **요약**을 클릭하여 선택 사항을 검토합니다. **전달된 유효성 검사** 메시지가 표시되면 **확인**을 클릭합니다.
 
 	![Azure VM에 대한 구성 선택 항목을 보여주는 요약 페이지의 스크린샷](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
@@ -101,6 +101,75 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
+## VM에 IIS 설치
+
+VM에 로그인했으므로 더 실험할 수 있도록 서버 역할을 설치합니다.
+
+1. 아직 열려 있지 않은 경우 **서버 관리자**를 엽니다. **시작** 메뉴를 클릭한 다음 **서버 관리자**를 클릭합니다.
+2. **서버 관리자**의 왼쪽 창에서 **로컬 서버**를 선택합니다.
+3. 메뉴에서 **관리** > **역할 및 기능 추가**를 선택합니다.
+4. 역할 및 기능 마법사 추가의 **설치 유형** 페이지에서 **역할 기반 또는 기능 기반 설치**를 선택하고 **다음**을 클릭합니다.
+
+	![설치 유형에 대한 역할 및 기능 마법사 추가 탭을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
+
+5. 서버 풀에서 VM을 선택하고 **다음**을 클릭합니다.
+6. **서버 역할** 페이지에서 **Web Server(IIS)**를 선택합니다.
+
+	![서버 유형에 대한 역할 및 기능 마법사 추가 탭을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
+
+7. IIS에 필요한 기능을 추가하는 방법에 대한 팝업에서 **관리 도구 포함**을 선택한 다음 **기능 추가**를 클릭해야 합니다. 팝업을 닫을 때 마법사에서 **다음**을 클릭합니다.
+
+	![IIS 역할을 추가하여 확인할 팝업을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
+
+8. 기능 페이지에서 **다음**을 클릭합니다.
+9. **웹 서버 역할(IIS)** 페이지에서 **다음**을 클릭합니다.
+10. **역할 서비스** 페이지에서 **다음**을 클릭합니다.
+11. **확인** 페이지에서 **설치**를 클릭합니다.
+12. 설치가 완료되면 마법사에서 **닫기**를 클릭합니다.
+
+
+
+## 포트 80 열기 
+
+VM이 포트 80을 통한 인바운드 트래픽을 허용하기 위해 네트워크 보안 그룹에 인바운드 규칙을 추가해야 합니다.
+
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
+2. **가상 컴퓨터**에서 만든 VM을 선택합니다.
+3. 가상 컴퓨터 설정에서 **네트워크 인터페이스**를 선택한 다음 기존 네트워크 인터페이스를 선택합니다.
+
+	![네트워크 인터페이스에 대한 가상 컴퓨터 설정을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
+
+4. 네트워크 인터페이스에 대한 **Essentials**에서 **네트워크 보안 그룹**을 클릭합니다.
+
+	![네트워크 인터페이스에 대한 Essentials 섹션을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
+
+5. NSG에 대한 **Essentials** 블레이드에서 VM에 로그인할 수 있는 **default-allow-rdp**에 하나의 기존 기본 인바운드 규칙이 있어야 합니다. IIS 트래픽을 허용하도록 인바운드 규칙을 추가합니다. **인바운드 보안 규칙**을 클릭합니다.
+
+	![NSG에 대한 Essentials 섹션을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
+
+6. **인바운드 보안 규칙**에서 **추가**를 클릭합니다.
+
+	![보안 규칙을 추가하는 단추를 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
+
+7. **인바운드 보안 규칙**에서 **추가**를 클릭합니다. 포트 범위에 **80**을 입력하고 **허용**을 선택해야 합니다. 완료되면 **확인**을 클릭합니다.
+
+	![보안 규칙을 추가하는 단추를 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
+ 
+NSG, 인바운드 및 아웃바운드 규칙에 대한 자세한 내용은 [Azure 포털을 사용하여 VM에 대한 외부 액세스 허용](virtual-machines-windows-nsg-quickstart-portal.md)을 참조하세요.
+ 
+## 기본 IIS 웹 사이트에 연결
+
+1. Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 VM을 선택합니다.
+2. **Essentials** 블레이드에서 **공용 IP 주소**를 복사합니다.
+
+	![VM의 공용 IP 주소를 찾을 수 있는 위치를 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
+
+2. 브라우저를 열고 주소 표시줄에 http://<publicIPaddress>와 같은 공용 IP 주소를 입력하고 **입력**을 클릭하여 해당 주소로 이동합니다.
+3. 브라우저는 기본 IIS 웹 페이지에 생성되어야 하고 페이지는 다음과 같이 표시됩니다.
+
+	![브라우저에서 기본 IIS 페이지 모양을 보여 주는 스크린샷입니다.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
+
+
 ## VM을 중지합니다.
 
 실제로 사용하지 않는 경우 요금이 발생하지 않도록 VM을 중지하는 것이 좋습니다. **중지** 단추를 클릭한 후 **예**를 클릭하기만 하면 됩니다.
@@ -116,4 +185,6 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 * [Powershell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md) 또는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 사용할 수도 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+* 배포를 자동화하려는 경우 [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)를 살펴보세요.
+
+<!---HONumber=AcomDC_0831_2016-->

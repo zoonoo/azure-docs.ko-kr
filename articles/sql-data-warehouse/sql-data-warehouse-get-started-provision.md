@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 만들기
@@ -60,6 +60,8 @@
 
     - **원본 선택**: **원본 선택** > **샘플**을 클릭합니다. Azure에서는 AdventureWorksDW를 사용하여 **선택 샘플** 옵션을 자동으로 채웁니다.
 
+> [AZURE.NOTE] SQL 데이터 웨어하우스에 대한 기본 데이터 정렬은 SQL\_Latin1\_General\_CP1\_CI\_AS입니다. 다른 데이터 정렬이 필요한 경우 다른 데이터 정렬이 포함된 데이터베이스를 만드는 데 [T-SQL][]을 사용할 수 있습니다.
+
 4. **만들기**를 클릭하여 SQL 데이터 웨어하우스를 만듭니다.
 
 5. 몇 분 정도 기다립니다. 데이터 웨어하우스가 준비되면 [Azure 포털](https://portal.azure.com)로 돌아가야 합니다. 생성 시 사용한 리소스 그룹 또는 SQL 데이터베이스 아래 나열된, 대시보드에서 SQL 데이터 웨어하우스를 찾을 수 있습니다.
@@ -88,7 +90,8 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [구독]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -99,4 +102,4 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 [Azure 무료 평가판]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure 크레딧]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

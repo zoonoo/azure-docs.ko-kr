@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
-   description="이 문서에서는 리소스 관리자 모델을 사용하여 VNet을 만들고 S2S VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 과정을 안내합니다."
+   description="이 문서에서는 Resource Manager 배포 모델을 사용하여 VNet을 만들고 S2S VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 과정을 안내합니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,17 +14,17 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# PowerShell 및 Azure Resource Manager를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
+# PowerShell을 사용하여 사이트 간 연결로 VNet 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+이 문서에서는 **Azure Resource Manager 배포 모델**을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
 
 ![사이트 간 다이어그램](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "사이트 간")
 
@@ -35,7 +35,7 @@
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. 다른 유형의 연결 구성을 찾으려는 경우 [VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md) 문서를 참조하세요.
+VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
 
 ## 시작하기 전에
@@ -146,11 +146,11 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 다음에는 Azure VNet VPN 게이트웨이에 할당할 공용 IP 주소를 요청합니다. 이 주소는 VPN 장치에 할당되는 것과 동일한 IP 주소가 아니라 Azure VPN 게이트웨이 자체에 할당됩니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다. 게이트웨이에 연결할 온-프레미스 VPN 장치를 구성할 때 이 IP 주소를 사용합니다.
 
-다음 PowerShell 샘플을 사용합니다. 이 주소의 할당 방법은 동적이어야 합니다.
+리소스 관리자 배포 모델에 대한 Azure VPN 게이트웨이는 현재 동적 할당 방법을 사용하여 공용 IP 주소를 지원합니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 Azure VPN 게이트웨이 IP 주소가 변경됩니다. 게이트웨이 공용 IP 주소는 Azure VPN 게이트웨이의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
+
+다음 PowerShell 샘플을 사용합니다.
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
-
->[AZURE.NOTE] 리소스 관리자 배포 모델에 대한 Azure VPN 게이트웨이는 현재 동적 할당 방법을 사용하여 공용 IP 주소를 지원합니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 Azure VPN 게이트웨이 IP 주소가 변경됩니다. 게이트웨이 공용 IP 주소는 Azure VPN 게이트웨이의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
 
 ## 5\. 게이트웨이 IP 주소 지정 구성 만들기
 
@@ -222,4 +222,4 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다.
 
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

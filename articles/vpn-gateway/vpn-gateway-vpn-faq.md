@@ -42,7 +42,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 - [Express 경로](../expressroute/expressroute-introduction.md) - Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md) 및 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
-연결에 대한 자세한 내용은 [VPN 게이트웨이 연결 다이어그램](vpn-gateway-topology.md)을 참조하세요.
+연결에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 ### 사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
@@ -170,7 +170,7 @@ VNet에 대한 게이트웨이 서브넷을 만들어서 VPN 게이트웨이를 
 
 게이트웨이 서브넷 최소 크기는 전적으로 만들려는 구성에 따라 달라집니다. 게이트웨이 서브넷을 일부 구성에 대해 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26등).
 
-## 가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
+### 가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
 번호
 
@@ -195,7 +195,7 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 
 ### 게이트웨이 유형, 요구 사항 및 처리량에 대한 자세한 내용
 
-자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
+자세한 내용은 [VPN 게이트웨이 설정 정보](vpn-gateway-about-vpn gateway-settings.md)를 참조하세요.
 
 ## 다중 사이트 및 VNet 간 연결
 
@@ -229,7 +229,7 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 
 ### 연결된 가상 네트워크와 온-프레미스 로컬 사이트 사이에 주소 공간이 겹칠 수 있습니까?
 
-아니요. 주소 공간이 겹치면 netcfg 파일 업로드 또는 가상 네트워크 만들기가 실패합니다.
+아니요. 주소 공간이 겹치면 네트워크 구성 파일 업로드 또는 "가상 네트워크 만들기"가 실패합니다.
 
 ### 단일 가상 네트워크보다 더 많은 사이트 간 VPN을 사용하면 대역폭이 증가합니까?
 
@@ -237,7 +237,7 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 
 ### Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
 
-Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg 구성 파일에 정적으로 정의된 주소 공간을 사용해야 합니다. BGP는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
+**클래식 배포 모델**<br> Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.<br> **Resource Manager 배포 모델**<br> Resource Manager 배포 모델을 사용하는 경우 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
 
 ### Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
@@ -252,7 +252,7 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg �
 
 예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
@@ -274,11 +274,6 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg �
 ## 가상 네트워크 FAQ
 
 [가상 네트워크 FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 제공합니다.
-
-## 다음 단계
-
-VPN 게이트웨이에 대한 자세한 정보는 [VPN 게이트웨이 설명서 페이지](https://azure.microsoft.com/documentation/services/vpn-gateway/)에서 제공합니다.
-
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

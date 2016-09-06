@@ -58,7 +58,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 - **Azure 계정 및 구독** - Azure 구독이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
 
-- **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 액세스 키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
+- **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 액세스 키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들](batch-account-create-portal.md) 수 있습니다.
 
 - **저장소 계정** - 배치는 [Azure 저장소][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성하는 출력 데이터를 저장하는 등 거의 모든 배치 시나리오에서 Azure Storage를 사용합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)를 참조하세요.
 
@@ -71,8 +71,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 | **Batch REST** | [MSDN][batch_rest] | 해당 없음 | [MSDN][batch_rest] |
 | **Batch .NET** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **배치 Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
-| **Batch Java**(미리 보기) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **배치 Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **배치 Java**(미리 보기) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### 배치 리소스 관리
 
@@ -161,4 +160,4 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

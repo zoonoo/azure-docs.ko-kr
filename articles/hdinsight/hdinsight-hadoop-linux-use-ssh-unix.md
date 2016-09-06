@@ -1,6 +1,6 @@
 <properties
    pageTitle="Linux, Unix 또는 OS X에서 Linux 기반 HDInsight의 SSH 키 사용 | Microsoft Azure"
-   description="SSH(보안 셸)를 사용하여 Linux 기반 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다."
+   description=" SSH(보안 셸)를 사용하여 Linux 기반 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -25,7 +25,9 @@
 
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 통해 명령줄 인터페이스를 사용하여 Linux 기반 HDInsight 클러스터에 대한 작업을 원격으로 수행할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다.
 
-> [AZURE.NOTE] 이 문서의 단계에서는 Linux, Unix 또는 OS X 클라이언트를 사용한다고 가정합니다. `ssh` 및 `ssh-keygen`(Windows용 Git와 같은)을 제공하는 패키지가 설치되어 있는 경우 Windows 기반 클라이언트에서 다음 단계를 수행할 수 있지만 Windows 기반 클라이언트가 [Windows에서 Linux 기반 HDInsight(Hadoop)과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 단계를 따르는 것이 좋습니다.
+> [AZURE.NOTE] 이 문서의 단계에서는 Linux, Unix 또는 OS X 클라이언트를 사용한다고 가정합니다. [Windows에서 Ubuntu의 Bash](https://msdn.microsoft.com/commandline/wsl/about)와 같은 `ssh` 및 `ssh-keygen`를 제공하는 패키지를 설치한 경우 Windows 기반 클라이언트에서 이 단계를 수행할 수 있습니다.
+>
+> SSH를 Windows 기반 클라이언트에 설치하지 않은 경우 PuTTY를 설치하고 사용하는 내용은 [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)의 단계를 사용합니다.
 
 ##필수 조건
 
@@ -35,7 +37,7 @@
 
 또는
 
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md)
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -148,7 +150,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 터미널에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
 
-2. 파일에 다음을 추가합니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 파일에 다음을 추가합니다. *CLUSTERNAME*을 HDInsight 클러스터의 이름으로 바꿉니다.
 
         Host CLUSTERNAME-ssh.azurehdinsight.net
           ForwardAgent yes
@@ -177,7 +179,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 앞에서 설명한 대로 SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
-2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
+2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -189,7 +191,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
         ssh USERNAME@FQDN
 
-    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
     > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
@@ -245,4 +247,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

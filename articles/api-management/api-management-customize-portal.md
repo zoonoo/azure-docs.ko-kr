@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 포털 사용자 지정
@@ -78,7 +78,7 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
--	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
+-	[개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -95,8 +95,7 @@
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[고급 API 구성 시작]: api-management-get-started-advanced.md
 [부트스트랩]: http://getbootstrap.com/
 [LESS 변수]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->
