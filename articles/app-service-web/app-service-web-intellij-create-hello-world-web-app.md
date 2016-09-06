@@ -98,7 +98,7 @@
 
   1. **Web Container**(웹 컨테이너) 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
 
-        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
+        현재, Tomcat 8, Tomcat 7, Jetty 9 중에서 선택할 수 있습니다. 선택한 소프트웨어의 최근 배포는 Azure에서 제공되며, Oracle에서 만들고 Azure에서 제공되는 JDK 8의 최근 배포에서 실행됩니다.
 
   1. **Subscription**(구독) 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
 
