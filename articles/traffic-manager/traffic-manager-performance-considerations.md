@@ -3,7 +3,7 @@
    description="트래픽 관리자의 성능 및 트래픽 관리자 사용 시 웹 사이트의 성능을 테스트 하는 방법에 대한 이"
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # 트래픽 관리자 성능 고려 사
@@ -28,7 +28,7 @@
 - 트래픽 관리자는 기본적으로 DNS 확인 한 가만 수행합니다. 이는 트래픽 관리자가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회라는 뜻입니다.
 - 트래픽 관리자 DNS 조회에 대한 확인 지점입니다. 트래픽 관리자는 정보를 표시하고 정기적으로 업데이트하며, 일반 Microsoft DNS 루트 서버는 사용자 정책 및 검색 결과에 기반합니다. 초기 DNS 조회 중에도 DNS 요청은 일반 Microsoft DNS 루트 서버가 처리하기 때문에 트래픽 관리자가 관여할 부분은 없습니다. 트래픽 관리자가 ‘다운'되는 경우(예: 정책 검색 및 DNS 업데이트를 수행하는 VM의 오류) Microsoft DNS 서버의 항목이 여전히 보존되기 때문에 트래픽 관리자 DNS 이름에 영향을 미치지 않습니다. 유일한 영향은 정책에 기반한 검색 및 업데이트가 일어나지 않는다는 점입니다(예: 기본 사이트가 다운되는 경우 사이트 장애 조치에 조첨을 맞추기 위해 트래픽 관리자는 DNS를 업데이트할 수 없음).
 - 트래픽은 트래픽 관리자를 통해 전달되지 않습니다. 트래픽 관리자 서버는 클라이언트와 Azure 호스티드 서비스 간의 중재자 역할을 하지 않습니다. DNS 조회가 완료되면 트래픽 관리자가 클라이언트와 서버 간의 통신을 완전히 제거합니다.
-- DNS 조회는 매우 빠르며 캐시됩니다. 초기 DNS 조회는 클라이언트 및 구성되는 해당 DNS 서버에 따라 다르며 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 수행합니다(http://www.solvedns.com/dns-comparison/) 참조). 첫 번째 조화가 완료되면 DNS TTL에 대해 결과가 캐시되며, 트래픽 관리자의 경우 기본 300초입니다.
+- DNS 조회는 매우 빠르며 캐시됩니다. 초기 DNS 조회는 클라이언트 및 구성되는 해당 DNS 서버에 따라 다르며 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 수행합니다(http://www.solvedns.com/dns-comparison/ 참조). 첫 번째 조화가 완료되면 DNS TTL에 대해 결과가 캐시되며, 트래픽 관리자의 경우 기본 300초입니다.
 - 사용자가 선택하는 트래픽 관리자(성능, 장애 조치, 라운드 로빈)는 DNS 성능에 영향을 주지 않습니다. 성능 정책은 사용자 경험에 부정적인 영향을 줄 수 있습니다. 예를 들어 아시아서 호스팅된 서비스로 미국 사용자를 보내는 경우 이 성능 문제는 트래픽 관리자에 의해 발생되지 않습니다.
 
   
@@ -84,4 +84,4 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

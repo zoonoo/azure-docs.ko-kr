@@ -3,8 +3,8 @@
    description="이 문서는 트래픽 관리자에서 장애 조치(Failover) 트래픽 라우팅 방법을 구성하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # 장애 조치(Failover) 라우팅 방법 구성
 
@@ -52,4 +52,4 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터(지
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/16/2016"
  ms.author="krisragh"/>
 
 
@@ -85,4 +85,4 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

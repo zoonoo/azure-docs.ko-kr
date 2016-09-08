@@ -3,7 +3,7 @@
    description="이 문서는 트래픽 관리자가 끝점 모니터링 및 자동 끝점 장애 조치를 사용하여 Azure 고객이 고가용성 응용 프로그램을 어떻게 배포할 수 있도록 하는지 이해하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/01/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # 트래픽 관리자 끝점 모니터링 및 장애 조치(failover)
 
@@ -175,4 +175,4 @@ HTTP 및 HTTPS 상태 검사에 사용되는 호스트 헤더는 각 끝점과 �
 
 트래픽 관리자 끝점에서 [Degraded 상태 문제를 해결](traffic-manager-troubleshooting-degraded.md)합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -17,6 +17,13 @@
    ms.author="navale;tomfitz;"/>
    
 # 리소스 관리자 REST API
+
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [포털](./azure-portal/resource-group-portal.md)
+- [REST API](resource-manager-rest-api.md)
+
 Azure Resource Manager에 대한 모든 호출, 배포된 모든 템플릿, 구성된 모든 저장소 계정에 앞서 Azure Resource Manager의 RESTful API에 대한 하나 또는 여러 개의 호출이 있습니다. 이 항목은 해당 API 및 SDK를 전혀 사용하지 않고 해당 API를 호출하는 방법에 사용됩니다. Azure에 대한 모든 요청을 완전히 제어하려는 경우 또는 SDK에서 원하는 언어를 사용할 수 없거나 수행하려는 작업을 지원하지 않는 경우에 매우 유용할 수 있습니다.
 
 이 문서에서는 Azure에서 노출된 모든 API를 다루지 않지만 일부를 진행 및 연결 방법의 예제로 사용합니다. 기본 사항을 이해하는 경우 진행하여 [Azure Resource Manager REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 읽고 나머지 API를 사용하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
@@ -240,4 +247,4 @@ Content-Type: application/json
 
 이 요청에 대한 매우 긴 JSON 응답은 이 설명서의 가독성을 높이기 위해 생략되었습니다. 응답에는 방금 만든 템플릿 기반 배포에 대한 정보가 포함됩니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

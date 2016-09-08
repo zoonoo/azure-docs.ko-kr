@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -49,10 +49,9 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
  - 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
 
 
-- SQL Server Management Studio(ssms.exe) 2015년 8월 Preview 이상 버전. 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
- - [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 항목.
+- SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
+ - [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 항목
  - [직접 다운로드 링크](http://go.microsoft.com/fwlink/?linkid=616025)
- - ssms.exe를 주기적으로 업데이트하는 것이 좋습니다. sms.exe가 매월 업데이트되는 경우도 있습니다.
 
 
 - [Azure PowerShell 모듈](http://go.microsoft.com/?linkid=9811175)이 설치되어 있어야 합니다.
@@ -64,7 +63,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
 
 이 PowerShell은 2단계 코드 샘플의 1단계입니다.
 
-이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능하도록 설계되었습니다.
+이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
 
 
 
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -266,11 +265,11 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 ## 2단계: Azure 저장소 컨테이너를 사용하는 Transact-SQL 코드
 
 
-- 이 코드 샘플의 1단계에서 Azure 저장소 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
+- 이 코드 샘플의 1단계에서 Azure Storage 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
 - 다음으로, 2단계에서 다음 Transact-SQL 스크립트는 컨테이너를 사용해야 합니다.
 
 
-이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능하도록 설계되었습니다.
+이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
 
 
 PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했습니다. 이러한 값을 사용하려면 Transact-SQL 스크립트를 편집해야 합니다. Transact-SQL 스크립트에서 **TODO**를 찾아 편집점을 찾습니다.
@@ -580,10 +579,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 가정하겠습니다.
 
 
-- 간단히 Azure 저장소 컨테이너를 **C:\\myeventdata.xel**과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
+- 간단히 Azure Storage 컨테이너를 **C:\\myeventdata.xel**과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
 
 
-- **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 문이 필요하지 않습니다.
+- **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
 
 
 - **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=**에 지정된 Http 값을 **C:\\myfile.xel**와 같은 전체 경로 문자열로 바꾸겠습니다.
@@ -610,4 +609,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

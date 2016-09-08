@@ -30,7 +30,7 @@
 - [클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답](virtual-machines-linux-classic-faq.md)
 - [가상 컴퓨터에 대한 이미지 정보](virtual-machines-linux-classic-about-images.md)
 - [사용자 고유의 Distro 이미지 업로드](virtual-machines-linux-classic-create-upload-vhd.md)(및 [Azure 보증 배포판](virtual-machines-linux-endorsed-distros.md) 사용 지침)
-- [Azure 클래식 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-classic-log-on.md)
+- [Azure 클래식 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## 설정
 
@@ -71,7 +71,7 @@
 
 
 ## 계획
-- [Azure 인프라 서비스 구현 지침](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Azure 인프라 서비스 구현 지침](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Linux 사용자 이름 선택](virtual-machines-linux-usernames.md)
 - [클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법](virtual-machines-linux-classic-configure-availability.md)
 - [Azure VM에 계획된 유지 관리 예약 방법](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@
 
 ## 관리
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [Linux에 대한 암호 또는 SSH 속성을 다시 설정하는 방법](virtual-machines-linux-classic-reset-access.md)
 - [루트 사용](virtual-machines-linux-use-root-privileges.md)
 
@@ -125,7 +125,7 @@
 
 
 ## 일반 링크
-다음 링크는 Microsoft 블로그, Technet 페이지 및 위의 Azure.com 설명서 외의 외부 사이트입니다. Azure와 오픈 소스 컴퓨팅 환경은 둘 다 빠르게 변화하고 있으므로 Microsoft에서 최신 항목을 지속적으로 추가하고 오래된 항목을 제거하기 위해 최선을 다하고 *있음에도* 다음 링크는 분명히 오래된 버전일 것입니다. 누락된 사항이 있으면 설명을 통해 알려 주시거나 [Github 리포지토리](https://github.com/Azure/azure-content/)로 끌어오기 요청을 제출해 주세요.
+다음 링크는 Microsoft 블로그, Technet 페이지 및 위의 Azure.com 설명서 외의 외부 사이트입니다. Azure와 오픈 소스 컴퓨팅 환경은 둘 다 빠르게 변화하고 있으므로 Microsoft에서 최신 항목을 지속해서 추가하고 오래된 항목을 제거하기 위해 최선을 다하고 *있음에도* 다음 링크는 분명히 오래된 버전일 것입니다. 누락된 사항이 있으면 설명을 통해 알려 주시거나 [Github 리포지토리](https://github.com/Azure/azure-content/)로 끌어오기 요청을 제출해 주세요.
 
 - [Docker 컨테이너를 사용하여 Linux에서 ASP.NET 5 실행](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [OpenLogic에서 CentOS VM 이미지를 배포하는 방법](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
@@ -189,4 +189,4 @@
 
 - [Azure용 Packer 플러그인](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

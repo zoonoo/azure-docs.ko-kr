@@ -17,13 +17,13 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-# Azure Resource Manager 템플릿을 사용하여 Windows VM에 대한 사용자 지정 스크립트 확장 사용
+# Azure Resource Manager 템플릿과 Windows VM 사용자 지정 스크립트 확장
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Windows VM의 템플릿 예제
 
-템플릿의 리소스 섹션에서 다음 리소스 정의
+템플릿의 리소스 섹션에서 다음 리소스를 정의합니다.
 
        {
        "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -47,9 +47,9 @@
        }
      }
 
-위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다. 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
+앞의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다. 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
-대부분의 시나리오에서 고객은 스크립트 URL 및 매개 변수를 비공개로 유지하려고 합니다. 이를 위해 보호된 설정으로 전송된 저장소 계정 이름 및 키를 사용해야만 액세스할 수 있도록 스크립트 URL을 비공개로 유지하면 됩니다. 또한 스크립트 매개 변수도 Windows 사용자 지정 스크립트 확장용 버전 1.7 이상을 사용하여 보호된 설정으로 제공할 수 있습니다.
+스크립트 URL 및 매개 변수를 비공개로 유지하려는 경우 스크립트 URL을 **개인**으로 설정할 수 있습니다. 스크립트 URL을 **개인**으로 설정한 경우 보호된 설정으로 전송된 저장소 계정 이름 및 키를 사용해야만 액세스할 수 있습니다. 스크립트 매개 변수도 사용자 지정 스크립트 확장용 버전 1.7 이상을 사용하여 보호된 설정으로 제공할 수 있습니다.
 
 ## 보호된 설정을 사용하는 Windows VM에 대한 템플릿 예제
 
@@ -68,10 +68,8 @@
         "storageAccountKey": "yourStorageAccountKey"
         }
         }
-최신 버전의 사용자 지정 스크립트 확장 스키마에 대한 자세한 내용은 [여기](virtual-machines-windows-extensions-configuration-samples.md)에서 설명서를 참조하세요.
+최신 버전 사용자 지정 스크립트 확장의 스키마에 대한 자세한 내용은 [Azure Windows VM 확장 구성 샘플](virtual-machines-windows-extensions-configuration-samples.md)을 참조하세요.
 
-사용자 지정 스크립트 확장을 사용하여 VM에서 응용 프로그램을 구성하는 전체 샘플은 아래 예제를 참조하세요.
+사용자 지정 스크립트 확장을 사용하는 VM의 응용 프로그램 구성 예제에 대해서는 [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)을 참조하세요.
 
-* [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

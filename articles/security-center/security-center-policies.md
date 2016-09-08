@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터에서 보안 정책 설정
@@ -38,7 +38,13 @@
 
     ![데이터 수집 사용](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. **가상 컴퓨터에서 데이터 수집** 옵션을 **켜기**로 설정합니다. 이 옵션은 기존 및 새 리소스에 대한 자동 로그 수집을 활성화합니다.
+	이 블레이드에서 사용할 수 있는 옵션은 다음과 같습니다.
+	- **방지 정책**: 이 옵션을 사용하면 구독 또는 리소스 그룹당 정책을 구성할 수 있습니다.
+	- **전자 메일 알림**: 최초로 일별 경고가 발생할 때와 높은 심각도 경고가 발생하는 경우에만 전자 메일 알림이 전송됩니다. 전자 메일 기본 설정은 구독 정책에 대해서만 구성할 수 있습니다. 전자 메일 알림을 구성하는 방법에 대한 자세한 내용은 [Azure 보안 센터에 보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)을 참고하세요.
+	- **가격 책정 계층**: 가격 책정 계층 선택을 업그레이드하려면 이 옵션을 사용합니다. 가격 책정 옵션에 대한 자세한 내용은 [보안 센터 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 방문하세요.
+
+	
+4.  **가상 컴퓨터에서 데이터 수집** 옵션을 **켜기**로 설정합니다. 이 옵션은 기존 및 새 리소스에 대한 자동 로그 수집을 활성화합니다.
 
     >[AZURE.NOTE] 기존 VM 및 새 VM에 보안 모니터링을 사용할 수 있도록 각 구독에 데이터 수집을 설정하는 것이 좋습니다. 데이터 수집을 활성화하면 모니터링 에이전트가 설치됩니다. 지금 이 위치에서 데이터 수집을 활성화하지 않더라도 나중에 상태 및 권장 사항 보기에서 활성화할 수 있습니다. 또한 구독 전용 또는 선택한 VM에 대해 데이터 수집을 활성화할 수 있습니다. 지원되는 VM에 대한 자세한 내용은 [Azure 보안 센터 FAQ](security-center-faq.md)를 참조하세요.
 
@@ -100,4 +106,4 @@
 - [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!-----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

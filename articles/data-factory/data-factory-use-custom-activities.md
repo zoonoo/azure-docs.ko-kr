@@ -40,19 +40,19 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
 
 ### Azure 배치 필수 조건
-이 연습에서는 Azure 배치를 계산 리소스로 사용하여 사용자 지정.NET 작업을 실행할 것입니다. Azure 배치 서비스에 대한 개요는 [Azure 배치 기본 사항][batch-technical-overview]을 참조하고, Azure 배치 서비스를 빨리 시작하려면 [.NET용 Azure 배치 라이브러리 시작][batch-get-started]을 참조하세요.
+이 연습에서는 Azure 배치를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. Azure 배치 서비스에 대한 개요는 [Azure 배치 기본 사항][batch-technical-overview]을 참조하고, Azure 배치 서비스를 빨리 시작하려면 [.NET용 Azure 배치 라이브러리 시작][batch-get-started]을 참조하세요.
 
-이 자습서의 목표를 달성하기 위해 VM 풀과 함께 Azure 배치 계정을 만들어야 합니다. 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure 배치 계정을 만들어야 합니다. 단계는 다음과 같습니다.
 
 1. [Azure 포털](http://manage.windowsazure.com)을 사용하여 **Azure 배치 계정**을 만듭니다. 지침은 [Azure 배치 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다.
 
 	[New-AzureBatchAccount][new-azure-batch-account] cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [Azure PowerShell을 사용하여 Azure 배치 계정 관리][azure-batch-blog]를 참조하세요.
 2. **Azure 배치 풀**을 만듭니다.
-	1. [Azure 포털](https://portal.azure.com)에서 왼쪽의 **찾아보기**를 클릭하고 **배치 계정**을 선택합니다.
+	1. [Azure 포털](https://portal.azure.com)에서 왼쪽의 **찾아보기**를 클릭하고 **배치 계정**을 클릭합니다.
 	2. Azure 배치 계정을 선택하여 **배치 계정** 블레이드를 엽니다.
 	3. **풀** 타일을 클릭합니다.
 	4. **풀** 블레이드에서 도구 모음의 추가 단추를 클릭하여 풀을 추가합니다.
-		1. 풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다.
+		1. 풀에 대한 ID(**풀 ID**)를 입력합니다. Data Factory 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다.
 		2. 운영 체제 제품군 설정에 **Windows Server 2012 R2**를 지정합니다.
 		3. **노드 가격 책정 계층**을 선택합니다.
 		3. **대상 전용** 설정에 대한 값으로 **2**를 입력합니다.
@@ -134,7 +134,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
 		namespace MyDotNetActivityNS
 
-7. 클래스 이름을 **MyDotNetActivity**로 변경하고 아래와 같이 **IDotNetActivity** 인터페이스에서 클래스를 파생합니다.
+7. 클래스 이름을 **MyDotNetActivity**로 변경하고 다음 코드 조각과 같이 **IDotNetActivity** 인터페이스에서 클래스를 파생합니다.
 
 		public class MyDotNetActivity : IDotNetActivity
 
@@ -231,7 +231,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
-            // create a new blob and upload the output text.
+            // create a blob and upload the output text.
             CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
@@ -286,7 +286,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
         /// <summary>
         /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-        /// and prepares the output text that will be written to the output blob. 
+        /// and prepares the output text that is written to the output blob. 
         /// </summary>
 
         public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
@@ -325,7 +325,7 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다.
-12. <프로젝트 폴더>\\bin\\Debug 폴더의 이진 파일을 모두 포함하는 Zip 파일인 **MyDotNetActivity.zip**을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함할 수 있습니다. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위**여야 합니다.
+12. <프로젝트 폴더>\\bin\\Debug 폴더의 이진 파일을 모두 포함하는 Zip 파일인 **MyDotNetActivity.zip**을 만듭니다. 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함할 수 있습니다. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위**여야 합니다.
 
 	![이진 출력 파일](./media/data-factory-use-custom-activities/Binaries.png)
 13. **ADFTutorialDataFactory**의 연결된 서비스 **AzureStorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactivitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
@@ -386,14 +386,14 @@ Azure Data Factory에서 지원되지 않는 데이터 저장소에서 다른 �
 
 			return blobDataset.FileName;
 
-6.	파일 이름은 새 URI 개체를 만들어 기록합니다. URI 생성자는 컨테이너 이름을 반환하는 **BlobEndpoint** 속성을 사용합니다. 출력 BLOB URI를 생성하기 위해 폴더 경로 및 파일 이름이 추가됩니다.
+6.	파일 이름은 URI 개체를 만들어 기록합니다. URI 생성자는 컨테이너 이름을 반환하는 **BlobEndpoint** 속성을 사용합니다. 출력 BLOB URI를 생성하기 위해 폴더 경로 및 파일 이름이 추가됩니다.
 
 			// Write the name of the file. 
 			Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	파일 이름이 작성되었고 이제 Calculate 메서드에서 새 BLOB로 출력 문자열을 작성할 수 있습니다.
 
-			// Create a new blob and upload the output text.
+			// Create a blob and upload the output text.
 			CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
 			logger.Write("Writing {0} to the output blob", output);
 			outputBlob.UploadText(output);
@@ -418,10 +418,10 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 이 섹션에서 수행하는 단계는 다음과 같습니다.
 
 1. **데이터 팩터리**를 만듭니다.
-2. 사용자 지정 작업이 실행되는 VM의 Azure 배치 풀에 대한 **연결된 서비스** 및 입/출력 Blob를 보유하는 Azure 저장소.
+2. 사용자 지정 작업이 실행되는 VM의 Azure 배치 풀에 대한 **연결된 서비스** 및 입/출력 Blob를 보유하는 Azure Storage.
 2. 사용자 지정 작업의 입력 및 출력을 나타내는 입력 및 출력 **데이터 집합**.
 3. 사용자 지정 작업을 사용하는 **파이프라인**.
-4. **데이터 팩터리**. 이러한 엔터티를 Azure에 게시할 때 하나 만들어야 합니다.
+4. **데이터 팩터리**. 이러한 엔터티를 Azure에 게시할 때 하나 만듭니다.
 
 > [AZURE.NOTE] 아직 **file.txt**을 만들어서 Blob 컨테이너에 업로드하지 않았으면 지금 합니다. 위의 지침을 참조하세요.
 
@@ -432,15 +432,15 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 	2.	**새** 블레이드에서 **데이터 + 분석**을 클릭합니다.
 	3.	**데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
 2.	**새 데이터 팩터리** 블레이드에서 **CustomActivityFactory**를 이름으로 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "CustomActivityFactory"를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **yournameCustomActivityFactory**) 다시 만듭니다.
-3.	**리소스 그룹 이름**을 클릭하여 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+3.	**리소스 그룹 이름**을 클릭하여 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다.
 4.	데이터 팩터리를 만들려는 **구독** 및 **지역**을 사용하고 있는지 확인합니다.
 5.	**새 데이터 팩터리** 블레이드에서 **만들기**를 클릭합니다.
 6.	Azure 포털의 **대시보드**에 생성된 데이터 팩터리가 표시됩니다.
-7.	데이터 팩터리 만들기를 완료한 후에는 데이터 팩터리 블레이드가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
+7.	데이터 팩터리 만들기를 완료한 후에는 Data Factory 블레이드가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
 
 ### 2단계: 연결된 서비스 만들기
 
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 이 단계에서는 Azure 저장소 계정 및 Azure 배치 계정을 데이터 팩터리에 연결합니다.
+연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 이 단계에서는 Azure Storage 계정 및 Azure 배치 계정을 데이터 팩터리에 연결합니다.
 
 #### Azure 저장소 연결된 서비스 만들기
 
@@ -481,7 +481,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 이 단계에서는 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다.
 
 #### 입력 데이터 집합 만들기
-1.	데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다.
+1.	Data Factory에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다.
 2.	오른쪽 창의 JSON을 다음 JSON 코드 조각으로 바꿉니다.
 
 			{
@@ -557,7 +557,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 	| 4 | 2015-11-16T03:00:00 | 2015-11-16-03.txt |
 	| 5 | 2015-11-16T04:00:00 | 2015-11-16-04.txt |
 
-	입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. inputfolder에 세 개의 파일이 있는 경우 출력 파일에 각 시간별 조각에 해당하는 세 개의 줄이 생깁니다(예: 2015-11-16-00.txt, 2015-11-16:01:00:00.txt 등....).
+	입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. inputfolder에 세 개의 파일이 있는 경우 출력 파일에 각 시간별 조각에 해당하는 세 개의 줄이 생깁니다(예: 2015-11-16-00.txt, 2015-11-16:01:00:00.txt 등).
 
 
 2. 명령 모음에서 **배포**를 클릭하여 **OutputDataset**을 배포합니다.
@@ -617,7 +617,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 	- activities 섹션에는 **DotNetActivity** 유형의 작업 하나밖에 없습니다.
 	- **AssemblyName**을 DLL의 이름 **MyActivities.dll**로 설정합니다.
 	- **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
-	- **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
+	- **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
 	- 사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
 	- 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
@@ -628,7 +628,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 
 ### 파이프라인 모니터링
  
-8. Azure 포털의 데이터 팩터리 블레이드에서 **다이어그램**을 클릭합니다.
+8. Azure 포털의 Data Factory 블레이드에서 **다이어그램**을 클릭합니다.
 	
 	![다이어그램 타일](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
  
@@ -672,9 +672,11 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 ## 파이프라인 디버깅
 디버깅은 몇 가지 기본적인 방법으로 구성됩니다.
 
-1.	다음과 같은 오류 메시지가 나타나면 CS 파일에서 클래스 이름이 파이프라인 JSON에서 EntryPoint 속성에 대해 지정한 이름과 일치하는지 확인하세요. 위의 연습에서 클래스의 이름은 MyDotNetActivity이고 진입점은 MyDotNetActivityNS.**MyDotNetActivity**로 지정됩니다.
+1.	다음과 같은 오류 메시지가 나타나면 CS 파일에서 클래스 이름이 파이프라인 JSON에서 **EntryPoint** 속성에 대해 지정한 이름과 일치하는지 확인하세요. 위의 연습에서 클래스의 이름은 MyDotNetActivity이고 JSON의 진입점은 MyDotNetActivityNS.**MyDotNetActivity**입니다.
 
-			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly  
+			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
+
+	이름이 일치하는 경우 zip 파일의 **루트 폴더**에 모든 이진 파일이 있는지 확인합니다. 즉, zip 파일을 열 때 하위 폴더가 아닌 루트 폴더에 모든 파일이 있어야 합니다.
 2.	입력 조각이 **준비**로 설정되지 않은 경우 입력 폴더 구조가 올바르고 **file.txt**가 입력 폴더에 있는지 확인합니다.
 2.	사용자 지정 작업의 **Execute** 메서드에서 **IActivityLogger** 개체를 사용하여 문제 해결에 도움이 되는 정보를 기록합니다. 기록된 메시지는 사용자 로그 파일(다음과 같은 이름의 파일 하나 또는 여러 개: user-0.log, user-1.log, user-2.log 등)에 표시됩니다.
 
@@ -682,7 +684,7 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 
 	작업 실행을 클릭하면 로그 파일 목록과 함께 **작업 실행 세부 정보** 블레이드가 표시됩니다. 기록된 메시지는 user\_0.log 파일에 표시됩니다. 오류가 발생하면 파이프라인/작업 JSON에서 재시도 횟수가 3으로 설정되므로 세 개의 작업 실행이 표시됩니다. 작업 실행을 클릭하면 문제 해결을 위해 검토할 수 있는 로그 파일이 표시됩니다.
 
-	로그 파일 목록에서 **user-0.log**를 클릭합니다. 오른쪽 패널은 **IActivityLogger.Write** 메서드를 사용한 결과입니다. 일부 메시지가 보이지 않으면 user_1.log, user_2.log라는 이름의 로그 파일이 더 있는지 확인합니다. 로그 파일이 더 없으면 마지막 메시지가 기록된 후에 코드가 실패한 것일 수 있습니다.
+	로그 파일 목록에서 **user-0.log**를 클릭합니다. 오른쪽 패널은 **IActivityLogger.Write** 메서드를 사용한 결과입니다. 일부 메시지가 보이지 않으면 user_1.log, user_2.log 등이라는 이름의 로그 파일이 더 있는지 확인합니다. 로그 파일이 더 없으면 마지막 메시지가 기록된 후에 코드가 실패한 것일 수 있습니다.
 
 	또한 **system-0.log**에서 시스템 오류 메시지 및 예외를 확인해야 합니다.
 
@@ -692,7 +694,7 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 6.	오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행**을 클릭합니다.
 7.	사용자 지정 활동은 패키지의 **app.config** 파일을 사용하지 않으므로 코드가 구성 파일에서 연결 문자열을 읽으면 런타임에 작동하지 않습니다. Azure 배치를 사용할 때의 모범 사례는 **Azure 주요 자격 증명 모음**에 모든 암호를 저장하고, 인증서 기반 서비스 주체를 사용하여 **주요 자격 증명 모음**을 보호하고, 인증서를 Azure 배치 풀에 배포하는 것입니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이것은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
 
-	모범 사례는 아니지만 좀 더 쉬운 해결 방법이 있습니다. 연결 문자열 설정을 사용하여 새 **Azure SQL 연결된 서비스**를 만들고, 연결된 서비스를 사용하는 데이터 집합을 만들고, 데이터 집합을 더미 입력 데이터 집합으로 사용자 지정 .NET 작업에 연결할 수 있습니다. 그런 후 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 그러면 런타임에 문제 없이 작동합니다.
+	모범 사례는 아니지만 좀 더 쉬운 해결 방법이 있습니다. 연결 문자열 설정을 사용하여 **Azure SQL 연결된 서비스**를 만들고, 연결된 서비스를 사용하는 데이터 집합을 만들고, 데이터 집합을 더미 입력 데이터 집합으로 사용자 지정 .NET 작업에 연결할 수 있습니다. 그런 후 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 그러면 런타임에 문제 없이 작동합니다.
 
 
 
@@ -721,7 +723,7 @@ Azure Data Factory 시작 관리자에서 사용하는 어셈블리 버전(예: 
 	  }
 	},
 
-위의 예제에는 두 가지 확장 속성, **SliceStart** 및 **DataFactoryName**이 있습니다. SliceStart의 값은 SliceStart 시스템 변수를 기반으로 합니다. 지원되는 시스템 변수 목록은 [시스템 변수](data-factory-scheduling-and-execution.md#data-factory-system-variables)를 참조하세요. DataFactoryName의 값은 "CustomActivityFactory"로 하드 코드됩니다.
+코드에는 두 가지 확장 속성, **SliceStart** 및 **DataFactoryName**이 있습니다. SliceStart의 값은 SliceStart 시스템 변수를 기반으로 합니다. 지원되는 시스템 변수 목록은 [시스템 변수](data-factory-scheduling-and-execution.md#data-factory-system-variables)를 참조하세요. DataFactoryName의 값은 "CustomActivityFactory"로 하드 코드됩니다.
 
 **Execute** 메서드에서 이러한 확장 속성에 액세스하려면 다음과 비슷한 코드를 사용합니다.
 
@@ -769,8 +771,8 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 ##### 주문형 HDInsight 클러스터를 사용하려면
 
-1. **Azure 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
-2. 데이터 팩터리 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
+1. **Azure 포털**의 Data Factory 홈페이지에서 **작성자 및 배포**를 클릭합니다.
+2. Data Factory 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
 2. JSON 스크립트에서 다음을 수행합니다.
 	1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
 	3. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다.
@@ -794,13 +796,13 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 ##### 고유한 HDInsight 클러스터를 사용하려면
 
-1. **Azure 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
-2. **데이터 팩터리 편집기**의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **HDInsight 클러스터**를 선택합니다.
+1. **Azure 포털**의 Data Factory 홈페이지에서 **작성자 및 배포**를 클릭합니다.
+2. **Data Factory 편집기**의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **HDInsight 클러스터**를 선택합니다.
 2. JSON 스크립트에서 다음을 수행합니다.
 	1. **clusterUri** 속성에 대해 HDInsight의 URL을 입력합니다. 예: https://<clustername>.azurehdinsight.net/
 	2. **UserName** 속성에 대해 HDInsight 클러스터에 액세스할 수 있는 사용자 이름을 입력합니다.
 	3. **password** 속성에 대해 사용자 암호를 입력합니다.
-	4. **LinkedServiceName** 속성에 대해 **AzureStorageLinkedService**를 입력합니다. 시작 자습서에서 만든 연결된 서비스입니다..
+	4. **LinkedServiceName** 속성에 대해 **AzureStorageLinkedService**를 입력합니다. 시작 자습서에서 이 연결된 서비스를 만들었습니다.
 
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
@@ -894,4 +896,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

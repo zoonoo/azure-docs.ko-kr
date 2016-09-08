@@ -423,26 +423,22 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
 - Azure 앱에 매핑되는 사용자 지정 도메인이 있습니다.
 - 앱이 **기본** 계층 이상에서 실행 중입니다.
 - CA로부터 사용자 지정 도메인에 대한 SSL 인증서를 받았습니다.
- 
-1.	[Azure 포털](https://portal.azure.com)에서 앱의 **사용자 지정 도메인 및 SSL** 블레이드로 이동합니다.
 
-7.	**더 보기** > **인증서 업로드**를 클릭합니다.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)
+1. 브라우저에서 **[Azure 포털](https://portal.azure.com/)**을 엽니다.
+2.	페이지의 왼쪽에서 **앱 서비스** 옵션을 클릭합니다.
+3.	이 인증서를 할당하려는 앱의 이름을 클릭합니다.
+4.	**설정**에서 **SSL 인증서**를 클릭합니다.
+5.	**인증서 업로드**를 클릭합니다.
+6.	[1단계](#bkmk_getcert)에서 내보낸 .pfx 파일을 선택하고 이전에 만든 암호를 지정합니다. 그런 후 **업로드**를 클릭하여 인증서를 업로드합니다. 이제 업로드된 인증서가 **SSL 인증서** 블레이드에 다시 표시됩니다.
+7. **ssl 바인딩** 섹션에서 **바인딩 추가**를 클릭합니다.
+8. **ssl bindings** 블레이드에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. **[SNI(서버 이름 표시)](http://en.wikipedia.org/wiki/Server_Name_Indication)**를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
 
-8.	[1단계](#bkmk_getcert)에서 내보낸 .pfx 파일을 선택하고 이전에 만든 암호를 지정합니다. 그런 다음 **저장**을 클릭하여 인증서를 업로드합니다. 이제 업로드된 인증서가 **사용자 지정 도메인 및 SSL** 블레이드에 다시 표시됩니다.
+    ![SSL 바인딩 이미지 삽입](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
-
-9. **SSL 바인딩** 섹션에서 바인딩할 도메인 이름 및 SSL 인증서를 선택합니다. SNI SSL을 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
-
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)
-
-	* **IP 기반 SSL**은 앱의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 바인딩합니다. 이는 기존 방식의 SSL 바인딩이며, 앱 서비스에서는 바인딩 전용 IP 주소를 만듭니다.
-
-	* [**SNI SSL**](https://en.wikipedia.org/wiki/Server_Name_Indication)은 여러 도메인에 여러 인증서의 바인딩을 허용합니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Safari 포함)는 이를 지원하지만 이전 브라우저는 지원하지 않을 수도 있습니다.
- 
-10. **저장**을 클릭하여 완료합니다.
+       • IP 기반 SSL은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다. • SNI 기반 SSL은 SSL 및 TLS(**[전송 계층 보안](http://en.wikipedia.org/wiki/Transport_Layer_Security)**)에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 **[서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)** 문서를 참조하세요.
+     
+9. **바인딩 추가**를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
 
 ## 3단계. 도메인 이름 매핑 변경(IP 기반 SSL에만 해당)
 
@@ -450,9 +446,9 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
 
 - [A 레코드를 사용하여 사용자 지정 도메인을 Azure 앱에 매핑](web-sites-custom-domain-name.md#a)하고 **IP 기반 SSL** 바인딩을 추가했습니다. 이 시나리오에서는 다음 단계에 따라 전용 IP 주소를 가리키도록 기존 A 레코드를 다시 매핑해야 합니다.
 
-	1. IP 기반 SSL 바인딩을 구성한 후 앱의 **설정** > **속성** 블레이드에서 새 IP 주소를 찾습니다(**외부 도메인 가져오기** 블레이드에 표시된 가상 IP 주소는 최신 주소가 아닐 수 있음).
+	1. IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**로 나열됩니다.
     
-	    ![가상 IP 주소](./media/web-sites-configure-ssl-certificate/staticip.png)
+	    ![가상 IP 주소](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
 	2. [사용자 지정 도메인 이름에 대한 A 레코드를 이 새 IP 주소에 다시 매핑합니다](web-sites-custom-domain-name.md#a).
 
@@ -551,4 +547,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

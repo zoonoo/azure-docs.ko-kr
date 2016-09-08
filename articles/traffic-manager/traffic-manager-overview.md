@@ -3,7 +3,7 @@
    description="이 문서는 트래픽 관리자란 무엇이며 응용 프로그램에 대한 올바른 트래픽 라우팅 선택인지를 이해하도록 도움을 줍니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/09/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # 트래픽 관리자란?
 
@@ -33,7 +33,7 @@ Microsoft Azure 트래픽 관리자를 사용하면 전 세계 여러 데이터 
 - **고성능 응용 프로그램의 응답성 향상** – Azure를 사용하면 전 세계에 있는 데이터 센터에서 클라우드 서비스 또는 웹 사이트를 실행할 수 있습니다. 트래픽 관리자는 클라이언트에서 가장 낮은 네트워크 대기 시간으로 최종 사용자를 끝점에 연결하여 응용 프로그램의 응답성을 향상시킬 수 있습니다.
 - **가동 중지 시간 없이 업그레이드 및 서비스 유지 관리 수행** - 유지 관리가 진행 중인 경우 대체 끝점으로 트래픽을 보내도록 트래픽 관리자를 사용하여 최종 사용자에 대한 가동 중지 시간 없이 응용 프로그램에서 업그레이드 및 기타 계획된 유지 관리 작업을 원활하게 수행할 수 있습니다.
 - **온-프레미스 및 클라우드 기반 응용 프로그램 결합** – 트래픽 관리자는 "클라우드로 버스트", "클라우드로 마이그레이션" 및 "클라우드로 장애 조치(Failover)" 시나리오를 포함한 하이브리드 클라우드 및 온-프레미스 배포에 사용할 수 있도록 외부, Azure가 아닌 끝점을 지원합니다.
-- **대규모의 복잡한 배포에 대한 트래픽 분산** – 트래픽 라우팅 방법은 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 사용하여 결합되어 대규모의 더욱 복잡한 배포의 요구를 충족하도록 정교하고 유연한 트래픽 라우팅 구성을 만들 수 있습니다. 
+- **대규모의 복잡한 배포에 대한 트래픽 분산** – 트래픽 라우팅 방법은 [중첩 트래픽 관리자 프로필](traffic-manager-nested-profiles.md)을 사용하여 결합되어 대규모의 더욱 복잡한 배포의 요구를 충족하도록 정교하고 유연한 트래픽 라우팅 구성을 만들 수 있습니다.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -48,4 +48,4 @@ Microsoft Azure 트래픽 관리자를 사용하면 전 세계 여러 데이터 
 - [트래픽 관리자 프로필을 만듭니다](traffic-manager-manage-profiles.md).
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

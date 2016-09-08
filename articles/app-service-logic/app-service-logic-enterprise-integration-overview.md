@@ -44,10 +44,13 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - EDI - 전자 데이터 교환
 - EAI - 엔터프라이즈 응용 프로그램 통합
 
-## 지금 시작하기 위해 필요한 항목은 다음과 같습니다.
+## 시작하기 위해 필요한 항목은 다음과 같습니다.
 - 통합 계정을 사용하는 Azure 구독
 - 맵과 스키마를 만드는 Visual Studio 2015
 - [Visual Studio용 Microsoft Azure Logic Apps 엔터프라이즈 통합 도구 2015 2.0](https://aka.ms/vsmapsandschemas)
+
+## 직접 체험해 보기
+체험해 보세요. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)를 클릭하여 논리 앱의 B2B 기능을 사용하여 완벽하게 작동하는 AS2 송신 및 수신 논리 앱을 배포합니다.
 
 ## 다음에 대해 자세히 알아봅니다.
 - [규약](./app-service-logic-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")
@@ -61,4 +64,4 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - [XML 메시지 유효성 검사](./app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
 - [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

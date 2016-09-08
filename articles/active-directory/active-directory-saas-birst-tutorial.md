@@ -123,9 +123,9 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테
 	![Single Sign-On 구성](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png)
 
 
-    a. 로그인 URL 텍스트 상자에 **"https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID"**의 패턴을 사용하여 사용자가 Birst Agile Business Analytics 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+    a. 로그인 URL 텍스트 상자에 **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**의 패턴을 사용하여 사용자가 Birst Agile Business Analytics 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. URL는 Birst 계정이 있는 데이터 센터에 종속됩니다. 미국 데이터 센터의 경우 **"https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**를 사용하여 유럽 데이터 센터의 경우 **"https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**를 사용합니다.
 
-	b. **다음**을 클릭합니다.
+	b. **Next**를 클릭합니다.
 
 
 4. **Birst Agile Business Analytics에서 Single Sign-on 구성** 페이지에서 다음 단계를 수행합니다.
@@ -134,7 +134,7 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. 응용 프로그램에 SSO를 구성하려면 [info@birst.com](emailTo:info@birst.com)을 통해 Birst Agile Business Analytics 지원 팀에 문의하고 다운로드한 인증서 파일을 메일에 첨부합니다. 또한 SSO 통합을 맞게 구성할 수 있도록 SAML SSO URL, 로그아웃 URL 및 발급자 URL을 제공하십시오.
@@ -185,7 +185,7 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -199,7 +199,7 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -282,4 +282,4 @@ Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

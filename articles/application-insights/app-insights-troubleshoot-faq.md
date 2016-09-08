@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # 질문 - ASP.NET용 Application Insights
@@ -27,6 +27,12 @@
 * [Java 웹앱](app-insights-java-troubleshoot.md)
 * [기타 플랫폼](app-insights-platforms.md)
 
+*내 서버에서 데이터를 가져오지 않습니다.*
+
+* [방화벽 예외 설정](app-insights-ip-addresses.md)
+* [ASP.NET 서버 설정](app-insights-monitor-performance-live-website-now.md)
+* [Java 서버 설정](app-insights-java-agent.md)
+
 
 ## Application Insights와 같이 사용할 수 있나요...?
 
@@ -35,7 +41,7 @@
 
 ## 무료입니까?
 
-* 예, 무료 [가격 책정 계층](app-insights-pricing.md)을 선택하는 경우. 대부분의 기능 및 많은 데이터 할당량을 받습니다. 
+* 예, 무료 [가격 책정 계층](app-insights-pricing.md)을 선택하는 경우. 대부분의 기능 및 많은 데이터 할당량을 받습니다.
 * Microsoft Azure에 등록하려면 사용자의 신용 카드 데이터를 제공해야 하지만 다른 유료 Azure 서비스를 사용하거나 명시적으로 유료 계층으로 업그레이드하지 않는 한 요금이 부과되지 않습니다.
 * 사용자의 앱을 무료 계층에 대해 월간 할당량보다 더 많이 보내면 기록이 중지됩니다. 이 경우 지불 시작을 선택하거나 월말에 할당량이 다시 설정될 때까지 기다릴 수 있습니다.
 * 기본 사용량 및 세션 데이터에는 할당량이 적용되지 않습니다.
@@ -145,4 +151,4 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell 스�
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

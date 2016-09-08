@@ -15,14 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/10/2016"
+   ms.date="08/23/2016"
    ms.author="iainfou"/>
 
 # Azure CLI를 사용하여 완전한 Linux 환경 만들기
 
-이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전한 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
+이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
 
-그 과정에서 리소스 관리자 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 또한 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
+그 과정에서 Resource Manager 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 또한 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 이러한 환경 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
 
 환경에는 다음이 포함됩니다.
 
@@ -35,7 +35,7 @@
 이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure CLI](../xplat-cli-install.md)가 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
 
 ## 빠른 명령
-다음에 나오는 빠른 명령을 사용하여 사용자 지정 환경을 빌드할 수 있습니다. 환경을 빌드할 때 각 명령이 수행하는 작업에 대한 자세한 내용은 [아래의 자세한 연습 단계](#detailed-walkthrough)를 참조하세요.
+다음에 나오는 빠른 명령을 사용하여 사용자 지정 환경을 빌드할 수 있습니다. 환경을 빌드할 때 각 명령이 수행하는 작업에 대한 자세한 내용은 [자세한 다음 연습 단계](#detailed-walkthrough)를 참조하세요.
 
 리소스 그룹을 만듭니다.
 
@@ -92,7 +92,7 @@ azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-부하 분산 장치에 대한 프런트 엔드 IP 풀을 만들고 Microsoft 공용 IP에 연결합니다.
+부하 분산 장치에 대한 프런트 엔드 IP 풀을 만들고 공용 IP에 연결합니다.
 
 ```bash
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
@@ -104,14 +104,14 @@ azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i T
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-부하 분산 장치의 SSH 인바운드 NAT 규칙을 만듭니다.
+부하 분산 장치에 대한 SSH 인바운드 NAT 규칙을 만듭니다.
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-부하 분산 장치의 웹 인바운드 NAT 규칙을 만듭니다.
+부하 분산 장치에 대한 웹 인바운드 NAT 규칙을 만듭니다.
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -124,7 +124,7 @@ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 ```
 
-JSON 구문 분석기를 사용하여 부하 분산 장치, IP 풀, NAT 규칙을 확인합니다.
+JSON 파서를 사용하여 부하 분산 장치, IP 풀, NAT 규칙을 확인합니다.
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
@@ -200,7 +200,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -218,7 +218,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -307,7 +307,7 @@ data:
 info:    group show command OK
 ```
 
-`--json` Azure CLI 옵션과 함께 [jq](https://stedolan.github.io/jq/) 도구를 사용하여 `azure group show` 명령으로 리소스 그룹을 검사해 보겠습니다. (**jsawk** 또는 원하는 언어 라이브러리를 사용하여 JSON을 구문 분석할 수 있습니다.)
+`azure group show` 명령을 사용하여 리소스 그룹을 검사하기 위해 `--json` Azure CLI 옵션과 함께 [jq](https://stedolan.github.io/jq/) 도구를 사용해 보겠습니다. (**jsawk** 또는 원하는 언어 라이브러리를 사용하여 JSON을 구문 분석할 수 있습니다.)
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
@@ -461,7 +461,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-서브넷은 논리적으로 가상 네트워크 안에 있으므로 약간 다른 명령을 사용하여 서브넷 정보를 살펴보겠습니다. `azure network vnet show` 명령을 사용하게 되지만 **jq**를 사용하여 JSON 출력을 계속 조사합니다.
+서브넷은 논리적으로 가상 네트워크 안에 있으므로 약간 다른 명령을 사용하여 서브넷 정보를 살펴보겠습니다. `azure network vnet show` 명령을 사용하게 되지만 **jq**를 사용하여 JSON 출력을 계속 검사합니다.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -525,7 +525,7 @@ data:    FQDN                            : testsubdomain.westeurope.cloudapp.azu
 info:    network public-ip create command OK
 ```
 
-이 주소도 최상위 리소스이므로 `azure group show` 명령을 사용하여 볼 수 있습니다.
+공용 IP 주소도 최상위 리소스이므로 `azure group show`를 사용하여 볼 수 있습니다.
 
 ```bash
 azure group show TestRG --json | jq '.'
@@ -584,7 +584,7 @@ azure group show TestRG --json | jq '.'
 }
 ```
 
-더 완전한 `azure network public-ip show` 명령을 사용하여 하위 도메인의 FQDN(정규화된 도메인 이름)을 포함하여 더 많은 리소스 세부 정보를 조사할 수 있습니다. 공용 IP 주소 리소스가 논리적으로 할당되었지만 아직 특정 주소가 할당되지는 않았습니다. 여기에 부하 분산 장치가 필요하지만 아직 만들지 않았습니다.
+완전한 `azure network public-ip show` 명령을 사용하여 하위 도메인의 FQDN(정규화된 도메인 이름)을 포함하여 더 많은 리소스 세부 정보를 조사할 수 있습니다. 공용 IP 주소 리소스가 논리적으로 할당되었지만 아직 특정 주소가 할당되지는 않았습니다. IP 주소를 획득하려면 아직 만들지 않은 부하 분산 장치가 필요합니다.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
@@ -610,7 +610,7 @@ azure network public-ip show TestRG TestPIP --json | jq '.'
 ```
 
 ## 부하 분산 장치 및 IP 풀 만들기
-부하 분산 장치를 만들면 여러 VM에 트래픽을 분산할 수 있습니다. 예를 들어 웹 응용 프로그램을 실행하는 경우 이렇게 할 수 있습니다. 또한 유지 보수 중 또는 부하가 많을 경우 사용자 요청에 대응하는 여러 VM을 실행하여 응용 프로그램에 중복성을 제공합니다.
+부하 분산 장치를 만들면 여러 VM에 트래픽을 분산할 수 있습니다. 또한 유지 보수 중 또는 부하가 많을 경우 사용자 요청에 대응하는 여러 VM을 실행하여 응용 프로그램에 중복성을 제공합니다.
 
 다음을 사용하여 부하 분산 장치를 만듭니다.
 
@@ -657,7 +657,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-앞에서 만든 TestLBPIP를 전달하기 위해 `--public-ip-name` 스위치를 어떻게 사용했는지 확인하세요. 이 스위치는 인터넷에서 VM에 연결하기 위해 부하 분산 장치에 공용 IP 주소를 할당합니다.
+앞에서 만든 TestLBPIP를 전달하기 위해 `--public-ip-name` 스위치를 어떻게 사용했는지 확인하세요. 부하 분산 장치에 공용 IP 주소를 할당하면 인터넷에서 VM에 연결할 수 있습니다.
 
 다음으로 백 엔드 트래픽에 사용할 두 번째 IP 풀을 만들겠습니다.
 
@@ -722,7 +722,7 @@ azure network lb show TestRG TestLB --json | jq '.'
 ```
 
 ## 부하 분산 장치 NAT 규칙 만들기
-부하 분산 장치에 트래픽을 통과시키려면 인바운드 또는 아웃바운드 동작을 지정하는 NAT 규칙을 만들어야 합니다. 사용 중인 프로토콜을 지정한 다음 외부 포트를 내부 포트로 원하는 대로 매핑할 수 있습니다. 이 환경에서는 SSH가 이 부하 분산 장치를 통해 VM에 연결하도록 하는 몇 가지 규칙을 만들겠습니다. TCP 포트 4222와 4223이 나중에 만들 VM의 TCP 포트 22로 연결되도록 설정하겠습니다.
+부하 분산 장치에 트래픽을 통과시키려면 인바운드 또는 아웃바운드 동작을 지정하는 NAT 규칙을 만들어야 합니다. 사용할 프로토콜을 지정한 다음 외부 포트를 내부 포트로 원하는 대로 매핑할 수 있습니다. 이 환경에서는 SSH가 이 부하 분산 장치를 통해 VM에 연결하도록 하는 몇 가지 규칙을 만들겠습니다. TCP 포트 4222와 4223이 나중에 만들 VM의 TCP 포트 22로 연결되도록 설정하겠습니다.
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
@@ -754,7 +754,7 @@ SSH의 두 번째 NAT 규칙에 대해 같은 절차를 반복합니다.
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-또한 TCP 포트 80에 대해 NAT 규칙을 만들고 IP 풀에 규칙을 연결하겠습니다. 이 경우 VM에 규칙을 개별적으로 연결하는 대신, IP 풀에서 VM을 간단히 추가 또는 제거할 수 있습니다. 그런 다음 부하 분산 장치는 자동으로 트래픽의 흐름을 조정합니다.
+또한 TCP 포트 80에 대해 NAT 규칙을 만들고 IP 풀에 규칙을 연결하겠습니다. VM에 규칙을 개별적으로 연결하는 대신, IP 풀에 규칙을 연결하는 경우 IP 풀에서 VM을 간단히 추가 또는 제거할 수 있습니다. 그런 다음 부하 분산 장치는 자동으로 트래픽의 흐름을 조정합니다.
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -807,7 +807,7 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-여기서는 15초의 상태 검사 간격을 지정했으며 부하 분산 장치가 호스트가 더 이상 작동하지 않는 것으로 판단할 때까지 최대 4개의 프로브(1분)를 놓칠 수 있습니다.
+여기서는 상태 검사 간격으로 15초를 지정했습니다. 부하 분산 장치에서 호스트가 더 이상 작동하지 않는 것으로 판단할 때까지 최대 4개의 프로브(1분)를 놓칠 수 있습니다.
 
 ## 부하 분산 장치 확인
 이제 부하 분산 장치 구성이 완료되었습니다. 다음과 같은 단계가 수행되었습니다.
@@ -816,7 +816,7 @@ info:    network lb probe create command OK
 2. 그런 다음 프런트 엔드 IP 풀을 만들고 공용 IP를 할당했습니다.
 3. 다음에는 VM을 연결할 수 있는 백 엔드 IP 풀을 만들었습니다.
 4. 그런 다음 관리를 위해 SSH가 VM에 연결할 수 있는 NAT 규칙을 만들고 웹앱이 TCP 포트 80을 사용할 수 있도록 하는 규칙을 만들었습니다.
-5. 마지막으로 VM을 주기적으로 확인하기 위한 상태 프로브를 추가했습니다. 이렇게 하면 사용자가 더 이상 작동하지 않거나 콘텐츠를 제공하지 않는 VM에 액세스하는 일이 없게 됩니다.
+5. 마지막으로 VM을 주기적으로 확인하기 위한 상태 프로브를 추가했습니다. 이 상태 프로브는 사용자가 더 이상 작동하지 않거나 콘텐츠를 제공하지 않는 VM에 액세스하는 일이 없게 합니다.
 
 이제 부하 분산 장치가 어떻게 표시되는지 살펴보겠습니다.
 
@@ -978,7 +978,7 @@ data:
 info:    network nic create command OK
 ```
 
-리소스를 직접 검사하여 세부 정보를 볼 수 있습니다. 이 작업은 `azure network nic show` 명령을 사용하여 수행합니다.
+리소스를 직접 검사하여 세부 정보를 볼 수 있습니다. `azure network nic show` 명령을 사용하여 리소스를 검사합니다.
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
@@ -1026,7 +1026,7 @@ azure network nic show TestRG LB-NIC1 --json | jq '.'
 }
 ```
 
-이제 두 번째 NIC를 만들고 백 엔드 IP 풀에 연결합니다. 이번에는 두 번째 NAT 규칙이 SSH 트래픽을 허용합니다.
+이제 두 번째 NIC를 만들고 백 엔드 IP 풀에 다시 연결합니다. 이번에는 두 번째 NAT 규칙이 SSH 트래픽을 허용합니다.
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -1054,7 +1054,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC를 통과합니다. 이것은 끝점이 아닌 네트워크 연결에 대한 규칙으로, 클래식 배포와 관련이 있습니다. 즉, 포트를 열려면 `--source-port-range`를 '*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
+> [AZURE.NOTE] 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC로 통과합니다. 이것은 끝점이 아닌 네트워크 연결에 대한 인바운드 규칙으로, 클래식 배포와 관련이 있습니다. 포트를 열려면 `--source-port-range`를 '*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
 
 ## NIC에 바인딩
 
@@ -1069,7 +1069,7 @@ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
 ## 가용성 집합 만들기
-가용성 집합은 장애 도메인 및 업그레이드 도메인에 VM에 분산하는 데 유용합니다. VM의 가용성 집합을 만들겠습니다.
+가용성 집합은 장애 도메인 및 업그레이드 도메인에 걸쳐 VM을 분산하는 데 유용합니다. VM의 가용성 집합을 만들겠습니다.
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
@@ -1077,7 +1077,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 
 장애 도메인은 공통의 전원 및 네트워크 스위치를 공유하는 가상 컴퓨터 그룹을 정의합니다. 기본적으로 가용성 집합 안에 구성된 가상 컴퓨터는 최대 3개의 장애 도메인에 분산되어 있습니다. 이러한 장애 도메인 중 하나에서 발생한 하드웨어 문제가 앱을 실행 중인 모든 VM에 영향을 미치지 않는 것이 가장 좋습니다. Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 도메인에 자동으로 분산합니다.
 
-업그레이드 도메인은 동시에 재부팅할 수 있는 가상 컴퓨터 그룹과 기본 물리적 하드웨어를 나타냅니다. 재부팅하는 업그레이드 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업그레이드만 재부팅됩니다. 또한 Azure는 가용성 집합에 VM을 배치할 때 VM을 업그레이드 도메인에 자동으로 분산합니다.
+업그레이드 도메인은 동시에 재부팅할 수 있는 가상 컴퓨터 그룹과 기본 물리적 하드웨어를 나타냅니다. 업그레이드 도메인의 재부팅 순서는 계획된 유지 보수 중 순차적으로 진행되지 않을 수 있으며, 한 번에 하나의 업그레이드만 재부팅됩니다. 또한 Azure는 가용성 집합에 VM을 배치할 때 VM을 업그레이드 도메인에 자동으로 분산합니다.
 
 [VM의 가용성 관리](./virtual-machines-linux-manage-availability.md)에 대한 자세한 내용을 참조하세요.
 
@@ -1085,12 +1085,12 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 
 인터넷에서 액세스 가능한 VM을 지원하기 위해 저장소 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](virtual-machines-linux-cli-ps-findimage.md)에 설명된 대로 `azure vm image list` 명령을 사용하여 해당 이미지 정보를 찾을 것입니다.
 
-`azure vm image list westeurope canonical | grep LTS` 명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest`를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`입니다.)
+`azure vm image list westeurope canonical | grep LTS` 명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest`를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`입니다.)
 
 다음 단계는 **ssh-keygen -t rsa -b 2048**을 사용하여 Linux 또는 Mac에서 ssh rsa 공개 키 및 개인 키 쌍을 만든 경험이 있는 사용자에게 익숙할 것입니다. `~/.ssh` 디렉터리에 인증서 키 쌍이 없으면 다음과 같이 만들 수 있습니다.
 
 - `azure vm create --generate-ssh-keys` 옵션을 사용하여 자동으로
-- [직접 만드는 명령](virtual-machines-linux-ssh-from-linux.md)을 사용하여 수동으로
+- [직접 만드는 명령](virtual-machines-linux-mac-create-ssh-keys.md)을 사용하여 수동으로
 
 또는 VM이 만들어진 후 --admin-password 메서드를 사용하여 SSH 연결을 인증할 수 있습니다. 이 메서드는 일반적으로 보안 수준이 낮습니다.
 
@@ -1107,7 +1107,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -1117,8 +1117,8 @@ azure vm create \
 ```bash
 info:    Executing command vm create
 + Looking up the VM "TestVM1"
-info:    Verifying the public key SSH file: /home/ifoulds/.ssh/id_rsa.pub
-info:    Using the VM Size "Standard_A1"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
+info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account computeteststore
 + Looking up the availability set "TestAvailSet"
@@ -1144,17 +1144,11 @@ The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '[testlb.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
- * Documentation:  https://help.ubuntu.com/
-
-  System information as of Wed Apr 27 23:44:06 UTC 2016
-
-  System load: 0.37              Memory usage: 5%   Processes:       81
-  Usage of /:  37.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-
-  Graph this data and manage this system at:
-    https://landscape.canonical.com/
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
     http://www.ubuntu.com/business/services/cloud
@@ -1163,13 +1157,15 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
 0 updates are security updates.
 
 
-
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
 
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 
 ops@TestVM1:~$
 ```
@@ -1187,12 +1183,12 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
-이제 `azure vm show testrg testvm` 명령을 사용하여 앞에서 만든 항목을 검사할 수 있습니다. 이 시점에는 암호가 사용되지 않도록 설정되어 있으므로 Azure의 부하 분산 장치에서 Ubuntu VM을 실행 중이며 보유하고 있는 SSH 키 쌍을 사용하여 로그인할 수 있습니다. hginx 또는 httpd를 설치하고 웹앱을 배포한 다음 트래픽이 부하 분산 장치를 통해 두 VM에 연결되는 것을 확인할 수 있습니다.
+이제 `azure vm show testrg testvm` 명령을 사용하여 앞에서 만든 항목을 검사할 수 있습니다. 이 시점에는 암호가 사용되지 않도록 설정되어 있으므로 Azure의 부하 분산 장치에서 Ubuntu VM을 실행 중이며 보유하고 있는 SSH 키 쌍을 사용하여 로그인할 수 있습니다. nginx 또는 httpd를 설치하고 웹앱을 배포한 다음 트래픽이 부하 분산 장치를 통해 두 VM에 연결되는 것을 확인할 수 있습니다.
 
 ```bash
 azure vm show TestRG TestVM1
@@ -1204,29 +1200,29 @@ azure vm show TestRG TestVM1
 info:    Executing command vm show
 + Looking up the VM "TestVM1"
 + Looking up the NIC "LB-NIC1"
-data:    Id                              :/subscriptions/8fa5cd83-7fbb-431a-af16-4a20dede8802/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/TestVM1
+data:    Id                              :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/TestVM1
 data:    ProvisioningState               :Succeeded
 data:    Name                            :TestVM1
 data:    Location                        :westeurope
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
 data:    Hardware Profile:
-data:      Size                          :Standard_A1
+data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
 data:        Publisher                   :canonical
 data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.4-LTS
+data:        Sku                         :16.04.0-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli1cca1d20a1dcf56c-os-1461800591317
+data:        Name                        :clib45a8b650f4428a1-os-1471973896525
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/cli1cca1d20a1dcf56c-os-1461800591317.vhd
+data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/clib45a8b650f4428a1-os-1471973896525.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :TestVM1
@@ -1238,13 +1234,13 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-20-F8-8B
+data:          MAC Address               :00-0D-3A-24-D4-AA
 data:          Provisioning State        :Succeeded
 data:          Name                      :LB-NIC1
 data:          Location                  :westeurope
 data:
 data:    AvailabilitySet:
-data:      Id                            :/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
+data:      Id                            :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
@@ -1252,19 +1248,20 @@ data:      BootDiagnostics StorageUri    :https://computeteststore.blob.core.win
 data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
+
 ```
 
 
 ## 환경을 템플릿으로 내보내기
-지금까지 이 환경을 빌드했습니다. 동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 즉, 이 JSON 템플릿을 참조하여 전체 환경을 빌드할 수 있습니다. [JSON 템플릿을 수동으로 빌드](../resource-group-authoring-templates.md)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다.
+지금까지 이 환경을 빌드했습니다. 동일한 매개 변수를 사용하여 추가 개발 환경을 만들려고 하거나 일치하는 프로덕션 환경을 만들려면 어떻게 해야 할까요? Resource Manager는 사용자 환경에 대한 모든 매개 변수를 정의하는 JSON 템플릿을 사용합니다. 이 JSON 템플릿을 참조하여 전체 환경을 빌드합니다. [JSON 템플릿을 수동으로 빌드](../resource-group-authoring-templates.md)하거나 기존 환경을 내보내 JSON 템플릿을 만들 수 있습니다.
 
 ```bash
 azure group export TestRG
 ```
 
-이렇게 하면 `TestRG.json` 파일이 현재 작업 디렉터리에 만들어집니다. 그런 다음 이 템플릿에서 새 환경을 만들 경우 부하 분산 장치, 네트워크 인터페이스, VM 등의 이름과 같은 모든 리소스 이름을 지정하라는 메시지가 표시됩니다. 앞에 나온 `azure group export` 명령에 `-p` 또는 `--includeParameterDefaultValue`를 추가하여 템플릿 파일에 이러한 항목을 채울 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../resource-group-authoring-templates.md#parameters).
+이 명령을 실행하면 `TestRG.json` 파일이 현재 작업 디렉터리에 만들어집니다. 그런 다음 이 템플릿에서 환경을 만들 경우 부하 분산 장치, 네트워크 인터페이스 또는 VM의 이름과 같은 모든 리소스 이름을 지정하라는 메시지가 표시됩니다. 앞에 나온 `azure group export` 명령에 `-p` 또는 `--includeParameterDefaultValue` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 채울 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../resource-group-authoring-templates.md#parameters).
 
-템플릿에서 새 환경을 만들려면:
+템플릿에서 환경을 만들려면
 
 ```bash
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
@@ -1276,4 +1273,4 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

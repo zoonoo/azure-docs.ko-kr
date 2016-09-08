@@ -1,5 +1,5 @@
 <properties
-    pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 사용자 커넥터 추가 | Microsoft Azure"
+    pageTitle="논리 앱에 Office 365 사용자 커넥터 추가 | Microsoft Azure"
     description="REST API 매개 변수를 사용하는 Office 365 사용자 커넥터 개요"
     services=""    
     documentationCenter=""     
@@ -14,32 +14,19 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Office 365 사용자 커넥터 시작
 
-Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자 커넥터를 다음에서 사용할 수 있습니다.
-
-- 논리 앱 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-office365-users.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-office365-users.md)
-
-&nbsp;
+Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
-
 Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
 
-- Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 부하 직원 가져오기, 관리자의 사용자 프로필 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 사용자의 부하 직원을 가져온 다음 이 정보를 사용하여 SQL Azure 데이터베이스를 업데이트합니다. 
-- PowerApps 엔터프라이즈에 Office 365 사용자 커넥터 추가 이렇게 하면 사용자가 앱 내에서 이 커넥터를 사용할 수 있습니다. 
-
-PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면 [PowerApps에서 커넥터 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
+- Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
+- 부하 직원 가져오기, 관리자의 사용자 프로필 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 사용자의 부하 직원을 가져온 다음 이 정보를 사용하여 SQL Azure 데이터베이스를 업데이트합니다.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -47,7 +34,7 @@ PowerApps 엔터프라이즈에서 커넥터를 추가하는 방법을 보려면
 
 Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
 
-| 트리거 | actions|
+| 트리거 | 작업|
 | --- | --- |
 |없음 | <ul><li>관리자 가져오기</li><li>내 프로필 가져오기</li><li>부하 직원 가져오기</li><li>사용자 프로필 가져오기</li><li>사용자 검색</li></ul>|
 
@@ -75,7 +62,7 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|작업이 성공했습니다.|
 |202|작업이 성공했습니다.|
@@ -130,7 +117,7 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 ### 부하 직원을 가져옵니다. 
 부하 직원을 가져옵니다. ```GET: /users/{userId}/directReports```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |userId|string|yes|path|없음|사용자 계정 이름 또는 전자 메일 ID|
 
@@ -184,7 +171,7 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 |AccountEnabled|부울|no|
 |Id|string|yes
 |UserPrincipalName|string|no|
-|Department|string|no|
+|부서|string|no|
 |JobTitle|string|no|
 |MobilePhone|string|no|
 
@@ -203,4 +190,4 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

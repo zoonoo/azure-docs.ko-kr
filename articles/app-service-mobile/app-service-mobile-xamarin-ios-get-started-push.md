@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.iOS 앱에 푸시 알림 추가
@@ -136,7 +136,7 @@
             }
         }
 
-이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
+이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
 ## <a name="test"></a>앱에서 푸시 알림 테스트
 
@@ -156,4 +156,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

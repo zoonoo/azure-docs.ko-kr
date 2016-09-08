@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone 도달률 Engagement SDK 통합
@@ -24,7 +24,7 @@
 
 별도로 추가할 항목은 없습니다. `EngagementReach` 참조 및 리소스가 이미 프로젝트에 포함되어 있습니다.
 
-> [AZURE.TIP]프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다.
+> [AZURE.TIP]  프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다.
 
 ##기능 추가
 
@@ -35,7 +35,7 @@ Engagement 도달률 SDK에는 몇 가지 추가 기능이 필요합니다.
 -   `ID_CAP_PUSH_NOTIFICATION`
 -   `ID_CAP_WEBBROWSERCOMPONENT`
 
-첫번째는 MPNS 서비스에 의해 사용되어 알림 메시지의 표시를 허용합니다. 두번째는 SDK에 브라우저 작업을 포함하는 데 사용됩니다.
+첫 번째는 MPNS 서비스에 의해 사용되어 알림 메시지의 표시를 허용합니다. 두 번째는 SDK에 브라우저 작업을 포함하는 데 사용됩니다.
 
 `WMAppManifest.xml` 파일을 편집하여 `<Capabilities />` 태그 내에 추가:
 
@@ -73,7 +73,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-> [AZURE.TIP]응용 프로그램의 MPNS 푸시 채널 이름을 지정할 수 있습니다. 기본적으로는 appId를 기준으로 이름이 생성됩니다. Engagement 외부에서 푸시 채널을 사용하려는 경우를 제외하면 이름을 직접 지정할 필요가 없습니다.
+> [AZURE.TIP] 응용 프로그램의 MPNS 푸시 채널 이름을 지정할 수 있습니다. 기본적으로는 appId를 기준으로 이름이 생성됩니다. Engagement 외부에서 푸시 채널을 사용하려는 경우를 제외하면 이름을 직접 지정할 필요가 없습니다.
 
 ### Engagement 초기화
 
@@ -99,7 +99,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 		   EngagementReach.Instance.OnActivated(e);
 		}
 
-> [AZURE.IMPORTANT]`EngagementReach.Instance.Init`은(는) 전용 스레드에서 실행됩니다. 직접 실행할 필요가 없습니다.
+> [AZURE.IMPORTANT] `EngagementReach.Instance.Init`은(는) 전용 스레드에서 실행됩니다. 직접 실행할 필요가 없습니다.
 
 ##앱 스토어 제출 고려 사항
 
@@ -125,7 +125,7 @@ EngagementReach 개체는 옵트인(opt in) 및 옵트아웃(opt out)을 관리�
 
 **이러한 권장 사항을 지키지 않는 경우에는 응용 프로그램이 유효성 검사 프로세스를 통과한다고 보장할 수 없습니다.**
 
-##datapush 처리(선택 사항)
+##데이터 푸시 처리(선택 사항)
 
 응용 프로그램이 도달률 데이터 푸시를 수신할 수 있도록 하려면 EngagementReach 클래스의 두 이벤트를 구현해야 합니다.
 
@@ -144,7 +144,7 @@ EngagementReach 개체는 옵트인(opt in) 및 옵트아웃(opt out)을 관리�
 
 각 메서드의 콜백에서는 부울이 반환됩니다. Engagement에서는 데이터 푸시를 디스패치한 후 해당 백 엔드로 피드백을 전송합니다. 콜백에서 false를 반환하면 `exit` 피드백이 전송됩니다. 그렇지 않으면 `action`이(가) 반환됩니다. 이벤트에 대해 콜백이 설정되어 있지 않으면 `drop` 피드백이 Engagement에 반환됩니다.
 
-> [AZURE.WARNING]Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
+> [AZURE.WARNING] Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
 
 ##UI 사용자 지정(선택 사항)
 
@@ -177,7 +177,7 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]Engagement는 기본적으로 자체 `EngagementReachHandler` 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
+> [AZURE.NOTE] Engagement는 기본적으로 자체 `EngagementReachHandler` 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
 
 ### 레이아웃
 
@@ -187,7 +187,7 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 
 서브클래스에서 `EngagementReachHandler` 메서드를 재정의하여 Engagement에서 특정 레이아웃을 사용하도록 명령할 수 있습니다.
 
-**샘플 코드:**
+**샘플 코드 :**
 
 	// In your subclass of EngagementReachHandler
 	
@@ -211,11 +211,11 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 	   // return a new instance of your own notification
 	}
 
-> [AZURE.TIP]`CreateNotification` 메서드는 null을 반환할 수 있습니다. 그러면 알림이 표시되지 않으며 도달률 캠페인이 삭제됩니다.
+> [AZURE.TIP] `CreateNotification` 메서드는 null을 반환할 수 있습니다. 그러면 알림이 표시되지 않으며 도달률 캠페인이 삭제됩니다.
 
 레이아웃 구현을 간소화할 수 있도록 코드의 기준으로 사용 가능한 자체 xaml도 제공됩니다. 이 xaml은 Engagement SDK 보관 파일 위치(/src/reach/)에 있습니다.
 
-> [AZURE.WARNING]제공되는 원본은 Microsoft에서 사용하는 것과 정확하게 동일합니다. 따라서 해당 원본을 직접 수정하는 경우에는 네임스페이스와 이름을 변경해야 합니다.
+> [AZURE.WARNING] 제공되는 원본은 Microsoft에서 사용하는 것과 정확하게 동일합니다. 따라서 해당 원본을 직접 수정하는 경우에는 네임스페이스와 이름을 변경해야 합니다.
 
 ### 알림 위치
 
@@ -259,11 +259,11 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 
 콜백은 `App.xaml.cs` 파일의 `Application_Launching` 메서드에서 설정할 수 있으며 `EngagementReach.Instance.Init()` 호출 앞에 설정하는 것이 좋습니다.
 
-> [AZURE.TIP]UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
+> [AZURE.TIP] UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
 
 [응용 프로그램 정책]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,11 @@
 
 ## HDInsight에 대한 R Server의 2016/08/17 릴리스 정보
 
-• R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)를 참조하세요. • 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다. 자세한 정보는 ["HDInsight에 대한 R Server 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요. • [가장 인기 있는 상위 100개 R 패키지](https://github.com/metacran/cranlogs)의 Linux 종속성 – 이러한 Linux 패키지 종속성은 미리 설치되어 있습니다. • 옵션 R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션. 자세한 정보는 ["HDInsight에서 R Server를 사용하여 시작"](hdinsight-hadoop-r-server-get-started.md)의 ["R 패키지 설치"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) 섹션을 참조하세요. • 클러스터를 만들 때 R Server 프로비전의 안정성을 개선했습니다.
+- R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)를 참조하세요.
+- 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다. 자세한 정보는 ["HDInsight의 R 서버 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요.
+- [상위 100개 가장 인기 있는 R 패키지](https://github.com/metacran/cranlogs)의 Linux 종속성 - 해당 Linux 패키지 종속성은 사전 설치되어 있습니다.
+- R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 정보는 ["HDInsight에서 R 서버 사용 시작"](hdinsight-hadoop-r-server-get-started.md) 문서의 ["R 패키지 설치"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) 섹션을 참조하세요.
+- 클러스터가 만들어질 때 R 서버 프로비저닝의 안정성이 개선되었습니다.
 
 
 ## HDInsight의 2016/08/01 릴리스 정보
@@ -1684,4 +1688,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

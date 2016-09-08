@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -36,7 +36,7 @@
 
 ## 사용자 환경
 
-예를 들어 있는 메일이 Dan@BellowsCollege.com인 사용자가 메일을 통해 중요한 파일을 받는다고 가정해 보겠습니다. 파일은 Azure Rights Management(Azure RMS)로 보호되었습니다. 하지만 Dan의 조직인 Bellows College는 Azure RMS에 등록하지 않았으며 Active Directory RMS도 배포하지 않았습니다. 이 경우 Dan은 보호된 파일을 읽기 위해 개인용 RMS 무료 구독에 등록할 수 있습니다.
+예를 들어 있는 메일이 Dan@BellowsCollege.com인 사용자가 메일을 통해 중요한 파일을 받는다고 가정해 보겠습니다. 파일은 Azure Rights Management(Azure RMS)로 보호되었습니다. 하지만 Dan의 조직인 Bellows College는 Azure RMS에 등록하지 않았으며 Active Directory RMS도 배포하지 않았습니다. 이 경우 Dan은 보호된 파일을 읽기 위해 개인용 RMS에 대한 무료 구독에 등록할 수 있습니다.
 
 Dan이 이 셀프 서비스 제공 사항에 등록하는 BellowsCollege.com 메일 주소를 가진 첫 번째 사용자인 경우에는 Azure AD에서 BellowsCollege.com에 대해 관리되지 않는 디렉터리가 생성됩니다. BellowsCollege.com 도메인의 다른 사용자가 이 제공 사항 또는 비슷한 셀프 서비스 제공 사항에 등록하는 경우 이 사용자도 Azure에서 동일한 관리되지 않는 디렉터리에 생성된 메일로 확인된 사용자 계정을 갖게 됩니다.
 
@@ -52,7 +52,7 @@ Dan이 이 셀프 서비스 제공 사항에 등록하는 BellowsCollege.com 메
 #### 디렉터리
 
 - 도메인에 대한 Azure Active Directory 디렉터리가 도메인당 디렉터리 하나씩 생성됩니다.
-- Azure AD 디렉터리 디렉터리에는 전역 관리자가 없습니다.
+- Azure AD 디렉터리에는 전역 관리자가 없습니다.
 
 #### 사용자
 
@@ -221,7 +221,7 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 ## 참고 항목
 
--  [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure/)
+-  [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

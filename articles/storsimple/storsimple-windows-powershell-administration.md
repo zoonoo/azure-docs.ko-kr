@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # StorSimple용 Windows PowerShell을 사용하여 장치 관리
@@ -60,7 +60,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
  	|키보드 항목|여기서|
  	|---|---|
  	|백스페이스 키|Ctrl-? (127)|
-	|Home 및 End 키|표준|
+	|Home 및 End 키|Standard|
 	|기능 키 및 키패드|Esc[n~|
 	|커서 키의 초기 상태|정상|
 	|숫자 키패드의 초기 상태|정상|
@@ -106,13 +106,13 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 2. **모든 권한으로 피어 컨트롤러에 로그인** 이 옵션은 적절한 자격 증명으로 피어 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있다는 점을 제외하고 옵션 1과 동일합니다. StorSimple 장치는 능동-수동 구성으로 두 개의 컨트롤러를 포함하는 고가용성 장치이기 때문에 피어는 직렬 콘솔을 통해 액세스하는 장치의 다른 컨트롤러를 가리킵니다. 옵션 1과 마찬가지로, 이 옵션을 사용하여 Microsoft 지원이 피어 컨트롤러의 무제한 Runspace에 액세스하도록 허용할 수도 있습니다.
 
-3. **제한된 액세스 권한으로 연결** 이 옵션은 제한된 모드로 Windows PowerShell 인터페이스에 액세스하는 데 사용됩니다. 액세스 자격 증명을 묻는 메시지가 표시되지 않습니다. 이 옵션은 옵션 1과 2에 비해 더 제한된 Runspace에 연결합니다. 이 Runspace에서 수행할 수 없는데 옵션 1을 통해 사용할 수 있는 작업 중 일부는 다음과 같습니다.
+3. **제한된 액세스 권한으로 연결** 이 옵션은 제한된 모드로 Windows PowerShell 인터페이스에 액세스하는 데 사용됩니다. 액세스 자격 증명을 묻는 메시지가 표시되지 않습니다. 이 옵션은 옵션 1과 2에 비해 더 제한된 Runspace에 연결합니다. 이 Runspace에서 수행할 수 **없는데* 옵션 1을 통해 사용할 수 있는 작업 중 일부는 다음과 같습니다.
 
 	- 출하 시 설정으로 복원
 	- 암호 변경
 	- 지원 액세스 사용 또는 사용 안 함
 	- 업데이트 적용
-	- 핫픽스 설치 
+	- 핫픽스 설치
 												
 
 	>[AZURE.NOTE] **장치 관리자 암호를 잊어버렸으며 옵션 1 또는 2를 통해 연결할 수 없는 경우의 기본 옵션입니다.**
@@ -197,4 +197,4 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## 다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

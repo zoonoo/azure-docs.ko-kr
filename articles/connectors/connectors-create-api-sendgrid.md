@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # SendGrid 커넥터 시작
 
-
-
-SendGrid 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flows.microsoft.com)
+SendGrid 연결 공급자를 통해 전자 메일을 보내고 받는 사람 목록을 관리할 수 있습니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -35,7 +29,7 @@ SendGrid 커넥터는 다음에서 사용할 수 있습니다.
 
 SendGrid 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
 
- SendGrid 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
+ SendGrid 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
 
 ### SendGrid 작업
 다음 작업을 수행할 수 있습니다.
@@ -44,11 +38,6 @@ SendGrid 커넥터는 작업으로 사용할 수 있으며 트리거를 가지�
 |--- | ---|
 |[SendEmail](connectors-create-api-sendgrid.md#sendemail)|SendGrid API(받는 사람은 10,000명으로 제한)를 사용하여 전자 메일 보내기|
 |[AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist)|받는 사람 목록에 개별 받는 사람을 추가합니다.|
-### SendGrid 트리거
-다음 이벤트를 수신할 수 있습니다.
-
-|트리거 | 설명|
-|--- | ---|
 
 
 ## SendGrid에 대한 연결 만들기
@@ -73,13 +62,13 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 
 ```POST: /api/mail.send.json```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |request| |yes|body|없음|보낼 전자 메일 메시지|
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |400|잘못된 요청|
@@ -192,4 +181,4 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

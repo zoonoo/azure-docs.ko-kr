@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Microsoft Azure의 모니터링 개요 | Microsoft Azure"
-	description="Azure가 아닌 다른 시스템에 경고하는 Azure의 모니터링 및 진단에 대한 개요"
+	description="경고, 웹후크, 자동 크기 조정 등을 포함하여 Microsoft Azure에서 모니터링 및 진단의 상위 수준 개요."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -138,4 +138,4 @@ Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 �
 - [Azure Storage 문제 해결](../storage/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

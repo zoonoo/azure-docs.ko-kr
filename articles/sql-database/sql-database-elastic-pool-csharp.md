@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/03/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # C&#x23; 데이터베이스 개발: SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 만들기 및 구성
@@ -27,7 +27,7 @@
 
 이 문서에서는 C# 데이터베이스 개발 기술을 사용하여 응용 프로그램에서 SQL 데이터베이스에 대해 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
 
-> [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-powershell.md)를 수행할 수 있습니다.
+> [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-powershell.md)를 할 수 있습니다.
 
 예제에서는 [.NET 용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용합니다. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
@@ -51,13 +51,13 @@ SQL에서 개발용 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/P
 
 C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 완료해야 합니다. 먼저 필요한 인증을 설정하여 REST API에 액세스할 응용 프로그램을 사용해야 합니다.
 
-[Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 이전의 Azure 서비스 관리 REST API에서 사용된 인증서가 아닌 Azure Active Directory를 사용하여 인증합니다.
+[Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 이전의 클래식 배포 모델에서 사용된 인증서가 아닌 Azure Active Directory를 사용하여 인증합니다.
 
-현재 사용자에 기반을 두고 클라이언트 응용 프로그램을 인증하려면 먼저 Azure 리소스가 생성한 구독과 관련된 AAD 도메인에 응용 프로그램을 등록해야 합니다. 회사 또는 학교 계정이 아닌 Microsoft 계정으로 Azure 구독을 생성한 경우 이미 기본 AAD 도메인을 가지고 있습니다. 응용 프로그램은 [클래식 포털](https://manage.windowsazure.com/)에서 등록할 수 있습니다.
+클라이언트 응용 프로그램을 인증하려면 먼저 Azure 리소스가 생성된 구독의 AAD 도메인에 응용 프로그램을 등록해야 합니다. 회사 또는 학교 계정이 아닌 Microsoft 계정으로 Azure 구독을 생성한 경우 이미 기본 AAD 도메인을 가지고 있습니다. [클래식 포털](https://manage.windowsazure.com/)에서 응용 프로그램을 등록합니다.
 
-새 응용 프로그램을 만들고 올바른 active directory에 등록하려면 다음을 수행합니다.
+응용 프로그램을 만들고 올바른 Active Directory에 등록하려면 다음을 수행합니다.
 
-1. 왼쪽의 메뉴를 스크롤하여 **Active Directory** 서비스를 찾아 엽니다.
+1. **Active Directory** 서비스를 찾아서 엽니다.
 
     ![C# SQL 데이터베이스 개발: Active Directory 설정][1]
 
@@ -69,7 +69,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
     ![응용 프로그램을 클릭합니다.][5]
 
-4. **추가**를 클릭하여 새 응용 프로그램을 만듭니다.
+4. **추가**를 클릭하여 응용 프로그램을 만듭니다.
 
     ![추가 단추를 클릭합니다. C# 응용 프로그램을 만듭니다.][6]
 
@@ -104,7 +104,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 코드에 대한 도메인 이름이 필요합니다. 적절한 도메인 이름을 식별하는 간단한 방법은 다음과 같습니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. 오른쪽 위에 있는 이름 위로 마우스를 이동하고 팝업 창에 나타나는 도메인을 참고합니다. 아래 코드 조각의 **domain.onmicrosoft.com**을 사용자 계정에 대한 값으로 대체합니다.
+2. 오른쪽 위에 있는 이름 위로 마우스를 이동하고 팝업 창에 나타나는 도메인을 참고합니다. 코드 조각의 **domain.onmicrosoft.com**을 사용자 계정에 대한 값으로 대체합니다.
 
     ![도메인 이름 식별][3]
 
@@ -117,7 +117,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 ### 현재 사용자에 대한 액세스 토큰 검색
 
-클라이언트 응용 프로그램은 현재 사용자에 대한 응용 프로그램 액세스 토큰을 검색해야 합니다. 코드가 사용자에 의해 처음으로 실행될 때 사용자 자격 증명을 입력하라는 메시지가 표시되며 결과적으로 토큰이 로컬에서 캐시됩니다. 후속 실행 때에는 캐시에서 토큰을 검색하며 토큰이 만료되었을 때 사용자에게 로그인하라는 메시지만 표시합니다.
+클라이언트 응용 프로그램은 현재 사용자에 대한 응용 프로그램 액세스 토큰을 검색해야 합니다. 코드가 처음으로 실행될 때 사용자 자격 증명을 입력하라는 메시지가 표시되며 결과 토큰이 로컬에서 캐시됩니다. 후속 실행 때에는 캐시에서 토큰을 검색하며 토큰이 만료되었을 때 사용자에게 로그인하라는 메시지만 표시합니다.
 
 
     private static AuthenticationResult GetAccessToken()
@@ -161,7 +161,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 ## 서버 만들기
 
-탄력적 데이터베이스 풀은 Azure SQL 데이터베이스 서버에 포함되기 때문에 다음 단계는 서버를 만드는 것입니다. 서버 이름은 모든 Azure SQL 서버에서 전역적으로 고유해야 하며 서버 이름이 이미 사용 중인 경우 오류가 발생합니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 응용 프로그램을 서버에 연결하려면 클라이언트 IP 주소에서 액세스를 열기 위한 방화벽 규칙도 서버에 만들어야 합니다.
+탄력적 데이터베이스 풀은 Azure SQL 데이터베이스 서버에 포함되기 때문에 다음 단계는 서버를 만드는 것입니다. 서버 이름은 모든 Azure SQL Server에서 전역적으로 고유해야 하며 서버 이름이 이미 사용 중인 경우 오류가 발생합니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 응용 프로그램을 서버에 연결하려면 클라이언트 IP 주소에서 액세스를 열기 위한 방화벽 규칙도 서버에 만들어야 합니다.
 
 
     // Create a SQL Database management client
@@ -206,7 +206,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 
 
-다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 추가하고 StartIpAddress와 EndIpAddress를 모두 0.0.0.0으로 설정합니다. 이렇게 하면 *모든* Azure 구독에서 Azure 트래픽이 서버에 액세스할 수 있습니다.
+다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 추가하고 StartIpAddress와 EndIpAddress를 모두 0.0.0.0으로 설정합니다. 이 규칙을 사용하면 *모든* Azure 구독의 Azure 트래픽이 서버에 액세스할 수 있습니다.
 
 
 ## 데이터베이스 만들기
@@ -573,4 +573,4 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

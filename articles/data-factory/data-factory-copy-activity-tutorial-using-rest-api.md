@@ -39,10 +39,10 @@
 - [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 자세히 살펴봅니다.
 - 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/)을 설치합니다. REST 명령과 함께 Curl 도구를 사용하여 데이터 팩터리를 만듭니다.
 - [이 문서](../resource-group-create-service-principal-portal.md)의 지침에 따라 다음 작업을 수행합니다.
-	1. Azure Active Directory에서 **ADFCopyTutotiralApp**이라는 웹 응용 프로그램을 만듭니다.
+	1. Azure Active Directory에서 **ADFCopyTutorialApp**이라는 웹 응용 프로그램을 만듭니다.
 	2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
 	3. **테넌트 ID**를 가져옵니다.
-	4. **ADFCopyTutotiralApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.
+	4. **ADFCopyTutorialApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.
 - [Azure PowerShell](../powershell-install-configure.md)을 설치합니다.
 - **PowerShell**을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
 	1. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
@@ -298,7 +298,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 데이터 팩터리가 성공적으로 생성된 경우 데이터 팩터리에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
-		$results
+		Write-Host $results
 
 다음 사항에 유의하세요.
  
@@ -339,7 +339,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
   
-		$results
+		Write-Host $results
 
 ### Azure SQL 연결된 서비스 만들기
 이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 Azure SQL 데이터베이스를 사용하여 출력 데이터를 저장합니다.
@@ -352,7 +352,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
   
-		$results
+		Write-Host $results
 
 ## 데이터 집합 만들기
 
@@ -404,7 +404,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
   
-		$results
+		Write-Host $results
 
 ### 출력 데이터 집합 만들기
 이 단계에서는 **AzureSqlOutput**이라는 출력 테이블을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL 데이터베이스에서 SQL 테이블(**emp**)을 가리킵니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
@@ -417,7 +417,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
   
-		$results 
+		Write-Host $results 
 
 ## 파이프라인 만들기
 이 단계에서는 **AzureBlobInput**을 입력으로 사용하고 **AzureSqlOutput**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
@@ -430,7 +430,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 		$results = Invoke-Command -scriptblock $cmd;
 3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
-		$results
+		Write-Host $results
 
 **축하합니다.** Azure Blob 저장소에서 Azure SQL 데이터베이스에 데이터를 복사하는 파이프라인으로 Azure Data Factory를 성공적으로 만들었습니다.
 
@@ -493,4 +493,4 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # 서비스 문제에 대한 문제 해결 가이드
@@ -56,8 +56,8 @@
 4) 장치 관련 문제인지를 테스트하려면
 
    - 장치에서 다른 Azure Mobile Engagement 통합 응용 프로그램을 사용하여 Azure Mobile Engagement에 연결할 수 있는지 테스트합니다.
-   - Azure Mobile Engagement UI에 표시된 휴대폰에서 이벤트, 작업 및 크래시를 생성할 수 있는지 테스트합니다. 
-   - 해당 장치 ID에 따라 Azure Mobile Engagement UI에서 장치로 푸시 알림을 보낼 수 있는지 테스트합니다. 
+   - Azure Mobile Engagement UI에 표시된 휴대폰에서 이벤트, 작업 및 크래시를 생성할 수 있는지 테스트합니다.
+   - 해당 장치 ID에 따라 Azure Mobile Engagement UI에서 장치로 푸시 알림을 보낼 수 있는지 테스트합니다.
 
 5) 앱 관련 문제인지를 테스트하려면
 
@@ -89,4 +89,4 @@
     - 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

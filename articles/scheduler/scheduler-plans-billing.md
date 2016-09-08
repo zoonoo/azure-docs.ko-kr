@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러의 버전 및 요금 청구
@@ -59,7 +59,7 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 P10 Premium 청구 �
 
 ## P20 Premium 청구 가능 단위
 
-P20 Premium 청구 가능 단위는 최대 5,000개의 P20 Premium 작업 컬렉션을 포함할 수 있습니다. P20 Premium 작업 컬렉션에는 작업 컬렉션당 최대 1,000개의 작업이 있을 수 있습니다. 따라서, 1개의 프리미엄 청구 단위로 구독에서 최대 5,000,000개 작업(매월 최대 약 2천억 개의 작업 실행)이 있을 수 있습니다.
+P20 Premium 청구 가능 단위는 최대 5,000개의 P20 Premium 작업 컬렉션을 포함할 수 있습니다. P20 Premium 작업 컬렉션에는 작업 컬렉션당 최대 1,000개의 작업이 있을 수 있습니다. 따라서, 1개의 프리미엄 청구 단위로 구독에서 최대 5,000,000개 작업(매월 최대 약 2200억 개의 작업 실행)이 있을 수 있습니다.
 
 P20 Premium 작업 컬렉션은 P10 Premium 작업 컬렉션과 동일한 기능을 제공하지만, 작업 컬렉션당 훨씬 더 많은 수의 작업을 지원하며, P10 Premium에 비해 총 작업 수도 훨씬 더 많으므로 확장성도 높아집니다.
 
@@ -92,4 +92,4 @@ P20 Premium 작업 컬렉션은 P10 Premium 작업 컬렉션과 동일한 기능
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

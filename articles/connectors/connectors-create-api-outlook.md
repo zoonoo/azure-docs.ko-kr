@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Outlook.com 커넥터 시작
 
 Outlook.com 커넥터를 사용하면 메일, 일정 및 연락처를 관리할 수 있습니다. 메일 보내기, 모임 예약, 연락처 추가 등 다양한 작업을 수행할 수 있습니다.
-
-Outlook.com 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flow.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -78,7 +72,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 |속성| 필수|설명|
 | ---|---|---|
-|신뢰|예|Outlook.com 자격 증명 제공|
+|위임|예|Outlook.com 자격 증명 제공|
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 
 >[AZURE.INCLUDE [Outlook.com에 대한 연결을 만드는 단계](../../includes/connectors-create-api-outlook.md)]
@@ -116,7 +110,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```GET: /Mail```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |folderPath|string|no|쿼리|받은 편지함|전자 메일을 검색하는 폴더의 경로(기본값: '받은 편지함')|
 |top|정수|no|쿼리|10|검색할 전자 메일의 수(기본값: 10)|
@@ -143,7 +137,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```POST: /Mail```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |emailMessage| |yes|body|없음|Email|
 
@@ -214,7 +208,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|작업이 성공했습니다.|
 |400|BadRequest|
@@ -236,7 +230,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|작업이 성공했습니다.|
 |400|BadRequest|
@@ -251,7 +245,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```GET: /Mail/OnNewEmail```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |folderPath|string|no|쿼리|받은 편지함|검색할 전자 메일 폴더(기본값: 받은 편지함)|
 |to|string|no|쿼리|없음|받는 사람 전자 메일 주소|
@@ -326,7 +320,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 이 호출에 대한 매개 변수는 없습니다.
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -347,7 +341,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -358,7 +352,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```POST: /datasets/calendars/tables/{table}/items```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |테이블|string|yes|path|없음|일정의 고유 식별자|
 |항목| |yes|body|없음|만들 일정 항목|
@@ -376,7 +370,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```GET: /datasets/calendars/tables/{table}/items/{id}```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |테이블|string|yes|path|없음|일정의 고유 식별자|
 |id|string|yes|path|없음|검색할 일정 항목의 고유 식별자|
@@ -394,7 +388,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |테이블|string|yes|path|없음|일정의 고유 식별자|
 |id|string|yes|path|없음|삭제할 일정 항목의 고유 식별자|
@@ -462,7 +456,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -487,7 +481,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ```GET: /datasets/contacts/tables/{table}/items```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |테이블|string|yes|path|없음|검색할 연락처 폴더의 고유 식별자|
 |$filter|string|no|쿼리|없음|항목의 수를 제한할 ODATA 필터 쿼리|
@@ -497,7 +491,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -551,7 +545,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -570,7 +564,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
@@ -618,7 +612,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
 |@odata.type|string|아니요 |
-|이름|string|예 |
+|Name|string|예 |
 |ContentBytes|string|예 |
 
 
@@ -652,7 +646,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |Id|string|예 |
 |ContentType|string|예 |
 |@odata.type|string|아니요 |
-|이름|string|예 |
+|Name|string|예 |
 |ContentBytes|string|예 |
 
 
@@ -775,7 +769,7 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목 |string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
 |중요도 |string|아니요 |
@@ -914,4 +908,4 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

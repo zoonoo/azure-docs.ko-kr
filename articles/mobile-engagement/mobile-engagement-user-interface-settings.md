@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # 응용 프로그램의 전역 설정을 관리하는 방법
@@ -21,7 +21,7 @@
 응용 프로그램에서 제공하는 **설정** 메뉴 옵션은 응용 프로그램의 플랫폼과 응용 프로그램에 대해 부여한 권한에 따라 달라집니다. 설정에는 세부 정보, 프로젝트, 네이티브 푸시, 푸시 속도, 태그(앱 정보) 및 상업적 압력 등이 있습니다. 설정 섹션의 태그(앱 정보) 메뉴 옵션은 응용 프로그램(SDK 사용) 또는 백 엔드(장치 API 사용)에서 관리할 수 있습니다.
 
 
->[AZURE.NOTE]**Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
+>[AZURE.NOTE] **Mobile Engagement** 포털 UI의 여러 섹션에는 **도움말 표시** 단추가 포함되어 있습니다. 섹션에 대해 더 자세한 문맥 정보를 보려면 이 단추를 누릅니다.
 
 ## 세부 정보
 
@@ -74,7 +74,7 @@ GCM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 Googl
  
 ### Amazon Device Messaging for Android(ADM)
 
-ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클라이언트 ID와 클라이언트 암호로 구성된 Amazon <OAuth credentials>을(를) 제공해야 합니다. 이렇게 하려면 Android v2.1.0 이상 버전용 SDK를 통합해야 합니다.
+ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클라이언트 ID와 클라이언트 암호로 구성된 Amazon <OAuth 자격 증명>을 제공해야 합니다. 이렇게 하려면 Android v2.1.0 이상 버전용 SDK를 통합해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -202,4 +202,4 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0824_2016-->

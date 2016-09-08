@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@
 
 | &nbsp; | 제목 | 설명 |
 | --: | :-- | :-- |
-| 12 | [Azure에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정](sql-server-stretch-database-encryption-tde.md) | Azure에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
-| 13 | [Azure에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정](sql-server-stretch-database-tde-tsql.md) | Azure TSQL에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
+| 12 | [Azure에서 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정](sql-server-stretch-database-encryption-tde.md) | Azure에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
+| 13 | [Azure에서 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Azure TSQL에서 SQL Server 스트레치 데이터베이스에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
 
 
 
@@ -72,4 +72,4 @@
 | 14 | [스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md) | 스트레치 지원 데이터베이스를 백업하는 방법을 알아봅니다. |
 | 15 | [스트레치 지원 데이터베이스 복원](sql-server-stretch-database-restore.md) | 스트레치 지원 데이터베이스를 복원하는 방법을 알아봅니다. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

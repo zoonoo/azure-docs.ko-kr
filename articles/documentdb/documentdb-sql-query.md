@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Azure" 
 	description="SQL 구문, DocumentDB에 대한 데이터베이스 개념 및 SQL 쿼리, NoSQL 데이터베이스에 대해 알아봅니다. SQL은 DocumentDB에서 JSON 쿼리 언어로 사용될 수 있습니다." 
-	keywords="sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리"
+	keywords="sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리, 집계 함수"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/22/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB의 SQL 쿼리 및 SQL 구문
@@ -157,9 +157,9 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
  
--	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
--	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
--	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
+-	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.
+-	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.
+-	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 ## DocumentDB 인덱싱
@@ -170,7 +170,7 @@ DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 따라서 DocumentDB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
 
--	스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다. 
+-	스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다.
 
 -	효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
 
@@ -300,7 +300,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 <td>=, !=, &lt;, >, &lt;=, >=, &lt;></td>
 </tr>
 <tr>
-<td>문자열</td>	
+<td>String</td>	
 <td>||(연결)</td>
 </tr>
 </table>  
@@ -552,7 +552,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우
 
 -	형식 비교 결과가 Undefined입니다.
--	두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.   
+-	두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
@@ -864,8 +864,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	]
 
 
-###* 연산자 
-특수 연산자 (*) 는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
+###* 연산자 특수 연산자 (*)는 문서를 있는 그대로 프로젝션하도록 지원됩니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
@@ -1552,7 +1551,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 ### 문자열 함수
 다음 스칼라 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
 
-사용|설명
+사용 현황|설명
 ---|---
 [LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|지정한 문자열 식의 문자 수를 반환합니다.
 [CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.
@@ -1622,7 +1621,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 ### 배열 함수
 다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
-사용|설명
+사용 현황|설명
 ---|---
 [ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|지정된 배열 식의 요소 수를 반환합니다.
 [ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다.
@@ -2356,6 +2355,18 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 	        });
 	}
 
+## 집계 함수
+
+집계 함수에 대한 네이티브 지원이 진행 중이지만 그 동안 카운트 또는 합계 기능이 필요한 경우 다른 방법으로 동일한 결과를 달성할 수 있습니다.
+
+읽기 경로에서:
+
+- 데이터를 검색하고 로컬로 카운트를 수행하여 집계 함수를 수행할 수 있습니다. `SELECT * FROM c`와 같은 전체 문서 대신 `SELECT VALUE 1`과 같은 저렴한 쿼리 프로젝션을 사용하는 것이 좋습니다. 이렇게 하면 각 결과 페이지에서 처리되는 문서 수를 최대화할 수 있으므로 필요한 경우 서비스에 대한 추가 왕복을 피할 수 있습니다.
+- 또한 저장 프로시저를 사용하여 반복된 왕복에서 네트워크 대기 시간을 최소화할 수 있습니다. 지정된 필터 쿼리에 대한 카운트를 계산하는 저장 프로시저 샘플은 [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js)를 참조하세요. 저장 프로시저를 통해 사용자는 다양한 비즈니스 논리를 집계 작업과 함께 효율적으로 결합할 수 있습니다.
+
+쓰기 경로에서:
+
+- 다른 일반적인 패턴은 "쓰기 경로"에서 결과를 미리 집계하는 것입니다. 이 방법은 "읽기" 요청의 볼륨이 "쓰기" 요청의 볼륨보다 높은 경우 특히 유용합니다. 미리 집계되었으면 단일 지점 읽기 요청으로 결과를 사용할 수 있습니다. DocumentDB에서 미리 집계를 수행하는 가장 좋은 방법은 각 "쓰기"로 호출되는 트리거를 설정하고 구체화되는 쿼리에 대해 최신 결과를 포함하는 메타데이터 문서를 업데이트하는 것입니다. 예를 들어 [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) 샘플을 살펴보세요. 여기서는 컬렉션에 대한 메타데이터 문서의 minSize, maxSize 및 totalSize를 업데이트합니다. 카운터, 합계 등을 업데이트하도록 샘플을 확장할 수 있습니다.
 
 ##참조
 1.	[Azure DocumentDB 소개][introduction]
@@ -2367,8 +2378,8 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
 9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+10.	병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE 데이터 Eng. Bull., 18(3): 1995.
 
@@ -2378,4 +2389,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

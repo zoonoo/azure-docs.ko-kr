@@ -96,5 +96,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-
-<!-----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0831_2016-->

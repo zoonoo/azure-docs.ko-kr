@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #푸시 알림 내에서 이모지 이모티콘 사용
 
 다음과 같은 쉬운 몇 가지 단계를 통해 푸시 알림에 이모지 이모티콘을 포함할 수 있습니다.
 
-1. 먼저 메시지에서 보낼 이모지를 찾아야 합니다. 장치 제조업체에서 새로 승인한 이모지를 장치 플랫폼에 추가하려면 다소 시간이 걸리므로 선택하는 이모지를 대상 장치에서 지원할지 확인하십시오. 
+1. 먼저 메시지에서 보낼 이모지를 찾아야 합니다. 장치 제조업체에서 새로 승인한 이모지를 장치 플랫폼에 추가하려면 다소 시간이 걸리므로 선택하는 이모지를 대상 장치에서 지원할지 확인하십시오.
 
 2. **Windows**에서 이 [링크](http://apps.timwhitlock.info/emoji/tables/unicode)를 탐색하고 ‘네이티브' 아이콘을 복사할 수 있습니다.
 
@@ -40,7 +40,7 @@
 
 7. 테스트를 실행하거나 공지를 활성화할 때 지정된 대로 이모티콘이 있는 알림이 표시됩니다.
 
-	![][3] 
+	![][3]
 	![][4]
 	![][5]
 
@@ -52,4 +52,4 @@
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

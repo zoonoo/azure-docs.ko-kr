@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub란?
@@ -53,7 +53,7 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 -   **장치별 인증 및 보안 연결**. IoT Hub에 연결할 수 있도록 각 장치를 고유한 [보안 키][lnk-devguide-security]로 프로비전할 수 있습니다. [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]는 솔루션의 키와 장치 ID를 저장합니다. 솔루션 백 엔드는 개별 장치를 허용 목록 및 거부 목록에 추가하여 장치 액세스를 완전히 제어할 수 있습니다.
 
--   **장치 연결 작업에 대한 모니터링**. 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 모니터링 기능을 통해 IoT 솔루션에서 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 모든 클라우드-장치 간 메시지를 거부하는 장치와 같은 연결 문제를 쉽게 식별할 수 있습니다.
+-   **장치 연결 작업에 대한 모니터링**. 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 모니터링 기능을 통해 IoT 솔루션에서 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 모든 클라우드-장치 간 메시지를 거부하는 장치와 같은 연결 문제를 식별할 수 있습니다.
 
 -   **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 
@@ -92,7 +92,7 @@ Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴�
 - 전원 또는 연결 문제로 산발적으로 연결된 장치에 대한 양방향 통신은 명령 및 장치 알림을 수신하기 위해 장치를 연결할 때까지 명령 및 장치 알림을 보유하여 용이해질 수 있습니다. IoT Hub는 보내는 명령에 대한 장치 특정 큐를 유지 관리합니다.
 - 응용 프로그램 페이로드 데이터는 특정 서비스에 대한 게이트웨이를 통해 보호된 전송에 대해 개별적으로 보호됩니다.
 
-서비스 보조 통신 패턴은 [Windows 푸시 알림 서비스][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] 및 [Apple Push Notification Service][lnk-apple-push]와 같은 푸시 알림 서비스를 구현하기 위해 큰 규모로 모바일 업계에서 성공적으로 사용되었습니다.
+모바일 업계에서는 [Windows 푸시 알림 서비스][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] 및 [Apple Push Notification Service][lnk-apple-push]와 같은 푸시 알림 서비스를 구현하기 위해 큰 규모로 서비스 보조 통신 패턴을 사용했습니다.
 
 ## 다음 단계
 
@@ -123,4 +123,4 @@ Azure IoT Hub를 사용하여 표준 기반 IoT 장치 관리를 통해 원격�
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

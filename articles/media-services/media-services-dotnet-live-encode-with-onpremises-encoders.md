@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법" 
-	description="이 항목에서는 .NET을 사용하여 온-프레미스 인코더로 라이브 인코딩을 수행하는 방법을 보여줍니다." 
+	pageTitle=".NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법 | Microsoft Azure" 
+	description="이 항목에서는 .NET을 사용하여 온-프레미스 인코더로 라이브 인코딩을 수행하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
+#.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
 
 ##필수 조건
 
@@ -35,7 +35,7 @@
 
 ##예제
 
-다음 코드 예제는 다음 작업을 수행하는 방법을 보여줍니다.
+다음 코드 예제는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 - 미디어 서비스에 연결
 - 채널 만들기
@@ -377,7 +377,9 @@
 	    }
 	}
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+미디어 서비스 학습 경로 검토
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -385,4 +387,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

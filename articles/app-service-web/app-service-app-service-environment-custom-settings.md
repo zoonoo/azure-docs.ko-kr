@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/22/2016"
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에 대한 사용자 지정 구성 설정
 
 ## 개요 ##
 앱 서비스 환경은 단일 고객에게 격리되므로 앱 서비스 환경에만 적용할 수 있는 특정 구성 설정이 있습니다. 이 문서에서는 앱 서비스 환경에 사용 가능한 다양한 앱 서비스 환경 관련 사용자 지정 항목을 설명합니다.
+
+앱 서비스 환경이 없는 경우 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
 새 **clusterSettings** 특성의 배열을 사용하여 앱 서비스 환경 사용자 지정을 저장할 수 있습니다. 이 특성은 *hostingEnvironments* Azure Resource Manager 엔터티의 "속성" 사전에 있습니다.
 
@@ -95,4 +97,4 @@ Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 �
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Azure 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치 만들기 시작 | Microsoft Azure"
    description="Azure 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
@@ -23,14 +23,14 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
 
- 
+
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 
 
-## Azure 포털을 사용하여 부하 분산 장치 끝점 만들기 시작	
+## Azure 포털을 사용하여 부하 분산 장치 끝점 만들기 시작
 
 Azure 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모델을 만들려면 다음 단계를 수행합니다.
 
@@ -57,7 +57,7 @@ Azure 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모�
 11. 확인을 클릭하여 "부하 분산된 집합에 조인" 블레이드로 돌아갑니다.
 
 12. 확인을 클릭하여 "부하 분산 장치 집합" 블레이드에 표시할 새 부하 분산 장치 리소스를 기다립니다.
- 
+
 ## 다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
@@ -66,4 +66,4 @@ Azure 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -64,7 +64,8 @@ $
 
 ## 소개
 
-SSH 공개 키와 개인 키를 사용하는 것이 Linux 서버에 로그인하는 가장 쉬운 방법입니다. [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography)는 암호보다 더 안전하게 Azure의 Linux 또는 BSD VM에 로그인하는 방법을 제공하며 무차별 암호 대입을 훨씬 더 쉽게 수행할 수 있습니다. 다른 사람과 공개 키를 공유할 수 있지만 사용자(또는 로컬 보안 인프라)만이 개인 키를 소유합니다. SSH 개인 키에는 시스템을 보호하는 [암호](https://www.xkcd.com/936/)가 있을 수 있습니다. 이 암호는 개인 SSH 키에 액세스하기 위한 것으로 사용자 계정 암호가 **아닙니다**. SSH 키에 암호를 추가하면 개인 키를 암호화하여 잠금 해제하는 데 반드시 암호가 있어야 개인 키를 사용할 수 있도록 합니다. 공격자가 개인 키를 훔치고 여기에 암호가 없는 경우 이 개인 키를 사용하여 해당하는 공개 키가 있는 서버에 로그인할 수 있습니다. 개인 키가 암호로 보호된 경우 공격자가 사용할 수 없어 Azure에서 인프라에 대해 보안 계층을 추가로 제공합니다.
+SSH 공개 키와 개인 키를 사용하는 것이 Linux 서버에 로그인하는 가장 쉬운 방법입니다. [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography)는 암호보다 더 안전하게 Azure의 Linux 또는 BSD VM에 로그인하는 방법을 제공하며 무차별 암호 대입을 훨씬 더 쉽게 수행할 수 있습니다. 다른 사람과 공개 키를 공유할 수 있지만 사용자(또는 로컬 보안 인프라)만이 개인 키를 소유합니다. SSH 개인 키에는 해당 키를 보호할 [매우 안전한 암호](https://www.xkcd.com/936/)(원본:[xkcd.com](https://xkcd.com))가 있어야 합니다. 이 암호는 개인 SSH 키에 액세스하기 위한 것으로 사용자 계정 암호가 **아닙니다**. SSH 키에 암호를 추가하면 잠금 해제하는 데 암호가 없으면 개인 키를 사용할 수 없도록 개인 키를 암호화합니다. 공격자가 개인 키를 훔치고 해당 키에 암호가 없는 경우 해당 개인 키를 사용하여 해당하는 공개 키가 있는 서버에 로그인할 수 있습니다. 개인 키가 암호로 보호된 경우 공격자가 사용할 수 없어 Azure에서 인프라에 대해 보안 계층을 추가로 제공합니다.
+
 
 
 이 문서에서는 Resource Manager에 대한 배포에 권장하는 *ssh-rsa* 서식 키 파일을 만듭니다. *ssh-rsa* 키는 클래식 및 Resource Manager 배포에 대한 [포털](https://portal.azure.com)에 필요합니다.
@@ -242,4 +243,4 @@ ssh fedora22
 - [Azure 포털을 사용하여 보안 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
 - [Azure CLI를 사용하여 보안 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -3,7 +3,7 @@
    description="이 문서는 트래픽 관리자 끝점에 대해 라운드 로빈 부하 분산을 구성하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # 라운드 로빈 라우팅 방법 구성
 
@@ -52,4 +52,4 @@
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

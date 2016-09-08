@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication의 로그인 환경
@@ -52,9 +52,9 @@
 
 <h2 id="-3">알림을 사용하여 모바일 앱에 로그인</h2>
 
-다음 정보에서는 알림을 받았을 때 모바일 앱에서 다단계 인증을 사용하는 환경에 대해 설명합니다.
+다음 정보에서는 알림을 받았을 때 Microsoft Authenticator에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
-### 모바일 앱으로 전송된 알림을 사용하여 로그인하려면
+### 받은 알림을 사용하여 Microsoft Authenticator 앱에 로그인하려면
 
 - 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
 - Microsoft가 알림을 보냅니다.
@@ -72,16 +72,16 @@
 
 <h2 id="-5">확인 코드를 사용하여 모바일 앱에 로그인</h2>
 
-다음 정보에서는 확인 코드를 함께 사용할 때 모바일 앱에서 다단계 인증을 사용하는 환경에 대해 설명합니다.
+다음 정보에서는 확인 코드를 함께 사용할 때 Microsoft Authenticator 앱에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
-### 모바일 앱에서 확인 코드를 사용하여 로그인하려면
+### 확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인하려면
 
 - 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
 - Microsoft가 확인 코드를 요구합니다.
 
 ![확인 코드 입력](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
 
-- 휴대폰에서 Azure Authenticatior 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
+- 휴대폰에서 Microsoft Authenticator 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
 
 ![코드 받기](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
@@ -104,4 +104,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

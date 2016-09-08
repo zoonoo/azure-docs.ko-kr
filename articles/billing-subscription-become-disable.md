@@ -15,10 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Azure 구독을 사용하지 않도록 설정할 경우 어떻게 해야 하나요?
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사용하여 다시 사용하도록 설정할 수 있습니다. 다음과 같은 이유로 Azure 구독이 비활성화될 수 있습니다.
 
@@ -35,9 +37,9 @@ Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사�
 3. 구독을 선택합니다.
 
 4. *구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다*라는 메시지가 표시되면 클릭합니다.
-	
+
 	또는 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
-	
+
 5. 다음 중 적절한 옵션을 선택합니다.
 
 |옵션|결과|
@@ -71,4 +73,6 @@ Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사�
 
 자세한 내용은 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

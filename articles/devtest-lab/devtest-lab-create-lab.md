@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Labs에서 랩 만들기
@@ -46,6 +46,8 @@
 
     ![랩 블레이드 만들기](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## 다음 단계
 
 랩을 만들었으면 다음 단계를 고려 합니다.
@@ -60,4 +62,4 @@
 
 - [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

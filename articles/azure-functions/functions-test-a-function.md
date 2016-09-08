@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/19/2016"
    ms.author="wesmc"/>
 
 # Azure Functions 테스트
@@ -26,7 +26,7 @@
 
 ## 테스트용 함수 만들기
 
-이 자습서의 대부분에서 새 함수를 만들 때 사용할 수 있는 **HttpTrigger Nodejs 함수** 템플릿의 약간 수정된 버전을 사용합니다. 새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md)를 검토할 수 있습니다. [Azure 포털]에서 테스트 함수를 만들 때에는 **HttpTrigger Nodejs 함수** 템플릿만 선택하면 됩니다.
+이 자습서의 대부분에서는 새 함수를 만들 때 사용할 수 있는 **HttpTrigger Nodejs 함수** 템플릿의 약간 수정된 버전을 사용합니다. 새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md)를 검토할 수 있습니다. [Azure 포털]에서 테스트 함수를 만들 때에는 **HttpTrigger Nodejs 함수** 템플릿만 선택하면 됩니다.
 
 기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름(`name=<your name>`)을 되돌려 주는 hello world 함수입니다. 또한 요청 본문의 JSON 콘텐츠로 이름 및 주소를 제공할 수 있도록 하는 코드를 업데이트합니다. 그러면 함수는 사용 가능한 경우 클라이언트에 다시 표시합니다.
 
@@ -135,8 +135,8 @@ Postman은 대부분의 함수 테스트에 권장되는 도구입니다. Postma
 
 > [AZURE.TIP] 익숙한 REST 클라이언트를 사용합니다. 다음은 Postman의 몇 가지 대안입니다.
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
 Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
@@ -238,7 +238,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 > [AZURE.NOTE] 다른 큐 이름을 사용하는 경우 해당 이름이 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx) 규칙을 준수해야 합니다. 그러지 않으면 HTTP 상태 코드 400(“잘못된 요청”)이 발생합니다.
 
 1. 함수 앱에 대한 [Azure 포털]에서 **새 함수** > **QueueTrigger - C#**을 클릭합니다.
-2. 큐 함수가 모니터링할 큐 이름을 입력합니다. 
+2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
 		queue-newusers 
 
@@ -439,4 +439,4 @@ C# 코드 예제:
 
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

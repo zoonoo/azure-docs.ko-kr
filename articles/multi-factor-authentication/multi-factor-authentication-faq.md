@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -145,7 +145,7 @@ Azure Multi-Factor Authentication 공급자가 해당하는 Azure Active Directo
 
 Azure Multi-Factor Authentication 서비스는 SMS 집계를 통해 문자 메시지를 보냅니다. 사용되는 집계, 대상 국가, 사용자의 휴대폰 통신사 및 신호 강도를 비롯한 다양한 요인이 문자 메시지의 전달 및 수신 안정성에 영향을 줄 수 있습니다. 이로 인해 양방향 SMS에서 문자 메시지의 전달 및 SMS 응답의 수신이 보장되지 않습니다. 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS는 보다 안정적이며 다른 국가에서 전송된 문자 메시지에 응답할 때 발생하는 전역 SMS 요금이 부과되지 않도록 합니다.
 
-미국 및 캐나다 같은 일부 국가 또는 지역에서는 좀 더 확실한 문자 메시지 확인 기능이 보장됩니다. Azure Multi-Factor Authentication을 사용할 때 문자 메시지가 안정적으로 수신되지 않는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 선택하는 것이 좋습니다. 모바일 앱 인증 방법의 경우 사용자가 셀룰러 및 Wi-Fi 연결 둘 다에 대해 모바일 앱 알림을 받을 수 있으므로 유용합니다. 또한 장치에 신호가 전혀 없는 경우에도 모바일 앱 암호가 표시됩니다. [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
+미국 및 캐나다 같은 일부 국가 또는 지역에서는 좀 더 확실한 문자 메시지 확인 기능이 보장됩니다. Azure Multi-Factor Authentication을 사용할 때 문자 메시지가 안정적으로 수신되지 않는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 선택하는 것이 좋습니다. 모바일 앱 인증 방법의 경우 사용자가 셀룰러 및 Wi-Fi 연결 둘 다에 대해 모바일 앱 알림을 받을 수 있으므로 유용합니다. 또한 장치에 신호가 전혀 없는 경우에도 모바일 앱 암호가 표시됩니다. [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 **Q: Azure Multi-factor Authentication 서버에서 하드웨어 토큰을 사용할 수 있나요?**
 
@@ -185,4 +185,4 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

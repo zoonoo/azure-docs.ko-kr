@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/22/2016"
 	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect 동기화 서비스 기능
@@ -25,7 +25,7 @@ Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니
 
 이 항목에서는 다음 **Azure AD Connect 동기화 서비스** 기능 작동 방법 및 Windows PowerShell을 사용하여 구성할 수 있는 방법에 대해 설명합니다.
 
-이러한 설정은 [Windows PowerShell용 Azure Active Directory 모듈](http://aka.ms/aadposh)에서 구성되고 이러한 설정을 구성하려면 Azure AD Connect에서 별도로 다운로드 및 설치해야 합니다. 설명된 cmdlet은 [2016년 3월 릴리스(빌드 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)에 도입되었습니다. 이 항목에서 설명하는 cmdlet이 없거나 동일한 결과가 생성되지 않는 경우 최신 버전을 실행하고 있는지 확인합니다.
+이러한 설정은 [Windows PowerShell용 Azure Active Directory 모듈](http://aka.ms/aadposh)에서 구성됩니다. Azure AD Connect에서 다운로드하여 별도로 설치합니다. 이 항목에서 설명한 cmdlet은 [2016년 3월 릴리스(빌드 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)에 도입되었습니다. 이 항목에서 설명하는 cmdlet이 없거나 동일한 결과가 생성되지 않는 경우 최신 버전을 실행하고 있는지 확인합니다.
 
 Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행합니다. ![Get-MsolDirSyncFeatures 결과](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
@@ -35,11 +35,13 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 
 DirSyncFeature | 주석
 --- | ---
- [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | 내보내는 중 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다.
+[DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | 내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다.
 [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | 개체가 기본 SMTP 주소뿐만 아니라 userPrincipalName에 대해 가입할 수 있습니다.
 [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | 관리되는/허가된(페더레이션되지 않은) 사용자에 대한 userPrincipalName 특성을 동기화 엔진이 업데이트할 수 있습니다.
 
 기능을 사용하도록 설정한 후 다시 해제할 수 없습니다.
+
+>[AZURE.NOTE] 2016년 8월 22일에서 *중복 특성 복원력* 기능은 새로운 Azure AD 디렉터리에 대해 기본적으로 활성화됩니다. 또한 이 기능은 이 날짜 이전에 생성된 디렉터리에서 롤아웃되고 사용하도록 설정됩니다. 디렉터리가 이 기능을 사용하도록 설정하면 전자 메일 알림을 받게 됩니다.
 
 다음 설정은 Azure AD Connect에서 구성되며 `Set-MsolDirSyncFeature`으로 수정할 수 없습니다.
 
@@ -52,14 +54,14 @@ UnifiedGroupWriteback | [미리 보기: 그룹 쓰기 저장](active-directory-a
 UserWriteback | 현재 지원되지 않습니다.
 
 ## 중복 특성 복원력
-중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 필요한 경우 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동 수정됩니다. 이 동작은 UPN 및 proxyAddress에 대해 개별적으로 설정할 수 있습니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)을 참조하세요.
+중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동으로 변경됩니다. 이 동작은 UPN 및 proxyAddress에 대해 개별적으로 설정할 수 있습니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)을 참조하세요.
 
 ## UserPrincipalName 소프트 일치
-이 기능을 사용하도록 설정하면 [기본 SMTP 주소](https://support.microsoft.com/kb/2641663)(항상 사용하도록 설정되어 있음)뿐만 아니라 UPN에 소프트 일치가 적용됩니다. Azure AD의 기존 클라우드 사용자를 온-프레미스 사용자와 일치하는 데 소프트 일치를 사용합니다.
+이 기능을 사용하도록 설정하면 [기본 SMTP 주소](https://support.microsoft.com/kb/2641663) 외에도 UPN에 소프트 일치를 사용하고 항상 사용하도록 설정됩니다. Azure AD의 기존 클라우드 사용자를 온-프레미스 사용자와 일치하는 데 소프트 일치를 사용합니다.
 
-이 기능을 사용하도록 설정하면 온-프레미스 AD 계정이 클라우드에서 만든 기존 계정과 일치해야 하고 Exchange Online을 사용하지 않는 경우에 특히 유용합니다. 이 시나리오에서는 일반적으로 클라우드에서 SMTP 특성을 설정할 이유가 없습니다.
+온-프레미스 AD 계정이 클라우드에서 만든 기존 계정과 일치해야 하고 Exchange Online을 사용하지 않는 경우 이 기능은 특히 유용합니다. 이 시나리오에서는 일반적으로 클라우드에서 SMTP 특성을 설정할 이유가 없습니다.
 
-이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 사용하도록 설정되어 있는지 확인할 수 있습니다.
+이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
@@ -75,11 +77,11 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 - 사용자가 관리됨(페더레이션되지 않음)
 - 사용자에게 라이선스가 할당되지 않음
 
-자세한 내용은 [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID(Office 365, Azure, Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음)](https://support.microsoft.com/kb/2523192)를 참조하세요.
+자세한 내용은 [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않음](https://support.microsoft.com/kb/2523192)을 참조하세요.
 
-이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 동기화를 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다. 페더레이션을 사용하는 경우 이 기능은 작동하지 않습니다.
+이 기능을 사용하도록 설정하면 userPrincipalName이 변경된 온-프레미스이고 암호 동기화를 사용하는 경우 동기화 엔진이 이를 업데이트할 수 있습니다. 페더레이션을 사용하는 경우 이 기능은 지원되지 않습니다.
 
-이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 사용하도록 설정되어 있는지 확인할 수 있습니다.
+이 기능은 새로 만든 Azure AD 디렉터리에 기본적으로 설정되어 있습니다. 다음을 실행하여 이 기능을 사용하도록 설정했는지 확인할 수 있습니다.
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
@@ -91,13 +93,9 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 이 기능을 사용하도록 설정하면 기존 userPrincipalName 값이 그대로 유지됩니다. userPrincipalName 특성 온-프레미스의 다음 변경 시 사용자에 대한 일반 델타 동기화가 UPN을 업데이트합니다.
 
-## 향후 변경
-이러한 설정은 나중에 모든 Azure AD 디렉터리에 사용할 수 있습니다.
-
 ## 참고 항목
 
 - [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
-
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

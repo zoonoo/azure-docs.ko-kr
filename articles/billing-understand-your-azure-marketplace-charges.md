@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Azure 마켓플레이스 요금의 이해
 이 문서에서는 마켓플레이스 주문과 관련된 요금을 이해하는 방법을 개략적으로 설명합니다. 청구서를 검토할 때 다양한 가격 책정 유형(기본만, 사용량만, 기본 + 사용량)이 있음을 염두에 두어야 합니다. 사용자가 발주하는 마켓플레이스 주문마다 고유한 월별 청구 주기가 적용됩니다. 이에 대한 토픽은 아래에서 자세히 다루겠습니다.
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 마켓플레이스 청구서 검토
 [Azure 계정 포털]( https://account.windowsazure.com/subscriptions/)에 로그인하면 현재와 과거의 청구서를 검토 및 다운로드할 수 있습니다.
@@ -31,7 +33,7 @@
 
 	![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ](https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
+3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ] (https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
 
 	![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
@@ -90,7 +92,7 @@
 
 	[주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다.
 
-    청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
+청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
 
 	![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
@@ -98,4 +100,6 @@
 
 	![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

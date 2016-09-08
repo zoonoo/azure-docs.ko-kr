@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/23/2016"
 	ms.author="raynew"/>
 
 # Azure 포털을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
@@ -31,7 +31,7 @@ Azure Site Recovery에 오신 것을 환영합니다! Azure 포털을 통해 Sys
 Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 - Azure 포털에는 Azure 백업 및 Azure Site Recovery 서비스가 단일 복구 서비스 자격 증명 모음으로 결합되어 있어서 단일 위치에서 BCDR(비즈니스 연속성 및 재해 복구)을 설정하고 관리할 수 있습니다. 통합 대시보드를 통해 온-프레미스 사이트와 Azure 공용 클라우드의 작업을 모니터링하고 관리할 수 있습니다.
-- CSP(클라우드 솔루션 공급자) 프로그램이 포함된 Azure 구독이 있는 사용자는 이제 Azure 포털에서 Site Recovery 작업을 관리할 수 있습니다.
+- CSP(클라우드 솔루션 공급자) 프로그램이 포함된 Azure 구독이 있는 사용자는 이제 Azure 포털에서 사이트 복구 작업을 관리할 수 있습니다.
 
 
 이 문서를 읽은 후 하단의 Disqus 의견에 의견을 남겨 주세요. 기술 관련 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의하세요.
@@ -66,9 +66,9 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 이 표는 이 시나리오에서 데이터가 저장되는 방법을 보여 줍니다.
 ****
-작업 | **세부 정보** | **수집된 데이터** | **사용** | **필수** 
+작업 | **세부 정보** | **수집된 데이터** | **사용** | **필수**
 --- | --- | --- | --- | ---
-**등록** | 복구 서비스 자격 증명 모음에 VMM 서버를 등록합니다. 나중에 서버를 등록 취소하려면 Azure 포털에서 서버 정보를 삭제하면 됩니다. | VMM 서버가 등록되면 Site Recovery는 VMM 서버에 대한 메타데이터와 Site Recovery에서 검색한 VMM 클라우드의 이름을 수집하고 처리하고 전송합니다. | 이러한 데이터는 해당 VMM 서버를 식별하고 통신하며 적절한 VMM 클라우드에 대한 설정을 구성하는 데 사용됩니다. | 이 기능은 필수입니다. Site Recovery에 이 정보를 보내지 않으려는 경우 Site Recovery 서비스를 사용하면 안 됩니다. 
+**등록** | 복구 서비스 자격 증명 모음에 VMM 서버를 등록합니다. 나중에 서버를 등록 취소하려면 Azure 포털에서 서버 정보를 삭제하면 됩니다. | VMM 서버가 등록되면 Site Recovery는 VMM 서버에 대한 메타데이터와 Site Recovery에서 검색한 VMM 클라우드의 이름을 수집하고 처리하고 전송합니다. | 이러한 데이터는 해당 VMM 서버를 식별하고 통신하며 적절한 VMM 클라우드에 대한 설정을 구성하는 데 사용됩니다. | 이 기능은 필수입니다. Site Recovery에 이 정보를 보내지 않으려는 경우 Site Recovery 서비스를 사용하면 안 됩니다.
 **복제 활성화** | Azure Site Recovery 공급자는 VMM 서버에 설치되며 Site Recovery 서비스와 통신하기 위한 통로가 됩니다. 공급자는 VMM 프로세스에 호스트된 DLL(동적 연결 라이브러리)입니다. 공급자를 설치하면 VMM 관리자 콘솔에서 "데이터 센터 복구" 기능을 사용할 수 있습니다. 새 VM 및 기존 VM은 VM을 보호하기 위해 이 기능을 사용하도록 설정할 수 있습니다. | 이 속성이 설정되면 공급자는 VM의 이름과 ID를 Site Recovery로 보냅니다. Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제본을 통해 복제를 사용할 수 있습니다. 일반적으로 서로 다른 "복구" 데이터 센터에 있는 Hyper-V 호스트 간에 가상 컴퓨터 데이터가 복제됩니다. | Site Recovery는 메타데이터를 사용하여 Azure 포털에서 VM 정보를 채웁니다. | 이 기능은 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 보내지 않으려면 VM에 Site Recovery 보호를 사용하지 마세요. 공급자가 Site Recovery로 보내는 모든 데이터는 HTTPS를 통해 전송됩니다.
 **복구 계획** | 복구 계획은 복구 데이터 센터에 대한 오케스트레이션 계획을 작성하는 데 도움이 됩니다. 복구 사이트에서 VM 또는 가상 컴퓨터 그룹이 시작되는 순서를 정의할 수 있습니다. 각 VM을 복구할 때 실행할 자동화된 스크립트나 수행할 수동 작업을 지정할 수도 있습니다. 장애 조치(Failover)는 일반적으로 조정된 복구에 대한 복구 계획 수준에서 트리거됩니다. | Site Recovery는 가상 컴퓨터 메타데이터, 자동화 스크립트 및 수동 작업 노트의 메타데이터 등을 포함하여 복구 계획에 대한 메타데이터를 수집, 처리 및 전송합니다. | 이 메타데이터는 Azure 포털에서 복구 계획을 작성하는 데 사용됩니다. | 이 기능은 서비스의 핵심 부분이며 해제할 수 없습니다. Site Recovery에 이 정보를 보내지 않으려는 경우 복구 계획을 만들지 마세요.
 **네트워크 매핑** | 기본 데이터 센터에서 복구 데이터 센터로 네트워크 정보가 매핑됩니다. 복구 사이트에서 VM을 복구할 때 네트워크 매핑은 네트워크 연결을 설정하는 데 도움이 됩니다. | Site Recovery는 각 사이트(기본 사이트 및 데이터 센터)에 대한 논리적 네트워크의 메타데이터를 수집, 처리 및 전송합니다. | 메타데이터는 네트워크 정보를 매핑할 수 있도록 네트워크 설정을 채우는 데 사용됩니다. | 이 기능은 서비스의 핵심 부분이며 해제할 수 없습니다. Site Recovery에 이 정보를 보내지 않으려는 경우 네트워크 매핑을 사용하지 마세요.
@@ -79,19 +79,19 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 이 시나리오를 배포하려면 Azure에서 다음이 필요합니다.
 
-**필수 구성 요소** | **세부 정보** 
+**필수 구성 요소** | **세부 정보**
 --- | ---
-**Azure**| [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/site-recovery/). 
+**Azure**| [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 
 ## 온-프레미스 필수 조건
 
 이 시나리오를 배포하기 위해 기본 및 보조 온-프레미스 사이트에서 필요한 사항은 다음과 같습니다.
 
-**필수 구성 요소** | **세부 정보** 
+**필수 구성 요소** | **세부 정보**
 --- | ---
-**VMM** | 기본 사이트에서 VMM 서버 1개, 보조 사이트에서 VMM 서버 1개를 배포할 것을 권장합니다.<br/><br/> [단일 VMM 서버의 클라우드 간에 복제](site-recovery-single-vmm.md)할 수도 있습니다. 이렇게 하려면 VMM 서버에 둘 이상의 클라우드가 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에는 하나 이상의 클라우드가 구성되어 있어야 하고 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에는 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/>[VMM 패브릭 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) 및 [연습: System Center 2012 SP1 VMM으로 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.<br/><br/> VMM 서버는 인터넷에 연결되어야 합니다. 
-**Hyper-V** | Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/> Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2에서 클러스터의 Hyper-V를 실행하는 경우 [업데이트 2961977](https://support.microsoft.com/kb/2961977)<br/><br/>을 설치해야 합니다. Windows Server 2012에서 클러스터의 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. [자세히 알아보기](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
+**VMM** | 기본 사이트에서 VMM 서버 1개, 보조 사이트에서 VMM 서버 1개를 배포할 것을 권장합니다.<br/><br/> [단일 VMM 서버의 클라우드 간에 복제](site-recovery-single-vmm.md)할 수도 있습니다. 이렇게 하려면 VMM 서버에 둘 이상의 클라우드가 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에는 하나 이상의 클라우드가 구성되어 있어야 하고 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에는 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/>[VMM 패브릭 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) 및 [연습: System Center 2012 SP1 VMM으로 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.<br/><br/> VMM 서버는 인터넷에 연결되어야 합니다.
+**Hyper-V** | Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/> Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2에서 클러스터의 Hyper-V를 실행하는 경우 [업데이트 2961977](https://support.microsoft.com/kb/2961977)<br/><br/>을 설치해야 합니다. Windows Server 2012에서 클러스터의 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 broker가 자동으로 만들어지지 않습니다. 클러스터 broker를 수동으로 구성해야 합니다. [자세히 알아보기](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 **공급자** | 사이트 복구 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 HTTPS 443을 통해 Site Recovery와 통신하여 복제를 오케스트레이션합니다. LAN 또는 VPN 연결을 통해 기본 및 보조 Hyper-V 서버 간에 데이터 복제가 발생합니다.<br/><br/> VMM 서버에서 실행되는 공급자는 다음 URL에 액세스할 수 있어야 합니다. *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> 또한 VMM 서버에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로의 방화벽 통신을 허용하고 HTTPS(443) 프로토콜을 허용합니다.
 
 ## 배포 준비
@@ -145,7 +145,7 @@ VMM 서버가 [필수 조건](#on-premises-prerequisites)을 준수하는지와 
 
 	![새 자격 증명 모음](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 
-3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
+3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그중에서 하나를 선택합니다.
 4. [새 리소스 그룹을 만들거나](../resource-group-template-deploy-portal.md) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
 4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **자격 증명 모음 만들기**를 클릭합니다.
 
@@ -242,8 +242,8 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 12.  **클라우드 메타데이터 동기화**에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
 
 13.  **다음**을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 **VMM 서버** 탭에 표시됩니다.
- 	
-	![마지막 페이지](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+
+	![서버](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 11. 사이트 복구 콘솔에서 서버를 사용할 수 있게 되면 **소스** > **소스 준비**에서 VMM 서버를 선택하고 Hyper-V 호스트가 있는 클라우드를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -269,13 +269,13 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
 매개 변수는 다음에 위치합니다.
 
- - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
- - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled** : VMM에서 Azure로 복제할 때만 사용되는 선택적 매개 변수입니다.
- - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
- - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
- - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
+ - **/Credentials**: 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.
+ - **/FriendlyName**: Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
+ - **/EncryptionEnabled**: VMM에서 Azure로 복제할 때만 사용되는 선택적 매개 변수입니다.
+ - **/proxyAddress**: 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
+ - **/proxyport**: 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
+ - **/proxyUsername**: (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
+ - **/proxyPassword**: (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 ## 3단계: 대상 환경 설정
 
@@ -386,7 +386,7 @@ Capacity Planner Hyper-V 복제본을 사용하여 실시간 델타 복제 정�
 - [New-NetQosPolicy cmdlet](https://technet.microsoft.com/library/hh967468.aspx)에 대한 추가 정보.
 
 
-## 6단계: 복제 활성화 
+## 6단계: 복제 활성화
 
 이제 다음과 같이 복제를 활성화합니다.
 
@@ -493,4 +493,4 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

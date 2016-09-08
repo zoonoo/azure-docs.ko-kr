@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구
@@ -305,4 +305,4 @@ DR을 여러 플랫폼에 분할하기로 결정한 경우 솔루션의 설계�
 
 이 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](./resiliency-disaster-recovery-high-availability-azure-applications.md)에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 이전 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 고가용성](./resiliency-high-availability-azure-applications.md)입니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

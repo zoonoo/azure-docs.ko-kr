@@ -55,7 +55,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  | | VMNetwork2-뉴욕 | 매핑되지 않음
 시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
- | | VMNetwork1-시카고 | 매핑되지 않음
+ | | VMNetwork2-시카고 | 매핑되지 않음
 
 이 예제에서:
 
@@ -123,4 +123,4 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 
 네트워크 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 시작](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

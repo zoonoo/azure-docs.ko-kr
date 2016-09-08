@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/13/2016"
+    ms.date="08/23/2016"
     ms.author="markusvi"/>
 
 
@@ -39,7 +39,7 @@ Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 
 
 
 
-<center>![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png) </center>
+![Azure AD Connect 스택](./media/active-directory-whatis/Azure_Active_Directory.png)
 
 
 ## Azure AD가 안정적입니까?
@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

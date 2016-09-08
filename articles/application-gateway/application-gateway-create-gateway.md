@@ -24,7 +24,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -41,7 +41,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 ## 응용 프로그램 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
 
-**New-AzureApplicationGateway** 명령을 사용하여 응용 프로그램 게이트웨이를 만드는 경우, 이 시점에 설정된 구성은 없으며 새로 만든 리소스는 XML 또는 구성 개체를 사용하여 구성되어야 합니다.
+**New-AzureApplicationGateway** 명령을 사용하여 응용 프로그램 게이트웨이를 만드는 경우, 이 시점에 설정된 구성은 없으며 새로 만든 리소스는 XML 또는 구성 개체를 사용하여 구성됩니다.
 
 
 값은 다음과 같습니다.
@@ -49,11 +49,11 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP/VIP이어야 합니다.
 - **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
 - **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
-- **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
+- **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 - **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다.
 
 
-## 새 응용 프로그램 게이트웨이 만들기
+## 응용 프로그램 게이트웨이 만들기
 
 응용 프로그램 게이트웨이를 만들려면
 
@@ -66,7 +66,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 ### 응용 프로그램 게이트웨이 리소스 만들기
 
-게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 지점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
+게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
 다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 새 응용 프로그램 게이트웨이를 만듭니다.
 
@@ -99,7 +99,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  *InstanceCount* 에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
@@ -161,9 +161,9 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 구성 항목에 대한 괄호 사이의 값을 편집합니다. .xml 확장명으로 파일을 저장합니다.
 
->[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대/소문자를 구분합니다.
+>[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-다음 예제에서는 구성 파일을 사용하여 공용 포트 80에서 HTTP 트래픽의 부하를 분산하는 응용 프로그램 게이트웨이를 설정하고 두 IP 주소 사이의 백 엔드 포트 80으로 네트워크 트래픽을 전송하는 방법을 보여 줍니다.
+다음 예제에서는 구성 파일을 사용하여 응용 프로그램 게이트웨이를 설정하는 방법을 보여 줍니다. 예제에서는 공용 포트 80에서 HTTP 트래픽의 부하를 분산하고 두 IP 주소 사이의 백 엔드 포트 80에 네트워크 트래픽을 보냅니다.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -415,4 +415,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

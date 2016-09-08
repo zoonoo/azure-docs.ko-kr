@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #<a id="unity-roll-a-ball"></a>Unity Roll a Ball 게임 만들기
@@ -23,7 +23,7 @@
 ### 게임 설정
 아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)에서 가져온 것입니다.
 
-1. **Unity 편집기**를 열고 **New**를 클릭합니다. 
+1. **Unity 편집기**를 열고 **New**를 클릭합니다.
 	
 	![][51]
 	
@@ -82,7 +82,7 @@
 ### 플레이어 업데이트
 아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)에서 가져온 것입니다.
 
-1. **Player** 개체에 **RigidBody** 구성 요소를 추가합니다. 
+1. **Player** 개체에 **RigidBody** 구성 요소를 추가합니다.
 
 	![][13]
 
@@ -125,8 +125,8 @@
 ### 카메라 이동
 아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141)에서 가져온 것이며 **주 카메라**를 **Player** 개체에 연결할 것입니다.
 
-1. **Transform.Position**을 X = 0, Y = 10.5, Z=-10으로 업데이트합니다.  
-2. **Transform.Rotation**을 X = 45, Y = 0, Z = 0으로 업데이트합니다.  
+1. **Transform.Position**을 X = 0, Y = 10.5, Z=-10으로 업데이트합니다.
+2. **Transform.Rotation**을 X = 45, Y = 0, Z = 0으로 업데이트합니다.
 
 	![][16]
 
@@ -192,7 +192,7 @@
 ### 수집 가능한 개체 만들기
 아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141)에서 가져온 것입니다. 수집 가능한 개체 집합을 형성하는 멋진 개체를 만들어 보겠습니다. 플레이어 볼 개체는 수집 가능한 개체와 충돌하여 '수집'할 수 있습니다.
 
-1. 새 **3D 큐브 개체**를 만들고 이름을 Pickup으로 지정합니다. 
+1. 새 **3D 큐브 개체**를 만들고 이름을 Pickup으로 지정합니다.
 
 2. Pickup 개체의 **Transform -> Rotation** 및 **Transform -> Scale**을 조정합니다.
 
@@ -244,7 +244,7 @@
 ### Pickup 개체 수집
 아래 단계는 [Unity 자습서](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141)에서 가져온 것입니다. 플레이어가 Pickup 개체와 충돌하는 방법으로 Pickup 개체를 '수집'할 수 있도록 플레이어를 업데이트하겠습니다.
 
-1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 열고 다음과 같이 업데이트합니다.  
+1. 편집을 위해 Player 개체에 연결된 **PlayerController** 스크립트를 열고 다음과 같이 업데이트합니다.
 
 		using UnityEngine;
 		using System.Collections;
@@ -374,4 +374,4 @@ Unity의 기본 자습서는 위의 섹션에서 끝입니다. 이제 모바일 
 	
 	
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

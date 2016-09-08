@@ -30,7 +30,7 @@ Makecert는 자체 서명된 인증서를 만드는 한 가지 방법입니다. 
 
 ### 자체 서명된 인증서를 만들려면
 
-1. Windows 10을 실행하는 컴퓨터에서 [Windows 10용 Windows SDK(소프트웨어 개발 키트)](https://dev.windows.com/en-us/downloads/windows-10-sdk)를 다운로드하여 설치합니다.
+1. Windows 10을 실행하는 컴퓨터에서 [Windows 10용 Windows SDK(소프트웨어 개발 키트)](https://dev.windows.com/ko-KR/downloads/windows-10-sdk)를 다운로드하여 설치합니다.
 
 2. 설치가 끝나면 C:\\Program Files (x86)\\Windows Kits\\10\\bin<arch> 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다.
 		
@@ -42,7 +42,7 @@ Makecert는 자체 서명된 인증서를 만드는 한 가지 방법입니다. 
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. 자체 서명된 인증서는 클라이언트 인증서를 만드는 데 사용됩니다. P2S 구성의 일부로 자체 서명된 인증서의 .cer 파일을 업로드하는 경우 Azure에 클라이언트 컴퓨터가 사용 중인 인증서를 신뢰하도록 지시합니다.<br><br>또한 적절한 VPN 클라이언트 설정으로 구성된 클라이언트 인증서가 설치된 모든 컴퓨터에서 P2S를 통해 가상 네트워크에 연결할 수 있습니다. 따라서 클라이언트 인증서가 필요할 때만 생성되고 설치되도록 하고 자체 서명된 이 인증서가 안전하게 백업 및 저장되도록 설정할 수 있습니다.
+4. 자체 서명된 인증서는 클라이언트 인증서를 만드는 데 사용됩니다. P2S 구성의 일부로 자체 서명된 인증서의 .cer 파일을 업로드하는 경우 Azure에 클라이언트 컴퓨터가 사용 중인 인증서를 신뢰하도록 지시합니다.<br><br>또한 적절한 VPN 클라이언트 설정으로 구성된 클라이언트 인증서가 설치된 모든 컴퓨터에서 P2S를 통해 가상 네트워크에 연결할 수 있습니다. 따라서 클라이언트 인증서가 필요할 때만 생성되고 설치되도록 하고 자체 서명된 이 인증서가 안전하게 백업 및 저장되도록 설정할 수 있습니다. 필요한 경우 나중에 다른 컴퓨터에서 이 자체 서명된 인증서를 설치하고 더 많은 클라이언트 인증서를 생성하거나 .cer 파일을 내보낼 수 있습니다.
  
 
 ## 클라이언트 인증서 만들기 및 설치
@@ -98,4 +98,4 @@ Makecert는 자체 서명된 인증서를 만드는 한 가지 방법입니다. 
 - **리소스 관리자** 배포 모델 단계의 경우 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 - **클래식** 배포 모델 단계의 경우 [VNet에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->
