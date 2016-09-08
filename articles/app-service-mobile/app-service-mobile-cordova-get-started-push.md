@@ -230,7 +230,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM)하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
+	더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치](https://taco.visualstudio.com/ko-KR/docs/run-app-apache/#HAXM)하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
 
 	**앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가한 다음 표시되는 메시지에 따라 장치에 기존 Google 계정을 추가합니다(새 계정을 만드는 것보다 기존 계정을 사용하는 것이 좋음).
 
@@ -246,15 +246,17 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 ####Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
-Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드](http://taco.visualstudio.com/en-us/docs/ios-guide/)의 단계에 따라 remotebuild 에이전트를 설치하고 실행합니다.
+Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드](http://taco.visualstudio.com/ko-KR/docs/ios-guide/)의 단계에 따라 remotebuild 에이전트를 설치하고 실행합니다.
 
-IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS를 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행](http://taco.visualstudio.com/en-us/docs/build_ios_cloud/)을 참조하세요.
+IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS를 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행](http://taco.visualstudio.com/ko-KR/docs/build_ios_cloud/)을 참조하세요.
+
+>[AZURE.NOTE] XCode 7 이상에서는 iOS에 대한 푸시 플러그 인을 사용해야 합니다.
 
 ####앱 ID로 사용할 ID 찾기
 
 푸시 알림을 위해 앱을 등록하기 전에 Cordova 앱에서 config.xml을 열고, 위젯 요소에서 `id` 특성 값을 찾은 후 나중에 사용할 수 있도록 복사합니다. 다음 XML에서 ID는 `io.cordova.myapp7777777`입니다.
 
-		<widget defaultlocale="en-US" id="io.cordova.myapp7777777"
+		<widget defaultlocale="ko-KR" id="io.cordova.myapp7777777"
   		version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
 			xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
@@ -320,7 +322,7 @@ Visual Studio에서 저장소 옵션을 사용하려면 솔루션 플랫폼 목�
 
 구성 디자이너를 열고(config.xml을 마우스 오른쪽 단추로 클릭하고 **뷰 디자이너** 선택) **Windows** 탭을 선택한 후 **Windows 대상 버전**에서 **Windows 10**을 선택합니다.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Cordova 5.1.1 이전의 Cordova 버전을 사용하는 경우(6.1.1 권장됨) config.xml에서 알림 가능 플래그를 true로 설정해야 합니다.
 
 기본(디버그) 빌드에서 푸시 알림을 지원하려면 build.json 파일을 엽니다. "릴리스" 구성을 디버그 구성에 복사합니다.
 
@@ -378,10 +380,10 @@ SDK 사용 방법을 알아봅니다.
 [phonegap-plugin-push 설치 설명서]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
 [알림 허브]: ../notification-hubs/notification-hubs-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

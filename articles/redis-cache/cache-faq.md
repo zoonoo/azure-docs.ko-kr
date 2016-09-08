@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2016" 
+	ms.date="08/18/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -27,6 +27,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 
 -	FAQ의 끝에 있는 [Disqus 스레드](#comments)에 질문을 게시하면 Azure 캐시 팀 및 이 문서에 대한 다른 커뮤니티 구성원이 참여할 수 있습니다.
 -	[Azure 캐시 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
+-	기능을 요청하려면 [Azure Redis Cache 사용자 의견](https://feedback.azure.com/forums/169382-cache)에 요청 및 아이디어를 제출하면 됩니다.
 -	[Azure 캐시 외부 피드백](mailto:azurecache@microsoft.com)에서 전자 메일을 보낼 수도 있습니다.
 
 ## Azure Redis Cache 기본 사항
@@ -238,10 +239,10 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 ## 프로덕션 FAQ
 
 -	[프로덕션 모범 사례에는 어떤 것이 있나요?](#what-are-some-production-best-practices)
--	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+-	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-whko-KRing-common-redis-commands)
 -	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 -	[ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
--	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+-	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-whko-KRing-stackexchangeredis)
 
 ### 프로덕션 모범 사례에는 어떤 것이 있나요?
 
@@ -448,4 +449,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

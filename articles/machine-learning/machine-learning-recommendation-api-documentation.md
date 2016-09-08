@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/17/2016" 
 	ms.author="LuisCa"/>
 
 #Azure 기계 학습 권장 사항 API 설명서
 
-이 문서에서는 Microsoft Azure 기계 학습 권장 사항 API에 대해 설명합니다.
+이 문서에서는 마켓플레이스를 통해 노출된 Microsoft Azure 기계 학습 권장 사항 API에 대해 설명합니다.
+
+
+> 데이터 마켓에서 기존 Recommendations API에 대한 문서이며 2016년 12월 31일에 중단됩니다. 이제 [Recommendations API Cognitive 서비스](https://www.microsoft.com/cognitive-services/ko-KR/recommendations-api)를 사용하여 이동해야 합니다.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -93,9 +96,9 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 |
-| apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
-| Request Body | NONE |
+| 요청 본문 | 없음 |
 
 
 **응답**:
@@ -267,9 +270,7 @@ OData XML
 
 ###5\.4. 모델 업데이트
 
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
-<ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
-이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 
 | HTTP 메서드 | URI |
@@ -803,9 +804,9 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 ##7\. 모델 비즈니스 규칙
 
 지원되는 규칙 유형은 다음과 같습니다.
-- <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. 
+- <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다.
 
-- <strong>FeatureBlockList</strong> - 기능 차단 목록은 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
+- <strong>FeatureBlockList</strong> - 해당 기능의 값을 기반으로 항목을 차단할 수 있습니다.
 
 *단일 차단 목록 규칙에 1000개보다 많은 항목을 전송하지 마세요. 호출 시간 제한에 도달할 수 있습니다. 1000개보다 많은 항목을 차단할 해야 할 경우 여러 개의 차단 목록을 호출하면 됩니다.*
 
@@ -987,15 +988,15 @@ HTTP 상태 코드: 200
 
 참고: 최대 파일 크기는 200MB입니다.
 
-** 형식 세부 정보**
+**형식 세부 정보**
 
-| 이름 | 필수 | 형식 | 설명 |
+| Name | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | 
-| 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | 
-| 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | 
-| 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | 
-| 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000, 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
+| Item Name | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름 | 
+| Item Category | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리책, 드라마...). 비어 있을 수 있습니다. |
+| 설명 | 아니요, 기능이 없는 경우(그러나 비어 있을 수 있음) | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목에 대한 설명 |
+| Features list | 아니요 | 영숫자 문자 <br> 최대 길이: 4000; 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록 = 모델 권장 사항을 향상 시키기는 데 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
 
 
 | HTTP 메서드 | URI |
@@ -1006,10 +1007,10 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-| apiVersion | 1.0 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+|	apiVersion | 1\.0 |
 |||
-| 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| 요청 본문 | 예(기능 사용):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **응답**:
@@ -1212,10 +1213,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-| apiVersion | 1.0 |
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+|	apiVersion | 1\.0 |
 |||
-| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1363,8 +1364,7 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**:
-HTTP 상태 코드: 200
+**응답**: HTTP 상태 코드: 200
 
 ###9\.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다. 한 번에 한 페이지씩 사용 파일이 검색됩니다. 각 페이지는 100개의 항목을 포함합니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
@@ -1893,7 +1893,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 |FbtSupportThreshold | 모델의 보수적인 정도입니다. 모델링 시 고려할 항목의 공동 발생 횟수입니다.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | FBT 집합의 항목 수를 제한합니다.| Integer | 2-3(2) |
 |FbtMinimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. 높을수록 좋습니다.| Double | 0 이상(0) |
-|FbtSimilarityFunction | 빌드에서 사용할 유사성 함수를 정의합니다. Lift는 우연성을 우위에 두고, Co-occurrence는 예측 가능성을 우위에 두며, Jaccard는 이 둘을 적절히 절충합니다. | 문자열 | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | 빌드에서 사용할 유사성 함수를 정의합니다. Lift는 우연성을 우위에 두고, Co-occurrence는 예측 가능성을 우위에 두며, Jaccard는 이 둘을 적절히 절충합니다. | String | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2. 권장 사항 빌드 트리거
@@ -2000,7 +2000,7 @@ HTTP 상태 코드: 200
 
 유효한 빌드 상태:
 
-- Create – 모델을 만듬
+- Create – 모델을 만듦
 - Queued – 모델 빌드가 트리거되고 쿼리됨
 - Building – 모델을 빌드하는 중
 - Success – 빌드가 성공적으로 종료됨
@@ -3107,4 +3107,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

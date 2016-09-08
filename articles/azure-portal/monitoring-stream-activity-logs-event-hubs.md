@@ -44,8 +44,8 @@
 ### PowerShell Cmdlet을 통해
 로그 프로필이 이미 있는 경우 먼저 해당 프로필을 제거해야 합니다.
 
-1. `Get-AzureRmLogProfile`을 사용하여 로그 프로필이 있는지 확인합니다.
-2. 있는 경우 `Remove-AzureRmLogProfile`을 사용하여 제거합니다.
+1. `Get-AzureRmLogProfile`를 사용하여 로그 프로필이 있는지 확인합니다.
+2. 있는 경우 `Remove-AzureRmLogProfile`를 사용하여 제거합니다.
 3. `Set-AzureRmLogProfile`을 사용하여 프로필을 만듭니다.
 
 ```
@@ -71,7 +71,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 [여기에서 활동 로그에 대한 스키마를 사용할 수 있습니다](./monitoring-overview-activity-logs.md). 각 이벤트는 "레코드"라는 JSON Blob 배열입니다.
 
 ## 다음 단계
+- [저장소 계정에 활동 로그 보관](./monitoring-archive-activity-log.md)
 - [Azure 활동 로그 개요 알아보기](./monitoring-overview-activity-logs.md)
 - [활동 로그 이벤트를 기반으로 경고 설정](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="MehrdadMzfr" />
 
 #iOS에서 Engagement 도달률을 통합하는 방법
@@ -416,4 +416,4 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 	@end
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo"/>
 
 # Mobile Engagement REST API를 사용한 인증 - 수동 설치
@@ -144,4 +144,4 @@
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

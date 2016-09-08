@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # GitHub 커넥터 시작
 
-
-
-GitHub 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flows.microsoft.com)
+GitHub은 서비스를 호스팅하는 웹 기반 Git 리포지토리입니다. 고유한 기능을 추가할 뿐 아니라 Git의 분산된 수정 버전 제어 및 SCM(소스 코드 관리) 기능을 모두 제공합니다.
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -58,7 +52,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 
 |속성| 필수|설명|
 | ---|---|---|
-|신뢰|예|GitHub 자격 증명 제공|
+|위임|예|GitHub 자격 증명 제공|
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 
 >[AZURE.INCLUDE [GitHub에 대한 연결을 만드는 단계](../../includes/connectors-create-api-github.md)]
@@ -73,7 +67,7 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 
 ```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |repositoryOwner|string|yes|path|없음|리포지토리 소유자|
 |repositoryName|string|yes|path|없음|리포지토리 이름|
@@ -179,4 +173,4 @@ GitHub로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 �
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

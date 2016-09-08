@@ -3,7 +3,7 @@
    description="이 문서는 Azure 트래픽 관리자 작동 방식을 이해하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/07/2016"
-   ms.author="jonatul"/>
+   ms.author="sewhee"/>
 
 # 트래픽 관리자 작동 방식
 
@@ -131,4 +131,4 @@ DNS 표준은 CNAME이 동일한 형식의 다른 DNS 레코드와 함께 존재
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

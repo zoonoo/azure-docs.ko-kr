@@ -82,7 +82,7 @@ _미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 
     }
     ```
     
-    참고: 논리 앱을 저장한 후 HTTP POST에 대한 URL을 복사할 수 있지만 먼저 작업을 추가해야 합니다.
+    > [AZURE.NOTE] 논리 앱을 저장한 후 HTTP POST에 대한 URL을 복사할 수 있지만 먼저 작업을 추가해야 합니다.
 
 8. 수동 트리거 아래에서 __+ 새 단계__를 클릭합니다. 그런 다음 **작업 추가**를 클릭합니다.
 
@@ -182,4 +182,4 @@ _미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -77,9 +77,9 @@ A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면
 
 2.	왼쪽 메뉴에서 **앱 서비스**를 클릭합니다.
 
-4.	앱을 클릭한 후 **설정** > **사용자 지정 도메인 및 SSL** > **외부 도메인 가져오기**를 클릭합니다.
+4.	앱을 클릭한 다음 **사용자 지정 도메인**을 클릭합니다.
 
-6.  IP 주소를 기록해 둡니다.
+6.  호스트 이름 섹션 위에 있는 IP 주소를 메모합니다.
 
     ![A 레코드로 사용자 지정 도메인 이름 매핑: Azure 앱 서비스 앱의 IP 주소 가져오기](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -99,7 +99,7 @@ A 레코드를 사용하여 사용자 지정 도메인 이름을 매핑하려면
 <a name="a"></a>
 ### A 레코드 만들기
 
-A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 A 레코드와 CNAME 레코드를 둘 다 만들어야 합니다. A 레코드는 DNS 확인 자체를 위한 것이고 CNAME 레코드는 Azure에서 사용자가 사용자 지정 도메인 이름을 소유했는지 확인하기 위한 것입니다.
+A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 A 레코드와 TXT 레코드를 둘 다 만들어야 합니다. A 레코드는 DNS 확인 자체를 위한 것이고 TXT 레코드는 Azure에서 사용자가 사용자 지정 도메인 이름을 소유했는지 확인하기 위한 것입니다.
 
 다음과 같이 A 레코드를 구성합니다(@는 일반적으로 루트 도메인을 나타냄).
  
@@ -126,28 +126,28 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
   </tr>
 </table>
 
-추가 CNAME 레코드는 awverify.&lt;*subdomain*>.&lt;*rootdomain*>에서 awverify.&lt;*subdomain*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 다음과 같이 CNAME 레코드를 구성합니다.
+추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*>에서 &lt;*subdomain*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 다음과 같이 TXT 레코드를 구성합니다.
 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN 예</th>
-    <th>CNAME 호스트</th>
-    <th>CNAME 값</th>
+    <th>TXT 호스트</th>
+    <th>TXT 값</th>
   </tr>
   <tr>
     <td>contoso.com(루트)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>@</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com(하위)</td>
-    <td>awverify.www</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>www</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com(와일드 카드)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>*</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
@@ -181,23 +181,27 @@ Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사�
 <a name="enable"></a>
 ## 3단계. 앱에 대해 사용자 지정 도메인 이름 사용
 
-Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1단계](#vip) 참조) 사용자 지정 도메인의 정규화된 도메인 이름(FQDN)을 목록에 추가해야 합니다.
+Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가([1단계](#vip) 참조) 사용자 지정 도메인의 정규화된 도메인 이름(FQDN)을 목록에 추가해야 합니다.
 
 1.	로그인하지 않은 경우 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2.	Azure 포털의 왼쪽 메뉴에서 **앱 서비스**를 클릭합니다.
 
-4.	앱을 클릭한 후 **설정** > **사용자 지정 도메인 및 SSL** > **외부 도메인 가져오기**를 클릭합니다.
+3.	앱을 클릭한 다음 **사용자 지정 도메인** > **호스트 추가**를 클릭합니다.
 
-2.	사용자 지정 도메인의 FQDN을 목록에 추가합니다(예: **www.contoso.com**).
+4.	사용자 지정 도메인의 FQDN을 목록에 추가합니다(예: **www.contoso.com**).
 
     ![Azure 앱에 사용자 지정 도메인 이름 매핑: 도메인 이름 목록에 추가](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure에서 여기에 사용된 도메인 이름을 확인합니다. [2단계](#createdns)에서 DNS 레코드를 만든 것과 동일한 도메인 이름인지 확인합니다.
 
-6.  **Save**를 클릭합니다.
+5.  **유효성 검사**를 클릭합니다.
 
-7.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 브라우저에 Azure 앱이 열리면 사용자 지정 도메인 이름이 올바르게 구성된 것입니다.
+6.  **유효성 검사**를 클릭하면 Azure에서 도메인 검증 워크플로가 시작됩니다. 여기서는 호스트 이름 가용성 및 보고서 성공 여부 외에 도메인 소유권을 확인하거나 자세한 오류 사항과 그에 대한 해결 방법을 확인할 수 있습니다.
+
+7.  유효성 검사가 성공하면 **호스트 이름 추가** 단추가 활성화되며 호스트 이름을 할당할 수 있게 됩니다. 이제 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 이제 사용자 지정 도메인 이름을 사용하여 앱이 실행되고 있음을 확인할 수 있습니다.
+
+8.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 브라우저에 Azure 앱이 열리면 사용자 지정 도메인 이름이 올바르게 구성된 것입니다.
 
 <a name="verify"></a>
 ## DNS 적용 확인
@@ -219,4 +223,4 @@ Azure 포털의 **외부 도메인 가져오기** 블레이드로 돌아가([1�
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

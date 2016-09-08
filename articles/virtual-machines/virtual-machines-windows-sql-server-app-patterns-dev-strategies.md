@@ -3,7 +3,7 @@
 	description="이 문서에서는 Azure VM에서 SQL Server에 대한 응용 프로그램 패턴을 설명 합니다. 설계자와 개발자들에게 좋은 응용 프로그램 아키텍처 및 설계를 위한 기초를 제공합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="luisherring"
 	manager="jhubbard"
 	editor=""
 	tags="azure-service-management,azure-resource-manager" />
@@ -13,13 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/02/2016"
-	ms.author="jroth" />
+	ms.date="08/19/2016"
+	ms.author="lvargas" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 
 
 ## 요약:
@@ -60,9 +59,9 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 - Azure 환경의 기능을 활용하고자 하나 Azure SQL 데이터베이스에서 응용 프로그램에 필요한 일부 기능을 지원하지 않는 경우. 여기에는 다음과 같은 부분이 해당할 수 있습니다.
 
-	- **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL Database는 최대 500GB의 데이터를 지원합니다. 응용 프로그램에 500GB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure 가상 컴퓨터에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL 데이터베이스 확장](https://msdn.microsoft.com/library/azure/dn495641.aspx) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](../sql-database/sql-database-service-tiers.md)을 참조하세요.
+	- **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL 데이터베이스에서 최대 1TB의 데이터를 지원합니다. 응용 프로그램에 1TB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure 가상 컴퓨터에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL 데이터베이스 확장](https://msdn.microsoft.com/library/azure/dn495641.aspx) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](../sql-database/sql-database-service-tiers.md)을 참조하세요.
 	- **HIPAA 규정 준수**: Azure 가상 컴퓨터의 SQL Server는 HIPAA BAA(Business Associate Agreement)가 적용되므로, 의료 부문 고객 및 독립 소프트웨어 공급업체(ISV)는 [Azure SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 대신 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 선택할 수 있습니다. 규정 준수에 대한 자세한 내용은 [Microsoft Azure 보안 센터: 규정 준수](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
-	- **인스턴스 수준 기능**: 현재 SQL 데이터베이스는 데이터베이스 외부에 상주하는 기능을 지원하지 않습니다(예: 연결 서버, 에이전트 작업, 파일 스트림, 서비스 브로커 등). 자세한 내용은 [Azure SQL 데이터베이스 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요.
+	- **인스턴스 수준 기능**: 현재 SQL 데이터베이스에서는 데이터베이스 외부에 상주하는 기능을 지원하지 않습니다(예: 연결 서버, 에이전트 작업, 파일 스트림, 서비스 broker 등). 자세한 내용은 [Azure SQL 데이터베이스 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요.
 
 ## 1계층(단순): 단일 가상 컴퓨터
 
@@ -106,7 +105,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 ![3계층 응용 프로그램 패턴](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728009.png)
 
-이 응용 프로그램 패턴에서는 각 계층에 단일 가상 컴퓨터(VM)가 있습니다. Azure에 여러 VM이 있는 경우 가상 네트워크를 설정하는 것이 좋습니다. [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)는 신뢰할 수 있는 보안 경계를 만들고 VM이 개별 IP 주소를 통해 서로 통신할 수 있도록 합니다. 또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로만 이동하도록 합니다. 즉 다른 계층이 아닌 프레젠테이션 계층에서 공용 끝점을 열어야 합니다. 이 응용 프로그램 패턴을 따를 경우 공용 포트에서 특정 IP 주소 액세스를 허용하는 네트워크 액세스 제어 목록(ACL)을 설정해야 합니다. 자세한 내용은 [끝점에서의 ACL 관리](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+이 응용 프로그램 패턴에서는 각 계층에 단일 가상 컴퓨터(VM)가 있습니다. Azure에 여러 VM이 있는 경우 가상 네트워크를 설정하는 것이 좋습니다. [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)는 신뢰할 수 있는 보안 경계를 만들고 VM이 개별 IP 주소를 통해 서로 통신할 수 있도록 합니다. 또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로만 이동하도록 합니다. 이 응용 프로그램 패턴을 따를 경우 네트워크 보안 그룹 규칙을 관리하여 액세스를 제어합니다. 자세한 내용은 [Azure 포털을 사용하여 VM에 대한 외부 액세스 허용](virtual-machines-windows-nsg-quickstart-portal.md)을 참조하세요.
 
 이 표에서 인터넷 프로토콜은 TCP, UDP, HTTP 또는 HTTPS가 될 수 있습니다.
 
@@ -138,7 +137,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 계층의 여러 VM 인스턴스를 활용하려면 응용 프로그램 계층 간에 Azure 부하 분산 장치를 구성해야 합니다. 각 계층에서 부하 분산 장치를 구성하려면 각 계층의 VM에 개별적으로 부하 분산 끝점을 만듭니다. 특정 계층의 경우 먼저 동일한 클라우드 서비스에서 VM을 만듭니다. 이를 통해 모두 동일한 공용 가상 IP 주소를 갖게 됩니다. 다음으로 해당 계층에서 가상 컴퓨터 중 하나에 끝점을 만듭니다. 그런 다음 부하 분산을 위해 해당 계층의 다른 가상 컴퓨터에 동일한 끝점을 할당합니다. 부하 분산된 집합을 만들면 여러 가상 컴퓨터에 트래픽을 배분하고, 부하 분산 장치가 백엔드 VM 노드 실패 시 연결할 노드를 결정하게 할 수 있습니다. 예를 들어, 부하 분산 장치 뒤에 여러 웹 서버 인스턴스가 있으면 프레젠테이션 계층의 고가용성이 보장됩니다.
 
-또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로 먼저 이동하도록 하는 것이 바람직합니다. 프레젠테이션 계층이 비즈니스 계층에 액세스한 다음 비즈니스 계층이 데이터 계층에 액세스합니다. 예를 들어, 프레젠테이션 계층에서 끝점을 엽니다. 각 끝점에는 공용 포트와 개인 포트가 있습니다. 개인 포트는 가상 컴퓨터가 해당 끝점에서 트래픽을 수신 대기하기 위해 내부적으로 사용합니다. 공용 포트는 Azure 외부의 통신 진입점이며 Azure 부하 분산 장치에서 사용됩니다. 네트워크 ACL(액세스 제어 목록)을 사용하여 응용 프로그램 계층에 있는 공용 끝점의 공용 포트에서 들어오는 트래픽을 격리 및 제어하는 데 도움이 되는 규칙을 정의할 수 있습니다. 자세한 내용은 [끝점에서의 ACL 관리](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+또한 항상 모든 인터넷 연결이 프레젠테이션 계층으로 먼저 이동하도록 하는 것이 바람직합니다. 프레젠테이션 계층이 비즈니스 계층에 액세스한 다음 비즈니스 계층이 데이터 계층에 액세스합니다. 프레젠테이션 계층에 대한 액세스를 허용하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 VM에 대한 외부 액세스 허용](virtual-machines-windows-nsg-quickstart-portal.md)을 참조하세요.
 
 Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-windows-load-balance.md)을 참조하세요.
 
@@ -184,7 +183,7 @@ Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치
 
 다음 그림은 온-프레미스 시나리오와 해당 클라우드 사용 솔루션을 보여줍니다. 이 시나리오에서는 Azure의 여러 가상 컴퓨터에서 프레젠테이션 계층 및 비즈니스 계층 구성 요소를 확장합니다. 또한 Azure에서 SQL Server 데이터베이스에 대한 고가용성 및 재해 복구(HADR) 기술을 구현합니다.
 
-서로 다른 VM에서 여러 응용 프로그램 사본을 실행하면 해당 VM에서 요청의 부하를 분산할 수 있습니다. 여러 가상 컴퓨터가 있을 때는 모든 VM이 어느 시점에 액세스 가능하고 실행 중이어야 합니다. 부하 분산을 구성할 경우 Azure 부하 분산 장치가 VM 상태를 추적하고 들어오는 호출을 정상 작동하는 VM 노드로 전달합니다. 가상 컴퓨터의 부하 분산을 설정하는 방법에 대한 정보는 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-windows-load-balance.md)을 참조하세요. 부하 분산 장치 뒤에 여러 웹 및 응용 프로그램 서버 인스턴스가 있으면 프레젠테이션 및 비즈니스 계층의 고가용성이 보장됩니다.
+서로 다른 VM에서 여러 응용 프로그램 사본을 실행하면 해당 VM에서 요청의 부하를 분산할 수 있습니다. 여러 가상 컴퓨터가 있을 때는 모든 VM이 어느 시점에 액세스 가능하고 실행 중이어야 합니다. 부하 분산을 구성할 경우 Azure Load Balancer가 VM 상태를 추적하고 들어오는 호출을 정상 작동하는 VM 노드로 전달합니다. 가상 컴퓨터의 부하 분산을 설정하는 방법에 대한 정보는 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-windows-load-balance.md)을 참조하세요. 부하 분산 장치 뒤에 여러 웹 및 응용 프로그램 서버 인스턴스가 있으면 프레젠테이션 및 비즈니스 계층의 고가용성이 보장됩니다.
 
 ![수평 확장 및 고가용성](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 
@@ -282,7 +281,7 @@ n계층 하이브리드 응용 프로그램 패턴에서는 다음 워크플로�
 
 1. 온-프레미스의 회사 네트워크와 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 간의 네트워크 연결을 설정합니다. 온-프레미스 회사 네트워크와 Azure의 가상 컴퓨터 간에 연결을 설정하려면 다음 두 방법 중 하나를 사용합니다.
 
-	1. Azure의 가상 컴퓨터에 있는 공용 끝점을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법은 설정이 간단하며 SQL Server 인증을 가상 컴퓨터에서 사용할 수 있습니다. 또한 공용 포트에서 네트워크 액세스 제어 목록(ACL)을 설정하여 특정 IP 주소에 대한 액세스를 허용합니다. 자세한 내용은 [끝점에서의 ACL 관리](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+	1. Azure의 가상 컴퓨터에 있는 공용 끝점을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법은 설정이 간단하며 SQL Server 인증을 가상 컴퓨터에서 사용할 수 있습니다. 또한 VM에 대한 공용 트래픽을 제어하도록 네트워크 보안 그룹 규칙을 설정합니다. 자세한 내용은 [Azure 포털을 사용하여 VM에 대한 외부 액세스 허용](virtual-machines-windows-nsg-quickstart-portal.md)을 참조하세요.
 
 	1. Azure 가상 사설망(VPN) 터널을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법을 사용하면 도메인 정책을 Azure의 가상 컴퓨터까지 확대할 수 있습니다. 또한 방화벽 규칙을 설정하고 가상 컴퓨터에서 Windows 인증을 사용할 수 있습니다. 현재 Azure는 사이트 간 및 지점-사이트 간 보안 VPN 연결을 지원합니다.
 
@@ -327,4 +326,4 @@ Azure에서 다계층 SQL Server 기반 응용 프로그램을 구현하려면 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,7 +3,7 @@
    description="Azure 포털을 사용하여 리소스 관리자에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,11 +15,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Azure 포털에서 내부 부하 분산 장치 만들기 시작
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -43,8 +43,8 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 
 >[AZURE.NOTE] 고정 IP 주소를 사용하도록 선택하는 경우 부하 분산 장치에 대한 주소를 제공해야 합니다.
     
-7. **리소스 그룹** 아래에서 부하 분산 장치에 대한 새 리소스 그룹의 이름을 지정하거나 **기존 선택**을 클릭하여 기존 리소스 그룹을 선택합니다. 
-8. **만들기**를 클릭합니다. 
+7. **리소스 그룹** 아래에서 부하 분산 장치에 대한 새 리소스 그룹의 이름을 지정하거나 **기존 선택**을 클릭하여 기존 리소스 그룹을 선택합니다.
+8. **만들기**를 클릭합니다.
 
 ## 부하 분산 규칙 구성 
 
@@ -55,7 +55,7 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 백 엔드 풀 구성:
 
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
-2. **설정** 블레이드에서 **백 엔드 풀**을 클릭합니다. 
+2. **설정** 블레이드에서 **백 엔드 풀**을 클릭합니다.
 3. **백 엔드 주소 풀** 블레이드에서 **추가**를 클릭합니다.
 4. **백 엔드 풀 추가** 블레이드에서 백 엔드 풀에 대한 **이름**을 입력한 후 **확인**을 클릭합니다.
 
@@ -64,7 +64,7 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 프로브 구성:
  
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
-2. **설정** 블레이드에서 **프로브**를 클릭합니다. 
+2. **설정** 블레이드에서 **프로브**를 클릭합니다.
 3. **프로브** 블레이드에서 **추가**를 클릭합니다.
 4. **프로브 추가** 블레이드에서 프로브에 대한 **이름**을 입력합니다.
 5. **프로토콜** 아래에서 **HTTP**(웹 사이트용) 또는 **TCP**(기타 TCP 기반 응용 프로그램용)를 선택합니다.
@@ -79,7 +79,7 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 부하 분산 규칙 구성:
 
 1. Azure 포털에서 **찾아보기** > **부하 분산 장치**를 클릭한 다음 위에서 만든 부하 분산 장치를 클릭합니다.
-2. **설정** 블레이드에서 **부하 분산 규칙**을 클릭합니다. 
+2. **설정** 블레이드에서 **부하 분산 규칙**을 클릭합니다.
 3. **부하 분산 규칙** 블레이드에서 **추가**를 클릭합니다.
 4. **부하 분산 규칙 추가** 블레이드에서 규칙에 대한 **이름**을 입력합니다.
 5. **프로토콜** 아래에서 **HTTP**(웹 사이트용) 또는 **TCP**(기타 TCP 기반 응용 프로그램용)를 선택합니다.
@@ -97,4 +97,4 @@ Azure 포털에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

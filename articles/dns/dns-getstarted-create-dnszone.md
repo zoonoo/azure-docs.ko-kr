@@ -23,7 +23,7 @@
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-이 문서에서는 CLI를 사용하여 DNS 영역을 만드는 단계를 안내합니다. PowerShell 또는 Azure 포털을 사용하여 DNS 영역을 만들 수도 있습니다.
+이 문서에서는 PowerShell을 사용하여 DNS 영역을 만드는 단계를 안내합니다. CLI 또는 Azure 포털을 사용하여 DNS 영역을 만들 수도 있습니다.
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -174,4 +174,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

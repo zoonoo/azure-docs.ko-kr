@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
 
 이 문서에서는 Azure 청구 및 구독에 대한 일반적인 질문에 대한 답변을 제공합니다.
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 계정 관리
 
@@ -134,7 +136,7 @@ Azure 계정 관리자는 Azure 계정 센터에서 현재 청구서를 볼 수 
 
 >[AZURE.NOTE] 가상 컴퓨터에 관련된 자세한 내용은 [Azure 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines/virtual-machines-linux-planned-maintenance.md) 문서를 참조하세요.
 
-#### 계획되지 않은 유지 관리 
+#### 계획되지 않은 유지 관리
 
 Azure 플랫폼에 계획되지 않은 서비스 중단이 발생하는 경우 상태 업데이트가 [서비스 대시보드](http://status.azure.com/)에 표시되며 고객은 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 알림을 받습니다.
 
@@ -156,7 +158,7 @@ Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약�
 
 - Azure를 구독한 지 30일 이내입니다.
 
-- 구독 형식이 무료 평가판 또는 신용 카드나 다른 결제 방법이 연결되지 않은 회원 제안(MSDN/Open/BizSpark/DreamSpark) 중 하나입니다.
+- 구독 형식이 무료 평가판 또는 신용 카드나 다른 결제 방법이 연결되지 않은 구성원 제안(MSDN/Open/BizSpark/DreamSpark) 중 하나입니다.
 
 - 아직 송장 생성 날짜가 아닙니다.
 
@@ -196,7 +198,7 @@ Azure 지원 플랜을 온라인으로 구입할 때 첫 달에 대한 요금이
 
 ### Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?
 
-계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인한 다음 **구독**을 선택하여 Azure 지원 플랜을 취소할 수 있습니다. 구독이 있는 경우 구독 목록이 표시됩니다. 취소하려는 구독을 선택합니다. 그러면 구독 세부 정보가 표시되고 화면 오른쪽에 옵션 목록이 표시됩니다. **취소**를 선택하고 계속합니다. 구독이 없으면 “구독이 없습니다.”가 표시됩니다.
+계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인한 다음 **구독**을 선택하여 Azure 지원 플랜을 취소할 수 있습니다. 구독이 있는 경우 구독 목록이 표시됩니다. 취소하려는 구독을 선택합니다. 그러면 구독 세부 정보가 표시되고 화면 오른쪽에 옵션 목록이 표시됩니다. **취소**를 선택하고 계속합니다. 구독이 없으면 “구독이 없습니다.”라는 메시지가 표시됩니다.
 
 >[AZURE.NOTE] Azure 지원 플랜 기간은 6개월이며, Microsoft는 해당 기간에 지속적인 현금 약정 금액을 요구합니다. 이 기간이 만료되기 전에 취소해도 나머지 약정이 면제되는 것은 아니며 선불 금액이 환불되지도 않습니다. 자세한 내용은 [Azure 구독을 취소하는 방법](billing-how-to-cancel-azure-subscription.md)을 참조하세요.
 
@@ -284,7 +286,7 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 ### 무료 평가판 구독이란 무엇이고 지속 기간은 얼마나 되나요?
 
-무료 평가판 구독은 새 고객에게 1개월 무료 평가판을 제공하고 무료로 $200 USD의 Azure 크레딧을 제공합니다. 무료 평가판 크레딧에서 다루는 서비스 및 다루지 않는 서비스를 확인하려면 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 참조하세요.
+무료 평가판 구독은 새 고객에게 1개월 무료 평가판을 제공하고 무료로 \\240,000 USD의 Azure 크레딧을 제공합니다. 무료 평가판 크레딧에서 다루는 서비스 및 다루지 않는 서비스를 확인하려면 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 참조하세요.
 
 [여기](http://azure.microsoft.com/pricing/free-trial/)에서 평가판 구독에 등록할 수 있습니다. 단계별 지침은 [이 가이드](billing-buy-sign-up-azure-subscription.md#sign-up-for-an-azure-free-trial-subscription)를 참조하세요.
 
@@ -310,4 +312,6 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 [무료 평가판 제품 페이지](https://azure.microsoft.com/offers/ms-azr-0044p/)를 방문하여 [공식 무료 평가판 FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)를 참고합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

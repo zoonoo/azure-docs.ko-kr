@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
+# Azure 클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,7 +25,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 클래식 배포 모델에 적용되고 Azure 클래식 포털을 사용합니다. 현재는 Azure 포털을 사용하여 클래식 배포 모델에 대한 종단 간 사이트 간 구성을 만들 수 없습니다.
+이 문서에서는 **클래식 배포 모델** 및 크래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 현재는 Azure 포털을 사용하여 클래식 배포 모델에 대한 종단 간 사이트 간 구성을 만들 수 없습니다.
 
 ![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
 
@@ -107,4 +107,4 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

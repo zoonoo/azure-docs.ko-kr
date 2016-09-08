@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Windows 유니버설 앱 도달률 SDK 통합
@@ -59,7 +59,7 @@ Engagement는 도달률 앱 내 배너와 알림 및 설문 조사에 대한 중
 두 가지 통합 간의 선택은 다음과 같은 방식으로 요약할 수 있습니다.
 
 -   이미 페이지가 에이전트 `EngagementPage`에서 상속된 경우 오버레이 통합을 선택할 수 있으며 이는 페이지에서 `EngagementPage`를 `EngagementPageOverlay`로 바꾸고 `xmlns:engagement="using:Microsoft.Azure.Engagement"`를 `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"`로 바꾸는 정도의 문제입니다.
--   페이지에서 도달률 UI를 정확히 배치하거나 페이지에 다른 상속 수준을 추가하지 않으려는 경우 웹 보기 수동 통합을 선택할 수 있습니다. 
+-   페이지에서 도달률 UI를 정확히 배치하거나 페이지에 다른 상속 수준을 추가하지 않으려는 경우 웹 보기 수동 통합을 선택할 수 있습니다.
 
 ### 오버레이 통합
 
@@ -334,4 +334,4 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

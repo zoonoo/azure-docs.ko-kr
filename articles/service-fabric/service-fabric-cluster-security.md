@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="chackdan"/>
 
 # 서비스 패브릭 클러스터 보안 시나리오
 
-서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 특히 실행 중인 프로덕션 워크로드가 있는 경우 리소스에 대한 무단 액세스를 방지하기 위해 보안을 설정해야 합니다. 이 문서에서는 Azure 또는 독립 실행형에서 실행되는 클러스터에 대한 보안 시나리오의 개요와 이러한 시나리오를 구현하는 데 사용되는 다양한 기술에 대해 설명합니다. 클러스터 보안 시나리오:
+서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 항상 실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지합니다. 보안이 되지 않은 클러스터를 만들 수 있지만, 이렇게 하면 공용 인터넷에 관리 끝점이 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.
+
+이 문서에서는 Azure 또는 독립 실행형에서 실행되는 클러스터에 대한 보안 시나리오의 개요와 이러한 시나리오를 구현하는 데 사용되는 다양한 기술에 대해 설명합니다. 클러스터 보안 시나리오:
 
 - 노드 간 보안
 - 클라이언트-노드 보안
@@ -35,7 +37,7 @@ Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 �
 
 Azure 포털, Azure Resource Manager 템플릿 또는 독립 실행형 JSON 템플릿을 통해 클러스터를 만드는 동안 인증서 보안이 구성됩니다. 기본 인증서 및 인증서 롤오버에 사용되는 선택적 보조 인증서를 지정할 수 있습니다. 지정한 기본 및 보조 인증서는 관리 클라이언트 및 [클라이언트-노드 보안](#client-to-node-security)에 대해 지정한 읽기 전용 클라이언트 인증서와 다릅니다.
 
-Azure의 경우 클러스터에서 인증서 보안을 구성하는 방법을 알아보려면 [인증서를 사용하여 Azure에서 서비스 패브릭 클러스터 보호](service-fabric-secure-azure-cluster-with-certs.md) 또는 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
+Azure의 경우 클러스터에서 인증서 보안을 구성하는 방법을 알아보려면 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
 
 독립 실행형 Windows Server의 경우 [X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보안](service-fabric-windows-cluster-x509-security.md)을 읽어보세요.
 
@@ -54,12 +56,12 @@ Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 �
 
 관리 인증서를 사용하여 클러스터에 연결하는 클라이언트에는 관리 기능에 대한 모든 권한이 있습니다. 읽기 전용 사용자 클라이언트 인증서를 사용하여 클러스터에 연결하는 클라이언트는 관리 기능에 대한 읽기 전용 액세스 권한만 있습니다. 즉, 이러한 인증서는 이 문서 뒷부분에 설명된 RBAC(역할 기반 액세스 제어)에 사용됩니다.
 
-Azure 클러스터에서 인증서 보안을 구성하는 방법을 알아보려면 [인증서를 사용하여 Azure에서 서비스 패브릭 클러스터 보호](service-fabric-secure-azure-cluster-with-certs.md) 또는 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
+Azure의 경우 클러스터에서 인증서 보안을 구성하는 방법을 알아보려면 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
 
 독립 실행형 Windows Server의 경우 [X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보안](service-fabric-windows-cluster-x509-security.md)을 읽어보세요.
 
 ### Azure에서 클라이언트-노드 AAD(Azure Active Directory) 보안
-Azure에서 실행되는 클라이언트는 AAD(Azure Active Directory)를 사용하여 관리 끝점에 안전하게 액세스할 수 있습니다. 필요한 AAD 아티팩트를 만드는 방법, 클러스터를 만들 때 이러한 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법에 대한 자세한 내용은 [클라이언트 인증을 위해 Azure Active Directory를 사용하여 서비스 패브릭 클러스터 만들기](service-fabric-cluster-security-client-auth-with-aad.md)를 참조하세요.
+Azure에서 실행되는 클라이언트는 AAD(Azure Active Directory)를 사용하여 관리 끝점에 안전하게 액세스할 수 있습니다. 필요한 AAD 아티팩트를 만드는 방법, 클러스터를 만들 때 이러한 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조하세요.
 
 ## 보안 권장 사항
 Azure 클러스터의 경우 AAD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증하는 것이 좋습니다.
@@ -104,23 +106,10 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 
 ## 다음 단계
 
-보안 클러스터 설정 방법을 알아봅니다.
-
-- [인증서를 사용하여 Azure 클러스터 보안 유지](service-fabric-secure-azure-cluster-with-certs.md)
-
-클러스터가 설정되었으므로 클러스터 업그레이드에 대해 알아보겠습니다.
-
-- [서비스 패브릭 클러스터 업그레이드 프로세스 및 기대 수준](service-fabric-cluster-upgrade.md)
-- [새 인증서 롤오버 또는 추가](service-fabric-cluster-security-update-certs-azure.md)
-
-응용 프로그램 보안에 대해 자세히 알아보기:
-
-- [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
-
-- [보안 서비스 통신](service-fabric-reliable-services-secure-communication.md)
+이 문서에서는 클러스터 보안에 대한 개념 정보를 제공합니다. 다음으로, [Resource Manager 템플릿을 사용하여 Azure에서 클러스터를 만들거나](service-fabric-cluster-creation-via-arm.md) [Azure 포털](service-fabric-cluster-creation-via-portal.md)을 통해 클러스터를 만듭니다.
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

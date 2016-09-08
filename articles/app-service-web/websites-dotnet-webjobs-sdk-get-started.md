@@ -154,15 +154,15 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 파일에는 응용 프로그램 데이터를 위한 저장소 연결 문자열과 로깅을 위한 저장소 연결 문자열이 있습니다. 응용 프로그램 데이터와 로깅에 대한 별도의 저장소 계정을 사용할 수 있으며 [데이터에 대해 여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 사용할 수 있습니다. 이 자습서에서는 단일 저장소 계정을 사용합니다. 연결 문자열에는 저장소 계정 키의 자리 표시자가 있습니다.
   	<pre class="prettyprint">&lt;configuration>
-	&lt;connectionStrings>
-	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
-	&lt;/connectionStrings>
-	    &lt;startup>
-	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	&lt;/startup>
-	&lt;/configuration></pre>
+  	&lt;connectionStrings>
+  	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+  	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+  	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+  	&lt;/connectionStrings>
+  	    &lt;startup>
+  	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  	&lt;/startup>
+  	&lt;/configuration></pre>
 
 	기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후 `JobHost` 개체에 명시적으로 전달할 수 있습니다.](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)
 
@@ -403,7 +403,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 11. **새 프로젝트 추가** 대화 상자에서 **Visual C#** > **Windows 데스크톱** > **클래스 라이브러리** 템플릿을 선택합니다.
 
-10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
 	이 프로젝트에는 프런트 엔드 및 백 엔드 둘 다에서 사용할 Entity Framework 컨텍스트와 데이터 모델이 포함됩니다. 또는 웹 프로젝트에서 EF 관련 클래스를 정의하고 WebJob 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 WebJob 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -470,10 +470,10 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 	- *ContosoAdscontext.cs*
 	- *BlobInformation.cs*<br/><br/>
 
-2. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
+2. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
 	- *Web.config*
-	- *Global.asax.cs*  
+	- *Global.asax.cs*
 	- *Controllers* 폴더: *AdController.cs*
 	- *Views\\Shared* 폴더: *\_Layout.cshtml* 파일
 	- *Views\\Home* 폴더: *Index.cshtml*.
@@ -602,10 +602,10 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 		        });
 		}
 
-비슷한 코드가 *blobnamerequest* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다. 이 자습서 뒷부분에 나오는 [ResolveBlobName](#resolveblobname) 섹션에서는 웹 응용 프로그램이 쓰는 큐가 미리 보기 생성을 위해서가 아니라 단지 Blob 이름을 가져오는 데만 사용되는 이유를 설명합니다.
+비슷한 코드가 *thumbnailrequest* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
+		var imagesQueue = queueClient.GetQueueReference("thumbnailrequest");
 		imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
@@ -625,7 +625,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure 저장소 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음, 코드는 앞서 *Global.asax.cs* 에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음, 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -681,7 +681,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-다음은 광고를 삭제하면 Blob을 삭제하는 코드입니다.
+다음은 광고를 삭제하면 Blob를 삭제하는 코드입니다.
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -823,4 +823,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

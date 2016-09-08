@@ -114,12 +114,16 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 - 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
+> [AZURE.NOTE] [Migration of networks]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
+
 
 ### Azure 저장소 계정 설정
 
 - Azure로 복제된 데이터를 저장하려면 표준 Azure 저장소 계정이 있어야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 - 시작하기 전에 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
+
+> [AZURE.NOTE] [Migration of storage accounts]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
 
 ### VMM 서버 준비
 
@@ -189,11 +193,11 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 
 	![원본 설정](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. **소스 준비**에서 **+ VMM**을 클릭하여 VMM 서버를 추가합니다.
+2. **원본 준비**에서 **+VMM**을 클릭하여 VMM 서버를 추가합니다.
 
 	![원본 설정](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 유형**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
+3. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 형식**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
 4. Azure Site Recovery 공급자 설치 파일을 다운로드합니다.
 5. 등록 키를 다운로드합니다. 설정을 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
@@ -567,4 +571,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

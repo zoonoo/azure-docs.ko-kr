@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
@@ -76,7 +76,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **뭄바이** | Tata Communications |
 | **오사카** | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **파리** | Interxion |
-| **상파울루** | Equinix, Telefonica+ |
+| **상파울루** | Equinix, Telefonica |
 | **시애틀** | Equinix, Level 3 Communications, Megaport |
 | **실리콘밸리** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **싱가포르** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
@@ -156,4 +156,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

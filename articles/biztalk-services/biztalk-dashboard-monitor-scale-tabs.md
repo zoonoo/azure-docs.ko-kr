@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/23/2016" 
 	ms.author="mandia"/>
 
 
@@ -313,7 +313,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 </table>
 
 
-## 크기 조정
+## 확장
 크기 조정 탭에서 BizTalk 서비스에 사용되는 단위 수를 추가하거나 줄일 수 있습니다. 기본적으로 한 개의 단위가 구성되어 있습니다. 단위를 더 추가하여 BizTalk 서비스를 확장할 수 있습니다. 크기를 늘리면 처리량을 늘리는 것입니다. 배포된 브리지, 계약, LOB 연결, 처리 능력 등 리소스의 양도 증가합니다. 예를 들어 1단위에서 2단위로 크기를 늘립니다. 이 경우 브리지 수, 계약, LOB 연결, 처리 기능을 두 배로 배포할 수 있습니다.
 
 일부 BizTalk 버전에서는 크기 조정 옵션을 제공하지 않습니다. 이 경우 1 단위가 허용됩니다. 사용 중인 버전에서 크기 조정할 수 있는 단위 수를 확인하려면 [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
@@ -345,15 +345,15 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 ## 다음
 여러 탭을 살펴봤으므로 다음과 같은 Azure BizTalk 서비스 기능에 대해 자세히 알아볼 수 있습니다.
 
-- [BizTalk 서비스: 제한](biztalk-throttling-thresholds.md)  
-- [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)  
+- [BizTalk 서비스: 제한](biztalk-throttling-thresholds.md)
+- [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)
 - [BizTalk 서비스: 백업 및 복원](biztalk-backup-restore.md)
 
 ## 참고 항목
-- [하이브리드 연결](integration-hybrid-connection-overview.md)  
-- [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트](biztalk-editions-feature-chart.md)  
-- [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](biztalk-provision-services.md)  
-- [BizTalk 서비스: BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)  
+- [하이브리드 연결](integration-hybrid-connection-overview.md)
+- [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트](biztalk-editions-feature-chart.md)
+- [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](biztalk-provision-services.md)
+- [BizTalk 서비스: BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -362,4 +362,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

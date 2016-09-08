@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="genemi"/>
 
 
@@ -133,7 +133,7 @@ Azure SQL 데이터베이스에는 확장 이벤트를 지원하는 [DMV(동적 
 Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름에 *\_database* 부분이 없습니다.
 
 
-- **sys.dm\_xe\_database\_sessions**가 아닌 <br/>**sys.dm\_xe\_sessions**
+- <br/>**sys.dm\_xe\_database\_sessions**가 아닌 **sys.dm\_xe\_sessions**로 표시됨
 
 
 ### 둘 다에 공통적인 DMV
@@ -217,7 +217,7 @@ SQL 데이터베이스의 클라우드 환경에 적합한 몇 가지 보안 관
 ### 저장소 컨테이너 권한
 
 
-Azure 저장소 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **rwl**을 지정해야 합니다. 그러면 다음과 같은 권한이 제공됩니다.
+Azure 저장소 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **rwl**을 지정해야 합니다. **rwl** 값은 다음과 같은 권한을 제공합니다.
 
 
 - 읽기
@@ -276,4 +276,4 @@ Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

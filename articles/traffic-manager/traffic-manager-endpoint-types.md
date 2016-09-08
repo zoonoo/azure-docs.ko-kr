@@ -3,7 +3,7 @@
    description="이 문서에서는 Azure 트래픽 관리자와 함께 사용할 수 있는 다양한 유형의 끝점을 설명합니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # 트래픽 관리자 끝점
 
@@ -144,4 +144,4 @@ DNS 쿼리를 받으면 트래픽 관리자는 클라이언트가 연결해야 �
 
 - 트래픽 관리자 [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

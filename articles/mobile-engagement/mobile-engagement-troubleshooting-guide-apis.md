@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # API 문제에 대한 문제 해결 가이드
@@ -29,7 +29,7 @@
 
 - 구문 문제
     - 사용 중인 특정 API의 구문을 점검하여 옵션이 사용 가능한지 확인합니다.
-    - API 사용 시 일반적으로 발생하는 문제 중 하나는 도달률 API와 푸시 API를 혼동하는 것입니다. 대부분의 작업은 푸시 API가 아닌 도달률 API를 사용하여 수행해야 합니다. 
+    - API 사용 시 일반적으로 발생하는 문제 중 하나는 도달률 API와 푸시 API를 혼동하는 것입니다. 대부분의 작업은 푸시 API가 아닌 도달률 API를 사용하여 수행해야 합니다.
     - SDK 통합 및 API 사용과 관련하여 흔히 발생하는 또 다른 문제는 SDK 키와 API 키를 혼동하는 것입니다.
     - API에 연결하는 스크립트는 최소 10분마다 데이터를 보내야 하며, 그렇지 않으면 연결 시간이 초과됩니다. 이러한 현상은 특히 데이터를 수신 대기하는 모니터 API 스크립트에서 일반적으로 발생합니다. 시간 초과를 방지하려면 서버에 대한 세션 연결을 유지하기 위해 스크립트가 10분마다 XMPP ping을 전송하도록 설정합니다.
 
@@ -130,4 +130,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="all" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #사용자 이름을 포함하여 알림 개인 설정
@@ -22,10 +22,10 @@
 
 기술적으로 Azure Mobile Engagement를 사용하면 아래 단계에 따라 알림 개인 설정을 수행할 수 있습니다. 아래 단계에서는 알림에 사용자 이름을 포함하는 시나리오를 사용할 것입니다. 값을 모바일 앱에 통합된 SDK나 API를 통해 전달할 수 있는 앱 정보 또는 태그 개념을 사용합니다. 이러한 앱 정보 또는 태그는 다음과 같은 용도로 사용할 수 있습니다.
 
-1. 앱 정보 값을 기반으로 특정 사용자에게 알림을 대상 지정 
-2. 알림을 해당 장치에 보내는 동안 장치/사용자에 대한 값으로 대체될 알림에 있는 자리 표시자 
+1. 앱 정보 값을 기반으로 특정 사용자에게 알림을 대상 지정
+2. 알림을 해당 장치에 보내는 동안 장치/사용자에 대한 값으로 대체될 알림에 있는 자리 표시자
 
-> [AZURE.IMPORTANT]알림마다 앱 정보 값을 대체하는 추가 처리로 인해 알림 보내기 속도가 느려지는 것을 확인할 수 있습니다.
+> [AZURE.IMPORTANT] 알림마다 앱 정보 값을 대체하는 추가 처리로 인해 알림 보내기 속도가 느려지는 것을 확인할 수 있습니다.
 
 ##Mobile Engagement 포털에서 앱 정보 등록
 
@@ -59,7 +59,7 @@
 
 ![][4]
 
-> [AZURE.NOTE]user\_name 앱 정보가 설정되지 않은 모든 사용자는 어떠한 알림도 받지 못합니다. 테스트 모드에서 알림 캠페인을 실행하고 앱 정보를 설정하지 않으면 '?' 문자를 보내 자리 표시자를 대체합니다.
+> [AZURE.NOTE] user\_name 앱 정보가 설정되지 않은 모든 사용자는 어떠한 알림도 받지 못합니다. 테스트 모드에서 알림 캠페인을 실행하고 앱 정보를 설정하지 않으면 '?' 문자를 보내 자리 표시자를 대체합니다.
 
 2) Mobile Engagement에서 이 알림을 보낼 장치를 선택하면 이 앱 정보를 확인하고 자리 표시자의 값을 대체합니다. 예를 들어 사용자에 대해 `str = "Scott"`을 설정한 경우 장치 등록이 이 사용자의 **user\_name = SCOTT** 앱 정보와 연결되고 이 사용자는 다음과 같은 형식으로 앱 푸시 알림을 보게 됩니다.
 
@@ -72,4 +72,4 @@
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0824_2016-->

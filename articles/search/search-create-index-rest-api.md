@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # REST API를 사용하여 Azure 검색 인덱스 만들기
@@ -80,7 +80,7 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 
 형식 `Edm.String`의 인덱스에 정확히 하나의 필드가 '키' 필드로 지정되어야 합니다.
 
-위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 토픽](https://msdn.microsoft.com/library/azure/dn879793.aspx)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
+위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 항목](https://msdn.microsoft.com/library/azure/dn879793.aspx)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
 
 ## III. HTTP 요청 발급
 1. 인덱스 정의를 요청 본문으로 사용하여 Azure 검색 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2015-02-28`임).
@@ -106,4 +106,4 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 ## 다음
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

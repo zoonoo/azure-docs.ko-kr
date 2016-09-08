@@ -106,7 +106,7 @@ VM을 만들기 전에 VM에서 사용할 리소스 그룹, VNet, 공용 IP 및 
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP] 위의 첫 번째 명령은 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 및 [문자열 조작](http://tldp.org/LDP/abs/html/string-manipulation.html)(구체적으로 말하면, 하위 문자열 제거)을 사용합니다.
+	>[AZURE.TIP] 위의 첫 번째 명령은 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 및 [문자열 조작](http://tldp.org/LDP/abs/html/string-manipulation.html)(구체적으로 말하면, 하위 문자열 제거)을 사용합니다.
 
 5. VM OS 드라이브를 호스트하는 저장소 계정을 만듭니다.
 
@@ -227,4 +227,4 @@ VM을 만들기 전에 VM에서 사용할 리소스 그룹, VNet, 공용 IP 및 
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,10 +1,10 @@
 
 <properties 
-   pageTitle="인터넷 연결 부하 분산 장치 개요 | Microsoft Azure"
+   pageTitle="인터넷 연결 부하 분산 장치 개요 | Microsoft Azure "
    description="인터넷 연결 부하 분산 장치 및 해당 기능에 대한 개요입니다. 가상 컴퓨터 및 클라우드 서비스를 사용하여 부하 분산 장치가 Azure에 대해 작동하는 방식입니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # 여러 가상 컴퓨터 또는 서비스 간의 인터넷 연결 부하 분산 장치
@@ -48,4 +48,4 @@ servicedefinition.csdef 파일은 끝점 구성을 포함하며, 웹 역할 또�
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

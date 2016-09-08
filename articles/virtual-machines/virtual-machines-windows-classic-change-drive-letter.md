@@ -32,12 +32,12 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 우선 가상 컴퓨터에 데이터 디스크를 연결해야 합니다.
 
 - 포털을 사용하려면 [Azure 포털에서 데이터 디스크를 연결하는 방법](virtual-machines-windows-attach-disk-portal.md)을 참조하세요.
-- 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요. 
+- 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
 
 
 ## pagefile.sys를 C 드라이브로 임시 이동
 
-1. 가상 컴퓨터에 연결합니다. 
+1. 가상 컴퓨터에 연결합니다.
 
 2. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
 
@@ -79,8 +79,8 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 8. 드라이브 문자에서 드라이브 **E**를 선택한 후 **확인**을 클릭합니다.
 
 > [AZURE.NOTE] VM에 다른 디스크 또는 드라이브가 있으면 동일한 방법을 사용하여 다른 디스크 및 드라이브의 드라이브 문자를 다시 할당합니다. 원하는 디스크 구성:
->- C: OS 디스크  
->- D: 데이터 디스크  
+>- C: OS 디스크
+>- D: 데이터 디스크
 >- E: 임시 디스크
 
 
@@ -111,4 +111,4 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 ## 다음 단계
 - [추가 데이터 디스크를 연결](virtual-machines-windows-attach-disk-portal.md)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하는 방법
@@ -24,7 +24,7 @@
 ## 계정의 연결 문자열 정보 가져오기
 
 1. 새 창에서 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **모든 설정** 블레이드에서 **연결 문자열**을 클릭합니다. **모든 설정**으로 이동하려면 표시줄에서 **찾아보기**를 클릭하고 **DocumentDB** 계정을 클릭한 다음 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 선택합니다.
+2. 계정 블레이드의 **왼쪽 탐색** 막대에서 **연결 문자열**을 클릭합니다. **계정 블레이드**로 이동하려면 표시줄에서 **더 많은 서비스**를 클릭하고 **DocumentDB(NoSQL)**를 클릭한 다음 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 선택합니다.
 
 	![모든 설정 블레이드의 스크린샷](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
@@ -84,4 +84,4 @@ DocumentDB가 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

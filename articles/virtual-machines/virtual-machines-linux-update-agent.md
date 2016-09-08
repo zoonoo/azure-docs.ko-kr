@@ -29,7 +29,7 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 
 <br>
 
-> [AZURE.NOTE] Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 PuTTY 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md)을 참조하세요.
+> [AZURE.NOTE] Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 PuTTY 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-mac-create-ssh-keys.md)을 참조하세요.
 
 Azure 인증 Linux 배포판에서는 Azure Linux 에이전트 패키지를 해당 리포지토리에 저장하므로 가능하면 먼저 배포판 리포지토리에서 최신 버전을 확인하고 설치하세요.
 
@@ -159,4 +159,4 @@ Azure Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확�
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

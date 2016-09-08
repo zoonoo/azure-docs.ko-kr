@@ -3,14 +3,17 @@
    description="이 문서는 트래픽 관리자 프로필 작업에 도움이 됩니다."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # 프로필 사용 안 함, 사용 또는 삭제
 
@@ -35,7 +38,7 @@
 
 
 1. 인터넷 DNS 서버의 DNS 리소스 레코드에서 트래픽 관리자 프로필의 도메인 이름을 가리키는 CNAME 리소스 레코드를 더 이상 사용하지 않는지 확인합니다.
-1. 삭제할 프로필을 선택합니다. 프로필을 선택하려면 트래픽 관리자 페이지에서 
+1. 삭제할 프로필을 선택합니다. 프로필을 선택하려면 트래픽 관리자 페이지에서
 1. 프로필 옆에 있는 열을 클릭하여 프로필을 강조 표시합니다. 프로필 이름 또는 이름 옆의 화살표를 클릭하지 마세요. 클릭하면 프로필 설정 페이지로 이동합니다.
 1. 프로필을 선택한 후 페이지의 맨 아래에서 삭제를 클릭합니다.
 
@@ -51,4 +54,4 @@
 
 [트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

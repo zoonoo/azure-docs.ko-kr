@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement와 기타 유사한 Azure 서비스 비교
@@ -44,7 +44,7 @@ Azure Mobile Engagement는 특히 **디지털 마케팅 담당자/CMO**를 대�
  
 이러한 일련의 차별성과 함께 여기서는 외형적으로 유사한 다른 Azure 제품과 어떻게 비교할지 다룹니다. 이 문서는 기능 수준 비교는 수행하지 않으며 어떤 제품이 잘 작동하는지 정의하기 위해 시나리오 기반 방법을 사용함에 유의합니다.
  
-1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/)은 Microsoft의 모바일 DevOps 솔루션입니다. 이를 통해 빌드를 베타 테스터에게 배포하고, 충돌 데이터를 수집하고, 사용자 피드백을 얻을 수 있습니다. 또한 Visual Studio Team Services와 통합되어 있기 때문에 손쉬운 빌드 배포 및 작업 항목 통합이 가능합니다. 
+1.	[HockeyApp](https://azure.microsoft.com/services/hockeyapp/)은 Microsoft의 모바일 DevOps 솔루션입니다. 이를 통해 빌드를 베타 테스터에게 배포하고, 충돌 데이터를 수집하고, 사용자 피드백을 얻을 수 있습니다. 또한 Visual Studio Team Services와 통합되어 있기 때문에 손쉬운 빌드 배포 및 작업 항목 통합이 가능합니다.
 	
 	여기서 초점은 DevOps이며 모바일 앱에 대한 성능 분석 데이터를 수집합니다. 앱에서 HockeyApps 및 Mobile Engagement를 모두 통합할 수 있으며 일부 수집된 데이터가 겹치더라도 제품의 핵심 초점은 다르며 사용자의 다른 목표를 달성하는 데 도움이 됩니다.
 
@@ -56,7 +56,7 @@ Azure Mobile Engagement는 특히 **디지털 마케팅 담당자/CMO**를 대�
 
 몇 가지 시나리오를 살펴보겠습니다.
 
-1.	Tim은 사용자를 위한 모바일 앱을 게시하는 Adventure Works 저장소에서 디지털 마케팅 팀에 소속되어 있습니다. Tim의 목표는 자신의 모바일 앱을 다운로드한 사용자가 지속적으로 자주 앱을 사용하도록 하는 것입니다. 앱 사용자의 브랜드 연결성을 높이고 앱 사용자가 모바일 앱을 사용하여 구매할 때 수익화를 높입니다. 이 경우 Tim은 사용자에게 도움이 되는 대상 지정된 알림을 앱 사용자에게 전송하여 사용자가 앱을 열고 자주 다시 이용하도록 장려해야 합니다. 이 경우 Tim은 Mobile Engagement가 유용하다는 것을 알게 됩니다. 
+1.	Tim은 사용자를 위한 모바일 앱을 게시하는 Adventure Works 저장소에서 디지털 마케팅 팀에 소속되어 있습니다. Tim의 목표는 자신의 모바일 앱을 다운로드한 사용자가 지속적으로 자주 앱을 사용하도록 하는 것입니다. 앱 사용자의 브랜드 연결성을 높이고 앱 사용자가 모바일 앱을 사용하여 구매할 때 수익화를 높입니다. 이 경우 Tim은 사용자에게 도움이 되는 대상 지정된 알림을 앱 사용자에게 전송하여 사용자가 앱을 열고 자주 다시 이용하도록 장려해야 합니다. 이 경우 Tim은 Mobile Engagement가 유용하다는 것을 알게 됩니다.
 
 2.	Joann은 Adventure Works에서 모바일 앱 개발 팀에 소속되어 있으며 충돌, 예외에 대한 세부 정보를 로깅하고 앱에서 성능 원격 분석을 가져올 제품을 찾고 있습니다. 이 경우 Joann는 HockeyApp이 유용하다는 것을 알게 됩니다. Joann은 이 둘을 최대한 활용하기 위해 개발자 중심 시나리오를 위한 HockeyApp과 Tim을 위한 Azure Mobile Engagement를 동일한 앱에 통합할 수 있습니다.
 
@@ -66,4 +66,4 @@ Azure Mobile Engagement는 특히 **디지털 마케팅 담당자/CMO**를 대�
 
 자세한 내용은 Mobile Engagement에 대해 간단하게 설명하는 이 [짧은 비디오](mobile-engagement-overview.md)를 살펴보세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

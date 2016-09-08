@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -21,7 +21,7 @@
 
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다. 함수의 구문은 다음 형식을 사용하여 표현됩니다. `<output type> FunctionName(<input type> <position name>, ..)`
 
-함수가 과부하되거나 여러 구문을 허용한 경우, 모든 사용한 구문의 목록이 나타납니다. 함수는 강력한 형식이며, 일치하는 문서 형식 안에 들어가는 형식을 확인합니다. 형식이 일치하지 않는 경우 오류가 나타납니다.
+함수가 과부하되거나 여러 구문을 허용한 경우, 모든 사용한 구문의 목록이 나타납니다. 함수는 강력한 형식이며, 일치하는 문서 형식 안에 들어가는 형식을 확인합니다. 형식이 일치하지 않는 경우 오류가 throw됩니다.
 
 형식은 다음 구문을 사용하여 표현합니다.
 
@@ -34,10 +34,12 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 - **mvstr**– 다중 값 문자열
 - **mvref**– 다중 값 참조
 - **num**– 숫자
-- **ref**– 단일 값 참조
-- **str**– 단일 값 문자열
+- **ref** – 참조
+- **str** - 문자열
 - **var**– 거의 모든 다른 형식의 변수
 - **void**– 값을 반환하지 않습니다.
+
+**mvbin**, **mvstr** 및 **mvref** 형식을 포함하는 함수는 다중값 특성에서만 작동할 수 있습니다. **bin**, **str** 및 **ref**를 포함한 함수는 단일 값 및 다중값 특성에서 작동합니다.
 
 ## 함수 참조
 
@@ -77,9 +79,9 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 
 **구문:** `num BitAnd(num value1, num value2)`
 
-- value1, value2: 숫자값은 AND와 함께 있어야 합니다.
+- value1, value2: 숫자 값은 AND와 함께 사용해야 합니다.
 
-**주의:** 이 함수는 2개의 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
+**주의:** 이 함수는 두 매개 변수를 전부 이진 표현으로 변환시키고 비트를 다음과 같이 설정합니다.
 
 - 0 - *마스크* 및 *플래그* 내의 하나 혹은 2개 모두 해당하는 비트는 0입니다.
 - 1 - 2개 모두 해당 비트일 경우 1입니다.
@@ -139,13 +141,13 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 ----------
 ### 포함
 
-**설명:** Contains 함수는 다중 값 특성에 포함된 문자열을 구합니다.
+**설명:** Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
 
-**구문:** `num Contains (mvstring attribute, str search)` - 대/소문자 구분 `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - 대/소문자 구분
+**구문:** `num Contains (mvstring attribute, str search)` -대/소문자 구분 `num Contains (mvstring attribute, str search, enum Casetype)` `num Contains (mvref attribute, str search)` - 대/소문자 구분
 
-- 특성: 다중 값 특성을 검색합니다.<br>
-- 검색: 특성에서 찾을 문자열입니다.<br>
-- 대소문자 유형: 대소문자를 구분하거나 구분하지 않습니다.<br>
+- 특성: 다중 값 특성을 검색합니다.
+- 검색: 특성에서 찾을 문자열입니다.
+- 대소문자 유형: 대소문자를 구분하거나 구분하지 않습니다.
 
 문자열이 발견된 다중값 특성에 인덱스를 반환합니다. 문자열을 찾을 수 없는 경우 0이 반환됩니다.
 
@@ -158,7 +160,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 
 **설명:** ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
 
-**구문:** `str ConvertFromBase64(str source)` - 인코딩에 유니코드 가정 <br> `str ConvertFromBase64(str source, enum Encoding)`
+**구문:** `str ConvertFromBase64(str source)` - 인코딩에 유니코드 가정 `str ConvertFromBase64(str source, enum Encoding)`
 
 - 원본: Base64 인코딩된 문자열
 - 인코딩: 유니코드, ASCII, UTF8
@@ -232,7 +234,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 
 - 값: 숫자 값, 참조 특성 또는 부울입니다.
 
-**예제:** `CStr([dn])` "cn = Joe, dc = contoso, dc = com"으로 반환할 수 있습니다.
+**예제:** `CStr([dn])` "cn=Joe,dc=contoso,dc=com"을 반환할 수 있습니다.
 
 ----------
 ### DateAdd
@@ -342,8 +344,8 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 **구문:** `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - 조건: true 또는 false로 계산될 수 있는 임의의 값 또는 식입니다.
-- valueIfTrue: true로 조건이 계산되는 경우 반환되는 값입니다.
-- valueIfFalse: false로 조건이 계산되는 경우 반환되는 값입니다.
+- valueIfTrue: 조건이 true로 평가되는 경우 반환된 값입니다.
+- valueIfFalse: 조건이 false로 평가되는 경우 반환된 값입니다.
 
 **예제:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` 사용자가 인턴일 경우 사용자 별칭 앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭 그대로 반환합니다.
 
@@ -397,36 +399,36 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 ----------
 ### IsDate
 
-**설명:** IsDate 함수는 식이 날짜/시간 형식으로 계산될 경우 True로 계산됩니다.
+**설명:** 식이 날짜/시간 형식으로 계산될 경우 IsDate 함수는 True로 계산됩니다.
 
 **구문:** `bool IsDate(var Expression)`
 
-**주의:** CDate()가 정상적으로 수행될지 결정하는 데 사용됩니다.
+**주의:** CDate()가 정상적으로 수행될 수 있는지 결정하는 데 사용됩니다.
 
 ----------
 ### IsEmpty
 
-**설명:** IsEmpty 함수는 특성이 CS 또는 MV에서 나타날 경우 True로 계산하지만 아닐 경우 빈 문자열로 계산합니다.
+**설명:** 특성이 CS 또는 MV에서 나타나지만 빈 문자열로 계산될 경우 IsEmpty 함수는 True로 계산됩니다.
 
 **구문:** `bool IsEmpty(var Expression)`
 
 ----------
 ### IsGuid
 
-**설명:** IsGuid 함수는 문자열을 GUID로 변환할 수 있는 경우 True로 계산합니다.
+**설명:** 문자열을 GUID로 변환할 수 있는 경우 IsGuid 함수는 True로 계산합니다.
 
 **구문:** `bool IsGuid(str GUID)`
 
 **주의:** GUID는 다음 패턴 중 하나로 정의됩니다. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 또는 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
+CGuid()가 성공적으로 수행될 수 있는지 여부를 결정하는데 사용됩니다.
 
 **예제:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` StrAttribute가 GUID 형식을 가질 경우, 이진 표현으로 반환되며, 아닐 경우 Null을 반환합니다.
 
 ----------
 ### IsNull
 
-**설명:** IsNull 함수는 식이 Null로 계산되면 True를 반환합니다.
+**설명:** 식이 Null로 계산되면 IsNull 함수는 true를 반환합니다.
 
 **구문:** `bool IsNull(var Expression)`
 
@@ -437,11 +439,11 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### IsNullOrEmpty
 
-**설명:** IsNullOrEmpty 함수는 식이 null 또는 빈 문자열일 경우 True를 반환합니다.
+**설명:** 식이 null 또는 빈 문자열일 경우 IsNullOrEmpty 함수는 true를 반환합니다.
 
 **구문:** `bool IsNullOrEmpty(var Expression)`
 
-**주의:** 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다.<br> 이 함수의 역원을 IsPresnt라고 합니다.
+**주의:** 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다. 이 함수의 역원을 IsPresnt라고 합니다.
 
 **예제:** `IsNullOrEmpty([displayName])` 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
 
@@ -452,21 +454,21 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `bool IsNumeric(var Expression)`
 
-**주의:** CNum()이 식 구문 분석의 성공 여부를 결정할 때 사용됩니다.
+**주의:** CNum()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결정할 때 사용됩니다.
 
 ----------
 ### IsString
 
-**설명:** IsString 함수는 식이 문자열 형식으로 계산될 수 있는 경우 True로 계산합니다.
+**설명:** 식이 문자열 형식으로 계산될 수 있는 경우 IsString 함수는 True로 계산됩니다.
 
 **구문:** `bool IsString(var expression)`
 
-**주의:** CStr()이 식 구문 분석의 성공 여부를 결정할 때 사용됩니다.
+**주의:** CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결정할 때 사용됩니다.
 
 ----------
 ### IsPresent
 
-**설명:** IsPresent 함수는 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 True를 반환합니다.
+**설명:** 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 IsPresent 함수는 true를 반환합니다.
 
 **구문:** `bool IsPresent(var expression)`
 
@@ -502,7 +504,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **주의:** ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 사용할 수 있습니다.
 
-인덱스가 범위를 초과하는 경우 Null 값이 반환됩니다.
+인덱스가 범위를 초과하는 경우 Null 값을 반환합니다.
 
 ----------
 ### Join
@@ -525,7 +527,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str LCase(str value)`
 
-**예제:** `LCase("TeSt")` "TEST"를 반환합니다.
+**예제:** `LCase("TeSt")` "test"를 반환합니다.
 
 ----------
 ### Left
@@ -543,7 +545,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 - 문자열이 null이면 빈 문자열을 반환합니다.
 
-문자열이 numChars 내에서 숫자가 지정한 문자보다 적은 문자를 포함하는 경우, 문자열과 동일한 문자열(ie. 매개 변수 1의 모든 문자가 포함된)이 반환됩니다.
+문자열이 numChars 내에서 숫자가 지정한 문자보다 적은 문자를 포함하는 경우, 문자열과 동일한 문자열(즉, 매개 변수 1의 모든 문자가 포함)이 반환됩니다.
 
 **예제:** `Left("John Doe", 3)` "Joh"를 반환합니다.
 
@@ -563,7 +565,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** `str LTrim(str value)`
 
-**예제:** `LTrim(" Test ")` "TEST"를 반환합니다.
+**예제:** `LTrim(" Test ")` "Test"를 반환합니다.
 
 ----------
 ### Mid
@@ -584,7 +586,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - start < = 0 인 경우, 입력된 문자열을 반환 합니다.
 - 문자열이 null이면 빈 문자열을 반환합니다.
 
-시작 위치에서 문자열의 numChar 문자가 남아있지 않는 경우, 반환 될수 있을만큼의 문자가 반환됩니다.
+시작 위치에서 문자열의 numChar 문자가 남아있지 않는 경우, 가능한 많은 문자가 반환됩니다.
 
 **예제:** `Mid("John Doe", 3, 5)` "hn Do"를 반환합니다.
 
@@ -774,7 +776,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 - value: 구분할 구분 기호 문자를 포함하는 문자열입니다.
 - delimiter: 구분 기호로 사용할 수 있는 단일 문자입니다.
-- limit: 반환할 값의 최대 갯수입니다.
+- limit: 반환될 수 있는 값의 최대 갯수입니다.
 
 **예제:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` proxyAddress 특성에 유용한 2개 이상의 요소가 있는 다중값 문자열을 반환합니다.
 
@@ -788,9 +790,9 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### StringFromSid
 
-**설명:** StringFromSid 함수는 바이트 배열 또는 보안 식별자를 포함한 다중값 바이트 배열을 문자열 또는 다중값 문자열로 변환합니다.
+**설명:** StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자열로 변환합니다.
 
-**구문:** `str StringFromSid(bin ObjectSID)` `mvstr StringFromSid(mvbin ObjectSID)`
+**구문:** `str StringFromSid(bin ObjectSID)`
 
 ----------
 ### Switch
@@ -811,7 +813,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - 어떤 식도 True가 아닌 경우
 - 첫 번째 True 식의 해당 값이 Null인 경우
 
-둘 중 하나만 반환되더라도, Switch는 모든 식을 계산합니다. 그렇기 때문에 원하지 않는 결과가 나타나지 않도록 주의해야합니다. 예를 들어, 어떤 식의 계산이 division by zero 오류로 나올 경우, 오류가 발생한 것입니다.
+그 중 하나만 반환되더라도, Switch는 모든 식을 계산합니다. 그렇기 때문에 원하지 않는 결과가 나타나지 않도록 주의해야합니다. 예를 들어, 어떤 식의 계산이 division by zero 오류로 나올 경우, 오류가 발생한 것입니다.
 
 값은 사용자 지정 문자열을 반환하는 오류 함수가 될 수도 있습니다.
 
@@ -822,7 +824,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **설명:** Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 
-**구문:** `str Trim(str value)` `mvstr Trim(mvstr value)`
+**구문:** `str Trim(str value)`
 
 **예제:** `Trim(" Test ")` "Test"를 반환합니다.
 
@@ -845,7 +847,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 **구문:** `str Word(str string, num WordNumber, str delimiters)`
 
 - string: 단어를 반환할 문자열입니다.
-- WordNumber: 반환될 단어 수를 식별하는 번호입니다.
+- WordNumber: 반환해야 하는 단어 수를 식별하는 번호입니다.
 - delimiters : 단어를 식별하는데 사용될 구분 기호를 나타내는 문자열입니다.
 
 **주의:** 구분 기호 내의 문자 중 하나로 구분되는 전체 문자열의 각 문자열은 단어로 식별됩니다.
@@ -865,4 +867,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

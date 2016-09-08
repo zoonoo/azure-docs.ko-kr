@@ -3,6 +3,7 @@ pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비 | Microsoft Azure"
 description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성 과정을 단계별로 설명합니다."
 services="virtual-machines-linux"
 authors="bbenz"
+manager="timlt"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
@@ -225,4 +226,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

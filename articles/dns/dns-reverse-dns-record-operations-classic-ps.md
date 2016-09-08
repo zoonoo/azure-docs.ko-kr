@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="클래식 배포 모델에서 PowerShell을 사용하여 서비스에 대한 역방향 DNS 레코드를 관리하는 방법 | Microsoft Azure"
    description="클래식 배포 모델에서 PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 또는 PTR 레코드를 관리하는 방법 "
    services="DNS"
@@ -8,14 +8,14 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="DNS"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="s-malone" />
+   ms.author="smalone" />
 
 # PowerShell을 사용하여 서비스(클래식)에 대한 역방향 DNS 레코드를 관리하는 방법
 
@@ -38,7 +38,7 @@
 
 	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## 역방향 DNS를 사용하여 클라우드 서비스 만들기  
+## 역방향 DNS를 사용하여 클라우드 서비스 만들기
 "Set-AzureService" cmdlet을 사용하여 지정된 역방향 DNS 속성을 사용하여 새 클라우드 서비스를 추가할 수 있습니다.
 
 	PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
@@ -55,4 +55,4 @@
 
 [AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="부하 분산 장치에 대한 Azure 리소스 관리자 지원 미리 보기 | Microsoft Azure"
+   pageTitle="부하 분산 장치에 대한 Azure 리소스 관리자 지원 미리 보기 | Microsoft Azure "
    description="ARM(Azure 리소스 관리자)(미리 보기)과 함께 부하 분산 장치용 PowerShell을 사용합니다. 부하 분산 장치에 템플릿을 사용합니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
-# 부하 분산 장치에 대한 Azure 리소스 관리자 지원 
+# 부하 분산 장치에 대한 Azure 리소스 관리자 지원
 
 ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 부하 분산 장치를 관리할 수 있습니다.
 
@@ -40,13 +40,14 @@ ARM을 사용하면 Azure 부하 분산 장치에 다음과 같은 자식 리소
 
 
 ## 빠른 시작 템플릿
+
 Azure 리소스 관리자를 사용하면 선언적 템플릿을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
 
 템플릿은 가상 컴퓨터, 가상 네트워크, 가용성 집합, NIC(네트워크 인터페이스), 저장소 계정, 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP를 포함합니다. 템플릿을 사용하면 체크 인하여 공동으로 작업할 수 있는 간단한 파일을 통해 복잡한 응용 프로그램에 필요한 모든 요소를 만들 수 있습니다.
 
 [템플릿에 대한 자세한 정보](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[네트워크 리소스에 대한 자세한 정보](../virtual-network/resource-groups-networking)
+[네트워크 리소스에 대한 자세한 정보](../virtual-network/resource-groups-networking.md)
 
 Azure 부하 분산 장치를 사용한 템플릿은 커뮤니티 생성 템플릿 집합을 호스트하는 [GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 찾을 수 있습니다.
 
@@ -76,4 +77,4 @@ Azure 부하 분산 장치를 사용한 템플릿은 커뮤니티 생성 템플�
 
 응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure 부하 분산 장치를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

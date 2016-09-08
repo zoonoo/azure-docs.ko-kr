@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,15 +32,15 @@
 1. 시연하는 데 사용할 데이터를 포함하는 테이블을 만듭니다.
 
 2. 기존 확장 이벤트에 대한 세션 즉, **sqlserver.sql\_statement\_starting**을 만듭니다.
- - 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문(**statement LIKE '%UPDATE tabEmployee%'**)으로 제한됩니다.
- - 링 버퍼 유형의 대상 즉, **package0.ring\_buffer**로 이벤트 출력을 보내도록 선택합니다.
+	- 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문(**statement LIKE '%UPDATE tabEmployee%'**)으로 제한됩니다.
+	- 링 버퍼 유형의 대상 즉, **package0.ring\_buffer**로 이벤트 출력을 보내도록 선택합니다.
 
 3. 이벤트 세션을 시작합니다.
 
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.
 
 5. SQL SELECT를 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
- - **sys.dm\_xe\_database\_session\_targets** 및 다른 DMV(동적 관리 뷰)가 조인됩니다.
+	- **sys.dm\_xe\_database\_session\_targets** 및 다른 DMV(동적 관리 뷰)가 조인됩니다.
 
 6. 이벤트 세션을 중지합니다.
 
@@ -59,16 +59,15 @@
  - 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
 
 
-- SQL Server Management Studio(ssms.exe) 2015년 8월 Preview 이상 버전. 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
- - [항목의 링크](http://msdn.microsoft.com/library/mt238290.aspx)
+- SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
+ - [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 항목
  - [직접 다운로드 링크](http://go.microsoft.com/fwlink/?linkid=616025)
- - ssms.exe를 주기적으로, 주로 월별로 업데이트하는 것이 좋습니다.
 
 
 ## 코드 샘플
 
 
-다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL 데이터베이스 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에서 일부 DMV(동적 관리 뷰) 이름에 '\_database' 노드가 있다는 점이 다릅니다. 예:
+다음 링 버퍼 코드 샘플은 약간만 수정하면 Azure SQL 데이터베이스 또는 Microsoft SQL Server에서 실행할 수 있습니다. 5단계의 FROM 절에 사용되는 일부 DMV(동적 관리 뷰) 이름에 '\_database' 노드가 있다는 점이 다릅니다. 예:
 
 - sys.dm\_xe**\_database**\_session\_targets
 - sys.dm\_xe\_session\_targets
@@ -386,4 +385,4 @@ Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목은 다�
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

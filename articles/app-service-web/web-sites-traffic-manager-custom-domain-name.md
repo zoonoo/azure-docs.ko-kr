@@ -55,7 +55,7 @@
 
 1. 각 등록 기관에 대한 구체적인 설명은 다르지만 일반적으로 사용자 지정 도메인 이름(예: **contoso.com**)*에서* 웹앱에 사용하는 트래픽 관리자 도메인 이름(**contoso.trafficmanager.net**)*으로* 매핑합니다.
 
-> [AZURE.NOTE] 또는 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우에는 **awverify.contoso.com**을 **contoso.trafficmanager.net**에 매핑합니다.
+> [AZURE.NOTE] 또는 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우에는 **awverify.contoso.com**을 **contoso.trafficmanager.net**에 대해 TXT 레코드를 만듭니다.
 
 1. 등록 기관에서 DNS 레코드를 추가하거나 수정했으면 변경 내용을 저장합니다.
 
@@ -72,4 +72,4 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

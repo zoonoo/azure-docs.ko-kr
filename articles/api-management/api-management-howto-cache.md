@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 캐싱을 추가하여 성능 향상
@@ -129,7 +129,6 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
--	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
 -	캐싱 정책에 대한 자세한 내용은 [API 관리 정책 참조][]의 [캐싱 정책][]을 참조하세요.
 -	정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
@@ -152,7 +151,6 @@
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md
-[고급 API 구성 시작]: api-management-get-started-advanced.md
 
 [캐싱 정책]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [API 관리 정책 참조]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -164,4 +162,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치 만들기 | Microsoft Azure"
    description="클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # PowerShell을 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -116,7 +116,7 @@ Get-AzureInternalLoadBalancer 명령 표시에서 IP 주소를 확인하고 필�
 
 	$svc="mytestcloud"
 	$ilb="ilbset"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb 
+	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
 	$prot="tcp"
 	$locport=1433
 	$pubport=1433
@@ -181,4 +181,4 @@ Get-AzureInternalLoadBalancer 명령 표시에서 IP 주소를 확인하고 필�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

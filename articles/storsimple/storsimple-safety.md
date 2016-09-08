@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 안전한 설치 및 작동
@@ -33,8 +33,8 @@
 |![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**|중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다.|
 |![감전 아이콘](./media/storsimple-safety/IC740882.png) **감전 위험** |높은 전압|
 |![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **무거운 무게**| |
-|![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-safety/IC740879.png) **사용자 서비스 가능 부품 없음**|제대로 교육을 받지 않은 경우 액세스하지 마십시오.|
-|![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png)**모든 지침 처음 읽기**| |
+|![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-safety/IC740879.png) **사용자 서비스 가능 부품 없음**|제대로 교육을 받지 않은 경우 액세스하지 마세요.|
+|![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png)**먼저 모든 지침 읽기**| |
 |![기울어짐 위험 아이콘](./media/storsimple-safety/IC740886.png) **기울어짐 위험**| |
 
 
@@ -143,7 +143,7 @@
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-다음 ESD 관련 주의 상태를 확인하십시오.
+다음 ESD 관련 주의 상태를 확인하세요.
 
 - 적절한 방전 손목 또는 발목 스트랩을 착용했는지 확인하십시오.
 
@@ -179,4 +179,4 @@
 
 - 8600 장치의 경우 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

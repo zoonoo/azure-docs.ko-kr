@@ -4,7 +4,7 @@
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mscurrell"
-   manager="asutton"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -29,9 +29,9 @@ Azure 가상 컴퓨터를 사용하면, 대화형 작업, 배치 작업, 독립 
 
 ## 필수 조건
 
-* **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다. 
+* **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다.
 
-* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure)을 참조하세요.
+* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 * **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 
@@ -46,14 +46,14 @@ Azure 가상 컴퓨터를 사용하면, 대화형 작업, 배치 작업, 독립 
 
 MATLAB 분산 컴퓨팅 서버 클러스터에 대해 Azure 가상 컴퓨터를 사용하려면, 다음과 같은 대략적인 단계가 필요합니다. 자세한 지침은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)의 스크립트 및 빠른 시작 템플릿을 포함하는 설명서에 있습니다.
 
-1. **기본 VM 이미지 만들기**  
-    * MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 다운로드하여 설치합니다. 
+1. **기본 VM 이미지 만들기**
+    * MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 다운로드하여 설치합니다.
 
     >[AZURE.NOTE]이 프로세스에 한두 시간이 소요될 수 있지만, 사용하는 MATLAB 각 버전에 대해 한 번만 수행하면 됩니다.
     
 2. **하나 이상의 클러스터 만들기**
-    * 제공된 PowerShell 스크립트를 사용하거나 빠른 시작 템플릿을 사용하여 기본 VM 이미지에서 클러스터를 만듭니다.   
-    * 제공된 PowerShell 스크립트를 사용하여 클러스터를 관리합니다. 클러스터를 나열하고, 일시 중지하고, 다시 시작하고, 삭제하는 것이 가능합니다. 
+    * 제공된 PowerShell 스크립트를 사용하거나 빠른 시작 템플릿을 사용하여 기본 VM 이미지에서 클러스터를 만듭니다.
+    * 제공된 PowerShell 스크립트를 사용하여 클러스터를 관리합니다. 클러스터를 나열하고, 일시 중지하고, 다시 시작하고, 삭제하는 것이 가능합니다.
  
 ## 클러스터 구성 
 
@@ -65,7 +65,7 @@ MATLAB 클라이언트 노드, MATLAB 작업 스케줄러 노드, 및 MATLAB 분
 
 ![클러스터 토폴로지](./media/virtual-machines-windows-matlab-mdcs-cluster/mdcs_cluster.png)
 
-* 클러스터를 사용하려면 원격 데스크톱을 통해 클라이언트 노드에 연결합니다. 클라이언트 노드는 MATLAB 클라이언트를 실행합니다. 
+* 클러스터를 사용하려면 원격 데스크톱을 통해 클라이언트 노드에 연결합니다. 클라이언트 노드는 MATLAB 클라이언트를 실행합니다.
 
 * 클라이언트 노드에는 모든 작업자가 액세스할 수 있는 파일 공유가 있습니다.
 
@@ -82,8 +82,8 @@ MATLAB 클라이언트 노드, MATLAB 작업 스케줄러 노드, 및 MATLAB 분
 
 ## 다음 단계
 
-* Azure에서 MATLAB 분산 컴퓨팅 서버 클러스터를 배포하고 관리하는 자세한 내용은, 템플릿과 스크립트를 포함하는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) 리포지토리를 참조하세요. 
+* Azure에서 MATLAB 분산 컴퓨팅 서버 클러스터를 배포하고 관리하는 자세한 내용은, 템플릿과 스크립트를 포함하는 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) 리포지토리를 참조하세요.
 
 * MATLAB 및 MATLAB 분산 컴퓨팅 서버에 대한 자세한 설명서는 [MathWorks 사이트](http://www.mathworks.com/)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

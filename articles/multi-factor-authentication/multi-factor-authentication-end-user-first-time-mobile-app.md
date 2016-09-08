@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication과 함께 연락 방법으로 모바일 앱 사용
 
-기본 연락 방법으로 모바일 앱을 사용하려는 경우 이 문서를 사용할 수 있습니다. 이 문서에서는 기본 연락 방법으로 모바일 앱을 사용하도록 다단계 인증을 설정하는 과정을 안내합니다.
+기본 연락 방법으로 Microsoft Authenticator 앱을 사용하려는 경우 이 문서를 사용할 수 있습니다. 이 문서에서는 기본 연락 방법으로 모바일 앱을 사용하도록 다단계 인증을 설정하는 과정을 안내합니다.
 
-[Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱을 사용할 수 있습니다.
+[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 ## 연락 방법으로 모바일 앱을 사용하려면
 
@@ -31,7 +31,7 @@
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - 알림 또는 일회용 암호 중 하나를 선택하고 설정을 클릭합니다.
-- Azure Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 [수동으로 계정 추가](#adding-an-account-manually)를 참조하세요.
+- Microsoft Authenticator 앱이 설치된 휴대폰에서 앱을 시작하고 바코드 스캔을 클릭합니다. Azure MFA를 이미 가지고 있는 계정 또는 제3자 계정을 추가하려면 [수동으로 계정 추가](#adding-an-account-manually)를 참조하세요.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -54,7 +54,7 @@
 - 완료를 클릭합니다.
 
 
-<h2 id="kokr">수동으로 계정 추가</h2>
+## 수동으로 계정 추가
 계정을 수동으로 추가하려는 경우 수동으로 계정 입력 단추를 선택합니다.
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
@@ -70,7 +70,7 @@
 
 ![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
->[AZURE.NOTE]"작업 계정 추가"가 표시되는 경우 작업 공간 연결을 위한 것으로, Multi-Factor Authentication을 위한 것이 아닙니다. 무시해도 됩니다.
+
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -25,7 +25,7 @@ AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 �
 
 ## AMQP 1.0을 사용하여 .NET 응용 프로그램 구성
 
-기본적으로 서비스 버스 .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 서비스 버스 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 서비스 버스 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 기본적으로 변경되지 않습니다.
+기본적으로 서비스 버스 .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 서비스 버스 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 서비스 버스 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 변경되지 않습니다.
 
 현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 [지원되지 않는 기능, 제한 및 동작 차이](#unsupported-features-restrictions-and-behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
 
@@ -45,7 +45,7 @@ AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 �
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-여기서 `[namespace]` 및 `SharedAccessKey`은(는) [Azure 클래식 포털][]에서 가져옵니다. 자세한 내용은 [서비스 버스 큐를 사용하는 방법][]을 참조하십시오.
+여기서 `[namespace]` 및 `SharedAccessKey`은(는) [Azure 포털][]에서 가져옵니다. 자세한 내용은 [서비스 버스 큐를 사용하는 방법][]을 참조하십시오.
 
 AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 문자열을 추가합니다. 이 표기는 AMQP 1.0을 사용하여 서비스 버스에 연결하도록 클라이언트 라이브러리를 알립니다.
 
@@ -59,7 +59,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 
 | .NET 본문 개체 형식 | 매핑된 AMQP 형식 | AMQP 본문 섹션 형식 |
 |--------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bool | boolean | AMQP 값 |
+| bool | 부울 | AMQP 값 |
 | byte | ubyte | AMQP 값 |
 | ushort | ushort | AMQP 값 |
 | uint | uint | AMQP 값 |
@@ -85,7 +85,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | Stream | binary | AMQP 데이터(여러 개가 있을 수 있음). 데이터 섹션에는 스트림 개체에서 읽은 원시 바이트가 포함되어 있습니다. |
 | 다른 개체 | binary | AMQP 데이터(여러 개가 있을 수 있음). 응용 프로그램에서 제공된 DataContractSerializer 또는 serializer를 사용하는 개체의 직렬화된 이진을 포함합니다. |
 
-| .NET 형식 | 매핑된 AMQP 설명된 형식 | 참고 |
+| .NET 형식 | 매핑된 AMQP 설명된 형식 | 참고 사항 |
 |----------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | Uri | `<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` | Uri.AbsoluteUri |
 | DateTimeOffset | `<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` | DateTimeOffset.UtcTicks |
@@ -134,9 +134,9 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[Azure 클래식 포털]: http://manage.windowsazure.com
+[Azure 포털]: https://portal.azure.com
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Linux VM에서 MySQL 설정 | Microsoft Azure"
+	pageTitle="Linux VM에서 MySQL 설정 | Microsoft Azure "
 	description="Azure Linux 가상 컴퓨터(Ubuntu 또는 RedHat 제품군 OS)에 MySQL 스택을 설치하는 방법을 알아봅니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
@@ -32,7 +32,7 @@
 
 이 경우 3306 포트를 MySQL 포트로 사용합니다.
 
-putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux VM을 사용하는 경우 putty를 사용하여 Linux VM에 연결하는 방법은 [여기](virtual-machines-linux-ssh-from-linux.md)를 참조하세요.
+putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux VM을 사용하는 경우 putty를 사용하여 Linux VM에 연결하는 방법은 [여기](virtual-machines-linux-mac-create-ssh-keys.md)를 참조하세요.
 
 이 문서의 예로는 MySQL5.6을 설치하는 리포지토리 패키지를 사용합니다. 실제로, MySQL5.6의 성능은 MySQL5.5보다 많이 개선되었습니다. 자세한 내용은 [여기](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/)를 참조하세요.
 
@@ -185,4 +185,4 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 ###다음 단계
 [여기](https://www.mysql.com/)에서 MySQL에 대한 사용법 및 정보를 확인합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

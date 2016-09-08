@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # 연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법
@@ -26,6 +26,8 @@ Azure에서 중요한 메일이 누락되었나요? 프로필에서 다른 연�
 
 -	[프로필 정보를 변경하는 방법](#how-to-change-your-profile-information)
 -	[일반적인 문제 및 질문에 대한 대답](#frequently-asked-questions)
+
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 프로필 메일 주소에 대한 중요 한 정보
 
@@ -61,4 +63,6 @@ Azure에서 중요한 메일이 누락되었나요? 프로필에서 다른 연�
 
 새 Azure 청구 경고 미리 보기 기능에 등록하는 경우 계정 관리자 메일 주소를 변경했는지 여부에 상관없이 지정한 주소로 Azure 청구 경고 메일이 수신됩니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->

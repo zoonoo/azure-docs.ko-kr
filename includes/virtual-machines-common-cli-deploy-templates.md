@@ -106,7 +106,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스
 | CoreOS | CoreOS | Stable | 633\.1.0 |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
 | MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 표준 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
@@ -1240,7 +1240,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
 
-일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md)을 참조하세요.
+일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)을 참조하세요.
 
 ## <a id="stop-a-virtual-machine"></a>작업: VM 중지
 
@@ -1278,4 +1278,4 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

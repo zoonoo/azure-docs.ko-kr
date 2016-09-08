@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/16/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # ProjectOnline 커넥터 시작
 
 Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다.
-
-ProjectOnline 커넥터는 다음에서 사용할 수 있습니다.
-
-- [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [흐름](http://flow.microsoft.com)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -64,7 +58,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 |속성| 필수|설명|
 | ---|---|---|
-|신뢰|예|ProjectOnline 자격 증명 제공|
+|위임|예|ProjectOnline 자격 증명 제공|
 
 >[AZURE.INCLUDE [ProjectOnline에 대한 연결을 만드는 단계](../../includes/connectors-create-api-projectonline.md)]
 
@@ -78,7 +72,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 ```GET: /trigger/_api/ProjectData/Projects```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
@@ -100,13 +94,13 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 ```GET: /trigger/_api/ProjectData/Resources```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |400|잘못된 요청|
@@ -122,7 +116,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 ```GET: /trigger/_api/ProjectData/Tasks```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
@@ -144,7 +138,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 ```GET: /_api/ProjectServer/Projects```
 
-| 이름| 데이터 형식|필수|위치|기본값|설명|
+| Name| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
 |siteUrl|string|yes|쿼리|없음|프로젝트 사이트의 루트 사이트 URL(예: https://sampletenant.sharepoint.com/teams/sampleteam)|
 
@@ -197,7 +191,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |400|잘못된 요청|
@@ -266,7 +260,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 #### 응답
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |200|확인|
 |400|잘못된 요청|
@@ -404,7 +398,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|이름|string|예 |
+|Name|string|예 |
 |IsBudget|부울|아니요 |
 |IsGeneric|부울|아니요 |
 |IsInactive|부울|아니요 |
@@ -429,7 +423,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 |OptimizerDecision|정수|아니요 |
 |PlannerDecision|정수|아니요 |
 |ProjectType|정수|아니요 |
-|이름|string|아니요 |
+|Name|string|아니요 |
 |WinprojVersion|string|아니요 |
 
 
@@ -457,8 +451,8 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|이름|string|예 |
-|참고|string|아니요 |
+|Name|string|예 |
+|참고 사항|string|아니요 |
 |시작|string|아니요 |
 |기간|string|아니요 |
 
@@ -488,7 +482,7 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 |IsTeam|부울|아니요 |
 |MaterialLabel|string|아니요 |
 |수정자|string|아니요 |
-|이름|string|아니요 |
+|Name|string|아니요 |
 |Phonetics|string|아니요 |
 |ResourceType|정수|아니요 |
 |TerminationDate|string|아니요 |
@@ -513,15 +507,15 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 |수정자|string|아니요 |
 |시작|string|아니요 |
 |마침|string|아니요 |
-|이름|string|아니요 |
+|Name|string|아니요 |
 |Id|string|아니요 |
 |우선 순위|정수|아니요 |
 |PercentComplete|정수|아니요 |
-|참고|string|아니요 |
+|참고 사항|string|아니요 |
 |연락처|string|아니요 |
 
 
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

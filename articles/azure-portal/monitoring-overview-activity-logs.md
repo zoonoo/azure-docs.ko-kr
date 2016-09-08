@@ -29,8 +29,8 @@ Azure 포털, CLI, PowerShell cmdlet 및 Insights REST API를 사용하여 활�
 - **Azure 포털**에서 쿼리하고 봅니다.
 - REST API, PowerShell Cmdlet 또는 CLI를 통해 쿼리합니다.
 - [활동 로그 이벤트를 트리거 해제하는 전자 메일 또는 웹후크 경고를 만듭니다.](./insights-auditlog-to-webhook-email.md)
-- 보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다. **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-- [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
+- [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](./monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [**이벤트 허브**로 스트림](./monitoring-stream-activity-logs-event-hubs.md)합니다.
 
 ## 로그 프로필과 함께 활동 로그 내보내기
@@ -223,4 +223,4 @@ azure insights logprofile delete --name my_log_profile
 - [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
 - [Azure 활동 로그를 이벤트 허브로 스트림](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

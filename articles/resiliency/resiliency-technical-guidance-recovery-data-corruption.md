@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Azure 복원력 기술 지침: 데이터 손상 또는 삭제 실수로부터 복구
@@ -45,7 +45,7 @@ Azure SQL 데이터베이스에 대해 사용할 수 있는 몇 가지 [비즈�
 
 ###SQL 데이터베이스 백업
 
-Microsoft Azure SQL 데이터베이스에 대한 특정 시점 백업은 [Azure SQL 데이터베이스를 복사](../sql-database/sql-database-copy.md)하여 수행됩니다. 이 명령을 사용하여 동일한 논리 데이터베이스 서버 또는 다른 서버에 트랜잭션 측면에서 일관된 데이터베이스의 복사본을 만들 수 있습니다. 두 경우 모두 데이터베이스 복사는 완벽하게 작동하고 원본 데이터베이스에서 완전히 독립적입니다. 만든 각 복사본은 특정 시점 복구 옵션을 나타냅니다. 새 데이터베이스를 원본 데이터베이스 이름으로 바꾸어 데이터베이스 상태를 완전히 복구할 수 있습니다. 또는 Transact-SQL 쿼리를 사용하여 새 데이터베이스에서 데이터의 특정 하위 집합을 복구할 수 있습니다. SQL 데이터베이스에 대한 자세한 내용은 [SQL 데이터베이스로 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md)를 참조하세요.
+Microsoft Azure SQL 데이터베이스에 대한 특정 시점 백업은 [Azure SQL 데이터베이스를 복사](../sql-database/sql-database-copy.md)하여 수행됩니다. 이 명령을 사용하여 동일한 논리 데이터베이스 서버 또는 다른 서버에 트랜잭션 측면에서 일관된 데이터베이스의 복사본을 만들 수 있습니다. 두 경우 모두 데이터베이스 복사는 완벽하게 작동하고 원본 데이터베이스에서 완전히 독립적입니다. 만든 각 복사본은 특정 시점 복구 옵션을 나타냅니다. 새 데이터베이스를 원본 데이터베이스 이름으로 바꾸어 데이터베이스 상태를 완전히 복구할 수 있습니다. 또는 Transact-SQL 쿼리를 사용하여 새 데이터베이스에서 데이터의 특정 하위 집합을 복구할 수 있습니다. SQL 데이터베이스에 대한 자세한 내용은 [Azure SQL 데이터베이스 비즈니스 연속성 개요](../sql-database/sql-database-business-continuity.md)를 참조하세요.
 
 ###가상 컴퓨터 백업의 SQL Server
 
@@ -60,27 +60,33 @@ Azure 웹 사이트 및 Azure 모바일 서비스의 경우 연결된 데이터�
 ##데이터 손상 또는 삭제 실수에 대한 검사 목록
 
 ##가상 컴퓨터 검사 목록
-  1. 이 문서의 [가상 컴퓨터](#virtual-machines) 섹션을 검토합니다.
+
+  1. 이 문서의 가상 컴퓨터 섹션을 검토합니다.
   2. Azure 백업(또는 Azure Blob 저장소 및 VHD 스냅숏을 사용한 고유한 백 시스템)을 사용하여 VM 디스크를 백업 및 유지 관리합니다.
 
 ##저장소 검사 목록
-  1. 이 문서의 [저장소](#storage) 섹션을 검토합니다.
+
+  1. 이 문서의 저장소 섹션을 검토합니다.
   2. 정기적으로 중요한 저장소 리소스를 백업합니다.
   3. Blob에 스냅숏 기능을 사용하도록 고려합니다.
 
 ##데이터베이스 검사 목록
-  1. 이 문서의 [데이터베이스](#database) 섹션을 검토합니다.
+
+  1. 이 문서의 데이터베이스 섹션을 검토합니다.
   2. 데이터베이스 복사 명령을 사용하여 특정 시점 백업을 만듭니다.
 
 ##가상 컴퓨터 백업 검사 목록의 SQL Server
-  1. 이 문서의 [가상 컴퓨터 백업에서 SQL Server](#sql-server-on-virtual-machines-backup) 섹션을 검토합니다.
+
+  1. 이 문서의 가상 컴퓨터 백업에서 SQL Server 섹션을 검토합니다.
   2. 전통적인 백업 및 복원 기술을 사용합니다.
   3. 지연된 로그 전달 세션을 만듭니다.
 
 ##웹앱 검사 목록
+
   1. 있는 경우 연결된 데이터베이스를 백업 및 유지 관리합니다.
 
 ##미디어 서비스 검사 목록
+
   1. 연결된 저장소 리소스를 백업 및 유지 관리합니다.
 
 ##자세한 정보
@@ -91,4 +97,4 @@ Azure의 백업 및 복원 기능에 대한 자세한 내용은 [저장소, 백�
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 복원력, 재해 복구 및 고가용성 리소스에 대해 더 알아보려는 경우 Azure 복원력 기술 지침 [추가 리소스](./resiliency-technical-guidance.md#additional-resources)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

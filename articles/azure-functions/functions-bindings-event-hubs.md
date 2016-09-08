@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions 이벤트 허브 바인딩
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에 대한 [Azure 이벤트 허브](../event-hubs/event-hubs-overview.md) 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Azure 이벤트 허브에 대한 트리거 및 출력 바인딩을 지원합니다.
 
@@ -35,7 +37,7 @@ Azure 이벤트 허브 트리거에 대한 *function.json* 파일은 다음 속�
 
 - `type`: *eventHubTrigger*로 설정되어야 합니다.
 - `name`: 이벤트 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
-- `direction`: *in*으로 설정해야 합니다.
+- `direction`: *in*으로 설정되어야 합니다.
 - `path`: 이벤트 허브의 이름입니다.
 - `connection`: 이벤트 허브가 있는 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 이벤트 허브 자체가 아닌 네임스페이스에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.
 
@@ -134,4 +136,4 @@ Azure 이벤트 허브 출력 바인딩에 대한 *function.json* 파일은 다�
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

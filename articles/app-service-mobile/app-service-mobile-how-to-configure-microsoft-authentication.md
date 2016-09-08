@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Microsoft 계정 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
@@ -24,7 +24,7 @@
 
 ## <a name="register-microsoft-account"> </a>Microsoft 계정을 사용하여 앱 등록
 
-1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. 이를 사용하여 Microsoft 계정 앱으로 구성합니다.
+1. [Azure 포털]에 로그온한 다음 응용 프로그램으로 이동합니다. **URL**을 복사하여 나중에 Microsoft 계정으로 응용 프로그램을 구성하는 데 사용합니다.
 
 2. Microsoft 계정 개발자 센터의 [내 응용 프로그램] 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다.
 
@@ -76,4 +76,4 @@
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

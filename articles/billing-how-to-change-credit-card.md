@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법
@@ -26,7 +26,7 @@
 
 분실했거나 도난당하거나 만료되어 신용 카드 번호가 변경되는 경우 계정에 새 신용 카드를 추가해야 합니다. 신용 카드 번호가 변경되면 카드에 있는 CVV 보안 코드가 변경되기 때문입니다.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## 기존 신용 카드에 대한 결제 정보 편집
 1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그온합니다. [Azure 포털](https://portal.azure.com)에서 **구독**>*구독 이름*>**관리**를 선택하여 계정 센터에 액세스할 수 있습니다.
@@ -53,6 +53,9 @@
 3. 페이지의 오른쪽에서 **결제 방법 변경**을 선택합니다.
 4. **결제 방법 선택** 페이지에서 신용 카드 옆에 있는 드롭다운 화살표를 선택하고 사용할 신용 카드를 선택한 다음 ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png)을 선택하여 창을 닫습니다.
 
-> [AZURE.NOTE] Azure 결제 방법으로 더 이상 사용하지 않는 신용 카드를 제거하려면 지원 요청을 위한 지원 티켓을 제출해야 합니다. 신용 카드를 제거하는 지원 티켓을 만들려면 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
+## 계정에서 신용 카드 제거
+계정에서 직접 신용 카드를 제거할 수 없습니다. Azure 결제 방법으로 더 이상 사용하지 않는 신용 카드를 제거하려면 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)해야 합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+<!---HONumber=AcomDC_0824_2016-->
