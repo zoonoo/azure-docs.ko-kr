@@ -92,7 +92,7 @@
 
 	[주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다.
 
-청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
+    청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
 
 	![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
