@@ -40,11 +40,11 @@
 
 **인증서**를 클릭합니다. 배포가 시작되고, 클러스터 보안 블레이드에 파란색 상태 표시줄이 표시됩니다.
 
-![포털의 인증서 지문 스크린 샷][SecurityConfigurations\_02]
+![포털의 인증서 지문 스크린 샷][SecurityConfigurations_02]
 
 해당 배포가 완료되면 기본 또는 보조 인증서를 사용하여 클러스터에서 관리 작업을 수행할 수 있습니다.
 
-![진행 중인 인증서 배포 스크린샷][SecurityConfigurations\_03]
+![진행 중인 인증서 배포 스크린샷][SecurityConfigurations_03]
 
 배포가 완료될 때의 보안 블레이드 모습에 대한 스크린샷은 다음과 같습니다.
 
@@ -208,6 +208,10 @@ Get-ServiceFabricClusterHealth
 
 
 <!--Image references-->
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
+[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
 <!---HONumber=AcomDC_0817_2016-->
+
