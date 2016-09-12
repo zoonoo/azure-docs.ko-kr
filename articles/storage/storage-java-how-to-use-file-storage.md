@@ -18,7 +18,9 @@
 
 # Java에서 파일 저장소를 사용하는 방법
 
-[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
+[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
 
 ## 개요
 
@@ -216,4 +218,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0817_2016--->
