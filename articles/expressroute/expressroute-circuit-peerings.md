@@ -33,7 +33,7 @@ Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft 등, 최대
 
 ### 할당량, 제한 및 제약 조건
 
-모든 Express 경로 회로에는 기본 할당량 및 제한이 적용됩니다. 할당량에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+모든 Express 경로 회로에는 기본 할당량 및 제한이 적용됩니다. 할당량에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md) 페이지를 참조하세요.
 
 ## Express 경로 라우팅 도메인
 
@@ -47,7 +47,7 @@ Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결�
 
 Azure 계산 서비스, 즉 가상 컴퓨 (IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이렇게 하면 개인 IP 주소에서 가상 컴퓨터와 클라우드 서비스에 직접 연결할 수 있습니다.
 
-둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 확인할 수 있습니다. 라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
+둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md) 페이지에서 확인할 수 있습니다. 라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
 
 ### 공용 피어링
 
@@ -75,7 +75,7 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 |---|---|---|---|
 |**피어링당 지원되는 최대값 # 접두사**|기본적으로 4000, Express 경로 프리미엄으로 10,000|200|200|
 |**지원되는 IP 주소 범위**|WAN 내에서 모든 유효한 IPv4 주소.|사용자 또는 연결 공급자가 소유한 공용 IPv4 주소.|사용자 또는 연결 공급자가 소유한 공용 IPv4 주소.|
-|**AS 번호 요구 사항**|개인 및 공용 AS 번호. 자신의 공용 AS 번호를 소유해야 합니다. | 개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다.| 개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다.|
+|**AS 번호 요구 사항**|개인 및 공용 AS 번호. 공용 AS 번호를 사용하려는 경우 해당 번호를 소유하고 있어야 합니다. | 개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다.| 개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다.|
 |**라우팅 인터페이스 IP 주소**|RFC1918 및 공용 IP 주소|라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소.| 라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소.|
 |**MD5 해시 지원**| 예|예|예|
 
@@ -92,4 +92,4 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 	- [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

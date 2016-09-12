@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Azure용 SLES 또는 openSUSE 가상 컴퓨터 준비
@@ -24,15 +24,6 @@
 ## 필수 조건 ##
 
 이 문서에서는 가상 하드 디스크에 SUSE 또는 openSUSE Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
-
- - [SUSE Studio](http://www.susestudio.com)는 Azure 및 Hyper-V용 SLES / openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 자신의 SUSE 및 openSUSE 이미지를 사용자 지정하기 위한 권장 방법입니다. SUSE Studio 갤러리의 다음 공식 이미지를 SUSE Studio로 다운로드하거나 복제할 수 있습니다.
-
-  - [SUSE Studio Gallery의 Azure용 SLES 11 SP3](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-  - [SUSE Studio Gallery의 Azure용 openSUSE 13.1](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
-
-
-- 사용자의 VHD를 빌드하는 대신, SUSE는 [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007)에 SLES에 대해 BYOS(Bring Your Own Subscription) 이미지를 게시합니다.
-
 
 ### SLES/openSUSE 설치 참고 사항
 
@@ -45,6 +36,12 @@
 - OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
+
+
+## SUSE Studio 사용
+[SUSE Studio](http://www.susestudio.com)에서는 Azure와 Hyper-V용 SLES 및 openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SLES 및 openSUSE 이미지를 사용자 지정할 때는 이 방식을 사용하는 것이 좋습니다.
+
+또한 SUSE는 [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007)에 SLES용 BYOS(Bring Your Own Subscription) 이미지도 게시하므로 VHD를 직접 작성하는 대신 이 이미지를 사용할 수 있습니다.
 
 
 ## SUSE Linux Enterprise Server 11 SP4 준비 ##
@@ -87,11 +84,11 @@
 
 	변경 전
 	
-		root=/dev/disk/bi-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
+		root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
 
 	변경 후
 	
-		root=/dev/disk/bi-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+		root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 10. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
 
@@ -211,4 +208,4 @@
 ## 다음 단계
 이제 SUSE Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

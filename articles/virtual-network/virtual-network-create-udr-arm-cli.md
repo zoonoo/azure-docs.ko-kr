@@ -53,9 +53,9 @@
 		info:    network route-table create command OK
 
 	매개 변수:
-	- **-g(또는 --resource-group)**. NSG가 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
-	- **-l(또는 --location)**. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
-	- **-n(또는 --name)**. 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
+	- **-g (or --resource-group)**. UDR이 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
+	- **-l(또는 --location)**. 새 UDR을 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
+	- **-n (or --name)**. 새 UDR의 이름입니다. 이 시나리오에서는 *UDR-FrontEnd*입니다.
 
 4. **`azure network route-table route create`** 명령을 실행하여 위에서 만든 경로 테이블에 경로를 만들고 백 엔드 서브넷(192.168.2.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
@@ -199,4 +199,4 @@
 
 	- **-f(또는 --enable-ip-forwarding)**. *true* 또는 *false*.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

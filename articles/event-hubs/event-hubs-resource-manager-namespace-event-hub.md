@@ -13,16 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/31/2016"
     ms.author="sethm;shvija"/>
 
 # Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기
 
-이 문서에서는 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+이 문서에서는 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 설명합니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
 
-전체 템플릿은 GitHub에서 [서비스 버스 이벤트 허브 및 소비자 그룹 템플릿][]을 참조하세요.
+전체 템플릿은 GitHub에서 [이벤트 허브 및 소비자 그룹 템플릿][]을 참조하세요.
 
 >[AZURE.NOTE] 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 >
@@ -31,7 +31,7 @@
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 >
->최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 갤러리 및 검색을 방문하세요.
+>최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][] 갤러리를 방문하여 이벤트 허브를 검색하세요.
 
 ## 배포할 항목
 
@@ -41,7 +41,7 @@
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)로 바꿉니다.
 
 ## 매개 변수
 
@@ -71,7 +71,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### eventHubConsumerGroupName
 
-서비스 버스 네임스페이스에서 이벤트 허브에 대해 만든 소비자 그룹의 이름입니다.
+이벤트 허브용으로 만든 소비자 그룹의 이름입니다.
 
 ```
 "eventHubConsumerGroupName": {
@@ -79,59 +79,59 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 }
 ```
 
-### serviceBusApiVersion
+### apiVersion
 
-템플릿의 서비스 버스 API 버전입니다.
+템플릿의 API 버전입니다.
 
 ```
-"serviceBusApiVersion": {
+"apiVersion": {
 "type": "string"
 }
 ```
 
 ## 배포할 리소스
 
-이벤트 허브 및 소비자 그룹이 있는 **이벤트 허브** 형식의 서비스 버스 네임스페이스를 만듭니다.
+이벤트 허브 및 소비자 그룹이 있는 **EventHubs** 유형의 네임스페이스를 만듭니다.
 
 ```
-"resources": [
-        {
-            "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('eventHubNamespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "EventHub",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]"
-                    },
-                    "resources": [
-                        {
-                            "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('eventHubConsumerGroupName')]",
-                            "type": "ConsumerGroups",
-                            "dependsOn": [
-                                "[parameters('eventHubName')]"
-                            ],
-                            "properties": {
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+"resources":[  
+      {  
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('namespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{  
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources":[  
+            {  
+               "apiVersion":"[variables('ehVersion')]",
+               "name":"[parameters('eventHubName')]",
+               "type":"EventHubs",
+               "dependsOn":[  
+                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+               ],
+               "properties":{  
+                  "path":"[parameters('eventHubName')]"
+               },
+               "resources":[  
+                  {  
+                     "apiVersion":"[variables('ehVersion')]",
+                     "name":"[parameters('consumerGroupName')]",
+                     "type":"ConsumerGroups",
+                     "dependsOn":[  
+                        "[parameters('eventHubName')]"
+                     ],
+                     "properties":{  
+
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ],
 ```
 
 ## 배포 실행 명령
@@ -141,7 +141,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ## PowerShell
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## Azure CLI
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 azure config mode arm
 
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json][]
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
 ## 다음 단계
@@ -164,6 +164,6 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [서비스 버스 이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
+  [이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

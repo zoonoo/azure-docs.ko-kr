@@ -20,7 +20,7 @@
 
 API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가상 네트워크(클래식)에 연결할 수 있습니다. 이렇게 하면 API 관리 고객을 온-프레미스이거나 공용 인터넷에 액세스할 수 없는 해당 백엔드 웹 서비스에 안전하게 연결할 수 있습니다.
 
->[AZURE.NOTE] Azure API 관리는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+>[AZURE.NOTE] Azure API 관리는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
 
 ## <a name="enable-vpn"> </a>VPN 연결 사용
 
@@ -62,6 +62,9 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 | 6381, 6382, 6383 | 인바운드/아웃바운드 | UDP | Redis Cache에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
 | 445 | 아웃바운드 | TCP | GIT의 Azure 파일 공유에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
 
+## <a name="custom-dns"> </a>사용자 지정 DNS 서버 설정
+
+API Management는 다양한 Azure 서비스에 따라 달라집니다. API Management 서비스 인스턴스가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스팅되면 해당 Azure 서비스의 호스트 이름을 확인할 수 있어야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 지침을 따르세요.
 
 ## <a name="related-content"> </a>관련 콘텐츠
 
@@ -82,4 +85,4 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

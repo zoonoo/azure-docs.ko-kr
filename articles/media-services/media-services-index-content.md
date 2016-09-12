@@ -19,10 +19,6 @@
 
 # Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
 
-> [AZURE.SELECTOR]
-- [포털](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
-
 
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.
 
@@ -40,7 +36,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
-이 항목에서는 **자산을 인덱싱**하고 **여러 파일을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 항목에서는 **자산을 인덱싱**하고 **여러 파일을 인덱싱**하는 인덱싱 작업을 만드는 방법을 설명합니다.
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](#preset)(영문)를 참조하세요.
 
@@ -156,7 +152,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 __InputFileName.aib__ | Audio indexing blob file. <br /><br /> AIB(Audio Indexing Blob) 파일은 전체 텍스트 검색을 사용하는 Microsoft SQL에서 검색할 수 있는 이진 파일입니다. AIB 파일은 더 풍부한 검색 환경을 허용하여 각각의 단어에 대체 항목을 포함하기 때문에 단일 캡션 파일보다 훨씬 강력합니다. <br/> <br/>Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 자막 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 자막 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.<br/><br/> 추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다. <br/><br/>선택 자막에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.
 __InputFileName.smi__<br />__InputFileName.ttml__<br />__InputFileName.vtt__ |SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.<br/><br/>청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.<br/><br/>선택 자막 파일은 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
 __InputFileName.kw.xml<br />InputFileName.info__ |키워드 및 정보 파일입니다. <br/><br/>키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다. <br/><br/>정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함한 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다. <br/><br/>줄 예제: "1.20 1.45 word 0.67" <br/><br/>음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다.
-__JobResult.txt__ |출력 매니페스트로, 다음 정보를 포함한 여러 파일을 인덱싱할 때만 표시됩니다.<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+__JobResult.txt__ |여러 파일을 인덱싱할 때만 표시되는 출력 매니페스트에는 다음 정보가 포함됩니다.<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
 
 
 
@@ -262,7 +258,7 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 오류 발생 시 Azure 미디어 인덱서는 다음 오류 코드 중 하나를 다시 보고해야 합니다.
 
-코드 | 이름 | 가능한 이유
+코드 | Name | 가능한 이유
 -----|------|------------------
 2000 | 유효하지 않은 구성 | 유효하지 않은 구성
 2001 | 유효하지 않은 입력 자산 | 입력 자산 유실 또는 빈 자산.
@@ -298,4 +294,4 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 [Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

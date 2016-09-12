@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="kyliel"/>
 
 # FreeBSD VHD를 만들어서 Azure에 업로드
@@ -29,7 +29,7 @@
 
 - **Azure 구독** - 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 
-- **Azure PowerShell 도구** - Azure PowerShell 모듈이 설치되고 Azure 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
+- **Azure PowerShell 도구** - Azure PowerShell 모듈이 설치되어 있고 Azure 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
 
 - **.vhd 파일에 설치된 FreeBSD 운영 체제** - 가상 하드 디스크에 지원되는 FreeBSD 운영 체제를 설치해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 컴퓨터 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
@@ -143,7 +143,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 5. **저장소 계정 만들기**를 선택합니다. 이제 계정이 **저장소** 아래에 나타납니다.
 
-	![저장소 계정 만들기 성공](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
+	![저장소 계정을 성공적으로 만들었음](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
 
 6. 다음으로 업로드된 .vhd 파일의 컨테이너를 만듭니다. 저장소 계정 이름을 선택하고 **컨테이너**를 선택합니다.
 
@@ -161,7 +161,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 ## 3단계: Azure 연결 준비
 
-.vhd 파일을 업로드하려면 컴퓨터와 Azure 구독 사이에 보안 연결을 설정해야 합니다. 이를 위해 Azure AD(Azure Active Directory) 방법이나 인증서 방법을 사용할 수 있습니다.
+.vhd 파일을 업로드하려면 컴퓨터와 Azure 구독 간에 보안 연결을 설정해야 합니다. 이를 위해 Azure AD(Azure Active Directory) 방법이나 인증서 방법을 사용할 수 있습니다.
 
 ### Azure AD 방법을 사용하여 .vhd 파일 업로드
 
@@ -228,4 +228,4 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 	![Azure의 FreeBSD 이미지](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

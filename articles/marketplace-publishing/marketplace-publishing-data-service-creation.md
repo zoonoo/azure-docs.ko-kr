@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/28/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Azure 마켓플레이스에 대한 데이터 서비스 게시 가이드
+
+>[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
+
 1단계 [계정 만들기 및 등록](marketplace-publishing-accounts-creation-registration.md)을 완료한 후 Azure 마켓플레이스에서 제공하는 데이터 서비스 제품의 [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md) 및 [기술 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md)을 안내해 드렸습니다. 이제 Azure 마켓플레이스의 [게시 포털][link-pubportal]에서 데이터 서비스 제품을 만드는 단계를 안내해 드리겠습니다.
 
 ## 1\. 게시 포털에 로그인합니다.
@@ -49,7 +52,7 @@
 
 각 제품에 플랜이 여러 개 있어도 되는데, 적어도 플랜이 하나(1) 이상 있어야 합니다. 최종 사용자는 제품을 구독할 때 제품의 플랜 중 하나를 구독합니다. 각 플랜은 최종 사용자가 서비스를 이용할 수 있는 방식을 정의합니다.
 
-현재 Azure 마켓플레이스는 데이터 서비스에 대한 월별 구독 트랜잭션 기반 모델만 지원합니다. 즉, 최종 사용자는 구독하는 특정 플랜의 가격에 따라 월정액 요금을 지불하게 되며 매월 플랜에 정의된 트랜잭션 수만큼 사용할 수 있습니다.
+현재 Azure Marketplace는 데이터 서비스에 대한 월간 구독 트랜잭션 기반 모델만 지원합니다. 즉, 최종 사용자는 구독하는 특정 플랜의 가격에 따른 월정액 요금제에서 청구되는 요금을 지불하며, 매월 플랜에 정의된 수만큼의 트랜잭션을 사용할 수 있습니다.
 
 일반적으로 각 트랜잭션은 서비스로 전송되는 쿼리를 기준으로 데이터 서비스에서 반환하는 레코드 수로 정의됩니다. 기본값은 100입니다. 각 쿼리로 반환되는 트랜잭션 수는 레코드 수를 100으로 나눈 값을 가장 가까운 정수로 반올림한 숫자입니다.
 
@@ -89,7 +92,7 @@
 
 > [AZURE.IMPORTANT] 최종 사용자는 신용 카드, 기업 계약 등의 결제 수단을 설정해야만 무료 평가판을 구입할 수 있습니다.
 
-> 고객이 구독 취소 절차를 시작하지 않는 한, 1개월 무료 평가판 기간이 끝나면 Azure 마켓플레이스에서는 구독 날짜를 기준으로 고객에게 요금을 부과합니다. 최종 사용자에게 특별한 알림이 제공되지 않습니다.
+> 고객이 구독 취소 절차를 시작하지 않는 한, 1개월 무료 평가판 기간이 끝나면 Azure Marketplace에서는 구독 날짜를 기준으로 고객에게 요금을 부과합니다. 최종 사용자에게 특별한 알림이 제공되지 않습니다.
 
 |질문|중요도|
 |----|----|
@@ -145,4 +148,4 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

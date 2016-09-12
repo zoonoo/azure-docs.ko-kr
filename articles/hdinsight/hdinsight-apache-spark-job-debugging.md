@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Linux의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그
@@ -27,7 +27,7 @@
 
 - Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
-- Notebook을 실행하기 시작했어야 합니다. **[기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석](hdinsight-apache-spark-machine-learning-mllib-ipython.md)** 이 Notebook을 실행하는 방법은 링크를 따라갑니다.  
+- Notebook을 실행하기 시작했어야 합니다. **[기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석](hdinsight-apache-spark-machine-learning-mllib-ipython.md)** 이 Notebook을 실행하는 방법은 링크를 따라갑니다.
 
 ## YARN UI에서 응용 프로그램 추적
 
@@ -84,7 +84,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 6. Spark UI에서 다른 탭도 Spark 인스턴스에 대한 유용한 정보를 제공합니다.
 
 	* 저장소 탭 - 응용 프로그램이 RDD를 만드는 경우 저장소 탭에 대한 정보를 찾을 수 있습니다.
-	* 환경 탭 - 이 탭은 다음과 같이 Spark 인스턴스에 대한 유용한 정보를 많이 제공합니다. 
+	* 환경 탭 - 이 탭은 다음과 같이 Spark 인스턴스에 대한 유용한 정보를 많이 제공합니다.
 		* Scala 버전
 		* 클러스터와 연결된 이벤트 로그 디렉터리
 		* 응용 프로그램에 대한 실행자 코어 수
@@ -146,4 +146,4 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

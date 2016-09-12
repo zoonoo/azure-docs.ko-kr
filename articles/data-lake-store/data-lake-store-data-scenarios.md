@@ -40,7 +40,7 @@
 | 데이터 원본 | 로컬 컴퓨터를 사용하여 |
 |--------------------|----------------------------------------------------------------------------------------|
 | 수집 | <ul> <li>[Azure 포털](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure 플랫폼 간 CLI](data-lake-store-get-started-cli.md)</li> <li>[Data Lake Tools for Visual Studio 사용](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
-| Azure 저장소 Blob | <ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li> </ul> |
+| Azure 저장소 Blob | <ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
  
 ### 스트리밍된 데이터
@@ -49,9 +49,9 @@
 
 다음은 사용할 수 있는 도구입니다.
  
-* [Azure 스트림 분석](../stream-analytics-data-lake-output) - 이벤트 허브에 수집된 이벤트는 Azure Data Lake 저장소 출력을 사용하여 Azure Data Lake에 쓸 수 있습니다.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - Storm 클러스터에서 Data Lake 저장소에 직접 데이터를 쓸 수 있습니다.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – 이벤트 허브에서 이벤트를 받은 다음 [Data Lake 저장소 .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake 저장소에 데이터를 쓸 수 있습니다.
+* [Azure 스트림 분석](../stream-analytics-data-lake-output) - Azure Data Lake Store 출력을 사용하면 이벤트 허브에 수집된 이벤트를 Azure Data Lake에 쓸 수 있습니다.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - Storm 클러스터에서 Data Lake Store에 직접 데이터를 쓸 수 있습니다.
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – 이벤트 허브에서 이벤트를 받은 다음 [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake Store에 데이터를 쓸 수 있습니다.
 
 ### 관계형 데이터
 
@@ -87,8 +87,8 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 | 접근 방식 | 세부 정보 | 장점 | 고려 사항 |
 |-----------|---------|--------------|-----------------|
 | Azure Data Factory(ADF)를 사용하여 Hadoop 클러스터에서 Azure Data Lake 저장소로 직접 데이터를 복사합니다. | [ADF는 데이터 원본으로 HDFS 지원](../data-factory/data-factory-hdfs-connector.md) | ADF는 HDFS에 대한 기본 지원과 일등급 종단 간 관리 및 모니터링을 제공합니다. | 온-프레미스 또는 IaaS 클러스터에 배포하려면 데이터 관리 게이트웨이가 필요합니다. |
-| Hadoop에서 데이터를 파일로 내보냅니다. 그런 다음 적절한 메커니즘을 사용하여 파일을 Azure Data Lake 저장소에 복사합니다. | Azure Data Lake 저장소에 파일을 복사하는 방법: <ul><li>[Windows OS용 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[비 Windows OS용 Azure 크로스 플랫폼 CLI](data-lake-store-get-started-cli.md)</li><li>Data Lake 저장소 SDK를 사용한 사용자 지정 앱</li></ul> | 빠르게 시작할 수 있습니다. 맞춤 업로드를 수행할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. 도구를 맞춤화할 수 있으므로 시간이 지날수록 관리와 모니터링이 어려워집니다. |
-| Distcp를 사용하여 Hadoop에서 Azure 저장소로 데이터를 복사합니다. 그런 다음 적절한 메커니즘을 사용하여 Azure 저장소에서 Data Lake 저장소로 데이터를 복사합니다. | Azure 저장소에서 Data Lake 저장소로 데이터를 복사하는 방법: <ul><li>[Azure 데이터 팩터리](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| 오픈 소스 도구를 사용할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. |
+| Hadoop에서 데이터를 파일로 내보냅니다. 그런 다음 적절한 메커니즘을 사용하여 파일을 Azure Data Lake 저장소에 복사합니다. | Azure Data Lake Store에 파일을 복사하는 방법: <ul><li>[Windows OS용 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Windows 이외 OS용 Azure 플랫폼 간 CLI](data-lake-store-get-started-cli.md)</li><li>Data Lake Store SDK를 사용하는 사용자 지정 앱</li></ul> | 빠르게 시작할 수 있습니다. 맞춤 업로드를 수행할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. 도구를 맞춤화할 수 있으므로 시간이 지날수록 관리와 모니터링이 어려워집니다. |
+| Distcp를 사용하여 Hadoop에서 Azure 저장소로 데이터를 복사합니다. 그런 다음 적절한 메커니즘을 사용하여 Azure 저장소에서 Data Lake 저장소로 데이터를 복사합니다. | Azure Storage에서 Data Lake Store로 데이터를 복사하는 방법: <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| 오픈 소스 도구를 사용할 수 있습니다. | 여러 기술을 사용하는 다단계 절차입니다. |
 
 ### 매우 큰 데이터 집합
 
@@ -97,7 +97,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 * **Azure Express 경로 사용**. Azure Express 경로를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 개인 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure Express 경로 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 
-* **데이터를 "오프라인"으로 업로드**. 어떤 이유로 Azure Express 경로를 사용하는 것이 적절하지 않은 경우 [Azure 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터를 저장할 수 있습니다.
+* **데이터를 "오프라인"으로 업로드**. Azure Express 경로를 사용할 수 없는 경우 [Azure 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure 저장소 Blob에서 Data Lake Store로 데이터를 복사할 수 있습니다.
 
 	>[AZURE.NOTE] 가져오기/내보내기 서비스를 사용할 때 Azure 데이터 센터로 보내는 디스크의 파일 크기가 200GB를 초과하면 안 됩니다.
 
@@ -142,7 +142,7 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 
 ![Data Lake 저장소에서 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake 저장소에서 데이터 시각화")
 
-* b먼저 [Azure Data Factory를 사용하여 Data Lake 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
-* 그 후에는 [Power BI를 Azure SQL 데이터 웨어하우스와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md)하여 데이터를 시각적으로 표현할 수 있습니다.
+* 먼저 [Azure Data Factory를 사용하여 Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
+* 그 후에는 [Power BI를 Azure SQL Data Warehouse와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md)하여 데이터를 시각적으로 표현할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -28,10 +28,10 @@
 
 수행하는 작업|설명
 :------------- | :------------- | 
-<a href="#-1">휴대폰 또는 사무실 전화로 로그인</a> | 휴대폰 또는 사무실 전화를 사용하여 로그인할 때 예상할 수 있는 환경입니다.
-<a href="#-3">알림을 사용하여 모바일 앱에 로그인</a> | 알림을 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
-<a href="#-5">확인 코드를 사용하여 모바일 앱에 로그인</a> | 확인 코드를 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
-<a href="#-7">다른 방법을 사용하여 로그인</a> | 여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
+[휴대폰 또는 사무실 전화로 로그인](#signing-in-with-mobile-or-office-phone) | 휴대폰 또는 사무실 전화를 사용하여 로그인할 때 예상할 수 있는 환경입니다.
+[알림을 사용하여 Microsoft Authenticator 앱에 로그인](#signing-in-with-the-microsoft-authenticator-app-using-notification) | 인증을 통해 Microsoft Authenticator 앱을 사용할 때 예상할 수 있는 환경입니다.
+[확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|확인 코드를 통해 Microsoft Authenticator 앱을 사용할 때 예상할 수 있는 환경입니다.
+[다른 방법을 사용하여 로그인](#signing-in-with-an-alternate-method)|여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
 
 <h2 id="-1">휴대폰 또는 사무실 전화로 로그인</h2>
 
@@ -50,7 +50,7 @@
 
 - 사용자가 로그인됩니다.</li>
 
-<h2 id="-3">알림을 사용하여 모바일 앱에 로그인</h2>
+<h2 id="-3">알림을 사용하여 Microsoft Authenticator 앱에 로그인</h2>
 
 다음 정보에서는 알림을 받았을 때 Microsoft Authenticator에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -62,15 +62,16 @@
 ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- 전화를 받고 확인 키를 누릅니다.
+- 전화를 받고 확인 키를 누릅니다. 회사에서 PIN을 요구하는 경우 이 시점에서 PIN을 입력해야 합니다.
 
 ![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
 
+![설정](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - 사용자가 로그인됩니다.
 
 
-<h2 id="-5">확인 코드를 사용하여 모바일 앱에 로그인</h2>
+<h2 id="-5">확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인</h2>
 
 다음 정보에서는 확인 코드를 함께 사용할 때 Microsoft Authenticator 앱에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -84,6 +85,8 @@
 - 휴대폰에서 Microsoft Authenticator 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
 
 ![코드 받기](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+
+
 
 - 사용자가 로그인됩니다.
 
@@ -104,4 +107,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

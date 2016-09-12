@@ -81,14 +81,14 @@
 5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 지정합니다. **1**을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 입력하여 실린더에 대한 기본값을 적용합니다. 일부 시스템에서 실린더 대신 첫 번째 및 마지막 섹터의 기본값이 표시될 수 있습니다. 이러한 기본값을 수락하도록 선택할 수 있습니다.
 
 
-	![파티션 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![파티션 만들기](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. **p**를 입력하여 분할되는 디스크에 대한 세부 정보를 확인합니다.
 
 
-	![디스크 정보 나열](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![디스크 정보 나열](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -152,9 +152,9 @@
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	`mount` 명령에서 오류가 발생하는 경우 /etc/fstab 파일에서 구문이 올바른지 확인합니다. 추가 데이터 드라이브 또는 파티션이 만들어진 경우 /etc/fstab에 별도로 입력해야 합니다.
+	`mount` 명령에서 오류가 발생하는 경우 /etc/fstab 파일에서 구문이 올바른지 확인합니다. 추가 데이터 드라이브 또는 파티션을 만든 경우에는 /etc/fstab에 해당 드라이브나 파티션도 별도로 입력합니다.
 
-	이 명령을 사용하여 드라이브를 쓰기 가능하게 지정해야 합니다.
+	다음 명령을 사용하여 드라이브를 쓰기 가능하게 지정합니다.
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Linux의 Apache Spark 클러스터에 대해 알려진 문제
@@ -29,8 +29,8 @@ Livy가 여전히 활성 상태인 대화형 세션(Ambari에서 또는 헤드 �
 
 다음 절차에 따라 문제를 해결합니다.
 
-1. 헤드 노드로 ssh합니다. 
-2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 응용 프로그램 ID를 찾습니다. 
+1. 헤드 노드로 ssh합니다.
+2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 응용 프로그램 ID를 찾습니다.
 
         yarn application –list
 
@@ -56,10 +56,10 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 
 **해결 방법:**
  
-1. hdiuser를 Hadoop 그룹에 추가합니다. 
-2. 클러스터를 만든 후에 /var/log/spark에 777 권한을 제공합니다. 
-3. Ambari를 사용하여 777 권한으로 디렉터리가 되도록 spark 로그 위치를 업데이트합니다.  
-4. sudo로 spark-제출을 실행합니다.  
+1. hdiuser를 Hadoop 그룹에 추가합니다.
+2. 클러스터를 만든 후에 /var/log/spark에 777 권한을 제공합니다.
+3. Ambari를 사용하여 777 권한으로 디렉터리가 되도록 spark 로그 위치를 업데이트합니다.
+4. sudo로 spark-제출을 실행합니다.
 
 ## Jupyter Notebook 관련 문제
 
@@ -146,4 +146,4 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

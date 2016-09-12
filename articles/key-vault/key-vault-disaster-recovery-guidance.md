@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/26/2016"
 	ms.author="sumedhb;aglick"/>
 
 
@@ -46,4 +46,4 @@ Azure 주요 자격 증명 모음에는 서비스의 개별 구성 요소가 실
  * backup
 * 장애 조치가 장애 복구되면 모든 요청 유형(즉, 읽기 ___및___ 쓰기 요청)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

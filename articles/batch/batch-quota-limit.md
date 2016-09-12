@@ -94,7 +94,7 @@
 
 ## 관련된 항목
 
-* [Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)
+* [Azure 포털을 사용하여 Azure 배치 계정 만들기](batch-account-create-portal.md)
 
 * [Azure 배치 기능 개요](batch-api-basics.md)
 
@@ -106,4 +106,4 @@
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

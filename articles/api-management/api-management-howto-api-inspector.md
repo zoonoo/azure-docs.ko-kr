@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
@@ -229,7 +229,6 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
 ## <a name="next-steps"> </a>다음 단계
 
--	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
 -	[Cloud Cover 에피소드 177: 추가 API 관리 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)에서 추적 정책 식의 데모를 볼 수 있습니다. 데모를 보려면 21:00 지점으로 빨리 감기 하세요.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
 [Azure API 관리 시작]: api-management-get-started.md
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[고급 API 구성 시작]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

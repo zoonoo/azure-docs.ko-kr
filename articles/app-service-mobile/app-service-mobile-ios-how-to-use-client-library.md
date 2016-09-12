@@ -502,7 +502,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
 
 1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식인 것이 좋습니다(필수 아님). 자세한 내용은 [ADAL iOS 빠른 시작](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)을 참조하세요.
 
@@ -591,7 +591,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 ## <a name="facebook-sdk"></a>방법: iOS용 Facebook SDK를 사용하여 사용자 인증
 
-Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
 
 1. 다음으로 [Facebook 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-facebook-authentication.md) 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
 
@@ -669,7 +669,7 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 
 ## <a name="twitter-fabric"></a>방법: iOS용 Twitter Fabric을 사용하여 사용자 인증
 
-Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
 
 1. 다음으로 [Twitter 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-twitter-authentication.md) 자습서를 수행하여 Twitter 로그인에 모바일 앱 백 엔드를 구성합니다.
 
@@ -741,6 +741,68 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 		}
 	}
 
+## <a name="google-sdk"></a>방법: iOS용 Google 로그인 SDK를 사용하여 사용자 인증
+
+Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+
+1. 다음으로 [Google 로그인에 App Service를 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md) 자습서를 수행하여 Google 로그인에 모바일 앱 백 엔드를 구성합니다.
+
+2. [iOS용 Google 로그인 - 통합 시작](https://developers.google.com/identity/sign-in/ios/start-integrating) 설명서에 따라 iOS용 Google SDK를 설치합니다. App Service가 이를 처리하는 대로 "백 엔드 서버를 사용하여 인증" 섹션을 건너뛸 수 있습니다.
+
+3. 코드 외에도 사용하는 언어에 따라 대리자 `signIn:didSignInForUser:withError:` 메서드에 다음을 추가합니다.
+
+**Objective-C**:
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**Swift**:
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. 또한 다음을 앱 대리자의 `application:didFinishLaunchingWithOptions:`에 추가하여 "SERVER\_CLIENT\_ID"를 1단계에서 App Service를 구성하는 데 사용된 동일한 ID로 바꿉니다.
+
+**Objective-C**:
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **Swift**:
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. 사용하는 언어에 따라 아래 코드를 `GIDSignInUIDelegate` 프로토콜을 구현하는 UIViewController의 응용 프로그램에 추가합니다. 사용자가 다시 로그인되기 전에 로그아웃하고 해당 자격 증명을 두 번 입력할 필요가 없지만 동의 대화 상자가 표시됩니다. 새 서버 인증 코드를 가져와야 하며 이전 단계에서 필요합니다. 세션 토큰이 만료된 경우에만 이 메서드를 호출합니다.
+ 
+ **Objective-C**:
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **Swift**:
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
@@ -792,4 +854,4 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016" 
+ 	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 
-#.NET을 사용하여 Media Services 계정에 파일 업로드
+# .NET을 사용하여 Media Services 계정에 파일 업로드
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST (영문)](media-services-rest-upload-files.md)
+ - [포털](media-services-portal-upload-files.md)
 
 미디어 서비스에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
@@ -43,7 +46,7 @@
 
 >[AZURE.NOTE]미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
-이 항목에서는 Media Services 자산으로 파일을 업로드하기 위해 Media Services .NET SDK extensions는 물론 Media Services .NET SDK를 사용하는 방법을 보여 줍니다.
+이 항목에서는 Media Services .NET SDK와 Media Services .NET SDK 확장을 사용하여 Media Services 자산으로 파일을 업로드하는 방법을 설명합니다.
 
  
 ## 미디어 서비스 .NET SDK를 사용하여 단일 파일 업로드 
@@ -228,7 +231,7 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 	    copytask.Start();
 	}
 
-이 항목에서 사용하는 샘플의 자산 파일을 업로드하는 코드는 다음 코드 예제에 표시됩니다.
+이 항목에서 사용하는 샘플의 자산 파일을 업로드하는 코드는 다음 코드 예제에 표시되어 있습니다.
 	
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
@@ -310,9 +313,9 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 
 ##다음 단계
-이제 미디어 서비스에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][] 항목으로 이동하세요.
+이제 Media Services에 자산을 업로드했으므로 [미디어 프로세서를 가져오는 방법][] 항목으로 이동하세요.
 
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

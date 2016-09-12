@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/26/2016"
 	ms.author="andkjell"/>
 
 
@@ -111,7 +111,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 이 식에서 특성에 값이 있는 경우 해당 특성 내 첫번째 항목(항목)에서 선행 및 후행 공백을 제거한 다음(트리밍), 문자열에 처음 448개의 문자(왼쪽)를 유지합니다.
 
 ### 특성을 전달하지 않습니다.
-이 섹션에 대한 시나리오의 배경은 [특성 흐름 프로세스 제어](#control-the-attribute-flow-process)를 참조하세요.
+이 섹션에 대한 시나리오의 배경은 [특성 흐름 프로세스 제어](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process)를 참조하세요.
 
 특성을 전달하지 않는 방법에는 다음 두 가지가 있습니다. 첫 번째 방법은 설치 마법사를 사용하여 [선택한 특성을 제거합니다](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). 이 옵션은 전에 특성을 동기화하지 않은 경우에만 작동합니다. 하지만 이 특성을 동기화한 다음 이후에 이 기능을 사용하여 제거한 경우 동기화 엔진은 이 특성을 관리하는 것을 중지하고 Azure AD에 기존 값이 남아 있게 됩니다.
 
@@ -124,31 +124,9 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 - 해당 동기화 규칙을 저장합니다. **동기화 서비스**를 시작하여 커넥터를 찾고 **실행**을 선택한 다음 **전체 동기화**를 선택합니다. 이 단계는 모든 특성 흐름을 다시 계산합니다.
 - 의도한 변경 내용을 커넥터 공간을 검색하여 내보낼 수 있는지 확인합니다. ![단계적 삭제](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-## 고급 개념
-
-### 특성 흐름 프로세스 제어
-동일한 메타 버스 특성에 적용하도록 인바운드 동기화 규칙을 여러 개 구성한 경우, 우선 순위는 우선권을 결정하는 데 사용됩니다. 가장 높은 우선 순위(가장 낮은 숫자 값)의 동기화 규칙이 값이 적용됩니다. 이는 아웃바운드 규칙에 대해서도 동일하게 적용됩니다. 가장 높은 우선 순위의 동기화 규칙이 우선하고 연결된 된 디렉터리에 값을 적용합니다.
-
-경우에 따라 동기화 규칙은 값을 적용하는 대신 다른 규칙의 적용 방식을 결정합니다. 그러한 경우에 사용되는 특수한 리터럴이 몇 가지 있습니다.
-
-인바운드 동기화 규칙의 경우, **NULL** 리터럴은 흐름이 어떤 값도 적용하지 않음을 나타내는 데 사용할 수 있습니다. 우선 순위가 낮은 다른 규칙이 값을 적용할 수 있습니다. 값을 기여한 규칙이 없다면 메타 버스 특성이 제거됩니다. 아웃바운드 규칙에서 모든 동기화 규칙이 처리된 후 최종 값이 **NULL**인 경우 해당 값은 연결된 디렉터리에서 제거됩니다.
-
-**AuthoritativeNull** 리터럴은 **NULL**과 비슷하지만, 차이점은 낮은 우선 순위 규칙이 값을 적용할 수 없다는 것입니다.
-
-특성 흐름은 또한 **IgnoreThisFlow**를 사용할 수 있습니다. 이는 적용할 것이 없다는 것을 나타내는 면에서 NULL과 유사합니다. 차이점은 대상에서 이전의 기존 값을 제거하지 않는다는 것입니다. 이는 특성 흐름이 애초에 있지 않았다는 것과 같습니다.
-
-다음은 예제입니다.
-
-*AD로 나가기 - 사용자 Exchange 하이브리드*에서 다음 흐름을 찾을 수 있습니다. `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)` 이 식은 다음과 같이 읽어야 합니다. 사용자 사서함이 Azure AD에 있는 경우 특성을 Azure AD에서 AD로 전달합니다. 그렇지 않으면 Active Directory에 아무 것도 전달되지 않습니다. 이 경우 AD의 기존 값이 유지됩니다.
-
-### ImportedValue
-ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야 하므로 다른 모든 함수와 다릅니다. `ImportedValue("proxyAddresses")`.
-
-일반적으로 동기화 중에는 내보내는 동안("타워 최상위")에 오류가 발생하거나 아직 내보내지 않았어도 특성이 예상 값을 사용합니다. 인바운드 동기화는 연결된 디렉터리에 아직 도달하지 않은 특성도 결국 도달할 것으로 가정합니다. 일부 경우에는 연결된 디렉터리에서 확인한 값만 동기화한다는 것이 중요합니다("홀로그램 및 델타 가져오기 타워").
-
-기본 동기화 규칙 *AD에서 들어오기 – Exchange에서 사용자 공통*에서 이 함수의 예제를 찾을 수 있습니다. 하이브리드 Exchange에서 값을 성공적으로 내보냈음이 확인된 경우 Exchange Online에 의해 추가되는 값만 동기화됩니다. `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
-
 ## 다음 단계
+
+[선언적 프로비전](active-directory-aadconnectsync-understanding-declarative-provisioning.md) 및 동기화 규칙에서 사용할 수 있는 옵션에 대해 알아봅니다.
 
 특성 흐름에 사용되는 [선언적 프로비저닝 식](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에 대해 자세히 알아봅니다.
 
@@ -156,4 +134,4 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -44,8 +44,10 @@ DevTest Lab을 사용하면 팀에서 응용 프로그램 개발 및 테스트�
 
 미리 만들어져 있는 플러그 인 또는 Microsoft의 API를 활용하여 원하는 CI(지속적인 통합) 도구, IDE(통합 개발 환경) 또는 자동화된 릴리스 파이프라인에서 직접 개발/테스트 환경을 프로비전합니다. Microsoft의 포괄적인 명령줄 도구를 사용할 수도 있습니다.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##다음 단계
 
 [DevTest Lab 개념](devtest-lab-concepts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
@@ -30,7 +30,7 @@ MongoChef 연결 관리자에 MongoDB에 대한 프로토콜 지원을 사용하
 
 1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 MongoDB 연결 정보에 대한 프로토콜 지원을 사용하는 DocumentDB를 검색합니다.
 
-	![연결 문자열 블레이드의 스크린샷](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![연결 문자열 블레이드의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.
 
@@ -132,4 +132,4 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

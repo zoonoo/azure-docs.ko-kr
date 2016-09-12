@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치 켜기 또는 끄기 
@@ -189,39 +189,13 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 
 ### 기본 인클로저가 있는 장치<a name="8100a"> 
 
-현재로써는 Azure 포털에서 StorSimple 장치 종료 외에는 다른 방법이 없습니다. StorSimple용 Windows PowerShell을 사용하여 종료하는 것이 유일한 방법입니다. 장치를 순차적이고 제어된 방식으로 종료하려면 StorSimple용 Windows PowerShell에 액세스하고 아래 단계를 수행합니다.
+제어된 방식으로 올바른 순서에 따라 장치를 종료하려는 경우 Azure 클래식 포털 또는 StorSimple용 Windows PowerShell을 통해 종료할 수 있습니다.
 
 >[AZURE.IMPORTANT] 장치 뒷면의 전원 단추를 사용하여 실행 중인 장치를 종료하지 마십시오.
 >
 >장치를 종료하기 전에 모든 장치 구성 요소가 올바르게 작동하는지 확인합니다. Azure 클래식 포털에서 **장치**>**유지 관리**>**하드웨어 상태**로 이동한 다음, 모든 구성 요소의 상태가 녹색인지 확인합니다. 양호한 시스템에 대해서만 적용됩니다. 시스템이 종료되어 작동하지 않는 구성 요소를 교체하는 경우 **하드웨어 상태**의 해당 구성 요소에 실패(빨간색) 또는 성능 저하(노란색) 상태가 표시됩니다.
 
-장치 직렬 콘솔 또는 Windows PowerShell 원격 기능을 통해 StorSimple용 Windows PowerShell에 연결할 수 있습니다. StorSimple용 Windows PowerShell에 액세스한 후 다음 단계를 수행하여 실행 중인 장치를 종료합니다.
-
-#### 실행 중인 장치를 종료하려면
-
-1. 장치의 직렬 콘솔에 연결합니다.
-
-2. 나타나는 메뉴에서 연결된 컨트롤러가 **대기** 컨트롤러인지 확인합니다. 대기 컨트롤러가 아닌 경우 컨트롤러에서 연결을 끊고 다른 컨트롤러에 연결합니다.
-
-3. 직렬 콘솔 메뉴에서 **옵션 1**을 선택하여 모든 권한으로 대기 컨트롤러에 로그온합니다.
-
-4. 프롬프트에 다음을 입력합니다.
-
-    `Stop-HCSController`
-
-    현재 대기 컨트롤러를 종료해야 합니다.
-
-    >[AZURE.IMPORTANT] 다음 단계를 계속 진행하기 전에 컨트롤러가 완전히 종료될 때까지 기다립니다.
-
-5. 종료가 완료되었는지 확인하려면 장치의 뒷면을 확인합니다. 컨트롤러 오류 LED가 진한 빨강이어야 합니다.
-
-6. 직렬 콘솔을 통해 활성 컨트롤러에 연결하고 동일한 단계를 수행하여 종료합니다.
-
-7. 두 컨트롤러가 완전히 종료된 후에 두 컨트롤러의 상태 LED가 빨간색으로 깜박여야 합니다.
-
-8. 이번에 장치를 완전히 종료해야 하는 경우 PCM(전원 및 냉각 모듈) 모두에서 전원 스위치를 끄기 위치에 둡니다.
-
-9. 장치가 완전히 종료되었는지 확인하려면 장치의 뒷면에 있는 표시등이 모두 꺼졌는지 확인합니다.
+StorSimple용 Windows PowerShell 또는 Azure 클래식 포털에 액세스한 후 [StorSimple 장치 종료](storsimple-manage-device-controller.md#shut-down-a-storsimple-device)의 단계를 수행합니다.
 
 ### EBOD 인클로저가 있는 장치<a name="8600a">
 
@@ -229,7 +203,7 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 
 #### EBOD 인클로저가 있는 실행 중인 장치를 종료하려면
 
-1. [기본 인클로저만 있는 장치](#8100a)에 나열된 모든 단계를 따릅니다.
+1. 기본 엔클로저에 대해 [StorSimple 장치 종료](storsimple-manage-device-controller.md#shut-down-a-storsimple-device)에 나와 있는 모든 단계를 수행합니다.
 
 2. 기본 인클로저가 종료된 후 두 PCM(전원 및 냉각 모듈) 스위치를 꺼 EBOD를 종료합니다.
 
@@ -241,4 +215,4 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 
 StorSimple 장치의 전원을 켜거나 종료할 때 문제가 발생하는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하십시오.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

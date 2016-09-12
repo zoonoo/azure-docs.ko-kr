@@ -17,7 +17,7 @@
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
 
-이 항목에서는 Azure SQL 데이터베이스에 대한 일반적인 제한 사항 및 지침을 제공합니다. 할당량, 리소스 관리 및 지원을 완전히 이해하려면 이 항목의 끝에 있는 [추가 리소스](#additional-guidelines)를 참조하세요.
+이 항목에서는 Azure SQL Database에 대한 일반적인 제한 사항 및 지침을 제공합니다. 할당량, 리소스 관리 및 지원 관련 사항을 전체적으로 파악하려면 이 항목의 끝에 있는 [추가 리소스](#additional-guidelines)를 참조하세요.
 
 ## 연결 및 인증
 
@@ -31,7 +31,7 @@
 
 ## SQL Server 에이전트/작업
 
-Microsoft Azure SQL 데이터베이스는 SQL Server 에이전트 또는 작업을 지원하지 않습니다. 그러나 온-프레미스 SQL Server에서 SQL Server 에이전트를 실행하고 Microsoft Azure SQL 데이터베이스에 연결할 수 있습니다.
+Microsoft Azure SQL Database는 SQL Server 에이전트를 지원하지 않지만 탄력적 작업을 사용하여 데이터베이스 하나 또는 여러 개에 대해 작업을 실행할 수 있습니다. 탄력적 작업에 대한 자세한 내용은 [탄력적 작업](sql-database-elastic-jobs-overview.md)을 참조하세요.
 
 ## SQL Server 데이터 정렬 지원
 
@@ -63,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

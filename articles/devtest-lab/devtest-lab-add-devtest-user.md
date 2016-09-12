@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # 랩에 소유자 및 사용자 추가
@@ -103,4 +103,6 @@ VM이 만들어지면 이를 만든 사용자는 생성된 VM의 **소유자** �
 
 1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+<!---HONumber=AcomDC_0831_2016-->

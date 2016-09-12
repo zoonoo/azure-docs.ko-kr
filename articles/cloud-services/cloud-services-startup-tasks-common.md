@@ -175,6 +175,10 @@ IIS **web.config** 파일을 수정하고 **ApplicationHost.config** 파일의 *
 
 이 명령을 **startup.cmd** 파일에 추가합니다.
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 이렇게 하면 **startup.cmd** 배치 파일이 웹 역할이 초기화될 때마다 실행되어 필요한 **ipSecurity** 섹션이 잠금 해제되도록 합니다.
@@ -488,4 +492,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

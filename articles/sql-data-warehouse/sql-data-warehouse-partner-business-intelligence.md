@@ -31,7 +31,7 @@
 | ![Jinfonet][5] |**JReport**<br>JReport는 기업용 돌출형 BI 솔루션입니다. 솔루션을 사용하여 사용자는 클라우드, 빅 데이터 및 트랜잭션 데이터 원본에서 보고서, 대시보드 및 데이터 분석을 만들 수 있습니다. 데이터를 시각화하여 즉석에서 신속한 의사 결정을 위해 자체 보고 및 데이터 검색을 수행할 수 있습니다.| [웹 사이트][jinfonet_website]<br>[데이터시트][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] | [![jreport 비디오](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds)로 바꿉니다. |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>이제 Logi Analytics 및 Azure SQL 데이터 웨어하우스를 같이 사용하여 세계에서 가장 크고 다양한 데이터 집합에서 조직이 데이터를 수집하고 분석하고 즉시 작업을 수행하도록 할 수 있습니다. | [마켓플레이스][logianalytics_marketplace]<br>[웹 사이트][logianalytics_website]<br>[데이터시트][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] | [![logianalytics 비디오](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk)로 바꿉니다. |
 | ![Looker][7] |**Looker BI**<br>Looker는 귀사의 모든 직원에게 비즈니스를 구동하는 데이터를 탐색하고 이해하는 능력을 제공합니다. 또한 Looker는 데이터 분석가에게 해당 데이터를 제어하고 조정하기 위한 유연하고 재사용이 가능한 모델링 계층을 제공합니다. 회사는 Looker를 catalyst로 사용하여 근본적으로 culture를 변형합니다. | [마켓플레이스][looker_marketplace]<br>[웹 사이트][looker_website]<br>[데이터시트][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] | [![looker 비디오](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA)로 바꿉니다. |
-| ![Qlik][8] |**Qlikview**<br>Qlik는 Microsoft Azure SQL 데이터 웨어하우스 위에 비주얼 분석에 대한 플랫폼 기반 접근 방식을 제공합니다. Qlik를 사용하면 Microsoft의 탄력적인 데이터 웨어하우스 내에서 엔터프라이즈 수준 기능을 활용하여 전체 조직이 신뢰할 수 있는 빠른 결정을 내릴 수 있습니다. Qlik는 의사 결정 면에서 가장 필요한 통찰력과 명료성을 가져옵니다. | [마켓플레이스][qlik_marketplace]<br>[웹 사이트][qlik_website]<br>[데이터시트][qlik_datasheet]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![qlikview 비디오](./media/sql-data-warehouse-partner-business-intelligence/qlik_video.jpg)](https://www.youtube.com/watch?v=sqILcEwlHSI)로 바꿉니다. |
+| ![Qlik][8] |**Qlik Sense Enterprise**<br>누구나 사용 가능한 데이터 시각화 앱을 통해 정보를 보다 쉽게 검색할 수 있습니다. Qlik Sense를 사용하는 경우 조직의 모든 사용자가 유연한 대화형 시각화를 쉽게 만들고 적절한 결정을 내릴 수 있습니다.| [웹 사이트][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![qlikview 비디오](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg)로 바꿉니다. |
 | ![SiSense][9] |**SiSense**<br>SiSense는 비즈니스가 데이터를 분석하고 시각화하는 데 필요한 도구와 함께 제공되는 전체 스택 비즈니스 인텔리전스 소프트웨어입니다. 고성능 분석 데이터베이스, 여러 원본, 단순 데이터 추출(ETL) 및 웹 기반 데이터 시각화를 조인하는 기능입니다. SiSense BI 및 Analytics로 큰 데이터 집합 분석 및 시각화를 시작합니다. | [마켓플레이스][sisense_marketplace]<br>[웹 사이트][sisense_website]<br>[데이터시트][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] | [![sisense 비디오](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4)로 바꿉니다. |
 | ![Tableau][10] |**Tableau**<br>Tableau의 셀프 서비스 분석은 플랫 파일에서 데이터베이스까지 여러 종류의 데이터를 보고 이해하는 데 도움이 됩니다. Tableau에는 라이브 데이터 및 메모리 내 분석을 모두 지원하는 Microsoft Azure SQL 데이터 웨어하우스에 대한 네이티브, 최적화된 커넥터가 있습니다. | [마켓플레이스][tableau_marketplace]<br>[웹 사이트][tableau_website]<br>[데이터시트][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] | [![tableau 비디오](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE)로 바꿉니다. |
 | ![Targit][11] |**Targit**<br>Targit Decision Suite는 실시간 대시보드, 셀프 서비스 분석, 사용자에게 친숙한 보고, 멋진 모바일 기능 및 단일 통합 솔루션으로 제공하는 간단한 데이터 검색 기술을 제공하는 BI 및 분석 플랫폼을 제공합니다. Targit는 회사들이 행동을 취하도록 용기를 줍니다. | [마켓플레이스][targit_marketplace]<br>[웹 사이트][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] | [![targit 비디오](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4)로 바꿉니다. |
@@ -72,13 +72,14 @@
 [jinfonet_website]: http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]: http://www.logianalytics.com/
 [looker_website]: https://looker.com/partners/microsoft-azure/
-[qlik_website]: http://www.qlik.com/products/qlikview/getting-started
+[qlik_website]: http://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]: https://www.sisense.com/product/
 [tableau_website]: http://www.tableau.com/
 [targit_website]: https://www.targit.com/en/software/deployment/targitonazure
 [yellowfin_website]: http://www.yellowfinbi.com/
 
-<!--ebook Links-->
+<!--Get Started Links-->
+[qlik_getstarted]: http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
 <!--[birst_datasheet]:-->
@@ -88,7 +89,7 @@
 [jinfonet_datasheet]: http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]: https://www.logianalytics.com/datasheet/logi-info/
 [looker_datasheet]: https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
-[qlik_datasheet]: http://www.qlik.com/en/resource-library/the-qlikview-product-family
+<!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family-->
 [sisense_datasheet]: https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 [tableau_datasheet]: http://www.tableau.com/stories/workbook/azure-sql-data
 <!--[targit_datasheet]:-->
@@ -102,7 +103,7 @@
 <!--[jinfonet_marketplace]:-->
 [logianalytics_marketplace]: https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]: https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
-[qlik_marketplace]: https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
+<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
 [sisense_marketplace]: https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]: https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]: https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/
@@ -150,4 +151,4 @@
 [targit_twitter]: https://twitter.com/TARGIT
 [yellowfin_twitter]: https://twitter.com/YellowfinBI
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -64,7 +64,7 @@
 
 ## 구축 및 실행
 
-이 샘플을 실행하려면 IoT Hub 게이트웨이 소프트웨어 및 장치 관리 클라이언트를 포함하는 Edison 보드에 대한 사용자 지정 이미지를 구축해야 합니다.
+이 샘플을 실행하려면 IoT Hub 게이트웨이 소프트웨어 및 장치 관리 클라이언트를 포함하는 Edison 보드에 대한 사용자 지정 이미지를 작성해야 합니다.
 
 시작하기 전에 Edison 보드를 무선 네트워크에 연결할 수 있는지 확인해야 합니다. Edison 보드를 설정하려면 호스트 컴퓨터에 연결해야 합니다. 나중에 만든 사용자 지정 이미지를 사용하여 Edison 보드를 플래싱하기 위해 호스트 컴퓨터를 사용합니다. Intel에는 다음 운영 체제에 대한 가이드를 포함하여 일련의 시작 가이드가 있습니다.
 
@@ -425,4 +425,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

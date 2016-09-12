@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 설정 정보
 
-VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용되는 설정의 컬렉션입니다. 또한 VPN 게이트웨이를 사용하여 Azure 내에서 VNet 간에 트래픽을 전송할 수 있습니다. 이 문서의 섹션에서는 VPN 게이트웨이와 관련된 설정을 설명합니다.
+VPN Gateway는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용되는 리소스의 컬렉션입니다. 또한 VPN 게이트웨이를 사용하여 Azure 내에서 VNet 간에 트래픽을 전송할 수 있습니다. 이 문서의 섹션에서는 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다.
 
-경우에 따라 연결 다이어그램을 사용하여 사용 가능한 구성을 볼 수 있습니다. 이 문서의 [VPN 게이트웨이 연결 정보](vpn-gateway-topology.md) 섹션에서 각 구성을 배포하는 방법에 대한 다이어그램을 찾을 수 있습니다.
+연결 다이어그램을 통해 사용 가능한 구성을 쉽게 확인할 수 있습니다. 각 구성을 배포하는 방법이 나와 있는 다이어그램은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 확인할 수 있습니다.
 
 
 ## <a name="gwsku"></a>게이트웨이 SKU
@@ -49,7 +49,7 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 ## <a name="gwtype"></a>게이트웨이 유형
 
-게이트웨이 형식은 게이트웨이를 연결하는 방법을 지정하며 Resource Manager 배포 모델에 대한 필수 구성 설정입니다. VPN에 대한 라우팅의 유형을 지정하는 VPN 유형과 게이트웨이 유형을 혼동하지 마세요. `-GatewayType`에 사용 가능한 값은 다음과 같습니다.
+게이트웨이 형식은 게이트웨이를 연결하는 방법을 지정하며 Resource Manager 배포 모델에 대한 필수 구성 설정입니다. 가상 네트워크마다 각 유형의 가상 네트워크 게이트웨이를 하나씩만 포함할 수 있습니다. `-GatewayType`에 사용 가능한 값은 다음과 같습니다.
 
 - Vpn
 - Express 경로
@@ -70,7 +70,7 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 - Express 경로
 - VPNClient
 
-다음 PowerShell 예제에서는 연결 형식 "IPsec"을 필요로 하는 S2S 연결을 만듭니다.
+다음 PowerShell 예제에서는 'IPsec' 연결 형식이 필요한 S2S 연결을 만듭니다.
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
@@ -133,7 +133,7 @@ VPN 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서
 
 ## 다음 단계
 
-사용 가능한 연결 구성에 대한 자세한 내용은 [VPN 게이트웨이 연결](vpn-gateway-topology.md)을 참조하세요.
+사용 가능한 연결 구성에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 
 
@@ -143,4 +143,4 @@ VPN 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

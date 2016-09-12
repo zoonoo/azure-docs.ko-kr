@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # 회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태
@@ -50,7 +50,7 @@
 - 서비스 공급자 프로비전 상태
 - 가동 상태
 
-상태는 Microsoft의 프로비전 상태를 나타냅니다. 이 속성은 다음 상태 중 하나일 수 있습니다. *사용*, *사용 중*, 또는 *해제 중*. Express 경로 회로는 사용할 수 있도록 사용 상태에 있어야 합니다.
+상태는 Microsoft의 프로비전 상태를 나타냅니다. Express 경로 회로를 만들 때는 이 속성이 Enabled로 설정됩니다.
 
 연결 공급자 프로비전 상태는 연결 공급자 측의 상태를 나타냅니다. *NotProvisioned*, *프로비전 중*, 또는 *프로비전됨*일 수 있습니다. Express 경로 회로는 사용할 수 있도록 프로비전됨 상태에 있어야 합니다.
 
@@ -83,24 +83,18 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 다�
 
 프로비전됨 및 사용은 회로를 사용할 수 있는 유일한 상태입니다. 2계층 공급자를 사용하는 경우 이 상태인 경우 회로에 라우팅을 구성할 수 있습니다.
 
-#### Microsoft 쪽에서 먼저 프로비전 해제를 시작한 경우
+#### 연결 공급자가 회로 프로비전을 해제하는 경우
 
-PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 다음 상태의 Express 경로 회로가 표시됩니다.
-
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
-
-연결 공급자에 도달하여 Express 경로 회로의 프로비전을 해제해야 합니다. **중요:** Microsoft는 PowerShell cmdlet을 실행하여 회로의 프로비전을 해제할 때까지 회로에 요금을 계속 청구합니다.
-
-#### 서비스 공급자 쪽에서 먼저 프로비전 해제를 시작한 경우
-
-서비스 공급자를 요청하여 먼저 Express 경로 회로의 프로비전을 해제한 경우 서비스 공급자가 프로비전 프로세스를 해제하도록 완료한 후에 다음 상태로 설정한 회로를 봅니다.
+서비스 공급자에게 Express 경로 회로 프로비전 해제를 요청한 경우 서비스 공급자가 프로비전 해제 프로세스를 완료하고 나면 회로가 다음 상태로 설정됩니다.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-필요에 따라 PowerShell cmdlet을 다시 사용하거나 실행하여 회로를 삭제할 수 있습니다. **중요:** Microsoft는 PowerShell cmdlet을 실행하여 회로의 프로비전을 해제할 때까지 회로에 요금을 계속 청구합니다.
+
+필요에 따라 PowerShell cmdlet을 다시 사용하거나 실행하여 회로를 삭제할 수 있습니다.
+
+>[AZURE.IMPORTANT] ServiceProviderProvisioningState가 Provisioning 또는 Provisioned일 때 PowerShell cmdlet을 실행하여 회로를 삭제하면 작업이 실패합니다. 이러한 경우에는 연결 공급자에게 요청하여 먼저 Express 경로 회로 프로비전을 해제한 후에 회로를 삭제하세요. Microsoft는 PowerShell cmdlet을 실행하여 회로를 삭제할 때까지 회로에 요금을 계속 청구합니다.
 
 
 ## 라우팅 세션 구성 상태
@@ -122,4 +116,4 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 	- [라우팅 구성](expressroute-howto-routing-arm.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

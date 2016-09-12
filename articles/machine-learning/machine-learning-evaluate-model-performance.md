@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;garye" />
 
 
 # Azure 기계 학습에서 모델 성능을 평가하는 방법
 
-이 항목에서는 Azure 기계 학습 스튜디오에서 모델의 성능을 평가하는 방법을 보여 주며, 이 작업에 사용할 수 있는 메트릭을 간략하게 설명합니다. 다음 세 가지 일반적인 감독 학습 시나리오가 제공됩니다.
+이 항목에서는 Azure Machine Learning 스튜디오에서 모델의 성능을 평가하는 방법을 살펴본 다음 이 작업에 사용할 수 있는 메트릭을 간략하게 설명합니다. 다음 세 가지 일반적인 감독 학습 시나리오가 제공됩니다.
 
 * 회귀
-* 이진 분류 
+* 이진 분류
 * 다중 클래스 분류
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -189,4 +189,4 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

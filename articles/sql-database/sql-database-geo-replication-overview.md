@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # 개요: SQL 데이터베이스 활성 지역 복제
@@ -39,6 +39,9 @@
 - [장애 조치: Azure 포털](sql-database-geo-replication-failover-portal.md)
 - [장애 조치: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [장애 조치: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
+
+장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
+
 
 활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대 4개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 주 데이터베이스에 커밋된 변경 내용과 트랜잭션 측면에서 항상 일관되도록 보장됩니다.
 
@@ -81,7 +84,7 @@
 
 ## 활성 지역 복제를 프로그래밍 방식으로 관리
 
-앞서 설명한 것처럼 Azure 포털 외에, Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 아래의 표에는 사용 가능한 명령 집합이 나와 있습니다.
+앞서 설명한 것처럼 Azure 포털 외에 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 아래의 표에는 사용 가능한 명령 집합이 나와 있습니다.
 
 - **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [ARM 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [ARM(Azure Resource Manager) API](sql-database-geo-replication-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
@@ -132,5 +135,6 @@
 - Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 - 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 - 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
+- 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

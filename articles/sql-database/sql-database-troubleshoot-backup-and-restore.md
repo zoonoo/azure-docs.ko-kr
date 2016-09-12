@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # 이전 시점으로 데이터베이스 복원, 삭제된 데이터베이스 복원 또는 데이터 센터 가동 중단에서 복구
@@ -42,4 +42,4 @@ Azure는 또한 다른 지역(지리적 중복 백업)에 있는 모든 데이�
 
 - [Azure 포털](https://azure.microsoft.com/)에서 **새로 만들기**, **데이터 및 저장소**, **SQL 데이터베이스**를 차례로 클릭한 다음 데이터베이스 원본으로 **백업**을 선택합니다. 자세한 내용은 [중단 상태에서 Azure SQL 데이터베이스 복구](sql-database-disaster-recovery.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

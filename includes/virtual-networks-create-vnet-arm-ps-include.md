@@ -7,17 +7,12 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 
-	예상된 출력:
+	예상 출력:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
 		Tags              :
-		Permissions       :
-		                    Actions  NotActions
-		                    =======  ==========
-		                    *
-		
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
 3. 아래와 같이 이름이 *TestVNet* 인 새 VNet을 만듭니다.
@@ -25,25 +20,23 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
-	예상된 출력:
+	예상 출력:
 
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : centralus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState : Succeeded
-		Tags              :
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": null
-		                    }
-		NetworkInterfaces : null
-		Subnets           : []
+		Name              	: TestVNet
+		ResourceGroupName 	: TestRG
+		Location          	: centralus
+		Id                	: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag           		: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+		ProvisioningState      	: Succeeded
+		Tags                   	: 
+		AddressSpace           	: {
+		                           "AddressPrefixes": [
+		                             "192.168.0.0/16"
+		                           ]
+                         		 }
+		DhcpOptions            	: {}
+		Subnets                	: []
+		VirtualNetworkPeerings 	: []
 
 4. 아래와 같이 가상 네트워크 개체를 변수에 저장합니다.
 
@@ -56,36 +49,28 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
-	예상된 출력:
+	예상 출력:
 
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : centralus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState : Succeeded
-		Tags              :
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": null
-		                    }
-		NetworkInterfaces : null
-		Subnets           : [
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": null,
-		                        "Id": null,
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": null,
-		                        "NetworkSecurityGroup": null,
-		                        "RouteTable": null,
-		                        "ProvisioningState": null
-		                      }
-		                    ]
+		Name              	: TestVNet
+		ResourceGroupName 	: TestRG
+		Location          	: centralus
+		Id                	: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              	: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+		ProvisioningState 	: Succeeded
+		Tags              	:
+		AddressSpace      	: {
+			                      "AddressPrefixes": [
+			                        "192.168.0.0/16"
+			                      ]
+			                    }
+		DhcpOptions       	: {}
+		Subnets         	: [
+			                      {
+			                        "Name": "FrontEnd",
+			                        "AddressPrefix": "192.168.1.0/24"
+			                      }
+			                    ]
+		VirtualNetworkPeerings 	: []
 
 6. 만들려는 각 서브넷에 대해 위의 5단계를 반복합니다. 아래 명령은 이 시나리오에 대해 *BackEnd* 서브넷을 만듭니다.
 
@@ -96,43 +81,41 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet	
 		
-	예상된 출력:
+	예상 출력:
 
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : centralus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState : Succeeded
-		Tags              :
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": []
-		                    }
-		NetworkInterfaces : null
-		Subnets           : [
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": [],
-		                        "NetworkSecurityGroup": null,
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      },
-		                      {
-		                        "Name": "BackEnd",
-		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-		                        "AddressPrefix": "192.168.2.0/24",
-		                        "IpConfigurations": [],
-		                        "NetworkSecurityGroup": null,
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      }
-		                    ]
+		Name              	: TestVNet
+		ResourceGroupName 	: TestRG
+		Location          	: centralus
+		Id                	: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              	: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+		ProvisioningState 	: Succeeded
+		Tags              	:
+		AddressSpace      	: {
+			                      "AddressPrefixes": [
+			                        "192.168.0.0/16"
+			                      ]
+			                    }
+		DhcpOptions       	: {
+			                      "DnsServers": []
+			                    }
+		Subnets           	: [
+			                      {
+			                        "Name": "FrontEnd",
+			                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+			                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+			                        "AddressPrefix": "192.168.1.0/24",
+			                        "IpConfigurations": [],
+			                        "ProvisioningState": "Succeeded"
+			                      },
+			                      {
+			                        "Name": "BackEnd",
+			                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+			                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+			                        "AddressPrefix": "192.168.2.0/24",
+			                        "IpConfigurations": [],
+			                        "ProvisioningState": "Succeeded"
+			                      }
+			                    ]
+		VirtualNetworkPeerings : []
+
+<!---HONumber=AcomDC_0831_2016-->

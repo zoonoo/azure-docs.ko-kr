@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Azure SQL 데이터 웨어하우스 문제 해결
@@ -24,9 +24,11 @@
 
 | 문제 | 해결 방법 |
 | :----------------------------------| :---------------------------------------------- |
-| CTAIP 오류 | 이 오류는 로그인이 SQL 데이터 웨어하우스 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다. 이 오류가 발생하는 경우 [보안 개요][] 문서를 살펴보세요. 이 문서에서는 마스터 데이터베이스에서 로그인을 만드는 방법과 SQL 데이터 웨어하우스 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다.|
+| 'NT AUTHORITY\\ANONYMOUS LOGON' 사용자에 대해 로그인 실패 (Microsoft SQL Server, 오류: 18456) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다. 이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다. 자세한 내용은 [보안 개요][]를 참조하세요.|
+|현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인이 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다. 이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다. 자세한 내용은 [보안 개요][]를 참조하세요.|
+| CTAIP 오류 | 이 오류는 로그인이 SQL 데이터 웨어하우스 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다. 이 오류가 발생하는 경우 [보안 개요][] 문서를 살펴보세요. 이 문서에서는 마스터 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL Data Warehouse 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다.|
 | 방화벽에 의해 차단 |Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다. 액세스를 위해 방화벽을 구성하려면 [프로비전 지침][]의 [클라이언트 IP에 대한 서버 방화벽 액세스 구성][] 단계를 따르세요.|
-| 도구 또는 드라이버에 연결할 수 없음 | SQL 데이터 웨어하우스에서는 [Visual Studio 2013 또는 2015][]를 사용하여 데이터를 쿼리할 것을 권장합니다. 클라이언트 연결의 경우 [SQL Server Native Client 10/11(ODBC)][]이 권장됩니다.|
+| 도구 또는 드라이버에 연결할 수 없음 | SQL Data Warehouse 사용 시에는 [SSMS][], [Visual Studio 2015용 SSDT][] 또는 [sqlcmd][]를 사용하여 데이터를 쿼리하는 것이 좋습니다. SQL Data Warehouse에 연결하는 방법 및 관련 드라이버에 대한 자세한 내용은 [Azure SQL Data Warehouse용 드라이버][] 및 [Azure SQL Data Warehouse에 연결][] 문서를 참조하세요.|
 
 
 ## 도구
@@ -72,7 +74,6 @@
 | MERGE 문이 지원되지 않음 | [MERGE 해결 방법][]을 참조하세요.|
 | 저장 프로시저 제한 사항 | 저장 프로시저의 몇 가지 제한을 이해하려면 [저장 프로시저 제한 사항][]을 참조하세요.|
 | UDF가 SELECT 문을 지원하지 않음 | 이 문제가 UDF의 현재 제한 사항입니다. 지원되는 구문에 대해서는 [CREATE FUNCTION][]을 참조하세요. |
-'<-LocComment: 페이지 찾을 수 없음 "저장 프로시저 제한 사항"이 끊어졌습니다. 문서 참조 내의 링크를 수정하려 시도했습니다 -->'
 
 ## 다음 단계
 
@@ -91,6 +92,10 @@
 
 <!--Article references-->
 [보안 개요]: ./sql-data-warehouse-overview-manage-security.md
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[Visual Studio 2015용 SSDT]: ./sql-data-warehouse-install-visual-studio.md
+[Azure SQL Data Warehouse용 드라이버]: ./sql-data-warehouse-connection-strings.md
+[Azure SQL Data Warehouse에 연결]: ./sql-data-warehouse-connect-overview.md
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [SQL 데이터 웨어하우스 크기를 조정]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,7 +103,6 @@
 [쿼리 모니터링 방법 알아보기]: ./sql-data-warehouse-manage-monitor.md
 [프로비전 지침]: ./sql-data-warehouse-get-started-provision.md
 [클라이언트 IP에 대한 서버 방화벽 액세스 구성]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 또는 2015]: ./sql-data-warehouse-query-visual-studio.md
 [SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 [테이블 크기]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [지원되지 않는 테이블 기능]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,14 +121,14 @@
 [UPDATE 해결]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE 해결]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE 해결 방법]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[저장 프로시저 제한 사항]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[저장 프로시저 제한 사항]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
 [Azure SQL 데이터 웨어하우스에 대한 인증]: ./sql-data-warehouse-authentication.md
 [PolyBase UTF-8 요구 사항 해결]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[SQL Server Native Client 10/11(ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -135,4 +139,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

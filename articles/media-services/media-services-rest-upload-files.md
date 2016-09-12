@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="REST API를 사용하여 미디어 서비스 계정에 파일 업로드" 
+	pageTitle="REST를 사용하여 Media Services 계정에 파일 업로드" 
 	description="자산을 만들고 업로드하여 미디어 서비스에 미디어 콘텐츠를 가져오는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#REST API를 사용하여 미디어 서비스 계정에 파일 업로드
+# REST를 사용하여 Media Services 계정에 파일 업로드
 
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
- 
+ > [AZURE.SELECTOR]
+ - [.NET](media-services-dotnet-upload-files.md)
+ - [REST (영문)](media-services-rest-upload-files.md)
+ - [포털](media-services-portal-upload-files.md)
 
 미디어 서비스에서 자산에 디지털 파일을 업로드합니다. [자산](https://msdn.microsoft.com/library/azure/hh974277.aspx) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
@@ -530,4 +532,4 @@ ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

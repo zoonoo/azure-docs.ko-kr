@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
@@ -138,7 +138,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
-7. *설정 요약*으 검토하고 **설치**를 클릭합니다.
+7. *설정 요약*을 검토하고 **설치**를 클릭합니다.
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 
@@ -214,4 +214,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # 랩에 Git 아티팩트 리포지토리 추가
@@ -53,7 +53,7 @@
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
+1. **찾아보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -117,8 +117,10 @@
     3. 저장된 **개인 액세스 토큰**을 아티팩트 리포지토리에 입력합니다.
     4. **저장**을 선택합니다.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## 관련 블로그 게시물
 - [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 - [ Azure DevTest Lab에서 ARM 템플릿을 사용하여 기존 AD 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->
