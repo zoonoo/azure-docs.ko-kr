@@ -147,19 +147,42 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 -- 1단계: 인덱스 다시 작성을 제어하기 위한 테이블 만들기
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
-create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+create table sql_statements
+WITH (distribution = round_robin)
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+    row_number() over (order by s.name, t.name) as sequence
+from 
+    sys.schemas s
+    inner join sys.tables t
+        on s.schema_id = t.schema_id
+where
+    is_external = 0
+;
+go
  
 --------------------------------------------------------------------------------
 -- 2단계: 인덱스 다시 작성을 실행합니다. 스크립트가 실패하는 경우 아래 명령을 다시 실행하여 마지막 중단했던 지점에서 다시 시작할 수 있음
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
 
-declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+declare @nbr_statements int = (select count(*) from sql_statements)
+declare @i int = 1
+while(@i <= @nbr_statements)
+begin
+      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+      exec (@statement)
+      delete from sql_statements where sequence = @i
+      set @i += 1
+end;
 go
 -------------------------------------------------------------------------------
 -3단계: 1단계에서 만든 테이블 정리
 --------------------------------------------------------------------------------
-drop table sql\_statements; go ````
+drop table sql_statements;
+go
+````
 
 데이터 웨어하우스에 문제가 발생하는 경우 [지원 티켓을 만들고][] 가능한 원인으로 "프리미엄 저장소로 마이그레이션"을 참조하세요.
 
@@ -181,7 +204,7 @@ drop table sql\_statements; go ````
 
 
 <!--Other Web references-->
-[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/ko-KR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure 포털]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0831_2016-->

@@ -39,7 +39,7 @@ Azure Government 고객 응용 프로그램 및 솔루션을 지원하기 위한
 
 개인 연결 아키텍처를 활용하는 모든 고객은 Azure Government용 GN/I(게이트웨이 네트워크/인터넷) 에지 라우터 경계 지점에 대한 고객 연결을 위해 적절한 구현이 설정되고 유지 관리되는지 유효성을 검사해야 합니다. 마찬가지로 조직은 Azure Government에 대한 온-프레미스 환경 및 GN/C(게이트웨이 네트워크/고객) 에지 라우터 경계 지점 간 네트워크 연결을 설정해야 합니다.
 
-ExpressRoute는 일반적으로 Azure Government에서 사용할 수 있습니다. 자세한 내용(파트너 및 피어링 위치 포함)은 <a href="https://azure.microsoft.com/ko-KR/documentation/services/expressroute/">ExpressRoute 공용 설명서</a>를 참조하세요.
+ExpressRoute는 일반적으로 Azure Government에서 사용할 수 있습니다. 자세한 내용(파트너 및 피어링 위치 포함)은 <a href="https://azure.microsoft.com/documentation/services/expressroute/">ExpressRoute 공용 설명서</a>를 참조하세요.
 
 추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
 

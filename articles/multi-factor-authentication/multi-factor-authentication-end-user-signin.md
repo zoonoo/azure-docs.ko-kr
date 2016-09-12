@@ -33,7 +33,7 @@
 [확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|확인 코드를 통해 Microsoft Authenticator 앱을 사용할 때 예상할 수 있는 환경입니다.
 [다른 방법을 사용하여 로그인](#signing-in-with-an-alternate-method)|여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
 
-## 휴대폰 또는 사무실 전화로 로그인
+<h2 id="-1">휴대폰 또는 사무실 전화로 로그인</h2>
 
 다음 정보에서는 휴대폰 또는 사무실 전화를 통해 다단계 인증을 사용하는 환경에 대해 설명합니다.
 
@@ -50,7 +50,7 @@
 
 - 사용자가 로그인됩니다.</li>
 
-## 알림을 사용하여 Microsoft Authenticator 앱에 로그인
+<h2 id="-3">알림을 사용하여 Microsoft Authenticator 앱에 로그인</h2>
 
 다음 정보에서는 알림을 받았을 때 Microsoft Authenticator에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -71,7 +71,7 @@
 - 사용자가 로그인됩니다.
 
 
-## 확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인
+<h2 id="-5">확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인</h2>
 
 다음 정보에서는 확인 코드를 함께 사용할 때 Microsoft Authenticator 앱에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -91,7 +91,7 @@
 - 사용자가 로그인됩니다.
 
 
-## 다른 방법을 사용하여 로그인
+<h2 id="-7">다른 방법을 사용하여 로그인</h2>
 
 
 다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.

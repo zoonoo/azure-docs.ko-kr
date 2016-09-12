@@ -152,11 +152,11 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 합니다. **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있으며, 실제 끝점일 필요는 없습니다.
 
-응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Windows Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
+응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Microsoft Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
 
 ![Azure 포털의 응용 프로그램 권한][2]
 
-> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Windows Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Windows Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
+> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Microsoft Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Microsoft Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
 
 위의 설명대로 응용 프로그램을 추가했으면 응용 프로그램의 리디렉션 URI 및 클라이언트 ID를 사용하여 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트에서 `Program.cs`를 업데이트합니다. 응용 프로그램의 **구성** 탭에서 이러한 값을 찾을 수 있습니다.
 

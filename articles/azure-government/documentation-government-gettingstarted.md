@@ -38,7 +38,7 @@
 
 ITAR 아래에서 다루는 Azure Government 서비스에 대한 현재 정보는 <a href="http://www.microsoft.com/ko-KR/TrustCenter/Compliance/default.aspx/">Microsoft Azure 보안 센터 규정 준수 페이지</a>를 참조해야 합니다. 추가 Microsoft 서비스를 사용할 수도 있지만 Azure Government 대상 서비스의 범위에 포함되지 않습니다. Azure Government 서비스는 별도 약관 및 개인 정보 보호 정책 아래에서 타사 또는 Microsoft에 의해 제공되는 다양한 추가 리소스, 응용 프로그램 또는 서비스를 사용하도록 허용할 수도 있습니다. ITAR 규정 준수에 대한 사용자의 요구를 충족하는지 확인하기 위해 마켓플레이스 제품과 같은 이러한 모든 "추가 기능" 제품의 용어를 검토할 책임이 있습니다.
 
-규정을 준수하는 데 Azure Government의 사용이 필요한 ITAR과 같은 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리하는 엔터티에 <a href="https://azure.microsoft.com/ko-KR/features/gov/">Azure Government</a>를 사용할 수 있습니다. Azure Government 고객에게 자격의 유효성 검사가 적용됩니다. Microsoft에 의한 자격의 유효성 검사는 미국무부의 등록 또는 데이터 처리에 대한 특정 요구 사항을 가진 정부 기관과의 스폰서쉽 계약을 통해 보여 주는 것처럼 제조업체, 수출업체 또는 ITAR 아래 방산물자의 브로커인지에 대한 확인을 포함합니다.
+규정을 준수하는 데 Azure Government의 사용이 필요한 ITAR과 같은 특정 정부 규정 및 요구 사항이 적용되는 데이터를 처리하는 엔터티에 <a href="https://azure.microsoft.com/features/gov/">Azure Government</a>를 사용할 수 있습니다. Azure Government 고객에게 자격의 유효성 검사가 적용됩니다. Microsoft에 의한 자격의 유효성 검사는 미국무부의 등록 또는 데이터 처리에 대한 특정 요구 사항을 가진 정부 기관과의 스폰서쉽 계약을 통해 보여 주는 것처럼 제조업체, 수출업체 또는 ITAR 아래 방산물자의 브로커인지에 대한 확인을 포함합니다.
 
 Azure Government의 자격에 대한 질문의 엔터티는 해당 계정 팀에 문의해야 합니다.
 

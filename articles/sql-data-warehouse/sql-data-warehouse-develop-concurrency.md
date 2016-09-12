@@ -164,8 +164,7 @@ SQL 데이터 웨어하우스는 워크로드 그룹을 사용하여 리소스 �
 
 ### DW500의 리소스 클래스와 중요도 관계
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
- |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도 |
 | :------------- | :------------- | :--------------------: | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
@@ -421,7 +420,7 @@ FROM	sys.dm_pdw_wait_stats w;
 <!--Image references-->
 
 <!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
 [인덱스를 다시 빌드하여 세그먼트 품질 개선]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [SQL Data Warehouse에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
 [SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-manage-security.md
