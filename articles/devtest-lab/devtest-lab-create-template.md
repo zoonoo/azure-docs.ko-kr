@@ -18,7 +18,6 @@
 
 # VM을 만드는 Azure DevTest Labs 사용자 지정 이미지 관리
 
-## 개요
 [랩을 만든](devtest-lab-create-lab.md) 후에는 [랩에 VM(가상 컴퓨터)을 추가](devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. VM을 만들 때는 *사용자 지정 이미지* 또는 *마켓플레이스 이미지* 중에서 *기준*을 지정합니다. 이 문서에서는 [VHD에서 사용자 지정 이미지를 만들어](#create-a-custom-image-from-a-vhd) 이후에 사용자 지정 이미지로부터 VM을 만들 수 있도록 하는 방법에 대해 알아봅니다. 또한 이후 신속한 VM 만들기를 위해 [VM에서 사용자 지정 이미지를 만들](#create-a-custom-image-from-a-vm) 수도 있습니다.
 
 ## VHD 파일에서 사용자 지정 이미지 만들기
@@ -58,7 +57,7 @@
 
 1. **OS 구성** 탭에서 **Windows** 또는 **Linux**를 선택합니다.
 
-1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep* 의 실행 여부를 지정합니다.
+1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep*의 실행 여부를 지정합니다.
 
 1. **확인**을 선택하여 **OS 구성** 블레이드를 닫습니다.
 
@@ -99,6 +98,8 @@ VM이 이미 구성되어 있는 경우 VM에서 사용자 지정 이미지를 �
 
 1. 완료했으면 **확인**을 선택하여 사용자 지정 이미지를 만듭니다.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## 관련 블로그 게시물
 
 - [사용자 지정 이미지 또는 수식?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
@@ -108,4 +109,4 @@ VM이 이미 구성되어 있는 경우 VM에서 사용자 지정 이미지를 �
 
 VM을 만들 때 사용할 사용자 지정 이미지를 추가했으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

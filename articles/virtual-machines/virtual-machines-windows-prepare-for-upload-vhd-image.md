@@ -26,7 +26,7 @@
 
 로컬 서버에서 Windows VHD가 올바르게 작동하는지 확인합니다. Azure로 변환하거나 업로드하기 전에 VM 자체 내에서 오류를 해결해 보세요.
 
-가상 디스크를 Azure에 필요한 형식으로 변환해야 할 경우 다음 섹션에 설명된 방법 중 하나를 사용합니다.
+가상 디스크를 Azure에 필요한 형식으로 변환해야 할 경우 다음 섹션에 설명된 방법 중 하나를 사용합니다. 모든 가상 디스크 변환 프로세스 또는 Sysprep를 실행하기 전에 VM을 백업합니다.
 
 ### Hyper-V 관리자를 사용하여 변환
 - Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 위쪽 메뉴에서 **작업** > **디스크 편집**을 클릭합니다.
@@ -66,7 +66,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 3. 디스크 SAN 정책을 [Onlineall](https://technet.microsoft.com/library/gg252636.aspx)로 구성합니다.
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Windows에 대해 UTC(협정 세계시) 시간을 사용하고 Windows Time(w32time) 서비스의 시작 형식을 **자동**으로 설정합니다.
@@ -287,6 +287,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 	- [Resource Manager 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-capture-image.md)
 	- [클래식 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-classic-capture-image.md)
+	- [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## 제안되는 추가 구성
@@ -320,4 +321,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

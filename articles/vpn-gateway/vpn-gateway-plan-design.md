@@ -80,7 +80,7 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 ### <a name="topologies"></a>연결 토폴로지
 
-먼저 [연결 토폴로지](vpn-gateway-topology.md) 문서에서 다이어그램을 찾아봅니다. 이 문서는 기본 다이어그램, 각 토폴로지(리소스 관리자 또는 클래식)의 배포 모델, 구성을 배포하는 데 사용할 수 있는 배포 도구에 대해 설명합니다.
+먼저 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서의 다이어그램을 확인하세요. 이 문서는 기본 다이어그램, 각 토폴로지(리소스 관리자 또는 클래식)의 배포 모델, 구성을 배포하는 데 사용할 수 있는 배포 도구에 대해 설명합니다.
 
 ### <a name="designbasics"></a>디자인 기본 사항
 
@@ -161,4 +161,4 @@ VPN 장치를 구성해본 경험이 필요하거나 누군가가 장치를 대�
 
 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN 게이트웨이 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -37,7 +37,8 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)| 기본 규칙 및 기본 구성에 대해 설명합니다. 또한 기본 시나리오에 대해 규칙이 어떻게 작동하는지도 설명합니다.
 [사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md) | 이전 항목에 연결된 내용으로 사용자 및 연락처에 대한 구성이 특히 다중 포리스트 환경에서 어떻게 함께 작동하는지 설명합니다.
 [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md) | 특성 흐름에 대한 일반적인 구성을 변경하는 방법을 안내합니다.
-[선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | 구성 모델의 작동 방식과 식 언어에 대한 구문을 심도 있게 설명합니다.
+[선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| 선언적 프로비전이라는 구성 모델을 설명합니다.
+[선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | 선언적 프로비전에 사용되는 식 언어에 대한 구문을 설명합니다.
 [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | 기본 구성을 변경하기 위한 제한 사항을 지원합니다.
 [필터링 구성](active-directory-aadconnectsync-configure-filtering.md) | 어떤 개체를 Azure AD에 동기화할지 제한하는 방법에 대한 다양한 옵션을 설명하고 이 옵션을 구성하는 방법을 단계별로 설명합니다.
 **기능 및 시나리오** |
@@ -63,4 +64,4 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기
@@ -120,6 +120,8 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 1. 랩에 아티팩트 리포지토리 추가 - [랩에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 문서를 참조하세요.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## 관련 블로그 게시물
 - [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 - [ Azure DevTest Lab에서 ARM 템플릿을 사용하여 기존 AD 도메인에 VM 가입](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
@@ -128,4 +130,4 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 - [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

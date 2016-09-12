@@ -34,7 +34,7 @@ Azure Site Recovery에 오신 것을 환영합니다! Azure 포털을 통해 Sys
 Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 - Azure 포털에는 Azure 백업 및 Azure Site Recovery 서비스가 단일 복구 서비스 자격 증명 모음으로 결합되어 있어서 단일 위치에서 BCDR(비즈니스 연속성 및 재해 복구)을 설정하고 관리할 수 있습니다. 통합 대시보드를 통해 온-프레미스 사이트와 Azure 공용 클라우드의 작업을 모니터링하고 관리할 수 있습니다.
-- CSP(클라우드 솔루션 공급자) 프로그램이 포함된 Azure 구독이 있는 사용자는 이제 Azure 포털에서 Site Recovery 작업을 관리할 수 있습니다.
+- CSP(클라우드 솔루션 공급자) 프로그램이 포함된 Azure 구독이 있는 사용자는 이제 Azure 포털에서 사이트 복구 작업을 관리할 수 있습니다.
 - Azure 포털의 Site Recovery는 ARM 저장소 계정에 컴퓨터를 복제할 수 있습니다. 장애 조치(Failover) 시 Site Recovery는 Azure에 ARM 기반 VM을 만듭니다.
 - Site Recovery는 클래식 저장소 계정에 복제하는 작업과 클래식 모델을 사용해 VM에 장애 조치하는 작업을 계속해서 지원합니다.
 
@@ -65,7 +65,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 
 - **Hyper-V 호스트 또는 클러스터**: 온-프레미스 Hyper-V 호스트 서버 또는 클러스터. VM을 실행하는 보호하고자 하는 Hyper-V 호스트가 사이트 복구 배포 중 논리적 Hyper-V 사이트에 수집됩니다.
 - **Azure Site Recovery 공급자 및 복구 서비스 에이전트**: 배포 중에 Azure Site Recovery 공급자를 설치하고 Microsoft Azure 복구 서비스 에이전트를 Hyper-V 호스트 서버에 설치합니다. 공급자는 HTTPS 443을 통해 Azure Site Recovery와 통신하여 오케스트레이션을 복제합니다. Hyper-V 호스트 서버의 에이전트는 기본적으로 HTTPS 443을 통해 Azure 저장소로 데이터를 복제합니다.
-- **Azure**: Azure 구독, 복제된 데이터를 저장할 Azure 저장소 계정, 장애 조치(Failover) 후에 Azure VM이 네트워크에 연결되도록 할 Azure 가상 네트워크가 필요합니다.
+- **Azure**: Azure 구독, 복제된 데이터를 저장할 Azure Storage 계정, 장애 조치(Failover) 후에 Azure VM이 네트워크에 연결되도록 할 Azure 가상 네트워크가 필요합니다.
 
 ![Hyper-V 사이트 아키텍처](./media/site-recovery-hyper-v-site-to-azure/architecture.png)
  
@@ -88,7 +88,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 **필수 요소** | **세부 정보**
 --- | ---
 **Hyper-V**| 최신 업데이트의 Windows Server 2012 R2를 실행하고 Hyper-V 역할을 수행하는 하나 이상의 온-프레미스 서버.<br/><br/>Hyper-V 서버는 하나 이상의 가상 컴퓨터를 포함해야 합니다.<br/><br/>Hyper-V 서버는 직접 또는 프록시를 통해 인터넷이 연결되어 있어야 합니다.<br/><br/>Hyper-V 서버에는 [KB2961977](https://support.microsoft.com/ko-KR/kb/2961977 "KB2961977")에 언급된 수정이 적용되어 있어야 합니다.
-**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다. [Azure 데이터센트 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS (433) 프로토콜을 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 대한 IP 주소 범위를 허용하세요.
+**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(433) 프로토콜을 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요.
 
 ## 보호된 컴퓨터 필수 조건
 
@@ -113,16 +113,19 @@ Azure 네트워크 설정 이는 장애 조치(failover) 후 생성된 Azure VM�
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [ARM 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 - 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 네트워크에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 
 ### Azure 저장소 계정 설정
 
 - Azure로 복제된 데이터를 저장하려면 표준 Azure 저장소 계정이 있어야 합니다.
-- 장애 조치(Failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [ARM 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
+- 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [ARM 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 - 시작하기 전에 저장소 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 저장소 계정에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 
 ### Hyper-V 호스트 준비
 
-- Hyper-V 호스트가 [필수 조건](#on-premises-prerequisites)을 준수하는지 확인합니다.
+- Hyper-V 호스트가 [필수 구성 요소](#on-premises-prerequisites)를 충족하는지 확인합니다.
 
 ### 복구 서비스 자격 증명 모음 만들기
 
@@ -131,7 +134,7 @@ Azure 네트워크 설정 이는 장애 조치(failover) 후 생성된 Azure VM�
 
 	![새 자격 증명 모음](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 
-3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
+3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그중에서 하나를 선택합니다.
 4. [새 리소스 그룹을 만들거나](../resource-group-template-deploy-portal.md) 기존 리소스 그룹을 선택하고 Azure 지역을 지정합니다. 이 지역에 컴퓨터가 복제됩니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
 4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **자격 증명 모음 만들기**를 클릭합니다.
 
@@ -158,7 +161,7 @@ Site Recovery 배포 방법을 선택하여 시작 환경을 시작합니다. �
 
 	![목표 선택](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 
-3. **보호 목표**에서 **Azure**를 선택하고 **예, Hyper-V 사용**을 선택합니다. **아니요**를 선택하여 VMM을 사용하지 않는 것을 확인합니다. 그런 후 **OK**를 클릭합니다.
+3. **보호 목표**에서 **Azure**를 선택하고 **예, Hyper-V 사용**을 선택합니다. **아니요**를 선택하여 VMM을 사용 중이지 않음을 확인합니다. 그런 후 **OK**를 클릭합니다.
 
 	![목표 선택](./media/site-recovery-hyper-v-site-to-azure/choose-goals2.png)
 
@@ -168,7 +171,7 @@ Site Recovery 배포 방법을 선택하여 시작 환경을 시작합니다. �
 Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공급자와 Azure 복구 서비스 에이전트를 설치한 후 자격 증명 모음에 호스트를 등록합니다.
 
 
-1. **2단계: 인프라 준비** > **원본**을 클릭합니다. Hyper-V 호스트 또는 클러스터의 컨테이너로 새 Hyper-V 사이트를 추가하려면 **+Hyper-v 사이트**를 클릭합니다.
+1. **2단계: 인프라 준비** > **원본**을 클릭합니다. Hyper-V 호스트 또는 클러스터의 컨테이너로 새 Hyper-V 사이트를 추가하려면 **+Hyper-V 사이트**를 클릭합니다.
 
 	![원본 설정](./media/site-recovery-hyper-v-site-to-azure/set-source1.png)
 
@@ -176,8 +179,8 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 
 	![원본 설정](./media/site-recovery-hyper-v-site-to-azure/set-source2.png)
 
-3. 이 사이트에 서버를 추가하려면 **+ Hyper-V 서버**를 클릭하세요.
-4. **서버 추가** > **서버 유형**에 **Hyper-V 서버**가 표시되는지 확인합니다. 추가 하려는 Hyper-V 서버가 [필수 구성 요소](#on-premises-prerequisites)를 준수하고 지정된 URL에 액세스할 수 있는지 확인합니다.
+3. 사이트에 서버를 추가하려면 **+Hyper-V 서버**를 클릭합니다.
+4. **서버 추가** > **서버 형식**에 **Hyper-V 서버**가 표시되는지 확인합니다. 추가하려는 Hyper-V 서버가 [필수 구성 요소](#on-premises-prerequisites)를 충족하며 지정된 URL에 액세스할 수 있는지 확인합니다.
 4. Azure Site Recovery 공급자 설치 파일을 다운로드합니다. 공급자와 복구 서비스를 각 Hyper-V 호스트에 설치하기 위해 이 파일을 실행합니다.
 5. 등록 키를 다운로드합니다. 설정을 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
@@ -190,23 +193,23 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 1. 공급자 설치 파일을 실행합니다.
 2. Microsoft Update 정책에 따라 공급자 업데이트가 설치되도록 **Microsoft Update**에서 업데이트를 선택할 수 있습니다.
 3. **설치**에서 기본 공급자 설치 위치를 수락하거나 수정하고 **설치**를 클릭합니다.
-5. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 다운로드한 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
+5. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 다운로드한 자격 증명 모음 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
 
 	![서버 등록](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4\.**프록시 설정**에서 서버에 설치될 공급자가 인터넷을 통해 Azure Site Recovery에 연결되는 방법을 지정합니다.
+4\.**프록시 설정**에서 서버에 설치할 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다.
 
 - 공급자가 직접 연결되도록 하려면 **프록시 없이 직접 연결**을 선택합니다.
 - 현재 서버에 설정된 프록시를 사용하여 연결하려면 **기존 프록시 설정을 사용하여 연결**을 선택합니다.
 - 기존 프록시에 인증이 필요하거나 공급자 연결에 대해 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정을 사용하여 연결**을 선택합니다.
 - 사용자 지정 프록시를 사용하는 경우 주소, 포트 및 자격 증명을 지정해야 합니다.
-- 프록시를 사용하는 경우에는 [필수 구성 요소](#on-premises-prerequisites)에 설명된 URL이 프록시를 통과하도록 허용되었는지 확인합니다.
+- 프록시를 사용하는 경우에는 [필수 구성 요소](#on-premises-prerequisites)에 설명된 URL이 프록시를 통과할 수 있는지 확인합니다.
 
 	![인터넷](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
 5\.설치가 완료되면 **등록**을 클릭하여 자격 증명 모음에 서버를 등록합니다. ![설치 위치](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\.등록이 완료되면 Azure Site Recovery에서 Hyper-V 서버의 메타데이터를 가져오고 서버가 **설정** > **사이트 복구 인프라** > **Hyper-V 호스트** 블레이드에 표시됩니다.
+6\.등록이 완료되면 Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서버가 **설정** > **Site Recovery 인프라** > **Hyper-V 호스트** 블레이드에 표시됩니다.
 
 
 ### 명령줄 설치
@@ -229,7 +232,7 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
 - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
 - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
-- **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
+- **/proxyPassword**: (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 
 ## 3단계: 대상 환경 설정
@@ -242,17 +245,17 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 
 	![저장소](./media/site-recovery-hyper-v-site-to-azure/select-target.png)
 
-4.	아직 저장소 계정을 만들지 않았으며 ARM을 사용하여 계정을 만들려면 **+저장소** 계정을 클릭하여 인라인에서 계정을 만듭니다. **저장소 계정 만들기** 블레이드에서 계정 이름, 형식, 구독 및 위치를 지정합니다. 계정이 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
+4.	저장소 계정을 만들지 않았으며 ARM을 사용하여 계정을 만들려면 **+저장소 계정**을 클릭하여 인라인으로 계정을 만듭니다. **저장소 계정 만들기** 블레이드에서 계정 이름, 형식, 구독 및 위치를 지정합니다. 계정이 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
 
 	![저장소](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
-	클래식 모델을 사용하여 [Azure 포털](../storage/storage-create-storage-account-classic-portal.md)에서 저장소 계정을 만들 수 있습니다.
+	클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털에서](../storage/storage-create-storage-account-classic-portal.md) 만들면 됩니다.
 	
-5.	아직 Azure 네트워크를 만들지 않았으며 ARM을 사용하여 네트워크를 만들려면 **+네트워크**를 클릭하여 인라인에서 네트워크를 만듭니다. **가상 네트워크 만들기** 블레이드에서 네트워크 이름, 주소 범위, 서브넷 세부 정보, 구독 및 위치를 지정합니다. 네트워크가 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
+5.	Azure 네트워크를 만들지 않았으며 ARM을 사용하여 네트워크를 만들려면 **+네트워크**를 클릭하여 인라인으로 네트워크를 만듭니다. **가상 네트워크 만들기** 블레이드에서 네트워크 이름, 주소 범위, 서브넷 세부 정보, 구독 및 위치를 지정합니다. 네트워크가 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
 
 	![네트워크](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
-	클래식 모델을 사용하여 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 네트워크를 만들 수 있습니다.
+	클래식 모델을 사용하여 네트워크를 만들려는 경우 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 만들면 됩니다.
 	
 
 ## 4단계: 복제 설정 지정
@@ -265,11 +268,11 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 3. **복사 빈도**에서 초기 복제 후 델타 데이터를 복제할 빈도(30초마다, 5분마다 또는 15분마다)를 지정합니다.
 4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 보호된 컴퓨터를 이 기간 내의 모든 지점으로 복구할 수 있습니다.
 6. **응용 프로그램 일치 스냅숏 빈도**에서 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 빈도(1~12시간)를 지정합니다. Hyper-V는 두 가지 유형의 스냅숏, 즉 전체 가상 컴퓨터의 증분 스냅숏을 제공하는 표준 스냅숏과 가상 컴퓨터 내 응용 프로그램 데이터의 지정 시간 스냅숏을 만드는 응용 프로그램 일치 스냅숏을 사용합니다. 응용 프로그램 일치 스냅숏은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 스냅숏을 만들 때 응용 프로그램이 일관된 상태가 되도록 합니다. 응용 프로그램 일치 스냅숏을 사용하도록 설정하면 원본 가상 컴퓨터에서 실행되는 응용 프로그램의 성능에 영향을 줍니다. 구성하는 추가 복구 지점 수보다 작은 값을 설정해야 합니다.
-3. **초기 복제 시작 시간**에서 초기 복제를 시작하는 시간을 지정합니다. 복제는 인터넷 대역폭을 통해 발생하므로 바쁜 시간을 피해서 복제 일정을 예약할 수 있습니다. 그런 후 **OK**를 클릭합니다.
+3. **초기 복제 시작 시간**에서 초기 복제를 시작할 시간을 지정합니다. 복제는 인터넷 대역폭을 통해 발생하므로 바쁜 시간을 피해서 복제 일정을 예약할 수 있습니다. 그런 후 **OK**를 클릭합니다.
 
 	![복제 정책](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-새 정책을 만들면 새 정책이 자동으로 Hyper-V 사이트에 연결됩니다. **확인**을 클릭합니다. **설정** > **복제** > 정책 이름 > **Hyper-V 사이트 연결**에서 Hyper-V 사이트(안에 VM 포함)를 여러 복제 정책과 연결할 수 있습니다.
+새 정책을 만들면 새 정책이 자동으로 Hyper-V 사이트에 연결됩니다. **확인**을 클릭합니다. **설정** > **복제** > 정책 이름 > **Hyper-V 사이트 연결**에서 Hyper-V 사이트 및 해당 사이트 내의 VM을 여러 복제 정책과 연결할 수 있습니다.
 
 ## 5단계: 용량 계획
 
@@ -300,7 +303,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 	![대역폭 제한](./media/site-recovery-hyper-v-site-to-azure/throttle2.png)
 
-[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet을 사용하여 제한을 설정할 수도 있습니다. 다음은 샘플입니다.
+[Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet를 사용하여 제한을 설정할 수도 있습니다. 다음은 샘플입니다.
 
     $mon = [System.DayOfWeek]::Monday 
     $tue = [System.DayOfWeek]::Tuesday
@@ -324,9 +327,9 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication.png)
 
-2. **소스** 블레이드에서 > Hyper-V 사이트를 선택합니다. 그런 후 **OK**를 클릭합니다.
+2. **소스** 블레이드에서 Hyper-V 사이트를 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **대상**에서 자격 증명 모음 구독을 선택하고 장애 조치(failover) 후 Azure에서 사용하려는 장애 조치(failover) 모델(클래식 또는 리소스 관리)을 선택합니다.
-4. 사용하려는 저장소 계정을 선택합니다. 갖고 있는 저장소 계정 말고 다른 저장소 계정을 사용하려면 [새로 만듭니다](#set-up-an-azure-storage-account). ARM 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 [Azure 포털](../storage/storage-create-storage-account-classic-portal.md)에서 저장소 계정을 만들 수 있습니다. 그런 후 **OK**를 클릭합니다.
+4. 사용하려는 저장소 계정을 선택합니다. 갖고 있는 저장소 계정 말고 다른 저장소 계정을 사용하려면 [새로 만듭니다](#set-up-an-azure-storage-account). ARM 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털에서](../storage/storage-create-storage-account-classic-portal.md) 만들면 됩니다. 그런 후 **OK**를 클릭합니다.
 5.  장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 보호를 위해 선택한 모든 컴퓨터에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 갖고 있는 네트워크 말고 다른 네트워크를 사용하려면 [새로 만듭니다](#set-up-an-azure-network). ARM 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 네트워크를 만들 수 있습니다. 해당하는 경우 서브넷을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
@@ -335,7 +338,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication5.png)
 
-11. **속성** > **속성 구성**에서 선택한 VM의 운영 체제 및 OS 디스크를 선택합니다. Azure VM 이름(대상 이름)이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인하고 필요 시 수정합니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
+11. **속성** > **속성 구성**에서 선택한 VM의 운영 체제 및 OS 디스크를 선택합니다. Azure VM 이름(대상 이름)이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인하고 필요한 경우 이름을 수정합니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png)
 
@@ -349,7 +352,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 원본 컴퓨터의 속성을 확인하는 것이 좋습니다.
 
-1. **설정** > **보호된 항목** > **복제된 항목**을 클릭하고 세부 정보를 보고 싶은 컴퓨터를 선택합니다.
+1. 속성을 확인하려면 **설정** > **보호된 항목** > **복제된 항목**을 클릭하고 컴퓨터를 선택합니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)
 
@@ -432,7 +435,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 	![테스트 장애 조치(Failover)](./media/site-recovery-hyper-v-site-to-azure/run-failover2.png)
 
-4. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하고 속성을 열거나 **설정** > **사이트 복구 작업**의 **테스트 장애 조치(Failover)**에서 진행률을 추적할 수 있습니다.
+4. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하고 속성을 열거나 **설정** > **Site Recovery 작업**의 **테스트 장애 조치(Failover)**로 이동하여 진행률을 추적할 수 있습니다.
 5. 장애 조치(Failover)가 **테스트 완료** 단계에 도달하면 다음 작업을 수행합니다.
 	1. Azure 포털에서 복제본 가상 컴퓨터를 봅니다. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
 	2. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다.
@@ -455,7 +458,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 	![Essentials](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 
-2. **상태** 타일에서 문제가 있는 사이트 서버와 지난 24시간 동안 사이트 복구에 의해 발생한 이벤트를 모니터링할 수 있습니다.
+2. **상태** 타일에서 문제가 있는 사이트 서버와 지난 24시간 동안 Site Recovery에 의해 발생한 이벤트를 모니터링할 수 있습니다.
 3. **복제된 항목**, **복구 계획** 및 **사이트 복구 작업** 타일에서 복제를 관리 및 모니터링할 수 있습니다. **설정** -> **작업** -> **사이트 복구 작업**에서 작업을 자세히 살펴볼 수 있습니다.
 
 
@@ -466,4 +469,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

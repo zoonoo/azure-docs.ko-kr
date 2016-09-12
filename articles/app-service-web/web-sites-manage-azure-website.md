@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="rachelap"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
 
-이 항목에는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹 앱 관리를 위한 리소스의 링크가 포함되어 있습니다. 관리에는 웹 앱을 지속적으로 원활하게 실행하는 모든 작업이 포함됩니다.
+이 항목에는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 관리하는 리소스의 링크가 포함되어 있습니다. 관리에는 웹 앱을 지속적으로 원활하게 실행하는 모든 작업이 포함됩니다.
 
 웹 앱의 수명 주기 동안 초기 배포에서 일반 작업, 유지 관리 및 업데이트를 거치면서 여러 관리 작업을 수행합니다.
 
@@ -97,4 +97,4 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
   
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

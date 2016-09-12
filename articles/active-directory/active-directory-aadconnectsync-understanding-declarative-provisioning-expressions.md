@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -73,25 +73,15 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 연산자는 왼쪽에서 오른쪽으로 계산되며 계산 우선 순위가 같습니다. 즉, *(승수)는 -(빼기) 전에 계산되지 않습니다. 2*(5+3)은 2*5+3과 같지 않습니다. 대괄호 ()는 왼쪽에서 오른쪽 계산 순서가 적절하지 않을 때 계산 순서를 변경하는 데 사용됩니다.
 
 ## 다중값 특성
-
-### 다중값 특성에 대한 특성 흐름
 함수는 단일 값 및 다중값 특성에서 작동할 수 있습니다. 다중값 특성의 경우 함수는 모든 값에 대해 작동하고 각 값에 동일한 함수를 적용합니다.
 
 예를 들어 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다. `Word([proxyAddresses],1,"@") & "@contoso.com"` @-기호가 있는 모든 값에 대해 도메인을 @contoso.com으로 바꿉니다. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.
 
-### 특성 값 병합
-특성 흐름에는 여러 다른 커넥터에서 다중값 특성을 병합해야 하는지를 결정하는 설정이 있습니다. 기본값은 **업데이트**이며 우선 순위가 높은 동기화 규칙이 우선함을 나타냅니다.
-
-![형식 병합](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
-
-또한 **병합** 및 **MergeCaseInsensitive**가 있습니다. 이 옵션을 사용하면 다양한 원본에서 값을 병합할 수 있습니다. 예를 들어, 여러 다른 포리스트에서 구성원 또는 proxyAddresses 특성을 병합하는 데 사용할 수 있습니다. 이 옵션을 사용하는 경우 하나의 개체의 범위에 있는 모든 동기화 규칙은 동일한 병합 유형을 사용해야 합니다. 한 커넥터의 **업데이트** 및 다른 커넥터의 **병합**을 정의할 수는 없습니다. 시도하면 오류가 발생합니다.
-
-**병합** 및 **MergeCaseInsensitive** 간에는 중복 특성 값을 처리하는 방법에 차이가 있습니다. 동기화 엔진은 중복 값이 대상 특성에 삽입되지 않도록 합니다. **MergeCaseInsensitive**와 차이가 있는 경우 중복 값이 표시되지 않습니다. 예를 들어, 대상 특성에 "SMTP:bob@contoso.com" 및 "smtp:bob@contoso.com"가 모두 표시되지 않습니다. **병합**은 정확한 값을 확인하고 차이가 있는 경우 다중값이 표시되지 않을 수 있습니다.
-
-**대체** 옵션은 **업데이트**와 동일하지만 사용되지 않습니다.
-
 ## 추가 리소스
 
-[Azure AD Connect sync: 함수 참조](active-directory-aadconnectsync-functions-reference.md) [Azure AD Connect Sync: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md) [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+- [Azure AD Connect 동기화: 선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
+- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

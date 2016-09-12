@@ -122,7 +122,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 1. 이 가상 컴퓨터에 이미 Sysprep을 실행하는 경우 **가상 컴퓨터에서 Sysprep을 실행했습니다** 상자를 선택합니다.
 
-    Sysprep은 특별히 가상 컴퓨터 버전의 Windows에서 시스템 특정 데이터를 제거하는 도구로, 해당 데이터를 다른 사람이 사용할 수 있는 템플릿으로 만듭니다. 자세한 내용은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)을 참조하세요.
+    Sysprep은 특별히 가상 컴퓨터 버전의 Windows에서 시스템 특정 데이터를 제거하는 도구로, 해당 데이터를 다른 사람이 사용할 수 있는 템플릿으로 만듭니다. 자세한 내용은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다.
 
 1. 구성과 캡처 설정을 마친 후 **캡처** 단추를 선택하여 검사점을 만듭니다.
 
@@ -158,4 +158,4 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

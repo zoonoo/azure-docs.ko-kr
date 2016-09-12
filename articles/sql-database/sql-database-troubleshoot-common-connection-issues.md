@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Azure SQL 데이터베이스에 대한 연결 문제 해결
 
-Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL 데이터베이스 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-the-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 마지막으로 [Azure SQL 데이터베이스 연결 문제에 대한 모든 관련 문서](#all-topics-for-azure-sql-database-connection-problems)를 나열합니다.
+Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL Database 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-the-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 마지막으로 [Azure SQL 데이터베이스 연결 문제에 대한 모든 관련 문서](#all-topics-for-azure-sql-database-connection-problems)를 나열합니다.
 
-연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 원인
 
@@ -44,7 +43,7 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 특정 연결 오류가 발생하면 문제를 빠르게 식별하고 해결하는 데 도움이 되는 [이 도구](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)를 사용해보세요.
 
 ## 일시적인 오류 문제 해결
-응용 프로그램에 일시적인 오류가 발생하는 경우 다음 토픽에서 이러한 오류를 해결하고 빈도를 줄이는 방법에 대한 팁을 검토합니다.
+응용 프로그램에 일시적인 오류가 발생하는 경우 다음 항목에서 이러한 오류를 해결하고 빈도를 줄이는 방법에 대한 팁을 검토합니다.
 
 - [서버 &lt;y&gt;의 데이터베이스 &lt;x&gt;을(를) 현재 사용할 수 없습니다(오류: 40613)](sql-database-troubleshoot-connection.md)
 - [SQL 연결 오류와 일시적 SQL 데이터베이스 오류의 문제 해결, 진단 및 예방](sql-database-connectivity-issues.md)
@@ -66,9 +65,9 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 3.	연결 문자열 및 기타 연결 설정을 확인합니다. [연결 문제 항목](sql-database-connectivity-issues.md#connections-to-azure-sql-database)의 연결 문자열 섹션을 참조하세요.
 4.	대시보드에서 서비스 상태를 확인합니다. 지역별 가동 중단이 있다고 생각되는 경우 [가동 중단에서 복구](sql-database-disaster-recovery.md)를 참조하여 새 지역으로 복구하는 단계를 따르세요.
 
-## Azure SQL 데이터베이스 연결 문제에 대한 모든 항목
+## Azure SQL Database 연결 문제와 관련된 모든 항목
 
-다음 표에서는 Azure SQL 데이터베이스 서비스에 직접 적용되는 모든 연결 문제가 항목이 나와 있습니다.
+다음 테이블에는 Azure SQL Database 서비스에 직접 적용되는 모든 연결 문제 항목이 나와 있습니다.
 
 
 | &nbsp; | 제목 | 설명 |
@@ -88,7 +87,7 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 
 - [Azure SQL 데이터베이스 성능 문제 해결](sql-database-troubleshoot-performance.md)
 - [Azure SQL 데이터베이스 권한 문제 해결](sql-database-troubleshoot-permissions.md)
-- [Azure SQL 데이터베이스 서비스에 대한 모든 항목 보기](sql-database-index-all-articles.md)
+- [Azure SQL Database 서비스와 관련된 모든 항목 보기](sql-database-index-all-articles.md)
 - [Microsoft Azure 설명서 검색](http://azure.microsoft.com/search/documentation/)
 - [Azure SQL 데이터베이스 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -101,4 +100,4 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 - [Azure SQL 데이터베이스를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [탄력적 데이터베이스 기능 및 도구를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

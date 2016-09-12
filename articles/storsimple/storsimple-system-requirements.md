@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/26/2016"
+   ms.date="08/31/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -54,16 +54,16 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
 
-| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
+| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 사항 |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80(HTTP)<sup>3</sup>| 아웃 | WAN | 아니요 |<ul><li>아웃 바운드 포트는 업데이트를 검색하기 위해 인터넷 액세스에 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li></ul> |
 |TCP 443(HTTPS)<sup>3</sup>| 아웃 | WAN | 예 |<ul><li>아웃 바운드 포트는 클라우드에서 데이터에 액세스하는 데 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li></ul>|
 |UDP 53(DNS) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
 | TCP 9354 | 아웃 | WAN | 예 |아웃바운드 포트는 StorSimple 장치에서 StorSimple 관리자 서비스와 통신하는 데 사용됩니다. |
-| 3260(iSCSI) | 그런 다음 | LAN | 아니요 | 이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다.|
-| 5985 | 그런 다음 | LAN | 아니요 | 인바운드 포트는 StorSimple 장치와의 통신을 위해 StorSimple 스냅숏 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
-| 5986 | 그런 다음 | LAN | 아니요 | 이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
+| 3260(iSCSI) | 내용 | LAN | 아니요 | 이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다.|
+| 5985 | 내용 | LAN | 아니요 | 인바운드 포트는 StorSimple 장치와의 통신을 위해 StorSimple 스냅숏 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5986 | 내용 | LAN | 아니요 | 이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -81,13 +81,24 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 > [AZURE.NOTE] 장치(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
-
+#### Azure 포털의 URL 패턴
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
 |`https://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
+| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
+
+#### Azure Government 포털의 URL 패턴
+| URL 패턴 | 구성 요소/기능 | 장치 IP |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
+|`https://*.backup.windowsazure.us`|장치 등록| 데이터 0만 해당|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
 | `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
@@ -127,12 +138,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
@@ -280,4 +286,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

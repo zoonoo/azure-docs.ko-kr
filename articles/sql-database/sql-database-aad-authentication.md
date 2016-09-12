@@ -272,7 +272,7 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 	FROM EXTERNAL PROVIDER;
 
 
- *Azure\_AD\_principal\_name* 은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
+*Azure\_AD\_principal\_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
 **예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
 
@@ -316,7 +316,7 @@ Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-연결 문자열 키워드 ``Integrated Security=True``는 Azure SQL 데이터베이스 연결에 지원되지 않습니다.
+연결 문자열 키워드 ``Integrated Security=True``는 Azure SQL 데이터베이스 연결에 지원되지 않습니다. ODBC 연결을 설정할 때는 공백을 제거하고 인증을 'ActiveDirectoryIntegrated'로 설정해야 합니다.
 
 ### 7\.2. Azure AD 사용자 이름 및 암호로 연결
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 인증 키워드가 Active Directory 암호로 설정되어 있어야 합니다. 연결 문자열에는 사용자 ID/UID 및 암호/PWD 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

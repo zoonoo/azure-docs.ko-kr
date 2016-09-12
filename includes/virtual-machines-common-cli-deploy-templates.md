@@ -223,6 +223,8 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 - 사용할 외부 세계의 도메인 이름
 - Ubuntu Server 버전 번호 -- 목록 중 하나만 허용
 
+자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+
 이러한 값을 확인했으면 해당 그룹을 만들고 Azure 구독에 이 템플릿을 배포할 수 있습니다.
 
     {
@@ -1278,4 +1280,4 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

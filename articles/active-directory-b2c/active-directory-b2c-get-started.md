@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.topic="article"
     ms.devlang="na"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Azure AD B2C 테넌트 만들기
@@ -42,7 +42,7 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 6. 이제 테넌트가 만들어지고 Active Directory 확장에 표시됩니다. 또한 사용자는 테넌트의 전역 관리자가 되었습니다. 필요에 따라 다른 전역 관리자를 추가할 수 있습니다.
 
     > [AZURE.IMPORTANT]
-	프로덕션 앱에 대해 B2C 테넌트를 사용하려는 경우 [프로덕션 규모와 B2C 테넌트 미리 보기 비교](active-directory-b2c-reference-tenant-type.md)의 문서를 참조하세요.
+	프로덕션 앱에 대해 B2C 테넌트를 사용하려는 경우 [프로덕션 규모와 B2C 테넌트 미리 보기 비교](active-directory-b2c-reference-tenant-type.md)의 문서를 참조하세요. 기존 B2C 테넌트를 삭제하고 동일한 도메인 이름으로 다시 만들어야 하는 경우 알려진 문제가 발생합니다. 다른 도메인 이름으로 B2C 테넌트를 만들어야 합니다.
 
 ## 3단계: Azure 포털의 B2C 기능 블레이드로 이동
 
@@ -79,4 +79,4 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 
 [Azure Active Directory B2C: 응용 프로그램 등록](active-directory-b2c-app-registration.md)을 읽어서 Azure AD B2C에 응용 프로그램을 등록하고 빠른 시작 응용 프로그램을 빌드하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

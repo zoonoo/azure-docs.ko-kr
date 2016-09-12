@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>
 
 # SSHD를 구성하여 Linux VM에 SSH 암호 사용 안 함
 
@@ -43,7 +43,7 @@ SSHD는 Linux VM에서 실행되는 SSH 서버입니다. SSH는 MacBook 또는 L
 
 ## 필수 조건
 
-- [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](link)
+- [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](virtual-machines-linux-mac-create-ssh-keys.md)
 - Azure 계정
   - [무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/)
   - [Azure 포털](http://portal.azure.com)
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 암호는 이제 무차별 암호 로그인 시도에서 VM을 보호하는 기능을 사용하지 않습니다. SSH로 키를 사용하면 훨씬 더 신속하고 안전하게 로그인할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

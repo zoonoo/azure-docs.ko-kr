@@ -14,29 +14,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/25/2016" 
 	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 DocumentDB용 데이터베이스를 만드는 방법
 
 Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-create-account.md), 데이터베이스, 컬렉션 및 문서가 있어야 합니다. 이 토픽에서는 Microsoft Azure 포털에서 DocumentDB 데이터베이스를 만드는 방법을 설명합니다. 여러 SDK 중 하나를 사용하여 데이터베이스를 만드는 방법에 대한 자세한 내용은 [DocumentDB 데이터베이스를 만드는 다른 방법](#other-ways-to-create-a-documentdb-database)을 참조하세요.
 
-1.  [Azure 포털](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다. **DocumentDB 계정**을 볼 수 없는 경우 **서비스 더 보기**를 클릭한 다음 **DocumentDB 계정**을 클릭합니다.
+1.  [Azure 포털](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다. **DocumentDB(NoSQL)**가 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
 
 
     ![데이터베이스를 만드는 방법을 보여주는 스크린샷(찾아보기 블레이드의 DocumentDB 계정 및 DocumentDB 계정 블레이드의 DocumentDB 계정이 강조 표시되어 있음)](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
-2.  **DocumentDB 계정** 블레이드에서 DocumentDB NoSQL 데이터베이스를 추가할 계정을 선택합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
+2.  **DocumentDB(NoSQL)** 블레이드에서 DocumentDB NoSQL 데이터베이스를 추가할 계정을 선택합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
 
 3. **DocumentDB 계정** 블레이드에서 **데이터베이스 추가**를 클릭합니다.
 
     ![데이터베이스를 만드는 방법을 보여주는 스크린샷(데이터베이스 추가 단추, ID 상자 및 확인 단추가 강조 표시되어 있음)](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
-4. **데이터베이스 추가** 블레이드에서 새 데이터베이스의 ID를 입력합니다. 이름의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다.
+4. **데이터베이스 추가** 블레이드에서 새 데이터베이스의 ID를 입력합니다. 이름의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다. 그런 후 **OK**를 클릭합니다.
 
-5. 화면 맨 아래의 **확인**을 클릭하여 새 데이터베이스를 만듭니다.
+    ![데이터베이스를 만드는 방법을 보여주는 스크린샷(데이터베이스 추가 단추, ID 상자 및 확인 단추가 강조 표시되어 있음)](./media/documentdb-create-database/docdb-database-creation-4.png)
 
-6. 이제 **DocumentDB 계정** 블레이드의 **데이터베이스** 렌즈에 새 데이터베이스가 표시됩니다.
+5. 이제 **DocumentDB 계정** 블레이드의 **데이터베이스** 렌즈에 새 데이터베이스가 표시됩니다.
  
 	![DocumentDB 계정 블레이드의 새 데이터베이스 스크린샷](./media/documentdb-create-database/docdb-database-creation-6.png)
 
@@ -52,4 +52,4 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-sql-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

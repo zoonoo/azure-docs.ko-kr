@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Azure 검색이란?
@@ -83,4 +83,4 @@ Azure 검색 인덱스를 채웠으면 REST API 또는 .NET SDK와 함께 간단
 
 Azure 계정이 없는 분은 등록 없이 무료 60분 세션을 사용할 수 있습니다. [Azure 앱 서비스 시도](http://go.microsoft.com/fwlink/p/?LinkId=618214)로 이동하여 "웹앱"을 선택하세요. 그런 다음 "ASP.NET + Azure 검색" 템플릿을 선택하여 시작하세요.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

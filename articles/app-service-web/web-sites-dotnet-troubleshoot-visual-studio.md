@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rachelap"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
@@ -54,9 +54,9 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **구독 관리 및 필터링**을 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
 	> [AZURE.NOTE]
-	구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
+	구독 파일을 다운로드한 경우 소스 코드 디렉터리의 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
-	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하십시오.
+	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
 
 2. **서버 탐색기**에서 **Azure**를 확장한 후 **웹 서비스**를 확장합니다.
 
@@ -598,7 +598,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 Azure 웹 앱은 IIS 7.0 이상 버전에서 사용할 수 있는 실패한 요청 추적 기능을 똑같이 사용합니다. 하지만 기록될 오류를 구성하는 IIS 설정에 대한 액세스 권한이 없습니다. 실패한 요청 추적을 사용하도록 설정하면 모든 오류가 캡처됩니다.
 
-Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정할 수 있지만 Visual Studio에서 해당 로그를 볼 수는 없습니다. 이러한 로그는 XML 파일입니다. 스트리밍 로그 서비스만 일반 텍스트 모드에서 읽을 수 있는 것으로 간주 되는 파일, *.txt*, *.html*, 및 *.log* 파일만을 모니터링합니다.
+Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정할 수 있지만 Visual Studio에서 해당 로그를 볼 수는 없습니다. 이러한 로그는 XML 파일입니다. 스트리밍 로그 서비스만 일반 텍스트 모드에서 읽을 수 있는 것으로 간주 되는 파일, *.txt*, *.html* 및 *.log* 파일만을 모니터링합니다.
 
 실패한 요청 추적 로그는 FTP를 통해 브라우저에서 직접 보거나 로컬에서 FTP 도구를 사용하여 로컬 컴퓨터에 다운로드한 후 볼 수 있습니다. 이 섹션에서는 브라우저에서 직접 보겠습니다.
 
@@ -713,7 +713,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 
 ### 웹 서버 로그 분석
 
-웹 서버 로그 분석에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+웹 서버 로그 분석에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/> 웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)(영문)<br/> 웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
@@ -728,4 +728,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

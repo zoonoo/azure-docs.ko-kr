@@ -139,10 +139,14 @@ Azure 포털의 Site Recovery는 여러 새 기능을 제공합니다.
 - VPN 사이트 간 연결에 대한 지원되는 배포 모델 및 [연결 설정](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network) 방법에 대해 [알아봅니다](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 - 또는 [Azure Express 경로](../expressroute/expressroute-introduction.md)를 설정할 수 있습니다. Express 경로를 사용하여 Azure 네트워크를 설정하는 방법에 대해 [자세히 알아봅니다](../expressroute/expressroute-howto-vnet-portal-classic.md).
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 네트워크에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
+
 ### Azure 저장소 계정 설정
 
 - Azure로 복제된 데이터를 저장하려면 표준 또는 프리미엄 Azure 저장소 계정이 있어야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [ARM 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 - 복제된 데이터에 프리미엄 계정을 사용하는 경우 온-프레미스 데이터에 지속적인 변화를 캡처하는 복제 로그를 저장하는 추가 표준 계정을 만들어야 합니다.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 저장소 계정에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 
 ### 자동 검색용 계정 준비
 
@@ -859,4 +863,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

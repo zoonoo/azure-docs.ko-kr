@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 클래식 포털을 사용하여 작업 진행률 확인하는 방법" 
-	description="Azure 클래식 포털을 사용하여 작업 진행률을 확인하는 방법을 알아봅니다." 
+	pageTitle="Azure 포털을 통해 인코딩 작업 진행 상태 모니터링" 
+	description="이 자습서에서는 Azure 포털을 사용하여 작업 진행 상태를 모니터링하는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,25 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/29/2016"  
 	ms.author="juliako"/>
 
-#방법: 작업 진행 상태 확인
+#Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
 
 > [AZURE.SELECTOR]
 - [포털](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST (영문)](media-services-rest-check-job-progress.md)
 
-##포털을 사용하여 작업 상태 확인하기
+## 개요
 
-1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
-2. **작업** 페이지를 선택합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-	페이지에서 모든 작업 상태를 볼 수 있습니다. 상태, 시간 또는 작업 ID로 필터링할 수도 있습니다.
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다.
 
-	![CheckStatus][checkstatus]
+인코딩 작업의 진행 상태를 모니터링하려면 페이지 맨 위에 있는 **설정**을 클릭한 후 **작업**을 선택합니다.
 
+![작업](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+
+작업을 클릭하면 자세한 내용을 확인할 수 있습니다.
+
+![작업](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##다음 단계
+
+인코딩 작업이 완료되면 [여기서](media-services-portal-publish.md) 설명하는 대로 자산을 게시 및 재생할 수 있습니다.
 
 ##미디어 서비스 학습 경로
 
@@ -41,13 +49,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-##다음 단계
-
-콘텐츠를 게시합니다. 자세한 내용은 [방법: 자산 인코딩](media-services-manage-content.md#publish)을 참조하세요.
-
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

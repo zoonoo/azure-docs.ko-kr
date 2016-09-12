@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/30/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -24,7 +24,7 @@ Azure Redis Cache에서는 캐시 인스턴스를 모니터링하기 위한 몇 
 
 캐시 메트릭은 Redis [INFO](http://redis.io/commands/info) 명령을 사용하여 수집됩니다. 각 캐시 메트릭에 사용되는 다양한 INFO 값에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](#available-metrics-and-reporting-intervals)을 참조하세요.
 
-캐시 메트릭을 보려면 [Azure 포털](https://portal.azure.com)에서 캐시 인스턴스를 [찾으세요](cache-configure.md). Azure Redis Cache 인스턴스 메트릭은 **Redis 메트릭** 블레이드에서 액세스합니다.
+캐시 메트릭을 보려면 [Azure 포털](https://portal.azure.com)에서 캐시 인스턴스를 [찾으세요](cache-configure.md#configure-redis-cache-settings). Azure Redis Cache 인스턴스 메트릭은 **Redis 메트릭** 블레이드에서 액세스합니다.
 
 ![Redis 메트릭][redis-cache-redis-metrics-blade]
 
@@ -36,7 +36,7 @@ Azure Redis Cache에서는 캐시 인스턴스를 모니터링하기 위한 몇 
 
 ## 캐시 진단 사용
 
-Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 기능을 제공하므로 원하는 도구를 사용하여 직접 해당 데이터에 액세스하여 데이터를 처리할 수 있습니다. 캐시 진단을 수집하여 저장하고 Azure 포털에 표시하려면 저장소 계정을 구성해야 합니다. 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 계정을 공유하며 구성이 변경되면 해당 지역에 있는 구독의 모든 캐시에 적용됩니다.
+Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 기능을 제공하므로 원하는 도구를 사용하여 직접 해당 데이터에 액세스하여 데이터를 처리할 수 있습니다. 캐시 진단을 수집하여 저장하고 Azure 포털에 표시하려면 저장소 계정을 구성해야 합니다. 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 계정을 공유하며 구성이 변경되면 해당 지역에 있는 구독의 모든 캐시에 변경 내용이 적용됩니다.
 
 캐시 진단을 사용하도록 설정하고 구성하려면 캐시 인스턴스의 **Redis Cache** 블레이드로 이동합니다. 진단을 사용하도록 설정하지 않으면 진단 차트 대신 메시지가 표시됩니다.
 
@@ -54,11 +54,11 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 
 진단 설정이 구성되면 **저장**을 클릭하여 구성을 저장합니다. 변경 사항이 적용되는 데 다소 시간이 걸릴 수 있습니다.
 
->[AZURE.IMPORTANT] 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다.
+>[AZURE.IMPORTANT] 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 변경 내용이 적용됩니다.
 
 저장된 메트릭을 보려면 `WADMetrics`로 시작하는 이름의 테이블을 저장소 계정에서 검사합니다. Azure 포털 외부에 저장된 메트릭에 액세스하는 방법에 대한 자세한 내용은 [Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플을 참조하세요.
 
->[AZURE.NOTE] 선택한 저장소 계정에 저장된 메트릭만 Azure 포털에 표시됩니다. 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수 있으나 Azure 포털에 표시되지 않습니다.
+>[AZURE.NOTE] 선택한 저장소 계정에 저장된 메트릭만 Azure 포털에 표시됩니다. 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.
 
 ## 사용 가능한 메트릭 및 보고 간격
 
@@ -296,4 +296,4 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

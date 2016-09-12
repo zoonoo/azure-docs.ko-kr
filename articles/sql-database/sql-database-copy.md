@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-Azure [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 사용하여 SQL 데이터베이스의 복사본을 만들 수 있습니다. 복사 작업은 트랜잭션 로그의 끝부분을 복사한 다음, 자동화 백업에 속하는 전체, 차등 및 트랜잭션 로그 백업을 사용하여 마지막 트랜잭션 로그 백업 시간을 기준으로 원본 데이터베이스와 트랜잭션이 일치하는 데이터베이스 복사본을 만듭니다.
+Azure [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)을 사용하여 SQL 데이터베이스의 복사본을 만들 수 있습니다. 복사 작업은 트랜잭션 로그의 끝부분을 복사한 다음 자동화 백업에 속하는 전체, 차등 및 트랜잭션 로그 백업을 사용하여 마지막 트랜잭션 로그 백업 시간을 기준으로 소스 데이터베이스와 트랜잭션이 일치하는 데이터베이스 복사본을 만듭니다.
 
 동일한 서버 또는 다른 서버에 데이터베이스 복사본을 만들 수 있습니다. 데이터베이스 사본의 서버 계층과 성능 수준(가격 책정 계층)은 원본 데이터베이스와 동일합니다. 복사 완료 후 사본은 완전히 작동하는 독립 데이터베이스입니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.
 
@@ -57,4 +57,4 @@ SQL 데이터베이스를 복사하려면 다음이 필요합니다.
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

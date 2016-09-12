@@ -72,7 +72,7 @@ Azure 응용 프로그램 게이트웨이는 백 엔드 인스턴스의 상태�
 
 ## 구성 및 관리
 
-응용 프로그램 게이트웨이는 REST API 및 PowerShell cmdlet을 사용하여 만들고 관리할 수 있습니다.
+REST APIs, PowerShell cmdlets 또는 [Azure Portal](https://portal.azure.com/)을 사용하여 Application Gateway를 만들고 관리할 수 있습니다.
 
 
 ## 다음 단계
@@ -81,4 +81,4 @@ Azure 응용 프로그램 게이트웨이는 백 엔드 인스턴스의 상태�
 
 URL 기반 콘텐츠 라우팅을 사용하여 응용 프로그램 게이트웨이를 만드는 방법에 대한 자세한 내용은 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-arm-ps.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/25/2016"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
@@ -120,7 +120,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 ## 클러스터를 만드는 동안 스크립트 작업 사용
 
-이 섹션에서는 HDInsight 클러스터를 만들 때 스크립트 작업을 사용하는 다양한 방법, 다시 말해서 Azure 포털, ARM 템플릿, PowerShell CMDlet 및 .NET SDK를 사용하는 방법에 대해 설명합니다.
+이 섹션에서는 HDInsight 클러스터를 만들 때 스크립트 작업을 사용하는 다양한 방법, 다시 말해서 Azure 포털, Azure Resource Manager 템플릿, PowerShell cmdlet 및 .NET SDK를 사용하는 방법에 대해 설명합니다.
 
 ### 클러스터를 만드는 동안 Azure 포털에서 스크립트 작업 사용
 
@@ -143,19 +143,19 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 ### Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
 
-이 섹션에서 Azure 리소스 관리자(ARM) 템플릿을 사용하여 HDInsight 클러스터를 만들고 클러스터에서 사용자 지정 구성 요소(이 예에서는 R)를 설치하는 스크립트 작업을 사용할 수 있습니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 만드는 샘플 ARM 템플릿을 제공합니다.
+이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만들며, 스크립트 작업을 사용하여 클러스터에 사용자 지정 구성 요소(이 예제에서는 R)를 설치합니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 만드는 샘플 템플릿을 제공합니다.
 
-> [AZURE.NOTE] 이 섹션의 단계는 스크립트 작업을 사용하여 클러스터를 만드는 방법을 보여 줍니다. HDInsight 응용 프로그램을 사용하여 ARM 템플릿에서 클러스터를 만드는 예를 보려면 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+> [AZURE.NOTE] 이 섹션의 단계는 스크립트 작업을 사용하여 클러스터를 만드는 방법을 보여 줍니다. HDInsight 응용 프로그램을 사용하여 템플릿에서 클러스터를 만드는 예를 보려면 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 #### 시작하기 전에
 
 * HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
-* ARM 템플릿을 만드는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+* 템플릿을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 * 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
 #### 스크립트 작업을 사용하여 클러스터 만들기
 
-1. 다음 템플릿을 컴퓨터의 위치에 복사합니다. 이 템플릿은 헤드 노트에 R뿐만 아니라 클러스터에 작업자를 설치합니다. 또한 JSON 템플릿이 유효한지 확인할 수 있습니다. 템플릿 콘텐츠를 [JSONLint](http://jsonlint.com/), 즉, 온라인 JSON 유효성 검사기 도구에 붙여 넣습니다.
+1. 다음 템플릿을 컴퓨터의 위치에 복사합니다. 이 템플릿은 헤드 노드에 Giraph를 설치하며 클러스터의 작업자 노드도 설치합니다. 또한 JSON 템플릿이 유효한지 확인할 수 있습니다. 템플릿 콘텐츠를 [JSONLint](http://jsonlint.com/), 즉, 온라인 JSON 유효성 검사기 도구에 붙여 넣습니다.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -252,7 +252,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
 		                            "isDefault": true,
 		                            "container": "[parameters('clusterStorageAccountContainer')]",
-		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
 		                        }
 		                    ]
 		                },
@@ -272,8 +272,8 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installR",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "name": "installGiraph",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -323,7 +323,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE] `Get-AzureRmSubscription`을 사용하여 계정과 관련된 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
+    > [AZURE.NOTE] `Get-AzureRmSubscription`을 사용하여 계정과 관련한 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
 
 5. 기본 리소스 그룹이 없는 경우 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
 
@@ -390,11 +390,11 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. **Add-AzureRmHDInsightScriptAction** cmdlet을 사용하여 스크립트를 호출합니다. 다음 예제에서는 클러스터에 R을 설치하는 스크립트를 사용합니다.
+3. **Add-AzureRmHDInsightScriptAction** cmdlet을 사용하여 스크립트를 호출합니다. 다음 예제에서는 클러스터에 Giraph를 설치하는 스크립트를 사용합니다.
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
 	**Add-AzureRmHDInsightScriptAction** cmdlet에서 다음과 같은 매개 변수를 사용합니다.
 
@@ -452,8 +452,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 5. 스크립트 작업 추가 블레이드에서 다음 정보를 입력합니다.
 
-    * __이름__: 이 스크립트 작업에 사용할 이름입니다. 이 예제에서는 `R`입니다.
-    * __스크립트 URI__: 스크립트 URI입니다. 이 예제에서는 `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`입니다.
+    * __이름__: 이 스크립트 작업에 사용할 이름입니다. 이 예제에서 해당 이름은 `Giraph`입니다.
+    * __스크립트 URI__: 스크립트 URI입니다. 이 예제에서 해당 URI는 `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`입니다.
     * __헤드__, __작업자__ 및 __Zookeeper__: 이 스크립트를 적용할 노드를 선택합니다. 이 예에서는 헤드와 작업자가 선택되었습니다.
     * __매개 변수__: 스크립트에서 매개 변수를 수락하면 여기에 해당 매개 변수를 입력합니다.
     * __지속형__: 클러스터를 강화할 때 새 작업자 노드에 스크립트가 적용되도록 스크립트를 보존하려면 이 항목을 선택합니다.
@@ -485,8 +485,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
         OperationState  : Succeeded
         ErrorMessage    :
-        Name            : R
-        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        Name            : Giraph
+        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
 
@@ -500,7 +500,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
         azure config mode arm
 
-2. 다음을 사용하여 Azure 구독에 인증합니다.
+2. 다음 정보를 사용하여 Azure 구독에 인증합니다.
 
         azure login
 
@@ -691,7 +691,6 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 클러스터를 사용자 지정하는 스크립트를 만들고 사용하는 데 대한 정보 및 예제는 다음을 참조하세요.
 
 - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
-- [HDInsight 클러스터에서 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)
 - [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 - [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 
@@ -699,4 +698,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

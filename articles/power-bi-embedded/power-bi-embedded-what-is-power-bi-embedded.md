@@ -55,33 +55,20 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure ARM
 
 ## 앱 토큰으로 인증 및 권한 부여
 
-**Microsoft Power BI Embedded**는 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다. 대신, 응용 프로그램은 **응용 프로그램 인증 토큰(앱 토큰)**을 통해 Power BI 보고서를 **Microsoft Power BI Embedded**로 렌더링하는 권한 부여를 나타냅니다. 이러한 **앱 토큰**은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다. [앱 토큰](power-bi-embedded-get-started-sample.md#key-flow)을 참조하세요.
+**Microsoft Power BI Embedded**는 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다. 대신, 응용 프로그램은 **Microsoft Power BI Embedded** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)**을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다. 이러한 **앱 토큰**은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다. [앱 토큰](power-bi-embedded-get-started-sample.md#key-flow)을 참조하세요.
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
 
-### 응용 프로그램 인증 토큰
-
-**응용 프로그램 인증 토큰(앱 토큰)**은 **Microsoft Power BI Embedded**에 대한 인증에 사용됩니다. 세 가지 유형의 **앱 토큰**이 있습니다.
+**응용 프로그램 인증 토큰(앱 토큰)**은 **Microsoft Power BI Embedded**에 대한 인증에 사용됩니다. 다음과 같은 세 가지 형식의 **앱 토큰**이 있습니다.
 
 1.	프로비저닝 토큰 - 새 **작업 영역**을 **작업 영역 컬렉션**에 프로비전할 때 사용
 2.	개발 토큰 - **Power BI REST API**를 직접 호출할 때 사용
 3.	포함 토큰 - 포함된 iframe에서 보고서를 렌더링하도록 호출할 때 사용
 
-이러한 토큰은 **Microsoft Power BI Embedded**와 상호 작용하는 여러 단계에 사용됩니다. 앱에서 Power BI로 사용 권한을 위임할 수 있도록 토큰을 디자인합니다.
-
-### 앱 토큰 생성
-
-미리 보기로 제공되는 SDK를 사용하여 토큰을 생성할 수 있습니다. 먼저 Create\_\_\_Token() 메서드 중 하나를 호출합니다. 그런 다음 **작업 영역 컬렉션**에서 검색한 액세스 키로 Generate() 메서드를 호출합니다. 토큰에 대한 기본 Create 메서드는 Microsoft.PowerBI.Security.PowerBIToken 클래스에 정의되어 있으며 다음과 같습니다.
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken](https://msdn.microsoft.com/library/mt710366.aspx)
-
-[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) 및 [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)을 사용하는 방법에 대한 예는 [Microsoft Power BI Embedded 샘플 코드 시작](power-bi-embedded-get-started-sample.md)을 참조하세요.
-
+이러한 토큰은 **Microsoft Power BI Embedded**와 상호 작용하는 여러 단계에 사용됩니다. 앱에서 Power BI로 사용 권한을 위임할 수 있도록 토큰을 디자인합니다. 자세한 내용은 [앱 토큰 흐름](power-bi-embedded-app-token-flow.md)을 참조하세요.
 
 ## 참고 항목
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

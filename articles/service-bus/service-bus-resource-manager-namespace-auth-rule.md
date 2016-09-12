@@ -26,7 +26,7 @@
 
 >[AZURE.NOTE] 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
 >
->-    [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](service-bus-resource-manager-namespace-event-hub.md)
+>-    [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 >-    [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 >-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 >-    [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
@@ -37,7 +37,7 @@
 
 이 템플릿을 사용하여 네임스페이스 및 메시징 엔터티(이 경우에는 큐)에 대한 서비스 버스 권한 부여 규칙을 배포합니다.
 
-이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas-overview.md)를 사용합니다. SAS를 사용하면 응용 프로그램을 네임스페이스 또는 특정 권한이 연관된 메시징 엔터티(큐 또는 토픽)에서 구성된 액세스 키를 사용하여 서비스 버스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 서비스 버스를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
+이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas-overview.md)를 사용합니다. SAS를 사용하는 경우 응용 프로그램이 네임스페이스 또는 특정 권한이 연결되어 있는 메시징 엔터티(큐 또는 토픽)에서 구성된 선택키를 사용하여 서비스 버스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 서비스 버스를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -177,4 +177,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [서비스 버스 인증 규칙 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

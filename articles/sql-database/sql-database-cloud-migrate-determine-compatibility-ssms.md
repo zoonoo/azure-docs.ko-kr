@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL 데이터베이스 호환성 확인
@@ -38,15 +38,15 @@
 
 	![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. 내보내기 마법사에서 **다음**을 클릭한 다음 **설정** 탭에서 BACPAC 파일을 로컬 디스크 위치 또는 Azure BLOB에 저장하는 내보내기를 구성합니다. BACPAC 파일은 데이터베이스 호환성 문제가 없는 경우에만 저장됩니다. 호환성 문제가 있는 경우 콘솔에 표시됩니다.
+4. 내보내기 마법사에서 **다음**을 클릭한 다음 **설정** 탭에서 BACPAC 파일을 로컬 디스크 위치 또는 Azure BLOB에 저장하는 내보내기를 구성합니다. 데이터베이스 호환성 문제가 없으면 BACPAC 파일이 저장됩니다. 호환성 문제가 있는 경우 콘솔에 해당 문제가 표시됩니다.
 
 	![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. **고급 탭**을 클릭하고 **모두 선택** 확인란을 선택 취소하여 데이터 내보내기를 건너뜁니다. 이 시점의 목표는 단순히 호환성을 테스트하는 것입니다.
+5. 데이터 내보내기를 건너뛰려면 **고급 탭**을 클릭하고 **모두 선택** 확인란을 선택 취소합니다. 이 시점의 목표는 단순히 호환성을 테스트하는 것입니다.
 
 	![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. **다음**을 클릭한 후 **마침**을 클릭합니다. 마법사가 스키마의 유효성을 확인한 다음 데이터베이스 호환성 문제가 나타납니다(있는 경우).
+6. **다음**을 클릭한 후 **마침**을 클릭합니다. 마법사가 스키마의 유효성을 확인하고 나면 데이터베이스 호환성 문제(있는 경우)가 표시됩니다.
 
 	![설정 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
@@ -67,4 +67,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

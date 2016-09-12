@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Blob 데이터 집합을 복사/이동하는 방법 알아보기 | Azure Data Factory" 
+	pageTitle="Azure Blob Storage 간 데이터 복사 | Azure Data Factory" 
 	description="Azure Data Factory에서 Blob 데이터를 복사하는 방법을 알아봅니다. 샘플 사용: Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법입니다." 
     keywords="Blob 데이터, Azure Blob 복사"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 Azure Blob 간 데이터 이동
@@ -38,7 +38,7 @@ Azure Blob 저장소 간에 데이터를 복사하는 파이프라인을 만드�
 4.	[AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4.	[BlobSource](#azure-blob-copy-activity-type-properties) 및 [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 Azure Blob에서 Azure SQL 데이터베이스의 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+샘플은 Azure Blob에서 Azure SQL 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 **Azure SQL 연결된 서비스:**
 
@@ -210,7 +210,7 @@ Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서�
 4.	[SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 및 [BlobSink](#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 
-샘플은 Azure SQL 데이터베이스의 테이블에서 Azure Blob로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+샘플은 Azure SQL 테이블에서 Azure Blob으로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 **Azure SQL 연결된 서비스:**
 
@@ -433,7 +433,7 @@ partitionedBy 섹션에서 사용할 수 있는 데이터 팩터리 시스템 �
 
 
 ## Azure Blob 복사 활동 형식 속성  
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 집합, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 작업의 경우 원본 및 싱크의 형식에 따라 달라집니다.
 
@@ -441,17 +441,34 @@ partitionedBy 섹션에서 사용할 수 있는 데이터 팩터리 시스템 �
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. <br/><br/>**quoteChar** 속성을 지정한 경우 따옴표로 묶인 빈 문자열도 이 속성을 사용하여 null로 처리될 수 있습니다. | TRUE(기본값) <br/>FALSE | 아니요 |
-| skipHeaderLineCount | 건너뛰어야 하는 줄 수를 나타냅니다. 입력 데이터 집합이 **TextFormat**을 사용하는 경우에만 해당합니다. | 0에서 Max. 사이의 정수입니다. | 아니요 | 
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. | True(기본값), False | 아니요 | 
-
 
 **BlobSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | 열 정의의 헤더를 추가할지를 지정합니다. | TRUE<br/>FALSE(기본값) | 아니요 |
 | copyBehavior | 원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. | **PreserveHierarchy:** 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/>**MergeFiles:(기본값)** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
+
+**BlobSource**에서도 곧 사용되지 않을 이러한 두 속성을 지원합니다.
+
+- **treatEmptyAsNull**: Null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다.
+- **skipHeaderLineCount** - 건너뛰어야 하는 줄 수를 지정합니다. 입력 데이터 집합이 TextFormat을 사용하는 경우에만 해당합니다.
+
+마찬가지로, **BlobSink**는 곧 사용되지 않을 다음 속성을 지원합니다.
+
+- **blobWriterAddHeader**: 출력 데이터 집합에 쓰는 동안 열 정의의 헤더를 추가할지 여부를 지정합니다.
+
+이제 데이터 집합은 동일한 기능을 구현하는 다음 속성을 지원합니다. **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**
+
+다음 표에서는 곧 사용되지 않을 Blob 원본/싱크 속성 대신 새 데이터 집합 속성을 사용하는 지침을 제공합니다.
+
+| 복사 작업 속성 | 데이터 집합 속성 |
+| :---------------------- | :---------------- | 
+| BlobSource에서 skipHeaderLineCount | skipLineCount 및 firstRowAsHeader. 줄을 먼저 건너뛴 다음 첫 번째 행을 헤더로 읽습니다. |
+| BlobSource에서 treatEmptyAsNull | 입력 데이터 집합에서 treatEmptyAsNull |
+| BlobSink에서 blobWriterAddHeader | 출력 데이터 집합에서 firstRowAsHeader | 
+
+이러한 속성에 대한 자세한 내용은 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요.
 
 ### recursive 및 copyBehavior 예제
 이 섹션에서는 다양한 recursive 및 copyBehavior 값 조합에 대한 복사 작업의 결과 동작을 설명합니다.
@@ -477,4 +494,4 @@ false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

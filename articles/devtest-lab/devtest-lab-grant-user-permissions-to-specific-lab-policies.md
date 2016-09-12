@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # 특정 랩 정책에 사용자 권한 부여
@@ -28,12 +28,12 @@
 
 DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/**를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
-예를 들어 사용자에게 **허용된 VM 크기** 정책에 대한 읽기/쓰기 권한을 부여하기 위해 **Microsoft.DevTestLab/labs/policySets/policies/*** 작업을 수행하는 사용자 지정 역할을 만든 다음 적절한 사용자를 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 범위의 이 사용자 지정 역할에 할당합니다.
+예를 들어 사용자에게 **허용된 VM 크기** 정책에 대한 읽기/쓰기 권한을 부여하려는 경우 **Microsoft.DevTestLab/labs/policySets/policies/*** 작업을 수행하는 사용자 지정 역할을 만든 다음 적절한 사용자를 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 범위에서 이 사용자 지정 역할에 할당합니다.
 
 RBAC의 사용자 지정 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서의 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) 섹션을 참조하세요.
 
 ##PowerShell을 사용하여 랩 사용자 지정 역할 만들기
-시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 다음 문서를 읽어야 합니다. [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
+작업을 시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre) 문서의 내용을 확인해야 합니다.
 
 Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
 ##사용자 지정 역할을 사용하여 특정 정책에 대해 사용자에게 권한 할당
-사용자 지정 역할을 정의하고 나면 사용자에게 이 역할을 할당할 수 있습니다. 사용자 지정 역할을 사용자에게 할당하려면 먼저 해당 사용자를 나타내는 **ObjectId**를 가져와야 합니다. 이 작업을 위해 **Get AzureRmADUser** cmdlet을 사용합니다.
+사용자 지정 역할을 정의하고 나면 사용자에게 이 역할을 할당할 수 있습니다. 사용자 지정 역할을 사용자에게 할당하려면 먼저 해당 사용자를 나타내는 **ObjectId**를 가져와야 합니다. 이 작업을 수행하려면 **Get-AzureRmADUser** cmdlet을 사용합니다.
 
 다음 예제에서 *SomeUser* 사용자의 **ObjectId**는 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3입니다.
 
@@ -70,7 +70,7 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-사용자 및 사용자 지정 역할 이름에 대한 **ObjectId**가 있는 경우 **New-AzureRmRoleAssignment** cmdlet을 사용하여 해당 역할을 사용자에게 할당할 수 있습니다.
+사용자 및 사용자 지정 역할 이름에 대한 **ObjectId**를 가져온 후에는 **New-AzureRmRoleAssignment** cmdlet을 사용하여 해당 역할을 사용자에게 할당할 수 있습니다.
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
@@ -80,6 +80,8 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
 - LabVmsShutdown
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## 다음 단계
 
@@ -93,6 +95,6 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 - [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md).
 
-- [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md).
+- [아티팩트가 지정된 VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

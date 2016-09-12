@@ -36,25 +36,25 @@
 
 1. [Power BI Embedded - 보고서를 웹앱으로 통합](http://go.microsoft.com/fwlink/?LinkId=761493) 샘플을 GitHub에서 다운로드하여 압축을 해제합니다.
 
-2. Visual Studio에서 **PowerBI-embedded.sln**을 엽니다.
+2. Visual Studio에서 **PowerBI-embedded.sln**을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGET 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
 
 3. 솔루션을 빌드하십시오.
 
 4. **ProvisionSample** 콘솔 앱을 실행합니다. 샘플 콘솔 앱에서 작업 영역을 프로비전하고 PBIX 파일을 가져옵니다.
 
-5. 새 **작업 영역**을 프로비전하려면 옵션 5를 선택하고 **기존 작업 영역 컬렉션의 새 작업 영역을 프로비전**합니다.
+5. 새 **작업 영역**을 프로비전하려면 옵션 5 **기존 작업 영역 컬렉션에서 새 작업 영역 프로비전**을 선택합니다.
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. **작업 영역 컬렉션** 이름 및 **액세스 키**를 입력합니다. **Azure 포털**의 이름 및 액세스 키를 가져올 수 있습니다. **액세스 키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 액세스 키 보기](power-bi-embedded-get-started-sample.md#view-access-keys)를 참조하세요.
+6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started-sample.md#view-access-keys)를 참조하세요.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
-7. 새로 만든 **작업 영역 ID**를 복사하고 저장하여 이 문서의 뒷부분에서 사용합니다. **작업 영역 ID**가 만들어지면 **Azure 포털**에서 찾을 수 있습니다.
+7. 이 문서의 뒷부분에서 사용할 수 있도록 새로 만든 **작업 영역 ID**를 복사하여 저장합니다. **작업 영역 ID**는 **Azure 포털**에서 확인할 수 있습니다.
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. PBIX 파일을 **작업 영역**에 가져오려면 옵션 **6을 선택합니다. 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+8. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 9. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
 
@@ -67,11 +67,11 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] PBIX 파일에 직접 쿼리 연결이 포함되어 있는 경우 연결 문자열을 업데이트하도록 옵션 7을 실행합니다.
 
-이때 Power BI PBIX 보고서를 **작업 영역**에 가져옵니다. 이제 **Power BI Embedded** 시작 샘플 웹앱을 실행하는 방법을 살펴보겠습니다.
+이제 Power BI PBIX 보고서를 **작업 영역**에 가져왔습니다. 다음으로는 **Power BI Embedded** 시작 샘플 웹앱을 실행하는 방법을 살펴보겠습니다.
 
 ## 샘플 웹앱 실행
 
-웹앱 샘플은 **작업 영역**에 가져온 보고서를 렌더링하는 샘플 대시보드입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
+웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 대시보드입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
 
 1. **PowerBI-embedded** Visual Studio 솔루션에서 **EmbedSample** 웹 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 2. **web.config**의 **EmbedSample** 웹 응용 프로그램에서 **appSettings**, 즉 **AccessKey**, **WorkspaceCollection** 이름 및 **WorkspaceId**를 편집합니다.
@@ -96,7 +96,7 @@ Checking import state... Succeeded
 
 
 ## 샘플 코드 탐색
-**Microsoft Power BI Embedded** 샘플은 **Power BI** 보고서를 앱으로 통합하는 방법을 보여 주는 대시보드 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드의 부분을 강조해서 보여 줍니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 작업을 사용자 입력에 따라 모델, 보기 및 제어의 세 가지 별도 클래스로 구분합니다. MVC에 대한 알아보려면 [Learn About ASP.NET(ASP.NET에 대해 자세히 알아보기)](http://www.asp.net/mvc)을 참조하세요.
+**Microsoft Power BI Embedded** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여 주는 대시보드 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 작업을 사용자 입력에 따라 모델, 보기 및 제어의 세 가지 별도 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](http://www.asp.net/mvc)를 참조하세요.
 
 **Microsoft Power BI Embedded** 샘플 코드는 다음과 같이 구분됩니다. 각 섹션에는 샘플 코드를 쉽게 찾을 수 있도록 PowerBI-embedded.sln 솔루션에 파일 이름이 포함되어 있습니다.
 
@@ -133,7 +133,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ### 보기
 **보기**를 통해 여러 Power BI **보고서** 및 하나의 Power BI **보고서** 표시를 관리합니다.
 
-**Reports.cshtml**: **ActionLink**를 만드는 **Model.Reports**를 반복합니다. **ActionLink**는 다음과 같이 구성됩니다.
+**Reports.cshtml**: **Model.Reports**를 반복하여 **ActionLink**를 만듭니다. **ActionLink**는 다음과 같이 구성됩니다.
 
 |부|설명
 |---|---
@@ -167,7 +167,7 @@ Report.cshtml: **Model.AccessToken** 및 **PowerBIReportFor**에 대한 람다 �
 
 ### Controller
 
-**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져올 **서명 키**에서 JWT(JSON 웹 토큰)가 생성됩니다. **자격 증명**은 **PowerBIClient**의 인스턴스를 만드는 데 사용됩니다. **PowerBIClient**의 인스턴스가 있으면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
+**DashboardController.cs**: **앱 토큰**을 전달하는 PowerBIClient를 만듭니다. **자격 증명**을 가져오기 위해 **서명 키**에서 JWT(JSON Web Token)가 생성됩니다. **자격 증명**은 **PowerBIClient** 인스턴스를 만드는 데 사용됩니다. **PowerBIClient** 인스턴스가 작성되면 GetReports() 및 GetReportsAsync()를 호출할 수 있습니다.
 
 CreatePowerBIClient()
 
@@ -222,14 +222,14 @@ Task<ActionResult> Report(string reportId)
 
 ### 앱에 보고서 통합
 
-**보고서**가 있으면 Power BI **보고서**를 포함하는 **IFrame**을 사용합니다. 다음은 **Microsoft Power BI Embedded** 샘플의 powerbi.js의 코드 조각입니다.
+**보고서**를 만든 후에는 **IFrame**을 사용하여 Power BI **보고서**를 포함합니다. 다음은 **Microsoft Power BI Embedded** 샘플 내 powerbi.js의 코드 조각입니다.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
 ## 응용 프로그램에 포함된 보고서 필터링
 
-URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이렇게 하려면 지정된 필터를 사용하여 iFrame src url에 **eq** 연산자와 함께 **$filter** 쿼리 문자열 매개 변수를 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
+URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이렇게 하려면 지정된 필터를 사용하여 **eq** 연산자가 포함된 **$filter** 쿼리 문자열 매개 변수를 iFrame src url에 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

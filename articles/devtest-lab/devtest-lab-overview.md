@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab이란?
@@ -32,8 +32,10 @@ Azure DevTest Lab은 개발자와 테스터가 낭비를 최소화하고 비용�
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##다음 단계
 
 [DevTest Lab을 선택해야 하는 이유](devtest-lab-why.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

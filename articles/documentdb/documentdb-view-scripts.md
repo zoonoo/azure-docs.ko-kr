@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # 저장 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용하는 사용자 정의 함수 만들기 및 실행
@@ -23,19 +23,15 @@
 
 ## 스크립트 탐색기 시작
 
-1. Azure 포털의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다. **DocumentDB 계정**이 표시되지 않는 경우 **찾아보기**를 클릭한 다음 **DocumentDB 계정**을 클릭합니다.
+1. Azure 포털의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다. **DocumentDB 계정**이 표시되지 않으면 **Mor서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
 
-2. **DocumentDB 계정** 블레이드의 맨 위에 있는 **스크립트 탐색기**를 클릭합니다.
+2. 리소스 메뉴에서 **스크립트 탐색기**를 클릭합니다.
 
 	![스크립트 탐색기 명령의 스크린샷](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] 스크립트 탐색기는 데이터베이스 및 컬렉션 블레이드에도 표시됩니다.
-
     **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자는 스크립트 탐색기를 실행하는 컨텍스트에 따라 미리 채워집니다. 예를 들어 데이터베이스 블레이드에서 실행할 경우 현재 데이터베이스가 미리 채워집니다. 컬렉션 블레이드에서 실행할 경우에는 현재 컬렉션이 미리 채워집니다.
 
-	![스크립트 탐색기의 스크린샷](./media/documentdb-view-scripts/scriptexplorerinitial.png)
-
-4.  **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 스크립트 탐색기를 닫았다가 다시 실행할 필요 없이 현재 스크립트를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
+4.  **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 스크립트 탐색기를 닫았다가 다시 시작할 필요 없이 현재 스크립트를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
 
 5. 또한 스크립트 탐색기에서는 현재 로드된 스크립트 집합을 ID 속성별로 필터링할 수 있습니다. 필터 상자에 입력하기만 하면 스크립트 탐색기 목록의 결과가 제공된 기준에 따라 필터링됩니다.
 
@@ -53,7 +49,7 @@
 
 스크립트 탐색기를 사용하면 DocumentDB 서버 쪽 프로그래밍 아티팩트에 대해 쉽게 CRUD 작업을 수행할 수 있습니다.
 
-- 스크립트를 만들려면 스크립트 탐색기 내에서 해당하는 만들기 명령을 클릭하고 ID를 제공한 다음 스크립트 내용을 입력하고 **저장**을 클릭하면 됩니다.
+- 스크립트를 만들려면 스크립트 탐색기 내에서 해당하는 만들기 명령을 클릭하고 ID를 제공한 다음 스크립트 내용을 입력하고 **저장**을 클릭합니다.
 
 	![JavaScript 편집기를 보여 주는 스크립트 탐색기 만들기 옵션의 스크린샷](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
@@ -65,7 +61,7 @@
 
 	![스크립트 탐색기 보기 스크립트 환경의 스크린샷](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
 
-- 스크립트를 편집하려면 JavaScript 편집기에서 원하는 대로 변경하고 **저장** 명령을 클릭합니다.
+- 스크립트를 편집하려면 JavaScript 편집기에서 원하는 대로 변경하고 **저장**을 클릭합니다.
 
 	![스크립트 탐색기 보기 스크립트 환경의 스크린샷](./media/documentdb-view-scripts/scriptexplorereditscript.png)
 
@@ -89,19 +85,19 @@
 
 ## 저장 프로시저 실행
 
-> [AZURE.WARNING] 스크립트 탐색기에서 저장 프로시저의 실행은 서버 쪽 분할된 컬렉션에 대해 아직 지원되지 않습니다. 자세한 내용은 [DocumentDB에서 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
+> [AZURE.WARNING] 스크립트 탐색기에서 저장 프로시저의 실행은 서버 쪽 분할된 컬렉션에 대해 아직 지원되지 않습니다. 자세한 내용은 [DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
 스크립트 탐색기를 사용하면 Azure 포털에서 서버 쪽 저장 프로시저를 실행할 수 있습니다.
 
-- 새로 만든 저장 프로시저 블레이드를 열면 기본 스크립트(*prefix*)가 이미 제공되어 있습니다. *prefix* 스크립트 또는 자체 스크립트를 실행하려면 *id* 및 *inputs*를 추가합니다. 여러 매개 변수를 허용하는 저장 프로시저의 경우 모든 입력이 배열(예: *["foo", "bar"]*) 내에 있어야 합니다.
+- 새로 만든 저장 프로시저 블레이드를 열면 기본 스크립트(*prefix*)가 이미 제공되어 있습니다. *prefix* 스크립트 또는 자체 스크립트를 실행하려면 *id* 및 *inputs*를 추가합니다. 여러 매개 변수를 허용하는 저장 프로시저의 경우 *["foo", "bar"]*와 같이 모든 입력이 배열 내에 있어야 합니다.
 
 	![입력을 추가하고 저장 프로시저를 실행하는 스크립트 탐색기 저장 프로시저 블레이드의 스크린샷](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
-- 저장 프로시저를 실행하려면 스크립트 편집기 창에서 **저장 및 실행** 명령을 클릭합니다.
+- 저장 프로시저를 실행하려는 경우 스크립트 편집기 창에서 **저장 후 실행** 명령을 클릭하면 됩니다.
 
-	> [AZURE.NOTE] **저장 및 실행** 명령은 실행하기 전에 저장 프로시저를 저장하여 이전에 저장된 저장 프로시저 버전을 덮어씁니다.
+	> [AZURE.NOTE] **저장 후 실행** 명령은 실행하기 전에 저장 프로시저를 저장하여 이전에 저장된 저장 프로시저 버전을 덮어씁니다.
 
-- 저장 프로시저 실행이 성공하면 *저장 프로시저가 성공적으로 저장 및 실행됨* 상태가 되고 반환된 결과가 *결과* 창에 채워집니다.
+- 저장 프로시저 실행이 성공하면 *저장 프로시저를 저장 및 실행했습니다.* 상태가 설정되며 반환된 결과가 *결과* 창에 채워집니다.
 
 	![저장 프로시저를 실행하는 스크립트 탐색기 저장 프로시저 블레이드의 스크린샷](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
@@ -111,12 +107,12 @@
 
 ## 포털 외부 스크립트 작업
 
-Azure 포털의 스크립트 탐색기는 저장 프로시저, 트리거 및 DocumentDB의 사용자 정의 함수를 사용하는 방법 중 한 가지일 뿐입니다. REST API 및 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 스크립트 작업을 수행할 수도 있습니다. REST API 설명서에는 [REST를 사용하는 저장 프로시저](https://msdn.microsoft.com/library/azure/mt489092.aspx), [REST를 사용하는 사용자 정의 함수](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [REST를 사용하는 트리거](https://msdn.microsoft.com/library/azure/mt489116.aspx) 작업을 위한 샘플이 포함되어 있습니다. 또한 샘플을 사용하여 [C#을 사용하는 스크립트 작업](documentdb-dotnet-samples.md#server-side-programming-examples) 및 [Node.js를 사용하는 스크립트 작업](documentdb-nodejs-samples.md#server-side-programming-examples) 방법을 확인할 수도 있습니다.
+Azure 포털의 스크립트 탐색기는 저장 프로시저, 트리거 및 DocumentDB의 사용자 정의 함수를 사용하는 방법 중 한 가지일 뿐입니다. REST API 및 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 스크립트 작업을 수행할 수도 있습니다. REST API 설명서에는 [REST를 사용하는 저장 프로시저](https://msdn.microsoft.com/library/azure/mt489092.aspx), [REST를 사용하는 사용자 정의 함수](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [REST를 사용하는 트리거](https://msdn.microsoft.com/library/azure/mt489116.aspx) 작업을 위한 샘플이 포함되어 있습니다. 또한 [C#을 사용하는 스크립트 작업](documentdb-dotnet-samples.md#server-side-programming-examples) 및 [Node.js를 사용하는 스크립트 작업](documentdb-nodejs-samples.md#server-side-programming-examples) 방법을 설명하는 샘플도 제공됩니다.
 
 ## 다음 단계
 
 DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md) 문서를 참조하세요.
 
-[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
+[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 파악할 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,18 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/30/2016"
+	ms.date="08/25/2016"
 	ms.author="marsma" />
 
 # Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포
 
-Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 응용 프로그램을 간편하게 관리 및 배포할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하여 작업 및 해당 지원 파일에서 실행하는 이진 파일을 포함하여 여러 응용 프로그램 버전을 업로드하고 관리할 수 있습니다. 풀의 계산 노드에 이러한 응용 프로그램을 하나 이상 자동으로 배포할 수 있습니다.
+Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 태스크 응용 프로그램 및 해당 배포를 간편하게 관리할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하여 지원 파일을 비롯하여 태스크에서 실행하는 여러 응용 프로그램 버전을 업로드하고 관리할 수 있습니다. 풀의 계산 노드에 이러한 응용 프로그램을 하나 이상 자동으로 배포할 수 있습니다.
 
 이 문서에서는 Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 관리하는 방법을 알아봅니다. [배치 .NET][api_net] 라이브러리를 사용하여 풀의 계산 노드에 설치하는 방법을 알아봅니다.
 
 > [AZURE.NOTE] 여기에서 설명하는 응용 프로그램 패키지 기능은 서비스의 이전 버전에 제공되는 "배치 앱" 기능을 대체합니다.
 
 ## 응용 프로그램 패키지 요구 사항
+
+응용 프로그램 패키지를 사용하려면 [Azure Storage 계정](#link-a-storage-account)을 배치 계정에 연결해야 합니다.
 
 이 문서에서 설명하는 응용 프로그램 패키지 기능은 2016년 3월 10일 이후에 만들어진 배치 풀하고*만* 호환됩니다. 이 날짜 전에 만들어진 풀의 계산 노드에는 응용 프로그램 패키지가 배포되지 않습니다.
 
@@ -40,11 +42,23 @@ Azure 배치 내에서 *응용 프로그램*이란 풀의 계산 노드에 자�
 
 ### 응용 프로그램
 
-배치에서 응용 프로그램은 하나 이상의 응용 프로그램을 포함하거나 응용 프로그램에 대한 구성 옵션을 지정합니다. 예를 들어 응용 프로그램은 계산 노드에 설치할 기본 응용 프로그램 패키지 버전, 응용 프로그램 패키지를 업데이트할지 아니면 삭제할 것인지를 지정합니다.
+배치에서 응용 프로그램은 하나 이상의 응용 프로그램을 포함하거나 응용 프로그램에 대한 구성 옵션을 지정합니다. 예를 들어 응용 프로그램은 계산 노드에 설치할 기본 응용 프로그램 패키지 버전, 응용 프로그램 패키지를 업데이트할지 아니면 삭제할 것인지를 지정할 수 있습니다.
 
 ### 응용 프로그램 패키지
 
-응용 프로그램 패키지는 태스크가 응용 프로그램을 실행하는 데 필요한 응용 프로그램 이진 파일 및 지원 파일이 포함된 .zip 파일입니다. 각 응용 프로그램 패키지는 응용 프로그램의 특정 버전을 나타냅니다. 배치 서비스에서 풀을 만들 때 이러한 응용 프로그램 및 버전(선택 사항)을 하나 이상 지정할 수 있습니다. 이러한 응용 프로그램 패키지는 자동으로 다운로드되고 풀을 조인하는 대로 각 노드에 추출됩니다.
+응용 프로그램 패키지는 태스크가 응용 프로그램을 실행하는 데 필요한 응용 프로그램 이진 파일 및 지원 파일이 포함된 .zip 파일입니다. 각 응용 프로그램 패키지는 응용 프로그램의 특정 버전을 나타냅니다.
+
+풀 및 태스크 수준에서 응용 프로그램 패키지를 지정할 수 있습니다. 풀 또는 태스크를 만들 때 이러한 패키지 및 버전(선택 사항)을 하나 이상 지정할 수 있습니다.
+
+* **풀 응용 프로그램 패키지**는 *모든* 노드에 배포됩니다. 응용 프로그램은 노드가 풀을 조인하고 다시 부팅되거나 이미지를 다시 설치할 때 배포됩니다.
+
+    풀 응용 프로그램 패키지는 풀에 있는 모든 노드가 작업의 태스크를 실행할 때 적합합니다. 풀을 만들 때 하나 이상의 응용 프로그램 패키지를 지정할 수 있으며 기존 풀의 패키지를 추가하거나 업데이트할 수 있습니다. 기존 풀의 응용 프로그램 패키지를 업데이트하는 경우 새 패키지를 설치하려면 해당 노드를 다시 설치해야 합니다.
+
+* **태스크 응용 프로그램 패키지**는 태스크의 명령줄을 실행하기 바로 전에 태스크를 실행하도록 예약된 계산 노드에만 배포됩니다. 지정된 응용 프로그램 패키지 및 버전이 노드에 이미 있는 경우 다시 배포되지 않으며 기존 패키지가 사용됩니다.
+
+    태스크 응용 프로그램 패키지는 공유 풀 환경에서 유용하며 여기서는 다른 작업이 하나의 풀에서 실행되고 작업이 완료될 때 풀이 삭제되지 않습니다. 작업에 있는 태스크가 풀에 있는 노드보다 적은 경우 태스크를 실행하는 노드에만 응용 프로그램을 배포하므로 태스크 응용 프로그램 패키지는 데이터 전송을 최소화할 수 있습니다.
+
+    태스크 응용 프로그램 패키지를 활용할 수 있는 다른 시나리오는 특별히 큰 응용 프로그램을 사용하지만 태스크 수는 적은 작업입니다. 예를 들어, 전처리 또는 병합 응용 프로그램이 무거운 전처리 단계 또는 병합 태스크입니다.
 
 > [AZURE.IMPORTANT] 배치 계정의 응용 프로그램 및 응용 프로그램 패키지 수와 응용 프로그램 패키지의 최대 크기에 대한 제한이 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
@@ -52,15 +66,11 @@ Azure 배치 내에서 *응용 프로그램*이란 풀의 계산 노드에 자�
 
 응용 프로그램 패키지는 배치 솔루션의 코드를 단순화하고, 태스크에서 실행하는 응용 프로그램을 관리하는 데 필요한 오버헤드를 낮출 수 있습니다.
 
-응용 프로그램 패키지를 사용하면 풀의 시작 태스크가 노드에 설치할 개별 리소스 파일 목록을 지정할 필요가 없습니다. Azure Storage 또는 노드에서 이러한 파일의 여러 버전을 수동으로 관리할 필요가 없습니다. Azure 저장소 계정의 파일에 대한 액세스 권한을 제공하기 위해 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성할 필요가 없습니다.
-
-배치는 Azure Storage와 함께 백그라운드에서 작동하여 코드와 관리 오버헤드가 간소화되도록 응용 프로그램 패키지를 계산 노드에 저장하고 배포합니다.
+풀의 시작 태스크가 노드에 설치할 긴 개별 리소스 파일 목록을 지정할 필요가 없습니다. Azure Storage 또는 노드에서 응용 프로그램 파일의 여러 버전을 수동으로 관리할 필요가 없습니다. 저장소 계정의 파일에 대한 액세스 권한을 제공하기 위해 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md)을 생성할 필요가 없습니다. 배치는 Azure Storage와 함께 백그라운드에서 작동하여 응용 프로그램 패키지를 저장하고 계산 노드에 배포합니다.
 
 ## 응용 프로그램 업로드 및 관리
 
-Azure 포털에서 응용 프로그램 패키지를 추가, 업데이트 및 삭제할 수 있습니다. 각 응용 프로그램에 대한 기본 버전을 구성할 수 있습니다.
-
-다음 몇 개 섹션에서는 먼저 저장소 계정을 배치 계정에 연결하는 방법 및 Azure 포털에서 제공하는 패키지 관리 기능을 검토하는 방법을 설명합니다. 그런 다음 [배치 .NET][api_net] 라이브러리를 사용하여 이러한 패키지를 계산 노드에 배포하는 방법을 알아봅니다.
+[Azure 포털][portal] 또는 [배치 관리 .NET](batch-management-dotnet.md) 라이브러리를 사용하여 배치 계정에서 응용 프로그램 패키지를 관리합니다. 다음 섹션에서는 먼저 저장소 계정을 연결한 후 응용 프로그램 및 패키지를 추가하고 포털에서 관리하는 방법을 설명합니다.
 
 ### 저장소 계정 연결
 
@@ -170,11 +180,13 @@ Azure 포털에서 응용 프로그램 패키지를 추가, 업데이트 및 삭
 
 ## 계산 노드에 응용 프로그램 설치
 
-Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 관리하는 방법을 설명했으므로 응용 프로그램 패키지를 실제로 계산 노드에 배포하고 배치 작업을 사용하여 실행하는 방법에 대해 설명할 준비가 되었습니다.
+Azure 포털을 사용하여 응용 프로그램 패키지를 관리하는 방법을 살펴보았으며 응용 프로그램 패키지를 계산 노드에 배포하고 배치 작업을 사용하여 실행하는 방법에 대해 설명할 수 있습니다.
 
-풀의 계산 노드에 응용 프로그램 패키지를 설치하려면 풀에 대해 응용 프로그램 패키지 *참조*를 하나 이상 지정해야 합니다. 배치 .NET에서 만든 새 풀 또는 기존 풀에 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]를 하나 이상 추가합니다.
+### 풀 응용 프로그램 패키지 설치
 
-[ApplicationPackageReference][net_pkgref] 클래스는 풀의 계산 노드에 설치할 응용 프로그램 ID 및 버전을 지정합니다.
+풀의 모든 계산 노드에 응용 프로그램 패키지를 설치하려면 풀에 대해 응용 프로그램 패키지 *참조*를 하나 이상 지정해야 합니다. 노드가 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 경우 풀에 대해 지정하는 응용 프로그램 패키지는 각 계산 노드에 설치됩니다.
+
+배치 .NET에서, 새 풀을 만들 때 또는 기존 풀에 [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]를 하나 이상 지정합니다. [ApplicationPackageReference][net_pkgref] 클래스는 풀의 계산 노드에 설치할 응용 프로그램 ID 및 버전을 지정합니다.
 
 ```csharp
 // Create the unbound CloudPool
@@ -198,31 +210,54 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
-노드가 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 경우 풀에 대해 지정하는 응용 프로그램 패키지는 각 계산 노드에 설치됩니다. 어떤 이유로든 응용 프로그램 패키지 배포가 실패하면 배치 서비스에서는 노드를 [사용할 수 없으며][net_nodestate] 해당 노드에서 실행하기로 예정된 작업이 없다고 표시합니다. 이 경우에 노드를 **다시 시작**하여 패키지 배포를 다시 시작해야 합니다. 또한 노드를 다시 시작하면 노드에서 작업을 다시 예약할 수 있습니다.
+>[AZURE.IMPORTANT] 어떤 이유로든 응용 프로그램 패키지 배포가 실패하면 배치 서비스에서는 노드를 [사용할 수 없으며][net_nodestate] 해당 노드에서 실행하기로 예정된 작업이 없다고 표시합니다. 이 경우에 노드를 **다시 시작**하여 패키지 배포를 다시 시작해야 합니다. 또한 노드를 다시 시작하면 노드에서 작업을 다시 예약할 수 있습니다.
+
+### 태스크 응용 프로그램 패키지 설치
+
+풀과 마찬가지로 태스크에 대해 응용 프로그램 패키지 *참조*를 지정합니다. 노드에서 실행하도록 태스크가 예약된 경우 태스크의 명령줄이 실행되기 바로 전에 패키지가 다운로드 및 추출됩니다. 지정된 패키지 및 버전이 노드에 이미 설치되어 있는 경우 패키지는 다운로드되지 않으며 기존 패키지가 사용됩니다.
+
+태스크 응용 프로그램 패키지를 설치하려면 태스크의 [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] 속성을 구성합니다.
+
+```csharp
+CloudTask task =
+    new CloudTask(
+        "litwaretask001",
+        "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
+
+task.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference
+    {
+        ApplicationId = "litware",
+        Version = "1.1001.2b"
+    }
+};
+```
 
 ## 설치된 응용 프로그램 실행
 
-각 계산 노드가 풀에 조인하거나 다시 부팅되거나 이미지로 다시 설치되면 지정한 패키지가 노드의 `AZ_BATCH_ROOT_DIR` 내에 있는 명명된 디렉터리에 다운로드되어 추출됩니다. 또한 배치는 응용 프로그램 이진 파일을 호출할 때 사용할 태스크 명령줄에 대한 환경 변수를 만듭니다. 이 변수는 다음 명명 체계를 따릅니다.
+풀 또는 태스크에 대해 지정한 패키지가 노드의 `AZ_BATCH_ROOT_DIR` 내에 있는 명명된 디렉터리에 다운로드되어 추출됩니다. 또한 배치는 명명된 디렉터리에 대한 경로가 포함된 환경 변수를 생성합니다. 태스크 명령줄은 노드에서 응용 프로그램을 참조할 때 이 환경 변수를 사용합니다. 변수는 다음 형식으로 되어 있습니다.
 
-`AZ_BATCH_APP_PACKAGE_appid#version`
+`AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
-예를 들어 *blender* 응용 프로그램의 2.7 버전을 설치하도록 지정하면 태스크가 명령줄의 다음 환경 변수를 참조하여 해당 이진 파일에 액세스할 수 있습니다.
+`APPLICATIONID` 및 `version`은 배포를 위해 지정한 응용 프로그램 및 패키지 버전에 해당하는 값입니다. 예를 들어 *blender* 응용 프로그램의 2.7 버전을 설치하도록 지정하면 태스크 명령줄은 이 환경 변수를 참조하여 해당 파일에 액세스합니다.
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-응용 프로그램에서 기본 버전을 지정하면 버전 문자열 접미사 없이 환경 변수를 참조할 수 있습니다. 예를 들어 Azure 포털 내에서 *blender* 응용 프로그램에 대해 기본 버전 2.7을 지정한 경우에는 태스크가 다음 환경 변수를 참조할 수 있습니다.
+응용 프로그램의 기본 버전을 지정하면 버전 접미사를 생략할 수 있습니다. 예를 들어 *blender* 응용 프로그램에 대해 기본 버전으로 "2.7"을 설정한 경우에는 태스크가 다음 환경 변수를 참조할 수 있으며 버전 2.7을 실행합니다.
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-다음 코드 조각은 *blender* 응용 프로그램에 대해 기본 버전을 지정하면 태스크가 어떻게 구성되는지 보여 줍니다.
+다음 코드 조각은 기본 버전의 *blender* 응용 프로그램을 실행하는 태스크 명령줄의 예를 보여 줍니다.
 
 ```csharp
 string taskId = "blendertask01";
-string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -command -args";
+string commandLine =
+    @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] 계산 노드 환경 설정에 대한 자세한 내용은 [배치 기능 개요](batch-api-basics.md)의 "태스크에 대한 환경 설정"을 참조하세요.
+> [AZURE.TIP] 계산 노드 환경 설정에 대한 자세한 내용은 [배치 기능 개요](batch-api-basics.md)의 [태스크에 대한 환경 설정](batch-api-basics.md#environment-settings-for-tasks)을 참조하세요.
 
 ## 풀의 응용 프로그램 패키지 업데이트
 
@@ -286,8 +321,11 @@ foreach (ApplicationSummary app in applications)
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_cloudtask]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudtask.aspx
+[net_cloudtask_pkgref]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudtask.applicationpackagereferences.aspx
 [net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
+[portal]: https://portal.azure.com
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [rest_add_pool_with_packages]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_apkgreference
@@ -304,4 +342,4 @@ foreach (ApplicationSummary app in applications)
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

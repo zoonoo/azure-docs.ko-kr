@@ -216,6 +216,8 @@
           }
         }
 
+    >[AZURE.NOTE] 자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+
 2. 매개 변수 파일을 저장합니다.
 
 ## 3단계: Azure PowerShell 설치
@@ -277,11 +279,11 @@
 
         Outputs           :
 
-    >[AZURE.NOTE] Azure 저장소 계정에서 템플릿 및 매개 변수를 배포할 수도 있습니다. 자세한 내용은 [Azure 저장소와 함께 Azure PowerShell 사용](../storage-powershell-guide-full.md)을 참조하세요.
+    >[AZURE.NOTE] Azure 저장소 계정에서 템플릿 및 매개 변수를 배포할 수도 있습니다. 자세한 내용은 [Azure Storage와 함께 Azure PowerShell 사용](../storage-powershell-guide-full.md)을 참조하세요.
 
 ## 다음 단계
 
-- 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴봅니다.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

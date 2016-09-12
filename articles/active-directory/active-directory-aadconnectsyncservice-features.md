@@ -41,7 +41,7 @@ DirSyncFeature | 주석
 
 기능을 사용하도록 설정한 후 다시 해제할 수 없습니다.
 
->[AZURE.NOTE] 2016년 8월 22일에서 *중복 특성 복원력* 기능은 새로운 Azure AD 디렉터리에 대해 기본적으로 활성화됩니다. 또한 이 기능은 이 날짜 이전에 생성된 디렉터리에서 롤아웃되고 사용하도록 설정됩니다. 디렉터리가 이 기능을 사용하도록 설정하면 전자 메일 알림을 받게 됩니다.
+>[AZURE.NOTE] 2016년 8월 24일에서 *중복 특성 복원력* 기능은 새로운 Azure AD 디렉터리에 대해 기본적으로 활성화됩니다. 또한 이 기능은 이 날짜 이전에 생성된 디렉터리에서 롤아웃되고 사용하도록 설정됩니다. 디렉터리가 이 기능을 사용하도록 설정하면 전자 메일 알림을 받게 됩니다.
 
 다음 설정은 Azure AD Connect에서 구성되며 `Set-MsolDirSyncFeature`으로 수정할 수 없습니다.
 
@@ -98,4 +98,4 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 - [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

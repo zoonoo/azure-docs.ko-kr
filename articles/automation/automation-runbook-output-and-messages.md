@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 자동화에서 Runbook 출력 및 메시지 | Microsoft Azure"
-   description="Azure 자동화의 runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 설명합니다."
+   pageTitle="Azure Automation에서 Runbook 출력 및 메시지 | Microsoft Azure"
+   description="Azure Automation의 runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
-# Azure 자동화에서 Runbook 출력 및 메시지
+# Azure Automation에서 Runbook 출력 및 메시지
 
-대부분의 Azure 자동화 runbook에는 사용자에게 오류 메시지와 같은 일종의 출력이나 다른 워크플로에서 사용하고자 하는 복잡한 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure 자동화는 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
+대부분의 Azure Automation runbook에는 사용자에게 오류 메시지와 같은 일종의 출력이나 다른 워크플로에서 사용하고자 하는 복잡한 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
 
 다음 테이블은 runbook을 실행하거나 [runbook을 테스트](automation-testing-runbook.md)할 경우 Azure 관리 포털에서 각 스트림 및 동작에 대한 간략한 설명을 제공합니다. 각 스트림에 대한 자세한 내용은 후속 섹션에 제공됩니다.
 
@@ -32,7 +32,7 @@
 
 ## 출력 스트림
 
-출력 스트림이 올바르게 실행되면 스크립트 또는 워크플로에 의해 생성된 개체의 출력을 위한 것입니다. Azure 자동화에서 이 스트림은 주로 [현재 runbook을 호출하는 부모 runbook](automation-child-runbooks.md)에서 사용할 수 있도록 의도한 개체에 사용됩니다. 부모 runbook에서 [runbook 인라인을 호출](automation-child-runbooks.md#InlineExecution)하는 경우 출력 스트림에서 부모 runbook에 데이터를 반환합니다. runbook이 다른 runbook에서 호출되지 않는다는 점을 알고 있는 경우 출력 스트림을 사용하여 다시 사용자에게 일반 정보를 전달해야 합니다. 그러나 모범 사례로 일반적으로 [자세한 정보 표시 스트림](#Verbose)을 사용하여 사용자에게 일반 정보를 전달해야 합니다.
+출력 스트림이 올바르게 실행되면 스크립트 또는 워크플로에 의해 생성된 개체의 출력을 위한 것입니다. Azure Automation에서 이 스트림은 주로 [현재 runbook을 호출하는 부모 runbook](automation-child-runbooks.md)에서 사용할 수 있도록 의도한 개체에 사용됩니다. 부모 runbook에서 [runbook 인라인을 호출](automation-child-runbooks.md#InlineExecution)하는 경우 출력 스트림에서 부모 runbook에 데이터를 반환합니다. runbook이 다른 runbook에서 호출되지 않는다는 점을 알고 있는 경우 출력 스트림을 사용하여 다시 사용자에게 일반 정보를 전달해야 합니다. 그러나 모범 사례로 일반적으로 [자세한 정보 표시 스트림](#Verbose)을 사용하여 사용자에게 일반 정보를 전달해야 합니다.
 
 [쓰기 출력](http://technet.microsoft.com/library/hh849921.aspx)을 사용하거나 runbook에서 자체 줄에 개체를 배치하여 출력 스트림에 데이터를 쓸 수 있습니다.
 
@@ -48,30 +48,43 @@ Runbook에 포함된 함수에 출력 스트림을 작성하는 경우 출력은
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 Runbook 작업에 대한 출력 스트림은 다음과 같습니다.
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습니다.
 
 	Verbose outside of function
 	Verbose inside of function
 
+Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 출력을 얻기 위해 Runbook 설정에서 자세한 정보 표시 로깅을 켜야 합니다.
+
 ### 출력 데이터 형식 선언
 
 워크플로는 [OutputType 특성](http://technet.microsoft.com/library/hh847785.aspx)을 사용하여 해당 출력의 데이터 형식을 지정할 수 있습니다. 이 특성은 런타임 시 영향을 주지 않지만 runbook의 예상된 출력에서 디자인 타임에 runbook 작성자에게 표시를 제공합니다. Runbook용 도구 집합이 계속 진화하기 때문에 디자인 타임에 출력 데이터 형식을 선언하는 중요성이 증가합니다. 결과적으로 만든 runbook에서 이 선언을 포함하는 것이 모범 사례입니다.
 
+다음은 예제 출력 형식의 목록입니다.
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 다음 샘플 runbook은 문자열 개체를 출력하고 해당 출력 형식의 선언을 포함합니다. Runbook이 특정 유형의 배열을 출력하면 형식의 배열과 달리 형식을 지정해야 합니다.
 
 	Workflow Test-Runbook
@@ -82,9 +95,28 @@ Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습�
 	   Write-Output $output
 	}
 
+그래픽 또는 그래픽 Grapical PowerShell 워크플로 Runbook에서 출력 형식을 선언하기 위해 **입력 및 출력** 메뉴 옵션을 선택하고 출력 형식 이름을 입력할 수 있습니다. 부모 Runbook에서 참조하는 경우 쉽게 식별할 수 있도록 전체 .NET 클래스 이름을 사용하는 것이 좋습니다. Runbook의 데이터 버스에 대한 해당 클래스의 모든 속성을 노출하고 Runbook의 다른 활동에 대한 값으로 조건부 논리, 로깅 및 참조에 사용하는 경우 유연성 향상을 제공합니다.<br> ![Runbook 입력 및 출력 옵션](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+다음 예제에서는 이 기능을 보여 주기 위한 두 개의 그래픽 Runbook이 있습니다. 모듈식 Runbook 디자인 모델을 적용하는 경우 실행 계정을 사용하여 Azure로 인증을 관리하는 *인증 Runbook 템플릿*으로 제공하는 하나의 Runbook이 있습니다. 이 경우에 일반적으로 제공된 시나리오를 자동화하는 핵심 논리를 수행하는 두 번째 Runbook은 *인증 Runbook 템플릿*을 실행하고 **테스트** 출력 창에 결과를 표시합니다. 정상적인 상황에서 자식 Runbook의 출력을 활용하는 리소스에 대해 이 Runbook이 작업을 수행하도록 합니다.
+
+**AuthenticateTo-Azure** Runbook의 기본 논리는 다음과 같습니다.<br> ![Runbook 템플릿 예제 인증](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
+
+인증 프로필 속성을 반환하는 출력 형식 *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*를 포함합니다.<br> ![Runbook 출력 형식 예제](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+
+이 Runbook은 매우 단순하지만 여기에서 호출할 하나의 구성 항목이 있습니다. 마지막 작업은 **Write-Output** cmdlet을 실행하고 해당 cmdlet에 필요한 **Inputobject** 매개 변수에 대해 PowerShell 식을 사용하여 $\_ 변수에 대한 프로필 데이터를 기록합니다.
+
+이 예제에서 *Test-ChildOutputType*이라는 두 번째 Runbook의 경우 단순히 두 개의 작업을 가집니다.<br> ![예제 자식 출력 형식 Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+
+첫 번째 작업은 **AuthenticateTo-Azure** Runbook을 호출하고 두 번째 작업은 **작업 출력**의 **데이터 원본**으로 **Write-Verbose** cmdlet을 실행하며 **AuthenticateTo-Azure** Runbook의 컨텍스트 출력을 지정하는 **필드 경로**에 대한 값은 **Context.Subscription.SubscriptionName**입니다.<br> ![Write-Verbose cmdlet 매개 변수 데이터 원본](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+결과 출력은 구독의 이름입니다.<br> ![Test-ChildOutputType Runbook 결과](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+출력 형식 제어의 동작에 대한 참고입니다. 입력 및 출력 속성 블레이드의 출력 형식 필드에 값을 입력하는 경우 제어에서 항목을 인식하려면 입력한 후 제어의 바깥쪽을 클릭해야 합니다.
+
+
 ## 메시지 스트림
 
-출력 스트림과 달리 메시지 스트림은 사용자에게 정보를 전달하기 위한 것입니다. 다른 종류의 정보에 대한 여러 메시지 스트림이 있으며 각각 Azure 자동화에서 다르게 처리됩니다.
+출력 스트림과 달리 메시지 스트림은 사용자에게 정보를 전달하기 위한 것입니다. 다른 종류의 정보에 대한 여러 메시지 스트림이 있으며 각각 Azure Automation에서 다르게 처리됩니다.
 
 ### 경고 및 오류 스트림
 
@@ -116,7 +148,7 @@ Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습�
 
 ## 진행률 레코드
 
-Runbook을 구성하여 (Azure 포털의 runbook 구성 탭에서)진행률 레코드를 기록하는 경우 각 작업을 실행하는 전과 후에 작업 기록에 레코드를 기록합니다. 대부분의 경우 성능을 최대화하기 위해 runbook에 대한 진행률 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다. runbook을 테스트할 경우 runbook이 진행률 레코드를 기록하도록 구성되면 진행률 메시지는 표시되지 않습니다.
+Runbook을 구성하여(Azure 포털의 runbook 구성 탭에서) 진행률 레코드를 기록하는 경우 각 작업을 실행하는 전과 후에 작업 기록에 레코드를 기록합니다. 대부분의 경우 성능을 최대화하기 위해 runbook에 대한 진행률 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다. runbook을 테스트할 경우 runbook이 진행률 레코드를 기록하도록 구성되면 진행률 메시지는 표시되지 않습니다.
 
 [Write-progress](http://technet.microsoft.com/library/hh849902.aspx) cmdlet은 대화형 사용자로 사용하기 위한 것이기 때문에 runbook에 유효하지 않습니다.
 
@@ -124,7 +156,7 @@ Runbook을 구성하여 (Azure 포털의 runbook 구성 탭에서)진행률 레�
 
 Windows PowerShell은 [기본 설정 변수](http://technet.microsoft.com/library/hh847796.aspx)를 사용하여 다른 출력 스트림에 전송된 데이터에 대응하는 방법을 결정합니다. runbook에서 이러한 변수를 설정하여 다른 스트림으로 전송된 데이터에 응답하는 방식을 제어할 수 있습니다.
 
-다음 테이블은 유효 및 기본값으로 runbook에서 사용할 수 있는 기본 설정 변수를 나열 합니다. 이 테이블은 runbook에서 유효한 값만을 포함합니다. 추가 값은 Azure 자동화 외부의 Windows PowerShell에서 사용되는 경우 기본 설정 변수로 유효합니다.
+다음 테이블은 유효 및 기본값으로 runbook에서 사용할 수 있는 기본 설정 변수를 나열 합니다. 이 테이블은 runbook에서 유효한 값만을 포함합니다. 추가 값은 Azure Automation 외부의 Windows PowerShell에서 사용되는 경우 기본 설정 변수로 유효합니다.
 
 | 변수| 기본값| 유효한 값|
 |:---|:---|:---|
@@ -191,6 +223,6 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.c
 ## 다음 단계
 
 - Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
-- 자식 Runbook을 디자인하고 사용하는 방법을 이해하려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
+- 자식 Runbook을 디자인하고 사용하는 방법을 이해하려면 [Azure Automation의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

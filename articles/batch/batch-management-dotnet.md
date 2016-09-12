@@ -30,7 +30,7 @@
 - **계정 할당량을 확인**하고 어떤 배치 계정에 어떤 제한이 있는지를 확인하는 데 시행 착오 추측을 배제합니다. 작업을 시작하고 풀을 만들거나 계산 노드를 추가하기 전에 계정 할당량을 확인하여 이러한 계산 리소스를 만드는 위치 또는 시기를 사전에 조정할 수 있습니다. 해당 계정에 추가 리소스를 할당하기 전에 어떤 계정에 할당량 증가가 필요한지 확인할 수 있습니다.
 - 배치 관리 .NET, [Azure Active Directory][aad_about] 및 [Azure Resource Manager][resman_overview]를 동일한 응용 프로그램에서 함께 활용하고 **다른 Azure 서비스의 기능을 결합**하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 종단 간 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
 
-> [AZURE.NOTE] 이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)와 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털에서 Azure 배치 계정 만들기](batch-account-create-portal.md)와 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## 배치 계정 만들기 및 삭제
 
@@ -152,11 +152,11 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 합니다. **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있으며, 실제 끝점일 필요는 없습니다.
 
-응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Microsoft Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
+응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 *Windows Azure Service Management API* 응용 프로그램에 **조직으로 Azure 서비스 관리에 액세스** 권한을 위임합니다.
 
 ![Azure 포털의 응용 프로그램 권한][2]
 
-> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Microsoft Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Microsoft Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
+> [AZURE.TIP] *다른 응용 프로그램에 대한 권한* 아래에 **Windows Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Windows Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
 
 위의 설명대로 응용 프로그램을 추가했으면 응용 프로그램의 리디렉션 URI 및 클라이언트 ID를 사용하여 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트에서 `Program.cs`를 업데이트합니다. 응용 프로그램의 **구성** 탭에서 이러한 값을 찾을 수 있습니다.
 
@@ -213,4 +213,4 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # 프리미엄 저장소 세부 정보로 마이그레이션
@@ -47,9 +47,9 @@ SQL 데이터 웨어하우스는 최근에 도입된 [큰 성능 예측 가능�
 | 미국 중남부 | 2016년 5월 27일 |
 | 동남아시아 | 2016년 5월 24일 |
 | 서유럽 | 2016년 5월 25일 |
-| 미국 중서부 | 프리미엄 저장소를 아직 사용할 수 없음 |
+| 미국 중서부 | 2016년 8월 26일 |
 | 미국 서부 | 2016년 5월 26일 |
-| 미국 서부2 | 프리미엄 저장소를 아직 사용할 수 없음 |
+| 미국 서부2 | 2016년 8월 26일 |
 
 ## 자동 마이그레이션 세부 정보
 기본적으로 아래 [자동 마이그레이션 일정][] 동안 지역 현지 시간으로 오후 6시~오전 6시 동안 데이터를 마이그레이션합니다. 마이그레이션하는 동안 기존 데이터 웨어하우스를 사용할 수 없습니다. 마이그레이션은 데이터 웨어하우스당 저장소의 TB당 약 1시간이 소요될 것으로 예상합니다. 또한 자동 마이그레이션의 어느 부분에서도 청구되지 않도록 합니다.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## 다음 단계
-프리미엄 저장소로 변경하여 데이터 웨어하우스의 기반 아키텍처에서 데이터베이스 blob 파일 수도 증가시켰습니다. 성능 문제가 발생하는 경우 다음 스크립트를 사용하여 클러스터형 Columnstore를 다시 빌드하는 것이 좋습니다. 아래 스크립트는 일부 기존 데이터를 추가 Blob에 강제로 적용하여 작동합니다. 아무 작업도 하지 않으면 자연스럽게 시간이 지나면서 데이터 웨어하우스 테이블에 더 많은 데이터를 로드함에 따라 데이터가 재배포됩니다.
+프리미엄 저장소로 변경하여 데이터 웨어하우스의 기반 아키텍처에서 데이터베이스 blob 파일 수도 증가시켰습니다. 이 변경을 통해 성능을 최대한 개선하려면 다음 스크립트를 사용하여 클러스터형 columnstore 인덱스를 다시 작성하는 것이 좋습니다. 아래 스크립트는 일부 기존 데이터를 추가 Blob에 강제로 적용하여 작동합니다. 아무 작업도 하지 않으면 자연스럽게 시간이 지나면서 데이터 웨어하우스 테이블에 더 많은 데이터를 로드함에 따라 데이터가 재배포됩니다.
 
 **필수 조건:**
 
@@ -147,42 +147,19 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 -- 1단계: 인덱스 다시 작성을 제어하기 위한 테이블 만들기
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- 2단계: 인덱스 다시 작성을 실행합니다. 스크립트가 실패하는 경우 아래 명령을 다시 실행하여 마지막 중단했던 지점에서 다시 시작할 수 있음
 -- Mediumrc 이상의 사용자로 실행
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -3단계: 1단계에서 만든 테이블 정리
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 데이터 웨어하우스에 문제가 발생하는 경우 [지원 티켓을 만들고][] 가능한 원인으로 "프리미엄 저장소로 마이그레이션"을 참조하세요.
 
@@ -204,7 +181,7 @@ go
 
 
 <!--Other Web references-->
-[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/ko-KR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

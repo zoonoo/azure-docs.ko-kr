@@ -3,7 +3,7 @@
 	description="Azure 기계 학습 권장 사항 - JavaScript 통합 - 설명서" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 # Azure 기계 학습 권장 사항 - JavaScript 통합
+
+> 데이터 마켓에서 기존 Recommendations API에 대한 문서이며 2016년 12월 31일에 중단됩니다. 이제 [Recommendations API Cognitive 서비스](https://www.microsoft.com/cognitive-services/ko-KR/recommendations-api)를 사용하여 이동해야 합니다.
+
 
 이 문서에는 JavaScript를 사용하여 사이트를 통합하는 방법을 설명합니다. JavaScript를 통해 데이터 취득 이벤트를 전송하고, 권장 모델을 작성한 후 권장 사항을 사용할 수 있습니다. JS를 통해 수행하는 모든 작업은 서버 쪽에서도 수행할 수 있습니다.
 
@@ -165,8 +168,7 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 
 매개 변수:
 * event(문자열) – "purchase"
-* items(Purchased) – 구매한 각 항목에 대한 항목을 유지하는 배열<br><br>
-Purchased 형식:
+* items(Purchased) – 구매한 각 항목에 대한 항목이 저장되는 배열<br><br> Purchased 형식:
 	* item(문자열) - 항목의 고유 식별자
 	* count(정수 또는 문자열) – 구매한 항목 수
 	* price(부동 소수점 수 또는 문자열) – 선택적 필드 - 항목의 가격
@@ -185,11 +187,7 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 
 매개 변수:
 * event(문자열) – "userlogin"
-* user(문자열) – 사용자의 공유 ID
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
-		</script>
+* user(문자열) – 사용자의 공유 ID. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
 
 ##4\. JavaScript 통해 권장 사항 사용
 권장 사항을 사용하는 코드는 클라이언트 웹 페이지의 일부 JavaScript 이벤트에 의해 트리거됩니다. 권장 사항 응답에는 권장 항목 ID, 이름 및 해당 등급이 포함됩니다. 권장 항목의 목록 표시에만 이 옵션을 사용하는 것이 좋습니다. 더 복잡한 처리(예: 항목의 메타데이터 추가)는 서버 쪽 통합에서 수행해야 합니다.
@@ -204,10 +202,10 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 * numberOfResults(int) – 필요한 결과 수
 * includeMetadata(부울, 선택) - ‘true’로 설정된 경우 결과에서 메타데이터 필드를 채워야 함을 나타냄
 * 처리 함수 - 반환된 권장 사항을 처리할 함수. 반환되는 데이터의 배열:
-	* 항목 - 항목의 고유 ID
-	* 이름 - 항목 이름(카탈로그에 있는 경우)
-	* 등급 - 권장 사항 등급
-	* 메타데이터 - 항목의 메타데이터를 나타내는 문자열
+	* Item - 항목의 고유 ID
+	* name – 항목 이름(카탈로그에 있는 경우)
+	* rating - 권장 사항 등급
+	* metadata - 항목의 메타데이터를 나타내는 문자열
 
 예제: 다음 코드는 "64f6eb0d-947a-4c18-a16c-888da9e228ba" 항목에 대한 8개 권장 사항을 요청하고(includeMetadata를 지정하지 않아 메타데이터가 필요 없음을 암시적으로 나타냄) 그 결과를 버퍼에 연결합니다.
 
@@ -227,4 +225,4 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->

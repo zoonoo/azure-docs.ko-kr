@@ -32,7 +32,7 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 - [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
 - [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 - [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
-- [이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-event-hub.md)
+- [이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
 ## PowerShell을 사용하여 배포
 
@@ -154,13 +154,13 @@ PowerShell 프롬프트에서 다음 명령을 실행합니다.
 Login-AzureRmAccount
 ```
 
-Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그인 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
+Azure 계정에 로그온하라는 메시지가 표시됩니다. 로그온한 후 다음 명령을 실행하여 사용 가능한 구독을 확인합니다.
 
 ```
 Get-AzureRMSubscription
 ```
 
-이 명령은 사용 가능한 Azure 구독 목록을 반환합니다. 다음 명령을 실행하여 현재 세션에 대한 구독을 선택합니다. `<YourSubscriptionId>`를 사용할 Azure 구독의 GUID로 대체합니다.
+이 명령은 사용 가능한 Azure 구독 목록을 반환합니다. 다음 명령을 실행하여 현재 세션에 대한 구독을 선택합니다. `<YourSubscriptionId>`는 사용할 Azure 구독의 GUID로 바꿉니다.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -253,4 +253,4 @@ Parameters        :
 [Azure Resource Manager 템플릿으로 리소스 배포]: ../resource-group-template-deploy.md
 [Azure 빠른 시작 템플릿 갤러리]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->
