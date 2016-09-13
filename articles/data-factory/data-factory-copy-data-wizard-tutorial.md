@@ -25,7 +25,7 @@
 - [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
-이 자습서에서는 데이터 팩터리 복사 마법사를 사용하여 데이터 팩터리에 복사 작업이 있는 파이프라인을 만들겠습니다. 먼저, Azure 포털을 사용하여 데이터 팩터리를 만든 다음 복사 마법사를 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업이 있는 데이터 팩터리 연결된 서비스, 데이터 집합 및 파이프라인을 만듭니다.
+이 자습서에서는 데이터 팩터리 복사 마법사를 사용하여 데이터 팩터리에 복사 작업이 있는 파이프라인을 만들겠습니다. 먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 복사 마법사를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 데이터 팩터리 연결된 서비스, 데이터 집합 및 파이프라인을 만듭니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 > [AZURE.IMPORTANT] [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 
@@ -57,7 +57,7 @@
 	> [AZURE.NOTE] 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
 9. 왼쪽의 **알림** 허브를 클릭하고 만들기 프로세스에서 제공하는 알림을 찾습니다. **알림** 블레이드가 열려 있으면 **X**를 클릭하여 닫습니다.
-10. 만들기가 완료되면 아래와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
+10. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 블레이드가 표시됩니다.
 
     ![데이터 팩터리 홈페이지](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -102,7 +102,7 @@
 
 	![복사 도구 - 테이블 매핑](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. **스키마 매핑** 페이지에서 **다음**을 클릭합니다.
-11. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 이제 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 집합(입력 및 출력), 하나의 파이프라인이 생성됩니다.
+11. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 마법사는 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 집합(입력 및 출력), 하나의 파이프라인을 만듭니다.
 12. **배포 성공** 페이지에서 **복사 파이프라인을 모니터링하려면 여기를 클릭**을 클릭합니다.
 
 	![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
@@ -120,4 +120,4 @@
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

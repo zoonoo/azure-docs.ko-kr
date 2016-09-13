@@ -1,30 +1,59 @@
 ## 이벤트 허브 만들기
 
-1. [Azure 클래식 포털][]에 로그온한 다음 화면 맨 아래에서 **새로 만들기** 를 클릭합니다.
+1. [Azure Portal][]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 
-2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빨리 만들기** 를 차례로 클릭합니다.
+2. **데이터 + 분석**을 클릭한 다음 **Event Hubs**를 클릭합니다.
+
+	![][9]
+
+3. **네임스페이스 만들기** 블레이드에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
 
 	![][1]
 
-3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **새 이벤트 허브 만들기** 를 클릭합니다.
+4. 네임스페이스 이름을 사용할 수 있게 설정한 후 가격 책정 계층(기본 또는 표준)을 선택합니다. 또한 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다.
+
+2. **만들기**를 클릭하여 네임스페이스를 만듭니다.
+
+6. Event Hubs 네임스페이스 목록에서 새로 만든 네임스페이스를 클릭합니다.
 
 	![][2]
 
-4. 지정된 지역에서 기존 네임스페이스를 명시적으로 선택하지 않은 경우 포털은 네임스페이스를 만들어줍니다(일반적으로 ***event hub name*-ns**). 해당 네임스페이스(이 예제에서는 **eventhub-ns**)를 클릭합니다.
+7. 네임스페이스 블레이드에서 **Event Hubs**를 클릭합니다.
 
 	![][3]
 
-5. 페이지 맨 아래에 있는 **연결 정보** 를 클릭합니다. 복사 단추(다음 그림에 표시)를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 이 자습서 뒷부분에서 사용할 연결 문자열을 저장합니다.
+8. 블레이드의 위쪽에서 **Event Hub 추가**를 클릭합니다.
 
 	![][4]
+
+3. Event Hub의 이름을 입력한 다음 **만들기**를 클릭합니다.
+
+	![][5]
+
+4. Event Hubs의 목록에서 새로 만든 Event Hub 이름을 클릭합니다.
+
+	![][6]
+
+5. 네임스페이스 블레이드(특정 Event Hub 블레이드가 아님)로 돌아와서 **공유 액세스 정책**을 클릭한 다음 **RootManageSharedAccessKey**를 클릭합니다.
+
+	![][7]
+
+5. 복사 단추를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 이 자습서 뒷부분에서 사용할 연결 문자열을 저장합니다.
+
+	![][8]
 
 이제 이벤트 허브가 만들어졌고 이벤트를 보내고 받기 위한 연결 문자열이 있습니다.
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
+[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
+[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
+[7]: ./media/event-hubs-create-event-hub/create-event-hub7.png
+[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
+[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

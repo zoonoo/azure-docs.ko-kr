@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모리, RPS) 및 처리되지 않은 예외의 자동 컬렉션을 제공합니다. 또한, 사용자 지정 호출을 추가하여 종속성, 메트릭, 또는 기타 이벤트를 추적할 수 있습니다.
 
-![예제 성능 모니터링 차트](./media/app-insights-asp-net-manual/10-perf.png)
+![예제 성능 모니터링 차트](./media/app-insights-windows-services/10-perf.png)
 
 
 #### 시작하기 전에
@@ -40,7 +40,7 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 
 [Azure 포털][portal]에 로그인한 다음 새 Application Insights 리소스를 만듭니다. Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
 
-![새로 만들기, Application Insights 클릭](./media/app-insights-asp-net-manual/01-new-asp.png)
+![새로 만들기, Application Insights 클릭](./media/app-insights-windows-services/01-new-asp.png)
 
 응용 프로그램 형식으로 기타를 선택합니다. 선택하는 응용 프로그램 유형에 따라 [메트릭 탐색기][metrics]에 표시되는 리소스 블레이드 및 속성의 기본 콘텐츠가 설정됩니다.
 
@@ -48,7 +48,7 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 
 키는 리소스를 식별하며, 데이터를 리소스로 보내기 위해 SDK에서 곧 설치합니다.
 
-![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-asp-net-manual/02-props-asp.png)
+![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a>응용 프로그램에 SDK 설치
@@ -84,7 +84,7 @@ appInsights.setup("<instrumentation_key>").start();
 
 개요 페이지에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
 
-![클릭하여 추가 데이터 확인](./media/app-insights-asp-net-manual/12-first-perf.png)
+![클릭하여 추가 데이터 확인](./media/app-insights-windows-services/12-first-perf.png)
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## 다음 단계
+
+* [포털에서 원격 분석 모니터링](app-insights-dashboards.md)
+* [원격 분석에 대한 분석 쿼리 작성(app-insights-analytics-tour.md)
 
 
 
@@ -224,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

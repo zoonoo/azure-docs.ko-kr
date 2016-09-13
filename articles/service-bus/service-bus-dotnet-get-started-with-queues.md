@@ -10,7 +10,7 @@
 <tags
     ms.service="service-bus"
     ms.devlang="tbd"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="08/23/2016"
@@ -192,4 +192,4 @@ Azure 서비스 버스 메시징의 더 많은 고급 기능 중 일부를 보�
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

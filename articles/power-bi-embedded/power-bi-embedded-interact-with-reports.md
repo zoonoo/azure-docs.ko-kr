@@ -3,7 +3,7 @@
    description="Power BI Embedded, JavaScript API를 사용하여 보고서와 상호 작용"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # JavaScript API를 사용하여 Power BI 보고서와 상호 작용
 
@@ -137,4 +137,4 @@ Power BI JavaScript API에 대한 자세한 내용은 다음 링크를 확인하
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [라이브 데모](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

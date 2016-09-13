@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 릴레이된 메시징 개요 | Microsoft Azure"
+	pageTitle="Service Bus Relay 개요 | Microsoft Azure"
 	description="서비스 버스 릴레이 개요"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 
-# 서비스 버스 릴레이된 메시징
+# Service Bus Relay 개요
 
-서비스 버스의 중심 구성 요소는 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 둘 다에서 실행되는 하이브리드 응용 프로그램을 빌드할 수 있도록 하는 중앙(하지만 부하 분산이 잘 된) 릴레이 서비스입니다. 릴레이 서비스는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원합니다. 여기에는 SOAP, WS-*, 및 REST가 포함됩니다. 서비스 버스 릴레이는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
+Service Bus의 주요 구성 요소는 Azure 데이터 센터와 고유한 온-프레미스 엔터프라이즈 환경 모두에서 실행되는 하이브리드 응용 프로그램을 빌드할 수 있도록 하는 중앙(하지만 부하 분산이 잘 된) *릴레이* 서비스입니다. Service Bus Relay는 다양한 전송 프로토콜 및 웹 서비스 표준을 지원합니다. 여기에는 SOAP, WS-*, 및 REST가 포함됩니다. 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 WCF(Windows Communication Foundation) 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
 
 ![릴레이 개념](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -31,11 +31,11 @@ WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스�
 
 ## 다음 단계
 
-서비스 버스 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
+Service Bus Relay에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
-- [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
+- [Service Bus Relay 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0907_2016-->

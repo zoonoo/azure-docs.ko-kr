@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
 
-웹 응용 프로그램을 호스트에 배포한 후 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md)는 전 세계에서 정기적으로 웹 요청을 보내 응용 프로그램이 느리게 응답하거나 전혀 응답하지 않을 경우 알려줄 수 있습니다.
+웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md)는 전 세계에서 정기적으로 보내 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
 
 ![웹 테스트의 예](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@
 
 웹 테스트에는 두 가지 유형이 있습니다:
 
-* [URL ping 테스트](#set-up-a-url-ping-test): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
+* [URL ping 테스트](#create): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
 * [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Ultimate 또는 Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
 
 응용 프로그램 리소스당 최대 10개의 웹 테스트를 만들 수 있습니다.
 
+## <a name="create"></a>1. 테스트 보고서에 대한 리소스 만들기
 
-## URL ping 테스트를 설정
-
-### <a name="create"></a>1. 새 리소스를 만드나요?
-
-이 응용 프로그램에 대한 [Application Insights 리소스를 이미 설정][start]했고 동일한 위치에서 가용성 데이터를 확인하려는 경우 이 단계를 건너뜁니다.
+이 응용 프로그램에 대한 [Application Insights 리소스를 이미 설정][start]했고 동일한 위치에서 가용성 보고서를 확인하려는 경우 이 단계를 건너뜁니다.
 
 [Microsoft Azure](http://azure.com)에 등록하고 [Azure 포털](https://portal.azure.com)로 이동한 후 Application Insights 리소스를 만듭니다.
 
 ![새로 만들기 > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-새 리소스에 대한 개요 블레이드가 열립니다. 언제든지 [Azure 포털](https://portal.azure.com)에서 찾으려면 **찾아보기**를 클릭합니다.
+**모든 리소스**를 클릭하여 새 리소스에 대한 개요 블레이드를 엽니다.
 
-### <a name="setup"></a>2. 웹 테스트 만들기
+## <a name="setup"></a>2. URL ping 테스트 만들기
 
 Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을 클릭하여 응용 프로그램에 대한 웹 테스트 블레이드를 열고 웹 테스트를 추가합니다.
 
 ![웹 사이트의 최소 URL 채우기](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **URL**은 공용 인터넷에서 볼 수 있어야 합니다. 여기에는 쿼리 문자열이 포함될 수 있으므로 데이터베이스 사용을 연습해 볼 수 있습니다. URL이 리디렉션으로 확인되면 최대 10개의 리디렉션을 따릅니다.
-- **종속 요청 구문 분석**: 페이지의 이미지, 스크립트, 스타일 파일 및 기타 리소스는 테스트의 일부로 요청됩니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다.
+- **종속 요청 구문 분석**: 페이지의 이미지, 스크립트, 스타일 파일 및 기타 리소스는 테스트의 일부로 요청되며 기록된 응답 시간은 다음 시간을 포함합니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다.
 - **다시 시도 사용**: 테스트에 실패하면 잠시 후에 다시 시도합니다. 연속 된 세 번의 시도가 실패하는 경우에 실패가 보고됩니다. 후속 테스트는 일반적인 테스트 빈도로 수행됩니다. 다음 성공까지 다시 시도는 일시적으로 중단됩니다. 이 규칙은 각 테스트 위치에서 독립적으로 적용됩니다. (이 설정을 권장합니다. 평균 실패의 약 80%는 다시 시도에서 사라집니다.)
 - **테스트 빈도**: 각 테스트 위치에서 테스트를 실행하는 빈도를 설정합니다. 5분에 5번의 테스트를 하는 빈도로 사이트를 평균 1분마다 테스트합니다.
 - **테스트 위치**는 서버가 URL로 웹 요청을 보내는 곳입니다. 웹 사이트의 문제와 네트워크 문제를 구분할 수 있도록 한 가지 이상을 선택합니다. 최대 16 개의 위치를 선택할 수 있습니다.
@@ -68,14 +65,14 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
     경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)를 설정할 수 있습니다. 그러나 현재 쿼리 매개 변수는 속성으로 전달되지 않습니다.
 
-#### 더 많은 URL 테스트
+### 더 많은 URL 테스트
 
 테스트를 더 추가 합니다. 예를 들어 홈페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
 
 
-### <a name="monitor"></a>3. 가용성 보고서 보기
+## <a name="monitor"></a>3. 웹 테스트 결과를 참조하세요.
 
-1-2분 후 가용성/웹 테스트 블레이드에서 **새로 고침**을 클릭합니다. 이 버전에서는 새로 고침이 자동으로 수행되지 않습니다.
+1-2분 후에 결과가 다음에 표시됩니다.
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 이 차트들은 이 응용 프로그램의 웹테스트에 대해나 결과들의 합입니다.
 
-#### 웹 페이지의 구성 요소
 
-사용자가 테스트하는 웹 페이지의 이미지, 스타일 시트, 스크립트 그리고 다른 정적 구성 요소는 테스트의 일부로 요청됩니다.
-
-기록된 응답 시간은 모든 구성 요소가 로딩을 완료할 때 걸린 시간입니다.
-
-구성 요소를 로드하지 못하는 경우 테스트가 실패로 표시됩니다.
-
-## <a name="failures"></a>오류가 표시되는 경우...
+## <a name="failures"></a>오류가 표시되는 경우
 
 빨간 점을 클릭합니다.
 
@@ -333,4 +323,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

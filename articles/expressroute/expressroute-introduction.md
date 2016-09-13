@@ -75,7 +75,7 @@ Express 경로 연결을 사용하면 다음 서비스에 액세스할 수 있�
 
 - Microsoft Azure 서비스
 - Microsoft Office 365 서비스
-- Microsoft CRM Online 서비스 
+- Microsoft CRM Online 서비스
  
 Express 경로를 통해 지원되는 서비스에 대한 자세한 목록은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 방문할 수 있습니다.
 
@@ -118,9 +118,9 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 
 사용자에게 적합한 청구 모델을 선택할 수 있습니다. 아래에 나열된 청구 모델 중에서 선택합니다. 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 참조하세요.
 
-- **무제한 데이터**입니다. Express 경로 회로는 월별 요금이 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다. 
+- **무제한 데이터**입니다. Express 경로 회로는 월별 요금이 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다.
 - **데이터 요금**입니다. Express 경로 회로는 월별 요금이 청구됩니다. 모든 인바운드 데이터 전송은 무료로 제공됩니다. 아웃 바운드 데이터 전송은 데이터 전송량 GB 당 요금이 부과됩니다. 데이터 전송 속도는 지역에 따라 다릅니다.
-- **Express 경로 프리미엄 추가 기능**입니다. Express 경로 프리미엄이 Express 경로 회로에 대한 추가 기능입니다. Express 경로 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다. 
+- **Express 경로 프리미엄 추가 기능**입니다. Express 경로 프리미엄이 Express 경로 회로에 대한 추가 기능입니다. Express 경로 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다.
 	- Azure 공용 및 Azure 개인 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
 	- 서비스에 대한 전역 연결입니다. 모든 지역에서 만든 Express 경로 회로(국가별 클라우드 제외)는 전세계의 다른 지역에 걸쳐 리소스에 액세스합니다. 예를 들어 서유럽에서 만든 가상 네트워크는 실리콘밸리에 프로비전된 Express 경로 회로를 통해 액세스될 수 있습니다.
 	- Express 경로 회로 당 VNet 링크의 횟수는 회로의 대역폭에 따라 10에서 큰 제한으로 증가합니다.
@@ -136,4 +136,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->
