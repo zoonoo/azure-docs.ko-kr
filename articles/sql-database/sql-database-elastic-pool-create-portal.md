@@ -29,7 +29,7 @@
 
 서버에 풀을 여러 개 추가할 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다. 풀을 만들려면 V12 서버에서 하나 이상의 데이터베이스가 필요합니다. 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요. 하나의 데이터베이스로 그룹을 만들 수 있지만 여러 데이터베이스가 있는 경우 풀이 비용 효율적입니다. [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
-> [AZURE.NOTE] 풀은 SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. V11 서버에 데이터베이스가 있으면 V12 서버에서 [PowerShell 스크립트를 사용하여 풀에 대한 후보로 식별](sql-database-elastic-pool-database-assessment-powershell.md)한 후 [PowerShell을 사용하여 V12로 업그레이드하고 풀을 한 번에 만들 수 있습니다](sql-database-upgrade-server-powershell.md).
+> [AZURE.NOTE] 탄력적 풀은 현재 미리 보기 상태인 미국 중북부 및 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다. 이 지역에서도 탄력적 풀의 GA를 가능한 한 빨리 제공하겠습니다. 또한 탄력적 풀은 현재 [메모리 내 OLTP 또는 메모리 내 분석](sql-database-in-memory.md)을 사용하는 데이터베이스를 지원하지 않습니다.
 
 ## 1단계: 새 풀 만들기
 
@@ -37,18 +37,18 @@
 
 > [AZURE.NOTE] 서버가 이미 있는지 여부와 상관없이 **SQL 탄력적 풀** 블레이드에서 새 풀을 만들 수도 있습니다(포털 왼쪽의 목록 아래에서 **찾아보기** **>** **SQL 탄력적 풀**을 클릭). **SQL 탄력적 풀** 블레이드에서 **+추가**를 클릭하면 풀에서 워크플로를 프로비전하는 동안 새 서버를 만드는 단계를 제공합니다.
 
-1. 왼쪽 목록 아래의 [Azure 포털](http://portal.azure.com/)에서 **찾아보기** **>** **SQL Server**를 클릭한 다음 풀에 추가할 데이터베이스를 포함하는 서버를 클릭합니다.
+1. 왼쪽 목록 아래의 [Azure Portal](http://portal.azure.com/)에서 **찾아보기** **>** **SQL Server**를 클릭한 다음 풀에 추가할 데이터베이스를 포함하는 서버를 클릭합니다.
 2. **새 풀**을 클릭합니다.
 
     ![서버에 풀 추가](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
     **또는**
 
-    서버에 대해 권장되는 탄력적 데이터베이스 풀이 있다는 메시지를 볼 수도 있습니다(V12에만 해당). 메시지를 클릭하여 기록 데이터베이스 사용량 원격 분석에 따라 권장된 풀을 확인한 다음 계층을 클릭하여 자세한 내용을 보고 풀을 사용자 지정합니다. 권장 사항을 만드는 방법은 이 항목 뒷부분에서 [풀 권장 사항 이해](#understand-pool-recommendations)를 참조하세요.
+    서버에 대해 권장되는 탄력적 데이터베이스 풀이 있다는 메시지를 볼 수도 있습니다(V12에만 해당). 메시지를 클릭하여 기록 데이터베이스 사용량 원격 분석에 따라 권장된 풀을 확인한 다음 계층을 클릭하여 자세한 내용을 보고 풀을 사용자 지정합니다. 권장 사항을 만드는 방법은 이 항목의 뒷부분에서 [풀 권장 사항 이해](#understand-pool-recommendations)를 참조하세요.
 
     ![권장되는 풀](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-    **탄력적 데이터베이스 풀** 블레이드가 나타나면 거기서 풀을 설정할 수 있습니다. 이전 단계에서 **새 풀**을 클릭한 경우 포털은 **가격 책정 계층**에서 **표준 풀**, 풀에 대한 고유한 **이름** 및 풀에 대한 기본 구성을 선택합니다. 권장되는 풀을 선택한 경우 권장된 계층 및 풀의 구성은 이미 선택되었지만 변경할 수 있습니다.
+    **Elastic Database 풀** 블레이드가 나타나면 거기서 풀을 설정할 수 있습니다. 이전 단계에서 **새 풀**을 클릭한 경우 포털은 **가격 책정 계층**에서 **표준 풀**, 풀에 대한 고유한 **이름** 및 풀에 대한 기본 구성을 선택합니다. 권장되는 풀을 선택한 경우 권장된 계층 및 풀의 구성은 이미 선택되었지만 변경할 수 있습니다.
 
     ![탄력적 풀 구성](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
@@ -75,7 +75,7 @@
 
     사용하고 있는 데이터베이스에 충분한 기록 사용량 원격 분석이 있는 경우 **예상되는 eDTU 및 GB 사용량** 그래프 및 **실제 eDTU 사용량** 막대형 차트는 구성을 결정할 수 있도록 업데이트됩니다. 또한 서비스가 적정 크기의 풀을 만들도록 권장 사항 메시지를 제공할 수 있습니다. [동적 권장 사항](#dynamic-recommendations)을 참조하세요.
 
-3. **풀 구성** 페이지에서 제어를 사용하여 설정을 탐색하고 풀을 구성합니다. 각 서비스 계층에 대한 제한의 자세한 내용은 [탄력적 풀 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참조하고 적정한 풀의 크기에 대한 자세한 지침은 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 풀 설정에 대한 자세한 내용은 [탄력적 데이터베이스 풀 속성](sql-database-elastic-pool.md#elastic-database-pool-properties)을 참조하세요.
+3. **풀 구성** 페이지에서 제어를 사용하여 설정을 탐색하고 풀을 구성합니다. 각 서비스 계층의 제한에 대한 자세한 내용은 [탄력적 풀 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참조하고 적정한 풀의 크기에 대한 자세한 지침은 [Elastic Database 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 풀 설정에 대한 자세한 내용은 [Elastic Database 풀 속성](sql-database-elastic-pool.md#elastic-database-pool-properties)을 참조하세요.
 
 	![탄력적 풀 구성](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -92,7 +92,7 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 풀 권장 사항은 다음으로 구성됩니다.
 
 - 풀에 대한 가격 책정 계층(Basic, Standard 또는 Premium)
-- 적절한 **풀 eDTU**(풀당 최대 eDTU라고도 함)
+- 적절한 **풀 eDTU**(풀당 최대 eDTU)
 - 데이터베이스당 **eDTU 최대** 및 **eDTU 최소**
 - 풀에 대한 권장 데이터베이스 목록
 
@@ -113,4 +113,4 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 - [C#을 통해 SQL 데이터베이스 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)
 - [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

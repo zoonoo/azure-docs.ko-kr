@@ -4,17 +4,21 @@
 
 [EventProcessorHost][]를 사용하려면 [Azure Storage 계정][]이 있어야 합니다.
 
-1. [Azure 클래식 포털][]에 로그온한 다음 화면 맨 아래에서 **새로 만들기**를 클릭합니다.
+1. [Azure Portal][]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 
-2. **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭한 다음 저장소 계정 이름을 입력합니다. 원하는 지역을 선택하고 **저장소 계정 만들기**를 클릭합니다.
+2. **데이터 + 저장소**를 클릭한 다음 **저장소 계정**을 클릭합니다.
 
-    ![][11]
+    ![][1]
 
-3. 새로 만든 저장소 계정을 클릭한 후 **액세스 키 관리**를 클릭합니다.
+3. **저장소 계정 만들기** 블레이드에서 저장소 계정의 이름을 입력합니다. 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. 그런 다음 **Create**를 클릭합니다.
 
-    ![][12]
+    ![][2]
 
-    이 자습서에서 나중에 사용할 기본 선택키를 복사합니다.
+4. 저장소 계정 목록에서 새로 만든 저장소 계정을 클릭합니다.
+
+5. 저장소 계정 블레이드에서 **선택키**를 클릭합니다. 이 자습서에서 나중에 **key1** 값을 복사합니다.
+
+	![][3]
 
 4. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
 
@@ -115,23 +119,24 @@
     }
 	```
 
-> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][]\(영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
 
 <!-- Links -->
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브 프로그래밍 가이드]: event-hubs-programming-guide.md
 [확장된 이벤트 처리]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage 계정]: ../storage/storage-create-storage-account-classic-portal.md
+[Azure Storage 계정]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure 클래식 포털]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

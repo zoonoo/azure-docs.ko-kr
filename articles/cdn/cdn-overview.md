@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
@@ -41,7 +41,7 @@ CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음
 
 4. 에지 서버는 파일을 캐싱하고 원래 요청자(Alice)에게 파일을 반환합니다. 파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다. 원본이 TTL을 지정하지 않은 경우, 기본 TTL은 7일입니다.
 
-5. 추가적인 사용자(예: Bob)는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
+5. 추가 사용자는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
 
 6. 파일의 TTL이 만료되지 않았으면, 에지 서버는 캐시로부터 파일을 반환합니다. 이렇게 하면 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능합니다.
 
@@ -53,22 +53,25 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와 간편하게 통합 | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) 또는 [PowerShell](./cdn-manage-powershell.md)을 통한 관리. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS 지원 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | 부하 분산 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| DDOS 보호 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) 보호 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 이중 스택 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [쿼리 문자열 캐싱](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [국가 필터링](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
 | [빠른 삭제](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [자산 미리 로드](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [핵심 분석](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) 또는 [PowerShell](./cdn-manage-powershell.md)을 통한 관리. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
+| [HTTP/2 지원](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [실시간 통계](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [실시간 경고](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
+| 캐시/헤더 설정([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
+| URL 리디렉션/다시 쓰기([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
+| 모바일 장치 규칙([규칙 엔진](cdn-rules-engine.md) 사용) | | | **&#x2713;** |
 
 >[AZURE.TIP] Azure CDN에서 참조하려는 기능이 있나요? [피드백 보내기](https://feedback.azure.com/forums/169397-cdn)
 
@@ -84,4 +87,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

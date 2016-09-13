@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Resource Manager 배포 모델을 사용하여 가상 네트워크에 지점 및 사이트 간 VPN 연결 구성 | Microsoft Azure"
-   description="지점 및 사이트 간 VPN 연결을 만들어 Azure 가상 네트워크에 안전하게 연결합니다."
+   pageTitle="Resource Manager 배포 모델을 사용하여 가상 네트워크에 지점 및 사이트 간 VPN Gateway 연결 구성 | Microsoft Azure"
+   description="지점 및 사이트 간 VPN Gateway 연결을 만들어 Azure Virtual Network에 안전하게 연결합니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -65,7 +65,7 @@
 
 - Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 	
-- Azure Resource Manager PowerShell cmdlet(1.0.2 이상)을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+- Azure Resource Manager PowerShell cmdlet(1.0.2 이상)을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다.
 
 ## <a name="declare"></a>1부 - 로그인 및 변수 설정
 
@@ -176,15 +176,24 @@ P2S를 사용하여 Azure에 연결된 클라이언트에는 클라이언트 인
 
 	![VPN 클라이언트](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN 클라이언트")
 
-## <a name="cc"></a>6부 - 클라이언트 인증서 설치
-	
-클라이언트 컴퓨터의 루트 인증서에서 생성된 클라이언트 인증서(*.pfx)를 생성하고 설치합니다. 익숙한 설치 방법을 어떤 것이든 사용할 수 있습니다.
+## <a name="cc"></a>6부 - 클라이언트 인증서 생성
 
-자체 서명된 루트 인증서를 사용 중이고 클라이언트 인증서를 생성하는 방법에 익숙하지 않은 경우 [이 문서](vpn-gateway-certificates-point-to-site.md)를 참조할 수 있습니다. 엔터프라이즈 솔루션을 사용하는 경우 'NetBIOS 도메인 이름\\사용자 이름' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com'으로 클라이언트 인증서를 발급해야 합니다.
+그 다음 클라이언트 인증서를 생성합니다. 연결할 각 클라이언트의 고유한 인증서를 생성할 수도 있고 여러 클라이언트에서 동일한 인증서를 사용할 수도 있습니다. 고유한 클라이언트 인증서를 생성하면 필요할 경우 단일 인증서를 해지할 수 있는 장점이 있습니다. 그렇지 않은 경우 즉, 모든 구성원이 동일한 클라이언트 인증서를 사용하고 한 클라이언트에 대한 인증서를 해지해야 하는 경우, 인증서를 사용하는 모든 클라이언트에 대해 새 인증서를 생성하고 설치해야 합니다.
 
-.pfx 파일을 두 번 클릭하여 컴퓨터에 직접 클라이언트 인증서를 설치할 수 있습니다.
+- 엔터프라이즈 인증서 솔루션을 사용하는 경우, NetBIOS '도메인\\사용자 이름' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com'으로 클라이언트 인증서를 생성합니다.
 
-## 7부 - Azure에 연결
+- 자체 서명된 인증서를 사용하는 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하여 클라이언트 인증서를 생성합니다.
+
+## 7부 - 클라이언트 인증서 설치
+
+가상 네트워크에 연결하려는 각 컴퓨터에 클라이언트 인증서를 설치합니다. 인증하려면 클라이언트 인증서가 필요합니다. 클라이언트 인증서를 자동으로 설치하거나 수동으로 설치할 수 있습니다. 다음 단계에서는 클라이언트 인증서를 내보내어 수동으로 설치하는 방법을 안내합니다.
+
+1. 클라이언트 인증서를 내보내려면 *certmgr.msc*를 사용할 수 있습니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭 한 다음 **내보내기**를 클릭합니다.
+2. 개인 키로 클라이언트 인증서를 내보냅니다. 이는 *.pfx* 파일입니다. 이 인증서에 대해 설정한 암호(키)를 기억 하거나 기록해야 합니다.
+3. *.pfx* 파일을 클라이언트 컴퓨터에 복사합니다. 클라이언트 컴퓨터에서 *.pfx* 파일을 두 번 클릭하여 설치합니다. 요청하는 경우 암호를 입력합니다. 설치 위치를 수정하지 마세요.
+
+
+## 8부 - Azure에 연결
 
 1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속**을 클릭하여 상승된 권한을 사용합니다.
 
@@ -196,7 +205,7 @@ P2S를 사용하여 Azure에 연결된 클라이언트에는 클라이언트 인
 
 	![VPN 클라이언트 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN 클라이언트 연결 2")
 
-## 8부 - 연결 확인
+## 9부 - 연결 확인
 
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 
@@ -302,4 +311,4 @@ Azure에서 신뢰할 수 있는 루트 인증서를 제거할 수 있습니다.
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

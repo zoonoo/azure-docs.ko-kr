@@ -48,7 +48,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     npm init
     ```
 
-2. **createdeviceidentity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 패키지를 설치합니다.
+2. **createdeviceidentity** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 서비스 SDK 패키지를 설치합니다.
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     npm init
     ```
 
-2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device-amqp** 패키지를 설치합니다.
+2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-amqp** 패키지를 설치합니다.
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -312,4 +312,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

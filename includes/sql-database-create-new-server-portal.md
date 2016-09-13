@@ -12,16 +12,16 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Azure 포털에서 다음 단계를 사용하여 Azure SQL 데이터베이스 논리 서버를 만듭니다.
 
-1. 연결되어 있지 않은 경우 [Azure 포털](http://portal.azure.com)에 연결합니다.
-2. **새로 만들기**를 클릭하고 **SQL 데이터베이스**를 입력한 다음 **SQL 데이터베이스(새 논리 서버)**를 클릭합니다.
+1. 연결되어 있지 않은 경우 [Azure Portal](http://portal.azure.com)에 연결합니다.
+2. **새로 만들기**를 클릭하고 **SQL Database**를 입력한 다음 **SQL Database(새 논리 서버)**를 클릭합니다.
 
       ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
 
-3. SQL 데이터베이스(새 논리 서버)를 클릭합니다.
+3. **SQL Database(새 논리 서버)**를 클릭합니다.
 
       ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-   
-4. **만들기**를 클릭하여 단일 데이터베이스 및 탄력적 데이터베이스 풀을 호스팅할 수 있는 빈 논리 서버를 만들기 위해 템플릿을 엽니다.
+
+4. 단일 데이터베이스 및 Elastic Database 풀을 호스팅할 수 있는 빈 논리 서버를 만들기 위해 **만들기**를 클릭하여 템플릿을 엽니다.
 
       ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
 
@@ -34,9 +34,9 @@ Azure 포털에서 다음 단계를 사용하여 Azure SQL 데이터베이스 �
  - 리소스 그룹(신규 또는 기존)
  - 위치
 
-        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
+        ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
-6.  **만들기**를 클릭하면 알림 영역에서 배포가 시작된 것을 확인할 수 있습니다.
+6.  **만들기**를 클릭합니다. 알림 영역에서 배포가 시작된 것을 확인할 수 있습니다.
 
        ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
@@ -44,4 +44,4 @@ Azure 포털에서 다음 단계를 사용하여 Azure SQL 데이터베이스 �
 
        ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0907_2016-->

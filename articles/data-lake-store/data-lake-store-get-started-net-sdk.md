@@ -27,22 +27,22 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레이크 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크에 대한 자세한 내용은 [Azure 데이터 레이크 저장소](data-lake-store-overview.md)를 참조하세요.
+[Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 Azure Data Lake 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크에 대한 자세한 내용은 [Azure 데이터 레이크 저장소](data-lake-store-overview.md)를 참조하세요.
 
 ## 필수 조건
 
 * Visual Studio 2013 또는 2015 아래 지침에서는 Visual Studio 2015를 사용합니다.
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
-* **Azure Active Directory 응용 프로그램 만들기**. **대화형** 및 **비대화형**과 같은 두 가지 방법으로 Azure Active Direcotry를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
-	* **대화형 인증의 경우** (이 문서에 사용됨) - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
-		- 응용 프로그램의 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
+* Data Lake Store 공개 미리 보기에 대해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
+* **Azure Active Directory 응용 프로그램을 만듭니다**. **대화형** 및 **비대화형**의 두 가지 방법으로 Azure Active Direcotry를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
+	* **대화형 인증의 경우**(이 문서에 사용됨) - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
+		- 응용 프로그램에 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
 		- 위임된 권한 설정
 
 	* **비대화형 인증의 경우** - Azure Active Directory에서 **웹 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
 		- 응용 프로그램의 **클라이언트 ID**, **클라이언트 암호** 및 **리디렉션 URI** 가져오기
 		- 위임된 권한 설정
-		- 역할에 Azure Active Directory 응용 프로그램을 할당합니다. Azure Active Directory 응용 프로그램에 권한을 부여하려는 범위의 수준을 역할에 지정할 수 있습니다. 예를 들어 응용 프로그램을 구독 수준 또는 리소스 그룹 수준에 할당할 수 있습니다.
+		- 역할에 Azure Active Directory 응용 프로그램을 할당합니다. Azure Active Directory 응용 프로그램에 권한을 부여하려는 범위의 수준을 역할에 지정할 수 있습니다. 예를 들어 구독 수준 또는 리소스 그룹 수준으로 응용 프로그램을 할당할 수 있습니다.
 
 	이러한 값을 검색하고 권한을 설정하며 역할을 할당하는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
 
@@ -57,7 +57,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 	| 속성 | 값 |
 	|----------|-----------------------------|
 	| Category | Templates/Visual C#/Windows |
-	| Template | Console Application |
+	| Template | 콘솔 응용 프로그램 |
 	| 이름 | CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -73,7 +73,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
 		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure 데이터 레이크 계정 만들기")
 
-	4. 또한 Azure Active Directory 인증에 대한 `Microsoft.IdentityModel.Clients.ActiveDirectory` 패키지를 설치합니다. 이 패키지의 안정적인 버전을 설치하도록 **시험판 포함** 확인란 선택을 *취소*합니다.
+	4. 또한 Azure Active Directory 인증에 대한 `Microsoft.IdentityModel.Clients.ActiveDirectory` 패키지를 설치합니다. 이 패키지의 안정적인 버전을 설치하도록 **시험판 포함** 확인란 선택을 *취소*해야 합니다.
 
 		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "새 Azure 데이터 레이크 계정 만들기")
 
@@ -122,7 +122,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 			}
 		}
 
-문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 사용자 인증, Data Lake 저장소 계정 생성, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다. Data Lake 저장소 작업 방법에 대한 전체 샘플을 찾으려면, 이 문서 맨 아래의 [부록](#appendix-sample-code)을 참조하세요.
+문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 사용자 인증, Data Lake 저장소 계정 생성, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다. Data Lake Store로 작업하는 방법에 대한 전체 샘플을 찾는 경우 이 문서 맨 아래의 [부록](#appendix-sample-code)을 참조하세요.
 
 ## 사용자 인증
 
@@ -134,12 +134,12 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ### 대화형 인증
 
-다음 코드 조각은 환경의 대화형 로그에 사용할 수 있는 `AuthenticateUser` 메서드를 보여줍니다.
+다음 코드 조각은 환경의 대화형 로그에 사용할 수 있는 `AuthenticateUser` 메서드를 보여 줍니다.
 
  	// Authenticate the user with AAD through an interactive popup.
     // You need to have an application registered with AAD in order to authenticate.
     //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+    //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -152,12 +152,12 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ### 비대화형 인증
 
-다음 코드 조각은 환경의 비대화형 로그에 사용할 수 있는 `AuthenticateApplication` 메서드를 보여줍니다.
+다음 코드 조각은 환경의 비대화형 로그에 사용할 수 있는 `AuthenticateApplication` 메서드를 보여 줍니다.
 
 	// Authenticate the application with AAD through the application's secret key.
 	// You need to have an application registered with AAD in order to authenticate.
 	//   For more information and instructions on how to register your application with AAD, see:
-	//   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+	//   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -170,7 +170,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 	
 ## Data Lake 저장소 계정 만들기
 
-다음 코드 조각은 Data Lake 저장소 계정 생성에 사용할 수 있는 `CreateAccount` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정 생성에 사용할 수 있는 `CreateAccount` 메서드를 보여 줍니다.
 
 	// Create Data Lake Store account
     public static void CreateAccount()
@@ -179,9 +179,9 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
         _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
     } 
 
-## 구독 내 모든 Data Lake 저장소 계정 나열
+## 구독 내 모든 Data Lake Store 계정 나열
 
-다음 코드는 Azure 구독 내 모든 Data Lake 저장소 계정을 나열하는 데 사용할 수 있는 `ListAdlStoreAccounts` 메서드를 보여줍니다.
+다음 코드는 Azure 구독 내 모든 Data Lake Store 계정을 나열하는 데 사용할 수 있는 `ListAdlStoreAccounts` 메서드를 보여 줍니다.
 
 	// List all ADLS accounts within the subscription
 	public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
@@ -200,7 +200,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 디렉터리 만들기
 
-다음 코드 조각은 Data Lake 저장소 계정 내 디렉터리 생성에 사용할 수 있는 `CreateDirectory` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정 내 디렉터리 생성에 사용할 수 있는 `CreateDirectory` 메서드를 보여 줍니다.
 
 	// Create a directory
     public static void CreateDirectory(string path)
@@ -210,7 +210,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## Data Lake 저장소에 파일 업로드
 
-다음 코드 조각은 Data Lake 저장소 계정에 파일을 업로드하는 데 사용할 수 있는 `UploadFile` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정에 파일을 업로드하는 데 사용할 수 있는 `UploadFile` 메서드를 보여 줍니다.
 
 	// Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
@@ -221,9 +221,11 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
         uploader.Execute();
     }
 
+DataLakeStoreUploader는 Data Lake Store에 대한 로컬 파일(또는 폴더) 경로 간의 재귀 업로드 및 다운로드를 지원합니다.
+
 ## 파일 또는 디렉터리 정보 가져오기
 
-다음 코드 조각은 Data Lake 저장소에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다.
 
 	// Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -233,7 +235,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 파일 또는 디렉터리 나열
 
-다음 코드 조각은 Data Lake 저장소 계정의 파일과 디렉터리를 나열하는 데 사용할 수 있는 `ListItem` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정의 파일과 디렉터리를 나열하는 데 사용할 수 있는 `ListItem` 메서드를 보여 줍니다.
 	
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
@@ -243,7 +245,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 파일 연결
 
-다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여줍니다.
+다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여 줍니다.
 
 	// Concatenate files
     public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -253,7 +255,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 파일에 추가
 
-다음 코드 조각은 Data Lake 저장소 계정에 이미 저장된 파일에 데이터를 추가하는 데 사용하는 `AppendToFile` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정에 이미 저장된 파일에 데이터를 추가하는 데 사용하는 `AppendToFile` 메서드를 보여 줍니다.
 
 	// Append to file
     public static void AppendToFile(string path, string content)
@@ -265,7 +267,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 파일 다운로드
 
-다음 코드 조각은 Data Lake 저장소 계정에서 파일을 다운로드하는 데 사용하는 `DownloadFile` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정에서 파일을 다운로드하는 데 사용하는 `DownloadFile` 메서드를 보여 줍니다.
 
 	// Download file
     public static void DownloadFile(string srcPath, string destPath)
@@ -280,7 +282,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## Data Lake 저장소 계정 삭제
 
-다음 코드 조각은 Data Lake 저장소 계정 삭제에 사용할 수 있는 `DeleteAccount` 메서드를 보여줍니다.
+다음 코드 조각은 Data Lake Store 계정 삭제에 사용할 수 있는 `DeleteAccount` 메서드를 보여 줍니다.
 
 	// Delete account
     public static void DeleteAccount()
@@ -290,11 +292,11 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 부록: 샘플 코드
 
-다음 코드 조각은 Data Lake 저장소의 종단 간 작업을 보기 위해 응용 프로그램에 복사하여 붙여 넣을 수 있는 포괄적인 코드 샘플입니다. 코드 조각을 실행하기 전에 Data Lake 저장소 이름, 리소스 그룹 이름 등의 필요한 값을 제공해야 합니다. Azure Active Directory 인증에 필요한 값(예: **<APPLICATION-CLIENT-ID>** , **<APPLICATION-REPLY-URI>** 및 **<SUBSCRIPTION-ID>**)도 제공해야 합니다.
+다음 코드 조각은 Data Lake 저장소의 종단 간 작업을 보기 위해 응용 프로그램에 복사하여 붙여 넣을 수 있는 포괄적인 코드 샘플입니다. 코드 조각을 실행하기 전에 Data Lake 저장소 이름, 리소스 그룹 이름 등의 필요한 값을 제공해야 합니다. Azure Active Directory 인증에 필요한 값(예: **<APPLICATION-CLIENT-ID>**, **<APPLICATION-REPLY-URI>** 및 **<SUBSCRIPTION-ID>**)도 제공해야 합니다.
 
 아래 코드 조각에 대화형 및 비대화형이라는 두 가지 방법에 대한 메서드가 모두 제공되지만, 비대화형 코드 블록은 주석으로 처리되어 있습니다. 비대화형 메서드에는 AAD 응용 프로그램 클라이언트 ID 및 리디렉션 URI를 제공해야 합니다. 필수 조건에 있는 링크에서 이들을 가져오는 방법에 대한 지침을 제공합니다.
 
->[AZURE.NOTE] 코드 조각을 수정하고 비대화형(`AuthenticateApplication`) 메서드를 대신 사용하려는 경우 클라이언트 ID 및 클라이언트 회신 URI 외에도 클라이언트 인증 키를 메서드에 대한 입력 항목으로 제공해야 합니다. [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md) 문서에서는 클라이언트 인증 키를 생성하고 검색하는 방법에 대한 지침도 제공합니다.
+>[AZURE.NOTE] 코드 조각을 수정하고 비대화형(`AuthenticateApplication`) 메서드를 대신 사용하려는 경우 클라이언트 ID 및 클라이언트 회신 URI 외에도 클라이언트 인증 키를 메서드에 대한 입력 항목으로 제공해야 합니다. [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md) 문서에서는 클라이언트 인증 키를 생성하고 검색하는 방법에 대한 정보도 제공합니다.
 	
 마지막으로, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
@@ -400,7 +402,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
             // Authenticate the user with AAD through an interactive popup.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -415,7 +417,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
             // Authenticate the application with AAD through the application's secret key.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -524,6 +526,8 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

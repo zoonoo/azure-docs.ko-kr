@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/28/2016" 
+	ms.date="09/01/2016" 
 	ms.author="mandia"/>
 
 # 커넥터 및 BizTalk API 앱 정의
@@ -35,19 +35,19 @@
 
 
 ## 하이브리드 커넥터 
-하이브리드 커넥터는 도달 범위를 [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) 및 WebSphere MQ에 대한 연결이 있는 엔터프라이즈까지 확장합니다.
+하이브리드 커넥터는 도달률을 [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) 및 WebSphere MQ에 대한 연결이 있는 엔터프라이즈까지 확장합니다.
 
 ## EAI 및 EDI 서비스
 중요 업무용 앱을 빌드하려면 연결 이상의 것이 필요합니다. Microsoft의 업계 선도적인 통합 플랫폼인 BizTalk Server를 기반으로 하는 BizTalk API 앱은 웹앱, 모바일 앱 및 논리 앱에 쉽게 맞출 수 있는 고급 통합 기능을 제공합니다. 이러한 통합 기능에는 [유효성 검사](app-service-logic-xml-validator.md), [추출](app-service-logic-xpath-extract.md), [변환](app-service-logic-transform-xml-documents.md), [인코더](app-service-logic-connector-jsonencoder.md), [거래 업체 관리](app-service-logic-connector-tpm.md) 및 [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md), [AS2](app-service-logic-connector-as2.md)와 같은 EDI 형식에 대한 지원이 포함됩니다.
 
-추가 리소스: [기업 간 커넥터 및 API 앱](app-service-logic-b2b-connectors.md) [B2B 프로세스 만들기](app-service-logic-create-a-b2b-process.md) [거래 업체 규약 만들기](app-service-logic-create-a-trading-partner-agreement.md) [B2B 메시지 추적](app-service-logic-track-b2b-messages.md)
+추가 리소스: [기업 간 커넥터 및 API Apps](app-service-logic-b2b-connectors.md) [B2B 프로세스 만들기](app-service-logic-create-a-b2b-process.md) [거래 업체 규약 만들기](app-service-logic-create-a-trading-partner-agreement.md) [B2B 메시지 추적](app-service-logic-track-b2b-messages.md)
 
 
 ## 규칙
-비즈니스 규칙은 비즈니스 프로세스를 제어하는 정책 및 의사 결정을 캡슐화합니다. 일반적으로 규칙은 동적이며 비즈니스 계획, 규정 및 기타 여러 이유를 비롯한 다양한 이유로 시간이 지남에 따라 변경됩니다. [BizTalk 규칙](app-service-logic-use-biztalk-rules.md)을 사용하면 응용 프로그램 코드에서 이러한 정책을 분리하여 변경 프로세스를 더 간단하고 빠르게 만들 수 있습니다.
+비즈니스 규칙은 비즈니스 프로세스를 제어하는 정책 및 의사 결정을 캡슐화합니다. 일반적으로 규칙은 동적이며 비즈니스 계획, 규정 및 기타 여러 이유를 비롯한 다양한 이유로 시간이 지남에 따라 변경됩니다. [BizTalk 규칙](app-service-logic-use-biztalk-rules.md)을 사용하면 응용 프로그램 코드에서 이러한 정책을 분리하여 변경 프로세스를 간단하고 빠르게 만들 수 있습니다.
 
 ## 커넥터 및 API 앱 목록
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

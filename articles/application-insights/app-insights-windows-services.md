@@ -1,57 +1,70 @@
-<properties 
-	pageTitle="Windows 서비스용 Application Insights" 
-	description="Application Insights를 사용하여 Windows 백그라운드 서비스의 사용량 및 성능을 분석합니다." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Windows 서비스 및 작업자 역할용 Application Insights | Microsoft Azure"
+	description="ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다."
+	services="application-insights"
+    documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
-# Windows 백그라운드 서비스의 Application Insights
+
+# ASP.NET 4 응용 프로그램에 대한 Application Insights를 수동으로 구성
 
 *Application Insights는 미리 보기 상태입니다.*
 
-[Visual Studio Application Insights](app-insights-get-started.md)를 사용하면 배포된 응용 프로그램의 사용량 및 성능을 모니터링할 수 있습니다.
+[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-백그라운드 서비스 및 작업자 역할을 포함하는 모든 Windows 응용 프로그램은 Application Insights SDK를 사용하여 Application Insights에 원격 분석을 보낼 수 있습니다. 또한 클래스 라이브러리 프로젝트에 SDK를 추가할 수 있습니다.
+[Visual Studio Application Insights](app-insights-overview.md)를 수동으로 구성하여 Windows 서비스, 작업자 역할 및 다른 ASP.NET 응용 프로그램을 모니터링할 수 있습니다. 웹앱의 경우 수동 구성은 Visual Studio에서 제공되는 [자동 설치](app-insights-asp-net.md)에 대한 대안입니다.
 
-성능 카운터나 종속성 호출을 모니터링하는 등의 목적으로 사용할 표준 데이터 수집기를 선택하거나, 코어 API를 사용하고 사용자 고유의 원격 분석을 작성할 수 있습니다.
+Application Insights를 사용하면 라이브 응용 프로그램에서 문제를 진단하고 성능 및 사용량을 모니터링할 수 있습니다.
 
-먼저 다른 유형의 Windows 응용 프로그램을 사용하여 작업하는지 여부를 확인합니다.
-
-* 웹앱: [ASP.NET 4](app-insights-asp-net.md), [ASP.NET 5](app-insights-asp-net-five.md)로 이동합니다.
-* [Azure 클라우드 서비스](app-insights-cloudservices.md)
-* 데스크톱 앱: [HockeyApp](https://hockeyapp.net)을 사용하는 것이 좋습니다. HockeyApp를 사용하면 사용량 및 충돌 보고서를 모니터링할 수 있을 뿐만 아니라 배포, 라이브 테스트 및 사용자 의견을 관리할 수 있습니다. 또한 [데스크톱 앱에서 Application Insights에 원격 분석을 전송](app-insights-windows-desktop.md)할 수 있습니다. 
+![예제 성능 모니터링 차트](./media/app-insights-windows-services/10-perf.png)
 
 
-## <a name="add"></a> Application Insights 리소스 만들기
+#### 시작하기 전에
+
+다음 작업을 수행해야 합니다.
+
+* [Microsoft Azure](http://azure.com) 구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
+* Visual Studio 2013 이상.
 
 
-1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다. 
 
-    ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-services/01-new.png)
+## <a name="add"></a>1. Application Insights 리소스 만들기
 
+[Azure 포털](https://portal.azure.com/)에 로그인한 다음 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
 
-2.  계측 키를 복사합니다. 방금 만든 새 리소스의 필수 드롭다운에서 키를 찾습니다. 응용 프로그램 맵을 닫거나 리소스에 대한 개요 블레이드로 왼쪽으로 스크롤합니다.
+![새로 만들기, Application Insights 클릭](./media/app-insights-windows-services/01-new-asp.png)
 
-    ![Essentials 클릭, 키 선택 및 Ctrl+C 누르기](./media/app-insights-windows-services/10.png)
+Azure에서 [리소스](app-insights-resources-roles-access-control.md)는 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
 
-## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
+선택하는 응용 프로그램 유형에 따라 [메트릭 탐색기](app-insights-metrics-explorer.md)에 표시되는 리소스 블레이드 및 속성의 기본 콘텐츠가 설정됩니다.
 
+#### 계측 키 복사
 
-1. Visual Studio에서 Windows 응용 프로그램 프로젝트의 NuGet 패키지를 편집합니다.
+키는 리소스를 식별하며, 데이터를 리소스로 보내기 위해 SDK에서 곧 설치합니다.
+
+![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-windows-services/02-props-asp.png)
+
+새 리소스르 만들기 위해 방금 수행한 단계는 모든 응용 프로그램을 모니터링하는 좋은 방법입니다. 이제 데이터를 보낼 수 있습니다.
+
+## <a name="sdk"></a>2. 응용 프로그램에 SDK 설치
+
+Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
+
+1. Visual Studio에서 웹앱 프로젝트의 NuGet 패키지를 편집합니다.
 
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-services/03-nuget.png)
 
-2. Application Insights Windows Server 패키지를 설치합니다. Microsoft.ApplicationInsights.WindowsServer
+2. 웹앱용 Application Insights SDK를 설치합니다.
 
     !["Application Insights" 검색](./media/app-insights-windows-services/04-ai-nuget.png)
 
@@ -59,201 +72,91 @@
 
     예. API만 사용하여 사용자 고유의 원격 분석을 보내려는 경우 코어 API(Microsoft.ApplicationInsights)를 선택합니다. Windows Server 패키지에는 코어 API와 성능 카운터 수집 및 종속성 모니터링과 같은 다양한 다른 패키지가 자동으로 포함됩니다.
 
+#### SDK의 나중 버전으로 업그레이드하려면
 
-3. InstrumentationKey를 설정합니다.
+종종 새 버전의 SDK가 릴리스됩니다.
 
-    * 코어 API 패키지 Microsoft.ApplicationInsights를 설치한 경우 main()와 같은 코드에서 키를 설정해야 합니다. 
+[SDK의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/)로 업그레이드하려면, NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. **Microsoft.ApplicationInsights.Web**을 선택하고 **업그레이드**를 선택합니다.
+
+ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업그레이드 전에 복사본을 저장하고 나중에 변경 내용을 새 버전에 병합합니다.
+
+
+## 3\. 원격 분석 전송
+
+
+**핵심 API 패키지에만 설치한 경우:**
+
+* 코드(예: `main()`)에서 계측 키를 설정합니다.
 
     `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
 
-    다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
- 
-    `<InstrumentationKey>`*키*`</InstrumentationKey>`
-
-    ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
-
-## <a name="telemetry"></a>원격 분석 호출 삽입
-
-[Application Insights API][api] 중 하나를 사용하여 원격 분석을 보냅니다. 코어 API를 사용하는 경우 원격 분석이 자동으로 전송되지 않습니다. 일반적으로 다음을 사용할 수 있습니다.
-
-* 양식, 페이지 또는 탭 전환에서 `TrackPageView(pageName)`
-* 다른 사용자 작업에 대한 `TrackEvent(eventName)`
-* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서 `TrackMetric(name, value)`입니다.
-* [진단 로깅][diagnostic]을 위한 `TrackTrace(logEvent)`
-* catch 절에서 `TrackException(exception)`
-* 앱을 닫기 전에 모든 원격 분석이 전송되었는지 확인하려면 `Flush()`입니다. 코어 API(Microsoft.ApplicationInsights)를 사용하는 경우 이를 사용합니다. 웹 SDK는 이 동작을 자동으로 구현합니다. (인터넷을 항상 사용할 수 없는 컨텍스트에서 앱을 실행하는 경우 [지속성 채널](#persistence-channel)을 참조하세요.)
+* [API를 사용하여 고유한 원격 분석을 작성 합니다](app-insights-api-custom-events-metrics.md#ikey).
 
 
-#### 원격 분석 이니셜라이저
+**다른 Application Insights 패키지를 설치한 경우** 원하는 경우 .config 파일을 사용하여 계측 키를 설정할 수 있습니다.
 
-사용자 및 세션 수를 보려면 각 `TelemetryClient`인스턴스에 대한 값을 설정할 수 있습니다. 또는 원격 분석 이니셜라이저를 사용하여 모든 클라이언트에 대해 이 덧셈을 수행할 수 있습니다.
+* ApplicationInsights.config(NuGet 설치에 의해 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
 
-```C#
+    `<InstrumentationKey>` *복사한 계측 키* `</InstrumentationKey>`
 
-    class UserSessionInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            telemetry.Context.User.Id = Environment.UserName;
-            telemetry.Context.Session.Id = Guid.NewGuid().ToString();
-        }
-        
-    }
-
-    static class Program
-    {
-        ...
-        static void Main()
-        {
-            TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new UserSessionInitializer());
-            ...
-
-```
+* 솔루션 탐색기에서 ApplicationInsights.config라는 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 
 
 
-## <a name="run"></a>프로젝트 실행
 
-[F5를 사용하여 응용 프로그램을 실행](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx)하고 이를 사용하여 일부 원격 분석을 생성합니다.
+## <a name="run"></a> 프로젝트 실행
+
+**F5** 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
 Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
-![](./media/app-insights-windows-services/appinsights-09eventcount.png)
+![Visual Studio에서 이벤트 수](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-이벤트는 진단 및 출력 창에도 표시됩니다.
+## <a name="monitor"></a> 원격 분석 보기
 
-## <a name="monitor"></a>데이터 모니터링 보기
-
-Azure 포털에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
-
-첫 이벤트는 [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream)에 나타납니다.
+[Azure 포털](https://portal.azure.com/)로 돌아가서 Application Insights 리소스를 찾습니다.
 
 
-## 지속성 채널 
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
 
-인터넷 연결을 항상 사용할 수 없거나 느린 곳에서 앱을 실행하는 경우 기본 메모리 내 채널 대신 지속성 채널을 사용하는 것이 좋습니다.
+![클릭하여 추가 데이터 확인](./media/app-insights-windows-services/12-first-perf.png)
 
-기본 메모리 내 채널에서 앱을 닫을 때까지 전송되지 않은 모든 원격 분석은 손실됩니다. `Flush()`를 사용하여 버퍼에 남아 있는 데이터를 보내려고 시도할 수 있지만 인터넷이 연결되어 있지 않거나 전송이 완료되기 전에 앱이 종료되면 데이터가 손실됩니다.
+차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.](app-insights-web-monitor-performance.md)
 
-반면 지속성 채널은 파일을 포털에 보내기 전에 파일에서 원격 분석을 버퍼링합니다. `Flush()`은 데이터가 파일에 저장되도록 보장합니다. 앱을 닫을 때까지 모든 데이터가 전송되지 않은 경우 파일에 유지됩니다. 앱을 다시 시작하면 인터넷이 연결된 경우 데이터가 전송됩니다. 연결을 사용할 수 있을 때까지 필요한 만큼 데이터 파일이 누적됩니다.
+#### 데이터가 없나요?
 
-### 지속성 채널을 사용하려면
+* 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
+* [검색](app-insights-diagnostic-search.md) 타일을 열고 개별 이벤트를 봅니다. 경우에 따라 메트릭 파이프라인을 통해 들어오려면 이벤트가 약간 더 걸립니다.
+* 몇 초 정도 기다렸다가 **새로고침**을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 일부 데이터가 표시되기를 기다리는 경우에는 수동으로 새로 고칠 수 있습니다.
+* [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.
 
-1. NuGet 패키지 [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3)을 가져옵니다.
-2. 초기화가 적합한 위치에서 앱에 이 코드를 포함합니다.
- 
-    ```C# 
+## 앱 게시
 
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.Extensibility;
-      ...
+이제 응용 프로그램을 서버 또는 Azure에 배포하고 누적되는 데이터를 관찰합니다.
 
-      // Set up 
-      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
- 
-      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-    
-    ``` 
-3. 앱을 닫기 전에 `telemetryClient.Flush()`을 사용하여 데이터를 포털로 전송하거나 파일에 저장합니다.
+![Visual Studio를 사용하여 앱을 게시합니다.](./media/app-insights-windows-services/15-publish.png)
 
-    Flush()는 지속성 채널에서 동기 상태이지만 타 채널에서는 비동기 상태입니다.
+디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 릴리스 구성에서 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
 
- 
-지속성 채널은 응용 프로그램에서 생성된 이벤트 수가 상대적으로 작고 연결이 자주 신뢰할 수 없는 장치 시나리오에 최적화됩니다. 이 채널은 신뢰할 수 있는 디스크의 저장소에 먼저 이벤트를 쓰고 전송하려 합니다.
+#### 서버에 게시한 후 데이터가 없나요?
 
-#### 예
+서버 방화벽에서 나가는 트래픽에 대해 다음 포트를 엽니다.
 
-처리되지 않은 예외를 모니터링하려는 경우를 가정해 보겠습니다. `UnhandledException` 이벤트를 구독합니다. 콜백에서 플러시에 호출을 포함하여 원격 분석이 유지되도록 합니다.
- 
-```C# 
-
-AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
- 
-... 
- 
-private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
-{ 
-    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
-    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
-    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
- 
-    telemetryClient.TrackException(excTelemetry); 
- 
-    telemetryClient.Flush(); 
-} 
-
-``` 
-
-앱이 종료되면 압축된 이벤트를 포함하는 `%LocalAppData%\Microsoft\ApplicationInsights`에 파일이 표시됩니다.
- 
-다음 번에 이 응용 프로그램을 시작하면 채널이 해당 파일을 선택하고 가능한 경우 Application Insights에 원격 분석을 제공합니다.
-
-#### 테스트 예제
-
-```C#
-
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Send data from the last time the app ran
-            System.Threading.Thread.Sleep(5 * 1000);
-
-            // Set up persistence channel
-
-            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
-            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
-
-            // Send some data
-
-            var telemetry = new TelemetryClient();
-
-            for (var i = 0; i < 100; i++)
-            {
-                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
-                e1.Properties["i"] = "" + i;
-                telemetry.TrackEvent(e1);
-            }
-
-            // Make sure it's persisted before we close
-            telemetry.Flush();
-        }
-    }
-}
-
-```
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
 
 
-지속성 채널의 코드는 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel)에 있습니다.
+#### 빌드 서버에 문제가 있나요?
 
+[이 문제 해결 항목](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)을 참조하세요.
 
-## <a name="usage"></a>다음 단계
-
-[앱 사용량 추적][knowUsers]
-
-[진단 로그 캡처 및 검색][diagnostic]
-
-[문제 해결][qna]
+> [AZURE.NOTE] 앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다. [샘플링에 대해 알아봅니다](app-insights-sampling.md).
 
 
 
 
-<!--Link references-->
+## 다음 단계
 
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[knowUsers]: app-insights-overview-usage.md
-[api]: app-insights-api-custom-events-metrics.md
-[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
- 
+* 응용 프로그램을 전체적으로 파악하기 위해 [원격 분석 더 추가](app-insights-asp-net-more.md)합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

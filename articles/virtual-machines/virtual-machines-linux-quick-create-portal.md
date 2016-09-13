@@ -21,7 +21,6 @@
 
 # 포털을 사용하여 Azure에서 Linux VM 만들기
 
-> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
 
 이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Linux 가상 컴퓨터를 빠르게 만드는 방법을 보여 줍니다. 유일한 요구 사항은 [Azure 계정](https://azure.microsoft.com/pricing/free-trial/) 및 [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md)입니다.
 
@@ -79,4 +78,4 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 - [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Azure CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-create-cli-complete.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/07/2016"
 	ms.author="juliako"/>
 
 
 # Azure 포털을 사용하여 Azure 미디어 서비스 계정 만들기
+
+> [AZURE.SELECTOR]
+- [포털](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -36,7 +41,7 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 	AMS는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부의 데이터 센터에서도 사용 가능합니다. 이제 Azure 포털을 사용하여 미디어 서비스 계정을 만들고 여기에서 설명한 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
 	
 	- 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능합니다.
-	- 미디어 파일의 경우 인도 서부, 인도 남부는 미디어 서비스 계정과 동일한 지역에 있어야 합니다. 미디어 서비스 계정을 만들 때 동일한 지역의 기존 저장소 계정을 선택하거나 동일한 지역에 새 저장소 계정을 만들 수 있습니다. 미디어 서비스 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
+	- 인도 서부, 인도 남부: 미디어 파일에 대해 저장소 Blob를 제공합니다. 저장소 계정은 Media Services 계정과 동일한 지역에 있어야 합니다. 미디어 서비스 계정을 만들 때 동일한 지역의 기존 저장소 계정을 선택하거나 동일한 지역에 새 저장소 계정을 만들 수 있습니다. 미디어 서비스 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
 
 ## AMS 계정 만들기
 
@@ -98,4 +103,4 @@ Azure 포털을 통해 AMS(Azure 미디어 서비스) 계정을 신속하게 만
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
