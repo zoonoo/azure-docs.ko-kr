@@ -206,7 +206,7 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 	![저장소 계정](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
-> [AZURE.NOTE] [Migration of storage accounts]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of storage accounts](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
 
 ## 5단계: Azure 복구 서비스 에이전트 설치
 
@@ -270,7 +270,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
-> [AZURE.NOTE] [Migration of networks]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of networks](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
 
 ## 8단계: 가상 컴퓨터의 보호 활성화
 
