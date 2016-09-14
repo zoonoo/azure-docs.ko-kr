@@ -19,7 +19,7 @@
 # Application Insights의 분석
 
 
-[분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 유용한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
+[분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 * **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 **[시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
@@ -63,7 +63,6 @@
 
 
 
->[AZURE.NOTE] [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다.
 
 
 
@@ -71,7 +70,7 @@
 ## Application Insights 데이터에 연결
 
 
-Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 엽니다.
+Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 분석을 엽니다.
 
 ![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/app-insights-analytics/001.png)
 
@@ -84,4 +83,10 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## 다음 단계
+
+
+* [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다.
+
+<!---HONumber=AcomDC_0831_2016-->

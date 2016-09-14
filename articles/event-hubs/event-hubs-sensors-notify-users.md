@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # 센서 또는 다른 시스템으로부터 받은 데이터 사용자 알림
@@ -33,7 +33,7 @@
 
 Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있다는 가정으로 시작합니다. 액세스하고 연결 문자열을 알면 모든 허브가 동작합니다.
 
-이벤트 허브 또는 IoT Hub가 아직 없는 경우 [Connect The Dots](https://github.com/Azure/connectthedots) 프로젝트의 지침에 따라 Arduino shield 및 Raspberry Pi를 사용하여 테스트 베드를 쉽게 설정할 수 있습니다. Arduino shield의 램프 센서는 Pi를 통해 램프 레벨을 [Azure Event Hub][] (**ehdevices**)에 보내고 수신된 램프 레벨이 특정 레벨 이하로 떨어지는 경우 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업은 두 번째 이벤트 허브(**ehalerts**)에 알림을 푸시합니다.
+이벤트 허브 또는 IoT Hub가 아직 없는 경우 [Connect The Dots](https://github.com/Azure/connectthedots) 프로젝트의 지침에 따라 Arduino shield 및 Raspberry Pi를 사용하여 테스트 베드를 쉽게 설정할 수 있습니다. Arduino shield의 램프 센서는 Pi를 통해 램프 레벨을 [Azure Event Hub][] \(**ehdevices**)에 보내고 수신된 램프 레벨이 특정 레벨 이하로 떨어지는 경우 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업은 두 번째 이벤트 허브(**ehalerts**)에 알림을 푸시합니다.
 
 **AppToNotify**가 시작할 때 구성 파일(App.config)을 읽어 알림을 받는 이벤트 허브에 대한 URL 및 자격 증명을 가져옵니다. 그런 다음 이를 통해 들어오는 모든 메시지에 대해 해당 이벤트 허브를 지속적으로 모니터링하는 프로세스를 생성합니다. - 이벤트 허브 또는 IoT Hub에 대한 URL 및 유효한 자격 증명에 액세스할 수 있는 한 이 이벤트 허브 판독기 코드는 들어오는 것을 지속적으로 읽습니다. 시작하는 동안 응용 프로그램은 사용하려는 메시징 서비스(전자 메일, SMS, 전화), 발신자 이름/주소 및 수신자 목록에 대한 URL 및 자격 증명을 읽습니다.
 
@@ -44,7 +44,7 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 이 샘플의 코드는 이벤트 허브를 모니터링하는 방법 및 응용 프로그램에 이 기능을 추가하려는 이벤트의 외부 메시징 서비스를 호출하는 방법을 보여 줍니다. 이 솔루션은 DIY이며 개발자 중심 예제입니다. 중복성, 장애 조치, 실패 시 다시 시작 등과 같은 엔터프라이즈 요구 사항을 해결하지 않습니다. 더 많은 포괄적인 프로덕션 솔루션은 다음 항목을 참조하세요.
 
 - [Azure 논리 앱](../app-service-logic/app-service-logic-connectors-list.md) 서비스를 사용하는 커넥터 또는 푸시 알림 사용.
-- [Azure 알림 허브를 사용하여 수백만 개의 모바일 장치에 푸시 알림 브로드캐스트](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs) 블로그에 설명한 대로 [Azure 알림 허브](https://msdn.microsoft.com/library/azure/jj927170.aspx) 사용. 
+- [Azure 알림 허브를 사용하여 수백만 개의 모바일 장치에 푸시 알림 브로드캐스트](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs) 블로그에 설명한 대로 [Azure 알림 허브](https://msdn.microsoft.com/library/azure/jj927170.aspx) 사용.
 
 ## 다음 단계
 
@@ -83,4 +83,4 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

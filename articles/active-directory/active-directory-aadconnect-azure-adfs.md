@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure의 Active Directory 페더레이션 서비스 | Microsoft Azure"
 	description="이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다."
-    keywords="AD FS 소개, Azure, Azure AD Connect 개요, Azure의 AD FS, IaaS, AD FS"
+    keywords="Azure에 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS, ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -302,5 +302,6 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
+* [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!-----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

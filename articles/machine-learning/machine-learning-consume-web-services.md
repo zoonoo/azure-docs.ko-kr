@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="05/22/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 
@@ -265,13 +265,13 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 작업을 만들 때 이 �
 
 * **Input**: 일괄 작업의 입력이 저장되는 Blob 참조를 나타냅니다.
 * **GlobalParameters**: 실험에 대해 정의할 수 있는 전역 매개 변수 집합을 나타냅니다. Azure 기계 학습 실험에는 서비스의 실행을 사용자 지정하는 필수 및 선택적 매개 변수가 모두 있을 수 있으며, 호출자는 해당되는 경우 필수 매개 변수를 모두 제공해야 합니다. 이러한 매개 변수는 키-값 쌍의 컬렉션으로 지정됩니다.
-* **Outputs**: 서비스에서 하나 이상의 출력을 정의한 경우 호출자는 그중 하나를 Azure Blob 위치로 리디렉션할 수 있습니다. 이를 통해 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 Blob 이름이 임의로 생성됩니다. 
+* **Outputs**: 서비스에서 하나 이상의 출력을 정의한 경우 호출자는 그중 하나를 Azure Blob 위치로 리디렉션할 수 있습니다. 이를 통해 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 Blob 이름이 임의로 생성됩니다.
 
     서비스는 해당 형식에 따라 출력 내용을 지원되는 형식으로 저장해야 합니다.
   - 데이터 집합 출력: **.csv,.tsv,.arff**로 저장할 수 있음
   - 학습한 모델 출력: **.ilearner**로 저장할 수 있음
 
-  출력 위치 재정의는 *<output name  blob reference>* 쌍의 컬렉션으로 지정됩니다. 여기서 *출력 이름*은 특정 출력 노드에 대한 사용자 정의 이름(서비스의 API 도움말 페이지에도 표시됨)이고, *Blob 참조*는 출력이 리디렉션되는 Azure Blob 위치에 대한 참조입니다.
+  출력 위치 재정의는 *<출력 이름, Blob 참조>* 쌍의 컬렉션으로 지정됩니다. 여기서 *출력 이름*은 특정 출력 노드에 대한 사용자 정의 이름(서비스의 API 도움말 페이지에도 표시됨)이고, *Blob 참조*는 출력이 리디렉션되는 Azure Blob 위치에 대한 참조입니다.
 
 이러한 작업 만들기 매개 변수는 모두 서비스의 속성에 따라 선택할 수 있습니다. 예를 들어 입력 노드가 정의되지 않은 서비스에서는 *Input* 매개 변수를 전달할 필요가 없습니다. 마찬가지로 출력 위치 재정의 기능은 완전히 선택적입니다. 그렇지 않으면 Azure 기계 학습 작업 영역에 대해 설정된 기본 저장소 계정에 출력이 저장됩니다. 다음은 입력 정보만 전달되는 서비스에 대해 REST API로 제공된 샘플 요청 페이로드입니다.
 
@@ -297,11 +297,11 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 작업을 만들 때 이 �
 
 **2. 일괄 처리 실행 작업 시작**
 
-일괄 작업을 만들면 시스템 내에 등록되고 *Not started* 상태로 표시됩니다. 실제로 작업 실행을 예약하려면 서비스 끝점의 API 도움말 페이지에 설명된 **start** API를 호출하고 작업을 만들 때 가져온 작업 ID를 제공합니다.
+일괄 작업을 만들면 시스템 내에 해당 작업이 등록되고 *Not started* 상태로 표시됩니다. 실제로 작업 실행을 예약하려면 서비스 끝점의 API 도움말 페이지에 설명된 **start** API를 호출하고 작업을 만들 때 가져온 작업 ID를 제공합니다.
 
 **3. 일괄 처리 실행 작업의 상태 가져오기**
 
-언제든지 GetJobStatus API로 작업의 ID를 전달하여 비동기 일괄 작업의 상태를 폴링할 수 있습니다. API 응답에는 작업의 현재 상태에 대한 표시 및 일괄 작업의 실제 결과(성공적으로 완료된 경우)가 포함됩니다. 다음과 같이 오류가 발생한 경우 실제 원인에 대한 자세한 정보가 *Details* 속성에 반환됩니다.
+언제든지 GetJobStatus API로 작업의 ID를 전달하여 비동기 일괄 작업의 상태를 폴링할 수 있습니다. API 응답에는 작업의 현재 상태에 대한 표시 및 일괄 작업의 실제 결과(성공적으로 완료된 경우)가 포함됩니다. 오류가 발생하는 경우에는 다음과 같이 실제 원인에 대한 자세한 정보가 *Details* 속성에 반환됩니다.
 
 **응답 페이로드**
 
@@ -642,9 +642,9 @@ API 도움말 페이지에서 swagger 문서를 사용하고 [swagger.io](http:/
 
 이제 swagger 도구 중 하나를 사용할 수 있습니다. 다음은 Java 클라이언트 코드를 생성하는 지침입니다.
 
-* Azure ML API 도움말 페이지(예제 [여기](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))로 이동
+* Azure ML API 도움말 페이지(예: [여기](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))로 이동
 * Azure ML REST API에 대한 swagger.json의 URL 찾기(API 도움말 페이지 맨 위에서 마지막 두 번째 글머리 기호)
-* swagger 문서 링크(예제 [여기](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)) 클릭
+* swagger 문서 링크(예: [여기](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)) 클릭
 * [swagger의 추가 정보 파일](https://github.com/swagger-api/swagger-codegen/blob/master/README.md)에 표시된 대로 다음 명령을 사용하여 클라이언트 코드 생성
 
 **클라이언트 코드를 생성하는 샘플 명령줄**
@@ -685,4 +685,4 @@ API 도움말 페이지에서 swagger 문서를 사용하고 [swagger.io](http:/
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -30,7 +30,7 @@
 - **계정 할당량을 확인**하고 어떤 배치 계정에 어떤 제한이 있는지를 확인하는 데 시행 착오 추측을 배제합니다. 작업을 시작하고 풀을 만들거나 계산 노드를 추가하기 전에 계정 할당량을 확인하여 이러한 계산 리소스를 만드는 위치 또는 시기를 사전에 조정할 수 있습니다. 해당 계정에 추가 리소스를 할당하기 전에 어떤 계정에 할당량 증가가 필요한지 확인할 수 있습니다.
 - 배치 관리 .NET, [Azure Active Directory][aad_about] 및 [Azure Resource Manager][resman_overview]를 동일한 응용 프로그램에서 함께 활용하고 **다른 Azure 서비스의 기능을 결합**하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 종단 간 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
 
-> [AZURE.NOTE] 이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)와 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털에서 Azure 배치 계정 만들기](batch-account-create-portal.md)와 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## 배치 계정 만들기 및 삭제
 
@@ -213,4 +213,4 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

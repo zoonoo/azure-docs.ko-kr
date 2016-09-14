@@ -36,11 +36,11 @@ Azure 리소스 상태는 개별 Azure 리소스의 상태를 노출하고 문�
 Azure 포털에서 리소스 상태 블레이드는 리소스의 상태에 대한 자세한 정보 뿐만 아니라 리소스의 현재 상태에 따라 달라지는 권장되는 작업을 제공합니다. 이 블레이드에서는 리소스 상태를 쿼리할 경우 포털 내 다른 리소스에 액세스를 용이하게 하는 등 최상의 환경을 제공합니다. 앞서 언급했듯이 리소스 상태 블레이드에서 권장되는 일련의 작업은 현재 상태에 따라 달라 집니다.
 
 * 정상 리소스: 리소스의 상태에 영향을 줄 수 있는 문제가 발견되지 않았기 때문에 작업은 해결 프로세스를 지원하는 데 초점을 맞춥니다. 예를 들어, 문제 해결 블레이드에 대한 직접 액세스를 제공하며 이는 고객이 직면하는 가장 일반적인 문제를 해결하는 방법에 대한 지침을 제공합니다.
-* 비정상 리소스: Azure에 의해 발생한 문제의 경우 블레이드는 Microsoft가 리소스를 복구하기 위해 수행하는(또는 수행한) 작업을 표시합니다. 사용자 개시 작업으로 발생한 문제의 경우 블레이드는 문제를 해결하고 리소스를 복구하기 위해 고객이 취할 수 있는 작업 목록입니다.  
+* 비정상 리소스: Azure에 의해 발생한 문제의 경우 블레이드는 Microsoft가 리소스를 복구하기 위해 수행하는(또는 수행한) 작업을 표시합니다. 사용자 개시 작업으로 발생한 문제의 경우 블레이드는 문제를 해결하고 리소스를 복구하기 위해 고객이 취할 수 있는 작업 목록입니다.
 
 Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는 두 가지 방법이 있습니다.
 
-####리소스 블레이드 열기
+###리소스 블레이드 열기
 지정된 리소스에 대한 리소스 블레이드를 엽니다. 리소스 블레이드 옆에 열리는 설정 블레이드에서 리소스 상태를 클릭하여 리소스 상태 블레이드를 엽니다.
 
 ![리소스 상태 블레이드](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -58,31 +58,6 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 
 ![리소스 상태 타일](./media/resource-health-overview/resourceHealthTile.png)
 
-### 리소스 상태 API
-Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수 있는 API 집합이 있습니다. 사용 가능한 API를 통해 구독에 포함된 모든 리소스, 리소스 그룹의 모든 리소스의 현재 상태 또는 특정 리소스의 상태를 요청할 수 있습니다.
-
-특정 리소스의 기록 상태를 요청하는 데 사용할 수 있는 API도 있습니다. 응답은 지난 14일 동안의 리소스 상태 모음입니다. 리소스가 선언된 중단의 영향을 받았을 수 있으면 상태에는 serviceImpactingEvents라는 주석과 중단에 대한 자세한 내용이 포함됩니다.
-
-리소스 상태를 쿼리하는 API를 사용하기 전에 다음 URL로 POST 요청을 제출하여 구독을 서비스에 등록해야 합니다.
- 
-        //Register the subscription with the Resource health resource provider
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
-        
-다음은 리소스 상태 API를 호출하는 방법에 대한 예제입니다.
-
-        // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET the health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-        
-        //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-
-
 ## 내 리소스 상태는 무엇을 의미하나요?
 리소스에서 확인할 수 있는 4개의 다른 상태가 있습니다.
 
@@ -95,9 +70,9 @@ Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수
 
 이 경우에 서비스는 리소스의 가용성에 영향을 주는 플랫폼에서 진행 중인 문제를 탐지했습니다(예: VM이 실행되는 노드가 예기치 않게 다시 부팅됨). 이는 빨간색 경고 아이콘으로 표시됩니다. 다음을 포함하여 문제에 대한 추가 정보는 블레이드의 중간 섹션에서 제공됩니다.
 
-1.	리소스를 복구하기 위해 Microsoft에서 어떤 작업을 사용하나요 
+1.	리소스를 복구하기 위해 Microsoft에서 어떤 작업을 사용하나요
 2.	예상된 해결 시간 등 문제의 자세한 시간 표시 막대
-3.	사용자에게 권장되는 작업 목록 
+3.	사용자에게 권장되는 작업 목록
 
 ![리소스를 사용할 수 없음](./media/resource-health-overview/Unavailable.png)
 
@@ -132,4 +107,4 @@ Azure 포털 환경과 함께 리소스 상태를 쿼리하는 데 사용할 수
 ## 사용자 의견
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

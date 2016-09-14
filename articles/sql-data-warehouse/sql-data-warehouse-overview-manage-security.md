@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -41,18 +41,18 @@
 
 ## 인증
 
-인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 데이터 웨어하우스는 현재 Azure Active Directory의 미리 보기뿐만 아니라 사용자 이름 및 암호를 사용하는 SQL Server 인증을 지원합니다.
+인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL Data Warehouse는 현재 Azure Active Directory뿐 아니라 사용자 이름 및 암호를 사용하는 SQL Server 인증도 지원합니다.
 
 데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면, SQL Server 인증을 통해 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
 
 그러나 조직의 사용자는 다른 계정으로 인증하는 것이 좋습니다. 이렇게 하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다.
 
-SQL Server 인증 사용자를 만들려면 서버 관리자 로그인을 사용하여 서버의 **master** 데이터베이스에 연결하고 새 서버 로그인을 만듭니다.
+SQL Server 인증 사용자를 만들려면 서버 관리자 로그인을 사용하여 서버의 **master** 데이터베이스에 연결하고 새 서버 로그인을 만듭니다. 또한 Azure SQL Data Warehouse 사용자에 대해 마스터 데이터베이스에 사용자를 만드는 것이 좋습니다. 마스터에서 사용자를 만들면 데이터베이스 이름을 지정하지 않아도 사용자가 SSMS 등의 도구를 사용하여 로그인할 수 있습니다. 또한 개체 탐색기를 사용하여 SQL server의 모든 데이터베이스를 볼 수 있습니다.
 
 ```sql
 -- Connect to master database and create a login
-CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
-
+CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
+CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
 그런 다음, 서버 관리자 로그인을 사용하여 **SQL 데이터 웨어하우스 데이터베이스**에 연결하고 방금 만든 서버 로그인에 따라 데이터베이스 사용자를 만듭니다.
@@ -60,10 +60,9 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 ```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
-
 ```
 
-SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리][]를 참조하세요. SQL 데이터 웨어하우스에 Azure AD 미리 보기를 사용하는 것에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결][]을 참조하세요.
+로그인 또는 새 데이터베이스 만들기 등의 추가 작업을 수행하려는 사용자는 마스터 데이터베이스의 `Loginmanager` 및 `dbmanager` 역할에도 할당되어 있어야 합니다. 이러한 추가 역할 및 SQL Database에 인증하는 방법에 대한 자세한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리][]를 참조하세요. SQL Data Warehouse용 Azure AD에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Data Warehouse에 연결][]을 참조하세요.
 
 
 ## 권한 부여
@@ -91,9 +90,7 @@ Azure SQL 데이터 웨어하우스는 데이터가 "휴지 상태"일 때 또�
 
 
 ```sql
-
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-
 ```
 
 [Azure 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 사용하도록 설정할 수도 있습니다. 자세한 내용은 [TDE(투명한 데이터 암호화) 시작][]을 참조하세요.
@@ -103,6 +100,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 데이터베이스 이벤트의 감사 및 추적은 규정을 준수하고 의심스러운 활동을 식별할 수 있도록 도와줍니다. SQL 데이터 웨어하우스 감사를 사용하면 Azure 저장소 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터 웨어하우스 감사 기능을 Microsoft Power BI와 통합합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작][]을 참조하세요.
 
 ## 다음 단계
+
 다양한 프로토콜을 사용하여 SQL 데이터 웨어하우스에 연결하는 방법에 대한 정보와 예제는 [SQL 데이터 웨어하우스에 연결][]을 참조하세요.
 
 <!--Image references-->
@@ -111,14 +109,14 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-connect-overview.md
 [SQL 데이터베이스 감사 시작]: ./sql-data-warehouse-auditing-overview.md
 [TDE(투명한 데이터 암호화) 시작]: ./sql-data-warehouse-encryption-tde.md
-[Azure Active Directory 인증을 사용하여 SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-authentication.md
+[Azure Active Directory 인증을 사용하여 SQL Data Warehouse에 연결]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 방화벽]: https://msdn.microsoft.com/library/ee621782.aspx
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [데이터베이스 역할]: https://msdn.microsoft.com/library/ms189121.aspx
-[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/ee336235.aspx
+[Azure SQL Database에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/ee336235.aspx
 [권한]: https://msdn.microsoft.com/library/ms191291.aspx
 [저장 프로시저]: https://msdn.microsoft.com/library/ms190782.aspx
 [투명한 데이터 암호화]: https://go.microsoft.com/fwlink/?LinkId=526242
@@ -127,4 +125,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

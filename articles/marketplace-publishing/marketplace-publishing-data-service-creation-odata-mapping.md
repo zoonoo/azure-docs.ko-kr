@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # CSDL을 통해 기존 웹 서비스를 Odata에 매핑
+
+>[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
 
 이 문서에서는 CSDL을 사용하여 기존 서비스를 OData 호환 서비스에 매핑하는 방법에 대한 개요를 설명합니다. 서비스 호출을 통해 클라이언트의 입력 요청을 변환하고 OData 호환 피드를 통해 출력(데이터)을 다시 클라이언트로 변환하는 매핑 문서(CSDL) 작성 방법을 설명합니다. Microsoft의 Azure 마켓플레이스는 OData 프로토콜을 사용하여 최종 사용자에게 서비스를 노출합니다. 콘텐츠 공급자(데이터 소유자)가 노출하는 서비스는 REST, SOAP 등의 다양한 형태로 노출됩니다.
 
@@ -127,7 +129,7 @@ CSDL은 웹 서비스를 설명하는 XML 문법입니다. 사양 자체는 Enti
 
 CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XML 편집기에 붙여넣고 해당 서비스와 일치하도록 변경하세요. 그런 다음 [Azure 마켓플레이스 게시 포털](https://publish.windowsazure.com)에서 서비스를 만들 때 DataService 탭 아래에 CSDL 매핑을 붙여넣으세요).
 
-**용어:** CSDL 용어를 PPUI([게시 포털](https://publish.windowsazure.com) UI) 용어와 연관 지음
+**용어:** CSDL 용어와 PPUI([게시 포털](https://publish.windowsazure.com) UI) 용어 간의 관련성을 지정합니다.
 - PPUI의 제품 "Title"은 MyWebOffer와 관련이 있습니다.
 - PPUI의 MyCompany는 [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure) UI의 **게시자 표시 이름**과 관련이 있습니다.
 - API는 웹 또는 데이터 서비스(PPUI의 계획)와 관련이 있습니다.
@@ -308,4 +310,4 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

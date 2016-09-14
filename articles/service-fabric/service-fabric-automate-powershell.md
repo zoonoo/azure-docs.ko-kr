@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="08/25/2016"
 	ms.author="ryanwi"/>
 
 # PowerShell을 사용하여 응용 프로그램 수명 주기 자동화
 
-[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)의 여러 측면을 자동화할 수 있습니다. 이 문서에서는 PowerShell을 사용해 Azure 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다. 앱 관리용 HTTP API 및 관리되는 API도 사용할 수 있으므로 자세한 내용은 [앱 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
+[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)의 여러 측면을 자동화할 수 있습니다. 이 문서에서는 PowerShell을 사용해 Azure 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다. 앱 관리를 위한 관리되는 API 및 HTTP API도 사용 가능합니다. 자세한 내용은 [앱 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
 ## 필수 조건
 다음은 문서의 작업으로 넘어가기 전에 해야 할 일입니다.
@@ -28,21 +28,21 @@
 + [PowerShell 스크립트 실행을 활성화](service-fabric-get-started.md#enable-powershell-script-execution)합니다.
 + 로컬 클러스터를 시작합니다. 관리자로 새 PowerShell 창을 시작한 다음 SDK 폴더에서 클러스터 설치 스크립트를 실행합니다. `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
 + 이 문서에서는 PowerShell 명령을 실행하기에 앞서 [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx)를 사용하여 로컬 서비스 패브릭 클러스터에 먼저 연결합니다. `Connect-ServiceFabricCluster localhost:19000`
-+ 다음 작업에서 배포에는 v1 응용 프로그램 패키지, 업그레이드에는 v2 응용 프로그램 패키지가 필요합니다. [**WordCount** 응용 프로그램 예제](http://aka.ms/servicefabricsamples)(시작 샘플에 있음)를 다운로드합니다. 솔루션 탐색기에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 응용 프로그램을 빌드 및 패키지합니다. `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug`의 v1 패키지를 `C:\Temp\WordCount`에 복사합니다. `C:\Temp\WordCount`를 `C:\Temp\WordCountV2`에 복사하여 업그레이드에 사용할 v2 응용 프로그램 패키지를 만듭니다. 텍스트 편집기에서 `C:\Temp\WordCountV2\ApplicationManifest.xml` 파일을 엽니다. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 "1.0.0"에서 "2.0.0"으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다. 변경된 ApplicationManifest.xml 파일을 저장합니다.
++ 다음 작업에서 배포에는 v1 응용 프로그램 패키지, 업그레이드에는 v2 응용 프로그램 패키지가 필요합니다. [**WordCount** 응용 프로그램 예제](http://aka.ms/servicefabricsamples)(시작 샘플에 있음)를 다운로드합니다. 솔루션 탐색기에서 **WordCount**를 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 응용 프로그램을 빌드 및 패키지합니다. `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug`의 v1 패키지를 `C:\Temp\WordCount`에 복사합니다. `C:\Temp\WordCount`를 `C:\Temp\WordCountV2`에 복사하여 업그레이드에 사용할 v2 응용 프로그램 패키지를 만듭니다. 텍스트 편집기에서 `C:\Temp\WordCountV2\ApplicationManifest.xml` 파일을 엽니다. **ApplicationManifest** 요소에서 **ApplicationTypeVersion** 특성을 "1.0.0"에서 "2.0.0"으로 변경하여 앱 버전 번호를 업데이트합니다. 변경된 ApplicationManifest.xml 파일을 저장합니다.
 
 ## 작업: 서비스 패브릭 응용 프로그램 배포
 
 응용 프로그램을 빌드 및 패키지(또는 응용 프로그램 패키지를 다운로드)한 후에는 로컬 서비스 패브릭 클러스터로 응용 프로그램을 배포할 수 있습니다. 배포에는 응용 프로그램 패키지를 업로드하고 응용 프로그램 형식을 등록하며 응용 프로그램 인스턴스를 만드는 작업이 포함됩니다. 이 섹션의 지침에 따라 새 응용 프로그램을 클러스터에 배포합니다.
 
 ### 1단계: 응용 프로그램 패키지 업로드
-응용 프로그램 패키지를 이미지 저장소에 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. 응용 프로그램 패키지에는 필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 응용 프로그램 및 서비스 인스턴스를 만드는 코드/구성/데이터 패키지가 포함됩니다. [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) 명령으로 패키지를 업로드합니다. 예:
+응용 프로그램 패키지를 이미지 저장소에 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. 응용 프로그램 패키지에는 필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 그리고 응용 프로그램 및 서비스 인스턴스를 만드는 데 필요한 코드/구성/데이터 패키지가 포함됩니다. [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) 명령으로 패키지를 업로드합니다. 예:
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\Temp\WordCount\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCount
 ```
 
 ### 2단계: 응용 프로그램 형식 등록
-응용 프로그램 패키지 등록은 응용 프로그램 매니페스트에서 사용하기 위해 응용 프로그램 형식과 버전을 사용할 수 있도록 합니다. 시스템은 1단계에서 업로드된 패키지를 읽고, 패키지를 확인하며(로컬에서 실행 중인 [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx)와 동일한지), 패키지 콘텐츠를 처리하고, 처리된 패키지를 내부 시스템 위치에 복사합니다. [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet을 실행합니다.
+응용 프로그램 패키지 등록은 응용 프로그램 매니페스트에서 사용하기 위해 응용 프로그램 형식과 버전을 사용할 수 있도록 합니다. 시스템은 1단계에서 업로드된 패키지를 읽은 다음 패키지를 확인하며(로컬에서 [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx)를 실행하는 경우와 동일함), 패키지 콘텐츠를 처리하고 처리된 패키지를 내부 시스템 위치에 복사합니다. [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet을 실행합니다.
 
 ```powershell
 Register-ServiceFabricApplicationType WordCount
@@ -74,9 +74,9 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 이 예와 관련된 모든 작업을 단순화하기 위해 필수 조건에서 만든 WordCountV2 응용 프로그램 패키지에서 응용 프로그램 버전 번호만 업데이트 되었습니다. 보다 현실적인 시나리오에서는 서비스 코드, 구성 또는 데이터 파일을 업데이트한 다음 업데이트된 버전 번호를 사용하여 응용 프로그램을 다시 빌드하고 패키지할 것입니다.
 
 ### 1단계: 업데이트된 응용 프로그램 패키지 업로드
-WordCount v1 응용 프로그램이 업그레이드 준비가 완료되었습니다. 관리자로 PowerShell 창을 열고 [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx)을 입력하면 WordCount 응용 프로그램 형식의 버전 1.0.0이 배포되었음이 표시됩니다.
+WordCount v1 응용 프로그램이 업그레이드 준비가 완료되었습니다. 관리자 권한으로 PowerShell 창을 열고 [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx)을 입력하면 WordCount 응용 프로그램 형식의 버전 1.0.0이 배포되었음이 표시됩니다.
 
-이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 이미지 저장소(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 **ApplicationPackagePathInImageStore**는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령은 응용 프로그램 패키지를 이미지 저장소에서 **WordCountV2**에 복사합니다.
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 이미지 저장소(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 **ApplicationPackagePathInImageStore**는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령은 응용 프로그램 패키지를 이미지 저장소의 **WordCountV2**에 복사합니다.
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\Temp\WordCountV2\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCountV2
@@ -90,7 +90,7 @@ Register-ServiceFabricApplicationType WordCountV2
 ```
 
 ### 3단계: 업그레이드 시작
-응용 프로그램 업그레이드에는 다양한 업그레이드 매개 변수, 제한 시간 및 상태 기준을 적용할 수 있습니다. 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 문서를 읽어보세요. 모든 서비스 및 인스턴스는 업그레이드 후 _정상_ 상태여야 합니다. **HealthCheckStableDuration**을 60초로 설정하면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다. 또한 **UpgradeDomainTimeout**을 1200초로, **UpgradeTimeout**을 3000초로 설정합니다. 마지막으로 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 **롤백**으로 **UpgradeFailureAction**을 설정합니다.
+응용 프로그램 업그레이드에는 다양한 업그레이드 매개 변수, 제한 시간 및 상태 기준을 적용할 수 있습니다. 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md) 문서를 읽어보세요. 모든 서비스 및 인스턴스는 업그레이드 후 _정상_ 상태여야 합니다. **HealthCheckStableDuration**을 60초로 설정하면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상 상태로 유지됩니다. 또한 **UpgradeDomainTimeout**을 1200초로, **UpgradeTimeout**을 3000초로 설정합니다. 마지막으로 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 **롤백**으로 **UpgradeFailureAction**을 설정합니다.
 
 이제 [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet을 사용하여 응용 프로그램 업그레이드를 시작할 수 있습니다.
 
@@ -107,7 +107,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/WordCount -Applic
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 ```
 
-잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet이 업그레이드된(완료된) 모든 업그레이드 도메인을 보여 줍니다.
+잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet을 실행하면 모든 업그레이드 도메인이 업그레이드되었으며 작업이 완료되었음이 표시됩니다.
 
 ## 작업: 서비스 패브릭 응용 프로그램 테스트
 
@@ -141,14 +141,14 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 배포된 응용 프로그램의 인스턴스를 삭제하고 클러스터에서 프로비전된 응용 프로그램 형식을 제거하며 ImageStore에서 응용 프로그램 패키지를 제거할 수 있습니다.
 
 ### 1단계: 응용 프로그램 인스턴스 제거
-응용 프로그램 인스턴스가 더 이상 필요하지 않은 경우, [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) cmdlet을 사용하여 영구적으로 제거할 수 있습니다. 모든 서비스 상태를 영구적으로 제거하고 해당 응용 프로그램에 속한 모든 서비스도 자동으로 제거합니다. 이 작업은 되돌릴 수 없으며 응용 프로그램 상태는 복구할 수 없습니다.
+응용 프로그램 인스턴스가 더 이상 필요하지 않은 경우, [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) cmdlet을 사용하여 영구적으로 제거할 수 있습니다. 이렇게 하면 응용 프로그램에 속한 모든 서비스도 자동으로 제거되므로 모든 서비스 상태가 영구적으로 제거됩니다. 이 작업은 되돌릴 수 없으며 응용 프로그램 상태는 복구할 수 없습니다.
 
 ```powershell
 Remove-ServiceFabricApplication fabric:/WordCount
 ```
 
 ### 2단계: 응용 프로그램 형식 등록 취소
-응용 프로그램 형식의 특정 버전이 더 이상 필요하지 않은 경우, [**Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) cmdlet을 사용하여 등록 취소할 수 있습니다. 사용하지 않는 형식을 등록 취소하면 이미지 저장소에서 해당 응용 프로그램 패키지가 사용하는 저장소 공간을 비웁니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
+응용 프로그램 형식의 특정 버전이 더 이상 필요하지 않은 경우, [**Unregister-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125885.aspx) cmdlet을 사용하여 등록 취소할 수 있습니다. 사용하지 않는 형식을 등록 취소하면 이미지 저장소에서 해당 응용 프로그램 패키지가 사용하는 저장소 공간이 해제됩니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
 
 ```powershell
 Unregister-ServiceFabricApplicationType WordCount 1.0.0
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Azure 서비스 패브릭 테스트 용이성 cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

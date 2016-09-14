@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="08/25/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
@@ -41,4 +41,4 @@
 
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

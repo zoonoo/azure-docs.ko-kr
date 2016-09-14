@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예
+
+>[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
 
 ## 예: "POST"를 사용하여 반환된 "원시" 데이터에 대한 FunctionImport
 원시 데이터 POST를 사용하여 새 하위를 만들고 해당 서버의 정의된 URL(위치)을 반환하거나 서버의 정의된 URL에서 하위 일부를 업데이트합니다. 여기서 하위는 스트림입니다. 즉, 구조화되어 있지 않으며 텍스트 파일이 그 예입니다. POST는 위치 없는 idempotent가 아닙니다.
@@ -155,4 +157,4 @@ GET을 사용한 데이터를 통해 RESTful 페이징 구현을 사용합니다
 - 특정 노드 및 해당 매개 변수를 학습하고 이해하려면 문서 [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)에서 정의 및 설명, 예제, 사용 사례 컨텍스트를 살펴보세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

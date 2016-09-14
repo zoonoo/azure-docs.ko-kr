@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## 지원되지 않는 기능 및 제한
+
+.NET 서비스 버스 API의 다음 기능은 현재 AMQP 사용 시 지원되지 않습니다.
+
+ * 트랜잭션
+ * 전송 대상을 통해 보내기
+
+자세한 내용은 [지원되지 않는 기능, 제한 및 동작 차이](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences)를 참조하세요.
+
 ## 요약
 
 이 문서에서는 AMQP 1.0과 서비스 버스 .NET API를 사용하여 .NET 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법에 대해 설명했습니다.
@@ -307,4 +316,4 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
  
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

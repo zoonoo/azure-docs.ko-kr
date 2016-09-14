@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법
  
@@ -38,7 +38,7 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 
     ![요청 유형](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  기본적으로 각 SQL server(예: myserver.database.windows.net)에는 **DTU 할당량**인 45,000이 있습니다. 이 할당량은 안전을 위한 제한일 뿐입니다. 지원 티켓을 만들고 *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다. DTU 요구 사항을 계산하려면 SQL 데이터 웨어하우스의 100 [DWU][] 각각이 750 DTU를 사용한다는 점을 고려해야 합니다. 따라서 기본 할당량인 45,000을 통해 최대 DW6000(45,000/750) 또는 보다 작은 DWU를 포함하는 그 이하의 데이터베이스를 만들 수 있습니다. 예를 들어 하나의 SQL Server에서 두 개의 DW6000을 호스트하려는 경우 DTU 할당량인 90,000을 요청해야 합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다.
+    >[AZURE.NOTE]  기본적으로 각 SQL server(예: myserver.database.windows.net)에는 **DTU 할당량**인 45,000이 있습니다. 이 할당량은 안전을 위한 제한일 뿐입니다. 지원 티켓을 만들고 *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다. DTU 요구 사항을 계산하려면 7.5를 필요한 총 [DWU][]로 곱합니다. 예를 들어 하나의 SQL Server에서 두 개의 DW6000을 호스트하려면 DTU 할당량인 90,000을 요청해야 합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다.
 
 5. 보고하려는 문제가 있는 데이터베이스를 호스팅하는 **구독**을 선택합니다.
 
@@ -103,4 +103,4 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 [스택 오버플로]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

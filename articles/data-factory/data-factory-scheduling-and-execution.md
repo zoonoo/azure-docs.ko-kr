@@ -50,7 +50,7 @@ Azure Data Factory에서는 작업 실행을 통한 배치 방식으로 시계�
       "interval": 1
     },
 
-각 데이터 단위는 데이터 **조각**이라는 작업 실행으로 사용되고 생성됩니다. 다음 다이어그램에서는 availability가 매시간 빈도로 설정된 입력 데이터 집합과 출력 데이터 집합이 각각 있는 작업의 예를 보여줍니다.
+각 데이터 단위는 데이터 **조각**이라는 작업 실행으로 사용되고 생성됩니다. 다음 다이어그램에는 입력 데이터 집합과 출력 데이터 집합이 하나씩 포함된 활동의 예가 나와 있습니다. 이러한 데이터 집합의 가용성 집합 빈도는 매시간으로 설정됩니다.
 
 ![가용성 스케줄러](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -239,38 +239,117 @@ availability 섹션에서 사용할 수 있는 다른 속성에 대한 자세한
 
 데이터 팩터리 모니터링 및 관리 도구를 사용하면 실패한 조각에 대한 진단 로그를 자세히 보고 문제에 대한 근본 원인을 쉽게 파악하여 해결할 수 있습니다. 문제를 해결했으면 작업 실행을 쉽게 다시 시작하여 실패한 조각을 생성할 수 있습니다. 다시 실행하고, 데이터 조각의 상태 전환을 이해하는 방법에 대한 자세한 내용은 [Azure 포털 블레이드](data-factory-monitor-manage-pipelines.md)**를 사용하여 파이프라인 모니터링 및 관리** (또는) [앱 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
-dataset2에 대한 오전 9-10시 조각을 다시 실행했으면 다음 다이어그램처럼 Data Factory가 최종 데이터 집합에서 오전 9-10시에 종속된 조각에 대한 실행을 시작합니다.
+dataset2에 대한 오전 9-10시 조각을 다시 실행하여 해당 데이터 집합이 준비된 상태가 되면 Data Factory는 최종 데이터 집합에서 오전 9-10시 종속 조각에 대한 실행을 시작합니다.
 
 ![실패한 조각 다시 실행](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-활동 체인에 대한 종속성 지정 및 종속성 추적에 대해 자세히 알아보려면 다음 섹션을 참조하세요.
-
-## 활동 연결
-한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 지정하여 두 활동을 연결할 수 있습니다. 활동은 동일한 파이프라인 또는 다른 파이프라인에 있을 수 있습니다. 두 번째 활동은 첫 번째 활동이 완료된 경우에만 실행됩니다.
+## 시퀀스에서 실행 중인 활동
+한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 지정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 활동은 동일한 파이프라인 또는 다른 파이프라인에 있을 수 있습니다. 두 번째 활동은 첫 번째 활동이 완료된 경우에만 실행됩니다.
 
 예를 들어 다음과 같은 경우를 고려해 보겠습니다.
  
 1.	파이프라인 P1에는 외부 입력 데이터 집합 D1이 필요하고 **출력** 데이터 집합 **D2**를 생성하는 작업 A1이 있습니다.
-2.	파이프라인 P2에는 데이터 집합 **D2**의 **입력**이 필요하고 출력 데이터 집합 D3을 생성하는 작업 A2가 있습니다.
+2.	파이프라인 P2에는 데이터 집합 **D2**의 **입력**이 필요하며 출력 데이터 집합 **D3**을 생성하는 활동 A2가 있습니다.
  
-이 시나리오에서 활동 A1은 외부 데이터를 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 활동 A2는 D2에서 예약된 조각을 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 데이터 집합 D2의 조각 중 하나에 오류가 있으면 해당 조각을 사용할 수 있을 때까지 A2가 실행되지 않습니다.
+이 시나리오에서는 활동 A1과 A2가 서로 다른 파이프라인에 있습니다. 활동 A1은 외부 데이터를 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 활동 A2는 D2에서 예약된 조각을 사용할 수 있고 예약된 가용성 빈도에 도달할 때 실행됩니다. 데이터 집합 D2의 조각 중 하나에 오류가 있으면 해당 조각을 사용할 수 있을 때까지 A2가 실행되지 않습니다.
 
 다이어그램 뷰는 다음 다이어그램과 같습니다.
 
 ![두 개의 파이프라인에서 활동 연결](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-동일한 파이프라인에서 두 활동을 사용하는 다이어그램 뷰는 다음 다이어그램과 같습니다.
+앞에서 설명한 것처럼, 두 활동이 동일한 파이프라인에 있을 수 있습니다. 동일한 파이프라인에 두 활동이 모두 포함된 다이어그램 뷰는 다음 다이어그램과 같습니다.
 
 ![동일한 파이프라인에서 활동 연결](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### 순서가 지정된 복사
-순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. 파이프라인에 두 번의 복사 작업, 즉 다음과 같은 입력 데이터 출력 데이터 집합으로 된 CopyActivity1과 CopyActivity2가 있다고 가정합니다.
+### 순차 복사
+순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. 파이프라인에 두 개의 복사 활동, 즉 다음과 같은 입력 데이터 및 출력 데이터 집합을 포함하는 CopyActivity1과 CopyActivity2가 있다고 가정해 보겠습니다.
 
 CopyActivity1: 입력: Dataset1 출력: Dataset2
 
-CopyActivity2: 입력: Dataset2 출력: Dataset4
+CopyActivity2: 입력: Dataset2 출력: Dataset3
 
 CopyActivity2는 CopyActivity1을 성공적으로 실행하고 Dataset2를 사용할 수 있는 경우에만 실행됩니다.
+
+샘플 파이프라인 JSON은 다음과 같습니다.
+
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob1ToBlob2",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob2ToBlob3",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2016-08-25T01:00:00Z",
+	        "end": "2016-08-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+예제에서는 첫 번째 복사 활동의 출력 데이터 집합(Dataset2)이 두 번째 활동의 입력으로 지정되어 있습니다. 따라서 첫 번째 활동의 출력 데이터 집합이 준비되어야 두 번째 활동이 실행됩니다.
 
 예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 완료할 때까지 작업이 실행되지 않습니다. 예:
 
@@ -278,7 +357,88 @@ CopyActivity1: 입력: Dataset1 출력: Dataset2
 
 CopyActivity2: 입력: Dataset3, Dataset2 출력: Dataset4
 
-여러 입력을 지정하는 경우 첫 번째 입력 데이터 집합만 데이터를 복사하는 데 사용되고 다른 데이터 집합은 종속성으로 사용됩니다. CopyActivity2는 다음 조건을 충족할 때만 실행을 시작합니다.
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset1"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "Dataset3"
+	                    },
+	                    {
+	                        "name": "Dataset2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "Dataset4"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlob3ToBlob4",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2017-04-25T01:00:00Z",
+	        "end": "2017-04-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+
+예제에서는 두 번째 복사 활동에 대해 입력 데이터 집합 두 개가 지정되어 있습니다. **여러 입력을 지정하는 경우 첫 번째 입력 데이터 집합만 데이터를 복사하는 데 사용되고 다른 데이터 집합은 종속성으로 사용됩니다.** CopyActivity2는 다음 조건을 충족할 때만 실행을 시작합니다.
 
 - CopyActivity1이 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않습니다. CopyActivity2에 대한 일정 종속성으로만 작동합니다.
 - Dataset3을 사용할 수 있습니다. 이 데이터 집합은 대상에 복사되는 데이터를 나타냅니다.
@@ -291,7 +451,7 @@ CopyActivity2: 입력: Dataset3, Dataset2 출력: Dataset4
 
 ### 샘플 1: 매시간 제공되는 입력 데이터에 대해 일별 출력 보고서 생성
 
-Azure Blob에서 매시간 사용 가능한 센서로부터 입력 측정값 데이터가 있는 시나리오를 살펴보겠습니다. Data Factory [Hive 작업](data-factory-hive-activity.md)으로 그 날에 대한 통계(예: 평균, 최대, 최소 등)가 포함된 일별 집계 보고서를 생성하려고 합니다.
+Azure Blob에서 매시간 사용 가능한 센서로부터 입력 측정값 데이터가 있는 시나리오를 살펴보겠습니다. Data Factory [Hive 활동](data-factory-hive-activity.md)을 사용하여 평균, 최대값, 최소값 등 특정일의 통계가 포함된 일별 집계 보고서를 생성하려고 합니다.
 
 다음은 Data Factory로 이 시나리오를 모델링하는 방법입니다.
 
@@ -700,4 +860,4 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 
   
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights로 ASP.NET에 대한 웹앱 분석 설정" 
+	pageTitle="Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Microsoft Azure" 
 	description="ASP.NET 웹 사이트, 호스팅된 온-프레미스 또는 Azure에 대한 성능, 가용성 및 사용 현황 분석을 구성합니다." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -117,17 +117,17 @@ Application Insights는 앱에서 Microsoft Azure에서 호스팅되는 Applicat
 2. [Azure 포털](https://portal.azure.com/)에서 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
 3. `ApplicationInsights.config`에 계측 키를 삽입하여 SDK가 포털에 원격 분석을 보낼 수 있습니다.
 
-원하는 경우 [ASP.NET 4](app-insights-asp-net-manual.md) 또는 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started)에 다음 단계를 수동으로 수행할 수 있습니다.
+원하는 경우 [ASP.NET 4](app-insights-windows-services.md) 또는 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started)에 다음 단계를 수동으로 수행할 수 있습니다.
 
 ### SDK의 나중 버전으로 업그레이드하려면
 
-[SDK의 새 릴리스](app-insights-release-notes-dotnet.md)로 업그레이드하려면 NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. Microsoft.ApplicationInsights.Web을 선택하고 업그레이드를 선택합니다.
+[SDK의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)로 업그레이드하려면 NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. Microsoft.ApplicationInsights.Web을 선택하고 업그레이드를 선택합니다.
 
 ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업그레이드 전에 복사본을 저장하고 나중에 변경 내용을 새 버전에 병합합니다.
 
 
 
-## 다음 작업
+## 다음 단계
 
 | | 
 |---|---
@@ -135,4 +135,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 |**[Application Insights 포털로 작업](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[더 많은 데이터](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

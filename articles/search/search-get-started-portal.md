@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # 포털에서 Azure 검색 시작
@@ -23,7 +23,7 @@
 
 자습서에서는 데이터 및 지침을 사용하여 간단히 만들 수 있는 [샘플 Azure DocumentDB 데이터베이스](#apdx-sampledata)를 가정하지만 DocumentDB 또는 SQL 데이터베이스에서 기존 데이터에 이들 단계를 적용할 수도 있습니다.
 
-> [AZURE.NOTE] 이 시작하기 자습서는 [Azure 구독](../../includes/free-trial-note.md) 및 [Azure 검색 서비스](search-create-service-portal.md)가 필요합니다.
+> [AZURE.NOTE] 이 시작 자습서에는 [Azure 구독](../../includes/free-trial-note.md) 및 [Azure Search 서비스](search-create-service-portal.md)가 필요합니다.
  
 ## 서비스 찾기
 
@@ -72,9 +72,9 @@
 
 필드 및 데이터 형식가 구성되어 있지만 속성을 할당해야 합니다. 필드 목록의 위쪽에 있는 확인란은 필드가 사용되는 방법을 제어하는 *인덱스 특성*입니다.
 
-- **조회 가능**은 검색 결과 목록에 표시된다는 의미입니다. 예를 들어 필드가 필터 식에만 사용되는 경우 이 확인란을 지워 검색 결과에 대한 제한 해제로 개별 필드를 표시할 수 있습니다. 
-- **필터링 가능**, **정렬 가능** 및 **패싯 가능**은 필드를 필터, 정렬 또는 패싯 탐색 구조에 사용할 수 있는지 여부를 결정합니다. 
-- **검색 가능**은 필드가 전체 텍스트 검색에 포함된다는 의미입니다. 문자열은 일반적으로 검색 가능합니다. 숫자 필드와 부울 필드는 종종 검색할 수 없다고 표시됩니다. 
+- **조회 가능**은 검색 결과 목록에 표시된다는 의미입니다. 예를 들어 필드가 필터 식에만 사용되는 경우 이 확인란을 지워 검색 결과에 대한 제한 해제로 개별 필드를 표시할 수 있습니다.
+- **필터링 가능**, **정렬 가능** 및 **패싯 가능**은 필드를 필터, 정렬 또는 패싯 탐색 구조에 사용할 수 있는지 여부를 결정합니다.
+- **검색 가능**은 필드가 전체 텍스트 검색에 포함된다는 의미입니다. 문자열은 일반적으로 검색 가능합니다. 숫자 필드와 부울 필드는 종종 검색할 수 없다고 표시됩니다.
 
 이 페이지를 나가기 전에 다음 옵션(조회 가능, 검색 가능 등)을 사용하도록 인덱스의 필드를 표시합니다. 대부분의 필드는 조회 가능합니다. 대부분의 문자열 필드는 검색 가능입니다(키를 검색 가능하게 만들 필요는 없음). 장르, orderableOnline, 등급, 및 태그는 또한 필터링 가능, 정렬 가능 및 패싯 가능과 같은 필드입니다.
 	
@@ -183,4 +183,4 @@ Azure 가상 컴퓨터에서 Azure SQL 데이터베이스 또는 SQL Server와 �
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

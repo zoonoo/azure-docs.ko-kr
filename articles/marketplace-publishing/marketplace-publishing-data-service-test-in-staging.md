@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # 스테이징에서 데이터 서비스 제품 테스트
-[Microsoft 개발자 계정 만들기](marketplace-publishing-accounts-creation-registration.md) 및 [게시 포털에서 데이터 서비스 제품 만들기](marketplace-publishing-data-service-creation.md)의 처음 두 단계를 완료하고 나면 Azure 마켓플레이스에 제품을 제공할 준비가 된 것입니다. 이 문서는 “스테이징”이라는 첫 번째 중간 단계를 안내합니다.
+
+>[AZURE.IMPORTANT] **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기서](https://appsource.microsoft.com/partners) 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기서](https://azure.microsoft.com/marketplace/programs/certified/) 자세한 내용을 확인할 수 있습니다.
+
+[Microsoft 개발자 계정 만들기](marketplace-publishing-accounts-creation-registration.md) 및 [게시 포털에서 데이터 서비스 제품 만들기](marketplace-publishing-data-service-creation.md)의 처음 두 단계를 완료하고 나면 Azure 마켓플레이스에 제품을 제공할 준비가 된 것입니다. 이 항목에서는 "스테이징"이라고도 하는 첫 번째(중간) 단계를 안내합니다.
 
 준비 단계에서는 제품을 프로덕션에 게시하기 전에 개인 "샌드박스"에 배포하여 기능을 테스트 및 확인할 수 있습니다. 제품이 해당 제품을 배포한 고객에게 보이는 것처럼 준비 단계에 표시됩니다.
 
@@ -36,9 +39,9 @@
 
 Azure 포털에 제품을 공개할 계획이 없거나 승인을 받지 못한 경우에는(현재 용량이 제한되어 있음) 팝업 창을 닫습니다.
 
-Azure 포털(과 DataMarket 포털)에서 데이터 서비스를 테스트하려면, 테스트에 사용할 Azure 구독 ID가 필요합니다. 구독 ID는 제품 테스트가 허용되는 계정을 식별합니다.
+DataMarket 포털 외에 Azure 포털에서도 데이터 서비스를 테스트하려면 테스트에 사용할 Azure 구독 ID가 필요합니다. 구독 ID를 통해 제품 테스트가 허용되는 계정을 식별합니다.
 
-구독 ID를 잘라내어 붙여넣고 계속하려면 확인 표시를 클릭합니다.
+구독 ID를 잘라내어 붙여넣고 확인 표시를 클릭하여 계속 진행합니다.
 
   ![그리기](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
@@ -86,4 +89,4 @@ Azure 포털(과 DataMarket 포털)에서 데이터 서비스를 테스트하려
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

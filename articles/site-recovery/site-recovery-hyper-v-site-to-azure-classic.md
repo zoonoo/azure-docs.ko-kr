@@ -182,12 +182,11 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 ## 4단계: Azure 저장소 계정 만들기 
 
-1. **리소스 준비**에서 **저장소 계정 만들기**를 선택하여 Azure 저장소 계정이 없는 경우 만듭니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. Azure Site Recovery 자격 증명 모음과 동일한 하위 지역에 있고 동일한 구독과 연결되어야 합니다.
+1. **리소스 준비**에서 **저장소 계정 만들기**를 선택하여 Azure 저장소 계정이 없는 경우 만듭니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다.
 
 	![저장소 계정 만들기](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
-
+>[AZURE.NOTE] 1. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다. 2. [저장소 계정 마이그레이션](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 저장소 계정에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 
 ## 5단계: 보호 그룹 만들기 및 구성
 
@@ -195,7 +194,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 1. **보호 그룹 만들기 및 구성**에서 **보호 그룹 만들기**를 클릭합니다. 필수 조건이 갖추어지지 않은 경우 메시지가 표시되며 **세부 정보 보기**를 클릭하여 자세한 내용을 확인할 수 있습니다.
 
-2. **보호 그룹** 탭에서 보호 그룹을 추가합니다. 이름, 원본 Hyper-V 사이트, 대상 **Azure**, Azure Site Recovery 구독 이름 및 Azure 저장소 계정을 지정합니다.
+2. **보호 그룹** 탭에서 보호 그룹을 추가합니다. 이름, 소스 Hyper-V 사이트, 대상 **Azure**, Azure Site Recovery 구독 이름 및 Azure 저장소 계정을 지정합니다.
 
 	![보호 그룹](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
 
@@ -215,7 +214,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 >[AZURE.NOTE] 고정 IP 주소를 사용하여 Linux를 실행하는 VM 보호는 지원되지 않습니다.
 
-1. 보호 그룹의 **컴퓨터** 탭에서 **가상 컴퓨터를 보호 그룹에 추가하여 보호 사용**을 클릭합니다.
+1. 보호 그룹의 **컴퓨터** 탭에서 **Virtual Machine를 보호 그룹에 추가하여 보호합니다.**를 클릭합니다.
 2. **가상 컴퓨터 보호 사용** 페이지에서 보호할 가상 컴퓨터를 선택합니다.
 
 	![가상 컴퓨터 보호 사용](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -229,7 +228,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터* virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **Virtual Machine* virtual\_machine\_name* > **구성**에서 추가적인 Virtual Machine의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
@@ -243,6 +242,8 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **Azure 네트워크**: 가상 컴퓨터가 장애 조치되는 네트워크를 지정합니다. 가상 컴퓨터에 여러 네트워크가 있는 경우 모든 어댑터는 동일한 Azure 네트워크에 연결되어야 합니다.
 		- **서브넷** 가상 컴퓨터에서 각 네트워크 어댑터에 대해 장애 조치 후 컴퓨터가 연결되는 Azure 네트워크의 서브넷을 선택합니다.
 		- **대상 IP 주소**: 원본 가상 컴퓨터의 네트워크 어댑터를 고정 IP 주소를 사용하도록 구성하는 경우, 대상 가상 컴퓨터의 IP 주소를 지정하여 장애 조치 후 컴퓨터가 동일한 IP 주소를 갖도록 할 수 있습니다. IP 주소를 지정하지 않으면 사용 가능한 임의의 주소가 장애 조치 시 할당됩니다. 사용 중인 주소를 지정하는 경우 장애 조치가 실패합니다.
+		
+        > [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) 작업은 Site Recovery를 배포하는 데 사용되는 네트워크에서 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 수행할 수 없습니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
@@ -265,7 +266,7 @@ Azure 네트워크를 지정하지 않고 테스트 장애 조치(Failover)를 �
 Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover) 실행](site-recovery-failover.md#run-a-test-failover)을 살펴보세요.
 
 
-복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치(failover) 고려 사항에 [대해 자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
+복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory와 관련된 자세한 테스트 장애 조치(failover) 고려 사항은 [여기](site-recovery-active-directory.md#considerations-for-test-failover)를 참조하세요.
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
@@ -281,7 +282,7 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 5. 장애 조치(Failover) 후에는 Azure 포털에서 가상 컴퓨터 테스트 복제본을 확인할 수 있습니다. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다.
 
 	1. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
-    2. 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다. 가상 컴퓨터에서 RDP 끝점을 추가해야 합니다. 이를 위해서 [Azure 자동화 Runbook](site-recovery-runbook-automation.md)을 활용할 수 있습니다.
+    2. 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다. 가상 컴퓨터에서 RDP 끝점을 추가해야 합니다. 이를 위해서 [Azure Automation Runbook](site-recovery-runbook-automation.md)을 활용할 수 있습니다.
     3. 장애 조치(Failover)는 원격 데스크톱을 사용하여 Azure에서 가상 컴퓨터에 연결하기 위해 공용 IP 주소를 사용하는 경우, 공용 주소를 사용하여 가상 컴퓨터에 연결하지 않는 도메인 정책이 없어야 합니다.
 
 6. 테스트가 완료되면 다음을 수행합니다.
@@ -299,4 +300,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

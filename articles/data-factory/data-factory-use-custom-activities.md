@@ -526,7 +526,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ adftutorial\\output 폴더에 1개 이상의 줄(입력 폴더에서 BLOB 수와
 
 	- 슬라이스 2개가 Azure 배치 풀의 VM 2대에서 병렬로 처리되도록 **동시성**이 **2**로 설정됩니다.
 	- activities 섹션에는 **DotNetActivity** 유형의 작업 하나밖에 없습니다.
-	- **AssemblyName**을 DLL의 이름 **MyActivities.dll**로 설정합니다.
+	- **AssemblyName**은 DLL의 이름인 **MyDotNetActivity.dll**로 설정됩니다.
 	- **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
 	- **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **AzureStorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure Storage 계정을 사용하는 경우 다른 Azure Storage 연결된 서비스를 만듭니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
@@ -896,4 +896,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

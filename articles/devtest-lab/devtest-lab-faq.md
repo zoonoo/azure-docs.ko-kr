@@ -13,12 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/29/2016"
 	ms.author="tarcher"/>
 
 # DevTest Labs FAQ
 
 이 문서에서는 DevTest Labs에 대한 일반적인 질문에 대한 답변을 제공합니다.
+
+## 여기서 내 질문에 대답하지 않으면 어떻게 하나요?
+질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다.
+
+- 이 FAQ의 끝에 있는 [Disqus 스레드](#comments)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원들과 이 문서에 대해 정보를 교환할 수 있습니다.
+- 더 많은 사용자와 의견을 교환하려는 경우에는 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하여 Azure DevTest Labs 팀 및 커뮤니티의 다른 구성원들과 토론을 할 수 있습니다.
+- 기능을 요청하려면 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
+
+## 시작
+- [DevTest Labs 사용을 시작하려면 어떻게 해야 하나요?](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
 ## 일반
 - [DevTest Labs를 사용해야 하는 이유는 무엇입니까?](#why-should-i-use-devtest-labs)
@@ -161,7 +171,7 @@ VM에 여러 디스크 연결이 지원됩니다.
 [랩 Azure Resource Manager 템플릿의 Github 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)가 있습니다. 이러한 각 템플릿에는 클릭하여 Azure 구독 아래에 DevTest Labs 랩을 배포할 수 있는 링크가 있습니다.
  
 ### 서로 다른 리소스 그룹에서 만들어진 모든 VM이 임의의 이름을 갖는 이유는 무엇입니까? 이름을 변경하거나 이러한 리소스 그룹을 수정할 수 있습니까? 
-리소스 그룹은 DevTest Labs가 사용자 권한 및 가상 컴퓨터에 대한 액세스를 관리하기 위해 이러한 방식으로 만들어집니다. 더 많은 유연성을 허용하기 위해 이 환경을 향상시키도록 작업 중이지만 필요에 따라 이러한 리소스 그룹의 이름을 바꿀 수 있습니다. 사용 권한을 실수로 수정하지 않도록 다른 리소스 그룹으로 VM을 이동하지 않는 것이 좋습니다.
+리소스 그룹은 DevTest Labs가 사용자 권한 및 가상 컴퓨터에 대한 액세스를 관리하기 위해 이러한 방식으로 만들어집니다. VM을 다른 리소스 그룹으로 이동하여 원하는 이름을 설정할 수는 있지만, 이렇게 하지 않는 것이 좋습니다. 보다 유동적인 작업이 가능하도록 현재 이 환경을 개선하는 중입니다.
  
 ### 동일한 구독에서 얼마나 많은 랩을 만들 수 있습니까? 
 구독당 만들 수 있는 랩의 수에는 특정 제한이 없지만 사용하는 리소스는 구독당 제한됩니다. [Azure 구독에 부과된 한도 및 할당량](../azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
@@ -175,4 +185,4 @@ VM에 여러 디스크 연결이 지원됩니다.
 ### 기존 가상 네트워크가 제대로 저장되지 않는 이유는 무엇입니까?  
 한 가지 가능성은 가상 네트워크 이름에 기간이 포함되어 있는 것입니다. 그렇다면 기간을 제거하거나 하이픈으로 바꾼 다음 가상 네트워크를 다시 저장합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

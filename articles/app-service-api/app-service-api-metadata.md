@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/30/2016"
 	ms.author="rachelap"/>
 
 # API 검색 및 코드 생성에 대한 앱 서비스 API 앱 메타데이터 
@@ -36,7 +36,7 @@ API 앱의 속성에서 API 앱에 Swagger 2.0 JSON 메타데이터를 제공하
 
 또한 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다.
 
-**리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
+**리소스 탐색기**에서 **구독 > {your subscription} > resourceGroups > {your resource group} > 공급자 > Microsoft.Web > 사이트 > {your site} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
@@ -60,4 +60,4 @@ API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 
 
 API 앱과 함께 Azure API 관리를 사용하는 경우 Swagger 메타데이터를 사용하여 API를 API 관리로 가져올 수 있습니다. 자세한 내용은 [Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법](../api-management/api-management-howto-import-api.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

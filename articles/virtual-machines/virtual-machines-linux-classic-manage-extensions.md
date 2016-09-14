@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="04/15/2016"
+ ms.date="08/29/2016"
  ms.author="rasquill"/>
 
 #가상 컴퓨터 확장 관리
@@ -24,4 +24,4 @@ Azure의 Windows 또는 Linux 가상 컴퓨터에서 VM 확장의 찾기, 추가
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

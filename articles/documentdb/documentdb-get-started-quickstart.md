@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드
@@ -25,7 +25,7 @@
 
 Azure DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 빠른 시작 자습서를 가져오거나 자습서를 완료한 후에 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
-- **[빠른 시작](#quickstart)**: 샘플 프로젝트를 다운로드하고 연결 정보를 추가하고 DocumentDB 앱을 5분 이내에 실행합니다.
+- **[빠른 시작](#quickstart)**: 샘플 프로젝트를 다운로드하고 연결 정보를 추가하고 DocumentDB 앱을 10분 이내에 실행합니다.
 - **[자습서](#tutorial)**: 30분 이내에 빠른 시작 앱을 처음부터 빌드합니다.
 
 ## 필수 조건
@@ -36,7 +36,7 @@ Azure DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 빠른 시작 �
 
 ## 빠른 시작
 
-1. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip)에서 샘플 프로젝트를 다운로드합니다.
+1. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip)에서 샘플 프로젝트.zip을 다운로드하거나 [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart) 리포지토리를 복제합니다.
 2. Azure 포털을 사용하여 [DocumentDB 계정을 만듭니다](documentdb-create-account.md).
 3. **DocumentDB(NoSQL)** 블레이드로 이동한 다음 **계정 이름**을 클릭하고 리소스 메뉴에서 **키**를 클릭하여 App.config 파일에서 EndpointUri 및 PrimaryKey 값을 [Azure 포털](https://portal.azure.com/)에서 검색된 값으로 바꿉니다. ![App.config에서 바꿀 EndpointUri 및 PrimaryKey 값의 스크린샷](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. 프로젝트를 빌드합니다. 콘솔 창은 새 리소스를 만들고 쿼리한 다음 정리하는 방법을 표시합니다.
@@ -599,4 +599,4 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

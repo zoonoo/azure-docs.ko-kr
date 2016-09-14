@@ -42,8 +42,8 @@ NSG 규칙은 다음 속성을 포함합니다.
 |**프로토콜**|규칙과 일치하는 프로토콜|TCP, UDP, 또는 *|프로토콜에 *를 사용하면 ICMP(동부 및 서부 트래픽에만 해당)는 물론 UDP와 TCP가 포함되며 필요한 규칙의 수를 줄일 수 있습니다.<br/>그렇지만 *를 사용하면 방식의 폭이 너무 넓어질 수 있으므로 정말 필요한 경우에만 사용하도록 주의해야 합니다.|
 |**원본 포트 범위**|규칙과 일치하는 원본 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65635) 또는 *(모든 포트에 해당)|원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램이 특정 포트를 사용하지 않으면 대부분의 경우 "*"을 사용하세요.<br/>여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다
 |**대상 포트 범위**|규칙과 일치하는 대상 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 *(모든 포트에 해당)|여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다
-|**원본 주소 접두사**|규칙과 일치하는 원본 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#Default-Tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
-|**대상 주소 접두사**|규칙과 일치하는 대상 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#Default-Tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
+|**원본 주소 접두사**|규칙과 일치하는 원본 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
+|**대상 주소 접두사**|규칙과 일치하는 대상 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#default-tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
 |**방향**|규칙과 일치하는 트래픽의 방향|인바운드 또는 아웃바운드|인바운드 규칙과 아웃바운드 규칙은 방향에 근거하여 별도로 처리됩니다.|
 |**우선 순위**|규칙은 우선 순위대로 검사되고 규칙이 적용된 후에는 일치 여부를 알기 위해 규칙이 더 이상 테스트되지 않습니다.|100~4096 사이의 숫자|기존 규칙 사이에 새로운 규칙을 위한 공간을 남겨두기 위해서 각 규칙의 우선 순위를 100씩 건너뛰도록 만드는 것이 좋습니다.|
 |**Access**|규칙이 일치하는 경우 적용할 액세스 유형|허용 또는 거부|패킷에 대한 허용 규칙을 찾을 수 없으면 패킷은 삭제됩니다.|
@@ -124,13 +124,13 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 
 |배포 도구|클래식|리소스 관리자|
 |---|---|---|
-|클래식 포털|![아니요][red]|![아니요][red]|
-|Azure 포털|![예][green]|[](virtual-networks-create-nsg-arm-pportal.md)![예][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![예][green]|[](virtual-networks-create-nsg-arm-ps.md)![예][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![예][green]|[](virtual-networks-create-nsg-arm-cli.md)![예][green]|
-|ARM 템플릿|![아니요][red]|[](virtual-networks-create-nsg-arm-template.md)![예][green]|
+|클래식 포털|![아니요](./media/virtual-network-nsg-overview/red.png)|![아니요](./media/virtual-network-nsg-overview/red.png)|
+|Azure 포털|![예](./media/virtual-network-nsg-overview/green.png)|[![예][green]](virtual-networks-create-nsg-arm-pportal.md)로 바꿉니다.|
+|PowerShell|[![예][green]](virtual-networks-create-nsg-classic-ps.md)로 바꿉니다.|[![예][green]](virtual-networks-create-nsg-arm-ps.md)로 바꿉니다.|
+|Azure CLI|[![예][green]](virtual-networks-create-nsg-classic-cli.md)로 바꿉니다.|[![예][green]](virtual-networks-create-nsg-arm-cli.md)로 바꿉니다.|
+|ARM 템플릿|![아니요](./media/virtual-network-nsg-overview/red.png)|[![예][green]](virtual-networks-create-nsg-arm-template.md)로 바꿉니다.|
 
-|**키**|![예][green] 지원됩니다. 문서를 클릭합니다.|![아니요][red] 지원되지 않습니다.|
+|**키**|![예](./media/virtual-network-nsg-overview/green.png) 지원됩니다.|![아니요](./media/virtual-network-nsg-overview/red.png) 지원되지 않습니다.|
 |---|---|---|
 
 ## 계획
@@ -282,4 +282,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

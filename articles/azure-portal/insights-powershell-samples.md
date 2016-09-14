@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/30/2016"
 	ms.author="ashwink"/>
 
 # Azure Insights PowerShell 빠른 시작 샘플
@@ -25,7 +25,7 @@
 
 ## 이 문서의 예
 
-문서의 예에서는 Azure Insights cmdlet을 사용하는 방법을 보여 줍니다. [Azure Insights Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx)에서 Azure Insights(모니터링) 전체 목록을 살펴볼 수도 있습니다.
+문서의 예에서는 Azure Insights cmdlet을 사용하는 방법을 보여 줍니다. [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx)에서 Azure Insights(모니터링) PowerShell cmdlet의 전체 목록을 살펴볼 수도 있습니다.
 
 
 ## 로그인 후 구독 사용
@@ -384,4 +384,4 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -97,9 +97,7 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 
 -   트랜잭션
 
--   전송 대상을 통해 보냅니다.
-
--   확장된 받기.
+-   전송 대상을 통해 보내기
 
 AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET API의 동작에 몇 가지 작은 차이점이 있습니다.
 
@@ -139,4 +137,4 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="08/30/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -210,7 +210,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 
 | 학습 파트너 | 설명 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)로 바꿉니다. | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/ko-KR/training-courses/deploying-web-apps-to-azure-app-service-16629)로 바꿉니다. | [**Microsoft Virtual Academy**](https://mva.microsoft.com/ko-KR/training-courses/deploying-web-apps-to-azure-app-service-16629)는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction)로 바꿉니다. | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)는 Azure 교육을 제공하는 핵심 Microsoft 파트너입니다. MSDN 구독자의 경우 구독 혜택을 사용하여 Microsoft Azure 교육을 이용할 수 있습니다. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)로 바꿉니다. | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)는 Microsoft Azure에 대한 세부 기술 교육을 제공합니다. 현장에서 이뤄지는 강사 주도형 교육 또는 업계에서 인정받고 있는 전문 강사로 구성된 원격 강의를 받아 보세요. |
 
@@ -251,7 +251,7 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 | ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
 | 설명서 | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) | [설명서 웹 사이트](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
 
 ## DocumentDB 마법사
 
@@ -268,4 +268,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

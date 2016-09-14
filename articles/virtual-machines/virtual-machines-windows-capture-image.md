@@ -33,7 +33,7 @@
 
 ## 원본 VM을 준비합니다. 
 
-이 섹션에서는 이미지로 사용할 수 있도록 Windows 가상 컴퓨터를 일반화하는 방법을 보여 줍니다.
+이 섹션에서는 이미지로 사용할 수 있도록 Windows 가상 컴퓨터를 일반화하는 방법을 보여 줍니다. Sysprep를 실행하기 전에 VM을 백업합니다.
 
 > [AZURE.WARNING] VM을 일반화하면 프로세스가 모든 사용자 계정을 제거하기 때문에 RDP를 통해 로그인할 수 없습니다. 변경 내용은 되돌릴 수 없습니다.
 
@@ -210,4 +210,4 @@
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

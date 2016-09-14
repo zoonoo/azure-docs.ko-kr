@@ -181,7 +181,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 ## 응용 프로그램을 완료하고 실행합니다.
 
-이제 **CreateIoTHub** 메서드를 호출하여 응용 프로그램을 완료한 다음 빌드하고 실행합니다.
+이제 응용 프로그램을 빌드하고 실행하기 전에 **CreateIoTHub** 메서드를 호출하여 완료합니다.
 
 1. **Main** 메서드의 끝에 다음 코드를 추가합니다.
 
@@ -200,7 +200,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 ## 다음 단계
 
-Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으므로 구체적인 내용을 알아볼 차례입니다.
+Azure Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으므로 구체적인 내용을 알아볼 차례입니다.
 
 - [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 - Azure 리소스 관리자의 기능에 대한 자세한 내용은 [Azure 리소스 관리자 개요][lnk-azure-rm-overview]를 참조하세요.
@@ -233,4 +233,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

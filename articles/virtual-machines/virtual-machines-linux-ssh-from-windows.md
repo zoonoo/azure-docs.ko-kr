@@ -14,7 +14,7 @@ description="Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure�
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #Azure에서 Windows와 함께 SSH를 사용하는 방법
@@ -161,11 +161,11 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 
 	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	**열기**를 선택하기 전에 연결 > SSH > 인증 탭을 클릭하여 키를 선택합니다. 내용을 입력할 필드는 아래 스크린샷을 참조하세요.
+4.	**열기**를 선택하기 전에 연결 > SSH > 인증 탭을 클릭하여 개인 키를 선택합니다. 내용을 입력할 필드는 아래 스크린샷을 참조하세요.
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

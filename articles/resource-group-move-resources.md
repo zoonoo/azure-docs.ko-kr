@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -75,6 +75,7 @@
 - 응용 프로그램 게이트웨이
 - Application Insights
 - Express 경로
+- Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 계산, 네트워크 및 저장소 리소스를 이동하지 않습니다.
 - 가상 컴퓨터 크기 집합
 - 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 - VPN 게이트웨이
@@ -273,4 +274,4 @@
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

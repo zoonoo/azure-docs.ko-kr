@@ -3,7 +3,7 @@
    description="Power BI Embedded, 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Microsoft Power BI Embedded 시작
 
@@ -70,7 +70,7 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## 앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
 
-이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/ko-KR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
+이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
 
 **Power BI 데스크톱**에서 데이터의 복사본을 **Power BI 데스크톱**으로 가져오거나 **DirectQuery**를 사용하여 데이터 원본에 직접 연결하여 데이터 원본에 연결합니다.
 
@@ -101,4 +101,4 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 - [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

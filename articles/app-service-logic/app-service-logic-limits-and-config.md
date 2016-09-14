@@ -28,13 +28,13 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 #### 시간 제한
 
-|이름|제한|참고 사항|
+|Name|제한|참고 사항|
 |----|----|----|
 |요청 시간 초과|1분|필요에 따라 [비동기 패턴](app-service-logic-create-api-app.md) 또는 [until 루프](app-service-logic-loops-and-scopes.md)를 보완할 수 있음|
 
 #### 메시지 크기
 
-|이름|제한|참고 사항|
+|Name|제한|참고 사항|
 |----|----|----|
 |메시지 크기|50MB|일부 커넥터 및 API에서는 50MB를 지원하지 않을 수 있습니다. 요청 트리거는 최대 25MB를 지원함|
 |식 평가 제한|131,072자|`@concat()`, `@base64()`, `string`은 이 제한보다 길 수 없음|
@@ -65,7 +65,7 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 |이름|제한|참고 사항|
 |----|----|----|
-|ForEach 항목|10000|[쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
+|ForEach 항목|5, 000|[쿼리 작업](../connectors/connectors-native-query.md)을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
 |Until 반복|10000||
 |SplitOn 항목|10000||
 |ForEach 병렬 처리|20|`foreach` 작업에 `"operationOptions": "Sequential"`을 추가하여 순차적인 foreach를 설정할 수 있습니다.|
@@ -134,4 +134,4 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694)
 - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

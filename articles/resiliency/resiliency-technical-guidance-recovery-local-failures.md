@@ -110,7 +110,7 @@ Azure 저장소는 지역 내에서 완전히 독립된 물리적 저장소 하�
 
 Azure SQL 데이터베이스는 DaaS(database as a service)를 제공합니다. 응용 프로그램을을 신속하게 프로비전하고 데이터를 삽입하며 관계형 데이터베이스를 쿼리할 수 있습니다. 친숙한 여러 SQL Server 기능을 제공하는 동시에 하드웨어, 구성, 패치 및 복구의 부담을 줄였습니다.
 
->[AZURE.NOTE] Azure SQL 데이터베이스는 SQL Server와 일대일 기능 패리티를 제공하지 않습니다. 클라우드 응용 프로그램에 고유하게 맞춘 일련의 요구 사항을 만족하도록 계획되었습니다(유지 관리 비용을 절감하는 탄력적인 확장, DaaS(Database-as-a-Service)). 자세한 정보는 [클라우드 SQL Server 옵션 선택: Azure SQL 데이터베이스(PaaS) 또는 Azure VM(IaaS)의 SQL Server](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
+>[AZURE.NOTE] Azure SQL 데이터베이스는 SQL Server와 일대일 기능 패리티를 제공하지 않습니다. 클라우드 응용 프로그램에 고유하게 맞춘 일련의 요구 사항을 만족하도록 계획되었습니다(유지 관리 비용을 절감하는 탄력적인 확장, DaaS(Database-as-a-Service)). 자세한 내용은 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM(IaaS)의 SQL Server](../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
 
 ####복제
 
@@ -223,4 +223,4 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
