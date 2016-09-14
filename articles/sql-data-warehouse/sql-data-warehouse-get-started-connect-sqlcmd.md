@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)
 
@@ -24,7 +24,7 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-이 연습에서는 [sqlcmd][] 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다.
+이 연습에서는 [sqlcmd][] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse를 쿼리합니다.
 
 ## 1\. 연결
 
@@ -32,9 +32,12 @@
 
 + **서버(-S):**`<`서버 이름`>`.database.windows.net 형식의 서버
 + **데이터베이스(-D):** 데이터베이스 이름
++ **따옴표 붙은 식별자 설정(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
+
+SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.
+
 + **사용자 (-U):** `<`사용자`>` 형태의 서버 사용자
 + **암호(-P):** 사용자와 연결된 암호
-+ **따옴표 붙은 식별자 설정(-I):** SQL 데이터 웨어하우스 인스턴스에 연결하기 위해 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
 
 예를 들어 연결 문자열은 다음과 같습니다.
 
@@ -42,7 +45,17 @@
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] 따옴표 붙은 식별자를 설정하는 -I 옵션은 현재 SQL 데이터 웨어하우스에 연결해야 합니다.
+Azure Active Directory 통합 인증을 사용하려면 Azure Active Directory 매개 변수를 추가해야 합니다.
+
++ **Azure Active Directory 인증(-G):** 인증을 위해 Azure Active Directory를 사용합니다.
+
+예를 들어 연결 문자열은 다음과 같습니다.
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Active Directory를 사용하여 인증하려면 [Azure Active Directory 인증을 사용하도록 설정](sql-data-warehouse-authentication.md)해야 합니다.
 
 ## 2\. 쿼리
 
@@ -79,4 +92,4 @@ sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

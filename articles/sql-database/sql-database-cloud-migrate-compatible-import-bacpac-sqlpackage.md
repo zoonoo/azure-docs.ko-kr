@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # SqlPackage를 사용하여 BACPAC 파일에서 SQL 데이터베이스로 가져오기
@@ -24,20 +24,20 @@
 - [Azure 포털](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령 프롬프트 유틸리티를 사용하여 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 SQL 데이터베이스로 가져오는 방법을 보여 줍니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 최신 버전의 SQL Server Data Tools를 [다운로드](https://msdn.microsoft.com/library/mt204009.aspx)하여 이 유틸리티를 가져올 수도 있습니다.
+이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 SQL Database로 데이터를 가져오는 방법을 설명합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 최신 버전의 SQL Server Data Tools를 [다운로드](https://msdn.microsoft.com/library/mt204009.aspx)하여 이 유틸리티를 가져올 수도 있습니다.
 
-> [AZURE.NOTE] 아래 단계는 사용자가 이미 SQL 데이터베이스 서버를 프로비전하고 연결 정보를 알고 있으며 원본 데이터베이스가 호환됨을 확인한 경우를 가정합니다.
+> [AZURE.NOTE] 아래 단계에서는 사용자가 이미 SQL Database 서버를 프로비전했고, 연결 정보를 알고 있으며, 원본 데이터베이스가 호환됨을 확인했다고 가정합니다.
 
 ## SqlPackage를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기
 
-아래 단계를 따라 [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 호환되는 SQL Server 데이터베이스(또는 Azure SQL 데이터베이스)를 BACPAC 파일에서 가져옵니다.
+아래 단계를 따라 [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 호환되는 SQL Server 데이터베이스 또는 Azure SQL Database를 BACPAC 파일에서 가져옵니다.
 
-> [AZURE.NOTE] 아래 단계는 사용자가 이미 Azure SQL 데이터베이스 서버를 프로비전하고 연결 정보를 알고 있는 경우를 가정합니다.
+> [AZURE.NOTE] 아래 단계에서는 사용자가 이미 Azure SQL Database 서버를 프로비전했으며 연결 정보를 알고 있다고 가정합니다.
 
 1. 명령 프롬프트를 열고 sqlpackage.exe 명령줄 유틸리티가 들어 있는 디렉터리를 변경합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다.
 2. 사용자 환경에 대해 다음 인수를 사용하여 다음 sqlpackage.exe 명령을 실행하세요.
 
-	'sqlpackage.exe /Action:Import /tsn:< server\_name > /tdn:< database\_name > /tu:< user\_name > /tp:< password > /sf:< source\_file >
+	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
 
 	| 인수 | 설명 |
 	|---|---|
@@ -60,4 +60,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

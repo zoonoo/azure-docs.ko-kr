@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # FabricClient API로 작업하는 경우 일반적인 예외 및 오류
 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) API를 사용하여 클러스터 및 응용 프로그램 관리자가 서비스 패브릭 응용 프로그램, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 응용 프로그램 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 응용 프로그램 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 서비스 패브릭 클러스터 및 응용 프로그램을 관리하기 위한 도구를 개발할 수 있습니다.
 
-FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다. 각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다. 특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 표에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
+FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 있습니다. 각 메서드는 잘못된 입력으로 인한 오류, 런타임 오류 또는 일시적인 인프라 문제에 대한 예외를 발생시킬 수 있습니다. 특정 메서드에 의해 발생되는 예외를 확인하려면 API 참조 설명서를 참조하세요. 그러나 여러 많은 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) API에 의해 발생되는 몇몇 예외가 있습니다. 다음 테이블에는 FabricClient API에서 공통적으로 적용되는 예외가 나열되어 있습니다.
 
 |예외| 발생 시점|
 |---------|:-----------|
@@ -44,4 +44,4 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 |InvalidSubjectName|주체 이름이 올바르지 않습니다.|
 |InvalidAllowedCommonNameList|일반 이름 목록 문자열의 형식이 올바르지 않습니다. 쉼표로 구분된 목록이어야 합니다.|
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

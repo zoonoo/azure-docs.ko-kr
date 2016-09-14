@@ -279,11 +279,15 @@ A.2 경고는 Azure 백업 실패 후 5 분 이내에 발생합니다.
 
 **Q3. 알림이 구성된 경우 전자 메일이 전송되지 않는 경우가 있나요?**
 
-A3. 알림이 매시간 구성되고 알림이 발생하고 한 시간 이내에 확인되면 전자 메일이 전송되지 않습니다.
+A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는 경우의 사례입니다.
+
+   - 알림이 매시간 구성되고 알림이 발생하고 한 시간 이내에 확인되는 경우
+   - 작업이 취소됩니다.
+   - 원래 백업 작업이 진행 중이므로 두 번째 백업 작업이 실패합니다.
 
 ## 다음 단계
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

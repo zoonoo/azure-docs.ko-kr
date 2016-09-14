@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="새 Application Insights 리소스 만들기" 
+	pageTitle="새 Application Insights 리소스 만들기 | Microsoft Azure" 
 	description="새로운 라이브 응용 프로그램에 대 한 Application Insights 모니터링을 설정합니다. 웹 기반 접근 방식." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# 새 Application Insights 리소스 만들기
+# Application Insights 리소스 만들기
 
 Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프로그램에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 응용 프로그램을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우 이 작업은 IDE에 의해 자동으로 수행될 수 있으며, 가능하면 이 방법을 사용하는 것이 좋습니다. 하지만 경우에 따라 리소스를 수동으로 만듭니다.
 
@@ -40,7 +40,7 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 ![새로 만들기, Application Insights 클릭](./media/app-insights-create-new-resource/01-new.png)
 
 
-* **응용 프로그램 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택하고 다른 장치에 대해서는 전화 유형 중 하나를 선택합니다.
+* **응용 프로그램 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 ASP.NET을 선택합니다.
 * **리소스 그룹**은 액세스 제어와 같은 속성을 관리하기 위한 편의 기능입니다. 이미 다른 Azure 리소스를 만든 경우 동일한 그룹에 이 새 리소스를 두도록 선택할 수 있습니다.
 * **구독**은 Azure의 지불 계정입니다.
 * **위치**는 데이터를 보관하는 곳입니다. 현재는 변경할 수 없습니다.
@@ -78,7 +78,12 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
 리소스를 자동으로 만드는 [PowerShell 스크립트](app-insights-powershell-script-create-resource.md)를 작성할 수 있습니다.
 
+## 다음 단계
 
+* [대시보드 만들기](app-insights-dashboards.md)
+* [진단 검색](app-insights-diagnostic-search.md)
+* [메트릭 탐색](app-insights-metrics-explorer.md)
+* [분석 쿼리 작성](app-insights-analytics.md)
 
 
 <!--Link references-->
@@ -90,4 +95,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0831_2016-->

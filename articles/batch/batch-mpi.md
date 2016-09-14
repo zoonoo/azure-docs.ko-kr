@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # 다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
 
-다중 인스턴스 작업과 함께 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 사용하도록 설정하는 동시에 여러 계산 노드에서 Azure 배치 작업을 실행할 수 있습니다. 이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
+다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure 배치 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 배치로 수행할 수 있습니다. 이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
 
 ## 다중 인스턴스 작업 개요
 
@@ -30,8 +30,8 @@
 
 1. 배치 서비스는 작업을 하나의 **주** 및 많은 **하위 작업**으로 자동으로 분할합니다. 그런 다음 배치는 풀의 계산 노드에서 실행에 대한 주 및 하위 작업을 예약합니다.
 2. 주 및 하위 작업의 이러한 작업은 다중 인스턴스 설정에서 지정하는 모든 **공용 리소스 파일**을 다운로드합니다.
-3. 공용 리소스 파일을 다운로드한 후 다중 인스턴스 설정에 지정하는 **조정 명령**이 주 및 하위 작업에서 실행됩니다. 이 조정 명령은 일반적으로 백그라운드 서비스(예: [Microsoft MPI][msmpi_msdn]의 `smpd.exe`)를 시작하는 데 사용되고 노드가 노드 간 메시지를 처리할 준비가 되었는지 확인할 수도 있습니다.
-4. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 경우 다중 인스턴스 작업의 **명령줄**("응용 프로그램 명령")이 **주 작업**에서*만* 실행됩니다. 예를 들어 [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`을(를) 사용하여 MPI 사용 응용 프로그램을 실행하는 위치입니다.
+3. 공용 리소스 파일을 다운로드한 후 주 및 하위 작업에서 다중 인스턴스 설정에 지정하는 **조정 명령**을 실행합니다. 이 조정 명령은 일반적으로 백그라운드 서비스(예: [Microsoft MPI][msmpi_msdn]의 `smpd.exe`)를 시작하는 데 사용되고 노드가 노드 간 메시지를 처리할 준비가 되었는지 확인할 수도 있습니다.
+4. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 경우 **주 작업**에서*만* 다중 인스턴스 작업의 **명령줄**("응용 프로그램 명령")을 실행합니다. 예를 들어 [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`을(를) 사용하여 MPI 사용 응용 프로그램을 실행하는 위치입니다.
 
 > [AZURE.NOTE] 기능적으로 고유하지만 “다중 인스턴스 작업"은 [StartTask][net_starttask] 또는 [JobPreparationTask][net_jobprep]과 같은 고유 작업 유형이 아닙니다. 다중 인스턴스 작업은 단순히 다중 인스턴스 설정이 구성된 표준 배치 작업(배치 .NET에서 [CloudTask][net_task])입니다. 이 문서에서는 이를 **다중 인스턴스 작업**이라고 합니다.
 
@@ -53,7 +53,7 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-또한 다중 인스턴스 작업은 **2015년 12월 14일 이후에 만든 풀**의 노드에서*만* 실행합니다.
+또한 다중 인스턴스 작업은 **2015년 12월 14일 이후에 만든 풀**의 노드에서*만* 실행할 수 있습니다.
 
 > [AZURE.TIP] 배치 풀에서 [A8 또는 A9 계산 노드](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 크기를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다. [클라우드 서비스에 적합한 크기](./../cloud-services/cloud-services-sizes-specs.md)에서 배치 풀에 사용할 수 있는 계산 노드 크기의 전체 목록을 볼 수 있습니다.
 
@@ -82,7 +82,7 @@ await myCloudPool.CommitAsync();
 
 ## 배치 .NET을 사용하여 다중 인스턴스 작업 만들기
 
-이제 풀 요구 사항 및 MPI 패키지 설치를 다루었으며 다중 인스턴스 작업을 만들어 보겠습니다. 이 코드 조각에서 표준 [CloudTask][net_task]를 만든 다음 해당 [MultiInstanceSettings][net_multiinstance_prop] 속성을 구성합니다. 위에서 설명했듯이 다중 인스턴스 작업은 고유한 작업 유형이 아니지만 다중 인스턴스 설정으로 구성된 표준 배치 작업입니다.
+이제 풀 요구 사항 및 MPI 패키지 설치를 다루었으며 다중 인스턴스 작업을 만들어 보겠습니다. 이 코드 조각에서 표준 [CloudTask][net_task]를 만든 다음 해당 [MultiInstanceSettings][net_multiinstance_prop] 속성을 구성합니다. 이전에 설명했듯이 다중 인스턴스 작업은 고유한 작업 유형이 아니지만 다중 인스턴스 설정으로 구성된 표준 배치 작업입니다.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -109,7 +109,7 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 ## 주 작업 및 하위 작업
 
-작업에 대한 다중 인스턴스 설정을 만드는 경우 작업을 실행하는 계산 노드 수의 수를 지정합니다. 작업에 태스크를 제출하는 경우 배치 서비스는 지정한 노드 수와 일치하는 하나의 **주** 작업과 충분한 **하위 작업**을 만듭니다.
+작업에 대한 다중 인스턴스 설정을 만드는 경우 작업을 실행하는 계산 노드 수를 지정합니다. 작업에 태스크를 제출하는 경우 배치 서비스는 지정한 노드 수와 일치하는 하나의 **주** 작업과 충분한 **하위 작업**을 만듭니다.
 
 이러한 작업은 0에서 *numberOfInstances - 1*의 범위로 정수 ID가 할당됩니다. ID가 0인 작업은 주 작업이며 모든 다른 ID는 하위 작업입니다. 예를 들어 작업에 대한 다음과 같은 다중 인스턴스 설정을 만드는 경우 주 작업은 0의 ID를 가지며 하위 작업은 1~9의 ID를 가집니다.
 
@@ -118,9 +118,9 @@ int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## 조정 및 응용 프로그램 명령
+## 조정 명령
 
-**조정 명령**은 주 및 하위 작업에서 실행됩니다. 주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 이 명령줄을 조정 명령과 구분하도록 **응용 프로그램 명령**이라고 합니다.
+**조정 명령**은 주 및 하위 작업에서 실행됩니다.
 
 조정 명령의 호출을 차단합니다. 배치는 조정 명령이 모든 하위 작업에 대해 성공적으로 반환될 때까지 응용 프로그램 명령을 실행하지 않습니다. 따라서 조정 명령은 모든 필요한 백그라운드 서비스를 시작하고 사용할 준비가 되었는지 확인한 다음 종료해야 합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 이 조정 명령은 노드에서 SMPD 서비스를 시작한 다음 종료합니다.
 
@@ -128,27 +128,55 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-이 조정 명령에서 `start`을(를) 사용합니다. `smpd.exe` 응용 프로그램은 실행 후 즉시 반환하지 않으므로 필요합니다. [시작][cmd_start] 명령을 사용하지 않고 이 조정 명령은 반환하지 않으며 따라서 응용 프로그램 명령의 실행을 차단합니다.
+이 조정 명령에서 `start`를 사용합니다. `smpd.exe` 응용 프로그램은 실행 후 즉시 반환하지 않으므로 필요합니다. [시작][cmd_start] 명령을 사용하지 않고 이 조정 명령에서 반환하지 않으므로 응용 프로그램 명령의 실행이 차단됩니다.
 
-**응용 프로그램 명령**, 다중 인스턴스 작업에 대해 지정된 명령줄은 주 작업에서*만* 실행됩니다. MS-MPI 응용 프로그램의 경우 `mpiexec.exe`을(를) 사용하는 MPI 사용 응용 프로그램의 실행이 됩니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 응용 프로그램 명령은 다음과 같습니다.
+## 응용 프로그램 명령
+
+주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 조정 명령과 구분하도록 **응용 프로그램 명령**이라고 합니다.
+
+MS-MPI 응용 프로그램의 경우 `mpiexec.exe`로 MPI 사용 응용 프로그램을 실행하는 데 응용 프로그램 명령을 사용합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 응용 프로그램 명령은 다음과 같습니다.
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
+>[AZURE.NOTE] 기본적으로 MS-MPI의 `mpiexec.exe`는 `CCP_NODES` 변수를 사용하므로([환경 변수](#environment-variables) 참조) 위의 응용 프로그램 명령줄 예에서는 이를 제외합니다.
+
+## 환경 변수
+
+이러한 환경 변수는 주 작업의 응용 프로그램 명령으로 실행되는 응용 프로그램 및 스크립트에 대한 계산 노드에서 사용할 수 있습니다.
+
+* `CCP_NODES`
+
+  * **가용성**: CloudServiceConfiguration 및 VirtualMachineConfiguration 풀
+  * **형식**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **예**: `2 10.0.0.4 1 10.0.0.5 1`
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **가용성**: CloudServiceConfiguration 및 VirtualMachineConfiguration 풀
+  * **형식**: `nodeIP;nodeIP`
+  * **예**: `10.0.0.4;10.0.0.5`
+
+* `AZ_BATCH_HOST_LIST`
+
+  * **가용성**: VirtualMachineConfiguration 풀
+  * **형식**: `nodeIP,nodeIP`
+  * **예**: `10.0.0.4,10.0.0.5`
+
 ## 리소스 파일
 
 다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일**입니다.
 
-작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure 저장소](./../storage/storage-introduction.md)에서 각 노드의 작업 공유 디렉터리로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다.
+작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](./../storage/storage-introduction.md)에서 각 노드의 작업 공유 디렉터리로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 응용 프로그램 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다.
 
 다중 인스턴스 작업 자체에 대해 지정한 리소스 파일은 주 작업에 의해서*만* 작업의 작업 디렉터리, `AZ_BATCH_TASK_WORKING_DIR`에 다운로드됩니다. 하위 작업은 다중 인스턴스 작업에 대해 지정된 리소스 파일을 다운로드하지 않습니다.
 
-`AZ_BATCH_TASK_SHARED_DIR`의 콘텐츠는 노드에서 실행하는 주 및 모든 하위 작업에서 액세스할 수 있습니다. 예제 작업 공유 디렉터리는 `tasks/mybatchjob/job-1/mymultiinstancetask/`입니다. 주 및 각 하위 작업은 또한 해당 작업에서만 액세스할 수 있고 환경 변수 `AZ_BATCH_TASK_WORKING_DIR`을(를) 사용하여 액세스하는 작업 디렉터리를 가집니다.
+`AZ_BATCH_TASK_SHARED_DIR`의 콘텐츠는 노드에서 실행하는 주 및 모든 하위 작업에서 액세스할 수 있습니다. 예제 작업 공유 디렉터리는 `tasks/mybatchjob/job-1/mymultiinstancetask/`입니다. 주 및 각 하위 작업은 또한 해당 작업에서만 액세스할 수 있고 환경 변수 `AZ_BATCH_TASK_WORKING_DIR`을 사용하여 액세스하는 작업 디렉터리를 가집니다.
 
 이 문서의 코드 샘플에서는 다중 인스턴스 작업 자체에 대한, 풀의 StartTask에 대해서만, 다중 인스턴스 설정의 [CommonResourceFiles][net_multiinsance_commonresfiles]에 대한 리소스 파일을 지정하지 않습니다.
 
-> [AZURE.IMPORTANT] 명령줄에서 이러한 디렉터리를 나타내는 환경 변수 `AZ_BATCH_TASK_SHARED_DIR` 및 `AZ_BATCH_TASK_WORKING_DIR`을(를) 항상 사용합니다. 경로를 수동으로 구성하지 마세요.
+> [AZURE.IMPORTANT] 명령줄에서 이러한 디렉터리를 나타내는 환경 변수 `AZ_BATCH_TASK_SHARED_DIR` 및 `AZ_BATCH_TASK_WORKING_DIR`을 항상 사용합니다. 경로를 수동으로 구성하지 마세요.
 
 ## 작업 수명
 
@@ -247,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "다중 인스턴스 개요"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

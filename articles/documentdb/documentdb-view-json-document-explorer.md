@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드
@@ -25,29 +25,25 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 ## 문서 탐색기 시작
 
-1. Azure 포털의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다. **DocumentDB 계정**이 표시되지 않는 경우 **찾아보기**를 클릭한 다음 **DocumentDB 계정**을 클릭합니다.
+1. Azure 포털의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다. **DocumentDB(NoSQL)**가 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
 
-2. **DocumentDB 계정** 블레이드의 맨 위에 있는 **문서 탐색기**를 클릭합니다.
+2. 리소스 메뉴에서 **문서 탐색기**를 클릭합니다.
  
 	![문서 탐색기 명령 스크린샷](./media/documentdb-view-json-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] 쿼리 탐색기는 데이터베이스 및 컬렉션 블레이드에도 표시됩니다.
-
-    **문서 탐색기** 블레이드에서 **데이터베이스** 및 **컬렉션** 드롭다운 목록은 실행하는 문서 탐색기의 컨텍스트에 따라 미리 채워져 있습니다.
-
-	![문서 탐색기 블레이드 스크린샷](./media/documentdb-view-json-document-explorer/documentexplorerinitial.png)
+    **문서 탐색기** 블레이드에서 **데이터베이스** 및 **컬렉션** 드롭다운 목록은 문서 탐색기를 시작한 컨텍스트에 따라 미리 채워집니다.
 
 ## 문서 만들기
 
-1. [문서 탐색기 시작](#launch-document-explorer).
+1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 
 2. **문서 탐색기** 블레이드에서 **문서 만들기**를 클릭합니다.
 
-    최소 JSON 코드 조각은 **문서** 블레이드에서 제공됩니다.
+    **문서** 블레이드에서는 최소 JSON 코드 조각이 제공됩니다.
 
 	![JSON을 보고 편집할 수 있는 문서 탐색기 문서 만들기 환경 스크린샷](./media/documentdb-view-json-document-explorer/createdocument.png)
 
-2. **문서** 블레이드에 만들려는 JSON 문서의 콘텐츠를 입력하거나 붙여 넣은 다음, **저장**을 클릭하여 문서를 **문서 탐색기** 블레이드에서 지정된 데이터베이스 및 컬렉션에 커밋합니다.
+2. **문서** 블레이드에 만들려는 JSON 문서의 콘텐츠를 입력하거나 붙여넣은 다음 **저장**을 클릭하여 **문서 탐색기** 블레이드에 지정된 데이터베이스 및 컬렉션에 문서를 커밋합니다.
 
 	![문서 탐색기 저장 명령 스크린샷](./media/documentdb-view-json-document-explorer/savedocument1.png)
 
@@ -57,21 +53,21 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 ## 문서 편집
 
-1. [문서 탐색기 시작](#launch-document-explorer).
+1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 
-2. 기존 문서를 편집하려면 **문서 탐색기** 블레이드에에서 문서를 선택하고 **문서** 블레이드에서 편집한 다음 **저장**을 클릭합니다.
+2. 기존 문서를 편집하려면 **문서 탐색기** 블레이드에서 문서를 선택하고 **문서** 블레이드에서 편집한 다음 **저장**을 클릭합니다.
 
     ![JSON을 보는 데 사용되는 문서 탐색기 문서 편집 기능 스크린샷](./media/documentdb-view-json-document-explorer/editdocument.png)
 
-    문서를 편집하고 있는 경우 현재 편집 내용을 취소하려면 **문서** 블레이드에서 **취소**를 클릭하여 취소 작업을 확인합니다. 그러면 이전 상태의 문서가 다시 로드됩니다.
+    문서를 편집하고 있는 경우 현재 편집 내용 집합을 취소하려면 **문서** 블레이드에서 **취소**를 클릭하고 취소 작업을 확인합니다. 그러면 이전 상태의 문서가 다시 로드됩니다.
 
     ![문서 탐색기 무시 명령 스크린샷](./media/documentdb-view-json-document-explorer/discardedit.png)
 
 ## 문서 삭제
 
-1. [문서 탐색기 시작](#launch-document-explorer).
+1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 
-2. **문서 탐색기**에서 문서를 선택하고 **삭제**를 클릭한 다음, 삭제를 확인합니다. 확인하면 문서가 문서 탐색기 목록에서 바로 제거됩니다.
+2. **문서 탐색기**에서 문서를 선택하고 **삭제**를 클릭한 다음 삭제를 확인합니다. 확인하면 문서가 문서 탐색기 목록에서 바로 제거됩니다.
 
 	![문서 탐색기 삭제 명령 스크린샷](./media/documentdb-view-json-document-explorer/deletedocument.png)
 
@@ -96,7 +92,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 기본적으로 문서 탐색기는 선택한 컬렉션의 문서를 처음부터 최대 100개까지 만든 날짜 순으로 로드합니다. 문서 탐색기 블레이드 아래쪽에 있는 **추가 로드** 옵션을 선택하여 추가 문서(100개 일괄 처리)를 로드할 수 있습니다. **필터** 명령을 통해 로드할 문서를 선택할 수 있습니다.
 
-1. [문서 탐색기 시작](#launch-document-explorer).
+1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 
 2. **문서 탐색기** 블레이드의 맨 위에 있는 **필터**를 클릭합니다.
 
@@ -106,7 +102,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings2.png)
 
-	문서 탐색기는 필터 쿼리와 일치하는 문서 결과를 자동으로 새로 고칩니다. [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서의 DocumentDB SQL 문법에 대해 자세히 읽어보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)의 복사본을 인쇄합니다.
+	문서 탐색기는 필터 쿼리와 일치하는 문서 결과를 자동으로 새로 고칩니다. [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서에서 DocumentDB SQL 문법에 대해 자세히 알아보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)의 복사본을 인쇄합니다.
 
     **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 문서 탐색기를 닫았다가 다시 실행할 필요 없이 현재 문서를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
 
@@ -128,7 +124,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 문서 탐색기는 하나 이상의 기존 JSON 문서(업로드 작업당 최대 100개의 JSON 파일)의 대량 수집을 지원합니다.
 
-1. [문서 탐색기 시작](#launch-document-explorer).
+1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 
 2. 업로드 프로세스를 시작하려면 **문서 업로드**를 클릭합니다.
 
@@ -136,7 +132,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
     **문서 업로드** 블레이드가 열립니다.
 
-2. 찾아보기 단추를 클릭하여 파일 탐색기 창을 열고 업로드할 JSON 문서를 하나 이상 선택한 다음, **열기**를 클릭합니다.
+2. 찾아보기 단추를 클릭하여 파일 탐색기 창을 열고 업로드할 JSON 문서를 하나 이상 선택한 다음 **열기**를 클릭합니다.
 
 	![문서 탐색기 대량 수집 프로세스 스크린샷](./media/documentdb-view-json-document-explorer/uploaddocument2.png)
 
@@ -150,14 +146,22 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
 
 ## 포털 외부 JSON 문서 작업
 
-Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 가지입니다. 또한 [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업할 수도 있습니다. 예를 들어, 코드의 경우 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.
+Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업을 할 수도 있습니다. 예제 코드는 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.
 
-다른 원본(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소, Amazon DynamoDB 또는 HBase)에서 파일을 가져오거나 마이그레이션해야 하는 경우, DocumentDB [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 DocumentDB로 가져올 수 있습니다.
+다른 소스(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소, Amazon DynamoDB 또는 HBase)에서 파일을 가져오거나 마이그레이션해야 하는 경우 DocumentDB [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 DocumentDB로 가져올 수 있습니다.
+
+## 문제 해결
+
+**증상**: 문서 탐색기에서 **문서를 찾을 수 없습니다.**라는 메시지가 반환됩니다.
+
+**솔루션**: 문서가 삽입된 올바른 구독, 데이터베이스 및 컬렉션을 선택했는지 확인합니다. 또한 처리량 할당량 내에서 작업을 하고 있는지도 확인합니다. 최대 처리량 수준에서 작업 중이어서 제한이 적용되는 경우에는 컬렉션의 최대 처리량 할당량보다 낮은 수준에서 작업할 수 있도록 응용 프로그램 사용량을 줄입니다.
+
+**설명**: 포털도 응용 프로그램이므로 다른 응용 프로그램과 마찬가지로 DocumentDB 데이터베이스와 컬렉션을 호출합니다. 다른 응용 프로그램에서 수행하는 호출로 인해 현재 요청이 제한되고 있다면 포털도 제한될 수 있으므로 리소스가 포털에 표시되지 않습니다. 이 문제를 해결하려면 처리량이 많이 사용되는 원인을 해결한 후에 포털 블레이드를 새로 고칩니다. 처리량 사용을 측정하고 줄이는 방법에 대한 자세한 내용은 [성능 팁](documentdb-performance-tips.md) 문서의 [처리량](documentdb-performance-tips.md#throughput) 섹션에 나와 있습니다.
 
 ## 다음 단계
 
-문서 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 자세히 읽어보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
+문서 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
 
-[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
+[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 파악할 수 있는 유용한 리소스입니다.
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

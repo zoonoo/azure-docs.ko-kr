@@ -1,6 +1,6 @@
  <properties
-	pageTitle="IntelliJ IDEA용 HDInsight 플러그 인을 사용하여 HDInsight Spark 클러스터에서 실행 중인 응용 프로그램을 원격으로 디버깅 | Microsoft Azure"
-	description="IntelliJ IDEA용 HDInsight 플러그 인을 사용하여 HDInsight Spark 클러스터에서 실행 중인 응용 프로그램을 원격으로 디버그하는 방법을 알아봅니다."
+	pageTitle="IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에서 실행 중인 응용 프로그램을 원격으로 디버그 | Microsoft Azure"
+	description="IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에서 실행 중인 응용 프로그램을 원격으로 디버그하는 방법을 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# HDInsight Spark Linux 클러스터에서 IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그
+# HDInsight Spark Linux 클러스터에서 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램을 원격으로 디버그
 
-이 문서에서는 IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark 클러스터에서 Spark 작업을 제출한 다음 데스크톱 컴퓨터에서 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 이렇게 하려면 다음과 같은 개략적인 단계를 수행해야 합니다.
+이 문서에서는 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에서 Spark 작업을 제출한 다음 데스크톱 컴퓨터에서 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 이렇게 하려면 다음과 같은 개략적인 단계를 수행해야 합니다.
 
 1. 사이트 간 또는 지점 및 사이트 간 Azure 가상 네트워크를 만듭니다. 이 문서의 단계에서는 사이트 간 네트워크를 사용하는 것으로 가정합니다.
 
@@ -42,7 +42,7 @@
  
 * IntelliJ IDEA. 이 문서에서는 버전 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
  
-* IntelliJ IDEA용 HDInsight 도구 플러그 인. IntelliJ IDEA 용 HDInsight 도구 플러그 인은 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](../azure-toolkit-for-intellij-installation.md)를 참조하세요.
+* IntelliJ용 Azure 도구 키트의 HDInsight 도구. IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](../azure-toolkit-for-intellij-installation.md)를 참조하세요.
  
 * Windows 컴퓨터에서 원격 디버깅을 위해 Spark Scala 응용 프로그램을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명된 예외가 발생할 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없는 경우 발생합니다. 이 오류를 해결하려면 [여기에서 실행 파일을 다운로드](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\\WinUtils\\bin** 등의 위치에 저장해야 합니다. 그런 다음 환경 변수 **HADOOP\_HOME**을 추가하고 변수 값을 **C\\WinUtils**로 설정합니다.
 
@@ -97,7 +97,7 @@
 
 7. 다른 헤드 노드에서도 해당 단계를 반복합니다.
 
-## 4단계: HDInsight IntelliJ IDEA 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 원격 디버깅을 위해 구성
+## 4단계: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 및 원격 디버깅이 가능하도록 구성
 
 1. IntelliJ IDEA를 시작하고 새 프로젝트를 만듭니다. 새 프로젝트 대화 상자에서 다음과 같이 선택하고 **다음**을 클릭합니다.
 
@@ -105,7 +105,7 @@
 
 	* 왼쪽 창에서 **HDInsight**를 선택합니다.
 	* 오른쪽 창에서 **Spark on HDInsight (Scala)(HDInsight의 Spark(Scala))**를 선택합니다.
-	* **다음**을 클릭합니다.
+	* **Next**를 클릭합니다.
 
 2. 다음 창에서 프로젝트 세부 정보를 제공합니다.
 
@@ -328,9 +328,9 @@
 
 ### 도구 및 확장
 
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Eclipse용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -346,4 +346,4 @@
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

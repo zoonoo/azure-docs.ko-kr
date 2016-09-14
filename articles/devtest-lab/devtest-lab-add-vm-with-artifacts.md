@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # 아티팩트를 사용하여 랩에 VM 추가
@@ -64,7 +64,7 @@ DevTest Lab *아티팩트*를 통해 VM을 만들 때 수행하는 *작업*을 �
 
 1. **아티팩트**를 누르고 아티팩트 목록에서 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다. **참고:** DevTest Lab을 처음 접하거나 아티팩트를 구성 중인 경우 [VM에 기존 아티팩트 추가](#add-an-existing-artifact-to-a-vm) 섹션으로 건너뛴 다음 완료되면 여기로 돌아옵니다.
 
-1. ARM 템플릿을 보거나 복사하려면 [ARM 템플릿 저장](#save-arm-template) 섹션으로 건너뛰어 원하는 작업을 마친 후에 여기로 다시 돌아옵니다.
+1. Azure Resource Manager 템플릿을 보거나 복사하려면 [Azure Resource Manager 템플릿 저장](#save-arm-template) 섹션으로 건너뛰어 원하는 작업을 마친 후에 여기로 다시 돌아옵니다.
 
 1. **만들기**를 누르고 지정된 VM을 랩에 추가합니다.
 
@@ -116,9 +116,9 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 
 1. **확인**을 선택하여 **선택한 아티팩트** 블레이드를 닫습니다.
 
-## ARM 템플릿 저장
+## Azure Resource Manager 템플릿 저장
 
-ARM 템플릿은 반복 가능한 배포를 정의하는 선언적 방법을 제공합니다. 다음 단계는 생성 중인 VM에 대한 ARM 템플릿을 저장하는 방법을 설명합니다. 일단 저장하면 ARM 템플릿을 사용하여 [Azure PowerShell로 새 VM을 배포](../resource-group-overview.md#template-deployment)할 수 있습니다.
+Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선언적으로 정의할 수 있습니다. 다음 단계는 생성 중인 VM에 대한 Azure Resource Manager 템플릿을 저장하는 방법을 설명합니다. 저장한 Azure Resource Manager 템플릿은 [Azure PowerShell로 새 VM을 배포](../resource-group-overview.md#template-deployment)하는 데 사용할 수 있습니다.
 
 1. **랩 VM** 블레이드에서 **ARM 템플릿 보기**를 선택합니다.
 
@@ -134,10 +134,12 @@ ARM 템플릿은 반복 가능한 배포를 정의하는 선언적 방법을 제
 
 1. 나중에 사용할 수 있도록 파일을 저장합니다.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## 다음 단계
 
-- VM이 생성되면 해당 VM의 블레이드에서 **연결**을 선택하여 VM에 연결할 수 있습니다.
-- [DevTest Lab VM에 대한 사용자 지정 아티팩트를 만드는](devtest-lab-artifact-author.md) 방법을 알아봅니다.
-- [DevTest Lab ARM 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 탐색합니다.
+- VM을 만든 후에는 해당 VM의 블레이드에서 **연결**을 선택하여 VM에 연결할 수 있습니다.
+- [DevTest Labs VM용 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법을 알아봅니다.
+- [DevTest Labs ARM 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 살펴봅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

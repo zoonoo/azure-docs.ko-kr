@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Monthly estimated cost trend(월간 예상 비용 추세)
@@ -28,7 +28,7 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. 선택 **찾아보기**, 를 선택한 다음 **DevTest 실습** 목록에서 합니다.
+1. **찾아보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
@@ -54,11 +54,13 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 
 차트에 언급되어 있듯이, 차트에 보이는 비용은 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 제안 요율을 사용하여 *예상된* 비용입니다. 또한 다음 항목은 비용 계산에 포함되지 *않습니다*.
 
-- DevTest 랩에서는 [Azure 청구 API](../billing-usage-rate-card-overview.md)를 사용하여 랩 비용을 계산하며 Azure 청구 API는 CSP 또는 Dreamspark 구독을 지원하지 않으므로 CSP 및 Dreamspark 구독은 현재 지원되지 않습니다.
-- 사용자에 대한 제안 요율. 현재는 Microsoft 또는 Microsoft 파트너와 협의된 사용자에 대한 제안 요율(구독 아래 표시되는)을 사용할 수 없습니다. 종량제 요율을 사용합니다.
+- DevTest Labs에서는 [Azure 청구 API](../billing-usage-rate-card-overview.md)를 사용하여 랩 비용을 계산하며 Azure 청구 API는 CSP 또는 Dreamspark 구독을 지원하지 않으므로 CSP 및 Dreamspark 구독은 현재 지원되지 않습니다.
+- 사용자에 대한 제안 요율. 현재는 Microsoft 또는 Microsoft 파트너와 협상한 제안 요율(구독 아래에 표시됨)을 사용할 수 없습니다. 종량제 요율을 사용합니다.
 - 사용자 세금
 - 사용자 할인
 - 사용자의 청구 통화. 현재는, 랩 비용이 USD 통화로만 표시됩니다.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## 관련 블로그 게시물
 
@@ -71,7 +73,7 @@ Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트를 보려면 �
 
 - [랩 정책 정의](./devtest-lab-set-lab-policy.md) – 랩 및 해당 VM이 사용되는 방식을 관리하는 데 사용되는 다양한 정책을 설정하는 방법을 알아봅니다.
 - [사용자 지정 이미지 만들기](./devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기준을 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
-- [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Lab에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
-- [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지에서 새 VM을 만드는 방법(사용자 지정 또는 마켓플레이스) 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
+- [마켓플레이스 이미지 구성](./devtest-lab-configure-marketplace-images.md) - DevTest Labs에서는 Azure 마켓플레이스 이미지를 기준으로 새 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
+- [랩에서 VM 만들기](./devtest-lab-add-vm-with-artifacts.md) - 기본 이미지(사용자 지정 또는 마켓플레이스 이미지)에서 새 VM을 만드는 방법 및 VM의 아티팩트 작업 방법에 대해 설명합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

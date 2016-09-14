@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="08/29/2016"
 	ms.author="ccompy"/>
 
 # PowerShell을 사용하여 가상 네트워크에 앱 연결 #
 
 ## 개요 ##
 
-Azure 앱 서비스에서 구독의 Azure 가상 네트워크(VNet)에 앱(웹, 모바일 또는 API)을 연결할 수 있습니다. 이 기능은 VNet 통합이라고 합니다. VNet 통합 기능을 가상 네트워크에서 Azure 앱 서비스의 인스턴스를 실행할 수 있게 하는 앱 서비스 환경 기능과 혼동해서는 안됩니다.
+Azure App Service에서 구독의 Azure 가상 네트워크(VNet)에 앱(웹, 모바일 또는 API)을 연결할 수 있습니다. 이 기능은 VNet 통합이라고 합니다. VNet 통합 기능을 가상 네트워크에서 Azure 앱 서비스의 인스턴스를 실행할 수 있게 하는 앱 서비스 환경 기능과 혼동해서는 안됩니다.
 
 VNet 통합 기능에는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 사용하여 배포된 가상 네트워크와 통합하는 데 사용할 수 있는 새 포털의 사용자 인터페이스(UI)가 있습니다. 기능에 대해 자세히 알아보려면 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md)을 참조하세요.
 
@@ -49,7 +49,7 @@ VNet 통합 기능에는 클래식 배포 모델 또는 Azure Resource Manager �
 
 1단계 및 3단계는 완전히 스크립트 가능하지만 2단계는 포털을 통한 일회성 수동 작업 또는 가상 네트워크 Azure Resource Manager 끝점에서 **PUT** 또는 **PATCH** 작업 수행에 대한 액세스가 필요합니다. 이 옵션을 사용하려면 Azure 지원 팀에 문의하세요. 시작하기 전에 게이트웨이가 설정되고 배포된 지점 및 사이트 간 연결이 이미 활성화된 클래식 가상 네트워크가 있는지 확인합니다. 게이트웨이를 만들고 지점 및 사이트 간을 활성화하려면 [VPN 게이트웨이 만들기][createvpngateway]에 설명된 대로 포털을 사용해야 합니다.
 
-클래식 가상 네트워크는 통합하려는 앱을 보유하는 앱 서비스 계획과 동일한 구독에 있어야 합니다.
+클래식 가상 네트워크는 통합하려는 앱을 보유하는 App Service 계획과 동일한 구독에 있어야 합니다.
 
 ##### Azure PowerShell SDK 설정 #####
 
@@ -57,7 +57,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 
 	Login-AzureRmAccount
 
-해당 명령으로 Azure 자격 증명을 가져올 것인지 묻는 메시지가 열립니다. 로그인한 후 다음 명령을 사용하여 사용할 구독을 선택합니다. 가상 네트워크 및 앱 서비스 계획에 있는 구독을 사용하고 있는지 확인합니다.
+해당 명령으로 Azure 자격 증명을 가져올 것인지 묻는 메시지가 열립니다. 로그인한 후 다음 명령을 사용하여 사용할 구독을 선택합니다. 가상 네트워크 및 App Service 계획이 있는 구독을 사용하고 있는지 확인합니다.
 
 	Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
 
@@ -112,7 +112,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 
 ##### 가상 네트워크에 웹앱 인증서 업로드 #####
 
-각 구독 및 가상 네트워크 조합에 일회성 수동 단계가 필요합니다. 즉, 가상 네트워크 A에 구독 A의 앱을 연결하는 경우 구성하는 앱의 수에 관계 없이 이 단계를 한 번 수행해야 합니다. 다른 가상 네트워크에 새 앱을 추가하는 경우 이 작업을 다시 수행해야 합니다. 이에 대한 원인은 인증서 집합이 Azure 앱 서비스의 구독 수준에서 생성되고 이 집합이 앱이 연결하는 각 가상 네트워크에 대해 한 번 생성되기 때문입니다.
+각 구독 및 가상 네트워크 조합에 일회성 수동 단계가 필요합니다. 즉, Virtual Network A에 구독 A의 앱을 연결하는 경우 구성하는 앱의 수에 관계 없이 이 단계를 한 번 수행해야 합니다. 다른 가상 네트워크에 새 앱을 추가하는 경우 이 작업을 다시 수행해야 합니다. 이에 대한 원인은 인증서 집합이 Azure App Service의 구독 수준에서 생성되고 앱이 연결하는 각 가상 네트워크에 대해 이 집합이 한 번 생성되기 때문입니다.
 
 이 단계를 따랐거나 포털을 사용하여 동일한 가상 네트워크로 통합한 경우 인증서는 이미 설정되었습니다.
 
@@ -500,7 +500,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 
 		    Write-Host "Creating App association to VNET"
 		    $propertiesObject = @{
-		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
+		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
 		    }
 
 		    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
@@ -609,7 +609,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 	    RemoveVnet $subscriptionId $resourceGroup $appName
     }
 
-스크립트의 복사본을 저장합니다. 이 문서에서는 V2VnetAllinOne.ps1라고 하지만 다른 이름을 사용할 수 있습니다. 이 스크립트에 대한 인수가 없습니다. 단순히 실행할 수 있습니다. 스크립트가 가장 먼저 수행하는 작업은 로그인하라는 메시지를 표시하는 것입니다. 로그인한 후 스크립트는 계정에 대한 세부 정보를 가져오고 구독 목록을 반환합니다. 자격 증명에 대한 요청은 제외되며 초기 스크립트 실행은 다음과 같습니다.
+스크립트의 복사본을 저장합니다. 이 문서에서는 V2VnetAllinOne.ps1라고 하지만 다른 이름을 사용할 수 있습니다. 이 스크립트에 대한 인수가 없습니다. 단순히 실행할 수 있습니다. 스크립트가 가장 먼저 수행하는 작업은 로그인하라는 메시지를 표시하는 것입니다. 로그인한 후에 스크립트는 계정에 대한 세부 정보를 가져오고 구독 목록을 반환합니다. 자격 증명에 대한 요청은 제외되며 초기 스크립트 실행은 다음과 같습니다.
 
 	PS C:\Users\ccompy\Documents\VNET> .\V2VnetAllInOne.ps1
 	Please Login
@@ -670,7 +670,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 
 기존 가상 네트워크와 통합하는 경우 게이트웨이 또는 지점 및 사이트 간 연결이 없는 리소스 관리자 가상 네트워크를 제공하면 스크립트가 이를 설정합니다. VNET에 이미 해당 항목이 설정된 경우 스크립트는 앱 통합으로 바로 이동합니다. 이 프로세스를 시작하려면 단순히 **2) 앱에 기존 가상 네트워크 추가**를 선택합니다.
 
-이 옵션은 앱과 동일한 구독에 있는 기존 리소스 관리자 가상 네트워크가 있는 경우에만 작동합니다. 옵션을 선택하면 리소스 관리자 가상 네트워크의 목록이 나타납니다.
+이 옵션은 앱과 동일한 구독에 있는 기존 Resource Manager 가상 네트워크가 있는 경우에만 작동합니다. 옵션을 선택하면 리소스 관리자 가상 네트워크의 목록이 나타납니다.
 
 	Select a VNET to integrate with
 
@@ -725,4 +725,4 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="DocumentDB의 성능 수준 | Microsoft Azure" 
-	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법을 알아봅니다." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="DocumentDB의 성능 수준 | Microsoft Azure"
+	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법을 알아봅니다."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # DocumentDB의 성능 수준
@@ -109,16 +109,16 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
       ![S1 컬렉션과 데이터베이스 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-4. **컬렉션** 블레이드의 위쪽 막대에서 **설정**를 클릭합니다.
-5. **설정** 블레이드에서 **가격 책정 계층**을 클릭하면 각 계획에 대한 월별 비용 예상액이 **가격 책정 계층 선택** 블레이드에 표시되어 있습니다. 사용자 정의 처리량을 변경하려면 **표준** 및 **선택**을 차례로 클릭하여 변경 내용을 저장합니다.
+4. **컬렉션** 블레이드에서 **자세히**를 클릭한 다음 위쪽 막대에서 **설정**을 클릭합니다.
+5. **설정** 블레이드에서 **가격 책정 계층**을 클릭하면 각 플랜에 대한 월별 비용 예상액이 **가격 책정 계층 선택** 블레이드에 표시됩니다. 사용자 정의 처리량을 변경하려면 **표준** 및 **선택**을 차례로 클릭하여 변경 내용을 저장합니다.
 
       ![DocumentDB 설정의 스크린샷 및 가격 책정 계층 블레이드 선택](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-6. **설정** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자가 기본값 400으로 표시됩니다. 처리량을 400에서 10,000[요청 단위](documentdb-request-units.md)/초(RU/s) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **가격 책정 요약**이 자동으로 업데이트됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
-    
+6. **설정** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자에 기본값인 400이 표시됩니다. 처리량을 400~10,000개 RU/s([요청 단위](documentdb-request-units.md)/초) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **가격 책정 요약**이 자동으로 업데이트됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+
 	![처리량 값을 변경하는 위치를 보여 주는 설정 블레이드의 스크린 샷](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-7. **데이터베이스** 블레이드로 다시 돌아가면 새로운 컬렉션의 처리량을 확인할 수 있습니다.
+7. **데이터베이스** 블레이드로 다시 돌아가면 컬렉션의 새로운 처리량을 확인할 수 있습니다.
 
 	![수정된 컬렉션과 데이터베이스 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
@@ -137,17 +137,17 @@ offer 처리량을 초당 50,000개 요청 단위로 변경하는 코드 조각�
 		              .Where(r => r.ResourceLink == collection.SelfLink)    
 		              .AsEnumerable()
 		              .SingleOrDefault();
-	                          
+
 	// Set the throughput to 5000 request units per second
 	offer = new OfferV2(offer, 5000);
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
 	// Set the throughput to S2
 	offer = new Offer(offer);
 	offer.OfferType = "S2";
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
@@ -170,16 +170,16 @@ offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN]
 2. **찾아보기** -> **DocumentDB 계정**을 클릭한 다음 수정할 DocumentDB 계정을 선택합니다.
 3. **DocumentDB 계정** 블레이드의 **데이터베이스** 렌즈에서 수정할 데이터베이스를 선택한 다음 **데이터베이스** 블레이드에서 수정할 컬렉션을 선택합니다.
 4. **컬렉션** 블레이드의 위쪽 막대에서 **설정**를 클릭합니다.
-5. **설정** 블레이드에서 **처리량(RU/s)** 상자의 값을 늘린 다음 **확인**을 클릭하여 변경 내용을 저장합니다. 블레이드 아래의 **가격 책정 요약**이 단일 영역에 있는 해당 컬렉션의 새로운 월별 예상 비용을 나타내도록 업데이트됩니다.
+5. **설정** 블레이드에서 **처리량(RU/s)** 상자의 값을 늘린 다음 **확인**을 클릭하여 변경 내용을 저장합니다. 블레이드 아래쪽의 **가격 책정 요약**이 단일 지역에서 해당 컬렉션의 새로운 월별 예상 비용을 나타내도록 업데이트됩니다.
 
-    ![처리량 상자 및 가격 책정 요약이 강조 표시된 설정 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-throughput.png)
- 
+    ![처리량 상자 및 가격 책정 요약이 강조 표시된 설정 블레이드의 스크린샷](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
 처리량을 얼마나 높일지 잘 모를 경우 [필요한 처리량 예측](documentdb-request-units.md#estimating-throughput-needs) 및 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
 
 ## 다음 단계
 
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
- 
+
 - [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
 - [DocumentDB 용량 관리](documentdb-manage.md)
 - [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
@@ -193,4 +193,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

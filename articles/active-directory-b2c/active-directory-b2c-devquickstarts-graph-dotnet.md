@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C: Graph API 사용
@@ -35,7 +35,7 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 �
 
 B2C 테넌트가 있으므로 Azure AD PowerShell Cmdlet을 사용하여 서비스 응용 프로그램을 만들어야 합니다. 우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
 
-> [AZURE.NOTE]
+> [AZURE.IMPORTANT]
 B2C 테넌트에서 Graph API를 사용하려면 PowerShell을 사용하여 전용 응용 프로그램을 등록해야 합니다. 이렇게 하려면 이 문서의 지침을 따릅니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
 
 PowerShell 모듈을 설치한 후에 PowerShell을 열고 B2C 테넌트에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호를 묻는 메시지가 표시되면 B2C 테넌트 관리자 계정의 사용자 이름 및 암호를 입력합니다.
@@ -362,4 +362,4 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 사용자 �
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

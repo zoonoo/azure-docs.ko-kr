@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -96,13 +96,13 @@ HDInsight는 다음과 같은 이점을 제공하는 기본 저장소로 Azure B
 
 HDInsight에 대한 기본 저장소가 된 이후 일반적으로 사용하기 위해 아무런 동작도 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Blob 저장소에 저장된 **/example/data** 폴더의 파일을 나열합니다.
 
-	hadoop fs -ls /example/data
+	hdfs dfs -ls /example/data
 
 일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **wasb://** 또는 **wasbs://**를 명령 앞에 붙일 수 있습니다.
 
 HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
 
-	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Blob 저장소는 어떤 클러스터를 사용하나요?
 
@@ -130,7 +130,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
     
 2. 저장소 계정에 대한 키를 가져옵니다. __GROUPNAME__을 이전 단계의 리소스 그룹으로 대체합니다. __ACCOUNTNAME__을 저장소 계정 이름으로 대체합니다.
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.[0].value'
 
     계정에 대한 기본 키를 반환합니다.
 
@@ -227,7 +227,6 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
 사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -257,4 +256,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

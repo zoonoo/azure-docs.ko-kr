@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="08/30/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -42,7 +42,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
+[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계에 따라 __login__ 메서드를 사용하여 구독에 연결합니다.
 
 ##클러스터 만들기
 
@@ -52,7 +52,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
         azure login
 
-    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 Azure CLI 명령을 사용하는 구독을 설정할 수 있습니다.
+    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 Azure CLI 명령이 사용할 구독을 설정할 수 있습니다.
 
 3. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
@@ -62,8 +62,8 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
         azure group create groupname location
         
-    * __groupname__을 그룹의 고유한 이름으로 바꿉니다. 
-    * __location__을 그룹을 만들 지리적 지역으로 바꿉니다. 
+    * __groupname__을 그룹의 고유한 이름으로 바꿉니다.
+    * __location__을 그룹을 만들 지리적 지역으로 바꿉니다.
     
         유효한 위치 목록에 대해서는 `azure locations list` 명령을 사용하고 __이름__ 열의 위치 중 하나를 사용합니다.
 
@@ -72,7 +72,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * __groupname__을 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
-     * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다. 
+     * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다.
      * __storagename__을 저장소 계정의 고유한 이름으로 바꿉니다.
      
      > [AZURE.NOTE] 이 명령에서 사용된 매개 변수에 대한 자세한 내용을 보려면 `azure storage account create -h`를 사용하여 이 명령에 대한 도움말을 표시합니다.
@@ -93,7 +93,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
     * __groupname__을 리소스 그룹 이름으로 바꿉니다.
     * __location__을 이전 단계에서 사용된 동일한 위치로 바꿉니다.
     * __storagename__을 저장소 계정 이름으로 바꿉니다.
-    * __storagekey__를 이전 단계에서 얻은 키로 바꿉니다. 
+    * __storagekey__를 이전 단계에서 얻은 키로 바꿉니다.
     * `--defaultStorageContainer` 매개 변수의 경우 클러스터에 사용하는 것과 같은 이름을 사용합니다.
     * __admin__ 및 __httppassword__를 HTTPS를 통해 클러스터에 액세스할 때 사용할 이름 및 암호로 바꿉니다.
     * __sshuser__ 및 __sshuserpassword__를 SSH를 사용하여 클러스터에 액세스할 때 사용할 사용자 이름 및 암호로 바꿉니다.
@@ -121,4 +121,4 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

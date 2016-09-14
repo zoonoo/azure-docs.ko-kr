@@ -3,7 +3,7 @@
 	description="API 관리를 구성하기 위해 사용할 수 있는 정책에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>
 
 # Azure API 관리 정책 참조
 
@@ -36,12 +36,14 @@
 	-	[흐름 제어][] - 부울 [식][]의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
 	-	[요청 전달][] - 백 엔드 서비스에 요청을 전달합니다.
 	-	[이벤트 허브에 기록][] - [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
+	-	[다시 시도](https://msdn.microsoft.com/ko-KR/library/dn894085.aspx#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 다시 시도 횟수까지 반복됩니다.
 	-	[응답 반환](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.
 	-	[단방향 요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.
 	-	[요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 지정된 URL로 요청을 보냅니다.
 	-	[요청 메서드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
 	-	[상태 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
 	-	[변수 설정][] - 나중에 액세스할 수 있도록 명명된 [context][] 변수의 값을 유지합니다.
+	-	[추적](https://msdn.microsoft.com/ko-KR/library/dn894085.aspx#Trace) - [API 검사기](../api-management/api-management-howto-api-inspector.md) 출력에 문자열을 추가합니다.
 	-	[대기](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - 계속하기 전에 완료할 포함된 요청 전송, 캐시에서 값 가져오기 또는 흐름 제어 정책 등을 기다립니다.
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
@@ -51,6 +53,7 @@
 	-	[캐시에 저장][] - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.
 	-	[캐시에서 값 가져오기](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - 키로 캐시된 항목을 검색합니다.
 	-	[값을 캐시에 저장](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - 키로 캐시에 항목을 저장합니다.
+	-	[캐시에서 값을 제거](https://msdn.microsoft.com/ko-KR/library/dn894086.aspx#RemoveCacheByKey) - 키로 캐시에서 항목을 제거합니다.
 -	[도메인 간 정책][]
 	-	[도메인 간 호출 허용][] - API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 합니다.
 	-	[CORS][] - CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
@@ -120,4 +123,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

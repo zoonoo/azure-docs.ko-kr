@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
@@ -57,7 +57,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출하기 위해 0# 키를 누르도록 지시합니다. 0이 아닌 코드를 사용하는 경우 적절한 지침과 함께 고유의 사용자 지정 음성 인사말을 기록하고 업로드해야 합니다.
 
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/fraud.png)</center>
+![클라우드](./media/multi-factor-authentication-whats-next/fraud.png)
 
 ### 사기 행위 경고 보고
 두 가지 방법으로 사기 행위 경고를 보고할 수 있습니다. 모바일 앱 또는 전화를 통해 보고합니다.
@@ -71,7 +71,10 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 3. 사기 행위 보고를 클릭합니다.
 4. 앱에서 닫기를 클릭합니다.
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/report1.png)</center>
+![클라우드](./media/multi-factor-authentication-whats-next/report1.png)
+
+
+![클라우드](./media/multi-factor-authentication-whats-next/fraud2.png)
 
 ### 모바일 앱으로 사기 행위 경고를 보고하려면
 
@@ -376,4 +379,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

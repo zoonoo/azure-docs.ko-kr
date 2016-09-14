@@ -30,8 +30,6 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 
 몇 가지 다른 키 이벤트 허브 기능은 모바일 앱에서 동작 추적, 웹 팜에서 트래픽 정보, 콘솔 게임에서 게임 내 이벤트 캡처 또는 산업 컴퓨터 또는 연결된 차량에서 수집된 원격 분석 데이터를 포함합니다.
 
-[서비스 버스 큐 및 항목](../service-bus/service-bus-messaging-overview.md)과 달리 이벤트 허브는 규모로 메시징 스트림 처리를 제공하는 데 집중합니다. 예를 들어 이벤트 허브 기능은 높은 처리량 및 이벤트 처리 시나리오에 대해 편향되었다는 점에서 서비스 버스 항목과 다릅니다. 결과적으로 이벤트 허브는 [항목](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics)에 사용할 수 있는 메시징 기능 중 일부를 구현하지 않습니다. 해당 기능이 필요한 경우에 가장 적합한 선택입니다.
-
 ## 다음 단계
 
 이벤트 허브에 대한 자세한 내용은 다음 항목을 참조하세요.
@@ -45,4 +43,4 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 [이벤트 허브 자습서]: event-hubs-csharp-ephcs-getstarted.md
 [이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

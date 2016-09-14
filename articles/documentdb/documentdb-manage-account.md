@@ -14,27 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/24/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정을 관리하는 방법
 
-Azure 포털에서 전역 일관성을 설정하고, 키로 작업하고, DocumentDB 계정을 삭제하는 방법에 대해 알아보세요.
+Azure 포털에서 전역 일관성을 설정하고, 키로 작업하고, DocumentDB 계정을 삭제하는 방법에 대해 알아봅니다.
 
 ## <a id="consistency"></a>DocumentDB 일관성 설정 관리
 
-올바른 일관성 수준을 선택하는 것은 응용 프로그램의 의미 체계에 따라 달라집니다. 여러분은 DocumentDB의 이용 가능한 일관성 수준에 친숙해져야 합니다. [일관성 수준을 사용하여 DocumentDB의 가용성과 성능을 최대화][consistency]합니다. DocumentDB는 데이터베이스에서 사용할 수 있는 모든 일관성 수준에서 일관성, 가용성, 성능 보증을 제공합니다. 강력한 일관성 수준으로 데이터베이스 계정을 구성하려면 데이터를 단일 Azure 지역에 국한하고 전 세계적으로 제공하지 말아야 합니다. 반면, 관대한 일관성 수준(제한된 부실, 세션 또는 최종 일관성)은 데이터베이스 계정과 여러 Azure 지역을 연결할 수 있습니다. 아래의 간단한 단계는 데이터베이스 계정에서 기본 일관성 수준을 선택하는 방법을 보여줍니다.
+올바른 일관성 수준을 선택하는 것은 응용 프로그램의 의미 체계에 따라 달라집니다. [일관성 수준을 사용하여 DocumentDB의 가용성 및 성능 최대화][consistency]의 내용을 확인하여 DocumentDB에서 사용 가능한 일관성 수준을 숙지해야 합니다. DocumentDB는 데이터베이스 계정에서 사용할 수 있는 모든 일관성 수준에서 일관성, 가용성 및 성능을 보증합니다. 일관성 수준 '강력'으로 데이터베이스 계정을 구성하려면 데이터를 단일 Azure 지역에서만 사용할 수 있도록 제한하고 전 세계적으로 제공하지 않아야 합니다. 반면, 관대한 일관성 수준(제한된 부실, 세션 또는 최종 일관성)은 데이터베이스 계정과 여러 Azure 지역을 연결할 수 있습니다. 아래의 간단한 단계는 데이터베이스 계정에서 기본 일관성 수준을 선택하는 방법을 보여줍니다.
 
 ### DocumentDB 계정의 기본 일관성을 지정하려면
 
 1. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 2. 계정 블레이드에서 **기본 일관성**을 클릭합니다.
-3. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **확인**을 클릭합니다. ![기본 일관성 세션][5]
+3. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다. 
+![기본 일관성 세션][5]
 
 ## <a id="keys"></a>선택키 보기, 복사 및 다시 생성
 DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다.
 
-[Microsoft Azure 포털](https://portal.azure.com/)에서 **DocumentDB 계정** 블레이드의 **키** 부분에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
+[Azure 포털](https://portal.azure.com/)에서 **DocumentDB 계정** 블레이드의 리소스 메뉴에 있는 **키** 블레이드에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
 
 ![Azure 포털 스크린샷, 키 블레이드](./media/documentdb-manage-account/keys.png)
 
@@ -42,7 +43,7 @@ DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액�
 
 읽기 전용 키도 이 블레이드에서 사용할 수 있습니다. 읽기 및 쿼리는 읽기 전용 작업이며 만들기, 삭제 및 바꾸기는 읽기 전용 작업이 아닙니다.
 
-### Azure 포털에서 선택키 보기 및 복사
+### Azure 포털에서 선택키 복사
 
 **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
 
@@ -59,10 +60,12 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 1. DocumentDB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
 2. DocumentDB 계정의 기본 액세스 키를 다시 생성합니다. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 3. **DocumentDB 계정** 블레이드에서 **키**를 클릭합니다.
-4. **키** 블레이드에서 **기본 키 다시 생성** 명령을 클릭하고 **확인**을 클릭하여 새 키를 생성할지 확인합니다. ![액세스 키 다시 생성](./media/documentdb-manage-account/regenerate-keys.png)
+4. **키** 블레이드에서 다시 생성 단추를 클릭한 다음 **확인**을 클릭하여 새 키를 생성할 것임을 확인합니다. ![액세스 키 다시 생성](./media/documentdb-manage-account/regenerate-keys.png)
 
 5. 키를 다시 생성하고 약 5분 후에 새 키를 사용할 수 있는지 확인한 후 응용 프로그램 코드에서 새 기본 액세스 키를 참조하도록 액세스 키를 업데이트합니다.
-6. 보조 선택키를 다시 생성합니다. ![액세스 키 다시 생성](./media/documentdb-manage-account/regenerate-secondary-key.png)
+6. 보조 액세스 키를 다시 생성합니다.
+
+    ![액세스 키 다시 생성](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] 새로 생성된 키를 사용하여 DocumentDB 계정에 액세스할 수 있을 때까지 몇 분 정도 걸릴 수 있습니다.
@@ -98,7 +101,7 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/en-us/regions/#services
-[offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

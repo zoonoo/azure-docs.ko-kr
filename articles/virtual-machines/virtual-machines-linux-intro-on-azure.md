@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 #Azure의 Linux 소개
@@ -96,6 +96,6 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 
 Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-classic-attach-disk.md)에 대한 자습서의 단계를 다루었습니다.
 
- - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
+ - **참고 항목:** [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md) 및 [Azure에서 Linux VM에 대해 LVM 구성](virtual-machines-linux-configure-lvm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

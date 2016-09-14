@@ -15,25 +15,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/30/2016"
 	ms.author="jeffstok"
 />
 
 # 스트림 분석 Data Lake 저장소 출력
 
-스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. 이 문서에서는 스트림 분석 Azure 클래식 포털에서 Azure Data Lake 저장소의 권한 부여, 구성 및 권한 부여 갱신을 다룹니다.
-
-> [AZURE.NOTE] 이때 Azure 클래식 포털에서**만** Data Lake 저장소 출력을 만들고 구성할 수 있습니다.
+스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
 
 ## Data Lake 저장소 계정 권한 부여
 
 1.  Data Lake 저장소를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake 저장소의 사용 권한을 부여하거나 Azure 클래식 포털을 통해 Data Lake 저장소 미리 보기에 대한 액세스를 요청하는 메시지가 표시됩니다.
 
-    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
+    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)
 
 2.  Data Lake 저장소에 대한 액세스 권한이 이미 있는 경우 "지금 권한 부여"를 클릭하고 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 Data Lake 저장소 출력을 구성할 수 있도록 하는 페이지와 함께 나타납니다.
 
-Data Lake 저장소 미리 보기에 등록하지 않은 경우 "지금 등록" 링크를 따라 요청을 시작하거나 [시작된 지침](../data-lake-store/data-lake-store-get-started-portal.md)을 수행합니다.
+Data Lake Store Preview에 등록하지 않은 경우 "지금 등록" 링크를 클릭하여 등록 페이지로 이동해 요청을 시작하거나 [시작 지침](../data-lake-store/data-lake-store-get-started-portal.md)을 따릅니다.
 
 ## Data Lake 저장소 출력 속성 구성
 
@@ -90,6 +88,6 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Data Lake 저장소 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하면 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 성공하면 "권한 부여를 성공적으로 갱신했습니다"가 표시됩니다. 페이지의 맨 아래에서 "저장"을 클릭해야 하고 데이터 손실을 방지하도록 마지막 중지 시간에서 작업을 다시 시작하여 진행할 수 있습니다.
 
-![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
+![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

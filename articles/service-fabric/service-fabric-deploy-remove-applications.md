@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # PowerShell을 사용하여 응용 프로그램 배포 및 제거
@@ -69,7 +69,7 @@ C:\TEMP\MyApplicationType
     │   │  System.Fabric.dll
     │   │  System.Fabric.Strings.dll
     │   │
-    │   └───en-us
+    │   └───ko-KR
     |         Microsoft.ServiceFabric.Internal.Strings.resources.dll
     |         System.Fabric.Strings.resources.dll
     |
@@ -239,4 +239,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

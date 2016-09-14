@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Azure 배치 풀에서 Linux 계산 노드 프로비전
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## 가상 컴퓨터 이미지 목록
 
-다음 테이블에는 이 문서 작성 시 사용 가능한 배치 노드 에이전트와 호환되는 마켓플레이스 가상 컴퓨터 이미지가 나열되어 있습니다. 이미지와 노드 에이전트는 언제든지 추가 또는 제거될 수 있기 때문에 이 목록은 확정적이지 않습니다. 배치 응용 프로그램 및 서비스에서는 현재 사용 가능한 SKU를 확인하고 선택하는[list\_node\_agent\_skus][py_list_skus](Python) 및 [ListNodeAgentSkus][net_list_skus](배치 .NET)를 항상 사용하는 것이 좋습니다.
+다음 표에는 이 문서가 마지막으로 업데이트되었을 때 사용 가능한 배치 노드 에이전트와 호환되는 마켓플레이스 가상 컴퓨터 이미지가 나열되어 있습니다. 이미지와 노드 에이전트는 언제든지 추가 또는 제거될 수 있기 때문에 이 목록은 확정적이지 않습니다. 배치 응용 프로그램 및 서비스에서는 현재 사용 가능한 SKU를 확인하고 선택하는[list\_node\_agent\_skus][py_list_skus](Python) 및 [ListNodeAgentSkus][net_list_skus](배치 .NET)를 항상 사용하는 것이 좋습니다.
 
 > [AZURE.WARNING] 다음 목록은 언제든지 변경될 수 있습니다. 항상 배치 API에서 사용 가능한 **list node agent SKU** 메서드를 사용하여 나열한 다음 배치 작업 실행 시 호환되는 가상 컴퓨터 및 노드 에이전트 SKU에서 선택합니다.
 
@@ -209,19 +209,20 @@ ImageReference imageReference = new ImageReference(
 | Canonical | UbuntuServer | 14\.04.2-LTS | 최신 | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.3-LTS | 최신 | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | 최신 | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 15\.10 | 최신 | batch.node.debian 8 |
+| Canonical | UbuntuServer | 14\.04.5-LTS | 최신 | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 16\.04.0-LTS | 최신 | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | 최신 | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | 최신 | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS | 7\.2 | 최신 | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7\.1 | 최신 | batch.node.centos 7 |
+| OpenLogic | CentOS | 7\.2 | 최신 | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7\.0 | 최신 | batch.node.centos 7 |
-| SUSE | SLES | 12 | 최신 | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | 최신 | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | 최신 | batch.node.opensuse 42.1 |
 | SUSE | openSUSE | 13\.2 | 최신 | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42\.1 | 최신 | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | 최신 | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | 최신 | batch.node.opensuse 42.1 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | 최신 | batch.node.windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | 최신 | batch.node.centos 7 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | 최신 | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 최신 | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 최신 | batch.node.windows amd64 |
@@ -234,31 +235,54 @@ ImageReference imageReference = new ImageReference(
 다음 Python 코드 조각에서는 풀의 각 노드에서 사용자를 만들며 이는 원격 연결에 필요합니다. 그런 다음 각 노드에 대한 SSH(secure shell) 연결 정보를 인쇄합니다.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
@@ -281,7 +305,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 ## 가격
 
-Azure 배치는 Azure 클라우드 서비스 및 Azure 가상 컴퓨터 기술을 기반으로 빌드됩니다. 배치 서비스 자체는 무료로 제공됩니다. 즉, 배치 솔루션에서 사용하는 계산 리소스에 대해서만 요금이 청구됩니다. **클라우드 서비스 구성**을 선택하는 경우 [클라우드 서비스 가격 책정][cloud_services_pricing] 구조에 따라 요금이 청구됩니다. **가상 컴퓨터 구성**을 선택하는 경우 [가상 컴퓨터 가격 책정][vm_pricing] 구조에 따라 요금이 청구됩니다.
+Azure 배치는 Azure 클라우드 서비스 및 Azure 가상 컴퓨터 기술을 기반으로 빌드됩니다. 배치 서비스 자체는 무료로 제공됩니다. 즉, 배치 솔루션에서 사용하는 계산 리소스에 대해서만 요금이 청구됩니다. **Cloud Services 구성**을 선택하는 경우 [Cloud Services 가격 책정][cloud_services_pricing] 구조에 따라 요금이 청구됩니다. **가상 컴퓨터 구성**을 선택하는 경우 [가상 컴퓨터 가격][vm_pricing] 구조에 따라 요금이 청구됩니다.
 
 ## 다음 단계
 
@@ -327,4 +351,4 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "응용 프로그램 패키지에 대한 개략적인 다이어그램"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -39,7 +39,7 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 
 ## 3\. DockerTask.ps1 PowerShell 스크립트 사용 
 
-1.  프로젝트의 루트 디렉터리에 대해 PowerShell 프롬프트를 엽니다. 
+1.  프로젝트의 루트 디렉터리에 대해 PowerShell 프롬프트를 엽니다.
 
     ```
     PS C:\Src\WebApplication1>
@@ -64,7 +64,7 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
     > [AZURE.NOTE] Docker 베타를 사용 중인 경우 -Machine 인수는 생략합니다.
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -77,7 +77,7 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
     > [AZURE.NOTE] Docker 베타를 사용 중인 경우 -Machine 인수는 생략합니다.
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	docker가 완료되면 다음 화면과 같은 결과가 표시되어야 합니다.
@@ -89,4 +89,4 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -11,14 +11,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/13/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Azure 포털을 사용하여 Azure 검색 서비스 만들기
 
 이 가이드에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Azure 검색 서비스를 만드는(또는 프로비전하는) 프로세스를 안내합니다.
 
-이 가이드에서는 이미 Azure 구독이 있으며 Azure 포털에 로그인할 수 있다고 가정합니다.
+이 가이드에서는 사용자가 이미 Azure 구독을 소유하고 있으며 Azure 포털에 로그인할 수 있다고 가정합니다.
 
 ## Azure 포털에서 Azure 검색 찾기
 1. [Azure 포털](https://portal.azure.com/)로 이동하고 로그인합니다.
@@ -76,4 +76,4 @@ Azure 검색 서비스를 프로비전한 후에 [Azure 검색 인덱스를 정�
 
 간략한 자습서는 [포털에서 Azure 검색 시작](search-get-started-portal.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

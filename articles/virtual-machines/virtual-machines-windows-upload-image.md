@@ -33,7 +33,7 @@
 
 - **Windows를 실행하는 가상 컴퓨터** - 온-프레미스 가상 컴퓨터를 만들기 위한 여러 도구가 있습니다. 예를 들어, [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오. Azure에서 지원되는 Windows 운영 체제에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](https://support.microsoft.com/kb/2721672)을 참조하세요.
 
-- VM에서 실행되는 서버 역할이 sysprep을 지원하는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
+- VM에서 실행되는 서버 역할이 sysprep을 지원하는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다.
 
 
 ## VM의 파일 형식이 올바른지 확인해야 합니다.
@@ -254,4 +254,4 @@ Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.tech
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

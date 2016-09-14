@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # ASP.NET Core용 Application Insights
 
-Visual Studio Application Insights를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Visual Studio Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![예](./media/app-insights-asp-net-five/sample.png)
 
@@ -26,7 +26,7 @@ Visual Studio Application Insights를 사용하여 웹 응용 프로그램의 �
 
 ## 시작
 
-Visual Studio 2015에서 프로젝트를 만든 경우에는 Application Insights가 이미 있습니다. 그렇지 않은 경우에는 [시작 가이드(영문)](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started)에 따릅니다.
+[시작 가이드](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started)를 따르세요.
 
 ## Application Insights 사용
 
@@ -53,11 +53,11 @@ Visual Studio 2015에서 프로젝트를 만든 경우에는 Application Insight
 * [웹 페이지에 원격 분석을 추가](app-insights-javascript.md)하여 페이지 사용 현황 및 성능을 모니터링합니다.
 * REST, SQL 또는 기타 외부 리소스로 인해 속도가 늦어지는지를 보려면 [종속성을 모니터링](app-insights-dependencies.md)합니다.
 * 앱의 성능 및 사용 현황을 보다 자세하게 표시하기 위해 사용자의 이벤트와 메트릭을 보내려면 [API를 사용](app-insights-api-custom-events-metrics.md)합니다.
-* [가용성 테스트](app-insights-monitor-web-app-availability.md)는 사용자의 앱을 전 세계에서 지속적으로 확인합니다. 
+* [가용성 테스트](app-insights-monitor-web-app-availability.md)는 사용자의 앱을 전 세계에서 지속적으로 확인합니다.
 
 
 ## 공개 소스
 
 [코드를 읽고 참여하기](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

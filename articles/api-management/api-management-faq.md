@@ -3,7 +3,7 @@
 	description="Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # Azure API 관리 FAQ
 
@@ -155,4 +155,4 @@ GIT 자격 증명 관리자를 사용하거나 Visual Studio를 통해 리포지
 
 예!
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

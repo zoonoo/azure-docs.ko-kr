@@ -29,7 +29,7 @@
 
   ![1\_RequestRefund][1]
 
-  1. 지원 페이지로 이동합니다.
+  1. [https://support.microsoft.com/ko-KR/getsupport?tenant=ClassicCommercial&locale=ko-KR&supportregion=ko-KR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/ko-KR/getsupport?tenant=ClassicCommercial&locale=ko-KR&supportregion=ko-KR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884)의 지원 페이지로 이동합니다.
   2. **문제 유형** 상자에서 **고객 관리**를 선택합니다.
   3. **범주** 상자에서 **고객 환불 승인 또는 요청**을 선택합니다.
   4. **요청 시작**을 클릭합니다.
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

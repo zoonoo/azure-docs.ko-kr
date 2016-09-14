@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법" 
+	pageTitle="REST를 사용하여 Azure Media Services 콘텐츠 게시" 
 	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. REST API를 사용하는 코드입니다." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#방법: 스트리밍 콘텐츠 제공
+# REST를 사용하여 Azure Media Services 콘텐츠 게시
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST (영문)](media-services-rest-deliver-streaming-content.md)
-- [포털](media-services-manage-content.md#publish)
+- [포털](media-services-portal-publish.md)
 
 ##개요
 
 
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-rest-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 콘텐츠가 암호화되어 있는 경우는 자산 배달 정책을 구성([이 항목](media-services-rest-configure-asset-delivery-policy.md)에서 설명)한 후 로케이터를 만듭니다.
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-rest-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 설명합니다. 콘텐츠가 암호화되어 있는 경우 [이 항목](media-services-rest-configure-asset-delivery-policy.md)에서 설명하는 대로 자산 배달 정책을 구성한 후에 로케이터를 만듭니다.
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.
 
-이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 개발하기 위해 주문형 스트리밍 로케이터를 만드는 방법을 보여 줍니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다.
+이 항목에서는 자산을 게시하고 부드러운 MPEG DASH 및 HLS 스트리밍 URL을 작성하기 위해 OnDemand 스트리밍 로케이터를 만드는 방법을 설명합니다. 또한 점진적 다운로드 URL을 작성하는 핫을 보여 줍니다.
 
 [다음](#types) 섹션에서는 REST 호출에 사용되는 값을 가진 열거형 유형을 보여 줍니다.
   
@@ -191,4 +191,4 @@ URL: **경로** + 자산 파일 mp4 이름
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->
