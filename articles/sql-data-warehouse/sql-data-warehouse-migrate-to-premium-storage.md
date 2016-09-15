@@ -207,4 +207,4 @@ go
 [큰 성능 예측 가능성을 위한 프리미엄 저장소]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0831_2016--->
