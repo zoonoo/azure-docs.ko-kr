@@ -27,7 +27,7 @@
 
 이 문서에서는 C# 데이터베이스 개발 기술을 사용하여 응용 프로그램에서 SQL 데이터베이스에 대해 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
 
-> [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-powershell.md)를 할 수 있습니다.
+> [AZURE.NOTE] 탄력적 풀은 현재 미리 보기 상태인 미국 중북부 및 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다. 이 지역에서도 탄력적 풀의 GA를 가능한 한 빨리 제공하겠습니다. 또한 탄력적 풀은 현재 [메모리 내 OLTP 또는 메모리 내 분석](sql-database-in-memory.md)을 사용하는 데이터베이스를 지원하지 않습니다.
 
 예제에서는 [.NET 용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용합니다. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
@@ -573,4 +573,4 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

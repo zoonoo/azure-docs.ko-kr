@@ -36,7 +36,7 @@ Microsoft는 다음을 비롯한 Azure 앱 서비스의 기능을 활용하기 �
   *  [스테이징 슬롯], 롤백 및 프로덕션 내 테스트를 포함하는 기본 제공 DevOps 도구.
   *  [자동 크기 조정], 부하 분산 및 [성능 모니터링].
 
-Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. 앱 서비스] 항목을 참조하세요.
+Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. App Service] 항목을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -60,7 +60,7 @@ Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스
   5.  제공된 상자에 모바일 서비스의 이름을 입력합니다. 예를 들어 도메인 이름이 contoso.azure mobile.net이면 제공된 상자에 _contoso_를 입력합니다.
   6.  눈금 단추를 클릭합니다.
 
-작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션* 으로 나열됩니다.
+작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션*으로 나열됩니다.
 
   ![마이그레이션 작업 모니터링][1]
 
@@ -381,17 +381,17 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[앱 서비스 가격]: https://azure.microsoft.com/pricing/details/app-service/
+[앱 서비스 가격]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service-web/web-sites-scale.md
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
-[Azure 지역]: https://azure.microsoft.com/regions/
+[Azure 지역]: https://azure.microsoft.com/ko-KR/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service-web/app-service-continuous-deployment.md
-[혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/ko-KR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -399,8 +399,8 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [로깅]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [모바일 앱 Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[알림 허브]: ../notification-hubs/notification-hubs-overview.md
+[모바일 서비스 vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[알림 허브]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [성능 모니터링]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [모바일 서비스]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

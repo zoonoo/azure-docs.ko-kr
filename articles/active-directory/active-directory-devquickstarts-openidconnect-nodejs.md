@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Azure AD를 사용하는 웹앱 로그인 및 로그아웃
@@ -21,7 +21,7 @@
 
 여기서는 Passport를 통해 다음 작업을 수행합니다.
 
-- Azure AD 및 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인합니다.
+- Azure AD를 사용하여 사용자를 앱에 로그인합니다.
 - 사용자에 대한 일부 정보를 표시합니다.
 - 앱에서 사용자를 로그아웃합니다.
 
@@ -36,11 +36,11 @@
 
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. 앱 등록
+## 1\. 앱 등록
 - Azure 관리 포털에 로그인합니다.
 - 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 - 응용 프로그램을 등록할 테넌트를 선택합니다.
@@ -51,7 +51,7 @@
     - **앱 ID URI**는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
 - 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
 
-## 2. pre requisities를 디렉터리에 추가
+## 2\. pre requisities를 디렉터리에 추가
 
 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
@@ -70,7 +70,7 @@
 
 이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+## 3\. passport-node-js 전략을 사용하도록 앱을 설정합니다.
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다. passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 -	먼저 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
@@ -243,7 +243,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
+## 4\. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 
 이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점과 통신하도록 올바르게 구성되었습니다. `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
@@ -307,7 +307,7 @@ app.listen(3000);
 ```
 
 
-## 5. 웹 사이트에서 사용자에게 표시할 뷰와 경로를 빠르게 만들기
+## 5\. 웹 사이트에서 사용자에게 표시할 뷰와 경로를 빠르게 만들기
 
 `app.js`가 완료되었습니다. 이제 얻은 정보를 사용자에게 표시할 경로와 뷰를 추가하고 만든 `/logout` 및 `/login` 경로를 처리하기만 하면 됩니다.
 
@@ -414,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

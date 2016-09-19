@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/01/2016"
 	ms.author="jimpark; anuragm;trinadhk;markgal"/>
 
 
@@ -66,7 +66,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 다음 단계는 복구 서비스 자격 증명 모음을 만드는 과정을 안내합니다. 복구 서비스 자격 증명 모음은 백업 자격 증명 모음과 다릅니다.
 
-1. 처음으로 Azure 백업을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure 복구 서비스 공급자를 등록해야 합니다.
+1. 처음으로 Azure Backup을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -138,16 +138,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
-| /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
-| /ph | 프록시 호스트 주소 | - |
-| /po | 프록시 호스트 포트 번호 | - |
-| /pu | 프록시 호스트 사용자 이름 | - |
-| /pw | 프록시 암호 | - |
+| /q | 무인 설치 | - | | /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Opt-in to Microsoft Update | - | | /nu | 설치 완료 후 업데이트 확인 안 함 | - | | /d | Microsoft Azure 복구 서비스 에이전트 제거 | - | | /ph | 프록시 호스트 주소 | - | | /po | 프록시 호스트 포트 번호 | - | | /pu | 프록시 호스트 사용자 이름 | - | | /pw | 프록시 암호 | - |
 
 ## 복구 서비스 자격 증명 모음에 DPM 등록
 
@@ -173,7 +164,7 @@ Machine registration succeeded.
 ```
 
 ### 초기 구성 설정
-DPM 서버를 복구 서비스 자격 증명 모음에 등록하면 기본 구독 설정으로 시작됩니다. 이러한 구독 설정에는 네트워킹, 암호화 및 스테이징 영역이 포함됩니다. 구독 설정을 변경하려면 우선 [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet을 사용하여 기존(기본) 설정에 대한 핸들을 가져와야 합니다.
+DPM 서버를 Recovery Services 자격 증명 모음에 등록하면 기본 구독 설정으로 시작됩니다. 이러한 구독 설정에는 네트워킹, 암호화 및 스테이징 영역이 포함됩니다. 구독 설정을 변경하려면 우선 [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet을 사용하여 기존(기본) 설정에 대한 핸들을 가져와야 합니다.
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
@@ -186,7 +177,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 ## 네트워킹
-프록시 서버를 통해 DPM 컴퓨터를 인터넷상의 Azure 백업 서비스에 연결하는 경우 백업에 성공하려면 프록시 서버 설정을 제공해야 합니다. 이 작업은 ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` 및 ```ProxyPassword``` 매개 변수를 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 함께 사용하여 수행합니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
+프록시 서버를 통해 DPM 컴퓨터를 인터넷상의 Azure Backup 서비스에 연결하는 경우 백업에 성공하려면 프록시 서버 설정을 제공해야 합니다. 이 작업은 ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` 및 ```ProxyPassword``` 매개 변수를 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet과 함께 사용하여 수행합니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -283,7 +274,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Onl
 ### 보존 범위 설정
 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet을 사용하여 백업 시점의 보존을 설정합니다. 백업 일정을 정의하기 전에 보존을 설정하는 것이 좀 이상하게 보일 수 있지만 ```Set-DPMPolicyObjective``` cmdlet을 사용하면 기본 백업 일정이 자동으로 설정되며, 이 일정은 나중에 수정할 수 있습니다. 항상 백업 일정을 먼저 설정하고 그 후에 보존 정책을 설정할 수 있습니다.
 
-아래 예제에서는 cmdlet이 디스크 백업에 대한 보존 매개 변수를 설정합니다. 이 값은 10일 동안 백업을 유지하고 6시간마다 프로덕션 서버와 DPM 서버 간에 데이터를 동기화합니다. ```SynchronizationFrequencyMinutes```는 백업 시점 생성 빈도를 정의하지 않지만 DPM 서버에 데이터를 복사하는 빈도는 정의합니다. 따라서 백업이 너무 커지지 않도록 할 수 있습니다.
+아래 예제에서는 cmdlet이 디스크 백업에 대한 보존 매개 변수를 설정합니다. 이 값은 10일 동안 백업을 유지하고 6시간마다 프로덕션 서버와 DPM 서버 간에 데이터를 동기화합니다. ```SynchronizationFrequencyMinutes```는 백업 시점 생성 빈도를 정의하지 않지만 DPM 서버에 데이터를 복사하는 빈도는 정의합니다. 이 설정은 백업이 너무 커지지 않도록 방지합니다.
 
 ```
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
@@ -314,31 +305,31 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 위의 예에서 ```$onlineSch```는 GFS 체계에서 보호 그룹에 대한 기존 온라인 보호 일정이 포함된 4개의 요소가 있는 배열입니다.
 
-1. ```$onlineSch[0]```에는 매일 일정이 포함됩니다.
-2. ```$onlineSch[1]```에는 매주 일정이 포함됩니다.
-3. ```$onlineSch[2]```에는 매월 일정이 포함됩니다.
-4. ```$onlineSch[3]```에는 매년 일정이 포함됩니다.
+1. ```$onlineSch[0]```에는 일간 일정이 포함됩니다.
+2. ```$onlineSch[1]```에는 주간 일정이 포함됩니다.
+3. ```$onlineSch[2]```에는 월간 일정이 포함됩니다.
+4. ```$onlineSch[3]```에는 연간 일정이 포함됩니다.
 
 따라서 매주 일정을 수정해야 하는 경우에는 ```$onlineSch[1]```을 참조해야 합니다.
 
 ### 초기 백업
-데이터 원본을 처음으로 백업하는 경우, DPM은 최초 복제본을 만들어야 하며, 이것은 DPM 복제본 볼륨에서 보호될 데이터 원본의 사본을 생성합니다. 이 작업은 [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) cmdlet을 ```-NOW``` 매개 변수와 함께 사용하여 특정 시간 동안 예약하거나 수동으로 트리거할 수 있습니다.
+데이터 원본을 처음으로 백업하는 경우, DPM은 DPM 복제본 볼륨에서 보호될 데이터 원본의 전체 사본을 생성하는 최초 복제본을 만들어야 합니다. 이 작업은 [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) cmdlet을 ```-NOW``` 매개 변수와 함께 사용하여 특정 시간 동안 예약하거나 수동으로 트리거할 수 있습니다.
 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### DPM 복제본 및 복구 지점 볼륨 크기 변경
-또한 아래의 예제와 같이 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet를 사용하여 섀도 복사본 볼륨뿐만 아니라 DPM 복제본 볼륨의 크기를 변경할 수 있습니다. Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+또한 다음 예제와 같이 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet를 사용하여 DPM 복제본 볼륨 및 섀도 복사본 볼륨의 크기를 변경할 수 있습니다. Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### 보호 그룹에 변경 내용 커밋
-마지막으로, 변경 내용을 DPM이 새로운 보호 그룹 구성에 따라 백업을 수행하기 전에 먼저 변경 내용을 커밋해야 합니다. 이 작업은 [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet을 사용하여 수행합니다.
+마지막으로, 변경 내용을 DPM이 새로운 보호 그룹 구성에 따라 백업을 수행하기 전에 먼저 변경 내용을 커밋해야 합니다. 이 작업은 [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet을 사용하여 수행할 수 있습니다.
 
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## 백업 시점 보기
 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet을 사용하여 데이터 원본에 대한 모든 복구 지점 목록을 가져올 수 있습니다. 이 예제에서는 다음을 수행합니다.
-- ```$PG``` 배열에 저장될 DPM 서버의 모든 PG를 가져옵니다.
+- DPM 서버의 모든 PG를 가져오고 ```$PG``` 배열에 저장됩니다.
 - ```$PG[0]```에 해당하는 데이터 원본을 가져옵니다.
 - 데이터 원본에 대한 모든 복구 지점을 가져옵니다.
 
@@ -351,7 +342,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ## Azure에 보호된 데이터 복원
 데이터 복원은 ```RecoverableItem``` 개체와 ```RecoveryOption``` 개체의 조합입니다. 이전 섹션에서 데이터 원본의 백업 시점 목록을 가져왔습니다.
 
-아래 예제에서는 백업 시점과 복구 대상을 결합하여 Hyper-V 가상 컴퓨터를 Azure 백업에서 복원하는 방법을 설명합니다. 다음 내용이 포함됩니다.
+아래 예제에서는 백업 시점과 복구 대상을 결합하여 Hyper-V 가상 컴퓨터를 Azure 백업에서 복원하는 방법을 설명합니다. 이 예제에는 다음이 포함됩니다.
 
 - [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet을 사용하여 복구 옵션 만들기
 - ```Get-DPMRecoveryPoint``` cmdlet을 사용하여 백업 시점 배열 가져오기
@@ -371,6 +362,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 ## 다음 단계
 
-- DPM에 대한 Azure 백업에 대한 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
+- Azure Backup에 대한 DPM의 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

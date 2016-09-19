@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
@@ -38,7 +38,7 @@
 <a id="prepimage"> </a>
 ## 1단계: 업로드할 이미지 준비
 
-Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](virtual-machines-linux-endorsed-distros.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다. 아래 가이드의 단계를 수행한 후 여기로 돌아오면 Azure에 업로드할 수 있는 VHD 파일이 생성되어 있을 것입니다.
+Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](virtual-machines-linux-endorsed-distros.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다. 다음 가이드의 단계를 완료한 후 여기로 돌아오면 Azure에 VHD 파일을 업로드할 수 있습니다.
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
@@ -71,7 +71,9 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 저장소
 Azure CLI에서 다음 명령을 사용하여 이미지를 업로드합니다.
 
 ```bash
-azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+azure vm image create <ImageName> `
+	--blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> `
+	--os Linux <PathToVHDFile>
 ```
 
 이전 예제:
@@ -84,14 +86,17 @@ azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>
 다음은 전체 예제입니다.
 
 ```bash
-azure vm image create UbuntuLTS --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd --os Linux /home/ahmet/UbuntuLTS.vhd
+azure vm image create UbuntuLTS `
+	--blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd `
+	--os Linux /home/ahmet/UbuntuLTS.vhd
 ```
 
 ## 4단계: 이미지에서 VM 만들기
 일반 VM과 같은 방식으로 `azure vm create`를 사용하여 VM을 만듭니다. 이전 단계에서 이미지에 부여한 이름을 지정합니다. 다음 예제에서는 이전 단계에서 지정한 **UbuntuLTS** 이미지 이름을 사용합니다.
 
 ```bash
-azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
+azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
+	--location "West US" "DeployedUbuntu" UbuntuLTS
 ```
 
 고유한 VM을 만들려면 자신의 사용자 이름 + 암호, 위치, DNS 이름 및 이미지 이름을 제공합니다.
@@ -104,4 +109,4 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh --loca
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

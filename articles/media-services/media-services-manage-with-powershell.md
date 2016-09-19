@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016"
+	ms.date="09/04/2016"
 	ms.author="juliako"/>
 
 
 #PowerShell을 사용하여 Azure 미디어 서비스 계정 관리
 
 > [AZURE.SELECTOR]
-- [포털](media-services-create-account.md)
+- [포털](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+- [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##개요 
 
-이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 **Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
+이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 ** Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
 
 ## 버전
 
@@ -504,4 +504,4 @@ Accept Wildcard Characters? |false
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

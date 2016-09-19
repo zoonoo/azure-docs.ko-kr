@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/31/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure 가상 컴퓨터 백업 관리 및 모니터링
@@ -227,9 +227,9 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **이름**: 경고 규칙의 이름입니다.
 
-**CustomEmail**: 경고 알림을 보낼 사용자 지정 메일 주소를 지정합니다.
+**CustomEmail** : 경고 알림을 보낼 사용자 지정 메일 주소를 지정합니다.
 
-**SendToServiceOwners**: 이 옵션은 구독의 모든 관리자 및 공동 관리자에게 경고 알림을 보냅니다. **New-AzureRmAlertRuleEmail** cmdlet에 사용될 수 있습니다.
+**SendToServiceOwners**: 이 옵션은 구독의 모든 관리자 및 공동 관리자에게 경고 알림을 보냅니다. **New-AzureRmAlertRuleEmail** cmdlet에 사용될 수 있음
 
 ### 경고에 대한 제한
 이벤트 기반 경고는 다음과 같은 제한 사항에 종속됩니다.
@@ -242,4 +242,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 - [Azure VM 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

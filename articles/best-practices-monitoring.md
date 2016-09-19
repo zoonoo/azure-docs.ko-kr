@@ -662,6 +662,6 @@ _그림 6. 분석 및 저장소 요구 사항에 따라 데이터 분할_
 - [서비스 버스 큐를 사용하는 방법](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Azure 가상 컴퓨터의 SQL Server Business Intelligence](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [경고 알림 받기](./azure-portal/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

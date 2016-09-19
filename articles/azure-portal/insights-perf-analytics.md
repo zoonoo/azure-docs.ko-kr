@@ -12,20 +12,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Azure 웹앱 성능 모니터링
 
-[Azure 포털](https://portal.azure.com)에서 [Azure 웹앱](../app-service-web/app-service-web-overview.md) 또는 [가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md) 내 응용 프로그램 종속성에 대한 통계와 세부 정보를 수집하도록 모니터링을 설정할 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 [Azure 웹앱](../app-service-web/app-service-web-overview.md) 또는 [가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md)의 응용 프로그램 성능 모니터링을 설정할 수 있습니다. 성능 모니터링 솔루션은 앱을 계측하여 해당 활동에 대한 원격 분석을 보냅니다. 결과 메트릭 및 원격 분석을 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
 
-Azure는 확장을 활용하여 응용 프로그램 성능 모니터링(APM)을 지원합니다. 이 확장은 응용 프로그램에 설치되며 데이터를 수집하고 모니터링 서비스로 다시 보고합니다.
+## 실행 시간 또는 빌드 시간
 
-**Application Insights** 및 **New Relic**은 사용할 수 있는 두 가지 성능 모니터링 확장 프로그램입니다. 프로그램을 사용하려면 런타임에 에이전트를 설치해야 합니다. 또한 Application Insights와 함께 SDK를 사용하여 코드를 작성하는 옵션이 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
+다음과 같은 두 가지 방법 중 하나로 앱을 계측하여 모니터링을 구성할 수 있습니다.
 
-## Application Insights
+* **런타임** - 웹앱이 이미 라이브 상태인 경우 성능 모니터링 확장을 선택할 수 있습니다. 앱을 다시 빌드하거나 설치할 필요는 없습니다. 응답 시간, 성공률, 예외, 종속성 등을 모니터링하는 패키지의 표준 집합을 얻게 됩니다.
 
-### (선택 사항) SDK와 함께 앱을 다시 빌드 중...
+    **Application Insights** 및 **New Relic**은 사용할 수 있는 두 가지 런타임 성능 모니터링 확장 프로그램입니다.
+ 
+* **빌드 시간** - 개발 중인 앱에서 패키지를 설치할 수 있습니다. 이 옵션은 융통성이 뛰어납니다. 동일한 표준 패키지외에도 원격 분석 데이터를 사용자 지정하거나 고유한 원격 분석을 보내는 코드를 작성할 수 있습니다. 앱 도메인의 의미 체계에 따라 특정 작업 또는 레코드 이벤트를 기록할 수 있습니다.
+
+    **Application Insights**는 빌드 시간 패키지를 제공합니다.
+
+
+## Application Insights 패키지를 사용하여 앱 빌드...
 
 Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석을 제공할 수 있습니다.
 
@@ -46,7 +53,7 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 
 ### ... 또는 리소스를 수동으로 설정
 
-Visual Studio에서 SDK를 추가하지 않은 경우 원격 분석을 저장하고, 분석하고 표시할 수 있는 Azure에서 Application Insights 리소스를 설정해야 합니다.
+Visual Studio에서 SDK를 추가하지 않은 경우 원격 분석을 저장하고 분석하고 표시할 수 있는 Azure에서 Application Insights 리소스를 설정해야 합니다.
 
 ![새로 만들기, 개발자 서비스, Application Insights를 클릭합니다. ASP.NET 앱 유형을 선택합니다.](./media/insights-perf-analytics/01-new.png)
 
@@ -101,7 +108,7 @@ Visual Studio에서 SDK를 추가하지 않은 경우 원격 분석을 저장하
 * [서비스 상태 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * [모니터링 및 진단을 사용](insights-how-to-use-diagnostics.md)하여 서비스의 자세한 고빈도 메트릭을 수집합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
-* [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
-* 사이트가 다운된 경우 이를 알리는 [가용성 웹 테스트를 설정](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
+* [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
+* 사이트가 중단된 경우 이를 알리는 [가용성 웹 테스트를 설정](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

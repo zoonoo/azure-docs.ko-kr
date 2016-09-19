@@ -31,7 +31,7 @@
 * Android
 * iOS
 * Windows Phone
-* 범용 Windows 플랫폼 
+* 범용 Windows 플랫폼
 
 알림 허브에 대한 자세한 내용은 [다음 단계](#next) 섹션을 참조하십시오.
 
@@ -41,7 +41,7 @@ Azure 알림 허브는 모바일 장치에 푸시 알림을 보내는 사용하�
 
 ##Node.js 응용 프로그램 만들기
 
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], [Windows PowerShell을 사용한 Node.js 클라우드 서비스][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
 
 ##알림 허브를 사용하도록 응용 프로그램 구성
 
@@ -218,4 +218,4 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

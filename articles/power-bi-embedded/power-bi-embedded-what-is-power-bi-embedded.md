@@ -3,7 +3,7 @@
    description="Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Microsoft Power BI Embedded란?
 
@@ -71,4 +71,4 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure ARM
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 # Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
@@ -61,4 +61,4 @@ Weichert Realtors는 클라우드로 이동하고 있으며 비즈니스를 수�
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

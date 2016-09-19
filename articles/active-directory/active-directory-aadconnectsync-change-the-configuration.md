@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -55,7 +55,7 @@
 	- 태그: 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
 3. **범위 지정 필터** 페이지에서 **givenName ISNOTNULL**를 입력합니다. ![인바운드 규칙 범위 지정 필터](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png) 이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 이를 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
 4. **조인 규칙**에서는 이를 비워 둡니다.
-5. **변환을** 페이지에서 FlowType을 **식**으로 변경합니다. 대상 특성 **giveName**을 선택하고, 소스에서 `PCase([givenName])`을(를) 입력합니다. ![인바운드 규칙 변환](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) 동기화 엔진은 함수 이름과 특성의 이름에서 대/소문자를 구분합니다. 잘못 입력한 경우 규칙을 추가할 때 경고가 표시됩니다. 규칙을 다시 열고 수정할 수 있도록 편집기를 사용하여 저장하고 계속합니다.
+5. **변환을** 페이지에서 FlowType을 **식**으로 변경합니다. 대상 특성 **givenName**을 선택하고, 소스에서 `PCase([givenName])`을(를) 입력합니다. ![인바운드 규칙 변환](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) 동기화 엔진은 함수 이름과 특성의 이름에서 대/소문자를 구분합니다. 잘못 입력한 경우 규칙을 추가할 때 경고가 표시됩니다. 규칙을 다시 열고 수정할 수 있도록 편집기를 사용하여 저장하고 계속합니다.
 6. **추가**를 클릭하여 규칙을 저장합니다.
 
 새 사용자 지정 규칙은 시스템의 다른 동기화 규칙과 함께 표시되어야 합니다.
@@ -108,7 +108,7 @@ Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있�
 ### 다중 값을 단일 값으로 변환
 Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨터에서 단일 값으로 보이더라도 스키마에서는 다중 값입니다. 그 예는 설명 특성입니다. `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-이 식에서 특성에 값이 있는 경우 해당 특성 내 첫번째 항목(항목)에서 선행 및 후행 공백을 제거한 다음(트리밍), 문자열에 처음 448개의 문자(왼쪽)를 유지합니다.
+이 식에서 특성에 값이 있는 경우 해당 특성 내 첫 번째 항목(항목)에서 선행 및 후행 공백을 제거한 다음(트리밍), 문자열에 처음 448개의 문자(왼쪽)를 유지합니다.
 
 ### 특성을 전달하지 않습니다.
 이 섹션에 대한 시나리오의 배경은 [특성 흐름 프로세스 제어](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process)를 참조하세요.
@@ -126,12 +126,12 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 ## 다음 단계
 
-[선언적 프로비전](active-directory-aadconnectsync-understanding-declarative-provisioning.md) 및 동기화 규칙에서 사용할 수 있는 옵션에 대해 알아봅니다.
+- [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.
+- [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에서 식 언어에 대해 자세히 알아봅니다.
 
-특성 흐름에 사용되는 [선언적 프로비저닝 식](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에 대해 자세히 알아봅니다.
+**개요 항목**
 
-[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

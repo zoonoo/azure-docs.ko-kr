@@ -35,33 +35,35 @@ Azure CLI가 설치되면 [Azure 구독을 사용하여 연결](xplat-cli-connec
 
 
 
-## npm 패키지 설치
+## 옵션 1. npm 패키지 설치
 
 npm 패키지에서 CLI를 설치하려면 최신 Node.js 및 npm이 시스템에 설치되어 있어야 합니다. 그러면 다음 명령을 실행하여 Azure CLI 패키지를 설치합니다. (Linux 배포에서는 __npm__ 명령을 정상적으로 실행하기 위해 **sudo**를 사용해야 할 수도 있습니다).
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]운영 체제의 Node.js 및 npm을 설치하거나 업데이트해야 하는 경우 [Nodejs.org](https://nodejs.org/en/download/package-manager/)의 설명서를 참조하세요. 최신 Node.js LTS 버전(4.x)을 설치하는 것이 좋습니다. 이전 버전을 사용하는 경우 설치 오류가 발생할 수 있습니다.
+> [AZURE.NOTE]운영 체제의 Node.js 및 npm을 설치하거나 업데이트해야 하는 경우 [Nodejs.org](https://nodejs.org/en/download/package-manager/)의 설명서를 참조하세요. 최신 Node.js LTS 버전(4.x)을 설치하는 것이 좋습니다. 이전 버전을 사용하는 경우 설치 오류가 발생할 수 있습니다. npm에 대한 자세한 정보는 [npmjs.com](https://www.npmjs.com/)에 있습니다.
 
-## 설치 관리자 사용
+## 옵션 2. 설치 관리자 사용
 
 다음 CLI 설치 관리자 패키지를 다운로드할 수도 있습니다.
 
 
-* [OS X 설치 관리자][mac-installer]
+* [Mac OS X 설치 관리자][mac-installer]
 
 * [Windows 설치 관리자][windows-installer]
 
 * [Linux tar 파일][linux-installer](Node.js 및 npm 필요) - `sudo npm install -g <path to downloaded tar file>`를 실행하여 설치
 
 
-## Docker 컨테이너 사용
+## 옵션 3. Docker 컨테이너 사용
 
-Docker 호스트에서 다음을 실행합니다.
+Docker 호스트를 설정한 경우 Docker 컨테이너에서 Azure CLI를 실행할 수 있습니다. 다음을 실행합니다.
 
 ```
 docker run -it microsoft/azure-cli
 ```
+
+Docker에 대한 자세한 정보는 [docker.com](https://docs.docker.com/engine/understanding-docker/)에 있습니다.
 
 ## Azure CLI 명령 실행
 Azure CLI가 설치되면 명령줄 사용자 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행할 수 있습니다. 예를 들어 help 명령을 실행하려면 다음을 입력합니다.
@@ -83,7 +85,7 @@ azure --version
 
 이제 준비가 되었습니다! 사용자 고유의 리소스 작업을 수행하기 위해 모든 CLI 명령 액세스 권한을 얻으려면 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)합니다.
 
->[AZURE.NOTE] Azure CLI 버전 0.9.20 또는 그 이상을 처음 사용할 때, 사용자가 CLI를 어떻게 사용하는지에 대한 정보를 Microsoft가 수집할 수 있도록 허용할 것인지 묻는 메시지가 표시됩니다. 참여는 자발적입니다. 참여하기로 선택한 경우, `azure telemetry --disable`을 실행하여 언제든지 중지할 수 있습니다. 언제라도 참여를 활성화하려면, `azure telemetry --enable`을 실행합니다.
+>[AZURE.NOTE] Azure CLI를 처음 사용할 때, 사용자가 CLI를 어떻게 사용하는지에 대한 정보를 Microsoft가 수집할 수 있도록 허용할 것인지 묻는 메시지가 표시됩니다. 참여는 자발적입니다. 참여하기로 선택한 경우, `azure telemetry --disable`을 실행하여 언제든지 중지할 수 있습니다. 언제라도 참여를 활성화하려면, `azure telemetry --enable`을 실행합니다.
 
 
 ## CLI 업데이트
@@ -128,4 +130,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

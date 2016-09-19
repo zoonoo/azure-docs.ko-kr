@@ -17,7 +17,7 @@
  
 # Application Insights - 소개
 
-[Visual Studio Application Insights](app-insights-get-started.md)는 라이브 웹 응용 프로그램을 모니터링하는 확장 가능한 분석 서비스입니다. 이 서비스를 사용하면 성능 문제를 감지 및 진단하고 실제로 앱을 사용하여 작업하는 사용자를 이해할 수 있습니다. 개발자가 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다.
+Visual Studio Application Insights는 라이브 웹 응용 프로그램을 모니터링하는 확장 가능한 분석 서비스입니다. 이 서비스를 사용하면 성능 문제를 감지 및 진단하고 사용자가 앱에서 실제로 무슨 작업을 하는지 이해할 수 있습니다. 개발자가 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다.
 
 ![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
 
@@ -30,7 +30,7 @@
 ![앱의 Application Insights 계측 기능은 Azure 포털의 Application Insights 리소스로 원격 분석을 보냅니다.](./media/app-insights-overview/01-scheme.png)
 
 
-Application Insights에는 다양한 유형의 원격 분석 데이터(예: 요청-응답 시간, 예외, 종속성 호출)를 수집하는 여러 개의 [표준 계측 모듈](app-insights-configuration-with-applicationinsights-config.md)이 있습니다. 포털에 [사용자 지정 원격 분석을 보내는 코드를 작성](app-insights-api-custom-events-metrics.md)할 수도 있습니다.
+Application Insights에는 다양한 유형의 원격 분석(예: 요청-응답 시간, 예외, 종속성 호출)을 수집하는 여러 개의 [표준 계측 모듈](app-insights-configuration-with-applicationinsights-config.md)이 있습니다. 포털에 [사용자 지정 원격 분석을 보내는 코드를 작성](app-insights-api-custom-events-metrics.md)할 수도 있습니다.
 
 
 ### 오버헤드는 무엇입니까?
@@ -86,7 +86,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 ## 메트릭 탐색
 
-앱 실행 - 개발 컴퓨터에서 디버그 모드를 사용하거나 서버에 배포한 후 잠시 동안 사용해 봅니다. 그런 다음 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+앱 실행 - 개발 컴퓨터에서 디버그 모드를 사용하거나 서버에 배포한 후 잠시 동안 사용해 봅니다. 그런 다음 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 앱의 Application Insights 개요 블레이드로 이동합니다.
 
@@ -116,7 +116,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
     메트릭에 대해 올바른 속성을 선택해야 합니다. 그러지 않으면 차트에 데이터가 표시되지 않습니다.
 4. 차트 종류를 선택합니다. 영역형 및 가로 막대형 차트에는 집계 유형이 '합계'일 때 적합한 누적형 디스플레이가 표시됩니다.
 
-[메트릭 탐색에 대한 자세한 정보](app-insights-metrics-explorer.md)
+[메트릭 탐색에 대한 자세한 정보](app-insights-metrics-explorer.md).
 
 ## 인스턴스 데이터 검색
 
@@ -148,13 +148,13 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 자습서 창을 열어 쿼리 예제를 보고 데이터에 대해 실행해볼 수도 있고 좀 더 자세한 [자습서 연습](app-insights-analytics-tour.md) 내용을 읽어볼 수도 있습니다. Intellisense는 사용할 수 있는 쿼리를 표시합니다. 또한 [전체 언어 참조](app-insights-analytics-reference.md)를 제공합니다.
 
-쿼리는 일반적으로 요청, 예외, 종속성 등의 원격 분석 스트림 이름으로 시작합니다. 왼쪽의 스키마를 열면 사용 가능한 원격 분석 스트림 목록이 표시됩니다. 쿼리는 `where`(부울 필터) 또는 `project`(새 속성 계산)와 같은 [쿼리 작업](app-insights-analytics-reference.md#queries-and-operators) 파이프라인입니다. `summarize` [는 인스턴스를 집계](app-insights-analytics-tour.md#aggregate-groups-of-rows)하고, 사용자가 정의한 함수별로 그룹화한 다음 그룹화된 데이터에 대해 집계 함수를 적용합니다.
+쿼리는 일반적으로 요청, 예외, 종속성 등의 원격 분석 스트림 이름으로 시작합니다. 왼쪽의 스키마를 열면 사용 가능한 원격 분석 스트림 목록이 표시됩니다. 쿼리는 `where`(부울 필터) 또는 `project`(새 속성 계산)와 같은 [쿼리 작업](app-insights-analytics-reference.md#queries-and-operators) 파이프라인입니다. `summarize`[는 인스턴스를 집계](app-insights-analytics-tour.md#aggregate-groups-of-rows)하고, 사용자가 정의한 함수별로 그룹화한 다음 그룹화된 데이터에 대해 집계 함수를 적용합니다.
 
 결과는 [테이블 또는 다양한 종류의 차트로 렌더링](app-insights-analytics-tour.md#charting-the-results)될 수 있습니다.
 
 ## 사용자 지정 원격 분석
 
-Application Insights를 설치하여 얻을 수 있는 기본 제공 원격 분석을 사용하여 앱 및 종속 관계 항목(즉, SQL, REST API에 대한 앱 호출)에 대한 요청 둘 다에 대한 개수, 성공률, 응답 시간을 분석할 수 있습니다. 예외 추적 및(서버의 상태 모니터 사용) 시스템 성능 카운터도 얻을 수 있습니다. 웹 페이지에 클라이언트 조각을 추가하면 페이지 보기 수 및 로드 시간, 클라이언트 예외, AJAX 호출 성공, 응답 속도를 얻게 됩니다.
+Application Insights를 설치하여 얻을 수 있는 기본 제공 원격 분석을 사용하여 앱 및 종속 관계 항목(즉, SQL, REST API에 대한 앱 호출)에 대한 요청 둘 다에 대한 개수, 성공률, 응답 시간을 분석할 수 있습니다. 예외 추적 및 시스템 성능 카운터(서버의 상태 모니터 사용시)도 얻을 수 있습니다. 웹 페이지에 클라이언트 조각을 추가하면 페이지 보기 수 및 로드 시간, 클라이언트 예외, AJAX 호출 성공, 응답 속도를 얻게 됩니다.
 
 이러한 모든 원격 분석을 수행하면 앱의 성능 및 사용에 대한 많은 정보를 얻을 수 있습니다. 그렇지만 이것으로 충분하지 않은 경우가 있습니다. 성능을 조정할 수 있도록 큐의 길이를 모니터링하거나, 매출을 계산하고 위치별로 분할하려고 할 수도 있습니다. 클라이언트 쪽에서는 사용자 환경을 조정할 수 있도록 사용자가 특정 단추를 클릭하는 빈도를 확인하려고 할 수도 있습니다.
 
@@ -167,7 +167,7 @@ Application Insights를 설치하여 얻을 수 있는 기본 제공 원격 분�
     ...
     appInsights.trackEvent("LoseGame");
 
-그런 후 사용자 지정 이벤트 수가 차트로 만든 후 이벤트 이름별로 분할할 수 있습니다.
+그런 후 사용자 지정 이벤트 수를 차트로 만든 후 이벤트 이름별로 분할할 수 있습니다.
 
 ![분석](./media/app-insights-overview/11.png)
 
@@ -179,7 +179,7 @@ Application Insights를 설치하여 얻을 수 있는 기본 제공 원격 분�
 
 ## 대시보드
 
-많은 응용 프로그램이 웹 서비스 및 하나 이상의 백 엔드 프로세서와 같은 여러 구성 요소로 이루어져 있습니다. 각 구성 요소는 별도의 Application Insights 리소스에 의해 모니터링됩니다. 시스템이 Azure에서 실행되는 경우 이러한 이벤트 허브 및 기계 학습과 같은 서비스도 사용하고 모니터링할 수 있습니다.
+많은 응용 프로그램이 웹 서비스 및 하나 이상의 백 엔드 프로세서와 같은 여러 구성 요소로 이루어져 있습니다. 각 구성 요소는 별도의 Application Insights 리소스에 의해 모니터링됩니다. 시스템이 Azure에서 실행되는 경우 이벤트 허브 및 기계 학습과 같은 서비스도 사용하고 모니터링할 수 있습니다.
 
 전체 시스템을 모니터링하려면 다른 앱에서 가장 흥미로운 차트를 선택한 후 Azure [대시보드](app-insights-dashboards.md)에 고정하여 전체 시스템을 계속 주시할 수 있습니다.
 
@@ -260,11 +260,11 @@ Application Insights 도구 모음 단추 또는 Application Insights 검색 창
 ![추세](./media/app-insights-visual-studio/51.png)
 
 
-## 새 빌드 해제
+## 새 빌드 릴리스
 
 ### 라이브 메트릭 스트림
 
-라이브 메트릭 스트림은 거의 실시간에 가까운 1초의 대기 시간으로 응용 프로그램 메트릭을 바로 표시합니다. 이 기능은 새 빌드를 해제하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 특히 유용합니다.
+라이브 메트릭 스트림은 거의 실시간에 가까운 1초의 대기 시간으로 응용 프로그램 메트릭을 바로 표시합니다. 이 기능은 새 빌드를 릴리스하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 특히 유용합니다.
 
 ![개요 블레이드에서 라이브 스트림 클릭](./media/app-insights-metrics-explorer/live-stream.png)
 
@@ -286,7 +286,7 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 
 ### 사전 진단 
 
-[사전 진단](app-insights-nrt-proactive-diagnostics.md)**은 자동으로 설정되므로 구성할 필요가 없습니다. 사이트에 충분한 트래픽의 있는 경우, 하루 중에 특정 시간 동안 실패한 요청 수가 이상하게 증가하거나 요청 속도가 증가하는 경우 전자 메일을 받게 됩니다. 이러한 경고에는 진단 정보가 포함됩니다.
+[자동 관리 진단](app-insights-nrt-proactive-diagnostics.md)**은 자동으로 설정되므로 구성할 필요가 없습니다. 사이트에 충분한 트래픽의 있는 경우, 하루 중에 특정 시간 동안 실패한 요청 수가 이상하게 증가하거나 요청 속도가 증가하는 경우 전자 메일을 받게 됩니다. 이러한 경고에는 진단 정보가 포함됩니다.
 
 샘플 경고는 다음과 같습니다.
 
@@ -312,7 +312,7 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 
 * [연속 내보내기](app-insights-export-telemetry.md)는 표준 보존 기간보다 오랫동안 많은 원격 분석 데이터를 유지하려는 경우에 적합합니다.
 * 메트릭 또는 검색 블레이드 맨 위에 있는 [내보내기 단추](app-insights-metrics-explorer.md#export-to-excel)를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다.
-* [분석](app-insights-analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공하며 결과도 내보낼 수 있습니다.
+* [분석](app-insights-analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공하고 또한 결과를 내보낼 수 있습니다.
 * 데이터 액세스 REST API를 사용하여 데이터를 검색하고 추출할 수 있습니다. 분석 쿼리를 실행할 수 있습니다.
 * [Power BI에서 데이터를 탐색](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 
@@ -335,7 +335,7 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 * [IIS 서버](app-insights-monitor-performance-live-website-now.md)
 * [J2EE 서버](app-insights-java-live.md)
 
-다음을 사용하여 개발을 시작하세요.
+다음을 사용하여 개발 시에 시작하세요.
 
 * [ASP.NET](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
@@ -383,8 +383,7 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

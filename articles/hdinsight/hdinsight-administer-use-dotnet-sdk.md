@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # .NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -289,4 +289,4 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

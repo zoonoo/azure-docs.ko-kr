@@ -101,57 +101,17 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 개별 소비자 그룹에 대한 SAS 인증이 없는 경우, 공용 키가 있는 모든 소비자 그룹을 보호하기 위해 SAS 키를 사용할 수 있습니다. 이 방식을 통해 응용 프로그램을 사용하면 이벤트 허브의 소비자 그룹 중 하나에서 데이터를 사용할 수 있습니다.
 
-### 서비스 ID, 신뢰 당사자 및 ACS에서 규칙 만들기
-
-ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 지원하지만 이를 수행하는 가장 쉬운 방법은 [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93)을 사용하는 것입니다. 예:
-
-1. **EventHubSender**에 대한 서비스 ID를 만듭니다. 이 작업은 키로 생성된 서비스 ID의 이름을 반환합니다.
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. **EventHubSender** "보내기 클레임"을 이벤트 허브에 부여:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. 소비자 그룹 1에는 수신기에 대한 서비스 ID를 만듭니다.
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. `consumergroup1receiver` "듣기 클레임"을 **ConsumerGroup1**에 부여:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. **소비자 그룹 2**에는 수신기에 대한 서비스 ID를 만듭니다.
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. `consumergroup2receiver` "듣기 클레임"을 **ConsumerGroup2**에 부여:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## 다음 단계
 
 이벤트 허브에 대한 자세한 내용은 다음 항목을 방문하세요.
 
 - [이벤트 허브 개요]
-- [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
 - 서비스 버스 큐를 사용하는 [큐 메시징 솔루션].
+- [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
 
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -35,11 +35,11 @@ Azure에서 크기가 A8 및 A9인 가상 컴퓨터를 사용하여 MPI(Message 
 
 * **Azure CLI 스크립트** - 이 문서 뒷부분에 나오는 것처럼 [Azure CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 크기가 A8 또는 A9인 Linux VM의 클러스터 배포를 스크립팅합니다. 서비스 관리 모드의 CLI는 클래식 배포 모델에서 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 몇 분 정도 걸릴 수 있습니다. 클래식 배포 모델에서 RDMA 네트워크를 통해 연결하려면 A8 또는 A9 VM을 동일한 클라우드 서비스에 배포해야 합니다.
 
-* **Azure Resource Manager 템플릿** - Resource Manager 배포 모델을 사용하여 RDMA 네트워크를 활용하여 MPI 워크로드를 실행하는 계산 클러스터에 여러 A8 및 A9 Linux VM을 배포합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다. Resource Manager 배포 모델에서 RDMA 네트워크를 통해 연결하려면 A8 또는 A9 VM을 동일한 가용성 집합에 배포해야 합니다.
+* **Azure Resource Manager 템플릿** - Resource Manager 배포 모델을 사용하여 RDMA 네트워크에 연결되는 A8 및 A9 VM 클러스터를 배포한 다음 MPI 워크로드를 실행합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다. Resource Manager 배포 모델에서 RDMA 네트워크를 통해 연결하려면 A8 또는 A9 VM을 동일한 가용성 집합에 배포해야 합니다.
 
 ## 기존 모델에 샘플 배포
 
-다음 단계에서는 Azure CLI를 사용하여 Azure 마켓플레이스에서 SUSE Linux Enterprise Server(SLES) 12 HPC VM을 배포하고, Intel MPI Library 및 기타 사용자 지정 항목을 설치하고, 사용자 지정 VM 이미지를 만드는 방법을 설명합니다. 그런 후 이 이미지를 사용하여 A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
+다음 단계에서는 Azure CLI를 사용하여 Azure 마켓플레이스에서 SLES(SUSE Linux Enterprise Server) 12 HPC VM을 배포하고, Intel MPI Library를 설치하고, 사용자 지정 VM 이미지를 만드는 방법을 보여 줍니다. 그런 후 이 이미지를 사용하여 A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
 
 >[AZURE.TIP]  비슷한 단계를 사용하여 Azure 마켓플레이스의 CentOS 기반 6.5 또는 7.1 HPC 이미지에 따라 A8 또는 A9 VM의 클러스터를 배포합니다. 차이점은 단계에 설명되어 있습니다. 예를 들어 CentOS 기반 HPC 이미지는 Intel MPI를 포함하기 때문에 이러한 이미지에서 만든 VM에 Intel MPI를 별도로 설치할 필요가 없습니다.
 
@@ -107,7 +107,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
     >
     >마켓플레이스의 CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일을 사용할 수 없습니다. Linux RDMA 드라이버가 RPM 패키지로 배포되기 때문에 커널이 업데이트되는 경우 드라이버 업데이트가 작동하지 않을 수 있습니다.
 
-* **Linux RDMA 드라이버 업데이트** - SLES 12 HPC VM을 배포한 경우 RDMA 드라이버를 업데이트해야 합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12)를 참조하세요.
+* **Linux RDMA 드라이버 업데이트** - SLES 12 HPC VM을 배포한 경우 RDMA 드라이버를 업데이트해야 합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12)를 참조하세요.
 
 * **Intel MPI** - SLES 12 HPC VM을 배포한 경우 Intel.com 사이트에서 Intel MPI Library 5 런타임을 다운로드하여 설치합니다. 이 단계는 CentOS 기반 6.5 또는 7.1 HPC VM을 배포한 경우에는 필요하지 않습니다.
 
@@ -129,7 +129,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
     >[AZURE.NOTE]테스트를 위해 memlock을 무제한으로 설정할 수도 있습니다. 예: '<사용자 또는 그룹 이름> hard memlock unlimited
 
-* **SLES 12 VM에 대한 SSH 키** - MPI 작업을 실행하는 경우 SSH 키를 생성하여 SLES 12 HPC 클러스터의 모든 컴퓨터 노드 간에 사용자 계정에 대한 트러스트를 설정합니다. (HPC CentOS 기반 VM을 배포한 경우 단계를 수행하지 않습니다. 이미지를 캡처하고 클러스터를 배포한 후에 클러스터 노드 간에 암호 없는 SSH 트러스트를 설정하려면 문서의 뒷부분에 나오는 지침을 참조하세요.)
+* **SLES 12 VM에 대한 SSH 키** - SSH 키를 생성하여 MPI 작업을 실행할 때 SLES 12 HPC 클러스터의 계산 노드 간에 사용자 계정에 대한 신뢰를 설정합니다. (HPC CentOS 기반 VM을 배포한 경우 단계를 수행하지 않습니다. 이미지를 캡처하고 클러스터를 배포한 후에 클러스터 노드 간에 암호 없는 SSH 트러스트를 설정하려면 문서의 뒷부분에 나오는 지침을 참조하세요.)
 
     다음 명령을 실행하여 SSH 키를 만듭니다. 입력하라는 메시지가 표시되면 Enter 키를 눌러 암호를 설정하지 않고 기본 위치에 키를 생성합니다.
 
@@ -398,4 +398,4 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 
 * CentOS 기반 HPC 이미지를 사용하여 Intel Lustre 클러스터를 만들기 위해 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos)을 사용해 봅니다. 자세한 내용은 이 [블로그 게시물](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/)을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

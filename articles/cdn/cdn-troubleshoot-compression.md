@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
     
 # CDN 파일 압축 문제 해결
 
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md) 관련 문제를 해결하는 데 도움이 됩니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 클릭합니다.
 
 ## 증상
 
 끝점에 대한 압축이 활성화되어 있지만 파일이 압축되지 않은 상태로 반환됩니다.
+
+>[AZURE.TIP] 반환된 파일이 압축되었는지 확인하려면 [Fiddler](http://www.telerik.com/fiddler) 또는 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)와 같은 도구를 사용해야 합니다. 캐시된 CDN 콘텐츠와 함께 반환된 HTTP 응답 헤더를 확인하세요. 명명된 `Content-Encoding` 헤더에 **gzip**, **bzip2** 또는 **deflate** 값이 있는 경우 콘텐츠가 압축된 것입니다.
+>
+>![Content-Encoding 헤더](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 
 ## 원인
 
@@ -36,7 +40,7 @@
 
 ## 문제 해결 단계
 
-> [AZURE.TIP] 새 끝점 배포와 마찬가지로, CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다. 대부분의 경우 90분 내에 변경 내용이 적용됩니다. CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다리는 것이 좋습니다.
+> [AZURE.TIP] 새 끝점 배포와 마찬가지로, CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다. 일반적으로 변경 내용은 90분 이내에 적용됩니다. CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다리는 것이 좋습니다.
 
 ### 요청 확인
 
@@ -78,7 +82,7 @@
 
 브라우저의 개발자 도구를 사용하여, 요청되는 지역에서 파일이 캐시되는지 응답 헤더를 확인합니다.
 
-- **Server** 응답 헤더를 확인합니다. 헤더에는 **Platform (POP/Server ID)** 형식이 포함되어야 합니다(아래 예제 참조).
+- **Server** 응답 헤더를 확인합니다. 헤더에는 **Platform(POP/Server ID)** 형식이 포함되어야 합니다(다음 예제 참조).
 - **X-Cache** 응답 헤더를 확인합니다. 헤더는 **HIT**여야 합니다.
 
 ![CDN 응답 헤더](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -99,4 +103,4 @@
 - **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](https://msdn.microsoft.com/library/ms525390.aspx)
 - **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

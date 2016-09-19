@@ -97,13 +97,14 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 계산 | VM과 연결된 여러 서브넷 | 서브넷만 참조하도록 서브넷 구성을 업데이트합니다.
 계산 | 가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 컴퓨터 | VM을 삭제할 수 있습니다(선택 사항).
 계산 | 경고, 자동 크기 조정 정책이 있는 가상 컴퓨터 | 마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다.
-계산 | XML VM 확장(Visual Studio 디버거, 웹 배포 및 원격 디버깅) | 이 기능은 지원되지 않습니다. 가상 컴퓨터에서 이러한 확장을 제거하고 마이그레이션을 계속하는 것이 좋습니다.
+계산 | XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) | 이 기능은 지원되지 않습니다. 마이그레이션을 계속하려면 가상 컴퓨터에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다.
 계산 | 프리미엄 저장소를 사용한 부팅 진단 | 마이그레이션을 계속하기 전에 VM에 대한 부팅 진단 기능을 비활성화합니다. 마이그레이션이 완료된 후에 Resource Manager 스택에서 부팅 진단을 재활성화할 수 있습니다. 또한 스크린샷 및 직렬 로그에 대해 사용되는 blob은 그러한 blob에 대해 요금이 부과되지 않도록 삭제해야 합니다.
 계산 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다.
 네트워크 | 가상 컴퓨터와 웹/작업자 역할이 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
 Azure 앱 서비스 | 앱 서비스 환경이 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
 Azure HDInsight | HDInsight Services가 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
 Microsoft Dynamics Lifecycle Services | Dynamics Lifecycle Services에서 관리하는 가상 컴퓨터가 포함된 가상 네트워크 | 현재는 지원되지 않습니다.
+계산 | 온-프레미스 DNS 서버에 VPN 게이트웨이 또는 ER 게이트웨이가 있는 VNET을 포함하는 Azure Security Center 확장 | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 가상 컴퓨터에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. 게이트웨이 마이그레이션은 현재 지원되지 않으며, 마이그레이션을 커밋하기 전에 게이트웨이를 삭제해야 합니다. 게이트웨이가 삭제되면 VM 저장소 계정에 대한 인터넷 액세스가 해제됩니다. 게스트 에이전트 상태 blob을 채울 수 없어서 이 문제가 발생하는 경우에는 마이그레이션이 진행되지 않습니다. 마이그레이션을 계속하기 3시간 전에, 구독에서 Azure Security Center 정책을 사용하지 않도록 설정하는 것이 좋습니다.
 
 ## 마이그레이션 환경
 
@@ -205,7 +206,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **현재 Azure Site Recovery 또는 Azure 백업을 사용하고 있으면 어떻게 되나요?**
 
-최근 리소스 관리자에서 VM의 Azure Site Recovery 및 백업 지원이 추가되었습니다. Microsoft는 Resource Manager로 VM을 마이그레이션하는 기능을 지원하기 위해 노력하고 있습니다. 현재 해당 기능을 사용하고 있는 경우에는 마이그레이션을 t실행하지 않는 것이 좋습니다.
+백업이 설정된 가상 컴퓨터를 마이그레이션하려면 [백업 자격 증명 모음에 내 클래식 VM을 백업했습니다. 이제 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하려고 합니다. 복구 서비스 자격 증명 모음에서 백업하려면 어떻게 해야 하나요?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **내 구독 또는 리소스에서 마이그레이션이 가능한지 확인할 수 있나요?**
 
@@ -227,6 +228,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure 저장소 계정에 연결해 5분 마다 에이전트 상태를 업데이트합니다.
 
+
 ## 다음 단계
 클래식 IaaS 리소스를 Resource Manager로 마이그레이션하는 작업을 이해했으므로 리소스 마이그레이션을 시작할 수 있습니다.
 
@@ -235,4 +237,4 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 - [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

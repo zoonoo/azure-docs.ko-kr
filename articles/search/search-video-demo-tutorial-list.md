@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 #Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
@@ -45,7 +45,7 @@
 여기에는 Azure 검색에 대한 더 높은 등급의 몇 가지 자습서와 비디오가 포함됩니다.
 
 - [비디오: Microsoft Virtual Academy의 Azure 검색 소개](https://mva.microsoft.com/ko-KR/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382)는 Azure 검색을 파악할 수 있는 훌륭한 리소스입니다.
-- [비디오: AzureCon 2015: Azure 검색에 대한 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)는 웹 또는 모바일 시나리오용 앱 개발 시 확장, 성능 최적화 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언을 제공합니다. 
+- [비디오: AzureCon 2015: Azure 검색에 대한 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)는 웹 또는 모바일 시나리오용 앱 개발 시 확장, 성능 최적화 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언을 제공합니다.
 - [.NET 클라이언트 라이브러리에 대한 코드 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started)은 검색 작업에 .NET 클라이언트 라이브러리를 사용하는 ASP.NET MVC 5 응용 프로그램입니다.
 - [자습서: .NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)|Azure 검색과 통합되는 샘플 Visual Studio 웹 응용 프로그램을 구성 및 실행하는 방법입니다.
 - [자습서: 포털에서 Azure 검색 시작](search-get-started-portal.md)은 코드 작성 없이 인덱스 및 데이터를 가져오는 순수한 포털 기반의 연습입니다. 이 자습서는 포털에서 일반 작업을 수행하는 방법을 학습하는 데 유용합니다.
@@ -90,4 +90,4 @@
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

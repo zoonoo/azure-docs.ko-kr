@@ -47,7 +47,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	경로는 일반적이며, _api_와 같은 리터럴과 _{controller}_ 및 _{id}_와 같은 변수로 구성됩니다. 규칙 기반 라우팅은 경로의 일부 요소를 선택하도록 허용합니다. Web API 프레임워크는 요청에 포함된 HTTP 메서드를 API에 포함된 메서드 이름의 처음 부분과 비교한 후 선택적인 매개 변수를 부합시키는 방법으로 컨트롤러에서 호출할 메서드를 결정합니다. 예를 들어, 이름이 _orders_인 컨트롤러에 _GetAllOrders()_ 또는 _GetOrderByInt(int id)_ 메서드가 포함되면 GET 요청은 \_http://www.adventure-works.com/api/orders/_ _GetAlllOrders()_ 메서드로 직접 연결되고 GET 요청 \_http://www.adventure-works.com/api/orders/99_은(는) _GetOrderByInt(int id)_ 메서드로 라우팅됩니다. 컨트롤러에 접두사 Get으로 시작하는 부합되는 메서드가 없는 경우, Web API 프레임워크는 HTTP 405(메서드가 허용되지 않음) 메시지로 응답합니다. 또한 라우팅 테이블에 지정된 매개 변수 이름(id)이 _GetOrderById_ 메서드에 대한 매개 변수의 이름과 반드시 같아야 하며, 그렇지 않으면 Web API 프레임워크는 HTTP 404(찾을 수 없음)으로 응답합니다.
 
-	POST, PUT, 및 DELETE HTTP 요청에 동일한 규칙이 적용됩니다. order 101의 세부 정보를 업데이트 하는 PUT 요청이 URI \_http://www.adventure-works.com/api/orders/101_에 전달되고, 메시지 본문은 order에 대한 새로운 세부 정보를 포함하고, 이 정보는 orders 컨트롤러에 포함된 메서드에 _PutOrder_와 같이 이름이 접두사 _Put_으로 시작되는 매개 변수로 전달됩니다.
+	POST, PUT 및 DELETE HTTP 요청에 동일한 규칙이 적용됩니다. order 101의 세부 정보를 업데이트 하는 PUT 요청이 URI \_http://www.adventure-works.com/api/orders/101_에 전달되고, 메시지 본문은 order에 대한 새로운 세부 정보를 포함하고, 이 정보는 orders 컨트롤러에 포함된 메서드에 _PutOrder_와 같이 이름이 접두사 _Put_으로 시작되는 매개 변수로 전달됩니다.
 
 	기본 라우팅 테이블은 \_http://www.adventure-works.com/api/customers/1/orders_(customer 1에 의해 배치된 모든 orders의 세부 사항을 찾는)와 같이 RESTful Web API의 자식 리소스를 참조하는 요청과 부합하지 않습니다. 이러한 경우를 처리하려면, 라우팅 테이블에 사용자 지정 경로를 추가합니다.
 
@@ -85,7 +85,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 - **특성 기반 라우팅을 선호합니다**.
 
-	특성 기반 라우팅은 컨트롤러의 메서드에 경로를 연결하는 대체 수단을 제공합니다. 규칙 기반 라우팅의 패턴 부합 기능에 의존하기 보다는 컨트롤러의 메서드에 명시적으로 주석(연결해야 하는 경로의 세부 정보로)을 추가할 수 있습니다. 이러한 접근 방식은 잠재적인 모호성을 제거하는데 도움이 됩니다. 또한 설계를 하는 동안 명시적인 경로가 정의되기 때문에 프로그램 실행 시 규칙 기반 라우팅보다 효율적입니다. 다음 코드는 Customers 컨트롤러의 메서드에 _Route_ 특성을 적용하는 방법을 보여줍니다. 이 메서드는 _HTTP GET_ 요청에 응답해야 한다는 것을 나타내기 위해 HttpGet 특성을 사용합니다. 이 특성은 규칙 기반 라우팅에 의해 예상되는 스키마 대신, 편리한 이름 지정 스키마를 사용하여 메서드의 이름을 지정할 수 있도록 합니다. 다른 유형의 HTTP 요청에 응답하는 메서드를 정의하기 위하여 메서드에 _HttpPost_, _HttpPut_, 및 _HttpDelete_ 특성으로 주석을 달 수도 있습니다.
+	특성 기반 라우팅은 컨트롤러의 메서드에 경로를 연결하는 대체 수단을 제공합니다. 규칙 기반 라우팅의 패턴 부합 기능에 의존하기 보다는 컨트롤러의 메서드에 명시적으로 주석(연결해야 하는 경로의 세부 정보로)을 추가할 수 있습니다. 이러한 접근 방식은 잠재적인 모호성을 제거하는데 도움이 됩니다. 또한 설계를 하는 동안 명시적인 경로가 정의되기 때문에 프로그램 실행 시 규칙 기반 라우팅보다 효율적입니다. 다음 코드는 Customers 컨트롤러의 메서드에 _Route_ 특성을 적용하는 방법을 보여줍니다. 이 메서드는 _HTTP GET_ 요청에 응답해야 한다는 것을 나타내기 위해 HttpGet 특성을 사용합니다. 이 특성은 규칙 기반 라우팅에 의해 예상되는 스키마 대신, 편리한 이름 지정 스키마를 사용하여 메서드의 이름을 지정할 수 있도록 합니다. 다른 유형의 HTTP 요청에 응답하는 메서드를 정의하기 위하여 메서드에 _HttpPost_, _HttpPut_ 및 _HttpDelete_ 특성으로 주석을 달 수도 있습니다.
 
 	```C#
 	public class CustomersController : ApiController
@@ -152,7 +152,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 클라이언트 응용 프로그램의 요청이 Web API의 메서드에 성공적으로 라우팅되고 나면 해당 요청은 가급적 효율적인 방식으로 처리되어야 합니다. 요청을 처리하기 위해 코드를 구현하는 경우 다음 사항을 고려합니다.
 
-- **GET, PUT, DELETE, HEAD, 및 PATCH 작업은 멱등원이어야 합니다**.
+- **GET, PUT, DELETE, HEAD 및 PATCH 작업은 멱등원이어야 합니다**.
 
 	이러한 요청을 구현하는 코드는 파생 효과를 부과하지 말아야 합니다. 동일한 리소스에 대해 동일한 요청이 반복되면 그 결과는 동일한 상태여야 합니다. 예를 들어 동일한 URI에 DELETE 요청을 여러 개 보내면 응답 메시지의 HTTP 상태 코드는 다를 수 있지만(첫 번째 DELETE 요청은 상태 코드 204(내용 없음)를 반환하고 그 다음 DELETE 요청은 상태 코드 404(찾을 수 없음)를 반환) 효과는 동일해야 합니다.
 
@@ -162,7 +162,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	POST 요청이 새 리소스를 생성하기 위한 것이라면, 그 효과는 새 리소스(및 연계가 있는 경우에는 가급적 직접적으로 연관된 리소스)로 한정되어야 합니다. 예를 들어, 전자 상거래 시스템에서 고객을 위해 새 주문을 생성하는 POST 요청은 제고 수준을 변경하고 대금 청구 정보도 생성하지만 주문과 직접적인 관련이 없거나 시스템의 전반적인 상태에 다른 파생 효과를 미치는 정보는 수정하지 말아야 합니다.
 
-- **번잡한 POST, PUT, 및 DELETE 작업을 구현하지 않습니다**.
+- **번잡한 POST, PUT 및 DELETE 작업을 구현하지 않습니다**.
 
 	리소스 컬렉션을 통해 POST, PUT 및 DELETE 요청을 지원합니다. POST 요청은 다수의 새로운 리소스에 대한 세부 정보를 포함할 수 있으며 그 모두를 동일한 컬렉션에 추가할 수 있고, PUT 요청은 컬렉션에 포함된 전체 리소스를 바꿀 수 있고, DELETE 요청은 컬렉션 전체를 제거할 수 있습니다.
 
@@ -1074,7 +1074,7 @@ Azure API 관리 서비스는 Web API에 의해 노출되는 REST 작업을 설�
 
 - 제품이 노출하는 작업 목록, 필요한 매개 변수, 반환될 수 있는 다양한 응답 등을 을 포함하는 제품에 대한 문서. 이 정보는 [Publishing a web API by using the Microsoft Azure API Management Service](#publishing-a-web-API)(Microsoft Azure API 관리 서비스를 사용한 Web API 게시) 섹션의 3단계에 제공되는 세부 내용으로부터 생성됩니다.
 
-- JavaScript, C#, Java, Ruby, Python, 및 PHP를 비롯한 언어로부터 작업을 호출하는 방법을 보여주는 코드 조각.
+- JavaScript, C#, Java, Ruby, Python 및 PHP를 비롯한 언어로부터 작업을 호출하는 방법을 보여주는 코드 조각.
 
 - 개발자가 제품에 포함된 각각의 작업을 테스트하기 위해 HTTP 요청을 보내고 결과를 볼 수 있게 하는 개발자 콘솔.
 
@@ -1110,7 +1110,7 @@ ASP.NET Web API 템플릿(Azure 클라우드 서비스의 Web API 프로젝트 �
 
 이런 데이터를 Azure 관리 포털에서 실시간으로 볼 수 있습니다. Web API 상태를 모니터링하는 웹 테스트를 생성할 수도 있습니다. 웹 테스트는 Web API의 URI에 주기적으로 요청을 보내고 응답을 캡처합니다. 성공적인 응답의 정의(예: HTTP 상태 코드 200)를 명시할 수 있고, 요청이 이런 응답을 반환하지 않으면 관리자에게 경고를 보내도록 준비할 수 있습니다. 필요한 경우 관리자는 Web API에 오류가 발생하면 Web API를 호스팅하는 서버를 재시작할 수 있습니다.
 
-Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) 페이지에 자세한 정보가 제공되어 있습니다.
+Microsoft 웹 사이트의 [Application Insights - ASP.NET 시작](../articles/application-insights/app-insights-asp-net.md) 페이지에서는 자세한 정보를 제공합니다.
 
 ### API 관리 서비스를 통한 Web API 모니터링
 
@@ -1147,8 +1147,8 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [API 관리](https://azure.microsoft.com/services/api-management/) 페이지는 Web API에 제어 및 보안 액세스를 제공하는 제품을 게시하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)(Azure API 관리 REST API 참조) 페이지는 API 관리 REST API를 사용하여 사용자 지정 관리 응용 프로그램을 빌드하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [트래픽 관리자 라우팅 메서드](../articles/traffic-manager/traffic-manager-routing-methods.md) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
-- Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) 페이지는 ASP.NET Web API 프로젝트에서 Application Insights를 설치하고 구성하는 자세한 정보를 제공합니다.
+- Microsoft 웹 사이트의 [Application Insights - ASP.NET 시작](../articles/application-insights/app-insights-asp-net.md) 페이지에서는 ASP.NET Web API 프로젝트에서 Application Insights를 설치하고 구성하는 방법에 대한 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

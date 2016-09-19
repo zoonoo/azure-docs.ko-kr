@@ -20,9 +20,9 @@
 #Azure 알림 허브를 사용하여 보안 푸시 알림 보내기
 
 > [AZURE.SELECTOR]
-- [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows 범용](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 ##개요
 
@@ -51,7 +51,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 ## Android 프로젝트 수정
 
-푸시 알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다. 이 목표를 달성하려면 Android 앱이 푸시 알림을 받을 때 백 엔드에 인증하는 방법을 알고 있어야 합니다.
+푸시 알림의 *id*만 보내도록 앱 백 엔드를 수정했으므로 해당 알림을 처리하고 백 엔드를 콜백하여 표시할 보안 메시지를 검색하도록 Android 앱을 변경해야 합니다. 이렇게 하기 위해서는 Android 앱이 푸시 알림을 받을 때 스스로를 백 엔드에 인증하는 방법을 알고 있는지 확인해야 합니다.
 
 이제 앱의 공유 기본 설정에서 인증 헤더 값을 저장하기 위해 *로그인* 흐름을 수정합니다. 유사 메커니즘을 사용하여 사용자 앱에서 자격 증명 없이 사용해야 하는 인증 토큰(예: OAuth 토큰)을 저장할 수 있습니다.
 
@@ -134,4 +134,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 4. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

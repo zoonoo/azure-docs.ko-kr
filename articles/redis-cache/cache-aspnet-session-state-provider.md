@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/12/2016"
+	ms.date="09/01/2016"
 	ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
@@ -65,7 +65,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 -	**포트** – ssl 설정에 따라 비-SSL 포트 또는 SSL 포트를 사용합니다.
 -	**선택키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
 -	**ssl** – ssl로 캐시/클라이언트 통신을 보호하려는 경우 true가 되고, 그 외의 경우 false입니다. 올바른 포트를 지정해야 합니다.
-	-	비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용하여 설정에 대한 true를 지정합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 항목의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요
+	-	비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용하여 설정에 대한 true를 지정합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요
 -	**throwOnError** – 실패한 이벤트에서 예외를 throw하려면 true이고 작업을 자동으로 실패하게 하려면 false입니다. 정적 Microsoft.Web.Redis.RedisSessionStateProvider.LastException 속성을 확인하여 오류를 확인할 수 있습니다. 기본값은 true입니다.
 -	**retryTimeoutInMilliseconds** – 이 간격 동안 실패한 작업이 다시 시도되며 밀리초 단위로 지정됩니다. 처음 다시 시도는 20밀리초 후에 발생하고 다시 시도는 retryTimeoutInMilliseconds 간격이 만료될 때까지 매초 마다 발생합니다. 이 간격 후에 즉시 최종적으로 한 번 작업을 다시 시도합니다. 작업이 계속 실패하면 throwOnError 설정에 따라 호출자에게 예외가 다시 throw됩니다. 기본값은 다시 시도하지 않는다는 의미의 0입니다.
 -	**databaseId** – 캐시 출력 데이터에 사용할 데이터베이스를 지정합니다. 지정하지 않으면 기본값 0이 사용됩니다.
@@ -98,7 +98,7 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 - SQL Server 세션 상태 제공자 - 이 공급자는 SQL Server에 세션 상태를 저장합니다. 영구 저장소에 세션 상태를 유지하려는 경우 이 공급자를 사용해야 합니다. 웹앱의 크기를 조정할 수 있지만 세션에 SQL Server를 사용하면 웹앱의 성능에 영향을 줍니다.
 
-- Redis Cache 세션 상태 제공자와 같은 배포된 메모리 내 세션 상태 제공자 - 이 공급자는 두 분야의 모든 장점을 제공합니다. 웹앱에는 빠르고 간단하며 확장성 있는 세션 상태 제공자가 있을 수 있습니다. 그러나 일시적인 네트워크 오류와 같은 분산된 메모리 내 캐시와 통신할 때 이 공급자가 캐시에 세션 상태를 저장하고 앱이 관련된 모든 특성을 고려한다는 점을 염두해야 합니다. 캐시 사용의 모범 사례는 Microsoft Patterns & Practices [Azure 클라우드 응용 프로그램 설계 및 구현 지침](https://github.com/mspnp/azure-guidance)에서 [캐싱 지침](https://github.com/mspnp/azure-guidance/blob/master/Caching.md)을 참조하세요.
+- Redis Cache 세션 상태 제공자와 같은 배포된 메모리 내 세션 상태 제공자 - 이 공급자는 두 분야의 모든 장점을 제공합니다. 웹앱에는 빠르고 간단하며 확장성 있는 세션 상태 제공자가 있을 수 있습니다. 그러나 일시적인 네트워크 오류와 같은 분산된 메모리 내 캐시와 통신할 때 이 공급자가 캐시에 세션 상태를 저장하고 앱이 관련된 모든 특성을 고려한다는 점을 염두해야 합니다. 캐시 사용의 모범 사례는 Microsoft Patterns & Practices [Azure 클라우드 응용 프로그램 설계 및 구현 지침](https://github.com/mspnp/azure-guidance)에서 [캐싱 지침](../best-practices-caching.md)을 참조하세요.
 
 세션 상태 및 기타 모범 사례에 대한 자세한 내용은 [웹 개발 모범 사례(Azure를 사용하는 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)를 참조하세요.
 
@@ -106,4 +106,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 제공자](cache-aspnet-output-cache-provider.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

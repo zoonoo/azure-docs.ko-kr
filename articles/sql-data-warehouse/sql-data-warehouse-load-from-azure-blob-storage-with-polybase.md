@@ -3,7 +3,7 @@
    description="PolyBase를 사용하여 Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드하는 방법을 알아봅니다. 몇 개의 테이블을 공용 데이터에서 Contoso 소매 데이터 웨어하우스 스키마로 로드합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/25/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드합니다(PolyBase).
@@ -390,4 +390,4 @@ GROUP BY p.[BrandName]
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [전체 Contoso 소매 데이터 웨어하우스 로드하기]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -3,7 +3,7 @@
    description="Power BI Embedded에서 인증 및 권한 부여"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/26/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Power BI Embedded에서 인증 및 권한 부여
 
@@ -93,4 +93,4 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 - [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

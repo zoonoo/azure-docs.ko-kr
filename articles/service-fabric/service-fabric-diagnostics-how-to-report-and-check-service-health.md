@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/07/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 # 서비스 상태 보고 및 확인
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## 다음 단계
 [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

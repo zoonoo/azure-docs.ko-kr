@@ -75,10 +75,10 @@ Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 �
 
 ###<a name="data-object"></a>클라이언트 데이터 클래스 정의
 
-SQL Azure 테이블에서 데이터에 액세스하려면 모바일 앱 백 엔드에 있는 테이블에 해당하는 클라이언트 데이터 클래스를 정의합니다. 이 토픽의 예에서는 이름이 *ToDoItem*이고 다음 열이 포함된 테이블을 가정합니다.
+SQL Azure 테이블에서 데이터에 액세스하려면 모바일 앱 백 엔드에 있는 테이블에 해당하는 클라이언트 데이터 클래스를 정의합니다. 이 항목의 예에서는 이름이 *ToDoItem*이고 다음 열이 포함된 테이블을 가정합니다.
 
 - id
-- text
+- 텍스트
 - complete
 
 해당하는 형식화된 클라이언트 쪽 개체는 다음과 같습니다.
@@ -678,7 +678,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 ## 방법: 앱에 푸시 알림 추가
 
-Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽을](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) 수 있습니다.
+Microsoft Azure Notification Hubs가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽을](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) 수 있습니다.
 
 [이 자습서](app-service-mobile-android-get-started-push.md)에서 레코드가 삽입될 때 마다 푸시 알림이 전송됩니다.
 
@@ -836,4 +836,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [Azure 포털]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -40,7 +40,7 @@ Windows 8 및 Windows 8.1에서는 설정 동기화에 항상 소비자 Microsof
 
 기본 계정이란 Windows에 로그인하는 데 사용되는 계정으로, Microsoft 계정, Azure Active Directory(Azure AD) 계정, 온-프레미스 Active Directory 계정 또는 로컬 계정일 수 있습니다. 기본 계정 외에도 Windows 10 사용자는 장치에 하나 이상의 보조 클라우드 계정을 추가할 수 있습니다. 보조 계정은 일반적으로 Microsoft 계정, Azure AD 계정 또는 Gmail이나 Facebook과 같은 기타 계정입니다. 이러한 보조 계정은 Single Sign-On, Windows 스토어 등의 추가 서비스에 대한 액세스를 제공하지만 설정 동기화는 지원하지 않습니다.
 
-Windows 10에서 설정 동기화에는 장치에 대한 기본 계정만을 사용할 수 있습니다 ([Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?](active-directory-windows-enterprise-state-roaming-faqs.md#How-do-I-upgrade-from-Microsoft-account-settings-sync-in-Windows-8-to-Azure-AD-settings-sync-in Windows-10?)를 참조).
+Windows 10에서 설정 동기화에는 장치에 대한 기본 계정만을 사용할 수 있습니다([Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?]를 참조(active-directory-windows-enterprise-state-roaming-faqs.md#How-do-I-upgrade-from-Microsoft-account-settings-sync-in-Windows-8-to-Azure-AD-settings-sync-in Windows-10?)).
 
 데이터는 장치의 서로 다른 사용자 계정 간에 절대로 혼합되지 않습니다. 설정 동기화에는 두 가지 규칙이 있습니다.
 
@@ -122,6 +122,7 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 
 - 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 장치에 로그인하려고 하면 설정 동기화가 중지됩니다. 이 문제는 추후에 있을 Windows 10 업데이트에서 해결될 것입니다.
 - 작업에 동기화된 Internet Explorer 즐겨찾기용 Windows 10에 대한 7월 누적 업데이트가 필요합니다(10586.494 빌드 이상).
+- Windows Information Protection으로 보호된 데이터는 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다. 또한 Windows Information Protection이 활성화된 컴퓨터는 테마 동기화가 발생하지 않습니다.
 - 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다.
     - Azure Active Directory 포털에서 [Multi-Factor Authentication](multi-factor-authentication.md)을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
     - 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
@@ -135,4 +136,4 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 - [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

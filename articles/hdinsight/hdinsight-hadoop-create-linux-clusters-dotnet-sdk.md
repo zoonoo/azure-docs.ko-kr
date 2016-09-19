@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="09/02/2016"
    	ms.author="jgao"/>
 
 #.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -42,7 +42,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
     |속성|값|
     |--------|-----|
-    |템플릿|템플릿/시각화 개체 C#/Windows/콘솔 응용 프로그램|
+    |Template|템플릿/시각화 개체 C#/Windows/콘솔 응용 프로그램|
     |이름|CreateHDICluster|
 
 5. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
@@ -394,4 +394,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 - [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

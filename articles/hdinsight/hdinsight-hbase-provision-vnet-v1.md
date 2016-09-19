@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Azure 가상 네트워크에 HBase 클러스터 프로비전
@@ -106,7 +106,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 8. 저장소 계정 이름 및 기본 액세스 키(또는 보조 액세스 키 - 두 키 중 하나가 작동)를 기록해 둡니다. 이 정보는 자습서의 뒷부분에서 필요합니다.
 9. 페이지 맨 위에서 **컨테이너**를 클릭합니다.
 10. 페이지 맨 아래에서 **추가**를 클릭합니다.
-11. 컨테이너 이름을 입력합니다. 이 컨테이너는 HBase 클러스터의 기본 컨테이너로 사용됩니다. 기본적으로 기본 컨테이너 이름은 클러스터 이름과 일치합니다. **액세스** 필드를 **비공개**로 유지합니다.  
+11. 컨테이너 이름을 입력합니다. 이 컨테이너는 HBase 클러스터의 기본 컨테이너로 사용됩니다. 기본적으로 기본 컨테이너 이름은 클러스터 이름과 일치합니다. **액세스** 필드를 **비공개**로 유지합니다.
 12. 확인 표시를 클릭하여 컨테이너를 만듭니다.
 
 **Azure 클래식 포털을 사용하여 HBase 클러스터를 프로비전하려면**
@@ -436,4 +436,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

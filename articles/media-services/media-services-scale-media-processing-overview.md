@@ -57,7 +57,14 @@
 
 ##다음 단계
 
-[Azure 포털을 사용하여 미디어 처리 크기 조정](media-services-portal-scale-media-processing.md)
+다음 기술 중 하나를 사용하여 미디어 처리 크기 조정 작업을 수행합니다.
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [포털](media-services-portal-scale-media-processing.md)
+- [REST (영문)](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##미디어 서비스 학습 경로
 
@@ -67,4 +74,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

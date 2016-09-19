@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />
 
 # 점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
 
@@ -55,7 +55,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs)에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview.md#SearchDocs)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#example)를 클릭하세요.
 
@@ -175,13 +175,13 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
   - 함수 유형(freshness, magnitude, distance, tag)은 소문자여야 합니다.
   - 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.
-  - 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기](search-api-2015-02-28/#createindex)를 참조하세요.
+  - 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기](search-api-2015-02-28.md#createindex)를 참조하세요.
   - 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.
 
-인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기](search-api-2015-02-28-preview/#createindex) 및 [문서 추가, 업데이트 또는 삭제](search-api-2015-02-28-preview/#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
+인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기](search-api-2015-02-28-preview.md#createindex) 및 [문서 추가, 업데이트 또는 삭제](search-api-2015-02-28-preview.md#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
 
 <a name="bkmk_template"></a>
-## 템플릿
+## Template
 이 섹션에서는 점수 매기기 프로필의 구문과 템플릿에 대해 설명합니다. 특성 설명은 다음 섹션의 [인덱스 특성 참조](#bkmk_indexref)를 참조하세요.
 
     ...
@@ -256,10 +256,10 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 | `freshness` | freshness 점수 매기기 함수는 DateTimeOffset 필드의 값을 기준으로 항목의 순위 점수를 변경하는 데 사용됩니다. 예를 들어 보다 최근 날짜의 항목에 오래된 날짜의 항목보다 더 높은 순위를 지정할 수 있습니다. (참고로 현재 날짜에 더 가까운 항목 같은 미래 날짜를 가진 일정 이벤트 등의 항목을 더 먼 미래의 항목보다 높게 순위를 설정할 수 있습니다.) 현재 서비스 릴리스에서는 범위의 한쪽 끝이 현재 시간으로 고정됩니다. 반대쪽은 `boostingDuration`을(를) 기반으로 하는 과거의 시간입니다. 나중에 시간 범위를 늘리려면 음수 `boostingDuration`을(를) 사용합니다. 상승 기준이 최대 범위에서 최소 범위로 변경되는 비율은 점수 매기기 프로필에 적용되는 보간을 통해 결정됩니다(아래 그림 참조). 적용된 상승 계수의 방향을 바꾸려면 1보다 작은 상승 계수를 선택합니다. |
 | `freshness:boostingDuration` | 특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정][#bkmk\_boostdur]을 참조하세요. |
 | `distance` | distance 점수 매기기 함수는 참조 지리적 위치와의 거리를 기준으로 문서 점수를 변경하는 데 사용됩니다. 참조 위치는 매개 변수에서 쿼리의 일부로 lon, lat 인수로 제공됩니다(`scoringParameter` 쿼리 매개 변수 사용). |
-| `distance:referencePointParameter` | 참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview/#SearchDocs)을 참조하세요. |
+| `distance:referencePointParameter` | 참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview.md#SearchDocs)을 참조하세요. |
 | `distance:boostingDistance` | 참조 위치로부터 상승 범위가 종료되는 거리(km)를 설정합니다. |
 | `tag` | tag 점수 매기기 함수는 문서 및 검색 쿼리의 태그를 기반으로 문서 점수에 영향을 주는 데 사용됩니다. 검색 쿼리와 공통적인 태그가 있는 문서가 상승됩니다. 검색 쿼리에 대한 태그는 각 검색 요청에서 점수 매기기 매개 변수로 제공됩니다(`scoringParameter` 쿼리 매개 변수 사용). |
-| `tag:tagsParameter` | 특정 요청에 대한 태그를 지정하도록 쿼리에 전달할 매개 변수입니다. `scoringParameter`은(는) 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview/#SearchDocs)을 참조하세요. |
+| `tag:tagsParameter` | 특정 요청에 대한 태그를 지정하도록 쿼리에 전달할 매개 변수입니다. `scoringParameter`은(는) 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview.md#SearchDocs)을 참조하세요. |
 | `functionAggregation` | 선택 사항입니다. 함수를 지정할 때만 적용됩니다. 유효한 값은 `sum`(기본값), `average`, `minimum`, `maximum` 또는 `firstMatching`입니다. 검색 점수는 여러 함수를 비롯한 여러 변수에서 계산되는 단일 값입니다. 이 특성은 모든 함수의 상승이 단일 집계 상승으로 결합된 다음 기본 문서 점수에 적용되는 방식을 나타냅니다. 기본 점수는 문서 및 검색 쿼리에서 계산되는 tf-idf 값을 기준으로 합니다. |
 | `defaultScoringProfile` | 검색 요청을 실행할 때 점수 매기기 프로필이 지정되어 있지 않으면 기본 점수 매기기(tf-idf만)가 사용됩니다. 여기서 기본 점수 매기기 프로필 이름을 설정할 수 있으며 그러는 경우 Azure 검색은 검색 요청에 특정 프로필이 지정되어 있지 않으면 해당 프로필을 사용합니다. |
 
@@ -280,7 +280,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 `boostingDuration`은 freshness 함수의 특성입니다. 이 특성을 사용하여 특정 문서에 대해 상승이 중지되는 만료 기간을 설정합니다. 예를 들어 프로모션 기간 10일 동안 특정 제품 라인이나 브랜드를 상승시키려는 경우 해당 문서에 대해 10일의 기간을 "P10D"로 지정합니다. 또는 다음 주에 예정된 이벤트를 더 중요시하려면 "-P7D"를 지정합니다.
 
-`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 해당 패턴은 `][-]P\[nD]\[T\[nH]\[nM]\[nS]\]]`입니다.
+`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 해당 패턴은 `[-]P[nD][T[nH][nM][nS]]`입니다.
 
 다음 표에 여러 예제가 나와 있습니다.
 
@@ -298,4 +298,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -64,14 +64,14 @@
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **get\_messages** 메서드를 사용하여 한 번 호출에 16개의 메시지를 가져옵니다. 그런 다음에 for 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
 
 	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)		
 
 
 ## 대기 중인 메시지의 콘텐츠 변경 방법
@@ -80,7 +80,7 @@
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
-		queue_service.update_message('taskqueue', message.message_id, message.pop_receipt, 0, u'Hello World Again')
+		queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 
 ## 방법: 큐 길이 가져오기
 
@@ -107,4 +107,4 @@
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

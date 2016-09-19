@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -46,7 +46,6 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
 * 프로젝트에 Application Insights SDK 추가:
  * [ASP.NET 프로젝트][greenbrown]
- * [Windows 프로젝트][windows]
  * [Java 프로젝트][java]
  * [각 웹 페이지의 JavaScript][client]
 
@@ -276,7 +275,6 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
 * ASP.NET: [예외를 catch하는 코드 작성](app-insights-asp-net-exceptions.md)
 * J2EE: [예외가 자동으로 catch됨](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Windows 앱: [충돌이 자동으로 catch됨](app-insights-windows-crashes.md)
 * JavaScript: 자동으로 catch됨 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
     ```
@@ -353,7 +351,7 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-services.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
+함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-api-filtering-sampling.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
 
 
 ## 인증된 사용자
@@ -517,7 +515,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
     telemetry.TrackEvent(event);
 
-> [AZURE.WARNING] Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 마세요. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
+> [AZURE.WARNING] Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 않습니다. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
 
 ## 작업 컨텍스트
 
@@ -747,17 +745,16 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 * [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Windows Server 패키지](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [모든 플랫폼](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## 질문
 
 * *Track\_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
     
-    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에서 볼 수 있는 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
+    없음. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에서 볼 수 있는 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 
 
 
@@ -788,8 +785,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

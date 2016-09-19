@@ -270,7 +270,7 @@ IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단�
 
 ####푸시 알림을 전송하도록 Azure 구성
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -381,9 +381,9 @@ SDK 사용 방법을 알아봅니다.
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
-[알림 허브]: ../notification-hubs/notification-hubs-overview.md
+[알림 허브]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -18,7 +18,7 @@
 
 # IoT Hub 보안 토큰 및 X.509 인증서 사용
 
-IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보안 토큰을 사용하여 장치 및 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Hub SDK][lnk-apis-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 그러나 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 여기에는 [IoT Hub 지침][lnk-guidance-security]에 설명된 대로 AMQP, MQTT 또는 HTTP 표면의 직접 사용 또는 토큰 서비스 패턴의 구현이 포함됩니다.
+IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보안 토큰을 사용하여 장치 및 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Hub SDK][lnk-apis-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 그러나 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 여기에는 [IoT Hub 지침][lnk-guidance-security]에 설명된 대로 MQTT, AMQP 또는 HTTP 표면의 직접 사용 또는 토큰 서비스 패턴의 구현이 포함됩니다.
 
 또한 IoT Hub를 사용하면 장치가 X.509 인증서를 통해 IoT Hub에서 인증될 수 있습니다. IoT Hub는 AMQP, Websocket 통한 AMQP 및 HTTP 프로토콜을 사용한 장치에 대한 X.509 기반 인증을 지원합니다.
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

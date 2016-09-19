@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="09/06/2016"
 	ms.author="cephalin;dariac"/>
     
 # Azure 앱 서비스에 앱 배포
@@ -234,4 +234,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 앱 서비스 배포에 
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

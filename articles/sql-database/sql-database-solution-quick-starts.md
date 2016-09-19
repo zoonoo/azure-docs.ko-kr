@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스 솔루션 빠른 시작 탐색
@@ -71,4 +71,4 @@ Code First를 사용하면 C# 또는 Visual Basic .NET 클래스를 사용하여
 
 [Azure SQL 데이터베이스 자습서 탐색](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

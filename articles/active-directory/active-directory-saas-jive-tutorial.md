@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -129,7 +129,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. Jive 테넌트에 관리자 권한으로 로그온합니다.
@@ -146,7 +146,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 	![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
 
-	a. 다운로드한 메타데이터 XML 파일의 내용을 복사한 다음 **IDP(ID 공급자) 메타데이터** 텍스트 상자에 붙여넣습니다.
+	a. 다운로드한 메타데이터 XML 파일의 내용을 복사한 다음 **IDP(ID 공급자) 메타데이터** 텍스트 상자에 붙여 넣습니다.
 
 	b. "**모든 SAML 설정 저장**" 단추를 클릭합니다.
 
@@ -154,11 +154,11 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 	![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
 
-	a. **전자 메일** 텍스트 상자에서 **mail** 값의 특성 이름을 복사한 후 붙여넣습니다.
+	a. **전자 메일** 텍스트 상자에서 **mail** 값의 특성 이름을 복사한 후 붙여 넣습니다.
 
-	b. **이름** 텍스트 상자에서 **givenname** 값의 특성 이름을 복사한 후 붙여넣습니다.
+	b. **이름** 텍스트 상자에서 **givenname** 값의 특성 이름을 복사한 후 붙여 넣습니다.
 
-	c. **성** 텍스트 상자에서 **surname** 값의 특성 이름을 복사한 후 붙여넣습니다.
+	c. **성** 텍스트 상자에서 **surname** 값의 특성 이름을 복사한 후 붙여 넣습니다.
 	
 9. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. ![Azure AD Single Sign-On][10]
 
@@ -193,7 +193,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png)
 
@@ -205,7 +205,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -234,7 +234,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 ![사용자 프로비저닝 구성](./media/active-directory-saas-jive-tutorial/IC698794.png "사용자 프로비저닝 구성")
 
-####사용자 프로비저닝을 구성하려면 다음 단계를 수행합니다.
+####사용자 프로비저닝을 구성하려면
 
 1.  Azure 관리 포털의 **Jive** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
 
@@ -317,4 +317,4 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-jive-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-jive-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -44,7 +44,7 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 
 다음 단계는 복구 서비스 자격 증명 모음을 만드는 과정을 안내합니다. 복구 서비스 자격 증명 모음은 백업 자격 증명 모음과 다릅니다.
 
-1. 처음으로 Azure 백업을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure 복구 서비스 공급자를 등록해야 합니다.
+1. 처음으로 Azure Backup을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -115,16 +115,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
-| /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
-| /ph | 프록시 호스트 주소 | - |
-| /po | 프록시 호스트 포트 번호 | - |
-| /pu | 프록시 호스트 사용자 이름 | - |
-| /pw | 프록시 암호 | - |
+| /q | 무인 설치 | - | | /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Opt-in to Microsoft Update | - | | /nu | 설치 완료 후 업데이트 확인 안 함 | - | | /d | Microsoft Azure 복구 서비스 에이전트 제거 | - | | /ph | 프록시 호스트 주소 | - | | /po | 프록시 호스트 포트 번호 | - | | /pu | 프록시 호스트 사용자 이름 | - | | /pw | 프록시 암호 | - |
 
 
 ## 복구 서비스 자격 증명 모음에 Windows Server 또는 Windows 클라이언트 컴퓨터 등록
@@ -627,4 +618,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Windows 서버 백업](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->
