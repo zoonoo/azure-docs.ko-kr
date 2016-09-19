@@ -60,7 +60,7 @@ Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스
   5.  제공된 상자에 모바일 서비스의 이름을 입력합니다. 예를 들어 도메인 이름이 contoso.azure mobile.net이면 제공된 상자에 _contoso_를 입력합니다.
   6.  눈금 단추를 클릭합니다.
 
-작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션*으로 나열됩니다.
+작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션* 으로 나열됩니다.
 
   ![마이그레이션 작업 모니터링][1]
 
@@ -255,7 +255,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 
 자세한 내용은 [알림 허브] 설명서를 검토합니다.
 
-> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+> [AZURE.TIP] "[Azure 포털]"의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
 
 ### <a name="legacy-push"></a>레거시 푸시 설정
 
@@ -381,17 +381,17 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[앱 서비스 가격]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 가격]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service-web/web-sites-scale.md
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
-[Azure 지역]: https://azure.microsoft.com/ko-KR/regions/
+[Azure 지역]: https://azure.microsoft.com/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service-web/app-service-continuous-deployment.md
-[혼합 네임스페이스를 변환]: https://azure.microsoft.com/ko-KR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler

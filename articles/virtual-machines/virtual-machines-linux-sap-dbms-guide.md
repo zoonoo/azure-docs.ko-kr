@@ -539,7 +539,8 @@ VM을 롤아웃하려는 경우 다음과 같이 구성해야 합니다.
 DBMS 배포의 고가용성 구성을 생성하려는 경우(사용된 개별 DBMS HA 기능과 별개로) DBMS VM에 대해 다음을 수행해야 합니다.
 
 * 동일한 Azure 가상 네트워크에 VM을 추가합니다(<https://azure.microsoft.com/documentation/services/virtual-network/>).
-* HA 구성의 VM은 동일한 서브넷에 있어야 합니다. 클라우드 전용 배포에서 서로 다른 서브넷 간의 이름 확인은 불가능하며 IP 확인만 가능합니다. 프레미스 간 배포에 대한 Express 경로 또는 사이트 간 연결을 사용하여 하나 이상의 서브넷이 있는 네트워크가 이미 구성되어 있습니다. 이름 확인은 온-프레미스 AD 정책 및 네트워크 인프라에 따라 수행됩니다. [설명]: <>(ARM에서 여전히 True인 경우 MSSedusch TODO 테스트)
+* HA 구성의 VM은 동일한 서브넷에 있어야 합니다. 클라우드 전용 배포에서 서로 다른 서브넷 간의 이름 확인은 불가능하며 IP 확인만 가능합니다. 프레미스 간 배포에 대한 Express 경로 또는 사이트 간 연결을 사용하여 하나 이상의 서브넷이 있는 네트워크가 이미 구성되어 있습니다. 이름 확인은 온-프레미스 AD 정책 및 네트워크 인프라에 따라 수행됩니다.
+[설명]: <> (ARM에서 여전히 True인 경우 MSSedusch TODO 테스트)
 
 #### IP 주소
 복구 가능한 방법으로 HA 구성을 위한 VM을 설정하는 것이 좋습니다. IP 주소를 사용하여 HA 구성 내에서 HA 파트너를 확인하는 것은 Azure에서 고정 IP 주소를 사용하지 않는 한 안정적이지 않습니다. Azure에는 두 가지 "종료" 개념이 있습니다.
@@ -617,14 +618,15 @@ Azure에 업로드하기 전에 데이터베이스 압축을 수행하는 이유
 SQL Server 2014에서는 VHD '래퍼' 없이 Azure Blob 저장소에 직접 데이터베이스 파일을 저장할 수 있습니다. 특히 표준 Azure 저장소 또는 더 작은 VM 유형을 사용할 경우 일부 더 작은 VM 유형에 탑재할 수 있는 VHD 수를 제한하여 IOPS 제한을 극복할 수 있습니다. 이 방법은 사용자 데이터베이스에는 적용되지만 SQL Server의 시스템 데이터베이스에는 사용할 수 없습니다. SQL Server의 데이터 및 로그 파일에도 사용할 수 있습니다. VHD로 '래핑'하지 않고 이 방법으로 SAP SQL Server 데이터베이스를 배포하려는 경우 다음 사항에 유의하세요.
 
 * 사용된 저장소 계정이 SQL Server가 실행 중인 VM을 배포하는 데 사용된 것과 동일한 Azure 지역에 있어야 합니다.
-* 앞 부분에서 설명한 여러 Azure 저장소 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure 저장소 계정의 제한에 대한 I/O 작업 수를 의미합니다. [설명]: <> (MSSedusch TODO 하지만 네트워크 대역폭을 사용하고 저장소 대역폭을 사용하지 않습니다. 그렇죠?)
+* 앞 부분에서 설명한 여러 Azure 저장소 계정에 VHD 분산과 관련된 고려 사항이 이 배포 방법에도 적용됩니다. Azure 저장소 계정의 제한에 대한 I/O 작업 수를 의미합니다.
+[설명]: <> (MSSedusch TODO 하지만 네트워크 대역폭을 사용하고 저장소 대역폭을 사용하지 않습니다. 그렇죠?)
 
 이 배포 형식에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn385720.aspx>를 참조하세요.
  
 SQL Server 데이터 파일을 Azure 프리미엄 저장소에 직접 저장하려면 최소 <https://support.microsoft.com/kb/3063054>에서 설명한 SQL Server 2014 패치 릴리스가 필요합니다. Azure 표준 저장소에 SQL Server 데이터 파일을 저장하는 작업은 SQL Server 2014의 릴리스 버전에서 사용할 수 있습니다. 그러나 해당 패치에는 SQL Server 데이터 파일 및 백업을 위한 Azure Blob 저장소의 직접 사용을 더 안정적으로 만드는 수정 사항과 다른 시리즈의 수정 사항이 포함되어 있습니다. 따라서 일반적으로 이러한 패치를 사용하는 것이 좋습니다.
 
 ### SQL Server 2014 버퍼 풀 확장
-SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되었습니다. 이 기능은 메모리에 저장된 SQL Server의 버퍼 풀과 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 확장합니다. 따라서 '메모리 내'에서 더 큰 데이터 작업 집합을 유지할 수 있습니다. Azure 표준 저장소 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. 따라서 뛰어난 IOPS 및 처리량을 갖는 VM 유형의 로컬 D:\\ 드라이브를 활용할 경우 Azure 저장소에 대한 IOPS 부하를 줄이고 쿼리 응답 시간을 크게 향상시킬 수 있습니다. 이 이점은 프리미엄 저장소를 사용하지 않는 경우에 특히 적용됩니다. 프리미엄 저장소와 계산 노드에서 프리미엄 Azure 읽기 캐시를 사용하는 경우 데이터 파일에 대해 권장된 것처럼 큰 차이가 없습니다. 그 이유는 두 캐시(SQL Server 버퍼 풀 확장 및 프리미엄 저장소 읽기 캐시)가 계산 노드의 로컬 디스크를 사용하기 때문입니다. 이 기능에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn133176.aspx> 문서를 참조하세요.
+SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되었습니다. 이 기능은 메모리에 저장된 SQL Server의 버퍼 풀과 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 확장합니다. 따라서 '메모리 내'에서 더 큰 데이터 작업 집합을 유지할 수 있습니다. Azure 표준 저장소 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다. 따라서 뛰어난 IOPS 및 처리량을 갖는 VM 유형의 로컬 D:\\ 드라이브를 활용할 경우 Azure 저장소에 대한 IOPS 부하를 줄이고 쿼리 응답 시간을 크게 향상시킬 수 있습니다. 이 이점은 프리미엄 저장소를 사용하지 않는 경우에 특히 적용됩니다. 프리미엄 저장소와 계산 노드에서 프리미엄 Azure 읽기 캐시를 사용하는 경우 데이터 파일에 대해 권장된 것처럼 큰 차이가 없습니다. 그 이유는 두 캐시(SQL Server 버퍼 풀 확장 및 프리미엄 저장소 읽기 캐시)가 계산 노드의 로컬 디스크를 사용하기 때문입니다. 이 기능에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn133176.aspx> 문서를 참조 하세요.
 
 ### SQL Server에 대한 백업/복구 고려 사항
 Azure에 SQL Server를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SQL Server에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure 저장소에는 이제 세 개의 이미지가 있으므로 저장소 작동 중단을 보완하는 측면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복구 계획 유지 관리가 중요한 이유는 특정 시점 복구 기능을 제공하여 논리/수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 다시 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 예를 들어 백업을 복구하여 2계층 SAP 구성을 동일한 시스템의 3계층 시스템 설정으로 전송할 수 있습니다.
@@ -758,14 +760,25 @@ AlwaysOn은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688] �
 
 * 가용성 그룹 수신기는 Windows Server 2012 또는 Windows Server 2012 R2를 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되고 있는지 확인해야 합니다.
 * Windows Server 2008 R2의 경우 이 패치가 없고 연결 문자열에서 장애 조치(failover) 파트너를 지정하여 데이터베이스 미러링과 같은 방법으로 AlwaysOn을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908] 참조).
-* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\\host 파일을 유지 관리해야 합니다. 두 VM이 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않게 하려면 AlwaysOn 구성에서 이러한 VM의 네트워크 인터페이스에 대해 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명합니다.) [설명]: <> (이전 블로그) [설명]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\\host 파일을 유지 관리해야 합니다. 두 VM이 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않게 하려면 AlwaysOn 구성에서 이러한 VM의 네트워크 인터페이스에 대해 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명합니다.)
+[설명]: <> (이전 블로그)
+[설명]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * 현재 기능의 Azure는 클러스터가 만들어진 노드와 동일한 IP 주소를 클러스터 이름에 할당하므로 클러스터에 특정 IP 주소를 할당해야 하는 WSFC 클러스터를 구성할 때는 특별한 단계가 필요합니다. 즉, 클러스터에 다른 IP 주소를 할당하기 위해서는 수동 단계를 수행해야 합니다.
 * 가용성 그룹 수신기는 가용성 그룹의 기본 및 보조 복제본을 실행 중인 VM에 할당된 TCP/IP 끝점을 사용하여 Azure에서 만들어집니다.
 * 이러한 끝점은 ACL로 보호해야 할 수 있습니다.
 
-[설명]: <> (TODO 이전 블로그) [설명]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.) [설명]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) [설명]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.) [설명]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.) [설명]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[설명]: <> (TODO 이전 블로그)
+[설명]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.)
+[설명]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[설명]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.)
+[설명]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.)
+[설명]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>)
+[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)
+[설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]). [설명]: <> (TODO 이전 블로그) [설명]: <> (이러한 시나리오의 SQL Server AlwaysOn 가용성 그룹의 설정은 여기 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에 설명되어 있습니다.)
+여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]). [설명]: <> (TODO 이전 블로그) 
+[설명]: <> (이러한 시나리오의 SQL Server AlwaysOn 가용성 그룹의 설정은 여기 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에 설명되어 있습니다.)
 
 #### Azure의 SQL Server 고가용성 요약
 Azure 저장소가 콘텐츠를 보호하는 경우 상시 대기 이미지를 고집할 이유가 줄어듭니다. 즉, 고가용성 시나리오는 다음과 같은 경우에 대해서만 방지해야 합니다.
@@ -1125,7 +1138,8 @@ Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 �
 백업/복원 기능의 경우 SAP BR*Tools for Oracle은 표준 Windows Server 운영 체제 및 Hyper-V와 동일한 방법으로 지원됩니다. Oracle RMAN(Recovery Manager)에서도 디스크에 백업 및 디스크에서의 복원이 지원됩니다.
 
 #### 고가용성
-[설명]: <> (ASM 참조 링크) 높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 자세한 내용은 [이][virtual-machines-windows-classic-configure-oracle-data-guard] 설명서에서 찾을 수 있습니다.
+[설명]: <> (ASM 참조 링크) 
+높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 자세한 내용은 [이][virtual-machines-windows-classic-configure-oracle-data-guard] 설명서에서 찾을 수 있습니다.
 
 #### 기타
 Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항목은 모두 이 문서의 처음 세 챕터에서 Oracle Database와 VM 배포에 대해 설명한 대로 적용됩니다.

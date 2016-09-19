@@ -118,7 +118,7 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
 1. **응용 프로그램 추가**를 선택합니다.
 
-2. 목록에서 **Windows Azure Service Management API**를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
+2. 목록에서 **Microsoft Azure Service Management API** 를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
 
       ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 

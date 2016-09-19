@@ -28,7 +28,7 @@
 
 ##개요 
 
-이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 ** Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
+이 문서는 Azure Resource Manager 프레임워크의 AMS(Azure 미디어 서비스)에 대한 Azure PowerShell cmdlet을 나열합니다. Cmdlet는 **Microsoft.Azure.Commands.Media** 네임스페이스에 존재합니다.
 
 ## 버전
 
