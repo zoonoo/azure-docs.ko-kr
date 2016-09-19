@@ -3,7 +3,7 @@
 	description="Azure 저장소에 SQL Server를 백업하는 방법에 알아봅니다. Azure 저장소에 SQL 데이터베이스를 백업할 때의 이점에 대해 설명합니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="MikeRayMSFT"
 	manager="jhubbard"
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="07/22/2016"
-	ms.author="jroth"/>
+	ms.author="mikeray"/>
 
 # SQL Server 백업 및 복원에 Azure 저장소 사용
 
@@ -24,7 +24,7 @@ SQL Server 2012 SP1 CU2부터는 Azure Blob 저장소 서비스에 직접 SQL Se
 
 SQL Server 2016에는 여러 새 기능이 포함되어 있습니다. [파일-스냅숏 백업](http://msdn.microsoft.com/library/mt169363.aspx)을 사용하여 거의 즉시 백업을 수행하고 매우 빠르게 복원할 수 있습니다.
 
-이 항목에서는 SQL 백업을 위해 Azure 저장소를 사용하도록 선택하는 이유와 관련 구성 요소에 대해 설명합니다. 문서 끝에 제공되는 리소스를 사용하여 연습 과정 및 SQL Server 백업에서 이 서비스를 사용하기 위한 추가 정보에 액세스할 수 있습니다.
+이 항목에서는 SQL 백업을 위해 Azure Storage를 사용하도록 선택하는 이유와 관련 구성 요소에 대해 설명합니다. 문서 끝에 제공되는 리소스를 사용하여 연습 과정 및 SQL Server 백업에서 이 서비스를 사용하기 위한 추가 정보에 액세스할 수 있습니다.
 
 ## SQL Server 백업에 Azure Blob 서비스를 사용할 경우의 이점
 
@@ -78,4 +78,4 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 
 기타 SQL Server 백업 및 복원 옵션에 대해서는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
@@ -65,7 +65,7 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] 앞의 예제에서 `myVMAccessExtension` 또는 `MyVMAccess`는 프로세스의 일부로 설치되는 새 확장에 지정한 이름입니다. 종종 VM의 이름으로 설정됩니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 그런 다음 출력의 'Extensions' 섹션을 확인합니다. VM에는 하나의 VMAccessAgent만 존재할 수 있으므로 `Set-AzureRmVMExtension`을 사용하는 경우 `-ForceReRun` 매개 변수도 추가하여 에이전트를 다시 등록해야 합니다.
+	> [AZURE.NOTE] 앞의 예제에서 `myVMAccessExtension` 또는 `MyVMAccess`는 프로세스의 일부로 설치되는 새 확장에 지정한 이름입니다. 종종 VM의 이름으로 설정됩니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 출력의 'Extensions' 섹션에서 이름을 확인합니다. VM에는 하나의 VMAccessAgent만 존재할 수 있으므로 `Set-AzureRmVMExtension`을 사용하는 경우 `-ForceReRun True` 매개 변수도 추가하여 에이전트를 다시 등록해야 합니다.
 
 2. 다른 시작 문제를 해결하기 위해 VM을 다시 시작합니다. **찾아보기** > **가상 컴퓨터** > *VM* > **다시 시작**을 선택합니다.
 
@@ -210,4 +210,4 @@ VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 �
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

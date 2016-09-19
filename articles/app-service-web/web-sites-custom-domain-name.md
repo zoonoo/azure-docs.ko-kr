@@ -126,7 +126,7 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
   </tr>
 </table>
 
-추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*>에서 &lt;*subdomain*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 다음과 같이 TXT 레코드를 구성합니다.
+추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다. 다음과 같이 TXT 레코드를 구성합니다.
 
 <table cellspacing="0" border="1">
   <tr>
@@ -203,6 +203,32 @@ Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가([1단�
 
 8.  Azure에서 새 사용자 지정 도메인 이름 구성을 완료한 경우 브라우저에서 사용자 지정 도메인 이름으로 이동합니다. 브라우저에 Azure 앱이 열리면 사용자 지정 도메인 이름이 올바르게 구성된 것입니다.
 
+> [AZURE.NOTE] DNS 레코드를 이미 사용하고(활성 도메인 서비스 트래픽 시나리오) 도메인 확인을 위해 여기에 웹앱을 우선적으로 바인딩해야 하는 경우 다음 테이블에서 표시된 예제처럼 TXT 레코드를 만들면 됩니다. 추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다.
+> <table cellspacing="0" border="1">
+>   <tr>
+>     <th>FQDN 예</th>
+>     <th>TXT 호스트</th>
+>     <th>TXT 값</th>
+>   </tr>
+>   <tr>
+>     <td>contoso.com(루트)</td>
+>     <td>awverify.contoso.com</td>
+>     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+>   </tr>
+>   <tr>
+>     <td>www.contoso.com(하위)</td>
+>     <td>awverify.www.contoso.com</td>
+>     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+>   </tr>
+>     <tr>
+>     <td>*.contoso.com(하위)</td>
+>     <td>awverify.*.contoso.com</td>
+>     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+>   </tr>
+> </table>
+이 DNS 레코드를 만들면 Azure Portal로 돌아가서 웹앱에 사용자 지정 도메인 이름을 추가합니다.
+ 
+
 <a name="verify"></a>
 ## DNS 적용 확인
 
@@ -223,4 +249,4 @@ Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가([1단�
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -247,7 +247,7 @@ VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 
 * **CNTK**(Microsoft Research의 Computational Network Toolkit): 심화 학습 도구 키트입니다.
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
-* **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. pip install을 실행하여 다른 라이브러리를 설치할 수 있습니다.
+* **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install`하여 다른 라이브러리를 설치할 수 있습니다.
 * **R**: R에서는 다양한 기계 학습 기능이 포함된 라이브러리를 사용할 수 있습니다. 미리 설치된 라이브러리에는 lm, glm, randomForest, rpart 등이 있습니다. 다음 명령을 실행하면 다른 라이브러리를 설치할 수 있습니다.
 
 		install.packages(<lib name>)
@@ -344,4 +344,4 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Ceridian Dayforce HCM의 Azure AD 통합을 구성하려면 갤러리의 Ceridia
 
 **갤러리에서 Ceridian Dayforce HCM을 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -172,8 +172,8 @@ Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 
 
     - 다운로드한 인증서 파일
     - **발급자 URL**
-    - **SAML SSO URL** 
-    - **Single Sign Out 서비스 URL** 
+    - **SAML SSO URL**
+    - **Single Sign Out 서비스 URL**
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -215,7 +215,7 @@ Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -229,7 +229,7 @@ Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -312,4 +312,4 @@ Ceridian Dayforce HCM 응용 프로그램에서 사용자를 추가하려면 Cer
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

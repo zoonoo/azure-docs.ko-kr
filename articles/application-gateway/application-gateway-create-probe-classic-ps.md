@@ -26,7 +26,7 @@
 
 <BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager 모델을 사용하여 이러한 단계를 수행](application-gateway-create-probe-ps.md)하는 방법을 알아봅니다.
 
@@ -47,35 +47,13 @@
 
 다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* 및 *GatewaySize*는 선택적 매개 변수입니다.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
-
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
@@ -87,10 +65,9 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.
 
-### 1단계  
+### 1단계
 
 다음 텍스트를 메모장에 복사합니다.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 >[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
-
 새 구성 항목 <Probe>를 추가하여 사용자 지정 프로브를 구성합니다.
 
 구성 매개 변수:
@@ -183,7 +159,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 get-AzureApplicationGatewayConfig를 사용하여 XML 파일을 가져옵니다. 이렇게 하면 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### 2단계
@@ -200,6 +176,7 @@ get-AzureApplicationGatewayConfig를 사용하여 XML 파일을 가져옵니다.
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로브 이름을 추가합니다.
 
@@ -214,12 +191,11 @@ XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로
 
 XML 파일을 저장합니다.
 
-
 ### 3단계
 
 **Set-AzureApplicationGatewayConfig**를 사용하여 새 XML 파일로 응용 프로그램 게이트웨이 구성을 업데이트합니다. 이렇게 하면 응용 프로그램 게이트웨이가 새 구성으로 업데이트됩니다.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## 다음 단계
@@ -228,4 +204,4 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

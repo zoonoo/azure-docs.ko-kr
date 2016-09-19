@@ -40,9 +40,9 @@ Visual Studio 및 개발자 분석 도구는 잘 통합된 devOps 환경을 제�
 ![웹앱 DevOps 주기](./media/app-insights-developer-analytics/040.png)
 
 * 개발자는 코드 리포지토리를 확인하거나 주요 분기에 병합합니다. 이 그림에서 리포지토리는 Git이지만 [Team Foundation 버전 제어](https://www.visualstudio.com/docs/tfvc/overview)와 같을 수 있습니다.
-* 이러한 변경은 빌드 및 단위 테스트를 트리거합니다. 빌드 서비스는 [Visual Studio Team Services 또는 온-프레미스의 상대적 항목인 Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview)에 있을 수 있습니다. 
-* 빌드 및 단위 테스트가 성공하면 [자동 배포가 트리거](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)될 수 있습니다. 웹앱 호스트는 자체 웹 서버 또는 Microsoft Azure일 수 있습니다. 
-* 라이브 앱의 원격 분석이 서버 및 [클라이언트 브라우저 둘 다에서](app-insights-javascript.md) [Application Insights](app-insights-overview.md)로 전송됩니다. 여기서 앱의 성능과 사용 패턴을 분석할 수 있습니다. 강력한 [검색 도구](app-insights-analytics.md)는 문제를 진단하는 데 도움이 됩니다. [경고](app-insights-alerts.md)는 문제가 발생하는 즉시 알림을 표시합니다. 
+* 이러한 변경은 빌드 및 단위 테스트를 트리거합니다. 빌드 서비스는 [Visual Studio Team Services 또는 온-프레미스의 상대적 항목인 Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview)에 있을 수 있습니다.
+* 빌드 및 단위 테스트가 성공하면 [자동 배포가 트리거](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)될 수 있습니다. 웹앱 호스트는 자체 웹 서버 또는 Microsoft Azure일 수 있습니다.
+* 라이브 앱의 원격 분석이 서버 및 [클라이언트 브라우저 둘 다에서](app-insights-javascript.md) [Application Insights](app-insights-overview.md)로 전송됩니다. 여기서 앱의 성능과 사용 패턴을 분석할 수 있습니다. 강력한 [검색 도구](app-insights-analytics.md)는 문제를 진단하는 데 도움이 됩니다. [경고](app-insights-alerts.md)는 문제가 발생하는 즉시 알림을 표시합니다.
 * 다음 개발 주기는 라이브 원격 분석 결과를 분석하면 알 수 있습니다.
 
 ### 장치 및 데스크톱 앱
@@ -71,10 +71,18 @@ Visual Studio 및 개발자 분석 도구는 잘 통합된 devOps 환경을 제�
 3. 장치 앱:
  * HockeyApp에 디버그 빌드를 업로드합니다. 여기에서 테스트 사용자의 팀에 배포할 수 있습니다. 후속 빌드를 업로드할 때마다 팀에 알림이 제공됩니다.
  * 연속 빌드 서비스를 설정할 때 플러그 인 단계를 통해 HockeyApp에 업로드하는 릴리스 정의를 만듭니다.
+
+### HockeyApp 원격 분석의 분석 및 내보내기
+
+[브리지를 설정](app-insights-hockeyapp-bridge-app.md)하여 Application Insights의 분석 및 연속 내보내기 기능을 사용하는 HockeyApp 사용자 지정 및 로그 원격 분석을 조사할 수 있습니다.
+
+
+
+## 다음 단계
  
 다음은 다양한 유형의 앱에 대한 자세한 지침입니다.
 
-* [ASP.NET 웹앱](app-insights-asp-net.md) 
+* [ASP.NET 웹앱](app-insights-asp-net.md)
 * [Java 웹앱](app-insights-java-get-started.md)
 * [Node.js 웹앱](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [iOS 앱](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
@@ -84,4 +92,4 @@ Visual Studio 및 개발자 분석 도구는 잘 통합된 devOps 환경을 제�
 * [Windows Phone 8 및 8.1 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [Windows Presentation Foundation 앱](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Azure CLI을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -57,7 +57,7 @@ HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Az
 
 - **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. Azure 리소스 관리자를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
 
-	구독 중인 리소스 그룹을 나열하려면:
+	구독 중인 리소스 그룹을 나열하려면
 
 		azure group list
 
@@ -139,4 +139,4 @@ ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수
 - [Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md)
 - [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

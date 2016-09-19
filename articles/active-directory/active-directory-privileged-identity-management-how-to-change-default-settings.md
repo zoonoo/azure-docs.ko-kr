@@ -23,8 +23,8 @@
 ## 역할 활성화 설정 관리
 
 1. [Azure 포털](https://portal.azure.com)로 이동하여 대시보드에서 **Azure AD Privileged Identity Management** 앱을 선택합니다.
-2. 역할 테이블에서 관리하려는 역할을 선택합니다.
-3. **설정**을 클릭합니다.
+2. **권한 있는 역할 관리** > **설정** > **권한 있는 역할**을 선택합니다.
+3. 관리하려는 설정의 역할을 선택합니다.
 
 각 역할에 대한 설정 페이지에서 여러 설정을 구성할 수 있습니다. 이러한 설정은 영구 관리자가 아닌, 적격 관리자인 사용자에게만 영향을 미칩니다.
 
@@ -40,19 +40,24 @@
 
 - Azure AD 및 Office365에 대해 높은 권한이 있는 역할에 대한 MFA를 사용하지 않도록 설정할 수 없습니다. 이런 안전 기능을 둔 것은 이러한 역할을 신중하게 보호해야 하기 때문입니다.
 
-    - 전역 관리자
-    - 권한 있는 역할 관리자
-    - 사용자 계정 관리자
+    - 응용 프로그램 관리자
+    - 응용 프로그램 프록시 서버 관리자
+    - 대금 청구 관리자
+    - 규정 준수 관리자
+    - CRM 서비스 관리자
+    - 고객 LockBox 액세스 승인자
     - 디렉터리 기록기
+    - Exchange 관리자
+    - 전역 관리자
+    - Intune 서비스 관리자
+    - 사서함 관리자
     - 파트너 계층1 지원
     - 파트너 계층2 지원
-    - 대금 청구 관리자
+    - 권한 있는 역할 관리자
     - 보안 관리자
-    - Exchange 관리자
-    - 사서함 관리자
-    - 비즈니스용 Skype 관리자
     - SharePoint 관리자
-    - 규정 준수 관리자
+    - 비즈니스용 Skype 관리자
+    - 사용자 계정 관리자
 
 PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 요구하는 방법](active-directory-privileged-identity-management-how-to-require-mfa.md)을 참조하세요.
 
@@ -62,4 +67,4 @@ PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

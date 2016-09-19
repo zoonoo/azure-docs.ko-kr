@@ -30,6 +30,27 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.281.0
+릴리스 날짜: 2016년 8월
+
+**수정된 문제:**
+
+- 동기화 간격에 대한 변경은 다음 동기화 주기가 완료될 때까지 발생하지 않습니다.
+- Azure AD Connect 마법사는 해당 사용자 이름이 밑줄(\_)로 시작하는 Azure AD 계정을 허용하지 않습니다.
+- Azure AD Connect 마법사는 계정 암호가 너무 많은 특수 문자를 포함하는 경우 제공된 Azure AD 계정 인증에 실패합니다. 오류 메시지 "자격 증명의 유효성을 검사할 수 없습니다. 예기치 않은 오류가 발생했습니다."가 반환됩니다.
+- 스테이징 서버를 제거하면 Azure AD 테넌트의 암호 동기화가 비활성화되고 암호 동기화가 활성 서버와 함께 실패합니다.
+- 암호 동기화는 사용자에 저장된 암호 해시가 없는 특수한 경우에 실패합니다.
+- Azure AD Connect 서버가 준비 모드에서 활성화된 경우 비밀번호 쓰기 저장은 일시적으로 비활성화되지 않습니다.
+- Azure AD Connect 마법사는 서버가 준비 모드에 있을 때 실제 암호 동기화 및 비밀번호 쓰기 저장 구성을 표시하지 않습니다. 항상 비활성화로 표시합니다.
+- 서버가 준비 모드에 있을 때 암호 동기화 및 비밀번호 쓰기 저장에 대한 구성 변경 내용은 Azure AD Connect 마법사에서 유지되지 않습니다.
+
+**향상된 기능:**
+
+- 새 동기화 주기를 성공적으로 시작할 수 있는지 여부를 나타내는 업데이트된 Start-ADSyncSyncCycle cmdlet.
+- 현재 진행 중인 동기화 주기 및 작업을 종료하는 추가된 Stop-ADSyncSyncCycle cmdlet.
+- 현재 진행 중인 동기화 주기 및 작업을 종료하는 업데이트된 Stop-ADSyncScheduler cmdlet.
+- Azure AD Connect 마법사에서 [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)을 구성할 때 "Teletex 문자열" 형식의 AD 특성을 이제 선택할 수 있습니다.
+
 ## 1\.1.189.0
 릴리스 날짜: 2016년 6월
 
@@ -293,4 +314,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -94,7 +94,7 @@
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 JSON 표현을 만들고 생성하기 위한 IoT Hub를 설명합니다.
+3. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 JSON 표현을 만들고 생성하기 위한 IoT Hub를 설명합니다(IoT Hub를 지원하는 현재 위치 목록에 대해서는 [Azure 상태][lnk-status] 참조).
 
     ```
     var description = new
@@ -190,6 +190,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -202,4 +203,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

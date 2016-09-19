@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/26/2016"
+ 	ms.date="09/01/2016"
 	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 
-
 > [AZURE.SELECTOR]
-- [포털](media-services-portal-encoding-units.md)
+- [포털](media-services-portal-scale-media-processing.md)
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST (영문)](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -29,10 +28,8 @@
 
 ##개요
 
-미디어 서비스 계정은 인코딩 작업을 처리하는 속도를 결정하는 예약 단위 유형에 연관됩니다. S1, S2 또는 S3 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 Standard 예약 단위 유형을 사용하는 경우 Basic 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [Milan Gada](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/)가 작성한 블로그인 "인코딩 예약 단위 유형"을 참조하세요.
-
-예약 단위 유형을 지정하는 것 외에도 인코딩 예약 단위를 사용하여 계정을 프로비전하도록 지정할 수 있습니다. 프로비전된 인코딩 예약 단위의 수는 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수를 결정합니다. 예를 들어 계정에 5개의 예약 단위가 있는 경우 처리할 미디어 작업이 있다면 5개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되자마자 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
-
+>[AZURE.IMPORTANT] 미디어 처리 크기 조정에 대해 자세히 알아보려면 이 [개요](media-services-scale-media-processing-overview.md) 항목을 참조하세요.
+ 
 .NET SDK를 사용하여 예약 단위 유형 및 인코딩 예약 단위 수를 변경하려면 다음을 수행합니다.
 
 	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
@@ -81,4 +78,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

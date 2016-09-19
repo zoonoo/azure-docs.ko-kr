@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="StevenPo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="09/01/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 실수로 인한 삭제 방지
@@ -21,7 +21,7 @@
 
 Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으로 사용되며 삭제 수가 500개를 초과하는 내보내기를 허용하지 않도록 구성됩니다. 이 기능은 다수의 사용자 및 다른 개체에 영향을 주는 실수에 의한 구성 변경 및 온-프레미스 디렉터리 변경을 방지하기 위한 것입니다.
 
-다음을 포함하는 경우의 일반적인 시나리오입니다.
+다수의 삭제가 다음을 포함하는 경우의 일반적인 시나리오입니다.
 
 - 전체 [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) 또는 [도메인](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering)을 선택하지 않은 [필터링](active-directory-aadconnectsync-configure-filtering.md)으로 변경합니다.
 - OU의 모든 개체가 삭제됩니다.
@@ -29,7 +29,7 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 
 기본값인 500개 개체는 PowerShell에서 `Enable-ADSyncExportDeletionThreshold`를 사용하여 변경할 수 있습니다. 조직의 규모에 맞게 이 값을 구성해야 합니다. 동기화 스케줄러가 30분마다 실행되므로 이 값은 30분 내에 표시되는 삭제 수입니다.
 
-Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 내보내기가 계속되지 않으며 다음과 같은 메일을 받게 됩니다.
+Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 내보내기가 중지되며 다음과 같은 메일을 받게 됩니다.
 
 ![실수로 인한 삭제 방지 메일](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
@@ -43,19 +43,21 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 2. **커넥터**로 이동합니다.
 3. **Azure Active Directory** 유형의 커넥터를 선택합니다.
 4. 오른쪽에 있는 **작업**에서 **커넥터 공간 검색**을 선택합니다.
-5. **범위** 아래의 팝업에서 **다음 이후 연결이 끊어짐**을 선택하고 과거 시간을 선택합니다. **검색**을 클릭합니다. 삭제되는 모든 개체가 표시됩니다. 각 항목을 클릭하면 개체에 대한 추가 정보를 얻을 수 있습니다. **열 설정**을 클릭하여 그리드에 표시되는 특성을 더 추가할 수도 있습니다.
+5. **범위** 아래의 팝업에서 **다음 이후 연결이 끊어짐**을 선택하고 과거 시간을 선택합니다. **검색**을 클릭합니다. 이 페이지는 삭제되는 모든 개체의 보기를 제공합니다. 각 항목을 클릭하면 개체에 대한 추가 정보를 얻을 수 있습니다. **열 설정**을 클릭하여 그리드에 표시되는 특성을 더 추가할 수도 있습니다.
 
 ![커넥터 공간 검색](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
 모든 삭제를 진행하려면 다음을 수행합니다.
 
-1. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. 자격 증명을 물으면 Azure AD 전역 관리자 계정 및 암호를 제공합니다.![자격 증명](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+1. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.![자격 증명](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. Azure Active Directory 커넥터를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
 3. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold`를 실행합니다.
 
 ## 다음 단계
-[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+**개요 항목**
 
-<!---HONumber=AcomDC_0629_2016-->
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

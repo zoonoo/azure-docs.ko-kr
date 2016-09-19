@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # HDinsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용  
@@ -91,15 +91,15 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 
 다음 절차를 수행하기 전에 다음이 있어야 합니다.
 
-- DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터. 자세한 내용은 [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]을 참조하세요. 
+- DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터. 자세한 내용은 [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]을 참조하세요.
 
 	>[AZURE.IMPORTANT] 가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure 가상 네트워크 간 DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)을 참조하세요.
 
 - HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다. DNS 접미사는 다음과 유사합니다.
 
 		myhbase.b7.internal.cloudapp.net
-- 워크스테이션에서 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)을 다운로드하여 설치합니다. 인증서를 만들려면 패키지의 makecert가 필요합니다.  
-- 워크스테이션에서 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)을 다운로드하여 설치합니다. SQuirreL SQL Client 버전 3.0 이상에는 JRE 버전 1.6 이상이 필요합니다.  
+- 워크스테이션에서 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)을 다운로드하여 설치합니다. 인증서를 만들려면 패키지의 makecert가 필요합니다.
+- 워크스테이션에서 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)을 다운로드하여 설치합니다. SQuirreL SQL Client 버전 3.0 이상에는 JRE 버전 1.6 이상이 필요합니다.
 
 
 ###Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성
@@ -122,7 +122,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 2. 왼쪽에서 **네트워크**를 클릭합니다.
 3. 만든 가상 네트워크를 클릭합니다([Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조).
 4. 위쪽에서 **구성**을 클릭합니다.
-5. **지점 및 사이트 간 연결** 섹션에서 **지점 및 사이트 간 연결 구성**을 선택합니다. 
+5. **지점 및 사이트 간 연결** 섹션에서 **지점 및 사이트 간 연결 구성**을 선택합니다.
 6. **시작 IP** 및 **CIDR**을 구성하여 연결된 경우 VPN 클라이언트에서 IP 주소를 받을 IP 주소 범위를 지정합니다. 범위는 온-프레미스 네트워크 및 연결할 Azure 가상 네트워크에 있는 범위와 겹칠 수 없습니다. 예를 들어 가상 네트워크에 대해 10.0.0.0/20을 선택한 경우 클라이언트 주소 공간은 10.1.0.0/24를 선택할 수 있습니다. 자세한 내용은 [지점 및 사이트 간 연결][vnet-point-to-site-connectivity] 페이지를 참조하세요.
 7. 가상 네트워크 주소 공간 섹션에서 **게이트웨이 서브넷 추가**를 클릭합니다.
 7. 페이지 아래쪽에서 **저장**을 클릭합니다.
@@ -148,8 +148,8 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 **자체 서명된 루트 인증서를 만들려면**
 
 1. 워크스테이션에서 명령 프롬프트 창을 엽니다.
-2. Visual Studio Tools 폴더로 이동합니다. 
-3. 아래 예제의 다음 명령은 워크스테이션의 개인 인증서 저장소에 루트 인증서를 만들고 설치하며, 나중에 Azure 클래식 포털에 업로드할 해당.cer 파일을 만듭니다. 
+2. Visual Studio Tools 폴더로 이동합니다.
+3. 아래 예제의 다음 명령은 워크스테이션의 개인 인증서 저장소에 루트 인증서를 만들고 설치하며, 나중에 Azure 클래식 포털에 업로드할 해당.cer 파일을 만듭니다.
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -222,7 +222,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. **확인**을 클릭하여 대상 디렉터리 만들기를 확인합니다.
-6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다. **다음**을 클릭합니다.
+6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다. **Next**를 클릭합니다.
 7. **다음**을 두 번 클릭한 후 **완료**를 클릭합니다.
 
 
@@ -262,7 +262,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 	- **암호**: 모든 텍스트일 수 있습니다.
 
 	![HDInsight HBase Phoenix SQuirreL 드라이버][img-squirrel-alias]
-4. **테스트**를 클릭합니다. 
+4. **테스트**를 클릭합니다.
 5. **연결**을 클릭합니다. 연결된 경우 SQuirreL은 다음과 같습니다.
 
 	![HBase Phoenix SQuirreL][img-squirrel]
@@ -284,7 +284,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
 - [HDInsight HBase 개요][hdinsight-hbase-overview]\: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
 - [Azure 가상 네트워크에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]\: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
-- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다. 
+- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
 - [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]\: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
 
 [azure-portal]: https://portal.azure.com
@@ -308,4 +308,4 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

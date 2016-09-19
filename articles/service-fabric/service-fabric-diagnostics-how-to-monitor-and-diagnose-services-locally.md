@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
@@ -49,8 +49,8 @@
 
 **행위자 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
 
-1. *ProjectName*이 Visual Studio 프로젝트용으로 선택한 이름인 **“ProjectName”.cs** 파일을 엽니다.  
-2. *DoWorkAsync* 메서드에서 코드 `ActorEventSource.Current.ActorMessage(this, "Doing Work");`을(를) 찾습니다. 이는 응용 프로그램 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
+1. *ProjectName*이 Visual Studio 프로젝트용으로 선택한 이름인 **“ProjectName”.cs** 파일을 엽니다.
+2. *DoWorkAsync* 메서드에서 코드 `ActorEventSource.Current.ActorMessage(this, "Doing Work");`을(를) 찾습니다. 이는 응용 프로그램 코드에서 작성된 사용자 지정 ETW의 예제입니다.
 3. **ActorEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 `ActorEventSource.ActorMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
 서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 응용 프로그램을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5** 키를 눌러서 응용 프로그램을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
@@ -60,4 +60,4 @@
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

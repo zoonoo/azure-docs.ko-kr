@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에 저장된 데이터 보호
@@ -185,4 +185,4 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 - [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

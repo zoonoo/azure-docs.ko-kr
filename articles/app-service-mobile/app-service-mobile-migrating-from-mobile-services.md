@@ -36,7 +36,7 @@ Microsoft는 다음을 비롯한 Azure 앱 서비스의 기능을 활용하기 �
   *  [스테이징 슬롯], 롤백 및 프로덕션 내 테스트를 포함하는 기본 제공 DevOps 도구.
   *  [자동 크기 조정], 부하 분산 및 [성능 모니터링].
 
-Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. 앱 서비스] 항목을 참조하세요.
+Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. App Service] 항목을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -255,7 +255,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 
 자세한 내용은 [알림 허브] 설명서를 검토합니다.
 
-> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+> [AZURE.TIP] "[Azure 포털]"의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
 
 ### <a name="legacy-push"></a>레거시 푸시 설정
 
@@ -399,8 +399,8 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [로깅]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [모바일 앱 Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[알림 허브]: ../notification-hubs/notification-hubs-overview.md
+[모바일 서비스 vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[알림 허브]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [성능 모니터링]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [모바일 서비스]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습�
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

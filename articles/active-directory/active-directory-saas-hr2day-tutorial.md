@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ HR2day by Merces와의 Azure AD 통합을 구성하려면 갤러리의 HR2day by
 
 **갤러리에서 HR2day by Merces를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -107,7 +107,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
 **HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **HR2day by Merces** 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다. 
+1. Azure 클래식 포털의 **HR2day by Merces** 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다.
 
 	![Single Sign-On 구성](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_06.png)
 
@@ -155,7 +155,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
     a. 로그인 URL 텍스트 상자에서 **“https://<테넌트 이름>.force.com/<인스턴스 이름>”** 패턴을 사용하여 사용자가 HR2day by Merces 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 4. **HR2day by Merces에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
@@ -163,7 +163,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. 응용 프로그램에 SSO를 구성하려면 [servicedesk@merces.nl](emailTo:servicedesk@merces.nl)을 통해 HR2day by Merces 지원 팀에 문의하고 다운로드한 인증서 파일을 메일에 첨부합니다. 또한 SSO 통합을 맞게 구성할 수 있도록 SAML SSO URL, 로그아웃 URL 및 발급자 URL을 제공하십시오.
@@ -212,7 +212,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -226,7 +226,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -307,4 +307,4 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

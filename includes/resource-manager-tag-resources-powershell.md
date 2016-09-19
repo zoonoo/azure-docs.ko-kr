@@ -1,20 +1,22 @@
 ### 최신 PowerShell 버전의 태그 cmdlet 변경
 
-Azure PowerShell의 2016년 8월 릴리스에서는 태그를 사용하는 방식이 크게 변경되었습니다. 계속하기 전에 AzureRm.Resources 모듈 버전을 확인합니다.
+[Azure PowerShell 2.0][powershell]의 2016년 8월 릴리스에서는 태그를 사용하는 방식이 크게 변경되었습니다. 계속하기 전에 AzureRm.Resources 모듈 버전을 확인합니다.
 
-    (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
+    Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
 2016년 8월 이전에 Azure PowerShell을 마지막으로 업데이트한 경우 결과에 3.0보다 낮은 버전이 표시됩니다.
 
-    Version : 2.0.2
-    Name    : AzureRM.Resources
+    Version
+    -------
+    2.0.2
 
 2016년 8월 이후에 Azure PowerShell을 업데이트한 경우 결과에 버전 3.0이 표시됩니다.
 
-    Version : 3.0.1
-    Name    : AzureRM.Resources
-
-모듈 버전 3.0.1 이상에는 태그를 사용하기 위한 가장 최근의 cmdlet가 있습니다. 버전이 3.0.1보다 이전 버전이면 해당 버전을 사용할 수 있으나 최신 버전으로 업데이트하는 것이 좋습니다. 최신 버전은 태그를 보다 쉽게 사용할 수 있도록 변경되었습니다. 두 가지 방법은 모두 이 항목에 나와 있습니다.
+    Version
+    -------
+    3.0.1
+    
+모듈 버전 3.0.1 이상에는 태그를 사용하기 위한 가장 최근의 cmdlet가 있습니다. 이 버전의 Azure 리소스 모듈은 PowerShell 갤러리, PowerShellGet 또는 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell을 업그레이드할 때 자동으로 설치됩니다. 버전이 3.0.1보다 이전 버전이면 해당 버전을 사용할 수 있으나 최신 버전으로 업데이트하는 것이 좋습니다. 최신 버전은 태그를 보다 쉽게 사용할 수 있도록 변경되었습니다. 두 가지 방법은 모두 이 항목에 나와 있습니다.
 
 ### 최신 버전의 변경 내용에 맞게 스크립트 업데이트 
 
@@ -228,4 +230,7 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 **New-AzureRmTag** cmdlet을 사용하여 분류에 새 태그를 추가합니다. 이러한 태그는 아직 리소스 또는 리소스 그룹에 적용되지 않았더라도 자동 완성에 포함됩니다. 태그 이름/값을 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 **Remove-AzureRmTag** cmdlet을 사용하여 분류에서 제거합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0907_2016-->

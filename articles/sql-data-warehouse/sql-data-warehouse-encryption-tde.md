@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작
@@ -72,4 +72,4 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

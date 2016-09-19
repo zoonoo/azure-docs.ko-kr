@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # 포털을 사용하여 응용 프로그램 게이트웨이 만들기
 
-Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이의 응용 프로그램 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 등이 있습니다.
+Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)를 방문하세요.
 
 > [AZURE.SELECTOR]
 - [Azure 포털](application-gateway-create-gateway-portal.md)
@@ -27,10 +27,6 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 - [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## 시나리오
 
@@ -75,7 +71,6 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 >[AZURE.NOTE] 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 작은 게이트웨이는 개발 테스트용이며 프로덕션용으로는 사용되지 않습니다.
 
-
 ### 3단계
 
 기본 설정을 정의한 후에는 사용할 가상 네트워크를 정의합니다. 가상 네트워크는 Application Gateway에서 부하를 분산하는 응용 프로그램을 수용합니다.
@@ -88,7 +83,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 *가상 네트워크 선택* 블레이드에서 **새로 만들기**를 클릭합니다.
 
-*이 시나리오에는 설명되어 있지 않지만 여기서 기존 가상 네트워크를 선택할 수도 있습니다.*
+이 시나리오에는 설명되어 있지 않지만 여기서 기존 Virtual Network를 선택할 수도 있습니다. 기존 가상 네트워크를 사용하는 경우 해당 가상 네트워크에 사용할 빈 서브넷 또는 Application Gateway 리소스의 서브넷이 필요합니다.
 
 ![가상 네트워크 선택 블레이드][4]
 
@@ -147,7 +142,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)를 방문하여 사용자 지정 상태 프로브를 만드는 방법을 알아봅니다.
 
-[SSL 오프로드 구성](application-gateway-ssl-arm.md)을 방문하여 SSL 오프로드를 구성하고 웹 서버에서 비용이 드는 SSL 암호 해독을 제거하는 방법을 알아봅니다.
+[SSL 오프로드 구성](application-gateway-ssl-portal.md)을 방문하여 SSL 오프로드를 구성하고 웹 서버에서 비용이 드는 SSL 암호 해독을 제거하는 방법을 알아봅니다.
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
@@ -162,4 +157,4 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

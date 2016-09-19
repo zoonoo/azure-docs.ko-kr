@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 관리 REST API 시작
@@ -136,10 +136,10 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 	![][9]
 
 5. `TenantID.` 제공
-	- Active Directory | SearchTutorial(서비스)로 돌아갑니다. 
-	- 위쪽 막대에서 **응용 프로그램**을 클릭합니다. 
-	- 페이지 아래쪽에서 **끝점 보기** 를 클릭합니다. 
-	- 목록 아래쪽에서 OAUTH 2.0 권한 부여 끝점을 복사합니다. 
+	- Active Directory | SearchTutorial(서비스)로 돌아갑니다.
+	- 위쪽 막대에서 **응용 프로그램**을 클릭합니다.
+	- 페이지 아래쪽에서 **끝점 보기** 를 클릭합니다.
+	- 목록 아래쪽에서 OAUTH 2.0 권한 부여 끝점을 복사합니다.
 	- 끝점을 TenantID에 붙여넣어 테넌트 ID를 제외한 모든 URI 매개 변수 값을 자릅니다.
 
     "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0"인 경우 "55e324c7-1656-4afe-8dc3-43efcd4ffa50"을 제외한 모든 내용을 삭제합니다.
@@ -149,7 +149,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 6. `SubscriptionID`을 제공합니다.
 	- 기본 포털 페이지로 이동합니다.
 	- 왼쪽 탐색 창의 아래쪽에서 **설정**을 클릭합니다.
-	- 구독 탭에서 구독 ID를 복사하고 Program.cs에 붙여넣습니다.
+	- 구독 탭에서 구독 ID를 복사하고 Program.cs에 붙여 넣습니다.
 
 7. 저장하고 솔루션을 빌드합니다.
 
@@ -160,7 +160,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
 샘플 응용 프로그램에서는 기존 Azure 구독에 대한 무료 Azure 검색 서비스를 만듭니다. 구독에 대한 무료 서비스가 이미 있으면 샘플 응용 프로그램이 실패합니다. 무료 검색 서비스는 구독당 하나만 허용됩니다.
 
-1. 솔루션 탐색기에서 Program.cs를 열고 Main(string void) 함수로 이동합니다. 
+1. 솔루션 탐색기에서 Program.cs를 열고 Main(string void) 함수로 이동합니다.
  
 3. **ExecuteArmRequest**는 지정된 `subscriptionID`의 Azure 리소스 관리자 끝점 `https://management.azure.com/subscriptions`에 대해 요청을 실행하는 데 사용됩니다. 이 메서드는 프로그램 전체에서 Azure 리소스 관리자 API 또는 검색 관리 API를 사용하여 작업을 수행하는 데 사용됩니다.
 
@@ -208,4 +208,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

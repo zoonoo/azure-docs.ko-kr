@@ -14,5 +14,7 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 역방향 DNS는 Azure 웹 사이트에 대해 지원되지 않습니다. 역방향 DNS는 Azure PaaS 역할 및 IaaS 가상 컴퓨터에 대해 지원됩니다.
 ### 내 클라우드 서비스에 대해 다중 역방향 DNS 레코드를 구성할 수 있나요?
 아니요. Azure는 각 Azure 클라우드 서비스에 대해 단일 역방향 DNS 레코드를 지원합니다. 그러나 각 Azure 클라우드 서비스는 자체 역방향 DNS 레코드를 가질 수 있습니다.
+### Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
+아니요. [여기](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)에 나온 내용에 따르면, Azure 계산 서비스는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

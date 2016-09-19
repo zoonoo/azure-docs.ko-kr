@@ -13,28 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management의 액세스 검토를 수행하는 방법
 
-Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 ID와 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.
+Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.
 
-관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 정기적으로 검토하도록 요청하고 작업에 해당 역할이 여전히 필요한지 확인할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
+관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
 
-보안 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [보안 검토를 시작하는 방법](active-directory-privileged-identity-management-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
+액세스 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [액세스 검토를 시작하는 방법](active-directory-privileged-identity-management-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
 
 ## Privileged Identity Management 응용 프로그램 추가
 
 [Azure 포털](https://portal.azure.com/)에서 Azure AD PIM(Privileged Identity Management) 응용 프로그램을 사용하여 검토를 수행할 수 있습니다. Azure AD Privileged Identity Management 응용 프로그램이 포털에 없는 경우 다음 단계에 따라 시작합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 조직에 둘 이상의 디렉터리가 있는 경우 Azure 포털의 오른쪽 위에서 사용자 이름을 클릭하고 작동할 디렉터리를 선택합니다.
+2. Azure 포털의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
 3. **새로 만들기** > **보안 + ID** > **Azure AD Privileged Identity Management**를 선택합니다.
 
 	![포털에서 PIM 사용][1]
 
-4. **대시보드에 고정** 옵션을 선택하고 **만들기** 단추를 클릭합니다. 권위 있는 ID 관리 대시보드가 열립니다.
+4. **대시보드에 고정** 옵션을 선택하고 **만들기** 단추를 클릭합니다. Privileged Identity Management 대시보드가 열립니다.
 
 
 ## 액세스 승인 또는 거부
@@ -56,4 +56,4 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

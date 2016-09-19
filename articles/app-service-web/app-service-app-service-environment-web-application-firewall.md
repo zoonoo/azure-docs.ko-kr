@@ -28,6 +28,8 @@
 
 ![아키텍처][Architecture]
 
+> 참고: [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 개인 네트워크에만 사용할 수 있도록 구성할 수 있습니다.
+
 ## 앱 서비스 환경 구성 ##
 앱 서비스 환경을 구성하려면 해당 제목의 [설명서](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 앱 서비스 환경을 만들면 [웹앱](app-service-web-overview.md), [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 및 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md)을 다음에 섹션에서 구성할 WAF로 모두 보호 받는 환경에서 만들 수 있습니다.
 
@@ -99,4 +101,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

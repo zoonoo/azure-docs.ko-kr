@@ -26,7 +26,7 @@
 
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
 * 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 응용 프로그램이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 강력한 검토 프로세스를 적용해야 합니다.
-* 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
+* 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다.
 * 데이터는 미국의 [Microsoft Azure](http://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
@@ -67,7 +67,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 * [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 장치 형식, 브라우저, 화면 해상도입니다.
-* [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
+* [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다.
 * [종속성](app-insights-asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
 * [추적 로그](app-insights-search-diagnostic-logs.md) 및 [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
@@ -112,11 +112,11 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 
 ## 데이터가 저장되는 위치는 어디인가요? 
 
-* 미국입니다. 
+* 미국입니다.
 
 #### 유럽 등의 다른 곳에 저장할 수 있나요? 
 
-* 현재는 암호화되지 않습니다. 
+* 현재는 암호화되지 않습니다.
 
 #### 내 앱을 미국에 호스트해야 한다는 뜻인가요?
 
@@ -196,7 +196,6 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [IIS에서 상태 모니터 설치][redfield]|종속성<br/>ServerContext<br/>유추<br/>성능 카운터
 [Java 웹앱에 Application Insights SDK 추가][java]|ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자
 [웹 페이지에 JavaScript SDK 추가][client]|ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax
-[Windows 스토어 앱에 SDK 추가][windows]|DeviceContext<br/>사용자<br/>충돌 데이터
 [기본 속성 정의][apiproperties]|모든 표준 및 사용자 지정 이벤트의 **속성**
 [호출 TrackMetric][api]|숫자 값<br/>**속성**
 [호출 추적*][api]|이벤트 이름<br/>**속성**
@@ -235,7 +234,7 @@ SDK 진단 | 추적 메시지 또는 예외
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
 
-## 제작진
+## 크레딧
 
 이 제품에는 MaxMind에서 작성된 GeoLite2 데이터를 포함하며 [http://www.maxmind.com](http://www.maxmind.com)에 있습니다.
 
@@ -264,8 +263,7 @@ SDK 진단 | 추적 메시지 또는 예외
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

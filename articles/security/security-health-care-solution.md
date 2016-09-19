@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드 | Microsoft Azure"
-   description="이 문서에서는 구성한 Azure 서비스 및 기능을 사용하여 의료 솔루션에 대한 보안을 개선하는 방법을 이해하도록 도움을 줍니다."
+   description=" 이 문서에서는 구성한 Azure 서비스 및 기능을 사용하여 의료 솔루션에 대한 보안을 개선하는 방법을 이해하도록 도움을 줍니다. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="09/06/2016"
    ms.author="terrylan"/>
 
 # Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드
 
-Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통합 업체(SI), 독립 소프트웨어 공급 업체(ISV) 및 의료 조직은 규정 준수 의무를 충족하는 데 도움이 되는 보안 제어를 통합하는 솔루션을 설계하고 운영하는 방법에 대한 지침을 찾고 있습니다.
+Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통합 업체(SI), 독립 소프트웨어 공급 업체(ISV) 및 의료 조직은 규정 준수 의무를 충족하는 데 도움이 되는 보안 제어를 통합하는 데 도움이 되는 지침을 찾고 있습니다.
 
 [Microsoft Azure에서 보안 의료 솔루션을 설계하기 위한 실용적인 가이드](https://aka.ms/azureindustrysecurity)는 요구 사항에 따라 구성할 수 있는 Azure 서비스 및 기능을 사용하여 솔루션에 대한 보안을 개선하는 방법을 이해하는 데 도움이 됩니다. 콘텐츠는 다음과 같은 세 가지 주요 섹션으로 구분됩니다.
 
@@ -28,4 +28,4 @@ Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통
 
 [보안 의료 솔루션을 설계하기 위한 실용적인 가이드](https://aka.ms/azureindustrysecurity)를 활용하시고 질문이나 제안이 있다면 아래에 의견을 남겨 두어 알려주시기 바랍니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -118,7 +118,7 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
 1. **응용 프로그램 추가**를 선택합니다.
 
-2. 목록에서 **Azure Service Management API**를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
+2. 목록에서 **Microsoft Azure Service Management API** 를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
 
       ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 - 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

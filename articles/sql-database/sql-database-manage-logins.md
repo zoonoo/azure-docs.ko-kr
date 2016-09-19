@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/01/2016"
    ms.author="rickbyh"/>
 
 # SQL 데이터베이스 인증 및 권한 부여: 액세스 부여 
@@ -40,7 +40,7 @@
 하나의 Azure Active Directory 계정만 관리자로 구성할 수 있습니다. 이 계정은 개별 Azure AD 사용자이거나 여러 Azure AD 사용자를 포함하는 Azure AD 그룹일 수 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만 Azure AD 계정에서 SQL 데이터베이스에 연결하는 데 Windows 인증을 사용하려면 Azure AD 관리자를 반드시 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결](sql-database-aad-authentication.md) 및 [SQL 데이터베이스 및 SQL 데이터 웨어하우스를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
 ### 방화벽 구성
-서버 수준 방화벽이 구성된 경우 Azure SQL 데이터베이스 구독자 계정 및 Azure Active Directory 계정을 가상 master 데이터베이스 및 모든 사용자 데이터베이스에 연결할 수 있습니다. 포털을 통해 서버 수준 방화벽을 구성할 수 있습니다. 연결이 이루어지면 [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL 문을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다. 방화벽 구성에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 데이터베이스 방화벽 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+서버 수준 방화벽이 구성된 경우 Azure SQL 데이터베이스 구독자 계정 및 Azure Active Directory 계정을 master 데이터베이스 및 모든 사용자 데이터베이스에 연결할 수 있습니다. 포털을 통해 서버 수준 방화벽을 구성할 수 있습니다. 연결이 이루어지면 [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL 문을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다. 방화벽 구성에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 데이터베이스 방화벽 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ### 관리자 액세스 경로
 
@@ -161,4 +161,4 @@ SQL 데이터베이스에는 개별적으로 부여하거나 거부할 수 있�
 
 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

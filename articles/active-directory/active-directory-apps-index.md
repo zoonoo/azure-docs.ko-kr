@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>
 
 #Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 
@@ -70,7 +70,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | :---: | --- |
 | 암호 기반 SSO의 작동 방법 소개 및 간략한 기술 개요 | [Azure AD를 사용한 암호 기반 Single Sign-On](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | 계정 공유 및 Azure AD에서 이러한 문제를 해결할 방법과 관련된 시나리오의 요약 | [Azure AD와 계정 공유](active-directory-sharing-accounts.md) |
-| 일정한 간격으로 특정 앱에 대한 암호 자동 변경 | [자동화된 암호 롤오버(미리 보기)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| 일정한 간격으로 특정 앱에 대한 암호 자동 변경 | [자동화된 암호 롤오버(미리 보기)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Azure AD 암호 관리 확장의 Internet Explorer 버전에 대한 배포 및 문제 해결 가이드 | [그룹 정책을 사용하여 Internet Explorer에 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)<br /><br />[Internet Explorer에 대한 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 
 암호 기반 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다. 자동화된 암호 롤오버는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
@@ -228,4 +228,4 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

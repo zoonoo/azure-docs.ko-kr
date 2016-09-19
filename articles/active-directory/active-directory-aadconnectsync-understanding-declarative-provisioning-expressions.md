@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/31/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -32,7 +32,7 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 - 특성은 다음과 같이 대괄호로 식별됩니다. [attributeName]
 - 매개 변수는 다음과 같이 백분율 기호로 식별됩니다. % ParameterName %
 - 문자열 상수는 따옴표를 사용합니다(예: "Contoso"). (참고: 둥근 따옴표 “”가 아닌 직선 따옴표 ""를 사용)
-- 숫자 값은 따옴표 없이 표현되고 10진수입니다. 16진수 값는 접두사 &H가 붙습니다. 예: 98052, &HFF
+- 숫자 값은 따옴표 없이 표현되고 10진수입니다. 16진수 값은 접두사 &H가 붙습니다. 예: 98052, &HFF
 - 부울 값은 다음과 같은 상수로 표시됩니다. True, False
 - 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
 
@@ -77,11 +77,19 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 예를 들어 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다. `Word([proxyAddresses],1,"@") & "@contoso.com"` @-기호가 있는 모든 값에 대해 도메인을 @contoso.com으로 바꿉니다. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.
 
-## 추가 리소스
+## 다음 단계
 
-- [Azure AD Connect 동기화: 선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
+- [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.
+- [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
+- [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
+
+**개요 항목**
+
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**참조 항목**
+
+- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

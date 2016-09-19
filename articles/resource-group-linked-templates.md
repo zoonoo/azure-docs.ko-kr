@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager에서 연결된 템플릿 사용
@@ -29,7 +29,7 @@
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -53,7 +53,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
 
 연결된 템플릿은 외부에서 사용할 수 있어야 하지만 일반에 공개할 필요는 없습니다. 저장소 계정 소유자만 액세스할 수 있는 개인 저장소 계정에 템플릿을 추가할 수 있습니다. 그런 다음 배포하는 동안 액세스할 수 있도록 공유 액세스 서명(SAS) 토큰을 만듭니다. 링크된 템플릿 URI에 SAS 토큰을 추가합니다. 저장소 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요.
 
-다음 예제는 다른 템플릿에 연결되는 상위 템플릿을 보여줍니다. 중첩된 템플릿은 매개 변수로 전달된 SAS 토큰으로 액세스합니다.
+다음 예제는 다른 템플릿에 연결되는 상위 템플릿을 보여줍니다. 연결된 템플릿은 매개 변수로 전달된 SAS 토큰으로 액세스합니다.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -61,7 +61,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -200,7 +200,7 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
       }
     }
 
-다음 예제는 **newStorageAccount.json** 템플릿을 보여 줍니다. 기존 저장소 계정 템플릿과 같이 저장소 계정 개체는 출력으로 돌아갑니다. 마스터 템플릿은 중첩된 템플릿을 사용하여 작동합니다.
+다음 예제는 **newStorageAccount.json** 템플릿을 보여 줍니다. 기존 저장소 계정 템플릿과 같이 저장소 계정 개체는 출력으로 돌아갑니다. 마스터 템플릿은 연결된 템플릿을 사용하여 작동합니다.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -247,7 +247,7 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }
@@ -300,4 +300,4 @@ SAS 토큰을 매개 변수로 제공하라는 메시지가 나타납니다. **?
 - 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 - 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

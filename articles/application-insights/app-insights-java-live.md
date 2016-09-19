@@ -107,9 +107,9 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
 [예외를 설정하여 나가는 데이터를 내보내야](app-insights-ip-addresses.md) 할 수 있습니다.
 
-## 5\. 웹앱을 다시 시작합니다.
+## 6\. 웹앱을 다시 시작합니다.
 
-## 6\. Application Insights에서 원격 분석 보기
+## 7\. Application Insights에서 원격 분석 보기
 
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
@@ -143,4 +143,4 @@ HTTP 요청에 대한 원격 분석은 개요 블레이드에 표시됩니다. (
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="포털을 사용하여 VM에 대한 외부 액세스 허용 | Microsoft Azure"
-   description="Azure 포털의 리소스 관리자 배포 모델을 사용하여 VM에 대한 액세스를 허용하는 포트를 열고 끝점을 만드는 방법 알아보기"
+   pageTitle="Azure 포털을 사용하여 VM으로 포트 열기 | Microsoft Azure"
+   description="Azure 포털의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Azure 포털을 사용하여 VM에 대한 외부 액세스 허용
+# Azure 포털을 사용하여 Azure에서 VM으로 포트 열기
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 빠른 명령
@@ -34,7 +34,7 @@
 
 ![인바운드 규칙 추가](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-새 규칙의 이름을 제공합니다. 기본적으로 포트 80은 이미 입력되어 있습니다. 네트워크 보안 그룹에 다른 규칙을 추가하는 경우 여기서 소스, 프로토콜 및 대상을 변경합니다.
+새 규칙의 이름을 제공합니다. 기본적으로 포트 80은 이미 입력되어 있습니다. 네트워크 보안 그룹에 다른 규칙을 추가하는 경우 이 블레이드에서 소스, 프로토콜 및 대상을 변경합니다.
 
 ![인바운드 규칙 만들기](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -54,7 +54,7 @@
 
 네트워크 보안 그룹 및 ACL 규칙을 Azure Resource Manager 템플릿의 일부로 정의할 수도 있습니다. [템플릿을 사용하여 네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-template.md)에 대해 자세히 읽어보세요.
 
-포트 전달을 사용하여 고유한 외부 포트를 VM의 내부 포트에 매핑해야 하는 경우 부하 분산 장치 및 NAT(네트워크 주소 변환) 규칙을 사용해야 합니다. 예를 들어 TCP 포트 8080을 외부에 노출하고 트래픽이 VM의 TCP 포트 80으로 전달되도록 할 수 있습니다. [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)에 대해 자세히 알아볼 수 있습니다.
+포트 전달을 사용하여 고유한 외부 포트를 VM의 내부 포트에 매핑해야 하는 경우 부하 분산 장치 및 NAT(네트워크 주소 변환) 규칙을 사용합니다. 예를 들어 TCP 포트 8080을 외부에 노출하고 트래픽이 VM의 TCP 포트 80으로 전달되도록 할 수 있습니다. [인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)에 대해 자세히 알아볼 수 있습니다.
 
 ## 다음 단계
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
@@ -63,4 +63,4 @@
 - [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 - [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->
