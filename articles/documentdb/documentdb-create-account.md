@@ -93,4 +93,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 -	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 계층적 리소스 모델 및 개념](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0914_2016-->

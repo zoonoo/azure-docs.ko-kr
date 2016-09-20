@@ -60,7 +60,7 @@ ID | nginx
 에이전트의 포트에 컨테이너 포트를 정적으로 매핑하려는 경우 JSON 모드를 사용해야 합니다. 이렇게 하려면 토글을 사용하여 새 응용 프로그램 마법사를 **JSON 모드**로 전환합니다. 그런 다음 응용 프로그램 정의의 `portMappings` 섹션에 다음을 입력합니다. 이 예제는 컨테이너의 포트 80을 DC/OS 에이전트의 포트80으로 바인딩합니다. 이렇게 변경한 후에 이 마법사를 JSON 모드에서 해제할 수 있습니다.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![새 응용 프로그램 UI--포트 80 예제](media/dcos/dcos13.png)
@@ -101,4 +101,4 @@ Mesos와 함께 Azure Container Service에 대해 자세히 알아보기
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

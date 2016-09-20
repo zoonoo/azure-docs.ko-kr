@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/22/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # 개발자를 위한 배치 기능 개요
@@ -81,8 +81,6 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 - 액세스를 제어하도록 구성된 **방화벽** 설정
 - Windows(원격 데스크톱 프로토콜 (RDP))와 Linux(SSH (보안 셸)) 노드 모두에 대한 [원격 액세스](#connecting-to-compute-nodes)
 
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
-
 ## 풀
 
 풀은 응용 프로그램이 실행되는 노드 컬렉션입니다. 사용자가 풀을 만들 수도 있고, 완료할 작업을 지정한 경우에는 배치 서비스에서 자동으로 풀을 만듭니다. 응용 프로그램의 리소스 요구 사항을 충족하는 풀을 만들고 관리할 수 있습니다. 풀은 풀이 생성된 배치 계정을 통해서만 사용할 수 있습니다. 하나의 배치 계정에는 둘 이상의 풀이 있을 수 있습니다.
@@ -145,7 +143,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 - **응용 프로그램 패키지**
 
-	[응용 프로그램 패키지](#application-packages)를 지정하여 풀에 계산 노드를 배포할 수 있습니다. 응용 프로그램 패키지는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 풀에 지정할 응용 프로그램 패키지는 해당 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 모든 노드에 설치됩니다.
+	[응용 프로그램 패키지](#application-packages)를 지정하여 풀에 계산 노드를 배포할 수 있습니다. 응용 프로그램 패키지는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 풀에 지정할 응용 프로그램 패키지는 해당 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 모든 노드에 설치됩니다. 현재 응용 프로그램 패키지는 Linux 계산 노드에서 지원되지 않습니다.
 
 - **네트워크 구성**
 
@@ -468,7 +466,7 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -518,4 +516,4 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

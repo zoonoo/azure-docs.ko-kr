@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/17/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # Azure 배치 Python 클라이언트 시작
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 Python에서 작성한 작은 배치 응용 프로그램을 다룬 것처럼 [Azure 배치][azure_batch] 및 [배치 Python][py_azure_sdk] 클라이언트의 기본을 알아봅니다. 두 개의 샘플 스크립트에서는 배치 서비스를 사용하여 클라우드의 Linux 가상 컴퓨터에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure Storage](./../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로를 습득하고 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대해 이해합니다.
-
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md)는 Linux 계산 노드에서 **현재 지원되지 않습니다**.
 
 ![배치 솔루션 워크플로(기본)][11]<br/>
 
@@ -660,4 +658,4 @@ Press ENTER to exit...
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

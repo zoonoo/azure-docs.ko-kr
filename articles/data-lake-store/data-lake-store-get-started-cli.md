@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Azure 명령줄을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -37,12 +37,11 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
+[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계에 따라 __login__ 메서드를 사용하여 구독에 연결합니다.
 
 
 ## Azure 데이터 레이크 저장소 계정 만들기
@@ -53,7 +52,7 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 
 		azure login
 
-	웹 페이지를 열고 인증 코드를 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인할 페이지의 지침을 따릅니다.
+	웹 페이지를 열고 인증 코드를 입력하라는 메시지가 표시됩니다. 페이지의 지침을 따라 Azure 구독에 로그인합니다.
 
 2. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
@@ -189,4 +188,4 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->
