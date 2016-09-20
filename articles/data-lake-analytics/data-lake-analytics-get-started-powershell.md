@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작 | Azure" 
-   description="Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다." 
+   description="Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -35,11 +35,11 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 	
 ##데이터 레이크 분석 계정 만들기
 
-모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
+모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
 
-- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](../resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](../resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.
 
-	구독에 대한 리소스 그룹을 나열하려면:
+	구독에서 리소스 그룹을 나열하려면:
     
     	Get-AzureRmResourceGroup
     
@@ -204,9 +204,9 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 
 - 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 - 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
-- U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
-- U-SQL을 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-- 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+- U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
+- U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
+- 관리 작업을 보려면 [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -33,7 +33,6 @@
 
 * Visual Studio 2013 또는 2015 아래 지침에서는 Visual Studio 2015를 사용합니다.
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Data Lake Store 공개 미리 보기에 대해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 * **Azure Active Directory 응용 프로그램을 만듭니다**. **대화형** 및 **비대화형**의 두 가지 방법으로 Azure Active Direcotry를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
 	* **대화형 인증의 경우**(이 문서에 사용됨) - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
 		- 응용 프로그램에 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
@@ -530,4 +529,4 @@ DataLakeStoreUploader는 Data Lake Store에 대한 로컬 파일(또는 폴더) 
 - [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

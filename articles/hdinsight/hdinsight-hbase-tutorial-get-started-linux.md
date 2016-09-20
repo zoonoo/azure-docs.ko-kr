@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -238,7 +238,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 
 **SSH 터널링 세션을 설정하려면**
 
-1. **PuTTY**를 엽니다.  
+1. **PuTTY**를 엽니다.
 2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
 
 	**Category**에서 **Connection**, **SSH**를 차례로 확장하고 **Auth**를 선택합니다. 마지막으로 **Browse**를 클릭하고 개인 키가 포함된 .ppk 파일을 선택합니다.
@@ -247,7 +247,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
 
 	- **호스트 이름**: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-	- **포트**: 22. 헤드 노드 0에서 SSH 포트는 22입니다.  
+	- **포트**: 22. 헤드 노드 0에서 SSH 포트는 22입니다.
 5. 대화 상자의 왼쪽에 있는 **카테고리** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **터널**을 클릭합니다.
 6. SSH 포트 전달을 제어하는 옵션 양식에 다음 정보를 제공합니다.
 
@@ -325,4 +325,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

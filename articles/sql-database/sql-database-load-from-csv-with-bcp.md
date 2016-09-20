@@ -1,7 +1,7 @@
 <properties
    pageTitle="CSV 파일에서 Azure SQL 데이터베이스로 데이터 로드(bcp) | Microsoft Azure"
    description="작은 데이터 크기의 경우 bcp를 사용하여 Azure SQL 데이터베이스로 데이터를 가져옵니다."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
-# CSV에서 Azure SQL 데이터 웨어하우스로 데이터 로드\(플랫 파일\)
+# CSV에서 Azure SQL 데이터 웨어하우스로 데이터 로드(플랫 파일)
 
 bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL 데이터베이스로 데이터를 가져올 수 있습니다.
 
@@ -37,12 +37,9 @@ bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL 데이터�
 
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다.
 
-PolyBase는 UTF-8을 지원하지만 아직 UTF-16은 지원하지 않습니다. bcp를 PolyBase와 결합하려면 데이터를 SQL Server에서 내보낸 후 UTF-8로 변환해야 합니다.
-
-
 ## 1\. 대상 테이블 만들기
 
-SQL 데이터 웨어하우스에 로드에 대한 대상 테이블이 될 테이블을 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
+SQL Database에서 테이블을 대상 테이블로 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
 
 테이블을 만들려면, 명령 프롬프트를 열고 sqlcmd.exe를 사용하여 다음 명령을 실행합니다.
 
@@ -79,7 +76,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 20150101,1,3
 ```
 
-\(선택 사항\) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username, 및 Password를 사용자의 정보로 바꿉니다.
+(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username, 및 Password를 사용자의 정보로 바꿉니다.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
@@ -127,4 +124,4 @@ SQL Server 데이터베이스를 마이그레이션하려면 [SQL Server 데이�
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

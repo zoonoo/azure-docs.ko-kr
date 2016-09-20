@@ -18,7 +18,7 @@
 
 # Azure 앱 서비스에서 Node.js 웹앱 시작
 
-[AZURE.INCLUDE [탭](../../includes/app-service-web-get-started-nav-tabs.md)]
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 이 자습서에서는 간단한 [Node.js][NODEJS] 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄 환경에서 [Azure 앱 서비스]의 [웹앱]에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
@@ -52,17 +52,18 @@
 
     브라우저에서 <http://localhost:3000>으로 이동하여 Express 홈 페이지를 볼 수 있는지 확인합니다. 앱이 제대로 실행되는지 확인했으면 `Ctrl-C`를 사용하여 중지합니다.
     
-1. 이와 같은 방법으로 Azure에 로그인합니다(이를 위해 [Azure CLI](#prereq)가 필요).
+1. ASM 모드로 변경하여 Azure에 로그인합니다(이를 위해 [Azure CLI](#prereq)가 필요함).
 
+        azure config mode asm
         azure login
 
-    프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에서 계속 로그인합니다.
+    프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에 로그인을 계속합니다.
 
 2. 앱의 루트 디렉터리에서 작업하고 있는지 확인합니다. 다음 명령(예: http://{appname}.azurewebsites.net)을 사용하여 고유한 앱 이름을 가진 Azure의 앱 서비스 앱 리소스를 만듭니다.
 
         azure site create --git {appname}
 
-    프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우에도 배포 자격 증명을 만들라는 메시지가 표시됩니다.
+    프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 표시됩니다.
 
 3. 응용 프로그램의 루트에서 ./config/config.js 파일을 열고 프로덕션 포트를 `process.env.port`로 변경합니다. `config` 개체의 `production` 속성은 다음 예제와 같아야 합니다.
 
@@ -236,4 +237,4 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

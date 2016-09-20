@@ -43,9 +43,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 |**지역**|**Azure 지역**|**Express 경로 위치**|
 |---|---|---|---|
-|**미국 정부 클라우드**|미국 정부 아이오와, 미국 정부 버지니아|시카고, 댈라스+, 뉴욕, 워싱턴 DC|
+|**미국 정부 클라우드**|미국 정부 아이오와, 미국 정부 버지니아|시카고, 댈러스, 뉴욕, 워싱턴 DC|
 |**중국**|중국 북부, 중국 동부|베이징, 상하이|
-|**독일**|독일 중부, 독일 동부|베를린, 프랑크푸르트|
+|**독일**|독일 중부, 독일 동부|베를린+, 프랑크푸르트|
 
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
@@ -65,7 +65,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **첸나이** | Tata Communications |
 | **시카코** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **댈러스** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **더블린** | Colt |
+| **더블린** | Colt, Telecity Group |
 | **홍콩** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **런던** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **라스베이거스** | Level 3 Communications+, Megaport
@@ -94,7 +94,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **위치** |**서비스 공급자** |
 |---------------|--------------------|
 | **시카코** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **댈러스** | Equinix+, Verizon+ |
+| **댈러스** | Equinix, Verizon+ |
 | **뉴욕** | Equinix, Level 3 Communications+, Verizon |
 | **워싱턴 DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -156,4 +156,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

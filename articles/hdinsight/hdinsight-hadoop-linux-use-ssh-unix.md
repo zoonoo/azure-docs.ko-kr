@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -150,7 +150,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 터미널에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
 
-2. 파일에 다음을 추가합니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 파일에 다음을 추가합니다. *CLUSTERNAME*을 HDInsight 클러스터의 이름으로 바꿉니다.
 
         Host CLUSTERNAME-ssh.azurehdinsight.net
           ForwardAgent yes
@@ -179,7 +179,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 앞에서 설명한 대로 SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
-2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
+2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -191,7 +191,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
         ssh USERNAME@FQDN
 
-    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
     > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
@@ -247,4 +247,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

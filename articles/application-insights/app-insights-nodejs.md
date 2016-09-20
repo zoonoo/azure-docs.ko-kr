@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## 다음 단계
 
 * [포털에서 원격 분석 모니터링](app-insights-dashboards.md)
-* [원격 분석에 대한 분석 쿼리 작성(app-insights-analytics-tour.md)
+* [원격 분석에 분석 쿼리 작성](app-insights-analytics-tour.md)
 
 
 
@@ -228,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

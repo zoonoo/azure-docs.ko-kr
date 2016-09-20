@@ -24,7 +24,7 @@
 ## 필수 조건
 
  - Visual Studio 2013 또는 2015
- - [Python Tools for Visual Studio][]\(PTVS)
+ - [Python Tools for Visual Studio][](PTVS)
  - [Azure SDK Tools for VS 2013][] 또는 [Azure SDK Tools for VS 2015][]
  - [Python 2.7 32비트][] 또는 [Python 3.5 32비트][]
 
@@ -61,7 +61,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 ## 클라우드 서비스에 Python 설치
 
->[AZURE.WARNING] \(이 문서를 마지막으로 업데이트한 시간에)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
+>[AZURE.WARNING] (이 문서를 마지막으로 업데이트한 시간에)Visual Studio를 사용하여 설치된 설치 스크립트가 작동하지 않습니다. 이 섹션에서는 해결 방법을 설명합니다.
 
 설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 작업](cloud-services-startup-tasks.md)을 정의합니다. 첫 번째 작업(**PrepPython.ps1**)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업(**PipInstaller.ps1**)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
 
@@ -240,6 +240,8 @@ if (-not $is_emulated){
 
 #### LaunchWorker.ps1 수정
 
+>[AZURE.NOTE] **작업자 역할** 프로젝트의 경우에 시작 파일을 실행하려면 **LauncherWorker.ps1** 파일이 필요합니다. 대신 **웹 역할** 프로젝트에서 시작 파일은 프로젝트 속성에 정의됩니다.
+
 **bin\\LaunchWorker.ps1**은 원래 많은 준비 작업을 수행하도록 만들었지만 실제로 작동하지 않습니다. 해당 파일의 내용을 다음 스크립트로 바꿉니다.
 
 이 스크립트는 Python 프로젝트에서 **worker.py** 파일을 호출합니다. **PYTHON2** 환경 변수가 **켜기**로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
@@ -364,4 +366,4 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [Python 2.7 32비트]: https://www.python.org/downloads/
 [Python 3.5 32비트]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

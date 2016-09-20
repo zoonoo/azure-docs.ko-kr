@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
+# 자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-build-your-first-pipeline.md)
-- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
-- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API 사용](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-이 문서에서는 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## 필수 조건
-
-- [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 자세히 읽습니다. 이 문서는 Azure Data Factory의 기본 개념을 이해하는 데 도움이 됩니다.
+## 추가 필수 조건
 - 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/)을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
 - [이 문서](../resource-group-create-service-principal-portal.md)의 지침에 따라 다음 작업을 수행합니다.
 	1. Azure Active Directory에서 **ADFGetStartedApp**이라는 웹 응용 프로그램을 만듭니다.
@@ -405,4 +402,4 @@ Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** �
 | [Azure 포털 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) | 이 문서는 Azure 포털 블레이드를 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->
