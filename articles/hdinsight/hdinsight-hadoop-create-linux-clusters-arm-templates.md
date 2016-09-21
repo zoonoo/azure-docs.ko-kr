@@ -1,6 +1,6 @@
 <properties
-   pageTitle="ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기 | Microsoft Azure"
-   	description="Azure ARM 템플릿을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
+   pageTitle="Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기 | Microsoft Azure"
+   	description="Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기
+# Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
@@ -34,23 +34,31 @@ ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터�
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## ARM 템플릿
+## 리소스 관리자 템플릿
 
-ARM 템플릿을 사용하면 단일 조정된 작업의 응용 프로그램에 HDInsight 클러스터, 해당 종속 리소스(예: 기본 저장소 계정) 및 기타 리소스(예: Apache Sqoop을 사용하는 Azure SQL 데이터베이스)를 쉽게 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
+Resource Manager 템플릿을 사용하면 단일 조정된 작업의 응용 프로그램에 HDInsight 클러스터, 해당 종속 리소스(예: 기본 저장소 계정) 및 기타 리소스(예: Apache Sqoop을 사용하는 Azure SQL 데이터베이스)를 쉽게 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
-HDInsight 클러스터 및 종속 Azure 저장소 계정을 만들기 위한 ARM 템플릿은 [부록 A](#appx-a-arm-template)에서 찾을 수 있습니다. 플랫폼 간 [VSCode](https://code.visualstudio.com/#alt-downloads)를 [ARM 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) 또는 텍스트 편집기에서 사용하여 템플릿을 워크스테이션의 파일에 저장합니다. 다양한 방법을 사용하여 템플릿을 호출하는 방법을 알아봅니다.
+HDInsight 클러스터 및 종속 Azure Storage 계정을 만들기 위한 Resource Manager 템플릿은 [부록 A](#appx-a-arm-template)에서 찾을 수 있습니다. 플랫폼 간 [VSCode](https://code.visualstudio.com/#alt-downloads)를 [Resource Manager 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) 또는 텍스트 편집기에서 사용하여 템플릿을 워크스테이션의 파일에 저장합니다. 다양한 방법을 사용하여 템플릿을 호출하는 방법을 알아봅니다.
 
-ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
+Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
 
+특정 요소에 대한 JSON 스키마를 찾으려면 다음 절차를 따를 수 있습니다.
 
+1. [Azure 포털](https://porta.azure.com)을 열고 HDInsight 클러스터를 만듭니다. [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
+2. JSON 스키마에 필요한 요소를 구성합니다.
+3. **만들기**를 클릭하기 전에 다음 스크린샷과 같이 **자동화 옵션**을 클릭합니다.
+
+    ![HDInsight Hadoop의 클러스터 Resource Manager 템플릿 스키마 자동화 옵션 만들기](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
+
+    포털은 구성을 기반으로 Resource Manager 템플릿을 만듭니다.
 ## PowerShell을 사용하여 배포
 
 다음 절차는 Linux 기반 HDInsight 클러스터를 만듭니다.
 
-**ARM 템플릿을 사용하여 클러스터를 배포하려면**
+**Resource Manager 템플릿을 사용하여 클러스터를 배포하려면**
 
 1. [부록 A](#appx-a-arm-template)의 json 파일을 워크스테이션에 저장합니다. PowerShell 스크립트에서 파일 이름은 *C:\\HDITutorials-ARM\\hdinsight-arm-template.json*입니다.
 2. 필요한 경우 매개 변수 및 변수를 설정합니다.
@@ -110,7 +118,7 @@ ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 ## Azure CLI를 사용하여 배포
 
-다음 샘플에서는 ARM 템플릿을 호출하여 클러스터 및 해당 종속 저장소 계정과 컨테이너를 만듭니다.
+다음 샘플에서는 Resource Manager 템플릿을 호출하여 클러스터 및 해당 종속 저장소 계정과 컨테이너를 만듭니다.
 
 	azure login
 	azure config mode arm
@@ -140,9 +148,11 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 - Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 - Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
-##부록 A: ARM 템플릿
+##부록 A: Resource Manager 템플릿
 
 다음 Azure 리소스 관리자 템플릿은 종속 Azure 저장소 계정을 사용하여 Linux 기반 Hadoop 클러스터를 만듭니다.
+
+> [AZURE.NOTE] 샘플에는 Hive metastore와 Oozie metastore에 대한 구성 정보가 포함됩니다. 템플릿을 사용하기 전에 섹션을 제거하거나 섹션을 구성합니다.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -164,20 +174,20 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         "clusterLoginPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the cluster login."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "sshUserName": {
         "type": "string",
         "defaultValue": "sshuser",
         "metadata": {
-            "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
+            "description": "These credentials can be used to remotely access the cluster."
         }
         },
         "sshPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the ssh user."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "location": {
@@ -214,19 +224,19 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         "metadata": {
             "description": "The type of the HDInsight cluster to create."
         }
-        },  
+        },
         "clusterWorkerNodeCount": {
         "type": "int",
         "defaultValue": 2,
         "metadata": {
             "description": "The number of nodes in the HDInsight cluster."
         }
-        }      
+        }
     },
     "variables": {
         "defaultApiVersion": "2015-05-01-preview",
         "clusterApiVersion": "2015-03-01-preview",
-        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"      
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
     },
     "resources": [
         {
@@ -234,8 +244,8 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         "type": "Microsoft.Storage/storageAccounts",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('defaultApiVersion')]",
-        "dependsOn": [],
-        "tags": {},
+        "dependsOn": [ ],
+        "tags": { },
         "properties": {
             "accountType": "Standard_LRS"
         }
@@ -245,13 +255,14 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         "type": "Microsoft.HDInsight/clusters",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('clusterApiVersion')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]"
-        ],
-        "tags": {},
+        "dependsOn": [ "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]" ],
+        "tags": {
+
+        },
         "properties": {
-            "clusterVersion": "3.2",
+            "clusterVersion": "3.4",
             "osType": "Linux",
+            "tier": "standard",
             "clusterDefinition": {
             "kind": "[parameters('clusterType')]",
             "configurations": {
@@ -259,7 +270,36 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
                 "restAuthCredential.isEnabled": true,
                 "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
                 "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-                }
+                },
+                "hive-site": {
+                    "javax.jdo.option.ConnectionDriverName": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "javax.jdo.option.ConnectionURL": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "javax.jdo.option.ConnectionUserName": "johndole",
+                    "javax.jdo.option.ConnectionPassword": "myPassword$"
+                },
+                "hive-env": {
+                    "hive_database": "Existing MSSQL Server database with SQL authentication",
+                    "hive_database_name": "myhive20160901",
+                    "hive_database_type": "mssql",
+                    "hive_existing_mssql_server_database": "myhive20160901",
+                    "hive_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "hive_hostname": "myadla0901dbserver.database.windows.net"
+                },
+                "oozie-site": {
+                    "oozie.service.JPAService.jdbc.driver": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "oozie.service.JPAService.jdbc.url": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "oozie.service.JPAService.jdbc.username": "johndole",
+                    "oozie.service.JPAService.jdbc.password": "myPassword$",
+                    "oozie.db.schema.name": "oozie"
+                },
+                "oozie-env": {
+                    "oozie_database": "Existing MSSQL Server database with SQL authentication",
+                    "oozie_database_name": "myhive20160901",
+                    "oozie_database_type": "mssql",
+                    "oozie_existing_mssql_server_database": "myhive20160901",
+                    "oozie_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "oozie_hostname": "myadla0901dbserver.database.windows.net"
+                }            
             }
             },
             "storageProfile": {
@@ -278,7 +318,7 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
                 "name": "headnode",
                 "targetInstanceCount": "2",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -291,7 +331,7 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
                 "name": "workernode",
                 "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -313,4 +353,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
     }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

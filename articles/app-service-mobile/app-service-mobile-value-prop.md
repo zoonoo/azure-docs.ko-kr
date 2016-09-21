@@ -37,7 +37,7 @@ Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS
 
   [인증 기능]에 대해 자세히 알아보세요.
 
-- **데이터 액세스** - Azure 모바일 앱은 SQL Azure 또는 온-프레미스 SQL Server에 연결된 모바일 친화적인 OData v3 데이터 원본을 제공합니다. 이 서비스는 Entity Framework를 기반으로 할 수 있으며 이를 통해 [Azure 테이블 저장소], MongoDB, [DocumentDB] 및 SaaS API 공급자(예: Office 365 및 Salesforce.com)를 비롯한 다른 NoSQL 및 SQL 데이터 공급자와 쉽게 통합할 수 있습니다.
+- **데이터 액세스** - Azure Mobile Apps은 SQL Azure 또는 온-프레미스 SQL Server에 연결된 모바일 친화적인 OData v3 데이터 원본을 제공합니다. 이 서비스는 Entity Framework를 기반으로 할 수 있으며 이를 통해 [Azure 테이블 저장소], MongoDB, [DocumentDB] 및 SaaS API 공급자(예: Office 365 및 Salesforce.com)를 비롯한 다른 NoSQL 및 SQL 데이터 공급자와 쉽게 통합할 수 있습니다.
 - **오프라인 동기화** - 클라이언트 SDK를 통해 충돌 해결 지원을 비롯하여 백 엔드 데이터와 자동으로 동기화될 수 있는 오프라인 데이터 집합에서 작동하는 강력하고 응답성이 우수한 모바일 응용 프로그램을 쉽게 빌드할 수 있습니다.
 
   [데이터 기능]에 대해 자세히 알아보세요.
@@ -63,7 +63,7 @@ Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS
 
   [배포 옵션]에 대해 자세히 알아보세요.
 
-- **가상 네트워킹** - 앱 서비스는 가상 네트워크, Express 경로 또는 하이브리드 연결을 사용하여 온-프레미스 리소스에 연결할 수 있습니다.
+- **가상 네트워킹** - App Service는 가상 네트워크, Express 경로 또는 하이브리드 연결을 사용하여 온-프레미스 리소스에 연결할 수 있습니다.
 
   [하이브리드 연결], [가상 네트워크] 및 [Express 경로]에 대해 자세히 알아보세요.
 
@@ -102,4 +102,4 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 [앱 서비스 환경]: ../app-service-web/app-service-app-service-environment-intro.md
 [학습 맵]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

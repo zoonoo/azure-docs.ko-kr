@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management의 액세스 검토를 시작하는 방법
 
-사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 사용자에게 부여된 역할을 정기적으로 검토해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 보안 검토를 시작하는 단계를 설명합니다.
+사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자는 사용자에게 부여된 역할을 정기적으로 검토해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 액세스 검토를 시작하는 단계를 설명합니다.
 
-## 보안 검토 시작
+## 액세스 검토 시작
 > [AZURE.NOTE] Azure 포털의 대시보드에 PIM 응용 프로그램을 추가하지 않았으면 [Azure Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md)의 단계를 참조하세요.
 
-PIM 응용 프로그램 기본 페이지에서 보안 검토를 시작하는 방법은 세 가지가 있습니다.
+PIM 응용 프로그램 기본 페이지에서 액세스 검토를 시작하는 방법은 세 가지가 있습니다.
 
 - **액세스 검토** > **추가**
 - **역할** > **검토** 단추
@@ -53,13 +53,14 @@ PIM 응용 프로그램 기본 페이지에서 보안 검토를 시작하는 방
 
 ### 검토를 수행할 사용자를 결정합니다.
 
-검토를 수행하는 데 두 가지 옵션이 있습니다. 역할에 있는 모든 사용자에 대한 액세스를 승인 또는 거부하여 직접 행할 수 있습니다. 또는 각 사용자가 자신의 액세스를 검토하도록 할 수 있습니다.
+검토를 수행하는 데 세 가지 옵션이 있습니다. 검토를 다른 사람에게 완료하도록 할당할 수 있습니다, 사용자가 직접 수행하거나 각 사용자가 자신의 액세스를 검토하도록 할 수 있습니다.
 
 1. **검토자 선택**으로 이동
 
     ![검토자 선택 - 스크린 샷][4]
 
 2. 옵션 중 하나를 선택하십시오.
+    - **검토자 선택**: 액세스가 필요한 사용자를 알 수 없는 경우 이 옵션을 사용합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
     - **Me**: 액세스 검토가 작동하는 방법을 미리 보고자 하거나 그러지 못하는 사람들을 위해 검토하려는 경우 유용합니다.
     - **멤버 자체 검토**: 사용자에게 자신의 역할 할당을 검토하게 하려면 이 옵션을 사용합니다.
 
@@ -67,7 +68,7 @@ PIM 응용 프로그램 기본 페이지에서 보안 검토를 시작하는 방
 
 마지막으로 사용자가 자신의 액세스를 승인한다면 그 이유를 제공하도록 요구하는 옵션이 있습니다. 원하면 검토에 대한 설명을 추가하고 **시작**을 선택합니다.
 
-사용자에게 대기 중인 액세스 검토가 있다는 것을 알려주어야 하고, [액세스 검토를 수행하는 방법](active-directory-privileged-identity-management-how-to-perform-security-review.md)을 보여줍니다.
+사용자에게 대기 중인 액세스 검토가 있다는 것을 알려주어야 하고, [액세스 검토를 수행하는 방법](active-directory-privileged-identity-management-how-to-perform-security-review.md)을 보여 줍니다.
 
 ## 액세스 검토 관리
 
@@ -87,4 +88,4 @@ PIM 응용 프로그램 기본 페이지에서 보안 검토를 시작하는 방
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

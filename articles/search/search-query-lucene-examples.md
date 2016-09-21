@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="05/17/2016"
+    ms.date="08/29/2016"
     ms.author="liamca"
 />
 
@@ -31,7 +31,7 @@ Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 
 ## 이 문서의 예제 살펴보기
 
-이 문서의 모든 예제에서는 **queryType** 검색 매개 변수를 통해 Lucene 쿼리 파서를 지정합니다. 사용자 코드에서 Lucene 쿼리 파서를 사용할 때는 모든 요청마다 **queryType**을 지정합니다. 유효한 값은 **simple**|**full**이며 기본값은 **simple**이고 Lucene 쿼리 파서의 경우 **full**입니다. 쿼리 매개 변수 지정에 대한 자세한 내용은 [문서 검색(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
+이 문서의 모든 예제에서는 **queryType** 검색 매개 변수를 통해 Lucene 쿼리 파서를 지정합니다. 사용자 코드에서 Lucene 쿼리 파서를 사용할 때는 모든 요청마다 **queryType**을 지정합니다. 유효한 값은 **simple**|**full**이며 기본값은 **simple**이고 Lucene 쿼리 파서의 경우 **full**입니다. 쿼리 매개 변수 지정에 대한 자세한 내용은 [문서 검색(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.
 
 **예제 1** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭하여 새 브라우저 페이지에서 열고 JSFiddle을 로드한 후 쿼리를 실행합니다.
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
@@ -53,7 +53,7 @@ Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 
 이 경우에 위치 필드에서 두 개의 다른 도시를 검색하고 있으므로 두 문자열이 단일 엔터티로 평가되길 원하는 경우 여러 문자열을 인용 부호로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
 
-**fieldname:searchterm**에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 참조하십시오.
+**fieldname:searchterm**에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 참조하세요.
 
 ## 유사 항목 검색
 
@@ -85,7 +85,7 @@ Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 
 용어 상승은 해당 용어가 포함되지 않은 문서와 상대적으로, 상승된 용어가 포함된 경우 문서에 더 높은 순위를 매기는 것을 의미합니다. 이것은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다. 다음 예제는 차이점을 설명하는 데 도움이 됩니다.
 
-musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항목을 상승시키는 평가 프로필을 고려해 보십시오. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, "rock^2 electronic"은 **genre** 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 "rock"이라는 검색어가 포함된 문서는 "electronic"이라는 다른 검색어보다 높은 순위로 매겨집니다.
+musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항목을 상승시키는 평가 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, "rock^2 electronic"은 **genre** 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 "rock"이라는 검색어가 포함된 문서는 "electronic"이라는 다른 검색어보다 높은 순위로 매겨집니다.
 
 용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용하십시오. 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 더 관련성이 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수이어야 하지만, 1보다 작을 수 있습니다(예: 0.2).
 
@@ -121,7 +121,7 @@ musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항
 
 ## 다음 단계
 
-코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로**queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
+코드에서 Lucene 쿼리 파서를 지정해 보십시오. 다음 링크에서는 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다. 링크는 기본 단순 구문을 사용하므로 **queryType**을 지정하려면 이 문서에서 배운 내용을 적용해야 합니다.
 
 - [.NET SDK를 사용하여 Azure 검색 인덱스 쿼리](search-query-dotnet.md)
 - [REST API를 사용하여 Azure 검색 인덱스 쿼리](search-query-rest-api.md)
@@ -129,4 +129,4 @@ musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

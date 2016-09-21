@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 에서 보안 경고를 구성하는 방법
@@ -30,7 +30,7 @@ Azure Privileged Identity Management(PIM)은 사용자의 환경에 의심스럽
 | **역할이 PIM 외부에서 할당됨** | 관리자가 PIM 인터페이스 외부에서 영구적으로 역할에 할당되었습니다. | 새 역할 할당을 검토합니다. 다른 서비스는 영구 관리자만 할당할 수 있으므로 필요한 경우 그것을 적격 할당으로 변경합니다. |
 | **역할이 너무 자주 활성화됨** | 설정에 허용된 시간 내에 동일한 역할을 다시 활성화한 횟수가 너무 많습니다. | 사용자에게 연락하여 역할을 그처럼 많이 활성화한 이유를 알아봅니다. 어쩌면 해당 작업을 끝내기에는 시간 제한이 너무 짧거나 또는 역할을 자동으로 활성화하기 위해 스크립트를 사용할 수도 있습니다. |
 | **역할이 활성화를 위해 Multi-Factor Authentication을 필요로 하지 않음** | MFA를 사용하도록 설정되지 않은 역할이 있습니다. | 가장 높은 권한을 가진 역할에 MFA가 필요하지만 모든 역할을 활성화하기 위해 MFA를 사용하도록 적극 권장합니다. |
-| **관리자가 권한 있는 역할을 사용 하지 않음** | 최근에 해당 역할을 활성화하지 않은 임시 관리자가 있습니다. | 더 이상 액세스가 필요없는 사용자를 확인하기 위해 액세스 검토를 시작합니다. |
+| **관리자가 권한 있는 역할을 사용 하지 않음** | 최근에 해당 역할을 활성화하지 않은 적합한 관리자가 있습니다. | 더 이상 액세스가 필요 없는 사용자를 확인하기 위해 액세스 검토를 시작합니다. |
 | **전역 관리자가 너무 많음** | 권장하는 것보다 전역 관리자가 많습니다. | 많은 수의 전역 관리자가 있을 경우, 사용자가 필요 이상으로 많은 사용 권한을 갖게 될 가능성이 있습니다. 사용자를 낮은 권한의 역할로 이동하거나, 그 중 일부를 영구 할당 대신에 적격 할당으로 역할을 변경합니다. |
 
 ## 보안 경고 설정 구성
@@ -75,4 +75,4 @@ PIM은 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

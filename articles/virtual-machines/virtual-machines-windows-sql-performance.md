@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2016"
+	ms.date="09/07/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
@@ -37,7 +37,7 @@ SQL Server 이미지를 만들 때 [Azure 포털에서 VM을 프로비전하는 
 |---|---|
 |[VM 크기](#vm-size-guidance)|SQL Enterprise Edition의 경우 [DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) 이상,<br/><br/> SQL Standard 및 Web Edition의 경우 [DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) 이상|
 |[저장소](#storage-guidance)|[프리미엄 저장소](../storage/storage-premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>[저장소 계정](../storage/storage-create-storage-account.md)과 SQL Server VM을 동일한 위치에 둡니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../storage/storage-redundancy.md)(지역에서 복제)를 사용하지 않도록 설정합니다.|
-|[디스크](#disks-guidance)|최소 2개의 [P30 디스크](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다.|
+|[디스크](#disks-guidance)|최소 2개의 [P30 디스크](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB를 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경할 때는 SQL Server 서비스를 중지하세요.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다.|
 |[I/O](#io-guidance)|데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 증가를 제한하거나 사용하지 않도록 설정합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다.|
 |[기능 관련](#feature-specific-guidance)|Blob 저장소에 직접 백업합니다.|
 
@@ -100,7 +100,13 @@ D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 �
 
 - **캐싱 정책**: 프리미엄 저장소 데이터 디스크의 경우 데이터 파일 및 TempDB만 호스트하는 데이터 디스크에서 읽기 캐싱을 사용하도록 설정합니다. 프리미엄 저장소를 사용하지 않는 경우 모든 데이터 디스크에서 모든 캐싱을 사용하도록 설정하지 마세요. 디스크 캐싱 구성에 대한 지침은 [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx) 항목을 참조하세요.
 
+	>[AZURE.WARNING] 데이터베이스 손상 가능성을 방지하려면 Azure VM 디스크의 캐시 설정을 변경할 때 SQL Server 서비스를 중지합니다.
+
 - **NTFS 할당 단위 크기**: 데이터 디스크를 포맷할 때 TempDB뿐만 아니라 데이터 및 로그 파일에 대해 64KB 할당 단위 크기를 사용하는 것이 좋습니다.
+
+- **디스크 관리 모범 사례**: 데이터 디스크를 제거하거나 캐시 유형을 변경할 때 변경하는 동안 SQL Server 서비스를 중지합니다. OS 디스크에 대한 캐싱 설정이 변경되면 Azure는 VM을 중지하고, 캐시 유형을 변경하고 VM을 다시 시작합니다. 데이터 디스크의 캐시 설정이 변경될 경우 변경 중에 VM은 중지되지 않지만 데이터 디스크가 VM에서 분리되었다가 다시 연결됩니다.
+
+	>[AZURE.WARNING] 이러한 작업 중에 SQL Server 서비스를 중지하지 못하면 데이터베이스가 손상될 수 있습니다.
 
 ## I/O 지침
 
@@ -148,4 +154,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

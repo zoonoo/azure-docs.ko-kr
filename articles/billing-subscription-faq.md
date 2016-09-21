@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
@@ -34,6 +34,7 @@
 
 - [내 청구서 복사본은 어떻게 받나요?](#how-do-i-get-a-copy-of-my-invoice)
 - [마지막 청구 기간에 대한 송장이 보이지 않습니다. 그 이유는 무엇일까요?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [지불하려면 어떻게 해야 하나요?](#how-do-i-make-a-payment)
 
 ## 무료 평가판
 
@@ -314,4 +315,10 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+### 지불하려면 어떻게 해야 하나요?
+
+지불 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다.
+
+[지불 방법으로 송장](https://azure.microsoft.com/pricing/invoicing/)을 사용하도록 설정했다면 송장 밑에 나열된 위치로 지불액을 보내세요. 자세한 도움말은 [지원에 문의](billing-how-to-create-billing-support-ticket.md)합니다.
+
+<!---HONumber=AcomDC_0907_2016-->

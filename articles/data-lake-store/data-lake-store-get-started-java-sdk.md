@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Java를 사용하여 Azure Data Lake 저장소 시작
@@ -41,8 +41,7 @@ Azure Data Lake 저장소 Java SDK를 사용하여 Azure Data Lake 계정을 만
 * JDK(Java Development Kit) 8 (Java 버전 1.8 사용).
 * IntelliJ 또는 다른 적절한 Java 개발 환경. 선택 사항이지만 권장합니다. 아래 지침에서는 IntelliJ를 사용합니다.
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Data Lake Store 공개 미리 보기에 대해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
-* **Azure Active Directory 응용 프로그램 만들기**. **대화형** 및 **비대화형**과 같은 두 가지 방법으로 Azure Active Directory를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
+* **Azure Active Directory 응용 프로그램을 만듭니다**. **대화형** 및 **비대화형**과 같은 두 가지 방법으로 Azure Active Directory를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
 	* **대화형 인증의 경우** - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
 		- 응용 프로그램에 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
 		- 위임된 권한 설정
@@ -280,4 +279,4 @@ Azure Data Lake 저장소 Java SDK를 사용하여 Azure Data Lake 계정을 만
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -49,7 +49,8 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 
 - 앱에 할당된 **응용 프로그램 ID**는 곧 필요하므로 적어둡니다.
 - 앱용 **Mobile** 플랫폼을 추가합니다.
-- 포털에서 **리디렉션 URI**를 복사합니다. `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다.
+
+> 참고: 응용 프로그램 등록 포털은 **리디렉션 URI** 값을 제공합니다. 그러나 이 예제에서 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다.
 
 
 ## NXOAuth2 타사 라이브러리 다운로드 및 작업 영역 만들기
@@ -196,4 +197,4 @@ OAuth2를 프로토콜로 사용하는 경우 이러한 끝점은 변경되어�
 
 [Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -24,9 +24,6 @@ Azure Active Directory ID 보호는 조직의 ID에 영향을 주는 위험 이�
 ## 현재 미리 보기 제한 사항
 이 섹션에서는 현재 Azure Active Directory ID 보호 미리 보기에 적용되는 제한 사항을 나열합니다.
 
-### 국가 또는 지역 제한
-
-Azure Active Directory ID 보호 미리 보기는 현재 **국가 또는 지역** 값이 **미국**인 디렉터리에만 사용할 수 있습니다. <br><br> ![재구성](./media/active-directory-identityprotection/222.png "재구성")
 
 
 ### ID 보호 및 페더레이션된 도메인
@@ -257,7 +254,7 @@ Azure AD ID 보호를 사용하면 다음을 사용하여 위험에 플래그가
 
 - 초기 정책이 롤아웃하는 동안 또는 최종 사용자가 확인하는 과제를 최소화해야 하는 경우 **높음** 임계값을 사용합니다.
 
-- 조직이 보안을 강화해야 하는 경우 **낮음** 임계값을 사용합니다. **낮음** 임계값을 선택하면 추가 사용자 로그인 과제가 발생하지만 보안이 강화됩니다.
+- 조직이 보안을 강화해야 하는 경우 **낮음** 임계값을 사용합니다. **낮은** 임계값을 선택하면 추가 사용자 로그인 과제가 발생하지만 보안이 강화됩니다.
 
 대부분의 조직에 권장되는 기본값은 **보통** 임계값에 대한 규칙을 구성하여 유용성과 보안 간의 균형을 유지할 수 있습니다.
 
@@ -416,4 +413,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
  - [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

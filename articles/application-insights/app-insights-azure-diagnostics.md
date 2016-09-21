@@ -25,7 +25,7 @@ Visual Studio에 Azure SDK 2.8이 설치되어 있어야 합니다.
 
 ## Application Insights 리소스 가져오기
 
-최상의 환경을 위해 [Application Insights SDK를 클라우드 서비스 앱의 각 역할에 추가](app-insights-cloudservices.md)하거나 [VM에서 실행할 앱](app-insights-get-started.md)에 추가합니다. 그 후 진단하고 표시할 진단 데이터를 동일한 Application Insights 리소스에 보냅니다.
+최상의 환경을 위해 [Application Insights SDK를 클라우드 서비스 앱의 각 역할에 추가](app-insights-cloudservices.md)하거나 [VM에서 실행할 앱](app-insights-overview.md)에 추가합니다. 그 후 진단하고 표시할 진단 데이터를 동일한 Application Insights 리소스에 보냅니다.
 
 또는 SDK를 사용하지 않으려면(예를 들어, 앱이 이미 라이브 상태인 경우), Azure 포털에서 [새로운 Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). **Azure 진단**을 응용 프로그램 종류로 선택합니다.
 
@@ -146,4 +146,4 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
 * [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
 * [Azure 진단 구성 파일](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0907_2016-->

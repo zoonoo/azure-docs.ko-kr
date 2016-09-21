@@ -1,6 +1,6 @@
 <properties
-	pageTitle="랩에서 Azure 마켓플레이스 이미지 설정 구성 | Microsoft Azure"
-	description="DevTest Lab에서 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지 구성"
+	pageTitle="Azure DevTest Labs에서 Azure 마켓플레이스 이미지 설정 구성 | Microsoft Azure"
+	description="Azure DevTest Labs에서 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지 구성"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,28 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/06/2016"
 	ms.author="tarcher"/>
 
-# 랩에서 Azure 마켓플레이스 이미지 설정 구성
+# Azure DevTest Labs에서 Azure 마켓플레이스 이미지 설정 구성
 
-## 개요
-
-DevTest Lab에서는 Azure 마켓플레이스 이미지를 랩에서 사용하도록 구성한 방법에 따라 Azure 마켓플레이스 이미지를 기준으로 새로운 VM을 만들 수 있습니다. 이 문서에서는 랩에서 새 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여줍니다.
+DevTest Lab에서는 Azure 마켓플레이스 이미지를 랩에서 사용하도록 구성한 방법에 따라 Azure 마켓플레이스 이미지를 기준으로 VM을 만들 수 있습니다. 이 문서에서는 랩에서 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 
 ## VM을 만들 때 허용되는 Azure 마켓플레이스 이미지를 선택합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **찾아보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
+1. **서비스 더 보기**를 선택한 후 목록에서 **DevTest Lab**을 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.
 
-1. 선택한 랩의 **설정** 블레이드가 표시됩니다.
-
-1. **설정** 블레이드에서 **마켓플레이스 이미지**를 탭합니다.
-
-	![Azure 마켓플레이스 이미지의 사용 방법 구성](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
+1. 랩의 블레이드에서 **구성**을 선택합니다.
+	
+1. 랩의 **구성** 블레이드에서 **마켓플레이스 이미지**를 선택합니다.
 
 1. 모든 정규화된 Azure 마켓플레이스 이미지를 새 VM의 기반으로 사용할 수 있게 할지 여부를 지정합니다. **예**를 선택하는 경우 다음 조건을 모두 충족하는 모든 Azure 마켓플레이스 이미지가 랩에서 허용됩니다.
 
@@ -56,4 +52,4 @@ DevTest Lab에서는 Azure 마켓플레이스 이미지를 랩에서 사용하�
 
 VM을 만들 때 Azure Marketplace 이미지를 허용하는 방법을 구성한 후에는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)해야 합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

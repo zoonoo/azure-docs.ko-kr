@@ -1,6 +1,6 @@
 <properties
-   pageTitle="ARM 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft Azure"
-   	description="Azure ARM 템플릿을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
+   pageTitle="Azure Resource Manager 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft Azure"
+   	description="Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,11 +17,11 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-# ARM 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
+# Azure Resource Manager 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
-ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 ##필수 조건:
 
@@ -35,13 +35,13 @@ ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터�
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## ARM 템플릿
+## 리소스 관리자 템플릿
 
-ARM 템플릿을 사용하면 단일 조정된 작업의 응용 프로그램에 HDInsight 클러스터, 해당 종속 리소스(예: 기본 저장소 계정) 및 기타 리소스(예: Apache Sqoop을 사용하는 Azure SQL 데이터베이스)를 쉽게 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
+Resource Manager 템플릿을 사용하면 단일 조정된 작업의 응용 프로그램에 HDInsight 클러스터, 해당 종속 리소스(예: 기본 저장소 계정) 및 기타 리소스(예: Apache Sqoop을 사용하는 Azure SQL 데이터베이스)를 쉽게 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
-HDInsight 클러스터 및 종속 Azure 저장소 계정을 만들기 위한 ARM 템플릿은 [부록 A](#appx-a-arm-template)에서 찾을 수 있습니다. 텍스트 편집기를 사용하여 워크스테이션의 파일에 템플릿을 저장합니다. 다양한 도구를 사용하여 템플릿을 호출하는 방법을 알아봅니다.
+HDInsight 클러스터 및 종속 Azure Storage 계정을 만들기 위한 Resource Manager 템플릿은 [부록 A](#appx-a-arm-template)에서 찾을 수 있습니다. 텍스트 편집기를 사용하여 워크스테이션의 파일에 템플릿을 저장합니다. 다양한 도구를 사용하여 템플릿을 호출하는 방법을 알아봅니다.
 
-ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
+Resource Manager 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
@@ -51,7 +51,7 @@ ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 다음 절차는 HDInsight 클러스터를 만듭니다.
 
-**ARM 템플릿을 사용하여 클러스터를 배포하려면**
+**Resource Manager 템플릿을 사용하여 클러스터를 배포하려면**
 
 1. [부록 A](#appx-a-arm-template)의 json 파일을 워크스테이션에 저장합니다.
 2. 필요한 경우 매개 변수를 설정합니다.
@@ -144,7 +144,7 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
 
 
-##부록 A: ARM 템플릿
+##부록 A: Resource Manager 템플릿
 
 다음 Azure 리소스 관리자 템플릿은 종속 Azure 저장소 계정을 사용하여 Windows 기반 Hadoop 클러스터를 만듭니다.
 
@@ -294,4 +294,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

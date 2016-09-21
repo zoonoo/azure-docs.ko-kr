@@ -3,7 +3,7 @@
    description="일반적인 Microsoft Power BI Embedded 시나리오"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # 일반적인 Power BI Embedded 시나리오
 
@@ -31,4 +31,4 @@
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 - [시작 샘플](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

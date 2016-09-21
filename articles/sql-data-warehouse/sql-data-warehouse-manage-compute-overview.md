@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 계산 능력 관리(개요)
@@ -98,6 +98,10 @@ DWU 성능 조정 시기에 대한 권장 사항:
 - [PowerShell을 사용하여 계산 다시 시작][]
 - [REST API를 사용하여 계산 다시 시작][]
 
+## 권한
+
+데이터베이스 크기를 조정하려면 [ALTER DATABASE][]에 설명된 권한이 필요합니다. 일시 중지 및 다시 시작을 위해서는 [SQL DB 참여자][] 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
+
 <a name="next-steps-bk"></a>
 
 ## 다음 단계
@@ -140,9 +144,12 @@ DWU 성능 조정 시기에 대한 권장 사항:
 [모범 사례]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[SQL DB 참여자]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 감사
@@ -151,4 +151,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

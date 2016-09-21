@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Azure Functions 모바일 앱 바인딩
@@ -169,4 +169,4 @@ function.json 파일은 다음 속성을 지원합니다.
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

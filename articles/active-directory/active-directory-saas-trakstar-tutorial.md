@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Trakstar의 Azure AD 통합을 구성하려면 갤러리의 Trakstar를 관리�
 
 **갤러리에서 Trakstar를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -127,7 +127,7 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 
@@ -182,7 +182,7 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -196,7 +196,7 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -277,4 +277,4 @@ Trakstar에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

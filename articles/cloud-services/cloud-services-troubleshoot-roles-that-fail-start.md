@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # 시작에 실패한 클라우드 서비스 역할의 문제 해결
@@ -24,7 +24,7 @@
 
 ## DLL 또는 종속성 누락
 
-응답하지 않는 역할 및 **초기화 중**, **사용 중**, 및 **중지** 상태를 반복하는 역할은 누락된 DLL 또는 어셈블리 때문에 발생할 수 있습니다.
+응답하지 않는 역할 및 **초기화 중**, **사용 중** 및 **중지** 상태를 반복하는 역할은 누락된 DLL 또는 어셈블리 때문에 발생할 수 있습니다.
 
 누락된 DLL 또는 어셈블리의 증상은 다음과 같을 수 있습니다.
 
@@ -103,7 +103,7 @@ Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성 및 w
 
 이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 컴퓨터를 사용해야 합니다. Azure 환경을 가장 잘 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
 
-1. [Azure SDK](https://azure.microsoft.com/downloads/)의 독립 실행형 버전 설치
+1. [Azure SDK](https://azure.microsoft.com/downloads/)의 독립 실행형 버전을 설치합니다.
 
 2. 개발 컴퓨터에서 클라우드 서비스 프로젝트를 빌드합니다.
 
@@ -163,4 +163,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

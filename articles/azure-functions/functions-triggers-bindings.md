@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="chrande"/>
 
 # Azure Functions 트리거 및 바인딩 개발자 참조
@@ -24,14 +24,9 @@
 
 ## 트리거 및 바인딩 문서
 
-* [HTTP 및 WebHook 트리거 및 바인딩](functions-bindings-http-webhook.md)
-* [타이머 트리거](functions-bindings-timer.md)
-* [Azure 저장소(큐, Blob, 테이블) 트리거 및 바인딩](functions-bindings-storage.md)
-* [Azure 서비스 버스(큐, 토픽) 트리거 및 바인딩](functions-bindings-service-bus.md)
-* [Azure DocumentDB 바인딩](functions-bindings-documentdb.md)
-* [Azure 이벤트 허브 바인딩](functions-bindings-event-hubs.md)
-* [Azure 모바일 앱 바인딩](functions-bindings-mobile-apps.md)
-* [Azure 알림 허브 출력 바인딩](functions-bindings-notification-hubs.md)
+트리거 또는 아래에 나열된 바인딩을 클릭하여 자세히 알아봅니다.
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 ## 다음 단계
 
@@ -40,4 +35,4 @@
 * [기능 테스트](functions-test-a-function.md)
 * [기능 크기 조정](functions-scale.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

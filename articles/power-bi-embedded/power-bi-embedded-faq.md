@@ -3,7 +3,7 @@
    description="Power BI Embedded FAQ"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Power BI Embedded FAQ
 
@@ -117,4 +117,4 @@ Power BI Embedded 모델에는 Azure AD 테넌트의 고객이 있어야 한다�
 - [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

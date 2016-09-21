@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -114,7 +114,7 @@
 
 이 시점까지 완료된 모든 실험은 데이터를 정리합니다. 정리된 데이터 집합을 보려면 [Clean Missing Data][clean-missing-data] 모듈의 왼쪽 출력 포트("정리된 데이터 집합")를 클릭하고 **Visualize**를 선택합니다. **normalized-losses** 열이 더 이상 포함되지 않으며, 누락된 값이 없습니다.
 
-데이터가 정리되었으며, 이제 예측 모델에서 사용할 기능을 지정할 수 있습니다.
+데이터가 정리되었으며, 이제 예측 모델에서 사용할 특성을 지정할 수 있습니다.
 
 ## 3단계: 기능 정의
 
@@ -246,4 +246,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

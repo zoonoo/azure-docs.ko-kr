@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/01/2016"
+	ms.author="glimoli;genli"/>
 
 # Azure에 업로드할 Windows VHD 준비
 온-프레미스에서 Azure로 Windows VM을 업로드하려면 VHD(가상 하드 디스크)를 올바르게 준비해야 합니다. Azure에 VHD를 업로드하기 전에 완료해야 할 몇 가지 권장 단계가 있습니다. `sysprep`을 실행하는 것은 일반적인 프로세스이지만, 이미지를 일반화할 때 수행되는 하나의 단계에 해당합니다. 이 문서에서는 Microsoft Azure에 업로드할 Windows VHD를 준비하는 방법을 설명합니다.
@@ -34,7 +34,7 @@
 	- 다음 화면에서 **변환**을 선택합니다.
 		- VHDX에서 변환해야 하는 경우 **VHD**를 선택하고 **다음**을 클릭합니다.
 		- 동적 디스크에서 변환해야 하는 경우 **고정 크기**를 선택하고 **다음**을 클릭합니다.
-		
+
 	- **새 VHD 파일 경로**를 찾아 선택합니다.
 	- **마침**을 클릭하여 닫습니다.
 
@@ -93,17 +93,17 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 	sc config iphlpsvc start= auto
 
-	sc config PolicyAgent start= manual
+	sc config PolicyAgent start= demand
 
 	sc config LSM start= auto
 
-	sc config netlogon start= manual
+	sc config netlogon start= demand
 
-	sc config netman start= manual
+	sc config netman start= demand
 
-	sc config NcaSvc start= manual
+	sc config NcaSvc start= demand
 
-	sc config netprofm start= manual
+	sc config netprofm start= demand
 
 	sc config NlaSvc start= auto
 
@@ -113,11 +113,11 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 	sc config RpcEptMapper start= auto
 
-	sc config termService start= manual
+	sc config termService start= demand
 
 	sc config MpsSvc start= auto
 
-	sc config WinHttpAutoProxySvc start= manual
+	sc config WinHttpAutoProxySvc start= demand
 
 	sc config LanmanWorkstation start= auto
 
@@ -205,25 +205,25 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 	- 아웃바운드
 
 	```
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
 	```
 
 
@@ -233,17 +233,15 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 13. BCD(부팅 구성 데이터) 설정이 다음과 일치하는지 확인합니다.
 
 	```
-	bcdedit /set {bootmgr} device partition=<Boot Partition>
-
 	bcdedit /set {bootmgr} integrityservices enable
 
-	bcdedit /set {default} device partition=<OS Partition>
+	bcdedit /set {default} device partition=C:
 
 	bcdedit /set {default} integrityservices enable
 
 	bcdedit /set {default} recoveryenabled Off
 
-	bcdedit /set {default} osdevice partition=<OS Partition>
+	bcdedit /set {default} osdevice partition=C:
 
 	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 	```
@@ -321,4 +319,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

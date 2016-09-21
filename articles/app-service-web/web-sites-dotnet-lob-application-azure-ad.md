@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="08/31/2016" 
+	ms.date="09/01/2016" 
 	ms.author="cephalin"/>
 
 # Azure Active Directory 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기 #
@@ -29,6 +29,7 @@
 
 - Azure Active Directory에 대해 사용자 인증
 - [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)를 사용하여 디렉터리 사용자 및 그룹 쿼리
+- ASP.NET MVC *인증 없음* 템플릿 사용
 
 Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어)가 필요한 경우 [다음 단계](#next)를 참조하세요.
 
@@ -142,19 +143,11 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 
-14. 이제 권한 부여 토큰을 사용하여 Azure Active Directory Graph API에 액세스하는 경우 테스트하려면 ~\\Controllers\\HomeController.cs를 변경하여 다음 `Index()` 작업 메서드를 사용합니다.
-	<pre class="prettyprint">
-	public ActionResult Index()
-	{
-		return <mark>Content(Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);</mark>
-	}
-	</pre>
+14. 이제 Azure Active Directory Graph API에 액세스하는 권한 부여 토큰을 사용하는지를 테스트하려면 브라우저에서 **https://&lt;*appname*>.azurewebsites.net/.auth/me**로 이동합니다. 올바르게 모든 작업을 구성하는 경우 JSON 응답에서 `access_token` 속성이 표시되어야 합니다.
 
-15. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하여 변경 내용을 게시합니다. 대화 상자에서 다시 **게시**를 클릭합니다.
+	`~/.auth/me` URL 경로는 App Service 인증/권한 부여에 의해 관리되어 인증된 세션에 관련된 모든 정보를 제공합니다. 자세한 내용은 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)를 참조하세요.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
-
-	이제 앱의 홈 페이지에 액세스 토큰이 표시되면 Azure Active Directory Graph API 앱에 액세스할 수 있습니다. ~\\Controllers\\HomeController.cs에 대한 변경 내용을 자유롭게 취소합니다.
+	>[AZURE.NOTE] `access_token`의 기간이 만료되었습니다. 그러나 App Service 인증/권한 부여는 `~/.auth/refresh`를 사용하여 토큰 새로 고침 기능을 제공합니다. 사용 방법에 대한 자세한 내용은 [App Service 토큰 저장소](https://cgillum.tech/2016/03/07/app-service-token-store/)를 참조하세요.
 
 다음으로, 디렉터리 데이터에 유용한 작업을 수행합니다.
 
@@ -194,29 +187,6 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 10.	만든 모델을 선택한 다음 **+** 및 **추가**를 차례로 클릭하여 데이터 내용을 추가한 다음 **추가**를 클릭합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-
-9.	~\\Controllers\\WorkItemsController.cs를 엽니다.
-
-13.	`Create()` 및 `Edit(int? id)` 메서드의 시작 부분에서 나중에 JavaScript에 대한 몇 가지 변수를 사용할 수 있도록 다음 코드를 추가합니다. 이를 수정하기 위해 각 명명 확인 오류에 대한 `Ctrl`+`.`.
-
-		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-		ViewData["tenant"] =
-			ClaimsPrincipal.Current.Claims
-			.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
-			.Select(c => c.Value).SingleOrDefault();
-
-	> [AZURE.NOTE] 일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)에서 [Brock Allen](https://twitter.com/BrockLAllen)이 설명한 동작으로 인해 다음과 같은 사유로 HTTP POST에서 위조 방지 토큰 유효성 검사에 실패할 수 있습니다.
-
-	> - Azure Active Directory에서는 기본적으로 위조 방지 토큰에서 필요로 하는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 보내지 않습니다.
-	> - Azure Active Directory와 AD FS의 디렉터리가 동기화된 경우 AD FS 트러스트에서도 기본적으로 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 보내지 않습니다. 이 클레임을 보내도록 AD FS를 수동으로 구성할 수는 있습니다.
-
-	> 다음 단계에서 이 문제를 다룰 예정입니다.
-
-12.  ~\\Global.asax의 `Application_Start()` 메서드에 코드의 다음 줄을 추가합니다. 이를 수정하기 위해 각 명명 확인 오류에 대한 `Ctrl`+`.`.
-
-		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-	
-	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다.
 
 14.	~\\Views\\WorkItems\\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 강조 표시된 사항을 변경합니다.
 	<pre class="prettyprint">
@@ -287,8 +257,11 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 			var maxResultsPerPage = 14;
 			var input = document.getElementById("AssignedToName");
 	
-			var token = "@ViewData["token"]";
-			var tenant = "@ViewData["tenant"]";
+			// 요청 헤더의 액세스 토큰 및 클레임 ID의 tenantID
+			var token = "@Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]";
+			var tenant ="@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+							.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
+							.Select(c => c.Value).SingleOrDefault())";
 	
 			var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
@@ -303,7 +276,20 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 	</pre>
 	
 	`token` 및 `tenant`는 `AadPicker` 개체에서 사용하여 Azure Active Directory Graph API를 호출합니다. 나중에 `AadPicker`를 추가합니다.
-
+	
+	>[AZURE.NOTE] 마찬가지로 `~/.auth/me`을 사용하여 클라이언트 쪽에서 `token` 및 `tenant`을 가져올 수 있지만 추가 서버 호출입니다. 예:
+	>  
+    >     $.ajax({
+    >         dataType: "json",
+    >         url: "/.auth/me",
+    >         success: function (data) {
+    >             var token = data[0].access_token;
+    >             var tenant = data[0].user_claims
+    >                             .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+    >                             .val;
+    >         }
+    >     });
+	
 15. ~\\Views\\WorkItems\\Edit.cshtml을 사용하여 동일하게 변경합니다.
 
 15. `AadPicker` 개체는 프로젝트에 추가해야 하는 스크립트에 정의됩니다. ~\\Scripts 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리키고 **JavaScript 파일**을 클릭합니다. 파일 이름에 `AadPickerLibrary`를 입력하고 **확인**을 클릭합니다.
@@ -350,6 +336,17 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 
 	앱에서 JavaScript 및 CSS 파일을 관리하는 다양하고 효율적인 방법이 있습니다. 그러나 간단히 하기 위해 모든 보기로 로드되는 번들에 대해 도움을 받습니다.
 
+12. 마지막으로 ~\\Global.asax의 `Application_Start()` 메서드에 코드의 다음 줄을 추가합니다. 이를 수정하기 위해 각 명명 확인 오류에 대한 `Ctrl`+`.`.
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	> [AZURE.NOTE] 기본 MVC 템플릿이 작업 일부에 대해 <code>[ValidateAntiForgeryToken]</code> 장식을 사용하기 때문에 이 코드 줄이 필요합니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)에서 [Brock Allen](https://twitter.com/BrockLAllen)이 설명한 동작으로 인해 다음과 같은 사유로 HTTP POST에서 위조 방지 토큰 유효성 검사에 실패할 수 있습니다.
+
+	> - Azure Active Directory에서는 기본적으로 위조 방지 토큰에서 필요로 하는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 보내지 않습니다.
+	> - Azure Active Directory와 AD FS의 디렉터리가 동기화된 경우 AD FS 트러스트에서도 기본적으로 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 보내지 않습니다. 이 클레임을 보내도록 AD FS를 수동으로 구성할 수는 있습니다.
+
+	> `ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다.
+
 20. 이제 변경 내용을 게시합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
 21. **설정**을 클릭하고 SQL Database에 연결 문자열이 있는지 확인하고 **데이터베이스 업데이트**를 선택하여 모델의 스키마를 변경하고 **게시**를 클릭합니다.
@@ -385,4 +382,4 @@ LOB(기간 업무)가 온-프레미스 데이터에 대한 액세스 권한이 �
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

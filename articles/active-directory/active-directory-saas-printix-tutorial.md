@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -94,9 +94,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-on 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Printix 테스트 사용자 만들기](#creating-a-printix-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Printix에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -128,7 +128,7 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5. Printix 테넌트에 관리자 권한으로 로그온합니다.
@@ -198,7 +198,7 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -212,7 +212,7 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -295,4 +295,4 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-printix-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-printix-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

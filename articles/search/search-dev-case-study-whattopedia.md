@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 개발자 사례 연구
@@ -117,8 +117,8 @@ Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azur
 **검색 인덱서 작업 개발 – Windows 콘솔**
 
 1. 데이터베이스에서 모든 판매점을 읽습니다.
-2. Azure 검색 서비스 API를 호출하여 판매점을 하나씩 업로드합니다(http://msdn.microsoft.com/library/azure/dn798930.aspx) 참조).
-3. 데이터베이스에서 판매점을 증분 인덱싱하는 속성을 설정합니다. 이를 위해 각 프로필의 인덱스 상태(인덱싱 여부에 상관없음)를 저장하는 'indexer' 필드를 추가했습니다. 
+2. Azure 검색 서비스 API를 호출하여 판매점을 하나씩 업로드합니다(http://msdn.microsoft.com/library/azure/dn798930.aspx 참조).
+3. 데이터베이스에서 판매점을 증분 인덱싱하는 속성을 설정합니다. 이를 위해 각 프로필의 인덱스 상태(인덱싱 여부에 상관없음)를 저장하는 'indexer' 필드를 추가했습니다.
 
 인덱서 작업을 작성하는 코드 조각은 부록을 참조하세요.
 
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

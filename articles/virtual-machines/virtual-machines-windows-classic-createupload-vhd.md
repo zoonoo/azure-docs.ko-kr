@@ -95,7 +95,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 ## 4단계: 사용자 지정 이미지 목록에 이미지 추가
 
-[Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.aspx) cmdlet을 사용하여 사용자 지정 이미지 목록에 이미지를 추가합니다.
+[Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmdlet을 사용하여 사용자 지정 이미지 목록에 이미지를 추가합니다.
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
@@ -104,4 +104,4 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 이제 업로드한 이미지를 사용하여 [사용자 지정 VM을 만들 수 있습니다](virtual-machines-windows-classic-createportal.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

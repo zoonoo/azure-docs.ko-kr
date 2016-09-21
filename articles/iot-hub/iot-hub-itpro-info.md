@@ -26,10 +26,10 @@
 
 | 프로토콜 | 포트 |
 | -------- | ------- |
-| HTTPS | 443 |
+| MQTT | 8883 |
 | AMQP | 5671 |
 | Websocket 통한 AMQP | 443 |
-| MQTT | 8883 |
+| HTTPS | 443 |
 | LWM2M(장치 관리) | 5684 |
 
 Azure 지역에 IoT Hub를 만들면 허브는 해당 허브의 수명 동안 동일한 IP 주소를 유지합니다. 그러나 서비스 품질을 유지하기 위해 Microsoft가 IoT Hub를 다른 배율 단위로 이동하는 경우에는 새 IP 주소로 할당됩니다.
@@ -59,4 +59,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

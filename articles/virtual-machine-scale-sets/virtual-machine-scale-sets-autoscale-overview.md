@@ -159,7 +159,7 @@ autoScaleSettings 리소스는 규모 집합에 있는 가상 컴퓨터의 수�
 
 위의 예제에서는 자동 크기 조정 작업을 정의하기 위해 두 가지 규칙이 생성됩니다. 첫 번째 규칙은 규모 확장 작업을 정의하고 두 번째 규칙은 규모 축소 작업을 정의합니다. 다음 값이 규칙에 제공됩니다.
 
-- **metricName** - 진단 확장에 대한 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 위의 예제에서는 스레드 수 카운터를 사용합니다.  
+- **metricName** - 진단 확장에 대한 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 위의 예제에서는 스레드 수 카운터를 사용합니다.
 - **metricResourceUri** - 가상 컴퓨터 규모 집합의 리소스 식별자입니다. 이 식별자는 리소스 그룹 이름, 리소스 공급자 이름 및 크기 조정을 위한 규모 집합 이름을 포함합니다.
 - **timeGrain** – 수집되는 메트릭의 세분성입니다. 위의 예제에서는 1분 간격으로 데이터를 수집합니다. 이 값은 timeWindow와 함께 사용됩니다.
 - **statistic** – 자동 규모 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다.
@@ -228,5 +228,6 @@ Azure PowerShell은 규모 집합에 대한 자동 크기 조정을 설정하는
 - 구성된 자동 크기 조정을 사용하여 규모 집합을 만드는 방법에 대한 예제를 보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machine-scale-sets-windows-autoscale.md)을 살펴보세요.
 - [Azure Insights PowerShell 빠른 시작 샘플](../azure-portal/insights-powershell-samples.md)에서 Azure Insights 모니터링 기능의 예제를 찾아봅니다.
 - [크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-autoscale-to-webhook-email.md)와 [Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-auditlog-to-webhook-email.md)에서 알림 기능에 관해 알아봅니다.
+- [고급 자동 크기 조정 시나리오](./virtual-machine-scale-sets-advanced-autoscale.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

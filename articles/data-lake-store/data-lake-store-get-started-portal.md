@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -35,16 +35,6 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소 계정을 만�
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="signup"></a>데이터 레이크 저장소 공개 미리 보기를 위한 Azure 구독 사용
-
-먼저 데이터 레이크 저장소 공개 미리 보기에 대해 사용하도록 설정하기 위해 Azure 구독을 요청해야 합니다. 다음 단계를 따르세요.
-
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **Azure 데이터 레이크 저장소**를 클릭합니다.
-3. **새 데이터 레이크 저장소** 블레이드에서 **미리 보기 등록**을 클릭합니다. 정보를 읽은 후 **확인**을 클릭합니다. 공개 미리 보기에 대한 구독을 사용하도록 설정한 후에 전자 메일을 받습니다.
-
-	![공개 미리 보기에 등록](./media/data-lake-store-get-started-portal/preview-signup.png "새 Azure 데이터 레이크 계정 만들기")
-
 ## 비디오로 빠르게 배우시겠습니까?
 
 Data Lake 저장소를 시작하려면 다음 비디오를 시청하세요.
@@ -62,7 +52,7 @@ Data Lake 저장소를 시작하려면 다음 비디오를 시청하세요.
 
 	![새 Azure 데이터 레이크 저장소 계정 만들기](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "새 Azure 데이터 레이크 계정 만들기")
 
-	- **구독**. 새 데이터 레이크 저장소 계정을 만들려는 구독을 선택합니다.
+	- **구독**. 새 Data Lake Store 계정을 만들려는 구독을 선택합니다.
 	- **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **리소스 그룹 만들기**를 클릭하여 만듭니다. 리소스 그룹은 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](resource-group-overview.md#resource-groups)을 참조하세요.
 	- **위치**: 데이터 레이크 저장소 계정을 만들려는 위치를 선택합니다.
 
@@ -95,7 +85,7 @@ Data Lake 저장소를 시작하려면 다음 비디오를 시청하세요.
 
 ## <a name="uploaddata"></a>Azure 데이터 레이크 저장소 계정에 데이터 업로드
 
-루트 수준에서 Azure 데이터 레이크 저장소 계정에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래의 화면 캡처에서 단계에 따라 **데이터 탐색기** 블레이드에서 하위 폴더에 파일을 업로드합니다. 이 화면 캡처에서 파일은 이동 경로에 표시된 하위 폴더에 업로드됩니다\(빨간색 상자에 표시\).
+루트 수준에서 Azure 데이터 레이크 저장소 계정에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래의 화면 캡처에서 단계에 따라 **데이터 탐색기** 블레이드에서 하위 폴더에 파일을 업로드합니다. 이 화면 캡처에서 파일은 이동 경로에 표시된 하위 폴더에 업로드됩니다(빨간색 상자에 표시).
 
 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
@@ -121,7 +111,7 @@ Data Lake 저장소를 시작하려면 다음 비디오를 시청하세요.
 
 ## 데이터 보호
 
-Azure Active Directory 및 액세스 제어\(ACL\)를 사용하여 Azure 데이터 레이크 저장소 계정에 저장된 데이터를 보호할 수 있습니다. 작업 수행 방법에 대한 지침은 [Azure 데이터 레이크 저장소의 데이터 보안](data-lake-store-secure-data.md)을 참조하세요.
+Azure Active Directory 및 액세스 제어(ACL)를 사용하여 Azure 데이터 레이크 저장소 계정에 저장된 데이터를 보호할 수 있습니다. 작업 수행 방법에 대한 지침은 [Azure 데이터 레이크 저장소의 데이터 보안](data-lake-store-secure-data.md)을 참조하세요.
 
 
 ## Azure 데이터 레이크 저장소 계정 삭제
@@ -138,4 +128,4 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

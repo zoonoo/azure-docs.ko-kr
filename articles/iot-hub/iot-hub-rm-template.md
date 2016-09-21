@@ -75,7 +75,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
 
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 프로젝트에 **template.json**이라는 JSON 파일을 추가합니다.
 
-2. **template.json**의 콘텐츠를 다음 리소스 정의로 바꿔서 표준 IoT Hub를 **미국 동부** 지역에 추가합니다.
+2. **template.json**의 콘텐츠를 다음 리소스 정의로 바꿔서 표준 IoT Hub를 **미국 동부** 지역에 추가합니다(IoT Hub를 지원하는 현재 위치 목록에 대해서는 [Azure 상태][lnk-status] 참조).
 
     ```
     {
@@ -220,6 +220,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -233,4 +234,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

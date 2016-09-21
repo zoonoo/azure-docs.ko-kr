@@ -3,7 +3,7 @@
    description="Power BI Embedded를 사용하는 행 수준 보안에 대한 자세한 내용"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Power BI Embedded를 사용하는 행 수준 보안
 
@@ -102,4 +102,4 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 ## 참고 항목
 [Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

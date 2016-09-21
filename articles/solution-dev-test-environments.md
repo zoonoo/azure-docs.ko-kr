@@ -3,9 +3,9 @@
    description="Azure 리소스 관리자 템플릿을 사용하여 개발 및 테스트 환경을 빠르고 일관성 있게 만들고 삭제하는 방법에 대해 알아봅니다."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""/>
+   authors="tfitzmac"
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/22/2016"
-   ms.author="jdial"/>
+   ms.author="tomfitz"/>
 
 # Microsoft Azure의 개발 및 테스트 환경
 
@@ -362,4 +362,4 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 아래 명령을 
 - 각 환경에 대한 리소스 그룹 및/또는 개별 리소스에 [태그를 할당](resource-group-using-tags.md)합니다. 리소스 그룹에 "환경" 태그를 추가하고 해당 태그의 값을 사용자의 환경 이름과 일치하도록 설정합니다. 태그는 청구 또는 관리에 대한 리소스를 구성해야 하는 경우 특히 유용할 수 있습니다.
 - [Azure 포털](https://portal.azure.com)의 리소스 그룹 리소스에 대한 경고 및 청구를 모니터링합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

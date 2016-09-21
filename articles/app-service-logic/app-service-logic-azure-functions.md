@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/14/2016"
+   ms.date="09/01/2016"
    ms.author="jehollan"/>
 
 # 논리 앱과 함께 Azure Functions 사용
@@ -26,7 +26,7 @@
 
 ## 논리 앱용 함수 만들기
 
-**일반 노드 WebHook** 또는 **일반 C# WebHook** 템플릿을 사용하여 Azure Functions 포털에서 새 함수를 만드는 것이 좋습니다. 이렇게 하면 논리 앱에서 `application/json`을 수락하는 템플릿이 자동으로 채워집니다. 이러한 템플릿을 사용하는 함수는 논리 앱 디자이너의 **내 영역에서 Azure Functions** 아래에서 자동으로 검색 및 나열됩니다.
+**일반 웹후크 - 노드** 또는 **일반 웹후크 - C#** 템플릿을 사용하여 Azure Functions 포털에서 새 함수를 만드는 것이 좋습니다. 이렇게 하면 논리 앱에서 `application/json`을 수락하는 템플릿이 자동으로 채워집니다. 이러한 템플릿을 사용하는 함수는 논리 앱 디자이너의 **내 영역에서 Azure Functions** 아래에서 자동으로 검색 및 나열됩니다.
 
 WebHook 함수는 요청을 수락하고 `data` 변수를 통해 메서드를 제공합니다. `data.foo`와 같은 점 표기법을 사용하여 페이로드 속성에 액세스할 수 있습니다. 예를 들어 DateTime 값을 날짜 문자열로 변환하는 간단한 JavaScript 함수는 다음 예와 같습니다.
 
@@ -70,4 +70,4 @@ function start(req, res){
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

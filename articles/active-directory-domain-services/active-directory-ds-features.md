@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)*
@@ -27,7 +27,7 @@
 
 - **Azure AD 디렉터리당 하나의 도메인 인스턴스:** Azure AD 디렉터리마다 단일 Active Directory 도메인을 만들 수 있습니다.
 
-- **사용자 지정 이름으로 도메인 만들기:** Azure AD 도메인 서비스를 사용하여 사용자 지정 이름(예: contoso.local)으로 도메인을 만들 수 있습니다. 여기에는 확인된 도메인 이름과 확인되지 않은 도메인 이름이 모두 포함됩니다. 필요에 따라 Azure AD 디렉터리에서 제공하는 기본 제공 도메인 접미사(*.onmicrosoft.com)로 도메인을 만들 수도 있습니다.
+- **사용자 지정 이름으로 도메인 만들기:** Azure AD 도메인 서비스를 사용하여 사용자 지정 이름(예: 'contoso100.com')으로 도메인을 만들 수 있습니다. 여기에는 확인된 도메인 이름과 확인되지 않은 도메인 이름이 모두 포함됩니다. 필요에 따라 Azure AD 디렉터리에서 제공하는 기본 제공 도메인 접미사(*.onmicrosoft.com)로 도메인을 만들 수도 있습니다.
 
 - **Azure AD와 통합:** Azure AD 도메인 서비스에 대한 복제를 구성하거나 관리할 필요가 없습니다. Azure AD 디렉터리의 사용자 계정, 그룹 멤버 자격 및 사용자 자격 증명(암호)을 Azure AD 도메인 서비스에서 자동으로 사용할 수 있습니다. Azure AD 테넌트 또는 온-프레미스 디렉터리에서 발생하는 새 사용자, 그룹 또는 특성 변경 사항은 Azure AD 도메인 서비스에 자동으로 동기화됩니다.
 
@@ -51,4 +51,4 @@
 
 - **익숙한 관리 도구 사용:** Azure AD 도메인 서비스에서 제공하는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

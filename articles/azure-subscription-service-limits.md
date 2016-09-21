@@ -63,6 +63,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 - [미디어 서비스](#media-services-limits)
 - [모바일 고객 관리](#mobile-engagement-limits)
 - [모바일 서비스](#mobile-services-limits)
+- [모니터링](#monitoring-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [네트워킹](#networking-limits)
 - [알림 허브 서비스](#notification-hub-service-limits)
@@ -219,6 +220,10 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### 모니터링 제한
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### 알림 허브 서비스 제한
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="분할된 메시징 엔터티 | Microsoft Azure"
-    description="여러 메시지 broker를 사용하여 메시징 엔터티를 분할하는 방법을 설명합니다."
+    pageTitle="분할 큐 및 항목 | Microsoft Azure"
+    description="여러 메시지 broker를 사용하여 서비스 버스 큐 및 항목을 분할하는 방법을 설명합니다."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
@@ -12,16 +12,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/01/2016"
+    ms.date="09/02/2016"
     ms.author="sethm;hillaryc" />
 
-# 분할된 메시징 엔터티
+# 분할 큐 및 항목
 
 Azure 서비스 버스에서는 여러 메시지 broker가 메시지를 처리하고 여러 메시징 저장소가 메시지를 저장하도록 합니다. 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. 또한 서비스 버스를 사용하면 큐 또는 항목이 여러 메시지 broker 및 메시징 저장소에 분할될 수 있습니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다. 분할된 큐 및 항목은 트랜잭션 및 세션에 대한 지원 같은 모든 고급 서비스 버스 기능을 포함할 수 있습니다.
 
 서비스 버스 내부 구조에 대한 자세한 내용은 [서비스 버스 아키텍처][] 항목을 참조하세요.
 
-## 분할 큐 및 항목
+## 작동 방법
 
 분할된 큐 및 항목 각각은 여러 조각으로 구성됩니다. 각 조각은 다른 메시징 저장소에 저장되고 서로 다른 메시지 broker에서 처리됩니다. 분할된 큐 또는 항목으로 메시지를 보내면 서비스 버스는 메시지를 조각 중 하나에 할당합니다. 선택은 발신자가 지정할 수 있는 서비스 버스 또는 파티션 키에서 임의로 수행됩니다.
 
@@ -33,7 +33,7 @@ Azure 서비스 버스에서는 여러 메시지 broker가 메시지를 처리�
 
 Azure 서비스 버스로 분할된 큐 및 항목을 사용하려면 Azure SDK 버전 2.2 이상을 사용하거나 HTTP 요청에서 `api-version=2013-10`를 지정합니다.
 
-서비스 버스 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 클래식 포털][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
+서비스 버스 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 포털][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
 분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 응용 프로그램에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][] 또는 [TopicDescription.EnablePartitioning][] 속성을 각각 **true**로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목이 만들어진 시점에 설정되어야 합니다. 기존 큐 또는 항목에서 이러한 속성을 변경하는 것은 불가능합니다. 예:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-또는 Visual Studio나 [Azure 클래식 포털][]에서 분할된 큐나 항목을 만들 수 있습니다. 포털에서 새 큐 또는 항목을 만들 때 큐 또는 항목 창의 **구성** 탭에서 **분할 사용** 옵션을 확인합니다. Visual Studio에서 **새 큐** 또는 **새 항목** 대화 상자의 **분할 사용** 확인란을 클릭합니다.
+또는 Visual Studio나 [Azure 포털][]에서 분할된 큐나 항목을 만들 수 있습니다. 포털에서 새 큐 또는 항목을 만들 때 큐 또는 항목 **설정** 창의 **일반 설정** 블레이드에 있는 **분할 사용** 옵션을 **true**로 설정합니다. Visual Studio에서 **새 큐** 또는 **새 항목** 대화 상자의 **분할 사용** 확인란을 클릭합니다.
 
 ## 파티션 키의 사용
 
@@ -126,18 +126,17 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
 
 ## 분할된 엔터티 제한 사항
 
-현재 구현에서 서비스 버스에서는 분할된 큐 및 항목에 다음과 같은 제한 사항이 적용됩니다.
+현재 서비스 버스에서는 분할된 큐 및 항목에 다음과 같은 제한 사항이 적용됩니다.
 
 -   분할된 큐 및 항목은 단일 트랜잭션에서 다른 세션에 속한 보내는 메시지를 지원하지 않습니다.
--   서비스 버스는 현재 네임스페이스당 최대 100개의 분할된 큐 또는 항목을 허용합니다. 각 분할된 큐 또는 항목은 네임스페이스 당 10,000개의 엔터티를 할당량으로 계산합니다.
--   분할된 큐 및 항목은 Windows Server 버전 1.0 및 1.1용 서비스 버스에서 지원되지 않습니다.
+-   서비스 버스는 현재 네임스페이스당 최대 100개의 분할된 큐 또는 항목을 허용합니다. 각 분할된 큐 또는 항목은 네임스페이스 당 10,000개의 엔터티를 할당량으로 계산합니다(프리미엄 계층에는 적용되지 않음).
 
 ## 다음 단계
 
 [분할된 서비스 버스 큐 및 항목에 대한 AMQP 1.0 지원][] 설명을 참조하여 메시징 엔터티 분할에 대해 자세히 알아봅니다.
 
   [서비스 버스 아키텍처]: service-bus-architecture.md
-  [Azure 클래식 포털]: http://manage.windowsazure.com
+  [Azure 포털]: https://portal.azure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -153,4 +152,4 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [분할된 서비스 버스 큐 및 항목에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -60,7 +60,7 @@
 + 올바른 Azure 계정의 로그인 자격 증명을 입력했는지 확인하세요.
 + 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
 + [Application Insights를 기존 프로젝트에 추가](app-insights-asp-net.md): 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
-+ 여전히 작동하지 않는 경우 [수동 절차](app-insights-asp-net-manual.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다.
++ 여전히 작동하지 않는 경우 [수동 절차](app-insights-windows-services.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다.
 
 ## <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 
@@ -215,4 +215,4 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

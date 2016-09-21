@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Amazon 웹 서비스로 Runbook 인증
@@ -36,4 +36,4 @@ AWS 보안 키를 만들어서 복사한 후에는 보안 키를 안전하게 �
 
 - 솔루션 문서 [Amazon 웹 서비스에서 VM 배포 자동화](../automation/automation-scenario-aws-deployment.md)를 검토하여 AWS에서 작업을 자동화하는 Runbook을 만드는 방법에 대해 배웁니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

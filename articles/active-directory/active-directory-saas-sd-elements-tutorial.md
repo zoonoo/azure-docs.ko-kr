@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - SD Elements에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 SD Elements에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory에서 계정을 관리할 수 있습니다. 
+- 단일 중앙 위치인 Azure Active Directory에서 계정을 관리할 수 있습니다.
 
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -57,7 +57,7 @@ SD Elements의 Azure AD 통합을 구성하려면 갤러리의 SD Elements를 �
 
 **갤러리에서 SD Elements를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -92,9 +92,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 SD Elements에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[SD Elements 테스트 사용자 만들기](#creating-a-sd-elements-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SD Elements에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -126,9 +126,9 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
    
     b. **회신 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 테넌트의 회신 URL을 입력합니다. *https://\<your tenant name>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE] 테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원팀](mailto:support@sdelements.com)에 문의합니다.
+    > [AZURE.NOTE] 테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의합니다.
       
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 
 4. **SD Elements에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -140,7 +140,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
     b. **다음**을 클릭합니다.
 
 
-1. Single Sign-On을 사용하려면 [SD Elements 지원팀](mailto:support@sdelements.com)에 문의하고 다운로드한 인증서 파일을 제공합니다.
+1. Single Sign-On을 사용하려면 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의하고 다운로드한 인증서 파일을 제공합니다.
 
 
 5. 다른 브라우저 창에서 SD Elements 테넌트에 관리자 권한으로 로그인합니다.
@@ -156,9 +156,9 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 
     a. **SSO 형식**으로 **SAML**을 선택합니다.
 
-    b. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    b. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여 넣습니다.
 
-    c. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On 서비스** 텍스트 상자에 붙여넣습니다.
+    c. Azure 클래식 포털의 **SD Elements에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 Single Sign-On 서비스** 텍스트 상자에 붙여 넣습니다.
 
     d. **Save**를 클릭합니다.
 
@@ -229,7 +229,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -243,7 +243,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -355,4 +355,4 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

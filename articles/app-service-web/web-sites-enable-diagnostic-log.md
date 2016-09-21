@@ -16,7 +16,7 @@
 	ms.date="06/06/2016"
 	ms.author="cephalin"/>
 
-# Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
+# Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정
 
 ## 개요
 
@@ -79,7 +79,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 > [AZURE.NOTE] **테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
-> [AZURE.NOTE] Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [AZURE.NOTE] Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
 
 ##<a name="download"></a> 방법: 로그 다운로드
 
@@ -121,14 +121,14 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 
 이 명령을 실행하면 'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE] Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli-install.md)을 참조하세요.
+> [AZURE.NOTE] Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli-install.md)을 참조하세요.
 
 ## 방법: Application Insights에서 로그 보기
 
-Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구, 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
+Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
 
 1. Visual Studio의 프로젝트에 Application Insights SDK 추가
- * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. Application Insights 리소스 만들기를 포함 하는 단계를 안내합니다. [자세히 알아보기](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. Application Insights 리소스 만들기를 포함 하는 단계를 안내합니다. [자세히 알아보기](../application-insights/app-insights-asp-net.md)
 2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
  * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](../application-insights/app-insights-asp-net-trace-logs.md) 선택
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
@@ -152,11 +152,11 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 이 명령을 실행하면 **-Name** 매개 변수로 지정된 웹 앱에 연결되고 로그 이벤트가 웹 앱에 발생하면 PowerShell 창으로 정보가 스트리밍되기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **-Message** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+오류와 같은 특정 이벤트를 필터링하려면 **-Message** 매개 변수를 사용합니다. 예:
 
 	Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
 
 	Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -172,15 +172,15 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 이 명령을 실행하면 'webappname'이라는 웹 앱에 연결되고 로그 이벤트가 웹 앱에서 발생하면 창으로 정보가 스트리밍되기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예:
 
 	azure site log tail webappname --filter Error
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 인터페이스를 구성하지 않은 경우 [Azure 명령줄 인터페이스 사용 방법](../xplat-cli-install.md)을 참조하세요.
+> [AZURE.NOTE] Azure Command-Line Interface를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure Command-Line Interface 사용 방법](../xplat-cli-install.md)을 참조하세요.
 
 ##<a name="understandlogs"></a> 방법: 진단 로그 이해
 
@@ -225,7 +225,7 @@ Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 
 속성 이름|값/형식
 ---|---
 Date|이벤트가 발생한 날짜 및 시간
-Level|이벤트 수준(예: 오류, 경고, 정보)
+수준|이벤트 수준(예: 오류, 경고, 정보)
 ApplicationName|웹앱 이름
 InstanceId|이벤트가 발생한 웹앱의 인스턴스
 EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
@@ -270,4 +270,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

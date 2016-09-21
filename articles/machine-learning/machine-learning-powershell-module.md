@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -55,4 +55,4 @@ Azure 기계 학습용 PowerShell 모듈은 Windows PowerShell을 사용하여 �
 
 PowerShell 모듈은 이 미리 보기 기간 중에 계속 개선되고 확장됩니다. 더 많은 뉴스 및 정보는 [Cortana 인텔리전스 및 기계 학습 블로그](https://blogs.technet.microsoft.com/machinelearning/)를 확인하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

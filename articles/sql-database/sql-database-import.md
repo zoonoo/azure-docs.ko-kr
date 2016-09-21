@@ -1,6 +1,6 @@
 <properties
-	pageTitle="BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기 | Microsoft Azure"
-	description="기존 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스를 만듭니다."
+	pageTitle="BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Azure"
+	description="기존 BACPAC 파일을 가져와 Azure SQL 데이터베이스를 만듭니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/09/2016"
+	ms.date="08/31/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기
+# BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
 
 
 **단일 데이터베이스**
@@ -42,10 +42,10 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 - Azure SQL 데이터베이스 V12 서버. V12 서버가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
 - [Azure 저장소 계정(표준)](../storage/storage-create-storage-account.md) Blob 컨테이너에서 가져오려는 데이터베이스의 .bacpac 파일
 
-***중요*** Azure Blob 저장소에서 BACPAC를 가져올 때 표준 저장소를 사용합니다. 프리미엄 저장소에서 BACPAC 가져오기는 지원되지 않습니다.
+> [AZURE.IMPORTANT] Azure Blob 저장소에서 BACPAC를 가져올 때 표준 저장소를 사용합니다. 프리미엄 저장소에서 BACPAC 가져오기는 지원되지 않습니다.
 
 
-## 데이터베이스가 포함될 서버 선택
+## 데이터베이스를 호스트할 서버 선택
 
 SQL Server 블레이드를 엽니다.
 
@@ -103,4 +103,4 @@ SQL Server 블레이드를 엽니다.
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

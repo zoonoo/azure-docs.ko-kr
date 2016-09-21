@@ -21,7 +21,7 @@
 
 ## Azure PowerShell 설치
  
-최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 변수 설정
 
@@ -168,7 +168,7 @@
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## 가상 컴퓨터 업데이트
+## 가상 컴퓨터 크기 조정
 
 이 예제에서는 가상 컴퓨터 크기를 업데이트하는 방법을 보여 줍니다.
         
@@ -222,4 +222,4 @@
 
 배포에 문제가 있는 경우 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

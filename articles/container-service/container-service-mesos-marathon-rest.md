@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # REST API를 통해 컨테이너 관리
@@ -74,8 +74,6 @@ Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 
 Docker로 포맷된 컨테이너를 배포하기 위해 사용자 고유의 JSON 파일을 만들거나 [Azure 컨테이너 서비스 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용합니다. 액세스할 수 있는 위치에 저장합니다. 다음으로 컨테이너를 배포하려면 다음 명령을 실행합니다. JSON 파일의 이름을 지정합니다.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +102,6 @@ Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또�
 >[AZURE.NOTE] URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +145,6 @@ Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 
 사용자 고유의 JSON 파일을 만들거나 [Azure 컨테이너 서비스 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용합니다. 액세스할 수 있는 위치에 저장합니다. 다음으로 컨테이너를 배포하려면 다음 명령을 실행합니다. JSON 파일의 이름을 지정합니다.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +159,6 @@ Marathon API를 사용하여 응용 프로그램 배포의 규모를 확장 또�
 > [AZURE.NOTE] URI는 http://localhost/marathon/v2/apps/이며 확장할 응용 프로그램의 ID입니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -175,4 +167,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 - [Mesos HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/).
 - [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

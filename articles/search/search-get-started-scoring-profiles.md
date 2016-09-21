@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/04/2016" 
+	ms.date="08/04/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색에서 점수 매기기 프로필을 사용하는 방법
@@ -126,4 +126,4 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -72,7 +72,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ## <a name="monitor"></a>3. 웹 테스트 결과를 참조하세요.
 
-1-2분 후에 결과가 다음에 표시됩니다.
+1-2분 후에 결과가 웹 테스트 블레이드에 표시됩니다.
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -323,4 +323,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

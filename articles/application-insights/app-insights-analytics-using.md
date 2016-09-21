@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -125,11 +125,14 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ## 대시보드에 고정
 
-다이어그램을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭합니다. (이 기능을 설정하려면 [앱의 가격 패키지를 업그레이드](app-insights-pricing.md)해야 할 수 있습니다.)
+다이어그램 또는 테이블을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭하면 됩니다. (이 기능을 설정하려면 [앱의 가격 패키지를 업그레이드](app-insights-pricing.md)해야 할 수 있습니다.)
 
 ![핀 클릭](./media/app-insights-analytics-using/pin-01.png)
 
 즉, 웹 서비스의 성능 또는 사용 현황을 모니터링하기 위해 대시보드를 함께 사용하는 경우 매우 복잡한 분석을 기타 메트릭과 함께 포함할 수 있습니다.
+
+테이블에 열이 네 개 이하인 경우 대시보드에 고정할 수 있습니다. 상위 7개의 행만 표시됩니다.
+
 
 #### 대시보드 새로 고침
 
@@ -183,4 +186,4 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

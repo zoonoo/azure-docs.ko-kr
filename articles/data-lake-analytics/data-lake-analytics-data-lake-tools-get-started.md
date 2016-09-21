@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -132,7 +132,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     - **열 *확장**
 
-        \*의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 이동하고 아래쪽 화살표를 클릭합니다.  
+        *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 이동하고 아래쪽 화살표를 클릭합니다. 
     	![Data Lake Visual Studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
@@ -363,4 +363,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

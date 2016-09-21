@@ -46,4 +46,4 @@ Azure 포털에서 다음 단계를 사용하여 (클라이언트 컴퓨터의)�
 
 	>[AZURE.IMPORTANT] 클라이언트 IP 주소가 수시로 변경될 수 있으면 새 방화벽 규칙을 만들 때까지 서버에 액세스하지 못할 수 있습니다. [Bing](http://www.bing.com/search?q=my%20ip%20address)을 사용하여 IP 주소를 확인할 수 있습니다. 그런 다음 단일 IP 주소 또는 일정 범위의 IP 주소를 추가합니다. 자세한 내용은 [방화벽 설정 관리](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal)를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0912_2016--->

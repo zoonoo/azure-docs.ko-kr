@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/21/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
@@ -63,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

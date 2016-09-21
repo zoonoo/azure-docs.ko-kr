@@ -187,14 +187,14 @@
         }
 
 
-    이 클래스는 격리된 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
+    이 클래스는 격리된 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
 
 
 4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
 		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
-	> [AZURE.NOTE] 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
+	> [AZURE.NOTE] 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 권한 키가 사용됩니다.
 
 5. MainPage.xaml.cs에 다음 줄을 추가합니다.
 
@@ -321,4 +321,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
