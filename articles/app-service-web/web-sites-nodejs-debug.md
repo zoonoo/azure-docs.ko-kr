@@ -21,7 +21,7 @@
 
 Azure는 [Azure 웹 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱에 호스트되는 Node.js 응용 프로그램을 디버그하는 데 도움이 되는 기본 제공 진단 로그를 제공합니다. 이 문서에서는 stdout 및 stderr의 로깅을 사용하고, 브라우저에서 오류 정보를 표시하고, 로그 파일을 다운로드하여 보는 방법에 대해 알아봅니다.
 
-Azure에서 호스트되는 Node.js 응용 프로그램에 대한 진단은 [IISNode]에서 제공합니다. 이 문서에서 진단 정보 수집에 대한 가장 일반적인 설정을 논의하긴 하지만 IISNode 작업을 모두 다루지는 않습니다. IISNode 작업에 대한 자세한 내용은 GitHub의 [IISNode 추가 정보](영문)를 참조하십시오.
+Azure에서 호스트되는 Node.js 응용 프로그램에 대한 진단은 [IISNode]에서 제공합니다. 이 문서에서 진단 정보 수집에 대한 가장 일반적인 설정을 논의하긴 하지만 IISNode 작업을 모두 다루지는 않습니다. IISNode 작업에 대한 자세한 내용은 GitHub의 [IISNode 추가 정보]\(영문)를 참조하십시오.
 
 <a id="enablelogging"></a>
 ## 로깅 사용
