@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,8 +58,10 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 이 복제된 규칙에서 범위, 조인 및 변환에 필요한 사항을 변경합니다.
 
 ## 다음 단계
-[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+**개요 항목**
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
+- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

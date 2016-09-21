@@ -26,9 +26,7 @@
 
 [데이터베이스 만들기(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn268335.aspx) 및 [데이터베이스 변경(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/mt574871.aspx) 명령을 사용하여 데이터베이스를 만들고 탄력적 풀의 내부 및 외부로 이동시킵니다. 탄력적 풀은 이러한 명령을 사용하기 전에 있어야 합니다. 이러한 명령은 데이터베이스에만 적용됩니다. 새 풀 만들기 및 풀 속성(예: 최소 및 최대 eDTU)의 설정은 T-SQL 명령으로 변경될 수 없습니다.
 
-
-> [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-portal.md)를 할 수 있습니다.
-
+> [AZURE.NOTE] 탄력적 풀은 현재 미리 보기 상태인 미국 중북부 및 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다. 이 지역에서도 탄력적 풀의 GA를 가능한 한 빨리 제공하겠습니다. 또한 탄력적 풀은 현재 [메모리 내 OLTP 또는 메모리 내 분석](sql-database-in-memory.md)을 사용하는 데이터베이스를 지원하지 않습니다.
 
 ## 탄력적 풀에 새 데이터베이스 생성
 SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용합니다.
@@ -84,4 +82,4 @@ SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사�
 
 [Azure SQL 데이터베이스 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

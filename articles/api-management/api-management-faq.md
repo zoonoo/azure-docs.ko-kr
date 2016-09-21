@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure API 관리 FAQ | Microsoft Azure" 
-	description="Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다." 
+	description="Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="miaojiang" 
@@ -18,12 +18,12 @@
 
 # Azure API 관리 FAQ
 
-Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
+Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
 
 ## 질문과 대답
 
 -	[API 관리 팀에 질문하려면 어떻게 해야 합니까?](#how-can-i-ask-a-question-to-the-api-management-team)
--	[기능이 미리 보기인 경우 어떤 의미입니까?](#what-does-it-mean-if-a-feature-is-in-preview)
+-	[기능이 미리 보기 상태인 경우 어떤 의미입니까?](#what-does-it-mean-when-a-feature-is-in-preview)
 -	[API 관리 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 데 지원되는 옵션은 무엇입니까?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
 -	[API 관리 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
 -	[API 관리 인스턴스를 프로그래밍 방식으로 관리할 수 있습니까?](#can-i-manage-my-api-management-instance-programmatically)
@@ -39,6 +39,7 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	[백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇인가요?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 -	[API 관리는 Express 경로와 함께 작동하나요?](#does-api-management-work-with-express-route)
+-	[구독 간에 API Management 인스턴스를 이동할 수 있나요?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
 
 ### API 관리 팀에 질문하려면 어떻게 해야 합니까?
@@ -47,9 +48,9 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	`apimgmt@microsoft.com`으로 전자 메일을 보낼 수 있습니다.
 -	[기능 요청](https://feedback.azure.com/forums/248703-api-management)을 보낼 수 있습니다.
 
-### 기능이 미리 보기인 경우 어떤 의미입니까?
+### 기능이 미리 보기 상태인 경우 어떤 의미입니까?
 
-미리 보기 기능은 기능적으로 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 미리 보기 상태의 기능에 대한 의견이 있는 경우 [API 관리 팀에 질문하려면 어떻게 해야 합니까?](#how-can-i-ask-a-question-to-the-api-management-team)에 설명된 메커니즘 중 하나를 사용하여 알려 주시기 바랍니다.
+미리 보기 기능은 기능적으로 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 미리 보기 상태의 기능에 대한 의견이 있는 경우 [API Management 팀에 질문하려면 어떻게 해야 합니까?](#how-can-i-ask-a-question-to-the-api-management-team)에 설명된 메커니즘 중 하나를 사용하여 알려 주시기 바랍니다.
 
 ### API 관리 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 데 지원되는 옵션은 무엇입니까?
 
@@ -57,8 +58,8 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 
 1. HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [API 설정 구성](api-management-howto-create-apis.md#configure-api-settings)을 참조하세요.
 2. [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](api-management-howto-mutual-certificates.md)에 설명된 대로 SSL 상호 인증을 사용할 수 있습니다.
-3. 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 표준 또는 프리미엄 계층 API 관리 인스턴스를 사용하는 경우 게이트웨이의 IP 주소가 일관성 있게 유지되므로 이 IP 주소를 허용하도록 허용 목록을 구성할 수 있습니다. Azure 클래식 포털의 **대시보드**에서 API 관리 인스턴스의 IP 주소를 검색할 수 있습니다.
-4. API 관리 인스턴스를 Azure 가상 네트워크(클래식)에 연결할 수 있습니다. 자세한 내용은 [Azure API 관리에서 VPN 연결을 설정하는 방법](api-management-howto-setup-vpn.md)을 참조하세요.
+3. 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 표준 또는 프리미엄 계층 API Management 인스턴스를 사용하는 경우 게이트웨이의 IP 주소가 일관성 있게 유지되므로 이 IP 주소를 허용하도록 허용 목록을 구성할 수 있습니다. Azure 클래식 포털의 **대시보드**에서 API 관리 인스턴스의 IP 주소를 검색할 수 있습니다.
+4. API 관리 인스턴스를 Azure 가상 네트워크(클래식)에 연결할 수 있습니다. 자세한 내용은 [Azure API Management에서 VPN 연결을 설정하는 방법](api-management-howto-setup-vpn.md)을 참조하세요.
 
 ### API 관리 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
 
@@ -76,16 +77,16 @@ API 관리 서비스 인스턴스를 새 인스턴스에 복사하는 데 사용
 
 아래 단계를 통해 수행할 수 있습니다.
 
-1. 새 [Azure 포털](https://portal.azure.com)에 로그인
-2. 원하는 API 관리 인스턴스를 포함하는 리소스 그룹으로 이동
+1. 새 [Azure Portal](https://portal.azure.com)에 로그인
+2. 원하는 API Management 인스턴스를 포함하는 리소스 그룹으로 이동
 3. "API 관리 참여자" 역할에 원하는 사용자를 추가
 
 작업이 완료되면 새로 추가된 참여자는 Azure PowerShell [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx)을 사용하여 관리자 권한으로 로그인합니다.
 
 1. `Login-AzureRmAccount` cmdlet을 사용하여 로그인합니다.
 2. `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`을 사용하여 서비스를 포함하는 구독에 컨텍스트를 설정합니다.
-3. `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`를 사용하여 SSO 토큰을 가져옵니다.
-4. 브라우저에서 URL을 복사하고 붙여 넣으려면 사용자는 관리 포털에 액세스해야 합니다.
+3. `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`을 사용하여 URL에 대한 Single Sign-On을 수행합니다.
+4. URL을 사용하여 관리 포털에 액세스합니다.
 
 
 ### 추가하려는 정책이 정책 편집기에서 활성화되지 않는 이유는 무엇입니까?
@@ -108,15 +109,15 @@ API 관리 서비스 인스턴스를 새 인스턴스에 복사하는 데 사용
 
 ### API 관리에서 SOAP가 지원됩니까?
 
-현재는, Azure API 관리 내 SOAP에 대해 제한된 지원을 제공합니다. 이 기능은 현재 조사 중 입니다. 여러분 고객의 WSDL 사례와, 그들에게 필요한 기능에 대한 설명을 기다리고 있습니다. 이런 내용은 개발팀의 생각을 구체화하는 데 도움이 됩니다. [API 관리 팀에 질문하려면 어떻게 해야 합니까?](#how-can-i-ask-a-question-to-the-api-management-team)에 언급된 연락처 정보를 사용하여 문의해 주십시오.
+현재는, Azure API Management 내 SOAP에 대해 제한된 지원을 제공합니다. 이 기능은 현재 조사 중입니다. 의견을 확인하는 데 도움이 되도록 WSDL 문서의 예제를 알아보는 데 관심이 있습니다. [API 관리 팀에 질문하려면 어떻게 해야 합니까?](#how-can-i-ask-a-question-to-the-api-management-team)에 언급된 연락처 정보를 사용하여 문의해 주십시오.
 
-작동을 해야 하는 경우에는, 일부 커뮤니티에 대안이 제시되어 있습니다. [Azure API 관리 - APIM, HTTP를 통한 SOAP WCF 사용](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html)을 참조하세요.
+작동을 해야 하는 경우에는, 일부 커뮤니티 구성원에 대안이 제시되어 있습니다. [Azure API Management - APIM, HTTP를 통한 SOAP WCF 사용](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html)을 참조하세요.
 
 이런 식으로 솔루션을 구현하려면 정책을 수동으로 구성해야 하며, WSDL 가져오기/내보내기가 지원되지 않고, 사용자는 개발자 포털에서 테스트 콘솔을 사용하여 요청 본문을 형성해야 합니다.
 
 ### API 관리 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?
 
-표준 계층 및 프리미엄 계층에서 API 관리 테넌트의 공용 IP 주소(VIP)는 아래 나열된 몇 가지 사항을 제외하고, 테넌트의 수명 동안 정적입니다. 다중 지역 배포를 위해 구성된 프리미엄 계층은 지역 당 하나의 공용 IP 주소에 할당됩니다.
+표준 계층 및 프리미엄 계층에서 API Management 테넌트의 공용 IP 주소(VIP)는 아래 나열된 몇 가지 사항을 제외하고, 테넌트의 수명 동안 정적입니다. 다중 지역 배포를 위해 구성된 프리미엄 계층은 지역 당 하나의 공용 IP 주소에 할당됩니다.
 
 IP 주소는 다음 상황에서 변경됩니다.
 
@@ -155,4 +156,8 @@ GIT 자격 증명 관리자를 사용하거나 Visual Studio를 통해 리포지
 
 예!
 
-<!---HONumber=AcomDC_0831_2016-->
+### 구독 간에 API Management 인스턴스를 이동할 수 있나요?
+
+예! [이 문서](../resource-group-move-resources.md)의 지침에 따르세요.
+
+<!---HONumber=AcomDC_0907_2016-->

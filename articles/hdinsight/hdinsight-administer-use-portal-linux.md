@@ -86,7 +86,6 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
 	- **감사 로그**:
     - **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
-	- **클러스터 로그인**: 클러스터 HTTP 사용자 이름 및 암호를 변경합니다.
 	- **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다.
     - **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
     - **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
@@ -201,6 +200,8 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다. HDInsight 클러스터 사용자 이름(HTTP 사용자 계정이라고도 함) 및 SSH 사용자 계정은 만들기 프로세스 중에 만들어집니다. Ambari 웹 UI를 사용하여 클러스터 사용자 계정의 사용자 이름 및 암호를 변경할 수 있으며 스크립트 작업을 사용하여 SSH 사용자 계정을 변경할 수 있습니다.
 
 ###클러스터 사용자 암호 변경
+
+Ambari 웹 UI를 사용하여 클러스터 사용자 암호를 변경할 수 있습니다. Ambari에 로그인하려면 기존 클러스터 사용자 이름 및 암호를 사용해야 합니다.
 
 > [AZURE.NOTE] 클러스터 사용자(관리자) 암호를 변경하는 경우 이 클러스터를 실행하는 스크립트 작업에 오류가 발생할 수 있습니다. 작업자 노드를 대상으로 하는 지속적인 스크립트 작업이 있는 경우 작업의 크기 조정을 통해 클러스터에 노드를 추가할 때 실패할 수 있습니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -332,4 +333,4 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

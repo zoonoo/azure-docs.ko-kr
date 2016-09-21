@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # HDInsight 응용 프로그램 설치
@@ -25,9 +25,9 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 - **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)에서는 분석가에게 빅 데이터의 결과를 검색, 분석 및 시각화하는 대화형 방법을 제공합니다. 새 관계를 검색하고 필요한 답변을 신속하게 가져오도록 쉽게 추가 데이터 원본을 끌어옵니다.
 
->[AZURE.NOTE] Datameer에서는 현재 Azure HDInsight 버전 3.2 클러스터에서만 지원됩니다.
+>[AZURE.NOTE] Datameer는 현재 Azure HDInsight 버전 3.2 클러스터에서만 지원됩니다.
 
-이 문서에서 제공하는 지침은 Azure 포털을 사용합니다. 또한 포털에서 Azure Resouce Manager 템플릿을 내보내거나 공급 업체에서 Resouce Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다. [Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다. [Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -46,7 +46,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
     ![HDInsight 응용 프로그램 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 
-5. 블레이드 메쥬에서 **추가**를 클릭합니다.
+5. 블레이드 메뉴에서 **추가**를 클릭합니다.
 
     ![HDInsight 응용 프로그램 설치된 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
 
@@ -60,7 +60,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 
 ## 클러스터 생성 중에 응용 프로그램 설치
 
-클러스터를 만들 경우 HDInsight 응용 프로그램을 설치하는 옵션이 있습니다. 클러스터가 만들어지고 실행 상태가 되면 프로세스 중에 HDInsight 응용 프로그램이 설치됩니다. 다음 절차에서는 클러스터를 만들 때 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다.
+클러스터를 만들 때 HDInsight 응용 프로그램을 설치하는 옵션이 있습니다. 클러스터가 만들어지고 실행 상태가 되면 프로세스 중에 HDInsight 응용 프로그램이 설치됩니다. 다음 절차에서는 클러스터를 만들 때 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다.
 
 **HDInsight 응용 프로그램을 설치하려면**
 
@@ -121,5 +121,6 @@ HTTP 끝점 자격 증명은 HDInsight 클러스터에 대해 구성한 HTTP 사
 - [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 정의하는 방법을 알아봅니다.
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+- [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): HDInsight 클러스터에 액세스, HDInsight 응용 프로그램 테스트 및 HDInsight 응용 프로그램 호스팅하는 데 비어 있는 에지 노드를 사용하는 방법을 알아봅니다.
 
-<!-----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

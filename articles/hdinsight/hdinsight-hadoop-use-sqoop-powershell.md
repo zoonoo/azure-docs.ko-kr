@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop용 Azure PowerShell을 사용하여 Sqoop 작업 실행
@@ -180,4 +180,4 @@ HDInsight에서 Azure PowerShell을 사용하여 HDInsight 클러스터와 Azure
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

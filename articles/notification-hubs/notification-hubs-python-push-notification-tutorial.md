@@ -22,8 +22,8 @@
 MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
 > [AZURE.NOTE] 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
-
-> [AZURE.NOTE] 이 샘플은 Python 3.4를 사용하여 작성되었습니다.
+>
+> 이 샘플은 Python 3.4를 사용하여 작성되었습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
@@ -391,4 +391,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

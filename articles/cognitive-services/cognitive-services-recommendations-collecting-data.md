@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  모델 학습을 위한 데이터 수집 #
@@ -45,9 +45,9 @@
 
 기능 사용:
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### 형식 세부 정보
 
@@ -78,6 +78,25 @@
 
 기능은 카탈로그 데이터의 일부로 가져오고, 순위 작성이 완료되면 순위(또는 모델에서 기능의 중요도)가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
+
+###기능은 범주별
+
+범주와 유사한 기능을 만들어야 함을 의미합니다. 예를 들어 price=9.34는 범주별 기능이 아닙니다. 반면에 priceRange=Under5Dollars와 같은 기능은 범주별 기능입니다. 또 다른 일반적인 실수는 항목의 이름을 기능으로 사용하는 것입니다. 이 경우 항목의 이름이 고유하게 되므로 범주를 설명하지 않게 됩니다. 기능이 항목의 범주를 나타내도록 해야 합니다.
+
+
+###어떤 기능을 얼마나 많이 사용해야 하나요?
+
+
+최종적으로 Recommendations 빌드는 최대 20개의 기능이 있는 모델의 빌드를 지원합니다. 카탈로그의 항목에 20개가 넘는 기능을 할당할 수 있으나 순위 작성을 수행해야 하며 순위가 높은 기능만 선택합니다. (순위가 2.0 이상인 기능이 실제로 사용하기 좋은 기능입니다!).
+
+
+###기능은 실제로 언제 사용되나요?
+
+기능은 트랜잭션 정보만으로 권장 사항을 제공하기에 트랜잭션 데이터가 충분하지 않을 때 모델에 의해 사용됩니다. 따라서 기능은 트랜잭션이 적은 항목인 "콜드 항목"에 큰 영향을 줍니다. 모든 항목에 충분한 트랜잭션 정보가 있는 경우 기능으로 모델을 보강할 필요가 없습니다.
+
+
+###제품 기능 사용
+
 빌드의 일부로 기능을 사용하려면 다음을 수행해야 합니다.
 
 1. 카탈로그를 업로드하는 경우 기능이 있는지 확인합니다.
@@ -85,6 +104,9 @@
 2. 순위 작성을 트리거합니다. 그렇게 하면 기능의 중요성/순위에 대한 분석을 수행합니다.
 
 3. 권장 사항 작성을 트리거하면 다음 작성 매개 변수를 설정합니다. useFeaturesInModel을 true로 설정하고 allowColdItemPlacement를 true로 설정하고 modelingFeatureList는 모델을 강화하기 위해 사용하려는 쉼표로 구분된 기능 목록으로 설정해야 합니다. 자세한 내용은 [권장 사항 작성 형식 매개 변수](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0)를 참조하세요.
+
+
+
 
 
 ## 사용 데이터 ##
@@ -129,4 +151,4 @@
 
 모델을 만든 후에 [오프라인 평가](cognitive-services-recommendations-buildtypes.md)를 수행하여 모델의 성능이 얼마나 좋은지 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

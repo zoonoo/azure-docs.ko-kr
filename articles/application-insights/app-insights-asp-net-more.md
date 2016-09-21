@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights를 최대한 활용하기" 
+	pageTitle="Application Insights를 최대한 활용하기 | Microsoft Azure" 
 	description="Application Insights를 시작한 경우 다음 기능을 사용할 수 있습니다." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Application Insights의 추가 원격 분석
@@ -60,16 +60,19 @@ Visual Studio에서 앱을 계측하지 않은 경우에도 상태 모니터를 
 
 Visual Studio에서 앱을 계측하지 않은 경우에도 이 방법을 사용하여 [런타임에 성능 모니터링을 사용하도록 설정](app-insights-monitor-performance-live-website-now.md)할 수도 있습니다.
 
+## 클라이언트 쪽 모니터링
 
-## 브라우저 성능
+응용 프로그램의 서버(백엔드)에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 브라우저에서 발생하는 충돌에 데이터를 제공합니다. 사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
 
-웹 페이지에 Application Insights JavaScript 코드 조각을 추가하여 클라이언트 브라우저에서 원격 분석을 가져올 수 있습니다.
+웹 페이지 각각에 Application Insights JavaScript 코드 조각을 추가하여 클라이언트 브라우저에서 원격 분석을 가져올 수 있습니다.
 
 1. Azure에서 앱에 대한 Application Insights 리소스를 엽니다.
 2. 빠른 시작에서 클라이언트 쪽 모니터를 열고 코드 조각을 복사합니다.
 3. 각 웹 페이지의 헤더에 표시되도록 붙여 넣습니다. 일반적으로 마스터 레이아웃 페이지에 붙여 넣는 방식으로 작업할 수 있습니다.
 
 ![Azure에서 확장](./media/app-insights-asp-net-more/100.png)
+
+코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는 것을 참고하세요.
 
 ### 이점
 
@@ -78,6 +81,27 @@ Visual Studio에서 앱을 계측하지 않은 경우에도 이 방법을 사용
 * 브라우저 블레이드의 [클라이언트 성능 및 사용 현황 데이터](app-insights-javascript.md)
 
 ![Azure에서 확장](./media/app-insights-asp-net-more/090.png)
+
+
+[웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
+
+
+
+## 응용 프로그램 버전 추적
+
+MS 빌드 프로세스에서 `buildinfo.config`가 생성되도록 합니다. .csproj 파일에서 다음을 추가합니다.
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](app-insights-diagnostic-search.md)을 수행하거나 [메트릭을 탐색](app-insights-metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+
+그러나 빌드 버전 번호가 Visual Studio의 개발자 빌드가 아닌 MS 빌드에서 생성되도록 합니다.
+
 
 ## 가용성 웹 테스트
 
@@ -121,4 +145,4 @@ Visual Studio에서 앱을 계측하지 않은 경우에도 이 방법을 사용
 |**데이터 액세스 API**<br/>곧 제공될 예정입니다.|
 |[**샘플링**](app-insights-sampling.md)<br/>데이터 속도를 줄이고 가격 책정 계층 제한을 벗어나지 않도록 하는 데 도움이 됩니다.|![샘플링 타일](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

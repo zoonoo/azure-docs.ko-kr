@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
@@ -25,7 +25,7 @@
 
 - Azure 구독 테넌트 ID
 - Azure Directory 응용 프로그램 클라이언트 ID
-- Azure Directory 응용 프로그램 비밀 키  
+- Azure Directory 응용 프로그램 비밀 키
 
 기본 프로세스에는 다음 단계가 포함됩니다.
 
@@ -36,7 +36,7 @@
 
 ##필수 조건
 
-- HDInsight 클러스터. [시작 자습서](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)에 설명된 지침을 사용하여 만들 수 있습니다. 
+- HDInsight 클러스터. [시작 자습서](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)에 설명된 지침을 사용하여 만들 수 있습니다.
 
 
 
@@ -122,4 +122,4 @@ PowerShell을 통해 테넌트 ID를 검색하려면
 - [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)
 - [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

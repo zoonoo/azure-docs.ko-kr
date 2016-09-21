@@ -3,7 +3,7 @@
    description="Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하우스에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="09/14/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
 
@@ -135,4 +135,4 @@ FROM [dbo].[vTargetMail]
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-load-sample-databases.md
 [SQL 데이터 웨어하우스 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

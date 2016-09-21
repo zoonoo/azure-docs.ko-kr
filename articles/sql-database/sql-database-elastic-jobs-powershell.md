@@ -32,9 +32,9 @@
 
 ### Azure 구독 선택
 
-구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 commandlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
+구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 commandlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
 
-	Select-AzureSubscription -SubscriptionId {SubscriptionID}
+	Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
 [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx)를 사용하여 탄력적 데이터베이스 작업에 대한 PowerShell 스크립트를 개발 및 실행하는 것이 좋습니다.
 
@@ -680,4 +680,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

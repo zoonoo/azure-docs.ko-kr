@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
@@ -26,7 +26,7 @@ Azure 포털을 사용하여 RHEL 7 가상 컴퓨터를 프로비전하려면 �
 
     ![Azure 포털 대시보드](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
-2. 왼쪽 창에서 **새로 만들기**를 클릭하고 아래 스크린샷에 표시된 대로 검색 표시줄에 **Red Hat**을 입력합니다. 검색 결과에 Red Hat Enterprise Linux에 대한 항목이 표시됩니다. **Red Hat Enterprise Linux 7.2**를 클릭합니다.
+2. 왼쪽 창에서 **새로 만들기**를 클릭하고 아래 스크린샷에 표시된 대로 검색 표시줄에 **Red Hat**을 입력합니다. 검색 결과에 Red Hat Enterprise Linux에 대한 항목이 나타납니다. **Red Hat Enterprise Linux 7.2**를 클릭합니다.
 
     ![결과에서 RHEL 선택](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 
@@ -42,11 +42,11 @@ Azure 포털을 사용하여 RHEL 7 가상 컴퓨터를 프로비전하려면 �
 
     ![VM 만들기 - 기본 세부 정보](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. **선택적 구성**을 클릭합니다. 그러면 **선택적 구성**이라는 창이 열립니다. **선택적 구성** 창에서 아래 스크린샷에 표시된 것처럼 **네트워크**를 클릭합니다.
+6. **선택적 구성**을 클릭합니다. 그러면 **선택적 구성**이라는 창이 열립니다. **선택적 구성** 창에서 **네트워크**를 클릭합니다.
 
     ![VM 만들기 - 가상 네트워크 구성](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
-7. 그러면 **네트워크**라는 제목의 창이 표시됩니다. **네트워크** 창에서 Linux VM을 배포할 가상 네트워크를 선택하려면 **가상 네트워크**를 클릭합니다. 이렇게 하면 **가상 네트워크** 창이 열립니다. **가상 네트워크** 창에서 **기존 가상 네트워크 사용**을 선택합니다. 그런 다음 Azure AD 도메인 서비스를 사용할 수 있는 가상 네트워크를 선택합니다. 이 예제에서는 'MyPreviewVNet' 가상 네트워크를 선택했습니다.
+7. 그러면 **네트워크**라는 제목의 창이 표시됩니다. **Network** 창에서 Linux VM을 배포할 가상 네트워크를 선택하려면 **Virtual Network**를 클릭합니다. 이렇게 하면 **Virtual Network** 창이 열립니다. **가상 네트워크** 창에서 **기존 가상 네트워크 사용**을 선택합니다. 그런 다음 Azure AD 도메인 서비스를 사용할 수 있는 가상 네트워크를 선택합니다. 이 예제에서는 'MyPreviewVNet' 가상 네트워크를 선택했습니다.
 
     ![VM 만들기 - 가상 네트워크 선택](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
 
@@ -149,17 +149,17 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 
 
 ## 도메인 가입 확인
-컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 신속하게 확인할 수 있습니다. ssh 및 도메인 사용자 계정을 사용하여 새로 도메인에 가입된 RHEL VM에 연결한 후 사용자 계정이 올바르게 확인되었는지 확인하여 이 작업을 수행할 수 있습니다.
+컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 신속하게 확인할 수 있습니다. SSH 및 도메인 사용자 계정을 사용하여 새로 도메인에 가입된 RHEL VM에 연결한 후 사용자 계정이 올바르게 확인되었는지 확인합니다.
 
-1. PuTTY 터미널에서 다음 명령을 입력하고 SSH를 사용하여 새로 도메인에 가입된 RHEL 가상 컴퓨터에 연결합니다. 관리되는 계정에 속하는 도메인 계정을 사용합니다(예: 이 경우 'bob@CONTOSO100.COM').
+1. PuTTY 터미널에서 다음 명령을 입력하고 SSH를 사용하여 새로 도메인에 가입된 RHEL 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 이 경우 'bob@CONTOSO100.COM').
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 
-2. PuTTY 터미널에서 다음 명령을 입력하여 사용자의 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
+2. PuTTY 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
 
 	pwd
 
-3. PuTTY 터미널에서 다음 명령을 입력하여 사용자의 그룹 멤버가 올바르게 확인되었는지 확인합니다.
+3. PuTTY 터미널에서 다음 명령을 입력하여 그룹 멤버 자격이 올바르게 확인되었는지 확인합니다.
 
     id
 
@@ -172,9 +172,15 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 [도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) 문서를 참조하세요.
 
 
-## 자세한 정보
+## 관련 콘텐츠
+- [Azure AD 도메인 서비스 - 시작 가이드](./active-directory-ds-getting-started.md)
+
+- [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
+
 - [Kerberos 설치](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
 - [Red Hat Enterprise Linux 7 - Windows 통합 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

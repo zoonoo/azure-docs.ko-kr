@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/06/2016" 
 	ms.author="spelluru"/>
 
 
@@ -22,12 +22,25 @@
 - [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 - [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
-데이터 팩터리 서비스는 저장소, 처리 및 데이터 이동 서비스의 안정적이고 완전한 뷰를 제공합니다. 이 서비스는 신속하게 종단 간 데이터 파이프라인 상태를 평가하고 문제를 파악하여 필요한 경우 수정 동작을 수행할 수 있도록 도와줍니다. 또한 모든 원본에서 데이터 간의 관계 및 데이터 연결을 시각적으로 추적하고 단일 모니터링 대시보드에서 작업 실행, 시스템 상태 및 종속성의 전체 기록을 확인할 수도 있습니다.
+데이터 팩터리 서비스는 저장소, 처리 및 데이터 이동 서비스의 안정적이고 완전한 뷰를 제공합니다. 이 서비스는 다음을 수행하는 데 사용할 수 있는 모니터링 대시보드를 제공합니다.
 
-이 문서는 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
+- 종단 간 데이터 파이프라인 상태를 신속하게 평가합니다.
+- 문제를 식별하고 필요한 경우 수정 작업을 수행합니다.
+- 데이터 계보를 추적합니다.
+- 모든 원본에서 데이터 간의 관계를 추적합니다.
+- 작업 실행, 시스템 상태 및 종속성을 설명하는 전체 기록을 봅니다.
+
+이 문서는 파이프라인을 모니터링하고 관리하며 디버그하는 방법을 설명합니다. 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
 
 ## 파이프라인 및 작업 상태 이해
-Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 수 있고 활동을 파이프라인에서 볼 수 있고 입력 및 출력 데이터 집합 등을 볼 수 있습니다. 이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 제공합니다.
+Azure 포털을 사용하여 다음을 수행할 수 있습니다.
+
+- 데이터 팩터리를 다이어그램으로 보기
+- 파이프라인에서 활동 보기
+- 입력 및 출력 데이터 집합 보기
+- 기타 작업
+
+이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 제공합니다.
 
 ### 데이터 팩터리로 이동
 1.	[Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -35,7 +48,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 	
 	![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
-	**데이터 팩터리** 블레이드에 모든 데이터 팩터리가 표시됩니다. 
+	**데이터 팩터리** 블레이드에 모든 데이터 팩터리가 표시됩니다.
 4. 데이터 팩터리 블레이드에서 원하는 데이터 팩터리를 선택하면 데이터 팩터리의 홈 페이지(**데이터 팩터리** 블레이드) 가 표시됩니다.
 
 	![데이터 팩터리 블레이드](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
@@ -43,21 +56,21 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 #### 데이터 팩터리의 다이어그램 뷰
 데이터 팩터리의 다이어그램 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다.
 
-위쪽의 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭하여 데이터 팩터리의 다이어그램 뷰를 표시합니다.
+데이터 팩터리의 다이어그램 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭합니다.
 
 ![다이어그램 뷰](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 테이블 자동 배치, 계보 표시(선택한 항목의 업스트림 및 다운스트림 항목 표시)가 가능합니다.
+확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 테이블 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(선택한 항목의 업스트림 및 다운스트림 항목 표시).
  
 
 ### 파이프라인 내부의 활동 
-1. 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭하면 파이프라인 내부의 모든 활동과 활동에 대한 입력 및 출력 데이터 집합이 표시됩니다. 파이프라인이 둘 이상의 작업으로 구성된 경우 단일 파이프라인의 운영 계보를 이해하고자 할 때 유용합니다.
+1. 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭하면 파이프라인 내부의 모든 활동과 활동에 대한 입력 및 출력 데이터 집합이 표시됩니다. 이 기능은 파이프라인이 둘 이상의 작업으로 구성된 경우 단일 파이프라인의 운영 계보를 이해하고자 할 때 유용합니다.
 
-	![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
-2. 다음 예에서는 파이프라인 내에 두 개의 활동과 입력 및 출력이 표시됩니다. HDInsight Hive 작업 유형인 **JoinData** 작업과 복사 작업 유형인 **EgressDataAzure** 작업이 샘플 파이프라인에 있습니다. 
+	![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
+2. 다음 예에서는 파이프라인 내에 두 개의 활동과 입력 및 출력이 표시됩니다. HDInsight Hive 작업 유형인 **JoinData** 작업과 복사 작업 유형인 **EgressDataAzure** 작업이 샘플 파이프라인에 있습니다.
 	
-	![파이프라인 내부의 활동](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
-3. 왼쪽 위 모서리의 이동 경로 탐색에서 데이터 팩터리 링크를 클릭하면 데이터 팩터리 홈 페이지로 되돌아갈 수 있습니다.
+	![파이프라인 내부의 활동](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+3. 왼쪽 위 모서리의 이동 경로 탐색에서 Data Factory 링크를 클릭하면 Data Factory 홈 페이지로 되돌아갈 수 있습니다.
 
 	![데이터 팩터리로 돌아가기](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
@@ -92,7 +105,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ActivityResume</td><td>작업은 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>Retry</td><td>활동 실행을 다시 시도합니다.</td>
+<td>Retry</td><td>작업 실행을 다시 시도합니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사를 아직 시작되지 않았습니다.</td>
@@ -139,11 +152,11 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 
 ![조각에 대한 작업 실행](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-**활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 모든 로그 파일과 함께 오류 메시지가(있다면) 소개됩니다. 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
+**활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 목록에 모든 로그 파일과 함께 오류 메시지가(있다면) 표시됩니다. 이 기능은 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
 
 ![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림 슬라이스입니다** 목록에서 준비 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
+조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림 슬라이스입니다** 목록에서 준비 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 이 기능은 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
 ![준비되지 않은 업스트림 조각](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -154,22 +167,22 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 
 데이터 팩터리의 데이터 집합 상태 전환 흐름에는 Waiting(대기)-> In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -> Ready/Failed(준비/실패)가 포함됩니다.
 
-조각은 실행 전에 사전 조건이 충족되도록 **대기 중** 상태에서 시작됩니다. 그 후 작업은 실행을 시작하고 조각은 **진행 중** 상태가 됩니다. 활동 실행은 성공하거나 실패할 수 있으며 그에 따라 조각은 **준비** 또는 **실패** 상태가 됩니다.
+조각은 실행 전에 사전 조건이 충족되도록 **대기 중** 상태에서 시작됩니다. 그런 다음 작업은 실행을 시작하고 조각은 **진행 중** 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready**(준비) 또는 **Failed**(실패)로 표시됩니다.
 
-사용자는 **준비** 또는 **실패** 상태에서 **대기 중** 상태로 조각을 재설정할 수 있습니다. 사용자는 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
+**Ready**(준비) 또는 **Failed**(실패) 상태에서 **대기 중** 상태로 조각을 재설정할 수 있습니다. 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
 
 
 ## 파이프라인 관리
 Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다.
 
 ### 파이프라인 일시 중지 및 다시 시작
-**Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 데이터에 문제가 있다는 것을 파악한 후에 문제가 수정될 때까지 데이터 처리를 위해 파이프라인을 실행하지 않으려는 경우에 유용합니다.
+**Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다.
 
-예를 들어 아래 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중단하려고 합니다.
+예를 들어 다음 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중단하려고 합니다.
 
 ![일시 중단할 파이프라인](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-**PartitionProductsUsagePipeline**을 일시 중단하기 위해 다음과 같은 PowerShell 명령을 실행합니다.
+파이프라인을 일시 중단하려면 다음 PowerShell 명령을 실행합니다.
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -194,7 +207,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 
 #### Azure 포털을 사용한 오류 디버그:
 
-1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors(오류 있음)**를 클릭합니다.
+1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors**(오류 있음)를 클릭합니다.
 	
 	![오류가 있는 데이터 집합 타일](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	**Datasets with errors**(오류가 있는 데이터 집합) 블레이드에서 원하는 테이블을 클릭합니다.
@@ -222,7 +235,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
 	**StartDateTime**을 Set-AzureRmDataFactoryPipelineActivePeriod에 대해 지정한 StartDateTime 값으로 바꿉니다.
-4. 이제 **Get-AzureRmDataFactoryRun** cmdlet를 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
+4. 이제 **Get-AzureRmDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
 
 		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
@@ -258,12 +271,12 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 		Type                	:
 	
 	
-6. 	위의 출력에 표시된 ID 값을 사용하여 **Save-AzureRmDataFactoryLog** cmdlet를 실행하고 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
+6. 	출력에 표시된 ID 값을 사용하여 **Save-AzureRmDataFactoryLog** cmdlet을 실행하고 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
 
 	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 
-## 파이프라인에서 실패한 항목을 다시 실행합니다.
+## 파이프라인에서 실패한 항목 다시 실행
 
 ### Azure 포털 사용
 
@@ -279,7 +292,7 @@ Set-AzureRmDataFactorySliceStatus cmdlet을 사용하여 실패를 다시 실행
 
 **예제:** 다음 예제에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'Waiting'으로 설정합니다.
 
-**참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업에 대한 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "Waiting"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
+UpdateType이 UpstreamInPipeline으로 설정되며 이것은 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "Waiting"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -292,14 +305,14 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 
 - Azure Data Factory가 생성/업데이트/삭제됩니다.
 - 데이터 처리(실행이라고 하는)가 시작/완료되었습니다.
-- 주문형 HDInsight 클러스터가 생성되고 제거되는 경우.
+- 주문형 HDInsight 클러스터가 생성되고 제거됩니다.
 
-이러한 사용자 이벤트에 대한 경고를 만들고 구독의 관리자 및 공동 관리자에게 메일 알림을 보내도록 구성할 수 있습니다. 또한 조건이 충족되는 경우 전자 메일 알림을 수신해야 하는 사용자의 추가 메일 주소를 지정할 수 있습니다. 데이터 팩터리를 지속적으로 모니터링하지 않고 오류에 대한 알림을 받으려는 경우에 유용합니다.
+이러한 사용자 이벤트에 대한 경고를 만들고 구독의 관리자 및 공동 관리자에게 메일 알림을 보내도록 구성할 수 있습니다. 또한 조건이 충족되는 경우 전자 메일 알림을 수신해야 하는 사용자의 추가 메일 주소를 지정할 수 있습니다. 이 기능은 데이터 팩터리를 지속적으로 모니터링하지 않고 오류에 대한 알림을 받으려는 경우에 유용합니다.
 
 > [AZURE.NOTE] 현재는 이벤트에 대한 경고가 포털에 표시되지 않습니다. 모든 경고를 보려면 [모니터링 및 관리 앱](data-factory-monitor-manage-app.md)을 사용하세요.
 
 #### 경고 정의 지정:
-경고 정의를 지정하려면, 경고를 표시하려는 작업을 설명하는 JSON 파일로 만들 수 있습니다. 아래 예에서 경고는 RunFinished 작업에 대해 전자 메일 알림을 보냅니다. 구체적으로 데이터 팩터리에서 실행이 완료되고 실행이 실패한 경우(상태 = FailedExecution) 전자 메일 알림이 전송됩니다.
+경고 정의를 지정하려면, 경고를 표시하려는 작업을 설명하는 JSON 파일로 만들 수 있습니다. 다음 예에서 경고는 RunFinished 작업에 대해 전자 메일 알림을 보냅니다. 구체적으로 데이터 팩터리에서 실행이 완료되고 실행이 실패한 경우(상태 = FailedExecution) 전자 메일 알림이 전송됩니다.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -338,23 +351,23 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 	    ]
 	}
 
-특정 오류에 대한 경고를 표시하지 않으려면 위의 JSON 정의에서 **subStatus**를 제거할 수 있습니다.
+특정 오류에 대한 경고를 표시하지 않으려면 JSON 정의에서 **subStatus**를 제거할 수 있습니다.
 
-위의 예제에서는 구독의 모든 데이터 팩터리에 대해 경고를 설정합니다. 특정 데이터 팩터리에 대해 경고를 설정하려는 경우 아래와 같이 **dataSource** 블록에서 데이터 팩터리 **resourceUri**를 지정할 수 있습니다.
+이 예제에서는 구독의 모든 데이터 팩터리에 대해 경고를 설정합니다. 특정 데이터 팩터리에 대해 경고를 설정하려는 경우 **dataSource**에서 데이터 팩터리 **resourceUri**를 지정할 수 있습니다.
 
 	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
 다음 테이블은 사용 가능한 작업 및 상태(및 하위 상태) 목록을 제공합니다.
 
-작업 이름 | 상태 | 하위 상태
+작업 이름 | 가동 상태 | 하위 상태
 -------------- | ------ | ----------
 RunStarted | Started | Starting
 RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
-OnDemandClusterCreateStarted | 시작
+OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
-위의 예에 사용되는 JSON 요소에 대한 내용은 [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx)를 참조하세요.
+예에 사용되는 JSON 요소에 대한 내용은 [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx)를 참조하세요.
 
 #### 경고 배포 
 경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet인 **New-AzureRmResourceGroupDeployment**를 사용합니다.
@@ -378,7 +391,7 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           :
 
-> [AZURE.NOTE] [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API를 사용하여 경고 규칙을 만들 수 있습니다. JSON 페이로드는 위에 지정된 JSON 예제와 비슷합니다.
+> [AZURE.NOTE] [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API를 사용하여 경고 규칙을 만들 수 있습니다. JSON 페이로드는 JSON 예제와 비슷합니다.
 
 #### Azure 리소스 그룹 배포의 목록 검색
 배포된 Azure 리소스 그룹 배포의 목록을 검색하려면 다음 예제와 같이 **Get-AzureRmResourceGroupDeployment** cmdlet을 사용합니다.
@@ -468,10 +481,10 @@ OnDemandClusterDeleted | Succeeded
 - 실패한 실행
 - 성공한 실행
 
-이 메트릭은 매우 유용하며 사용자의 데이터 팩터리에서 실패한 실행과 성공한 실행 모두에 대한 개요를 볼 수 있습니다. 메트릭은 조각을 실행할 때마다 내보내집니다. 이 메트릭은 정시마다 집계되어 사용자의 저장소 계정으로 푸시됩니다. 따라서 메트릭을 사용하도록 하려면 저장소 계정을 설정해야 합니다.
+이 메트릭은 유용하며 사용자의 데이터 팩터리에서 실패한 실행과 성공한 실행 모두에 대한 개요를 볼 수 있습니다. 메트릭은 조각을 실행할 때마다 내보내집니다. 이 메트릭은 정시마다 집계되어 사용자의 저장소 계정으로 푸시됩니다. 따라서 메트릭을 사용하도록 하려면 저장소 계정을 설정합니다.
 
 #### 메트릭 사용:
-메트릭을 사용할 수 있도록 하려면 데이터 팩터리 블레이드에서 다음 항목을 클릭합니다.
+메트릭을 사용할 수 있도록 하려면 Data Factory 블레이드에서 다음 항목을 클릭합니다.
 
 **모니터링** -> **메트릭** -> **진단 설정** -> **진단**
 
@@ -498,7 +511,7 @@ OnDemandClusterDeleted | Succeeded
 축하합니다. 메트릭에 첫 번째 경고가 설정되었습니다. 정해진 기간 동안 경고 규칙이 일치할 때마다 알림을 수신하게 됩니다.
 
 ### 경고 알림:
-설정 규칙이 조건과 일치하면 경고 활성화 전자 메일이 전송됩니다. 문제가 해결되고 경고 조건이 더 이상 일치하지 않으면 경고 해지 전자 메일이 전송됩니다.
+경고 규칙이 조건과 일치하면 경고 활성화 전자 메일이 전송됩니다. 문제가 해결되고 경고 조건이 더 이상 일치하지 않으면 경고 해지 전자 메일이 전송됩니다.
 
 이 동작은 경고 규칙을 충족하는 모든 오류에 대해 알림이 전송되는 이벤트와 다릅니다.
 
@@ -545,7 +558,7 @@ OnDemandClusterDeleted | Succeeded
 	    ]
 	}
  
-위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
+샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
 *metricName*은 현재 두 가지 값을 지원합니다.
 - FailedRuns
@@ -574,7 +587,7 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           
 
 
-**Add-AlertRule** cmdlet을 사용하여 경고 규칙을 배포할 수 있습니다. 세부 정보 및 예제는 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 항목을 참조하세요.
+**Add-AlertRule** cmdlet을 사용하여 경고 규칙을 배포할 수도 있습니다. 세부 정보 및 예제는 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 항목을 참조하세요.
 
 ## 다른 리소스 그룹 또는 구독으로 데이터 팩터리 이동
 Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.
@@ -585,4 +598,4 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

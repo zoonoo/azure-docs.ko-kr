@@ -6,7 +6,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -282,4 +282,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/01/2016"
+   ms.date="09/14/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
@@ -114,7 +114,7 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
         {
             // Authenticate:
             _token = GetToken(_tenantId, _applicationId, _applicationSecret);
-            Console.WriteLine("Token aquired. Expires on:" + _token.ExpiresOn);
+            Console.WriteLine("Token acquired. Expires on:" + _token.ExpiresOn);
 
             // Instantiate management clients:
             _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
@@ -291,4 +291,4 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

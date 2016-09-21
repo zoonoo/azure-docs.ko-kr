@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Microsoft Azure에서 서비스 메트릭 모니터링 | Microsoft Azure"
+	pageTitle="Microsoft Azure의 메트릭 개요 | Microsoft Azure"
 	description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# 서비스 메트릭 모니터링
+# Microsoft Azure의 메트릭 개요
 
 모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
 
@@ -72,4 +72,4 @@
 * [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

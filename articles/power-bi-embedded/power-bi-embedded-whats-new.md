@@ -3,7 +3,7 @@
    description="Power BI Embedded의 새로운 기능에 대한 최신 정보 가져오기"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/06/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Power BI Embedded의 새로운 기능
 
@@ -41,4 +41,4 @@
 -    사용자가 시각화 데이터를 **.csv**로 내보낼 수 있습니다.
 -    이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI Embedded가 지원됩니다. 자세한 내용은 [Azure - 언어](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

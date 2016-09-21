@@ -30,7 +30,7 @@
 - [지원되지 않는 구성 또는 기능 목록](virtual-machines-windows-migration-classic-resource-manager.md)을 읽어보세요. 지원되지 않는 구성 또는 기능을 사용하는 가상 컴퓨터가 있다면, 해당 기능/구성 지원이 발표되기를 기다리는 것이 좋습니다. 아니면, 필요에 맞을 경우 마이그레이션이 가능하도록 해당 기능을 제거하거나 해당 구성을 사용하지 않을 수 있습니다.
 -	현재 인프라 및 응용 프로그램을 배포하는 스크립트를 자동화한 경우 마이그레이션을 위해 해당 스크립트를 사용하여 유사한 테스트 설정을 만들어봅니다. 또는 Azure 포털을 사용하여 샘플 환경을 설정할 수도 있습니다.
 
-## 2 단계: 구독 설정 및 공급자 등록
+## 2단계: 구독 설정 및 공급자 등록
 
 마이그레이션 시나리오의 경우 클래식 및 Resource Manager에 대한 환경을 설정해야 합니다. [Azure CLI를 설치](../xplat-cli-install.md)하고 [구독을 선택](../xplat-cli-connect.md)합니다.
 
@@ -58,8 +58,26 @@
 
 	azure config mode asm
 
+## 3단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
 
-## 3 단계: 옵션 1 - 클라우드 서비스에서 가상 컴퓨터 마이그레이션 
+이 단계를 위해 `arm` 모드로 전환해야 합니다. 다음 명령을 사용하여 이 작업을 수행합니다.
+
+```
+azure config mode arm
+```
+
+다음 CLI 명령을 사용하여 Azure Resource Manager에 있는 현재 코어 양을 확인합니다. 코어 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)를 참조하세요.
+
+```
+azure vm list-usage -l "<Your VNET or Deployment's Azure region"
+```
+
+이 단계의 확인이 끝나면 `asm` 모드로 다시 전환해도 됩니다.
+
+	azure config mode asm
+
+
+## 4단계: 옵션 1 - 클라우드 서비스에서 가상 컴퓨터 마이그레이션 
 
 다음 명령을 사용하여 클라우드 서비스 목록을 가져와서 마이그레이션할 클라우드 서비스를 선택합니다. 클라우드 서비스의 VM이 가상 네트워크이거나 VM에 웹/작업자 역할이 있으면, 오류 메시지가 표시됩니다.
 
@@ -79,7 +97,7 @@ Resource Manager 배포 모델에서 기존 가상 네트워크로 마이그레�
 
 	azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
 
-준비 작업이 완료되면, 자세하게 출력된 정보를 검토하여 VM의 마이그레이션 상태를 확보하고 VM이 `Prepared` 상태인지 확인합니다.
+준비 작업이 완료되면 자세한 정보 출력을 확인하여 VM의 마이그레이션 상태를 가져오고 `Prepared` 상태인지 확인할 수 있습니다.
 
 	azure vm show <vmName> -vv
 
@@ -93,11 +111,11 @@ CLI 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구성을 
 
 
 	
-## 3 단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
+## 4단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
 
 마이그레이션할 가상 네트워크를 선택합니다. 가상 네트워크에 웹/작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면, 유효성 검사 오류 메시지가 표시됩니다.
 
-다음 명령을 사용하여 구독의 가상 네트워크를 모두 가져옵니다.
+다음 명령을 사용하여 구독의 모든 가상 네트워크를 가져옵니다.
 
 	azure network vnet list
 	
@@ -105,7 +123,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구성을 
 
 ![전체 가상 네트워크 이름이 강조 표시된 명령줄의 스크린샷.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-위의 예에서 **virtualNetworkName**은 **"그룹 classicubuntu16"**의 전체 이름입니다.
+위의 예제에서 **virtualNetworkName**은 전체 이름 **"Group classicubuntu16 classicubuntu16"**입니다.
 
 다음 명령을 사용하여 마이그레이션을 위해 선택한 가상 네트워크를 준비합니다.
 
@@ -119,7 +137,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터에 대한 구
 
 	azure network vnet commit-migration <virtualNetworkName>
 
-## 4 단계: 저장소 계정 마이그레이션
+## 5단계: 저장소 계정 마이그레이션
 
 가상 컴퓨터 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
 
@@ -140,4 +158,4 @@ CLI 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구
 - [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
 - [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

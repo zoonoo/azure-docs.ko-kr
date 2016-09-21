@@ -19,7 +19,7 @@
 # ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
 > [AZURE.SELECTOR]
-- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 
 
@@ -236,4 +236,4 @@
 
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

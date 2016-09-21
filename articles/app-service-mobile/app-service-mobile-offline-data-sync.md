@@ -39,7 +39,7 @@
 * [Xamarin iOS: 오프라인 동기화 사용]
 * [Xamarin Android: 오프라인 동기화 사용]
 * [Xamarin.Forms: 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Windows 8.1: 오프라인 동기화 사용]
+* [Universal Windows Platform: 오프라인 동기화 사용]
 
 ## 동기화 테이블 정의
 
@@ -51,7 +51,7 @@
 
 로컬 저장소는 클라이언트 장치의 데이터 지속성 계층입니다. Azure 모바일 앱 클라이언트 SDK는 기본 로컬 저장소 구현을 제공합니다. Windows, Xamarin 및 Android에서는 SQLite에 기반합니다. iOS에서는 코어 데이터에 기반합니다.
 
-Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용하려면 SQLite 확장을 설치해야 합니다. 자세한 내용은 [Windows 8.1: 오프라인 동기화 사용]을 참조하세요. Android 및 iOS은 장치 운영 체제 자체에서 SQLite의 버전으로 제공되므로 SQLite의 고유한 버전을 참조하는 데 필요하지 않습니다.
+Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용하려면 SQLite 확장을 설치해야 합니다. 자세한 내용은 [Universal Windows Platform: 오프라인 동기화 사용]을 참조하세요. Android 및 iOS은 장치 운영 체제 자체에서 SQLite의 버전으로 제공되므로 SQLite의 고유한 버전을 참조하는 데 필요하지 않습니다.
 
 또한 개발자는 자신의 로컬 저장소를 구현할 수 있습니다. 예를 들어 모바일 클라이언트에서 암호화된 형식으로 데이터를 저장하려는 경우 암호화에 SQLCipher를 사용하는 로컬 저장소를 정의할 수 있습니다.
 
@@ -95,7 +95,7 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 * [iOS: 오프라인 동기화 사용]
 * [Xamarin iOS: 오프라인 동기화 사용]
 * [Xamarin Android: 오프라인 동기화 사용]
-* [Windows 8.1: 오프라인 동기화 사용]
+* [Universal Windows Platform: 오프라인 동기화 사용]
 
 <!-- Links -->
 [.NET 클라이언트 SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -103,6 +103,6 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 [iOS: 오프라인 동기화 사용]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Universal Windows Platform: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

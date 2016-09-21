@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/17/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 # 자습서: Hadoop 클러스터를 사용하여 데이터를 처리하는 첫 번째 파이프라인 빌드 
@@ -33,16 +33,14 @@
 이 문서는 Azure Data Factory에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 개념적 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
 
 ## 이 자습서에서 다루는 내용	
-**Azure Data Factory**를 사용하면 데이터 **이동** 및 데이터 **처리** 작업을 데이터 기반 워크플로(데이터 파이프라인이라고도 함)로 작성할 수 있습니다. Azure HDInsight 클러스터를 사용하여 웹 로그를 변환 및 분석하고 매월 실행되도록 파이프라인을 예약하는 데이터 처리(또는 데이터 변환) 작업을 사용하여 첫 번째 데이터 파이프라인을 빌드하는 방법을 알아봅니다.
+**Azure Data Factory**를 사용하면 데이터 **이동** 및 데이터 **처리** 작업을 데이터 기반 워크플로(데이터 파이프라인이라고도 함)로 작성할 수 있습니다. 데이터 처리(또는 데이터 변환) 태스크로 첫 번째 데이터 파이프라인을 빌드하는 방법에 대해 배웁니다. 이 태스크는 Azure HDInsight 클러스터를 사용하여 웹 로그를 변환 및 분석합니다.
 
 이 자습서에서는 다음 단계를 수행합니다.
 
 1.	**데이터 팩터리** 만들기. 데이터 팩터리는 데이터를 이동 및 처리하는 하나 이상의 데이터 파이프라인을 포함할 수 있습니다.
 2.	**연결된 서비스** 만들기. 연결된 서비스를 만들어서 데이터 저장소 또는 계산 서비스를 데이터 팩터리에 연결합니다. Azure 저장소와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. Azure HDInsight와 같은 계산 서비스는 데이터를 처리/변환합니다.
 3.	입력 및 출력 **데이터 집합**을 만듭니다. 입력 데이터 집합은 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 집합은 작업에 대한 출력을 나타냅니다.
-3.	**파이프라인** 만들기. 파이프라인에는 원본에서 대상 (또는) HDInsight Hive 작업으로 데이터를 복사하는 복사 작업과 같은 하나 이상의 작업이 있어서 출력 데이터를 생성하는 Hive 스크립트를 사용하여 입력 데이터를 변환할 수 있습니다. 이 샘플에서는 Hive 스크립트를 실행하는 HDInsight Hive 작업을 사용합니다. 스크립트는 먼저 Azure Blob 저장소에 저장된 원시 웹 로그 데이터를 참조하는 외부 테이블을 만든 다음 원시 데이터를 연도별 및 월별로 분할합니다.
-
-**MyFirstPipeline**이라는 첫 번째 파이프라인은 Hive 활동을 사용하여 Azure Blob 저장소의 **adfgetstarted** 컨테이너(adfgetstarted/inputdata)에 있는 **inputdata** 폴더에 업로드하려는 웹 로그를 변환하고 분석합니다.
+3.	**파이프라인** 만들기. 파이프라인에는 하나 이상의 활동(예: 복사 활동, HDInsight Hive 활동)이 포함될 수 있습니다. 이 샘플에서는 Hive 스크립트를 실행하는 HDInsight Hive 작업을 사용합니다. 스크립트는 먼저 Azure Blob 저장소에 저장된 원시 웹 로그 데이터를 참조하는 외부 테이블을 만든 다음 원시 데이터를 연도별 및 월별로 분할합니다.
  
 ![데이터 팩터리 자습서에서 다이어그램 보기](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
@@ -160,7 +158,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 		  month(date)
 		FROM WebLogsRaw
 
-런타임에 Data Factory 파이프라인의 Hive 활동은 아래와 같이 inputtable 및 partitionedtable 매개 변수의 값을 전달합니다. 여기서 storageaccountname은 Azure 저장소 계정의 이름입니다.
+런타임에 Data Factory 파이프라인의 Hive 활동은 다음 코드 조각에 나와 있는 것처럼 inputtable 및 partitionedtable 매개 변수의 값을 전달합니다. storageaccountname은 Azure 저장소 계정 이름입니다.
 
 		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -196,15 +194,15 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
-	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가할 수 있습니다.
+	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가합니다.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. c:\\adfgetstarted 폴더로 이동하고 다음 명령을 실행하여 **input.log** 파일을 저장소 계정(**adfgetstarted** 컨테이너 및 **inputdata** 폴더)에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **저장소 키**를 저장소 계정 키로 바꿉니다.
+	3. c:\\adfgetstarted 폴더로 이동하여 다음 명령을 실행합니다. **input.log** 파일을 저장소 계정(**adfgetstarted** 컨테이너 및 **inputdata** 폴더)에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **저장소 키**를 저장소 계정 키로 바꿉니다.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] 위의 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **input.log** 파일을 복사합니다.
+		> [AZURE.NOTE] 이 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **input.log** 파일을 복사합니다.
 	
 	5. 파일이 성공적으로 업로드되면 AzCopy에서 다음과 비슷한 출력이 표시됩니다.
 	
@@ -228,4 +226,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

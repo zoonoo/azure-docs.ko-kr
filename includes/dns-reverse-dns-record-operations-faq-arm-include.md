@@ -20,5 +20,7 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 아니요. Azure는 ARPA 영역의 향후 위임을 지원하지 않습니다. Azure는 사용 가능한 모든 IP에 대한 ARPA 영역을 호스트하고 고객이 ARPA 영역 내에서 역방향 DNS 레코드를 만들 수 있도록 합니다.
 ### Azure DNS에서 내 ISP가 할당한 IP 블록에 대한 ARPA 영역을 호스트할 수 있나요?
 아니요. Azure DNS는 현재 고객 DNS 영역에서 역방향 DNS 레코드를 지원하지 않습니다.
+### Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
+아니요. [여기](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)에 나온 내용에 따르면, Azure 계산 서비스는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

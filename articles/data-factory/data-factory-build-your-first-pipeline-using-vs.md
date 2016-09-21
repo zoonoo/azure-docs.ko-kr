@@ -16,22 +16,18 @@
 	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
-# Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory 빌드
+# 자습서: Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-build-your-first-pipeline.md)
-- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
-- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API 사용](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-이 문서에서는 Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다.
-
-## 필수 조건
-
-1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 읽고 진행하기 전에 필수 구성 요소 단계를 완료**해야** 합니다.
-2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 현재는 이렇게 제한됩니다.
+## 추가 필수 조건
+2. **Azure 구독의 관리자**여야만 Visual Studio에서 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다.
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 	- Visual Studio 2013 또는 Visual Studio 2015
 	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
@@ -50,9 +46,9 @@
 	![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## 연결된 서비스 만들기
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 제품 출력 데이터로 변환하는 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 나중에 데이터 팩터리 솔루션을 게시할 때 데이터 팩터리에 대한 이름 및 설정을 지정합니다.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 나중에 데이터 팩터리 솔루션을 게시할 때 데이터 팩터리에 대한 이름 및 설정을 지정합니다.
 
-이 단계에서는 Azure Storage 계정 및 주문형 Azure HDInsight 클러스터를 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 시나리오에 사용되는 데이터 저장소/계산 서비스를 식별하고 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결해야 합니다.
+이 단계에서는 Azure Storage 계정 및 주문형 Azure HDInsight 클러스터를 데이터 팩터리에 연결합니다. Azure Storage 계정은 이 샘플의 파이프라인에 대한 입력 및 출력 데이터를 가집니다. HDInsight 연결된 서비스는 이 샘플에서 파이프라인의 활동에 지정된 Hive 스크립트를 실행하는 데 사용됩니다. 시나리오에 사용되는 데이터 저장소/계산 서비스를 식별하고 연결된 서비스를 만들어 해당 서비스를 데이터 팩터리에 연결합니다.
 
 #### Azure 저장소 연결된 서비스 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 Azure Storage 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
@@ -96,9 +92,9 @@
 
 	다음 사항에 유의하세요.
 	
-	- 데이터 팩터리는 위의 JSON으로 사용자에 대해 **Windows 기반** HDInsight 클러스터를 만듭니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
+	- 데이터 팩터리는 앞의 JSON으로 사용자에게 **Windows 기반** HDInsight 클러스터를 만들어 줍니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 	- 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터**를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
-	- HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+	- HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 	
 		많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
 
@@ -188,7 +184,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 
 ### 파이프라인 만들기
-이 단계에서는 **HDInsightHive** 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각이 매월(빈도: 월, 간격: 1)이고 출력 조각이 매월 생성되며 작업에 대한 스케줄러 속성도 매월로 설정됩니다.(아래 참조) 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 집합이 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON에서 사용되는 속성은 이 섹션의 끝에 설명되어 있습니다.
+이 단계에서는 **HDInsightHive** 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각이 매월(빈도: 월, 간격: 1)이고 출력 조각이 매월 생성되며 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 집합이 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON에서 사용되는 속성은 이 섹션의 끝에 설명되어 있습니다.
 
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Hive 변환 파이프라인**을 선택하고 **추가**를 클릭합니다.
@@ -251,7 +247,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	작업 JSON에서 Hive 스크립트가 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정된 계산에서 실행되도록 지정합니다.
 
-	> [AZURE.NOTE] 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline)을 참조하세요.
+	> [AZURE.NOTE] 예에서 사용된 JSON 속성에 대한 자세한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline)을 참조하세요.
 3. **HiveActivity1.json** 파일을 저장합니다.
 
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
@@ -293,7 +289,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 		데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 	
 			Get-AzureRmResourceProvider
-	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 그러면 공급자가 자동으로 등록됩니다.
+	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 - 	데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 - 	데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 
@@ -363,7 +359,7 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 ## 구성 파일 사용
 각 환경마다 다르게 연결된 서비스/테이블/파이프라인에 대한 속성을 구성하기 위해 Visual Studio의 구성 파일을 사용할 수 있습니다.
 
-Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey에 대한 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 작업을 수행할 수 있습니다.
+Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey에 대한 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 동작을 수행할 수 있습니다.
 
 	{
 	    "name": "StorageLinkedService",
@@ -383,7 +379,7 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
 2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성**을 선택하고 **구성 파일**을 선택한 다음, 구성 파일의 **이름**을 입력하고 **추가**를 클릭합니다.
 
 	![구성 파일 추가](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
-3. 아래에 나와 있는 형식으로 구성 매개 변수와 해당 값을 추가합니다.
+3. 다음 형식으로 구성 매개 변수와 해당 값을 추가합니다.
 
 		{
 		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
@@ -403,7 +399,7 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
 
 	이 예제에서는 Azure 저장소 연결된 서비스 및 Azure SQL 연결된 서비스의 connectionString 속성을 구성합니다. 이름을 지정하는 구문은 [JsonPath](http://goessner.net/articles/JsonPath/)입니다.
 
-	JSON에 아래와 같은 값 배열의 속성이 있는 경우
+	JSON에 다음 코드와 같은 값의 배열을 가진 속성이 있는 경우:
 
 		"structure": [
 	  		{
@@ -416,7 +412,7 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
 			}
 		],
 	
-	구성 파일에서 다음과 같이 구성해야 합니다(0부터 시작하는 인덱싱 사용).
+	다음 구성 파일(0부터 시작되는 인덱스 사용)과 같은 속성을 구성합니다.
 		
 		{
             "name": "$.properties.structure[0].name",
@@ -459,14 +455,14 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 5. **요약** 페이지에서 JSON 파일의 이름이 표시되는지 확인하고 **다음**을 클릭합니다.
 6. 배포 작업이 완료되면 **마침**을 클릭합니다.
 
-배포할 때 구성 파일의 값은 엔터티가 Azure 데이터 팩터리 서비스에 배포되기 전에 데이터 팩터리 엔터티(연결된 서비스, 테이블 또는 파이프라인)에 대한 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.
+배포할 때 구성 파일의 값은 엔터티가 Azure Data Factory 서비스에 배포되기 전에 데이터 팩터리 엔터티에 대한 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.
 
 ## 요약 
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.
 
-1.	Azure **Data Factory**를 만들었습니다.
+1.	Azure **데이터 팩터리**를 만들었습니다.
 2.	두 개의 **연결된 서비스**를 만들었습니다.
-	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure Storage** 연결된 서비스입니다.
+	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure 저장소** 연결된 서비스입니다.
 	2.	주문형 HDInsight Hadoop 클러스터를 데이터 팩터리에 연결하는 **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
 3.	파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다.
 4.	**HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.
@@ -484,4 +480,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

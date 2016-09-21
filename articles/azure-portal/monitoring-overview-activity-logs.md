@@ -39,7 +39,7 @@ Azure 포털, CLI, PowerShell cmdlet 및 Insights REST API를 사용하여 활�
 - 활동 로그를 보낼 위치(저장소 계정 또는 이벤트 허브)
 - 보낼 이벤트 범주(예: 쓰기, 삭제, 작업)
 - 내보낼 하위 지역(위치)
-- 저장소 계정에 활동 로그를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+- 저장소 계정에 활동 로그를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성하거나 [REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure 포털, CLI, PowerShell cmdlet 및 Insights REST API를 사용하여 활�
 2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
 
     ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. 표시되는 블레이드에서 이벤트를 내보낼 지역, 이벤트를 저장할 저장소 계정(및 이러한 이벤트를 저장소에 보존할 기간(일)), 이러한 이벤트를 스트리밍하기 위해 이벤트 허브를 만들 서비스 버스 네임스페이스를 선택할 수 있습니다.
+3. 표시되는 블레이드에서 이벤트를 내보낼 지역, 이벤트를 저장할 저장소 계정(및 이러한 이벤트를 저장소에 보존할 기간--0일은 로그를 영원히 유지함), 이러한 이벤트를 스트리밍하기 위해 이벤트 허브를 만들 Service Bus 네임스페이스를 선택할 수 있습니다.
 
     ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. **저장**을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | 아니요 | 활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
 | serviceBusRuleId | 아니요 | 이벤트 허브를 만들 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 | 예 | 활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-| RetentionInDays | 예 | 이벤트를 유지해야 하는 일 수입니다. 0 값은 로그를 무기한 저장합니다. |
+| RetentionInDays | 예 | 이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | 범주 | 아니요 | 수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### 로그 프로필 제거
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId | 아니요 | 활동 로그를 저장할 저장소 계정의 리소스 ID입니다. |
 | serviceBusRuleId | 아니요 | 이벤트 허브를 만들 서비스 버스 네임스페이스의 서비스 버스 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 | 예 | 활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-| retentionInDays | 예 | 이벤트를 유지해야 하는 일 수입니다. 0 값은 로그를 무기한 저장합니다. |
+| retentionInDays | 예 | 이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | categories | 아니요 | 수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### 로그 프로필 제거
@@ -223,4 +223,4 @@ azure insights logprofile delete --name my_log_profile
 - [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
 - [Azure 활동 로그를 이벤트 허브로 스트림](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

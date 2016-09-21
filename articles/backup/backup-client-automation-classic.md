@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -599,4 +599,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Windows 서버 백업](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

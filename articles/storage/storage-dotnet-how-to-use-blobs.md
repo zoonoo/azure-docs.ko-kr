@@ -33,7 +33,7 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 
 **필수 구성 요소**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)
+- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 - [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
@@ -365,7 +365,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 기본적으로 저장소 계정의 Blob 데이터는 저장소 계정 소유자만 액세스할 수 있습니다. 기본적으로 Blob 저장소에 대한 요청을 인증할 때는 계정 액세스 키가 필요합니다. 그러나 다른 사용자에게 특정 Blob 데이터를 사용 가능하게 제공하고자 할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 - **익명 액세스:** 컨테이너나 Blob를 공개 제공하여 익명 액세스를 구현할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
-- **공유 액세스 서명:** 공유 액세스 서명(SAS)을 클라이언트에 제공할 수 있습니다. 여기서는 저장소 계정의 리소스에 대해 사용자가 지정한 권한과 사용자가 지정한 간격에 따라 제한적인 액세스를 제공합니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+- **공유 액세스 서명:** 공유 액세스 서명(SAS)을 클라이언트에 제공할 수 있습니다. 여기서는 저장소 계정의 리소스에 대해 사용자가 지정한 권한과 사용자가 지정한 간격에 따라 제한적인 액세스를 제공합니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 ### Blob 데이터 암호화
 
@@ -407,4 +407,4 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

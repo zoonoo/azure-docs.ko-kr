@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights에서 거의 실시간인 사전 진단" 
+	pageTitle="Application Insights에서 거의 실시간인 자동 관리 진단 | Microsoft Azure" 
 	description="앱의 비정상적인 오류 패턴에 대한 경고를 보내고 진단 분석을 제공합니다. 구성이 필요하지 않습니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@
 
 이 기능은 자체 서버 또는 클라우드에서 호스팅되는 Java 및 ASP.NET 웹 앱에 대해 작동 합니다. 요청 원격 분석을 생성하는 모든 앱에 대해 작동합니다(예를 들어 [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request)를 호출하는 작업자 역할이 있는 경우).
 
-[프로젝트에 대한 Application Insights](app-insights-get-started.md)를 설정한 후 제공된 앱은 최소 일정량의 원격 분석을 생성합니다. NRT 사전 진단은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
+[프로젝트에 대한 Application Insights](app-insights-overview.md)를 설정한 후 제공된 앱은 최소 일정량의 원격 분석을 생성합니다. NRT 자동 관리 진단은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
 
 샘플 경고는 다음과 같습니다.
 
@@ -121,14 +121,14 @@ NRT 사전 진단은 Application Insights의 다른 유사하지만 고유한 �
 
     NRT 사전 진단에서 일반 조건에 대한 응답으로 임계값을 자동으로 조정합니다.
 
-    NRT 사전 진단에서 진단 작업을 시작합니다. 
+    NRT 사전 진단에서 진단 작업을 시작합니다.
 * 또한 [사전 감지](app-insights-proactive-detection.md)는 컴퓨터 인텔리전스를 사용하여 메트릭에서 특수한 패턴을 검색하고 사용자에 의한 구성은 필요하지 않습니다. 하지만 NRT 사전 진단과 달리 사전 감지의 목적은 예를 들어 특정 형식의 브라우저에 있는 특정 페이지에서 잘못 제공될 수 있는 사용 현황 다기관의 세그먼트를 찾는 것입니다. 분석은 매일 수행되고 결과가 있으면 경고보다 긴급하지 않을 수 있습니다. 이와 반대로 NRT 사전 진단에 대한 분석은 들어오는 원격 분석에서 지속적으로 수행되고 서버 실패율이 예상보다 높은 경우 몇 분 내에 알립니다.
 
 ## NRT 사전 진단 경고를 수신하는 경우
 
 *이 경고를 받은 이유는 무엇입니까?*
 
-*	이전 기간의 일반적인 기준선에 비해 실패한 요청 속도가 비정상적으로 증가했음을 감지했습니다. 오류 및 관련 원격 분석을 분석한 후 살펴보아야 하는 문제가 있다는 것을 알게 됩니다. 
+*	이전 기간의 일반적인 기준선에 비해 실패한 요청 속도가 비정상적으로 증가했음을 감지했습니다. 오류 및 관련 원격 분석을 분석한 후 살펴보아야 하는 문제가 있다는 것을 알게 됩니다.
 
 *알림은 분명히 문제가 있음을 의미합니까?*
 
@@ -144,7 +144,7 @@ NRT 사전 진단은 Application Insights의 다른 유사하지만 고유한 �
 
 *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
 
-*	예, 경고 규칙에서 이를 구성하려면 사전 진단 규칙을 클릭합니다. 경고를 사용하지 않도록 설정하거나 경고에 대한 받는 사람을 변경할 수 있습니다. 
+*	예, 경고 규칙에서 이를 구성하려면 사전 진단 규칙을 클릭합니다. 경고를 사용하지 않도록 설정하거나 경고에 대한 받는 사람을 변경할 수 있습니다.
 
 *이메일이 삭제되었습니다. 포털의 어디에서 알림을 찾을 수 있습니까?*
 
@@ -159,4 +159,17 @@ NRT 사전 진단은 Application Insights의 다른 유사하지만 고유한 �
 
 *이에 대한 여러분의 의견을 기다리고 있습니다. *[ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com)으로 의견을 보내 주세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+## 다음 단계
+
+이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
+
+* [메트릭 탐색기](app-insights-metrics-explorer.md)
+* [검색 탐색기](app-insights-diagnostic-search.md)
+* [분석 - 강력한 쿼리 언어](app-insights-analytics-tour.md)
+
+사전 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
+
+* [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
+* [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

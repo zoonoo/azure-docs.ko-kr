@@ -22,10 +22,7 @@
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
 - 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다.
-- 최상위 CPU 사용 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
-  - CPU
-  - 기간
-  - 실행 횟수
+- CPU/기간/실행 횟수별 최상위 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
 - 쿼리에 대한 세부 정보로 드릴다운하는 기능으로, 리소스 사용률에 대한 텍스트 및 기록을 표시합니다.
 - [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)에서 수행되는 동작을 표시하는 성능 튜닝 주석
 
@@ -244,4 +241,4 @@ SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 **Quer
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

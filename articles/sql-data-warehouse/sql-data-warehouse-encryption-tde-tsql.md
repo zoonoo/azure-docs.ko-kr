@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # 투명한 데이터 암호화(TDE) 시작
@@ -54,6 +54,8 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
+참고: TDE 설정을 변경하기 전에 일시 중지된 SQL 데이터 웨어하우스를 다시 시작해야 합니다.
+
 ##암호화 확인
 
 SQL 데이터 웨어하우스에 대한 암호화 상태를 확인하려면 다음 단계를 따르세요.
@@ -86,4 +88,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

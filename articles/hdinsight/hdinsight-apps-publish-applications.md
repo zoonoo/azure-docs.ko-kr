@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -56,7 +56,7 @@ Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가�
 |-------|---------------|----------------|
 |types |응용 프로그램과 호환되는 클러스터 종류입니다. |Hadoop, HBase, Storm, Spark(또는 이들의 조합)|
 |tiers |응용 프로그램과 호환되는 클러스터 계층입니다. |Standard, Premium(또는 둘 다)|
-|versions|	응용 프로그램과 호환되는 HDInsight 클러스터 종류입니다. |3.4|
+|versions|	응용 프로그램과 호환되는 HDInsight 클러스터 종류입니다. |3\.4|
 
 ## 패키지 응용 프로그램
 
@@ -88,9 +88,9 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 1. [Azure 게시 포털](https://publish.windowsazure.com/)에 로그인합니다.
 2. **솔루션 템플릿**을 클릭하여 새 솔루션 템플릿을 만듭니다.
 3. **Dev Center 계정 만들기 및 Azure 프로그램 조인**을 클릭하여 아직 수행하지 않은 경우 회사를 등록합니다. [Microsoft 개발자 계정 만들기](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)를 참조하세요.
-4. **시작할 몇 가지 토폴로지 정의**를 클릭합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 
+4. **시작할 몇 가지 토폴로지 정의**를 클릭합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다.
 5. 새 버전을 추가합니다.
-6. [패키지 응용 프로그램](#package-application)에서 준비한 zip 파일을 업로드합니다.  
+6. [패키지 응용 프로그램](#package-application)에서 준비한 zip 파일을 업로드합니다.
 7. **인증 요청**을 클릭합니다. Microsoft 인증 팀이 파일을 검토하고 토폴로지를 인증합니다.
 
 ## 다음 단계
@@ -99,5 +99,6 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 - [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 응용 프로그램을 배포하는 방법을 알아봅니다.
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+- [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): HDInsight 클러스터에 액세스, HDInsight 응용 프로그램 테스트 및 HDInsight 응용 프로그램 호스팅하는 데 비어 있는 에지 노드를 사용하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

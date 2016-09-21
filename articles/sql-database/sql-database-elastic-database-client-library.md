@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/24/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # 확장성 있는 클라우드 데이터베이스 빌드
 
-Azure SQL 데이터베이스의 확장성 있는 도구 및 기능을 사용하여 데이터베이스 규모 확장을 쉽게 달성할 수 있습니다. 특히, **탄력적 데이터베이스 클라이언트 라이브러리**를 사용하여 규모 확장된 데이터베이스를 만들고 관리할 수 있습니다. 이 기능을 통해 수백 또는 수천 개의 Azure SQL 데이터베이스를 사용하여 분할된 응용 프로그램을 쉽게 개발할 수 있습니다.
+Azure SQL 데이터베이스의 확장성 있는 도구 및 기능을 사용하여 데이터베이스 규모 확장을 쉽게 달성할 수 있습니다. 특히, **탄력적 데이터베이스 클라이언트 라이브러리**를 사용하여 규모 확장된 데이터베이스를 만들고 관리할 수 있습니다. 이 기능을 통해 수백 또는 수천 개의 Azure SQL 데이터베이스를 사용하여 분할된 응용 프로그램을 쉽게 개발할 수 있습니다. 그런 후 이러한 데이터베이스의 간편한 관리를 위해 [탄력적 작업](sql-database-elastic-jobs-powershell.md)을 사용할 수 있습니다.
 
 라이브러리를 설치하려면 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다.
 
@@ -73,4 +73,4 @@ Azure SQL 데이터베이스의 확장성 있는 도구 및 기능을 사용하�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

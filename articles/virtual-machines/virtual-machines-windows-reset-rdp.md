@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows VM에서 암호 또는 원격 데스크톱 다시 설정 | Microsoft Azure"
-	description="리소스 관리자 배포 모델을 사용하여 만든 Windows VM에서 관리자 암호 또는 원격 데스크톱 서비스를 다시 설정합니다."
+	pageTitle="Windows VM에서 암호 또는 원격 데스크톱 구성 다시 설정 | Microsoft Azure"
+	description="Azure 포털 또는 Azure PowerShell을 사용하여 Windows VM에서 계정 암호 또는 원격 데스크톱 서비스를 다시 설정하는 방법을 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정하거나 원격 데스크톱 서비스 구성을 다시 설정할 수 있습니다. 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 회사 컴퓨터에 최신 PowerShell 모듈을 설치하고 Azure 구독에 로그인하도록 합니다. 자세한 단계는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다. 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 회사 컴퓨터에 최신 PowerShell 모듈을 설치하고 Azure 구독에 로그인하도록 합니다. 자세한 단계는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 > [AZURE.TIP] `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`을 사용하여 설치한 PowerShell의 버전을 확인할 수 있습니다.
 
 ## 리소스 관리자 배포 모델에서 Windows VM
 
 ### Azure 포털
-**찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 다시 설정**을 클릭하여 Vm을 선택합니다. 암호 재설정 블레이드는 아래와 같이 표시됩니다.
+**찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 다시 설정**을 클릭하여 Vm을 선택합니다. 암호 다시 설정 블레이드가 표시됩니다.
 
 ![암호 다시 설정 페이지](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -55,7 +55,7 @@ Azure PowerShell 1.0 이상을 설치하고 `Login-AzureRmAccount` cmdlet을 사
 		-Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 
 
-`myRG`, `myVM`, `myVMAccess` 및 위치를 설치에 관련된 값으로 대체합니다.
+`myRG`, `myVM`, `myVMAccess` 및 위치를 설정과 관련된 값으로 바꿉니다.
 
 
 #### **원격 데스크톱 서비스 구성을 다시 설정**
@@ -93,7 +93,7 @@ Azure PowerShell 1.0 이상을 설치하고 `Login-AzureRmAccount` cmdlet을 사
 
 ### VMAccess 확장 및 PowerShell
 
-VM 에이전트가 가상 컴퓨터에 설치되어 있어야 합니다. VM 에이전트를 사용할 수 있는 한 VMAccess 확장은 설치하지 않아도 사용할 수 있습니다. 다음 명령을 사용하여 VM 에이전트가 이미 설치되어 있는지 확인합니다. "myCloudService" 및 "myVM"을 각각 클라우드 서비스 및 VM의 이름으로 바꿉니다. 매개 변수 없이 `Get-AzureVM`을 실행하면 이를 파악할 수 있습니다.)
+VM 에이전트가 가상 컴퓨터에 설치되어 있어야 합니다. VM 에이전트를 사용할 수 있는 한 VMAccess 확장은 설치하지 않아도 사용할 수 있습니다. 다음 명령을 사용하여 VM 에이전트가 이미 설치되어 있는지 확인합니다. "myCloudService" 및 "myVM"을 각각 클라우드 서비스 및 VM의 이름으로 바꿉니다. 매개 변수 없이 `Get-AzureVM`을 실행하면 이러한 이름을 파악할 수 있습니다.)
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
@@ -143,4 +143,4 @@ b. `Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Serv
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

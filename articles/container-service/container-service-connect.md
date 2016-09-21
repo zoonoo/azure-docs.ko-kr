@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 
@@ -37,8 +37,6 @@ Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부�
 **PORT**는 노출하려는 끝점의 포트입니다. Swarm의 경우 2375입니다. DC/OS의 경우 포트 80을 사용합니다. **USERNAME**은 클러스터를 배포할 때 제공된 사용자 이름입니다. **DNSPREFIX**는 클러스터를 배포할 때 제공한 DNS 접두사입니다. **REGION**은 리소스 그룹이 있는 하위 지역입니다. **PATH\_TO\_PRIVATE\_KEY** [선택 사항]은 컨테이너 서비스 클러스터를 만들 때 제공한 공개 키에 해당하는 개인 키에 대한 경로입니다. -i 플래그와 함께 이 옵션을 사용합니다.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > SSH 연결 포트는 표준 22가 아니라 2200입니다.
@@ -48,8 +46,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 DC/OS 관련 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -66,8 +62,6 @@ sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.az
 Swarm 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -120,4 +114,4 @@ DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 - [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 - [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/31/2016"
 	ms.author="iainfou"/>
 
 # 문제 해결: Azure 가상 컴퓨터에서 실행되는 응용 프로그램을 시작, 액세스 또는 연결할 수 없음
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -224,7 +224,7 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[알림 허브 개요]: notification-hubs-overview.md
+[알림 허브 개요]: notification-hubs-push-notification-overview.md
 [자습서 시작하기]: notification-hubs-windows-store-dotnet-get-started.md
 [템플릿 지침]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNS 지침]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
@@ -241,4 +241,4 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

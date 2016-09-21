@@ -114,6 +114,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 [알림 허브 정의]: ../notification-hubs-overview.md
 [구독자에게 브로드캐스트 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[사용자에게 플랫폼 간 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[사용자에게 플랫폼 간 알림 보내기]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

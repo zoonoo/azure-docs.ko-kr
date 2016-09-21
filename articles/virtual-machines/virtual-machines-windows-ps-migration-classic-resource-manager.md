@@ -76,7 +76,15 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
 
-## 4단계: IaaS 리소스를 마이그레이션하는 명령 실행
+## 4단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
+
+다음 powershell 명령을 사용하여 Azure Resource Manager에 있는 코어의 현재 양을 확인할 수 있습니다. 코어 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)를 참조하세요.
+
+```
+Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
+```
+
+## 5단계: IaaS 리소스를 마이그레이션하는 명령 실행
 
 >[AZURE.NOTE] 여기에 설명된 모든 작업은 idempotent 방식입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 발생하는 경우 준비, 중단 또는 커밋 작업을 다시 시도하는 것이 좋습니다. 그러면 플랫폼이 해당 작업을 다시 시도합니다.
 
@@ -181,4 +189,4 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대
 - [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -34,7 +34,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [BizTalk 참여자](#biztalk-contributor) | BizTalk 서비스를 관리할 수 있음 |
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) | ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) | 액세스를 제외한 모든 것을 관리할 수 있음 |
-| [데이터 팩터리 참여자](#data-factory-contributor) | 데이터 팩터리를 관리할 수 있음 |
+| [데이터 팩터리 참여자](#data-factory-contributor) | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리할 수 있습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) | 모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음 |
 | [DocumentDB 계정 참여자](#documentdb-account-contributor) | DocumentDB 계정을 관리할 수 있음 |
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) | 지능형 시스템 계정을 관리할 수 있음 |
@@ -151,12 +151,12 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 
 ### 데이터 팩터리 참여자
-데이터 팩터리를 관리할 수 있음
+데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다.
 
 | **actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-| Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 관리 |
+| Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -534,4 +534,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 - [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

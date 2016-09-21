@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -78,4 +78,4 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [기능 요청 제출](http://aka.ms/adlafeedback)
     - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

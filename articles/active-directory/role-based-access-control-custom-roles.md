@@ -52,7 +52,7 @@
   ]
 }
 ```
-## 동작
+## 작업
 사용자 지정 역할의 **Actions** 속성은 해당 역할에 액세스 권한이 부여되는 Azure 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. 와일드카드(*)를 포함하는 작업 문자열은 작업 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 예:
 
 -	`*/read`는 모든 Azure 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
@@ -63,7 +63,7 @@
 `Get-AzureRmProviderOperation`(PowerShell) 또는 `azure provider operations show`(Azure CLI)를 사용하여 Azure 리소스 공급자에 대한 작업을 나열합니다. 이러한 명령을 사용하여 작업 문자열이 올바른지 확인하고 와일드카드 작업 문자열을 확장할 수 있습니다.
 
 ```
-Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
@@ -111,4 +111,4 @@ azure provider operations show "Microsoft.Network/*"
 	- [REST API](role-based-access-control-manage-access-rest.md)
 - [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

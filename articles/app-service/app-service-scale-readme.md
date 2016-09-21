@@ -34,8 +34,8 @@ Azure 앱 서비스에서 호스팅되는 응용 프로그램은 [대규모로 �
 3. 응용 프로그램 호스팅 플랫폼에 대한 이해 및 올바른 활용
 	* 내 목표 규모를 달성하기 위해 무슨 기능을 활용해야 하나요?
 
-이 섹션에서 모든 요소를 이해하고 장치에서 확장성 목표를 달성하는 데 필요한 앱 서비스 기능을 활용하는 전략을 세울 수 있습니다.
+이 섹션에서는 모든 요소를 이해하고 장치에서 확장성 목표를 달성하는 데 필요한 App Service 기능을 활용하는 전략을 세울 수 있습니다.
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

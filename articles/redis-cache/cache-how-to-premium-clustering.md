@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/09/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
@@ -26,10 +26,10 @@ Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가�
 ## Redis 클러스터란?
 Azure Redis Cache는 [Redis에서 구현된 형태의](http://redis.io/topics/cluster-tutorial) Redis 클러스터를 제공합니다. Redis 클러스터를 사용하면 다음과 같은 이점을 얻을 수 있습니다.
 
--	여러 노드 간에 자동으로 데이터 세트를 분할하는 기능. 
--	노드의 하위 집합에서 오류가 발생하거나 나머지 클러스터와 통신할 수 없더라도 작업을 계속하는 기능. 
--	처리량 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 
--	메모리 크기 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 선형으로 늘어납니다.  
+-	여러 노드 간에 자동으로 데이터 세트를 분할하는 기능.
+-	노드의 하위 집합에서 오류가 발생하거나 나머지 클러스터와 통신할 수 없더라도 작업을 계속하는 기능.
+-	처리량 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다.
+-	메모리 크기 증대: 분할된 데이터베이스(노드) 수를 늘림에 따라 선형으로 늘어납니다.
 
 프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
 
@@ -164,4 +164,4 @@ StackExchange.Redis를 사용하고 있으며 클러스터링을 사용할 때 `
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

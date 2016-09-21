@@ -383,8 +383,8 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 <!-- URLs. -->
 [알림 허브 시작]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[보안 푸시]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+[보안 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

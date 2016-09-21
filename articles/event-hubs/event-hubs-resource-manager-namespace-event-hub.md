@@ -24,14 +24,8 @@
 
 전체 템플릿은 GitHub에서 [이벤트 허브 및 소비자 그룹 템플릿][]을 참조하세요.
 
->[AZURE.NOTE] 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
->
->-    [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
->-    [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
->-    [토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
->-    [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
->
->최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][] 갤러리를 방문하여 이벤트 허브를 검색하세요.
+>[AZURE.NOTE]
+최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][] 갤러리를 방문하여 이벤트 허브를 검색하세요.
 
 ## 배포할 항목
 
@@ -156,14 +150,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
-- [Azure 자동화를 사용하여 Azure 서비스 버스 관리](service-bus-automation-manage.md)
-- [PowerShell로 이벤트 허브 관리](service-bus-powershell-how-to-provision.md)
 - [서비스 버스 탐색기로 이벤트 허브 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
-  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -76,4 +76,4 @@ Azure Blob 또는 테이블 저장소와 같은 미리 보기 인덱서는 코�
 - [Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱(미리 보기)](search-howto-index-csv-blobs.md)
 - [Azure 검색 Blob 인덱서를 사용하여 JSON Blob 인덱싱(미리 보기)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

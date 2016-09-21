@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -41,13 +41,13 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 @Task 추가 
+1. 갤러리에서 @Task 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -56,7 +56,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 
 **갤러리에서 @Task를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -93,9 +93,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 @Task에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[@Task 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 @Task에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -116,9 +116,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 	![앱 설정 구성][8]
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 @Task 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://<Tenant name>.attask-ondemand.com*)
+     a. **로그온 URL** 텍스트 상자에 사용자가 @Task 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다(예: *https://<Tenant name>.attask-ondemand.com*).
 
-     b. **다음**을 클릭합니다.
+     b. **Next**를 클릭합니다.
 
 4. **@Task에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬로 메타데이터 파일을 저장한 다음 **다음**을 클릭합니다.
 
@@ -139,11 +139,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     b. **서비스 공급자 ID**를 선택합니다.
 
-    c. Azure 클래식 포털에서 **원격 로그인 URL**을 복사한 다음 **로그인 포털 URL** 텍스트 상자에 붙여넣습니다.
+    c. Azure 클래식 포털에서 **원격 로그인 URL**을 복사한 다음 **로그인 포털 URL** 텍스트 상자에 붙여 넣습니다.
 
-    d. Azure 클래식 포털에서 **Single Sign-Out 서비스 URL**을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    d. Azure 클래식 포털에서 **Single Sign-Out 서비스 URL**을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
 
-    e. Azure 클래식 포털에서 **암호 변경 URL**을 복사한 다음 **암호 변경 URL** 텍스트 상자에 붙여넣습니다.
+    e. Azure 클래식 포털에서 **암호 변경 URL**을 복사한 다음 **암호 변경 URL** 텍스트 상자에 붙여 넣습니다.
 
     e. **Save**를 클릭합니다.
 
@@ -187,7 +187,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -311,4 +311,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

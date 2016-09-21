@@ -16,28 +16,15 @@
  
 # Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보
 
-[Application Insights SDK](app-insights-windows-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+Application Insights SDK는 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 여기서 사용량과 성능을 분석할 수 있습니다.
 
-
-#### 응용 프로그램에 SDK를 설치하려면
-
-[Windows Phone 및 Store 앱용 Application Insights 시작](app-insights-windows-get-started.md)을 참조하세요.
-
-#### 최신 SDK를 업그레이드하려면 
-
-* ApplicationInsights.config의 복사본을 수행하려면, 수행한 모든 사용자 지정을 유지합니다.
-* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-* 설치된 패키지를 표시하도록 필터를 설정합니다. 
-* 설치된 Application Insights 패키지를 선택하고 업그레이드를 선택합니다.
-* 이전 및 새 버전의 ApplicationInsights.config를 비교합니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
-* 솔루션을 다시 빌드합니다.
 
 ## 버전 1.1.1
 
 ### Windows SDK
 
-- Windows Phone Silverlight SDK를 사용할 때 크래시 동안 중단을 수정합니다. 이렇게 변경하면 WindowsAppInitialier.InitializeAsync(...)에 대한 호출 후 ~2초 이후에 발생하는 크래시가 디스크에 보관되고 다음번에 앱을 시작할 때 전송됩니다. 크래시가 호출 후 ~2초 전에 발생하면 무시됩니다.  
-- NuGet의 종속성을 Core 및 Microsoft.ApplicationInsights.PersistenceChannel(v1.2.3)의 특정 버전에 설정합니다.   
+- Windows Phone Silverlight SDK를 사용할 때 크래시 동안 중단을 수정합니다. 이렇게 변경하면 WindowsAppInitialier.InitializeAsync(...)에 대한 호출 후 ~2초 이후에 발생하는 크래시가 디스크에 보관되고 다음번에 앱을 시작할 때 전송됩니다. 크래시가 호출 후 ~2초 전에 발생하면 무시됩니다.
+- NuGet의 종속성을 Core 및 Microsoft.ApplicationInsights.PersistenceChannel(v1.2.3)의 특정 버전에 설정합니다.
 
 ### 핵심 SDK
 
@@ -95,4 +82,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0907_2016-->

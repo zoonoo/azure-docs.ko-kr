@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 이 자습서에서는 Alcumus Info Exchange와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. Alcumus Info Exchange를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- Alcumus 정보 교환에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- Alcumus 정보 교환에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Alcumus 정보 교환에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
@@ -41,13 +41,13 @@ Alcumus 정보 교환과 Azure AD 통합을 구성하려면 다음 항목이 필
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Alcumus 정보 교환 추가 
+1. 갤러리에서 Alcumus 정보 교환 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -56,7 +56,7 @@ Alcumus 정보 교환의 Azure AD 통합을 구성하려면 갤러리에서 Alcu
 
 **갤러리에서 Alcumus 정보 교환을 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -117,15 +117,15 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
  
 	a. **회신 URL** 텍스트 상자에 Alcumus Info Exchange 지원 팀에서 설치한 소비자 URL을 입력합니다.
 
-    > [AZURE.NOTE] 올바른 값을 모르는 경우 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원팀에 문의하세요.
+    > [AZURE.NOTE] 올바른 값을 모르는 경우 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원 팀에 문의하세요.
 
-	b. **다음**을 클릭합니다.
+	b. **Next**를 클릭합니다.
  
 4. **Alcumus Info Exchange에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬로 메타데이터 파일을 저장합니다.
 
 	![Azure AD Connect의 정의][9]
 
-5. [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원팀에 문의하고 메타데이터 파일을 제공한 다음 사용자를 위해 SSO를 사용하도록 해야 한다는 점을 통보합니다.
+5. [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원 팀에 문의하고 메타데이터 파일을 제공한 다음 사용자를 위해 SSO를 사용하도록 해야 한다는 점을 통보합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -160,7 +160,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
-5. **이 사용자에 대해 알리기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png)
 
@@ -185,7 +185,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
   
 	d. **역할** 목록에서 **사용자**를 선택합니다.
   
-	e. **다음**을 클릭합니다.
+	e. **Next**를 클릭합니다.
 
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
@@ -209,7 +209,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 **Alcumus 정보 교환에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.**
 
-1. [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원팀에 문의하세요.
+1. [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원 팀에 문의하세요.
 
 
 ### Azure AD 테스트 사용자 할당
@@ -272,4 +272,4 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

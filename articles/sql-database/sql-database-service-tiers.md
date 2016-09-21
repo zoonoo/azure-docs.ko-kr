@@ -19,7 +19,9 @@
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 
-[Azure SQL 데이터베이스](sql-database-technical-overview.md)에는 다양한 워크로드를 처리하는 여러 서비스 계층이 있습니다. 응용 프로그램의 작동 중지를 최소로 하여 언제든지 [서비스 계층을 변경](sql-database-scale-up.md)할 수 있습니다(일반적으로 4초 이하 평균임). 정의된 특성을 가진 [단일 데이터베이스를 만들고](sql-database-get-started.md) 가격을 책정할 수도 있습니다. 또는 [탄력적 데이터베이스 풀을 만들어](sql-database-elastic-pool-create-portal.md) 여러 데이터베이스를 관리할 수 있습니다. 두 경우 모두 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 독립 실행형 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 서비스 계층에 대해 자세히 설명합니다.
+[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준의 3가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 각 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스 집합을 제공합니다. 고유한 성능 수준을 포함한 고유한 [서비스 계층](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels)에서 각 데이터베이스를 관리할 수 있습니다. 공유 리소스 집합을 포함한 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)에서 여러 데이터베이스를 관리할 수도 있습니다. 독립 실행형 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU 또는 eDTU의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-DTU.md)을 참조하세요.
+
+두 경우 모두 서비스 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 독립 실행형 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 서비스 계층에 대해 자세히 설명합니다.
 
 ## 서비스 계층 및 데이터베이스 옵션
 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 예측 가능한 성능, 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 다음 표에서 다양한 응용 프로그램 워크로드에 가장 적합한 계층의 예제를 제공합니다.
@@ -39,8 +41,6 @@
 
 [AZURE.INCLUDE [SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table.md)]
 
-DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-dtus)을 참조하세요.
-
 >[AZURE.NOTE] 이 서비스 계층 테이블에서 다른 모든 행에 대한 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
 
 ## 탄력적 풀 서비스 계층 및 eDTU의 성능
@@ -53,10 +53,6 @@ DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-d
 [AZURE.INCLUDE [탄력적 풀에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 또한 풀 내의 각 데이터베이스는 해당 계층에 대한 독립 실행형 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 풀당 4800 ~ 28800개이지만, Basic 풀 내 개별 데이터베이스의 데이터베이스 세션 한계는 300개입니다.
-
-## DTU 이해
-
-[AZURE.INCLUDE [SQL DB DTU 설명](../../includes/sql-database-understanding-dtus.md)]
 
 ## 서비스 계층 선택
 
@@ -92,4 +88,4 @@ SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성�
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

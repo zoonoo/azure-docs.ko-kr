@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/07/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경으로 지역 분산된 규모
@@ -33,7 +33,7 @@
 
 ![개념적 아키텍처][ConceptualArchitecture]
 
-이 항목의 나머지 부분에서는 여러 앱 서비스 환경을 사용하여 샘플 앱에 대한 분산된 토폴로지를 설정하는 단계를 안내합니다.
+이 항목의 나머지 부분에서는 여러 App Service 환경을 사용하여 샘플 앱에 대한 분산된 토폴로지를 설정하는 단계를 안내합니다.
 
 ## 토폴로지 계획 ##
 분산된 앱 공간을 빌드하기 전에 미리 약간 정보가 있는 편이 좋습니다.
@@ -41,8 +41,8 @@
 - **앱에 대한 사용자 지정 도메인:** 고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇입니까? 샘플 앱의 경우 사용자 지정 도메인 이름은 *www.scalableasedemo.com*입니다.
 - **트래픽 관리자 도메인:** 도메인 이름은 [Azure 트래픽 관리자 프로필][AzureTrafficManagerProfile]을 만들 때 선택해야 합니다. 이 이름은 *trafficmanager.net* 접미사와 결합하여 트래픽 관리자에서 관리되는 도메인 항목을 등록합니다. 샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다. 결과적으로 트래픽 관리자에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
 - **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 앱 서비스 환경에 걸쳐 분산됩니까? 여러 영역? 두 방법을 혼합 및 일치? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 응용 프로그램의 경우 Azure 지역 마다 여러 앱 서비스 환경의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 앱 서비스 환경으로 곱해집니다. 선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 응용 프로그램 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 앱 서비스 환경을 단일 Azure 지역(미국 중남부)에서 만들었습니다.
-- **앱 서비스 환경에 대한 명명 규칙:** 각 앱 서비스 환경에는 고유한 이름이 있어야 합니다. 하나 또는 두 개의 앱 서비스 환경 외에도 각 앱 서비스 환경을 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 앱 서비스 환경의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
-- **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다. 하나의 잘 알려지지 않지만 매우 편리한 앱 서비스 환경의 기능은 동일한 앱 이름을 여러 앱 서비스 환경에 걸쳐 사용할 수 있다는 점입니다. 각 앱 서비스 환경에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다. 예를 들어 개발자가 앱을 다음과 같이 명명할 수 있습니다. *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, 등... 그러나 샘플 앱의 경우 각 앱 인스턴스에도 고유한 이름이 지정됩니다. 앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2*, 및 *webfrontend3*입니다.
+- **앱 서비스 환경에 대한 명명 규칙:** 각 앱 서비스 환경에는 고유한 이름이 있어야 합니다. 하나 또는 두 개의 앱 서비스 환경 외에도 각 앱 서비스 환경을 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 앱 서비스 환경의 이름은 *fe1ase*, *fe2ase* 및 *fe3ase*입니다.
+- **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다. 하나의 잘 알려지지 않지만 매우 편리한 앱 서비스 환경의 기능은 동일한 앱 이름을 여러 앱 서비스 환경에 걸쳐 사용할 수 있다는 점입니다. 각 앱 서비스 환경에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다. 예를 들어 개발자가 앱을 *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* 등과 같이 명명할 수 있습니다. 그러나 샘플 앱의 경우 각 앱 인스턴스에도 고유한 이름이 지정됩니다. 앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
 
 
 ## 트래픽 관리자 프로필 설정 ##
@@ -52,7 +52,7 @@
 - **webfrontend2.fe2ase.p.azurewebsites.net:** 두 번째 앱 서비스 환경에 배포된 샘플 앱의 인스턴스입니다.
 - **webfrontend3.fe3ase.p.azurewebsites.net:** 세 번째 앱 서비스 환경에 배포된 샘플 앱의 인스턴스입니다.
 
-**동일한** Azure 지역에서 실행되는 여러 Azure 앱 서비스 끝점을 등록하는 가장 쉬운 방법은 미리 보기 Powershell [Azure 리소스 관리자(ARM) 트래픽 관리자 지원][ARMTrafficManager]을 사용하는 것입니다.
+**동일한** Azure 지역에서 실행되는 여러 Azure App Service 끝점을 등록하는 가장 쉬운 방법은 Powershell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]을 사용하는 것입니다.
 
 첫 번째 단계는 Azure 트래픽 관리자 프로필을 만드는 것입니다. 아래 코드에서는 샘플 앱에 프로필을 만든 방법을 보여줍니다.
 
@@ -62,19 +62,24 @@
 
 *TrafficRoutingMethod* 매개 변수는 부하 분산 정책을 정의하고 트래픽 관리자는 사용 가능한 모든 끝점에서 고객 부하를 분산하는 방법을 결정하는 데 사용합니다. 이 예제에서 *가중치* 메서드가 선택되었습니다. 이렇게 하면 고객 요청이 각 끝점에 연결된 상대 가중치에 따라 등록된 응용 프로그램 끝점에 걸쳐 분산됩니다.
 
-만든 프로필을 사용하여 각 앱 인스턴스는 프로필에 *외부 끝점*으로 추가됩니다. 아래 코드는 각 프로필에 추가되는 세 개의 앱 인스턴스에 대한 URL을 보여줍니다.
+만든 프로필을 사용하여 각 앱 인스턴스를 프로필에 네이티브 Azure 끝점으로 추가합니다. 아래 코드는 각 프런트 엔드 웹앱에 대한 참조를 인출하고 *TargetResourceId* 매개 변수의 방법으로 각 앱을 Traffic Manager 끝점으로 추가합니다.
 
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend1.fe1ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend2.fe2ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend3.fe3ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
+
+    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
     
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-
-개별 응용 프로그램 인스턴스에 *Add-AzureTrafficManagerEndpointConfig*로 한 개의 호출이 있습니다. 각 Powershell 명령에서 *대상* 매개변수는 배포된 세 가지 앱 인스턴스 각각의 정규화된 도메인 이름(FQDN)을 가리킵니다. 다른 FQDN는 트래픽 관리자 프로필에 등록된 모든 끝점에서 트래픽 부하를 분산시키기 위해 *scalable-ase-demo.trafficmanager.net*에 대한 DNS CNAME 체인을 탐색하는 데 사용되는 값입니다.
+    
+개별 응용 프로그램 인스턴스에 *Add-AzureTrafficManagerEndpointConfig*로 한 개의 호출이 있습니다. 각 Powershell 명령에서 *TargetResourceId* 매개 변수는 세 개의 배포된 앱 인스턴스 중 하나를 참조합니다. Traffic Manager 프로필은 프로필에 등록된 세 개의 모든 끝점에 걸쳐 부하를 분산합니다.
 
 세 끝점은 모두 *가중치* 매개 변수에 동일한 값(10)을 사용합니다. 그러면 트래픽 관리자에서 세 가지 앱 인스턴스에 상대적으로 균일하게 고객 요청을 분산하게 됩니다.
 
-*참고:* ARM 트래픽 관리자 지원은 현재 미리 보기로 제공되며 Azure 앱 서비스 끝점은 *형식* 매개 변수를 *ExternalEndpoints*로 설정해야 합니다. 나중에 Azure 앱 서비스 끝점은 트래픽 관리자의 ARM 변형에서 끝점 형식으로 고유하게 지원됩니다.
 
 ## 트래픽 관리자 도메인에서 앱의 사용자 지정 도메인 가리키기 ##
 필요한 마지막 단계는 트래픽 관리자 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다. 즉, 샘플 앱의 경우 *scalable-ase-demo.trafficmanager.net*에서 *www.scalableasedemo.com*을 가리킵니다. 이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관으로 완료해야 합니다.
@@ -98,8 +103,8 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 2. 도메인 등록 기관에서 CNAME 항목은 DNS를 조회하여 Azure 트래픽 관리자로 리디렉션됩니다.
 3. DNS 조회는 Azure 트래픽 관리자 DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net*에 대해 수행합니다.
 4. 부하 분산 정책에 따라(트래픽 관리자 프로필을 만들 때 이전에 사용된 *TrafficRoutingMethod* 매개 변수) 트래픽 관리자는 구성된 끝점 중 하나를 선택하고 브라우저 또는 장치에 해당 끝점의 FQDN을 반환합니다.
-5.  끝점의 FQDN가 앱 서비스 환경에서 실행 중인 앱 인스턴스의 URL이기 때문에 브라우저 또는 장치는 Microsoft Azure DNS 서버에 요청하여 FQDN을 IP 주소로 해결합니다. 
-6. 브라우저 또는 장치는 IP 주소에 HTTP/S 요청을 보냅니다.  
+5.  끝점의 FQDN가 앱 서비스 환경에서 실행 중인 앱 인스턴스의 URL이기 때문에 브라우저 또는 장치는 Microsoft Azure DNS 서버에 요청하여 FQDN을 IP 주소로 해결합니다.
+6. 브라우저 또는 장치는 IP 주소에 HTTP/S 요청을 보냅니다.
 7. 요청은 앱 서비스 환경 중 하나에서 실행 중인 앱 인스턴스 중 하나에 도착합니다.
 
 아래 그림의 콘솔에서는 세 개의 샘플 앱 서비스 환경 중 하나에서 실행 중인 앱 인스턴스를 성공적으로 해결하는 샘플 앱의 사용자 지정 도메인에 대한 DNS 조회를 보여줍니다.(이 경우 세 개의 응용 프로그램 서비스 환경 중 두 번째)
@@ -109,7 +114,7 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 ## 추가 링크 및 정보 ##
 앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
-미리 보기 Powershell [Azure 리소스 관리자(ARM) 트래픽 관리자 지원][ARMTrafficManager]에서 설명서입니다.
+Powershell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]에 대한 설명서입니다.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -127,4 +132,4 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

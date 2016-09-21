@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/07/2016"
     ms.author="sdanie" />
 
 # 관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
 
-Azure 관리된 캐시 서비스를 Azure Redis Cache에 사용하는 응용 프로그램을 마이그레이션하는 작업은 캐싱 응용 프로그램에서 사용하는 관리된 캐시 서비스 기능에 따라 응용 프로그램을 최소한으로 변경하여 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 관리된 캐시 서비스를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 항목에서는 필요한 구성을 만들고 응용 프로그램을 변경하여 관리된 캐시 서비스 응용 프로그램이 Azure Redis Cache를 사용하도록 마이그레이션하는 방법을 보여줍니다. 그리고 Azure Redis Cache의 기능 일부가 관리된 캐시 서비스 캐시의 기능을 구현하는 데 사용될 수 있는 방법을 보여줍니다.
+Azure 관리된 캐시 서비스를 Azure Redis Cache에 사용하는 응용 프로그램을 마이그레이션하는 작업은 캐싱 응용 프로그램에서 사용하는 관리된 캐시 서비스 기능에 따라 응용 프로그램을 최소한으로 변경하여 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 관리된 캐시 서비스를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 항목에서는 필요한 구성을 만들고 응용 프로그램을 변경하여 관리된 캐시 서비스 응용 프로그램이 Azure Redis Cache를 사용하도록 마이그레이션하는 방법을 보여 줍니다. 그리고 Azure Redis Cache의 기능 일부가 관리된 캐시 서비스 캐시의 기능을 구현하는 데 사용될 수 있는 방법을 보여 줍니다.
 
 ## 마이그레이션 단계
 
@@ -33,7 +33,7 @@ Azure 관리된 캐시 서비스를 Azure Redis Cache에 사용하는 응용 프
 	-	ConnectionMultiplexer 클래스를 사용하여 캐시에 연결
 	-	캐시에 기본 데이터 형식 액세스
 	-	캐시의 .NET 개체 사용
--	Azure Redis Cache로 ASP.NET 세션 상태 및 출력 캐싱 마이그레이션 
+-	Azure Redis Cache로 ASP.NET 세션 상태 및 출력 캐싱 마이그레이션
 
 ## 관리된 캐시 서비스 기능에서 Azure Redis Cache로 매핑
 
@@ -78,7 +78,7 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 클라이언트 응용 프로그램이 Azure Redis Cache에 대해 구성되기 전에 기존 관리된 캐시 서비스 구성 및 어셈블리 참조는 관리된 캐시 서비스 NuGet 패키지의 설치를 취소하여 제거해야 합니다.
 
-관리된 캐시 서비스 NuGet 패키지의 설치를 취소하려면 **솔루션 탐색기**에서 클라이언트 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **설치된 패키지**를 선택하고 검색 설치된 패키지 상자에 W**indowsAzure.Caching**를 입력합니다. **Windows** **Azure 캐시**(또는 NuGet 패키지의 버전에 따라 **Windows** **Azure 캐싱**)을 선택하고 **제거** 및 **닫기**를 차례로 클릭합니다.
+관리된 캐시 서비스 NuGet 패키지의 설치를 취소하려면 **솔루션 탐색기**에서 클라이언트 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **설치된 패키지**를 선택하고 검색 설치된 패키지 상자에 W**indowsAzure.Caching**을 입력합니다. **Windows** **Azure 캐시**(또는 NuGet 패키지의 버전에 따라 **Windows** **Azure 캐싱**)을 선택하고 **제거** 및 **닫기**를 차례로 클릭합니다.
 
 ![Azure 관리된 캐시 서비스 NuGet 패키지 제거](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -179,4 +179,4 @@ Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

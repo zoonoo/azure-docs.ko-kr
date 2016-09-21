@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # Azure 리소스 커넥터 시작 및 논리 앱에 추가
@@ -26,7 +26,7 @@ Azure 리소스 커넥터 API 앱을 사용하려면 먼저 해당 앱의 인스
 
 앱을 구성하려면 Azure에서 수행할 작업이 무엇이든 해당 작업을 수행할 권한이 있는 서비스 주체를 설정해야 합니다. 모든 호출은 사용자가 설정하는 이 서비스 주체를 대신하여 수행됩니다. 따라서 사용자가 원하는 작업만 정확하게 커넥터가 사용하고 다른 작업은 하지 않도록 범위를 지정할 수 있습니다.
 
-David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시물](http://blog.davidebbo.com/2014/12/azure-service-principal.html)을 작성했습니다. 이 블로그의 모든 지침에 따라 **테넌트 ID**, **클라이언트 ID** 및 **비밀**을 가져옵니다. 이들 세 필드와 함께 **구독 ID**가 커넥터를 구성하는 데 필요한 항목입니다.
+David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시물](http://blog.davidebbo.com/2014/12/azure-service-principal.html)을 작성했습니다. 이 블로그의 모든 지침에 따라 **테넌트 ID**, **클라이언트 ID** 및 **비밀**을 가져옵니다. 이러한 세 필드와 함께 **구독 ID**가 커넥터를 구성하는 데 필요한 항목입니다.
 
 ## 논리 앱 디자이너에서 Azure 리소스 커넥터 사용
 ### 트리거
@@ -39,7 +39,7 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 
 ### 작업
 
-마찬가지로, Azure 구독 내의 수많은 동작을 제공할 수 있습니다.
+마찬가지로, Azure 구독 내의 수많은 작업을 제공할 수 있습니다.
 
 **리소스 그룹**의 경우 다음을 할 수 있습니다.
 
@@ -98,4 +98,4 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/13/2016"
    ms.author="ryanwi"/>
 
 # 개발 환경 준비
@@ -32,10 +32,9 @@
 
 ## 런타임, SDK 및 도구 설치
 
-웹 플랫폼 설치 관리자는 서비스 패브릭 개발에 대한 세 가지 구성을 제공합니다.
+웹 플랫폼 설치 관리자는 Service Fabric 개발에 대한 두 가지 구성을 제공합니다.
 
-- [Visual Studio 2015 업데이트 2 이상용 서비스 패브릭 런타임, SDK 및 도구 설치][full-bundle-vs2015]
-- [서비스 패브릭 런타임, SDK 및 Visual Studio "15" Preview용 도구 설치][full-bundle-dev15]
+- [Visual Studio 2015용 Service Fabric 런타임, SDK 및 도구 설치(Visual Studio 2015 업데이트 2 이상 필요)][full-bundle-vs2015]
 - [서비스 패브릭 런타임 및 SDK만 설치(Visual Studio 도구 없음)][core-sdk]
 
 ## PowerShell 스크립트 실행 활성화
@@ -58,9 +57,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "서비스 패브릭 캠페인 페이지"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "VS 2015 WebPI 링크"
-[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Dev15 WebPI 링크"
-[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "핵심 SDK WebPI 링크"
-[powershell5-download]: https://www.microsoft.com/ko-KR/download/details.aspx?id=50395
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "핵심 SDK WebPI 링크"
+[powershell5-download]: https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

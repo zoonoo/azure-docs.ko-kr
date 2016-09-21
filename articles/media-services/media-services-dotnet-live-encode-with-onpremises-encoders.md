@@ -13,10 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="08/19/2016"  
+ 	ms.date="08/31/2016"  
 	ms.author="cenkdin;juliako"/>
 
 #.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
+
+> [AZURE.SELECTOR]
+- [포털](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST (영문)](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+이 자습서에서는 Azure Media Services .NET SDK를 사용하여 통과 배달을 위해 구성된 **채널**을 만드는 단계를 안내합니다.
+
 
 ##필수 조건
 
@@ -387,4 +395,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

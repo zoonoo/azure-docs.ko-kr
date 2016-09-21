@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="09/07/2016" 
     ms.author="jeedes" />
 
 #자습서: ITRP와 Azure Active Directory 통합
@@ -101,8 +101,8 @@
     ![SSO(Single sign-on)](./media/active-directory-saas-itrp-tutorial/IC775573.png "SSO(Single sign-on)")
 
     1.  **사용**을 클릭합니다.
-    2.  Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    3.  Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML SSO URL** 텍스트 상자에 붙여 넣습니다.
     4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
         
 		>[AZURE.TIP]자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
@@ -112,7 +112,7 @@
 9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775574.png "Single Sign-On 구성")
-##사용자 프로비저닝 구성
+##사용자 프로비전 구성
   
 Azure AD 사용자가 ITRP에 로그인할 수 있도록 하려면 ITRP로 프로비저닝되어야 합니다. ITRP의 경우 프로비저닝 수동 작업입니다.
 
@@ -126,7 +126,7 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 하려면 ITRP로 프�
 
 3.  팝업 메뉴에서 **사람**을 선택합니다.
 
-    ![사람](./media/active-directory-saas-itrp-tutorial/IC775587.png "사람")
+    ![사람](./media/active-directory-saas-itrp-tutorial/IC775587.png "피플")
 
 4.  **새 사람 추가**(“+”)를 클릭합니다.
 
@@ -159,4 +159,4 @@ Azure AD 사용자가 ITRP에 로그인할 수 있도록 하려면 ITRP로 프�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

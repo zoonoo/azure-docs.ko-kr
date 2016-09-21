@@ -422,7 +422,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
         Console.WriteLine(fileSas.DownloadText());
     }
 
-공유 액세스 서명을 생성하고 사용하는 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 저장소로 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
+공유 액세스 서명을 생성하고 사용하는 방법에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob Storage로 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
 
 ### 파일 복사
 
@@ -592,7 +592,7 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
  
 	포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하면(*예:* Windows 8 또는 Windows Server 2012) 인터넷을 통해 파일 공유를 사용할 수 있습니다.
 
-3. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용 청구되는 외부 대역폭으로 계산합니까?**
+3. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
 
 	파일 공유와 가상 컴퓨터가 서로 다른 지역에 있는 경우 이들 사이의 트래픽은 외부 대역폭으로 비용 청구됩니다.
  
@@ -634,7 +634,7 @@ Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Prot
 
 13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
 
-	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/ko-KR/kb/3114025)를 확인하세요.
+	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/en-us/kb/3114025)를 확인하세요.
 
 14. **IBM MQ로 Azure 파일 저장소 사용**
 
@@ -667,4 +667,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

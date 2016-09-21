@@ -33,7 +33,7 @@
 
 - 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS Log Analytics).
 - 보낼 로그 범주.
-- 저장소 계정에 각 로그 범주를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+- 저장소 계정에 각 로그 범주를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않으면 이 값은 1에서 2147483647 사이입니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
 
 이러한 설정은 Azure 포털에서 리소스에 대한 진단 블레이드를 통해, Azure PowerShell 및 CLI 명령을 통하거나 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 통해 쉽게 구성합니다.
 
@@ -50,13 +50,17 @@
 다음을 수행하여 일부 리소스 형식을 만들 때 Azure 포털에서 진단 로그를 사용하도록 설정할 수 있습니다.
 
 1.	**새로 만들기**로 이동한 다음 관심 있는 리소스를 선택합니다.
-2.	기본 설정을 구성하고 크기를 선택한 후 **모니터링** 아래 **설정** 블레이드에서 **사용**을 선택하고 진단 로그를 저장할 저장소 계정을 선택합니다. 저장소 계정에 진단을 보내는 경우 저장소 및 트랜잭션에 대해 표준 데이터 요금이 부과됩니다. ![리소스 생성 중에 진단 로그 사용](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	기본 설정을 구성하고 크기를 선택한 후 **모니터링** 아래 **설정** 블레이드에서 **사용**을 선택하고 진단 로그를 저장할 저장소 계정을 선택합니다. 저장소 계정에 진단을 보내는 경우 저장소 및 트랜잭션에 대해 표준 데이터 요금이 부과됩니다.
+
+    ![리소스 생성 중에 진단 로그 사용](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	**확인**을 클릭하여 리소스를 만듭니다.
 
 리소스를 만든 후 Azure 포털에서 진단 로그를 사용하도록 설정하려면 다음을 수행합니다.
 
 1.	리소스에 대한 블레이드로 이동하고 **진단** 블레이드를 엽니다.
-2.	**켜기**를 클릭하고 저장소 계정 및/또는 이벤트 허브를 선택합니다. ![리소스 생성 후에 진단 로그 사용](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	**켜기**를 클릭하고 저장소 계정 및/또는 이벤트 허브를 선택합니다.
+
+    ![리소스 생성 후에 진단 로그 사용](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	**로그** 아래에서 수집 또는 스트림할 **로그 범주**를 선택합니다.
 4.	**Save**를 클릭합니다.
 
@@ -104,10 +108,35 @@ Insights REST API를 사용하여 진단 설정을 변경하려면 [이 문서](
 | 데이터 레이크 저장소 | [Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 데이터 레이크 분석 | [Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | 논리 앱 | 스키마를 사용할 수 없습니다. |
+| Azure 배치 | 스키마를 사용할 수 없습니다. |
+| Azure 자동화 | 스키마를 사용할 수 없습니다. |
+
+## 각 리소스 유형별 지원되는 로그 범주
+
+|리소스 종류|Category|범주 표시 이름|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|작업 로그|
+|Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
+|Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
+|Microsoft.DataLakeAnalytics/accounts|감사|감사 로그|
+|Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
+|Microsoft.DataLakeStore/accounts|감사|감사 로그|
+|Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.KeyVault/vaults|AuditEvent|감사 로그|
+|Microsoft.Logic/workflows|WorkflowRuntime|워크플로 런타임 진단 이벤트|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
+|Microsoft.Search/searchServices|OperationLogs|작업 로그|
 
 ## 다음 단계
 - [**이벤트 허브**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Insights REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

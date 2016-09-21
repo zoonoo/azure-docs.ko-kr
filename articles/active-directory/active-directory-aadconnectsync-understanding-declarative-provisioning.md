@@ -132,12 +132,20 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 이 시나리오의 경우 원본 개체에 범위의 여러 동기화 규칙이 있도록 동기화 규칙의 범위를 변경해야 합니다. 다른 우선 순위를 정의할 수 있습니다. ![동일한 mv 개체에 조인된 여러 개체](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)
 
-## 추가 리소스
+## 다음 단계
 
-- [Azure AD Connect 동기화: 기본 구성을 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)
-- [Azure AD Connect 동기화: 선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
+- [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에서 식 언어에 대해 자세히 알아봅니다.
+- [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)에서 선언적 프로비전이 기본으로 사용되는 방법을 참조하세요.
+- [기본 구성으로 변경하는 방법](active-directory-aadconnectsync-change-the-configuration.md)에서 선언적 프로비전을 사용하여 실용적으로 변경하는 방법을 참조하세요.
+- [사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md)에서 사용자 및 연락처를 함께 작동하는 방법을 계속해서 알아봅니다.
+
+**개요 항목**
+
+- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**참조 항목**
+
+- [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

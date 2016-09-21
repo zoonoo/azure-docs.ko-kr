@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용
@@ -62,15 +62,15 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 ## 클러스터 및 SQL 데이터베이스 만들기
 
-이 섹션에서는 Azure 포털 및 ARM 템플릿을 사용하는 자습서를 실행하기 위해 클러스터 및 SQL 데이터베이스 스키마를 만드는 방법을 보여 줍니다. Azure PowerShell을 사용하는 것을 선호하는 경우 [부록 A](#appendix-a---a-powershell-sample)를 참조하세요.
+이 섹션에서는 Azure 포털 및 Azure Resource Manager 템플릿을 사용하는 자습서를 실행하기 위해 클러스터 및 SQL 데이터베이스 스키마를 만드는 방법을 보여 줍니다. Azure PowerShell을 사용하는 것을 선호하는 경우 [부록 A](#appendix-a---a-powershell-sample)를 참조하세요.
 
-1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.
+1. Azure 포털에서 Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM 템플릿은 공용 Blob 컨테이너 *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*에 있습니다.
+    Resource Manager 템플릿은 공용 BLOB 컨테이너에 있습니다. *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    ARM 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다. Bacpac 패키지는 공용 Blob 컨테이너 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에도 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+    Resource Manager 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다. Bacpac 패키지는 공용 Blob 컨테이너 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에도 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -93,7 +93,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     
 3\.**확인**을 클릭하여 매개 변수를 저장합니다.
 
-4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 다음 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
 
 5\.**약관**을 클릭한 다음 **만들기**를 클릭합니다.
 
@@ -629,4 +629,4 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

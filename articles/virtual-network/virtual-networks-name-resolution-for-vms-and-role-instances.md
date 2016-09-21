@@ -1,6 +1,6 @@
 <properties 
    pageTitle="VM 및 역할 인스턴스 이름 확인"
-   description="Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오"
+   description="Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오 "
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="08/31/2016"
    ms.author="telmos" />
 
 # VM 및 역할 인스턴스에 대한 이름 확인
@@ -89,9 +89,9 @@ dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가�
 - **Ubuntu(resolvconf 사용)**:
 	- dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
 - **SUSE(netconf 사용)**:
-	- dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq"). 
-	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service"). 
-	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service"). 
+	- dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq").
+	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
+	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
 	- "/etc/sysconfig/network/config"를 편집하고 NETCONFIG\_DNS\_FORWARDER=""를 "dnsmasq"로 변경합니다.
 	- 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf("netconfig update")를 업데이트합니다.
 - **OpenLogic(NetworkManager 사용)**:
@@ -107,8 +107,8 @@ dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가�
 
 DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을 보장하지 않으므로 DNS 프로토콜 자체에서 재시도 논리가 처리됩니다. 각 DNS 클라이언트(운영 체제)는 작성자의 기본 설정에 따라 서로 다른 재시도 논리를 나타낼 수 있습니다.
 
- - Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다. 
- - 기본 Linux 설정에서는 5초 후 재시도합니다. 1초 간격으로 5번 재시도하도록 설정을 변경하는 것이 좋습니다.  
+ - Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다.
+ - 기본 Linux 설정에서는 5초 후 재시도합니다. 1초 간격으로 5번 재시도하도록 설정을 변경하는 것이 좋습니다.
 
 Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'options' 줄을 확인합니다. 예를 들면 다음과 같습니다.
 
@@ -117,13 +117,13 @@ Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'op
 resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
 
 - **Ubuntu**(resolvconf 사용):
-	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다. 
+	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다.
 	- 'resolvconf -u'를 실행하여 업데이트합니다.
 - **SUSE**(netconf 사용):
-	- 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 매개 변수에 추가합니다. 
+	- 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 매개 변수에 추가합니다.
 	- 'netconfig update'를 실행하여 업데이트합니다.
 - **OpenLogic**(NetworkManager 사용):
-	- 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다. 
+	- 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다.
 	- 'service network restart'를 실행하여 업데이트합니다.
 
 ## 자체 DNS 서버를 이용한 이름 확인
@@ -139,13 +139,13 @@ Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하�
 
 필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 
--  리소스 관리자 배포 모델에서 가상 네트워크의 경우, [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스 또는 [Get AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet을 통해 접미사를 사용할 수 있습니다.    
+-  리소스 관리자 배포 모델에서 가상 네트워크의 경우, [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스 또는 [Get AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet을 통해 접미사를 사용할 수 있습니다.
 -  클래식 배포 모델에서 접미사는 [배포 API 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 호출 또는 [Get-AzureVM-디버그](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet을 통해 사용할 수 있습니다.
 
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
 
--  예를 들어 [DDNS](virtual-networks-name-resolution-ddns.md)를 통해 적절한 호스트 이름 확인을 제공해야 합니다. DDNS를 사용하는 경우 Azure의 DHCP 임대는 매우 길고 청소는 DNS 레코드를 중간에 제거할 수 있기 때문에 DNS 레코드 청소를 사용하지 않도록 설정해야 합니다. 
+-  예를 들어 [DDNS](virtual-networks-name-resolution-ddns.md)를 통해 적절한 호스트 이름 확인을 제공해야 합니다. DDNS를 사용하는 경우 Azure의 DHCP 임대는 매우 길고 청소는 DNS 레코드를 중간에 제거할 수 있기 때문에 DNS 레코드 청소를 사용하지 않도록 설정해야 합니다.
 -  외부 도메인 이름을 확인할 수 있도록 적절한 재귀 확인을 제공해야 합니다.
 -  제공하는 클라이언트에서 액세스 가능해야 하고(포트 53에서 TCP 및 UDP) 인터넷에 액세스할 수 있어야 합니다.
 -  외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
@@ -181,6 +181,6 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 
 - [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710)
 - [가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
-- [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md) 
+- [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->
