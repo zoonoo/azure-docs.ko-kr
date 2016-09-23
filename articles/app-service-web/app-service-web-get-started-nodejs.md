@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="5분 내에 Azure에 첫 번째 웹앱 배포 | Microsoft Azure" 
+	pageTitle="5분 내에 Azure에 Node.js 웹앱 배포 | Microsoft Azure" 
 	description="샘플 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 실제 개발을 신속하게 수행하기 시작하고 즉시 결과를 봅니다." 
 	services="app-service\web"
 	documentationCenter=""
@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="09/16/2016" 
 	ms.author="cephalin"
 />
 	
-# 5분 내에 Azure에 첫 번째 웹앱 배포
+# 5분 내에 Azure에 첫 번째 Node.js 웹앱 배포
 
-이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 첫 번째 웹앱을 배포합니다. App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md)을 만들 수 있습니다.
+이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 첫 번째 Node.js 웹앱을 배포합니다. App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md)를 만들 수 있습니다.
 
 다음을 수행합니다.
 
 - Azure App Service에서 웹앱을 만듭니다.
-- 샘플 코드를 배포합니다(ASP.NET, PHP, Node.js, Java 또는 Python 중 선택).
+- 샘플 Node.js 코드를 배포합니다.
 - 프로덕션 환경에서 라이브로 코드 실행을 참조하세요.
 - [Git 커밋을 푸시](https://git-scm.com/docs/git-push)하는 것과 똑같은 방식으로 웹앱을 업데이트합니다.
 
@@ -43,29 +43,29 @@
 
 2. 왼쪽 메뉴에서 **새로 만들기** > **웹 + 모바일** > **웹앱**을 클릭합니다.
 
-    ![Azure에서 첫 번째 웹앱 만들기 시작](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. 앱 만들기 블레이드에서 새 앱에 대해 다음 설정을 사용합니다.
 
     - **앱 이름**: 고유 이름을 입력합니다.
     - **리소스 그룹**: **새로 만들기**를 클릭하고 리소스 그룹에 이름을 지정합니다.
-    - **App Service 계획/위치**: 클릭하여 구성한 다음 **새로 만들기**를 클릭하여 App Service 계획의 이름, 위치 및 가격 책정 계층을 설정합니다. **무료** 가격 책정 계층을 자유롭게 사용합니다.
+    - **앱 서비스 계획/위치**: 클릭하여 구성한 다음 **새로 만들기**를 클릭하여 앱 서비스 계획의 이름, 위치 및 가격 책정 계층을 설정합니다. **무료** 가격 책정 계층을 자유롭게 사용합니다.
 
     완료되면 앱 만들기 블레이드는 다음과 같이 표시됩니다.
 
-    ![Azure에서 첫 번째 웹앱 구성](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. 맨 아래에 있는 **만들기**를 클릭합니다. 맨 위에 있는 **알림** 아이콘을 클릭하면 진행률을 확인할 수 있습니다.
 
-    ![Azure에서 첫 번째 웹앱의 앱 만들기 알림](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. 배포가 완료되면 이 알림 메시지를 확인해야 합니다. 메시지를 클릭하여 배포의 블레이드를 엽니다.
 
-    ![Azure에서 첫 번째 웹앱의 배포 완료 메시지](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. **배포 성공** 블레이드에서 **리소스** 링크를 클릭하여 새 웹앱의 블레이드를 엽니다.
 
-    ![Azure에서 첫 번째 웹앱의 리소스 링크](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
 ## 사용자의 웹앱에 코드 배포
 
@@ -73,7 +73,7 @@
 
 5. 웹앱 블레이드에서 **배포 옵션**까지 아래로 스크롤하거나 해당 옵션을 검색한 다음 클릭합니다.
 
-    ![Azure에서 첫 번째 웹앱의 배포 옵션](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. **원본 선택** > **로컬 Git 리포지토리** > **확인**을 클릭합니다.
 
@@ -83,28 +83,21 @@
 
 7. 웹앱 블레이드로 돌아가 **속성**까지 아래로 스크롤하거나 해당 옵션을 검색한 다음 클릭합니다. **Git URL** 옆의 **복사** 단추를 클릭합니다.
 
-    ![Azure에서 첫 번째 웹앱의 속성 블레이드](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
     이제 Git를 사용하여 코드를 배포할 준비가 되었습니다.
 
 1. 명령줄 터미널에서 작업 디렉터리(`CD`)로 변경하고 샘플 앱을 다음과 같이 복제합니다.
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git
 
-    ![Azure에서 첫 번째 웹앱에 앱 샘플 코드를 복제합니다.](./media/app-service-web-get-started/html-git-clone.png)
+    ![Azure에서 첫 번째 웹앱에 앱 샘플 코드를 복제합니다.](./media/app-service-web-get-started-languages/node-git-clone.png)
 
     *&lt;github\_sample\_url>*의 경우 원하는 프레임워크에 따라 다음 URL 중 하나를 사용합니다.
 
-    - JS: HTML + CSS + [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP(CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python(Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-
 2. 샘플 앱의 리포지토리로 변경합니다. 예를 들면 다음과 같습니다.
 
-        cd app-service-web-html-get-started
+        cd app-service-web-nodejs-get-started
 
 3. Git를 몇 단계 전에 포털에서 복사한 Azure 앱의 Git URL에 대해 원격이 되도록 구성합니다.
 
@@ -114,9 +107,9 @@
 
         git push azure master
 
-    ![Azure에서 첫 번째 웹앱에 코드를 푸시합니다.](./media/app-service-web-get-started/html-git-push.png)
+    ![Azure에서 첫 번째 웹앱에 코드를 푸시합니다.](./media/app-service-web-get-started-languages/node-git-push.png)
 
-    언어 프레임워크 중 하나를 사용하는 경우 다양한 출력을 표시합니다. `git push`이 Azure에 코드를 배치할 뿐만 아니라 배포 엔진에서 배포 작업을 트리거하기 때문입니다. 프로젝트(리포지토리) 루트에 package.json(Node.js) 또는 requirements.txt(Python) 파일이 있거나 ASP.NET 프로젝트에 packages.config 파일이 있는 경우 배포 스크립트가 사용자에게 필요한 패키지를 복원합니다. 또한 PHP 앱의 composer.json 파일을 자동으로 처리하도록 [작성기 확장](web-sites-php-mysql-deploy-use-git.md#composer)을 설정할 수 있습니다.
+    언어 프레임워크 중 하나를 사용하는 경우 다양한 출력을 표시합니다. `git push`이 Azure에 코드를 배치할 뿐만 아니라 배포 엔진에서 배포 작업을 트리거하기 때문입니다. package.json이 프로젝트(리포지토리) 루트에 있는 경우 배포 스크립트는 필요한 패키지를 복원합니다.
 
 이것으로 끝입니다. 사용자의 코드는 이제 Azure에서 라이브로 실행 중입니다. 브라우저에서 http://*&lt;appname>*.azurewebsites.net으로 이동하여 동작 중인 코드를 확인합니다.
 
@@ -130,14 +123,13 @@
 
 ## 다음 단계
 
-언어 프레임워크에 대한 기본 개발 및 배포 단계를 찾습니다.
+[Azure에 Node.js Express 웹앱을 만들고 구성하여 배포합니다](app-service-web-nodejs-get-started.md). 이 자습서를 따라 수행하면 다음과 같이 Azure에서 Node.js 웹앱을 실행하는 데 필요한 기본 기술을 배우게 됩니다.
 
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+- PowerShell/Bash로부터 Azure의 앱을 만들어 구성합니다.
+- Node.js 버전을 설정합니다.
+- 루트 응용 프로그램 디렉터리에 있지 않은 시작 파일을 사용합니다.
+- NPM을 사용하여 자동화합니다.
+- 오류 및 출력 로그를 가져옵니다.
 
 또는 첫 번째 웹앱으로 더 많은 작업을 수행합니다. 예:
 
