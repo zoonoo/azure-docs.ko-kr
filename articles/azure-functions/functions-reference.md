@@ -78,21 +78,19 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 
 함수 앱은 앱 서비스를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 모두 함수 앱에도 사용할 수 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다.
 
-#### Visual Studio Online(Monaco)을 사용하려면
+#### 앱 서비스 편집기 사용하기
 
 1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.
 
 2. **고급 설정** 섹션에서 **앱 서비스 설정으로 이동**을 클릭합니다.
 
-3. **도구**를 클릭합니다.
+3. **개발 도구** 아래 앱 메뉴 탐색 창에서 **앱 서비스 편집기**를 클릭합니다.
 
-4. **개발**에서 **Visual Studio Online**을 클릭합니다.
+4.  **이동**을 클릭합니다.
 
-5. 아직 활성화되지 않은 경우 **켜고** **이동**을 클릭합니다.
+	앱 서비스 편집기가 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다.
 
-	Visual Studio Online이 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다.
-
-6. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
+5. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
 
 #### 함수 앱의 SCM(Kudu) 끝점을 사용하려면
 
@@ -151,4 +149,4 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

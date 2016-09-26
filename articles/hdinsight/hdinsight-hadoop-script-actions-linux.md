@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -62,7 +62,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 사용자는 스크립트에서 사용되는 모든 스크립트와 리소스가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 이러한 리소스는 크기 조정 작업 중 새 노드가 클러스터에 추가되는 경우에 필요합니다.
 
-구독의 Azure 저장소 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
+구독의 Azure Storage 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
 > [AZURE.IMPORTANT] 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
@@ -268,4 +268,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

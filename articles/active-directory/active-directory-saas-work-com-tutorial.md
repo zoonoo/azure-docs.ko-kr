@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Work.com과 Azure Active Directory 통합
   
-이 자습서는 Azure와 Work.com의 통합을 보여주기 위한 것입니다.
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 Work.com의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Work.com Single Sign-On이 설정된 구독
@@ -67,8 +66,7 @@
 
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Work.com에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-이 절차의 일부로 Work.com으로 인코딩된 인증서 파일을 만들어야 합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Work.com에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 Work.com으로 인코딩된 인증서 파일을 만들어야 합니다.
 
 >[AZURE.NOTE] Single Sign-On을 구성하려면 사용자 할당 도메인 이름을 Work.com로 설정해야 합니다. 최소한 한 개의 도메인 이름을 정의하고, 도메인 이름을 테스트 한 후 전체 조직에 배포해야 합니다.
 
@@ -90,7 +88,7 @@
 
 5.  다른 웹 브라우저 창에서 Azure 클래식 포털에 로그인합니다.
 
-6.  **Work.com **응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+6.  **Work.com** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-work-com-tutorial/IC794109.png "Single Sign-On 구성")
 
@@ -127,17 +125,17 @@
 
     ![SAML Single Sign-On 설정](./media/active-directory-saas-work-com-tutorial/IC794114.png "SAML Single Sign-On 설정")
 
-    1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.  
+    1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.
 
         >[AZURE.NOTE] **이름**에 값을 제공하면 **API 이름** 텍스트 상자가 자동으로 채워집니다.
 
-    2.  Azure 클래식 포털의 **Work.com에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Work.com에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여 넣습니다.
     3.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     4.  **엔터티 ID** 텍스트 상자에 **https://salesforce-work.com**를 입력합니다.
-    5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
+    5.  **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
-    7.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    8.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    7.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    8.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
     9.  **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP Post**를 선택합니다.
     10. **Save**를 클릭합니다.
 
@@ -159,10 +157,9 @@
 
 ##사용자 프로비전 구성
   
-Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다.  
-Work.com의 경우 프로비전은 수동 작업입니다.
+Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다. Work.com의 경우 프로비전은 수동 작업입니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  Work.com 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -184,7 +181,7 @@ Work.com의 경우 프로비전은 수동 작업입니다.
 
     1.  관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **성**, **별칭**, **이메일**, **사용자 이름** 및 **애칭** 특성을 입력합니다.
     2.  **역할**, **사용자 라이선스** 및 **프로필**을 차례로 선택합니다.
-    3.  **Save**를 클릭합니다.  
+    3.  **Save**를 클릭합니다.
 
         >[AZURE.NOTE] Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
 
@@ -210,4 +207,4 @@ Work.com의 경우 프로비전은 수동 작업입니다.
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

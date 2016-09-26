@@ -6,13 +6,13 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/06/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -91,7 +91,7 @@ Azure 자동화 웹 서비스는 다음 섹션에 설명된 대로 특정 데이
 
 ### 명명된 값
 
-매개 변수의 데이터 형식이 [object]인 경우 *{"Name1":Value1, "Name2":Value2, "Name3":Value3}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx)로 매개 변수가 수신됩니다.
+매개 변수의 데이터 형식이 [object]인 경우 *{"Name1":Value1, "Name2":Value2, "Name3":Value3}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx)로 매개 변수가 수신됩니다.
 
 예를 들어 다음 테스트 Runbook에서는 user라는 매개 변수를 허용합니다.
 
@@ -101,10 +101,11 @@ Workflow Test-Parameters
    param (
       [Parameter(Mandatory=$true)][object]$user
    )
-    if ($user.Show) {
-        foreach ($i in 1..$user.RepeatCount) {
-            $user.FirstName
-            $user.LastName
+    $userObject = $user | ConvertFrom-JSON
+	if ($userObject.Show) {
+        foreach ($i in 1..$userObject.RepeatCount) {
+            $userObject.FirstName
+            $userObject.LastName
         }
     }
 }
@@ -113,7 +114,7 @@ Workflow Test-Parameters
 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ```
-{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 그러면 다음과 같이 출력됩니다.
@@ -129,7 +130,7 @@ Smith
 
 매개 변수가 [array] 또는 [string]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
-예를 들어 다음 테스트 Runbook에서는 *user* 라는 매개 변수를 허용합니다.
+예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
 
 ```
 Workflow Test-Parameters
@@ -177,13 +178,13 @@ Workflow Test-Parameters
 }
 ```
 
-*My Credential* 이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
+*My Credential*이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ```
 My Credential
 ```
 
-자격 증명의 사용자 이름을 *jsmith* 라고 가정할 경우 다음과 같이 출력됩니다.
+자격 증명의 사용자 이름을 *jsmith*라고 가정할 경우 다음과 같이 출력됩니다.
 
 ```
 jsmith
@@ -191,6 +192,7 @@ jsmith
 
 ## 다음 단계
 
--	현재 문서의 Runbook 아키텍처에서는 하이브리드 Runbook에 대한 자세한 설명을 제공합니다. 자세한 내용은 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
+-	현재 문서의 Runbook 아키텍처는 Hybrid Runbook Worker를 사용하여 Azure 및 온-프레미스에서 리소스를 관리하는 runbook의 대략적인 개요를 제공합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
+-	특정 또는 일반 함수에 대해 다른 Runbook에서 사용될 모듈식 Runbook 만들기에 대한 자세한 내용은 [자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

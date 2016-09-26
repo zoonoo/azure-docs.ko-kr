@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags=""/>
     
@@ -118,20 +118,7 @@
 |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[의사 결정 정글](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|적은 메모리 공간|
 |[신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|선택한 2클래스 메서드의 속성 참조|
-|**회귀**| | | | | |
-|[선형](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
-|[Bayesian 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|큰 메모리 공간|
-|[빠른 포리스트 분위수](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|포인트 예측 대신 분포|
-|[신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[포아송](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|기술적으로 로그-선형. 개수 예측용|
-|[서수](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|순위 예측용|
-|**이상 감지**| | | | | |
-|[지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|특히 큰 기능 집합에 적합|
-|[PCA 기반 이상 감지](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|클러스터링 알고리즘|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|선택한 2클래스 메서드의 속성 참조| |**회귀**| | | | | | |[선형](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Bayesian 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|큰 메모리 공간| |[빠른 포리스트 분위수](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|포인트 예측 대신 분포| |[신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)| |[포아송](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|기술적으로 로그-선형. 개수 예측용| |[서수](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|순위 예측용| |**이상 감지**| | | | | | |[지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|특히 큰 기능 집합에 적합| |[PCA 기반 이상 감지](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|클러스터링 알고리즘|
 
 
 **알고리즘 속성:**
@@ -237,4 +224,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

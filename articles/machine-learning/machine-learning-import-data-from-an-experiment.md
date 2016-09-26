@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -35,4 +35,4 @@
 
 저장이 완료되면 작업 영역의 모든 실험에서 데이터 집합을 사용할 수 있습니다. 모듈 팔레트의 **저장된 데이터 집합** 목록에서 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="09/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD 페더레이션 호환성 목록
@@ -22,8 +22,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 타사 페더레이션 솔루션에 투자한 조직의 경우 이 항목에는 해당 조직의 Windows Server Active Directory 사용자를 위해 아래 "Azure Active Directory 페더레이션 호환성 목록"의 타사 ID 공급자를 사용하여 Microsoft Online Services로 Single Sign-On을 구성하는 지침이 포함되어 있습니다.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
-[Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/)은 Microsoft를 대신하여 이러한 Single Sign-On 환경을 Azure Active Directory와 공통된 사용 사례 집합에 대해 타사 ID 공급자를 사용하여 테스트했습니다.
 
 여기에 나열된 타사 ID 공급자를 가져오는 방법에 대한 내용은 Oxford Computer Group([idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com))에 문의하세요.
 
@@ -41,7 +40,7 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
-- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
 - [RadiantOne CFS 3.0](#radiantone-cfs-30)
 - [Okta](#okta)
 - [OneLogin](#onelogin)
@@ -173,15 +172,15 @@ SecureAuth IdP 7.2.0은 널리 사용되는 WS Federation/WS-Trust ID 표준을 
 
 SecureAuth에 대한 자세한 내용은 [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293)를 참조하세요.
 
-## CA SiteMinder 12.52 
+## CA SiteMinder 12.52 SP1 누적 릴리스 4
 CA SiteMinder Federation 12.52는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
 
 다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
 | 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |Windows 통합 인증|
-| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |없음|
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 CA SiteMinder에 대한 자세한 내용은 [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html)을 참조하세요.
@@ -339,4 +338,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign-On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

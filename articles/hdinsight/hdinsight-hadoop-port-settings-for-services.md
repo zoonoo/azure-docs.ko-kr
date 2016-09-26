@@ -4,7 +4,7 @@ description="HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | Broker | 작업자 노드 | 9092 | [Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) | 클라이언트 통신에 사용됨 |
 | &nbsp; | Zookeeper 노드 | 2181 | &nbsp; | 클라이언트가 ZooKeeper 연결에 사용하는 포트 |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

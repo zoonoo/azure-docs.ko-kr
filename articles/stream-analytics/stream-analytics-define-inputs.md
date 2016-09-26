@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # 데이터 연결: 이벤트에서 스트림 분석으로의 데이터 스트림 입력에 대해 알아보기
 
-스트림 분석에 데이터를 연결하는 것은 이벤트에서 데이터 원본으로 데이터를 스트리밍하는 것입니다. 이것을 "입력"이라고 부릅니다. 스트림 분석은 분석 작업과 동일한 또는 분석 작업과 다른 Azure 구독의 Azure 데이터 스트림 원본 이벤트 허브, IoT 허브 및 Blob 저장소와 높은 수준으로 통합됩니다.
+스트림 분석에 데이터를 연결하는 것은 이벤트에서 데이터 원본으로 데이터를 스트리밍하는 것입니다. 이것을 "입력"이라고 부릅니다. Stream Analytics는 분석 작업과 동일한 또는 분석 작업과 다른 Azure 구독의 Azure 데이터 스트림 원본 Event Hub, IoT Hub 및 Blob 저장소와 높은 수준으로 통합됩니다.
 
 ## 데이터 입력 유형: 데이터 스트림 및 참조 데이터
 데이터가 해당 데이터 원본에 푸시되면 스트림 분석 작업에서 사용되고 실시간으로 처리됩니다. 입력은 데이터 스트림 입력과 참조 데이터 입력의 두 가지 고유한 형식으로 나뉩니다.
@@ -116,7 +116,7 @@ Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게
 
 클라우드에 저장할 구조화되지 않은 대량 데이터가 있는 시나리오에서 Blob 저장소는 비용 효과적이고 확장성 있는 솔루션을 제공합니다. [Blob 저장소](https://azure.microsoft.com/services/storage/blobs/)의 데이터는 일반적으로 데이터를 "있는 그대로" 간주하지만 스트림 분석으로 데이터 스트림으로 처리될 수 있습니다. 스트림 분석을 사용한 Blob 저장소 입력에 대한 일반적인 시나리오 중 하나는 로그 처리이며 여기에서 원격 분석은 의미 있는 데이터를 추출하려면 시스템에서 캡처되고 구문 분석되고 처리되어야 합니다.
 
-스트림 분석에서 Blob 저장소 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 *isBlobLastModifiedUtcTime* 라는 타임스탬프인 점에 유의하세요. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
+스트림 분석에서 Blob 저장소 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 *isBlobLastModifiedUtcTime*라는 타임스탬프인 점에 유의하세요. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
 또한 CSV 형식의 입력은 데이터 집합에 대한 필드를 정의하는 헤더 행이 **필요**합니다. 추가 헤더 행 필드는 모두 **고유**해야 합니다.
 
@@ -195,7 +195,7 @@ FROM Input
 
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 스트림 분석 작업을 위한 Azure의 데이터 연결 옵션에 대해 알아보았습니다. 스트림 분석에 대한 자세한 내용은 다음 항목을 참조하세요.
@@ -213,4 +213,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

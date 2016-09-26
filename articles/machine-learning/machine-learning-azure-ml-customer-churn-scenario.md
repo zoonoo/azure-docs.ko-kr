@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="jeannt"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 # Azure 기계 학습을 사용하여 고객 이탈 분석
 
 ##개요
-이 항목에서는 Azure 기계 학습 스튜디오를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.
+이 토픽에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.
 
 ### 감사의 말
 
@@ -51,11 +51,11 @@
 
 1.	위험 모델에서는 작업이 가능성과 위험에 어떤 영향을 미치는지를 고려할 수 있습니다.
 2.	개입 모델에서는 개입 수준이 이탈 가능성과 CLV(Customer Lifetime Value) 크기에 어떤 영향을 미치는지를 고려할 수 있습니다.
-3.	이 분석은 최적의 제품을 제공하기 위한 고객층을 대상으로 하는 사전 마케팅 캠페인으로 확대되는 정성 분석에 적합합니다.  
+3.	이 분석은 최적의 제품을 제공하기 위한 고객층을 대상으로 하는 사전 마케팅 캠페인으로 확대되는 정성 분석에 적합합니다.
 
 ![][1]
 
-이러한 미래 예측 접근법은 이탈을 처리하는 가장 좋은 방법이지만 복잡성 문제가 있습니다. 따라서 다중 모델 원형을 개발하고 모델 간의 종속성을 추적해야 합니다. 모델 간의 상호 작용은 다음 다이어그램과 같이 캡슐화할 수 있습니다.
+이러한 미래 예측 접근법은 이탈을 처리하는 가장 좋은 방법이지만 복잡성 문제가 있습니다. 따라서 다중 모델 원형을 개발하고 모델 간의 종속성을 추적해야 합니다. 모델 간의 조작은 다음 다이어그램과 같이 캡슐화할 수 있습니다.
 
 ![][2]
 
@@ -101,7 +101,7 @@
 ![][5]
 
 
-*그림 7: 데이터 원본에서 추출된 기능*
+*그림 7: 데이터 원본에서 추출된 기능*  
 > 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 이탈](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)의 이 샘플 실험을 참조하세요.
 > 
 > Cortana Intelligence 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
@@ -114,7 +114,7 @@
 1.	LR(로지스틱 회귀)
 2.	BT(향상된 의사 결정 트리)
 3.	AP(Averaged Perceptron)
-4.	SVM(Support Vector Machine)  
+4.	SVM(Support Vector Machine)
 
 
 다음 다이어그램에서는 모델이 생성된 시퀀스를 나타내는 실험 디자인 화면의 일부를 보여 줍니다.
@@ -151,7 +151,7 @@ AUC 값을 통해 모델을 비교할 수 있으므로 일반적으로 AUC는 �
 8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 집합에 대한 오분류 비율을 비교했습니다.
 
 -	SAS 오분류 비율은 10~15%였습니다.
--	기계 학습 스튜디오 오분류 비율은 상위 200~300명의 이탈자에 대해 15~20%였습니다.  
+-	기계 학습 스튜디오 오분류 비율은 상위 200~300명의 이탈자에 대해 15~20%였습니다.
 
 통신 업계에서는 안내자 서비스나 기타 특별 대우를 제공하여 이탈 위험이 가장 큰 고객에게만 초점을 맞춰야 합니다. 그 점에 있어서 기계 학습 스튜디오 구현은 SAS 모델과 같은 결과를 달성합니다.
 
@@ -192,7 +192,7 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 	-	**활동**. 엔터티와 관련된 가능한 모든 사용 정보(예: 로그인 횟수)를 얻습니다.
 	-	**고객 지원**. 구독에 고객 지원에 대한 조작 또는 문제가 있는지를 나타내기 위해 고객 지원 로그에서 정보를 수집합니다.
 	-	**경쟁 및 비즈니스 데이터**. 고객에 대해 가능한 모든 정보를 얻습니다(예: 사용할 수 없거나 추적하기 어려운 정보).
--	기능 선택의 기준으로는 중요도를 사용합니다. 이는 향상된 의사 결정 트리 모델이 항상 유망한 접근법임을 의미합니다.  
+-	기능 선택의 기준으로는 중요도를 사용합니다. 이는 향상된 의사 결정 트리 모델이 항상 유망한 접근법임을 의미합니다.
 
 이러한 네 가지 범주 사용은 이탈 위험이 있는 고객을 식별하는 데 있어 범주별로 타당한 요소에 대해 형성된 인덱스를 기반으로 하는 단순 *결정적* 접근법만으로 충분하다는 착각을 일으킵니다. 불행히도 이 생각은 타당한 것처럼 보이지만 잘못된 이해입니다. 이탈은 일시적 영향이고 일반적으로 이탈을 가져오는 요인은 과도 상태이기 때문입니다. 오늘 고객이 이탈을 고려하게 하는 요인은 내일은 달라질 수 있고 지금부터 6개월 후에는 확실히 달라집니다. 따라서 *확률적* 모델이 필요합니다.
 
@@ -202,30 +202,30 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 
 Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 사용할 수 있는 미리 정의된 모듈의 리포지토리에 사용자 지정 모듈을 추가하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 마켓플레이스에서 Azure 기계 학습의 중요한 차별화 요소입니다.
 
-특히 빅데이터 분석과 관련된 이 항목은 나중에 설명할 기회가 있을 것입니다.
+특히 빅데이터 분석과 관련된 이 토픽은 나중에 설명할 기회가 있을 것입니다.  
 ##결론
 이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 점수 매기기 모델의 프로토타입을 고려하고 Azure 기계 학습을 사용하여 해당 프로토타입을 구현했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.
 
 **자세한 내용은 다음을 참조하세요.**
 
-이 문서가 도움이 되었나요? 사용자 의견을 보내주세요. 이 문서에 대한 평가를 1(기준 미달)-5(매우 우수) 등급으로 지정하고 이 등급을 지정한 이유를 알려주세요. 예를 들면 다음과 같습니다.
+이 문서가 도움이 되었나요? 사용자 의견을 보내주세요. 이 문서에 대한 평가를 1(기준 미달)-5(매우 우수) 등급으로 지정하고 이 등급을 지정한 이유를 알려주세요. 예:
 
 -	좋은 예제, 우수한 스크린샷, 분명한 설명 또는 다른 이유 때문에 높음 등급을 지정하고 있나요?
--	기준 미달 예제, 애매한 스크린샷 또는 모호한 설명 때문에 낮음 등급을 지정하고 있나요?  
+-	기준 미달 예제, 애매한 스크린샷 또는 모호한 설명 때문에 낮음 등급을 지정하고 있나요?
 
 이 사용자 의견은 릴리스되는 백서의 품질을 향상하는 데 도움이 됩니다.
 
-[사용자 의견 보내기](mailto:sqlfback@microsoft.com).
+[사용자 의견 보내기](mailto:sqlfback@microsoft.com).  
 ##참조
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
-\[2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-\[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)
+[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)  
 ##부록
 
 ![][10]
@@ -244,4 +244,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
