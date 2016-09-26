@@ -107,7 +107,7 @@ Active Directory에서 관리자 계정이어야 합니다(예: **전역 관리�
      반환하는 내용은 다음과 같습니다.
 
         info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+        data:    Name                        : Microsoft Azure MSDN - Visual Studio Ultimate
         data:    ID                          : {guid}
         data:    State                       : Enabled
         data:    Tenant ID                   : {guid}
@@ -190,7 +190,7 @@ Active Directory에서 관리자 계정이어야 합니다(예: **전역 관리�
      반환하는 내용은 다음과 같습니다.
 
         info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+        data:    Name                        : Microsoft Azure MSDN - Visual Studio Ultimate
         data:    ID                          : {guid}
         data:    State                       : Enabled
         data:    Tenant ID                   : {guid}

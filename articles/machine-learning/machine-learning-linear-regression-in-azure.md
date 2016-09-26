@@ -24,7 +24,8 @@
 &nbsp;
   
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
+
+
 ## 목표
 
 다음 두 가지 목표를 염두에 두고 프로젝트를 시작했습니다.

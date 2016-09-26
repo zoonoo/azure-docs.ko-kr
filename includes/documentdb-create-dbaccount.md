@@ -19,9 +19,9 @@
 
 4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. 배포의 상태를 확인하려면 알림 허브를 선택합니다.
 
-	![신속하게 데이터베이스 만들기 - DocumentDB 계정을 만들고 있음을 보여 주는 알림 허브의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
+    ![신속하게 데이터베이스 만들기 - DocumentDB 계정을 만들고 있음을 보여 주는 알림 허브의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
 
-	![DocumentDB 계정을 만들어 리소스 그룹에 배포했음을 보여주는 알림 허브의 스크린샷 - 온라인 데이터베이스 작성자 알림](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+    ![DocumentDB 계정을 만들어 리소스 그룹에 배포했음을 보여주는 알림 허브의 스크린샷 - 온라인 데이터베이스 작성자 알림](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
 5.	DocumentDB 계정이 생성되면 기본 설정으로 사용할 수 있습니다. DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다. 리소스 메뉴에서 **기본 일관성**을 클릭하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/documentdb/documentdb-consistency-levels.md)을 참조하세요.
 

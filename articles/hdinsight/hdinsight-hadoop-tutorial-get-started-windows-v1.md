@@ -140,7 +140,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 
 ##<a name="hivequery"></a>포털에서 Hive 쿼리 실행
-HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable*을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
+HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable* 을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
 
 > [AZURE.NOTE] Visual Studio용 HDInsight 도구는 Azure SDK for .NET 버전 2.5 이상과 함께 제공됩니다. Visual Studio에서 이 도구를 사용하여 HDInsight 클러스터에 연결하고, Hive 테이블을 만들고, Hive 쿼리를 실행할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]을 참조하세요.
 

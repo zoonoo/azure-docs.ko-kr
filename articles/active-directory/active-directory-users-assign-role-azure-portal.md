@@ -30,7 +30,7 @@
 
 3.  **사용자 및 그룹** 블레이드에서 **모든 사용자**를 선택합니다.
 
-    ![모든 사용자 블레이드 열기](./media/active-directory-users-assign-role-azure-portal/create-users-opko-KRers-blade.png)
+    ![모든 사용자 블레이드 열기](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. **사용자 및 그룹 - 모든 사용자** 블레이드의 목록에서 사용자를 선택합니다.
 

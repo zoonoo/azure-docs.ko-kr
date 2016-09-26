@@ -187,7 +187,12 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 
 매개 변수:
 * event(문자열) – "userlogin"
-* user(문자열) – 사용자의 공유 ID. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* user(문자열) – 사용자의 공유 ID. 
+
+		<script>
+ 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4\. JavaScript 통해 권장 사항 사용
 권장 사항을 사용하는 코드는 클라이언트 웹 페이지의 일부 JavaScript 이벤트에 의해 트리거됩니다. 권장 사항 응답에는 권장 항목 ID, 이름 및 해당 등급이 포함됩니다. 권장 항목의 목록 표시에만 이 옵션을 사용하는 것이 좋습니다. 더 복잡한 처리(예: 항목의 메타데이터 추가)는 서버 쪽 통합에서 수행해야 합니다.
@@ -225,4 +230,4 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

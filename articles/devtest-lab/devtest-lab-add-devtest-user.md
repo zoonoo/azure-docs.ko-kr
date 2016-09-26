@@ -89,7 +89,7 @@ Azure Portal에 사용자를 추가하는 것 외에도 PowerShell 스크립트�
 
 	# Add an external user in DevTest Labs user role to a lab
 	# Ensure that guest users can be added to the Azure Active directory:
-	# https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+	# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
 	# Values to change
 	$subscriptionId = "<Enter Azure subscription ID here>"

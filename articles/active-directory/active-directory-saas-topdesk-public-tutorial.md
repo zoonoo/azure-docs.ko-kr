@@ -66,7 +66,8 @@
 
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 TOPdesk - Public에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. TOPdesk - Public에 대한 Single Sign-On을 구성하려면 로고 아이콘 파일을 업로드해야 합니다. 아이콘 파일을 가져오려면 TOPdesk 지원팀에 문의합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 TOPdesk - Public에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+TOPdesk - Public에 대한 Single Sign-On을 구성하려면 로고 아이콘 파일을 업로드해야 합니다. 아이콘 파일을 가져오려면 TOPdesk 지원팀에 문의합니다.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -89,7 +90,8 @@
     ![기술 설정](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "기술 설정")
 
     1.  **다운로드**를 클릭하여 공용 메타데이터 파일을 다운로드한 다음 컴퓨터에 로컬 저장합니다.
-    2.  메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
+    2.  메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.
+    ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  **AssertionConsumerService** 값을 복사합니다.
 
         >[AZURE.NOTE] 해당 값은 자습서 뒷부분의 **앱 URL 구성** 섹션에서 필요합니다.
@@ -158,7 +160,8 @@
 
 ##사용자 프로비전 구성
   
-Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 사용자가 TOPdesk - Public으로 프로비전되어야 합니다. TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 사용자가 TOPdesk - Public으로 프로비전되어야 합니다.
+TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비저닝을 구성하려면
 

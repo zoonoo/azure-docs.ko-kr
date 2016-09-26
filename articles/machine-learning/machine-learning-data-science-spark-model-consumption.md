@@ -385,7 +385,7 @@ Jupyter Notebook의 커널 및 제공되는 %%(예: %%local)로 호출할 수 �
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	

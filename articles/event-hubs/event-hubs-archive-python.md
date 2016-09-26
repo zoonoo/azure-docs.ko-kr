@@ -187,7 +187,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Azure 포털]: https://portal.azure.com/
 [Event Hubs 보관 개요]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

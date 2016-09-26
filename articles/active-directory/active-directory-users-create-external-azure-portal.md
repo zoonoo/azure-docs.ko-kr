@@ -34,7 +34,7 @@
 
 3.  **사용자 및 그룹** 블레이드에서 **사용자**를 선택한 다음 **추가**를 선택합니다.
 
-    ![추가 명령 선택](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
+    ![추가 명령 선택](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
 4. **사용자** 블레이드에서 **이름**에 표시 이름을 제공하고 **사용자 이름**에 사용자의 로그인 이름을 제공합니다.
 
@@ -42,15 +42,15 @@
 
 6. 필요에 따라 **프로필**을 선택하여 사용자 이름, 성, 직위, 부서 이름을 추가합니다.
 
-		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+	![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- **그룹**을 선택하여 하나 이상의 그룹에 사용자를 추가합니다.
 
-		![그룹에 사용자 추가](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![그룹에 사용자 추가](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- **조직 역할**을 선택하여 **역할** 목록의 역할에 사용자를 할당합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
 
-		![역할에 사용자 할당](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
+		![역할에 사용자 할당](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
 7. **만들기**를 선택합니다.
 
@@ -73,4 +73,4 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 - [Azure AD에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

@@ -16,7 +16,8 @@
 
 #자습서: Work.com과 Azure Active Directory 통합
   
-이 자습서는 Azure와 Work.com의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 Work.com의 통합을 보여주기 위한 것입니다.
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Work.com Single Sign-On이 설정된 구독
@@ -66,7 +67,8 @@
 
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Work.com에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 Work.com으로 인코딩된 인증서 파일을 만들어야 합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Work.com에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 Work.com으로 인코딩된 인증서 파일을 만들어야 합니다.
 
 >[AZURE.NOTE] Single Sign-On을 구성하려면 사용자 할당 도메인 이름을 Work.com로 설정해야 합니다. 최소한 한 개의 도메인 이름을 정의하고, 도메인 이름을 테스트 한 후 전체 조직에 배포해야 합니다.
 
@@ -125,7 +127,7 @@
 
     ![SAML Single Sign-On 설정](./media/active-directory-saas-work-com-tutorial/IC794114.png "SAML Single Sign-On 설정")
 
-    1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.
+    1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.  
 
         >[AZURE.NOTE] **이름**에 값을 제공하면 **API 이름** 텍스트 상자가 자동으로 채워집니다.
 
@@ -157,7 +159,8 @@
 
 ##사용자 프로비전 구성
   
-Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다. Work.com의 경우 프로비전은 수동 작업입니다.
+Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다.  
+Work.com의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비저닝을 구성하려면
 
@@ -181,7 +184,7 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
 
     1.  관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **성**, **별칭**, **이메일**, **사용자 이름** 및 **애칭** 특성을 입력합니다.
     2.  **역할**, **사용자 라이선스** 및 **프로필**을 차례로 선택합니다.
-    3.  **Save**를 클릭합니다.
+    3.  **Save**를 클릭합니다.  
 
         >[AZURE.NOTE] Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
 

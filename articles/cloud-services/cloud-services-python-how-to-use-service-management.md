@@ -436,6 +436,6 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[클라우드 서비스]: https://azure.microsoft.com/ko-KR/documentation/services/cloud-services/
+[클라우드 서비스]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0914_2016-->

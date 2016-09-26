@@ -38,7 +38,7 @@ Azure Active Directory(Azure AD) 미리 보기에서 사용자 정의 엔터프�
 
 	![속성 명령 선택](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
 
-7. ***appname*** ** -속성** 블레이드에서 새 로고로 사용하거나 앱 이름 또는 둘 다를 편집할 파일을 찾습니다.
+7. ***appname*** **-속성** 블레이드에서 새 로고로 사용하거나 앱 이름 또는 둘 다를 편집할 파일을 찾습니다.
 
 	![앱 로고 또는 nameproperties 명령 변경](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 

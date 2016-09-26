@@ -40,7 +40,7 @@
 
 5. ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png)을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
-	> [AZURE.NOTE] 종량제 구독을 실수로 취소한 경우 [여기](https://azure.microsoft.com/ko-KR/documentation/articles/billing-subscription-become-disable/)에 설명된 지침에 따라 다시 활성화할 수 있습니다.
+	> [AZURE.NOTE] 종량제 구독을 실수로 취소한 경우 [여기](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/)에 설명된 지침에 따라 다시 활성화할 수 있습니다.
 
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
