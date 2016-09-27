@@ -18,31 +18,31 @@
 
 # 자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
+- [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
-이 자습서에서는 Visual Studio 2013을 사용하여 다음을 수행합니다.
+이 자습서에서는 Visual Studio를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+
+이 자습서의 일부로 수행하는 단계는 다음과 같습니다.
 
 1. 2개의 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlinkedService1**를 만듭니다. AzureStorageLinkedService1은 Azure 저장소를 연결하고 AzureSqlLinkedService1은 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryVS**에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.
-2. 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 만듭니다. EmpTableFromBlob의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. EmpSQLTable의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다. 구조, 가용성 등의 기타 속성도 지정합니다.
+2. 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 만듭니다. EmpTableFromBlob의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. EmpSQLTable의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다.
 3. ADFTutorialDataFactoryVS에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다. 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 4. 데이터 팩터리를 만들고 연결된 서비스, 테이블 및 파이프라인을 배포합니다.
 
 ## 필수 조건
 
-1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 자세히 읽습니다.
-	
-	> [AZURE.IMPORTANT] 계속하기 전에 필수 구성 요소를 완료합니다.
+1. [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 2. **Azure 구독의 관리자**여야만 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다.
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 	- Visual Studio 2013 또는 Visual Studio 2015
 	- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
-	- Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다.
+	- Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트** 단계를 클릭하여 플러그 인을 업데이트할 수도 있습니다.
  
 
 
@@ -212,7 +212,7 @@
 
 	![게시 대화 상자](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
 
-21. 데이터 팩터리 구성 페이지에서 다음을 수행합니다.
+21. 데이터 팩터리 구성 페이지에서 다음 단계를 수행합니다.
 	1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
 	2. **이름**에 **VSTutorialFactory**를 입력합니다.
 	
@@ -260,7 +260,7 @@
 3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다. ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)
 
 ## Visual Studio용 데이터 팩터리 도구 업데이트
-Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 수행합니다.
+Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음 단계를 수행합니다.
 
 1. 메뉴에서 **도구**를 클릭하고 **확장 및 업데이트**를 선택합니다.
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
@@ -277,4 +277,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

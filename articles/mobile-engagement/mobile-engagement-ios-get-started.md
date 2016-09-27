@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Objective C에서 iOS용 Azure Mobile Engagement 시작"
+	pageTitle="Objective C에서 iOS용 Azure Mobile Engagement 시작 | Microsoft Azure"
 	description="iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="09/14/2016"
 	ms.author="piyushjo" />
 
 # Objective C에서 iOS 앱용 Azure Mobile Engagement 시작
 
-[AZURE.INCLUDE [Hero 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+[AZURE.INCLUDE [영웅 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 iOS 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 기본 데이터를 수집하고 APNS(Apple 푸시 알림 시스템)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다.
+이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용법을 이해하고 iOS 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 기본 데이터를 수집하고 APNS(Apple 푸시 알림 시스템)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ MAC 앱 스토어에서 설치할 수 있는 XCode 6 또는 XCode 7
++ MAC 앱 스토어에서 설치할 수 있는 XCode 8
 + [Mobile Engagement iOS SDK]
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 Mobile Engagement 자습서를 진행할 수 있습니다.
@@ -178,4 +178,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->
