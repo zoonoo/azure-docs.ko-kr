@@ -358,7 +358,8 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-예제 테이블을 읽는 시간은 6.492000초 검색된 행과 열의 수= (84952, 21)
+예제 테이블을 읽는 시간은 6.492000초  
+검색된 행과 열의 수= (84952, 21)
 
 #### 기술 통계
 
@@ -688,7 +689,9 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 ### 참조
 
-• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+• [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
