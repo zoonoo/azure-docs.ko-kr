@@ -62,7 +62,7 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 
 	* **A (host) record**를 추가할 때 **Host** 필드를 **@**(**contoso.com**과 같은 루트 도메인 이름을 나타냄) * *(모든 하위 도메인을 나타내는 와일드카드) 또는 사용할 하위 도메인(예: **www**)으로 설정해야 합니다. **Points to** 필드를 Azure 웹앱의 IP 주소로 설정해야 합니다.
 
-	* **CNAME (alias) record**를 추가할 때 **Host** 필드를, 사용할 하위 도메인으로 설정해야 합니다. 예를 들면 **www**로 설정해야 합니다. **Points to** 필드는 Azure 웹 앱의 **.azurewebsites.net** 도메인 이름으로 설정해야 합니다. 예를 들면 **contoso.azurwebsites.net**으로 설정해야 합니다.
+	* **CNAME (alias) record**를 추가할 때 **Host** 필드를, 사용할 하위 도메인으로 설정해야 합니다. 예를 들면 **www**로 설정해야 합니다. **Points to** 필드는 Azure 웹 앱의 **.azurewebsites.net** 도메인 이름으로 설정해야 합니다. 예를 들면 **contoso.azurewebsites.net**으로 설정해야 합니다.
 
 5. **다른 항목 추가**를 클릭합니다.
 6. 레코드 유형으로 **TXT**를 선택한 다음 **@**의 **호스트** 값 및 **&lt;yourwebappname&gt;.azurewebsites.net**의 **Points to** 값을 지정합니다.
