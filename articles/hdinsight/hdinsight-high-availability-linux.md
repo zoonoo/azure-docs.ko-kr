@@ -3,7 +3,7 @@
 	description="Linux 기반 HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이것이 Ambari 및 Hive 같은 Hadoop 서비스에 어떻게 영향을 미치는지 알아보고, SSH를 사용하여 각 헤드 노드를 개별적으로 연결하는 방법을 알아봅니다."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
 	tags="azure-portal"/>
@@ -225,4 +225,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

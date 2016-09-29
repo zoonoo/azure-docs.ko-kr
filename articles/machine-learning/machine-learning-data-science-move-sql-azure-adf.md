@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -19,9 +19,9 @@
 
 # Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동
 
-이 항목에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob 저장소를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
+이 토픽에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
 
-다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -42,7 +42,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 * 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소 계정으로 데이터 복사
 * Azure Blob 저장소 계정에서 Azure SQL 데이터베이스로 데이터 복사
 
-**참조**: 여기에 표시된 단계는 ADF 팀에서 제공한 보다 자세한 자습서인 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)에서 도입한 것이며 해당 항목의 관련 섹션에 대한 참조는 필요한 경우 제공됩니다.
+**참조**: 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 토픽의 관련 섹션에 대한 참조를 제공합니다.
 
 
 ## <a name="prereqs"></a>필수 조건
@@ -94,7 +94,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server�
 Azure Blob 저장소 계정에 대한 연결된 서비스를 만들려면 Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소**를 클릭한 후 *Azure 저장소 계정*을 선택하고 Azure Blob 저장소 계정 키 및 컨테이너 이름을 입력합니다. 연결된 서비스 이름을 *adfds*로 지정합니다.
 
 ###<a name="adf-linked-service-azure-sql"></a>Azure SQL 데이터베이스에 대한 연결된 서비스
-Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소**를 클릭한 후 *Azure SQL*을 선택하고 *username* 및 *password*에 Azure SQL 데이터베이스에 대한 자격 증명을 입력합니다. *username*은 **user@servername*으로 지정해야 합니다.
+Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소**를 클릭한 후 *Azure SQL*을 선택하고 *username* 및 *password*에 Azure SQL 데이터베이스에 대한 자격 증명을 입력합니다. *username*은 *user@servername*으로 지정해야 합니다.
 
 
 ##<a name="adf-tables"></a>데이터 집합에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
@@ -106,7 +106,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
 * 온 프레미스 SEL 서버의 **테이블 이름**은 *nyctaxi\_data*임
-* Azure Blob 저장소 계정에서 **컨테이너 이름**은 *containername*입니다.  
+* Azure Blob 저장소 계정에서 **컨테이너 이름**은 *containername*입니다.
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
 
@@ -310,4 +310,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

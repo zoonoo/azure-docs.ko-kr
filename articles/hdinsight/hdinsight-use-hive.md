@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/16/2016"
+	ms.date="09/06/2016"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -51,7 +51,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 - **CREATE TABLE** 명령은 데이터 파일을 /hive/warehouse/<TableName> 폴더로 이동합니다.
 - **CREATE EXTERNAL TABLE** 명령은 외부 테이블을 만듭니다. 데이터 파일은 기본 컨테이너가 아닌 곳에 있을 수 있습니다.
 - **CREATE EXTERNAL TABLE** 명령은 데이터 파일을 이동하지 않습니다.
-- **CREATE EXTERNAL TABLE** 명령은 LOCATION에 어떤 폴더도 허용하지 않습니다. 이는 자습서에서 sample.log 파일의 복사본을 만들기 때문입니다.
+- **CREATE EXTERNAL TABLE** 명령은 LOCATION에 어떤 폴더도 허용하지 않습니다. 이 때문에 자습서에서는 sample.log 파일의 복사본을 만듭니다.
 
 자세한 내용은 [HDInsight: Hive 내부 및 외부 테이블 소개][cindygross-hive-tables]를 참조하세요.
 
@@ -214,4 +214,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

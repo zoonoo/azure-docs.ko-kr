@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -18,7 +18,7 @@
 
 # 고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
 
-이 항목에서는 데이터 과학 환경의 일부로 사용할 수 있는 고급 분석용 Azure 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 고급 분석 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
+이 토픽에서는 데이터 과학 환경의 일부로 사용할 수 있는 고급 분석용 Azure 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 고급 분석 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
 ## <a name="create-vm"></a>1단계: 범용 Azure 가상 컴퓨터 만들기
 
@@ -108,7 +108,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
-1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.  
+1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.
 
 2. 왼쪽 탐색 모음에서 **가상 컴퓨터**를 선택합니다.
 
@@ -142,4 +142,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

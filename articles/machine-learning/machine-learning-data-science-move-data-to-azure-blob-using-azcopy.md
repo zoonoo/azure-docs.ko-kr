@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -36,7 +36,7 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
-- Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
 
@@ -74,8 +74,8 @@ Azure 컨테이너 간 Blob을 전송하려면 명령줄 AzCopy의 다음 명령
 ## AzCopy 사용에 대한 팁
 
 > [AZURE.TIP]   
-> 1. 파일을 업로드하는 경우 /S는 파일을 재귀적으로 업로드합니다. 이 매개 변수가 없으면 하위 디렉터리의 모든 파일이 업로드되지 않습니다.  
-> 2. 파일을 다운로드하는 경우 /S는 지정된 디렉터리 및 하위 디렉터리의 모든 파일 또는 제공된 디렉터리 및 하위 디렉터리에 지정된 패턴과 일치하는 모든 파일이 다운로드될 때까지 컨테이너를 재귀적으로 검색합니다.  
+> 1. 파일을 업로드하는 경우 /S는 파일을 재귀적으로 업로드합니다. 이 매개 변수가 없으면 하위 디렉터리의 모든 파일이 업로드되지 않습니다.
+> 2. 파일을 다운로드하는 경우 /S는 지정된 디렉터리 및 하위 디렉터리의 모든 파일 또는 제공된 디렉터리 및 하위 디렉터리에 지정된 패턴과 일치하는 모든 파일이 다운로드될 때까지 컨테이너를 재귀적으로 검색합니다.
 > 3.  /Source 매개 변수를 사용하여 특정 blob 파일을 다운로드하도록 지정할 수 없습니다. 특정 파일을 다운로드하려면 /Pattern 매개 변수를 사용하여 다운로드할 blob 파일 이름을 지정하세요. /S 매개 변수를 사용하면 AzCopy에서 파일 이름 패턴을 재귀적으로 검색할 수 있습니다. 패턴 매개 변수가 없으면 AzCopy는 해당 디렉터리의 모든 파일을 다운로드합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

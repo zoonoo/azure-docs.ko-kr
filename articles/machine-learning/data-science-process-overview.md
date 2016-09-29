@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -100,4 +100,4 @@ TDSP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않�
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 항목에 미리 보기 설명과 함께 나열됩니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

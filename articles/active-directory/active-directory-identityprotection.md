@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/11/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -22,11 +22,6 @@
 Azure Active Directory ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. Microsoft는 10년 넘게 클라우드 기반 ID를 보호했습니다. Microsoft는 Azure AD ID 보호를 사용하여 기업 고객이 이러한 동일한 보호 시스템을 사용할 수 있도록 노력하고 있습니다. ID 보호는 기존 Azure AD의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
 
 ## 현재 미리 보기 제한 사항
-이 섹션에서는 현재 Azure Active Directory ID 보호 미리 보기에 적용되는 제한 사항을 나열합니다.
-
-
-
-### ID 보호 및 페더레이션된 도메인
 
 Azure Active Directory ID 보호에는 페더레이션된 도메인과 함께 다음과 같은 제한 사항이 있습니다.
 
@@ -47,7 +42,7 @@ Azure Active Directory ID 보호에는 페더레이션된 도메인과 함께 �
  
 ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사하고 적절한 수정 또는 완화 작업을 수행할 수 있도록 하는 보고서 및 경고를 생성합니다.
  
-하지만 Azure Active Directory ID 보호의 기능은 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. Azure Active Directory 및 EMS에서 제공되는 다른 조건부 액세스 제어 외에도 이러한 위험 기반 정책은 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 제공할 수 있습니다.
+하지만 Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. Azure Active Directory 및 EMS에서 제공되는 다른 조건부 액세스 제어 외에도 이러한 위험 기반 정책은 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 제공할 수 있습니다.
 
 ####ID 보호의 기능 살펴보기 
 
@@ -99,7 +94,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 | 감염된 장치에서 로그인 | 감염 가능성이 있는 장치에서 로그인 |
 | 익명 IP 주소에서 로그인 | 알 수 없는 원본에서 로그인 |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |	의심스러운 작업이 있는 IP 주소에서 로그인 |
-| 알 수 없는 위치에서 로그인 | - | 
+| 알 수 없는 위치에서 로그인 | - |
 | 잠금 이벤트(공개 미리 보기 상태 아님) | - |
 
 다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 관리 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
@@ -364,7 +359,7 @@ ID 보호 콘솔의 **위험 이벤트** 페이지에서는 모든 이벤트를 
 
 ## Multi-Factor Authentication 등록 정책
 
-Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두번째 계층을 제공합니다. <br> 다음과 같은 이유로, 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다.
+Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야 하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두 번째 계층을 제공합니다. <br> 다음과 같은 이유로, 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다.
 
 - 다양한 간편한 확인 옵션과 함께 강력한 인증 제공
 
@@ -405,6 +400,7 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
 ## 참고 항목
 
  - [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Azure Active Directory ID 보호 활성화](active-directory-identityprotection-enable.md)
  - [Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형](active-directory-identityprotection-risk-events-types.md)
  - [Azure Active Directory ID 보호에서 검색하는 취약성](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory ID 보호 알림](active-directory-identityprotection-notifications.md)
@@ -413,4 +409,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
  - [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

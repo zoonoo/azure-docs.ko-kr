@@ -18,10 +18,12 @@
 
 # Docker VM 확장을 사용하여 환경 배포
 
+> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
+
 Docker는 Linux(및 Windows)에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에서는 요구 사항에 따라 Docker를 몇 가지 다른 방식으로 유연하게 배포할 수 있습니다.
 
 - 앱의 프로토타입을 신속하게 만들려는 경우 [Docker Machine Azure 드라이버를 사용](./virtual-machines-linux-docker-machine.md)하여 Azure 내 Docker 호스트를 배포할 수 있습니다.
-- 템플릿 기반 배포에는 Azure 가상 컴퓨터에 대해 Docker VM 확장이 사용됩니다. 이 방식은 Azure Resource Manager 템플릿 배포와 통합될 수 있으며, 역할 기반 액세스, 진단, 및 배포 후 구성 같은 관련된 이점을 모두 포함합니다.
+- 템플릿 기반 배포에는 Azure 가상 컴퓨터에 대해 Docker VM 확장이 사용됩니다. 이 방식은 Azure Resource Manager 템플릿 배포와 통합될 수 있으며, 역할 기반 액세스, 진단 및 배포 후 구성 같은 관련된 이점을 모두 포함합니다.
 - Docker VM 확장은 Docker Compose도 지원합니다. Docker Compose는 선언적 YAML 파일을 사용하여 개발자 모델링된 응용 프로그램을 모든 환경에 가져가고 일관된 배포를 생성합니다.
 - 또한 Swarm에서 제공하는 추가 일정 예약 및 관리 도구를 활용하며 프로덕션에 준비된 확장 가능 배포의 경우 [Azure 컨테이너 서비스에 전체 Docker Swarm 클러스터를 배포](../container-service/container-service-deployment.md)할 수 있습니다.
 
@@ -29,7 +31,7 @@ Docker는 Linux(및 Windows)에서 컨테이너와 함께 빠르게 사용할 �
 
 ## 템플릿 배포용 Azure Docker VM 확장
 
-Azure Docker VM 확장은 Linux 가상 컴퓨터의 Docker 디먼, Docker 클라이언트, 및 Docker Compose를 설치하고 구성합니다. 확장은 Docker Compose를 사용하여 컨테이너 응용 프로그램을 정의하고 배포하는 데도 사용됩니다. 이 기능은 Docker Machine을 사용하거나 Docker 호스트를 직접 만드는 경우에 비해 추가적인 제어 기능을 제공하므로 더욱 견고한 개발자 또는 운영 환경에 적합합니다.
+Azure Docker VM 확장은 Linux 가상 컴퓨터의 Docker 디먼, Docker 클라이언트 및 Docker Compose를 설치하고 구성합니다. 확장은 Docker Compose를 사용하여 컨테이너 응용 프로그램을 정의하고 배포하는 데도 사용됩니다. 이 기능은 Docker Machine을 사용하거나 Docker 호스트를 직접 만드는 경우에 비해 추가적인 제어 기능을 제공하므로 더욱 견고한 개발자 또는 운영 환경에 적합합니다.
 
 Azure Resource Manager를 사용하여 작업 환경의 전체 구조를 정의하는 템플릿을 만들고 배포할 수 있습니다. 템플릿을 사용하여 Docker 호스트, RBAC(역할 기반 액세스 제어), 진단 등을 정의할 수 있습니다. [Resource Manager와 템플릿에 대해 자세히 읽어보고](../resource-group-overview.md) 몇 가지 이점을 더 잘 이해하십시오. 향후 필요한 경우 Resource Manager 템플릿을 사용하여 배포를 재현할 수도 있습니다.
 
@@ -138,4 +140,4 @@ Resource Manager 템플릿 사용에 대한 단계별 설명은 [Azure Resource 
 3. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md)
 3. [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->
