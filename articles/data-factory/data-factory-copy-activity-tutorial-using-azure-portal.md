@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Azure" 
+	pageTitle="자습서: Azure Portal을 사용하여 복사 작업이 있는 파이프라인 만들기 | Microsoft Azure" 
 	description="이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,32 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
-# 자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기
+# 자습서: Azure Portal을 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
+- [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
 
-이 자습서에는 다음 단계가 포함되어 있습니다.
+이 자습서에서는 Azure Portal를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+
+이 자습서의 일부로 수행하는 단계는 다음과 같습니다.
 
 단계 | 설명
 -----| -----------
 [Azure 데이터 팩터리 만들기](#create-data-factory) | 이 단계에서는 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.  
 [연결된 서비스 만들기](#create-linked-services) | 이 단계에서는 **AzureStorageLinkedService** 및 **AzureSqlLinkedService** 등 두 개의 연결된 서비스를 만듭니다. AzureStorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactory에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.      
-[입력 및 출력 데이터 집합을 만듭니다.](#create-datasets) | 이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 구조, 가용성 등의 기타 속성도 지정합니다. 
+[입력 및 출력 데이터 집합을 만듭니다.](#create-datasets) | 이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다. 
 [파이프라인을 만듭니다.](#create-pipeline) | 이 단계에서는 ADFTutorialDataFactory에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다. 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요. 
 [파이프라인 모니터링](#monitor-pipeline) | 이 단계에서는 Azure 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다.
 
 > [AZURE.IMPORTANT] 
-[자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+[자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 이 자습서를 수행하기 전에 **필수 구성 요소** 단계를 완료합니다.
 
 ## 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
@@ -51,7 +53,7 @@
 	1. **ADFTutorialDataFactory**를 **이름**으로 입력합니다.
 	
   		![새 데이터 팩터리 블레이드][image-data-factory-getstarted-new-data-factory-blade]
-	2. **리소스 그룹 이름**을 클릭하고 다음을 수행합니다.
+	2. **리소스 그룹 이름**을 클릭하고 다음 단계를 수행합니다.
 		1. **새 리소스 그룹 만들기**를 클릭합니다.
 		2. **리소스 그룹 만들기** 블레이드에서 리소스 그룹의 **이름**으로 **ADFTutorialResourceGroup**을 입력하고 **확인**을 클릭합니다.
 
@@ -72,7 +74,7 @@
 	> 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 
 9. 왼쪽의 **알림** 허브를 클릭하고 만들기 프로세스에서 제공하는 알림을 찾습니다. **알림** 블레이드가 열려 있으면 **X**를 클릭하여 닫습니다.
-10. 만들기가 완료되면 아래와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
+10. 만들기가 완료되면 이미지와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
 
     ![데이터 팩터리 홈페이지][image-data-factory-get-stated-factory-home-page]
 
@@ -182,7 +184,7 @@
 2. 도구 모음에서 **배포**를 클릭하여 **EmpTableFromBlob** 테이블을 만들고 배포합니다. 편집기의 제목 표시줄에 **테이블이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 
 ### 출력 데이터 집합 만들기
-이 단계의 일부에서는 **EmpSQLTable**라는 출력 데이터 집합을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL 데이터베이스에서 SQL 테이블을 가리킵니다.
+이 단계의 일부에서는 **EmpSQLTable**라는 출력 데이터 집합을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL Database에서 SQL 테이블을 가리킵니다.
 
 1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure SQL 테이블**을 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 조각으로 바꿉니다.
@@ -303,7 +305,7 @@
 
 	![데이터 팩터리 블레이드 - 다이어그램 타일][image-datafactoryblade-diagramtile]
 
-2. 다음과 유사한 다이어그램이 표시됩니다.
+2. 다음 이미지와 유사한 다이어그램이 표시됩니다.
 
 	![다이어그램 뷰][image-data-factory-get-started-diagram-blade]
 
@@ -461,4 +463,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

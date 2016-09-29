@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -81,7 +81,7 @@ Azure 데이터 과학 환경을 설정하려면
 3. [SQL Server 및 IPython Notebook 서버 역할을 할 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 
 	> [AZURE.NOTE] 샘플 스크립트와 IPython Notebook은 설정 프로세스 중에 데이터 과학 가상 컴퓨터로 다운로드됩니다. VM 사후 설치 스크립트가 완료되면 샘플이 VM의 문서 라이브러리에 배치됩니다.
-	> - 샘플 스크립트: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - 샘플 스크립트: `C:\Users<user_name>\Documents\Data Science Scripts`
 	> - 샘플 IPython Notebook: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 여기서 `<user_name>`은(는) VM의 Windows 로그인 이름입니다. 샘플 폴더는 **Sample Scripts** 및 **Sample IPython Notebooks**라고 합니다.
 
 
@@ -97,7 +97,7 @@ AzCopy를 사용하여 데이터를 복사하려면
 
 2. VM의 데이터 디스크에서 새 디렉터리를 만듭니다(참고: VM과 함께 제공되는 임시 디스크를 데이터 디스크로 사용하지 마세요.
 
-3. 명령 프롬프트 창에서 <path_to_data_folder>를 (2)에서 만든 데이터 폴더로 바꿔 다음 Azcopy 명령줄을 실행합니다.
+3. 명령 프롬프트 창에서 <path\_to\_data\_folder>를 (2)에서 만든 데이터 폴더로 바꿔 다음 Azcopy 명령줄을 실행합니다.
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
@@ -144,7 +144,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 7. **Sample Scripts** 폴더에는 대량의 데이터를 SQL Server 테이블로 병렬로 가져오는 방법을 보여 주는 두 개의 샘플 PowerShell 스크립트가 제공되어 있습니다.
 
 	- **bcp\\_parallel\\_generic.ps1**은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
-	- **bcp\_parallel\_nyctaxi.ps1**은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.  
+	- **bcp\_parallel\_nyctaxi.ps1**은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.
 
 8. **bcp\_parallel\_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi\_trip.xml** 및 **nyctaxi\_fare.xml**(**Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
 
@@ -298,7 +298,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.
 
-1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 이 방법은 [Azure 기계 학습에서 모델 빌드](#mlmodel) 섹션에 설명되어 있습니다.    
+1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure 기계 학습의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 이 방법은 [Azure 기계 학습에서 모델 빌드](#mlmodel) 섹션에 설명되어 있습니다.
 2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 데이터베이스 테이블에 유지한 다음 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다.
 
 다음은 데이터 탐색, 데이터 시각화 및 기능 엔지니어링에 대한 몇 가지 예제입니다. 더 많은 예제는 **Sample IPython Notebooks** 폴더에 있는 샘플 SQL IPython Notebook을 참조하세요.
@@ -334,7 +334,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- 총 행 수 = 173179759  
+- 총 행 수 = 173179759
 - 총 열 수 = 14
 
 #### SQL Server 데이터베이스에서 소량의 데이터 샘플 읽기
@@ -358,7 +358,8 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-예제 테이블을 읽는 시간은 6.492000초 검색된 행과 열의 수= (84952, 21)
+예제 테이블을 읽는 시간은 6.492000초  
+검색된 행과 열의 수= (84952, 21)
 
 #### 기술 통계
 
@@ -419,7 +420,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 ### SQL에서 데이터 하위 샘플링
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **데이터 가져오기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your\_new\_table\_name>**을 사용하여 [데이터 가져오기][import-data] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
+[Azure 기계 학습 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **데이터 가져오기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT* FROM <your\_new\_table\_name>**을 사용하여 [데이터 가져오기][import-data] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
 
 이 섹션에서는 샘플링 및 엔지니어링된 데이터를 유지할 새 테이블을 만듭니다. 모델 빌드를 위한 직접 SQL 쿼리 예제는 SQL Server에서 [데이터 탐색 및 기능 엔지니어링 섹션](#dbexplore)에서 제공됩니다.
 
@@ -641,7 +642,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 4. **데이터베이스 이름**을 해당 필드에 입력합니다.
 
-5. **서버 사용자 계정 이름에 **SQL 사용자 이름**을 입력하고, **서버 사용자 계정 암호**에 암호를 입력합니다.
+5. **서버 사용자 계정 이름**에 **SQL 사용자 이름**을 입력하고 서버 사용자 계정 암호**에 암호를 입력합니다.
 
 6. **모든 서버 인증서 허용** 옵션을 선택합니다.
 
@@ -688,7 +689,9 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 ### 참조
 
-• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+• [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -716,4 +719,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

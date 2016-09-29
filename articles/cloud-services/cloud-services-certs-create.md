@@ -67,6 +67,9 @@ $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
+>[AZURE.NOTE] 도메인 대신에 IP 주소가 들어 있는 인증서를 사용하려는 경우 -DnsName 매개 변수에서 IP 주소를 사용 합니다.
+
+
 [관리 포털에서 인증서](../azure-api-management-certs.md)를 사용하려는 경우 **.cer** 파일로 내보냅니다.
 
 ```powershell
@@ -85,10 +88,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-[서비스 인증서를 Azure 클래식 포털](cloud-services-configure-ssl-certificate.md) (또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md)) 에 업로드합니다.
+[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드합니다](cloud-services-configure-ssl-certificate.md).
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 
 >[AZURE.NOTE] Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -19,8 +19,7 @@
 
 # 자습서: Hadoop 클러스터를 사용하여 데이터를 처리하는 첫 번째 파이프라인 빌드 
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-build-your-first-pipeline.md)
-- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure 포털 사용](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
@@ -226,4 +225,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
 - [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

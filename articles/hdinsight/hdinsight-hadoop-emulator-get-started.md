@@ -3,7 +3,7 @@
 	description="Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 컴퓨터에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. "
 	keywords="Hadoop 에뮬레이터, Hadoop 샌드박스"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	authors="nitinme"
 	documentationCenter=""
@@ -26,4 +26,4 @@ Hortonworks Hadoop 샌드박스를 시작하려면 [Hortonworks 샌드박스](ht
 
 Hadoop에 익숙해졌으면 HDInsight 클러스터를 만들어 Azure에서 Hadoop 사용을 시작할 수 있습니다. 시작 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

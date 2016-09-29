@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -121,4 +121,4 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

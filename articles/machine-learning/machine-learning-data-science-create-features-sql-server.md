@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="" />
 
 <tags 
@@ -23,7 +23,7 @@
 이 문서에서는 데이터에서 알고리즘을 효율적으로 학습할 수 있는 Azure의 SQL Server VM에 저장된 데이터에 대한 기능을 생성하는 방법을 보여 줍니다. 이렇게 하려면 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하며, 둘 다 여기에서 설명합니다.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP 팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 > [AZURE.NOTE] 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 참조할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 
@@ -121,8 +121,8 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-이제 [Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기](machine-learning-data-science-create-features-blob.md) 항목에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
+이제 [Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기](machine-learning-data-science-create-features-blob.md) 토픽에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016--->

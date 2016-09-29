@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -74,4 +74,4 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
