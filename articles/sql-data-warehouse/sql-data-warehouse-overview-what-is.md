@@ -182,4 +182,4 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 신속하�
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->

@@ -263,4 +263,4 @@ DataLakeStoreUploader는 Data Lake Store에 대한 로컬 파일(또는 폴더) 
 - [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

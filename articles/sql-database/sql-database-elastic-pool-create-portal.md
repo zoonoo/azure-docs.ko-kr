@@ -113,4 +113,4 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 - [C#을 통해 SQL 데이터베이스 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)
 - [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!-----HONumber=AcomDC_0907_2016-->
