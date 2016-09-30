@@ -81,4 +81,4 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!-----HONumber=AcomDC_0622_2016-->

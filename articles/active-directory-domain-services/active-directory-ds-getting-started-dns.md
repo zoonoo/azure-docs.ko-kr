@@ -51,4 +51,4 @@ Azure AD 도메인 서비스를 사용하도록 설정한 가상 네트워크에
 ## 작업 5 - Azure AD 도메인 서비스에 대한 암호 동기화 활성화
 다음 구성 작업은 [Azure AD 도메인 서비스에 대한 암호 동기화를 활성화](active-directory-ds-getting-started-password-sync.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->

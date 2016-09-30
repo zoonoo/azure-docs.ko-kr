@@ -94,4 +94,4 @@
 ## 작업 4 - Azure 가상 네트워크에 대한 DNS 설정 업데이트
 다음 구성 작업은 [Azure 가상 네트워크에 대한 DNS 설정을 업데이트](active-directory-ds-getting-started-dns.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!-----HONumber=AcomDC_0706_2016-->
