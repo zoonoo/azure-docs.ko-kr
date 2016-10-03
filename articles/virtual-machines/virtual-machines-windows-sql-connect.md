@@ -25,7 +25,8 @@
 
 이 항목에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server 인스턴스에 연결하는 방법을 설명합니다. 여기서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 클래식의 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+클래식 배포 모델. 이 문서의 클래식 버전을 보려면 [Azure 클래식의 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
 
 프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 

@@ -688,7 +688,9 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 ### 참조
 
-• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+• [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png

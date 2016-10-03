@@ -83,7 +83,7 @@
 
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 

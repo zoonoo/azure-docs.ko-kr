@@ -554,10 +554,10 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
-Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
+Windows Server(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Windows 서버에 수동으로 설치
@@ -643,7 +643,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 
 1. **2단계: 응용 프로그램 복제** > **소스**를 클릭합니다. 처음으로 복제를 활성화한 후 자격 증명 모음에서 **+복제**를 클릭하여 추가 컴퓨터에 대해 복제를 활성화합니다.
 2. **소스** 블레이드 > **소스**에서 구성 서버를 선택합니다.
-3. **컴퓨터 형식**에서 **가상 컴퓨터** 또는 **실제 컴퓨터**를 선택합니다.
+3. **컴퓨터 형식** 에서 **가상 컴퓨터** 또는 **실제 컴퓨터** 를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다. 이 설정은 물리적 컴퓨터를 복제하는 경우에는 관련이 없습니다.
 5. 프로세스 서버를 선택합니다. 추가 프로세스 서버를 만들지 않은 경우 이 프로세스 서버가 구성 서버의 이름이 됩니다. 그런 후 **OK**를 클릭합니다.
 
@@ -768,7 +768,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 2. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).
 
 3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
-4. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **사이트 복구 작업**의 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
+4. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **사이트 복구 작업** 의 **테스트 장애 조치(failover)** 에서 진행률을 추적할 수 있습니다.
 5. 장애 조치(failover)가 **테스트 완료** 상태에 도달하면 다음 작업을 수행합니다.
 
 	1. Azure 포털에서 복제본 가상 컴퓨터를 봅니다. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
@@ -792,7 +792,9 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 다음과 같이 Site Recovery 배포의 구성 설정 및 상태를 모니터링할 수 있습니다.
 
-1. 자격 증명 모음 이름을 클릭하여 **Essentials** 대시보드에 액세스합니다. 이 대시보드에서 Site Recovery 작업, 복제 상태, 복구 계획, 서버 상태 및 이벤트를 모니터링할 수 있습니다. 다른 Site Recovery 및 백업 자격 증명 모음의 상태를 포함하여 가장 유용한 타일과 레이아웃을 표시하도록 Essentials를 사용자 지정할 수 있습니다.<br> ![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
+1. 자격 증명 모음 이름을 클릭하여 **Essentials** 대시보드에 액세스합니다. 이 대시보드에서 Site Recovery 작업, 복제 상태, 복구 계획, 서버 상태 및 이벤트를 모니터링할 수 있습니다. 다른 Site Recovery 및 백업 자격 증명 모음의 상태를 포함하여 가장 유용한 타일과 레이아웃을 표시하도록 Essentials를 사용자 지정할 수 있습니다.
+<br>
+![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
 
 2. **상태** 타일에서 문제가 있는 사이트 서버(VMM 또는 구성 서버)와 지난 24시간 동안 사이트 복구에 의해 발생한 이벤트를 모니터링할 수 있습니다.
 3. **복제된 항목**, **복구 계획** 및 **사이트 복구 작업** 타일에서 복제를 관리 및 모니터링할 수 있습니다. **설정** -> **작업** -> **사이트 복구 작업**에서 작업으로 드릴다운할 수 있습니다.

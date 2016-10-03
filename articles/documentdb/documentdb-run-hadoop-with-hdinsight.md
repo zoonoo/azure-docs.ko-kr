@@ -179,7 +179,7 @@
 
     > [AZURE.NOTE] **DocumentDB.inputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
 
-		'*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' A1A</br> The collection names are separated without spaces, using only a single comma.
+		'*DocumentDB.inputCollections*' = '\*<DocumentDB Input Collection Name 1>*,*\<DocumentDB Input Collection Name 2>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -195,7 +195,9 @@
 
 3.  그런 다음 출력 컬렉션에 대한 HIve 테이블을 만듭니다. 출력 문서 속성은 월, 일, 시간, 분 및 총 발생 횟수가 됩니다.
 
-	> [AZURE.NOTE] **하지만 다시 DocumentDB.outputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다. </br></br> 문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
+	> [AZURE.NOTE] **하지만 다시 DocumentDB.outputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> 
+	'*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다. </br></br>
+	문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -273,7 +275,8 @@
 2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Pig 쿼리를 작성합니다.</p>
     <p>먼저 DocumentDB의 문서를 HDInsight에 로드합니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 just _ts 및 _rid로만 정리하려면 DocumentDB 쿼리를 선택적인 DocumentDB 쿼리 매개 변수에 추가해야 합니다.</p>
 
-    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용하여 구분되었습니다. </b>
+    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> 
+    '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용하여 구분되었습니다. </b>
 
 	문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
@@ -293,7 +296,9 @@
 
 4. 끝으로, 결과를 새 출력 컬렉션에 저장합니다.
 
-    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br> 문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
+    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
+    '\<DocumentDB Output Collection Name 1\>,\<DocumentDB Output Collection Name 2\>'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br>
+    문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +

@@ -97,7 +97,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 여기에서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../storage/storage-use-azcopy.md) 지침을 따릅니다.
 
-1. 명령 프롬프트 창에서 *<path\_to\_data\_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
+1. 명령 프롬프트 창에서 *<path_to_data_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
 
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -142,7 +142,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\\temp & #92;***에 다운로드합니다.
+이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp&#92;***에 다운로드합니다.
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
@@ -794,7 +794,9 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 ## 참조
 
-• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+•	[Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
