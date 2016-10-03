@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -37,14 +37,14 @@
 
     ![Azure 포털 스트리밍 작업 시작 시간](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)
 
-3.	선택을 확인합니다. 작업 상태가 *시작 중* 으로 변경되었다가 작업이 시작되면 곧 *실행 중* 으로 변경됩니다. **알림 허브**에서 **시작** 작업의 진행률을 모니터링할 수 있습니다.
+3.	선택을 확인합니다. 작업 상태가 *시작 중*으로 변경되었다가 작업이 시작되면 곧 *실행 중*으로 변경됩니다. **알림 허브**에서 **시작** 작업의 진행률을 모니터링할 수 있습니다.
 
     ![스트림 작업 진행률](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
 
     ![Azure 포털 스트리밍 작업 진행률](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 
@@ -54,4 +54,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->
