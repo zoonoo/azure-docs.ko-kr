@@ -114,7 +114,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 - 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
-> [AZURE.NOTE] [Migration of networks]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of networks](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
 
 
 ### Azure 저장소 계정 설정
@@ -123,7 +123,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 - 시작하기 전에 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
-> [AZURE.NOTE] [Migration of storage accounts]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of storage accounts](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
 
 ### VMM 서버 준비
 

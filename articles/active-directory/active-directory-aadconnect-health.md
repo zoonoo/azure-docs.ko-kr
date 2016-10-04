@@ -44,7 +44,7 @@ AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.
 
 다음 비디오는 AD FS에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
->[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [동기화에 대한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 
