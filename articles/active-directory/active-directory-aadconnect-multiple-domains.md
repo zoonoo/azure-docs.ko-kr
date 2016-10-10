@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -153,4 +153,4 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings - DomainName
 ![클레임 바꾸기](./media/active-directory-multiple-domains/sub2.png)
 5.	확인을 클릭합니다. 적용을 클릭합니다. 확인을 클릭합니다. AD FS 관리를 닫습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

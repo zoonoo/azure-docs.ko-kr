@@ -20,10 +20,13 @@
 
 v2.0 끝점에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱 및 Web API에 빠르게 추가할 수 있습니다. 여기서는 Microsoft OWIN 미들웨어를 활용하여 OpenID Connect로 사용자를 로그인하는 MVC 웹앱을 만듭니다. 이 웹앱은 OAuth 2.0에서 보호 된 웹 API에 대한 OAuth 2.0 액세스 토큰을 가져와서 지정된 사용자의 “할 일 목록"을 만들고, 읽고, 삭제할 수 있도록 합니다.
 
-> [AZURE.NOTE]
-	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> [AZURE.WARNING]
+	현재 이 자습서에서는 지원되지 않는 오래된 클라이언트 라이브러리인 `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory`(ADAL Experimental)을 사용합니다. 이 자습서를 `Microsoft.Identity.Client` 미리 보기 라이브러리(MSAL)로 업데이트하는 작업을 진행 중입니다. 그 동안에는 이 자습서에서 ADAL Experimental 대신 MSAL을 사용하는 것이 좋습니다. 클라이언트 라이브러리를 선택하는 옵션에 대한 자세한 내용은 [제한 사항 문서](active-directory-v2-limitations.md)에 제공됩니다.
 
 이 자습서에서는 주로 ADAL을 사용하여 웹앱에서 액세스 토큰을 가져오고 사용하는 방법에 중점을 두며 [여기](active-directory-v2-flows.md#web-apps)서 자세히 설명합니다. 필수 조건으로 먼저 [웹앱에 기본 로그인을 추가](active-directory-v2-devquickstarts-dotnet-web.md)하는 방법 또는 [Web API 보안을 적절하게 유지](active-directory-v2-devquickstarts-dotnet-api.md)하는 방법을 알아보는 것이 좋습니다.
+
+> [AZURE.NOTE]
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
 ## 샘플 코드 다운로드
 
@@ -194,11 +197,11 @@ catch (AdalException ee)
 ## 다음 단계
 
 추가 리소스는 다음을 확인해보세요.
-- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
+- [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
 ## 당사 제품에 대한 보안 업데이트 가져오기
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

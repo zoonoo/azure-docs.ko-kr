@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # 클래식 배포 모델에서 Windows 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법
@@ -27,4 +27,4 @@
 
 클래식 배포에 대한 추가 문서는 [클래식 배포 모델의 Windows VM에 대한 기술 문서](virtual-machines-windows-index.md)를 참조합니다.
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,53 +13,87 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/06/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jackma"/>
 
 # Azure VM에서 Azure 검색 인덱서로부터 SQL Server로의 연결 구성
 
-[인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md#frequently-asked-questions)에 설명된 것처럼 Azure 검색에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 두 가지 보안 관련 필수 구성 요소에 유의해야 합니다.
+[인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md#frequently-asked-questions)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+**작업 기간:** 약 30분, VM에 인증서를 이미 설치했다고 가정합니다.
 
 ## 암호화 연결 사용
 
-Azure 검색에는 데이터베이스에서 데이터를 읽기 위해 보안 연결이 필요합니다. 즉, SSL 인증서를 구성하여 SQL Azure VM에서 암호화된 연결을 사용하도록 설정해야 합니다.
+Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 대한 암호화된 채널이 필요합니다. 이 섹션에는 작동하도록 하는 단계가 나열되어 있습니다.
 
-SQL Server에 대한 암호화된 연결을 사용하도록 설정하는 단계는 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192.aspx)에 설명되어 있지만 Azure 검색에서 SQL Azure VM으로의 연결과 같은 공용 인터넷 연결의 경우에는 몇 가지 추가 요구 사항이 필요합니다.
+1. 인증서의 속성을 확인하여 주체 이름이 Azure VM의 정규화된 도메인 이름(FQDN)인지 확인합니다. 속성을 보기 위해 CertUtils 또는 인증서 스냅인과 같은 도구를 사용할 수 있습니다. VM 서비스 블레이드의 필수 패키지 섹션, **공용 IP 주소/DNS 이름 레이블** 필드, [Azure 포털](https://portal.azure.com/)에서 FQDN을 가져올 수 있습니다.
 
-### SSL 인증서에 FQDN 지정
+    - 최신 **Resource Manager** 템플릿을 사용하여 만든 VM의 경우 FQDN 형식은 `<your-VM-name>.<region>.cloudapp.azure.com`과 같습니다.
 
-SSL 인증서의 주체 이름은 SQL Azure VM의 정규화된 도메인 이름(또는 **FQDN**)이어야 합니다. 이 이름은 검색 서비스에서 데이터 원본을 만들 때 데이터베이스 연결에 지정하는 것과 동일한 FQDN입니다. FQDN 형식은 **Resource Manager** VM에 대해 `<your-VM-name>.<region>.cloudapp.azure.com`으로 지정됩니다. 여전히 **클래식** VM에서 작업하는 경우 `<your-cloud-service-name.cloudapp.net>`으로 형식이 지정됩니다. [Azure 포털](https://portal.azure.com/)에서 DNS 이름/레이블로 지정된 SQL Azure VM의 FQDN을 찾을 수 있습니다.
+    - **클래식** VM으로 만든 이전 VM의 경우 FQDN 형식은 `<your-cloud-service-name.cloudapp.net>`과 같습니다.
 
-### REGEDIT을 사용하여 SSL 인증서 구성
+2. 레지스트리 편집기(regedit)를 사용하여 인증서를 사용하도록 SQL Server를 구성합니다.
 
-SQL Server 구성 관리자는 설명서에 지정된 것처럼 **인증서** 드롭다운에 FQDN SSL 인증서를 표시할 수 없습니다. 해결 방법은 다음 레지스트리 키를 편집하여 SSL 인증서를 구성하는 것입니다. **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server[MSSQL13.MSSQLSERVER]\\MSSQLServer\\SuperSocketNetLib\\Certificate** *[MSSQL13.MSSQLSERVER]* 부분은 SQL Server 버전 및 인스턴스 이름에 따라 다릅니다. 이 키는 SQL Azure VM에 설치된 SSL 인증서의 **지문**으로 업데이트해야 합니다.
+    이 작업에는 보통 SQL Server 구성 관리자가 사용되지만 이 시나리오에 대해서는 사용할 수 없습니다. Azure에서 VM의 FQDN이 VM에서 결정한 것과 일치하지 않으므로 가져온 인증서를 찾지 못합니다(로컬 컴퓨터 또는 가입된 네트워크 도메인으로 도메인 식별). 이름이 일치하지 않는 경우 regedit를 사용하여 인증서를 지정합니다.
 
-### 서비스 계정에 권한 부여
+    - regedit에서 다음 레지스트리 키를 찾습니다. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+     
+    `[MSSQL13.MSSQLSERVER]` 부분은 버전 및 인스턴스 이름에 따라 다릅니다.
 
-SQL Server 서비스 계정에 SSL 인증서의 개인 키에 대한 적절한 권한이 부여되었는지 확인합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다.
+    - **인증서** 키의 값을 VM으로 가져온 SSL 인증서의 **지문**으로 설정합니다.
 
-## Azure 검색에서의 연결을 허용하도록 방화벽 구성
+    지문을 가져오는 방법에는 여러 가지가 있으며 여기에는 보다 나은 방법이 있습니다. MMC의 **인증서** 스냅인에서 복사하는 경우 [이 지원 문서에 설명된 대로](https://support.microsoft.com/kb/2023869/) 보이지 않는 선행 문자를 선택할 가능성이 있으며 이로 인해 연결을 시도할 때 오류가 발생합니다. 이 문제를 해결하기 위한 여러 가지 해결 방법이 존재합니다. 가장 쉬운 방법은 백스페이스 키로 덮은 후 지문의 첫 문자를 다시 입력하여 regedit의 키 값 필드에서 선행 문자를 제거하는 것입니다. 또는 다른 도구를 사용하여 지문을 복사할 수 있습니다.
 
-다른 대상에서 Azure VM에 액세스할 수 있게 하기 위해 방화벽 및 해당 Azure 끝점 또는 ACL(액세스 제어 목록)을 구성하는 것은 특별하지 않습니다. 이미 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure 검색을 연결하는 것과는 다릅니다. 이 작업을 아직 수행하지 않았으면 다음 보안 방침에 유의하는 것이 좋습니다.
+3. 서비스 계정에 권한을 부여합니다.
 
-**Resource Manager** VM을 사용하는 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-sql-connect.md)을 참조하세요. 아직도 **클래식** VM에 있는 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
+    SQL Server 서비스 계정에 SSL 인증서의 개인 키에 대한 적절한 권한이 부여되었는지 확인합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils**를 사용할 수 있습니다.
 
-### 검색 서비스 IP 주소로 액세스 제한
+4. SQL Server 서비스를 다시 시작합니다.
 
-어떤 배포 모델을 사용하든, Azure 검색에서의 연결을 구성할 때 모든 연결 요청에 대해 SQL Azure VM이 연결되도록 허용하는 대신, ACL에 포함된 검색 서비스의 IP 주소로 액세스를 제한하는 것이 좋습니다. 검색 서비스의 FQDN(예: `<your-search-service-name>.search.windows.net`)을 ping하여 IP 주소를 쉽게 찾을 수 있습니다.
+## VM에서 SQL Server 연결을 구성합니다.
 
-### IP 주소 범위 구성
+Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQL Server에 고유한 추가 구성 단계가 있습니다. 아직 수행하지 않은 경우 다음 단계로 이 문서 중 하나를 사용하여 구성을 완료합니다.
 
-검색 서비스에 검색 단위가 하나만 있으면(즉, 하나의 복제본과 하나의 파티션) 라우팅 서비스를 다시 시작하는 동안 IP 주소가 변경될 수 있습니다. 연결 오류를 방지하려면 검색 서비스가 프로비전되는 Azure 지역의 IP 주소 범위를 지정해야 합니다. 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
+- **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-sql-connect.md)을 참조하세요.
 
-### Azure 검색 포털 IP 주소 포함
+- **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
 
-또한 Azure 포털을 사용하여 인덱서를 만드는 경우, 생성 중에 Azure 검색 포털 논리도 SQL Azure VM에 액세스할 수 있어야 합니다. `stamp1.search.ext.azure.com` 및 `stamp2.search.ext.azure.com`ing하여 Azure 검색 포털 IP 주소를 찾을 수 있습니다.
+특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
+
+## NSG(네트워크 보안 그룹) 구성
+
+Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 끝점 또는 ACL(액세스 제어 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure 검색을 연결하는 것과는 다릅니다.
+
+아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 끝점을 ACL로 작성합니다.
+
+> [AZURE.NOTE] 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+
+- **Resource Manager** VM의 경우 [ARM 배포를 위해 NSG를 만드는 방법](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)을 참조하세요.
+
+- **클래식** VM의 경우 [클래식 배포를 위해 NSG를 만드는 방법](../virtual-network/virtual-networks-create-nsg-classic-ps.md)을 참조하세요.
+
+IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용자가 문제와 잠재적인 해결 방법을 인식하고 있는 경우 쉽게 극복할 수 있습니다. 나머지 섹션에서는 ACL에서 IP 주소와 관련된 문제 처리를 위한 권장 사항을 제공합니다.
+
+#### 검색 서비스 IP 주소로 액세스 제한
+
+모든 연결 요청에 대해 SQL Azure VM이 연결되도록 허용하는 대신, ACL에 포함된 검색 서비스의 IP 주소로 액세스를 제한하는 것이 좋습니다. 검색 서비스의 FQDN(예: `<your-search-service-name>.search.windows.net`)을 ping하여 IP 주소를 쉽게 찾을 수 있습니다.
+
+#### IP 주소 변동 관리
+
+검색 서비스에 검색 단위가 하나만 있으면(즉, 하나의 복제본과 하나의 파티션) 라우팅 서비스를 다시 시작하는 동안 IP 주소가 변경되어 검색 서비스 IP 주소를 사용하는 기존 ACL이 무효화됩니다.
+
+후속 연결 오류를 방지하는 한 가지 방법은 Azure Search에서 복제본을 두 개 이상, 파티션을 하나 사용하는 것입니다. 이렇게 하면 비용이 늘어나지만 IP 주소 문제도 해결합니다. Azure Search에서는 검색 단위가 둘 이상인 경우 IP 주소가 변경되지 않습니다.
+
+두 번째 방법은 연결 실패를 허용한 후 NSG에서 ACL을 다시 구성하는 것입니다. 평균적으로 몇 주 간격으로 IP 주소가 변경되는 것을 예상할 수 있습니다. 드물게 제어 인덱싱을 수행하는 고객의 경우 이 방법을 실행할 수 있습니다.
+
+세 번째 실행 가능한(특별히 안전하지 않음) 방법은 검색 서비스가 프로비전되는 Azure 지역의 IP 주소 범위를 지정하는 것입니다. 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
+
+#### Azure 검색 포털 IP 주소 포함
+
+Azure 포털을 사용하여 인덱서를 만드는 경우, 생성 중에 Azure Search 포털 논리도 SQL Azure VM에 액세스할 수 있어야 합니다. `stamp2.search.ext.azure.com`을 ping하여 Azure Search 포털 IP 주소를 찾을 수 있습니다.
 
 ## 다음 단계
 
-위의 구성 요구 사항이 해결되면 이제 Azure VM의 SQL Server를 Azure 검색 인덱서에 대한 데이터 원본으로 지정할 수 있습니다. 자세한 내용은 [인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)을 참조하세요.
+구성이 해결되면 이제 Azure VM의 SQL Server를 Azure Search 인덱서에 대한 데이터 원본으로 지정할 수 있습니다. 자세한 내용은 [인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

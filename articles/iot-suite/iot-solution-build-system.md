@@ -79,7 +79,7 @@ Xamarin, Git, 에뮬레이터 및 기타 유용한 구성 요소가 Visual Studi
 
 -   [Azure 서비스 패브릭 SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). [마이크로 서비스](../service-fabric/service-fabric-get-started.md) 확장을 빌드하는 데 필요합니다.
 
-또한 올바른 Visual Studio 확장을 가졌는지 확인합니다. **도구** 아래를 확인해 보면 **Android, iOS, Xamarin…**이 표시됩니다. 표시되지 않은 경우 제어판을 열고 **프로그램 및 기능** > **Microsoft** > **Visual Studio 2015** > **수정**을 선택합니다. **플랫폼 간 개발** 아래에서 **C#/.Net(Xamarin)**을 선택합니다. 여기에 있는 동안 **GitHub**가 설치되어 있는지 확인하세요.
+또한 올바른 Visual Studio 확장을 가졌는지 확인합니다. **도구** 아래를 확인해 보면 **Android, iOS, Xamarin…**이 표시됩니다. 표시되지 않은 경우 제어판을 열고 **프로그램 및 기능** > **Microsoft** > **Visual Studio 2015** > **수정**을 선택합니다. **플랫폼 간 개발** 아래에서 **C#/.Net(Xamarin)**을 선택합니다. 여기에 있는 동안 **Windows용 Git**가 설치되어 있는지 확인하세요.
 
 ### Mac 개발 컴퓨터
 
@@ -462,4 +462,4 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 시스템 및 해당 구성 요소의 설계에 대한 포괄적인 설명을 제공하는 [MyDriving 참조 설명서](http://aka.ms/mydrivingdocs)를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

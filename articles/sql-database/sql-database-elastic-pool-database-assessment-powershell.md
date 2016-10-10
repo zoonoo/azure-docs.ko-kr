@@ -1,5 +1,5 @@
 <properties
-	pageTitle="풀에 적합한 단일 데이터베이스를 식별하는 Powershell 스크립트"
+	pageTitle="풀에 적합한 단일 데이터베이스를 식별하는 Powershell 스크립트 | Microsoft Azure"
 	description="탄력적 데이터베이스 풀은 탄력적 데이터베이스 그룹에서 공유하는 가용 리소스의 컬렉션입니다. 이 문서는 탄력적 데이터베이스 풀을 사용하여 데이터베이스의 그룹에 대한 적합성을 평가하는데 유용한 Powershell 스크립트를 제공합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,7 +28,7 @@
 
 스크립트를 실행 하기 전에 다음을 설치 합니다.:
 
-- 최신 [PowerShell 명령줄 도구](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
+- 최신 Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 - [SQL Server 2014 기능 팩](https://www.microsoft.com/download/details.aspx?id=42295)
 
 ### 스크립트 세부 정보
@@ -266,4 +266,4 @@
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

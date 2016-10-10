@@ -18,7 +18,7 @@
    
 # Daxko/CSI에서 Azure를 사용하여 개발 주기를 가속화하고 고객 서비스 및 성능 개선
 
-![로고](./media/sql-database-case-study-daxko/csidaxkologo25.png)
+![Daxko/CSI 로고](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI Software는 한 가지 문제에 직면해 있습니다. 이 기업에서는 포괄적인 엔터프라이즈 소프트웨어 솔루션의 성공 덕분에 피트니스 및 레크리에이션 센터의 고객 기반이 빠르게 증가하고 있지만 증가하는 고객 기반의 IT 인프라 요구를 충족하기 위해 회사의 IT 직원을 테스트하고 있습니다. 이 회사는 특히 증가하는 데이터베이스 관리를 위한 운영 오버헤드 증가로 압박을 받고 있습니다. 더 나쁜 점은 운영 오버헤드 때문에 새 이니셔티브(예: 회사 소프트웨어에 대한 새로운 모바일 기능)를 위한 개발 리소스가 감소하고 있다는 것이었습니다.
 
@@ -75,7 +75,7 @@ SpectrumNG에서는 웹 역할을 사용합니다. 응용 프로그램이 다중
 해당 서비스의 웹 계층의 경우, CSI Software는 날짜 및 시간에 따라 Azure 자동 크기 조정을 활용합니다. 사용 가능한 리소스는 각 지역 데이터 센터의 표준 시간대에 따라 업무 시간 동안 더 높은 사용량에 맞게 자동으로 증가됩니다. 고객의 요구가 감소하면 주말에 리소스 규모를 줄이도록 설정됩니다.
 
      
-![그림 1에서는](./media/sql-database-case-study-daxko/figure1.png)
+![Daxko/CSI 아키텍처](./media/sql-database-implementation-daxko/figure1.png)
 
 그림 1. 클라우드 서비스 작업자 역할은 Azure SQL 데이터베이스에서 구조화된 데이터를 가져오고, 테이블 저장소에서 반구조화된 데이터를 가져옵니다. SpectrumNG 사용자는 클라우드 데이터 서비스 웹 역할을 통해 해당 데이터와 상호 작용합니다.
 
@@ -105,4 +105,4 @@ Azure SQL 데이터베이스는 빠르고 안정적인 서비스를 즐기는 Sp
 
 - 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

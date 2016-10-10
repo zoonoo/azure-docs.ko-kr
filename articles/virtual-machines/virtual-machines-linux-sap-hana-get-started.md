@@ -158,7 +158,7 @@ VM을 만들기 위한 샘플 JSON 템플릿은 [여기](https://github.com/Azur
 SAP HANA에는 표준 Azure 갤러리 이미지의 일부가 아니어서 수동으로 설정해야 하는 특정 Linux 커널 설정이 필요합니다. 설정을 설명하는 특정 SAP Note가 있습니다.
 
 
-SAP Note SAP HANA DB: SLES 12/SLE for SAP Applications 12를 위한 권장 운영 체제 설정: [SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
+SAP Note SAP HANA DB: SLES 12/SLES for SAP Applications 12를 위한 권장 운영 체제 설정: [SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 SLES의 SAP HANA 실행과 관련된 페이지-캐시에 대한 추가 항목은 [여기](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache)(6.1장 Kernel: Page-Cache Limit(커널: 페이지-캐시 제한))를 참조하세요.
 
@@ -484,4 +484,4 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 HANA Studio에서 SA
 
 * SAP Service Marketplace에서 HANA SP12 플랫폼 버전 다운로드: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

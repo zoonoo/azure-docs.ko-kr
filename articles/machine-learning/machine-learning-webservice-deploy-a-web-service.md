@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # 새 웹 서비스 배포
 
-Microsoft Azure 기계 학습은 이제 새 청구 계획 옵션을 허용하고 여러 지역에 웹 서비스를 배포하는 [Azure Resource Manager](../azure-portal/resource-group-overview.md)를 기반으로 하는 웹 서비스를 제공합니다.
+Microsoft Azure Machine Learning은 이제 새 청구 계획 옵션을 허용하고 여러 지역에 웹 서비스를 배포하는 [Azure Resource Manager](../resource-group-overview.md)를 기반으로 하는 웹 서비스를 제공합니다.
 
 Microsoft Azure 기계 학습 웹 서비스를 사용하여 웹 서비스를 배포하는 일반적인 워크플로는 다음과 같습니다.
 
@@ -87,6 +87,13 @@ BES(배치 실행 서비스) 웹 서비스를 테스트하려면 CSV 파일을 �
 
 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [기계 학습 실험에서 배포된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
+## 다음 단계
+
+웹 서비스 사용에 대한 자세한 내용은 다음을 참조하세요.
+
+[Azure 기계 학습 실험에서 배포된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)
+
+[Azure 기계 학습 웹 서비스: 배포 및 사용](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
@@ -94,4 +101,4 @@ BES(배치 실행 서비스) 웹 서비스를 테스트하려면 CSV 파일을 �
 
 <!--links-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

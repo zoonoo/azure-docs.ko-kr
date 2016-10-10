@@ -3,7 +3,7 @@
 	description="DocumentDB, NoSQL 문서 데이터베이스에 대한 데이터 모델링에 대해 알아봅니다." 
 	keywords="데이터 모델링"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #DocumentDB에서 데이터 모델링#
 Azure DocumentDB와 같은 스키마가 없는 데이터베이스에서는 데이터 모델을 매우 쉽게 변경할 수 있지만, 데이터를 고려할 어느 정도의 시간이 필요합니다.
@@ -393,4 +393,4 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

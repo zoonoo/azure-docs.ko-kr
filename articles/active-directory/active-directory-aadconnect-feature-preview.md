@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect: 미리 보기의 기능 | Microsoft Azure"
-   description="이 항목에서는 Azure AD Connect의 미리 보기에 있는 기능을 더 자세하게 설명합니다."
+   description="이 항목에서는 Azure AD Connect에서 미리 보기 상태인 기능을 더 자세하게 설명합니다."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
    ms.author="andkjell;billmath"/>
 
 # 미리 보기 기능에 대한 자세한 내용
-이 항목에서는 현재 미리 보기의 기능을 사용하는 방법에 대해 설명합니다.
+이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.
 
 ## 그룹 쓰기 저장
 선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 **Office 365 그룹**을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 그룹입니다. Exchange 온-프레미스가 있는 경우 이러한 그룹을 온-프레미스에 쓰기 저장하여 온-프레미스 Exchange 사서함이 있는 사용자가 이 그룹에서 메일을 보내고 받을 수 있습니다.
@@ -33,7 +33,7 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 - 현재 단일 포리스트 Exchange 조직 배포만 지원합니다. 둘 이상의 Exchange 조직 온-프레미스가 있는 경우 이러한 그룹을 다른 포리스트에 표시하려면 온-프레미스 GALSync 솔루션이 필요합니다.
 - 그룹 쓰기 저장 기능은 현재 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
 
->[AZURE.NOTE] Azure AD Premium에 대한 구독에는 그룹 쓰기 저장이 필요합니다.
+>[AZURE.NOTE] Azure AD Premium에 대한 구독은 그룹 쓰기 저장에 필요합니다.
 
 ## 사용자 쓰기 저장
 > [AZURE.IMPORTANT] 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
@@ -43,4 +43,4 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

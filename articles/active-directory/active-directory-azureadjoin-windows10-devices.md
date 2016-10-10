@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # 작업 공간에서 Windows 10 장치 사용
@@ -111,7 +111,7 @@ Azure AD 조인하는 방법에 대한 자세한 내용은 [Windows 10 환경에
 
 - Azure AD 구독
 - 더 많은 기능이 필요한 경우 모바일 장치 관리 자동 등록과 같은 Azure AD Premium 구독
-- 모바일 장치 관리 - 예를 들어 Microsoft Intune 구독, Office 365에 대한 모바일 장치 관리 또는 Azure AD와 통합되는 모든 파트너 모바일 장치 관리 공급업체 (자세한 내용은 이 문서의 끝부분에 있는 [FAQ 섹션](#frequently-asked-questions) 참조).
+- 모바일 장치 관리(예: Microsoft Intune 구독, Office 365용 모바일 장치 관리 또는 Azure AD와 통합되는 모든 파트너 모바일 장치 관리 공급업체) (자세한 내용은 이 문서의 끝부분에 있는 [FAQ 섹션](#frequently-asked-questions) 참조).
 
 시설이 하이브리드인 경우 Azure AD에 온-프레미스 디렉터리를 확장하는 Azure AD Connect를 배포하는 것이 좋습니다.
 
@@ -177,4 +177,4 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

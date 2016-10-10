@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="andkjell"/>
 
 
-# Windows Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드
+# Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드
 Azure AD Connect는 온-프레미스 디렉터리를 Azure AD와 Office 365에 연결하는 가장 좋은 방법입니다. 이제 이러한 도구가 사용되지 않으며 2017년 4월 13일에 지원이 종료될 예정이므로 Microsoft Azure Active Directory 동기화(DirSync) 또는 Azure AD Sync에서 Azure AD Connect로 지금 업그레이드하는 것이 좋습니다.
 
 사용 중단되는 이 두 가지 ID 동기화 도구는 단일 포리스트 고객(DirSync)과 다중 포리스트 및 기타 고급 고객(Azure AD Sync)을 위해 제공되었습니다. 이러한 이전 도구는 모든 시나리오에 사용할 수 있는 단일 솔루션(Azure AD Connect)으로 대체되었습니다. 이 도구는 새로운 기능, 향상된 기능 및 새로운 시나리오에 대한 지원을 제공합니다. 온-프레미스 ID 데이터를 Azure AD 및 Office 365로 계속 동기화하려면 Azure AD Connect로 업그레이드하는 것이 좋습니다.
@@ -51,7 +51,7 @@ DirSync에서 Azure AD Connect로 전체 업그레이드를 수행하는 방법�
 ## FAQ
 **Q: Azure 팀에서 메일 알림을 받았거나 Office 365 메시지 센터에서 메시지를 받았지만 Connect를 사용하고 있습니다.** 빌드 번호 1.0.*.0(사전 1.1 릴리스 사용)의 Azure AD Connect를 사용하는 고객에게도 알림을 보냈습니다. 고객은 Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. 1.1에서 [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) 기능은 Azure AD Connect가 항상 최신 버전으로 설치되도록 합니다.
 
-**Q: DirSync/Azure AD Sync의 작동이 2017년 4월 13일에 중지됩니까?** 아니요. Azure AD와 더 이상 통신할 수 없는 날짜는 이후에 발표될 예정입니다. 사용 가능한 경우 이 항목에서 해당 정보를 찾을 수 있습니다.
+**Q: DirSync/Azure AD Sync의 작동이 2017년 4월 13일에 중지됩니까?** 아니요. Azure AD와 더 이상 통신할 수 없는 날짜는 이후에 발표될 예정입니다. 날짜가 정해지면 이 항목에서 해당 정보를 찾을 수 있습니다.
 
 **Q: 어떤 DirSync 버전에서 업그레이드할 수 있나요?** 현재 사용 중인 모든 DirSync 릴리스의 업그레이드를 지원합니다.
 
@@ -61,4 +61,4 @@ DirSync에서 Azure AD Connect로 전체 업그레이드를 수행하는 방법�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

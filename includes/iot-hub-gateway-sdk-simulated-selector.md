@@ -27,7 +27,7 @@
 ![][1]
 
 
-> [AZURE.NOTE] 모듈은 서로에게 직접 메시지를 전달하지 않습니다. 모듈은 아래 다이어그램에 표시된 것과 같은 구독 메커니즘을 사용하여 다른 모듈에게 메시지를 배달하는 내부 메시지 버스에 메시지를 게시합니다. 자세한 내용은 [Gateway SDK 시작][lnk-gw-getstarted]을 참조하세요.
+> [AZURE.NOTE] 모듈은 서로에게 직접 메시지를 전달하지 않습니다. 모듈은 아래 다이어그램에 표시된 것과 같은 구독 메커니즘을 사용하여 다른 모듈에게 메시지를 배달하는 내부 broker에 메시지를 게시합니다. 자세한 내용은 [Gateway SDK 시작][lnk-gw-getstarted]을 참조하세요.
 
 ### 프로토콜 수집 모듈
 
@@ -69,3 +69,4 @@
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
+<!---HONumber=AcomDC_0928_2016-->

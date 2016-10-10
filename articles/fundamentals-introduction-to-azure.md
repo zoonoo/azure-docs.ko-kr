@@ -430,7 +430,7 @@ Windows Server 또는 System Center를 이미 사용하는 경우 Azure 백업�
 
 큐는 간단한 아이디어입니다. 응용 프로그램이 어떤 메시지를 큐에 보내면 다른 응용 프로그램이 그 메시지를 읽습니다. 응용 프로그램에 이처럼 단순한 서비스만 필요하다면 Azure 큐가 가장 적합한 선택이 될 것입니다.
 
-시간 경과에 따라 Azure가 증가하는 방식으로 인해 Azure 저장소 큐 및 서비스 버스 큐는 유사한 큐 서비스를 제공합니다. 서비스 간의 비교 내용은 기술 문서인 [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure 큐 및 서비스 버스 큐 - 비교 및 대조")에서 다루었습니다. 많은 시나리오에서 두 가지 서비스가 모두 작동합니다.
+시간 경과에 따라 Azure가 증가하는 방식으로 인해 Azure 저장소 큐 및 서비스 버스 큐는 유사한 큐 서비스를 제공합니다. 둘 중 하나를 사용하려는 이유는 기술 문서인 [Azure 큐 및 Service Bus 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)에 나와 있습니다. 많은 시나리오에서 두 가지 서비스가 모두 작동합니다.
 
 **큐 시나리오**
 
@@ -606,4 +606,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

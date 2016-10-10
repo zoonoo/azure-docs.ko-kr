@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Azure에서 클래식 Windows 가상 컴퓨터에 끝점을 설정하는 방법
@@ -39,4 +39,4 @@ Azure 클래식 포털에서 Windows 가상 컴퓨터를 만들 때 원격 데�
 
 * 리소스 관리자 배포 모델에서 가상 컴퓨터를 만들면, Azure PowerShell을 사용하여 VM에 대한 트래픽을 제어하는 [네트워크 보안 그룹을 만들 수 있습니다](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

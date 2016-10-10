@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML 프로토콜
 
-이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 알아봅니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 설명합니다.
 
 아래 프로토콜 다이어그램은 Single Sign-On 시퀀스를 설명합니다. 클라우드 서비스(서비스 공급자)는 HTTP 리디렉션 바인딩을 사용하여 `AuthnRequest`(인증 요청) 요소를 Azure AD(ID 공급자)에 전달합니다. 그런 다음 Azure AD는 HTTP post 바인딩을 사용하여 `Response` 요소를 클라우드 서비스에 게시합니다.
 
@@ -163,23 +163,7 @@ Azure AD는 `Issuer` 요소를 `https://login.microsoftonline.com/<TenantIDGUID>
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### 서명
-
-Azure AD는 성공적으로 로그인 시 `Response` 요소를 서명합니다. `Signature` 요소는 응용 프로그램에서 소스를 인증하고 응답의 무결성을 확인하는 데 사용할 수 있는 디지털 서명을 포함합니다.
-
-Azure AD는 메타데이터 문서의 `IDPSSODescriptor` 요소에 지정된 서명 키를 사용합니다. 자세한 내용은 [페더레이션 메타데이터 문서](active-directory-federation-metadata.md)를 참조하세요.
-
-Azure AD는 또한 `Assertion` 요소를 서명하지만 두 Signature 요소는 독립적입니다.
-
-응답에서 샘플 `Signature` 요소는 다음과 같습니다.
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
-```
-
-### 상태
+### 가동 상태
 
 `Status` 요소가 로그온의 성공 여부를 전달합니다. 여기에는 요청 상태를 나타내는 코드 또는 중첩 코드 집합을 포함하는 `StatusCode` 요소가 포함됩니다. 또한 로그온 프로세스 중에 생성된 사용자 지정 오류 메시지를 포함하는 `StatusMessage` 요소도 포함됩니다.
 
@@ -206,7 +190,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### 발급자
 
-`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 <TenantIDGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
+`https://sts.windows.net/<TenantIDGUID>/`로 설정됩니다. 여기서 <TenantIDGUID>는 Azure AD 테넌트의 테넌트 ID입니다.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -216,7 +200,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합니다. `Signature` 요소는 클라우드 서비스에서 소스를 인증하고 어설션의 무결성을 확인하는 데 사용할 수 있는 디지털 서명을 포함합니다.
 
-이 디지털 서명을 생성하기 위해 Azure AD는 메타데이터 문서의 `IDPSSODescriptor` 요소에 서명 키를 사용합니다.
+이 디지털 서명을 생성하기 위해 Azure AD는 해당 메타데이터 문서의 `IDPSSODescriptor` 요소에 서명 키를 사용합니다.
 
 ```
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -303,4 +287,4 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

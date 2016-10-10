@@ -113,7 +113,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
 > [AZURE.NOTE] 이 자습서에서는 단일 분할된 서비스 버스 큐를 사용하여 IoT Hub에서 검색된 모든 대화형 메시지를 처리합니다. 서비스 버스 큐를 사용하여 솔루션의 확장성 요구를 충족하는 방법에 대한 자세한 내용은 [Azure 서비스 버스] 설명서를 참조하세요.
 
 ### Azure 저장소 계정 및 서비스 버스 큐 프로비전
-[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure Storage 정보]의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
+[EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure Storage 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보]의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
 
 > [AZURE.NOTE] 저장소 계정 연결 문자열을 복사하여 붙여 넣는 경우 공백이 없는지 확인합니다.
 
@@ -417,8 +417,8 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [Azure Blob 저장소]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure 데이터 팩터리]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight(Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[Azure 서비스 버스 큐]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[Azure 서비스 버스 큐]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide.md#d2c
 
@@ -435,7 +435,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
-[Azure Storage 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [이벤트 허브 시작]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Azure 저장소 확장성 지침]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
@@ -449,4 +449,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

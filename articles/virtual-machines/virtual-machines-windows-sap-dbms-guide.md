@@ -2,18 +2,18 @@
    pageTitle="Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드 | Microsoft Azure"
    description="Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드"
    services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -1367,4 +1367,4 @@ Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항
 
 또한 [Azure의 SAP용 일반 SQL Server 요약][dbms-guide-5.8] 챕터를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

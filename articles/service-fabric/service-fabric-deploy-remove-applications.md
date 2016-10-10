@@ -18,6 +18,12 @@
 
 # PowerShell을 사용하여 응용 프로그램 배포 및 제거
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+<br/>
+
 일단 [응용 프로그램 형식이 패키지화되면][10] Azure 서비스 패브릭 클러스터에 배포될 준비가 된 것입니다. 배포에는 다음 세 단계가 포함됩니다.
 
 1. 응용 프로그램 패키지 업로드
@@ -239,4 +245,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

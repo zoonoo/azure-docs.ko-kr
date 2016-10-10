@@ -3,7 +3,7 @@
    description="Azure에서 새 Windows 가상 컴퓨터 생성 시 Resource Manager 배포 문제 해결"
    services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>
@@ -45,7 +45,7 @@
 
 **해결 방법**
 
-이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzureRMVhd를 사용하여 원본 VHD를 업로드](https://msdn.microsoft.com/library/mt603554.aspx)합니다(온-프레미스에 있는), 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
+이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzureRmVhd를 사용하여 원본 VHD를 업로드](https://msdn.microsoft.com/library/mt603554.aspx)합니다(온-프레미스에 있는). 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
 
 **캡처 오류:**
 
@@ -57,7 +57,7 @@
 
 이 두 가지 오류를 모두 해결하려면, 현재 이미지를 포털에서 제거하고, OS와 같은 설정(일반화/특수화)으로 [현재 VHD에서 다시 캡처](virtual-machines-windows-capture-image.md)합니다.
 
-## 문제: 사용자 지정/ 갤러리/ 마켓플레이스 이미지; 할당 오류
+## 문제: 사용자 지정/갤러리/마켓플레이스 이미지, 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
 **원인 1:** 클러스터가 요청한 VM 크기를 지원할 수 없습니다.
@@ -82,4 +82,4 @@
 ## 다음 단계
 중지된 Windows VM을 시작하거나 Azure에서 기존 Windows VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](virtual-machines-windows-restart-resize-error-troubleshooting.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

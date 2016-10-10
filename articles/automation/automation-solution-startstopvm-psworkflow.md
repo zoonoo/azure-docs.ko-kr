@@ -87,9 +87,9 @@ Runbook은 각각의 가상 컴퓨터에 대해 시작 또는 중지 명령이 �
 | Start-AzureVMs | 가상 컴퓨터 이미 실행 중 | MyVM 이미 실행 중 |
 | Start-AzureVMs | 가상 컴퓨터에 대한 시작 요청이 성공적으로 제출됨 | MyVM 시작됨 |
 | Start-AzureVMs | 가상 컴퓨터에 대한 시작 요청 실패 | MyVM 시작 실패 |
-| Stop-AzureVMs | 가상 컴퓨터 이미 실행 중 | MyVM 이미 중지됨 |
-| Stop-AzureVMs | 가상 컴퓨터에 대한 시작 요청이 성공적으로 제출됨 | MyVM 시작됨 |
-| Stop-AzureVMs | 가상 컴퓨터에 대한 시작 요청 실패 | MyVM 시작 실패 |
+| Stop-AzureVMs | 가상 컴퓨터가 이미 중지됨 | MyVM 이미 중지됨 |
+| Stop-AzureVMs | 가상 컴퓨터에 대한 중지 요청이 성공적으로 제출됨 | MyVM 중지됨 |
+| Stop-AzureVMs | 가상 컴퓨터에 대한 중지 요청 실패 | MyVM 중지 실패 |
 
 예를 들어 Runbook의 다음 코드 조각은 서비스 이름이 *MyServiceName*인 모든 가상 컴퓨터를 시작하려고 합니다. 실패하는 시작 요청이 있으면 오류 작업에 착수할 수 있습니다.
 
@@ -193,4 +193,4 @@ Runbook과 작업할 가상 컴퓨터를 검색하도록 **Get-AzureVM**이 사�
 - 자식 Runbook으로 작업하는 방법에 대해 자세히 알아보려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 - 문제를 해결하기 위해 Runbook을 실행 및 로깅하는 동안 출력 메시지에 대해 알아보려면 [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

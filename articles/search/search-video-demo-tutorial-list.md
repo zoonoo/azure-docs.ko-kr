@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
+	ms.date="09/22/2016"
 	ms.author="heidist"/>
 
 #Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
@@ -25,18 +25,19 @@
 
 - [**데모 사이트에 대한 코드 샘플: NYC 작업 웹 사이트**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)는 NYC 작업 데이터에 대해 ASP.NET MVC를 사용하여 라이브 데모 Azure 검색 사이트에 대한 소스를 제공합니다.
 
+- [**데모 사이트에 대한 코드 샘플: Tate Art Gallery**](https://github.com/liamca/azure-search-tate-art-gallery/)에서는 아트 갤러리 데이터를 통한 라이브 데모 Azure Search 사이트에 대한 소스를 제공하며 컬렉션 데이터 형식 및 중첩된 데이터 구조, 패싯 및 필터, 사용자 이름 및 미리보기 이미지를 보여줍니다.
+
 - [**.NET 클라이언트 라이브러리에 대한 코드 샘플**](https://github.com/Azure-Samples/search-dotnet-getting-started)은 검색 작업에 .NET 클라이언트 라이브러리를 사용하는 ASP.NET MVC 5 응용 프로그램입니다.
 
 - [**REST API에 대한 코드 샘플**](https://github.com/Azure-Samples/search-rest-api-getting-started)은 REST API를 사용하는 방법을 보여 주는 샘플 코드를 제공합니다.
 
 위의 모든 코드 샘플은 특정 시나리오에서 Azure 검색을 사용하는 방법([**Azure 샘플 > Azure 검색**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search))을 보여 주는 다른 샘플과 함께 Azure 샘플 Github 리포지토리에서 확인할 수 있습니다.
 
-##데모 사이트
+## 온라인 데모 사이트
 
 이러한 사이트는 검색 환경에 대한 Azure 검색을 사용하는 모든 기능을 갖춘 웹 응용 프로그램입니다.
 
 [**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다. 이 앱은 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용합니다. 코드를 수정하여 [Lucene 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 사용할 수 있습니다.
-
 
 [**Azure 검색 데모 사이트**](https://searchsamples.azurewebsites.net/#/)는 Azure 검색 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다.
 
@@ -90,4 +91,4 @@
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

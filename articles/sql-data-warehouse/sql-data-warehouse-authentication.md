@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
+   ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스에 대한 인증
 
 > [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-connect-overview.md)
+- [보안 개요](sql-data-warehouse-overview-manage-security.md)
 - [인증](sql-data-warehouse-authentication.md)
-- [드라이버](sql-data-warehouse-connection-strings.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.
 
@@ -91,4 +92,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Azure AD 기능 및 제한 사항]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

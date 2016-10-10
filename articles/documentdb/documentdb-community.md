@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/12/2016"
+  ms.date="09/26/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -26,7 +26,7 @@
 
 *Larry Maccherone 작성*
 
-DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N 차원 큐브) 및 시계열 변환입니다.
+DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블 및 N 차원 큐브) 및 시계열 변환입니다.
 
 [Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인하세요.
 
@@ -120,8 +120,9 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu와 Tara Jana | 애틀랜타, GA | 2016년 9월 26-30일 | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | 뉴욕, NY | 2016년 9월 26-29일 | [#StrataConf](https://twitter.com/strataconf) |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[발표: Joseph Sirosh와 함께 A.C.I.D의 비합리적인 효과를 사용하여 디지털 변환 활성화](https://myignite.microsoft.com/sessions/34953)<br><br>[세션: 대규모 Azure DocumentDB: Syam Kumar Nair 및 Andrew Liu와 함께 고객 성공 및 디자인 패턴](https://myignite.microsoft.com/sessions/3066)<br><br>[세션: Joshua와 함께 Node.js 및 DocumentDB를 사용하여 IoT 자산 관리](https://myignite.microsoft.com/sessions/39704)<br><br>[세션: Tara Jana 및 Moshe Gutman과 함께 Microsoft Azure 데이터베이스 서비스를 사용하여 더욱 편리하고 확장 가능한 응용 프로그램 구축](https://myignite.microsoft.com/sessions/2633)| Andrew Liu, Syam Kumar Nair 및 Tara Jana | 애틀랜타, GA | 2016년 9월 26-30일 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Ignite 모임: DocumentDB: 대규모 앱에 대한 고급 기능](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Andrew Liu, Syam Kumar Nair | 애틀랜타, GA | 2016년 9월 27일 | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | 부스를 방문하세요! | 뉴욕, NY | 2016년 9월 26-29일 | [#StrataConf](https://twitter.com/strataconf) |
 | [Capital City .NET 사용자 그룹](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | 2016년 11월 3일 | 해당 없음 |
 
 
@@ -137,7 +138,8 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 | [통합 사용자 그룹](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | 웹캐스트 | 2016년 6월 20일 | [Logic Apps에서 오류 처리를 지원하나요?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [모임: 영국 Azure 사용자 그룹](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | 런던, 영국 | 2016년 5월 12일 | 해당 없음
 |[Meetup: ONETUG - Orlando .NET 사용자 그룹 ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| 올랜도, FL| 2016년 5월 12일| 해당 없음 
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | 해당 없음| [모임: NYC .NET 개발자 그룹](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | 뉴욕 시, NY | 2016년 4월 21일 | 해당 없음 |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | 해당 없음| 
+| [모임: NYC .NET 개발자 그룹](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | 뉴욕 시, NY | 2016년 4월 21일 | 해당 없음 |
 | [통합 사용자 그룹](http://www.integrationusergroup.com/#) | Howard Edidin | 웹 세미나 | 2016년 4월 25일 | 해당 없음 |
 | [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 2016년 4월 16일 | 해당 없음 |
 | [Global Azure Bootcamp: 레드몬드](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 2016년 4월 16일 | 해당 없음 |
@@ -269,4 +271,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

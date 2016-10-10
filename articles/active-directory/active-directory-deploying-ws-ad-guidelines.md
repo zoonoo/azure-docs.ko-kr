@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침
@@ -46,9 +46,9 @@ AD 배포에 익숙하지 않은 사용자는 [AD DS 배포 가이드](https://t
 
 ## 관련 리소스
 
-[Azure 가상 컴퓨터 준비 평가](https://www.microsoft.com/download/details.aspx?id=40898)를 다운로드하고 실행할 수 있습니다. 평가는 자동으로 온-프레미스 환경을 검사하고 환경을 Azure로 마이그레이션할 수 있도록 이 항목의 지침에 따라 사용자 지정된 보고서를 생성합니다.
+[Azure 가상 컴퓨터 준비 평가](https://www.microsoft.com/download/details.aspx?id=40898)를 다운로드하고 실행할 수 있습니다. 평가는 환경을 Azure로 마이그레이션할 수 있도록 이 항목의 지침에 따라 자동으로 온-프레미스 환경을 검사하고 사용자 지정된 보고서를 생성합니다.
 
-먼저 다음 주제를 다루는 자습서, 가이드 및 비디오를 검토하는 것이 좋습니다.
+먼저 다음 항목을 설명하는 자습서, 가이드 및 비디오를 검토하는 것이 좋습니다.
 
 - [Azure 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 - [Azure 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
@@ -67,7 +67,7 @@ Azure 가상 컴퓨터를 온-프레미스 회사 네트워크에 다시 연결�
 
 [Azure 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 포함하는 단계별 자습서의 데모 비디오 및 목록은 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)를 참조하세요.
 
-> [AZURE.NOTE] 또한 온-프레미스 네트워크와 연결되지 않은 Azure 가상 네트워크에 Windows Server Active Directory를 배포할 수도 있습니다. 그러나 이 항목의 지침은 Azure 가상 네트워크가 Windows 서버에 필수적인 IP 주소 지정 기능을 제공하기 때문에 사용된다고 가정합니다.
+> [AZURE.NOTE] 또한 온-프레미스 네트워크와 연결되지 않은 Azure 가상 네트워크에 Windows Server Active Directory를 배포할 수도 있습니다. 그러나 이 항목의 지침은 Azure 가상 네트워크가 Windows Server에 필수적인 IP 주소 지정 기능을 제공하기 때문에 사용된다고 가정합니다.
 
 ### 고정 IP 주소는 Azure PowerShell을 통해 구성되어야 합니다.
 
@@ -176,7 +176,7 @@ Azure는 비용이 드는 재해 복구(DR) 사이트에 대한 대체로 적합
 
 이 경우 AD FS를 배포하는 대략적인 단계는 다음과 같습니다.
 
-1. VPN 또는 [Express 경로](http://azure.microsoft.com/services/expressroute/)를 사용하여 [크로스-프레미스 연결로 가상 네트워크](../vpn-gateway/vpn-gateway-cross-premises-options.md)를 만듭니다.
+1. VPN 또는 [ExpressRoute](http://azure.microsoft.com/services/expressroute/)를 사용하여 크로스-프레미스 연결로 가상 네트워크를 만듭니다.
 
 2. 가상 네트워크에 도메인 컨트롤러를 배포합니다. 이 단계는 선택 사항이지만 권장됩니다.
 
@@ -211,7 +211,7 @@ AD FS 서버에 대한 트래픽은 다음 원본을 통해서만 허용됩니�
 
 > [AZURE.WARNING] 디자인은 웹 응용 프로그램 프록시 노드가 Azure 가상 네트워크 또는 온-프레미스 네트워크의 모든 위치에 있는 다른 모든 VM에 연결되지 못하도록 해야 합니다. Express 경로 연결용 온-프레미스 어플라이언스 또는 사이트 간 VPN 연결에 대한 VPN 장치에서 방화벽 규칙을 구성하여 수행할 수 있습니다.
 
-이 옵션의 단점은 내부 부하 분산 장치, AD FS 서버 및 가상 네트워크에 추가하는 기타 서버를 포함하여 여러 장치에 대해 네트워크 ACL을 구성해야 한다는 점입니다. 트래픽을 제한하도록 네트워크 ACL을 구성하지 않고 장치가 배포에 추가된 경우 전체 배포는 위험에 노출될 수 있습니다. 웹 응용 프로그램 프록시 노드의 IP 주소를 변경하는 경우 네트워크 ACL을 다시 설정해야 합니다.(즉, 프록시는 [정적 동적 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)를 사용하도록 구성되어야 합니다.)
+이 옵션의 단점은 내부 부하 분산 장치, AD FS 서버 및 가상 네트워크에 추가하는 기타 서버를 포함하여 여러 장치에 대해 네트워크 ACL을 구성해야 한다는 점입니다. 트래픽을 제한하도록 네트워크 ACL을 구성하지 않고 장치가 배포에 추가된 경우 전체 배포는 위험에 노출될 수 있습니다. 웹 응용 프로그램 프록시 노드의 IP 주소를 변경하는 경우 네트워크 ACL을 다시 설정해야 합니다(즉, 프록시는 [정적 동적 IP 주소](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)를 사용하도록 구성되어야 함).
 
 ![네트워크 ACLS를 사용한 Azure의 ADFS.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
 
@@ -277,7 +277,7 @@ AD FS 서버에 대한 트래픽은 다음 원본을 통해서만 허용됩니�
 
 #### 설명
 
-SharePoint가 Azure 가상 컴퓨터에 배포되고 응용 프로그램은 회사 네트워크 리소스에 의존하지 않습니다. 응용 프로그램은 Windows Server AD DS가 필요하지만 회사 Windows Server AD DS는 필요하지 않습니다. 사용자는 응용 프로그램을 통해 Azure 가상 컴퓨터의 클라우드에서 호스팅되는 Windows Server AD DS 도메인으로 자체 프로비전되기 때문에 Kerberos 또는 페더레이션된 트러스트는 필요하지 않습니다.
+SharePoint가 Azure 가상 컴퓨터에 배포되고 응용 프로그램은 회사 네트워크 리소스에 의존하지 않습니다. 응용 프로그램은 Windows Server AD DS가 필요하지만 회사 Windows Server AD DS는 필요하지 *않습니다*. 사용자는 응용 프로그램을 통해 Azure 가상 컴퓨터의 클라우드에서 호스팅되는 Windows Server AD DS 도메인으로 자체 프로비전되기 때문에 Kerberos 또는 페더레이션된 트러스트는 필요하지 않습니다.
 
 #### 시나리오 고려 사항 및 시나리오에 대한 기술 영역 적용 방법
 
@@ -376,9 +376,9 @@ LDAP 인식 응용 프로그램이 Azure 가상 컴퓨터에 배포됩니다. Wi
 | [읽기 전용 DC](#BKMK_RODC) | 읽기 전용 또는 쓰기 가능 DC를 사용합니까? | <li>HBI/PII 특성 필터링</li> <li>암호 필터링</li> <li>아웃바운드 트래픽 제한</li> |
 | [글로벌 카탈로그](#BKMK_GC) | 글로벌 카탈로그를 설치합니까? | <li>단일 도메인 포리스트의 경우 모든 DC GC 만듦</li> <li>다중 도메인 포리스트의 경우 GC는 인증에 필요</li> |
 | [설치 방법](#BKMK_InstallMethod) | Azure에서 DC를 설치하는 방법은 무엇입니까? | 다음 중 하나입니다. <li>Windows PowerShell 또는 Dcpromo를 사용하여 AD DS 설치</li> <li>온-프레미스 가상 DC의 VHD 이동</li> |
-| [Windows Server AD DS 데이터베이스 및 SYSVOL의 배치](#BKMK_PlaceDB) | Windows Server AD DS 데이터베이스, 로그 및 SYSVOL을 저장하는 위치는 어디입니까? | Dcpromo.exe 기본값을 변경합니다. 이러한 중요한 Active Directory 파일은 쓰기 캐싱을 구현하는 운영 체제 디스크 대신 Azure 데이터 디스크에 배치되어야 합니다. |
+| [Windows Server AD DS 데이터베이스 및 SYSVOL의 배치](#BKMK_PlaceDB) | Windows Server AD DS 데이터베이스, 로그 및 SYSVOL을 저장하는 위치는 어디입니까? | Dcpromo.exe 기본값을 변경합니다. 이러한 중요한 Active Directory 파일은 쓰기 캐싱을 구현하는 운영 체제 디스크 대신 Azure Data Disks에 배치*되어야* 합니다. |
 | [백업 및 복원](#BKMK_BUR) | 데이터를 보호하고 복구하는 방법은 무엇입니까? | 시스템 상태 백업 만들기 |
-| [페더레이션 서버 구성](#BKMK_FedSrvConfig) | <li>클라우드에 페더레이션이 포함된 새 포리스트를 배포합니까?</li> <li>AD FS 온-프레미스를 배포하고 클라우드에서 프록시를 노출합니까?</li> | <li>보안</li> <li>준수</li> <li>비용</li> <li>비즈니스 파트너로 응용 프로그램에 대한 액세스</li> |
+| [페더레이션 서버 구성](#BKMK_FedSrvConfig) | <li>클라우드에 페더레이션이 포함된 새 포리스트를 배포합니까?</li> <li>AD FS 온-프레미스를 배포하고 클라우드에서 프록시를 노출합니까?</li> | <li>보안</li> <li>준수</li> <li>비용</li> <li>비즈니스 파트너가 응용 프로그램에 액세스</li> |
 | [클라우드 서비스 구성](#BKMK_CloudSvcConfig) | 클라우드 서비스는 처음 가상 컴퓨터를 만들 때 암시적으로 배포됩니다. 추가 클라우드 서비스를 배포해야 하나요? | <li>VM에 인터넷에 대한 직접 노출이 필요합니까?</li> <li> 서비스에 부하 분산이 필요합니까?</li> |
 | [공용 및 개인 IP 주소 지정(동적 IP 및 가상 IP)에 대한 페더레이션 서버 요구 사항](#BKMK_FedReqVIPDIP) | <li>Windows Server AD FS 인스턴스가 인터넷에서 직접 연결되어야 합니까?</li> <li>고유한 인터넷 연결 IP 주소 및 포트가 클라우드에서 배포되는 응용 프로그램에 필요합니까?</li> | 배포에 필요한 각 가상 IP 주소에 대한 단일 클라우드 서비스 만들기 |
 | [Windows Server AD FS 고가용성 구성](#BKMK_ADFSHighAvail) | <li>Windows Server AD FS 서버 팜에 있는 노드는 몇 개입니까?</li> <li>Windows Server AD FS 프록시 팜에 배포할 노드는 몇 개입니까?</li> | 복원력 및 내결함성 |
@@ -387,13 +387,13 @@ LDAP 인식 응용 프로그램이 Azure 가상 컴퓨터에 배포됩니다. Wi
 
 IP 주소 일관성과 Windows Server AD DS의 DNS 요구 사항을 충족하기 위해 먼저 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 만들고 가상 컴퓨터를 연결해야 합니다. 만드는 동안 필요에 따라 투명하게 Azure 가상 컴퓨터를 온-프레미스 컴퓨터에 연결하는 온-프레미스 회사 네트워크에 연결을 확장할지 여부를 결정해야 합니다. 이는 기존 VPN 기술을 사용하여 이루어지고 회사 네트워크의 가장자리에 VPN 끝점을 노출해야 합니다. 즉, VPN은 Azure에서 회사 네트워크로 시작되며 반대의 경우는 아닙니다.
 
-각 VM에 적용되는 표준 요금 외 온-프레미스 네트워크에 가상 네트워크를 확장하는 경우 추가 요금이 적용됩니다. 특히 Azure 가상 네트워크 게이트웨이의 CPU 시간 및 VPN을 통해 온-프레미스 컴퓨터와 통신하는 각 VM에서 생성되는 송신 트래픽에 대한 요금이 있습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [Azure 가격 개요](http://azure.microsoft.com/pricing/)를 참조하세요.
+각 VM에 적용되는 표준 요금 외 온-프레미스 네트워크에 가상 네트워크를 확장하는 경우 추가 요금이 적용됩니다. 특히 Azure 가상 네트워크 게이트웨이의 CPU 시간 및 VPN을 통해 온-프레미스 컴퓨터와 통신하는 각 VM에서 생성되는 송신 트래픽에 대한 요금이 있습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [한눈에 보는 Azure 가격 책정](http://azure.microsoft.com/pricing/)을 참조하세요.
 
 ### <a name="BKMK_DeploymentConfig"></a>DC 배포 구성
 
 DC를 구성하는 방법은 Azure에서 실행하려는 서비스에 대한 요구 사항에 따라 달라집니다. 예를 들어 개념 증명 테스트용으로 고유한 회사 포리스트로부터 격리된 새 포리스트, 새 응용 프로그램 또는 내부 회사 리소스에 대한 특정 액세스가 아닌 디렉터리 서비스가 필요한 일부 다른 단기 프로젝트를 배포할 수 있습니다.
 
-이점으로 분리된 포리스트 DC는 직접 비용을 절감하는 시스템 자체에서 생성된 적은 아웃바운드 네트워크 트래픽을 발생하여 온-프레미스 DC와 복제하지 않습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [Azure 가격 개요](http://azure.microsoft.com/pricing/)를 참조하세요.
+이점으로 분리된 포리스트 DC는 직접 비용을 절감하는 시스템 자체에서 생성된 적은 아웃바운드 네트워크 트래픽을 발생하여 온-프레미스 DC와 복제하지 않습니다. 네트워크 트래픽 요금에 대한 자세한 내용은 [한눈에 보는 Azure 가격 책정](http://azure.microsoft.com/pricing/)을 참조하세요.
 
 또 다른 예로 서비스에 대한 개인 정보 보호 요구 사항이 있지만 서비스가 내부 Windows Server Active Directory에 대한 액세스에 따라 달라진다고 가정합니다. 클라우드의 서비스에 대한 데이터를 호스팅할 수 있으면 Azure에서 내부 포리스트에 대해 새 자식 도메인을 배포할 수 있습니다. 이 경우 새 자식 도메인에 대한 DC를 배포할 수 있습니다(개인 정보 보호 문제를 해결하기 위해 글로벌 카탈로그 없이). 이 시나리오에서는 복제본 DC 배포와 함께 온-프레미스 DC와 연결하기 위한 가상 네트워크가 필요합니다.
 
@@ -413,7 +413,7 @@ DC를 구성하는 방법은 Azure에서 실행하려는 서비스에 대한 요
 
 - 인바운드 트래픽은 무료입니다.
 
-- 아웃바운드 트래픽은 [Azure 가격 개요](http://azure.microsoft.com/pricing/)에 따라 요금이 청구됩니다. 다음과 같이 온-프레미스 사이트와 클라우드 사이트 간의 사이트 링크 속성을 최적화할 수 있습니다.
+- 아웃바운드 트래픽은 [한눈에 보는 Azure 가격 책정](http://azure.microsoft.com/pricing/)에 따라 요금이 청구됩니다. 다음과 같이 온-프레미스 사이트와 클라우드 사이트 간의 사이트 링크 속성을 최적화할 수 있습니다.
 
  - 여러 개의 가상 네트워크를 사용하는 경우 사이트 링크 및 해당 비용을 적절하게 구성하여 Windows Server AD DS가 동일한 수준의 서비스를 무료로 제공할 수 있는 것보다 Azure 사이트에 우선 순위를 두지 못하도록 합니다. BASL(브리지 모든 사이트 링크) 비활성화를 고려할 수도 있습니다(기본으로 활성화됨). 이렇게 하면 직접 연결된 사이트만 서로 복제합니다. 전이적으로 연결된 사이트의 DC는 더 이상 서로 직접 복제할 수는 없지만 공통 사이트 또는 사이트를 통해 복제해야 합니다. 중개 사이트가 어떤 이유로 사용 불가능해진 경우 전이적으로 연결된 사이트의 DC 간 복제는 사이트 간 연결을 사용할 수 있더라도 발생하지 않습니다. 마지막으로 전이적 복제 동작의 섹션이 바람직하게 남아있는 곳에서 온-프레미스, 회사 네트워크 사이트와 같은 적절한 사이트 링크 및 사이트를 포함하는 사이트 링크 브리지를 만듭니다.
 
@@ -440,7 +440,7 @@ Azure 가상 컴퓨터는 기본적으로 "DHCP 임대 주소"로 할당됩니�
 
 VM은 시작 시 또는 이름 변경 내용이 있을 때 자동으로 해당 DNS 이름을 등록합니다.
 
-첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](../powershell-install-configure.md) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)(영문)을 참조하세요.
+첫 번째 VM을 프로비전하고 AD DS를 설치하는 방법을 보여 주는 이 예제 및 다른 예제에 대한 자세한 내용은 [Microsoft Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)를 참조하세요. Windows PowerShell 사용에 대한 자세한 내용은 [Azure PowerShell 설치](../powershell-install-configure.md) 및 [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)을 참조하세요.
 
 ### <a name="BKMK_DistributedDCs"></a>지리적으로 분산된 DC
 
@@ -558,4 +558,4 @@ VM을 인터넷에 직접 노출하거나 인터넷 연결 부하 분산된 응�
 
 > [AZURE.NOTE] Azure에서 Windows Server AD FS 끝점에 대해 부하 분산하려면 동일한 클라우드 서비스에서 Windows Server AD FS 팜의 모든 구성원을 구성하고 HTTP(기본값 80) 및 HTTPS 포트(기본값 443)에 대한 Azure의 부하 분산 기능을 사용합니다. 자세한 내용은 [Azure 부하 분산 장치 프로브](https://msdn.microsoft.com/library/azure/jj151530)를 참조하세요. Windows Server NLB(네트워크 부하 분산)는 Azure에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

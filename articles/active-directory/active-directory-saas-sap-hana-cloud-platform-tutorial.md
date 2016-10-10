@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합
@@ -140,8 +140,8 @@
 
         |어설션 특성| 보안 주체 특성|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------|
-	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|이름|--------------------|--------------------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|성|---| 
 	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 HCP의 응용 프로그램이 개발된 방법에 따라 다릅니다.
@@ -196,4 +196,4 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

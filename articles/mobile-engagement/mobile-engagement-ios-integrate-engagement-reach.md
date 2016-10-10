@@ -101,15 +101,29 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 *이때 응용 프로그램에는 Engagement 프런트 엔드에는 등록된 Apple 푸시 인증서가 포함되어 있어야 합니다.*
 
-해당 인증서가 없는 경우에는 응용 프로그램이 푸시 알림을 받도록 등록해야 합니다. 응용 프로그램 시작 시 다음 줄을 추가합니다. 일반적으로는 `application:didFinishLaunchingWithOptions:`에 이 줄을 추가합니다.
+해당 인증서가 없는 경우에는 응용 프로그램이 푸시 알림을 받도록 등록해야 합니다.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* `User Notification` 프레임워크 가져오기:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* 응용 프로그램 시작 시 다음 줄을 추가합니다. 일반적으로는 `application:didFinishLaunchingWithOptions:`에 이 줄을 추가합니다.
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 그런 다음 Apple 서버에서 반환하는 장치 토큰을 Engagement에 제공해야 합니다. 응용 프로그램 대리자의 `application:didRegisterForRemoteNotificationsWithDeviceToken:` 메서드에서 이 작업을 수행합니다.
 
@@ -486,4 +500,4 @@ SDK에 대리자 호출 전달
 
 	@end
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -23,10 +23,10 @@
 
 Facebook at Work를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- Facebook at Work에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- Facebook at Work에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - Facebook at Work에 액세스가 부여된 사용자에 대한 계정을 자동으로 프로비전할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Facebook at Work에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치에서 계정을 관리할 수 있습니다. 
+- 단일 중앙 위치에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -41,7 +41,7 @@ CS Stars와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 
 ## 갤러리에서 Facebook at Work 추가
@@ -49,7 +49,7 @@ Facebook at Work의 Azure AD 통합을 구성하려면 갤러리의 Facebook at 
 
 **갤러리에서 Facebook at Work를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
 
@@ -80,7 +80,7 @@ Facebook at Work의 Azure AD 통합을 구성하려면 갤러리의 Facebook at 
 
 1.	Azure 클래식 포털에서 Facebook at Work를 추가한 후에 **Single Sign-On 구성**을 클릭합니다.
 
-2.	**앱 URL 구성** 화면에서 사용자가 Facebook at Work 응용 프로그램에 로그인하려는 URL을 입력합니다. Facebook at Work 테넌트 URL입니다.(예: https://example.facebook.com/) 완료되면 **다음**을 클릭합니다.
+2.	**앱 URL 구성** 화면에서 사용자가 Facebook at Work 응용 프로그램에 로그인하려는 URL을 입력합니다. Facebook at Work 테넌트 URL입니다(예: https://example.facebook.com/). 완료되면 **다음**을 클릭합니다.
 
 3.	다른 웹 브라우저 창에서 Facebook at Work 회사 사이트에 관리자로 로그인합니다.
 
@@ -124,4 +124,4 @@ Azure 클래식 포털 창에서 **계정 프로비전 구성**을 클릭하여 
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0928_2016-->

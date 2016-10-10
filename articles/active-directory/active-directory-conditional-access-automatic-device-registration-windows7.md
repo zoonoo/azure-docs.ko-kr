@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="MarkVi"/>
 
 # Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성
 
-IT 관리자는 Windows 7 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다. 이렇게 하려면 System Center Configuration Manager와 같은 소프트웨어 배포 시스템을 사용하여 Windows 7 도메인 가입 장치에 장치 등록 소프트웨어 패키지를 배포해야 합니다. Windows 도메인 가입 장치의 Azure Active Directory 자동 장치 등록에 나열된 필수 조건을 읽고 완료해야 합니다.
+IT 관리자는 Windows 7 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다. 이렇게 하려면 System Center Configuration Manager와 같은 소프트웨어 배포 시스템을 사용하여 Windows 7 도메인 가입 장치에 장치 등록 소프트웨어 패키지를 배포해야 합니다. Windows 도메인 가입 장치의 Azure Active Directory를 사용하여 장치 자동 등록에 나열된 필수 조건을 읽고 완료해야 합니다.
+
+>[AZURE.NOTE]
+ 장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
 ##Windows 7 도메인 가입 장치에 장치 등록 소프트웨어 패키지 설치
 
@@ -60,4 +63,4 @@ Windows 7 컴퓨터의 Windows 이벤트 로그에는 작업 공간 연결과 �
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

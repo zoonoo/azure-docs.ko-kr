@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 미디어 분석으로 얼굴 및 감정 검색"
-	description="이 항목에는 Azure 미디어 분석으로 얼굴 및 감정을 검색하는 방법을 보여 줍니다."
+	pageTitle="Azure Media Analytics로 얼굴 및 감정 감지 | Microsoft Azure"
+	description="이 토픽에는 Azure Media Analytics로 얼굴 및 감정을 감지하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Azure 미디어 분석으로 얼굴 및 감정 검색
@@ -34,7 +34,7 @@
 
 **Azure 미디어 얼굴 탐지기** MP는 현재 미리 보기 상태입니다.
 
-이 항목은 **Azure 미디어 얼굴 탐지기**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
+이 토픽은 **Azure Media Face Detector**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ##얼굴 탐지기 입력 파일
 
@@ -537,4 +537,4 @@ AggregateEmotionIntervalMs|0\.5|1|0\.25
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="미디어 서비스 할당량 및 제한 사항" 
-	description="이 항목은 할당량 및 Microsoft Azure 미디어 서비스와 관련된 제한 사항에 설명 합니다." 
+	pageTitle="Media Services 할당량 및 제한 사항 | Microsoft Azure" 
+	description="이 토픽은 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
 #할당량 및 제한 사항
 
-이 항목은 할당량 및 Microsoft Azure 미디어 서비스와 관련된 제한 사항에 설명 합니다.
+이 토픽은 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다.
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
@@ -32,4 +32,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

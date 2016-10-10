@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Py
 
 ## 커널 및 Spark Magic 설치
 
-이 섹션에서는 Spark Magic, PySpark 및 Spark 커널을 설치한 다음 Azure HDInsight에서 실행되는 Apache Spark 클러스터에 연결하도록 커널을 구성합니다.
-
-1. [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip)에서 Spark Magic의 최신 공개 미리 보기를 다운로드합니다.
-
-2. 디스크의 위치로 다운로드한 파일의 압축을 풉니다. 여기에 나온 지침에서는 이 경로를 `$SPARKMAGIC_PATH`로 지칭합니다.
-
-2. 다음 명령을 실행합니다.
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. 다음 명령을 실행하여 Spark Magic을 설치합니다.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. PySpark 및 Spark 커널을 설치합니다. 다음 명령을 실행합니다.
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침은 GitHub에서 [sparkmagic 설명서](https://github.com/jupyter-incubator/sparkmagic#installation)를 참조하세요.
 
 ## HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic 구성
 
@@ -97,7 +80,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Py
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Py
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

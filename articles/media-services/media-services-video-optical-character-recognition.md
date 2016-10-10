@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
  
 #Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환 
@@ -26,7 +26,7 @@
 
 **Azure 미디어 OCR** 미디어 프로세서는 현재 미리 보기로 제공됩니다.
 
-이 항목은 **Azure 미디어 OCR**에 대한 세부 정보 및 .NET용 미디어 서비스 SDK와 함께 사용하는 방법을 보여 줍니다. 추가 정보 및 예제에 대해서는 [이 블로그](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)를 참조하세요.
+이 토픽은 **Azure Media OCR**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다. 추가 정보 및 예제에 대해서는 [이 블로그](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)를 참조하세요.
 
 ##OCR 입력 파일
 
@@ -99,7 +99,7 @@ Offset|타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항
 width|픽셀 단위의 동영상 너비
 height|픽셀 단위의 동영상 높이
 조각|메타데이터가 청크되는 시간 기반 비디오 청크 배열
-시작|"틱" 단위의 조각 시작 시간
+start|"틱" 단위의 조각 시작 시간
 duration|"틱" 단위의 조각 길이
 interval|지정된 조각 내의 각 이벤트 간격
 events|영역을 포함하는 배열
@@ -350,4 +350,4 @@ lines|지역 내에서 검색된 텍스트의 줄 배열
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

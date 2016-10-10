@@ -19,7 +19,7 @@
 
 # Azure에서 MySQL 데이터베이스 만들기 및 연결
 
-이 가이드에서는 [Azure 포털](https://portal.azure.com)(공급자가 [ClearDB](http://www.cleardb.com/))에서 MySQL 데이터베이스를 만들고 [Azure 앱 서비스](./app-service/app-service-value-prop-what-is.md)에서 실행 중인 PHP 웹앱에서 연결하는 방법을 보여 줍니다.
+이 자습서에서는 [Azure Portal](https://portal.azure.com)(공급자가 [ClearDB](http://www.cleardb.com/))에서 MySQL 데이터베이스를 만들고 [Azure App Service](./app-service/app-service-value-prop-what-is.md)에서 실행 중인 PHP 웹앱에서 연결하는 방법을 보여 줍니다.
 
 > [AZURE.NOTE] [마켓플레이스 앱 템플릿](./app-service-web/app-service-web-create-web-app-from-marketplace.md)의 일부로 MySQL 데이터베이스를 만들 수도 있습니다.
 
@@ -56,19 +56,20 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 
 	배포에 성공하면 다른 팝업을 받게 됩니다. 포털에서 MySQL 데이터베이스 블레이드가 자동으로 열립니다.
 
-## Azure의 PHP 웹앱에서 MySQL 데이터베이스에 연결
+<a name="connect"></a>
+## MySQL 데이터베이스 연결
 
-새 MySQL 데이터베이스에 대한 연결 정보를 보려면 **속성**을 클릭하면 됩니다. **설정** 블레이드가 표시되지 않으면 **설정** > **속성**을 클릭합니다.
+새 MySQL 데이터베이스에 대한 연결 정보를 보려면 웹앱의 블레이드에서 **속성**을 클릭하면 됩니다.
 	
 ![Azure에서 MySQL 데이터베이스 만들기- MySQL 데이터베이스 블레이드](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 이제 모든 웹앱에서 연결 정보를 사용할 수 있습니다. 간단한 PHP 앱에서 연결 정보를 사용하는 방법을 보여 주는 샘플은 [여기](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)에서 사용할 수 있습니다.
 
-### Laravel 웹앱 연결(PHP 시작 자습서에서)
+## Laravel 웹앱 연결(PHP 시작 자습서에서)
 
-방금 [PHP 웹앱 만들기, 구성 및 Azure에 배포](./app-service-web/app-service-web-php-get-started.md) 자습서를 완료했고 [Laravel](https://www.laravel.com/) 웹앱이 Azure에서 실행 중이라고 가정하면 Laravel 앱에 데이터베이스 기능을 쉽게 추가할 수 있습니다. 다음 단계를 따르기만 하면 됩니다.
+방금 [Azure에 PHP 웹앱 만들기, 구성 및 배포](./app-service-web/app-service-web-php-get-started.md) 자습서를 완료했고 [Laravel](https://www.laravel.com/) 웹앱이 Azure에서 실행 중이라고 가정해 보세요. Laravel 앱에 데이터베이스 기능을 쉽게 추가할 수 있습니다. 다음 단계를 따르기만 하면 됩니다.
 
->[AZURE.NOTE] 다음 단계에서는 [PHP 웹앱 만들기, 구성 및 Azure에 배포](./app-service-web/app-service-web-php-get-started.md) 자습서를 완료했다고 가정합니다.
+>[AZURE.NOTE] 다음 단계에서는 [Azure에 PHP 웹앱 만들기, 구성 및 배포](./app-service-web/app-service-web-php-get-started.md) 자습서를 완료했다고 가정합니다.
 
 1. 로컬 개발 환경에서 MySQL 데이터베이스를 가리키도록 Laravel 앱을 구성합니다. 이 작업을 수행하려면 Laravel 앱의 루트 디렉터리에서 `.env`를 열고 MySQL 데이터베이스 옵션을 구성합니다.
 
@@ -139,4 +140,4 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

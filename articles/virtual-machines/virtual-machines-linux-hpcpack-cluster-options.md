@@ -13,16 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/17/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
-# Microsoft HPC Pack을 사용하여 Azure에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션
+# HPC Pack을 사용하여 Azure에서 Linux 워크로드용 HPC 클러스터를 만들고 관리하기 위한 옵션
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 이 문서는 HPC 팩을 사용하여 Linux 워크로드를 실행할 때 사용 가능한 옵션에 대해 살펴봅니다. 또한 [HPC 팩을 사용하여 Windows HPC 워크로드](virtual-machines-windows-hpcpack-cluster-options.md)를 실행할 때 사용 가능한 옵션도 있습니다.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Azure VM에서 HPC Pack 클러스터 실행
 
@@ -52,6 +50,8 @@ ms.service="virtual-machines-linux"
 
 * [Azure에서 HPC Pack 클러스터에 작업 제출](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 
+* [HPC Pack의 작업 관리](https://technet.microsoft.com/library/jj899585.aspx)
+
 
 ## MPI 작업에 대한 RDMA 클러스터 만들기
 
@@ -59,4 +59,4 @@ ms.service="virtual-machines-linux"
 
 * [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다. MongoDB 연결 문자열을 사용하여 연결합니다." 
 	keywords="MongoDB 연결 문자열"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정에 연결하는 방법
 
@@ -84,4 +84,4 @@ DocumentDB가 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

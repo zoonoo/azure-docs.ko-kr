@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
@@ -29,22 +29,22 @@
 
 > [AZURE.IMPORTANT] 이 저장소 계정에 대해서는 표준 요금이 부과됩니다.
 
-사용하도록 설정되었으면 5-10분 이내 데이터가 저장소 계정의 이 두 개의 Blob 컨테이너로 전달되기 시작합니다.
+포털에서 또는 PowerShell을 통해 검색 트래픽 분석을 사용할 수 있습니다. 사용하도록 설정되었으면 5-10분 이내 데이터가 저장소 계정의 이 두 개의 Blob 컨테이너로 전달되기 시작합니다.
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1\. 포털 사용
-[Azure 포털](http://portal.azure.com)에서 Azure 검색 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
+### A. 포털 사용
+[Azure 포털](http://portal.azure.com)에서 Azure Search 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
 
 ![][1]
 
-이 옵션을 선택하면 새 블레이드가 열립니다. 상태를 **On**으로 변경하고 데이터를 복사할 Azure 저장소 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다. 1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있는 옵션이 있습니다. 보존 정책을 적용하지 않고 해당 데이터를 영원히 보존하려는 경우 보존(일)을 0으로 설정하세요.
+상태를 **On**으로 변경하고 사용할 Azure Storage 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다. 1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있습니다. 데이터를 무기한으로 보존하지 않으려는 경우 보존(일)을 0으로 설정하세요.
 
 ![][2]
 
-### 2\. PowerShell 사용
+### B. PowerShell 사용
 
 먼저, 최신 [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases)를 설치했는지 확인합니다.
 
@@ -69,7 +69,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 ### 로그
 
-로그 Blob는 검색 서비스 트래픽 로그를 포함합니다. 각 Blob에는 로그 개체의 배열이 포함된 **레코드**라는 루트 개체 한 개가 있습니다. 각 Blob에는 같은 시간 동안 일어난 모든 작업에 대한 레코드가 있습니다.
+로그 Blob는 검색 서비스 트래픽 로그를 포함합니다. 각 Blob는 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다. 각 Blob에는 같은 시간 중에 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
 ####로그 스키마
 
@@ -83,7 +83,7 @@ operationVersion |string |"2015-02-28"|사용된 api-version
 resultType |string |"Success" |가능한 값: Success 또는 Failure 
 resultSignature |int |200 |HTTP 결과 코드 
 durationMS |int |50 |밀리초 단위의 작업 기간 
-properties |object |아래 참조 |데이터별 작업을 포함하는 개체
+properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체
 
 ####속성 스키마
 
@@ -120,11 +120,11 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 |count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 |timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직|
 
-모든 메트릭은 1 분 간격으로 보고됩니다. 즉, 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
+모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
 
-SearchQueriesPerSecond metric의 경우, 최소값은 해당 분 동안 등록된 초당 검색 쿼리 수에 대한 가장 낮은 값이며, 최대값은 가장 높은 값입니다. 평균은 전체 분에 대한 집계입니다. 이 시나리오에 관한 생각: 1분 동안 부하가 매우 높은 1초가 있을 수 있습니다. 이 부하는 SearchQueriesPerSecond에 대한 최대값이며, 그 후 58초 동안 중간 부하 상태가 계속되다가 최소값인 쿼리 한 개만 있는 1초가 이어집니다.
+SearchQueriesPerSecond 메트릭의 경우, 최소값은 해당 분 동안 등록된 초당 검색 쿼리 수에 대한 가장 낮은 값입니다. 최대값도 마찬가지입니다. 평균은 전체 분에 대한 집계입니다. 1분 동안 이 시나리오에 관한 생각: SearchQueriesPerSecond에 대한 최대값 만큼 부하가 매우 높은 1초가 지난 후 58초 동안 중간 부하 상태가 계속되다가 마지막으로 최소값인 쿼리 한 개만 있는 1초가 이어집니다.
 
-ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은 1분 동안 총 검색 쿼리 수에 기초한 제한된 검색 쿼리의 비율입니다.
+ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은 1분 동안 총 검색 쿼리 수에서 제한된 검색 쿼리의 비율입니다.
 
 ## 데이터 분석
 
@@ -140,7 +140,7 @@ ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/ko-KR/desktop): 데이터를 탐색하고 데이터에 대한 고유의 시각화를 만듭니다. 아래에 도움이 되는 시작 쿼리를 제공합니다.
+[Power BI Desktop](https://powerbi.microsoft.com/ko-KR/desktop): 데이터를 탐색하고 데이터에 대한 고유의 시각화를 만듭니다. 다음 섹션의 시작 쿼리를 참조하세요.
 
 1. 새 PowerBI Desktop 보고서를 엽니다.
 2. 데이터 가져오기 -> 자세히...를 선택합니다.
@@ -228,4 +228,4 @@ ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

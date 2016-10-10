@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱"
-	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서 2 미리 보기를 사용하는 방법을 보여 줍니다."
+	pageTitle="Azure Media Indexer 2 Preview를 사용한 미디어 파일 인덱싱 | Microsoft Azure"
+	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 토픽에서는 Media Indexer 2 Preview를 사용하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
@@ -25,7 +25,7 @@
 
 **Azure 미디어 인덱서 2 미리 보기** MP는 현재 미리 보기 상태입니다.
 
-이 항목에서는 **Azure 미디어 인덱서 2 미리 보기**를 사용하여 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 토픽에서는 **Azure Media Indexer 2 Preview**를 사용하여 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
 >[AZURE.NOTE]고려 사항은 다음과 같습니다.
 >
@@ -36,7 +36,7 @@
 >콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
 
 
-이 항목에서는 **Azure 미디어 인덱서 2 미리 보기**에 대한 세부 정보 및 .NET용 미디어 서비스 SDK와 함께 사용하는 방법을 보여 줍니다.
+이 토픽에서는 **Azure Media Indexer 2 Preview**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ##입력 및 출력 파일
 
@@ -289,4 +289,4 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

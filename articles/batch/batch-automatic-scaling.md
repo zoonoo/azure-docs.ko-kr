@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
@@ -60,99 +60,32 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 이러한 서비스 정의 변수 값을 **가져와서** **설정**하여 풀의 계산 노드 개수를 관리할 수 있습니다.
 
-<table>
-  <tr>
-    <th>읽기-쓰기<br/>서비스 정의 변수</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>해당 풀의 <b>전용 계산 노드</b> <b>대상</b> 수입니다. 풀의 크기를 조정해야 하는 계산 노드 수입니다. 풀이 대상 노드 수에 도달하지 않을 수 있기 때문에 "대상" 숫자입니다. 풀이 최초 목표에 도달하기 전에 대상 노드 수가 후속 자동 크기 조정 평가에 의해 다시 수정될 때 발생할 수 있습니다. 대상 노드 수에 도달하기 전에 도달한 배치 계정 노드나 코어 할당량으로 인해 발생할 수도 있습니다.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은 다음과 같습니다.
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>-–태스크를 즉시 종료하고 일정을 재조정하도록 작업 큐에 다시 배치합니다.</p></li>
-        <li><p><b>terminate</b>–-태스크를 즉시 종료하고 작업 큐에서 제거합니다.</p></li>
-        <li><p><b>taskcompletion</b>-–현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 노드를 제거합니다.</p></li>
-        <li><p><b>retaineddata</b>--노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 노드를 제거합니다.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| 읽기-쓰기 서비스 정의 변수 | 설명 |
+| --- | --- |
+| $TargetDedicated | 해당 풀의 **전용 계산 노드** **대상** 수입니다. 풀의 크기를 조정해야 하는 계산 노드 수입니다. 풀이 대상 노드 수에 도달하지 않을 수 있기 때문에 "대상" 숫자입니다. 풀이 최초 목표에 도달하기 전에 대상 노드 수가 후속 자동 크기 조정 평가에 의해 다시 수정될 때 발생할 수 있습니다. 대상 노드 수에 도달하기 전에 도달한 배치 계정 노드나 코어 할당량으로 인해 발생할 수도 있습니다. |
+| $NodeDeallocationOption | 풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값: <ul><li>**requeue** -- 즉시 작업을 종료하고 재예약을 위해 작업 큐로 되돌립니다.<li>**terminate** -- 즉시 작업을 종료하고 작업 큐에서 제거합니다. <li>**taskcompletion** -- 현재 실행 중인 작업이 완료될 때까지 기다린 다음 풀에서 노드를 제거합니다. <li>**retaineddata** -- 풀에서 노드를 제거하기 전에 노드의 모든 로컬 작업 보존 데이터가 정리될 때까지 기다립니다.</ul> |
 
 이러한 서비스 정의 변수의 값을 **가져와서** 배치 서비스에서 메트릭을 기반으로 조정할 수 있습니다.
 
-<table>
-  <tr>
-    <th>읽기 전용<br/>서비스 정의<br/>변수</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>평균 CPU 사용량 비율.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>사용된 시간(초) 수.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>사용된 평균 메가바이트 수.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>로컬 디스크에서 사용된 평균 기가바이트 수.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>읽은 바이트 수.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>쓴 바이트 수.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>수행된 디스크 읽기 작업 수.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>수행된 디스크 쓰기 작업 수.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>인바운드 바이트 수.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>아웃바운드 바이트 수.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>계산 노드 수.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>활성 상태인 태스크 수.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>실행 중 상태인 태스크 수.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>성공적으로 완료된 태스크 수.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>실패한 태스크 수.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>현재 전용 계산 노드 수.</td>
-  </tr>
-</table>
+| 읽기 전용 서비스 정의 변수 | 설명 |
+| --- | --- |
+| $CPUPercent | 평균 CPU 사용량 비율. |
+| $WallClockSeconds | 사용된 시간(초) 수. |
+| $MemoryBytes | 사용된 평균 메가바이트 수. |
+| $DiskBytes | 로컬 디스크에서 사용된 평균 기가바이트 수. |
+| $DiskReadBytes | 읽은 바이트 수. |
+| $DiskWriteBytes | 쓴 바이트 수. |
+| $DiskReadOps | 수행된 디스크 읽기 작업 수. |
+| $DiskWriteOps | 수행된 디스크 쓰기 작업 수. |
+| $NetworkInBytes | 인바운드 바이트 수. |
+| $NetworkOutBytes | 아웃바운드 바이트 수. |
+| $SampleNodeCount | 계산 노드 수. |
+| $ActiveTasks | 활성 상태인 태스크 수. |
+| $RunningTasks | 실행 중 상태인 태스크 수. |
+| $PendingTasks | $ActiveTasks 및 $RunningTasks의 합입니다. |
+| $SucceededTasks | 성공적으로 완료된 태스크 수. |
+| $FailedTasks | 실패한 태스크 수. |
+| $CurrentDedicated | 현재 전용 계산 노드 수. |
 
 > [AZURE.TIP] 위에 표시된 읽기 전용, 서비스 정의 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체*입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
 
@@ -249,44 +182,13 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>메서드</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p><b>GetSample()</b> 메서드는 데이터 샘플의 벡터를 반환합니다.
-	<p>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>--최근 수집한 샘플에서 가져올 샘플 수를 지정합니다.</p>
-				  <p>GetSample(1)은 마지막 사용 가능한 샘플을 반환합니다. 그러나 $CPUPercent 같은 메트릭의 경우 샘플이 수집된 <em>시기</em>를 알 수 없기 때문에 이를 사용해서는 안 됩니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 그러한 경우 아래에 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>--샘플 데이터를 수집할 시간 프레임을 지정합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em>은 마지막 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 20개의 샘플을 반환합니다. 그러나 내역의 마지막 분을 사용할 수 없으면 샘플 18개만 반환될 것입니다. 이 경우 다음과 같습니다.<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em>는 샘플의 90%만 사용할 수 있으므로 실패할 것입니다.<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em>은 성공할 것입니다.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>--시작 시간과 종료 시간이 모두 포함된 데이터 수집 시간 프레임을 지정합니다.</p></li></ul>
-		  <p>위에서 언급했듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. <em>GetSample</em> 메서드를 사용하는 경우 이러한 문제를 고려해야 합니다. 아래 <em>GetSamplePercent</em>를 참조하세요.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>메트릭 기록에 있는 총 샘플 수를 반환합니다.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>반환된 샘플 비율이 지정된 samplePercent보다 작은 경우 GetSample 메서드가 실패하므로 GetSamplePercent 메서드를 사용하여 샘플을 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다.</p></td>
-  </tr>
-</table>
+| 메서드 | 설명 |
+| --- | --- |
+| GetSample() | `GetSample()` 메서드는 데이터 샘플의 벡터를 반환합니다. <br/><br/>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.<ul><li>`doubleVec GetSample(double count)`<br/>수집된 가장 최근의 샘플에서 구한 샘플 수를 지정합니다.<br/><br/>`GetSample(1)` 마지막으로 사용 가능한 샘플을 반환합니다. 그러나 `$CPUPercent` 같은 메트릭의 경우 샘플이 수집된 *시기* 를 알 수 없기 때문에 이를 사용해서는 안 됩니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 그러한 경우 아래에 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>샘플 데이터 수집 기간을 지정합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` 마지막 10분에 대한 모든 샘플이 CPUPercent 기록에 있으면 20개 샘플을 반환합니다. 그러나 내역의 마지막 분을 사용할 수 없으면 샘플 18개만 반환될 것입니다. 이 경우: <br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 샘플의 90%만 사용할 수 있으므로 실패합니다. <br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 성공합니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/> 시작 시간과 종료 시간을 모두 포함하여 데이터를 수집하는 기간을 지정합니다.<br/><br/> 위에서 언급했듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. `GetSample` 메서드를 사용하는 경우 이러한 문제를 고려해야 합니다. 아래 `GetSamplePercent` 참조|
+| GetSamplePeriod() | 기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
+| Count() | 메트릭 기록에 있는 총 샘플 수를 반환합니다. |
+| HistoryBeginTime() | 메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 먼저 `GetSamplePercent` 메서드를 사용하여 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다.|
 
 ### 샘플, 샘플 비율 및 *GetSample()* 메서드
 
@@ -361,6 +263,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
@@ -611,4 +514,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://msdn.microsoft.com/ko-KR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -52,4 +52,4 @@ RMS 사용 응용 프로그램 사용 현황 | 2시간 | 4시간 | 8시간
 **비공개 미리 보기 보고서** | | |
 모든 사용자 로그인 활동 | 2시간 | 4시간 | 8시간
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

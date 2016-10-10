@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Functions에 대한 연속 배포 | Microsoft Azure"
    description="Azure 앱 서비스의 연속 배포 기능을 사용하여 Azure Functions를 게시합니다."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Azure Functions에 대한 연속 배포 
@@ -48,7 +48,9 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 1. [Azure Functions 포털](https://functions.azure.com/signin)의 함수 앱에서 **함수 앱 설정** > **연속 통합 구성** > **설정**을 클릭합니다.
 
 	![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	**소스 제어에서 시작**을 클릭하여 함수 빠른 시작에서 배포 블레이드로 가져올 수도 있습니다.
 
 2. 배포 블레이드에서 **원본 선택**을 클릭한 다음 선택한 배포 원본에 대한 정보를 입력하고 **확인**을 클릭합니다.
@@ -128,4 +130,4 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

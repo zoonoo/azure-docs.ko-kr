@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure 포털](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [클래식 포털](site-recovery-hyper-v-site-to-azure-classic.md)
 
 이 문서를 참고하여 Hyper-V 호스트가 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되지 않는 경우 Hyper-V 가상 컴퓨터를 Azure에 복제하도록 사이트 복구를 배포하는 방법을 알아봅니다.
@@ -300,4 +300,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

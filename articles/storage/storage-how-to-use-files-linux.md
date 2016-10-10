@@ -13,7 +13,7 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet" />
+      ms.author="minet;robinsh" />
 
 
 # Linux에서 Azure 파일 저장소 사용 방법
@@ -64,7 +64,7 @@ Linux를 실행하는 가상 컴퓨터에서 파일 공유를 탑재하려면 �
 
 또한 다시 부팅 후에 탑재된 파일 공유를 유지하기 위해 /etc/fstab에서 아래와 같은 설정을 추가할 수 있습니다.
 
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
 예를 들어 Azure 이미지 갤러리에서 사용할 수 있는 Linux 이미지 Ubuntu Server 15.04를 사용하여 Azure VM을 만든 경우에는 다음과 같이 파일을 탑재할 수 있습니다.
 
@@ -140,4 +140,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

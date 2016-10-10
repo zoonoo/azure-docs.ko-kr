@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="dineshm;tamram"/>
 
 # 속성 및 메타 데이터 설정 및 검색 #
 
@@ -97,4 +97,4 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [.NET용 Azure 저장소 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

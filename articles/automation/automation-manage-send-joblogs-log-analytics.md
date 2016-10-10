@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/08/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte" />
 
 # 자동화에서 Log Analytics로 작업 상태 및 작업 스트림 전달(OMS)
@@ -77,6 +77,41 @@
 
     지정한 OMS 작업 영역에 대한 저장소 정보가 반환됩니다. 이전에 지정한 자동화 계정에 대한 저장소 정보가 있고 **State** 개체에 **OK** 값이 표시되어 있는지 확인할 수 있습니다.<br> ![Get-AzureRmOperationalInsightsStorageInsights cmdlet의 결과](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
 
+
+## Log Analytics 레코드
+
+Automation은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니다.
+
+### 작업 로그
+
+속성 | 설명|
+----------|----------|
+Time | runbook 작업이 실행된 날짜 및 시간입니다.|
+resourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
+operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 값은 Job입니다.|
+resultType | runbook 작업의 상태입니다. 가능한 값은 <br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded입니다.|
+resultDescription | runbook 작업 결과 상태를 설명합니다. 가능한 값은 <br>- Job is started<br>- Job Failed<br>- Job Completed입니다.|
+CorrelationId | runbook 작업의 상관 관계 ID인 GUID입니다.|
+Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
+RunbookName | runbook의 이름입니다.|
+JobId | runbook 작업의 ID인 GUID입니다.|
+Caller | 작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
+
+### 작업 스트림
+속성 | 설명|
+----------|----------|
+Time | runbook 작업이 실행된 날짜 및 시간입니다.|
+resourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
+operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 값은 Job입니다.|
+resultType | runbook 작업의 상태입니다. 가능한 값은 <br>- InProgress입니다.|
+resultDescription | runbook의 출력 스트림을 포함합니다.|
+CorrelationId | runbook 작업의 상관 관계 ID인 GUID입니다.|
+Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
+RunbookName | runbook의 이름입니다.|
+JobId | runbook 작업의 ID인 GUID입니다.|
+Caller | 작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.| 
+StreamType | 작업 스트림의 유형입니다. 가능한 값은 <br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose입니다.|
+
 ## Log Analytics에서 자동화 로그 보기 
 
 자동화 작업 로그를 Log Analytics로 보내기 시작했으므로 이제 OMS 내에서 이러한 로그로 수행할 수 있는 작업을 살펴보겠습니다.
@@ -114,6 +149,7 @@
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day` <br> ![OMS 기록 작업 상태 차트](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+
 ## 요약
 
 자동화 작업 상태 및 스트림 데이터를 Log Analytics로 보내면, 문제가 있는 경우 알리도록 경고를 설정하고 고급 쿼리를 통해 runbook 결과, runbook 작업 상태 및 기타 관련 주요 지표 또는 메트릭을 시각화하는 사용자 지정 대시보드를 사용하여 자동화 작업의 상태에 대한 향상된 정보를 얻을 수 있습니다. 이는 보다 뛰어난 작업 가시성을 제공하고 문제를 보다 신속하게 해결하는 데 도움이 됩니다.
@@ -126,4 +162,4 @@
 - Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
 - OMS Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

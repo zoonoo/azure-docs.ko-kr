@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 배포 시나리오 | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Azure"
 	description="Azure AD 도메인 서비스용 배포 시나리오"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
@@ -88,6 +88,6 @@ Azure RemoteApp을 통해 Contoso의 관리자는 도메인에 가입된 컬렉�
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
-이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서 [Azure RemoteApp 및 Azure AD 도메인 서비스로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
+이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서인 [Azure RemoteApp 및 Azure AD Domain Services로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

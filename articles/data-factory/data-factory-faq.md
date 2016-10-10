@@ -69,6 +69,17 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 
 ![데이터 팩터리 이동](media/data-factory-faq/move-data-factory.png)
 
+### Data Factory에서 지원하는 컴퓨팅 환경은 무엇입니까?
+다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다.
+
+| 컴퓨팅 환경 | 작업 |
+| ------------------- | -------- | 
+| [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) | 
+| [Azure 배치](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Azure 기계 학습](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Machine Learning 작업: 배치 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure 데이터 레이크 분석](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL 데이터 웨어하우스](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [저장 프로시저](data-factory-stored-proc-activity.md)
+
 ## 작업 - FAQ
 ### Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요? 
 
@@ -82,8 +93,13 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### 여러 작업이 포함된 파이프라인 1개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요? 
 파이프라인은 관련 작업의 번들로 간주됩니다. 작업을 연결하는 데이터 집합이 파이프라인 외의 다른 작업에서 사용되지 않는 경우 파이프라인 하나에 작업을 유지할 수 있습니다. 이 경우 서로 정렬되도록 파이프라인 활성 기간을 연결할 필요가 없습니다. 또한 파이프라인을 업데이트할 때 파이프라인 내부 테이블의 데이터 무결성이 보다 완벽하게 유지됩니다. 파이프라인 업데이트는 기본적으로 파이프라인 내의 모든 작업을 중지하고 제거한 후 다시 만듭니다. 제작 관점에서는 파이프라인에 대한 하나의 JSON 파일에서 관련 작업 내의 데이터 흐름을 확인하는 것이 더 쉬울 수도 있습니다.
 
-### 복사 작업을 어디서 수행하나요? 
+### 지원되는 데이터 저장소는 무엇입니까?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### 지원되는 파일 형식은 무엇입니까? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### 복사 작업을 어디서 수행하나요? 
 자세한 내용은 [전역적으로 사용 가능한 데이터 이동](data-factory-data-movement-activities.md#global) 섹션을 참조하세요. 즉, 온-프레미스 데이터 저장소가 관련된 경우 온-프레미스 환경의 데이터 관리 게이트웨이에서 복사 작업을 수행합니다. 그리고 두 클라우드 저장소 간에 데이터를 이동하는 경우 같은 지리의 싱크 위치에 가장 가까운 지역에서 복사 작업을 수행합니다.
 
 
@@ -192,4 +208,4 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

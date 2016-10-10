@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기"
+	pageTitle="Azure Media Video Thumbnails를 사용하여 비디오 요약 만들기 | Microsoft Azure"
 	description="비디오 요약을 사용하면 원본 비디오에서 흥미로운 조각을 자동으로 선택하여 긴 비디오의 요약을 만들 수 있습니다. 이는 긴 비디오에서 예상되는 사항에 대한 빠른 개요를 제공하려는 경우에 유용합니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
@@ -23,7 +23,7 @@
 
 **Azure 미디어 비디오 미리 보기** MP는 현재 미리 보기 상태입니다.
 
-이 항목에서는 **Azure 미디어 비디오 미리 보기**에 대한 세부 정보 및 .NET용 미디어 서비스 SDK와 함께 사용하는 방법을 보여 줍니다.
+이 토픽에서는 **Azure Media Video Thumbnails**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ##비디오 요약 예제 
 
@@ -273,4 +273,4 @@ maxMotionThumbnailDurationInSecs|전체 결과 비디오의 길이를 지정하�
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

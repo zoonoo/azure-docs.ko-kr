@@ -117,10 +117,12 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 ### **nodeTypes**
 **nodeTypes** 섹션에서는 클러스터가 갖는 노드 형식에 대해 설명합니다. 아래 코드 조각처럼 클러스터에 대해 노드 형식을 하나 이상 지정해야 합니다.
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
         "isPrimary": true
     }]
 
-**name**은 이 특정 노드 형식의 이름입니다. 이 노드 형식의 노드를 만들려면 위의 [클러스터의 노드](#clusternodes) 섹션에서 설명한 것처럼 이 노드 형식에 대한 이름을 해당 노드의 **nodeTypeRef** 변수에 할당해야 합니다. 각 노드 형식에 대해 이 클러스터에 연결하기 위한 다양한 끝점을 정의할 수 있습니다. 이 클러스터의 다른 끝점과 충돌하지 않는 한, 이러한 연결 끝점에 대해 어떤 포트 번호도 선택할 수 있습니다. 여러 노드 형식을 포함한 클러스터의 경우 **isPrimary**가 *true*로 설정된 하나의 주 노드 형식이 있습니다. 나머지 노드의 **isPrimary**는 *false*로 설정됩니다. 클러스터 용량에 따른 **nodeTypes** 및 **reliabilityLevel** 값에 대한 자세한 내용을 보고 주 노드 형식 및 주 노드가 아닌 다른 노드 형식 간의 차이점을 이해하려면 [Service Fabric 클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 읽어보세요.
+**name**은 이 특정 노드 형식의 이름입니다. 이 노드 형식의 노드를 만들려면 위의 [클러스터의 노드](#clusternodes) 섹션에서 설명한 것처럼 이 노드 형식에 대한 이름을 해당 노드의 **nodeTypeRef** 변수에 할당해야 합니다. 각 노드 형식에 대해 이 클러스터에 연결하기 위한 다양한 끝점을 정의할 수 있습니다. 이 클러스터의 다른 끝점과 충돌하지 않는 한, 이러한 연결 끝점에 대해 어떤 포트 번호도 선택할 수 있습니다. http 응용 프로그램 게이트웨이 포트를 만들려면 위의 다른 포트 외에도 "reverseProxyEndpointPort": [포트 번호]를 지정할 수 있습니다. 여러 노드 형식을 포함한 클러스터의 경우 **isPrimary**가 *true*로 설정된 하나의 주 노드 형식이 있습니다. 나머지 노드의 **isPrimary**는 *false*로 설정됩니다. 클러스터 용량에 따른 **nodeTypes** 및 **reliabilityLevel** 값에 대한 자세한 내용을 보고 주 노드 형식 및 주 노드가 아닌 다른 노드 형식 간의 차이점을 이해하려면 [Service Fabric 클러스터 용량 계획 고려 사항](service-fabric-cluster-capacity.md)을 읽어보세요.
 
 
 ### **fabricSettings**
@@ -156,4 +158,4 @@ OS가 아닌 드라이브를 사용하면 OS 충돌 시에도 더 큰 안정성�
 
 독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [온-프레미스 또는 클라우드에서 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

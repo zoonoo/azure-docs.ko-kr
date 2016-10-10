@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # 엔터프라이즈용 Azure 앱 서비스 웹 앱 오퍼링 백서 #
@@ -107,7 +107,7 @@ Azure 앱 서비스 환경[http://aka.ms/aseintro](http://aka.ms/aseintro)은 Az
 
 #### 고려할 항목 ####
 
-온-프레미스 환경에서 응용 프로그램을 마이그레이션할 때는 몇몇 웹 앱에서 제한하는 사항에 유의해야 합니다. 다음은 웹 응용 프로그램을 웹 앱으로 마이그레이션할 때 알고 있어야 하는 몇 가지 주요 항목입니다([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)(영문)).
+온-프레미스 환경에서 응용 프로그램을 마이그레이션할 때는 몇몇 웹 앱에서 제한하는 사항에 유의해야 합니다. 다음은 웹 응용 프로그램을 Web Apps로 마이그레이션할 때 알고 있어야 하는 몇 가지 주요 토픽입니다([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)(영문)).
 
 -	포트 바인딩 - 웹 앱은 HTTP 트래픽에는 포트 80, HTTPS 트래픽에는 포트 443만 지원합니다. 응용 프로그램이 다른 포트를 사용하는 경우, 한 번 마이그레이션된 응용 프로그램은 HTTP로 포트 80를 사용하고 HTTPS 트래픽에 대해 포트 443를 사용합니다. 이는 문제가 되지 않는 경우가 많은데, 온-프레미스 배포 특히, 개발 및 테스트 환경에서는 도메인 이름 사용을 원활히 처리하기 위해 다른 포트를 사용하는 경우가 일반적이기 때문입니다.
 -	인증 - 웹 앱은 익명 인증을 기본 지원하고 응용 프로그램에서 지정한 경우 폼 인증도 지원합니다. 응용 프로그램이 Azure Active Directory 및 ADFS와만 통합 하는 경우, 웹 앱은 Windows 인증을 제공할 수 있습니다. [여기](http://aka.ms/azurebizapp)에서 자세히 설명된 기능입니다.
@@ -116,7 +116,7 @@ Azure 앱 서비스 환경[http://aka.ms/aseintro](http://aka.ms/aseintro)은 Az
 -	COM 라이브러리 사용 – 웹 앱에서는 플랫폼에 COM 구성 요소를 등록할 수 없습니다. 따라서 응용 프로그램이 모든 COM 구성 요소를 사용하는 경우, 이러한 관리 코드로 다시 작성하고 응용 프로그램을 사용하여 배포합니다.
 -	ISAPI 필터 – 웹 앱에서 ISAPI 필터를 지원할 수 있습니다. 응용 프로그램의 일부로 배포해야 하며 웹 응용 프로그램의 web.config 파일에 등록됩니다. 자세한 내용은 [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md)을 참조하세요.
 
-이러한 항목을 고려했으면 웹 응용 프로그램이 클라우드에서 사용할 준비가 된 것입니다. 그리고 일부 항목이 완전히 부합되지 않더라고 마이그레이션 도구가 최적의 마이그레이션을 수행하므로 걱정하지 않아도 됩니다.
+이러한 토픽을 고려했으면 웹 응용 프로그램을 클라우드에 사용할 준비가 완료된 것입니다. 그리고 일부 토픽이 완전히 부합되지 않더라도 마이그레이션 도구가 최적의 마이그레이션을 수행하므로 걱정하지 않아도 됩니다.
 
 마이그레이션 프로세스의 다음 단계에서는 Azure 서비스 웹 앱과 Azure SQL 데이터베이스를 만듭니다. CPU 코어 수와 RAM 양이 다른 여러 크기의 웹 앱 인스턴스가 있으며, 웹 응용 프로그램 요구 사항에 따라 이들 중 선택할 수 있습니다. 자세한 정보 및 가격은 [http://aka.ms/azurewebsitesskus](/pricing/details/websites/)를 참조하세요. 마찬가지로 Microsoft Azure SQL 데이터베이스는 요구 사항에 맞는 다양한 서비스 계층 및 성능 수준을 통해 모든 비즈니스 요구 사항을 충족합니다. 자세한 내용은 [http://aka.ms/azuresqldbskus](/pricing/details/sql-database/)에 있습니다. 만든 후에는 응용 프로그램을 FTP 또는 WebDeploy를 통해 앱 서비스 웹 앱에 업로드한 다음 데이터베이스로 이동합니다.
 
@@ -159,4 +159,4 @@ Azure 앱 서비스 웹 앱 서비스에 대한 자세한 내용은 [http://aka.
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

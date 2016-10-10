@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -47,7 +47,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 - **aggregatewordcount**: 입력 파일의 단어 수를 계산하는 집계 기반 map/reduce 프로그램
 - **aggregatewordhist**: 입력 파일의 단어 히스토그램을 계산하는 집계 기반 map/reduce 프로그램
 - **bbp**: Bailey-Borwein-Plouffe를 사용하여 Pi의 정확한 소수 자릿수를 계산하는 map/reduce 프로그램
-- **dbcount**: 데이터베이스에서 페이지 보기 횟수를 계산하는 예제 작업
+- **dbcount**: 데이터베이스에 저장된 페이지 보기 로그를 계산하는 예제 작업
 - **distbbp**: BBP 형식의 수식을 사용하여 Pi의 정확한 비트를 계산하는 map/reduce 프로그램
 - **grep**: 입력에서 정규식 일치 항목 수를 계산하는 map/reduce 프로그램
 - **join**: 동일하게 분할되고 정렬된 데이터 집합의 조인에 영향을 주는 작업
@@ -93,7 +93,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
         Usage: wordcount <in> [<in>...] <out>
 
-    이 메시지는 원본 문서에 대한 여러 입력 경로를 제공할 수 있음을 나타내며, 최종 경로는 출력(원본 문서의 단어 수)이 배치되는 위치입니다.
+    이는 원본 문서에 대한 여러 입력 경로를 제공할 수 있음을 나타냅니다. 최종 경로는 출력(원본 문서의 단어 수)이 저장되는 곳입니다.
 
 4. 다음을 사용하여 클러스터와 함께 샘플 데이터로 제공되는 Notebooks of Leonardo Da Vinci의 모든 단어 수를 계산할 수 있습니다.
 
@@ -101,7 +101,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     이 작업에 대한 입력은 **wasbs:///example/data/gutenberg/davinci.txt**에서 읽습니다.
 
-    이 예의 출력은 **wasbs:///example/data/davinciwordcount**에 저장됩니다.
+    이 예에 대한 출력은 **wasbs:///example/data/davinciwordcount**에 저장됩니다.
 
     > [AZURE.NOTE] Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount`는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
 
@@ -111,7 +111,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     이 명령은 작업에서 생성된 모든 출력 파일을 연결하고 표시합니다. 이 기본 예제에는 파일이 하나만 있지만 파일이 더 많은 경우 모든 파일에서 이 명령이 반복됩니다.
 
-    이 명령의 출력은 다음과 유사합니다.
+    다음과 유사하게 출력됩니다.
 
         zum     1
         zur     1
@@ -236,4 +236,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

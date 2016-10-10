@@ -22,7 +22,11 @@
 
 ## 가상 디스크 준비
 
->[AZURE.NOTE] 새 VHDX 형식은 Azure에서 지원되지 않습니다. VHD 크기는 동적이 아닌 고정 크기여야 합니다. 필요한 경우 아래의 자세한 지침에 따라 VHDX 또는 동적 디스크에서 변환하세요. VHD에 허용되는 최대 크기는 1,023GB입니다.
+>[AZURE.NOTE] 
+Azure에서는 VHD 파일 형식의 [1세대 가상 컴퓨터](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx)만 지원합니다. 새 VHDX 형식은 Azure에서 지원되지 않습니다.
+>
+> VHD 크기는 동적이 아닌 고정 크기여야 합니다. 필요한 경우 아래의 자세한 지침에 따라 VHDX 또는 동적 디스크에서 변환하세요. VHD에 허용되는 최대 크기는 1,023GB입니다.
+
 
 로컬 서버에서 Windows VHD가 올바르게 작동하는지 확인합니다. Azure로 변환하거나 업로드하기 전에 VM 자체 내에서 오류를 해결해 보세요.
 
@@ -319,4 +323,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

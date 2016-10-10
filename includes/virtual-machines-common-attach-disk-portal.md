@@ -9,7 +9,7 @@
 
 3.	목록에서 가상 컴퓨터를 선택합니다.
 
-4. 가상 컴퓨터 블레이드의 **Essentials**에서 **모든 설정** > **디스크**를 클릭합니다.
+4. 가상 컴퓨터 블레이드의 **Essentials**에서 **디스크**를 클릭합니다.
 
 	![디스크 설정 열기](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
@@ -43,4 +43,4 @@
 
 6.	Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정의 **데이터 디스크** 아래에 해당 디스크가 나열됩니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

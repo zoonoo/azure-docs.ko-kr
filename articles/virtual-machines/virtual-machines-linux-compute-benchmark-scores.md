@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Linux VM에 대한 벤치마크 점수 계산
@@ -84,15 +84,29 @@ Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 84 | 194,111 | 4,735
 Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 @ 2 GHz | 84 | 357,396 | 16,228
 
 
+## H 시리즈
+
+크기 | vCPU | NUMA 노드 | CPU | 실행 | 반복 수/초 | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 140,782 | 2,512
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 35 | 275,289 | 7,110 
+Standard\_H18m | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 139,071 | 3,988 
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 275,988 | 6,963 
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 273,982 | 6,069 
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 28 | 274,523 | 5,698 
+
+
+
 ## CoreMark 정보
 
-Linux 숫자는 Ubuntu에서 [CoreMark](http://www.eembc.org/coremark/faq.php)를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 반복 횟수 목표는 최소 20초(일반적으로 훨씬 더 김) 의 런타임을 제공하도록 예상되는 성능을 기준으로 조정되었습니다. 이 때 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나눈 값을 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 테스트는 2015년 10월에 실행 당일 VM이 지원되는 모든 Azure 공용 지역에서 여러 VM 상에서 실행되었습니다.
+Linux 숫자는 Ubuntu에서 [CoreMark](http://www.eembc.org/coremark/faq.php)를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 테스트(H 시리즈 제외)는 2015년 10월에 실행 당일 VM이 지원되는 모든 Azure 공용 지역에서 여러 VM 상에서 실행되었습니다.
+
 ## 다음 단계
 
 
 
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조합니다.
+* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-* Linux VM에서 CoreMark 스크립트를 실행 하려면 [CoreMark 스크립트 팩](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)을 다운로드합니다.
+* Linux VM에서 CoreMark 스크립트를 실행하려면 [CoreMark 스크립트 팩](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)을 다운로드합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

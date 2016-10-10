@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management에서 감사 로그를 사용하는 방법
 
-Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다.
+Azure Privileged Identity Management(PIM) 감사 로그를 사용하여 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](active-directory-view-access-usage-reports.md)를 사용할 수 있습니다.
 
 ## 감사 로그로 이동
-[Azure 포털](https://portal.azure.com) 대시보드에서 **Azure AD Priviliged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **권한 있는 역할 관리** > **감사 기록**을 클릭하여 감사 로그에 액세스합니다.
+[Azure Portal](https://portal.azure.com) 대시보드에서 **Azure AD Privileged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **권한 있는 역할 관리** > **감사 기록**을 클릭하여 감사 로그에 액세스합니다.
 
 ## 감사 로그 그래프
 감사 로그를 사용하여 전체 활성화, 일일 최대 활성화, 일일 평균 활성화를 선 그래프로 보도록 사용할 수 있습니다. 감사 기록에 역할이 둘 이상인 경우 역할별로 데이터를 필터링할 수도 있습니다.
@@ -37,7 +37,7 @@ Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정�
 - **작업** - 요청자가 수행하는 작업입니다. 여기에는 할당, 할당 해제, 활성화 또는 비활성화가 포함될 수 있습니다.
 - **Time** - 작업이 발생한 시간.
 - **Reasoning** - 활성화 중에 reason(이유) 필드에 입력한 텍스트가 있는 경우 여기에 표시됩니다.
-- **만료** - 역할의 활성화와만 관련이 있습니다.
+- **만료** - 역할의 활성화에만 관련이 있습니다.
 
 ## 감사 로그 필터링
 
@@ -60,4 +60,4 @@ Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

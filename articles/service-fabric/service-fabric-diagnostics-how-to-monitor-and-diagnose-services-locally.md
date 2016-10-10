@@ -18,6 +18,12 @@
 
 
 # 로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
+
+
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
 모니터링, 감지, 진단 및 문제 해결을 통해 사용자 환경에 미치는 영향을 최소화하면서 서비스를 계속할 수 있습니다. 실제 배포된 프로덕션 환경에서 모니터링 및 진단이 매우 중요한데, 실제 사용 설정으로 이전했을 때 정상적으로 작동하도록 서비스 개발 과정에서 얼마나 유사한 모델을 채택하느냐에 따라 그 효율성이 좌우됩니다. 서비스 패브릭을 사용하면 서비스 개발자가 단일 컴퓨터 로컬 개발 설정과 실제 사용 프로덕션 클러스터 설정 양쪽에서 매끄럽게 작동하는 진단 기능을 간편하게 구현할 수 있습니다.
 
 ## Windows용 이벤트 추적의 이점
@@ -60,4 +66,4 @@
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

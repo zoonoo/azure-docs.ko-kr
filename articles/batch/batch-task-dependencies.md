@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Azure 배치의 태스크 종속성
@@ -24,13 +24,13 @@ Azure 배치의 태스크 종속성은 다음을 처리하려는 경우에 솔�
 - DAG(방향성 비순환 그래프)으로 표현할 수 있는 태스크의 데이터 처리 작업
 - 다운스트림 태스크가 업스트림 태스크의 출력에 따라 달라지는 다른 작업
 
-이 기능을 사용하면 하나 이상의 다른 태스크를 성공적으로 완료한 후에 계산 노드에서 실행하기 위해 예약된 태스크를 만들 수 있습니다. 예를 들어, 별도의 병렬 태스크를 포함한 3D 동영상의 각 프레임을 렌더링하는 작업을 만들 수 있습니다. 해당 최종 작업인 "병합 태스크"는 전체 프레임이 성공적으로 렌더링된 경우에만 렌더링된 프레임을 완전한 영화로 함께 병합합니다.
+배치 작업 종속성을 통해 하나 이상의 다른 태스크를 성공적으로 완료한 후에 계산 노드에서 실행하기 위해 예약된 태스크를 만들 수 있습니다. 예를 들어, 별도의 병렬 태스크를 포함한 3D 동영상의 각 프레임을 렌더링하는 작업을 만들 수 있습니다. 해당 최종 작업인 "병합 태스크"는 전체 프레임이 성공적으로 렌더링된 경우에만 렌더링된 프레임을 완전한 영화로 함께 병합합니다.
 
 일대일 또는 일대다 관계에서 다른 태스크에 따라 달라지는 태스크를 만들 수 있으며, 태스크 ID의 특정 범위 내에서 태스크 그룹이 완료되는 데 따라 태스크가 달라지는 범위 종속성을 만들 수도 있습니다. 다대다 관계를 만들기 위해 다음 세 가지 기본 시나리오를 결합할 수 있습니다.
 
 ## 배치 .NET을 사용한 태스크 종속성
 
-이 문서에서는 [배치 .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 준 다음 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 간략하게 설명합니다. 마지막으로 배치에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
+이 문서에서는 [배치 .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 마지막으로 배치에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
 ## 태스크 종속성 사용
 
@@ -44,7 +44,7 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-위의 코드 조각에서 "batchClient"는 [BatchClient][net_batchclient] 클래스의 인스턴스입니다.
+앞의 코드 조각에서 "batchClient"는 [BatchClient][net_batchclient] 클래스의 인스턴스입니다.
 
 ## 종속성 태스크 만들기
 
@@ -143,7 +143,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ### 응용 프로그램 설치 및 데이터 준비
 
-태스크를 실행하기 위해 노드를 준비하는 다양한 방법의 개요는 Azure 배치 포럼에서 [배치 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post] 게시물을 확인합니다. Azure 배치 팀 멤버 중 하나가 작성한 이 게시물은 계산 노드에 (응용 프로그램 및 태스크 입력 데이터를 모두 포함한) 파일을 가져오는 다른 방법에 대한 좋은 기초이며, 각 메서드에 고려해야 할 몇 가지 특별한 고려 사항을 제공합니다.
+태스크를 실행하기 위해 노드를 준비하는 다양한 방법의 개요는 Azure 배치 포럼에서 [배치 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post] 게시물을 확인합니다. Azure 배치 팀 멤버 중 하나가 작성한 이 게시물은 계산 노드에 (응용 프로그램 및 태스크 입력 데이터를 모두 포함한) 파일을 가져오는 다른 방법에 대한 좋은 기초이며,
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/ko-KR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -166,4 +166,4 @@ new CloudTask("4", "cmd.exe /c echo 4")
 [2]: ./media/batch-task-dependency/02_one_to_many.png "다이어그램: 일대다 종속성"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "다이어그램: 태스크 ID 범위 종속성"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 미디어 서비스 REST API로 필터 생성" 
+	pageTitle="Azure Media Services REST API로 필터 생성 | Microsoft Azure" 
 	description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 미디어 서비스가 동적 매니페스트를 생성하여 이루어집니다."
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Azure 미디어 서비스 REST API로 필터 생성
@@ -27,7 +27,7 @@
 
 필터 및 동적 매니페스트에 대한 더 자세한 내용은 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)를 참조하십시오.
 
-이 토픽에서는 REST API를 사용하여 필더를 생성하고, 업데이트하고, 삭제하는 방법을 설명합니다.
+이 토픽에서는 REST API를 사용하여 필터를 생성, 업데이트 및 삭제하는 방법을 설명합니다.
 
 ##필터 생성에 사용되는 형식
 
@@ -374,4 +374,4 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

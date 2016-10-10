@@ -1,7 +1,7 @@
 <properties
    pageTitle="테스트/개발 시나리오용으로 Windows 클라이언트 이미지 사용 | Microsoft Azure"
    description="Visual Studio 구독 혜택을 사용하여 개발/테스트 시나리오용으로 Azure에서 Windows 7/8/10을 배포하는 방법"
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
@@ -57,4 +57,4 @@ Azure 계정 포털의 ['구독' 탭](http://account.windowsazure.com/Subscripti
 ## 다음 단계
 이제 [PowerShell](virtual-machines-windows-ps-create.md), [Resource Manager 템플릿](virtual-machines-windows-ps-template.md) 또는 [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 VM을 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

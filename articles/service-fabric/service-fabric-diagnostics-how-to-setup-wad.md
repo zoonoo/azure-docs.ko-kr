@@ -13,13 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/24/2016"
+   ms.date="09/28/2016"
    ms.author="toddabel"/>
 
 
 # Azure 진단을 사용하여 로그를 수집하는 방법
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스의 문제를 간편하게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure 저장소에 업로드하는 Azure 진단 확장을 사용하는 것입니다. 로그는 실제로 저장소에서 직접 유용한 것은 아니지만 외부 프로세스를 사용하여 저장소에서 이벤트를 읽어 [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) 또는 다른 로그 구문 분석 솔루션과 같은 제품에 배치할 수 있습니다.
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+
+Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스의 문제를 간편하게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure 저장소에 업로드하는 Azure 진단 확장을 사용하는 것입니다. 로그는 실제로 저장소에서는 그리 유용하지 않지만 외부 프로세스를 사용하여 저장소에서 이벤트를 읽어서 [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 또는 [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) 또는 다른 로그 구문 분석 솔루션과 같은 제품에 배치할 수 있습니다.
 
 ## 필수 조건
 이러한 도구는 이 문서의 일부 작업을 수행하는 데 사용됩니다.
@@ -47,9 +51,9 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ![클러스터를 만들기 위해 포털에서 Azure 진단 설정](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 리소스 그룹에 만들어진 저장소 계정 중 하나에 저장됩니다. 진단 설정은 Azure 저장소에 저장되는 [행위자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Service](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 서비스 패브릭 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다.
+지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 리소스 그룹에 만들어진 저장소 계정 중 하나에 저장됩니다. 진단 설정은 Azure Storage에 저장되는 [행위자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Service](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 Service Fabric 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다.
 
-포털을 사용하여 클러스터를 만들 경우 클러스터를 만들기 위해 *확인을 클릭하기 전에* 템플릿을 다운로드하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조합니다. 이렇게 하면 만들려고 하는 클러스터에 사용 가능한 ARM 템플릿을 만듭니다. 나중에 변경해야 하며 일부 변경은 포털을 사용하지 않고 수행할 수 있습니다. 아래 단계를 사용하여 포털에서 템플릿을 내보낼 수 있지만 제공되는 값이 있거나 모든 필요한 정보가 없어야 하는 많은 null 값이 있을 수 있기 때문에 이러한 템플릿을 사용하는 것이 어려울 수 있습니다.
+포털을 사용하여 클러스터를 만들 경우 클러스터를 만들기 위해 *확인을 클릭하기 전에* 템플릿을 다운로드하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Service Fabric 클러스터 설정](service-fabric-cluster-creation-via-arm.md)을 참조합니다. 이렇게 하면 만들려고 하는 클러스터에 사용 가능한 ARM 템플릿을 만듭니다. 나중에 변경해야 하며 일부 변경은 포털을 사용하지 않고 수행할 수 있습니다. 아래 단계를 사용하여 포털에서 템플릿을 내보낼 수 있지만 제공되는 값이 있거나 모든 필요한 정보가 없어야 하는 많은 null 값이 있을 수 있기 때문에 이러한 템플릿을 사용하는 것이 어려울 수 있습니다.
 
 1. 리소스 그룹을 엽니다.
 2. 설정을 선택하여 설정 패널을 표시합니다.
@@ -190,8 +194,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
 
-## 관련된 문서
+## 관련 문서
 * [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Log Analytics의 서비스 패브릭 데이터 솔루션](../log-analytics/log-analytics-service-fabric.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

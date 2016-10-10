@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Media Packager를 사용하여 정적 패키징 작업 수행" 
-	description="이 항목에서는 Azure Media Packager를 사용하여 수행되는 다양한 작업을 보여 줍니다." 
+	pageTitle="Azure Media Packager를 사용하여 정적 패키징 작업 수행 | Microsoft Azure" 
+	description="이 토픽에서는 Azure Media Packager를 사용하여 수행되는 다양한 작업을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@
 
 미디어 서비스는 동적 및 정적 패키징을 지원합니다. 정적 패키징을 사용하는 경우 고객에게 필요한 각 형식으로 콘텐츠 복사본을 만들어야 합니다. 동적 패키징을 사용하는 경우 적응 비트 전송률 MP4 또는 부드러운 스트리밍 파일의 집합이 포함된 자산을 만들기만 하면 됩니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, 미디어 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
 
->[AZURE.NOTE] [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
+>[AZURE.NOTE] [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
 
 그러나 정적 패키징이 필요한 일부 시나리오가 있습니다.
 
@@ -42,7 +42,7 @@
 
 ## 외부 인코더로 인코딩된 적응 비트 전송률 MP4 유효성 검사
 
-미디어 서비스 인코더로 인코드되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. 유효성 검사 작업에 대한 사전 설정을 정의하는 XML은 [Azure Media Packager의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 항목에서 찾을 수 있습니다.
+미디어 서비스 인코더로 인코드되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. XML은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 토픽에 나온 유효성 검사에 대한 사전 설정을 정의합니다.
 
 >[AZURE.NOTE]미디어 인코더 표준을 사용하여 생성하거나 Media Services Packager를 사용하여 런타임 문제를 방지하기 위해 콘텐츠 유효성을 검사합니다. 주문형 스트리밍 서버가 런타임에 원본 파일을 구문 분석할 수 없는 경우 HTTP 1.1 오류 "415 지원되지 않는 미디어 유형"을 받게 됩니다. 반복적으로 서버가 소스 파일에 대한 구문 분석 장애를 일으키면 주문형 스트리밍 서버의 성능에 영향을 주며 다른 요청에 사용할 수 있는 대역폭을 줄일 수 있습니다. Azure Media Services에서는 주문형 스트리밍 서비스에 대해 서비스 수준 계약(SLA)을 제공하지만 서버가 위에서 설명한 방식으로 잘못 사용되면 이 SLA는 적용될 수 없습니다.
 
@@ -72,7 +72,7 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
 
 적응 비트 전송률 MP4를 설정하면 동적 패키징을 활용할 수 있습니다. 동적 패키징을 사용하면 추가 패키징 없이 지정된 프로토콜의 스트림을 배달할 수 있습니다. 자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
 
-다음 코드 예제는 Azure Media Services .NET SDK 확장을 사용합니다. 입력된 MP4 파일 및 .ism 파일이 있는 폴더를 가리키도록 코드를 업데이트합니다. 또한 MediaPackager\_ValidateTask.xml 파일이 있는 곳도 동일합니다. 이 XML 파일은 [Azure Media Packager의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 항목에서 정의됩니다.
+다음 코드 예제는 Azure Media Services .NET SDK 확장을 사용합니다. 입력된 MP4 파일 및 .ism 파일이 있는 폴더를 가리키도록 코드를 업데이트합니다. 또한 MediaPackager\_ValidateTask.xml 파일이 있는 곳도 동일합니다. 이 XML 파일은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 토픽에서 정의됩니다.
 	
 	using Microsoft.WindowsAzure.MediaServices.Client;
 	using System;
@@ -246,12 +246,12 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 미디어 서비스는 현재 Microsoft PlayReady 라이선스를 배달하는 서비스를 제공합니다. 이 문서의 예제에서는 Media Services PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다(아래 코드에 정의된 ConfigureLicenseDeliveryService 메서드 참조). Media Services PlayReady 라이선스 배달 서비스에 대한 자세한 내용은 [PlayReady 동적 암호화 및 License Delivery 서비스 사용](media-services-protect-with-drm.md)을 참조하세요.
 
->[AZURE.NOTE]PlayReady로 암호화된 MPEG DASH를 배달하려면 useSencBox 및 adjustSubSamples 속성([Azure Media Encryptor의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 항목에 설명된)을 true로 설정하여 CENC 옵션을 사용합니다.
+>[AZURE.NOTE]PlayReady로 암호화된 MPEG DASH를 배달하려면 useSencBox 및 adjustSubSamples 속성([Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 토픽에서 설명)을 true로 설정하여 CENC 옵션을 사용합니다.
 
 
 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다.
 
-또한 MediaPackager\_MP4ToSmooth.xml 및 MediaEncryptor\_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager\_MP4ToSmooth.xml은 [Azure Media Packager 용 태스크 기본 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor\_PlayReadyProtection.xml은 [Azure Media Encryptor의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 항목에서 정의됩니다.
+또한 MediaPackager\_MP4ToSmooth.xml 및 MediaEncryptor\_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager\_MP4ToSmooth.xml은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor\_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 토픽에서 정의됩니다.
 
 이 예제에서는 MediaEncryptor\_PlayReadyProtection.xml 파일을 동적으로 업데이트하는데 사용할 수 있는 UpdatePlayReadyConfigurationXMLFile 메서드를 정의합니다. 키 시드를 사용할 수 있는 경우 CommonEncryption.GeneratePlayReadyContentKey 메서드를 사용하여 keySeedValue 및 KeyId 값에 따라 콘텐츠 키를 생성할 수 있습니다.
 
@@ -693,7 +693,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 
 >[AZURE.NOTE]콘텐츠를 HLS로 변환하려면 먼저 콘텐츠를 부드러운 스트리밍으로 변환/인코딩해야 합니다. 또한 AES로 암호화된 HLS의 경우 MediaPackager\_SmoothToHLS.xml 파일의 다음 속성을 설정합니다. 암호화 속성을 true로 설정하고 키 값을 설정하고 keyuri 값을 인증/권한 부여 서버를 가리키도록 합니다. 미디어 서비스는 키 파일을 만들고 이를 자산 컨테이너에 배치합니다. /asset-containerguid/*.key 파일을 서버에 복사(또는 고유 키 파일 만들기)한 다음 자산 컨테이너에서 *.key 파일을 삭제합니다.
 
-이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩한 다음 MP4를 부드러운 스트리밍으로 패키징합니다. 그런 다음 부드러운 스트리밍을 고급 암호화 표준(AES) 128비트 스트림 암호화로 암호화된 HTTP 라이브 스트리밍(HLS)으로 패키징합니다. 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager\_MP4ToSmooth.xml 및 MediaPackager\_SmoothToHLS.xml 구성 파일이 있는 곳도 동일합니다. 이러한 파일에 대한 정의는 [Azure Media Packager의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 항목에서 찾을 수 있습니다.
+이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩한 다음 MP4를 부드러운 스트리밍으로 패키징합니다. 그런 다음 부드러운 스트리밍을 고급 암호화 표준(AES) 128비트 스트림 암호화로 암호화된 HTTP 라이브 스트리밍(HLS)으로 패키징합니다. 입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager\_MP4ToSmooth.xml 및 MediaPackager\_SmoothToHLS.xml 구성 파일이 있는 곳도 동일합니다. 이러한 파일에 대한 정의는 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 토픽에서 찾을 수 있습니다.
 	
 	using System;
 	using System.Collections.Generic;
@@ -970,11 +970,11 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 >[AZURE.NOTE] PlayReady를 사용하여 콘텐츠를 보호하려면 먼저 콘텐츠를 부드러운 스트리밍 형식으로 변환/인코딩해야 합니다.
 
-이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩합니다. 그런 다음 MP4를 부드러운 스트리밍으로 패키징하고 PlayReady로 부드러운 스트리밍을 암호화합니다. PlayReady로 암호화된 HTTP 라이브 스트리밍(HLS)을 생성하려면 PlayReady 부드러운 스트리밍 자산을 HLS로 패키징해야 합니다. 이 항목에서는 이러한 모든 단계를 수행하는 방법을 보여 줍니다.
+이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩합니다. 그런 다음 MP4를 부드러운 스트리밍으로 패키징하고 PlayReady로 부드러운 스트리밍을 암호화합니다. PlayReady로 암호화된 HTTP 라이브 스트리밍(HLS)을 생성하려면 PlayReady 부드러운 스트리밍 자산을 HLS로 패키징해야 합니다. 이 토픽에서는 이러한 모든 단계를 수행하는 방법을 보여 줍니다.
 
 미디어 서비스는 현재 Microsoft PlayReady 라이선스를 배달하는 서비스를 제공합니다. 이 문서의 예제에서는 Media Services PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다(아래 코드에 정의된 **ConfigureLicenseDeliveryService** 메서드 참조).
 
-입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager\_MP4ToSmooth.xml, MediaPackager\_SmoothToHLS.xml 및 MediaEncryptor\_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager\_MP4ToSmooth.xml 및 MediaPackager\_SmoothToHLS.xml은 [Azure Media Packager 용 태스크 기본 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor\_PlayReadyProtection.xml은 [Azure Media Encryptor의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 항목에서 정의됩니다.
+입력된 MP4 파일이 있는 폴더를 가리키도록 다음 코드를 업데이트합니다. 또한 MediaPackager\_MP4ToSmooth.xml, MediaPackager\_SmoothToHLS.xml 및 MediaEncryptor\_PlayReadyProtection.xml 파일이 있는 곳도 동일합니다. MediaPackager\_MP4ToSmooth.xml 및 MediaPackager\_SmoothToHLS.xml은 [Azure Media Packager용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx)에서 정의되고 MediaEncryptor\_PlayReadyProtection.xml은 [Azure Media Encryptor용 작업 사전 설정](http://msdn.microsoft.com/library/azure/hh973610.aspx) 토픽에서 정의됩니다.
 	
 	using System;
 	using System.Collections.Generic;
@@ -1447,4 +1447,4 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

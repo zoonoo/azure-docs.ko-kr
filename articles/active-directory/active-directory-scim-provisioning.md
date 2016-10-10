@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -36,7 +36,7 @@ Azure Active Directory에서 SCIM에 대한 두 가지 사용 사례가 있습�
 
 Azure Active Directory은 [도메인간 ID 관리용 시스템 2(SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하고 인증에 대한 OAuth 전달자 토큰을 수락하는 응용 프로그램에 자동으로 할당된 사용자 및 그룹을 프로비전하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 응용 프로그램은 다음의 요구 사항을 충족해야 합니다.
 
-* SCIM 프로토콜의 섹션 3.3에 따라 사용자 및/또는 그룹 만들기를 지원합니다.  
+* SCIM 프로토콜의 섹션 3.3에 따라 사용자 및/또는 그룹 만들기를 지원합니다.
 
 * SCIM 프로토콜의 섹션 3.5.2에 따라 패치를 사용하여 사용자 및/또는 그룹 수정을 지원합니다.
 
@@ -67,11 +67,11 @@ Azure AD 응용 프로그램 갤러리에 있는 "사용자 지정" 앱 기능�
 4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
 5.	**프로비전 끝점 URL** 필드에 응용 프로그램의 SCIM 끝점 URL을 입력합니다.
 6.	SCIM 끝점에 Azure AD 이외 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 복사하여 **인증 토큰(선택 사항)** 필드에 입력합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-7.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+7.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
 8.	응용 프로그램에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
 9.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
 10.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-11.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
+11.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
 12.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
@@ -96,7 +96,7 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 * Visual Studio 2013 이상
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
-* [Azure AD Premium의 평가판 또는 사용이 허가된 버전을 사용하여 Azure 구독](https://azure.microsoft.com/services/active-directory/)
+* [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 * Amazon AWS 샘플에는 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)의 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
 
 ###시작하기
@@ -114,7 +114,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 5.	FileProvisioningAgent 프로젝트를 빌드합니다.
 6.	관리자 권한으로 Windows에서 명령 프롬프트 응용 프로그램을 시작하고 **cd** 명령을 사용하여 디렉터리를 **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug** 폴더로 변경합니다.
-7.	아래 명령을 실행하여 <ip-address>을 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
+7.	아래 명령을 실행하여 <ip-address>를 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
 
     FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
@@ -131,12 +131,12 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 ![][2]
 
 4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
-5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>이 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같은 것입니다.  
-6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>가 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같습니다.
+6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.
 7.	웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
 8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
 9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
+10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다.
 11.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
@@ -435,7 +435,7 @@ Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이�
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"]
 
 **2:** externalId 특성 값이 Azure Active Directory의 사용자 mailNickname 특성 값과 일치하는 사용자를 서비스에 쿼리할 때 응답으로 사용자가 반환되지 않는 경우 Azure Active Directory는 서비스가 Azure Active Directory의 사용자에 해당하는 사용자를 프로비전하도록 요청합니다. 다음은 그러한 요청의 예제입니다.
 
@@ -677,9 +677,9 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 
 아래 그림은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다. 이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다.
 
-* 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.  
-* 그룹을 검색하는 요청은 멤버 특성이 요청에 대한 응답에서 제공된 리소스로부터 제외된다고 규정합니다.  
-* 참조 특성에 특정 값에 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
+* 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.
+* 그룹을 검색하는 요청은 멤버 특성이 요청에 대한 응답에서 제공된 리소스로부터 제외된다고 규정합니다.
+* 참조 특성에 특정 값에 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.
 
 ![][5] *그림: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
@@ -702,4 +702,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

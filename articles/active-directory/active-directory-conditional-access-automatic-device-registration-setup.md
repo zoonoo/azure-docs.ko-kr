@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -30,8 +30,6 @@
 등록은 다음을 비롯한 이전 버전의 Windows에서 지원됩니다.
 
 - Windows 8.1
-
-- Windows 8.0
 
 - Windows 7
 
@@ -212,9 +210,6 @@ AD FS에서 WIA(Windows 통합 인증)가 장치 등록을 위한 MFA(다단계 
 
 **<RPObjectName>**은 Azure Active Directory 신뢰 당사자 트러스트 개체에 대한 신뢰 당사자 개체 이름입니다. 일반적으로 이 개체의 이름은 Microsoft Office 365 ID 플랫폼입니다.
 
-
-
-
  
 
 ## 배포 및 롤아웃 
@@ -223,15 +218,15 @@ AD FS에서 WIA(Windows 통합 인증)가 장치 등록을 위한 MFA(다단계 
 
 다음에 Windows를 다시 부팅하거나 사용자가 로그인할 때 Windows 10 1주년 업데이트 및 Windows Server 2016 도메인 가입 컴퓨터가 Azure AD에 자동으로 등록됩니다. 도메인에 가입된 새 컴퓨터는 도메인 가입 작업 이후의 다시 부팅 시 Azure AD에 등록됩니다.
 
-> [AZURE.NOTE] Windows 10 2015년 11월 업데이트 도메인 가입 컴퓨터는 롤아웃 그룹 정책 개체가 설정된 경우에만 Azure AD에 자동으로 등록됩니다. 자세한 내용은 다음 섹션을 참조하세요.
+> [AZURE.NOTE] Windows 10 도메인 가입 컴퓨터는 롤아웃 그룹 정책 개체가 설정된 경우에만 Azure AD에 자동으로 등록됩니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 Windows 10/Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어하기 위해 이러한 용도로 사용할 수 있는 그룹 정책 개체가 있습니다. 비 Windows 10 도메인 가입 컴퓨터의 자동 등록 롤아웃의 경우 선택한 컴퓨터에 배포할 수 있는 Windows Installer 패키지가 있습니다.
 
-> [AZURE.NOTE] 롤아웃 제어에 대한 그룹 정책은 Windows 8.1 도메인 가입 컴퓨터의 등록도 트리거합니다. Windows 8.1 도메인 가입 컴퓨터의 등록에 대한 정책을 사용하도록 선택하거나, 아니면 7 또는 8.0을 포함하는 혼합 버전의 Windows 또는 Windows Server 버전을 사용하는 경우, Windows Installer 패키지를 사용하여 모든 비 Windows 10/Windows Server 2016 컴퓨터의 등록을 사용하도록 선택할 수 있습니다.
+> [AZURE.NOTE] 롤아웃 제어에 대한 그룹 정책은 Windows 8.1 도메인 가입 컴퓨터도 등록하도록 트리거합니다. Windows 8.1 도메인 가입 컴퓨터의 등록에 대한 정책을 사용하도록 선택하거나, 아니면 7을 포함하는 혼합 버전의 Windows 또는 Windows Server 버전을 사용하는 경우 Windows Installer 패키지를 사용하여 Windows 10/Windows Server 2016이 아닌 컴퓨터를 등록하도록 선택할 수 있습니다.
 
 ### 자동 등록 롤아웃을 제어하는 그룹 정책 개체 
 
-도메인 가입 컴퓨터의 Azure AD 자동 등록에 대한 롤아웃을 제어하기 위해 그룹 정책 등록 도메인 가입 컴퓨터를 등록할 컴퓨터에 장치로 배포할 수 있습니다. 예를 들어 보안 그룹 또는 OU(조직 구성 단위)를 기반으로 정책을 배포할 수 있습니다.
+Azure AD를 사용하여 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어하려면 그룹 정책 등록 도메인 가입 컴퓨터를 장치로 등록하려는 컴퓨터에 배포할 수 있습니다. 예를 들어 보안 그룹 또는 OU(조직 구성 단위)를 기반으로 정책을 배포할 수 있습니다.
 
 정책을 설정하려면 다음 단계를 수행합니다.
 
@@ -257,7 +252,7 @@ Windows 10/Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤�
 
 ## 비 Windows 10 컴퓨터용 MSI 패키지  
 
-Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 또는 Windows Server 2012 R2를 실행하는 도메인 가입 컴퓨터를 등록하기 위해 Windows Installer 패키지(.msi)를 다운로드할 수 있습니다.
+Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 또는 Windows Server 2012 R2를 실행하는 도메인 가입 컴퓨터를 등록하기 위해 다음을 다운로드하는 데 Windows Installer 패키지(.msi)를 사용할 수 있습니다.
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
@@ -272,4 +267,4 @@ System Center Configuration Manager와 같은 소프트웨어 배포 시스템�
 
 - [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

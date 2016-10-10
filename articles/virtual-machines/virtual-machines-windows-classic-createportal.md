@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
+# 클래식 배포 모델을 사용하여 Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 새 Azure Portal을 사용하려면 [Azure Portal에서 첫 번째 Windows 가상 컴퓨터 만들기](virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -30,4 +30,4 @@
 
 클래식 포털을 사용하여 [Linux를 실행하는 사용자 지정 가상 컴퓨터를 만들](virtual-machines-linux-classic-createportal.md) 수도 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

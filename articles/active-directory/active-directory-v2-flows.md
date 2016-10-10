@@ -29,7 +29,7 @@ v2.0 끝점을 사용하는 각 앱을 [apps.dev.microsoft.com](https://apps.dev
 - 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
 - 다른 몇 가지 시나리오 관련 값. 자세한 내용은 [앱 등록](active-directory-v2-app-registration.md) 방법을 참조하세요.
 
-등록되면 앱이 Azure Active Directory v2.0 끝점에 요청을 보내기 위해 Azure AD와 통신합니다. 오픈 소스 프레임워크 및 이러한 요청에 대한 세부 정보를 관리하는 라이브러리를 제공하거나 이러한 끝점에 대 한 요청을 선별하여 직접 인증 논리를 구현할 수 있습니다.
+등록되면 앱이 Azure Active Directory v2.0 끝점에 요청을 전송하여 Azure AD와 통신합니다. 오픈 소스 프레임워크 및 이러한 요청에 대한 세부 정보를 관리하는 라이브러리를 제공하거나 이러한 끝점에 대 한 요청을 선별하여 직접 인증 논리를 구현할 수 있습니다.
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -118,4 +118,4 @@ OAuth 2.0 access\_token을 사용하여 Web API 보안을 유지하는 방법을
 
 [On-Behalf-Of 흐름](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 v2.0 끝점에 구현되어 있지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

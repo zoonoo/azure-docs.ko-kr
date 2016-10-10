@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -99,7 +99,7 @@ Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니
 | ----------- | ---------- |
 | 소유자 | 소유자는 ***액세스를 관리***(예: 사용자/그룹에 역할 할당)하고 포털에서 ***모든 정보를 확인***(예: 경고 보기)하며 Azure AD Connect Health 내에서 ***설정을 변경***(예: 전자 메일 알림)할 수 있습니다. <br>기본적으로 Azure AD 전역 관리자는 해당 역할에 할당되며 이는 변경될 수 없습니다. |
 |참여자| 참여자는 포털에서 ***모든 정보를 확인***(예: 경고 보기)하며 Azure AD Connect Health 내에서 ***설정을 변경***(예: 전자 메일 알림)할 수 있습니다.|
-|판독기| 판독기는 Azure AD Connect Health 내의 포털에서 ***모든 정보를 볼***(예: 경고 보기) 수 있습니다.|
+|리더| 판독기는 Azure AD Connect Health 내의 포털에서 ***모든 정보를 볼***(예: 경고 보기) 수 있습니다.|
 
 다른 모든 역할(예: 사용자 액세스 관리자' 또는 'DevTest 랩 사용자')은 포털 환경에서 사용할 수 있는 경우에도 Azure AD Connect Health 내에 액세스하는 데 아무런 영향을 주지 않습니다.
 
@@ -154,4 +154,4 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

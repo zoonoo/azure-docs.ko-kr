@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 미디어 서비스 커뮤니티 개요"
+	pageTitle="Azure Media Services 커뮤니티 개요 | Microsoft Azure"
 	description="이 Azure 미디어 서비스(AMS) 커뮤니티 페이지에서는 AMS에 대한 업데이트를 받고 새 비디오 및 팟캐스트를 보고 질문을 하며 피드백을 제공하는 다양한 방법에 대해 설명합니다. "
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 # Azure 미디어 서비스 커뮤니티  
@@ -63,4 +63,4 @@ Azure 미디어 플레이어|ampinfo@microsoft.com
 Azure 미디어 탐색기|amse@microsoft.com
 Workflow Designer|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

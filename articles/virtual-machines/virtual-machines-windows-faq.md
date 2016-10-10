@@ -132,7 +132,6 @@ D: 드라이브 문자를 사용해야 하는 응용 프로그램이 있는 경�
 
 사용할 수 없는 암호:
 
-사용할 수 없는 암호
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
@@ -142,4 +141,4 @@ D: 드라이브 문자를 사용해야 하는 응용 프로그램이 있는 경�
 	</tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

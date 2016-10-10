@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍" 
+	pageTitle="Apple FairPlay 및/또는 Microsoft PlayReady로 HLS 콘텐츠 보호 | Microsoft Azure" 
 	description="이 항목에서는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍 
+# Apple FairPlay 및/또는 Microsoft PlayReady로 HLS 콘텐츠 보호
 
 Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.
 
-- **AES-128 봉투 암호화되지 않은 키** - 전체 청크가 **AES-128 CBC** 모드로 암호화됩니다. 스트림의 암호 해독은 iOS 및 OSX 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [이 문서](media-services-protect-with-aes128.md)(영문)를 읽어보세요.
+- **AES-128 비트 봉투 암호화되지 않은 키**
 
-- **Apple FairPlay** - 개별 비디오 및 오디오 샘플이 **AES-128 CBC** 모드로 암호화됩니다. **FairPlay 스트리밍**(FPS)은 장치 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 통해 FPS를 지원합니다.
+	전체 청크가 **AES-128 CBC** 모드로 암호화됩니다. 스트림의 암호 해독은 iOS 및 OSX 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [이 문서](media-services-protect-with-aes128.md)(영문)를 읽어보세요.
 
-다음 이미지는 "FairPlay 동적 암호화" 워크플로를 보여 줍니다.
+- **Apple FairPlay**
+
+	개별 비디오 및 오디오 샘플이 **AES-128 CBC** 모드로 암호화됩니다. **FairPlay 스트리밍**(FPS)은 장치 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 통해 FPS를 지원합니다.
+- **Microsoft PlayReady**
+
+다음 이미지는 **HLS + FairPlay 및/또는 PlayReady 동적 암호화** 워크플로를 보여 줍니다.
 
 ![FairPlay로 보호](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 이 항목에는 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화하는 방법을 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
+
+>[AZURE.NOTE] PlayReady로 HLS 콘텐츠를 암호화하려면 공통 키를 만들고 자산에 연결해야 합니다. 또한 [PlayReady 동적 일반 암호화 사용](media-services-protect-with-drm.md) 토픽에 설명된 대로 콘텐츠 키의 권한 부여 정책을 구성해야 합니다.
 
 	
 ## 요구 사항 및 고려 사항
@@ -115,6 +122,20 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 >[AZURE.NOTE] Azure 미디어 플레이어는 기본적으로 FairPlay 재생을 지원하지 않습니다. MAC OSX에서 FairPlay를 재생하려면 고객이 Apple 개발자 계정에서 샘플 플레이어를 가져와야 합니다.
  
+##스트리밍 URL
+
+자산이 하나 이상의 DRM으로 암호화되어 있는 경우 스트리밍 URL에서 암호화 태그를 사용해야 합니다(형식='m3u8-aapl', 암호화='xxx').
+
+고려 사항은 다음과 같습니다.
+
+- 1개 이하의 암호화 형식만 지정할 수 있습니다.
+- 하나의 암호화가 자산에 적용되었다면 암호화 형식을 URL에 지정할 필요는 없습니다.
+- 암호화 형식은 대/소문자를 구분하지 않습니다.
+- 다음과 같은 암호화 형식을 지정할 수 있습니다.
+	- **cenc**: 일반 암호화(Playready 또는 Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: AES 봉투 암호화
+
 
 ##.NET 예제
 
@@ -550,4 +571,4 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

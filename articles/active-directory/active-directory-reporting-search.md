@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory)는 디렉터리 관리자에게 여러 보고�
 계정 프로비전 오류 | 아니요
 RMS 사용 현황 | 아니요
 가장 활동적인 RMS 사용자 | 아니요
-RMS 장치 사용 현황 | 아니요
+RMS 장치 사용 | 아니요
 
 
 ## 자세한 정보
@@ -58,4 +58,4 @@ RMS 장치 사용 현황 | 아니요
  - [Azure Active Directory 보고서](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory Reporting 감사 이벤트](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

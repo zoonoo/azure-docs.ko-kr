@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법 | Microsoft Azure" 
-    description="Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법을 알아봅니다." 
+    description="Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법을 알아봅니다. " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -34,4 +34,4 @@ SAML 토큰이 포함된 Azure AD의 응답은 일반적으로 https://login.win
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

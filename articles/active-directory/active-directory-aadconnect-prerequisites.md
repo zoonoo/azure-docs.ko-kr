@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect: 필수 조건 및 하드웨어 | Microsoft Azure"
-   description="이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다."
+   description="이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항에 대해 설명합니다."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor="curtand"/>
 
 <tags
@@ -23,7 +23,7 @@
 Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니다.
 
 ### Azure AD
-- Azure 구독 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/) 이는 Azure AD Connect를 사용하지 않고 Azure 포털에 액세스하기 위해서만 필요합니다. PowerShell 또는 Office 365를 사용하는 경우, Azure AD Connect를 사용하여 Azure 구독을 설치할 필요가 없습니다. 또한 Office 365 라이선스가 있는 경우 Office 365 포털을 사용할 수 있습니다. 또한 유료 Office 365 라이선스를 가지고 Office 365 포털에서 Azure 포털로 가져올 수 있습니다.
+- Azure 구독 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)입니다. 이는 Azure AD Connect를 사용하지 않고 Azure 포털에 액세스하기 위해서만 필요합니다. PowerShell 또는 Office 365를 사용하는 경우, Azure AD Connect를 사용하기 위해 Azure 구독을 설치할 필요가 없습니다. 또한 Office 365 라이선스가 있는 경우 Office 365 포털을 사용할 수 있습니다. 또한 유료 Office 365 라이선스를 가지고 Office 365 포털에서 Azure 포털로 가져올 수 있습니다.
 - Azure AD에서 사용하려는 [도메인을 추가하고 확인합니다](active-directory-add-domain.md). 예를 들어 사용자가 contoso.com을 사용 하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
 - Azure AD 디렉터리는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 50만 개가 넘게 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility Suite와 같은 라이선스가 필요합니다.
 
@@ -51,7 +51,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 ### 계정
 - 통합하려는 Azure AD 디렉터리에 대한 Azure AD 전역 관리자 계정 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
 - Express 설정을 사용하거나 DirSync에서 업그레이드하는 경우 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정입니다.
-- 사용자 지정 설정 설치 경로를 사용하는 경우 [계정은 Active Directory입니다](active-directory-aadconnect-accounts-permissions.md).
+- 사용자 지정 설정 설치 경로를 사용하는 경우 [Active Directory의 계정입니다](active-directory-aadconnect-accounts-permissions.md).
 
 ### Azure AD Connect 서버 구성
 - 전역 관리자가 MFA를 사용하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 URL을 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
@@ -197,4 +197,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

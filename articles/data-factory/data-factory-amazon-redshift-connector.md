@@ -3,7 +3,7 @@
 	description="Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 
@@ -282,4 +282,4 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 다음 문서를 참조하세요.
 - 복사 작업을 포함하는 파이프라인 만들기 위한 단계별 지침이 들어 있는 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

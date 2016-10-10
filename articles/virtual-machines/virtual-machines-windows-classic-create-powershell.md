@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기 
@@ -37,7 +37,7 @@
 
 ## 1단계: 사용자 계정 추가
 
-1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **Enter** 키를 누릅니다.
+1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **입력**을 클릭합니다.
 2. Azure 구독과 연관된 메일 주소를 입력하고 **계속**을 클릭합니다.
 3. 계정에 암호를 입력합니다.
 4. **로그인**을 클릭합니다.
@@ -108,7 +108,7 @@ D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
+강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
 
 선택적으로 Windows 컴퓨터를 기존 Active Directory 도메인에 추가하려면 로컬 관리자 계정 및 암호, 도메인, 도메인 계정의 이름 및 암호를 지정합니다.
 
@@ -183,7 +183,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 다음은 위 단계를 사용하여 Azure에서 Windows 기반 Azure 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.
 
-### 예제 1
+### 예 1
 
 다음과 같은 Active Directory 도메인 컨트롤러용 초기 가상 컴퓨터를 만드는 데 사용할 수 있는 PowerShell 명령 집합이 필요합니다.
 
@@ -262,4 +262,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 127GB보다 큰 OS 디스크가 필요한 경우 [OS 드라이브를 확장](virtual-machines-windows-expand-os-disk.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

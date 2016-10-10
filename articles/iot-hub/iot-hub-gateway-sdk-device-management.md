@@ -43,7 +43,7 @@
 
 ### 게이트웨이 소프트웨어
 
-게이트웨이 소프트웨어는 Edison 보드에서 서비스로 실행됩니다. 시뮬레이션된 두 개의 장치는 온도 원격 분석을 생성합니다. 매핑 모듈은 IoT Hub를 사용하여 등록된 장치에 이러한 시뮬레이션된 장치를 매핑하고 HTTP 모듈은 IoT Hub 끝점을 사용하여 통신을 처리합니다. [IoT 게이트웨이 SDK – 시뮬레이션된 장치를 사용하여 장치-클라우드 메시지 보내기][lnk-gateway-scenario] 문서에서는 이러한 시나리오를 자세하게 설명합니다.
+게이트웨이 소프트웨어는 Edison 보드에서 서비스로 실행됩니다. 시뮬레이션된 두 개의 장치는 온도 원격 분석을 생성합니다. 매핑 모듈은 IoT Hub를 사용하여 등록된 장치에 이러한 시뮬레이션된 장치를 매핑하고 IoT Hub 모듈은 IoT Hub 끝점을 사용하여 통신을 처리합니다. [IoT 게이트웨이 SDK – 시뮬레이션된 장치를 사용하여 장치-클라우드 메시지 보내기][lnk-gateway-scenario] 문서에서는 이러한 시나리오를 자세하게 설명합니다.
 
 ### 장치 관리 클라이언트
 
@@ -425,4 +425,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

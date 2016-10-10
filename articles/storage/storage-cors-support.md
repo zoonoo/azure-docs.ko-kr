@@ -3,7 +3,7 @@
 	description="Microsoft Azure 저장소 서비스에 대해 CORS 지원을 사용하도록 설정하는 방법을 설명합니다."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="cbrooks"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 # Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
 
@@ -195,4 +195,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

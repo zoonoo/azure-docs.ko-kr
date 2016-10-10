@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #자습서: Projectplace와 Azure Active Directory 통합
@@ -70,11 +70,11 @@
 
 1.  Azure 클래식 포털의 **Projectplace** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Single SignOn 구성")
 
 2.  **Projectplace에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Single SignOn 구성")
 
 3.  **앱 URL 구성** 페이지의 **Projectplace 로그온 URL** 텍스트 상자에 Projectplace 테넌트 URL(예: "*http://company.projectplace.com*")를 입력한 후 **다음**을 클릭합니다.
 
@@ -82,7 +82,7 @@
 
 4.  **Projectplace에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Single SignOn 구성")
 
 5.  메타데이터를 Projectplace 지원팀에 보냅니다.
 
@@ -90,18 +90,18 @@
 
 6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Single SignOn 구성")
 ##사용자 프로비전 구성
   
 Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Projectplace로 프로비전되어야 합니다. Projectplace의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  **Projectplace** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2.  **사람**으로 이동한 다음 **멤버**를 클릭합니다.
 
-    ![피플](./media/active-directory-saas-projectplace-tutorial/IC790228.png "피플")
+    ![사람](./media/active-directory-saas-projectplace-tutorial/IC790228.png "피플")
 
 3.  **멤버 추가**를 클릭합니다.
 
@@ -136,4 +136,4 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

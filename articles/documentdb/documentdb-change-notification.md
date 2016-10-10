@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
+    ms.date="09/23/2016" 
     ms.author="b-hoedid"/>
 
 # 논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림
@@ -283,7 +283,7 @@ DocDB라는 논리 앱에 대한 완료된 디자인 보기로 이동하여 살�
 
 현재 수행하는 작업은 HTTP POST의 본문에서 전달할 JSON 스키마를 만드는 것입니다. 트리거를 실행하려면 콜백 URL이 필요합니다. 이 자습서 뒷부분에서 생성하는 방법을 알아봅니다.
 
-## 동작
+## 작업
 논리 앱에서 각 동작이 어떤 일을 하는지 살펴보겠습니다.
 
 ### GetUTCDate
@@ -1156,4 +1156,4 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 
 DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

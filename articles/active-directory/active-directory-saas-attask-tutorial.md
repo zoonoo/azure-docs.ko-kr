@@ -147,7 +147,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     e. Azure 클래식 포털에서 **암호 변경 URL**을 복사한 다음 **암호 변경 URL** 텍스트 상자에 붙여 넣습니다.
 
-    e. **Save**를 클릭합니다.
+    f. **Save**를 클릭합니다.
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
@@ -314,4 +314,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

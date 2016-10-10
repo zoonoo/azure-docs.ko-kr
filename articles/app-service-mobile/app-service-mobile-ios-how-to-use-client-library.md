@@ -13,18 +13,24 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="krisragh"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # Azure 모바일 앱용 iOS 클라이언트 라이브러리를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk)를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드에 대한 .NET 서버 쪽 SDK에 대해 더 자세히 알아보려면 [.NET 백 엔드로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK][1]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
 
 ## 참조 설명서
 
-iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure 모바일 앱 iOS 클라이언트 참조](http://azure.github.io/azure-mobile-apps-ios-client/)를 참조하세요.
+iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure 모바일 앱 iOS 클라이언트 참조][2]를 참조하세요.
+
+## 지원되는 플랫폼
+
+iOS SDK는 iOS 버전 8.0 이상을 위한 Objective-C 프로젝트, Swift 2.2 프로젝트 및 Swift 2.3 프로젝트를 지원합니다.
+
+"서버-흐름" 인증은 표시된 UI에 웹 보기를 사용합니다. 장치가 웹 보기 UI를 표시할 수 없는 경우 제품 범위를 벗어나는 다른 인증 방법이 필요합니다. 따라서 이 SDK는 Watch 유형 또는 그와 비슷하게 제한된 장치에는 적합하지 않습니다.
 
 ##<a name="Setup"></a>설정 및 필수 조건
 
@@ -154,7 +160,8 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery`을(를) 통해 다음을 포함한 여러 쿼리 동작을 제어할 수 있습니다. 다음 예제에 나와 있는 대로 `readWithCompletion`을(를) 호출하여 `MSQuery` 쿼리를 수행합니다.
+`MSQuery`를 사용하여 여러 쿼리 동작을 제어할 수 있습니다.
+
 * 결과의 순서 지정
 * 반환할 필드 제한
 * 반환할 레코드 수 제한
@@ -162,10 +169,11 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정
 * 추가 함수 적용
 
+개체에 `readWithCompletion`을 호출하여 `MSQuery` 쿼리를 실행합니다.
 
 ## <a name="sorting"></a>방법: MSQuery를 사용하여 데이터 정렬
 
-결과를 정렬하기 위해 예제를 살펴봅시다. 먼저 `text` 필드를 기준으로 오름차순 정렬을 한 다음 `completion` 필드를 기준으로 내림차순 정렬을 하려면 다음과 같이 `MSQuery`을(를) 호출합니다.
+결과를 정렬하기 위해 예제를 살펴봅시다. 'text' 필드를 기준으로 오름차순으로 정렬한 다음 'complete' 필드를 기준으로 내림차순으로 정렬하려면 다음과 같이 `MSQuery`를 호출합니다.
 
 **Objective-C**:
 
@@ -202,7 +210,7 @@ query.readWithCompletion { (result, error) in
 
 ## <a name="selecting"></a><a name="parameters"></a>방법: MSQuery를 사용하여 필드 제한 및 쿼리 문자열 매개 변수 확장
 
-쿼리에서 반환되는 필드를 제한하려면 **selectFields** 속성에서 필드의 이름을 지정합니다. 이렇게 하면 텍스트 및 완료된 필드만 반환됩니다.
+쿼리에서 반환되는 필드를 제한하려면 **selectFields** 속성에서 필드의 이름을 지정합니다. 이 예는 텍스트 필드와 완료된 필드만 반환합니다.
 
 **Objective-C**:
 
@@ -235,11 +243,11 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ##<a name="inserting"></a>방법: 데이터 삽입
 
-새 테이블 행을 삽입하려면 새 `NSDictionary`을(를) 만들고 `table insert`을(를) 호출합니다. 모바일 서비스는 [동적 스키마]를 사용하지 않는 것으로 설정된 경우 `NSDictionary`에 기반하여 새 열을 자동으로 생성합니다.
+새 테이블 행을 삽입하려면 `NSDictionary`를 만들고 `table insert`를 호출합니다. [동적 스키마]가 비활성화된 경우 Azure App Service 모바일 백 엔드는 `NSDictionary`를 기반으로 새 열을 자동으로 생성합니다.
 
 `id`이(가) 제공되지 않는 경우 백 엔드는 고유한 새 ID를 자동으로 생성합니다. 고유한 `id`을(를) 제공하여 이메일 주소, 사용자 이름을 사용하거나 고유한 사용자 지정 값을 ID로 사용합니다. 고유한 ID를 제공하면 조인 및 비즈니스 지향적인 데이터베이스 논리가 쉬을 수 있습니다.
 
-`result`은(는) 삽입된 새 항목을 포함합니다. 서버에 전달된 데이터에 비해 서버 논리에 따라 추가 또는 수정된 데이터가 있을 수 있습니다.
+`result`에는 삽입된 새 항목이 포함되어 있습니다. 서버 논리에 따라, 서버에 전달된 데이터와 비교했을 때 추가된 또는 수정된 데이터가 있을 수도 있습니다.
 
 **Objective-C**:
 
@@ -388,12 +396,9 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다. 백 엔드에서 사용자 지정 API를 만드는 방법에 대한 자세한 내용은 [사용자 지정 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)를 참조하세요.
 
-사용자 지정 API를 호출하려면 다음과 같이 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [`invokeAPI`의 다른 오버로드를 사용](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)합니다.
-
-`POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [`invokeAPI`의 다른 오버로드를 사용][5]합니다. `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
 
 **Objective-C**:
-
 
 ```
 [self.client invokeAPI:@"sendEmail"
@@ -430,7 +435,7 @@ client.invokeAPI("sendEmail",
 
 ##<a name="templates"></a>방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
 
-템플릿을 등록하려면 클라이언트 앱에서 **client.push registerDeviceToken** 메서드를 사용하여 템플릿을 전달하기만 하면 됩니다.
+템플릿을 등록하려면 클라이언트 앱에서 **client.push registerDeviceToken** 메서드를 사용하여 템플릿을 전달합니다.
 
 **Objective-C**:
 
@@ -466,15 +471,13 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-보안에 대한 모든 태그는 제거될 것입니다. 설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)을 참조하세요.
-
-이러한 등록된 템플릿을 활용하여 알림을 보내려면 [알림 허브 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)로 작업합니다.
+보안을 위해 요청에서 모든 태그가 제거됩니다. 설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업][4]을 참조하세요. 이러한 등록된 템플릿을 활용하여 알림을 보내려면 [Notification Hubs API][3]로 작업합니다.
 
 ##<a name="errors"></a>방법: 오류 처리
 
-모바일 서비스를 호출할 때는 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 코드에서 이 매개 변수를 확인하고 위의 코드 조각에서처럼 필요에 따라 오류를 처리해야 합니다.
+Azure App Service 모바일 백 엔드를 호출할 때 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 앞의 코드 조각에서 보여준 것처럼, 코드에서 이 매개 변수를 확인하고 필요한 경우 오류를 처리해야 합니다.
 
-다음과 같이 가져올 수 있는 오류에 관련된 더 많은 데이터를 얻도록 파일 [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h)에 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey` 상수를 정의합니다.
+[`<WindowsAzureMobileServices/MSError.h>`][6] 파일은 상수 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey`를 정의합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
 
 **Objective-C**:
 
@@ -488,7 +491,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
-또한 파일은 아래와 같이 사용할 수 있는 각 오류 코드에 대한 상수를 정의합니다.
+또한 이 파일은 각 오류 코드에 대한 상수를 정의합니다.
 
 **Objective-C**:
 
@@ -504,30 +507,28 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식인 것이 좋습니다(필수 아님). 자세한 내용은 [ADAL iOS 빠른 시작](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)을 참조하세요.
+1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
 
-2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음을 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
+2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음 정의를 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
 		xcodeproj 'YOUR-PROJECT'
-및 Pod:
+
+   및 Pod:
 
 		pod 'ADALiOS'
 
 3. 터미널을 사용하여 프로젝트를 포함하는 디렉터리에서 `pod install`을 실행한 다음 생성된 Xcode 작업 영역(프로젝트 아님)을 엽니다.
 
-4. 사용하는 언어에 따라 응용 프로그램에 아래 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
+4. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다. 각 코드에서 다음과 같이 값을 바꿉니다.
 
-* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
-
-* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
-
-* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-
-* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+    * **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+    * **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
+    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
 
 **Objective-C**:
 
@@ -590,16 +591,15 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
     		}
 	}
 
-
 ## <a name="facebook-sdk"></a>방법: iOS용 Facebook SDK를 사용하여 사용자 인증
 
-Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다. 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. 다음으로 [Facebook 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-facebook-authentication.md) 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
+1. 다음으로 [Facebook 로그인에 앱 서비스를 구성하는 방법][9] 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
 
-2. [iOS용 Facebook SDK -시작](https://developers.facebook.com/docs/ios/getting-started) 설명서를 따라 iOS용 Facebook SDK를 설치합니다. 새 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
+2. [iOS용 Facebook SDK -시작][10] 설명서를 따라 iOS용 Facebook SDK를 설치합니다. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
 
-    Facebook의 설명서는 앱 대리자에서 일부 Objective-C 코드를 포함합니다. **Swift**를 사용 중인 경우 AppDelegate.swift에 다음 번역을 사용할 수 있습니다.
+3. Facebook의 설명서는 앱 대리자에서 일부 Objective-C 코드를 포함합니다. **Swift**를 사용 중인 경우 AppDelegate.swift에 다음 번역을 사용할 수 있습니다.
   
 		// Add the following import to your bridging header:
 		//		#import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -616,9 +616,9 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 			return handled
 		}
 
-3. 또한 프로젝트에 `FBSDKCoreKit.framework`을 추가하는 것 외에도 같은 방식으로 `FBSDKLoginKit.framework`에 참조를 추가합니다.
+4. 또한 프로젝트에 `FBSDKCoreKit.framework`을 추가하는 것 외에도 같은 방식으로 `FBSDKLoginKit.framework`에 참조를 추가합니다.
 
-4. 사용하는 언어에 따라 응용 프로그램에 아래 코드를 추가합니다.
+4. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다.
 
 **Objective-C**:
 
@@ -646,7 +646,6 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 	     }];
 	}
 
-
 **Swift**:
 
 	// Add the following imports to your bridging header:
@@ -671,15 +670,15 @@ Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 
 
 ## <a name="twitter-fabric"></a>방법: iOS용 Twitter Fabric을 사용하여 사용자 인증
 
-Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Fabric을 사용할 수 있습니다. 클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.
 
 1. 다음으로 [Twitter 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-twitter-authentication.md) 자습서를 수행하여 Twitter 로그인에 모바일 앱 백 엔드를 구성합니다.
 
-2. [iOS용 Fabric - 시작](https://docs.fabric.io/ios/fabric/getting-started.html) 설명서를 수행하고 TwitterKit를 설정하여 프로젝트에 Fabric을 추가합니다.
+2. [iOS용 Fabric - 시작] 설명서를 수행하고 TwitterKit를 설정하여 프로젝트에 Fabric을 추가합니다.
 
-    > [AZURE.NOTE] 기본적으로 Fabric에서는 새 Twitter 응용 프로그램을 만듭니다. 아래 코드 조각을 사용하여 이전에 만든 소비자 키 및 소비자 암호를 등록하여 이를 변경할 수 있습니다. 또는 [패브릭 대시보드](https://www.fabric.io/home)에 표시되는 값으로 앱 서비스를 제공하는 소비자 키 및 소비자 암호 값을 바꿀 수 있습니다. 이 옵션을 선택하면 콜백 URL을 `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`와 같은 자리 표시자 값으로 설정해야 합니다.
+    > [AZURE.NOTE] 기본적으로 패브릭은 사용자를 위해 Twitter 응용 프로그램을 만듭니다. 다음 코드 조각을 사용하여 이전에 만든 소비자 키 및 소비자 암호를 등록하면 응용 프로그램을 만들지 않아도 됩니다. 또는 [패브릭 대시보드]에 표시되는 값으로 앱 서비스를 제공하는 소비자 키 및 소비자 암호 값을 바꿀 수 있습니다. 이 옵션을 선택하면 콜백 URL을 `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`와 같은 자리 표시자 값으로 설정해야 합니다.
 
-	이전에 만든 암호를 사용하도록 선택한 경우 앱 대리자에 다음을 추가합니다.
+	이전에 만든 암호를 사용하도록 선택한 경우 앱 대리자에 다음 코드를 추가합니다.
 	
 	**Objective-C**:
 
@@ -706,7 +705,7 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 			return true
 		}
 	
-3. 사용하는 언어에 따라 응용 프로그램에 아래 코드를 추가합니다.
+3. 사용하는 언어에 따라 응용 프로그램에 다음 코드를 추가합니다.
 
 **Objective-C**:
 
@@ -745,13 +744,13 @@ Twitter를 사용하여 응용 프로그램에 사용자를 로그인하도록 i
 
 ## <a name="google-sdk"></a>방법: iOS용 Google 로그인 SDK를 사용하여 사용자 인증
 
-Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다. `loginWithProvider:completion:` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Google 로그인 SDK를 사용할 수 있습니다. 최근에 Google에서 OAuth 보안 정책 변경 소식을 발표했습니다. 정책이 변경됨에 따라 향후에는 Google SDK를 사용해야 할 것입니다.
 
 1. 다음으로 [Google 로그인에 App Service를 구성하는 방법](app-service-mobile-how-to-configure-google-authentication.md) 자습서를 수행하여 Google 로그인에 모바일 앱 백 엔드를 구성합니다.
 
-2. [iOS용 Google 로그인 - 통합 시작](https://developers.google.com/identity/sign-in/ios/start-integrating) 설명서에 따라 iOS용 Google SDK를 설치합니다. App Service가 이를 처리하는 대로 "백 엔드 서버를 사용하여 인증" 섹션을 건너뛸 수 있습니다.
+2. [iOS용 Google 로그인 - 통합 시작](https://developers.google.com/identity/sign-in/ios/start-integrating) 설명서에 따라 iOS용 Google SDK를 설치합니다. "백 엔드 서버를 사용하여 인증" 섹션은 건너뛰어도 됩니다.
 
-3. 코드 외에도 사용하는 언어에 따라 대리자 `signIn:didSignInForUser:withError:` 메서드에 다음을 추가합니다.
+3. 사용하는 언어에 따라 대리자의 `signIn:didSignInForUser:withError:` 메서드에 다음을 추가합니다.
 
 **Objective-C**:
 
@@ -777,13 +776,12 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 
  		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
  
- 
  **Swift**:
  
 		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
 
  
- 5. 사용하는 언어에 따라 아래 코드를 `GIDSignInUIDelegate` 프로토콜을 구현하는 UIViewController의 응용 프로그램에 추가합니다. 사용자가 다시 로그인되기 전에 로그아웃하고 해당 자격 증명을 두 번 입력할 필요가 없지만 동의 대화 상자가 표시됩니다. 새 서버 인증 코드를 가져와야 하며 이전 단계에서 필요합니다. 세션 토큰이 만료된 경우에만 이 메서드를 호출합니다.
+ 5. 사용하는 언어에 따라 다음 코드를 `GIDSignInUIDelegate` 프로토콜을 구현하는 UIViewController의 응용 프로그램에 추가합니다. 로그아웃되었다가 다시 로그인되며, 자격 증명을 다시 입력할 필요는 없지만 동의 대화 상자가 표시됩니다. 세션 토큰이 만료된 경우에만 이 메서드를 호출합니다.
  
  **Objective-C**:
 
@@ -856,4 +854,17 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0907_2016-->
+[패브릭 대시보드]: https://www.fabric.io/home
+[iOS용 Fabric - 시작]: https://docs.fabric.io/ios/fabric/getting-started.html
+[1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
+[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
+[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
+[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[8]: ../active-directory/active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem
+[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[10]: https://developers.facebook.com/docs/ios/getting-started
+
+<!---HONumber=AcomDC_0928_2016-->

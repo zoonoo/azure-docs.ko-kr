@@ -3,7 +3,7 @@
 	description="IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
 
 IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다. 이 기능은 AD FS에서 온-프레미스로 관리하는 Office365 응용 프로그램에 대한 장치 기반 조건부 액세스 정책을 구성한 경우에 유용할 수 있습니다. [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)를 읽으면 장치 등록 시나리오에 대해 자세히 알아볼 수 있습니다.
+
+>AZURE.NOTE 장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
 Azure Active Directory 자동 장치 등록은 Active Directory 도메인에 가입된 Windows 7 및 Windows 8.1 컴퓨터에 사용할 수 있습니다. 일반적으로 정보 근로자에게 제공된 회사 소유 컴퓨터가 이에 해당합니다.
 
@@ -33,7 +35,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 3. AD FS 관리 콘솔을 열고 **AD FS**>**트러스트 관계>신뢰 당사자 트러스트**로 이동합니다. Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트 개체를 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...**을 선택합니다.
 4. **발급 변환 규칙** 탭에서 **규칙 추가**를 선택합니다.
 5. **클레임 규칙** 템플릿 드롭다운 상자에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택합니다. **다음**을 선택합니다.
-6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙* 을 입력합니다.
+6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙*을 입력합니다.
 7. **클레임 규칙:** 텍스트 상자에 다음 클레임 규칙을 입력합니다.
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
@@ -105,4 +107,4 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

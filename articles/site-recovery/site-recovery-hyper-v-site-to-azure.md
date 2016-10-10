@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Azure 포털](site-recovery-hyper-v-site-to-azure.md)
-- [Azure 클래식](site-recovery-hyper-v-site-to-azure-classic.md)
-- [PowerShell ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [클래식 포털](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
 
@@ -88,7 +88,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 **필수 요소** | **세부 정보**
 --- | ---
 **Hyper-V**| 최신 업데이트의 Windows Server 2012 R2를 실행하고 Hyper-V 역할을 수행하는 하나 이상의 온-프레미스 서버.<br/><br/>Hyper-V 서버는 하나 이상의 가상 컴퓨터를 포함해야 합니다.<br/><br/>Hyper-V 서버는 직접 또는 프록시를 통해 인터넷이 연결되어 있어야 합니다.<br/><br/>Hyper-V 서버에는 [KB2961977](https://support.microsoft.com/ko-KR/kb/2961977 "KB2961977")에 언급된 수정이 적용되어 있어야 합니다.
-**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(433) 프로토콜을 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요.
+**공급자 및 에이전트** | Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 가상 컴퓨터를 실행하고 있는 보호하고자 하는 각 Hyper-V 서버에 Azure 복구 서비스 에이전트를 설치합니다. 사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용해야 합니다.<br/><br/>구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요.
 
 ## 보호된 컴퓨터 필수 조건
 
@@ -342,7 +342,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png)
 
-12. **복제 설정** > **복제 설정 구성** 에서 보호되는 VM에 적용할 복제 정책을 선택합니다. 그런 후 **OK**를 클릭합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 적용하는 변경 사항은 이미 복제 중인 컴퓨터와 새 컴퓨터에 사용됩니다.
+12. **복제 설정** > **복제 설정 구성**에서 보호되는 VM에 적용할 복제 정책을 선택합니다. 그런 후 **OK**를 클릭합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 적용하는 변경 사항은 이미 복제 중인 컴퓨터와 새 컴퓨터에 사용됩니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
@@ -469,4 +469,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

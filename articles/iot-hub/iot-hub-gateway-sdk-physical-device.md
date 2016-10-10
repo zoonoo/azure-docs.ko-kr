@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK(베타) – Linux를 사용하는 실시간 장치에서 장치-클라우드 메시지 보내기
@@ -41,9 +41,10 @@
 게이트웨이에는 다음 모듈이 포함됩니다.
 
 - *BLE 모듈* - BLE 장치와 연결되며, 장치에서 온도 데이터를 수신하고 장치로 명령을 보냅니다.
-- *로거 모듈* - 메시지 버스 진단을 생성합니다.
+- *BLE Cloud-Device 모듈* - 클라우드로부터 BLE 지침으로 들어오는 *BLE 모듈*에 대한 JSON 메시지를 변환합니다.
+- *로거 모듈* - 모든 게이트웨이 메시지를 기록합니다.
 - *ID 매핑 모듈* - BLE 장치 MAC 주소 및 Azure IoT Hub 장치 ID 간을 변환합니다.
-- *IoT Hub HTTP 모듈* - IoT hub에 원격 분석 데이터를 업로드하고 IoT hub에서 장치 명령을 수신합니다.
+- *IoT Hub 모듈* - IoT hub에 원격 분석 데이터를 업로드하고 IoT hub에서 장치 명령을 수신합니다.
 - *BLE 프린터 모듈* - BLE 장치의 원격 분석을 해석하고 형식이 지정된 데이터를 콘솔에 출력하여 문제 해결 및 디버깅을 사용하도록 설정합니다.
 
 ### 게이트웨이를 통해 데이터가 흐르는 방식
@@ -55,20 +56,21 @@
 원격 분석 항목이 BLE 장치에서 IoT Hub로 이동하면서 진행되는 단계는 다음과 같습니다.
 
 1. BLE 장치가 온도 샘플을 생성한 후 Bluetooth를 통해 게이트웨이의 BLE 모듈로 보냅니다.
-2. BLE 모듈이 샘플을 수신한 후 장치의 MAC 주소와 함께 메시지 버스에 게시합니다.
-3. ID 매핑 모듈이 메시지 버스에서 이 메시지를 선택하고 내부 표를 사용하여 장치의 MAC 주소를 IoT Hub 장치 ID(장치 ID 및 장치 키)로 변환합니다. 그런 후 새 메시지를 온도 샘플 데이터, 장치의 MAC 주소, 장치 ID 및 장치 키가 포함된 메시지 버스에 게시합니다.
-4. IoT Hub HTTP 모듈은 메시지 버스에서 새 메시지(ID 매핑 모듈에 의해 생성)를 수신한 후 IoT bub에 게시합니다.
-5. 로거 모듈이 메시지 버스의 모든 메시지를 디스크 파일에 기록합니다.
+2. BLE 모듈이 샘플을 수신한 후 장치의 MAC 주소와 함께 broker에 게시합니다.
+3. ID 매핑 모듈이 이 메시지를 선택하고 내부 표를 사용하여 장치의 MAC 주소를 IoT Hub 장치 ID(장치 ID 및 장치 키)로 변환합니다. 그런 후 온도 샘플 데이터, 장치의 MAC 주소, 장치 ID 및 장치 키가 포함된 새 메시지를 게시합니다.
+4. IoT Hub 모듈은 새 메시지(ID 매핑 모듈에 의해 생성)를 수신한 후 IoT Hub에 게시합니다.
+5. 로거 모듈이 broker의 모든 메시지를 디스크 파일에 기록합니다.
 
 다음 블록 다이어그램에서는 장치 명령 데이터 흐름 파이프라인을 보여 줍니다.
 
 ![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_command_data_flow.png)
 
-1. IoT Hub HTTP 모듈은 새로운 명령 메시지에 대한 IoT Hub를 주기적으로 폴링합니다.
-2. IoT Hub HTTP 모듈은 새 명령 메시지를 받으면 메시지 버스에 게시합니다.
-3. ID 매핑 모듈은 메시지 버스에서 명령 메시지를 선택하고 내부 표를 사용하여 IoT Hub 장치 ID를 장치 MAC 주소로 변환합니다. 그런 다음 새 메시지를 메시지의 속성 맵에 대상 장치의 MAC 주소가 포함된 메시지 버스에 게시합니다.
-4. BLE 모듈은 이 메시지를 선택하고 BLE 장치와 통신하여 I/O 명령을 실행합니다.
-5. 로거 모듈이 메시지 버스의 모든 메시지를 디스크 파일에 기록합니다.
+1. IoT Hub 모듈은 새로운 명령 메시지에 대한 IoT Hub를 주기적으로 폴링합니다.
+2. IoT Hub 모듈은 새 명령 메시지를 받으면 broke에 게시합니다.
+3. ID 매핑 모듈은 명령 메시지를 선택하고 내부 표를 사용하여 IoT Hub 장치 ID를 장치 MAC 주소로 변환합니다. 그런 다음 메시지의 속성 맵에 대상 장치의 MAC 주소가 포함된 새 메시지를 게시합니다.
+4. BLE Cloud-Device 모듈은 이 메시지를 선택해 BLE 모듈에 대한 적합한 BLE 명령으로 변환합니다. 그런 다음 새 메시지를 게시합니다.
+5. BLE 모듈은 이 메시지를 선택하고 BLE 장치와 통신하여 I/O 명령을 실행합니다.
+6. 로거 모듈이 broker의 모든 메시지를 디스크 파일에 기록합니다.
 
 ## 하드웨어 준비
 
@@ -283,17 +285,18 @@ BLE 장치에 대한 샘플 구성에서는 Texas Instruments SensorTag 장치�
 }
 ```
 
-#### IoT Hub HTTP 모듈
+#### IoT Hub 모듈
 
 IoT Hub의 이름을 추가합니다. 일반적으로 접미사 값은 **azure-devices.net**입니다.
 
 ```json
 {
   "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothubhttp/libiothubhttp_hl.so",
+  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
-    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>"
+    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
+    "Transport": "HTTP"
   }
 }
 ```
@@ -324,6 +327,26 @@ SensorTag 장치의 MAC 주소와 IoT Hub에 추가된 **SensorTag\_01** 장치�
     "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
     "args": null
 }
+```
+
+#### 라우팅 구성
+
+다음 구성은 다음을 보장합니다.
+- **로거** 모듈은 모든 메시지를 받아 기록합니다.
+- **SensorTag** 모듈은 **매핑** 및 **BLE 프린터** 모듈 둘 다에 메시지를 보냅니다.
+- **매핑** 모듈은 IoT Hub 보내질 메시지를 **IoTHub** 모듈에 보냅니다.
+- **IoTHub** 모듈은 메시지를 **매핑** 모듈로 돌려 보냅니다.
+- **매핑** 모듈은 메시지를 **SensorTag** 모듈로 돌려 보냅니다.
+
+```json
+"links" : [
+    {"source" : "*", "sink" : "Logger" },
+    {"source" : "SensorTag", "sink" : "mapping" },
+    {"source" : "SensorTag", "sink" : "BLE Printer" },
+    {"source" : "mapping", "sink" : "IoTHub" },
+    {"source" : "IoTHub", "sink" : "mapping" },
+    {"source" : "mapping", "sink" : "SensorTag" }
+  ]
 ```
 
 샘플을 실행하려면 JSON 구성 파일에 경로를 전달하는 **ble\_gateway\_hl** 이진 파일을 실행합니다. **gateway\_sample.json** 파일을 사용하는 경우 실행할 명령은 다음과 같습니다.
@@ -428,4 +451,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="REST API를 사용하여 작업 진행률 확인하는 방법" 
+	pageTitle="REST API를 사용하여 작업 진행률을 확인하는 방법 | Microsoft Azure" 
 	description="작업 진행률을 추적하는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
@@ -64,4 +64,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

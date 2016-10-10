@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@
 
 ## Azure 클래식 포털을 통해 경고 설정
 
-Azure 관리 포털에서 알림을 설정하는 방법은 두 가지가 있습니다.
+Azure 클래식 포털에서 알람을 설정하는 방법은 두 가지가 있습니다.
 
 1.	스트림 분석 작업의 **모니터** 탭
 2.	관리 서비스의 작업 로그
@@ -60,19 +60,19 @@ Azure 관리 포털에서 알림을 설정하는 방법은 두 가지가 있습�
 
     ![경고 정의](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
-## Azure 포털에서 경고 설정 ##
+## Azure Portal에서 경고 설정 ##
 
-Azure 포털에서 경고하고자 하는 스트림 분석 작업을 찾아 **모니터링** 섹션을 클릭합니다. **메트릭** 블레이드가 열리면 **경고 추가** 명령을 클릭합니다.
+Azure Portal에서 경고하고자 하는 Stream Analytics 작업을 찾아 **모니터링** 섹션을 클릭합니다. **메트릭** 블레이드가 열리면 **경고 추가** 명령을 클릭합니다.
 
-  ![Azure 포털 설치](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+  ![Azure Portal 설치](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
 경고 규칙의 이름을 지정하고 알림 전자 메일에 표시되는 설명을 선택할 수 있습니다.
 
 메트릭을 선택하면 메트릭에 대한 조건 및 임계값을 선택할 수 있습니다.
 
-  ![Azure 포털 선택 메트릭](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+  ![Azure Portal 선택 메트릭](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
-Azure 포털에서 경고를 구성에 대한 자세한 내용은 [경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
+Azure Portal에서 경고를 구성에 대한 자세한 내용은 [경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
@@ -85,4 +85,4 @@ Azure 포털에서 경고를 구성에 대한 자세한 내용은 [경고 알림
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -39,7 +39,7 @@
 
 5. **그룹** 블레이드에서 그룹에 대한 이름 및 설명을 추가합니다.
 
-6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 멤버 자격을 동적으로 관리하는 방법에 대한 자세한 내용은 [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-users-azure-portal.md) 또는 [그룹의 장치에 대한 동적 규칙 관리](active-directory-groups-dynamic-devices-azure-portal.md)를 참조하세요.
+6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 구성원을 동적으로 관리하는 방법에 대한 자세한 내용은 [특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기](active-directory-groups-dynamic-membership-azure-portal.md)를 참조하세요.
 
   ![추가할 멤버 선택](./media/active-directory-groups-create-azure-portal/select-members.png)
 
@@ -62,4 +62,4 @@
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

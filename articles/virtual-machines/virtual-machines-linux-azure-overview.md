@@ -98,7 +98,7 @@ Jenkins - [Azure 마켓플레이스 - CloudBees Jenkins Platform](https://azure.
 
 
 ## Azure의 설정 가져오기
-Azure 사용을 시작하려면 Azure 계정, 설치된 Azure cli, SSH 공용 및 개인 키 쌍이 필요합니다.
+Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 및 개인 키 쌍이 필요합니다.
 
 ## 계정 등록
 Azure 클라우드를 사용하는 첫 번째 단계는 Azure 계정을 등록하는 것입니다. 시작하려면 [Azure 계정 등록](https://azure.microsoft.com/pricing/free-trial/) 페이지로 이동합니다.
@@ -112,8 +112,8 @@ Azure 클라우드를 사용하는 첫 번째 단계는 Azure 계정을 등록�
 ## Microsoft Azure에서 Linux 시작
 Azure 계정이 설정되고, Azure CLI가 설치되고, SSH 키가 생성되었으므로 이제 Azure 클라우드에서 인프라를 구축할 수 있습니다. 첫 번째 작업은 몇 개의 VM을 만드는 것입니다.
 
-## cli에서 VM 만들기
-cli에서 Linux VM을 만들 경우 작업 중인 터미널을 빠져 나가지 않고 VM을 빠르게 배포할 수 있습니다. 웹 포털에서 지정할 수 있는 모든 사항은 명령줄 플래그 또는 스위치를 통해 사용할 수 있습니다.
+## CLI를 사용하여 VM 만들기
+CLI에서 Linux VM을 만들 경우 작업 중인 터미널을 빠져 나가지 않고 VM을 빠르게 배포할 수 있습니다. 웹 포털에서 지정할 수 있는 모든 사항은 명령줄 플래그 또는 스위치를 통해 사용할 수 있습니다.
 
 - [CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
@@ -123,7 +123,7 @@ Azure 웹 포털에서 Linux VM을 만들 경우 배포를 진행하기 위한 �
 - [포털을 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md)
 
 ## SSH를 사용하여 암호 없이 로그인
-VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다. 암호를 사용하여 SSH를 통해 로그인하는 것은 안전하지 않으며 시간이 많이 소요됩니다. SSH 키를 사용하는 것이 가장 안전하고 로그인하는 데 가장 빠른 방법입니다. 포털 또는 CLI를 통해 Linux VM을 만들 경우 두 가지 인증 중에서 선택해야 합니다. SSH에 대한 암호를 선택하면 Azure에서 암호를 통한 로그인을 허용하도록 VM이 구성됩니다. SSH 공개 키를 사용하기로 선택한 경우 Azure에서 SSH 키를 통한 로그인만 허용하도록 VM을 구성하고 암호 로그인은 사용할 수 없게 설정합니다. SSH 키 로그인만 허용하여 Linux VM을 보호하려면 포털 또는 cli에서 VM을 만드는 동안 SSH 공개 키 옵션을 사용합니다.
+VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다. 암호를 사용하여 SSH를 통해 로그인하는 것은 안전하지 않으며 시간이 많이 소요됩니다. SSH 키를 사용하는 것이 가장 안전하고 로그인하는 데 가장 빠른 방법입니다. 포털 또는 CLI를 통해 Linux VM을 만들 경우 두 가지 인증 중에서 선택해야 합니다. SSH에 대한 암호를 선택하면 Azure에서 암호를 통한 로그인을 허용하도록 VM이 구성됩니다. SSH 공개 키를 사용하기로 선택한 경우 Azure에서 SSH 키를 통한 로그인만 허용하도록 VM을 구성하고 암호 로그인은 사용할 수 없게 설정합니다. SSH 키 로그인만 허용하여 Linux VM을 보호하려면 포털 또는 CLI에서 VM을 만드는 동안 SSH 공개 키 옵션을 사용합니다.
 
 - [SSHD를 구성하여 Linux VM에 SSH 암호 사용 안 함](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
@@ -164,4 +164,4 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다. �
 
 - [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

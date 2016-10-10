@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/19/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
@@ -106,4 +106,4 @@ Azure 관리 포털에서 작업 대시보드는 진단(즉, 입력, 출력 및/
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

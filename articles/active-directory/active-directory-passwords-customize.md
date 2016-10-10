@@ -202,9 +202,8 @@
                 </p>
                 <ul>
                   <li class="unordered">
-												no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암호 재설정을 위해 <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>에서 등록할 수 있습니다.<br><br></li>
-                  <li class="unordered">
-												yes로 설정된 경우, <strong>암호 재설정을 수행할 수 있는 그룹</strong> 컨트롤에서 지정된 최종 사용자만이 <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>에서 암호 재설정을 위해 등록할 수 있습니다.<br><br></li>
+                    이 설정은 암호 재설정 등록 포털에 대한 사용자의 액세스 권한에 영향을 주지 않습니다. <strong>암호 재설정을 위해 사용할 수 있는 사용자</strong>가 <strong>예</strong>로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암호 재설정을 위해 <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>에서 등록할 수 있습니다.
+                  </li>
                 </ul>
                 <p>
                   <strong>암호 재설정 포털:</strong>
@@ -245,7 +244,8 @@
                 </p>
                 <ul>
                   <li class="unordered">
-												<strong>암호 재설정에 대한 액세스 제한</strong>이 <strong>yes</strong>로 설정된 경우, 이 그룹의 최종 사용자만이 암호 재설정을 위해 등록할 수 있습니다. <br><br></li>
+                    이 설정은 암호 재설정 등록 포털에 대한 사용자의 액세스 권한에 영향을 주지 않습니다. <strong>암호 재설정을 위해 사용할 수 있는 사용자</strong>가 <strong>예</strong>로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암호 재설정을 위해 <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>에서 등록할 수 있습니다.
+                  </li>
                 </ul>
                 <p>
                   <strong>암호 재설정 포털:</strong>
@@ -270,12 +270,6 @@
                 <p>(<strong>암호 재설정을 위해 사용할 수 있는 사용자</strong>가 <strong>yes</strong>로 설정된 경우에만 표시).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>참고:</strong>
                 </p>
@@ -875,4 +869,4 @@
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Azure 저장소 복제
 
@@ -37,6 +37,8 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. | 3 | 3 | 6 | 6 |
 
 다른 이중화 옵션에 대한 가격 정보를 보려면 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+
+>[AZURE.NOTE] 프리미엄 저장소는 LRS(로컬 중복 저장소)만 지원합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
 
 ## 로컬 중복 저장소
 
@@ -117,4 +119,4 @@ Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https:
 - [Microsoft Azure 저장소 중복 옵션 및 읽기 액세스 지역 중복 저장소](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

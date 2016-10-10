@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/27/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB API 및 SDK 
@@ -40,6 +40,13 @@
 ## 릴리스 정보
 
 > [AZURE.IMPORTANT] 분할된 컬렉션을 쿼리할 때 System.NotSupportedException이 나타날 수 있습니다. 이 오류를 방지하려면 프로젝트 속성 창의 빌드 탭에서 "32비트 기본 사용" 옵션을 선택 취소합니다.
+
+### <a name="1.10.0"/>[1\.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
+
+  - 분할된 컬렉션에 대한 직접 연결 지원이 추가되었습니다.
+  - 제한된 부실 일관성 수준에 대한 성능이 향상되었습니다.
+  - 조건자를 변환하는 동안 StringEnumConverter, IsoDateTimeConverter 및 UnixDateTimeConverter에 대한 LINQ 지원이 추가되었습니다.
+  - 다양한 SDK 버그가 수정되었습니다.
 
 ### <a name="1.9.5"/>[1\.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
 
@@ -140,7 +147,7 @@
   - OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   - Order By를 지원하기 위한 IndexingPolicy
   
-		**NB: 가능한 새로운 변경** 
+		**NB: Possible breaking change** 
   
     	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다. 사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
 
@@ -174,6 +181,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
+| [1\.10.0](#1.10.0) | 2016년 9월 27일 |--- 
 | [1\.9.5](#1.9.5) | 2016년 9월 1일 |--- 
 | [1\.9.4](#1.9.4) | 2016년 8월 24일 |--- 
 | [1\.9.3](#1.9.3) | 2016년 8월 15일 |--- 
@@ -197,7 +205,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- 
 | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
+| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
@@ -207,4 +215,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="장애 조치 스트리밍 시나리오 구현 | Microsoft Azure" 
-	description="이 항목에서는 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여줍니다." 
+	description="이 토픽에서는 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #장애 조치 스트리밍 시나리오 구현
@@ -24,7 +24,7 @@
 1. mezzanine 파일을 원본 자산에 업로드합니다.
 1. 자산을 다중 비트 전송률 MP4 파일로 인코딩합니다.
 1. 원본 자산에 읽기 전용 SAS 로케이터를 만들어 원본 자산과 연관된 저장소 계정에서 컨테이너에 대한 읽기 액세스 권한을 갖습니다.
-1. 이전 단계에서 만든 읽기 전용 SAS 로케이터에서 원본 자산의 컨테이너 이름을 가져옵니다. 저장소 계정 간에 blob를 복사하기 위해 이 정보가 필요합니다.(이 항목의 뒷부분에 설명함)
+1. 이전 단계에서 만든 읽기 전용 SAS 로케이터에서 원본 자산의 컨테이너 이름을 가져옵니다. 이 정보는 저장소 계정 간에 Blob을 복사하기 위해 필요합니다(이 토픽의 뒷부분에서 설명함).
 1. 인코딩 작업에서 만든 자산에 원본 로케이터를 만듭니다.
 
 그런 다음 장애 조치를 처리합니다.
@@ -51,7 +51,7 @@
 
 ##필수 조건
  
-- 신규 또는 기존 Azure 구독의 미디어 서비스 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)을 참조하세요.
+- 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)을 참조하세요.
 - 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
 - .NET Framework 4.5 또는 .NET Framework 4
 - Visual Studio 2010 SP1 또는 later version (Professional, Premium, Ultimate, 또는 Express).
@@ -799,7 +799,7 @@
 		    sb.Append(", "AccessPolicyId" : "" + accessPolicyId + """);
 		    sb.Append(", "Type" : "" + locatorType + """);
 		    if (startTime != DateTime.MinValue)
-		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("en-us")) + """);
+		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("ko-KR")) + """);
 		    if (!string.IsNullOrEmpty(locatorIdToReplicate))
 		        sb.Append(", "Id" : "" + locatorIdToReplicate + """);
 		    sb.Append("}");
@@ -972,4 +972,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

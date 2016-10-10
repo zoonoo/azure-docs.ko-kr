@@ -13,24 +13,23 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="06/17/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
-# Microsoft HPC Pack을 사용하여 Azure에서 Windows HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션
+# HPC Pack을 사용하여 Azure에서 Windows HPC 클러스터를 만들고 관리하기 위한 옵션
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-이 문서는 HPC 팩을 사용하여 Windows 워크로드를 실행할 때 사용 가능한 옵션에 대해 설명합니다. 또한 [HPC 팩을 사용하여 Linux HPC 워크로드](virtual-machines-linux-hpcpack-cluster-options.md)를 실행할 때 사용 가능한 옵션도 있습니다.
+이 문서는 Windows 워크로드를 실행하기 위한 HPC Pack 클러스터를 생성하는 옵션을 중점적으로 설명합니다. 또한 [HPC Pack을 사용하여 Linux HPC 워크로드](virtual-machines-linux-hpcpack-cluster-options.md)를 실행하는 클러스터를 생성하는 옵션도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Azure VM에서 HPC Pack 클러스터 실행
 
 ### Azure 템플릿
 
-* (마켓플레이스) [Windows 워크로드용 HPC Linux 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+* (마켓플레이스) [Windows 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
 
-* (마켓플레이스) [Excel 워크로드용 HPC Linux 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+* (마켓플레이스) [Excel 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 
 * (퀵 스타트) [HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 
@@ -64,10 +63,11 @@ ms.service="virtual-machines-windows"
 
 * [Azure에서 HPC Pack 클러스터의 컴퓨터 노드 관리](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
 
-
 * [HPC Pack 클러스터에서 Azure 계산 리소스 확장 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 * [Azure에서 HPC Pack 클러스터에 작업 제출](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+
+* [HPC Pack의 작업 관리](https://technet.microsoft.com/library/jj899585.aspx)
 
 
 ## HPC Pack 클러스터에 작업자 역할 노드 추가
@@ -79,7 +79,6 @@ ms.service="virtual-machines-windows"
 
 * [Azure에서 HPC Pack 헤드 노드에 Azure "버스트" 노드 추가](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
-* [HPC Pack 클러스터에서 Azure 계산 리소스 확장 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 ## Azure 배치와의 통합 
 
@@ -89,4 +88,4 @@ ms.service="virtual-machines-windows"
 
 * [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Azure 진단 로그 개요
@@ -69,15 +69,23 @@ Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하려�
 
 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
 
 이벤트 허브로 진단 로그의 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 서비스 버스 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다.
+
+진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+Azure 포털에서 Log Analytics 작업 영역 ID를 얻을 수 있습니다.
+
+이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
 Azure CLI를 통해 진단 로그를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
@@ -93,7 +101,33 @@ Azure CLI를 통해 진단 로그를 사용하도록 설정하려면 다음 명�
 
 서비스 버스 규칙 ID는 `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다.
 
+진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+Azure 포털에서 Log Analytics 작업 영역 ID를 얻을 수 있습니다.
+
+이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
+
 Insights REST API를 사용하여 진단 설정을 변경하려면 [이 문서](https://msdn.microsoft.com/library/azure/dn931931.aspx)를 참조하세요.
+
+## 포털에서 진단 설정 관리
+
+진단 설정을 통해 모든 리소스가 정확하게 설정되었는지 확인하기 위해 포털의 **모니터링** 블레이드로 이동하여 **진단 로그** 블레이드를 열 수 있습니다.
+
+![포털의 진단 로그 블레이드](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+모니터링 블레이드를 찾기 위해 “더 많은 서비스"를 클릭해야 할 수 있습니다.
+
+이 블레이드에서는 진단 로그를 지원하는 모든 리소스를 확인 및 필터링하여 진단이 활성화되었는지 확인하고, 해당 로그를 전달할 저장소 계정, 이벤트 허브 및/또는 Log Analytics 작업 영역을 파악할 수 있습니다.
+
+![포털의 진단 로그 블레이드 결과](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+리소스를 클릭하면 저장소 계정에 저장된 모든 로그가 표시되며 진단 설정을 끄거나 수정할 수 있는 옵션이 제공됩니다. 다운로드 아이콘을 클릭하면 특정 기간의 로그를 다운로드할 수 있습니다.
+
+![진단 로그 브레이드 1 리소스](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] 진단 로그는 이 보기에만 표시되며 저장소 계정에 로그를 저장하기 위한 진단 설정을 구성한 경우 다운로드할 수 있습니다.
 
 ## 진단 로그에 대한 지원되는 서비스 및 스키마
 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 다음은 지원되는 서비스 및 해당 스키마입니다.
@@ -133,10 +167,13 @@ Insights REST API를 사용하여 진단 설정을 변경하려면 [이 문서](
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
+|Microsoft.ServerManagement/nodes|RequestLogs|요청 로그|
+|Microsoft.StreamAnalytics/streamingjobs|실행|실행|
+|Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 
 ## 다음 단계
 - [**이벤트 허브**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Insights REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

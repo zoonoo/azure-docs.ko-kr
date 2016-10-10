@@ -18,7 +18,7 @@
 
 # v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
 
-v2.0 끝점은 산업 표준 프로토콜 OpenID Connect 및 OAuth 2.0을 이용한 ID 서비스를 위해 Azure AD를 사용할 수 있습니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 오픈 소스 라이브러리 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우 여기에 포함된 정보가 유용합니다.
+v2.0 끝점은 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0으로 IaaS(identity-as-a-service)에 Azure AD를 사용할 수 있습니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현 간에는 약간의 차이가 있을 수 있습니다. 오픈 소스 라이브러리 중 하나를 사용하는 대신 HTTP 요청을 직접 전송 및 처리하여 코드를 작성하거나 타사 오픈 소스 라이브러리를 사용하도록 선택한 경우 여기에 포함된 정보가 유용합니다.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -75,9 +75,9 @@ v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 - [OAuth 2.0를 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-v2-protocols-oauth-code.md)
 - [Open ID Connect를 사용하는 웹앱 빌드](active-directory-v2-protocols-oidc.md)
 - [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](active-directory-v2-protocols-implicit.md)
-- OAuth 2.0 클라이언트 자격 증명 흐름으로 데몬 또는 서버 쪽 프로세스 빌드(출시 예정)
+- [OAuth 2.0 클라이언트 자격 증명 흐름으로 데몬 또는 서버 쪽 프로세스 빌드](active-directory-v2-protocols-oauth-client-creds.md)
 - 흐름 대신 OAuth 2.0으로 웹 API에서 토큰 가져오기(출시 예정)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

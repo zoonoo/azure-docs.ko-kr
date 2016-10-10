@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -48,4 +48,4 @@ RMS 사용 현황 | 30일
 RMS 장치 사용 현황 | 30일
 RMS 사용 응용 프로그램 사용 현황 | 30일
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

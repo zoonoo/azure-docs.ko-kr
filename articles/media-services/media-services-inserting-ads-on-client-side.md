@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="클라이언트 쪽에 광고 삽입" 
-	description="이 항목에서는 클라이언트 쪽에 광고를 삽입하는 방법을 보여 줍니다." 
+	pageTitle="클라이언트 쪽에 광고 삽입 | Microsoft Azure" 
+	description="이 토픽에서는 클라이언트 쪽에 광고를 삽입하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
 #클라이언트 쪽에 광고 삽입
 
-이 항목에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
+이 토픽에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
 
 라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads)을 참조하세요.
 
@@ -35,7 +35,7 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 
 광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 재생하고 VAST XML을 포함하는 시기를 지정합니다. 또한 MAST 파일은 VAST XML도 포함할 수 있는 광고를 시퀀스하는 다른 방법입니다. VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다.
 
-각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도 항목에서 설명합니다. 이 항목에서는 광고를 삽입하는 데 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 응용 프로그램은 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
+각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도 토픽에서 설명합니다. 이 토픽에서는 광고를 삽입하는 데 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 응용 프로그램은 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
 
 - VAST 파일 반환
 - VMAP 파일 반환(포함된 VAST와 함께)
@@ -813,4 +813,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

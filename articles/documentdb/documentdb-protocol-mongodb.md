@@ -3,7 +3,7 @@
 	description="현재 공개 미리 보기에 사용할 수 있는 MongoDB에 대한 DocumentDB 프로토콜 지원에 대해 알아봅니다." 
 	keywords="MongoDB"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # MongoDB에 대한 DocumentDB 프로토콜 지원
 
@@ -38,4 +38,4 @@ MongoDB에 대한 DocumentDB 프로토콜 지원을 사용하면 핵심 MongoDB 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

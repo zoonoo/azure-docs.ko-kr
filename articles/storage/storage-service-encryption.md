@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.date="09/16/2016"
+	ms.author="lakasa;robinsh"/>
 
 # 휴지 상태의 데이터에 대한 Azure 저장소 서비스 암호화
 
@@ -24,18 +24,17 @@
 
 ## 개요
 
-
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. [클라이언트 쪽 암호화](storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다. 저장소 서비스 암호화는 휴지 상태의 암호화를 제공하며 암호화, 암호 해독, 키 관리를 완전히 투명한 방식으로 처리합니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
 
 SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 방식으로 작동하며 블록 Blob, 페이지 Blob 및 추가 Blob에 사용할 수 있습니다. 다음에 대해 작동합니다.
 
 -   일반 용도의 저장소 계정 및 Blob 저장소 계정
--   표준 저장소 및 기본 저장소
+-   표준 저장소 및 프리미엄 저장소
 -   모든 중복 수준(LRS, ZRS, GRS, RA-GRS)
 -   Azure Resource Manager 저장소 계정(클래식 아님)
 -   모든 지역
 
-다음 스크린샷은 [Azure 포털](https://azure.portal.com)을 사용하여 저장소 서비스 암호화 설정을 찾을 위치를 보여 줍니다. 이 화면에서 계속하려면 암호화를 클릭합니다.
+저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://azure.portal.com)에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.
 
 ![암호화 옵션을 보여 주는 포털 스크린샷](./media/storage-service-encryption/image1.png)
 
@@ -127,6 +126,8 @@ A: 아니요, SSE는 Resource Manager 저장소 계정에만 지원됩니다.
 
 A: 새 Resource Manager 저장소 계정을 만들고 [AzCopy](storage-use-azcopy.md)를 사용하여 기존 클래식 저장소 계정에서 데이터를 새로 만든 Resource Manager 저장소 계정으로 복사합니다.
 
+또 다른 옵션은 클래식 저장소 계정을 Resource Manager 저장소 계정으로 마이그레이션하는 것입니다. 자세한 내용은 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/)을 참조하세요.
+
 **Q: 기존의 Resource Manager 저장소 계정이 있습니다. 이 계정에 SSE를 사용할 수 있나요?**
 
 A: 예, 하지만 새로 작성한 Blob만 암호화됩니다. 돌아가 기존에 있는 데이터를 암호화하지 않습니다.
@@ -195,4 +196,4 @@ A: 저장소 서비스 암호화에 대한 문제는 [ssediscussions@microsoft.c
 
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

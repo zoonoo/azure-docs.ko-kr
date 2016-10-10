@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 인코더 Premium 워크플로를 사용한 고급 인코딩" 
+	pageTitle="미디어 인코더 Premium 워크플로를 사용한 고급 인코딩 | Microsoft Azure" 
 	description="미디어 인코더 Premium 워크플로를 사용하여 인코딩하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
->[AZURE.NOTE] 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+>[AZURE.NOTE] 중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
@@ -26,13 +26,13 @@
 
 Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 도입 중입니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다.
 
-다음 항목에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간력하게 설명합니다.
+다음 토픽에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간략하게 설명합니다.
 
 - [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
 
 - [인코더 비교](media-services-encode-asset.md#compare_encoders) 섹션에서는 **미디어 인코더 프리미엄 워크플로** 및 **미디어 인코더 표준**의 인코딩 기능을 비교합니다.
 
-이 항목에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
+이 토픽에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
 
 **미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
 
@@ -278,4 +278,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

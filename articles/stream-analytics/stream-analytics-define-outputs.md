@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/29/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 출력: 저장소에 대한 옵션, 분석
@@ -335,4 +335,4 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

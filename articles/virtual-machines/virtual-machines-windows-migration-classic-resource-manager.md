@@ -198,7 +198,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요?**
 
-아니요. Microsoft는 최근 [클래식 및 리소스 관리자에서 Express 경로 회로의 공존](../expressroute/expressroute-howto-coexist-resource-manager.md)을 구현했습니다. 이미 Express 경로 회로가 있는 경우 새로 구입하지 않아도 됩니다.
+아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 Express 경로 회로 이동](../expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 Express 경로 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
 **클래식 IaaS 리소스에 대해 역할 기반 액세스 제어 정책을 구성한 경우 어떻게 되나요?**
 
@@ -237,4 +237,4 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 - [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

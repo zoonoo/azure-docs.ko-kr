@@ -18,6 +18,12 @@
 
 # Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+<br/>
+
 Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러스터에 응용 프로그램을 게시하는 반복 및 스크립트 가능한 간편한 방법을 제공합니다.
 
 ## 게시에 필요한 아티팩트
@@ -28,7 +34,7 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
 
 ### 게시 프로필
 
-이름이 **PublishProfiles**인 서비스 패브릭 응용 프로그램 프로젝트의 폴더에는 다음과 같이 응용 프로그램을 게시하기 위해 중요한 정보를 저장하는 XML 파일이 들어있습니다.
+이름이 **PublishProfiles**인 Service Fabric 응용 프로그램 프로젝트의 폴더에는 다음과 같이 응용 프로그램을 게시하기 위해 중요한 정보를 저장하는 XML 파일이 들어있습니다.
 
 - 서비스 패브릭 클러스터 연결 매개 변수
 - 응용 프로그램 매개 변수 파일 경로
@@ -44,31 +50,31 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
 
 ## 서비스 패브릭 응용 프로그램 게시 대화 상자를 사용하여 응용 프로그램을 게시하려면
 
-다음 단계에서는 Visual Studio 서비스 패브릭 도구에서 제공하는 **서비스 패브릭 응용 프로그램 게시** 대화 상자를 사용하여 응용 프로그램을 게시하는 방법을 보여 줍니다.
+다음 단계에서는 Visual Studio Service Fabric 도구에서 제공하는 **Service Fabric 응용 프로그램 게시** 대화 상자를 사용하여 응용 프로그램을 게시하는 방법을 보여 줍니다.
 
 1. 서비스 패브릭 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **게시…**를 선택하여 **서비스 패브릭 응용 프로그램 게시** 대화 상자를 표시합니다.
 
-    ![**서비스 패브릭 응용 프로그램 게시** 대화 상자][0]
+    ![**Service Fabric 응용 프로그램 게시** 대화 상자][0]
 
     **대상 프로필** 드롭다운 목록 상자에서 선택한 파일에 **매니페스트 버전**을 제외한 모든 설정이 저장됩니다. 기존 프로필을 재사용하거나, **대상 프로필** 드롭다운 목록 상자에서 **<프로필 관리…>**를 선택하여 새 프로필을 만듭니다. 게시 프로필을 선택하면 그 내용이 대화 상자의 해당 필드에 표시됩니다. 언제든 변경 사항을 저장하려면 **프로필 저장** 링크를 선택합니다.
 
-2. **연결 끝점** 섹션에서 로컬 또는 원격 서비스 패브릭 클러스터의 게시 끝점을 지정합니다. 연결 끝점을 추가 또는 변경하려면 **Connection Endpoint** 드롭다운 목록을 클릭합니다. 이 목록은 Azure 구독에 따라 게시할 수 있는 사용 가능한 서비스 패브릭 클러스터 연결 끝점을 표시합니다. Visual Studio에 아직 로그인하지 않은 경우 로그인하라는 메시지가 표시됩니다.
+2. **연결 끝점** 섹션에서 로컬 또는 원격 Service Fabric 클러스터의 게시 끝점을 지정합니다. 연결 끝점을 추가 또는 변경하려면 **연결 끝점** 드롭다운 목록을 클릭합니다. 이 목록은 Azure 구독에 따라 게시할 수 있는 사용 가능한 Service Fabric 클러스터 연결 끝점을 표시합니다. Visual Studio에 아직 로그인하지 않은 경우 로그인하라는 메시지가 표시됩니다.
 
     클러스터 선택 대화 상자를 사용하여 사용 가능한 구독 및 클러스터 집합 중에서 선택합니다.
 
-    ![**서비스 패브릭 클러스터 선택** 대화 상자][1]
+    ![**Service Fabric 클러스터 선택** 대화 상자][1]
 
     >[AZURE.NOTE] 임의의 끝점(예: 당사 클러스터)에 게시하려는 경우 아래 **임의 클러스터 끝점에 게시** 섹션을 참조하세요.
 
-    끝점을 선택하면 Visual Studio가 선택한 서비스 패브릭 클러스터에 대해 연결 유효성을 확인합니다. 클러스터에 보안이 없으면 Visual Studio가 즉시 연결할 수 있습니다. 그러나 클러스터가 보안 상태이면 계속하기 전에 로컬 컴퓨터에 인증서를 설치해야 합니다. 자세한 내용은 [보안 연결을 구성하는 방법](service-fabric-visualstudio-configure-secure-connections.md)을 참조하세요. 완료되면 **확인** 단추를 선택합니다. 선택한 클러스터가 **서비스 패브릭 응용 프로그램 게시** 대화 상자에 표시됩니다.
+    끝점을 선택하면 Visual Studio가 선택한 서비스 패브릭 클러스터에 대해 연결 유효성을 확인합니다. 클러스터에 보안이 없으면 Visual Studio가 즉시 연결할 수 있습니다. 그러나 클러스터가 보안 상태이면 계속하기 전에 로컬 컴퓨터에 인증서를 설치해야 합니다. 자세한 내용은 [보안 연결을 구성하는 방법](service-fabric-visualstudio-configure-secure-connections.md)을 참조하세요. 완료되면 **확인** 단추를 선택합니다. 선택한 클러스터가 **Service Fabric 응용 프로그램 게시** 대화 상자에 표시됩니다.
 
 3. **응용 프로그램 매개 변수 파일** 드롭다운 목록에서 응용 프로그램 매개 변수 파일로 이동합니다. 응용 프로그램 매개 변수 파일은 응용 프로그램 매니페스트 파일의 매개 변수에 대한 사용자 특정 값을 담고 있습니다. 매개 변수를 추가 또는 변경하려면 **편집** 단추를 선택합니다. **매개 변수** 표에서 매개 변수의 값을 입력하거나 변경합니다. 완료되면 **저장** 단추를 선택합니다.
 
     ![**매개 변수 편집** 대화 상자][2]
 
-4. **응용 프로그램을 업그레이드** 확인란을 사용하여 이 게시 작업이 업그레이드인지 여부를 지정합니다. 업그레이드 게시 작업은 일반적인 게시 작업과 다릅니다. 차이점 목록은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요. 업그레이드 설정을 구성하려면 **업그레이드 설정 구성** 링크를 선택합니다. 업그레이드 매개 변수 편집기가 나타납니다. 업그레이드 매개 변수에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램의 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md)을 참조하세요.
+4. **응용 프로그램 업그레이드** 확인란을 사용하여 이 게시 작업이 업그레이드인지 여부를 지정합니다. 업그레이드 게시 작업은 일반적인 게시 작업과 다릅니다. 차이점 목록은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요. 업그레이드 설정을 구성하려면 **업그레이드 설정 구성** 링크를 선택합니다. 업그레이드 매개 변수 편집기가 나타납니다. 업그레이드 매개 변수에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램의 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md)을 참조하세요.
 
-5. **편집 버전** 대화 상자를 보려면 **매니페스트 버전...** 단추를 선택합니다. 업그레이드를 수행하려면 응용 프로그램 및 서비스 버전을 업데이트해야 합니다. 응용 프로그램과 서비스 매니페스트 버전이 업그레이드 프로세스에 어떻게 영향을 미치는지 확인하려면 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
+5. **버전 편집** 대화 상자를 보려면 **매니페스트 버전...** 단추를 선택합니다. 업그레이드를 수행하려면 응용 프로그램 및 서비스 버전을 업데이트해야 합니다. 응용 프로그램과 서비스 매니페스트 버전이 업그레이드 프로세스에 어떻게 영향을 미치는지 확인하려면 [Service Fabric 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
     ![**버전 편집** 대화 상자][3]
 
@@ -88,7 +94,7 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  보안 클러스터에 연결하는 경우 로컬 저장소에서 인증에 사용할 클라이언트 인증서에 대한 세부 정보를 제공해야 합니다. 자세한 내용은 [서비스 패브릭 클러스터에 대한 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)을 참조하세요.
+  보안 클러스터에 연결하는 경우 로컬 저장소에서 인증에 사용할 클라이언트 인증서에 대한 세부 정보를 제공해야 합니다. 자세한 내용은 [Service Fabric 클러스터에 대한 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)을 참조하세요.
 
   게시 프로필을 설정하면 아래와 같이 게시 대화 상자에서 이를 참조할 수 있습니다.
 
@@ -98,7 +104,7 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 
 ## 다음 단계
 
-연속 통합 환경에서 게시 프로세스를 자동화하는 방법은 [서비스 패브릭 연속 통합 설정](service-fabric-set-up-continuous-integration.md)을 참조하세요.
+연속 통합 환경에서 게시 프로세스를 자동화하는 방법은 [Service Fabric 연속 통합 설정](service-fabric-set-up-continuous-integration.md)을 참조하세요.
 
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
@@ -107,4 +113,4 @@ Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클�
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -58,7 +58,7 @@
 |샘플 이름|설명|최소 SDK 버전|Availability|
 |---|---|---|---|
 |[시작하기: 큐를 사용하는 메시징](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Microsoft Azure 서비스 버스를 사용하여 큐에서 메시지를 주고받는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
-|[시작하기: 항목을 사용한 메시징](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Microsoft Azure 서비스 버스를 사용하여 구독이 많은 항목에서 메시지를 주고받는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
+|[시작하기: 토픽을 사용한 메시징](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Microsoft Azure Service Bus를 사용하여 구독이 많은 토픽에서 메시지를 주고받는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[이벤트 허브 시작](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|이벤트 허브를 만들고, 이벤트 허브로 이벤트를 전송하고, 이벤트 프로세서를 사용하여 이벤트를 사용하는 등의 이벤트 허브의 기본 기능을 보여줍니다.|2\.4|Microsoft Azure 서비스 버스|
 
 ### 기능 살펴보기
@@ -69,7 +69,7 @@
 |---|---|---|---|
 |[HTTP 토큰 공급자](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|서비스 버스를 사용하여 HTTP/REST 클라이언트를 인증하는 여러가지 방법을 보여줍니다.|2\.1|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[서비스 버스 HTTP 클라이언트](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|HTTP/REST를 통해 서비스 버스에서 메시지를 보내고 수신하는 방법을 보여줍니다.|2\.3|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
-|[서비스 버스 자동 전달](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|큐, 구독 또는 효력 상실 큐에서 자동으로 다른 큐 또는 항목로 메시지를 전달하는 방법을 보여줍니다. 또한 전송 큐를 통해 큐 또는 항목에 메시지를 보내는 방법을 보여줍니다.|2\.3|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
+|[서비스 버스 자동 전달](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|큐, 구독 또는 효력 상실 큐에서 자동으로 다른 큐 또는 토픽으로 메시지를 전달하는 방법을 보여줍니다. 또한 전송 큐를 통해 큐 또는 토픽에 메시지를 보내는 방법을 보여줍니다.|2\.3|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: WCF 채널 세션 샘플](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Windows Communication Foundation(WCF) 채널을 사용하여 Microsoft Azure 서비스 버스를 사용하는 방법을 보여줍니다. 이 샘플에서는 WCF 채널을 사용하여 서비스 버스 큐를 통해 메시지를 보내고 받는 것을 보여줍니다. 이 샘플에서는 서비스 버스를 통해 세션 및 비 세션 통신을 모두 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 트랜잭션](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|원자성으로 커밋된 메시징 작업의 배치를 보장하기 위해 트랜잭션 범위 내에서 Microsoft Azure 서비스 버스 메시징 기능을 사용하는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: REST를 사용하는 관리 작업](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|REST를 사용하여 서비스 버스에 관리 작업을 수행하는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
@@ -79,11 +79,11 @@
 |[조정된 메시징: 효력 상실 큐](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8)|Microsoft Azure 서비스 버스 및 메시징 "효력 상실 큐" 기능을 사용하는 방법을 보여줍니다. 이 샘플에서는 서비스 버스 큐를 통해 통신하는 단순 발신자 및 수신자를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 지연된 메시지](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879)|Microsoft Azure 서비스 버스의 메시지 지연 기능을 사용하는 방법을 보여줍니다. 이 샘플에서는 서비스 버스 큐를 통해 통신하는 단순 발신자 및 수신자를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 세션 메시지](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4)|Microsoft Azure 서비스 버스 및 메시징 세션 기능을 사용하는 방법을 보여줍니다. 이 샘플에서는 서비스 버스 큐를 통해 통신하는 단순 발신자 및 수신자를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
-|[조정된 메시징: 요청 응답 항목](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e)|Microsoft Azure 서비스 버스 토픽 및 구독을 사용하여 요청/응답 패턴을 구현하는 방법을 보여줍니다. 이 샘플에서는 서비스 버스 항목을 통해 통신하는 단순 클라이언트 및 서버를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
+|[조정된 메시징: 요청 응답 토픽](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e)|Microsoft Azure Service Bus 토픽 및 구독을 사용하여 요청/응답 패턴을 구현하는 방법을 보여줍니다. 이 샘플에서는 Service Bus 토픽을 통해 통신하는 단순 클라이언트 및 서버를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 요청 응답 큐](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf)|Microsoft Azure 서비스 버스 및 요청/응답 기능을 사용하는 방법을 보여줍니다. 이 샘플에서는 두 개의 서비스 버스 큐를 통해 통신하는 단순 클라이언트 및 서버를 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 중복 감지](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25)|큐를 사용하여 Microsoft Azure 서비스 버스 중복 메시지 감지를 사용하는 방법을 보여줍니다. 두 개의 큐 중 하나는 중복 감지를 사용하도록 설정하고, 다른 하나는 중복 감지를 사용하지 않고 만듭니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 비동기 메시징](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74)|Microsoft Azure 서비스 버스를 사용하여 큐에서 비동기적으로 메시지를 주고받는 방법을 보여줍니다. 큐는 발신자와 임의의 수신자 간에 분리된 비동기 통신을 제공합니다.(여기서는 단일 수신자)|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
-|[조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)|Microsoft Azure 서비스 버스 게시/구독 고급 필터를 사용하는 방법을 보여줍니다. 다른 필터 정의를 사용하여 항목 및 3개의 구독을 만들고 메시지를 항목에 보내며 구독에서 모든 메시지를 받습니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
+|[조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)|Microsoft Azure 서비스 버스 게시/구독 고급 필터를 사용하는 방법을 보여줍니다. 다른 필터 정의를 사용하여 토픽 및 3개의 구독을 만들고 메시지를 토픽에 보내며 구독에서 모든 메시지를 받습니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 |[조정된 메시징: 메시지 미리 가져오기](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d)|Microsoft Azure 서비스 버스 메시지 지연 기능을 사용하는 방법을 보여줍니다. 수신에서 메시지 미리 가져오기 기능을 사용하는 방법을 보여줍니다.|1\.8|Microsoft Azure 서비스 버스; Windows Server용 서비스 버스|
 
 ## 서비스 버스 릴레이
@@ -128,10 +128,10 @@
 
 ## 다음 단계
 
-서비스 버스의 개념적 개요는 다음 항목을 참조하세요.
+Service Bus의 개념적 개요는 다음 항목을 참조하세요.
 
-- [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
+- [서비스 버스 메시징 개요](../service-bus-messaging/service-bus-messaging-overview.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

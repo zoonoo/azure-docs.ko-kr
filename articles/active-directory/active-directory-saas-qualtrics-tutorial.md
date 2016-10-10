@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #자습서: Qualtrics와 Azure Active Directory 통합
@@ -19,7 +19,7 @@
 이 자습서는 Azure 및 Qualtrics의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
--   Qualtrics CM Single Sign-On이 설정된 구독
+-   Qualtrics Single Sign-On이 설정된 구독
   
 이 자습서를 완료한 후 Qualtrics에 할당한 Azure AD 사용자가 Qualtrics 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
   
@@ -112,4 +112,4 @@ Qualtrics를 프로비전하는 사용자를 구성할 작업 항목이 없습�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

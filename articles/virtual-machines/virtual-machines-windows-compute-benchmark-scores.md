@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Windows VM에 대한 벤치마크 점수 계산
@@ -59,6 +59,17 @@ Standard\_G3, Standard\_GS3 | 8 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 6 | 242\.
 Standard\_G4, Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 @ 2 GHz | 15 | 398\.9 | 6\.0
 Standard\_G5, Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 @ 2 GHz | 22 | 762\.8 | 3\.7
 
+## H 시리즈
+
+크기 | vCPU | NUMA 노드 | CPU | 실행 | 반복 수/초 | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 297\.4 | 0\.9
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 575\.8 | 6\.8
+Standard\_H8m | 8 | 1 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 297\.0 | 1\.2
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 572\.2 | 3\.9
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 5 | 573\.2 | 2\.9
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 @ 3.2 GHz | 7 | 569\.6 | 2\.8
+
 ## SPECint 정보
 
 Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html)을 실행하여 계산합니다. SPECint는 코어당 하나의 복사본과 함께 기본 요율 옵션(SPECint\_rate2006)을 사용하여 실행합니다. SPECint은 12번의 별도 테스트로 각기 세 번 실행되도록 구성되며, 각 테스트에서 중간값을 취해 가중치를 주어 종합 점수를 형성합니다. 그런 다음 여러 VM에서 실행하여 평균값을 구합니다.
@@ -66,6 +77,6 @@ Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu20
 
 ## 다음 단계
 
-* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조합니다.
+* 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

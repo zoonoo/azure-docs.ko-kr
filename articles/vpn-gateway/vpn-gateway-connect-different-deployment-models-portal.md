@@ -45,11 +45,11 @@ Azure에는 현재 클래식 및 RM(Resource Manager) 등 두 개의 관리 모�
 
 **클래식 VNet 설정**
 
-VNet 이름 = ClassicVNet <br> 위치 = 미국 서부 <br> 가상 네트워크 주소 공간 = 10.0.0.0/8 <br> 서브넷-1 = 10.0.0.0/11 <br> GatewaySubnet = 10.32.0.0/29 <br> 로컬 네트워크 이름 = RMVNetLocal <br>
+VNet 이름 = ClassicVNet <br> 위치 = 미국 서부 <br> 가상 네트워크 주소 공간 = 10.0.0.0/24 <br> 서브넷-1 = 10.0.0.0/27 <br> GatewaySubnet = 10.0.0.32/29 <br> 로컬 네트워크 이름 = RMVNetLocal <br>
 
 **Resource Manager VNet 설정**
 
-VNet 이름 = RMVNet <br> 리소스 그룹 = RG1 <br> 가상 네트워크 IP 주소 공간 = 192.168.1.0/16 <br> 서브넷 -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> 위치 = 미국 동부 <br> 가상 네트워크 게이트웨이 이름 = RMGateway <br> 게이트웨이 공용 IP 이름 = gwpip <br> 게이트웨이 유형 = VPN <br> VPN 유형 = 루트 기반 <br> 로컬 네트워크 게이트웨이 = ClassicVNetLocal <br>
+VNet 이름 = RMVNet <br> 리소스 그룹 = RG1 <br> 가상 네트워크 IP 주소 공간 = 192.168.0.0/16 <br> 서브넷 -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> 위치 = 미국 동부 <br> 가상 네트워크 게이트웨이 이름 = RMGateway <br> 게이트웨이 공용 IP 이름 = gwpip <br> 게이트웨이 유형 = VPN <br> VPN 유형 = 루트 기반 <br> 로컬 네트워크 게이트웨이 = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>섹션 1: 클래식 VNet 설정 구성
 
@@ -182,4 +182,4 @@ VNet 간 연결에 대한 자세한 내용은 FAQ 세부 정보를 봅니다.
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

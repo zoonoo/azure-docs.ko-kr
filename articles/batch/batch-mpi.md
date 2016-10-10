@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 또한 다중 인스턴스 작업은 **2015년 12월 14일 이후에 만든 풀**의 노드에서*만* 실행할 수 있습니다.
 
-> [AZURE.TIP] 배치 풀에서 [A8 또는 A9 계산 노드](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 크기를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다. [클라우드 서비스에 적합한 크기](./../cloud-services/cloud-services-sizes-specs.md)에서 배치 풀에 사용할 수 있는 계산 노드 크기의 전체 목록을 볼 수 있습니다.
+> [AZURE.TIP] 배치 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다. [클라우드 서비스에 적합한 크기](./../cloud-services/cloud-services-sizes-specs.md)에서 배치 풀에 사용할 수 있는 계산 노드 크기의 전체 목록을 볼 수 있습니다.
 
 ### MPI 응용 프로그램 설치에 StartTask 사용
 
@@ -275,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "다중 인스턴스 개요"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->
