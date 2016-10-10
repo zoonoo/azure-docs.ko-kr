@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
@@ -43,7 +43,7 @@ Azure 보안 센터는 Microsoft Azure 구독을 사용하도록 설정되어 �
 
 ### 데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-언제든지 보안 정책에서 구독에 대해 **데이터 수집**을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure 포털에 로그인](https://portal.azure.com)하여 **찾아보기**, **보안 센터**, **정책**을 차례로 선택합니다. 구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다. 위쪽 리본에서 **에이전트 삭제**를 선택하여 기존 가상 컴퓨터에서 에이전트를 삭제합니다.
+언제든지 보안 정책에서 구독에 대해 **데이터 수집**을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure 포털에 로그인](https://portal.azure.com)하여 **찾아보기**, ** 보안 센터**, **정책**을 차례로 선택합니다. 구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다. 위쪽 리본에서 **에이전트 삭제**를 선택하여 기존 가상 컴퓨터에서 에이전트를 삭제합니다.
 
 > [AZURE.NOTE] Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집을 해제하려면 구독을 선택해야 합니다.
 
@@ -121,10 +121,10 @@ Azure 보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반
 ### Azure Security Center에서는 어떤 Azure 리소스를 모니터링하나요?
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
-- 가상 컴퓨터(클라우드 서비스 포함)
+- 가상 컴퓨터(VM)([Cloud Services](../cloud-services/cloud-services-choose-me.md) 포함)
 - Azure 가상 네트워크
 - Azure SQL 서비스
-- 웹 응용 프로그램 방화벽과 같이 Azure 구독과 통합된 파트너 솔루션
+- VM 및 [App Service Environment](../app-service/app-service-app-service-environments-readme.md)에서 웹 응용 프로그램 방화벽과 같이 Azure 구독과 통합된 파트너 솔루션
 
 ## 가상 컴퓨터
 
@@ -159,4 +159,4 @@ Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 �
 
 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

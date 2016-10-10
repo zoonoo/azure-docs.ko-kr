@@ -36,7 +36,7 @@
 	    }
 	},
 
-quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을 다음으로 바꿉니다.
+quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을 다음 escapeChar로 바꿉니다.
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을
 
 - 파일이 아닌 원본에서 텍스트 파일로 데이터를 복사할 때 SQL 스키마 등의 스키마 메타데이터가 포함된 머리글 줄을 추가하려고 합니다. 이 시나리오에서는 출력 데이터 집합에서 **firstRowAsHeader**를 true로 지정합니다.
 - 머리글 줄이 포함된 텍스트 파일에서 파일이 아닌 싱크로 데이터를 복사할 때 해당 줄을 삭제하려고 합니다. 이 경우에는 입력 데이터 집합에서 **firstRowAsHeader**를 true로 지정합니다.
-- 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 아니고 머리글도 아닌 몇 줄을 건너뛰려고 합니다. 이 경우에는 건너뛸 줄 수를 나타내도록 **skipLineCount**를 지정합니다. 파일의 나머지 부분에 머리글 줄이 있으면 **firstRowAsHeader**도 지정할 수 있습니다. **skipLineCount**와 **firstRowAsHeader**를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다.
+- 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 없고 머리글 정보도 없는 몇 줄을 건너뛰려고 합니다. 이 경우에는 건너뛸 줄 수를 나타내도록 **skipLineCount**를 지정합니다. 파일의 나머지 부분에 머리글 줄이 있으면 **firstRowAsHeader**도 지정할 수 있습니다. **skipLineCount**와 **firstRowAsHeader**를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다.
 
 ### AvroFormat 지정
 서식이 AvroFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
@@ -241,7 +241,7 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] 온-프레미스 및 클라우드 데이터 저장소 간에 ORC 파일을 **있는 그대로** 복사하지 않는 경우에는 게이트웨이 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 게이트웨이에는 64비트 JRE가 필요하고 32비트 게이트웨이에는 32비트 JRE가 필요합니다. [여기서](http://go.microsoft.com/fwlink/?LinkId=808605) 두 버전이 모두 제공됩니다. 적합한 버전을 선택하세요.
@@ -251,4 +251,19 @@ JsonFormat 형식의 입력 데이터 집합은 다음과 같이 정의됩니다
 -	복합 데이터 형식(구조체, 맵, 목록, 공용 구조체)은 지원되지 않습니다.
 -	ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)(NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+### ParquetFormat 지정
+서식이 ParquetFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] 온-프레미스 및 클라우드 데이터 저장소 간에 Parquet 파일을 **있는 그대로** 복사하지 않는 경우에는 게이트웨이 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 게이트웨이에는 64비트 JRE가 필요하고 32비트 게이트웨이에는 32비트 JRE가 필요합니다. [여기서](http://go.microsoft.com/fwlink/?LinkId=808605) 두 버전이 모두 제공됩니다. 적합한 버전을 선택하세요.
+
+다음 사항에 유의하세요.
+
+-	복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
+-	Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+
+<!---HONumber=AcomDC_0928_2016-->

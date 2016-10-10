@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="기존 Blob을 미디어 서비스 자산에 복사" 
-	description="이 항목에서는 기존 Blob을 미디어 서비스 자산에 복사하는 방법을 보여줍니다." 
+	pageTitle="기존 Blob을 Media Services 자산에 복사 | Microsoft Azure" 
+	description="이 토픽에서는 기존 Blob을 Media Services 자산에 복사하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #기존 Blob을 미디어 서비스 자산에 복사
 
-이 항목에서는 저장소 계정에서 새로운 Microsoft Azure 미디어 서비스 자산으로 Blob을 복사하는 방법을 보여줍니다.
+이 토픽에서는 저장소 계정에서 새로운 Microsoft Azure Media Services 자산으로 Blob을 복사하는 방법을 보여 줍니다.
 
-Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디어 서비스 계정에 연결되지 않은 저장소 계정에 존재할 수 있습니다. 이 항목에서는 저장소 계정에서 미디어 서비스 자산으로 Blob을 복사하는 방법을 보여줍니다. 데이터 센터 간에 복사할 수도 있습니다. 하지만 이 경우 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [데이터 전송](https://azure.microsoft.com/pricing/#header-11)을 참조하세요.
+Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디어 서비스 계정에 연결되지 않은 저장소 계정에 존재할 수 있습니다. 이 토픽에서는 저장소 계정에서 Media Services 자산으로 Blob을 복사하는 방법을 보여 줍니다. 데이터 센터 간에 복사할 수도 있습니다. 하지만 이 경우 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [데이터 전송](https://azure.microsoft.com/pricing/#header-11)을 참조하세요.
 
 >[AZURE.NOTE] 미디어 서비스 API를 사용하지 않고 미디어 서비스에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
 
@@ -30,7 +30,7 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 ##필수 조건
 
-- 신규 또는 기존 Azure 구독의 미디어 서비스 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하십시오.
+- 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
 - 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 - .NET Framework 4.5.
 - Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상.
@@ -322,4 +322,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -54,7 +54,7 @@ DNS 항목을 도메인 이름의 영역 파일에 추가하면 다른 도메인
 
 Exchange Online, SharePoint Online 및 Intune과 같은 또 다른 Microsoft Online Services에서 사용할 수 있도록 먼저 Azure AD에서 도메인 이름을 확인해야 합니다. 이러한 다른 서비스에는 일반적으로 관리자가 서비스에 특정한 하나 이상의 DNS 항목을 추가해야 합니다.
 
-Azure 웹앱은 도메인의 소유권을 확인하는 고유의 메커니즘을 사용합니다. Azure AD에 의존하는 구독의 Azure 웹앱에서 사용하기 위해 이전에 확인한 경우에도 Azure AD에 사용하기 위해 도메인을 확인해야 합니다. Azure 웹앱은 웹앱을 보호하는 디렉터리와 다른 디렉터리에서 확인된 도메인 이름을 사용할 수 있습니다.
+Azure 웹앱은 도메인의 소유권을 확인하는 고유의 메커니즘을 사용합니다. Azure AD에 의존하는 구독의 Azure 웹앱에서 사용하기 위해 이전에 확인한 경우에도 Azure AD에서 사용하기 위해 도메인을 확인해야 합니다. Azure 웹앱은 웹앱을 보호하는 디렉터리와 다른 디렉터리에서 확인된 도메인 이름을 사용할 수 있습니다.
 
 ## 도메인 이름 관리
 
@@ -68,4 +68,4 @@ Azure 클래식 포털 및 PowerShell에서 도메인 관리 작업을 완료할
 
 -   [Azure AD Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

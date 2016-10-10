@@ -2,7 +2,7 @@
 	pageTitle="DocumentDB의 요청 단위 | Microsoft Azure" 
 	description="DocumentDB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법에 알아봅니다." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #DocumentDB의 요청 단위
 지금 사용 가능: DocumentDB [요청 단위 계산기](https://www.documentdb.com/capacityplanner) 자세한 내용을 보려면 [처리량 요구 예측](documentdb-request-units.md#estimating-throughput-needs)을 참조하세요.
@@ -220,4 +220,4 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

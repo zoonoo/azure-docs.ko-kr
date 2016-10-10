@@ -53,7 +53,7 @@ Azure의 HPC Pack 클러스터 배포 옵션에 대한 개요는 [Microsoft HPC 
 
 
 
-    >[AZURE.TIP]Azure RDMA 네트워크와 크기가 A8 및 A9인 컴퓨터 노드 VM을 사용하려면 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지 중 하나를 지정합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md)를 참조하세요.
+    >[AZURE.TIP]RDMA 지원 VM 크기 중 하나에서 Azure RDMA 네트워크를 사용하려면 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC 또는 CentOS 기반 HPC 이미지를 지정합니다. 자세한 내용은 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md)를 참조하세요.
 
 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 경우 추가 필수 조건은 다음과 같습니다.
 
@@ -71,7 +71,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
 
     ![포털 만들기][portal]
 
-3. **기본 사항** 블레이드에서 클러스터에 대한 이름을 입력합니다(이는 헤드 노드 VM의 이름도 지정하게 됨). 기존 리소스 그룹을 선택하거나 배포용 신규 그룹을 만들 수 있습니다.
+3. **기본 사항** 블레이드에서 클러스터에 대한 이름을 입력합니다(이는 헤드 노드 VM의 이름도 지정하게 됨). 기존 리소스 그룹을 선택하거나 배포용 그룹을 만들 수 있습니다.
 
 4. **헤드 노드 설정** 블레이드에서 첫 번째 배포의 경우 일반적으로 기본 설정을 적용할 수 있습니다.
 
@@ -79,7 +79,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
     
 5. **컴퓨터 노드 설정** 블레이드에서 노드용 명명 패턴, 노드의 수와 크기, 배포할 Linux 배포판을 선택합니다.
 
-6. **인프라 설정** 블레이드에서 가상 네트워크와 클러스터, 도메인 및 VM 관리자 자격 증명을 위한 Active Directory 도메인에 대해 이름과 해당 클러스터에 필요한 저장소 계정용 명명 패턴을 입력합니다.
+6. **인프라 설정** 블레이드에서 가상 네트워크 및 Active Directory 도메인의 이름, 도메인 및 VM 관리자 자격 증명, 저장소 계정용 명명 패턴을 입력합니다.
 
     >[AZURE.NOTE]HPC Pack에서는 Active Directory 도메인을 사용하여 클러스터 사용자를 인증합니다.
 
@@ -88,7 +88,7 @@ HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 배포하는 �
 
 ### 배포 옵션 2. IaaS 배포 스크립트 사용
 
-HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. 다음 샘플 구성 파일은 HPC Pack 헤드 노드와 두 가지 크기의 A7 CentOS 7.0 Linux 컴퓨터 노드로 구성된 작은 클러스터를 배포합니다. 환경 및 원하는 클러스터 구성의 필요에 따라 파일을 수정하고 HPCDemoConfig.xml 등의 이름을 지정하여 저장합니다. 예를 들어 구독 이름과 고유 저장소 계정 이름 및 클라우드 서비스 이름을 제공해야 하고 컴퓨터 노드에 대해 지원되는 다른 Linux 이미지를 선택하려고 할 수 있습니다. 구성 파일의 요소에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+HPC Pack IaaS 배포 스크립트는 XML 구성 파일을 입력으로 사용하여 HPC 클러스터의 인프라를 설명합니다. 다음 샘플 구성 파일은 HPC Pack 헤드 노드와 두 가지 크기의 A7 CentOS 7.0 Linux 컴퓨터 노드로 구성된 작은 클러스터를 배포합니다. 환경 및 원하는 클러스터 구성의 필요에 따라 파일을 수정하고 HPCDemoConfig.xml 등의 이름을 지정하여 저장합니다. 예를 들어 구독 이름 및 고유 저장소 계정 이름과 클라우드 서비스 이름을 제공해야 합니다. 또한 계산 노드에 대해 지원되는 다른 Linux 이미지를 선택할 수도 있습니다. 구성 파일의 요소에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -144,17 +144,17 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
     **-LogFile** 매개 변수가 지정되지 않았으므로 스크립트에서 자동으로 로그 파일을 생성합니다. 로그는 실시간으로 작성되지 않지만 유효성 검사 및 배포가 끝날 때 수집됩니다. 스크립트가 실행되는 동안 PowerShell 프로세스가 중지되는 경우 일부 로그가 손실됩니다.
 
-    a. 위 명령에서 **AdminPassword**가 지정되지 않았으므로 사용자 *MyAdminName*에 대한 암호를 입력하라는 메시지가 표시됩니다.
+    a. 앞의 명령에서 **AdminPassword**가 지정되지 않았으므로 사용자 *MyAdminName*에 대한 암호를 입력하라는 메시지가 표시됩니다.
 
     b. 스크립트에서 구성 파일의 유효성 검사를 시작합니다. 네트워크 연결에 따라 몇 분 정도 걸릴 수 있습니다.
 
     ![유효성 검사][validate]
 
-    c. 유효성 검사를 통과한 후 스크립트에서 HPC 클러스터에 대해 생성되는 리소스를 나열합니다. *Y*를 입력하여 계속합니다.
+    c. 유효성 검사를 통과하면 스크립트는 만들 클러스터 리소스를 나열합니다. *Y*를 입력하여 계속합니다.
 
     ![리소스][resources]
 
-    d. 스크립트에서 HPC Pack 클러스터 배포를 시작하고 추가 수동 단계 없이 구성을 완료합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+    d. 스크립트에서 HPC Pack 클러스터 배포를 시작하고 추가 수동 단계 없이 구성을 완료합니다. 이 스크립트는 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
     ![배포][deploy]
 
@@ -174,7 +174,7 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
 클러스터의 Windows 헤드 노드와 Linux 노드 간에 데이터를 이동하는 여러 가지 옵션이 있습니다. 다음은 세 가지 일반적인 방법입니다.
 
-* **Azure 파일** - Azure 저장소에 데이터 파일을 저장할 관리 SMB 파일 공유를 노출합니다. 서로 다른 가상 네트워크에 배포된 경우에도 Windows 노드와 Linux 노드 둘 다 Azure 파일 공유를 드라이브 또는 폴더로 동시에 탑재할 수 있습니다.
+* **Azure 파일** - Azure 저장소에 데이터 파일을 저장할 관리 SMB 파일 공유를 노출합니다. 서로 다른 가상 네트워크에 배포된 경우에도 Windows 노드와 Linux 노드는 Azure 파일 공유를 드라이브 또는 폴더로 동시에 탑재할 수 있습니다.
 
 * **헤드 노드 SMB 공유** - Linux 노드에 헤드 노드의 표준 Windows 공유 폴더를 탑재합니다.
 
@@ -211,7 +211,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
 ### 헤드 노드 공유
 
-또는 Linux 노드에 헤드 노드의 공유 폴더를 탑재합니다. 파일을 공유하는 가장 간단한 방법이지만 헤드 노드와 모든 Linux 노드를 동일한 가상 네트워크에 배포해야 합니다. 단계는 다음과 같습니다.
+또는 Linux 노드에 헤드 노드의 공유 폴더를 탑재합니다. 공유는 파일을 공유하는 가장 간단한 방법을 제공하지만 헤드 노드와 모든 Linux 노드를 동일한 가상 네트워크에 배포해야 합니다. 단계는 다음과 같습니다.
 
 1. 헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 가진 모든 사용자에게 공유합니다. 예를 들어 헤드 노드의 D:\\OpenFOAM을 \\CentOS7RDMA-HN\\OpenFOAM으로 공유합니다. 여기서 CentOS7RDMA-HN은 헤드 노드의 호스트 이름입니다.
 
@@ -219,7 +219,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
     ![파일 공유][filesharing]
 
-2. Windows PowerShell 창을 열고 다음 명령을 실행하여 공유 폴더를 탑재합니다.
+2. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
 
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -248,7 +248,7 @@ NFS 서비스를 사용하면 SMB 프로토콜을 사용하는 Windows Server 20
 
     ![NFS 관리 속성][nfsmanage]
 
-2. Windows PowerShell 창을 열고 다음 명령을 실행하여 NFS 공유를 탑재합니다.
+2. Windows PowerShell 창을 열고 다음 명령을 실행합니다.
 
   ```
   PS > clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -317,4 +317,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 프롬프트 또는 HPC 클�
 [nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

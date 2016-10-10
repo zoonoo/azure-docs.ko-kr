@@ -18,7 +18,7 @@
 
 # Azure를 사용하여 SnelStart는 매월 1,000개의 새 Azure SQL 데이터베이스 규모로 비즈니스 서비스를 빠르게 확장했습니다.
 
-![로고](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+![SnelStart 로고](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart는 네덜란드에서 인기리에 사용되는 SMB(중소기업)을 위한 재무 및 비즈니스 관리 소프트웨어를 제작합니다. 이 회사의 55,000여 고객은 IT 직원 35명을 포함하여 110명의 직원에게 서비스를 받습니다. SnelStart는 데스크톱 소프트웨어에서 Azure에서 구축되는 SaaS(software-as-a-service) 제품으로 전환하면서, 기본 제공 서비스를 활용하고, C#의 친숙한 환경을 사용하여 관리를 자동화하고, 탄력적 데이터베이스 풀을 통해 비즈니스의 과도한 프로비전 또는 부족한 프로비전 없이 성능 및 확장성을 최적화했습니다. SnelStart는 Azure를 사용하여 온-프레미스와 클라우드 간에 고객을 유연하게 이동할 수 있습니다.
 
@@ -80,7 +80,7 @@ SnelStart는 Azure를 사용하여 좀 더 원활하게 고객 및 해당 회계
 
 또한 SnelStart 웹 서비스는 고객 및 회계사가 Azure SQL 데이터베이스의 탄력적 풀에 있는 데이터에 쉽게 액세스할 수 있도록 합니다. 데이터베이스 탄력성 및 Azure 리소스 관리자와 결합된 이 SaaS 모델은 모든 Azure 배포를 보완하는 확장성 기능을 SnelStart에 제공합니다. 구현은 C# 관리 라이브러리를 사용하여 완전하게 자동화되었습니다.
 
-![그림 1에서는](./media/sql-database-case-study-snelstart/figure1.png)
+![SnelStart 아키텍처](./media/sql-database-implementation-snelstart/figure1.png)
 
 그림 1. 2016년 6월을 기준으로 SnelStart는 11,000개가 넘는 데이터베이스와 50개가 넘는 탄력적 데이터베이스 풀을 보유하고 있습니다.
  
@@ -105,4 +105,4 @@ SnelStart는 또한 Microsoft Azure SQL DB 팀과 함께 발전시킨 강력한 
 
 - SnelStart에 대해 자세히 알아보려면 [SnelStart](http://www.snelstart.nl)를 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스에 연결
@@ -33,4 +33,4 @@
 
 가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 [데이터 디스크를 추가](virtual-machines-windows-classic-attach-disk.md)하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

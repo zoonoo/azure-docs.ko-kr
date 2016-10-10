@@ -339,7 +339,7 @@ Azure Redis Cache는 기본 Redis 서버에 외관의 역할을 합니다. 이�
 
 각 마스터/하위 쌍은 대기 시간을 최소화하기 위해 서로 가까이 배치되어야 합니다. 그러나 이를 사용할 가능성이 큰 응용 프로그램에 가까운 캐시된 데이터를 찾으려는 경우 다른 지역에 있는 다른 Azure 데이터 센터에서 쌍의 각 집합을 실행할 수 있습니다. Microsoft 웹 사이트의 [Azure의 CentOS Linux VM에서 Redis 실행](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) 페이지는 Azure VM으로 실행하는 Redis 노드를 빌드하고 구성하는 방법을 보여 주는 예제를 안내합니다.
 
-이러한 방식으로 사용자 고유의 Redis 캐시를 구현하는 경우 서비스 모니터링, 관리 및 보안에 책임이 있습니다.
+[AZURE.NOTE] 이러한 방식으로 사용자 고유의 Redis 캐시를 구현하는 경우 서비스 모니터링, 관리 및 보안에 책임이 있습니다.
 
 ## Redis 캐시 분할
 
@@ -935,4 +935,4 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 - StackExchange.Redis 리포지토리의 [Redis에서 트랜잭션](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 페이지.
 - Microsoft 웹 사이트의 [데이터 분할 가이드](http://msdn.microsoft.com/library/dn589795.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

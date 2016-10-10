@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # 리소스 관리자로 Windows 가상 컴퓨터를 만드는 다양한 방법
@@ -47,4 +47,4 @@ Visual Studio를 사용하여 Azure Tools for Visual Studio 및 Azure SDK로 VM�
 
 [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

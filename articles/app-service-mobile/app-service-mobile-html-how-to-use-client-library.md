@@ -22,6 +22,12 @@
 
 이 가이드에서는 최신 [Azure 모바일 앱용 JavaScript SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고 테이블을 만듭니다. 이 가이드에서는 HTML/JavaScript 웹 응용 프로그램에서 모바일 백 엔드를 사용하는 데 초점을 둡니다.
 
+## 지원되는 플랫폼
+
+브라우저 지원은 주요 브라우저인 Google Chrome, Microsoft Edge, Microsoft Internet Explorer 및 Mozilla Firefox의 최신 버전으로 제한됩니다. SDK가 비교적 최신 브라우저와는 호환될 것으로 예상됩니다.
+
+패키지는 범용 JavaScript 모듈로 배포되므로 전역, AMD 및 CommonJS 서식을 지원합니다.
+
 ##<a name="Setup"></a>설정 및 필수 조건
 
 이 가이드에서는 테이블과 함께 백 엔드를 만들었다고 가정합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다.
@@ -73,7 +79,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 4. **이동**을 클릭하여 새 탭 또는 창에서 모바일 앱 백 엔드에 대한 리소스 탐색기를 엽니다.
 5. 앱에 대한 **config** > **authsettings** 노드를 확장합니다.
 6. **편집** 단추를 클릭하여 리소스의 편집을 활성화합니다.
-7. null이어야 하는 **allowedExternalRedirectUrls** 요소를 찾습니다. 다음으로 변경합니다.
+7. null이어야 하는 **allowedExternalRedirectUrls** 요소를 찾습니다. 배열에 URL을 추가합니다.
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -97,10 +103,10 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 <!-- URLs. -->
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
-[앱에 인증 추가]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure 포털]: https://portal.azure.com/
 [Azure 모바일 앱용 JavaScript SDK]: https://www.npmjs.com/package/azure-mobile-apps-client
-[쿼리 개체 설명서]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

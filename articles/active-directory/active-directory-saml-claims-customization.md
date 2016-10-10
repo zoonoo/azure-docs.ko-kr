@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -40,7 +40,7 @@ SAML 토큰 특성 테이블의 행 중 하나에 마우스를 가져갈 때마�
 
 **특성 값** 메뉴에서 **user.mail**을 선택하여 NameIdentifier 클레임이 디렉터리의 사용자 메일 주소가 되도록 설정하거나 **user.onpremisessamaccountname**을 선택하여 온-프레미스 Azure AD에서 동기화된 사용자의 SAM 계정 이름으로 설정합니다.
 
-또한 특수 ExtractMailPrefix() 함수를 사용하여 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거함으로써 사용자 이름의 첫 부분만 전달되도록 할 수 있습니다(예: joesmith@contoso.com) 대신 "joesmith").
+또한 특수 ExtractMailPrefix() 함수를 사용하여 메일 주소 또는 사용자 주체 이름에서 도메인 접미사를 제거함으로써 사용자 이름의 첫 부분만 전달되도록 할 수 있습니다(예: joesmith@contoso.com 대신 "joesmith").
 
 ![][3]
 
@@ -68,4 +68,4 @@ SAML 토큰 특성 테이블의 행 중 하나에 마우스를 가져갈 때마�
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0928_2016-->

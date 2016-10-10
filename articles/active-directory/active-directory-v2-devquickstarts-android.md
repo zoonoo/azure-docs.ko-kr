@@ -32,7 +32,7 @@ v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 �
 
 
 ## GitHub에서 코드 다운로드
-이 자습서에 대한 코드는 [GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -197,4 +197,4 @@ OAuth2를 프로토콜로 사용하는 경우 이러한 끝점은 변경되어�
 
 [Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

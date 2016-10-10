@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -66,4 +66,4 @@
 
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](virtual-machines-windows-attach-disk-portal.md)하기만 하면 됩니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

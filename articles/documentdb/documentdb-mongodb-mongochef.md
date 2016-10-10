@@ -3,7 +3,7 @@
 	description="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef를 사용하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다." 
 	keywords="MongoChef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
 
@@ -132,4 +132,4 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

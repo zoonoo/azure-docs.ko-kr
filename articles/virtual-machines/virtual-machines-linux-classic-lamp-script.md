@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 #Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포#
@@ -81,7 +81,7 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
 이제 Azure CLI를 사용하여 원격 VM에 Linux CustomScript 확장을 배포하려면 다음 명령을 사용합니다.
 
-    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
 이전 명령은 *lamp-vm*이라는 VM에 *install\_lamp.sh* 스크립트를 다운로드하여 실행합니다.
 
@@ -93,8 +93,8 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
 원격 VM에서 로그 파일을 통해 사용자 지정 스크립트가 잘 실행되는지 확인할 수 있습니다. *lamp-vm*에 대해 SSH를 실행하고 다음 명령을 사용하여 로그 파일의 끝부분을 확인합니다.
 
-    cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
-    tail -f extension.log
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP 페이지를 찾아볼 수 있습니다. 이 문서의 예제에 대한 PHP 페이지는 *http://lamp-vm.cloudapp.net/phpinfo.php*입니다.
 
@@ -110,4 +110,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

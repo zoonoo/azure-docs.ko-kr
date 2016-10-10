@@ -28,6 +28,7 @@
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [최신 Azure SDK](https://azure.microsoft.com/downloads/)(2.9.1 이상)
+- [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 - 포함된 디자이너를 사용하는 경우 웹에 대한 액세스
 
 ### 논리 앱용 Visual Studio 도구 설치
@@ -36,7 +37,7 @@
 
 1. Visual Studio 2015를 열고 **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다.
 1. **온라인** 범주를 선택하여 온라인으로 검색합니다.
-1. **논리 앱**을 검색하여 **Visual Studio용 Azure Logic Apps 도구**를 표시합니다.
+1. **Logic Apps**를 검색하여 **Visual Studio용 Azure Logic Apps 도구**를 표시합니다.
 1. **다운로드** 단추를 클릭하여 확장을 설치합니다.
 1. 설치 후 Visual Studio를 다시 시작합니다.
 
@@ -46,13 +47,13 @@
 
 ## 프로젝트 만들기
 
-1. **파일** 메뉴로 이동하여 **새로 만들기** > **프로젝트** 선택합니다(또는 **추가**로 이동한 다음 **새 프로젝트**를 선택하여 기존 솔루션에 추가 가능). ![파일 메뉴](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. **파일** 메뉴로 이동하여 **새로 만들기** > **프로젝트**를 선택합니다(또는 **추가**로 이동한 다음 **새 프로젝트**를 선택하여 기존 솔루션에 추가 가능). ![파일 메뉴](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
 1. 대화 상자에서 **클라우드**를 찾아 **Azure 리소스 그룹**을 선택합니다. **이름**을 입력한 다음 **확인**을 클릭합니다. ![새 프로젝트 추가](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
 1. **논리 앱** 템플릿을 선택합니다. 이렇게 하면 빈 논리 앱 배포 템플릿을 생성하여 시작됩니다. ![Azure 템플릿 선택](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-1. **템플릿**을 선택하면 **확인**을 누릅니다.
+1. **템플릿**을 선택했으면 **확인**을 누릅니다.
 
 	이제 논리 앱 프로젝트가 솔루션에 추가됩니다. 솔루션 탐색기에 배포 파일이 표시되어야 합니다.
 
@@ -64,15 +65,15 @@
 
 1. `<template>.json` 파일을 마우스 오른쪽 단추로 클릭하고 **논리 앱 디자이너로 열기**(또는 `Ctrl+L`)를 선택합니다.
 1. 구독, 리소스 그룹 및 배포 템플릿의 위치를 선택합니다.
-	- 논리 앱을 디자인하면 디자인하는 동안 속성을 쿼리하는 **API 연결** 리소스가 만들어집니다. 선택한 리소스 그룹은 디자인 시간 동안 이 연결을 만드는 데 사용되는 리소스 그룹이 됩니다. Azure 포털로 이동하여 **API 연결**을 검색함으로써 모든 API 연결을 보거나 수정할 수 있습니다. ![구독 선택](./media/app-service-logic-deploy-from-vs/designer_picker.png)
+	- 논리 앱을 디자인하면 디자인하는 동안 속성을 쿼리하는 **API 연결** 리소스가 만들어집니다. 선택한 리소스 그룹은 디자인 시간 동안 이 연결을 만드는 데 사용되는 리소스 그룹이 됩니다. Azure Portal로 이동하여 **API 연결**을 검색함으로써 모든 API 연결을 보거나 수정할 수 있습니다. ![구독 선택기](./media/app-service-logic-deploy-from-vs/designer_picker.png)
 1. 디자이너는 `<template>.json` 파일의 정의에 따라 렌더링해야 합니다.
 1. 이제 논리 앱을 만들어 디자인할 수 있으며 변경 내용은 배포 템플릿에서 업데이트됩니다. ![Visual Studio의 디자이너](./media/app-service-logic-deploy-from-vs/designer_in_vs.png)
 
-또한 논리 앱이 기능하는 데 필요한 모든 연결을 위해 리소스 파일에 추가되는 `Microsoft.Web/connections` 리소스도 볼 수 있습니다. 이러한 연결 속성은 배포할 때 설정할 수 있으며 배포한 후 Azure 포털의 **API 연결**에서 관리할 수 있습니다.
+또한 논리 앱이 기능하는 데 필요한 모든 연결을 위해 리소스 파일에 추가되는 `Microsoft.Web/connections` 리소스도 볼 수 있습니다. 이러한 연결 속성은 배포할 때 설정할 수 있으며 배포한 후 Azure Portal의 **API 연결**에서 관리할 수 있습니다.
 
 ### JSON 코드 보기로 전환
 
-디자이너의 아래에 있는 **코드 보기**탭을 선택하여 논리 앱의 JSON 표현으로 전환할 수 있습니다. 전체 리소스 JSON으로 다시 전환하려면 `<template>.json` 파일을 마우스 오른쪽 단추로 클릭하고 **열기**를 선택합니다.
+디자이너 아래에 있는 **코드 보기** 탭을 선택하여 논리 앱의 JSON 표현으로 전환할 수 있습니다. 전체 리소스 JSON으로 다시 전환하려면 `<template>.json` 파일을 마우스 오른쪽 단추로 클릭하고 **열기**를 선택합니다.
 
 ### 논리 앱 저장
 
@@ -105,4 +106,4 @@
 - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694)
 - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

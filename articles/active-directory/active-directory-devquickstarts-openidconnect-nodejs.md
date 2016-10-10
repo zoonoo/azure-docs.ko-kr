@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Azure AD를 사용하는 웹앱 로그인 및 로그아웃
+# Azure AD를 사용하는 NodeJS 웹앱 로그인 및 로그아웃
 
 
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -414,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

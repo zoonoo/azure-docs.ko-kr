@@ -3,7 +3,7 @@
 	description="MongoDB에 대한 DocumentDB의 프로토콜 지원에 대한 예제를 찾습니다." 
 	keywords="MongoDB 예제"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # MongoDB에 대한 DocumentDB 프로토콜 지원 예제
 이러한 예제를 사용하려면 다음을 수행해야 합니다.
@@ -175,4 +175,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

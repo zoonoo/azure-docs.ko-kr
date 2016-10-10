@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB에 대한 성능 팁
@@ -35,7 +35,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
     DocumentDB는 분산 저장소 시스템이기 때문에, 컬렉션과 같은 DocumentDB 리소스는 많은 컴퓨터에서 분할되며 각 파티션은 고가용성을 위해 복제됩니다. 논리적-물리적 주소 변환이 유지되는 라우팅 테이블도 내부적으로 리소스로 사용할 수 있습니다.
 
-    게이트웨이 모드에서 DocumentDB 게이트웨이 컴퓨터는 이 라우팅을 수행하므로 클라이언트 코드가 간단하 고 간결해집니다. 클라이언트 응용 프로그램은 DocumentDB 게이트웨이 컴퓨터에 요청을 발행하고, 이 DocumentDB 게이트웨이 컴퓨터가 해당 요청에 있는 논리적 URI를 백 엔드 노드의 실제 주소로 변환하여 해당 요청을 적절하게 전달합니다. 반대로, 직접 모드에서 클라이언트는 이 라우팅 테이블의 복사본을 유지하고 주기적으로 새로 고친 다음, 백 엔드 DocumentDB 노드에 직접 연결해야 합니다.
+    게이트웨이 모드에서 DocumentDB 게이트웨이 컴퓨터는 이 라우팅을 수행하므로 클라이언트 코드가 간단하고 간결해집니다. 클라이언트 응용 프로그램은 DocumentDB 게이트웨이 컴퓨터에 요청을 발행하고, 이 DocumentDB 게이트웨이 컴퓨터가 해당 요청에 있는 논리적 URI를 백 엔드 노드의 실제 주소로 변환하여 해당 요청을 적절하게 전달합니다. 반대로, 직접 모드에서 클라이언트는 이 라우팅 테이블의 복사본을 유지하고 주기적으로 새로 고친 다음, 백 엔드 DocumentDB 노드에 직접 연결해야 합니다.
 
     게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다. 엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우, 성능 유지를 위해 DocumentDB에서 데이터를 읽거나 기록할 때마다 네트워크 홉을 추가합니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
 
@@ -46,7 +46,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     - TCP
     - HTTPS
 
-    DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
+    DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
     연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 직접 모드를 사용하는 경우 ConnectionPolicy 매개 변수 내에서 프로토콜을 설정할 수도 있습니다.
 
@@ -93,7 +93,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
-    DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용 및 관련된 코드 샘플을 참고하세요. 쿼리 대기 시간 및 처리량을 개선하도록 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 동시에 쿼리될 수 있는 파티션의 최대 수를 제어합니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
+     DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 동시에 쿼리될 수 있는 파티션의 최대 수를 제어합니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
     
     (a) ***MaxDegreeOfParallelism 튜닝:*** 여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 수집의 데이터는 쿼리와 관련하여 순차적으로 가져옵니다. 따라서 MaxDegreeOfParallelism을 파티션 수로 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 MaxDegreeOfParallelism을 높게 설정할 수 있습니다. 그러면 시스템은 MaxDegreeOfParallelism의 최소값(사용자가 제공한 입력인 파티션 수)을 선택합니다.
     
@@ -211,4 +211,4 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 또는 확장성 및 고성능을 위한 응용 프로그램 설계에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

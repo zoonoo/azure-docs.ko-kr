@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -156,7 +156,7 @@
 
 	- **Save**를 클릭합니다.
 
-	- 위쪽에 있는 메뉴에서 **사용 권한**을 클릭합니다. **설치**를 클릭합니다.
+	- 위쪽에 있는 메뉴에서 ** 사용 권한**을 클릭합니다. **설치**를 클릭합니다.
 
 		![사용 권한으로 이동][24]
 
@@ -190,7 +190,7 @@
 
 1. Azure Active Directory에서 NetSuite에 대한 빠른 시작 페이지의 **사용자 프로비저닝 구성**을 클릭합니다.
 
-	![사용자 프로비저닝 구성][28]
+	![사용자 프로비전 구성][28]
 
 2. 열린 대화 상자에서 NetSuite에 대한 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
@@ -259,4 +259,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

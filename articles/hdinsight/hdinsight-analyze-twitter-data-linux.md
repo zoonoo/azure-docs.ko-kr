@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 # HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
@@ -99,7 +99,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 
 		nano gettweets.py
 
-5. 다음을 __gettweets.py__ 파일의 콘텐츠로 사용합니다. __consumer/_secret__, __consumer/_key_\_, __access/_token__ 및 __access/_token/_secret__의 자리 표시자 정보를 Twitter 응용 프로그램의 정보로 바꿉니다.
+5. 다음을 __gettweets.py__ 파일의 콘텐츠로 사용합니다. __consumer\_secret__, __consumer\_key__, __access/\_token__, 및 __access\_token\_secret__의 자리 표시자 정보를 Twitter 응용 프로그램의 정보로 바꿉니다.
 
         #!/usr/bin/python
 
@@ -290,7 +290,7 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 
 4. 다음 명령을 사용하여 파일에 포함된 HiveQL을 실행합니다.
 
-		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql		
+		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
 		
 	Hive 셸을 로드하고 __twitter.hql__ 파일에서 HiveQL을 실행하고 마지막으로 `jdbc:hive2//localhost:10001/>` 프롬프트를 반환합니다.
 	
@@ -319,4 +319,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

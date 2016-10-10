@@ -3,7 +3,7 @@
 	description="Azure에 등록하려고 할 때 내 신용 카드 또는 직불 카드가 거부되는 경우 문제를 해결하는 방법에 대해 알아봅니다."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
@@ -74,4 +74,4 @@ Azure 무료 평가판 제품은 무료 평가판 활성화가 사용자당 한 
 
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

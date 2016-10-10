@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="09/22/2016"
 	ms.author="jahogg;tamram"/>
 
 # Microsoft Azure 저장소에서 동시성 관리
@@ -284,4 +284,4 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 - [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md), [큐](storage-dotnet-how-to-use-queues.md) 및 [파일](storage-dotnet-how-to-use-files.md)에 대한 저장소 시작
 - 저장소 아키텍처 – [Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

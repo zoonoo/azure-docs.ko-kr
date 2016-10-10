@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -21,7 +21,7 @@
 
 Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그온에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그온 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그온하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 새로 배포하거나 Windows Server 2012 R2 팜에서 기존 AD FS를 지정할 수 있습니다.
 
-이 항목은 Azure AD Connect의 페더레이션 관련 기능에 대한 정보를 포함하며 그와 관련된 다른 모든 항목에 대한 링크 목록을 포함합니다. Azure AD Connect에 대한 링크는 Azure Active Directory와 온-프레미스 ID 통합을 참조하세요.
+이 항목은 Azure AD Connect의 페더레이션 관련 기능에 대한 정보를 포함하며 그와 관련된 다른 모든 항목에 대한 링크를 나열합니다. Azure AD Connect에 대한 링크는 Azure Active Directory와 온-프레미스 ID 통합을 참조하세요.
 
 ## Azure AD Connect - 페더레이션 항목
 
@@ -48,4 +48,4 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

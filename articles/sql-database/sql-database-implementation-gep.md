@@ -18,9 +18,9 @@
 
 # Azure를 통한 GEP의 글로벌 고객 접근 및 효율성 개선
 
-![GEP 로고](./media/sql-database-case-study-gep/geplogo.png)
+![GEP 로고](./media/sql-database-implementation-gep/geplogo.png)
 
-GEP는 전 세계의 조달 책임자가 비즈니스 작업, 전략 및 재무 성능에 미치는 영향을 최대화할 수 있도록 하는 소프트웨어와 서비스를 제공 합니다. 이 회사는 컨설팅 서비스 및 관리되는 서비스 외에도, 클라우드 기반의 포괄적인 조달 소프트웨어 플랫폼인 SMART by GEP®를 제공합니다. 그러나 GEP는 자체 온-프레미스 데이터 센터에서 SMART by GET과 같은 솔루션을 지원하려고 할 때 한계에 부딪혔습니다. 필요한 투자금은 폭발적으로 증가했으며 다른 국가의 규정 요구 때문에 필요한 투자금을 확보하는 것도 요원했습니다. GEP는 클라우드로 전환하여 IT 리소스를 확보함으로써, IT 운영에 대한 부담을 줄이고, 전 세계 고객을 위해 새로운 가치를 개발하는 데 집중할 수 있게 되었습니다.
+GEP는 전 세계의 조달 책임자가 비즈니스 작업, 전략 및 재무 성능에 미치는 영향을 최대화할 수 있도록 하는 소프트웨어와 서비스를 제공 합니다. 이 회사는 컨설팅 서비스 및 관리되는 서비스 외에도, 클라우드 기반의 포괄적인 조달 소프트웨어 플랫폼인 SMART by GEP®를 제공합니다. 그러나 GEP는 자체 온-프레미스 데이터 센터에서 SMART by GEP와 같은 솔루션을 지원하려고 할 때 한계에 부딪혔습니다. 필요한 투자금은 폭발적으로 증가했으며 다른 국가의 규정 요구 때문에 필요한 투자금을 확보하는 것도 요원했습니다. GEP는 클라우드로 전환하여 IT 리소스를 확보함으로써, IT 운영에 대한 부담을 줄이고, 전 세계 고객을 위해 새로운 가치를 개발하는 데 집중할 수 있게 되었습니다.
 
 ## Azure를 사용하여 서비스 및 성장 확장
 
@@ -48,7 +48,7 @@ GEP는 전 세계적으로 Azure 데이터 센터를 활용하여 유럽과 아�
 
 GEP는 Azure에서 SMART by GEP를 새롭게 구축했습니다. GEP의 주요 동기는 GEP가 온-프레미스에서 얻었던 혜택과 비교할 때 Azure SQL 데이터베이스로 경험할 수 있던 뛰어난 확장성, 가동 중단 시간 감소, 유지 관리 비용 절감이었습니다. 그러나 클라우드로 전환한 후에 GEP는 클라우드에서 고객의 요구에 보다 빠르게 응답하기 위한 빠른 프로토타입 개발 및 린엔지니어링과 같은 새로운 개발 기회를 알게 되었습니다. GEP는 Azure에서 개발을 수행함으로써 개발자들이 온-프레미스에서 직면할 수 있는 소프트웨어 라이선스 문제도 해결할 수 있게 되었습니다. GEP는 많은 다른 Azure 서비스를 사용하여 SMART by GEP을 쉽고 빠르게 지속적으로 향상시키고 있지만 SMART by GEP의 핵심은 Azure SQL 데이터베이스입니다.
 
-![그림 1에서는](./media/sql-database-case-study-gep/figure1.png) 그림 1. SMART by GEP 아키텍처
+![SMART by GEP 아키텍처](./media/sql-database-implementation-gep/figure1.png) 그림 1. SMART by GEP 아키텍처
 
 ## 구조화된 데이터
 
@@ -107,8 +107,4 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 - GEP의 엔지니어링 관리자 Sathyan Narasingh
 - GEP의 데이터베이스 설계자 Deepa Velukutty
 
-![Smart 로고](./media/sql-database-case-study-gep/smartbygeplogo.png)
-
-![GEP 로고](./media/sql-database-case-study-gep/geplogo.png)
-
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -17,7 +17,7 @@
    ms.date="09/14/2016"
    ms.author="annahar" />
 
-# Azure 포털을 사용하여 인터넷 연결 부하 분산 장치 만들기 시작
+# Azure Portal을 사용하여 인터넷 연결 부하 분산 장치 만들기
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -115,4 +115,4 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

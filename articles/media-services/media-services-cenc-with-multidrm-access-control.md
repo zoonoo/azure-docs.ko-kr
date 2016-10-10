@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현" 
+	pageTitle="다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현 | Microsoft Azure" 
 	description="Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
@@ -22,9 +22,9 @@
  
 Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어, 동적 암호화, 라이선스 배달, PlayReady, Widevine, FairPlay, CENC(일반적인 암호화), 다중 DRM, Axinom, DASH, EME, MSE, JWT(JSON 웹 토큰), 클레임, 최신 브라우저, 키 롤오버, 대칭 키, 비대칭 키, OpenID Connect, X509 인증서.
 
-##이 문서의 내용
+##이 문서에서는 다음을 수행합니다.
 
-이 문서에서 다루는 항목은 다음과 같습니다.
+이 문서에서 다루는 토픽은 다음과 같습니다.
 
 - [소개](media-services-cenc-with-multidrm-access-control.md#introduction)
 	- [이 문서의 개요](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
@@ -33,7 +33,7 @@ Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어,
 - [구현](media-services-cenc-with-multidrm-access-control.md#implementation)
 	- [구현 절차](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
 	- [구현에 대해 몇 가지 알려진 문제](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-- [구현에 대한 추가 항목](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+- [구현에 대한 추가 토픽](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
 	- [HTTP 또는 HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
 	- [Azure Active Directory 서명 키 롤오버](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
 	- [액세스 토큰 위치](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
@@ -292,7 +292,7 @@ Azure Active Directory에 대한 자세한 내용은 다음을 참조하세요.
 
 	SWT(ACS) 외에도 JWT(AAD)의 지원이 추가되었으므로 기본 TokenType은 TokenType.JWT입니다. SWT/ACS를 사용하는 경우 TokenType.SWT로 설정해야 합니다.
 
-## 구현에 대한 추가 항목
+## 구현에 대한 추가 토픽
 다음으로 디자인 및 구현에 대한 몇 가지 추가 토픽에 대해서 설명합니다.
 
 ###HTTP 또는 HTTPS
@@ -522,4 +522,4 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

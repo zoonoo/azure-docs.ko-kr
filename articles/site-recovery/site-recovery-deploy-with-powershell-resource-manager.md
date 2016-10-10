@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="bsiva"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터와 Azure 간 복제
@@ -41,7 +41,7 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 자세한 내용은 [Azure Resource Manager에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-> [AZURE.NOTE] Cloud Solution Provider(CSP) 프로그램의 일부인 Microsoft 파트너를 통해 고객의 각 CSP 구독(테넌트 구독)에 대한 고객의 서버 보호를 구성하고 관리할 수 있습니다.
+> [AZURE.NOTE] CSP(클라우드 솔루션 공급자) 프로그램의 일부인 Microsoft 파트너를 통해 고객의 각 CSP 구독(테넌트 구독)에 대한 고객의 서버 보호를 구성하고 관리할 수 있습니다.
 
 ## 시작하기 전에
 
@@ -71,11 +71,11 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 		Login-AzureRmAccount -Tenant "fabrikam.com"
 
-2. 계정에 여러 구독을 있을 수 있으므로 계정을 사용하려는 구독을 연결해야 합니다.
+2. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결해야 합니다.
 
     	Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-3.  다음 명령을 사용하여 복구 서비스와 사이트 복구에 대해 Azure 공급자를 사용하도록 구독이 등록되었는지 확인합니다.
+3.  다음 명령을 사용하여 Recovery Services와 Site Recovery에 대해 Azure 공급자를 사용하도록 구독이 등록되었는지 확인합니다.
 
 	- `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 	-  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
@@ -257,4 +257,4 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 Azure Resource Manager PowerShell cmdlet과 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

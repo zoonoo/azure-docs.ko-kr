@@ -22,6 +22,8 @@
 
 Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다.
 
+사용자의 특성이 변경될 때 사용자의 특성 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자가 그룹에 대한 규칙을 만족하면 해당 그룹에 대한 구성원으로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
+
 ## 고급 규칙을 만들려면
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
@@ -137,7 +139,7 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-KR") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -201,13 +203,24 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
 
 | 속성 | 허용되는 값 | 사용 현황 |
-|----------------------|---------------------------------|------------------------------------------------------|
+|-------------------------|---------------------------------|-------------------------------------------------------------|
 | displayName | 임의의 문자열 값 | (device.displayName -eq "Rob Iphone”) |
 | deviceOSType | 임의의 문자열 값 | (device.deviceOSType -eq "IOS") |
 | deviceOSVersion | 임의의 문자열 값 | (device.OSVersion -eq "9.1") |
 | isDirSynced | true false null | (device.isDirSynced -eq "true") |
 | isManaged | true false null | (device.isManaged -eq "false") |
 | isCompliant | true false null | (device.isCompliant -eq "true") |
+| deviceCategory | 임의의 문자열 값 | (device.deviceCategory -eq "") |
+| deviceManufacturer | 임의의 문자열 값 | (device.deviceManufacturer -eq "Microsoft") |
+| deviceModel | 임의의 문자열 값 | (device.deviceModel -eq "IPhone 7+") |
+| deviceOwnership | 임의의 문자열 값 | (device.deviceOwnership -eq "") |
+| domainName | 임의의 문자열 값 | (device.domainName -eq "contoso.com") |
+| enrollmentProfileName | 임의의 문자열 값 | (device.enrollmentProfileName -eq "") |
+| enrollmentType | 임의의 문자열 값 | (device.enrollmentType -eq "") |
+| isRooted | true false null | (device.deviceOSType -eq "true") |
+| managementType | 임의의 문자열 값 | (device.managementType -eq "") |
+| organizationalUnit | 임의의 문자열 값 | (device.organizationalUnit -eq "") |
+| deviceId | 유효한 deviceId | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
 
 > [AZURE.NOTE]
 Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.
@@ -226,4 +239,4 @@ Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

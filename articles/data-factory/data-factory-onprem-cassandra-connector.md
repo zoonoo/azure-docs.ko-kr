@@ -3,7 +3,7 @@
 	description="Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/07/2016" 
+	ms.author="jingwang"/>
 
 # Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
 이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 온-프레미스 Cassandra 데이터베이스의 데이터를 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores) 섹션에 있는 싱크 열에 나열된 데이터 저장소에 복사하는 방법을 설명입니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
@@ -132,7 +132,7 @@ Cassandra 데이터베이스의 데이터를 지원되는 싱크 데이터 저�
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **CassandraSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다.
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **CassandraSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다.
 
 RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 속성](#cassandrasource-type-properties)을 참조하세요.
 	
@@ -193,7 +193,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | authenticationType | Basic 또는 Anonymous | 예 |
 | username |사용자 계정의 사용자 이름을 지정합니다. | 예. authenticationType은 Basic으로 설정됩니다. |
 | password | 사용자 계정으로 password를 지정합니다. | 예. authenticationType은 Basic으로 설정됩니다. |
-| gatewayName | 온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용할 게이트웨이 이름입니다. | 예 |
+| gatewayName | 온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. | 예 |
 | encryptedCredential | 게이트웨이에 의해 암호화된 자격 증명입니다. | 아니요 | 
 
 ## CassandraTable 속성
@@ -209,11 +209,11 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 
 ## CassandraSource 형식 속성
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-원본이 **CassandraSource** 형식인 복사 작업의 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+원본이 **CassandraSource** 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
@@ -253,12 +253,12 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 -	**기본 테이블**: 컬렉션 열을 제외하고 실제 테이블과 동일한 데이터가 포함되어 있습니다. 기본 테이블은 나타내는 실제 테이블과 동일한 이름을 사용합니다.
 -	**가상 테이블**: 컬렉션 열에 대해 생성되며, 중첩된 데이터를 확장합니다. 컬렉션을 나타내는 가상 테이블 이름은 실제 테이블의 이름, 구분 기호 "_vt_" 및 열 이름을 사용하여 지정합니다.
 
-가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 자세한 내용은 아래의 예제 섹션을 참조하세요. 가상 테이블을 쿼리 및 조인하여 Cassandra 컬렉션의 콘텐츠에 액세스할 수 있습니다.
+가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 자세한 내용은 예제 섹션을 참조하세요. 가상 테이블을 쿼리 및 조인하여 Cassandra 컬렉션의 콘텐츠에 액세스할 수 있습니다.
 
 [복사 마법사](data-factory-data-movement-activities.md#data-factory-copy-wizard)를 사용하여 가상 테이블을 비롯한 Cassandra 데이터베이스의 테이블 목록을 표시하고 내부의 데이터를 미리 볼 수 있습니다. 또한 복사 마법사에서 쿼리를 생성하고 결과가 유효한지 확인할 수도 있습니다.
 
 ### 예
-예를 들어 아래의 "ExampleTable"은 "pk\_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
+예를 들어 다음 "ExampleTable"은 "pk\_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
 
 pk\_int | 값 | 나열 | Map |	StringSet
 ------ | ----- | ---- | --- | --------
@@ -267,7 +267,7 @@ pk\_int | 값 | 나열 | Map |	StringSet
 
 드라이버는 이 단일 테이블을 나타내는 여러 개의 가상 테이블을 생성합니다. 가상 테이블의 외래 키 열은 실제 테이블의 기본 키 열을 참조하고, 가상 테이블 행에 해당하는 실제 테이블 행을 나타냅니다.
 
-첫 번째 가상 테이블은 아래에 표시된 "ExampleTable"이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
+첫 번째 가상 테이블은 다음 테이블에 표시된 "ExampleTable"이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
 
 pk\_int | 값
 ------ | -----
@@ -313,4 +313,4 @@ pk\_int | StringSet\_value
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

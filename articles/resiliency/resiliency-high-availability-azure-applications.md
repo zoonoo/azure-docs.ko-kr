@@ -70,7 +70,7 @@ Azure 응용 프로그램의 가용성 향상을 위해 느슨하게 결합된 �
 
 이 작업의 변형은 실패한 데이터베이스 호출에 대한 장애 조치 위치로 Azure 저장소(Blob, 테이블, 큐) 또는 서비스 버스 큐를 사용합니다. 예를 들어, 다른 서비스(예: Azure SQL 데이터베이스)에 대한 응용 프로그램 내의 동기적 호출이 반복해서 실패합니다. 지속성 저장소에 해당 데이터를 직렬화할 수 있습니다. 나중에 서비스 또는 데이터베이스가 다시 온라인 상태가 되면 응용 프로그램은 저장소의 요청을 다시 제출할 수 있습니다. 이 모델의 차이점은 중간 위치가 응용 프로그램 워크플로의 지속적인 부분이 아니라는 점입니다. 오류 시나리오에서만 사용됩니다.
 
-두 시나리오 모두에서 비동기적 통신과 중간 저장소는 중단된 백 엔드 서비스가 전체 응용 프로그램을 중단하지 않도록 방지합니다. 큐는 논리적 매개자로 사용됩니다. 올바른 큐 서비스를 선택하는 방법에 자세한 지침은 [Azure 큐 및 Azure 서비스 버스 큐--비교 및 대조](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
+두 시나리오 모두에서 비동기적 통신과 중간 저장소는 중단된 백 엔드 서비스가 전체 응용 프로그램을 중단하지 않도록 방지합니다. 큐는 논리적 매개자로 사용됩니다. 올바른 큐 서비스를 선택하는 방법에 자세한 지침은 [Azure 큐 및 Azure 서비스 버스 큐--비교 및 대조](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
 
 ###오류 감지 및 다시 시도 논리
 
@@ -143,4 +143,4 @@ Azure 응용 프로그램의 가용성 향상을 위해 느슨하게 결합된 �
 
 이 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](./resiliency-disaster-recovery-high-availability-azure-applications.md)에 초점을 맞춘 문서 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [Microsoft Azure에 빌드된 응용 프로그램에 대한 재해 복구](./resiliency-disaster-recovery-azure-applications.md)입니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

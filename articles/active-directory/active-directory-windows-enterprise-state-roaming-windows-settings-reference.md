@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Windows 10 로밍 설정 참조
@@ -38,11 +38,11 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 ## Windows 설정 개요
 다음 설정 그룹은 Windows 10 장치에서 최종 사용자가 설정 동기화를 활성화/비활성화하는 데 사용할 수 있습니다.
 
-- 테마: 바탕 화면 배경, 사용자 타일, 작업 표시줄 위치 등 
-- Internet Explorer 설정: 검색 기록, 입력한 URL, 즐겨찾기 등 
-- 암호: [Windows 자격 증명 보관](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi 프로필 포함 
-- 언어 기본 설정: 맞춤법 사전, 시스템 언어 설정 
-- 간편한 액세스: 내레이터, 화상 키보드, 돋보기 
+- 테마: 바탕 화면 배경, 사용자 타일, 작업 표시줄 위치 등
+- Internet Explorer 설정: 검색 기록, 입력한 URL, 즐겨찾기 등
+- 암호: [Windows 자격 증명 보관](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi 프로필 포함
+- 언어 기본 설정: 맞춤법 사전, 시스템 언어 설정
+- 간편한 액세스: 내레이터, 화상 키보드, 돋보기
 - 기타 Windows 설정: Windows 설정 세부 정보를 참조하세요.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
@@ -176,4 +176,4 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

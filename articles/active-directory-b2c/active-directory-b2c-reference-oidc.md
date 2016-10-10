@@ -162,7 +162,7 @@ id\_token의 유효성을 완전히 검사한 후 사용자와 세션을 시작�
 `POST` 요청을 `/token` 끝점으로 보내 원하는 리소스에 대한 토큰에 대해 (`response_type=code+id_token`을 사용하여) 획득한 authorization\_code를 사용할 수 있습니다. 현재 토큰을 요청할 수 있는 리소스는 앱 자체의 백 엔드 Web API입니다. 자신에게 토큰을 요청하는 데 사용된 규칙은 앱의 클라이언트 ID를 범위로 사용하는 것입니다.
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -228,7 +228,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 id\_token은 수명이 짧습니다. 리소스에 계속 액세스하려면 만료된 후 새로 고쳐야 합니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 끝점에 제출하면 됩니다. 여기에서는 `code` 대신 `refresh_token`을 제공합니다.
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -309,4 +309,4 @@ p=b2c_1_sign_in
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **웹앱/Web API**을 포함하고 필요에 따라 **응용 프로그램 암호**를 만들려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

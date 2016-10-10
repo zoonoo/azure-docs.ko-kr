@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="라이브 스트리밍 문제 해결 가이드" 
-	description="이 항목에서는 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다." 
+	pageTitle="라이브 스트리밍 문제 해결 가이드 | Microsoft Azure" 
+	description="이 토픽에서는 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #라이브 스트리밍 문제 해결 가이드
 
-이 항목에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
+이 토픽에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
 
 ## 온-프레미스 인코더와 관련된 문제 
 
@@ -50,7 +50,7 @@
 	 
 - **잠재적인 문제**: 닫힌 포트가 스트림을 차단하고 있습니다.
 
-	**문제 해결 단계**: RTMP 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 점검하여 아웃바운드 포트 1935 및 1936이 열려 있는지 확인합니다. RTP 스트리밍를 사용하는 경우 아웃바운드 포트 2010이 열려 있는지 확인합니다.
+	**문제 해결 단계**: RTMP 통해 스트리밍할 때 방화벽 및/또는 프록시 설정을 점검하여 아웃바운드 포트 1935 및 1936이 열려 있는지 확인합니다. RTP 스트리밍을 사용하는 경우 아웃바운드 포트 2010이 열려 있는지 확인합니다.
 
 
 ###문제: RTP 프로토콜을 사용하여 인코더를 스트림으로 구성하면 호스트 이름을 입력할 장소가 없습니다. 
@@ -85,4 +85,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

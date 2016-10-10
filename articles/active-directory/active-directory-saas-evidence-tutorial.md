@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -22,7 +22,7 @@
 이 자습서는 Azure Active Directory(AAD)와 Evidence.com 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 	
 * 유효한 Microsoft Azure 구독
-* 활성화된 Single Sign-On을 사용한 Evidence.com 구독(SAML 기반 Single Sign-On을 사용하지 않는 경우 earlyaccess@evidence.com 메일로 보냄)
+* 활성화된 Single Sign-On을 사용한 Evidence.com 구독(SAML 기반 Single Sign-On을 사용하지 않는 경우 earlyaccess@evidence.com을 메일로 보냄)
 
 이 자습서를 완료한 후에 Evidence.com 액세스를 할당한 AAD 사용자는 AAD 액세스 패널을 사용하여 응용 프로그램에 Single Sign-On을 수행할 수 있습니다.
 
@@ -51,7 +51,7 @@
 
 **Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1.	Azure 클래식 포털에서 Evidence.com을 추가한 후에 **Single Sign-On 구성**을 클릭합니다. 
+1.	Azure 클래식 포털에서 Evidence.com을 추가한 후에 **Single Sign-On 구성**을 클릭합니다.
  
 2.	다음 화면에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
@@ -107,4 +107,4 @@ Azure AD 사용자가 로그인할 수 있도록 Evidence.com 응용 프로그�
  
 4.	페이지 바닥글에서 **할당** 단추를 클릭합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="프로그램이 열리지 않거나 VM의 수신 포트가 차단됨 | Microsoft Azure"
-	description="Azure VM에서 실행되는 프로그램을 시작 또는 사용할 수 없는 경우 다음 단계에 따라 문제의 원인을 격리하세요."
+	pageTitle="Linux VM 응용 프로그램 액세스 문제 해결 | Microsoft Azure"
+	description="다음과 같은 자세한 문제 해결 단계를 사용하여 Azure의 Linux 가상 컴퓨터에서 실행되는 응용 프로그램 연결 관련 문제를 격리하세요."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,12 +14,12 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.topic="support-article"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# 문제 해결: Azure 가상 컴퓨터에서 실행되는 응용 프로그램을 시작, 액세스 또는 연결할 수 없음
+# Linux Azure 가상 컴퓨터에서 응용 프로그램 연결 문제 해결
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

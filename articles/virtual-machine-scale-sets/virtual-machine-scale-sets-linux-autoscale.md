@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
-# 가상 컴퓨터 확장 집합에서 Linux 컴퓨터 자동 확장
+# 가상 컴퓨터 크기 집합에서 Linux 컴퓨터 자동 확장
 
-가상 컴퓨터 규모 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하십시오.
+가상 컴퓨터 크기 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하십시오.
 
-이 자습서에서는 Ubuntu Linux의 최신 버전을 사용하여 Linux 가상 컴퓨터의 가상 컴퓨터 크기 집합을 만들고 집합에서 컴퓨터를 자동으로 크기 조정하는 방법을 보여 줍니다. Azure 리소스 관리자 템플릿을 작성하고 Azure CLI를 사용하여 배포하여 이 작업을 수행합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
+이 자습서에서는 Ubuntu Linux의 최신 버전을 사용하여 Linux 가상 컴퓨터의 크기 집합을 만드는 방법을 보여 줍니다. 또한 이 자습서는 집합의 컴퓨터 수를 자동으로 조정하는 방법도 설명합니다. Azure Resource Manager 템플릿을 작성하고 Azure CLI를 통해 배포하여 크기 집합을 만들고 크기 조정을 설정합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요. 크기 집합의 자동 확장에 대한 자세한 내용은 [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)을 참조하세요.
 
 이 자습서에서는 다음 리소스 및 확장을 배포합니다.
 
@@ -41,85 +41,64 @@
 
 ## 1단계: 리소스 그룹 및 저장소 계정 만들기
 
-1. **Microsoft Azure에 로그인** - 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 `azure config mode arm`을 입력하여 리소스 관리자 모드인지 확인한 다음 대화형 로그인 환경에 대해 표시되는 메시지에 따라 `azure login`을 입력하여 Azure 계정에 [회사 또는 학교 ID를 사용하여 로그인합니다](../xplat-cli-connect.md#use-the-log-in-method).
+1. **Microsoft Azure에 로그인** - 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 Resource Manager 모드로 전환한 후 [회사 또는 학교 ID를 사용하여 로그인](../xplat-cli-connect.md#use-the-log-in-method)합니다. Azure 계정에 대한 대화형 로그인 환경 지침을 따릅니다.
 
-	> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우 `azure login -u`와(과) 회사 또는 학교 ID를 사용하여 대화형 세션 없이 로그인할 수 있습니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../virtual-machines/resource-group-create-work-id-from-personal.md).
+        azure config mode arm
+
+        azure login
+
+	> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 사용되도록 설정되지 않은 경우 `azure login -u`와 해당 ID를 사용하여 대화형 세션 없이 로그인합니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 2. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstest1**로 지정합니다.
 
         azure group create vmsstestrg1 centralus
 
-3. **새 리소스 그룹에 저장소 계정 배포** – 이 자습서에서는 여러 저장소 계정을 사용하여 가상 컴퓨터 규모 집합을 용이하게 합니다. **vmsstestsa**라는 저장소 계정을 만듭니다. 이 자습서의 뒷부분 단계를 위해 명령 인터페이스 창을 열어 둡니다.
+3. **새 리소스 그룹에 저장소 계정 배포** – 이 저장소 계정에 템플릿이 저장됩니다. **vmsstestsa**라는 저장소 계정을 만듭니다.
 
         azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
 ## 2단계: 템플릿 만들기
 Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 매개 변수에 대한 JSON 설명을 사용하여 Azure 리소스를 함께 배포하고 관리할 수 있습니다.
 
-1. 원하는 편집기에서 C:\\VMSSTemplate.json 파일을 만들고 템플릿을 지원하기 위한 초기 JSON 구조를 추가합니다.
+1. 원하는 편집기에서 VMSSTemplate.json 파일을 만들고 템플릿을 지원하기 위한 초기 JSON 구조를 추가합니다.
 
         {
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
-          }
+          },
           "variables": {
-          }
+          },
           "resources": [
           ]
         }
 
-2. 매개 변수는 항상 필요한 것은 아니지만 템플릿 관리를 용이하게 합니다. 템플릿 값을 지정하는 방법을 제공하고 값 형식, 기본값(필요한 경우) 및 매개 변수의 허용되는 값을 설명합니다. 템플릿에 추가한 매개 변수 부모 요소 아래에 다음과 같은 매개 변수를 추가합니다.
+2. 매개 변수가 항상 필요한 것은 아니지만 템플릿이 배포될 때 값을 입력하는 방법을 제공합니다. 템플릿에 추가한 매개 변수 부모 요소 아래에 다음과 같은 매개 변수를 추가합니다.
 
-        "vmName": {
-          "type": "string"
-        },
-        "vmSSName": {
-          "type": "string"
-        },
-        "instanceCount": {
-          "type": "string"
-        },
-        "adminUsername": {
-          "type": "string"
-        },
-        "adminPassword": {
-          "type": "securestring"
-        },
-        "resourcePrefix": {
-          "type": "string"
-        }
+        "vmName": { "type": "string" },
+        "vmSSName": { "type": "string" },
+        "instanceCount": { "type": "string" },
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" },
+        "resourcePrefix": { "type": "string" }
             
 	- 크기 집합의 컴퓨터에 액세스하는 데 사용하는 별도 가상 컴퓨터의 이름입니다.
 	- 템플릿이 저장된 저장소 계정의 이름입니다.
 	- 규모 집합에서 처음으로 만들기 위한 가상 컴퓨터의 인스턴스 수입니다.
 	- 가상 컴퓨터의 관리자 계정 이름 및 암호입니다.
-	- 리소스 그룹에 만들어진 리소스의 접두사입니다.
+	- 크기 집합을 지원하기 위해 만들어진 리소스에 대한 이름 접두사입니다.
 
 3. 템플릿에서 변수를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다. 템플릿에 추가한 변수 부모 요소 아래에 다음과 같은 변수를 추가합니다.
 
         "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
         "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
-        "vmSize": "Standard_A0",
-        "imagePublisher": "Canonical",
-        "imageOffer": "UbuntuServer",
-        "imageVersion": "15.10",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet",
-        "subnetPrefix": "10.0.0.0/24",
         "publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
         "publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
         "loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
         "virtualNetworkName": "[concat(parameters('resourcePrefix'),'vn1')]",
-        "nicName1": "[concat(parameters('resourcePrefix'),'nc1')]",
-        "nicName2": "[concat(parameters('resourcePrefix'),'nc2')]",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-        "publicIPAddressID1": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP1'))]",
-        "publicIPAddressID2": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP2'))]",
+        "nicName": "[concat(parameters('resourcePrefix'),'nc1')]",
         "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-        "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
@@ -130,8 +109,6 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
         
 	- 네트워크 인터페이스에서 사용되는 DNS 이름입니다.
-	- 규모 집합에 사용되는 가상 컴퓨터의 크기입니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요.
-	- 규모 집합의 가상 컴퓨터에서 실행할 운영 체제를 정의하기 위한 플랫폼 이미지 정보입니다. 이미지 선택에 대한 자세한 내용은 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](../virtual-machines/resource-groups-vm-searching.md)을 참조하세요.
 	- 가상 네트워크 및 서브넷에 대한 IP 주소 이름 및 접두사입니다.
 	- 가상 네트워크, 부하 분산 장치 및 네트워크 인터페이스의 이름 및 식별자입니다.
 	- 규모 집합의 컴퓨터와 연결된 계정에 대한 저장소 계정 이름입니다.
@@ -148,9 +125,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
             "count": 5
           },
           "location": "[resourceGroup().location]",
-          "properties": {
-            "accountType": "[variables('storageAccountType')]"
-          }
+          "properties": { "accountType": "Standard_LRS" }
         },
 
 5. 가상 네트워크 리소스를 추가합니다. 자세한 내용은 [네트워크 리소스 공급자](../virtual-network/resource-groups-networking.md)를 참조하세요.
@@ -161,17 +136,11 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
           "properties": {
-            "addressSpace": {
-              "addressPrefixes": [
-                "[variables('addressPrefix')]"
-              ]
-            },
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
             "subnets": [
               {
-                "name": "[variables('subnetName')]",
-                "properties": {
-                  "addressPrefix": "[variables('subnetPrefix')]"
-                }
+                "name": "subnet1",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
               }
             ]
           }
@@ -220,16 +189,12 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                 "name": "loadBalancerFrontEnd",
                 "properties": {
                   "publicIPAddress": {
-                    "id": "[variables('publicIPAddressID1')]"
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIP1'))]"
                   }
                 }
               }
             ],
-            "backendAddressPools": [
-              {
-                "name": "bepool1"
-              }
-            ],
+            "backendAddressPools": [ { "name": "bepool1" } ],
             "inboundNatPools": [
               {
                 "name": "natpool1",
@@ -247,12 +212,12 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           }
         },
 
-8. 별도의 가상 컴퓨터에서 사용하는 네트워크 인터페이스 리소스를 추가합니다. 가상 컴퓨터 크기 집합의 컴퓨터는 공용 IP 주소를 사용하여 직접 액세스할 수 없기 때문에 별도의 가상 컴퓨터는 크기 집합과 동일한 가상 네트워크에 만들어지며 집합의 컴퓨터에 원격으로 액세스하는 데 사용됩니다.
+8. 별도의 가상 컴퓨터에서 사용하는 네트워크 인터페이스 리소스를 추가합니다. 크기 집합의 컴퓨터는 공용 IP 주소를 통해 액세스할 수 없기 때문에 컴퓨터에 원격으로 액세스하기 위해 동일한 가상 네트워크에 별도의 가상 컴퓨터가 생성됩니다.
 
         {
           "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
-          "name": "[variables('nicName1')]",
+          "name": "[variables('nicName')]",
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP2'))]",
@@ -268,7 +233,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP2'))]"
                   },
                   "subnet": {
-                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
                   }
                 }
               }
@@ -285,12 +250,10 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "storageLoop",
-            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
+            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
           ],
           "properties": {
-            "hardwareProfile": {
-              "vmSize": "[variables('vmSize')]"
-            },
+            "hardwareProfile": { "vmSize": "Standard_A1" },
             "osProfile": {
               "computername": "[parameters('vmName')]",
               "adminUsername": "[parameters('adminUsername')]",
@@ -298,15 +261,15 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
             },
             "storageProfile": {
               "imageReference": {
-                "publisher": "[variables('imagePublisher')]",
-                "offer": "[variables('imageOffer')]",
-                "sku": "[variables('imageVersion')]",
+                "publisher": "Canonical",
+                "offer": "UbuntuServer",
+                "sku": "14.04.4-LTS",
                 "version": "latest"
               },
               "osDisk": {
-                "name": "osdisk1",
+                "name": "[concat(parameters('resourcePrefix'), 'os1')]",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'a.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"
@@ -315,14 +278,14 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
             "networkProfile": {
               "networkInterfaces": [
                 {
-                  "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName1'))]"
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
                 }
               ]
             }
           }
         },
 
-10.	가상 컴퓨터 규모 집합 리소스를 추가하고 규모 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 크기 집합에서 초기화할 가상 컴퓨터의 수를 지정하는 용량 요소와 크기 집합의 가상 컴퓨터를 업데이트하는 방식을 지정하는 upgradePolicy가 추가된다는 점입니다. 크기 집합은 모든 저장소 계정이 dependsOn 요소로 지정된 대로 만들어질 때까지 생성되지 않습니다.
+10.	가상 컴퓨터 크기 집합 리소스를 추가하고 크기 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 크기 집합의 가상 컴퓨터 수를 지정하는 용량 요소와 가상 컴퓨터를 업데이트하는 방식을 지정하는 upgradePolicy입니다. 크기 집합은 모든 저장소 계정이 dependsOn 요소로 지정된 대로 만들어질 때까지 생성되지 않습니다.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -331,14 +294,14 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
               "location": "[resourceGroup().location]",
               "dependsOn": [
                 "storageLoop",
-                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
               ],
               "sku": {
-                "name": "[variables('vmSize')]",
+                "name": "Standard_A1",
                 "tier": "Standard",
                 "capacity": "[parameters('instanceCount')]"
-              }
+              },
               "properties": {
                 "upgradePolicy": {
                   "mode": "Manual"
@@ -347,20 +310,20 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0],'.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1],'.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2],'.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3],'.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4],'.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
                       "createOption": "FromImage"
                     },
                     "imageReference": {
-                      "publisher": "[variables('imagePublisher')]",
-                      "offer": "[variables('imageOffer')]",
-                      "sku": "[variables('imageVersion')]",
+                      "publisher": "Canonical",
+                      "offer": "UbuntuServer",
+                      "sku": "14.04.4-LTS",
                       "version": "latest"
                     }
                   },
@@ -372,7 +335,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                   "networkProfile": {
                     "networkInterfaceConfigurations": [
                       {
-                        "name": "[variables('nicName2')]",
+                        "name": "networkconfig1",
                         "properties": {
                           "primary": "true",
                           "ipConfigurations": [
@@ -380,7 +343,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
                               "name": "ip1",
                               "properties": {
                                 "subnet": {
-                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
                                 },
                                 "loadBalancerBackendAddressPools": [
                                   {
@@ -473,26 +436,26 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
               }
             }
     
-    이 자습서의 경우 다음은 중요한 값입니다.
+    이 자습서의 경우 다음 값이 중요합니다.
     
-    - **metricName** - wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 진단 확장은 이 변수를 사용하여 **Processor\\PercentProcessorTime** 카운터를 수집합니다.
-    - **metricResourceUri** - 가상 컴퓨터 규모 집합의 리소스 식별자입니다.
-    - **timeGrain** – 수집되는 메트릭의 세분성입니다. 이 템플릿에서 1분으로 설정됩니다.
-    - **statistic** – 자동 규모 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다. 이 템플릿에서 규모 집합의 가상 컴퓨터 간의 총 평균 CPU 사용량을 살펴봅니다.
-    - **timeWindow** – 인스턴스 데이터가 수집되는 시간 범위입니다. 5분에서 12시간 사이여야 합니다.
-    - **timeAggregation** – 시간이 지남에 따라 수집된 데이터가 결합되어야 하는 방법을 결정합니다. 기본값은 평균입니다. 가능한 값은 평균, 최소, 최대, 마지막, 합계, 개수입니다.
-    - **operator** – 메트릭 데이터와 임계값을 비교하는 데 사용되는 연산자입니다. 가능한 값은 Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual입니다.
-    - **threshold** - 규모 조정 작업을 트리거하는 값입니다. 이 템플릿에서 집합의 컴퓨터 간 평균 CPU 사용량이 50%가 넘는 경우 컴퓨터가 규모 집합에 추가됩니다.
-    - **direction** – 임계값이 달성되었을 때 수행되는 동작을 결정합니다. 가능한 값은 증가 또는 감소입니다. 이 템플릿에서 규모 집합의 가상 컴퓨터 수는 임계값이 정의된 시간 창에서 50%가 넘는 경우 증가합니다.
-    - **type** – 발생되어야 하는 동작의 유형이며 ChangeCount로 설정되어 있어야 합니다.
-    - **value** – 규모 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다. 기본값은 1입니다. 이 템플릿에서 규모 집합의 컴퓨터 수는 임계값에 도달한 경우 1씩 증가합니다.
-    - **cooldown** – 다음 작업이 발생하기 전에 마지막 규모 조정 작업 이후에 대기 시간입니다. 1분에서 1주 사이여야 합니다.
+    - **metricName** - 이 값은 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 진단 확장은 이 변수를 사용하여 **Processor\\PercentProcessorTime** 카운터를 수집합니다.
+    - **metricResourceUri** - 이 값은 가상 컴퓨터 크기 집합의 리소스 식별자입니다.
+    - **timeGrain** – 이 값은 수집되는 메트릭의 세분성입니다. 이 템플릿에서는 1분으로 설정됩니다.
+    - **statistic** – 이 값은 자동 크기 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다. 이 템플릿에서는 가상 컴퓨터의 평균 총 CPU 사용량이 수집됩니다.
+    - **timeWindow** – 이 값은 인스턴스 데이터가 수집되는 시간 범위입니다. 5분에서 12시간 사이여야 합니다.
+    - **timeAggregation** – 이 값은 시간이 지남에 따라 수집된 데이터가 결합되어야 하는 방법을 결정합니다. 기본값은 평균입니다. 가능한 값은 평균, 최소, 최대, 마지막, 합계, 개수입니다.
+    - **operator** – 이 값은 메트릭 데이터와 임계값을 비교하는 데 사용되는 연산자입니다. 가능한 값은 Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual입니다.
+    - **threshold** - 이 값은 크기 조정 작업을 트리거합니다. 이 템플릿에서 집합의 컴퓨터 간 평균 CPU 사용량이 50%가 넘는 경우 컴퓨터가 규모 집합에 추가됩니다.
+    - **direction** – 이 값은 임계값이 달성되었을 때 수행되는 동작을 결정합니다. 가능한 값은 증가 또는 감소입니다. 이 템플릿에서 규모 집합의 가상 컴퓨터 수는 임계값이 정의된 시간 창에서 50%가 넘는 경우 증가합니다.
+    - **type** – 이 값은 발생되어야 하는 동작의 유형이며 ChangeCount로 설정되어 있어야 합니다.
+    - **value** – 이 값은 크기 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다. 기본값은 1입니다. 이 템플릿에서 규모 집합의 컴퓨터 수는 임계값에 도달한 경우 1씩 증가합니다.
+    - **cooldown** – 이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은 1분에서 1주 사이여야 합니다.
 
 12.	템플릿 파일을 저장합니다.
 
 ## 3단계: 템플릿을 저장소에 업로드
 
-1단계에서 만든 저장소 계정의 계정 이름 및 기본 키를 알고 있는 한 명령줄 인터페이스에서 템플릿을 업로드할 수 있습니다.
+1단계에서 만든 저장소 계정의 계정 이름 및 기본 키를 알고 있는 한 템플릿을 업로드할 수 있습니다.
 
 1. 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 이러한 명령을 실행하여 저장소 계정에 액세스하는 데 필요한 환경 변수를 설정합니다.
 
@@ -526,14 +489,14 @@ Enter 키를 누르면 지정한 변수에 대한 값을 제공하라는 메시�
 
 모든 리소스가 성공적으로 배포되는 데 15분 정도가 소요됩니다.
 
->[AZURE.NOTE]포털의 기능을 사용하여 리소스를 배포할 수도 있습니다. 이렇게 하려면 이 링크를 사용합니다. https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE]포털의 기능을 사용하여 리소스를 배포할 수도 있습니다. 다음 링크를 사용합니다. https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
 ## 5단계: 리소스 모니터링
 
 이러한 메서드를 사용하여 가상 컴퓨터 규모 집합에 대한 정보를 얻을 수 있습니다.
 
  - Azure 포털 - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
- - [Azure 리소스 탐색기](https://resources.azure.com/) - 규모 집합의 현재 상태를 탐색할 수 있는 최상의 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
+ - [Azure 리소스 탐색기](https://resources.azure.com/) - 크기 집합의 현재 상태를 탐색하는 데 가장 적합한 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
 
 		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -543,7 +506,7 @@ Enter 키를 누르면 지정한 변수에 대한 값을 제공하라는 메시�
 
  - 다른 컴퓨터와 마찬가지로 jumpbox 가상 컴퓨터에 연결한 다음 개별 프로세스를 모니터링하도록 규모 집합의 가상 컴퓨터에 원격으로 액세스할 수 있습니다.
 
->[AZURE.NOTE]규모 집합에 대한 정보를 얻기 위해 전체 REST API를 [가상 컴퓨터 크기 규모 집합](https://msdn.microsoft.com/library/mt589023.aspx)에서 찾을 수 있습니다.
+>[AZURE.NOTE]크기 집합에 대한 정보를 얻기 위해 전체 REST API를 [가상 컴퓨터 크기 집합](https://msdn.microsoft.com/library/mt589023.aspx)에서 찾을 수 있습니다.
 
 ## 6단계: 리소스 제거
 
@@ -554,7 +517,8 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 ## 다음 단계
 
 - [Azure Insights 플랫폼 간 CLI 빠른 시작 샘플](../azure-portal/insights-cli-samples.md)에서 Azure Insights 모니터링 기능의 예제를 찾아봅니다.
-- [크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-autoscale-to-webhook-email.md)와 [Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-auditlog-to-webhook-email.md)에서 알림 기능에 관해 알아봅니다.
+- [크기 자동 조정 작업을 사용하여 Azure Insight에서 전자 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-autoscale-to-webhook-email.md)의 알림 기능에 대해 자세히 알아봅니다.
+- [Azure Insights에서 감사 로그를 사용하여 메일 및 Webhook 경고 알림 보내기](../azure-portal/insights-auditlog-to-webhook-email.md) 방법에 대해 자세히 알아봅니다.
 - 가상 컴퓨터 크기 집합의 자동 크기 조정 기능을 실행하도록 LAMP 스택을 설정하는 [Ubuntu/Apache/PHP 앱을 실행하는 VM 크기 집합 자동 크기 조정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 템플릿을 확인합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

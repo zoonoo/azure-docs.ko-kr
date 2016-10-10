@@ -2,7 +2,7 @@
 	pageTitle="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정 만들기 | Microsoft Azure" 
 	description="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만드는 방법을 알아봅니다. 현재 미리 보기를 지원합니다." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만드는 방법
 
@@ -78,4 +78,4 @@ MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 만�
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -318,7 +318,7 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - [Azure 역할 시작 수명 주기](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx)(블로그 게시물)
 - [Azure 클라우드 서비스 역할 수명 주기](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle)(비디오)
 - [Azure WebJobs SDK 시작](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [클라우드 서비스에서 진단 기능을 사용하는 방법](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

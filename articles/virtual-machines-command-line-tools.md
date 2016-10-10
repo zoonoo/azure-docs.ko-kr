@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
 
 # ASM(Azure 서비스 관리) 모드의 Azure CLI 명령
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [모든 리소스 관리자 모델 명령에 대해 알아볼 수도 있습니다](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [모든 Resource Manager 모델 명령에 대한 읽기](virtual-machines/azure-cli-arm-commands.md)도 가능하고 CLI를 사용하여 클래식에서 Resource Manager 모델로 [리소스를 마이그레이션](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)할 수 있습니다.
 
 이 문서에서는 클래식 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure 서비스 관리) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다.
 
 시작하려면 먼저 [Azure CLI](xplat-cli-install.md)를 설치하고 [Azure 구독에 연결](xplat-cli-connect.md)합니다.
 
-asm 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
+명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
 선택적 매개 변수는 대괄호 안에 표시(예: `[parameter]`)됩니다. 모든 다른 매개 변수는 필수 항목입니다.
 
-여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. `-v` 매개 변수는 자세한 정보를 출력하고 `-vv` 매개 변수는 훨씬 더 자세한 정보를 출력합니다. `--json` 옵션은 결과를 원시 JSON 형식으로 출력합니다.
+여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. `-v` 매개 변수는 자세한 정보를 출력하고 `-vv` 매개 변수는 훨씬 더 자세한 정보를 출력합니다. `--json` 옵션은 결과를 원시 JSON 형식으로 결과를 출력합니다.
 
 ## asm 모드 설정
 
@@ -40,7 +40,7 @@ asm 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azu
 >[AZURE.NOTE] CLI의 Azure Resource Manager 모드와 asm 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
 
 ## 계정 정보 및 게시 설정 관리
-CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사용하는 것입니다. 기타 옵션을 보려면 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요. 여기에 설명된 대로 게시 설정 파일의 Azure 클래식 포털에서 이 정보를 가져올 수 있습니다. CLI에서 후속 작업에 사용할 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
+CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사용하는 것입니다. 기타 옵션을 보려면 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요. 여기에 설명된 대로 게시 설정 파일의 Azure 클래식 포털에서 이 정보를 가져올 수 있습니다. CLI에서 후속 작업에 사용하는 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
 
 **account download [options]**
 
@@ -56,7 +56,7 @@ CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사
 **account import [options] &lt;file>**
 
 
-이 명령은 도구에서 이후 작업에 사용할 수 있도록 publishsettings 파일 또는 인증서를 가져옵니다.
+이 명령은 도구에서 이후 세션에 사용할 수 있도록 publishsettings 파일 또는 인증서를 가져옵니다.
 
 	~$ azure account import publishsettings.publishsettings
 	info:   Importing publish settings file publishsettings.publishsettings
@@ -71,7 +71,7 @@ CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사
 
 **account clear [options]**
 
-이 명령은 가져온 저장된 게시 설정을 제거합니다. 이 컴퓨터에서 도구 사용을 마치고 이후 작업에 이 계정으로 도구를 사용할 수 없도록 하려면 이 명령을 사용합니다.
+이 명령은 가져온 저장된 게시 설정을 제거합니다. 이 컴퓨터에서 도구 사용을 마치고 이후 세션에서 이 계정으로 도구를 사용할 수 없도록 하려면 이 명령을 사용합니다.
 
 	~$ azure account clear
 	Clearing account info.
@@ -112,7 +112,7 @@ CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사
 
 **account affinity-group create [options] &lt;name&gt;**
 
-이 명령은 새 선호도 그룹을 만듭니다.
+이 명령은 선호도 그룹을 만듭니다.
 
 	~$ azure account affinity-group create opentec -l "West US"
 	info:    Executing command account affinity-group create
@@ -194,23 +194,23 @@ CLI에서 계정에 연결하는 한 가지 방법은 Azure 구독 정보를 사
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-이 명령은 새 Azure 가상 컴퓨터를 만듭니다. 기본적으로 각 가상 컴퓨터는 자체 클라우드 서비스에서 만들어지지만, 여기에 설명된 대로 -c 옵션을 사용하여 가상 컴퓨터를 기존 클라우드 서비스에 추가하도록 지정할 수 있습니다.
+이 명령은 Azure 가상 컴퓨터를 만듭니다. 기본적으로 각 가상 컴퓨터(VM)는 자체 클라우드 서비스에서 만들어집니다. 여기에 설명된 대로 -c 옵션을 사용하여 가상 컴퓨터를 기존 클라우드 서비스에 추가하도록 지정할 수 있습니다.
 
-Azure 클래식 포털같은 VM 생성 명령은 프로덕션 배포 환경에서 가상 컴퓨터만 생성할 수 있습니다. 클라우드 서비스의 스테이징 배포 환경에서 가상 컴퓨터를 만들 수 있는 옵션이 없습니다. 구독에 기존 Azure 저장소 계정이 없는 경우 이 명령은 계정을 만듭니다.
+Azure 클래식 포털같은 VM 생성 명령은 프로덕션 배포 환경에서 가상 컴퓨터만 생성할 수 있습니다. 클라우드 서비스의 스테이징 배포 환경에서 가상 컴퓨터를 만들 수 있는 옵션이 없습니다. 구독에 기존 Azure Storage 계정이 없는 경우 이 명령은 계정을 만듭니다.
 
 --location 매개 변수를 사용하여 위치를 지정하거나 --affinity-group 매개 변수를 사용하여 선호도 그룹을 지정할 수 있습니다. 둘 중 아무것도 제공하지 않을 경우 유효한 위치 목록에서 위치를 선택하라는 메시지가 표시됩니다.
 
 제공된 암호는 8-123자여야 하며 이 가상 컴퓨터에 대해 사용 중인 운영 체제의 암호 복잡성 요구 사항을 충족해야 합니다.
 
-SSH를 사용하여 배포된 Linux 가상 컴퓨터를 관리할 경우(일반적인 경우) 가상 컴퓨터를 만들 때 -e 옵션을 통해 SSH를 사용하도록 설정해야 합니다. 가상 컴퓨터를 만든 이후에는 SSH를 사용하도록 설정할 수 없습니다.
+SSH를 사용하여 배포된 Linux 가상 컴퓨터를 관리하려는 경우(일반적인 경우) 가상 컴퓨터를 만들 때 -e 옵션을 통해 SSH를 사용하도록 설정해야 합니다. 가상 컴퓨터를 만든 이후에는 SSH를 사용하도록 설정할 수 없습니다.
 
 Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나중에 RDP를 사용하도록 설정할 수 있습니다.
 
 이 명령에서 지원되는 선택적 매개 변수는 다음과 같습니다.
 
-**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. Azure 클래식 포털에서 가상 네트워크를 설정 및 관리할 수 있습니다. <br /> **-b, --subnet-names**는 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
+**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname이 지정되지 않으면, 새 가상 컴퓨터의 이름이 &lt;service-name>&lt;id>라고 생성되는데, 여기서 &lt;id>는 서비스 내 기존 가상 컴퓨터의 수에 1일 더한 수입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob Storage URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** Virtual Network 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 Virtual Network를 지정합니다. Azure 클래식 포털에서 가상 네트워크를 설정 및 관리할 수 있습니다. <br /> **-b, --subnet-names**는 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
 
-이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-en-us-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
+이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-KR-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -219,7 +219,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 **vm create-from &lt;dns-name> &lt;role-file>**
 
-이 명령은 JSON 역할 파일에서 새 Azure 가상 컴퓨터를 만듭니다.
+이 명령은 JSON 역할 파일에서 Azure 가상 컴퓨터를 만듭니다.
 
 	~$ azure vm create-from my-vm example.json
 	info:   OK
@@ -302,7 +302,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 **vm shutdown [options] &lt;name>**
 
-이 명령은 Azure 가상 컴퓨터를 종료합니다. -p 옵션을 사용하여 종료할 때 계산 리소스를 해제하지 않도록 지정할 수 있습니다.
+이 명령은 Azure 가상 컴퓨터를 종료합니다. -p 옵션을 사용하여 종료할 때 계산 리소스가 해제되지 않도록 지정할 수 있습니다.
 
 ```
 ~$ azure vm shutdown my-vm
@@ -333,7 +333,7 @@ info:   vm shutdown command OK
 	info:   vm export command OK
 
 ##  Azure 가상 컴퓨터 끝점을 관리하는 명령
-다음 다이어그램은 클래식 가상 컴퓨터의 여러 인스턴스에 대한 일반 배포 아키텍처를 보여 줍니다. 이 예에서 포트 3389는 RDP 액세스를 위해 각 가상 컴퓨터에서 열리고, 각 가상 컴퓨터에는 부하 분산 장치에서 트래픽을 가상 컴퓨터로 라우트하는 데 사용되는 내부 IP 주소(예: 168.55.11.1)가 있습니다. 이 내부 IP 주소를 사용하여 가상 컴퓨터 간에 통신할 수도 있습니다.
+다음 다이어그램은 클래식 가상 컴퓨터의 여러 인스턴스에 대한 일반 배포 아키텍처를 보여 줍니다. 이 예에서 포트 3389는 RDP 액세스를 위해 각 가상 컴퓨터에서 열려 있습니다. 각 가상 컴퓨터에는 부하 분산 장치에서 트래픽을 가상 컴퓨터로 라우팅하는 데 사용되는 내부 IP 주소(예: 168.55.11.1)가 있습니다. 이 내부 IP 주소를 사용하여 가상 컴퓨터 간에 통신할 수도 있습니다.
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
@@ -417,20 +417,20 @@ info:   vm shutdown command OK
 
 **vm image list [options]**
 
-이 명령은 가상 컴퓨터 이미지 목록을 가져옵니다. 이미지 유형에는 "MSFT" 접두사가 붙은 Microsoft에서 만든 이미지, 일반적으로 공급업체의 이름이 접두사로 붙는 타사에서 만든 이미지, 사용자가 만든 이미지의 세 가지가 있습니다. 이미지를 만들려면 기존 가상 컴퓨터를 캡처하거나 Blob 저장소에 업로드된 사용자 지정 .vhd에서 이미지를 만듭니다. 사용자 지정 .vhd를 사용하는 방법에 대한 자세한 내용은 vm image create를 참조하십시오. --json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
+이 명령은 가상 컴퓨터 이미지 목록을 가져옵니다. 이미지 유형에는 "MSFT" 접두사가 붙은 Microsoft에서 만든 이미지, 공급업체의 이름이 접두사로 붙는 타사에서 만든 이미지, 사용자가 만든 이미지의 세 가지가 있습니다. 이미지를 만들려면 기존 가상 컴퓨터를 캡처하거나 Blob 저장소에 업로드된 사용자 지정 .vhd에서 이미지를 만들 수 있습니다. 사용자 지정 .vhd를 사용하는 방법에 대한 자세한 내용은 vm image create를 참조하십시오. --json 옵션은 결과를 새 JSON 형식으로 반환하도록 지정합니다.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ko-KR-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.ko-KR.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.ko-KR.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ko-KR-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-ko-KR-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -487,7 +487,7 @@ info:   vm shutdown command OK
 
 azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경우 &lt;lun&gt; 매개 변수를 사용하여 분리할 디스크를 나타냅니다.
 
-> [AZURE > 참고] 항상 할당된 번호가 가장 높은 LUN부터 시작하여 역순으로 데이터 디스크를 분리해야 합니다. Linux SCSI 계층에서는 번호가 더 높은 LUN이 연결된 상태에서 더 낮은 번호의 LUN을 분리할 수 없습니다. 예를 들어 LUN 1이 연결된 상태에서 LUN 0을 분리해서는 안 됩니다.
+> [AZURE>참고] 항상 할당된 LUN 중 번호가 가장 높은 LUN부터 시작하여 데이터 디스크를 역순으로 분리해야 합니다. Linux SCSI 계층에서는 번호가 더 높은 LUN이 연결된 상태에서 더 낮은 번호의 LUN을 분리할 수 없습니다. 예를 들어 LUN 1이 연결된 상태에서 LUN 0을 분리해서는 안 됩니다.
 
 **vm disk show [options] &lt;name>**
 
@@ -503,7 +503,7 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -539,7 +539,7 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 
 **vm disk create &lt;name> [source-path]**
 
-이 명령은 Azure 디스크를 등록하며, --blob-url, --location 또는 --affinity-group을 지정해야 합니다. 이 명령을 [소스 경로]와 함께 사용할 경우 지정된 .vhd 파일이 업로드되고 새 이미지가 만들어집니다. 그런 다음 vm disk attach를 사용하여 이 이미지를 가상 컴퓨터에 연결할 수 있습니다.
+이 명령은 Azure 디스크를 등록하며, --blob-url, --location 또는 --affinity-group을 지정해야 합니다. 이 명령을 [source-path]와 함께 사용할 경우 지정된 .vhd 파일이 업로드되고 이미지가 만들어집니다. 그런 다음 vm disk attach를 사용하여 이 이미지를 가상 컴퓨터에 연결할 수 있습니다.
 
 일부 시스템에서는 프로세스당 파일 설명자 제한을 부과합니다. 이 제한이 초과되면 도구에서 파일 설명자 제한 오류를 표시합니다. -p &lt;number> 매개 변수와 함께 명령을 다시 실행하여 최대 병렬 업로드 수를 줄일 수 있습니다. 기본 최대 병렬 업로드 수는 96입니다.
 
@@ -590,7 +590,7 @@ Azure 클라우드 서비스는 웹 역할 및 작업자 역할에 호스트되�
 
 **service create [options] &lt;serviceName>**
 
-이 명령은 새 클라우드 서비스를 만듭니다.
+이 명령은 클라우드 서비스를 만듭니다.
 
 	~$ azure service create newservicemsopentech
 	info:    Executing command service create
@@ -723,7 +723,7 @@ Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 
 
 **site create [options] [name]**
 
-이 명령은 새 웹 앱 및 로컬 디렉터리를 만듭니다.
+이 명령은 웹앱 및 로컬 디렉터리를 만듭니다.
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -814,7 +814,7 @@ Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+**site restart [options] [name]**
 
 이 명령은 지정된 웹 앱을 중지한 후 시작합니다.
 
@@ -1135,7 +1135,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 다음은 대부분의 모바일 서비스 명령에 적용되는 옵션입니다.
 
 + **-h** 또는 **--help**: 출력 사용 정보를 표시합니다.
-+ **-s `<id>`** 또는 **--subscription `<id>`**: `<id>`에서 지정한 특정 구독을 사용합니다.
++ **-s `<id>`** 또는 **--subscription `<id>`**: `<id>`로 지정한 특정 구독을 사용합니다.
 + **-v** 또는 **--verbose**: 자세한 정보를 출력합니다.
 + **--json**: JSON 출력을 씁니다.
 
@@ -1488,13 +1488,13 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **mobile script upload [options] [servicename] [scriptname]**
 
-이 명령은 `table` 하위 폴더에서 `todoitem.insert.js`라는 새 스크립트를 업로드합니다.
+이 명령은 `table` 하위 폴더에서 `todoitem.insert.js`라는 스크립트를 업로드합니다.
 
 	~$azure mobile script upload todolist table/todoitem.insert.js
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-파일 이름은 테이블 및 작업 이름에서 작성되어야 하며, 명령이 실행되는 위치를 기준으로 table 하위 폴더에 있어야 합니다. **-f `<file>`** 또는 **--file `<file>`** 매개 변수를 사용하여 등록할 스크립트가 포함된 파일에 다른 파일 이름 및 경로를 지정할 수도 있습니다.
+파일 이름은 테이블 및 작업 이름으로 구성되어야 합니다. 명령이 실행되는 위치를 기준으로 테이블 하위 폴더에 위치해야 합니다. **-f `<file>`** 또는 **--file `<file>`** 매개 변수를 사용하여 등록할 스크립트가 포함된 파일에 다른 파일 이름 및 경로를 지정할 수도 있습니다.
 
 
 **mobile script delete [options] [servicename] [scriptname]**
@@ -1524,7 +1524,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **mobile job create [options] [servicename] [jobname]**
 
-이 명령은 시간 단위로 실행하도록 예약된 `getUpdates`라는 새 작업을 만듭니다.
+이 명령은 시간 단위로 실행하도록 예약된 `getUpdates`라는 작업을 만듭니다.
 
 	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
@@ -1604,7 +1604,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 + **-c `<mode>`** 또는 **--computeMode `<mode>`**: 계산 모드는 `Free` 또는 `Reserved`여야 합니다.
 + **-i `<count>`** 또는 **--numberOfInstances `<count>`**: reserved 모드에서 실행 중일 때 사용되는 인스턴스 수를 나타냅니다.
 
-> [AZURE.NOTE] 계산 모드를 `Reserved`로 설정한 경우 같은 지역의 모든 모바일 서비스가 premium 모드로 실행됩니다.
+> [AZURE.NOTE] 계산 모드를 `Reserved`로 설정한 경우 같은 지역의 모든 Mobile Services가 premium 모드로 실행됩니다.
 
 
 ###모바일 서비스에 대한 미리 보기 기능을 사용하는 명령
@@ -1625,7 +1625,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **mobile preview enable [options] [servicename] [featurename]**
 
-이 명령은 모바일 서비스에 대해 지정된 미리 보기 기능을 사용하도록 설정합니다. 한번 사용하도록 설정한 모바일 서비스는 사용하지 않도록 설정할 수 없습니다.
+이 명령은 모바일 서비스에 대해 지정된 미리 보기 기능을 사용하도록 설정합니다. 사용하도록 설정되면 미리 보기 기능을 모바일 서비스에 대해 사용하지 않도록 설정할 수 없습니다.
 
 ###모바일 서비스 API를 관리하는 명령
 
@@ -1750,11 +1750,11 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sb namespace check [options] &lt;name>**
 
-서비스 버스 네임스페이스가 올바르며 사용 가능한지 확인합니다.
+서비스 버스 네임스페이스가 올바르고 사용할 수 있는지 확인합니다.
 
 **sb namespace create &lt;name> &lt;location>**
 
-새 서비스 버스 네임스페이스를 만듭니다.
+Service Bus 네임스페이스를 만듭니다.
 
 	~$ azure sb namespace create mysbnamespacea-test "West US"
 	info:    Executing command sb namespace create
@@ -1843,7 +1843,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sb namespace verify &lt;name>**
 
-네임스페이스를 사용할 수 있는지 확인합니다.
+네임스페이스를 사용할 수 있는지를 확인합니다.
 
 ## 저장소 개체를 관리하는 명령
 
@@ -2052,7 +2052,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
 
-새 데이터베이스 서버 만들기
+데이터베이스 서버를 만듭니다.
 
 	~$ azure sql server create test T3stte$t "West US"
 	info:    Executing command sql server create
@@ -2087,7 +2087,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sql server delete &lt;name>**
 
-서버 삭제
+서버를 삭제합니다.
 
 	~$ azure sql server delete i1qwc540ts
 	info:    Executing command sql server delete
@@ -2101,7 +2101,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
 
-새 데이터베이스 인스턴스 만들기
+데이터베이스 인스턴스를 만듭니다.
 
 	~$ azure sql db create fr8aelne00 newdb test
 	info:    Executing command sql db create
@@ -2193,7 +2193,7 @@ Azure 모바일 서비스는 앱에서 백엔드 기능을 사용할 수 있도�
 
 **sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
 
-SQL Server에 대한 새 방화벽 규칙을 만듭니다.
+SQL Server에 대한 방화벽 규칙을 만듭니다.
 
 	~$ azure sql firewallrule create fr8aelne00 allowed 131.107.0.0 131.107.255.255
 	info:    Executing command sql firewallrule create
@@ -2246,7 +2246,7 @@ SQL Server에 대한 새 방화벽 규칙을 만듭니다.
 
 **network vnet create [options] &lt;location>**
 
-새 가상 네트워크를 만듭니다.
+Virtual Network를 만듭니다.
 
 	~$ azure network vnet create vnet1 --location "West US" -v
 	info:    Executing command network vnet create
@@ -2310,7 +2310,7 @@ SQL Server에 대한 새 방화벽 규칙을 만듭니다.
 
 **network export [file-path]**
 
-고급 네트워크 구성의 경우 네트워크 구성을 로컬로 내보낼 수 있습니다. 보내낸 네트워크 구성은 DNS 서버 설정, 가상 네트워크 설정, 로컬 네트워크 사이트 설정 및 기타 설정을 포함합니다.
+고급 네트워크 구성의 경우 네트워크 구성을 로컬로 내보낼 수 있습니다. 내보낸 네트워크 구성은 DNS 서버 설정, 가상 네트워크 설정, 로컬 네트워크 사이트 설정 및 기타 설정을 포함합니다.
 
 **network import [file-path]**
 
@@ -2350,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -41,7 +41,7 @@
 
 - [Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치](virtual-machines-linux-create-lamp-stack.md)
 - [Azure VM의 Ruby on Rails 웹 응용 프로그램](virtual-machines-linux-classic-ruby-rails-web-app.md)
-- [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](../service-bus/service-bus-amqp-apache.md)
+- [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### 데이터베이스
 - [Azure에서 MySQL 성능 최적화](virtual-machines-linux-classic-optimize-mysql.md)
@@ -189,4 +189,4 @@
 
 - [Azure용 Packer 플러그인](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

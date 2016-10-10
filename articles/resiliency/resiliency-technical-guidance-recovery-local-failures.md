@@ -160,7 +160,7 @@ Azure를 기반으로 하는 응용 프로그램은 플랫폼 기능을 활용�
 
 ###서비스 버스
 
-Azure 서비스 버스의 일시적 중단을 줄이려면 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다. 일시적으로 대체 로컬 저장소 메커니즘을 사용하여 서비스 버스 큐에 추가할 수 없는 메시지를 저장합니다. 응용 프로그램은 서비스가 복원된 후에 일시적으로 저장된 메시지를 처리하는 방법을 결정할 수 있습니다. 자세한 내용은 [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](../service-bus/service-bus-performance-improvements.md) 및 [서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
+Azure 서비스 버스의 일시적 중단을 줄이려면 내구성이 있는 클라이언트 쪽 큐를 만드는 것이 좋습니다. 일시적으로 대체 로컬 저장소 메커니즘을 사용하여 서비스 버스 큐에 추가할 수 없는 메시지를 저장합니다. 응용 프로그램은 서비스가 복원된 후에 일시적으로 저장된 메시지를 처리하는 방법을 결정할 수 있습니다. 자세한 내용은 [서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례](../service-bus-messaging/service-bus-performance-improvements.md) 및 [서비스 버스(재해 복구)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services)를 참조하세요.
 
 ###모바일 서비스
 
@@ -223,4 +223,4 @@ Azure HDInsight와 연결된 데이터는 기본적으로 Azure Blob 저장소�
 
 이 문서는 [Azure 복구 기술 지침](./resiliency-technical-guidance.md)에 대한 시리즈의 일부입니다. 이 시리즈의 다음 문서는 [지역 전체의 서비스 중단으로부터 복구](./resiliency-technical-guidance-recovery-loss-azure-region.md)입니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

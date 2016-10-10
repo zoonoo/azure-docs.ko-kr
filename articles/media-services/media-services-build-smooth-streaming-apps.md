@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="부드러운 스트리밍 Windows 스토어 앱 자습서" 
+	pageTitle="부드러운 스트리밍 Windows 스토어 앱 자습서 | Microsoft Azure" 
 	description="Azure 미디어 서비스를 사용하여 부드러운 스트림 콘텐츠를 재생하기 위해 XML MediaElement 컨트롤이 포함된 C# Windows 스토어 응용 프로그램을 만드는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -65,11 +65,11 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 이름|값
 ---|---
 템플릿 그룹|Installed/Templates/Visual C#/Windows Store
-템플릿|새 응용 프로그램(XAML)
+Template|새 응용 프로그램(XAML)
 이름|SSPlayer
 위치|C:\\SSTutorials
 솔루션 이름|SSPlayer
-솔루션용 디렉터리 만들기|(선택됨)
+솔루션에 대한 디렉터리 만들기|(선택됨)
 
 4.	**확인**을 클릭합니다.
 
@@ -463,7 +463,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 		}
 		#endregion sliderMediaPlayer
 
-	**참고:** CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+	**참고:** CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다. 예:
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -986,4 +986,4 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

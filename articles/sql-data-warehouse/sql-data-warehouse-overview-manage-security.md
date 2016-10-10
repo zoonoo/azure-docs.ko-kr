@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
 
 > [AZURE.SELECTOR]
 - [보안 개요](sql-data-warehouse-overview-manage-security.md)
-- [위협 감지](sql-data-warehouse-security-threat-detection.md)
-- [감사 개요](sql-data-warehouse-auditing-overview.md)
-- [하위 수준 클라이언트 감사](sql-data-warehouse-auditing-downlevel-clients.md)
-- [투명한 데이터 암호화(포털)](sql-data-warehouse-encryption-tde.md)
-- [투명한 데이터 암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [인증](sql-data-warehouse-authentication.md)
+- [암호화(포털)](sql-data-warehouse-encryption-tde.md)
+- [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 이 문서는 Azure SQL 데이터 웨어하우스 데이터베이스 보호에 대한 기본 사항을 안내합니다. 특히, 이 문서는 데이터베이스에서 액세스 제한, 데이터 보호 및 작업 모니터링을 위한 리소스로 시작할 수 있습니다.
 
@@ -83,18 +81,9 @@ Azure 클래식 포털에서 또는 Azure 리소스 관리자 API를 사용하�
 
 ## 암호화
 
-Azure SQL 데이터 웨어하우스는 데이터가 "휴지 상태"일 때 또는 데이터베이스 파일 및 백업에 저장된 경우 [투명한 데이터 암호화][]를 통해 데이터를 암호화하여 데이터를 보호할 수 있도록 도와줍니다. TDE를 사용하려면 master 데이터베이스에서 관리자 또는 dbmanager 역할의 구성원이어야 합니다. 데이터베이스를 암호화하려면 서버에서 master 데이터베이스에 연결하고 다음을 실행합니다.
+Azure SQL Data Warehouse TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 데이터베이스를 암호화할 때, 응용 프로그램을 변경할 필요 없이 연관된 백업 및 트랜잭션 로그 파일이 암호화됩니다. TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. SQL 데이터베이스에서 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 SQL 데이터베이스 서버에 대해 고유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. SQL 데이터 웨어하우스에서 사용되는 암호화 알고리즘은 AES 256입니다. TDE에 대한 일반적인 설명은 [투명한 데이터 암호화][]를 참조하세요.
 
-
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-[Azure 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 사용하도록 설정할 수도 있습니다. 자세한 내용은 [TDE(투명한 데이터 암호화) 시작][]을 참조하세요.
-
-## 감사
-
-데이터베이스 이벤트의 감사 및 추적은 규정을 준수하고 의심스러운 활동을 식별할 수 있도록 도와줍니다. SQL 데이터 웨어하우스 감사를 사용하면 Azure 저장소 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터 웨어하우스 감사 기능을 Microsoft Power BI와 통합합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작][]을 참조하세요.
+[Azure Portal][Encryption with Portal] 또는 [T-SQL][Encryption with TSQL]을 사용하여 데이터베이스를 암호화할 수 있습니다.
 
 ## 다음 단계
 
@@ -104,8 +93,8 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 <!--Article references-->
 [SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-connect-overview.md
-[SQL 데이터베이스 감사 시작]: ./sql-data-warehouse-auditing-overview.md
-[TDE(투명한 데이터 암호화) 시작]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Azure Active Directory 인증을 사용하여 SQL Data Warehouse에 연결]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -116,10 +105,10 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [Azure SQL Database에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/ee336235.aspx
 [권한]: https://msdn.microsoft.com/library/ms191291.aspx
 [저장 프로시저]: https://msdn.microsoft.com/library/ms190782.aspx
-[투명한 데이터 암호화]: https://go.microsoft.com/fwlink/?LinkId=526242
-[Azure 포털]: https://portal.azure.com/
+[투명한 데이터 암호화]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

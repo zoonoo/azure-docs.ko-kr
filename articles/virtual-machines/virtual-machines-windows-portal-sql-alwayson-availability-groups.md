@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/12/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # 자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
 
 > [AZURE.SELECTOR]
-- [리소스 관리자: 자동](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -259,4 +259,4 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

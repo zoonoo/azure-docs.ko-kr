@@ -37,13 +37,13 @@ Login-AzureRmAccount
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 받고 기본적으로 첫 번째 구독을 사용합니다.
 
-구독이 여러 개인 경우 Azure 키 자격 증명 모음을 만드는 데 사용된 특정된 하나를 지정해야 합니다. 사용자 계정에 대한 구독을 보려면 다음을 입력합니다.
+구독이 여러 개인 경우 Azure Key Vault을 만드는 데 사용된 특정된 하나를 지정해야 합니다. 계정에 대한 구독을 보려면 다음을 입력합니다.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-그런 다음 로깅하려는 사용자 키 자격 증명 모음과 연결된 구독을 지정하려면 다음을 입력합니다.
+그런 다음 로깅하려는 키 자격 증명 모음과 연결된 구독을 지정하려면 다음을 입력합니다.
 
 ```powershell
 Set-AzureRmContext -SubscriptionId <subscriptionID> 
@@ -241,7 +241,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 > [AZURE.NOTE] 주요 자격 증명 모음 작업 후 최대 10분 후에 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.
 
-다음은 [Azure 서비스 버스 큐를 만드는](../service-bus/service-bus-dotnet-get-started-with-queues.md) 단계입니다. 여기에 주요 자격 증명 모음 감사 로그가 푸시됩니다. 큐에서 논리 앱이 로그를 선택하고 작업을 수행합니다. 서비스 버스를 비교적 간단하게 만들기 위한 간략한 단계는 다음과 같습니다.
+다음은 [Azure Service Bus 큐를 만드는](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 단계입니다. 여기에 주요 자격 증명 모음 감사 로그가 푸시됩니다. 큐에서 논리 앱이 로그를 선택하고 작업을 수행합니다. 서비스 버스를 비교적 간단하게 만들기 위한 간략한 단계는 다음과 같습니다.
 
 1. 서비스 버스 네임스페이스를 만듭니다(사용할 네임스페이스가 이미 있는 경우 2단계로 건너뜀).
 2. 포털에서 서비스 버스를 찾아 안에 큐를 만들 네임스페이스를 선택합니다.
@@ -424,4 +424,4 @@ _Azure Blob 저장소_ 형식의 출력을 추가합니다. 마찬가지로 입�
 
 현재는 1분에 한 번 새로운 주요 자격 증명 모음 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 발견한 모든 새로운 로그를 서비스 버스 큐에 푸시합니다. 새 메시지가 큐에 도착하는 즉시 논리 앱이 트리거되며 이벤트 내의 appid가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일을 보냅니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

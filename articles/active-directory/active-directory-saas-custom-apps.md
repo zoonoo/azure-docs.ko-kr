@@ -3,7 +3,7 @@
     description="셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -22,9 +22,9 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 또한 [Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 기능이 제공됩니다
 
 * SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
-* [암호 기반 SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)를 사용하여 HTML 기반 로그인 페이지가 있는 웹 응용 프로그램의 셀프 서비스 통합
-* 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning))
-* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
+* [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)를 사용하여 HTML 기반 로그인 페이지가 있는 웹 응용 프로그램의 셀프 서비스 통합
+* 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning.md))
+* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
 
 사용하지만 아직된 Azure AD 응용 프로그램 갤러리에 등록되지 않은 SaaS 응용 프로그램 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 응용 프로그램을 포함할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
  
 다음과 같습니다.
 
-* **로그온 URL(SP에서 시작된 경우에만 해당)** – 사용자가 이 응용 프로그램에 로그인하는 위치입니다. 응용 프로그램이 서비스 공급자에서 시작된 단일 로그인을 수행하도록 구성되면 사용자가 이 URL에 이동할 경우 서비스 공급자는 Azure AD를 인증하고 사용자에게 로그온하는 데 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작합니다. 이 필드가 생략되면 해당 앱이 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL(대시보드 탭에서 복사 가능)에서 시작할 경우 Azure AD는 ID 공급자에서 시작된 로그인을 대신 수행합니다.
+* **로그온 URL(SP에서 시작된 경우에만 해당)** – 사용자가 이 응용 프로그램에 로그인하는 위치입니다. 응용 프로그램이 서비스 공급자에서 시작된 단일 로그인을 수행하도록 구성되면 사용자가 이 URL로 이동할 경우 서비스 공급자는 Azure AD를 인증하고 사용자에게 로그온하는 데 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작합니다. 이 필드가 생략되면 해당 앱이 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL(대시보드 탭에서 복사 가능)에서 시작할 경우 Azure AD는 ID 공급자에서 시작된 로그인을 대신 수행합니다.
 
 * **발급자 URL** - 발급자 URL은 구성될 단일 로그온에 대한 응용 프로그램을 고유하게 식별해야 합니다. 이는 Azure AD가 SAML 토큰의 **대상** 매개 변수로서 응용 프로그램에 다시 전송하는 값이며, 응용 프로그램의 유효성을 검사하게 됩니다. 또한 이 값은 응용 프로그램에서 제공하는 모든 SAML 메타데이터 내에서 **엔터티 ID**로 표시됩니다. 엔터티 ID 또는 대상 값에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다. 다음은 응용 프로그램에 반환되는 SAML 토큰에서 대상 URL이 표시되는 방법의 예입니다.
 
@@ -71,7 +71,7 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
       </Conditions>
 ```
 
-* **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 받을 것으로 예상하는 위치입니다. 이 URL은 **어설션 소비자 서비스(ACS) URL**이라고도 합니다. SAML 토큰 회신 URL 또는 ACS URL에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다. 이러한 내용을 입력한 후에 **다음**을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다. 
+* **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 수신해야 하는 위치입니다. 이 URL은 **ACS(Assertion Consumer Service) URL**이라고도 합니다. SAML 토큰 회신 URL 또는 ACS URL에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다. 이러한 내용을 입력한 후에 **다음**을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다.
 
 ![][5]
 
@@ -125,7 +125,7 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 
 이 옵션을 선택하여 조직의 Azure AD 액세스 패널 또는 Office 365 포털에 응용 프로그램에 대한 링크를 추가합니다. 인증에 대한 Azure AD 대신 현재 Azure Active Directory Federation Services(또는 다른 페더레이션 서비스)를 사용하는 사용자 지정 웹앱에 대한 링크를 추가하는 데 사용할 수 있습니다. 혹은 사용자의 액세스 패널에 표시하려는 특정 SharePoint 페이지 또는 다른 웹 페이지에 딥 링크를 추가할 수 있습니다.
 
-**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)에 표시되도록 합니다.
+**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에 표시되도록 합니다.
 
 참고: 응용 프로그램에 **구성** 탭의 **로고 업로드** 단추를 사용하여 응용 프로그램에 대한 타일 로고를 업로드할 수 있습니다.
 
@@ -144,4 +144,4 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

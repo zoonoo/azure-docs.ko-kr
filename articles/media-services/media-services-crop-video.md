@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/11/2016"  
+	ms.date="09/26/2016"  
 	ms.author="anilmur;juliako;"/>
 
 # 미디어 인코더 표준으로 비디오 자르기
@@ -26,7 +26,7 @@
 
 MES에서 자르기는 전처리 단계이므로 인코딩 사전 설정의 자르기 매개 변수를 원래 입력 비디오에 적용합니다. 인코딩은 후속 단계이며 너비/높이 설정은 원본 비디오가 아닌 *전처리된* 비디오에 적용됩니다. 사전 설정을 지정할 경우 다음을 수행해야 합니다. (a) 원본 입력 비디오를 기반으로 자르기 매개 변수를 선택하고 (b) 자른 비디오를 기반으로 인코딩 설정을 선택합니다. 인코딩 설정이 자른 비디오와 일치하지 않는 경우 예상한 대로 출력되지 않습니다.
 
-[다음](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) 항목은 MES로 인코딩 작업을 만드는 방법과 인코딩 작업에 대한 사용자 지정 사전 설정을 지정하는 방법을 보여 줍니다.
+[다음](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) 토픽은 MES로 인코딩 작업을 만드는 방법과 인코딩 작업에 대한 사용자 지정 사전 설정을 지정하는 방법을 보여 줍니다.
 
 ## 사용자 지정 사전 설정 만들기
 
@@ -146,4 +146,4 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

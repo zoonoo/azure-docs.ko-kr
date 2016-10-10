@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #자습서: Rally Software와 Azure Active Directory 통합
@@ -88,9 +88,9 @@
 
     ![구독](./media/active-directory-saas-rally-software-tutorial/IC769531.png "구독")
 
-7.  오른쪽 상단에 있는 도구 모음에서 **동작** 단추를 클릭한 다음 **구독 편집**을 선택합니다.
+7.  오른쪽 상단에 있는 도구 모음에서 **작업** 단추를 클릭한 다음 **구독 편집**을 선택합니다.
 
-8.  **구독** 대화 상자 페이지에서 다음 단계를 수행하고 **저장 후 닫기**를 클릭합니다.
+8.  **구독** 대화 상자 페이지에서 다음 단계를 수행하고 **저장 및 닫기**를 클릭합니다.
 
     ![인증](./media/active-directory-saas-rally-software-tutorial/IC769542.png "인증")
 
@@ -105,7 +105,7 @@
   
 AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 Rally Software 응용 프로그램에 프로비전되어야 합니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  Rally Software 테넌트에 로그인합니다.
 
@@ -143,4 +143,4 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
     keywords="데이터 게이트웨이, 데이터 통합, 데이터 이동, 게이트웨이 자격 증명"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 이 문서에서는 Data Factory를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 통합의 개요를 제공합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서 및 [데이터 집합](data-factory-create-datasets.md)과 [파이프라인](data-factory-create-pipelines.md)과 같은 기타 Data Factory 핵심 개념 문서를 작성합니다.
@@ -60,7 +60,7 @@
 5. **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
 	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-6.	데이터 팩터리 편집기에서 도구 모음의 **...(말줄임표)**를 클릭한 다음 **새 데이터 케이트웨이**를 클릭합니다.
+6.	데이터 팩터리 편집기에서 도구 모음의 **...(말줄임표)**를 클릭한 다음 **새 데이터 게이트웨이**를 클릭합니다.
 
 	![도구 모음의 새 데이터 게이트웨이](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
 2. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다.
@@ -94,18 +94,18 @@
 	2. **게이트웨이 이름**이 **adftutorialgateway**로 설정됩니다.
 	4. 맨 아래 상태 표시줄에 **녹색 확인 표시**와 함께 **클라우드 서비스에 연결됨**이 표시됩니다.
 
-	**홈** 탭에서 다음을 수행할 수 있습니다. - 등록 단추를 사용하여 Azure 포털에서 키가 있는 게이트웨이 **등록**.- 게이트웨이 컴퓨터에서 실행 중인 데이터 관리 게이트웨이 호스트 서비스 **중지** - 특정 시간에 설치되도록 **업데이트 예약** - 게이트웨이가 **마지막으로 업데이트**된 시기 보기.
+	**홈** 탭에서 다음 작업을 수행할 수 있습니다. - 등록 단추를 사용하여 Azure 포털에서 키가 있는 게이트웨이 **등록**.- 게이트웨이 컴퓨터에서 실행 중인 데이터 관리 게이트웨이 호스트 서비스 **중지** - 특정 시간에 설치되도록 **업데이트 예약** - 게이트웨이가 **마지막으로 업데이트**된 시기 보기.
 
 8. **설정** 탭으로 전환합니다. **인증서** 섹션에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. (선택 사항) **변경**을 클릭하여 고유한 인증서를 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
 
 	![게이트웨이 인증서 구성](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	설정 탭에서 다음을 수행할 수도 있습니다. - 게이트웨이에서 사용한 인증서 보기 또는 내보내기 - 게이트웨이에서 사용한 HTTPS 끝점 변경 -
+	설정 탭에서 다음 작업을 수행할 수도 있습니다. - 게이트웨이에서 사용한 인증서 보기 또는 내보내기 - 게이트웨이에서 사용한 HTTPS 끝점 변경 -
 9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **응용 프로그램 및 서비스 로그** -> **데이터 관리 게이트웨이** 노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
 
 	![진단 탭](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	**진단** 탭에서 다음을 수행할 수도 있습니다.
+	**진단** 탭에서 다음 작업을 수행할 수도 있습니다.
 	
 	- 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 **연결 테스트** 섹션을 사용합니다.
 	- **로그 보기**를 클릭하여 이벤트 뷰어 창에서 데이터 관리 게이트웨이 로그를 확인합니다.
@@ -121,7 +121,7 @@
 1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다.
 
 	![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-3.	**JSON 편집기**에서 다음을 수행합니다.
+3.	**JSON 편집기**에서 다음 단계를 수행합니다.
 	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.
 	2. Windows 인증을 사용하는 경우
 		1. **connectionString**에서 **Integrated Security**를 **true**로 설정하고, 데이터베이스 **서버 이름**과 **데이터베이스 이름**을 지정하고, **사용자 ID**과 **암호**를 제거합니다.
@@ -157,7 +157,7 @@
    
  
 ## 데이터 집합 만들기
-이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합 또는 테이블(사각형 데이터 집합)을 만들려면 먼저 다음을 수행해야 합니다(자세한 단계는 목록 다음에 나옴).
+이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합 또는 테이블(사각형 데이터 집합)을 만들려면 먼저 다음 단계를 수행해야 합니다(자세한 단계는 목록 다음에 나옴).
 
 - 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
 - 데이터 팩터리에 연결된 서비스로 추가한 Azure BLOB 저장소 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
@@ -358,7 +358,7 @@
 
 	![다이어그램 링크](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. 다음과 유사한 다이어그램이 표시됩니다.
+2. 다음 이미지와 유사한 다이어그램이 표시됩니다.
 
 	![다이어그램 뷰](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
@@ -414,4 +414,4 @@
 - 데이터 관리 게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 - 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터로 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,19 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Azure SQL 데이터 웨어하우스용 드라이버
 
-> [AZURE.SELECTOR]
-- [개요](sql-data-warehouse-connect-overview.md)
-- [인증](sql-data-warehouse-authentication.md)
-- [드라이버](sql-data-warehouse-connection-strings.md)
-
-
-[ADO.NET][], [ODBC][], [PHP][] 및 [JDBC][]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL 데이터 웨어하우스에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다. Azure 포털을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
+[ADO.NET][], [ODBC][], [PHP][] 및 [JDBC][]와 같은 여러 가지 다양한 응용 프로그램 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다. Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 ## 샘플 ADO.NET 연결 문자열
 
@@ -70,4 +64,4 @@ Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

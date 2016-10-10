@@ -1,19 +1,19 @@
 <properties
    pageTitle="Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 고가용성 가이드 | Microsoft Azure"
    description="Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 고가용성 가이드"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -434,8 +434,7 @@
 이 문서에서는 새 Azure Resource Manager 배포 모델에서 이러한 새 방법을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하는 데 필요한 모든 단계를 자세히 설명합니다. 또한 다음과 같은 주요 단계를 안내합니다.
 
 
-- [리소스][sap-ha-guide-2] 섹션의 뒷부분에 나오는 해당 SAP 설치 가이드 및 참고 확인.  
-  이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
+- [리소스][sap-ha-guide-2] 섹션의 뒷부분에 나오는 해당 SAP 설치 가이드 및 참고 확인 이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
 
 - 현재 Azure 클래식 배포 모델과 이 새로운 Azure Resource Manager 배포 모델 간의 차이점 이해
 
@@ -1432,4 +1431,4 @@ _**그림 61:**: 장애 조치 클러스터 관리자: SAP <SID> 클러스터 �
 
 _**그림 62:** SIOS DataKeeper: 클러스터 노드 B에 클러스터 노드 A로 로컬 볼륨 복제_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

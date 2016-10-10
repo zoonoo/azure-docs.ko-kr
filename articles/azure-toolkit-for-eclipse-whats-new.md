@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -25,6 +25,18 @@
 이 문서는 다양한 릴리스 정보 및 Eclipse용 Azure 도구 키트에 대한 최신 업데이트를 포함합니다.
 
 > [AZURE.NOTE] IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트]를 참조하세요.
+
+### 2016년 8월 26일
+
+Eclipse용 Azure 도구 키트 - 2016년 8월 릴리스에는 다음과 같은 향상된 기능이 포함되어 있습니다.
+
+* **사용자 지정 JDK 배포**. 이제 Eclipse용 Azure 도구 키트에서 Azure WebApp 컨테이너에 임의의 JDK 버전을 지정하고 배포하도록 지원합니다.
+  - Azure에서 제공하는 JDK 외에도, Azul Systems가 Azure에서 사용할 수 있도록 다양하게 엄선해 놓은 Zulu OpenJDK 버전 중에 선택할 수도 있습니다.
+  - 저장소 계정에 ZIP 파일로 업로드하면 자신만의 JDK 배포를 지정할 수도 있습니다.
+* **Azure Explorer 보기 향상**:
+  - Azure의 새로운 Resource Manager 모델을 사용한 가상 컴퓨터 관리 지원: IDE를 벗어나지 않고 리소스 관리자 기반 가상 컴퓨터를 나열하고, 만들고, 삭제할 수 있습니다.
+  - Azure의 Resource Manager를 사용한 저장소 계정 BLOB 관리 지원은 “기본” 저장소 계정을 관리하는 기존 기능을 보완합니다.
+* **SQL Server용 Microsoft JDBC Driver 6.0**. 이 업데이트는 Microsoft SQL Server(v6.0)용 최신 JDBC 드라이버를 포함하며, 이제 Java 프로젝트에 손쉽게 추가할 수 있는 라이브러리로 포함되기 때문에 이전 버전을 대체합니다.
 
 ### 2016년 6월 29일
 
@@ -370,4 +382,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

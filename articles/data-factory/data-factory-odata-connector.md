@@ -3,7 +3,7 @@
 	description="Azure 데이터 팩터리를 사용하여 OData 소스에서 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 OData 소스에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
@@ -71,7 +71,7 @@ OData 소스에서 데이터를 복사하는 파이프라인을 만드는 가장
 
 **OData 입력 데이터 집합**
 
-"외부":"true" 설정 및 externalData 정책 지정은 데이터 팩터리 서비스가 테이블이 데이터 팩터리의 외부에 있으며 데이터 공장의 활동에 의해 생성되지 않는다는 점을 알립니다.
+"external": "true"로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 	
     {
     	"name": "ODataDataset",
@@ -162,7 +162,7 @@ OData 소스에서 데이터를 복사하는 파이프라인을 만드는 가장
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 OData 소스에서 최신 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 OData 소스에서 최신 데이터를 선택합니다.
 	
 	{
 	    "name": "CopyODataToBlob",
@@ -219,7 +219,7 @@ OData 소스에서 데이터를 복사하는 파이프라인을 만드는 가장
 | -------- | ----------- | -------- | 
 | type | 형식 속성은 **OData**로 설정되어야 합니다. | 예 |
 | url| OData 서비스의 URL입니다. | 예 |
-| authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> OData 클라우드의 가능한 값은 익명 및 기본입니다. 온-프레미스 OData의 가능한 값은 익명, 기본 및 Windows입니다. | 예 | 
+| authenticationType | OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> 클라우드 OData의 경우 가능한 값은 익명 및 기본입니다. 온-프레미스 OData의 경우 가능한 값은 익명, 기본 및 Windows입니다. | 예 | 
 | username | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 예(기본 인증을 사용하는 경우에만) | 
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 예(기본 인증을 사용하는 경우에만) | 
 | gatewayName | 데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 소스의 데이터를 복사하는 경우에만 지정합니다. | 아니요 |
@@ -288,11 +288,11 @@ OData 소스에서 데이터를 복사하는 파이프라인을 만드는 가장
 
 ## OData 복사 작업 형식 속성
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-원본이 **RelationalSource** 형식인 복사 작업의 경우(OData 포함) typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+원본이 **RelationalSource**(OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 예 | 필수 |
 | -------- | ----------- | -------------- | -------- |
@@ -302,7 +302,7 @@ OData 소스에서 데이터를 복사하는 파이프라인을 만드는 가장
 
 ### OData에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -317,4 +317,4 @@ OData 데이터 저장소에서 데이터를 이동할 때 OData 데이터 형�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

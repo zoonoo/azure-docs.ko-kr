@@ -287,7 +287,7 @@ Azure Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일�
 
 
 ## 다음 단계
-[DSC 및 VMSS에 대한 자세한 정보](virtual-machines-scale-sets-dsc.md)
+[Azure DSC 확장에 가상 컴퓨터 크기 집합 사용](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)에서 DSC 및 가상 컴퓨터 크기 집합에 대한 자세한 정보
 
 [DSC의 보안 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md)에서 자세한 내용을 참조하세요.
 
@@ -295,4 +295,4 @@ Azure DSC 확장 처리기에 대한 자세한 내용은 [Azure 필요한 상태
 
 PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

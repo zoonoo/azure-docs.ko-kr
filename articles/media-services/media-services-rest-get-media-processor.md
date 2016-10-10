@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -97,6 +97,6 @@ Azure Media Encryptor|사용 중단됨|
 
 ##다음 단계
 
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 미디어 인코더 표준을 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법](media-services-rest-get-started.md) 항목으로 이동합니다.
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-rest-get-started.md) 토픽으로 이동합니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

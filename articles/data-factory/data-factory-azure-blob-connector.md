@@ -4,7 +4,7 @@
     keywords="Blob 데이터, Azure Blob 복사"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,16 +14,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/27/2016" 
+	ms.author="jingwang"/>
 
 # Azure Data Factory를 사용하여 Azure Blob 간 데이터 이동
 이 문서에서는 다른 데이터 저장소에서 Blob 데이터를 소싱하여 Azure Blob 간에 데이터를 이동하기 위해 Azure Data Factory에서 복사 작업을 사용하는 방법을 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
-> [AZURE.NOTE]
-복사 작업은 범용 Azure Storage 계정 및 핫/쿨 Blob 저장소 간의 데이터 복사를 모두 지원합니다.
-> 
-> 이 작업은 블록에서 읽기, 추가 또는 페이지 Blob를 지원하며 쓰기는 블록 Blob만 지원합니다.
+## 지원되는 원본 및 싱크
+복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 이동할 수 있습니다.
+
+복사 작업은 범용 Azure Storage 계정 및 핫/쿨 Blob 저장소 간의 데이터 복사를 모두 지원합니다. 이 작업은 블록에서 읽기, 추가 또는 페이지 Blob를 지원하며 쓰기는 블록 Blob만 지원합니다.
+
+## 파이프라인 만들기
+다른 도구/API를 사용하여 Azure Blob Storage 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
+
+- 복사 마법사
+- Azure 포털
+- Visual Studio
+- Azure PowerShell
+- .NET API
+- REST API
+
+다양한 방법의 복사 작업을 포함하는 파이프라인을 만들기 위한 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ## 데이터 복사 마법사
 Azure Blob 저장소 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
@@ -382,11 +394,14 @@ Azure 데이터 팩터리는 두 가지 유형의 Azure 저장소 연결된 서�
 	}
 
 ## 연결된 서비스
+샘플에서는 Azure Storage 계정을 데이터 팩터리에 연결하는 데 **AzureStorage** 형식의 연결된 서비스를 사용했습니다. 다음 테이블은 Azure 저장소 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
+
 Azure Blob 저장소를 Azure Data Factory에 연결하는 데 사용할 수 있는 두 가지 유형의 연결된 서비스가 있습니다. **AzureStorage** 연결된 서비스 및 **AzureStorageSas** 연결된 서비스입니다. Azure 저장소 연결된 서비스는 Azure 저장소에 대한 전역 액세스로 Data Factory를 제공합니다. 반면 Azure 저장소 SAS(공유 액세스 서명) 연결된 서비스는 Azure 저장소에 대한 제한/시간 제한 액세스로 Data Factory를 제공합니다. 이 두 연결된 서비스에는 다른 차이가 없습니다. 필요에 맞는 연결된 서비스를 선택합니다. 다음 섹션에서는 이러한 두 연결된 서비스에 대한 자세한 정보를 제공합니다.
 
 [AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Blob 데이터 집합 형식 속성
+샘플에서는 Azure Blob 저장소의 Blob 컨테이너 및 폴더를 나타내는 데 **AzureBlob** 형식의 데이터 집합을 사용했습니다.
 
 데이터 집합 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
@@ -397,7 +412,7 @@ Azure Blob 저장소를 Azure Data Factory에 연결하는 데 사용할 수 있
 | folderPath | blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\\myblobfolder\\ | 예 |
 | fileName | Blob 이름. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하면 작업(복사 포함)이 특정 Blob에서 작동합니다.<br/><br/>fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 Blob을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 다음 서식으로 표시됩니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedBy-property)을 참조하세요. | 아니요
-| format | **TextFormat**, **AvroFormat**, **JsonFormat** 및 **OrcFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat) 및 [OrcFormat 지정](#specifying-orcformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다.| 아니요
+| format | **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 세부 정보는 [TextFormat 지정](#specifying-textformat), [AvroFormat 지정](#specifying-avroformat), [JsonFormat 지정](#specifying-jsonformat), [OrcFormat 지정](#specifying-orcformat) 및 [ParquetFormat 지정](#specifying-parquetformat) 섹션을 참조하세요. 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뛸 수 있습니다.| 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat** 또는 **OrcFormat** 형식인 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 사용
@@ -439,6 +454,8 @@ partitionedBy 섹션에서 사용할 수 있는 데이터 팩터리 시스템 �
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 집합, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 작업의 경우 원본 및 싱크의 형식에 따라 달라집니다.
+
+Azure Blob Storage에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **BlobSource**로 설정합니다. 마찬가지로 Azure Blob Storage로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **BlobSink**로 설정합니다. 이 섹션에서는 BlobSource 및 BlobSink에서 지원되는 속성의 목록을 제공합니다.
 
 **BlobSource**은 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
@@ -497,4 +514,4 @@ false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

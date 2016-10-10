@@ -61,6 +61,7 @@
 - Redis 캐시
 - 스케줄러
 - 검색
+- 서비스 버스
 - 저장소
 - 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations) 참조
 - SQL 데이터베이스 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 여기에 속한 모든 데이터베이스도 함께 이동합니다.
@@ -257,4 +258,4 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 - 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

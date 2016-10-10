@@ -1,7 +1,7 @@
 <properties
    pageTitle="Azure Functions를 사용하여 예약된 정리 작업 수행 | Microsoft Azure"
    description="Azure Functions를 사용하여 이벤트 타이머에 기반하여 실행되는 C# 함수를 만듭니다."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Azure Functions을 사용하여 예약된 정리 작업 수행하기
@@ -26,7 +26,7 @@
 
 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 
-이 토픽은 SQL 데이터베이스의 *TodoItems* 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령에 대해 보여줍니다. 이 TodoItems 테이블은 [Azure 앱 서비스 모바일 앱 퀵 스타트 자습서](../app-service-mobile/app-service-mobile-ios-get-started.md)를 완료하면 만들 수 있습니다. 샘플 데이터베이스도 사용할 수 있습니다. 다른 테이블을 사용하고자 할 경우, 명령을 수정해야 합니다.
+이 토픽은 SQL Database의 *TodoItems* 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령에 대해 보여줍니다. 이 TodoItems 테이블은 [Azure 앱 서비스 모바일 앱 퀵 스타트 자습서](../app-service-mobile/app-service-mobile-ios-get-started.md)를 완료하면 만들 수 있습니다. 샘플 데이터베이스도 사용할 수 있습니다. 다른 테이블을 사용하고자 할 경우, 명령을 수정해야 합니다.
 
 포털의 모바일 앱 백엔드에서 사용한 연결 문자열은 **모든 설정** > **응용 프로그램 설정** > **연결 문자열** > **연결 문자열 값 표시** > **MS\_TableConnectionString**에서 가져올 수 있습니다. 또한, 포털의 SQL 데이터베이스에서 끌어온 연결 문자열은 **모든 설정** > **속성** > **데이터베이스 연결 문자열 표시** > **ADO.NET(SQL 인증)**에서 가져올 수 있습니다.
 
@@ -52,7 +52,7 @@
 
 ## 템플릿에서 타이머로 트리거된 함수 만들기
 
-1. 함수 앱에서 **+새 함수** > **TimerTrigger - C#** > **만들기**를 클릭합니다. 1분에 한 번씩 기본 일정에서 실행되는 기본 이름을 가진 함수를 만듭니다. 
+1. 함수 앱에서 **+새 함수** > **TimerTrigger - C#** > **만들기**를 클릭합니다. 1분에 한 번씩 기본 일정에서 실행되는 기본 이름을 가진 함수를 만듭니다.
 
 	![새 타이머로 트리거되는 함수 만들기](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -95,8 +95,8 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 + [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-+ [Azure Functions 크기 조정 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
++ [Azure Functions 크기 조정 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

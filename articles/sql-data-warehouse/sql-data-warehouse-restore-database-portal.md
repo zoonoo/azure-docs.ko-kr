@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스 복원(포털)
@@ -60,7 +60,7 @@
 8. **확인**을 클릭합니다.
 9. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
 
->[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
+>[AZURE.NOTE] 복원이 완료된 후 [복구 후 데이터베이스 구성][]에 따라 복구된 데이터베이스를 구성할 수 있습니다.
 
 
 ## 삭제된 데이터베이스 복원
@@ -92,8 +92,7 @@
 8. **확인**을 클릭합니다.
 9. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
 
->[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
-
+>[AZURE.NOTE] 복원이 완료된 후에 데이터베이스를 구성하려면 [복구 후 데이터베이스 구성][]을 참조하세요.
 
 ## 다음 단계
 Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL 데이터베이스 무중단 업무 방식 개요][]를 읽으세요.
@@ -106,7 +105,7 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 [포털]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST (영문)]: ./sql-data-warehouse-restore-database-rest-api.md
-[복구된 데이터베이스 마무리]: ./sql-database-recovered-finalize.md
+[복구 후 데이터베이스 구성]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [DTU 할당량 변경 요청]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
@@ -116,4 +115,4 @@ Azure SQL 데이터베이스 버전의 무중단 업무 방식 기능에 대해 
 <!--Other Web references-->
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

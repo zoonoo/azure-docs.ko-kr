@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석 작업에 대한 출력 데이터를 구성하는 방법
 
-Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정의하는 하나 이상의 데이터 출력에 연결할 수 있습니다. 스트림 분석 작업이 들어오는 데이터를 처리 및 변환하면 데이터 출력 이벤트 스트림이 작업의 출력에 기록됩니다.
+Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정의하는 하나 이상의 데이터 출력에 연결할 수 있습니다. Stream Analytics 작업이 들어오는 데이터를 처리 및 변환하면 데이터 출력 이벤트 스트림이 작업의 출력에 기록됩니다.
 
-스트림 분석 데이터 출력을 사용하여 실시간 대시보드 또는 경고를 제공하거나, 데이터 이동 워크플로를 트리거하거나, 나중에 일괄 처리하기 위해 데이터를 보관할 수 있습니다. 스트림 분석은 여기에 자세히 문서화되어 있는 여러 Azure 서비스와 높은 수준으로 통합됩니다.
+Stream Analytics 데이터 출력을 사용하여 실시간 대시보드 또는 경고를 제공하거나, 데이터 이동 워크플로를 트리거하거나, 나중에 일괄 처리하기 위해 데이터를 보관할 수 있습니다. 스트림 분석은 여기에 자세히 문서화되어 있는 여러 Azure 서비스와 높은 수준으로 통합됩니다.
 
 스트림 분석 작업에 출력을 추가하려면
 
@@ -29,7 +29,7 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
     ![출력 추가](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    Azure 포털에서 스트림 분석 작업의 **출력** 타일을 클릭합니다.
+    Azure Portal에서 Stream Analytics 작업의 **출력** 타일을 클릭합니다.
 
     ![Azure 포털 출력 추가](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -37,7 +37,7 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
     ![데이터 이동 서비스 선택](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
 
-    ![Azure 포털 데이터 이동 형식 선택](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Azure Portal 데이터 이동 형식 선택](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. **출력 별칭** 상자에 이 출력의 이름을 입력합니다. 이 이름은 나중에 작업 쿼리에서 출력을 참조하는 데 사용할 수 있습니다.
     
@@ -51,7 +51,7 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
     ![이벤트 허브에 데이터 출력 추가](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
-    ![이벤트 허브로 Azure 포털 데이터 출력](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+    ![이벤트 허브로 Azure Portal 데이터 출력](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
 
 > [Azure.Note] 작업에 추가 된 모든 출력 요소는 작업이 시작 및 이벤트 전송이 시작되기 전에 있어야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용한 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. ASA 작업이 시작되기 전에 사용자가 만들어야 합니다.
 
@@ -66,4 +66,4 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

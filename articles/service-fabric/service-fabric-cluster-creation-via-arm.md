@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/19/2016"
+   ms.date="09/25/2016"
    ms.author="vturecek"/>
 
 # Azure Resource Manager를 사용하여 서비스 패브릭 클러스터 만들기
@@ -30,6 +30,8 @@ Azure Resource Manager를 사용하여 Azure에 보안 Azure 서비스 패브릭
  - 클러스터 관리를 위해 Azure Active Directory (AAD)를 사용하여 사용자와 인증합니다.
 
 보안 클러스터란 응용 프로그램, 서비스 및 포함된 데이터를 배포, 업그레이드 및 삭제하는 관리 작업에 무단 액세스하는 것을 방지하는 클러스터입니다. 비보안 클러스터란 언제라도 누구든지 연결하여 관리 작업을 수행할 수 있는 클러스터입니다. 비보안 클러스터를 만드는 것이 가능하지만 **보안 클러스터를 만드는 것이 좋습니다**. 비보안 클러스터는 **나중를 보안될 수 없습니다** -새 클러스터를 만들어야 합니다.
+
+Linux 또는 Windows 클러스터인지 여부에 관계없이 보안 클러스터 만들기에 대한 개념은 같습니다. 자세한 내용 및 보안 Linux 클러스터 만들기를 위한 도우미 스크립트는 [Linux에서 보안 클러스터 만들기](#secure-linux-clusters)를 참조하세요.
 
 ## Azure에 로그인
 이 가이드에서는 [Azure PowerShell][azure-powershell]을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
@@ -49,7 +51,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## 주요 자격 증명 모음 설정
 
-가이드의 이 부분에서는 Azure에서 서비스 패브릭 클러스터에 대해서와 서비스 패브릭 응용 프로그램에 대해서 주요 자격 증명 모음을 만드는 단계를 안내합니다. 키 자격 증명 모음에 대한 완전한 가이드는 [키 자격 증명 모음 시작 가이드][key-vault-get-started]를 참조하세요.
+이 섹션에서는 Azure에서 Service Fabric 클러스터에 대해서와 Service Fabric 응용 프로그램에 대해서 Key Vault를 만드는 단계를 안내합니다. 키 자격 증명 모음에 대한 완전한 가이드는 [키 자격 증명 모음 시작 가이드][key-vault-get-started]를 참조하세요.
 
 서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure 키 자격 증명 모음은 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
 
@@ -59,12 +61,12 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ### 리소스 그룹 만들기
 
-첫 번째 단계는 특히 주요 자격 증명 모음에 대한 새로운 리소스 그룹을 생성하는 것입니다. 주요 자격 증명 모음을 자체 리소스 그룹에 두어 키 및 암호는 유실하지 않고 서비스 패브릭 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거하도록 하는 것이 좋습니다. 사용자의 주요 자격 증명 모음을 가진 리소스 그룹은 그것을 사용 중인 클러스터와 동일한 지역에 있어야 합니다.
+첫 번째 단계는 특히 Key Vault에 대한 리소스 그룹을 생성하는 것입니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 암호는 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거할 수 있습니다. 사용자의 주요 자격 증명 모음을 가진 리소스 그룹은 그것을 사용 중인 클러스터와 동일한 지역에 있어야 합니다.
 
 ```powershell
 
 	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-	WARNING: The output object type of this cmdlet will be modified in a future release.
+	WARNING: The output object type of this cmdlet is going to be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
 	Location          : westus
@@ -131,7 +133,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
  - 인증서에 개인 키가 포함되어 있어야 합니다.
  - 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
- - 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+ - 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 ### 응용 프로그램 인증서(선택 사항)
 
@@ -160,7 +162,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
-	WARNING: The output object type of this cmdlet will be modified in a future release.
+	WARNING: The output object type of this cmdlet is going to be modified in a future release.
 	Using existing valut myvault in West US
 	Reading pfx file from C:\path\to\key.pfx
 	Writing secret to myvault in vault myvault
@@ -177,8 +179,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-
-노드 인증, 관리 끝점 보안 및 인증, X.509 인증서를 사용하는 모든 추가 응용 프로그램 보안 기능에 대한 인증서를 설치하는 서비스 패브릭 클러스터 Resource Manager 템플릿을 구성하기 위해 주요 자격 증명 모음에 대해 이러한 작업이 선행되어야 합니다. 이제 Azure에는 다음과 같은 설정이 구성됩니다.
+노드 인증, 관리 끝점 보안 및 인증, X.509 인증서를 사용하는 모든 추가 응용 프로그램 보안 기능에 대한 인증서를 설치하는 Service Fabric 클러스터 Resource Manager 템플릿을 구성하기 위해 Key Vault에 대해 이러한 문자열이 선행되어야 합니다. 이제 Azure에는 다음과 같은 설정이 구성됩니다.
 
  - 주요 자격 증명 모음 리소스 그룹
    - 키 자격 증명 모음
@@ -217,7 +218,7 @@ AAD를 통해 조직(테넌트라고도 함)에서 웹 기반 로그인 UI를 �
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    AAD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 이렇게 하면 스크립트는 서비스 패브릭 클러스터를 나타내는 웹 및 네이티브 응용 프로그램 만들기를 계속 진행합니다. [Azure 클래식 포털][azure-classic-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
+    AAD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 이렇게 하면 스크립트는 Service Fabric 클러스터를 나타내는 웹 및 네이티브 응용 프로그램 만들기를 계속 진행합니다. [Azure 클래식 포털][azure-classic-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
 
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
@@ -234,7 +235,7 @@ AAD를 통해 조직(테넌트라고도 함)에서 웹 기반 로그인 UI를 �
 
 ## 서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 
-이 섹션에서는 이전 PowerShell 명령의 출력이 서비스 패브릭 클러스터 Resource Manager 템플릿에서 사용됩니다.
+이 섹션에서는 이전 PowerShell 명령의 출력이 Service Fabric 클러스터 Resource Manager 템플릿에서 사용됩니다.
 
 샘플 리소스 관리자 템플릿은 [GitHub의 Azure 빠른 시작 템플릿 갤러리][azure-quickstart-templates]에 제공됩니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
 
@@ -244,7 +245,7 @@ AAD를 통해 조직(테넌트라고도 함)에서 웹 기반 로그인 UI를 �
 
 ### 인증서 추가
 
-인증서는 인증서 키를 포함하는 키 자격 증명 모음을 참조하여 클러스터 Resource Manager 템플릿에 추가합니다. 이러한 키 자격 증명 모음 값은 Resource Manager 템플릿 파일을 재사용할 수 있고 배포에 따라 값이 달라지지 않도록 유지하기 위해 Resource Manager 템플릿 매개 변수 파일에 배치하는 것이 좋습니다.
+인증서는 인증서 키를 포함하는 키 자격 증명 모음을 참조하여 클러스터 Resource Manager 템플릿에 추가합니다. 이러한 Key Vault 값은 Resource Manager 템플릿 파일을 재사용할 수 있고 배포에 따라 값이 달라지지 않도록 유지하기 위해 Resource Manager 템플릿 매개 변수 파일에 배치하는 것이 좋습니다.
 
 #### VMSS osProfile에 모든 인증서 추가
 
@@ -366,7 +367,7 @@ AAD를 통해 조직(테넌트라고도 함)에서 웹 기반 로그인 UI를 �
 }
 ```
 
-### Azure Resource Manager 템플릿 매개 변수 구성
+### <a "configure-arm" ></a>Resource Manager 템플릿 매개 변수 구성
 
 마지막으로, 키 자격 증명 모음 및 AAD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
@@ -445,9 +446,10 @@ Resource Manager 템플릿 테스트를 통과했다면 매개 변수 파일로 
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
+<a name="assign-roles"></a>
 ## 역할에 사용자 할당
 
-클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 서비스 패브릭에서 지원하는 역할(읽기 전용 및 관리자)에 할당해야 합니다. 이 작업은 [Azure 클래식 포털][azure-classic-portal]에서 수행할 수 있습니다.
+클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당해야 합니다. 이 작업은 [Azure 클래식 포털][azure-classic-portal]에서 수행할 수 있습니다.
 
 1. 테넌트로 이동하고 응용 프로그램을 선택합니다.
 2. `myTestCluster_Cluster`라는 이름의 웹 응용 프로그램을 선택합니다.
@@ -462,6 +464,54 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
 >[AZURE.NOTE] 서비스 패브릭의 역할에 대한 자세한 내용은 [서비스 패브릭 클라이언트의 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
 
+ <a name="secure-linux-cluster"></a>
+##  Linux에서 보안 클러스터 만들기
+
+작업을 보다 쉽게 하도록 도우미 스크립트가 [여기](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux)에 제공됩니다. 이 도우미 스크립트를 사용하기 위해 Azure CLI가 이미 설치되어 있고 사용자 경로에 있다고 가정합니다. 다운로드한 후 `chmod +x cert_helper.py`를 실행하여 스크립트에 실행할 권한이 있는지 확인합니다. 첫 번째 단계에서는 `azure login` 명령으로 CLI를 사용하여 Azure 계정에 로그인합니다. Azure 계정에 로그인한 후 다음 명령에 표시된 것처럼 CA 서명된 인증서로 도우미를 사용합니다.
+
+```sh
+./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
+
+The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed cert).
+The parameter -h prints out the help text.
+```
+
+이 명령은 출력으로 다음 3개의 문자열을 반환합니다.
+
+1. SourceVaultID - 사용자를 위해 생성된 새로운 KeyVault ResourceGroup의 ID입니다.
+
+2. 인증서에 액세스하기 위한 CertificateUrl입니다.
+
+3. 인증에 사용되는 CertificateThumbprint입니다.
+
+
+다음 예제에서는 명령을 사용하는 방법을 보여 줍니다.
+
+```sh
+./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
+```
+위의 명령을 실행하면 다음과 같이 3가지 문자열이 표시됩니다.
+
+```sh
+SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
+CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+```
+
+ 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+
+[Resource Manager 템플릿 매개 변수 구성](#configure-arm)에 설명된 대로 보안 서비스 패브릭 클러스터(AAD 없음)를 만드는 데 필요한 항목입니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)의 지침을 통해 보안 클러스터에 연결할 수 있습니다. Linux 미리 보기 클러스터에서는 AAD 인증을 지원하지 않습니다. [사용자에게 역할 할당](#assign-roles) 섹션에 설명된 대로 관리 및 클라이언트 역할을 할당할 수 있습니다. Linux 미리 보기 클러스터에 대한 관리 및 클라이언트 역할을 지정하는 경우 인증을 위해 인증서 지문을 제공해야 합니다(이 미리 보기 릴리스에서는 체인 유효성 검사 또는 해지가 수행되지 않으므로 주체 이름 아님).
+
+
+테스트용으로 자체 서명된 인증서를 사용하려는 경우 인증서 경로 및 인증서 이름을 제공하는 대신 `ss` 플래그를 제공하여 동일한 스크립트로 자체 서명된 인증서를 생성하고 KeyVault에 업로드할 수 있습니다. 예를 들어 자체 서명된 인증서를 만들고 업로드하는 다음 명령을 참조하세요.
+
+```sh
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net" 
+```
+
+이 명령은 보안 Linux 클러스터를 만드는 데 사용한 동일한 3가지 문자열, SourceVault, CertificateUrl 및 CertificateThumbprint와 자체 서명된 인증서가 배치된 위치를 함께 반환합니다. 클러스터에 연결하려면 자체 서명된 인증서가 필요합니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)의 지침을 통해 보안 클러스터에 연결할 수 있습니다. 인증서의 주체 이름은 서비스 패브릭 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
+
+도우미 스크립트에서 제공하는 매개 변수는 [Azure 포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-portal) 섹션에 설명된 대로 포털에서 채울 수 있습니다.
 
 ## 다음 단계
 
@@ -488,4 +538,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

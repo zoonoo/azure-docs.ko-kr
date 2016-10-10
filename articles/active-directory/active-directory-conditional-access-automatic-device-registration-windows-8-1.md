@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성
 
 Active Directory 그룹 정책을 사용하여 Windows 8.1 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다. 그룹 정책을 구성하려면 그룹 정책 관리 기능이 설치되고 도메인에 가입된 하나 이상의 Windows Server 2012 R2 또는 Windows 8.1 컴퓨터가 있어야 합니다. 이 그룹이 도메인에 사용하도록 설정되면 컴퓨터에 로그인하는 모든 도메인 사용자가 Azure AD의 장치 개체에 자동으로 등록됩니다. 물리적 장치의 등록된 사용자마다 하나의 장치 개체가 Azure AD에 포함됩니다. Windows 도메인 가입 장치의 Azure Active Directory 자동 장치 등록에 나열된 필수 조건을 읽고 완료해야 합니다.
+
+>[AZURE.NOTE]
+ 장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+
+
 
 ## Windows 8.1 도메인 가입 장치에 대한 그룹 정책 구성
 
@@ -61,4 +66,4 @@ Windows 8.1 컴퓨터의 Windows 이벤트 로그에는 장치 등록과 관련�
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

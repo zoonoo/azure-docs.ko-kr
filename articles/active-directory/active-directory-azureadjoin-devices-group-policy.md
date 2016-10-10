@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결
@@ -75,7 +75,7 @@ Azure AD Connect 서버에서 다음 PowerShell 명령을 실행합니다.
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-cmdlet $aadAdminCred = Get-Credential을 실행하는 경우 Get-Credential 팝업이 표시될 때 입력되는 자격 증명의 사용자 이름에 대한 형식 *user@example.com* 을 사용합니다.
+cmdlet $aadAdminCred = Get-Credential을 실행하는 경우 Get-Credential 팝업이 표시될 때 입력되는 자격 증명의 사용자 이름에 대한 형식 *user@example.com*을 사용합니다.
 
 cmdlet Initialize-ADSyncDomainJoinedComputerSync...를 실행하는 경우 [*커넥터 계정 이름*]을 Active Directory Connector 계정으로 사용하는 도메인 계정으로 바꿉니다.
 
@@ -123,21 +123,12 @@ Windows 10 컴퓨터는 AD FS에서 호스트된 활성 WS-Trust 끝점에 Windo
 
 ### 2단계: Active Directory에서 그룹 정책을 통해 자동 장치 등록 구성
 
-Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다. 이렇게 하려면 다음과 같은 단계별 지침을 사용합니다.
+Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 장치를 Azure AD에 자동으로 등록하도록 구성할 수 있습니다.
 
-1. 	서버 관리자를 열고 **도구** > **그룹 정책 관리**로 이동합니다.
-2.	그룹 정책 관리에서 Azure AD 연결을 사용하도록 설정하려는 도메인에 해당하는 도메인 노드로 이동합니다.
-3.	**그룹 정책 개체**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 선택합니다. 그룹 정책 개체에 이름(예: 자동 Azure AD 가입)을 지정합니다. **확인**을 클릭합니다.
-4.	새 그룹 정책 개체를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
-5.	**컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **작업 공간 연결**로 이동합니다.
-6.	**클라이언트 컴퓨터에 자동으로 작업 공간 연결**을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
-7.	**사용** 옵션 단추를 선택하고 **적용**을 클릭합니다. **확인**을 클릭합니다.
-8.	그룹 정책 개체를 선택한 위치에 연결합니다. 조직의 모든 Windows 10 도메인 가입 장치에 대해 이 정책을 사용하도록 설정하려면 그룹 정책 개체를 도메인에 연결합니다. 예:
- - Windows 10 도메인에 가입된 컴퓨터가 배치될 Active Directory의 특정 OU(조직 구성 단위)입니다.
- - Azure AD에 자동 등록될 Windows 10 도메인에 가입된 컴퓨터를 포함하는 특정 보안 그룹입니다.
-
->[AZURE.NOTE]
-이 그룹 정책 템플릿은 Windows 10에서 이름이 변경되었습니다. Windows 10 컴퓨터에서 그룹 정책 도구를 실행하는 경우 정책은 다음과 같이 나타납니다. <br> **도메인 가입 컴퓨터를 장치로 등록합니다.**<br> 정책은 다음 위치에 있습니다.<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
+> [AZURE.NOTE]
+장치 자동 등록을 설정하는 방법에 대한 최신 지침은 [Azure Active Directory를 사용하여 Windows 도메인 가입 장치의 자동 등록을 설정하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
+>
+> 이 그룹 정책 템플릿은 Windows 10에서 이름이 변경되었습니다. Windows 10 컴퓨터에서 그룹 정책 도구를 실행하는 경우 정책은 다음과 같이 나타납니다. <br> **도메인 가입 컴퓨터를 장치로 등록합니다.**<br> 정책은 다음 위치에 있습니다.<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
 
 ## 추가 정보
@@ -147,4 +138,4 @@ Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 �
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

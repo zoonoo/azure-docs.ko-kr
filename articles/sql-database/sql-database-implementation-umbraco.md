@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/08/2016"
+   ms.date="09/22/2016"
    ms.author="carlrab"/>
 
 # Umbraco는 Azure SQL 데이터베이스를 사용하여 클라우드의 수천 개의 테넌트를 위해 서비스를 신속하게 프로비전하고 확장합니다.
 
-![Umbraco 로고](./media/sql-database-case-study-umbraco/umbracologo.png)
+![Umbraco 로고](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco는 소규모 캠페인 또는 브로슈어 사이트에서 포춘지 선정 500대 기업과 글로벌 미디어 웹 사이트를 위한 복잡한 응용 프로그램까지 실행이 가능한 인기 높은 오픈 소스 CMS(콘텐츠 관리 시스템)입니다.
 
@@ -33,7 +33,7 @@ Umbraco는 소규모 캠페인 또는 브로슈어 사이트에서 포춘지 선
 UaaS는 SaaS 고객이 이전에는 가능하지 않았던 Umbraco CMS 기능을 사용할 수 있도록 합니다. 이러한 고객은 프로덕션 데이터베이스를 포함하는 작업 CMS 환경으로 프로비전됩니다. 고객은 해당 요구에 따라, 개발 및 스테이징 환경을 위해 최대 두 개의 데이터베이스를 더 추가할 수 있습니다. 새 환경이 요청되면 자동화된 프로세스가 해당 고객에게 데이터베이스를 자동으로 할당합니다. 데이터베이스가 사용 가능한 데이터베이스의 Azure 탄력적 풀에서 Umbraco에 의해 미리 프로비전되었으므로 새 데이터베이스는 몇 오 안에 사용 가능해집니다(그림 1 참조).
 
 
-![그림 1에서는](./media/sql-database-case-study-umbraco/figure1.png)
+![Umbraco 프로비전 수명 주기](./media/sql-database-implementation-umbraco/figure1.png)
 
 그림 1. UaaS(Umbraco as a Service)에 대한 프로비전 수명 주기
  
@@ -53,9 +53,9 @@ Azure SQL 데이터베이스 및 기타 Azure 서비스를 사용하여 Umbraco 
 
     고객은 각각이 자체 데이터베이스를 포함하는 1~3가지 환경(프로덕션, 스테이징 및/또는 개발용)을 사용합니다. 고객 데이터베이스는 탄력적 데이터베이스 풀에 있으므로 Umbraco에서 과도한 프로비전 없이도 효율적으로 규모를 조정할 수 있습니다.
 
-    ![그림 2](./media/sql-database-case-study-umbraco/figure2.png)
+    ![Umbraco 프로젝트 개요](./media/sql-database-implementation-umbraco/figure2.png)
 
-    ![그림 3](./media/sql-database-case-study-umbraco/figure3.png)
+    ![Umbraco 프로젝트 세부 정보](./media/sql-database-implementation-umbraco/figure3.png)
 
     그림 2. 프로젝트 개요 및 세부 정보를 표시하는 UaaS(Umbraco-as a Service) 고객 웹 사이트
 
@@ -85,7 +85,7 @@ Azure의 탄력적 데이터베이스 풀을 활용하여 Umbraco는 과도하�
 
 고객에게 두 번째 및/또는 세 번째 환경이 더 이상 필요하지 않은 경우 해당 환경을 간단히 제거할 수 있습니다. 이렇게 하면 Umbraco 탄력적 데이터베이스 가용성 풀의 일부로, 다른 고객이 사용할 수 있는 리소스가 확보됩니다.
 
-![그림 4](./media/sql-database-case-study-umbraco/figure4.png)
+![Umbraco 배포 아키텍처](./media/sql-database-implementation-umbraco/figure4.png)
 
 그림 3. Microsoft Azure의 UaaS 배포 아키텍처
 
@@ -101,7 +101,7 @@ Umbraco 개발자들은 초기에 SaaS 모델로 전환하기로 결정했을 �
 
 Umbraco 개발자들의 중요한 목표 한 가지는 UaaS 고객에게 용량 제한 없이 환경을 신속하게 프로비전하는 방법을 제공하는 것이었습니다. 하지만 Umbraco 데이터 센터에 전용 호스티드 서비스를 제공하면서 처리 폭주를 처리하기 위해 과도한 용량이 필요하게 되었습니다. 이것은 정기적으로는 활용도가 낮은 상당량의 계산 인프라를 추가하는 것을 의미하는 것이었습니다.
 
-또한 Umbraco 개발 팀은 기존 코드를 가능한 많이 재사용할 수 있는 솔루션을 원했습니다. Umbraco의 개발자인 Mikkel Hansen은 다음과 같이 말했습니다. "우리는 이미 친숙한 Microsoft SQL Server, Microsoft Azure SQL 데이터베이스, ASP.net 및 IIS(인터넷 정보 서비스)와 같은 Microsoft 개발 도구에 만족하고 있었습니다. IaaS 또는 PaaS 클라우드 솔루션에 투자하기 전에 Microsoft 도구와 플랫폼을 지원하는지 확인하기 원했으므로 코드베이스를 대폭 변경할 필요가 없었습니다."
+또한 Umbraco 개발 팀은 기존 코드를 가능한 많이 재사용할 수 있는 솔루션을 원했습니다. Umbraco의 개발자인 Mikkel Madsen은 다음과 같이 말했습니다. "우리는 이미 친숙한 Microsoft SQL Server, Microsoft Azure SQL Database, ASP.net 및 IIS(인터넷 정보 서비스)와 같은 Microsoft 개발 도구에 만족하고 있었습니다. IaaS 또는 PaaS 클라우드 솔루션에 투자하기 전에 Microsoft 도구와 플랫폼을 지원하는지 확인하기 원했으므로 코드베이스를 대폭 변경할 필요가 없었습니다."
 
 모든 조건을 충족하기 위해 Umbraco는 다음과 같은 자격이 있는 클라우드 파트너를 찾았습니다.
 
@@ -117,7 +117,7 @@ Morten Christensen에 따르면 "우리는 모든 옵션을 고려한 후에 Azu
 
 Morten은 Azure에서 제공하는 크기 조정 기능에도 매우 만족했습니다. "탄력적 데이터베이스 풀은 필요에 따라 용량을 늘리고 줄일 수 있으므로 당사의 SaaS 제품에 완벽하게 딱 들어맞습니다. 프로비전도 쉬우며, 당사 설정을 통해 최대 사용률을 유지할 수 있습니다." "서비스 계층 기반 DTU에 대한 보장과 탄력적 풀의 간편성은 필요할 때 새 리소스 풀을 프로비전할 수 있도록 지원합니다. 최근 큰 고객 중 하나가 라이브 환경에서 100DTU까지 사용한 적이 있었습니다. Azure를 사용하면 DTU 요구 수준을 예측할 필요 없이 탄력적 풀이 실시간으로 필요한 리소스를 고객 데이터베이스에 제공했습니다. 간단히 말해 고객에게는 예상하는 소요 시간이 확보되고, 우리는 성능 서비스 수준 계약을 충족할 수 있습니다.
 
-"우리는 일반적인 SaaS 시나리오(새 고객을 실시간으로 대규모로 온보딩)를 기본 기술(Azure SQL 데이터베이스와 함께 Azure 서비스 버스 큐 사용) 위의 응용 프로그램 패턴(개발 및 라이브에서 데이터베이스 사전 프로비전)에 연결하는 강력한 Azure 알고리즘을 수용했습니다.”라고 Mikkel Hansen은 결론지었습니다.
+"우리는 일반적인 SaaS 시나리오(새 고객을 실시간으로 대규모로 온보딩)를 기본 기술(Azure SQL Database와 함께 Azure Service Bus 큐 사용) 위의 응용 프로그램 패턴(개발 및 라이브에서 데이터베이스 사전 프로비전)에 연결하는 강력한 Azure 알고리즘을 수용했습니다.”라고 Mikkel Madsen은 결론지었습니다.
 
 ##Azure를 사용하여 UaaS에서 고객의 기대치 부응
 
@@ -139,4 +139,4 @@ Azure를 클라우드 파트너로 선택한 이후부터 Umbraco는 셀프 호�
 
 - 서비스로서의 Umbraco에 대한 자세한 내용은 [Umbraco](https://umbraco.com/cloud)를 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

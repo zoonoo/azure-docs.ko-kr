@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="REST API를 사용하여 미디어 서비스 계정에 연결" 
-	description="이 항목에서는 REST API를 사용하여 미디어 서비스에 연결하는 방법을 보여 줍니다." 
+	pageTitle="REST API를 사용하여 Media Services 계정에 연결 | Microsoft Azure" 
+	description="이 토픽에서는 REST API를 사용하여 Media Services에 연결하는 방법을 설명합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [.NET](media-services-dotnet-connect-programmatically.md)
 - [REST (영문)](media-services-rest-connect-programmatically.md)
 
-이 항목에서는 미디어 서비스 REST API로 프로그래밍할 때 Microsoft Azure 미디어 서비스에 대 한 프로그래밍 방식의 연결을 가져오는 방법을 설명 합니다.
+이 토픽에서는 Media Services REST API로 프로그래밍할 때 Microsoft Azure Media Services에 대한 프로그래밍 방식의 연결을 가져오는 방법을 설명합니다.
 
 Microsoft Azure 미디어 서비스에 액세스할 때는 Azure 액세스 제어 서비스(ACS)와 미디어 서비스 자체의 URI 등, 두 가지가 필요합니다. 미디어 서비스를 호출할 때 올바른 헤더 값을 지정하고 액세스 토큰을 올바르게 통과하면 이 요청을 할 때 사용자가 원하는 방법을 사용할 수 있습니다.
 
@@ -51,7 +51,7 @@ Microsoft Azure 미디어 서비스에 액세스할 때는 Azure 액세스 제�
 
 REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 액세스 토큰을 검색하여 서비스에 HTTP 요청을 할 때마다 이를 사용합니다. 이 토큰은 HTTP 요청 헤더에서 제공하는 액세스 클레임을 기반으로 하고 OAuth v2 프로토콜을 사용하는 ACS에서 제공하는 다른 토큰과 비슷합니다. 미디어 서비스에 직접 연결하기 전에는 다른 필수 조건은 필요하지 않습니다.
 
-다음 예제에서는 HTTP 요청 헤더와 토큰을 검색하는 데 사용되는 본문을 보여줍니다.
+다음 예제에서는 HTTP 요청 헤더와 토큰을 검색하는 데 사용되는 본문을 보여 줍니다.
 
 **헤더**:
 
@@ -106,7 +106,7 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 ###미디어 서비스 URI에 연결
 
-미디어 서비스에 대한 루트 URI는 https://media.windows.net/입니다. 이 URI에 처음으로 연결해야 하며 응답으로 301 리디렉션을 받은 경우 새 URI에 대한 후속 호출을 해야합니다. 또한 요청에서 자동 리디렉션/팔로우 논리를 사용하지 마세요 HTTP 동사와 요청 본문은 새 URI로 전달되지 않습니다.
+미디어 서비스에 대한 루트 URI는 https://media.windows.net/입니다. 이 URI에 처음으로 연결해야 하며 응답으로 301 리디렉션을 받은 경우 새 URI에 대한 후속 호출을 해야 합니다. 또한 요청에서 자동 리디렉션/팔로우 논리를 사용하지 마세요 HTTP 동사와 요청 본문은 새 URI로 전달되지 않습니다.
 
 자산 파일 업로드 및 다운로드용 루트 URI는 https://yourstorageaccount.blob.core.windows.net/이며, 여기서 저장소 계정 이름은 미디어 서비스 계정 설정 중에 사용한 것과 동일한 이름입니다.
 
@@ -177,4 +177,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -29,7 +29,7 @@
 
 오늘날 이 기능은 [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 페더레이션된 또는 암호 기반 Single Sign-On을 지원하는 Salesforce, Dropbox, Google Apps과 같은 앱을 포함하여 미리 통합된 사용자 지정 앱을 지원합니다. 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-* 최종 사용자에게 선택적 승인 워크플로의 구성을 비롯한 셀프 서비스 응용 프로그램 액세스를 구성합니다. 
+* 최종 사용자에게 선택적 승인 워크플로의 구성을 비롯한 셀프 서비스 응용 프로그램 액세스를 구성합니다.
 * 조직에서 가장 적합한 사람에게 특정 응용 프로그램에 대한 액세스 관리를 위임하고, Azure AD 액세스 패널을 사용하여 액세스 요청을 승인하며, 선택된 사용자에 대한 액세스를 직접 할당하거나 또는 (선택적으로) 암호 기반 Single Sign-On이 구성된 경우 응용 프로그램 액세스에 대한 자격 증명을 설정합니다.
 
 
@@ -109,4 +109,4 @@
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

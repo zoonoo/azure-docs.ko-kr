@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/03/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>
 
 # 서비스 패브릭의 개요
@@ -41,7 +41,7 @@
 ## 어디에서나 서비스 패브릭 클러스터 만들기
 Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경에서 서비스 패브릭 클러스터를 만들 수 있습니다. 또한 SDK의 개발 환경은 관련된 에뮬레이터가 없는 프로덕션 환경과 동일합니다. 즉, 로컬 개발 클러스터에서 실행되는 경우 다른 환경의 동일한 클러스터에 배포됩니다.
 
-온-프레미스에서 클러스터를 만드는 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure 포털을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 읽어보세요.
+온-프레미스에서 클러스터를 만드는 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 읽어보세요.
 
 ![서비스 패브릭 플랫폼][Image1]
 
@@ -110,4 +110,4 @@ Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경�
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

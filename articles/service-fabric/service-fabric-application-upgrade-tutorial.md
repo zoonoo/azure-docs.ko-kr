@@ -17,8 +17,13 @@
    ms.author="subramar"/>
 
 
-
 # Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드 자습서
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드하고, 업그레이드 프로세스를 통해 응용 프로그램 상태를 모니터링하여 클라우드 응용 프로그램 업그레이드 프로세스를 간소화할 수 있습니다. 문제가 발생할 경우 응용 프로그램이 자동으로 이전 버전으로 롤백합니다. 서비스 패브릭 응용 프로그램 업그레이드는 *가동 중지 시간 없이* 응용 프로그램을 업그레이드합니다. 이 자습서에서는 Visual Studio를 사용하여 롤링 업그레이드를 완료하는 방법을 설명합니다.
 
@@ -87,4 +92,4 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

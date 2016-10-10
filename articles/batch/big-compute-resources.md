@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/08/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
-# Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
-Azure에서 대규모 병렬, 배치 및 HPC 작업을 실행할 수 있도록 지원하는 기술 리소스에 대한 가이드입니다. 기존 배치 또는 HPC 작업을 Azure 클라우드로 확장하거나 다양한 Azure 서비스를 사용하여 Azure에서 새로운 큰 계산 솔루션을 구축합니다.
+# Azure에서의 큰 계산: 배치 및 고성능 컴퓨팅에 대한 기술 리소스 
+Azure에서 대규모 병렬, 배치 및 HPC(고성능 컴퓨팅) 워크로드를 실행하는 데 도움을 주는 기술 리소스를 나열하는 가이드입니다. 기존 배치 또는 HPC 작업을 Azure 클라우드로 확장하거나 다양한 Azure 서비스를 사용하여 새로운 큰 계산 솔루션을 구축합니다.
 
 ## 솔루션 옵션
 
@@ -89,7 +89,7 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 ## 계산 집약적 인스턴스
 
-Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 계산 집약적 [A8 및 A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 인스턴스를 비롯하여 [다양한 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 제공합니다.
+Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 계산 집약적 [계산 집약적](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 인스턴스를 비롯하여 [다양한 VM 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 제공합니다.
 
 
 * [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -101,6 +101,8 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 ## 샘플 및 데모
 
 * [Azure 배치 C# 및 Python 코드 샘플](https://github.com/Azure/azure-batch-samples)
+
+* 배치 스타일 Dockerized 워크로드의 간편한 배포를 위한 [Batch Shipyard](https://azure.github.io/batch-shipyard/) 도구 키트
 
 * [HPC용 SUSE Linux Enterprise Server 시험 사용](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
@@ -118,7 +120,11 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 * [클라우드 서비스](https://azure.microsoft.com/documentation/services/cloud-services/)
 
+* [앱 서비스](https://azure.microsoft.com/documentation/services/app-service/)
+
 * [미디어 서비스](https://azure.microsoft.com/documentation/services/media-services/)
+
+* [함수](https://azure.microsoft.com/documentation/services/functions/)
 
 ## 아키텍처 청사진
 
@@ -132,7 +138,7 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 ## 고객 사례
 
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
@@ -157,4 +163,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

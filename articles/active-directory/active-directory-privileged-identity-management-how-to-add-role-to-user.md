@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법
@@ -26,7 +26,7 @@ Azure AD Privileged Identity Management 응용 프로그램을 통해 권한 있
 
 조직에서 Azure AD, Office 365, 및 기타 Microsoft 서비스 및 응용 프로그램의 다른 관리 역할에 사용자를 할당할 수 있습니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure AD PIM의 역할](active-directory-privileged-identity-management-roles.md)에 있습니다.
 
-Privileged Identity Management를 사용하여 역할에 사용자를 추가하거나 제거하려면 PIM 대시보드를 표시한 다음 **관리자 역할의 사용자** 단추를 클릭하거나 역할 테이블에서 특정 역할(예: 전역 관리자)을 선택합니다.
+Privileged Identity Management를 사용하여 역할에 사용자를 추가하거나 제거하려면 PIM 대시보드로 전환합니다. 그런 다음 **관리자 역할의 사용자** 단추를 클릭하거나 역할 테이블에서 특정 역할(예: 전역 관리자)를 선택합니다.
 
 > [AZURE.NOTE] Azure 포털에서 아직 PIM을 사용하도록 설정하지 않은 경우 [Azure AD PIM 시작](active-directory-privileged-identity-management-getting-started.md)에서 자세한 내용을 참조하세요.
 
@@ -40,7 +40,7 @@ Privileged Identity Management를 사용하여 역할에 사용자를 추가하�
 4. 역할 블레이드에서 **추가**를 선택합니다.
 5. **사용자 선택**을 클릭하고 **사용자 선택** 블레이드에서 사용자를 검색합니다.
 6. 검색 결과 목록에서 사용자를 선택하고 **완료**를 클릭합니다.
-4. **확인**을 클릭하여 선택 내용을 저장합니다. 선택한 사용자가 그 역할에 대해 적격으로 목록에 표시됩니다.
+4. **확인**을 클릭하여 선택 내용을 저장합니다. 선택한 사용자가 그 역할에 대해 적합하다고 목록에 표시됩니다.
 
 > [AZURE.NOTE]
 역할에 포함된 새 사용자는 기본적으로 그 역할에 대해서만 자격이 있습니다. 역할을 영구적으로 지정하려면 목록에서 사용자를 클릭합니다. 사용자의 정보가 새 블레이드에 표시됩니다. 사용자 정보 메뉴에서 **make perm**(영구 지정)을 선택합니다. 사용자가 Azure Multi-factor Authentication (MFA)를 등록할 수 없거나 Microsoft 계정(일반적으로 @outlook.com)을 사용하고 있는 경우 모든 해당 역할에서 영구적이 되도록 해야 합니다. 임시 관리자에게 활성화하는 동안 MFA를 등록하라는 메시지가 표시됩니다.
@@ -58,11 +58,11 @@ Privileged Identity Management를 사용하여 역할에 사용자를 추가하�
 3. **제거**를 클릭합니다. 메시지에서 확인을 요청합니다.
 4. 사용자로부터 역할을 제거하려면 **예**를 클릭합니다.
 
-사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 보안 검토를 시작](active-directory-privileged-identity-management-how-to-start-security-review.md)할 수 있습니다.
+사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 액세스 권한을 검토하기 시작](active-directory-privileged-identity-management-how-to-start-security-review.md)할 수 있습니다.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Azure 저장소의 데이터 이동
 
@@ -82,4 +82,4 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 
 자세한 내용은 [Azure Site Recovery](../site-recovery/site-recovery-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

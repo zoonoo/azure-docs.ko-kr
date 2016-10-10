@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Azure VM의 Always On 가용성 그룹 구성 - 클래식
 
 > [AZURE.SELECTOR]
-- [리소스 관리자: 자동](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -325,7 +325,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 |서버 선택|**서버 이름 입력**에 **ContosoSQL1**을 입력하고 **추가**를 클릭합니다.|
 |유효성 검사 경고|**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 선택합니다.|
 |클러스터 관리를 위한 액세스 지점|**클러스터 이름**에 **Cluster1**을 입력합니다.|
-|확인 페이지|저장소 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요.|
+|확인|저장소 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요.|
 
 	>[AZURE.WARNING] 여러 디스크를 저장소 풀로 그룹화하는 [저장소 공간](https://technet.microsoft.com/library/hh831739)을 사용 중인 경우 **확인** 페이지에서 **클러스터에 사용할 수 있는 모든 저장소를 추가하세요** 확인란을 선택 취소해야 합니다. 이 옵션을 선택 취소하지 않으면 가상 디스크가 클러스터 프로세스 중에 분리됩니다. 그 결과, 저장소 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다.
 
@@ -548,4 +548,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

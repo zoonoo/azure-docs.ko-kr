@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="sdanie" />
 
 # Azure Redis Cache를 관리하는 방법
@@ -94,10 +94,13 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다.
 
+>[AZURE.NOTE] 업데이트를 위한 기본 유지 관리 기간은 5시간입니다. 이 값은 Azure 포털에서는 구성할 수 없지만 PowerShell에서 [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
+
 ## 업데이트 예약 FAQ
 
 -	[일정 업데이트 기능을 사용하지 않으면 업데이트가 언제 발생하나요?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 -	[예약된 유지 관리 기간 동안에는 어떤 유형의 업데이트가 진행되나요?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+-	[PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 -	[어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### 일정 업데이트 기능을 사용하지 않으면 업데이트가 언제 발생하나요?
@@ -108,12 +111,21 @@ Azure Redis Cache **관리** 설정을 사용하여 프리미엄 캐시에 대�
 
 예약된 유지 관리 기간 동안에는 Redis 서버 업데이트만 수행됩니다. 유지 관리 기간이 Azure 업데이트 또는 VM 운영 체제에 대한 업데이트에는 적용되지 않습니다.
 
+### PowerShell, CLI 또는 기타 관리 도구를 사용하여 관리되는 예약된 업데이트를 수행할 수 있나요?
+
+예, 다음 PowerShell cmdlet을 사용하여 예약된 업데이트를 관리할 수 있습니다.
+
+-	[Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
+-	[New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
+-	[New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
+-	[Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+
 ### 어떤 가격 책정 계층에서 업데이트 예약 기능을 사용할 수 있나요?
 
 업데이트 예약 기능은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
 ## 다음 단계
 
--	추가 [Azure Redis Cache 프리미엄 계층](cache-premium-tier-intro.md) 기능을 알아봅니다.
+-	[Azure Redis Cache 프리미엄 계층](cache-premium-tier-intro.md) 기능에 대해 더 알아봅니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

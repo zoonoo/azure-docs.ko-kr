@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
 # 판매자 통찰력 보고서 이해
@@ -92,7 +92,9 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
 **게시자** 탭을 선택합니다. ![selectpublisherstab][8]
 
 
-URL에서 게시자 ID 찾기: - 이 ID를 암호로 사용하여 판매자 통찰력 Excel 파일을 엽니다. 추가 공지가 있을 때까지 이 ID가 암호입니다. Windows에서 통합 문서 읽기 프로그램으로는 Microsoft Office 2013을 사용하는 것이 좋습니다. 일부 사용자가 Mac용 Microsoft Office 사용에 대한 문제를 보고했습니다.
+URL에서 게시자 ID를 찾습니다.
+- 이 ID를 암호로 사용하여 판매자 통찰력 Excel 파일을 엽니다. 추후 공지가 있을 때까지 이 ID가 암호입니다.
+- Windows에서 통합 문서 읽기 프로그램으로는 Microsoft Office 2013을 사용하는 것이 좋습니다. 일부 사용자가 Mac용 Microsoft Office 사용에 대한 문제를 보고했습니다.
 
 ![publisherid][9]
 
@@ -118,4 +120,4 @@ URL에서 게시자 ID 찾기: - 이 ID를 암호로 사용하여 판매자 통�
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

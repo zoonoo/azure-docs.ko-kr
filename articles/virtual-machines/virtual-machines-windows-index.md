@@ -62,7 +62,7 @@
 
 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)
 
-[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Azure 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines-windows-planned-maintenance.md)
 
@@ -192,4 +192,4 @@
 
 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

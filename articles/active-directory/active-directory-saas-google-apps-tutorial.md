@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -246,7 +246,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 9. Google Apps의 빠른 시작 페이지에서 클릭**사용자 프로비전 구성**을 클릭합니다.
 
-	![사용자 프로비저닝 구성][24]
+	![사용자 프로비전 구성][24]
 
 10. 열리는 대화 상자에서 **사용자 프로비전 사용**을 클릭하여 프로 비저닝을 관리하는 데 사용할 Google Apps 관리자 계정으로 인증합니다.
 
@@ -313,4 +313,4 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

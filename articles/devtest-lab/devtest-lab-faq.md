@@ -110,7 +110,7 @@ Azure DevTest Labs의 범위 내에 사용자 사용 권한을 정의하는 두 
 ### 사용자가 특정 작업을 수행하도록 허용하는 역할을 어떻게 만듭니까?
 사용자 지정 역할을 만들고 해당 역할에 권한을 할당하는 방법에 대한 포괄적인 문서를 여기에서 찾아볼 수 있습니다. 랩의 모든 VM을 시작 및 중지하는 권한이 있는 "DevTest Labs 고급 사용자" 역할을 만드는 스크립트의 예는 다음과 같습니다.
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ Azure DevTest Labs의 범위 내에 사용자 사용 권한을 정의하는 두 
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### Azure DevTest Labs는 CI/CD 도구 체인과 통합되나요? 
 VSTS를 사용하는 경우 Azure DevTest Labs에서 릴리스 파이프라인을 자동화할 수 있는 [Azure DevTest Labs 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)이 있습니다. 이 확장의 몇 가지 용도는 다음과 같습니다.
@@ -244,4 +244,4 @@ Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의
 ### 기존 가상 네트워크가 제대로 저장되지 않는 이유는 무엇입니까?  
 한 가지 가능성은 가상 네트워크 이름에 기간이 포함되어 있는 것입니다. 그렇다면 기간을 제거하거나 하이픈으로 바꾼 다음 가상 네트워크를 다시 저장합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

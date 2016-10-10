@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="미디어 인코더 Premium 워크플로 형식 및 코덱" 
-	description="이 항목에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다." 
+	pageTitle="미디어 인코더 Premium 워크플로 형식 및 코덱 | Microsoft Azure" 
+	description="이 토픽에서는 미디어 인코더 Premium 워크플로 형식 및 코덱에 대한 개요를 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako;anilmur"/>
 
 #미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE]프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 >
->중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+>중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
 
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

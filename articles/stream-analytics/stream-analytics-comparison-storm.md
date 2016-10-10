@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 # 스트리밍 분석 플랫폼 선택 도움말: Apache Storm과 Azure 스트림 분석 비교
@@ -588,4 +588,4 @@ Apache Storm과 Azure 스트림 분석 비교를 사용하여 클라우드 분�
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

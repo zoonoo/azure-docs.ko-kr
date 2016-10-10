@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # VPN 게이트웨이 계획 및 설계
@@ -46,20 +46,13 @@
 
 ### <a name="gwrequire"></a>VPN 유형 및 SKU별 게이트웨이 요구 사항
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 세 가지 VPN 게이트웨이 SKU가 있습니다.
-
-- Basic
-- Standard
-- 고성능
+게이트웨이 SKU에 대한 자세한 내용은 [ 설정](vpn-gateway-about-vpn-gateway-settings.md#gwsku)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>게이트웨이 유형 및 예상 총 처리량
-
-다음 테이블에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 예상되는 총 처리량은 설계의 결정적 요인이 될 수 있습니다. 가격은 게이트웨이 SKU마다 다릅니다. 가격에 대한 자세한 내용은 [VPN 게이트웨이 가격](https://azure.microsoft.com/pricing/details/vpn-gateway/)을 참조하세요. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
+<br> 다음 표에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 예상되는 총 처리량은 설계의 결정적 요인이 될 수 있습니다. 가격은 게이트웨이 SKU마다 다릅니다. 가격에 대한 자세한 내용은 [VPN 게이트웨이 가격](https://azure.microsoft.com/pricing/details/vpn-gateway/)을 참조하세요. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@ VPN 장치를 구성해본 경험이 필요하거나 누군가가 장치를 대�
 
 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN 게이트웨이 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

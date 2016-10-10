@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="REST를 사용하여 Contentkey 만들기" 
+	pageTitle="REST를 사용하여 Contentkey 만들기 | Microsoft Azure" 
 	description="자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@
 5. 이전 단계에서 받은**EncryptedContentKey**(base64 인코딩된 문자열로 변환), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** 및 **Checksum** 값을 사용하여 콘텐츠 키를 만듭니다.
 6. $links 작업을 통해 **ContentKey** 엔터티와 **Asset** 엔터티를 연결합니다.
 
-AES 키 생성, 키 암호화 및 체크섬을 계산하는 예제는 이 항목에서 생략되었습니다. 미디어 서비스와 상호 작용하는 방법을 보여주는 예제만 제공됩니다.
+AES 키 생성, 키 암호화 및 체크섬을 계산하는 예제는 이 토픽에서 생략되었습니다. 미디어 서비스와 상호 작용하는 방법을 보여주는 예제만 제공됩니다.
 
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
@@ -262,4 +262,4 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

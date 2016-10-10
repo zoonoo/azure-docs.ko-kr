@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="미디어 인코더 표준을 사용한 고급 인코딩" 
-	description="이 항목에서는 미디어 인코더 표준 작업 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 보여줍니다. 이 항목에서는 미디어 서비스 .NET SDK를 사용하여 인코딩 작업을 만드는 방법을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다." 
+	pageTitle="미디어 인코더 표준을 사용한 고급 인코딩 | Microsoft Azure" 
+	description="이 항목에서는 미디어 인코더 표준 태스크 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 설명합니다. 그리고 Media Services .NET SDK를 사용하여 인코딩 태스크와 작업을 만드는 방법을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 ##개요
 
-이 토픽에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 보여줍니다. 항목은 [.NET을 사용하여 인코딩 작업 및 이 작업을 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
+이 항목에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 설명합니다. 구체적으로는 [.NET을 사용하여 인코딩 태스크 및 이 태스크를 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 다음 인코딩 작업을 수행하는 사용자 지정 사전 설정을 보여줍니다.
 
@@ -38,7 +38,7 @@
 
 - 인코딩 작업을 만듭니다.
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-- 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON(예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
+- 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON(예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json))을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -237,7 +237,7 @@
 
 ##<a id="thumbnails"></a>미리 보기 생성
 
-이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 미리 보기를 생성하는 코드를 추가할 수 있습니다.
+이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.
 
 >[AZURE.NOTE]다음 기본 설정에서 **SceneChangeDetection** 설정은 단일 비트 전송률 비디오로 인코딩하는 경우에만 true로 설정할 수 있습니다. 다중 비트 전송률 비디오로 인코딩하고 **SceneChangeDetection**을 true로 설정한 경우 인코더에서 오류를 반환합니다.
 
@@ -569,7 +569,7 @@
 
 ###XML 사전 설정
 	
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다.
+비디오를 자르려는 경우 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져온 다음 아래와 같이 **Sources** 요소를 수정하면 됩니다.
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -692,7 +692,7 @@
 
 또한 사전 설정 파일을 정의하는 것 외에도 미디어 서비스를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다.
 
-위의 .NET 예제에서는 두 함수 **UploadMediaFilesFromFolder** 및 **EncodeWithOverlay**를 정의합니다. UploadMediaFilesFromFolder 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자신의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 작업을 만듭니다.
+위의 .NET 예제에서는 두 함수 **UploadMediaFilesFromFolder** 및 **EncodeWithOverlay**를 정의합니다. UploadMediaFilesFromFolder 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자신의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
 
 >[AZURE.NOTE]현재 제한 사항:
 >
@@ -846,7 +846,7 @@
 
 입력에 오디오가 없을 때 조용한 오디오 트랙을 포함하는 자산을 생성하도록 인코더를 적용하려면 "InsertSilenceIfNoAudio" 값을 지정합니다.
 
-[여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 다음을 수정할 수 있습니다.
+[여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져온 후에 다음과 같이 수정할 수 있습니다.
 
 ###JSON 사전 설정
 
@@ -959,4 +959,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

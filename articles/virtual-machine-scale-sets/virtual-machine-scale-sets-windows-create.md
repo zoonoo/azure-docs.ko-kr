@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/25/2016"
 	ms.author="davidmu"/>
 
 # Azure PowerShell을 사용하여 Windows 가상 컴퓨터 크기 집합 만들기
@@ -84,9 +84,9 @@
 
 ### 저장소 계정
 
-저장소 계정은 가상 컴퓨터에서 운영 체제 디스크 및 크기 조정에 사용되는 진단 데이터를 저장하기 위해 사용합니다. 가능하면 규모 집합에서 만들어진 각 가상 컴퓨터에 대해 저장소 계정을 갖는 것이 가장 좋습니다. 가능하지 않다면 저장소 계정당 VM을 20개 이하로 계획하세요. 이 문서의 예제는 규모 집합에서 가상 컴퓨터 3대에 대해 만들어진 저장소 계정 3개를 보여줍니다.
+저장소 계정은 가상 컴퓨터에서 운영 체제 디스크 및 크기 조정에 사용되는 진단 데이터를 저장하기 위해 사용합니다. 크기 집합에서 만들어진 가상 컴퓨터 20개마다 저장소 계정을 1개 유지하는 것이 가장 좋습니다. 크기 집합은 쉽게 확장될 수 있도록 디자인되었으므로 크기 집합을 확장하려는 최대 가상 컴퓨터 수에 대해 필요한 수만큼 저장소 계정을 만듭니다. 이 문서의 예제는 크기 집합이 60개의 가상 컴퓨터로 무리없이 커질 수 있도록 3개의 저장소 계정이 생성되는 것을 보여 줍니다.
 
-1. **saName** 값을 새 저장소 계정에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
+1. **saName** 값을 새 저장소 계정에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.
 
         $saName = "storage account name"
         
@@ -133,7 +133,7 @@
 
 크기 집합의 가상 컴퓨터에 가상 네트워크가 필요합니다.
 
-1. **$subName** 값을 가상 네트워크의 서브넷에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
+1. **$subName** 값을 가상 네트워크의 서브넷에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.
 
         $subName = "subnet name"
         
@@ -155,7 +155,7 @@
 
 네트워크 인터페이스를 만들기 전에 공용 IP 주소를 만들어야 합니다.
 
-1. **$domName** 값을 공용 IP 주소에 사용하려는 도메인 이름 레이블로 바꾼 다음 변수를 만듭니다.  
+1. **$domName** 값을 공용 IP 주소에 사용하려는 도메인 이름 레이블로 바꾼 다음 변수를 만듭니다.
 
         $domName = "domain name label"
         
@@ -179,7 +179,7 @@
 
 이제 공용 IP 주소가 있으므로 네트워크 인터페이스를 만들 수 있습니다.
 
-1. **$nicName** 값을 네트워크 인터페이스에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
+1. **$nicName** 값을 네트워크 인터페이스에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.
 
         $nicName = "network interface name"
         
@@ -191,7 +191,7 @@
 
 크기 집합 구성에 필요한 모든 리소스가 있으므로 크기 집합을 만들겠습니다.
 
-1. **$ipName** 값을 IP 구성에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다. 
+1. **$ipName** 값을 IP 구성에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.
 
         $ipName = "IP configuration name"
         
@@ -205,7 +205,7 @@
         
 3. 크기 집합에 대한 구성을 만듭니다.
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
         
     이 예제는 3개의 가상 컴퓨터로 크기 집합을 만드는 방법을 보여줍니다. 크기 집합의 용량에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md)를 참조하십시오. 이 단계에서는 집합에 있는 가상 컴퓨터의 크기(SkuName이라고 함)도 설정합니다. 요구 사항에 맞는 크기를 찾으려면 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요.
     
@@ -228,7 +228,7 @@
 
 #### 운영 체제 프로필
 
-1. **$computerName** 값을 사용하려는 컴퓨터 이름 접두사로 바꾼 다음 변수를 만듭니다. 
+1. **$computerName** 값을 사용하려는 컴퓨터 이름 접두사로 바꾼 다음 변수를 만듭니다.
 
         $computerName = "computer name prefix"
         
@@ -246,7 +246,7 @@
 
 #### 저장소 프로필
 
-1. **$storageProfile** 값을 저장소 프로필에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.  
+1. **$storageProfile** 값을 저장소 프로필에 사용하려는 이름으로 바꾼 다음 변수를 만듭니다.
 
         $storageProfile = "storage profile name"
         
@@ -313,4 +313,4 @@
 - [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)의 정보를 사용하여 크기 집합의 자동 크기 조정을 설정해 보십시오.
 - [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 검토하여 수직 크기 조정에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

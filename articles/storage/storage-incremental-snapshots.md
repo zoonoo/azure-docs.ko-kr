@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram;aungoo"/>
+	ms.author="aungoo;tamram"/>
 
 
 # 증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업
@@ -128,4 +128,4 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 - [Blob의 스냅숏 만들기](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

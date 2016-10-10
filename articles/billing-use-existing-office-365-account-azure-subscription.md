@@ -3,7 +3,7 @@
 	description="Office 365 Azure AD 테넌트 및 그 사용자를 Azure 구독과 공유하는 방법 및 그 반대로 공유하는 방법에 대해 알아봅니다."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -151,4 +151,4 @@ Office 365 및 Azure는 Azure Active Directory(AAD) 서비스를 사용하여 �
 
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

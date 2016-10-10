@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
@@ -65,7 +65,7 @@ Azure Active Directory Device Registration 서비스 조건부 액세스 정책�
 
 이 가이드에서는 Windows Server Active Directory를 구성했으며 Microsoft Azure Active Directory를 구독한다고 가정합니다. 위의 필수 조건을 참조하세요.
 
-Azure Active Directory Device Registration 서비스 및 Azure Active Directory 테넌트를 배포하려면 다음 검사 목록의 작업을 순서대로 완료합니다. 참조 링크가 개념 항목으로 이동하는 경우 개념 항목을 검토한 후 이 검사 목록으로 돌아와서 이 검사 목록의 나머지 작업을 계속할 수 있습니다. 일부 작업에는 단계가 성공적으로 완료되었는지 확인하는 데 도움이 되는 시나리오 유효성 검사 단계가 포함됩니다.
+Azure Active Directory Device Registration 서비스 및 Azure Active Directory 테넌트를 배포하려면 다음 검사 목록의 작업을 순서대로 완료합니다. 참조 링크를 통해 개념 항목으로 이동하는 경우 개념 항목을 검토한 후 이 검사 목록으로 돌아와서 이 검사 목록의 나머지 태스크를 계속할 수 있습니다. 일부 작업에는 단계가 성공적으로 완료되었는지 확인하는 데 도움이 되는 시나리오 유효성 검사 단계가 포함됩니다.
 
 ## 1부: Azure Active Directory Device Registration을 사용하도록 설정
 
@@ -122,7 +122,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
   
   > [AZURE.NOTE] 
-  > 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
+  아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
@@ -194,7 +194,7 @@ Windows 7 도메인 가입 장치를 등록하려면 장치 등록 소프트웨�
 
 ### Azure Active Directory Device Registration을 사용하여 Android 장치 연결
 
-[Android용 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) 항목에는 Android 장치에 Azure Authenticator 앱을 설치하고 회사 계정을 추가하는 방법에 대한 지침이 있습니다. Android 장치에 회사 계정이 성공적으로 생성되면 해당 장치가 작업 공간 연결을 통해 조직에 연결됩니다.
+[Android용 Azure Authenticator 항목](active-directory-conditional-access-azure-authenticator-app.md)에는 Android 장치에 Azure Authenticator 앱을 설치하고 회사 계정을 추가하는 방법에 대한 지침이 있습니다. Android 장치에 회사 계정이 성공적으로 생성되면 해당 장치가 작업 공간 연결을 통해 조직에 연결됩니다.
 
 ## 등록된 장치가 Active Directory에 쓰기 저장되는지 확인
 LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 쓰기 저장되었는지 보고 확인할 수 있습니다. 둘 다 Active Directory 관리자 도구에서 사용할 수 있습니다.
@@ -252,4 +252,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

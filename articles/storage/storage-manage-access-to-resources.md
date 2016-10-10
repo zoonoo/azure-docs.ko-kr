@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="컨테이너 및 Blob에 대한 익명의 읽기 액세스 권한 관리 | Microsoft Azure" 
-	description="컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="컨테이너 및 Blob에 대한 익명의 읽기 액세스 권한 관리 | Microsoft Azure"
+	description="컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/27/2016"
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # 컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -47,11 +47,11 @@
 [Azure 포털](https://portal.azure.com)에서 컨테이너 권한을 설정하려면 다음 단계를 수행하세요.
 
 1. 저장소 계정에 대한 대시보드로 이동합니다.
-2. 목록에서 컨테이너 이름을 선택합니다. 이름 열의 오른쪽을 클릭하여 컨테이너 이름을 선택해야 합니다. 이름을 클릭하면 컨테이너로 드릴다운하여 해당 Blob을 표시합니다.
-3. 도구 모음에서 **편집**을 선택합니다.
-4. **컨테이너 메타데이터 편집** 대화 상자에서 아래 스크린샷에 표시된 것처럼 **액세스** 필드에서 원하는 권한 수준을 선택합니다.
+2. 목록에서 컨테이너 이름을 선택합니다. 이름을 클릭하면 선택한 컨테이너의 blob가 표시됩니다.
+3. 도구 모음에서 **액세스 정책**을 선택합니다.
+4. 아래 스크린샷과 같이 **액세스 유형** 필드에서 원하는 권한 수준을 선택합니다.
 
-	![컨테이너 메타데이터 편집 대화 상자](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![컨테이너 메타데이터 편집 대화 상자](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### .NET을 사용하여 프로그래밍 방식으로 컨테이너 권한 설정
 
@@ -155,4 +155,4 @@
 - [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

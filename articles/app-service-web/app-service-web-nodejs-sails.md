@@ -13,31 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="09/23/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에 Sails.js 웹앱을 배포합니다.
 
 이 자습서에서는 Azure 앱 서비스에 Sails.js 앱을 배포하는 방법을 보여 줍니다. 프로세스를 통해 앱 서비스에서 실행할 Node.js 앱 구성 방법에 대한 일반적인 지식을 얻을 수 있습니다.
 
+Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반적으로 Sail.js의 실행과 관련된 문제를 해결하는 데 적합하지 않습니다.
+
+
 ## 필수 조건
 
-- [Node.js](https://nodejs.org/).
-- [Sails.js](http://sailsjs.org/get-started).
-- Sails.js 작업 지식. 이 자습서는 일반적으로 Sail.js의 실행과 관련된 문제를 해결하는 데 적합하지 않습니다.
+- [Node.JS](https://nodejs.org/)
+- [Sails.js](http://sailsjs.org/get-started)
 - [Git](http://www.git-scm.com/downloads)
-- [Azure CLI](../xplat-cli-install.md).
+- [Azure CLI](../xplat-cli-install.md)
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 동작 중인 Azure 앱 서비스를 확인하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 
-## 1단계: 개발 환경에서 Sails.js 앱 만들기
+## 1단계: 로컬로 Sails.js 앱 만들기
 
-먼저 다음 단계를 수행하여 기본 Sails.js 앱을 신속하게 만듭니다.
+먼저 다음 단계를 수행하여 개발 환경에서 기본 Sails.js 앱을 신속하게 만듭니다.
 
 1. 선택한 명령줄 터미널을 열고 작업 디렉터리로 `CD`합니다.
 
-2. 새 Sails.js 앱을 만들고 실행합니다.
+2. Sails.js 앱을 만들고 실행합니다.
 
         sails new <appname>
         cd <appname>
@@ -45,9 +47,9 @@
 
     기본 홈 페이지(http://localhost:1377)로 이동할 수 있는지 확인합니다.
 
-## 2단계: Azure에서 앱 서비스 앱 리소스 만들기
+## 2단계: Azure 앱 리소스 만들기
 
-그런 다음 앱 서비스 앱 리소스를 만듭니다. 나중에 Sails.js 앱을 이 리소스에 배포합니다.
+다음으로 Azure에서 App Service 리소스를 만듭니다. 나중에 Sails.js 앱을 이 리소스에 배포합니다.
 
 1. 다음과 같이 Azure에 로그인합니다.
 1. 동일한 터미널에서 ASM 모드로 변경하고 Azure에 로그인합니다.
@@ -115,6 +117,12 @@
             "sails-sqlserver": "<leave-as-is>"
         },
 
+3. package.json에서 다음 `engines` 속성을 추가하여 Node.js를 원하는 버전으로 설정합니다.
+
+        "engines": {
+            "node": "6.6.0"
+        },
+
 6. 변경 내용을 저장하고 변경 내용을 테스트하여 로컬에서 계속 앱이 실행되는지 확인합니다. 이 작업을 수행하려면 `node_modules` 폴더를 삭제하고 다음을 실행합니다.
 
         npm install
@@ -141,7 +149,7 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.3             |\
+    v0.12.4             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -151,39 +159,39 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
     ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
+    To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
 [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) 파일에서 stdout 로그의 세분화 수준을 제어할 수 있습니다.
 
 ## Azure의 데이터베이스에 연결
 
-Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility)를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다.
+Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility)를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure의 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다.
 
-1. 새 SQL Server에 빈 Azure SQL Database를 만들려면 [여기](../sql-database/sql-database-get-started.md)의 자습서를 따릅니다. 기본 방화벽 설정으로 Azure 서비스(예: 앱 서비스)가 이 데이터베이스에 연결할 수 있습니다.
+1. Azure에서 MySQL 데이터베이스를 만들려면 [여기](../store-php-create-mysql-database.md) 자습서를 따라 하세요
 
-2. 명령줄 터미널에서 SQL Server 어댑터를 설치합니다.
+2. 명령줄 터미널에서 MySQL 어댑터를 설치합니다.
 
-        npm install sails-sqlserver --save
+        npm install sails-mysql --save
 
 3. config/connections.js를 열고 목록에 다음 연결 개체를 추가합니다.
 
-        sqlserver: {
-            adapter: 'sails-sqlserver',
+        mySql: {
+            adapter: 'sails-mysql',
             user: process.env.dbuser,
             password: process.env.dbpassword,
-            host: process.env.sqlserver, 
+            host: process.env.dbhost, 
             database: process.env.dbname,
             options: {
-                encrypt: true   // use this for Azure databases
+                encrypt: true
             }
         },
 
-4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다.
+4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다. 필요한 모든 연결 정보는 Azure Portal에 있습니다([MySQL 데이터베이스에 연결](../store-php-create-mysql-database.md#connect) 참조).
 
-        azure site appsetting add dbuser="<database server administrator>"
-        azure site appsetting add dbpassword="<database server password>"
-        azure site appsetting add sqlserver="<database server name>.database.windows.net"
+        azure site appsetting add dbuser="<database user>"
+        azure site appsetting add dbpassword="<database password>"
+        azure site appsetting add dbhost="<database hostname>"
         azure site appsetting add dbname="<database name>"
         
     Azure 앱 설정에 설정 내용을 적용하면 중요한 데이터의 소스를 제어할 수 없게 됩니다(Git). 다음으로, 동일한 연결 정보를 사용하도록 개발 환경을 구성합니다.
@@ -191,31 +199,31 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 4. config/local.js를 열고 다음 연결 개체를 추가합니다.
 
         connections: {
-            sqlserver: {
-                user: "<database server administrator>",
-                password: "<database server password>",
-                host: "<database server name>.database.windows.net", 
+            mySql: {
+                user: "<database user>",
+                password: "<database password>",
+                host: "<database hostname>", 
                 database: "<database name>",
             },
         },
     
-    이 구성은 config/connections.js 파일에서 로컬 환경에 대한 설정을 재정의합니다. 이 파일은 프로젝트에서 기본 .gitignore에 의해 제외되므로 Git에 저장되지 않습니다. 이제 Azure 웹앱 및 로컬 개발 환경 둘 다에서 Azure SQL 데이터베이스에 연결할 수 있습니다.
+    이 구성은 config/connections.js 파일에서 로컬 환경에 대한 설정을 재정의합니다. 이 파일은 프로젝트에서 기본 .gitignore에 의해 제외되므로 Git에 저장되지 않습니다. 이제 Azure 웹앱 및 로컬 개발 환경 둘 다에서 MySQL 데이터베이스에 연결할 수 있습니다.
 
 4. config/env/production.js를 열어 프로덕션 환경을 구성하고 다음 `models` 개체를 추가합니다.
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'safe'
         },
 
 4. config/env/development.js를 열어 개발 환경을 구성하고 다음 `models` 개체를 추가합니다.
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'alter'
         },
 
-    `migrate: 'alter'`를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 Azure SQL Database에서 데이터베이스 테이블을 쉽게 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
+    `migrate: 'alter'`를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 MySQL에 손쉽게 데이터베이스 테이블을 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
 
 4. 터미널에서 평소처럼 Sails.js [청사진 API](http://sailsjs.org/documentation/concepts/blueprints)를 [생성](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate)한 다음 `sails lift`를 실행하여 Sails.js 데이터베이스 마이그레이션을 통해 데이터베이스를 만듭니다. 예:
 
@@ -230,7 +238,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
     
     API가 만든 항목을 브라우저 창에 다시 반환합니다. 이것은 데이터베이스가 정상적으로 만들어졌다는 의미입니다.
 
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
 
 5. 이제 변경 내용을 Azure에 푸시하고, 앱으로 이동하여 계속 작동하는지 확인합니다.
 
@@ -243,11 +251,11 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
         http://<appname>.azurewebsites.net/mywidget/create
 
-    API가 다른 새 항목을 반환하는 경우 Azure 웹앱은 Azure SQL 데이터베이스에 알립니다.
+    API가 다른 새 항목을 반환하는 경우 Azure 웹앱은 MySQL 데이터베이스에 그 사실을 알립니다.
 
 ## 추가 리소스
 
 - [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
 - [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

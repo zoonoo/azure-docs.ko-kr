@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -79,4 +79,4 @@ VM이 가용성 설정의 일부가 되도록 하려는 경우 포털을 사용�
 
 [데이터 디스크](virtual-machines-windows-attach-disk-portal.md)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

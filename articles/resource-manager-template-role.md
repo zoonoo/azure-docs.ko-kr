@@ -41,22 +41,23 @@
 
 다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| 이름 | 값 |
-| ---- | ---- |
-| type | 열거형<br />필수<br />**Microsoft.Authorization/roleAssignments**<br /><br />만들려는 리소스 종류입니다. |
-| apiVersion | 열거형<br />필수<br />**2014-10-01-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />새 역할 할당에 대한 식별자입니다. |
-| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 역할 할당에 따라 달라지는 리소스 컬렉션입니다. 리소스 범위의 역할을 할당하는 경우 해당 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
-| properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />역할 정의, 서비스 주체 및 범위를 식별하는 개체입니다. |  
+| 이름 | 값 | 설명 |
+| ---- | ---- | ---- |
+| type | 열거형<br />필수<br />**Microsoft.Authorization/roleAssignments** | 만들려는 리소스 형식입니다. |
+| apiVersion | 열거형<br />필수<br />**2014-10-01-preview** | 리소스를 만들 때 사용하는 API 버전입니다. |  
+| name | 문자열<br />필수<br />**GUID(Globally Unique Identifier)** | 새 역할 할당에 대한 식별자입니다. |
+| dependsOn | 배열<br />선택<br />리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. | 이 역할 할당이 종속된 리소스의 컬렉션입니다. 리소스 범위의 역할을 할당하는 경우 해당 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
+| properties | 개체<br />필수<br />[properties 개체](#properties) | 역할 정의, 서비스 주체 및 범위를 식별하는 개체입니다. |  
 
 <a id="properties" />
-### properties 개체
 
-| 이름 | 값 |
-| ------- | ---- |
-| roleDefinitionId | 문자열<br />필수<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />역할 할당에서 사용할 기존 역할 정의의 식별자입니다. |
-| principalId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />기존 서비스 주체의 식별자입니다. 이 식별자는 디렉터리 내의 ID에 매핑되며 사용자, 서비스 주체 또는 보안 그룹을 가리킬 수 있습니다. |
-| scope | 문자열<br />필수<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (리소스 그룹의 경우) or<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (리소스의 경우)<br /><br />이 역할 할당이 적용되는 범위입니다. |
+### Properties 개체
+
+| 이름 | 값1 | 설명 |
+| ---- | ---- | ---- |
+| roleDefinitionId | String <br />필수 <br /><br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** | 역할 할당에서 사용할 기존 역할 정의의 식별자입니다. |
+| principalId | String<br />필수 <br /><br /> **GUID(Globally Unique Identifier)** | 기존 서비스 주체의 식별자입니다. 이 식별자는 디렉터리 내의 ID에 매핑되며 사용자, 서비스 주체 또는 보안 그룹을 가리킬 수 있습니다. |
+| scope | String<br />필수 <br /><br /> **/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (리소스 그룹용)<br /> 또는<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (리소스용) | 이 역할 할당이 적용되는 범위입니다. |
 
 
 ## 역할 할당 리소스를 사용하는 방법
@@ -133,4 +134,4 @@
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0928_2016-->

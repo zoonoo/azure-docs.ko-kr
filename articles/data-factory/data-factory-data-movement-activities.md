@@ -4,7 +4,7 @@
 	keywords="데이터 복사, 데이터 이동, 데이터 마이그레이션, 데이터 전송"
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="spelluru"/>
+	ms.date="09/22/2016"
+	ms.author="jingwang"/>
 
 # 복사 활동을 사용하여 데이터 이동
 
@@ -54,23 +54,14 @@ Azure Data Factory에서는 복사 활동을 사용해 여러 온-프레미스 �
 데이터 관리 게이트웨이를 사용하여 Azure IaaS VM(Virtual Machines)에서 호스트되는 지원되는 데이터 저장소 간에 데이터를 이동할 수도 있습니다. 이 경우 데이터 관리 게이트웨이는 데이터 저장소 자체와 같은 VM에 설치할 수도 있고, 데이터 저장소에 액세스할 수 있는 별도의 VM에 설치할 수도 있습니다.
 
 ## 지원되는 데이터 저장소 및 형식
-복사 활동에서는 소스 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 다음과 같은 데이터 저장소를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
-
-Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원
-:------- | :--------- | :------------------ | :-----------------
-Azure | [Azure Blob 저장소](data-factory-azure-blob-connector.md) <br/> [Azure Data Lake Store](data-factory-azure-datalake-connector.md) <br/> [Azure SQL Database](data-factory-azure-sql-connector.md) <br/> [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) <br/> [Azure 테이블 저장소](data-factory-azure-table-connector.md) <br/> [Azure DocumentDB](data-factory-azure-documentdb-connector.md) <br/> | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓
-데이터베이스 | [SQL Server](data-factory-sqlserver-connector.md)* <br/> [Oracle](data-factory-onprem-oracle-connector.md)* <br/> [MySQL](data-factory-onprem-mysql-connector.md)* <br/> [DB2](data-factory-onprem-db2-connector.md)* <br/> [Teradata](data-factory-onprem-teradata-connector.md)* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)* <br/> [Sybase](data-factory-onprem-sybase-connector.md)* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)* <br/>[MongoDB](data-factory-on-premises-mongodb-connector.md)*<br/>[Amazon Redshift](data-factory-amazon-redshift-connector.md) | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;<br/> &nbsp; <br/>&nbsp;
-파일 | [파일 시스템](data-factory-onprem-file-system-connector.md)* <br/> [HDFS](data-factory-hdfs-connector.md)* <br/> [Amazon S3](data-factory-amazon-simple-storage-service-connector.md) | ✓ <br/> ✓ <br/> ✓ | ✓ <br/> &nbsp;<br/>&nbsp;
-기타 | [Salesforce](data-factory-salesforce-connector.md)<br/> [일반 ODBC](data-factory-odbc-connector.md)* <br/> [일반 OData](data-factory-odata-connector.md) <br/> [웹 테이블(HTML의 테이블)](data-factory-web-table-connector.md) <br/> [GE Historian](data-factory-odbc-connector.md#ge-historian-store)* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
-
-> [AZURE.NOTE] *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 복사 활동에서 지원되지 않는 데이터 저장소에서/데이터 저장소로 데이터를 이동해야 하는 경우 데이터 복사/이동을 위한 자체 논리가 포함된 **사용자 지정 활동**을 Data Factory에서 사용합니다. 사용자 지정 활동을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 활동 사용](data-factory-use-custom-activities.md)을 참조하세요.
 
 ### 지원 파일 형식
 복사 활동을 사용하면 Azure Blob, 파일 시스템, HDFS 등의 두 파일 기반 데이터 저장소 간에 파일을 있는 그대로 복사할 수 있습니다. 이와 같이 복사하려는 경우 입력 및 출력 데이터 집합 정의에서 모두 [format 섹션](data-factory-create-datasets.md)을 건너뛰면 됩니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
-복사 작업은 또한 텍스트, Avro, ORC 및 JSON 등 지정된 형식의 파일을 읽고 씁니다. 예를 들어 다음 복사 활동을 수행할 수 있습니다.
+복사 작업은 또한 텍스트, Avro, ORC, Parquet 및 JSON 등 지정된 형식의 파일을 읽고 씁니다. 예를 들어 다음 복사 활동을 수행할 수 있습니다.
 
 -	Azure Blob에서 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
 -	온-프레미스 파일 시스템에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식으로 Azure Blob에 씁니다.
@@ -185,11 +176,11 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-데이터 저장소용 .NET 형식과 네이티브 형식 시스템 간의 매핑은 각 데이터 저장소 문서에 있습니다. 이러한 매핑을 확인하려면 [지원되는 데이터 저장소](#supported-data-stores) 테이블에서 해당 링크를 클릭하세요. 복사 활동에서 적절한 변환을 수행하도록 이러한 매핑을 사용하여 테이블을 만드는 동안 적절한 형식을 결정할 수 있습니다.
+네이티브 형식 시스템에서 데이터 저장소용 .NET 형식으로의 매핑은 각 데이터 저장소 문서에 있습니다. 이러한 매핑을 확인하려면 [지원되는 데이터 저장소](#supported-data-stores) 테이블에서 해당 링크를 클릭하세요. 복사 활동에서 적절한 변환을 수행하도록 이러한 매핑을 사용하여 테이블을 만드는 동안 적절한 형식을 결정할 수 있습니다.
 
 
 ## 다음 단계
 - 복사 작업에 대해 자세히 알아보려면 [Azure Blob 저장소에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 - 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,21 +1,21 @@
 <properties
-   pageTitle="Windows VM(가상 컴퓨터)에서 SAP 사용 | Microsoft Azure"
-   description="Microsoft Azure의 Windows VM(가상 컴퓨터)에서 SAP를 사용하는 방법을 알아봅니다."
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
-   authors="MSSedusch"
-   manager="juergent"
+   pageTitle="SAP 솔루션 시작 | Microsoft Azure"
+   description="Microsoft Azure의 VM(가상 컴퓨터)에서 실행되는 SAP 솔루션에 대한 자세한 정보"
+   services="virtual-machines-windows"
+   documentationCenter=""
+   authors="RicksterCDN"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="sedusch"/>
+   ms.workload="infrastructure-services"
+   ms.date="09/23/2016"
+   ms.author="rclaus"/>
 
 # Windows VM(가상 컴퓨터)에서 SAP 사용
 
@@ -299,12 +299,67 @@
 [xplat-cli]: ../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]: ../xplat-cli-azure-resource-manager.md
 
-클라우드 컴퓨팅은 중소 기업에서 대기업 및 다국적 기업까지 IT 업계 내에서 점점 더 중요해지는 널리 사용되는 용어입니다. Microsoft Azure는 다양한 새로운 가능성을 제공하는 Microsoft의 클라우드 서비스 플랫폼입니다. 이제 고객은 클라우드 서비스로 응용 프로그램을 신속하게 프로비전 및 프로비전 해제할 수 있으므로 기술 또는 예산 제한에 제한되지 않습니다. 하드웨어 인프라에 시간과 예산을 투자하는 대신 기업은 고객 및 사용자를 위한 응용 프로그램, 비즈니스 프로세스 및 그 이점에 집중할 수 있습니다.
+SAP 준비 클라우드 파트너로 Microsoft Azure를 선택하여 중요 업무용 SAP 워크로드를 확장 가능하고 규정을 준수하는 엔터프라이즈 입증 플랫폼에서 안정적으로 실행할 수 있습니다. Azure의 확장성, 유연성 및 비용 절감 효과를 활용하세요. Microsoft와 SAP 사이의 확장된 파트너 관계 덕분에 Azure에서 개발/테스트 및 프로덕션 시나리오 전체에서 SAP 응용 프로그램을 실행할 수 있으며 완전한 지원을 받을 수 있습니다. SAP NetWeaver에서 SAP S4/HANA로, Linux에서 Windows로, SAP HANA에서 SQL로, 모두 가능합니다.
 
-Microsoft Azure 가상 컴퓨터 서비스와 함께 Microsoft는 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. SAP NetWeaver 기반 응용 프로그램은 Azure 가상 컴퓨터(IaaS)에서 지원됩니다. 아래 백서는 선택한 플랫폼으로 Microsoft Azure 내에서 SAP NetWeaver 기반 응용 프로그램을 계획하고 구현하는 방법에 대해 설명합니다.
+Microsoft Azure 가상 컴퓨터 서비스 및 Azure 큰 인스턴스의 SAP HANA와 함께 Microsoft는 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. Azure에서는 다양한 SAP 솔루션이 지원되므로 이 "시작 문서"는 최신 SAP 문서 모음에 대한 목차 역할을 합니다. 더 많은 제목이 문서 라이브러리에 추가되면 여기에서 확인할 수 있습니다.
+
+## Microsoft Azure의 SAP HANA 인증
+
+
+SAP 제품 | 지원되는 OS | Azure 제품 
+---------- | ------------ | ------------- 
+SAP HANA Developer Edition(SQLODBC, ODBO(Windows 전용), ODBC, JDBC 드라이버로 구성된 HANA Client 소프트웨어, HANA Studio, HANA Database 포함) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8
+MHANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14\_v2(일반 공급 시)
+SAP S/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5의 제어되는 가용성, Azure(큰 인스턴스)에서 SAP HANA 사용
+Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | Azure(큰 인스턴스)에서 SAP HANA 사용
+HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | 단일 노드 배포의 GS5, Azure(큰 인스턴스)에서 SAP HANA 사용
+SAP BW/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | 단일 노드 배포의 GS5, Azure(큰 인스턴스)에서 SAP HANA 사용
+
+
+## SAP NetWeaver 인증
+
+Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft와 SAP의 전폭적인 지원을 받고 있습니다.
+
+SAP 제품 | 게스트 OS | RDBMS | 가상 컴퓨터 유형 
+---------- | ------------ | ------------- | ------------- 
+SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5~A11, D11~D14, DS11~DS14, GS1~GS5 
+SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5~A11, D11~D14, DS11~DS14, GS1~GS5 
+SAP BusinessObjects BI | Windows | 해당 없음 | A5~A11, D11~D14, DS11~DS14, GS1~GS5 
+SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5~A11, D11~D14, DS11~DS14, GS1~GS5 
+
+
 
 [AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
+## Azure에서 SAP HANA 시작
+
+제목: Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드
+
+요약: 이 빠른 시작 가이드를 사용하면 SAP NetWeaver 7.5 및 SAP HANA SP12를 수동으로 설치하여 Azure VM에서 단일 인스턴스 SAP HANA 프로토타입/데모 시스템을 설정할 수 있습니다. 이 가이드는 독자가 JSON 템플릿 사용 옵션을 포함하여 Azure Portal 또는 Powershell/CLI를 통한 가상 컴퓨터나 가상 네트워크 배포 방법과 같은 Azure IaaS 기본 사항에 대해 잘 알고 있다는 것을 전제로 합니다. 또한 독자가 SAP HANA, SAP NetWeaver 및 온-프레미스 설치 방법에 익숙하고
+
+업데이트 날짜: 2016년 9월
+
+[이 가이드는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-hana-get-started.md)
+
+## Azure의 SUSE Linux NetWeaver에 대한 빠른 시작 가이드
+
+제목: Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
+
+요약: 이 문서에서는 Microsoft Azure SUSE Linux VM(가상 컴퓨터)에서 SAP NetWeaver를 실행할 때 고려해야 할 다양한 항목을 설명합니다. 2016년 5월 19일을 기준으로 SAP NetWeaver는 Azure의 SUSE Linux VM에서 공식적으로 지원됩니다. Linux 버전, SAP 커널 버전 등과 관련된 모든 세부 정보는 SAP 정보 1928533, "Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형"에서 찾을 수 있습니다.
+
+업데이트 날짜: 2016년 9월
+
+[이 가이드는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-on-suse-quickstart.md)
+
+## Microsoft Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
+
+제목: Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드
+
+요약: 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES를 배포하는 방법을 설명합니다.
+
+업데이트 날짜: 2016년 9월
+
+[이 가이드는 여기서 확인할 수 있습니다.](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ##  <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>계획 및 구현
 
 제목: Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 계획 및 구현 가이드
@@ -344,4 +399,4 @@ Microsoft Azure 가상 컴퓨터 서비스와 함께 Microsoft는 포괄적인 I
 
 [이 가이드는 여기서 확인할 수 있습니다.][ha-guide]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

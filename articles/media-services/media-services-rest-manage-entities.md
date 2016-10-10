@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="REST API를 사용하여 미디어 서비스 엔터티 관리" 
+	pageTitle="REST API를 사용하여 Media Services 엔터티 관리 | Microsoft Azure" 
 	description="REST API를 사용하여 미디어 서비스 엔터티를 관리하는 방법을 알아봅니다." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #REST API를 사용하여 미디어 서비스 엔터티 관리
@@ -175,4 +175,4 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

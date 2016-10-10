@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="ryancraw"/>
 
 # Azure Functions를 사용하여 Azure Redis Cache에 Azure 스트림 분석의 데이터를 저장하는 방법
@@ -211,8 +211,8 @@ Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](ht
 
 
 [fraud-detection]: stream-analytics-real-time-fraud-detection.md
-[servicebus-getstarted]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

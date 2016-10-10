@@ -33,6 +33,8 @@
 	- **트리거 기록**에는 이 논리 앱에 대한 모든 트리거 작업이 나열됩니다. 트리거 작업은 새 데이터 확인에 대해 "건너뜀"일 수 있으며(예: 새 파일이 FTP에 추가되었는지 확인) "성공"은 논리 앱을 실행하기 위해 데이터가 반환되었음을 의미하고 "실패"는 구성에 오류가 있는 것입니다.
 - **진단**을 통해 런타임 세부 정보 및 이벤트를 보고 [Azure Alerts](#adding-azure-alerts)를 구독할 수 있습니다.
 
+>[AZURE.NOTE] 모든 런타임 세부 정보 및 이벤트는 논리 앱 서비스 내에서 휴지 상태로 암호화됩니다. 사용자의 보기 요청이 있을 때에만 해독됩니다. 이러한 이벤트에 대한 액세스는 Azure RBAC(역할 기반 Access Control)를 통해서도 제어할 수 있습니다.
+
 ### 실행 세부 정보 보기
 
 이 실행 목록은 특정 실행의 **상태**, **시작 시간** 및 **기간**을 보여 줍니다. 행을 선택하면 해당 실행의 세부 정보가 표시됩니다.
@@ -131,11 +133,11 @@ Azure 포털 및 REST API에서 제공하는 위의 세부 정보 외에도 Azur
 
 ### 솔루션 확장
 
-이벤트 허브 또는 저장소에서 이 원격 분석을 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 및 [Power BI](https://powerbi.com)와 같은 다른 서비스에 활용하여 통합 워크플로의 실시간 모니터링이 가능합니다.
+Event Hub 또는 저장소에서 이 원격 분석을 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 및 [Power BI](https://powerbi.com)와 같은 다른 서비스에 활용하여 통합 워크플로의 실시간 모니터링이 가능합니다.
 
 ## 다음 단계
 - [논리 앱에 대한 일반적인 예제 및 시나리오](app-service-logic-examples-and-scenarios.md)
 - [논리 앱 배포 템플릿 만들기](app-service-logic-create-deploy-template.md)
 - [엔터프라이즈 통합 기능](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Azure Data Factory를 사용하여 온-프레미스 웹 페이지의 테이블로 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 이 문서에서는 Azure Data Factory에서 복사 작업을 사용하여 웹 페이지의 테이블에서 다른 데이터 저장소로 데이터를 복사하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
@@ -28,7 +28,7 @@
 아래 샘플은 다음을 보여줍니다.
 
 1.	[웹](#web-linked-service-properties) 형식의 연결된 서비스입니다.
-2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
 3.	[WebTable](#WebTable-dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4.	[WebSource](#websource-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
@@ -65,7 +65,7 @@
 	  }
 	}
 
-**WebTable 입력 데이터 집합** **external**을 **true**로 설정하고 **externalData** 정책(선택 사항)을 지정함으로써 Data Factory 서비스가 테이블이 Data Factory의 외부에 있으며 Data Factory의 작업에 의해 생성되지 않는다는 점을 알려줍니다.
+**WebTable 입력 데이터 집합** **external**을 **true**로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
 > [AZURE.NOTE] HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요.
 
@@ -245,11 +245,11 @@ index | 리소스에 있는 테이블의 인덱스입니다. HTML 페이지에�
 
 ## WebSource - 복사 작업 형식 속성
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-**WebSource** 형식의 원본에 대해 복사 작업을 수행하는 경우 추가 속성이 지원되지 않습니다.
+현재 복사 작업의 원본이 **WebSource** 형식인 경우 추가 속성이 지원되지 않습니다.
 
 ## HTML 페이지에서 테이블의 인덱스 가져오기
 
@@ -287,4 +287,4 @@ Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

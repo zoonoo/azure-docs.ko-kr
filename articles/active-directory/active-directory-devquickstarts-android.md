@@ -32,6 +32,8 @@
 
 시작하려면 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] 몇 분 안에 Azure Active Directory를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/Android)의 미리 보기를 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
+
 ## 1단계: Node.js REST API TODO 샘플 서버 다운로드 및 실행
 
 이 샘플은 Microsoft Azure Active Directory용 단일 테넌트 To-Do REST API를 빌드하기 위한 기존 샘플에서도 작동하도록 특수하게 작성되었습니다. 다음은 빠른 시작을 위한 필수 구성 요소입니다.
@@ -270,8 +272,7 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker**: 
-  Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. ADAL은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
+11. **Broker**: Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. ADAL은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,14 +284,14 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
-```
-계정이 유효하면 Broker 사용자가 반환됩니다.
+ ```
+ 계정이 유효하면 Broker 사용자가 반환됩니다.
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 이 연습 과정을 수행하여 Azure Active Directory에 성공적으로 통합하는 데 필요한 기술과 지식을 얻을 수 있습니다. 이 작업의 추가 예제를 보려면 GitHub의 AzureADSamples/ 리포지토리를 방문하세요.
@@ -364,7 +365,7 @@ ADAL은 프롬프트 동작을 지정하기 위한 옵션을 제공합니다. �
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
-```
+ ```
 아래와 같이 사용자 지정 로그 파일에 메시지를 쓸 수 있습니다. 그러나 장치에서 로그를 얻는 표준 방법은 없습니다. 이 작업에 도움이 되는 몇 가지 서비스가 있습니다. 또한 서버에 파일을 보내는 것과 같은 자체 방법을 개발할 수도 있습니다.
 
 ```Java
@@ -395,8 +396,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
-```
-adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 네트워크 추적
 
@@ -457,4 +458,4 @@ Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

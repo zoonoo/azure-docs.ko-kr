@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="jahogg;robinsh"/>
 
 # Microsoft Azure 저장소 성능 및 확장성 검사 목록
 
@@ -404,4 +404,4 @@ Nagle 알고리즘에 대해 설명하는 테이블 구성 섹션을 참조하�
 ##결론
 이 문서에서는 Azure 저장소 사용 시 성능을 최적화하기 위한 가장 일반적인 검증된 작업 방식 중 일부에 대해 설명했습니다. 모든 응용 프로그램 개발자는 Azure 저장소를 사용하는 응용 프로그램의 성능을 높일 수 있도록 위에서 설명한 각 작업 방식을 기준으로 응용 프로그램을 평가한 다음 권장 사항을 적용하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->
