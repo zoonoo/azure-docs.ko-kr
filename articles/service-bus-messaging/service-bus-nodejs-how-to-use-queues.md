@@ -26,7 +26,7 @@
 
 ## Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][] 또는 [Node.js 클라우드 서비스][](Windows PowerShell 사용)를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][] 또는 [Node.js 클라우드 서비스][]\(Windows PowerShell 사용)를 참조하세요.
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 

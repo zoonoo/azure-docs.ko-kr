@@ -123,7 +123,7 @@ FairPlay 암호화를 사용하려면 FairPlay 구성 옵션을 통해 응용 �
 
 DRM 탭을 선택하면 콘텐츠 보호 정책(현재 구성되어 있어야 함) + 스트리밍 프로토콜 집합의 다른 선택 항목이 표시됩니다.
 
-- **MPEG-DASH를 사용하는 PlayReady 및 Widevine ** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다.
+- **MPEG-DASH를 사용하는 PlayReady 및 Widevine** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다.
 - **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 또한 FairPlay의 HLS 스트림도 암호화합니다.
 - **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
 - **MPEG-DASH만 사용하는 Widevine** - Widevine DRM의 MPEG-DASH를 동적으로 암호화합니다.

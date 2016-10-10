@@ -145,7 +145,7 @@ pushHandler.on('error', function (error) {
 [Azure 포털]: https://portal.azure.com
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[앱에 인증 추가]: app-service-mobile-cordova-get-started-users.md
 
 [Azure 모바일 앱용 Apache Cordova 플러그 인]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [첫 번째 Apache Cordova 앱]: http://cordova.apache.org/#getstarted
@@ -153,6 +153,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
+[쿼리 개체 설명서]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
 
 <!---HONumber=AcomDC_0928_2016-->

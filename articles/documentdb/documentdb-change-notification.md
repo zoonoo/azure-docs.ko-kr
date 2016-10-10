@@ -1125,8 +1125,7 @@ GetUtcDate\_HoursBack | 검색 시작 날짜에 대한 시간을 설정하는 �
 sendgridUsername | 검색 시작 날짜에 대한 시간을 설정하는 데 사용
 sendgridPassword | SendGrid 전자 메일에 대한 사용자 이름
 EmailTo | 전자 메일 알림을 받을 전자 메일 주소
-제목  
- | 전자 메일 제목
+제목 | 전자 메일 제목
 
 ## Azure Blob 서비스에서 환자 데이터 보기
 

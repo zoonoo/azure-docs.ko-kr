@@ -20,7 +20,7 @@
 # Azure AD(Active Directory) v2.0 및 인증 라이브러리
 Azure AD v2.0 끝점은 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. Microsoft 및 타사에서 다양한 라이브러리를 v2.0 끝점과 함께 사용할 수 있습니다.
 
-v2.0 끝점을 사용하는 응용 프로그램을 빌드하는 경우 [Microsoft에서 수행한 방법론과 같이][Microsoft-SDL] SDL(보안 개발 수명 주기) 방법론을 수행하는 프로토콜 도메인 전문가에 의해 작성된 라이브러리를 사용하는 것이 좋습니다. 프로토콜에 대한 직접 코딩 지원을 하려는 경우 SDL을 따르고 각 프로토콜에 대한 표준 사양에서 찾은 보안 고려 사항을 신중하게 관찰하는 것이 좋습니다.
+v2.0 끝점을 사용하는 응용 프로그램을 빌드하는 경우 [Microsoft에서 수행한 방법론과 같이]\[Microsoft-SDL] SDL(보안 개발 수명 주기) 방법론을 수행하는 프로토콜 도메인 전문가에 의해 작성된 라이브러리를 사용하는 것이 좋습니다. 프로토콜에 대한 직접 코딩 지원을 하려는 경우 SDL을 따르고 각 프로토콜에 대한 표준 사양에서 찾은 보안 고려 사항을 신중하게 관찰하는 것이 좋습니다.
 
 ## 라이브러리 유형
 V 2.0을 사용하는 라이브러리는 다음과 같이 두 종류가 있습니다.
@@ -107,7 +107,7 @@ v2.0 Azure AD 끝점에 대한 자세한 내용은 [Azure AD 앱 모델 v2 개�
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]: /
@@ -119,6 +119,6 @@ v2.0 Azure AD 끝점에 대한 자세한 내용은 [Azure AD 앱 모델 v2 개�
 [ServerLib-NetCore-Owin-Oauth-Sample]: /
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/
 
 <!---HONumber=AcomDC_0928_2016-->

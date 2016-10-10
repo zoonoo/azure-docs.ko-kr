@@ -45,7 +45,9 @@ Azure Resource Manager 템플릿을 개발할 때의 목표는 Azure 인프라�
 
 이 단추를 사용하여 Music Store 응용 프로그램을 배포할 수 있습니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 Azure Resource Manager 템플릿에는 다음 매개 변수 값을 지정해야 합니다.
 
@@ -71,4 +73,4 @@ Azure Resource Manager 템플릿에는 다음 매개 변수 값을 지정해야 
 
 [4단계 - Azure Resource Manager 템플릿을 사용한 응용 프로그램 배포](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_0928_2016--->

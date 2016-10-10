@@ -156,7 +156,25 @@ if ($message->properties != null)
 
 | .NET 속성 형식 | PHP 속성 형식 | 참고 사항 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Proton-PHP class | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Proton에서 Decimal은 현재 지원되지 않습니다. | | bool | boolean | - | | Guid | UUID | Proton-PHP class | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
+| byte | integer | - | 
+| sbyte | integer | - | 
+| char | Char | Proton-PHP class | 
+| short | integer | - | 
+| ushort | integer | - | 
+| int | integer | - | 
+| uint | Integer | - | 
+| long | integer | - | 
+| ulong | integer | - | 
+| float | double | - | 
+| double | double | - | 
+| decimal | string | Proton에서 Decimal은 현재 지원되지 않습니다. | 
+| bool | boolean | - | 
+| Guid | UUID | Proton-PHP class | 
+| string | string | - | 
+| DateTime | integer | - | 
+| DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | 
+| TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | 
+| Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### 표준 속성
 
@@ -167,13 +185,38 @@ if ($message->properties != null)
 | 지속성 | 해당 없음 | 서비스 버스는 지속적 메시지만 지원합니다. |
 | 우선 순위 | 해당 없음 | 서비스 버스는 단일 메시지 우선 순위만 지원합니다. |
 | Ttl | Message.TimeToLive | 변환, Proton-PHP TTL이 밀리초 단위로 정의됩니다. |
-| first\_acquirer | - | - | | delivery\_count | - | - | | Id | Message.Id | - | | user\_id | - | - | | Address | Message.To | - | | Subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationId | - | | content\_type | Message.ContentType | - | | content\_encoding | n/a | - | | expiry\_time | Message.ExpiresAtUTC | - | | creation\_time | n/a | - | | group\_id | Message.SessionId | - | | group\_sequence | - | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | Format | n/a | -
+| first\_acquirer | - | - | 
+| delivery\_count | - | - | 
+| Id | Message.Id | - | 
+| user\_id | - | - | 
+| Address | Message.To | - | 
+| Subject | Message.Label | - | 
+| reply\_to | Message.ReplyTo | - | 
+| correlation\_id | Message.CorrelationId | - | 
+| content\_type | Message.ContentType | - | 
+| content\_encoding | n/a | - | 
+| expiry\_time | Message.ExpiresAtUTC | - | 
+| creation\_time | n/a | - | 
+| group\_id | Message.SessionId | - | 
+| group\_sequence | - | - | 
+| reply\_to\_group\_id | Message.ReplyToSessionId | - | 
+| Format | n/a | -
 
 #### 서비스 버스 .NET API에서 Proton-PHP
 
 | 서비스 버스 .NET | Proton-PHP | 참고 |
 |-------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | 변환, Proton-PHP TTL은 밀리초 단위로 정의됩니다. | | To | Message->address | - |
+| ContentType | Message->content\_type | - | 
+| CorrelationId | Message->correlation\_id | - | 
+| EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | 
+| Label | Message->subject | - | 
+| MessageId | Message->id | - | 
+| ReplyTo | Message->reply\_to | - | 
+| ReplyToSessionId | Message->reply\_to\_group\_id | - | 
+| ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | 
+| SessionId | Message->group\_id | - | 
+| TimeToLive | Message->ttl | 변환, Proton-PHP TTL은 밀리초 단위로 정의됩니다. | 
+| To | Message->address | - |
 
 ## 다음 단계
 

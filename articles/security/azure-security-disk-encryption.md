@@ -718,7 +718,7 @@ CentOS 7.2의 경우 특수 이미지를 통해 OS 디스크 암호화가 지원
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 
-VM을 다시 부팅하기 *전에* [부트 진단](https://azure.microsoft.com/ko-KR/blog/boot-diagnostics-for-virtual-machines-v2/)을 저장하는 것이 좋습니다.
+VM을 다시 부팅하기 *전에* [부트 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 저장하는 것이 좋습니다.
 
 #### OS 암호화 진행 상태 모니터링
 
@@ -753,7 +753,7 @@ InstanceView에서 아래로 스크롤하여 드라이브의 암호화 상태를
 
 ![VM 인스턴스 보기](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-2\. [부트 진단](https://azure.microsoft.com/ko-KR/blog/boot-diagnostics-for-virtual-machines-v2/)을 살펴봅니다. ADE 확장의 메시지에는 `[AzureDiskEncryption]`이라는 접두사가 붙습니다.
+2\. [부트 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 살펴봅니다. ADE 확장의 메시지에는 `[AzureDiskEncryption]`이라는 접두사가 붙습니다.
 
 3\. SSH를 통해 VM에 로그온하고 다음에서 확장 로그를 가져옵니다.
 
@@ -787,7 +787,7 @@ OS 암호화가 진행 중인 동안에는 VM에 로그온하지 않는 것이 �
 
 ![Ubuntu 16.04 설치](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6\. [이 지침](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-create-upload-ubuntu/)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
+6\. [이 지침](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
 ###### Azure로 작업하는 암호화 구성
 
@@ -862,7 +862,7 @@ OS 암호화가 진행 중인 동안에는 VM에 로그온하지 않는 것이 �
 
 ![openSUSE 13.2 설치](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3\. [이 지침](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
+3\. [이 지침](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
 ###### Azure로 작업하는 암호화 구성
 
@@ -942,7 +942,7 @@ to
 
 ![CentOS 7 설치](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5\. [이 지침](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
+5\. [이 지침](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70)에 따라 Azure에 업로드하기 위한 VM을 준비합니다. 마지막 단계(VM 프로비전 해제)를 아직 실행하지 마세요.
 
 6\. 이제 VM을 프로비전 해제하고 [VHD를 Azure에 업로드](#upload-encrypted-vhd-to-an-azure-storage-account)할 수 있습니다.
 

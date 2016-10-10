@@ -449,7 +449,7 @@ Azure Storage에 메시지를 안정적으로 기록하려면 샘플은 [블록 
     private final static String serviceBusRootUri = ".servicebus.windows.net";
     ```
 
-5. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youreventhubcompatibleendpoint}**을(를) 이벤트 허브 호환 끝점 이름으로 바꿉니다. 끝점 이름은 **ihs....namespace**와 같이 보이므로 **sb://** 접두사 및 **.servicebus.windows.net/** 접미사를 제거해야 합니다. **{youreventhubcompatiblename}**을(를) 이벤트 허브 호환 이름으로 바꿉니다. **{youriothubkey}**을(를) **iothubowner ** 키와 바꿉니다. *Java용 Azure IoT Hub 시작* 자습서의 [IoT Hub 만들기][lnk-create-an-iot-hub] 섹션에서 다음 값을 적어두었을 것입니다.
+5. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youreventhubcompatibleendpoint}**을(를) 이벤트 허브 호환 끝점 이름으로 바꿉니다. 끝점 이름은 **ihs....namespace**와 같이 보이므로 **sb://** 접두사 및 **.servicebus.windows.net/** 접미사를 제거해야 합니다. **{youreventhubcompatiblename}**을(를) 이벤트 허브 호환 이름으로 바꿉니다. **{youriothubkey}**을(를) **iothubowner** 키와 바꿉니다. *Java용 Azure IoT Hub 시작* 자습서의 [IoT Hub 만들기][lnk-create-an-iot-hub] 섹션에서 다음 값을 적어두었을 것입니다.
 
     ```
     private final static String consumerGroupName = "$Default";

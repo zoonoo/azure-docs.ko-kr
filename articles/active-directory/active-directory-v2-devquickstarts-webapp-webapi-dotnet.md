@@ -197,8 +197,8 @@ catch (AdalException ee)
 ## 다음 단계
 
 추가 리소스는 다음을 확인해보세요.
-- [개발자 가이드 v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
+- [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
 ## 당사 제품에 대한 보안 업데이트 가져오기
 
