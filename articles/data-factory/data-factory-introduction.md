@@ -79,4 +79,4 @@ Azure Data Factory가 **미국 서부**, **미국 동부** 및 **북유럽** 지
 [데이터 파이프라인을 빌드하여 두 클라우드 데이터 저장소 간에 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob Storage에서 SQL Database로 **데이터를 이동**합니다.
 [데이터 파이프라인을 빌드하여 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) | 이 자습서에서는 **온-프레미스** SQL Server 데이터베이스에서 Azure Blob으로 **데이터를 이동**하는 파이프라인이 포함된 데이터 팩터리를 구축합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
