@@ -48,7 +48,7 @@
 
     - **앱 이름**: 고유 이름을 입력합니다.
     - **리소스 그룹**: **새로 만들기**를 클릭하고 리소스 그룹에 이름을 지정합니다.
-    - **앱 서비스 계획/위치**: 클릭하여 구성한 다음 **새로 만들기**를 클릭하여 앱 서비스 계획의 이름, 위치 및 가격 책정 계층을 설정합니다. **무료** 가격 책정 계층을 자유롭게 사용합니다.
+    - **App Service 계획/위치**: 클릭하여 구성한 다음 **새로 만들기**를 클릭하여 App Service 계획의 이름, 위치 및 가격 책정 계층을 설정합니다. **무료** 가격 책정 계층을 자유롭게 사용합니다.
 
     완료되면 앱 만들기 블레이드는 다음과 같이 표시됩니다.
 
@@ -116,7 +116,7 @@
 
 ## 다음 단계
 
-[Azure Marketplace에서 템플릿을 통해 Java 웹앱을 만듭니다](app-service-web-java-get-started.md#marketplace). 사용자 지정할 수 있는 Tomcat 컨테이너와 친숙한 Manager UI를 가져올 수 있습니다.
+[Azure Marketplace에서 템플릿을 통해 Java 웹앱을 만듭니다](web-sites-java-get-started.md#marketplace). 사용자 지정할 수 있는 Tomcat 컨테이너와 친숙한 Manager UI를 가져올 수 있습니다.
 
 [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) 또는 [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)에서 Azure 웹앱을 직접 디버그합니다.
 
@@ -125,4 +125,4 @@
 - [사용자의 코드를 Azure에 배포하는 다른 방법](../app-service-web/web-sites-deploy.md)을 시도해 보세요. 예를 들어 GitHub 리포지토리 중 하나에서 배포하려면 **배포 옵션**에서 **로컬 Git 리포지토리** 대신에 **GitHub**를 선택합니다.
 - 다음 수준으로 Azure 앱을 이동합니다. 사용자를 인증합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다. [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md)를 참조하세요.
 
-<!-----HONumber=AcomDC_0920_2016-->
+<!---HONumber=AcomDC_1005_2016-->

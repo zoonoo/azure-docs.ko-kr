@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="07/07/2016"
+	ms.date="10/04/2016"
 	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - 모범 사례 시작 가이드
@@ -37,7 +37,7 @@
 
 Azure Mobile Engagement 프로그램은 앱 사용에 관한 세부 정보를 수집 및 분석하는 방법을 제공하여 앱의 수명과 보유를 확장하는 데 도움을 주기 위한 것입니다. 행동에 따라 사용자 기반을 분류하고 식별된 사용자 계층에 대한 푸시 알림 및 앱 내 메시지를 제공하는 데 초점을 맞춘 캠페인을 만드는 데 도움이 됩니다. 핵심 성과 지표(KPI)는 사용자가 앱의 서로 다른 측면에 대해 얼마나 활발한지 측정합니다. Azure Mobile Engagement는 이 KPI를 결정하는 데 필요한 방법을 제공합니다. 모바일 앱에 대한 매력을 높이기 위해 필요한 인프라를 제공하여 투자 회수(ROI)의 증가에 도움이 됩니다.
 
-Azure 고객 관리를 가장 잘 이용하려면 잘 설계된 고객 관리 계획으로 시작해야 합니다. 이 계획은 사용자 기반의 계층을 분류할 수 있도록 하기 위해 필요한 세밀한 데이터를 식별하는 데 도움이 됩니다. 행동과 앱 내 경험을 기반으로 이러한 데이터를 식별할 수 있습니다. 계획이 성공하기 위해 앱의 목표를 측정하는 KPI를 명확히 정의하는 것이 모범 사례입니다. 명확한 성능 지표가 정의된 상태에서 KPI를 분석 및 평가하는 데 사용할 세밀한 데이터를 수집하는 데 필요한 논리를 앱에 쉽게 포함시킬 수 있습니다. 이 항목은 고객 관리 계획을 사용하는 KPI 정의에 대한 모범 사례 가이드입니다.
+Azure 고객 관리를 가장 잘 이용하려면 잘 설계된 고객 관리 계획으로 시작해야 합니다. 이 계획은 사용자 기반의 계층을 분류할 수 있도록 하기 위해 필요한 세밀한 데이터를 식별하는 데 도움이 됩니다. 행동과 앱 내 경험을 기반으로 이러한 데이터를 식별할 수 있습니다. 계획이 성공하기 위해 앱의 목표를 측정하는 KPI를 명확히 정의하는 것이 모범 사례입니다. 명확한 성능 지표가 정의된 상태에서 KPI를 분석 및 평가하는 데 사용할 세밀한 데이터를 수집하는 데 필요한 논리를 앱에 쉽게 포함시킬 수 있습니다. 이 항목은 고객 관리 계획에 사용할 KPI 정의에 대한 모범 사례 가이드입니다.
 
 
 ## 1 단계: BET 모델에 맞게 KPI 정의
@@ -356,7 +356,7 @@ Azure Mobile Engagement의 위쪽에 만들어진 앱 두 개에 대한 프로�
 
 #### 설정
 
-Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이스와 관련된 모든 설명서는 Azure Mobile Engagement 웹 사이트 [사용자 인터페이스를 탐색하는 방법](mobile-engagement-user-interface.md)에서 사용할 수 있습니다.
+Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이스와 관련된 모든 설명서는 Azure Mobile Engagement 웹 사이트 [사용자 인터페이스를 탐색하는 방법](mobile-engagement-user-interface-home.md)에서 사용할 수 있습니다.
 
 프로젝트의 사용자에 대해 올바른 역할과 역할 멤버 자격을 설정하는 것으로 시작하는 것이 좋습니다. 이렇게 하면 모든 사용자에 대해 올바른 플랫폼 액세스를 관리하는 데 도움이 됩니다. 역할은 다음을 포함할 수 있습니다.
 
@@ -407,4 +407,4 @@ Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_1005_2016-->

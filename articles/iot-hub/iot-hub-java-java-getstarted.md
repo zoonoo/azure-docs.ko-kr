@@ -40,7 +40,7 @@
 
 마지막 단계로 **기본 키** 값을 적어둔 다음 **메시징**을 클릭합니다. **메시징** 블레이드에서 **이벤트 허브 호환 이름** 및 **이벤트 허브 호환 끝점**을 기록해 둡니다. **read-d2c-messages** 응용 프로그램을 만들 때 이러한 값이 필요합니다.
 
-![][6]
+![Azure Portal IoT Hub 메시징 블레이드][6]
 
 이제 IoT Hub를 만들었고 이 자습서를 완료하는 데 필요한 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, 이벤트 허브 호환 이름 및 이벤트 허브 호환 끝점이 있습니다.
 
@@ -445,7 +445,7 @@
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![장치->클라우드 메시지 모니터링을 위한 Java IoT Hub 서비스 클라이언트 응용 프로그램][7]
 
 2. simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석 데이터 전송을 시작합니다.
 
@@ -453,11 +453,11 @@
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![장치->클라우드 메시지 전송을 위한 Java IoT Hub 장치 클라이언트 응용 프로그램][8]
 
 3. [Azure 포털][lnk-portal]의 **사용량** 타일에 허브로 전송된 메시지 수가 표시됩니다.
 
-    ![][43]
+    ![IoT Hub에 전송된 메시지의 수를 보여주는 Azure Portal 사용량 타일][43]
 
 ## 다음 단계
 
@@ -481,13 +481,13 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -495,4 +495,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

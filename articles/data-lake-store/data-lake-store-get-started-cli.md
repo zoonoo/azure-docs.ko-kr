@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Azure 명령줄을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -37,36 +37,40 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
 - **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
+
+## 인증
+
+이 문서는 최종 사용자로 로그인하는 Data Lake Store에 보다 간단한 인증 방식을 사용합니다. Data Lake Store 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준을 따릅니다. 하지만 Data Lake Store에 인증하는 다른 방법도 있으며, 이것은 **최종 사용자 인증** 또는 **서비스간 인증**입니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계에 따라 __login__ 메서드를 사용하여 구독에 연결합니다.
+1. [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에 설명된 단계에 따라 `azure login` 메서드를 사용하여 구독에 연결합니다.
+
+2. `azure account list` 명령을 사용하여 계정과 연결된 구독을 나열합니다.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	위의 출력에서 **Azure-sub-1**은 현재 활성화되어 있으며 다른 구독은 **Azure-sub-2**입니다.
+
+3. 작업에 사용하려는 구독을 선택합니다. Azure-sub-2 구독 하에서 작업하려면 `azure account set` 명령을 사용합니다.
+
+		azure account set Azure-sub-2
 
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
 명령 프롬프트, 셸 또는 터미널 세션을 열고 다음 명령을 실행합니다.
 
-1. Azure 구독에 로그인합니다.
-
-		azure login
-
-	웹 페이지를 열고 인증 코드를 입력하라는 메시지가 표시됩니다. 페이지의 지침을 따라 Azure 구독에 로그인합니다.
-
 2. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
 
-
-3. 계정에 대한 Azure 구독을 나열합니다.
-
-		azure account list
-
-
-4. 여러 Azure 구독이 있는 경우 다음 명령을 사용하여 Azure CLI 명령이 사용하는 구독을 설정할 수 있습니다.
-
-		azure account set <subscriptionname>
 
 5. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다.
 
@@ -188,4 +192,4 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

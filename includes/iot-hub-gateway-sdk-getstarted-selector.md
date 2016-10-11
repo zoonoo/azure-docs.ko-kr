@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-이 문서는 [Azure IoT Gateway SDK][lnk-gateway-sdk] 아키텍처의 기본적인 구성 요소를 설명하기 위해 [Hello World 샘플 코드][lnk-helloworld-sample]에 대한 자세한 연습을 제공합니다. 샘플에서는 Gateway SDK를 사용하여 5초마다 파일에 "hello world" 메시지를 기록하는 간단한 게이트웨이를 작성합니다.
+이 문서는 [Azure IoT Gateway SDK][lnk-gateway-sdk] 아키텍처의 기본적인 구성 요소를 설명하기 위해 [Hello World 샘플 코드][lnk-helloworld-sample]에 대한 자세한 연습을 제공합니다. 샘플에서는 IoT Hub Gateway SDK를 사용하여 5초마다 파일에 "hello world" 메시지를 기록하는 간단한 게이트웨이를 작성합니다.
 
 이 연습에서는 다음 내용을 다룹니다.
 
@@ -21,7 +21,7 @@
 
 *모듈*을 만들고 조합하여 Azure IoT Gateway SDK를 통해 게이트웨이를 만듭니다. 모듈은 *메시지*를 사용하여 서로 데이터를 교환합니다. 모듈은 메시지를 수신하고, 그에 대해 작업을 수행하고, 필요에 따라 새 메시지로 변환한 다음, 다른 모듈이 처리하도록 게시합니다. 일부 모듈은 새 메시지만 생성하고, 들어오는 메시지를 전혀 처리하지 않습니다. 일련의 모듈은 각 모듈이 파이프라인 내의 한 지점에서 데이터에 대한 변환을 수행하는 데이터 처리 파이프라인을 만듭니다.
 
-![][1]
+![Azure IoT Gateway SDK를 사용하여 빌드한 게이트웨이의 모듈 체인][1]
  
 SDK는 다음을 포함합니다.
 
@@ -31,7 +31,7 @@ SDK는 다음을 포함합니다.
 
 SDK는 다양한 운영 체제 및 플랫폼에서 실행되는 게이트웨이를 만들 수 있는 추상화 계층을 제공합니다.
 
-![][2]
+![Azure IoT Hub Gateway SDK 추상화 계층][2]
 
 ### 메시지
 
@@ -39,7 +39,7 @@ SDK는 다양한 운영 체제 및 플랫폼에서 실행되는 게이트웨이�
 
 모듈은 **Broker\_Publish** 함수를 사용하여 broker에 메시지를 게시합니다. broker는 콜백 함수를 호출하여 모듈에 메시지를 배달합니다. 메시지는 키/값 속성 및 메모리 블록으로 전달되는 콘텐츠의 집합으로 구성됩니다.
 
-![][3]
+![Azure IoT Gateway SDK 내 broker의 역할][3]
 
 ### 메시지 라우팅 및 필터링
 
@@ -52,15 +52,15 @@ Hello World 샘플은 이전 섹션에서 설명한 개념을 보여줍니다. H
 -	*hello world* 모듈은 5초마다 메시지를 생성하여 로거 모듈에 전달합니다.
 -	*로거* 모듈은 수신하는 메시지를 파일에 기록합니다.
 
-![][4]
+![Azure IoT Gateway SDK를 사용하여 빌드한 Hello World 샘플의 아키텍처][4]
 
 이전 섹션의 설명처럼, Hello World 모듈은 로거 모듈에 5초마다 메시지를 직접 전달하지 않습니다. 대신, 5초마다 broker에 메시지를 게시합니다.
 
-로거 모듈은 broker에서 메시지를 받고 broker에서 메세지를 실행하며 메시지의 내용을 파일에 기록합니다.
+로거 모듈은 broker에서 메시지를 받고 broker에서 메시지를 실행하며 메시지의 내용을 파일에 기록합니다.
 
 로거 모듈은 broker의 메시지를 사용하기만 하고 broker에 새 메시지를 게시하지는 않습니다.
 
-![][5]
+![Broker가 Azure IoT Gateway SDK에서 모듈 간에 메시지를 라우팅하는 방법][5]
 
 위 그림은 Hello World 샘플의 아키텍처와 [리포지토리][lnk-gateway-sdk]에서 샘플의 다른 부분을 구현하는 원본 파일에 대한 상대 경로를 보여줍니다. 코드를 직접 알아보거나 아래 코드 조각을 참조용으로 사용합니다.
 
@@ -75,4 +75,4 @@ Hello World 샘플은 이전 섹션에서 설명한 개념을 보여줍니다. H
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

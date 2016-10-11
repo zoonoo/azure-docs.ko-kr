@@ -47,7 +47,7 @@ Data Factory 솔루션에서 하나 이상의 데이터 **파이프라인**를 �
 연결된 서비스는 데이터 팩터리가 외부 리소스(예: Azure Storage, 온-프레미스 SQL Server, Azure HDInsight)에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스는 데이터 팩터리 내에서 두 가지 용도로 사용됩니다.
 
 - 온-프레미스 SQL Server, Oracle 데이터베이스, 파일 공유 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 **데이터 저장소**를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](data-factory-data-movement-activities.md) 섹션을 참조하세요.
-- 활동의 실행을 호스팅할 수 있는 **계산 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 계산 환경 목록에 대해서는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 섹션을 참조하세요.
+- 활동의 실행을 호스팅할 수 있는 **계산 리소스**를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](data-factory-data-transformation-activities.md) 섹션을 참조하세요.
 
 ## 데이터 집합 
 연결된 서비스는 데이터 저장소를 Azure Data Factory에 연결합니다. 데이터 집합은 데이터 저장소에 있는 데이터 구조를 나타냅니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 Data Factory에 대한 연결 정보를 제공합니다. Azure Blob 데이터 집합은 파이프라인이 데이터를 읽어야 하는 Azure Blob Storage에서 Blob 컨테이너 및 폴더를 지정합니다. 마찬가지로 Azure SQL 연결된 서비스는 Azure SQL Database에 대한 연결 정보를 제공하고 Azure SQL 데이터 집합은 데이터를 포함하는 테이블을 지정합니다.
@@ -79,4 +79,4 @@ Azure Data Factory가 **미국 서부**, **미국 동부** 및 **북유럽** 지
 [데이터 파이프라인을 빌드하여 두 클라우드 데이터 저장소 간에 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob Storage에서 SQL Database로 **데이터를 이동**합니다.
 [데이터 파이프라인을 빌드하여 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) | 이 자습서에서는 **온-프레미스** SQL Server 데이터베이스에서 Azure Blob으로 **데이터를 이동**하는 파이프라인이 포함된 데이터 팩터리를 구축합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. 
 
-<!----HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

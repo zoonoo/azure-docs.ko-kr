@@ -1,7 +1,6 @@
 <properties
-
-	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure users using Azure Active Directory."
+	pageTitle="Azure Active Directory의 그룹 관리 | Microsoft Azure"
+	description="Azure Active Directory를 사용하여 Azure 사용자를 관리하기 위해 그룹을 만들고 관리하는 방법."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -14,11 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2016"
+	ms.date="09/29/2016"
 	ms.author="curtand"/>
 
 
 # Azure Active Directory에서 그룹 관리
+
+> [AZURE.SELECTOR]
+- [Azure 포털](active-directory-groups-create-azure-portal.md)
+- [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
 
 Azure AD(Azure Active Directory) 사용자 관리의 주요 기능 중 하나는 사용자 그룹을 만드는 기능입니다. 그룹을 사용하여 한 번에 많은 사용자에게 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 그룹을 사용하여 액세스 권한을 할당할 수도 있습니다.
 
@@ -116,4 +121,4 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여 그룹의 멤�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

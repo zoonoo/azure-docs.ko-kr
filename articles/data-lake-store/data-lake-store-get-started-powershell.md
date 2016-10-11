@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -33,12 +33,13 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 �
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
+* **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-##Azure PowerShell 1.0 이상 설치
+## 인증
 
-[Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md#prerequisites)의 필수 구성 요소 섹션을 참조하세요.
+이 문서는 Data Lake Store에 Azure 계정 자격 증명을 입력하라는 메시지가 표시되는 보다 간단한 인증 방법을 사용합니다. Data Lake Store 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준을 따릅니다. 하지만 Data Lake Store에 인증하는 다른 방법도 있으며, 이것은 **최종 사용자 인증** 또는 **서비스간 인증**입니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
@@ -140,4 +141,4 @@ Azure 데이터 레이크 저장소 계정에서 디렉터리를 만들어 데�
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

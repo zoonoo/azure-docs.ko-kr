@@ -19,12 +19,13 @@
 # 자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
 - [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 - [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
+
 
 이 자습서에서는 REST API를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
@@ -491,4 +492,4 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

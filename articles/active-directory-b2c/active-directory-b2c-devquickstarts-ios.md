@@ -61,7 +61,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-또는 완성된 코드를 다운로드하고 지금 바로 시작합습니다.
+또는 완성된 코드를 다운로드하고 지금 바로 시작합니다.
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -151,13 +151,13 @@ $ open SampleforB2C.xcworkspace
 
 `authURL`, `loginURL`, `bhh`, `tokenURL`의 경우 테넌트 이름을 입력해야 합니다. 사용자에게 할당된 B2C 테넌트의 이름입니다. 예를 들어 `kidventusb2c.onmicrosoft.com`입니다. 오픈 소스 Microsoft Azure Identity 라이브러리를 사용하는 경우 메타데이터 끝점을 사용하려면 이 데이터를 가져옵니다. 사용자를 위해 이러한 값을 추출하는 어려운 작업을 마쳤습니다.
 
-B2C 테넌트 이름에 대한 자세한 내용은 [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)을 살펴보세요.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 `keychain` 값은 NXOAuth2Client 라이브러리가 토큰을 저장하기 위해 키 집합을 만드는데 사용할 컨테이너입니다. 다양한 앱에서 SSO를 가져오려 한다면 각 응용 프로그램에서 동일한 키 집합을 지정하는 것은 물론 XCode 자격에서 그 키 집합의 사용을 요청할 수 있습니다. 이 내용은 Apple 설명서에서 다룹니다.
 
 각 URL의 끝에 있는 `<policy name>`은 위에서 만든 정책을 배치한 위치입니다. 앱은 흐름에 따라 이러한 정책을 호출합니다.
 
-`taskAPI`은 작업을 추가하거나 기존 작업을 쿼리하기 위해 B2C 토큰으로 호출하는 REST 끝점입니다. 이 샘플에 적합하도록 설정되었습니다. 샘플을 작동시기키 위해 변경할 필요가 없습니다.
+`taskAPI`은 작업을 추가하거나 기존 작업을 쿼리하기 위해 B2C 토큰으로 호출하는 REST 끝점입니다. 이 샘플에 적합하도록 설정되었습니다. 샘플을 작동시키기 위해 변경할 필요가 없습니다.
 
 나머지 이런 값들은 라이브러리를 사용하여 값을 컨텍스트로 옮길 위치를 만드는 것이 필요합니다.
 
@@ -646,4 +646,4 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 [B2C 앱을 위한 UX 사용자 지정]()
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

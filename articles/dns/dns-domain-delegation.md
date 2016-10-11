@@ -3,7 +3,7 @@
    description="도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 
 # Azure DNS에 도메인 위임
@@ -205,4 +205,4 @@ Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이�
 
 [DNS 레코드 관리](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

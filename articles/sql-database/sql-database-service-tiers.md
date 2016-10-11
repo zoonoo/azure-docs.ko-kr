@@ -19,7 +19,7 @@
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 
-[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준의 3가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 각 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스 집합을 제공합니다. 고유한 성능 수준을 포함한 고유한 [서비스 계층](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels)에서 각 데이터베이스를 관리할 수 있습니다. 공유 리소스 집합을 포함한 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)에서 여러 데이터베이스를 관리할 수도 있습니다. 독립 실행형 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU 또는 eDTU의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-DTU.md)을 참조하세요.
+[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준의 3가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 각 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스 집합을 제공합니다. 고유한 성능 수준을 포함한 고유한 [서비스 계층](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels)에서 각 데이터베이스를 관리할 수 있습니다. 공유 리소스 집합을 포함한 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)에서 여러 데이터베이스를 관리할 수도 있습니다. 독립 실행형 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU 또는 eDTU의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-dtu.md)을 참조하세요.
 
 두 경우 모두 서비스 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 이러한 계층의 데이터베이스 옵션은 독립 실행형 데이터베이스 및 탄력적 풀에서 유사하지만 탄력적 풀에 대해 추가 고려 사항이 있습니다. 이 문서에서는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 서비스 계층에 대해 자세히 설명합니다.
 
@@ -88,4 +88,4 @@ SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성�
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
-<!-----HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

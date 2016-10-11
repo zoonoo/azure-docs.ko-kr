@@ -1,9 +1,9 @@
 <properties
  pageTitle="장치 관리 개요 | Microsoft Azure"
- description="Azure IoT Hub 장치 관리 개요: 장치 쌍, 장치 쿼리, 장치 작업"
+ description="Azure IoT Hub 장치 관리의 개요"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,113 +13,107 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
 
 # Azure IoT Hub 장치 관리의 개요(미리 보기)
 
-Azure IoT Hub 장치 관리를 사용하면 표준 기반 IoT 장치 관리를 통해 원격으로 장치를 관리, 구성, 업데이트할 수 있습니다.
+## Azure IoT 장치 관리 방식
 
-Azure IoT의 장치 관리에는 세 가지 주요 개념이 있습니다.
+Azure IoT Hub 장치 관리는 IoT의 다양한 장치 및 프로토콜에 대해 IoT 장치 관리를 활용하도록 장치 및 백 엔드에 대한 기능 및 확장 모델을 제공합니다. IoT의 장치는 매우 제한된 센서, 단일 용도 마이크로컨트롤러에서 다른 장비 및 프로토콜을 가능하게 하는 보다 강력한 게이트웨이에 이릅니다. IoT 솔루션은 각 도메인의 운영자에 대한 고유한 사용 사례에 따라서 Vertical 도메인 및 응용 프로그램이 상당히 다양합니다. IoT 솔루션은 광범위한 장치 및 사용자에 대한 장치 관리가 가능하도록 IoT Hub 장치 관리 기능, 패턴 및 코드 라이브러리를 활용할 수 있습니다.
 
-1.  **장치 쌍:** IoT Hub 내 물리적 장치의 표현입니다.
+## 소개
 
-2.  **장치 쿼리**: 여러 장치 쌍을 찾아서 장치 쌍을 이해하는 집계를 생성할 수 있도록 합니다. 예를 들어, 쿼리를 실행하여 펌웨어 버전이 1.0인 모든 장치 쌍을 찾을 수 있습니다.
+성공적인 IoT 솔루션을 만드는 결정적인 부분은 운영자가 다수의 장치에 대한 지속적인 관리를 처리하는 방법에 대한 전략을 제공하는 것입니다. IoT 운영자는 간단하고 안정적이면서 업무 중 보다 전략적인 측면에 중점을 둘 수 있도록 해 주는 도구와 응용 프로그램을 필요로 합니다. Azure IoT Hub는 가장 중요한 장치 관리 패턴을 조성하는 IoT 응용 프로그램을 만들기 위한 구성 요소를 제공합니다.
 
-3.  **장치 작업**: 펌웨어 업데이트, 재부팅, 공장 재설정 등과 같이, 하나 이상의 물리적 장치에서 수행하기 위한 작업입니다.
+장치를 클라우드에 안전하게 연결하는 장치 관리 에이전트라고 하는 간단한 응용 프로그램을 실행하는 경우 장치가 IoT Hub에 의해 관리되는 것으로 간주됩니다. 에이전트 코드는 응용 프로그램 쪽 운영자가 원격으로 장치 상태를 입증하고 네트워크 구성 변경을 적용하거나 펌웨어 업데이트를 배포하는 등의 관리 작업을 수행할 수 있도록 합니다.
 
-## 장치 쌍
+## IoT 장치 관리 원칙
 
-장치 쌍은 Azure IoT 내 물리적 장치의 표현입니다. **Microsoft.Azure.Devices.Device** 개체는 장치 쌍을 나타내는 데 사용됩니다.
+IoT는 특유의 관리 과제를 수반하며 솔루션은 다음과 같은 IoT 장치 관리 원칙을 처리해야 합니다.
 
-![][img-twin]
+![][img-dm_principles]
 
-장치 쌍의 구성 요소는 다음과 같습니다.
+- **규모 및 자동화**: IoT는 일상적인 작업을 자동화할 수 있는 간단한 도구를 필요로 하며 비교적 적은 수의 운영 담당자가 수백만 대의 장치를 관리할 수 있도록 해 줍니다. 운영자는 매일 원격에서 일괄적으로 장치 작업을 처리하고 운영자가 주의를 기울여야 하는 문제가 발생할 때만 경고를 받게 됩니다.
 
-1.  **장치 필드:** 장치 필드는 미리 정의된 속성으로, IoT Hub 메시징 및 장치 관리에 사용됩니다. IoT Hub가 물리적인 장치를 식별하고 연결하도록 도움을 줍니다. 장치 필드는 장치에 동기화되지 않으며, 장치 쌍에 단독으로 저장됩니다. 장치 필드는 장치 ID와 인증 정보를 포함합니다.
+- **개방성 및 호환성**: IoT 장치 생태계는 매우 다양합니다. 관리 도구는 다수의 장치 클래스, 플랫폼 및 프로토콜을 수용하도록 조정되어야 합니다. 운영자는 가장 제한된 내장형 단일 프로세스 칩에서 강력하고 완벽하게 작동하는 컴퓨터에 이르는 모든 장치를 지원할 수 있어야 합니다.
 
-2.  **장치 속성:** 장치 속성은 물리적인 장치를 설명하는, 미리 정의된 속성의 사전입니다. 물리적인 장치는 각 장치 속성의 마스터이며 각 해당 값에 대한 권한이 있는 저장소입니다. 이러한 속성에 대한 궁극적으로 일관적인 표현이 클라우드의 장치 쌍에 저장됩니다. 일관성 및 신선도는 [Tutorial: how to use the device twin][lnk-tutorial-twin](자습서: 장치 쌍 사용 방법)에 설명되어 있는 동기화 설정에 따라 달라집니다. 장치 속성의 예에는 펌웨어 버전, 배터리 잔량, 제조 업체 이름이 포함됩니다.
+- **컨텍스트 인식**: IoT 환경은 동적이며 변화무쌍합니다. 서비스의 안정성이 다른 무엇보다 가장 중요합니다. 장치 관리 작업은 유지 관리 중단 시간이 중대한 비즈니스 작업에 영향을 미치거나 위험한 상황을 만들지 않도록 SLA 유지 관리 기간, 네트워크 및 전력 상태, 사용 중인 조건, 장치의 지리적 위치를 감안해야 합니다.
 
-3.  **서비스 속성:** 서비스 속성은 개발자가 서비스 속성 사전에 추가하는 **&lt;key,value&gt;** 쌍입니다. 이 속성은 장치 쌍에 대한 데이터 모델을 확장하여, 장치의 특징을 잘 구분할 수 있도록 합니다. 서비스 속성은 장치에 동기화되지 않고 클라우드의 장치 쌍에 단독으로 저장됩니다. **&lt;NextServiceDate, 11/12/2017&gt;**은 서비스 속성의 한 가지 예로, 다음 서비스 날짜를 기준으로 장치를 찾는 데 사용될 수 있습니다.
+- **많은 역할 서비스**: IoT 운영 역할 특유의 워크플로와 프로세스에 대한 지원이 중요합니다. 운영 담당자는 내부 IT 부서에 주어진 제약 조건에 맞도록 작업을 진행해야 하며, 적절할 장치 운영 정보를 감독자 및 기타 관리 역할 담당자에게 표면화시켜야 합니다.
 
-4.  **태그:** 태그는 서비스 속성의 하위 집합이며, 사전 속성이 아닌 임의의 문자열입니다. 장치 쌍에 주석을 달거나 장치를 그룹으로 구성하는 데 사용할 수 있습니다. 태그는 장치에 동기화되지 않으며 장치 쌍에 단독으로 저장됩니다. 예를 들어, 장치 쌍이 물리적인 트럭을 나타내는 경우, 트럭의 각 화물 유형에 대한 태그를 추가할 수 있습니다(예: **사과**, **오렌지**, **바나나**).
+## IoT 장치 수명 주기 
 
-## 장치 쿼리
+IoT 프로젝트는 매우 다양하지만 장치를 관리하는 일반적인 패턴이 있습니다. Azure IoT에서는 이러한 패턴이 다섯 가지 뚜렷한 단계로 구성된 IoT 장치 수명 주기 내에서 식별됩니다.
 
-이전 섹션에서 장치 상의 다른 구성 요소에 대해 알아보았습니다. 이제, 장치 속성, 서비스 속성 또는 태그를 기반으로 IoT Hub 장치 레지스트리에서 장치 쌍을 찾는 방법을 알아보겠습니다. 쿼리를 사용하는 경우에 대한 예에는 업데이트 할 장치를 찾는 경우가 있습니다. 지정된 펌웨어 버전이 설치된 모든 장치를 쿼리하고, 그 결과를 특정 작업(다음 섹션에 설명되어 있는, IoT Hub에서 장치 작업이라고 하는)에 공급할 수 있습니다.
+![][img-device_lifecycle]
 
-태그와 속성을 사용하여 쿼리할 수 있습니다.
+1. **계획**: 운영자가 대량 관리 작업을 위해 장치 그룹을 간편하고 정확하게 대상화하고 쿼리하기 위한 장치 속성 구성표를 만들 수 있습니다.
 
--   태그를 사용하여 장치 쌍을 쿼리하려면 문자열 배열을 전달합니다. 그러면 쿼리가 해당하는 모든 문자열로 태그가 지정된 장치 집합을 반환합니다.
+    *관련된 구성 요소*: [쌍 장치 시작][lnk-twins-getstarted], [쌍 속성 사용 방법][lnk-twin-properties]
 
--   서비스 속성 또는 장치 속성을 사용하여 장치 쌍을 쿼리하려면, JSON 쿼리 식을 사용합니다. 아래 예는 키가 **FirmwareVersion**이고 값이 **1.0**인 장치 속성을 포함하는 모든 장치를 쿼리하는 방법을 보여줍니다. 속성의 **type**이 **device**인 것을 볼 수 있으며, 이것은 서비스 속성이 아닌 장치 속성을 기반으로 쿼리한다는 것을 나타냅니다.
+2. **프로비전**: 새 장치를 IoT Hub에 안전하게 인증하고 운영자가 장치의 기능과 현재 상태를 즉시 검색할 수 있도록 합니다.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *관련된 구성 요소*: [IoT Hub 시작][lnk-hub-getstarted], [쌍 속성 사용 방법][lnk-twin-properties]
 
-## 장치 작업
+3. **구성**: 정상적인 상태와 보안을 유지하면서 장치에 대한 일괄 구성 변경 및 펌웨어 업데이트를 가능하게 합니다.
 
-장치 관리의 다음 개념은 장치 작업으로, 이것은 여러 장치에서 다단계 오케스트레이션을 조정할 수 있도록 합니다.
+    *관련된 구성 요소*: [쌍 속성 사용 방법][lnk-twin-properties], [C2D 메서드][lnk-c2d-methods], [작업 예약/브로드캐스트][lnk-jobs]
 
-현재 Azure IoT Hub 장치 관리를 통해 제공되는 장치 작업 유형은 여섯 가지입니다.(고객이 필요로 하는 작업이 있다면 추가할 예정입니다.)
+4. **모니터링**: 주의가 필요한 문제를 운영자에게 알려주기 위하여 전반적인 장치들의 상태와 지속적인 업데이트 롤아웃 상태를 모니터링합니다.
 
-- **펌웨어 업데이트**: 물리적 장치의 펌웨어(또는 OS 이미지)를 업데이트합니다.
-- **다시 부팅**: 물리적 장치를 다시 부팅합니다.
-- **공장 재설정**: 물리적 장치의 펌웨어(또는 OS 이미지)를 장치에 저장되어 있는 공장에서 제공한 백업 이미지로 되돌립니다.
-- **구성 업데이트**: 물리적 장치에서 실행되는 IoT Hub 클라이언트 에이전트를 구성합니다.
-- **장치 속성 읽기**: 물리적 장치에서 장치 속성에 대한 최신 값을 가져옵니다.
-- **장치 속성 쓰기:** 물리적 장치의 장치 속성을 변경합니다.
+    *관련된 구성 요소*: [쌍 속성 사용 방법][lnk-twin-properties]
 
-각 작업의 사용법에 대한 자세한 내용은 [API documentation for C# and node.js][lnk-apidocs](C# 및 node.js에 대한 API 설명서)를 참조하세요.
+5. **사용 중지**: 오류가 발생하거나, 업그레이드 주기 후에 또는 서비스 수명 주기가 끝나면 장치를 교체하거나 서비스를 해제합니다.
 
-작업은 여러 장치에서 작동할 수 있습니다. 작업을 시작하면, 각 장치에 대해 연결된 자식 작업이 생성됩니다. 자식 작업은 단일 장치에서 작동합니다. 각 자식 작업에는 해당 부모 작업에 대한 포인터가 있습니다. 부모 작업은 자식 작업에 대한 컨테이너일 뿐이며, 장치 유형을 구별하기 위한(예: Intel Edison 업데이트와 Raspberry Pi 업데이트) 어떠한 논리도 구현하지 않습니다. 다음 다이어그램은 부모 작업, 그 자식, 및 연결된 물리적 장치 사이의 관계를 보여줍니다.
+    *관련된 구성 요소*:
+    
+## IoT Hub 장치 관리 패턴
 
-![][img-jobs]
+IoT Hub는 다음과 같은 (초기) 장치 관리 패턴을 가능하게 합니다. [자습서][lnk-get-started]의 내용처럼, 이러한 패턴을 시나리오에 꼭 맞게 확장할 수 있으며 코어 패턴을 기반으로 다른 시나리오를 위한 새로운 패턴을 디자인할 수 있습니다.
 
-시작한 작업의 상태를 이해하기 위해 작업 내역을 쿼리할 수 있습니다. 예제 쿼리를 보려면 [쿼리 라이브러리][lnk-query-samples]를 참조하세요.
+1. **다시 부팅** - 백 엔드 응용 프로그램은 D2C 메서드를 통해 재부팅이 시작된 것을 장치에 알립니다. 장치는 장치 쌍 보고 속성을 사용하여 장치의 재부팅 상태를 업데이트합니다.
 
-## 장치 구현
+    ![][img-reboot_pattern]
 
-서비스 측 개념을 살펴봤으니, 관리되는 물리적 장치를 만드는 방법을 알아보겠습니다. Azure IoT Hub DM 클라이언트 라이브러리를 통해 Azure IoT Hub를 사용하여 IoT 장치를 관리할 수 있습니다. "관리"는 다시 부팅, 공장 재설정 및 펌웨어 업데이트와 같은 작업을 포함합니다. 현재 플랫폼 독립적인 C 라이브러리를 제공하지만 곧 다른 언어에 대한 지원을 추가할 것입니다.
+2. **공장 재설정** - 백 엔드 응용 프로그램은 D2C 메서드를 통해 공장 재설정이 시작된 것을 장치에 알립니다. 장치는 장치 쌍 보고 속성을 사용하여 장치의 공장 재설정 상태를 업데이트합니다.
 
-DM 클라이언트 라이브러리는 장치 관리에 관하여 두 가지 주요 책임이 있습니다.
+    ![][img-facreset_pattern]
 
-- 물리적 장치의 속성을 IoT Hub의 해당 장치 쌍과 동기화
-- IoT Hub가 장치에 보낸 장치 작업 구성
+3. **구성** - 백 엔드 응용 프로그램은 장치 쌍에 필요한 속성을 사용하여 장치에서 실행 중인 소프트웨어를 구성합니다. 장치는 장치 쌍 보고 속성을 사용하여 장치의 구성 상태를 업데이트합니다.
 
-[C용 Azure IoT Hub 장치 관리 클라이언트 라이브러리 소개][lnk-library-c]에서 이러한 책임 및 물리적인 장치에서의 구현에 대해 자세히 알아보기.
+    ![][img-config_pattern]
+
+4. **펌웨어 업데이트** - 백 엔드 응용 프로그램은 D2C 메서드를 통해 펌웨어 업데이트가 시작된 것을 장치에 알립니다. 장치는 펌웨어 패키지를 다운로드하는 다단계 프로세스를 시작하고, 펌웨어 패키지를 적용하고, 마지막으로 IoT Hub 서비스에 다시 연결합니다. 다단계 프로세스가 진행되는 동안, 장치는 장치 쌍 보고 속성을 사용하여 진행률과 장치의 상태를 업데이트합니다.
+
+    ![][img-fwupdate_pattern]
+
+5. **진행률 및 상태 보고** - 응용 프로그램 백 엔드는 장치에서 실행 중인 작업의 상태와 진행률을 보고하기 위하여 일련의 장치 전반에 대해 장치 쌍 쿼리를 실행합니다.
+
+    ![][img-report_progress_pattern]
 
 ## 다음 단계
 
-다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 IoT 장치 SDK를 제공할 수 있습니다. IoT 장치 SDK에는 IoT Hub로 원격 분석 전송 및 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 있습니다. SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
+개발자는 Azure IoT Hub에 제공되는 구성 요소를 사용하여 장치 수명 주기의 각 단계에서 IoT 운영자 특유의 요구 사항을 충족시키는 IoT 응용 프로그램을 만들 수 있습니다.
 
-Azure IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [Azure IoT Hub 장치 관리 시작하기][lnk-get-started] 자습서를 참조하세요.
+Azure IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [Azure IoT Hub 장치 관리 시작][lnk-get-started] 자습서를 참조하세요.
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

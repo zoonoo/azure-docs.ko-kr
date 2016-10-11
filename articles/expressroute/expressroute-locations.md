@@ -89,7 +89,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Softbank** | 지원됨 | 지원됨 | 오사카, 도쿄 | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 지원됨 | 암스테르담, 첸나이, 홍콩 특별행정구, 런던, 뭄바이, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 지원됨 | 지원됨 | 암스테르담, 더블린, 런던 |
-| **Telefonica** | 지원됨 | 서비스 예정 | 상파울루 |
+| **Telefonica** | 지원됨 | 지원됨 | 상파울루 |
 | **Telenor** | 지원됨 | 지원됨 | 암스테르담, 런던 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 서비스 예정 | 멜버른, 시드니 |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 지원됨 | 지원됨 | 암스테르담, 홍콩 특별행정구, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
@@ -171,4 +171,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

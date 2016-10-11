@@ -3,7 +3,7 @@
 	description="이 자습서에 따라 모바일 앱을 사용하여 Xamarin.iOS 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="normesta"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 
 #Xamarin.iOS 앱 만들기
@@ -99,4 +99,4 @@
 <!-- URLs. -->
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

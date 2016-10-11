@@ -19,19 +19,19 @@
 
 # CLI를 사용하여 Azure에서 Linux VM 만들기
 
-이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다. 이 문서의 내용을 실행하기 위해 필요한 사항
+이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다. 이 문서의 내용을 실행하기 위해 필요한 사항:
 
 - Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
 
-- `azure login`로 로그인한 [Azure CLI](../xplat-cli-install.md).
+- `azure login`로 로그인한 [Azure CLI](../xplat-cli-install.md)
 
-- Azure CLI는 _Azure Resource Manager 모드 `azure config mode arm`에 있어야 합니다_.
+- Azure CLI는 Azure Resource Manager 모드 `azure config mode arm`에 _있어야 합니다_.
 
 [Azure Portal](virtual-machines-linux-quick-create-portal.md)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.
 
 ## 빠른 명령
 
-다음 예제에서는 CoreOS VM을 배포하고 SSH(Secure Shell)를 연결하는 방법을 보여 줍니다(사용자의 인수는 다를 수 있음).
+다음 예제에서는 CoreOS VM을 배포하고 SSH(Secure Shell)를 연결하는 방법을 보여줍니다(사용자의 인수는 다를 수 있음).
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -41,7 +41,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## VM quick-create 별칭
 
-배포를 선택하는 빠른 방법은 가장 일반적인 OS 배포에 매핑된 Azure CLI 별칭을 사용하는 것입니다. 다음 테이블에 별칭이 나열되어 있습니다(Azure CLI 버전 0.10 현재). `quick-create`을 사용하는 모든 배포는 기본적으로 더 빠른 프로비전 및 고성능 디스크 액세스를 제공하는 반도체 드라이브(SSD) 저장소에서 지원되는 VM에 대해 이루어집니다. (이러한 별칭은 Azure에 사용할 수 있는 배포의 작은 부분을 나타냅니다. [이미지를 검색](virtual-machines-linux-cli-ps-findimage.md)하여 Azure Marketplace에서 더 많은 이미지를 찾거나 [고유의 사용자 지정 이미지를 업로드](virtual-machines-linux-create-upload-generic.md)할 수 있습니다.)
+배포를 선택하는 빠른 방법은 가장 일반적인 OS 배포에 매핑된 Azure CLI 별칭을 사용하는 것입니다. 다음 테이블에 별칭이 나열되어 있습니다(Azure CLI 버전 0.10 현재). `quick-create`을 사용하는 모든 배포는 기본적으로 더 빠른 프로비전 및 고성능 디스크 액세스를 제공하는 SSD(반도체 드라이브) 저장소에서 지원되는 VM에 대해 이루어집니다. (이러한 별칭은 Azure에 사용할 수 있는 배포의 작은 부분을 나타냅니다. [이미지를 검색](virtual-machines-linux-cli-ps-findimage.md)하여 Azure Marketplace에서 더 많은 이미지를 찾거나 [고유의 사용자 지정 이미지를 업로드](virtual-machines-linux-create-upload-generic.md)할 수 있습니다.)
 
 | Alias | 게시자 | 제안 | SKU | 버전 |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -56,15 +56,15 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## 자세한 연습
 
-이전 `quick-create` 예제에서는 SSH 암호를 비활성화하는 동안 업로드할 SSH 공개 키를 식별하기 위해 `-M` 플래그만 호출했으므로, 리소스 그룹 이름에 대한 메시지가
+이전 `quick-create` 예제에서는 SSH 암호를 비활성화하는 동안 업로드할 SSH 공개 키를 식별하기 위해 `-M` 플래그만 호출했으므로, 다음 인수를 묻는 메시지가 표시되었습니다.
 
-- 표시됩니다(일반적으로 첫 번째 Azure 리소스 그룹에 대해서는 어떤 문자열이든 적합함).
+- 리소스 그룹 이름(일반적으로 첫 번째 Azure 리소스 그룹에 대해서는 어떤 문자열이든 적합함).
 - VM 이름
-- 위치(westus 또는 westeurope가 좋은 기본값)
+- 위치(좋은 기본값은 `westus` 또는 `westeurope`입니다.)
 - linux(원하는 OS가 무엇인지 Azure에 알림)
 - username
 
-다음은 추가 메시지 표시가 필요하지 않도록 모든 값을 지정합니다. `~/.ssh/id_rsa.pub`을 ssh-rsa 형식의 공개 키 파일로 포함하고 있으면 해당 파일은 있는 그대로 작동합니다.
+다음 예제는 추가 메시지 표시가 필요하지 않도록 모든 값을 지정합니다. `~/.ssh/id_rsa.pub`을 ssh-rsa 형식의 공개 키 파일로 포함하고 있으면 해당 파일은 있는 그대로 작동합니다.
 
 ```bash
 azure vm quick-create \
@@ -155,13 +155,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-출력에 나열된 공용 IP 주소를 사용하여 VM에 로그인합니다. 나열된 정규화된 도메인 이름(FQDN)을 사용할 수도 있습니다.
+출력에 나열된 공용 IP 주소를 사용하여 VM에 로그인합니다. 나열된 FQDN(정규화된 도메인 이름)을 사용할 수도 있습니다.
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-로그인 프로세스는 다음과 유사하게 표시됩니다.
+로그인 프로세스는 다음 출력 블록과 유사하게 표시됩니다.
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -203,6 +203,6 @@ exampleAdminUser@exampleVMName:~$
 - [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-create-cli-complete.md)
 - [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-또한 [여러 명령과 함께 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 신속하게 Docker host로 만들](virtual-machines-linux-docker-machine.md) 수 있습니다.
+[여러 명령과 함께 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 신속하게 Docker host로 만들](virtual-machines-linux-docker-machine.md) 수 있습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

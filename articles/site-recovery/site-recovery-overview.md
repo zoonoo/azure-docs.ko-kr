@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="09/29/2016" 
 	ms.author="raynew"/>
 
 #  사이트 복구란?
@@ -32,7 +32,7 @@ Azure는 리소스를 만들고 작업하기 위한 두 가지 [배포 모델](.
 
 Site Recovery는 클래식 포털과 Azure 포털 모두에서 지원됩니다. Azure 클래식 포털에서 기존 서비스 관리 모델을 사용하여 Site Recovery를 지원할 수 있습니다. Azure 포털에서 기존 모델 또는 Resource Manager 배포를 지원할 수 있습니다. Azure 포털을 사용하여 배포하는 방법에 대해 [자세히 읽어 봅니다](site-recovery-overview.md#site-recovery-in-the-azure-portal).
 
-이 문서의 정보는 클래식 및 Azure 포털 배포 모두에 적용됩니다. 해당되는 곳에 차이점이 나와 있습니다.
+이 문서의 정보는 클래식 및 Azure 포털 배포 모두에 적용됩니다. 차이점은 해당되는 곳에 나와 있습니다.
 
 
 ## 사이트 복구를 사용하는 이유는? 
@@ -81,4 +81,4 @@ Hyper-V VM | Hyper-V 호스트(VMM 없음) | Azure | [자세히 알아보기](si
 - Site Recovery 아키텍처에 대한 자세한 내용은 [Site Recovery 작동 방식](site-recovery-components.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

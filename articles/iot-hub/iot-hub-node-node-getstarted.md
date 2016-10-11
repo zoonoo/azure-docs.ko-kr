@@ -262,7 +262,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![장치->클라우드 메시지 모니터링을 위한 Node.js IoT Hub 서비스 클라이언트 응용 프로그램][7]
 
 2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 원격 분석 데이터를 IoT Hub로 전송을 시작합니다.
 
@@ -270,11 +270,11 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![장치->클라우드 메시지 전송을 위한 Node.js IoT Hub 장치 클라이언트 응용 프로그램][8]
 
 3. [Azure 포털][lnk-portal]의 **사용량** 타일에 허브로 전송된 메시지 수가 표시됩니다.
 
-    ![][43]
+    ![IoT Hub에 전송된 메시지의 수를 보여주는 Azure Portal 사용량 타일][43]
 
 ## 다음 단계
 
@@ -289,7 +289,6 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리하는 방법을 알아보려면 [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서를 참조하세요.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -298,13 +297,13 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -312,4 +311,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

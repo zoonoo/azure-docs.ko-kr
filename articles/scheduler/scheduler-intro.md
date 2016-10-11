@@ -3,8 +3,8 @@
  description="Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Azure 스케줄러 정의
 
@@ -50,4 +50,4 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/21/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Windows 유니버설 플랫폼 앱용 알림 허브 시작
@@ -43,7 +43,7 @@
 
 + [유니버설 Windows 앱 개발 도구 설치](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 
-+ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
++ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
 
 + 활성 Windows 스토어 계정
 
@@ -267,12 +267,12 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 <!-- URLs. -->
 
-[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[알림 허브를 사용하여 사용자에게 알림을 푸시]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[알림 허브를 사용하여 사용자에게 알림을 푸시]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [알림 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

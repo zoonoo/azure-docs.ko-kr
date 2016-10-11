@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # REST API를 사용하여 Azure Data Lake 저장소 시작
@@ -34,17 +34,8 @@
 ## 필수 조건
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **Azure Active Directory 응용 프로그램을 만듭니다**. **대화형** 및 **비대화형**의 두 가지 방법으로 Azure Active Direcotry를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
-	* **대화형 인증의 경우**(이 문서에 사용됨) - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
-		- 응용 프로그램에 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
-		- 위임된 권한 설정
 
-	* **비대화형 인증의 경우** - Azure Active Directory에서 **웹 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
-		- 응용 프로그램의 **클라이언트 ID**, **클라이언트 암호** 및 **리디렉션 URI** 가져오기
-		- 위임된 권한 설정
-		- 역할에 Azure Active Directory 응용 프로그램을 할당합니다. Azure Active Directory 응용 프로그램에 권한을 부여하려는 범위의 수준을 역할에 지정할 수 있습니다. 예를 들어 구독 수준 또는 리소스 그룹 수준으로 응용 프로그램을 할당할 수 있습니다. 지침은 [역할에 응용 프로그램 할당](../resource-group-create-service-principal-portal.md#assign-application-to-role)을 참조하세요.
-
-	이러한 값을 검색하고 권한을 설정하며 역할을 할당하는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
+- **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 - [cURL](http://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 Data Lake 저장소 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
@@ -52,7 +43,7 @@
 
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
 
-### 대화형(사용자 인증)
+### 최종 사용자 인증(대화형)
 
 이 시나리오에서 응용 프로그램은 로그인하라는 메시지를 표시하고 모든 작업은 사용자의 컨텍스트에서 수행됩니다. 대화형 인증을 위한 다음 단계를 수행합니다.
 
@@ -60,7 +51,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI>는 URL에서 사용하도록 인코딩되어야 합니다. 따라서 https://localhost은 `https%3A%2F%2Flocalhost`를 사용합니다.
+	>[AZURE.NOTE] <REDIRECT-URI>는 URL에서 사용하도록 인코딩되어야 합니다. 따라서, https://localhost의 경우 `https%3A%2F%2Flocalhost`를 사용합니다.)
 
 	이 자습서에서는 위의 URL에 있는 자리 표시자 값을 바꿀 수 있으며 이를 웹 브라우저의 주소 표시줄에 붙여 넣습니다. Azure 로그인을 사용하여 인증하도록 리디렉션됩니다. 성공적으로 로그인되면 응답은 브라우저의 주소 표시줄에 표시됩니다. 응답은 다음 형식으로 되어 있습니다.
 		
@@ -75,7 +66,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] 이 경우에 \<REDIRECT-URI>는 인코딩되지 않아야 합니다.
+	>[AZURE.NOTE] 이 경우에 <REDIRECT-URI>는 인코딩되지 않아야 합니다.
 
 3. 응답은 액세스 토큰(예: `"access_token": "<ACCESS_TOKEN>"`) 및 새로 고침 토큰(예: `"refresh_token": "<REFRESH_TOKEN>"`)을 포함하는 JSON 개체입니다. 응용 프로그램은 Azure Data Lake 저장소에 액세스할 때 액세스 토큰을 사용하고 액세스 토큰이 만료되면 다른 액세스 토큰을 가져오는 새로 고침 토큰을 사용합니다.
 
@@ -91,7 +82,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
  
 대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)을 참조하세요.
 
-### 비대화형
+### 서비스 간 인증(비대화형)
 
 이 시나리오에서 응용 프로그램은 고유한 자격 증명을 제공하여 작업을 수행합니다. 이를 위해 다음과 같은 POST 요청을 실행해야 합니다.
 
@@ -275,4 +266,4 @@ Data Lake 저장소 계정을 삭제하려면 다음 cURL 명령을 사용합니
 - [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

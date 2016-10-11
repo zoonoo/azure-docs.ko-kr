@@ -20,7 +20,7 @@
 # Azure Portal을 사용하여 DocumentDB NoSQL 계정을 만드는 방법
 
 > [AZURE.SELECTOR]
-- [Azure 포털](documntdb-create-account.md)
+- [Azure 포털](documentdb-create-account.md)
 - [Azure CLI 및 Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Microsoft Azure DocumentDB를 사용하여 데이터베이스를 빌드하려면 다음을 수행해야 합니다.
@@ -93,4 +93,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 -	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 계층적 리소스 모델 및 개념](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

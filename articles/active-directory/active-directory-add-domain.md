@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/18/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Azure Active Directory에 사용자 지정 도메인 이름 추가
+
+> [AZURE.SELECTOR]
+- [Azure 포털](active-directory-domains-add-qzure-portal.md)
+- [Azure 클래식 포털](active-directory-add-domain.md)
 
 조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. 이제 Azure Active Directory(Azure AD)를 사용 중이므로 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. 이렇게 하면 사용자에게 친숙한 ‘alice@contoso.com’과 같은 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
 
@@ -44,7 +48,7 @@
 
 사용자 지정 도메인 이름을 Azure AD로 사용하는 다음 단계에서는 도메인에 대한 DNS 영역 파일을 업데이트합니다. 이를 통해 Azure AD에서는 조직이 사용자 지정 도메인 이름을 소유하는지를 확인합니다.
 
-1.  도메인에 대한 도메인 이름 등록 기관에 로그인합니다. DNS 항목을 업데이트하기 위해 액세스할 수 없는 경우 엑세스 권한이 있는 사용자 또는 팀에게 2단계를 완료하고 완료될 때를 알려주도록 요청합니다.
+1.  도메인에 대한 도메인 이름 등록 기관에 로그인합니다. DNS 항목을 업데이트하기 위해 액세스할 수 없는 경우 액세스 권한이 있는 사용자 또는 팀에게 2단계를 완료하고 완료될 때를 알려주도록 요청합니다.
 
 2.  Azure AD에서 제공되는 DNS 항목을 추가하여 도메인에 대한 DNS 영역 파일을 업데이트합니다. 이러한 DNS 항목을 통해 Azure AD에서 도메인에 대한 소유권을 확인할 수 있도록 합니다. DNS 항목은 메일 라우팅이나 웹 호스팅 같은 어떠한 동작도 변경하지 않습니다.
 
@@ -62,7 +66,7 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 
 2.  디렉터리를 열고 **도메인** 탭을 선택합니다.
 
-3.  명령 모음에서 **확인**을 확인하고 선택하려는 도메인 이름을 선택합니다.
+3.  확인하려는 도메인 이름을 선택하고 명령 모음에서 **확인**을 선택합니다.
 
 4. 대화 상자에서 **확인**을 선택하여 확인을 완료합니다.
 
@@ -91,4 +95,4 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 -   [사용자 로그인 시 회사의 브랜딩 표시](active-directory-add-company-branding.md)
 -   [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

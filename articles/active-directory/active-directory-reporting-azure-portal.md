@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory Reporting - 미리 보기
+
+> [AZURE.SELECTOR]
+- [Azure 포털](active-directory-reporting-azure-portal.md)
+- [Azure 클래식 포털](active-directory-reporting-guide.md)
 
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
@@ -216,4 +220,4 @@ Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 
 
 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->
