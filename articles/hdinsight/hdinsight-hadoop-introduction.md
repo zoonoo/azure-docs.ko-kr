@@ -253,7 +253,7 @@ HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라�
 
 * [파워 쿼리로 Hadoop에 Excel 연결](hdinsight-connect-excel-power-query.md): HDInsight 클러스터와 연결된 데이터를 저장하는 Azure 저장소 계정에 Microsoft Excel용 파워 쿼리를 사용하여 Excel을 연결하는 방법을 알아 봅니다. Windows 워크스테이션이 필요합니다. Windows 또는 Linux 기반 클러스터와 함께 작동합니다.
 
-* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-ODBC-driver.md): Microsoft Hive ODBC 드라이버를 사용하여 HDInsight에서 데이터를 가져오는 방법에 대해 알아봅니다. Windows 워크스테이션이 필요합니다. Windows 또는 Linux 기반 클러스터와 함께 작동합니다.
+* [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC 드라이버를 사용하여 HDInsight에서 데이터를 가져오는 방법에 대해 알아봅니다. Windows 워크스테이션이 필요합니다. Windows 또는 Linux 기반 클러스터와 함께 작동합니다.
 
 * [Microsoft 클라우드 플랫폼](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Office 365용 Power BI에 대해 알아보고 SQL Server 평가판을 다운로드하고 SharePoint Server 2013 및 SQL Server BI를 설치합니다.
 
@@ -268,4 +268,4 @@ HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라�
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

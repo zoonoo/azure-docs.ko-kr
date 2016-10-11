@@ -18,9 +18,7 @@
 
 # Azure IoT Hub란?
 
-Azure IoT Hub를 시작합니다. 이 문서에서는 Azure IoT Hub의 개요를 제공하고 IoT(사물 인터넷) 솔루션을 구현할 때 이 서비스를 사용하는 이유에 대해 설명합니다.
-
-Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. Azure IoT Hub:
+Azure IoT Hub를 시작합니다. 이 문서에서는 Azure IoT Hub의 개요를 제공하고 IoT(사물 인터넷) 솔루션을 구현하기 위해 이 서비스를 사용해야 하는 이유에 대해 설명합니다. Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. Azure IoT Hub:
 
 - 대규모 환경에서 신뢰할 수 있는 장치-클라우드 및 클라우드-장치 메시징을 제공합니다.
 - 장치 단위 보안 자격 증명 및 액세스 제어를 사용하여 통신을 보호합니다.
@@ -106,15 +104,13 @@ Azure IoT Hub를 사용하여 표준 기반 IoT 장치 관리를 통해 원격�
 
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "서비스 지원 통신, Clemens vasters의 블로그 게시물"
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
-[lnk-field-gateway]: iot-hub-guidance.md#field-gateways
-[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
+[lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
@@ -123,4 +119,4 @@ Azure IoT Hub를 사용하여 표준 기반 IoT 장치 관리를 통해 원격�
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

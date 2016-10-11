@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기
@@ -461,9 +461,9 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 ##다음 단계
 
-이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 학습할 다음 단계로 [.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림] 자습서를 권장합니다. 여기서는 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 과정을 소개합니다.
+이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 학습할 다음 단계로 [.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림] 자습서를 권장합니다. 여기서는 태그를 사용하여 푸시 알림을 보내는 백 엔드를 만드는 과정을 소개합니다.
 
-또한 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기] 자습서로 이동할 수 있습니다.
+또한 사용자를 관심 그룹별로 분할하려면 [Notification Hubs를 사용하여 속보 보내기] 자습서로 이동합니다.
 
 알림 허브에 대한 일반적인 정보는 [알림 허브 지침]을 참조하세요.
 
@@ -501,10 +501,10 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[.NET 백 엔드를 통한 Azure 알림 허브의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-notify-users.md
-[알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
+[.NET 백 엔드를 통한 Azure Notification Hubs의 iOS 사용자 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notification Hubs를 사용하여 속보 보내기]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

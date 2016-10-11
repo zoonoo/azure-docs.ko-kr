@@ -100,7 +100,7 @@
 
 	![package.json 탭의 스크린샷](./media/documentdb-nodejs-application/image17.png)
 
-       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
+	이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
 
@@ -568,4 +568,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!------HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

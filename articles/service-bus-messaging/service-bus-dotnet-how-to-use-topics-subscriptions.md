@@ -151,6 +151,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 토픽 구독을 만들 수도 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
+> [AZURE.IMPORTANT] 메시지가 구독에서 수신되도록 하려면 토픽에 메시지를 보내기 전에 구독을 만들어야 합니다. 토픽에 대한 구독이 없으면, 토픽은 해당 메시지를 무시합니다.
+
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
 새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터가 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "AllMessages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
@@ -327,4 +329,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [Service Bus 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

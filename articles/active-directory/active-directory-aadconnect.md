@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="09/30/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
+
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -53,9 +54,9 @@ Azure Active Directory Connect는 동기화 서비스, 선택적인 Active Direc
 해결 방법 | 시나리오
 ----- | ----- |
 시작하기 전에 - [하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md) | <li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li>
-[Express 설정](active-directory-aadconnect-get-started-express.md) | <li>단일 포리스트 AD가 있는 경우 사용이 권장되는 기본 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li>
-[사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) | <li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션에 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장 등의 동기화 기능을 사용자 지정합니다.</li>
-[DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우 사용됩니다.</li>
+[Express 설정](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>단일 포리스트 AD가 있는 경우 사용이 권장되는 기본 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li>
+[사용자 지정된 설정](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션에 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장 등의 동기화 기능을 사용자 지정합니다.</li>
+[DirSync에서 업그레이드](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우 사용됩니다.</li>
 [Azure AD Sync 또는 Azure AD Connect에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)| <li>기본 설정에 따라 여러 가지 방법이 있습니다.</li>
 
 
@@ -66,9 +67,9 @@ Azure Active Directory Connect는 동기화 서비스, 선택적인 Active Direc
 항목 |  
 --------- | ---------
 Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
-Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md)
-사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
-DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./aad-connect/active-directory-aadconnect-get-started-express.md)
+사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 설치 후 | [설치 확인 및 라이선스 할당](active-directory-aadconnect-whats-next.md)
 
 ### Azure AD Connect 설치에 대해 자세히 알아봅니다.
@@ -79,7 +80,7 @@ DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레�
 --------- | ---------
 지원되는 토폴로지 | [Azure AD Connect에 대한 토폴로지](active-directory-aadconnect-topologies.md)
 설계 개념 | [Azure AD Connect 설계 개념](active-directory-aadconnect-design-concepts.md)
-설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보](active-directory-aadconnect-accounts-permissions.md)
+설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 운영 계획 | [Azure AD Connect Sync: 운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md)
 사용자 로그인 옵션 | [Azure AD Connect 사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)
 
@@ -162,4 +163,4 @@ Azure AD Connect Health를 사용하여 모니터링 | [Azure AD Connect Health]
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

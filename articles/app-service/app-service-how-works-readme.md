@@ -26,6 +26,7 @@ Azure 앱 서비스는 오늘날 엔지니어가 직면한 실제 문제를 해�
 * API 앱을 사용하여 API를 게시, 구현 및 배포합니다.
 * 비즈니스 응용 프로그램을 워크플로에 서로 연결하고 논리 앱을 사용하여 데이터를 변환합니다.
 
+
 모든 앱 형식은 개발자가 앱 설계에서 앱 유지 관리까지의 전체 수명 주기 환경을 최적화하는 확장성과 유연성이 있는 웹앱 플랫폼을 사용합니다. 수명 주기 기능을 통해 다음을 수행합니다.
 
 * 빠른 앱 만들기 - 처음부터 시작할 수도 있고 Azure 마켓플레이스에서 OSS 패키지를 선택할 수도 있습니다.
@@ -39,4 +40,4 @@ Azure 앱 서비스는 오늘날 엔지니어가 직면한 실제 문제를 해�
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

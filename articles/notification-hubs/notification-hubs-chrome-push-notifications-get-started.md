@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Chrome 앱에 푸시 알림 보내기
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 항목에서는 Azure 알림 허브를 사용하여 Google Chrome 브라우저의 컨텍스트 내에서 표시되는 Chrome 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 자습서에서는 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다.
+이 항목에서는 Azure Notification Hubs를 사용하여 Google Chrome 브라우저의 컨텍스트 내에서 표시되는 Chrome 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 자습서에서는 [GCM(Google Cloud Messaging)](https://developers.google.com/cloud-messaging/)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다.
 
 >[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
 
@@ -388,7 +388,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#**에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 그러면 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
 
-2. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그러면 패키지 관리자 콘솔이 표시됩니다.
+2. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 패키지 관리자 콘솔이 표시됩니다.
 
 3. 콘솔 창에서 다음 명령을 실행합니다.
 
@@ -434,9 +434,9 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
 알림 허브에 대한 자세한 내용은 [알림 허브 개요]를 참조하세요.
 
-특정 사용자를 대상으로 하려면 [Azure 알림 허브 알릴 사용자] 자습서를 참조하세요.
+특정 사용자를 대상으로 하려면 [Azure Notification Hubs 사용자에게 알림] 자습서를 참조하세요.
 
-사용자를 관심 그룹별로 분할하려면 [Azure 알림 허브 뉴스 속보] 자습서를 수행할 수 있습니다.
+사용자를 관심 그룹별로 분할하려면 [Azure Notification Hubs 뉴스 속보] 자습서를 수행합니다.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -474,7 +474,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 [crypto-js 라이브러리]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Azure Notification Hubs 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs 뉴스 속보]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

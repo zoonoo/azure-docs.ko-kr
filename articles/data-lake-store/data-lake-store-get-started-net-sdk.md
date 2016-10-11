@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -112,9 +112,9 @@
 
 ## 인증
 
-### 최종 사용자 인증을 사용하는 경우
+### 최종 사용자 인증을 사용하는 경우(이 자습서에 권장됨)
 
-아래에 제공되는 기존 Azure AD "네이티브 클라이언트" 응용 프로그램과 함께 사용합니다.
+아래에 제공되는 기존 Azure AD "네이티브 클라이언트" 응용 프로그램과 함께 사용합니다. 이 자습서를 신속하게 완료하려면 이 방법을 사용하는 것이 좋습니다.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -124,7 +124,10 @@
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-위의 코드 조각에서는 기본적으로 모든 Azure 구독에 대해 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 사용자 고유의 Azure AD 도메인 및 응용 프로그램 클라이언트 ID를 사용하려는 경우 Azure AD 네이티브 응용 프로그램을 만들어야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](../resource-group-create-service-principal-portal.md#create-an-active-directory-application)를 참조하세요.
+위의 코드 조각에 대해 알아야 할 내용.
+
+* 자습서를 신속하게 완료할 수 있도록, 이 코드 조각은 기본적으로 모든 Azure 구독에서 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
+* 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 도메인, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](../resource-group-create-service-principal-portal.md#create-an-active-directory-application)를 참조하세요.
 
 >[AZURE.NOTE] 위의 링크에서 지침은 Azure AD 웹 응용 프로그램용입니다. 그러나 대신 네이티브 클라이언트 응용 프로그램을 만들더라도 단계는 정확하게 동일합니다.
 
@@ -273,4 +276,4 @@
 - [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

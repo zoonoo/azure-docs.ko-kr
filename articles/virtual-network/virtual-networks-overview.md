@@ -17,7 +17,7 @@
 
 # 가상 네트워크 개요
 
-Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드를 논리적으로 격리한 것이 가상 네트워크입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. 또한 VNet을 여러 서브넷으로 분할하고 Azure IaaS VM(가상 컴퓨터) 및/또는 [클라우드 서비스(PaaS 역할 인스턴스)](../cloud-services/cloud-services-choose-me.md)를 실행할 수 있습니다. 뿐만 아니라 Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md) 중 하나를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 기본적으로 네트워크를 Azure로 확장하여 IP 주소 블록을 완벽하게 제어하고, Azure가 제공하는 엔터프라이즈급 솔루션의 혜택을 누릴 수 있습니다.
+Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드를 논리적으로 격리한 것입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. 또한 VNet을 여러 서브넷으로 분할하고 Azure IaaS VM(가상 컴퓨터) 및/또는 [클라우드 서비스(PaaS 역할 인스턴스)](../cloud-services/cloud-services-choose-me.md)를 실행할 수 있습니다. 뿐만 아니라 Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) 중 하나를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 기본적으로 네트워크를 Azure로 확장하여 IP 주소 블록을 완벽하게 제어하고, Azure가 제공하는 엔터프라이즈급 솔루션의 혜택을 누릴 수 있습니다.
 
 VNet을 더 잘 이해하기 위해 간소화된 온-프레미스 네트워크가 표시된 아래 그림을 살펴보겠습니다.
 
@@ -83,7 +83,7 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 가상 어플라이언스는 [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 따라 달라집니다.
 
 ## 제한
-구독에 허용되는 가상 네트워크의 수가 제한되어 있습니다. 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md#networking-limits)을 참조하세요.
+구독에 허용되는 Virtual Network의 수가 제한되어 있습니다. 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md#networking-limits)을 참조하세요.
 
 ## 가격
 추가 비용 없이 Azure에서 가상 네트워크를 사용할 수 있습니다. VNet 내부에서 실행되는 계산 인스턴스는 [Azure VM 가격](https://azure.microsoft.com/pricing/details/virtual-machines/)에 설명된 대로 표준 요금제가 적용됩니다. VNet에 사용되는 [VPN 게이트웨이](https://azure.microsoft.com/pricing/details/vpn-gateway/) 및 [공용 IP 주소](https://azure.microsoft.com/pricing/details/ip-addresses/)에도 표준 요금제가 적용됩니다.
@@ -95,4 +95,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [NSG](virtual-networks-nsg.md)에 대해 알아보기.
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!-----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

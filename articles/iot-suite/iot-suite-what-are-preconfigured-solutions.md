@@ -34,8 +34,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 명령 및 제어 | 규칙 및 작업 | 예측 분석 |
 |------------------------|-----|-----|-----|-----|-----|
-| [원격 모니터링][lnk-getstarted-preconfigured] | 예 | 예 | 예 | 예 | - |
-| [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
+| [원격 모니터링][lnk-getstarted-preconfigured] | 예 | 예 | 예 | 예 | - | | [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
 
 - *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 - *장치 ID*: 연결된 모든 장치의 고유한 ID를 관리합니다.
@@ -125,10 +124,10 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

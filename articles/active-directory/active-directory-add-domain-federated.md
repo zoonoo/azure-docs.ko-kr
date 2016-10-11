@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/18/2016"
+	ms.date="10/04/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Azure Active Directory에 사용자 지정 도메인 이름 추가
@@ -75,4 +75,4 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 -   [사용자 로그인 시 회사의 브랜딩 표시](active-directory-add-company-branding.md)
 -   [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

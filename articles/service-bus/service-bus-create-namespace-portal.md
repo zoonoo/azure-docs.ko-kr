@@ -16,7 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
-# Azure 포털을 사용하여 서비스 버스 네임스페이스 만들기
+# Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
 
 네임스페이스는 모든 메시징 구성 요소에 대한 공용 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스에 있을 수 있으며 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 현재 두 가지 다른 방법으로 서비스 버스 네임스페이스를 만들 수 있습니다.
 
@@ -24,7 +24,7 @@
 
 2.	[리소스 관리자 템플릿][create-namespace-using-arm]
 
-## Azure 포털에서 네임스페이스 만들기
+## Azure Portal에서 네임스페이스 만들기
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -37,4 +37,4 @@ Azure 서비스 버스 메시징의 더 많은 고급 기능 중 일부를 보�
 [create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

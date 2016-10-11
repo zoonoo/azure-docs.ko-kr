@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
@@ -25,7 +25,7 @@
 
 ## 1단계: Azure PowerShell 설치
 
-최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
         
 ## 2단계: 리소스 그룹 만들기
 
@@ -35,7 +35,7 @@
 
 	    Get-AzureRmLocation | sort Location | Select Location
         
-    다음과 유사한 결과가 표시됩니다.
+    다음 예제와 유사한 결과가 표시됩니다.
     
         Location
         --------
@@ -98,7 +98,7 @@
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    응용 프로그램 및 환경에 적합한 값을 사용해야 합니다.
+    응용 프로그램 및 환경에 적합한 값을 사용합니다.
         
 ## 5단계: 공용 IP 주소 및 네트워크 인터페이스 만들기
 
@@ -122,7 +122,7 @@
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 더 자세한 내용은 [사용자 이름 및 암호 요구 사항](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+    암호의 길이는 12-123자여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자가 있어야 합니다.
         
 2. **$vmName** 값을 가상 컴퓨터 이름으로 바꿉니다. 변수 및 가상 컴퓨터 구성을 만듭니다.
 
@@ -140,13 +140,13 @@
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    사용할 이미지 선택에 대한 자세한 내용은 [PowerShell 또는 CLI로 Azure의 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
+    사용할 이미지 선택에 대한 자세한 내용은 [Powershell 또는 CLI로 Azure의 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
         
 5. 만든 네트워크 인터페이스를 구성에 추가합니다.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. **$blobPath** 값을 가상 하드 디스크가 사용할 저장소에 있는 경로 및 파일 이름으로 바꿉니다. 가상 하드 디스크 파일은 일반적으로 컨테이너에 저장됩니다(예: **vhds/WindowsVMosDisk.vhd**). 변수를 만듭니다.
+6. **$blobPath** 값을 가상 하드 디스크의 저장소에 있는 경로 및 파일 이름으로 바꿉니다. 가상 하드 디스크 파일은 일반적으로 컨테이너에 저장됩니다(예: **vhds/WindowsVMosDisk.vhd**). 변수를 만듭니다.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -168,8 +168,8 @@
                                   
 ## 다음 단계
 
-- 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴봅니다.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

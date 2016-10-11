@@ -31,8 +31,10 @@
 
 ## 필수 조건
 
+
 - [Git를 설치](http://www.git-scm.com/downloads)합니다. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널에서 `git --version`를 실행하여 성공적으로 설치되었는지 확인합니다.
 - Microsoft Azure 계정을 가져옵니다. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+
 
 >[AZURE.NOTE] Azure 계정 없이 [App Service](http://go.microsoft.com/fwlink/?LinkId=523751)를 시도할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -144,4 +146,4 @@
 - [사용자의 코드를 Azure에 배포하는 다른 방법](../app-service-web/web-sites-deploy.md)을 시도해 보세요. 예를 들어 GitHub 리포지토리 중 하나에서 배포하려면 **배포 옵션**에서 **로컬 Git 리포지토리** 대신에 **GitHub**를 선택합니다.
 - 다음 수준으로 Azure 앱을 이동합니다. 사용자를 인증합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다. [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md)를 참조하세요.
 
-<!-----HONumber=AcomDC_0920_2016-->
+<!---HONumber=AcomDC_1005_2016-->

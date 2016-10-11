@@ -3,8 +3,8 @@
  description="Azure 포털에서 Azure 스케줄러 시작"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Azure 포털에서 Azure 스케줄러 시작
 
@@ -92,7 +92,7 @@ HTTP 및 HTTPS 작업 동작 유형에서, 메서드를 허용되는 HTTP 동사
 
 저장소 큐 동작 유형의 경우 저장소 계정, 큐 이름, SAS 토큰 및 본문을 변경할 수 있습니다.
 
-서비스 버스 동작 유형의 네임스페이스, 토픽/큐 경로, 인증 설정, 전송 유형, 메시지 속성 및 메시지 본문을 변경할 수 있습니다.
+Service Bus 동작 유형의 네임스페이스, 토픽/큐 경로, 인증 설정, 전송 유형, 메시지 속성 및 메시지 본문을 변경할 수 있습니다.
 
    ![][job-action-settings]
 
@@ -182,4 +182,4 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 스케줄러에 대�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

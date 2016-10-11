@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2016"
+	ms.date="09/30/2016"
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
@@ -52,7 +52,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 
 | | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
-| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와 간편하게 통합 | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-manage-origins.md#enable-cdn)와 같은 Azure와 간편하게 통합 | **&#x2713;** | **&#x2713;** | **&#x2713;**|
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) 또는 [PowerShell](./cdn-manage-powershell.md)을 통한 관리. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS 지원 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | 부하 분산 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
@@ -87,4 +87,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

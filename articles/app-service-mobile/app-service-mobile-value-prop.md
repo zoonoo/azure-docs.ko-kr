@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>모바일 앱 정의
+# <a name="getting-started"> </a>Mobile Apps이란?
 
 Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS([Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/)) 제품으로, 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. *Azure 앱 서비스*의 *모바일 앱*은 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
 
@@ -98,8 +98,8 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 [배포 옵션]: ../app-service-web/web-sites-deploy.md
 [하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [가상 네트워크]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Express 경로]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[Express 경로]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [앱 서비스 환경]: ../app-service-web/app-service-app-service-environment-intro.md
 [학습 맵]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

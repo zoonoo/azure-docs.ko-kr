@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Azure Batch CLI 시작
 
 교차 플랫폼 Azure CLI(Azure 명령줄 인터페이스)를 사용하면 Linux, Mac 및 Windows 명령 셸에서 풀, 작업 및 태스크 등 배치 계정 및 리소스를 관리할 수 있습니다. Azure CLI을 사용하여 Batch API, Azure Portal, Azure PowerShell cmdlet으로 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다.
 
-이 문서는 Azure CLI 버전 0.10.3을 기반으로 합니다.
+이 문서는 Azure CLI 버전 0.10.5를 기반으로 합니다.
 
 ## 필수 조건
 
@@ -215,19 +215,39 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 
 패키지를 **활성화합니다**.
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+응용 프로그램의 **기본 버전**을 설정합니다.
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### 응용 프로그램 패키지 배포
 
 새 풀을 만들 때 배포에 하나 이상의 응용 프로그램 패키지를 지정할 수 있습니다. 풀을 만들 때 패키지를 지정하는 경우 노드가 풀에 조인하면 각 노드에 배포됩니다. 패키지는 노드를 다시 부팅하거나 이미지로 다시 설치하는 경우에 배포됩니다.
 
-이 명령은 풀을 만들 때 패키지를 지정하고 각 노드가 새 풀에 조인하면 배포됩니다.
+풀에 참가하면서 풀의 노드에 응용 프로그램 패키지를 배포하도록 풀을 만들 때 `--app-package-ref` 옵션을 지정합니다. `--app-package-ref` 옵션은 계산 노드에 배포할 세미콜론(;)으로 구분된 응용 프로그램 ID 목록을 허용합니다.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-현재는 명령줄 옵션을 사용하여 배포할 패키지 버전을 지정할 수 없습니다. Azure Portal을 사용하여 응용 프로그램에 대한 기본 버전을 풀에 할당하기 전에 먼저 설정해야 합니다. 기본 버전을 설정하는 방법은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요. 그러나 풀을 만들 때 명령줄 옵션 대신 [JSON 파일](#json-files)을 사용하는 경우 기본 버전을 지정할 수 있습니다.
+명령줄 옵션을 사용하여 풀을 만드는 경우, 현재는 계산 노드에 배포할 응용 프로그램 패키지 *버전* (예: “1.10-beta3”)을 지정할 수 없습니다. 따라서, 풀을 만들기 전에 `azure batch application set [options] --default-version <version-id>`를 사용하여 응용 프로그램의 기본 버전을 우선 지정해야 합니다(이전 세션 참조). 그러나 풀을 만들 때 명령줄 옵션 대신 [JSON 파일](#json-files)을 사용하는 경우 풀에 대한 패키지 버전을 지정할 수 있습니다.
+
+응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 >[AZURE.IMPORTANT] 응용 프로그램 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage)을 배치 계정에 연결해야 합니다.
+
+### 풀의 응용 프로그램 패키지 업데이트
+
+기존 풀에 할당된 응용 프로그램을 업데이트하려면 `azure batch pool set` 명령을 `--app-package-ref` 옵션과 함께 실행합니다.
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+기존 풀에 이미 존재하는 계산 노드에 새로운 응용 프로그램 패키지를 배포하려면, 해당 노드를 다시 시작하거나 이미지로 다시 설치해야 합니다.
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] `azure batch node list`를 사용하면 풀의 노드 목록을 노드 ID와 함께 가져올 수 있습니다.
+
+배포 전에 응용 프로그램을 기본 버전으로 반드시 구성해 두어야 한다는 점을 기억해야 합니다(`azure batch application set [options] --default-version <version-id>`).
 
 ## 문제 해결 팁
 
@@ -249,9 +269,9 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 
 * 항목의 수 및 쿼리에 대해 배치에 반환되는 정보의 유형을 줄이는 데 대한 자세한 내용은 [효율적인 배치 서비스 쿼리](batch-efficient-list-queries.md)을 참조하세요.
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/forums/azure/ko-KR/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

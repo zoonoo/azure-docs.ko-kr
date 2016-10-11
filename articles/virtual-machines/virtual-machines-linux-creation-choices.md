@@ -35,7 +35,7 @@ Azure CLI는 npm 패키지, 배포판 제공 패키지 또는 Docker 컨테이�
 	```
 
 - [Azure 템플릿을 사용하여 안전한 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-	- 다음 예제에서는 템플릿에 저장된 GitHub를 사용하여 VM을 만듭니다.
+	- 다음 예제에서는 GitHub에 저장된 템플릿을 사용하여 VM을 만듭니다.
 
 	```bash
 	azure group create --name TestRG --location WestUS 
@@ -130,4 +130,4 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 
 - [암호 또는 SSH 키 다시 설정 및 사용자 관리](virtual-machines-linux-using-vmaccess-extension.md)하는 빠른 단계
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

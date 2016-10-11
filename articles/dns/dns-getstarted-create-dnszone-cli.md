@@ -3,7 +3,7 @@
    description="Azure DNS에 대한 DNS 영역을 만들고 CLI를 사용하여 DNS 도메인 호스팅을 시작하는 방법을 단계별로 알아봅니다."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # CLI를 사용하여 Azure DNS 영역 만들기
 
@@ -42,25 +42,25 @@ Windows, Linux 또는 MAC용 Azure CLI를 설치할 수 있습니다. Azure CLI�
 
 CLI에 대한 모든 네트워크 공급자 명령은 다음 명령을 사용하여 찾을 수 있습니다.
 
-	Azure network
+	azure network
 
 ### 2\. CLI 모드 전환
 
 Azure DNS는 Azure 리소스 관리자를 사용합니다. ARM 명령을 사용하려면 CLI 모드를 전환해야 합니다.
 
-	Azure config mode arm
+	azure config mode arm
 
 ### 3\. Azure 계정에 로그인
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다. ORGID 계정만을 사용할 수 있습니다.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4\. 구독 선택
 
 사용할 Azure 구독을 선택합니다.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5\. 리소스 그룹 만들기
 
@@ -68,14 +68,14 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛸 수 있습니다.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6\. 등록
 
 Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩니다. Azure DNS를 사용하려면 먼저 이 리소스 공급자를 사용하도록 Azure 구독을 등록해야 합니다. 이 작업은 각 구독에 대해 한 번만 수행하면 됩니다.
 
-	Azure provider register --namespace Microsoft.Network
+	azure provider register --namespace Microsoft.Network
 
 
 ## 2단계 - DNS 영역 만들기
@@ -91,7 +91,7 @@ Azure DNS에서는 종료하는 **'.'** 없이 영역 이름을 지정해야 합
 
 예제를 사용하여 DNS 영역을 만들고 사용자 고유 값으로 대체합니다.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### DNS 영역 및 태그를 만들려면
 
@@ -99,7 +99,7 @@ Azure DNS CLI에서는 옵션 *-Tag* 매개 변수를 사용하여 DNS 영역의
 
 아래 예제를 사용하여 DNS 영역과 태그를 만들고 사용자 고유 값으로 대체합니다.
 
-	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## 레코드 보기
 
@@ -185,4 +185,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-cli.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

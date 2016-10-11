@@ -13,15 +13,19 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/21/2016"
+	ms.date="09/30/2016"
 	ms.author="kgremban"/>
 
 # 역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리
 
-Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 이 문서에서는 Azure 포털에 RBAC를 준비하고 실행하도록 도와줍니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 자세한 정보를 원하는 경우 [역할 기반 액세스 제어란](role-based-access-control-what-is.md)을 참조하세요.
+> [AZURE.SELECTOR]
+- [Azure 포털](role-based-access-control-azure-portal.md)
+- [Azure 클래식 포털](role-based-access-control-configure.md)
+
+Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 이 문서에서는 Azure 포털에 RBAC를 준비하고 실행하도록 도와줍니다. RBAC가 액세스 관리에 어떻게 도움이 되는지에 대한 자세한 정보를 보려면 [역할 기반 Access Control이란](role-based-access-control-what-is.md)을 참조하세요.
 
 ## 액세스 보기
-[Azure 포털](https://portal.azure.com)의 기본 블레이드에서 리소스, 리소스 그룹 또는 구독에 대한 액세스 권한이 있는 사용자를 볼 수 있습니다. 예를 들어 리소스 그룹 중 하나에 대한 액세스 권한이 있는 사용자를 확인하려는 경우 다음과 같이 합니다.
+[Azure Portal](https://portal.azure.com)의 기본 블레이드에서 리소스, 리소스 그룹 또는 구독에 대한 액세스 권한이 있는 사용자를 볼 수 있습니다. 예를 들어 리소스 그룹 중 하나에 대한 액세스 권한이 있는 사용자를 확인하려는 경우 다음과 같이 합니다.
 
 1. 왼쪽 탐색 모음에서 **리소스 그룹**을 선택합니다. ![리소스 그룹 - 아이콘](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. **리소스 그룹** 블레이드에서 리소스 그룹의 이름을 선택합니다.
@@ -46,7 +50,7 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 
 4. **확인**을 선택하여 할당을 만듭니다. **사용자 추가** 팝업은 진행 상태를 추적합니다. ![사용자 진행률 표시줄 추가 - 스크린샷](./media/role-based-access-control-configure/addinguser_popup.png)
 
-역할 할당을 성공적으로 추가한 후에 **사용자** 블레이드가 나타납니다.
+역할 할당을 성공적으로 추가한 후에 **사용자** 블레이드에 나타납니다.
 
 ## 액세스 제거
 
@@ -54,7 +58,7 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 2. 할당 세부 정보 블레이드에서 **제거**를 선택합니다. ![제거 - 아이콘](./media/role-based-access-control-configure/remove_icon.png)
 3. **예**를 선택하여 제거를 확인합니다. ![사용자 블레이드 - 역할에서 제거 스크린샷](./media/role-based-access-control-configure/remove-access1.png)
 
-상속된 할당을 제거할 수 있습니다. 그러면 아래 이미지에서 제거 단추가 회색으로 표시됩니다. 대신 **할당 위치** 세부 정보를 볼 수 있습니다. 여기에 나열된 리소스로 이동하여 역할 할당을 제거합니다.
+상속된 할당을 제거할 수 있습니다. 그러면 아래 이미지에서 제거 단추가 회색으로 표시됩니다. 대신 **할당 위치** 세부 정보를 봅니다. 여기에 나열된 리소스로 이동하여 역할 할당을 제거합니다.
 
 ![사용자 블레이드 - 상속된 액세스는 제거 단추를 사용할 수 없도록 설정함 스크린샷](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -70,4 +74,4 @@ Azure 포털 이외의 도구에서 Azure RBAC 명령을 사용하여 역할을 
 - [RBAC 기본 제공 역할](role-based-access-built-in-roles.md) 참조
 - [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 정의
 
-<!-----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

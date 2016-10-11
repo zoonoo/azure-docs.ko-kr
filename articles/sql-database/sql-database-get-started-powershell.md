@@ -132,7 +132,7 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에 만들�
 ## 다음 단계
 SQL 데이터베이스를 만들고 기본 데이터베이스 설치 작업을 수행하면 다음을 수행할 준비가 되었습니다.
 
-- [PowerShell을 사용하여 SQL 데이터베이스 관리](sql-database-command-line-tools.md)
+- [PowerShell을 사용하여 SQL 데이터베이스 관리](sql-database-manage-powershell.md)
 - [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 
 
@@ -140,4 +140,4 @@ SQL 데이터베이스를 만들고 기본 데이터베이스 설치 작업을 �
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->
