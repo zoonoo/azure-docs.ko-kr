@@ -509,7 +509,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 	* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
 	* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
 	* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-	* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \_https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+	* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 _https://contoso.azurewebsites.net/.auth/login/done_ 와 유사해야 합니다.
 	
 	각 플랫폼에 필요한 코드는 다음과 같습니다.
 	
@@ -926,7 +926,7 @@ iOS 또는 Android 플랫폼에서 실행되는 앱을 등록하려면 Xamarin �
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [앱에 푸시 알림 추가]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Microsoft 계정 로그인을 사용하도록 앱 등록]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Active Directory 로그인에 App Service를 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [Azure 모바일 앱 .NET 클라이언트 참조]: https://msdn.microsoft.com/ko-KR/library/azure/mt419521(v=azure.10).aspx

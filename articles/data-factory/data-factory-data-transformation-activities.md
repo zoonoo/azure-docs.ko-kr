@@ -72,7 +72,11 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 
 데이터 변환 작업 | 컴퓨팅 환경 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [기계 학습 활동: 배치 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
+[기계 학습 활동: 배치 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
 [저장 프로시저](data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL 데이터 웨어하우스 또는 SQL Server |
 [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch
