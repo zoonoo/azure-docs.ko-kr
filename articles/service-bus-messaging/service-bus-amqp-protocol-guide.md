@@ -218,8 +218,7 @@ API 수준의 "수신" 호출은 클라이언트가 서비스 버스로 보내�
 |----------------------	|---------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------	|
 | message-id | 이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. | [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) |
 | user-id | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다. | 서비스 버스 API를 통해 액세스할 수 없습니다. |
-| to | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다. | [받는 사람
-](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
+| to | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다. | [받는 사람](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
 | subject | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다. | [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) |
 | reply-to | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 회산 경로 식별자입니다. | [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx) |
 | correlation-id | 서비스 버스에서 해석되지 않는 응용 프로그램 정의 상관 관계 식별자입니다. | [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx) |
