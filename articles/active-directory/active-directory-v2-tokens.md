@@ -63,8 +63,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 이름 | `name` | `Babe Ruth` | 이름 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 이 값은 반드시 고유한 것은 아니며 변경 가능하고 표시 용도로만 사용하도록 디자인되었습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | Email | `email` | `thegreatbambino@nyy.onmicrosoft.com` | 만약 있다면 사용자 계정과 연결된 기본 전자 메일 주소입니다. 해당 값은 변경 가능하며 지정된 사용자에 대해 점차 변경될 수 있습니다. `email` 범위는 이 클레임을 받기 위해 필요합니다. |
 | 기본 설정된 사용자 이름 | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | v2.0 끝점에서 사용자를 나타내는 데 사용되는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 지정된 사용자에 대해 점차 변경될 수 있습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
-| 제목  
- | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. |
+| 제목 | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. |
 | ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Azure AD 시스템에서 회사 또는 학교 계정의 개체 ID입니다. 이 클레임은 개인 Microsoft 계정에 대해 발급되지 않습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 
 
