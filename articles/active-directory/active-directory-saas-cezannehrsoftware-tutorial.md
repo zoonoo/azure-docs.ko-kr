@@ -127,7 +127,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
 	d. **다음**를 클릭합니다.
 
-	> [AZURE.NOTE] 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 가져오려면 < mailto:info@cezannehr.com>을(를) 통해 Cezanne HR Software 지원 팀에 문의합니다.
+	> [AZURE.NOTE] 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 가져오려면 <mailto:info@cezannehr.com>을(를) 통해 Cezanne HR Software 지원 팀에 문의합니다.
 
 4. **Cezanne HR Software에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
 
@@ -348,4 +348,4 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 [204]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->
