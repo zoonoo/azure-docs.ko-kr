@@ -49,7 +49,7 @@ XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh
 	-   `CoreLocation.framework`
 	-   `libxml2.dylib`
 
-> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(<ios-sdk-engagement-idfa>).
+> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다 \<ios-sdk-engagement-idfa\>.
 
 ##Engagement SDK 초기화
 
