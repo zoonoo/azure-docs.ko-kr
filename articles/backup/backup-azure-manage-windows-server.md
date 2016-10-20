@@ -63,8 +63,8 @@
 ## Azure 백업 에이전트에 의한 백업 경고
 | 경고 수준 | 전송되는 경고 |
 | ------------- | ------------- |
-| 중요 | Backup failure, recovery failure |
-| Warning | Backup completed with warnings (when less than hundred files are not backed up due to corruption issues and more than a million of files are successfully backed up) |
+| 중요 | 백업 실패, 복구 실패 |
+| Warning | 백업이 완료되었지만 경고가 발생했습니다(손상 문제로 인해 100개 미만의 파일이 백업되지 않았고 수백만 개 이상의 파일이 성공적으로 백업된 경우).|
 | 정보 제공 | 없음 |
 ## 백업 경고 관리
 **백업 경고** 타일을 클릭하여 **백업 경고** 블레이드를 열고 경고를 관리합니다.
