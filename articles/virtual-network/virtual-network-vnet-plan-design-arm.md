@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 가상 네트워크(VNet) 계획 및 디자인 가이드 | Microsoft Azure"
-   description="격리, 연결 및 위치 요구 사항을 기반으로 Azure에서 가상 네트워크를 계획 및 디자인하는 방법을 알아봅니다."
+   pageTitle="Azure Virtual Network (VNet) Plan and Design Guide | Microsoft Azure"
+   description="Learn how to plan and design virtual networks in Azure based on your isolation, connectivity, and location requirements."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,254 +15,259 @@
    ms.date="02/08/2016"
    ms.author="jdial" />
 
-# Azure 가상 네트워크 계획 및 디자인
 
-실험할 VNet을 만드는 것이 매우 쉽지만 조직의 프로덕션 요구를 지원하도록 시간이 지남에 따라 여러 VNet을 배포할 가능성이 높습니다. 몇 가지 계획 및 디자인을 통해 VNet을 배포하고 필요한 리소스를 보다 효과적으로 배포할 수 있습니다. VNet에 대해 잘 모르는 경우 진행하기 전에 [VNet에 대한 정보](virtual-networks-overview.md) 및 [배포 방법](virtual-networks-create-vnet-arm-pportal.md)을 알아보는 것이 좋습니다.
+# <a name="plan-and-design-azure-virtual-networks"></a>Plan and design Azure Virtual Networks
 
-## 계획
+Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding. 
 
-성공을 위해서는 Azure 구독, 하위 지역 및 네트워크 리소스를 충분히 이해하는 것이 중요합니다. 아래 고려 사항 목록을 시작 지점으로 사용할 수 있습니다. 이러한 고려 사항을 이해했으면 네트워크 디자인에 대한 요구 사항을 정의할 수 있습니다.
+## <a name="plan"></a>Plan
 
-### 고려 사항
+A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
 
-아래 계획 질문에 응답하기 전에 다음을 고려합니다.
+### <a name="considerations"></a>Considerations
 
-- Azure에서 만드는 모든 항목은 하나 이상의 리소스로 구성됩니다. 가상 컴퓨터(VM)는 리소스이며 VM에 사용되는 NIC(네트워크 어댑터 인터페이스)는 리소스이며 NIC에 사용된 공용 IP 주소는 리소스이며 NIC가 연결되는 VNet은 리소스입니다.
-- [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 또한 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 VNet에만 연결할 수 있습니다.
-- Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)를 사용하여 VNet을 서로 연결할 수 있습니다. 이러한 방식으로 VNet을 하위 지역 및 구독 간으로도 연결할 수 있습니다.
-- Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
-- [리소스 그룹](../resource-group-overview.md#resource-groups)에서 다양한 리소스를 함께 그룹화하여 리소스를 단위로 보다 쉽게 관리할 수 있습니다. 리소스 그룹은 해당 리소스가 동일한 구독에 속하기만 하면 여러 하위 지역의 리소스를 포함할 수 있습니다.
+Before answering the planning questions below, consider the following:
 
-### 요구 사항 정의
+- Everything you create in Azure is composed of one or more resources. A virtual machine (VM) is a resource, the network adapter interface (NIC) used by a VM is a resource, the public IP address used by a NIC is a resource, the VNet the NIC is connected to is a resource.
+- You create resources within an [Azure region](https://azure.microsoft.com/regions/#services) and subscription. And resources can only be connected to a VNet that exists in the same region and subscription they are in. 
+- You can connect VNets to each other by using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). You can also connect VNets across regions and subscriptions this way.
+- You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure. 
+- Different resources can be grouped together in [resource groups](../resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
 
-Azure 네트워크 디자인을 위한 시작 지점으로 아래 질문을 사용합니다.
+### <a name="define-requirements"></a>Define requirements
 
-1. VNet을 호스트하는 데 어떤 Azure 위치를 사용하시겠습니까?
-2. 이러한 Azure 위치 간의 통신을 제공해야 합니까?
-3. Azure VNet 및 온-프레미스 데이터 센터 간의 통신을 제공해야 합니까?
-4. 솔루션에 얼마나 많은 IaaS(Infrastructure as a Service) VM, 클라우드 서비스 역할 및 웹앱이 필요합니까?
-5. VM 그룹을 기반으로 트래픽을 격리해야 합니까(예: 프런트 엔드 웹 서버 및 백 엔드 데이터베이스 서버)?
-6. 가상 어플라이언스를 사용하여 트래픽 흐름을 제어해야 합니까?
-7. 사용자에게 Azure 리소스마다 다른 권한 집합이 필요합니까?
+Use the questions below as a starting point for your Azure network design.  
 
-### VNet 및 서브넷 속성 이해
+1. What Azure locations will you use to host VNets?
+2. Do you need to provide communication between these Azure locations?
+3. Do you need to provide communication between your Azure VNet(s) and your on-premises datacenter(s)?
+4. How many Infrastructure as a Service (IaaS) VMs, cloud services roles, and web apps do you need for your solution?
+5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
+6. Do you need to control traffic flow using virtual appliances?
+7. Do users need different sets of permissions to different Azure resources?
 
-VNet과 서브넷 리소스를 사용하여 Azure에서 실행 중인 워크로드에 대한 보안 경계를 정의할 수 있습니다. VNet은 주소 공간의 모임(CIDR 블록으로 정의됨)으로 특징지을 수 있습니다.
+### <a name="understand-vnet-and-subnet-properties"></a>Understand VNet and subnet properties
 
->[AZURE.NOTE] 네트워크 관리자는 CIDR 표기법에 익숙합니다. CIDR을 잘 모르는 경우 [자세히 알아보세요](http://whatismyipaddress.com/cidr).
+VNet and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
 
-VNet에는 다음 속성이 포함될 수 있습니다.
+>[AZURE.NOTE] Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
 
-|속성|설명|제약 조건|
+VNets contain the following properties.
+
+|Property|Description|Constraints|
 |---|---|---|
-|**name**|VNet 이름|최대 80자의 문자열입니다. 문자, 숫자, 밑줄, 마침표 또는 하이픈을 포함할 수 있습니다. 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 또는 밑줄로 끝나야 합니다. 대문자 또는 소문자를 포함할 수 있습니다.|  
-|**위치**|Azure 위치(하위 지역이라고도 함).|올바른 Azure 위치 중 하나여야 합니다.|
-|**addressSpace**|CIDR 표기법에서 VNet을 구성하는 주소 접두사 컬렉션|공용 IP 주소 범위를 포함하여 올바른 CIDR 주소 블록의 배열이어야 합니다.|
-|**서브넷**|VNet을 구성하는 서브넷 컬렉션|아래 서브넷 속성 표를 참조하세요.||
-|**dhcpOptions**|**dnsServers**로 명명된 단일 필수 속성을 포함하는 개체입니다.||
-|**dnsServers**|VNet에서 사용하는 DNS 서버의 배열입니다. 서버를 지정하지 않은 경우 Azure 내부 이름 확인이 사용됩니다.|IP 주소를 통해 최대 10개의 DNS 서버 배열이어야 합니다.| 
+|**name**|VNet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|  
+|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
+|**addressSpace**|Collection of address prefixes that make up the VNet in CIDR notation.|Must be an array of valid CIDR address blocks, including public IP address ranges.|
+|**subnets**|Collection of subnets that make up the VNet|see the subnet properties table below.||
+|**dhcpOptions**|Object that contains a single required property named **dnsServers**.||
+|**dnsServers**|Array of DNS servers used by the VNet. If no server is specified, Azure internal name resolution is used.|Must be an array of up to 10 DNS servers, by IP address.| 
 
-서브넷은 VNet의 자식 리소스이며, IP 주소 접두사를 사용하여 CIDR 블록 내의 주소 공간 세그먼트를 정의하는 데 도움이 됩니다. NIC는 서브넷에 추가하고 VM에 연결하여 다양한 워크로드에 대한 연결을 제공할 수 있습니다.
+A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
-서브넷에는 다음 속성이 포함될 수 있습니다.
+Subnets contain the following properties. 
 
-|속성|설명|제약 조건|
+|Property|Description|Constraints|
 |---|---|---|
-|**name**|서브넷 이름|최대 80자의 문자열입니다. 문자, 숫자, 밑줄, 마침표 또는 하이픈을 포함할 수 있습니다. 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 또는 밑줄로 끝나야 합니다. 대문자 또는 소문자를 포함할 수 있습니다.|
-|**위치**|Azure 위치(하위 지역이라고도 함).|올바른 Azure 위치 중 하나여야 합니다.|
-|**addressPrefix**|CIDR 표기법에서 서브넷을 구성하는 단일 주소 접두사|VNet의 주소 공간 중 하나에 포함된 단일 CIDR 블록이어야 합니다.|
-|**networkSecurityGroup**|서브넷에 적용된 NSG|[NSG](resource-groups-networking.md#Network-Security-Group) 참조|
-|**routeTable**|서브넷에 적용된 경로 테이블|[UDR](resource-groups-networking.md#Route-table) 참조|
-|**ipConfigurations**|서브넷에 연결된 NIC에 사용된 IP 구성 개체 컬렉션|[IP 구성](../resource-groups-networking.md#IP-configurations) 참조|
+|**name**|Subnet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|
+|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
+|**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|Must be a single CIDR block that is part of one of the VNet's address spaces.|
+|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](resource-groups-networking.md#Network-Security-Group)|
+|**routeTable**|Route table applied to the subnet|see [UDR](resource-groups-networking.md#Route-table)|
+|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [IP configuration](../resource-groups-networking.md#IP-configurations)|
 
-### 이름 확인
+### <a name="name-resolution"></a>Name resolution
 
-기본적으로 VNet은 VNet 내부, 공용 인터넷에서 이름을 확인하는 데 [Azure에서 제공하는 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution)을 사용합니다. 그러나 온-프레미스 데이터 센터에 VNet을 연결하는 경우 네트워크 간에 이름을 확인하기 위해 [자체 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server)를 제공해야 합니다.
+By default, your VNet uses [Azure-provided name resolution.](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server) to resolve names between your networks.  
 
-### 제한
+### <a name="limits"></a>Limits
 
-솔루션을 디자인하기 전에 [Azure의 네트워킹 서비스와 관련된 제한 사항](../azure-subscription-service-limits.md#networking-limits)을 모두 확인해야 합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
+Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
-### 역할 기반 액세스 제어(RBAC)
+### <a name="role-based-access-control-(rbac)"></a>Role-Based Access Control (RBAC)
 
-[Azure RBAC](../active-directory/role-based-access-built-in-roles.md)를 사용하여 Azure의 다른 리소스에 대해 다양한 사용자가 보유할 수 있는 액세스 수준을 제어할 수 있습니다. 그러면 사용자 요구에 따라 팀에서 수행한 작업을 분리할 수 있습니다.
+You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs. 
 
-가상 네트워크 관점에서 **네트워크 참여자** 역할의 사용자는 Azure 리소스 관리자 가상 네트워크 리소스에 대한 모든 권한을 가집니다. 마찬가지로, **클래식 네트워크 참여자** 역할의 사용자는 클래식 가상 네트워크 리소스에 대해 모든 권한을 가집니다.
+As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
 
->[AZURE.NOTE] [자신의 역할을 만들어](../active-directory/role-based-access-control-configure.md) 관리 요구를 분리할 수도 있습니다.
+>[AZURE.NOTE] You can also [create your own roles](../active-directory/role-based-access-control-configure.md) to separate your administrative needs.
 
-## 디자인
+## <a name="design"></a>Design
 
-[계획](#Plan) 섹션의 질문에 대한 답변을 파악하면 VNet를 정의하기 전에 다음을 검토합니다.
+Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
 
-### 구독 및 VNet의 수
+### <a name="number-of-subscriptions-and-vnets"></a>Number of subscriptions and VNets
 
-다음과 같은 시나리오에서는 여러 VNet을 만드는 것이 좋습니다.
+You should consider creating multiple VNets in the following scenarios:
 
-- **서로 다른 Azure 위치에 배치되어야 하는 VM**. Azure에서 VNet은 지역적입니다. 여러 위치에 걸쳐 있지 않습니다. 따라서 안에서 VM을 호스트할 각 Azure 위치에 대해 하나 이상의 VNet이 필요합니다.
-- **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다.
-- **플랫폼 제한 피하기**. [제한](#Limits) 섹션에서 볼 수 있듯이 단일 VNet에 2048개 이상의 VM을 포함할 수 없습니다.
+- **VMs that need to be placed in different Azure locations**. VNets in Azure are regional. They cannot span locations. Therefore you need at least one VNet for each Azure location you want to host VMs in.
+- **Workloads that need to be completely isolated from one another**. You can create separate VNets, that even use the same IP address spaces, to isolate different workloads from one another. 
+- **Avoid platform limits**. As seen in the [limits](#Limits) section, you cannot have more than 2048 VMs in a single VNet. 
 
-위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
+Keep in mind that the limits you see above are per region, per subscription. That means you can use multiple subscriptions to increase the limit of resources you can maintain in Azure. You can use a site-to-site VPN, or an ExpressRoute circuit, to connect VNets in different subscriptions.
 
-### 구독 및 VNet 디자인 패턴
+### <a name="subscription-and-vnet-design-patterns"></a>Subscription and VNet design patterns
 
-아래 표에서는 구독 및 VNet을 사용하기 위한 몇 가지 일반적인 디자인 패턴을 보여 줍니다.
+The table below shows some common design patterns for using subscriptions and VNets.
 
-|시나리오|다이어그램|장점|단점|
+|Scenario|Diagram|Pros|Cons|
 |---|---|---|---|
-|단일 구독, 앱당 두 VNet|![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure1.png)|관리할 구독이 하나뿐입니다.|Azure 지역당 최대 25개 앱입니다. 이후에 구독이 더 필요합니다.|
-|앱당 1개 구독, 앱당 두 VNet|![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure2.png)|구독당 두 개의 VNet만 사용합니다.|앱이 너무 많은 경우 관리하기 어렵습니다.|
-|사업부당 1개 구독, 앱당 두 VNet|![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure3.png)|구독 및 VNet 수 간에 균형을 유지합니다.|사업부당 최대 25개 앱입니다(구독).|
-|사업부당 1개 구독, 앱 그룹당 두 VNet|![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure4.png)|구독 및 VNet 수 간에 균형을 유지합니다.|서브넷과 NSG를 사용하여 앱을 격리해야 합니다.|
+|Single subscription, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png)|Only one subscription to manage.|Maximum of 25 apps per Azure region. You need more subscriptions after that.|
+|One subscription per app, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure2.png)|Uses only two VNets per subscription.|Harder to manage when there are too many apps.|
+|One subscription per business unit, two VNets per app.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png)|Balance between number of subscriptions and VNets.|Maximum of 25 apps per business unit (subscription).|
+|One subscription per business unit, two VNets per group of apps.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure4.png)|Balance between number of subscriptions and VNets.|Apps must be isolated by using subnets and NSGs.|
 
 
-### 서브넷 수
+### <a name="number-of-subnets"></a>Number of subnets
 
-다음과 같은 시나리오에서는 VNet에 여러 서브넷이 있는 것이 좋습니다.
+You should consider multiple subnets in a VNet in the following scenarios:
 
-- **서브넷에 있는 모든 NIC에 대해 개인 IP 주소가 부족**. 서브넷 주소 공간에 서브넷의 NIC 수에 맞는 충분한 IP 주소가 없는 경우 여러 서브넷을 만들어야 합니다. Azure에서는 각 서브넷에서 사용할 수 없는 5개의 개인 IP 주소를 예약해 둡니다. 주소 공간의 처음 및 마지막 주소(서브넷 주소 및 멀티캐스트)와 내부적으로 사용되는 3개 주소(DHCP 및 DNS 용도)입니다.
-- **보안**. 서브넷을 사용하여 다중 계층 구조의 워크로드에 대해 VM 그룹을 서로 구분하고 해당 서브넷에 대해 서로 다른 [NSG(네트워크 보안 그룹)](virtual-networks-nsg.md#subnets)를 적용할 수 있습니다.
-- **하이브리드 연결**. VPN 게이트웨이 및 Express 경로 회로를 사용하여 VNet을 서로 [연결](../vpn-gateway/vpn-gateway-cross-premises-options.md)하고 온-프레미스 데이터 센터에 연결할 수 있습니다. VPN 게이트웨이 및 Express 경로 회로에는 만들려는 자체의 서브넷이 필요합니다.
-- **가상 어플라이언스**. Azure VNet에서 방화벽, WAN 가속기 또는 VPN 게이트웨이 같은 가상 어플라이언스를 사용할 수 있습니다. 이렇게 하려면 해당 어플라이언스로 [트래픽을 라우팅](virtual-networks-udr-overview.md)하고 자체의 서브넷에서 이를 격리해야 합니다.
+- **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes). 
+- **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
+- **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
+- **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
 
-### 서브넷 및 NSG 디자인 패턴
+### <a name="subnet-and-nsg-design-patterns"></a>Subnet and NSG design patterns
 
-아래 표에서는 서브넷을 사용하기 위한 몇 가지 일반적인 디자인 패턴을 보여 줍니다.
+The table below shows some common design patterns for using subnets.
 
-|시나리오|다이어그램|장점|단점|
+|Scenario|Diagram|Pros|Cons|
 |---|---|---|---|
-|단일 서브넷, 앱당 응용 프로그램 계층당 여러 NSG|![단일 서브넷](./media/virtual-network-vnet-plan-design-arm/figure5.png)|관리할 서브넷이 하나뿐입니다.|각 응용 프로그램을 격리하는 데 여러 NSG가 필요합니다.|
-|앱당 1개 서브넷, 응용 프로그램 계층당 여러 NSG|![앱당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure6.png)|관리할 NSG가 소수입니다.|관리할 서브넷이 여러 개입니다.|
-|응용 프로그램 계층당 1개 서브넷, 앱당 여러 NSG|![계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure7.png)|서브넷 및 NSG 수 간에 균형을 유지합니다.|최대 100개의 NSG. 각 앱에 2개의 고유 NSG가 필요한 경우 50개 앱|
-|앱당, 응용 프로그램 계층당 1개 서브넷, 서브넷당 여러 NSG|![앱당 계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure8.png)|가능하면 NSG 수가 더 적습니다.|관리할 서브넷이 여러 개입니다.|
+|Single subnet, NSGs per application layer, per app|![Single subnet](./media/virtual-network-vnet-plan-design-arm/figure5.png)|Only one subnet to manage.|Multiple NSGs necessary to isolate each application.|
+|One subnet per app, NSGs per application layer|![Subnet per app](./media/virtual-network-vnet-plan-design-arm/figure6.png)|Fewer NSGs to manage.|Multiple subnets to manage.|
+|One subnet per application layer, NSGs per app.|![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png)|Balance between number of subnets and NSGs.|Maximum of 100 NSGs. 50 apps if each apps requires 2 distinct NSGs.|
+|One subnet per application layer, per app, NSGs per subnet|![Subnet per layer per app](./media/virtual-network-vnet-plan-design-arm/figure8.png)|Possibly smaller number of NSGs.|Multiple subnets to manage.|
 
-## 샘플 디자인
+## <a name="sample-design"></a>Sample design
 
-이 문서의 정보가 어떻게 적용되는지를 설명하기 위해 다음 시나리오를 고려합니다.
+To illustrate the application of the information in this article, consider the following scenario.
 
-여러분은 데이터 센터가 북아메리카에 2개, 유럽에 2개 있는 회사에서 일합니다. 파일럿으로 Azure에 마이그레이션할 서로 다른 2개의 사업부에서 유지 관리하는 응용 프로그램을 연결하는 6개의 서로 다른 고객을 식별했습니다. 응용 프로그램에 대한 기본 아키텍처는 다음과 같습니다.
+You work for a company that has 2 data centers in North America, and two data centers Europe. You identified 6 different customer facing applications maintained by 2 different business units that you want to migrate to Azure as a pilot. The basic architecture for the applications are as follows:
 
-- App1, App2, App3 및 App4는 Ubuntu를 실행하는 Linux 서버에서 호스트되는 웹 응용 프로그램입니다. 각 응용 프로그램은 Linux 서버에서 RESTful 서비스를 호스트하는 별도의 응용 프로그램 서버에 연결됩니다. RESTful 서비스는 백 엔드 MySQL 데이터베이스에 연결됩니다.
-- App5 및 App6은 Windows Server 2012 R2를 실행하는 Windows 서버에서 호스트되는 웹 응용 프로그램입니다. 각 응용 프로그램은 백 엔드 SQL Server 데이터베이스에 연결됩니다.
-- 모든 앱은 현재 북아메리카에 있는 회사의 데이터 센터 중 하나에서 호스트됩니다.
-- 온-프레미스 데이터 센터는 10.0.0.0/8 주소 공간을 사용합니다.
+- App1, App2, App3, and App4 are web applications hosted on Linux servers running Ubuntu. Each application connects to a separate application server that hosts RESTful services on Linux servers. The RESTful services connect to a back end MySQL database.
+- App5 and App6 are web applications hosted on Windows servers running Windows Server 2012 R2. Each application connects to a back end SQL Server database.
+- All apps are currently hosted in one of the company's data centers in North America.
+- The on-premises data centers use the 10.0.0.0/8 address space.
 
-다음 요구 사항을 충족하는 가상 네트워크 솔루션을 디자인해야 합니다.
+You need to design a virtual network solution that meets the following requirements:
 
-- 각 사업부는 다른 사업부의 리소스 사용량에 영향을 받아서는 안 됩니다.
-- 관리가 더 쉽도록 VNet 및 서브넷의 양을 최소화해야 합니다.
-- 각 사업부에는 모든 응용 프로그램에 사용되는 단일 테스트/개발 VNet이 있어야 합니다.
-- 각 응용 프로그램은 대륙당(북아메리카 및 유럽) 서로 다른 2개의 Azure 데이터 센터에서 호스트됩니다.
-- 각 응용 프로그램은 서로 완전히 격리됩니다.
-- 고객은 HTTP를 사용하여 인터넷을 통해 각 응용 프로그램에 액세스할 수 있습니다.
-- 온-프레미스 데이터 센터에 연결된 사용자는 암호화된 터널을 사용하여 각 응용 프로그램에 액세스할 수 있습니다.
-- 온-프레미스 데이터 센터로의 연결은 기존 VPN 장치를 사용해야 합니다.
-- 회사의 네트워킹 그룹은 VNet 구성에 대한 모든 권한을 가집니다.
-- 각 사업부의 개발자는 VM을 기존의 서브넷에만 배포할 수 있습니다.
-- 모든 응용 프로그램은 Azure로 그대로 마이그레이션됩니다(전환).
-- 각 위치에 있는 데이터베이스는 하루에 한 번의 다른 Azure 위치에 복제됩니다.
-- 각 응용 프로그램은 5개의 프런트 엔드 웹 서버, 2개의 응용 프로그램 서버(필요한 경우) 및 2개의 데이터베이스 서버를 사용합니다.
+- Each business unit should not be affected by resource consumption of other business units.
+- You should minimize the amount of VNets and subnets to make management easier.
+- Each business unit should have a single test/development VNet used for all applications.
+- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
+- Each application is completely isolated from each other.
+- Each application can be accessed by customers over the Internet using HTTP.
+- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
+- Connection to on-premises data centers should use existing VPN devices.
+- The company's networking group should have full control over the VNet configuration.
+- Developers in each business unit should only be able to deploy VMs to existing subnets.
+- All applications will be migrated as they are to Azure (lift-and-shift).
+- The databases in each location should replicate to other Azure locations once a day.
+- Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
 
-### 계획
+### <a name="plan"></a>Plan
 
-아래처럼 [요구 사항 정의](#Define-requirements) 섹션에 있는 질문에 응답하여 디자인 계획을 시작합니다.
+You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
 
-1. VNet을 호스트하는 데 어떤 Azure 위치를 사용하시겠습니까?
+1. What Azure locations will you use to host VNets?
 
-	북아메리카에 2곳, 유럽에 2곳입니다. 기존 온-프레미스 데이터 센터의 물리적 위치에 기반하여 선택해야 합니다. 이렇게 하면 물리적 위치에서 Azure로의 연결에 대한 대기 시간이 향상됩니다.
+    2 locations in North America, and 2 locations in Europe. You should pick those based on the physical location of your existing on-premises data centers. That way your connection from your physical locations to Azure will have a better latency.
 
-2. 이러한 Azure 위치 간의 통신을 제공해야 합니까?
+2. Do you need to provide communication between these Azure locations?
 
-	예. 데이터베이스를 모든 위치에 복제해야 하기 때문입니다.
+    Yes. Since the databases must be replicated to all locations.
 
-3. Azure VNet 및 온-프레미스 데이터 센터 간의 통신을 제공해야 합니까?
+3. Do you need to provide communication between your Azure VNet(s) and your on-premises data center(s)?
 
-	예. 온-프레미스 데이터 센터에 연결된 사용자는 암호화된 터널을 통해 응용 프로그램에 액세스할 수 있어야 합니다.
+    Yes. Since users connected to the on-premises data centers must be able to access the applications through an encrypted tunnel.
  
-4. 솔루션에 IaaS VM이 얼마나 필요합니까?
+4. How many IaaS VMs do you need for your solution?
 
-	200개의 IaaS VM입니다. App1, App2 및 App3에는 각각 5개의 웹 서버, 각각 2개의 응용 프로그램 서버, 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 9개의 IaaS VM 또는 36개의 IaaS VM입니다. App5 및 App6에는 5개의 웹 서버와 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 7개의 IaaS VM 또는 14개의 IaaS VM입니다. 따라서 각 Azure 지역에 있는 모든 응용 프로그램에 대해 50개의 IaaS VM이 필요합니다. 4개의 하위 지역이 필요하므로 200개의 IaaS VM이 됩니다.
+    200 IaaS VMs. App1, App2 and App3 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
 
-	각 VNet 또는 온-프레미스 데이터 센터에는 Azure IaaS VM 및 온-프레미스 네트워크 간의 이름을 확인하기 위해 DNS 서버를 제공해야 합니다.
+    You will also need to provide DNS servers in each VNet, or in your on-premises data centers to resolve name between your Azure IaaS VMs and your on-premises network. 
 
-5. VM 그룹을 기반으로 트래픽을 격리해야 합니까(예: 프런트 엔드 웹 서버 및 백 엔드 데이터베이스 서버)?
+5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
 
-	예. 각 응용 프로그램은 서로 완전히 격리되어야 하고 각 응용 프로그램 계층도 격리되어야 합니다.
+    Yes. Each application should be completely isolated from each other, and each application layer should also be isolated. 
 
-6. 가상 어플라이언스를 사용하여 트래픽 흐름을 제어해야 합니까?
+6. Do you need to control traffic flow using virtual appliances?
 
-	아니요. 보다 자세한 데이터 평면 로깅을 비롯하여 트래픽 흐름에 대한 세밀한 제어를 제공하기 위해 가상 어플라이언스를 사용할 수 있습니다.
+    No. Virtual appliances can be used to provide more control over traffic flow, including more detailed data plane logging. 
 
-7. 사용자에게 Azure 리소스마다 다른 권한 집합이 필요합니까?
+7. Do users need different sets of permissions to different Azure resources?
 
-	예. 네트워킹 팀은 가상 네트워킹 설정에 대한 모든 권한이 필요한 반면 개발자는 VM을 기존의 서브넷에 배포할 수만 있어야 합니다.
+    Yes. The networking team needs full control on the virtual networking settings, while developers should only be able to deploy their VMs to pre-existing subnets. 
 
-### 디자인
+### <a name="design"></a>Design
 
-구독, VNet, 서브넷 및 NSG를 지정하는 디자인을 따라야 합니다. 여기서는 NSG를 설명하지만 디자인을 완료하기 전에 [NSG](virtual-networks-nsg.md)에 대해 자세히 알아보아야 합니다.
+You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](virtual-networks-nsg.md) before finishing your design.
 
-**구독 및 VNet의 수**
+**Number of subscriptions and VNets**
 
-다음 요구 사항은 구독 및 VNet에 대한 것입니다.
+The following requirements are related to subscriptions and VNets:
 
-- 각 사업부는 다른 사업부의 리소스 사용량에 영향을 받아서는 안 됩니다.
-- VNet 및 서브넷의 양을 최소화해야 합니다.
-- 각 사업부에는 모든 응용 프로그램에 사용되는 단일 테스트/개발 VNet이 있어야 합니다.
-- 각 응용 프로그램은 대륙당(북아메리카 및 유럽) 서로 다른 2개의 Azure 데이터 센터에서 호스트됩니다.
+- Each business unit should not be affected by resource consumption of other business units.
+- You should minimize the amount of VNets and subnets.
+- Each business unit should have a single test/development VNet used for all applications.
+- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
 
-이러한 요구에 따라 각 사업부에 대한 구독이 필요합니다. 이런 방식으로 사업부의 리소스 사용량은 다른 사업부에 대한 제한에 포함되지 않습니다. VNet 수를 최소화하려고 하므로 아래처럼 **사업부당 1개 구독, 앱 그룹당 2개 VNet** 패턴의 사용을 고려합니다.
+Based on those requirements, you need a subscription for each business unit. That way, consumption of resources from a business unit will not count towards limits for other business units. And since you want to minimize the number of VNets, you should consider using the **one subscription per business unit, two VNets per group of apps** pattern as seen below.
 
-![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-또한 각 VNet에 대한 주소 공간도 지정해야 합니다. 온-프레미스 데이터 센터 및 Azure 지역 간의 연결이 필요하므로 Azure VNet에 사용되는 주소 공간은 온-프레미스 네트워크와 충돌할 수 없으며 각 VNet에 사용되는 주소 공간은 기존의 다른 VNet과 충돌하지 않아야 합니다. 이러한 요구 사항을 충족하기 위해 아래 표의 주소 공간을 사용할 수 있습니다.
+You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises network, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
 
-|**구독**|**VNet**|**Azure 지역**|**주소 공간**|
+|**Subscription**|**VNet**|**Azure region**|**Address space**|
 |---|---|---|---|
-|BU1|ProdBU1US1|미국 서부|172\.16.0.0/16|
-|BU1|ProdBU1US2|미국 동부|172\.17.0.0/16|
-|BU1|ProdBU1EU1|북유럽|172\.18.0.0/16|
-|BU1|ProdBU1EU2|서유럽|172\.19.0.0/16|
-|BU1|TestDevBU1|미국 서부|172\.20.0.0/16|
-|BU2|TestDevBU2|미국 서부|172\.21.0.0/16|
-|BU2|ProdBU2US1|미국 서부|172\.22.0.0/16|
-|BU2|ProdBU2US2|미국 동부|172\.23.0.0/16|
-|BU2|ProdBU2EU1|북유럽|172\.24.0.0/16|
-|BU2|ProdBU2EU2|서유럽|172\.25.0.0/16|
+|BU1|ProdBU1US1|West US|172.16.0.0/16|
+|BU1|ProdBU1US2|East US|172.17.0.0/16|
+|BU1|ProdBU1EU1|North Europe|172.18.0.0/16|
+|BU1|ProdBU1EU2|West Europe|172.19.0.0/16|
+|BU1|TestDevBU1|West US|172.20.0.0/16|
+|BU2|TestDevBU2|West US|172.21.0.0/16|
+|BU2|ProdBU2US1|West US|172.22.0.0/16|
+|BU2|ProdBU2US2|East US|172.23.0.0/16|
+|BU2|ProdBU2EU1|North Europe|172.24.0.0/16|
+|BU2|ProdBU2EU2|West Europe|172.25.0.0/16|
 
-**서브넷 및 NSG 수**
+**Number of subnets and NSGs**
 
-다음 요구 사항은 서브넷 및 NSG에 대한 것입니다.
+The following requirements are related to subnets and NSGs:
 
-- VNet 및 서브넷의 양을 최소화해야 합니다.
-- 각 응용 프로그램은 서로 완전히 격리됩니다.
-- 고객은 HTTP를 사용하여 인터넷을 통해 각 응용 프로그램에 액세스할 수 있습니다.
-- 온-프레미스 데이터 센터에 연결된 사용자는 암호화된 터널을 사용하여 각 응용 프로그램에 액세스할 수 있습니다.
-- 온-프레미스 데이터 센터로의 연결은 기존 VPN 장치를 사용해야 합니다.
-- 각 위치에 있는 데이터베이스는 하루에 한 번의 다른 Azure 위치에 복제됩니다.
+- You should minimize the amount of VNets and subnets.
+- Each application is completely isolated from each other.
+- Each application can be accessed by customers over the Internet using HTTP.
+- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
+- Connection to on-premises data centers should use existing VPN devices.
+- The databases in each location should replicate to other Azure locations once a day.
 
-이러한 요구 사항에 따라, 응용 프로그램 계층당 1개의 서브넷을 사용할 수 있으며 응용 프로그램당 트래픽을 필터링하기 위해 여러 NSG를 사용할 수 있습니다. 이런 방식으로 각 VNet에 3개의 서브넷(프런트 엔드, 응용 프로그램 계층 및 데이터 센터) 및 서브넷당 응용 프로그램당 1개 NSG만 포함합니다. 이 경우 **응용 프로그램 계층당 하나의 서브넷, 앱당 여러 NSG** 디자인 패턴의 사용을 고려해야 합니다. 아래 그림은 **ProdBU1US1** VNet을 나타내는 디자인 패턴의 사용을 보여 줍니다.
+Based on those requirements, you could use one subnet per application layer, and use NSGs to filter traffic per application. That way, you only have 3 subnets in each VNet (front end, application layer, and data layer) and one NSG per application per subnet. In this case, you should consider using the **one subnet per application layer, NSGs per app** design pattern. The figure below shows the use of the design pattern representing the **ProdBU1US1** VNet.
 
-![계층당 1개 서브넷, 계층당 응용 프로그램당 1개 NSG](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+![One subnet per layer, one NSG per application per layer](./media/virtual-network-vnet-plan-design-arm/figure11.png)
 
-그러나 VNet 간, 온-프레미스 데이터 센터 간의 VPN 연결을 위한 별도의 서브넷을 만들어야 합니다. 또한 각 서브넷에 대한 주소 공간도 지정해야 합니다. 아래 그림은 **ProdBU1US1** VNet에 대한 샘플 솔루션을 보여 줍니다. 각 VNet에 대해 이 시나리오를 복제합니다. 각 색상은 서로 다른 응용 프로그램을 나타냅니다.
+However, you also need to create an extra subnet for the VPN connectivity between the VNets, and your on-premises data centers. And you need to specify the address space for each subnet. The figure below shows a sample solution for **ProdBU1US1** VNet. You would replicate this scenario for each VNet. Each color represents a different application.
 
-![샘플 VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
+![Sample VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
 
-**액세스 제어**
+**Access Control**
 
-다음 요구 사항은 액세스 제어에 대한 것입니다.
+The following requirements are related to access control:
 
-- 회사의 네트워킹 그룹은 VNet 구성에 대한 모든 권한을 가집니다.
-- 각 사업부의 개발자는 VM을 기존의 서브넷에만 배포할 수 있습니다.
+- The company's networking group should have full control over the VNet configuration.
+- Developers in each business unit should only be able to deploy VMs to existing subnets.
 
-이러한 요구 사항에 따라 네트워킹 팀에서 사용자를 각 구독의 기본 제공 **네트워크 참여자** 역할에 추가할 수 있으며 각 구독의 응용 프로그램 개발자에 대한 사용자 지정 역할을 만들어 기존 서브넷에 VM을 추가할 권한을 부여할 수 있습니다.
+Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-- 시나리오를 기반으로 [가상 네트워크를 배포](virtual-networks-create-vnet-arm-template-click.md)합니다.
-- IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
-- [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md)에 대해 알아봅니다.
-- [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-cross-premises-options.md)에 대해 알아봅니다.
+- [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
+- Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
+- Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
+- Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 도달률 방법"
-   description="Azure Mobile Engagement의 사용자 인터페이스 개요" 
+   pageTitle="Azure Mobile Engagement User Interface - Reach How To"
+   description="User Interface Overview for Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,216 +16,229 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# 사용 시작 및 최종 사용자에게 도달하는 푸시 관리 방법
 
-SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 사용하기 시작하여 응용 프로그램의 사용자에게 푸시 알림을 할 수 있습니다.
+# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>How to get started using and managing pushes to reach out to your end users
 
-## 첫 번째 푸시 알림 캠페인 수행
--    Reach가 SDK와 함께 앱에 통합되었는지 확인합니다.
--    응용 프로그램을 선택합니다.
+Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.  
+
+## <a name="do-your-first-push-notification-campaign"></a>Do Your First Push Notification Campaign
+-    Confirm that your Reach is integrated into your app with the SDK. 
+-    Select your application
  
 ![First1][1]
 
--    "도달률" 섹션으로 이동하여 "새 알림"을 클릭합니다.
+-    Go to the "Reach" Section and Click "New announcement"
  
 ![First2][2]
 
--    새 캠페인을 만들고 이름을 지정합니다.
+-    Create a new campaign and name it
  
  ![First3][3]
 
--    알림을 배달하는 방식을 앱 내에서만으로 선택합니다.
+-    Select how the notification should be delivered, as In-app only
  
 ![First4][4]
 
--    푸시하려는 메시지를 생성합니다.
+-    Create the message you want to push
  
 ![First5][5]
 
--    알림 제목을 작성할 수 있습니다(선택 사항).
--    푸시 메시지 내용을 작성합니다.
--    이미지를 업로드할 수 있습니다. 파일의 크기는 32,768바이트를 초과할 수 없습니다.
--    또한 추가 옵션을 선택할 수 있지만, 이 자습서의 주제에 집중하기 위해 나중에 살펴보겠습니다.
+-    You may write a title on the notification (Optional).
+-    Write push message content.
+-    You can upload an image. Be aware that the size of the file cannot exceed 32,768 bytes.
+-    You also have the ability to select further options, but for the focus of this tutorial, we will see that later.
 
--    콘텐츠 형식을 알림만으로 선택합니다.
+-    Select the content type as Notification only
  
 ![First6][6]
 
--    푸시 캠페인을 만듭니다. 그러면 해당 캠페인이 캠페인 목록에 표시됩니다.
+-    Create your push campaign and it will appear in your campaign list.
  
 ![First7][7]
 
-## 푸시 알림 캠페인 테스트
+## <a name="test-your-push-notification-campaign"></a>Test Your Push Notification Campaign
 ![Test1][8]
 
--    장치를 등록합니다.
--    푸시하려는 장치의 확인란을 클릭합니다.
--    "테스트" 단추를 클릭하여 장치에 푸시를 보냅니다.
+-    Register your device.
+-    Click on the checkbox of the device you want to push.
+-    Click on the "Test" button to send the push to the device.
  
 ![Test2][9]
 
--    캠페인을 활성화합니다.
+-    Activate the campaign
  
 ![Test3][10]
 
--    캠페인을 만들었으므로 사용자에게 알림을 푸시하려면 캠페인을 활성화하기만 하면 됩니다.
+-    Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
  
-## 개인 설정 푸시 보내기
--    이 예제에서는 푸시 알림에 사용자 지정 리베이트 코드를 입력하는 푸시를 만듭니다.
+## <a name="send-personalized-pushes"></a>Send Personalized Pushes
+-    This example creates a push where a custom rebate code is entered into the push notification.
  
 ![Personalize1][11]
 
-개인 설정은 앱 정보 태그에서 마커를 바꿈으로써 작동되므로 먼저 사용자가 적절한 앱 정보를 정의하도록 해야 합니다. 이 예제에서 대상 사용자는 이름이 rebate\_code인 앱 정보 태그를 정의해야 합니다. 위에서 알 수 있듯이 푸시 알림 내용에는 ${rebate\_code} 마커가 포함되어 있는데 이 마커는 앱 정보 태그의 실제 내용으로 교체되어야 함을 나타냅니다.
+Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first. In this example the targeted users will have an app info tag named rebate_code defined.
+As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.
 
-> 경고: 앱 정보 태그가 사용자에 대해 정의되지 않은 경우 사용자는 푸시를 받지 못합니다.
+> Warning: If the app info tag is not defined for the user, the user will not receive the push.
 
--    결과
+-    Result
  
 ![Personalize2][12]
 
-### 알림의 텍스트 추가 개인 설정 가능
+### <a name="you-can-further-personalize-the-text-your-notification"></a>You can further personalize the text your notification
 ![Personalize3][13]
 
--    알림의 제목 포함
--    메시지의 내용 지정
--    알림의 유형(텍스트 뷰 또는 웹 뷰) 선택
+-    Including the title of the notification,
+-    And the content of the message.
+-    Choose the type of announcement (Text view or Web view)
  
 ![Personalize4][14]
 
-### 알림의 본문도 다음을 통해 개인 설정할 수 있습니다.
--    방문 페이지를 사용자 지정하려는 경우 작업 URL
--    제목
--    메시지의 본문
+### <a name="the-body-of-an-announcement-may-also-be-personalized-with:"></a>The body of an announcement may also be personalized with:
+-    The action URL, should you want to customize the landing page
+-    The title,
+-    The body of the message.
  
  
-## 푸시 알림 차별화(앱 내부 또는 외부에서)
--    푸시할 알림 유형을 선택하고, 응용 프로그램을 선택하고, "도달률" 섹션으로 이동하여 푸시 캠페인을 선택하거나 생성하고, "알림" 섹션으로 이동합니다.
+## <a name="differentiate-your-push-notification-(in-or-out-of-app)"></a>Differentiate Your Push Notification (in or out of app)
+-    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
  
--    원하는 "배달 모드"를 클릭합니다.
--    특정 작업(화면)에서 알림의 발생을 원하는 경우 "작업 제한" 확인란을 클릭합니다.
+-    Click on the "delivery mode" you want.
+-    Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).
 
 ![Differentiate1][15]
 
-### "앱 외부에서만" 배달 모드
+### <a name=""out-of-app-only"-delivery-mode"></a>"Out of App Only" delivery mode
 ![Differentiate2][16]
 
-"앱 외부에서만" 배달 모드는 응용 프로그램이 닫힌 경우 푸시 알림을 제공합니다. 이 모드가 표준 푸시 알림입니다. "앱 외부에서만"을 선택한 경우 응용 프로그램이 빌드되고 있는 플랫폼(APNS 또는 GCM)의 인증서를 이미 제공했어야 합니다.
+"Out of App Only" delivery mode provides push notification when the application is closed. This is the standard push notification.
+When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).
 
-### 참고 항목
--  [Apple 푸시 알림 서비스 - 인증서](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - 인증서](http://developer.android.com/google/gcm/index.html)
+### <a name="see-also"></a>See also
+-  [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
 
-### "앱 내에서만" 배달 모드
+### <a name=""in-app-only"-delivery-mode"></a>"in-App Only" delivery mode
 ![Differentiate3][17]
 
-"앱 내에서만" 배달 모드는 응용 프로그램이 실행 중인 경우 푸시 알림을 제공합니다. 이 알림의 경우 APNS 및 GCM 시스템을 통해 이동할 필요가 없습니다. 앱 내 배달 시스템을 사용하여 최종 사용자에게 도달할 수 있습니다. 알림을 완벽하게 사용자 지정할 수 있으며 알림이 표시되는 작업(화면)을 결정할 수 있습니다.
+"In-App Only" delivery mode provides push notification when the application is running.
+For this notification, you do not need to go through the APNS and GCM system.
+You can use the in-app delivery system to reach your end-users.
+You can fully customize the notification and decide in which activity (screen) the notification will appear.
 
-### "항상" 배달 모드
-"항상" 배달 모드를 선택하면 응용 프로그램의 실행 여부와 상관없이 최종 사용자에게 도달할 수 있습니다. "항상"을 선택한 경우 응용 프로그램이 빌드되고 있는 플랫폼(APNS 또는 GCM)의 인증서를 이미 제공했어야 합니다.
+### <a name=""anytime"-delivery-mode"></a>"Anytime" delivery mode
+You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.
+When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM). 
  
-## 푸시 캠페인 예약
-### 캠페인 시작 계획
+## <a name="schedule-a-push-campaign"></a>Schedule a Push Campaign
+### <a name="plan-to-start-a-campaign"></a>Plan to Start a campaign
 ![Shedule1][18]
 
-3월 21일인데, 3월 22일 자정에 발표를 계획한 알림이 있습니다. 이 경우 푸시를 수행하기 위해 인터페이스 앞에 대기하고 있지 않아도 됩니다! 정확한 시간에 알림이 전송되도록 미리 계획할 수 있습니다.
--    "없음" 확인란의 선택을 취소하고 시작 시간을 선택합니다.
--    푸시 캠페인을 시작할 날짜 및 시간을 선택합니다.
+It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight. You don’t have to stay in front of the interface to do a push! You can plan in advance the exact minute notifications will be sent.
+-    Un-check the "None" checkbox and select a start time 
+-    Choose the date and the time you want to start the push campaign.
 
-### 캠페인 종료 계획
+### <a name="plan-to-end-a-campaign"></a>Plan to end a campaign
 ![Shedule2][19]
 
-3월 25일 오후 3시에 캠페인을 중지하고 싶지만, 그 시간에 해당 장소에 없다는 것을 알고 있습니다. 이 경우 푸시를 수행하려고 인터페이스 앞에 대기하고 있지 않아도 됩니다! 정확한 시간에 캠페인이 중지되도록 미리 계획할 수 있습니다.
--    "없음" 확인란을 클릭하거나 종료 시간을 선택합니다.
--    푸시 캠페인을 완료할 날짜 및 시간을 선택합니다.
+You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.
+You don’t have to stay in front of the interface to push! You can plan in advance the exact minute your campaign will stop.
+-    Click on the "None" checkbox or select a end time
+-    Choose the date and the time you want to finish the push campaign.
 
-### 캠페인 수동 종료
+### <a name="end-a-campaign-manually"></a>End a campaign manually
 ![Shedule3][20]
 
-기본적으로 "없음" 확인란이 선택되어 있습니다. 이는 도달률 섹션에서 캠페인을 활성화하는 즉시 캠페인이 시작되며 도달률 섹션에서 캠페인을 중지하면 종료된다는 것을 의미합니다.
+By default, the "None" check-boxes are selected.
+This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.
  
-> 참고: 종료 날짜 없이 작성된 캠페인은 푸시를 장치에 로컬로 저장하며, 캠페인을 수동으로 종료하더라도 다음 번에 앱을 열 때 해당 푸시를 표시합니다.
+> Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
 
-## 텍스트 뷰로 푸시 알림 개선
-### 텍스트 뷰란 무엇인가요?
+## <a name="enhance-a-push-notification-with-a-text-view"></a>Enhance a Push Notification with a Text View
+### <a name="what-is-a-text-view?"></a>What is a Text View?
 ![TextView1][21]
 
-텍스트 뷰는 텍스트 내용이 있는 팝업입니다. 이 팝업은 최종 사용자가 푸시 알림을 클릭한 후에 나타납니다. 텍스트 뷰를 사용하면 최종 사용자에게 더 많은 콘텐츠를 제공할 수 있습니다. 또한 텍스트 뷰는 앱의 페이지로 이동하고 스토어로 리디렉션하고 웹 페이지를 열고 메일을 보내고 지역 검색을 시작하는 등의 작업에 대한 호출을 제공할 수 있는 기회도 됩니다.
+A text view is a pop-up with text content. This pop-up appears after the end-user has clicked on the push notification.
+A text view allows you to present more content to your end-user. This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
 
-### 예: 텍스트 뷰
--    "도달률" 섹션에서 푸시 알림 캠페인을 만들고 캠페인에 이름을 지정합니다.
+### <a name="example:-text-view"></a>Example: Text View
+-    Create your Push notification campaign in the "Reach" section and give your campaign a name
  
 ![TextView2][22]
 
--    알림에 표시할 메시지를 작성합니다.
--    알림 콘텐츠 유형으로 "텍스트"를 선택합니다.
+-    Write the message that will appear on the notification.
+-    Select the Announcement Content Type of “text”
  
 ![TextView3][23]
 
-> 참고: 텍스트 뷰를 푸시할 경우 항상 알림이 먼저 제공됩니다.
+> Note: when you push a text view, it always comes with a notification first. 
 
-- 텍스트를 정의합니다. 텍스트 알림 내용을 선택하면 하위 섹션이 표시됩니다. 이 섹션에서 표시할 텍스트를 정의할 수 있습니다.
+- Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)
  
 ![TextView4][24]
 
--    메시지의 상단에 표시할 제목을 작성합니다.
--    텍스트 뷰의 주요 내용을 작성합니다.
--    실행 단추에 표시할 내용을 작성합니다. 실행 단추를 사용하면 응용 프로그램의 페이지를 열고 앱 스토어 또는 제공할 수 있는 종류의 소스로 리디렉션하는 등 응용 프로그램에서 특정 작업을 수행할 수 있습니다.
--    끝내기 단추에 표시할 내용을 작성합니다. 끝내기 단추를 클릭하면 텍스트 뷰가 사라집니다.
+-    Write the title that will appear at the top of the message.
+-    Write the main content of the text view.
+-    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).
+-    Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)
  
--    푸시 알림 캠페인을 만듭니다. 그러면 해당 캠페인이 캠페인 목록에 표시됩니다.
+-    Create your push notification campaign and it will appear on the campaign list.
  
 ![TextView5][25]
 
--    푸시 알림 캠페인을 활성화하여 텍스트 뷰를 최종 사용자에게 보냅니다.
+-    Activate your push notification campaign to send the text view to your users.
  
 ![TextView6][26]
 
--    결과
+-    Result
  
 ![TextView7][27]
 
--    사용자가 알림을 받고 해당 알림을 클릭합니다.
--    텍스트 뷰는 사용자가 조작할 수 있는 팝업으로 표시됩니다.
+-    The user receives the notification and click on it.
+-    The text view appears as a pop-up allowing the user to interact with it.
 
-## 웹 뷰로 푸시 알림 개선
-### 웹 뷰란 무엇인가요?
+## <a name="enhance-a-push-notification-with-a-web-view"></a>Enhance a Push Notification with a Web View
+### <a name="what-is-a-web-view?"></a>What is a Web View?
 ![WebView1][28]
 
-웹 뷰는 웹 콘텐츠가 있는 팝업입니다. 이 팝업은 최종 사용자가 푸시 알림을 클릭한 경우에 나타납니다. 웹 뷰를 사용하면 최종 사용자와 더 많은 상호 작용을 할 수 있습니다. 또한 웹 뷰는 앱 스토어로 리디렉션하고 웹 페이지를 열고 메일을 보내고 지역 검색을 시작하는 등의 작업에 대한 호출을 제공할 수 있는 기회도 됩니다.
+A web view is a pop-up with web content. This pop-up appears when the end-user has clicked on the push notification.
+A web view allows you to have more interaction with the end-user.
+This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
 
-### 예: 웹 뷰
--    "도달률" 섹션에서 푸시 캠페인을 만들고 캠페인의 이름을 지정합니다.
+### <a name="example:-web-view"></a>Example: Web View
+-    Create your Push campaign in the "Reach" section and give your campaign a name.
  
 ![WebView2][29]
 
--    알림에 표시할 메시지를 작성합니다.
--    알림 콘텐츠 유형으로 "웹"을 선택합니다.
+-    Write the message that will appear on the notification.
+-    Select the Announcement Content Type as “web”
  
 ![WebView3][30]
 
-### 알림 유형 정보:
-- 알림 전용: 단순한 표준 알림입니다. 즉, 사용자가 알림을 클릭해도 추가 뷰는 표시되지 않으며 해당 알림과 연결된 작업만 수행됩니다.
-- 텍스트 알림: 사용자가 텍스트 뷰를 확인하도록 하는 알림입니다.
-- 웹 알림: 사용자가 웹 뷰를 확인하도록 하는 알림입니다. "웹 알림" 콘텐츠를 선택합니다.
+### <a name="about-announcement-types:"></a>About Announcement types:
+- Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
+- Text announcement: It is a notification that engages the user to have a look at a text view.
+- Web announcement: It is a notification that engages the user to have a look at a web view.
+Select the "Web announcement" content.
 
-> 참고: 웹 뷰를 푸시할 경우 항상 알림이 먼저 제공됩니다.
+> Note: When you push a web view, it always comes with a notification first.
 
-- 웹 콘텐츠를 정의합니다. 웹 알림 콘텐츠를 선택하면 하위 섹션이 표시됩니다. 이 섹션에서 표시할 웹 뷰 콘텐츠를 정의할 수 있습니다.
+- Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)
 
  
 ![WebView4][31]
 
--    메시지의 상단에 표시할 제목을 작성합니다(선택 사항).
--    여기에 HTML 코드를 작성합니다.
--    소스 편집 모드 단추를 클릭하여 편집으로 전환하고 어떤 모양으로 표시되는지 확인합니다.
--    실행 단추에 표시할 내용을 작성합니다. 실행 단추를 사용하면 응용 프로그램의 페이지를 열고 스토어 또는 제공할 수 있는 종류의 소스로 리디렉션하는 등 응용 프로그램에서 특정 작업을 수행할 수 있습니다.
--    끝내기 단추에 표시할 내용을 작성합니다. 끝내기 단추를 클릭하면 웹 뷰가 사라집니다.
+-    Write the title that will appear at the top of the message (optional).
+-    Write your HTML code here.
+-    Click on the source editing mode button to switch edition and see how it looks like.
+-    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).
+-    Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).
  
--    결과
+-    Result
  
 ![WebView5][32]
 
--    사용자가 알림을 받고 해당 알림을 클릭합니다.
--    텍스트 뷰는 사용자가 조작할 수 있는 팝업으로 표시됩니다.
+-    The user receive the notification and click on it.
+-    The text view appears as a pop-up allowing the user to interact with it.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
@@ -297,4 +310,8 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

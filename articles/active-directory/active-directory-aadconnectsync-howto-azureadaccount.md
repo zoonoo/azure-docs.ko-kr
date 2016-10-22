@@ -1,48 +1,58 @@
 <properties
-	pageTitle="Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법 | Microsoft Azure"
-	description="이 항목은 Azure AD 서비스 계정을 복원하는 방법을 설명합니다."
-	services="active-directory"
-    keywords="AADSTS70002, AADSTS50054, Azure AD Connect 동기화 커넥터 서비스 계정의 암호를 재설정하는 방법"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: How to manage the Azure AD service account | Microsoft Azure"
+    description="This topic documents how to restore the Azure AD service account."
+    services="active-directory"
+    keywords="AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="billmath"/>
 
-# Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
-Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용하여 실수로 서비스 계정의 암호를 재설정한 경우입니다.
 
-## 자격 증명 다시 설정
-인증 문제로 인해 Azure AD Connector에서 정의된 서비스 계정으로 Azure AD에 연결할 수 없다면 암호를 재설정할 수 있습니다.
+# <a name="azure-ad-connect-sync:-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect sync: How to manage the Azure AD service account
+The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
 
-1. Azure AD Connect 동기화 서버에 로그인하고 PowerShell을 시작합니다.
-2. `Add-ADSyncAADServiceAccount`. ![PowerShell cmdlet addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)을(를) 실행합니다.
-3. Azure AD 전역 관리자 자격 증명을 제공합니다.
+## <a name="reset-the-credentials"></a>Reset the credentials
+If the service account defined on the Azure AD Connector cannot contact Azure AD due to authentication problems, the password can be reset.
 
-이 cmdlet은 서비스 계정의 암호를 재설정하고 Azure AD와 동기화 엔진에서 암호를 업데이트합니다.
+1. Sign in to the Azure AD Connect sync server and start PowerShell.
+2. Run `Add-ADSyncAADServiceAccount`.  
+![PowerShell cmdlet addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
+3. Provide Azure AD Global admin credentials.
 
-## 이 단계에서 해결할 수 있다고 알려진 문제
-이 섹션은 Azure AD 서비스 계정에서 다시 설정된 자격 증명에 의해 수정된 고객이 보고한 오류 목록입니다.
+This cmdlet resets the password for the service account and update it both in Azure AD and in the sync engine.
+
+## <a name="known-issues-these-steps-can-solve"></a>Known issues these steps can solve
+This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD service account.
 
 -----------
-이벤트 6900 서버가 암호 변경 알림을 처리하는 동안 예기치 않은 오류가 발생 했습니다. AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+Event 6900  
+The server encountered an unexpected error while processing a password change notification:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
 ----------
-이벤트 659 암호 정책 동기화 구성을 검색하는 도중 오류 발생. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+Event 659  
+Error while retrieving password policy sync configuration. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
-## 다음 단계
+## <a name="next-steps"></a>Next steps
 
-**개요 항목**
+**Overview topics**
 
-- [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
-- [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
